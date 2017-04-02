@@ -7,7 +7,8 @@ class Libextractor < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "d264c812a1da34de495395f4e1d066598949a152f4186c4c94e8ea01286b11ea" => :sierra
     sha256 "2622d61cf14af834df45fe16c6515b1d6d9a7684252aadd375ed323b48d1ec40" => :el_capitan
     sha256 "8bc531741c401c62dffaef0a29547d80b254eeb9dfd847d125b66c91dbcfc22b" => :yosemite
     sha256 "b725cac753d996850f3584650a04cd7ab7070ec6772d826ff251457b4c778bc4" => :mavericks

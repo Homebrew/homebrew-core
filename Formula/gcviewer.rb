@@ -6,6 +6,7 @@ class Gcviewer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b532080d2cf6a844bcf4a06098be5675f56a9dd239a70b87199ef44d0ab46d16" => :sierra
     sha256 "8cfdc7b6966867f780f56e603cc9f658d21a8897c196c163fd4c51d8f8f6ee6f" => :el_capitan
     sha256 "acedd8765108ed55adf9b608960f20db5a7aa22e256cd58d74037c201fb8bccd" => :yosemite
     sha256 "8d295ab7282b45a982e4ffbd78dac71e59d9f00d56d6b732b3816c42e572e639" => :mavericks

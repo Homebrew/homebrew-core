@@ -1,14 +1,18 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
-  homepage "http://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.4.1-src.tar.bz2"
-  sha256 "45dbc50c81498f6f1067201b8fc887074b43b84ee32cc47f15e7db17571e9352"
+  homepage "https://pypy.org/"
+  head "https://bitbucket.org/pypy/pypy", :using => :hg
+
+  stable do
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.7.0-src.tar.bz2"
+    sha256 "e522ea7ca51b16ee5505f22b86803664b762a263a6d69ba84c359fcf8365ad3e"
+  end
 
   bottle do
     cellar :any
-    sha256 "ea22b917547f7187cb4180e06e10cc5d9367b8901aad8aaa2762020a50a25513" => :el_capitan
-    sha256 "b778a98c33f59688b077cfb6e9f14b0e33a75bfa526559f2d9ce532ee7014eae" => :yosemite
-    sha256 "e676af7389de259c4f8eca4128cb4225dc40f7b79e3d3912abead93c302abaab" => :mavericks
+    sha256 "4901eaef6ed09427b72cb0d27d42149f445434d229b03029df7b0806492838de" => :sierra
+    sha256 "68669258f0f303f89a7400f0ec470a353486b39411dc3ddb34ad5a80dd0bff3f" => :el_capitan
+    sha256 "570e243262d65d2e25e9cf97618422aa902647f16a7efb02990aa531ed0e4f61" => :yosemite
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -28,13 +32,13 @@ class Pypy < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/32/3c/e853a68b703f347f5ed86585c2dd2828a83252e1216c1201fa6f81270578/setuptools-26.1.1.tar.gz"
-    sha256 "475ce28993d7cb75335942525b9fac79f7431a7f6e8a0079c0f2680641379481"
+    url "https://pypi.python.org/packages/25/4e/1b16cfe90856235a13872a6641278c862e4143887d11a12ac4905081197f/setuptools-28.8.0.tar.gz"
+    sha256 "432a1ad4044338c34c2d09b0ff75d509b9849df8cf329f4c1c7706d9c2ba3c61"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz"
-    sha256 "4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732"
+    url "https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
@@ -48,7 +52,7 @@ class Pypy < Formula
     ENV["PYPY_USESSION_DIR"] = buildpath
 
     python = "python"
-    if build.with?("bootstrap") && OS.mac? && MacOS.preferred_arch == :x86_64
+    if build.with?("bootstrap") && MacOS.prefer_64_bit?
       resource("bootstrap").stage buildpath/"bootstrap"
       python = buildpath/"bootstrap/bin/pypy"
     end
@@ -68,9 +72,9 @@ class Pypy < Formula
     end
 
     (libexec/"lib").install libexec/"bin/libpypy-c.dylib"
-    system "install_name_tool", "-change", "@rpath/libpypy-c.dylib",
-                                "#{libexec}/lib/libpypy-c.dylib",
-                                "#{libexec}/bin/pypy"
+    MachO::Tools.change_install_name("#{libexec}/bin/pypy",
+                                     "@rpath/libpypy-c.dylib",
+                                     "#{libexec}/lib/libpypy-c.dylib")
 
     # The PyPy binary install instructions suggest installing somewhere
     # (like /opt) and symlinking in binaries as needed. Specifically,
@@ -135,7 +139,7 @@ class Pypy < Formula
     To update setuptools and pip between pypy releases, run:
         pip_pypy install --upgrade pip setuptools
 
-    See: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
+    See: http://docs.brew.sh/Homebrew-and-Python.html
     EOS
   end
 
@@ -156,6 +160,7 @@ class Pypy < Formula
 
   test do
     system bin/"pypy", "-c", "print('Hello, world!')"
+    system bin/"pypy", "-c", "import time; time.clock()"
     system scripts_folder/"pip", "list"
   end
 end

@@ -1,14 +1,14 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.4.0.tar.gz"
-  sha256 "4d36c9f2045d1d9971a69a29434318ba2b9f8244b7e7efc46e51d6bbcc97803d"
+  url "https://github.com/bitrise-io/bitrise/archive/1.5.5.tar.gz"
+  sha256 "dfde668a10aad1f28acd83fded9c81efc13b28185db77d14884928eb37d4bc96"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "81aa3e7dd7e7b59a2d3f738988b5b542215cf8c2d3c3f957ec3817e83c4713e5" => :el_capitan
-    sha256 "4348bfc455b065af672e29c542bde6769f3938f7ff2426e0521a34b4d02622e7" => :yosemite
-    sha256 "610f56df3975d3c0c1408c90992cfc42247ddd968ca0bd19592fd848a5fd06bf" => :mavericks
+    sha256 "41f8ffd25c2f9802dde293f31fa9315eda4145f19a4fbbf17520d59aeaed9108" => :sierra
+    sha256 "8d241455b04543f6400c34a6ee3150ec8a9a2592deacd23280ee20ce48d39cef" => :el_capitan
+    sha256 "80ca8f3805aa465f207ce6266a9288f71eee100be30a8b5c7e3e5165b2c9095c" => :yosemite
   end
 
   depends_on "go" => :build
@@ -29,7 +29,7 @@ class Bitrise < Formula
 
   test do
     (testpath/"bitrise.yml").write <<-EOS.undent
-      format_version: 1.3.0
+      format_version: 1.3.1
       default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
       workflows:
         test_wf:

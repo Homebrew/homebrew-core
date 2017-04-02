@@ -1,13 +1,14 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
-  homepage "https://github.com/indutny/llnode"
-  url "https://github.com/indutny/llnode/archive/v1.2.1.tar.gz"
-  sha256 "be3290d3ffd4fae115e62e4f60e029f94b28f4fc5912f619d6732dbbd4178c8b"
+  homepage "https://github.com/nodejs/llnode"
+  url "https://github.com/nodejs/llnode/archive/v1.4.1.tar.gz"
+  sha256 "4c1e0143e0a580cb393b0c280f538427380a27bbaeb39a53b69f502955ca0231"
 
   bottle do
     cellar :any
-    sha256 "0d7c7fab104e495e5f392d900d8f187bb10a99088d63cca6cce5ced042b1a6aa" => :el_capitan
-    sha256 "e761fdb6dc583cead747bcce0907d023ac800c18f0d754397187e3018f513874" => :yosemite
+    sha256 "f66cf3eb44eadc91286c0ef34e27a906b3c9b50b4f239148e13cd5d9f030e099" => :sierra
+    sha256 "a0fc9c17ae7f1e381002dc9f11cc265cb2e3514beef11bb1d4a2a2614b4f575c" => :el_capitan
+    sha256 "be4cfb77651a0e510c71707557246a8f1e37043773d7c9eea39e5a0d9d1bc89d" => :yosemite
   end
 
   depends_on :macos => :yosemite
@@ -19,8 +20,17 @@ class Llnode < Formula
   end
 
   resource "lldb" do
-    url "https://github.com/llvm-mirror/lldb.git",
-        :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
+    if MacOS::Xcode.version >= "8.0"
+      # lldb 360.1
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
+    else
+      # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
+      # of 34.
+      # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
+      url "http://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
+          :using => :svn
+    end
   end
 
   def install

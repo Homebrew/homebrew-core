@@ -1,13 +1,13 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.4/source/tarball/percona-xtrabackup-2.4.4.tar.gz"
-  sha256 "e3ec54eb468482503bccdd1619136e798798086042e9eb7c6daa2fb9b78783a3"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.6/source/tarball/percona-xtrabackup-2.4.6.tar.gz"
+  sha256 "1e21ab097550901d8f2fa3dc37402ba6a994afa0722760f8f19cb369565e5e8b"
 
   bottle do
-    sha256 "79fd5cdb7b84795494caf58949bddf8abbbb05eff009d1e56ee31c577ae24a5d" => :el_capitan
-    sha256 "c7f56675e64d5f222ab33cb071c5edba7ca384332ecb8f7933566eb55b0261c8" => :yosemite
-    sha256 "6618802f70e5491736d5a436b74c74f2bf58db9375feee35ec274cb1f8acbba7" => :mavericks
+    sha256 "4c95d5ceb69cb0526d59cc914cfeb048afa1c9867db3c0d6948a751c46b28512" => :sierra
+    sha256 "45868a3a28739f5153cff0fed62e33a0ee9d91c8e72ea6b6b1be3aa8bcbc9572" => :el_capitan
+    sha256 "59a6cbc5e13468be470be4affc10ac5a5a6981d4fd7cec6f6af904117164d36b" => :yosemite
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
@@ -21,9 +21,9 @@ class PerconaXtrabackup < Formula
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.035.tar.gz"
-    sha256 "b7eca365ea16bcf4c96c2fc0221304ff9c4995e7a551886837804a8f66b61937"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
+    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
   end
 
   resource "boost" do
@@ -32,13 +32,13 @@ class PerconaXtrabackup < Formula
   end
 
   def install
-    cmake_args = %W[
+    cmake_args = %w[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
     if build.with? "docs"
-      cmake_args.concat %W[
+      cmake_args.concat %w[
         -DWITH_MAN_PAGES=ON
         -DINSTALL_MANDIR=share/man
       ]

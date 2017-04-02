@@ -15,16 +15,7 @@ class OsspUuid < Formula
     sha256 "5253f4fab035aca3ca3b867ce0d081812eb17fe0dcaab6599087abaa385c478d" => :mavericks
   end
 
-  option :universal
-  option "32-bit"
-
   def install
-    if build.universal?
-      ENV.universal_binary
-    elsif build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
-
     # upstream ticket: http://cvs.ossp.org/tktview?tn=200
     # pkg-config --cflags uuid returns the wrong directory since we override the
     # default, but uuid.pc.in does not use it

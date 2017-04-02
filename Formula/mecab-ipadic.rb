@@ -1,11 +1,13 @@
 class MecabIpadic < Formula
   desc "IPA dictionary compiled for MeCab"
-  homepage "https://mecab.googlecode.com/svn/trunk/mecab/doc/index.html"
-  url "https://downloads.sourceforge.net/project/mecab/mecab-ipadic/2.7.0-20070801/mecab-ipadic-2.7.0-20070801.tar.gz"
+  homepage "https://taku910.github.io/mecab/"
+  url "https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM"
+  version "2.7.0-20070801"
   sha256 "b62f527d881c504576baed9c6ef6561554658b175ce6ae0096a60307e49e3523"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "33f42c18d7347708a56d8846c0bde5c8291b7685ce06b342e96442bca35f6663" => :sierra
     sha256 "9f0ae0a62141e3b28807349cb7a9560e36770acb869f4a4e7a54ea1a28ef8ba5" => :el_capitan
     sha256 "55703c812de3e7cff503b9cd1eafa0656b3f17c4885165ce4d8e4d2b2356050e" => :yosemite
     sha256 "0a9ea36b7cc03f73ae34f72e078b7e84ebe814cf8e1cfbea2d5f876c1893b1c5" => :mavericks
@@ -13,14 +15,16 @@ class MecabIpadic < Formula
   end
 
   # Via ./configure --help, valid choices are utf8 (default), euc-jp, sjis
-  option "charset=", "Select charset: utf8 (default), euc-jp, or sjis"
+  option "with-charset=", "Select charset: utf8 (default), euc-jp, or sjis"
+
+  deprecated_option "charset=" => "with-charset="
 
   depends_on "mecab"
 
   link_overwrite "lib/mecab/dic"
 
   def install
-    charset = ARGV.value("charset") || "utf8"
+    charset = ARGV.value("with-charset") || "utf8"
     args = %W[
       --disable-debug
       --disable-dependency-tracking

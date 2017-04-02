@@ -1,31 +1,22 @@
 class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "http://www.winimage.com/zLibDll/minizip.html"
-  url "http://zlib.net/zlib-1.2.8.tar.gz"
-  sha256 "36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d"
+  url "http://zlib.net/zlib-1.2.11.tar.gz"
+  sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
+
   bottle do
     cellar :any
-    sha256 "a8bc9c34837f19f570b0b79e202bd45dd94345f3caf605ec0cf4eb1a6f6b2bfd" => :el_capitan
-    sha256 "df494b791137984171c79c63bbfe5ab941309f62a5e12757442d7eb5c53e620c" => :yosemite
-    sha256 "c03fd8e43919572a7b4ed71ad160f07e9ccbabc81e3a1f9dfb7b27b540f25bf1" => :mavericks
+    rebuild 1
+    sha256 "8d4d3d12774a660c68be156caf804a9982d5d79204c66b0c3e56f3e92d0fe09b" => :sierra
+    sha256 "a0f89a172ba19d62c331c083c94e91f575a66bb56438c1a9eb55b59fbc570598" => :el_capitan
+    sha256 "c506cadbf592627a4a6c45de9d5a96fc5da8fe6115ea9a93ca95ec7d96bc115d" => :yosemite
   end
-
-  version "1.1" # version for minizip, not zlib
-
-  option :universal
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  # configure script fails to detect the right compiler when "cc" is
-  # clang, not gcc.
-  # see: https://github.com/Homebrew/homebrew-dupes/pull/228
-  #      https://github.com/madler/zlib/pull/54
-  patch :DATA
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}"
     system "make"
 
@@ -49,17 +40,3 @@ class Minizip < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index b77a8a8..54f33f7 100755
---- a/configure
-+++ b/configure
-@@ -159,6 +159,7 @@ case "$cc" in
- esac
- case `$cc -v 2>&1` in
-   *gcc*) gcc=1 ;;
-+  *clang*) gcc=1 ;;
- esac
-
- show $cc -c $test.c

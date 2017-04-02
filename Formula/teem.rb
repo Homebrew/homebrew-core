@@ -1,11 +1,12 @@
 class Teem < Formula
   desc "Libraries for scientific raster data"
-  homepage "http://teem.sourceforge.net/"
+  homepage "https://teem.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/teem/teem/1.11.0/teem-1.11.0-src.tar.gz"
   sha256 "a01386021dfa802b3e7b4defced2f3c8235860d500c1fa2f347483775d4c8def"
-  head "https://teem.svn.sourceforge.net/svnroot/teem/teem/trunk"
+  head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
   bottle do
+    sha256 "31d19cd9e0e4c064fb743c41a286736503e61b1d5e4b81f29140fcebf2cde2c8" => :sierra
     sha256 "5ade8dc18d0c66ac154d802df6c64e88222781b6fc427a841fb1f4047f8c4e49" => :el_capitan
     sha256 "3974a9a565044cb4de798eb1bec2b8980eef03eb6bd7ec6c98cddd606f7c8a29" => :yosemite
     sha256 "c340d18c157b81be663636ff72326ecb946313ea1dfc533a6ba95b9efdb6bf44" => :mavericks

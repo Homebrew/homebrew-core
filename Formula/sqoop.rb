@@ -14,7 +14,7 @@ class Sqoop < Formula
   depends_on "zookeeper"
   depends_on "coreutils"
 
-  # Patch for readlink -f missing on OS X. Should be fixed in 1.4.7.
+  # Patch for readlink -f missing on macOS. Should be fixed in 1.4.7.
   # https://issues.apache.org/jira/browse/SQOOP-2531
   patch :DATA
 

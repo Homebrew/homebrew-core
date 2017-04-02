@@ -7,7 +7,8 @@ class Gh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
+    rebuild 2
+    sha256 "ae90fe8da47a7e3934e88052e0d10e6292ecb20111aba7405cdbac560176ab4b" => :sierra
     sha256 "e2d0bc29c2f4b7eaf706955002ba1e88634aa4f2c0e0461b9d22b00e66da2734" => :el_capitan
     sha256 "553daabe8b4a839ce8f6403e78770d2fcb7773da9ac6b617a64e34bb52c3f70b" => :yosemite
     sha256 "541e522a0ccc06c007bed65b12ac60cd3db1e84c284aa878daecc24d628c17bf" => :mavericks

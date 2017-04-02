@@ -1,14 +1,16 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.10.6%20%28Stable%29/asio-1.10.6.tar.bz2"
-  sha256 "e0d71c40a7b1f6c1334008fb279e7361b32a063e020efd21e40d9d8ff037195e"
+  url "https://downloads.sourceforge.net/project/asio/asio/1.10.8%20%28Stable%29/asio-1.10.8.tar.bz2"
+  sha256 "26deedaebbed062141786db8cfce54e77f06588374d08cccf11c02de1da1ed49"
+  revision 1
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
-    sha256 "fc6d65ff0bf8fe7c29bd02f2835640ff056346dd6133cceeacd81eec3b9fab75" => :el_capitan
-    sha256 "ae6bda66bc2f4412ec3d1b32ba2b0ce02e238aa1b6219d8a9ccbf45523635800" => :yosemite
-    sha256 "dd3067c8c0dfb9361f3f479686203506fb1d93586bf4ce16e91f782a01f8a371" => :mavericks
+    cellar :any
+    sha256 "d4cb235f7e5f96448fc62695b97bd122ecdb736ba8690acd1dea58d6e839fe96" => :sierra
+    sha256 "0bf76623d1395bb82adead05534efce7dbfb57ebc369ce50d5c8c54cb5ced22a" => :el_capitan
+    sha256 "03448870924ff06ec9ae67c1db2bc656bc73fac49d25ea24be925d945e602378" => :yosemite
   end
 
   devel do
@@ -19,19 +21,18 @@ class Asio < Formula
   option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
   option :cxx11
 
-  needs :cxx11 if build.cxx11?
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  if !build.cxx11? || build.with?("boost-coroutine")
-    depends_on "boost"
-  else
-    depends_on "boost" => :optional
-  end
+
+  depends_on "boost" => :optional
+  depends_on "boost" if build.with?("boost-coroutine")
   depends_on "openssl"
 
+  needs :cxx11 if build.without? "boost"
+
   def install
-    ENV.cxx11 if build.cxx11?
+    ENV.cxx11 if build.cxx11? || build.without?("boost")
+
     if build.head?
       cd "asio"
       system "./autogen.sh"
@@ -42,7 +43,7 @@ class Asio < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-boost=#{(build.with?("boost") || build.with?("boost-coroutine") || !build.cxx11?) ? Formula["boost"].opt_include : "no"}
+      --with-boost=#{(build.with?("boost") || build.with?("boost-coroutine")) ? Formula["boost"].opt_include : "no"}
     ]
     args << "--enable-boost-coroutine" if build.with? "boost-coroutine"
 
@@ -52,9 +53,11 @@ class Asio < Formula
   end
 
   test do
-    httpserver = pkgshare/"examples/cpp03/http/server/http_server"
+    found = [pkgshare/"examples/cpp11/http/server/http_server",
+             pkgshare/"examples/cpp03/http/server/http_server"].select(&:exist?)
+    raise "no http_server example file found" if found.empty?
     pid = fork do
-      exec httpserver, "127.0.0.1", "8080", "."
+      exec found.first, "127.0.0.1", "8080", "."
     end
     sleep 1
     begin

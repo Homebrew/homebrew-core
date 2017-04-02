@@ -1,14 +1,14 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.9.2/infer-osx-v0.9.2.tar.xz"
-  sha256 "3935f8be25982a023aba306b66804d73a7316ab833296277c1ec6c3694bfc7c7"
+  url "https://github.com/facebook/infer/releases/download/v0.10.0/infer-osx-v0.10.0.tar.xz"
+  sha256 "6fdcfe52cee28f57a86e8cd80bf4cac7b2dda83a3cc511f86834636ada14a808"
 
   bottle do
     cellar :any
-    sha256 "2b1dd1bdebf2550f01ad9c6d5e6ee463f24b740e28ece126787f2f08b2276818" => :el_capitan
-    sha256 "d65405a47ead42e33e751f33ba4766e90005ea0b59f7aeadf860828bfcf4a3ff" => :yosemite
-    sha256 "7ce4996fd1da93d8f325c3abb2bc6804fd5af12d09953f67f643fca5c6dc889e" => :mavericks
+    sha256 "5f0cd57446884830fd60f768f841b9d76bfd6059f62522036a99ccd872363774" => :sierra
+    sha256 "a9d4423aa9a253af020a5af6ae225c313017f69bc71218f280dd03f04d7e0463" => :el_capitan
+    sha256 "74e25f0347679b0e076243239be2ec12f4fa878df74f489e79e15745cc364eeb" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -17,14 +17,17 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libffi"
 
   def install
     if build.without?("clang") && build.without?("java")
       odie "infer: --without-clang and --without-java are mutually exclusive"
     end
 
-    opamroot = buildpath/"build"
+    opamroot = buildpath/"opamroot"
     opamroot.mkpath
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
@@ -34,7 +37,7 @@ class Infer < Formula
     # builds in its own parallelization logic to mitigate that.
     ENV.deparallelize
 
-    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-annot --disable-ocaml-binannot"
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-binannot"
 
     target_platform = if build.without?("clang")
       "java"
@@ -44,8 +47,12 @@ class Infer < Formula
       "all"
     end
 
+    system "opam", "init", "--no-setup"
+    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\"([0-9\.]+)\"/)[1]
+    inreplace "#{opamroot}/compilers/#{ocaml_version}/#{ocaml_version}/#{ocaml_version}.comp",
+      '["./configure"', '["./configure" "-no-graph"'
     system "./build-infer.sh", target_platform, "--yes"
-    system "opam", "config", "exec", "--switch=infer-4.02.3", "--", "make", "install"
+    system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
   end
 
   test do
@@ -73,8 +80,8 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-bug -- clang FailingTest.c", 2)
-    shell_output("#{bin}/infer --fail-on-bug -- clang PassingTest.c", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c FailingTest.c", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c PassingTest.c", 0)
 
     (testpath/"FailingTest.java").write <<-EOS.undent
       class FailingTest {
@@ -110,7 +117,7 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-bug -- javac FailingTest.java", 2)
-    shell_output("#{bin}/infer --fail-on-bug -- javac PassingTest.java", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java", 0)
   end
 end

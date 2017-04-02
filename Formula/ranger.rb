@@ -1,17 +1,16 @@
 class Ranger < Formula
   desc "File browser"
   homepage "http://ranger.nongnu.org/"
-  url "http://ranger.nongnu.org/ranger-1.7.2.tar.gz"
-  sha256 "94f6e342daee4445f15db5a7440a11138487c49cc25da0c473bbf1b8978f5b79"
+  url "http://ranger.nongnu.org/ranger-1.8.1.tar.gz"
+  sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
 
   head "git://git.savannah.nongnu.org/ranger.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6a894e9cb492bcbd0b172fc1a3693b0bac4e1ba641a9389dc3b0879f1d2d5ee5" => :sierra
-    sha256 "82eb23ac75480e1f83087dd04e6d537c5b141e35de922729f8b83e0cdcdd45aa" => :el_capitan
-    sha256 "8592a7b7af5b59932b01c685afaa53173a11efcead0526e30464467f944d649c" => :yosemite
-    sha256 "cf9b172937e85e6a4bcfca8508378fcaf9aa81fdf18df0a3cab531cc3f27cc2a" => :mavericks
+    sha256 "53183d431e6bcf9cf49a462130fb5e0929a4bf557a2d109c354e3194bfd36cc0" => :sierra
+    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :el_capitan
+    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
   end
 
   # requires 2.6 or newer; Leopard comes with 2.5

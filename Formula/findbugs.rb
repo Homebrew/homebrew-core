@@ -1,6 +1,6 @@
 class Findbugs < Formula
   desc "Find bugs in Java programs through static analysis"
-  homepage "http://findbugs.sourceforge.net/index.html"
+  homepage "https://findbugs.sourceforge.io"
   url "https://downloads.sourceforge.net/project/findbugs/findbugs/3.0.1/findbugs-3.0.1.tar.gz"
   sha256 "e80e0da0c213a27504ef3188ef25f107651700ffc66433eac6a7454bbe336419"
 

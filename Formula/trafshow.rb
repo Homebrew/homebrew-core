@@ -1,14 +1,14 @@
 class Trafshow < Formula
   desc "Continuous network traffic display"
   # Upstream homepage down since late 2014, but only displays a manpage.
-  # homepage "http://soft.risp.ru/trafshow/index_en.shtml"
-  homepage "https://web.archive.org/web/20130707021442/http://soft.risp.ru/trafshow/index_en.shtml"
+  homepage "https://web.archive.org/web/20130707021442/soft.risp.ru/trafshow/index_en.shtml"
   url "http://distcache.freebsd.org/ports-distfiles/trafshow-5.2.3.tgz"
   sha256 "ea7e22674a66afcc7174779d0f803c1f25b42271973b4f75fab293b8d7db11fc"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "40014d16cb46e8039510616cad3eedbfcb67c4804e43fe4ad4b5e2a72c1a44a3" => :sierra
     sha256 "f2f8e1186255da073184663a41ef7204fd940ea0a536968a1adf4023dfd795b2" => :el_capitan
     sha256 "625b0432b1ac6577ad821ea28203bc2a67b621d58ba5758e96d112114e88e700" => :yosemite
     sha256 "11db46856f6d5fc2ebf80d3934b0c0d00d6ab61dd0e9663bc997d5d43a105747" => :mavericks

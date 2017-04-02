@@ -2,15 +2,15 @@ class MinioMc < Formula
   desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-    :tag => "RELEASE.2016-08-21T03-02-49Z",
-    :revision => "768be74f74578137951f65874cfc2e454b64aca0"
-  version "20160821030249"
+    :tag => "RELEASE.2017-02-06T20-16-19Z",
+    :revision => "3fe080982e5e7da59dfcca9ad63ccdd64f04e053"
+  version "20170206201619"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3630fecfa0ee90f393a70ddb7a3af8e38450d548e61ba9f6193283726cf7f27a" => :el_capitan
-    sha256 "8b8edb248da6713fd05459d053121459ee95ca3b7ccc3b43bdee95a4c4113c02" => :yosemite
-    sha256 "5e1d16de0d9854d1f49a732d4f29ae69bba7ebd5af5f74c39879bf17a7597484" => :mavericks
+    sha256 "1505131f2ca44de8d0c28c919b70efa1f5acc5172de0fd84c33b703f063b05a9" => :sierra
+    sha256 "c2d952413c2d49b847d338372f8db95cf04ad01c1a2cc46d69603140631b9e77" => :el_capitan
+    sha256 "1eced2673f13064ae7898dfdd0959a3e689e48f638f447a5da3b6fc3dc90a27b" => :yosemite
   end
 
   depends_on "go" => :build

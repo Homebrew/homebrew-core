@@ -1,15 +1,14 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.1.tar.gz"
-  sha256 "442c3fc3020c709f5609e33b76e25c3c9fc9166911e74f590590f794f24f8a9b"
-  revision 1
+  url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
+  sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91368b3bf33064c048ba322f6bf50325a96a51954ccfed3547993df214f49589" => :el_capitan
-    sha256 "ff6e6139ce7845ec9f6c3ef4379562d4e0976fda3e37c4ac3ccab6cb2a971979" => :yosemite
-    sha256 "0584217a82ab5d88b71a628b69918eb4cb274d1f568f56a43dc2dc18b3f144bf" => :mavericks
+    sha256 "932eefe64fe7de13ab85dc8d787efe4d87137b95185477ff6532c5a17d9d5b8b" => :sierra
+    sha256 "911bed4f61b2f970bfb150869538dbfc701163e0f9922b47d32f45ba308497e5" => :el_capitan
+    sha256 "939d80a1e2e6318d3967c93ae9b95a6eacc005a032cd5a27aaf97a096f7bedaa" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -44,7 +43,7 @@ class CucumberCpp < Formula
       port: 3902
     EOS
     (testpath/"test.cpp").write <<-EOS.undent
-      #include <cucumber-cpp/defs.hpp>
+      #include <cucumber-cpp/generic.hpp>
       GIVEN("^A given statement$") {
       }
       WHEN("^A when statement$") {
@@ -52,8 +51,10 @@ class CucumberCpp < Formula
       THEN("^A then statement$") {
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcucumber-cpp", "-o", "test",
-      "-lboost_regex", "-lboost_system", "-lboost_program_options"
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
+           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
+           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lboost_program_options", "-lboost_filesystem"
     begin
       pid = fork { exec "./test" }
       expected = <<-EOS.undent

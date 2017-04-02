@@ -6,6 +6,7 @@ class Tidyp < Formula
 
   bottle do
     cellar :any
+    sha256 "6b5b65c1476004cc973fff0992dfaf77887b5a5df583ac31fc22665d250b538a" => :sierra
     sha256 "5274bb4cd33d9c15d8c73dbe4cfb54e686da29cd29093adba549024fe520b82c" => :el_capitan
     sha256 "710962782d909bf11987f8b147d7e141ccba48643ab2db02c7f267d6cf871dd9" => :yosemite
     sha256 "7501f78d5f8e549fec7f689cd24aafa716e2097744ec78359d8092183469e4c8" => :mavericks

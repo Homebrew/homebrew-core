@@ -1,6 +1,6 @@
 class Ctags < Formula
   desc "Reimplementation of ctags(1)"
-  homepage "http://ctags.sourceforge.net/"
+  homepage "https://ctags.sourceforge.io/"
   revision 1
 
   stable do
@@ -25,7 +25,7 @@ class Ctags < Formula
   end
 
   head do
-    url "http://svn.code.sf.net/p/ctags/code/trunk"
+    url "https://svn.code.sf.net/p/ctags/code/trunk"
     depends_on "autoconf" => :build
   end
 

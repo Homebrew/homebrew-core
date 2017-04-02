@@ -1,24 +1,21 @@
 class Mmix < Formula
   desc "64-bit RISC architecture designed by Donald Knuth"
   homepage "http://mmix.cs.hm.edu/"
-  url "http://mmix.cs.hm.edu/src/mmix-20131017.tgz"
-  sha256 "aa64c4b9dc3cf51f07b330791f8ce542b0ae8a1132e098fa95a19b31350050b4"
+  url "http://mmix.cs.hm.edu/src/mmix-20160804.tgz"
+  sha256 "fad8e64fddf2d75cbcd5080616b47e11a2d292a428cdb0c12e579be680ecdee9"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "4b475fc20b7db2c181af3fc7d428cee8a84908d561e6c6e465d04be87f720174" => :el_capitan
-    sha256 "ee8d4243e19537e2f63583118b1e28cb7f381025ca22ab886c4d9be81ad67687" => :yosemite
-    sha256 "03721382856f84325efda7ea173e3489412ab71d98928b50c3400c7a435b227e" => :mavericks
+    sha256 "b694920e61edf2dec094618910be78fcd4fbbcad22d4d37363555aad38ee0af0" => :sierra
+    sha256 "c1e8e0d2d627b3ab2c2c68a8b358981dab07466c3c70f3a2e4df8557006deb92" => :el_capitan
+    sha256 "7675c2bc1253e4da2a126d52942449f71cabdd83c39874403d449b5a05ceb145" => :yosemite
   end
 
   depends_on "cweb" => :build
 
   def install
     ENV.deparallelize
-
     system "make", "all"
-
     bin.install "mmix", "mmixal", "mmmix", "mmotype"
   end
 

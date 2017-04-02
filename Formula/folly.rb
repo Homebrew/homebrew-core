@@ -1,13 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2016.09.05.00.tar.gz"
-  sha256 "79e931af5d9610fee80ea81af82fcaed35b4d58a529e504c1326e62448e780ae"
+  url "https://github.com/facebook/folly/archive/v2017.03.06.00.tar.gz"
+  sha256 "e48507f08cb3ec071d756c2a3c49177a99566566375ab7fb0f351fcb8690ada1"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "4d296acc0ae80936992db0d7f3a1294ae5e55187b5e5cc0b0f9ffea1b0ffd242" => :el_capitan
+    sha256 "7fdb7ded2e05c95d1b00f48ae6d609bcf10ac66c5b0694d8cc741c7d1e52d32a" => :sierra
+    sha256 "9111e934c9b6596f82b7925f7b5ebd82d6a2649e42068b1fcdf3e3a44be3aedd" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +23,6 @@ class Folly < Formula
   depends_on "xz"
   depends_on "snappy"
   depends_on "lz4"
-  depends_on "jemalloc"
   depends_on "openssl"
 
   # https://github.com/facebook/folly/issues/451
@@ -38,10 +38,12 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
-      # Build system relies on pkg-config but gflags removed
-      # the .pc files so now folly cannot find without flags.
-      ENV["GFLAGS_CFLAGS"] = Formula["gflags"].opt_include
-      ENV["GFLAGS_LIBS"] = Formula["gflags"].opt_lib
+      # Fix "typedef redefinition with different types ('uint8_t' (aka 'unsigned
+      # char') vs 'enum clockid_t')"
+      # Reported 9 Mar 2017 https://github.com/facebook/folly/issues/557
+      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
+      end
 
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",

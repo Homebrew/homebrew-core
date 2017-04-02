@@ -1,24 +1,30 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.0.0.tar.gz"
-  sha256 "eae8065f6c472af24f4c056d6728edda0fd34306f41a818697f765a6a662338d"
+  url "https://dist.opendnssec.org/source/softhsm-2.2.0.tar.gz"
+  sha256 "eb6928ae08da44fca4135d84d6b79ad7345f408193208c54bf69f5b2e71f85f7"
 
   bottle do
-    sha256 "651c97cafaf2f9c54cc32772d8d664cc91be0f7ad21f8d5325334259a9d55466" => :el_capitan
-    sha256 "6fc11217ed26c6db4c219c1bca0f264124cd0b0e7f455bcd670d2c2d481a0b90" => :yosemite
-    sha256 "1f4596c4b604987a823fb1d97631e628889fca6c1bbdba4075a0d82be6b04941" => :mavericks
-    sha256 "760f9931d96b3cea3d63be22a6f950087544f56c0810b86054099efe43fb00de" => :mountain_lion
+    sha256 "59d5370c78d7efec097ec01bbcdd45b6a9d03fbfcd25ba95eb6bb339f69fbeec" => :sierra
+    sha256 "f85bd50478506c2b885e1170ff7ad2761663d82ff3ffcaead3726a79358a3aea" => :el_capitan
+    sha256 "64c03ef2f241c633f8b74987e89b09274d590147629c7c292fa209f821c01947" => :yosemite
   end
 
-  depends_on "botan"
+  depends_on "openssl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}/softhsm",
+                          "--localstatedir=#{var}",
+                          "--with-crypto-backend=openssl",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    (var/"lib/softhsm/tokens").mkpath
   end
 
   test do

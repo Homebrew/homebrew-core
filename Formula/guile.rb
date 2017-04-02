@@ -1,28 +1,18 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftpmirror.gnu.org/guile/guile-2.0.12.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/guile/guile-2.0.12.tar.xz"
-  sha256 "de8187736f9b260f2fa776ed39b52cb74dd389ccf7039c042f0606270196b7e9"
+  url "https://ftpmirror.gnu.org/guile/guile-2.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/guile/guile-2.2.0.tar.xz"
+  sha256 "c18198ff6e8b05c620dbdd49b816a2e63a2688af843b5cf8e965041f1adcb515"
 
   bottle do
-    sha256 "b50ac92adfa31f38c1270229282151977afe437c746c35e4978ce57bcedbc8bf" => :sierra
-    sha256 "f9d3723f39564d1300c061bfb9baae357e394283e17b0ddf83de34c86d515a1f" => :el_capitan
-    sha256 "8da1bdea81c8dcb9b0c4b0d9dcf89467535de8cf548d590dc82247c2134e5de2" => :yosemite
-  end
-
-  devel do
-    url "http://git.savannah.gnu.org/r/guile.git",
-        :tag => "v2.1.4",
-        :revision => "f9620e01c3d01abc2fd306ba5dc062a2f252eb97"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
+    sha256 "6f75b9defe2af4b88da18f37e4ee1e51ad2a8fd30f97993bb47fdee6c567c09c" => :sierra
+    sha256 "1484efe6e4ce820c04f1937b0efa1f33a4576b6eddb445f12205674e4b90ef18" => :el_capitan
+    sha256 "cafb17a5cfa061aeb11a6afb61374279e0940b0be8b6e11a708c65f16b4559fb" => :yosemite
   end
 
   head do
-    url "http://git.sv.gnu.org/r/guile.git"
+    url "https://git.savannah.gnu.org/git/guile.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -37,23 +27,9 @@ class Guile < Formula
   depends_on "gmp"
   depends_on "readline"
 
-  fails_with :llvm do
-    build 2336
-    cause "Segfaults during compilation"
-  end
-
   fails_with :clang do
     build 211
     cause "Segfaults during compilation"
-  end
-
-  # http://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
-  # https://github.com/Homebrew/homebrew-core/issues/1957#issuecomment-229347476
-  if MacOS.version >= :sierra
-    patch do
-      url "https://gist.githubusercontent.com/rahulg/baa500e84136f0965e9ade2fb36b90ba/raw/4f1081838972ac9621fc68bb571daaf99fc0c045/libguile-stime-sierra.patch"
-      sha256 "ff38aa01fe2447bc74ccb6297d2832d0a224ceeb8f00e3a1ca68446d6b1d0f6e"
-    end
   end
 
   def install
@@ -64,7 +40,7 @@ class Guile < Formula
                           "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}"
     system "make", "install"
 
-    # A really messed up workaround required on OS X --mkhl
+    # A really messed up workaround required on macOS --mkhl
     Pathname.glob("#{lib}/*.dylib") do |dylib|
       lib.install_symlink dylib.basename => "#{dylib.basename(".dylib")}.so"
     end

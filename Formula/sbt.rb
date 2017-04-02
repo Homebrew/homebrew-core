@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
-  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.12/sbt-0.13.12.tgz"
-  sha256 "280230f9c3f42a4af5699effff8425e08b6f47da72dfaa59e9b7ad0e6d6203df"
+  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.13/sbt-0.13.13.tgz"
+  sha256 "40d03d21a260c5a6a43f8349298f41c9d047f97972057d9d915afd8945faf979"
 
   devel do
     url "https://dl.bintray.com/sbt/native-packages/sbt/1.0.0-M4/sbt-1.0.0-M4.tgz"
@@ -39,7 +39,7 @@ class Sbt < Formula
     You can use $SBT_OPTS to pass additional JVM options to SBT:
        SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 
-    This formula is now using the standard typesafe sbt launcher script.
+    This formula is now using the standard lightbend sbt launcher script.
     Project specific options should be placed in .sbtopts in the root of your project.
     Global settings should be placed in #{etc}/sbtopts
     EOS

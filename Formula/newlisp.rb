@@ -1,13 +1,13 @@
 class Newlisp < Formula
   desc "Lisp-like, general-purpose scripting language"
   homepage "http://www.newlisp.org/"
-  url "http://www.newlisp.org/downloads/newlisp-10.7.0.tgz"
-  sha256 "c4963bf32d67eef7e4957f7118632a0c40350fd0e28064bce095865b383137bb"
+  url "http://www.newlisp.org/downloads/newlisp-10.7.1.tgz"
+  sha256 "2e300c8bed365a564d284bf3ad6c49e036256e7fc3f469ebda0b45e6e196a7cc"
 
   bottle do
-    sha256 "8bc10b849d0a5452a2cf6de53cd7eb6d3df97ca4369e8a3eb28eff82953ca2bb" => :el_capitan
-    sha256 "29cf459d873290b0876cb798cb06dfe1df51db10da9f6300e04f1e9d7d7aecb8" => :yosemite
-    sha256 "dbacba90228024041cbe50efc63959cdaa94c3ca0d30267bcedcd1769dc4c597" => :mavericks
+    sha256 "d3d16b3e31f7c47b467a94dc502385b38d4f137afce726a996576c685c557231" => :sierra
+    sha256 "8ec256c413e06d36004f36658abb28e9c71528b46496e46cfc65aab247df58ed" => :el_capitan
+    sha256 "4993d9b9cb6b081d9b0790fbd9095af3f68f82afbaccc09d187399585bebd1b5" => :yosemite
   end
 
   depends_on "readline" => :recommended

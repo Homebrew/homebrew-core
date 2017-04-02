@@ -1,14 +1,17 @@
 class Aiccu < Formula
   desc "Automatic IPv6 Connectivity Client Utility"
   homepage "https://www.sixxs.net/tools/aiccu/"
-  url "https://www.sixxs.net/archive/sixxs/aiccu/unix/aiccu_20070115.tar.gz"
-  sha256 "2260f426c13471169ccff8cb4a3908dc5f79fda18ddb6a55363e7824e6c4c760"
+  # Upstream 402s when passed a non-standard User-Agent such as Homebrew's
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
+  version "20070115"
+  sha256 "d23cf50a16fa842242c97683c3c1c1089a7a4964e3eaba97ad1f17110fdfe3cc"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c49bc224f4ab5bc469a55c9236a74efb585b176f5addff1853d17d753cb3551c" => :el_capitan
-    sha256 "00d05929df3a1951fa3c28108071e0dcc88236a37dfb89af37af66142b1746bf" => :yosemite
-    sha256 "31117537770464542e1186d32032aba90507a11bd4e41c9f46aa717515e8e3cf" => :mavericks
+    rebuild 1
+    sha256 "ee19bef55805a8562bddb41a3af66e5bce9589b1e4d96b05348a37b5ada2c091" => :sierra
+    sha256 "572e103e9de9c872eb202e18d5c4f352f0b9dc26d284d5979b83ff6fa3daa5b2" => :el_capitan
+    sha256 "e4db05626f082c10398f46ac40aa25ec271be6e4372330d6d7c27b2349d0e789" => :yosemite
   end
 
   # Patches per MacPorts
@@ -26,10 +29,10 @@ class Aiccu < Formula
     <<-EOS.undent
       You may also wish to install tuntap:
 
-        The TunTap project provides kernel extensions for Mac OS X that allow
+        The TunTap project provides kernel extensions for macOS that allow
         creation of virtual network interfaces.
 
-        http://tuntaposx.sourceforge.net/
+        https://tuntaposx.sourceforge.io/
 
       You can install tuntap with homebrew using brew install tuntap
 

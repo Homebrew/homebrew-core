@@ -1,19 +1,18 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://www.fftw.org/fftw-3.3.5.tar.gz"
-  sha256 "8ecfe1b04732ec3f5b7d279fdb8efcad536d555f9d1e8fabd027037d45ea8bcf"
+  url "http://fftw.org/fftw-3.3.6-pl2.tar.gz"
+  version "3.3.6-pl2"
+  sha256 "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
 
   bottle do
     cellar :any
-    sha256 "6732254af0d37777ffd9ae7a4dc16d672def6656cdd85c4d8f1e96a53571e123" => :sierra
-    sha256 "8961b3780e24d67c520deccf222aa12ce95f41eba1b6d7a7181e83bda9e4a99e" => :el_capitan
-    sha256 "d7358e5c3e9426c245425ab0d4fe29659d7bdb41158bedb43ab0c2433b165c69" => :yosemite
-    sha256 "f31992664fb2c54ae917c6e31a44e4a798b4ff062fbc66e50fcf7f56c418c791" => :mavericks
+    sha256 "293e6d290a437b18e0a1563622ca1e6bb3efc0574de8db461dc7066281fcf8e4" => :sierra
+    sha256 "3b0c6440faf90169571c67ef1f6532db743adfb64ccb41e5786eaffc2a2d925f" => :el_capitan
+    sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
   end
 
   option "with-fortran", "Enable Fortran bindings"
-  option :universal
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
@@ -34,8 +33,6 @@ class Fftw < Formula
     args << "--disable-fortran" if build.without? "fortran"
     args << "--enable-mpi" if build.with? "mpi"
     args << "--enable-openmp" if build.with? "openmp"
-
-    ENV.universal_binary if build.universal?
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision

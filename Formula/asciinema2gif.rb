@@ -1,15 +1,15 @@
 class Asciinema2gif < Formula
   desc "Generate animated GIFs from asciinema terminal recordings"
   homepage "https://github.com/tav/asciinema2gif"
-  url "https://github.com/tav/asciinema2gif/archive/v0.4.1.tar.gz"
-  sha256 "a5c78224235a3afb4011c990d5926ddc787d1970b47e7ab46df6fa6eff5d6d90"
+  url "https://github.com/tav/asciinema2gif/archive/v0.5.tar.gz"
+  sha256 "2ff5b7145e31db55ebe06c320d3b5d53c42101ec669621344aac0a4fb9f1a4be"
   head "https://github.com/tav/asciinema2gif.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b839220fb7c238038d2e95e783aeddd3008d8fadff6cb10962ecb630600491b2" => :el_capitan
-    sha256 "dd6a1126773aa72d9e7697d5df1790ef8abe5fcd8d6e4e122db9a9239725710f" => :yosemite
-    sha256 "44fe778a63cbd91a70e0fd2b81b4af8cd3189f4f417ec6d9aa210d9149543a7d" => :mavericks
+    sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :sierra
+    sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :el_capitan
+    sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :yosemite
   end
 
   depends_on "gifsicle"

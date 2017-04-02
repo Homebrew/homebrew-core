@@ -3,12 +3,13 @@ class Pex < Formula
   homepage "https://github.com/petere/pex"
   url "https://github.com/petere/pex/archive/1.20140409.tar.gz"
   sha256 "5047946a2f83e00de4096cd2c3b1546bc07be431d758f97764a36b32b8f0ae57"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e70109b6072294b61cbce99ac20daf8a1a522712a1b4f446b698b5291ffca2df" => :el_capitan
-    sha256 "afeae97bf3099f85d4a2c3a0ec499fb7b0d596e45ddf90185d8b84d195353c0d" => :yosemite
-    sha256 "6280d3f74d9e845da7a274d47e509572192d7dcdc4e7e63230be0fc21d21875b" => :mavericks
+    sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :sierra
+    sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :el_capitan
+    sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :yosemite
   end
 
   depends_on :postgresql

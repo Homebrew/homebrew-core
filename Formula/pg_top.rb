@@ -1,14 +1,16 @@
 class PgTop < Formula
   desc "Monitor PostgreSQL processes"
   homepage "http://ptop.projects.postgresql.org/"
-  url "http://pgfoundry.org/frs/download.php/3504/pg_top-3.7.0.tar.bz2"
+  url "https://www.mirrorservice.org/sites/ftp.postgresql.org/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
+  mirror "http://pgfoundry.org/frs/download.php/3504/pg_top-3.7.0.tar.bz2"
   sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "f6942875416fa688254e82feac6f0991cab3181ca0a545bce53ca4af9dc856f3" => :el_capitan
-    sha256 "2e1a209d75f91eea0f22dc6e9c391c95a65289436d5060df7cc803bec8c3df35" => :yosemite
-    sha256 "6d9c0960d9594b6643126ef60ecdae71b21b8ab9ebdcd6d0a7efc9a1847dab87" => :mavericks
+    sha256 "07dbd4e11e14f831ffaec7a7194603f4614400739c8aa7dfe228ebe274013622" => :sierra
+    sha256 "e5ede71b29f9dd48ba48b29573583e641bc74f4c4646c9376487977d08ee5eaa" => :el_capitan
+    sha256 "67d208940d439990fc04c04512f3ca42efc518c118ebaf8969fd396fca37ecad" => :yosemite
   end
 
   depends_on :postgresql

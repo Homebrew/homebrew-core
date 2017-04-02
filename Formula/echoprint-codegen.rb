@@ -1,6 +1,6 @@
 class EchoprintCodegen < Formula
   desc "Codegen for Echoprint"
-  homepage "http://echoprint.me"
+  homepage "https://github.com/spotify/echoprint-codegen"
   url "https://github.com/echonest/echoprint-codegen/archive/v4.12.tar.gz"
   sha256 "c40eb79af3abdb1e785b6a48a874ccfb0e9721d7d180626fe29c72a29acd3845"
   revision 2
@@ -8,6 +8,7 @@ class EchoprintCodegen < Formula
 
   bottle do
     cellar :any
+    sha256 "6ba809491d295b1aa6e5d5d01c4798644c8e111dd28a915154a08b7a527ebedd" => :sierra
     sha256 "047111c6a160f827a000aa4184f78d579b7fb8ecbb13db6b11d3a6f79c243783" => :el_capitan
     sha256 "2de00aaf98a53d77f0d3d4b0af5e8457a2fdb708769524c60c8fea94d0b5f7cc" => :yosemite
     sha256 "7dfecc154ab9c57918073f46095484616e049ed365b95015432e2416bc425bea" => :mavericks

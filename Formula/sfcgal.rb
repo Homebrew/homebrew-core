@@ -3,13 +3,12 @@ class Sfcgal < Formula
   homepage "http://sfcgal.org/"
   url "https://github.com/Oslandia/SFCGAL/archive/v1.3.0.tar.gz"
   sha256 "7ed35439fc197e73790f4c3d1c1750acdc3044968769239b2185a7a845845df3"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cc73f1c6b4b2ea0a6c648ef1090a6251fe00888949a4d7fa2785d7066fcf7ae1" => :sierra
-    sha256 "2a854bff305f9c31c98ec96dbb84b99609fed5f3db89d93dbb82cd5133f550b9" => :el_capitan
-    sha256 "3c9e06176d0d24d0039761fe8e03dbe3d2008b443d15ca7e943d575e142c571e" => :yosemite
-    sha256 "6b6eb54eff2cc0ec85ee50632cf678193651c42391a488701f342685527ce23f" => :mavericks
+    sha256 "e951bd5d493db1062b4cba7d82f12cb901080405f5baf82d20b741eb1eb53c6c" => :sierra
+    sha256 "3154bb53419f7ed18becddeeebdd3e1ffc7acee49815eb4334bed277c8e281bc" => :el_capitan
+    sha256 "71d17dd246841b30ac95273dddf0c56a4751240cdcb05a5d76d4d3d26e1aac25" => :yosemite
   end
 
   option :cxx11
@@ -19,7 +18,7 @@ class Sfcgal < Formula
   if build.cxx11?
     depends_on "boost" => "c++11"
     depends_on "cgal" => "c++11"
-    depends_on "gmp"   => "c++11"
+    depends_on "gmp" => "c++11"
   else
     depends_on "boost"
     depends_on "cgal"

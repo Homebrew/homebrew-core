@@ -1,20 +1,17 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
   homepage "https://aubio.org/"
-  url "https://aubio.org/pub/aubio-0.4.2.tar.bz2"
-  sha256 "1cc58e0fed2b9468305b198ad06b889f228b797a082c2ede716dc30fcb4f8f1f"
+  url "https://aubio.org/pub/aubio-0.4.4.tar.bz2"
+  sha256 "2acdb92623b9d4ba641c387760ffe3ec1e4c6ab498e64e5e2286c99e36ffbff8"
 
   head "https://github.com/piem/aubio.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "ccc98e1d32cd07973ae559abc1db492c3307d6fa08b206dda54391a10b43f007" => :el_capitan
-    sha256 "4b9b7780d8523f46b4de9da1da42de9a81af06bbe87b1c36125860b8eb014533" => :yosemite
-    sha256 "f23c2aeef3734dadeaa2369da75e20a50269650ab18e9a1a5639df9de8eb43d2" => :mavericks
-    sha256 "770f58a1601edce01bcdd4fffcb6bc7a75c81c3119eab6592cd51c911fe0bc24" => :mountain_lion
+    sha256 "e72e6f6ca2562e43dd3b79755bac1741fbda2cc12c1adf41e19712da9eb292c7" => :sierra
+    sha256 "d754ca2e173318c33fd6af21184fcbf7e9d739ece3c35b329f616483dc8696d3" => :el_capitan
+    sha256 "c826af70ae0ac208299282b6935747736ef58d5505b9c7235c699590ac26020d" => :yosemite
   end
-
-  option :universal
 
   depends_on :macos => :lion
 
@@ -33,8 +30,6 @@ class Aubio < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Needed due to issue with recent cland (-fno-fused-madd))
     ENV.refurbish_args
 

@@ -7,7 +7,8 @@ class Png2ico < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "1146638d707c89ebac089a54f98f5fe9777cf7c5bce9c4280b6ce68255d91bf8" => :sierra
     sha256 "19b80cbf09671aa0dd1a355e025617d8c796baed200c93585037a34715a02762" => :el_capitan
     sha256 "a0bc61603d8861f82578a3686d55870e651bac6c0c0f029426e56e62428253e1" => :yosemite
     sha256 "8c514f8a5aacc0720332e091a2480bd609a7a42df235c6daec948f0dda92faad" => :mavericks

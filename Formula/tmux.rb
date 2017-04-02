@@ -1,32 +1,15 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-
-  stable do
-    url "https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz"
-    sha256 "bc28541b64f99929fe8e3ae7a02291263f3c97730781201824c0f05d7c8e19e4"
-
-    patch do
-      # required for the following unicode patch
-      url "https://github.com/tmux/tmux/commit/d303e5.patch"
-      sha256 "a3ae96b209254de9dc1f10207cc0da250f7d5ec771f2b5f5593c687e21028f67"
-    end
-
-    patch do
-      # workaround for bug in system unicode library reporting negative width
-      # for some valid characters
-      url "https://github.com/tmux/tmux/commit/23fdbc.patch"
-      sha256 "7ec4e7f325f836de5948c3f3b03bec6031d60a17927a5f50fdb2e13842e90c3e"
-    end
-  end
+  url "https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz"
+  sha256 "55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b"
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c7deb6acadd39da0789b02c11f83780d1b0328cdcc70f89be268a059bab72fd0" => :sierra
-    sha256 "627aef14033e462ffd4694dcc052eca01d8e3b13e6db5bad9717643c9e342ff1" => :el_capitan
-    sha256 "e566bb8605da1ee8aa001730c2a17f2082b39e2a949cce3502b3100a6c621878" => :yosemite
-    sha256 "caa0bdef33a828985dc507fa1206a3cafe8677e55a4df2ecf8434e37693afd71" => :mavericks
+    sha256 "249d37ae806e98d1827d1104174c9d446977c89ed5c3c761d8cff583cc8de43d" => :sierra
+    sha256 "4b4bb6330ac0992d329dba3c95fd9f25a222a672e712f95ddd0c6c66ce3ba1bb" => :el_capitan
+    sha256 "1eee1ba5746cf99aef9ffc30437651422af0b49082e8fd77f10fdc145ce60a81" => :yosemite
   end
 
   head do
@@ -39,6 +22,7 @@ class Tmux < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "utf8proc" => :optional
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
@@ -48,10 +32,16 @@ class Tmux < Formula
   def install
     system "sh", "autogen.sh" if build.head?
 
+    args = %W[
+      --disable-Dependency-tracking
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+    ]
+
+    args << "--enable-utf8proc" if build.with?("utf8proc")
+
     ENV.append "LDFLAGS", "-lresolv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}"
+    system "./configure", *args
 
     system "make", "install"
 

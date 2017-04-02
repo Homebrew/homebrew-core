@@ -1,6 +1,6 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
-  homepage "http://e2fsprogs.sourceforge.net/"
+  homepage "https://e2fsprogs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.42.13/e2fsprogs-1.42.13.tar.gz"
   mirror "https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.42.13/e2fsprogs-1.42.13.tar.gz"
   sha256 "59993ff3a44f82e504561e0ebf95e8c8fa9f9f5746eb6a7182239605d2a4e2d4"
@@ -14,7 +14,7 @@ class E2fsprogs < Formula
     sha256 "3f95be44af372f34e747aa4b7a89a721a170cc0cafee21b5ae4b85c630d2972f" => :mavericks
   end
 
-  keg_only "This brew installs several commands which override OS X-provided file system commands."
+  keg_only "This brew installs several commands which override macOS-provided file system commands."
 
   depends_on "pkg-config" => :build
   depends_on "gettext"

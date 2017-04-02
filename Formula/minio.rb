@@ -1,16 +1,16 @@
 class Minio < Formula
-  desc "object storage server compatible with Amazon S3"
+  desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-    :tag => "RELEASE.2016-09-11T17-42-18Z",
-    :revision => "85e2d886bcb005d49f3876d6849a2b5a55e03cd3"
-  version "20160911174218"
+    :tag => "RELEASE.2017-03-16T21-50-32Z",
+    :revision => "6e7d33df203d0c11d014b6625bfd18aada22328a"
+  version "20170316215032"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d236098663cc6b4a4016855e1f5ce21608b42e1a4d33aa24e4c9963de7bd0d14" => :el_capitan
-    sha256 "a1f3a72ebd68b63b6ef658b218f7d67031d3d9ed8c95c142764bf777b3cd0ddc" => :yosemite
-    sha256 "51ae709a683eb435d915377745f66d28c0ae1ca3b1d8e4f28f7b014908baf323" => :mavericks
+    sha256 "9f530ee8a2a6cad5655dfc6032f390c9349399bbf72939d520c45b9d4887fb55" => :sierra
+    sha256 "f90a700e0b22c469ac2f9462c6739e2107d0c3c52bc52eb467c45e77168e53e2" => :el_capitan
+    sha256 "157af8ad8cde930743a2033c723ba1ecf05079d9eca39bddafdf735321aee6e5" => :yosemite
   end
 
   depends_on "go" => :build
@@ -61,14 +61,22 @@ class Minio < Formula
       <array>
         <string>#{opt_bin}/minio</string>
         <string>server</string>
-        <string>--config-dir=etc/minio</string>
+        <string>--config-dir=#{etc}/minio</string>
         <string>--address :9000</string>
-        <string>var/minio</string>
+        <string>#{var}/minio</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
+      <key>KeepAlive</key>
+      <true/>
       <key>WorkingDirectory</key>
-      <string>var/minio</string>
+      <string>#{HOMEBREW_PREFIX}</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/minio/output.log</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/minio/output.log</string>
+      <key>RunAtLoad</key>
+      <true/>
     </dict>
     </plist>
     EOS

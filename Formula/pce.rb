@@ -3,20 +3,21 @@ class Pce < Formula
   homepage "http://www.hampa.ch/pce/"
   url "http://www.hampa.ch/pub/pce/pce-0.2.2.tar.gz"
   sha256 "a8c0560fcbf0cc154c8f5012186f3d3952afdbd144b419124c09a56f9baab999"
+  revision 1
 
   head "git://git.hampa.ch/pce.git"
 
   bottle do
     cellar :any
-    sha256 "bbb6b750a67ee7f0aa91feaeb8a94412effeba42b1ee2a63cfbb9d1c2e7bcfb9" => :el_capitan
-    sha256 "30cb9e41b4f37a9880294c7f0622a293982e373d394d75b2c84b3c60f8c4c253" => :yosemite
-    sha256 "0771aecfb195d126f71e23af2ba77779dbfef3ff93c9149934f41e41b074d310" => :mavericks
+    sha256 "5eac356a0cc4e27d748c3eaaba446f64005dd45cfdc7b7be915bdf186eb01655" => :sierra
+    sha256 "8574731084cdd4efd9394e7b92d262e80dcb23dc5d9d8bc14746c81ea9f66bcf" => :el_capitan
+    sha256 "5166b5f8b91d05e8d45f8683326e865cb75e2f574dff790d423ac4f4215d51f5" => :yosemite
   end
 
   devel do
-    url "http://www.hampa.ch/pub/pce/pre/pce-20160308-72f1e10.tar.gz"
-    version "20160308"
-    sha256 "102d41f9e7e56058580215deaf99a068ed00da45fad82d1a2c6cf74abb241b99"
+    url "http://www.hampa.ch/pub/pce/pre/pce-20170208-df19414/pce-20170208-df19414.tgz"
+    version "20170208"
+    sha256 "aaad3db24b5fabbd308afbb8d2f242236b8abf7d48b010f726a4367f16ec2681"
   end
 
   depends_on "sdl"

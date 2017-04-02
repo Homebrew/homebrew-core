@@ -22,7 +22,7 @@ class Zpython < Formula
 
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.0.5/zsh-5.0.5.tar.bz2"
-    mirror "http://www.zsh.org/pub/zsh-5.0.5.tar.bz2"
+    mirror "https://www.zsh.org/pub/old/zsh-5.0.5.tar.bz2"
 
     # We prepend `00-` for the first version of the zpython module, which is
     # itself a patch on top of zsh and does not have own version number yet.
@@ -43,6 +43,7 @@ class Zpython < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6fd2ca965e862af6ebf0b24e158d34bbe66bafc522854adc96efa70e2a0fdb9b" => :sierra
     sha256 "aa8efa349bbf477746aee3cb977d1b0c430ec05d1947f2bd33667f054d8692cc" => :el_capitan
     sha256 "3f469a0820ec250a6875c97fd50626462b94a6d81ea93888d32391ababcf25bf" => :yosemite
     sha256 "9137eefb79a7a529b016e3c949e24a15d4747e4f35108f91db6ea58441f456a9" => :mavericks
@@ -52,7 +53,7 @@ class Zpython < Formula
   depends_on "autoconf" => :build
 
   def install
-    args = %W[
+    args = %w[
       --disable-gdbm
       --enable-zpython
       --with-tcsetpgrp

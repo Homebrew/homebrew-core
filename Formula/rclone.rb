@@ -2,15 +2,15 @@ require "language/go"
 
 class Rclone < Formula
   desc "rsync for cloud storage"
-  homepage "http://rclone.org"
-  url "https://github.com/ncw/rclone/archive/v1.33.tar.gz"
-  sha256 "c1f947b9fa624bb70da151327d3b7e4652746ae56a2e66772a0808f2061efde3"
+  homepage "https://rclone.org/"
+  url "https://github.com/ncw/rclone/archive/v1.36.tar.gz"
+  sha256 "a573b70e3aeb355b943dddd6ae9375386fc21bf12dfba601d8d7280f97c4c884"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "59453b327439c6a65c178537d55dec1724cc8961d14cce2cbc3001fe904e5e36" => :el_capitan
-    sha256 "b779fe7793bd40100c803a8a787c1e6b7ccf0cfa1ebe3ef381bd69086a155393" => :yosemite
-    sha256 "3f08a41d8636c525b6e88e1d7330104ea85140b106aa13ce2f918e71d7031863" => :mavericks
+    sha256 "3620712255134b1c9d2ee003b7a24ead0c3442fb5b978d10e89a074aa4d5b12e" => :sierra
+    sha256 "c82062a1b60bf6c721615e33184529387cedd639453f7e63ad2762fe9d90210c" => :el_capitan
+    sha256 "aa03f9aaeb36428ec466dcff39256df1446723f3cf45a5e180a583d5a076ade3" => :yosemite
   end
 
   depends_on "go" => :build
@@ -161,6 +161,9 @@ class Rclone < Formula
     ln_s buildpath, buildpath/"src/github.com/ncw/rclone"
     Language::Go.stage_deps resources, buildpath/"src"
     system "go", "build", "-o", bin/"rclone"
+
+    system bin/"rclone", "genautocomplete", "bash_completion"
+    bash_completion.install "bash_completion" => "rclone"
   end
 
   test do

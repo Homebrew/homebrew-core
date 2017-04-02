@@ -3,13 +3,13 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.1.tar.gz"
   sha256 "d16fe169b2f5800a60d2ed3d9b876e50fe45f2c0b46730d60a7b489bbc2c4e6a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd628dea3fd15dcaa4db38ccecc4c47ae7444bb91f409f7ec01469fc7ce65daa" => :sierra
-    sha256 "0687d298c16f0e956e750cfe714fdf04cc75db65f2ed0907506de678b16b2d12" => :el_capitan
-    sha256 "0d2b60a588d415aaf4296488dc427330402a7e6d0ecfb583b8368a3e5521496a" => :yosemite
-    sha256 "108b01711cdff84ddc8ae8691d46acab5e214cd24e3fa1be86c1b2989217e25f" => :mavericks
+    sha256 "e40e94774534f2fdc8b126549f33c129ab9bc3d0f82a4b218c658c9000785384" => :sierra
+    sha256 "f51ba9c2d2dd460612bd2caf3948551ed5e12e427c475274ba019e9ffccf0adc" => :el_capitan
+    sha256 "04c6664cf013338bc7cb7a40ac65e9a3b183ed3fcf6fa908e572560d52e510f3" => :yosemite
   end
 
   depends_on :python3

@@ -20,7 +20,7 @@ class Abnfgen < Formula
   end
 
   test do
-    (testpath/"grammar").write %(ring = 1*12("ding" SP) "dong" CRLF)
+    (testpath/"grammar").write 'ring = 1*12("ding" SP) "dong" CRLF'
     system "#{bin}/abnfgen", (testpath/"grammar")
   end
 end

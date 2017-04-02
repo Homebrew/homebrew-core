@@ -1,13 +1,15 @@
 class AptDater < Formula
   desc "Manage package updates on remote hosts using SSH"
-  homepage "https://www.ibh.de/apt-dater/"
-  url "https://downloads.sourceforge.net/project/apt-dater/apt-dater/0.9.0/apt-dater-0.9.0.tar.gz"
-  sha256 "10b8335c156dabae249aa071cf8689900fae325c2e9540e36a840a2a77d3eeb4"
+  homepage "https://github.com/DE-IBH/apt-dater"
+  url "https://github.com/DE-IBH/apt-dater/archive/v0.9.0.tar.gz"
+  sha256 "1c361dd686d66473b27db4af8d241d520535c5d5a33f42a35943bf4e16c13f47"
+  version_scheme 1
 
   bottle do
-    sha256 "ac82bb9943120aa1325e782c2ef99cad7a6ecd12f260c0f7f1e054015c7f39bc" => :el_capitan
-    sha256 "7d2a6d082f2a2d0271bb7c87f30ddda2a94a51134dc1efa490b6042bfdf21bc4" => :yosemite
-    sha256 "43774745944523bb099fad706d8bc8ac81ec0716ca1c41c2cacb1352a9902e90" => :mavericks
+    rebuild 2
+    sha256 "026b29a9428c2c1d77e70001c8651f8e8ac20b20dee1ba62a89e0d69e2da570e" => :sierra
+    sha256 "a2f37094132e6f5cd8ad9b287bf299eea8acbc99b1d468002dfe875a8a14985d" => :el_capitan
+    sha256 "2ac3ba56f32d018a9af477484d8ad561871f855aca78726dbe8f43f5552f6acc" => :yosemite
   end
 
   depends_on "pkg-config" => :build

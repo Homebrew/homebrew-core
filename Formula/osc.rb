@@ -1,53 +1,50 @@
 class Osc < Formula
+  include Language::Python::Virtualenv
+
   desc "The Command Line Interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.154.0.tar.gz"
-  sha256 "88daae5b94354e9bcab03523aa7e3d270f69ffeaef8e4a1493bce19757d4699d"
+  url "https://github.com/openSUSE/osc/archive/0.157.2.tar.gz"
+  sha256 "cde6384f069e3b08cc425cf5105251acb77f5f8c9413888b5f4ab89fec068f07"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "c222f3a00e708e82946f1b60a13c3203a5a76b0cb762ce0ba2d45f0eae6ce0b2" => :el_capitan
-    sha256 "d4527195fd393ae22bf47539b75f9e58f3e8b7dda6a2c188dd6dccc4fd6218ad" => :yosemite
-    sha256 "f60c8850b29deb453fe7ea6f58a262bd8070ebedfb7ef9a3844fe35056315afe" => :mavericks
+    sha256 "2fb7940ff685c9c718a1f213039f6c6ceac2a7b6b30a3a527ffacb53a9256ec8" => :sierra
+    sha256 "e440940de123fbd52690a99e51575d5426dc91c3f79450c58f3f1b174963c315" => :el_capitan
+    sha256 "d0d4f711e22a0f1641b2e81336a07e5bc2f9870a1bb9f6a35646251b7c524213" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
+  depends_on "curl"
   depends_on "openssl" # For M2Crypto
 
   resource "pycurl" do
-    url "https://dl.bintray.com/pycurl/pycurl/pycurl-7.43.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/12/3f/557356b60d8e59a1cce62ffc07ecc03e4f8a202c86adae34d895826281fb/pycurl-7.43.0.tar.gz"
     sha256 "aa975c19b79b6aa6c0518c0cc2ae33528900478f0b500531dbcdbf05beec584c"
   end
 
   resource "urlgrabber" do
-    url "http://urlgrabber.baseurl.org/download/urlgrabber-3.10.1.tar.gz"
-    sha256 "06b13ff8d527dba3aee04069681b2c09c03117592d5485a80ae4b807cdf33476"
+    url "https://files.pythonhosted.org/packages/29/1a/f509987826e17369c52a80a07b257cc0de3d7864a303175f2634c8bcb3e3/urlgrabber-3.10.2.tar.gz"
+    sha256 "05b7164403d49b37fe00f7ac8401e56b00d0568ac45ee15d5f0610ac293c3070"
   end
 
-  resource "m2crypto" do
-    url "https://pypi.python.org/packages/packages/source/M/M2Crypto/M2Crypto-0.24.0.tar.gz"
-    sha256 "80a56441a1d2c0cf27e725be7554c92598b938fc8767ee2c71fdbc2fdc055ee8"
+  resource "M2Crypto" do
+    url "https://files.pythonhosted.org/packages/9c/58/7e8d8c04995a422c3744929721941c400af0a2a8b8633f129d92f313cfb8/M2Crypto-0.25.1.tar.gz"
+    sha256 "ac303a1881307a51c85ee8b1d87844d9866ee823b4fdbc52f7e79187c2d9acef"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        inreplace "setup.py", "self.openssl = '/usr'", "self.openssl = '#{Formula["openssl"].opt_prefix}'" if r.name == "m2crypto"
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+    venv = virtualenv_create(libexec)
+    venv.pip_install resources.reject { |r| r.name == "M2Crypto" }
+    resource("M2Crypto").stage do
+      inreplace "setup.py", %r{(self.openssl = )'/usr'}, "\\1'#{Formula["openssl"].prefix}'"
+      venv.pip_install "."
     end
 
-    # Fix for Homebrew's custom OpenSSL cert path.
     inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl/cert.pem'"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(prefix)
-
-    bin.install "osc-wrapper.py" => "osc"
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv.pip_install_and_link buildpath
+    mv bin/"osc-wrapper.py", bin/"osc"
   end
 
   test do

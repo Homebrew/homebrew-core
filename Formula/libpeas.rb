@@ -1,14 +1,13 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://developer.gnome.org/libpeas/stable/"
-  url "https://download.gnome.org/sources/libpeas/1.18/libpeas-1.18.0.tar.xz"
-  sha256 "bf49842c64c36925bbc41d954de490b6ff7faa29b45f6fd9e91ddcc779165e26"
+  url "https://download.gnome.org/sources/libpeas/1.20/libpeas-1.20.0.tar.xz"
+  sha256 "f392fffe2dc00072a51bb2a1b274224a06bdc5f9c3b3c0ac4816909e9933d354"
 
   bottle do
-    sha256 "28bcae7c88c9339c40521cd65476cad233b068967ee7a6303ed8cf35f171dcc9" => :sierra
-    sha256 "3b0f9886e70837b50625c03d60f298e9bd3c0cdd10e303609171e034934fe2a9" => :el_capitan
-    sha256 "68af54ac53211987d4336e7016c563bab8ba3dcd7cb1d4b8284f95c389941787" => :yosemite
-    sha256 "6aefbee1878b76cad8ad0029a078d80bdbc6dcdf9ec4e75fa144d19bae08671e" => :mavericks
+    sha256 "9bad6478fc3a334a1446286375bc467b16d34bcf3e8c9c05f12208edf370e496" => :sierra
+    sha256 "b8fafb1141cbce2ffbb09fdc56bb79b48a3106119046f366fb3e56181c43f04f" => :el_capitan
+    sha256 "cbaaef5811b5f5417d491d360749901e98afdddc5f3b6db8f6d6a4a1b62fb7a1" => :yosemite
   end
 
   depends_on "pkg-config" => :build

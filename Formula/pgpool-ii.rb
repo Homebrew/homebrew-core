@@ -1,14 +1,13 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "http://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "http://www.pgpool.net/download.php?f=pgpool-II-3.4.3.tar.gz"
-  sha256 "b030d1a0dfb919dabb90987f429b03a67b22ecdbeb0ec1bd969ebebe690006e4"
+  url "http://www.pgpool.net/download.php?f=pgpool-II-3.6.2.tar.gz"
+  sha256 "f90de6dbe3b2fd7adac7521fc285a1addf1585102c7f7eddb48147a0801d1158"
 
   bottle do
-    cellar :any
-    sha256 "272ee6246595eecdcb1b44febbe05422f9559aecce4078028448029753d091e2" => :el_capitan
-    sha256 "11233e63d5830295ff825d3181aa4240fd81c532b1c7f19889bb3c248f809813" => :yosemite
-    sha256 "93c1d153801b4338d2bd2a233787aa570480ba53589d9209cd5f55291b5296df" => :mavericks
+    sha256 "87b327d37b58c8ac1c65351ee16b8a541525481d3d02701c2cc12eb6caeb100b" => :sierra
+    sha256 "24fddb94c6b055d242039bdeb9c3b36f8d3afd602fb2f7b41f0654d72edb7a39" => :el_capitan
+    sha256 "b4ef5cc69fdca07dd243a5654a2192a26039591bcb3a11a87bac559aa23dedfb" => :yosemite
   end
 
   depends_on :postgresql

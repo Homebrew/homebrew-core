@@ -1,7 +1,7 @@
 class H2 < Formula
   desc "Java SQL database"
-  homepage "http://www.h2database.com/"
-  url "http://www.h2database.com/h2-2015-10-11.zip"
+  homepage "https://www.h2database.com/"
+  url "https://www.h2database.com/h2-2015-10-11.zip"
   version "1.4.190"
   sha256 "7881f308debe6d587219db3610b699af21d5e4b50ccb6fccac563382772a09c8"
 
@@ -18,7 +18,7 @@ class H2 < Formula
     rm_f Dir["bin/*.bat"]
 
     # As of 1.4.190, the script contains \r\n line endings,
-    # causing it to fail on OS X. This is a workaround until
+    # causing it to fail on macOS. This is a workaround until
     # upstream publishes a fix.
     #
     # https://github.com/h2database/h2database/issues/218

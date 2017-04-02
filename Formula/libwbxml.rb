@@ -1,15 +1,15 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
   homepage "https://sourceforge.net/projects/libwbxml/"
-  url "https://downloads.sourceforge.net/project/libwbxml/libwbxml/0.11.4/libwbxml-0.11.4.tar.bz2"
-  sha256 "8057998042b8a724328346a50c326010ba011a40e18e2df7043e87498a679c28"
+  url "https://downloads.sourceforge.net/project/libwbxml/libwbxml/0.11.5/libwbxml-0.11.5.tar.bz2"
+  sha256 "5f8fabc0152d73b725e16211ccd74263c1c2f9f1dc36a2fd916a8deb4ee577e2"
   head "https://github.com/libwbxml/libwbxml.git"
 
   bottle do
     cellar :any
-    sha256 "8dea99c05944dcc9b28a3494d00ff32d136669c6bb49ad3eb6640f7a2601f879" => :el_capitan
-    sha256 "3a3c54f55e3ca674f6e8cc993519b3988d174a642ad25bcbf3e540e35d541d90" => :yosemite
-    sha256 "cc821ee98e3af666012edf1abfbce6cf1816e3609a1fcf679519c2f883a84000" => :mavericks
+    sha256 "ff3988645fd4ed0fab3a44c7ec4d51247bece66319c75563125c85803d8759e3" => :sierra
+    sha256 "7e418f10145443f0aa9f0107d44091123230035ae48fe1fc9421bf1bc9ff480f" => :el_capitan
+    sha256 "e0d3fef67a6d509a486d06e633df0b6e9cc2c303acb6c7f6146e1cc17b741a84" => :yosemite
   end
 
   option "with-docs", "Build the documentation with Doxygen and Graphviz"

@@ -1,24 +1,20 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.20/atk-2.20.0.tar.xz"
-  sha256 "493a50f6c4a025f588d380a551ec277e070b28a82e63ef8e3c06b3ee7c1238f0"
+  url "https://download.gnome.org/sources/atk/2.24/atk-2.24.0.tar.xz"
+  sha256 "bb2daa9a808c73a7a79d2983f333e0ba74be42fc51e3ba1faf2551a636487a49"
 
   bottle do
-    sha256 "c5e7cf47fdcd5bfbe3872babd8ffddb3d6c89cc3492bbfcb0fed1d314ec6201e" => :sierra
-    sha256 "22ef1732768f4e044c726d472f8df3b65d6ec551a48281b7510f9353bc4a2bf2" => :el_capitan
-    sha256 "39faebf76827aa4cdf00c5773d734701dec79dc0ed39b0f4bc5e002ebb73aec4" => :yosemite
-    sha256 "ef489d35b9bf74d41110287fbccab60c0581005cfa91f55cacaa642f5a184896" => :mavericks
+    sha256 "89d59856b8bbd0a51961c0569237da2f6119fddd40f67b50d96651483fe9be10" => :sierra
+    sha256 "87028a5febfcdce413c64f7786468db61b1c62412799405e6b3ac179c0a8ae05" => :el_capitan
+    sha256 "e628db1461560fbe5fa9da800987ed2eab6e6c969709797de07a6052521a022e" => :yosemite
   end
-
-  option :universal
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-introspection=yes"

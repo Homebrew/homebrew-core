@@ -6,6 +6,7 @@ class ThcPptpBruter < Formula
 
   bottle do
     cellar :any
+    sha256 "bf0734c5bac73d3948b6b10856c9cff316f28dcac7d5213323f42dcd7f210306" => :sierra
     sha256 "29311d0d9c7592bcaae2acbf529bc6cb836df622361a9343aeb37543a0ff7f48" => :el_capitan
     sha256 "9236475e9ec15fdddefd4b9ad01d619d645ad0227adc50e9ae7c5b01a68ff964" => :yosemite
     sha256 "e34bda13c8753b1064fb59712e799191dd00addfa30b0f9947d2dd97dac47b1a" => :mavericks
@@ -15,7 +16,7 @@ class ThcPptpBruter < Formula
   depends_on "openssl"
 
   def install
-    # The function openpty() is defined in pty.h on Linux, but in util.h on OS X.
+    # The function openpty() is defined in pty.h on Linux, but in util.h on macOS.
     # See https://groups.google.com/group/sage-devel/msg/97916255b631e3e5
     inreplace "src/pptp_bruter.c", "pty.h", "util.h"
 

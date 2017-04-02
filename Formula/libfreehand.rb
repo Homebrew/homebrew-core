@@ -1,12 +1,13 @@
 class Libfreehand < Formula
   desc "Interpret and import Aldus/Macromedia/Adobe FreeHand documents"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
-  url "http://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.1.tar.xz"
+  url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.1.tar.xz"
   sha256 "ec6676d0c63f7feac7801a1fe18dd7abe9044b39c3882fc99b9afef39bdf1d30"
   revision 1
 
   bottle do
     cellar :any
+    sha256 "300538e3ac9ea51df7e2ecf0197254b2143a9efd1440c3fb753684241db3bcd0" => :sierra
     sha256 "1d223998ddc8b0b43a1046bd68a1ffa5a803e8915de39936a9fdf88892e5f14d" => :el_capitan
     sha256 "4fb596bf8a90d9bc7d807cef66017bebdd43f7018c2e821dcdd18aad5e9f9082" => :yosemite
     sha256 "1768d357e69076690af0622d9de6ca07de1c4e59e87fc7e3f96ec5b5e4f392ff" => :mavericks

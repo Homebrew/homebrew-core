@@ -1,7 +1,7 @@
 class Wxmac < Formula
-  desc "wxWidgets, a cross-platform C++ GUI toolkit (for OS X)"
+  desc "wxWidgets, a cross-platform C++ GUI toolkit (for macOS)"
   homepage "https://www.wxwidgets.org"
-  revision 3
+  revision 4
 
   head "https://github.com/wxWidgets/wxWidgets.git"
 
@@ -36,10 +36,9 @@ class Wxmac < Formula
 
   bottle do
     cellar :any
-    sha256 "556bfbece3cb414e7a1fe2ca42627fab0ebece199050a67412d03d0cfc3f5fcd" => :sierra
-    sha256 "c2cbbf473d8a11330f40d90dff3c38abf992ccb08be4695784ba8fa33cf036be" => :el_capitan
-    sha256 "64bdc1c45b41dcdbc9661f6a893dd8262b67dbeef7893a4688a1fcbb1a527d3a" => :yosemite
-    sha256 "8194b716a05383f6cca86692bd5a0a46cd4426d725587e2bd3b77f1ce9fd9f8c" => :mavericks
+    sha256 "a5efe8ecbcfebf941096b9a5fdeb3321be2906bbe530d0a3af7ce7dacb20c0a7" => :sierra
+    sha256 "148b27f56a089b435842087450efa57a701851378648a32a8f1d3fbc988d9b9f" => :el_capitan
+    sha256 "b29cf28e87e89b86ad601efdbdb38840b4810b2bf6e49f6b4c42c4530da36100" => :yosemite
   end
 
   devel do
@@ -52,20 +51,19 @@ class Wxmac < Formula
       sha256 "c6503ba36a166c031426be4554b033bae5b0d9da6fabd33c10ffbcb8672a0c2d"
     end
 
-    # Fix Issue: Building under OS X in C++11 mode for i386 architecture (but not amd64) results in an error about narrowing conversion.
+    # Fix Issue: Building under macOS in C++11 mode for i386 architecture (but not amd64) results in an error about narrowing conversion.
     patch do
       url "https://github.com/wxWidgets/wxWidgets/commit/ee486dba32d02c744ae4007940f41a5b24b8c574.patch"
       sha256 "88ef4c5ec0422d00ae01aff18143216d1e20608f37090be7f18e924c631ab678"
     end
 
-    # Fix Issue: Building under OS X in C++11 results in several -Winconsistent-missing-override warnings.
+    # Fix Issue: Building under macOS in C++11 results in several -Winconsistent-missing-override warnings.
     patch do
       url "https://github.com/wxWidgets/wxWidgets/commit/173ecd77c4280e48541c33bdfe499985852935ba.patch"
       sha256 "018fdb6abda38f5d017cffae5925fa4ae8afa9c84912c61e0afd26cd4f7b5473"
     end
   end
 
-  option :universal
   option "with-stl", "use standard C++ classes for everything"
   option "with-static", "build static libraries"
 
@@ -74,9 +72,7 @@ class Wxmac < Formula
   depends_on "libtiff"
 
   def install
-    # need to set with-macosx-version-min to avoid configure defaulting to 10.5
     args = [
-      "--disable-debug",
       "--prefix=#{prefix}",
       "--enable-unicode",
       "--enable-std_string",
@@ -85,10 +81,6 @@ class Wxmac < Formula
       "--with-osx_cocoa",
       "--with-libjpeg",
       "--with-libtiff",
-      # Otherwise, even in superenv, the internal libtiff can pick
-      # up on a nonuniversal xz and fail
-      # https://github.com/Homebrew/legacy-homebrew/issues/22732
-      "--without-liblzma",
       "--with-libpng",
       "--with-zlib",
       "--enable-dnd",
@@ -104,15 +96,11 @@ class Wxmac < Formula
       "--enable-dataviewctrl",
       "--with-expat",
       "--disable-precomp-headers",
+      # need to set with-macosx-version-min to avoid configure defaulting to 10.5
       "--with-macosx-version-min=#{MacOS.version}",
       # This is the default option, but be explicit
       "--disable-monolithic",
     ]
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universal_binary=#{Hardware::CPU.universal_archs.join(",")}"
-    end
 
     args << "--enable-stl" if build.with? "stl"
 

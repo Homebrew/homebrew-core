@@ -1,14 +1,24 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/kdab-products/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v2.5.1/gammaray-2.5.1.tar.gz"
-  sha256 "fd493d4b53fdd05f288f7a8ae0f414faa38c5626269643eec64a0a858e854c61"
+  revision 2
   head "https://github.com/KDAB/GammaRay.git"
 
+  stable do
+    url "https://github.com/KDAB/GammaRay/releases/download/v2.6.0/gammaray-2.6.0.tar.gz"
+    sha256 "6fe8e0bf9f9a479b7edf7d15e6ed48ad3cca666e149bc26e8fea54c12ded9039"
+
+    # Upstream commit from 23 Jan 2017 "Fix macOS startup crash with Qt 5.8"
+    patch do
+      url "https://github.com/KDAB/GammaRay/commit/01c5154.patch"
+      sha256 "c4d44f2625fa3823e0c6788437446247473cc460877be87a5e33d2b1b1a9d6ff"
+    end
+  end
+
   bottle do
-    sha256 "cd595453f2ca78548c5646bd3a28424842ebe31c9ce3d9247d791c81cf8eb575" => :el_capitan
-    sha256 "9e2f25b9236df44f44c5e9b31ee0a0d7c95b0b454d24be7ebd3c6527cf99a22e" => :yosemite
-    sha256 "3d3aa7bbd331b7d4d7a994235786431133ba185a0899ba594bf5a65b518bcc00" => :mavericks
+    sha256 "40abbbf3706bcd8671fae35f7e53397b090895d9022e7f1dc1370d572342a87a" => :sierra
+    sha256 "b289c07b23b494f2d9442e77dedfda8227982cdf184e938cbc248454db85b272" => :el_capitan
+    sha256 "3c4094ed9c841a17de8a87f696f038c99f1e532bd3de13664068cb7bc5ab623a" => :yosemite
   end
 
   option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"

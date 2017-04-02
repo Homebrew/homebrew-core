@@ -1,16 +1,15 @@
 class Spdylay < Formula
   desc "Experimental implementation of SPDY protocol versions 2, 3, and 3.1"
   homepage "https://github.com/tatsuhiro-t/spdylay"
-  url "https://github.com/tatsuhiro-t/spdylay/archive/v1.3.2.tar.gz"
-  sha256 "24f22378ffce6bd6e7e5ec69d44f3139ee102b1af59c39cddb5e6eadaf2484f8"
+  url "https://github.com/tatsuhiro-t/spdylay/archive/v1.4.0.tar.gz"
+  sha256 "31ed26253943b9d898b936945a1c68c48c3e0974b146cef7382320a97d8f0fa0"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d2cc6897f06a167b4693f0dd82517d1d62585e62ee085c55440221c1e8ab280c" => :sierra
-    sha256 "e5697185ba673e6bea9ca829c173611a7d54001276c63ac25bc0a4d8eb27b86d" => :el_capitan
-    sha256 "7941300edad0919881502d991886af07479a0c52dc06f04c1b66170f34cca6ed" => :yosemite
-    sha256 "2c93e33dbaedf67e7badf73a35c28ec0abe930bc8e53ad87d990394384a563ac" => :mavericks
+    sha256 "02084694808e70244e96c4aca7c1351e135215c28375ef84f83d1a86b0324ec1" => :sierra
+    sha256 "613ca2f401b491abe6d16eb51dfe1d955d7e985d04fc82950633c807f15b017c" => :el_capitan
+    sha256 "c4fe31125eaff34fca1a71d7fe923d9e0fe3cde230df0fba0d9bb2c2067ea493" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -22,6 +21,10 @@ class Spdylay < Formula
   depends_on "openssl"
 
   def install
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_search_clock_gettime"] = "no"
+    end
+
     if MacOS.version > :lion
       Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
     end
@@ -33,6 +36,6 @@ class Spdylay < Formula
   end
 
   test do
-    system "#{bin}/spdycat", "-ns", "https://www.google.com"
+    system "#{bin}/spdycat", "-ns", "https://cloudflare.com/"
   end
 end

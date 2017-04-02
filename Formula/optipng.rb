@@ -1,6 +1,6 @@
 class Optipng < Formula
   desc "PNG file optimizer"
-  homepage "http://optipng.sourceforge.net/"
+  homepage "https://optipng.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.6/optipng-0.7.6.tar.gz"
   sha256 "4870631fcbd3825605f00a168b8debf44ea1cda8ef98a73e5411eee97199be80"
   head "http://hg.code.sf.net/p/optipng/mercurial", :using => :hg

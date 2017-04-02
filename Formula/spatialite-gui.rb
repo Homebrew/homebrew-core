@@ -3,13 +3,13 @@ class SpatialiteGui < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite_gui/index"
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-1.7.1.tar.gz"
   sha256 "cb9cb1ede7f83a5fc5f52c83437e556ab9cb54d6ace3c545d31b317fd36f05e4"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "0fbfaee7dd9c4793b7e11469528c992e54c3bac3cf5fd584fc808a9774a5bc89" => :el_capitan
-    sha256 "081e91c0e60c56ec3d50141b3082f7fea46d567cd326745022e1dd85e4f7e7d5" => :yosemite
-    sha256 "7b628fb9a2b719794e22518572b1a65828bbd2a029f617d0450e0261b60a207f" => :mavericks
+    sha256 "8c6219fb30b7b51d6aafca21fa3e2c357b739855bfedc1f632241356bd9ce498" => :sierra
+    sha256 "596f35dbeaf112fb90d6be6f80b71751e98a6c9dd5b3dbd9261a959b933e761b" => :el_capitan
+    sha256 "83c4e28e2b12b5bcb6bf3e567a3f7b8f76e6e8bfd139675dc8b7d9aa58928e77" => :yosemite
   end
 
   depends_on "pkg-config" => :build

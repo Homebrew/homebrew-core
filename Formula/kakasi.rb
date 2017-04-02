@@ -5,7 +5,8 @@ class Kakasi < Formula
   sha256 "004276fd5619c003f514822d82d14ae83cd45fb9338e0cb56a44974b44961893"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "a50761a65d9b64f65d81b6045e992dbfb99746815433f7fc187b43bb0aa36f85" => :sierra
     sha256 "7fca04e65ce14fa8d18d19e197525063274057a2760e4841d4e8a9b06f4b0fa3" => :el_capitan
     sha256 "da407c10d807cf72679df6555d29b53f388dd32abf674f1ae0ecbace44fc3372" => :yosemite
     sha256 "86403b2e2a45e2ea81b78bbe7edc7bf2b01d464f351ea265441413e63bf85822" => :mavericks
@@ -20,7 +21,7 @@ class Kakasi < Formula
 
   test do
     hiragana = "\xa4\xa2 \xa4\xab \xa4\xb5"
-    romanji = pipe_output("kakasi -rh -ieuc -Ha", hiragana).chomp
+    romanji = pipe_output("#{bin}/kakasi -rh -ieuc -Ha", hiragana).chomp
     assert_equal "a ka sa", romanji
   end
 end

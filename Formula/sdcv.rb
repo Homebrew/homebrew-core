@@ -5,14 +5,14 @@ class Sdcv < Formula
   url "https://github.com/Dushistov/sdcv.git",
       :revision => "c347ae7da9b7969e00696b18035d9a7d200e43e3"
   version "0.5-2013-09-10"
-  revision 1
+  revision 2
 
   head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
-    sha256 "9ae2c835816921fbe2a6189b78509d5a92408a77723fcc3e7a4cf7c56d3a2a0f" => :el_capitan
-    sha256 "f4aef462462c318d8649c07b23b31c1cff699de820e0fa2a6f908d7357f92086" => :yosemite
-    sha256 "4c8b281d47b0a90f457eed9074349d5e8d8d32d481e9cec8b4ed05810c787380" => :mavericks
+    sha256 "09a194ebd5c0b549df0e5b23d42e39ecf9e4103acc94940a00cc5ca9a3e75cc7" => :sierra
+    sha256 "4e8d8fe4b13b92c82dc0047dcf8b0f1aaee482d355ec1a19ad49623675d4e371" => :el_capitan
+    sha256 "481df7fdcbacc61fdde3706b750c6e7e2c873f2134bbbac8044262a192af2e2f" => :yosemite
   end
 
   depends_on "pkg-config" => :build

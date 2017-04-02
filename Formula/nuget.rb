@@ -1,16 +1,16 @@
 class Nuget < Formula
   desc "Package manager for Microsoft development platform including .NET"
   homepage "https://www.nuget.org/"
-  url "https://dist.nuget.org/win-x86-commandline/v3.4.3/nuget.exe"
-  version "3.4.3"
-  sha256 "3b1ea72943968d7af6bacdb4f2f3a048a25afd14564ef1d8b1c041fdb09ebb0a"
+  url "https://dist.nuget.org/win-x86-commandline/v4.0.0/NuGet.exe"
+  version "4.0.0"
+  sha256 "cc52f94b2f1ba7cd485e546f8059cada2e9daee2ae27abde54507e9b1661e6d1"
 
   bottle :unneeded
 
   depends_on "mono"
 
   def install
-    libexec.install "nuget.exe"
+    libexec.install "NuGet.exe" => "nuget.exe"
     (bin/"nuget").write <<-EOS.undent
       #!/bin/bash
       mono #{libexec}/nuget.exe "$@"

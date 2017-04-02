@@ -36,7 +36,7 @@ class Dirmngr < Formula
   end
 
   test do
-    system "dirmngr-client", "--help"
-    system "dirmngr", "--help"
+    system "#{bin}/dirmngr-client", "--help"
+    system "#{bin}/dirmngr", "--help"
   end
 end

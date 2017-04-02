@@ -3,14 +3,14 @@ class RedisLeveldb < Formula
   homepage "https://github.com/KDr2/redis-leveldb"
   url "https://github.com/KDr2/redis-leveldb/archive/v1.4.tar.gz"
   sha256 "b34365ca5b788c47b116ea8f86a7a409b765440361b6c21a46161a66f631797c"
+  revision 1
   head "https://github.com/KDr2/redis-leveldb.git"
 
   bottle do
     cellar :any
-    sha256 "fed618a2f55bf9703961b92c79f5d311112f9fa70682b1d99beba21562773b92" => :el_capitan
-    sha256 "bc87b077a7782bdc7d117f1aaafe788bc7fe954434ddc5263b83bf04f9d9e151" => :yosemite
-    sha256 "ab18b0f70c39fb6a786c7a4efb264176ce8debcb6e6caf19ec01bf062c48e6bc" => :mavericks
-    sha256 "cebb22e111395ed877ba8172f12481b25bbeede765f8d00f74bfab97746b6576" => :mountain_lion
+    sha256 "a08edcd652cdc842d61081caa5aaef6078735951f77c8c29711e3ddfbc3652d7" => :sierra
+    sha256 "8ba3949a7b45b0b94699988ea45b3113165d1ef21307598e2015789a5d25791e" => :el_capitan
+    sha256 "e7b2e352b0ff1e65cf768b5219b5ea2ae729240e8004c936792788f72d6a2b76" => :yosemite
   end
 
   depends_on "libev"
@@ -25,6 +25,6 @@ class RedisLeveldb < Formula
   end
 
   test do
-    system "redis-leveldb", "-h"
+    system "#{bin}/redis-leveldb", "-h"
   end
 end

@@ -7,7 +7,8 @@ class Nrpe < Formula
 
   bottle do
     cellar :any
-    revision 2
+    rebuild 2
+    sha256 "7f1020ec90004decbe2f902bbf3aa31cc994ee073da054c5aa3713f61b785a4d" => :sierra
     sha256 "a2af86f9a4eae43266f84f9cf62544657a2508272249a9f39a3dd62b06642b0c" => :el_capitan
     sha256 "7e5975244c0a97fc01bbd5aaabd73f768f7cc831bed026394b59e0d7ebf32cdf" => :yosemite
     sha256 "59df072ab20b615e4c26198be439796f4415816af5be7cd661a3d115d7f73705" => :mavericks
@@ -44,6 +45,8 @@ class Nrpe < Formula
     system "make", "install-daemon-config"
   end
 
+  plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
+
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -53,7 +56,7 @@ class Nrpe < Formula
       <string>org.nrpe.agent</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{HOMEBREW_PREFIX}/bin/nrpe</string>
+        <string>#{opt_bin}/nrpe</string>
         <string>-c</string>
         <string>#{etc}/nrpe.cfg</string>
         <string>-d</string>
@@ -69,13 +72,20 @@ class Nrpe < Formula
     EOS
   end
 
-  def caveats
-    <<-EOS.undent
-    The nagios plugin check_nrpe has been installed in:
-      #{HOMEBREW_PREFIX}/sbin
+  test do
+    pid = fork do
+      exec "#{bin}/nrpe", "-n", "-c", "#{etc}/nrpe.cfg", "-d"
+    end
+    sleep 2
 
-    You can start the daemon with
-      #{bin}/nrpe -c #{etc}/nrpe.cfg -d
-    EOS
+    begin
+      output = shell_output("netstat -an")
+      assert_match /.*\*\.5666.*LISTEN/, output, "nrpe did not start"
+      pid_nrpe = shell_output("pgrep nrpe").to_i
+    ensure
+      Process.kill("SIGINT", pid_nrpe)
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end

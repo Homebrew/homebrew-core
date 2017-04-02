@@ -1,21 +1,20 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "http://ftp.exim.org/pub/exim/exim4/exim-4.86.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.86.2.tar.bz2"
-  sha256 "7756deafd0583776e091f2efcba9b36203e668cf420d8876f314980803636eb3"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
+  sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
 
   bottle do
-    sha256 "9386715ff3734f8efa535cfd0e4766a248cd2cc48b71cde72292001a1fc208a8" => :el_capitan
-    sha256 "51d1fda02c60d0e7652c79a0fb92b60ee0b81031cc372b05b5874f74e80c13db" => :yosemite
-    sha256 "466f841e61afbd9ed4143a19fdff554b57a44591edc22ba5151dc01dcbb77f16" => :mavericks
+    sha256 "b76c1dc01d5ff622c16ddbaee4405b6738bd0a4443fa162714994bc055224014" => :sierra
+    sha256 "d65075ea2095eeb918d4314493a634b35f330813425ee1a84b2bfdeadc346404" => :el_capitan
+    sha256 "eaaca1b7231700c5d7dd558c1a754c94c3643a3132ddedc415bd50382bbcb598" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
   option "with-maildir", "Support delivery in Maildir format"
 
   depends_on "pcre"
-  depends_on "berkeley-db4"
+  depends_on "berkeley-db@4"
   depends_on "openssl"
 
   def install
@@ -40,7 +39,7 @@ class Exim < Formula
       s << "LOOKUP_LIBS=-L#{HOMEBREW_PREFIX}/lib\n"
     end
 
-    bdb4 = Formula["berkeley-db4"]
+    bdb4 = Formula["berkeley-db@4"]
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
@@ -52,7 +51,7 @@ class Exim < Formula
     # The compile script ignores CPPFLAGS
     ENV.append "CFLAGS", ENV.cppflags
 
-    ENV.j1 # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
+    ENV.deparallelize # See: https://lists.exim.org/lurker/thread/20111109.083524.87c96d9b.en.html
     system "make"
     system "make", "INSTALL_ARG=-no_chown", "install"
     man8.install "doc/exim.8"
@@ -89,5 +88,9 @@ class Exim < Formula
       exim_ctl start
     Don't forget to run it as root to be able to bind port 25.
     EOS
+  end
+
+  test do
+    assert_match "Mail Transfer Agent", shell_output("#{bin}/exim --help 2>&1", 1)
   end
 end

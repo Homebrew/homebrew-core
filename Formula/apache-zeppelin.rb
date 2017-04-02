@@ -1,8 +1,8 @@
 class ApacheZeppelin < Formula
   desc "Web-based notebook that enables interactive data analytics"
   homepage "https://zeppelin.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.6.1/zeppelin-0.6.1-bin-all.tgz"
-  sha256 "5185952361d1999fb3c00b8aca2c6ddc57353af5a1fd93f4f5b9dd89c7222147"
+  url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.7.1/zeppelin-0.7.1-bin-all.tgz"
+  sha256 "eaa7c34bb7e4dd0e722f330fe524e361cd8f05980dad214f92f5d6701861f3d8"
   head "https://github.com/apache/zeppelin.git"
 
   bottle :unneeded
@@ -23,14 +23,16 @@ class ApacheZeppelin < Formula
       (conf/"zeppelin-env.sh").write <<-EOF.undent
         export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
         export ZEPPELIN_PORT=9999
+        export ZEPPELIN_NOTEBOOK_DIR="#{testpath}/notebooks"
+        export ZEPPELIN_MEM="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
       EOF
       ln_s "#{libexec}/conf/log4j.properties", conf
       ln_s "#{libexec}/conf/shiro.ini", conf
       system "#{bin}/zeppelin-daemon.sh", "start"
       begin
-        sleep 10
-        json_text = shell_output("curl -s http://localhost:9999/api/notebook/r")
-        assert_operator Utils::JSON.load(json_text)["body"]["paragraphs"].length, :>=, 1
+        sleep 25
+        json_text = shell_output("curl -s http://localhost:9999/api/notebook/")
+        assert_equal JSON.parse(json_text)["status"], "OK"
       ensure
         system "#{bin}/zeppelin-daemon.sh", "stop"
       end

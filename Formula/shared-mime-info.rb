@@ -1,15 +1,15 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://freedesktop.org/~hadess/shared-mime-info-1.7.tar.xz"
-  sha256 "eacc781cfebaa2074e43cf9521dc7ab4391ace8a4712902b2841669c83144d2e"
+  url "https://freedesktop.org/~hadess/shared-mime-info-1.8.tar.xz"
+  sha256 "2af55ef1a0319805b74ab40d331a3962c905477d76c086f49e34dc96363589e9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "aadb2c040a533a871655775fb098ce2fb572f3062ebf2cfc7883626c2b91ed8c" => :sierra
-    sha256 "0b26d9f703f1781ba102e048fc454f42174b102c8cfeadf2a6f71da2b60d1b97" => :el_capitan
-    sha256 "e42eb67b706cf232232aae7a7e537a17bbf1151689fb1943f8b1f257b829c4ee" => :yosemite
-    sha256 "afad947215205d1091325d9eec5e53ce7f012e601f97f1f1bf61c3b424121bae" => :mavericks
+    sha256 "06cca38ff0a8777b3897caaafdbf701d3db751e21e5b0f2dacc0296bfebbfca9" => :sierra
+    sha256 "f0dd34a6026ed39cb5db68f7c3291eab72eab3609e8caa94240ec3099d72e85f" => :el_capitan
+    sha256 "5423f228303a77c6f4ff20fe40edd4b437750805f72ad20f3b58d8254cb8af19" => :yosemite
   end
 
   head do
@@ -37,6 +37,15 @@ class SharedMimeInfo < Formula
       system "./configure", *args
     end
     system "make", "install"
+    pkgshare.install share/"mime/packages"
+    rmdir share/"mime"
+  end
+
+  def post_install
+    ln_sf HOMEBREW_PREFIX/"share/mime", share/"mime"
+    (HOMEBREW_PREFIX/"share/mime/packages").mkpath
+    cp (pkgshare/"packages").children, HOMEBREW_PREFIX/"share/mime/packages"
+    system bin/"update-mime-database", HOMEBREW_PREFIX/"share/mime"
   end
 
   test do

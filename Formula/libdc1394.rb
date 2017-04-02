@@ -14,17 +14,14 @@ class Libdc1394 < Formula
     sha256 "989b8f20b2ad01c6c3d607fe974c3cf5ad005b51afa8455ec712325c8d4d5b22" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "sdl"
 
   # fix issue due to bug in OSX Firewire stack
   # libdc1394 author comments here:
-  # http://permalink.gmane.org/gmane.comp.multimedia.libdc1394.devel/517
+  # https://permalink.gmane.org/gmane.comp.multimedia.libdc1394.devel/517
   patch :DATA
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-examples",

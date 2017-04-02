@@ -3,26 +3,22 @@ class Log4cxx < Formula
   homepage "https://logging.apache.org/log4cxx/index.html"
   url "https://www.apache.org/dyn/closer.cgi?path=logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz"
   sha256 "0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e588ef7c319d3fca76aeb29684ed1ec66f648a04c06d2f4263889b81d3c24067" => :el_capitan
-    sha256 "803d857c115430068d91887a218159dd728b87c94c8a819807225817ff9f2ecb" => :yosemite
-    sha256 "93b74be0ecb9bdb32ab803fbae0836ad58387a9ff1ba9346334e734596da7b6d" => :mavericks
-    sha256 "6b07acbb1e77d8d7edc7e111f57250b9d05c9b9c8aa6f1363f919940695aa1f9" => :mountain_lion
+    sha256 "0e1c8e304f87bdb864f14e7b158e2f9e82ab4300a0ea144a8abaf9c8d5bc2976" => :sierra
+    sha256 "16eb54dca4f5d772a23d55d9599947f93a8c6003df5d6a4ad468b99daeda9153" => :el_capitan
+    sha256 "b96afe3f4e4b63017d2061028ed8792c4190996b1e008d8c87c3f52dba660ec5" => :yosemite
   end
 
-  option :universal
   option :cxx11
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  fails_with :llvm do
-    build 2334
-    cause "Fails with 'collect2: ld terminated with signal 11 [Segmentation fault]'"
-  end
+  depends_on "apr-util"
 
   # Incorporated upstream, remove on next version update
   # https://issues.apache.org/jira/browse/LOGCXX-400 (r1414037)
@@ -45,7 +41,6 @@ class Log4cxx < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.O2 # Using -Os causes build failures on Snow Leopard.
     ENV.cxx11 if build.cxx11?
 
@@ -55,8 +50,47 @@ class Log4cxx < Formula
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          # Docs won't install on OS X
-                          "--disable-doxygen"
+                          # Docs won't install on macOS
+                          "--disable-doxygen",
+                          "--with-apr=#{Formula["apr"].opt_bin}",
+                          "--with-apr-util=#{Formula["apr-util"].opt_bin}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <log4cxx/logger.h>
+      #include <log4cxx/propertyconfigurator.h>
+      int main() {
+        log4cxx::PropertyConfigurator::configure("log4cxx.config");
+
+        log4cxx::LoggerPtr log = log4cxx::Logger::getLogger("Test");
+        log->setLevel(log4cxx::Level::getInfo());
+        LOG4CXX_ERROR(log, "Foo");
+
+        return 1;
+      }
+    EOS
+    (testpath/"log4cxx.config").write <<-EOS.undent
+      log4j.rootLogger=debug, stdout, R
+
+      log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+      log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+      # Pattern to output the caller's file name and line number.
+      log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n
+
+      log4j.appender.R=org.apache.log4j.RollingFileAppender
+      log4j.appender.R.File=example.log
+
+      log4j.appender.R.MaxFileSize=100KB
+      # Keep one backup file
+      log4j.appender.R.MaxBackupIndex=1
+
+      log4j.appender.R.layout=org.apache.log4j.PatternLayout
+      log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
+    EOS
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-llog4cxx"
+    assert_match /ERROR.*Foo/, shell_output("./test", 1)
   end
 end

@@ -6,13 +6,13 @@ class YamlCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "fe1fca40afa3817fd44b1f3c4810dce9f4d20390522526e72d775b9336fc3c3a" => :sierra
     sha256 "20b38c2f7c47550b458cb5b6f054795d90f4955d2525656e6d713cdbe7d451b1" => :el_capitan
     sha256 "e0a51ff0b33568695412fe43cdc51b26642ae46dfb6dac56b813295057c91bb6" => :yosemite
     sha256 "c779f86632b38472e022ad91f0f5ddb0f399fd547d36cbc5494a76c0f6becd48" => :mavericks
   end
 
   option :cxx11
-  option :universal
   option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
@@ -25,7 +25,6 @@ class YamlCpp < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    ENV.universal_binary if build.universal?
     args = std_cmake_args
     if build.with? "static-lib"
       args << "-DBUILD_SHARED_LIBS=OFF"

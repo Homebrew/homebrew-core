@@ -1,18 +1,18 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  url "https://ftpmirror.gnu.org/apl/apl-1.6.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/apl/apl-1.6.tar.gz"
-  sha256 "5e0da83048d81fd99330186f65309661f8070de2472851a8e639b3b7f7e7ff14"
+  url "https://ftpmirror.gnu.org/apl/apl-1.7.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/apl/apl-1.7.tar.gz"
+  sha256 "8ff6e28256d7a3cdfa9dc6025e3905312310b27a43645ef5d617fd4a5b43b81f"
 
   bottle do
-    sha256 "cc3944f693826f8d81cbe4218c02f5c2228ee1388acd9243e80a38d700cb0bc5" => :el_capitan
-    sha256 "afba303d682ed0f666658e0200b25e2deafb2eb36a16014249efb23ed12893a6" => :yosemite
-    sha256 "1714ec1b2b3b31c7d3468c0ee74f6f6c74e1e08c89fff94099020ff8d7c023aa" => :mavericks
+    sha256 "ba1839e1a64c434180af2b8ba81c43e35cacd685eed11fcbeaeced5c5e58b87f" => :sierra
+    sha256 "1077298d934bc67c86d8196405f7ff312e52631ed3489bb868cf7d23196a6bf9" => :el_capitan
+    sha256 "235adcfc3ec604544b0c18cd61b6b4f1b9bbe47f1415e6b94e13f9a7d9264115" => :yosemite
   end
 
   head do
-    url "http://svn.savannah.gnu.org/svn/apl/trunk"
+    url "https://svn.savannah.gnu.org/svn/apl/trunk"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
@@ -24,9 +24,6 @@ class GnuApl < Formula
   depends_on :macos => :mavericks
 
   def install
-    # Fix "LApack.cc:21:10: fatal error: 'malloc.h' file not found"
-    inreplace "src/LApack.cc", "malloc.h", "malloc/malloc.h"
-
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

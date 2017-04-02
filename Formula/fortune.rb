@@ -30,7 +30,7 @@ class Fortune < Formula
       # Now change all /usr/local at once to the prefix
       s.gsub! "/usr/local", prefix
 
-      # OS X only supports POSIX regexes
+      # macOS only supports POSIX regexes
       s.change_make_var! "REGEXDEFS", "-DHAVE_REGEX_H -DPOSIX_REGEX"
       # Don't install offensive fortunes
       s.change_make_var! "OFFENSIVE", "0" if build.without? "offensive"

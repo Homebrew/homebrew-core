@@ -4,14 +4,14 @@ class Mighttpd2 < Formula
   include Language::Haskell::Cabal
 
   desc "HTTP server"
-  homepage "http://www.mew.org/~kazu/proj/mighttpd/en/"
-  url "https://hackage.haskell.org/package/mighttpd2-3.3.3/mighttpd2-3.3.3.tar.gz"
-  sha256 "f716ab686c9edb2d549f03b069c3b630dd5c147eff6ab1317781450c47a8f7b4"
+  homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
+  url "https://hackage.haskell.org/package/mighttpd2-3.4.1/mighttpd2-3.4.1.tar.gz"
+  sha256 "0f24c72662be4a0e3d75956fff53899216e29ac7eb29dae771c7e4eb77bdd8d5"
 
   bottle do
-    sha256 "d2b5a274f84ec67fc75688a768d49ea8d9106ea44412c6848cee22431e0c0df5" => :el_capitan
-    sha256 "c156702fc0ce1fc115df23f73923bb27c357aee4e5d0db424beb85947510383a" => :yosemite
-    sha256 "b5082be8f6888b3fc038408f6face1f3afe6206d38c1b287aea6f9dfdb3c1994" => :mavericks
+    sha256 "7f26272fd123a12d54b5cdbf52ede0131885da7e1f9778eb36b6481c6b9e4186" => :sierra
+    sha256 "98d87017e4b7dc074f4da31fab05816338d01421de0e22ad037371f1dc060efd" => :el_capitan
+    sha256 "b21f19f4262c05883e11b37388ff46126c1130bf84c568105e9e47b6266290d6" => :yosemite
   end
 
   depends_on "ghc" => :build

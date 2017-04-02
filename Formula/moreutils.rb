@@ -1,9 +1,9 @@
 class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
-  url "git://git.kitenet.net/moreutils",
-      :tag => "0.60",
-      :revision => "1173bd9f10d731485f3b63f1c7ff55eb9c58a605"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/moreutils/moreutils_0.60.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/moreutils/moreutils_0.60.orig.tar.xz"
+  sha256 "e42d18bacbd2d003779a55fb3542befa5d1d217ee37c1874e8c497581ebc17c5"
   head "git://git.joeyh.name/moreutils"
 
   bottle do
@@ -15,12 +15,14 @@ class Moreutils < Formula
   end
 
   option "without-parallel", "Build without the 'parallel' tool."
+  option "without-errno", "Build without the 'errno' tool, for compatibility with 'pwntools'."
+  option "without-ts", "Build without the 'ts' tool, for compatibility with 'task-spooler'."
 
   depends_on "docbook-xsl" => :build
 
-  conflicts_with "parallel", :because => "Both install a `parallel` executable."
-  conflicts_with "pwntools", :because => "Both install an `errno` executable."
-  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
+  conflicts_with "parallel", :because => "Both install a `parallel` executable." if build.with? "parallel"
+  conflicts_with "pwntools", :because => "Both install an `errno` executable." if build.with? "errno"
+  conflicts_with "task-spooler", :because => "Both install a `ts` executable." if build.with? "ts"
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
@@ -47,17 +49,20 @@ class Moreutils < Formula
       system "make", "install"
     end
 
-    inreplace "Makefile",
-              "/usr/share/xml/docbook/stylesheet/docbook-xsl",
+    inreplace "Makefile" do |s|
+      s.gsub! "/usr/share/xml/docbook/stylesheet/docbook-xsl",
               "#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
-    if build.without? "parallel"
-      inreplace "Makefile", /^BINS=.*\Kparallel/, ""
-      inreplace "Makefile", /^MANS=.*\Kparallel\.1/, ""
+      %w[parallel errno ts].each do |util|
+        next if build.with? util
+        s.gsub! /^BINS=.*\K#{util}/, "", false
+        s.gsub! /^MANS=.*\K#{util}\.1/, ""
+        s.gsub! /^PERLSCRIPTS=.*\K#{util}/, "", false
+      end
     end
     system "make", "all"
     system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

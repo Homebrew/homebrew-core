@@ -1,15 +1,14 @@
 class GnomeIconTheme < Formula
   desc "Icons for the GNOME project"
   homepage "https://developer.gnome.org"
-  url "https://download.gnome.org/sources/adwaita-icon-theme/3.20/adwaita-icon-theme-3.20.tar.xz"
-  sha256 "7a0a887349f340dd644032f89d81264b694c4b006bd51af1c2c368d431e7ae35"
+  url "https://download.gnome.org/sources/adwaita-icon-theme/3.24/adwaita-icon-theme-3.24.0.tar.xz"
+  sha256 "ccf79ff3bd340254737ce4d28b87f0ccee4b3358cd3cd5cd11dc7b42f41b272a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d69343d2503ebe9be432c7e72bcffb8ea23373691b07daf1352e02806901676" => :sierra
-    sha256 "a142df8966a20f3fcb822e6f0d1c22bb05e0853d868a4e333c7d7051dcfbb08e" => :el_capitan
-    sha256 "1400ab040506ae631f75ccfd97bb73237fea4bc42afe6cda630ee62f7eed0602" => :yosemite
-    sha256 "1069597c5927c5370a589ae96b1ec5378f87f739413430d164bacaf5a00c53a6" => :mavericks
+    sha256 "8c0129752f29ddbdaf32f5517fbeb9fd76b8bc0a82ddb5f2b270544c3ed33ea9" => :sierra
+    sha256 "8c0129752f29ddbdaf32f5517fbeb9fd76b8bc0a82ddb5f2b270544c3ed33ea9" => :el_capitan
+    sha256 "8c0129752f29ddbdaf32f5517fbeb9fd76b8bc0a82ddb5f2b270544c3ed33ea9" => :yosemite
   end
 
   depends_on "pkg-config" => :build

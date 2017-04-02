@@ -6,6 +6,7 @@ class Shorten < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a54b8263dfbd2aab185df1888193dc0ceb602d9df82758cf5ef31b3df52ae697" => :sierra
     sha256 "66cf7cabae065035e9c3c4a8c139439384fb9f26ea0ee433e336c18ba2f8383e" => :el_capitan
     sha256 "5f48b61ce709915830f433dd381fe531c1354b56619bbdb441dc19f985df7467" => :yosemite
     sha256 "a802da618fffa3eb292705140c882fcedbffae09017f0efdf69085004952a148" => :mavericks

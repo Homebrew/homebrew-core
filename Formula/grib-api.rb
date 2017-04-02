@@ -1,13 +1,14 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.17.0-Source.tar.gz"
-  sha256 "55cbb4fdcb4ee1be6a27cece9ae7e26070beb8ab6cb7e77773db3fb0d4272462"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.19.0.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.19.0.orig.tar.xz"
+  sha256 "c234a0a6d551a79ac77eae86b5effaa82c96dfc16ba6a8e7570067d83f1f6326"
 
   bottle do
-    sha256 "8385d6d75a6b8a0c727d227990a4f30425242b07926111eb47306b4edb792b75" => :el_capitan
-    sha256 "6b9c42c18630c12889ebcf112b77d145e4126d20e64416746cecd66db395d5ec" => :yosemite
-    sha256 "eceae2f4b4841aa46e55b85750aad88b81efb44c1be5aa25736f799dd8f8d6be" => :mavericks
+    sha256 "0f8223d6a5d6896171940bfdb331f56b5247dd73cff69e6d1ed54c2e4b0a2d03" => :sierra
+    sha256 "263b65c97059e883da47a1f1964500f3ba289fbb3d2597f7822b8f919d648e03" => :el_capitan
+    sha256 "6fb2acd370359d14f5bdaa6340e10d0987057b0fcba55bc9e1a3c73ed1d280f2" => :yosemite
   end
 
   option "with-static", "Build static instead of shared library."
@@ -17,11 +18,22 @@ class GribApi < Formula
   depends_on "libpng" => :optional
   depends_on :fortran
 
-  # Fixes build errors in Lion
-  # https://software.ecmwf.int/wiki/plugins/viewsource/viewpagesrc.action?pageId=12648475
-  patch :DATA
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/16/f5/b432f028134dd30cfbf6f21b8264a9938e5e0f75204e72453af08d67eb0b/numpy-1.11.2.tar.gz"
+    sha256 "04db2fbd64e2e7c68e740b14402b25af51418fc43a59d9e54172b38b906b0f69"
+  end
 
   def install
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    resource("numpy").stage do
+      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+    end
+
+    # Fix "no member named 'inmem_' in 'jas_image_t'"
+    inreplace "src/grib_jasper_encoding.c", "image.inmem_    = 1;", ""
+
+    inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
+
     mkdir "build" do
       args = std_cmake_args
       args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
@@ -42,36 +54,3 @@ class GribApi < Formula
     system bin/"grib_ls", "#{grib_samples_path}/GRIB2.tmpl"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 0a88b28..9dafe46 100755
---- a/configure
-+++ b/configure
-@@ -7006,7 +7006,7 @@ $as_echo_n "checking for $compiler option to produce PIC... " >&6; }
-     darwin* | rhapsody*)
-       # PIC is the default on this platform
-       # Common symbols not allowed in MH_DYLIB files
--      lt_prog_compiler_pic='-fno-common'
-+      #lt_prog_compiler_pic='-fno-common'
-       ;;
- 
-     hpux*)
-@@ -12186,7 +12186,7 @@ $as_echo_n "checking for $compiler option to produce PIC... " >&6; }
-     darwin* | rhapsody*)
-       # PIC is the default on this platform
-       # Common symbols not allowed in MH_DYLIB files
--      lt_prog_compiler_pic_F77='-fno-common'
-+      #lt_prog_compiler_pic_F77='-fno-common'
-       ;;
- 
-     hpux*)
-@@ -15214,7 +15214,7 @@ $as_echo_n "checking for $compiler option to produce PIC... " >&6; }
-     darwin* | rhapsody*)
-       # PIC is the default on this platform
-       # Common symbols not allowed in MH_DYLIB files
--      lt_prog_compiler_pic_FC='-fno-common'
-+      #lt_prog_compiler_pic_FC='-fno-common'
-       ;;
- 
-     hpux*)

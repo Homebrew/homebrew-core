@@ -5,7 +5,6 @@ class Cdrtools < Formula
 
   stable do
     url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01.tar.bz2"
-    mirror "https://www.mirrorservice.org/sites/downloads.sourceforge.net/c/cd/cdrtools/cdrtools-3.01.tar.bz2"
     mirror "https://fossies.org/linux/misc/cdrtools-3.01.tar.bz2"
     sha256 "ed282eb6276c4154ce6a0b5dee0bdb81940d0cbbfc7d03f769c4735ef5f5860f"
 
@@ -16,16 +15,17 @@ class Cdrtools < Formula
   end
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "f97ea5375a9dd443000397890ab8424905f02ea278ab8dd4568ff4c7288d038a" => :sierra
     sha256 "4724b3dfe367cf28dbd98dad6ddd47179e5b5d1b599a8fff8f0fa8cc4621acb2" => :el_capitan
     sha256 "5370586e423d9b842b7ebd0cdb3dd2c763c433be9896bcab636cc56ecd5e0634" => :yosemite
     sha256 "1b3f3ab5baf44ad31f8d09e36de6df59901ce036cc681c54187fe5f41dc8bb94" => :mavericks
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/cdrtools/alpha/cdrtools-3.02a06.tar.bz2"
-    mirror "https://fossies.org/linux/misc/cdrtools-3.02a06.tar.bz2"
-    sha256 "ed79ab99414352ea9305163660b52b6a82394466bae03aebdbe2150997835eb1"
+    url "https://downloads.sourceforge.net/project/cdrtools/alpha/cdrtools-3.02a07.tar.bz2"
+    mirror "https://fossies.org/linux/misc/cdrtools-3.02a07.tar.bz2"
+    sha256 "49c1a67fa7ad3d7c0b05d41d18cb6677b40d4811faba111f0c01145d3ef0491b"
   end
 
   depends_on "smake" => :build
@@ -40,6 +40,7 @@ class Cdrtools < Formula
     # lib*/*_p.mk files. The latter method produces warnings but works fine.
     rm_f Dir["lib*/*_p.mk"]
     system "smake", "INS_BASE=#{prefix}", "INS_RBASE=#{prefix}", "install"
+    system "smake", "tests" if build.devel?
     # cdrtools tries to install some generic smake headers, libraries and
     # manpages, which conflict with the copies installed by smake itself
     (include/"schily").rmtree

@@ -6,6 +6,7 @@ class Writerperfect < Formula
 
   bottle do
     cellar :any
+    sha256 "cd81ab697a69bb1b004e0a67abcb2b455b0bcc08729631851f0ddd9144260f8d" => :sierra
     sha256 "5443a58b0fe10cfadaf3977fca423c0289e2eba665244a5ebc020cbbbdfc78d6" => :el_capitan
     sha256 "9f7253806ba136c75dc4920f6eca864258a1b1021fce2e7ff5b772573b3b742e" => :yosemite
     sha256 "763ae44dd67dbbdb4b5d1efd8a749fd9c9ee32fb040aceb76696923a5b6ca815" => :mavericks

@@ -3,6 +3,7 @@ class Glslang < Formula
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
   url "https://github.com/KhronosGroup/glslang/archive/3.0.tar.gz"
   sha256 "91653d09a90440a0bc35aa490d0c44973501257577451d4c445b2df5e78d118c"
+  head "https://github.com/KhronosGroup/glslang.git"
 
   bottle do
     cellar :any_skip_relocation

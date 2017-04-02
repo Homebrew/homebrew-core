@@ -20,10 +20,7 @@ class Libtool < Formula
 
   keg_only :provided_until_xcode43
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

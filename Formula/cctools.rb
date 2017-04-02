@@ -97,7 +97,7 @@ class Cctools < Formula
   end
 
   def install
-    ENV.j1 # see https://github.com/mistydemeo/tigerbrew/issues/102
+    ENV.deparallelize # see https://github.com/mistydemeo/tigerbrew/issues/102
 
     if build.with? "llvm"
       inreplace "libstuff/lto.c", "@@LLVM_LIBDIR@@", Formula["llvm"].opt_lib

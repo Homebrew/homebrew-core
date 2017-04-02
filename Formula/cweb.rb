@@ -5,7 +5,8 @@ class Cweb < Formula
   sha256 "1f0bb7aa35b8d43b721d588ed5003620d38de1959652f23bac2847ffcb922c0f"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "3db70e017d77302764e3a1cd2bdd91162cc09a51d79b575980b3cfabd85963e2" => :sierra
     sha256 "2bc79b1783f9701b3f097ed1889686fbaf32dca3b3705f4130a251d004ee3683" => :el_capitan
     sha256 "a70e1ba0613457638f5d41ef9aab280bfa4a98420f216ffec96ec4f313f3a825" => :yosemite
     sha256 "6cca8e442e3722b5467677cd2a80a56375cb6ed513c8adfc1dee33b348db1bb9" => :mavericks

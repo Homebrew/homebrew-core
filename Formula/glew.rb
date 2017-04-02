@@ -1,6 +1,6 @@
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
-  homepage "http://glew.sourceforge.net/"
+  homepage "https://glew.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/glew/glew/2.0.0/glew-2.0.0.tgz"
   sha256 "c572c30a4e64689c342ba1624130ac98936d7af90c3103f9ce12b8a0c5736764"
   head "https://github.com/nigels-com/glew.git"
@@ -13,16 +13,7 @@ class Glew < Formula
     sha256 "2b72bd7d59343ae64eaa87fd69f806759ac356a77300bb6b6a6ab40247384dc2" => :mavericks
   end
 
-  option :universal
-
   def install
-    if build.universal?
-      ENV.universal_binary
-
-      # Do not strip resulting binaries; https://sourceforge.net/p/glew/bugs/259/
-      ENV["STRIP"] = ""
-    end
-
     inreplace "glew.pc.in", "Requires: @requireslib@", ""
     system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "all"
     system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "install.all"

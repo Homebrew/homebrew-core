@@ -1,15 +1,14 @@
 class Scrypt < Formula
   desc "Encrypt and decrypt files using memory-hard password function"
   homepage "https://www.tarsnap.com/scrypt.html"
-  url "https://www.tarsnap.com/scrypt/scrypt-1.2.0.tgz"
-  sha256 "1754bc89405277c8ac14220377a4c240ddc34b1ce70882aa92cd01bfdc8569d4"
+  url "https://www.tarsnap.com/scrypt/scrypt-1.2.1.tgz"
+  sha256 "4621f5e7da2f802e20850436219370092e9fcda93bd598f6d4236cce33f4c577"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "a81147625da927a61035f18d320a56d4b7e0055cc3ff0640dde0e6f2c0cada9d" => :el_capitan
-    sha256 "ad6fee3523c53b2f323b896d60de404c1358459ceffdf8a9014967b045863051" => :yosemite
-    sha256 "fc7272e275fd43e3c5a63bf00294564823a944639ab60ed10aaae40cf2a67f8a" => :mavericks
+    sha256 "d2f0f0170d78fae63833094fbdcb920489c9e04fb4579a0b82ca527ebd7bb12f" => :sierra
+    sha256 "2028c6a6a14d6753deae95d35d94c75cfcc64633ed69b3fea7f9da7a47d079b1" => :el_capitan
+    sha256 "15c52d5c143e002bd5dec4bb70020f0ff05f66a85067e187e1a08b0d04f3b9f5" => :yosemite
   end
 
   head do

@@ -1,24 +1,17 @@
 class Heroku < Formula
   desc "Everything you need to get started with Heroku"
-  homepage "https://toolbelt.heroku.com/standalone"
-  url "https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client-3.43.12.tgz"
-  sha256 "a4a70d9834eaa4ab4094ce5c47fb1148f7cc9603008ebe5b462c4f28a846fffc"
-  head "https://github.com/heroku/heroku.git"
+  homepage "https://cli.heroku.com"
+  url "https://cli-assets.heroku.com/branches/stable/5.6.28-2643c0a/heroku-v5.6.28-2643c0a-darwin-amd64.tar.xz"
+  version "5.6.28-2643c0a"
+  sha256 "7d0320800410821349a0f44be1ca49619388ef934e3ae2334b7c6b1f5028da95"
 
   bottle :unneeded
 
   depends_on :arch => :x86_64
-  depends_on :ruby => "1.9"
 
   def install
     libexec.install Dir["*"]
-    # turn off autoupdates (off by default in HEAD)
-    if build.stable?
-      inreplace libexec/"bin/heroku",
-                "Heroku::Updater.inject_libpath",
-                "Heroku::Updater.disable(\"Use `brew upgrade heroku` to update\")"
-    end
-    bin.write_exec_script libexec/"bin/heroku"
+    bin.install_symlink libexec/"bin/heroku"
   end
 
   test do

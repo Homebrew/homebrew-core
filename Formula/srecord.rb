@@ -1,11 +1,12 @@
 class Srecord < Formula
   desc "Tools for manipulating EPROM load files"
-  homepage "http://srecord.sourceforge.net/"
+  homepage "https://srecord.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/srecord/srecord/1.64/srecord-1.64.tar.gz"
   sha256 "49a4418733c508c03ad79a29e95acec9a2fbc4c7306131d2a8f5ef32012e67e2"
 
   bottle do
     cellar :any
+    sha256 "0601896fc392a13f7ef861fc3840fadfc7ddc7313763c1d374555129f4301c0d" => :sierra
     sha256 "6a0df3e5fb40699d9b1198562b3b3a4e1745c3a0d12923c461246b7784b8324c" => :el_capitan
     sha256 "c3c29b357c44bc3da2dbb8f23a6d83aeb637aa374fe0564eb9454e5e6b53d54c" => :yosemite
     sha256 "10a04c2aca5e6f554c00aa57bd05f9c3cbe46238c9af66678dc1e6a3323c5cdb" => :mavericks
@@ -15,7 +16,7 @@ class Srecord < Formula
   depends_on "boost"
   depends_on "libgcrypt"
 
-  # Use OS X's pstopdf
+  # Use macOS's pstopdf
   patch :DATA
 
   def install

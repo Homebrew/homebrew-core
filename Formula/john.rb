@@ -16,11 +16,6 @@ class John < Formula
 
   patch :DATA # Taken from MacPorts, tells john where to find runtime files
 
-  fails_with :llvm do
-    build 2334
-    cause "Don't remember, but adding this to whitelist 2336."
-  end
-
   def install
     ENV.deparallelize
     arch = MacOS.prefer_64_bit? ? "64" : "sse2"
@@ -34,11 +29,11 @@ class John < Formula
     doc.install Dir["doc/*"]
 
     # Only symlink the binary into bin
-    (share/"john").install Dir["run/*"]
-    bin.install_symlink share/"john/john"
+    libexec.install Dir["run/*"]
+    bin.install_symlink libexec/"john"
 
     # Source code defaults to 'john.ini', so rename
-    mv share/"john/john.conf", share/"john/john.ini"
+    mv libexec/"john.conf", libexec/"john.ini"
   end
 end
 

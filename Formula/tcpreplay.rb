@@ -1,39 +1,24 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "http://tcpreplay.appneta.com"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.1.1/tcpreplay-4.1.1.tar.gz"
-  sha256 "61b916ef91049cad2a9ddc8de6f5e3e3cc5d9998dbb644dc91cf3a798497ffe4"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.2.1/tcpreplay-4.2.1.tar.gz"
+  sha256 "224b519e561d969b4bdb0e700c2283e036620e3cb5895d5aab2a7e4f27d21a79"
 
   bottle do
     cellar :any
-    sha256 "bdef98f3c5bfd5daeb2d99c2361ef3be11661c37acf19536ed210b4a2cb5ba89" => :el_capitan
-    sha256 "6faba215d8a394c2761476661c5e62cfff8be36068a71e28c8562d2a7da1286b" => :yosemite
-    sha256 "fb831dbf6c074d5b1f639a22711428610c8e99c396637f2b2014eadb32953060" => :mavericks
+    sha256 "0158b6b6ace73323a16a7e3f4a9bb04085aedf4664daf422c8c95f43906b59bf" => :sierra
+    sha256 "dd7ffb1f76c2403927ef033743b6e2fbd8b7c51b20573aa01496a9e5b61d6d61" => :el_capitan
+    sha256 "3cf78f7ddb86398a1b59fd80a536199e9bbb216f677e741f4bbe15fb542172a7" => :yosemite
   end
 
   depends_on "libdnet"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-debug
-      --prefix=#{prefix}
-      --enable-dynamic-link
-    ]
-
-    if MacOS::Xcode.installed?
-      args << "--with-macosx-sdk=#{MacOS.sdk.version}"
-    else
-      # Allows the CLT to be used if Xcode's not available
-      # Reported 11 Jul 2016: https://github.com/appneta/tcpreplay/issues/254
-      inreplace "configure" do |s|
-        s.gsub! /^.*Could not figure out the location of a Mac OS X SDK.*$/,
-                "MACOSX_SDK_PATH=\"\""
-        s.gsub! " -isysroot $MACOSX_SDK_PATH", ""
-      end
-    end
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--enable-dynamic-link"
     system "make", "install"
   end
 

@@ -1,15 +1,15 @@
 class Distribution < Formula
   desc "Create ASCII graphical histograms in the terminal"
   homepage "https://github.com/philovivero/distribution"
-  url "https://github.com/philovivero/distribution/archive/v1.2.2.tar.gz"
-  sha256 "b6bfca0b2a802c179f0a9b3dc12290ac0331f10f7472230e1e664aeff16ebd63"
+  url "https://github.com/philovivero/distribution/archive/1.3.tar.gz"
+  sha256 "d7f2c9beeee15986d24d8068eb132c0a63c0bd9ace932e724cb38c1e6e54f95d"
   head "https://github.com/philovivero/distribution.git"
 
   bottle :unneeded
 
   def install
     bin.install "distribution.py" => "distribution"
-    doc.install "LICENSE.md", "README.md", "distributionrc", "screenshot.png"
+    doc.install "distributionrc", "screenshot.png"
   end
 
   test do

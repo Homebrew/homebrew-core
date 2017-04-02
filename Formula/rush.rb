@@ -1,15 +1,14 @@
 class Rush < Formula
   desc "GNU's Restricted User SHell"
   homepage "https://www.gnu.org/software/rush/"
-  url "https://ftpmirror.gnu.org/rush/rush-1.7.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/rush/rush-1.7.tar.gz"
-  sha256 "35077fa36902fd451db52b49bf059992a20cc8ea031437171f384670d77a003a"
+  url "https://ftpmirror.gnu.org/rush/rush-1.8.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/rush/rush-1.8.tar.gz"
+  sha256 "7f321e5556435b12638982c8d94c587982122f28c220f8bc679d7817035aadef"
 
   bottle do
-    sha256 "ec2c627144c050dc496d322b30b880a4bea92dafd237edf6ec502b73596fb670" => :el_capitan
-    sha256 "37645baa4f7ce9c904e4f62179bef2de7859a77b070c25095c50fca5cd45037c" => :yosemite
-    sha256 "17866e573319857967d5e12e32a534ea90845a4ec7568b2d1224032cb6bf8619" => :mavericks
-    sha256 "18c1c946892fee725b971f5db26e74da6f1d65686b9df676c329cca6b06a46d0" => :mountain_lion
+    sha256 "6147781c7c30c744d3e3aa69b55e72bb27a320aec6bf6e8d4a8360d5982aad20" => :sierra
+    sha256 "a33fca1d7ccc86d125771c7f4e983244abe182d3a3731faa86fa12f21f7ab18d" => :el_capitan
+    sha256 "5fcd6654497adb320a87fcf9b2b67361f157449f029a918148d90f60089920a1" => :yosemite
   end
 
   def install

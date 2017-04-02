@@ -1,8 +1,8 @@
 class Ansiweather < Formula
   desc "Weather in your terminal, with ANSI colors and Unicode symbols"
   homepage "https://github.com/fcambus/ansiweather"
-  url "https://github.com/fcambus/ansiweather/archive/1.08.tar.gz"
-  sha256 "22dd814ef158df13b3fdbe72ca39e820874e710a4d341d1a2367aa771609665d"
+  url "https://github.com/fcambus/ansiweather/archive/1.10.tar.gz"
+  sha256 "9656ac85b67ff10c5959f31345bb08bfef0b038f6f2fbe09c78363b28f42cc21"
   head "https://github.com/fcambus/ansiweather.git"
 
   bottle :unneeded
@@ -14,6 +14,6 @@ class Ansiweather < Formula
   end
 
   test do
-    system bin/"ansiweather", "-h"
+    assert_match "Wind", shell_output("#{bin}/ansiweather")
   end
 end

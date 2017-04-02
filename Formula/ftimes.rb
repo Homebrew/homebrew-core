@@ -1,11 +1,12 @@
 class Ftimes < Formula
   desc "System baselining and evidence collection tool"
-  homepage "http://ftimes.sourceforge.net/FTimes/index.shtml"
+  homepage "https://ftimes.sourceforge.io/FTimes/index.shtml"
   url "https://downloads.sourceforge.net/project/ftimes/ftimes/3.11.0/ftimes-3.11.0.tgz"
   sha256 "70178e80c4ea7a8ce65404dd85a4bf5958a78f6a60c48f1fd06f78741c200f64"
   revision 1
 
   bottle do
+    sha256 "cbca23c29665bef95b9245e329cfafbb33f5dcc7fa1b60c1ff9e84498bafff91" => :sierra
     sha256 "7c782808f555c9f8afa2bca44c064f9898bcf3a66a14e7b859124f0afc85c97e" => :el_capitan
     sha256 "0cc52b1c4396b5adca1a3adc4a2942f0beef27392f23cb6533db79c54a3657ca" => :yosemite
     sha256 "214b8092f738542005f77d146cc6b85ee69f2f100469dc6e2b78b5f2f0b5c132" => :mavericks

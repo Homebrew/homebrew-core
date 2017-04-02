@@ -1,26 +1,25 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
-  homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.3.tar.gz"
-  sha256 "674e9c38472e96491b7d4f7b42c38b71b5acbca945856e209cb428fbc6135f15"
+  homepage "https://redis.io/"
+  url "http://download.redis.io/releases/redis-3.2.8.tar.gz"
+  sha256 "61b373c23d18e6cc752a69d5ab7f676c6216dc2853e46750a8c4ed791d68482c"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24cc251b428679a5786e9ffd7a225e93bf35679fdf5dc6be479600ea3229bfde" => :sierra
-    sha256 "aa9597cf1c64ad6e29611cb7308a8087de29e629bdaa7694493cc24603001cab" => :el_capitan
-    sha256 "6128c1cdd1b70bd8353f38d563a5b408cf34f15250c80cec02209f48ef6571d2" => :yosemite
-    sha256 "745783c971c50f087bd29c1d48fdc2656c9a9a05182b6abc3342f0ef8218049e" => :mavericks
+    rebuild 2
+    sha256 "3166b2859236788d20d85dc65c64a103fda930ac3b9c32c8c768a8026a89dcba" => :sierra
+    sha256 "6e65bc7cb9e10bcd43c42eaca4713e454e9159e29d82bfff6a2143ab14be1b30" => :el_capitan
+    sha256 "101be1a5a2a5bb5842d5b8329d8988e68737e61b735310fd770db51810c6924b" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/antirez/redis/archive/4.0-rc2.tar.gz"
+    sha256 "70941c192e6afe441cf2c8d659c39ab955e476030c492179a91dcf3f02f5db67"
+    version "4.0RC2"
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
-
-  fails_with :llvm do
-    build 2334
-    cause <<-EOS.undent
-      Fails with "reference out of range from _linenoise"
-    EOS
-  end
 
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
@@ -64,6 +63,7 @@ class Redis < Formula
         <array>
           <string>#{opt_bin}/redis-server</string>
           <string>#{etc}/redis.conf</string>
+          <string>--daemonize no</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -80,5 +80,6 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
+    %w[run db/redis log].each { |p| assert (var/p).exist?, "#{var/p} doesn't exist!" }
   end
 end

@@ -1,30 +1,29 @@
 class ExtractUrl < Formula
   desc "Perl script to extracts URLs from emails or plain text."
   homepage "http://www.memoryhole.net/~kyle/extract_url/"
-  url "https://github.com/m3m0ryh0l3/extracturl/archive/v1.6.tar.gz"
-  sha256 "2f8fb4c361a02ee0053d2e1791d283e9b202297e4b861d7ff676ac00438ddcaf"
+  url "https://github.com/m3m0ryh0l3/extracturl/archive/v1.6.2.tar.gz"
+  sha256 "5f0b568d5c9449f477527b4077d8269f1f5e6d6531dfa5eb6ca72dbacab6f336"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "798e74f8b8f742ac15f99086a6491e5958316461a2d3a664f8a405f23a4ea938" => :el_capitan
-    sha256 "76b29261c92fd1d0b0575f91c0dec7d0142465097593f96882fa34be9e48b90f" => :yosemite
-    sha256 "55c1a2bd5b6f71eadaf2eba18623268b87e7019a25dd670077f90cd7ccbd032a" => :mavericks
-    sha256 "2bfe029ac91f5cfa70440ed9b65f7996fd7e199d5f286bd4c5958757b79d0909" => :mountain_lion
+    sha256 "57b556a225f6ec03cee7166c1b4cbd2eb1c0eb2bd7819865bd9ed39620b81b68" => :sierra
+    sha256 "96d599a0f724f6f09e261c8b0a1c8bbf69ce1b199d311527636f8a5d42f197c6" => :el_capitan
+    sha256 "d16fcc4c81a2ffb7f384f104396aae674bb8f6f08d336056ab858924d545f205" => :yosemite
   end
 
   resource "MIME::Parser" do
-    url "https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/MIME-tools-5.506.tar.gz"
-    sha256 "dbed9bf46830c4a1df9840a546824ee44d14902012870f0c34bc4f5cc86af812"
+    url "https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/MIME-tools-5.508.tar.gz"
+    sha256 "adffe86cd0b045d5a1553f48e72e89b9834fbda4f334c98215995b98cb17c917"
   end
 
   resource "HTML::Parser" do
-    url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.71.tar.gz"
-    sha256 "be918b3749d3ff93627f72ee4b825683332ecb4c81c67a3a8d72b0435ffbd802"
+    url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz"
+    sha256 "ec28c7e1d9e67c45eca197077f7cdc41ead1bb4c538c7f02a3296a4bb92f608b"
   end
 
   resource "Pod::Usage" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Usage-1.67.tar.gz"
-    sha256 "c8be6d29b0dfe304c4ddfcc140f93d4c4de7a8362ea6e2651611c288b53cc68a"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Usage-1.69.tar.gz"
+    sha256 "1a920c067b3c905b72291a76efcdf1935ba5423ab0187b9a5a63cfc930965132"
   end
 
   resource "Env" do
@@ -33,18 +32,18 @@ class ExtractUrl < Formula
   end
 
   resource "Getopt::Long" do
-    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.47.tar.gz"
-    sha256 "f5e6633ccda3f56a2df7a29f4187f4c787be4b746d97e9eb4aabd3aec1d9ed7b"
+    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.49.1.tar.gz"
+    sha256 "98fad4235509aa24608d9ef895b5c60fe2acd2bca70ebdf1acaf6824e17a882f"
   end
 
   resource "URI::Find" do
-    url "https://cpan.metacpan.org/authors/id/M/MS/MSCHWERN/URI-Find-20140709.tar.gz"
-    sha256 "c0c34c5f7eddacc1c6553099015fe776797f1ec5a70e11e6e8fa68810224ec33"
+    url "https://cpan.metacpan.org/authors/id/M/MS/MSCHWERN/URI-Find-20160806.tar.gz"
+    sha256 "e213a425a51b5f55324211f37909d78749d0bacdea259ba51a9855d0d19663d6"
   end
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.32.tgz"
-    sha256 "5dba44fd7964806d9765e6692bc7eb8eb30aeced2740f28b9a4070a5d14ba650"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.36.tar.gz"
+    sha256 "a414795ba031c5918c70279fe534fee594a96ec4b0c78f44ce453090796add64"
   end
 
   resource "Curses::UI" do
@@ -55,6 +54,11 @@ class ExtractUrl < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
+
+    # Disable dynamic selection of perl, which may cause "Can't locate
+    # Mail/Header.pm in @INC" if brew perl is picked up. If the missing modules
+    # are added to the formula, mismatched perl will cause segfault instead.
+    inreplace "extract_url.pl", "#!/usr/bin/env perl", "#!/usr/bin/perl"
 
     %w[MIME::Parser HTML::Parser Pod::Usage Env Getopt::Long Curses Curses::UI].each do |r|
       resource(r).stage do
@@ -70,12 +74,9 @@ class ExtractUrl < Formula
       system "./Build", "install"
     end
 
-    system "make", "man"
-
-    libexec.install "extract_url.pl"
-    chmod 0755, libexec/"extract_url.pl"
-    (bin/"extract_url").write_env_script("#{libexec}/extract_url.pl", :PERL5LIB => ENV["PERL5LIB"])
-    man1.install "extract_url.1"
+    system "make", "prefix=#{prefix}"
+    system "make", "prefix=#{prefix}", "install"
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

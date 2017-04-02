@@ -4,15 +4,23 @@ class GnuTar < Formula
   url "https://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
   mirror "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
   sha256 "cae466e6e58c7292355e7080248f244db3a4cf755f33f4fa25ca7f9a7ed09af0"
+  revision 1
 
   bottle do
-    sha256 "3f53bcd7360555e163f459ad412a4e22fcfddf7817a5926949ede93e8ff537c6" => :sierra
-    sha256 "edf7148e819d8ba45806411b9a2d893b809bb61de90675dc81aad99f788c73a7" => :el_capitan
-    sha256 "3042c3b538b323aca4b235328186d5e895a1d3a68ccc26dbf5a02550b49eeff9" => :yosemite
-    sha256 "a78e67c9ff6ba6e00001ac0359aeb2517c1288f3e2486581675faa978084c88f" => :mavericks
+    sha256 "d87139778146e9fe39f5db5dcf020c51a5a8ed7528987e31ecd2a2a36ab239e2" => :sierra
+    sha256 "ba2d4a54ae4abf2520b816d19373ed0a8bd0bb0e894b271d98ee1c7eba51af16" => :el_capitan
+    sha256 "cb0a9258bfeb0530540af1748b37a4fe79cf07ec5848e7bce48c47d51289bdb7" => :yosemite
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
+
+  # CVE-2016-6321
+  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842339
+  # https://sintonen.fi/advisories/tar-extract-pathname-bypass.txt
+  patch do
+    url "https://sources.debian.net/data/main/t/tar/1.29b-1.1/debian/patches/When-extracting-skip-.-members.patch"
+    sha256 "6b1371b9abd391e1654f7d730aae9c4dee703a867276b1e8a9ef97a2a906b7cf"
+  end
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of

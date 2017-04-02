@@ -1,18 +1,27 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "http://www.cpan.org/src/5.0/perl-5.24.0.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.24.0.orig.tar.xz"
-  sha256 "a9a37c0860380ecd7b23aa06d61c20fc5bc6d95198029f3684c44a9d7e2952f2"
-  revision 1
-
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
+  stable do
+    url "https://www.cpan.org/src/5.0/perl-5.24.1.tar.xz"
+    sha256 "03a77bac4505c270f1890ece75afc7d4b555090b41aa41ea478747e23b2afb3f"
+
+    # Fixes Time::HiRes module bug related to the presence of clock_gettime
+    # https://rt.perl.org/Public/Bug/Display.html?id=128427
+    # Merged upstream, should be in the next release.
+    if DevelopmentTools.clang_build_version >= 800
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/b18137128c4e0cb7e92e9ee007a9f78bc9d03b21/perl/clock_gettime.patch"
+        sha256 "612825c24ed19d6fa255bb42af59dff46ee65c16ea77abf4a59b754aa8ab05ac"
+      end
+    end
+  end
+
   bottle do
-    sha256 "318daffb06729e7b46543310d568020dac45de0f420ec76e327ab762fd1c8f02" => :sierra
-    sha256 "9b7e0cea4fdb51a17bed1d7733d300a33e29186c8f5e7afc601e7cbbfda20f8e" => :el_capitan
-    sha256 "75876c7d492a675d3a1fd257afd10d2c30fdb339ba53de925ab97fcdc97b9131" => :yosemite
-    sha256 "a2e15a577db6428bfaad8c441973d85cfdea65bf6ed54d8c4c36b8d767d1fa62" => :mavericks
+    sha256 "af578c645e5ff6162b29c693c6145345fef4dfc848f9d999a6e1f36330318c63" => :sierra
+    sha256 "c66b2d1daf5e4d77b8f4943b9718610c6d24d20537e6a1b6a87ccf74fd54ec02" => :el_capitan
+    sha256 "3474d4c2ddf177e331d70af4dbe1f51199139e525add8424b43b6339358950ab" => :yosemite
   end
 
   option "with-dtrace", "Build with DTrace probes"
@@ -20,17 +29,20 @@ class Perl < Formula
 
   deprecated_option "with-tests" => "with-test"
 
-  # Fixes Time::HiRes module bug related to the presence of clock_gettime
-  # https://rt.perl.org/Public/Bug/Display.html?id=128427
-  # Merged upstream, should be in the next release.
-  if MacOS.version >= :sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b18137128c4e0cb7e92e9ee007a9f78bc9d03b21/perl/clock_gettime.patch"
-      sha256 "612825c24ed19d6fa255bb42af59dff46ee65c16ea77abf4a59b754aa8ab05ac"
-    end
-  end
-
   def install
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      %w[cpan/IPC-Cmd/lib/IPC/Cmd.pm dist/Time-HiRes/Changes
+         dist/Time-HiRes/HiRes.pm dist/Time-HiRes/HiRes.xs
+         dist/Time-HiRes/Makefile.PL dist/Time-HiRes/fallback/const-c.inc
+         dist/Time-HiRes/t/clock.t pod/perl588delta.pod
+         pod/perlperf.pod].each do |f|
+        inreplace f do |s|
+          s.gsub! "clock_gettime", "perl_clock_gettime"
+          s.gsub! "clock_getres", "perl_clock_getres", false
+        end
+      end
+    end
+
     args = %W[
       -des
       -Dprefix=#{prefix}

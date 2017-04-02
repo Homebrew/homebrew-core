@@ -3,29 +3,28 @@ class Swift < Formula
   homepage "https://github.com/apple/swift"
 
   stable do
-    url "https://github.com/apple/swift/archive/swift-2.2.1-RELEASE.tar.gz"
-    sha256 "e971e2287055da72564356f369bad97e95821afb1ef36157e954a04a7e90753a"
+    url "https://github.com/apple/swift/archive/swift-3.0.2-RELEASE.tar.gz"
+    sha256 "e69764cb3d83d7209f21c2af448ae39e6612df28e37b7a3ceffa9c24f19ca0cc"
 
-    swift_tag = "swift-#{version}-RELEASE"
     resource "cmark" do
-      url "https://github.com/apple/swift-cmark/archive/#{swift_tag}.tar.gz"
-      sha256 "254d3c02bf2b03ad456fa3ad27b4da854e36318fcaf6b6f199fdb3e978a90803"
+      url "https://github.com/apple/swift-cmark/archive/swift-3.0.2-RELEASE.tar.gz"
+      sha256 "40fc49d2f1c4075030b43f706193c1e6323e741ac5b029d2c627fd2f86da1cb4"
     end
 
     resource "clang" do
-      url "https://github.com/apple/swift-clang/archive/#{swift_tag}.tar.gz"
-      sha256 "40bdfa7eec0497ec69005d6a5d018b12c85aa2c0959d3408ecaaa9e34ff0415f"
+      url "https://github.com/apple/swift-clang/archive/swift-3.0.2-RELEASE.tar.gz"
+      sha256 "8c9026b6f7543fc4ad2efef412da8ab186dbbcb089e8558e27b9994243faff99"
     end
 
     resource "llvm" do
-      url "https://github.com/apple/swift-llvm/archive/#{swift_tag}.tar.gz"
-      sha256 "f7977e5bb275494b5dac4490afc5d634f894ba5f209f3b2dbd5b7e520fa5fce2"
+      url "https://github.com/apple/swift-llvm/archive/swift-3.0.2-RELEASE.tar.gz"
+      sha256 "194f66f522aa349061ae682bab18fa3fffe146da30e30f2d9f4b811fd544f8eb"
     end
   end
 
   bottle do
-    sha256 "f63f2c86b7d5aaed1c922d50e98b146d0cdc0a6437977fef519ee616ec39ac73" => :el_capitan
-    sha256 "573b2120ea67319f8c398c2fa604479281b922deaa884c59b53ee0bc575765c6" => :yosemite
+    sha256 "99aad195f9e873da1510b7660bf064719081f1e645d43488177f5ed984e841dd" => :sierra
+    sha256 "aedb8c8af6aa435da8d83c1461da1cca2d9d9369a61304aa425053a59eab1e87" => :el_capitan
   end
 
   head do
@@ -48,7 +47,10 @@ class Swift < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on :xcode => ["7.0", :build]
+
+  # Depends on latest version of Xcode
+  # https://github.com/apple/swift#system-requirements
+  depends_on :xcode => ["8.0", :build]
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -77,11 +79,10 @@ class Swift < Formula
         "--lldb-use-system-debugserver",
         "--install-prefix=#{prefix}",
         "--darwin-deployment-version-osx=#{MacOS.version}",
-        "--build-jobs=#{ENV.make_jobs}"
+        "--jobs=#{ENV.make_jobs}"
     end
     bin.install "#{build}/swift-macosx-x86_64/bin/swift",
                 "#{build}/swift-macosx-x86_64/bin/swift-autolink-extract",
-                "#{build}/swift-macosx-x86_64/bin/swift-compress",
                 "#{build}/swift-macosx-x86_64/bin/swift-demangle",
                 "#{build}/swift-macosx-x86_64/bin/swift-ide-test",
                 "#{build}/swift-macosx-x86_64/bin/swift-llvm-opt",

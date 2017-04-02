@@ -4,16 +4,15 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2i.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2i.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2i.tar.gz"
-  sha256 "9287487d11c9545b6efb287cdb70535d4e9b284dd10d51441d9b9963d000de6f"
+  url "https://www.openssl.org/source/openssl-1.0.2k.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2k.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2k.tar.gz"
+  sha256 "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
 
   bottle do
-    rebuild 1
-    sha256 "7048323e78996de6478455d1abae0c3df32b4c95571520cc0a0dc2491ef402ec" => :sierra
-    sha256 "5ea8c8cb74a3a112de637eb81bbc63ce0bf87f6d160a61aa252f2f636d13a12b" => :el_capitan
-    sha256 "e3b12be9388d9eea3161aafcab21398cc415ddb26e55dd2083ad63d59653a70f" => :yosemite
+    sha256 "dd9c13cce879896bee642615b49a2f84d9832b6b61cbe91d9444dbcfee7d9d98" => :sierra
+    sha256 "9b7cf0b4bd40cafd5ff2a7daf83e1d9e29c37421d3f81062fc3b781f5282027a" => :el_capitan
+    sha256 "0218d9875b8bed1cabd4a214eb17dda59e90e8fa2847af651f36288244600e2a" => :yosemite
   end
 
   keg_only :provided_by_osx,
@@ -45,8 +44,10 @@ class Openssl < Formula
 
   def install
     # OpenSSL will prefer the PERL environment variable if set over $PATH
-    # which can cause some odd edge cases & isn't intended. Unset for safety.
+    # which can cause some odd edge cases & isn't intended. Unset for safety,
+    # along with perl modules in PERL5LIB.
     ENV.delete("PERL")
+    ENV.delete("PERL5LIB")
 
     # Load zlib from an explicit path instead of relying on dyld's fallback
     # path, which is empty in a SIP context. This patch will be unnecessary
@@ -133,7 +134,7 @@ class Openssl < Formula
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
     certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     valid_certs = certs.select do |cert|
@@ -150,8 +151,9 @@ class Openssl < Formula
   end
 
   def caveats; <<-EOS.undent
-    A CA file has been bootstrapped using certificates from the system
-    keychain. To add additional certificates, place .pem files in
+    A CA file has been bootstrapped using certificates from the SystemRoots
+    keychain. To add additional certificates (e.g. the certificates added in
+    the System keychain), place .pem files in
       #{openssldir}/certs
 
     and run

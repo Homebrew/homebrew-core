@@ -1,25 +1,17 @@
 class Ats2Postiats < Formula
-  desc "ATS programming language implementation"
+  desc "Programming language with formal specification features"
   homepage "http://www.ats-lang.org/"
-  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.2.6/ATS2-Postiats-0.2.6.tgz"
-  sha256 "3179a33eb059992bbab0a172fc0daecc562d9d255797bfda4cabe69e2be2ca41"
+  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.3.3/ATS2-Postiats-0.3.3.tgz"
+  sha256 "e8fe0fb96bae2c988d44f8f1a564faa4d3ef9f1dafc4f406f584f94700013972"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "06f7d6df07dc22d913d19eabd9b4c2116bbd2585411beb708fc3f5f8ff4e3e29" => :el_capitan
-    sha256 "d587bd78cd11b167bc7ed1f1b860521d12203a15135154932ce1b3c1fb020736" => :yosemite
-    sha256 "90674afecca582da2ff2c7ab2caf0e5c8ed766eadd395b4a1a0ef800e2eed31a" => :mavericks
+    sha256 "741f25b8b8f356ff79a3d9d0f1d9c1e61c0fcbee1ff682661e58ada73df477bd" => :sierra
+    sha256 "9264a6eaa04a382dea9c4d565c133f221c36ff54695d55efd52d4bb9d208ed78" => :el_capitan
+    sha256 "1bf5329d5ad10540300b9f1952e3c6ed47ca92fe13d13f1c8cb34b0c051690ea" => :yosemite
   end
 
   depends_on "gmp"
-
-  # error: expected declaration specifiers or '...' before '__builtin_object_size'
-  # Already fixed upstream. Can remove this on next release.
-  patch do
-    url "https://github.com/githwxi/ATS-Postiats/commit/5b3d6a8ac7.diff"
-    sha256 "9e7ceea54d9e02323711e0ede3b64528f008f084007a0bea43ce2be9b31d916a"
-  end
 
   def install
     ENV.deparallelize

@@ -6,6 +6,7 @@ class Hayai < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c2f93072aaa7edc1a2dde8180b7e5a962b96fe11c5662fc7c7fb1c469f25589d" => :sierra
     sha256 "b4a9c42fe38dd8d5595a899e650504909e6614beb8b8c0c3b4462a647d2ac214" => :el_capitan
     sha256 "cbbb73a1219f53aab9ab1d13c18f6916d2e48404533100803deab22aee94ce6d" => :yosemite
     sha256 "97bb918ab865fc2d6e1b49ddaa395d37c2c530b9665c9027aebcfe7752449078" => :mavericks

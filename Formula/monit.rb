@@ -1,15 +1,14 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.18.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main//m/monit/monit_5.18.orig.tar.gz"
-  sha256 "75ccb85fa2ac1f44c9c95c5a6b539a254b0a1d64e16a36ec9eeb867484a4fcaf"
+  url "https://mmonit.com/monit/dist/monit-5.21.0.tar.gz"
+  mirror "https://fossies.org/linux/privat/monit-5.21.0.tar.gz"
+  sha256 "fbf76163ed4a180854d378af60fed0cdbc5a8772823957234efc182ead10c03c"
 
   bottle do
-    cellar :any
-    sha256 "5a146e27154d2434cfb44dbd61ae55b7ed8fa01bd105cf0bc5828bf90a7252b7" => :el_capitan
-    sha256 "924ec6e8d44fa5168442431f5ba61724243196929e7a18d1a936f4b9a99035c1" => :yosemite
-    sha256 "25be7ac4a24e829b081d562c0249e2c4a48d77a49e9f5c3f49a609023d702fc5" => :mavericks
+    sha256 "cf5fe0d85c03d64e0d1f213c76f70d25df9856b93f60cd5e4facc13d271e1cd6" => :sierra
+    sha256 "55f803929e1f12950d7f2ac0b373ba10a6aac7895a3b03f63c22eb0927c02673" => :el_capitan
+    sha256 "618b1981e0b7b71ec787ced7d321c9d4c6cfc0cf16774d962fea2302b92dd74d" => :yosemite
   end
 
   depends_on "openssl"

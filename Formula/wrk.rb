@@ -18,7 +18,7 @@ class Wrk < Formula
   conflicts_with "wrk-trello", :because => "both install `wrk` binaries"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make"
     bin.install "wrk"
   end

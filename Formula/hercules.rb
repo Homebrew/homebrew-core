@@ -5,6 +5,7 @@ class Hercules < Formula
   sha256 "aefbe9d2f09372a530c17c177b7d2a0f4bcf8cfd28474672935b067e5f9ee373"
 
   bottle do
+    sha256 "3e0b0250e45b945a39af795d08d42f541fb77c39abba510c6f069b8901c4b439" => :sierra
     sha256 "d7e872e32dfb1b648b183725de1290db4b2b8b9ea9b9b895cb517f213b046900" => :el_capitan
     sha256 "d1cee67e5294f4bc32cdb9e4126d75d9313d55aca7f3bb43a3fa96483f45afdf" => :yosemite
     sha256 "fbc13a5fd68642f842d07edf3c7439617e770fdf7b0cf5d1cfcff30a93ac4d33" => :mavericks

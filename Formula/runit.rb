@@ -1,20 +1,19 @@
 class Runit < Formula
   desc "Collection of tools for managing UNIX services"
   homepage "http://smarden.org/runit"
-  url "http://smarden.org/runit/runit-2.1.1.tar.gz"
-  sha256 "ffcf2d27b32f59ac14f2d4b0772a3eb80d9342685a2042b7fbbc472c07cf2a2c"
+  url "http://smarden.org/runit/runit-2.1.2.tar.gz"
+  sha256 "6fd0160cb0cf1207de4e66754b6d39750cff14bb0aa66ab49490992c0c47ba18"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "aad8b537d84c9219b6d836aefe02e549f55f4f55183c6bf668efc3d68070f8f7" => :el_capitan
-    sha256 "6558d24d895cd976cd9f23d7bf76ae2de40040017be2577061d6de9fbd35d1f3" => :yosemite
-    sha256 "1bed0d534c4880367cf119707f17a38bf0cc4fb0b3b15409b7306e3eb4a6b219" => :mavericks
+    sha256 "4eefe737db7b327dd6c595f57f34a8b564e170427ffc24ab35c4cd5ee79a6ec1" => :sierra
+    sha256 "3dbc4f1ba3d86e5f3d6900a19ff90b32d2aff91ffb68914be8740d916f3622da" => :el_capitan
+    sha256 "c268f70014699ba6be9a198686547ddd150f0b779aa0a1e623df60068d8cd4be" => :yosemite
   end
 
   def install
     # Runit untars to 'admin/runit-VERSION'
     cd "runit-#{version}" do
-      # Per the installation doc on OS X, we need to make a couple changes.
+      # Per the installation doc on macOS, we need to make a couple changes.
       system "echo 'cc -Xlinker -x' >src/conf-ld"
       inreplace "src/Makefile", / -static/, ""
 

@@ -1,11 +1,12 @@
 class Cracklib < Formula
   desc "LibCrack password checking library"
-  homepage "http://cracklib.sourceforge.net/"
+  homepage "https://cracklib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cracklib/cracklib/2.9.5/cracklib-2.9.5.tar.gz"
   sha256 "59ab0138bc8cf90cccb8509b6969a024d5e58d2d02bcbdccbb9ba9b88be3fa33"
 
   bottle do
     cellar :any
+    sha256 "9e915cdec5a6848d987a4bff2f5137ca1cf3aad9844461da4b08bf9f30b96b87" => :sierra
     sha256 "1ba8ee5699bf4dde9e728d3138af3b7bd5d6811065cdd2ad9c398dffbd38c30d" => :el_capitan
     sha256 "cdc073935379e4c2e14a5e98c7d16a4a6303d2682b9d77ed8addee555bdd9354" => :yosemite
     sha256 "c974bd4f5515644268c6f9ff13bb392508d6148bc22be8f5fc2da3afe1fa6c89" => :mavericks

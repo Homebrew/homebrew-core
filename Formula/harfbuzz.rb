@@ -1,14 +1,13 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.0.tar.bz2"
-  sha256 "b04be31633efee2cae1d62d46434587302554fa837224845a62565ec68a0334d"
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.4.5.tar.bz2"
+  sha256 "d0e05438165884f21658154c709075feaf98c93ee5c694b951533ac425a9a711"
 
   bottle do
-    sha256 "2bdda9f4de1a3753d68995a363b0e6e7497562c2cead9f4c047e25ffdd089f50" => :sierra
-    sha256 "9ea36c4b16291399d9206f5312699d22ae5aff22365c65a2c540b49ff567c412" => :el_capitan
-    sha256 "7c4620ba3edd0fafd9e73efc8738b2b8039327a9c77a4cf1dc1f2c309b7dc749" => :yosemite
-    sha256 "43be4893fe40aafce53258909b5e27746bb80fe70a038b8876294e405d237fe7" => :mavericks
+    sha256 "49d3fcf19e96fad2a745e230b2f9ba6bfe8a37c1422913a0c5d33b70148a743e" => :sierra
+    sha256 "ddaedf0840bb9894f0965fc3c81f084ddf065ac0ba03e683e00508854b72e5fc" => :el_capitan
+    sha256 "c5887ae179b6d61bb2cef73b3810db17547148aba7473df893303c0fe4e9d5e8" => :yosemite
   end
 
   head do
@@ -20,13 +19,12 @@ class Harfbuzz < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "with-cairo", "Build command-line utilities that depend on Cairo"
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
-  depends_on "freetype"
-  depends_on "gobject-introspection"
+  depends_on "freetype" => :recommended
+  depends_on "glib" => :recommended
+  depends_on "gobject-introspection" => :recommended
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
   depends_on "graphite2" => :optional
@@ -37,23 +35,35 @@ class Harfbuzz < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --enable-introspection=yes
-      --with-freetype=yes
-      --with-glib=yes
-      --with-gobject=yes
       --with-coretext=yes
       --enable-static
     ]
 
-    if build.with? "icu4c"
-      args << "--with-icu=yes"
+    if build.with? "cairo"
+      args << "--with-cairo=yes"
     else
-      args << "--with-icu=no"
+      args << "--with-cairo=no"
+    end
+
+    if build.with? "freetype"
+      args << "--with-freetype=yes"
+    else
+      args << "--with-freetype=no"
+    end
+
+    if build.with? "glib"
+      args << "--with-glib=yes"
+    else
+      args << "--with-glib=no"
+    end
+
+    if build.with? "gobject-introspection"
+      args << "--with-gobject=yes" << "--enable-introspection=yes"
+    else
+      args << "--with-gobject=no" << "--enable-introspection=no"
     end
 
     if build.with? "graphite2"
@@ -62,10 +72,10 @@ class Harfbuzz < Formula
       args << "--with-graphite2=no"
     end
 
-    if build.with? "cairo"
-      args << "--with-cairo=yes"
+    if build.with? "icu4c"
+      args << "--with-icu=yes"
     else
-      args << "--with-cairo=no"
+      args << "--with-icu=no"
     end
 
     system "./autogen.sh" if build.head?

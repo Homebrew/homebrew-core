@@ -8,9 +8,10 @@ class Rack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0301d96ab10f35f417d51f22c85c5a2245848b42a75d5deb23c46b0b6f88dcc" => :el_capitan
-    sha256 "74834b52803e42ec8b216b358d24e50a1ea80d01a7b826a54026038cfefbbb8f" => :yosemite
-    sha256 "48ddc5dfd45f15ee9dd70a25719161296389cad484765ce0d99a94c43951e919" => :mavericks
+    rebuild 1
+    sha256 "9e77b25dce5ebddece476a84fa04b32d3c904f4a825db343b128a8b3b4a4f4fd" => :sierra
+    sha256 "7a17ae415465e10b0b5674218d5fb127c03782b5f49e741d8a84f94cde7c658a" => :el_capitan
+    sha256 "d49a8f87439a1584e1662a570c7a40611d6cf13064e37f3a66cb7e1feaaa5719" => :yosemite
   end
 
   depends_on "go" => :build
@@ -23,9 +24,16 @@ class Rack < Formula
     rackpath.install Dir["{*,.??*}"]
 
     cd rackpath do
+      # This is a slightly grim hack to handle the weird logic around
+      # deciding whether to add a = or not on the ldflags, as mandated
+      # by Go 1.7+.
+      # https://github.com/rackspace/rack/issues/446
+      inreplace "script/build", "go1.5", Utils.popen_read("go version")[/go1\.\d/]
+
       ln_s "internal", "vendor"
       system "script/build", "rack"
       bin.install "rack"
+      prefix.install_metafiles
     end
   end
 

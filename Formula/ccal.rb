@@ -6,6 +6,7 @@ class Ccal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ab4cd19d0e0e86ec136ef120dd8308682a34b43f17981cddc4e80d1e17042f2" => :sierra
     sha256 "2a09b1b16f9b1ea0c89a807ebd2b9cfe43e22d1e35cd576780b1a3c986b4b0d1" => :el_capitan
     sha256 "d3dc167fb2ac1507616dbf5ce5310fd5c67153d680ff242da23a44f199da7fb3" => :yosemite
     sha256 "f79240c70ea10dd661005105e552d8dcc993acfb31c399b3f74f4abf9d2c0162" => :mavericks

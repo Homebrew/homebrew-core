@@ -1,14 +1,15 @@
 class PostgresXc < Formula
   desc "PostgreSQL cluster based on shared-nothing architecture"
-  homepage "http://postgres-xc.sourceforge.net/"
+  homepage "https://postgres-xc.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/postgres-xc/Version_1.0/pgxc-v1.0.4.tar.gz"
   sha256 "b467cbb7d562a8545645182958efd1608799ed4e04a9c3906211878d477b29c1"
+  revision 1
 
   bottle do
-    revision 1
-    sha256 "636beaed9fb5a7c632fa8d8185689d9747300cf59938e30240b0be8f492e746c" => :el_capitan
-    sha256 "10ad7c4fc4aea8d963a2020a52e51ba5d386ad6bb987156acd19c7d1ec211751" => :yosemite
-    sha256 "ebc0406afc7906bf6c3a7e8557a51254a37057eeb4db73b049fb5b9232f2709b" => :mavericks
+    rebuild 1
+    sha256 "9219ea92a221cae45f87c8119afbae22a190c396f41972ab2f8019ede381207d" => :sierra
+    sha256 "8c17e52f8c1171e0a4e36d77180ee5113aa61d35acbe0d11741372d3fe93e9f5" => :el_capitan
+    sha256 "3dc1e2e4d10cc1cf2604b5bc91c4167257bd84b27a167580d2342e7ab7539428" => :yosemite
   end
 
   option "with-dtrace", "Build with DTrace support"
@@ -33,13 +34,12 @@ class PostgresXc < Formula
   end
 
   # Fix PL/Python build: https://github.com/Homebrew/homebrew/issues/11162
-  # Fix uuid-ossp build issues: https://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
   patch :DATA
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
-
-    # See https://sourceforge.net/mailarchive/forum.php?thread_name=82E44F89-543A-44F2-8AF8-F6909B5DC561%40uniud.it&forum_name=postgres-xc-bugs
+    # Fix uuid-ossp build issues: https://www.postgresql.org/message-id/05843630-E25D-442A-A6B0-5CA63622A400@likeness.com
+    ENV.append_to_cflags "-D_XOPEN_SOURCE"
+    # See https://sourceforge.net/p/postgres-xc/mailman/postgres-xc-bugs/thread/82E44F89-543A-44F2-8AF8-F6909B5DC561@uniud.it/
     ENV.append "CFLAGS", "-D_FORTIFY_SOURCE=0 -O2" if MacOS.version >= :mavericks
 
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
@@ -75,7 +75,7 @@ class PostgresXc < Formula
 
     system "./configure", *args
 
-    # Building the documentation looks for Jade or OpenJade, neither of which exist on OS X
+    # Building the documentation looks for Jade or OpenJade, neither of which exist on macOS
     # or are supplied by Homebrew at this point in time. Disable for now, since error fatal.
     inreplace "GNUmakefile", "recurse,install-world,doc-xc src", "recurse,install-world,src"
     system "make", "install-world"
@@ -122,7 +122,7 @@ class PostgresXc < Formula
   def caveats; <<-EOS.undent
     To get started with Postgres-XC, read the documents at
       https://sourceforge.net/projects/postgres-xc/files/Publication/
-      http://postgres-xc.sourceforge.net/docs/1_0/tutorial-start.html
+      https://postgres-xc.sourceforge.io/docs/1_0/tutorial-start.html
 
     For a first cluster, you may start with a single GTM (Global Transaction Manager),
     a pair of Data Nodes and a single Coordinator, all on the same machine:
@@ -318,14 +318,3 @@ __END__
  endif
 
  # If we don't have a shared library and the platform doesn't allow it
---- a/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:34:53.000000000 -0700
-+++ b/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:35:03.000000000 -0700
-@@ -9,6 +9,8 @@
-  *-------------------------------------------------------------------------
-  */
-
-+#define _XOPEN_SOURCE
-+
- #include "postgres.h"
- #include "fmgr.h"
- #include "utils/builtins.h"

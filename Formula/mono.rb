@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-4.6.0.245.tar.bz2"
-  sha256 "2981f518cace63bfe10953fecd57c7fef040077a1ac617967dde5466062c1327"
+  url "https://download.mono-project.com/sources/mono/mono-4.8.0.520.tar.bz2"
+  sha256 "d5f5b3e096a4eec1ae6bc2fb8b78c8c9376c1e6673371b577d80b1eeaf3940c9"
 
   bottle do
-    sha256 "b721a3c65b8378ed0503e2915186e74aedbec995dc5f4447d30111d234f61509" => :sierra
-    sha256 "df749326648af9a34ad442354cacd8c6d3f9cea276b60ab34b0a081802513079" => :el_capitan
-    sha256 "96f73f36738ee077aaa566bc9e7d0d9bad818f8431d312ffd5c09eb7d9304459" => :yosemite
+    sha256 "2ac39baa78967daac81147a8f28cfd8e379f348317044d268966e7e34ed10fa8" => :sierra
+    sha256 "e9a15e00b2fef73f67b80d0d462f9185fef921b94420d9dd7cd456b00f74dcd1" => :el_capitan
+    sha256 "8656dfa498f2138de0c0cee11f60aa27d88ce4dac7cdcab702d54842396b4c19" => :yosemite
   end
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -26,14 +26,15 @@ class Mono < Formula
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
   conflicts_with "czmq", :because => "both install `makecert` binaries"
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.0.1.10",
-        :revision => "d654e56bbc09bd6c1da5bd1f07abc1d9d347b6c3"
+        :tag => "4.1.0.2",
+        :revision => "6ce41a922dd9ebb9766ca4b89b7a32f6a82e43e9"
   end
 
   def install
@@ -108,7 +109,10 @@ class Mono < Formula
     if build.with? "fsharp"
       # Test that fsharpi is working
       ENV.prepend_path "PATH", bin
-      output = pipe_output("#{bin}/fsharpi", "printfn \"#{test_str}\"; exit 0")
+      (testpath/"test.fsx").write <<-EOS.undent
+        printfn "#{test_str}"; 0
+      EOS
+      output = pipe_output("#{bin}/fsharpi test.fsx")
       assert_match test_str, output
 
       # Tests that xbuild is able to execute fsc.exe

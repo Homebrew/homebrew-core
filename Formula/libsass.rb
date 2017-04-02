@@ -1,15 +1,14 @@
 class Libsass < Formula
   desc "C implementation of a Sass compiler"
   homepage "https://github.com/sass/libsass"
-  url "https://github.com/sass/libsass.git", :tag => "3.3.6", :revision => "3ae9a2066152f9438aebaaacd12f39deaceaebc2"
+  url "https://github.com/sass/libsass.git", :tag => "3.4.3", :revision => "b28de01270a663b3e89427a18816732c4d573c1d"
   head "https://github.com/sass/libsass.git"
 
   bottle do
     cellar :any
-    sha256 "f1b5ce82f6e885c5ceca970c72f1707641d30aaae1614bcc6d9608a3c0f0bf56" => :sierra
-    sha256 "dda76f52e1804320e6bbd44f4fd6e8f5b68a97321ce9fd099b9d58c22c88f25b" => :el_capitan
-    sha256 "5a53801da164f057777551c030c2266db876ea109e9dba9addde3899b6143c7b" => :yosemite
-    sha256 "db89145686bfab97c2736b6a6a8cd129c9323091b4e7f12f5af55ec2443575f9" => :mavericks
+    sha256 "1bf8fdd91e81a6ae71c0b285bf9bda4892d2d5fa152ed9cd9eb99c8a0588bcf6" => :sierra
+    sha256 "d6818e9a5872d39f02be581e6d31cc8942c158abfc428d8e662454248ae97c87" => :el_capitan
+    sha256 "030c6b49661b482562fb1ce2d2e2ca383dada5124a78439a4b7afa2eb7e6312d" => :yosemite
   end
 
   depends_on "autoconf" => :build

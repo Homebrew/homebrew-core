@@ -1,13 +1,13 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.18.1.tar.gz"
-  sha256 "a755c472d7c9e54bc3aa6c92a847a69466fbc6cdc56ee912f411802a725d57a4"
+  url "https://www.opendap.org/pub/source/libdap-3.18.3.tar.gz"
+  sha256 "0ced6aa36bb445f51e4d72d480e326de7d513a4a7a2c1e5c73e16e2c1f71f22b"
 
   bottle do
-    sha256 "024ce54a0d4192fdc537fc1e343b48bb19f9018a46ff596b3f09cc88f4906ba5" => :el_capitan
-    sha256 "8cddd4d9c355d8f620264e984d9ef3751bb1833344972255855b6e75055a13bf" => :yosemite
-    sha256 "d990821b7e00a3d7640b9caeeb29b27787a2df74cf868db0a2878b1055f8aeee" => :mavericks
+    sha256 "4ec4781108986332b022cb81d238345f4e697e62ad5a3cc5cb66b77ee7d7ebe8" => :sierra
+    sha256 "1e6bb8cf800083b6c5f6ae3f3efa1284bf436b16601ffaaa77214711aac0cccd" => :el_capitan
+    sha256 "9ab1a73227319d216efd1c0f2737d2f1d43701f1fafbc375bb1963c631c047f2" => :yosemite
   end
 
   head do
@@ -28,11 +28,6 @@ class Libdap < Formula
   needs :cxx11 if MacOS.version < :mavericks
 
   def install
-    # NOTE:
-    # To future maintainers: if you ever want to build this library as a
-    # universal binary, see William Kyngesburye's notes:
-    #     http://www.kyngchaos.com/macosx/build/dap
-
     # Otherwise, "make check" fails
     ENV.cxx11 if MacOS.version < :mavericks
 

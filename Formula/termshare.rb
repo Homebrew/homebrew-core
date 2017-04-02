@@ -2,7 +2,7 @@ require "language/go"
 
 class Termshare < Formula
   desc "Interactive or view-only terminal sharing via client or web"
-  homepage "https://termsha.re"
+  homepage "https://github.com/progrium/termshare"
   url "https://github.com/progrium/termshare/archive/v0.2.0.tar.gz"
   sha256 "fa09a5492d6176feff32bbcdb3b2dc3ff1b5ab2d1cf37572cc60eb22eb531dcd"
   revision 1
@@ -12,6 +12,7 @@ class Termshare < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "5d883c6747f478ab161ca648923a7397a782f437bb59d660df6a252b21f62e99" => :sierra
     sha256 "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af" => :el_capitan
     sha256 "c3b9c2784b02536ce97a2a3b3a205314e7ada8e727ac60b54577d933a04aa808" => :yosemite
     sha256 "aa9131a7eae6efe7e7d3bac1e73711f7bfe52f1dd246389bdbb137c70c815310" => :mavericks

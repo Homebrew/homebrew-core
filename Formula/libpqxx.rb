@@ -3,14 +3,13 @@ class Libpqxx < Formula
   homepage "http://pqxx.org/development/libpqxx/"
   url "http://pqxx.org/download/software/libpqxx/libpqxx-4.0.1.tar.gz"
   sha256 "097ceda2797761ce517faa5bee186c883df1c407cb2aada613a16773afeedc38"
+  revision 2
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "5bda2a641ddb2774efa2355612181d6cbdaae5dd665eeac656ff4d42b90cfbdb" => :el_capitan
-    sha256 "7e3ee6966db26936ca065024fbf5ef1476317c8ffdeaafe4f43e6d6252ca6061" => :yosemite
-    sha256 "e93fe321d641627928110a05d2f985b4b3f08a6a015c9e9846a3aaf25286555a" => :mavericks
-    sha256 "602109e64f4d6e94f81b43fad6f2bb999c497d32214942aa1fe5c68f25960628" => :mountain_lion
+    sha256 "660779449eac96fdab22b28e28a8d8672de8baffb3b5cc35415fcc5b6fda1ab7" => :sierra
+    sha256 "ef820631f156b0912ab484c74f97e658b81c5dc2daa30d0eac74e8ff70a4174f" => :el_capitan
+    sha256 "096d1506a94e0aff6bcb09e6f7b952d35b701ef053a5e113410989e80ff6508e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -25,7 +24,7 @@ class Libpqxx < Formula
   #     to determine how to use it properly; we don't want to see those errors
   #     in the configure phase output.
   # (2) Patched configure on darwin to fix incorrect assumption
-  #     that true and false always live in /bin; on OS X they live in /usr/bin.
+  #     that true and false always live in /bin; on macOS they live in /usr/bin.
   patch :DATA
 
   def install

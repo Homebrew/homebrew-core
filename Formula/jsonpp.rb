@@ -1,9 +1,9 @@
 class Jsonpp < Formula
   desc "Command-line JSON pretty-printer"
   homepage "https://jmhodges.github.io/jsonpp/"
-  url "https://github.com/jmhodges/jsonpp/releases/v1.2.0/715/jsonpp-1.2.0-osx-x86_64.tar.gz"
-  version "1.2.0"
-  sha256 "f680a18341fec15d0e4235e579e551ffab243e0ea9e6f5fc90106a62db8f5780"
+  url "https://github.com/jmhodges/jsonpp/releases/download/1.3.0/jsonpp-1.3.0-osx-x86_64.zip"
+  version "1.3.0"
+  sha256 "7e2461a985091cd62c7c64fe48fce24c50b829641125b024e1910538c1c431d4"
 
   bottle :unneeded
 

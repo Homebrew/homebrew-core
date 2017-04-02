@@ -1,13 +1,13 @@
 class Gdl < Formula
   desc "GNOME Docking Library provides docking features for GTK+ 3"
   homepage "https://developer.gnome.org/gdl/"
-  url "https://download.gnome.org/sources/gdl/3.20/gdl-3.20.0.tar.xz"
-  sha256 "53d3a3bb9b9be25b3a40c644fdbbb57a5a63ee1f5f839c2266d1cd9779360e8b"
+  url "https://download.gnome.org/sources/gdl/3.22/gdl-3.22.0.tar.xz"
+  sha256 "cc5b360e1392292186924f0f9a8efc0f4db7e6e56dc7042037466b5cc839660c"
 
   bottle do
-    sha256 "8f796750e169e08e9a1584757d371dfe705ad6bc17ce3dc0c4f8e7af5e8de7fb" => :el_capitan
-    sha256 "28dc25f2b69b485b7cb2c3d221b2462a33ffb912b45d81ab4c88a1b141ff1fdf" => :yosemite
-    sha256 "73d01a80f88808f2131dcf53f52a46dc263d24e3a4cd69c9df53be2265f3069c" => :mavericks
+    sha256 "4bdf77d9f10c16879ec6b1dc67040c526a05bb6ab262e4cb00d363509599af33" => :sierra
+    sha256 "e3869391f2fc13d9354f4f8744d140c9d5415fad9121a5effeeb2c8609518b30" => :el_capitan
+    sha256 "6f4885ff8ef490c46e49eee7415133c494c7e1a77585ce2c0a818f9aaa0982e5" => :yosemite
   end
 
   depends_on "pkg-config" => :build

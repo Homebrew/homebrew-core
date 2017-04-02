@@ -1,27 +1,44 @@
 class Rocksdb < Formula
-  desc "Persistent key-value store for fast storage environments"
+  desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v4.9.tar.gz"
-  sha256 "7c96c7e7facc11c15f57c608a3b256af79283accb5988d7b2f4f810e29c68c0b"
+  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.2.1.tar.gz"
+  sha256 "13b19d6527e2f2f12712b7356b9df09c5edfe7c8a7e984d935bcebe5342847ac"
 
   bottle do
     cellar :any
-    sha256 "7d5f7521c94733aae409b1debba32d28a0ac4866b1f0871b03030aa271f45bba" => :sierra
-    sha256 "0ed1658ca1eb9f3c256192b9eeb7a227bcffa6b5de5d05eefa49f80b20820919" => :el_capitan
-    sha256 "7d0ce20065fce6fe3f3acff398853f19cb24ab463728f0277fc404a20c15023d" => :yosemite
-    sha256 "975a16f79fbc94a8ec5977d167d90be82c8779ad015824423de1fac856e5fd93" => :mavericks
+    sha256 "66cd5aa07d088048905eb802ea67aa2ad7012920839c3cd90bbbee838e0b3cff" => :sierra
+    sha256 "2ea7d2ab11dbf12a92feb4906596f069e080acaabc0f0142325e33d7b8aae00e" => :el_capitan
+    sha256 "33de2e60bd80074d861e60ae0c69d9f83c464e4e66d41da09919d289fd1e5c7e" => :yosemite
   end
-
-  option "with-lite", "Build mobile/non-flash optimized lite version"
 
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
+  depends_on "gflags"
 
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?
-    ENV.append_to_cflags "-DROCKSDB_LITE=1" if build.with? "lite"
+
+    # build regular rocksdb
+    system "make", "clean"
+    system "make", "static_lib"
+    system "make", "shared_lib"
+    system "make", "tools"
+    system "make", "install", "INSTALL_PATH=#{prefix}"
+
+    bin.install "sst_dump" => "rocksdb_sst_dump"
+    bin.install "db_sanity_test" => "rocksdb_sanity_test"
+    bin.install "db_stress" => "rocksdb_stress"
+    bin.install "write_stress" => "rocksdb_write_stress"
+    bin.install "ldb" => "rocksdb_ldb"
+    bin.install "db_repl_stress" => "rocksdb_repl_stress"
+    bin.install "rocksdb_dump"
+    bin.install "rocksdb_undump"
+
+    # build rocksdb_lite
+    ENV.append_to_cflags "-DROCKSDB_LITE=1"
+    ENV["LIBNAME"] = "librocksdb_lite"
     system "make", "clean"
     system "make", "static_lib"
     system "make", "shared_lib"
@@ -36,8 +53,6 @@ class Rocksdb < Formula
       using namespace rocksdb;
       int main() {
         Options options;
-        options.memtable_factory.reset(
-                    NewHashSkipListRepFactory(16));
         return 0;
       }
     EOS
@@ -45,9 +60,18 @@ class Rocksdb < Formula
     system ENV.cxx, "test.cpp", "-o", "db_test", "-v",
                                 "-std=c++11", "-stdlib=libc++", "-lstdc++",
                                 "-lz", "-lbz2",
-                                "-L#{lib}", "-lrocksdb",
+                                "-L#{lib}", "-lrocksdb_lite",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
                                 "-L#{Formula["lz4"].opt_lib}", "-llz4"
     system "./db_test"
+
+    assert_match "sst_dump --file=", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1", 1)
+    assert_match "rocksdb_sanity_test <path>", shell_output("#{bin}/rocksdb_sanity_test --help 2>&1", 1)
+    assert_match "rocksdb_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_stress --help 2>&1", 1)
+    assert_match "rocksdb_write_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_write_stress --help 2>&1", 1)
+    assert_match "ldb - LevelDB Tool", shell_output("#{bin}/rocksdb_ldb --help 2>&1", 1)
+    assert_match "rocksdb_repl_stress:", shell_output("#{bin}/rocksdb_repl_stress --help 2>&1", 1)
+    assert_match "rocksdb_dump:", shell_output("#{bin}/rocksdb_dump --help 2>&1", 1)
+    assert_match "rocksdb_undump:", shell_output("#{bin}/rocksdb_undump --help 2>&1", 1)
   end
 end

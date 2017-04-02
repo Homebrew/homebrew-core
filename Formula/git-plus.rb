@@ -1,8 +1,8 @@
 class GitPlus < Formula
   desc "Git utilities: git multi, git relation, git old-branches, git recent"
   homepage "https://github.com/tkrajina/git-plus"
-  url "https://github.com/tkrajina/git-plus/archive/v0.3.0.tar.gz"
-  sha256 "4b68dad52a1ca544d4fcede2c910adaddf9af5a852805ee7718278c40de71d51"
+  url "https://github.com/tkrajina/git-plus/archive/v0.3.1.tar.gz"
+  sha256 "ec650cca2e5d26d89f099e3124fbf927c5ab31a56b8c2191b723c4b6a6a50b21"
   head "https://github.com/tkrajina/git-plus.git"
 
   bottle :unneeded

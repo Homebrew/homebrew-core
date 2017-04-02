@@ -3,12 +3,12 @@ class Calc < Formula
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
   url "http://www.isthe.com/chongo/src/calc/calc-2.12.5.0.tar.bz2"
   sha256 "a0e7b47af38330f188970998c8e5039134dadf6f2e3f2c00d7efdae272a4338d"
+  revision 1
 
   bottle do
-    sha256 "f68eb0e031534c68f3fb1c2c1d53a90c343f281b81f998cf4bfc9745a0b8d306" => :el_capitan
-    sha256 "d19d417a55f14e96a944c4eb12869b93a26d0e5d74a65898c8225a3c00b9d050" => :yosemite
-    sha256 "4fe6049dd1e184c4996c606c9b25c7f8fde40f2a5dab5c6eda251125db5328e0" => :mavericks
-    sha256 "eb87150f3af2f86480594d99558e637ed063b6a3a3cff38331d46638e02af245" => :mountain_lion
+    sha256 "dd0ed50f3e98e105a46b378352bfecda1562c9bb79524d77a63fc7ec46e8ed64" => :sierra
+    sha256 "4e7746c70e2bc113ff9bdc0308ebf5b79a58aca2dc0b208d0cb1dce698714abd" => :el_capitan
+    sha256 "23fd7dc2862b7f8f139d2b2e7263f478d9b1b45c5be7c8f6665cd8adfca78f28" => :yosemite
   end
 
   depends_on "readline"

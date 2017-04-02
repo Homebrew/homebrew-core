@@ -1,16 +1,15 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.14-7/source/tarball/percona-server-5.7.14-7.tar.gz"
-  sha256 "b204ffac56bfc8cf092acca3ce73d63b00450b59f554acd1daeb5a573eec2c1d"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-12/source/tarball/percona-server-5.7.17-12.tar.gz"
+  sha256 "2f89b40c940009bb54093c6740024c2dda918859ba731d03e76340e83e0a47b5"
 
   bottle do
-    sha256 "97f8be4a8a2dde3956076b716fe85befa1ec0e28865ec1991f791132677efe81" => :el_capitan
-    sha256 "2494b5f19cb1e45fa7ae377f1586fa6465ed7773cac741f308ff6d6b16b23f4e" => :yosemite
-    sha256 "e77d870f147a8a1951af2ea57db8d28c792b378a940ac062623db7f846839ee6" => :mavericks
+    sha256 "07d65e9938b7fc00274001cdb495785e3ddbaf7247510f3f5c2d5af4c227f18b" => :sierra
+    sha256 "feffff3276f9aad029e9423a3c680aa879303b049f72c289d5400bf6fdab9f6c" => :el_capitan
+    sha256 "edef11ecc55aaedaaa132af37ff6f222c30ab6aedfe4fe9c75724e33c38f008a" => :yosemite
   end
 
-  option :universal
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-local-infile", "Build with local infile loading support"
@@ -31,11 +30,6 @@ class PerconaServer < Formula
     :because => "both install MySQL client libraries"
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
-
-  fails_with :llvm do
-    build 2334
-    cause "https://github.com/Homebrew/homebrew/issues/issue/144"
-  end
 
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
@@ -61,31 +55,23 @@ class PerconaServer < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
-
-    args = %W[
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
+    args = std_cmake_args + %W[
       -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DINSTALL_MANDIR=#{man}
+      -DINSTALL_DOCDIR=#{doc}
+      -DINSTALL_INFODIR=#{info}
       -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql
       -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
-      -DSYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
-      -DCMAKE_BUILD_TYPE=RelWithDebInfo
     ]
 
     # PAM plugin is Linux-only at the moment
-    args.concat %W[
+    args.concat %w[
       -DWITHOUT_AUTH_PAM=1
       -DWITHOUT_AUTH_PAM_COMPAT=1
       -DWITHOUT_DIALOG=1
@@ -93,7 +79,7 @@ class PerconaServer < Formula
 
     # TokuDB is broken on MacOsX
     # https://bugs.launchpad.net/percona-server/+bug/1531446
-    args.concat %W[-DWITHOUT_TOKUDB=1]
+    args.concat %w[-DWITHOUT_TOKUDB=1]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
@@ -113,12 +99,6 @@ class PerconaServer < Formula
 
     # Build with InnoDB Memcached plugin
     args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
-
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"

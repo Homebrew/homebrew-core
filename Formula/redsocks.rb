@@ -3,12 +3,13 @@ class Redsocks < Formula
   homepage "http://darkk.net.ru/redsocks"
   url "https://github.com/darkk/redsocks/archive/release-0.4.tar.gz"
   sha256 "618cf9e8cd98082db31f4fde6450eace656fba8cd6b87aa4565512640d341045"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ad3df81c5bd45efce293e229c77ff0687141646024a41a0c7cae3b3da34dcdcc" => :el_capitan
-    sha256 "d59f7cd44ed44e76a1d03d83fdd7385330425d42913b4bab36e180c9b082d601" => :yosemite
-    sha256 "a6b82407933ada8111fe21b0491b051aa05f31cdb769840f50e6af5cc4f2c96e" => :mavericks
+    sha256 "ccfba64129d3e3a01b1bba7d18564e7b1ac174ce4b7a1c41424e2985d7a97523" => :sierra
+    sha256 "5d9e3f0dcc812146c27c7916052605be3f08b4be45682ccda27a9ab0dc97f574" => :el_capitan
+    sha256 "5d017a684dd4810da302823e4122ac8f43808a87c618fd24667b5b89d6b812b3" => :yosemite
   end
 
   depends_on "libevent"

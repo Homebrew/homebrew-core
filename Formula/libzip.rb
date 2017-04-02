@@ -12,10 +12,9 @@ class Libzip < Formula
     sha256 "e5c8a9203db8983a448ab144a7457b069f560354f2a0f6ee677e89dc4b07c21e" => :mavericks
   end
 
-  option :universal
+  conflicts_with "libtcod", :because => "both install `zip.h` header"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "CXX=#{ENV.cxx}",

@@ -1,14 +1,14 @@
 class Libebur128 < Formula
   desc "Library implementing the EBU R128 loudness standard"
   homepage "https://github.com/jiixyj/libebur128"
-  url "https://github.com/jiixyj/libebur128/archive/v1.1.0.tar.gz"
-  sha256 "c60e78f4bfda387a0895c64a4fc9850445e3a4425cc98f9140885966ce17c1d1"
+  url "https://github.com/jiixyj/libebur128/archive/v1.2.2.tar.gz"
+  sha256 "1d0d7e855da04010a2432e11fbc596502caf11b61c3b571ccbcb10095fe44b43"
 
   bottle do
     cellar :any
-    sha256 "d9c7285c092cf1b75420963efd4f8540fab99ead1e49c7656cab4491c782ec70" => :el_capitan
-    sha256 "09e07df1dd7a1ec59cf2e7eada5208a144d2e8d561dc0da6ce0baefe64006312" => :yosemite
-    sha256 "4070ef3a044c9c9df6adf95bccc9a33faeac8a4d7b29b326135139b404df2b95" => :mavericks
+    sha256 "a037db8310c95fecb9b5ae393997c5365011a8f5c753c1277a08af02d31767f4" => :sierra
+    sha256 "1446628a1ca48d17d00406e1687f1c3e3ee4b85d3571abeb2d1f3957135e32eb" => :el_capitan
+    sha256 "4b0226c7ab062b262b3aaac750d6e8784474e8c81459ad9b04f15cca206fcea6" => :yosemite
   end
 
   depends_on "cmake" => :build

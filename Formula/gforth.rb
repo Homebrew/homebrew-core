@@ -5,6 +5,7 @@ class Gforth < Formula
   sha256 "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
 
   bottle do
+    sha256 "81f11da165dd91b2c8f4e030e053bce1a5d474be544f03d0199b18207156c1e7" => :sierra
     sha256 "942bca40ed6b1c85d4d5a3faf5c2742a48251e5cf36414965140f595ee758d04" => :el_capitan
     sha256 "20f29be370717f9ce22e224dd4f509c69fc557ff921d622b2525ea7e25bf9f0c" => :yosemite
     sha256 "d72074880ae4ab11e656645d0d9ab52630640fbb0df713c03fee1a6b8cd84ffa" => :mavericks

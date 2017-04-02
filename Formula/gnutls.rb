@@ -1,32 +1,33 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.15.tar.xz"
-  sha256 "eb2a013905f5f2a0cbf7bcc1d20c85a50065063ee87bd33b496c4e19815e3498"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.10.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.10.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.10.tar.xz"
+  sha256 "af443e86ba538d4d3e37c4732c00101a492fe4b56a55f4112ff0ab39dbe6579d"
 
   bottle do
-    cellar :any
-    sha256 "b51f3a06fe00e27074aad8c65ecd86fe0fcb5df8d9b4379c9e452a812207b898" => :sierra
-    sha256 "2a18ae1b67e4d55ec3d749a06ac0471456daff44ac52156e1824d32d0d0675b2" => :el_capitan
-    sha256 "c7f30aa4ea4d054e0d788e9948fcd6ff03b353525319ff80de8063659c40ea65" => :yosemite
-    sha256 "a30400a5dd19c4830697403b0d297c8ffd10a57b122b02eb06213b1066373897" => :mavericks
+    sha256 "06ee8b8fa03da686bb41570474dd4477870b77557da52c3e73045e3e6e6c089f" => :sierra
+    sha256 "cce1fd251cffc0f5d4dfcc11dbb8c77a5be4a38cc4184e3b79e7c25fb6643db8" => :el_capitan
+    sha256 "7ab7ffac6bdc998fe8f9e3fd1373b9b587562116a49c6467bc97f36d40a31803" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "libtasn1"
   depends_on "gmp"
   depends_on "nettle"
+  depends_on "libunistring"
+  depends_on "p11-kit" => :recommended
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
 
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
-  end
-
   def install
+    # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
+    # Reported 18 Oct 2016 https://gitlab.com/gnutls/gnutls/issues/142
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "getentropy(0, 0);", "undefinedgibberish(0, 0);"
+    end
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -35,14 +36,24 @@ class Gnutls < Formula
       --sysconfdir=#{etc}
       --with-default-trust-store-file=#{etc}/openssl/cert.pem
       --disable-heartbeat-support
-      --without-p11-kit
     ]
-    args << "--enable-guile" << "--with-guile-site-dir" if build.with? "guile"
+
+    if build.with? "p11-kit"
+      args << "--with-p11-kit"
+    else
+      args << "--without-p11-kit"
+    end
+
+    if build.with? "guile"
+      args << "--enable-guile" << "--with-guile-site-dir"
+    else
+      args << "--disable-guile"
+    end
 
     system "./configure", *args
     system "make", "install"
 
-    # certtool shadows the OS X certtool utility
+    # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"
     mv man1/"certtool.1", man1/"gnutls-certtool.1"
   end
@@ -53,9 +64,7 @@ class Gnutls < Formula
     ]
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
-    )
+    certs = certs_list.scan(/-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m)
 
     valid_certs = certs.select do |cert|
       IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|

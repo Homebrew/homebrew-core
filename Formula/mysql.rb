@@ -1,14 +1,14 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.15.tar.gz"
-  sha256 "7342a3a3e40878378dfaee252d42a3a5b06c58237f49c2544424d27316738945"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.17.tar.gz"
+  sha256 "b75bba87199ef6a6ccc5dfbcaf70949009dc12089eafad8c5254afc9002aa903"
 
   bottle do
-    sha256 "84f562c4eda4ce7ecf89f38f480f8a27f23a7500fd0a1b13daadcb16308bc00e" => :sierra
-    sha256 "378bf7d07c791ee5144a958f1395fdb8838f29b2358ee927f9bc0e3f0673f66d" => :el_capitan
-    sha256 "03df7e5ebba4674d75c6ec8c5ae68f0ea6df339595c3a5434740ce545296ccbe" => :yosemite
-    sha256 "cf205231fd0bd4177bf3a94761d4dcc6985d1eb7597592f8e4947e826acf7fd2" => :mavericks
+    rebuild 1
+    sha256 "356188a30bd8efe73db3487808410f990b0e009fcdff160ca0b4857be9f8e298" => :sierra
+    sha256 "bf8772e391156ccabac2f0a11f7dee7cf2ce3d0ad7f194af8126a23713fa6b55" => :el_capitan
+    sha256 "2e1c08edf6817dcdc58505530d18b3e4cb22882d246f7a9b5512633f34fca3ee" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -38,11 +38,6 @@ class Mysql < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  fails_with :llvm do
-    build 2326
-    cause "https://github.com/Homebrew/homebrew/issues/issue/144"
-  end
-
   def datadir
     var/"mysql"
   end
@@ -54,16 +49,8 @@ class Mysql < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
-
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
-      .
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
       -DMYSQL_DATADIR=#{datadir}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
@@ -96,21 +83,21 @@ class Mysql < Formula
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
     # Build with debug support
     args << "-DWITH_DEBUG=1" if build.with? "debug"
 
-    system "cmake", *args
+    system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
+
+    # We don't want to keep a 240MB+ folder around most users won't need.
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+    rm_rf prefix/"mysql-test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
@@ -150,10 +137,10 @@ class Mysql < Formula
     To connect run:
         mysql -uroot
     EOS
-    if File.exist? "/etc/my.cnf"
+    if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
       s += <<-EOS.undent
 
-        A "/etc/my.cnf" from another install may interfere with a Homebrew-built
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
         server starting up correctly.
       EOS
     end
@@ -187,9 +174,23 @@ class Mysql < Formula
   end
 
   test do
-    system "/bin/sh", "-n", "#{bin}/mysqld_safe"
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{testpath}"
+    begin
+      # Expects datadir to be a completely clean dir, which testpath isn't.
+      dir = Dir.mktmpdir
+      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+
+      pid = fork do
+        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      end
+      sleep 2
+
+      output = shell_output("curl 127.0.0.1:3306")
+      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+      assert_match version.to_s, output
+    ensure
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end

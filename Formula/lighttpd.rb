@@ -1,17 +1,18 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.39.tar.xz"
-  sha256 "7eb9a1853c3d6dd5851682b0733a729ba4158d6bdff80974d5ef5f1f6887365b"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.45.tar.xz"
+  sha256 "1c97225deea33eefba6d4158c2cef27913d47553263516bbe9d2e2760fc43a3f"
+  revision 1
 
   bottle do
-    sha256 "220ad72cdd11e37e06c2311904966f3181bdb6628d5e788f0878df4fa283eb02" => :sierra
-    sha256 "980a717148dd248f4577af9918c402b531bbb0eccc8e446584d9a0145024d6d7" => :el_capitan
-    sha256 "b07856b57079ea6e83a19c7f653c607214bfe8a35e8b43623cb6469936ac2c35" => :yosemite
-    sha256 "3a9497a510e6a002295deb6a98ccff5cc3ad12fde75193c61d783df10c611477" => :mavericks
+    sha256 "ea21913a3c06916cdc9aafe058e3754ae1128aabf9ff09d620f5e75b9c3e94da" => :sierra
+    sha256 "924b93d54e2af41890713acc60414dbaa1ebcc253e76d3cc3f618600a2677a80" => :el_capitan
+    sha256 "5b00eee8f99959025097240e211f5440ed83fc27ae18d8f05c8ebef84e38a0e9" => :yosemite
   end
 
-  option "with-lua51", "Include Lua scripting support for mod_magnet"
+  option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
+  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
@@ -19,7 +20,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pcre"
   depends_on "openssl"
-  depends_on "lua51" => :optional
+  depends_on "lua@5.1" => :optional
   depends_on "libev" => :optional
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
@@ -54,7 +55,7 @@ class Lighttpd < Formula
       --with-attr
     ]
 
-    args << "--with-lua" if build.with? "lua51"
+    args << "--with-lua" if build.with? "lua@5.1"
     args << "--with-libev" if build.with? "libev"
 
     # autogen must be run, otherwise prebuilt configure may complain
@@ -104,10 +105,6 @@ class Lighttpd < Formula
     EOS
   end
 
-  test do
-    system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
-  end
-
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
 
   def plist; <<-EOS.undent
@@ -147,5 +144,9 @@ class Lighttpd < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
   end
 end

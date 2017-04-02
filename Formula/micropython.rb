@@ -2,18 +2,18 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-    :tag => "v1.8.4",
-    :revision => "3611dcc260cef08eaa497cea4e3ca17977848b6c"
+    :tag => "v1.8.7",
+    :revision => "5653e3c72fc8555c6a060acf6447ac694a036053"
 
   bottle do
     cellar :any
-    sha256 "94d7600c5c434d700005dbfd7db94482fe5f1adf577c45d54e0968e2125d0d43" => :el_capitan
-    sha256 "67e265ff6255c73294802e113b3cf51bc8d9859033297a62728a1637776be3cc" => :yosemite
-    sha256 "d4387ba44d795547b8253b9e5131c1cb700a69b50b2b9609452ac93c475b3c4a" => :mavericks
+    sha256 "67fc514638513368dfa774f1a72d502ffb61e24a0736c32869a9a1f4ad9737bb" => :sierra
+    sha256 "a1f784f6761753470994ed5fea67bfc13b9e8617828caa333a8b450a19875f59" => :el_capitan
+    sha256 "ad503b4e7a15dfcb8b151c7225db329697bad3270ee95196e7aeaf74c32b449d" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libffi" # Requires libffi v3 closure API; OS X version is too old
+  depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
 
   def install
     cd "unix" do

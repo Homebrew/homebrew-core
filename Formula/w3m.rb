@@ -1,6 +1,6 @@
 class W3m < Formula
   desc "Pager/text based browser"
-  homepage "http://w3m.sourceforge.net/"
+  homepage "https://w3m.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/w3m/w3m/w3m-0.5.3/w3m-0.5.3.tar.gz"
   sha256 "e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3"
 
@@ -15,10 +15,6 @@ class W3m < Formula
   depends_on "bdw-gc"
   depends_on "openssl"
 
-  fails_with :llvm do
-    build 2334
-  end
-
   patch :DATA
 
   def install
@@ -26,7 +22,7 @@ class W3m < Formula
                           "--with-ssl=#{Formula["openssl"].opt_prefix}"
     # Race condition in build reported in:
     # https://github.com/Homebrew/homebrew/issues/12854
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

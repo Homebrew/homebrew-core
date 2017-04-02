@@ -1,20 +1,20 @@
 class Libcdr < Formula
   desc "C++ library to parse the file format of CorelDRAW documents"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
-  url "http://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.2.tar.bz2"
-  sha256 "d05a986dab9f960e64466072653a900d03f8257b084440d9d16599e16060581e"
-  revision 1
+  url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.3.tar.xz"
+  sha256 "66e28e502abef7f6f494ce03de037d532f5e7888cfdee62c01203c8325b33f22"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b0e31c34dc7cce343d5f3a52b796ee922130378520845d76865d3d2eed133abd" => :el_capitan
-    sha256 "1edc9447e7f36698e1d1ed188948f87188e98e407edfb685cc25312cca450784" => :yosemite
-    sha256 "b7a494d1b5e726c3bf107f158e2a5d4edd898102e9371509eb86c9c845b123f6" => :mavericks
+    sha256 "4c59ebfbb12f1d71d26b03899691dc6b62dcde619c53c2f096b8efc91aab6bdc" => :sierra
+    sha256 "5984f319a2bc8b3e3fd15daffaf588a737395d5e11813af84bba2884a3ebad1a" => :el_capitan
+    sha256 "69e4eeaa9f00aa68c8afde1327adf8a7d84d53fc24a4df0cf2d5d29494ccfba1" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
   depends_on "cppunit" => :build
+  depends_on "boost"
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"

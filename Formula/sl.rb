@@ -19,7 +19,7 @@ class Sl < Formula
   end
 
   def install
-    system "make -e"
+    system "make", "-e"
     bin.install "sl"
     man1.install "sl.1"
   end

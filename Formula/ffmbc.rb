@@ -4,12 +4,12 @@ class Ffmbc < Formula
   url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
   version "0.7.2"
   sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "677c16abc9d8b26bc46202293ccee4e21c27c7360e6a09dcad40f47ca8c06880" => :el_capitan
-    sha256 "7399a568ff4e63dfe6991043d2f879ef55592c3f3c3f9a149a3ce06ba2921af3" => :yosemite
-    sha256 "41d265bbb0ad192f8d9aeff278127a64626b7db2e5cce89ec31453316e0ef433" => :mavericks
+    sha256 "a8fbeffc4fd920bd4ec76de3633f598c0f8a3019dbbe7af843e59d407a294b93" => :sierra
+    sha256 "541f19e04edf29bba1381677ed35acc8bdd048cb55497801261ea128df706a6a" => :el_capitan
+    sha256 "fa213ac76b9c9a7fc9e733c5ccb00d81d741ce4dfdda50c2bcf519151fffc598" => :yosemite
   end
 
   option "without-x264", "Disable H.264 encoder"
@@ -58,7 +58,10 @@ class Ffmbc < Formula
     # ffmbc's lib and bin names conflict with ffmpeg and libav
     # This formula will only install the commandline tools
     mv "ffprobe", "ffprobe-bc"
+    mv "doc/ffprobe.1", "doc/ffprobe-bc.1"
     bin.install "ffmbc", "ffprobe-bc"
+    man.mkpath
+    man1.install "doc/ffmbc.1", "doc/ffprobe-bc.1"
   end
 
   def caveats

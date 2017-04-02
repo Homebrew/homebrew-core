@@ -8,7 +8,8 @@ class Libuecc < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "d6108e008f03c69ef2f76443a7bfecd9262bd3ba03613f24c56d4fd921c73c85" => :sierra
     sha256 "ed13876ca85617cfe1f6fd174ebd4502d29096d2b8c4bcaf3facc9749f28ae34" => :el_capitan
     sha256 "eb7bcbd632f8f5f1faedbbe49529a9b1820d31530b5a256558d4e99edc2953e1" => :yosemite
     sha256 "dfdb783678a0aa3a8edd745d890921b8213f3e1075d152a13a207053e178e270" => :mavericks

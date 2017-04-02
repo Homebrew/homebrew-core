@@ -5,26 +5,23 @@ class Jbigkit < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
 
+  head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
+       :using => :git
+
   bottle do
     cellar :any_skip_relocation
+    sha256 "831dd1ec7e8013ddc6c23641a21292eae26f397e8b61d95382a6240f18fc5602" => :sierra
     sha256 "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00" => :el_capitan
     sha256 "764396342e87b84253aa06f5046f90c778cacca998ce970900cb2fdf1cfdc3fa" => :yosemite
     sha256 "0ce925915b984307d2e679622138143c5cc5baf832b0a16003fa1e6111a5df9f" => :mavericks
     sha256 "0afb6297101bc3269f0ebca1590cda66a62cbd90e3fdbec38dc011131711d32b" => :mountain_lion
   end
 
-  head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
-       :using => :git
-
-  option :universal
   option "with-test", "Verify the library during install"
 
   deprecated_option "with-check" => "with-test"
 
   def install
-    # Set for a universal build and patch the Makefile.
-    # There's no configure. It creates a static lib.
-    ENV.universal_binary if build.universal?
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"
 
     if build.with? "test"
@@ -43,11 +40,11 @@ class Jbigkit < Formula
       (prefix/"src").install Dir["j*.c", "j*.txt"]
       include.install Dir["j*.h"]
     end
-    (share/"jbigkit").install "examples", "contrib"
+    pkgshare.install "examples", "contrib"
   end
 
   test do
-    system "#{bin}/jbgtopbm #{share}/jbigkit/examples/ccitt7.jbg | #{bin}/pbmtojbg - testoutput.jbg"
-    system "/usr/bin/cmp", share/"jbigkit/examples/ccitt7.jbg", "testoutput.jbg"
+    system "#{bin}/jbgtopbm #{pkgshare}/examples/ccitt7.jbg | #{bin}/pbmtojbg - testoutput.jbg"
+    system "/usr/bin/cmp", pkgshare/"examples/ccitt7.jbg", "testoutput.jbg"
   end
 end

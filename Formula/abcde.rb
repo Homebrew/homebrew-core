@@ -1,17 +1,17 @@
 class Abcde < Formula
   desc "Better CD Encoder"
   homepage "https://abcde.einval.com"
-  url "https://abcde.einval.com/download/abcde-2.7.2.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/abcde/abcde_2.7.2.orig.tar.gz"
-  sha256 "aa39881682ac46eb9fc199d1343b97bc56a322b41a5c57013acda31948bc53dd"
+  url "https://abcde.einval.com/download/abcde-2.8.1.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/abcde/abcde_2.8.1.orig.tar.gz"
+  sha256 "e49c71d7ddcd312dcc819c3be203abd3d09d286500ee777cde434c7881962b39"
+  revision 1
   head "https://git.einval.com/git/abcde.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "624851d14d82da04fca226630ba6b98f25b3c2994d7e19e98f367fb0fa6f23ab" => :sierra
-    sha256 "e79abd55580a0a164f0f8d89bba7caa52fa1526fa351c25dbad2f98e05d38fbd" => :el_capitan
-    sha256 "caa9b573e291c6541ae94e43ae7a6557831d9e5cfa0facd0dd2bfae79bc36579" => :yosemite
-    sha256 "9cc3155d7b417f7562dc9a6c4d3bf80c933f7c6811e4bc7e8576cec2d944f1d1" => :mavericks
+    sha256 "6103b36d2a9d39a8dc303c96f12741ec0f83750688832cf79aa4156a7efae5ce" => :sierra
+    sha256 "6103b36d2a9d39a8dc303c96f12741ec0f83750688832cf79aa4156a7efae5ce" => :el_capitan
+    sha256 "6103b36d2a9d39a8dc303c96f12741ec0f83750688832cf79aa4156a7efae5ce" => :yosemite
   end
 
   depends_on "cd-discid"
@@ -24,6 +24,11 @@ class Abcde < Formula
   depends_on "glyr" => :optional
 
   def install
+    # Fixes MD5SUM being set to nonexistent md5sum
+    # Reported upstream 2017-03-18 18:03 GMT
+    # https://abcde.einval.com/bugzilla/show_bug.cgi?id=59
+    inreplace "abcde", "OSFLAVOUR=OSX", "MD5SUM=md5\n\tOSFLAVOUR=OSX"
+
     system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}"
   end
 

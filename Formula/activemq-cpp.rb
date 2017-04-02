@@ -6,13 +6,15 @@ class ActivemqCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "ba85affa7a01c8ae45beb27545c841bc4f57f0c2841e4533dc537d6abe3a6486" => :el_capitan
-    sha256 "be16c11110621a32d65a7843f05813cfc7c6861ea589a076699e5f66bf6b2a02" => :yosemite
-    sha256 "0180da693b7e8a478538393e8746c0ffb1dc0904e24cceb4be591230c7004bf2" => :mavericks
+    rebuild 1
+    sha256 "6f9c2de75613e349422af1300c8d023603e501947d3631dc027654f3b09281ea" => :sierra
+    sha256 "b54be46ced741f2722145bf28889c5837b44bdf0ca7161225935be18ae41cc67" => :el_capitan
+    sha256 "bda92f40d2e5a608e5cb15c4330731202033e310f3cee686652ded0a56d21823" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "apr"
 
   def install
     system "./configure", "--prefix=#{prefix}"

@@ -1,14 +1,15 @@
 class SsllabsScan < Formula
   desc "This tool is a command-line client for the SSL Labs APIs."
   homepage "https://github.com/ssllabs/ssllabs-scan/"
-  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.3.0.tar.gz"
-  sha256 "ec631177900ff07e1299e116638346e4ae95c878cfd317e9e1e8dfd73ecde514"
+  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.4.0.tar.gz"
+  sha256 "a7d5fad92649172ca4b190f481172b602aa1ae103d14dd1f1951ee250d382eec"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f660edbae6c6f1118772643c7eff3f352086b02f04bf07a9a1149a5777791f2" => :el_capitan
-    sha256 "403869d861c3d5806352f34a2462af4f18f1dc55ad721ec6cc24be98c7e3af8a" => :yosemite
-    sha256 "c45c6c3e884e18ad5636b7dac8276ebc808f224c13e3c3a6f328dd9b5a083d68" => :mavericks
+    rebuild 1
+    sha256 "e527081f119ba004e06bba763d780d676df38bacd28b482bbeae64cbf43e4aea" => :sierra
+    sha256 "f541615737e69900d1a141af1872bc983cdeb94cd28016dfa8c3f5ba0f11d8c0" => :el_capitan
+    sha256 "18b509cec2507dd9a50aedcb618a8069ecbecc765cd31791381765c596702932" => :yosemite
   end
 
   depends_on "go" => :build

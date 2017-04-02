@@ -1,20 +1,24 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
-  url "http://www.profanity.im/profanity-0.4.7.tar.gz"
-  sha256 "b02c4e029fe84941050ccab6c8cdf5f15df23de5d1384b4d1ec66da6faee11dd"
-  revision 2
-
-  head "https://github.com/boothj5/profanity.git"
+  url "http://www.profanity.im/profanity-0.5.1.tar.gz"
+  sha256 "e3513713e74ec3363fbdbac2919bdc17e249988780cc5a4589d1425807a7feb8"
 
   bottle do
-    sha256 "e42d99f8e15de670c0d5d0d3bd90cc946759c6d55697ecf0f20928f8ac63c062" => :el_capitan
-    sha256 "01807fbbe872b9921ca8c9af55fc0843ae57bbdeeed565ed929f254523d6f758" => :yosemite
-    sha256 "f1e8e071263d364cf86b0adcaf475ef3dabb2cd6eededa8aa1f7e7d4e6fe0c2b" => :mavericks
+    sha256 "6c25fa2f09c53b761f1d5ec9e30ff729fada4b1496e4852ae54b42ec8abee62c" => :sierra
+    sha256 "7b71f78407ab50478f50ed07a5f5e559ba177530d4358626681abcb28552529f" => :el_capitan
+    sha256 "539594946baa70bf330cd995fa65217aa6d3b02c0523227fd833be704c010b37" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/boothj5/profanity.git"
+
+    depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "ossp-uuid"
   depends_on "libstrophe"
@@ -27,14 +31,15 @@ class Profanity < Formula
   depends_on "terminal-notifier" => :optional
 
   def install
-    system "./bootstrap.sh"
+    system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--disable-python-plugins",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "profanity", "-v"
+    system "#{bin}/profanity", "-v"
   end
 end

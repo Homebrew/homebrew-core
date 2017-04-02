@@ -6,7 +6,8 @@ class Hashpump < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "3603a67cae4501fcd0e610a9d40cf532fdc3a36b91de1da2a3931628c6f285eb" => :sierra
     sha256 "bc00f1a7c60564fed1ebf0ece40306aa169e4a7ddf7f9c8d56c7088130f5e530" => :el_capitan
     sha256 "8b33f44272b46174184639f3a6044f47151756039068343262d3e2cbe4a26a7c" => :yosemite
     sha256 "667650946f6e697657832f9f906f3a548bc55991e2422f8cbbbe7c793434111f" => :mavericks

@@ -1,15 +1,16 @@
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
   homepage "http://ephemeralpg.org"
-  url "http://ephemeralpg.org/code/ephemeralpg-1.9.tar.gz"
-  mirror "https://bitbucket.org/eradman/ephemeralpg/get/ephemeralpg-1.9.tar.gz"
-  sha256 "3caf06f2be5d9f206f3c1174cc0c44cc359357fc7d41da026f858e01ef192792"
+  url "http://ephemeralpg.org/code/ephemeralpg-2.2.tar.gz"
+  mirror "https://bitbucket.org/eradman/ephemeralpg/get/ephemeralpg-2.2.tar.gz"
+  sha256 "dfd3df1cd222024439219fe82f2d3e64d0d2fad5e302a4e0c2ff0fc12a5b88ec"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e50efa09e441390165ec35db5a42965c102e989435ad18bffcc231b12f58c0bc" => :el_capitan
-    sha256 "500fd314d36ec1ba114fddc4786835f7b511163b07824721524cadbb5e718b0b" => :yosemite
-    sha256 "9994e0a34d6a0071abef009a15d5dfcc513412633368fb0245fe40e664be52bd" => :mavericks
+    sha256 "b74184bcf5e26faf500d6381bfc2d933d2a0ebfa5f4a13fb2c109e257d591b4d" => :sierra
+    sha256 "2dcbf5709d0242399f79ac4ccf765cbbff0288ab906ff2ad67af3dde482815cd" => :el_capitan
+    sha256 "c3061720932617170d09d7812d722607a71c165106bddc9315d8981a05d9ad17" => :yosemite
   end
 
   depends_on :postgresql

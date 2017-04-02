@@ -1,21 +1,21 @@
-# NOTE: version 2.0 is out, but it requires Bash 4, and OS X ships
-# with 3.2.48. See homebrew-versions for a 2.0 formula.
+# NOTE: version 2 is out, but it requires Bash 4, and macOS ships
+# with 3.2.57. If you've upgraded bash, use bash-completion@2 instead.
 class BashCompletion < Formula
   desc "Programmable completion for Bash 3.2"
   homepage "https://bash-completion.alioth.debian.org/"
   url "https://bash-completion.alioth.debian.org/files/bash-completion-1.3.tar.bz2"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "fe6e1bfcd0c9c93c8d2845738ebf3419a48374c30dc5259eb0967a9212c5b669" => :sierra
-    sha256 "aaa0801956062f69a0e1c2c5214c110ef86828474508a3b4925f5e1cf11b0ce5" => :el_capitan
-    sha256 "aca381fd5650b1d0ef886d824f1846e4934b6dc7eaf062a6be4bc17251245af3" => :yosemite
-    sha256 "f745eeca7d3c9f98280a565064a54a1a177ad0792d5ccaeecf5d3c7e1d18d783" => :mavericks
+    sha256 "fff005f76bbc76442d6106429651df40180543840a1e145eddc58fdd57db1b80" => :sierra
+    sha256 "fff005f76bbc76442d6106429651df40180543840a1e145eddc58fdd57db1b80" => :el_capitan
+    sha256 "fff005f76bbc76442d6106429651df40180543840a1e145eddc58fdd57db1b80" => :yosemite
   end
+
+  conflicts_with "bash-completion@2", :because => "Differing version of same formula"
 
   # Backports the following upstream patch from 2.x:
   # https://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=commitdiff_plain;h=50ae57927365a16c830899cc1714be73237bdcb2
@@ -37,9 +37,7 @@ class BashCompletion < Formula
 
   def caveats; <<-EOS.undent
     Add the following lines to your ~/.bash_profile:
-      if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-      fi
+      [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
     EOS
   end
 

@@ -16,6 +16,7 @@ class Libopkele < Formula
 
   bottle do
     cellar :any
+    sha256 "38cac7b6c07814d6bdfe4b9b9b6fdf3daf50cf306689cc6e2396d6664660419c" => :sierra
     sha256 "b37d5783b40172001ecfa3ec8b19e636c7b9b96d5482dd7d8474e3c941501ece" => :el_capitan
     sha256 "57dbb32ce8982e2ad8135917ac1794933edf92b8e2514c16a016bccaaaa1c6aa" => :yosemite
     sha256 "142d206a9bde1877b84e1206fc0b49c6fa47577510b9b22d8d9d07cf385c54bf" => :mavericks

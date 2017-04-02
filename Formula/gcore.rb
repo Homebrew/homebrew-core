@@ -1,20 +1,25 @@
 class Gcore < Formula
   desc "Produce a snapshot (core dump) of a running process"
-  homepage "http://osxbook.com/book/bonus/chapter8/core/"
-  url "http://osxbook.com/book/bonus/chapter8/core/download/gcore-1.3.tar.gz"
+  homepage "https://osxbook.com/book/bonus/chapter8/core/"
+  url "https://osxbook.com/book/bonus/chapter8/core/download/gcore-1.3.tar.gz"
   sha256 "6b58095c80189bb5848a4178f282102024bbd7b985f9543021a3bf1c1a36aa2a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "6ba5c2d5212f291b6410e9770e4bd8863f11462720c5f92898075d01acf0fb8e" => :el_capitan
-    sha256 "4b098515f445f46942b8b7deab79f03206441d1ba95aaa65ce5da3c9e081a17e" => :yosemite
-    sha256 "6479ee2516b07716c506155dee9e9d6be8484ae5f8ac044945644eb22db49a3b" => :mavericks
+    sha256 "5fbccf36d0bd51cc4261859b7faf2cc15fe89244109b64abf83512ea73f3259f" => :sierra
+    sha256 "5c48b53869e00e0456d57bfa5adde594b5c5e46f3b0678434139765f5d8167ba" => :el_capitan
+    sha256 "e215d77d74b8c878a7d7449aada4817714b13024d6bfad78b2b700271e6218ec" => :yosemite
   end
 
+  keg_only :provided_by_osx if MacOS.version >= :sierra
+
   def install
-    ENV.universal_binary
     system "make"
     bin.install "gcore"
+  end
+
+  test do
+    assert_match "<pid>", shell_output("#{bin}/gcore 2>&1", 22)
   end
 end

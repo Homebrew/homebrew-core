@@ -10,6 +10,7 @@ class Cryptol < Formula
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
+    sha256 "c4f1f4823f79389a05325ed317bdb26bab0a9831446a2ffce7d6885d0bed2358" => :sierra
     sha256 "a5f2ee4dd5b97cd902df46add9279e1575bd053d0638cceb27df4d250952e1c7" => :el_capitan
     sha256 "605b746d10521d8b5de1c8711974eed1c929490e35417927f1ca000c477cd705" => :yosemite
     sha256 "baaf041702d1bd513e7ec73ee373224da009bdc7609ba13cd3aa2d6ca8141ae3" => :mavericks

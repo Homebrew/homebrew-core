@@ -1,14 +1,14 @@
 class Viewvc < Formula
   desc "Browser interface for CVS and Subversion repositories"
   homepage "http://www.viewvc.org"
-  url "http://viewvc.tigris.org/files/documents/3330/49471/viewvc-1.1.24.tar.gz"
-  sha256 "0620f69fa5ba02ac65e000586ba31015a2053a82711bedb30629fd6087003d7e"
+  url "https://github.com/viewvc/viewvc/releases/download/1.1.26/viewvc-1.1.26.tar.gz"
+  sha256 "9d718237df7fc04d511302812c0bec0363cf6b8334ab796953a764c2de426e43"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "389820a6f60d0977413ac7aebbf3bbacd2661cc105865813e5cf50c1f9f02020" => :el_capitan
-    sha256 "06d3611ba9c051f0e5d51859c739c77a1bb2c6beb054008ca2a63db1c2f3a1f1" => :yosemite
-    sha256 "8d76afcfed4be03aee5c35b83a389dd4174fc6dbc528386c1e9ba3dd4a7a575d" => :mavericks
+    sha256 "d692c6f47134e21a0e0659ee854cb8ad6ed8e45bc88b0bcbaf3307e7fba24d1b" => :sierra
+    sha256 "cb3b467bbb5268c62e3ab2cc1870000fce3558e3443b33bb6fa17c2ce87147cc" => :el_capitan
+    sha256 "cb3b467bbb5268c62e3ab2cc1870000fce3558e3443b33bb6fa17c2ce87147cc" => :yosemite
   end
 
   # swig is a dependency of subversion --with-python, but due to a

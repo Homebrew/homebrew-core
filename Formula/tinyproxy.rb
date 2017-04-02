@@ -1,29 +1,23 @@
 class Tinyproxy < Formula
   desc "HTTP/HTTPS proxy for POSIX systems"
   homepage "https://www.banu.com/tinyproxy/"
-  url "https://www.banu.com/pub/tinyproxy/1.8/tinyproxy-1.8.3.tar.bz2"
-  sha256 "be559b54eb4772a703ad35239d1cb59d32f7cf8a739966742622d57df88b896e"
+  url "https://github.com/tinyproxy/tinyproxy/releases/download/1.8.4/tinyproxy-1.8.4.tar.xz"
+  sha256 "a41f4ddf0243fc517469cf444c8400e1d2edc909794acda7839f1d644e8a5000"
 
   bottle do
     cellar :any_skip_relocation
-    revision 2
-    sha256 "004c6319701e7529b252e1860321cf14369a74029a6f05523662365ff1292f1b" => :el_capitan
-    sha256 "b68a1b323a20f689b96e7405f2c491c66849fa011beb450dcf417be491557da4" => :yosemite
-    sha256 "7bba647101259e9299a8a61177fcba2966b056091e9b1a28a43207e612a0bcfc" => :mavericks
+    sha256 "f62686118cef44aec1cecb27644f65779ff8d1c2c52216f78b2fed3fe8d74d3d" => :sierra
+    sha256 "51cd6c92bb780eabbf856cbbc3dc08e3e5ad152042818c3d3a0761f28e414843" => :el_capitan
+    sha256 "ea3bc9079b1c7b4aa0163b37c1bbe21fd971b2122f42cf9c2140ecd43d80b4a6" => :yosemite
   end
-
-  depends_on "asciidoc" => :build
 
   option "with-reverse", "Enable reverse proxying"
   option "with-transparent", "Enable transparent proxying"
+  option "with-filter", "Enable url filtering"
+
+  depends_on "asciidoc" => :build
 
   deprecated_option "reverse" => "with-reverse"
-
-  # Fix linking error, via MacPorts: https://trac.macports.org/ticket/27762
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b17ed2/tinyproxy/patch-configure.diff"
-    sha256 "414b8ae7d0944fb8d90bef708864c4634ce1576c5f89dd79539bce1f630c9c8d"
-  end
 
   def install
     args = %W[
@@ -38,6 +32,7 @@ class Tinyproxy < Formula
 
     args << "--enable-reverse" if build.with? "reverse"
     args << "--enable-transparent" if build.with? "transparent"
+    args << "--enable-filter" if build.with? "filter"
 
     system "./configure", *args
 
@@ -52,20 +47,6 @@ class Tinyproxy < Formula
   def post_install
     (var/"log/tinyproxy").mkpath
     (var/"run/tinyproxy").mkpath
-  end
-
-  test do
-    pid = fork do
-      exec "#{sbin}/tinyproxy"
-    end
-    sleep 2
-
-    begin
-      assert_match /tinyproxy/, shell_output("curl localhost:8888")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
   end
 
   plist_options :manual => "tinyproxy"
@@ -91,5 +72,19 @@ class Tinyproxy < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    pid = fork do
+      exec "#{sbin}/tinyproxy"
+    end
+    sleep 2
+
+    begin
+      assert_match /tinyproxy/, shell_output("curl localhost:8888")
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end

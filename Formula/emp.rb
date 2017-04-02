@@ -1,14 +1,14 @@
 class Emp < Formula
   desc "CLI for Empire."
   homepage "https://github.com/remind101/empire"
-  url "https://github.com/remind101/empire/archive/v0.11.0.tar.gz"
-  sha256 "b091b07a7f6ed15a432201fed379de4b7aec0d481b9f9323ac060683b7dacf21"
+  url "https://github.com/remind101/empire/archive/v0.12.0.tar.gz"
+  sha256 "fffffb10966b2eedcc5518c69c765b459d9a9f55d41d9c7735e744eff3960b61"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d21d95eb949b7aca853943ee4227aa26c3b8325fd48ad1277a8a30f7dcd13af" => :el_capitan
-    sha256 "00637bd97dda4c10484accdb9056e378a015ec89a1b0dcf2d4cb541d42d8f106" => :yosemite
-    sha256 "b65f09cab767d30c51eebf8f1994c89b73e78228ee63f0f1d35ddad9b778e2c9" => :mavericks
+    sha256 "885c908a7345e391f18ddaa31f557a804f002c51ed380ecd30250292e98b61b5" => :sierra
+    sha256 "32758cf97cbe3cdd364e0a9186c11bf85711e505114bf69e00e3b0243853a050" => :el_capitan
+    sha256 "6fe53748cc8bcaa2f326ccf55b4217ead05cee5030d7f7bfb80e6682d7a8f64f" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,7 +24,6 @@ class Emp < Formula
 
   test do
     require "webrick"
-    require "utils/json"
 
     server = WEBrick::HTTPServer.new :Port => 8035
     server.mount_proc "/apps/foo/releases" do |_req, res|
@@ -38,14 +37,14 @@ class Emp < Formula
         },
         "version" => 1,
       }
-      res.body = Utils::JSON.dump([resp])
+      res.body = JSON.generate([resp])
     end
 
     Thread.new { server.start }
 
     begin
       ENV["EMPIRE_API_URL"] = "http://127.0.0.1:8035"
-      assert_match /v1  zab  Oct 1(1|2|3) \d\d:00  my awesome release/,
+      assert_match /v1  zab  Oct 1(1|2|3)  2015  my awesome release/,
         shell_output("#{bin}/emp releases -a foo").strip
     ensure
       server.shutdown

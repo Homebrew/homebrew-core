@@ -1,6 +1,6 @@
 class Aalib < Formula
   desc "Portable ASCII art graphics library"
-  homepage "http://aa-project.sourceforge.net/aalib/"
+  homepage "https://aa-project.sourceforge.io/aalib/"
   url "https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz"
   sha256 "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
 
@@ -14,7 +14,7 @@ class Aalib < Formula
     sha256 "b2fd6584ff2ad3afc0050e0663ad680f84c79d59958afb043681bac77e9fd2fc" => :mountain_lion
   end
 
-  # Fix malloc/stdlib issue on OS X
+  # Fix malloc/stdlib issue on macOS
   # Fix underquoted definition of AM_PATH_AALIB in aalib.m4
   patch :DATA
 

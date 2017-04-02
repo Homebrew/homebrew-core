@@ -1,21 +1,23 @@
 class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code."
   homepage "https://github.com/Hackerpilot/Dscanner"
-  url "https://github.com/Hackerpilot/Dscanner/archive/v0.3.0.tar.gz"
-  sha256 "2b5578ca98ad6805a1f1494dfbf90c8f491da20bfe5103ca0c8ac73d781558fe"
+  url "https://github.com/Hackerpilot/Dscanner.git",
+    :tag => "v0.4.0",
+    :revision => "87e42ae1941aeda81cc8e6c4343ab3c8d77036cd"
+
+  head "https://github.com/Hackerpilot/Dscanner.git"
 
   bottle do
-    sha256 "e4109d118bfc3ea842bf3d2aa9588dec4e5be8350557f644727b752ec261cd32" => :el_capitan
-    sha256 "5f8b2e4fb9df04ba43eaba0c1f7fe53c3cee1bf71c4f23f0fcd7871c7269ba4a" => :yosemite
-    sha256 "93916657176868ebab187de76075da38ef1f62e7fcf126670c297d1413c172af" => :mavericks
+    sha256 "cee064b929cb506b88e7bed826e94ec8b8ffbf04e19767f6c10a8a816007978b" => :sierra
+    sha256 "01f7abb878de76d8d6617c285edbe035e11c5ea35964b9d79edab28c96429cc2" => :el_capitan
+    sha256 "c7ab84fde1c0551f7a61b2e833cb62c085923680a614a6a1ce5101143753eff8" => :yosemite
   end
 
   depends_on "dmd" => :build
-  depends_on "dub" => :build
 
   def install
-    system "dub", "build"
-    bin.install "dscanner"
+    system "make", "dmdbuild"
+    bin.install "bin/dscanner"
   end
 
   test do

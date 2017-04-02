@@ -1,15 +1,14 @@
 class Lft < Formula
   desc "Layer Four Traceroute (LFT), an advanced traceroute tool"
-  homepage "http://pwhois.org/lft/"
-  url "http://pwhois.org/dl/index.who?file=lft-3.73.tar.gz"
-  sha256 "3ecd5371a827288a5f5a4abbd8a5ea8229e116fc2f548cee9afeb589bf206114"
+  homepage "https://pwhois.org/lft/"
+  url "https://pwhois.org/dl/index.who?file=lft-3.78.tar.gz"
+  sha256 "000575891b4094319a56d395c0ec576651fe76b251596ab19d3eb2e5f8d4bf78"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "cfa83b34c664b238e135577faca0ac0f3c04b135b8e437b3cfdb7243bd7bdf35" => :el_capitan
-    sha256 "d4fb11ed0b1045a9b055526c812b76edf5f876e6c4fb7f581c2ed59915165eb9" => :yosemite
-    sha256 "a16749d274db27785fb60ce5371e292d324224cf184b7cdba7129bc6088d0a34" => :mavericks
+    sha256 "2e024fb99a6de1ccc416f7a87d7c44ebcabcd854bf66c5ba9d8a8c67969a3b02" => :sierra
+    sha256 "3282198e61767e578d7b5fc5123f4657093b331954e7ab6d02aaab723b24b35c" => :el_capitan
+    sha256 "170bcc6b837eac788cac1995632308210617628325e51ee1b9b0d255755e03cd" => :yosemite
   end
 
   def install

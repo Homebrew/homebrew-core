@@ -1,12 +1,13 @@
 class Owamp < Formula
   desc "Implementation of the One-Way Active Measurement Protocol"
   homepage "https://www.internet2.edu/products-services/performance-analytics/performance-tools/"
-  url "http://software.internet2.edu/sources/owamp/owamp-3.4-10.tar.gz"
+  url "https://software.internet2.edu/sources/owamp/owamp-3.4-10.tar.gz"
   sha256 "059f0ab99b2b3d4addde91a68e6e3641c85ce3ae43b85fe9435841d950ee2fb3"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "afdeaab138caa02c535fd9d2b847c5b5b24273beef19271fc60415de16d0681f" => :sierra
     sha256 "6f86a33c176ba1394560b7707466c088930f13db102b7adc159e80e889fdc5cf" => :el_capitan
     sha256 "fce4cc5bf0a9b5355779fb45637651f6a78bb8d3dd93bdc3ff2826b7866617fd" => :yosemite
     sha256 "6c6b6f1f143b929b892c6556db3b06299835326a72c5180c482b2630e62dc543" => :mavericks

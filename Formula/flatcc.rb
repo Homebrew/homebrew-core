@@ -1,15 +1,15 @@
 class Flatcc < Formula
   desc "FlatBuffers Compiler and Library in C for C"
   homepage "https://github.com/dvidelabs/flatcc"
-  url "https://github.com/dvidelabs/flatcc/archive/v0.3.4.tar.gz"
-  sha256 "6ad97168aa02d0ece1a705428008a404eea89af5109d6e099197477fc08303eb"
+  url "https://github.com/dvidelabs/flatcc/archive/v0.4.1.tar.gz"
+  sha256 "de9f668e5555b24c0885f8dc4f4098cc8065c1f428f8209097624035aee487df"
   head "https://github.com/dvidelabs/flatcc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca840e6e92ef838ed0ca704341e3528d864d73233ed67a19fea41a31c7de85ff" => :el_capitan
-    sha256 "109de10f4f14367200e5feaddc5f5ee2cbf563c016eab1a3fc1de102015b8f8e" => :yosemite
-    sha256 "93eb6be33456a5b22c0895def431d0d00eb2858124674eeed6a514ed7c5ca0af" => :mavericks
+    sha256 "5abdb406b83a95f298035ea6d738e88568a8462cf738ffa203cd30ece578d48f" => :sierra
+    sha256 "9637f76e7a3b01c5f6e69b73752f40b8ec2a0d0f353dae6159cf54c82258fe84" => :el_capitan
+    sha256 "4ccac91a15a9cfa05bd707738773f69bd69011b3f700434d1ad10c4a8530477d" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -1,56 +1,48 @@
 class Euca2ools < Formula
+  include Language::Python::Virtualenv
+
   desc "Eucalyptus client API tools-works with Amazon EC2 and IAM"
   homepage "https://github.com/eucalyptus/euca2ools"
-  url "https://downloads.eucalyptus.com/software/euca2ools/3.3/source/euca2ools-3.3.1.tar.xz"
-  sha256 "4440ea5df3a52ac7009eff7313fce7e2cc3f91cefc59adeacd7d991d5244090a"
+  url "https://downloads.eucalyptus.com/software/euca2ools/3.4/source/euca2ools-3.4.1.tar.xz"
+  sha256 "af2027306cf7829ee512c02c1160e96a8f9c152b77f6eb408bf3dee4d4bb551d"
   head "https://github.com/eucalyptus/euca2ools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abd969d35cd0a0693a5c3f73a294e55eb58f5e0a6bdb47020baef16ba92ebb5a" => :el_capitan
-    sha256 "43f6e9f3d4a278a9a15f9c7d37c61e4b34441a401b073464f38683f8263329d7" => :yosemite
-    sha256 "8812367d62d4732a09e01865693751bba1c971db979106bf2c0db4e69027ea47" => :mavericks
+    sha256 "7efc52eafdb0791e2fcd47913a2a09b31da507fc6178d002c584b95f975601f9" => :sierra
+    sha256 "1c2cd17c3d6264962ce1e2a056362ecbb3e0007b1a3de8bfff23afe4bf7c0b25" => :el_capitan
+    sha256 "38ea8a3ffad6554b519c4307f32174a58dc46e2cb9d66acdadea50265038ee5f" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "requestbuilder" do
-    url "https://github.com/boto/requestbuilder/archive/v0.3.4.tar.gz"
-    sha256 "f4fa8fab964b7ed94163d941c752e33dce3fd059f29618c9243808fd89a9aeb4"
+    url "https://files.pythonhosted.org/packages/ac/b5/8b1c6c102760785ce22a08f32fb6fc8c745445ed8f1f9195d2517c79511c/requestbuilder-0.7.1.tar.gz"
+    sha256 "84ed99ab55e6a549686af32328b2b15a1f5416800ee23b65346edd7a84706089"
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.6.0.tar.gz"
-    sha256 "1cdbed1f0e236f35ef54e919982c7a338e4fea3786310933d3a7887a04b74d75"
-  end
-
-  resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-15.0.tar.gz"
-    sha256 "718d13adf87f99a45835bb20e0a1c4c036de644cd32b3f112639403aa04ebeb5"
+    url "https://files.pythonhosted.org/packages/b6/61/7b374462d5b6b1d824977182db287758d549d8680444bad8d530195acba2/requests-2.12.5.tar.gz"
+    sha256 "d902a54f08d086a7cc6e58c20e2bb225b1ae82c19c35e5925269ee94fb9fce00"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-3.4.2.tar.gz"
-    sha256 "c7d5990298af6ffb00312973a25f0cc917a6368126dd40eaab41d78d3e1ea25d"
+    url "https://files.pythonhosted.org/packages/66/45/f11fc376f784c6f2e77ffc7a9d02374ff3ceb07ede8c56f918939409577c/lxml-3.7.2.tar.gz"
+    sha256 "59d9176360dbc3919e9d4bfca85c1ca64ab4f4ee00e6f119d7150ba887e3410a"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
   def install
-    ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
-
-    resources.each do |r|
-      r.stage { system "python", "setup.py", "install", "--prefix=#{libexec}" }
-    end
-
-    system "python", "setup.py", "install", "--single-version-externally-managed", "--record=installed.txt",
-           "--prefix=#{prefix}"
-
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

@@ -1,14 +1,13 @@
 class MobileShell < Formula
   desc "Remote terminal application"
-  homepage "https://mosh.mit.edu/"
-  url "https://mosh.mit.edu/mosh-1.2.6.tar.gz"
-  sha256 "7e82b7fbfcc698c70f5843bb960dadb8e7bd7ac1d4d2151c9d979372ea850e85"
-  revision 2
+  homepage "https://mosh.org"
+  url "https://mosh.org/mosh-1.3.0.tar.gz"
+  sha256 "320e12f461e55d71566597976bd9440ba6c5265fa68fbf614c6f1c8401f93376"
 
   bottle do
-    sha256 "3e26f2296b1c2eec67b836ea1dc43ad5ca1f0190c6a7949b4d92052e04de79c7" => :sierra
-    sha256 "0db07b334c717e0b467d1aae7c664135534c9c122ad75582496e3269a8e4637b" => :el_capitan
-    sha256 "b69a2ad8b89b74ceeb52039a6e08f27334e940a682baf81f8270c2a07d28afea" => :yosemite
+    sha256 "6ab4f7e7cf8e149f10931471658063356b485b0ca34037f44c93afaae34c1c0f" => :sierra
+    sha256 "86daec2c4d1517f4485989c69f989caf1a16fdc891cb2f4a949371bd5b4eeda0" => :el_capitan
+    sha256 "398f486fc155ba3e345bd26834b4bff6c16e0535237e196cb766cf472fc3811b" => :yosemite
   end
 
   head do
@@ -18,22 +17,20 @@ class MobileShell < Formula
     depends_on "automake" => :build
   end
 
-  option "without-test", "Run build-time tests"
+  option "with-test", "Run build-time tests"
 
   deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "protobuf"
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
+  depends_on "tmux" => :build if build.with?("test") || build.bottle?
 
   def install
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
 
-    # Upstream prefers O2:
-    # https://github.com/keithw/mosh/blob/master/README.md
-    ENV.O2
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
     system "make", "check" if build.with?("test") || build.bottle?

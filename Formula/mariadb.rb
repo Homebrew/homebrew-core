@@ -1,26 +1,20 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.17/source/mariadb-10.1.17.tar.gz"
-  sha256 "4ca45ac5e34418761868115ebc8c068d511fed08e283b2cac52559d63ba4aab5"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.22/source/mariadb-10.1.22.tar.gz"
+  sha256 "bcb0572e7ad32cea9740a21e9255f733bdf60a5561ffbda317c22dd12b3966ce"
 
   bottle do
-    sha256 "770fdd503441836a6f716f098621f9575ef4e30aeb3eb3020dfc294cdfd08903" => :sierra
-    sha256 "f8fbb42cfb4c1efcf0f57fb21440d71f873be288e757963e8589c7aaa45739ba" => :el_capitan
-    sha256 "df2ed260b120b609d6d317bfbb18299ccd3eeb6806d835d0da66ac5c211c0218" => :yosemite
-    sha256 "1325bdb202569d0619ee257edceb6c81a20f37f434650933f4b52cb73fd3659a" => :mavericks
+    sha256 "3654c9ca2941c0977563e3528aae55bbe62ce6312e504c62471befc284316c66" => :sierra
+    sha256 "7f22ed68e8d00e20df658f1a5db966c88ab06a413257750cfcdd6131387013e7" => :el_capitan
+    sha256 "e4f1e192d1f476e84c1cbd9931a2262d2d6602c63871a854c871cd0f5f5b79ae" => :yosemite
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.1/source/mariadb-10.2.1.tar.gz"
-    sha256 "90b7a17f3372c92c12dff084b37fcca8c4cf8106f4dcabd35fadc8efbaa348a2"
-
-    # upstream fix for compilation error
-    # https://jira.mariadb.org/browse/MDEV-10322
-    patch :DATA
+    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.4/source/mariadb-10.2.4.tar.gz"
+    sha256 "b73e353c29a0171d1057f14191c83d1f17e6f58ca09a79dda4b12c0e12b7f975"
   end
 
-  option :universal
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
@@ -59,16 +53,8 @@ class Mariadb < Formula
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
 
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
-
     # -DINSTALL_* are relative to prefix
     args = %W[
-      .
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
       -DMYSQL_DATADIR=#{var}/mysql
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_MANDIR=share/man
@@ -82,7 +68,7 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
-    # disable TokuDB, which is currently not supported on Mac OS X
+    # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
     args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
@@ -99,16 +85,10 @@ class Mariadb < Formula
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DPLUGIN_BLACKHOLE=YES" if build.with? "blackhole-storage-engine"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
-    system "cmake", *args
+    system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
@@ -141,7 +121,7 @@ class Mariadb < Formula
     libexec.mkpath
     libexec.install "#{bin}/wsrep_sst_common"
     # Fix up references to wsrep_sst_common
-    %W[
+    %w[
       wsrep_sst_mysqldump
       wsrep_sst_rsync
       wsrep_sst_xtrabackup
@@ -207,17 +187,3 @@ class Mariadb < Formula
     end
   end
 end
-__END__
-diff --git a/storage/connect/jdbconn.cpp b/storage/connect/jdbconn.cpp
-index 9b47927..7c0582d 100644
---- a/storage/connect/jdbconn.cpp
-+++ b/storage/connect/jdbconn.cpp
-@@ -270,7 +270,7 @@ PQRYRES JDBCColumns(PGLOBAL g, char *db, char *table, char *colpat,
- 		return NULL;
-
- 	// Colpat cannot be null or empty for some drivers
--	cap->Pat = (colpat && *colpat) ? colpat : "%";
-+	cap->Pat = (colpat && *colpat) ? colpat : PlugDup(g, "%");
-
- 	/************************************************************************/
- 	/*  Now get the results into blocks.                                    */

@@ -1,22 +1,20 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://dist.torproject.org/tor-0.2.8.7.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.2.8.7.tar.gz"
-  sha256 "ae44e2b699e82db7ff318432fd558dfa941ad154e4055f16d208514951742fc6"
+  url "https://www.torproject.org/dist/tor-0.2.9.10.tar.gz"
+  mirror "https://tor.eff.org/dist/tor-0.2.9.10.tar.gz"
+  sha256 "d611283e1fb284b5f884f8c07e7d3151016851848304f56cfdf3be2a88bd1341"
 
   bottle do
-    sha256 "975fccef55da03bd6e907d6e68f50a3f3d8b9e8e8f0152f2c8fba02499758d87" => :sierra
-    sha256 "b843a3e96a0c7222d98989770f4516d35cbae6e2c5038a56c430cd69d1bd6044" => :el_capitan
-    sha256 "3557e5d503dff2764b118ba5e5461918886a3d418161eb9ee8360e08869bab82" => :yosemite
-    sha256 "fd22b9bc52efa6579abfd0cd0ba3b7901064bf73a990ed1923033f5a497a1308" => :mavericks
+    sha256 "16237392bef04e8f4857f6a76d10842676732b80e2d3d9e184f14f572e7b457c" => :sierra
+    sha256 "d553869d5a12c5d8cdb8d7db30d8c0b3f11be9a6efdcf51a7cca7088b9f34d49" => :el_capitan
+    sha256 "9bc64bf56797221ebce23972c908565399995058f2db6ba05c4a3ea26b61e3d0" => :yosemite
   end
 
   devel do
-    url "https://dist.torproject.org/tor-0.2.9.2-alpha.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.2.9.2-alpha.tar.gz"
-    version "0.2.9.2-alpha"
-    sha256 "dd93cf6b8531acf68152adbfa2f693cebd1b3254bc6190c920a99cc587944922"
+    url "https://www.torproject.org/dist/tor-0.3.0.4-rc.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.3.0.4-rc.tar.gz"
+    sha256 "32a7c0b322c61e15ce770f43715682f8b0be47844478387ddf8444cdf7c2f46f"
   end
 
   depends_on "pkg-config" => :build
@@ -38,15 +36,6 @@ class Tor < Formula
 
     system "./configure", *args
     system "make", "install"
-  end
-
-  def caveats; <<-EOS.undent
-    You will find a sample `torrc` file in #{etc}/tor.
-    It is advisable to edit the sample `torrc` to suit
-    your own security needs:
-      https://www.torproject.org/docs/faq#torrc
-    After editing the `torrc` you need to restart tor.
-    EOS
   end
 
   plist_options :manual => "tor"

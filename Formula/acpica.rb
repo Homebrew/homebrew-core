@@ -1,16 +1,15 @@
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
   homepage "https://www.acpica.org/"
-  url "https://acpica.org/sites/acpica/files/acpica-unix-20160212.tar.gz"
-  sha256 "ad26e0632d9800f9df76415f735bb8d4c0901d0596a00e6260f9297281742942"
+  url "https://acpica.org/sites/acpica/files/acpica-unix-20170303.tar.gz"
+  sha256 "c093c9eabd1f8c51d79364d829975c5335c8028c4816a7a80dfb8590f31889b5"
   head "https://github.com/acpica/acpica.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fc412c07b63b45e2e71dfac8008924977a15c3e7cb0c20383d094d3c80c15dd" => :sierra
-    sha256 "7c31a7094ac5c67c2f71bea114b69cf008a1d00e9a13c710fe3ac180cd8933da" => :el_capitan
-    sha256 "16bcd9b2cfdec53612cb03ba20d3a1fea12e48d90c3678b2df73f1ca42295b48" => :yosemite
-    sha256 "0ad8f8040c309078985005795a91959d5b6fe522de8727799b5a390ca6754fff" => :mavericks
+    sha256 "6559f2052950696aa7cce6805b9ca31b1737094e717af2b036dac2aaa40914e6" => :sierra
+    sha256 "b0d61f615c1451192d61fc2dad53315b3dbb041a01a7c7a4f94584d02dab4125" => :el_capitan
+    sha256 "361ac507c8edd87bfc694d73fc1be7a05a00d3f1f46ee9f7f88e5e139e6fa56d" => :yosemite
   end
 
   def install

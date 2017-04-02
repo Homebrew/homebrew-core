@@ -1,13 +1,13 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.44/vte-0.44.1.tar.xz"
-  sha256 "712dd548339f600fd7e221d12b2670a13a4361b2cd23ba0e057e76cc19fe5d4e"
+  url "https://download.gnome.org/sources/vte/0.48/vte-0.48.1.tar.xz"
+  sha256 "d3b7d6a13e6b850f3ea1c35af2746ef78039493ed4bb87cb7a36f29b260861f6"
 
   bottle do
-    sha256 "c15db1454901bd251426b7f5e1113b0432f312ea284ab62525dc471b8729707d" => :el_capitan
-    sha256 "0c053871faf02e60591144ff33f95b6945098421c70047ae090d8ec7eef6aa7d" => :yosemite
-    sha256 "0496bfa16102bea5a709fa10d0e04caaef7a8d475464a435973d86d1fd0fe80a" => :mavericks
+    sha256 "7021496e3792f5c6b6a5e3c65dd4c1401fb01d575e4e4c38ed3ce6d0de05c049" => :sierra
+    sha256 "834190450a00b3a8fc72d1c6303d374848d42fdccd3d0790c1b81aec2cb09c90" => :el_capitan
+    sha256 "0561e660b4eca8f2a4ac32126eaaf3669b43bcf75cc9981224899df71621d93b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,6 +17,7 @@ class Vte3 < Formula
   depends_on "gnutls"
   depends_on "vala"
   depends_on "gobject-introspection"
+  depends_on "pcre2"
 
   def install
     args = [

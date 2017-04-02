@@ -1,17 +1,15 @@
 class Tvnamer < Formula
   desc "Automatic TV episode file renamer that uses data from thetvdb.com"
   homepage "https://github.com/dbr/tvnamer"
-  url "https://github.com/dbr/tvnamer/archive/2.3.tar.gz"
-  sha256 "c28836f4c9263ee8ad6994788ad35f00e66fa1bd602e876364cd9b938f2843c8"
+  url "https://github.com/dbr/tvnamer/archive/2.4.tar.gz"
+  sha256 "bddaba4b3887ab3b6777932457c8d8f65754b64de9a13b9987869e8e78573bb2"
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96d1e7d76590383aba07ad02e82962ee56beb0dada6f7d7f80e4c0ff8b897fb2" => :sierra
-    sha256 "86ad6072f932e5c9dd96a04891f3ba7fcd6f59721d4a067597ef1b9d575dba8e" => :el_capitan
-    sha256 "e2054cad544e9a1bc8d4eb7925c33909d126efaa7cb79a63d58e655a9d5b6e7d" => :yosemite
-    sha256 "ccbdd91361cf82fa43718a3aa43291901d7ec26864a03422b47dbb0d6ebcf71c" => :mavericks
-    sha256 "a055ef2f5c60a5e0ae4207ad85db4b9c6c961c0b0bea74505ebd47e1d331b32a" => :mountain_lion
+    sha256 "c1a03bc94b59d7e044445daa9c0037b46230271d457d658aba3e7e55e9291dd0" => :sierra
+    sha256 "546b13ef89b777d7076948d993adc9a57c664b2bbc9cb2f429cf042f3d61d165" => :el_capitan
+    sha256 "546b13ef89b777d7076948d993adc9a57c664b2bbc9cb2f429cf042f3d61d165" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

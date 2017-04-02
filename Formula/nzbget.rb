@@ -1,15 +1,14 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v17.0/nzbget-17.0-src.tar.gz"
-  sha256 "795c830344dcc8751a2234a8344190b3f3e48e1ce92dcff02ee0af95a5fa46ae"
+  url "https://github.com/nzbget/nzbget/releases/download/v18.0/nzbget-18.0-src.tar.gz"
+  sha256 "4bc6366286988647d42165b442a62b73a1328d7e5b5067bd0078650e1716f55b"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
-    cellar :any
-    sha256 "9c0a0a872d1ebb7919b9d6f951fcc39a8f197a77e381680519cc71522abadac0" => :el_capitan
-    sha256 "4d45b535af040b967aa412d139065bb6d51ff78924ace4cac7957841c8ddd3bf" => :yosemite
-    sha256 "ecc197dc0fa28fa8349a5d6ec09d02866c4e6b015665f661d66f52b4af61f4c6" => :mavericks
+    sha256 "4122f1e0e65146db39423ad467b15653aec13000f1e5cbbd226c6c6d5fc539f9" => :sierra
+    sha256 "2ba87471a8ba0b1da2493027bdbf6ced4be0e14e91e4b7e1a457d6f6c4b76565" => :el_capitan
+    sha256 "6044d03c4f60356e89ee108d9d30be764137adec5c300bca2a795d81130821c6" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -36,7 +35,8 @@ class Nzbget < Formula
 
     # Fix "ncurses library not found"
     # Reported 14 Aug 2016: https://github.com/nzbget/nzbget/issues/264
-    ENV["ncurses_CFLAGS"] = "-I/usr/include"
+    (buildpath/"brew_include").install_symlink MacOS.sdk_path/"usr/include/ncurses.h"
+    ENV["ncurses_CFLAGS"] = "-I#{buildpath}/brew_include"
     ENV["ncurses_LIBS"] = "-L/usr/lib -lncurses"
 
     # Tell configure to use OpenSSL
@@ -44,7 +44,7 @@ class Nzbget < Formula
                           "--prefix=#{prefix}",
                           "--with-tlslib=OpenSSL"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
     pkgshare.install_symlink "nzbget.conf" => "webui/nzbget.conf"
 

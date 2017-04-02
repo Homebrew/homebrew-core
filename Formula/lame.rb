@@ -1,6 +1,6 @@
 class Lame < Formula
   desc "High quality MPEG Audio Layer III (MP3) encoder"
-  homepage "http://lame.sourceforge.net/"
+  homepage "https://lame.sourceforge.io/"
   url "https://downloads.sourceforge.net/sourceforge/lame/lame-3.99.5.tar.gz"
   sha256 "24346b4158e4af3bd9f2e194bb23eb473c75fb7377011523353196b19b9a23ff"
 
@@ -14,11 +14,7 @@ class Lame < Formula
     sha256 "db743baefa0ec1b0f8c00df4728536418916c4d42c71c548dc43d43a1b24b523" => :mountain_lion
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--prefix=#{prefix}",

@@ -1,16 +1,15 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v3.0.9.tar.gz"
-  sha256 "d33cf2a42e33d2f79c00e4b8a5b206ae2688aadd7d71326c394fe8a9a4964706"
+  url "https://github.com/coreos/etcd/archive/v3.1.5.tar.gz"
+  sha256 "d9019b45df696f1dae286a511bd28b03751e37343c752380318e2a13ac994318"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "505ec7c31936931224b931d1b94b8f605868a70aec69db967585b33529ef24eb" => :sierra
-    sha256 "d90e774e77ba35c5124e240451c030c5680e54a354db200e931d9ed1032986d3" => :el_capitan
-    sha256 "8fb285d68a49b3d1af7f9203a99263bdea4bf2c918140c3b2180bf388b47e3bc" => :yosemite
-    sha256 "fcb529867b01790f13e32ff97d728a53ea3226f9d6f74fde4fd4585c0fd18861" => :mavericks
+    sha256 "c9e4b77cf6af716e5bfa0f94521409d89979937cfe54e95f3f8a802287e84246" => :sierra
+    sha256 "e2d4c474b795e81440e4f72199b90cf57b118dc3fa36955f47537a084fcf98fa" => :el_capitan
+    sha256 "fd726467254e543714dfb6e6ded654e57d25e045299652c181113d7e065795ab" => :yosemite
   end
 
   depends_on "go" => :build
@@ -53,7 +52,6 @@ class Etcd < Formula
 
   test do
     begin
-      require "utils/json"
       test_string = "Hello from brew test!"
       etcd_pid = fork do
         exec bin/"etcd", "--force-new-cluster", "--data-dir=#{testpath}"
@@ -63,7 +61,7 @@ class Etcd < Formula
       etcd_uri = "http://127.0.0.1:2379/v2/keys/brew_test"
       system "curl", "--silent", "-L", etcd_uri, "-XPUT", "-d", "value=#{test_string}"
       curl_output = shell_output("curl --silent -L #{etcd_uri}")
-      response_hash = Utils::JSON.load(curl_output)
+      response_hash = JSON.parse(curl_output)
       assert_match(test_string, response_hash.fetch("node").fetch("value"))
     ensure
       # clean up the etcd process before we leave

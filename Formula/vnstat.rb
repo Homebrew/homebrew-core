@@ -1,15 +1,14 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "http://humdi.net/vnstat/"
-  url "http://humdi.net/vnstat/vnstat-1.15.tar.gz"
-  sha256 "c3814b5baa8b627198a8debfe1dce4b4346a342523818cc8668a5497971dbc39"
+  url "http://humdi.net/vnstat/vnstat-1.17.tar.gz"
+  sha256 "18e4c53576ca9e1ef2f0e063a6d83b0c44e3b1cf008560d658745df5c9aa7971"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
-    cellar :any
-    sha256 "08583849278dc7be99a24d897abc738d21a5a50b8af1dbed8ec190847016a1ee" => :el_capitan
-    sha256 "ff7523531fea5c19a5cc3cf96ae721f495874e3feba55a08a5e25529c716cd4a" => :yosemite
-    sha256 "e21450b6f61b6ed35c6f5179d22921629e321366d06e451c29aeb8c462b0bc7c" => :mavericks
+    sha256 "9b2212cdc237d29d06c910ee437119f94097024e60e6a6aaf958293ffb6425ad" => :sierra
+    sha256 "35c444da5787d627847714dc9ef119f9a8501ead341782c2deb18c74432d59c4" => :el_capitan
+    sha256 "826ea7fb876a6d71aecdcea85bdaf5fcea55e63e97457bc6afb755518c9c1843" => :yosemite
   end
 
   depends_on "gd"

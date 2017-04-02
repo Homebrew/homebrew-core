@@ -3,17 +3,15 @@ require "language/node"
 class GenerateJsonSchema < Formula
   desc "Generate a JSON Schema from Sample JSON"
   homepage "https://github.com/Nijikokun/generate-schema"
-  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.1.1.tgz"
-  sha256 "8f30beb978627b39831eaabf27df9df6e075b0bcc27e6543fab7582f3f30857d"
-
+  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.4.0.tgz"
+  sha256 "42502872e1e1b187ef7ace1964b38f47e3a20d7c880b8548694b57ee526ea910"
   head "https://github.com/Nijikokun/generate-schema.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "d573136e4025aa6ecdad3ca73bfc53307ef6ab212bd8307387a7ff9763db14ed" => :el_capitan
-    sha256 "ac72c27b5ae36a0c40ba48b21d590519175395bd903ca7a3c46e4af840daa449" => :yosemite
-    sha256 "8fc1b18f001ea586ce7f3e5d5c021ad76be4cb8010688a783a1c80b22e3e3167" => :mavericks
+    sha256 "b8a5eb99bfc147426ff33fee438d7f3c88cac0bd0328dc7f65f2e9c18d23c15f" => :sierra
+    sha256 "15693bf27610a0069e5073ee2fef2d980ecd86820cef16505e6b5eda26ec21b7" => :el_capitan
+    sha256 "72eddfed43eb6a237737421af480835d63c88ff7f661d8d7e998e08eded75670" => :yosemite
   end
 
   depends_on "node"
@@ -24,8 +22,6 @@ class GenerateJsonSchema < Formula
   end
 
   test do
-    require "open3"
-
     input = <<-EOS.undent
       {
           "id": 2,
@@ -43,80 +39,6 @@ class GenerateJsonSchema < Formula
           }
       }
     EOS
-
-    output = <<-EOS.undent.chomp
-      Welcome to Generate Schema 2.1.1
-
-        Mode: json
-
-      * Example Usage:
-        > {a:'b'}
-        { a: { type: 'string' } }
-
-      To quit type: exit
-
-      > {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "name": {
-            "type": "string"
-          },
-          "price": {
-            "type": "number"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "dimensions": {
-            "type": "object",
-            "properties": {
-              "length": {
-                "type": "number"
-              },
-              "width": {
-                "type": "number"
-              },
-              "height": {
-                "type": "number"
-              }
-            }
-          },
-          "warehouseLocation": {
-            "type": "object",
-            "properties": {
-              "latitude": {
-                "type": "number"
-              },
-              "longitude": {
-                "type": "number"
-              }
-            }
-          }
-        }
-      }
-      >
-    EOS
-
-    # As of v2.1.1, there is a bug when passing in a filename as an argument
-    # The following commented out test will fail until this bug is fixed.
-    # ("#{testpath}/test.json").write(input)
-    # system "#{bin}/generate-schema", "#{testpath}/test.json"
-
-    # Until it is fixed, STDIN can be used as a workaround
-    Open3.popen3("#{bin}/generate-schema") do |stdin, stdout, _|
-      stdin.write(input)
-      stdin.close
-      # Program leaks spaces at the end of lines. This line cleans them up
-      # so they don't cause the assert below to erroneously fail.
-      result = stdout.map(&:rstrip).join("\n")
-      assert_equal output, result
-    end
+    assert_match "schema.org", pipe_output("#{bin}/generate-schema", input, 0)
   end
 end

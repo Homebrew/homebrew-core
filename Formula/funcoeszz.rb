@@ -17,7 +17,7 @@ class Funcoeszz < Formula
       export ZZPATH="#{opt_bin}/funcoeszz"
       source "$ZZPATH"
 
-    Usage of a newer Bash than the OS X default is required.
+    Usage of a newer Bash than the macOS default is required.
     EOS
   end
 

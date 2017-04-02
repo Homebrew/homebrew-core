@@ -1,11 +1,12 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
-  homepage "http://ser2net.sourceforge.net"
+  homepage "https://ser2net.sourceforge.io"
   url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-2.10.1.tar.gz"
   sha256 "cee4ad8fb3531281e8761751694dfab39d681022b2363b1edeba764d397c3c99"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "243a466924f53491468ef67e91f338c7121a74ed79a7f6f604bf188077f368db" => :sierra
     sha256 "6bdf9ae6b2a0ed64555f7e024147dbaab90c13bf15b12e4c6fef0fe37c271a71" => :el_capitan
     sha256 "21ab3a35a22130ac50086dc83e65178ee4c16ea1b1d244f09c971c7f69783c9f" => :yosemite
     sha256 "d6688adab156497c7c3b37f5112e435a9ec27ae91af3af426ff6a1099ad541aa" => :mavericks

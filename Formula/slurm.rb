@@ -6,6 +6,7 @@ class Slurm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "03f2d26fda7d44d9853f4e24ca0cd28b7096ec174ea6de731234bdb7d7742f88" => :sierra
     sha256 "f77b8d2eb56422a448af47cab61f2e9b48d7d82439fa44ecd4dd19cf18ff83f8" => :el_capitan
     sha256 "ec4091e007334ba76cccb21d4d9dd6cc229d38193de110c38aee969969ccf959" => :yosemite
     sha256 "737bb85b1e76c2a577e515857ae01d7eed5b64f0ea514bae0534f1360cc53566" => :mavericks

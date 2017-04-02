@@ -6,6 +6,7 @@ class TalkFilters < Formula
 
   bottle do
     cellar :any
+    sha256 "bdcd19ab9b1291f6970a64f196a01481c944db725f01eeba49ac316e452e979b" => :sierra
     sha256 "00e6364715a7d1623b7969d84af1eec15d97441a1f93b744f5eaa28adad94355" => :el_capitan
     sha256 "c6179286e4f8da465545b13a1be1fac71f88720db214479d5869a7c340e99d45" => :yosemite
     sha256 "8b6338ab885adb817eaa47c639f247fc0bb40c5372782af1412e434bc58c0e4a" => :mavericks

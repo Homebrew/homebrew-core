@@ -1,8 +1,8 @@
 class SeleniumServerStandalone < Formula
   desc "Browser automation for testing purposes"
   homepage "http://seleniumhq.org/"
-  url "https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar"
-  sha256 "1cce6d3a5ca5b2e32be18ca5107d4f21bddaa9a18700e3b117768f13040b7cf8"
+  url "https://selenium-release.storage.googleapis.com/3.3/selenium-server-standalone-3.3.1.jar"
+  sha256 "94a0bd034636a2430d9d52b73b8e29e819af103ab84000de241ca83eb4e142f6"
 
   bottle :unneeded
 
@@ -11,7 +11,7 @@ class SeleniumServerStandalone < Formula
     bin.write_jar_script libexec/"selenium-server-standalone-#{version}.jar", "selenium-server"
   end
 
-  plist_options :manual => "selenium-server -p 4444"
+  plist_options :manual => "selenium-server -port 4444"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -41,5 +41,10 @@ class SeleniumServerStandalone < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    selenium_version = shell_output("unzip -p #{libexec}/selenium-server-standalone-#{version}.jar META-INF/MANIFEST.MF | sed -nEe '/Selenium-Version:/p'")
+    assert_equal "Selenium-Version: #{version}", selenium_version.strip
   end
 end

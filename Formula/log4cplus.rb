@@ -6,6 +6,7 @@ class Log4cplus < Formula
 
   bottle do
     cellar :any
+    sha256 "7e842fafbdeacd4cad0c7b806e151d521607fe953e5c674eee0e8dfb9fd31165" => :sierra
     sha256 "d051d31f4d76a18a70f21d10b3037e3fdad202d18acedbb158874f26a57ec104" => :el_capitan
     sha256 "47cbed5a69741494a419d04bebfe8755172f98d8cb66cc228174529630321373" => :yosemite
     sha256 "c60007704e699c4baeabad262b9600e5d0b8d8e217588c6e69f429b5f60d876d" => :mavericks

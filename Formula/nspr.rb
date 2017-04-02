@@ -1,16 +1,14 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
-  url "https://archive.mozilla.org/pub/mozilla.org/nspr/releases/v4.12/src/nspr-4.12.tar.gz"
-  sha256 "e0b10a1e569153668ff8bdea6c7e491b389fab69c2f18285a1ebf7c2ea4269de"
-  revision 1
+  url "https://archive.mozilla.org/pub/mozilla.org/nspr/releases/v4.14/src/nspr-4.14.tar.gz"
+  sha256 "64fc18826257403a9132240aa3c45193d577a84b08e96f7e7770a97c074d17d5"
 
   bottle do
     cellar :any
-    sha256 "50c7850cb2b11a78c73c7b8fe5f28cea5232680835ca7c5497db11af2f3b4b57" => :sierra
-    sha256 "7c138d3779c7b41b0550135daa961795beb3e30ffe011ef3a9644cf6b67f23bf" => :el_capitan
-    sha256 "1a6ed93d051c82a262b0c29515628dfbfce6863adf9a6d17e6e3187d2bb145d4" => :yosemite
-    sha256 "bd3bc70ebe4eec5594ab98b85634f896b6a00cee7c86c29dc7b083da437ba886" => :mavericks
+    sha256 "0482d14df015059c2909e607c067c27a8873d77d6434dfb723ea760622b84c28" => :sierra
+    sha256 "322f31fbed4c7ab5a548969cea94f85e82580fb40160fdd3ecba2419b55c8bdc" => :el_capitan
+    sha256 "ed6f24112fd590ed2a23fedcd324769c0c5528cce3f9defcd29f19dcc173ecb0" => :yosemite
   end
 
   def install

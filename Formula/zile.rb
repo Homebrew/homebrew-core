@@ -1,15 +1,14 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftpmirror.gnu.org/zile/zile-2.4.11.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/zile/zile-2.4.11.tar.gz"
-  sha256 "1fd27bbddc61491b1fbb29a345d0d344734aa9e80cfa07b02892eedf831fa9cc"
+  url "https://ftpmirror.gnu.org/zile/zile-2.4.13.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/zile/zile-2.4.13.tar.gz"
+  sha256 "c795f369ea432219c21bf59ffc9322fd5f221217021a8fbaa6f9fed91778ac0e"
 
   bottle do
-    revision 1
-    sha256 "bedcc322bf58b7699ff03d88b6d203e493ed30fd14ac9309ed4e4d0c7416cedc" => :el_capitan
-    sha256 "94b919340c46ed2f2be1604fc955c519818e2424927b12d8f13bb8a8140fd8af" => :yosemite
-    sha256 "8230e74d3104b830c1b100dd5050f548b79dc3a51631349293812826a047d14b" => :mavericks
+    sha256 "f7dc25c97ab09bcccf37413dc7014e0a3204384574b02ffdb99cf2b418edd691" => :sierra
+    sha256 "cab5ad88b8f8a1a00b82516100a86bd3e60edf3e06971d283fa6b2454197adad" => :el_capitan
+    sha256 "42f3ec505b358369d9c6058602605ef4da80266813ce577916673264a7a608b5" => :yosemite
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/215
@@ -18,10 +17,6 @@ class Zile < Formula
   end
 
   fails_with :gcc do
-    cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
-  end
-
-  fails_with :llvm do
     cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
   end
 

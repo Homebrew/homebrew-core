@@ -1,26 +1,37 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.0.30.tar.gz"
-  sha256 "f367e0c1d808d7356c3749222194a72ea03efe61a3bf1b682bd05d47f087b4e3"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.2.tar.gz"
+  sha256 "7fb03a54650ef5e508895c9e45bc2d8151f6c4811ea6797e81f017fedddfdbab"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
-    cellar :any
-    sha256 "34642c92122a04e0104717b2a119282585d87adc3ffe21c68eb33a6160359f6d" => :el_capitan
-    sha256 "6a84ccba2d8225cfebd9836c901147062702566182a5619e8e27a6edf7bc8834" => :yosemite
-    sha256 "0a6ab46cc7feff3a865e7542d24d1893ff9ebe9ffd1f4c3e2e6c5816db2ae6bf" => :mavericks
+    sha256 "ca278f0cd952a92b13766640a650cb0cd82f1893ad3c83c840e9a923b0693abd" => :sierra
+    sha256 "7b337e44ba1ed6d64f1347949b03dc3ae455f931af14a932ad3226000fcea2f0" => :el_capitan
+    sha256 "3f7d9b91caddaaf2b63877b7340afe64140f21d59b95f75f7933f081edc21123" => :yosemite
   end
 
   option "without-apache2-module", "Disable Apache2 module"
 
+  depends_on :macos => :lion
   depends_on "pcre"
   depends_on "openssl"
-  depends_on :macos => :lion
+  depends_on "apr-util"
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
+
+    ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
+    ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
+
+    inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
+    end
+    inreplace "src/ruby_supportlib/phusion_passenger/config/nginx_engine_compiler.rb",
+      "http://nginx.org",
+      "https://nginx.org"
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"

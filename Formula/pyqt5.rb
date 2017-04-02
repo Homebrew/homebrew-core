@@ -1,13 +1,13 @@
 class Pyqt5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz"
-  sha256 "2e481a6c4c41b96ed3b33449e5f9599987c63a5c8db93313bd57a6acbf20f0e1"
+  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.8.1/PyQt5_gpl-5.8.1.tar.gz"
+  sha256 "1e8f24b261f34fa5bad19b5a637aadba2fa9a62e440749117b229253e8992a2e"
 
   bottle do
-    sha256 "4815f60529eadc829c704adbfb6a01ea2daec7acae4c4f7871579d3b01bdbc63" => :el_capitan
-    sha256 "ac14ff2a18458c8201415adf3dfbd872849b0fef9968e105c4ce43e72876fcbf" => :yosemite
-    sha256 "111602985fb4ced414dc4722a1af8ee3d428b2e013e22bdae8d0d059570ac44c" => :mavericks
+    sha256 "175eb5bf2b9da5450de803028cc99e401fcab4cd788c75e650aebcc88b0aeac4" => :sierra
+    sha256 "175eb5bf2b9da5450de803028cc99e401fcab4cd788c75e650aebcc88b0aeac4" => :el_capitan
+    sha256 "9f9b336a4c0374cd8113e99b3f45df212b2b81d962d4237c17acb457bf0c6dd6" => :yosemite
   end
 
   option "with-debug", "Build with debug symbols"
@@ -56,8 +56,8 @@ class Pyqt5 < Formula
   end
 
   test do
-    system "pyuic5", "--version"
-    system "pylupdate5", "-version"
+    system "#{bin}/pyuic5", "--version"
+    system "#{bin}/pylupdate5", "-version"
     Language::Python.each_python(build) do |python, _version|
       system python, "-c", "import PyQt5"
       %w[

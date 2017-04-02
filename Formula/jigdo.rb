@@ -1,21 +1,23 @@
+# Jigdo is dead upstream. It consists of two components: Jigdo, a GTK+ using GUI,
+# which is LONG dead and completely unfunctional, and jigdo-lite, a command-line
+# tool that has been on life support and still works. Only build the CLI tool.
 class Jigdo < Formula
   desc "Tool to distribute very large files over the internet"
   homepage "http://atterer.org/jigdo/"
   url "http://atterer.org/sites/atterer/files/2009-08/jigdo/jigdo-0.7.3.tar.bz2"
   sha256 "875c069abad67ce67d032a9479228acdb37c8162236c0e768369505f264827f0"
-  revision 2
+  revision 4
 
   bottle do
-    revision 2
-    sha256 "8128ebe3947194e46c94ee9f141c1000ce0a8a0281522a4a858e341bae011bf9" => :el_capitan
-    sha256 "1a8a7505c33fc6ee08c23effc8776b4a575947fab9b8e1ea08c03df0c1d83d65" => :yosemite
-    sha256 "78483d046c8deea235b333401dc959d7e928dc65728519a789ba09488546cced" => :mavericks
+    cellar :any
+    sha256 "2f3d7e4982c237ca7f1f6974affd0a9ead3968cce95b2ddfa8e524d8f3f2a148" => :sierra
+    sha256 "c358bb19d92627d98ae5343eb2ba9254403dfa6d8a27ba4c0c63bb48944f8328" => :el_capitan
+    sha256 "5f7e5d7e53d3c3c3db5ebd6c14fb6c13e1392aaf1d24259a4937640bc291be85" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "wget" => :recommended
   depends_on "berkeley-db"
-  depends_on "gtk+"
 
   # Use MacPorts patch for compilation on 10.9; this software is no longer developed.
   patch :p0 do
@@ -26,6 +28,7 @@ class Jigdo < Formula
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--disable-x11",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"

@@ -1,23 +1,17 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.4/postgresql-9.5.4.tar.bz2"
-  sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
+  url "https://ftp.postgresql.org/pub/source/v9.6.2/postgresql-9.6.2.tar.bz2"
+  sha256 "0187b5184be1c09034e74e44761505e52357248451b0c854dddec6c231fe50c9"
+
+  head "https://github.com/postgres/postgres.git"
 
   bottle do
-    rebuild 1
-    sha256 "fa725a3e3daab0d4492f80af6e702807fa9c26572f8b7eccc91c8ecb10a1dbc3" => :sierra
-    sha256 "4817d42e9cad63ece2e612f3b8f16931b1cfcf014e024d1f23e87ac815721eed" => :el_capitan
-    sha256 "a1deb24ef12f78a8e95114542823eda19ecbab38db1c8d72dd383f5f91a0ec6f" => :yosemite
-    sha256 "8dea71ddee4c7c05f9a4321bf60dbfdc88df1c53c6c12031593855c928bc2c53" => :mavericks
+    sha256 "75795830b5d1ed481cd21e91e1c74e03a49d51e521a6cf7b167d1976cbf515dd" => :sierra
+    sha256 "df15dfcfc4672767a739012565d52990198a121cdaaa4ca986c1cd7ecddd69d9" => :el_capitan
+    sha256 "fb64a01714c6abf4509eddf6f3011d774987c6f322fde0bb35c0b476acf3eb19" => :yosemite
   end
 
-  devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6rc1/postgresql-9.6rc1.tar.gz"
-    sha256 "a202c0bfba27f4dd612c01a4a4f6de1f5b42ada27471f8cb6a59df150cfe71c9"
-  end
-
-  option "32-bit"
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
@@ -45,7 +39,6 @@ class Postgresql < Formula
   end
 
   def install
-    ENV.libxml2 if MacOS.version >= :snow_leopard
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
@@ -93,10 +86,6 @@ class Postgresql < Formula
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
 
-    if build.build_32_bit?
-      ENV.append %w[CFLAGS LDFLAGS], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
-
     system "./configure", *args
     system "make"
     system "make", "install-world", "datadir=#{pkgshare}",
@@ -118,17 +107,17 @@ class Postgresql < Formula
       https://github.com/Homebrew/homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.5/static/upgrading.html
+      https://www.postgresql.org/docs/9.6/static/upgrading.html
 
-    To migrate existing data from a previous minor version (9.0-9.4) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.5/static/pgupgrade.html
+    To migrate existing data from a previous minor version (9.0-9.5) of PostgreSQL, see:
+      https://www.postgresql.org/docs/9.6/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
       Do not run `brew cleanup postgresql` until you have performed the migration.
     EOS
   end
 
-  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgres"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

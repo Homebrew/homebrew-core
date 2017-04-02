@@ -1,17 +1,16 @@
 class Gprof2dot < Formula
   desc "Convert the output from many profilers into a Graphviz dot graph."
   homepage "https://github.com/jrfonseca/gprof2dot"
-  url "https://pypi.python.org/packages/source/g/gprof2dot/gprof2dot-2015.02.03.tar.gz"
-  sha256 "9bdebb71a7c3daba1430de4486ef620e418a43bb051b30875d02f657f9c69d65"
+  url "https://pypi.python.org/packages/a0/e0/73c71baed306f0402a00a94ffc7b2be94ad1296dfcb8b46912655b93154c/gprof2dot-2016.10.13.tar.gz"
+  sha256 "48c1e168c28b8a8eb23bf30fda78fe2ef218269a41505341ec27c27083e47cf4"
 
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f720ca7e666ea048e478974a9e379ac87be85c94b2fa7f9484c65918ebf2b6a" => :el_capitan
-    sha256 "4fcdce24b6951b0132fdad5a698c610d14081ab0d394829b14e529ef8de43361" => :yosemite
-    sha256 "ca2c8c0f777d7becb5ed0e6531195fc7ac307f8d0230b651e881f15c0ed9d23d" => :mavericks
-    sha256 "706d128a70af48176f06c6cef54be2b733db9ff172e9e20410903c05f86a0e61" => :mountain_lion
+    sha256 "e685cb2d39df01e5714eb9c318e59255423603044f1aee4dc6ea066a6518b2dc" => :sierra
+    sha256 "e685cb2d39df01e5714eb9c318e59255423603044f1aee4dc6ea066a6518b2dc" => :el_capitan
+    sha256 "e685cb2d39df01e5714eb9c318e59255423603044f1aee4dc6ea066a6518b2dc" => :yosemite
   end
 
   depends_on "graphviz" => :recommended

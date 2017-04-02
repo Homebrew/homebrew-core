@@ -1,14 +1,21 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
-  homepage "http://www.aqbanking.de/"
-  url "http://www.aquamaniac.de/sites/download/download.php?package=03&release=206&file=01&dummy=aqbanking-5.6.10.tar.gz"
-  sha256 "cdf0bea79f52173778be71be7d00f667e32adf04372defe917380f32efd611f4"
-  head "http://git.aqbanking.de/git/aqbanking"
+  homepage "https://www.aquamaniac.de/sites/home/"
+  url "https://www.aquamaniac.de/sites/download/download.php?package=03&release=208&file=01&dummy=aqbanking-5.6.12.tar.gz"
+  sha256 "0652706a487d594640a7d544271976261165bf269d90dc70447b38b363e54b22"
 
   bottle do
-    sha256 "24e93d644596aed11f15fd928d8a02539b6f46d352a284cbe605b58dfa120880" => :el_capitan
-    sha256 "617da4360168c242e49ed3854750e8b9bebd6cd0c86c6ecb93c9a75aeda193ed" => :yosemite
-    sha256 "3316876945003596c485aff5dbec91b6173bb79de5c85513ecfe0dfe2877ad88" => :mavericks
+    sha256 "55d0359a888464040bedd5a893d2894435ad388d5374bab9728abe49a4dc00e1" => :sierra
+    sha256 "ff953f175c8f6ddf772da822e133201c48085c2e7ccc08b7c53135daeafa5200" => :el_capitan
+    sha256 "3cdbfa38e1459b83e70dae91fd68640207ca838098e1de21966583dea8122a63" => :yosemite
+  end
+
+  head do
+    url "https://git.aqbanking.de/git/aqbanking.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "gwenhywfar"
@@ -21,7 +28,8 @@ class Aqbanking < Formula
   depends_on "ktoblzcheck" => :recommended
 
   def install
-    ENV.j1
+    ENV.deparallelize
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

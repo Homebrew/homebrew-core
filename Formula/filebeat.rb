@@ -1,16 +1,16 @@
 class Filebeat < Formula
-  desc "File harvester, used to fetch log files and feed them into logstash"
+  desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats/archive/v1.2.3.tar.gz"
-  sha256 "8eea85de415898c362144ba533062651d8891241c738799e54cc9b17040c1fc9"
+  url "https://github.com/elastic/beats/archive/v5.3.0.tar.gz"
+  sha256 "311030e33ec6f5f335ddf9e0b8eb3a1cd9e378dbc7c0937658a02099457c5895"
 
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5dd2ec94fc5af84b47188c413ec4c414b3f3614ff2a07d4e28fcf719aab5b4e2" => :el_capitan
-    sha256 "32f634750427dc51ccf70aa805b9b3819a7cf47cf00f829c511e169ab916562b" => :yosemite
-    sha256 "7507367228a95cbcb2b9b8373f352c6996a5b929737290e4b75fba5dc02c8c54" => :mavericks
+    sha256 "74c791c4ddc49f94732d146e40ed299f2707fab7496e3e3f272ad63e4840e5d6" => :sierra
+    sha256 "ae49ce64140d420d4f551654aa9f8b23b655ecd03c2065aec5ae0c9e9b04d9a1" => :el_capitan
+    sha256 "f4b2dc6c43db3f259df30d9627aa4ffc846105d0aafebc46d985705ac52a0ed6" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,12 +24,15 @@ class Filebeat < Formula
     cd gopath/"src/github.com/elastic/beats/filebeat" do
       system "make"
       libexec.install "filebeat"
-      etc.install "etc/filebeat.yml"
+
+      (etc/"filebeat").install("filebeat.yml", "filebeat.template.json", "filebeat.template-es2x.json")
     end
+
+    prefix.install_metafiles gopath/"src/github.com/elastic/beats"
 
     (bin/"filebeat").write <<-EOS.undent
       #!/bin/sh
-      exec "#{libexec}/filebeat" -c "#{etc}/filebeat.yml" "$@"
+      exec #{libexec}/filebeat -path.config #{etc}/filebeat -path.home #{prefix} -path.logs #{var}/log/filebeat -path.data #{var}/filebeat $@
     EOS
   end
 
@@ -53,7 +56,7 @@ class Filebeat < Formula
   end
 
   test do
-    log_file = testpath/"log"
+    log_file = testpath/"test.log"
     touch log_file
 
     (testpath/"filebeat.yml").write <<-EOS.undent
@@ -62,17 +65,21 @@ class Filebeat < Formula
           -
             paths:
               - #{log_file}
-            scan_frequency: 0s
+            scan_frequency: 0.1s
+      filebeat.idle_timeout: 0.1s
       output:
         file:
           path: #{testpath}
     EOS
 
-    filebeat_pid = fork { exec bin/"filebeat", "-c", testpath/"filebeat.yml" }
+    (testpath/"log").mkpath
+    (testpath/"data").mkpath
+
+    filebeat_pid = fork { exec "#{bin}/filebeat -c #{testpath}/filebeat.yml -path.config #{testpath}/filebeat -path.home=#{testpath} -path.logs #{testpath}/log -path.data #{testpath}" }
     begin
-      sleep 5
+      sleep 1
       log_file.append_lines "foo bar baz"
-      sleep 10
+      sleep 5
 
       assert File.exist? testpath/"filebeat"
     ensure

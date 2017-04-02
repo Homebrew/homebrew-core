@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.0.8.tar.gz"
-  sha256 "b9e862ad6e027f72bb1e49f5cfda77c731296f46244bd0973d48f6ade637b716"
+  url "https://packages.groonga.org/source/groonga/groonga-7.0.1.tar.gz"
+  sha256 "d017fa9424d57a3deec8c41de555f86268e81d98f6114718660bb172718fc072"
 
   bottle do
-    sha256 "343df0670072b420b6ceecdecdfb32ba2a3212bfe33a66a713017e49973b369c" => :el_capitan
-    sha256 "81c65682457c90a06065157a5873cb1b1550ea5a005b5545467dd68a8edb53e1" => :yosemite
-    sha256 "a609d1a678369a406e147945cf6531865554434fb265849efe451a33397def6d" => :mavericks
+    sha256 "b1e97d2309d60c85a67ac4601add8c6bdad6ab844b7b434eaf033601a74a0146" => :sierra
+    sha256 "5f69988e6ccf5efda9637a7d378fd2ce52834ee72fa956ae68e4a4eb0a5d8c3f" => :el_capitan
+    sha256 "c352b62a1af966f272b745b353f483c890d2c84cd4c0a2fcef526674bc67b8ef" => :yosemite
   end
 
   head do
@@ -19,6 +19,7 @@ class Groonga < Formula
 
   option "with-glib", "With benchmark program for developer use"
   option "with-zeromq", "With suggest plugin for suggesting"
+  option "with-stemmer", "Build with libstemmer support"
 
   deprecated_option "enable-benchmark" => "with-glib"
   deprecated_option "with-benchmark" => "with-glib"
@@ -34,10 +35,16 @@ class Groonga < Formula
   depends_on "mecab-ipadic" if build.with? "mecab"
   depends_on "zeromq" => :optional
   depends_on "libevent" if build.with? "zeromq"
+  depends_on "zstd" => :optional
 
   resource "groonga-normalizer-mysql" do
-    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
+    url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
     sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
+  end
+
+  resource "stemmer" do
+    url "https://github.com/snowballstem/snowball.git",
+      :revision => "71936098048f915a797de990776564c924d40b6a"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
@@ -50,7 +57,6 @@ class Groonga < Formula
       --with-zlib
       --with-ssl
       --enable-mruby
-      --without-libstemmer
     ]
 
     if build.with? "zeromq"
@@ -59,9 +65,24 @@ class Groonga < Formula
       args << "--disable-zeromq"
     end
 
+    if build.with? "stemmer"
+      resource("stemmer").stage do
+        system "make", "dist_libstemmer_c"
+        system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
+        Dir.chdir buildpath.join("libstemmer_c")
+        system "make"
+        mkdir "lib"
+        mv "libstemmer.o", "lib/libstemmer.a"
+        args << "--with-libstemmer=#{Dir.pwd}"
+      end
+    else
+      args << "--without-libstemmer"
+    end
+
     args << "--enable-benchmark" if build.with? "glib"
     args << "--with-mecab" if build.with? "mecab"
     args << "--with-lz4" if build.with? "lz4"
+    args << "--with-zstd" if build.with? "zstd"
 
     if build.head?
       args << "--with-ruby"

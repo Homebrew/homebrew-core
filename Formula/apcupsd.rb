@@ -6,6 +6,7 @@ class Apcupsd < Formula
 
   bottle do
     cellar :any
+    sha256 "bc7b9ee40a28adf5351ca70e4bf7f44d28cc849d6327d728e54309ebfb8b0289" => :sierra
     sha256 "faf979d85d50adebb20de24efbb113a52fe3760f5d4cc4bebda6eaec2268eb09" => :el_capitan
     sha256 "49cc19f7e0d435d5b70ef75d393de827207ad3ea821e9104d783c61692ea62ba" => :yosemite
     sha256 "488ed2fc48933a1c4ca08037016ae5af81050bdc27e7975296fd1c172cf10b31" => :mavericks

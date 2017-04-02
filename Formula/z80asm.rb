@@ -6,6 +6,7 @@ class Z80asm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2bf9a1b8ebae970b16ad7d4644a028ddcb21d8069f2f5d73d18d69881d7eca27" => :sierra
     sha256 "46446e7c3644dc58e1c5cc80b904863298f818d15c4aaad721e36cabae75207c" => :el_capitan
     sha256 "f52e469f9e8ab4c30c6cce5cde41a52bfbdb06e8db88b8be80fb7c54cbb73a21" => :yosemite
     sha256 "ed0e94c25d70c23f537ffbf8440b909b5d652e6000ebacd89be024c7ceee0e3d" => :mavericks

@@ -1,13 +1,13 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/3.20/baobab-3.20.1.tar.xz"
-  sha256 "e9dff12a76b0d730ce224215860512eb0188280c622faf186937563b96249d1f"
+  url "https://download.gnome.org/sources/baobab/3.24/baobab-3.24.0.tar.xz"
+  sha256 "5980e96df9f3d1751a969869ec07bc184ae3ad667d5a3eb06cf1297091fdfc3f"
 
   bottle do
-    sha256 "2c8716685d745afb1ac24ba61d96d9a08a4e8dd2fe0b5412a6ccdb1f744cd7f5" => :el_capitan
-    sha256 "c9194f003ce07fc6688622580f3f9efdbaba76da8c8af5ebdf633e9542996cf1" => :yosemite
-    sha256 "9611904e45132e879e2828134ec704beccfb57ce6cf2c80d099acba96261022a" => :mavericks
+    sha256 "aa7eceabd331973f0c55c6ab39f4040b4d9edf9505e2d9d203b79882ff7c8ab9" => :sierra
+    sha256 "d33df22fb9fe15dad8dd8c88d5fd2be9e1e7be66260a2cba33cc54f26f7b80be" => :el_capitan
+    sha256 "27caf811afcd62cccca6943be092e2f0b88e1fa3a7187917f446a9fdae9d6342" => :yosemite
   end
 
   depends_on "pkg-config" => :build

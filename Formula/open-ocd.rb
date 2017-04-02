@@ -1,18 +1,18 @@
 class OpenOcd < Formula
   desc "On-chip debugging, in-system programming and boundary-scan testing"
   homepage "https://sourceforge.net/projects/openocd/"
-  url "https://downloads.sourceforge.net/project/openocd/openocd/0.9.0/openocd-0.9.0.tar.bz2"
-  sha256 "837042ac9a156b9363cbffa1fcdaf463bfb83a49331addf52e63119642b5f443"
+  url "https://downloads.sourceforge.net/project/openocd/openocd/0.10.0/openocd-0.10.0.tar.bz2"
+  sha256 "7312e7d680752ac088b8b8f2b5ba3ff0d30e0a78139531847be4b75c101316ae"
 
   bottle do
-    revision 1
-    sha256 "7b486a00de7c5587902482eddbca668b28cf2a0f4834990eb72f347aa82de3f9" => :el_capitan
-    sha256 "5f100f62924464a31d2a5d3ad83c8305a5b9c0e0bf7c2afe05f06340f075f318" => :yosemite
-    sha256 "64c7f397c5e0b7af7d91089a386a3a0c0c600987db7a25f55658bfe394af9d7b" => :mavericks
+    rebuild 1
+    sha256 "281978e21362ed00dd198715825d77f0f2aeb64ad99954714a34ce128e1a0df8" => :sierra
+    sha256 "e1fc5f8a8bf079954a56459b330313cd82a69a219114821c14f9d3df2fd3ea25" => :el_capitan
+    sha256 "568ae702a3488805b8651b5456346c9484ca6f8486a09f3c2a4473664370a481" => :yosemite
   end
 
   head do
-    url "git://git.code.sf.net/p/openocd/code"
+    url "https://git.code.sf.net/p/openocd/code.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -42,13 +42,6 @@ class OpenOcd < Formula
       --enable-jtag_vpi
       --enable-remote-bitbang
     ]
-
-    if build.with? "libftdi"
-      args << "--enable-usb_blaster_libftdi"
-      args << "--enable-presto_libftdi"
-      args << "--enable-openjtag_ftdi"
-      args << "--enable-legacy-ft2232_libftdi"
-    end
 
     ENV["CCACHE"] = "none"
 

@@ -1,12 +1,13 @@
 class Gocr < Formula
   desc "Optical Character Recognition (OCR), converts images back to text"
-  homepage "http://jocr.sourceforge.net/"
+  homepage "https://jocr.sourceforge.io/"
   url "https://www-e.uni-magdeburg.de/jschulen/ocr/gocr-0.50.tar.gz"
   sha256 "bc261244f887419cba6d962ec1ad58eefd77176885093c4a43061e7fd565f5b5"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "0e3df7c5f1304de66cb85b98b12612ed99e43177b37c02605892b02c947f0ef0" => :sierra
     sha256 "3b3a0351d949f3f798dc973e0f31a283b8df3f73d1c7f251c7f15229ceb2fb20" => :el_capitan
     sha256 "94207525e139ef275415f46ff50baab26fef6a2ba52ca71a6a00aa3035ced71c" => :yosemite
     sha256 "467ce3a1411e022f44b60691bf71bf8a7b86ba234b21dad23cc1f2b258d92e9b" => :mavericks

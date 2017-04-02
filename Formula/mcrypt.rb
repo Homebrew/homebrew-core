@@ -1,6 +1,6 @@
 class Mcrypt < Formula
   desc "Replacement for the old crypt package and crypt(1) command"
-  homepage "http://mcrypt.sourceforge.net"
+  homepage "https://mcrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
   sha256 "5145aa844e54cca89ddab6fb7dd9e5952811d8d787c4f4bf27eb261e6c182098"
 
@@ -12,8 +12,6 @@ class Mcrypt < Formula
     sha256 "6c060224061c43733929524f3e45010192d5fc4ece1972fbce7259f96f514fa2" => :mavericks
     sha256 "b6dd5f1210d4b0fffa7b14e4fce445c11d6245840fd38f08255149b6e27832c2" => :mountain_lion
   end
-
-  option :universal
 
   depends_on "mhash"
 
@@ -27,8 +25,6 @@ class Mcrypt < Formula
   patch :DATA
 
   def install
-    ENV.universal_binary if build.universal?
-
     resource("libmcrypt").stage do
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}"

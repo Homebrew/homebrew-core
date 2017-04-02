@@ -1,11 +1,12 @@
 class Archivemail < Formula
   desc "Tool for archiving and compressing old email in mailboxes"
-  homepage "http://archivemail.sourceforge.net/"
+  homepage "https://archivemail.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/archivemail/archivemail-0.9.0.tar.gz"
   sha256 "4b430e2fba6f24970a67bd61eef39d7eae8209c7bef001196b997be1916fc663"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6855a80277b3f76a46c29272db16490e5bc927f3975fb97ff762b4cc449b3b53" => :sierra
     sha256 "f95de4796d99f6c4a2174e973bac2efe5edd42237f0916cccfc1ebcdfbce92ba" => :el_capitan
     sha256 "92456f5fd90d8151d2dbe666f6b945ed9f47b90e96dc60080f69d41cdd9775d5" => :yosemite
     sha256 "691e95f5a952a01cf632ebb4d1e3e1bf6b773184e554705ee1893219ac0b0a55" => :mavericks

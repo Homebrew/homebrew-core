@@ -1,15 +1,13 @@
 class Gjs < Formula
   desc "Javascript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.44/gjs-1.44.0.tar.xz"
-  sha256 "88c960f6ad47a6931d123f5d6317d13704f58572f68a4391913a254ff27dce80"
+  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.0.tar.xz"
+  sha256 "ed7db93e12709fe43b2fbe1e157331a0b1dcf3e0d19b81ccebd2d96bfcbe9525"
 
   bottle do
-    rebuild 1
-    sha256 "30f082820778381fa8e26598edc220330eddc83a6805698fca88e1e1608ba61e" => :sierra
-    sha256 "fb613d40633ad455a5a057d8ea196b6fd602bfd3c5920bb917783f413f0982d0" => :el_capitan
-    sha256 "dfcf484bc4ccbf5d3e6db92247d963712609d7d8d821b8046843899368f9aef1" => :yosemite
-    sha256 "dab6d6305eb3d8046b7f87659b5c3207bb309787a7f58d64a9c018fab78f6437" => :mavericks
+    sha256 "e76effb03150ead122488bb26dea65fcc2ab6654677e6a9a628365b10df45747" => :sierra
+    sha256 "a09d26722ac8c46f50055b726873ece6922e847411d1f9c3d1fd8af4ed9f2b23" => :el_capitan
+    sha256 "d145049bde012775e9b1345ae99f0dddac8502d5e8db84695727e8d483b0a7fe" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -18,35 +16,55 @@ class Gjs < Formula
   depends_on "readline"
   depends_on "gtk+3" => :recommended
 
-  resource "mozjs24" do
-    url "https://ftp.mozilla.org/pub/mozilla.org/js/mozjs-24.2.0.tar.bz2"
-    sha256 "e62f3f331ddd90df1e238c09d61a505c516fe9fd8c5c95336611d191d18437d8"
+  needs :cxx11
+
+  # patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=780350
+  patch :DATA
+
+  resource "mozjs38" do
+    url "https://archive.mozilla.org/pub/firefox/releases/38.8.0esr/source/firefox-38.8.0esr.source.tar.bz2"
+    sha256 "9475adcee29d590383c4885bc5f958093791d1db4302d694a5d2766698f59982"
   end
 
   def install
-    resource("mozjs24").stage do
+    resource("mozjs38").stage do
+      inreplace "config/rules.mk", "-install_name @executable_path/$(SHARED_LIBRARY) ", "-install_name #{lib}/$(SHARED_LIBRARY) "
       cd("js/src") do
-        # patches taken from MacPorts
-        # fixes a problem with Perl 5.22
-        inreplace "config/milestone.pl", "if (defined(@TEMPLATE_FILE)) {", "if (@TEMPLATE_FILE) {"
-        # use absolute path for install_name, don't assume will be put into an app bundle
-        inreplace "config/rules.mk", "@executable_path", "${prefix}/lib"
+        ENV["PYTHON"] = "python"
+        inreplace "configure", "'-Wl,-executable_path,$(LIBXUL_DIST)/bin'", ""
         system "./configure", "--disable-debug",
                               "--disable-dependency-tracking",
                               "--disable-silent-rules",
                               "--prefix=#{prefix}",
                               "--with-system-nspr",
+                              "--with-system-zlib",
+                              "--with-system-icu",
+                              "--enable-system-ffi",
                               "--enable-readline",
+                              "--enable-shared-js",
                               "--enable-threadsafe"
         system "make"
         system "make", "install"
         rm Dir["#{bin}/*"]
       end
+      mv "#{lib}/pkgconfig/js.pc", "#{lib}/pkgconfig/mozjs-38.pc"
+      # headers were installed as softlinks, which is not acceptable
+      cd(include.to_s) do
+        `find . -type l`.chomp.split.each do |link|
+          header = File.readlink(link)
+          rm link
+          cp header, link
+        end
+      end
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+      # remove mozjs static lib
+      rm "#{lib}/libjs_static.ajs"
     end
+    ENV.cxx11
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--without-dbus-tests",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -59,3 +77,18 @@ class Gjs < Formula
     system "#{bin}/gjs", "test.js"
   end
 end
+
+__END__
+diff --git a/gi/arg.cpp b/gi/arg.cpp
+index 5502b00..aacc07d 100644
+--- a/gi/arg.cpp
++++ b/gi/arg.cpp
+@@ -37,6 +37,8 @@
+ #include "gjs/byteArray.h"
+ #include "gjs/jsapi-wrapper.h"
+ #include <util/log.h>
++#include <cstdlib>
++#include <cmath>
+
+ bool
+ _gjs_flags_value_is_valid(JSContext   *context,

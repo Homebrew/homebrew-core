@@ -1,14 +1,13 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.4.2.tar.xz"
-  sha256 "df2c3773c0e7a75d88e75906cc425f9ed7f07ce36a99854162e14202ccd42904"
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-10.0.0.tar.xz"
+  sha256 "12be72c373645b5bb9b9ea79ce8447958a1b806162868bb67803baa6d0032333"
 
   bottle do
-    sha256 "218da01180858b13706444cbb8edfd1c631f4b89f9f442d0d29129789d44a35e" => :sierra
-    sha256 "801d321895e3d9126cb408b14349d43cad9d994b38208284282912efcdc15cea" => :el_capitan
-    sha256 "6109f1b416ba366f9ec219df1871b5d14167f87f46d0742e4b59d8c179363fca" => :yosemite
-    sha256 "b7dfadad0496c65d709148521664ab0912f00fe285664117fe3bbcef36f1c698" => :mavericks
+    sha256 "86385603b1057b637b1b5acaf61c8300b7dcc5fb7f8da25d6d86d24c23ff5e8f" => :sierra
+    sha256 "79164274c263386649464a4b7a4cc7d6801efbfe72eeb21cbe110a6d969b83ed" => :el_capitan
+    sha256 "6140e599eb261ae364d4333962d4f366a81abc2a4127f56f138f2da6779b97b8" => :yosemite
   end
 
   head do
@@ -20,7 +19,9 @@ class Mkvtoolnix < Formula
 
   option "with-qt5", "Build with QT GUI"
 
+  depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
+  depends_on "pugixml" => :build
   depends_on :ruby => ["1.9", :build]
   depends_on "libogg"
   depends_on "libvorbis"
@@ -46,41 +47,43 @@ class Mkvtoolnix < Formula
   def install
     ENV.cxx11
 
-    boost = Formula["boost"]
-    ogg = Formula["libogg"]
-    vorbis = Formula["libvorbis"]
-    ebml = Formula["libebml"]
-    matroska = Formula["libmatroska"]
+    features = %w[libogg libvorbis libebml libmatroska]
+    features << "flac" if build.with? "flac"
+    features << "libmagic" if build.with? "libmagic"
+
+    extra_includes = ""
+    extra_libs = ""
+    features.each do |feature|
+      extra_includes << "#{Formula[feature].opt_include};"
+      extra_libs << "#{Formula[feature].opt_lib};"
+    end
+    extra_includes.chop!
+    extra_libs.chop!
 
     args = %W[
       --disable-debug
       --prefix=#{prefix}
-      --without-curl
-      --with-boost=#{boost.opt_prefix}
-      --with-extra-includes=#{ogg.opt_include};#{vorbis.opt_include};#{ebml.opt_include};#{matroska.opt_include}
-      --with-extra-libs=#{ogg.opt_lib};#{vorbis.opt_lib};#{ebml.opt_lib};#{matroska.opt_lib}
+      --with-boost=#{Formula["boost"].opt_prefix}
+      --with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
+      --with-extra-includes=#{extra_includes}
+      --with-extra-libs=#{extra_libs}
     ]
 
-    if build.with?("qt5")
-      qt5 = Formula["qt5"]
-
-      args << "--with-moc=#{qt5.opt_bin}/moc"
-      args << "--with-uic=#{qt5.opt_bin}/uic"
-      args << "--with-rcc=#{qt5.opt_bin}/rcc"
+    if build.with? "qt5"
+      args << "--with-moc=#{Formula["qt5"].opt_bin}/moc"
+      args << "--with-rcc=#{Formula["qt5"].opt_bin}/rcc"
+      args << "--with-uic=#{Formula["qt5"].opt_bin}/uic"
       args << "--enable-qt"
     else
       args << "--disable-qt"
     end
 
-    args << "--without-flac" if build.without? "flac"
-    args << "--disable-magic" if build.without? "libmagic"
-
     system "./autogen.sh" if build.head?
 
     system "./configure", *args
 
-    system "./drake", "-j#{ENV.make_jobs}"
-    system "./drake", "install"
+    system "rake", "-j#{ENV.make_jobs}"
+    system "rake", "install"
   end
 
   test do

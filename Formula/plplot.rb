@@ -1,36 +1,42 @@
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
-  homepage "http://plplot.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/plplot/plplot/5.11.1%20Source/plplot-5.11.1.tar.gz"
-  sha256 "289dff828c440121e57b70538b3f0fb4056dc47159bc1819ea444321f2ff1c4c"
+  homepage "https://plplot.sourceforge.io"
+  url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
+  sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
 
   bottle do
-    sha256 "7aa599004d76405dda00f854cfff576b8414864011b6be37059591ae1ae1808c" => :sierra
-    sha256 "1a0ebd2560517328652cce3600af9c715da25aa461cb21a621c2dbb9904f0c16" => :el_capitan
-    sha256 "81eb90e08ac42f6f5ea9f41159baf2cbf95f93f6f1390ddd1b12f00bb415e079" => :yosemite
-    sha256 "7e4c364b66c61d7f35cb6a5417ee5ef1d06fe7a30d78b8d237a36b4beaa458f8" => :mavericks
-    sha256 "b779762659e485d6c9cad54206b1e72f2db5e82950b19a356439e9ce3ef79138" => :mountain_lion
+    sha256 "983bfc816485426b63a65d2afb52f6945acb4ccfdbe7044909055d4c2f9aeb94" => :sierra
+    sha256 "698020e2b9644c20655bf7a50d0acb3dc39b8a56a65000577c6cf8bf8e4f42fa" => :el_capitan
+    sha256 "7afcb2ebd5d24c7107c45a7c77e53f13ceaa575bf4e5f75ccec75262bfcb85fe" => :yosemite
   end
-
-  option "with-java"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "pango"
-  depends_on "libtool" => :run
   depends_on "freetype"
+  depends_on "libtool" => :run
   depends_on :x11 => :optional
   depends_on :fortran => :optional
+  depends_on :java => :optional
 
   def install
     args = std_cmake_args
     args << "-DENABLE_java=OFF" if build.without? "java"
     args << "-DPLD_xwin=OFF" if build.without? "x11"
     args << "-DENABLE_f95=OFF" if build.without? "fortran"
-    args << "-DENABLE_ada=OFF" << "-DENABLE_d=OFF" << "-DENABLE_qt=OFF" \
-         << "-DENABLE_lua=OFF" << "-DENABLE_tk=OFF" << "-DENABLE_python=OFF" \
-         << "-DENABLE_tcl=OFF" << "-DPLD_xcairo=OFF" << "-DPLD_wxwidgets=OFF" \
-         << "-DENABLE_wxwidgets=OFF"
+    args += %w[
+      -DENABLE_ada=OFF
+      -DENABLE_d=OFF
+      -DENABLE_qt=OFF
+      -DENABLE_lua=OFF
+      -DENABLE_tk=OFF
+      -DENABLE_python=OFF
+      -DENABLE_tcl=OFF
+      -DPLD_xcairo=OFF
+      -DPLD_wxwidgets=OFF
+      -DENABLE_wxwidgets=OFF
+    ]
 
     mkdir "plplot-build" do
       system "cmake", "..", *args

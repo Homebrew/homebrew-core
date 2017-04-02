@@ -1,16 +1,15 @@
 class Synfig < Formula
   desc "Command-line renderer"
-  homepage "http://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.0/source/synfig-1.0.tar.gz"
-  sha256 "1f2f9b209d49dff838049e9817b0458ac6987e912a56c061aa2f9c2faeb40720"
+  homepage "https://synfig.org/"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
+  sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
   revision 2
-
-  head "git://synfig.git.sourceforge.net/gitroot/synfig/synfig"
+  head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
-    sha256 "d109db84521cd3d8d4092de86bdeda50e96f726616f3c1a50f0bf0912a3a91e3" => :el_capitan
-    sha256 "45df75ac729cc20877f89542d25f466d48c62d7aa51a17ca5535469c59973670" => :yosemite
-    sha256 "a30a492c69ef50aec2f1e22482d3c4eaef7c5899a43805afe72918c59cff994c" => :mavericks
+    sha256 "ad4b23fe38d528dab8be2288ee45bdc42130c1e67f4f4de078f09a3b8e1f0aed" => :sierra
+    sha256 "bb42b47c6c04c7c6ec01509b0fcc0b5385b9fdfc1d813a0b9e507351f25a79ac" => :el_capitan
+    sha256 "a46081768934b324778fc279bdba25eb948b2508f837dff5f83093d47e657658" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -18,7 +17,6 @@ class Synfig < Formula
   depends_on "etl"
   depends_on "libsigc++"
   depends_on "libxml++"
-  depends_on "imagemagick"
   depends_on "libpng"
   depends_on "freetype"
   depends_on "cairo"
@@ -30,7 +28,7 @@ class Synfig < Formula
 
   needs :cxx11
 
-  # bug filed upstream as http://www.synfig.org/issues/thebuggenie/synfig/issues/904
+  # bug filed upstream as https://synfig.org/issues/thebuggenie/synfig/issues/904
   patch do
     url "https://gist.githubusercontent.com/tschoonj/06d5de3cdc5d063f8612/raw/26fe46b6eedeecdc686b9fd5aac01de9f2756424/synfig.diff"
     sha256 "0ac5b757ba3dda6a863a79e717fc239648c490eac1e643ff275b8ac232a466a3"

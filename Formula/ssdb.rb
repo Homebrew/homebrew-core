@@ -1,32 +1,26 @@
 class Ssdb < Formula
   desc "NoSQL database supporting many data structures: Redis alternative"
   homepage "http://ssdb.io/"
-  url "https://github.com/ideawu/ssdb/archive/1.9.2.tar.gz"
-  sha256 "9387ebeaf24f4e3355967ba2459b59be683f75d6423f408ce4cefed2596b4736"
+  url "https://github.com/ideawu/ssdb/archive/1.9.4.tar.gz"
+  sha256 "f95005f5284c09b696ef4aee75088679969c9174a0f5506b742ca8ad6f6bb45e"
   head "https://github.com/ideawu/ssdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8155bfa1e0c35747998a505072afec2427e66535844a41053463612ca2fb487a" => :el_capitan
-    sha256 "a933b076c4db3cf375f4a56c4c92e7e56ac608384d24b538563e1ee2707cdc3a" => :yosemite
-    sha256 "d997f3f17d79e1485389eb4f6c86ba6a5dd60f0d690852dfd689d292877bc8f0" => :mavericks
+    sha256 "79903c5f68970f2c92716aa357dc7d02842ab9838aed81eb0d10a84a6b7b3277" => :sierra
+    sha256 "ea82ea4a73dca47ff68b7cfaf205373302709946aaecadd8d71d71741ca02f13" => :el_capitan
+    sha256 "24f875e83c5457735183542c8c173c01eb08bcf819dc38042f34f0114d220f3f" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+
   def install
-    inreplace "tools/ssdb-cli", "DIR=`dirname $0`", "DIR=#{prefix}"
+    inreplace "tools/ssdb-cli", /^DIR=.*$/, "DIR=#{prefix}"
 
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
     system "make", "install", "PREFIX=#{prefix}"
 
-    inreplace "#{prefix}/ssdb-ins.sh" do |s|
-      # Fix path to ssdb-server.
-      s.gsub! "/usr/local/ssdb", bin
-      # Fix handling of absolute pid path in config.
-      s.gsub! "dir=`dirname $config`\n", ""
-      s.gsub! %r{\$dir/`(.*?) \| sed -n 's/\^\\.\\///p'`}, '`\1`'
-    end
-
-    ["bench", "cli", "dump", "ins.sh", "repair", "server"].each do |suffix|
+    ["bench", "cli", "dump", "repair", "server"].each do |suffix|
       bin.install "#{prefix}/ssdb-#{suffix}"
     end
 

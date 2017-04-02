@@ -1,36 +1,38 @@
 class Ldns < Formula
   desc "DNS library written in C"
   homepage "https://nlnetlabs.nl/projects/ldns/"
-  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.6.17.tar.gz"
-  sha256 "8b88e059452118e8949a2752a55ce59bc71fa5bc414103e17f5b6b06f9bcc8cd"
-  revision 1
+  url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz"
+  sha256 "c19f5b1b4fb374cfe34f4845ea11b1e0551ddc67803bd6ddd5d2a20f0997a6cc"
 
   bottle do
-    revision 4
-    sha256 "bddafc13d58f7f86243ab6ee1ec389034e7b49a899a13c5d9ca7888456d62963" => :el_capitan
-    sha256 "d1fd252d9d21104d1f8558f78c5c988a9355b6211088ddc4688ad2d15e726dc7" => :yosemite
-    sha256 "a6473267b96ba209161b292d6e4f76048519480c43cd7eb5db41a4c51d311205" => :mavericks
-    sha256 "17d5d97bafecaad3fdd635b1e765d4d9470a195aceb27ed2214fad8332f69aff" => :mountain_lion
+    sha256 "294b0901da29bba11010f1ac2716ab111cb4fcc283779264cb857c1057270ebb" => :sierra
+    sha256 "bee97f2127cacd4fef3fbd77d00b0bbfb4f2afc738c8242634b2de2e90ac4c8a" => :el_capitan
+    sha256 "60d00b07a87aacace15aa4ac992e45e21b0d3827658c588e15643d3434f30304" => :yosemite
   end
 
-  depends_on :python => :optional
-  depends_on "openssl"
-  depends_on "swig" => :build if build.with? "python"
+  depends_on "swig" => :build
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --with-drill
       --with-examples
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-pyldns
+      PYTHON_SITE_PKG=#{lib}/python2.7/site-packages
     ]
 
-    args << "--with-pyldns" if build.with? "python"
-
     system "./configure", *args
+
+    inreplace "Makefile" do |s|
+      s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
+      s.gsub! /(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1"
+    end
+
     system "make"
     system "make", "install"
-    system "make", "install-pyldns" if build.with? "python"
+    system "make", "install-pyldns"
     (lib/"pkgconfig").install "packaging/libldns.pc"
   end
 

@@ -6,7 +6,8 @@ class Qdbm < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "547ecf82252706d276c8359448b7f4e738264999028b06cd3738af34ba58276c" => :sierra
     sha256 "6fd80b953a53cdf048bf686d2ac3620deda19a022a10a1e7cbd7aea073bf9b6a" => :el_capitan
     sha256 "4784d30c880c089dcef588c7d91d537269404a4917c9b2b1ef8b5123a727cee1" => :yosemite
     sha256 "bf5c5c1a087e22f9f06d29e2e139e55f6866ac1826ef725733d108ace6cf4d67" => :mavericks

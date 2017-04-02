@@ -1,14 +1,14 @@
 class OpusTools < Formula
   desc "Utilities to encode, inspect, and decode .opus files"
   homepage "https://www.opus-codec.org"
-  url "http://downloads.xiph.org/releases/opus/opus-tools-0.1.9.tar.gz"
-  sha256 "b1873dd78c7fbc98cf65d6e10cfddb5c2c03b3af93f922139a2104baedb4643a"
+  url "https://archive.mozilla.org/pub/opus/opus-tools-0.1.10.tar.gz"
+  sha256 "a2357532d19471b70666e0e0ec17d514246d8b3cb2eb168f68bb0f6fd372b28c"
 
   bottle do
     cellar :any
-    sha256 "7bfccafbee68fc61d1a5d8e3ea3d2f99f95876c45ada9570fac5ba08f3916b1a" => :el_capitan
-    sha256 "ae51146c28dced90e2a4f0f869bb19a6b442e96727cf655240d3d01f17b51de3" => :yosemite
-    sha256 "ea7c44249700b7a2e0d6809f55b9e52b87ece5290aaa9bd4fc73ffd1a30cc38f" => :mavericks
+    sha256 "62d9154105f9d7be511899c04959bb76c669ee573cb4597b1a34291de613ad57" => :sierra
+    sha256 "32b77b8739b8e44eac8b3b45791291c3a1efbaf2b1c99b1f74b32d2beae5c795" => :el_capitan
+    sha256 "97a0d5affca76c00fec6d56ca3b6b2984e68f518380edd9098b6c49b0f465c46" => :yosemite
   end
 
   head do

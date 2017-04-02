@@ -1,20 +1,19 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.20/gitg-3.20.3.tar.xz"
-  sha256 "4b0802360cdf1341b27a73458930768d139143b568b9153e93378f32f7ba6669"
+  url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
+  sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
+  revision 1
 
   bottle do
-    sha256 "a9d0e52124a9f2dc92e88af5d4322dad5e0b5962660a08631a31be842f5a7794" => :sierra
-    sha256 "20c7f14353ab590070bd9d20a509df7b15d0fe7d11e074d7e6a3639ae1264a0d" => :el_capitan
-    sha256 "7d9e441d23c713494046d2a9598513c9bf84ef42cf64c58605c6fc55df995770" => :yosemite
-    sha256 "f39cfb7978573bc2e1407d4c71f4fd5919bc79233752eb49736884badb580646" => :mavericks
+    sha256 "4132836f7275773fc4fc52017295455416e067d044b75e610070ddb6448d6903" => :sierra
+    sha256 "326c39b1aef24d993dbf6897ed2e0166a6e0e403fbae6c808e1eb90c4b1c613d" => :el_capitan
+    sha256 "36b4f56fb22dbb3375f926adc2eed61254070eb6793c4b8add14e9d0db4a5a9a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "intltool" => :build
-  depends_on "webkitgtk"
   depends_on "gtksourceview3"
   depends_on "gobject-introspection"
   depends_on "libgit2-glib"
@@ -23,6 +22,7 @@ class Gitg < Formula
   depends_on "json-glib"
   depends_on "libsecret"
   depends_on "libpeas"
+  depends_on "libsoup"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
@@ -30,6 +30,8 @@ class Gitg < Formula
   depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -68,13 +70,12 @@ class Gitg < Formula
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2"]
+    libgit2 = Formula["libgit2-glib"].opt_libexec/"libgit2"
     libgit2_glib = Formula["libgit2-glib"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
-    webkitgtk = Formula["webkitgtk"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
@@ -92,13 +93,12 @@ class Gitg < Formula
       -I#{libepoxy.opt_include}
       -I#{libgee.opt_include}/gee-0.8
       -I#{libffi.opt_lib}/libffi-3.0.13/include
-      -I#{libgit2.opt_include}
+      -I#{libgit2}/include
       -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
       -I#{libpng.opt_include}/libpng16
       -I#{libsoup.opt_include}/libsoup-2.4
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
-      -I#{webkitgtk.opt_include}/webkitgtk-4.0
       -DGIT_SSH=1
       -D_REENTRANT
       -L#{atk.opt_lib}
@@ -109,12 +109,11 @@ class Gitg < Formula
       -L#{gobject_introspection.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libgee.opt_lib}
-      -L#{libgit2.opt_lib}
+      -L#{libgit2}/lib
       -L#{libgit2_glib.opt_lib}
       -L#{libsoup.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
-      -L#{webkitgtk.opt_lib}
       -latk-1.0
       -lcairo
       -lcairo-gobject

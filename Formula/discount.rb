@@ -1,14 +1,14 @@
 class Discount < Formula
   desc "C implementation of Markdown"
   homepage "http://www.pell.portland.or.us/~orc/Code/discount/"
-  url "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.0.tar.bz2"
-  sha256 "b25395c29c2c08836199eb2eae87b56e6b545e77f5fbf921678aa1dc0ddab9f3"
+  url "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.2.tar.bz2"
+  sha256 "ec7916731e3ef8516336333f8b7aa9e2af51e57c0017b1e03fa43f1ba6978f64"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ea10a46d66fce3802af97f0f37a952248c1cee58156c05a6ee541149ada2c09" => :el_capitan
-    sha256 "2145fa7ed31d0bebb6e134b9f8e331134fbe45de578fde37b27c1a00d9221ddc" => :yosemite
-    sha256 "e30d950d0b310cd2ce649340f0518e9b313e93c6abbbb368faed82e33308b556" => :mavericks
+    sha256 "76eb602335c8e25e5cac3e5ba71427adfd77e4668cded01e9293bff24f959e0a" => :sierra
+    sha256 "a8487f5efbecb0cc21542be3e923a1bd2553bdae3cda589a60f9e59e46e64e73" => :el_capitan
+    sha256 "bb20915dd830cdf2c6b996af682227d7c5529d99e31fef8048e7fff513dea257" => :yosemite
   end
 
   option "with-fenced-code", "Enable Pandoc-style fenced code blocks."
@@ -33,5 +33,11 @@ class Discount < Formula
     lib.mkpath
     include.mkpath
     system "make", "install.everything"
+  end
+
+  test do
+    markdown = "[Homebrew](https://brew.sh/)"
+    html = "<p><a href=\"https://brew.sh/\">Homebrew</a></p>"
+    assert_equal html, pipe_output(bin/"markdown", markdown, 0).chomp
   end
 end

@@ -1,16 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.0.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.0.tar.bz2"
-  sha256 "a6847e741efcba6cb9d92d464d4219917bee3ad0b8f5b0f80d4388ad2f3f1104"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.5.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.5.tar.bz2"
+  sha256 "75dd88d3d6336559e5b0b72077d8a772a988197d571f00029986225fef609ac8"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "04c0880af27eee0428976b41562124d9f9a0aef272acb828f05aa385c31c611e" => :sierra
-    sha256 "5e77ac492f7146ebff283f0b961acb9de635b2e7d6efe99dfc2cd4e93c5fbb74" => :el_capitan
-    sha256 "58a167ab8fbfac9ff1bb00308f69126e81a521d8f323fd32ebd40fab854edb92" => :yosemite
-    sha256 "3eddd00e09ebc603032ae4732b469bf4cee45bf3c90c99aa11292e989a6b7d7e" => :mavericks
+    sha256 "9f633d3e21c1884af106ba0836ce46f66309bb60e7846f14fd32929a4dd00b44" => :sierra
+    sha256 "bc39656140e7433130d43eafd333e7f0f67477ee347115e597a61c14ca4c632d" => :el_capitan
+    sha256 "981787888b59091393fc3355476232bc89ed5a79937518df5552ba14413f2571" => :yosemite
   end
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"
@@ -124,7 +123,7 @@ class Wireshark < Formula
 
   def caveats; <<-EOS.undent
     If your list of available capture interfaces is empty
-    (default OS X behavior), try installing ChmodBPF from homebrew cask:
+    (default macOS behavior), try installing ChmodBPF from homebrew cask:
 
       brew cask install wireshark-chmodbpf
 

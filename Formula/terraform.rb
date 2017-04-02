@@ -3,71 +3,72 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.7.4.tar.gz"
-  sha256 "2f70ac4db06d176ff281702c16f83946536834dddc0706e2d2649ef8477796c5"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.2.tar.gz"
+  sha256 "a5e3924bf72899149b572409c82da4b7d71ac556fd460790577bdf50f27709a4"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0bf4ed97ff50803fa2ef3083c690dc27a8bb082de08dc2562a3734cda60a8c1" => :sierra
-    sha256 "ec3aeede7478520761ca4a3f03edcff2ef7dd981bab73e8e71c5cf92cb19e90b" => :el_capitan
-    sha256 "7663a508d2a6cb7142c0fd836affa134e192177f7b6c115a86944fc0dc316e25" => :yosemite
+    sha256 "a2328e473548a9c223da19b30a950fe799d5499e28664f1f04a25a54a0305cb8" => :sierra
+    sha256 "53feb7d27f84f9b1595c0ad35f9bfc10368481274cbf66f18ae00eae7c984165" => :el_capitan
+    sha256 "434955c161b7767057b85e7c941acbb6eee949ca19f6a0d6382ede98ae7cb149" => :yosemite
   end
 
   depends_on "go" => :build
 
-  terraform_deps = %w[
-    github.com/mitchellh/gox 770c39f64e66797aa46b70ea953ff57d41658e40
-    github.com/mitchellh/iochan 87b45ffd0e9581375c491fef3d32130bb15c5bd7
-  ]
+  conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
 
-  terraform_deps.each_slice(2) do |x, y|
-    go_resource x do
-      url "https://#{x}.git", :revision => y
-    end
+  go_resource "github.com/mitchellh/gox" do
+    url "https://github.com/mitchellh/gox.git",
+        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
+  end
+
+  go_resource "github.com/mitchellh/iochan" do
+    url "https://github.com/mitchellh/iochan.git",
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+  end
+
+  go_resource "github.com/kisielk/errcheck" do
+    url "https://github.com/kisielk/errcheck.git",
+        :revision => "23699b7e2cbfdb89481023524954ba2aeff6be90"
+  end
+
+  go_resource "github.com/kisielk/gotool" do
+    url "https://github.com/kisielk/gotool.git",
+        :revision => "0de1eaf82fa3f583ce21fde859f1e7e0c5e9b220"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "977844c7af2aa555048a19d28e9fe6c392e7b8e9"
+        :revision => "d63e2b22b05a9682de336cd4802bba367ed429e7"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by terraform, which doesn't need to
-    # get installed permanently
-    ENV.append_path "PATH", buildpath
+    ENV.prepend_create_path "PATH", buildpath/"bin"
 
-    terrapath = buildpath/"src/github.com/hashicorp/terraform"
-    terrapath.install Dir["*"]
+    dir = buildpath/"src/github.com/hashicorp/terraform"
+    dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
+    %w[src/github.com/mitchellh/gox src/golang.org/x/tools/cmd/stringer
+       src/github.com/kisielk/errcheck].each do |path|
+      cd(path) { system "go", "install" }
     end
 
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      ENV.deparallelize { system "go", "build" }
-      buildpath.install "stringer"
-    end
-
-    cd terrapath do
+    cd dir do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      terraform_files = `go list ./...`.lines.map { |f| f.strip unless f.include? "/vendor/" }.compact
-      system "go", "test", *terraform_files
-
-      mkdir "bin"
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      system "gox",
-        "-arch", arch,
-        "-os", "darwin",
-        "-output", "bin/terraform-{{.Dir}}", *terraform_files
-      bin.install "bin/terraform-terraform" => "terraform"
+      ENV["XC_OS"] = "darwin"
+      ENV["XC_ARCH"] = arch
+      system "make", "bin"
+
+      bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
+      prefix.install_metafiles
     end
   end
 

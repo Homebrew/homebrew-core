@@ -1,31 +1,22 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz"
-  sha256 "643262dec62d1c2527950286739613a5b8d450943c601ecc42a817738556e6f7"
-  head "http://openmesh.org/svnrepo/OpenMesh/trunk/", :using => :svn
+  url "https://www.openmesh.org/media/Releases/6.3/OpenMesh-6.3.tar.bz2"
+  sha256 "b97be926e430bcda10f44f2d4bbe2657b0778c2eed17346f4f32c06db36843ce"
+  head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
     cellar :any
-    sha256 "80c3297bf3f7ab9c4b519dd9ae622ea5c87fb5afdebaabeb4b4c8d3149067016" => :el_capitan
-    sha256 "e73e25f5adbb12bd20bf822e472a2a883f6d969c1cb340d76feb1a83fc4c02cf" => :yosemite
-    sha256 "f55c01c2dbde31f9307530349141b33860f733bbe2836fc88d79536bcd3945d4" => :mavericks
+    sha256 "676e75669a5b5d754bb4bfcb44ae218ee19e51a2ee337a73d02d7afa3975dbd4" => :sierra
+    sha256 "adcf854d3ed46bdd19c10f04537239991a9ca96e06c078f16c1d8f303f411561" => :el_capitan
+    sha256 "3ea01760dd5aed9a42c1961aaf020e146a0b9a57fcaab1181803a17525fca1b9" => :yosemite
   end
 
   depends_on "cmake" => :build
-  depends_on "qt" => :optional
 
   def install
     mkdir "build" do
-      args = std_cmake_args
-
-      if build.with? "qt"
-        args << "-DBUILD_APPS=ON"
-      else
-        args << "-DBUILD_APPS=OFF"
-      end
-
-      system "cmake", "..", *args
+      system "cmake", "..", "-DBUILD_APPS=OFF", *std_cmake_args
       system "make", "install"
     end
   end

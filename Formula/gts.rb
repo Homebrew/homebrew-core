@@ -1,6 +1,6 @@
 class Gts < Formula
   desc "GNU triangulated surface library"
-  homepage "http://gts.sourceforge.net/"
+  homepage "https://gts.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gts/gts/0.7.6/gts-0.7.6.tar.gz"
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
 
@@ -12,8 +12,6 @@ class Gts < Formula
     sha256 "b6e2ce541c5b4b46076843076c6842723a896afa36619cfab8155194795c9817" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
@@ -24,7 +22,6 @@ class Gts < Formula
   patch :DATA
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
 

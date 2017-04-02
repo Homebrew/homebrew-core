@@ -1,14 +1,14 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.48/glib-networking-2.48.2.tar.xz"
-  sha256 "925c0c49d6b2b8b5695f2e33cd952d1dbb7d18d3f2f796413577719315bb3a84"
+  url "https://download.gnome.org/sources/glib-networking/2.50/glib-networking-2.50.0.tar.xz"
+  sha256 "3f1a442f3c2a734946983532ce59ed49120319fdb10c938447c373d5e5286bee"
 
   bottle do
-    sha256 "8d9f25c6ad40d0461faf185e2d82a6b54d2b8df4ef485ebdc6f00129f9302c71" => :sierra
-    sha256 "c290a6c479db1ab06585a95f96201bb145e6c5679b8f06f0843a04b35fe596d7" => :el_capitan
-    sha256 "6bae1d8857a518859b0ca169be84764521b6fe8df293a221a91450702c8a987f" => :yosemite
-    sha256 "511c7ebff04d868ad0fc7518d286e7e675bca018db2fd34bb7c73e76ce31e748" => :mavericks
+    rebuild 1
+    sha256 "84ec040e4e75a461d0a2ba38fb8718fa080b1d002d5da6c18aa58ba748d792e9" => :sierra
+    sha256 "27c3c26afbe7557a4be8644794bd4d9db68b5c13544d9524ba1eebe7cecd7cd2" => :el_capitan
+    sha256 "14f091c53a11a6c6c1972fd3f2f6f5f73a8732ccb27fb9ad68e604a3d2330250" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -61,7 +61,7 @@ class GlibNetworking < Formula
       "-I#{HOMEBREW_PREFIX}/opt/gettext/include",
       "-L#{HOMEBREW_PREFIX}/lib",
       "-L#{HOMEBREW_PREFIX}/opt/gettext/lib",
-      "-lgio-2.0", "-lgobject-2.0", "-lglib-2.0", "-lintl"
+      "-lgio-2.0", "-lgobject-2.0", "-lglib-2.0"
     ]
 
     system ENV.cc, "gtls-test.c", "-o", "gtls-test", *flags

@@ -1,11 +1,12 @@
 class DfuProgrammer < Formula
   desc "Device firmware update based USB programmer for Atmel chips"
-  homepage "http://dfu-programmer.sourceforge.net/"
+  homepage "https://dfu-programmer.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/dfu-programmer/dfu-programmer/0.7.2/dfu-programmer-0.7.2.tar.gz"
   sha256 "1db4d36b1aedab2adc976e8faa5495df3cf82dc4bf883633dc6ba71f7c4af995"
 
   bottle do
     cellar :any
+    sha256 "56775882f52597c48d0078da0488c1852fca842188f6a266cb787c9f76f3f56e" => :sierra
     sha256 "e9657f69d69597d89bd94bb1b1fc806f61a476c409a2da5a57abb062742bed04" => :el_capitan
     sha256 "4dea1ba0456ff657f6bc332db3040d1f9955a1845fcf8d34585187d67637c39e" => :yosemite
     sha256 "f7e6ab4ed28bf63c21b76917c71ada3675e312475eba15ae1f5f7a5fede3e872" => :mavericks

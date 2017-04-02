@@ -12,15 +12,6 @@ class Exenv < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
-    To use Homebrew's directories rather than ~/.exenv add to your profile:
-      export "EXENV_ROOT=#{var}/exenv"
-
-    To enable shims and autocompletion add to your profile:
-      if which exenv > /dev/null; then eval "$(exenv init -)"; fi
-    EOS
-  end
-
   test do
     system "#{bin}/exenv", "init", "-"
   end

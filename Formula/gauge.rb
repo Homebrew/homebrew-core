@@ -2,16 +2,15 @@ require "language/go"
 
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
-  homepage "http://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.6.1.tar.gz"
-  sha256 "c5b0630611fe56ea98c018d03b4bb91713f0b891de0fa70e58af75bdddaaa435"
+  homepage "https://getgauge.io"
+  url "https://github.com/getgauge/gauge/archive/v0.8.3.tar.gz"
+  sha256 "ecec8d5ab062cdac8e24a4d5792f78cb9b8f554ee4c443801e8eaa1c3b5e2f5e"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8a89b6d685890418d81b176b6ab5993ebbf299282e598f328d0f960ef5bf8b5d" => :el_capitan
-    sha256 "3bc49428a78b72b602b839dcec1de5b6e8c493406d162128c25190f8f5020d55" => :yosemite
-    sha256 "5af574faba350f2725c25c2fdcb992918ee88f67d0ad437e02f3b8ebb48c9302" => :mavericks
+    sha256 "c5b11df4afbe6ec9210381e870dd6bd41de358e2e3fe033c8f8e4384b6072a58" => :sierra
+    sha256 "dc6b5146e8a7db1f321edb5eb55bb003a48a17023a90b263e516fbdc7e84f046" => :el_capitan
+    sha256 "d5406a6996795f0836776f16e0b82e2bc516ce5190e05d3d8851bfeccfdc462f" => :yosemite
   end
 
   depends_on "go" => :build
@@ -19,11 +18,12 @@ class Gauge < Formula
 
   go_resource "github.com/getgauge/gauge_screenshot" do
     url "https://github.com/getgauge/gauge_screenshot.git",
-        :revision => "d04c2acc873b408211df8408f0217d4eafd327fe"
+        :revision => "23dd83ae2eeed5be12edc9aa34bb34246cebe866"
   end
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GOROOT"] = Formula["go"].opt_libexec
 
     # Avoid executing `go get`
     inreplace "build/make.go", /\tgetGaugeScreenshot\(\)\n/, ""
@@ -43,6 +43,6 @@ class Gauge < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/gauge -v")
+    assert_match version.to_s[0, 5], shell_output("#{bin}/gauge -v")
   end
 end

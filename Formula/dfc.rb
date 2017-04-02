@@ -7,7 +7,8 @@ class Dfc < Formula
   head "https://github.com/Rolinh/dfc.git"
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "84aa5e5c131bd298a8ddf951ede00a43b8ea91c317c8f103cb0e9ec13c07deba" => :sierra
     sha256 "f0d98c80bb3ce8904059831e74ff0cbfede28f61ba50ecf9a4c12e3f1f8875eb" => :el_capitan
     sha256 "1aadc4c37cfe8720c7dccd6e99f67793c1bff8dcea56397913f6c0ce2c5bc0ad" => :yosemite
     sha256 "2f8b4a76d3d7d910229bd68fc30d68cf1289abf1e40fb8fd4c687ae365c6a25d" => :mavericks

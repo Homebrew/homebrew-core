@@ -17,7 +17,7 @@ class Aamath < Formula
   patch :DATA
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make"
 
     bin.install "aamath"

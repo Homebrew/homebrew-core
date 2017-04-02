@@ -1,28 +1,22 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.10.4-P2/bind-9.10.4-P2.tar.gz"
-  mirror "https://fossies.org/linux/misc/dns/bind9/9.10.4-P2/bind-9.10.4-P2.tar.gz"
-  version "9.10.4-P2"
-  sha256 "b35b8af8fe030196d03b3e487f5ecd0c0836b5e124abc7a3ecd184740b444423"
+  url "https://ftp.isc.org/isc/bind9/9.11.0-P3/bind-9.11.0-P3.tar.gz"
+  mirror "https://fossies.org/linux/misc/dns/bind9/9.11.0-P3/bind-9.11.0-P3.tar.gz"
+  version "9.11.0-P3"
+  sha256 "0feee0374bcbdee73a9d4277f3c5007622279572d520d7c27a4b64015d8ca9e9"
   head "https://source.isc.org/git/bind9.git"
 
   bottle do
-    rebuild 1
-    sha256 "c3c2243b3da6731b79c657a997e1db57b813c3dae4ec42bead9bd374c1be41d7" => :sierra
-    sha256 "10134f5cd7bc0e624488940913e82f38d845bf395ed822d97d678731ead5b9b2" => :el_capitan
-    sha256 "cecf420ad46afde38c5052be2c6b4283af3b013d5467c95f377af12631acc018" => :yosemite
-    sha256 "718c67cce4fa804890ef830f4eb7124151ce785b120cf843cf83dbc5ccec1b25" => :mavericks
+    sha256 "d7b9eb300b88812b9aa179df409409d653b29ac7c9a9e1e8c000082ddd63e38c" => :sierra
+    sha256 "7ba650a4f473df454a989d1c97a10c60ffdf702170ec274bb98bf8c27e8ebed5" => :el_capitan
+    sha256 "091ba8dd7e95dad7c35a351f3d97655c3ef1be4507b4bad72fd427c765cb5732" => :yosemite
   end
 
   depends_on "openssl"
   depends_on "json-c" => :optional
 
   def install
-    ENV.libxml2
-    # libxml2 appends one inc dir to CPPFLAGS but bind ignores CPPFLAGS
-    ENV.append "CFLAGS", ENV.cppflags
-
     # enable DNSSEC signature chasing in dig
     ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
 

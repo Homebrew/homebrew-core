@@ -1,14 +1,14 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.1/pcb2gcode-1.3.1.tar.gz"
-  sha256 "f91acd4de71698820104d5f6bfe5c8aedf0a323795971d863dfc4d31cdd4cef8"
+  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.2/pcb2gcode-1.3.2.tar.gz"
+  sha256 "c4135cd3981c4a5d6baffa81b7f8e890ae29776107b0d1938b744a8dfebdbc63"
 
   bottle do
     cellar :any
-    sha256 "bb9db1716936cd3de54be2ae2e0441c2bfaee96afb6e4b1b686fc7d5a65a4c89" => :el_capitan
-    sha256 "01152aea45fd8a9125cbf52af83ae6a2e8ba88a89558659086d645f056d88ed2" => :yosemite
-    sha256 "906a9945e48f6d34a8e330e82ac8aa34d51a18d5599e570acb9ab99621581510" => :mavericks
+    sha256 "ccbf3239e0eb3a762870ad82b8fdd0ec56e43c2dc4028147aa479cde627f4141" => :sierra
+    sha256 "d78eb668171edf796f0d1576ce5f6b5359d4a2dcecba994c73ec7086167ac2fa" => :el_capitan
+    sha256 "fded3841b1955b89a42ca5412bd99f1bef4e17cfa0e2e4b6a56826445b509cda" => :yosemite
   end
 
   head do

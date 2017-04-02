@@ -1,17 +1,16 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "http://x265.org"
-  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.0.tar.gz"
-  sha256 "5a7f6797bee33310c690be5d9a6c63125f36663ac3478e98ac6b6142a70bce1f"
+  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.3.tar.gz"
+  sha256 "47520ac3424790168ea5c2db4a3cf12ca4d55a1790720007916652f07af3e41f"
 
   head "https://bitbucket.org/multicoreware/x265", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "875cea552176a4aa274e2acf35abbfe9ff5d4f28bdcbd086a40cf1a7e2b578eb" => :sierra
-    sha256 "d4b0f634811f8f44d26628588b6d8bc481c1f2e25b6ac2116767d231caf58b28" => :el_capitan
-    sha256 "94309db8f594dc0ea1156351c45c3e6533a95004058075db40c15ba5d313c1f7" => :yosemite
-    sha256 "f5e6acc3c8c4ba5c2e045663dd8ee667bf997e1b8a7d32093b7539945c101ca8" => :mavericks
+    sha256 "fe96013a2cf3bc61a1b43df63b3294d239ba3def8f4d3706a6451ec1b81a54d0" => :sierra
+    sha256 "3aa950749c56b12e5e9ea57199b70d08b08f74de36586f400f75aaca81dcf5b6" => :el_capitan
+    sha256 "9ea2207ea35051af4b8de5d0e90b8d8f9e376e6759827896d21679f0962640ad" => :yosemite
   end
 
   option "with-16-bit", "Build a 16-bit x265 (default: 8-bit)"

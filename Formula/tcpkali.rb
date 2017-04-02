@@ -1,20 +1,18 @@
 class Tcpkali < Formula
   desc "High performance TCP and WebSocket load generator and sink"
   homepage "https://github.com/machinezone/tcpkali"
-  url "https://github.com/machinezone/tcpkali/releases/download/v0.9/tcpkali-0.9.tar.gz"
-  sha256 "4acb38bd1a2421f247afbd07e67d47aaa8bb848f92e7badd2cd581022406d855"
+  url "https://github.com/machinezone/tcpkali/releases/download/v1.1.1/tcpkali-1.1.1.tar.gz"
+  sha256 "a9a15a1703fc4960360a414ee282d821a7b42d4bbba89f9e72a796164ff69598"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ebc6fd13a75a2b95bde049906d1cd3af1b406f256ad7490a113538d5228892d" => :el_capitan
-    sha256 "d37c5e39ec28c5f9a73e3ae023418f0009e9a4c59a82dffc4fd936259db75853" => :yosemite
-    sha256 "7dbf2ecc4c3b259693ff338cb6f8db6f4025afde3cc93bcf36ad8419c5ade959" => :mavericks
+    sha256 "f73513ed96b6436085e0941865f0cc4fd2ce1009a1d8770c740e8e97d5173cf1" => :sierra
+    sha256 "2d0075b2fca885fb694660a3914362030be255c8e3dfed407bb8ca96c996bbf7" => :el_capitan
+    sha256 "71573c4926d086721c028e73d9812475fe3a58bd8313a43ef9c6a54918334760" => :yosemite
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

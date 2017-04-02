@@ -1,14 +1,14 @@
 class Tintin < Formula
   desc "MUD client"
-  homepage "http://tintin.sf.net"
-  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.0/tintin-2.01.0.tar.gz"
-  sha256 "e0e35463a97ee5b33ef0b29b2c57fa8276c4e76328cb19c98a6ea92c603a9c76"
+  homepage "https://tintin.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.2/tintin-2.01.2.tar.gz"
+  sha256 "01e11e3cded48ff686b2ea16e767acf1f6b5ea326551ecff091552e89f4a038e"
 
   bottle do
     cellar :any
-    sha256 "87db2f724f02d4904abd62cd1ca64761fc7c036581f002edc4165f304b39c0b1" => :el_capitan
-    sha256 "d5854bd2486230a6438a6de890ab23f812248298cdc4d4ab44c3b6b9866b9b1f" => :yosemite
-    sha256 "c8af90d6c19c9c8ccb3f09276fbe89f059e9762b36e35e981b2c856f952d12c7" => :mavericks
+    sha256 "83b285b7b301a92fab1edcf9123bd5a14c1e25b79e899d638a8ff6d0d624a05c" => :sierra
+    sha256 "e58eb5055b943111c93dd2ede24df92b9b0d2ada69b128d43d4a837cc045ba5b" => :el_capitan
+    sha256 "0fe0c128b0c4d22a6015e56220f3906a2e61e3b17294a5cf68e03104fbd33c06" => :yosemite
   end
 
   depends_on "pcre"

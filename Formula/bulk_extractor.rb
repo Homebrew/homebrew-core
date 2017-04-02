@@ -7,7 +7,8 @@ class BulkExtractor < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "4bb9e136e301737efc4796114da3cab19d84a5671840eaaf59c0e9dee5e2f92a" => :sierra
     sha256 "42eaa763988659fbb7e52a16fb700439a16a229be1d828d425717b3aabf121c5" => :el_capitan
     sha256 "9fca86e7c8248902b09f05b5ed046c3a0347afcabe2afc5a72de1619d211cc41" => :yosemite
     sha256 "b4928062ab8c39d082a9dbba713f4e0e3e460d2c111af0c39981eeba3d1d7638" => :mavericks
@@ -39,12 +40,12 @@ class BulkExtractor < Formula
 
   test do
     input_file = testpath/"data.txt"
-    input_file.write "http://brew.sh\n(201)555-1212\n"
+    input_file.write "https://brew.sh\n(201)555-1212\n"
 
     output_dir = testpath/"output"
     system "#{bin}/bulk_extractor", "-o", output_dir, input_file
 
-    assert_match "http://brew.sh", (output_dir/"url.txt").read
+    assert_match "https://brew.sh", (output_dir/"url.txt").read
     assert_match "(201)555-1212", (output_dir/"telephone.txt").read
   end
 end

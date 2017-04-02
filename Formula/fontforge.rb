@@ -1,15 +1,15 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20160404.tar.gz"
-  sha256 "1cc5646fccba2e5af8f1b6c1d0d6d7b6082d9546aefed2348d6c0ed948324796"
+  url "https://github.com/fontforge/fontforge/archive/20161012.tar.gz"
+  sha256 "a5f5c2974eb9109b607e24f06e57696d5861aaebb620fc2c132bdbac6e656351"
+  revision 1
   head "https://github.com/fontforge/fontforge.git"
 
   bottle do
-    sha256 "74daacbb3416e84d8593fdaf2d0123ca4ef660bcbdcb5dda3792ac087cf07666" => :sierra
-    sha256 "fd97cefd808fc0f07ac61e6ea624f074c9be5f2fb11f5a45468912fe5991ca36" => :el_capitan
-    sha256 "e2dd2a2c7ce89b74b4bc2902da0ff93615b62b31bda5303a4f9bdf4447c2f05e" => :yosemite
-    sha256 "6f1a9f1a0a15a2f84f0dce5c73e80e4265efd05e4bfa570f3c5e78da2211bbc6" => :mavericks
+    sha256 "57809a9c61afc72a933fa905464d80de5b8fe59749cadb962e861749698e4453" => :sierra
+    sha256 "8d2501b45449f86695410f21da449aa5a7f80b15efb74fb975e0d40f6eeb8974" => :el_capitan
+    sha256 "77aacdcdc740df564b186c043890f433459122b34b3225bdbe3952172f466dd7" => :yosemite
   end
 
   option "with-giflib", "Build with GIF support"
@@ -24,62 +24,37 @@ class Fontforge < Formula
   depends_on "libtool" => :run
   depends_on "gettext"
   depends_on "pango"
-  depends_on "zeromq"
-  depends_on "czmq"
   depends_on "cairo"
   depends_on "fontconfig"
-  depends_on "libpng" => :recommended
+  depends_on "libpng"
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
+  depends_on "libuninameslist" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "gnulib" do
-    url "git://git.savannah.gnu.org/gnulib.git",
+    url "https://git.savannah.gnu.org/git/gnulib.git",
         :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 
-  fails_with :llvm do
-    build 2336
-    cause "Compiling cvexportdlg.c fails with error: initializer element is not constant"
-  end
-
   def install
-    # Don't link libraries to libpython, but do link binaries that expect
-    # to embed a python interpreter
-    # https://github.com/fontforge/fontforge/issues/2353#issuecomment-121009759
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
-    ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
-    python_libs = `python2.7-config --ldflags`.chomp
-    inreplace "fontforgeexe/Makefile.am" do |s|
-      oldflags = s.get_make_var "libfontforgeexe_la_LDFLAGS"
-      s.change_make_var! "libfontforgeexe_la_LDFLAGS", "#{python_libs} #{oldflags}"
-    end
-
-    # Disable Homebrew detection
-    # https://github.com/fontforge/fontforge/issues/2425
-    inreplace "configure.ac", 'test "y$HOMEBREW_BREW_FILE" != "y"', "false"
+    ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
 
     args = %W[
       --prefix=#{prefix}
       --disable-silent-rules
       --disable-dependency-tracking
-      --with-pythonbinary=#{which "python2.7"}
       --without-x
     ]
 
-    args << "--without-libpng" if build.without? "libpng"
     args << "--without-libjpeg" if build.without? "jpeg"
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-giflib" if build.without? "giflib"
     args << "--without-libspiro" if build.without? "libspiro"
-
-    # Fix linker error; see: https://trac.macports.org/ticket/25012
-    ENV.append "LDFLAGS", "-lintl"
-
-    # Reset ARCHFLAGS to match how we build
-    ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
+    args << "--without-libuninameslist" if build.without? "libuninameslist"
 
     # Bootstrap in every build: https://github.com/fontforge/fontforge/issues/1806
     resource("gnulib").fetch

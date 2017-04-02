@@ -1,16 +1,18 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.45/gwyddion-2.45.tar.gz"
-  sha256 "2ac1bd2042d8ee0088de89435fc113ccc8028433c910a7509a93ffdc4a4ab66b"
+  url "http://gwyddion.net/download/2.47/gwyddion-2.47.tar.gz"
+  sha256 "7b440e082f7fbfa38ad0355bafb1576c52eb4b35c4b97c3ac525a4cec879ddf2"
+  revision 1
 
   bottle do
-    sha256 "ed3618203bebcedcbab831528b4c80c982923d2c077ad00fe2c7a3f94563020b" => :el_capitan
-    sha256 "2c50f35fa337402bcd0b37d6544f6475148f290ecc950c35c1059006c12bd4e5" => :yosemite
-    sha256 "7d9a350c4c785379f236b8158f9ba04d56ee4b94ba8ebb6c067c108fe32940b9" => :mavericks
+    sha256 "6ddc06a1388396662d2be33a7efec97f54b35d61bccbfeaee49aa3fd2959d726" => :sierra
+    sha256 "5b254bffa7e6088a5c5fd8297ea2a57e3ecc5d3cbaa3b20cd4365ebc3b60f668" => :el_capitan
+    sha256 "325036fd27f4c51d1a8cfa7ae1a9c1e522683eef624e886fd052c74e2fde8f1e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gnu-sed" => :build
   depends_on "fftw"
   depends_on "gtk+"
   depends_on "gtk-mac-integration"
@@ -23,6 +25,7 @@ class Gwyddion < Formula
   depends_on "gtksourceview" if build.with? "python"
 
   def install
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
                           "--prefix=#{prefix}",

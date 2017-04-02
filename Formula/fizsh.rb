@@ -10,6 +10,7 @@ class Fizsh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "163783d4da1cd66ef0049e61f9d48b88dfd5ad6c94710d4d7108f173ab2dd88a" => :sierra
     sha256 "39d602a21dd253b38573ec534bf8ff5ac17fd57fc97665d98a5fbfef914b7c30" => :el_capitan
     sha256 "b85d71ce36f57763382353e521c43ceef4598bc571564d0a55797d036d7ab045" => :yosemite
     sha256 "f12cafcbe8c29f058a2b18b1074d782173a640b2c725fe4051a7c80b33c53928" => :mavericks

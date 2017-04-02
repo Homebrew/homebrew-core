@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.6.0",
-      :revision => "01b3ea12f848f6ca3d29b32bd3a4fb30a443d7f4"
+      :tag => "v1.11.1",
+      :revision => "a67a225cf0b1dc48820415e7fe9a4f176463a8ed"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2149a1875a476134929138aaa0818036120a4a5fd8fc908c937f4fc0cad209b2" => :sierra
-    sha256 "f2681ae3988b1cf78d3ce693eede4ca981fd3ad141f3f9efbb02f5c35d08fde2" => :el_capitan
-    sha256 "e39efc4072bc74fabd0a00c47f223b0f857d91d032b216c07eefe9e802dad436" => :yosemite
+    sha256 "dd995771f16391195c946885c9fc6c74cc0ba5c44f35035cd0643c8177554115" => :sierra
+    sha256 "469b9be73bb1a99dee97dc442ac9892368c35106780d141e7ec2cd692404499e" => :el_capitan
+    sha256 "6191d74538ab360453da8edeabdc1d158404cd10453af95598afe3aec023c85a" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,10 +24,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.6.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.1/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "1.6.0"
-    sha256 "0dcdfb57bd4a6ed2f3d84848e44ae03f24a7428b21147f16cab7b47c6f14ecf9"
+    version "1.11.1"
+    sha256 "1581e1534e80e8fa72ede15171269728f8123a18a0654975a7cf44daf8e650b9"
+  end
+
+  resource "prebuilt-arm.tar.xz" do
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.1/docker/prebuilt-arm.tar.xz",
+        :using => :nounzip
+    version "1.11.1"
+    sha256 "fc0bfbd4f5289b738ce73a27e6ab65687187c01b2709d6c50dd92c868f500d5b"
   end
 
   def install
@@ -42,27 +49,60 @@ class GitlabCiMultiRunner < Formula
     end
 
     cd dir do
-      resource("prebuilt-x86_64.tar.xz").stage do
-        system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy",
-                             "-nometadata", "-o",
-                             "#{dir}/executors/docker/bindata.go",
-                             "prebuilt-x86_64.tar.xz"
-      end
+      Pathname.pwd.install resource("prebuilt-x86_64.tar.xz"),
+                           resource("prebuilt-arm.tar.xz")
+      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy",
+                           "-nometadata", "-o",
+                           "#{dir}/executors/docker/bindata.go",
+                           "prebuilt-x86_64.tar.xz",
+                           "prebuilt-arm.tar.xz"
 
       proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
+      built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<-EOS.undent
              -X #{proj}/common.NAME=gitlab-ci-multi-runner
              -X #{proj}/common.VERSION=#{version}
              -X #{proj}/common.REVISION=#{commit}
              -X #{proj}/common.BRANCH=#{branch}
+             -X #{proj}/common.BUILT=#{built}
       EOS
 
       bin.install "gitlab-ci-multi-runner"
       bin.install_symlink bin/"gitlab-ci-multi-runner" => "gitlab-runner"
       prefix.install_metafiles
     end
+  end
+
+  plist_options :manual => "gitlab-ci-multi-runner start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>SessionCreate</key><false/>
+        <key>KeepAlive</key><true/>
+        <key>RunAtLoad</key><true/>
+        <key>Disabled</key><false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/gitlab-ci-multi-runner</string>
+          <string>run</string>
+          <string>--working-directory</string>
+          <string>#{ENV["HOME"]}</string>
+          <string>--config</string>
+          <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
+          <string>--service</string>
+          <string>gitlab-runner</string>
+          <string>--syslog</string>
+        </array>
+      </dict>
+    </plist>
+    EOS
   end
 
   test do

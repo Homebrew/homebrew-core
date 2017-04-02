@@ -1,15 +1,13 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.19/mpd-0.19.19.tar.xz"
-  sha256 "bc856cda4136403446d53d11576f86990b61d1fe4668f6008e9eae47450d4e1d"
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.6.tar.xz"
+  sha256 "f4055e1189e5cc00e83706b2e0b5ead924ced0303e073d7802ee9f9a8eba4b47"
 
   bottle do
-    cellar :any
-    sha256 "29337ce0c35d232d46de6b78d6cad61a27c0f03f121bac14fae0bba82f13191f" => :sierra
-    sha256 "3ce1569870c265daeba4814181ee07fd7acfdaa171117962c7716ddd716d4fe3" => :el_capitan
-    sha256 "cf09a9c859ffdc44b091cd1223d930380fd621fa92c63932f3978fd2a284ac9c" => :yosemite
-    sha256 "47823fe1c016b65e6c1900c9a29bcbe1d231f6a5ed82f3b646f72c771ba1108d" => :mavericks
+    sha256 "772293121659866f47d554b60eea57460a489659599ea9f83435c8a372c05ac8" => :sierra
+    sha256 "2913600b2efe25fe2591f87a8bd9b59b044ada4fac1abe783b1fb18ee966ec55" => :el_capitan
+    sha256 "cec38e434121b587c6e4f771e106ffd6724b1d7c3ccfcd19cfc45ba9259aca2d" => :yosemite
   end
 
   head do
@@ -27,6 +25,7 @@ class Mpd < Formula
   option "with-yajl", "Build with yajl support (for playing from soundcloud)"
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
+  option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -60,6 +59,7 @@ class Mpd < Formula
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
+  depends_on "pulseaudio" => :optional
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -91,10 +91,11 @@ class Mpd < Formula
     args << "--enable-vorbis-encoder" if build.with? "libvorbis"
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Directories are created in parallel, so let's not do that
+    ENV.deparallelize # Directories are created in parallel, so let's not do that
     system "make", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"

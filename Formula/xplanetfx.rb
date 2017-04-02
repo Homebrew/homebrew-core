@@ -3,17 +3,18 @@ class Xplanetfx < Formula
   homepage "http://mein-neues-blog.de/xplanetFX/"
   url "http://repository.mein-neues-blog.de:9000/archive/xplanetfx-2.6.12_all.tar.gz"
   version "2.6.12"
-  sha256 "bae39af674fc89b3fbe07ba6271bbf0a1c2ff64bbf63f4b04ff3d6f0bcc4380c"
+  sha256 "42b84623821032b7f31797d0187e9e0e298282831327fe3fc508dd1d85c493a7"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "37eb283551634da81516b7c0cd33beef8e1f44277b37305cedac53fd8233e1f8" => :sierra
     sha256 "a705f96d9dbb1d179a8df93c60fac8a134d8270403a20b730501692d59ca737e" => :el_capitan
     sha256 "da2d1f07a54aa76a853221024ad64ea599b1b7f57ed46cc0fb88538af44b75b8" => :yosemite
     sha256 "58d9b7fafb5ea11f87275502ec817784ba3c93e0ee1c9aceb646f7a349ca5ae4" => :mavericks
   end
 
   option "without-gui", "Build to run xplanetFX from the command-line only"
-  option "with-gnu-sed", "Build to use GNU sed instead of OS X sed"
+  option "with-gnu-sed", "Build to use GNU sed instead of macOS sed"
 
   depends_on "xplanet"
   depends_on "imagemagick"

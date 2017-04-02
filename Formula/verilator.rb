@@ -1,13 +1,13 @@
 class Verilator < Formula
   desc "Verilog simulator"
-  homepage "http://www.veripool.org/wiki/verilator"
-  url "http://www.veripool.org/ftp/verilator-3.880.tgz"
-  sha256 "2839178cf291ccfcfbadc556bccfe0e7f56a2bfb4ee1f24feb20c52b2632d02f"
+  homepage "https://www.veripool.org/wiki/verilator"
+  url "https://www.veripool.org/ftp/verilator-3.900.tgz"
+  sha256 "4be851e66179b405410782887e4121db7c6e8a7614a8066f353c36edd98a6b7b"
 
   bottle do
-    sha256 "24fac1b570220c9616f00bfc6c52ce75df4bfc6b25f58c8770da8e6690114cbb" => :el_capitan
-    sha256 "cea32dc698d89578e0e08a4e947b2117d12e0aac25561313ee052ab1c4a19a59" => :yosemite
-    sha256 "133e859467db7fe6bd8888467f2be0ce165025f32581236f018642d88f0c1d06" => :mavericks
+    sha256 "6b82bb9d715ad1c585c40756911f3c3ab949abd5dc2aa222722e1b2fb08f64cf" => :sierra
+    sha256 "a631852aac4746089d7abcd85fc6132b3f3e4303d3e5a84d750a413d3952f07f" => :el_capitan
+    sha256 "c1a75df08503dcc66c82f4417486e4c6bd1cde95388b8cceb292336a08816674" => :yosemite
   end
 
   head do
@@ -19,7 +19,7 @@ class Verilator < Formula
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   # Needs a newer flex on Lion (and presumably below)
-  # http://www.veripool.org/issues/720-Verilator-verilator-not-building-on-Mac-OS-X-Lion-10-7-
+  # https://www.veripool.org/issues/720-Verilator-verilator-not-building-on-Mac-OS-X-Lion-10-7-
   depends_on "flex" if MacOS.version <= :lion
 
   def install

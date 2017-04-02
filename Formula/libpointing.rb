@@ -1,17 +1,20 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
   homepage "http://libpointing.org"
-  url "https://github.com/INRIA/libpointing/releases/download/v1.0.1/libpointing-mac-1.0.1.tar.gz"
-  sha256 "46e2cefa7eb41b9f0c4e5e9b9307ce50e5a36b7a986606e1f759ec6b4efb1204"
+  url "https://github.com/INRIA/libpointing/releases/download/v1.0.7/libpointing-mac-1.0.7.tar.gz"
+  sha256 "29f12da75727d1b03ff952a2754ce79b88aec39b5e03a52d3b0ff7440f08f147"
 
   bottle do
     cellar :any
-    sha256 "de1d173635b27a61e49d3b10f85158fe48ed90bc2e235dd3705050156718cecd" => :el_capitan
-    sha256 "bb7bd0b800f29ef958bb7e91ff53929533636403f28d318ff414b0511e05247d" => :yosemite
-    sha256 "5b3a242b4e1db437c826c18f6daa44f50af66b928202d9ffa326019aa436bbde" => :mavericks
+    sha256 "6ba8dbbb5a606a1e4b78512868986b80c4c3c971be04c90fbea59250dc6103ee" => :sierra
+    sha256 "6ba8dbbb5a606a1e4b78512868986b80c4c3c971be04c90fbea59250dc6103ee" => :el_capitan
+    sha256 "7120c106e54576154687dd63cdedb72633644e27213c7dbc1aa515a1227a8f3c" => :yosemite
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
@@ -30,7 +33,7 @@ class Libpointing < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-lpointing", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lpointing", "-o", "test"
     system "./test"
   end
 end

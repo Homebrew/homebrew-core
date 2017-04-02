@@ -4,11 +4,12 @@ class Mdk < Formula
   url "https://ftpmirror.gnu.org/mdk/v1.2.9/mdk-1.2.9.tar.gz"
   mirror "https://ftp.gnu.org/gnu/mdk/v1.2.9/mdk-1.2.9.tar.gz"
   sha256 "6c265ddd7436925208513b155e7955e5a88c158cddda72c32714ccf5f3e74430"
+  revision 2
 
   bottle do
-    sha256 "9e3290fb263592ecfcd5f11b4015536c40f676a2c31987c954f568b43c0998bd" => :el_capitan
-    sha256 "95c93e5625b975cc85854467782a18116bde17e19fc94ae11e6dce6bdae0a44f" => :yosemite
-    sha256 "eaab34ff8d2d73e08da0c3596fbee2eadc68cc269c1fe7b425b49f703348dcfa" => :mavericks
+    sha256 "f294500b0cce468da3b3420eed199ce6f7e50a6adfd582089a1d1f36080c4fbb" => :sierra
+    sha256 "2f7d0012a3a4ccb69e4ca500e16f5059642ddebc79bbac2df08dd73385d8e9e9" => :el_capitan
+    sha256 "264586d3518f0a1a5641c979471acf23860119d407c8efef608ae69e559a42cd" => :yosemite
   end
 
   depends_on "intltool" => :build
@@ -29,6 +30,8 @@ class Mdk < Formula
   end
 
   test do
+    ENV["LANG"] = "en_US.UTF-8"
+
     (testpath/"hello.mixal").write <<-EOS.undent
       *                                                        (1)
       * hello.mixal: say "hello world" in MIXAL                (2)

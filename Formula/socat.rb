@@ -1,15 +1,14 @@
 class Socat < Formula
   desc "netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.1.tar.gz"
-  sha256 "a8cb07b12bcd04c98f4ffc1c68b79547f5dd4e23ddccb132940f6d55565c7f79"
+  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.2.tar.gz"
+  sha256 "ce3efc17e3e544876ebce7cd6c85b3c279fda057b2857fcaaf67b9ab8bdaf034"
 
   bottle do
     cellar :any
-    sha256 "51954e701bc3198861be8e39b71b44eb9626f4d7615f476486b849a67cfd83f8" => :sierra
-    sha256 "6ecb3cbe4ce22509a88db917005018e634954fb0950d49ddf6f75d1fa6b6a789" => :el_capitan
-    sha256 "8e7444400aab2b0dcf49580fc2d52ce587706827385c58379fbfadddca55da35" => :yosemite
-    sha256 "8dbf0e7e4163d0e88deb6048e151840f1cf7cfec974cd34a3866e2a1030c25df" => :mavericks
+    sha256 "63cba17ba8512ae70e018d6e918b67e4d3646bbd44b6aa77d7e4c92833f4a79c" => :sierra
+    sha256 "65e0fd67dbb8f8615110beb7a10710aa73ec8cd4dcfb19408558a56d368728e2" => :el_capitan
+    sha256 "8bbbe3d993e937ee42499de4efdf02c168c97b30bb75077e5489c4b165829e1f" => :yosemite
   end
 
   devel do
@@ -22,13 +21,12 @@ class Socat < Formula
   depends_on "openssl"
 
   def install
-    ENV.enable_warnings # -w causes build to fail
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
 
   test do
     output = pipe_output("#{bin}/socat - tcp:www.google.com:80", "GET / HTTP/1.0\r\n\r\n")
-    assert_match "HTTP/1.0", output
+    assert_match "HTTP/1.0", output.lines.first
   end
 end

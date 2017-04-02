@@ -8,6 +8,7 @@ class GitHooks < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aaceeb7b390f71c45e3c1db15c23ab664a06bfc34de1c629a2b2f5b29e1bdec2" => :sierra
     sha256 "bdfffb820e5a7574169b91113ed59c578ebe88bcea8c890166a33fb9af17c0ce" => :el_capitan
     sha256 "d4c5fba7f1b80e8e68762356a2f64ac216bf4e9f3151cf2f236c92a9524b97ed" => :yosemite
     sha256 "ace6acaff04ef09795d26e6034bf411a89c9f348287dd95f756c82068cea123d" => :mavericks

@@ -3,12 +3,13 @@ class Pygtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/download.html#pygtkglext"
   url "https://download.gnome.org/sources/pygtkglext/1.1/pygtkglext-1.1.0.tar.gz"
   sha256 "9712c04c60bf6ee7d05e0c6a6672040095c2ea803a1546af6dfde562dc0178a3"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f7300b52df0a015cc86269908b6c23887eb11a7700b40ebd6e2671c2565fb3a2" => :el_capitan
-    sha256 "abbda3f7a801b6b620e9ca77c009b3e3ff3dd2898d8969a8e8148161e38190be" => :yosemite
-    sha256 "afe62336baf3fb7ad52dfe7cd181419a30224dbeb126d77b186fa1600812e81a" => :mavericks
+    cellar :any
+    sha256 "c2a2ead95b65a79eecac385c7ec23dab04f8980cfba44e8d51c4cc2de80fd7f3" => :sierra
+    sha256 "d946f8f65dd31f5d8ee9e7032b54ec1f259ec11ab57908fd0c4c28f617bb0d21" => :el_capitan
+    sha256 "ffac080474197c23fca753fecba77f53f1d25b0b86856fade067f60dc70941d6" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,6 +18,8 @@ class Pygtkglext < Formula
   depends_on "pygobject"
 
   def install
+    inreplace "gtk/gdkgl/gdkglext.override", "#include <GL/gl.h>", "#include <gl.h>"
+
     ENV["PYGTK_CODEGEN"] = "#{Formula["pygobject"].opt_bin}/pygobject-codegen-2.0"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

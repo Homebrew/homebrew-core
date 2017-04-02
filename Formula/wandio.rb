@@ -1,14 +1,13 @@
 class Wandio < Formula
   desc "LibWandio I/O performance will be improved by doing any compression"
-  homepage "http://research.wand.net.nz/software/libwandio.php"
-  url "http://research.wand.net.nz/software/wandio/wandio-1.0.3.tar.gz"
-  sha256 "31dcc1402ace3023020446d6c7284fd84447f9b36e570206a179895e1eaa705b"
+  homepage "https://research.wand.net.nz/software/libwandio.php"
+  url "https://research.wand.net.nz/software/wandio/wandio-1.0.4.tar.gz"
+  sha256 "0fe4ae99ad7224f11a9c988be151cbdc12c6dc15872b67f101764d6f3fc70629"
 
   bottle do
     cellar :any
-    sha256 "0ae81b1c0447cab3fcf1ff58f94bebde6e86bb932cc8e144bbbbcf7f7a34c385" => :el_capitan
-    sha256 "2ab4106d0c8af37b95397392f329eb7b33fdf8938be4053f80fd8dac6e90a36c" => :yosemite
-    sha256 "3b64647f03ddc63488ff8124d5da8cf6a201c0922230348fd06662ff7d917722" => :mavericks
+    sha256 "18377dd9738246878e3357ea95e0164e7ec2f66eab9708b662a5961678355873" => :sierra
+    sha256 "a05a9f0b56ccb80fd8de1cd2d3921a08599b88bcd9e9770df81a5fddf2163d24" => :el_capitan
   end
 
   def install

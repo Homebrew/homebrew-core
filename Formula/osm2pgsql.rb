@@ -1,23 +1,15 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/0.92.0.tar.gz"
+  sha256 "b741cfdf6489fd5def721f75a9558b8cda53165dda7ca9548fcc5b43e163ee77"
+  revision 3
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
-  stable do
-    url "https://github.com/openstreetmap/osm2pgsql/archive/0.90.1.tar.gz"
-    sha256 "f9ba09714603db251e4a357c1968640c350b0ca5c99712008dadc71c0c3e898b"
-
-    # Remove for >0.90.1; adds the option to build without lua (-DWITH_LUA=OFF)
-    patch do
-      url "https://github.com/openstreetmap/osm2pgsql/commit/dbbca884.patch"
-      sha256 "1efce5c8feeb3646450bee567582252b15634c7e139d4aa73058efbd8236fb60"
-    end
-  end
-
   bottle do
-    sha256 "b465872486185424901fbdf771d4bc5d6e0a443429991b19583fbb81d5e112d8" => :el_capitan
-    sha256 "41bfe9b7ffb6d3ae68666526916e2bc2813ac48b435c71a99b17c08b4961715c" => :yosemite
-    sha256 "5c8730f1b37bef49f57aea9c913c64bc410da5122d1fc02ab48693322e26908c" => :mavericks
+    sha256 "711e41e1c947ada70e3cd0ef9d21093cf8c23f91f9b44e66b52a54492e7d086d" => :sierra
+    sha256 "231e87a48d4763fa53d49852ee04a7023673506d7021abe1aebfa51c413369a9" => :el_capitan
+    sha256 "d0ade47e074fa81be405c6efcf8911b7160979a101d0a0bc0c428ee4ad82264e" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -26,6 +18,13 @@ class Osm2pgsql < Formula
   depends_on "geos"
   depends_on "proj"
   depends_on "lua" => :recommended
+
+  # Compatibility with GEOS 3.6.1
+  # Upstream PR from 27 Oct 2016 "Geos36"
+  patch do
+    url "https://github.com/openstreetmap/osm2pgsql/pull/636.patch"
+    sha256 "54aa12fe5a3ebbc9ecc02b7e5771939b99f6437f5a55b67d8835df6d8d58619a"
+  end
 
   def install
     args = std_cmake_args

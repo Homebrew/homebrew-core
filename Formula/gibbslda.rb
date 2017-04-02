@@ -1,11 +1,12 @@
 class Gibbslda < Formula
   desc "Library wrapping imlib2's context API"
-  homepage "http://gibbslda.sourceforge.net/"
+  homepage "https://gibbslda.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gibbslda/GibbsLDA%2B%2B/0.2/GibbsLDA%2B%2B-0.2.tar.gz"
   sha256 "4ca7b51bd2f098534f2fdf82c3f861f5d8bf92e29a6b7fbdc50c3c2baeb070ae"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9244041821944e45946fcf6a491ee1579293b4c154c7b9921b38fd6159567552" => :sierra
     sha256 "c8a95c74f3c9e967506fb386a1343459ecae8362cbf91362a7955ba017bea5fc" => :el_capitan
     sha256 "091c214c2589c2a2a0b0dcb90f45cf993ffeeb7d7260f505ef84f1fd773b326c" => :yosemite
     sha256 "bd4c35f5f73ae1aa5fdee00bd89c7b9c455c30061effe1660fbfbd203cb82cd3" => :mavericks

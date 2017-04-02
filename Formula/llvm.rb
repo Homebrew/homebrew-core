@@ -22,62 +22,62 @@ class Llvm < Formula
   homepage "http://llvm.org/"
 
   stable do
-    url "http://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz"
-    sha256 "6e82ce4adb54ff3afc18053d6981b6aed1406751b8742582ed50f04b5ab475f9"
+    url "http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz"
+    sha256 "8d10511df96e73b8ff9e7abbfb4d4d432edbdbe965f1f4f07afaf370b8a533be"
 
     resource "clang" do
-      url "http://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz"
-      sha256 "4cd3836dfb4b88b597e075341cae86d61c63ce3963e45c7fe6a8bf59bb382cdf"
+      url "http://releases.llvm.org/4.0.0/cfe-4.0.0.src.tar.xz"
+      sha256 "cea5f88ebddb30e296ca89130c83b9d46c2d833685e2912303c828054c4dc98a"
     end
 
     resource "clang-extra-tools" do
-      url "http://llvm.org/releases/3.8.1/clang-tools-extra-3.8.1.src.tar.xz"
-      sha256 "664a5c60220de9c290bf2a5b03d902ab731a4f95fe73a00856175ead494ec396"
+      url "http://releases.llvm.org/4.0.0/clang-tools-extra-4.0.0.src.tar.xz"
+      sha256 "41b7d37eb128fd362ab3431be5244cf50325bb3bb153895735c5bacede647c99"
     end
 
     resource "compiler-rt" do
-      url "http://llvm.org/releases/3.8.1/compiler-rt-3.8.1.src.tar.xz"
-      sha256 "0df011dae14d8700499dfc961602ee0a9572fef926202ade5dcdfe7858411e5c"
+      url "http://releases.llvm.org/4.0.0/compiler-rt-4.0.0.src.tar.xz"
+      sha256 "d3f25b23bef24c305137e6b44f7e81c51bbec764c119e01512a9bd2330be3115"
     end
 
-    # Only required to build & run Compiler-RT tests on OS X, optional otherwise.
-    # http://clang.llvm.org/get_started.html
+    # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
+    # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "http://llvm.org/releases/3.8.1/libcxx-3.8.1.src.tar.xz"
-      sha256 "77d7f3784c88096d785bd705fa1bab7031ce184cd91ba8a7008abf55264eeecc"
+      url "http://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
+      sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
     end
 
     resource "libunwind" do
-      url "http://llvm.org/releases/3.8.1/libunwind-3.8.1.src.tar.xz"
-      sha256 "21e58ce09a5982255ecf86b86359179ddb0be4f8f284a95be14201df90e48453"
+      url "http://releases.llvm.org/4.0.0/libunwind-4.0.0.src.tar.xz"
+      sha256 "0755efa9f969373d4d543123bbed4b3f9a835f6302875c1379c5745857725973"
     end
 
     resource "lld" do
-      url "http://llvm.org/releases/3.8.1/lld-3.8.1.src.tar.xz"
-      sha256 "2bd9be8bb18d82f7f59e31ea33b4e58387dbdef0bc11d5c9fcd5ce9a4b16dc00"
+      url "http://releases.llvm.org/4.0.0/lld-4.0.0.src.tar.xz"
+      sha256 "33e06457b9ce0563c89b11ccc7ccabf9cff71b83571985a5bf8684c9150e7502"
     end
 
     resource "lldb" do
-      url "http://llvm.org/releases/3.8.1/lldb-3.8.1.src.tar.xz"
-      sha256 "349148116a47e39dcb5d5042f10d8a6357d2c865034563283ca512f81cdce8a3"
+      url "http://releases.llvm.org/4.0.0/lldb-4.0.0.src.tar.xz"
+      sha256 "2dbd8f05c662c1c9f11270fc9d0c63b419ddc988095e0ad107ed911cf882033d"
     end
 
     resource "openmp" do
-      url "http://llvm.org/releases/3.8.1/openmp-3.8.1.src.tar.xz"
-      sha256 "68fcde6ef34e0275884a2de3450a31e931caf1d6fda8606ef14f89c4123617dc"
+      url "http://releases.llvm.org/4.0.0/openmp-4.0.0.src.tar.xz"
+      sha256 "db55d85a7bb289804dc42fc5c8e35ca24dfc3885782261b675a194fd7e206e26"
     end
 
     resource "polly" do
-      url "http://llvm.org/releases/3.8.1/polly-3.8.1.src.tar.xz"
-      sha256 "453c27e1581614bb3b6351bf5a2da2939563ea9d1de99c420f85ca8d87b928a2"
+      url "http://releases.llvm.org/4.0.0/polly-4.0.0.src.tar.xz"
+      sha256 "27a5dbf95e8aa9e0bbe3d6c5d1e83c92414d734357aa0d6c16020a65dc4dcd97"
     end
   end
 
   bottle do
-    sha256 "ce2d461a9aff5e4b91bdb76f855be312e0b2f3e8a92950ff8628a465ea9f71cb" => :sierra
-    sha256 "3198e307a4360b428c953cc00408e5b80bd07b4946b96db8bbbfb03f81cb4aa2" => :el_capitan
-    sha256 "1957948bbbbee09eac331b2b0bad399b04f94d8c79271ea0aee4ac99ab7e6100" => :yosemite
-    sha256 "dba4556fbb273ef07dcc135a32eabb4b2eafb874ceecb9732b2ccaeded965a80" => :mavericks
+    cellar :any
+    sha256 "a2aab0ee9bce5c96ac7ed2078ae134ce77ea0f27d41484df2978c7521e63876d" => :sierra
+    sha256 "0bccb14a3793ac89e75d6b08804532cec352f23a6422f3f366253f1112d24d22" => :el_capitan
+    sha256 "a3df2535ad55433bb6263efa74f3efc6d19973384ac9fa7a3edf1d55d2cd1bf7" => :yosemite
   end
 
   head do
@@ -122,25 +122,22 @@ class Llvm < Formula
 
   keg_only :provided_by_osx
 
-  option :universal
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  option "without-libunwind", "Do not build libunwind library"
-  option "without-lld", "Do not build LLD linker"
   option "with-lldb", "Build LLDB debugger"
   option "with-python", "Build bindings against custom Python"
-  option "without-rtti", "Build without C++ RTTI or exception handling"
-  option "without-utils", "Do not install utility binaries"
-  option "without-polly", "Do not build Polly optimizer"
-  option "with-test", "Build LLVM unit tests"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
-  option "with-all-targets", "Build all targets. Default targets: AMDGPU, ARM, NVPTX, and X86"
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
+
   depends_on "ocaml" => :optional
+  if build.with? "ocaml"
+    depends_on "opam" => :build
+    depends_on "pkg-config" => :build
+  end
 
   if MacOS.version <= :snow_leopard
     depends_on :python
@@ -154,8 +151,6 @@ class Llvm < Formula
     depends_on CodesignRequirement
   end
 
-  # Apple's libstdc++ is too old to build LLVM
-  fails_with :llvm
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
   fails_with :gcc
@@ -175,9 +170,9 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
-    (buildpath/"projects/libunwind").install resource("libunwind") if build.with? "libunwind"
-    (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
-    (buildpath/"tools/polly").install resource("polly") if build.with? "polly"
+    (buildpath/"projects/libunwind").install resource("libunwind")
+    (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
       if build.with? "python"
@@ -212,8 +207,14 @@ class Llvm < Formula
 
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
+      -DLLVM_INCLUDE_DOCS=OFF
+      -DLLVM_ENABLE_RTTI=ON
+      -DLLVM_ENABLE_EH=ON
+      -DLLVM_INSTALL_UTILS=ON
+      -DWITH_POLLY=ON
+      -DLINK_POLLY_INTO_TOOLS=ON
+      -DLLVM_TARGETS_TO_BUILD=all
     ]
-    args << "-DLLVM_TARGETS_TO_BUILD=#{build.with?("all-targets") ? "all" : "AMDGPU;ARM;NVPTX;X86"}"
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
@@ -225,16 +226,6 @@ class Llvm < Formula
       args << "-DLLVM_BUILD_LLVM_DYLIB=ON"
     end
 
-    if build.with? "test"
-      args << "-DLLVM_BUILD_TESTS=ON"
-      args << "-DLLVM_ABI_BREAKING_CHECKS=WITH_ASSERTS"
-    end
-
-    if build.with? "rtti"
-      args << "-DLLVM_ENABLE_RTTI=ON"
-      args << "-DLLVM_ENABLE_EH=ON"
-    end
-    args << "-DLLVM_INSTALL_UTILS=ON" if build.with? "utils"
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
     if build.with?("lldb") && build.with?("python")
@@ -249,18 +240,19 @@ class Llvm < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    if build.universal?
-      ENV.permit_arch_flags
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
-    if build.with? "polly"
-      args << "-DWITH_POLLY=ON"
-      args << "-DLINK_POLLY_INTO_TOOLS=ON"
-    end
-
     mktemp do
-      system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      if build.with? "ocaml"
+        args << "-DLLVM_OCAML_INSTALL_PATH=#{lib}/ocaml"
+        ENV["OPAMYES"] = "1"
+        ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
+        (Pathname.pwd/"opamroot").mkpath
+        system "opam", "init", "--no-setup"
+        system "opam", "install", "ocamlfind", "ctypes"
+        system "opam", "config", "exec", "--",
+               "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      else
+        system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+      end
       system "make"
       system "make", "install"
       system "make", "install-xcode-toolchain" if build.with? "toolchain"
@@ -309,8 +301,8 @@ class Llvm < Formula
       }
     EOS
 
-    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{version}/include",
+    system "#{bin}/clang", "-L#{lib}", "-Wl,-rpath,#{lib}", "-fopenmp",
+                           "-nobuiltininc", "-I#{lib}/clang/#{version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
@@ -345,14 +337,14 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
+      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
               "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
               "-I#{libclangclt}/include",
               "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
               "test.cpp", "-o", "testCLT++"
-      assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testCLT++").chomp
+      assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testCLT++").chomp
 
       system "#{bin}/clang", "-v", "-nostdinc",
@@ -370,7 +362,7 @@ class Llvm < Formula
               "-I#{libclangxc}/include",
               "-I#{MacOS.sdk_path}/usr/include",
               "test.cpp", "-o", "testXC++"
-      assert_match "/usr/lib/libc++.1.dylib", shell_output("otool -L ./testXC++").chomp
+      assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testXC++").chomp
 
       system "#{bin}/clang", "-v", "-nostdinc",
@@ -389,7 +381,7 @@ class Llvm < Formula
               "-I#{MacOS.sdk_path}/usr/include",
               "-L#{lib}",
               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-      assert_match "#{opt_lib}/libc++.1.dylib", shell_output("otool -L ./test").chomp
+      assert_includes MachO::Tools.dylibs("test"), "@rpath/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./test").chomp
     end
   end

@@ -20,7 +20,7 @@ class Idnits < Formula
 
   test do
     resource("test").stage do
-      system "idnits", "draft-ietf-tcpm-undeployed-03.txt"
+      system "#{bin}/idnits", "draft-ietf-tcpm-undeployed-03.txt"
     end
   end
 end

@@ -1,43 +1,50 @@
 class Libtiff < Formula
   desc "TIFF library and utilities"
-  homepage "http://www.remotesensing.org/libtiff/"
-  url "http://download.osgeo.org/libtiff/tiff-4.0.6.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6.orig.tar.gz"
-  sha256 "4d57a50907b510e3049a4bba0d7888930fdfc16ce49f1bf693e5b6247370d68c"
+  homepage "http://libtiff.maptools.org/"
+  url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
+  sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
   revision 2
 
   bottle do
     cellar :any
-    sha256 "1d1d192c0e5c4b738dc894805f557c781b7bc4ec57820bd12089efde54b6f252" => :sierra
-    sha256 "2a4eebca1730e930bb5fdb5e457d65db8228fb3b8e1ed921b2974875d01fe179" => :el_capitan
-    sha256 "574e74c336bb71fd8c1da09cdfce936161617d9db8a6d9965dcdde22aa515b85" => :yosemite
-    sha256 "d3db99f40775ea3cce2f8ef0075befd770f2d5d76c3f5b3ed4b732cf140dc0d7" => :mavericks
+    sha256 "c2212960a740a559d42c2d150a7f0fedd191c1b2b2ff0b815e54299ccc8ebe29" => :sierra
+    sha256 "8e75bf8bcd907c19a56ca7f83f0d29b6651f31a85fb1b2bccc72e5b4ec6337c2" => :el_capitan
+    sha256 "3d22664e9f1c12b123913bcba3306fe922a860c2399fd33e778f86f58ffe6151" => :yosemite
   end
 
-  option :universal
   option :cxx11
   option "with-xz", "Include support for LZMA compression"
 
   depends_on "jpeg"
   depends_on "xz" => :optional
 
-  # Backports of various security/potential security fixes from Debian.
-  # Already applied upstream in CVS but no new release yet.
+  # Patches from Debian for CVE-2016-10094, and various other issues.
+  # All reported upstream, so should be safe to remove this block on next stable.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.6-2.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.6-2.debian.tar.xz"
-    sha256 "82a0ef3f713d2a22d40b9be71fd121b9136657d313ae6b76b51430302a7b9f8b"
-    apply "patches/01-CVE-2015-8665_and_CVE-2015-8683.patch",
-          "patches/02-fix_potential_out-of-bound_writes_in_decode_functions.patch",
-          "patches/03-fix_potential_out-of-bound_write_in_NeXTDecode.patch",
-          "patches/04-CVE-2016-5314_CVE-2016-5316_CVE-2016-5320_CVE-2016-5875.patch",
-          "patches/05-CVE-2016-6223.patch",
-          "patches/06-CVE-2016-5321.patch",
-          "patches/07-CVE-2016-5323.patch"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
+    sha256 "f4183c48ed74b6c3c3a74ff1f10f0cf972d3dba0f840cf28b5a3f3846ceb2be6"
+    apply "patches/01-CVE.patch",
+          "patches/02-CVE.patch",
+          "patches/03-CVE.patch",
+          "patches/04-CVE.patch",
+          "patches/05-CVE.patch",
+          "patches/06-CVE.patch",
+          "patches/07-CVE.patch",
+          "patches/08-CVE.patch",
+          "patches/09-CVE.patch",
+          "patches/10-CVE.patch",
+          "patches/11-CVE.patch",
+          "patches/12-CVE.patch",
+          "patches/13-CVE.patch",
+          "patches/14-CVE.patch",
+          "patches/15-TIFFFaxTabEnt_bugfix.patch",
+          "patches/16-CVE-2016-10094.patch",
+          "patches/17-CVE-2017-5225.patch"
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
     args = %W[

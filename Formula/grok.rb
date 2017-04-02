@@ -3,13 +3,14 @@ class Grok < Formula
   homepage "https://github.com/jordansissel/grok"
   url "https://github.com/jordansissel/grok/archive/v0.9.2.tar.gz"
   sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
+  revision 1
   head "https://github.com/jordansissel/grok.git"
 
   bottle do
     cellar :any
-    sha256 "e78484b8a0633f90615103a6fe0a1f9e3f4b6c05531c5dab29ecab9cea05c0a7" => :el_capitan
-    sha256 "9b8d26342e9e9f7f172e32b25e97afbef5b360e541fbc4beacc6999f23b568f7" => :yosemite
-    sha256 "39852bfe279fdffd8ea8fa6b6f1377c3693de4c2e74e84fbd94f08db8e16bb33" => :mavericks
+    sha256 "18f3b7612397f4956e9013b37aecd55f47b0896edf3bdc7f4dc6833a8dcc54b0" => :sierra
+    sha256 "0c494fb95ba85d3ab1dd9092165a22e0737c60c17035ce030efcb142990df0a0" => :el_capitan
+    sha256 "f933ebf3d1fffbcc2512cdb32ef405d55ba6a9de1919eaf2f66e437e2dd34570" => :yosemite
   end
 
   depends_on "libevent"
@@ -17,7 +18,13 @@ class Grok < Formula
   depends_on "tokyo-cabinet"
 
   def install
+    # Race condition in generating grok_capture_xdr.h
+    ENV.deparallelize
     system "make", "grok"
     system "make", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    system bin/"grok", "-h"
   end
 end

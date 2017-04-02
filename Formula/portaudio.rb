@@ -1,34 +1,55 @@
 class Portaudio < Formula
   desc "Cross-platform library for audio I/O"
   homepage "http://www.portaudio.com"
-  url "http://www.portaudio.com/archives/pa_stable_v19_20140130.tgz"
-  sha256 "8fe024a5f0681e112c6979808f684c3516061cc51d3acc0b726af98fc96c8d57"
-  head "https://subversion.assembla.com/svn/portaudio/portaudio/trunk/", :using => :svn
+  url "http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz"
+  version "19.6.0"
+  sha256 "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
+  version_scheme 1
+  head "https://git.assembla.com/portaudio.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4c6f13019388fc1763de6941ec72fcd01c84f89ccea53575d6d33f0d16aa8cc2" => :sierra
-    sha256 "78d99a6512f411e12aede3e62ac9e1cceb4fc8d182073d3e2a6f60e65c387e2f" => :el_capitan
-    sha256 "e52067f235b82d537b44b33048eaa43381c5a4d4185da999d583812f6e4f9ff9" => :yosemite
-    sha256 "c032773623fd2cb49b736c6978fa7a765468d8a804f3f8618ecda5fcdd198499" => :mavericks
-    sha256 "1386972e0632b4ebe2b2770f1ade4c5921c7726fb7fa70f764f5fe09df085c5e" => :mountain_lion
+    sha256 "4fb62387583b02607e013f376c02b4a1f6c2a2fa9b68ee43e79c9c04d12f9a45" => :sierra
+    sha256 "96afa37e0de1723e4fa206360f189ed0486ecd74a5554dcab75eb47395be78db" => :el_capitan
+    sha256 "64b21e55c28066264ee09918c045b77c0b1049a19f8df4636283ce17b1d84944" => :yosemite
   end
-
-  option :universal
 
   depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--enable-mac-universal=#{build.universal? ? "yes" : "no"}",
+                          "--enable-mac-universal=no",
                           "--enable-cxx"
     system "make", "install"
 
     # Need 'pa_mac_core.h' to compile PyAudio
     include.install "include/pa_mac_core.h"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
+      #include "portaudio.h"
+
+      int main(){
+        printf("%s",Pa_GetVersionInfo()->versionText);
+      }
+    EOS
+
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <iostream>
+      #include "portaudiocpp/System.hxx"
+
+      int main(){
+        std::cout << portaudio::System::versionText();
+      }
+    EOS
+
+    system ENV.cc, testpath/"test.c", "-I#{include}", "-L#{lib}", "-lportaudio", "-o", "test"
+    system ENV.cxx, testpath/"test.cpp", "-I#{include}", "-L#{lib}", "-lportaudiocpp", "-o", "test_cpp"
+    assert_match stable.version.to_s, shell_output(testpath/"test")
+    assert_match stable.version.to_s, shell_output(testpath/"test_cpp")
   end
 end

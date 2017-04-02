@@ -4,13 +4,13 @@ class Nvi < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "c4f15ed7ef7d6ca867cccf614823d03a0ffebfd1c303ae2625f64645b4b36b62" => :el_capitan
-    sha256 "2b6a728e143b8dbd0584d403e5c7b5138130a09177bd658ba3dc95f999420ddd" => :yosemite
-    sha256 "b86a3fc268f0b698e8218505bc257256d36c79f215e19fbaa72c8970995c402e" => :mavericks
+    sha256 "a789fc3d07b258beb99140f2488a8b0ae8f16f0470a5e1f8a195314dc5b3458d" => :sierra
+    sha256 "858fe0fc9589a4f2bf3ab3644677805440910e107ea31a3fe7d3a579c8031113" => :el_capitan
+    sha256 "07aacc59e81b122e4b34444d1e47d5e102cfc7e281bbae1d75bde4b5ac3af1fc" => :yosemite
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
@@ -36,14 +36,15 @@ class Nvi < Formula
   # Upstream have been pretty inactive for a while, so we may want to kill this
   # formula at some point unless that changes. We're leaning hard on Debian now.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6-12.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-12.debian.tar.xz"
-    sha256 "c86c9feac8410ffbf79bb8ddf85b34d2edcc00660d8f4cd131eb65e8e0d6156b"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6-13.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-13.debian.tar.xz"
+    sha256 "306c6059d386a161b9884535f0243134c8c9b5b15648e09e595fd1b349a7b9e1"
     apply "patches/03db4.patch",
           "patches/19include_term_h.patch",
           "patches/24fallback_to_dumb_term.patch",
           "patches/26trailing_tab_segv.patch",
-          "patches/27support_C_locale.patch"
+          "patches/27support_C_locale.patch",
+          "patches/31regex_heap_overflow.patch"
   end
 
   def install
@@ -52,7 +53,7 @@ class Nvi < Formula
                             "--program-prefix=n",
                             "--disable-dependency-tracking"
       system "make"
-      ENV.j1
+      ENV.deparallelize
       system "make", "install"
     end
   end

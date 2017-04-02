@@ -5,15 +5,14 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20160923/git-annex-6.20160923.tar.gz"
-  sha256 "964235a358814e081cf4a5d8dab798faacb1dabe5fc714ac6687b135e30fd93d"
+  url "https://hackage.haskell.org/package/git-annex-6.20170321/git-annex-6.20170321.tar.gz"
+  sha256 "f86351a99bbfff0285914c4639d2bc68ffcc172a6dacdef164254261cf1f0795"
   head "git://git-annex.branchable.com/"
 
   bottle do
-    cellar :any
-    sha256 "b9b8316e71a30188cd111c51409aebe5575423e88601cd449b5e34a729a12d8f" => :sierra
-    sha256 "b9b8316e71a30188cd111c51409aebe5575423e88601cd449b5e34a729a12d8f" => :el_capitan
-    sha256 "74cf22ed91b04871ff50dceb3f66a8089f8031539071c76e521705cf36b34f0e" => :yosemite
+    sha256 "e5fd0dabbcb81a58bc096525cf0894ddffa1aa94c6cae2e375e9b4d8fa7287fc" => :sierra
+    sha256 "512d68a9e961edd276b9931f2527e310e215bf6fcc322091d7f6e377d0b47625" => :el_capitan
+    sha256 "8383586c06e77e8492e5d3348aad5e30530d216f251127f10f5e7d5787833ffd" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -26,13 +25,9 @@ class GitAnnex < Formula
   depends_on "libmagic"
   depends_on "gnutls"
   depends_on "quvi"
+  depends_on "xdot" => :recommended
 
   def install
-    # Fixes CI timeout by providing a more specific hint for Solver
-    # Reported 9 Aug 2016: https://github.com/joeyh/git-annex/pull/56
-    # Can be removed once prowdsponsor/esqueleto#137 is resolved
-    inreplace "git-annex.cabal", "persistent (< 2.5)", "persistent (== 2.2.4.1)"
-
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"

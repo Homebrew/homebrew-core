@@ -2,29 +2,27 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v1.2.1",
-    :revision => "5e723f67f1e36d387a8a7faa6aa8a7f40cc9ca46"
+    :tag => "v1.4.1",
+    :revision => "3f9807ab8282e1af64128834b246c41ce50172d4"
 
   head "https://github.com/openshift/origin.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d20ef7c33fc7abf164220b9d750dff98b576c37c17da5783fc320dc13e4bd1f0" => :el_capitan
-    sha256 "b076f18b911f07739b5d77394e511eb16df43a78eb1074f350a5c08da930889e" => :yosemite
-    sha256 "561edbcedb37887ccb241c6e415a11c827e44fb99657e73ad7d30857f35fa577" => :mavericks
+    sha256 "7f5db02df96decff2ff51a2debfc303694a2b3c5ea85af9b3fe75d57146e0bf6" => :sierra
+    sha256 "93d16838b365823d84030517ed3a42471a76a3f1449396ed8f3c40eaefeafa1e" => :el_capitan
+    sha256 "934957e2e652b4f21206a037bbf6c5f03a53e67326475884760590d9f2a1916a" => :yosemite
   end
 
   devel do
     url "https://github.com/openshift/origin.git",
-      :tag => "v1.3.0-rc1",
-      :revision => "884520c98e75d0f96e679959b28caf17f0e7fa29"
-    version "1.3.0-rc1"
-
-    depends_on "socat"
+      :tag => "v1.5.0-alpha.2",
+      :revision => "e4b43ee6f35d3dd8b2cbd7e92bc8a9225fa94653"
+    version "1.5.0-alpha.2"
   end
 
   depends_on "go" => :build
+  depends_on "socat"
 
   def install
     # this is necessary to avoid having the version marked as dirty
@@ -40,7 +38,7 @@ class OpenshiftCli < Formula
   end
 
   test do
-    assert_match /^oc v#{version}$/, shell_output("#{bin}/oc version")
-    assert_match /^oadm v#{version}$/, shell_output("#{bin}/oadm version")
+    assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
+    assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
   end
 end

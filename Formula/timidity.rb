@@ -1,10 +1,11 @@
 class Timidity < Formula
   desc "Software synthesizer"
-  homepage "http://timidity.sourceforge.net/"
+  homepage "https://timidity.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.14.0/TiMidity++-2.14.0.tar.bz2"
   sha256 "f97fb643f049e9c2e5ef5b034ea9eeb582f0175dce37bc5df843cc85090f6476"
 
   bottle do
+    sha256 "b45b1df69ab87563a77e1163114160f66679fde5548bac0ae81acb7fae86ab80" => :sierra
     sha256 "0b26a98c3e8e3706f8ff1fb2e21c014ac7245c01510799172e7f3ebdc71602ac" => :el_capitan
     sha256 "2bfaec5aaaacf7ed13148f437cbeba6bb793f9eacdab739b7202d151031253b4" => :yosemite
     sha256 "9e56e31b91c1cab53ebd7830114520233b02f7766f69f2e761d005b8bcd2fb58" => :mavericks
@@ -47,9 +48,9 @@ class Timidity < Formula
 
     if build.with? "freepats"
       (share/"freepats").install resource("freepats")
-      (share/"timidity").install_symlink share/"freepats/Tone_000",
-                                         share/"freepats/Drum_000",
-                                         share/"freepats/freepats.cfg" => "timidity.cfg"
+      pkgshare.install_symlink share/"freepats/Tone_000",
+                               share/"freepats/Drum_000",
+                               share/"freepats/freepats.cfg" => "timidity.cfg"
     end
   end
 

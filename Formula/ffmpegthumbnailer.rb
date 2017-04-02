@@ -7,6 +7,7 @@ class Ffmpegthumbnailer < Formula
 
   bottle do
     cellar :any
+    sha256 "ffea0f7d8407442caec4844c58c19ec31f25ccaea60ad38ae27d09b016d3334e" => :sierra
     sha256 "d9cd4573c942fc2d2349d6c3759459b3d41c73507ec6272caaca498e7ba74b22" => :el_capitan
     sha256 "49e38cce4b81b1033a6745b803fea77ec6b07f22c69269474e04ada7ca0044b5" => :yosemite
     sha256 "1f8df8ca350cdd5cd49a46aa20170afbdef3421475f5142df6cdbb77c2f21d9e" => :mavericks

@@ -3,16 +3,15 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/60/79/be88fab918f5b1004174d51c3bdcdf69768d9f5d66a148c6214b1a1ddb13/thefuck-3.11.tar.gz"
-  sha256 "a7a7145699b3f6a5054f9bdb2979a74f63869803eb72125325c68991ea9a966b"
+  url "https://files.pythonhosted.org/packages/87/f1/d159c8351b4220384630904cb13bded28f1564eaef7f9a0eb6d3080487a6/thefuck-3.15.tar.gz"
+  sha256 "c1da9f9b705c864362316de34a1494df0c803699e587e6cf925407e42966b4aa"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4df009ba13d6e6acdfccbedc61a68a9afce4efcb2de9de3f18d3ca5fdcc1a783" => :sierra
-    sha256 "76b8b3a739db3d716d983fd30ce15c3ccb2056cc1d52fea2f15c4a9c8f8fd7ec" => :el_capitan
-    sha256 "cf3be90c176ee71167389e325f0de3663a82567572fe528971733e3165ff304d" => :yosemite
-    sha256 "3690744f57178d0e2e945b3039d0ce937aa774533909509d9ffc59461d69a9e8" => :mavericks
+    sha256 "67320d3b0448561d871484eaa3ed7f449d8c1b46f79e33223a5f8394446089be" => :sierra
+    sha256 "482521f11c9a464d83b639f7bebcdf16a3d16ed851e14174a3d81c84a64cb40a" => :el_capitan
+    sha256 "1ef7264271dc63f64cf6bcf69112dbbd1d4fa1803b7cafc4b8d83f82061e04ed" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -28,13 +27,18 @@ class Thefuck < Formula
   end
 
   resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/c9/27/8448b10d8440c08efeff0794adf7d0ed27adb98372c70c7b38f3947d4749/pathlib2-2.1.0.tar.gz"
-    sha256 "deb3a960c1d55868dfbcac98432358b92ba89d95029cddd4040db1f27405055c"
+    url "https://files.pythonhosted.org/packages/7e/29/8f106fbb7e00db38dd94512041fe17ac368f0738f369fd24ed0c2e9137e3/pathlib2-2.2.0.tar.gz"
+    sha256 "a34e82120e503ebeee9e4c4f6a6f199b117a58819d18ed0c7f8cc944d435086b"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/22/a8/6ab3f0b3b74a36104785808ec874d24203c6a511ffd2732dd215cf32d689/psutil-4.3.0.tar.gz"
-    sha256 "86197ae5978f216d33bfff4383d5cc0b80f079d09cf45a2a406d1abb5d0299f0"
+    url "https://files.pythonhosted.org/packages/d9/c8/8c7a2ab8ec108ba9ab9a4762c5a0d67c283d41b13b5ce46be81fdcae3656/psutil-5.0.1.tar.gz"
+    sha256 "9d8b7f8353a2b2eb6eb7271d42ec99d0d264a9338a37be46424d56b4e473b39e"
+  end
+
+  resource "scandir" do
+    url "https://files.pythonhosted.org/packages/95/40/ddbcd295ee58d5c1126645890bcf87853e4075547308884e4f8ada27f195/scandir-1.4.tar.gz"
+    sha256 "ada8d3ddc82fd168b3f46feb393d37c722ed0553a10a3ce5426ddc5ec17d597a"
   end
 
   resource "six" do

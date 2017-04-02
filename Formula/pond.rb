@@ -2,7 +2,7 @@ require "language/go"
 
 class Pond < Formula
   desc "Forward secure, asynchronous messaging"
-  homepage "https://pond.imperialviolet.org/"
+  homepage "https://github.com/agl/pond"
   url "https://github.com/agl/pond/archive/v0.1.1.tar.gz"
   sha256 "f66c625b0d7e3fe8c125fe9401a5f67ec75af3e8dca47e18fba6696a99705b21"
   revision 1
@@ -11,6 +11,7 @@ class Pond < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c3a9d860ba4b3f50e9cd4443fe2c2a771e8cfdd8229ff4c6f458275a814586e1" => :sierra
     sha256 "cd448860e0b4f71aa4aa2cbc22dadae2316586cbf1b5fb244e0bdae3ae23466b" => :el_capitan
     sha256 "b4d45b73fb1907ed48b18e8411aed6c743dfe44dbdcb6a2b53d177da7d7950a2" => :yosemite
     sha256 "d7917560397ee4fac80c68e8fa2005704e1ad9095f74ea2cbca5e11b66b20a7c" => :mavericks

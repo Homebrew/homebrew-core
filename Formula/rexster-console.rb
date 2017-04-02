@@ -6,6 +6,7 @@ class RexsterConsole < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "82f459352ec2af26f837a55bb8e948523786b6ed6929d3b3549ddffc9daabe71" => :sierra
     sha256 "f21adbcdacdd8578621b4aaff75984c0708bf529a29ebf4b5090f9820b43a57d" => :el_capitan
     sha256 "affe578e75691159a7a850c8b144eaaabc58d8375d7172852069b951ddc88239" => :yosemite
     sha256 "17254b31620dc42f4ee9c49a7bba38a1506312939dcf8d2a54a16f1a6cafd2e6" => :mavericks

@@ -6,6 +6,7 @@ class Kanif < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8a89062ef7794743c32bc611c1969f42941af573c8dd9973abee7d4255293df1" => :sierra
     sha256 "ebe67d82aa8745a8ff29a82b9520e0fb4892a9645e17a12e8aeae4fda96cc8b4" => :el_capitan
     sha256 "7fc9517feb23867afe77730cdf28bb386570ccb5368d3b0c6b396214abf07e69" => :yosemite
     sha256 "3c003b7621fdef7d8451c3bab928e5b7bb0db0ff1fbe2c5d83b160a021ef93e6" => :mavericks

@@ -1,15 +1,14 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.2.1.tar.gz"
-  sha256 "884eaa4b126f8247c980082dc1959db0206b75bab4fee06bbb54936800a8e5e2"
-  head "https://github.com/JohnLangford/vowpal_wabbit.git"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.3.1.tar.gz"
+  sha256 "7455aa2093d8baa9035c0a79ac9cfbceda2982f83b668950c4e4dceb79f66a52"
 
   bottle do
     cellar :any
-    sha256 "369dbd0266e777f4fa9ab2d31b216974cef013f3ad79307dcd93eea7584dffe6" => :el_capitan
-    sha256 "9180ead040a4daf5727d18328f39e82aa33fe6b684d4366502462449999f70fd" => :yosemite
-    sha256 "3ba964d1da671f6f88e1f2a2d8509ed190f5b02ce1c19f5bbbccac24a1f709d6" => :mavericks
+    sha256 "209fc2410773ed60286666d789ed9d9258676b777cb0a388b6e906346c905dc2" => :sierra
+    sha256 "a88a01d31665c6a8e1d9c00c0f973af75fddf5a97cf98ff99fdd4fe413ee6b26" => :el_capitan
+    sha256 "89da02697894ea7a9a1c00cf7d5bb36f27c0a1c2d95a12612a03c45e805c834c" => :yosemite
   end
 
   if MacOS.version < :mavericks

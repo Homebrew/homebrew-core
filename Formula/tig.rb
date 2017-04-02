@@ -1,15 +1,13 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "http://jonas.nitro.dk/tig/"
-  url "http://jonas.nitro.dk/tig/releases/tig-2.2.tar.gz"
-  sha256 "8f5213d3abb45ca9a79810b8d2a2a12d941112bc4682bcfa91f34db74942754c"
+  url "https://github.com/jonas/tig/releases/download/tig-2.2.1/tig-2.2.1.tar.gz"
+  sha256 "0b48080896de59179c45c980080b4b414bb235df65ad08d661a9c9e169c3fa71"
 
   bottle do
-    cellar :any
-    sha256 "7993e1b035d361ec63997c890bb5a3b28c73e23b773439fae25c44b71f9bda5a" => :sierra
-    sha256 "99982b27386faa66282f3aca77570d5499d896efcc1001da3e5e6e3481d4334d" => :el_capitan
-    sha256 "7d3a5c1f20a69259c5e559431a2da506d02d1cc71a164d5289d7c0abcb6e0ff0" => :yosemite
-    sha256 "b2781db63aa8184f5bec9e8c385de224888fbdf91cc8847462a38a1ecbdf5bcd" => :mavericks
+    sha256 "36d1536868965daeb4ea5da6ae9c8a55bb51fd7600a76511e1314195ac712b35" => :sierra
+    sha256 "cf7b1e6835270fbbf9ff54a2f38a019d56d0b0dfbc535e7edf96b64cad5551d6" => :el_capitan
+    sha256 "345a5950fc9b3e34087fca3aeff94abc94a6ede44321523a26ab9a0a8a75ffce" => :yosemite
   end
 
   head do
@@ -46,5 +44,9 @@ class Tig < Formula
     to override the system-wide default configuration, copy the sample to:
       #{etc}/tigrc
     EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/tig -v")
   end
 end

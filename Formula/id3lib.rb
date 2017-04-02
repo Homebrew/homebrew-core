@@ -1,7 +1,9 @@
 class Id3lib < Formula
   desc "ID3 tag manipulation"
-  homepage "http://id3lib.sourceforge.net/"
+  homepage "https://id3lib.sourceforge.io/"
   revision 1
+  head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
+    :using => :cvs, :module => "id3lib-devel"
 
   stable do
     url "https://downloads.sourceforge.net/project/id3lib/id3lib/3.8.3/id3lib-3.8.3.tar.gz"
@@ -18,11 +20,9 @@ class Id3lib < Formula
     end
   end
 
-  head ":pserver:anonymous:@id3lib.cvs.sourceforge.net:/cvsroot/id3lib",
-    :using => :cvs, :module => "id3lib-devel"
-
   bottle do
     cellar :any
+    sha256 "1dddf1fac71acc4bd54cfcc6cdb80884129754d25f42efff5fbe6d5d38d99c0a" => :sierra
     sha256 "266926f3fe3593bd04db9b9ff200676aaeb879d1f855e289cc41d2b40d72a16d" => :el_capitan
     sha256 "6d255640321f499620cdac8c6645be5c74c6d67de9cf593506f5766b0adf9ddb" => :yosemite
     sha256 "0eaeb0ed5fe1a86af5ffa34d4d5a96b91b97ccfc525fd471dc38a63d2585ad77" => :mavericks
@@ -52,11 +52,6 @@ class Id3lib < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e223e971/id3lib/patch_id3lib_3.8.3_UTF16_writing_bug.diff"
     sha256 "71c79002d9485965a3a93e87ecbd7fed8f89f64340433b7ccd263d21385ac969"
-  end
-
-  fails_with :llvm do
-    build 2326
-    cause "Segfault during linking"
   end
 
   def install

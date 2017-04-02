@@ -1,23 +1,19 @@
 class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/argon/mas"
-  url "https://github.com/argon/mas/archive/v1.3.0.tar.gz"
-  sha256 "1f7375a312efa9a4ce749da13617a7675ba95d1b3e1e6863cd7f31e56a4c9079"
+  url "https://github.com/argon/mas/archive/v1.3.1.tar.gz"
+  sha256 "9326058c9e572dd38df644313307805757d7ea6dfea8626e0f41c373ecbd46b5"
   head "https://github.com/argon/mas.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05c79cb39d5ae962a0a0f547ad36d88d62d355a69936e8bd88a9ce5b6a1daf77" => :sierra
-    sha256 "360664b0d88c79c1e917df02bdb749bc1cdc9337075059944c49bb8f451baf71" => :el_capitan
+    sha256 "dabea41de5ca826bba584a0d00f8d7b65024f504e5f5fa9dd7639c2f9e410421" => :sierra
+    sha256 "894480201eb8bd8772378c844860fac3d9ff2fdb75fe5f0001581b14c8cbceed" => :el_capitan
   end
 
-  depends_on :xcode => ["7.3", :build]
+  depends_on :xcode => ["8.0", :build]
 
   def install
-    ENV["GEM_HOME"] = buildpath/".gem"
-    system "gem", "install", "bundler"
-    ENV.prepend_path "PATH", "#{ENV["GEM_HOME"]}/bin"
-    system "script/bootstrap"
     xcodebuild "-project", "mas-cli.xcodeproj",
                "-scheme", "mas-cli",
                "-configuration", "Release",

@@ -4,7 +4,7 @@
 # Can `brew install homebrew/versions/giflib5` for now.
 class Giflib < Formula
   desc "GIF library using patented LZW algorithm"
-  homepage "http://giflib.sourceforge.net/"
+  homepage "https://giflib.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/giflib/giflib-4.x/giflib-4.2.3.tar.bz2"
   sha256 "0ac8d56726f77c8bc9648c93bbb4d6185d32b15ba7bdb702415990f96f3cb766"
 
@@ -18,13 +18,9 @@ class Giflib < Formula
     sha256 "76953a4ac103ff0931f2e4f70dafe9283c9289de2dda7f800e8ca3b47b6830db" => :mountain_lion
   end
 
-  option :universal
-
   depends_on :x11 => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking

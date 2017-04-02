@@ -4,29 +4,43 @@ class Ldc < Formula
   revision 1
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.0.0/ldc-1.0.0-src.tar.gz"
-    sha256 "3740ee6d5871e953aeb03b11f9d8c951286a55884892b51981bfe579b8fe571d"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.1/ldc-1.1.1-src.tar.gz"
+    sha256 "3d35253a76288a78939fea467409462f0b87461ffb89550eb0d9958e59eb7e97"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.1/ldc-0.17.1-src.tar.gz"
-      sha256 "8f5453e4e0878110ab03190ae9313ebbb323884090e6e7db87b02e5ed6a1c8b0"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.3/ldc-0.17.3-src.tar.gz"
+      sha256 "325bd540f7eb71c309fa0ee9ef6d196a75ee2c3ccf323076053e6b7b295c2dad"
+    end
+
+    # Remove for lts > 0.17.3
+    # Upstream commit from 26 Feb 2017 "Fix build for LLVM 4.0"
+    # See https://github.com/ldc-developers/ldc/pull/2017
+    resource "ldc-lts-patch" do
+      url "https://github.com/ldc-developers/ldc/commit/4847d8a.patch"
+      sha256 "7d93765898ce5501eb9660d76e9837682eb0dd38708fa640b6b443b02577a172"
     end
   end
 
   bottle do
-    sha256 "878eb1604258ed920d02d7fc7115db2f5ed6463ac7f4f18802bd76b85d51ff24" => :el_capitan
-    sha256 "a662178ed8421cdaa69fcdd28d6f3b33c2e486e38369be610821f434cf74363a" => :yosemite
-    sha256 "2d80883684831b20063db020f28f58bbf3888d9e681ec25d8db0829345ceb58e" => :mavericks
+    sha256 "fc28f525e6e84937e605075bb5a5544182246e88d03350cd5269223827ff6e6e" => :sierra
+    sha256 "9f991528ec26750e25732dd431e0c2b4b59e79abd03481a5b73cccdc2efe0ee6" => :el_capitan
+    sha256 "313b430f7066f800b0c9f99f57c17dbbec08650b4014058d4b011bac9bf67830" => :yosemite
   end
 
   devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0-beta2/ldc-1.1.0-beta2-src.tar.gz"
-    sha256 "36d7094c642bbfab331e1db5fbaeeb967d1e8d09f25aeaf8262fa88eb8358ca5"
-    version "1.1.0-beta2"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.2.0-beta1/ldc-1.2.0-beta1-src.tar.gz"
+    sha256 "0fd90d786254665b3e846b9a92cfd0b4e9c9c1840ebd26ddc0c0a0d4cd8726b9"
+    version "1.2.0-beta1"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.1/ldc-0.17.1-src.tar.gz"
-      sha256 "8f5453e4e0878110ab03190ae9313ebbb323884090e6e7db87b02e5ed6a1c8b0"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.3/ldc-0.17.3-src.tar.gz"
+      sha256 "325bd540f7eb71c309fa0ee9ef6d196a75ee2c3ccf323076053e6b7b295c2dad"
+    end
+
+    # Same as in stable
+    resource "ldc-lts-patch" do
+      url "https://github.com/ldc-developers/ldc/commit/4847d8a.patch"
+      sha256 "7d93765898ce5501eb9660d76e9837682eb0dd38708fa640b6b443b02577a172"
     end
   end
 
@@ -47,6 +61,15 @@ class Ldc < Formula
   def install
     ENV.cxx11
     (buildpath/"ldc-lts").install resource("ldc-lts")
+
+    # Remove for ldc-lts > 0.7.3
+    if build.stable? || build.devel?
+      resource("ldc-lts-patch").stage do
+        system "patch", "-p1", "-i", Pathname.pwd/"4847d8a.patch", "-d",
+                        buildpath/"ldc-lts"
+      end
+    end
+
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
@@ -77,7 +100,8 @@ class Ldc < Formula
       }
     EOS
 
-    system bin/"ldc2", "test.d"
+    system bin/"ldc2", "-flto=full", "test.d"
+
     assert_match "Hello, world!", shell_output("./test")
     system bin/"ldmd2", "test.d"
     assert_match "Hello, world!", shell_output("./test")

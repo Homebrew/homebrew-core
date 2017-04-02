@@ -3,44 +3,37 @@ require "language/go"
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v1.9.tar.gz"
-  sha256 "c6c9e3b710692574714bb697ba4f8486da46ba2ff77f6501be8befc32c15c269"
-
+  url "https://github.com/JamesClonk/vultr/archive/1.13.0.tar.gz"
+  sha256 "9cb5936ba70f958ab4e53a23da0ef7ea5b11de8ebaf194082c3f758779d49650"
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c34b24081e7db7b67c07981cfa7f3c2dc205950fee0f65aaee15609e97ed74c" => :el_capitan
-    sha256 "bf0370c3b3dc0d68030ee43b83bf4c7bc5e5fe33f0912c64d0312436d5428bc2" => :yosemite
-    sha256 "d3ecc735a5188d2861eeb8a630cb0323a1e0b5a32bb38d23446101bfe4e3a244" => :mavericks
+    sha256 "05a2602609fd20151e9ab712cd823239e125a5915e5e72f14afa9641a61dc673" => :sierra
+    sha256 "0f8ed829f501fad2a7f05e26cfbe7d8b32e3a5df4647021dbe8a9eed16bde438" => :el_capitan
+    sha256 "b2bf0d14a74da9e561510fd75694063c8d50ca253b6411940be4ce82a3d2e4ee" => :yosemite
   end
 
   depends_on "go" => :build
   depends_on "godep" => :build
+  depends_on "gdm" => :build
 
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+  go_resource "github.com/jawher/mow.cli" do
+    url "https://github.com/jawher/mow.cli.git",
+        :revision => "d3ffbc2f98b83e09dc8efd55ecec75eb5fd656ec"
   end
 
-  go_resource "golang.org/x/tools" do
-    url "https://github.com/golang/tools.git",
-        :revision => "fbb6674a7495706ad1ba2d7cca18ca9d804ccdca"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://github.com/golang/crypto.git",
-        :revision => "91ab96ae987aef3e74ab78b3aaf026109d206148"
+  go_resource "github.com/juju/ratelimit" do
+    url "https://github.com/juju/ratelimit.git",
+        :revision => "acf38b000a03e4ab89e40f20f1e548f4e6ac7f72"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/JamesClonk/"
-    ln_sf buildpath, buildpath/"src/github.com/JamesClonk/vultr"
+    (buildpath/"src/github.com/JamesClonk").mkpath
+    ln_s buildpath, buildpath/"src/github.com/JamesClonk/vultr"
     Language::Go.stage_deps resources, buildpath/"src"
-
-    system "godep", "go", "build", "-o", "vultr", "."
-    bin.install "vultr"
+    system "go", "build", "-o", bin/"vultr"
   end
 
   test do

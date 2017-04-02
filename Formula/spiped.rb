@@ -6,6 +6,7 @@ class Spiped < Formula
 
   bottle do
     cellar :any
+    sha256 "4c93fb4b8d99a6dc4403f03c17ed11dc472942fbcf435ec47b19ab4078c80b38" => :sierra
     sha256 "7ca00ff605a54d6d2ed7b318d9ddaa6544ae7674038f6c71e5d361a271aa2c1c" => :el_capitan
     sha256 "0fa3dad7bbbc0503aecc38921f83e96bc463ce11cdc4e89c2c7a71a4e99d5063" => :yosemite
     sha256 "86fa5b0f80d693a111d20237c19123448883200c41cb4af8e66fb719cf79ea5e" => :mavericks

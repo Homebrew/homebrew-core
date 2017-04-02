@@ -4,18 +4,27 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/mitchellh/packer.git",
-      :tag => "v0.10.2",
-      :revision => "fb1c968d573f2a6b65af1d0b14a892d730dd7778"
+      :tag => "v0.12.3",
+      :revision => "c0f2b4768d7f9265adb1aa3c91a0206ca707d91e"
+  head "https://github.com/mitchellh/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba6e462887a2a2caa26450e71eb59bcb64280a87dd866485c024dc861d8c60b8" => :sierra
-    sha256 "b7ce3f2f0e15e6564f49a57267d2f476cd78cc4d19f857c2a4750104525f3a86" => :el_capitan
-    sha256 "8c9ba1723e40fa621f06358fa0dd90e5fa3ff07fbe801126e214db15c5dac611" => :yosemite
+    sha256 "cc2fce1dc2b1fad1ffb48be64a5a592f92091cdaf9eb23d25591e28108744e73" => :sierra
+    sha256 "78acfb57ec3136f9d6a8e51f35d8ba737b68432496f0347887307799954e7261" => :el_capitan
+    sha256 "a7ad3c8b1e29e5dbc0a3e2186a854734857dba886dbce220164e6515d53e1c76" => :yosemite
+  end
+
+  devel do
+    url "https://github.com/mitchellh/packer.git",
+        :tag => "v1.0.0-rc3",
+        :revision => "974a2fe96fcc3a55787d188aff903b4fd86ab666"
+    version "1.0.0-rc3"
   end
 
   depends_on :hg => :build
   depends_on "go" => :build
+  depends_on "govendor" => :build
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
@@ -29,7 +38,7 @@ class Packer < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "3f4088edb48e8a4e3c66a5f8e7b2a78615fcb83f"
+        :revision => "1dce95f761bfeb6fe2aa3c4e9ffdb261b69b3fc4"
   end
 
   def install
@@ -43,7 +52,6 @@ class Packer < Formula
     packerpath = buildpath/"src/github.com/mitchellh/packer"
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
-    (buildpath/"bin").mkpath
 
     cd "src/github.com/mitchellh/gox" do
       system "go", "build"
@@ -60,11 +68,14 @@ class Packer < Formula
       inreplace "Makefile" do |s|
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
+        s.gsub! "go get github.com/kardianos/govendor", ""
       end
 
-      system "make", "bin"
-      bin.install Dir["bin/*"]
+      (buildpath/"bin").mkpath
+      system "make", "releasebin"
+      bin.install buildpath/"bin/packer"
       zsh_completion.install "contrib/zsh-completion/_packer"
+      prefix.install_metafiles
     end
   end
 

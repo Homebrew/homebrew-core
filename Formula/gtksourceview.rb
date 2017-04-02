@@ -6,7 +6,8 @@ class Gtksourceview < Formula
   revision 1
 
   bottle do
-    revision 1
+    rebuild 1
+    sha256 "99c400ce0161321f22c3631fe5d308adab7a7e38e119295ec2ebecba6fe617ba" => :sierra
     sha256 "bb2a0ea508b1e7bbb951a88d964118fd35a366876c99a7f0c9dc8e2e70642e2f" => :el_capitan
     sha256 "e2fa037441adb54ad813c63d65093020c79650dca171288aa6863699bc3ce4fc" => :yosemite
     sha256 "ddc07f644281392d25ce7353b43e44bf55fbf2187f5b49d1a08ce84a428e4170" => :mavericks

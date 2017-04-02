@@ -1,14 +1,14 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-2.2.0.tar.xz"
-  sha256 "e315a8d66aeeb0e7b6459e20b8abae16a23764c3f5d24c7d9462465d26791699"
+  url "https://libvirt.org/sources/libvirt-3.0.0.tar.xz"
+  sha256 "9d9d26b70e13b1b2dfde5789ed52fc4528289a37e0f158418e9746263b37175e"
+  head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "d298d7651ddeb7ff8859a510b27de9f9fc2808c3d9832e08814a5f5cf0840adc" => :sierra
-    sha256 "2d20f265b9f75b40ed2a61a1d9d8ad4c5e5a33ecde5920500797fbe56b164c1f" => :el_capitan
-    sha256 "b7f7238c68c5eaf9fafbb679e0e5d24f753860308195ea92f8f98c5c8ae41918" => :yosemite
-    sha256 "93d261b3ad4a4ac27bf67ad0f31c681ca6311d05c038d8b30e0999264f7a2410" => :mavericks
+    sha256 "4dcb8adbe13f081f2fc1403cc47e9dc335a8c7bda32be5856960885e44ae65a2" => :sierra
+    sha256 "f9237dee634dfc7b9306ce18b7414bec4b5debc8589464fdc32baaf97175921a" => :el_capitan
+    sha256 "d033459dfae7095599f5ec0fe4c12ace01e4a8a501578ede1f921bfbf7868941" => :yosemite
   end
 
   option "without-libvirtd", "Build only the virsh client and development libraries"
@@ -18,15 +18,18 @@ class Libvirt < Formula
   depends_on "libgcrypt"
   depends_on "yajl"
 
+  if build.head?
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
+    depends_on "rpcgen" => :build
+  end
+
   if MacOS.version <= :leopard
     # Definitely needed on Leopard, but not on Snow Leopard.
     depends_on "readline"
     depends_on "libxml2"
-  end
-
-  fails_with :llvm do
-    build 2326
-    cause "Undefined symbols when linking"
   end
 
   def install
@@ -45,8 +48,10 @@ class Libvirt < Formula
       --without-qemu
     ]
 
+    args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
     args << "--without-libvirtd" if build.without? "libvirtd"
 
+    system "./autogen.sh" if build.head?
     system "./configure", *args
 
     # Compilation of docs doesn't get done if we jump straight to "make install"
@@ -67,7 +72,12 @@ class Libvirt < Formula
   end
 
   test do
-    output = shell_output("#{bin}/virsh -v")
-    assert_match version.to_s, output
+    if build.head?
+      output = shell_output("#{bin}/virsh -V")
+      assert_match "Compiled with support for:", output
+    else
+      output = shell_output("#{bin}/virsh -v")
+      assert_match version.to_s, output
+    end
   end
 end

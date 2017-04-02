@@ -1,50 +1,46 @@
 class MongoOrchestration < Formula
+  include Language::Python::Virtualenv
+
   desc "REST API to manage MongoDB configurations on a single host."
   homepage "https://github.com/10gen/mongo-orchestration"
-  url "https://pypi.python.org/packages/source/m/mongo-orchestration/mongo-orchestration-0.5.tar.gz"
-  sha256 "3d99f1700ba11169d9b25b8196454f4ba91476c5aea23b4cf368bea6bd73a07d"
-
+  url "https://files.pythonhosted.org/packages/96/91/271dce3d51e2b276c352c5061699650b596cb07987f1e0a101513f9aa93e/mongo-orchestration-0.6.9.tar.gz"
+  sha256 "a48ba59e0d15800544683f3aa69d3b6936d9b1e297a91b6beb0b6f1dfec5a523"
   head "https://github.com/10gen/mongo-orchestration"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec730d61a6708de1d3e0d2a3b1e41e51cc9ccff3f47b501f0c066e36dd2f0bc6" => :el_capitan
-    sha256 "6da2ea7a7537b1e2a100c937d96ba5490253ebb9c061c4d5dcb6129d9c5d5b62" => :yosemite
-    sha256 "df9d112113a99ca42b35ad89dc7e7d38944087a7512d79421c0897965df99875" => :mavericks
+    sha256 "436bd1daa2e9ade0ebee0869a88c3c2b73c7a542f52b245c099631b7b19021b2" => :sierra
+    sha256 "72468b3d7df8a74f386e31aff8dbd66ec6cafd9268587903ba0dd3df6006a739" => :el_capitan
+    sha256 "b420a511c57a7aeb6719ff9f01ce16d6348cf73e6e9b9cf80e3591622324f9b6" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "bottle" do
-    url "https://pypi.python.org/packages/source/b/bottle/bottle-0.12.9.tar.gz"
-    sha256 "fe0a24b59385596d02df7ae7845fe7d7135eea73799d03348aeb9f3771500051"
+    url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"
+    sha256 "39b751aee0b167be8dffb63ca81b735bbf1dd0905b3bc42761efedee8f123355"
+  end
+
+  resource "CherryPy" do
+    url "https://files.pythonhosted.org/packages/50/c6/6c3d7a3221b0f098f8684037736e5604ea1586a3ba450c4a52b48f5fc2b4/CherryPy-7.0.0.tar.gz"
+    sha256 "faead7c5c7ca2526aff8f179a24d699127ed307c3393eeef9610a33b93650bef"
   end
 
   resource "pymongo" do
-    url "https://pypi.python.org/packages/source/p/pymongo/pymongo-3.2.1.tar.gz"
-    sha256 "57a86ca602b0a4d2da1f9f3afa8c59fd8ca62d829f6d8f467eae0b7cb22ba88a"
+    url "https://files.pythonhosted.org/packages/82/26/f45f95841de5164c48e2e03aff7f0702e22cef2336238d212d8f93e91ea8/pymongo-3.4.0.tar.gz"
+    sha256 "d359349c6c9ff9f482805f89e66e476846317dc7b1eea979d7da9c0857ee2721"
   end
 
-  resource "cherrypy" do
-    url "https://pypi.python.org/packages/source/C/CherryPy/CherryPy-4.0.0.tar.gz"
-    sha256 "73ad4f8870b5a3e9988a7778b5d3003a390d440527ec3458a0c7e58865d2611a"
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
+
+  plist_options :startup => true, :manual => "#{HOMEBREW_PREFIX}/opt/mongo-orchestration/bin/mongo-orchestration -b 127.0.0.1 -p 8889 --no-fork start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

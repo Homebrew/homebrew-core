@@ -1,32 +1,31 @@
 class Netpbm < Formula
   desc "Image manipulation"
-  homepage "http://netpbm.sourceforge.net"
+  homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
-  # for versions and matching revisions
-  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
-  version "10.68"
+  # for stable versions and matching revisions.
+  if MacOS.version >= :sierra
+    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 2927
+  else
+    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 2927
+  end
+  version "10.73.08"
+  version_scheme 1
 
-  head "http://svn.code.sf.net/p/netpbm/code/trunk"
+  head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "a06beff20f07959feddbd3e9db275c8ef624d5a08f3a7905f3fdaf0ebeeee590" => :sierra
-    sha256 "ad369fbec6067be0355b02aa02f5b542224cbf9835974de7d0d36ea2a1966e2f" => :el_capitan
-    sha256 "a3c04a8257065886cf7f19d246a586a011b8c7d8fd708e5e669b769340e007fa" => :yosemite
-    sha256 "5d668e7795efa192da1bf14e1cfc27f458b58a40dfaa63873d7a642b5ec06a4f" => :mavericks
-    sha256 "b0c160558d0f764360041069129877bfc7e6d9fc81b3dabfa6cf4fe9a9efc21b" => :mountain_lion
+    sha256 "ef3c9771c42cc61c18855222a27fcbe6f0dca58b02c3f597d36306740548b99f" => :sierra
+    sha256 "95432b44ddff71e27117d0e5590d062327389fb70e96d976d35329870c0a89ee" => :el_capitan
+    sha256 "c96f4ec99ef8df57fbd50cae8fc90b06a915b39cba066cbd51e3b3f8410157c0" => :yosemite
   end
-
-  option :universal
 
   depends_on "libtiff"
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "libpng"
 
   def install
-    ENV.universal_binary if build.universal?
-
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|
@@ -58,7 +57,7 @@ class Netpbm < Formula
       # do man pages explicitly; otherwise a junk file is installed in man/web
       man1.install Dir["man/man1/*.1"]
       man5.install Dir["man/man5/*.5"]
-      lib.install Dir["link/*.a"]
+      lib.install Dir["link/*.a"], Dir["link/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
 

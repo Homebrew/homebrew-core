@@ -1,16 +1,16 @@
 class Clib < Formula
   desc "Package manager for C programming"
   homepage "https://github.com/clibs/clib"
-  url "https://github.com/clibs/clib/archive/1.7.0.tar.gz"
-  sha256 "08a342769399525814f74bf989e33d6b416cfd99ee2e4238738ab1187fa27fbb"
+  url "https://github.com/clibs/clib/archive/1.8.0.tar.gz"
+  sha256 "75641bfba02b989ef338b4f3fdf20402d6a119c9fa7d755c9362604bb016116f"
 
   head "https://github.com/clibs/clib.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "49a968b7a2996481bc3481477decdb546af828fc31a3efa68bbf8088a189caef" => :el_capitan
-    sha256 "cea4541a53eb7b83e3a851ceb2a16fcccf3ba31a2d5b2e31f76a9d5c157da427" => :yosemite
-    sha256 "bc5b305a7ca4c4c16fcb135dc43090887e657d4c78497df25cef888d45fa2952" => :mavericks
+    sha256 "45ee37757c387a106c8831ef40c8848d54077638ed52116bd8af1a95897b0a0a" => :sierra
+    sha256 "932173c4c8f747c2650b3c7df1e5657cb21b86d19c70e659d90afea181ff26b9" => :el_capitan
+    sha256 "3699ab855bf189b8a6dfbdc7d73eba4bf272807fb74e02d4f382a043ef66ac35" => :yosemite
   end
 
   def install

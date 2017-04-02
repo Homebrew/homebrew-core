@@ -4,11 +4,12 @@ class Rkflashtool < Formula
   url "https://downloads.sourceforge.net/project/rkflashtool/rkflashtool-5.1/rkflashtool-5.1-src.tar.bz2"
   sha256 "2cad0e0c116357b721a6ac98fb3a91b43fe0269cda66e75eda4adec3330b7735"
 
-  head "git://git.code.sf.net/p/rkflashtool/Git"
+  head "https://git.code.sf.net/p/rkflashtool/Git.git"
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "b049c39dfe71266669ed37b0af50f5d1fa981963eee08abab29a8cfb32ccc23f" => :sierra
     sha256 "6e129daf2945875ed2f3d162cc4705e1643d826e910574d61d7947c96de007e5" => :el_capitan
     sha256 "6c42ca5e0a23c0e246b6e58baff3a32215ba94e60115c8ef4f38306dadfabbeb" => :yosemite
     sha256 "1f3260720ba6ca946000f10f3675140d8b5e737e6fd18abe7b5c0cb4f7b2d972" => :mavericks

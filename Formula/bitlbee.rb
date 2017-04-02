@@ -1,15 +1,15 @@
 class Bitlbee < Formula
   desc "IRC to other chat networks gateway"
   homepage "https://www.bitlbee.org/"
-  url "https://get.bitlbee.org/src/bitlbee-3.4.2.tar.gz"
-  sha256 "69c85554def74f314e3b6e390389a30b0e748f23ef37883e9d7545ee2c45ea57"
+  url "https://get.bitlbee.org/src/bitlbee-3.5.tar.gz"
+  sha256 "549d02181ab303dfe8a219faafd7a1aea7ee642eb071b767f668782a57388319"
 
   head "https://github.com/bitlbee/bitlbee.git"
 
   bottle do
-    sha256 "2ae0ff3d810ba31cca377a3803dc3275e7efca34c129a35c8cf0aa3321aa4dba" => :el_capitan
-    sha256 "bb342d82cd1e019a98735f8d533e199e45c878fa727f7914dae7b90b022571c4" => :yosemite
-    sha256 "31e194c41873e9b98a00e0496156c3111720b6eba0d7a1a6f728752fee2950d5" => :mavericks
+    sha256 "25e0fccb21f49326295ef5b24de1b6001ebb60e82f7dfad58ea1b14753aa7006" => :sierra
+    sha256 "9f2fe2cde9e8282312eeeea3b694f94d6669ece67a653156c93270f9b6d8f1cb" => :el_capitan
+    sha256 "7d1a271ad5feff5e3a5c3beadc4371e648218ee230547d59c9346471451f8c2b" => :yosemite
   end
 
   option "with-pidgin", "Use finch/libpurple for all communication with instant messaging networks"
@@ -30,6 +30,7 @@ class Bitlbee < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --plugindir=#{HOMEBREW_PREFIX}/lib/bitlbee/
       --debug=0
       --ssl=gnutls
       --pidfile=#{var}/bitlbee/run/bitlbee.pid

@@ -7,6 +7,7 @@ class BwmNg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "095250d62c0cdd0e28f79e0099421d8033a1d82832fa0b3f63e663eb9fe8b2f1" => :sierra
     sha256 "a8e98c7fdf6a66485ecbbacf4539a8572061d17335ac6baf8305b07afa4a9a22" => :el_capitan
     sha256 "2b6af853a216dca06b1e692f2f03a453962b384bd5fba7bc8566f277f71d9d5b" => :yosemite
     sha256 "d68545d5c597faccc236df30879008b2902623e6c60d35474f3e9559d8f91d35" => :mavericks

@@ -1,17 +1,16 @@
 class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.15.0/apache-aurora-0.15.0.tar.gz"
-  sha256 "43f6dd5864d5412e1384b18682bce15bc3d4a9a343dff8d893b1fb17346093cd"
+  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.17.0/apache-aurora-0.17.0.tar.gz"
+  sha256 "2a7477d7275dd20f86fe5b0c2d7e884a4c8251dca055045c575cd365799ca548"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0183b82944db056e0b61f367611076d23db7c772d5f37a4d86b3c423d02306da" => :el_capitan
-    sha256 "6bc5f013f7182fab96d21fb228d96de52ca3c3329f542efec2929babf50d1cfb" => :yosemite
-    sha256 "9b45a0ba82e22ff2e272c80977d047a16b5164edb0efc198ffc90ede170c5444" => :mavericks
+    sha256 "a06288f99cada7e310455d243a99780151d7bb484ee230d769577279f2db06fb" => :sierra
+    sha256 "e11368a651d7823e8c5a399ed98b970fcbb788d7e9cbb1f5359ed96c39c42508" => :el_capitan
+    sha256 "fe5c388a7d9cfe8a22a84301ee6fb2819e99d9bf364d768f7373d2d1030324a0" => :yosemite
   end
 
-  depends_on :java => "1.8+"
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install

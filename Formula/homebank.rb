@@ -1,13 +1,13 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.0.9.tar.gz"
-  sha256 "d0bc763e94da0cba544495b07070e79faecf1d5de0cfb092d126482525e062b7"
+  url "http://homebank.free.fr/public/homebank-5.1.4.tar.gz"
+  sha256 "0af35f848c9be864db838868c14977e3f873b54b20be24b6b30189766c5afd1f"
 
   bottle do
-    sha256 "5dde8dedac90082099c4332c45edc524d745029971000e0d4daccb0a60958975" => :el_capitan
-    sha256 "e6eb2df7b2a57cd2f81d03acf45177ce13320aa6130e6db0d0f2ea90046d06e4" => :yosemite
-    sha256 "92830e910d7d87e9bb59d3aca9da880fd94c7dd623d6742654defa6d90d89fad" => :mavericks
+    sha256 "66fac13d713d56d4d506797b85fc2f82f67da5007182d96a9d2d8483499c53e0" => :sierra
+    sha256 "da0180fd6835b3f921cde03d80946184a4b77bc81f6d21b13806f59d56997a86" => :el_capitan
+    sha256 "6df11deccc339311eb4f3623b2469edc6b2aba78312f2b633e51c61bc6affdcd" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -18,6 +18,7 @@ class Homebank < Formula
   depends_on "hicolor-icon-theme"
   depends_on "freetype"
   depends_on "fontconfig"
+  depends_on "libsoup"
   depends_on "libofx" => :optional
 
   def install

@@ -7,6 +7,7 @@ class Malbolge < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4e4b604d3ce7e8ccc5933dd949b55e77bdd59d21f084b4183b950e9dd552f368" => :sierra
     sha256 "20f743a8bcb4085f5958e65a54bc20399de6894155ecd64dfc056431d93ec477" => :el_capitan
     sha256 "e5f617b7bbfee4386442aa739ce8df21b4c54584f2a4ea9f52eec877002ecdf7" => :yosemite
     sha256 "3681aa628f0cbc4d9f2bd65d647402d05dc850041119e24515223527df261125" => :mavericks

@@ -3,12 +3,13 @@ class Libstfl < Formula
   homepage "http://www.clifford.at/stfl/"
   url "http://www.clifford.at/stfl/stfl-0.24.tar.gz"
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "ca0611c953a3b50272dea995cd279622d273351f956b7b4641fc219b2a22cb0c" => :el_capitan
-    sha256 "a11384da9de449a78e0789be701c1f6cd5a1c4e9cdc2f14a6734cb0a83f3bfd4" => :yosemite
-    sha256 "598f252b531f46037a821d49f69c8da4e0335d5e72c3324e24018c0a33ea6d99" => :mavericks
+    sha256 "9841b8b540515d2df6f40a6801c8d0a129b78aa8f3237dc50592ef9eb3154491" => :sierra
+    sha256 "4ebbe11b13902da1463edfed85321269dcf74a712beabdf153ff1be80253f018" => :el_capitan
+    sha256 "c3aea6561c3114809767ccdaae3f8b8b5bb2f0ec1afeaf459c621844476ade84" => :yosemite
   end
 
   option "without-perl", "Build without Perl support"

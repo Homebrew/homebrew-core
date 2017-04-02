@@ -3,12 +3,13 @@ class Gdal < Formula
   homepage "http://www.gdal.org/"
   url "http://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
   sha256 "49f99971182864abed9ac42de10545a92392d88f7dbcfdb11afe449a7eb754fe"
+  revision 1
 
   bottle do
-    sha256 "2c23b8c4aabdba140bcca254dd4dd7436123029eb47659b4811e598bd6a61d15" => :sierra
-    sha256 "1df44c4117d5077cbb32a94e987e14a05b5cf7ad8f1f3bab8245bedf9b0f3b39" => :el_capitan
-    sha256 "31aaaae5286143afdd887e97f65d0c73b4f2e820d3d8ea9853437c5a805813a9" => :yosemite
-    sha256 "22cb34fdedb04658419f412c0ade1f83e01202e9e569fc0b6baf4fe2e3878307" => :mavericks
+    rebuild 1
+    sha256 "0840b359f99a83c82b0d3bf71b03d806be220fd9be965af74211f867d1967fd2" => :sierra
+    sha256 "b608c991bc57c5c44e2c0fc81c09efc38b3cae2d95b335289d9074790a611e30" => :el_capitan
+    sha256 "5bd37c45673c46be62bc304dd6fcdd8138af762d0935f44113eb366538895457" => :yosemite
   end
 
   head do
@@ -37,6 +38,9 @@ class Gdal < Formula
   depends_on "libgeotiff"
   depends_on "proj"
   depends_on "geos"
+  depends_on "json-c"
+  depends_on "libxml2"
+  depends_on "pcre"
 
   depends_on "sqlite" # To ensure compatibility with SpatiaLite.
   depends_on "freexl"
@@ -64,7 +68,7 @@ class Gdal < Formula
     depends_on "libxml2"
 
     # Vector libraries
-    depends_on "unixodbc" # OS X version is not complete enough
+    depends_on "unixodbc" # macOS version is not complete enough
     depends_on "xerces-c"
 
     # Other libraries
@@ -126,7 +130,7 @@ class Gdal < Formula
       "--with-grib",
       "--with-pam",
 
-      # Backends supported by OS X.
+      # Backends supported by macOS.
       "--with-libiconv-prefix=/usr",
       "--with-libz=/usr",
       "--with-png=#{Formula["libpng"].opt_prefix}",
@@ -241,6 +245,10 @@ class Gdal < Formula
   end
 
   def install
+    inreplace "frmts/jpeg2000/jpeg2000_vsil_io.cpp",
+      "stream->bufbase_ = JAS_CAST(uchar *, buf);",
+      "stream->bufbase_ = JAS_CAST(u_char *, buf);"
+
     if build.with? "libkml"
       resource("libkml").stage do
         # See main `libkml` formula for info on patches

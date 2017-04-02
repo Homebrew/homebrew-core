@@ -1,22 +1,16 @@
 class GnupgPkcs11Scd < Formula
   desc "Enable the use of PKCS#11 tokens with GnuPG"
-  homepage "http://gnupg-pkcs11.sourceforge.net"
-  url "https://github.com/alonbl/gnupg-pkcs11-scd/archive/gnupg-pkcs11-scd-0.7.3.tar.gz"
-  sha256 "69412cf0a71778026dd9a8adc5276b43e54dc698d12ca36f7f6969d1a76330b8"
-  revision 2
-
-  head "https://github.com/alonbl/gnupg-pkcs11-scd.git"
+  homepage "https://gnupg-pkcs11.sourceforge.io"
+  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.7.5/gnupg-pkcs11-scd-0.7.5.tar.bz2"
+  sha256 "80ee610c0c798d2da887a22d5614366f4d9e06f296377dcf7e4fd59c2c1eb15e"
 
   bottle do
     cellar :any
-    sha256 "50f2025059f91cdf5c316d96b4e52d52414c56fe6d986f2a9cafb8fbb41ea306" => :el_capitan
-    sha256 "cb40786fe9903329fc542a638f96bc7a7a40a5f7edae7b632bb667acb9cc6e89" => :yosemite
-    sha256 "534831eb894e729bf231892c974305d0e70763179a105ba5b9babb43756ee5ba" => :mavericks
+    sha256 "76fe29258ec0b931a468d7f0333eeee6db03ef6fa440cdf8a222b3cb9775403f" => :sierra
+    sha256 "7ab95867800f969ae1c45637a55d66c61f5671aed35413d3c5519d24fd7cc385" => :el_capitan
+    sha256 "cc2788faa88ecb33a0bbb5ffe58e466d98ab588a2074293df6b71b5d0f37287b" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libgpg-error"
   depends_on "libassuan"
@@ -24,7 +18,6 @@ class GnupgPkcs11Scd < Formula
   depends_on "pkcs11-helper"
 
   def install
-    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
                           "--with-libassuan-prefix=#{Formula["libassuan"].opt_prefix}",

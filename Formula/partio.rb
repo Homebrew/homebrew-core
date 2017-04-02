@@ -1,11 +1,12 @@
 class Partio < Formula
   desc "Particle library for 3D graphics"
-  homepage "http://www.partio.us"
+  homepage "https://github.com/wdas/partio"
   url "https://github.com/wdas/partio/archive/v1.1.0.tar.gz"
   sha256 "133f386f076bd6958292646b6ba0e3db6d1e37bde3b8a6d1bc4b7809d693999d"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1db67357f3ce32f14c84788605a167838753433a1a81e17f40758fb2f2630445" => :sierra
     sha256 "da106b6a4b5667f84b6528081510b12d0da2acb1bfd74afbf3f7af72316afe63" => :el_capitan
     sha256 "a496ac6afbd60f605e2d3347d06a1850ae2617651b748e28c33a7c4c9c3bf957" => :yosemite
     sha256 "78e2ac329d90feb8c0211135d2337b5e754b0cc5d70a4d58ebae3acc8442c32e" => :mavericks

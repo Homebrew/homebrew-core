@@ -3,11 +3,12 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "a27e8160aca5d3aa5a6525b930da7edde44f8824dd4fba39aaef3b9af2717b74"
+  revision 2
 
   bottle do
-    sha256 "d5c6bc104cb0e199f0fb9e42ec63429106d03d2361a445569991014bb1e30404" => :el_capitan
-    sha256 "8e7ca99bc9c625ed596d47b4130532045f82a64c6430633092daf1b00f8fc37d" => :yosemite
-    sha256 "8866796808b7328b118f65d8edb112cf65296b63bda55b07dbd1225cfb4291fc" => :mavericks
+    sha256 "557048a6f8d3d3b4388fdcae8b4098e0a3d9c03283a5e4ff990a93b1c901db97" => :sierra
+    sha256 "cccd89e2658fba63c13721285b3d4b95ac898dd5679d5dde6232d9af26631e83" => :el_capitan
+    sha256 "4f98c3c2539cabb1a9334502be226b538328d888f0983fc998f8b40ec4e57aef" => :yosemite
   end
 
   option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"
@@ -29,6 +30,12 @@ class Zorba < Formula
     args = std_cmake_args
     args << "-DZORBA_VERIFY_PEER_SSL_CERTIFICATE=ON" if build.with? "ssl-verification"
     args << "-DZORBA_WITH_BIG_INTEGER=ON" if build.with? "big-integer"
+
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    # usual superenv fix doesn't work since zorba doesn't use HAVE_CLOCK_GETTIME
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      args << "-DZORBA_HAVE_CLOCKGETTIME=OFF"
+    end
 
     mkdir "build" do
       system "cmake", "..", *args

@@ -10,6 +10,7 @@ class Pidcat < Formula
   def install
     bin.install "pidcat.py" => "pidcat"
     bash_completion.install "bash_completion.d/pidcat"
+    zsh_completion.install "zsh-completion/_pidcat"
   end
 
   test do

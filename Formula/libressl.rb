@@ -1,16 +1,22 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
-  homepage "http://www.libressl.org/"
+  homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.2.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.2.tar.gz"
-  sha256 "5f87d778e5d62822d60e38fa9621c1c5648fc559d198ba314bd9d89cbf67d9e3"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz"
+  sha256 "d300c4e358aee951af6dfd1684ef0c034758b47171544230f3ccf6ce24fe4347"
 
   bottle do
-    rebuild 1
-    sha256 "7ac229a13b897395f22e885e37227fbcd4d9baaabbec7da0813a4a3e2299fcca" => :sierra
-    sha256 "d861fce232f9fde70f73caa164aede8ccf74f93f441c533ce758b1074a80c72e" => :el_capitan
-    sha256 "0d849bb66eb8fe997ec0aa581cd64038df331ac0bd66f56ecb2cecfaf0566f3c" => :yosemite
+    sha256 "c0f9a4fc4f853b8a98288d4c4151b26d0551a76e87d3fb233213618f23727c8d" => :sierra
+    sha256 "6bcd7052d8412883af1d56e2920429d781f38e68df3727bc8eb2bb6bcabc3574" => :el_capitan
+    sha256 "525e5a4b9b742c5b5cb037cc3690ab37d104ac82fc990f7f967a390c27b78c2c" => :yosemite
+  end
+
+  devel do
+    url "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.2.tar.gz"
+    mirror "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.2.tar.gz"
+    version "2.5.2-beta1"
+    sha256 "0ffa7d70809284a4ac96e965918a61c1d7930bca865457a7db0ff0afc8201c82"
   end
 
   head do
@@ -46,7 +52,7 @@ class Libressl < Formula
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
     certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     valid_certs = certs.select do |cert|
@@ -58,14 +64,15 @@ class Libressl < Formula
       $?.success?
     end
 
-    # LibreSSL install a default pem - We prefer to use OS X for consistency.
+    # LibreSSL install a default pem - We prefer to use macOS for consistency.
     rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
   def caveats; <<-EOS.undent
-    A CA file has been bootstrapped using certificates from the system
-    keychain. To add additional certificates, place .pem files in
+    A CA file has been bootstrapped using certificates from the SystemRoots
+    keychain. To add additional certificates (e.g. the certificates added in
+    the System keychain), place .pem files in
       #{etc}/libressl/certs
 
     and run

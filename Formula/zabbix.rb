@@ -1,16 +1,19 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.0.1/zabbix-3.0.1.tar.gz"
-  sha256 "e91a8497bf635b96340988e2d9ca1bb3fac06e657b6596fa903c417a6c6b110b"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.3/zabbix-3.2.3.tar.gz"
+  mirror "https://fossies.org/linux/misc/zabbix-3.2.3.tar.gz"
+  sha256 "e6dba74039d8d6efff86ec3da99909f4daeaeb66d48781bbb666e3094533da25"
+  revision 1
 
   bottle do
-    sha256 "280644147140b9bab7a62980f504ead6c92dff07be53307241dd9714b4450ab4" => :el_capitan
-    sha256 "bc73d952251046996572adb17f8a7e86a0fe6ef2889dfbd0416159479bf28127" => :yosemite
-    sha256 "6456b27c7e81a5714baa818ba7c280bfc3972f6065ab1fa3b079bb9aa8dd83c2" => :mavericks
+    sha256 "35a2068460d9ca35b0a52f8beb8e56a0c3144eb469a4fff993c35eaadafc9ff8" => :sierra
+    sha256 "be5a15450a93c860ae19d8a4fbf6738282dfc9e6fecc3bb633b3863f2472659a" => :el_capitan
+    sha256 "8f22eb0c9e5fc108a6e3127c86eef174542214c3e7f08ab535dfda4e06cc061d" => :yosemite
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
+  option "with-sqlite", "Use Zabbix Server with SQLite library instead PostgreSQL."
   option "without-server-proxy", "Install only the Zabbix Agent without Server and Proxy."
 
   deprecated_option "agent-only" => "without-server-proxy"
@@ -36,7 +39,7 @@ class Zabbix < Formula
     ]
 
     if build.with? "server-proxy"
-      args += %W[
+      args += %w[
         --enable-server
         --enable-proxy
         --enable-ipv6
@@ -47,9 +50,16 @@ class Zabbix < Formula
 
       if build.with? "mysql"
         args << "--with-mysql=#{brewed_or_shipped("mysql_config")}"
+      elsif build.with? "sqlite"
+        args << "--with-sqlite3"
       else
         args << "--with-postgresql=#{brewed_or_shipped("pg_config")}"
       end
+    end
+
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "configure", "clock_gettime(CLOCK_REALTIME, &tp);",
+                             "undefinedgibberish(CLOCK_REALTIME, &tp);"
     end
 
     system "./configure", *args

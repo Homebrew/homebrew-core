@@ -1,24 +1,27 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "http://lfe.io/"
-  url "https://github.com/rvirding/lfe/archive/v1.0.tar.gz"
-  sha256 "a335f593faf96fadbe9d049c5be5d331ba19628bd5dd41cedcbc62bb7c597fe7"
-
+  url "https://github.com/rvirding/lfe/archive/v1.2.1.tar.gz"
+  sha256 "1967c6d3f604ea3ba5013b021426d8a28f45eee47fd208109ef116af2e74ab23"
   head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do
-    sha256 "8a6adf72bf5d51ec031aeccfeef5b3f07a829a959ef238f0a01e4d2cee3fb0b8" => :el_capitan
-    sha256 "68bed24455801df91738dce5a0da2162d179e0b4569bb03a88bc468621d05b64" => :yosemite
-    sha256 "63bbc993e6c35f61bed6376f1660ace93a08a59169e7fe907b7688d5bdf96808" => :mavericks
+    sha256 "43a6e8bc1ff565e9e9c738f4b91ab689e8b9571dad53a7ff44158553fb9491aa" => :sierra
+    sha256 "6bdbd8d5c785775f5f30872ed3d154d9b26a9135dc076688b35d6aba7f6967ff" => :el_capitan
+    sha256 "5c28efffc677617959a383bd2eed80d226fa81c44ca368a0b9fc13aca8b7b1d1" => :yosemite
   end
 
   depends_on "erlang"
-  depends_on "rebar"
 
   def install
-    system "rebar", "compile"
-    bin.install Dir["bin/*"]
-    prefix.install "ebin"
+    system "make"
+    system "make", "MANINSTDIR=#{man}", "install-man"
+    system "make", "emacs"
+    libexec.install "bin", "ebin"
+    bin.install_symlink (libexec/"bin").children
+    doc.install Dir["doc/*.txt"]
+    pkgshare.install "dev", "examples", "test"
+    elisp.install Dir["emacs/*.elc"]
   end
 
   test do

@@ -1,11 +1,12 @@
 class Cidrmerge < Formula
   desc "CIDR merging with white listing (network exclusion)"
-  homepage "http://cidrmerge.sourceforge.net"
+  homepage "https://cidrmerge.sourceforge.io"
   url "https://downloads.sourceforge.net/project/cidrmerge/cidrmerge/cidrmerge-1.5.3/cidrmerge-1.5.3.tar.gz"
   sha256 "21b36fc8004d4fc4edae71dfaf1209d3b7c8f8f282d1a582771c43522d84f088"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8f2cf233141b0ea465c05d3487718176bb40023a05ecf7c275fdae9c36a5eef1" => :sierra
     sha256 "7e607252679cd1648e6c9f48ebbeaa2379ce089ad87815bd6636e65dcedebc7b" => :el_capitan
     sha256 "20c6f57fc6081c8d27d2e68b81e3d4c5cd68e7c799dc30e076f45ee71b42e69d" => :yosemite
     sha256 "89b2d5b31bd190e0aa8837b84f3a684cf01b4501321e898507e5d8dd809f09d7" => :mavericks

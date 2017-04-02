@@ -1,14 +1,15 @@
 class Xml2 < Formula
   desc "Makes XML and HTML more amenable to classic UNIX text tools"
-  homepage "https://ofb.net/~egnor/xml2/"
-  url "http://download.ofb.net/gale/xml2-0.5.tar.gz"
+  homepage "https://web.archive.org/web/20160730094113/www.ofb.net/~egnor/xml2/"
+  url "https://web.archive.org/web/20160427221603/download.ofb.net/gale/xml2-0.5.tar.gz"
   sha256 "e3203a5d3e5d4c634374e229acdbbe03fea41e8ccdef6a594a3ea50a50d29705"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5785498202dc54640b0d7ce48de39d675d5b2ecf2703bf60fa71a1f2b20f5d42" => :el_capitan
-    sha256 "7099efc43bc968b2916dcae199bfd3b32e08b0dc25a463236dc6cc23d00a85de" => :yosemite
-    sha256 "943d2f95f5ae95660f70bc0b3dca38eaf124d179ab3f2c9db204f81dfc44d3bb" => :mavericks
+    rebuild 1
+    sha256 "d8d4bb9ceb9d97b648d3fd3cffb1e2fad2e4d82aa6aa3397c22f53fe5468ac56" => :sierra
+    sha256 "85e939873edbb3dd1b072437992a0c404534a5084cccd6f9f76d99b09ddda695" => :el_capitan
+    sha256 "3883d5997021b3a5bd57d8830906cb9b370da0f6e1927b6c7e9dcd6740e05c5c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,6 +20,6 @@ class Xml2 < Formula
   end
 
   test do
-    system "echo '<test/>' | \"#{bin}/xml2\""
+    assert_equal "/test", pipe_output("#{bin}/xml2", "<test/>", 0).chomp
   end
 end

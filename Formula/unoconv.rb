@@ -7,6 +7,7 @@ class Unoconv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "67de3e479604cf777e763c116a47793fda5791feaa322af1f2226dc7f0491ddf" => :sierra
     sha256 "432c15c1bab856edb94784c5849a120f6397d0198ec7e3acedff679f65f6841c" => :el_capitan
     sha256 "82e4120b114a941e5a099ca5ca3df12270f66795d8292a95d4164bcd3199edac" => :yosemite
     sha256 "db9fc7afd8681160e90f2e3de016e92bffe9d4d541cd70b50abe85b3c987f7d1" => :mavericks

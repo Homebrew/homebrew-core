@@ -1,15 +1,14 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.org/source/leptonica-1.73.tar.gz"
-  sha256 "19e4335c674e7b78af9338d5382cc5266f34a62d4ce533d860af48eaa859afc1"
+  url "http://www.leptonica.org/source/leptonica-1.74.1.tar.gz"
+  sha256 "746a517a47a3bd2a90bc8d581ca6464c10f30e91a60209735efe45b3778bec62"
 
   bottle do
     cellar :any
-    sha256 "ec8fe0b657e0a3a79564e3ba78451699201e23b0b8e9da3e342a05139df71e7c" => :sierra
-    sha256 "9d27186bb860962f3df77a8467194b18a660af2406451218b4e61c277d1e8470" => :el_capitan
-    sha256 "0fed0bd62f53161a0b68dc466f6a3fae405c8850f21683fbe995e5b4483ec635" => :yosemite
-    sha256 "48a9b224ae3cbe80f921cc82b17984c789a33a39a8f03fd59b96c53fa7aff9be" => :mavericks
+    sha256 "e15c1a9d55f926ff2665e9e9a18b6865506d6106474237b2f0e28b95b2253db6" => :sierra
+    sha256 "aae7d2d5d03176734707c5900d6e37fc7a9ef282b4429b5477d2a4415b50d59e" => :el_capitan
+    sha256 "6e7e6f9085592590d5ab8728a58674667e486dbf62d12737261a0c283bbd8ed1" => :yosemite
   end
 
   depends_on "libpng" => :recommended
@@ -47,7 +46,7 @@ class Leptonica < Formula
     #include <leptonica/allheaders.h>
 
     int main(int argc, char **argv) {
-        std::fprintf(stdout, "%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION);
+        std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
         return 0;
     }
     EOS

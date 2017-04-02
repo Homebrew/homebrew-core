@@ -6,14 +6,18 @@ class Chuck < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3babc57b6bd458d31ffdf632d0402e9e2d6c014a217b45b1d0c121ad4916e8e9" => :el_capitan
-    sha256 "5a98251b603885026ee3bae389fe35172bd3b69abd8a54d35d457b825bcadfda" => :yosemite
-    sha256 "cdaf6db6aa64715c6fa3aee979fa233a9fb9a2ff9d5d17650d0e3cc70290fcb0" => :mavericks
+    rebuild 1
+    sha256 "4322101b14bb7c235ddd6fb2f102a8f182acb0106ece63bc53d64f3a77224998" => :sierra
+    sha256 "4322101b14bb7c235ddd6fb2f102a8f182acb0106ece63bc53d64f3a77224998" => :el_capitan
+    sha256 "c34fd149bd7c3a419087f963ecea469b953b5eebd8099457fbf5ed2bb0876357" => :yosemite
   end
 
   depends_on :xcode => :build
 
   def install
+    # issue caused by the new macOS version, patch submitted upstream
+    # to the chuck-dev mailing list
+    inreplace "src/makefile.osx", '10\.(6|7|8|9|10|11)(\\.[0-9]+)?', MacOS.version
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"

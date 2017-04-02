@@ -6,20 +6,18 @@ class Libghthash < Formula
 
   bottle do
     cellar :any
+    sha256 "730eb3945e001efa5ebfc84452c94b69237f3cdf830ef5c58cef8854ed4cd3d6" => :sierra
     sha256 "e889f34ca4f1978869eff48334f1f55248628fbc586abdeb151fe017479d220e" => :el_capitan
     sha256 "0487e2e14b14ae288428c474fe9ce3e9baf814d4d73de8b0113ca9cc502ffd63" => :yosemite
     sha256 "207d07d59447e098c1987286324866ef8b26e0c4c191e4c1c0268ba8d95c5fac" => :mavericks
     sha256 "67fa9f1cda39b827ecd318a9f08980e322be034f00f198c0b7c83c2cf9a3d6a8" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "libtool" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
            "--prefix=#{prefix}"

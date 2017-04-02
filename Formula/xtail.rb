@@ -6,6 +6,7 @@ class Xtail < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d230b5111c213e9294f86f01c651501a87c42f60ed30929144e21ed4bbef4ecb" => :sierra
     sha256 "a579041c4d693dd444464228dcd0175e79f31708b62ad3ccf55a8f545ce67ed7" => :el_capitan
     sha256 "60a2bcabfb83e8ab4df95b2417ccf5c49c5ca242853ff16e2a106f3e37f6005e" => :yosemite
     sha256 "939117402a33f5037aa7e49f5228e0d0b852e0e39e85d81357b8955864bd26eb" => :mavericks
@@ -21,6 +22,26 @@ class Xtail < Formula
   end
 
   test do
-    system "#{bin}/xtail"
+    file1 = testpath/"file1"
+    file2 = testpath/"file2"
+    touch file1
+    touch file2
+
+    begin
+      p = IO.popen("#{bin}/xtail file1 file2")
+      # Give xtail a couple seconds before and after so that it could
+      # relatively reliably pick up the changes.
+      sleep 2
+      file1.append_lines "hello\n"
+      file2.append_lines "world\n"
+      sleep 2
+    ensure
+      Process.kill "QUIT", p.pid
+      Process.wait p.pid
+    end
+
+    output = p.read
+    assert_match "hello", output
+    assert_match "world", output
   end
 end

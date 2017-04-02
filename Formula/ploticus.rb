@@ -1,12 +1,13 @@
 class Ploticus < Formula
   desc "Scriptable plotting and graphing utility"
-  homepage "http://ploticus.sourceforge.net/"
+  homepage "https://ploticus.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ploticus/ploticus/2.42/ploticus242_src.tar.gz"
   version "2.42"
   sha256 "3f29e4b9f405203a93efec900e5816d9e1b4381821881e241c08cab7dd66e0b0"
   revision 1
 
   bottle do
+    sha256 "06456d2606a86782cd75ee63f67e738e7ce33271902d3f4e7807d2061c0a5f4a" => :sierra
     sha256 "088f4ba0eea75ed4b401f94331b70dd64e23f02fa0d95731fbaccf6904c8cea5" => :el_capitan
     sha256 "b15be72d80abf16b348c625945de811bf1fb411b1cb329adc701bc04cfb41dd8" => :yosemite
     sha256 "c2b4982907f4a9de66973cf55729fed03f17c42704593d6dbcce955ce53cd9bb" => :mavericks
@@ -15,7 +16,7 @@ class Ploticus < Formula
   depends_on "libpng"
 
   def install
-    # Use alternate name because "pl" conflicts with OS X "pl" utility
+    # Use alternate name because "pl" conflicts with macOS "pl" utility
     args=["INSTALLBIN=#{bin}",
           "EXE=ploticus"]
     inreplace "src/pl.h", /#define\s+PREFABS_DIR\s+""/, "#define PREFABS_DIR \"#{pkgshare}\""

@@ -8,7 +8,8 @@ class Liblacewing < Formula
 
   bottle do
     cellar :any
-    revision 3
+    rebuild 3
+    sha256 "607ed27f0e7c618fc937a9bb7c5f2727e597d0e3fe26af613e2c152f0a13041e" => :sierra
     sha256 "8521b6bdb48855fb5e87d3354d65db5d476c56b416807145c9e9f05500ae91d5" => :el_capitan
     sha256 "8df9b4bab55b90fe7892187dd711aa40898ff83c6b66a02a18bdbef87ad2fa6c" => :yosemite
     sha256 "af978e720eafc9106c8dcb9391b341ec984339fd87db419f54229c5ae3a03d8c" => :mavericks

@@ -1,6 +1,6 @@
 class Blucat < Formula
   desc "netcat for Bluetooth"
-  homepage "http://blucat.sourceforge.net/blucat/"
+  homepage "https://blucat.sourceforge.io"
   url "https://github.com/ieee8023/blucat/archive/v0.91.tar.gz"
   sha256 "3e006d25b7e82689826c89ffbbfa818f8b78cced47e6d0647e901578d330a2f4"
   head "https://github.com/ieee8023/blucat.git"

@@ -1,14 +1,14 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://live.gnome.org/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.4.tar.xz"
-  sha256 "e9d6aa02836d9d4823a51705d3e1dee6fc4bce11d72566024042cfaac56ec7a4"
+  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
+  sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
 
   bottle do
     cellar :any
-    sha256 "b1cbf046b303545753c6a043ae16282a7e28056fb943af11a15c512e2e7c93dc" => :el_capitan
-    sha256 "11da801820de7108aff7df91a1e51582a846bceca579cbce505022938b4f852e" => :yosemite
-    sha256 "23be9dbe9666fd0fd87b6d055d27c1eb16017b3bb8cf84f8eccddccae532d059" => :mavericks
+    sha256 "f16e3728361ac7d08e2c434c81f89758f32c8a05165108a125d7175c4975eed0" => :sierra
+    sha256 "e1ebe0fee65e2126aa257df7c17c1f8d9804a4edf0c1c8f4405eabfa5756673b" => :el_capitan
+    sha256 "438fe9b0eaa5079def5bb1a727af092ed1e6419785e03c9f42e499d6b14fa219" => :yosemite
   end
 
   head do

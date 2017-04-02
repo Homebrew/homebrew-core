@@ -8,15 +8,16 @@ class Mitie < Formula
 
   bottle do
     cellar :any
+    sha256 "fc24dd3da4e0850a60ba6d273ff17eade8a955580aeb91584410efadb29734b2" => :sierra
     sha256 "107bc6325dc1404d1bfe09d400db80b8892e268626d52152c004e79642ee6421" => :el_capitan
     sha256 "4570f1e2ac9721e5f53beda0d3e6be2ab88604e490641273b2959424fdf095a2" => :yosemite
     sha256 "55220ba374b6b03316fd757d2731e8745aa8be50ddc983e0fd28e04bdf5f26da" => :mavericks
     sha256 "25a3ca7c81987f46cb52f4cc8b8c8de674db5c232d9b6e8383d376fad00ae3ea" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
   option "without-models", "Don't download the v0.2 models (~415MB)"
+
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"
@@ -35,16 +36,16 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/libmitie.dylib", "mitielib/libmitie.a"
     (lib/"python2.7/site-packages").install "mitielib/mitie.py"
-    (share/"mitie").install "examples", "sample_text.txt",
+    pkgshare.install "examples", "sample_text.txt",
       "sample_text.reference-output", "sample_text.reference-output-relations"
     bin.install "ner_example", "ner_stream", "relation_extraction_example"
   end
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lmitie",
-           share/"mitie/examples/C/ner/ner_example.c",
+           pkgshare/"examples/C/ner/ner_example.c",
            "-o", testpath/"ner_example"
     system "./ner_example", share/"MITIE-models/english/ner_model.dat",
-           share/"mitie/sample_text.txt"
+           pkgshare/"sample_text.txt"
   end
 end

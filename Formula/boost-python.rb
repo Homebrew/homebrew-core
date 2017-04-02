@@ -1,19 +1,17 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python interoperability"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
-  sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
+  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "3b2df2883a1a6715fbace197c968201fc65c7bf8786aa04799fcde1960be63bd" => :sierra
-    sha256 "39bd6b8756c858f9985a770acfee5628240d26aab12ab27642a5f97e7996d283" => :el_capitan
-    sha256 "66792e185b6850084679c98b8336f78d211bb9ddaf7e583f0ae9a8d2e4a5b4ab" => :yosemite
-    sha256 "54b3dd6e4758ea95626d1f0ac9d33018ab2ae954c814398054144241642f34bb" => :mavericks
+    sha256 "3b47066b435fc7b9acb677969bf2fa54e634a45ee91d089f222169d012ab487a" => :sierra
+    sha256 "0958d5f3c4de00cc9b391c5ba4225c798056941be69cda4c6df913bf81f57c33" => :el_capitan
+    sha256 "14b55a75a1328adfe89f9234c72ed769d159f93fc0a7e140c956de2c3c5d54c9" => :yosemite
   end
 
-  option :universal
   option :cxx11
 
   option "without-python", "Build without python 2 support"
@@ -25,14 +23,7 @@ class BoostPython < Formula
     depends_on "boost"
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
-
   def install
-    ENV.universal_binary if build.universal?
-
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",
@@ -42,8 +33,6 @@ class BoostPython < Formula
             "--user-config=user-config.jam",
             "threading=multi,single",
             "link=shared,static"]
-
-    args << "address-model=32_64" << "architecture=x86" << "pch=off" if build.universal?
 
     # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
@@ -99,7 +88,7 @@ class BoostPython < Formula
       }
     EOS
     Language::Python.each_python(build) do |python, _|
-      pyflags = (`#{python}-config --includes`.strip +
+      pyflags = (`#{python}-config --includes`.strip + " " +
                  `#{python}-config --ldflags`.strip).split(" ")
       system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
       output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`

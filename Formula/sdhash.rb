@@ -7,6 +7,7 @@ class Sdhash < Formula
 
   bottle do
     cellar :any
+    sha256 "631f73908ec240b075fb08484b0e0742759290fbf7d5ffce3db6c8e7dca2355c" => :sierra
     sha256 "f42674a03668b9187d618b457240de90e676bcb311fa1946b5a236685fbf2860" => :el_capitan
     sha256 "97b9d8bd401ec5976b17794da9b907433c18a839c9360fa574d51ea19de245bf" => :yosemite
     sha256 "bb4951185ede8233e4dccb48fa0da53a812e1af61dac9babbdf41e781b78a1e9" => :mavericks

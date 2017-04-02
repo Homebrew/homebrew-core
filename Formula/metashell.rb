@@ -1,40 +1,27 @@
 class Metashell < Formula
   desc "Metaprogramming shell for C++ templates"
-  homepage "https://github.com/sabel83/metashell"
-  url "https://github.com/sabel83/metashell/archive/v2.1.0.tar.gz"
-  sha256 "64d3680a536a254de8556a9792c5d35e6709f2f347d7187614271123d87246ee"
+  homepage "http://metashell.org"
+  url "https://github.com/metashell/metashell/archive/v3.0.0.tar.gz"
+  sha256 "1ed0ffe4ecd0d2c376b002bea6b4188bc24e1be0eb363cadf2e9fbcbe7100b24"
 
   bottle do
-    sha256 "fff1e495ddfda97b8826fa67333a1acf5847e6e6b0fcd4d8eb12332ea714e8f0" => :el_capitan
-    sha256 "889f85d4601b30dd3b2eed8c64a3dbb0554600c0f624e6b8fbfff533922a9e79" => :yosemite
-    sha256 "3f134dccf6bff48ab61cfdb312b03a3318591e6e41396f0b98795e9423f31421" => :mavericks
-    sha256 "1c772d98ec272ed38167fa7cec02f91c4666616fbe189af8c9377cb8f28f579b" => :mountain_lion
+    sha256 "0146ffe29dcd9274d6a77cb984f27e30809554e21c808e7c80dd7330e4ccce2c" => :sierra
+    sha256 "8bac4ef92f0b661fb5d4edbc5447d870f5929186d794092f0c3cc0df822e3066" => :el_capitan
+    sha256 "7d51a3a2c4a28b7956444fcecfd984dbba965630e2d0fcb60361313ed4d24dc5" => :yosemite
   end
 
   depends_on "cmake" => :build
 
   needs :cxx11
 
-  # This patch is required because Mountain Lion uses an old compiler which breaks
-  # compiling some Templight code. The patch comments out unused parts of Templight,
-  # so patched version is functionally equivalent. This error should be fixed in
-  # the next release of Metashell.
-  # https://github.com/sabel83/metashell/issues/28
-  patch :DATA if MacOS.version == :mountain_lion
-
   def install
     ENV.cxx11
 
     # Build internal Clang
     mkdir "3rd/templight/build" do
-      system "cmake", "../llvm", "-DLIBCLANG_BUILD_STATIC=ON", *std_cmake_args
-      system "make", "clang"
-      system "make", "libclang"
-      system "make", "libclang_static"
+      system "cmake", "../llvm", "-DLLVM_ENABLE_TERMINFO=OFF", *std_cmake_args
       system "make", "templight"
     end
-
-    system "tools/clang_default_path --gcc=clang > lib/core/extra_sysinclude.hpp"
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
@@ -50,25 +37,3 @@ class Metashell < Formula
     assert_match /const int/, shell_output("cat #{testpath}/test.hpp | #{bin}/metashell -H")
   end
 end
-
-__END__
-diff --git a/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp b/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp
-index 7a5a2d3..c60d7de 100644
---- a/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp
-+++ b/3rd/templight/llvm/tools/clang/tools/templight/TemplightDebugger.cpp
-@@ -672,6 +672,7 @@ public:
-   };
-
-   void processInputs() {
-+#if 0
-     std::string user_in;
-     while(true) {
-       llvm::outs() << "(tdb) ";
-@@ -958,6 +959,7 @@ public:
-       }
-
-     };
-+#endif
-   };
-
-   void printRawEntry(const TemplateDebuggerEntry &Entry) {

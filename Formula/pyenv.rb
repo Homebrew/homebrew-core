@@ -1,10 +1,10 @@
 class Pyenv < Formula
   desc "Python version management"
-  homepage "https://github.com/yyuu/pyenv"
-  url "https://github.com/yyuu/pyenv/archive/v1.0.2.tar.gz"
-  sha256 "c12abfd87684821bc91b906f60f7aa677333cce13e36d2876ce3e043c0017769"
+  homepage "https://github.com/pyenv/pyenv"
+  url "https://github.com/pyenv/pyenv/archive/v1.0.10.tar.gz"
+  sha256 "cc071d6a63445dc1f7cefa5961c74768bc3dadf8edab5c5a7e1d63bf536a99b5"
   version_scheme 1
-  head "https://github.com/yyuu/pyenv.git"
+  head "https://github.com/pyenv/pyenv.git"
 
   bottle :unneeded
 
@@ -19,15 +19,6 @@ class Pyenv < Formula
     %w[pyenv-install pyenv-uninstall python-build].each do |cmd|
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
     end
-  end
-
-  def caveats; <<-EOS.undent
-    To use Homebrew's directories rather than ~/.pyenv add to your profile:
-      export PYENV_ROOT=#{var}/pyenv
-
-    To enable shims and autocompletion add to your profile:
-      if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-    EOS
   end
 
   test do

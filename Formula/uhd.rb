@@ -3,16 +3,14 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   url "https://github.com/EttusResearch/uhd/archive/release_003_010_000_000.tar.gz"
   sha256 "9e018c069851fd68ba63908a9f9944763832ce657f5b357d4e6c64293ad0d2cd"
+  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "df0ce6e9484685be20eb016aa2b02974f7ba101f9c4a409b75902eb044a6e118" => :sierra
-    sha256 "73fd0a522d1e20635dcae8beaa565ff07f441ae1cb4ed7af9a1311ad224ece7c" => :el_capitan
-    sha256 "2a0a5b94a8f3c70cecfa7952855431eba304ed9509beeba5d9c892465d69d990" => :yosemite
-    sha256 "144dac9e3208b80681b6c40dc981bf28cc5938ebd4e52471f608b4a0fc1eb43b" => :mavericks
+    sha256 "184d412fa23bc97b0bedfa15d323304c11e47e4a27e004956d9b9b1453a15c00" => :sierra
+    sha256 "9fcd8caf375223ca79d7361fd8142cdde289a830364dc37439f99b688f9e222b" => :el_capitan
+    sha256 "37a83dbf239ce5949230ab6ae1e6776bb927b5d26f566c74286c08cc5f73c7eb" => :yosemite
   end
-
-  option :universal
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -27,13 +25,6 @@ class Uhd < Formula
   end
 
   def install
-    args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     resource("Mako").stage do
@@ -41,7 +32,7 @@ class Uhd < Formula
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "test"
       system "make", "install"

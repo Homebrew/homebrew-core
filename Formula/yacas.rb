@@ -1,31 +1,29 @@
 class Yacas < Formula
   desc "General purpose computer algebra system"
-  homepage "http://yacas.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/yacas/yacas-source/1.3/yacas-1.3.4.tar.gz"
-  sha256 "18482f22d6a8336e9ebfda3bec045da70db2da68ae02f32987928a3c67284233"
+  homepage "http://www.yacas.org/"
+  url "https://github.com/grzegorzmazur/yacas/archive/v1.6.1.tar.gz"
+  sha256 "6b94394f705bed70a9d104967073efd6c23e9eb1a832805c4d805ef875555ae5"
 
   bottle do
-    revision 1
-    sha256 "700fa65e0279625861a0f7166c3e213c807ed7ea46b5f10d5ba6be920aa76a64" => :el_capitan
-    sha256 "c143a1764ec3dd64563e78e75c09b11d519124a10c97614bd5c6fbc99bab058b" => :yosemite
-    sha256 "52c5071ec1f10c3181d11be1cd54d345fef5cdcbd4dcd6ef1d2cd71a8cff1d85" => :mavericks
-    sha256 "c3fb8303de3f7e455047994b26b0cb7edbdee3c466eb77e22a66c42746ea766e" => :mountain_lion
+    cellar :any
+    sha256 "6aef11d42795146a35f9f3b374dfdfbe79b89b5a57c15a7fb3510d27b522c251" => :sierra
+    sha256 "807fafec64ac4c3589f5b760299d3b8fd42b29a66a914a5e6c119337a63bb6ab" => :el_capitan
+    sha256 "c7fb1eb19bdb219645ed2bc94cfed491de1c2eb1f770dfd7a7b4cc63871f0dab" => :yosemite
   end
 
-  option "with-server", "Build the network server version"
+  depends_on "cmake" => :build
+  depends_on :xcode => :build
 
   def install
-    args = %W[
-      --disable-silent-rules
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--enable-server" if build.with? "server"
-
-    system "./configure", *args
-    system "make", "install"
-    system "make", "test"
+    mkdir "build" do
+      system "cmake", "..", "-G", "Xcode", "-DENABLE_CYACAS_GUI=OFF",
+                            "-DENABLE_CYACAS_KERNEL=OFF", *std_cmake_args
+      xcodebuild "-target", "ALL_BUILD", "-project", "YACAS.xcodeproj",
+                 "-configuration", "Release", "SYMROOT=build/cyacas/libyacas"
+    end
+    bin.install "build/cyacas/libyacas/Release/yacas"
+    lib.install Dir["build/cyacas/libyacas/Release/{libyacas.a,yacas.framework}"]
+    pkgshare.install "scripts"
   end
 
   test do

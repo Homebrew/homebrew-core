@@ -1,13 +1,13 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://repo.varnish-cache.org/source/varnish-4.1.3.tar.gz"
-  sha256 "9f9469b9fda2a578da2a9d282c71c34eeb5c42eda7f8d8728284d92282108429"
+  url "https://repo.varnish-cache.org/source/varnish-5.1.1.tar.gz"
+  sha256 "6f4b85b52a827f28b3964fbe6a11296e2ed50156c70d511c10feff19459493ae"
 
   bottle do
-    sha256 "2a48fb81ee71fc5292fee45a38ff822217a9906771a5a993b3ea608ff25a7ca8" => :sierra
-    sha256 "bc5425a28e33949a5837aa781e82ca19b7b235feb3041da4f8cf05bd50f4cbff" => :el_capitan
-    sha256 "f691f177b84f4dee78c043541cf029e2d0f82fb7201de9af0759d6a8fbdef11b" => :yosemite
+    sha256 "8535185c0319f5e8e7e9708a2634f2bfac5502e6643001e3aec99bcd26d975e5" => :sierra
+    sha256 "44ab800b0116ee46836fcdc1de2c1489db1026c560752bb781415d9e2b7b1269" => :el_capitan
+    sha256 "d8fe179f6fbc28017f70b6e4b91b5cf628d55b90cf907af935b2888ac692d07d" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -23,7 +23,7 @@ class Varnish < Formula
     (var+"varnish").mkpath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
@@ -45,6 +45,7 @@ class Varnish < Formula
           <string>127.0.0.1:2000</string>
           <string>-a</string>
           <string>0.0.0.0:8080</string>
+          <string>-F</string>
         </array>
         <key>KeepAlive</key>
         <true/>

@@ -7,6 +7,7 @@ class Ccze < Formula
   revision 1
 
   bottle do
+    sha256 "7f1d8fb98c7ca95eb938ff2bae748ad081772542234bbd25151cc37e0f097461" => :sierra
     sha256 "795fc9b842f53197ec45774d909fb14efd463a64215fbec799ad870bb78a6834" => :el_capitan
     sha256 "11c34c8ad4df9993b7f465c7c7a7fdb2588e3c75d678f3b22f36166ca1c04520" => :yosemite
     sha256 "40b61bc0353350f43c97f611d26c0826e4e4ce5df0284b1f544e89460af25722" => :mavericks

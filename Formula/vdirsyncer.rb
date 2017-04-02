@@ -3,17 +3,18 @@ class Vdirsyncer < Formula
 
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://files.pythonhosted.org/packages/63/c0/8f2305a3a4cf0ed0b30b430f90064139fed5ea6081a99798c27e62c0ed93/vdirsyncer-0.12.1.tar.gz"
-  sha256 "3fbba82d5c687238698799799521978bffe72f87b911a267a9c1933b10bd7df8"
+  url "https://files.pythonhosted.org/packages/d7/83/1173613bc62b85f8c074b6589072951ad4f7e674d51d8bad875be38bc813/vdirsyncer-0.15.0.tar.gz"
+  sha256 "52f7acccab443ce20aca2623b80475f741844929977c08b2f8f11fc9ba2f4a21"
   head "https://github.com/pimutils/vdirsyncer"
 
   bottle do
-    sha256 "61b9625dc55bc54ea481f6c839c0029624dbaa65ba694c8cfbd627869a5e9131" => :el_capitan
-    sha256 "990a4736379e5966168dfd5bfe44ec74d356f7159c66709dc816e6c68020473b" => :yosemite
-    sha256 "7c6b1b46e9ac0b2e047d0efdd23776d5be9acef2bbb820dac7e187210c732482" => :mavericks
+    sha256 "6114db2c17ab20ea51bda2792b5f750322e6d25a67f181146cfe54995b9edcad" => :sierra
+    sha256 "dea2439460c1282fb9d4b775a8630027536a0788c75015e9a1a3c9dd82cf525c" => :el_capitan
+    sha256 "2803ab046daf3611dbbde58676322d79c6bf55e637199631921d11919d0e72a8" => :yosemite
   end
 
   option "with-remotestorage", "Build with support for remote-storage"
+  option "with-google", "Build with support for google storage types"
 
   depends_on :python3
 
@@ -23,28 +24,40 @@ class Vdirsyncer < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
-    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "click-log" do
-    url "https://files.pythonhosted.org/packages/18/c6/ce0c132a90b5f5f52cce68292c8f0bee55b73994148bda0540f773922571/click-log-0.1.4.tar.gz"
-    sha256 "dc6275b7d8f87512a22d9806ccc845f474825edd82ad37925a36ba156c887570"
+    url "https://files.pythonhosted.org/packages/b7/71/d029ea00ede6c1fd307c8d87cd7aac90c1a7ed8dec2ede5dc115e254fade/click-log-0.1.8.tar.gz"
+    sha256 "57271008c12e2dc16d413373bedd7fd3ff17c57434e168650dc27dfb9c743392"
   end
 
   resource "click-threading" do
-    url "https://files.pythonhosted.org/packages/72/a5/0d72a73e085d8943c82dee5a0713ae1237f8cd59a0586fa87ecebb5320fe/click-threading-0.4.0.tar.gz"
-    sha256 "1823fac05f6b7705ab15956512a06d1b634beb4bbf99e115cab4fc4f6d1436d3"
+    url "https://files.pythonhosted.org/packages/66/7f/2afa4041e4b693b317c8bb800cbc87baeb22de9a1c4fac7a89e37276e82c/click-threading-0.4.3.tar.gz"
+    sha256 "8f91a9abc8bb40287338e70587bf6043449808a0228c496ff4ef03cdc55b4477"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
-    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/59/78/1d391d30ebf74079a8e4de6ab66fdca5362903ef2df64496f4697e9bb626/requests-toolbelt-0.7.0.tar.gz"
-    sha256 "33899d4a559c3f0f5e9fbc115d337c4236febdc083755a160a4132d92fc3c91a"
+    url "https://files.pythonhosted.org/packages/ab/bf/2af6b25f880e2d529a524f98837d33b1048a2a15703fc4806185b54e9672/requests-toolbelt-0.7.1.tar.gz"
+    sha256 "c3843884269d79e492522f3e9f490917e074c1ddbb80111968970e721fe36eaf"
+  end
+
+  if (build.with? "remotestorage") || (build.with? "google")
+    resource "oauthlib" do
+      url "https://files.pythonhosted.org/packages/fa/2e/25f25e6c69d97cf921f0a8f7d520e0ef336dd3deca0142c0b634b0236a90/oauthlib-2.0.2.tar.gz"
+      sha256 "b3b9b47f2a263fe249b5b48c4e25a5bce882ff20a0ac34d553ce43cff55b53ac"
+    end
+
+    resource "requests-oauthlib" do
+      url "https://files.pythonhosted.org/packages/80/14/ad120c720f86c547ba8988010d5186102030591f71f7099f23921ca47fe5/requests-oauthlib-0.8.0.tar.gz"
+      sha256 "883ac416757eada6d3d07054ec7092ac21c7f35cb1d2cf82faf205637081f468"
+    end
   end
 
   def install
@@ -67,19 +80,19 @@ class Vdirsyncer < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     (testpath/".config/vdirsyncer/config").write <<-EOS.undent
       [general]
-      status_path = #{testpath}/.vdirsyncer/status/
+      status_path = "#{testpath}/.vdirsyncer/status/"
       [pair contacts]
-      a = contacts_a
-      b = contacts_b
+      a = "contacts_a"
+      b = "contacts_b"
       collections = ["from a"]
       [storage contacts_a]
-      type = filesystem
-      path = ~/.contacts/a/
-      fileext = .vcf
+      type = "filesystem"
+      path = "~/.contacts/a/"
+      fileext = ".vcf"
       [storage contacts_b]
-      type = filesystem
-      path = ~/.contacts/b/
-      fileext = .vcf
+      type = "filesystem"
+      path = "~/.contacts/b/"
+      fileext = ".vcf"
     EOS
     (testpath/".contacts/a/foo/092a1e3b55.vcf").write <<-EOS.undent
       BEGIN:VCARD

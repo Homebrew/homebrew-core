@@ -1,11 +1,8 @@
 class Pgtune < Formula
   desc "Tuning wizard for postgresql.conf"
   homepage "http://pgfoundry.org/projects/pgtune"
-  # Both homepage and URL down since at least April 2016.
-  # Consider for boneyard if not resolved in near future.
-  # https://github.com/gregs1104/pgtune/issues/19
-  # url "http://pgfoundry.org/frs/download.php/2449/pgtune-0.9.3.tar.gz"
-  url "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/p/pgtune/pgtune_0.9.3.orig.tar.gz"
+  url "http://pgfoundry.org/frs/download.php/2449/pgtune-0.9.3.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/p/pgtune/pgtune_0.9.3.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/pgtune/pgtune_0.9.3.orig.tar.gz"
   sha256 "31ac5774766dd9793d8d2d3681d1edb45760897c8eda3afc48b8d59350dee0ea"
 
@@ -22,5 +19,9 @@ class Pgtune < Formula
     end
     bin.install "pgtune"
     pkgshare.install Dir["pg_settings*"]
+  end
+
+  test do
+    system bin/"pgtune", "--help"
   end
 end

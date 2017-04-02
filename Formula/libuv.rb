@@ -1,21 +1,19 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.9.1.tar.gz"
-  sha256 "a6ca9f0648973d1463f46b495ce546ddcbe7cce2f04b32e802a15539e46c57ad"
+  url "https://github.com/libuv/libuv/archive/v1.11.0.tar.gz"
+  sha256 "6ec7eec6ecc24b1a8ffedebedb2fe9313fffb5410de89aaf784dd01080411c7a"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "abd14bc1902fc465ac4bec515103fdcc5fe84d360cf1152331a169b7658f2d67" => :sierra
-    sha256 "68d0bcd528b8f6ee33759919f8c7f7110095a64ce6cff13ddd08d8d369220dc7" => :el_capitan
-    sha256 "c11095dcf9722f98efedfe6ba5d74b3bb2b99e34e8003f129e7fa97e8a60f391" => :yosemite
-    sha256 "31388adf64b6dcbabed5d69727a4ee7ed64de0b4cf6a5c7868992e05669990c7" => :mavericks
+    sha256 "aa4195b32133c3bb4cbbb564f4742112ddffb7a2e894f4db19da740d33faff36" => :sierra
+    sha256 "4cbae976a0154925d89e72fed2773c4a68b36500890de385d8b2029cfe8c2a31" => :el_capitan
+    sha256 "767141dbd4cdbbe390ec292f0119135af5c9c6b5dc4804544f9dc3b9c2f2c65a" => :yosemite
   end
 
   option "without-docs", "Don't build and install documentation"
   option "with-test", "Execute compile time checks (Requires Internet connection)"
-  option :universal
 
   deprecated_option "with-check" => "with-test"
 
@@ -26,8 +24,6 @@ class Libuv < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   def install
-    ENV.universal_binary if build.universal?
-
     if build.with? "docs"
       # This isn't yet handled by the make install process sadly.
       cd "docs" do

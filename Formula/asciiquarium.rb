@@ -3,12 +3,13 @@ class Asciiquarium < Formula
   homepage "http://robobunny.com/projects/asciiquarium/html/"
   url "http://www.robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8303a8c1a413ba08d67b7f326663b6c2294fb537bfa18aa6f97a92c050fe0068" => :el_capitan
-    sha256 "15b9d47615685f3c32f8336b1c75274b7cb2e176f71c9bf2957328c529b58f6d" => :yosemite
-    sha256 "93e208857b2497ab81ff252f2186e5e6552930b82045f3b80671cf82471dce6c" => :mavericks
+    sha256 "890b0e69b0261ff61b0d0666f2b3e0f579c1f63556c77c2d8d24bc1ef3f4e241" => :sierra
+    sha256 "9120f02b70c63672af2752de536aeaeac5ef57bc2b3a388afe1ab9e12d40a59b" => :el_capitan
+    sha256 "6b20abf264f40c7123e40f0f34cfc11f0c12a03b1a74a324e3f3a7ae75e94f3f" => :yosemite
   end
 
   resource "Curses" do
@@ -33,6 +34,11 @@ class Asciiquarium < Formula
         system "make", "install"
       end
     end
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    inreplace "asciiquarium", "#!/usr/bin/env perl", "#!/usr/bin/perl"
 
     chmod 0755, "asciiquarium"
     bin.install "asciiquarium"

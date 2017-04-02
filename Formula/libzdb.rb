@@ -3,13 +3,13 @@ class Libzdb < Formula
   homepage "http://tildeslash.com/libzdb/"
   url "http://tildeslash.com/libzdb/dist/libzdb-3.1.tar.gz"
   sha256 "0f01abb1b01d1a1f4ab9b55ad3ba445d203fc3b4757abdf53e1d85e2b7b42695"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "05236a5fa351eab9946a17e8c3219277a553287d40686e9dd3034acb02faed8a" => :el_capitan
-    sha256 "bcee0be3f6bb6eab4d8213f239db7f8d86b8548f99504be4b8a5b735c9f66bf4" => :yosemite
-    sha256 "989e41024a32bfab580881d647c8d7dbad9d9bb17a3fd9072e784ff98e2d0cef" => :mavericks
+    sha256 "9cec69cc93f6b975d95c506f3c7b04a4d2934ac30adc13afedd1d32fe2e31d8c" => :sierra
+    sha256 "0a7bc557e3e91db185787147df1a87ae9c7aef33a1b57875bc74daa52a1338c8" => :el_capitan
+    sha256 "3a5394289ceffbd2bc7bde8dd4dfad4f9b27a4d0180fab199a839c44739f0344" => :yosemite
   end
 
   depends_on "openssl"

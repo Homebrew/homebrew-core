@@ -18,10 +18,6 @@ class Pv < Formula
 
   depends_on "gettext" => :optional
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     args = %W[
       --disable-debug

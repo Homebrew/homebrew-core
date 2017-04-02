@@ -1,19 +1,20 @@
 class Abook < Formula
   desc "Address book with mutt support"
-  homepage "http://abook.sourceforge.net/"
+  homepage "https://abook.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/abook/abook/0.5.6/abook-0.5.6.tar.gz"
   sha256 "0646f6311a94ad3341812a4de12a5a940a7a44d5cb6e9da5b0930aae9f44756e"
-  head "git://git.code.sf.net/p/abook/git"
+  revision 1
+
+  head "https://git.code.sf.net/p/abook/git.git"
 
   bottle do
-    sha256 "87dd5b74cd3c29045889b95fb174364b8908d2fc6d9a1fb1bea005d5bdd9d708" => :sierra
-    sha256 "0c016cb533c530997b9899cdd321627b45e58e35267bdcae99ff31309bc73a44" => :el_capitan
-    sha256 "b04026d64ca791972c1d0f1092eebbccfc2ea2d051072ac15131653a41ddb926" => :yosemite
-    sha256 "e2ba9afe35d0ea1fd71df27fd930b4f5caaee0075301734f04892b651fec6f37" => :mavericks
+    sha256 "e32cff277928e0b5cd24f201b1b5f94faf5469f263856b48c78f85b539018c86" => :sierra
+    sha256 "fc5e09a73519a20dbe90258d6779bfddb1a02b2fc277fd54b4cd8c80c378539d" => :el_capitan
+    sha256 "2f3a8d37fd17ecdda801f8de53e4048f19d824748e11a34c6f9abca0aae06c3b" => :yosemite
   end
 
   devel do
-    url "http://abook.sourceforge.net/devel/abook-0.6.0pre2.tar.gz"
+    url "https://abook.sourceforge.io/devel/abook-0.6.0pre2.tar.gz"
     sha256 "59d444504109dd96816e003b3023175981ae179af479349c34fa70bc12f6d385"
     version "0.6.0pre2"
 

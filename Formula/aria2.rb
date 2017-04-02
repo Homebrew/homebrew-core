@@ -1,14 +1,14 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.27.1/aria2-1.27.1.tar.xz"
-  sha256 "c09627ef31602cfdfa7c9925a6c3b05fe7d2097d83f42dcfdef68664bd106f08"
+  url "https://github.com/aria2/aria2/releases/download/release-1.31.0/aria2-1.31.0.tar.xz"
+  sha256 "7b85619048b23406f241e38a5b1b8b0bc2cae9e80fd117810c2a71ecca813f8c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b4678ad64b289d436e12d9863b2bd4b12ebdcf6821e1db52650da293578ee7c3" => :el_capitan
-    sha256 "b73b02f655a5de46d70f7576a7c3abfc167feadcebee2cf41a168c44c7ba3b08" => :yosemite
-    sha256 "3d7a7a9d5131db45170cb8a4450043dcae180d5169e825d1e2d5b88a163e3c0f" => :mavericks
+    sha256 "9a0bc8716a5ad5caa8c51b3c7536a111ed41b980b46c845230634e865931182c" => :sierra
+    sha256 "0b09dab0ab161a74b823c9b0300e7dc136e4eda9b0d3ef38498202b57f9b32ba" => :el_capitan
+    sha256 "4385913e1f2d5554a2625fed43b2a6a4033e78b0ea484f8f468e2ea30f9fcc17" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -39,7 +39,7 @@ class Aria2 < Formula
   end
 
   test do
-    system "#{bin}/aria2c", "http://brew.sh"
+    system "#{bin}/aria2c", "https://brew.sh/"
     assert File.exist?("index.html"), "Failed to create index.html!"
   end
 end

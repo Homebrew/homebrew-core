@@ -1,15 +1,14 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.75.tar.gz"
-  sha256 "d3732dba3fb4dee075009e2422cd9b48bbd095249994ec60550aee43026030e5"
+  url "https://github.com/danmar/cppcheck/archive/1.78.tar.gz"
+  sha256 "31048901dd8744d12b3e6ac1bc904c08a72cad8118bd6a1f56ce489701ffd1b6"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "cd54368b63ca1ab7e6c47064373001b3c560b1cf2d2ffd1caf63ac31d49334d5" => :sierra
-    sha256 "754138e7816ebfcd2cffed7b345eb21c030073713376c21fef68e1aa58edd78a" => :el_capitan
-    sha256 "920c43b65dfd11d6c9f829cff3b6dfbd561bd8b07ee983128d4f31ab374bd5c7" => :yosemite
-    sha256 "1d5a015ee5d0c85aced3691a6d7cd38c43d51eb286ed125bd71e88b0626e067d" => :mavericks
+    sha256 "8731efe94974cf0d9bf13552ccb634d741b53d349fe7ae53a1ad9dc81764f9ad" => :sierra
+    sha256 "ff26a2a8cec976d1a566dd67fdbf009d81a293408beb18aae59889a221b95bee" => :el_capitan
+    sha256 "62d2b29867144ebeda28a7af1049890c278c0d6463a1248d3ec2b14842e9082a" => :yosemite
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"

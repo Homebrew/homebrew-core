@@ -1,14 +1,14 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "http://www.infradead.org/openconnect.html"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.07.tar.gz"
-  sha256 "f3ecfcd487dcd916748db38b4138c1e72c86347d6328b11dfe1d0af2821b8366"
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
+  sha256 "1c44ec1f37a6a025d1ca726b9555649417f1d31a46f747922b84099ace628a03"
+  revision 1
 
   bottle do
-    sha256 "cbe08c848c2965016b4a01113781f033498e529a3ddbf86ca9c4528f34838cf9" => :sierra
-    sha256 "5e828d31f978b4f8cff97b058ec7edbe1f949dfe9f92abf906c74b16dc26e3b5" => :el_capitan
-    sha256 "4ddea4db39118b9600aec149888fba1fe1888d82f0ddc893bb69d3ed73b1fd46" => :yosemite
-    sha256 "0ccb117a630209f21d7479b06043c2ba32d006055213ac936fc41869974d6b25" => :mavericks
+    sha256 "82f6f4b72fba93ee972a8455ebd6f9d9dfb607cd4bdd06c4b0bf068c5dbc4547" => :sierra
+    sha256 "41230a870a365a76eebd77a6a2255aa4e8f93eedc56c42546cd493967221f7c2" => :el_capitan
+    sha256 "207b75663d9f34b99a0cb2f7c4b7eccd665a98f88b7e9d736928dd4b65b658ca" => :yosemite
   end
 
   head do
@@ -18,9 +18,6 @@ class Openconnect < Formula
     depends_on "libtool" => :build
   end
 
-  # No longer compiles against OpenSSL 1.0.2 - It chooses the system OpenSSL instead.
-  # https://lists.infradead.org/pipermail/openconnect-devel/2015-February/002757.html
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
@@ -28,8 +25,8 @@ class Openconnect < Formula
   depends_on "stoken" => :optional
 
   resource "vpnc-script" do
-    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/a64e23b1b6602095f73c4ff7fdb34cccf7149fd5:/vpnc-script"
-    sha256 "cc30b74788ca76928f23cc7bc6532425df8ea3701ace1454d38174ca87d4b9c5"
+    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"
+    sha256 "48b1673e1bfaacbfa4e766c41e15dd8458726cca8f3e07991d078d0d5b7c55e9"
   end
 
   def install

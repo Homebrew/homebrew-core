@@ -1,22 +1,16 @@
 class Ncftp < Formula
   desc "FTP client with an advanced user interface"
   homepage "http://www.ncftp.com"
-  url "ftp://ftp.ncftp.com/ncftp/ncftp-3.2.5-src.tar.gz"
-  sha256 "ac111b71112382853b2835c42ebe7bd59acb7f85dd00d44b2c19fbd074a436c4"
+  url "ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.gz"
+  sha256 "129e5954850290da98af012559e6743de193de0012e972ff939df9b604f81c23"
 
   bottle do
-    sha256 "8e1bdefb84fcd91f461441d5c45d33536807b0c4fe661c626645cd9ffe04b03a" => :el_capitan
-    sha256 "50fb345b28bc8a20d2877d67108f87c9544568de9e27ae7a3545da3af3cb0b35" => :yosemite
-    sha256 "07a73c0ac7005566895f7e42f4a1d1b8295a9cdc03ec7986028ae783313e428f" => :mavericks
-    sha256 "e59965dc867f70420046475b30829cad0b334bc687e18362918fdfbab7521b59" => :mountain_lion
+    sha256 "25caf7d9c7ac3c1642d3d205fcedfbea05878798033c0ff82cc3b5fbab4674d5" => :sierra
+    sha256 "821f66bcd8991168314bb77f1404b3af6f93fda5c4fdcb3c651d3b7fbdd7f4fe" => :el_capitan
+    sha256 "ac12f87bb648eb4dde883ad5ccca0c8cf80c60e1437ce03e5fc8d768fcec1bde" => :yosemite
   end
 
   def install
-    # "disable universal" doesn't seem to work.
-    # If ncftp detects the 10.4 SDK, it will try to use GCC 4.0 which doesn't
-    # support all of the compiler flags we set.
-    # So, just disable optimizations intead.
-    ENV.no_optimization
     system "./configure", "--disable-universal",
                           "--disable-precomp",
                           "--prefix=#{prefix}",

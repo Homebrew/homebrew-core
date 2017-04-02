@@ -1,11 +1,12 @@
 class WCalc < Formula
   desc "Very capable calculator"
-  homepage "http://w-calc.sourceforge.net"
+  homepage "https://w-calc.sourceforge.io/"
   url "https://downloads.sourceforge.net/w-calc/wcalc-2.5.tar.bz2"
   sha256 "0e2c17c20f935328dcdc6cb4c06250a6732f9ee78adf7a55c01133960d6d28ee"
 
   bottle do
     cellar :any
+    sha256 "c7de145bfc785fe7c5ab006a6d64f19bd11d199e5bf0d0c0973d598717d6c8b3" => :sierra
     sha256 "67160a91e50ae33f723ead45c4150750b62b3bd45ec009eb4b493e138d2a908d" => :el_capitan
     sha256 "1737fad1cd9e5beac6f3a06057bd594b4de2c6b9f709544acd4825fae9160632" => :yosemite
     sha256 "14bcdc8bb396d6c3890a7a7719d6619911ffe92e8949278865b256eb5f74682e" => :mavericks

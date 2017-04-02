@@ -1,14 +1,14 @@
 class Mg3a < Formula
   desc "Small Emacs-like editor inspired by mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
-  url "http://www.bengtl.net/files/mg3a/mg3a.160917.tar.gz"
-  sha256 "fece7142d7eb6ba4af74783734ec6847d30dcad9c2069602ca4687553a2340ec"
+  url "http://www.bengtl.net/files/mg3a/mg3a.170216.tar.gz"
+  sha256 "9219953b62e47ccbe2ad464ffc81b6ab3e80c2f2b6d7c11f9c8f655ed240adfe"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36d90f731ec6051a22433443970401e99be952d72824799ba9037bd8109f982b" => :sierra
-    sha256 "35d0565ee73137a817bc3c702f187bc8e05d931913c43f14b4badf221ac6c1e0" => :el_capitan
-    sha256 "b2be99c8e905bf5ba17b5e42b8cfce97d573034d90ea4360cc1de421fdf75d41" => :yosemite
+    sha256 "ef97936e888d4bdcc3176fa064e06c1eb698b5d45bff08ec9f22721fcb3f5577" => :sierra
+    sha256 "221e329c44ec1dd3988fb2cb033be3e0043e9114d0eaea38a02b35daeb01ee85" => :el_capitan
+    sha256 "e629714006e001d35b5c5d473b736197a881831c0cc19059dfb6d3c244799095" => :yosemite
   end
 
   option "with-c-mode", "Include the original C mode"
@@ -21,7 +21,7 @@ class Mg3a < Formula
 
   def install
     if build.with?("all")
-      mg3aopts = "-DALL" if build.with?("all")
+      mg3aopts = %w[-DALL]
     else
       mg3aopts = %w[-DDIRED -DPREFIXREGION -DUSER_MODES -DUSER_MACROS]
       mg3aopts << "-DLANGMODE_C" if build.with?("c-mode")

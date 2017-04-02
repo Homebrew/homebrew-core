@@ -3,17 +3,14 @@ class SdlImage < Formula
   homepage "https://www.libsdl.org/projects/SDL_image"
   url "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz"
   sha256 "0b90722984561004de84847744d566809dbb9daf732a9e503b91a1b5a84e5699"
-  revision 3
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "838d4345676e4e05252aa3241a7d029359f42c1d4eb49e8d58ccd2b60518e648" => :sierra
-    sha256 "a4638bcb9c0334bbf5b934e5f76f256da233b611d1a66c51311de5d593ea867e" => :el_capitan
-    sha256 "df945572e0d8802860d258981206488002a64080de64c1f6085a766fdd113734" => :yosemite
-    sha256 "cdcfe4b687320449ea64d1cc4724a5698420a13c1497cd0533fafb0ada0b0d80" => :mavericks
+    sha256 "1a99dadfe0cf7e4ace770b5e13b6c3e54277cadc65b3847cb8108fb116ef3d3e" => :sierra
+    sha256 "98b10a7358d3f27042f4480f121b89c53c135a42aca4400cc0312d3233cbc39d" => :el_capitan
+    sha256 "6d6105e20e0b8c11cddc1b0b1eda7184c50ec4e69ad71f85980b146a54adb431" => :yosemite
   end
-
-  option :universal
 
   depends_on "pkg-config" => :build
   depends_on "sdl"
@@ -31,12 +28,21 @@ class SdlImage < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     inreplace "SDL_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-sdltest"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-imageio
+      --disable-sdltest
+    ]
+
+    args << "--disable-png-shared" if build.with? "libpng"
+    args << "--disable-jpg-shared" if build.with? "jpeg"
+    args << "--disable-tif-shared" if build.with? "libtiff"
+    args << "--disable-webp-shared" if build.with? "webp"
+
+    system "./configure", *args
     system "make", "install"
   end
 end

@@ -6,7 +6,8 @@ class Libpcl < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "525c0925d7d3234cf5da86a892d15aa4f6d4417f302ed821e2bfd6e7cb06ef43" => :sierra
     sha256 "1975baf018352fd1f1ca88bd39fc02db384e2f6be4017976184dda3365c60608" => :el_capitan
     sha256 "e9c6f7bc1efab583e44879426a5abb2ff5e7f3eb30261a81a7be723c3280c3a3" => :yosemite
     sha256 "8f8e6669f9a552618b5578ad649e0b2a5f0860922e756c79a609b2eb21b5d4b4" => :mavericks

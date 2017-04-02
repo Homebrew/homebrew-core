@@ -13,8 +13,6 @@ class Pygobject < Formula
     sha256 "7cc44858e152e843aa0709d5f6d60659f11ac7dbd505379a5f15056ba88d91ae" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on :python
@@ -26,7 +24,6 @@ class Pygobject < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-introspection"

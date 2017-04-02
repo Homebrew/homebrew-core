@@ -1,16 +1,16 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.11.tar.gz"
-  sha256 "7616d45badb1103e7b91502df87e7053fbc2c47d2af04cd0e7ea0db92e937a9c"
+  url "https://github.com/aajanki/yle-dl/archive/2.15.tar.gz"
+  sha256 "0816df57eafb0bc84c192518fab9801730641d2d194a4bcfac46c5efc53e195c"
 
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4574d5eb4fa01d2d95ddcc790de7c836e1139c9c3038fc4c34ca58637662881d" => :el_capitan
-    sha256 "e0f67eecade6592fdb554436b654dce167384116860a1d4d22b7e6180cb1c927" => :yosemite
-    sha256 "5b24f23c29a1431ae3ae4812b6911fb2c88eee11acd4595abd5450b69a526d21" => :mavericks
+    sha256 "139f0ab50deba95a15ff0eecd7cbdcc0484f82105d1144c849daeb853c2f3094" => :sierra
+    sha256 "33fa033d90b87750ab5d1a8c57f54ba4c7a1b721bd5c3a2393e839151fce688a" => :el_capitan
+    sha256 "ba51f722e74e263cb8d62b47ef018ac19d46b4edb324861cf469a1ee7ebd4d0e" => :yosemite
   end
 
   depends_on "rtmpdump"
@@ -61,6 +61,6 @@ class YleDl < Formula
 
   test do
     assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51:00+03:00\n",
-                 shell_output("#{bin}/yle-dl --showtitle http://areena.yle.fi/1-1570236")
+                 shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
   end
 end

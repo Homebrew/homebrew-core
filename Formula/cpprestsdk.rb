@@ -1,16 +1,16 @@
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/Microsoft/cpprestsdk"
-  url "https://github.com/Microsoft/cpprestsdk/archive/v2.8.0.tar.gz"
-  sha256 "3d1c38aa7ef34b3d3e9a6e84d3866554fe48c3d9d9977896d18a7cfb80d5a4ea"
+  url "https://github.com/Microsoft/cpprestsdk/archive/v2.9.1.tar.gz"
+  sha256 "7097889965df48ec5799d6ed3b4f95f16ca82ee3512eb31db844d9df600bc899"
 
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "aaf11100fd9698a5776a4cd9a5f73610e927d87135c40a1824007cc16d3d9cab" => :el_capitan
-    sha256 "1ac888c82773474dd4c43dd7f637d60ff180a50797c4d33acd02ab773a4f05d2" => :yosemite
-    sha256 "afd80c1df6c5cb0497006a277d94fd344e6831a99c0545a96a7e05979888e16e" => :mavericks
+    sha256 "35da0bc8f94e1faca8c2d0972d354f2fe15141383157cd5c63205a1d74928c74" => :sierra
+    sha256 "fd091b4222e5c2e512d23c2c86b8f6a3b5064b4bd024b2a154a28e53b11dd1b6" => :el_capitan
+    sha256 "cd0b08daf4d0e02334d57d38e62254a95c82f554011a52ab914da953e5a226e9" => :yosemite
   end
 
   depends_on "boost"

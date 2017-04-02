@@ -1,26 +1,28 @@
 class MecabJumandic < Formula
   desc "See mecab"
-  homepage "https://mecab.googlecode.com/svn/trunk/mecab/doc/index.html"
-  url "https://downloads.sourceforge.net/project/mecab/mecab-jumandic/5.1-20070304/mecab-jumandic-5.1-20070304.tar.gz"
-  sha256 "042614dcc04afc68f1cfa2a32f353dc31b06f0674ebab3bfa8e67472709fe657"
+  homepage "https://taku910.github.io/mecab/"
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/mecab/mecab-jumandic-7.0-20130310.tar.gz"
+  mirror "https://mirrors.ustc.edu.cn/macports/distfiles/mecab/mecab-jumandic-7.0-20130310.tar.gz"
+  sha256 "eaf216758edee9a159bc3d02507007318686b9537943268c4565cc1f9ef07f15"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab65000550be226e608e09e00672d4fc476300da138d68143af75389f8e58231" => :el_capitan
-    sha256 "5a9dbc1f67ff36d1f79d6391de2c1d5ab78777322c6e0e829ba4b7a6ab3c88ad" => :yosemite
-    sha256 "2d822346c3f44e341ae7b82574dedc1cca41e24e48c45d86fc5f382e26792661" => :mavericks
-    sha256 "b61b60c146c415bde98046beecbbf1e7f64c12f072ad2610de6876b93d13a3b0" => :mountain_lion
+    sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :sierra
+    sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :el_capitan
+    sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :yosemite
   end
 
   # Via ./configure --help, valid choices are utf8 (default), euc-jp, sjis
-  option "charset=", "Select charset: utf8 (default), euc-jp, or sjis"
+  option "with-charset=", "Select charset: utf8 (default), euc-jp, or sjis"
+
+  deprecated_option "charset=" => "with-charset="
 
   depends_on "mecab"
 
   link_overwrite "lib/mecab/dic"
 
   def install
-    charset = ARGV.value("charset") || "utf8"
+    charset = ARGV.value("with-charset") || "utf8"
     args = %W[
       --disable-debug
       --disable-dependency-tracking

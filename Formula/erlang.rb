@@ -1,22 +1,19 @@
-# Major releases of erlang should typically start out as separate formula in
-# Homebrew-versions, and only be merged to master when things like couchdb and
-# elixir are compatible.
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-19.1.tar.gz"
-  sha256 "caf320c07bdd4c6e11831a0b0d25645a29112007077dbf11eec22437f8b041ed"
+  url "https://github.com/erlang/otp/archive/OTP-19.3.tar.gz"
+  sha256 "fc82c5377ad9e84a37f67f2b2b50b27fe4e689440ae9e5d0f5dcfb440a9487ac"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "815c3c194f3f2568ad0ffa3f9707bf5d7d5321181f02184072023f7c1f363428" => :sierra
-    sha256 "d97c101daa894170700c426994e8a9bc60fa77d0846701bcff074c470fd81c0b" => :el_capitan
-    sha256 "45acf62bfa269cf97daaa78fdc8394f371cd9bcb96e5f5dd8eeea4f701b3cad1" => :yosemite
+    sha256 "f5ec5ea6cbbccbe2c916f74dd2c5cd84c5f6c19ac1a6e7989e4e544850972bb6" => :sierra
+    sha256 "cd0bf7803e03269dafaad2a911623a384b1b6893d5908d1e824320ea913d5fa3" => :el_capitan
+    sha256 "739274bdda69931456b7c6820ca2eccbd71778d103658854a93cff39aeae09b2" => :yosemite
   end
 
-  option "without-hipe", "Disable building hipe; fails on various OS X systems"
+  option "without-hipe", "Disable building hipe; fails on various macOS systems"
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
   option "with-java", "Build jinterface application"
@@ -33,27 +30,19 @@ class Erlang < Formula
   depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
-  fails_with :llvm
-
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_19.1.tar.gz"
-    sha256 "7200e9e5b3a229a6b3838046e1b3e64afc869265539d49d0e4853212f19c0c79"
+    url "https://www.erlang.org/download/otp_doc_man_19.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_19.3.tar.gz"
+    sha256 "f8192ffdd7367083c055695eeddf198155da43dcc221aed1d870d1e3871dd95c"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_19.1.tar.gz"
-    sha256 "76c89aee1ac69b5107114b0065189101e3f42d53e929d8ef8f08b5c586f15930"
+    url "https://www.erlang.org/download/otp_doc_html_19.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_19.3.tar.gz"
+    sha256 "dc3e3a82d1aba7f0deac1ddb81b7d6f8dee9a75e1d42b90c677a2b645f19a00c"
   end
 
   def install
-    # Fixes "dyld: Symbol not found: _clock_gettime"
-    # Reported 17 Sep 2016 https://bugs.erlang.org/browse/ERL-256
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      ENV["erl_cv_clock_gettime_monotonic_default_resolution"] = "no"
-      ENV["erl_cv_clock_gettime_monotonic_try_find_pthread_compatible"] = "no"
-      ENV["erl_cv_clock_gettime_wall_default_resolution"] = "no"
-    end
-
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
@@ -86,7 +75,7 @@ class Erlang < Formula
     end
 
     if build.without? "hipe"
-      # HIPE doesn't strike me as that reliable on OS X
+      # HIPE doesn't strike me as that reliable on macOS
       # https://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
       # https://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
       args << "--disable-hipe"
@@ -101,9 +90,6 @@ class Erlang < Formula
     end
 
     system "./configure", *args
-    # Install is not thread-safe; can try to create folder twice and fail
-    # Reported 8 Sep 2016 https://bugs.erlang.org/browse/ERL-250
-    ENV.deparallelize
     system "make"
     system "make", "install"
 

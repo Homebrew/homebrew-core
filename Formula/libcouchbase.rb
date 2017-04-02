@@ -1,18 +1,18 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://developer.couchbase.com/documentation/server/4.5/sdk/c/start-using-sdk.html"
-  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.6.2.tar.gz"
-  sha256 "28f9218aea0bd0b390bb8129aa6ac2724b7444c0e0c62e21df8d3aabdb896b18"
+
+  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.7.3.tar.gz"
+  sha256 "6cac181256d1bad5afc5ac54396772b01c4c686a243ea3b3958fc844cefcfc7d"
+
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
-    sha256 "88a39268a7dfdeaf7973125e3af8e7ece9cbf1ad4c9b1c0de45d6f9cb72d89a4" => :sierra
-    sha256 "e6e4b35d80c337d7f5720a9f3ba3a8aa7957a5459a03c9c71eb682a811a15f6d" => :el_capitan
-    sha256 "47cb944a620fc6f02c06bed5697710519353f08d084addf55d907f5ace54cec4" => :yosemite
-    sha256 "cd90717de6c67c6ca8e475389b1baef57f2555a2e193805b8f43960e586ade18" => :mavericks
+    sha256 "851cc0834a76f63828a8c1ea02dde3c55c6f993d1234cd1addf9f7ae315871af" => :sierra
+    sha256 "89acad2bb61ff5be98d849139929f705a09cd1cd1d79e67cda21c1a44229ca97" => :el_capitan
+    sha256 "de03a582adc349ec2cccf0f5a56c420068c6577d59e930505699dc7dc10eafe3" => :yosemite
   end
 
-  option :universal
   option "with-libev", "Build libev plugin"
   option "without-libevent", "Do not build libevent plugin"
 
@@ -31,10 +31,6 @@ class Libcouchbase < Formula
 
     ["libev", "libevent", "libuv"].each do |dep|
       args << "-DLCB_BUILD_#{dep.upcase}=" + (build.with?(dep) ? "ON" : "OFF")
-    end
-    if build.universal?
-      args << "-DLCB_UNIVERSAL_BINARY=1"
-      ENV.universal_binary
     end
     if build.without?("libev") && build.without?("libuv") && build.without?("libevent")
       args << "-DLCB_NO_PLUGINS=1"

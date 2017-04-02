@@ -1,13 +1,14 @@
 class Sickbeard < Formula
   desc "PVR application to search and manage TV shows"
   homepage "http://www.sickbeard.com/"
-  head "https://github.com/midgetspy/Sick-Beard.git"
   url "https://github.com/midgetspy/Sick-Beard/archive/build-507.tar.gz"
   sha256 "eaf95ac78e065f6dd8128098158b38674479b721d95d937fe7adb892932e9101"
+  head "https://github.com/midgetspy/Sick-Beard.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "6138d1320eeaa59271e29ac77f922054368ce833b1bb913e44c9931b2b112961" => :sierra
     sha256 "2954e69685502cf87b91ace26ed1d8ac5f7286368bacb38c786cb0f23f3b36dc" => :el_capitan
     sha256 "e6948de6d4e6a4511f16b83d06e6d5c65adfb422a371620ddc90354a270b151f" => :yosemite
     sha256 "f8a28c1b638f8041a226e8a19606b42cf9e3d000501217f85fb3b024ec50b205" => :mavericks
@@ -36,6 +37,10 @@ class Sickbeard < Formula
     resource("Cheetah").stage { system "python", *install_args }
 
     (bin+"sickbeard").write(startup_script)
+  end
+
+  def caveats
+    "SickBeard defaults to port 8081."
   end
 
   plist_options :manual => "sickbeard"
@@ -70,9 +75,5 @@ class Sickbeard < Formula
            "--datadir=#{etc}/sickbeard"\
            "$@"
     EOS
-  end
-
-  def caveats
-    "SickBeard defaults to port 8081."
   end
 end

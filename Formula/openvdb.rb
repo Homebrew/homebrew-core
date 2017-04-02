@@ -1,22 +1,23 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v3.2.0.tar.gz"
-  sha256 "b9c765f8715974aee0cd92ca5fd7cf6c675e72d3a4d1c6b5084fb7ae13345398"
+  url "https://github.com/dreamworksanimation/openvdb/archive/v4.0.1.tar.gz"
+  sha256 "ba17c66e633d84bd31393893f54bde863723367b218bdb15b633fab1cf43a764"
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "94a284f7e3247e313c1e2be481d1dcf2e680789a325ab54f05b35e0d650382d1" => :el_capitan
-    sha256 "5c50cca8555c45fb08cc60715d35ab2278536928075ef97937cd1c92a16c1af6" => :yosemite
-    sha256 "9c59fdd29ab1525b397815f246e7836b967fc678f1ac349fdebf908452f59ac3" => :mavericks
+    sha256 "b00d021ca951b3d4f735501bdbda30af334b7690aee6a6f3a36cd4a44382d8a1" => :sierra
+    sha256 "90d96b8cea9837ff909e874b9c35b25aa9b8c6dc15a767fc0ec7e13a9ecbd7ee" => :el_capitan
+    sha256 "17a526fc234a65c0c3184db723278fc3843d331bfa3348b082e8f0c9b8ab6348" => :yosemite
   end
 
-  option "with-viewer", "Installs the command-line tool to view OpenVDB files"
+  option "with-glfw", "Installs the command-line tool to view OpenVDB files"
   option "with-test", "Installs the unit tests for the OpenVDB library"
   option "with-logging", "Requires log4cplus"
   option "with-docs", "Installs documentation"
 
   deprecated_option "with-tests" => "with-test"
+  deprecated_option "with-viewer" => "with-glfw"
 
   depends_on "openexr"
   depends_on "ilmbase"
@@ -29,7 +30,7 @@ class Openvdb < Formula
     depends_on "boost"
   end
 
-  depends_on "homebrew/versions/glfw3" if build.with? "viewer"
+  depends_on "glfw" => :optional
   depends_on "cppunit" if build.with? "test"
   depends_on "doxygen" if build.with? "docs"
   depends_on "log4cplus" if build.with? "logging"
@@ -63,10 +64,10 @@ class Openvdb < Formula
       args << "CONCURRENT_MALLOC_LIB="
     end
 
-    if build.with? "viewer"
-      args << "GLFW_INCL_DIR=#{Formula["homebrew/versions/glfw3"].opt_lib}/include"
-      args << "GLFW_LIB_DIR=#{Formula["homebrew/versions/glfw3"].opt_lib}/lib"
-      args << "GLFW_LIB=-lglfw3"
+    if build.with? "glfw"
+      args << "GLFW_INCL_DIR=#{Formula["glfw"].opt_lib}/include"
+      args << "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}/lib"
+      args << "GLFW_LIB=-lglfw"
     else
       args << "GLFW_INCL_DIR="
       args << "GLFW_LIB_DIR="

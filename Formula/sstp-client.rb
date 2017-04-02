@@ -1,14 +1,14 @@
 class SstpClient < Formula
   desc "SSTP (Microsofts Remote Access Solution for PPP over SSL) client"
-  homepage "http://sstp-client.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/1.0.10/sstp-client-1.0.10.tar.gz"
-  sha256 "5f9084d8544c42c806724a4e70d039d8cb7b0ea06be8ea9cc5120684d4e0d424"
+  homepage "https://sstp-client.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/1.0.11/sstp-client-1.0.11.tar.gz"
+  sha256 "1b851b504030ed5522ced431217a5c700b35e8bb72d6f5b40b006c7becb8fb20"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "d70a56f837f32f2ceab2050fc32855428f6c1df368da447491107dd3c80c030b" => :el_capitan
-    sha256 "8c4a3b20b2b92a4dfca222ecb3ccf46a1c20c8cdbcdab60fe6907e81f039927b" => :yosemite
-    sha256 "5a07e517c449759938b41c886203fed7294667ba3bc185924e26b7d94267a92f" => :mavericks
+    sha256 "1e635598256413113dabafeb7c29670c15ddef72ec7f838045c701beb360d12e" => :sierra
+    sha256 "f26f09f558a834f4f63ccc8dafc551aca7776c64aefb166995dd24e37a14f325" => :el_capitan
+    sha256 "696a8f7752dd97d1118b878710fc27c59a95fdc84bbc1f444dc91b9709d51351" => :yosemite
   end
 
   depends_on "pkg-config" => :build
