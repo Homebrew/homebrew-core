@@ -47,11 +47,6 @@ class SubversionAT18 < Formula
   patch :DATA
 
   if build.with?("perl") || build.with?("ruby")
-    # If building bindings, allow non-system interpreters
-    # Currently the serf -> scons dependency forces stdenv, so this isn't
-    # strictly necessary
-    env :userpaths
-
     # When building Perl or Ruby bindings, need to use a compiler that
     # recognizes GCC-style switches, since that's what the system languages
     # were compiled against.
