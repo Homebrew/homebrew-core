@@ -70,7 +70,8 @@ class Rsyslog < Formula
 
     inreplace "tools/Makefile.am", /-Wl,--whole-archive,.*/, ""
     inreplace "tools/Makefile.am", "-export-dynamic \\", "-export-dynamic"
-    
+    inreplace "tools/Makefile.am", "rscryutil_LDFLAGS = \\", "rscryutil_LDFLAGS = "
+
     system "./configure", *args
     system "make"
     system "make", "install"
