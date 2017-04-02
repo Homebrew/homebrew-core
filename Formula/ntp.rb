@@ -69,8 +69,8 @@ class Ntp < Formula
 
     Installing this formula implies disabling the system ntpd as well as pacemaker:
 
-    sudo launchctl disable system/com.apple.pacemaker
-    sudo launchctl disable system/org.ntp.ntpd
+      sudo launchctl disable system/com.apple.pacemaker
+      sudo launchctl disable system/org.ntp.ntpd
     EOS
     s
   end
