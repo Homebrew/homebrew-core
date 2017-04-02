@@ -8,10 +8,9 @@ class Ubertooth < Formula
 
   bottle do
     cellar :any
-    sha256 "7b5472d02fcaf34434248c3630258c7b2eae64115247445186226e24b37ad207" => :sierra
-    sha256 "95ba25253b67e36e263d7d9aca987caec686b313c6dc3e3b2d4bbf4bd4a12056" => :el_capitan
-    sha256 "465f2ecfeacdd426609500d41bd0c3f5134e1885376a7aa2d99bafc3478b135e" => :yosemite
-    sha256 "947fd37511e25e5e824ae9001f8e725e04cadc4f462349beb3a8e266f1ee98db" => :mavericks
+    sha256 "fac20ea8ff4542694b9981becf324613ffcf18017b0d9336543a17e218c2970a" => :sierra
+    sha256 "48273e1db5b00160de2e06c4bf91316fd6e100547a2ef44b2e654c7f3b672422" => :el_capitan
+    sha256 "5b88c567e8fd85a7bed6a064836a9ce09190c0df0f728c2577d5025d6b3ed1ee" => :yosemite
   end
 
   depends_on "cmake" => :build
