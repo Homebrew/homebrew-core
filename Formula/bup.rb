@@ -7,9 +7,9 @@ class Bup < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d81816f644534d1084940426f8ba67051a348745b8d378fff82dc994ea0ada53" => :sierra
-    sha256 "b1ca2ccebf8a07a69d5ec1c44b469437c2fd833d1715f62744835f50f2bf68a6" => :el_capitan
-    sha256 "eeac85ec30e1186df3c19d52563ea2f2baa9b73c6e92f64f983624faa497847a" => :yosemite
+    sha256 "ffe848617a641266d6915ce1c0fa6713dd02d978f47da33ffb9b91b15adbbe05" => :sierra
+    sha256 "d17a4b3cfa4233179a4828b23fdae5bf19a8bb605080c697b52d548354e797cb" => :el_capitan
+    sha256 "462b39a188a6fd32d9df4812a629b3bf8692f38439125d98e58e306261277903" => :yosemite
   end
 
   option "with-pandoc", "Build and install the manpages"
