@@ -67,7 +67,8 @@ class Rsyslog < Formula
     inreplace "plugins/mmexternal/mmexternal.c",
                "defined(__FreeBSD__)",
                "defined(__FreeBSD__) || defined(__APPLE__)"
-
+    inreplace "tools/Makefile.am", /-Wl,--whole-archive,.*/, ""
+    
     system "./configure", *args
     system "make"
     system "make", "install"
