@@ -8,6 +8,13 @@ class ThriftAT090 < Formula
   url "https://archive.apache.org/dist/thrift/0.9.0/thrift-0.9.0.tar.gz"
   sha256 "71d129c49a2616069d9e7a93268cdba59518f77b3c41e763e09537cb3f3f0aac"
 
+  bottle do
+    cellar :any
+    sha256 "826d38fd6b828df82627262cf539e6fc5c96c8b8034b11bfc2f13d87f3115aa8" => :sierra
+    sha256 "0c93627496d65905caf00eadd37a7781a5174b29be9408c795bfb5ffb60a81fb" => :el_capitan
+    sha256 "fb14b67511c90df0e2b9c379d13d8436f2d81670707938eb2cb83b7276663d11" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   # These patches are 0.9.0-specific and can go away once a newer version is release
