@@ -1,11 +1,9 @@
 class Libbtbb < Formula
   desc "Bluetooth baseband decoding library"
   homepage "https://github.com/greatscottgadgets/libbtbb"
-  url "https://github.com/greatscottgadgets/libbtbb/archive/2015-10-R1.tar.gz"
-  version "2015-10-R1"
-  sha256 "95f493d379a53ec1134cfb36349cc9aac95d77260db4fdb557313b0dbb5c1d5a"
-  revision 1
-
+  url "https://github.com/greatscottgadgets/libbtbb/archive/2017-03-R2.tar.gz"
+  version "2017-03-R2"
+  sha256 "2b3ea5f07b7022e862f367e8a9a217e1d10920aecdc4eba7b7309724fb229cfd"
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do
@@ -20,8 +18,8 @@ class Libbtbb < Formula
 
   # Requires headers macOS doesn't supply.
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
-    sha256 "7ad3112187e88328b85e46dce7a9b949632af18ee74d97ffc3f2b41fe7f448b0"
+    url "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
+    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
   end
 
   def install
