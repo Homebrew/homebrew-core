@@ -61,6 +61,7 @@ class Rsyslog < Formula
       --enable-cached-man-pages
       --disable-uuid
       --disable-libgcrypt
+      ac_cv_lib_pthread_pthread_setname_np=no
     ]
 
     system "./configure", *args
