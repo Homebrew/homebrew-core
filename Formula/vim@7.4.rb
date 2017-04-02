@@ -4,6 +4,12 @@ class VimAT74 < Formula
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
 
+  bottle do
+    sha256 "f74dfb734068fcf341cc164ab0d7f021be0fc60d2326e011ac72a7488c023c48" => :sierra
+    sha256 "1c697f6dca835a058ef730614b924f932f2f54bd05e485696e16ea3948560f11" => :el_capitan
+    sha256 "8a87232e4269533964f9faabc2c41533b6b489b63ab01b2d08d7d3e1b47033d3" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-override-system-vi", "Override system vi"
