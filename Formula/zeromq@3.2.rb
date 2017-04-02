@@ -4,6 +4,13 @@ class ZeromqAT32 < Formula
   url "http://download.zeromq.org/zeromq-3.2.5.tar.gz"
   sha256 "09653e56a466683edb2f87ee025c4de55b8740df69481b9d7da98748f0c92124"
 
+  bottle do
+    cellar :any
+    sha256 "98c3cd0853a7cf9f8c8895cb9c002795925ed8991f2e720217db9d7dd59b299c" => :sierra
+    sha256 "743cff40fab8d4371b8162bb803eaf1835d053d6bd784c303a18eb73bdfdbc01" => :el_capitan
+    sha256 "d7b7881050dc2aadc265786d6f28f11199e998d0446ccec6f34ce53990a0ffde" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-pgm", "Build with PGM extension"
