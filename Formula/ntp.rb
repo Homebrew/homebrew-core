@@ -43,7 +43,8 @@ class Ntp < Formula
 
   def install
     # Ensure homebrew perl is in #! lines of installed scripts.
-    ENV["PATH_PERL"] = "/usr/local/bin/perl"
+    localperl="/usr/local/bin/perl"
+    ENV["PATH_PERL"] = localperl if File.exist? localperl
 
     system "./bootstrap" if build.head?
 
