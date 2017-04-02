@@ -1,9 +1,8 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool."
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.18.1.tar.gz"
-  sha256 "482fa737691c260e16adcc32bc3fd43ba50a309495faec6b2f3098b517e6c0e9"
-  revision 2
+  url "https://github.com/ruben2020/codequery/archive/v0.19.0.tar.gz"
+  sha256 "c8fbb133ec281cdc58d81824a1d3b1761e5496fcfd37229e68060beb0e0c7fc9"
 
   bottle do
     cellar :any
@@ -14,12 +13,10 @@ class Codequery < Formula
 
   depends_on "cmake" => :build
   depends_on "qt5"
-  depends_on "qscintilla2"
 
   def install
     args = std_cmake_args
     args << "-DBUILD_QT5=ON"
-    args << "-DQT5QSCINTILLA_LIBRARY=#{Formula["qscintilla2"].opt_lib}/libqscintilla2_qt5.dylib"
 
     share.install "test"
     mkdir "build" do
