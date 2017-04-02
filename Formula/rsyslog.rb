@@ -69,7 +69,7 @@ class Rsyslog < Formula
                "defined(__FreeBSD__) || defined(__APPLE__)"
 
     inreplace "tools/Makefile.am", /-Wl,--whole-archive,.*/, ""
-    inreplace "tools/Makefile.am", "-export-dynamic \", "-export-dynamic"
+    inreplace "tools/Makefile.am", "-export-dynamic \\", "-export-dynamic"
     
     system "./configure", *args
     system "make"
