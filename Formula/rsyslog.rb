@@ -20,6 +20,11 @@ class Rsyslog < Formula
   depends_on "libestr"
   depends_on "json-c"
 
+  patch do
+    url "https://github.com/rsyslog/rsyslog/commit/361c32579dbbbe576a5cbace0ac1b61d5d76ccd5.diff"
+    sha256 "e1d39be0c8a504d51a81e2794a8f4795811ff13c67ce8f8d184acda055f6fd11"
+  end
+
   resource "libfastjson" do
     url "https://github.com/rsyslog/libfastjson/archive/v0.99.4.tar.gz"
     sha256 "03ef63dcc88417e71c19ce4436804159e3397e3a20d3529efef6a43c3bef5c8d"
