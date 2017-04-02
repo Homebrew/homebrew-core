@@ -4,6 +4,13 @@ class SeleniumServerStandaloneAT245 < Formula
   url "https://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar"
   sha256 "1172dfa2d94b43bcbcd9e85c824fd714f2d1ed411b6919a22e7338879fad757b"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9e2bc170430f8ff6705f135edbf2727d8362d8b5e2d953ed05d255829c6fafb0" => :sierra
+    sha256 "9e2bc170430f8ff6705f135edbf2727d8362d8b5e2d953ed05d255829c6fafb0" => :el_capitan
+    sha256 "9e2bc170430f8ff6705f135edbf2727d8362d8b5e2d953ed05d255829c6fafb0" => :yosemite
+  end
+
   def install
     libexec.install "selenium-server-standalone-2.45.0.jar"
     bin.write_jar_script libexec/"selenium-server-standalone-2.45.0.jar", "selenium-server"
