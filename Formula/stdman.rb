@@ -1,8 +1,10 @@
 class Stdman < Formula
-  desc "Formatted C++11/14 stdlib man pages from cppreference.com"
+  desc "Formatted C++11/14/17 stdlib man pages from cppreference.com"
   homepage "https://github.com/jeaye/stdman"
-  url "https://github.com/jeaye/stdman/archive/v0.2.tar.gz"
-  sha256 "9591835b0f57f88698d7c46ef645064a4af646644535cf2a052152656d73329a"
+  url "https://github.com/jeaye/stdman/archive/2017.04.02.tar.gz"
+  sha256 "64f33e843c646de54745f234df7688df400a6f65f738408406cb48bcae2c852d"
+  version_scheme 1
+  head "https://github.com/jeaye/stdman.git"
 
   bottle do
     cellar :any_skip_relocation
