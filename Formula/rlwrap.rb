@@ -1,10 +1,8 @@
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "https://github.com/hanslub42/rlwrap"
-  url "https://github.com/hanslub42/rlwrap/archive/v0.42.tar.gz"
-  sha256 "fff56c24341f0c717cf3a8f0ebbf2cba415b1952e1591168ca69ed13638b20f3"
-  revision 1
-
+  url "https://github.com/hanslub42/rlwrap/archive/v0.43.tar.gz"
+  sha256 "29e5a850fbe4753f353b0734e46ec0da043621bdcf7b52a89b77517f3941aade"
   head "https://github.com/hanslub42/rlwrap.git"
 
   bottle do
