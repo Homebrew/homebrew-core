@@ -39,7 +39,10 @@ class Ntp < Formula
     depends_on "lynx" => :build
   end
 
+  option "with-snmp", "Build SNMP support"
+
   depends_on "openssl"
+  depends_on "net-snmp" if build.with? "snmp"
 
   def install
     # Ensure homebrew perl is in #! lines of installed scripts.
@@ -48,12 +51,17 @@ class Ntp < Formula
 
     system "./bootstrap" if build.head?
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-openssl-libdir=#{Formula["openssl"].lib}",
-                          "--with-openssl-incdir=#{Formula["openssl"].include}"
+    args = [
+      "--disable-debug",
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}",
+      "--with-openssl-libdir=#{Formula["openssl"].lib}",
+      "--with-openssl-incdir=#{Formula["openssl"].include}",
+    ]
+    args << (build.with?("snmp") ? "-with-net-snmp-config" : "-with-net-snmp-config=no")
+
+    system "./configure", *args
 
     system "make", "install"
   end
