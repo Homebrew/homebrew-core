@@ -7,7 +7,7 @@ class PerconaServerMongodb < Formula
   version "3.4.4-1.4"
   sha256 "4111f54644a3e3d80de189c69967a1f2e520adce8b6ef97e9dff68b09a66da0a"
 
-  option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
+  option "with-boost", "Compile using installed boost, not the version shipped with this formula"
   option "with-sasl", "Compile with SASL support"
 
   depends_on "boost" => :optional
