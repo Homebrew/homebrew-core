@@ -1,5 +1,5 @@
 # Please always follow these steps:
-- [ ] Confirmed this is a problem with only one, specific formulae and not Homebrew/brew? If it's a general Homebrew/brew problem please file this issue at https://github.com/Homebrew/brew/issues/new
+- [ ] Confirmed this is a problem with only one, specific formula and not Homebrew/brew? If it's a general Homebrew/brew problem please file this issue at https://github.com/Homebrew/brew/issues/new
 - [ ] Ran `brew update` and retried your prior step?
 - [ ] Ran `brew doctor`, fixed as many issues as possible and retried your prior step?
 - [ ] Ran `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed) and included the output link?
