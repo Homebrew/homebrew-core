@@ -4,6 +4,12 @@ class SwigAT304 < Formula
   url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.4/swig-3.0.4.tar.gz"
   sha256 "410ffa80ef5535244b500933d70c1b65206333b546ca5a6c89373afb65413795"
 
+  bottle do
+    sha256 "51b8115c0a2813caf115fb5f082e7aa1b84b7c51acec70822b8619e918969a14" => :sierra
+    sha256 "84988480f25dea3fce15b6ca0e9a3322222cc473066f23626d59b20001574fdf" => :el_capitan
+    sha256 "f5e5251fa5d8f6ce3a7e63c9f3762ccd3bbc49f4664d1d781b71425992c2425b" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on "pcre"
