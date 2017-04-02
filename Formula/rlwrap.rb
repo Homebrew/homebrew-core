@@ -6,9 +6,9 @@ class Rlwrap < Formula
   head "https://github.com/hanslub42/rlwrap.git"
 
   bottle do
-    sha256 "53859da22797c6c4b51754b538dc4be18866f492bbcd14c66228ee1f7d11a93b" => :sierra
-    sha256 "1361a917ac884c5d9f2755ec08b33f5ce57e68687a5f19458a2c0854dbdc6da7" => :el_capitan
-    sha256 "48b56717c9b66c9c56e288b5e9dca32b5c3f6a256c5b3057f68f46b920788e59" => :yosemite
+    sha256 "689b716c824586bdd0399f0acce9271417222436b387862567dc9d48aba2ece7" => :sierra
+    sha256 "b0548979bc62fadccf1d3f6f13f0df1c851e30e4d282d7ac20f9936f3e4b975f" => :el_capitan
+    sha256 "7b8a163bb614b481b88a627ad9a579e5b0acb24deb736ccea02da2606b6dc8a0" => :yosemite
   end
 
   depends_on "readline"
