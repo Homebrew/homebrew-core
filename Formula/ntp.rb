@@ -4,13 +4,13 @@ class Ntp < Formula
   # Arguments could be made for:
   # http://ntp.org/documentation.html (has more unofficial stuff)
   # http://ntp.org/  (more the protocol than the distribution)
-  url "http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p10.tar.gz"
+  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p10.tar.gz"
   version "4.2.8p10"
   sha256 "ddd2366e64219b9efa0f7438e06800d0db394ac5c88e13c17b70d0dcdf99b99f"
 
   devel do
     # http://support.ntp.org/bin/view/Main/SoftwareDevelopment
-    url "http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-dev/ntp-dev-4.3.93.tar.gz"
+    url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-dev/ntp-dev-4.3.93.tar.gz"
     sha256 "a07e73d7a3ff139bba33ee4b1110d5f3f4567465505d6317c9b50eefb9720c42"
   end
 
