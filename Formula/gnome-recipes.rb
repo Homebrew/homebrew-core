@@ -5,9 +5,9 @@ class GnomeRecipes < Formula
   sha256 "f8f1f0f79121e91130a589b1c20ad4739d93d2253232ecdc3d4bc966db7efc45"
 
   bottle do
-    sha256 "6f783969775cd0ebbfee608bf170fc1252749e476d5c5da9e5359f963945b15f" => :sierra
-    sha256 "9b18aa73043e900777cc2104d2c9dfc3078a9756be7464c1c38396438d4841b5" => :el_capitan
-    sha256 "dec400d3b3e7decc6830504daf67d785b4cebd5b8feceb1e2b2dcadae0ddd033" => :yosemite
+    sha256 "52eadb3c7c53eac0b2400561e42cbd394a9ad1c4c835319b9a5fdd5d8e66adf4" => :sierra
+    sha256 "2190b83cc8fb87b09cbec5733d0a5c24030247be427d1a33548bc52618a0d9c9" => :el_capitan
+    sha256 "f41f08d49438c62e0744a0e8cdff12d2f7608c46f8b94968dcd06cf39d42f17a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
