@@ -16,7 +16,7 @@ class PplAT011 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "homebrew/dupes/m4" => :build if MacOS.version < :leopard
+  depends_on "m4" => :build if MacOS.version < :leopard
   depends_on "gmp@4"
 
   # https://www.cs.unipr.it/mantis/view.php?id=596
