@@ -25,7 +25,6 @@ class Python3 < Formula
   depends_on "openssl"
   depends_on "xz" => :recommended # for the lzma module added in 3.3
   depends_on "tcl-tk" => :optional
-  depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
   depends_on "sphinx-doc" => [:build, :optional]
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
@@ -254,8 +253,8 @@ class Python3 < Formula
     end
 
     if build.with? "tcl-tk"
-      include_dirs << Formula["homebrew/dupes/tcl-tk"].opt_include
-      library_dirs << Formula["homebrew/dupes/tcl-tk"].opt_lib
+      include_dirs << Formula["tcl-tk"].opt_include
+      library_dirs << Formula["tcl-tk"].opt_lib
     end
 
     cfg = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
