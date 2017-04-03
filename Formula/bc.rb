@@ -7,9 +7,9 @@ class Bc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b758b4f34df61c0403582cc3ba65e260c17278fd2b0a9b668ffc09a88902f8a4" => :sierra
-    sha256 "5fd6235fed77227fc847538d53955420ed5cfb5d8e562ed2f24e7457696757a5" => :el_capitan
-    sha256 "30e0bf45f79e742a73c0b1ec4aca944d33b5a46c94e8895a4ad3cb600f7a2735" => :yosemite
+    sha256 "c0a016b5e05899f1d049334d594f2b2905924175b136d37bc30e87918f3925d1" => :sierra
+    sha256 "95aa8d2b198101d25dbecb8d6c2f5c2560c3432e0b00862ecd376abfa7031e39" => :el_capitan
+    sha256 "7baaf21d228004af273c5c0b88d4372c8047f2833e507397554e5382f88d83de" => :yosemite
   end
 
   keg_only :provided_by_osx
