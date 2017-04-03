@@ -1,8 +1,8 @@
 class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "http://www.solarus-games.org/"
-  url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.1-src.tar.gz"
-  sha256 "6cd3928a024f7c18a163a1679a92dfff3c37139c5c49fa5348704df5357e8da3"
+  url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.3-src.tar.gz"
+  sha256 "7608f3bdc7baef36e95db5e4fa4c8c5be0a3f436c50c53ab72d70a92aa44cc1c"
   head "https://github.com/christopho/solarus.git"
 
   bottle do
