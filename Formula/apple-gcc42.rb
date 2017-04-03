@@ -6,12 +6,7 @@ class AppleGcc42 < Formula
   version "4.2.1-5666.3"
   sha256 "2f3893b411f578bfa98a99646ecfea0ba14e1bff4e4f311d7e595936d0da065d"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "07ff3dce62965fa6ba3ac63d5f3030d583ce070a1775cc11166ca9d32587ced5" => :el_capitan
-    sha256 "bbd10e902c52e794035bf9773180a740300a826790da03a141d01e6cd6c5b87d" => :yosemite
-    sha256 "4ccdc9fbf3900333bac114607eca9a8a5ea70ea9248d395798dd0d75dbf69c27" => :mavericks
-  end
+  bottle :unneeded
 
   option "with-gfortran-symlink", "Provide gfortran symlinks"
 
