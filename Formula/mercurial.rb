@@ -4,7 +4,7 @@ class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-4.1.2.tar.gz"
-  sha256 "1adcbbf9a2d2b5804d42443698b8aa29c82d1eb702e27397b4053d432b186329"
+  sha256 "09415253fb409a77e19b9951532a3c22c4e07e74bab80652527064617daab194"
 
   bottle do
     rebuild 1
