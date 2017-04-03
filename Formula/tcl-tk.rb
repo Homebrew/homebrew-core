@@ -21,10 +21,6 @@ class TclTk < Formula
   option "with-threads", "Build with multithreading support"
   option "without-tcllib", "Don't build tcllib (utility modules)"
   option "without-tk", "Don't build the Tk (window toolkit)"
-  option "with-x11", "Build X11-based Tk instead of Aqua-based Tk"
-
-  depends_on :x11 => :optional
-  depends_on "pkg-config" => :build if build.with? "x11"
 
   resource "tk" do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tk8.6.6-src.tar.gz"
@@ -62,13 +58,7 @@ class TclTk < Formula
         args = ["--prefix=#{prefix}", "--mandir=#{man}", "--with-tcl=#{lib}"]
         args << "--enable-threads" if build.with? "threads"
         args << "--enable-64bit" if MacOS.prefer_64_bit?
-
-        if build.with? "x11"
-          args << "--with-x"
-        else
-          args << "--enable-aqua=yes"
-          args << "--without-x"
-        end
+        args << "--enable-aqua=yes" << "--without-x"
 
         cd "unix" do
           system "./configure", *args
