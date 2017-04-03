@@ -3,10 +3,21 @@ class Passpie < Formula
 
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
-  sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
-
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
+    sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
+
+    # Remove for > 1.5.5
+    # Fixes "Error: Wrong passphrase" when using GPG 2.1.x
+    # Reported 25 Mar 2017 https://github.com/marcwebbie/passpie/issues/112
+    patch do
+      url "https://github.com/marcwebbie/passpie/commit/308ff74.patch"
+      sha256 "19feaf07c006ce9f900954d3fda8afc95a2e05e7825076b593bfbed85e16dd03"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -48,8 +59,6 @@ class Passpie < Formula
   end
 
   test do
-    system bin/"passpie", "-D", "passpiedb", "init", "--force", "--passphrase", "s3cr3t"
-    system bin/"passpie", "-D", "passpiedb", "add", "foo@bar", "--random"
-    system bin/"passpie", "-D", "passpiedb", "copy", "--passphrase", "s3cr3t", "foo@bar", "--to", "stdout"
+    system bin/"passpie", "--help"
   end
 end
