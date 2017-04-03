@@ -7,10 +7,9 @@ class Gpatch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "526112f0034e80e4b830d6a4b486073be6ea79743a1f4cb7b96e7564bf9dbae4" => :el_capitan
-    sha256 "6de31643dafee3863e42bfff45ad8b128bd45fa02ea46a9a98732ad84e8b59ed" => :yosemite
-    sha256 "0eee795f5f3c9d9e33bfcf83a207cea34fa41f4077fe99e0edc3ff894aedad41" => :mavericks
+    sha256 "d7723d37ca9526120c2ab2aa57ce5d98f74f515211eb602c251d251dd59deca3" => :sierra
+    sha256 "a74c4a9a33b6f33d435daaceaf86dfc829e1054d9b1df46dd6e78fa5b8a239d7" => :el_capitan
+    sha256 "05701655fdfa305f92fce05758c50f51c3ff3a6a7b15a45765c3d7b9b97f38b1" => :yosemite
   end
 
   def install
