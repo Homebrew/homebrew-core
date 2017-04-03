@@ -7,10 +7,9 @@ class Dirmngr < Formula
   revision 3
 
   bottle do
-    sha256 "13f12a1797e6f7fe61ee049fdec8043b09f56c77dbc0537f436d0fa19cefe77a" => :sierra
-    sha256 "53434e2db3e40e72e2ed25d76a5e2ae70326825d2d57ee91138839612db3db37" => :el_capitan
-    sha256 "ddc0de1dff6015fd5072c2da6e0173be8fedf29db27edd03c33a3275b842e402" => :yosemite
-    sha256 "47fe29be8ca19eeb4d4a3e3434cd35ef7b13e1c1a9e8696f5ebd4434dc8cc062" => :mavericks
+    sha256 "5467feb04dd6e6bbafbef24d36a10aad3bdae551ff5c974bcd3d56773f727d06" => :sierra
+    sha256 "af37e95ca5902614e328388a205dd3f48409bbf4775daf6b05d11681989b8364" => :el_capitan
+    sha256 "ee1a749c1264eab899651084d66c4909ef37a5a4ebfda98086e2a199e79db1d4" => :yosemite
   end
 
   keg_only "GPG 2.1.x ships an internal dirmngr which it must use."
