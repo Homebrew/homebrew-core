@@ -8,16 +8,8 @@ class Ldc < Formula
     sha256 "3d35253a76288a78939fea467409462f0b87461ffb89550eb0d9958e59eb7e97"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.3/ldc-0.17.3-src.tar.gz"
-      sha256 "325bd540f7eb71c309fa0ee9ef6d196a75ee2c3ccf323076053e6b7b295c2dad"
-    end
-
-    # Remove for lts > 0.17.3
-    # Upstream commit from 26 Feb 2017 "Fix build for LLVM 4.0"
-    # See https://github.com/ldc-developers/ldc/pull/2017
-    resource "ldc-lts-patch" do
-      url "https://github.com/ldc-developers/ldc/commit/4847d8a.patch"
-      sha256 "7d93765898ce5501eb9660d76e9837682eb0dd38708fa640b6b443b02577a172"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
+      sha256 "48428afde380415640f3db4e38529345f3c8485b1913717995547f907534c1c3"
     end
   end
 
@@ -33,14 +25,8 @@ class Ldc < Formula
     version "1.2.0-beta1"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.3/ldc-0.17.3-src.tar.gz"
-      sha256 "325bd540f7eb71c309fa0ee9ef6d196a75ee2c3ccf323076053e6b7b295c2dad"
-    end
-
-    # Same as in stable
-    resource "ldc-lts-patch" do
-      url "https://github.com/ldc-developers/ldc/commit/4847d8a.patch"
-      sha256 "7d93765898ce5501eb9660d76e9837682eb0dd38708fa640b6b443b02577a172"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
+      sha256 "48428afde380415640f3db4e38529345f3c8485b1913717995547f907534c1c3"
     end
   end
 
@@ -61,14 +47,6 @@ class Ldc < Formula
   def install
     ENV.cxx11
     (buildpath/"ldc-lts").install resource("ldc-lts")
-
-    # Remove for ldc-lts > 0.7.3
-    if build.stable? || build.devel?
-      resource("ldc-lts-patch").stage do
-        system "patch", "-p1", "-i", Pathname.pwd/"4847d8a.patch", "-d",
-                        buildpath/"ldc-lts"
-      end
-    end
 
     cd "ldc-lts" do
       mkdir "build" do
