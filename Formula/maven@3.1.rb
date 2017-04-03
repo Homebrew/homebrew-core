@@ -4,6 +4,13 @@ class MavenAT31 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz"
   sha256 "077ed466455991d5abb4748a1d022e2d2a54dc4d557c723ecbacdc857c61d51b"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "eebf2748f352b0bc30d358f47e0ecd33ddb1d4286a801c2971fa54ba10639ae8" => :sierra
+    sha256 "ea999fb27f3944de65bc42f824b6f16a6b8f4d31c04624ac233e997908284310" => :el_capitan
+    sha256 "ea999fb27f3944de65bc42f824b6f16a6b8f4d31c04624ac233e997908284310" => :yosemite
+  end
+
   depends_on :java
 
   def install
