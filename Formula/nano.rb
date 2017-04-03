@@ -11,7 +11,7 @@ class Nano < Formula
   end
 
   head do
-    url "http://git.savannah.gnu.org/r/nano.git"
+    url "https://git.savannah.gnu.org/git/nano.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end
