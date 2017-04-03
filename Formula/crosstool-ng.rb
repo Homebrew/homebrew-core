@@ -57,6 +57,6 @@ class CrosstoolNg < Formula
   end
 
   test do
-    system "#{bin}/ct-ng", "version"
+    assert_match "This is crosstool-NG", shell_output("make -rf #{bin}/ct-ng version")
   end
 end
