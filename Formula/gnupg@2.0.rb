@@ -5,6 +5,12 @@ class GnupgAT20 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
 
+  bottle do
+    sha256 "b547da420d75ad03b0c60826c96c1959432f363e9a0ab8d270ade56909a9d95b" => :sierra
+    sha256 "f0b436938f9a17459d2ca4a30a80e9c68aa86547fbb7e36c0a2176e38da6188c" => :el_capitan
+    sha256 "0b8eebc7065e3cd00c1cfa60012f390a9a24477e94ef8d7b4b762afa151c2103" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on "libgpg-error"
