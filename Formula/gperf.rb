@@ -7,9 +7,9 @@ class Gperf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ecfe525a1faf4e0c24ac61a230b3d19bebcf5272c0d6375a88f18fba347357c" => :sierra
-    sha256 "4add2ee04e49c8f35d381bc45c4eeef00321b29da8e8c7d4b44f57a129ef6057" => :el_capitan
-    sha256 "21a4e668f9cab868567c47b0da06ba0b340a0d5b68dfd9c2f5d5fbcdd450672e" => :yosemite
+    sha256 "3cbaa18692ac53ce98a754d46e07e89d6dddca4bef3bbb312e762abf5a30093d" => :sierra
+    sha256 "27f661ef9546ff113279654e92c08bb8d8ab837f7dc8b308c1a2beeafdcebc76" => :el_capitan
+    sha256 "263440c302dddec69c2140e8df2e4c00a76b76137243e712e8e8756140e0eaf5" => :yosemite
   end
 
   keg_only :provided_until_xcode43
