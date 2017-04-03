@@ -13,7 +13,7 @@ class Myman < Formula
 
   depends_on "coreutils" => :build
   depends_on "gnu-sed" => :build
-  depends_on "homebrew/dupes/groff" => :build
+  depends_on "groff" => :build
 
   def install
     ENV["RMDIR"] = "grmdir"
