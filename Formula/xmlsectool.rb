@@ -11,7 +11,6 @@ class Xmlsectool < Formula
   def install
     prefix.install "doc/LICENSE.TXT"
     rm_rf "doc"
-    prefix.install_metafiles
     libexec.install Dir["*"]
     (bin/"xmlsectool").write_env_script "#{libexec}/xmlsectool.sh", Language::Java.java_home_env
   end
