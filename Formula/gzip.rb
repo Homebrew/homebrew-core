@@ -7,9 +7,9 @@ class Gzip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f83c850ee014942640b63359e13e3e9da4d2db1d2728c54bd847078ba7817777" => :el_capitan
-    sha256 "79c5b405d59ef30ada49058299483d8d5d83bfcb2d4d42f61cd89f805b1f4f2a" => :yosemite
-    sha256 "55e0259951ced98bca53980b203b1bf63ae776720a85e4030484795367d3971d" => :mavericks
+    sha256 "e51384ad9df99dbda85adc5ed68523661357cb038504f27a34e1851470b5416f" => :sierra
+    sha256 "1fcddc90fa996157665322ea1520863e9367a97693334f4c9b60b2abcf958328" => :el_capitan
+    sha256 "e240320b82c71f8367a696558a4863469b52fcb0ca8245ba0f0c83483f126507" => :yosemite
   end
 
   def install
