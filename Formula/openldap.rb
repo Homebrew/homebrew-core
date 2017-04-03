@@ -1,8 +1,8 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
-  homepage "http://www.openldap.org/software/"
+  homepage "https://www.openldap.org/software/"
   url "ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.44.tgz"
-  mirror "http://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.44.tgz"
+  mirror "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.44.tgz"
   sha256 "d7de6bf3c67009c95525dde3a0212cc110d0a70b92af2af8e3ee800e81b88400"
 
   bottle do
