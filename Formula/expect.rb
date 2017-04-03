@@ -5,10 +5,9 @@ class Expect < Formula
   sha256 "b28dca90428a3b30e650525cdc16255d76bb6ccd65d448be53e620d95d5cc040"
 
   bottle do
-    rebuild 1
-    sha256 "dafd62a44b446d75f43d5d331eb627af53f28539835153101990a248174c48dc" => :el_capitan
-    sha256 "160fc63e9cd6de38ef22c8363fa9f317069827df656e0ac012c9a93f9c921feb" => :yosemite
-    sha256 "024522f2635d4f6bc2e9d3899932e4313c626bc11caf2ffba3141c48caf006ac" => :mavericks
+    sha256 "25b09bc0dbb7c9550df75b6d6d84c7c5444bbb9ea508fb19f043f01b1c2b0f90" => :sierra
+    sha256 "53c9bc7b8884ac782dcd374d66192e9e60e33e478568593df029bf6e65667b31" => :el_capitan
+    sha256 "ffe25ca3a637bee0ff0bb49ce17283d2f64d6c1e1636db3c4c4de08badbd6bb0" => :yosemite
   end
 
   option "with-threads", "Build with multithreading support"
