@@ -4,6 +4,13 @@ class LedgerAT26 < Formula
   url "https://github.com/ledger/ledger/archive/v2.6.3.tar.gz"
   sha256 "d5c244343f054c413b129f14e7020b731f43afb8bdf92c6bdb702a17a2e2aa3a"
 
+  bottle do
+    cellar :any
+    sha256 "795cae0983cf60a2f920e37c5ce93eece903d105b7482ec82135310d8c4ce37c" => :sierra
+    sha256 "7b0e5ba6ae9eafc22c2d7e7f1c037110dc62da74884e35a23cf225afce062273" => :el_capitan
+    sha256 "e2d42c404f3f3a0826498fc9d323392021e4ded1c57d08c27f8e2ac22b5450d0" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-debug", "Build with debugging symbols enabled"
