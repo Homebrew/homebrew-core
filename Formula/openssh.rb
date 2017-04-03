@@ -31,12 +31,6 @@ class Openssh < Formula
     sha256 "3505c58bf1e584c8af92d916fe5f3f1899a6b15cc64a00ddece1dc0874b2f78f"
   end
 
-  # Patch for SSH tunnelling issues caused by launchd changes on Yosemite
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/d8b2d8c2/OpenSSH/launchd.patch"
-    sha256 "df61404042385f2491dd7389c83c3ae827bf3997b1640252b018f9230eab3db3"
-  end
-
   def install
     ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__"
 
@@ -59,5 +53,9 @@ class Openssh < Formula
     # potential to break scripts, so recreate it for now.
     # Debian have done the same thing.
     bin.install_symlink bin/"ssh" => "slogin"
+  end
+
+  test do
+    assert_match "OpenSSH_", shell_output("#{bin}/ssh -V 2>&1")
   end
 end
