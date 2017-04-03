@@ -4,6 +4,7 @@ class Gpgme < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.9.0.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.9.0.tar.bz2"
   sha256 "1b29fedb8bfad775e70eafac5b0590621683b2d9869db994568e6401f4034ceb"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,19 +13,12 @@ class Gpgme < Formula
     sha256 "a03901f80688be594dbf6943faaa1a72548634e2c52b5946fdd0cc12f846ab4f" => :yosemite
   end
 
-  depends_on "gnupg2"
+  depends_on "gnupg"
   depends_on "libgpg-error"
   depends_on "libassuan"
   depends_on "pth"
 
   def install
-    # Check these inreplaces with each release.
-    # At some point GnuPG will pull the trigger on moving to GPG2 by default.
-    inreplace "src/gpgme-config.in" do |s|
-      s.gsub! "@GPG@", "#{Formula["gnupg2"].opt_prefix}/bin/gpg"
-      s.gsub! "@GPGSM@", "#{Formula["gnupg2"].opt_prefix}/bin/gpgsm"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -37,7 +31,6 @@ class Gpgme < Formula
   end
 
   test do
-    output = shell_output("#{bin}/gpgme-config --get-gpg").strip
-    assert_equal "#{Formula["gnupg2"].opt_prefix}/bin/gpg", output
+    assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
   end
 end
