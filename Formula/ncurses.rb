@@ -7,9 +7,9 @@ class Ncurses < Formula
   revision 3
 
   bottle do
-    sha256 "0b9103ce95f809c4ac104679a0c44f54bc2374c517447da9eb55b85bcad7d675" => :sierra
-    sha256 "daf1454abfe7785a642cc614e1b671f1e95ea797d9d1d0daaa5e7cb3800e0b69" => :el_capitan
-    sha256 "a73f869e5dc82d43fa05cdb86200a8a7b7e04b4da1902e9cdf77c90a94d678ad" => :yosemite
+    sha256 "551937b3b407581f6cd20914d643600fd746333313a683c7b0dec841bfbb66df" => :sierra
+    sha256 "70443e997a0964193949192a4d7643f220c48ef34be9fa8341925e3c1cc11814" => :el_capitan
+    sha256 "f7e386ccd8420ddd2d60047c2781f80f7be74588d64d236d61b63fd452bd65d1" => :yosemite
   end
 
   keg_only :provided_by_osx
