@@ -34,7 +34,6 @@ class Python < Formula
   depends_on "openssl"
   depends_on "tcl-tk" => :optional
   depends_on "berkeley-db@4" => :optional
-  depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
 
   skip_clean "bin/pip", "bin/pip-2.7"
   skip_clean "bin/easy_install", "bin/easy_install-2.7"
@@ -159,7 +158,7 @@ class Python < Formula
     end
 
     if build.with? "tcl-tk"
-      tcl_tk = Formula["homebrew/dupes/tcl-tk"].opt_prefix
+      tcl_tk = Formula["tcl-tk"].opt_prefix
       cppflags << "-I#{tcl_tk}/include"
       ldflags  << "-L#{tcl_tk}/lib"
     end
@@ -270,8 +269,8 @@ class Python < Formula
     end
 
     if build.with? "tcl-tk"
-      include_dirs << Formula["homebrew/dupes/tcl-tk"].opt_include
-      library_dirs << Formula["homebrew/dupes/tcl-tk"].opt_lib
+      include_dirs << Formula["tcl-tk"].opt_include
+      library_dirs << Formula["tcl-tk"].opt_lib
     end
 
     cfg = lib_cellar/"distutils/distutils.cfg"
