@@ -23,7 +23,7 @@ class CrosstoolNg < Formula
   depends_on "gawk"
   depends_on "binutils"
   depends_on "libelf"
-  depends_on "homebrew/dupes/grep" => :optional
+  depends_on "grep" => :optional
   depends_on "homebrew/dupes/make" => :optional
 
   def install
