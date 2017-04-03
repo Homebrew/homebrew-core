@@ -7,9 +7,9 @@ class Libiconv < Formula
 
   bottle do
     cellar :any
-    sha256 "b3594af5de946fdbaa5d45a1ab2107b82f81e689ac15c13ad7ad309aef32780e" => :sierra
-    sha256 "731b3b0d234747a3fdd8b7152d46bba4d790acb55f411ac9970e448b43fe2457" => :el_capitan
-    sha256 "c3fd281560ecc86d2453d4916a67267207dff4c19baeb42ce2db8cfbfb52eadb" => :yosemite
+    sha256 "53766c5e51bc8e63b0e4c03bae4bcd22d414882eb484a4b55cb3ebe735e20a09" => :sierra
+    sha256 "1b7a98758ed53e484768a99cfdd0941bad8393ffce23d0f9650bbeff945da1f0" => :el_capitan
+    sha256 "19eb1ef341c6f45c08347bfb8d24e50d666a269523753862fa9a7a62691c0199" => :yosemite
   end
 
   keg_only :provided_by_osx
