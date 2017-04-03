@@ -5,6 +5,12 @@ class MapnikAT2 < Formula
   sha256 "9b30de4e58adc6d5aa8478779d0a47fdabe6bf8b166b67a383b35f5aa5d6c1b0"
   revision 4
 
+  bottle do
+    sha256 "07181d3a7481f2127ce851527918cb23eab6ee3058bab4d3ce59dc3aea63b12f" => :sierra
+    sha256 "2eeeb0066e3fcf317e5eada889297b659e513a5142bad69b5e44cd809d873cc1" => :el_capitan
+    sha256 "c96f4f7d7bbbf5bda62b501877b0bac1b285ed84074e67e09f84a75530ec6390" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   # compile error in bindings/python/mapnik_text_placement.cpp
