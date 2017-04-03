@@ -7,10 +7,9 @@ class Rsync < Formula
   sha256 "ecfa62a7fa3c4c18b9eccd8c16eaddee4bd308a76ea50b5c02a5840f09c0a1c2"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b6162623af9da6a56b2f9ae13d63458f6d2e787be3b3ae60c61de2ffe2b1337c" => :el_capitan
-    sha256 "d33c5a6b34683d3ec0d63403dd52c593d2f3ba50b16cbcfaac30b0b7b1774fcc" => :yosemite
-    sha256 "38151a295b599821506ef117ea2be5190499001268138b144411bc69b19c57e0" => :mavericks
+    sha256 "36a448b89f5d70680ea20f7235ff1003143f00734753d19e1d27c23515589671" => :sierra
+    sha256 "795d7a7ab57aa31fce67b053f5753e3b0b108f408ef95867fe03562b591d2eda" => :el_capitan
+    sha256 "93d8c8ae676a50d71b93b72ac4b2a54b91b3730308d20c303b2c1a0de238b78e" => :yosemite
   end
 
   depends_on "autoconf" => :build
