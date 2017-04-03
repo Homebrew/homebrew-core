@@ -1,8 +1,8 @@
 class GnomeRecipes < Formula
   desc "Formula for GNOME recipes"
   homepage "https://wiki.gnome.org/Apps/Recipes"
-  url "https://download.gnome.org/sources/gnome-recipes/1.0/gnome-recipes-1.0.0.tar.xz"
-  sha256 "d291a597c9d5882b03ba21297d6b4b04cd1748cabebe8f4c97b97f9ece3df5c8"
+  url "https://download.gnome.org/sources/gnome-recipes/1.0/gnome-recipes-1.0.4.tar.xz"
+  sha256 "f8f1f0f79121e91130a589b1c20ad4739d93d2253232ecdc3d4bc966db7efc45"
 
   bottle do
     sha256 "6f783969775cd0ebbfee608bf170fc1252749e476d5c5da9e5359f963945b15f" => :sierra
@@ -11,6 +11,7 @@ class GnomeRecipes < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "itstool" => :build
   depends_on "gtk+3"
   depends_on "gnome-icon-theme"
   depends_on "libcanberra"
