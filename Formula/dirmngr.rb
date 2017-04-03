@@ -23,7 +23,7 @@ class Dirmngr < Formula
   patch :p0 do
     # patch by upstream developer to fix an API incompatibility with libgcrypt >=1.6.0
     # causing immediate segfault in dirmngr. see https://bugs.gnupg.org/gnupg/issue1590
-    url "https://bugs.gnupg.org/gnupg/file419/dirmngr-pth-fix.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6965aa5/dirmngr/D186.diff"
     sha256 "0efbcf1e44177b3546fe318761c3386a11310a01c58a170ef60df366e5160beb"
   end
 
