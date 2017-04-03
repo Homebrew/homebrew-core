@@ -6,9 +6,9 @@ class Srm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3965dac338dab92d3c25306ec55dda0b1b75b78fb1f9060cd2e1c7b1e842f7a5" => :el_capitan
-    sha256 "bad23b6a0f2eebf37cc5b9f02f0001f5bf5af46fab55dd67aeb7b67796891b90" => :yosemite
-    sha256 "800ceccc9adecec1ceabfbc6c3d2aaa1da682db174ab02ae75cbcbba4cee1270" => :mavericks
+    sha256 "9143af437ad365572a4440c5e4cef405e2288f46978879383d93f2f47c206b0a" => :sierra
+    sha256 "d035ef3e47fa1d69a7c05f4e0224e72bcb71b90664dae66c358dd769ba0bbaae" => :el_capitan
+    sha256 "86c16f244e295dd1f3b81cabb162856250ad26f00778efc4e7afbb864334337d" => :yosemite
   end
 
   keg_only :provided_by_osx
