@@ -4,6 +4,13 @@ class LibpqxxAT3 < Formula
   url "http://pqxx.org/download/software/libpqxx/libpqxx-3.1.1.tar.gz"
   sha256 "ce443c7c515623b4a68de5f0657460344b6b6320982d8f8efc657c3746e1ee90"
 
+  bottle do
+    cellar :any
+    sha256 "4623a2180c2549b24afafdad9ba9f955dea86622a86a55f6fb5a2a8f51f0b940" => :sierra
+    sha256 "ebcbc05990beae2947235e4f6cdb1b79482e60c5cff45fb2fced7d61c8fd5fa8" => :el_capitan
+    sha256 "f94adb2b8bd5ad25bb7db51a79bdde7c167912bc4d2134822d70f1a45827d3bc" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
