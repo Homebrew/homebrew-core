@@ -5,6 +5,13 @@ class Libxml2AT27 < Formula
   mirror "ftp://xmlsoft.org/libxml2/libxml2-2.7.8.tar.gz"
   sha256 "cda23bc9ebd26474ca8f3d67e7d1c4a1f1e7106364b690d822e009fdc3c417ec"
 
+  bottle do
+    cellar :any
+    sha256 "66e8a7e3bba96c9eb7ae9b9f58626298167dfa7524a920bc925fcccaf8d8a9f3" => :sierra
+    sha256 "e162bd76f1ee1d35ccc3f0ab1ea961c3c3440bcf6a9006104bf15ccb8e5cf5df" => :el_capitan
+    sha256 "f555a3fe75c9bc5c2e9fabea9795d0b71c6baeae54822c752686fcbd65bc2fb8" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on :python => :optional
