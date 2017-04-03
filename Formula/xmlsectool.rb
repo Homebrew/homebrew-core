@@ -7,6 +7,7 @@ class Xmlsectool < Formula
   depends_on :java => "1.7+"
 
   def install
+    prefix.install "doc/LICENSE.TXT"
     rm_rf "doc"
     prefix.install_metafiles
     libexec.install Dir["*"]
