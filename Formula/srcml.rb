@@ -20,13 +20,13 @@ class Srcml < Formula
   patch :DATA
 
   test do
-    (testpath/"Hello.java").write <<-EOS
-int
+    (testpath/"Hello.java").write <<-EOS.undent
+      int
     EOS
-    (testpath/"Hello-result.xml").write <<-EOS
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="Hello.java"><expr_stmt><expr><name>int</name></expr></expr_stmt>
-</unit>
+    (testpath/"Hello-result.xml").write <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+      <unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="Hello.java"><expr_stmt><expr><name>int</name></expr></expr_stmt>
+      </unit>
     EOS
 
     do
