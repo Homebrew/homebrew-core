@@ -8,9 +8,9 @@ class Unzip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8033b925668362ae16383717f405e9a1aad8783c2df1e4d31efa447783a4d5eb" => :el_capitan
-    sha256 "d8a9017d5a40202210c90e33e3994785268fe40faad222375e1335bc8e8a06d0" => :yosemite
-    sha256 "d012cc29eb7447dfec5b1807f5b81aa622497d09bafd34a8329cddae91fecbee" => :mavericks
+    sha256 "4bee41add2ec8cc7cce9e2e5ba150c3f9e9589a9b2f24fca6289abd2bfee3d1e" => :sierra
+    sha256 "3535450cf720b5ad2fd76884339a190ad3e6f6083fbbd808c5a9337d805fc43a" => :el_capitan
+    sha256 "c27e7f987cb4778d67caa8385dd93aa3343678ad17b58c74c5c108ed178fa098" => :yosemite
   end
 
   keg_only :provided_by_osx
