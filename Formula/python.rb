@@ -24,6 +24,13 @@ class Python < Formula
     depends_on "sphinx-doc" => [:build, :optional]
   end
 
+  # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
+  # brew, which would lead to circular dependency.
+  if MacOS.version > :snow_leopard
+    option "with-sphinx-doc", "Build HTML documentation"
+    depends_on "sphinx-doc" => [:build, :optional]
+  end
+
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
 
