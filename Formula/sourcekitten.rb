@@ -7,10 +7,9 @@ class Sourcekitten < Formula
   head "https://github.com/jpsim/SourceKitten.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "f3d09b40d04778de80c0df113633bb6fb4f84a8e17a08705c5e5d9f406dead38" => :sierra
-    sha256 "f3ecbf8cbf53e5449e00cca7714bdbd5d622b43c3a8c052cca79b069f5ee6f44" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "4e1054f1fbbeef00f638d651068dba71bf9d5ec2f02233f4586e6c7ab0a76eea" => :sierra
+    sha256 "5f62aa959b32d994cdd10f832219f25f7ff623d674e65c27a36661296e2384fd" => :el_capitan
   end
 
   depends_on :xcode => ["6.0", :run]
