@@ -26,11 +26,11 @@ class Diffstat < Formula
       --- a/diffstat.rb
       +++ b/diffstat.rb
       @@ -2,9 +2,8 @@
-      -  url 'http://invisible-island.net/datafiles/release/diffstat.tar.gz'
+      -  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.58.orig.tar.gz'
       -  version '1.58'
-      -  sha1 '7a67ecb996ea65480bd0b9db33d8ed458e5f2a24'
-      +  url 'ftp://invisible-island.net/diffstat/diffstat-1.58.tgz'
-      +  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
+      -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
+      +  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
+      +  sha256 '25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee'
     EOS
     output = `#{bin}/diffstat diff.diff`
     diff = <<-EOS
