@@ -6,10 +6,10 @@ class Bzip2 < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "ceb1aab63302975659889ec645a55aaf4a60d93f296765eba2066c15c80ecb03" => :yosemite
-    sha256 "e8e0614bfb9f2db7d42d3d7111e5d0f92ab4694a6a1717b1596a46ef5daf19cf" => :mavericks
-    sha256 "524193536215c58e833703505bad765ce3a29388cec34c29c611f800a53f0874" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "8911d7904862dc4930d024d0459390c510566241015bc06ec97f9e3fbb869101" => :sierra
+    sha256 "a22f768ce625a56cc2f4b3c7f08f4b1ba30f79865b786dc4c57a97f672badff4" => :el_capitan
+    sha256 "1468f967e8a35954509a8beb40bd29b60b730db158054aeddadc7586890737e8" => :yosemite
   end
 
   keg_only :provided_by_osx
