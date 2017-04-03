@@ -25,9 +25,24 @@ class Pass < Formula
   end
 
   test do
-    Gpg.create_test_key(testpath)
-    system bin/"pass", "init", "Testing"
-    system bin/"pass", "generate", "Email/testing@foo.bar", "15"
-    assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
+    (testpath/"batch.gpg").write <<-EOS.undent
+      Key-Type: RSA
+      Key-Length: 2048
+      Subkey-Type: RSA
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %no-protection
+      %commit
+    EOS
+    begin
+      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system bin/"pass", "init", "Testing"
+      system bin/"pass", "generate", "Email/testing@foo.bar", "15"
+      assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
+    ensure
+      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+    end
   end
 end
