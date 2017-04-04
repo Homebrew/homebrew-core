@@ -1,8 +1,8 @@
 class Gotags < Formula
   desc "ctags-compatible tag generator for Go"
   homepage "https://github.com/jstemmer/gotags"
-  url "https://github.com/jstemmer/gotags/archive/v1.4.0.tar.gz"
-  sha256 "7d186af067fbd998a92fd04ac5909b7e9ff15e693fbda666a160e280e47fdb7b"
+  url "https://github.com/jstemmer/gotags/archive/v1.4.1.tar.gz"
+  sha256 "2df379527eaa7af568734bc4174febe7752eb5af1b6194da84cd098b7c873343"
 
   head "https://github.com/jstemmer/gotags.git"
 
