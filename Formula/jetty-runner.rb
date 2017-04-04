@@ -15,4 +15,8 @@ class JettyRunner < Formula
     bin.mkpath
     bin.write_jar_script libexec/"jetty-runner-#{version}.jar", "jetty-runner"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/jetty-runner --version")
+  end
 end
