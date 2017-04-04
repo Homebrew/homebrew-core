@@ -3,7 +3,7 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 12
+  revision 13
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
@@ -26,7 +26,7 @@ class Pdf2htmlex < Formula
   depends_on "libtool" => :run
   depends_on "cairo"
   depends_on "freetype"
-  depends_on "giflib"
+  depends_on "giflib@4"
   depends_on "glib"
   depends_on "pango"
   depends_on "gettext"
