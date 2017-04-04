@@ -2,8 +2,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.3.0/bit-0.3.0-brew.tar.gz"
-  sha256 "e328c05abb0327e2691b1f1c30bae7a71a9db52cf1aa99f7fa55f6de6dc9330d"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.5.0/bit-0.5.0-brew.tar.gz"
+  sha256 "d276985d777657a4c9e5b3d5556cf5d5a05d3faf5ca88fcc993563a8b445aa5b"
 
   bottle do
     sha256 "003e4ce34fd481171e0dc932248d61ae115e562387afeffd2b409c8e110e14f1" => :sierra
@@ -11,11 +11,11 @@ class Bit < Formula
     sha256 "54a0cfc3a89d9b6eeeedf2d8f8e9c091242ca73b6f7a91edfc9ee48e6f7ad185" => :yosemite
   end
 
-  depends_on "node"
-
   def install
-    system "npm", "install", "-g", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    libexec.install Dir["*"]
+    bin.install_symlink Dir["#{libexec}/bin/bit"]
+    bin.install_symlink Dir["#{libexec}/bin/bit.js"]
+    bin.install_symlink "#{libexec}/bin/node" => "bitNode"
   end
 
   test do
