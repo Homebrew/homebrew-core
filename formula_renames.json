@@ -48,6 +48,7 @@
   "gcc@6": "gcc",
   "geode": "apache-geode",
   "giflib5": "giflib@5",
+  "giflib@5": "giflib",
   "glfw2": "glfw@2",
   "glfw3": "glfw",
   "gmp4": "gmp@4",
