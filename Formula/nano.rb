@@ -1,8 +1,19 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v2.7/nano-2.7.4.tar.gz"
-  sha256 "23ffc2de52d687739fed6dc2fc94df36aa7da7bb52c8740c523fdd7336fdbc8c"
+
+  stable do
+    url "https://www.nano-editor.org/dist/v2.8/nano-2.8.0.tar.gz"
+    sha256 "0b7b434805e5e343d2fef75804fc61c59323641d8c8e63d3027b4ac442689136"
+
+    # Remove for > 2.8.0
+    # Fix "error: use of undeclared identifier 'REG_ENHANCED'"
+    # Upstream commit from 4 Apr 2017 http://git.savannah.gnu.org/cgit/nano.git/commit/?id=cc91ee603c24429375ace5d4b55d85c396668c2e
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/45f1329/nano/configure-ignore-reg-enhanced-test.diff"
+      sha256 "20e988cd2406da8009c3f5f9ddde206d14e8586bd744bb7bf75326ba59eba653"
+    end
+  end
 
   bottle do
     sha256 "b9b7985beeaab3ab7ecb03d563c9aab3c4372ccf127ff26f78e8ce8f94ec41b3" => :sierra
