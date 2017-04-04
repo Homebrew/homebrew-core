@@ -21,7 +21,7 @@ class AprUtil < Formula
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
-  depends_on "homebrew/dupes/openldap" => :optional
+  depends_on "openldap" => :optional
 
   def install
     # Stick it in libexec otherwise it pollutes lib with a .exp file.
