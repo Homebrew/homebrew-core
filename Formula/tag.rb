@@ -17,6 +17,7 @@ class Tag < Formula
   def install
     system "make"
     bin.install "bin/tag"
+    man1.install "Tag/tag.1"
   end
 
   test do
