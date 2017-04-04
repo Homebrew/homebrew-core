@@ -13,7 +13,7 @@ class Blitz < Formula
   end
 
   head do
-    url "https://github.com/blitzpp/blitz.git", :using => :git
+    url "https://github.com/blitzpp/blitz.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
