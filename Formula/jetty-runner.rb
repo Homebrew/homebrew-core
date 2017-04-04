@@ -17,8 +17,21 @@ class JettyRunner < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/jetty-runner --version 2>&1", 1)
-    assert_match "ERROR: No Contexts defined", shell_output("#{bin}/jetty-runner 2>&1", 1)
-    assert_match /Context '.*\/test.war' does not exist/, shell_output("#{bin}/jetty-runner test.war 2>&1", 1)
+    ENV.append "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
+    touch "#{testpath}/test.war"
+
+    begin
+      pid = fork do
+        exec "#{bin}/jetty-runner test.war"
+      end
+      sleep 5
+
+      output = shell_output("curl -I http://localhost:8080")
+      assert_match %r{HTTP\/1\.1 200 OK}, output
+    ensure
+      # Process.kill "TERM", pid
+      Process.kill 9, pid
+      Process.wait pid
+    end
   end
 end
