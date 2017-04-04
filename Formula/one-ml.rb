@@ -19,11 +19,11 @@ class OneMl < Formula
   def install
     system "make"
     bin.install "1ml"
-    (share/"one-ml/stdlib").install Dir.glob("*.1ml")
+    (pkgshare/"stdlib").install Dir.glob("*.1ml")
     doc.install "README.txt"
   end
 
   test do
-    system "#{bin}/1ml", "#{share}/one-ml/stdlib/prelude.1ml", "#{share}/one-ml/stdlib/paper.1ml"
+    system "#{bin}/1ml", "#{pkgshare}/stdlib/prelude.1ml", "#{pkgshare}/stdlib/paper.1ml"
   end
 end

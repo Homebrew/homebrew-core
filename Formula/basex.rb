@@ -1,9 +1,9 @@
 class Basex < Formula
   desc "Light-weight XML database and XPath/XQuery processor"
   homepage "http://basex.org"
-  url "http://files.basex.org/releases/8.6/BaseX86.zip"
-  version "8.6"
-  sha256 "1533b24f874402fa9183f99f101914313f953712391240bec3142e9441620505"
+  url "http://files.basex.org/releases/8.6.1/BaseX861.zip"
+  version "8.6.1"
+  sha256 "2f0c64aa1049a1a75aec0e3ec2ae40b0286077743d817c82e0c0471c5f9d6bb6"
 
   bottle :unneeded
 

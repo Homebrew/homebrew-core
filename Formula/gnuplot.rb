@@ -1,15 +1,13 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
-  sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
-  revision 2
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
+  sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
 
   bottle do
-    rebuild 1
-    sha256 "a59e20d92f1f3791406ca9c38c1eba7b131b84deb6511d2ae8a598f8145987fe" => :sierra
-    sha256 "83629a50b7d5c36ed98508984e8ed91ca21a6e7e43540dbc5774c8756a919d3e" => :el_capitan
-    sha256 "05ee80125a10be3faa2150e2ce85d236525ed7a44e7ef839ceaaf0e8cd045ba8" => :yosemite
+    sha256 "396cd2d3c9efaec862ee85584265d581e95a7e9baacd86a49b63a373282168a4" => :sierra
+    sha256 "eab3867b1f875653987cdfe0c02236a7c6e5cdf70f5d2bf1f89c67782f8672bd" => :el_capitan
+    sha256 "fe94c99facb225000db381a47d934daa243c48815195123db10d14628e92335c" => :yosemite
   end
 
   head do
@@ -24,7 +22,6 @@ class Gnuplot < Formula
   option "without-lua", "Build without the lua/TikZ terminal"
   option "with-test", "Verify the build with make check"
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
-  option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
   option "without-gd", "Build without gd based terminals"
   option "with-libcerf", "Build with libcerf support"
@@ -39,8 +36,6 @@ class Gnuplot < Formula
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
-  deprecated_option "latex" => "with-tex"
-  deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
   depends_on "gd" => :recommended
@@ -50,7 +45,6 @@ class Gnuplot < Formula
   depends_on "pdflib-lite" => :optional
   depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
-  depends_on :tex => :optional
   depends_on :x11 => :optional
 
   needs :cxx11 if build.with? "qt@5.7"
@@ -90,6 +84,7 @@ class Gnuplot < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
+      --without-latex
     ]
 
     args << "--without-libcerf" if build.without? "libcerf"
@@ -116,12 +111,6 @@ class Gnuplot < Formula
     args << "--without-lua" if build.without? "lua"
     args << ((build.with? "aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << ((build.with? "x11") ? "--with-x" : "--without-x")
-
-    if build.with? "tex"
-      args << "--with-latex"
-    else
-      args << "--without-latex"
-    end
 
     system "./prepare" if build.head?
     system "./configure", *args

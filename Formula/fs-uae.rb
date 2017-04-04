@@ -1,6 +1,6 @@
 class FsUae < Formula
   desc "Amiga emulator"
-  homepage "http://fs-uae.net/"
+  homepage "https://fs-uae.net/"
 
   stable do
     url "https://fs-uae.net/stable/2.8.1u3/fs-uae-2.8.1u3.tar.gz"

@@ -1,14 +1,13 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.11.0/pidgin-2.11.0.tar.bz2"
-  sha256 "f72613440586da3bdba6d58e718dce1b2c310adf8946de66d8077823e57b3333"
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.12.0/pidgin-2.12.0.tar.bz2"
+  sha256 "8c3d3536d6d3c971bd433ff9946678af70a0f6aa4e6969cc2a83bb357015b7f8"
 
   bottle do
-    sha256 "af3ead310f0c64642b0e231c2efc30d6f9a6f3fc8041ac1074f0bf0c0876cc7b" => :sierra
-    sha256 "52962570a3c7ad641a990054e48e677749ff787792ae4baef4b8221b30cb23bd" => :el_capitan
-    sha256 "8bcee9a4d3b7a5eb75956fae72e99da7278aab11f4da29b543d76459709e4057" => :yosemite
-    sha256 "0cc25abde42aca098cd2009df81044aa15b5bf02996f9c23a9fe9ea159f315ac" => :mavericks
+    sha256 "b6e4a15391f21644ec05dd182e7c5b54c6f0befd554e28e13e35bfcb87806e9c" => :sierra
+    sha256 "879278d3b019f915f5618cff2f6428d7efe05b2a668ade0694c2e64861ec4bdc" => :el_capitan
+    sha256 "5b47e2398c38fb3fbf5e5340584b16bdf8f87f6ef300799cf8cde821417dd8a9" => :yosemite
   end
 
   option "with-perl", "Build Pidgin with Perl support"

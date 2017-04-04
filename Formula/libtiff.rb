@@ -13,7 +13,6 @@ class Libtiff < Formula
     sha256 "3d22664e9f1c12b123913bcba3306fe922a860c2399fd33e778f86f58ffe6151" => :yosemite
   end
 
-  option :universal
   option :cxx11
   option "with-xz", "Include support for LZMA compression"
 
@@ -46,7 +45,6 @@ class Libtiff < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
     args = %W[

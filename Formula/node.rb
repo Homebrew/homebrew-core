@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.7.1/node-v7.7.1.tar.xz"
-  sha256 "965fc82aa767223be574e41d7f78ec4bd2ab3da619cef1256e46c30d053b7611"
+  url "https://nodejs.org/dist/v7.8.0/node-v7.8.0.tar.xz"
+  sha256 "6821aaee58bbc8bc8d08fec6989a42278b725a21382500dc20fd9d9f71398f02"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "99458fb39a994527a59b9dae4cc1d6e71c298dba0f0a2002c77813b4ca4a332a" => :sierra
-    sha256 "9a99bab55d2318331e92138e6ecef498ef0d01e2cac1e3c86d923bec2dea27bb" => :el_capitan
-    sha256 "0260ed4345dd7c8e3e2681e36877509011c0962159881624b6a0b5f5dea2bf7a" => :yosemite
+    sha256 "95613cb9796550d8aadc24ca82f55f8c5d7c4eb89815b1fb7e1cfd65e998241f" => :sierra
+    sha256 "0a6ab520d75cb99855b8b82dd229ba19cfa89561d53bd73f623dd6ad1ac60d7b" => :el_capitan
+    sha256 "bd6c53b86bd62f50976f5c4ebc73c633273210c05f01aede33fcf896d74153d5" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -24,6 +24,9 @@ class Node < Formula
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
 
+  conflicts_with "node@0.12", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
+
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
   fails_with :gcc_4_0
@@ -36,8 +39,8 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
-    sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
+    url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
+    sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
   end
 
   def install

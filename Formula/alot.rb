@@ -3,15 +3,15 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  url "https://github.com/pazz/alot/archive/0.4.tar.gz"
-  sha256 "22de78c1e2d427e8ed2d9c2dd33799cde5cde822de2e4b2902624fe8049d816a"
+  url "https://github.com/pazz/alot/archive/0.5.1.tar.gz"
+  sha256 "6a74fc9e8069a1d24da27f3d06981fc6871d386ee14578687578d62f21185d71"
   head "https://github.com/pazz/alot.git"
 
   bottle do
     cellar :any
-    sha256 "a3fd3c011bf0f94663a8fe9e943a272735c0ae4876461a1c86eb4be74e75fd17" => :sierra
-    sha256 "8421f15108013104376df4db861e35730f752ded5897e3bb2566014623ee2022" => :el_capitan
-    sha256 "1b289b616c47a68ed6cd782b22054d720fc415c3ed05823304a5ad7eb2d5067c" => :yosemite
+    sha256 "e61395294016c2099770ebfa122323390c4ae18425c43ed4111ca27920f29eae" => :sierra
+    sha256 "b6285551f360aec2963aaa4ccf880f232f6a787a7e8777c88e348afd8a4fa7ae" => :el_capitan
+    sha256 "868b6e9e5e7202f07cb187ce5e741db34566594d71640929c2f43befc7882a30" => :yosemite
   end
 
   option "without-sphinx-doc", "Don't build documentation"

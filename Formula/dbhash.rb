@@ -1,19 +1,18 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2017/sqlite-src-3170000.zip"
-  version "3.17.0"
-  sha256 "86754bee6bcaf1f2a6bf4a02676eb3a43d22d4e5d8339e217424cb2be6b748c3"
+  url "https://www.sqlite.org/2017/sqlite-src-3180000.zip"
+  version "3.18.0"
+  sha256 "eab4d137abd5aa1164244a5d558c9a02122071daf36984b236f8441d749b9ba6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "735393656e4cca0a6ac15bf647aeed698dd57a59d7ba68bbd687e9979a72869c" => :sierra
-    sha256 "c7463aa4e9afab28ea1f4349831903b941cc40c78b8d40b3e94e1ba73ce0941f" => :el_capitan
-    sha256 "74dc17ea29958525c00c9b01632c1541b97fb098e7aba409564268827cb1808d" => :yosemite
+    sha256 "e264827c9d0117b9da577f66a320bee1ff59eb2fd6052a72ce601483363e3bf8" => :sierra
+    sha256 "7b8e197c46792f3b4314273d3d7466a6a185643b8881df2b2d46b6f0be828bb4" => :el_capitan
+    sha256 "4ddf4f37ab2b2cc9a4e422cd94c15c3a076127f50f1d6855ec66265ef2e34710" => :yosemite
   end
 
   def install
-    ENV.append "CPPFLAGS", "-DSQLITE_DISABLE_INTRINSIC" if MacOS.version <= :yosemite && ENV.compiler == :clang
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "dbhash"
     bin.install "dbhash"

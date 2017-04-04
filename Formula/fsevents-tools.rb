@@ -1,7 +1,7 @@
 class FseventsTools < Formula
   desc "Command-line utilities for the FSEvents API"
-  homepage "http://geoff.greer.fm/fsevents/"
-  url "http://geoff.greer.fm/fsevents/releases/fsevents-tools-1.0.0.tar.gz"
+  homepage "https://geoff.greer.fm/fsevents/"
+  url "https://geoff.greer.fm/fsevents/releases/fsevents-tools-1.0.0.tar.gz"
   sha256 "498528e1794fa2b0cf920bd96abaf7ced15df31c104d1a3650e06fa3f95ec628"
 
   bottle do

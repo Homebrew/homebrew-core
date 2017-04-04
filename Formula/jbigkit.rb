@@ -40,11 +40,11 @@ class Jbigkit < Formula
       (prefix/"src").install Dir["j*.c", "j*.txt"]
       include.install Dir["j*.h"]
     end
-    (share/"jbigkit").install "examples", "contrib"
+    pkgshare.install "examples", "contrib"
   end
 
   test do
-    system "#{bin}/jbgtopbm #{share}/jbigkit/examples/ccitt7.jbg | #{bin}/pbmtojbg - testoutput.jbg"
-    system "/usr/bin/cmp", share/"jbigkit/examples/ccitt7.jbg", "testoutput.jbg"
+    system "#{bin}/jbgtopbm #{pkgshare}/examples/ccitt7.jbg | #{bin}/pbmtojbg - testoutput.jbg"
+    system "/usr/bin/cmp", pkgshare/"examples/ccitt7.jbg", "testoutput.jbg"
   end
 end

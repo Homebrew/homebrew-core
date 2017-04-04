@@ -1,14 +1,14 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz"
-  sha256 "b0c5f904f685e32d9232f7bdcbece9819a892929063b6e385414ad2dd6a23622"
+  url "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz"
+  sha256 "a01810ddfcec216bcdb357a84bfaafdfaa0ca42bbdaa4cb7ff74f5a9961e4041"
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
-    sha256 "b9b1de457689c84376fb8c35c67b0de4745ccb573ddc5f8ce0257b3b73358917" => :sierra
-    sha256 "8588e0f338a9c2187569cfd63180a7f6e4124929f0402f2e2a9e3337d23f9d94" => :el_capitan
-    sha256 "6db855fa31e33ceed7703f249f6c0e098e74db05294d7191cf175f0a4bffb1e2" => :yosemite
+    sha256 "23497e9d8b42213b97fd6d4a3fc4a081dc4ae95ff1fe036f6f0b7777b4ff3903" => :sierra
+    sha256 "417acd394c737b79fabd87767d6fcd7fad67b08191e5ee41c10beb2b24d52461" => :el_capitan
+    sha256 "ed333f6d95a0eead4f69a226cb5a0886e0837e56dfe11d8d05042fc2730ad5e5" => :yosemite
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
@@ -85,6 +85,7 @@ class Python3 < Formula
       --datadir=#{share}
       --enable-framework=#{frameworks}
       --without-ensurepip
+      --with-dtrace
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang

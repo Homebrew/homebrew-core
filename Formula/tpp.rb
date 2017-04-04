@@ -15,7 +15,7 @@ class Tpp < Formula
   depends_on "figlet" => :optional
 
   resource "ncurses-ruby" do
-    url "https://downloads.sf.net/project/ncurses-ruby.berlios/ncurses-ruby-1.3.1.tar.bz2"
+    url "https://downloads.sourceforge.net/project/ncurses-ruby.berlios/ncurses-ruby-1.3.1.tar.bz2"
     sha256 "dca8ce452e989ce1399cb683184919850f2baf79e6af9d16a7eed6a9ab776ec5"
   end
 

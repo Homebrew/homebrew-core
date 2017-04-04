@@ -1,15 +1,16 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
-  homepage "http://redis.io/"
+  homepage "https://redis.io/"
   url "http://download.redis.io/releases/redis-3.2.8.tar.gz"
   sha256 "61b373c23d18e6cc752a69d5ab7f676c6216dc2853e46750a8c4ed791d68482c"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d936f499fb528c4fbfe6c543f16c19d952b1ac043363234b29bd918d11896ab" => :sierra
-    sha256 "f60eebc6ffe63fe1c954d41046b546a3d6b258f149b823d3dbbef10f02a9ce43" => :el_capitan
-    sha256 "bb620833157655d9cc021174cceb21fc9e74966cd8f19e411df6832e89ebcba1" => :yosemite
+    rebuild 2
+    sha256 "3166b2859236788d20d85dc65c64a103fda930ac3b9c32c8c768a8026a89dcba" => :sierra
+    sha256 "6e65bc7cb9e10bcd43c42eaca4713e454e9159e29d82bfff6a2143ab14be1b30" => :el_capitan
+    sha256 "101be1a5a2a5bb5842d5b8329d8988e68737e61b735310fd770db51810c6924b" => :yosemite
   end
 
   devel do
@@ -79,5 +80,6 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
+    %w[run db/redis log].each { |p| assert (var/p).exist?, "#{var/p} doesn't exist!" }
   end
 end

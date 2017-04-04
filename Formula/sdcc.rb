@@ -4,7 +4,7 @@ class Sdcc < Formula
   url "https://downloads.sourceforge.net/project/sdcc/sdcc/3.6.0/sdcc-src-3.6.0.tar.bz2"
   sha256 "e85dceb11e01ffefb545ec389da91265130c91953589392dddd2e5ec0b7ca374"
 
-  head "https://sdcc.svn.sourceforge.net/svnroot/sdcc/trunk/sdcc/"
+  head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   bottle do
     sha256 "b5b8e259cf24cf913201fa4db9da37a3a7a7464dd351e9aa2e3ce5deb2221db2" => :sierra

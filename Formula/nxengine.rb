@@ -1,7 +1,7 @@
 class Nxengine < Formula
   desc "Rewrite of Cave Story (Doukutsu Monogatari)"
   homepage "https://nxengine.sourceforge.io/"
-  url "http://nxengine.sourceforge.net/dl/nx-src-1006.tar.bz2"
+  url "https://nxengine.sourceforge.io/dl/nx-src-1006.tar.bz2"
   version "1.0.0.6"
   sha256 "cf9cbf15dfdfdc9936720a714876bb1524afbd2931e3eaa4c89984a40b21ad68"
 

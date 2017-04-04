@@ -3,7 +3,6 @@ class Backupninja < Formula
   homepage "https://labs.riseup.net/code/projects/backupninja"
   url "https://labs.riseup.net/code/attachments/download/275/backupninja-1.0.1.tar.gz"
   sha256 "10fa5dbcd569a082b8164cd30276dd04a238c7190d836bcba006ea3d1235e525"
-  head "git://labs.riseup.net/backupninja.git"
 
   bottle do
     cellar :any_skip_relocation

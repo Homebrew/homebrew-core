@@ -3,14 +3,14 @@ require "language/node"
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.25.0.tar.gz"
-  sha256 "b3c9f732d76de2375f1b2b11dbcbd8b907219061ff31fb004620e3793d38e0fb"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.27.0.tar.gz"
+  sha256 "ba43efa73a2d0b8b29cfe50a5477f3ef37a7f370041fa7f7b359fd9cd140a305"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d8b193a2800a6d3a0de6bb51cf19d9cd56ca7f4da2e9720a556508c4a9b1865" => :sierra
-    sha256 "03f053725fa0718078c46f99090ab4a353137e20d357942f88f48271c14a62c9" => :el_capitan
-    sha256 "0e9c085a36d650a6defbab0a384fd77eee11c5642a3d9de1a4abd2fb36afd5ad" => :yosemite
+    sha256 "3865cc544f6d1005e530e9892e76de21e28d51cc90b2967bed11ab6d4533e025" => :sierra
+    sha256 "5429d87159a90f8e3c831f4091066b2ebdb2ac25aa6ec76d5642baee25cee011" => :el_capitan
+    sha256 "95b887cce43fbbdd208996cfe7dfe2be766b59ae63fe4c8ec5e756a96ba31fae" => :yosemite
   end
 
   depends_on "elixir" => :build
@@ -23,7 +23,7 @@ class Elixirscript < Formula
     system "mix", "local.rebar", "--force"
     system "mix", "deps.get"
     system "npm", "install", *Language::Node.local_npm_install_args
-    system "mix", "std_lib"
+    system "npm", "run", "build"
     system "mix", "clean"
     system "mix", "compile"
     system "mix", "dist"
@@ -39,7 +39,7 @@ class Elixirscript < Formula
   end
 
   test do
-    output = shell_output("#{bin}/elixirscript -ex :keith")
-    assert_equal "Symbol.for('keith')", output.strip
+    output = shell_output("#{bin}/elixirscript --elixir :keith")
+    assert_match "Symbol.for('keith')", output
   end
 end

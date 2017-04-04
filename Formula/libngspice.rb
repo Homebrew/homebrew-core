@@ -1,6 +1,6 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
-  homepage "https://ngspice.sourceforge.io"
+  homepage "https://ngspice.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/26/ngspice-26.tar.gz"
   sha256 "51e230c8b720802d93747bc580c0a29d1fb530f3dd06f213b6a700ca9a4d0108"
 
@@ -12,7 +12,7 @@ class Libngspice < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/ngspice/ngspice"
+    url "https://git.code.sf.net/p/ngspice/ngspice.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

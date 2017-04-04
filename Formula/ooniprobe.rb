@@ -5,11 +5,12 @@ class Ooniprobe < Formula
   homepage "https://ooni.torproject.org/"
   url "https://pypi.python.org/packages/ea/31/f6ffff21b406b5c38b78f00b38897a48baae30eef0469089fb1330d86218/ooniprobe-2.1.0.tar.gz"
   sha256 "867f51fcee8d84f68c42dea24c3384736a1e0cf153e1f18254e91682ca6e927a"
+  revision 1
 
   bottle do
-    sha256 "dba0edcdb9fc579dd9986d2a401606dbd56d30d314ad69430acebd6a7fcf913e" => :sierra
-    sha256 "32f7919942239715feee64c56d7dde35b4eaa0ce13923f0d162049d27553c056" => :el_capitan
-    sha256 "bf83530bdc3dec0c687e275a0fc2138aa4710760f43bfeea763ba9addc1c433e" => :yosemite
+    sha256 "34507888fb4b35fc8f4bbe16ee9a62a4572bd4d1142db5504898ac249e1a2edd" => :sierra
+    sha256 "bfa8df9cf4c8e45a5067e4b6fc267a70a6c606ab61e23a59b1a0790599fc8444" => :el_capitan
+    sha256 "5e29f0944867492446a9f1557d331f35a150a1e69e3a134557dd1b4886b85527" => :yosemite
   end
 
   depends_on "geoip"
@@ -22,8 +23,8 @@ class Ooniprobe < Formula
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/0a/f3/686af8873b70028fccf67b15c78fd4e4667a3da995007afc71e786d61b0a/cffi-1.8.3.tar.gz"
-    sha256 "c321bd46faa7847261b89c0469569530cad5a41976bb6dba8202c0159f476568"
+    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
+    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
   end
 
   resource "enum34" do
@@ -32,8 +33,8 @@ class Ooniprobe < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
-    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
+    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pycparser" do
@@ -42,14 +43,29 @@ class Ooniprobe < Formula
   end
   # end "these 4"
 
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+  end
+
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/71/1682316894ed80b362b9102e7a10997136d8dc1213c36a9f0515c451373a/attrs-16.2.0.tar.gz"
-    sha256 "136f2ec0f94ec77ff2990830feee965d608cab1e8922370e3abdded383d52001"
+    url "https://files.pythonhosted.org/packages/01/b0/3ac73bf6df716a38568a16f6a9cbc46cc9e8ed6fe30c8768260030db55d4/attrs-16.3.0.tar.gz"
+    sha256 "80203177723e36f3bbe15aa8553da6e80d47bfe53647220ccaa9ad7a5e473ccc"
+  end
+
+  resource "Automat" do
+    url "https://files.pythonhosted.org/packages/73/5a/e5dc9a87e5795ba164e012f2b1cd659e31b722355b79e934e0af892d0493/Automat-0.5.0.tar.gz"
+    sha256 "4889ec6763377432ec4db265ad552bbe956768ea3fff39014855308ba79dd7c2"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/4f/75/e1bc6e363a2c76f8d7e754c27c437dbe4086414e1d6d2f6b2a3e7846f22b/certifi-2016.9.26.tar.gz"
-    sha256 "8275aef1bbeaf05c53715bfc5d8569bd1e04ca1e8e69608cc52bcaac2604eb19"
+    url "https://files.pythonhosted.org/packages/b6/fa/ca682d5ace0700008d246664e50db8d095d23750bb212c0086305450c276/certifi-2017.1.23.tar.gz"
+    sha256 "81877fb7ac126e9215dfb15bfef7115fdc30e798e0013065158eed0707fd99ce"
   end
 
   resource "constantly" do
@@ -58,8 +74,8 @@ class Ooniprobe < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
-    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "GeoIP" do
@@ -68,8 +84,8 @@ class Ooniprobe < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/fb/84/8c27516fbaa8147acd2e431086b473c453c428e24e8fb99a1d89ce381851/idna-2.1.tar.gz"
-    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "incremental" do
@@ -83,13 +99,18 @@ class Ooniprobe < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/bb/26/3b64955ff73f9e3155079b9ed31812afdfa5333b5c76387454d651ef593a/ipaddress-1.0.17.tar.gz"
-    sha256 "3a21c5a15f433710aaa26f1ae174b615973a25182006ae7f9c26de151cd51716"
+    url "https://files.pythonhosted.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
+    sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
   end
 
   resource "klein" do
-    url "https://files.pythonhosted.org/packages/32/ab/5aae3b335fef4ce04595c67b74280b54b18fdd85ffd653bc6f7ae61b35b1/klein-15.3.1.tar.gz"
-    sha256 "e90f2d9d3fe3a37be35821c886d8eb35d0cb5e4bd6d798513215b260adbe82c2"
+    url "https://files.pythonhosted.org/packages/ff/95/3104e55ea9128d3fefe14ea5dbcd73ccfe21708b99defaaadc1e87f41a4a/klein-17.2.0.tar.gz"
+    sha256 "1b5b27899bb694a741063f79cd8de27a1fdcfa1d021d47a583bbee119d2f4fbc"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
   end
 
   resource "Parsley" do
@@ -105,6 +126,11 @@ class Ooniprobe < Formula
   resource "pyOpenSSL" do
     url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
     sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "pypcap" do
@@ -133,8 +159,8 @@ class Ooniprobe < Formula
   end
 
   resource "Twisted" do
-    url "https://files.pythonhosted.org/packages/ee/50/224854b4730f4daa941b8bcc4834a15bfee3012dad663fa760a89210df2c/Twisted-16.5.0.tar.bz2"
-    sha256 "0207d88807482fa670a84926590e163a2a081a29745de34c5a6dc21066abae73"
+    url "https://files.pythonhosted.org/packages/d2/5d/ed5071740be94da625535f4333793d6fd238f9012f0fee189d0c5d00bd74/Twisted-17.1.0.tar.bz2"
+    sha256 "dbf211d70afe5b4442e3933ff01859533eba9f13d8b3e2e1b97dc2125e2d44dc"
   end
 
   resource "txsocksx" do
@@ -143,18 +169,18 @@ class Ooniprobe < Formula
   end
 
   resource "txtorcon" do
-    url "https://files.pythonhosted.org/packages/42/fc/de34ee8bc9620498272cba765e8b8eeabffcc346aa83f8d0d441616d5dd6/txtorcon-0.17.0.tar.gz"
-    sha256 "5e321387ab56f22d184b18d91a60c30dd1f72575d9e32ff3614ef911bce49daa"
+    url "https://files.pythonhosted.org/packages/03/23/4453ab8728c84963cf293d5180b9f529bb10bf8285031c4681e2621b175f/txtorcon-0.18.0.tar.gz"
+    sha256 "12be80f1d5e2893378c6e8c752cf159479f868f8424e16b34b75cd679a0ab171"
   end
 
   resource "Werkzeug" do
-    url "https://files.pythonhosted.org/packages/43/2e/d822b4a4216804519ace92e0368dcfc4b0b2887462d852fdd476b253ecc9/Werkzeug-0.11.11.tar.gz"
-    sha256 "e72c46bc14405cba7a26bd2ce28df734471bc9016bc8b4cb69466c2c14c2f7e5"
+    url "https://files.pythonhosted.org/packages/13/a2/c4f2a1e1e9239cd979de00a2d7e0008559c46d920e9842e9b8063c5e6bf5/Werkzeug-0.12.tar.gz"
+    sha256 "f007848ed997101cb5c09a47e46c0b0b6f193d0f8a01cd2af920d77bf1ab4e68"
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/38/1b/d55c39f2cf442bd9fb2c59760ed058c84b57d25c680819c25f3aff741e1f/zope.interface-4.3.2.tar.gz"
-    sha256 "6a0e224a052e3ce27b3a7b1300a24747513f7a507217fcc2a4cb02eb92945cee"
+    url "https://files.pythonhosted.org/packages/44/af/cea1e18bc0d3be0e0824762d3236f0e61088eeed75287e7b854d65ec9916/zope.interface-4.3.3.tar.gz"
+    sha256 "8780ef68ca8c3fe1abb30c058a59015129d6e04a6b02c2e56b9c7de6078dfa88"
   end
 
   def install
@@ -187,7 +213,7 @@ class Ooniprobe < Formula
   end
 
   def caveats; <<-EOS.undent
-    Decks are installed to #{opt_prefix}/share/ooniprobe/decks.
+    Decks are installed to #{opt_pkgshare}/decks.
     EOS
   end
 
@@ -219,15 +245,15 @@ class Ooniprobe < Formula
      <key>StandardOutPath</key>
        <string>/dev/null</string>
      <key>WorkingDirectory</key>
-       <string>#{prefix}</string>
+       <string>#{opt_prefix}</string>
    </dict>
    </plist>
    EOS
   end
 
   test do
-    mkdir_p "#{testpath}/ooni/var_lib"
-    mkdir_p "#{testpath}/ooni/etc"
+    (testpath/"ooni/var_lib").mkpath
+    (testpath/"ooni/etc").mkpath
 
     (testpath/"ooni/settings.ini").atomic_write <<-EOS.undent
       [directories]
@@ -235,7 +261,7 @@ class Ooniprobe < Formula
       var_lib = #{testpath}/ooni/var_lib
       etc = #{testpath}/ooni/etc
     EOS
-    (testpath/"ooni/var_lib/initialized").write ""
+    touch testpath/"ooni/var_lib/initialized"
 
     (testpath/"ooni/hosts.txt").write "github.com:443\n"
     ENV["OONIPROBE_SETTINGS"] = "#{testpath}/ooni/settings.ini"

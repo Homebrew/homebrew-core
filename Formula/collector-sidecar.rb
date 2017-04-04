@@ -1,13 +1,13 @@
 class CollectorSidecar < Formula
   desc "Manage log collectors through Graylog"
   homepage "https://github.com/Graylog2/collector-sidecar"
-  url "https://github.com/Graylog2/collector-sidecar/archive/0.0.9.tar.gz"
-  sha256 "a854d84bf65e3fb9409743869701dab5c059d14d0b615acd14c8923bef30bc9f"
+  url "https://github.com/Graylog2/collector-sidecar/archive/0.1.0.tar.gz"
+  sha256 "32cc77886ef7b8e26167c1d88f77d02e9c39f41db333031b0ae14537f398e5fd"
 
   bottle do
-    sha256 "58e3e43fa357b6518cfa74bb82e506df272eedfadfb2dedf195d0b5f1569753f" => :sierra
-    sha256 "9ba341ae108239340acc6901aeda8edd3fa63eb0e42daeec3d866f09dcc5db73" => :el_capitan
-    sha256 "07d2094756dd3c5922b9fab7f04008bbdd8a7408f5b3d9cbcb8e2ddc7cf99b1d" => :yosemite
+    sha256 "349f1d29a4cc9aca04183d3d3377b2545f013fc7f8ab33addb8d2c9953eab29d" => :sierra
+    sha256 "a9f98ffbe8dcec5067b79c93a105fe838ee2ee82c29d77fec5497dd0d1860631" => :el_capitan
+    sha256 "26168651f47c4af792ffc288e2d4ae30587bde5e696194008aa6295ecdf3b19d" => :yosemite
   end
 
   depends_on "glide" => :build

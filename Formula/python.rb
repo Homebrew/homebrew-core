@@ -3,8 +3,7 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz"
   sha256 "35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731"
-
-  head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
+  head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
     sha256 "c125108285f306af28bb46522ca5a332d9326eddea3cd2015817acd044a3bfb1" => :sierra
@@ -14,7 +13,6 @@ class Python < Formula
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
-  option :universal
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
@@ -138,11 +136,6 @@ class Python < Formula
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
       s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
       s.gsub! "/usr/include/db4", Formula["berkeley-db@4"].opt_include
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
     end
 
     if build.with? "sqlite"

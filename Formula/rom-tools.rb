@@ -1,16 +1,16 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0179.tar.gz"
-  version "0.179"
-  sha256 "d1616ef32b884c3e7913378ebf5282b6f846f895f419eb92a9068770581e081b"
+  url "https://github.com/mamedev/mame/archive/mame0183.tar.gz"
+  version "0.183"
+  sha256 "c12b3051f2f11331a38f557eac7f3074166e48155133b2f3e7cc323df56ce8b0"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "635950c0d3bb67baaa4dc9df87232e927816d5efaf868a87e503e5fb9c554f7f" => :sierra
-    sha256 "96cf7d3c333e7a2ce30408efaa12d0ee3fcd400fb6590aaf3050535b40691ebf" => :el_capitan
-    sha256 "42fd6a62c98c8b9e5f7e11d4b9f83fa1af4325f13c7506f27a076f2e22e3f70f" => :yosemite
+    sha256 "66871364d02de67bad8248c6851150306ee293c8be4b289f36b2cf1a32ceae29" => :sierra
+    sha256 "a3e8ae8d87b1dc3075b531fdaf04285ce456bec0747f3254132ced60aee08fff" => :el_capitan
+    sha256 "a43c3ed6f6d85269c6596679268eb0e25d9e884abb9826d2df11230cc1d6d9d0" => :yosemite
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
@@ -20,16 +20,15 @@ class RomTools < Formula
   depends_on "portmidi"
 
   def install
-    inreplace "scripts/src/main.lua", /(targetsuffix) "\w+"/, '\1 ""'
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
-    system "make", "TARGET=ldplayer", "TOOLS=1",
+    system "make", "TOOLS=1",
                    "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1"
     bin.install %w[
-      aueffectutil castool chdman floptool imgtool jedutil ldplayer ldresample
+      aueffectutil castool chdman floptool imgtool jedutil ldresample
       ldverify nltool nlwav pngcmp regrep romcmp src2html srcclean unidasm
     ]
     bin.install "split" => "rom-split"
@@ -44,7 +43,6 @@ class RomTools < Formula
     system "#{bin}/floptool"
     system "#{bin}/imgtool", "listformats"
     system "#{bin}/jedutil", "-viewlist"
-    system "#{bin}/ldplayer", "-help"
     assert_match "linear equation", shell_output("#{bin}/ldresample 2>&1", 1)
     assert_match "avifile.avi", shell_output("#{bin}/ldverify 2>&1", 1)
     system "#{bin}/nltool", "--help"

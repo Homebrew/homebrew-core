@@ -4,7 +4,7 @@ class Rkflashtool < Formula
   url "https://downloads.sourceforge.net/project/rkflashtool/rkflashtool-5.1/rkflashtool-5.1-src.tar.bz2"
   sha256 "2cad0e0c116357b721a6ac98fb3a91b43fe0269cda66e75eda4adec3330b7735"
 
-  head "git://git.code.sf.net/p/rkflashtool/Git"
+  head "https://git.code.sf.net/p/rkflashtool/Git.git"
 
   bottle do
     cellar :any

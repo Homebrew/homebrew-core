@@ -30,7 +30,7 @@ class Xmoto < Formula
 
   def install
     # Fix issues reported upstream
-    # http://todo.xmoto.tuxfamily.org/index.php?do=details&task_id=812
+    # https://todo.xmoto.tuxfamily.org/index.php?do=details&task_id=812
 
     # Set up single precision ODE
     ENV.append_to_cflags "-DdSINGLE"

@@ -14,7 +14,7 @@ class Ideviceinstaller < Formula
   end
 
   head do
-    url "http://git.sukimashita.com/ideviceinstaller.git"
+    url "https://git.sukimashita.com/ideviceinstaller.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

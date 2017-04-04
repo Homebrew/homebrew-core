@@ -3,7 +3,7 @@ class M2c < Formula
   homepage "https://savannah.nongnu.org/projects/m2c/"
   url "https://download.savannah.gnu.org/releases/m2c/0.7/m2c-0.7.tar.gz"
   sha256 "b725ed617f376e1a321e059bf1985098e950965d5edab161c6b24526f10a59bc"
-  head "https://git.savannah.gnu.org/cgit/m2c.git"
+  head "https://git.savannah.nongnu.org/git/m2c.git"
 
   bottle do
     sha256 "e98a99fb06c6b72bd0cf11d8369df21e1e9e57253e0a9d63ae8641444079df93" => :sierra

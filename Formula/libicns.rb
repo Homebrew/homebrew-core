@@ -13,8 +13,6 @@ class Libicns < Formula
     sha256 "aed1a7df05a8f98ea64dcdd8c4a406207239b7b187629fc03ae799308a142a4d" => :yosemite
   end
 
-  option :universal
-
   depends_on "jasper"
   depends_on "libpng"
 
@@ -23,8 +21,6 @@ class Libicns < Formula
     inreplace "icnsutils/png2icns.c",
       "png_set_gray_1_2_4_to_8",
       "png_set_expand_gray_1_2_4_to_8"
-
-    ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

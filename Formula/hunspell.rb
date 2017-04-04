@@ -1,15 +1,14 @@
 class Hunspell < Formula
   desc "Spell checker and morphological analyzer"
   homepage "https://hunspell.github.io"
-  url "https://github.com/hunspell/hunspell/archive/v1.6.0.tar.gz"
-  sha256 "512e7d2ee69dad0b35ca011076405e56e0f10963a02d4859dbcc4faf53ca68e2"
-  revision 1
+  url "https://github.com/hunspell/hunspell/archive/v1.6.1.tar.gz"
+  sha256 "30f593733c50b794016bb03d31fd2a2071e4610c6fa4708e33edad2335102c49"
 
   bottle do
     cellar :any
-    sha256 "df1df43a9275f798fca1a160aca932eeeeea252db043b16921ed2db3a70d95cc" => :sierra
-    sha256 "ce02b0a9beef31b587446a07987ad4ac0cbc63c7d1144bd73721a7f53e03bd54" => :el_capitan
-    sha256 "c2267b211ab4dc6ecbe997a702640beba1c9197303df77af01a61fc51f5e6ec7" => :yosemite
+    sha256 "c04d0b31041c404ea934706a1e349609c99f1b859b8698cb9d2bd2975add7388" => :sierra
+    sha256 "1e9a1932286a3a18e4b6430b5cd24fefc8716ebaa847e7360330bfcdc317bbd3" => :el_capitan
+    sha256 "79de87d8713c252d29e32e86ebf7a070994647a455a273c30779342597e86343" => :yosemite
   end
 
   depends_on "autoconf" => :build

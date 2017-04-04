@@ -1,17 +1,15 @@
 class Geoip < Formula
   desc "This library is for the GeoIP Legacy format (dat)"
   homepage "https://github.com/maxmind/geoip-api-c"
-  url "https://github.com/maxmind/geoip-api-c/releases/download/v1.6.9/GeoIP-1.6.9.tar.gz"
-  sha256 "4b446491843de67c1af9b887da17a3e5939e0aeed4826923a5f4bf09d845096f"
+  url "https://github.com/maxmind/geoip-api-c/releases/download/v1.6.10/GeoIP-1.6.10.tar.gz"
+  sha256 "cb44e0d0dbc45efe2e399e695864e58237ce00026fba8a74b31d85888c89c67a"
 
   head "https://github.com/maxmind/geoip-api-c.git"
 
   bottle do
-    cellar :any
-    sha256 "96fde02debe1a354a547110dd5ee6803ea4178de4aef37337ebb48c69f279c8e" => :sierra
-    sha256 "dc7c79eef8500456198b3ba981c13498c049b2f8c4398fe885534c386dfbf283" => :el_capitan
-    sha256 "0525ae799027334cafb551a349c7837c8b17853660797dff430b035ca0eedc65" => :yosemite
-    sha256 "5ee66187d1b4510fd463ebb8bf360c2d78a4252467a0e10e905a2a3502f9bcaa" => :mavericks
+    sha256 "3ec062926f17a28236d503ba62115a2c6abdd9cfb8d4c42581a24a5849c98f56" => :sierra
+    sha256 "d60281103536558032346574dbf2b9f37f4230ac2331e19b78f2bcf4b2fa6b83" => :el_capitan
+    sha256 "50c7c2efc87e07d8001312a970494900679e87ca84c53ca070c0e734506313e4" => :yosemite
   end
 
   depends_on "geoipupdate" => :optional

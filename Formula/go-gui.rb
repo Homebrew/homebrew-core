@@ -1,11 +1,11 @@
 class GoGui < Formula
   desc "GUI for playing Go over Go Text Protocol"
-  homepage "https://gogui.sourceforge.io"
+  homepage "https://gogui.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gogui/gogui/1.4.9/gogui-1.4.9.zip"
   sha256 "32684b756ab5b6bf9412c035594eddfd1be9250de12d348c3501850857b86662"
 
   head do
-    url "git://git.code.sf.net/p/gogui/code"
+    url "https://git.code.sf.net/p/gogui/code.git"
 
     depends_on "docbook" => :build
     depends_on "docbook-xsl" => :build

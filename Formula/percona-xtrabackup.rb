@@ -1,13 +1,13 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.5/source/tarball/percona-xtrabackup-2.4.5.tar.gz"
-  sha256 "1c8c457e1912525f6c3079a8c5b2948dbcf693d2b86c8f57d13b4a446cec2036"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.6/source/tarball/percona-xtrabackup-2.4.6.tar.gz"
+  sha256 "1e21ab097550901d8f2fa3dc37402ba6a994afa0722760f8f19cb369565e5e8b"
 
   bottle do
-    sha256 "58e4accd07d886dcc9cc2bda0214f38131f3ae79f28440388bd27cca7c0b65f7" => :sierra
-    sha256 "1385b1a73d514983640140cee1ef2c91b83c49cdc133914cdf536227554ac024" => :el_capitan
-    sha256 "d5e93e602c10104bb8c8c90673284eeebb17d22bb18066803eb719a61a6d2018" => :yosemite
+    sha256 "4c95d5ceb69cb0526d59cc914cfeb048afa1c9867db3c0d6948a751c46b28512" => :sierra
+    sha256 "45868a3a28739f5153cff0fed62e33a0ee9d91c8e72ea6b6b1be3aa8bcbc9572" => :el_capitan
+    sha256 "59a6cbc5e13468be470be4affc10ac5a5a6981d4fd7cec6f6af904117164d36b" => :yosemite
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
