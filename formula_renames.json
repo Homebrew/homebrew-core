@@ -52,8 +52,6 @@
   "glfw3": "glfw",
   "gmp4": "gmp@4",
   "gnupg2": "gnupg",
-  "gnupg21": "gnupg",
-  "gnupg@2.1": "gnupg",
   "gnuplot4": "gnuplot@4",
   "go-app-engine-32": "app-engine-go-32",
   "go-app-engine-64": "app-engine-go-64",
