@@ -6,9 +6,9 @@ class Make < Formula
   sha256 "d6e262bf3601b42d2b1e4ef8310029e1dcf20083c5446b4b7aa67081fdffc589"
 
   bottle do
-    sha256 "0f0c4fa8340fa5b5269deed987867a647bceecb17d6687276c035dad4753ca8b" => :el_capitan
-    sha256 "8839228946c326de73eec5c256493e00d5130eecffac609c8aa9783f0e103304" => :yosemite
-    sha256 "e36e0bbdd7f750ffdf8726e91a112a8e1145cdf91a6f9fb73cfe0ac1278aea33" => :mavericks
+    sha256 "d6a0f2bfd83a8299b6a7dfa4aa936ffcd03603da10c26cccad06137c668df894" => :sierra
+    sha256 "08fce0ecb389bc90b3acc5ea32835da463dd791682e021e8f9bac6c3fabadc3d" => :el_capitan
+    sha256 "2c4367b9f688209028b611bf22f2eab38885b7eaea91561a19d963ad72e4313e" => :yosemite
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
