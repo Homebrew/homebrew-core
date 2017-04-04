@@ -20,16 +20,15 @@ class JettyRunner < Formula
     ENV.append "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
     touch "#{testpath}/test.war"
 
-    begin
-      pid = fork do
-        exec "#{bin}/jetty-runner test.war"
-      end
-      sleep 5
+    pid = fork do
+      exec "#{bin}/jetty-runner test.war"
+    end
+    sleep 5
 
+    begin
       output = shell_output("curl -I http://localhost:8080")
       assert_match %r{HTTP\/1\.1 200 OK}, output
     ensure
-      # Process.kill "TERM", pid
       Process.kill 9, pid
       Process.wait pid
     end
