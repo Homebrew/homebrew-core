@@ -17,6 +17,6 @@ class JettyRunner < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/jetty-runner --version")
+    assert_match version.to_s, shell_output("#{bin}/jetty-runner --version", 1)
   end
 end
