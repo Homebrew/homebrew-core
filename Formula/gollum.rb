@@ -6,11 +6,9 @@ class Gollum < Formula
   head "https://github.com/trivago/gollum.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ac625b0f6a64c1fdc3aa2fc5dd5cf56dcd51760be3dfff3da6dbee6e04b9c867" => :sierra
-    sha256 "80d400f2b90777eeb9ccc7d74584d10dc17227935866efc5125d4e5630953a93" => :el_capitan
-    sha256 "e6879f0937f32ba566ac7be3ce5a37c767588971d13bafa27e71c381d2c51f57" => :yosemite
-    sha256 "aa3dcde3d7cbea3df1738ebcce89f08c8dcce01ec5fe1693c4192c085604660b" => :mavericks
+    sha256 "4cbfa71cec3c467f7a9b6e4405c41da06ce4876b843b688132652c04195444dd" => :sierra
+    sha256 "ba5c428df17f99e83188569cddf0983daaa2c8b24e0a880e3f5f5b9fc2ca48f1" => :el_capitan
+    sha256 "75f452a0422b51af5c3396f4806fb4788efbe4108eb6375c15211d5d0ead265d" => :yosemite
   end
 
   depends_on "go" => :build
