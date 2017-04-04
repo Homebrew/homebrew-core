@@ -37,6 +37,18 @@ class Lapack < Formula
                       "-DLAPACKE:BOOL=ON",
                       *std_cmake_args
       system "make", "install"
+
+      %W[#{lib}/libblas.dylib #{lib}/liblapack.dylib #{lib}/liblapacke.dylib
+         #{lib}/libtmglib.dylib].each do |f|
+        macho = MachO.open(f)
+        macho.change_dylib_id(macho.dylib_id.sub("@rpath", lib.to_s))
+        macho.linked_dylibs.each do |dylib|
+          if dylib.include?("@rpath")
+            macho.change_dylib(dylib, dylib.sub("@rpath", lib.to_s))
+          end
+        end
+        macho.write!
+      end
     end
   end
 
@@ -51,7 +63,7 @@ class Lapack < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "lp.cpp", "-I#{include}", "-L#{lib}", "-llapacke", "-Wl,-rpath,#{lib}", "-o", "lp"
+    system ENV.cc, "lp.cpp", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
     system "./lp"
   end
 end
