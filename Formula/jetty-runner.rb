@@ -18,7 +18,7 @@ class JettyRunner < Formula
 
   test do
     Open3.popen3("jetty-runner", "--version") do |_, _, stderr|
-        assert_match version.to_s, stderr.read
+      assert_match version.to_s, stderr.read
     end
   end
 end
