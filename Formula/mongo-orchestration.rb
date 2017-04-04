@@ -3,15 +3,15 @@ class MongoOrchestration < Formula
 
   desc "REST API to manage MongoDB configurations on a single host."
   homepage "https://github.com/10gen/mongo-orchestration"
-  url "https://files.pythonhosted.org/packages/ef/fd/0d4151edb6543db86f27282c872225f2519115fabb2eacd0f8cacea9095c/mongo-orchestration-0.6.8.tar.gz"
-  sha256 "ed27f9efa2ca701a3aa221f95c8cec4a6c3b623f82b594aa717d8be76cc15bdc"
+  url "https://files.pythonhosted.org/packages/96/91/271dce3d51e2b276c352c5061699650b596cb07987f1e0a101513f9aa93e/mongo-orchestration-0.6.9.tar.gz"
+  sha256 "a48ba59e0d15800544683f3aa69d3b6936d9b1e297a91b6beb0b6f1dfec5a523"
   head "https://github.com/10gen/mongo-orchestration"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46bed2363d647bebc6847ff0d55cdc3f952c008a7c89375bd58ab7483d8f9922" => :sierra
-    sha256 "cbd555bf0dd496dbcb409ea25afdb3d07936d4a9f9ed30db656d22bd89f25a27" => :el_capitan
-    sha256 "4dfc15562ade01130c57f8fafcdd0d43a8197732893b634d755c2062244961ae" => :yosemite
+    sha256 "436bd1daa2e9ade0ebee0869a88c3c2b73c7a542f52b245c099631b7b19021b2" => :sierra
+    sha256 "72468b3d7df8a74f386e31aff8dbd66ec6cafd9268587903ba0dd3df6006a739" => :el_capitan
+    sha256 "b420a511c57a7aeb6719ff9f01ce16d6348cf73e6e9b9cf80e3591622324f9b6" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

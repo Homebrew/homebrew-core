@@ -1,14 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.23.7.tar.gz"
-  sha256 "f11bb10d71945f6c3f16d23117afc70810aa485878e66bb4bf43cc3f08038913"
+  url "https://notmuchmail.org/releases/notmuch-0.24.1.tar.gz"
+  sha256 "fa117de2c6096dd896a333b9c770572a939e04a02abe6745b6b07f5363063ca3"
+  head "git://git.notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    sha256 "ebf9b8c0f49053b510e31ee5dcebc2dd9913ae18783a28ebe52afa234f0659a5" => :sierra
-    sha256 "c83777b82c72ba322b6900fcc0464d49ff3efc381e1cbaa6af35cb38130d113b" => :el_capitan
-    sha256 "4f9a747e5540b0729e8769b851bc413de636f985be1198274a44e413f6e6676b" => :yosemite
+    sha256 "0fb3360c41dfc3ed91420875b3ec74f78c124743e79036c30248f49a4ce9bf45" => :sierra
+    sha256 "087c52f7178efd621eab51187406332380134cc08f2759af4a488294db39bd95" => :el_capitan
+    sha256 "58440c1e81a60042efc6cada19db917d9af7c9094ee7a7dc7cc7be5e1a7f24f4" => :yosemite
   end
 
   option "without-python", "Build without python support"

@@ -1,6 +1,6 @@
 class Nazghul < Formula
   desc "Computer role-playing game engine"
-  homepage "https://web.archive.org/web/20130402222926/http://myweb.cableone.net/gmcnutt/nazghul.html"
+  homepage "https://web.archive.org/web/20130402222926/myweb.cableone.net/gmcnutt/nazghul.html"
   url "https://downloads.sourceforge.net/project/nazghul/nazghul/nazghul-0.7.1/nazghul-0.7.1.tar.gz"
   sha256 "f1b62810da52a116dfc1c407dbe683991b1b380ca611f57b5701cfbb803e9d2b"
 

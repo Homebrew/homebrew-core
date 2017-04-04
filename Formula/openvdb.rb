@@ -1,16 +1,14 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v4.0.0.tar.gz"
-  sha256 "eaf37b8e723cfd011df350cb0ef93ffa22d927bf7cb1f72c38176fce523b3537"
-  revision 1
-
+  url "https://github.com/dreamworksanimation/openvdb/archive/v4.0.1.tar.gz"
+  sha256 "ba17c66e633d84bd31393893f54bde863723367b218bdb15b633fab1cf43a764"
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "3dd7b1a02481d243f1d4be2e363c1e28f4b6d7910b054cbaa7af1e3ad214a81a" => :sierra
-    sha256 "432efa66ab31c202624e1a1fcaea55ab7c111ca7ac2a4ebf096bd8dc94c12163" => :el_capitan
-    sha256 "27bd92b23213af895e6e6f5ab6d4e6412eaad721a7eb1320aa9bf7fcd7a46ec7" => :yosemite
+    sha256 "b00d021ca951b3d4f735501bdbda30af334b7690aee6a6f3a36cd4a44382d8a1" => :sierra
+    sha256 "90d96b8cea9837ff909e874b9c35b25aa9b8c6dc15a767fc0ec7e13a9ecbd7ee" => :el_capitan
+    sha256 "17a526fc234a65c0c3184db723278fc3843d331bfa3348b082e8f0c9b8ab6348" => :yosemite
   end
 
   option "with-glfw", "Installs the command-line tool to view OpenVDB files"

@@ -1,13 +1,13 @@
 class Rpcgen < Formula
   desc "Protocol Compiler"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/developer_cmds/developer_cmds-62.tar.gz"
-  sha256 "b11161df7a8dd293efe52213d8e968279dbff545a583e4706c4250d6cc122ce5"
+  url "https://opensource.apple.com/tarballs/developer_cmds/developer_cmds-63.tar.gz"
+  sha256 "d4bc4a4b1045377f814da08fba8b7bfcd515ef1faec12bbb694de7defe9a5c0d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "75c923737996ecc27e2afe8e26e7b9bac572cbf03d543ef45c87a0e32e2da80b" => :sierra
-    sha256 "17a73b22f1e7a7256bc232c113e4c4fd603f95b783d732478671c4a0a2958e62" => :el_capitan
+    sha256 "0d3a08d255ccbb538b0e818155e079ff74c65965d6effd67fd74775b837bdddb" => :sierra
+    sha256 "75acb2995dda96d42faf6a3f83b1b30c9d0a6502ac1b031f92567282a1c67f69" => :el_capitan
   end
 
   keg_only :provided_by_macos

@@ -1,13 +1,13 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "http://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.14.0.tar.gz"
-  sha256 "d3208baed1aabea4ac47a54d74dc6c3536b7138c6b9c12613219421df5b6c7f5"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.15.0.tar.gz"
+  sha256 "e6602c011e26c088d8a7bccdc9cb2ff1b8ddfb75b673d96a816f3827b88f659c"
   head "https://github.com/treefrogframework/treefrog-framework.git", :branch => "master"
 
   bottle do
-    sha256 "b507eb26410abc89061e1f2e0210f74ebe9825887e39306ccb433c4b8388fe55" => :sierra
-    sha256 "b507eb26410abc89061e1f2e0210f74ebe9825887e39306ccb433c4b8388fe55" => :el_capitan
+    sha256 "0d560f2453a4329e8cd0e6683a6c7826f3315f77b88a442b6b74a17a65123cba" => :sierra
+    sha256 "0d560f2453a4329e8cd0e6683a6c7826f3315f77b88a442b6b74a17a65123cba" => :el_capitan
   end
 
   option "with-mysql", "enable --with-mysql option for Qt build"

@@ -1,16 +1,16 @@
 class GitFtp < Formula
   desc "Git-powered FTP client"
   homepage "https://git-ftp.github.io/git-ftp"
-  url "https://github.com/git-ftp/git-ftp/archive/1.3.2.tar.gz"
-  sha256 "a86e2437e60ab4314874a2da71fe330f0a892ed1c9b038b97f755c4b68d60dd1"
+  url "https://github.com/git-ftp/git-ftp/archive/1.3.3.tar.gz"
+  sha256 "4e36ef178b498f273dc2e9b7685d28dea69b939dcf3602fdda69d1f525e24f31"
 
   head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "574d76cf9a3aef558d3f938e1441a772b28ac752fa8ffb92253bfb5012ddb389" => :sierra
-    sha256 "f7f6c0fb4176147dd9d6473411ee4a6a3583d6d5fff4bc7009f026e9f7e10ef4" => :el_capitan
-    sha256 "f7f6c0fb4176147dd9d6473411ee4a6a3583d6d5fff4bc7009f026e9f7e10ef4" => :yosemite
+    sha256 "7c15fc59bcde7f29f12b918f2abf62ff5a20675010ba384ba9a257f474c3c714" => :sierra
+    sha256 "7c15fc59bcde7f29f12b918f2abf62ff5a20675010ba384ba9a257f474c3c714" => :el_capitan
+    sha256 "7c15fc59bcde7f29f12b918f2abf62ff5a20675010ba384ba9a257f474c3c714" => :yosemite
   end
 
   option "with-manpage", "build and install the manpage (depends on pandoc)"

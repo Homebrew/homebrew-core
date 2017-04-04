@@ -1,15 +1,33 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://zbar.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
-  sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
   revision 4
+
+  stable do
+    url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
+    sha256 "234efb39dbbe5cef4189cc76f37afbe3cfcfb45ae52493bfe8e191318bdbadc6"
+
+    # Fix JPEG handling using patch from
+    # https://sourceforge.net/p/zbar/discussion/664596/thread/58b8d79b#8f67
+    # already applied upstream but not present in the 0.10 release
+    patch :DATA
+  end
 
   bottle do
     cellar :any
     sha256 "a1c9cf15f2fc2631cc737e031cd8a688631d976f32409cd79efe940961121898" => :sierra
     sha256 "19a16d4b34849fc0c406c5b8c7abd9ae57713a7f5d366d8864eb76d67f060b7e" => :el_capitan
     sha256 "ea1468cc850c168c966de78e6c6c970a87c665d3afb8610b5abe2e2cc99763fb" => :yosemite
+  end
+
+  head do
+    url "https://github.com/ZBar/ZBar.git"
+
+    depends_on "gettext" => :build
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+    depends_on "xmlto" => :build
   end
 
   depends_on :x11 => :optional
@@ -21,12 +39,13 @@ class Zbar < Formula
   depends_on "freetype"
   depends_on "libtool" => :run
 
-  # Fix JPEG handling using patch from
-  # https://sourceforge.net/p/zbar/discussion/664596/thread/58b8d79b#8f67
-  # already applied upstream but not present in the 0.10 release
-  patch :DATA
-
   def install
+    if build.head?
+      inreplace "configure.ac", "-Werror", ""
+      gettext = Formula["gettext"]
+      system "autoreconf", "-fvi", "-I", "#{gettext.opt_share}/aclocal"
+    end
+
     # ImageMagick 7 compatibility
     # Reported 20 Jun 2016 https://sourceforge.net/p/zbar/support-requests/156/
     inreplace ["configure", "zbarimg/zbarimg.c"],

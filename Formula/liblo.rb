@@ -14,7 +14,7 @@ class Liblo < Formula
   end
 
   head do
-    url "git://liblo.git.sourceforge.net/gitroot/liblo/liblo"
+    url "https://git.code.sf.net/p/liblo/git.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

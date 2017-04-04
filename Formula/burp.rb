@@ -19,12 +19,12 @@ class Burp < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.2/burp-2.1.2.tar.bz2"
-    sha256 "af79936aa227a3fb4115030146502431e16842db1bb22d318b3e5af1cdcdb5a3"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.1.6/burp-2.1.6.tar.bz2"
+    sha256 "cc05b8bfc5b12342ff65db28bff8c5d79141c88b9e20213aecb15ce68208d255"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
-          :revision => "98fea52720444f7e2eb4eda2451f625618e4dc8b"
+          :revision => "7f1b50be94ceffcc7acd7a7f3f0f8f9aae52cc2f"
     end
   end
 

@@ -48,6 +48,8 @@ class Hub < Formula
     if build.with? "completions"
       bash_completion.install "etc/hub.bash_completion.sh"
       zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+      # TODO: Remove the conditional when hub 2.3.0 is released.
+      fish_completion.install "etc/hub.fish_completion" => "hub.fish" unless build.stable?
     end
   end
 

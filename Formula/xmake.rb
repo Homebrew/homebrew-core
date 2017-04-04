@@ -1,15 +1,15 @@
 class Xmake < Formula
   desc "Make-like build utility based on Lua"
   homepage "http://xmake.io"
-  url "https://github.com/waruqi/xmake/archive/v2.0.5.tar.gz"
-  sha256 "e3d104aaabac7e0c01b325e8bb72d2f22c4ec94158d8afb399f8c98a418b0456"
+  url "https://github.com/waruqi/xmake/archive/v2.1.3.tar.gz"
+  sha256 "e84031bed87c052944d0e590aba44087cee836eec0ef797363c4172361a81f6b"
   head "https://github.com/waruqi/xmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "63a0839dc2dd8a1ed8a3716e6cadf8785b689d55ee9c6b11bc9a1dec9a370c14" => :sierra
-    sha256 "8480352ec27324ca849f6b335fed7e8ba5cc7256ee1b1885d757164b0a647441" => :el_capitan
-    sha256 "864d49d0af782b005a7cde7791fe009dda375fa6fd085c24b4c86771f358cd23" => :yosemite
+    sha256 "fbafa253cf76a3e91495289676bd58ea6a34a83e9822a0bb2a8f754df605837c" => :sierra
+    sha256 "46bafc5940a7e5822a0771d95060eb0ee2dbeb0937b707103bc182623a917305" => :el_capitan
+    sha256 "de17adb4711c6eb76b200639d6089cc280055a199b75d18b46e91ba78f03ba77" => :yosemite
   end
 
   def install

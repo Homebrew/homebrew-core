@@ -3,16 +3,15 @@ class Osc < Formula
 
   desc "The Command Line Interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.155.1.tar.gz"
-  sha256 "bd392cf601fade0770e2b1fef2a964dfaa02ee002a615708f230549708f26acc"
-  revision 3
+  url "https://github.com/openSUSE/osc/archive/0.157.2.tar.gz"
+  sha256 "cde6384f069e3b08cc425cf5105251acb77f5f8c9413888b5f4ab89fec068f07"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "95cdc7d300f7749c17212a568a928c895498dd7817d4f5a1034302509dc15676" => :sierra
-    sha256 "a9552a719cce251e1dbc7d47c1428eb904087b18cb6bb6880df47afdd7c9b059" => :el_capitan
-    sha256 "ecdaf2a5cb32f483864008b6741e76a32c44756e3bd2b24640928efeac1aa965" => :yosemite
+    sha256 "2fb7940ff685c9c718a1f213039f6c6ceac2a7b6b30a3a527ffacb53a9256ec8" => :sierra
+    sha256 "e440940de123fbd52690a99e51575d5426dc91c3f79450c58f3f1b174963c315" => :el_capitan
+    sha256 "d0d4f711e22a0f1641b2e81336a07e5bc2f9870a1bb9f6a35646251b7c524213" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -26,8 +25,8 @@ class Osc < Formula
   end
 
   resource "urlgrabber" do
-    url "https://files.pythonhosted.org/packages/3c/fd/710150d9647e32f1eafe9d60ff55553a8754e185c791781da0246c7d6b57/urlgrabber-3.9.1.tar.gz"
-    sha256 "b4e276fa968c66671309a6d754c4b3b0cb2003dec8bca87a681378a22e0d3da7"
+    url "https://files.pythonhosted.org/packages/29/1a/f509987826e17369c52a80a07b257cc0de3d7864a303175f2634c8bcb3e3/urlgrabber-3.10.2.tar.gz"
+    sha256 "05b7164403d49b37fe00f7ac8401e56b00d0568ac45ee15d5f0610ac293c3070"
   end
 
   resource "M2Crypto" do

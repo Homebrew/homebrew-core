@@ -1,30 +1,24 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.7.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.7.0.tar.bz2"
-  sha256 "71f55fed0f2b3eaf7a606e59772aa645ce3ffff322d361ce359951b3f755cc48"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.9.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.9.0.tar.bz2"
+  sha256 "1b29fedb8bfad775e70eafac5b0590621683b2d9869db994568e6401f4034ceb"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0b4a59398bd222620a4d837d7e33ca3141dddd14886c68bccca15a177bda93c7" => :sierra
-    sha256 "9764f539b4b51161127d95687c5611f9571ae2abde1dce66ba014a0f33d2bcc1" => :el_capitan
-    sha256 "4a4c3e90175b02ded974a8a385b6d9799bcc2873c5a1087c558f350eb103934d" => :yosemite
+    sha256 "08257999c039fa4da77f534c181d66e0a6414a25e5d5e30053efc27927ebfecd" => :sierra
+    sha256 "0594b2bf6fc1fe12a78b514b91d63595893db4f6fb8f6f287eb4e457d5795a94" => :el_capitan
+    sha256 "7e42daede60b5548ccdf5b42a077b824c5365b8c2d704bb6c892d30acefa6f43" => :yosemite
   end
 
-  depends_on "gnupg2"
+  depends_on "gnupg"
   depends_on "libgpg-error"
   depends_on "libassuan"
   depends_on "pth"
 
   def install
-    # Check these inreplaces with each release.
-    # At some point GnuPG will pull the trigger on moving to GPG2 by default.
-    inreplace "src/gpgme-config.in" do |s|
-      s.gsub! "@GPG@", "#{Formula["gnupg2"].opt_prefix}/bin/gpg"
-      s.gsub! "@GPGSM@", "#{Formula["gnupg2"].opt_prefix}/bin/gpgsm"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -37,7 +31,6 @@ class Gpgme < Formula
   end
 
   test do
-    output = shell_output("#{bin}/gpgme-config --get-gpg").strip
-    assert_equal "#{Formula["gnupg2"].opt_prefix}/bin/gpg", output
+    assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
   end
 end

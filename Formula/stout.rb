@@ -1,14 +1,14 @@
 class Stout < Formula
   desc "Reliable static website deploy tool"
   homepage "http://stout.is"
-  url "https://github.com/EagerIO/Stout/archive/v1.2.3.tar.gz"
-  sha256 "0c4b10be84b2a2de18020215e49d59c380aba38a13d5c975c7f45d2b8e3cf4bc"
+  url "https://github.com/EagerIO/Stout/archive/v1.3.1.tar.gz"
+  sha256 "455e238e238bf79f58d2e5a41f5ac582361c71a7eec72f45554f1c8f64de7006"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e1e825f22facc7e04295268f3bd36417f2fffd596e5d1c2d5b71c861172c035" => :sierra
-    sha256 "aac5e3bac19e22e13d626a8d5b241659a9efd66267f970bd62ed0e394250c288" => :el_capitan
-    sha256 "48cae1a0395e12fe8919269033a0bb7b7d2aa314aa2284f2390b7a01bc2fb4a0" => :yosemite
+    sha256 "144aac3cb78b98bf773b19e63e7eb3598261ab264e30b6d39ee3c8fdb9442cf9" => :sierra
+    sha256 "74dac56156c250fef9de8ebae64a1d6ae7b93c068a43f602a4debdc1b23a3945" => :el_capitan
+    sha256 "bc065cf4232169432ce91ea22c456c6891f00a386055c795131dc82572f5a3ae" => :yosemite
   end
 
   depends_on "go" => :build

@@ -3,7 +3,7 @@ class Xplanetfx < Formula
   homepage "http://mein-neues-blog.de/xplanetFX/"
   url "http://repository.mein-neues-blog.de:9000/archive/xplanetfx-2.6.12_all.tar.gz"
   version "2.6.12"
-  sha256 "bae39af674fc89b3fbe07ba6271bbf0a1c2ff64bbf63f4b04ff3d6f0bcc4380c"
+  sha256 "42b84623821032b7f31797d0187e9e0e298282831327fe3fc508dd1d85c493a7"
 
   bottle do
     cellar :any_skip_relocation

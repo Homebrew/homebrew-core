@@ -15,8 +15,6 @@ class Angband < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11 => :optional
-  depends_on "homebrew/dupes/tcl-tk" => "with-x11" if build.with? :x11
   depends_on "sdl" => :optional
   if build.with? "sdl"
     depends_on "sdl_image"
@@ -34,9 +32,9 @@ class Angband < Formula
       --enable-curses
       --disable-ncursestest
       --disable-sdltest
+      --disable-x11
       --with-ncurses-prefix=#{MacOS.sdk_path}/usr
     ]
-    args << "--disable-x11" if build.without? :x11
     args << "--enable-sdl" if build.with? "sdl"
 
     system "./configure", *args

@@ -3,13 +3,14 @@ require "language/go"
 class Jid < Formula
   desc "Json incremental digger"
   homepage "https://github.com/simeji/jid"
-  url "https://github.com/simeji/jid/archive/0.7.1.tar.gz"
-  sha256 "4d641a2df2fbdc90f28b727782f08573024c712178e3ef373eda2dbc014d482a"
+  url "https://github.com/simeji/jid/archive/0.7.2.tar.gz"
+  sha256 "a16932049fb617fd7490742fcd3b5f131873309a12d97adbaf41a882cd1b99d1"
 
   bottle do
-    sha256 "eab1a6374fa2aa8de529e44684246418fdcdaf8ef60258365141ff4e66cfb980" => :sierra
-    sha256 "7fc45c68da2937d013ad1a1fc8eb8561f84ca148d0afe52df94172cc1677bdfb" => :el_capitan
-    sha256 "1d10bbcb9a99184df8512ab718407ef84972fa999496ca87d2ea9805d3a5c714" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "59624c107014497a6596ce33a6344c1456731a2784ffb4e92bf0075ddda16ffa" => :sierra
+    sha256 "a77b38789f565878c3dd89b031693fcb35ed60404172a4fb3702b6e0f69f76e5" => :el_capitan
+    sha256 "baf231928a3d2c899f3c7ebdfae167cca4b00623def455fb4eca4b0c6ecc7f71" => :yosemite
   end
 
   depends_on "go" => :build
@@ -56,12 +57,6 @@ class Jid < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
-    # Fix version
-    # Reported 14 Jan 2017 https://github.com/simeji/jid/issues/57
-    inreplace "cmd/jid/jid.go", "VERSION = \"0.6.2\"",
-                                "VERSION = \"#{version}\""
-
     (buildpath/"src/github.com/simeji").mkpath
     ln_sf buildpath, buildpath/"src/github.com/simeji/jid"
     Language::Go.stage_deps resources, buildpath/"src"

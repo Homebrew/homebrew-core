@@ -1,13 +1,14 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.2/libhttpseverywhere-0.2.10.tar.xz"
-  sha256 "235f5b7f96188d800470871774e31696fbde085b63f65bd71434af8e9e6ac8aa"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.4/libhttpseverywhere-0.4.0.tar.xz"
+  sha256 "b5d2e923bb079074115312ebb4788410adf4f15b9c81b1d3d9579c91c95fa38f"
 
   bottle do
-    sha256 "ed51e7503a52894a2d13c1ee6cb1ec02a7bca381e13a546e9e77ba1828194c9c" => :sierra
-    sha256 "4de3b23d4aca60d38b7781cfeffede264a236144084ff0178e9770b4b46352bc" => :el_capitan
-    sha256 "b7f8d3a137382df21bcb0422a0185e1a9e43a0a3052fd22eeedf530bdfbb8fa5" => :yosemite
+    cellar :any
+    sha256 "f64c54f827c1b30144b12764f8a5f1e74613dcc7ba09347cded8dbbaffdd14b4" => :sierra
+    sha256 "604406795bdbc3566067896059fa84470c3a5fbfd56decff3e61a0c0f602eff8" => :el_capitan
+    sha256 "5c8cf29d00042a692373ff1cbf513ddfaf765aff59b28e8d81fc1ba205b13181" => :yosemite
   end
 
   depends_on "meson" => :build
@@ -19,6 +20,14 @@ class Libhttpseverywhere < Formula
   depends_on "libsoup"
   depends_on "libgee"
   depends_on "libarchive"
+
+  # Remove for > 0.4.0
+  # Fix "Tried to form an absolute path to a source dir."
+  # Upstream commit from 25 Mar 2017 "meson: Fix building with Meson 0.39.0"
+  patch do
+    url "https://git.gnome.org/browse/libhttpseverywhere/patch/?id=7075c895b6cd9f255fc5f42cea5d3d3ab6d12f4f"
+    sha256 "92938341ea09b55a87350b12557c7108a80112f09dfcd04a7c44af6badc9a910"
+  end
 
   def install
     mkdir "build" do
@@ -51,7 +60,7 @@ class Libhttpseverywhere < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/httpseverywhere-0.2
+      -I#{include}/httpseverywhere-0.4
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libarchive.opt_include}
       -I#{libgee.opt_include}/gee-0.8
@@ -70,7 +79,7 @@ class Libhttpseverywhere < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lhttpseverywhere-0.2
+      -lhttpseverywhere-0.4
       -lintl
       -ljson-glib-1.0
       -lsoup-2.4

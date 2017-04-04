@@ -1,5 +1,5 @@
 class Picocom < Formula
-  desc "Minimal dump-terminal emulation program"
+  desc "Minimal dumb-terminal emulation program"
   homepage "https://github.com/npat-efault/picocom"
   url "https://github.com/npat-efault/picocom/archive/2.2.tar.gz"
   sha256 "3e3904158d675541f0fcfdcd1f671b38445338f536080f5de8d6674b5f33d4ce"

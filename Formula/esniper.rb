@@ -1,15 +1,15 @@
 class Esniper < Formula
   desc "Snipe eBay auctions from the command-line"
   homepage "https://sourceforge.net/projects/esniper/"
-  url "https://downloads.sourceforge.net/project/esniper/esniper/2.32.0/esniper-2-32-0.tgz"
-  version "2.32"
-  sha256 "5ee3e5237c6a12059ae9d38380505d38448c2c12787f9fcc603cdb0a1a519312"
+  url "https://downloads.sourceforge.net/project/esniper/esniper/2.33.0/esniper-2-33-0.tgz"
+  version "2.33"
+  sha256 "c9b8b10aefe5c397d7dee4c569f87f227c6710de528b1dc402379e5b4f1793dd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1122b9ae8ad4fc569c9028761d04aaa2eab5baa8d08ef752168054053a6b663" => :sierra
-    sha256 "a1ebe915803835503349a836e0cf85961cad010469cfcaae5ef9dd778adcae8d" => :el_capitan
-    sha256 "1fcdf0dfcc1245addf57c16822b28e5faf94447505e46350a455b78fa7c6981d" => :yosemite
+    sha256 "516cee5b3ad5ccf298d1ea1ffd08dfc41797fcd9825731ec2195bab883b62672" => :sierra
+    sha256 "05f57d9df03fa24390a1190bfc3aadef1e8f09a32a9dc4b3ace5e3637ac6923d" => :el_capitan
+    sha256 "4eaa6dd8bc13834672af94e4bdea01bcf08eef2aba15cd74b5fbbc65c6121ffd" => :yosemite
   end
 
   def install

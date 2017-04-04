@@ -15,9 +15,10 @@ class Unicorn < Formula
   option "with-all", "Build with support for ARM64, Motorola 64k, PowerPC and "\
     "SPARC"
   option "with-debug", "Create a debug build"
+  option "with-test", "Test build"
 
-  depends_on "glib"
   depends_on "pkg-config" => :build
+  depends_on "cmocka" => :build if build.with? "test"
 
   def install
     archs  = %w[x86 x86_64 arm mips]
@@ -31,6 +32,7 @@ class Unicorn < Formula
       ENV["UNICORN_DEBUG"] = "no"
     end
     system "make"
+    system "make", "test" if build.with?("test")
     system "make", "install"
   end
 
@@ -78,7 +80,7 @@ class Unicorn < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-o", testpath/"test1", testpath/"test1.c", "-lglib-2.0",
+    system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
       "-lpthread", "-lm", "-lunicorn"
     system testpath/"test1"
   end

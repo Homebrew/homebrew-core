@@ -3,16 +3,27 @@ class Passpie < Formula
 
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
-  sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
-
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
+  stable do
+    url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
+    sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
+
+    # Remove for > 1.5.5
+    # Fixes "Error: Wrong passphrase" when using GPG 2.1.x
+    # Reported 25 Mar 2017 https://github.com/marcwebbie/passpie/issues/112
+    patch do
+      url "https://github.com/marcwebbie/passpie/commit/308ff74.patch"
+      sha256 "19feaf07c006ce9f900954d3fda8afc95a2e05e7825076b593bfbed85e16dd03"
+    end
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "db8c178db7bd254f55e67f0f31502847f86eba86bb80bf2373bb02eb8dada185" => :sierra
-    sha256 "7901e797484528b9a1b40fbc304d0dab8e81f562c6904dc2bcb6efc197f8888b" => :el_capitan
-    sha256 "7d873719b5e728ba6f75ad343c2bf6dedb781a954ce8ef54561df3bf123dbeb4" => :yosemite
+    cellar :any
+    sha256 "4ef9b1a1887b16053c9737b0c448603069ee455839a87743cb9773ce836fba12" => :sierra
+    sha256 "a17de27d00ef38eccaa517ac60f17ddb78fd4a8b008004540e78e49c306e8eb5" => :el_capitan
+    sha256 "c835ae9ae88452fb7b6fa13e873b15f41aef881f00f18aad5d7d4db7f6d9902c" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -48,8 +59,6 @@ class Passpie < Formula
   end
 
   test do
-    system bin/"passpie", "-D", "passpiedb", "init", "--force", "--passphrase", "s3cr3t"
-    system bin/"passpie", "-D", "passpiedb", "add", "foo@bar", "--random"
-    system bin/"passpie", "-D", "passpiedb", "copy", "--passphrase", "s3cr3t", "foo@bar", "--to", "stdout"
+    system bin/"passpie", "--help"
   end
 end

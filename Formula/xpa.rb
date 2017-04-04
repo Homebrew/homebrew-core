@@ -1,6 +1,6 @@
 class Xpa < Formula
   desc "Seamless communication between Unix programs"
-  homepage "http://hea-www.harvard.edu/RD/xpa/"
+  homepage "https://hea-www.harvard.edu/RD/xpa/"
   url "https://github.com/ericmandel/xpa/archive/v2.1.18.tar.gz"
   sha256 "a8c9055b913204babce2de4fa037bc3a5849941dcb888f57368fd04af0aa787b"
 

@@ -1,14 +1,14 @@
 class ShairportSync < Formula
   desc "AirTunes emulator. Shairport Sync adds multi-room capability."
   homepage "https://github.com/mikebrady/shairport-sync"
-  url "https://github.com/mikebrady/shairport-sync/archive/2.8.6.tar.gz"
-  sha256 "2e73416ac8fdda1657034afaa143f1710852ebed06e0aa43dafc2b7dc5eb653d"
+  url "https://github.com/mikebrady/shairport-sync/archive/3.0.2.tar.gz"
+  sha256 "b348b9b3cf3994d9222430bc514c94a22f2ed173956fdb097f3354cdba8fd198"
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
-    sha256 "a04c78637cd7e8293a864f841b9e7ce62ee42458a5d97fd0eff0f2a2d90f4f9f" => :sierra
-    sha256 "d2f5d7c32ceb9e726aa3caff7364b1f0c450509e10d3e2cbaf50d7c4f19a209a" => :el_capitan
-    sha256 "9d9a2bcd15d54cdaefe04f4f1a585f6bb4aef311508dae22a1e16e045d64f585" => :yosemite
+    sha256 "e7fbbae46ebeda895bc0fcfe586a1e7db8032e357022b2b1365142cbf9c6d182" => :sierra
+    sha256 "d4675e0a1d3a049404612ed2acb7fab8586603abf509fa651e2b3d65a1afb1c1" => :el_capitan
+    sha256 "d85e66ef245af3b3dad068782e22bef8630fbb257523c1be06c3ec3b58fe1b6e" => :yosemite
   end
 
   depends_on "pkg-config" => :build

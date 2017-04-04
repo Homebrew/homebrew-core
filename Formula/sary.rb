@@ -1,7 +1,7 @@
 class Sary < Formula
   desc "Suffix array library"
   homepage "https://sary.sourceforge.io/"
-  url "http://sary.sourceforge.net/sary-1.2.0.tar.gz"
+  url "https://sary.sourceforge.io/sary-1.2.0.tar.gz"
   sha256 "d4b16e32c97a253b546922d2926c8600383352f0af0d95e2938b6d846dfc6a11"
 
   bottle do

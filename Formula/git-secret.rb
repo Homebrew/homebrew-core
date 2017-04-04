@@ -7,9 +7,10 @@ class GitSecret < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "560e8aaaa04b0bfa45596ddbbd6adacf0ce709481643b407eaeed9971edb30a0" => :sierra
-    sha256 "560e8aaaa04b0bfa45596ddbbd6adacf0ce709481643b407eaeed9971edb30a0" => :el_capitan
-    sha256 "560e8aaaa04b0bfa45596ddbbd6adacf0ce709481643b407eaeed9971edb30a0" => :yosemite
+    rebuild 1
+    sha256 "835b7d59e90d17230c9038c2024aa9199feb63a35c45eb50bbe5e2d2730a486c" => :sierra
+    sha256 "a6df88bc4820b9796721fa0bbf5d12e9618fdc2084a4618811458462c4ee2b23" => :el_capitan
+    sha256 "a6df88bc4820b9796721fa0bbf5d12e9618fdc2084a4618811458462c4ee2b23" => :yosemite
   end
 
   depends_on :gpg => :recommended
@@ -20,15 +21,30 @@ class GitSecret < Formula
   end
 
   test do
-    Gpg.create_test_key(testpath)
-    system "git", "init"
-    system "git", "config", "user.email", "testing@foo.bar"
-    system "git", "secret", "init"
-    assert_match "testing@foo.bar added", shell_output("git secret tell -m")
-    (testpath/"shh.txt").write "Top Secret"
-    (testpath/".gitignore").write "shh.txt"
-    system "git", "secret", "add", "shh.txt"
-    system "git", "secret", "hide"
-    assert File.exist?("shh.txt.secret")
+    (testpath/"batch.gpg").write <<-EOS.undent
+      Key-Type: RSA
+      Key-Length: 2048
+      Subkey-Type: RSA
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %no-protection
+      %commit
+    EOS
+    begin
+      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system "git", "init"
+      system "git", "config", "user.email", "testing@foo.bar"
+      system "git", "secret", "init"
+      assert_match "testing@foo.bar added", shell_output("git secret tell -m")
+      (testpath/"shh.txt").write "Top Secret"
+      (testpath/".gitignore").write "shh.txt"
+      system "git", "secret", "add", "shh.txt"
+      system "git", "secret", "hide"
+      assert File.exist?("shh.txt.secret")
+    ensure
+      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+    end
   end
 end

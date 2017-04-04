@@ -1,14 +1,14 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://github.com/sahib/rmlint"
-  url "https://github.com/sahib/rmlint/archive/v2.4.5.tar.gz"
-  sha256 "33a7c1755957572976caf33f413cda02e67b55089843ef0d7305fa496f79cfff"
+  url "https://github.com/sahib/rmlint/archive/v2.4.6.tar.gz"
+  sha256 "1ec614c38dbeb0a5d181286111ed4e37707fcd10e2c3569db0a41ef1765c5415"
 
   bottle do
     cellar :any
-    sha256 "906e04c346f1c20aa5f42aef75f45f76d758f8e7cb18b78178dbeb1a5b73a77a" => :sierra
-    sha256 "5eaa91172e5d5580fad4b382182721704008bb20515965e57897486f6792100e" => :el_capitan
-    sha256 "e1230b201afba08957e237a92e837933fd5b69b02705f1b5fde31fc88e9b7c4e" => :yosemite
+    sha256 "8cf75058b4f8da4574423411c016fc97a99c5fea11fc81def55a669603dc5956" => :sierra
+    sha256 "c4c54070aa79e8a909af6c485c3218e7c99e61390829cfa20509b18dd6ec5468" => :el_capitan
+    sha256 "706c793953814fff641d3415b5463337c32d35fae4e9e72d7b2ab80a9dca203f" => :yosemite
   end
 
   option "with-json-glib", "Add support for reading json caches"

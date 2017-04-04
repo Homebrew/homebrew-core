@@ -1,14 +1,13 @@
 class Libchamplain < Formula
   desc "ClutterActor for displaying maps"
   homepage "https://wiki.gnome.org/Projects/libchamplain"
-  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.12.tar.xz"
-  sha256 "e7de797200a91dba07bd8ba6583a672e1b3dcee842b9b100798925ebde8254a6"
+  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.15.tar.xz"
+  sha256 "54721a210bdef6d73c5192ed83542023117bf5d7441257e7a7a9f8c05550b874"
 
   bottle do
-    sha256 "d4552bdf2859480550459fb0be2658269ad98328d08c4ad8078eff44f2a0bcf6" => :sierra
-    sha256 "c489324cfd7be98817af7ab6d1cc1645dad41803566ccafef8b30c78ad383190" => :el_capitan
-    sha256 "302278ca1ccc1e91cd705b9af97c0b0f61a0f4cf3f7d956d9ce279ea199b25cb" => :yosemite
-    sha256 "e14e6a06013cc796cdf0d09ea8491e59cd9ecf52d4be1327621bd765667f8051" => :mavericks
+    sha256 "54f51ed7dc62f50be7e7db9a38c7566f8e2587e37e8aa8ee01eb76fa4ca1f02c" => :sierra
+    sha256 "c79e5e0c0c9e80a238bc7ec1abd827f7edb8d3be6a4940cd581a3ac769163f86" => :el_capitan
+    sha256 "87bd76fe481a410dd14dd56895c8cd4d75ca8158b63a2c30a06e20ff76e94f72" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -20,6 +19,7 @@ class Libchamplain < Formula
   depends_on "vala" => :optional
 
   def install
+    ENV.delete "SDKROOT"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

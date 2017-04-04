@@ -3,15 +3,14 @@ require "language/go"
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/v6.1.1.tar.gz"
-  sha256 "57bdab4cebcd1ee512c4dd4b0347e8058029e6f852a494ec1a18a9c3120bc30c"
+  url "https://github.com/tsenart/vegeta/archive/v6.3.0.tar.gz"
+  sha256 "b9eaf9dc748fa58360395641ff50a33e53c805bf8a45ba3d787133d97b2269c6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9e470f58d10a8ba51732a53aaf40083adf22b6e79a78337b10e9f49949362c8" => :sierra
-    sha256 "1d3fcdcd9206a14ca845f33826817c4c491802378ed8958ac5f4f3132d97baec" => :el_capitan
-    sha256 "e399a2c1d617c7a1ca679c328650d31da6bf51a43a6b4cfa0368e07340c13b3b" => :yosemite
-    sha256 "9adf5bef1f56d93b1866cd6c32f6aa964847dd0854f88dc8cd6cfce6e69184e3" => :mavericks
+    sha256 "47e1b8f045671f42701a959baac1d37e967b6be0196dff6b8c088df5763a2a5f" => :sierra
+    sha256 "aadfb9ec8717221b59cad02eb1eec3464e75e8c05ff3f695f07291b8a9b87fdb" => :el_capitan
+    sha256 "4e449d903b750dbbe063b024cd06ba82edb1490db4774fdda9c4e228df8256be" => :yosemite
   end
 
   depends_on "go" => :build
@@ -23,7 +22,7 @@ class Vegeta < Formula
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "6250b412798208e6c90b03b7c4f226de5aa299e2"
+        :revision => "a6577fac2d73be281a500b310739095313165611"
   end
 
   def install

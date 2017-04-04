@@ -1,19 +1,18 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.3.1.tgz"
-  sha256 "cd74bfae4773620dd0c7cc9c1696a08386931d7e47a3906aa632cc5cb44ed6bd"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.4.4.tgz"
+  sha256 "e54de15ffa5108a1913c4910845436345c89ddb83480cd03277a795fafabfb9d"
 
   bottle do
-    cellar :any
-    sha256 "6e0e6197e025d371b9a8ed4c71a1bd117dc087116edbf34528e0592518ee641a" => :sierra
-    sha256 "ca3c67cfa4ed9cace3f0868d82322cabd3d4bee86b448c2942efab0a545ba46f" => :el_capitan
-    sha256 "c02e259a9a446d0578fe82ae3847a9d0050c6c3b032d98b95d6ce4f348361777" => :yosemite
-    sha256 "a9467330e9bd3b40011cc647cc7702c68f2665794f4ae62941eb70f8cccaebcb" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "daae63975af6dcb3c7a636f17d8d04f16c486c73f8e79cde2bd4156c71aa6a49" => :sierra
+    sha256 "ed1ae7ae97776244892e264bdb3dd5e3d5e8766154e3924a98d80d244110dd8f" => :el_capitan
+    sha256 "0935ea8d2f68b5b5b0e82be32b974521c775ce41ebc371b4eb5a970bd28b4222" => :yosemite
   end
 
   head do
-    url "http://git.cern.ch/pub/CLHEP", :using => :git
+    url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build

@@ -54,7 +54,7 @@ class Moc < Formula
   depends_on "faad2" => :optional
   depends_on "timidity" => :optional
   depends_on "libmagic" => :optional
-  depends_on "homebrew/dupes/ncurses" => :optional
+  depends_on "ncurses" => :optional
 
   def install
     # Remove build.devel? when 2.6-alpha4 comes out

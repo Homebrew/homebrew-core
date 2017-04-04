@@ -22,15 +22,14 @@ class Figlet < Formula
   end
 
   def install
-    share_fonts = share+"figlet/fonts"
-    share_fonts.install resource("contrib"), resource("intl")
+    (pkgshare/"fonts").install resource("contrib"), resource("intl")
 
     chmod 0666, %w[Makefile showfigfonts]
     man6.mkpath
     bin.mkpath
 
     system "make", "prefix=#{prefix}",
-                   "DEFAULTFONTDIR=#{share_fonts}",
+                   "DEFAULTFONTDIR=#{pkgshare}/fonts",
                    "MANDIR=#{man}",
                    "install"
   end

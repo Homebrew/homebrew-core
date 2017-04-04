@@ -10,7 +10,7 @@ class Avanor < Formula
     sha256 "1c12fd7f45993d18b481d3317594083e4bb88f0eecf100d4b5dd4a927c866200" => :yosemite
   end
 
-  # Upstream fix for clang: http://sourceforge.net/p/avanor/code/133/
+  # Upstream fix for clang: https://sourceforge.net/p/avanor/code/133/
   patch :p0 do
     url "https://gist.githubusercontent.com/mistydemeo/64f47233ee64d55cb7d5/raw/c1847d7e3a134e6109ad30ce1968919dd962e727/avanor-clang.diff"
     sha256 "2d24ce7b71eb7b20485d841aabffa55b25b9074f9a5dd83aee33b7695ba9d75c"

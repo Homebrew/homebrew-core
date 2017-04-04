@@ -2,16 +2,16 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker.git",
-      :tag => "v1.13.1",
-      :revision => "092cba3727bb9b4a2f0e922cd6c0f93ea270e363"
+      :tag => "v17.03.1-ce",
+      :revision => "c6d412e329c85f32a4b2269b49aaa0794affcf88"
 
   head "https://github.com/docker/docker.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e48ab4e9376cfa5bb7ddf3c602ab3773feb53534070971a682eaf8f430482f72" => :sierra
-    sha256 "173a12537cb3b9087c16dd6d38280f2d51f8388bf74e0d0e487faaae023404c2" => :el_capitan
-    sha256 "f6ad85796334dc1c385c1958e7da2b10dfeecb0e85a53bdae5329508acc27a29" => :yosemite
+    sha256 "1e8b89941439abf2c0d34e58bf64c8a581463e95499c6bf01c7634fbc65374a7" => :sierra
+    sha256 "3ff83f93694db2ab9ed58bf0a60da07cf3ade9a60e378b68c77d42de3de02348" => :el_capitan
+    sha256 "0cdac342b9bf4785ef1cc680c37434a555383a81be33cfd798656ddfbd0582e3" => :yosemite
   end
 
   option "with-experimental", "Enable experimental features"
@@ -30,7 +30,7 @@ class Docker < Formula
 
     system "hack/make.sh", "dynbinary-client"
 
-    build_version = build.head? ? File.read("VERSION").chomp : version
+    build_version = build.head? ? File.read("VERSION").chomp : "#{version}-ce"
     bin.install "bundles/#{build_version}/dynbinary-client/docker-#{build_version}" => "docker"
 
     if build.with? "completions"

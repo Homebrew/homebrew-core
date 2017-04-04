@@ -1,8 +1,8 @@
 class AptlyCompletion < Formula
   desc "Bash completion for Aptly"
   homepage "https://github.com/aptly-dev/aptly-bash-completion"
-  url "https://github.com/aptly-dev/aptly-bash-completion/archive/0.9.5.tar.gz"
-  sha256 "3b912787808e86ddd7c30555d2b09951e564956dddfe8b521f104651cfe7da96"
+  url "https://github.com/aptly-dev/aptly-bash-completion/archive/1.0.0.tar.gz"
+  sha256 "d5e8f51c82f35db7d25ddfb7e3898ec09338829c474733bbbd01c893ad6fa3a5"
   head "https://github.com/aptly-dev/aptly-bash-completion.git"
 
   bottle :unneeded

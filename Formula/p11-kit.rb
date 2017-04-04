@@ -1,13 +1,13 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.3/p11-kit-0.23.3.tar.gz"
-  sha256 "d487f04dba3f9e8256f53034c59c944ca45fd7b8434c095da6a74079644dcd82"
+  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.5/p11-kit-0.23.5.tar.gz"
+  sha256 "0d8fed192563c324bb5ace3c068f06558a5569a6e8eb47eee1cd79ada3b1124f"
 
   bottle do
-    sha256 "5aa16ddaa7bb0c6fcf66122685337e9d98e421c9389fdff2250e6fd7cf4ef352" => :sierra
-    sha256 "ea3948d2d030a226143afb6f0cf63ea7c7ed936078b7984c492e53e4dc05c8ff" => :el_capitan
-    sha256 "122fa200388458776d870d483680f21d8bc755f62db1a87cab30338ab0ab445d" => :yosemite
+    sha256 "f1008afabf2d9454119eaf6aa4b75cc1f1a782d9d6ad7041c1d0a019dda6be05" => :sierra
+    sha256 "d8c54b9f80e06bc36fb87a89785986fe5c94a9b193d114f6cf0b5621768399b1" => :el_capitan
+    sha256 "7fd6772a1147840eb8974fe0605a3bace98ebeb68cefb72cd71fc08df2ce927f" => :yosemite
   end
 
   head do
