@@ -3,6 +3,7 @@ class Librdkafka < Formula
   homepage "https://github.com/edenhill/librdkafka"
   url "https://github.com/edenhill/librdkafka/archive/v0.9.4.tar.gz"
   sha256 "5007ad20a6753f709803e72c5f2c09483dcbce0f16b94b17cf677fb3e6045907"
+  revision 1
 
   head "https://github.com/edenhill/librdkafka.git"
 
@@ -16,6 +17,7 @@ class Librdkafka < Formula
   depends_on "pkg-config" => :build
   depends_on "lzlib"
   depends_on "openssl"
+  depends_on "lz4" => :recommended
 
   def install
     system "./configure", "--disable-dependency-tracking",
