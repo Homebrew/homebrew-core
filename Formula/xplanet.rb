@@ -3,6 +3,7 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
+  revision 1
 
   bottle do
     rebuild 1
@@ -44,6 +45,9 @@ class Xplanet < Formula
     sha256 "3f95ba8d5886703afffdd61ac2a0cd147f8d659650e291979f26130d81b18433"
   end
 
+  # Support for giflib 5 is incomplete
+  patch :p0, :DATA
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -81,3 +85,43 @@ class Xplanet < Formula
     system "#{bin}/xplanet", "-geometry", "4096x2160", "-projection", "mercator", "-gmtlabel", "-num_times", "1", "-output", "#{testpath}/xp-test.png"
   end
 end
+
+__END__
+--- src/libimage/gif.c.old	2017-04-05 00:02:06.000000000 +0200
++++ src/libimage/gif.c	2017-04-05 00:02:34.000000000 +0200
+@@ -179,7 +179,11 @@ read_gif(const char *filename, int *widt
+ 	}
+     }
+     
++#if GIFLIB_MAJOR >= 5
++    if (DGifCloseFile(GifFile, NULL) == GIF_ERROR) {
++#else
+     if (DGifCloseFile(GifFile) == GIF_ERROR) {
++#endif
+ 	return(0);
+     }
+ 
+@@ -493,7 +497,11 @@ SortCmpRtn(const void *Entry1,
+ static void QuitGifError(GifFileType *GifFile)
+ {
+     fprintf(stderr, "Error writing GIF file\n");
++#if GIFLIB_MAJOR >= 5
++    if (GifFile != NULL) EGifCloseFile(GifFile, NULL);
++#else
+     if (GifFile != NULL) EGifCloseFile(GifFile);
++#endif
+ }
+ 
+ int 
+@@ -589,7 +597,11 @@ write_gif(const char *filename, int widt
+ 	Ptr += width;
+     }
+ 
++#if GIFLIB_MAJOR >= 5
++    if (EGifCloseFile(GifFile, NULL) == GIF_ERROR)
++#else
+     if (EGifCloseFile(GifFile) == GIF_ERROR)
++#endif
+ 
+     {
+ 	QuitGifError(GifFile);
