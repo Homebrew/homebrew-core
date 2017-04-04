@@ -18,5 +18,7 @@ class JettyRunner < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/jetty-runner --version 2>&1", 1)
+    assert_match "ERROR: No Contexts defined", shell_output("#{bin}/jetty-runner 2>&1", 1)
+    assert_match /Context '.*\/test.war' does not exist/, shell_output("#{bin}/jetty-runner test.war 2>&1", 1)
   end
 end
