@@ -1,9 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.19.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.19.tar.bz2"
-  sha256 "46cced1f5641ce29cc28250f52fadf6e417e649b3bfdec49a5a0d0b22a639bf0"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
+  sha256 "24cf9a69369be64a9f6f8cc11a1be33ab7780ad77a6a1b93719438f49f69960d"
 
   bottle do
     sha256 "489c79922a572a68b98c8dcf3e55a657a8c745fd1e02a1b2b42aa781b1f07d91" => :sierra
@@ -30,24 +30,6 @@ class Gnupg < Formula
   depends_on "libusb" => :recommended
   depends_on "readline" => :optional
   depends_on "homebrew/fuse/encfs" => :optional
-
-  # Remove for > 2.1.19
-  # ssh-import.scm fails during "make check" for sandboxed builds
-  # Reported 1 Mar 2017 https://bugs.gnupg.org/gnupg/issue2980
-  # Fixed 6 Mar 2017 in https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=4ce4f2f683a17be3ddb93729f3f25014a97934ad
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c0c54c6/gnupg/agent-handle-scdaemon-errors.patch"
-    sha256 "c2de625327c14b2c0538f45749f46c67169598c879dc81cf828bbb30677b7e59"
-  end
-
-  # Remove for > 2.1.19
-  # "make check" cannot run before "make install"
-  # Reported 1 Mar 2017 https://bugs.gnupg.org/gnupg/issue2979
-  # Fixed 15 Mar 2017 in https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=a98459d3f4ec3d196fb0adb0e90dadf40abc8c81
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f234026/gnupg/fix-using-tools-from-build-dir.patch"
-    sha256 "f36614537c75981c448d4c8b78e6040a40f867464c7828ed72a91a35cd2b577f"
-  end
 
   def install
     args = %W[
