@@ -5,6 +5,12 @@ class Lapack < Formula
   sha256 "ed967e4307e986474ab02eb810eed1d1adc73f5e1e3bc78fb009f6fe766db3be"
   head "https://github.com/Reference-LAPACK/lapack.git"
 
+  bottle do
+    sha256 "f2afbb9b25d42a4c4ca3b4ea7995a98397f0cd69a878128d30ee0eb02d3c0e44" => :sierra
+    sha256 "f8fade438f429b1e79eaf7329177996f009c10932ea6cdcde327fd5e7971c09b" => :el_capitan
+    sha256 "b687da11ee0b742ed426aad8e39f1c0c84301af664e951ad308fcccdc377ea29" => :yosemite
+  end
+
   keg_only :provided_by_osx
 
   depends_on :fortran
