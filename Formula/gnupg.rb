@@ -31,24 +31,6 @@ class Gnupg < Formula
   depends_on "readline" => :optional
   depends_on "homebrew/fuse/encfs" => :optional
 
-  # Remove for > 2.1.20
-  # decrypt-unwrap-verify.scm "make check" failure
-  # Reported 4 Apr 2017 https://dev.gnupg.org/T3047
-  # Fixed 4 Apr 2017 in https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=32b75fb7743f35936d7014fce33c90ba97dfa374
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1cafcb8/gnupg/T3047-tests-fix-setup-of-ephemeral-home-directories.patch"
-    sha256 "cc4443398f67fd6f29e3828ff48f2b7524f2d81893af9229476a8ebb4827d629"
-  end
-
-  # Remove for > 2.1.20
-  # decrypt-unwrap-verify.scm "make check" failure
-  # Reported 4 Apr 2017 https://dev.gnupg.org/T3047
-  # Fixed 4 Apr 2017 in https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=6261611d3786f19fd84ccc79f45a89cadac518e8
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d11d50/gnupg/T3047-gpgscm-fix-copying-values.patch"
-    sha256 "d90c956705b77d091b4e32d9f4baca45b59ccb493ae9349bdd75b85ca47d631c"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -65,8 +47,8 @@ class Gnupg < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "check"
     system "make", "install"
+    system "make", "check"
 
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"
