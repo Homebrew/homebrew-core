@@ -32,10 +32,6 @@ class Ntp < Formula
   depends_on "net-snmp" => :optional
 
   def install
-    # Ensure homebrew perl is in #! lines of installed scripts.
-    localperl="/usr/local/bin/perl"
-    ENV["PATH_PERL"] = localperl if File.exist? localperl
-
     system "./bootstrap" if build.head?
 
     args = [
