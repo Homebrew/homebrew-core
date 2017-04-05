@@ -18,4 +18,15 @@ class Iperf < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    begin
+      server = IO.popen("#{bin}/iperf --server")
+      sleep 1
+      assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
+    ensure
+      Process.kill("SIGINT", server.pid)
+      Process.wait(server.pid)
+    end
+  end
 end
