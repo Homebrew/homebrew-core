@@ -6,9 +6,9 @@ class Deis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cbb9f1aaeb34961b544372deef2474dbe8f3fdd2428551d4aa0de5a488b980cd" => :sierra
-    sha256 "4885e332c7b00963e3cc816269d18ae0ec1e4125fe74add7695124fd0eac38b7" => :el_capitan
-    sha256 "3e0c606e28928df6da3512edebf91d9f6dcd520d9af21dfbd19b36c8cd0b4344" => :yosemite
+    sha256 "9c30a6681470e836106d736a1b756ac2b92ca55449118007e024c2d53223a25f" => :sierra
+    sha256 "0a9852a78d603299a5e579f070eb6811b6067da8f0c9ed97e06a7261dfa68c8a" => :el_capitan
+    sha256 "6abec4d481fd7a748faca351c4474f59284fdede8ffab38a72cf3a132f83aef1" => :yosemite
   end
 
   depends_on "glide" => :build
