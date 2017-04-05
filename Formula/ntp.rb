@@ -1,35 +1,22 @@
 class Ntp < Formula
   desc "The Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
-  # Arguments could be made for:
-  # http://ntp.org/documentation.html (has more unofficial stuff)
-  # http://ntp.org/  (more the protocol than the distribution)
   url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p10.tar.gz"
   version "4.2.8p10"
   sha256 "ddd2366e64219b9efa0f7438e06800d0db394ac5c88e13c17b70d0dcdf99b99f"
 
   devel do
-    # http://support.ntp.org/bin/view/Main/SoftwareDevelopment
     url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-dev/ntp-dev-4.3.93.tar.gz"
     sha256 "a07e73d7a3ff139bba33ee4b1110d5f3f4567465505d6317c9b50eefb9720c42"
   end
 
   head do
-    ## The git repo is broken/ancient, per https://github.com/ntp-project/ntp/issues/17
-    ## but the others aren't much better.
-    #
-    ## url "https://github.com/ntp-project/ntp.git"
-    ## Default stable branch: 1a399a03e674da08cfce2cdb847bfb65d65df237, Jan 24 2016
-    ## Non-default "master" branch: 9c75327c3796ff59ac648478cd4da8b205bceb77 Sun Jan 24 12:06:39 2016 +0000
-    #
-    ## bk://bk.ntp.org/ntp-stable
-    ## (4.2.8p10-win-beta1) 2017/03/21 Released by Harlan Stenn <stenn@ntp.org>
-    #
+    ## The git repo is broken/ancient, per
+    ## https://github.com/ntp-project/ntp/issues/17 but the others
+    ## aren't much better.
+    ##
     ## bk://bk.ntp.org/ntp-dev
     ## (4.3.93) 2016/06/02 Released by Harlan Stenn <stenn@ntp.org>
-    #
-    ## rsync archive.ntp.org::ntp-dev-src
-    ## (4.3.92) 2016/04/27 Released by Harlan Stenn <stenn@ntp.org>
 
     # Unsupported syntax?: depends_on cask: "bitkeeper"
 
