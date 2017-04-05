@@ -19,6 +19,8 @@ class Apollo < Formula
   option "without-bdb", "Install without bdb store support"
   option "without-mqtt", "Install without MQTT protocol support"
 
+  depends_on :java => "1.7+"
+
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
   resource "bdb-je" do
     url "http://download.oracle.com/maven/com/sleepycat/je/5.0.34/je-5.0.34.jar"
@@ -39,7 +41,7 @@ class Apollo < Formula
     (libexec/"lib").install resource("bdb-je") if build.with? "bdb"
     (libexec/"lib").install resource("mqtt") if build.with? "mqtt"
 
-    bin.write_exec_script libexec/"bin/apollo"
+    (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.java_home_env
   end
 
   def caveats; <<-EOS.undent
@@ -71,5 +73,11 @@ class Apollo < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system bin/"apollo", "create", testpath
+    assert_predicate testpath/"bin/apollo-broker", :exist?
+    assert_predicate testpath/"bin/apollo-broker", :executable?
   end
 end
