@@ -26,10 +26,10 @@ class Ntp < Formula
       "--with-openssl-libdir=#{Formula["openssl"].lib}",
       "--with-openssl-incdir=#{Formula["openssl"].include}",
     ]
-    if build.with?("net-snmp")
-      args << "-with-net-snmp-config"
+    args << if build.with?("net-snmp")
+      "-with-net-snmp-config"
     else
-      args << "-with-net-snmp-config=no"
+      "-with-net-snmp-config=no"
     end
 
     system "./configure", *args
