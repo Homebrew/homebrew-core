@@ -3,9 +3,8 @@ class Ooniprobe < Formula
 
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/ea/31/f6ffff21b406b5c38b78f00b38897a48baae30eef0469089fb1330d86218/ooniprobe-2.1.0.tar.gz"
-  sha256 "867f51fcee8d84f68c42dea24c3384736a1e0cf153e1f18254e91682ca6e927a"
-  revision 1
+  url "https://pypi.python.org/packages/46/eb/e44d255dbd6b2bc8cc6de680ff8ce3c279c9b0694a6eec9059bdf4806dfc/ooniprobe-2.2.0.tar.gz"
+  sha256 "971f7630587b7ba771383f93c10973871e2c5e866a7fde98754a788679361ac3"
 
   bottle do
     sha256 "34507888fb4b35fc8f4bbe16ee9a62a4572bd4d1142db5504898ac249e1a2edd" => :sierra
