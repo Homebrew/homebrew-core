@@ -6,11 +6,9 @@ class Getdns < Formula
   head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
-    cellar :any
-    sha256 "12ff9ab93eb1fe2727155383a643c5a2d40b2f48e9353e6a385baa5155d89c2f" => :sierra
-    sha256 "1ae532218ee2efd6c557a876d062a220ec4d604e24eca19160b394bea813a718" => :el_capitan
-    sha256 "4e2eff05d371aedbd66bb428d8f01350134900ed4f4b647897d9c25b8492a45a" => :yosemite
-    sha256 "18dcbddc502946fc6a146a52f255a4de75df80235b9b2dfcbaeee054fac355b2" => :mavericks
+    sha256 "eb0a9afe598e9611814d9ca21ff7e897dd4b2182df29797f2624a22ed661a892" => :sierra
+    sha256 "db7b5abcbb815b325cf60a334b31eee7f65485bf037895d61b24fb368200ea13" => :el_capitan
+    sha256 "0c372cc5b79342c227df9ab8dc678a064f2ffd351409d8aa5536d6522d7012aa" => :yosemite
   end
 
   devel do
