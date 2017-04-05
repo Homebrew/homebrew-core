@@ -3,6 +3,7 @@ class Vice < Formula
   homepage "https://vice-emu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.0.tar.gz"
   sha256 "bc56811381920d43ab5f2f85a5e08f21ab5bdf6190dd5dfe9f500a745d14972b"
+  revision 1
 
   bottle do
     cellar :any
