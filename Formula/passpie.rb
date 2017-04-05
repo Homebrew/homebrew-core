@@ -3,21 +3,9 @@ class Passpie < Formula
 
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  revision 1
+  url "https://files.pythonhosted.org/packages/7a/e5/f808549a4ae369ed1d97795e6039085d38ec4244aa953fac3cb870c66fbc/passpie-1.6.0.tar.gz"
+  sha256 "8d4371b89d02469d7f2cc4e79480f6f1c80dde81da33d2968c9a212d704a2213"
   head "https://github.com/marcwebbie/passpie.git"
-
-  stable do
-    url "https://files.pythonhosted.org/packages/14/b9/1ab7e80d03ac286602fbd9c6467e2dfc4e67394470e59622111514f223cd/passpie-1.5.5.tar.gz"
-    sha256 "d6d707c54bf338f229b7c82df81cf3a196f52e718b4ec6530bbbe7f4624290af"
-
-    # Remove for > 1.5.5
-    # Fixes "Error: Wrong passphrase" when using GPG 2.1.x
-    # Reported 25 Mar 2017 https://github.com/marcwebbie/passpie/issues/112
-    patch do
-      url "https://github.com/marcwebbie/passpie/commit/308ff74.patch"
-      sha256 "19feaf07c006ce9f900954d3fda8afc95a2e05e7825076b593bfbed85e16dd03"
-    end
-  end
 
   bottle do
     cellar :any
