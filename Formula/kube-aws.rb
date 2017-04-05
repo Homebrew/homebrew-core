@@ -18,6 +18,11 @@ class KubeAws < Formula
     sha256 "cd33c88ee607fdcbca34af4a01b3aa386014f0394bd47c651d309b431bc51c30"
   end
 
+  devel do
+    url "https://github.com/coreos/kube-aws/archive/v0.9.3.tar.gz"
+    sha256 "cd33c88ee607fdcbca34af4a01b3aa386014f0394bd47c651d309b431bc51c30"
+  end
+
   depends_on "go" => :build
 
   def install
