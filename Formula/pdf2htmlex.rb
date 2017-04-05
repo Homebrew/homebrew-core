@@ -3,7 +3,7 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 12
+  revision 13
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
@@ -42,6 +42,10 @@ class Pdf2htmlex < Formula
 
   def install
     resource("fontforge").stage do
+      # Fix for incomplete giflib 5 support, see
+      # https://github.com/coolwanglu/pdf2htmlEX/issues/713
+      inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
+
       args = %W[
         --prefix=#{prefix}/fontforge
         --without-libzmq
