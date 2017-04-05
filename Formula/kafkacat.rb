@@ -1,8 +1,9 @@
 class Kafkacat < Formula
   desc "Generic command-line non-JVM Apache Kafka producer and consumer"
   homepage "https://github.com/edenhill/kafkacat"
-  url "https://github.com/edenhill/kafkacat.git", :tag => "1.3.0"
-  sha256 "1170daa3ec66f32542872fb8a181f021589dc19d510ebc3b141adccc02d2ae5d"
+  url "https://github.com/edenhill/kafkacat.git",
+      :tag => "1.3.0",
+      :revision => "b79896cceedf81df7873850f38e5e2c4ad3e3e57"
   revision 1
 
   bottle do
