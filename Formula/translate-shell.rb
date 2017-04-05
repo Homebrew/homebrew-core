@@ -7,9 +7,9 @@ class TranslateShell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77ef19f70839d19352cbecb7b4b32ad331685b6c049fa258ee774e89f40b9191" => :sierra
-    sha256 "77ef19f70839d19352cbecb7b4b32ad331685b6c049fa258ee774e89f40b9191" => :el_capitan
-    sha256 "77ef19f70839d19352cbecb7b4b32ad331685b6c049fa258ee774e89f40b9191" => :yosemite
+    sha256 "d89626dcfe9c8ea08b08f8775efb84434298ee9ea6fc1c6c4c9488265ba378cb" => :sierra
+    sha256 "5b5172976d949885f323bfc4996b060942b61aa2b7ac71e8c4216715065dcf4e" => :el_capitan
+    sha256 "5b5172976d949885f323bfc4996b060942b61aa2b7ac71e8c4216715065dcf4e" => :yosemite
   end
 
   depends_on "fribidi"
