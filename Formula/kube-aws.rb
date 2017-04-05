@@ -6,9 +6,10 @@ class KubeAws < Formula
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
-    sha256 "7b073c55de427c7f981b5e2c432400bebe73d5003d5886cf3dfdbdaadfde2827" => :sierra
-    sha256 "029348d0ff9248e56e38aaf51b51502e265785c81b42efb553d5ab94032f77eb" => :el_capitan
-    sha256 "262c04907593bbdfd04739d21740da4b34c4409c2294e376080965c0ac8e578d" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "d486f64d76f822d0f282d575543f1dc5008b8306deaeb3d4ee984ae1604a9924" => :sierra
+    sha256 "d6f7cbe965878315250494441844d3de9bb2e0b2b7eb9d5e8d3faae3904a815f" => :el_capitan
+    sha256 "e10ba1d9474a9cc8bbdafa8919132af3463f9c652ad50dd258a44e0a55723edf" => :yosemite
   end
 
   depends_on "go" => :build
