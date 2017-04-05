@@ -38,6 +38,6 @@ class PerconaToolkit < Formula
   end
 
   test do
-    system bin/"pt-summary"
+    system bin/"pt-fingerprint --query \"select 1\""
   end
 end
