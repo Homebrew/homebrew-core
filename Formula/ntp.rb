@@ -10,7 +10,7 @@ class Ntp < Formula
     sha256 "a07e73d7a3ff139bba33ee4b1110d5f3f4567465505d6317c9b50eefb9720c42"
   end
 
-  option "with-net-snmp", "Build net-snmp support"
+  option "with-net-snmp", "Build ntpsnmpd, the SNMP MIB agent for ntpd"
 
   depends_on "openssl"
   depends_on "net-snmp" => :optional
