@@ -122,8 +122,6 @@ class Ntp < Formula
   end
 
   test do
-    # It's hard to do anything without network or clock-invasive stuff.
-    # Make sure we can print a usage message.
-    assert_match "usage: ", shell_output("#{sbin}/ntpdate -\? 2>&1", 2)
+    assert_match "step time server ", shell_output("#{sbin}/ntpdate -bq pool.ntp.org")
   end
 end
