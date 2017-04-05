@@ -124,11 +124,11 @@ class Uwsgi < Formula
     end
 
     python_versions = {
-        "python"=>"python",
-        "python2"=>"python",
+      "python"=>"python",
+      "python2"=>"python",
     }
     python_versions["python3"] = "python3" if build.with? "python3"
-    python_versions.each do |k,v|
+    python_versions.each do |k, v|
       system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end
 
@@ -197,8 +197,8 @@ class Uwsgi < Formula
 
       begin
         assert_match "Hello World", shell_output("curl localhost:8080")
-        #TODO: Would be good to capture the stdout of the exec and test that the python version is 3*, but not sure how.
-        #assert_match "Python version: 3", shell_output("curl localhost:8080")
+        # TODO: Would be good to capture the stdout of the exec and test that the python version is 3*, but not sure how.
+        # assert_match "Python version: 3", shell_output("curl localhost:8080")
       ensure
         Process.kill("SIGINT", pid)
         Process.wait(pid)
