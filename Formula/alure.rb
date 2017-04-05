@@ -24,15 +24,19 @@ class Alure < Formula
   def install
     # fix a broken include flags line, which fixes a build error.
     # Not reported upstream.
-    # https://github.com/Homebrew/homebrew/pull/6368
+    # https://github.com/Homebrew/legacy-homebrew/pull/6368
     if build.with? "libvorbis"
       inreplace "CMakeLists.txt", "${VORBISFILE_CFLAGS}",
-        `pkg-config --cflags vorbisfile`.chomp
+        Utils.popen_read("pkg-config --cflags vorbisfile").chomp
     end
 
     cd "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+  end
+
+  test do
+    system bin/"alureplay", test_fixtures("test.wav")
   end
 end
