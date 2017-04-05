@@ -66,7 +66,6 @@ class Ntp < Formula
     end
 
     system "./configure", *args
-
     system "make", "install"
   end
 
