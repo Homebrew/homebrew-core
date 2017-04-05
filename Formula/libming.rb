@@ -3,6 +3,7 @@ class Libming < Formula
   homepage "http://www.libming.org"
   url "https://github.com/libming/libming/archive/ming-0_4_7.tar.gz"
   sha256 "118aa1338dd74b34dd2cd22bce286ca0571e8b9aa433999646d1c0157ea9a7dc"
+  revision 1
 
   bottle do
     cellar :any
