@@ -10,22 +10,6 @@ class Ntp < Formula
     sha256 "a07e73d7a3ff139bba33ee4b1110d5f3f4567465505d6317c9b50eefb9720c42"
   end
 
-  head do
-    ## The git repo is broken/ancient, per
-    ## https://github.com/ntp-project/ntp/issues/17 but the others
-    ## aren't much better.
-    ##
-    ## bk://bk.ntp.org/ntp-dev
-    ## (4.3.93) 2016/06/02 Released by Harlan Stenn <stenn@ntp.org>
-
-    # Unsupported syntax?: depends_on cask: "bitkeeper"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "lynx" => :build
-  end
-
   option "with-net-snmp", "Build net-snmp support"
 
   depends_on "openssl"
