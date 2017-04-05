@@ -52,58 +52,6 @@ class Ntp < Formula
     system "make", "install"
   end
 
-  def caveats
-    s = <<-EOS.undent
-    By default, OS X ships a broken version of ntpd that by design
-    does not control the system clock, but maintains the network
-    protocol and is intended to write a drift file (which it fails to
-    do under OS X 10.10). The drift file is read by pacemaker(8),
-    which is supposed to call adjtime() in a battery-efficient fashion
-    for laptops.
-
-    Installing this formula implies disabling the system ntpd as well as pacemaker:
-
-      sudo launchctl disable system/com.apple.pacemaker
-      sudo launchctl disable system/org.ntp.ntpd
-    EOS
-    s
-  end
-
-  plist_options :startup => true
-
-  # OS X uses /usr/libexec/ntp-wrapper to wait for appropriate network conditions and then
-  # invoke ntpd with various args. It's not clear that we need to resort to that. It also
-  # runs sntp first, which is definitely unnecessary given ntpd -g.
-  def plist; <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/ntpd</string>
-        <string>-c</string>
-        <string>/private/etc/ntp-restrict.conf</string>
-        <string>-n</string>
-        <string>-g</string>
-        <string>-p</string>
-        <string>/var/run/ntpd.pid</string>
-        <string>-f</string>
-        <string>/var/db/ntp.drift</string>
-        <string>-l</string>
-        <string>/var/log/ntp.log</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
-    EOS
-  end
-
   test do
     assert_match "step time server ", shell_output("#{sbin}/ntpdate -bq pool.ntp.org")
   end
