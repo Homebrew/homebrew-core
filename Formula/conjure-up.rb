@@ -10,9 +10,10 @@ class ConjureUp < Formula
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
   bottle do
-    sha256 "44333b2f820368ba0b2a444c67168fba999152ba681c55a8535505462575376e" => :sierra
-    sha256 "64ae5c6a33c1e8a4b2c8bd0100d4ad5c91c77b172c885f07e056e5cf5e409b7f" => :el_capitan
-    sha256 "1e406f6345d405a67eca6f9d03a1566a65e5b510892b45d5a9e0aaf750d99b67" => :yosemite
+    cellar :any
+    sha256 "ee48798974b439f8587ec82c95acc7365ea1301626ca92764113534d21ec21df" => :sierra
+    sha256 "3224e03a4b317d0c40d0aa1b2a6f0ad4e0272e1b8552f18d3be2eb7798cc4ad3" => :el_capitan
+    sha256 "39577ccd225cc1fcfbb2a89814cb24ff3312f0ae802312c5f1ca3a34002d5603" => :yosemite
   end
 
   devel do
