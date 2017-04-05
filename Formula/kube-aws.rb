@@ -3,19 +3,14 @@ require "yaml"
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/coreos/kube-aws/archive/v0.9.1.tar.gz"
-  sha256 "45f1ac64d6e1132811cd777e2f25ce2dd131cc38d8d7c6c0257ad5c5ff8f5e26"
+  url "https://github.com/coreos/kube-aws/archive/v0.9.5.tar.gz"
+  sha256 "86a15c882ef63e3a24fbd96f8af0b945911b7b2092051baa397d6a5046a1d21f"
   head "https://github.com/coreos/kube-aws.git"
 
   bottle do
     sha256 "7b073c55de427c7f981b5e2c432400bebe73d5003d5886cf3dfdbdaadfde2827" => :sierra
     sha256 "029348d0ff9248e56e38aaf51b51502e265785c81b42efb553d5ab94032f77eb" => :el_capitan
     sha256 "262c04907593bbdfd04739d21740da4b34c4409c2294e376080965c0ac8e578d" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/coreos/kube-aws/archive/v0.9.3.tar.gz"
-    sha256 "cd33c88ee607fdcbca34af4a01b3aa386014f0394bd47c651d309b431bc51c30"
   end
 
   depends_on "go" => :build
