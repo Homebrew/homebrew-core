@@ -3,6 +3,7 @@ class Qbs < Formula
   homepage "https://wiki.qt.io/Qbs"
   url "https://download.qt.io/official_releases/qbs/1.7.1/qbs-src-1.7.1.tar.gz"
   sha256 "e4f5627ffcdba4d74a432f89215e7df1c1657f5416b61612467a7a9267cd4851"
+  revision 1
   head "https://code.qt.io/qt-labs/qbs.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Qbs < Formula
     sha256 "12c129763729d5e94789f47d0cb0b057ca38fe15b7d065a896ce15679d108e5d" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     system "qmake", "qbs.pro", "-r", "QBS_INSTALL_PREFIX=/"
