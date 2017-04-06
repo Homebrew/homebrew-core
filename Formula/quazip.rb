@@ -3,6 +3,7 @@ class Quazip < Formula
   homepage "https://quazip.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/quazip/quazip/0.7.3/quazip-0.7.3.tar.gz"
   sha256 "2ad4f354746e8260d46036cde1496c223ec79765041ea28eb920ced015e269b5"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Quazip < Formula
     sha256 "d10b2676efebaeedc6d51f2a1b18cc638207c866d7ba657d62fb0a09123c4247" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     system "qmake", "quazip.pro", "-config", "release",
@@ -39,7 +40,7 @@ class Quazip < Formula
       }
     EOS
 
-    system "#{Formula["qt5"].bin}/qmake", "test.pro"
+    system "#{Formula["qt"].bin}/qmake", "test.pro"
     system "make"
     assert File.exist?("test"), "test output file does not exist!"
     system "./test"
