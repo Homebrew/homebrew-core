@@ -6,7 +6,7 @@ class Emqttd < Formula
 
   bottle :unneeded
 
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
   
   def install
       prefix.install Dir["*"]
