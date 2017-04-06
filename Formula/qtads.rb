@@ -1,6 +1,7 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
+  revision 1
   head "https://github.com/realnc/qtads.git"
 
   stable do
@@ -30,7 +31,7 @@ class Qtads < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl_sound"
