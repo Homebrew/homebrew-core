@@ -11,7 +11,7 @@ class Opencsg < Formula
     sha256 "d95e4f314bf0b2184d6b5133861d6ad85caf0285273ab1bd8b9e42fc01fbbce3" => :yosemite
   end
 
-  depends_on "qt5" => :build
+  depends_on "qt" => :build
   depends_on "glew"
 
   # This patch disabling building examples
