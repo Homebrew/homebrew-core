@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker.git",
-      :tag => "v17.03.1-ce",
-      :revision => "c6d412e329c85f32a4b2269b49aaa0794affcf88"
+      :tag => "v17.04.0-ce",
+      :revision => "4845c567eb35d68f35b0b1713a09b0c8d47fe67e"
 
   head "https://github.com/docker/docker.git"
 
