@@ -67,6 +67,8 @@ class Qt5 < Formula
       -verbose
       -prefix #{prefix}
       -release
+      -separate-debug-info
+      -force-debug-info
       -opensource -confirm-license
       -system-zlib
       -qt-libpng
