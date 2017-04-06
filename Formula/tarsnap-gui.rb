@@ -3,6 +3,7 @@ class TarsnapGui < Formula
   homepage "https://github.com/Tarsnap/tarsnap-gui/wiki"
   url "https://github.com/Tarsnap/tarsnap-gui/archive/v0.9.tar.gz"
   sha256 "e47e1e611f2c7bb5111bcc1d2d86fa2c045ba4af23f8430bbc3c72f546572cb8"
+  revision 1
   head "https://github.com/Tarsnap/tarsnap-gui.git"
 
   bottle do
@@ -12,7 +13,7 @@ class TarsnapGui < Formula
     sha256 "411049cc57913952cad2ad40bdb2b60e8ccb0e26bf46136e34baa9fee5fc4eee" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "tarsnap"
 
   def install
