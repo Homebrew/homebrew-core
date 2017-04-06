@@ -15,6 +15,7 @@ class Haxe < Formula
 
   depends_on "ocaml" => :build
   depends_on "camlp4" => :build
+  depends_on "opam" => :build if build.head?
   depends_on "cmake" => :build
   depends_on "neko"
   depends_on "pcre"
@@ -22,9 +23,16 @@ class Haxe < Formula
   def install
     # Build requires targets to be built in specific order
     ENV.deparallelize
-    args = ["OCAMLOPT=ocamlopt.opt"]
-    args << "ADD_REVISION=1" if build.head?
-    system "make", *args
+
+    if build.head?
+      ENV["OPAMROOT"] = buildpath/"opamroot"
+      ENV["OPAMYES"] = "1"
+      system "opam", "init", "--no-setup"
+      system "opam", "install", "ocamlfind"
+      system "opam", "config", "exec", "--", "make", "ADD_REVISION=1"
+    else
+      system "make", "OCAMLOPT=ocamlopt.opt"
+    end
 
     # Rebuild haxelib as a valid binary
     cd "extra/haxelib_src" do
