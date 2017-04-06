@@ -127,7 +127,7 @@ class Qt < Formula
     # (Note: This move breaks invocation of Assistant via the Help menu
     # of both Designer and Linguist as that relies on Assistant being in `bin`.)
     libexec.mkpath
-    Pathname.glob("#{bin}/*.app") {|app| mv app, libexec }
+    Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
   end
 
   def caveats; <<-EOS.undent
