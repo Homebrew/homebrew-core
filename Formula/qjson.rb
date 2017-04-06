@@ -3,6 +3,7 @@ class Qjson < Formula
   homepage "https://qjson.sourceforge.io"
   url "https://github.com/flavio/qjson/archive/0.9.0.tar.gz"
   sha256 "e812617477f3c2bb990561767a4cd8b1d3803a52018d4878da302529552610d4"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Qjson < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -29,8 +30,8 @@ class Qjson < Formula
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I#{include}",
                     "-L#{lib}", "-lqjson-qt5",
-                    "-I#{Formula["qt5"].opt_include}",
-                    "-F#{Formula["qt5"].opt_lib}", "-framework", "QtCore"
+                    "-I#{Formula["qt"].opt_include}",
+                    "-F#{Formula["qt"].opt_lib}", "-framework", "QtCore"
     system "./test"
   end
 end
