@@ -21,4 +21,12 @@ class Jython < Formula
     system "java", "-jar", cached_download, "-s", "-d", libexec
     bin.install_symlink libexec/"bin/jython"
   end
+
+  test do
+    ENV.java_cache
+
+    jython = shell_output("#{bin}/jython -c \"from java.util import Date; print Date()\"")
+    # This will break in the year 2100. The test will need updating then.
+    assert_match jython.match(/20\d\d/).to_s, shell_output("/bin/date +%Y")
+  end
 end
