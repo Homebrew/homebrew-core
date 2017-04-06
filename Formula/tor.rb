@@ -12,9 +12,9 @@ class Tor < Formula
   end
 
   devel do
-    url "https://www.torproject.org/dist/tor-0.3.0.4-rc.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.3.0.4-rc.tar.gz"
-    sha256 "32a7c0b322c61e15ce770f43715682f8b0be47844478387ddf8444cdf7c2f46f"
+    url "https://www.torproject.org/dist/tor-0.3.0.5-rc.tar.gz"
+    mirror "https://tor.eff.org/dist/tor-0.3.0.5-rc.tar.gz"
+    sha256 "622c9366d8b753da9192e037d0a13d2d87ffec25b5c606a3d73a2452976b43e0"
   end
 
   depends_on "pkg-config" => :build
