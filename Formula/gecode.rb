@@ -11,7 +11,9 @@ class Gecode < Formula
     sha256 "b02d94fdeb69e26e4de952c62d3955586cf23cd8b15bca7d3caa018ecd9848db" => :yosemite
   end
 
-  depends_on "qt5" => :optional
+  deprecated_option "with-qt5" => "with-qt"
+
+  depends_on "qt" => :optional
 
   def install
     args = %W[
@@ -19,9 +21,9 @@ class Gecode < Formula
       --disable-examples
     ]
     ENV.cxx11
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "--enable-qt"
-      ENV.append_path "PKG_CONFIG_PATH", "#{HOMEBREW_PREFIX}/opt/qt5/lib/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", "#{HOMEBREW_PREFIX}/opt/qt/lib/pkgconfig"
     else
       args << "--disable-qt"
     end
@@ -73,7 +75,7 @@ class Gecode < Formula
 
     args = %W[
       -std=c++11
-      -I#{HOMEBREW_PREFIX}/opt/qt5/include
+      -I#{HOMEBREW_PREFIX}/opt/qt/include
       -I#{include}
       -lgecodedriver
       -lgecodesearch
@@ -83,7 +85,7 @@ class Gecode < Formula
       -L#{lib}
       -o test
     ]
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "-lgecodegist"
     end
     system ENV.cxx, "test.cpp", *args
