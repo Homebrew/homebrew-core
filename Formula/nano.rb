@@ -8,7 +8,7 @@ class Nano < Formula
 
     # Remove for > 2.8.0
     # Fix "error: use of undeclared identifier 'REG_ENHANCED'"
-    # Upstream commit from 4 Apr 2017 http://git.savannah.gnu.org/cgit/nano.git/commit/?id=cc91ee603c24429375ace5d4b55d85c396668c2e
+    # Upstream commit from 4 Apr 2017 https://git.savannah.gnu.org/cgit/nano.git/commit/?id=cc91ee603c24429375ace5d4b55d85c396668c2e
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/45f1329/nano/configure-ignore-reg-enhanced-test.diff"
       sha256 "20e988cd2406da8009c3f5f9ddde206d14e8586bd744bb7bf75326ba59eba653"
