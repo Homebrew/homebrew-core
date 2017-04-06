@@ -20,13 +20,15 @@ class Ttfautohint < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt5", "Build ttfautohintGUI also"
+  deprecated_option "with-qt5" => "with-qt"
+
+  option "with-qt", "Build ttfautohintGUI also"
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "libpng"
   depends_on "harfbuzz"
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
   def install
     args = %W[
@@ -36,7 +38,7 @@ class Ttfautohint < Formula
       --without-doc
     ]
 
-    args << "--without-qt" if build.without? "qt5"
+    args << "--without-qt" if build.without? "qt"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
@@ -44,7 +46,7 @@ class Ttfautohint < Formula
   end
 
   test do
-    if build.with? "qt5"
+    if build.with? "qt"
       system "#{bin}/ttfautohintGUI", "-V"
     else
       system "#{bin}/ttfautohint", "-V"
