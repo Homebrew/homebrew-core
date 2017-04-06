@@ -3,6 +3,7 @@ class Urh < Formula
   homepage "https://github.com/jopohl/urh"
   url "https://files.pythonhosted.org/packages/3e/c0/e22a65b02a92fe74686553b1d630f20c337565c1ecb86d910d8b6f4a0ba7/urh-1.6.2.0.tar.gz"
   sha256 "f8a9ee11fe93f24b794f3a1dc1b1cda36d3674c43785bbba469c60249eb8ea37"
+  revision 1
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Urh < Formula
   depends_on "pkg-config" => :build
 
   depends_on :python3
-  depends_on "pyqt5"
+  depends_on "pyqt"
   depends_on "numpy" => ["with-python3"]
 
   depends_on "hackrf" => :optional
