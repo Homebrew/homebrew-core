@@ -1,15 +1,15 @@
 class Emqttd < Formula
   desc "Erlang MQTT Broker"
   homepage "http://emqtt.io"
-  url "http://emqtt.io/emqttd-macosx-2.1.0.zip"
-  sha256 "c3d213c1085e60ad767fe277635d369620903f041fadc0fb8c7630277b5d3af9"
+  url "http://emqtt.io/emqttd-macosx-2.1.zip"
+  sha256 "7202e0380dad709df47f6aa39a19dda48fa409d85c8155d46b51364981bade5f"
 
   bottle :unneeded
 
   def install
       prefix.install Dir["*"]
       bin.install Dir[libexec/"/bin/emqttd"]
-      rm %W[#{bin}/emqenv]
+      rm %W[#{bin}/emqttd.cmd #{bin}/emqttd_ctl.cmd]
   end
 
   plist_options :manual => "emqttd"
@@ -40,6 +40,8 @@ class Emqttd < Formula
   end
 
   test do
-    system sbin/"echo", "emqttd"
+    system emqttd, "start"
+    system emqttd_ctl, "status"
+    system emqttd, "stop"
   end
 end
