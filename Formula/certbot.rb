@@ -153,6 +153,7 @@ class Certbot < Formula
 
   # Required because augeas formula doesn't ship these.
   # Capped at 0.5.0: Requirement.parse('python-augeas<=0.5.0'))
+  # https://github.com/certbot/certbot/commit/1c51ae25887f2dc31
   resource "python-augeas" do
     url "https://files.pythonhosted.org/packages/41/e6/4b6740cb3e31b82252099994cea751c648b846aa7874343c31d68c2215be/python-augeas-0.5.0.tar.gz"
     sha256 "67d59d66cdba8d624e0389b87b2a83a176f21f16a87553b50f5703b23f29bac2"
@@ -174,5 +175,9 @@ class Certbot < Formula
 
   test do
     assert_match version.to_s, pipe_output("#{bin}/certbot --version 2>&1")
+    # This throws a bad exit code but we can check it actually is failing
+    # for the right reasons by asserting. --version never fails even if
+    # resources are missing or outdated/too new/etc.
+    assert_match "running as non-root", shell_output("#{bin}/certbot 2>&1", 1)
   end
 end
