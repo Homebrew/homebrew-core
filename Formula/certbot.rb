@@ -5,6 +5,8 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.13.0.tar.gz"
   sha256 "ef23822043435261750e7a9c1211601b65f9f9a5e634cfbf5011632b0a62edd4"
+  revision 1
+
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -22,6 +24,11 @@ class Certbot < Formula
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
     sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "argparse" do
+    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
   resource "asn1crypto" do
