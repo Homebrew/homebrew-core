@@ -3,6 +3,7 @@ class Zurl < Formula
   homepage "https://github.com/fanout/zurl"
   url "https://dl.bintray.com/fanout/source/zurl-1.7.1.tar.bz2"
   sha256 "d94970bafb64224e233e060d1ae591b3f418e1d809afe46099c3c16f19322187"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Zurl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "curl" if MacOS.version < :lion
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "zeromq"
 
   resource "pyzmq" do
