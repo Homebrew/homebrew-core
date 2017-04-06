@@ -1,5 +1,5 @@
 class Cgal < Formula
-  desc "CGAL: Computational Geometry Algorithm Library"
+  desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
   url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.9/CGAL-4.9.tar.xz"
   sha256 "63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039"
