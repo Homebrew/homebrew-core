@@ -3,6 +3,7 @@ class Pushpin < Formula
   homepage "http://pushpin.org"
   url "https://dl.bintray.com/fanout/source/pushpin-1.15.0.tar.bz2"
   sha256 "6378bd617b997d15003188a2cc3e9f4c65b5340c1666215b678d402d3a0c549e"
+  revision 1
 
   head "https://github.com/fanout/pushpin.git"
 
@@ -13,7 +14,7 @@ class Pushpin < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "zeromq"
   depends_on "mongrel2"
   depends_on "zurl"
