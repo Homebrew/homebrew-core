@@ -6,9 +6,9 @@ class Qwt < Formula
   revision 4
 
   bottle do
-    sha256 "c27465d6fa732f966ab1f8c6acde2fa331028e7b2c4c50124970c5ffedad8bb6" => :sierra
-    sha256 "287b3aa35bd3925a61d867ea9a122c04deee767cd587719fd11282f5f1cd171c" => :el_capitan
-    sha256 "b5d6c8c36a6090a8dd4aa0172b64389c27e973d3bfc6ae20c030d353fbd8ab34" => :yosemite
+    sha256 "5e25de79818df25e3dab96795d24c4de066a39ae9d616d77c05f528ace671f6f" => :sierra
+    sha256 "b486e9d7b4a9d15886b51d9536ea6b32a642262d3acff5a7ea6985d7fd88db1a" => :el_capitan
+    sha256 "81fcb45fea416bc89e99b213d991c08ccb3ed34ef7da67346a273f8a1f203293" => :yosemite
   end
 
   option "with-qwtmathml", "Build the qwtmathml library"
