@@ -12,12 +12,12 @@ class Wireshark < Formula
     sha256 "981787888b59091393fc3355476232bc89ed5a79937518df5552ba14413f2571" => :yosemite
   end
 
+  deprecated_option "with-qt5" => "with-qt"
+
   option "with-gtk+3", "Build the wireshark command with gtk+3"
   option "with-gtk+", "Build the wireshark command with gtk+"
-  option "with-qt5", "Build the wireshark command with Qt5 (can be used with or without either GTK option)"
+  option "with-qt", "Build the wireshark command with Qt (can be used with or without either GTK option)"
   option "with-headers", "Install Wireshark library headers for plug-in development"
-
-  deprecated_option "with-qt" => "with-qt5"
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
@@ -30,7 +30,7 @@ class Wireshark < Formula
   depends_on "libsmi" => :optional
   depends_on "lua" => :optional
   depends_on "portaudio" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "gtk+3" => :optional
   depends_on "gtk+" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
@@ -56,7 +56,7 @@ class Wireshark < Formula
     args = std_cmake_args
     args << "-DENABLE_GNUTLS=ON" << "-DENABLE_GCRYPT=ON"
 
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "-DBUILD_wireshark=ON"
       args << "-DENABLE_APPLICATION_BUNDLE=ON"
       args << "-DENABLE_QT5=ON"
@@ -103,7 +103,7 @@ class Wireshark < Formula
     ENV.deparallelize # parallel install fails
     system "make", "install"
 
-    if build.with? "qt5"
+    if build.with? "qt"
       prefix.install bin/"Wireshark.app"
       bin.install_symlink prefix/"Wireshark.app/Contents/MacOS/Wireshark"
     end
