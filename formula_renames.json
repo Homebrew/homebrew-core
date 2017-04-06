@@ -130,6 +130,7 @@
   "ppl011": "ppl@0.11",
   "protobuf250": "protobuf@2.5",
   "protobuf260": "protobuf@2.6",
+  "qt5": "qt",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
   "rebar3": "rebar@3",
