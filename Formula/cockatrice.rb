@@ -5,6 +5,7 @@ class Cockatrice < Formula
       :tag => "2017-03-14-Release",
       :revision => "6e723b2a992022ba343d45d881b3c92b9d1c6ba2"
   version "2017-03-14"
+  revision 1
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
@@ -20,9 +21,9 @@ class Cockatrice < Formula
   depends_on "protobuf"
 
   if build.with? "server"
-    depends_on "qt5" => "with-mysql"
+    depends_on "qt" => "with-mysql"
   else
-    depends_on "qt5"
+    depends_on "qt"
   end
 
   fails_with :clang do
