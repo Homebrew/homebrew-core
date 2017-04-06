@@ -3,10 +3,10 @@ require "language/go"
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
-  url "https://github.com/mitchellh/packer.git",
+  url "https://github.com/hashicorp/packer.git",
       :tag => "v1.0.0",
       :revision => "e3d65a193e96c7b228589fc9699e39998ec12e4e"
-  head "https://github.com/mitchellh/packer.git"
+  head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -42,7 +42,7 @@ class Packer < Formula
     # doesn't need to be installed permanently.
     ENV.append_path "PATH", buildpath
 
-    packerpath = buildpath/"src/github.com/mitchellh/packer"
+    packerpath = buildpath/"src/github.com/hashicorp/packer"
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
 
@@ -56,7 +56,7 @@ class Packer < Formula
       buildpath.install "stringer"
     end
 
-    cd "src/github.com/mitchellh/packer" do
+    cd "src/github.com/hashicorp/packer" do
       # We handle this step above. Don't repeat it.
       inreplace "Makefile" do |s|
         s.gsub! "go get github.com/mitchellh/gox", ""
