@@ -152,9 +152,10 @@ class Certbot < Formula
   end
 
   # Required because augeas formula doesn't ship these.
+  # Capped at 0.5.0: Requirement.parse('python-augeas<=0.5.0'))
   resource "python-augeas" do
-    url "https://files.pythonhosted.org/packages/3b/61/bb1317ea4474fdbc4d19e24d0cdb3955cfbdd66e5c8cc17f9796822df361/python-augeas-1.0.1.tar.gz"
-    sha256 "cb59b077939f1b29d779f889c7f123f01b0ac51720ea80991887e5df2235f886"
+    url "https://files.pythonhosted.org/packages/41/e6/4b6740cb3e31b82252099994cea751c648b846aa7874343c31d68c2215be/python-augeas-0.5.0.tar.gz"
+    sha256 "67d59d66cdba8d624e0389b87b2a83a176f21f16a87553b50f5703b23f29bac2"
   end
 
   def install
