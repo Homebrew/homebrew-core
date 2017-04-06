@@ -3,6 +3,7 @@ class Qcachegrind < Formula
   homepage "https://kcachegrind.github.io/"
   url "https://download.kde.org/stable/applications/16.12.0/src/kcachegrind-16.12.0.tar.xz"
   sha256 "9f73dd8a8cc624a11c54a364fc7583ed16654698df0ac21d25c54fbd4758c018"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,11 +13,11 @@ class Qcachegrind < Formula
   end
 
   depends_on "graphviz" => :optional
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     cd "qcachegrind"
-    system "#{Formula["qt5"].bin}/qmake", "-spec", "macx-clang", "-config", "release"
+    system "#{Formula["qt"].bin}/qmake", "-spec", "macx-clang", "-config", "release"
     system "make"
     # Install app
     prefix.install "qcachegrind.app"
