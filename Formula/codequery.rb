@@ -3,6 +3,7 @@ class Codequery < Formula
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.19.0.tar.gz"
   sha256 "c8fbb133ec281cdc58d81824a1d3b1761e5496fcfd37229e68060beb0e0c7fc9"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Codequery < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     args = std_cmake_args

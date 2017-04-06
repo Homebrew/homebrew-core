@@ -12,13 +12,14 @@ class Cppcheck < Formula
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"
-  option "with-qt5", "Build the cppcheck GUI (requires Qt)"
+  option "with-qt", "Build the cppcheck GUI (requires Qt)"
 
   deprecated_option "no-rules" => "without-rules"
-  deprecated_option "with-gui" => "with-qt5"
+  deprecated_option "with-gui" => "with-qt"
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "pcre" if build.with? "rules"
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
   needs :cxx11
 
@@ -40,7 +41,7 @@ class Cppcheck < Formula
     # Move the python addons to the cppcheck pkgshare folder
     (pkgshare/"addons").install Dir.glob(bin/"*.py")
 
-    if build.with? "qt5"
+    if build.with? "qt"
       cd "gui" do
         if build.with? "rules"
           system "qmake", "HAVE_RULES=yes",

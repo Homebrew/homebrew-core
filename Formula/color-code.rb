@@ -3,6 +3,7 @@ class ColorCode < Formula
   homepage "http://colorcode.laebisch.com/"
   url "http://colorcode.laebisch.com/download/ColorCode-0.8.5.tar.gz"
   sha256 "7c128db12af6ab11439eb710091b4a448100553a4d11d3a7c8dafdfbc57c1a85"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class ColorCode < Formula
     sha256 "ca1ad797d0438d8c9d0aea74b3cb70dfb48963b2309e04b69849694957dacdda" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     system "qmake"

@@ -3,7 +3,7 @@ class Qxmpp < Formula
   homepage "https://github.com/qxmpp-project/qxmpp/"
   url "https://github.com/qxmpp-project/qxmpp/archive/v0.9.3.tar.gz"
   sha256 "13f5162a1df720702c6ae15a476a4cb8ea3e57d861a992c4de9147909765e6de"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Qxmpp < Formula
     sha256 "16ed47b87aa37c5a758b37598236fbb2e3bd3562f30a8c6f38376454e23d53c2" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     system "qmake", "-config", "release", "PREFIX=#{prefix}"
@@ -41,7 +41,7 @@ class Qxmpp < Formula
       }
     EOS
 
-    system "#{Formula["qt5"].bin}/qmake", "test.pro"
+    system "#{Formula["qt"].bin}/qmake", "test.pro"
     system "make"
     assert File.exist?("test"), "test output file does not exist!"
     system "./test"

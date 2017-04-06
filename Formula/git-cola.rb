@@ -3,7 +3,7 @@ class GitCola < Formula
   homepage "https://git-cola.github.io/"
   url "https://github.com/git-cola/git-cola/archive/v2.10.tar.gz"
   sha256 "fd310087ad4c4ccd22829ae319d9409ea3ff872f5391b999de130faaf77f4e1c"
-  revision 1
+  revision 2
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
@@ -15,7 +15,7 @@ class GitCola < Formula
 
   option "with-docs", "Build manpages and HTML docs"
 
-  depends_on "pyqt5"
+  depends_on "pyqt"
   depends_on :python3
   depends_on "sphinx-doc" => :build if build.with? "docs"
 

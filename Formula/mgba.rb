@@ -22,6 +22,8 @@ class Mgba < Formula
     sha256 "a57adec40fb57cd57d37eb540fb930e097cd4b9286209addf45167e5d7fa7e69" => :yosemite
   end
 
+  deprecated_option "with-qt5" => "with-qt"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg" => :recommended
@@ -29,7 +31,7 @@ class Mgba < Formula
   depends_on "libepoxy" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libzip" => :recommended
-  depends_on "qt5" => :recommended
+  depends_on "qt" => :recommended
   depends_on "sdl2"
 
   def install
@@ -46,11 +48,11 @@ class Mgba < Formula
     cmake_args << "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
     cmake_args << "-DUSE_PNG=OFF"    if build.without? "libpng"
     cmake_args << "-DUSE_LIBZIP=OFF" if build.without? "libzip"
-    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt5"
+    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt"
 
     system "cmake", ".", *cmake_args, *std_cmake_args
     system "make", "install"
-    if build.with? "qt5"
+    if build.with? "qt"
       # Replace SDL frontend binary with a script for running Qt frontend
       # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
       rm "#{bin}/mgba"

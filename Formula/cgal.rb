@@ -12,18 +12,19 @@ class Cgal < Formula
   end
 
   option :cxx11
-  option "with-qt5", "Build ImageIO and QT5 compoments of CGAL"
+  option "with-qt", "Build ImageIO and Qt components of CGAL"
   option "with-eigen", "Build with Eigen3 support"
   option "with-lapack", "Build with LAPACK support"
 
-  deprecated_option "imaging" => "with-qt5"
-  deprecated_option "with-imaging" => "with-qt5"
+  deprecated_option "imaging" => "with-qt"
+  deprecated_option "with-imaging" => "with-qt"
   deprecated_option "with-eigen3" => "with-eigen"
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "mpfr"
 
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "eigen" => :optional
 
   if build.cxx11?
@@ -42,7 +43,7 @@ class Cgal < Formula
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
     ]
 
-    if build.without? "qt5"
+    if build.without? "qt"
       args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
     else
       args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"

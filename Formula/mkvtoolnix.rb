@@ -17,7 +17,9 @@ class Mkvtoolnix < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt5", "Build with QT GUI"
+  option "with-qt", "Build with Qt GUI"
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
@@ -27,7 +29,7 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "gettext" => :optional
 
   # On Mavericks, the bottle (without c++11) can be used
@@ -69,10 +71,12 @@ class Mkvtoolnix < Formula
       --with-extra-libs=#{extra_libs}
     ]
 
-    if build.with? "qt5"
-      args << "--with-moc=#{Formula["qt5"].opt_bin}/moc"
-      args << "--with-rcc=#{Formula["qt5"].opt_bin}/rcc"
-      args << "--with-uic=#{Formula["qt5"].opt_bin}/uic"
+    if build.with?("qt")
+      qt = Formula["qt"]
+
+      args << "--with-moc=#{qt.opt_bin}/moc"
+      args << "--with-uic=#{qt.opt_bin}/uic"
+      args << "--with-rcc=#{qt.opt_bin}/rcc"
       args << "--enable-qt"
     else
       args << "--disable-qt"

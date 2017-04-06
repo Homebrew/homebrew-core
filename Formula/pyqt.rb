@@ -1,8 +1,9 @@
-class Pyqt5 < Formula
+class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.8.1/PyQt5_gpl-5.8.1.tar.gz"
   sha256 "1e8f24b261f34fa5bad19b5a637aadba2fa9a62e440749117b229253e8992a2e"
+  revision 1
 
   bottle do
     sha256 "175eb5bf2b9da5450de803028cc99e401fcab4cd788c75e650aebcc88b0aeac4" => :sierra
@@ -17,7 +18,7 @@ class Pyqt5 < Formula
 
   depends_on :python3 => :recommended
   depends_on :python => :optional
-  depends_on "qt5"
+  depends_on "qt"
 
   if build.with? "python3"
     depends_on "sip" => "with-python3"
@@ -27,7 +28,7 @@ class Pyqt5 < Formula
 
   def install
     if build.without?("python3") && build.without?("python")
-      odie "pyqt5: --with-python3 must be specified when using --without-python"
+      odie "pyqt: --with-python3 must be specified when using --without-python"
     end
 
     Language::Python.each_python(build) do |python, version|
@@ -38,9 +39,7 @@ class Pyqt5 < Formula
               "--sipdir=#{share}/sip/Qt5",
               # sip.h could not be found automatically
               "--sip-incdir=#{Formula["sip"].opt_include}",
-              # Make sure the qt5 version of qmake is found.
-              # If qt4 is linked it will pickup that version otherwise.
-              "--qmake=#{Formula["qt5"].bin}/qmake",
+              "--qmake=#{Formula["qt"].bin}/qmake",
               # Force deployment target to avoid libc++ issues
               "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
               "--qml-plugindir=#{pkgshare}/plugins",

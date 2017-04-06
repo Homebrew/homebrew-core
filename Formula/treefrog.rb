@@ -10,21 +10,23 @@ class Treefrog < Formula
     sha256 "0d560f2453a4329e8cd0e6683a6c7826f3315f77b88a442b6b74a17a65123cba" => :el_capitan
   end
 
+  deprecated_option "with-qt5" => "with-qt"
+
   option "with-mysql", "enable --with-mysql option for Qt build"
   option "with-postgresql", "enable --with-postgresql option for Qt build"
-  option "with-qt5", "build and link with QtGui module"
+  option "with-qt", "build and link with QtGui module"
 
   depends_on :macos => :el_capitan
   depends_on :xcode => [:build, "8.0"]
 
-  qt5_build_options = []
-  qt5_build_options << "with-mysql" if build.with?("mysql")
-  qt5_build_options << "with-postgresql" if build.with?("postgresql")
-  depends_on "qt5" => qt5_build_options
+  qt_build_options = []
+  qt_build_options << "with-mysql" if build.with?("mysql")
+  qt_build_options << "with-postgresql" if build.with?("postgresql")
+  depends_on "qt" => qt_build_options
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--enable-gui-mod" if build.with? "qt5"
+    args << "--enable-gui-mod" if build.with? "qt"
 
     system "./configure", *args
 
@@ -44,7 +46,7 @@ class Treefrog < Formula
     assert File.exist?("hello")
     cd "hello" do
       assert File.exist?("hello.pro")
-      system HOMEBREW_PREFIX/"opt/qt5/bin/qmake"
+      system HOMEBREW_PREFIX/"opt/qt/bin/qmake"
       assert File.exist?("Makefile")
       system "make"
       system bin/"treefrog", "-v"
