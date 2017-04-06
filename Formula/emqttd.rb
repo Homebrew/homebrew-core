@@ -6,6 +6,8 @@ class Emqttd < Formula
 
   bottle :unneeded
 
+  depends_on "openssl" => :recommended
+  
   def install
       prefix.install Dir["*"]
       bin.install Dir[libexec/"/bin/emqttd"]
