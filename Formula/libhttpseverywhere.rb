@@ -1,8 +1,8 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.4/libhttpseverywhere-0.4.0.tar.xz"
-  sha256 "b5d2e923bb079074115312ebb4788410adf4f15b9c81b1d3d9579c91c95fa38f"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.4/libhttpseverywhere-0.4.1.tar.xz"
+  sha256 "3e275b2a60e5b0342b6649dbb57a13809c23073091880be07f8d41f3be1bda83"
 
   bottle do
     cellar :any
@@ -20,14 +20,6 @@ class Libhttpseverywhere < Formula
   depends_on "libsoup"
   depends_on "libgee"
   depends_on "libarchive"
-
-  # Remove for > 0.4.0
-  # Fix "Tried to form an absolute path to a source dir."
-  # Upstream commit from 25 Mar 2017 "meson: Fix building with Meson 0.39.0"
-  patch do
-    url "https://git.gnome.org/browse/libhttpseverywhere/patch/?id=7075c895b6cd9f255fc5f42cea5d3d3ab6d12f4f"
-    sha256 "92938341ea09b55a87350b12557c7108a80112f09dfcd04a7c44af6badc9a910"
-  end
 
   def install
     mkdir "build" do
