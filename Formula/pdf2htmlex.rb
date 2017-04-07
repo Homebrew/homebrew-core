@@ -42,6 +42,10 @@ class Pdf2htmlex < Formula
 
   def install
     resource("fontforge").stage do
+      # Fix for incomplete giflib 5 support, see
+      # https://github.com/coolwanglu/pdf2htmlEX/issues/713
+      inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
+
       args = %W[
         --prefix=#{prefix}/fontforge
         --without-libzmq

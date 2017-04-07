@@ -3,6 +3,7 @@ class Mapserver < Formula
   homepage "http://mapserver.org/"
   url "http://download.osgeo.org/mapserver/mapserver-7.0.4.tar.gz"
   sha256 "c91d40da5cc242b20ca7e29c41bd9eb23097b98a77908b1d708e9708f6f6cf69"
+  revision 1
 
   bottle do
     cellar :any
@@ -41,6 +42,7 @@ class Mapserver < Formula
       -DWITH_WFS=ON
       -DWITH_FRIBIDI=OFF
       -DWITH_HARFBUZZ=OFF
+      -DPYTHON_EXECUTABLE:FILEPATH=#{which("python")}
     ]
 
     # Install within our sandbox.
