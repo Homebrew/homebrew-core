@@ -54,6 +54,9 @@ def build(stash_name) {
   try {
     test()
   }
+  catch (err) {
+    currentBuild.result = "FAILURE"
+  }
   finally {
     archive(stash_name)
     cleanup()
