@@ -74,19 +74,30 @@ try {
     node("master") {
       cleanup()
       checkout()
-      try {}
+
+      stash_passed = false
+      try {
         for (version in macos_versions) {
           unstash version
         }
-        withCredentials([[
-            $class: 'UsernamePasswordMultiBinding',
-            credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
-            passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
-          test_bot("--ci-upload")
-        }
+        stash_passed = true
       }
-      finally {
-        cleanup()
+      catch (err) {
+        stash_passed = false
+      }
+
+      if (stash_passed) {
+        try {
+          withCredentials([[
+              $class: 'UsernamePasswordMultiBinding',
+              credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
+              passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
+            test_bot("--ci-upload")
+          }
+        }
+        finally {
+          cleanup()
+        }
       }
     }
   }
