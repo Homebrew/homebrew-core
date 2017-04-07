@@ -27,7 +27,7 @@ def test_bot(args) {
   timeout(time: 6, unit: 'HOURS') {
     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
              'HOMEBREW_DEVELOPER=1']) {
-      sh "brew test-bot ${args}"
+      sh "brew test-bot --tap=homebrew/core ${args}"
     }
   }
 }
@@ -82,7 +82,7 @@ try {
             $class: 'UsernamePasswordMultiBinding',
             credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
             passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
-          test_bot("--ci-upload --tap=homebrew/core")
+          test_bot("--ci-upload")
         }
         cleanup()
       }
