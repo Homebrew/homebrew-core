@@ -27,4 +27,8 @@ class Iftop < Formula
     You should be certain that you trust any software you grant root privileges.
     EOS
   end
+
+  test do
+    assert_match "interface:", pipe_output("#{sbin}/iftop -t -s 1 2>&1")
+  end
 end
