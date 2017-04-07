@@ -3,7 +3,7 @@ class Swftools < Formula
   homepage "http://www.swftools.org/"
   url "http://www.swftools.org/swftools-0.9.2.tar.gz"
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "479570fcb99302996b55c361db1a6bb4a3abee611533b854fa350956f6b8cf61" => :sierra
@@ -16,9 +16,9 @@ class Swftools < Formula
   option "with-xpdf", "Build with PDF support"
 
   depends_on :x11 if build.with? "xpdf"
-  depends_on "jpeg" => :optional
+  depends_on "jpeg"
+  depends_on "freetype"
   depends_on "lame" => :optional
-  depends_on "giflib" => :optional
   depends_on "fftw" => :optional
 
   resource "xpdf" do
@@ -31,12 +31,6 @@ class Swftools < Formula
   # https://lists.nongnu.org/archive/html/swftools-common/2012-04/msg00014.html
   # Patch is merged upstream.  Remove at swftools-0.9.3.
   patch :DATA
-
-  # Fix compile error, via MacPorts: https://trac.macports.org/ticket/34553
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/96d3ae5/swftools/patch-src_gif2swf.c.diff"
-    sha256 "75daa35a292a25d05b45effc5b734e421b437bad22479837e0ee5cbd7a05e73e"
-  end
 
   def install
     (buildpath/"lib/pdf").install resource("xpdf") if build.with? "xpdf"
