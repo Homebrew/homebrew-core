@@ -1,8 +1,8 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/archive/1.4.0.tar.gz"
-  sha256 "199b34f77d48e468ff2dd2077766b63893d6be99a1db28cadfaee4f92978aed1"
+  url "https://github.com/PDAL/PDAL/archive/1.5.tar.gz"
+  sha256 "b5ce59a87a9cb8b4c8cd2b63e92b559b0bae16e3adf7ab9b5f85d4c9f11d185e"
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
@@ -28,10 +28,10 @@ class Pdal < Formula
     if build.with? "laszip"
       args << "-DWITH_LASZIP=TRUE"
     else
-      # CMake Error LASZIP_LIBRARY set to NOTFOUND
-      # Reported 16 Dec 2016 https://github.com/PDAL/PDAL/issues/1446
-      inreplace "CMakeLists.txt", "        ${LASZIP_LIBRARY}\n", ""
-
+      # CMake error "Target 'pdalcpp' INTERFACE_INCLUDE_DIRECTORIES property
+      # contains path: ... LASZIP_INCLUDE_DIR-NOTFOUND"
+      # Reported 7 Apr 2017 https://github.com/PDAL/PDAL/issues/1558
+      inreplace "CMakeLists.txt", /^        \${LASZIP_INCLUDE_DIR}\n/, ""
       args << "-DWITH_LASZIP=FALSE"
     end
 
