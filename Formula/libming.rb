@@ -1,9 +1,8 @@
 class Libming < Formula
   desc "C library for generating Macromedia Flash files"
   homepage "http://www.libming.org"
-  url "https://github.com/libming/libming/archive/ming-0_4_7.tar.gz"
-  sha256 "118aa1338dd74b34dd2cd22bce286ca0571e8b9aa433999646d1c0157ea9a7dc"
-  revision 1
+  url "https://github.com/libming/libming/archive/ming-0_4_8.tar.gz"
+  sha256 "2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c"
 
   bottle do
     cellar :any
