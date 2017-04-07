@@ -21,8 +21,10 @@ def checkout() {
 
 def test_bot(args) {
   timeout(time: 6, unit: 'HOURS') {
+    sh "env"
     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
              'HOMEBREW_DEVELOPER=1']) {
+      sh "env"
       sh "brew test-bot ${args}"
     }
   }
