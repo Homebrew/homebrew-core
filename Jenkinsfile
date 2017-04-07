@@ -29,7 +29,7 @@ def test_bot(args) {
 }
 
 def test() {
-  test_bot("--ci-auto ${BOT_PARAMS}")
+  test_bot("--ci-auto")
 }
 
 def archive(stash_name) {
@@ -53,13 +53,6 @@ def build(stash_name) {
 }
 
 try {
-  properties([
-    buildDiscarder(logRotator(daysToKeepStr: '7', artifactNumToKeepStr: '50')),
-    [$class: 'RebuildSettings', autoRebuild: true],
-    parameters([string(name: 'BOT_PARAMS', defaultValue: '', description: 'Parameters passed to `brew test-bot`')]),
-    pipelineTriggers([[$class: 'GitHubPushTrigger']])
-  ])
-
   stage("Build") {
     // TODO: figure out how to use macos_versions here.
     parallel (
