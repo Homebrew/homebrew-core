@@ -1,34 +1,17 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
-  revision 1
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.8.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.8.src.tar.gz"
-    version "1.8"
-    sha256 "406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596"
+    url "https://storage.googleapis.com/golang/go1.8.1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.8.1.src.tar.gz"
+    version "1.8.1"
+    sha256 "33daf4c03f86120fdfdc66bddf6bfff4661c7ca11c5da473e537f4d69b470e57"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}"
-    end
-
-    # Fixes for https://github.com/golang/go/issues/19734.
-    patch do
-      url "https://github.com/golang/go/commit/84192f27.patch"
-      sha256 "86badcb9318b5399de05520cfdd3c1abbc722a5f8cfcecc008815ff889230620"
-    end
-
-    patch do
-      url "https://github.com/golang/go/commit/3ca0d34f.patch"
-      sha256 "7c3a0ce6cf9bec784729bdca8f1798629690042c69cb4ee8c5e9cafaf73fc693"
-    end
-
-    patch do
-      url "https://github.com/golang/go/commit/2d004301.patch"
-      sha256 "2444a4191fd299b8a6e6eb6a671e7ca53005d0785b85343e5b512d4f093a069a"
     end
   end
 
