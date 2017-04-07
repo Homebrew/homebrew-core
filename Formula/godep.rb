@@ -3,7 +3,8 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v79.tar.gz"
   sha256 "3dd2e6c4863077762498af98fa0c8dc5fedffbca6a5c0c4bb42b452c8268383d"
-  revision 1
+  revision 2
+
   head "https://github.com/tools/godep.git"
 
   bottle do
@@ -36,6 +37,7 @@ class Godep < Formula
       }
     EOS
     system bin/"godep", "restore"
-    assert File.exist?("src/golang.org/x/tools/README"), "Failed to find 'src/golang.org/x/tools/README!' file"
+    assert_predicate testpath/"src/golang.org/x/tools/README", :exist?,
+                     "Failed to find 'src/golang.org/x/tools/README!' file"
   end
 end
