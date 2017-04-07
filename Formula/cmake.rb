@@ -1,9 +1,24 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz"
-  sha256 "dc1246c4e6d168ea4d6e042cfba577c1acd65feea27e56f5ff37df920c30cae0"
+  revision 1
   head "https://cmake.org/cmake.git"
+
+  stable do
+    url "https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz"
+    sha256 "dc1246c4e6d168ea4d6e042cfba577c1acd65feea27e56f5ff37df920c30cae0"
+
+    # Fixes upstream issue from 1 Apr 2017 "CMAKE_CXX_IMPLICIT_LINK_LIBRARIES
+    # broken by latest clang on macOS"
+    # See https://gitlab.kitware.com/cmake/cmake/issues/16766
+    # Upstream commit from 3 Apr 2017 "CMakeParseImplicitLinkInfo: Ignore ld
+    # -lto_library flag"
+    # See https://gitlab.kitware.com/cmake/cmake/commit/53f17333f830d4f314bbe10ba32889bbcfbc3c46
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/12bc44d/cmake/cmake-3.7.2-lto_library.diff"
+      sha256 "4c6da40ff59a667ab91b118c4824f3b5795badcb724e2b9118cd1336c02fc6a8"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +30,13 @@ class Cmake < Formula
   devel do
     url "https://cmake.org/files/v3.8/cmake-3.8.0-rc4.tar.gz"
     sha256 "7e271e8a7c8bcdbee957e1fc2ba27e9fe745146d3190d927a8c26e736cb03e32"
+
+    # Remove for > 3.8.0-rc4
+    # Same as patch in stable block for https://gitlab.kitware.com/cmake/cmake/issues/16766
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1b7929e/cmake/cmake-3.8.0-rc4-lto_library.diff"
+      sha256 "858789f54b65dc36d2468a24b8092c2cc3a16a753287437b42acaaabbf784583"
+    end
   end
 
   option "without-docs", "Don't build man pages"
