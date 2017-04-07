@@ -3,6 +3,7 @@ class Sourcery < Formula
   homepage "https://github.com/krzysztofzablocki/Sourcery"
   url "https://github.com/krzysztofzablocki/Sourcery/archive/0.5.9.tar.gz"
   sha256 "1f5dee5184a7271a70552c0e85dd1d730e711088e5fdcf3dd7aa1f96b993e414"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Sourcery < Formula
   def install
     ENV.delete("CC")
     ENV["SDKROOT"] = MacOS.sdk_path
-    system "swift", "build", "-c", "release"
+    system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
     bin.install ".build/release/sourcery"
     lib.install Dir[".build/release/*.dylib"]
   end
