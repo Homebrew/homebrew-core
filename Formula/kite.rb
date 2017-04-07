@@ -23,7 +23,8 @@ class Kite < Formula
   end
 
   test do
-    assert_equal "hello, world", pipe_output(bin/"kite", "'hello, world'|print;", 0).chomp
+    output = pipe_output("#{bin}/kite", "'hello, world'|print;", 0)
+    assert_equal "hello, world", output.chomp
   end
 end
 
