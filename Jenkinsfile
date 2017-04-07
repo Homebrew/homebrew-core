@@ -27,7 +27,7 @@ def test_bot(args) {
   timeout(time: 6, unit: 'HOURS') {
     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
              'HOMEBREW_DEVELOPER=1']) {
-      sh "brew test-bot --tap=homebrew/core ${args} || true"
+      sh "brew test-bot --tap=homebrew/core ${args}"
     }
   }
 }
@@ -51,9 +51,13 @@ def archive(stash_name) {
 def build(stash_name) {
   cleanup()
   checkout()
-  test()
-  archive(stash_name)
-  cleanup()
+  try {
+    test()
+  }
+  finally {
+    archive(stash_name)
+    cleanup()
+  }
 }
 
 try {
@@ -66,15 +70,11 @@ try {
     )
   }
 
-  def stashed_bottles = false
-  node("master") {
-    stashed_bottles = fileExists("../builds/${env.BUILD_NUMBER}/stashes")
-  }
-  if (stashed_bottles) {
-    stage("Upload") {
-      node("master") {
-        cleanup()
-        checkout()
+  stage("Upload") {
+    node("master") {
+      cleanup()
+      checkout()
+      try {}
         for (version in macos_versions) {
           unstash version
         }
@@ -84,6 +84,8 @@ try {
             passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
           test_bot("--ci-upload")
         }
+      }
+      finally {
         cleanup()
       }
     }
