@@ -21,6 +21,11 @@ class Kite < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    output = pipe_output("#{bin}/kite", "'hello, world'|print;", 0)
+    assert_equal "hello, world", output.chomp
+  end
 end
 
 __END__
