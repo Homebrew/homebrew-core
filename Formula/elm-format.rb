@@ -2,12 +2,12 @@ require "language/haskell"
 
 class ElmFormat < Formula
   include Language::Haskell::Cabal
-  desc "Elm source code formatter, inspired by gofmt."
+  desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag => "0.6.0-alpha",
-      :revision => "6e79d9a5daf04d9e6d2c23b9098f50e59a734a8e"
-  version "0.6.0-alpha"
+      :tag => "0.6.1-alpha",
+      :revision => "24cbc66245289dd3ca5c08a14e86358dc039fcf3"
+  version "0.6.1-alpha"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
