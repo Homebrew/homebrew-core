@@ -9,9 +9,13 @@ def checkout() {
   brew_cellar = "/usr/local/Cellar"
   brew_repo = "/usr/local/Homebrew"
   brew_tap_repo = "${brew_repo}/Library/Taps/homebrew/homebrew-core"
-  sh "mkdir -p ${brew_bin} ${brew_cellar} ${brew_tap_repo} "
+  brew_test_bot_repo = "${brew_repo}/Library/Taps/homebrew/homebrew-test-bot"
+  sh "mkdir -p ${brew_bin} ${brew_cellar} ${brew_tap_repo} ${brew_test_bot_repo}"
   dir(brew_repo) {
     git url: 'https://github.com/Homebrew/brew.git', changelog: false
+  }
+  dir(brew_test_bot_repo) {
+    git url: 'https://github.com/Homebrew/homebrew-test-bot.git', changelog: false
   }
   sh "ln -sf ${brew_repo}/bin/brew ${brew_bin}/brew"
   dir(brew_tap_repo) {
@@ -21,10 +25,8 @@ def checkout() {
 
 def test_bot(args) {
   timeout(time: 6, unit: 'HOURS') {
-    sh "env"
     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
              'HOMEBREW_DEVELOPER=1']) {
-      sh "env"
       sh "brew test-bot ${args}"
     }
   }
