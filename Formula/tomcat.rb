@@ -1,6 +1,7 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
+  revision 1
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16.tar.gz"
@@ -46,6 +47,29 @@ class Tomcat < Formula
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
 
     (share/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
+  end
+
+  plist_options :manual => "catalina run"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Disabled</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/catalina</string>
+          <string>run</string>
+        </array>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+    </plist>
+    EOS
   end
 
   test do
