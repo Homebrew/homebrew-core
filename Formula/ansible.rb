@@ -86,6 +86,11 @@ class Ansible < Formula
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
+  resource "ansible-lint" do
+    url "https://files.pythonhosted.org/packages/41/55/b89f9c47dda2ae4eaf4e391b1db6f675f5894f873ac1ee9758fa430416a9/ansible-lint-3.4.12.tar.gz"
+    sha256 "2f77054fc126ab03aac78b453f50deac1eab6b754bb00ebed00ba01f6ce8e586"
+  end
+
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/1d/a6/569313d0c95b6e0bbebc5f2c8197a7261c85556a3de84d42e9093d7d6996/apache-libcloud-1.5.0.tar.bz2"
     sha256 "ea3dd7825e30611e5a018ab18107b33a9029097d64bd8b39a87feae7c2770282"
@@ -586,6 +591,7 @@ class Ansible < Formula
       chmod_R("a+r", prettytable_path)
     end
 
+    bin.install_symlink libexec/"bin/ansible-lint"
     man1.install Dir["docs/man/man1/*.1"]
   end
 
