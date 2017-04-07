@@ -6,9 +6,9 @@ class Oniguruma < Formula
 
   bottle do
     cellar :any
-    sha256 "7ecb3f890a754b476381918973a29951f12e121529ff01b35a054399f057b7c7" => :sierra
-    sha256 "c810b2ed83f23f55490441468dde02f81819ed78ccc811ea92ae0750c6bc3a8b" => :el_capitan
-    sha256 "75a99e7c082a25999ea8c58c04b49b9306c2ef539eb98e93a60a8f092b573c0f" => :yosemite
+    sha256 "21472564a4d6aea249a86b99b195f1336718d1ab991ebf8b94aceacaff5bd9df" => :sierra
+    sha256 "0c3555d4314f6ec308f5f947b3ad3721ff5bbfb75e7c581caeac442ade476b0e" => :el_capitan
+    sha256 "11e02ff297b2c416bed77d5066cec5a74162d98f21976385d8d9da9e3269c8c3" => :yosemite
   end
 
   def install
