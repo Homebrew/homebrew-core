@@ -1,8 +1,8 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v18.0/nzbget-18.0-src.tar.gz"
-  sha256 "4bc6366286988647d42165b442a62b73a1328d7e5b5067bd0078650e1716f55b"
+  url "https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-src.tar.gz"
+  sha256 "ddf7f9eda1cc4d6f01cd28a5ee4362ef7a399085cda45a82ffdf250d56393819"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
