@@ -3,11 +3,12 @@ class Efl < Formula
   homepage "https://www.enlightenment.org"
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.18.4.tar.xz"
   sha256 "39ebc07e37437d6ecdeb0f645783484e28a882b38f7e619ad12c2bf9b5548025"
+  revision 1
 
   bottle do
-    sha256 "8fd98384e2cfc41afb1b9556d3948c90f069d91185c85e63116757ea9fd6daab" => :sierra
-    sha256 "009e3c4c3c4c2a30aff68f8f93ad5f60d1a8389da45e9eaac41f8c92cc05a472" => :el_capitan
-    sha256 "3274109f86407842590ce01901cabedbed0e59645bdd23a089121ab787ab19b7" => :yosemite
+    sha256 "cdf482a2830d0e67776cc7f45b2a445eb8be6f72df25e9de9d0a68f984f62bf5" => :sierra
+    sha256 "407c249c41203d8888c8ce05ae646fca50e461cb402bd18ac5950aa17cc02ebe" => :el_capitan
+    sha256 "d45461cba70fb8aa1e45387185b60b6309817692193ab25a343376fc892de689" => :yosemite
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"

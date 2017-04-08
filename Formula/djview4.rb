@@ -3,11 +3,12 @@ class Djview4 < Formula
   homepage "https://djvu.sourceforge.io/djview4.html"
   url "https://downloads.sourceforge.net/project/djvu/DjView/4.10/djview-4.10.6.tar.gz"
   sha256 "8446f3cd692238421a342f12baa365528445637bffb96899f319fe762fda7c21"
+  revision 1
 
   bottle do
-    sha256 "d2672b78d0e74e619030d0ebf4b2ab0b85fd63ae394c7258177ea2f357269449" => :sierra
-    sha256 "1868bc87f83e5e480fbb057beff8fbeedfe6c0f7b05150fcef5eb2deb1b23082" => :el_capitan
-    sha256 "f15753fce1533b948848a673ba36a201872c257fbabe2e4acf82ee42fc265e49" => :yosemite
+    sha256 "8cc214252ddf146d8e4b65210436036197b556ff40b136e2784a1d95c9a4f43e" => :sierra
+    sha256 "82c4310f2e0af35fb98fce109660ec79bdc4075205b8f5c053d58b4b87b37099" => :el_capitan
+    sha256 "92dec68ad76d1e5a1e158b6b1a700d119f4a651cafd45c8cd4a787ecf31ff402" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -15,7 +16,7 @@ class Djview4 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "djvulibre"
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     inreplace "src/djview.pro", "10.6", MacOS.version

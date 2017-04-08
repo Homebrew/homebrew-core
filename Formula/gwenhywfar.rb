@@ -1,14 +1,13 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "http://www.aqbanking.de/"
-  url "http://www2.aquamaniac.de/sites/download/download.php?package=01&release=201&file=01&dummy=gwenhywfar-4.15.3.tar.gz"
-  sha256 "6a0e8787c99620414da6140e567c616b55856c5edf8825a9ebc67431923ee63a"
+  url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=205&file=01&dummy=gwenhywfar-4.17.0.tar.gz"
+  sha256 "11fdffaa2970c937251587fc62a41893c20f7ab3d74c2b66dfa81f40b2a82bfd"
 
   bottle do
-    sha256 "4134a1899f551ec91f6495d69a3939c9aa30d38f292291f00869709d0f299020" => :sierra
-    sha256 "9b78e775989003bfe9e79bc745ef477b2c485c58d4aaff947cf4a44e86f1fc9b" => :el_capitan
-    sha256 "f0beb1b72cafab6696ab63c5a0ae5aa22040095bd6ae8997121f1725e7a11d5f" => :yosemite
-    sha256 "ef8ea6c7fa80e6e89faf9dbbc3f2aa7ef89fd31e16b940abd64ed036a7b1069a" => :mavericks
+    sha256 "b62a95d85fec26ddf586269a556c16be033562c4791d6e058cff05b886a32e46" => :sierra
+    sha256 "deba73e094476999d92126d473b79ddc657444ce1c712e4e8370a34b2d46ea2b" => :el_capitan
+    sha256 "4da7a21f6fb4f9ed1b408975f2f825f35b5e1d9d134e8e48019d08d15570d5a6" => :yosemite
   end
 
   head do

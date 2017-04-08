@@ -3,17 +3,17 @@ class Qwtpolar < Formula
   homepage "https://qwtpolar.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "10d54e6c3e07fb379afdf1c5f6b1bf4000d3d6702a5eba23442fcd4bbc54045e" => :sierra
-    sha256 "0852f2c09a37616d6ac1f9e124d1681baeb7b000bc4156f812726395e3741e37" => :el_capitan
-    sha256 "8032c9f2ba849ced52e503de62ca922642ab28626627f32f1a574b775aba87be" => :yosemite
+    sha256 "b558ba6e4b4b269cd8ff207eccf1882073103aa702e2848a7a0f0cce711aff73" => :sierra
+    sha256 "8d9e370d42d980081cf7626fc9a0ff7315e05fe1c41dc48c9de21edf353aab5d" => :el_capitan
+    sha256 "e9ac24fce3339281d5b17f38a6c0fc1ff11b2d1afa3f7f727b620992348bf4c4" => :yosemite
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
 
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "qwt"
 
   # Update designer plugin linking back to qwtpolar framework/lib after install
@@ -35,9 +35,9 @@ class Qwtpolar < Formula
       # Don't build examples now, since linking flawed until qwtpolar installed
       s.sub! /\+(=\s*QwtPolarExamples)/, "-\\1"
 
-      # Install Qt plugin in `lib/qt5/plugins/designer`, not `plugins/designer`.
+      # Install Qt plugin in `lib/qt/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_POLAR_INSTALL_PREFIX\})/(plugins/designer)$},
-             "\\1/lib/qt5/\\2"
+             "\\1/lib/qt/\\2"
     end
 
     ENV["QMAKEFEATURES"] = "#{Formula["qwt"].opt_prefix}/features"
@@ -61,7 +61,7 @@ class Qwtpolar < Formula
       s.gsub! "qwtPolarAddLibrary(qwtpolar)", "qwtPolarAddLibrary(qwtpolar)\nqwtPolarAddLibrary(qwt)"
     end
     cd "examples" do
-      system Formula["qt5"].opt_bin/"qmake"
+      system Formula["qt"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
       assert File.exist?("bin/polardemo.app/Contents/MacOS/polardemo"), "Failed to build polardemo"

@@ -11,8 +11,8 @@ class Mariadb < Formula
   end
 
   devel do
-    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.4/source/mariadb-10.2.4.tar.gz"
-    sha256 "b73e353c29a0171d1057f14191c83d1f17e6f58ca09a79dda4b12c0e12b7f975"
+    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.5/source/mariadb-10.2.5.tar.gz"
+    sha256 "6629bd2392ccba2fb30ce3a27efddba1f695ac739538007ad1d15caeed19ff50"
   end
 
   option "with-test", "Keep test when installing"
@@ -70,6 +70,9 @@ class Mariadb < Formula
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
+
+    # disable MyRocks, which is currently alpha
+    args << "-DPLUGIN_ROCKSDB=NO" if build.devel?
 
     args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
 

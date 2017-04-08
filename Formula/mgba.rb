@@ -17,10 +17,13 @@ class Mgba < Formula
 
   bottle do
     cellar :any
-    sha256 "2dd5217c3983abd7a89908647251ab1dd9784e385b481325ebffdb559f01e344" => :sierra
-    sha256 "e40931849cc341855777add7e5b4b5fae4ae33bb5db044f52d90b6b423824429" => :el_capitan
-    sha256 "a57adec40fb57cd57d37eb540fb930e097cd4b9286209addf45167e5d7fa7e69" => :yosemite
+    rebuild 1
+    sha256 "394ae677c42dddb724f541ae6517d03cd4bdb85f1502a39d65a17da54c957c10" => :sierra
+    sha256 "c411fa8cb2d0f44e0ab43738502b7bd956c380fb4e85fce7fbf577fb95836e17" => :el_capitan
+    sha256 "ddcf474edd40135fde565275c0b9ecf03c472e3dd4612764e2620f333a43721d" => :yosemite
   end
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -29,7 +32,7 @@ class Mgba < Formula
   depends_on "libepoxy" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libzip" => :recommended
-  depends_on "qt5" => :recommended
+  depends_on "qt" => :recommended
   depends_on "sdl2"
 
   def install
@@ -46,11 +49,11 @@ class Mgba < Formula
     cmake_args << "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
     cmake_args << "-DUSE_PNG=OFF"    if build.without? "libpng"
     cmake_args << "-DUSE_LIBZIP=OFF" if build.without? "libzip"
-    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt5"
+    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt"
 
     system "cmake", ".", *cmake_args, *std_cmake_args
     system "make", "install"
-    if build.with? "qt5"
+    if build.with? "qt"
       # Replace SDL frontend binary with a script for running Qt frontend
       # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
       rm "#{bin}/mgba"

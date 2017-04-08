@@ -18,4 +18,10 @@ class Z < Formula
       . #{etc}/profile.d/z.sh
     EOS
   end
+
+  test do
+    (testpath/"zindex").write("/usr/local|1|1491427986\n")
+    testcmd = "/bin/bash -c '_Z_DATA=#{testpath}/zindex; . #{etc}/profile.d/z.sh; _z -l 2>&1'"
+    assert_match "/usr/local", pipe_output(testcmd)
+  end
 end

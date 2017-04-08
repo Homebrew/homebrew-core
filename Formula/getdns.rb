@@ -1,34 +1,53 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/dist/getdns-0.9.0.tar.gz"
-  sha256 "b6b73a501ee79c0fafb0721023eb3a5d0e1bfa047fbe65302db278cb956bd1fe"
-
-  head "https://github.com/getdnsapi/getdns.git"
+  url "https://getdnsapi.net/releases/getdns-1-0-0/getdns-1.0.0.tar.gz"
+  sha256 "a0460269c6536501a7c0af9bc97f9339e05a012f8191d5c10f79042aa62f9e96"
+  head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
-    cellar :any
-    sha256 "12ff9ab93eb1fe2727155383a643c5a2d40b2f48e9353e6a385baa5155d89c2f" => :sierra
-    sha256 "1ae532218ee2efd6c557a876d062a220ec4d604e24eca19160b394bea813a718" => :el_capitan
-    sha256 "4e2eff05d371aedbd66bb428d8f01350134900ed4f4b647897d9c25b8492a45a" => :yosemite
-    sha256 "18dcbddc502946fc6a146a52f255a4de75df80235b9b2dfcbaeee054fac355b2" => :mavericks
+    sha256 "eb0a9afe598e9611814d9ca21ff7e897dd4b2182df29797f2624a22ed661a892" => :sierra
+    sha256 "db7b5abcbb815b325cf60a334b31eee7f65485bf037895d61b24fb368200ea13" => :el_capitan
+    sha256 "0c372cc5b79342c227df9ab8dc678a064f2ffd351409d8aa5536d6522d7012aa" => :yosemite
+  end
+
+  devel do
+    url "https://getdnsapi.net/releases/getdns-1-1-0-rc1/getdns-1.1.0-rc1.tar.gz"
+    sha256 "d91ec104b33880ac901f36b8cc01b22f9086fcf7d4ab94c0cbc56336d1f6bec0"
   end
 
   depends_on "openssl"
-  depends_on "unbound"
-  depends_on "libidn"
-  depends_on "libevent" => :optional
+  depends_on "unbound" => :recommended
+  depends_on "libidn" => :recommended
+  depends_on "libevent" => :recommended
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
 
+  if build.head?
+    depends_on "libtool"
+    depends_on "autoconf"
+    depends_on "automake"
+  end
+
   def install
+    if build.head?
+      system "glibtoolize", "-ci"
+      system "autoreconf", "-fi"
+    end
+
     args = [
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
     ]
+    args << "--enable-stub-only" if build.without? "unbound"
+    args << "--without-libidn" if build.without? "libidn"
     args << "--with-libevent" if build.with? "libevent"
-    args << "--with-libev" if build.with? "libev"
     args << "--with-libuv" if build.with? "libuv"
+    args << "--with-libev" if build.with? "libev"
+
+    # Current Makefile layout prevents simultaneous job execution
+    # https://github.com/getdnsapi/getdns/issues/166
+    ENV.deparallelize
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make", "install"

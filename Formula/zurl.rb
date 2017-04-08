@@ -3,17 +3,18 @@ class Zurl < Formula
   homepage "https://github.com/fanout/zurl"
   url "https://dl.bintray.com/fanout/source/zurl-1.7.1.tar.bz2"
   sha256 "d94970bafb64224e233e060d1ae591b3f418e1d809afe46099c3c16f19322187"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f9139f8b2de097d60ccdf3a093a2dc4e92d2bd441443f57350cfac559f12e280" => :sierra
-    sha256 "5cf84370bdfe643fcba554844e0ec0da6473d5b5aa3041aa0cd8c53906c9e760" => :el_capitan
-    sha256 "4407ed52eb3f6b8a6c52e355dcbbf4c5dfaf3628cff480b531d3e7b3917b0140" => :yosemite
+    sha256 "49eb5fac9eefde9b2472cb840c2d53fe830ea86cb0988c720494c296027bd10f" => :sierra
+    sha256 "b2dc989f0a256550348e909f122b8324b3f23f9b42ecb80c8023d1e6a4565d07" => :el_capitan
+    sha256 "de5149502ebdc56ac4d34b808b181b32aa26a6195d3cd2c03daa820e9ace7b8c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "curl" if MacOS.version < :lion
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "zeromq"
 
   resource "pyzmq" do

@@ -3,12 +3,13 @@ class Gammaray < Formula
   homepage "https://www.kdab.com/kdab-products/gammaray/"
   url "https://github.com/KDAB/GammaRay/releases/download/v2.7.0/gammaray-2.7.0.tar.gz"
   sha256 "09b814a33a53ae76f897ca8a100af9b57b08807f6fc2a1a8c7889212ee10c83b"
+  revision 1
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
-    sha256 "d1af9cd107a4a4642454740e85a7f66eba9304b87730f99d7855c7d7ad85cb9c" => :sierra
-    sha256 "a6401a339daf49e469ad77cecfbc6047d18037d92be773ecea7c3ad4697eb213" => :el_capitan
-    sha256 "fa784ae5c7cd568861f1ea75d9822240ad3b0e81d797ff7490d2f7c67434e64a" => :yosemite
+    sha256 "49b9693517b4464312c5240921015c8795574877cc0cc2ad00f5fbabfbb347ee" => :sierra
+    sha256 "36399292449e6125e1843365fcae366e68ecf1d0610b2a22836bdfb01924a770" => :el_capitan
+    sha256 "ac058868dde7954847d474a1f79a17c7ea1828b83402c3337b071e5e6f6a14be" => :yosemite
   end
 
   option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"
@@ -16,7 +17,7 @@ class Gammaray < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "graphviz" => :recommended
 
   # VTK needs to have Qt support, and it needs to match GammaRay's

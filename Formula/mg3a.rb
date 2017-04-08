@@ -1,14 +1,14 @@
 class Mg3a < Formula
   desc "Small Emacs-like editor inspired by mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
-  url "http://www.bengtl.net/files/mg3a/mg3a.170216.tar.gz"
-  sha256 "9219953b62e47ccbe2ad464ffc81b6ab3e80c2f2b6d7c11f9c8f655ed240adfe"
+  url "http://www.bengtl.net/files/mg3a/mg3a.170403.tar.gz"
+  sha256 "43a4898ce319f119fad583899d0c13a50ee6eb8115062fc388dad028eaddd2cc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef97936e888d4bdcc3176fa064e06c1eb698b5d45bff08ec9f22721fcb3f5577" => :sierra
-    sha256 "221e329c44ec1dd3988fb2cb033be3e0043e9114d0eaea38a02b35daeb01ee85" => :el_capitan
-    sha256 "e629714006e001d35b5c5d473b736197a881831c0cc19059dfb6d3c244799095" => :yosemite
+    sha256 "fa6df4b7b8598b0a81499fb3ebfeb09233bdeac2c7150292dd6acaa9ecb787bc" => :sierra
+    sha256 "4330835634faef0f93eb7340d1b6ad992669422d93210b209df28007f80658f6" => :el_capitan
+    sha256 "4017a82bff19eb00a699206494bcaa456dbe70a529edd75fd80044064de26965" => :yosemite
   end
 
   option "with-c-mode", "Include the original C mode"

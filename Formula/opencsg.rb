@@ -6,12 +6,13 @@ class Opencsg < Formula
 
   bottle do
     cellar :any
-    sha256 "075e67cb712c3d0ffd8b20bc2f510cc1a06a42cfabf1048f7ba21867320c8222" => :sierra
-    sha256 "075e67cb712c3d0ffd8b20bc2f510cc1a06a42cfabf1048f7ba21867320c8222" => :el_capitan
-    sha256 "d95e4f314bf0b2184d6b5133861d6ad85caf0285273ab1bd8b9e42fc01fbbce3" => :yosemite
+    rebuild 1
+    sha256 "e62e1f707d9aa71d0fc7a8f3ae33273d71162a400fb81fcb6f713ea1d1948530" => :sierra
+    sha256 "0363ac5efebc67433d163bfc7f88b063a989f9851adb691cdbc4ffdb8528df91" => :el_capitan
+    sha256 "dcd887e9c5e0512747c7db19197999d29adbf4fff24793cdb9f91b64edf5259f" => :yosemite
   end
 
-  depends_on "qt5" => :build
+  depends_on "qt" => :build
   depends_on "glew"
 
   # This patch disabling building examples

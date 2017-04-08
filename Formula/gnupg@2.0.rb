@@ -1,19 +1,17 @@
-# This formula tracks GnuPG stable. You can find GnuPG Modern via:
-# brew install homebrew/versions/gnupg21
-# At the moment GnuPG Modern causes too many incompatibilities to be in core.
-class Gnupg2 < Formula
+class GnupgAT20 < Formula
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 3
 
   bottle do
-    sha256 "9289e192f19a2ed16b4910af8f7892fd8b93963805997d26192883803639b8ec" => :sierra
-    sha256 "ed3349ae0102f8fdc95d8feabe5bc34f74d2f66f1ccacec834a62ab8b931192a" => :el_capitan
-    sha256 "94c15342895e54b7692df595c2f2fc1d83f8e90f51d7831987542133e8a850c5" => :yosemite
+    sha256 "b547da420d75ad03b0c60826c96c1959432f363e9a0ab8d270ade56909a9d95b" => :sierra
+    sha256 "f0b436938f9a17459d2ca4a30a80e9c68aa86547fbb7e36c0a2176e38da6188c" => :el_capitan
+    sha256 "0b8eebc7065e3cd00c1cfa60012f390a9a24477e94ef8d7b4b762afa151c2103" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   depends_on "libgpg-error"
   depends_on "libgcrypt"
@@ -79,7 +77,17 @@ class Gnupg2 < Formula
   end
 
   test do
-    Gpg.create_test_key(testpath)
+    (testpath/"batch.gpg").write <<-EOS.undent
+      Key-Type: RSA
+      Key-Length: 2048
+      Subkey-Type: RSA
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %commit
+    EOS
+    system bin/"gpg", "--batch", "--gen-key", "batch.gpg"
     (testpath/"test.txt").write "Hello World!"
     system bin/"gpg", "--armor", "--sign", "test.txt"
     system bin/"gpg", "--verify", "test.txt.asc"

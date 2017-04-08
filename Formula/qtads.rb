@@ -1,6 +1,7 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
+  revision 1
   head "https://github.com/realnc/qtads.git"
 
   stable do
@@ -24,13 +25,13 @@ class Qtads < Formula
 
   bottle do
     cellar :any
-    sha256 "39f13ab007d79d3ce020424a2a52f6eac223233a40907a3ce4ca8f74fe6c328d" => :sierra
-    sha256 "39f13ab007d79d3ce020424a2a52f6eac223233a40907a3ce4ca8f74fe6c328d" => :el_capitan
-    sha256 "943945d02fc1dad997f31f95d8a5d5dd37ebce4db98dcc9aa5e3fa74ebff895e" => :yosemite
+    sha256 "51fff5c39b8c234bb72b9a3865f7a067fb2dab902316c7943261ba66ed98ab19" => :sierra
+    sha256 "fe8ab65019c324c13c9024291b3e6288aff3ec28049a0cf321da421b4c28f0f6" => :el_capitan
+    sha256 "e2383ed761b051e337ed2a4a4162655cb9eaa19ed8ab0666e8a7d1efa236b9b2" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl_sound"
