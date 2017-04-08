@@ -1,8 +1,8 @@
-class Eris < Formula
+class Monax < Formula
   desc "Blockchain application platform CLI"
   homepage "https://erisindustries.com"
-  url "https://github.com/eris-ltd/eris-cli/archive/v0.12.0.tar.gz"
-  sha256 "54f00db6cd9b817dd7aa473194aa54ea1fdda7921ac4796f2bd7df4943beb2e1"
+  url "https://github.com/monax/cli/archive/v0.16.0.tar.gz"
+  sha256 "b5a1b52e07de585903e7f505fd16ef7dddf4ab43d850aee909f9cf8aa902d197"
   version_scheme 1
 
   bottle do
@@ -18,14 +18,13 @@ class Eris < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/eris-ltd").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/eris-ltd/eris-cli"
-
-    system "go", "build", "-o", "#{bin}/eris", "github.com/eris-ltd/eris-cli/cmd/eris"
+    ENV["GOBIN"] = bin
+    (buildpath/"src/github.com/monax").mkpath
+    ln_sf buildpath, buildpath/"src/github.com/monax/cli"
+    system "go", "install", "github.com/monax/cli/cmd/monax"
   end
 
   test do
-    system "#{bin}/eris", "version"
+    system "#{bin}/monax", "version"
   end
 end
