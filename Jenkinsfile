@@ -24,7 +24,7 @@ def checkout() {
 }
 
 def test_bot(args) {
-  timeout(time: 6, unit: 'HOURS') {
+  timeout(time: 5, unit: 'HOURS') {
     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
              'HOMEBREW_DEVELOPER=1']) {
       sh "brew test-bot --tap=homebrew/core ${args}"
