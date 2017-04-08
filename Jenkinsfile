@@ -85,7 +85,8 @@ try {
         }
         stash_count += 1
       }
-      catch (err)
+      catch (err) {
+      }
 
       if (stash_count != 0) {
         try {
