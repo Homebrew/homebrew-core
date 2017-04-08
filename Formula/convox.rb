@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "The convox AWS PaaS CLI tool"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20170330004259.tar.gz"
-  sha256 "be96de3c0ecc4b5386e814d7c4b54ee59c643b4a475c085915b037165d6e0275"
+  url "https://github.com/convox/rack/archive/20170405220740.tar.gz"
+  sha256 "5eb2995cd29650fd14bc815492242730b14cecc98c4695a43f10f909ce95aa9f"
 
   bottle do
     cellar :any_skip_relocation
