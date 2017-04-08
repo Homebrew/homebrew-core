@@ -79,13 +79,13 @@ try {
       checkout()
 
       stash_count = 0
-      try {
-        for (version in macos_versions) {
+      for (version in macos_versions) {
+        try {
           unstash version
+          stash_count += 1
         }
-        stash_count += 1
-      }
-      catch (err) {
+        catch (err) {
+        }
       }
 
       if (stash_count != 0) {
