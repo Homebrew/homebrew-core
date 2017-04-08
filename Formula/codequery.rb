@@ -39,3 +39,4 @@ class Codequery < Formula
     assert_match "info_platform", output
   end
 end
+# CodeQuery version 0.20.0
