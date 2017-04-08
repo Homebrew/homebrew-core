@@ -78,18 +78,16 @@ try {
       cleanup()
       checkout()
 
-      stash_passed = false
+      stash_count = 0
       try {
         for (version in macos_versions) {
           unstash version
         }
-        stash_passed = true
+        stash_count += 1
       }
-      catch (err) {
-        stash_passed = false
-      }
+      catch (err)
 
-      if (stash_passed) {
+      if (stash_count != 0) {
         try {
           withCredentials([[
               $class: 'UsernamePasswordMultiBinding',
