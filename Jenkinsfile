@@ -89,18 +89,16 @@ try {
         stash_passed = false
       }
 
-      if (stash_passed) {
-        try {
-          withCredentials([[
-              $class: 'UsernamePasswordMultiBinding',
-              credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
-              passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
-            test_bot("--ci-upload")
-          }
+      try {
+        withCredentials([[
+            $class: 'UsernamePasswordMultiBinding',
+            credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
+            passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
+          test_bot("--ci-upload")
         }
-        finally {
-          cleanup()
-        }
+      }
+      finally {
+        cleanup()
       }
     }
   }
