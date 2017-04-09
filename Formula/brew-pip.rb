@@ -9,4 +9,8 @@ class BrewPip < Formula
   def install
     bin.install "bin/brew-pip"
   end
+
+  test do
+    system "#{bin}/brew-pip", "help"
+  end
 end
