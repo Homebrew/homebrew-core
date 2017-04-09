@@ -3,7 +3,7 @@ class ScIm < Formula
   homepage "https://github.com/andmarti1424/sc-im"
   url "https://github.com/andmarti1424/sc-im/archive/v0.5.0.tar.gz"
   sha256 "d7a31c5225e02239e925b50b414d7e69d12bc3554f218621823782872ccc5e4d"
-  head "https://github.com/andmarti1424/sc-im.git"
+  head "https://github.com/andmarti1424/sc-im.git", :branch => "freeze"
 
   depends_on "ncurses"
 
