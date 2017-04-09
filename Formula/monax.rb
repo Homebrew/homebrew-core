@@ -7,9 +7,9 @@ class Monax < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9542a6efef2e45633ca7607f4d4b70362a98ddb8ef7038a830a45c1da623caf6" => :sierra
-    sha256 "ae31e13e58224e20c669a49bb9939aa00f5fd3dbf245449e077cefdff16fd00e" => :el_capitan
-    sha256 "da8d00b5d246007abcb16715da89ed5cb46eb6742cb553dc35e23f8ee053c949" => :yosemite
+    sha256 "b3da0e1c7b6cbcf3a0d973292c0c3751fa1d5254341845af92ec9a8c61f0b58b" => :sierra
+    sha256 "15da3977ae30866f6fc5e6e287887c9304b8860999ec84a3a12b655d3f51a7db" => :el_capitan
+    sha256 "a7e282a0ec7ec7852abd17f8cfdfced983e8285aa697accf2e1bb07e5edb42cb" => :yosemite
   end
 
   depends_on "go" => :build
