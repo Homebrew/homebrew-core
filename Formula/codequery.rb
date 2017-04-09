@@ -3,7 +3,7 @@ class Codequery < Formula
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.20.0.tar.gz"
   sha256 "e930df74d7fb4d3ba55efd3aac0a26c3bc9041610195f5c45a0a09bd6d8a8d55"
-  
+
   bottle do
     cellar :any
     sha256 "048cefd89ef9f6701045ed89515d294dbcf1dc97881cea0c2a0dea1608ccb961" => :sierra
