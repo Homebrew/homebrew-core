@@ -6,9 +6,9 @@ class Codequery < Formula
 
   bottle do
     cellar :any
-    sha256 "048cefd89ef9f6701045ed89515d294dbcf1dc97881cea0c2a0dea1608ccb961" => :sierra
-    sha256 "a1a531716d96263ac8f277e0353079773697358719db22cf634659fd9e04aff6" => :el_capitan
-    sha256 "88c61e418dd6e065737a64f87c4d9611a2d3eb0cfb69fd02deacd58d16f6b43c" => :yosemite
+    sha256 "d5c1e9eefa84126c439d9c37b2a12d4cbe542052e8ac8cff44fbe6244936d32e" => :sierra
+    sha256 "30006fb55abc47394305bd19dc263dfaab7431d32473b26c5c0644883f109d1a" => :el_capitan
+    sha256 "a0399896f4481f772d03f4472e03f7f4a445cfae26eb356244755ab3633241cd" => :yosemite
   end
 
   depends_on "cmake" => :build
