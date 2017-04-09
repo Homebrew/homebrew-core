@@ -11,11 +11,9 @@ class Haproxy < Formula
     sha256 "07eb7eaf898e5855614d8da183a9fca3250cae0cbb3b7eeec957a6cac94aed60" => :yosemite
   end
 
-  option "with-lua@5.3", "Build with lua support"
-
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "lua@5.3" if build.with? "lua@5.3"
+  depends_on "lua@5.3" => :optional
 
   def install
     args = %w[
