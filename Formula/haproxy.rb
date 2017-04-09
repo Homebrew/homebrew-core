@@ -11,8 +11,11 @@ class Haproxy < Formula
     sha256 "07eb7eaf898e5855614d8da183a9fca3250cae0cbb3b7eeec957a6cac94aed60" => :yosemite
   end
 
+  option "with-lua@5.3", "Build with lua support"
+
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "lua@5.3" if build.with? "lua@5.3"
 
   def install
     args = %w[
@@ -24,6 +27,13 @@ class Haproxy < Formula
       USE_ZLIB=1
       ADDLIB=-lcrypto
     ]
+    if build.with? "lua@5.3"
+      args << "USE_LUA=1"
+      args << "LUA_LIB_NAME=lua.5.3"
+      args << "LUA_LIB=#{Formula["lua@5.3"].lib}"
+      args << "LUA_INC=#{Formula["lua@5.3"].include}/lua5.3"
+      args << "LUA_LD_FLAGS='-Wl -L#{Formula["lua@5.3"].lib}'"
+    end
 
     # We build generic since the Makefile.osx doesn't appear to work
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}", *args
