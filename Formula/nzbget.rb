@@ -27,7 +27,7 @@ class Nzbget < Formula
     cause <<-EOS.undent
       Clang older than 5.1 requires flexible array members to be POD types.
       More recent versions require only that they be trivially destructible.
-      EOS
+    EOS
   end
 
   def install
