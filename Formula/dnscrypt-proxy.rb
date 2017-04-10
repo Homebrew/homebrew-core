@@ -3,7 +3,8 @@ class DnscryptProxy < Formula
   homepage "https://dnscrypt.org"
   url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.4.tar.gz"
   sha256 "a79d5da0133344d38f8b3d3355c16269f11c15fbeedd0521e1a657b00ac503bb"
-  revision 1
+  revision 2
+
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
@@ -12,9 +13,7 @@ class DnscryptProxy < Formula
     sha256 "7de091af5d6b8d2ebe22fba6be333ac6431bbeb0ab545747def1f8923e8a26d1" => :yosemite
   end
 
-  option "with-plugins", "Support plugins and install example plugins."
-
-  deprecated_option "plugins" => "with-plugins"
+  option "without-plugins", "Disable support for plugins"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -25,13 +24,12 @@ class DnscryptProxy < Formula
   depends_on "ldns" => :recommended
 
   def install
-    # Modify hard-coded path to resolver list
-    inreplace "dnscrypt-proxy.conf",
-      "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
-      "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
-
-    # Run as unprivileged user
-    inreplace "dnscrypt-proxy.conf", "# User _dnscrypt-proxy", "User nobody"
+    # Modify hard-coded path to resolver list & run as unprivileged user.
+    inreplace "dnscrypt-proxy.conf" do |s|
+      s.gsub! "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
+              "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
+      s.gsub! "# User _dnscrypt-proxy", "User nobody"
+    end
 
     system "./autogen.sh"
 
