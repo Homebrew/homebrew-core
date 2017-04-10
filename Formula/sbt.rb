@@ -26,8 +26,8 @@ class Sbt < Formula
     end
 
     libexec.install "bin"
-    etc.install "conf/sbtopts"
     libexec.install "lib" if build.stable? # remove `if` when devel > 1.0.0-M4
+    etc.install "conf/sbtopts"
 
     (bin/"sbt").write <<-EOS.undent
       #!/bin/sh
