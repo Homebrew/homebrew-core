@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
-  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.13/sbt-0.13.13.tgz"
-  sha256 "40d03d21a260c5a6a43f8349298f41c9d047f97972057d9d915afd8945faf979"
+  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz"
+  sha256 "b6e073d7c201741dcca92cfdd1dd3cd76c42a47dc9d8c8ead8df7117deed7aef"
 
   devel do
     url "https://dl.bintray.com/sbt/native-packages/sbt/1.0.0-M4/sbt-1.0.0-M4.tgz"
@@ -20,10 +20,29 @@ class Sbt < Formula
       s.gsub! "/etc/sbt/sbtopts", "#{etc}/sbtopts"
     end
 
-    inreplace "bin/sbt-launch-lib.bash", "${sbt_home}/bin/sbt-launch.jar", "#{libexec}/sbt-launch.jar"
+    inreplace "bin/sbt-launch-lib.bash" do |s|
+      s.gsub! "${sbt_home}/bin/sbt-launch.jar", "#{libexec}/sbt-launch.jar"
+      if s.include?("${sbt_bin_dir}/java9-rt-export.jar")
+        s.gsub! "${sbt_bin_dir}/java9-rt-export.jar", "#{libexec}/java9-rt-export.jar"
+      end
 
-    libexec.install "bin/sbt", "bin/sbt-launch-lib.bash", "bin/sbt-launch.jar"
+      if s.include?("$sbt_home/lib/local-preloaded/")
+        s.gsub! "$sbt_home/lib/local-preloaded/", "#{libexec}/lib/local-preloaded/"
+      end
+
+      ## This is required to pass the test
+      if s.include?("[[ \"$java_version\" > \"8\" ]]")
+        s.gsub! "[[ \"$java_version\" > \"8\" ]]", "[[ \"$java_version\" == \"9\" ]]"
+      end
+    end
+
+    libexec.install "bin/sbt", "bin/sbt-launch-lib.bash"
+    libexec.install Dir["bin/*.jar"]
     etc.install "conf/sbtopts"
+
+    if File.directory?("lib")
+      libexec.install "lib"
+    end
 
     (bin/"sbt").write <<-EOS.undent
       #!/bin/sh
