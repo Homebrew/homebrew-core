@@ -24,9 +24,9 @@ class Sbt < Formula
       s.gsub! "$(dirname \"$(realpath \"$0\")\")", "#{libexec}/bin"
       s.gsub! "$(dirname \"$sbt_bin_dir\")", libexec
 
-      ## See https://github.com/sbt/sbt-launcher-package/issues/150
-      ## This is a workaround for `brew test sbt` failing to detect java -version.
-      if s.include?("[[ \"$java_version\" > \"8\" ]]")
+      # Workaround for `brew test sbt` failing to detect java -version
+      # Reported 10 Apr 2017 https://github.com/sbt/sbt-launcher-package/issues/150
+      if build.stable?
         s.gsub! "[[ \"$java_version\" > \"8\" ]]", "[[ \"$java_version\" == \"9\" ]]"
       end
     end
