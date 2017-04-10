@@ -31,10 +31,7 @@ class Sbt < Formula
 
     libexec.install "bin"
     etc.install "conf/sbtopts"
-    ## if should be removed when devel is > 1.0.0-M4
-    if build.stable?
-      libexec.install "lib"
-    end
+    libexec.install "lib" if build.stable? # remove `if` when devel > 1.0.0-M4
 
     (bin/"sbt").write <<-EOS.undent
       #!/bin/sh
