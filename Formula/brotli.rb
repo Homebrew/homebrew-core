@@ -1,8 +1,8 @@
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google."
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/archive/v0.5.2.tar.gz"
-  sha256 "2b7b1183682a17d8a9b83170fccdbec270c9e56baf8c0082f5d9c4528412d343"
+  url "https://github.com/google/brotli/archive/v0.6.0.tar.gz"
+  sha256 "69cdbdf5709051dd086a2f020f5abf9e32519eafe0ad6be820c667c3a9c9ee0f"
   head "https://github.com/google/brotli.git"
 
   bottle do
