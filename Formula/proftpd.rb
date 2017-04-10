@@ -1,8 +1,8 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.5d.tar.gz"
-  sha256 "f4e2997be7f22a5b31d7ac72497ed4f4471d24d32385978350410713e76129ac"
+  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz"
+  sha256 "91ef74b143495d5ff97c4d4770c6804072a8c8eb1ad1ecc8cc541b40e152ecaf"
 
   bottle do
     sha256 "b8ce132ef4cf864ae2c4d5cde3b118182f5264034f72b71d337c370b242daa39" => :sierra
