@@ -15,6 +15,6 @@ class ScIm < Formula
   end
 
   test do
-    system "#{bin}/scim", "--quit_afterload"
+    system "#{bin}/scim", "--nocurses", "--quit_afterload"
   end
 end
