@@ -21,20 +21,18 @@ class Sbt < Formula
     end
 
     inreplace "bin/sbt-launch-lib.bash" do |s|
-      s.gsub! "$(dirname \"$(realpath \"$0\")\")", libexec
+      s.gsub! "$(dirname \"$(realpath \"$0\")\")", "#{libexec}/bin"
       s.gsub! "$(dirname \"$sbt_bin_dir\")", libexec
-      s.gsub! "${sbt_home}/bin/sbt-launch.jar", "#{libexec}/sbt-launch.jar"
       ## This is required to pass the test
       if s.include?("[[ \"$java_version\" > \"8\" ]]")
         s.gsub! "[[ \"$java_version\" > \"8\" ]]", "[[ \"$java_version\" == \"9\" ]]"
       end
     end
 
-    libexec.install "bin/sbt", "bin/sbt-launch-lib.bash"
-    libexec.install Dir["bin/*.jar"]
+    libexec.install "bin"
     etc.install "conf/sbtopts"
-
-    if File.directory?("lib")
+    ## if should be removed when devel is > 1.0.0-M4
+    if build.stable?
       libexec.install "lib"
     end
 
@@ -44,7 +42,7 @@ class Sbt < Formula
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
         . "$HOME/.sbtconfig"
       fi
-      exec "#{libexec}/sbt" "$@"
+      exec "#{libexec}/bin/sbt" "$@"
     EOS
   end
 
