@@ -23,10 +23,6 @@ class Sbt < Formula
     inreplace "bin/sbt-launch-lib.bash" do |s|
       s.gsub! "$(dirname \"$(realpath \"$0\")\")", "#{libexec}/bin"
       s.gsub! "$(dirname \"$sbt_bin_dir\")", libexec
-      ## This is required to pass the test
-      if s.include?("[[ \"$java_version\" > \"8\" ]]")
-        s.gsub! "[[ \"$java_version\" > \"8\" ]]", "[[ \"$java_version\" == \"9\" ]]"
-      end
     end
 
     libexec.install "bin"
