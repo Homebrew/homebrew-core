@@ -21,15 +21,9 @@ class Sbt < Formula
     end
 
     inreplace "bin/sbt-launch-lib.bash" do |s|
+      s.gsub! "$(dirname \"$(realpath \"$0\")\")", libexec
+      s.gsub! "$(dirname \"$sbt_bin_dir\")", libexec
       s.gsub! "${sbt_home}/bin/sbt-launch.jar", "#{libexec}/sbt-launch.jar"
-      if s.include?("${sbt_bin_dir}/java9-rt-export.jar")
-        s.gsub! "${sbt_bin_dir}/java9-rt-export.jar", "#{libexec}/java9-rt-export.jar"
-      end
-
-      if s.include?("$sbt_home/lib/local-preloaded/")
-        s.gsub! "$sbt_home/lib/local-preloaded/", "#{libexec}/lib/local-preloaded/"
-      end
-
       ## This is required to pass the test
       if s.include?("[[ \"$java_version\" > \"8\" ]]")
         s.gsub! "[[ \"$java_version\" > \"8\" ]]", "[[ \"$java_version\" == \"9\" ]]"
