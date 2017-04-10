@@ -3,6 +3,7 @@ class YoutubeDl < Formula
   homepage "https://rg3.github.io/youtube-dl/"
   url "https://github.com/rg3/youtube-dl/releases/download/2017.04.09/youtube-dl-2017.04.09.tar.gz"
   sha256 "91bb2147ccf0bf505aeea0107b33b57e7503a6475b521cd0f8b9ea049f6fa22c"
+  revision 1
 
   head do
     url "https://github.com/rg3/youtube-dl.git"
