@@ -21,6 +21,8 @@ class Sbt < Formula
     end
 
     inreplace "bin/sbt-launch-lib.bash" do |s|
+      # Upstream issue "Replace realpath with something Mac compatible"
+      # Reported 10 Apr 2017 https://github.com/sbt/sbt-launcher-package/issues/149
       s.gsub! "$(dirname \"$(realpath \"$0\")\")", "#{libexec}/bin"
       s.gsub! "$(dirname \"$sbt_bin_dir\")", libexec
 
