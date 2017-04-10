@@ -3,22 +3,22 @@ class Swift < Formula
   homepage "https://github.com/apple/swift"
 
   stable do
-    url "https://github.com/apple/swift/archive/swift-3.0.2-RELEASE.tar.gz"
-    sha256 "e69764cb3d83d7209f21c2af448ae39e6612df28e37b7a3ceffa9c24f19ca0cc"
+    url "https://github.com/apple/swift/archive/swift-3.1-RELEASE.tar.gz"
+    sha256 "bc8f4fc1cb5e9cddcdca4208dc5db89696d6ab507e739d498519a0262bd453c0"
 
     resource "cmark" do
-      url "https://github.com/apple/swift-cmark/archive/swift-3.0.2-RELEASE.tar.gz"
-      sha256 "40fc49d2f1c4075030b43f706193c1e6323e741ac5b029d2c627fd2f86da1cb4"
+      url "https://github.com/apple/swift-cmark/archive/swift-3.1-RELEASE.tar.gz"
+      sha256 "f0906c6048cdc93c85106090a878dea7ca3b6d862091f82fe8073e273d3fc011"
     end
 
     resource "clang" do
-      url "https://github.com/apple/swift-clang/archive/swift-3.0.2-RELEASE.tar.gz"
-      sha256 "8c9026b6f7543fc4ad2efef412da8ab186dbbcb089e8558e27b9994243faff99"
+      url "https://github.com/apple/swift-clang/archive/swift-3.1-RELEASE.tar.gz"
+      sha256 "bb4543904e82f433a6a65612c9c4d8218dc5358f8097318f4f7fd6af145dd1f5"
     end
 
     resource "llvm" do
-      url "https://github.com/apple/swift-llvm/archive/swift-3.0.2-RELEASE.tar.gz"
-      sha256 "194f66f522aa349061ae682bab18fa3fffe146da30e30f2d9f4b811fd544f8eb"
+      url "https://github.com/apple/swift-llvm/archive/swift-3.1-RELEASE.tar.gz"
+      sha256 "5f99110ac0fcd70b7fabf02989cfd0e7f1f1b6368b80d69f1506ce1fdc38c83e"
     end
   end
 
@@ -50,7 +50,7 @@ class Swift < Formula
 
   # Depends on latest version of Xcode
   # https://github.com/apple/swift#system-requirements
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["8.3", :build]
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
