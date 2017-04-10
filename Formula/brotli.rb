@@ -6,11 +6,10 @@ class Brotli < Formula
   head "https://github.com/google/brotli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0af352f4c05ea4cbc302e5c22983b3f867233af55e325ea8f5449050cce8298d" => :sierra
-    sha256 "87340dee935befbe7725299c179701aea8329fdccaf060abb80af5ec4cc1aa3e" => :el_capitan
-    sha256 "cb53aec45fd5914c01ab1bdb80395e87b69ed4e70a3fdc3f3fdd09ef4c69be46" => :yosemite
-    sha256 "6bef71245c4fc886a3df778e3ecd0c9173e4a432a9e880ce3dac3442a891094e" => :mavericks
+    cellar :any
+    sha256 "4732a890dbab83f0c66e8575a8bc0b558cd8ab541f9d2684b68e5dc2c0341324" => :sierra
+    sha256 "55d2f115d9b29bac587122dbf23ae748305406c5d3e8255fcdafc78077c86f24" => :el_capitan
+    sha256 "1e11a1590cc842b79812a9cec13813802aaacc20d75269caae23b566b9b0e3a2" => :yosemite
   end
 
   depends_on "cmake" => :build
