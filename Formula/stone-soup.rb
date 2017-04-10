@@ -13,7 +13,7 @@ class StoneSoup < Formula
   end
 
   option "with-tiles", "Enable graphic tiles and sound"
-  option "without-lua", "Disable Lua bindings for user scripts"
+  option "without-lua@5.1", "Disable Lua bindings for user scripts"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
@@ -27,7 +27,7 @@ class StoneSoup < Formula
   end
 
   if build.with? "lua"
-    depends_on "lua@5.1"
+    depends_on "lua@5.1" => :recommended
   end
 
   needs :cxx11
