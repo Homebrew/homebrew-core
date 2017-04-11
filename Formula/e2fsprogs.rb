@@ -8,10 +8,9 @@ class E2fsprogs < Formula
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   bottle do
-    sha256 "6a62135604c22884a2bf7ac1d4fa0a04ae5f0ffb19e916977b3c4f370af43d7e" => :sierra
-    sha256 "5c3c8238210a6046c8999092cc7f490e0d4a91e98ff6f90ca7d2c5923728389a" => :el_capitan
-    sha256 "ccba1fffeaa3fad12b434ee7a7ab54a5fc191287c2bcb5b66905a435eda10d17" => :yosemite
-    sha256 "3f95be44af372f34e747aa4b7a89a721a170cc0cafee21b5ae4b85c630d2972f" => :mavericks
+    sha256 "cf4ab6cb9378eb123352dfe3d789c8c811b433ebcecf1bb87704bda8a2b656ec" => :sierra
+    sha256 "beed0755c07e969e092f31a75724ec76f6eda0d6a7f5c04d02a84ff994631237" => :el_capitan
+    sha256 "8fe4e3379b66e08e34ed1cd51e7e2ec5043fcd9502f1037e08390588c41238ab" => :yosemite
   end
 
   keg_only "This brew installs several commands which override macOS-provided file system commands."
