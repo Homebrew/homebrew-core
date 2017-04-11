@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.2.2.tar.gz"
-  sha256 "6487b89afa5f2b57d6905cdb45b5e596eb18ed0081f311f6a260324b460f610a"
+  url "https://github.com/dlang/dub/archive/v1.3.0.tar.gz"
+  sha256 "670eae9df5a2bbfbcb8e4b7da4f545188993b1f2a75b1ce26038941f80dbd514"
   version_scheme 1
 
   head "https://github.com/dlang/dub.git"
@@ -11,12 +11,6 @@ class Dub < Formula
     sha256 "cd5bd13cf3635ff2ae0f476e86a3317743edef4125c56ce172bd0a16a7e810fc" => :sierra
     sha256 "cd5bd13cf3635ff2ae0f476e86a3317743edef4125c56ce172bd0a16a7e810fc" => :el_capitan
     sha256 "10a49bad80f98b27df925dbbbce2612ea0b9a1418d2dcaf1410c03175c9c4d72" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/dlang/dub/archive/v1.3.0-rc.1.tar.gz"
-    sha256 "7ff9a5d5983b8825d59a806e52315092c39138a8b3e34557b943ea22a8c393d6"
-    version "1.3.0-rc.1"
   end
 
   depends_on "pkg-config" => [:recommended, :run]
