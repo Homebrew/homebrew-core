@@ -7,9 +7,9 @@ class Exa < Formula
 
   bottle do
     cellar :any
-    sha256 "a56feb823f55ead6683087e9aca48d86b9610896a0a7b738e3359e8f4cb8ce31" => :sierra
-    sha256 "dec140f9b80302b23c231a373daa9993f56d7070b01248b0583eadafe05726aa" => :el_capitan
-    sha256 "36379d3dc4cbfce03e5ebd7f4009240ba78a6388912f43ff57d241411b5d3d96" => :yosemite
+    sha256 "cc41870a7afe46a6a5e038ed56693492c260539f7e13ada7d8dea3e4ee419584" => :sierra
+    sha256 "486f82d87223f31e3e6c90fb417695fcf2a70264a22725159ab5cac715a25e1a" => :el_capitan
+    sha256 "1340bee1fb729e88c299c82c41459033bc03175c6407ccbcf269d33a913f1e7a" => :yosemite
   end
 
   depends_on "cmake" => :build
