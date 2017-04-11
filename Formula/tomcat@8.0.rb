@@ -18,9 +18,9 @@ class TomcatAT80 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27b4bd9d7509536c643c3ccc4c572385f00831c2e9abc3b2321ff226c25ec7aa" => :sierra
-    sha256 "27b4bd9d7509536c643c3ccc4c572385f00831c2e9abc3b2321ff226c25ec7aa" => :el_capitan
-    sha256 "27b4bd9d7509536c643c3ccc4c572385f00831c2e9abc3b2321ff226c25ec7aa" => :yosemite
+    sha256 "8cb785857c3e1929cb0a73343d89f5054ea7b09b70ad38766d80efb396aa933f" => :sierra
+    sha256 "b9775fa8e0ecdc7320d82b661c77ab9bf525a505713345883307dcf2089bfba9" => :el_capitan
+    sha256 "b9775fa8e0ecdc7320d82b661c77ab9bf525a505713345883307dcf2089bfba9" => :yosemite
   end
 
   keg_only :versioned_formula
