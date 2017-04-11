@@ -53,7 +53,7 @@ class StoneSoup < Formula
         args << "SOUND=y"
       end
 
-      if build.with? "lua"
+      if build.with? "lua@5.1"
         args << "BUILD_LUA=y"
       else
         args << "NO_LUA_BINDINGS=y"
