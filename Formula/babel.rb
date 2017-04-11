@@ -3,8 +3,8 @@ require "language/node"
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/babel-cli/-/babel-cli-6.23.0.tgz"
-  sha256 "76cccec388472ff02274e27f9fa9657f5a88af5f2da02c9eebb6d92351d06c34"
+  url "https://registry.npmjs.org/babel-cli/-/babel-cli-6.24.1.tgz"
+  sha256 "d69a00bdb4f35184cda1f5bfe8075cd4d569600b8e61d864d1f08e360367933b"
 
   bottle do
     cellar :any_skip_relocation
