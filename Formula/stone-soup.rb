@@ -16,6 +16,7 @@ class StoneSoup < Formula
   option "without-lua@5.1", "Disable Lua bindings for user scripts"
 
   depends_on "pkg-config" => :build
+  depends_on "lua@5.1" => :recommended
   depends_on "pcre"
 
   if build.with? "tiles"
@@ -24,10 +25,6 @@ class StoneSoup < Formula
     depends_on "sdl2_image"
     depends_on "libpng"
     depends_on "freetype"
-  end
-
-  if build.with? "lua"
-    depends_on "lua@5.1" => :recommended
   end
 
   needs :cxx11
