@@ -1,9 +1,9 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.42.13/e2fsprogs-1.42.13.tar.gz"
-  mirror "https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.42.13/e2fsprogs-1.42.13.tar.gz"
-  sha256 "59993ff3a44f82e504561e0ebf95e8c8fa9f9f5746eb6a7182239605d2a4e2d4"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.43.4/e2fsprogs-1.43.4.tar.gz"
+  mirror "https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.43.4/e2fsprogs-1.43.4.tar.gz"
+  sha256 "1644db4fc58300c363ba1ab688cf9ca1e46157323aee1029f8255889be4bc856"
 
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
