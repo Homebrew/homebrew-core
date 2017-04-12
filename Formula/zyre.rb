@@ -1,17 +1,10 @@
-# from https://github.com/Homebrew/homebrew-core/pull/6022/files
 class Zyre < Formula
   desc "Local Area Clustering for Peer-to-Peer Applications"
   homepage "https://github.com/zeromq/zyre"
   url "https://github.com/zeromq/zyre/releases/download/v2.0.0/zyre-2.0.0.tar.gz"
   sha256 "8735bdf11ad9bcdccd4c4fd05cebfbbaea8511e21376bc7ad22f3cbbc038e263"
 
-  head do
-    url "https://github.com/zeromq/zyre.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  head "https://github.com/zeromq/zyre.git"
 
   option "with-drafts", "Build and install draft classes and methods"
 
