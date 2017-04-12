@@ -100,11 +100,8 @@ class MysqlAT56 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
