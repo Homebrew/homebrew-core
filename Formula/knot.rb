@@ -13,9 +13,9 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 "9684464fc68b150cdcf389248288b840d706d3f10d8666c809e2888b93a81c3d" => :sierra
-    sha256 "64b990fddfcf6d9a43450b2da146ec777b9779846e9f2bae2c4d411a5bd9d17e" => :el_capitan
-    sha256 "21dc8c0c23f9d35692626bd8a145a0089de9d7906ee3f725c05270b1836f92fd" => :yosemite
+    sha256 "e0a392eb217d4707174b5319bd5c87a1b6ec4a1c8a05f2e8513d1b8827fe0a5f" => :sierra
+    sha256 "25af8be672f352e88edfb9f41d5a2fc2ac74e99e333a451c08080fccfa51a509" => :el_capitan
+    sha256 "fc92515ae8adb4bbcc75629fb525d34935686877352d86ee50797485429d1c9c" => :yosemite
   end
 
   head do
