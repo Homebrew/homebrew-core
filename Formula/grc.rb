@@ -21,7 +21,8 @@ class Grc < Formula
     man1.install %w[grc.1 grcat.1]
 
     etc.install "grc.bashrc"
-    etc.install "grc.zsh" if build.head?
+    etc.install "grc.zsh"
+    etc.install "grc.fish"
   end
 
   # Apply the upstream fix from garabik/grc@ddc789bf to preexisting config files
@@ -34,8 +35,8 @@ class Grc < Formula
   end
 
   def caveats; <<-EOS.undent
-    New shell sessions will start using GRC after you add this to your profile:
-      . #{etc}/grc.bashrc
+    To use GRC automatically for new shell sessions, call the appropriate initializer in your profile:
+        source #{etc}/grc.<bashrc|zsh|fish>
     EOS
   end
 
