@@ -3,12 +3,12 @@ class Knot < Formula
   homepage "https://www.knot-dns.cz/"
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.4.2.tar.xz"
-    sha256 "37da7fcf1f194bd6376c63d8c4fa28a21899b56a3f3b63dba7095740a5752c52"
+    url "https://secure.nic.cz/files/knot-dns/knot-2.4.3.tar.xz"
+    sha256 "f90258bcb29c1f351cd8d824ff8d67aef906ae5d5ff0f652c4f69c69ed8a704f"
 
     resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm/archive/v0.3.1.tar.gz"
-      sha256 "a61ec0bb88b1e7bab05a6c854219deb451137c4de15800fc1ee2bee4b9b0d22a"
+      url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.3.2.tar.gz"
+      sha256 "2d509999ac904e48c038f88820f47859da85ceb86c06552e4052897082423ec5"
     end
   end
 
@@ -21,6 +21,10 @@ class Knot < Formula
   head do
     url "https://gitlab.labs.nic.cz/labs/knot.git"
 
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+
     resource "fstrm" do
       url "https://github.com/farsightsec/fstrm.git"
     end
@@ -29,9 +33,6 @@ class Knot < Formula
   # due to AT_REMOVEDIR
   depends_on :macos => :yosemite
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gnutls"
@@ -45,7 +46,7 @@ class Knot < Formula
 
   def install
     resource("fstrm").stage do
-      system "autoreconf", "-fvi"
+      system "autoreconf", "-fvi" if build.head?
       system "./configure", "--prefix=#{libexec}/fstrm"
       system "make", "install"
     end
