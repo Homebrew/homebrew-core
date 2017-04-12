@@ -1,5 +1,3 @@
-require "language/go"
-
 class Httplab < Formula
   desc "Interactive Web Server"
   homepage "https://github.com/gchaincl/httplab"
