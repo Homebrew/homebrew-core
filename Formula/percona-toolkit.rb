@@ -38,6 +38,8 @@ class PerconaToolkit < Formula
   end
 
   test do
-    system bin/"pt-fingerprint --query \"select 1\""
+    input = "SELECT name, password FROM user WHERE id='12823';"
+    output = pipe_output("#{bin}/pt-fingerprint", input, 0)
+    assert_equal "select name, password from user where id=?;", output.chomp
   end
 end
