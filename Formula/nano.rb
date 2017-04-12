@@ -5,9 +5,9 @@ class Nano < Formula
   sha256 "a48650dab5fc069bb953d020721b6c0f650969abf5a34a27dfd6f038215c5910"
 
   bottle do
-    sha256 "411a3a863a10702240e28408dda94d1b0982d914c0e180fd9c21907b9c505577" => :sierra
-    sha256 "d35090367469708b482ecb2541fb6509376bdf3953bb7c7b5bcb7f25c7a1f34f" => :el_capitan
-    sha256 "6bef87c38f8d3d04f94ebc2bdf9cce3c1eeb0492fca20c94ac007923fea3bbbb" => :yosemite
+    sha256 "c5b98efd0f358755054cfbaf63ec66f8aa23a7c68214151dfef11f80d387b615" => :sierra
+    sha256 "4f9790191389775592d70aeca0aa85e040f12afde2df210bf0c04be34767dc45" => :el_capitan
+    sha256 "b0401e6cd4b1079ccc9943b775429b89c8f7e77c4a2fffa94e79db525c61ea79" => :yosemite
   end
 
   head do
