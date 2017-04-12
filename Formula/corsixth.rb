@@ -14,6 +14,13 @@ class Corsixth < Formula
       sha256 "076639d0da1f29c263fe2dae96bc759029270d421d7d9388516ed8147defd722"
     end
   end
+  bottle do
+    cellar :any
+    sha256 "ce70fb520401ead2b042a2322887a4e04d84ff3ee94ff0895df63603930570b8" => :sierra
+    sha256 "b3c2a857a44b0072b0499767f9bfe5c7ef562038351481ab4c647f48e52bbc4f" => :el_capitan
+    sha256 "879015e727a6decec4d24f65d810890caa766107339e81f1e6c6b96a70e1b944" => :yosemite
+  end
+
 
   depends_on "cmake" => :build
   depends_on :xcode => :build
