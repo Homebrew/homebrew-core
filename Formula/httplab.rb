@@ -1,7 +1,7 @@
 require "language/go"
 
 class Httplab < Formula
-  desc "Httplab - Interactive Web Server"
+  desc "Interactive Web Server"
   homepage "https://github.com/gchaincl/httplab"
   url "https://github.com/gchaincl/httplab/archive/v0.2.1.tar.gz"
   sha256 "6a4a7b8fecd34cb95a8281d0f1f4fafdd78b23121e34ec64c7d294559e9ff207"
