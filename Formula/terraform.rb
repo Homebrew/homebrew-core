@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.2.tar.gz"
-  sha256 "a5e3924bf72899149b572409c82da4b7d71ac556fd460790577bdf50f27709a4"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.3.tar.gz"
+  sha256 "de57ba63f0314ba4e21818f048551a22afe61662bd72b3c81b01a47284fcaf3d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -64,7 +64,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "bin"
+      system "make", "test", "vet", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
