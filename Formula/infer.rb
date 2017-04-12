@@ -1,8 +1,8 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.10.0/infer-osx-v0.10.0.tar.xz"
-  sha256 "6fdcfe52cee28f57a86e8cd80bf4cac7b2dda83a3cc511f86834636ada14a808"
+  url "https://github.com/facebook/infer/releases/download/v0.11.0/infer-osx-v0.11.0.tar.xz"
+  sha256 "0c435efa311cb70a79b5b8ae9cc4e714651e6653c5542a58cc624f2439d68e36"
 
   bottle do
     cellar :any
@@ -20,7 +20,6 @@ class Infer < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "libffi"
 
   def install
     if build.without?("clang") && build.without?("java")
