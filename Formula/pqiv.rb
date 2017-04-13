@@ -7,9 +7,9 @@ class Pqiv < Formula
 
   bottle do
     cellar :any
-    sha256 "61a9d5421540dac2e84927326efdbb787a03c69e3282e8a429334f38e78204b5" => :sierra
-    sha256 "c1bf863c406fbf2282ec726999be8c407315cd41f29601ec5f5dd77210a813e9" => :el_capitan
-    sha256 "f9346c3872acd0fcebb5b5ff5a6a6bcf5d8ccfc6bbfa23731a3d3731a20b50ff" => :yosemite
+    sha256 "92b10126ae4021df2a90a36f3e21e0edb8a2a214db7d3b2e2600f5cdf09e77ec" => :sierra
+    sha256 "cc05be27301c74765b93dd14076152092f3db758f1f26e1e2ee1a9a3f7362e39" => :el_capitan
+    sha256 "64aab0ed33b8ebcaa7e89f2e7a5be94bb8514bd3f57d5f2ae027a562c62e65ee" => :yosemite
   end
 
   depends_on "pkg-config" => :build
