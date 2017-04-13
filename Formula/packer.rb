@@ -31,7 +31,7 @@ class Packer < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "1dce95f761bfeb6fe2aa3c4e9ffdb261b69b3fc4"
+        :revision => "cbb995d093b2c4a12ac074e53d90373ecc827527"
   end
 
   def install
