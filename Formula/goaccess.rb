@@ -18,6 +18,7 @@ class Goaccess < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "geoip" => :optional
+  depends_on "tokyo-cabinet"
 
   def install
     system "autoreconf", "-vfi"
@@ -27,6 +28,7 @@ class Goaccess < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-utf8
+      --enable-tcb=btree
     ]
 
     args << "--enable-geoip" if build.with? "geoip"
