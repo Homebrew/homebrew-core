@@ -2,9 +2,8 @@ class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
   homepage "https://github.com/tstack/lnav"
-  url "https://github.com/tstack/lnav/releases/download/v0.8.1/lnav-0.8.1.tar.gz"
-  sha256 "db942abccdb5327d7594ca9e32e0b44802790fad8577bdbed44f81220fd62153"
-  revision 1
+  url "https://github.com/tstack/lnav/releases/download/v0.8.2/lnav-0.8.2.tar.gz"
+  sha256 "0f6a235aa3719f84067d510127730f5834a8874795494c9292c2f0de43db8c70"
 
   bottle do
     sha256 "6a837ec2864ded4184dbbc107ff1ae662ac3c15653612e40d7525e807f6924ee" => :sierra
@@ -22,6 +21,7 @@ class Lnav < Formula
 
   depends_on "readline"
   depends_on "pcre"
+  depends_on "sqlite" if MacOS.version < :sierra
   depends_on "curl" => ["with-libssh2", :optional]
 
   def install
