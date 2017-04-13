@@ -42,7 +42,12 @@ class Packer < Formula
     # doesn't need to be installed permanently.
     ENV.append_path "PATH", buildpath
 
-    packerpath = buildpath/"src/github.com/mitchellh/packer"
+    # TODO: remove "else" (mitchellh path) on next release
+    if build.head?
+      packerpath = buildpath/"src/github.com/hashicorp/packer"
+    else
+      packerpath = buildpath/"src/github.com/mitchellh/packer"
+    end
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
 
@@ -65,7 +70,11 @@ class Packer < Formula
       end
 
       (buildpath/"bin").mkpath
-      system "make", "releasebin"
+      if build.head?
+        system "make", "bin"
+      else
+        system "make", "releasebin"
+      end
       bin.install buildpath/"bin/packer"
       zsh_completion.install "contrib/zsh-completion/_packer"
       prefix.install_metafiles
