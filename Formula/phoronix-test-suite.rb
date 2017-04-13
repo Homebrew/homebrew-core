@@ -17,6 +17,10 @@ class PhoronixTestSuite < Formula
   def install
     system "./install-sh", prefix
   end
+  test do
+    assert_predicate "#{bin}/phoronix-test-suite", :exist?
+    assert_predicate "#{bin}/phoronix-test-suite", :executable?
+  end
 end
 
 
