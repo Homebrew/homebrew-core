@@ -1,8 +1,8 @@
 class PhoronixTestSuite < Formula
   desc "Automated testing framework"
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://www.phoronix-test-suite.com/download.php?file=phoronix-test-suite-5.2.1"
-  sha256 "1186f460691e2fe7a07df5edb8d8ed1ac0c65327512e646da2b2e3a60dda6cd9"
+  url "https://www.phoronix-test-suite.com/releases/phoronix-test-suite-7.0.1.tar.gz"
+  sha256 "436d949af604248776d725afb0f4eba6b8f9b1bf134d1f97544baf00e67c9d78"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,7 @@ class PhoronixTestSuite < Formula
   def install
     system "./install-sh", prefix
   end
+
   test do
     assert_predicate "#{bin}/phoronix-test-suite", :exist?
     assert_predicate "#{bin}/phoronix-test-suite", :executable?
@@ -26,43 +27,28 @@ end
 
 __END__
 --- a/install-sh	2012-01-04 08:43:26.000000000 -0800
-+++ b/install-sh	2012-04-23 20:34:21.000000000 -0700
-@@ -56,11 +56,11 @@
- mkdir -p $DESTDIR$INSTALL_PREFIX/share/man/man1/
++++ b/install-sh	2017-04-13 10:18:17.000000000 -0500
+@@ -56,4 +56,4 @@
  mkdir -p $DESTDIR$INSTALL_PREFIX/share/phoronix-test-suite/
  mkdir -p $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/
 -mkdir -p $DESTDIR$INSTALL_PREFIX/../etc/bash_completion.d/
 +mkdir -p $DESTDIR$INSTALL_PREFIX/etc/bash_completion.d/
 
--cp CHANGE-LOG $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/
--cp COPYING $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/
--cp AUTHORS $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/
-+cp CHANGE-LOG $DESTDIR$INSTALL_PREFIX/CHANGELOG
-+cp COPYING $DESTDIR$INSTALL_PREFIX/
-+cp AUTHORS $DESTDIR$INSTALL_PREFIX/
-
- cd documentation/
- cp -r * $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/
-@@ -68,7 +68,7 @@
- rm -rf $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/man-pages/
-
+@@ -72,4 +72,4 @@
  cp documentation/man-pages/*.1 $DESTDIR$INSTALL_PREFIX/share/man/man1/
 -cp pts-core/static/bash_completion $DESTDIR$INSTALL_PREFIX/../etc/bash_completion.d/phoronix-test-suite
 +cp pts-core/static/bash_completion $DESTDIR$INSTALL_PREFIX/etc/bash_completion.d/phoronix-test-suite.bash
  cp pts-core/static/images/phoronix-test-suite.png $DESTDIR$INSTALL_PREFIX/share/icons/hicolor/48x48/apps/phoronix-test-suite.png
- cp pts-core/static/phoronix-test-suite.desktop $DESTDIR$INSTALL_PREFIX/share/applications/
- cp pts-core/static/phoronix-test-suite-launcher.desktop $DESTDIR$INSTALL_PREFIX/share/applications/
-@@ -90,7 +90,7 @@
+
+@@ -99,6 +99,6 @@
  # sed 's:\$url = PTS_PATH . \"documentation\/index.html\";:\$url = \"'"$INSTALL_PREFIX"'\/share\/doc\/packages\/phoronix-test-suite\/index.html\";:g' pts-core/commands/gui_gtk.php > $DESTDIR$INSTALL_PREFIX/share/phoronix-test-suite/pts-core/commands/gui_gtk.php
 
  # XDG MIME OpenBenchmarking support
--if [ "X$DESTDIR" = "X" ]
-+if [ "X$INSTALL_PREFIX" = "X" ]
+-if [ "X$DESTDIR" = "X" ] && which xdg-mime >/dev/null && which xdg-icon-resource >/dev/null
++if [ "X$INSTALL_PREFIX" = "X" ] && which xdg-mime >/dev/null && which xdg-icon-resource >/dev/null
  then
- 	#No chroot
- 	xdg-mime install pts-core/openbenchmarking.org/openbenchmarking-mime.xml
-@@ -104,7 +104,7 @@
 
+@@ -114,7 +114,7 @@
  fi
 
 -echo -e "\nPhoronix Test Suite Installation Completed\n
