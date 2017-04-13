@@ -42,7 +42,7 @@ class Packer < Formula
     # doesn't need to be installed permanently.
     ENV.append_path "PATH", buildpath
 
-    packerpath = buildpath/"src/github.com/hashicorp/packer"
+    packerpath = buildpath/"src/github.com/mitchellh/packer"
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
 
