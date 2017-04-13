@@ -2,8 +2,8 @@ class Hyper < Formula
   desc "Client for the Hyper_ cloud service"
   homepage "https://hyper.sh"
   url "https://github.com/hyperhq/hypercli.git",
-    :tag => "v1.10.8",
-    :revision => "8a30254d88bbf9d77aa022a5ba50dbf61c611ad6"
+    :tag => "v1.10.9",
+    :revision => "1ed5d3fd838860558b757336b578fcb9bfb22499"
 
   head "https://github.com/hyperhq/hypercli.git"
 
