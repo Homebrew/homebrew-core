@@ -19,7 +19,7 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    assert_match "Phoronix Test Suite v7.0.1 (Ringsaker)", "#{bin}/phoronix-test-suite version"
+    assert_match ""Phoronix Test Suite v7.0.1 (Ringsaker)", "#{bin}/phoronix-test-suite version | grep -v ^$"
   end
 end
 
