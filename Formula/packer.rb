@@ -56,7 +56,7 @@ class Packer < Formula
       buildpath.install "stringer"
     end
 
-    cd "src/github.com/hashicorp/packer" do
+    cd packerpath do
       # We handle this step above. Don't repeat it.
       inreplace "Makefile" do |s|
         s.gsub! "go get github.com/mitchellh/gox", ""
