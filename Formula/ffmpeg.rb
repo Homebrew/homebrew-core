@@ -1,17 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-3.3.tar.bz2"
+  sha256 "21e08647c9e740a4d3b85bf455b31d079fe0faba9555fa9329230e8541cf6bdc"
   head "https://github.com/FFmpeg/FFmpeg.git"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.2.4.tar.bz2"
-    sha256 "c0fa3593a2e9e96ace3c1757900094437ad96d1d6ca19f057c378b5f394496a4"
-
-    option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
-
-    # only vendored in head
-    depends_on "libebur128" => :optional
-  end
 
   bottle do
     sha256 "c4d1d895fca521400a0f6d27d7dfa3553ebda8c0f6c90fcd44a5b55aefe27aa4" => :sierra
@@ -98,12 +90,6 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
 
   def install
-    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace %w[libavdevice/v4l2.c libavutil/time.c], "HAVE_CLOCK_GETTIME",
-                                                         "UNDEFINED_GIBBERISH"
-    end
-
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -126,7 +112,6 @@ class Ffmpeg < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
-    args << "--enable-libebur128" if build.stable? && build.with?("libebur128")
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"
