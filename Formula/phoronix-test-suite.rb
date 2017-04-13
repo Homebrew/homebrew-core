@@ -19,7 +19,6 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    assert_predicate "#{bin}/phoronix-test-suite", :exist?
     assert_predicate "#{bin}/phoronix-test-suite", :executable?
   end
 end
