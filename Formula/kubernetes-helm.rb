@@ -2,8 +2,8 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.3.0",
-      :revision => "d83c245fc324117885ed83afc90ac74afed271b4"
+      :tag => "v2.3.1",
+      :revision => "32562a3040bb5ca690339b9840b6f60f8ce25da4"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
@@ -34,6 +34,9 @@ class KubernetesHelm < Formula
       system "make", "build"
       bin.install "bin/helm"
 
+      # Install man pages
+      man1.install Dir["docs/man/man1/*"]
+
       # Install bash completion
       bash_completion.install "scripts/completions.bash" => "helm"
     end
@@ -45,5 +48,6 @@ class KubernetesHelm < Formula
 
     version_output = shell_output("#{bin}/helm version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
+    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
   end
 end
