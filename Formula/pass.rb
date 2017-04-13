@@ -1,14 +1,13 @@
 class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
-  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.tar.xz"
-  sha256 "161ac3bd3c452a97f134aa7aa4668fe3f2401c839fd23c10e16b8c0ae4e15500"
+  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.1.tar.xz"
+  sha256 "f6d2199593398aaefeaa55e21daddfb7f1073e9e096af6d887126141e99d9869"
 
   head "https://git.zx2c4.com/password-store", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
     sha256 "4f0795fd255e6881acf8151ce6ae2813767f85b4a821a0879e8e4672aa4367a9" => :sierra
     sha256 "4041972f360ddebf962fe51d4240e90072701bc4235ef170c5ea97a10308a3e8" => :el_capitan
     sha256 "4041972f360ddebf962fe51d4240e90072701bc4235ef170c5ea97a10308a3e8" => :yosemite
