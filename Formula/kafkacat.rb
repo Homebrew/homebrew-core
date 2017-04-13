@@ -4,7 +4,7 @@ class Kafkacat < Formula
   url "https://github.com/edenhill/kafkacat.git",
       :tag => "1.3.0",
       :revision => "b79896cceedf81df7873850f38e5e2c4ad3e3e57"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,10 +13,10 @@ class Kafkacat < Formula
     sha256 "19bc3da24e213841b428fa755a9b259c6132eba3181b03c4ac5eff116ba8702b" => :yosemite
   end
 
-  option "with-yajl", "Adds JSON support"
+  option "without-yajl", "Build without JSON support"
 
   depends_on "librdkafka"
-  depends_on "yajl" => :optional
+  depends_on "yajl" => :recommended
 
   def install
     args = %W[
