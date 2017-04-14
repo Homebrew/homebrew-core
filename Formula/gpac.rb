@@ -9,8 +9,8 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.wp.mines-telecom.fr/"
-  url "https://github.com/gpac/gpac/archive/v0.6.1.tar.gz"
-  sha256 "67d1ac8f8b3e74da0e4e38ea926dc15bca6e9941e8f366e3538abcf13c103c09"
+  url "https://github.com/gpac/gpac/archive/v0.7.0.tar.gz"
+  sha256 "bdf7403fd2624973d3354e5aaca1ef935d58d25877221707239f494ed71c5733"
   head "https://github.com/gpac/gpac.git"
 
   bottle do
