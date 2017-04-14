@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/f2/6d/2f70ad698ee6caf0e773f0636466085bfe1262009b655776263bd38b33e0/twarc-1.0.10.tar.gz"
-  sha256 "e5592353f6a2d8e11296485ecf87cd1e868c078548afede2b95ee3ffd04ebf8b"
+  url "https://files.pythonhosted.org/packages/b6/48/2bdffb148b34d2ae1b2bb009ad6dbed95c1a2696953b62d31c754e74e084/twarc-1.1.0.tar.gz"
+  sha256 "fd9d83a9d00e6fbedc4e99648713824321505ef038928ad354996df87f61209a"
 
   bottle do
     cellar :any_skip_relocation
@@ -41,8 +41,8 @@ class Twarc < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/35/a5/3d1beff9fc149b3da814419369a8c24ecf0d1410637fc91002989f433a1a/pbr-2.0.0.tar.gz"
-    sha256 "0ccd2db529afd070df815b1521f01401d43de03941170f8a800e7531faba265d"
+    url "https://files.pythonhosted.org/packages/9b/cf/6c6f843ffc13aee42c5412c49e7aff7e860d006261dcafb5a5512fa27cd6/pbr-2.1.0.tar.gz"
+    sha256 "f71359a7e2de2f5ea1eceea7c1e3222f2560ee48e21eef6f96957bb5c2ebb94a"
   end
 
   resource "py" do
