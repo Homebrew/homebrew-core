@@ -38,6 +38,7 @@ class Wireshark < Formula
 
   resource "libpcap" do
     url "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/libpcap-1.8.1.tar.gz"
     sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
   end
 
