@@ -37,8 +37,8 @@ class Wireshark < Formula
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.8.0.tar.gz"
-    sha256 "f47b51533f9f060afb304010ea5cbf51d032707333bca70c36351d255754659c"
+    url "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
+    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
   end
 
   def install
