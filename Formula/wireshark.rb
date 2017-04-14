@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.5.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.5.tar.bz2"
-  sha256 "75dd88d3d6336559e5b0b72077d8a772a988197d571f00029986225fef609ac8"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.6.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.6.tar.bz2"
+  sha256 "f627d51eda85f5ae5f5c8c9fc1f6539ffc2a270dd7500dc7f67490a8534ca849"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
@@ -36,9 +36,11 @@ class Wireshark < Formula
   depends_on "gtk+" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
+  # 2017-04-14 set fossies as main url due to tcpdump connection issues
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.8.0.tar.gz"
-    sha256 "f47b51533f9f060afb304010ea5cbf51d032707333bca70c36351d255754659c"
+    url "https://fossies.org/linux/misc/libpcap-1.8.1.tar.gz"
+    mirror "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
+    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
   end
 
   def install
