@@ -1,8 +1,10 @@
 class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildifier"
-  url "https://github.com/bazelbuild/buildifier/archive/0.4.5.tar.gz"
-  sha256 "7a732ea12d88ddbf9adc99ff5b5c39bfda53b6286ecc79c3bc082d5f53f46f44"
+  url "https://github.com/bazelbuild/buildtools.git",
+      :tag => "0.4.5",
+      :revision => "45633988bb2b956f77c1075c4bc551ea3d7798b3"
+  head "https://github.com/bazelbuild/buildtools.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +16,7 @@ class Buildifier < Formula
   depends_on "bazel" => :build
 
   def install
-    system "bazel", "build", "//buildifier"
+    system "bazel", "build", "--workspace_status_command=./status.sh", "//buildifier"
     bin.install "bazel-bin/buildifier/buildifier" => "buildifier"
   end
 
