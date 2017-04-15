@@ -6,10 +6,9 @@ class Libquicktime < Formula
   revision 3
 
   bottle do
-    sha256 "1c90a8e055bce1fbaa86fbf22a4c4e9788473c2f15d1fc3306c406ebbfeffa13" => :sierra
-    sha256 "d0762547198c0c6f40db52cdaae659d8b10b785afdeef46d52a95cd1430c4485" => :el_capitan
-    sha256 "66ce6cc1c870267861fe1124c83604f5d15b43ab6fc27cff26f6980242b074ab" => :yosemite
-    sha256 "9dd990b59f6a4ac957cc78e47a65b64ef026194326a2341b0915695398aa1c96" => :mavericks
+    sha256 "20531455d4851267e616601cba034fac72193dd7a2436c07d7c0fbf54284ebf1" => :sierra
+    sha256 "e6fa7004e86307968977867affb5d9d69f2dedd0e775a785120c20a649fd1e47" => :el_capitan
+    sha256 "2bd0006452953d858cb83eb594b9783276102855ffa2bedeea77eed2c94e8927" => :yosemite
   end
 
   depends_on "pkg-config" => :build
