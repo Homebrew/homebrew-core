@@ -3,7 +3,7 @@ class Libquicktime < Formula
   homepage "https://libquicktime.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libquicktime/libquicktime/1.2.4/libquicktime-1.2.4.tar.gz"
   sha256 "1c53359c33b31347b4d7b00d3611463fe5e942cae3ec0fefe0d2fd413fd47368"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "1c90a8e055bce1fbaa86fbf22a4c4e9788473c2f15d1fc3306c406ebbfeffa13" => :sierra
@@ -28,6 +28,14 @@ class Libquicktime < Formula
   end
   patch :DATA
 
+  # Fix CVE-2016-2399. Applied upstream on March 6th 2017.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-10.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-10.debian.tar.xz"
+    sha256 "550cc827c675aeb37727f6daaa311b649246dc9f952e830f0796c25af1137340"
+    apply "patches/CVE-2016-2399.patch"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -38,6 +46,13 @@ class Libquicktime < Formula
                           "--without-gtk"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    fixture = test_fixtures("test.m4a")
+    output = shell_output("#{bin}/qtinfo #{fixture} 2>&1")
+    assert_match "length 1536 samples, compressor mp4a", output
+    assert_predicate testpath/".libquicktime_codecs", :exist?
   end
 end
 
