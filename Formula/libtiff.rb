@@ -4,7 +4,7 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
   sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -22,9 +22,9 @@ class Libtiff < Formula
   # Patches from Debian for CVE-2016-10094, and various other issues.
   # All reported upstream, so should be safe to remove this block on next stable.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
-    sha256 "f4183c48ed74b6c3c3a74ff1f10f0cf972d3dba0f840cf28b5a3f3846ceb2be6"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-6.debian.tar.xz"
+    sha256 "9c9048c28205bdbeb5ba36c7a194d0cd604bd137c70961607bfc8a079be5fa31"
     apply "patches/01-CVE.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
@@ -41,7 +41,16 @@ class Libtiff < Formula
           "patches/14-CVE.patch",
           "patches/15-TIFFFaxTabEnt_bugfix.patch",
           "patches/16-CVE-2016-10094.patch",
-          "patches/17-CVE-2017-5225.patch"
+          "patches/17-CVE-2017-5225.patch",
+          "patches/18-CVE-2017-7595.patch",
+          "patches/19-CVE-2017-7598.patch",
+          "patches/20-CVE-2017-7596_CVE-2017-7597_CVE-2017-7599_CVE-2017-7600.patch",
+          "patches/21-CVE-2017-7601.patch",
+          "patches/22-CVE-2017-7602.patch",
+          "patches/23-CVE-2017-7592.patch",
+          "patches/24-CVE-2017-7593.patch",
+          "patches/25-CVE-2017-7594_part1.patch",
+          "patches/26-CVE-2017-7594_part2.patch"
   end
 
   def install
