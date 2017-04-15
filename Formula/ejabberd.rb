@@ -1,8 +1,8 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/17.03/ejabberd-17.03.tgz"
-  sha256 "8f8345ef5888678892d7727b16c8c10382abb0882d0842465dfa5bf4f4fe919c"
+  url "https://www.process-one.net/downloads/ejabberd/17.04/ejabberd-17.04.tgz"
+  sha256 "b8395bc65b09f135a60320b62338258acd6056cc241e9e245fde267fb18dd3c9"
 
   bottle do
     sha256 "1c0f31170c45f9143b48b18e309b632799a0907388487d0245daf9792c713a30" => :sierra
