@@ -3,6 +3,7 @@ class Jhead < Formula
   homepage "http://www.sentex.net/~mwandel/jhead/"
   url "http://www.sentex.net/~mwandel/jhead/jhead-3.00.tar.gz"
   sha256 "88cc01da018e242fe2e05db73f91b6288106858dd70f27506c4989a575d2895e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +20,13 @@ class Jhead < Formula
   # been submitted upstream through email. We need to carry this patch until
   # upstream decides to incorporate it.
   patch :DATA
+
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
+    sha256 "d2553bb7e7e47c33fa1136841e4b5bfbad6b92edce1dcad639ab5d74ace606aa"
+    apply "patches/31_CVE-2016-3822"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
