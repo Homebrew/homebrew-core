@@ -1,8 +1,8 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.54.tar.gz"
-  sha256 "273bcbcf8cc84061eb07c359308563b2029eb3f70f78b558905bc1b5c5791ab8"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.55.tar.gz"
+  sha256 "9af0a504e2603b0bc0c7c3a4a747df064fb51670a0022b1ad6114f9058b64171"
 
   bottle do
     sha256 "c4fa6800afd18a3cfcad97e22db1f6fce2a106bb4f9ffbd9f5960a277df19779" => :sierra
@@ -35,7 +35,7 @@ class MysqlAT55 < Formula
 
   def install
     # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
+    # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
@@ -100,12 +100,9 @@ class MysqlAT55 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
-
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mysqlaccess"
