@@ -1,10 +1,9 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.3/zabbix-3.2.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/zabbix-3.2.3.tar.gz"
-  sha256 "e6dba74039d8d6efff86ec3da99909f4daeaeb66d48781bbb666e3094533da25"
-  revision 1
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.4/zabbix-3.2.4.tar.gz"
+  mirror "https://fossies.org/linux/misc/zabbix-3.2.4.tar.gz"
+  sha256 "22cf19ef5a9478df2281bf518e8be38adc7dbc508bf63111e02388ca7aabeef4"
 
   bottle do
     sha256 "35a2068460d9ca35b0a52f8beb8e56a0c3144eb469a4fff993c35eaadafc9ff8" => :sierra
@@ -34,6 +33,7 @@ class Zabbix < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/zabbix
       --enable-agent
       --with-iconv=#{MacOS.sdk_path}/usr
     ]
@@ -72,6 +72,6 @@ class Zabbix < Formula
   end
 
   test do
-    system "#{sbin}/zabbix_agentd", "--print"
+    system sbin/"zabbix_agentd", "--print"
   end
 end
