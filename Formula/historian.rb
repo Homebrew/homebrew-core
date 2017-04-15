@@ -10,7 +10,10 @@ class Historian < Formula
 
   test do
     ENV["HISTORIAN_SRC"] = "test_history"
-    File.write("test_history", "brew update")
+    (testpath/"test_history").write <<-EOS.undent
+      brew update
+      brew upgrade
+    EOS
     system bin/"hist", "import"
   end
 end
