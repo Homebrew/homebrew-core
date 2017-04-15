@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.3.4",
-      :revision => "f5bcc66ee39af1cdd1a9a55455e8e1543ae3f13e"
-  revision 1
+      :tag => "2.4.0",
+      :revision => "76fe5d748cbcf41a4c3f40193bde05739cf7d83f"
 
   bottle do
     cellar :any
@@ -28,6 +27,7 @@ class Osquery < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "libmagic"
+  depends_on "lldpd"
   depends_on "lz4"
   depends_on "openssl"
   depends_on "rocksdb"
@@ -67,13 +67,13 @@ class Osquery < Formula
   end
 
   resource "thrift" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.9.3/thrift-0.9.3.tar.gz"
-    sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
+    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.tar.gz"
+    sha256 "2289d02de6e8db04cbbabb921aeb62bfe3098c4c83f36eec6c31194301efa10b"
   end
 
-  resource "thrift-patch" do
-    url "https://gist.githubusercontent.com/ilovezfs/1d098a46e30b9e8bf78d4871e541d2fe/raw/3f5cf999f36aed3f2b5a477bafa6f9c16862649b/gistfile1.txt"
-    sha256 "61955afa09ef244fc84a72ef019de15515e76377aceeb2cbf1e93fa0df374cd2"
+  resource "thrift-0.10-patch" do
+    url "https://gist.githubusercontent.com/ilovezfs/e91298a016b3d87e1187330c25fdcbda/raw/ab735f3733f6e23bdef1cd2981293504d966f87d/gistfile1.txt"
+    sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
   end
 
   def install
@@ -128,9 +128,8 @@ class Osquery < Formula
       ENV["PY_PREFIX"] = vendor/"thrift"
       ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3"
 
-      # Remove SSLv3
-      # See https://github.com/apache/thrift/commit/b819260c653f6fd9602419ee2541060ecb930c4c
-      Pathname.pwd.install resource("thrift-patch")
+      # Apply same patch as osquery upstream for setuid syscalls.
+      Pathname.pwd.install resource("thrift-0.10-patch")
       system "patch", "-p1", "-i", "gistfile1.txt"
 
       exclusions = %W[
@@ -146,8 +145,8 @@ class Osquery < Formula
         --without-qt
         --without-qt4
         --without-nodejs
+        --without-python
         --with-cpp
-        --with-python
         --with-openssl=#{Formula["openssl"].opt_prefix}
       ]
 
@@ -168,7 +167,7 @@ class Osquery < Formula
     ENV["THRIFT_HOME"] = vendor/"thrift"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise
-                                            thrift thrift-patch]
+                                            thrift thrift-0.10-patch]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",
