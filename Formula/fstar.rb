@@ -1,9 +1,10 @@
 class Fstar < Formula
-  desc "Language with a type system for program verification"
+  desc "ML-like language aimed at program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.4.0",
       :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
+  revision 1
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
@@ -37,16 +38,20 @@ class Fstar < Formula
 
     system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
 
-    bin.install "bin/fstar.exe"
+    (libexec/"bin").install "bin/fstar.exe"
+    (bin/"fstar.exe").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/fstar.exe --fstar_home #{prefix} $@
+    EOS
 
-    (libexec/"stdlib").install Dir["ulib/*"]
+    (libexec/"ulib").install Dir["ulib/*"]
     (libexec/"contrib").install Dir["ucontrib/*"]
     (libexec/"examples").install Dir["examples/*"]
     (libexec/"tutorial").install Dir["doc/tutorial/*"]
     (libexec/"src").install Dir["src/*"]
     prefix.install "LICENSE-fsharp.txt"
 
-    prefix.install_symlink libexec/"stdlib"
+    prefix.install_symlink libexec/"ulib"
     prefix.install_symlink libexec/"contrib"
     prefix.install_symlink libexec/"examples"
     prefix.install_symlink libexec/"tutorial"
@@ -69,12 +74,6 @@ class Fstar < Formula
 
   test do
     system "#{bin}/fstar.exe",
-    "--include", "#{prefix}/examples/unit-tests",
-    "--admit_fsi", "FStar.Set",
-    "FStar.Set.fsi", "FStar.Heap.fst",
-    "FStar.ST.fst", "FStar.All.fst",
-    "FStar.List.fst", "FStar.String.fst",
-    "FStar.Int32.fst", "unit1.fst",
-    "unit2.fst", "testset.fst"
+    "#{prefix}/examples/hello/hello.fst"
   end
 end
