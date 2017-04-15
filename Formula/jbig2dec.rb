@@ -1,8 +1,8 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://ghostscript.com/jbig2dec.html"
-  url "http://downloads.ghostscript.com/public/jbig2dec/jbig2dec-0.12.tar.gz"
-  sha256 "bcc5f2cc75ee46e9a2c3c68d4a1b740280c772062579a5d0ceda24bee2e5ebf0"
+  url "http://downloads.ghostscript.com/public/jbig2dec/jbig2dec-0.13.tar.gz"
+  sha256 "5aaca0070992cc2e971e3bb2338ee749495613dcecab4c868fc547b4148f5311"
 
   bottle do
     cellar :any
@@ -14,17 +14,16 @@ class Jbig2dec < Formula
     sha256 "42039ee0b62ad6b4a153c5a5e93609ac1b668626b044a23a450a58d4d71338a5" => :mountain_lion
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "libpng" => :optional
 
-  # https://bugs.ghostscript.com/show_bug.cgi?id=695890
-  # Remove on next release.
+  # These are all upstream already, remove on next release.
   patch do
-    # Original URL: https://git.ghostscript.com/?p=jbig2dec.git;a=commitdiff_plain;h=70c7f1967f43a94f9f0d6808d6ab5700a120d2fc
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7dc28b82/jbig2dec/bug-695890.patch"
-    sha256 "5239e4eb991f198d2ba30d08011c2887599b5cead9db8b1d3eacec4b8912c2d0"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.debian.tar.xz"
+    sha256 "c4776c27e4633a7216e02ca6efcc19039ca757e8bd8fe0a7fbfdb07fa4c30d23"
+    apply "patches/020160518~1369359.patch",
+          "patches/020161212~e698d5c.patch",
+          "patches/020161214~9d2c4f3.patch"
   end
 
   def install
@@ -36,7 +35,6 @@ class Jbig2dec < Formula
 
     args << "--without-libpng" if build.without? "libpng"
 
-    system "autoreconf", "-fvi" # error: cannot find install-sh
     system "./configure", *args
     system "make", "install"
   end
