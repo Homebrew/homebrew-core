@@ -2,7 +2,7 @@ class Historian < Formula
   desc "Command-line utility for managing shell history in a SQLite database."
   homepage "https://github.com/jcsalterego/historian"
   url "https://github.com/jcsalterego/historian/archive/0.0.2.tar.gz"
-  sha256 "80981cf45b6c51dd2969a6d5cd2d69a488e9a58a411fc51d5bee68aaf267d7a5"
+  sha256" 691b131290ddf06142a747755412115fec996cb9cc2ad8e8f728118788b3fe05"
 
   depends_on "sqlite"
 
