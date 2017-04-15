@@ -1,9 +1,8 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://projects.iq.harvard.edu/files/fits/files/fits-0.8.6_1.zip"
-  version "0.8.6-1"
-  sha256 "d45f67a2606aaa0fdcbbade576f70f1590916b043fec28dcfdef1a8242fd4040"
+  url "https://github.com/harvard-lts/fits/archive/1.0.7.tar.gz"
+  sha256 "9094071db178c1ba48bd3a0c957138c461190f28f3dc97c81a8d84d2233eb198"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,35 +13,36 @@ class Fits < Formula
     sha256 "be677363eb1d07b255dd6d931b372411011576d97269f75c52dbb72a716ea919" => :mountain_lion
   end
 
-  # provided jars may not be compatible with installed java,
-  # but works when built from source
   depends_on "ant" => :build
   depends_on :java => "1.7+"
 
   def install
-    system "ant"
+    ENV.java_cache
+    system "ant", "clean-compile-jar", "-noinput"
+
+    libexec.install "lib",
+                    %w[tools xml],
+                    Dir["*.properties"]
+
+    (libexec/"lib").install "lib-fits/fits-#{version}.jar"
 
     inreplace "fits-env.sh" do |s|
-      s.gsub! "FITS_HOME=`echo \"$0\" | sed 's,/[^/]*$,,'`", "FITS_HOME=#{prefix}"
-      s.gsub! "${FITS_HOME}/lib", libexec
+      s.gsub! /^FITS_HOME=.*/, "FITS_HOME=#{libexec}"
+      s.gsub! "${FITS_HOME}/lib", libexec/"lib"
     end
 
-    prefix.install %w[COPYING COPYING.LESSER tools xml]
-    prefix.install Dir["*.txt"]
-    libexec.install Dir["lib/*"]
+    inreplace %w[fits.sh fits-ngserver.sh],
+              %r{\$\(dirname .*\)\/fits-env\.sh}, "#{libexec}/fits-env.sh"
 
     # fits-env.sh is a helper script that sets up environment
     # variables, so we want to tuck this away in libexec
     libexec.install "fits-env.sh"
-    inreplace %w[fits.sh fits-ngserver.sh],
-      '"$(dirname $BASH_SOURCE)/fits-env.sh"', "'#{libexec}/fits-env.sh'"
-
     bin.install "fits.sh" => "fits"
     bin.install "fits-ngserver.sh" => "fits-ngserver"
   end
 
   test do
     assert_match 'mimetype="audio/mpeg"',
-      shell_output("#{bin}/fits -i #{test_fixtures "test.mp3"} 2>&1")
+      shell_output("#{bin}/fits -i #{test_fixtures "test.mp3"}")
   end
 end
