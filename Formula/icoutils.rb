@@ -6,9 +6,9 @@ class Icoutils < Formula
 
   bottle do
     cellar :any
-    sha256 "8105abde4120c99f387bb64ea1b2f9e85e88bf6c3338b2a0b44455fc023325a3" => :sierra
-    sha256 "132017221967f98d1d7ec8f69bdbb0642c0df6fcb89d4f27f76c5573139a18ab" => :el_capitan
-    sha256 "c4f42688697ab82d47526c1ff5479d0b912c191426ec74c3b0de934da93b29ae" => :yosemite
+    sha256 "1d627f415154d1701ca684f688f9d2b3f06e98844626615620e6076df9f4a49c" => :sierra
+    sha256 "ac584e12bc7623e171c074014d496143c1bdfbe5df6d71ab016fedf2f70fd274" => :el_capitan
+    sha256 "b20b2064a797c0c522efa466fd4b77baee10188aa3f263f62f2fec20e8c0653b" => :yosemite
   end
 
   depends_on "libpng"
