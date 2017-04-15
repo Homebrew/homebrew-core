@@ -1,8 +1,8 @@
 class MysqlCluster < Formula
   desc "Shared-nothing clustering and auto-sharding for MySQL"
   homepage "https://www.mysql.com/products/cluster/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-gpl-7.5.5.tar.gz"
-  sha256 "2a93deda2a1451a24ec8f8e62aa4e2d547e006a757c19481627efd2372752546"
+  url "https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-gpl-7.5.6.tar.gz"
+  sha256 "f799932e0baeb4cf61d735b662ebefba6d2d7b156cb66fc81c1bef4a4a43848d"
 
   bottle do
     sha256 "563c3a2337f717edd22af2a2570ecbcd1550a18a5fefe3b049e62683cdf7a4c8" => :sierra
@@ -110,15 +110,14 @@ class MysqlCluster < Formula
 
     # Link the setup script into bin
     bin.install_symlink prefix/"scripts/mysql_install_db"
+
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
-    libexec.install "#{bin}/mcc_config.py"
+    libexec.install bin/"mcc_config.py"
 
     plist_path("ndb_mgmd").write ndb_mgmd_startup_plist("ndb_mgmd")
     plist_path("ndb_mgmd").chmod 0644
