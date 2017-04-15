@@ -5,12 +5,10 @@ class Fits < Formula
   sha256 "9094071db178c1ba48bd3a0c957138c461190f28f3dc97c81a8d84d2233eb198"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ded3ed995804a6975db42aa3984dc559cea98696a4b9d2a659f09a472b4a78fe" => :sierra
-    sha256 "e6a3308ead5d286ec2b53c3e3dbe82ce95b712eb106926eb0a75a16a19bc84ff" => :el_capitan
-    sha256 "cbd107b9147e58be56405d04b83e7b58b2a61210f8713f32ef0aa12cc0cb9192" => :yosemite
-    sha256 "81b380fb42b2f057f80842a723a30bee313ca6c7f70a9f007a206c63064ca665" => :mavericks
-    sha256 "be677363eb1d07b255dd6d931b372411011576d97269f75c52dbb72a716ea919" => :mountain_lion
+    cellar :any
+    sha256 "6e40f1fd9f8f1942695e0d40a6c6ba0a8c3ed742fc3fb463600617457a62eccb" => :sierra
+    sha256 "2bfd30983cebe22bef49a889e4af586158f3b8f2ea9bc0f9560aa359a27ebf62" => :el_capitan
+    sha256 "14f8f42715e72893d27ac1e6d3941dc5eec0b77e3838becb86475c70643a1522" => :yosemite
   end
 
   depends_on "ant" => :build
