@@ -1,8 +1,8 @@
 class Mysqlxx < Formula
   desc "C++ wrapper for MySQL's C API"
   homepage "https://tangentsoft.net/mysql++/"
-  url "https://tangentsoft.net/mysql++/releases/mysql++-3.2.1.tar.gz"
-  sha256 "aee521873d4dbb816d15f22ee93b6aced789ce4e3ca59f7c114a79cb72f75d20"
+  url "https://tangentsoft.net/mysql++/releases/mysql++-3.2.3.tar.gz"
+  sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
 
   bottle do
     cellar :any
@@ -15,9 +15,8 @@ class Mysqlxx < Formula
   depends_on :mysql
 
   def install
-    mysql_include_dir = `mysql_config --variable=pkgincludedir`
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    mysql_include_dir = Utils.popen_read("mysql_config --variable=pkgincludedir")
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-field-limit=40",
                           "--with-mysql-lib=#{HOMEBREW_PREFIX}/lib",
@@ -36,7 +35,8 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", `mysql_config --include`.chomp, "-L#{lib}", "-lmysqlpp", "-o", "test"
+    system ENV.cxx, "test.cpp", Utils.popen_read("mysql_config --include").chomp,
+                    "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end
 end
