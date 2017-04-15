@@ -5,9 +5,9 @@ class MysqlCluster < Formula
   sha256 "f799932e0baeb4cf61d735b662ebefba6d2d7b156cb66fc81c1bef4a4a43848d"
 
   bottle do
-    sha256 "563c3a2337f717edd22af2a2570ecbcd1550a18a5fefe3b049e62683cdf7a4c8" => :sierra
-    sha256 "b1a0bcd342668543236cbd392152e9830071bdf3acda4f9c98753c761f7b02dc" => :el_capitan
-    sha256 "8c49517858b08c6ce47fc29eb4cf9f1526f8601972c0cd81e6903379c6bd7a00" => :yosemite
+    sha256 "1fc1992ed96091f6d610052ae06ecfaa263e69e0acaf12d786e2da30ff5b45df" => :sierra
+    sha256 "16b479de2127b298b035838e36502fcf89539bb78c01b951f112797986bf43e5" => :el_capitan
+    sha256 "efd31cfe2338bcc4c118b1a89a77e3b698429250be4dea131f645169255e9512" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
