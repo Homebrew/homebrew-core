@@ -11,7 +11,8 @@ class Historian < Formula
   end
 
   test do
-    ENV["HISTORIAN_SRC"] = "./.bash_history"
+    ENV["HISTORIAN_SRC"] = "test_history"
+    File.write("test_history", "brew update")
     system bin/"hist", "import"
   end
 end
