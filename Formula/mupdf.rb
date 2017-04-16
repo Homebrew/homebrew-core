@@ -28,7 +28,6 @@ class Mupdf < Formula
   end
 
   test do
-    assert_match "Homebrew test", 
-      shell_output("#{bin}/mudraw -F txt #{test_fixtures("test.pdf")}")
+    assert_match "Homebrew test", shell_output("#{bin}/mudraw -F txt #{test_fixtures("test.pdf")}")
   end
 end
