@@ -3,6 +3,7 @@ class Harfbuzz < Formula
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
   url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.4.5.tar.bz2"
   sha256 "d0e05438165884f21658154c709075feaf98c93ee5c694b951533ac425a9a711"
+  revision 1
 
   bottle do
     sha256 "49d3fcf19e96fad2a745e230b2f9ba6bfe8a37c1422913a0c5d33b70148a743e" => :sierra
