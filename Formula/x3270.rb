@@ -21,7 +21,7 @@ class X3270 < Formula
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--enable-x3270" if build.with? :x11
+    args << "--enable-x3270" if build.with? "x11"
     args << "--enable-c3270" if build.with? "c3270"
     args << "--enable-s3270" if build.with? "s3270"
     args << "--enable-tcl3270" if build.with? "tcl3270"
