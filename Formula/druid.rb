@@ -23,12 +23,12 @@ class Druid < Formula
 
     cd libexec do
       begin
-        pid = fork { exec "bin/broker.sh start" }
+        fork { exec "bin/broker.sh start" }
         sleep 30
         output = shell_output("curl -s http://localhost:8082/status")
         assert_match /version/m, output
       ensure
-        system "bin/broker.sh stop"
+        system "bin/broker.sh", "stop"
       end
     end
   end
