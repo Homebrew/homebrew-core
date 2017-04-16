@@ -1,7 +1,7 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  revision 9
+  revision 10
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
