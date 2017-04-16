@@ -48,9 +48,8 @@ class Bochs < Formula
       --with-term
     ]
 
-    if build.with? "sdl2"
-      args << "--with-sdl2"
-    end
+    
+    args << "--with-sdl2" if build.with? "sdl2"
 
     if build.with? "gdb-stub"
       args << "--enable-gdb-stub"
