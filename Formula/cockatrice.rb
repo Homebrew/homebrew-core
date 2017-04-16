@@ -2,10 +2,10 @@ class Cockatrice < Formula
   desc "Virtual tabletop for multiplayer card games"
   homepage "https://github.com/Cockatrice/Cockatrice"
   url "https://github.com/Cockatrice/Cockatrice.git",
-      :tag => "2017-03-14-Release",
-      :revision => "6e723b2a992022ba343d45d881b3c92b9d1c6ba2"
-  version "2017-03-14"
-  revision 1
+      :tag => "2017-04-15-Release-2.3.16",
+      :revision => "dc6c3752201bd5a93f588a690cc462a118b3d40c"
+  version "2.3.16"
+  version_scheme 1
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
