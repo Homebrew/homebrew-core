@@ -4,6 +4,13 @@ class OsmiumTool < Formula
   url "https://github.com/osmcode/osmium-tool/archive/v1.6.1.tar.gz"
   sha256 "75523396b3fe51ff585a59251144bd61c93609df0703b7119fe6e16fd4ddb0fa"
 
+  bottle do
+    cellar :any
+    sha256 "842c6ca8f0756d1e445f525c6e0cc87f7b4610071e4f4eaba657fde765612fc1" => :sierra
+    sha256 "292194bdcc7b14c4757e082f9b6078da2900001da4d6ba190734fed529e97981" => :el_capitan
+    sha256 "a579e794efd4350c9ec9a53009854da32334f291918560dc2fcac809ff23dafa" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
   depends_on "boost"
