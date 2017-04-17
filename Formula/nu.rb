@@ -6,9 +6,9 @@ class Nu < Formula
 
   bottle do
     cellar :any
-    sha256 "87367b6358fb87348481108ad0192b9a9342274150cdfaec84701eca3031d222" => :sierra
-    sha256 "ed030bbe40655e3a44c4e3becd5775b5ab25d1d32070c2f0a85bfde3769ff44a" => :el_capitan
-    sha256 "c13703832378165f06c8d333b9c9272520e4412e6d8ee8598cbb3e4a01144ddd" => :yosemite
+    sha256 "1508d2c0376f54e1108568f79fa907244877f1d3981bbe6db69c6efcc7460c54" => :sierra
+    sha256 "183c89418f6803a6f1395545739da9012b4e049d160038d6d5c00e242243284a" => :el_capitan
+    sha256 "ba5bd173433144dbf6141cfced1c04f17f81c1cb014ea2f794090e6c5a5f8f4b" => :yosemite
   end
 
   depends_on :macos => :lion
