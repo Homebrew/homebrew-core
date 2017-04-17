@@ -1,8 +1,8 @@
 class Sdlpop < Formula
   desc "Open-source port of Prince of Persia"
   homepage "https://github.com/NagyD/SDLPoP"
-  url "https://github.com/NagyD/SDLPoP/archive/v1.16.tar.gz"
-  sha256 "4198eecdb2c4fed8f609af810962c943572df83da99c571146cee1596e7ee55b"
+  url "https://github.com/NagyD/SDLPoP/archive/v1.17.tar.gz"
+  sha256 "aa4b254ab80b889a6db491b41c4f83467124d932cc0836e5979fa73b6c49a94d"
 
   bottle do
     cellar :any
@@ -17,11 +17,11 @@ class Sdlpop < Formula
   depends_on "sdl2_mixer"
 
   def install
-    system "make"
+    system "make", "-C", "src"
     doc.install Dir["doc/*"]
 
     # Use var directory to keep save and replay files
-    pkgshare.install Dir["*.DAT"]
+    pkgshare.install Dir["data/*.DAT"]
     pkgshare.install "data"
     pkgvar = var/"sdlpop"
     pkgvar.install_symlink Dir["#{pkgshare}/*.DAT"]
