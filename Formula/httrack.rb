@@ -3,8 +3,8 @@ class Httrack < Formula
   homepage "https://www.httrack.com/"
   # Always use mirror.httrack.com when you link to a new version of HTTrack, as
   # link to download.httrack.com will break on next HTTrack update.
-  url "https://mirror.httrack.com/historical/httrack-3.48.22.tar.gz"
-  sha256 "b2831ad7b48e933959f83a9de8a72bcaa0f8eb87e9453ad85debd50d33a9c48f"
+  url "https://mirror.httrack.com/historical/httrack-3.49.1.tar.gz"
+  sha256 "8640ab00cabc9189667cc88829620ce08ac796688f0ef94876350d14fbe7a842"
 
   bottle do
     sha256 "ba9cf6805554dd97a5873ea8a4e088af85ceeebe9343153933d75e6a248336d9" => :sierra
