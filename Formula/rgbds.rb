@@ -1,9 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/archive/v0.2.5.tar.gz"
-  sha256 "4bf10cbdd1f8f528c36d8ce92cc072d21e582fd75b5c21d13194b09d5c60ab25"
-
+  url "https://github.com/rednex/rgbds/archive/v0.3.0.tar.gz"
+  sha256 "00a8ac8cfaeaf5285fd24475a3d78053a35fd9599ab9493ca47dc41bcb6f7de0"
   head "https://github.com/rednex/rgbds.git"
 
   bottle do
@@ -14,10 +13,10 @@ class Rgbds < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpng" => :build
+  depends_on "libpng"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "PNGFLAGS=-I#{Formula["libpng"].opt_include}"
+    system "make", "install", "PREFIX=#{prefix}", "mandir=#{man}"
   end
 
   test do
