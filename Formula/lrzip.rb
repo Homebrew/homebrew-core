@@ -1,8 +1,8 @@
 class Lrzip < Formula
   desc "Compression program with a very high compression ratio"
   homepage "http://lrzip.kolivas.org"
-  url "http://ck.kolivas.org/apps/lrzip/lrzip-0.621.tar.bz2"
-  sha256 "31c26fbee8b9b0bd413ca214862dbc0d9e6d3477f23e9839774936bf140ceb6b"
+  url "http://ck.kolivas.org/apps/lrzip/lrzip-0.631.tar.bz2"
+  sha256 "0d11e268d0d72310d6d73a8ce6bb3d85e26de3f34d8a713055f3f25a77226455"
 
   bottle do
     cellar :any
