@@ -5,9 +5,9 @@ class Bmake < Formula
   sha256 "c92085c9caf6c95e2d4d16a3728bda5b711f44e1d3270c1ad996c51cba19e230"
 
   bottle do
-    sha256 "8f506a0b2235917a3fb560487f15d4ff12c11df420cbc48f87c606cba1dfc174" => :sierra
-    sha256 "d21770b29ee7d89fdccfb581f64a72d2c539f461a5fa7b39f99c82e6a7d7827e" => :el_capitan
-    sha256 "c74b0950babcd482037c6660b112171dc0f2a9f1fb419479e3ae6ff045c010aa" => :yosemite
+    sha256 "96808a031b4ec41c3e6b0db5306b04433d240a3368335037a5ea6c9c2fb45513" => :sierra
+    sha256 "c386ecd4ad69b36fa3b77d45b5605c3f94c348e32743a8099fdc1ce72c09e5c7" => :el_capitan
+    sha256 "3e371590a9cb3d571ca77c3cd280bb352940e05404717e799d469d41296ead6e" => :yosemite
   end
 
   def install
