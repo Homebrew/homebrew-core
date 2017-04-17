@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2017.03.06.00.tar.gz"
-  sha256 "e48507f08cb3ec071d756c2a3c49177a99566566375ab7fb0f351fcb8690ada1"
+  url "https://github.com/facebook/folly/archive/v2017.04.17.00.tar.gz"
+  sha256 "a14d872cbf518369a607294e94d1068d27619051cf92277bf215b2536bf68f01"
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -38,13 +38,6 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
-      # Fix "typedef redefinition with different types ('uint8_t' (aka 'unsigned
-      # char') vs 'enum clockid_t')"
-      # Reported 9 Mar 2017 https://github.com/facebook/folly/issues/557
-      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
-      end
-
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
                             "--disable-dependency-tracking"
