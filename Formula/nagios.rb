@@ -1,8 +1,8 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.2.4/nagios-4.2.4.tar.gz"
-  sha256 "b0055c475683ce50d77b1536ff0cec9abf89139adecf771601fa021ef9a20b70"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.3.1/nagios-4.3.1.tar.gz"
+  sha256 "dfc2f5f146eb508b2a28d28af7c338ef9eb604327efdc50142642026f7e79f82"
 
   bottle do
     sha256 "d8358e2d0a63c408f7e42c3b27b17b60f901650f17eaa491dc046a09e83de692" => :sierra
