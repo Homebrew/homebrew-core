@@ -1,7 +1,7 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  revision 1
+  revision 2
   head "https://github.com/csmith-project/creduce.git"
 
   stable do
@@ -69,6 +69,9 @@ class Creduce < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    # Avoid ending up with llvm's Cellar path hard coded.
+    ENV["CLANG_FORMAT"] = Formula["llvm"].opt_bin/"clang-format"
 
     resources.each do |r|
       r.stage do
