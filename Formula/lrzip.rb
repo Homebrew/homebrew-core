@@ -6,11 +6,9 @@ class Lrzip < Formula
 
   bottle do
     cellar :any
-    sha256 "aa49a3b90dcf1505c5e7802cf06dbfb99ae6b286f8f5047f8d9f8162a277f364" => :sierra
-    sha256 "3e1961f7015e80bba9423c8ac937873291c282d7429d40442e2f24323a1d558c" => :el_capitan
-    sha256 "be8250575e5bb6b3e322d9ca26f333c2918668672349e8f3a489c7d1ddbc4c30" => :yosemite
-    sha256 "188a28b951eda33fc61bb166a2dd0ab44990d471535e746eadaf9ba8ad095cb5" => :mavericks
-    sha256 "1a36857c2c25388efe5fd26b52bb7501084ef2b0d94dec353debf14222f9a849" => :mountain_lion
+    sha256 "b0c60e0773da9cf70d3164f362b3b527a7a87acd10b632291055d58ca2da7cfc" => :sierra
+    sha256 "c0ea3854495bd5d98f040f1a6b5a08e01857436aac25ead3f7a3fb44841f738a" => :el_capitan
+    sha256 "345d0f65ddc44faab696c5e5bfabf6a6d408435858f49cfd630ee74e61f0c97c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
