@@ -1,8 +1,8 @@
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
   homepage "https://github.com/foundweekends/giter8"
-  url "https://github.com/foundweekends/giter8/archive/v0.7.2.tar.gz"
-  sha256 "68d28adb49ac30c30fc177cb97f43aa9b66701dafbd2de77c46d7d771fef9024"
+  url "https://github.com/foundweekends/giter8/archive/v0.8.0.tar.gz"
+  sha256 "f3a49b559b5438d5f28d30bf5c40c607823e6d968aaeeff231eedd17f38f2b4e"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,8 +20,8 @@ class Giter8 < Formula
   end
 
   resource "launcher" do
-    url "https://oss.sonatype.org/content/repositories/public/org/scala-sbt/launcher/1.0.0/launcher-1.0.0.jar"
-    sha256 "9149549ee09c50bda21ab57990f95aac4dd3919d720367df6198ec7e16480639"
+    url "https://oss.sonatype.org/content/repositories/public/org/scala-sbt/launcher/1.0.1/launcher-1.0.1.jar"
+    sha256 "10a12180a6bc3c72f5d4732a74f2c93abfd90b9b461cf2ea53e0cc4b4f9ef45c"
   end
 
   def install
@@ -36,7 +36,11 @@ class Giter8 < Formula
     resource("conscript").stage do
       cs = conscript_home/"foundweekends/conscript/cs"
       cs.install "src/main/conscript/cs/launchconfig"
+
       inreplace "setup.sh" do |s|
+        # outdated launcher reported 17 Apr 2017 https://github.com/foundweekends/conscript/issues/122
+        s.gsub! /^LJV=1.0.0$/, "LJV=1.0.1"
+
         s.gsub! /.*wget .*/, ""
         s.gsub! /^ +exec .*/, "exit"
       end
