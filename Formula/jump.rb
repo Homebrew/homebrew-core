@@ -1,15 +1,15 @@
 class Jump < Formula
-  desc "Quick and fuzzy directory jumper."
+  desc "Helps you navigate your file system faster by learning your habits."
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.10.0.tar.gz"
-  sha256 "6826d353f9724c7dd417479fd9aea396d63463962e38682154964c07072a61fc"
+  url "https://github.com/gsamokovarov/jump/archive/v0.13.0.tar.gz"
+  sha256 "15d1bbeff680781dfd67857c8e3e5272b306602be5fd7c08484ed10636b77b4c"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5211008a3c504ed7a98ff7ec58b428c7d2c627ea7ca8080aec21cc02497d0f1b" => :sierra
-    sha256 "4b2ed1684d412a524e60bed5f7e76716bbe8b7348bd5160b740269bebbd42bba" => :el_capitan
-    sha256 "08f76c97fb3f0da4f59685155a8a9d26c120c5b920275ecd8b8b6e43b2b5c397" => :yosemite
+    sha256 "5d0ff67b1a1bb2fdd122c7f3dfca711e06bfed309e1326c7e3dc1449aa7fa1b5" => :sierra
+    sha256 "16f4049d86aab91e8588fae8aa0e80f13269f771d5a3a2962ec7856eedd1a8b0" => :el_capitan
+    sha256 "d0b66701e81ed141719935171c6e52325191a73545f8d808fe082cbc2c1613ca" => :yosemite
   end
 
   depends_on "go" => :build

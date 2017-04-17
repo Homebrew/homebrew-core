@@ -3,14 +3,14 @@ require "language/node"
 class DiffSoFancy < Formula
   desc "Good-lookin' diffs with diff-highlight and more"
   homepage "https://github.com/so-fancy/diff-so-fancy"
-  url "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-0.11.3.tgz"
-  sha256 "50a14c75831769fb524311e706f3abfaee9150d221a87947e2f1d0392ea95436"
+  url "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-0.11.4.tgz"
+  sha256 "1812b1a36b77c371fc811cc0a9746204954b2c3ab4734ab310b4f01009630b15"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "95d00f3a8ba764b5b4d6dff98580f6da0ba10af473c59711134e60ab51780672" => :sierra
-    sha256 "f147e2bf87cbdb65df2d3cd3ac864649a53287fce6123697e565b8e6978c4a2e" => :el_capitan
-    sha256 "6a96d02b3d6ca2e8e9c622197a73f3060debce7a2cf5b66aa90da4d0468a9ad9" => :yosemite
+    sha256 "cbb9b162c89bec116039e2849656fb253e2ecbbcd7973ba3d7b444e978c969a3" => :sierra
+    sha256 "83cd8afe3628eab0a9ddcb2a4326a935279abb24e4409001eedcf1cee81342db" => :el_capitan
+    sha256 "643d937586cc3e4bbe6d9189f6ef1f0a118b89b10dff5870d26d077edc06fb92" => :yosemite
   end
 
   depends_on "node" => :build

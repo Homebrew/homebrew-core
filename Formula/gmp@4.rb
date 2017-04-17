@@ -1,6 +1,6 @@
 class GmpAT4 < Formula
   desc "GNU multiple precision arithmetic library"
-  homepage "http://gmplib.org/"
+  homepage "https://gmplib.org/"
   # Track gcc infrastructure releases.
   url "https://ftpmirror.gnu.org/gmp/gmp-4.3.2.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gmp/gmp-4.3.2.tar.bz2"

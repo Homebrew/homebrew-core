@@ -3,7 +3,7 @@ class Libagar < Formula
   homepage "http://libagar.org/"
   url "http://stable.hypertriton.com/agar/agar-1.5.0.tar.gz"
   sha256 "82342ded342c578141984befe9318f3d376176e5f427ae3278f8985f26663c00"
-  head "http://dev.csoft.net/agar/trunk", :using => :svn
+  head "https://dev.csoft.net/agar/trunk", :using => :svn
 
   bottle do
     sha256 "cf93446b5504d6fe286fb0e11364366d3d265c2b7c322e818f3a672420968357" => :sierra

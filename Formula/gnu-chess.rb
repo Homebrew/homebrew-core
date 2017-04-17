@@ -12,7 +12,7 @@ class GnuChess < Formula
   end
 
   head do
-    url "svn://svn.savannah.gnu.org/chess/trunk"
+    url "https://svn.savannah.gnu.org/svn/chess/trunk"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "help2man" => :build

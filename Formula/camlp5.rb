@@ -14,13 +14,8 @@ class Camlp5 < Formula
 
   deprecated_option "strict" => "with-strict"
   option "with-strict", "Compile in strict mode (not recommended)"
-  option "with-tex", "Install the pdf, ps, and tex documentation"
-  option "with-doc", "Install the html and info documentation"
 
   depends_on "ocaml"
-  depends_on :tex => [:build, :optional]
-  depends_on "ghostscript" => :build if build.with?("tex")
-  depends_on "gnu-sed" => :build if build.with?("doc") || build.with?("tex")
 
   def install
     args = ["--prefix", prefix, "--mandir", man]
@@ -29,22 +24,6 @@ class Camlp5 < Formula
     system "./configure", *args
     system "make", "world.opt"
     system "make", "install"
-
-    if build.with?("doc") || build.with?("tex")
-      ENV.deparallelize
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
-      cd "doc/htmlp"
-      if build.with? "doc"
-        system "make" # outputs the html version of the docs in ../html
-        system "make", "info"
-        doc.install "../html", Dir["camlp5.info*"]
-      end
-      if build.with? "tex"
-        inreplace "Makefile", "ps2pdf", Formula["ghostscript"].opt_bin/"ps2pdf"
-        system "make", "tex", "ps", "pdf"
-        doc.install "camlp5.tex", "camlp5.ps", "camlp5.pdf"
-      end
-    end
   end
 
   test do

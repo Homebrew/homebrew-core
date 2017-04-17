@@ -1,6 +1,6 @@
 class Usbmuxd < Formula
   desc "USB multiplexor daemon for iPhone and iPod Touch devices"
-  homepage "http://www.libimobiledevice.org"
+  homepage "http://www.libimobiledevice.org/"
   revision 1
 
   stable do
@@ -23,7 +23,7 @@ class Usbmuxd < Formula
   end
 
   head do
-    url "http://git.sukimashita.com/libusbmuxd.git"
+    url "https://git.sukimashita.com/libusbmuxd.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build

@@ -5,12 +5,13 @@ class Readline < Formula
   mirror "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
   version "7.0.3"
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "deec35341dcf2641cc8a64f7f4d01b124c456ee1675a4d6618638f220bc01b26" => :sierra
-    sha256 "eee9dd140f1a7f7266279e2f900a9da49909b46755cd8941c506962be2608d02" => :el_capitan
-    sha256 "443c8429e82f5a32e070d81b584ceae1844e07277488ca1457eccee6fb1a7114" => :yosemite
+    sha256 "af7886c963fe3e9f58c45d679a64b278f4df7b172bbd978cf42658a7fd7b4a2a" => :sierra
+    sha256 "86766a343a07e08c52e7e87e64a12d3aa34bf71ba248fc779a2c5b0664797ba9" => :el_capitan
+    sha256 "11589e87c4860e414fe5a4b3481d20e47258f41a91a7490a5c88e1a57d5e1d18" => :yosemite
   end
 
   %w[
@@ -32,8 +33,7 @@ class Readline < Formula
   EOS
 
   def install
-    ENV.universal_binary
-    system "./configure", "--prefix=#{prefix}", "--enable-multibyte"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 

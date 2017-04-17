@@ -1,14 +1,14 @@
 class Gmtl < Formula
   desc "Lightweight math library"
   homepage "https://ggt.sourceforge.io/"
-  head "https://ggt.svn.sourceforge.net/svnroot/ggt/trunk/"
+  head "https://svn.code.sf.net/p/ggt/code/trunk"
 
   stable do
     url "https://downloads.sourceforge.net/project/ggt/Generic%20Math%20Template%20Library/0.6.1/gmtl-0.6.1.tar.gz"
     sha256 "f7d8e6958d96a326cb732a9d3692a3ff3fd7df240eb1d0921a7c5c77e37fc434"
 
     # Build assumes that Python is a framework, which isn't always true. See:
-    # https://sourceforge.net/tracker/?func=detail&aid=3172856&group_id=43735&atid=437247
+    # https://sourceforge.net/p/ggt/bugs/22/
     # The SConstruct from gmtl's HEAD doesn't need to be patched
     patch :DATA
   end

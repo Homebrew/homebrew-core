@@ -1,27 +1,18 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/castxml/castxml_0.1+git20161215.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20161215.orig.tar.xz"
+  version "0.1+git20161215"
+  sha256 "6710486f72ea32020d30e04ff9d6e629a94b79d4fb10b834f93d3f87ebd9c091"
   revision 1
   head "https://github.com/CastXML/castxml.git"
 
-  stable do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/castxml/castxml_0.1+git20160706.orig.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20160706.orig.tar.xz"
-    version "0.1+git20160706"
-    sha256 "28e7df5f9cc4de6222339d135a7b1583ae0c20aa0d18e47fa202939b81a7dada"
-
-    # changes from upstream to fix compilation with LLVM 3.9
-    patch do
-      url "https://github.com/CastXML/CastXML/commit/e1ee6852c79eddafa2ce1f134c097decd27aaa69.patch"
-      sha256 "d47f4566bda6f8592c120052aeec404de371dc27b0ef15d5c337c34f87976901"
-    end
-  end
-
   bottle do
-    cellar :any
-    sha256 "e13a2cd6f5bb23eb1dec5a6452567d08c2ca1a30615bf65d71ea4b7b2293c02a" => :sierra
-    sha256 "bfedb038898e36cd58de455a3c9a98995e1250e38343a9c302c4b9ab18675920" => :el_capitan
-    sha256 "c7877bb1dfbdc2473c911fbee1bb601acb9e566bc0b2d36039f4a88cf81ff7c3" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "f51900fd4d0cdfc42f906bec02d6aa1f0ab1e61534286399cf6a27d3b81859f0" => :sierra
+    sha256 "28833ef17f73e31fb027ef03462b3286075debc389804f8c5ab52926be9799f9" => :el_capitan
+    sha256 "9854355c02848557c56fcc7cb0bb1e66aa88baff85a5844bc3e11a35b7b93005" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -1,6 +1,6 @@
 class Xvid < Formula
   desc "High-performance, high-quality MPEG-4 video library"
-  homepage "https://www.xvid.org"
+  homepage "https://www.xvid.com/"
   url "https://fossies.org/linux/misc/xvidcore-1.3.4.tar.gz"
   # Official download takes a long time to fail, so set it as the mirror for now
   mirror "http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.gz"

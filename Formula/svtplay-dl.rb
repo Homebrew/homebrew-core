@@ -2,29 +2,39 @@ class SvtplayDl < Formula
   include Language::Python::Virtualenv
 
   desc "Download videos from http://svtplay.se"
-  homepage "https://svtplay-dl.se"
+  homepage "https://svtplay-dl.se/"
   url "https://pypi.python.org/packages/26/49/651d5c215049efb40f2c775904ecdaa83f4bc6b126256c60b8325f0738cc/svtplay-dl-1.9.3.tar.gz"
   sha256 "245ac9463ce7dd71ce434815ceb4140080bffdb7025d55fcd8c22fc023d4d6b7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "98d2d42f8793ba8435a9c613e1db514411dda2ffe4d6d1d2d9b7bc0c4c6351f1" => :sierra
-    sha256 "5030ca0825d0252689b437da4fff4675811eea20505a3e2e8b10910094d09dad" => :el_capitan
-    sha256 "72dd1076f92ba529728fba69d4119137db55171e5c33b80ea82d178ff2e7256a" => :yosemite
+    sha256 "d4dc34db83c9dea6e092bd066d64c3d93c181d6922f176962bbb4eda889f808d" => :sierra
+    sha256 "631aab55748d0642f129f367c7444ded2dc38dd2ec28160f1936221201abd728" => :el_capitan
+    sha256 "87890dced0fa323a716976fa2e21806a35d66cb0663a230680330be6f78429d3" => :yosemite
   end
 
   depends_on "rtmpdump"
   depends_on "openssl"
 
-  # for request security
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+  end
+
   resource "cffi" do
-    url "https://pypi.python.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
     sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/82/f7/d6dfd7595910a20a563a83a762bf79a253c4df71759c3b228accb3d7e5e4/cryptography-1.7.1.tar.gz"
-    sha256 "953fef7d40a49a795f4d955c5ce4338abcec5dea822ed0414ed30348303fdb4c"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "enum34" do
@@ -33,12 +43,12 @@ class SvtplayDl < Formula
   end
 
   resource "idna" do
-    url "https://pypi.python.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
-    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "ipaddress" do
-    url "https://pypi.python.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
+    url "https://files.pythonhosted.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
     sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
   end
 
@@ -47,13 +57,18 @@ class SvtplayDl < Formula
     sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+  end
+
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
-    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
+    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pycparser" do
-    url "https://pypi.python.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
+    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
     sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
@@ -62,9 +77,14 @@ class SvtplayDl < Formula
     sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+  end
+
   resource "requests" do
-    url "https://pypi.python.org/packages/b6/61/7b374462d5b6b1d824977182db287758d549d8680444bad8d530195acba2/requests-2.12.5.tar.gz"
-    sha256 "d902a54f08d086a7cc6e58c20e2bb225b1ae82c19c35e5925269ee94fb9fce00"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "six" do
@@ -90,6 +110,6 @@ class SvtplayDl < Formula
   end
 
   test do
-    system bin/"svtplay-dl", "-g", "http://tv.aftonbladet.se/abtv/articles/121638"
+    system bin/"svtplay-dl", "-g", "https://tv.aftonbladet.se/abtv/articles/121638"
   end
 end

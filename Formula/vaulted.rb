@@ -3,17 +3,16 @@ require "language/go"
 class Vaulted < Formula
   desc "Allows the secure storage and execution of environments"
   homepage "https://github.com/miquella/vaulted"
-  url "https://github.com/miquella/vaulted/archive/v2.0.tar.gz"
-  sha256 "7bf3e9dc0ae015f1fadee3520273707ad072a2f6c945c959c993d282301c897e"
+  url "https://github.com/miquella/vaulted/archive/v2.1.tar.gz"
+  sha256 "237cce6a48eca2c7fba311da05da657ed5924bf2ee7065f718705166131b70c4"
 
   head "https://github.com/miquella/vaulted.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74eba9bf6d42b7a673362d81052f408e43bff17051794c8ff8412830d5da4594" => :sierra
-    sha256 "638baea47f16f89d191e606d529da9034a3e20f65a74cb2ce540191b2d41bda0" => :el_capitan
-    sha256 "f369956a6fcebda28ba3361ae9ce763205c93ab254c51d46a5f448f45c426c7b" => :yosemite
-    sha256 "2a5c41c018ba2e196e0176ff95eea07539a651c9fb86782f8f219d94d21c1343" => :mavericks
+    sha256 "aad9ffdbbb5356abd6688d46903bf875d80d262b1c6aea3363126436c6cd404a" => :sierra
+    sha256 "3e6e5f2ce11c77a2c6c71c0bacfeba70e70923d85155568023af6247808daf8f" => :el_capitan
+    sha256 "a8dbba82a1f0ac3cf134a4ec47d802c1ce8c0143b071a3163be7108d1373d62f" => :yosemite
   end
 
   depends_on "go" => :build
@@ -21,6 +20,11 @@ class Vaulted < Formula
   go_resource "github.com/aws/aws-sdk-go" do
     url "https://github.com/aws/aws-sdk-go.git",
         :revision => "94673f7d41219ea3e94e4b1edc01315f14268f72"
+  end
+
+  go_resource "github.com/chzyer/readline" do
+    url "https://github.com/chzyer/readline.git",
+    :revision => "62c6fe6193755f722b8b8788aa7357be55a50ff1"
   end
 
   go_resource "github.com/fatih/color" do
@@ -65,7 +69,7 @@ class Vaulted < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     system "go", "build", "-o", bin/"vaulted", "github.com/miquella/vaulted"
-    man1.install Dir["man/vaulted*.1"]
+    man1.install Dir["doc/man/vaulted*.1"]
   end
 
   test do

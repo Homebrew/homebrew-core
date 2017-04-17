@@ -13,7 +13,7 @@ class Xboard < Formula
   end
 
   head do
-    url "git://git.sv.gnu.org/xboard.git"
+    url "https://git.savannah.gnu.org/git/xboard.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

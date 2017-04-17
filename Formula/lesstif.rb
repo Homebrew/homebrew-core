@@ -16,6 +16,9 @@ class Lesstif < Formula
   depends_on :x11
   depends_on "freetype"
 
+  conflicts_with "openmotif",
+    :because => "Lesstif and Openmotif are complete replacements for each other"
+
   def install
     # LessTif does naughty, naughty, things by assuming we want autoconf macros
     # to live in wherever `aclocal --print-ac-dir` says they should.

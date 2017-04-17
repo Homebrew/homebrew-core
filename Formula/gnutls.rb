@@ -1,15 +1,15 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.9.tar.xz"
-  sha256 "82b10f0c4ef18f4e64ad8cef5dbaf14be732f5095a41cf366b4ecb4050382951"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.11.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.11.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.11.tar.xz"
+  sha256 "51765cc5579e250da77fbd7871507c517d01b15353cc40af7b67e9ec7b6fe28f"
 
   bottle do
-    sha256 "2dd0a113c6207a3f8f99b8278f0e2b0177f0dbed20265621354bc3c70803112a" => :sierra
-    sha256 "8e32171bd8c48c838437cb6cd5199f68b7ba94a62b02693da8c5af299e1d9212" => :el_capitan
-    sha256 "4663b7b6671f0b8fc1421f802ba92992f6cf600d36fff214d57248b60c592a36" => :yosemite
+    sha256 "165a542cba3de3edcc38201bb94789a18d20668efbab93666f5c9fe9d5cccf32" => :sierra
+    sha256 "8c59b10805c29f25737922275f87c109e38f9067dd671d1a1cf04b95c33fa5b6" => :el_capitan
+    sha256 "da099a631f859cccd5c3f7859b7b2b2354b9b42a7b7d85d80f52dc9859f0e226" => :yosemite
   end
 
   depends_on "pkg-config" => :build

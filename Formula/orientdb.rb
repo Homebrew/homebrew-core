@@ -1,15 +1,14 @@
 class Orientdb < Formula
   desc "Graph database"
-  homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.15.tar.gz"
-  sha256 "9a553c9d91eb03d954b085c6ecbe05c54526b166c8ca86f1fb27036b2f4dba03"
+  homepage "https://orientdb.com/"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.18.tar.gz"
+  sha256 "aab85c6a10e1e7d36a163ee6268815e6285e198e90d386f1b068c05b85e19ad6"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "359342720516992b900b46b28847870513e30223e45f09f8b2507eb5c5889ecb" => :sierra
-    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :el_capitan
-    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :yosemite
+    sha256 "6d5a4e4b2affc0295febe1bd92ce6dadd0196e1862e7f86632a905ba1ec13d61" => :sierra
+    sha256 "72d91bd654332809220edeb6e1d1795ad4c09d4d1b83a9755b7bd07cdc65a14d" => :el_capitan
+    sha256 "72d91bd654332809220edeb6e1d1795ad4c09d4d1b83a9755b7bd07cdc65a14d" => :yosemite
   end
 
   def install
@@ -55,7 +54,7 @@ class Orientdb < Formula
 
   def caveats; <<-EOS.undent
     The OrientDB root password was set to 'orientdb'. To reset it:
-      http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+      https://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
     EOS
   end
 
@@ -99,7 +98,7 @@ class Orientdb < Formula
       "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     begin
-      assert_match /OrientDB console v.2.2.15/, pipe_output("#{bin}/orientdb-console \"exit;\"")
+      assert_match "OrientDB console v.#{version}", pipe_output("#{bin}/orientdb-console \"exit;\"")
     end
   end
 end

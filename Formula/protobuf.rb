@@ -3,12 +3,13 @@ class Protobuf < Formula
   homepage "https://github.com/google/protobuf/"
   url "https://github.com/google/protobuf/archive/v3.2.0.tar.gz"
   sha256 "2a25c2b71c707c5552ec9afdfb22532a93a339e1ca5d38f163fe4107af08c54c"
+  revision 1
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "2438950b0e87c1a30d37c4a06e2413b22be22ed2313cb87373b224907adc1028" => :sierra
-    sha256 "18da3f765d76de871726d19a27dc856a26d467b9cf0b6c15c4693665113cda5a" => :el_capitan
-    sha256 "7e1207b8dfaf97916fc5b9534807a0bb1fe90bbbd5335f9a137d38cd4e84897a" => :yosemite
+    sha256 "6534deb026f410c45202e91bd51aca49b2a7b0aa79c42d1ee41b9b1691583eb0" => :sierra
+    sha256 "5175646b484104f094eacb4db99eb0b1d66f03d5120e1c8de38be43f921e786e" => :el_capitan
+    sha256 "34fd57a99d1cfdc6f85eb2cd503c406e336c05636987d6a69633a588215d94a8" => :yosemite
   end
 
   # this will double the build time approximately if enabled
@@ -21,10 +22,11 @@ class Protobuf < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
 
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
-    sha256 "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"
+    url "https://pypi.python.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
   end
 
   resource "packaging" do
@@ -33,8 +35,8 @@ class Protobuf < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
+    url "https://pypi.python.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "six" do
@@ -43,8 +45,8 @@ class Protobuf < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/e3/6b/bb793ca610f364d1888b9bd7b83dccd0c27d779e4fd91a953ce8bae74996/setuptools-34.0.2.zip"
-    sha256 "a5bdc45a3c123a88c84e089a789ba70bbc61ee888c1306fd9dac04e037e81c37"
+    url "https://pypi.python.org/packages/d5/b7/e52b7dccd3f91eec858309dcd931c1387bf70b6d458c86a9bfcb50134fbd/setuptools-34.3.3.zip"
+    sha256 "2cd244d3fca6ff7d0794a9186d1d19a48453e9813ae1d783edbfb8c348cde905"
   end
 
   resource "google-apputils" do
@@ -81,27 +83,27 @@ class Protobuf < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python"
+    Language::Python.each_python(build) do |python, version|
       # google-apputils is a build-time dependency
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python#{version}/site-packages"
 
       res = resources.map(&:name).to_set - ["gmock"]
       res.each do |package|
         resource(package).stage do
-          system "python", *Language::Python.setup_install_args(buildpath/"homebrew")
+          system python, *Language::Python.setup_install_args(buildpath/"homebrew")
         end
       end
       # google is a namespace package and .pth files aren't processed from
       # PYTHONPATH
-      touch buildpath/"homebrew/lib/python2.7/site-packages/google/__init__.py"
+      touch buildpath/"homebrew/lib/python#{version}/site-packages/google/__init__.py"
       chdir "python" do
         ENV.append_to_cflags "-I#{include}"
         ENV.append_to_cflags "-L#{lib}"
         args = Language::Python.setup_install_args libexec
         args << "--cpp_implementation"
-        system "python", *args
+        system python, *args
       end
-      site_packages = "lib/python2.7/site-packages"
+      site_packages = "lib/python#{version}/site-packages"
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
       (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
     end
@@ -127,5 +129,6 @@ class Protobuf < Formula
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
     system "python", "-c", "import google.protobuf" if build.with? "python"
+    system "python3", "-c", "import google.protobuf" if build.with? "python3"
   end
 end

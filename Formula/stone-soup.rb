@@ -1,19 +1,22 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/stone_soup-0.19.1.tar.xz"
-  sha256 "89374dc3e4282c7c2bae911ef780043845cc08cf529f4d54b7d81c0ce8355aa0"
+  url "https://crawl.develz.org/release/stone_soup-0.19.5.tar.xz"
+  # Note the mirror will return 404 until the version becomes outdated.
+  mirror "https://crawl.develz.org/release/0.19/stone_soup-0.19.5.tar.xz"
+  sha256 "3c34787cf752d48789102e170ff7360ddcdd79bd55a4e0feb9894e517b274069"
 
   bottle do
-    sha256 "4f7a8c411caf966b1fb7956a1954df35202af3574ffab454813b5648b80cc225" => :sierra
-    sha256 "e6cc487ace38b88bc782952a1f432b71ed5474a1716123b0a767c19acf07653e" => :el_capitan
-    sha256 "e3e1bc2ec8bf7d6f34a9013baa07b3b8a52df18dcabcd8f8cbb64abbc599fd10" => :yosemite
+    sha256 "4f89fb7977808eae1f0d2e6e4314a732ad2087426ed9997a68959a3f15be2604" => :sierra
+    sha256 "eed4194a19fbb4d3652ece83aac7c161ae8fa58c4db90fb886fce53a39bccafe" => :el_capitan
+    sha256 "dd817ca11daadcef30e964a6d80dc8f150cfb32837cdba605def22fb38121265" => :yosemite
   end
 
   option "with-tiles", "Enable graphic tiles and sound"
+  option "without-lua@5.1", "Disable Lua bindings for user scripts"
 
   depends_on "pkg-config" => :build
-  depends_on "lua@5.1"
+  depends_on "lua@5.1" => :recommended
   depends_on "pcre"
 
   if build.with? "tiles"
@@ -35,7 +38,6 @@ class StoneSoup < Formula
         DATADIR=data
         NO_PKGCONFIG=
         BUILD_ZLIB=
-        BUILD_LUA=
         BUILD_SQLITE=yes
         BUILD_FREETYPE=
         BUILD_LIBPNG=
@@ -49,6 +51,12 @@ class StoneSoup < Formula
         inreplace "Makefile", "contrib/install/$(ARCH)/lib/libSDL2main.a", ""
         args << "TILES=y"
         args << "SOUND=y"
+      end
+
+      if build.with? "lua@5.1"
+        args << "BUILD_LUA=y"
+      else
+        args << "NO_LUA_BINDINGS=y"
       end
 
       # FSF GCC doesn't support the -rdynamic flag

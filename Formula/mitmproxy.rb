@@ -3,28 +3,43 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v2.0.0.tar.gz"
-  sha256 "713a7a8967dcd7371fb0f6b417b8bd90b311c625bb4aeff3b5b59585ec196629"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v2.0.1.tar.gz"
+  sha256 "b0ccc49924762ea78290d62c463be8c041f1837f9005f583ad09c47122547e9d"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 "32261ef0a94de51bc781c097d6d211e2694c25c8e4cec08af690ecd67fa44c7d" => :sierra
-    sha256 "1f19c01d2e6f6c865eb2866393fc9a948f67ba426b0e4185c2d398da2b16160c" => :el_capitan
-    sha256 "2fc388cb55fa4e68315cf8520524b0c348ec5579041a0abed5b3055814ca8f13" => :yosemite
+    sha256 "0ddd7494a065cc6296fff9ea88a532c9f9e175bca54d0f0968ace3223d5bd892" => :sierra
+    sha256 "6375b4fb18c3e84d53296afcce7e70f9e6bec1ed346819e333058054039b0a88" => :el_capitan
+    sha256 "2763f78f8e81c1dcde3e4e99a07dd5183faf9b816870c9384debe6929a39c466" => :yosemite
   end
 
   depends_on "openssl@1.1"
   depends_on :python3
   depends_on "protobuf"
 
+  resource "EditorConfig" do
+    url "https://files.pythonhosted.org/packages/3b/c9/ea1eb869568f3dca689eb8528f9bead16f3544a38447d86dedbcd45b4e8f/EditorConfig-0.12.1.tar.gz"
+    sha256 "8b53c857956194a21043753c9adca5a5b0eaef6cf1db3273a362ddec78f2b8e3"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
-    sha256 "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
   end
 
   resource "argh" do
     url "https://files.pythonhosted.org/packages/e3/75/1183b5d1663a66aebb2c184e0398724b624cecd4f4b679cb6e25de97ed15/argh-0.26.2.tar.gz"
     sha256 "e9535b8c84dc9571a48999094fda7f33e63c3f1b74f3e5f3ac0105a58405bb65"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
+    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
   end
 
   resource "blinker" do
@@ -53,28 +68,23 @@ class Mitmproxy < Formula
   end
 
   resource "construct" do
-    url "https://files.pythonhosted.org/packages/b6/2c/66bab4fef920ef8caa3e180ea601475b2cbbe196255b18f1c58215940607/construct-2.8.8.tar.gz"
-    sha256 "1b84b8147f6fd15bcf64b737c3e8ac5100811ad80c830cb4b2545140511c4157"
+    url "https://files.pythonhosted.org/packages/69/77/dd3d3b4cb4130a3fafa488e0ac3b973fbef2f38fdef30e98b2062309a338/construct-2.8.10.tar.gz"
+    sha256 "9030e9db1163b7786d2c058a97ad92640f45d38f2795384cbac5e2ece77921b9"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/99/df/71c7260003f5c469cec3db4c547115df39e9ce6c719a99e067ba0e78fd8a/cryptography-1.7.2.tar.gz"
-    sha256 "878cb68b3da3d493ffd68f36db11c29deee623671d3287c3f8d685117ffda9a9"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "cssutils" do
-    url "https://files.pythonhosted.org/packages/22/de/6b03e0088baf0299ab7d2e95a9e26c2092e9cb3855876b958b6a62175ca2/cssutils-1.0.1.tar.gz"
-    sha256 "d8a18b2848ea1011750231f1dd64fe9053dbec1be0b37563c582561e7a529063"
-  end
-
-  resource "EditorConfig" do
-    url "https://files.pythonhosted.org/packages/3b/c9/ea1eb869568f3dca689eb8528f9bead16f3544a38447d86dedbcd45b4e8f/EditorConfig-0.12.1.tar.gz"
-    sha256 "8b53c857956194a21043753c9adca5a5b0eaef6cf1db3273a362ddec78f2b8e3"
+    url "https://files.pythonhosted.org/packages/5c/0b/c5f29d29c037e97043770b5e7c740b6252993e4b57f029b3cd03c78ddfec/cssutils-1.0.2.tar.gz"
+    sha256 "a2fcf06467553038e98fea9cfe36af2bf14063eb147a70958cfcaa8f5786acaf"
   end
 
   resource "h2" do
-    url "https://files.pythonhosted.org/packages/f7/5f/7fe21818f0a4d6ef25f1396be5863c317ddaae6b8c3b430b20ca3002a225/h2-2.5.2.tar.gz"
-    sha256 "85e70d89c5ef8a772f049d589aa268cf3cb813897006c22006441fbded59740f"
+    url "https://files.pythonhosted.org/packages/43/4c/c7004150cdb3f007116d6fb908fef773ceda4cd56da21a20c4eaf650d6e1/h2-2.6.0.tar.gz"
+    sha256 "9e9c185bf304a98eb96f6850ee019e5107d870c6f1cf7a61313c27f0c3c71a37"
   end
 
   resource "hpack" do
@@ -93,13 +103,13 @@ class Mitmproxy < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
-    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "jsbeautifier" do
-    url "https://files.pythonhosted.org/packages/84/e5/41d839a881aee07a7915912f87a22ed20926dc699a6ec158201f93b50fe2/jsbeautifier-1.6.10.tar.gz"
-    sha256 "ca3e5f49bfab2933a6c68025f5d39f117f391d27a666bd100770268854019521"
+    url "https://files.pythonhosted.org/packages/e6/23/c89d87f8a88bcb1988aec29ca17078c9167688e43dbba1377c158eea7ab0/jsbeautifier-1.6.11.tar.gz"
+    sha256 "714b184b539b8c9ad9d03e631bf5e256eeaac9380ffb69b8d6b9ef030751d244"
   end
 
   resource "kaitaistruct" do
@@ -122,9 +132,14 @@ class Mitmproxy < Formula
     sha256 "7c35c5421a39bb82e58018febd90e3b6e5db34c5443aaaf742b3f33d4655f1c0"
   end
 
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
+    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+  end
+
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/57/f7/c18a86169bb9995a69195177b23e736776b347fd92592da0c3cac9f1a724/pyasn1-0.2.2.tar.gz"
-    sha256 "6b42f96b942406712e0be5ea2bbbc57d8f30c7835a4904c9c195cc669736d435"
+    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
+    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pycparser" do
@@ -132,24 +147,14 @@ class Mitmproxy < Formula
     sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
-  end
-
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "pyperclip" do
     url "https://files.pythonhosted.org/packages/7b/a5/48eaa1f2d77f900679e9759d2c9ab44895e66e9612f7f6b5333273b68f29/pyperclip-1.5.27.zip"
     sha256 "a3cb6df5d8f1557ca8fc514d94fabf50dc5a97042c90e5ba4f3611864fed3fc5"
-  end
-
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
   resource "requests" do
@@ -189,24 +194,7 @@ class Mitmproxy < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
-
-    resource("cryptography").stage do
-      if MacOS.version < :sierra
-        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
-        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
-        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
-          "#elif defined(BSD) && defined(SYS_getentropy)",
-          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
-      end
-      venv.pip_install Pathname.pwd
-    end
-
-    res = resources.map(&:name).to_set - ["cryptography"]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
+    venv.pip_install resources
     venv.pip_install_and_link buildpath
   end
 

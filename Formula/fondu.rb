@@ -1,7 +1,7 @@
 class Fondu < Formula
   desc "Tools to convert between different font formats"
   homepage "https://fondu.sourceforge.io/"
-  url "http://fondu.sourceforge.net/fondu_src-060102.tgz"
+  url "https://fondu.sourceforge.io/fondu_src-060102.tgz"
   sha256 "22bb535d670ebc1766b602d804bebe7e84f907c219734e6a955fcbd414ce5794"
 
   bottle do

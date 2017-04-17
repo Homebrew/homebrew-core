@@ -1,18 +1,15 @@
 class Libav < Formula
   desc "Audio and video processing tools"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-11.4.tar.xz"
-  sha256 "0b7dabc2605f3a254ee410bb4b1a857945696aab495fe21b34c3b6544ff5d525"
-  revision 2
+  url "https://libav.org/releases/libav-12.tar.xz"
+  sha256 "72291ec223b08716fe5204b7b79ea8b90d75003730caa1c575dbf4232277a90e"
 
   head "https://git.libav.org/libav.git"
 
   bottle do
-    rebuild 2
-    sha256 "b3b916804a42c996598c33627ab166a681c92af4ba677fd86687396acc558d7d" => :sierra
-    sha256 "f41e5ed8a78b009840ec98856232e96e00678ca6fde3574fe1a719a1404b2476" => :el_capitan
-    sha256 "00b6a0a42c76720a045c0f3b54da9174c5883fb661450dd0db1af43ce85cdaca" => :yosemite
-    sha256 "d56f9c532f3debf0ade3e58a676c330c3041643b9a8871ca6ef8e6c517e95a18" => :mavericks
+    sha256 "4e053bcc6117a02e7722a2e3eca490297d9ac5b7a43d29ccfdce7214c45c6a2c" => :sierra
+    sha256 "0d93239c110aded5fec9e3d30aaa6165f61b72ff1c06b1c7e3ba87ccb86bea90" => :el_capitan
+    sha256 "6375d45e010c69b98008c26bea428137595c33286bac8380da4bdbe6c0f0678b" => :yosemite
   end
 
   option "without-faac", "Disable AAC encoder via faac"
@@ -60,11 +57,10 @@ class Libav < Formula
   depends_on "speex" => :optional
   depends_on "theora" => :optional
 
-  # Fixes the use of a removed identifier in libvpx;
-  # will be fixed in the next release.
+  # https://bugzilla.libav.org/show_bug.cgi?id=1033
   patch do
-    url "https://github.com/libav/libav/commit/4d05e9392f84702e3c833efa86e84c7f1cf5f612.patch"
-    sha256 "78f02e231f3931a6630ec4293994fc6933c6a1c3d1dd501989155236843c47f9"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b6e917c/libav/Check-for--no_weak_imports-in-ldflags-on-macOS.patch"
+    sha256 "986d748ba2c7c83319a59d76fbb0dca22dcd51f0252b3d1f3b80dbda2cf79742"
   end
 
   def install

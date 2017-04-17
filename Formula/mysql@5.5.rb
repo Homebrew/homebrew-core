@@ -1,14 +1,13 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
-  homepage "http://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.49.tar.gz"
-  sha256 "cd9ca49b01a76bca635f2888b9d4d30fa6583dd198994d407cdd0dd7170e9e1f"
+  homepage "https://dev.mysql.com/doc/refman/5.5/en/"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.55.tar.gz"
+  sha256 "9af0a504e2603b0bc0c7c3a4a747df064fb51670a0022b1ad6114f9058b64171"
 
   bottle do
-    rebuild 1
-    sha256 "f306cc087c078223c01634130c28e2f263b9315e475480157a9b41079e0bc4ea" => :sierra
-    sha256 "cbf833f345cf5e9e01fbaf907bbd71ed4064bea84fa21eced9df5846a0cd4666" => :el_capitan
-    sha256 "6af94793a7396ccc590e43251f3b131dfb43268a837fc2b2dee670d1c8f95334" => :yosemite
+    sha256 "8c6430a47464fbb617c8a53c906a1d522f6519e824fd68490ba41e8fe14c3c01" => :sierra
+    sha256 "631566f6eef4eb72a93461d5aa8e99e7724798fea41b9648641c829121f5e892" => :el_capitan
+    sha256 "7ebb9251c26e367375c3aae7288512cb044d37d313975a3c8dec8e9028785748" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -36,7 +35,7 @@ class MysqlAT55 < Formula
 
   def install
     # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
+    # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
@@ -101,12 +100,9 @@ class MysqlAT55 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
-
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mysqlaccess"

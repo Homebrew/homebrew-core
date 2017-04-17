@@ -3,7 +3,7 @@ class Opencbm < Formula
   homepage "http://www.trikaliotis.net/opencbm-alpha"
   url "http://www.trikaliotis.net/Download/opencbm-0.4.99.97/opencbm-0.4.99.97.tar.bz2"
   sha256 "f67c47470181bec2faea45ad2ac82ae237f30ad54c406b0e7dd1a4ad97b16d87"
-  head "git://git.code.sf.net/p/opencbm/code"
+  head "https://git.code.sf.net/p/opencbm/code.git"
 
   bottle do
     sha256 "b259c17a32d88330c3c68c1808556332c085fd4556780a3399a63d1e196b6047" => :sierra

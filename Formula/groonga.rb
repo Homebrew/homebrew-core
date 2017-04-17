@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-7.0.0.tar.gz"
-  sha256 "cde519dc4192095a1ad7effd20f9df5b3a8cc38a947b0ec3bf1d681505ff7b30"
+  url "https://packages.groonga.org/source/groonga/groonga-7.0.1.tar.gz"
+  sha256 "d017fa9424d57a3deec8c41de555f86268e81d98f6114718660bb172718fc072"
 
   bottle do
-    sha256 "d13ebb07365c2feae4680a8fc792e8fbe38af8e0b2162cad9469244d7f79d0e1" => :sierra
-    sha256 "9241ce130f99a6df44123aa3e32691935226bf2440862cb36d3be8b806d1eb7d" => :el_capitan
-    sha256 "844c1ae161105d715379289da87754eeda4fb666691abcdac05790b75f9856f3" => :yosemite
+    sha256 "b1e97d2309d60c85a67ac4601add8c6bdad6ab844b7b434eaf033601a74a0146" => :sierra
+    sha256 "5f69988e6ccf5efda9637a7d378fd2ce52834ee72fa956ae68e4a4eb0a5d8c3f" => :el_capitan
+    sha256 "c352b62a1af966f272b745b353f483c890d2c84cd4c0a2fcef526674bc67b8ef" => :yosemite
   end
 
   head do
@@ -38,7 +38,7 @@ class Groonga < Formula
   depends_on "zstd" => :optional
 
   resource "groonga-normalizer-mysql" do
-    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
+    url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
     sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
   end
 

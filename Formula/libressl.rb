@@ -2,21 +2,14 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz"
-  sha256 "d300c4e358aee951af6dfd1684ef0c034758b47171544230f3ccf6ce24fe4347"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.3.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.3.tar.gz"
+  sha256 "14e34cc586ec4ce5763f76046dcf366c45104b2cc71d77b63be5505608e68a30"
 
   bottle do
-    sha256 "c0f9a4fc4f853b8a98288d4c4151b26d0551a76e87d3fb233213618f23727c8d" => :sierra
-    sha256 "6bcd7052d8412883af1d56e2920429d781f38e68df3727bc8eb2bb6bcabc3574" => :el_capitan
-    sha256 "525e5a4b9b742c5b5cb037cc3690ab37d104ac82fc990f7f967a390c27b78c2c" => :yosemite
-  end
-
-  devel do
-    url "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.1.tar.gz"
-    mirror "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.1.tar.gz"
-    version "2.5.1-beta1"
-    sha256 "f71ae0a824b78fb1a47ffa23c9c26e9d96c5c9b29234eacedce6b4c7740287cd"
+    sha256 "d6d1a4d2bf72bcc13ee8244ecabed17ebc24cb7b888462b3cbfd0814bd6fa40f" => :sierra
+    sha256 "2f9216d4f2f42d2b050c8e3ba1b1f8537c7977019e185be2e772a6a387e82fad" => :el_capitan
+    sha256 "14dd5c9f56523b7c676fa8ce91816147f8ca1ea368802878f80ed72f6aae8fc0" => :yosemite
   end
 
   head do
@@ -52,7 +45,7 @@ class Libressl < Formula
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
     certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     valid_certs = certs.select do |cert|

@@ -3,21 +3,21 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.13.3.tar.gz"
-  sha256 "986405cec5531f86d0e654db455262a8f4a84ea4b7a16c8c1e7dfa716246c0bd"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.13.6.tar.gz"
+  sha256 "8c17b735467247097a1505b9259813a3ff7899e8534b12f4a68290b1f5fe6f32"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1cbfc78024d98402d15e7a67374b94eae3c1a8ba77a897c17e9a0d0aaae6a81a" => :sierra
-    sha256 "4a4f4e78e9df8d6bcc1717dc3310ffe163370580f80441b4c4d1deddcb9164a4" => :el_capitan
-    sha256 "a87628869da67e097fbb7c930fa1c960d6ebee5ec32f3a43815dee587f3a7aec" => :yosemite
+    sha256 "6e4291904590a42a85f643319d5c923cc0c550d2a281612ceec59bb4819df979" => :sierra
+    sha256 "be5e14ca4691d83d30e6ae4a3e6ad62ee298ae3b349d4f448f8bb9fd5d8a823d" => :el_capitan
+    sha256 "b5a57e82e2d82f37d9f8ec5c0d68ad8de275eb3f4429b336771f31c61475f5f6" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "aspy.yaml" do
-    url "https://files.pythonhosted.org/packages/f0/68/49af646ea5d7ea4a53209109c89a811e5b2569e802d4fcd28763cdded43c/aspy.yaml-0.2.1.tar.gz"
-    sha256 "a91370183aea63c87d8487e7b399ed2d99a7c2f14b108d27c0bc8ad9ef595d9a"
+    url "https://github.com/asottile/aspy.yaml/archive/v0.2.2.tar.gz"
+    sha256 "91940ed68ae9bf4d72a70e26b133be2affc9912935c131dcfaeb99ba7099aa29"
   end
 
   resource "cached-property" do

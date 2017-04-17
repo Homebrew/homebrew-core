@@ -1,14 +1,14 @@
 class Curlpp < Formula
   desc "C++ wrapper for libcURL"
   homepage "http://www.curlpp.org"
-  url "https://github.com/jpbarrette/curlpp/archive/v0.8.0.tar.gz"
-  sha256 "721271db0279fffeea94241650b6ceac3fdb767c0dcdf4f262859ab096066030"
+  url "https://github.com/jpbarrette/curlpp/archive/v0.8.1.tar.gz"
+  sha256 "97e3819bdcffc3e4047b6ac57ca14e04af85380bd93afe314bee9dd5c7f46a0a"
 
   bottle do
     cellar :any
-    sha256 "5571593d8b5c6c6253855ab65a8cd7eddd71c4cbf2f8c8cbc53b65ddd511ac37" => :sierra
-    sha256 "ff5e97d9d4e52d7ab4913ae56112687519e147926bbb56a08ea7f4def437e34a" => :el_capitan
-    sha256 "7fbfb4fb3107e7ad6d41dac32c6216e71d430cbcadfb41ee0245604342a2d060" => :yosemite
+    sha256 "0d721493b94879cdf25162903fd5d10299b5d8386942efb0969c470afeef6b35" => :sierra
+    sha256 "fd5c8375a1f4ef8aa20cfb740e8bac45c381ce6dbadc90f731e47b00c8a404b3" => :el_capitan
+    sha256 "fd39edf63c0745f9d39a76f7b428eba285af313967ad4697d4fb08b705ee3eef" => :yosemite
   end
 
   depends_on "cmake" => :build

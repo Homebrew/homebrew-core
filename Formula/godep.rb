@@ -3,14 +3,15 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v79.tar.gz"
   sha256 "3dd2e6c4863077762498af98fa0c8dc5fedffbca6a5c0c4bb42b452c8268383d"
-  revision 1
+  revision 3
+
   head "https://github.com/tools/godep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b95f7d571487a25827e078c0540a50769b113ba38c9036f31dc03fc38095b301" => :sierra
-    sha256 "8ecef19b29c614746ee6a53e016b913e1eb690ec979c77ccc8df716fcaa45919" => :el_capitan
-    sha256 "46f1d914fb950c44bcddde06f34f1b556105f2109243169765560c6b099f9bde" => :yosemite
+    sha256 "53dfaa177714f2e3a6e72f7a7d3b0787d300348776608006534c8c15cb0ea1d4" => :sierra
+    sha256 "3dc3c55126a9f545286c4187c725756609723a04e1f1148156780caa79692dae" => :el_capitan
+    sha256 "9440bf29437324b2ea44c59b83d8306e9290c6be25f1aa57e193488cc033a37e" => :yosemite
   end
 
   depends_on "go"
@@ -36,6 +37,7 @@ class Godep < Formula
       }
     EOS
     system bin/"godep", "restore"
-    assert File.exist?("src/golang.org/x/tools/README"), "Failed to find 'src/golang.org/x/tools/README!' file"
+    assert_predicate testpath/"src/golang.org/x/tools/README", :exist?,
+                     "Failed to find 'src/golang.org/x/tools/README!' file"
   end
 end

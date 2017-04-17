@@ -27,7 +27,6 @@ class Anjuta < Formula
   depends_on "vala" => :recommended
   depends_on "autogen" => :recommended
   depends_on "gnome-themes-standard" => :optional
-  depends_on "devhelp" => :optional
 
   def install
     system "./configure", "--disable-debug",

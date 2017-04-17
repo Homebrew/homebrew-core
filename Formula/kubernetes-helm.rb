@@ -2,15 +2,15 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.2.1",
-      :revision => "db531fd75fb2a1fb0841a98d9e55c58c21f70f4c"
+      :tag => "v2.3.1",
+      :revision => "32562a3040bb5ca690339b9840b6f60f8ce25da4"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "94042f2d3500fbdd30a7bd2a185371d1f168db56868c726a517974f086985977" => :sierra
-    sha256 "81ec0b2f251577a35ec40e379faae91b34234abf2ba9be52b1a5c3686a5fec47" => :el_capitan
-    sha256 "282cba29d67466e8823b988463df76685bc1274843f47f9ab078e46e5fa9bc40" => :yosemite
+    sha256 "76bbd83bd12ef47901814c4b48682416a18559b868839453d1c2d26c21a0f89f" => :sierra
+    sha256 "a64f6d4145fc0dbbfe32f219397e0c979d24aea68ce99c33459a62e6bed86846" => :el_capitan
+    sha256 "5be9c707046fc54d8aa291708d169b8633128360fd7c3e35cc5ae614cc8ebe76" => :yosemite
   end
 
   depends_on :hg => :build
@@ -27,17 +27,15 @@ class KubernetesHelm < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Set git config to follow redirects
-      # Change in behavior in git: https://github.com/git/git/commit/50d3413740d1da599cdc0106e6e916741394cc98
-      # Upstream issue: https://github.com/niemeyer/gopkg/issues/50
-      system "git", "config", "--global", "http.https://gopkg.in.followRedirects", "true"
-
       # Bootstap build
       system "make", "bootstrap"
 
       # Make binary
       system "make", "build"
       bin.install "bin/helm"
+
+      # Install man pages
+      man1.install Dir["docs/man/man1/*"]
 
       # Install bash completion
       bash_completion.install "scripts/completions.bash" => "helm"
@@ -50,5 +48,6 @@ class KubernetesHelm < Formula
 
     version_output = shell_output("#{bin}/helm version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
+    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
   end
 end

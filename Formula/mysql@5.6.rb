@@ -1,14 +1,13 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.34.tar.gz"
-  sha256 "ee90bafec6af3abe2715ccb0b3cc9345ed8d1cce025d41e6ec2b2b7a7d820823"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.36.tar.gz"
+  sha256 "0af81a5538fc7fe2b747295dfa96589ace8831d2a7d4a26660fca456babeb147"
 
   bottle do
-    rebuild 1
-    sha256 "9644ba0ca2df12db7061e72dc8b4dff332cfc54f6182a099c9922e382eddbcfc" => :sierra
-    sha256 "f6172e181e6f3666746b99f5e4f4149e58a70ba208f476e6881723cdec813a2b" => :el_capitan
-    sha256 "f933ebaec96f5c4be73fd09ce5d35e3bafad71053bc7ad08049b012b7545dfae" => :yosemite
+    sha256 "4e47145445eb66c106d40b15a46aa729b36a93c04d1aa93ac3ac7fa5ad63e78c" => :sierra
+    sha256 "b12ae00a87ee2395b7f7883a689087ca2dc2e8097532daf375cde4e574b61638" => :el_capitan
+    sha256 "963406c85636c3fc81fe41236a0f87b787795196a0e024dfc97f6eb762b8fe8e" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -101,11 +100,8 @@ class MysqlAT56 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 

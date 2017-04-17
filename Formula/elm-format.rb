@@ -2,17 +2,19 @@ require "language/haskell"
 
 class ElmFormat < Formula
   include Language::Haskell::Cabal
-  desc "Elm source code formatter, inspired by gofmt."
+  desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
-  url "https://github.com/avh4/elm-format/archive/0.5.2-alpha.tar.gz"
-  version "0.5.2-alpha"
-  sha256 "3bf9d54298333139609a991364a3d8549766cf4462cb25021c65b7f5c5bc0bf3"
+  url "https://github.com/avh4/elm-format.git",
+      :tag => "0.6.1-alpha",
+      :revision => "24cbc66245289dd3ca5c08a14e86358dc039fcf3"
+  version "0.6.1-alpha"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
-    sha256 "61ad938bc44efb57e575b7ae1da584d81e07ab114979bd54d294933675d4c12b" => :sierra
-    sha256 "ddcfbf0941cd76df534000aa01062c354f2d8788ca7b2ef93e37fcf8ed029b88" => :el_capitan
-    sha256 "6b1b4cbb6da1aad3a80cd61190694b2e8ab19f5114eae8641ad1b0fc6ceaa1ed" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "0d803f1ba6449fc85db9edac0bf55f14c9358868b015559ec2836c799bdf9cb4" => :sierra
+    sha256 "034a1da2a60646992a7571e1879f6ff31ebc43c3f43250689d4b6d6f1c12286d" => :el_capitan
+    sha256 "964df8c9e60c3ab2968fa6d6304beee5d0eefd993001a35e26da279b54e2e543" => :yosemite
   end
 
   depends_on "ghc" => :build

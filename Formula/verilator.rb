@@ -19,7 +19,7 @@ class Verilator < Formula
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   # Needs a newer flex on Lion (and presumably below)
-  # http://www.veripool.org/issues/720-Verilator-verilator-not-building-on-Mac-OS-X-Lion-10-7-
+  # https://www.veripool.org/issues/720-Verilator-verilator-not-building-on-Mac-OS-X-Lion-10-7-
   depends_on "flex" if MacOS.version <= :lion
 
   def install

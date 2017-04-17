@@ -3,14 +3,15 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 11
+  revision 13
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "158ac42530e704fd6202ee1979052ad916bacf54ab19b60f2b1240c36ec29f51" => :sierra
-    sha256 "2120c5ffb171aaf822ee7aa7193b2bd7f4ab2a1d8d3786cfc316aa08f1038fb6" => :el_capitan
-    sha256 "37f11279b9f67a64852c7892ba7afafa09962418a91ee35191c6cd66b1708787" => :yosemite
+    rebuild 1
+    sha256 "58b69126ba991752b0de9819a46759f4600bf89593708a7deb203ae658f765a3" => :sierra
+    sha256 "c6f0bd7d5029084e2c0f1da7b6025f8002caeec5353e92b6884c6ec0891dd74a" => :el_capitan
+    sha256 "2624c79321b3cf408230434d2c199b97655ce854fa46d5bc8d93867937bbfa2c" => :yosemite
   end
 
   depends_on :macos => :lion
@@ -42,6 +43,10 @@ class Pdf2htmlex < Formula
 
   def install
     resource("fontforge").stage do
+      # Fix for incomplete giflib 5 support, see
+      # https://github.com/coolwanglu/pdf2htmlEX/issues/713
+      inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
+
       args = %W[
         --prefix=#{prefix}/fontforge
         --without-libzmq

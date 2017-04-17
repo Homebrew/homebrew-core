@@ -1,9 +1,9 @@
 class Clucene < Formula
   desc "C++ port of Lucene: high-performance, full-featured text search engine"
-  homepage "https://clucene.sourceforge.io"
+  homepage "https://clucene.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/clucene/clucene-core-unstable/2.3/clucene-core-2.3.3.4.tar.gz"
   sha256 "ddfdc433dd8ad31b5c5819cc4404a8d2127472a3b720d3e744e8c51d79732eab"
-  head "git://clucene.git.sourceforge.net/gitroot/clucene/clucene"
+  head "https://git.code.sf.net/p/clucene/code.git"
 
   bottle do
     cellar :any

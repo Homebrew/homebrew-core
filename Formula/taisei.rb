@@ -1,6 +1,6 @@
 class Taisei < Formula
   desc "Clone of Touhou Project shoot-em-up games"
-  homepage "http://taisei-project.org/"
+  homepage "https://taisei-project.org/"
   url "https://github.com/laochailan/taisei/archive/v1.0a.tar.gz"
   version "1.0a"
   sha256 "1561c84c9fd8b9c7a91b864bdfc07fb811bb6da5c54cf32a2b6bd63de5f8f3ff"

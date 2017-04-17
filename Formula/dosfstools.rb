@@ -4,9 +4,8 @@ class Dosfstools < Formula
   head "https://github.com/dosfstools/dosfstools.git"
 
   stable do
-    url "https://github.com/dosfstools/dosfstools/releases/download/v4.0/dosfstools-4.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/dosfstools-4.0.tar.gz"
-    sha256 "25809c30403c9a945ae34827ec75df32ff55017415a720864fefccc8c8f9991f"
+    url "https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.gz"
+    sha256 "dc49997fd9fcd6e550c1a0dd5f97863d6ded99d465c33633a2b8769f4d72a137"
 
     # This patch restores the old defaults in versions up to v3.0.28
     patch do
@@ -16,10 +15,9 @@ class Dosfstools < Formula
   end
   bottle do
     cellar :any_skip_relocation
-    sha256 "9977fa27a16cab4772e9ab528053df05247718b40c4fe0029b1f044174e03a21" => :sierra
-    sha256 "80ff9e3d9a13ee9b4af60f0ec099755bf9cc5f08927e8f5e5ed9e9deb15f8de5" => :el_capitan
-    sha256 "1272b2a6cd3264e5d69da30e6f74add66ca7f6f9eb2eb30af7ba738c41233fb5" => :yosemite
-    sha256 "fc128348728cfb7b634e5d286dc69aa954aee9dc79cb6dec0c27de31ebc1c264" => :mavericks
+    sha256 "d0241bbd6538c79b56d67ba986f527df1bf0afa844121b13d1fe2a5120f01192" => :sierra
+    sha256 "c413f4e02ff6b4de101a330c619816dd16ae898a02d69a9c85eb60884045f898" => :el_capitan
+    sha256 "dbd0957d4593c54d62046d3f4546a0a3bfbd3b00ee254011dc5a7051eafa0945" => :yosemite
   end
 
   option "with-compat-symlinks",

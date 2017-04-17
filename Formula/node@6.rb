@@ -1,14 +1,14 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.10.0/node-v6.10.0.tar.xz"
-  sha256 "f65d5d4b7253ee29f3ba4edabd3473845075e43569bceea4267e7bf3e00ebb96"
+  url "https://nodejs.org/dist/v6.10.2/node-v6.10.2.tar.xz"
+  sha256 "80aa11333da99813973a99646e2113c6be5b63f665c0731ed14ecb94cbe846b6"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "7d41a0d911c0124857b9608b20e590b73a4aef4352acf1742b7f7cdbec251001" => :sierra
-    sha256 "7b73820d4ca432bf47206ab40a17bd96b6c92196257c7414410cb2b0ecd34245" => :el_capitan
-    sha256 "99960f91d3e321fa913e336d38be046b400b3031cd1d5769005d23f3c393c5ba" => :yosemite
+    sha256 "d3d9c58a86ae353aaaddfb1b8e228d617438f860e1a6830baa7336a760845821" => :sierra
+    sha256 "b32619ebd3d347646540ec1eb35df3fcf7a7e4fda74996c3ed3422c79770320a" => :el_capitan
+    sha256 "463ad4daf2879d5c7f91824293556fca24d159b8db4a0a8c4201cc959da19780" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -31,19 +31,17 @@ class NodeAT6 < Formula
     fails_with :gcc => n
   end
 
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
-  # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
+  # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.10.tgz"
-    sha256 "1a7cd203ac30fd1417326d576ca5c66ae2ae6a2bf1ada151bee2fc0d6965f99a"
+    url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
+    sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
-    version "57.1"
-    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install

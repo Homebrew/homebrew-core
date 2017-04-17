@@ -3,19 +3,21 @@ class Librdkafka < Formula
   homepage "https://github.com/edenhill/librdkafka"
   url "https://github.com/edenhill/librdkafka/archive/v0.9.4.tar.gz"
   sha256 "5007ad20a6753f709803e72c5f2c09483dcbce0f16b94b17cf677fb3e6045907"
+  revision 1
 
   head "https://github.com/edenhill/librdkafka.git"
 
   bottle do
     cellar :any
-    sha256 "3f89621392055facce588981b67bfa294817112bcc0a16cdc09e174502f986b9" => :sierra
-    sha256 "ec2833fbcf5003c0e566122523b34347509743eb2f3e81989866fcaf9b17087f" => :el_capitan
-    sha256 "0d4340247793dd7fae4c573d1b30ab8c500d13e6684c23540b1b8d563d7ce46b" => :yosemite
+    sha256 "e84ae423378088e3b43bcd17b963840ac0c6098a7873e9b127b7bc2ef0adc5d0" => :sierra
+    sha256 "43ce4e704faaacc8205a167171e8a21d1c2d7aba0bae51a869c5d415a49ce17f" => :el_capitan
+    sha256 "a9d7f46bc7ceb26e9d0b321e708f3d4b6314d46b84f2f609c9e923d3db84b7f6" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "lzlib"
   depends_on "openssl"
+  depends_on "lz4" => :recommended
 
   def install
     system "./configure", "--disable-dependency-tracking",

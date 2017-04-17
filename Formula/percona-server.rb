@@ -1,13 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-11/source/tarball/percona-server-5.7.17-11.tar.gz"
-  sha256 "755742455a370ae0b10ee2533a4e32a1c02585075ce2460bdbfa2cf9a3b89c8c"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-13/source/tarball/percona-server-5.7.17-13.tar.gz"
+  sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
 
   bottle do
-    sha256 "f5113eafdd51436722be9bab5bd9d57b130ebc1581241676006ab76192aedda0" => :sierra
-    sha256 "797fb81c63561e1b7ec449f8f90b609cb92e3b650e644ce7347c87bc7392ddaf" => :el_capitan
-    sha256 "0898a9e1fcd34e0f10451dbd25a6da6eed0b7d23f3a7fa1b78410b0673e5148e" => :yosemite
+    sha256 "99a4df804615f630ad9d8fd69b586d4eaa50e8f3047461e41215f9f96b29ae99" => :sierra
+    sha256 "541871922271a522c9cb2c16059e24df4cc9319275377a458aa881cd13bfa2d9" => :el_capitan
+    sha256 "9ab803502ca6cd911a3c075442f1162ee05eb2aa963d2a5bd55581f1ca68d6b5" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -55,23 +55,19 @@ class PerconaServer < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
-    args = %W[
-      -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DCMAKE_FIND_FRAMEWORK=LAST
-      -DCMAKE_VERBOSE_MAKEFILE=ON
+    args = std_cmake_args + %W[
       -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DINSTALL_MANDIR=#{man}
+      -DINSTALL_DOCDIR=#{doc}
+      -DINSTALL_INFODIR=#{info}
       -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql
       -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
-      -DSYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
-      -DCMAKE_BUILD_TYPE=RelWithDebInfo
     ]
 
     # PAM plugin is Linux-only at the moment

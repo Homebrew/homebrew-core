@@ -1,6 +1,6 @@
 class BoostAT159 < Formula
   desc "Collection of portable C++ source libraries"
-  homepage "http://www.boost.org"
+  homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
   sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
 

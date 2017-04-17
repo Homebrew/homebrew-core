@@ -135,6 +135,9 @@ class LlvmAT38 < Formula
     mktemp do
       system buildpath/"configure", *args
       system "make", "VERBOSE=1", "install"
+      cd "tools/clang" do
+        system "make", "install"
+      end
     end
 
     if MacOS.version <= :snow_leopard

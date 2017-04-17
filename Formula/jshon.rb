@@ -1,16 +1,14 @@
 class Jshon < Formula
   desc "Parse, read, and create JSON from the shell"
   homepage "http://kmkeen.com/jshon/"
-  url "http://kmkeen.com/jshon/jshon.tar.gz"
-  version "8"
-  sha256 "bb8ffdbda89a24f15d23af06d23fc4a9a4319503eb631cc64a5eb4c25afd45fb"
+  url "https://github.com/keenerd/jshon/archive/20131105.tar.gz"
+  sha256 "28420f6f02c6b762732898692cc0b0795cfe1a59fbfb24e67b80f332cf6d4fa2"
 
   bottle do
     cellar :any
-    sha256 "eaf121512303610e873d508312acc46547c3399f4171e08a7a391ed5f0604786" => :sierra
-    sha256 "96c3b3298a7975eacf2135f3b75a21a4a2d4df94f3b0b54a83a58da6e83148db" => :el_capitan
-    sha256 "6b58d61da14d8f458290888b7576a44ec12daa26077f94d8bbeb406fb165d117" => :yosemite
-    sha256 "66e48123e2b04de8f829cf861590d336b64215623aafc846ee9e6d6eda4aed57" => :mavericks
+    sha256 "3215b76a79af85c6ae21b7de4e2eff0eb83098c0c5e1ae5b8c870d912498ed13" => :sierra
+    sha256 "bab45017500667c7f8cf3b73c513f043cd04da04610cb2dc8a117ad5c9a5b99a" => :el_capitan
+    sha256 "a97e9310af44fae5cdd60a0bcbae2bc0190c4d773d6290db3b5e970cd9999395" => :yosemite
   end
 
   depends_on "jansson"

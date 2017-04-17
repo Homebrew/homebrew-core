@@ -3,7 +3,7 @@ class Imapsync < Formula
   homepage "http://ks.lamiral.info/imapsync/"
   url "https://imapsync.lamiral.info/dist/imapsync-1.727.tgz"
   sha256 "72dfccb3c778dcb55460da93b00c092d38271d4a7960c221e223649ef5a143f8"
-  head "https://git.fedorahosted.org/git/imapsync.git"
+  head "https://pagure.io/imapsync.git"
 
   bottle do
     cellar :any_skip_relocation

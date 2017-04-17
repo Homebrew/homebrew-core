@@ -5,7 +5,7 @@ class Abook < Formula
   sha256 "0646f6311a94ad3341812a4de12a5a940a7a44d5cb6e9da5b0930aae9f44756e"
   revision 1
 
-  head "git://git.code.sf.net/p/abook/git"
+  head "https://git.code.sf.net/p/abook/git.git"
 
   bottle do
     sha256 "e32cff277928e0b5cd24f201b1b5f94faf5469f263856b48c78f85b539018c86" => :sierra
@@ -14,7 +14,7 @@ class Abook < Formula
   end
 
   devel do
-    url "http://abook.sourceforge.net/devel/abook-0.6.0pre2.tar.gz"
+    url "https://abook.sourceforge.io/devel/abook-0.6.0pre2.tar.gz"
     sha256 "59d444504109dd96816e003b3023175981ae179af479349c34fa70bc12f6d385"
     version "0.6.0pre2"
 

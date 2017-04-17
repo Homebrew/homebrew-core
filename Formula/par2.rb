@@ -1,51 +1,65 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
-  homepage "https://parchive.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/parchive/par2cmdline/0.4/par2cmdline-0.4.tar.gz"
-  sha256 "9e32b7dbcf7bca8249f98824757d4868714156fe2276516504cd26f736e9f677"
+  homepage "https://github.com/Parchive/par2cmdline"
+  url "https://github.com/Parchive/par2cmdline/archive/v0.6.14.tar.gz"
+  sha256 "2fd831ba924d9f0ecd9242ca45551b6995ede1ed281af79aa30e7490d5596e7a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf25adffe0240c407aa4cb09dbd00d710687087b9aa62a07ddbeab9f7be3bf2b" => :sierra
-    sha256 "0ad074a40f27a29d3cde489eab4f9e74c1f5bf6fa9be3ca116d4d9e123d290d2" => :el_capitan
-    sha256 "562c1b75782b0ce231416d4d27c7d9a8bc12b467f307db84102267bdfd355ef3" => :yosemite
-    sha256 "9423c0e84f2dbed9f4ab1df4b94551f350c6fdd98c53d13bacb799a77b2a04a5" => :mavericks
-    sha256 "367db0a915a8bdaa9de30be2abc6de9e641d8031864df71998efa7d1be7ef53f" => :mountain_lion
+    sha256 "c682521754ac3c1a98dcf7d83659dcfbba813a0ed0e0d03492e096ec81f7c131" => :sierra
+    sha256 "04f53dad3fca869a93bc3bac6e88fea06c0e7d3bb5ab1ca33864d9bbdb0e2e0d" => :el_capitan
+    sha256 "b4fa1c1bec1bd003fec831f89b3454c8f24f012688d6100d455d20f1e4f07f36" => :yosemite
   end
 
-  # Clang doesn't like variable length arrays of non-POD types.
-  patch :DATA
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
 
-  # Fixes compilation with GCC 4 and still required for clang
-  patch do
-    url "https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-arch/par2cmdline/files/par2cmdline-0.4-gcc4.patch?revision=1.1"
-    sha256 "eda0a381f944b1bc9d3d78bf4526f77620bcb01de48abcb08878178e47c833f7"
-  end
-
-  # http://parchive.cvs.sourceforge.net/viewvc/parchive/par2-cmdline/par2creatorsourcefile.cpp?r1=1.4&r2=1.5
-  patch :p0 do
-    url "https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-arch/par2cmdline/files/par2cmdline-0.4-offset.patch?revision=1.2"
-    sha256 "c4820b11376c9932ece944752ddd388fb50fcbcd47aaadda073997142952d969"
-  end
+  # The tests for this version of par2cmdline use the `iflag` option to dd,
+  # which doesn't exist in OS X. `iflag` has been removed as of commit
+  # 855f3096c9f52cd0fbdb9e237c6c9624f7b90ea6, but no release has been cut since
+  # then.
+  patch :p1, :DATA
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "aclocal"
+    system "automake", "--add-missing"
+    system "autoconf"
+    system "./configure", "--prefix=#{prefix}"
+    system "make"
+    system "make", "check"
     system "make", "install"
+  end
+
+  test do
+    # Protect a file with par2.
+    test_file = (testpath/"some-file")
+    File.write(test_file, "file contents")
+    system "#{bin}/par2", "create", test_file
+
+    # "Corrupt" the file by overwriting, then ask par2 to repair it.
+    File.write(test_file, "corrupted contents")
+    repair_command_output = shell_output("#{bin}/par2 repair #{test_file}")
+
+    # Verify that par2 claimed to repair the file.
+    assert_match "1 file(s) exist but are damaged.", repair_command_output
+    assert_match "Repair complete.", repair_command_output
+
+    # Verify that par2 actually repaired the file.
+    assert File.read(test_file) == "file contents"
   end
 end
 
 __END__
-diff --git a/par2fileformat.h b/par2fileformat.h
-index 9920b24..248cfaf 100644
---- a/par2fileformat.h
-+++ b/par2fileformat.h
-@@ -84,7 +84,7 @@ struct FILEVERIFICATIONPACKET
-   PACKET_HEADER         header;
-   // Body
-   MD5Hash               fileid;     // MD5hash of file_hash_16k, file_length, file_name
--  FILEVERIFICATIONENTRY entries[];
-+  FILEVERIFICATIONENTRY entries[0];
- } PACKED;
+diff --git a/tests/test20 b/tests/test20
+index cbedaf3..0a5bf50 100755
+--- a/tests/test20
++++ b/tests/test20
+@@ -16,7 +16,7 @@ echo $dashes
+ echo $banner
+ echo $dashes
 
- // The file description packet is used to record the name of the file,
+-dd bs=1000 count=2 iflag=fullblock if=/dev/random of=myfile.dat
++dd bs=1000 count=2 if=/dev/random of=myfile.dat
+
+ banner="Creating PAR 2.0 recovery data"
+ dashes=`echo "$banner" | sed s/./-/g`

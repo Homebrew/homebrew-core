@@ -1,13 +1,13 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.2/gspell-1.2.3.tar.xz"
-  sha256 "a64e158e47a6e2b8ec9a3a1fea98a416f78a13e275c909b2ed488494ff835f82"
+  url "https://download.gnome.org/sources/gspell/1.4/gspell-1.4.1.tar.xz"
+  sha256 "442f88fecd7f9e00a6a9d0af2d762744dd3c119217ff11d6739500f75b0f10be"
 
   bottle do
-    sha256 "7c60f9943861c4319d9a6138efc578e70713a25140cff87550bddbf6b5c7615b" => :sierra
-    sha256 "280a6ddcd63dff23dfd270b85f5c89d1d985f60e58de945b3359c9ff27c882e7" => :el_capitan
-    sha256 "fc5763ba5af6c0f7f6310759f73c18a978c9469f456c616a011e502406d235a1" => :yosemite
+    sha256 "d018460f00f0b8f369c45995076d1e5d7bab4cc0a5813cc9473c0ca95206c7cf" => :sierra
+    sha256 "5ce753f9cc029fb04675eb9bb1b2f5b3b45b23c90ee16fc5c2e0a6fa6d4dab5e" => :el_capitan
+    sha256 "da244c16a06802015df18078688d863414943f698bdf478a9b15274aa990053f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -20,8 +20,6 @@ class Gspell < Formula
   depends_on "iso-codes"
   depends_on "vala" => :recommended
 
-  # ensures compilation on macOS
-  # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=759704
   patch :DATA
 
   def install
@@ -106,50 +104,28 @@ end
 
 __END__
 diff --git a/gspell/Makefile.am b/gspell/Makefile.am
-index f025b4d..13c9743 100644
+index 076a9fd..6c67184 100644
 --- a/gspell/Makefile.am
 +++ b/gspell/Makefile.am
-@@ -11,7 +11,8 @@ AM_CPPFLAGS =				\
-	$(WARN_CFLAGS)			\
-	$(CODE_COVERAGE_CPPFLAGS)	\
-	$(DEP_CFLAGS)			\
--	$(GTK_MAC_CFLAGS)
-+	$(GTK_MAC_CFLAGS)               \
+@@ -91,6 +91,7 @@ nodist_libgspell_core_la_SOURCES = \
+	$(BUILT_SOURCES)
+
+ libgspell_core_la_LIBADD =	\
++	$(GTK_MAC_LIBS)		\
+	$(CODE_COVERAGE_LIBS)
+
+ libgspell_core_la_CFLAGS =	\
+@@ -155,6 +156,12 @@ gspell_private_headers += \
+ gspell_private_c_files += \
+	gspell-osx.c
+
++libgspell_core_la_CFLAGS += \
 +	-xobjective-c
-
- BUILT_SOURCES =			\
-	gspell-resources.c
-@@ -75,7 +76,13 @@ libgspell_core_la_CFLAGS = \
- libgspell_core_la_LDFLAGS =		\
-	-no-undefined			\
-	$(WARN_LDFLAGS)			\
--	$(CODE_COVERAGE_LDFLAGS)
-+	$(CODE_COVERAGE_LDFLAGS)        \
-+	-framework Cocoa -framework Foundation -framework Cocoa
 +
++libgspell_core_la_LDFLAGS += \
++	-framework Cocoa
 +
-+libgspell_core_la_LIBADD =		\
-+	$(GTK_MAC_LIBS)
-+
+ endif # OS_OSX
 
- # The real library.
- lib_LTLIBRARIES = libgspell-@GSPELL_API_VERSION@.la
-@@ -95,7 +102,8 @@ libgspell_@GSPELL_API_VERSION@_la_LDFLAGS =	\
-	-no-undefined				\
-	-export-symbols-regex "^gspell_.*"	\
-	$(WARN_LDFLAGS)				\
--	$(CODE_COVERAGE_LDFLAGS)
-+	$(CODE_COVERAGE_LDFLAGS)                \
-+	-framework Cocoa -framework Foundation -framework Cocoa
+ if HAVE_INTROSPECTION
 
- libgspell_includedir = $(includedir)/gspell-@GSPELL_API_VERSION@/gspell
- libgspell_include_HEADERS = $(gspell_public_headers)
-@@ -108,7 +116,7 @@ CLEANFILES = $(BUILT_SOURCES)
-
- if OS_OSX
- libgspell_@GSPELL_API_VERSION@_la_LDFLAGS += \
--	-framework Cocoa
-+	-framework Cocoa -framework Foundation -framework Cocoa
-
- libgspell_@GSPELL_API_VERSION@_la_CFLAGS += \
-	-xobjective-c

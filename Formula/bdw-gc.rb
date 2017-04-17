@@ -18,14 +18,10 @@ class BdwGc < Formula
     depends_on "libtool"  => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libatomic_ops" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

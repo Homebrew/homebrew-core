@@ -1,7 +1,7 @@
 class Foremost < Formula
   desc "Console program to recover files based on their headers and footers"
   homepage "https://foremost.sourceforge.io/"
-  url "http://foremost.sourceforge.net/pkg/foremost-1.5.7.tar.gz"
+  url "https://foremost.sourceforge.io/pkg/foremost-1.5.7.tar.gz"
   sha256 "502054ef212e3d90b292e99c7f7ac91f89f024720cd5a7e7680c3d1901ef5f34"
 
   bottle do

@@ -13,7 +13,7 @@ class Wput < Formula
   end
 
   # The patch is to skip inclusion of malloc.h only on OSX. Upstream:
-  # https://sourceforge.net/tracker/?func=detail&aid=3481469&group_id=141519&atid=749615
+  # https://sourceforge.net/p/wput/patches/22/
   patch :DATA
 
   def install

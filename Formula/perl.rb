@@ -1,10 +1,10 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  head "git://perl5.git.perl.org/perl.git", :branch => "blead"
+  head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   stable do
-    url "http://www.cpan.org/src/5.0/perl-5.24.1.tar.xz"
+    url "https://www.cpan.org/src/5.0/perl-5.24.1.tar.xz"
     sha256 "03a77bac4505c270f1890ece75afc7d4b555090b41aa41ea478747e23b2afb3f"
 
     # Fixes Time::HiRes module bug related to the presence of clock_gettime

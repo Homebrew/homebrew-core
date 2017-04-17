@@ -3,6 +3,7 @@ class DockerMachineCompletion < Formula
   homepage "https://docs.docker.com/machine/completion/"
   url "https://github.com/docker/machine/archive/v0.10.0.tar.gz"
   sha256 "ed64698723436e68341a1ebd8486006293eac306bfa8628e924b38bfcb5b039d"
+  revision 1
   head "https://github.com/docker/machine.git"
 
   bottle :unneeded
@@ -11,7 +12,7 @@ class DockerMachineCompletion < Formula
     :because => "docker-machine already includes completion scripts"
 
   def install
-    bash_completion.install "contrib/completion/bash/docker-machine.bash"
+    bash_completion.install Dir["contrib/completion/bash/*.bash"]
     zsh_completion.install "contrib/completion/zsh/_docker-machine"
   end
 

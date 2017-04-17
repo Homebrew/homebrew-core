@@ -15,7 +15,7 @@ class Tn5250 < Formula
   depends_on "openssl"
 
   # Fix segfault; reported here:
-  # http://archive.midrange.com/linux5250/201207/msg00000.html
+  # https://archive.midrange.com/linux5250/201207/msg00000.html
   patch :DATA
 
   def install

@@ -1,17 +1,17 @@
 class FuseEmulator < Formula
   desc "Free Unix Spectrum Emulator"
   homepage "https://fuse-emulator.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.3.2/fuse-1.3.2.tar.gz"
-  sha256 "576bf916b499a4d5932acc34d315e2acd36636d1d5a3911c839589487a6b68e6"
+  url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.3.4/fuse-1.3.4.tar.gz"
+  sha256 "3089d2c3e08c72055ccbcbd5bcc69fd6cc492b8ac649ee15fc93703f0d3d9486"
 
   bottle do
-    sha256 "64737eb8111050993cb5b8995f285ce018141f2f7be079023561c2c4df7d584b" => :sierra
-    sha256 "c55810145c5bb324d9c077aa5965fe7aab4a12ca8c3c8f2f64228c51dd0ed71f" => :el_capitan
-    sha256 "8faa66fe11bb79a04ec83a811eb26dd1f496bd43f652271e6ccb690b78e031d1" => :yosemite
+    sha256 "8612c1dd8bda0158b034bc8add94d96291f0cbeccb93c612dd7efa1a6c748e0c" => :sierra
+    sha256 "b03b946fb539111c98f8a11681f22b3bc5b0cd7004dd272012480ecfe6cfecd9" => :el_capitan
+    sha256 "cac10b231831430ebf375e483781e2a6f25533e8060c34f2a9ff55795b42c0f0" => :yosemite
   end
 
   head do
-    url "http://svn.code.sf.net/p/fuse-emulator/code/trunk/fuse"
+    url "https://svn.code.sf.net/p/fuse-emulator/code/trunk/fuse"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build

@@ -1,11 +1,12 @@
 class JbossForge < Formula
   desc "Tools to help set up and configure a project"
   homepage "https://forge.jboss.org/"
-  url "https://downloads.jboss.org/forge/releases/3.5.1.Final/forge-distribution-3.5.1.Final-offline.zip"
-  version "3.5.1.Final"
-  sha256 "13121caf9c103f87d9344dff717cab52c383614acebfbe117e40ef5c094c36ba"
+  url "https://downloads.jboss.org/forge/releases/3.6.1.Final/forge-distribution-3.6.1.Final-offline.zip"
+  version "3.6.1.Final"
+  sha256 "1ca6b26776a0d34670b662c1b262f3c723cea3ad945fe26582768c0d0e407b7a"
 
   bottle :unneeded
+  depends_on :java=>"1.8+"
 
   def install
     rm_f Dir["bin/*.bat"]

@@ -1,14 +1,14 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.0.tar.xz"
-  sha256 "25a906b14a921bc2b488cfeaa21a00486fe92630e4a9dd346e4ecabeae52ab41"
+  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.1.tar.xz"
+  sha256 "88c6abf5522fc29bab7d6c555fd51a855cbd9253c4315f8ea44e832baef21aa6"
 
   bottle do
     cellar :any
-    sha256 "a3cab4d43a9fa2fd109c8e47d90985770fbcc09cbebe1913cd4bf3fdc89c6fa8" => :sierra
-    sha256 "2435fa039229e575b6491299548b0cc4507cfac13e62c0b5213f862902514fb2" => :el_capitan
-    sha256 "f95aff4f5d3aed6991335ea6f67e3377a8a99200a554ca2cb0026c5e20630523" => :yosemite
+    sha256 "e475eea8fa81f14b2984da71874ec3c00c8e9edcec84e9ae15eb0df5926afec7" => :sierra
+    sha256 "1f064ae908ed05131d247a67361bfc7532378b29d973e464a832e89b81d7a415" => :el_capitan
+    sha256 "427431ddadd2bc8da2e970be23ea8c04e46a1e117c6cde38b22a69ea428c9bb7" => :yosemite
   end
 
   depends_on "pkg-config" => :build

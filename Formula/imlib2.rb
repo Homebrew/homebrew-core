@@ -1,14 +1,13 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.4.9/imlib2-1.4.9.tar.bz2"
-  sha256 "7d2864972801823ce44ca8d5584a67a88f0e54e2bf47fa8cf4a514317b4f0021"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.4.10/imlib2-1.4.10.tar.bz2"
+  sha256 "3f698cd285cbbfc251c1d6405f249b99fafffafa5e0a5ecf0ca7ae49bbc0a272"
 
   bottle do
-    sha256 "8a30dde8a2a7dbe5ed86007927ec16e940fb45fca8aab1f0317d236c08c1b577" => :sierra
-    sha256 "cb81653f464c76523b160cb8ed8bc29bffec49e77605f96ff83cd7ea80efbdd7" => :el_capitan
-    sha256 "1dab9c3cd20b6ba45898738e0fd00f5840bdd8b8158d6e73190ce4c949df68d8" => :yosemite
-    sha256 "203d17ecfed7a366efe67e3c246c8e88cddaedc41b4fa8981b861dd6064fd3ac" => :mavericks
+    sha256 "7dca8d4fdbbcf9abc2d6280bf086f5f9d20485897d75194cbb80c8a3dc9012be" => :sierra
+    sha256 "869d92d080f4a99fbcebf35caa675a2b3a92cb3431531589d41f5ecd12b92b01" => :el_capitan
+    sha256 "337b2306f391929e58e876e60151a0f1d0068b154b4b4f6b316f3fce3e660cab" => :yosemite
   end
 
   deprecated_option "without-x" => "without-x11"

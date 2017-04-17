@@ -1,19 +1,19 @@
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
-  url "https://github.com/theZiz/aha/archive/0.4.10.5.tar.gz"
-  sha256 "b2cd7a1a0f7b3a70c37446d7157b4b58e2939535cdd71112a2228b2e78f7e620"
+  url "https://github.com/theZiz/aha/archive/0.4.10.6.tar.gz"
+  sha256 "747e939787dca7a9620869fefc17b60f5e29f0ea3965548d15dc9b2a1f31c3f6"
   head "https://github.com/theZiz/aha.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1e6989b80fac995c3fb41edab81c3578daa96bbd8b264d6d76b2300c8e4bb1c7" => :sierra
-    sha256 "7b967f8817cc0e4de348aaa37f67f91a1a652256b0eca0cf349c4a746e669d0b" => :el_capitan
-    sha256 "edc535121189e9ba0deb86b0f3828b9478fcf52c7dbdaac7601499b07f9a43e2" => :yosemite
+    sha256 "9bae4d54f930969df6a87f101d40c061523ee72c6d47b649cb47388c3f3abd5b" => :sierra
+    sha256 "9b80c3841426b29cba608e2ee68ed8949920f6af191cd4a0dd6e7a3d356ad310" => :el_capitan
+    sha256 "5adf1e9f8d20ffe6f646748f63dca21dcc150d3df2bdff60b97bfb1c4c68bdb4" => :yosemite
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do

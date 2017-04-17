@@ -4,7 +4,7 @@ class Agedu < Formula
   url "http://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20160920.853cea9.tar.gz"
   version "20160920"
   sha256 "9c52eefe4932a4c07a30a79dbf2089982443817002ab9eabb478063113df5e18"
-  head "git://git.tartarus.org/simon/agedu.git"
+  head "https://git.tartarus.org/simon/agedu.git"
 
   bottle do
     cellar :any_skip_relocation

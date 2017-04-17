@@ -14,8 +14,6 @@ class Libgsm < Formula
     sha256 "8b9054832ecbd7a4e41b1b3e7f8ef7a4aa4e0006a5332a19d176119c6b4121f3" => :mountain_lion
   end
 
-  option :universal
-
   # Builds a dynamic library for gsm, this package is no longer developed
   # upstream. Patch taken from Debian and modified to build a dylib.
   patch do
@@ -24,7 +22,6 @@ class Libgsm < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.append_to_cflags "-c -O2 -DNeedFunctionPrototypes=1"
 
     # Only the targets for which a directory exists will be installed

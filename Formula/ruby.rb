@@ -1,13 +1,14 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.bz2"
-  sha256 "440bbbdc49d08d3650f340dccb35986d9399177ad69a204def56e5d3954600cf"
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
+  sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
+  revision 1
 
   bottle do
-    sha256 "17915322edb90adc7f3bb31dd203fde924d735a32681dbe220b45e099162b35b" => :sierra
-    sha256 "a4326c66518777a710368335014c165b201f0805a4583aa7fc1db007ed811b5d" => :el_capitan
-    sha256 "950321028559e31539c93d937705346320c200f6edbfcb87311cf574974b3b51" => :yosemite
+    sha256 "f581f686392b4ca25a08eb674a9ef92ef7ce54b66c7fc63f5e7ed98cc5bb1b9f" => :sierra
+    sha256 "60cd646fce3b4e4e753cd63246f86e5ed6f5d8c2b9b35ad30c7bab6e58069cc5" => :el_capitan
+    sha256 "ea37405174624e325bb3fd41f27c87da6c81bfc90b909f4d7d9411399b7873e0" => :yosemite
   end
 
   head do
@@ -79,21 +80,19 @@ class Ruby < Formula
   end
 
   def post_install
+    ruby = "#{bin}/ruby#{program_suffix}"
+    abi_version = `#{ruby} -e 'print Gem.ruby_api_version'`
+
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
-    config_file.write rubygems_config
+    config_file.write rubygems_config(abi_version)
 
     # Create the sitedir and vendordir that were skipped during install
-    ruby="#{bin}/ruby#{program_suffix}"
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
-  end
-
-  def abi_version
-    "2.4.0"
   end
 
   def program_suffix
@@ -104,7 +103,7 @@ class Ruby < Formula
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config(abi_version); <<-EOS.undent
     module Gem
       class << self
         alias :old_default_dir :default_dir

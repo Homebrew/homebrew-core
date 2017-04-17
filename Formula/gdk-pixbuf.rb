@@ -1,13 +1,13 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.2.tar.xz"
-  sha256 "3a082ad67d68b55970aed0b2034a06618167be98a42d5c70de736756b45d325d"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.6.tar.xz"
+  sha256 "455eb90c09ed1b71f95f3ebfe1c904c206727e0eeb34fc94e5aaf944663a820c"
 
   bottle do
-    sha256 "c6786bd781df2b3421351f3b3c5ab468644d9ec5940744a97149f83b9d91dd4a" => :sierra
-    sha256 "d007f9b2b0296b6302902d1011428572513aaa8e7be2cdbba62a39c4456bbe16" => :el_capitan
-    sha256 "1aa5969773dbaff17cc38c6c21cf0e17e5bae650d88e9aa867ee06eb53984155" => :yosemite
+    sha256 "6026f7a751626fe99d5b6e7a061b617869478e728cb3391f01605ebfa97767da" => :sierra
+    sha256 "4c6dea60fdfc92710e4c20e2ce1ba8cc2a9c7e50e9e67af176a24a820eeb965e" => :el_capitan
+    sha256 "99127ea6b17e595d145ad2fa4bbdd41aaed46982c2302a18adaf3479a4df6b8d" => :yosemite
   end
 
   option "with-relocations", "Build with relocation support for bundles"
@@ -38,6 +38,9 @@ class GdkPixbuf < Formula
   end
 
   def install
+    # fix libtool versions
+    # https://bugzilla.gnome.org/show_bug.cgi?id=776892
+    inreplace "configure", /LT_VERSION_INFO=.+$/, "LT_VERSION_INFO=\"3602:0:3602\""
     ENV.append_to_cflags "-DGDK_PIXBUF_LIBDIR=\\\"#{HOMEBREW_PREFIX}/lib\\\""
     args = %W[
       --disable-dependency-tracking

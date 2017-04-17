@@ -1,20 +1,21 @@
-# NOTE: version 2.0 is out, but it requires Bash 4, and macOS ships
-# with 3.2.48. See homebrew-versions for a 2.0 formula.
+# NOTE: version 2 is out, but it requires Bash 4, and macOS ships
+# with 3.2.57. If you've upgraded bash, use bash-completion@2 instead.
 class BashCompletion < Formula
   desc "Programmable completion for Bash 3.2"
   homepage "https://bash-completion.alioth.debian.org/"
   url "https://bash-completion.alioth.debian.org/files/bash-completion-1.3.tar.bz2"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "37fab5b6bc7dc8a35cf5aad75c6ccbc9d1be39bc706eaedd3ff422b0332289a5" => :sierra
-    sha256 "9389068fbb802b321e2b782eac34b2597e6cf031c2ce4f7a6d7436cd5b0699ce" => :el_capitan
-    sha256 "9389068fbb802b321e2b782eac34b2597e6cf031c2ce4f7a6d7436cd5b0699ce" => :yosemite
+    sha256 "fff005f76bbc76442d6106429651df40180543840a1e145eddc58fdd57db1b80" => :sierra
+    sha256 "fff005f76bbc76442d6106429651df40180543840a1e145eddc58fdd57db1b80" => :el_capitan
+    sha256 "fff005f76bbc76442d6106429651df40180543840a1e145eddc58fdd57db1b80" => :yosemite
   end
+
+  conflicts_with "bash-completion@2", :because => "Differing version of same formula"
 
   # Backports the following upstream patch from 2.x:
   # https://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=commitdiff_plain;h=50ae57927365a16c830899cc1714be73237bdcb2

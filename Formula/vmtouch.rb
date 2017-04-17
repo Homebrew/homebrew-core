@@ -1,15 +1,15 @@
 class Vmtouch < Formula
   desc "Portable file system cache diagnostics and control"
   homepage "https://hoytech.com/vmtouch/"
-  url "https://github.com/hoytech/vmtouch/archive/v1.2.0.tar.gz"
-  sha256 "154034dec5ef550dcb7ff5a359ee1b7a9421f586f47237e3bc2617efa148b5fd"
+  url "https://github.com/hoytech/vmtouch/archive/v1.3.0.tar.gz"
+  sha256 "4615980b8f824c8eb164e50ec0880bcb71591f4e3989a6075e5a3e2efd122ceb"
   head "https://github.com/hoytech/vmtouch.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba9345723812a60b3e78d7d60b303d11ad2d7225e92654e702ecad6fa80d93ec" => :sierra
-    sha256 "7c73faba33612e335fe6ccf32a8b913fe7ce5ada7c56017b578c2c629aef355b" => :el_capitan
-    sha256 "aa548bc9c6dca0bd023bc08b63dd5f83cfb1d89e2573b9d84c8173a1fec02be7" => :yosemite
+    sha256 "036d04749746169bd38c71e8637b235edd6ac8b1cc007a884e094a3004ce1933" => :sierra
+    sha256 "fa1dd70ebdef2556d84315c28c693f5de9f18ee4b545205a030d1216af58a34a" => :el_capitan
+    sha256 "e1e4bd20e994a155ea892305cf6c87aac9206bea4a94b2a59439e836ce15a10a" => :yosemite
   end
 
   def install

@@ -4,15 +4,14 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.11.0",
-      :revision => "33af6569b97cc2d2ce6d0835728455f138181f6a"
+      :tag => "v9.0.2",
+      :revision => "fa8b86d3a3299434e8985e0c915321ec56508085"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5959eb8dcfc1e227bc48cc6499c035273296b1b9c81760a491032b3c5a98bee4" => :sierra
-    sha256 "2f3f99b11c0546f102dbd894bed382792810601d47d7adfab948c511bb20324d" => :el_capitan
-    sha256 "8702e21161d2b28efa45d463b023c60cb4236a39b5e3033ee11420cd9becf2e9" => :yosemite
+    sha256 "354af759e96052781c02228cc5317fd19119a2d7b20aed14150ba4b562556a5a" => :sierra
+    sha256 "4bc3e92fce0b6e8098bfdc182b71b7ec96f32d6705dfc90553be96b4c4cb4df1" => :el_capitan
+    sha256 "529ced662c81bd07fb451b790cc0ff13a909d7834cec8acd1e305fefb2c68df5" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,17 +23,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.0.2/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "1.11.0"
-    sha256 "0345ca2fe4fdafdab191220bab19eba2f870a298f5cf13f97d403bd0f4a45a20"
+    version "9.0.2"
+    sha256 "de46893da40a74b01c584d98dee4fc271b7b62ec68ed6757d0e64956d0ba7205"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.0.2/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "1.11.0"
-    sha256 "c43ca81b513ef3136c7479ca70d28f4290d24e1987dbdbc99c6c1d8149e70ab0"
+    version "9.0.2"
+    sha256 "516559f4ef5e1efc0b9e6035655957acd22789c761ecdfd9d5fe82755f100bc6"
   end
 
   def install
@@ -73,6 +72,36 @@ class GitlabCiMultiRunner < Formula
       bin.install_symlink bin/"gitlab-ci-multi-runner" => "gitlab-runner"
       prefix.install_metafiles
     end
+  end
+
+  plist_options :manual => "gitlab-ci-multi-runner start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>SessionCreate</key><false/>
+        <key>KeepAlive</key><true/>
+        <key>RunAtLoad</key><true/>
+        <key>Disabled</key><false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/gitlab-ci-multi-runner</string>
+          <string>run</string>
+          <string>--working-directory</string>
+          <string>#{ENV["HOME"]}</string>
+          <string>--config</string>
+          <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
+          <string>--service</string>
+          <string>gitlab-runner</string>
+          <string>--syslog</string>
+        </array>
+      </dict>
+    </plist>
+    EOS
   end
 
   test do

@@ -12,7 +12,7 @@ class Gcc < Formula
   end
 
   desc "GNU compiler collection"
-  homepage "https://gcc.gnu.org"
+  homepage "https://gcc.gnu.org/"
   revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"

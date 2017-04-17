@@ -1,13 +1,13 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "http://www.sysdig.org/"
-  url "https://github.com/draios/sysdig/archive/0.14.0.tar.gz"
-  sha256 "e6a856fee9f7b00e3a46f176bf39fa737c20e684eeb38d34c1636684c3259e93"
+  url "https://github.com/draios/sysdig/archive/0.15.1.tar.gz"
+  sha256 "4b404e15da9050742e62f3d65e0013fb497f84132ead4da61ba658c4f3d33a74"
 
   bottle do
-    sha256 "9c592c5329f56f9381bcb6b7e24d37273d0eb495fb61aa9505ff5b3ef0fcd624" => :sierra
-    sha256 "faf69e0c4a037b96eec79df1ee500289896767e274ddbfa4afa3fb67c80798ee" => :el_capitan
-    sha256 "2f0f1382b82b4e2fdd71cc12b66e08c7a7abf0850c6e5cf27fd8317097163cc7" => :yosemite
+    sha256 "f438211622a4dd7cbefde45b17f9a6e11b8521e58fea02f03d05ee93f1f81990" => :sierra
+    sha256 "054352584fa2a1a5a5e5058c0201c45de96f0fb6ddbe5987bdace86211f717f9" => :el_capitan
+    sha256 "065970b0c8c0ed1755afc4a5007c3a5771bf00a32604a57d0d9d355263b741f6" => :yosemite
   end
 
   depends_on "cmake" => :build

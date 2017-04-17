@@ -12,7 +12,7 @@ class Atari800 < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/atari800/source"
+    url "https://git.code.sf.net/p/atari800/source.git"
     depends_on "autoconf" => :build
   end
 

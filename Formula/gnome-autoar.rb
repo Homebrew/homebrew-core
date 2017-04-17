@@ -1,13 +1,13 @@
 class GnomeAutoar < Formula
   desc "GNOME library for archive handling"
   homepage "https://github.com/GNOME/gnome-autoar"
-  url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.0.tar.xz"
-  sha256 "08afa3a3b86f16bfd23e7343feab854610de67af7675dac37be4e5507a20bc6c"
+  url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz"
+  sha256 "e1fe2c06eed30305c38bf0939c72b0e51b4716658e2663a0cf4a4bf57874ca62"
 
   bottle do
-    sha256 "491fb56f2c6845b382768cfc708c416e0399fd442449886166f53d90e60f9c42" => :sierra
-    sha256 "64f833b3fcd9542136cb566a626acd27b0b639b299481d1956ba654289ae6ad9" => :el_capitan
-    sha256 "89ef58b548f67ac6955659a1c6470afdba44a76d1d6daf2e2c61af26b5fea310" => :yosemite
+    sha256 "ea737743690c568c3aedba7ca5807c319abcb9549d6fd41bb708ebd2ee4b17c1" => :sierra
+    sha256 "6e9d51dec3fa8330f6584a735403da1f98ac9c0e917e89f4a2aec42174f5acd6" => :el_capitan
+    sha256 "925174b30b4a5577720f30d5b1d04450e5f0c515505f589f2df3188ab36ae227" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -15,6 +15,7 @@ class GnomeAutoar < Formula
   depends_on "gtk+3"
 
   def install
+    ENV.delete "SDKROOT"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

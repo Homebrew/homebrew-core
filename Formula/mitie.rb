@@ -36,16 +36,16 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/libmitie.dylib", "mitielib/libmitie.a"
     (lib/"python2.7/site-packages").install "mitielib/mitie.py"
-    (share/"mitie").install "examples", "sample_text.txt",
+    pkgshare.install "examples", "sample_text.txt",
       "sample_text.reference-output", "sample_text.reference-output-relations"
     bin.install "ner_example", "ner_stream", "relation_extraction_example"
   end
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lmitie",
-           share/"mitie/examples/C/ner/ner_example.c",
+           pkgshare/"examples/C/ner/ner_example.c",
            "-o", testpath/"ner_example"
     system "./ner_example", share/"MITIE-models/english/ner_model.dat",
-           share/"mitie/sample_text.txt"
+           pkgshare/"sample_text.txt"
   end
 end

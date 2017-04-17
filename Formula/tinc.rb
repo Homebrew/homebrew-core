@@ -1,13 +1,13 @@
 class Tinc < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
-  url "https://tinc-vpn.org/packages/tinc-1.0.30.tar.gz"
-  sha256 "abc17e25afc1b9e74423c78fef586b11d503cbbbe5e4a2ed323870f4a82faa73"
+  url "https://tinc-vpn.org/packages/tinc-1.0.31.tar.gz"
+  sha256 "d3cbc82e6e07975a2ccc0b369d07e30fc3324e71e240dca8781ce9a4f629519b"
 
   bottle do
-    sha256 "ec9fae41ccd13d09d685af092c9d18ccbffccaee0aeaf66de18f794f8f85347d" => :sierra
-    sha256 "14676c91ce92ce6fb0cb351a06ec920e8b45ad0a1f32867152778f5299b1ef38" => :el_capitan
-    sha256 "440be633f66aea7ee705f2ddad9344ea20201128b98d27fcf5358fd5641e6a4d" => :yosemite
+    sha256 "0b2cc9de63b355dc50c709e234181ec6175eb0ef81d8b6074465dfe180e1deac" => :sierra
+    sha256 "fab217e8cc5648717e63bbe767989b9441f8f2c89f34bddf55832bfdc9f36147" => :el_capitan
+    sha256 "6a84961dee99c13355d9e5f24a0908440f4c692b8619a5657a48aeed9e13842b" => :yosemite
   end
 
   devel do

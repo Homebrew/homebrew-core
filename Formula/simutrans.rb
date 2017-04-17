@@ -1,6 +1,6 @@
 class Simutrans < Formula
   desc "Transport simulator"
-  homepage "http://www.simutrans.com/"
+  homepage "https://www.simutrans.com/"
   head "https://github.com/aburch/simutrans.git"
 
   stable do
@@ -10,7 +10,7 @@ class Simutrans < Formula
 
     # Port Mac audio code from QTKit to AVFoundation
     # Required since 10.12 SDK no longer includes QTKit.
-    # Submitted upstream: http://forum.simutrans.com/index.php?topic=16675.0
+    # Submitted upstream: https://forum.simutrans.com/index.php?topic=16675.0
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/bea80842a6ccc5639341add0d8abbca2d49b04c2/simutrans/avfoundation.patch"
       sha256 "9b9c9e6d89de49f152faaf584fcbbeec628bb07315b7c767e1f8b6791ad1e3ee"

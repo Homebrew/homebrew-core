@@ -20,15 +20,12 @@ class Libusb < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
   option "without-runtime-logging", "Build without runtime logging functionality"
   option "with-default-log-level-debug", "Build with default runtime log level of debug (instead of none)"
 
   deprecated_option "no-runtime-logging" => "without-runtime-logging"
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
     args << "--disable-log" if build.without? "runtime-logging"
     args << "--enable-debug-log" if build.with? "default-log-level-debug"

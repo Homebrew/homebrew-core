@@ -1,15 +1,15 @@
 class Pqiv < Formula
   desc "Powerful image viewer with minimal UI"
   homepage "https://github.com/phillipberndt/pqiv"
-  url "https://github.com/phillipberndt/pqiv/archive/2.8.1.tar.gz"
-  sha256 "ff8f28007535332f038c7d04a3c2d6696aa62604eef4fd66fc6500a8c235de30"
+  url "https://github.com/phillipberndt/pqiv/archive/2.8.5.tar.gz"
+  sha256 "7895fe0cb7b18d9e40d0353df2ec964aed4e1bb7fa7e1ea9a1e00858d3a89ce9"
   head "https://github.com/phillipberndt/pqiv.git"
 
   bottle do
     cellar :any
-    sha256 "03483031c2cea834dbc850d2bc2caa6ce66b5b2d573f8a484774a14f39f53d15" => :sierra
-    sha256 "e87993a6f12f5e40552f768bcf0f1052f135e652f99d7e61ee81bb2c4a4a15b2" => :el_capitan
-    sha256 "99ce6c61c79284d39f861f766e40960f46b59f6b3ba29364aad3f16d9072951c" => :yosemite
+    sha256 "92b10126ae4021df2a90a36f3e21e0edb8a2a214db7d3b2e2600f5cdf09e77ec" => :sierra
+    sha256 "cc05be27301c74765b93dd14076152092f3db758f1f26e1e2ee1a9a3f7362e39" => :el_capitan
+    sha256 "64aab0ed33b8ebcaa7e89f2e7a5be94bb8514bd3f57d5f2ae027a562c62e65ee" => :yosemite
   end
 
   depends_on "pkg-config" => :build

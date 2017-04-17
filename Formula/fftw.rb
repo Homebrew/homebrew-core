@@ -1,15 +1,15 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://fftw.org/fftw-3.3.6-pl1.tar.gz"
-  version "3.3.6-pl1"
-  sha256 "1ef4aa8427d9785839bc767f3eb6a84fcb5e9a37c31ed77a04e7e047519a183d"
+  url "http://fftw.org/fftw-3.3.6-pl2.tar.gz"
+  version "3.3.6-pl2"
+  sha256 "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
 
   bottle do
     cellar :any
-    sha256 "fd1efca44c0a587c8743aedc05190864c12a56acf5a23aaf2b628bd80c832415" => :sierra
-    sha256 "d52d2f1479813ff7b2b11459195d1034236bda52925ffd0705b1a83b9b8830a7" => :el_capitan
-    sha256 "b2fd9cf818a8d76caee42d1c979765ac1acc48243be45457e75f3eb5463f41b9" => :yosemite
+    sha256 "293e6d290a437b18e0a1563622ca1e6bb3efc0574de8db461dc7066281fcf8e4" => :sierra
+    sha256 "3b0c6440faf90169571c67ef1f6532db743adfb64ccb41e5786eaffc2a2d925f" => :el_capitan
+    sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
   end
 
   option "with-fortran", "Enable Fortran bindings"

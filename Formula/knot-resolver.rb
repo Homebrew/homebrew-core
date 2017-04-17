@@ -1,14 +1,14 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.3.tar.xz"
-  sha256 "81a773f182112b4e11935223f900cfbcca8624f2c382b1e39a68d7c3db81c921"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.5.tar.xz"
+  sha256 "30e24f9681e40c79a0aadbbfd78aaa72534dd3bca3347de89dfeae055b2c99e4"
   head "https://gitlab.labs.nic.cz/knot/resolver.git"
 
   bottle do
-    sha256 "e3a9bd1d72da125bb3d57d5f140da3daa295b7cdac7b621f44410d085c91f955" => :sierra
-    sha256 "d256040eedca70e9883db41bcbffe8a556adcacac8468af8d29bd2f57220d15f" => :el_capitan
-    sha256 "b45edc8425f4b86e1420c84ecc902f7c9497227a72868ba628b9a70177f77134" => :yosemite
+    sha256 "482e36e76f79df9a360300cec7f06b465a9e10871d0f9da0628d367960f549f6" => :sierra
+    sha256 "f64e3f234636841fe91692e06fe97409cb6e444936bb2cd80dc02593ec8f707f" => :el_capitan
+    sha256 "b11ee53d173470d439f82291452aed21641355571673a8dd9bed7dda3cdf38cf" => :yosemite
   end
 
   depends_on "knot"

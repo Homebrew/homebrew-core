@@ -3,7 +3,7 @@ class Npush < Formula
   homepage "https://npush.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/npush/npush/0.7/npush-0.7.tgz"
   sha256 "f216d2b3279e8737784f77d4843c9e6f223fa131ce1ebddaf00ad802aba2bcd9"
-  head "svn://svn.code.sf.net/p/npush/code/"
+  head "https://svn.code.sf.net/p/npush/code/"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,16 +3,14 @@ class NodeAT012 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.12.18/node-v0.12.18.tar.xz"
   sha256 "aec65fae74d1b8d649c145f8ede70afa481002af49cca3336368a7502cb0dc1f"
-  revision 1
+  revision 2
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
   bottle do
-    sha256 "8bfb48d7c5e0bb46b1e67dfcf1a3e453c3b524c665d63d69f9a0494b11c995ce" => :sierra
-    sha256 "00e66c633a605d3bbe9ba83135c88ade073ac714627677da7c6b7c9215bc136b" => :el_capitan
-    sha256 "7c4c720e9ba818f29fac785915431c11323cdd557793e49de3837cc0f0ce3656" => :yosemite
+    sha256 "51c70b3652b479638db3f31a5fef8d4aab60f78a1f2ac096d9de49787acae1bc" => :sierra
+    sha256 "dd8d6548b9b20f0b6eb56e67c272cb3fbe51f34a8969c5194d9ce64c417ee6d6" => :el_capitan
+    sha256 "2e13ca45909852a1e2f1df034f6d774b92251ab05c605e90b4eb41bf6bf22028" => :yosemite
   end
-
-  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
@@ -25,6 +23,9 @@ class NodeAT012 < Formula
   # https://github.com/nodejs/node-v0.x-archive/issues/7919
   # https://github.com/Homebrew/homebrew/issues/36681
   depends_on "icu4c" => :optional
+
+  conflicts_with "node", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
 
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"

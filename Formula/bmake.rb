@@ -1,18 +1,17 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "http://www.crufty.net/help/sjg/bmake.html"
-  url "http://www.crufty.net/ftp/pub/sjg/bmake-20160818.tar.gz"
-  sha256 "d64b23e3e4013b6d4ea590b05251874ffa9d841299b4e5344a6edf45ea7e1141"
+  url "http://www.crufty.net/ftp/pub/sjg/bmake-20170413.tar.gz"
+  sha256 "c92085c9caf6c95e2d4d16a3728bda5b711f44e1d3270c1ad996c51cba19e230"
 
   bottle do
-    sha256 "38e0b7712c5ae20b9a2639f21aa46c96e7893e3a44ce8956d1c64f5efb16ed66" => :sierra
-    sha256 "6964daaba5e8b288e9b39ee9439821bac54f3babbc619fe9db5c6ae7d81284e8" => :el_capitan
-    sha256 "74d7a6b8f7fb23383762be1440171f50336283eebe1f48d7163ae5b81ae4489f" => :yosemite
+    sha256 "96808a031b4ec41c3e6b0db5306b04433d240a3368335037a5ea6c9c2fb45513" => :sierra
+    sha256 "c386ecd4ad69b36fa3b77d45b5605c3f94c348e32743a8099fdc1ce72c09e5c7" => :el_capitan
+    sha256 "3e371590a9cb3d571ca77c3cd280bb352940e05404717e799d469d41296ead6e" => :yosemite
   end
 
   def install
-    # The first, an oversight upstream; the second, don't pre-roff cat pages.
-    inreplace "bmake.1", ".Dt MAKE", ".Dt BMAKE"
+    # Don't pre-roff cat pages.
     inreplace "mk/man.mk", "MANTARGET?", "MANTARGET"
 
     # -DWITHOUT_PROG_LINK means "don't symlink as bmake-VERSION."

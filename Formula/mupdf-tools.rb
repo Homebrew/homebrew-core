@@ -1,9 +1,9 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
-  homepage "https://mupdf.com"
+  homepage "https://mupdf.com/"
   url "https://mupdf.com/downloads/archive/mupdf-1.10a-source.tar.gz"
   sha256 "aacc1f36b9180f562022ef1ab3439b009369d944364f3cff8a2a898834e3a836"
-  head "git://git.ghostscript.com/mupdf.git"
+  head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
     cellar :any_skip_relocation

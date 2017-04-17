@@ -14,7 +14,7 @@ class Wget < Formula
   end
 
   head do
-    url "git://git.savannah.gnu.org/wget.git"
+    url "https://git.savannah.gnu.org/git/wget.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

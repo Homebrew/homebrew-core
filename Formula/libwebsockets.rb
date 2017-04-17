@@ -1,14 +1,14 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v2.1.1.tar.gz"
-  sha256 "96183cbdfcd6e6a3d9465e854a924b7bfde6c8c6d3384d6159ad797c2e823b4d"
+  url "https://github.com/warmcat/libwebsockets/archive/v2.2.0.tar.gz"
+  sha256 "1be5d9b959eab118efb336ef07d6c1e0af08a17409f06167a55ae874221f11a1"
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
-    sha256 "ee61a613972a636e61dc68df72e78d66b33f656a9996c9965ed3e03edac01334" => :sierra
-    sha256 "bdf869501cfcbff68c705f9007ea9c47308e4f544798b68fe55c65ec1c5f566a" => :el_capitan
-    sha256 "55fea7bd9bbdc3de96119541fc5057fe74386b0c6bec17271ce6b4c8c40601ef" => :yosemite
+    sha256 "3046a32a6afc92ba2c685d83d0da386141553c764574492c68f7a6ce3f3ec3f2" => :sierra
+    sha256 "0c19c9087626c4f7e509163f53ead9937eeb371cdda552efad762e44b7e55c42" => :el_capitan
+    sha256 "93a21679e75e32ca78fd6d0c3277ca489ef34813bb33809394ff5fec95329fc5" => :yosemite
   end
 
   depends_on "cmake" => :build

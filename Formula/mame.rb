@@ -1,16 +1,16 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0179.tar.gz"
-  version "0.179"
-  sha256 "d1616ef32b884c3e7913378ebf5282b6f846f895f419eb92a9068770581e081b"
+  url "https://github.com/mamedev/mame/archive/mame0183.tar.gz"
+  version "0.183"
+  sha256 "c12b3051f2f11331a38f557eac7f3074166e48155133b2f3e7cc323df56ce8b0"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "37c427967d31a90d2b96f77e48c238de613e083cac817632643a8a74efe03ea1" => :sierra
-    sha256 "58432629f3398e36238e4e015dd469c3bd77a8099b9438c90024a1c4219bbafd" => :el_capitan
-    sha256 "3a975c5da951529201a8af6a32d5db2cbf198aeb1d623a4d4151b80fc849cdad" => :yosemite
+    sha256 "84c99711fc9efb6c2c17b5d16a0d8f77042fcac437bd44018782beb9edb07189" => :sierra
+    sha256 "96becdae51966bd3a4f8ae87e335370eda0d0b8877d2143d0d5da6cb799ecda2" => :el_capitan
+    sha256 "8a426287eba3b50e06caf01cc5c656c1c0e16390974debfc2a438b04e8cf25ff" => :yosemite
   end
 
   depends_on :macos => :yosemite
@@ -36,7 +36,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_JPEG=1",
                    "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_LUA=", # lua53 not available yet
+                   "USE_SYSTEM_LIB_LUA=", # Homebrew's lua@5.3 can't build with MAME yet.
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1"
     bin.install "mame64" => "mame"

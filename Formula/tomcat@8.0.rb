@@ -3,24 +3,24 @@ class TomcatAT80 < Formula
   homepage "https://tomcat.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz"
-    sha256 "a57204b5434755b5767299bbcd32e3afd2d6327cafa6b8372077f824aa7176d7"
+    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.43/bin/apache-tomcat-8.0.43.tar.gz"
+    sha256 "b8709ca3e3446d52958d6ed85387aa0d5c5288e5a492fc8c9cac4c5c64180691"
 
     depends_on :java => "1.7+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39-fulldocs.tar.gz"
-      version "8.0.39"
-      sha256 "198d67aa67de1a7262e9aa31945a9f53804c37051096c3147c978920ff00a2f6"
+      url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.43/bin/apache-tomcat-8.0.43-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.43/bin/apache-tomcat-8.0.43-fulldocs.tar.gz"
+      version "8.0.43"
+      sha256 "568bd83e85e0f1b66470b19f6198ea705061379e8d92188dae7acd7aa3bd6568"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27b4bd9d7509536c643c3ccc4c572385f00831c2e9abc3b2321ff226c25ec7aa" => :sierra
-    sha256 "27b4bd9d7509536c643c3ccc4c572385f00831c2e9abc3b2321ff226c25ec7aa" => :el_capitan
-    sha256 "27b4bd9d7509536c643c3ccc4c572385f00831c2e9abc3b2321ff226c25ec7aa" => :yosemite
+    sha256 "8cb785857c3e1929cb0a73343d89f5054ea7b09b70ad38766d80efb396aa933f" => :sierra
+    sha256 "b9775fa8e0ecdc7320d82b661c77ab9bf525a505713345883307dcf2089bfba9" => :el_capitan
+    sha256 "b9775fa8e0ecdc7320d82b661c77ab9bf525a505713345883307dcf2089bfba9" => :yosemite
   end
 
   keg_only :versioned_formula

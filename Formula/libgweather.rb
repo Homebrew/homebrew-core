@@ -1,13 +1,13 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.20/libgweather-3.20.4.tar.xz"
-  sha256 "7dcdc555c48461d07a198bc44e0e6ed39105d8513b12fa97c4590f5b2d912fc2"
+  url "https://download.gnome.org/sources/libgweather/3.24/libgweather-3.24.0.tar.xz"
+  sha256 "1089b932205085add19e5e1b63361c0cff1a2c46a67ab2dded6dd2ca87bdfa3d"
 
   bottle do
-    sha256 "28e5ddc6df05cb340b7bcd813c15e3b2a952f50a60c73e68a7c57a7b17d4d2bb" => :sierra
-    sha256 "3d71a9586e0efcb7bcc22cee87f1d7c2d394dd7cee6036f8447e1aff0f15c764" => :el_capitan
-    sha256 "df29bdd8d119c749e2c50cf884d096f2f1752b1752ba6408fdc206cbafde656d" => :yosemite
+    sha256 "d621f898f92c2da41d6a61489e6b28a85ce93d4ebf260540b55483e90e1a8039" => :sierra
+    sha256 "c2b981972f31600c9203608441c4188c34c3a582f5f3f7cb207e36f9cf0947b1" => :el_capitan
+    sha256 "22c0bcdfb526e92b225a8a1a008a66f17516425f369150cbbfa9e677e38ec3f3" => :yosemite
   end
 
   depends_on "pkg-config" => :build

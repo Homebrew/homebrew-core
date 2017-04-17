@@ -15,7 +15,6 @@ class Bibtex2html < Formula
 
   depends_on "ocaml"
   depends_on "hevea"
-  depends_on :tex => :optional
 
   def install
     # See: https://trac.macports.org/ticket/26724

@@ -21,7 +21,7 @@ class Pdf2image < Formula
     system "./configure", "--prefix=#{prefix}"
 
     # Fix manpage install location. See:
-    # http://code.google.com/p/pdf2json/issues/detail?id=2
+    # https://github.com/flexpaper/pdf2json/issues/2
     inreplace "Makefile", "/man/", "/share/man/"
 
     # Fix incorrect variable name in Makefile

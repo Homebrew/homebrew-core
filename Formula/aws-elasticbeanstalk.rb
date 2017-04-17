@@ -3,26 +3,26 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/8e/dc/cc09e88d5f6794c38823db6218fb16c9c637fc2749f6da96621ed55b502f/awsebcli-3.9.0.tar.gz"
-  sha256 "6aad6ee6fa20ec72389e6617ddd35dcd264a2fa14d001e6fb5693e648ea530b0"
+  url "https://files.pythonhosted.org/packages/23/f6/b73be78b302037e3bbc01c3be9d8d3936e2fc4a61087d6fb41018c420b07/awsebcli-3.10.0.tar.gz"
+  sha256 "4977ef3baf50784eb29987451a95c300e62b542b56516af9391035dc9a749b6a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2b4d34060473aa9a447530c5c6b4fe07caa7f748d4ac4748108d9ee4cab7e5c" => :sierra
-    sha256 "ed56745d25c84baa157a820942cd553865c1e068afb85b1db0edb4759457acc4" => :el_capitan
-    sha256 "be65e017d4cb6afee298b47516cd6b4f81e9d4fcaf070ac7e1a8d01a88cd3b02" => :yosemite
+    sha256 "8f30dac0e35921c541440e82f30beaeaadee114124712891f71b3eba9b46c715" => :sierra
+    sha256 "47db468d9f98d5fce7f2a7448e0a9dc434c35024e1969825492548ee35b84863" => :el_capitan
+    sha256 "d406dc68c7a9908e11b70e2089c5df7a25f4403ef08c2b0fd6849246382c70eb" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "blessed" do
-    url "https://files.pythonhosted.org/packages/0f/56/2ff802d1a91ea50f7597328d6048aa3995b329b284c05d464aa24d6d5635/blessed-1.9.5.tar.gz"
-    sha256 "b93b5c7600814638c0913c8325608327a24e3731977d9a4f003ecf37b08ca6e5"
+    url "https://files.pythonhosted.org/packages/fa/dc/2a9f942d90008ceeca44f2b4821c6daeafe8c4ca614c07374363250fdfb7/blessed-1.14.1.tar.gz"
+    sha256 "58a289d833299944dc2f7b02aae522e3ed53ec0d43fbbfca5d9eeb9486b2c073"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ac/6a/7d949a29bb0dcf1d8b602562a003ab7a796e45e824ae3752ff31f631b0a5/botocore-1.4.87.tar.gz"
-    sha256 "6ac64c778455a4e10b6556ee27592b9f7fb31925faf0054181c26ae7e40fea39"
+    url "https://files.pythonhosted.org/packages/6f/c7/b4241da1abfd4b76c00409bcc76adf05ef942e178a2531fb490f098b26a0/botocore-1.5.24.tar.gz"
+    sha256 "43f95a338b3d56e3006cc67bb9d55dadebbe6276fe752e7b72edf57314f37604"
   end
 
   resource "cement" do
@@ -56,8 +56,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/8f/d8/6e3e602a3e90c5e3961d3d159540df6b2ff32f5ab2ee8ee1d28235a425c1/jmespath-0.9.0.tar.gz"
-    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
+    url "https://files.pythonhosted.org/packages/96/6e/0723cccec195a37de6a428ad8879fe063b6debe5c855444e9285b27d253e/jmespath-0.9.2.tar.gz"
+    sha256 "54c441e2e08b23f12d7fa7d8e6761768c47c969e6aed10eead57505ba760aee9"
   end
 
   resource "pathspec" do
@@ -85,14 +85,15 @@ class AwsElasticbeanstalk < Formula
     sha256 "3baad35dcb074a49419539cea6a33b484706b6c2dd03f05b67763eba4c1bb65c"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/db/40/6ffc855c365769c454591ac30a25e9ea0b3e8c952a1259141f5b9878bd3d/tabulate-0.7.5.tar.gz"
     sha256 "9071aacbd97a9a915096c1aaf0dc684ac2672904cd876db5904085d6dac9810e"
+  end
+
+  # termcolor-1.1.0
+  resource "termcolor" do
+    url "https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz"
+    sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
   end
 
   resource "wcwidth" do

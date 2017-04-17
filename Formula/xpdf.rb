@@ -37,4 +37,9 @@ class Xpdf < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    cp test_fixtures("test.pdf"), testpath
+    assert_match "Pages:", shell_output("#{bin}/pdfinfo #{testpath}/test.pdf")
+  end
 end
