@@ -20,6 +20,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
+  revision 1
 
   stable do
     url "http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz"
