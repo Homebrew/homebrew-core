@@ -14,6 +14,7 @@ class Ppsspp < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "glew"
   depends_on "libzip"
