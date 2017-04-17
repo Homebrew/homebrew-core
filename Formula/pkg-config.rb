@@ -31,6 +31,13 @@ class PkgConfig < Formula
   end
 
   test do
-    system "#{bin}/pkg-config", "--libs", "openssl"
+    assert_match version.to_s, shell_output("#{bin}/pkg-config --version pkg-config").chomp
+    assert_match %W[
+      #{HOMEBREW_PREFIX}/lib/pkgconfig
+      #{HOMEBREW_PREFIX}/share/pkgconfig
+      /usr/local/lib/pkgconfig
+      /usr/lib/pkgconfig
+      #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}
+    ].uniq.join(File::PATH_SEPARATOR), shell_output("#{bin}/pkg-config --variable pc_path pkg-config").chomp
   end
 end
