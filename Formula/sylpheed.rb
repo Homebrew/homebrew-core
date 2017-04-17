@@ -1,8 +1,8 @@
 class Sylpheed < Formula
   desc "Simple, lightweight email-client"
   homepage "http://sylpheed.sraoss.jp/en/"
-  url "http://sylpheed.sraoss.jp/sylpheed/v3.5/sylpheed-3.5.0.tar.bz2"
-  sha256 "4a0b62d17bca6f1a96ab951ef55a9a67813d87bc1dc3ee55d8ec2c045366a05c"
+  url "http://sylpheed.sraoss.jp/sylpheed/v3.5/sylpheed-3.5.1.tar.bz2"
+  sha256 "3a5a04a13a0e2f32cdbc6e09d92b5143ca96df5fef23425cd81d96b8bd5b1087"
 
   bottle do
     sha256 "a9d6c8f2f1da15af3ab8048fedc3d5996be9de40c781c6c120cc79821529c817" => :sierra
