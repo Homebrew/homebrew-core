@@ -1,8 +1,8 @@
 class Stk < Formula
   desc "Sound Synthesis Toolkit"
   homepage "https://ccrma.stanford.edu/software/stk/"
-  url "https://ccrma.stanford.edu/software/stk/release/stk-4.5.0.tar.gz"
-  sha256 "619f1a0dee852bb2b2f37730e2632d83b7e0e3ea13b4e8a3166bf11191956ee3"
+  url "https://ccrma.stanford.edu/software/stk/release/stk-4.5.1.tar.gz"
+  sha256 "3466860901a181120d3bd0407e4aeb5ab24127a4350c314af106778c1db88594"
 
   bottle do
     cellar :any_skip_relocation
