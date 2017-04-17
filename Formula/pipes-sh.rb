@@ -1,8 +1,8 @@
 class PipesSh < Formula
   desc "Animated pipes terminal screensaver"
   homepage "https://github.com/pipeseroni/pipes.sh"
-  url "https://github.com/pipeseroni/pipes.sh/archive/v1.1.0.tar.gz"
-  sha256 "829f0815f0721453833942c8da28bf02845bfef9f844373d9ed67d5017a54588"
+  url "https://github.com/pipeseroni/pipes.sh/archive/v1.2.0.tar.gz"
+  sha256 "cb1901ece366205698c8572ef897743d1fb8e3e51abd42d3946e7e30f0831dec"
   head "https://github.com/pipeseroni/pipes.sh.git"
 
   bottle do
