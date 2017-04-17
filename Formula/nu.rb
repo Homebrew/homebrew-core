@@ -1,8 +1,8 @@
 class Nu < Formula
   desc "Object-oriented, Lisp-like programming language"
   homepage "http://programming.nu"
-  url "https://github.com/timburks/nu/archive/v2.2.0.tar.gz"
-  sha256 "c7489c9dad1e24ee6cf7e70e5c31f4c891aba0793e8a00c4fc7e6b23d96fccc4"
+  url "https://github.com/timburks/nu/archive/v2.2.1.tar.gz"
+  sha256 "0657f203a01906983480f5e599199afc6fe350c3da94376d594ef04b5faef2df"
 
   bottle do
     cellar :any
