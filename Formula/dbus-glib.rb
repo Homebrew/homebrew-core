@@ -6,10 +6,9 @@ class DbusGlib < Formula
 
   bottle do
     cellar :any
-    sha256 "5a13bf7a83e78eff703ec971e99866b1953c8984b8cb205e732c26c39499d4c2" => :sierra
-    sha256 "f3ee7111b1633ff8bcff897b03e29bdcfbec6a7e05baf024f89f8a2bc95d2296" => :el_capitan
-    sha256 "f5c3c7ce9505a8b95d9b4ed908858f9f013476f97f9461571f930e8341bd2bb2" => :yosemite
-    sha256 "34e5041a6b4cfede31cfc252da290bdd0e8d133bb42e0526c0eac53830d12f28" => :mavericks
+    sha256 "75b313131b5b37dbb8899901239183b1bdce3dcad0a42fae82c0681b7ae233c9" => :sierra
+    sha256 "397f602c5f4a7dcb69c12c1c33be603f4c6640244ff70732f06fa6d86a8654a3" => :el_capitan
+    sha256 "815d7200c61d67960fb60ba4bc42a10f8c822b2ab58d63fb967122cd14444d9c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
