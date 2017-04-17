@@ -269,19 +269,12 @@ class Llvm < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-      LLVM executables are installed in #{opt_bin}.
-      Extra tools are installed in #{opt_pkgshare}.
-    EOS
-
     if build_libcxx?
-      s += <<-EOS.undent
+      <<-EOS.undent
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
       EOS
     end
-
-    s
   end
 
   test do
