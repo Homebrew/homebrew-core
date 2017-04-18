@@ -1,16 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.5.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.5.tar.bz2"
-  sha256 "75dd88d3d6336559e5b0b72077d8a772a988197d571f00029986225fef609ac8"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.6.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.6.tar.bz2"
+  sha256 "f627d51eda85f5ae5f5c8c9fc1f6539ffc2a270dd7500dc7f67490a8534ca849"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    rebuild 1
-    sha256 "fde59424995d5676f687bd0a94ada4ef06874076afbb7b5c2e6e547bfcb734fc" => :sierra
-    sha256 "cc3d111f8335e671353a1d504bb6f9a002baf343463249f118d7216acf932523" => :el_capitan
-    sha256 "43e83118a3cbeae5c55e3b399a9cd06a737628ab5f4866fffb5fc36829c690cf" => :yosemite
+    sha256 "522111fc9df2a5f6e60f464ca67bd5a60387d7369c03e9d626d2732f8e66714b" => :sierra
+    sha256 "e610c5ecc9296423c2fbc66cb78e65c4c69a7159f8d8f36c727e1bd18fa81e5e" => :el_capitan
+    sha256 "50d9c288babdada6ee13d27eec4e9e365b8ca5a67149960199f9f6e86e05517d" => :yosemite
   end
 
   deprecated_option "with-qt5" => "with-qt"
@@ -36,9 +35,11 @@ class Wireshark < Formula
   depends_on "gtk+" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
+  # 2017-04-14 set fossies as main url due to tcpdump connection issues
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.8.0.tar.gz"
-    sha256 "f47b51533f9f060afb304010ea5cbf51d032707333bca70c36351d255754659c"
+    url "https://fossies.org/linux/misc/libpcap-1.8.1.tar.gz"
+    mirror "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
+    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
   end
 
   def install
