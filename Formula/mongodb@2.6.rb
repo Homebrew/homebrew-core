@@ -4,7 +4,6 @@ class MongodbAT26 < Formula
   url "https://fastdl.mongodb.org/src/mongodb-src-r2.6.12.tar.gz"
   sha256 "2dd51eabcfcd133573be74c0131c85b67764042833e7d94077e86adc0b9406dc"
 
-  option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   depends_on :macos => :snow_leopard
   depends_on "scons" => :build
   depends_on "boost" => :optional
