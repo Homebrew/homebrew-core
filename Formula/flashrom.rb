@@ -1,8 +1,8 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
-  url "https://download.flashrom.org/releases/flashrom-0.9.8.tar.bz2"
-  sha256 "13dc7c895e583111ecca370363a3527d237d178a134a94b20db7df177c05f934"
+  url "https://download.flashrom.org/releases/flashrom-0.9.9.tar.bz2"
+  sha256 "cb3156b0f63eb192024b76c0814135930297aac41f80761a5d293de769783c45"
 
   head "svn://flashrom.org/flashrom/trunk"
 
