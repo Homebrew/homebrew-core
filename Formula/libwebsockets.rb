@@ -6,9 +6,9 @@ class Libwebsockets < Formula
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
-    sha256 "3046a32a6afc92ba2c685d83d0da386141553c764574492c68f7a6ce3f3ec3f2" => :sierra
-    sha256 "0c19c9087626c4f7e509163f53ead9937eeb371cdda552efad762e44b7e55c42" => :el_capitan
-    sha256 "93a21679e75e32ca78fd6d0c3277ca489ef34813bb33809394ff5fec95329fc5" => :yosemite
+    sha256 "3a58aebfcd276a81557f21cf3cdcd1663868d9e3af2097fce16bee1b92eac9e4" => :sierra
+    sha256 "1353fdacc6c88c5597bf158d6aba15287b7520354e79d46bc11b2994bac8369a" => :el_capitan
+    sha256 "efba92b65603d249b4ebc7cbea8c705ae951e26fac7dcd9841af40bfbb3741f5" => :yosemite
   end
 
   depends_on "cmake" => :build
