@@ -14,6 +14,12 @@ class Kibana < Formula
     sha256 "a4ebfa26082bc70303afa9e3a6e03ec2c1b87622d8ba95a684fbedfaa85d056e" => :yosemite
   end
 
+  devel do
+    url "https://github.com/elastic/kibana/archive/v5.0.0-alpha1.tar.gz"
+    sha256 "4f59ef042438e599bc9311dcf184718892cbe3c3201e4bfc7f34f86bc7018e55"
+    version "5.0.0-alpha1"
+  end
+
   resource "node" do
     url "https://nodejs.org/dist/v6.9.5/node-v6.9.5.tar.xz"
     sha256 "d7fed1a354b29503f3e176d7fdb90b1a9de248e0ce9b3eb56cc26bb1f3d5b6b3"
