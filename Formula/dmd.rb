@@ -1,6 +1,7 @@
 class Dmd < Formula
   desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
+  revision 1
 
   stable do
     url "https://github.com/dlang/dmd/archive/v2.074.0.tar.gz"
@@ -46,6 +47,11 @@ class Dmd < Formula
 
   def install
     make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
+
+    # VERSION file is wrong upstream, has happened before, so we just overwrite it here.
+    version_file = (buildpath/"VERSION")
+    rm version_file
+    version_file.write version
 
     system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
 
