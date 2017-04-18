@@ -15,6 +15,7 @@ class Alpine < Formula
   def install
     ENV.deparallelize
     system "./configure", "--disable-debug",
+                          "--with-local-password-cache",
                           "--with-ssl-dir=#{Formula["openssl"].opt_prefix}",
                           "--with-ssl-certs-dir=#{etc}/openssl",
                           "--prefix=#{prefix}"
