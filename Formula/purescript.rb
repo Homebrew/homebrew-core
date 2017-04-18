@@ -5,14 +5,14 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.11.3.tar.gz"
-  sha256 "7b351b1d2cffb423e096708abfa99915a5330b587d059c63d9f57eba54a03545"
+  url "https://github.com/purescript/purescript/archive/v0.11.4.tar.gz"
+  sha256 "74a58e01a9b6a18eb000fe40ab521b4c53484d510ea1ecd868899ecf0be1f915"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "1fbb175d8451ad2ff8720095cad4aaef8720388db7c9f1e29da3454949ec4dba" => :sierra
-    sha256 "d65db6df1aa7385951b6ae3435d92583d551e4bfc8486004ab30d7235d2bfc39" => :el_capitan
-    sha256 "8ac4604de26f41fb79c880c4440a39377b0b5257434fc344a688d65f17954c26" => :yosemite
+    sha256 "e7072aa63bdcde7a6a96ff26db392f025383e6d0bfce8535f4d2787ebcc9d798" => :sierra
+    sha256 "473f0b5ddd0d8d28c9ac28805c4f1a42dd7dd3bdf6e97a5b5f991598be4b4a56" => :el_capitan
+    sha256 "1145b4cfb35bb48ada8e9261f93302b50e3c515df4b36a04b889fe940b2e4bf1" => :yosemite
   end
 
   depends_on "ghc" => :build

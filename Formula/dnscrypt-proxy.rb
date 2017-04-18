@@ -3,18 +3,17 @@ class DnscryptProxy < Formula
   homepage "https://dnscrypt.org"
   url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.4.tar.gz"
   sha256 "a79d5da0133344d38f8b3d3355c16269f11c15fbeedd0521e1a657b00ac503bb"
-  revision 1
+  revision 2
+
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "14de34e98b96ef029d98202ca0422ee9e35345bcea3881e0d990c6d193295506" => :sierra
-    sha256 "dd17ce5cf3bd581f94e42e12ecde0bf6f80510b5443452d5099b392be9b10b35" => :el_capitan
-    sha256 "7de091af5d6b8d2ebe22fba6be333ac6431bbeb0ab545747def1f8923e8a26d1" => :yosemite
+    sha256 "4a9f3e632853614258a8a598114e54ef6acfe2eb828e221ffba4bb76175db0f3" => :sierra
+    sha256 "979e46b37d32bd0a5474b375ffe37a1f6d7b41ca2eb64e7f4998fa6203a20adc" => :el_capitan
+    sha256 "1f0a121039a9f251daf659f2b90e9bc67b22cfa049f2f6dbd70626c6ddf36639" => :yosemite
   end
 
-  option "with-plugins", "Support plugins and install example plugins."
-
-  deprecated_option "plugins" => "with-plugins"
+  option "without-plugins", "Disable support for plugins"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -25,13 +24,12 @@ class DnscryptProxy < Formula
   depends_on "ldns" => :recommended
 
   def install
-    # Modify hard-coded path to resolver list
-    inreplace "dnscrypt-proxy.conf",
-      "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
-      "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
-
-    # Run as unprivileged user
-    inreplace "dnscrypt-proxy.conf", "# User _dnscrypt-proxy", "User nobody"
+    # Modify hard-coded path to resolver list & run as unprivileged user.
+    inreplace "dnscrypt-proxy.conf" do |s|
+      s.gsub! "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
+              "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
+      s.gsub! "# User _dnscrypt-proxy", "User nobody"
+    end
 
     system "./autogen.sh"
 
