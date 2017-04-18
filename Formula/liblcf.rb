@@ -1,16 +1,15 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
-  url "https://github.com/EasyRPG/liblcf/archive/0.5.0.tar.gz"
-  sha256 "27333416afd5069429d5a81fd032faad6f8fe60bd1bfe0ac3240c1496dce90f2"
-  revision 1
+  url "https://github.com/EasyRPG/liblcf/archive/0.5.1.tar.gz"
+  sha256 "3214fe524186c3d10a09c947f0a9aa36d262871b7134a9e7653610fcdd4b44b2"
   head "https://github.com/EasyRPG/liblcf.git"
 
   bottle do
     cellar :any
-    sha256 "3b20e1c5b3653c3ee484f10926da2126cf0138678b8e3e275a1d44cc2dee9c23" => :sierra
-    sha256 "93d1e1d60459368f392e095ea2e15ecead62996acb9cbd25f08c82de1fd01c31" => :el_capitan
-    sha256 "1320bc6656d31f3d815839197a90fb228874f1c52a11733157563f19c8fd98fe" => :yosemite
+    sha256 "712a817da25ce4e4101f4fa428763dcb31cd4f5005dffca18eb7535734d6f1b4" => :sierra
+    sha256 "2a1831f1352aa260fa58bd43bb67bcb77ed7fa0e6dfdbedecb943cdf2bfbc4a6" => :el_capitan
+    sha256 "36740ad303dbbacee033f3575b240019e68446489d38bc91179ec2c676adedf9" => :yosemite
   end
 
   depends_on "autoconf" => :build

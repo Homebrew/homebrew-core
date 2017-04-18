@@ -1,16 +1,14 @@
 class Bgpdump < Formula
   desc "C library for analyzing MRT/Zebra/Quagga dump files"
   homepage "https://bitbucket.org/ripencc/bgpdump/wiki/Home"
-  url "https://bitbucket.org/ripencc/bgpdump/get/1.4.99.15.tar.gz"
-  sha256 "6da4ef4020345c68a2551460919ec02b7b63c194324e209fc73bea9889fb5c7c"
+  url "https://bitbucket.org/ripencc/bgpdump/get/1.5.0.tar.gz"
+  sha256 "47534112b427b8107ae0fd52437927de25f5cfe0ef98eba6e08df441ae5f05c5"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "27ef23842184d3cb46d4bb2eb7abf30f1dcf68a4fbaa62656f3e13270dd10b6d" => :sierra
-    sha256 "ce0c5b17609eb9276ee41ef5cd3298df8444920c4a0003a08a1edd2f4e2a61a7" => :el_capitan
-    sha256 "f5c658fb75abcd49d2fafd0e1fb88d3b79496d0d3db091e4f17c321c4b2a4df4" => :yosemite
-    sha256 "ebf2b2434f98b507c23bb1987c3a2a02f82f43c185d2d27757bfd5741a11d729" => :mavericks
+    sha256 "3abf1e40a8259d4bc10240547dee890a07eab6945f0c713eb3581461ad025884" => :sierra
+    sha256 "ba9a99d87eca4aa356d506e5b6e14eb25bc5f47c8001114f82519b9dfbedf88e" => :el_capitan
+    sha256 "ce81cb3942f040ea14406d3c2369e531605033b6173c36eada757f372c8d81f7" => :yosemite
   end
 
   depends_on "autoconf" => :build
