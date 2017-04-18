@@ -1,7 +1,7 @@
 class Osh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
-  homepage "http://v6shell.org"
-  url "http://v6shell.org/src/osh-4.3.0.tar.gz"
+  homepage "https://v6shell.org/"
+  url "https://v6shell.org/src/osh-4.3.0.tar.gz"
   sha256 "1173b8feffb617c0ed249f6cb7aff482eae960d8ccfb89f38ed73dab37dae5ed"
   version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git"
@@ -15,7 +15,7 @@ class Osh < Formula
   option "with-examples", "Build with shell examples"
 
   resource "examples" do
-    url "http://v6shell.org/v6scripts/v6scripts-20160128.tar.gz"
+    url "https://v6shell.org/v6scripts/v6scripts-20160128.tar.gz"
     sha256 "c23251137de67b042067b68f71cd85c3993c566831952af305f1fde93edcaf4d"
   end
 

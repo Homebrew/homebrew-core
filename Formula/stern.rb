@@ -4,7 +4,7 @@ class Stern < Formula
   url "https://github.com/wercker/stern/archive/1.4.0.tar.gz"
   sha256 "32c65ad4710bb84ab187443f78d1016c9e76b18ef7396c841571bf2ce9907b2b"
 
-  head "https://github.com/wercker/stern",
+  head "https://github.com/wercker/stern.git",
     :shallow => false
 
   bottle do
