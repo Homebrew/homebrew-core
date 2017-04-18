@@ -14,7 +14,7 @@ class Ocamlbuild < Formula
   depends_on "ocaml"
 
   def install
-    system "make", "configure", "OCAMLBUILD_BINDIR=#{bin}", "OCAMLBUILD_LIBDIR=#{lib}"
+    system "make", "configure", "OCAMLBUILD_BINDIR=#{bin}", "OCAMLBUILD_LIBDIR=#{lib}", "OCAMLBUILD_MANDIR=#{man}"
     system "make"
     system "make", "install"
   end
