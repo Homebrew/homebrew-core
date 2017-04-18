@@ -1,14 +1,14 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.10.0/infer-osx-v0.10.0.tar.xz"
-  sha256 "6fdcfe52cee28f57a86e8cd80bf4cac7b2dda83a3cc511f86834636ada14a808"
+  url "https://github.com/facebook/infer/releases/download/v0.11.0/infer-osx-v0.11.0.tar.xz"
+  sha256 "0c435efa311cb70a79b5b8ae9cc4e714651e6653c5542a58cc624f2439d68e36"
 
   bottle do
     cellar :any
-    sha256 "5f0cd57446884830fd60f768f841b9d76bfd6059f62522036a99ccd872363774" => :sierra
-    sha256 "a9d4423aa9a253af020a5af6ae225c313017f69bc71218f280dd03f04d7e0463" => :el_capitan
-    sha256 "74e25f0347679b0e076243239be2ec12f4fa878df74f489e79e15745cc364eeb" => :yosemite
+    sha256 "79a58a4767b38088deb2b9eb4d609a109201fb2645d71dc5b1ae78efdb5e0a2b" => :sierra
+    sha256 "7183546e902049a8fd9be9f4099d024981f085930aaca371b75fc60fe3af49b4" => :el_capitan
+    sha256 "66b203aa3f3551c521b3c1796d628dcda84702ea3736504ebf9bd97f586154ca" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -20,7 +20,6 @@ class Infer < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "libffi"
 
   def install
     if build.without?("clang") && build.without?("java")

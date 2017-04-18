@@ -3,15 +3,15 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.2.tar.gz"
-  sha256 "a5e3924bf72899149b572409c82da4b7d71ac556fd460790577bdf50f27709a4"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.3.tar.gz"
+  sha256 "de57ba63f0314ba4e21818f048551a22afe61662bd72b3c81b01a47284fcaf3d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2328e473548a9c223da19b30a950fe799d5499e28664f1f04a25a54a0305cb8" => :sierra
-    sha256 "53feb7d27f84f9b1595c0ad35f9bfc10368481274cbf66f18ae00eae7c984165" => :el_capitan
-    sha256 "434955c161b7767057b85e7c941acbb6eee949ca19f6a0d6382ede98ae7cb149" => :yosemite
+    sha256 "173d66ac92bc7d433a2559a02211a2405290e169f74b360eb128e5373f911063" => :sierra
+    sha256 "732e1007d284433516c1575042801463d5e3dc63811746414c1e5748d2acb0a9" => :el_capitan
+    sha256 "66c7c136e54458bdf7f7ffa51c0afe38cbbb86395448df7e896b12c2802c5c5e" => :yosemite
   end
 
   depends_on "go" => :build
@@ -64,7 +64,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "bin"
+      system "make", "test", "vet", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"

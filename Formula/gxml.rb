@@ -1,13 +1,13 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.14/gxml-0.14.2.tar.xz"
-  sha256 "074e509f4d4b59806ab46e25b279550921bfa6db218028971fb7d9ff5668bce5"
+  url "https://download.gnome.org/sources/gxml/0.14/gxml-0.14.3.tar.xz"
+  sha256 "b4f9739f924fefc90dd5d54da7680a50377bfba1342bd16436ab387c631e3b41"
 
   bottle do
-    sha256 "f66c648ced1ec830352f8a354183018580ec6664fbe19f193f8011184a1e55ea" => :sierra
-    sha256 "a6f1f2667633b846753cb3600ef0b305ed8bf07bd24b5a48fb4d7d8a3287c9b8" => :el_capitan
-    sha256 "5f111cf8d9a27774a2d5ce3813e0293590bd633f9f320f3f3cd4d6dfcd1a8f33" => :yosemite
+    sha256 "0822d594967ff897b5da4f78312bcb4acaa0ffa7e2ac046e4c1e07569d6726f7" => :sierra
+    sha256 "ab52ecbdd84a6213ac2d96ed167d4e367b3f980360e1aa5b0cfd3e118717dd38" => :el_capitan
+    sha256 "c515994080f2dab325b5777142a785bb6ba8c42a0c0a5bf89f5a6d25e1fd8bd1" => :yosemite
   end
 
   depends_on "pkg-config" => :build
