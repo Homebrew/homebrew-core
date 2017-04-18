@@ -1,9 +1,8 @@
 class Catimg < Formula
   desc "Insanely fast image printing in your terminal"
   homepage "https://github.com/posva/catimg"
-  url "https://github.com/posva/catimg/archive/v2.2.2.tar.gz"
-  sha256 "1fa775db2bbb94dc2c66646c8a87edcfdcba878d686d61390d4264c2618673a9"
-  revision 1
+  url "https://github.com/posva/catimg/archive/v2.3.0.tar.gz"
+  sha256 "2481bdc4966edaf65eef8bb97f102f089954641956b60b5e5e505f5d38ea48ae"
   head "https://github.com/posva/catimg.git"
 
   bottle do
