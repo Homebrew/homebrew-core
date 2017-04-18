@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
-  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.13/sbt-0.13.13.tgz"
-  sha256 "40d03d21a260c5a6a43f8349298f41c9d047f97972057d9d915afd8945faf979"
+  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz"
+  sha256 "b6e073d7c201741dcca92cfdd1dd3cd76c42a47dc9d8c8ead8df7117deed7aef"
 
   devel do
     url "https://dl.bintray.com/sbt/native-packages/sbt/1.0.0-M4/sbt-1.0.0-M4.tgz"
@@ -20,9 +20,21 @@ class Sbt < Formula
       s.gsub! "/etc/sbt/sbtopts", "#{etc}/sbtopts"
     end
 
-    inreplace "bin/sbt-launch-lib.bash", "${sbt_home}/bin/sbt-launch.jar", "#{libexec}/sbt-launch.jar"
+    inreplace "bin/sbt-launch-lib.bash" do |s|
+      # Upstream issue "Replace realpath with something Mac compatible"
+      # Reported 10 Apr 2017 https://github.com/sbt/sbt-launcher-package/issues/149
+      s.gsub! "$(dirname \"$(realpath \"$0\")\")", "#{libexec}/bin"
+      s.gsub! "$(dirname \"$sbt_bin_dir\")", libexec
 
-    libexec.install "bin/sbt", "bin/sbt-launch-lib.bash", "bin/sbt-launch.jar"
+      # Workaround for `brew test sbt` failing to detect java -version
+      # Reported 10 Apr 2017 https://github.com/sbt/sbt-launcher-package/issues/150
+      if build.stable?
+        s.gsub! "[[ \"$java_version\" > \"8\" ]]", "[[ \"$java_version\" == \"9\" ]]"
+      end
+    end
+
+    libexec.install "bin"
+    libexec.install "lib" if build.stable? # remove `if` when devel > 1.0.0-M4
     etc.install "conf/sbtopts"
 
     (bin/"sbt").write <<-EOS.undent
@@ -31,7 +43,7 @@ class Sbt < Formula
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
         . "$HOME/.sbtconfig"
       fi
-      exec "#{libexec}/sbt" "$@"
+      exec "#{libexec}/bin/sbt" "$@"
     EOS
   end
 
