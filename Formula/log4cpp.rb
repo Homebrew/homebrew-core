@@ -1,8 +1,8 @@
 class Log4cpp < Formula
   desc "Configurable logging for C++"
   homepage "https://log4cpp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/log4cpp/log4cpp-1.1.x%20%28new%29/log4cpp-1.1/log4cpp-1.1.1.tar.gz"
-  sha256 "35abf332630a6809c969276b1d60b90c81a95daf24c86cfd7866ffef72f9bed0"
+  url "https://downloads.sourceforge.net/project/log4cpp/log4cpp-1.1.x%20%28new%29/log4cpp-1.1/log4cpp-1.1.2.tar.gz"
+  sha256 "a92bb210cddca7a1d6e7ea89f52b6eecbee7c3e7c1bc22a6e2593ef46fe8798b"
 
   bottle do
     cellar :any
