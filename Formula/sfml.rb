@@ -13,6 +13,9 @@ class Sfml < Formula
     sha256 "e1febe460b334ce2dca457a030a350380679ce1e4ca7e4025bba5cb775c829a8" => :yosemite
   end
 
+  # Fix incorrect handling of RPATH for a system-wide installation of SFML libraries
+  patch :DATA
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :optional
   depends_on "flac"
@@ -51,3 +54,20 @@ class Sfml < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/cmake/Macros.cmake b/cmake/Macros.cmake
+index 0cf8826..171d1e1 100644
+--- a/cmake/Macros.cmake
++++ b/cmake/Macros.cmake
+@@ -83,8 +83,8 @@ macro(sfml_add_library target)
+
+         # adapt install directory to allow distributing dylibs/frameworks in user's frameworks/application bundle
+         set_target_properties(${target} PROPERTIES
+-                              BUILD_WITH_INSTALL_RPATH 1
+-                              INSTALL_NAME_DIR "@rpath")
++                              BUILD_WITH_INSTALL_RPATH 0)
++        #                      INSTALL_NAME_DIR "@rpath")
+     endif()
+
+     # enable automatic reference counting on iOS
