@@ -14,7 +14,7 @@ class Lv2 < Formula
   end
 
   def install
-    system "./waf", "configure", "--prefix=#{prefix}", "--no-plugins"
+    system "./waf", "configure", "--prefix=#{prefix}", "--no-plugins", "--lv2dir=#{lib}"
     system "./waf", "build"
     system "./waf", "install"
   end
