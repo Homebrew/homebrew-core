@@ -3,13 +3,13 @@ class Httrack < Formula
   homepage "https://www.httrack.com/"
   # Always use mirror.httrack.com when you link to a new version of HTTrack, as
   # link to download.httrack.com will break on next HTTrack update.
-  url "https://mirror.httrack.com/historical/httrack-3.48.22.tar.gz"
-  sha256 "b2831ad7b48e933959f83a9de8a72bcaa0f8eb87e9453ad85debd50d33a9c48f"
+  url "https://mirror.httrack.com/historical/httrack-3.49.1.tar.gz"
+  sha256 "8640ab00cabc9189667cc88829620ce08ac796688f0ef94876350d14fbe7a842"
 
   bottle do
-    sha256 "ba9cf6805554dd97a5873ea8a4e088af85ceeebe9343153933d75e6a248336d9" => :sierra
-    sha256 "99bf4887538b6d195d7cbe6d36ef433876179ab28c2d446abae58855fd88ee06" => :el_capitan
-    sha256 "1e1dca3f4c671f5dea037645a14691bc5bc46f2af9ad40b46050942fabb9c036" => :yosemite
+    sha256 "1e2501c64f53e3ccf84bbe0ac76fd28c1c986f9b8f5d4039dbd21b5f5c350725" => :sierra
+    sha256 "6bfbed2441b59d7dab88d0ad168fac84269d44bea557f5953fdec0e756c49e39" => :el_capitan
+    sha256 "e0a91a3b1ea93e273b5d65c143e4bab5504e0252bcec7f972f254d86acb1139f" => :yosemite
   end
 
   depends_on "openssl"
