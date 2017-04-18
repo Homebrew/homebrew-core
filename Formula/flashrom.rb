@@ -3,8 +3,7 @@ class Flashrom < Formula
   homepage "https://flashrom.org/"
   url "https://download.flashrom.org/releases/flashrom-0.9.9.tar.bz2"
   sha256 "cb3156b0f63eb192024b76c0814135930297aac41f80761a5d293de769783c45"
-
-  head "svn://flashrom.org/flashrom/trunk"
+  head "https://code.coreboot.org/svn/flashrom/trunk", :using => :svn
 
   bottle do
     cellar :any
