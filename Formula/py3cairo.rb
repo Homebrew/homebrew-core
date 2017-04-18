@@ -19,6 +19,13 @@ class Py3cairo < Formula
 
   def install
     ENV["PYTHON"] = "python3"
+
+    # disable waf's python extension mode because it explicitly links libpython
+    # https://code.google.com/p/waf/issues/detail?id=1531
+    inreplace "src/wscript", "pyext", ""
+    ENV["LINKFLAGS"] = "-undefined dynamic_lookup"
+    ENV.append_to_cflags `python-config --includes`
+
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
     system "./waf", "install"
