@@ -1,8 +1,8 @@
 class Latex2rtf < Formula
   desc "Translate LaTeX to RTF"
   homepage "https://latex2rtf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.8/latex2rtf-2.3.8.tar.gz"
-  sha256 "5484530de16e96ce76aedf969c464656a5f8834e748849d9009049e26f8c4143"
+  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.15/latex2rtf-2.3.15.tar.gz"
+  sha256 "92cc98b765190d028a843ed497a67c69b9007346e33ee55138d592994c87c58b"
 
   bottle do
     sha256 "364280e75787811b3769d454a9da4d25f6b79179c89cbfc93ea17518385060f3" => :sierra
