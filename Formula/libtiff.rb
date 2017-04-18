@@ -4,13 +4,13 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
   sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "c2212960a740a559d42c2d150a7f0fedd191c1b2b2ff0b815e54299ccc8ebe29" => :sierra
-    sha256 "8e75bf8bcd907c19a56ca7f83f0d29b6651f31a85fb1b2bccc72e5b4ec6337c2" => :el_capitan
-    sha256 "3d22664e9f1c12b123913bcba3306fe922a860c2399fd33e778f86f58ffe6151" => :yosemite
+    sha256 "02c864665601d8877cc6a3ab3128f3881179fce30a0b4759889785e625510e22" => :sierra
+    sha256 "15d450ae98bf8641f6007b14b9dffe1966684c929bc001ce81549acabc9c65df" => :el_capitan
+    sha256 "a08754ba33e157e809a9fd8224f286e42d697818e82cd13c360842b806aefaa4" => :yosemite
   end
 
   option :cxx11
@@ -22,9 +22,9 @@ class Libtiff < Formula
   # Patches from Debian for CVE-2016-10094, and various other issues.
   # All reported upstream, so should be safe to remove this block on next stable.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-5.debian.tar.xz"
-    sha256 "f4183c48ed74b6c3c3a74ff1f10f0cf972d3dba0f840cf28b5a3f3846ceb2be6"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-6.debian.tar.xz"
+    sha256 "9c9048c28205bdbeb5ba36c7a194d0cd604bd137c70961607bfc8a079be5fa31"
     apply "patches/01-CVE.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
@@ -41,7 +41,16 @@ class Libtiff < Formula
           "patches/14-CVE.patch",
           "patches/15-TIFFFaxTabEnt_bugfix.patch",
           "patches/16-CVE-2016-10094.patch",
-          "patches/17-CVE-2017-5225.patch"
+          "patches/17-CVE-2017-5225.patch",
+          "patches/18-CVE-2017-7595.patch",
+          "patches/19-CVE-2017-7598.patch",
+          "patches/20-CVE-2017-7596_CVE-2017-7597_CVE-2017-7599_CVE-2017-7600.patch",
+          "patches/21-CVE-2017-7601.patch",
+          "patches/22-CVE-2017-7602.patch",
+          "patches/23-CVE-2017-7592.patch",
+          "patches/24-CVE-2017-7593.patch",
+          "patches/25-CVE-2017-7594_part1.patch",
+          "patches/26-CVE-2017-7594_part2.patch"
   end
 
   def install
