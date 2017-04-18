@@ -2,16 +2,16 @@ class Hyper < Formula
   desc "Client for the Hyper_ cloud service"
   homepage "https://hyper.sh"
   url "https://github.com/hyperhq/hypercli.git",
-    :tag => "v1.10.8",
-    :revision => "8a30254d88bbf9d77aa022a5ba50dbf61c611ad6"
+    :tag => "v1.10.9",
+    :revision => "1ed5d3fd838860558b757336b578fcb9bfb22499"
 
   head "https://github.com/hyperhq/hypercli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e96c0667ec6ed680eff7692a317f49b89ab43d1b4ca31ef3d14d9543a4eced0c" => :sierra
-    sha256 "dd45159e0b6671d514e13a627811f5fdd7eb2dfe56a610dddfe36616558d00fa" => :el_capitan
-    sha256 "1520a0901d876635429a6d21f427719112442272775ef5949d176a57b4feb8f0" => :yosemite
+    sha256 "11144e075470152acb855461e77ace302cd225844c5898e906b1a23c68cc251f" => :sierra
+    sha256 "418e6d199cfce7a412a310bfb9b5f6f8c195d4b6a66f29a982f32fc0d0c8221b" => :el_capitan
+    sha256 "75630cea940a7e7c37a26d2e1151b9fe4306ff7e8f3e24aecf92345df8910af4" => :yosemite
   end
 
   depends_on "go" => :build

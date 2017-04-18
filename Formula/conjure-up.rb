@@ -3,17 +3,15 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical."
   homepage "http://conjure-up.io"
-  url "https://github.com/conjure-up/conjure-up/archive/2.1.tar.gz"
-  sha256 "4f60e8cbbb7626c55b63928c65255cddad7df720f04ddb87f9888e1c3de1a44d"
-  revision 1
-
+  url "https://github.com/conjure-up/conjure-up/archive/2.1.5.tar.gz"
+  sha256 "df8278ffca2eab81bf02e6fe422e283baaee52b01e8a7b3bad1ca91ffa691af0"
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
   bottle do
     cellar :any
-    sha256 "ee48798974b439f8587ec82c95acc7365ea1301626ca92764113534d21ec21df" => :sierra
-    sha256 "3224e03a4b317d0c40d0aa1b2a6f0ad4e0272e1b8552f18d3be2eb7798cc4ad3" => :el_capitan
-    sha256 "39577ccd225cc1fcfbb2a89814cb24ff3312f0ae802312c5f1ca3a34002d5603" => :yosemite
+    sha256 "406feece9b1f71e9a5e176146c2c3c2019cf60ef1cf98e103a3529d56a64671e" => :sierra
+    sha256 "013ca91ccb21ce08eadea1c336fc02c4553bf66fde397f06fa98577666064c63" => :el_capitan
+    sha256 "569e1d339c080f4f0c3c33e4c1e2db0c4332129c9c1f9ba33a1ee24fbf9e9f78" => :yosemite
   end
 
   devel do
@@ -28,6 +26,21 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "jq"
   depends_on "wget"
+
+  resource "ubuntui" do
+    url "https://pypi.python.org/packages/fa/e3/2f3821c455c0207e615280fb6bf2560e952be500e0769b2d24525bbf8ede/ubuntui-0.1.4.tar.gz#"
+    sha256 "d52206d14e0db6072f435bddadc934cbcaabf6d1cb6f758522eaa7fabf210239"
+  end
+
+  resource "macumba" do
+    url "https://pypi.python.org/packages/76/09/07ac27b7a4bd8511ed3c4b0e16b407ba085323779f917da3be9b0b34e9e7/macumba-0.9.3.tar.gz"
+    sha256 "b6b71064f86b6e886b5f23235577b0c1a27df2c3122a65f55a03908cf13a4b06"
+  end
+
+  resource "bundle-placement" do
+    url "https://pypi.python.org/packages/84/d9/4c416af49f210f46034fbcbe3ee195c272643ae5286e963aa31ea86bff99/bundle-placement-0.0.1.tar.gz"
+    sha256 "a73a4d0dff43f815d1055352d21926dbf722329613e8cfa9e630374ca4e03408"
+  end
 
   resource "python-utils" do
     url "https://pypi.python.org/packages/46/e8/60bc82e7bb5d9e326c4691ed73e02a2a0e3ce6bb7adefd8cb2d9d8456b3a/python-utils-2.0.1.tar.gz"

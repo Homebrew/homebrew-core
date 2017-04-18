@@ -1,26 +1,22 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites."
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/1.11.8-rbsec.tar.gz"
-  version "1.11.8"
-  sha256 "1449f8bb45d323b322cb070a74d8dcc57b43ca2dba0560e7a16151efc8b3d911"
+  url "https://github.com/rbsec/sslscan/archive/1.11.9-rbsec.tar.gz"
+  version "1.11.9"
+  sha256 "9417061a8f827b02b2b6457031888b1ae0b299460714ce3d9192432afde3a9cb"
   head "https://github.com/rbsec/sslscan.git"
 
   bottle do
     cellar :any
-    sha256 "04e602109f1066a74f01bb71ba9fcfd354b3508a0dafbc1c4951f30d276aade1" => :sierra
-    sha256 "30a096d3b1458298d1015a61baac9ddc7aab548a0855b47becbf3add224b256a" => :el_capitan
-    sha256 "b69483d7db7813ad144004b0f8c4f6848e6f8f59d305c2d8fd4499ec355247de" => :yosemite
+    sha256 "e50ac88f3e2cd18881fb7f5547a6f14c400c7e963474b7147cabe9ab245c3bbb" => :sierra
+    sha256 "925812c9ae699020d5237a47508aa51c0ed57ce305aebb2151440412a8f79405" => :el_capitan
+    sha256 "218de341f71de197b41795f83b3681ea5b861aae89a8de0f81e08bb41b44caf2" => :yosemite
   end
 
   depends_on "openssl"
 
   def install
     system "make"
-    # This regression was fixed upstream, but not in this release.
-    # https://github.com/rbsec/sslscan/commit/6e89c0597ebc779ac82
-    # Remove the below line on next stable release.
-    mkdir_p [bin, man1]
     system "make", "install", "PREFIX=#{prefix}"
   end
 
