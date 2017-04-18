@@ -1,8 +1,8 @@
 class Prettyping < Formula
   desc "Wrapper to colorize and simplify ping's output"
   homepage "https://denilsonsa.github.io/prettyping/"
-  url "https://github.com/denilsonsa/prettyping/archive/v1.0.0.tar.gz"
-  sha256 "02a4144ff2ab7d3e2c7915041225270e96b04ee97777be905d1146e76084805d"
+  url "https://github.com/denilsonsa/prettyping/archive/v1.0.1.tar.gz"
+  sha256 "48ff5dce1d18761c4ee3c860afd3360266f7079b8e85af9e231eb15c45247323"
 
   bottle :unneeded
 
@@ -10,8 +10,8 @@ class Prettyping < Formula
   # https://github.com/denilsonsa/prettyping/issues/7
   # https://github.com/denilsonsa/prettyping/pull/11
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/848211f/prettyping/ipv6.patch"
-    sha256 "263113acb0c2c99d0fefe979ac450cf00361cb0283df21564958cc4c38e98aad"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ecea23/prettyping/ipv6.patch"
+    sha256 "765ae3e3aa7705fd9d2c74161e07942fcebecfe9f95412ed645f39af1cdda4b0"
   end
 
   def install

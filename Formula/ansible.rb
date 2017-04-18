@@ -3,16 +3,14 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.2.1.0.tar.gz"
-  sha256 "63a12ea784c0f90e43293b973d5c75263634c7415e463352846cd676c188e93f"
-  revision 2
-
+  url "https://releases.ansible.com/ansible/ansible-2.2.2.0.tar.gz"
+  sha256 "efd9c574168ac1916dd57f7c88d4dd2e13ef816af0ee49a8d34c77567886e4c2"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
-    sha256 "3a3ed57c48fab11487fbd7b9526993d6de5597354bcec541f23834d7ace272c1" => :sierra
-    sha256 "05167277096f68dd05abc66c7ff40c9f5e2a9a2cbcdc1f31f96b83510ee40eba" => :el_capitan
-    sha256 "6d06db627c51b56ffb07449673ddbd53b10c52ae7c6d2d889ef77bdbf5f6b28e" => :yosemite
+    sha256 "67cf196254c5ba97c3c3d390b826dc1db7133251ddaac5cdd7cc618ef9deb4c3" => :sierra
+    sha256 "469982995630d5d0462cab6ae38486124e9858d9421edf97f662741e083ef668" => :el_capitan
+    sha256 "c9106eb2bb1a1753f408ad3ab6e5c47f4c92f6296f62d9f1560510cf6c54bbf5" => :yosemite
   end
 
   depends_on "pkg-config" => :build

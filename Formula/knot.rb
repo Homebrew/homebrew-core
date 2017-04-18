@@ -1,26 +1,29 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  revision 1
 
   stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.4.1.tar.xz"
-    sha256 "c064ddf99bf5fc24dd3c6a3a523394760357e204c8b69f0e691e49bc0d9b704c"
+    url "https://secure.nic.cz/files/knot-dns/knot-2.4.3.tar.xz"
+    sha256 "f90258bcb29c1f351cd8d824ff8d67aef906ae5d5ff0f652c4f69c69ed8a704f"
 
     resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
-      sha256 "531ef29ed2a15dfe4993448eb4e8463c5ed8eebf1472a5608c6ac0a6f62b3a12"
+      url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.3.2.tar.gz"
+      sha256 "2d509999ac904e48c038f88820f47859da85ceb86c06552e4052897082423ec5"
     end
   end
 
   bottle do
-    sha256 "d5d3051cbf98d10d1a8f95ba998fc3b1ddda3f1e4a6e70877ecd10b2d0abfefc" => :sierra
-    sha256 "8334092eefbe05ea9b3fcd534a096de9ee452e0787c76f89c279a0f6a6b2aa24" => :el_capitan
-    sha256 "bde99d16719194630b6f273569b50eb14800387b84fe2d50d24ac8f9706a9ecc" => :yosemite
+    sha256 "e0a392eb217d4707174b5319bd5c87a1b6ec4a1c8a05f2e8513d1b8827fe0a5f" => :sierra
+    sha256 "25af8be672f352e88edfb9f41d5a2fc2ac74e99e333a451c08080fccfa51a509" => :el_capitan
+    sha256 "fc92515ae8adb4bbcc75629fb525d34935686877352d86ee50797485429d1c9c" => :yosemite
   end
 
   head do
     url "https://gitlab.labs.nic.cz/labs/knot.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
 
     resource "fstrm" do
       url "https://github.com/farsightsec/fstrm.git"
@@ -30,9 +33,6 @@ class Knot < Formula
   # due to AT_REMOVEDIR
   depends_on :macos => :yosemite
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gnutls"
@@ -46,7 +46,7 @@ class Knot < Formula
 
   def install
     resource("fstrm").stage do
-      system "autoreconf", "-fvi"
+      system "autoreconf", "-fvi" if build.head?
       system "./configure", "--prefix=#{libexec}/fstrm"
       system "make", "install"
     end

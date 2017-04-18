@@ -5,9 +5,10 @@ class Mkvtoolnix < Formula
   sha256 "12be72c373645b5bb9b9ea79ce8447958a1b806162868bb67803baa6d0032333"
 
   bottle do
-    sha256 "86385603b1057b637b1b5acaf61c8300b7dcc5fb7f8da25d6d86d24c23ff5e8f" => :sierra
-    sha256 "79164274c263386649464a4b7a4cc7d6801efbfe72eeb21cbe110a6d969b83ed" => :el_capitan
-    sha256 "6140e599eb261ae364d4333962d4f366a81abc2a4127f56f138f2da6779b97b8" => :yosemite
+    rebuild 1
+    sha256 "c113c8bb693860c805a9b43139aa5edc1ffd86312be9ab439757aa8255a87d38" => :sierra
+    sha256 "04916af312e71b5e9c924effb189987cf2e139efc45c33b2db587f9e09bd259b" => :el_capitan
+    sha256 "7d89364c783fe77afbe0e55801b2f582a824c176cdd36ff313bfa9e9a24329be" => :yosemite
   end
 
   head do
@@ -17,7 +18,9 @@ class Mkvtoolnix < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt5", "Build with QT GUI"
+  option "with-qt", "Build with Qt GUI"
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
@@ -27,7 +30,7 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "gettext" => :optional
 
   # On Mavericks, the bottle (without c++11) can be used
@@ -69,10 +72,12 @@ class Mkvtoolnix < Formula
       --with-extra-libs=#{extra_libs}
     ]
 
-    if build.with? "qt5"
-      args << "--with-moc=#{Formula["qt5"].opt_bin}/moc"
-      args << "--with-rcc=#{Formula["qt5"].opt_bin}/rcc"
-      args << "--with-uic=#{Formula["qt5"].opt_bin}/uic"
+    if build.with?("qt")
+      qt = Formula["qt"]
+
+      args << "--with-moc=#{qt.opt_bin}/moc"
+      args << "--with-uic=#{qt.opt_bin}/uic"
+      args << "--with-rcc=#{qt.opt_bin}/rcc"
       args << "--enable-qt"
     else
       args << "--disable-qt"

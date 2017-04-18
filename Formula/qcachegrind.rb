@@ -3,20 +3,21 @@ class Qcachegrind < Formula
   homepage "https://kcachegrind.github.io/"
   url "https://download.kde.org/stable/applications/16.12.0/src/kcachegrind-16.12.0.tar.xz"
   sha256 "9f73dd8a8cc624a11c54a364fc7583ed16654698df0ac21d25c54fbd4758c018"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c34c78bb4f284e297fa7bbdf1b6474296781f56a2bc4b4e91f19a1584b17d920" => :sierra
-    sha256 "1becad19852da7f2acdeaa06693867e57c38784f124f204ff8c655dda0c013d0" => :el_capitan
-    sha256 "575bce5416f2b70f293815d90bde6ed0a424bfdd28c7f131b68941b8ae828940" => :yosemite
+    sha256 "53cb8c1bb3b49d7ab65a61e631f3de0baaf38d7477fa8c22b4bf611965c57694" => :sierra
+    sha256 "84b0338ec085a6af3e5b373383db1c7833967d93619405cfe470b8ed77fd8668" => :el_capitan
+    sha256 "d16d0cd82b7f7e69862a636c70fb72aaddb450fdaea8653a77486e321ef811b6" => :yosemite
   end
 
   depends_on "graphviz" => :optional
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     cd "qcachegrind"
-    system "#{Formula["qt5"].bin}/qmake", "-spec", "macx-clang", "-config", "release"
+    system "#{Formula["qt"].bin}/qmake", "-spec", "macx-clang", "-config", "release"
     system "make"
     # Install app
     prefix.install "qcachegrind.app"

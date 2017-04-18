@@ -3,18 +3,18 @@ class Liblastfm < Formula
   homepage "https://github.com/lastfm/liblastfm/"
   url "https://github.com/lastfm/liblastfm/archive/1.0.9.tar.gz"
   sha256 "5276b5fe00932479ce6fe370ba3213f3ab842d70a7d55e4bead6e26738425f7b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b1093306f714a72838f9ede61c6dea5daf28953ff521d4270b27eedcfdded09a" => :sierra
-    sha256 "77e844c5c3acf1a97f31316ca33cce8aed17d5f05b87096458b0674604c73ffc" => :el_capitan
-    sha256 "d15b98bd3c926379927224e2f9771adb60acb74882db244007e7744cf8b8f83b" => :yosemite
+    sha256 "ed421bdd81c4643de07048e5d73575bb4a6909fce584c5e5b6760a5103cd0617" => :sierra
+    sha256 "40e10cadb1dc55904ae6114a13597e7209596e1d274b94db8ac96f1ebf7da979" => :el_capitan
+    sha256 "0d5342788a8f4eb95ea970d2247e829d7dac17db2d43713aacbf4617e742bbba" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "fftw"
   depends_on "libsamplerate"
 

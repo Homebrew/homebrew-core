@@ -19,4 +19,20 @@ class Lzo < Formula
     system "make", "check"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <lzo/lzoconf.h>
+      #include <stdio.h>
+
+      int main()
+      {
+        printf("Testing LZO v%s in Homebrew.\\n",
+        LZO_VERSION_STRING);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-o", "test"
+    assert_match "Testing LZO v#{version} in Homebrew.", shell_output("./test")
+  end
 end

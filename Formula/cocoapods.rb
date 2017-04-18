@@ -1,20 +1,14 @@
 class Cocoapods < Formula
   desc "The Cocoa Dependency Manager."
   homepage "https://cocoapods.org/"
-  url "https://github.com/CocoaPods/CocoaPods/archive/1.2.0.tar.gz"
-  sha256 "715caded3e7c614b5c80d132f79b005ea4a83136a69077452623698d66ce8b1b"
+  url "https://github.com/CocoaPods/CocoaPods/archive/1.2.1.tar.gz"
+  sha256 "e5a31921f624649ff780d2c146c77fe194be8740de2c18991bb274d56a35ea69"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd22a54023e078b33ec533c2dd24eff762337122cd2c06a0cf8a30e7bc5ad38d" => :sierra
-    sha256 "9d317193d69c036226df8bf8268238ee4370106a2eb78e1a6d9bd872aa15b65f" => :el_capitan
-    sha256 "d31d6d9de2bc4aa582d5804ea9d1f5485d54ea6981f85db55ad69200dab06a25" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/CocoaPods/CocoaPods/archive/1.2.1.beta.1.tar.gz"
-    version "1.2.1.beta.1"
-    sha256 "df3f5ad6171f9b5852b722bbea9bbc3039318c295b28fccd128403205a2aa5b9"
+    sha256 "928c4313f4af25d4da3a801aeda63ec621483f4678ee32a7e07923ec0fac8e07" => :sierra
+    sha256 "b9d99baf30717a70e6334d164fa74f6119d8e5c0ec9073b1c07dca70595e0633" => :el_capitan
+    sha256 "d80d01c190d45c16cb18a4c79aef04ab7f2e686bb4bdd8163e2b8aa9270c791c" => :yosemite
   end
 
   def install

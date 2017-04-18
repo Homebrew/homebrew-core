@@ -1,14 +1,14 @@
 class Ats2Postiats < Formula
-  desc "Statically typed programming language that unifies implementation and formal specification"
+  desc "Programming language with formal specification features"
   homepage "http://www.ats-lang.org/"
-  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.2.13/ATS2-Postiats-0.2.13.tgz"
-  sha256 "316eb28470154fb96ed69fddd5ef3477c4986835c48ab3e932fdaec7e7f23307"
+  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.3.3/ATS2-Postiats-0.3.3.tgz"
+  sha256 "e8fe0fb96bae2c988d44f8f1a564faa4d3ef9f1dafc4f406f584f94700013972"
 
   bottle do
     cellar :any
-    sha256 "b64895d38ddc05d29d68c217959a538c21831f31a5152cae5d91a72fe3e4c911" => :sierra
-    sha256 "2946e2250329356ffe431b86e8a5abb1cf436ee89de4f1f7a0245856552506ce" => :el_capitan
-    sha256 "16612b33029349b57cca91e71ad4cbaf4754dc237fe99768a9c1239bb747f5d7" => :yosemite
+    sha256 "741f25b8b8f356ff79a3d9d0f1d9c1e61c0fcbee1ff682661e58ada73df477bd" => :sierra
+    sha256 "9264a6eaa04a382dea9c4d565c133f221c36ff54695d55efd52d4bb9d208ed78" => :el_capitan
+    sha256 "1bf5329d5ad10540300b9f1952e3c6ed47ca92fe13d13f1c8cb34b0c051690ea" => :yosemite
   end
 
   depends_on "gmp"

@@ -18,4 +18,22 @@ class Libtecla < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <locale.h>
+      #include <libtecla.h>
+
+      int main(int argc, char *argv[]) {
+        GetLine *gl;
+        setlocale(LC_CTYPE, "");
+        gl = new_GetLine(1024, 2048);
+        if (!gl) return 1;
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-L#{lib}", "-ltecla", "-o", "test"
+    system "./test"
+  end
 end

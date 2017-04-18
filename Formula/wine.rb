@@ -5,6 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 1
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -28,16 +29,15 @@ class Wine < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "a88a5a5a77040bdc38d584fae1a23566b11d1b76e0b740dc76ffdc95a3251e83" => :sierra
-    sha256 "41f4842e57f7ad9503f49b5cd7150ebd8ba2ed705be3ef0f19e435e2c3ec204a" => :el_capitan
-    sha256 "76b2a1a0266b236cfcc5b36f4c323ee0f76d30908701f1f449472831c83fee5a" => :yosemite
+    sha256 "f04565a29fb85ea40bc4380ce116bd70730239348f749d66c5d93e1232bfd54e" => :sierra
+    sha256 "540095b013183a88794fe35e5c79fcd5f66de70b07231ce20ed0e42da2fb7aa9" => :el_capitan
+    sha256 "b6eac1e402479edac3ec8ed5ba1c267dda61cc58af913c75f990944bdf9b6d9c" => :yosemite
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.4.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.4.tar.xz"
-    sha256 "87b5df07e4781fecce2f92415a4717208ea253a20a0df8b36b9f90b69b72748e"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.6.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.6.tar.xz"
+    sha256 "e6ff64758f437647e99a36c1275e41adf54f0432907172d3bba22b070a97aac0"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.3.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -105,9 +105,9 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.28.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.28/libpng-1.6.28.tar.xz"
-    sha256 "d8d3ec9de6b5db740fefac702c37ffcf96ae46cb17c18c1544635a3852f78f7a"
+    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.29.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.29/libpng-1.6.29.tar.xz"
+    sha256 "4245b684e8fe829ebb76186327bb37ce5a639938b219882b53d64bd3cfc5f239"
   end
 
   resource "freetype" do
@@ -166,6 +166,12 @@ class Wine < Formula
   resource "sane-backends-patch" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
     sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
+  end
+
+  resource "mpg123" do
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.24.0/mpg123-1.24.0.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.24.0.tar.bz2"
+    sha256 "55fb169a7711938f5df0497d1ffe28419fbef50011dc01d00b216379e6a2256c"
   end
 
   fails_with :clang do
@@ -239,22 +245,24 @@ class Wine < Formula
         system "make", "install"
 
         %w[libcrypto libssl].each do |libname|
-          system "lipo", "-create", "#{dirs.first}/#{libname}.1.0.0.dylib",
-                                    "#{dirs.last}/#{libname}.1.0.0.dylib",
-                         "-output", "#{libexec}/lib/#{libname}.1.0.0.dylib"
+          rm_f libexec/"lib/#{libname}.1.0.0.dylib"
+          MachO::Tools.merge_machos("#{libexec}/lib/#{libname}.1.0.0.dylib",
+                                    "#{dirs.first}/#{libname}.1.0.0.dylib",
+                                    "#{dirs.last}/#{libname}.1.0.0.dylib")
           rm_f libexec/"lib/#{libname}.a"
         end
 
         Dir.glob("#{dirs.first}/engines/*.dylib") do |engine|
           libname = File.basename(engine)
-          system "lipo", "-create", "#{dirs.first}/engines/#{libname}",
-                                    "#{dirs.last}/engines/#{libname}",
-                         "-output", "#{libexec}/lib/engines/#{libname}"
+          rm_f libexec/"lib/engines/#{libname}"
+          MachO::Tools.merge_machos("#{libexec}/lib/engines/#{libname}",
+                                    "#{dirs.first}/engines/#{libname}",
+                                    "#{dirs.last}/engines/#{libname}")
         end
 
-        system "lipo", "-create", "#{dirs.first}/openssl",
-                                  "#{dirs.last}/openssl",
-                       "-output", "#{libexec}/bin/openssl"
+        MachO::Tools.merge_machos("#{libexec}/bin/openssl",
+                                  "#{dirs.first}/openssl",
+                                  "#{dirs.last}/openssl")
 
         confs = archs.map do |arch|
           <<-EOS.undent
@@ -436,6 +444,16 @@ class Wine < Formula
           system "make"
           system "make", "install"
         end
+      end
+
+      resource("mpg123").stage do
+        system "./configure", "--disable-debug",
+                              "--disable-dependency-tracking",
+                              "--prefix=#{libexec}",
+                              "--with-default-audio=coreaudio",
+                              "--with-module-suffix=.so",
+                              "--with-cpu=generic"
+        system "make", "install"
       end
     end
 

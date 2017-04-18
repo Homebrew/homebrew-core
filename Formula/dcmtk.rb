@@ -25,7 +25,7 @@ class Dcmtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openssl" => :recommended
-  depends_on "homebrew/dupes/libiconv" => :optional
+  depends_on "libiconv" => :optional
 
   def install
     args = std_cmake_args
