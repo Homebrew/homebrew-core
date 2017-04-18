@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.5.2/Agda-2.5.2.tar.gz"
