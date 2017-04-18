@@ -3,14 +3,14 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://pwntools.com/"
-  url "https://github.com/Gallopsled/pwntools/archive/3.5.0.tar.gz"
-  sha256 "901a65ddad6130ee172823736bd6211938d8a089e8985372c538bb91476361f0"
+  url "https://github.com/Gallopsled/pwntools/archive/3.5.1.tar.gz"
+  sha256 "2b972c956838e9397ad8e3db6f923a595130739d09be907a127e52b051b9cbf6"
 
   bottle do
     cellar :any
-    sha256 "1b3f85b2b9b9df2580e682834bf5212f71851ca2ce186f4b3a8c11631cbc3f6f" => :sierra
-    sha256 "8a6135d0dcfd994e87fb7fa862e1b081916345d7c5b3fcaebcc794f3d001b03d" => :el_capitan
-    sha256 "45fcd4005b494018548351e882a1fe651ed35eabd5f0e5ee4db1f563016cabc2" => :yosemite
+    sha256 "109705d0a92e13fc733190a63d1a90bd97475aa7b54ce629cd807f26c2e53556" => :sierra
+    sha256 "07b4f07e15b7c7360b43bf2ac14b6a5c1074decdbfdc65f11012f9ca02f6b59c" => :el_capitan
+    sha256 "d99220ef0eb01666bba2e0685080e122c6d997f035cf6ce16a8c4c4f909e4a24" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

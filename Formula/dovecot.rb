@@ -1,14 +1,14 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.28.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.28.tar.gz"
-  sha256 "e0288f59e326ab87cb3881fdabadafe542f4dc7ab9996db13863a439ebbc1f25"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.29.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/dovecot-2.2.29.1.tar.gz"
+  sha256 "ccfa9ffb7eb91e9e87c21c108324b911250c9ffa838bffb64b1caafadcb0f388"
 
   bottle do
-    sha256 "451e5a9cf041884d19c7c9435d187175ba9d7b1bb26a7e83bff59eb7bebc6ff2" => :sierra
-    sha256 "4e7aee618f21b3738cf638b307f667b058cd8cbdfd0c012d31eed1282934f580" => :el_capitan
-    sha256 "1e2a2348be463de818db8ac31840759c7b16e35d2270d25547099d01774407e2" => :yosemite
+    sha256 "40e0cc9f3a3f1084e5870b2e9d5571224e7286877a11d4b08cb6ca7f9a514495" => :sierra
+    sha256 "ee704a240ed79ee37cecb3fff35db53b6c93f430afd17036aa5e6b9554e48cbe" => :el_capitan
+    sha256 "fe6e9bb3128b0e15620fa2163152b157734c507b87a53358238f38e78fd31928" => :yosemite
   end
 
   option "with-pam", "Build with PAM support"
@@ -20,8 +20,8 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.17.tar.gz"
-    sha256 "74d869c7532cbf4fe41e3cc95a1aa6ce32e98f4d423f0d099da1e0fba022dae3"
+    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.18.tar.gz"
+    sha256 "dd871bb57fad22795460f613f3c9484a8bf229272ac00956d837a34444f1c3a9"
   end
 
   resource "stemmer" do
