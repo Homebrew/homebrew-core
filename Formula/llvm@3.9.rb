@@ -20,6 +20,7 @@ end
 class LlvmAT39 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
+  revision 1
 
   stable do
     url "http://llvm.org/releases/3.9.1/llvm-3.9.1.src.tar.xz"
@@ -300,8 +301,8 @@ class LlvmAT39 < Formula
       }
     EOS
 
-    system "#{bin}/clang", "-L#{lib}", "-Wl,-rpath,#{lib}", "-fopenmp",
-                           "-nobuiltininc", "-I#{lib}/clang/#{version}/include",
+    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
+                           "-I#{lib}/clang/#{version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
@@ -380,7 +381,7 @@ class LlvmAT39 < Formula
               "-I#{MacOS.sdk_path}/usr/include",
               "-L#{lib}",
               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-      assert_includes MachO::Tools.dylibs("test"), "@rpath/libc++.1.dylib"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./test").chomp
     end
   end
