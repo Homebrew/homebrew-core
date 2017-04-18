@@ -20,6 +20,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
+  revision 1
 
   stable do
     url "http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz"
@@ -75,9 +76,9 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    sha256 "a2aab0ee9bce5c96ac7ed2078ae134ce77ea0f27d41484df2978c7521e63876d" => :sierra
-    sha256 "0bccb14a3793ac89e75d6b08804532cec352f23a6422f3f366253f1112d24d22" => :el_capitan
-    sha256 "a3df2535ad55433bb6263efa74f3efc6d19973384ac9fa7a3edf1d55d2cd1bf7" => :yosemite
+    sha256 "c9b767b585dea0a0941dc3f65fd06f85af51c16528f3d2cda62e123a4c30dfa7" => :sierra
+    sha256 "fe20c0b3987743371644a701b23e19f7b2c5626549a821f206f1222c17e91f2c" => :el_capitan
+    sha256 "52ecbfa6487ac0615bea0a9865461183c070ea275594bdcc0c17254718df8d80" => :yosemite
   end
 
   head do
@@ -269,19 +270,12 @@ class Llvm < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-      LLVM executables are installed in #{opt_bin}.
-      Extra tools are installed in #{opt_pkgshare}.
-    EOS
-
     if build_libcxx?
-      s += <<-EOS.undent
+      <<-EOS.undent
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
       EOS
     end
-
-    s
   end
 
   test do
@@ -301,8 +295,8 @@ class Llvm < Formula
       }
     EOS
 
-    system "#{bin}/clang", "-L#{lib}", "-Wl,-rpath,#{lib}", "-fopenmp",
-                           "-nobuiltininc", "-I#{lib}/clang/#{version}/include",
+    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
+                           "-I#{lib}/clang/#{version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
@@ -381,7 +375,7 @@ class Llvm < Formula
               "-I#{MacOS.sdk_path}/usr/include",
               "-L#{lib}",
               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-      assert_includes MachO::Tools.dylibs("test"), "@rpath/libc++.1.dylib"
+      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./test").chomp
     end
   end
