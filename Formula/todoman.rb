@@ -3,8 +3,8 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/4d/3b/29491b2a1dd87c70a740c99f53569eaa70d8cad58517dc8e1f1b15e2eb04/todoman-3.0.1.tar.gz"
-  sha256 "af69c9890405c6609f1c5c84cd8da669c8b4cdadf76b7a4ef88be7bd97e66611"
+  url "https://files.pythonhosted.org/packages/81/7e/30547f981ca6d5f9d8e51f4e27ab6dda9a81d4156c006deba9f7a332407c/todoman-3.1.0.tar.gz"
+  sha256 "ad4ec5c63f8813acc6bf403cf9ceb99447b2661c0c27efaea745db2e870e0408"
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
