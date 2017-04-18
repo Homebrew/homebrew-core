@@ -1,15 +1,15 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2"
-  sha256 "dafd5d7f649907b6b617b822692f4c82e60cf29bc0fc58bc2036219b591e5e62"
+  url "http://wiki.qemu-project.org/download/qemu-2.8.1.tar.bz2"
+  sha256 "018e4c7ed22c220395cf41f835d01505e49d0e579a548bd3d72b03809442bbcd"
 
   head "git://git.qemu-project.org/qemu.git"
 
   bottle do
-    sha256 "9b14fea7d0151fd7a150678b4328d05fb74d75e66613733ba5dca6b1cbb2c1e3" => :sierra
-    sha256 "5d828daa16ec27a62509bae002f35ffd6135905dff5ade78de81479e6dada346" => :el_capitan
-    sha256 "d6229727ed1d48b67b8308d093c4238b3cd3e5e56e4e0994794be7b7168b0b62" => :yosemite
+    sha256 "3a709657c309d04d3c2a91de375fe80f81d8f441eb42d029cf1e8e364774d56e" => :sierra
+    sha256 "ff966d6bdc3b80a786d87e1ae01e6099de4c6da6bee5442dd343bed898cd24f1" => :el_capitan
+    sha256 "3a13d18575c6d8b3817f39a08cd6d7d2b96b8dca7237a799011e7ebb51cf1c63" => :yosemite
   end
 
   depends_on "pkg-config" => :build

@@ -9,9 +9,13 @@ def checkout() {
   brew_cellar = "/usr/local/Cellar"
   brew_repo = "/usr/local/Homebrew"
   brew_tap_repo = "${brew_repo}/Library/Taps/homebrew/homebrew-core"
-  sh "mkdir -p ${brew_bin} ${brew_cellar} ${brew_tap_repo} "
+  brew_test_bot_repo = "${brew_repo}/Library/Taps/homebrew/homebrew-test-bot"
+  sh "mkdir -p ${brew_bin} ${brew_cellar} ${brew_tap_repo} ${brew_test_bot_repo}"
   dir(brew_repo) {
     git url: 'https://github.com/Homebrew/brew.git', changelog: false
+  }
+  dir(brew_test_bot_repo) {
+    git url: 'https://github.com/Homebrew/homebrew-test-bot.git', changelog: false
   }
   sh "ln -sf ${brew_repo}/bin/brew ${brew_bin}/brew"
   dir(brew_tap_repo) {
@@ -20,16 +24,16 @@ def checkout() {
 }
 
 def test_bot(args) {
-  timeout(time: 6, unit: 'HOURS') {
+  timeout(time: 5, unit: 'HOURS') {
     withEnv(["PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
              'HOMEBREW_DEVELOPER=1']) {
-      sh "brew test-bot ${args}"
+      sh "brew test-bot --tap=homebrew/core ${args}"
     }
   }
 }
 
 def test() {
-  test_bot("--ci-auto ${BOT_PARAMS}")
+  test_bot("--ci-auto")
 }
 
 def archive(stash_name) {
@@ -47,19 +51,19 @@ def archive(stash_name) {
 def build(stash_name) {
   cleanup()
   checkout()
-  test()
-  archive(stash_name)
-  cleanup()
+  try {
+    test()
+  }
+  catch (err) {
+    currentBuild.result = "FAILURE"
+  }
+  finally {
+    archive(stash_name)
+    cleanup()
+  }
 }
 
 try {
-  properties([
-    buildDiscarder(logRotator(daysToKeepStr: '7', artifactNumToKeepStr: '50')),
-    [$class: 'RebuildSettings', autoRebuild: true],
-    parameters([string(name: 'BOT_PARAMS', defaultValue: '', description: 'Parameters passed to `brew test-bot`')]),
-    pipelineTriggers([[$class: 'GitHubPushTrigger']])
-  ])
-
   stage("Build") {
     // TODO: figure out how to use macos_versions here.
     parallel (
@@ -69,25 +73,33 @@ try {
     )
   }
 
-  def stashed_bottles = false
-  node("master") {
-    stashed_bottles = fileExists("../builds/${env.BUILD_NUMBER}/stashes")
-  }
-  if (stashed_bottles) {
-    stage("Upload") {
-      node("master") {
-        cleanup()
-        checkout()
-        for (version in macos_versions) {
+  stage("Upload") {
+    node("master") {
+      cleanup()
+      checkout()
+
+      stash_count = 0
+      for (version in macos_versions) {
+        try {
           unstash version
+          stash_count += 1
         }
-        withCredentials([[
-            $class: 'UsernamePasswordMultiBinding',
-            credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
-            passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
-          test_bot("--ci-upload --tap=homebrew/core")
+        catch (err) {
         }
-        cleanup()
+      }
+
+      if (stash_count != 0) {
+        try {
+          withCredentials([[
+              $class: 'UsernamePasswordMultiBinding',
+              credentialsId: '5b6903a9-9f39-4c1b-9de6-ba0dd99c82a0',
+              passwordVariable: 'BINTRAY_KEY', usernameVariable: 'BINTRAY_USER']]) {
+            test_bot("--ci-upload")
+          }
+        }
+        finally {
+          cleanup()
+        }
       }
     }
   }

@@ -1,6 +1,6 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
-  homepage "http://www.inspircd.org"
+  homepage "https://www.inspircd.org/"
   url "https://github.com/inspircd/inspircd/archive/v2.0.23.tar.gz"
   sha256 "522b31fc80e8fd90b66837bf50f8a941233709d5b1fc9c0b3c47a413fb69f162"
   head "https://github.com/inspircd/inspircd.git", :branch => "insp20"
