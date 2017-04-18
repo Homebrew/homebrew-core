@@ -1,48 +1,46 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://projects.iq.harvard.edu/files/fits/files/fits-0.8.6_1.zip"
-  version "0.8.6-1"
-  sha256 "d45f67a2606aaa0fdcbbade576f70f1590916b043fec28dcfdef1a8242fd4040"
+  url "https://github.com/harvard-lts/fits/archive/1.0.7.tar.gz"
+  sha256 "9094071db178c1ba48bd3a0c957138c461190f28f3dc97c81a8d84d2233eb198"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ded3ed995804a6975db42aa3984dc559cea98696a4b9d2a659f09a472b4a78fe" => :sierra
-    sha256 "e6a3308ead5d286ec2b53c3e3dbe82ce95b712eb106926eb0a75a16a19bc84ff" => :el_capitan
-    sha256 "cbd107b9147e58be56405d04b83e7b58b2a61210f8713f32ef0aa12cc0cb9192" => :yosemite
-    sha256 "81b380fb42b2f057f80842a723a30bee313ca6c7f70a9f007a206c63064ca665" => :mavericks
-    sha256 "be677363eb1d07b255dd6d931b372411011576d97269f75c52dbb72a716ea919" => :mountain_lion
+    cellar :any
+    sha256 "6e40f1fd9f8f1942695e0d40a6c6ba0a8c3ed742fc3fb463600617457a62eccb" => :sierra
+    sha256 "2bfd30983cebe22bef49a889e4af586158f3b8f2ea9bc0f9560aa359a27ebf62" => :el_capitan
+    sha256 "14f8f42715e72893d27ac1e6d3941dc5eec0b77e3838becb86475c70643a1522" => :yosemite
   end
 
-  # provided jars may not be compatible with installed java,
-  # but works when built from source
   depends_on "ant" => :build
   depends_on :java => "1.7+"
 
   def install
-    system "ant"
+    ENV.java_cache
+    system "ant", "clean-compile-jar", "-noinput"
+
+    libexec.install "lib",
+                    %w[tools xml],
+                    Dir["*.properties"]
+
+    (libexec/"lib").install "lib-fits/fits-#{version}.jar"
 
     inreplace "fits-env.sh" do |s|
-      s.gsub! "FITS_HOME=`echo \"$0\" | sed 's,/[^/]*$,,'`", "FITS_HOME=#{prefix}"
-      s.gsub! "${FITS_HOME}/lib", libexec
+      s.gsub! /^FITS_HOME=.*/, "FITS_HOME=#{libexec}"
+      s.gsub! "${FITS_HOME}/lib", libexec/"lib"
     end
 
-    prefix.install %w[COPYING COPYING.LESSER tools xml]
-    prefix.install Dir["*.txt"]
-    libexec.install Dir["lib/*"]
+    inreplace %w[fits.sh fits-ngserver.sh],
+              %r{\$\(dirname .*\)\/fits-env\.sh}, "#{libexec}/fits-env.sh"
 
     # fits-env.sh is a helper script that sets up environment
     # variables, so we want to tuck this away in libexec
     libexec.install "fits-env.sh"
-    inreplace %w[fits.sh fits-ngserver.sh],
-      '"$(dirname $BASH_SOURCE)/fits-env.sh"', "'#{libexec}/fits-env.sh'"
-
     bin.install "fits.sh" => "fits"
     bin.install "fits-ngserver.sh" => "fits-ngserver"
   end
 
   test do
     assert_match 'mimetype="audio/mpeg"',
-      shell_output("#{bin}/fits -i #{test_fixtures "test.mp3"} 2>&1")
+      shell_output("#{bin}/fits -i #{test_fixtures "test.mp3"}")
   end
 end

@@ -1,16 +1,17 @@
 class Fstar < Formula
-  desc "Language with a type system for program verification"
+  desc "ML-like language aimed at program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.4.0",
       :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
+  revision 1
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
     cellar :any
-    sha256 "c0e12f89c58c63d456c194206243b1c2b9cbea1857afe7f2fd31fa3b709c2797" => :sierra
-    sha256 "632b24047df19cc9568fe46c3e5041cfc0c0858f3139aaa7c3bc9905a55f87df" => :el_capitan
-    sha256 "97c2b2db56554822f03293d74099db6f20386d512287295a5d16b8ed265a2899" => :yosemite
+    sha256 "9021919136bf13c486c3594801a247db59c2c675dad6ac42e7a4a320ec8e76b1" => :sierra
+    sha256 "500f9933149f1b8149cbc91475d150bfff1a03a3d66f58978fa6dcdb8fd0bd1b" => :el_capitan
+    sha256 "3736e3c9c1baedd1b6eaff6217fe90d54c50f026b6f5161bfae1b8168b260224" => :yosemite
   end
 
   depends_on "opam" => :build
@@ -37,16 +38,20 @@ class Fstar < Formula
 
     system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
 
-    bin.install "bin/fstar.exe"
+    (libexec/"bin").install "bin/fstar.exe"
+    (bin/"fstar.exe").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/fstar.exe --fstar_home #{prefix} $@
+    EOS
 
-    (libexec/"stdlib").install Dir["ulib/*"]
+    (libexec/"ulib").install Dir["ulib/*"]
     (libexec/"contrib").install Dir["ucontrib/*"]
     (libexec/"examples").install Dir["examples/*"]
     (libexec/"tutorial").install Dir["doc/tutorial/*"]
     (libexec/"src").install Dir["src/*"]
     prefix.install "LICENSE-fsharp.txt"
 
-    prefix.install_symlink libexec/"stdlib"
+    prefix.install_symlink libexec/"ulib"
     prefix.install_symlink libexec/"contrib"
     prefix.install_symlink libexec/"examples"
     prefix.install_symlink libexec/"tutorial"
@@ -69,12 +74,6 @@ class Fstar < Formula
 
   test do
     system "#{bin}/fstar.exe",
-    "--include", "#{prefix}/examples/unit-tests",
-    "--admit_fsi", "FStar.Set",
-    "FStar.Set.fsi", "FStar.Heap.fst",
-    "FStar.ST.fst", "FStar.All.fst",
-    "FStar.List.fst", "FStar.String.fst",
-    "FStar.Int32.fst", "unit1.fst",
-    "unit2.fst", "testset.fst"
+    "#{prefix}/examples/hello/hello.fst"
   end
 end
