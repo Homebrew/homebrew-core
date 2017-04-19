@@ -6,6 +6,13 @@ class Curlftpfs < Formula
 
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", :using => :cvs
 
+  bottle do
+    cellar :any
+    sha256 "44f2aecc6d790eff800e1e38b5f28e9fb5cf17b9a1adf6daaf23d42196796e8c" => :sierra
+    sha256 "21b0fc7553f564b464b4158deaf22beeae6d2791786b6eb9af0f16de854b8009" => :el_capitan
+    sha256 "4d610ca926b0698aa25633af0fa5ad1e9352de396f16c7f26e9beff682d4020f" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
