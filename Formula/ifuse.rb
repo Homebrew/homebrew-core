@@ -5,6 +5,13 @@ class Ifuse < Formula
   sha256 "9b63afa6f2182da9e8c04b9e5a25c509f16f96f5439a271413956ecb67143089"
   head "http://cgit.sukimashita.com/ifuse.git"
 
+  bottle do
+    cellar :any
+    sha256 "424c1d3dcc232ca0afa729bc27abcc4d5519e879ea61badfd3fb4e9d1ff3af1b" => :sierra
+    sha256 "2225777c6c9afaa0218f0fa8ca6b8eb0bc0a34ab7004e48613ff51af63f64d02" => :el_capitan
+    sha256 "9ea6fd7a09dbfba5bb1f1a7335330977440c1e3d73dac29b8a6433a6a35d1bff" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
