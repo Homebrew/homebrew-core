@@ -4,6 +4,13 @@ class Djmount < Formula
   url "https://downloads.sourceforge.net/project/djmount/djmount/0.71/djmount-0.71.tar.gz"
   sha256 "aa5bb482af4cbd42695a7e396043d47b53d075ac2f6aa18a8f8e11383c030e4f"
 
+  bottle do
+    cellar :any
+    sha256 "47be8c859fd5271a518ed61bf2a70c1baea0314e5ad10fefbe0d43fc5a8bd99a" => :sierra
+    sha256 "b5a178484c96047baadd5717bd5ba0cbf6b2f00fe2e6a21095dd02f45668c61d" => :el_capitan
+    sha256 "774dae46551c0a92244f01816d747a0c0e52d5898fe93792d3e9e3267845acbd" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libupnp"
   depends_on :osxfuse
