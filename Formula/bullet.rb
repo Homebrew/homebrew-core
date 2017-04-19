@@ -3,6 +3,8 @@ class Bullet < Formula
   homepage "http://bulletphysics.org/wordpress/"
   url "https://github.com/bulletphysics/bullet3/archive/2.86.1.tar.gz"
   sha256 "c058b2e4321ba6adaa656976c1a138c07b18fc03b29f5b82880d5d8228fbf059"
+  revision 1
+
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
@@ -13,45 +15,45 @@ class Bullet < Formula
   end
 
   option "with-framework", "Build frameworks"
-  option "with-shared", "Build shared libraries"
   option "with-demo", "Build demo applications"
   option "with-double-precision", "Use double precision"
 
   deprecated_option "framework" => "with-framework"
-  deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
   deprecated_option "double-precision" => "with-double-precision"
 
   depends_on "cmake" => :build
 
   def install
-    args = ["-DINSTALL_EXTRA_LIBS=ON", "-DBUILD_UNIT_TESTS=OFF"]
+    args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
+    args << "-DINSTALL_EXTRA_LIBS=ON" << "-DBUILD_UNIT_TESTS=OFF"
 
     if build.with? "framework"
-      args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
+      args << "-DFRAMEWORK=ON"
       args << "-DCMAKE_INSTALL_PREFIX=#{frameworks}"
       args << "-DCMAKE_INSTALL_NAME_DIR=#{frameworks}"
     else
-      args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared"
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
     end
 
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
-
-    # Related to the following warnings when building --with-shared --with-demo
-    # https://gist.github.com/scpeters/6afc44f0cf916b11a226
-    if build.with?("demo") && (build.with?("shared") || build.with?("framework"))
-      raise "Demos cannot be installed with shared libraries or framework."
-    end
-
     args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
 
-    system "cmake", *args
+    # always build and install shared libraries
+    system "cmake", *args, "-DBUILD_SHARED_LIBS=ON"
     system "make"
     system "make", "install"
 
-    prefix.install "examples" if build.with? "demo"
-    prefix.install "Extras" if build.with? "extra"
+    # build static libraries if it's not a framework
+    if build.without? "framework"
+      system "cmake", *args, "-DBUILD_SHARED_LIBS=OFF"
+      system "make"
+      system "make", "install"
+
+      # examples and extras only work with static libraries
+      prefix.install "examples" if build.with? "demo"
+      prefix.install "Extras" if build.with? "extra"
+    end
   end
 
   test do
