@@ -1,8 +1,8 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers."
   homepage "https://github.com/wercker/stern"
-  url "https://github.com/wercker/stern/archive/1.4.0.tar.gz"
-  sha256 "32c65ad4710bb84ab187443f78d1016c9e76b18ef7396c841571bf2ce9907b2b"
+  url "https://github.com/wercker/stern/archive/1.5.0.tar.gz"
+  sha256 "2e2e1baef022fa850d5fc9ceb4053a35cd033e9059621c4cdabff874cb39cbaf"
 
   head "https://github.com/wercker/stern.git",
     :shallow => false
