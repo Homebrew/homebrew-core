@@ -24,6 +24,7 @@ class Virtuoso < Formula
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
   depends_on "openssl"
+  depends_on "xz" => :linked
 
   conflicts_with "unixodbc", :because => "Both install `isql` binaries."
 
