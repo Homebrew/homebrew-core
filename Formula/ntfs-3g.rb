@@ -4,6 +4,13 @@ class Ntfs3g < Formula
   url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz"
   sha256 "d7b72c05e4b3493e6095be789a760c9f5f2b141812d5b885f3190c98802f1ea0"
 
+  bottle do
+    cellar :any
+    sha256 "f0e372ea3442a6989afab7083fbdb381d65d14ad24bb0d2a2130983e3bc5fe7e" => :sierra
+    sha256 "44324ff2bb03ebda1de9a593d59e24794156b555e81ad9f844aca90a3dbffd1d" => :el_capitan
+    sha256 "bcefa6dcccb472e1fe09b7bb0eca306c5ee976f4658d5da35579e74736384ee5" => :yosemite
+  end
+
   head do
     url "git://git.code.sf.net/p/ntfs-3g/ntfs-3g", :branch => "edge"
 
