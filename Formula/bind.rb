@@ -20,6 +20,9 @@ class Bind < Formula
     # enable DNSSEC signature chasing in dig
     ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
 
+    # enable DNSSEC signature chasing in dig
+    ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
+
     json = build.with?("json-c") ? "yes" : "no"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads",
