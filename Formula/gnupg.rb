@@ -29,7 +29,7 @@ class Gnupg < Formula
   depends_on "adns"
   depends_on "libusb" => :recommended
   depends_on "readline" => :optional
-  depends_on "homebrew/fuse/encfs" => :optional
+  depends_on "encfs" => :optional
 
   def install
     args = %W[
