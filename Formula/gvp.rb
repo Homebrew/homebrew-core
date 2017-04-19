@@ -18,6 +18,12 @@ class Gvp < Formula
     sha256 "59379b52fc13d79ea03de453cd58df98ad5ddd49ba3ba5d784b8bee7649e9cd7"
   end
 
+  # Upstream fix for "syntax error near unexpected token `;'"
+  patch do
+    url "https://github.com/pote/gvp/commit/11c4cefd.patch"
+    sha256 "59379b52fc13d79ea03de453cd58df98ad5ddd49ba3ba5d784b8bee7649e9cd7"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
