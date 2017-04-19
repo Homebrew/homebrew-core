@@ -3,6 +3,8 @@ class Bullet < Formula
   homepage "http://bulletphysics.org/wordpress/"
   url "https://github.com/bulletphysics/bullet3/archive/2.86.1.tar.gz"
   sha256 "c058b2e4321ba6adaa656976c1a138c07b18fc03b29f5b82880d5d8228fbf059"
+  revision 1
+
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
@@ -13,50 +15,50 @@ class Bullet < Formula
   end
 
   option "with-framework", "Build frameworks"
-  option "with-shared", "Build shared libraries"
   option "with-demo", "Build demo applications"
   option "with-double-precision", "Use double precision"
 
   deprecated_option "framework" => "with-framework"
-  deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
   deprecated_option "double-precision" => "with-double-precision"
 
   depends_on "cmake" => :build
 
   def install
-    args = ["-DINSTALL_EXTRA_LIBS=ON", "-DBUILD_UNIT_TESTS=OFF"]
-
-    if build.with? "framework"
-      args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
-      args << "-DCMAKE_INSTALL_PREFIX=#{frameworks}"
-      args << "-DCMAKE_INSTALL_NAME_DIR=#{frameworks}"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared"
-      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    end
-
+    args = std_cmake_args + %w[
+      -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF
+    ]
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
 
-    # Related to the following warnings when building --with-shared --with-demo
-    # https://gist.github.com/scpeters/6afc44f0cf916b11a226
-    if build.with?("demo") && (build.with?("shared") || build.with?("framework"))
-      raise "Demos cannot be installed with shared libraries or framework."
-    end
+    args_shared = args.dup + %w[
+      -DBUILD_BULLET2_DEMOS=OFF -DBUILD_SHARED_LIBS=ON
+    ]
 
-    args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+    args_framework = %W[
+      -DFRAMEWORK=ON
+      -DCMAKE_INSTALL_PREFIX=#{frameworks}
+      -DCMAKE_INSTALL_NAME_DIR=#{frameworks}
+    ]
 
-    system "cmake", *args
-    system "make"
+    args_shared += args_framework if build.with? "framework"
+
+    args_static = args.dup << "-DBUILD_SHARED_LIBS=OFF"
+    args_static << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+
+    system "cmake", ".", *args_shared
+    system "make", "install"
+
+    system "make", "clean"
+
+    system "cmake", ".", *args_static
     system "make", "install"
 
     prefix.install "examples" if build.with? "demo"
-    prefix.install "Extras" if build.with? "extra"
   end
 
   test do
     (testpath/"test.cpp").write <<-EOS.undent
-      #include "bullet/LinearMath/btPolarDecomposition.h"
+      #include "LinearMath/btPolarDecomposition.h"
       int main() {
         btMatrix3x3 I = btMatrix3x3::getIdentity();
         btMatrix3x3 u, h;
@@ -64,7 +66,16 @@ class Bullet < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lLinearMath", "-lc++", "-o", "test"
+
+    if build.with? "framework"
+      system ENV.cc, "test.cpp", "-F#{frameworks}", "-framework", "LinearMath",
+                     "-I#{frameworks}/LinearMath.framework/Headers", "-lc++",
+                     "-o", "f_test"
+      system "./f_test"
+    end
+
+    system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",
+                   "-lLinearMath", "-lc++", "-o", "test"
     system "./test"
   end
 end
