@@ -14,6 +14,13 @@ class Cjdns < Formula
 
   depends_on "node" => :build
 
+  # Fixes a node 6 compatibility issue
+  # https://github.com/cjdelisle/cjdns/commit/9e1da7adc96b8c05cb69a6e0f5f12818502b591c
+  patch do
+    url "https://github.com/cjdelisle/cjdns/commit/9e1da7adc96b8c05cb69a6e0f5f12818502b591c.patch"
+    sha256 "83a2bc4dfd864785a60d7c10532e0b6eeab9b0346a24f61fad6f36d7891e677a"
+  end
+
   def install
     system "./do"
     bin.install "cjdroute"
