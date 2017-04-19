@@ -10,7 +10,14 @@ class Alpine < Formula
     sha256 "551758443501811d21f90d3fc4f29a0787cca2409e9413138c9b8fac96395da0" => :yosemite
   end
 
+  option "with-maildir", "Compile with support for Maildir format mailboxes"
+
   depends_on "openssl"
+
+  patch do
+    url "http://patches.freeiz.com/alpine/patches/alpine-2.20/maildir.patch.gz"
+    sha256 "1ef0932b80d7f790ce6577a521a7b613b5ce277bb13cbaf0116bb5de1499caaa"
+  end if build.with? "maildir"
 
   def install
     ENV.deparallelize
