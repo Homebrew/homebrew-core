@@ -1,10 +1,11 @@
 class Osc < Formula
   include Language::Python::Virtualenv
 
-  desc "The Command Line Interface to work with an Open Build Service"
+  desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.157.2.tar.gz"
   sha256 "cde6384f069e3b08cc425cf5105251acb77f5f8c9413888b5f4ab89fec068f07"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -30,8 +31,8 @@ class Osc < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/9c/58/7e8d8c04995a422c3744929721941c400af0a2a8b8633f129d92f313cfb8/M2Crypto-0.25.1.tar.gz"
-    sha256 "ac303a1881307a51c85ee8b1d87844d9866ee823b4fdbc52f7e79187c2d9acef"
+    url "https://files.pythonhosted.org/packages/11/29/0b075f51c38df4649a24ecff9ead1ffc57b164710821048e3d997f1363b9/M2Crypto-0.26.0.tar.gz"
+    sha256 "05d94fd9b2dae2fb8e072819a795f0e05d3611b09ea185f68e1630530ec09ae8"
   end
 
   def install
