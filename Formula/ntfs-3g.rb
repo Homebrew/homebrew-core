@@ -1,8 +1,8 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz"
-  sha256 "d7b72c05e4b3493e6095be789a760c9f5f2b141812d5b885f3190c98802f1ea0"
+  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz"
+  sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
 
   bottle do
     cellar :any
@@ -12,7 +12,8 @@ class Ntfs3g < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/ntfs-3g/ntfs-3g", :branch => "edge"
+    url "https://git.code.sf.net/p/ntfs-3g/ntfs-3g.git",
+        :branch => "edge"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -26,15 +27,19 @@ class Ntfs3g < Formula
 
   def install
     ENV.append "LDFLAGS", "-lintl"
-    args = ["--disable-debug",
-            "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--exec-prefix=#{prefix}",
-            "--mandir=#{man}",
-            "--with-fuse=external"]
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --exec-prefix=#{prefix}
+      --mandir=#{man}
+      --with-fuse=external
+    ]
 
     system "./autogen.sh" if build.head?
-    inreplace "ntfsprogs/Makefile.in", "/sbin", sbin # Workaround for hardcoded /sbin in ntfsprogs
+    # Workaround for hardcoded /sbin in ntfsprogs
+    inreplace "ntfsprogs/Makefile.in", "/sbin", sbin
     system "./configure", *args
     system "make"
     system "make", "install"
@@ -72,5 +77,10 @@ class Ntfs3g < Formula
       exit $?;
       EOS
     end
+  end
+
+  test do
+    output = shell_output("#{bin}/ntfs-3g --version 2>&1")
+    assert_match version.to_s, output
   end
 end
