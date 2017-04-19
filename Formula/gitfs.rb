@@ -7,6 +7,13 @@ class Gitfs < Formula
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
   head "https://github.com/PressLabs/gitfs.git"
 
+  bottle do
+    cellar :any
+    sha256 "ca270f78333fea7499f5f0c705e8a9c6b04916442c141931018e96cd62b4484a" => :sierra
+    sha256 "21774278959656c3b8166a1096bf955df7aa69f4486be25008032b9fa1f7b548" => :el_capitan
+    sha256 "7d536833c2ba5177a4c3dc0d7604ed4b3c0961896b838f79e807ce3d7bec59a5" => :yosemite
+  end
+
   depends_on "libgit2"
   depends_on :osxfuse
   depends_on :python if MacOS.version <= :snow_leopard
