@@ -12,6 +12,8 @@ class Jrnl < Formula
     sha256 "9e44aeb99a2923c3c7b00619f85c30d6d160289dfe43901c2e4df46d914009db" => :yosemite
   end
 
+  include Language::Python::Virtualenv
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "future" do
