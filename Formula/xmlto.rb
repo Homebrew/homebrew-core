@@ -34,6 +34,12 @@ class Xmlto < Formula
   end
 
   test do
+    (testpath/"test").write <<-EOS.undent
+      <?xmlif if foo='bar'?>
+      Passing test.
+      <?xmlif fi?>
+    EOS
+    assert_equal "Passing test.", shell_output("cat test | #{bin}/xmlif foo=bar").strip
   end
 end
 
