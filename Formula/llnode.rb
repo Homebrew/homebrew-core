@@ -1,8 +1,8 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/indutny/llnode"
-  url "https://github.com/indutny/llnode/archive/v1.3.0.tar.gz"
-  sha256 "7d7a0c44195adeb0389641148597dfef652ca3736af8bcc90c65e28a0b2ede63"
+  url "https://github.com/nodejs/llnode/archive/v1.4.2.tar.gz"
+  sha256 "c82198e9f77ff1826225e9e28c7a3b6ce66f30893fbcc4069bffb7a9297ab53e"
 
   bottle do
     cellar :any
@@ -21,7 +21,11 @@ class Llnode < Formula
   end
 
   resource "lldb" do
-    if MacOS::Xcode.version >= "8.0"
+    if MacOS::Xcode.version >= "8.3"
+      # lldb 390
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "d556e60f02a7404b291d07cac2f27512c73bc743"
+    elsif MacOS::Xcode.version >= "8.0"
       # lldb 360.1
       url "https://github.com/llvm-mirror/lldb.git",
           :revision => "839b868e2993dcffc7fea898a1167f1cec097a82"
