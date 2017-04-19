@@ -11,6 +11,11 @@ class Webp < Formula
     sha256 "a3db82a59e4726452ff8b5c9352e016571e6fb1b0713180d7b6ccc7c5b64541d" => :yosemite
   end
 
+  devel do
+    url "http://downloads.webmproject.org/releases/webp/libwebp-0.5.1-rc5.tar.gz"
+    sha256 "7bd3022eefbcf34233b20570de89c1a8687acdfaa739c12e4236fc0b736339fd"
+  end
+
   head do
     url "https://chromium.googlesource.com/webm/libwebp.git"
     depends_on "autoconf" => :build
