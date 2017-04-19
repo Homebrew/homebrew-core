@@ -5,10 +5,9 @@ class Ntfs3g < Formula
   sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
 
   bottle do
-    cellar :any
-    sha256 "f0e372ea3442a6989afab7083fbdb381d65d14ad24bb0d2a2130983e3bc5fe7e" => :sierra
-    sha256 "44324ff2bb03ebda1de9a593d59e24794156b555e81ad9f844aca90a3dbffd1d" => :el_capitan
-    sha256 "bcefa6dcccb472e1fe09b7bb0eca306c5ee976f4658d5da35579e74736384ee5" => :yosemite
+    sha256 "66662baf5f187c4784ff9c4236d9595205c01c6c7141699b8afcdb4337304a0c" => :sierra
+    sha256 "dc2dc22afe3376cccb2a7d62f3faf4455a2422ebe4c96eaebd6d9249a00e3c2d" => :el_capitan
+    sha256 "160fd2811b0fe6e072194860e17e2abbe71b18a2ac2c16db15ceb2eaf1e9918a" => :yosemite
   end
 
   head do
