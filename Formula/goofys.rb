@@ -9,6 +9,13 @@ class Goofys < Formula
 
   head "https://github.com/kahing/goofys.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "214c728ceb4cac8d251dbc45630093d00db03a2bf43d9d6cab5d5ed0bd880d64" => :sierra
+    sha256 "f2a85e78185766488a036cb6fd2bf1a5523ad5d9acb3f5e6b1b6c9d78a8ead80" => :el_capitan
+    sha256 "198a37cf47fe63c25f72ce0aa490fbc2efa4ffc0d9f0195d5334524ce2a26ff6" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on :osxfuse
 
