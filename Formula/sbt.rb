@@ -1,7 +1,7 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
-  url "https://dl.bintray.com/sbt/native-packages/sbt/0.13.15/sbt-0.13.15.tgz"
+  url "https://github.com/sbt/sbt/releases/download/v0.13.15/sbt-0.13.15.tgz"
   sha256 "b6e073d7c201741dcca92cfdd1dd3cd76c42a47dc9d8c8ead8df7117deed7aef"
 
   devel do
