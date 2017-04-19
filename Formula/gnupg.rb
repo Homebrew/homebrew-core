@@ -57,7 +57,7 @@ class Gnupg < Formula
     man1.install_symlink "gpg2.1" => "gpg.1"
     man1.install_symlink "gpgv2.1" => "gpgv.1"
 
-    bin.install "tools/gpgsplit" => "gpgsplit2" if build.with? "gpgsplit"
+    bin.install "tools/gpgsplit" if build.with? "gpgsplit"
     bin.install "tools/gpg-zip" if build.with? "gpg-zip"
   end
 
