@@ -3,6 +3,7 @@ class Servus < Formula
   homepage "https://github.com/HBPVIS/Servus"
   url "https://github.com/HBPVIS/Servus/archive/1.5.0.tar.gz"
   sha256 "42fb9c060f17f040ad3c7563f5e87c89f5a221a5aa7da21384fc26b9c725ecc8"
+  revision 1
 
   bottle do
     cellar :any
