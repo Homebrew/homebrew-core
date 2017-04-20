@@ -3,7 +3,7 @@ class Ncmpcpp < Formula
   homepage "https://rybczak.net/ncmpcpp/"
   url "https://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.7.tar.bz2"
   sha256 "b7bcbec83b1f88cc7b21f196b10be09a27b430566c59f402df170163464d01ef"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
