@@ -39,7 +39,7 @@ class Libass < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.c").write <<-EOS.undent
       #include "ass/ass.h"
       int main() {
         ASS_Library *library;
@@ -62,7 +62,7 @@ class Libass < Formula
         }
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lass", "-o", "test"
-    system "./test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lass", "-o", "test"
+    shell_output("./test")
   end
 end
