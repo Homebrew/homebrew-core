@@ -4,7 +4,6 @@ class Haxe < Formula
   url "https://github.com/HaxeFoundation/haxe.git",
       :tag => "3.4.2",
       :revision => "890f8c70cf23ce6f9fe0fdd0ee514a9699433ca7"
-  head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
     cellar :any
@@ -13,9 +12,13 @@ class Haxe < Formula
     sha256 "07da6182e4e2482c941a0b7e5d3ec0bda852ab6702c0067153c02e0c3a3a1925" => :yosemite
   end
 
+  head do
+    url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
+    depends_on "opam" => :build
+  end
+
   depends_on "ocaml" => :build
   depends_on "camlp4" => :build
-  depends_on "opam" => :build if build.head?
   depends_on "cmake" => :build
   depends_on "neko"
   depends_on "pcre"
