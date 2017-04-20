@@ -3,8 +3,8 @@ require "language/go"
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.9.5.tar.gz"
-  sha256 "6d602e6009ff14cfe7cccea470f9c4cb5ea10865f137293435b35122333b72c2"
+  url "https://github.com/mholt/caddy/archive/v0.10.0.tar.gz"
+  sha256 "9b24aa904dd616ca05b6654bec991df88f5c9eb898ed80356de0e6cad6ec3005"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
