@@ -10,6 +10,9 @@ class Pango < Formula
     sha256 "f8b34e7f18afa1b992a7e3d4d9308314e51b56c6886ab847fe0e2f8dc50834ce" => :yosemite
   end
 
+  # upstream bug report - https://bugzilla.gnome.org/show_bug.cgi?id=770729
+  patch :p1, :DATA
+
   head do
     url "https://git.gnome.org/browse/pango.git"
 
@@ -98,3 +101,21 @@ class Pango < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/pango/pangocoretext-fontmap.c b/pango/pangocoretext-fontmap.c
+index 0d7d793..05d1fd0 100644
+--- a/pango/pangocoretext-fontmap.c
++++ b/pango/pangocoretext-fontmap.c
+@@ -110,8 +110,8 @@ typedef struct
+     PangoWeight pango_weight;
+ } PangoCTWeight;
+
+-const float ct_weight_min = -0.7f;
+-const float ct_weight_max = 0.8f;
++#define ct_weight_min -0.7
++#define ct_weight_max 0.8
+
+ /* This map is based on empirical data from analyzing a large collection of
+  * fonts and comparing the opentype value with the value that OSX returns.
+
