@@ -5,6 +5,8 @@ class Librdkafka < Formula
   sha256 "dd395ffca89c9591e567366f3ad2517cee76578a10d0a16a93f990c33f553179"
   head "https://github.com/edenhill/librdkafka.git"
 
+  head "https://github.com/edenhill/librdkafka.git"
+
   bottle do
     cellar :any
     sha256 "71c8c1129d979b71e0f913123fcee18de35f9cfff8e8ebe4b9853715f12fb883" => :sierra
