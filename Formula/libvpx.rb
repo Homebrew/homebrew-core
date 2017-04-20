@@ -35,6 +35,7 @@ class Libvpx < Formula
     args << (build.with?("examples") ? "--enable-examples" : "--disable-examples")
     args << "--enable-gcov" if !ENV.compiler == :clang && build.with?("gcov")
     args << "--enable-postproc" << "--enable-postproc-visualizer" if build.with? "visualizer"
+    args << "--enable-vp9-highbitdepth"
 
     mkdir "macbuild" do
       system "../configure", *args
