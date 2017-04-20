@@ -3,6 +3,7 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
   sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
