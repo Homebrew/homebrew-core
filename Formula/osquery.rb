@@ -5,6 +5,7 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.4.0",
       :revision => "76fe5d748cbcf41a4c3f40193bde05739cf7d83f"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,8 +16,8 @@ class Osquery < Formula
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.10 and above. Do not remove this.
-  depends_on :macos => :yosemite
+  # osquery only supports OS X 10.11 and above. Do not remove this.
+  depends_on :macos => :el_capitan
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -130,7 +131,7 @@ class Osquery < Formula
 
       # Apply same patch as osquery upstream for setuid syscalls.
       Pathname.pwd.install resource("thrift-0.10-patch")
-      system "patch", "-p1", "-i", "gistfile1.txt"
+      system "patch", "-p1", "-i", "patch-thrift-0.10.diff"
 
       exclusions = %W[
         --without-ruby
