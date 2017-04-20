@@ -57,6 +57,9 @@ class Xapian < Formula
         end
 
         if build.with? "python"
+          # https://github.com/xapian/xapian/pull/126
+          inreplace "python/Makefile.in", "$(PYTHON2) $(SPHINX_BUILD)", "$(SPHINX_BUILD)"
+
           # https://github.com/Homebrew/homebrew-core/issues/2422
           ENV.delete("PYTHONDONTWRITEBYTECODE")
 
