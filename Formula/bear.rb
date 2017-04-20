@@ -1,9 +1,8 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.2.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/b/bear/bear_2.2.1.orig.tar.gz"
-  sha256 "bfe711fae29f173f9d33a7d8c42434a2f40d0247fbb6ff618fdd91c878f76a7b"
+  url "https://github.com/rizsotto/Bear/archive/2.3.0.tar.gz"
+  sha256 "007eda5e4df17fdacb1c493e1f42cd77f5ef554d30e84a4d31a82608a63f4f2b"
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
@@ -17,10 +16,8 @@ class Bear < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
