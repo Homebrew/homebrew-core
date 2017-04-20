@@ -3,15 +3,15 @@ require "language/node"
 class GenerateJsonSchema < Formula
   desc "Generate a JSON Schema from Sample JSON"
   homepage "https://github.com/Nijikokun/generate-schema"
-  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.3.1.tgz"
-  sha256 "c73926a44ebdf7f732f531624c012d667479b949378148607527fecb36044254"
+  url "https://registry.npmjs.org/generate-schema/-/generate-schema-2.5.0.tgz"
+  sha256 "425b967a25b33ccb25de6902480775d77e55e53938412372d25a3803904345b0"
   head "https://github.com/Nijikokun/generate-schema.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "626e7f140070e16e7d4060f85aa98710bf9e268df7bbfe60f9feccec4f57c86f" => :sierra
-    sha256 "99114f2be49f8d02725144ba168f38521deb75c9d8ce71344a4edc040a39aa56" => :el_capitan
-    sha256 "5cc8964c154963ea8f4859b562ea735024644bee0552af6b457fbff40ffa3917" => :yosemite
+    sha256 "a7b79739ee484e0dfa98f7b3a919a88e53e9f4e0c1ede2a2f86eaaebf2cbf448" => :sierra
+    sha256 "ee0106900573d7a915306fef61100e51cc321875dbd72c8cd468cca007a4a5f8" => :el_capitan
+    sha256 "a036725b4086b6f7b2afd96fe4663a15416d29722558d98a00a6757bf4af822e" => :yosemite
   end
 
   depends_on "node"

@@ -1,16 +1,17 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
-  homepage "http://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.49.tar.gz"
-  sha256 "cd9ca49b01a76bca635f2888b9d4d30fa6583dd198994d407cdd0dd7170e9e1f"
+  homepage "https://dev.mysql.com/doc/refman/5.5/en/"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.55.tar.gz"
+  sha256 "9af0a504e2603b0bc0c7c3a4a747df064fb51670a0022b1ad6114f9058b64171"
 
   bottle do
-    sha256 "7234a4e395d8afed198dcfd68591724851134a8c34164000f10ac912432f965a" => :sierra
-    sha256 "8e0a9c524c702c8844ea5fe74643c9047d57ae1ce4a5ebc14738f08fd5c61ae0" => :el_capitan
-    sha256 "0cbcea0a74bf6a2c3c9c1025c71be17a1203ab1d42b4a8a4c23db55ef1aa78b7" => :yosemite
+    sha256 "8c6430a47464fbb617c8a53c906a1d522f6519e824fd68490ba41e8fe14c3c01" => :sierra
+    sha256 "631566f6eef4eb72a93461d5aa8e99e7724798fea41b9648641c829121f5e892" => :el_capitan
+    sha256 "7ebb9251c26e367375c3aae7288512cb044d37d313975a3c8dec8e9028785748" => :yosemite
   end
 
-  option :universal
+  keg_only :versioned_formula
+
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
@@ -28,23 +29,13 @@ class MysqlAT55 < Formula
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
-  conflicts_with "mysql", :because => "Different versions of same formula"
-  conflicts_with "mysql@5.6", :because => "Different versions of same formula"
-
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
-
   def datadir
     var/"mysql"
   end
 
   def install
     # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
+    # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
@@ -82,12 +73,6 @@ class MysqlAT55 < Formula
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
@@ -101,6 +86,12 @@ class MysqlAT55 < Formula
     system "make"
     system "make", "install"
 
+    # We don't want to keep a 240MB+ folder around most users won't need.
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+    rm_rf prefix/"mysql-test"
+
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix/"data"
@@ -109,12 +100,9 @@ class MysqlAT55 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
-
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mysqlaccess"
@@ -140,7 +128,7 @@ class MysqlAT55 < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql55/bin/mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.5/bin/mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -167,8 +155,23 @@ class MysqlAT55 < Formula
   end
 
   test do
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{testpath}"
+    begin
+      # Expects datadir to be a completely clean dir, which testpath isn't.
+      dir = Dir.mktmpdir
+      system bin/"mysql_install_db", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+
+      pid = fork do
+        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      end
+      sleep 2
+
+      output = shell_output("curl 127.0.0.1:3306")
+      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+      assert_match version.to_s, output
+    ensure
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end

@@ -12,11 +12,7 @@ class Gsl < Formula
     sha256 "27e916ed0e2bec74aeb88e694a22f0076e225c6a0b8c9b5450d5cbc0db842e3e" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make" # A GNU tool which doesn't support just make install! Shameful!
     system "make", "install"

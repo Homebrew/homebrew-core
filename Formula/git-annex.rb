@@ -5,14 +5,14 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
-  sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
+  url "https://hackage.haskell.org/package/git-annex-6.20170321/git-annex-6.20170321.tar.gz"
+  sha256 "f86351a99bbfff0285914c4639d2bc68ffcc172a6dacdef164254261cf1f0795"
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "dff23e6bdf87bacbed4ba55fd8038bcc9f4bca3d03c5e793cf4b07c8a8f5f88c" => :sierra
-    sha256 "1badb7ae0cb32fc292907330b15b3bf98533ac01b61e09ef5190fcd06a8bd777" => :el_capitan
-    sha256 "b5908bbdb75d5e2d2f36fd9ece046470935b59daa107b61ab89751be98711bbb" => :yosemite
+    sha256 "e5fd0dabbcb81a58bc096525cf0894ddffa1aa94c6cae2e375e9b4d8fa7287fc" => :sierra
+    sha256 "512d68a9e961edd276b9931f2527e310e215bf6fcc322091d7f6e377d0b47625" => :el_capitan
+    sha256 "8383586c06e77e8492e5d3348aad5e30530d216f251127f10f5e7d5787833ffd" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -27,27 +27,13 @@ class GitAnnex < Formula
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
-  # new maintainer's fork, which will be in Hackage shortly
-  resource "esqueleto" do
-    url "https://github.com/bitemyapp/esqueleto.git",
-        :revision => "bfc8502dbf23251b3794bcd0370a100211297cc5"
-    version "2.5.0-alpha1"
-  end
-
   def install
-    cabal_sandbox do
-      (buildpath/"esqueleto").install resource("esqueleto")
-      inreplace "esqueleto/esqueleto.cabal",
-        "base                 >= 4.5     && < 4.9",
-        "base                 >= 4.5     && < 5.0"
-      cabal_sandbox_add_source "esqueleto"
-      install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
-        # this can be made the default behavior again once git-union-merge builds properly when bottling
-        if build.with? "git-union-merge"
-          system "make", "git-union-merge", "PREFIX=#{prefix}"
-          bin.install "git-union-merge"
-          system "make", "git-union-merge.1", "PREFIX=#{prefix}"
-        end
+    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
+      # this can be made the default behavior again once git-union-merge builds properly when bottling
+      if build.with? "git-union-merge"
+        system "make", "git-union-merge", "PREFIX=#{prefix}"
+        bin.install "git-union-merge"
+        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
       end
     end
     bin.install_symlink "git-annex" => "git-annex-shell"

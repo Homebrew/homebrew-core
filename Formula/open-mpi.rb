@@ -1,22 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.1.tar.bz2"
-  sha256 "fed74f4ae619b7ebcc18150bb5bdb65e273e14a8c094e78a3fea0df59b9ff8ff"
-
-  # Patch Open MPI in order to fallback to oob/tcp when a Unix socket path
-  # is too long, and instead of silently truncating the path.
-  # This frequently occurs on OSX when both $TMPDIR and hostname are "long"
-  patch do
-    url "https://github.com/open-mpi/ompi/pull/2135.patch"
-    sha256 "35005a892ec1321fa7b6f427967e15e7a83cce0421043a3f42653675be9a24bd"
-  end
+  url "https://www.open-mpi.org/software/ompi/v2.1/downloads/openmpi-2.1.0.tar.bz2"
+  sha256 "b169e15f5af81bf3572db764417670f508c0df37ce86ff50deb56bd3acb43957"
 
   bottle do
-    rebuild 1
-    sha256 "2607dd32851847dd48b35c88cf4de134dfc53fd13e8981a930d1c03535da65d4" => :sierra
-    sha256 "59f7b489e8684864432707600a0592f069900ae0159197243734fde1ffc02e18" => :el_capitan
-    sha256 "fa586ded89ffd30e8414b8132005fc806edc648331932ca9af749ed00a385343" => :yosemite
+    sha256 "980dee19a68a35981cebdead7c7d7fa66df9b206481d8759c4738da884eb8952" => :sierra
+    sha256 "0f22b4624cb270647bd806a165b12d907b50dec400707d8c3ead64f7eb07fa94" => :el_capitan
+    sha256 "5ae27358f9df385b8ca9a2480f1ab99caf7a6ea9c8c14cfc118199364e532954" => :yosemite
   end
 
   head do

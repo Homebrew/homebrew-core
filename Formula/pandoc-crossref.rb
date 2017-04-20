@@ -5,14 +5,14 @@ class PandocCrossref < Formula
 
   desc "Pandoc filter for numbering and cross-referencing."
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.2.4.1/pandoc-crossref-0.2.4.1.tar.gz"
-  sha256 "2aa2266ac3916677c18bd9a88b99f32622c22c983abaed3598020913ca3912ed"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.2.5.0/pandoc-crossref-0.2.5.0.tar.gz"
+  sha256 "d4d93bbe448e2cf187a0b7bcc605d0445e28021e4e31bfef890b93bee2b28491"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da222315b8f7b9e0cc68a7215a54eaf2377f428d0db69a3b72e4c98027c789e9" => :sierra
-    sha256 "f5ced83ebce430a8870a6106f1947480124a49891bad0af5cdebc1143c49c8d4" => :el_capitan
-    sha256 "0ff5b3b70750f81d8ad96dd3d0d8de5c4afbab60b54a6c38bd1cf0c428c42a89" => :yosemite
+    sha256 "40ec5234b0fb2542fd9a1e45347594b47c1230693dd87fed8aaa8ca272a89909" => :sierra
+    sha256 "2daa0a71d07bb8a7a759cf32ca30382597e1399cb883e8cdbbc764ee0ab65dcf" => :el_capitan
+    sha256 "d722a2822433451ed3973ed888f0091542b8d033a1cdd9cec38dbef96813956b" => :yosemite
   end
 
   depends_on "ghc" => :build

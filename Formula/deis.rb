@@ -1,26 +1,32 @@
 class Deis < Formula
-  desc "Deploy and manage applications on your own servers"
+  desc "The CLI for Deis Workflow"
   homepage "https://deis.io/"
-  url "https://github.com/deis/deis/archive/v1.13.3.tar.gz"
-  sha256 "a5b28a7b94e430c4dc3cf3f39459b7c99fc0b80569e14e3defa2194d046316fd"
+  url "https://github.com/deis/workflow-cli/archive/v2.13.0.tar.gz"
+  sha256 "5a1f44e2bbfcfe4593e9d9ed5870029a9ac3b4ab0efd437d3dca2206ee31a067"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18e0780dabcd28d1f579574f8bb9aa09bddc53bdf1f6c3804b9d9a37463fa121" => :sierra
-    sha256 "310cfc77e1edddab84270547c87c567958cb44d25437dfd4793f0a461b5b7de5" => :el_capitan
-    sha256 "be5c1307443b5fbf5a9cbeb027af3c1960f09b0318bc589850299afd5694b52e" => :yosemite
-    sha256 "e7550c86cdbf3618cb89445067aff24733c0786817760ed87b1c38268fc1b808" => :mavericks
+    sha256 "9c30a6681470e836106d736a1b756ac2b92ca55449118007e024c2d53223a25f" => :sierra
+    sha256 "0a9852a78d603299a5e579f070eb6811b6067da8f0c9ed97e06a7261dfa68c8a" => :el_capitan
+    sha256 "6abec4d481fd7a748faca351c4474f59284fdede8ffab38a72cf3a132f83aef1" => :yosemite
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/deis").mkpath
-    ln_s buildpath, "src/github.com/deis/deis"
-    system "godep", "restore"
-    system "go", "build", "-o", bin/"deis", "client/deis.go"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    deispath = buildpath/"src/github.com/deis/workflow-cli"
+    deispath.install Dir["{*,.git}"]
+
+    cd deispath do
+      system "glide", "install"
+      system "go", "build", "-o", "build/deis",
+        "-ldflags",
+        "'-X=github.com/deis/workflow-cli/version.Version=v#{version}'"
+      bin.install "build/deis"
+    end
   end
 
   test do

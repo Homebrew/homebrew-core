@@ -1,16 +1,16 @@
 class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
-  homepage "http://www.sfml-dev.org/"
-  url "http://www.sfml-dev.org/files/SFML-2.4.1-sources.zip"
-  sha256 "f75096b2dc9cae67e10a28dbbefc9fe02e9dbe2e1ed50f2e208046bae9d3c9a4"
+  homepage "https://www.sfml-dev.org/"
+  url "https://www.sfml-dev.org/files/SFML-2.4.2-sources.zip"
+  sha256 "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
   head "https://github.com/SFML/SFML.git"
 
   bottle do
     cellar :any
-    sha256 "9fb1866d1198e3b2d18eb20c1f43b848d052cf214ee5c37e62096ecac42d7a6b" => :sierra
-    sha256 "1c0f246ec03d8551919eec4a68b1608c089861615eb2fbf8891cd0e7dcb2952c" => :el_capitan
-    sha256 "34bdc7fc997835f9a182c22695a9d9e0fb49ea7cd471aa51a8d7c418f31d81c9" => :yosemite
+    sha256 "054c35f4e582cc360aa216e453b983db523a76c42ea007755d60f76b47a84048" => :sierra
+    sha256 "e0bf245151452a3f7bc09205fd831c7fcfd936fff4ac366dc7a15f1f09b32b21" => :el_capitan
+    sha256 "e1febe460b334ce2dca457a030a350380679ce1e4ca7e4025bba5cb775c829a8" => :yosemite
   end
 
   depends_on "cmake" => :build

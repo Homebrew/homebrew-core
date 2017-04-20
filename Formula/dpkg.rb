@@ -1,14 +1,17 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.15.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.15.tar.xz"
-  sha256 "aee936653b9c39403160c0a331ee7934563fbfa4e1f5adbc14a289c803cda371"
+  # Please always keep the Homebrew mirror as the primary URL as the
+  # dpkg site removes tarballs regularly which means we get issues
+  # unnecessarily and older versions of the formula are broken.
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.23.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.23.tar.xz"
+  sha256 "cc08802a0cea2ccd0c10716bc71531ff9b9234dd454b83a59f71117a37f36923"
 
   bottle do
-    sha256 "d4948d2da0cfd747dc4926fb0b9ed8febe067b925bc65082dbad62fdc03128a8" => :sierra
-    sha256 "904a2b6d2461b41bd87b92c66758c084416f85cf71bce3b6413c5cd99c238bf2" => :el_capitan
-    sha256 "f65544444a68dfd1100485ac081584d9771b4baabe8f4099708be5fd92cb38ba" => :yosemite
+    sha256 "da977afc391afc86460a5deac82d9b2da95d3e7f2697a6cb1e8657bbbf5a7462" => :sierra
+    sha256 "2ed46ae760f9fa6e8bc9c52932044f79d19ec71c60f92c9d59458049ad7c1538" => :el_capitan
+    sha256 "51a1c27b4bbb276d5e4f2fae4fd47b24398525b735e0717d88b463b646362267" => :yosemite
   end
 
   depends_on "pkg-config" => :build

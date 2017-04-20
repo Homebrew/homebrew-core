@@ -1,14 +1,14 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.20.0.tar.gz"
-  sha256 "2457f585122d4612474d1da779e13d18773a760c880e7f46ec7375d676f68819"
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.21.0.tar.gz"
+  sha256 "433abc999399af282691df81f6efa81c6b897d031bb710580423969d5d5c7400"
 
   bottle do
     cellar :any
-    sha256 "39dd3b0b0b503ed4f4900c5ace059f798aebcf81872d0ae5a88a5bf3416fc7ed" => :sierra
-    sha256 "addd7b9ce258035ca2dd747d9db958b153b90d9c1625dc23afd07a098fb82969" => :el_capitan
-    sha256 "97870a023abbe71efd8d48c1d13240f94756f48f645485daa406716d70c9d9ff" => :yosemite
+    sha256 "95f914172711ace1af768a8894143f10d3dd1398d8e58be9ea5c66ded8977b9d" => :sierra
+    sha256 "38e1d61adc52834087fc2b59bea18074bd0fa452947b056190adabce6f61b95d" => :el_capitan
+    sha256 "1eb4e981175519e915056442bd1ea3fceff429d9a060aff431dd67b3827521c8" => :yosemite
   end
 
   head do
@@ -18,14 +18,10 @@ class Yaz < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

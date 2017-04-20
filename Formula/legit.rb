@@ -2,7 +2,7 @@ class Legit < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line interface for Git, optimized for workflow simplicity"
-  homepage "http://www.git-legit.org/"
+  homepage "https://www.git-legit.org/"
   url "https://github.com/kennethreitz/legit/archive/v0.2.1.tar.gz"
   sha256 "3b30e47262f3a727cc7aeb7e4842d82e9e2f9cc29145a361c097d7cc372a9a66"
   head "https://github.com/kennethreitz/legit.git", :branch => "develop"

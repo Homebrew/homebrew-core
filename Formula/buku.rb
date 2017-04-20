@@ -3,22 +3,32 @@ class Buku < Formula
 
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.7.tar.gz"
-  sha256 "9ebc95a665e56460d91b9d98711f1eba722b14a14a058e2ef330b117b79943fe"
+  url "https://github.com/jarun/Buku/archive/v2.9.tar.gz"
+  sha256 "d4175aab5fab72d41cd646f688311bc347d5fcdad23dc58ee87dffb695c5a51b"
   revision 1
 
   bottle do
-    sha256 "9b3511452cb07c82bc2a62d18689adec92fac87aa584d7b6b9cf75a19c81fb58" => :sierra
-    sha256 "26ec6a9fd5b9eef52a054e13330040f2817b0d87d3008774731f40b01fedef32" => :el_capitan
-    sha256 "3987c15d09d55c9be482cd3621e9f6181d108b7fb864d045b90440031d33a20b" => :yosemite
+    sha256 "6d237a8fbda814bc8f5f1c5739edeb4bad9701854fbe6760940aa6811684d700" => :sierra
+    sha256 "ba1c70daa46784ecb8bc317b9a9a8109c27be02b400e6fc000e2aa2bd16c7716" => :el_capitan
+    sha256 "079bdc221fe79f0b8f95dc35115ff9ee91324c8c6b7ad9a5737533a83c1240ce" => :yosemite
   end
 
   depends_on :python3
   depends_on "openssl@1.1"
 
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+  end
+
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
-    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+    url "https://files.pythonhosted.org/packages/9b/a5/c6fa2d08e6c671103f9508816588e0fb9cec40444e8e72993f3d4c325936/beautifulsoup4-4.5.3.tar.gz"
+    sha256 "b21ca09366fa596043578fd4188b052b46634d22059e68dd0077d9ee77e08a3e"
   end
 
   resource "cffi" do
@@ -27,18 +37,18 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/d7/a2/b90736c37fd720db425c5e48d69da75a6eff6609b22d2123762f1ae8c5f5/cryptography-1.6.tar.gz"
-    sha256 "4d0d86d2c8d3fc89133c3fa0d164a688a458b6663ab6fa965c80d6c2cdaf9b3f"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/fb/84/8c27516fbaa8147acd2e431086b473c453c428e24e8fb99a1d89ce381851/idna-2.1.tar.gz"
-    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
-    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
   end
 
   resource "pycparser" do
@@ -46,14 +56,14 @@ class Buku < Formula
     sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/6e/40/7434b2d9fe24107ada25ec90a1fc646e97f346130a2c51aa6a2b1aba28de/requests-2.12.1.tar.gz"
-    sha256 "2109ecea94df90980be040490ff1d879971b024861539abb00054062388b612e"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "six" do
@@ -62,8 +72,8 @@ class Buku < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b4/cb/0f195aa96fd63a4ef8b3578c67f56eb0804e394d9789080a8862c06c2f68/urllib3-1.19.1.tar.gz"
-    sha256 "53bc34c8ee268c3bd83ecf5e9c80fa783f3148484579bd4e20f4a7c1bb2dd6a0"
+    url "https://files.pythonhosted.org/packages/20/56/a6aa403b0998f857b474a538343ee483f5c02491bd1aebf61d42a3f60f77/urllib3-1.20.tar.gz"
+    sha256 "97ef2b6e2878d84c0126b9f4e608e37a951ca7848e4855a7f7f4437d5c34a72f"
   end
 
   def install
@@ -81,6 +91,7 @@ class Buku < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
 
     # Firefox exported bookmarks file
@@ -128,7 +139,7 @@ class Buku < Formula
     system "/usr/bin/expect", "-f", "crypto-test"
 
     # Test database content and search
-    result = shell_output("#{bin}/buku --noprompt --sany Homebrew")
+    result = shell_output("#{bin}/buku --np --sany Homebrew")
     assert_match "https://github.com/Homebrew/brew", result
     assert_match "The missing package manager for macOS", result
   end

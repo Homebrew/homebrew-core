@@ -1,18 +1,19 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-9.0.tar.xz"
-  sha256 "c3d3d66b827f18fbe903fe3df647013f09fc1e2191c035be1ee2d82a9e404686"
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-10.0.tar.xz"
+  sha256 "a3186824de9f0d2095ded5d0d0db0405dc73133983c2fbb37291547e37462f57"
   revision 2
 
   bottle do
-    sha256 "f1db3d1981966e6b33fcb2f0f069192ed9a2d125a71e0083278ee01549a7fbb2" => :sierra
-    sha256 "0830df60c69b9f9ca0010ae45d6cd969e39531c039835e74a046c2e5f44a0ea9" => :el_capitan
-    sha256 "bb8e83c029a058f9d84ae14ffa0fdc372979d1e33fc7352e4ab035788c608a3b" => :yosemite
+    sha256 "dd04c95709c64a4ea74cfa929d0dc2ddc6fd9473df163bf7e72310baa22b1653" => :sierra
+    sha256 "22eb7493320be8bf4c41ed227149d045eaffb8c132df9b8ad8b7b69ed3e085ce" => :el_capitan
+    sha256 "657b7acd39bbc8ccd790fed5396ff3b5de08667f039cabe7481cc259ddb6f005" => :yosemite
   end
 
   head do
     url "https://anongit.freedesktop.org/git/pulseaudio/pulseaudio.git"
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "intltool" => :build
@@ -20,7 +21,8 @@ class Pulseaudio < Formula
   end
 
   option "with-nls", "Build with native language support"
-  option :universal
+
+  deprecated_option "without-speex" => "without-speexdsp"
 
   depends_on "pkg-config" => :build
 
@@ -34,18 +36,11 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "openssl"
-  depends_on "dbus" => :recommended
-  depends_on "speex" => :recommended
+  depends_on "speexdsp" => :recommended
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
-
-  # i386 patch per MacPorts
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/15fa4f03/pulseaudio/i386.patch"
-    sha256 "d3a2180600a4fbea538949b6c4e9e70fe7997495663334e50db96d18bfb1da5f"
-  end
 
   fails_with :clang do
     build 421
@@ -59,18 +54,12 @@ class Pulseaudio < Formula
       --prefix=#{prefix}
       --enable-coreaudio-output
       --disable-neon-opt
-      --with-mac-sysroot=/
+      --with-mac-sysroot=#{MacOS.sdk_path}
+      --with-mac-version-min=#{MacOS.version}
+      --disable-x11
     ]
 
-    args << "--with-mac-sysroot=#{MacOS.sdk_path}"
-    args << "--with-mac-version-min=#{MacOS.version}"
     args << "--disable-nls" if build.without? "nls"
-    args << "--disable-x11"
-
-    if build.universal?
-      args << "--enable-mac-universal"
-      ENV.universal_binary
-    end
 
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure

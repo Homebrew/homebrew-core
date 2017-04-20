@@ -3,12 +3,13 @@ class SharedMimeInfo < Formula
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
   url "https://freedesktop.org/~hadess/shared-mime-info-1.8.tar.xz"
   sha256 "2af55ef1a0319805b74ab40d331a3962c905477d76c086f49e34dc96363589e9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d7ca64902748a28cc734fd835a7b85d9973115e33731291fba2e1bcf44eee9ea" => :sierra
-    sha256 "18b0140f44ab9b54a2e11d0df999d7628b03f1e50257cd35b0d080b9ed519e1f" => :el_capitan
-    sha256 "46b2ace2e454f893464cd674d723e54d096219470513ae639d6681155e96b364" => :yosemite
+    sha256 "06cca38ff0a8777b3897caaafdbf701d3db751e21e5b0f2dacc0296bfebbfca9" => :sierra
+    sha256 "f0dd34a6026ed39cb5db68f7c3291eab72eab3609e8caa94240ec3099d72e85f" => :el_capitan
+    sha256 "5423f228303a77c6f4ff20fe40edd4b437750805f72ad20f3b58d8254cb8af19" => :yosemite
   end
 
   head do
@@ -36,9 +37,14 @@ class SharedMimeInfo < Formula
       system "./configure", *args
     end
     system "make", "install"
+    pkgshare.install share/"mime/packages"
+    rmdir share/"mime"
   end
 
   def post_install
+    ln_sf HOMEBREW_PREFIX/"share/mime", share/"mime"
+    (HOMEBREW_PREFIX/"share/mime/packages").mkpath
+    cp (pkgshare/"packages").children, HOMEBREW_PREFIX/"share/mime/packages"
     system bin/"update-mime-database", HOMEBREW_PREFIX/"share/mime"
   end
 

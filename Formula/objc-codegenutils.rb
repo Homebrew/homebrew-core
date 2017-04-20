@@ -3,6 +3,7 @@ class ObjcCodegenutils < Formula
   homepage "https://github.com/square/objc-codegenutils"
   url "https://github.com/square/objc-codegenutils/archive/v1.0.tar.gz"
   sha256 "98b8819e77e18029f1bda56622d42c162e52ef98f3ba4c6c8fcf5d40c256e845"
+  head "https://github.com/square/objc-codegenutils.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,8 +12,6 @@ class ObjcCodegenutils < Formula
     sha256 "46d389e6ec12462dfbdd97822ce7c6e8156bbe9fac7a3baf04c20cb1991d9f75" => :mavericks
     sha256 "b2a970d293782e5dc6cdf2902df97c89dfa3552aeb5994c7b035a256e5659868" => :mountain_lion
   end
-
-  head "https://github.com/square/objc-codegenutils.git"
 
   depends_on :macos => :mountain_lion
   depends_on :xcode => :build

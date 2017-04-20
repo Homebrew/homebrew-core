@@ -1,6 +1,6 @@
 class Srecord < Formula
   desc "Tools for manipulating EPROM load files"
-  homepage "http://srecord.sourceforge.net/"
+  homepage "https://srecord.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/srecord/srecord/1.64/srecord-1.64.tar.gz"
   sha256 "49a4418733c508c03ad79a29e95acec9a2fbc4c7306131d2a8f5ef32012e67e2"
 

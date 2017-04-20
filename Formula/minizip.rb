@@ -1,24 +1,22 @@
 class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "http://www.winimage.com/zLibDll/minizip.html"
-  url "http://zlib.net/zlib-1.2.10.tar.gz"
-  sha256 "8d7e9f698ce48787b6e1c67e6bff79e487303e66077e25cb9784ac8835978017"
+  url "http://zlib.net/zlib-1.2.11.tar.gz"
+  sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
 
   bottle do
     cellar :any
-    sha256 "1d84feef5e29869e4eca8341e782f4b695abe1ec29d54c00cab82ac67c638b68" => :sierra
-    sha256 "48a6ae81021c0208f72434b4f7d0c4b3095d192564b78574afb1f8ea27ac8af9" => :el_capitan
-    sha256 "60235f0fe3bd432857c27b5c5b912d538925a7a477ff3822ac2af95ea9b00c22" => :yosemite
+    rebuild 1
+    sha256 "8d4d3d12774a660c68be156caf804a9982d5d79204c66b0c3e56f3e92d0fe09b" => :sierra
+    sha256 "a0f89a172ba19d62c331c083c94e91f575a66bb56438c1a9eb55b59fbc570598" => :el_capitan
+    sha256 "c506cadbf592627a4a6c45de9d5a96fc5da8fe6115ea9a93ca95ec7d96bc115d" => :yosemite
   end
-
-  option :universal
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}"
     system "make"
 

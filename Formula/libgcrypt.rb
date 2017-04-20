@@ -1,18 +1,16 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.5.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.5.tar.bz2"
-  sha256 "d1fea4128beef2bb30a470af6bafabccc503ced350534fb9dd8f5a53ffbae800"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
+  sha256 "626aafee84af9d2ce253d2c143dc1c0902dda045780cc241f39970fc60be05bc"
 
   bottle do
     cellar :any
-    sha256 "7fd2065fca349fd01415149d0770de66f750a9ed33fd80cc83bbfbf2a08cf349" => :sierra
-    sha256 "1b8169618ad2c94cbda19f6b9cdfcc536e480e2013cccc82058142f90dd7e086" => :el_capitan
-    sha256 "16edd40459fb68fd0db4e802ce5ec78a17ffc16b6285f13a5236cdf7920ba4f3" => :yosemite
+    sha256 "80363bc060150813df38493638551e24b48e8c9bf106e06e22c98b51cad65687" => :sierra
+    sha256 "360f008a45b2c32de7963f307ff80da0b53cf2d257c87412dc2465984a3797ec" => :el_capitan
+    sha256 "461822c0429c16e33c2c5f8be173fedc3228cea786683e463ae628789ea6c1e1" => :yosemite
   end
-
-  option :universal
 
   depends_on "libgpg-error"
 
@@ -30,19 +28,12 @@ class Libgcrypt < Formula
     # https://github.com/Homebrew/homebrew-core/issues/1957
     ENV.O1 if DevelopmentTools.clang_build_version >= 800
 
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
                           "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
-
-    if build.universal?
-      buildpath.install resource("config.h.ed")
-      system "ed -s - config.h <config.h.ed"
-    end
 
     # Parallel builds work, but only when run as separate steps
     system "make"

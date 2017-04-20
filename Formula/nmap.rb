@@ -3,7 +3,7 @@ class Nmap < Formula
   homepage "https://nmap.org/"
   url "https://nmap.org/dist/nmap-7.40.tar.bz2"
   sha256 "9e14665fffd054554d129d62c13ad95a7b5c7a046daa2290501909e65f4d3188"
-  head "https://guest:@svn.nmap.org/nmap/", :using => :svn
+  head "https://svn.nmap.org/nmap/"
 
   bottle do
     sha256 "a8a43b57a4ed84ba718e7ab64015d118d8a9f4b99309ab114edcb8587c2f1693" => :sierra

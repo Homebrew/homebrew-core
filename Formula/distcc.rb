@@ -5,15 +5,15 @@ class Distcc < Formula
   version "3.2rc1"
   sha256 "33e85981ff6afd94efc38b23b2d8b9036b3dff2dc6eac6982b9ff0ae1de64caa"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-
   bottle do
     rebuild 1
     sha256 "7550914e05bccc38cf002ae14a2209248166149fa2720f0b8716320433d51c28" => :sierra
     sha256 "7a457a41b795c825e315a296e6883a8b8ab749f8329d492026f4b9072571dc7b" => :el_capitan
     sha256 "4b38fccd7d1f3ac119bc50f4252fd593a828a6564dfb98d6bc819adff332a4b5" => :yosemite
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     # Make sure python stuff is put into the Cellar.

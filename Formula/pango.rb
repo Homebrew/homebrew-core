@@ -1,14 +1,13 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.3.tar.xz"
-  sha256 "abba8b5ce728520c3a0f1535eab19eac3c14aeef7faa5aded90017ceac2711d3"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.5.tar.xz"
+  sha256 "24748140456c42360b07b2c77a1a2e1216d07c056632079557cd4e815b9d01c9"
 
   bottle do
-    sha256 "e64fe3eacf55ceb1dbd50d1eb597fd42abed140b9d527aa3be9aa43f9a668b9c" => :sierra
-    sha256 "3139d621454aaaaedd9ed42dd7fc1b40124152d7db750873448aeb839ca6d59d" => :el_capitan
-    sha256 "380fff999d7a0e3931aa3c08f365071b90acb55a2d85f998aa5c9fa38cfacdfc" => :yosemite
-    sha256 "0a914c5cd46cdcf2c2b52ce1f4eda1a6820c77fbb333f5e789b26582356902a9" => :mavericks
+    sha256 "d6062a0999467c8316d9b15a436ba8ef62c46294feadb47fc1e73e72d211f585" => :sierra
+    sha256 "d9cd6b2ebb90bf42167f6ddf70311ac11dbdd7d133c48639f7a511433a098c43" => :el_capitan
+    sha256 "f8b34e7f18afa1b992a7e3d4d9308314e51b56c6886ab847fe0e2f8dc50834ce" => :yosemite
   end
 
   head do
@@ -20,8 +19,6 @@ class Pango < Formula
     depends_on "gtk-doc" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on :x11 => :optional
   depends_on "glib"
@@ -31,8 +28,6 @@ class Pango < Formula
   depends_on "gobject-introspection"
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules

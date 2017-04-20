@@ -1,13 +1,14 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.2.tar.bz2"
-  sha256 "d051e53b63f586c924f00ce8a81662f7bd285b461d125d4991538f92cf7e629d"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.3.tar.bz2"
+  sha256 "60fa21550b278b41f58701af31c9f2b121badf271fb9d7642f6d35bfbea8e282"
 
   bottle do
-    sha256 "69dba7691ad395dcfc1a5d41505b88a5b3fdec3b19e10fd89fe1ad52a7da128e" => :sierra
-    sha256 "62083c5d449fc0f1f537171bebec8cfc252ca3a0cc8fa3aefa557651df4494c4" => :el_capitan
-    sha256 "e3323131ac6c78dd5da8725d420759f5af55e65ec4d3b00189f43efea617b060" => :yosemite
+    rebuild 1
+    sha256 "1cbf7b9fee0547821a2e1272024a8f422f3a7d29352189fd31350058a48a9fa1" => :sierra
+    sha256 "21d3740b76c2db623bd0af082b19428491a8015ceb66a43b63ddc2bb0e582442" => :el_capitan
+    sha256 "b16f12210c373ed1c75b620617a59c74b5b458f7e151fe1ac5483e33586b42ed" => :yosemite
   end
 
   head do
@@ -50,8 +51,6 @@ class Pdns < Formula
     system "./bootstrap" if build.head?
     system "./configure", *args
 
-    # Compilation fails at polarssl if we skip straight to make install
-    system "make"
     system "make", "install"
   end
 

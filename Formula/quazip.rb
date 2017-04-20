@@ -1,18 +1,18 @@
 class Quazip < Formula
   desc "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
-  homepage "http://quazip.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/quazip/quazip/0.7.2/quazip-0.7.2.tar.gz"
-  sha256 "91d827fbcafd099ae814cc18a8dd3bb709da6b8a27c918ee1c6c03b3f29440f4"
+  homepage "https://quazip.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/quazip/quazip/0.7.3/quazip-0.7.3.tar.gz"
+  sha256 "2ad4f354746e8260d46036cde1496c223ec79765041ea28eb920ced015e269b5"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "bbd2e529a171051af76d35c9a238966b8c6fa777c35eb82088b36ac21a78dacf" => :sierra
-    sha256 "bbd2e529a171051af76d35c9a238966b8c6fa777c35eb82088b36ac21a78dacf" => :el_capitan
-    sha256 "32533fbd39bb6275b884099e1ef4647185ced58ac21fbd88f4f0cd49ebec93be" => :yosemite
+    sha256 "9ec688664e0354803611744d1aaeec073cf0912762652be352404ac1c1fadfb4" => :sierra
+    sha256 "ce3454f5f7c5c8083df617ec63ccaf7291091da544287719573fc2c3dbb744c6" => :el_capitan
+    sha256 "dc296670c3c7bd52c825bb545132df0731c274af47f44d8ecefc53eda3c2065c" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     system "qmake", "quazip.pro", "-config", "release",
@@ -40,7 +40,7 @@ class Quazip < Formula
       }
     EOS
 
-    system "#{Formula["qt5"].bin}/qmake", "test.pro"
+    system "#{Formula["qt"].bin}/qmake", "test.pro"
     system "make"
     assert File.exist?("test"), "test output file does not exist!"
     system "./test"

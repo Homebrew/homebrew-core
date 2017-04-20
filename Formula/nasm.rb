@@ -19,10 +19,7 @@ class Nasm < Formula
     depends_on "xmlto" => :build
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "manpages" if build.head?

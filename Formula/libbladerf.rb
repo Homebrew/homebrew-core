@@ -11,22 +11,13 @@ class Libbladerf < Formula
     sha256 "0db3f3411af41d50509487ab199092d2264aca0ab6212616d0ff8ec008cdc612" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "libusb"
 
   def install
-    args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     mkdir "host/build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end

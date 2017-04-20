@@ -1,16 +1,18 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.3/zabbix-3.2.3.tar.gz"
-  sha256 "e6dba74039d8d6efff86ec3da99909f4daeaeb66d48781bbb666e3094533da25"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.4/zabbix-3.2.4.tar.gz"
+  mirror "https://fossies.org/linux/misc/zabbix-3.2.4.tar.gz"
+  sha256 "22cf19ef5a9478df2281bf518e8be38adc7dbc508bf63111e02388ca7aabeef4"
 
   bottle do
-    sha256 "11186942afe721513cf62f293506319c14ebfee244e287275cf92175077de477" => :sierra
-    sha256 "afbeeff30b41bd92c76c2febd99584d534a2fba6df6fd5adb6f1d43525f4f1d9" => :el_capitan
-    sha256 "12955b6b4ebd4686bb398214633bfebdfda5b21e9fcb9ee1c3ed41b68eb515bb" => :yosemite
+    sha256 "a409b2cb1927881a15a6d3a8582672618c820457907ca5111e32ab97c0488c3b" => :sierra
+    sha256 "14a3e0e7c0597416054a17dadfd2484c9a04d01cf892ba8a47b50dec215cffec" => :el_capitan
+    sha256 "9f10aab7bdb87f10e6bcc907f19fdc59fb0395a0bf38ae7acbe061299b6f7608" => :yosemite
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
+  option "with-sqlite", "Use Zabbix Server with SQLite library instead PostgreSQL."
   option "without-server-proxy", "Install only the Zabbix Agent without Server and Proxy."
 
   deprecated_option "agent-only" => "without-server-proxy"
@@ -31,6 +33,7 @@ class Zabbix < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/zabbix
       --enable-agent
       --with-iconv=#{MacOS.sdk_path}/usr
     ]
@@ -47,6 +50,8 @@ class Zabbix < Formula
 
       if build.with? "mysql"
         args << "--with-mysql=#{brewed_or_shipped("mysql_config")}"
+      elsif build.with? "sqlite"
+        args << "--with-sqlite3"
       else
         args << "--with-postgresql=#{brewed_or_shipped("pg_config")}"
       end
@@ -67,6 +72,6 @@ class Zabbix < Formula
   end
 
   test do
-    system "#{sbin}/zabbix_agentd", "--print"
+    system sbin/"zabbix_agentd", "--print"
   end
 end

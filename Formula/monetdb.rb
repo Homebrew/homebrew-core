@@ -16,13 +16,13 @@ end
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Dec2016/MonetDB-11.25.3.zip"
-  sha256 "b5031fa149f35a39b99c3f6a72c45555a3fd23769f0d3d6ede8ec5b41b1e7f93"
+  url "https://www.monetdb.org/downloads/sources/Dec2016-SP3/MonetDB-11.25.15.tar.xz"
+  sha256 "8166268f676f75f0df7fdf3f8b2a49ffff422420d275bb994dddcab95012f89e"
 
   bottle do
-    sha256 "eaff551fb286f4a9ac9af45806fb0242bf1523a6b6d8dba717ecd954dff36126" => :sierra
-    sha256 "b005fa01b979a3f01e9e668a74e55a1b81fc5c609e08bd80d07bcc43327bc68b" => :el_capitan
-    sha256 "fa2a1d84a5ac9ee68c311fff361243e33513f11b117e867f5687f5f8fc4df814" => :yosemite
+    sha256 "29e53987c25b36626fe8d191c98c1fdb0387c8bfc78b2636df2231ce46b9a7e9" => :sierra
+    sha256 "d2f3e9272ef54c264ecde72418e43ca26006a075c275f3cfb9cccf322818b436" => :el_capitan
+    sha256 "88a00e91a4d6d1a1914474a11e42e948e3367ef58e3f572a99f75b5ecb4047c8" => :yosemite
   end
 
   head do

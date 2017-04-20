@@ -1,15 +1,14 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v17.1/nzbget-17.1-src.tar.gz"
-  sha256 "4b3cf500d9bb6e9ab65b2c8451358e6c93af0368176f193eebafca17d7209c39"
+  url "https://github.com/nzbget/nzbget/releases/download/v18.1/nzbget-18.1-src.tar.gz"
+  sha256 "ddf7f9eda1cc4d6f01cd28a5ee4362ef7a399085cda45a82ffdf250d56393819"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
-    cellar :any
-    sha256 "c5ba5c6f7045288ed4931fec0b6e49735914c3f45c5eaef1f7fbf02698f71d67" => :sierra
-    sha256 "d583653f09a83555c61b52f67c74a7f6c754e00e0556ce1da9855cbd4d957d7e" => :el_capitan
-    sha256 "11bf29190259273c4bb6de43c209743745a073bdf96f85fdc5327a8c70da4578" => :yosemite
+    sha256 "cbe259fd1797cbc7d3ed37fbeb039633f20e1b3dfd25c5f319b45d4b7472c6ed" => :sierra
+    sha256 "34b1ec57b94619f6cf72a868339faf8fa8f27ad96ec5b7d771ff5a7351c5c23b" => :el_capitan
+    sha256 "c011158f5c16c10c6906f95a18a50b993c3f0dbf8d37e697c378d55de13cab62" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -28,7 +27,7 @@ class Nzbget < Formula
     cause <<-EOS.undent
       Clang older than 5.1 requires flexible array members to be POD types.
       More recent versions require only that they be trivially destructible.
-      EOS
+    EOS
   end
 
   def install
@@ -36,7 +35,8 @@ class Nzbget < Formula
 
     # Fix "ncurses library not found"
     # Reported 14 Aug 2016: https://github.com/nzbget/nzbget/issues/264
-    ENV["ncurses_CFLAGS"] = "-I/usr/include"
+    (buildpath/"brew_include").install_symlink MacOS.sdk_path/"usr/include/ncurses.h"
+    ENV["ncurses_CFLAGS"] = "-I#{buildpath}/brew_include"
     ENV["ncurses_LIBS"] = "-L/usr/lib -lncurses"
 
     # Tell configure to use OpenSSL

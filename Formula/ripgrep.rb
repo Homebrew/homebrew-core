@@ -1,14 +1,14 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher."
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/0.4.0.tar.gz"
-  sha256 "e93a6b59e38bc7912249175ab58ad7af0052a444b3c2c08a846fabba003414d6"
+  url "https://github.com/BurntSushi/ripgrep/archive/0.5.1.tar.gz"
+  sha256 "e0724d40f069580bac9f28cbf6005020fdc1b80e5d15fb69679d50ca341116f9"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
-    sha256 "12d64b716a235f1826cba7ad615a55c68c1179c64138b1b0e1aec5601204b76e" => :sierra
-    sha256 "2e89fd19fd99c09f0328328310d8bef03e4190e98200e87d6aed35a13831b8c3" => :el_capitan
-    sha256 "ab72bd1f61995d0c2000db95c84bd08d4d6959639cf8c0693be51ef76d62aab0" => :yosemite
+    sha256 "ae11f7184b49d756e32a3d9bf4ac17aa083e90cf8011433dfcfa968a0f23d2ef" => :sierra
+    sha256 "11a04d4397af3b992f2ce9faffdf0efed04ef6e341af8b74284e7c64e9a44585" => :el_capitan
+    sha256 "b6afa53155c9cc4cebb55bf14e8f00cc7db645c2b5edafdd881585403af7afdc" => :yosemite
   end
 
   depends_on "rust" => :build

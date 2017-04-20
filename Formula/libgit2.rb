@@ -11,8 +11,6 @@ class Libgit2 < Formula
     sha256 "1c9a4e6b427e80df70d78c9dfdf857b269888a2c8091ddcdcc3ce96e6d0acd8d" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "libssh2" => :recommended
@@ -23,11 +21,6 @@ class Libgit2 < Formula
     args << "-DBUILD_EXAMPLES=YES"
     args << "-DBUILD_CLAR=NO" # Don't build tests.
     args << "-DUSE_SSH=NO" if build.without? "libssh2"
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args

@@ -3,8 +3,8 @@ class Onepass < Formula
   homepage "https://github.com/georgebrock/1pass"
   url "https://github.com/georgebrock/1pass/archive/0.2.1.tar.gz"
   sha256 "44efacfd88411e3405afcabb98c6bb03b15ca6e5a735fd561653379b880eb946"
-  head "https://github.com/georgebrock/1pass.git"
   revision 1
+  head "https://github.com/georgebrock/1pass.git"
 
   bottle do
     cellar :any

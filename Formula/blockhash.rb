@@ -3,13 +3,14 @@ class Blockhash < Formula
   homepage "http://blockhash.io/"
   url "https://github.com/commonsmachinery/blockhash/archive/0.2.1.tar.gz"
   sha256 "549e0f52e7a7545bae7eca801c64c79b95cbe9417975718e262fddaf78b00cca"
+  revision 1
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
     cellar :any
-    sha256 "0661976a66ec05343748ceeea27ad2ea972e645834f56cac0780bcf0f9dce98b" => :sierra
-    sha256 "a12285fd189dc73cb3ad302f52dd3f025c2992c59bac8f5f00841b17fa36e7b7" => :el_capitan
-    sha256 "a2c96447f15119a973d35a95b5fde7a802eeaf0d114f6bfbce4dde9243382db2" => :yosemite
+    sha256 "3c3ba24b64ae845dd8ae24d3e6bd269786fcfb39261ac36a402193109a65241e" => :sierra
+    sha256 "fafedb68fbf6cfb920f4dd67ce87dc364ce4a68c459101a9c85f7b01fc3a8dd4" => :el_capitan
+    sha256 "6aa8c1b762feaa0299219b1bac86fec27261a8c92e9e9968fff4d3a2743fbdda" => :yosemite
   end
 
   depends_on "pkg-config" => :build

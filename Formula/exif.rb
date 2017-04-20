@@ -1,6 +1,6 @@
 class Exif < Formula
   desc "Read, write, modify, and display EXIF data on the command-line"
-  homepage "http://libexif.sourceforge.net/"
+  homepage "https://libexif.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libexif/exif/0.6.21/exif-0.6.21.tar.gz"
   sha256 "1e2e40e5d919edfb23717308eb5aeb5a11337741e6455c049852128a42288e6d"
 

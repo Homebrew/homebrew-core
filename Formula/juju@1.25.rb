@@ -1,18 +1,21 @@
 class JujuAT125 < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
-  url "https://launchpad.net/juju-core/1.25/1.25.8/+download/juju-core_1.25.8.tar.gz"
-  sha256 "7866cf4195d7fe87463bc7501cece12b4d0c3d08b8983f66cecf54f6f8b28267"
+  url "https://launchpad.net/juju-core/1.25/1.25.10/+download/juju-core_1.25.10.tar.gz"
+  sha256 "8d5e6eee6a3adc9d6c240ef6a5806653644e30dc5b0b9825046a242b07944927"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e179401b1e81f898bab0e3e83be72c25a1f894b9354035ddae70380428fb040a" => :sierra
-    sha256 "eb2b74644085377a8eca3740b1ee0b209db4324fb7932877dd3d737e60855ee5" => :el_capitan
-    sha256 "3358c915bb0f29d699752a29e6bdd1bdb26de8ddb43d452ac01b8ce19f7cf18d" => :yosemite
+    sha256 "5081ad67ecb06c1456edfca77123087f045ee5c970fbebc44c6ad09aa280b403" => :sierra
+    sha256 "df85b3a5a8d08847cad3c9a8d8f47c06f903ff99a93a5a8eb3a62d8e738e2925" => :el_capitan
+    sha256 "5c10ace05fee8614693e0a326d923f060752aa115358fb13192b2d3f0227da6a" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   depends_on "go" => :build
-  conflicts_with "juju@2.0", :because => "juju 1 and 2 cannot be installed simultaneously."
+
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

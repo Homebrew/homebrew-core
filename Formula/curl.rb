@@ -1,19 +1,18 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.52.1.tar.bz2"
-  sha256 "d16185a767cb2c1ba3d5b9096ec54e5ec198b213f45864a38b3bda4bbf87389b"
+  url "https://curl.haxx.se/download/curl-7.54.0.tar.bz2"
+  sha256 "f50ebaf43c507fa7cc32be4b8108fa8bbd0f5022e90794388f3c7694a302ff06"
 
   bottle do
     cellar :any
-    sha256 "47ae0e479cdb15bea6820f7f2d659d45e9d7a09a97a2d7f44c02b6c7a689dd9f" => :sierra
-    sha256 "e296cad67c36d93cf0ce85d0b797fc442fd1c56d04523dea8afe751f54977ab2" => :el_capitan
-    sha256 "36ff81fd9579b8ef4e556fd7e5ae3bf38ae016110f1563561c018163006fb3f4" => :yosemite
+    sha256 "e812e7a0fed04ca4333c56b9f7d740dfbda4aa8a28a8b79647f98e7ae5289bf1" => :sierra
+    sha256 "bef5bbef95da0a4c7d619539dd5cf0646d9be59169c1666d3f2c548050caa2a7" => :el_capitan
+    sha256 "de301f643ebc7bc5ebb9ac2cc204fb11ef7d2a920b7ac18d0ea737117cde9d2e" => :yosemite
   end
 
   keg_only :provided_by_osx
 
-  option "with-libidn", "Build with support for Internationalized Domain Names"
   option "with-rtmpdump", "Build with RTMP support"
   option "with-libssh2", "Build with scp and sftp support"
   option "with-c-ares", "Build with C-Ares async DNS support"
@@ -21,7 +20,6 @@ class Curl < Formula
   option "with-libmetalink", "Build with libmetalink support."
   option "with-nghttp2", "Build with HTTP/2 support (requires OpenSSL)"
 
-  deprecated_option "with-idn" => "with-libidn"
   deprecated_option "with-rtmp" => "with-rtmpdump"
   deprecated_option "with-ssh" => "with-libssh2"
   deprecated_option "with-ares" => "with-c-ares"
@@ -36,7 +34,6 @@ class Curl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libidn" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "libssh2" => :optional
   depends_on "c-ares" => :optional
@@ -66,7 +63,6 @@ class Curl < Formula
     end
 
     args << (build.with?("libssh2") ? "--with-libssh2" : "--without-libssh2")
-    args << (build.with?("libidn") ? "--with-libidn" : "--without-libidn")
     args << (build.with?("libmetalink") ? "--with-libmetalink" : "--without-libmetalink")
     args << (build.with?("gssapi") ? "--with-gssapi" : "--without-gssapi")
     args << (build.with?("rtmpdump") ? "--with-librtmp" : "--without-librtmp")

@@ -1,7 +1,7 @@
 class Libgc < Formula
   desc "The Boehm-Demers-Weiser conservative garbage collector"
-  homepage "http://www.hboehm.info/gc/"
-  url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
+  homepage "https://www.hboehm.info/gc/"
+  url "https://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
   sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
 
   bottle do
@@ -12,7 +12,7 @@ class Libgc < Formula
   end
 
   resource "libatomic_ops" do
-    url "http://www.hboehm.info/gc/gc_source/libatomic_ops-7.4.4.tar.gz"
+    url "https://www.hboehm.info/gc/gc_source/libatomic_ops-7.4.4.tar.gz"
     sha256 "bf210a600dd1becbf7936dd2914cf5f5d3356046904848dcfd27d0c8b12b6f8f"
   end
 

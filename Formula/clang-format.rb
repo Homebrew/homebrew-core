@@ -1,34 +1,49 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
-  homepage "http://clang.llvm.org/docs/ClangFormat.html"
-  version "2016-08-03"
+  homepage "https://clang.llvm.org/docs/ClangFormat.html"
+  version "2017-03-17"
 
   stable do
-    url "http://llvm.org/svn/llvm-project/llvm/tags/google/testing/2016-08-03/", :using => :svn
+    if MacOS.version >= :sierra
+      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-03-17/", :using => :svn
+    else
+      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-03-17/", :using => :svn
+    end
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/tags/google/testing/2016-08-03/", :using => :svn
+      if MacOS.version >= :sierra
+        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-03-17/", :using => :svn
+      else
+        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-03-17/", :using => :svn
+      end
     end
 
     resource "libcxx" do
-      url "http://llvm.org/releases/3.9.0/libcxx-3.9.0.src.tar.xz"
-      sha256 "d0b38d51365c6322f5666a2a8105785f2e114430858de4c25a86b49f227f5b06"
+      url "http://llvm.org/releases/4.0.0/libcxx-4.0.0.src.tar.xz"
+      sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "67a35cdff7ff1a4c361ce79f973ff7d5b718fd22202e5f81711d78882c3d337a" => :sierra
-    sha256 "730d8a5f7b0608dce084df537eff1c45cd1b0c12c0e2bace2f27ffcb3a86dfb8" => :el_capitan
-    sha256 "06a1aa4d1768e12d697888e829b772ced182431d20eb107817d069d0a1f91976" => :yosemite
-    sha256 "f90425f4547f526e3637f622495afd89891e29dccaf7a9a58fb8dabdaaacb29d" => :mavericks
+    sha256 "e9e68cd29b723197142bf8eb0c08d6bda278d85bfcced66dc205b037d4e702c3" => :sierra
+    sha256 "53d2356e235be5351359e22c4736b3833e2807e9fe709e681679016a4458b517" => :el_capitan
+    sha256 "538be123e5d98c67668522be4be37597b3bac6186df0896c0d250abbf2d77d12" => :yosemite
   end
 
   head do
-    url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    if MacOS.version >= :sierra
+      url "https://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    else
+      url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    end
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      if MacOS.version >= :sierra
+        url "https://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      else
+        url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      end
     end
 
     resource "libcxx" do

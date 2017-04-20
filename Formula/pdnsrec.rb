@@ -1,14 +1,13 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.3.tar.bz2"
-  sha256 "ae9813a64d13d9ebe4b44e89e8e4e44fc438693b6ce4c3a98e4cab1af22d9627"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.4.tar.bz2"
+  sha256 "2338778f49ccd03401e65f6f4b39047890e691c8ff6d810ecee45321fb4f1e4d"
 
   bottle do
-    sha256 "f044aeacd64def9fa7f2bb0bd2c6dd601c324e3f030038a2f7914785552b3fbd" => :sierra
-    sha256 "448d129e699d87c89bbe28069ad4af8eb4f53a074ea6acbf6ffd71547af9f926" => :el_capitan
-    sha256 "a33ef50799e0c20945040d5ac6b1bb511f3d5b12825c61de4905334aaf28d5de" => :yosemite
-    sha256 "0168f90f28a6daea7175506219f671bda429c95d5daa112c3a695a6c3c1c5edb" => :mavericks
+    sha256 "2cdc2cca4313b14afa5f744a2f2fa9bf9a6d56a32a9d13b5fb04cbe976f430d3" => :sierra
+    sha256 "e529af26e330e54cb114e8adde9f458d83470da4f371bedac01a5c2dc724a339" => :el_capitan
+    sha256 "149d602439855b0b8a09854d746ab4f31d340db26179530e73309e77ac3878ef" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -22,13 +21,6 @@ class Pdnsrec < Formula
   fails_with :clang do
     build 600
     cause "incomplete C++11 support"
-  end
-
-  # Remove for > 4.0.3
-  # Upstream commit "rec: Fix Lua-enabled compilation on macOS and FreeBSD"
-  patch :p2 do
-    url "https://github.com/PowerDNS/pdns/commit/546d1fb.patch"
-    sha256 "9a7711596aebaf3eceaf8abcf723df12aa9c22583e6bb177b4eb0f90c8bb2ec3"
   end
 
   def install

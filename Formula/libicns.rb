@@ -1,6 +1,6 @@
 class Libicns < Formula
   desc "Library for manipulation of the macOS .icns resource format"
-  homepage "http://icns.sourceforge.net/"
+  homepage "https://icns.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/icns/libicns-0.8.1.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/libi/libicns/libicns_0.8.1.orig.tar.gz"
   sha256 "335f10782fc79855cf02beac4926c4bf9f800a742445afbbf7729dab384555c2"
@@ -13,8 +13,6 @@ class Libicns < Formula
     sha256 "aed1a7df05a8f98ea64dcdd8c4a406207239b7b187629fc03ae799308a142a4d" => :yosemite
   end
 
-  option :universal
-
   depends_on "jasper"
   depends_on "libpng"
 
@@ -23,8 +21,6 @@ class Libicns < Formula
     inreplace "icnsutils/png2icns.c",
       "png_set_gray_1_2_4_to_8",
       "png_set_expand_gray_1_2_4_to_8"
-
-    ENV.universal_binary if build.universal?
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

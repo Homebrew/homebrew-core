@@ -1,17 +1,17 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz"
-  sha256 "b0c5f904f685e32d9232f7bdcbece9819a892929063b6e385414ad2dd6a23622"
-  head "https://hg.python.org/cpython", :using => :hg
+  url "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz"
+  sha256 "a01810ddfcec216bcdb357a84bfaafdfaa0ca42bbdaa4cb7ff74f5a9961e4041"
+  head "https://github.com/python/cpython", :using => :git
 
   bottle do
-    sha256 "b9b1de457689c84376fb8c35c67b0de4745ccb573ddc5f8ce0257b3b73358917" => :sierra
-    sha256 "8588e0f338a9c2187569cfd63180a7f6e4124929f0402f2e2a9e3337d23f9d94" => :el_capitan
-    sha256 "6db855fa31e33ceed7703f249f6c0e098e74db05294d7191cf175f0a4bffb1e2" => :yosemite
+    rebuild 1
+    sha256 "77fddf274eed11c29f7d9dc0b7b1183860fa70ffff00bcf046150a0f65cd675c" => :sierra
+    sha256 "e9060ef5d5e291e55533e2b8e7ce742906e53c2eb1302ed54036301016eefe19" => :el_capitan
+    sha256 "16753928434530a84ec309c0a083ba3da9535b8e7750fd5b2440e77c71c8f7b0" => :yosemite
   end
 
-  option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
@@ -25,8 +25,7 @@ class Python3 < Formula
   depends_on "gdbm" => :recommended
   depends_on "openssl"
   depends_on "xz" => :recommended # for the lzma module added in 3.3
-  depends_on "homebrew/dupes/tcl-tk" => :optional
-  depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+  depends_on "tcl-tk" => :optional
   depends_on "sphinx-doc" => [:build, :optional]
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
@@ -86,6 +85,7 @@ class Python3 < Formula
       --datadir=#{share}
       --enable-framework=#{frameworks}
       --without-ensurepip
+      --with-dtrace
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
@@ -115,11 +115,6 @@ class Python3 < Formula
       s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
       s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universalsdk" << "--with-universal-archs=intel"
     end
 
     if build.with? "sqlite"
@@ -203,6 +198,8 @@ class Python3 < Formula
   end
 
   def post_install
+    ENV.delete "PYTHONPATH"
+
     xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
     site_packages = HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
     site_packages_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"
@@ -257,8 +254,8 @@ class Python3 < Formula
     end
 
     if build.with? "tcl-tk"
-      include_dirs << Formula["homebrew/dupes/tcl-tk"].opt_include
-      library_dirs << Formula["homebrew/dupes/tcl-tk"].opt_lib
+      include_dirs << Formula["tcl-tk"].opt_include
+      library_dirs << Formula["tcl-tk"].opt_lib
     end
 
     cfg = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"

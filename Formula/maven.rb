@@ -1,13 +1,18 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
-  sha256 "6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82"
+
+  stable do
+    url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz"
+    sha256 "beb91419245395bd69a4a6edad5ca3ec1a8b64e41457672dc687c173a495f034"
+  end
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.7+"
+
+  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
   def install
     # Remove windows files
@@ -27,8 +32,6 @@ class Maven < Formula
       (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end
-
-  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
   test do
     (testpath/"pom.xml").write <<-EOS.undent

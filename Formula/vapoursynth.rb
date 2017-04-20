@@ -3,14 +3,13 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R35.tar.gz"
-  sha256 "762cada84d2f975ec925a1eb719dd8a2f40dfaa69d10c358b228184785f64918"
-  revision 1
+  url "https://github.com/vapoursynth/vapoursynth/archive/R37.tar.gz"
+  sha256 "25fee086442f07f8b6caf1508c18e6a694d52e125eec5959f89570990e6070bc"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    sha256 "ee13a6bd4dfdd13c2427f782cbb0ab520c9f7373c46008e61954809aa3ef35e4" => :sierra
-    sha256 "16dcc9a6257ee3451824917ba7f472c548ae87975a72031fc1f55cf63e1bae1f" => :el_capitan
+    sha256 "1b7b7b169cf3b275c4189f0fe30b0270874253d7fc1d9c299b45941fedead3cd" => :sierra
+    sha256 "b976b0a202f2174d9428884ed9e1b4b608cba94585686f27f7dfbe39a5322efd" => :el_capitan
   end
 
   depends_on "autoconf" => :build

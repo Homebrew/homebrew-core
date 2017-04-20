@@ -13,8 +13,6 @@ class Tinyxml < Formula
     sha256 "2db8d34dafd503a2982dd9ca5ffb4a2a2740e0eb78195933cb121dd7b7836728" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "cmake" => :build
 
   # The first two patches are taken from the debian packaging of tinyxml.
@@ -39,7 +37,6 @@ class Tinyxml < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     (lib+"pkgconfig/tinyxml.pc").write pc_file

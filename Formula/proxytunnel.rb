@@ -1,6 +1,6 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
-  homepage "http://proxytunnel.sourceforge.net/"
+  homepage "https://proxytunnel.sourceforge.io/"
   url "https://downloads.sourceforge.net/proxytunnel/proxytunnel-1.9.0.tgz"
   sha256 "2ef5bbf8d81ddf291d71f865c5dab89affcc07c4cb4b3c3f23e1e9462721a6b9"
   revision 1

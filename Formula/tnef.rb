@@ -1,16 +1,14 @@
 class Tnef < Formula
   desc "Microsoft MS-TNEF attachment unpacker"
   homepage "https://github.com/verdammelt/tnef"
-  url "https://github.com/verdammelt/tnef/archive/1.4.12.tar.gz"
-  sha256 "fefea5d9481555cc150ab799b9b1e957564e7fd2ead99fa19e87258f263f7c37"
+  url "https://github.com/verdammelt/tnef/archive/1.4.14.tar.gz"
+  sha256 "26cd7c1a91fa080b4a05b9e81cdee4af9fbd5c6cda44db5f112a2ae9b3c37bd8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8971b75ed212864d6fe77ec60a9e9edd24ca43cb5ecacd96f7f99dd271be6387" => :sierra
-    sha256 "f890ad7f42e1abd4f2b4d50fa438642731c82fe01f237ed8926c28537029a7d3" => :el_capitan
-    sha256 "a39a144c679b2ae1dfdde6c3062fd9aefefb9d20c44be0943439a17cd1a81a85" => :yosemite
-    sha256 "f908fdb42132f3cc2904accf4cefa3623f461a5a683bc37f93c258b144d0c465" => :mavericks
-    sha256 "fc3c6f4a0a89f97da20ffea1b99a153e16fc5d9359f73f3c45ca3776912a68e8" => :mountain_lion
+    sha256 "1f25392f0e35f58dd74cc3646629120b722e56375851cd3cf4aec43e1367cd56" => :sierra
+    sha256 "4610ff74cdcb1421d112dbbaf98b397cbc4851362d03c5e132a1937b8a4c210e" => :el_capitan
+    sha256 "6b9474530f6e1c02b710c6cb4ec346aaea65337a3fe2660e4da7e1da9dd3f479" => :yosemite
   end
 
   depends_on "autoconf" => :build

@@ -1,6 +1,6 @@
 class XmlrpcC < Formula
   desc "Lightweight RPC library (based on XML and HTTP)"
-  homepage "http://xmlrpc-c.sourceforge.net/"
+  homepage "https://xmlrpc-c.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.39.12/xmlrpc-c-1.39.12.tgz"
   sha256 "d830f3264a832dfe09f629cc64036acfd08121692526d0fabe090f7ff881ce08"
 

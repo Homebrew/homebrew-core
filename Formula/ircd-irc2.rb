@@ -2,8 +2,8 @@ class IrcdIrc2 < Formula
   desc "Original IRC server daemon"
   homepage "http://www.irc.org/"
   url "http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
-  sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
   version "2.11.2p3"
+  sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
 
   bottle do
     sha256 "72b85345931772dc3ac1fe96201906db0c70c24e129e9ee7006253080926bd2f" => :sierra

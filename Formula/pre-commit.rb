@@ -3,21 +3,21 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.10.1.tar.gz"
-  sha256 "3b2846d91abe652106ce142b404d3fb8b49ad3081823c41a33a1dc3e6a7a0f92"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.13.6.tar.gz"
+  sha256 "8c17b735467247097a1505b9259813a3ff7899e8534b12f4a68290b1f5fe6f32"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d1b2aaf482d87de4a522df0063aac37e5714bac511b492ff8d0baf3fbc58ce7" => :sierra
-    sha256 "1d0dfe8f35e3d82f05a8db4b861375e942ffb89a9eb0ca404896e28c51ed2ddd" => :el_capitan
-    sha256 "086652b53a66fdfb36f3b9badaffb699125714ab2b34cd9ba885095ec196a6d0" => :yosemite
+    sha256 "6e4291904590a42a85f643319d5c923cc0c550d2a281612ceec59bb4819df979" => :sierra
+    sha256 "be5e14ca4691d83d30e6ae4a3e6ad62ee298ae3b349d4f448f8bb9fd5d8a823d" => :el_capitan
+    sha256 "b5a57e82e2d82f37d9f8ec5c0d68ad8de275eb3f4429b336771f31c61475f5f6" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "aspy.yaml" do
-    url "https://files.pythonhosted.org/packages/f0/68/49af646ea5d7ea4a53209109c89a811e5b2569e802d4fcd28763cdded43c/aspy.yaml-0.2.1.tar.gz"
-    sha256 "a91370183aea63c87d8487e7b399ed2d99a7c2f14b108d27c0bc8ad9ef595d9a"
+    url "https://github.com/asottile/aspy.yaml/archive/v0.2.2.tar.gz"
+    sha256 "91940ed68ae9bf4d72a70e26b133be2affc9912935c131dcfaeb99ba7099aa29"
   end
 
   resource "cached-property" do
@@ -31,13 +31,13 @@ class PreCommit < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/58/0d/c816f5ea5adaf1293a1d81d32e4cdfdaf8496973aa5049786d7fdb14e7e7/jsonschema-2.5.1.tar.gz"
-    sha256 "36673ac378feed3daa5956276a829699056523d7961027911f064b52255ead41"
+    url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
+    sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/fa/62/f3dc0d7b596f7187585520bca14c050909de88866e8f793338de907538cf/nodeenv-1.0.0.tar.gz"
-    sha256 "def2a6d927bef8d17c1776edbd5bbc8b7a5f0eee159af53b9924d559fc8d3202"
+    url "https://files.pythonhosted.org/packages/79/c1/c772f1e2beb5c67a1ce750a07e9ab790d44b9ff89cd9ff4356197ab68a8c/nodeenv-1.1.2.tar.gz"
+    sha256 "6e5e54b2520aff970a8a161750dedecc196b396b9436247859128e53ff7aa074"
   end
 
   resource "ordereddict" do

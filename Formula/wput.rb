@@ -1,6 +1,6 @@
 class Wput < Formula
   desc "Tiny, wget-like FTP client for uploading files"
-  homepage "http://wput.sourceforge.net/"
+  homepage "https://wput.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/wput/wput/0.6.2/wput-0.6.2.tgz"
   sha256 "229d8bb7d045ca1f54d68de23f1bc8016690dc0027a16586712594fbc7fad8c7"
 
@@ -13,7 +13,7 @@ class Wput < Formula
   end
 
   # The patch is to skip inclusion of malloc.h only on OSX. Upstream:
-  # https://sourceforge.net/tracker/?func=detail&aid=3481469&group_id=141519&atid=749615
+  # https://sourceforge.net/p/wput/patches/22/
   patch :DATA
 
   def install

@@ -11,28 +11,24 @@ class Libxml2 < Formula
     # All patches upstream already. Remove whenever 2.9.5 is released.
     # Fixes CVE-2016-4658, CVE-2016-5131.
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.1.debian.tar.xz"
-      sha256 "e71790a415e5d6b4a6490040d946d584fa79465571da3b186cc67b8f064cd104"
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
+      sha256 "c038bba02a56164cef7728509ba3c8f1856018573769ee9ffcc48c565e90bdc9"
       apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
             "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
             "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
             "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
-            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch"
-    end
-
-    # https://bugzilla.gnome.org/show_bug.cgi?id=766834
-    patch do
-      url "https://git.gnome.org/browse/libxml2/patch/?id=3169602058bd2d04913909e869c61d1540bc7fb4"
-      sha256 "42082b0e7fa80eac68abeace98ea5a03e8cd44cd781c13966eb0758b9a1749b3"
+            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch",
+            "patches/0008-Fix-attribute-decoding-during-XML-schema-validation.patch"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "ee3dbe9214cbd11f94f909262c11c5cd9d4a8e7c214a01f63c09aa678088caeb" => :sierra
-    sha256 "682ab8b699edb23164a5a90e28099d9e532e0d2f99ff75ceab40ccbfc92bc494" => :el_capitan
-    sha256 "df893d3e5c300697faae88cbece95fedf93ed838fc2274668f31b33e204cee21" => :yosemite
+    rebuild 1
+    sha256 "08ae8ecc02d55f390122cb6a66e252720ff76ac003f3605a0ff1a700b8da32cd" => :sierra
+    sha256 "935c1dc0821ca6c4676357c4a6a4339946f8a5d699b6da95f74380f098e61db1" => :el_capitan
+    sha256 "eb7c876f407381400b8c64c9a3107aa50dc853823c4bbf2e856f32e93cb68bac" => :yosemite
   end
 
   head do
@@ -45,12 +41,9 @@ class Libxml2 < Formula
 
   keg_only :provided_by_osx
 
-  option :universal
-
   depends_on :python => :optional
 
   def install
-    ENV.universal_binary if build.universal?
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
       system "./autogen.sh"

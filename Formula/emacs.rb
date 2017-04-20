@@ -13,15 +13,14 @@ class Emacs < Formula
   end
 
   devel do
-    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1.91.tar.xz"
-    sha256 "841918b765f9622951348c2209858340262504ff57bb0be293f4f722c3c69533"
+    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-25.2-rc2.tar.xz"
+    sha256 "4f405314b427f9fdfc3fe89c3a062524156b23e07396427bb16d30ba1a8bf687"
   end
 
   head do
     url "https://github.com/emacs-mirror/emacs.git"
 
     depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "gnu-sed" => :build
     depends_on "texinfo" => :build
   end
@@ -34,12 +33,15 @@ class Emacs < Formula
   deprecated_option "cocoa" => "with-cocoa"
   deprecated_option "keep-ctags" => "with-ctags"
   deprecated_option "with-d-bus" => "with-dbus"
+  deprecated_option "imagemagick" => "imagemagick@6"
 
   depends_on "pkg-config" => :build
   depends_on "dbus" => :optional
   depends_on "gnutls" => :optional
   depends_on "librsvg" => :optional
-  depends_on "imagemagick" => :optional
+  # Emacs does not support ImageMagick 7:
+  # Reported on 2017-03-04: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25967
+  depends_on "imagemagick@6" => :optional
   depends_on "mailutils" => :optional
 
   def install
@@ -70,7 +72,15 @@ class Emacs < Formula
       args << "--without-gnutls"
     end
 
-    args << "--with-imagemagick" if build.with? "imagemagick"
+    # Note that if ./configure is passed --with-imagemagick but can't find the
+    # library it does not fail but imagemagick support will not be available.
+    # See: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=24455
+    if build.with? "imagemagick@6"
+      args << "--with-imagemagick"
+    else
+      args << "--without-imagemagick"
+    end
+
     args << "--with-modules" if build.with? "modules"
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--without-pop" if build.with? "mailutils"

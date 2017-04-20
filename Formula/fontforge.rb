@@ -35,7 +35,7 @@ class Fontforge < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "gnulib" do
-    url "git://git.savannah.gnu.org/gnulib.git",
+    url "https://git.savannah.gnu.org/git/gnulib.git",
         :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
   end
 

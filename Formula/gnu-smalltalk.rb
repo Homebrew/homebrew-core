@@ -15,7 +15,7 @@ class GnuSmalltalk < Formula
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    url "https://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
     mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
     sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
   end

@@ -1,13 +1,13 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/16.12/ejabberd-16.12.tgz"
-  sha256 "133dd20b5444110d230bc6b27f850da8f5dc8a3b272b9f0731cff5977f72d303"
+  url "https://www.process-one.net/downloads/ejabberd/17.04/ejabberd-17.04.tgz"
+  sha256 "b8395bc65b09f135a60320b62338258acd6056cc241e9e245fde267fb18dd3c9"
 
   bottle do
-    sha256 "be308b4e6ddac8d249bc121623a59de40c6b9f6e33ce1e8468535e480b65dc85" => :sierra
-    sha256 "d1898a81156e92a733f1b6a7fbd9b65dc41cebe5ff088ef2e3528483554dc709" => :el_capitan
-    sha256 "4ca634a161e49e2de6d8f7cab2ffb3b89531306638ed70cf4b2de82dda68b3d3" => :yosemite
+    sha256 "acf6cafde085065fd6d6a9857c92ea41218a0921baaca76fec7e753c324a6b4d" => :sierra
+    sha256 "05fee3e510aaa61277cf22ed6d4545a4668a8ae1c8922f4c32413e270ce04cc4" => :el_capitan
+    sha256 "5cfe591d532c9b739835611a2a504449cf85c36a3f9f68d7b52bdcf5d6eb3b87" => :yosemite
   end
 
   head do
@@ -39,6 +39,8 @@ class Ejabberd < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
+
+    ENV.deparallelize
     system "make", "install"
 
     (etc/"ejabberd").mkpath

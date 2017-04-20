@@ -1,15 +1,15 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.1/postgresql-9.6.1.tar.bz2"
-  sha256 "e5101e0a49141fc12a7018c6dad594694d3a3325f5ab71e93e0e51bd94e51fcd"
+  url "https://ftp.postgresql.org/pub/source/v9.6.2/postgresql-9.6.2.tar.bz2"
+  sha256 "0187b5184be1c09034e74e44761505e52357248451b0c854dddec6c231fe50c9"
 
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "0da8bf2c15d5991feb11df68680b85d29fb56cca7cf51262cd467ad688b2130c" => :sierra
-    sha256 "f885679f2fe9999551fab47618529287097345a8226da5b969baaa26a60333b4" => :el_capitan
-    sha256 "6f535922dca6457f0b16a5a22be5d35ec9138dc2334acc60a660dbb7594c1d41" => :yosemite
+    sha256 "75795830b5d1ed481cd21e91e1c74e03a49d51e521a6cf7b167d1976cbf515dd" => :sierra
+    sha256 "df15dfcfc4672767a739012565d52990198a121cdaaa4ca986c1cd7ecddd69d9" => :el_capitan
+    sha256 "fb64a01714c6abf4509eddf6f3011d774987c6f322fde0bb35c0b476acf3eb19" => :yosemite
   end
 
   option "without-perl", "Build without Perl support"

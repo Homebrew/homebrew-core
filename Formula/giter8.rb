@@ -1,27 +1,27 @@
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
-  homepage "https://github.com/n8han/giter8"
-  url "https://github.com/foundweekends/giter8/archive/v0.7.1.tar.gz"
-  sha256 "181357720f14b49cf132210a04fe3ad470d51731030394a8a723c1c49aced42c"
+  homepage "https://github.com/foundweekends/giter8"
+  url "https://github.com/foundweekends/giter8/archive/v0.8.0.tar.gz"
+  sha256 "f3a49b559b5438d5f28d30bf5c40c607823e6d968aaeeff231eedd17f38f2b4e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8fd7a060e000606113365f5d8d08a26fdffc5ebc8a0eb44e9ed61f71383ed055" => :sierra
-    sha256 "26447426ee86cb6d21c1c81a9b9a0b3e6bf0502c3a4b0947536b018a7a74a2fe" => :el_capitan
-    sha256 "b5570215fb623a043b60583d1b0919a4cf5850bfc7e3fb0f7a22fa18f2a2be97" => :yosemite
-    sha256 "56430765ef7a29fe7929e17b4a4da636f514920c5b92349009b9d784e8ad723c" => :mavericks
+    sha256 "bcc901d03b43c6ed8604623900261f8a88c288506d70d4ce3cf37bc49f0eae58" => :sierra
+    sha256 "e7a62369645174ff5593ae3b17a42858d6aa3bf45637d6bff6c3d4ffc25e3b76" => :el_capitan
+    sha256 "954c03fe0f4bdaa0164919533385c0a6a8177fc0b7edfb07291d760b0a596770" => :yosemite
   end
 
   depends_on :java => "1.6+"
 
   resource "conscript" do
     url "https://github.com/foundweekends/conscript.git",
-        :revision => "f7ee8b5bc3b00592adbd09c878b6649b624f141c"
+        :tag => "v0.5.1",
+        :revision => "0a196fbb0bd551cd7b00196b4032dea2564529ce"
   end
 
   resource "launcher" do
-    url "https://oss.sonatype.org/content/repositories/public/org/scala-sbt/launcher/1.0.0/launcher-1.0.0.jar"
-    sha256 "9149549ee09c50bda21ab57990f95aac4dd3919d720367df6198ec7e16480639"
+    url "https://oss.sonatype.org/content/repositories/public/org/scala-sbt/launcher/1.0.1/launcher-1.0.1.jar"
+    sha256 "10a12180a6bc3c72f5d4732a74f2c93abfd90b9b461cf2ea53e0cc4b4f9ef45c"
   end
 
   def install
@@ -36,7 +36,11 @@ class Giter8 < Formula
     resource("conscript").stage do
       cs = conscript_home/"foundweekends/conscript/cs"
       cs.install "src/main/conscript/cs/launchconfig"
+
       inreplace "setup.sh" do |s|
+        # outdated launcher reported 17 Apr 2017 https://github.com/foundweekends/conscript/issues/122
+        s.gsub! /^LJV=1.0.0$/, "LJV=1.0.1"
+
         s.gsub! /.*wget .*/, ""
         s.gsub! /^ +exec .*/, "exit"
       end

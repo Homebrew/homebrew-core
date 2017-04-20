@@ -1,21 +1,18 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.11/swig-3.0.11.tar.gz"
-  sha256 "d9031d531d7418829a54d0d51c4ed9007016b213657ec70be44031951810566e"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.12/swig-3.0.12.tar.gz"
+  sha256 "7cf9f447ae7ed1c51722efc45e7f14418d15d7a1e143ac9f09a668999f4fc94d"
 
   bottle do
-    sha256 "2e2906a9606fa06638ab536daf72de73cca26fd3632dc440867f19581edc2e85" => :sierra
-    sha256 "629ab98025d468cdb5cf344d11c1589053b892398249206dc935f6e282d31625" => :el_capitan
-    sha256 "cf75192b973e09e4495e7bc64a8093309fcb394a7638c4da6106ce4812b091f9" => :yosemite
+    sha256 "68cb1b6bc898f2a1bd39ae24dd0235f68ffa56d04ba8cd4424835335202977d1" => :sierra
+    sha256 "37bf242aad0c18317cdaef66218483c04fa57e091b7c7f9d72089f5002881338" => :el_capitan
+    sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
   end
-
-  option :universal
 
   depends_on "pcre"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"

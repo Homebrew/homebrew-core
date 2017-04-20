@@ -14,14 +14,11 @@ class Libmpd < Formula
     sha256 "85c97dbfb2a3a419495e702df451b00bf84e355d69c2e8512a54014ff702f45c" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

@@ -1,9 +1,9 @@
 class Riak < Formula
   desc "Distributed database"
-  homepage "https://basho.com/products/#riak"
-  url "https://s3.amazonaws.com/downloads.basho.com/riak/2.1/2.1.4/osx/10.8/riak-2.1.4-OSX-x86_64.tar.gz"
-  version "2.1.4"
-  sha256 "ece75fa1d1ac89525162537ac3cb258c37da5adf0f03b6a04cc49e9f29cbfb8a"
+  homepage "http://basho.com/products/riak-kv/"
+  url "https://s3.amazonaws.com/downloads.basho.com/riak/2.2/2.2.2/osx/10.8/riak-2.2.2-OSX-x86_64.tar.gz"
+  version "2.2.2"
+  sha256 "73fef949afe3864559fd4ead4cb368749259fac2162a9c931bed20d131f5b8cb"
 
   bottle :unneeded
 
@@ -29,5 +29,9 @@ class Riak < Formula
     bin.write_exec_script libexec/"bin/riak-admin"
     bin.write_exec_script libexec/"bin/riak-debug"
     bin.write_exec_script libexec/"bin/search-cmd"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/riak version")
   end
 end

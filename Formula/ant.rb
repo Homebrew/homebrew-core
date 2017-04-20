@@ -1,21 +1,23 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.0-bin.tar.bz2"
-  sha256 "1c34158fb1e3b56c843afae3ef91a60e779f91f63e69d69150698c049d2893c5"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.1-bin.tar.xz"
+  sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "014a680a8ddd0f46cda9a2fe1810f98b4f6be3b09203be032d58210dd51dd952" => :sierra
-    sha256 "7daabc4c4836853d92657ce7de727691ca8271455f1e2084b1f50766381232d9" => :el_capitan
-    sha256 "7daabc4c4836853d92657ce7de727691ca8271455f1e2084b1f50766381232d9" => :yosemite
+    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :sierra
+    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :el_capitan
+    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :yosemite
   end
 
   keg_only :provided_by_osx if MacOS.version < :mavericks
 
   option "with-ivy", "Install ivy dependency manager"
   option "with-bcel", "Install Byte Code Engineering Library"
+
+  depends_on :java => "1.8+"
 
   resource "ivy" do
     url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"

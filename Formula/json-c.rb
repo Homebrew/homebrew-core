@@ -23,16 +23,29 @@ class JsonC < Formula
     depends_on "autoconf" => :build
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     ENV.deparallelize
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-'EOS'.undent
+      #include <stdio.h>
+      #include <json-c/json.h>
+
+      int main() {
+        json_object *obj = json_object_new_object();
+        json_object *value = json_object_new_string("value");
+        json_object_object_add(obj, "key", value);
+        printf("%s\n", json_object_to_json_string(obj));
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-ljson-c", "test.c", "-o", "test"
+    assert_equal '{ "key": "value" }', shell_output("./test").chomp
   end
 end

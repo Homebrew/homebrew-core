@@ -1,7 +1,7 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
-  homepage "http://www.abisource.com/projects/enchant/"
-  url "http://www.abisource.com/downloads/enchant/1.6.0/enchant-1.6.0.tar.gz"
+  homepage "https://www.abisource.com/projects/enchant/"
+  url "https://www.abisource.com/downloads/enchant/1.6.0/enchant-1.6.0.tar.gz"
   sha256 "2fac9e7be7e9424b2c5570d8affe568db39f7572c10ed48d4e13cddf03f7097f"
 
   bottle do

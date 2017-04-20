@@ -1,6 +1,6 @@
 class W3m < Formula
   desc "Pager/text based browser"
-  homepage "http://w3m.sourceforge.net/"
+  homepage "https://w3m.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/w3m/w3m/w3m-0.5.3/w3m-0.5.3.tar.gz"
   sha256 "e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3"
 

@@ -1,15 +1,16 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.23.0.tar.gz"
-  sha256 "8aeefe5970587dfc454d2b89726b603f156bd7a9ae427654eef0d60c68d94998"
-  revision 2
+  url "https://github.com/mpv-player/mpv/archive/v0.24.0.tar.gz"
+  sha256 "a41854fa0ac35b9c309ad692aaee67c8d4495c3546f11cb4cdd0a124195d3f15"
+  revision 1
+
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "a74294958c50cc3cef3822fd07357a466e4163ab596868cae5fe3e810ac80b31" => :sierra
-    sha256 "0b34874baa978602660ccacc2b8fe4710fd27fe10cc434f6458a101914aa0eea" => :el_capitan
-    sha256 "8c48408b5a34d5c8e04205b7be5c69d5618be4fe851cf7a9dd7bf6aa64c519d5" => :yosemite
+    sha256 "f71367e2b4812bb2327662f7fc79de94a9bb6c35b818820d1521333d70c31942" => :sierra
+    sha256 "21857828193ab06808110fa2689a31dbe0c8cf7fb378e17f9e14282c242049b6" => :el_capitan
+    sha256 "39c9e4c36e66565e742ee4698d3ef9197f201d23b0a53a5a7d50a5fbadc1f719" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -69,6 +70,9 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
+    args << "--enable-libbluray" if build.with? "libbluray"
+    args << "--enable-dvdnav" if build.with? "libdvdnav"
+    args << "--enable-dvdread" if build.with? "libdvdread"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"

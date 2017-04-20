@@ -28,9 +28,9 @@ class Sparkey < Formula
   end
 
   test do
-    system "#{bin}/sparkey createlog -c snappy test.spl"
+    system "#{bin}/sparkey", "createlog", "-c", "snappy", "test.spl"
     system "echo foo.bar | #{bin}/sparkey appendlog -d . test.spl"
-    system "#{bin}/sparkey writehash test.spl"
+    system "#{bin}/sparkey", "writehash", "test.spl"
     system "#{bin}/sparkey get test.spi foo | grep ^bar$"
   end
 end

@@ -10,8 +10,6 @@ class Libical < Formula
     sha256 "f4cbcfb04208a01f1589f119e785c656b74713d033949e8a6a367a759ea142eb" => :yosemite
   end
 
-  option :universal
-
   depends_on "cmake" => :build
 
   def install
@@ -19,14 +17,9 @@ class Libical < Formula
     # Upstream issue https://github.com/libical/libical/issues/225
     inreplace "src/libical/icallangbind.h", "*callangbind_quote_as_ical_r(",
                                             "*icallangbind_quote_as_ical_r("
-    args = std_cmake_args
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     mkdir "build" do
-      system "cmake", "..", "-DSHARED_ONLY=true", *args
+      system "cmake", "..", "-DSHARED_ONLY=true", *std_cmake_args
       system "make", "install"
     end
   end

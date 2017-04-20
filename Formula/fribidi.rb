@@ -13,14 +13,11 @@ class Fribidi < Formula
     sha256 "70caed8cb2f44044c41e0b91c2645111b9f177d98b4d49cef01fb0d8558c0f98" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "pcre"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--with-glib", "--prefix=#{prefix}"
     system "make", "install"

@@ -1,16 +1,17 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.34.tar.gz"
-  sha256 "ee90bafec6af3abe2715ccb0b3cc9345ed8d1cce025d41e6ec2b2b7a7d820823"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.36.tar.gz"
+  sha256 "0af81a5538fc7fe2b747295dfa96589ace8831d2a7d4a26660fca456babeb147"
 
   bottle do
-    sha256 "e977aa8e72d36d4d3299e6185c98450b43501e6dcee541070e63700eac42e682" => :sierra
-    sha256 "d9ad86732265179cd7be92b2ec7b97fdd8977476ffc80477fed0143051c5963a" => :el_capitan
-    sha256 "7b45bbe87f2add631829d8c576e293870e52997847d0023787132a121b81bfe3" => :yosemite
+    sha256 "4e47145445eb66c106d40b15a46aa729b36a93c04d1aa93ac3ac7fa5ad63e78c" => :sierra
+    sha256 "b12ae00a87ee2395b7f7883a689087ca2dc2e8097532daf375cde4e574b61638" => :el_capitan
+    sha256 "963406c85636c3fc81fe41236a0f87b787795196a0e024dfc97f6eb762b8fe8e" => :yosemite
   end
 
-  option :universal
+  keg_only :versioned_formula
+
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
@@ -27,16 +28,6 @@ class MysqlAT56 < Formula
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
-
-  conflicts_with "mysql", :because => "Different versions of same formula"
-  conflicts_with "mysql@5.5", :because => "Different versions of same formula"
-
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   def datadir
     var/"mysql"
@@ -82,12 +73,6 @@ class MysqlAT56 < Formula
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
@@ -101,6 +86,12 @@ class MysqlAT56 < Formula
     system "make"
     system "make", "install"
 
+    # We don't want to keep a 240MB+ folder around most users won't need.
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+    rm_rf prefix/"mysql-test"
+
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix/"data"
@@ -109,11 +100,8 @@ class MysqlAT56 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
@@ -140,7 +128,7 @@ class MysqlAT56 < Formula
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql56/bin/mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.6/bin/mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -167,9 +155,23 @@ class MysqlAT56 < Formula
   end
 
   test do
-    system "/bin/sh", "-n", "#{bin}/mysqld_safe"
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{testpath}"
+    begin
+      # Expects datadir to be a completely clean dir, which testpath isn't.
+      dir = Dir.mktmpdir
+      system bin/"mysql_install_db", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+
+      pid = fork do
+        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      end
+      sleep 2
+
+      output = shell_output("curl 127.0.0.1:3306")
+      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+      assert_match version.to_s, output
+    ensure
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end

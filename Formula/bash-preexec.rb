@@ -1,8 +1,8 @@
 class BashPreexec < Formula
   desc "preexec and precmd functions for Bash just like Zsh."
   homepage "https://github.com/rcaloras/bash-preexec"
-  url "https://github.com/rcaloras/bash-preexec/archive/0.3.1.tar.gz"
-  sha256 "e9c96ceb54ca62cebf50191508971d8518245b9c2ad2598b4fd029f381ba17ab"
+  url "https://github.com/rcaloras/bash-preexec/archive/0.3.2.tar.gz"
+  sha256 "bf35c21ffdb8a48a908f1503c681017399e62e5580852e3e598e303bb86fc24d"
 
   head "https://github.com/rcaloras/bash-preexec.git"
 

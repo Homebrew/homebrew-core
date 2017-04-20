@@ -13,14 +13,10 @@ class Editorconfig < Formula
     sha256 "34d07fd7086716d9b0e4b078b6f45c95aa7575a1bd56acf8730a6fb69d1750e9" => :mavericks
   end
 
-  option :universal
-
   depends_on "cmake" => :build
   depends_on "pcre"
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"
     system "make", "install"
   end

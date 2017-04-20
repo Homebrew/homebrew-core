@@ -1,17 +1,15 @@
 class Innotop < Formula
   desc "Top clone for MySQL"
   homepage "https://github.com/innotop/innotop/"
-  url "https://github.com/innotop/innotop/archive/v1.11.1.tar.gz"
-  sha256 "c93a4fb496ce1749aaaf0a70f0899ed1fa1aa5cd231208b6b3424285c77dc1b7"
-  revision 2
-
+  url "https://github.com/innotop/innotop/archive/v1.11.4.tar.gz"
+  sha256 "fb0d7d2558e2198d9224b44dc4220d4c62e1b5b0069312012306275be39b4ab9"
   head "https://github.com/innotop/innotop.git"
 
   bottle do
     cellar :any
-    sha256 "dfd9d2ec112cb5d350a4de0e5627cc87d35b87a7eecc60b7552ee3f103573dd8" => :sierra
-    sha256 "9780c71d0f7a0d693fc22f289246bc5ff870108377fe1808c15fa6c091900f53" => :el_capitan
-    sha256 "430675ff15b6d1ddd680234dbf1697d22cfe1de853ea216fd394297cf98ca2c3" => :yosemite
+    sha256 "d1bf5e48162b71e8f19dca2d31f19140e5c4cc54f524c528cf0aa05b458626de" => :sierra
+    sha256 "c9f84dbe941f5d6dcf9f0e4a8b2ef560b8565f21c431f039d445efe755c41a74" => :el_capitan
+    sha256 "0c91367118f50ef4e624e31837418dd07d09bf24f8cc91a6f143538a61a56b95" => :yosemite
   end
 
   depends_on :mysql

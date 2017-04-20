@@ -1,16 +1,14 @@
 class Libmatroska < Formula
   desc "Extensible, open standard container format for audio/video"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.5.tar.bz2"
-  mirror "https://www.bunkus.org/videotools/mkvtoolnix/sources/libmatroska-1.4.5.tar.bz2"
-  sha256 "79023fa46901e5562b27d93a9dd168278fa101361d7fd11a35e84e58e11557bc"
+  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.7.tar.bz2"
+  sha256 "46441eb3bae9f970f68affaa211dd74302a7072dcd2becfb1114da11b66525fa"
 
   bottle do
     cellar :any
-    sha256 "56deeccf102a2f275d19976d6874fb9a9e031af41a485c09137b681f7e9ed048" => :sierra
-    sha256 "1f5fae2fa53865b2604565422a8d2a2c05f2a3704f7ff89f1e2edf1a0ea98bff" => :el_capitan
-    sha256 "0970585e51b2ce6918660216a1f3f86e097738705b1943c80b2b30e9bc90ca78" => :yosemite
-    sha256 "c91f48f96377c6002da12767f4ddbec4cec71001137d378af1eb18f862088544" => :mavericks
+    sha256 "398600a9d263811da4423a5e8eb0a491ab2605b95285bc6ce6618c513d015ad8" => :sierra
+    sha256 "7ac90bec5f13fe0d9a92d23c3213c71c9eadabb37f924f105b4fb7fccb8acc2b" => :el_capitan
+    sha256 "1df5606ade757f979069962524de4442fd1a353179373af334fba5a92f6142d7" => :yosemite
   end
 
   head do

@@ -1,13 +1,13 @@
 class Gkrellm < Formula
   desc "Extensible GTK system monitoring application"
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
-  head "http://git.srcbox.net/gkrellm", :using => :git
+  head "https://git.srcbox.net/gkrellm", :using => :git
 
   stable do
     url "https://billw2.github.io/gkrellm/gkrellm-2.3.5.tar.bz2"
     sha256 "702b5b0e9c040eb3af8e157453f38dd6f53e1dcd8b1272d20266cda3d4372c8b"
 
-    # http://git.srcbox.net/gkrellm/commit/?id=207a0519ac73290ba65b6e5f7446549a2a66f5d2
+    # https://git.srcbox.net/gkrellm/commit/?id=207a0519ac73290ba65b6e5f7446549a2a66f5d2
     # Resolves a NULL value crash. Fixed upstream already but unreleased in stable.
     patch :p0 do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/8040a52382/gkrellm/nullpointer.patch"

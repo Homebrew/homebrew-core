@@ -1,17 +1,15 @@
-require "yaml"
-
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/coreos/coreos-kubernetes/archive/v0.8.3.tar.gz"
-  sha256 "549e5c572fb8842b777d839a8aebadb4165aa5e3d8f4887e87a64347cb6ece09"
-  head "https://github.com/coreos/coreos-kubernetes.git"
+  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.5.tar.gz"
+  sha256 "86a15c882ef63e3a24fbd96f8af0b945911b7b2092051baa397d6a5046a1d21f"
+  head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e435ef5fa8b83a63334fcadb5d432eabf85fac6e055926ddb8848f27fc3da7d5" => :sierra
-    sha256 "79af2b3afdb2adaeb0538aa702bd7bff555b0c4b55140bfd3cc7440bca0a36f2" => :el_capitan
-    sha256 "6c5d8d12c01d94918ef68bf4d487aa1b6f577bed3aa64145cd58192fdb8aa948" => :yosemite
+    sha256 "d486f64d76f822d0f282d575543f1dc5008b8306deaeb3d4ee984ae1604a9924" => :sierra
+    sha256 "d6f7cbe965878315250494441844d3de9bb2e0b2b7eb9d5e8d3faae3904a815f" => :el_capitan
+    sha256 "e10ba1d9474a9cc8bbdafa8919132af3463f9c652ad50dd258a44e0a55723edf" => :yosemite
   end
 
   depends_on "go" => :build
@@ -19,31 +17,35 @@ class KubeAws < Formula
   def install
     gopath_vendor = buildpath/"_gopath-vendor"
     gopath_kube_aws = buildpath/"_gopath-kube-aws"
-    kube_aws_dir = "#{gopath_kube_aws}/src/github.com/coreos/coreos-kubernetes/multi-node/aws"
+    kube_aws_dir = "#{gopath_kube_aws}/src/github.com/kubernetes-incubator/kube-aws"
 
-    mkdir_p gopath_vendor
+    gopath_vendor.mkpath
     mkdir_p File.dirname(kube_aws_dir)
 
-    ln_s buildpath/"multi-node/aws/vendor", "#{gopath_vendor}/src"
-    ln_s buildpath/"multi-node/aws", kube_aws_dir
+    ln_s buildpath/"vendor", "#{gopath_vendor}/src"
+    ln_s buildpath, kube_aws_dir
 
     ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
 
     cd kube_aws_dir do
-      system "go", "generate", "./pkg/config"
+      system "go", "generate", "./core/controlplane/config"
+      system "go", "generate", "./core/nodepool/config"
+      system "go", "generate", "./core/root/config"
       system "go", "build", "-ldflags",
-             "-X github.com/coreos/coreos-kubernetes/multi-node/aws/pkg/cluster.VERSION=#{version}",
+             "-X github.com/kubernetes-incubator/kube-aws/core/controlplane/cluster.VERSION=#{version}",
              "-a", "-tags", "netgo", "-installsuffix", "netgo",
-             "-o", bin/"kube-aws", "./cmd/kube-aws"
+             "-o", bin/"kube-aws", "./"
     end
   end
 
   test do
-    system "#{bin}/kube-aws"
+    require "yaml"
 
+    system "#{bin}/kube-aws"
     cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
                 "keyName" => "key", "region" => "west",
-                "availabilityZone" => "zone", "kmsKeyArn" => "arn" }
+                "availabilityZone" => "zone", "kmsKeyArn" => "arn",
+                "worker"=>{ "nodePools"=>[{ "name"=>"nodepool1" }] } }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
            "--availability-zone", "zone", "--key-name", "key",

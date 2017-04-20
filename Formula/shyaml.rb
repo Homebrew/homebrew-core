@@ -3,15 +3,14 @@ class Shyaml < Formula
 
   desc "Command-line YAML parser"
   homepage "https://github.com/0k/shyaml"
-  url "https://files.pythonhosted.org/packages/67/70/1133a5817bc62ff4e7ceee59edb95d127092db9385cc7cda5fcac93c494a/shyaml-0.4.1.tar.gz"
-  sha256 "a1535c25bf0058563e03ea8cbad8c4dc755ed231e6a9f3f584982994f19eae59"
-  revision 4
+  url "https://files.pythonhosted.org/packages/f7/ec/4143e8ba92d1d3654535f17bc4354f72d3a3e7d6984926d9a7ce1dec46ed/shyaml-0.5.0.tar.gz"
+  sha256 "b3711011d37aae4e07b68b31e989aa3715548d5b0759898eda2ba437b9ae3c36"
   head "https://github.com/0k/shyaml.git"
 
   bottle do
-    sha256 "a1bc1ac40a7026efefa3c9e45409031cf0ea99f96ad2dc8d83c9abdc40bc26f9" => :sierra
-    sha256 "68c755c835380ab128447d9f2737942115398b7ebd419dc235bd1a0386e34bd0" => :el_capitan
-    sha256 "6dc199af61dd4fdff54c3a62d310e93170fe49e374720fd4bfd72b7f979256e2" => :yosemite
+    sha256 "6d86232a4ca67acb50fab9be145a1baa3c45993caada432a7af8a70b1f1aa0ca" => :sierra
+    sha256 "be14cfecf6a74831f8968ae64de0035b30b5303e89bf511b5eb0238ae36f52c2" => :el_capitan
+    sha256 "0084dabfc70ff9d2567ede796fe9f6721e32deaa533f66323546de1827102a6f" => :yosemite
   end
 
   depends_on :python3

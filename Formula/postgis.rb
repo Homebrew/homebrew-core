@@ -1,15 +1,14 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
-  homepage "http://postgis.net"
-  url "http://download.osgeo.org/postgis/source/postgis-2.3.0.tar.gz"
-  sha256 "0dbff06f4a196d49e5ac06ae6cc21bd5253aaa646af624c9bbf19df582d6cf55"
-  revision 1
+  homepage "https://postgis.net/"
+  url "http://download.osgeo.org/postgis/source/postgis-2.3.2.tar.gz"
+  sha256 "e92e34c18f078a3d1a2503cd870efdc4fa9e134f0bcedbbbdb8b46b0e6af09e4"
 
   bottle do
     cellar :any
-    sha256 "594906a90c80139f4077245689152f2aca67ddaa01cb422eca5d97542ec79418" => :sierra
-    sha256 "2f901ae43323817187012f015af48e63e1ad8656afb29a81cc2080458110fb42" => :el_capitan
-    sha256 "fa2a9ae1d584c00c644c27ca7302c227f35d8797d9d5da7758e1604d711e3145" => :yosemite
+    sha256 "cea4e412efe966694749f6e1feaa11db1dd47970a9f6ac63afd1765b50f56d85" => :sierra
+    sha256 "83a1e64c57c69d4e85a1678e772798b2cd04aaba26ab5ce75b678d41d7bc6cf7" => :el_capitan
+    sha256 "719efe3d8589e4923ff5a89e542df813053b59695b9d16f1cb2eb88db93e62ce" => :yosemite
   end
 
   head do
@@ -117,11 +116,11 @@ class Postgis < Formula
   def caveats
     <<-EOS.undent
       To create a spatially-enabled database, see the documentation:
-        http://postgis.net/docs/manual-2.2/postgis_installation.html#create_new_db_extensions
+        https://postgis.net/docs/manual-2.2/postgis_installation.html#create_new_db_extensions
       If you are currently using PostGIS 2.0+, you can go the soft upgrade path:
         ALTER EXTENSION postgis UPDATE TO "#{version}";
       Users of 1.5 and below will need to go the hard-upgrade path, see here:
-        http://postgis.net/docs/manual-2.2/postgis_installation.html#upgrading
+        https://postgis.net/docs/manual-2.2/postgis_installation.html#upgrading
 
       PostGIS SQL scripts installed to:
         #{opt_pkgshare}

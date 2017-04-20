@@ -1,15 +1,14 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirror.nbtelecom.com.br/apache/kafka/0.10.1.0/kafka_2.11-0.10.1.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.10.1.0/kafka_2.11-0.10.1.0.tgz"
-  sha256 "6d9532ae65c9c8126241e7b928b118aaa3a694dab08069471f0e61f4f0329390"
+  url "http://mirror.nbtelecom.com.br/apache/kafka/0.10.2.0/kafka_2.11-0.10.2.0.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.2.0/kafka_2.11-0.10.2.0.tgz"
+  sha256 "4c9e73059dea2dcb5022135f8e7eff5f187ffcc27a27b365b326ee61040214cd"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4fcea199b4a3a9e4eb3aecd280cb82adee79bf222964e615c64c9b2d02e1fdb3" => :sierra
-    sha256 "4fcea199b4a3a9e4eb3aecd280cb82adee79bf222964e615c64c9b2d02e1fdb3" => :el_capitan
-    sha256 "4fcea199b4a3a9e4eb3aecd280cb82adee79bf222964e615c64c9b2d02e1fdb3" => :yosemite
+    sha256 "ca56f89d5f7974749318f3fa98a7b1796f7652dacdde7e01bc88168b125bf68b" => :sierra
+    sha256 "ca56f89d5f7974749318f3fa98a7b1796f7652dacdde7e01bc88168b125bf68b" => :el_capitan
+    sha256 "ca56f89d5f7974749318f3fa98a7b1796f7652dacdde7e01bc88168b125bf68b" => :yosemite
   end
 
   depends_on "zookeeper"

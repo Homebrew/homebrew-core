@@ -1,7 +1,7 @@
 class Aescrypt < Formula
   desc "Program for encryption/decryption"
-  homepage "http://aescrypt.sourceforge.net/"
-  url "http://aescrypt.sourceforge.net/aescrypt-0.7.tar.gz"
+  homepage "https://aescrypt.sourceforge.io/"
+  url "https://aescrypt.sourceforge.io/aescrypt-0.7.tar.gz"
   sha256 "7b17656cbbd76700d313a1c36824a197dfb776cadcbf3a748da5ee3d0791b92d"
 
   bottle do

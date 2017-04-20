@@ -22,11 +22,7 @@ class Libmaxminddb < Formula
 
   depends_on "geoipupdate" => :optional
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./bootstrap" if build.head?
 
     system "./configure", "--disable-debug",

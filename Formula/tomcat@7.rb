@@ -1,22 +1,21 @@
 class TomcatAT7 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73.tar.gz"
-  sha256 "0e814d6ad7d5b90e29c79887137420d3bc413540f9faa60d98f11e6c8a8fea85"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.77/bin/apache-tomcat-7.0.77.tar.gz"
+  sha256 "10a984f92e828ca97b4682318cac0d0ddf4220d88244ec4b25f8e3dd13b17979"
 
   bottle :unneeded
+
+  keg_only :versioned_formula
 
   option "with-fulldocs", "Install full documentation locally"
 
   depends_on :java
 
-  conflicts_with "tomcat", :because => "Differing versions of same formula"
-  conflicts_with "tomcat@6", :because => "Differing versions of same formula"
-
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.73/bin/apache-tomcat-7.0.73-fulldocs.tar.gz"
-    version "7.0.73"
-    sha256 "ef1395034fd59cea38aaeee853e2630a1fb6e59c3fd0f398c2ffbe7893fd450b"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.77/bin/apache-tomcat-7.0.77-fulldocs.tar.gz"
+    version "7.0.77"
+    sha256 "e6f1a22b145b35607fb94a5901aa9ae87fce0a11247d52e03da522de33b57430"
   end
 
   # Keep log folders

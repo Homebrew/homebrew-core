@@ -3,7 +3,7 @@ class Proj < Formula
   homepage "https://trac.osgeo.org/proj/"
   url "http://download.osgeo.org/proj/proj-4.9.3.tar.gz"
   sha256 "6984542fea333488de5c82eea58d699e4aff4b359200a9971537cd7e047185f7"
-  head "http://svn.osgeo.org/metacrs/proj/trunk/proj"
+  head "https://svn.osgeo.org/metacrs/proj/trunk/proj"
 
   bottle do
     sha256 "82ea2f4d18b24bf337bf10bbb42f3e7d98a24803db252c8ea0383873c1d944cc" => :sierra

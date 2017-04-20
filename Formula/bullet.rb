@@ -1,27 +1,26 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.85.1.tar.gz"
-  sha256 "6e157c0b50373bc0e860de27f06397827bb28a4205bc568ae79d76a0f919ed62"
+  url "https://github.com/bulletphysics/bullet3/archive/2.86.1.tar.gz"
+  sha256 "c058b2e4321ba6adaa656976c1a138c07b18fc03b29f5b82880d5d8228fbf059"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db8f96ee50d670a4a35200d131cd991a8e35f0129f1ab4b64d7f16a2136629f1" => :sierra
-    sha256 "c5e8d5b15d71bafbc6b344e53a89a743aefe17af922ed71f4ee198ddd3f232d0" => :el_capitan
-    sha256 "2f3b941f70527d96caab211f1f05dd1448b9efa4072f0ed576deb1113497075b" => :yosemite
+    sha256 "efdd2f02421a95c3a399962081ad5209f100825fd1c675e25b4d96693ef9252d" => :sierra
+    sha256 "1aab6c634c6f175667f5e71a2d4221be160decb50b96f7d70e001f5fb495d433" => :el_capitan
+    sha256 "71dcb0c8432c3d066bf349c8501f22c30d9ef179115cf4ed93422e75827dcef9" => :yosemite
   end
+
+  option "with-framework", "Build frameworks"
+  option "with-shared", "Build shared libraries"
+  option "with-demo", "Build demo applications"
+  option "with-double-precision", "Use double precision"
 
   deprecated_option "framework" => "with-framework"
   deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
   deprecated_option "double-precision" => "with-double-precision"
-
-  option :universal
-  option "with-framework", "Build frameworks"
-  option "with-shared", "Build shared libraries"
-  option "with-demo", "Build demo applications"
-  option "with-double-precision", "Use double precision"
 
   depends_on "cmake" => :build
 
@@ -35,11 +34,6 @@ class Bullet < Formula
     else
       args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared"
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
     end
 
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"

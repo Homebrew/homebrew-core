@@ -12,23 +12,36 @@ class Libiscsi < Formula
     sha256 "c89e40197b9aebd712c67d43fbe7a4e085ddb7a1b58861c6e98444271fd9e383" => :yosemite
   end
 
-  option "with-noinst", "Install the noinst binaries (e.g. iscsi-test-cu)"
+  option "with-noinst", "Install the noinst binaries (examples, tests)"
+  option "with-cunit", "Install iscsi-test-cu, the iSCSI target test suite"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "cunit" if build.with? "noinst"
-  depends_on "popt"
+  depends_on "cunit" => :optional
 
   def install
+    if build.without? "cunit"
+      inreplace "test-tool/Makefile.am", "bin_PROGRAMS =", "noinst_PROGRAMS ="
+    end
     if build.with? "noinst"
       # Install the noinst binaries
-      inreplace "Makefile.am", "noinst_PROGRAMS +=", "bin_PROGRAMS +="
+      inreplace ["tests/Makefile.am", "examples/Makefile.am"], "noinst_PROGRAMS =", "bin_PROGRAMS ="
     end
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    system bin/"iscsi-ls", "--usage"
+    if build.with? "cunit"
+      system bin/"iscsi-test-cu", "--list"
+    end
+    if build.with? "noinst"
+      system bin/"prog_noop_reply", "--usage"
+    end
   end
 end

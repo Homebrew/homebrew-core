@@ -3,15 +3,15 @@ class Cookiecutter < Formula
 
   desc "Utility that creates projects from templates"
   homepage "https://github.com/audreyr/cookiecutter"
-  url "https://github.com/audreyr/cookiecutter/archive/1.5.0.tar.gz"
-  sha256 "553d00dcbdb6eed252ff15b5622ed98b2a22ffa96fc1b49717b4fbea32378526"
+  url "https://github.com/audreyr/cookiecutter/archive/1.5.1.tar.gz"
+  sha256 "eaf8c67c75335b899e58c608562536b4159284e8078cb59591505526aab7bbea"
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61ff84622d8d146d58fe5310641b4d5b8b9b53ff3f34440e937d4a929a11cc4d" => :sierra
-    sha256 "2012fd7fc78145c93c364d26f77c0bce451e9bb7118612e71e310b3fa7fd221b" => :el_capitan
-    sha256 "4b18b3aaec7ddab6670513b828cbc870544927bd09a8a69c01ef03ec92f5029c" => :yosemite
+    sha256 "9c4c18b9f4f389903998af689dba4ba58a60613da60fff825edc3dfcc7c80cf5" => :sierra
+    sha256 "5497ae2200f26c0474079aa17aea4a36ef8f4dbccbe1d76c5a99d1b31fc731d1" => :el_capitan
+    sha256 "f2aca9bcfdca4486607257193c112dd3ec5d0ebf5c281b5791ad4b40f6e447c9" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -32,8 +32,8 @@ class Cookiecutter < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
-    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "future" do
@@ -42,8 +42,8 @@ class Cookiecutter < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
-    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
+    url "https://files.pythonhosted.org/packages/71/59/d7423bd5e7ddaf3a1ce299ab4490e9044e8dfd195420fc83a24de9e60726/Jinja2-2.9.5.tar.gz"
+    sha256 "702a24d992f856fa8d5a7a36db6128198d0c21e1da34448ca236c42e92384825"
   end
 
   resource "jinja2-time" do

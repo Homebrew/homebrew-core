@@ -1,6 +1,6 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
-  homepage "http://qpdf.sourceforge.net/"
+  homepage "https://qpdf.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qpdf/qpdf/6.0.0/qpdf-6.0.0.tar.gz"
   sha256 "a9fdc7e94d38fcd3831f37b6e0fe36492bf79aa6d54f8f66062cf7f9c4155233"
 

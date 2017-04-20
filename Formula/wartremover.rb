@@ -1,15 +1,15 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/puffnfresh/wartremover"
-  url "https://github.com/puffnfresh/wartremover/archive/v1.2.1.tar.gz"
-  sha256 "ad56de0211353752d501d7f8903c5d32f390c1999aad6b94fc7e024f019913cd"
+  url "https://github.com/puffnfresh/wartremover/archive/v2.0.3.tar.gz"
+  sha256 "223af24da9ccf33860ca919ad2742b0de3d604625cc4aad8f97314f8c49db242"
   head "https://github.com/puffnfresh/wartremover.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64798b426d40127d83d3df9e83730b4a41d4cc338d0aaf95e652de37e638effa" => :sierra
-    sha256 "84c331ce91633ddb1f30908eed602be7f63198f9b7728ebf635fdfe16eb7f509" => :el_capitan
-    sha256 "00555d0786a51bb93fe8ee7ea2fb1893be7cd0df36af6237608930a06074a5d6" => :yosemite
+    sha256 "abb812f705073a406dff4becf55f200abc5c69cd43a026cca2b0ddc3ae9d7e73" => :sierra
+    sha256 "0a7fa44e79932521b3945e293e49e755a37c88ed9e238e37e878f8e314d1a8c8" => :el_capitan
+    sha256 "9779d1d9528db6cc3d7d2a06589aa846021dd5d33d48dff1179f788d2e7bb57c" => :yosemite
   end
 
   depends_on "sbt" => :build

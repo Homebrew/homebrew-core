@@ -1,14 +1,17 @@
 class Godep < Formula
   desc "Dependency tool for go"
   homepage "https://godoc.org/github.com/tools/godep"
-  url "https://github.com/tools/godep/archive/v77.tar.gz"
-  sha256 "aa86d1fbb7f6faa4e986c306021c3ebe3fe649def53acf926c6783d51637f4be"
+  url "https://github.com/tools/godep/archive/v79.tar.gz"
+  sha256 "3dd2e6c4863077762498af98fa0c8dc5fedffbca6a5c0c4bb42b452c8268383d"
+  revision 3
+
   head "https://github.com/tools/godep.git"
 
   bottle do
-    sha256 "44b706f9c9d6fef67af618a06cfeb90c7ee054dcad81778fb0025942fcdafd19" => :sierra
-    sha256 "898301135253482b871c22c98bb8e6b6f544b7e7d96c14ad2c5515522b88e85d" => :el_capitan
-    sha256 "72b0ff2b9200843edd9251d1588d6e518d5c5f92143b86b3f9eaaf3663ffbb1e" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "53dfaa177714f2e3a6e72f7a7d3b0787d300348776608006534c8c15cb0ea1d4" => :sierra
+    sha256 "3dc3c55126a9f545286c4187c725756609723a04e1f1148156780caa79692dae" => :el_capitan
+    sha256 "9440bf29437324b2ea44c59b83d8306e9290c6be25f1aa57e193488cc033a37e" => :yosemite
   end
 
   depends_on "go"
@@ -24,16 +27,17 @@ class Godep < Formula
     (testpath/"Godeps/Godeps.json").write <<-EOS.undent
       {
         "ImportPath": "github.com/tools/godep",
-        "GoVersion": "go1.7",
+        "GoVersion": "go1.8",
         "Deps": [
           {
-            "ImportPath": "go.googlesource.com/tools",
+            "ImportPath": "golang.org/x/tools/cover",
             "Rev": "3fe2afc9e626f32e91aff6eddb78b14743446865"
           }
         ]
       }
     EOS
     system bin/"godep", "restore"
-    assert File.exist?("src/go.googlesource.com/tools/README")
+    assert_predicate testpath/"src/golang.org/x/tools/README", :exist?,
+                     "Failed to find 'src/golang.org/x/tools/README!' file"
   end
 end

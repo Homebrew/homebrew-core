@@ -1,15 +1,15 @@
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
   homepage "http://www.canonware.com/jemalloc/"
-  url "https://github.com/jemalloc/jemalloc/releases/download/4.4.0/jemalloc-4.4.0.tar.bz2"
-  sha256 "a7aea63e9718d2f1adf81d87e3df3cb1b58deb86fc77bad5d702c4c59687b033"
+  url "https://github.com/jemalloc/jemalloc/releases/download/4.5.0/jemalloc-4.5.0.tar.bz2"
+  sha256 "9409d85664b4f135b77518b0b118c549009dc10f6cba14557d170476611f6780"
   head "https://github.com/jemalloc/jemalloc.git"
 
   bottle do
     cellar :any
-    sha256 "5fe917ec03daea84cdc3fa5bf8e40ca7095b508a1496bf0de79ae436713d2938" => :sierra
-    sha256 "75f73d4fdcca91df71c9e420cba44dc32d5aac158a43126610088a395e542559" => :el_capitan
-    sha256 "1502e8720863b1cab829ff3fd46c497100b4da13099558e04b239fcec2d65533" => :yosemite
+    sha256 "c79ef4c7da06c83813e093d60a8580b89a40595bed59f10f3063f30b5a842b0d" => :sierra
+    sha256 "d8e3b7fc7660d387e979652d634cd4d538e4da972b77df1e781bd9e1e4cb9c95" => :el_capitan
+    sha256 "531e1af9601b711780d0a5e1ebb6104ef6e1b63eb2ae41f9a4597e67896ccf1c" => :yosemite
   end
 
   def install

@@ -3,9 +3,9 @@ class Zsh < Formula
   homepage "https://www.zsh.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.gz"
-    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.gz"
-    sha256 "3d94a590ff3c562ecf387da78ac356d6bea79b050a9ef81e3ecb9f8ee513040e"
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.xz"
+    sha256 "fc886cb2ade032d006da8322c09a7e92b2309177811428b121192d44832920da"
 
     # We cannot build HTML doc on HEAD, because yodl which is required for
     # building zsh.texi is not available.
@@ -20,7 +20,7 @@ class Zsh < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/zsh/code"
+    url "https://git.code.sf.net/p/zsh/code.git"
     depends_on "autoconf" => :build
 
     option "with-unicode9", "Build with Unicode 9 character width support"
@@ -75,12 +75,6 @@ class Zsh < Formula
       system "make", "install.info"
       system "make", "install.html" if build.with? "texi2html"
     end
-  end
-
-  def caveats; <<-EOS.undent
-    In order to use this build of zsh as your login shell,
-    it must be added to /etc/shells.
-    EOS
   end
 
   test do

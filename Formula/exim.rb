@@ -1,21 +1,20 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "http://ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/exim/exim4/exim-4.88.tar.bz2"
-  sha256 "119d5fd7e31fc224e84dfa458fe182f200856bae7adf852a8287c242161f8a2d"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
+  sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
 
   bottle do
-    sha256 "a9b1dbcca6ee309521e9a1436ce65eccb316cae9bffe5fdc8e4c649402f17d5c" => :sierra
-    sha256 "6b75b2b698f2733b5b1130240d1182a29262f61f6d483c225f1114cebfdf2a0f" => :el_capitan
-    sha256 "a55f208727d7fa23b7021623aae684fd4f568a4f578db9b2cc9ef8e232dae9b0" => :yosemite
+    sha256 "b76c1dc01d5ff622c16ddbaee4405b6738bd0a4443fa162714994bc055224014" => :sierra
+    sha256 "d65075ea2095eeb918d4314493a634b35f330813425ee1a84b2bfdeadc346404" => :el_capitan
+    sha256 "eaaca1b7231700c5d7dd558c1a754c94c3643a3132ddedc415bd50382bbcb598" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
   option "with-maildir", "Support delivery in Maildir format"
 
   depends_on "pcre"
-  depends_on "berkeley-db4"
+  depends_on "berkeley-db@4"
   depends_on "openssl"
 
   def install
@@ -40,7 +39,7 @@ class Exim < Formula
       s << "LOOKUP_LIBS=-L#{HOMEBREW_PREFIX}/lib\n"
     end
 
-    bdb4 = Formula["berkeley-db4"]
+    bdb4 = Formula["berkeley-db@4"]
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]

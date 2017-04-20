@@ -1,23 +1,23 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.3.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.3.tar.bz2"
-  sha256 "97bac89e88892054a5848a9f7e0c36aa399a2008900829b078e29cab0ddd593b"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.6.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.6.tar.bz2"
+  sha256 "f627d51eda85f5ae5f5c8c9fc1f6539ffc2a270dd7500dc7f67490a8534ca849"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "fdc53388335ebe4a2a29432fb0595373b9224f4dbdf4792255c7851a6745fb90" => :sierra
-    sha256 "5b47759f340d84c00e96f430a51c8b0ee9f2308e0363a5e8ccdaa8eff4d663b4" => :el_capitan
-    sha256 "aa57ba0fa179cb8471c1d13d116d31da532d250607655cbd4035a3ca7e7b9b0d" => :yosemite
+    sha256 "522111fc9df2a5f6e60f464ca67bd5a60387d7369c03e9d626d2732f8e66714b" => :sierra
+    sha256 "e610c5ecc9296423c2fbc66cb78e65c4c69a7159f8d8f36c727e1bd18fa81e5e" => :el_capitan
+    sha256 "50d9c288babdada6ee13d27eec4e9e365b8ca5a67149960199f9f6e86e05517d" => :yosemite
   end
+
+  deprecated_option "with-qt5" => "with-qt"
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"
   option "with-gtk+", "Build the wireshark command with gtk+"
-  option "with-qt5", "Build the wireshark command with Qt5 (can be used with or without either GTK option)"
+  option "with-qt", "Build the wireshark command with Qt (can be used with or without either GTK option)"
   option "with-headers", "Install Wireshark library headers for plug-in development"
-
-  deprecated_option "with-qt" => "with-qt5"
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
@@ -30,14 +30,16 @@ class Wireshark < Formula
   depends_on "libsmi" => :optional
   depends_on "lua" => :optional
   depends_on "portaudio" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "gtk+3" => :optional
   depends_on "gtk+" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
+  # 2017-04-14 set fossies as main url due to tcpdump connection issues
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.8.0.tar.gz"
-    sha256 "f47b51533f9f060afb304010ea5cbf51d032707333bca70c36351d255754659c"
+    url "https://fossies.org/linux/misc/libpcap-1.8.1.tar.gz"
+    mirror "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
+    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
   end
 
   def install
@@ -56,7 +58,7 @@ class Wireshark < Formula
     args = std_cmake_args
     args << "-DENABLE_GNUTLS=ON" << "-DENABLE_GCRYPT=ON"
 
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "-DBUILD_wireshark=ON"
       args << "-DENABLE_APPLICATION_BUNDLE=ON"
       args << "-DENABLE_QT5=ON"
@@ -103,7 +105,7 @@ class Wireshark < Formula
     ENV.deparallelize # parallel install fails
     system "make", "install"
 
-    if build.with? "qt5"
+    if build.with? "qt"
       prefix.install bin/"Wireshark.app"
       bin.install_symlink prefix/"Wireshark.app/Contents/MacOS/Wireshark"
     end

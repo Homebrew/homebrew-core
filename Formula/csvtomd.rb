@@ -3,20 +3,18 @@ class Csvtomd < Formula
 
   desc "CSV to Markdown table converter"
   homepage "https://github.com/mplewis/csvtomd"
-  url "https://files.pythonhosted.org/packages/5a/d8/9dbce820243bb6db670cd1ddea80ea1890c6bfd5d122910fdd157d51d71f/csvtomd-0.1.1.tar.gz"
-  sha256 "f2cd1da71ca8ed823d1f02167039e07e58d15a73d672069dfddcda8639576490"
-  revision 1
+  url "https://files.pythonhosted.org/packages/2f/41/289bedde7fb32d817d5802eff68b99546842cb34df840665ec39b363f258/csvtomd-0.2.1.tar.gz"
+  sha256 "d9fdf166c3c299ad5800b3cb1661f223b98237f38f22e9d253d45d321f70ec72"
 
   bottle do
-    sha256 "c60454f44269f525807b10b67858b4f49d0d7eca10b367c097f54412a7516809" => :sierra
-    sha256 "faca755b29c143c22d8c62643833454c81a0522a687c7180cf11fc14e1277b75" => :el_capitan
-    sha256 "14d9321aa652cef9a4dab8a1c1fc966d6955a68fda3f3b3f10d454bd2c8ad731" => :yosemite
+    sha256 "1ef512bf336e6c7b28daa12940fdcdd3c04961d91b5a1545202d71211dce79b0" => :sierra
+    sha256 "3405adf42dc819b85088379ff63a55d8247895c3d9ac2d9e227b3d23e375f349" => :el_capitan
+    sha256 "fdadfc84d81fc3a934ee2d9ecf2bd0fecc35a88cc0051ffbd60437a37f652b86" => :yosemite
   end
 
   depends_on :python3
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 

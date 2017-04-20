@@ -1,14 +1,14 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v2.1.0.tar.gz"
-  sha256 "bcc96aaa609daae4d3f7ab1ee480126709ef4f6a8bf9c85de40aae48e38cce66"
+  url "https://github.com/warmcat/libwebsockets/archive/v2.2.0.tar.gz"
+  sha256 "1be5d9b959eab118efb336ef07d6c1e0af08a17409f06167a55ae874221f11a1"
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
-    sha256 "b09efe9e43cf67e2efe96906df774609296eb2e2d2f56701b5bf6ff3548647ca" => :sierra
-    sha256 "702a65dbc2965cf2f34bf25f53d3ac3d69330e85136d2da31772261b00158e19" => :el_capitan
-    sha256 "3b5763bf2588ed7d7e3b985f8d15b47ea1624523c5ec87b3fe980b1397b85f0d" => :yosemite
+    sha256 "3046a32a6afc92ba2c685d83d0da386141553c764574492c68f7a6ce3f3ec3f2" => :sierra
+    sha256 "0c19c9087626c4f7e509163f53ead9937eeb371cdda552efad762e44b7e55c42" => :el_capitan
+    sha256 "93a21679e75e32ca78fd6d0c3277ca489ef34813bb33809394ff5fec95329fc5" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -18,5 +18,24 @@ class Libwebsockets < Formula
     system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <openssl/ssl.h>
+      #include <libwebsockets.h>
+
+      int main()
+      {
+        struct lws_context_creation_info info;
+        memset(&info, 0, sizeof(info));
+        struct lws_context *context;
+        context = lws_create_context(&info);
+        lws_context_destroy(context);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{Formula["openssl"].opt_prefix}/include", "-lwebsockets", "-o", "test"
+    system "./test"
   end
 end

@@ -3,25 +3,25 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.14.0-src.tar.gz"
-    sha256 "c790edd2e915bd01bea46122af2942108479a2fda9a6f76d1094add520ac3b6b"
+    url "https://static.rust-lang.org/dist/rustc-1.16.0-src.tar.gz"
+    sha256 "f966b31eb1cd9bd2df817c391a338eeb5b9253ae0a19bf8a11960c560f96e8b4"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.15.0",
-          :revision => "298a0127f703d4c2500bb06d309488b92ef84ae1"
+          :tag => "0.17.0",
+          :revision => "f9e54817e53c7b9845cc7c1ede4c11e4d3e42e36"
     end
 
     resource "racer" do
-      url "https://github.com/phildawes/racer/archive/2.0.4.tar.gz"
-      sha256 "e30e383af4d01695e35d420e36c9b2cf462337f680497ae14c09388f14c53809"
+      url "https://github.com/phildawes/racer/archive/2.0.6.tar.gz"
+      sha256 "a9704478f72037e76d4d3702fe39b3c50597bde35dac1a11bf8034de87bbdc70"
     end
   end
 
   bottle do
-    sha256 "0dd055001c2bc70f2efd9c68209f70c6facb1cc86101939adfe3377ab4b022fc" => :sierra
-    sha256 "48b79dd13d9bd51b6f23255a640e86706fc239154659c2df621c76b25f00f87b" => :el_capitan
-    sha256 "0a4d37a134ec0d23e48bcdf0aab43154d38a619fa84c879bffc6bafc6639cdca" => :yosemite
+    sha256 "2b077e3d5b39fa050c09ec6be48d6659a6e8e7c57597f8e84035dfa965049b93" => :sierra
+    sha256 "0393ffa17289e6bcebe072937ea947303e3624f1a12fffac627a76f81b723f5c" => :el_capitan
+    sha256 "d03a3941155cbb7e4b320b7ab3d847cb2041d2171a48f60a7512b85abe1e2567" => :yosemite
   end
 
   head do
@@ -41,8 +41,6 @@ class Rust < Formula
   depends_on "openssl"
   depends_on "libssh2"
 
-  conflicts_with "multirust", :because => "both install rustc, rustdoc, cargo, rust-lldb, rust-gdb"
-
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
   fails_with :gcc
@@ -51,9 +49,11 @@ class Rust < Formula
   end
 
   resource "cargobootstrap" do
-    version "2016-11-02"
-    url "https://static-rust-lang-org.s3.amazonaws.com/cargo-dist/2016-11-02/cargo-nightly-x86_64-apple-darwin.tar.gz"
-    sha256 "3bfb2e3e7292a629b86b9fad1d7d6ea9531bb990964c02005305c5cea3a579d9"
+    # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+    url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/6e0c18cccc8b0c06fba8a8d76486f81a792fb420/cargo-nightly-x86_64-apple-darwin.tar.gz"
+    # From name=cargo-nightly-x86_64-apple-darwin; tar -xf $name.tar.gz $name/version; cat $name/version
+    version "2017-01-27"
+    sha256 "0a6b78b8c6344e7a14f1aa57ebfa0154d4ea560332833846dbeaa3a6772a010a"
   end
 
   def install

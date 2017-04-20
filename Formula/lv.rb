@@ -1,7 +1,7 @@
 class Lv < Formula
   desc "Powerful multi-lingual file viewer/grep"
-  homepage "https://web.archive.org/web/20160310122517/http://www.ff.iij4u.or.jp/~nrt/lv/"
-  url "https://web.archive.org/web/20150915000000/http://www.ff.iij4u.or.jp/~nrt/freeware/lv451.tar.gz"
+  homepage "https://web.archive.org/web/20160310122517/www.ff.iij4u.or.jp/~nrt/lv/"
+  url "https://web.archive.org/web/20150915000000/www.ff.iij4u.or.jp/~nrt/freeware/lv451.tar.gz"
   version "4.51"
   sha256 "e1cd2e27109fbdbc6d435f2c3a99c8a6ef2898941f5d2f7bacf0c1ad70158bcf"
 

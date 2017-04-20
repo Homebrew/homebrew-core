@@ -1,14 +1,14 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.4.34.tar.gz"
-  sha256 "5064c87f91a37d822dfeab8768490c55fe686a742f07f67c7121101e48d87c79"
+  url "https://www.memcached.org/files/memcached-1.4.36.tar.gz"
+  sha256 "773b6bb20bf80223ca6a15d75f570fbab346ad11ec98595e5af5e33f54bd82d8"
 
   bottle do
     cellar :any
-    sha256 "33401132b315c880aad55bf32425ea899d73c9f1f5c5b6497228b077d74159f9" => :sierra
-    sha256 "05fce3b42333e971374b0a62db3c4ff693a618815c47fafed6b3911b07730ef5" => :el_capitan
-    sha256 "13ab24869c5517dae4c9c5acbdf8e18630cff37814ad45906c2f880c0a4b5a78" => :yosemite
+    sha256 "bdd0aa093595f71eb60f5d80d2db4cf1c648695f5ba5244671a77450cd69f20c" => :sierra
+    sha256 "1cfff2115f1a6c8336e5575d0512d6ea03178720a3e57967cc02ba07675b0b5e" => :el_capitan
+    sha256 "12d6c28f78cae0b7ca22dfabe35d631489430b48560cb3bd71c123b2842b3928" => :yosemite
   end
 
   option "with-sasl", "Enable SASL support -- disables ASCII protocol!"

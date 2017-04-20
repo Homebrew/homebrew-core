@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.2.tar.gz"
-  sha256 "74d752f9a8b46898d306ad169b72f328e17215c0909149e156a576089ef11c42"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.3.0.tar.gz"
+  sha256 "effd922973e9f4fe25565e0a194a4b534c08b22849f03cb9fea13c311401e21b"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -12,9 +12,6 @@ class Elasticsearch < Formula
   bottle :unneeded
 
   depends_on :java => "1.8+"
-
-  conflicts_with "elasticsearch@1.7", :because => "Different versions of same formula"
-  conflicts_with "elasticsearch@2.4", :because => "Different versions of same formula"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -101,7 +98,7 @@ class Elasticsearch < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>#{HOMEBREW_PREFIX}/bin/elasticsearch</string>
+            <string>#{opt_bin}/elasticsearch</string>
           </array>
           <key>EnvironmentVariables</key>
           <dict>

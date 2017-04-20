@@ -1,21 +1,20 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.1.0.tar.gz"
-  sha256 "0a0ae63cbffc274efb573bdde9a253e3f32e458c41261df51c5dbc5ad541e8f7"
+  url "https://github.com/google/protobuf/archive/v3.2.0.tar.gz"
+  sha256 "2a25c2b71c707c5552ec9afdfb22532a93a339e1ca5d38f163fe4107af08c54c"
+  revision 1
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "937351ede8db879b572c43994845d49a0dafc890a2ee0caf99c61b3ed75c2d76" => :sierra
-    sha256 "561c3788b7b3cc1df6fce744c20c5ef85fd484cc3177e14525e262f0544b4fe5" => :el_capitan
-    sha256 "902bc03d7ee53fb688ae428bc24aa33c1122b8bf40530da3b5e8f6883e3ec125" => :yosemite
+    sha256 "6534deb026f410c45202e91bd51aca49b2a7b0aa79c42d1ee41b9b1691583eb0" => :sierra
+    sha256 "5175646b484104f094eacb4db99eb0b1d66f03d5120e1c8de38be43f921e786e" => :el_capitan
+    sha256 "34fd57a99d1cfdc6f85eb2cd503c406e336c05636987d6a69633a588215d94a8" => :yosemite
   end
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
   option "without-python", "Build without python support"
-  option :universal
-  option :cxx11
 
   deprecated_option "with-check" => "with-test"
 
@@ -23,34 +22,35 @@ class Protobuf < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
 
-  resource "setuptools" do
-    url "https://pypi.python.org/packages/df/c3/4265eb901f9db8c0ea5bdfb344084d85bc96c1a9b883f70430254b5491f6/setuptools-26.1.0.tar.gz"
-    sha256 "64a2f7676cd026b64e46d179ed26b365e2f92f26c7fe04228ddd86d0436b797f"
+  resource "appdirs" do
+    url "https://pypi.python.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+  end
+
+  resource "pyparsing" do
+    url "https://pypi.python.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
-  resource "python-dateutil" do
-    url "https://pypi.python.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
-  end
-
-  resource "pytz" do
-    url "https://pypi.python.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
-    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
-  end
-
-  resource "python-gflags" do
-    url "https://pypi.python.org/packages/91/97/84778286b3a1c0d52533a35a0b70a477050df2b83229f56e99c7a0f2d9d6/python-gflags-3.0.6.tar.gz"
-    sha256 "e904b251cb1d70ddd3a1fd152bd4b3674a95981dcac497450efd1311ff2b9b5a"
+  resource "setuptools" do
+    url "https://pypi.python.org/packages/d5/b7/e52b7dccd3f91eec858309dcd931c1387bf70b6d458c86a9bfcb50134fbd/setuptools-34.3.3.zip"
+    sha256 "2cd244d3fca6ff7d0794a9186d1d19a48453e9813ae1d783edbfb8c348cde905"
   end
 
   resource "google-apputils" do
-    url "https://pypi.python.org/packages/source/g/google-apputils/google-apputils-0.4.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/69/66/a511c428fef8591c5adfa432a257a333e0d14184b6c5d03f1450827f7fe7/google-apputils-0.4.2.tar.gz"
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
@@ -62,13 +62,14 @@ class Protobuf < Formula
     sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
   end
 
+  needs :cxx11
+
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
     # https://github.com/google/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
-    ENV.universal_binary if build.universal?
-    ENV.cxx11 if build.cxx11?
+    ENV.cxx11
 
     (buildpath/"gmock").install resource("gmock")
     system "./autogen.sh"
@@ -82,25 +83,27 @@ class Protobuf < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python"
+    Language::Python.each_python(build) do |python, version|
       # google-apputils is a build-time dependency
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
-      %w[setuptools six python-dateutil pytz python-gflags google-apputils].each do |package|
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python#{version}/site-packages"
+
+      res = resources.map(&:name).to_set - ["gmock"]
+      res.each do |package|
         resource(package).stage do
-          system "python", *Language::Python.setup_install_args(buildpath/"homebrew")
+          system python, *Language::Python.setup_install_args(buildpath/"homebrew")
         end
       end
       # google is a namespace package and .pth files aren't processed from
       # PYTHONPATH
-      touch buildpath/"homebrew/lib/python2.7/site-packages/google/__init__.py"
+      touch buildpath/"homebrew/lib/python#{version}/site-packages/google/__init__.py"
       chdir "python" do
         ENV.append_to_cflags "-I#{include}"
         ENV.append_to_cflags "-L#{lib}"
         args = Language::Python.setup_install_args libexec
         args << "--cpp_implementation"
-        system "python", *args
+        system python, *args
       end
-      site_packages = "lib/python2.7/site-packages"
+      site_packages = "lib/python#{version}/site-packages"
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
       (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
     end
@@ -126,5 +129,6 @@ class Protobuf < Formula
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
     system "python", "-c", "import google.protobuf" if build.with? "python"
+    system "python3", "-c", "import google.protobuf" if build.with? "python3"
   end
 end

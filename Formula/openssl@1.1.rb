@@ -1,21 +1,19 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0c.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0c.tar.gz"
-  sha256 "fc436441a2e05752d31b4e46115eb89709a28aef96d4fe786abe92409b2fd6f5"
+  url "https://www.openssl.org/source/openssl-1.1.0e.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0e.tar.gz"
+  sha256 "57be8618979d80c910728cfc99369bf97b2a1abd8f366ab6ebdee8975ad3874c"
   version_scheme 1
 
   bottle do
-    sha256 "bd582f23920475e5dee6aeaab79d9af9d6bd5592f534bc07e10cf41d1bc1ac43" => :sierra
-    sha256 "528ab5f19b4f5b08d8cc921ee0675515c50f1e870a10de7bac2fea1a4062c0c1" => :el_capitan
-    sha256 "34d106f1b300d4b192757941febde26cba194d903c5683d09df8b7328ce04215" => :yosemite
+    sha256 "eb861ec252de3fa1c7a29bad68d154bea0d5eb5d445509e05b762c5b256f22d1" => :sierra
+    sha256 "24e0f0bdc0012fc3e141fd3cc9722f39d03c0dceac47d5b1901f310d34d947d4" => :el_capitan
+    sha256 "c4cbf83c01e10b0b4bb7bbc2e239d91fdfc4b75443d33604039b81078c11fa71" => :yosemite
   end
 
-  keg_only :provided_by_osx,
-    "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
+  keg_only :versioned_formula
 
-  option :universal
   option "without-test", "Skip build-time tests (not recommended)"
 
   # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
@@ -25,13 +23,6 @@ class OpensslAT11 < Formula
     depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   else
     depends_on :perl => "5.10"
-  end
-
-  def arch_args
-    {
-      :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386 => %w[darwin-i386-cc],
-    }
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
@@ -58,69 +49,17 @@ class OpensslAT11 < Formula
       ENV["PERL"] = Formula["perl"].opt_bin/"perl"
     end
 
-    if build.universal?
-      ENV.permit_arch_flags
-      archs = Hardware::CPU.universal_archs
-    elsif MacOS.prefer_64_bit?
-      archs = [Hardware::CPU.arch_64_bit]
+    if MacOS.prefer_64_bit?
+      arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
     else
-      archs = [Hardware::CPU.arch_32_bit]
+      arch_args = %w[darwin-i386-cc]
     end
 
-    dirs = []
-
-    archs.each do |arch|
-      if build.universal?
-        dir = "build-#{arch}"
-        dirs << dir
-        mkdir dir
-        mkdir "#{dir}/engines"
-      end
-
-      ENV.deparallelize
-      system "perl", "./Configure", *(configure_args + arch_args[arch])
-      system "make", "clean" if build.universal?
-      system "make"
-      system "make", "test" if build.with?("test")
-
-      next unless build.universal?
-      cp "include/openssl/opensslconf.h", dir
-      cp Dir["*.?.?.dylib", "*.a", "apps/openssl"], dir
-      cp Dir["engines/**/*.dylib"], "#{dir}/engines"
-    end
-
+    ENV.deparallelize
+    system "perl", "./Configure", *(configure_args + arch_args)
+    system "make"
+    system "make", "test" if build.with?("test")
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
-
-    if build.universal?
-      %w[libcrypto libssl].each do |libname|
-        system "lipo", "-create", "#{dirs.first}/#{libname}.1.1.dylib",
-                                  "#{dirs.last}/#{libname}.1.1.dylib",
-                       "-output", "#{lib}/#{libname}.1.1.dylib"
-        system "lipo", "-create", "#{dirs.first}/#{libname}.a",
-                                  "#{dirs.last}/#{libname}.a",
-                       "-output", "#{lib}/#{libname}.a"
-      end
-
-      Dir.glob("#{dirs.first}/engines/*.dylib") do |engine|
-        libname = File.basename(engine)
-        system "lipo", "-create", "#{dirs.first}/engines/#{libname}",
-                                  "#{dirs.last}/engines/#{libname}",
-                       "-output", "#{lib}/engines-1.1/#{libname}"
-      end
-
-      system "lipo", "-create", "#{dirs.first}/openssl",
-                                "#{dirs.last}/openssl",
-                     "-output", "#{bin}/openssl"
-
-      confs = archs.map do |arch|
-        <<-EOS.undent
-          #ifdef __#{arch}__
-          #{(buildpath/"build-#{arch}/opensslconf.h").read}
-          #endif
-        EOS
-      end
-      (include/"openssl/opensslconf.h").atomic_write confs.join("\n")
-    end
   end
 
   def openssldir
@@ -134,7 +73,7 @@ class OpensslAT11 < Formula
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
     certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     valid_certs = certs.select do |cert|

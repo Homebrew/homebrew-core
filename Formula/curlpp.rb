@@ -1,22 +1,23 @@
 class Curlpp < Formula
   desc "C++ wrapper for libcURL"
   homepage "http://www.curlpp.org"
-  url "https://github.com/jpbarrette/curlpp/releases/download/v0.7.4/curlpp-0.7.4.tar.gz"
-  sha256 "7e33934f4ce761ba293576c05247af4b79a7c8895c9829dc8792c5d75894e389"
+  url "https://github.com/jpbarrette/curlpp/archive/v0.8.1.tar.gz"
+  sha256 "97e3819bdcffc3e4047b6ac57ca14e04af85380bd93afe314bee9dd5c7f46a0a"
 
   bottle do
     cellar :any
-    sha256 "4bd0e7d3471f3e9ed4717a2eb38a16224889deaef3ea61072d752aceec272d4c" => :sierra
-    sha256 "d3605f5eb05b1f0151c2f3d40b5cba11aa18c783403856908ae9e758e401112e" => :el_capitan
-    sha256 "e013c177a2f5dfb28d3f800ef015d9600e629d96897901604e21a697afec9ec1" => :yosemite
+    sha256 "0d721493b94879cdf25162903fd5d10299b5d8386942efb0969c470afeef6b35" => :sierra
+    sha256 "fd5c8375a1f4ef8aa20cfb740e8bac45c381ce6dbadc90f731e47b00c8a404b3" => :el_capitan
+    sha256 "fd39edf63c0745f9d39a76f7b428eba285af313967ad4697d4fb08b705ee3eef" => :yosemite
   end
 
-  depends_on "boost" => :build
+  depends_on "cmake" => :build
+
+  needs :cxx11
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV.cxx11
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
@@ -44,7 +45,8 @@ class Curlpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lcurl", "-lcurlpp", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lcurlpp", "-lcurl"
     system "./test"
   end
 end

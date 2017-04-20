@@ -3,16 +3,16 @@ class GstPluginsGood < Formula
   homepage "https://gstreamer.freedesktop.org/"
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.10.2.tar.xz"
-    sha256 "198f325bcce982dce1ebeb36929a5f430b8bf9528e0d519e18df0b29e1d23313"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.10.4.tar.xz"
+    sha256 "8a86c61434a8c44665365bd0b3557a040937d1f44bf69caee4e9ea816ce74d7e"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "22e016ee4334fcc8731c10b46b2f87f71e53576f6cd6ce567f48e862fc24b084" => :sierra
-    sha256 "80a0d570ddfcc8c96a88226738dc4be375fa8a61c84a68ebdf66ae1716ad1558" => :el_capitan
-    sha256 "5f104fe7388bba04d0694172938adac714ef31e1674d61777bbf13962c049a74" => :yosemite
+    sha256 "365561c72d6bc710f3942c5aa50c90fa089433f69112d8c8bb062a8fa36390cd" => :sierra
+    sha256 "c509f05b9004c2ce35814296efad31da32a1c0507dd77ec8370d3705bbb59ed3" => :el_capitan
+    sha256 "b48672b8a8871f8e736fa709816d61f2155a575d99d7befa5af7c8b94a363f54" => :yosemite
   end
 
   head do

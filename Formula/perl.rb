@@ -1,13 +1,11 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  revision 1
-  head "git://perl5.git.perl.org/perl.git", :branch => "blead"
+  head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   stable do
-    url "http://www.cpan.org/src/5.0/perl-5.24.0.tar.xz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.24.0.orig.tar.xz"
-    sha256 "a9a37c0860380ecd7b23aa06d61c20fc5bc6d95198029f3684c44a9d7e2952f2"
+    url "https://www.cpan.org/src/5.0/perl-5.24.1.tar.xz"
+    sha256 "03a77bac4505c270f1890ece75afc7d4b555090b41aa41ea478747e23b2afb3f"
 
     # Fixes Time::HiRes module bug related to the presence of clock_gettime
     # https://rt.perl.org/Public/Bug/Display.html?id=128427
@@ -21,10 +19,9 @@ class Perl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "2d17be7f00decaec2d9d9d25335962e78319b5ee121112ae6e6325227c50313a" => :sierra
-    sha256 "bbc3eb4e2a1e7d9585918862adf718e5be80e4dae793e547bf71da8a07b372d8" => :el_capitan
-    sha256 "7f4410ad668128cb66085a8e7fa995258cb60ba8b2551ab170ae612d3101d021" => :yosemite
+    sha256 "af578c645e5ff6162b29c693c6145345fef4dfc848f9d999a6e1f36330318c63" => :sierra
+    sha256 "c66b2d1daf5e4d77b8f4943b9718610c6d24d20537e6a1b6a87ccf74fd54ec02" => :el_capitan
+    sha256 "3474d4c2ddf177e331d70af4dbe1f51199139e525add8424b43b6339358950ab" => :yosemite
   end
 
   option "with-dtrace", "Build with DTrace probes"

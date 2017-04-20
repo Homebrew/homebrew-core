@@ -1,6 +1,6 @@
 class Xqilla < Formula
   desc "XQuery and XPath 2 command-line interpreter"
-  homepage "http://xqilla.sourceforge.net/"
+  homepage "https://xqilla.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.3.tar.gz"
   sha256 "8f76b9b4f966f315acc2a8e104e426d8a76ba4ea3441b0ecfdd1e39195674fd6"
 

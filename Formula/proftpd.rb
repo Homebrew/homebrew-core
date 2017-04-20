@@ -1,14 +1,13 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.5a.tar.gz"
-  sha256 "a1f48df8539c414ec56e0cea63dcf4b8e16e606c05f10156f030a4a67fae5696"
+  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz"
+  sha256 "91ef74b143495d5ff97c4d4770c6804072a8c8eb1ad1ecc8cc541b40e152ecaf"
 
   bottle do
-    sha256 "8096f58b34c460c9df7bee97396d962e58ea1fad6d87fc2802cc0cf8ed6b95b2" => :sierra
-    sha256 "68a6173bda2128b5b349939493a479a99c87f2efc7d1942b2059c70428cb9bec" => :el_capitan
-    sha256 "b7b8db826dee70ea773819aeeddf1138552b46086c9ee0d158184c53f09df328" => :yosemite
-    sha256 "12d79b90719529f9ddf2581b334108665bd5193fb127c6dc78cec290f44343ad" => :mavericks
+    sha256 "ff7d5535f7aeb76aab782bdfb534ae22b3109840228c0c93ad6e7dcfecb56f5f" => :sierra
+    sha256 "4ac3a9a6ab8a21e05d82fefae042d7b94e920d5f3d172485202364b489d9d629" => :el_capitan
+    sha256 "ebf19b0218a7e3897457f91c6721a59ef897329db3f49461415b56168361a2d8" => :yosemite
   end
 
   def install

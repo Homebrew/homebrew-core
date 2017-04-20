@@ -1,24 +1,24 @@
 class AntlrAT3 < Formula
   desc "Antlr3 has a C API which has been dropped in Antlr4."
   homepage "http://www.antlr.org/"
-  url "http://www.antlr3.org/download/antlr-3.4-complete.jar"
-  sha256 "9d3e866b610460664522520f73b81777b5626fb0a282a5952b9800b751550bf7"
+  url "http://www.antlr3.org/download/antlr-3.5.2-complete.jar"
+  sha256 "26ca659f47d77384f518cf2b6463892fcd4f0b0d4d8c0de2addf697e63e7326b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ddb6e0b9c8cdd51ca782eaa47077f7c8cafcd165bd659f38046fc92f1ad58058" => :sierra
-    sha256 "4050297f21adad59f58fbd7f83128fb5ff0d47184ac52c0b8747d8e495dd6a76" => :el_capitan
-    sha256 "4050297f21adad59f58fbd7f83128fb5ff0d47184ac52c0b8747d8e495dd6a76" => :yosemite
+    sha256 "450bb2d748965c0f25a280a2eb4fd9b371e6f403107053b610dedb030229009e" => :sierra
+    sha256 "450bb2d748965c0f25a280a2eb4fd9b371e6f403107053b610dedb030229009e" => :el_capitan
+    sha256 "450bb2d748965c0f25a280a2eb4fd9b371e6f403107053b610dedb030229009e" => :yosemite
   end
 
   depends_on :java
 
   def install
-    libexec.install "antlr-3.4-complete.jar"
-    (share+"java").install_symlink "#{libexec}/antlr-3.4-complete.jar" => "antlr3.jar"
+    libexec.install "antlr-3.5.2-complete.jar"
+    (share+"java").install_symlink "#{libexec}/antlr-3.5.2-complete.jar" => "antlr3.jar"
     (bin+"antlr3").write <<-EOS.undent
     #!/bin/sh
-    java -jar #{libexec}/antlr-3.4-complete.jar "$@"
+    java -jar #{libexec}/antlr-3.5.2-complete.jar "$@"
     EOS
   end
 

@@ -3,20 +3,27 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftpmirror.gnu.org/readline/readline-7.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
-  version "7.0.1"
+  version "7.0.3"
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "57f11a1e678f3aab637f45dfe4178e440553a77c744c08ebf446a91341129a95" => :sierra
-    sha256 "e3e5f24328fc3ff54217b4d75c63a0ef258ef1143d910feab4af9b3300598603" => :el_capitan
-    sha256 "5eeccaa91566f0eb1301c0592e64414d35b1334d9c3ea77cbd916fef487ee1cb" => :yosemite
+    sha256 "af7886c963fe3e9f58c45d679a64b278f4df7b172bbd978cf42658a7fd7b4a2a" => :sierra
+    sha256 "86766a343a07e08c52e7e87e64a12d3aa34bf71ba248fc779a2c5b0664797ba9" => :el_capitan
+    sha256 "11589e87c4860e414fe5a4b3481d20e47258f41a91a7490a5c88e1a57d5e1d18" => :yosemite
   end
 
-  patch :p0 do
-    url "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-001"
-    mirror "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-001"
-    sha256 "9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376"
+  %w[
+    001 9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376
+    002 8747c92c35d5db32eae99af66f17b384abaca961653e185677f9c9a571ed2d58
+    003 9e43aa93378c7e9f7001d8174b1beb948deefa6799b6f581673f465b7d9d4780
+  ].each_slice(2) do |p, checksum|
+    patch :p0 do
+      url "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-#{p}"
+      mirror "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-#{p}"
+      sha256 checksum
+    end
   end
 
   keg_only :shadowed_by_osx, <<-EOS.undent
@@ -26,8 +33,7 @@ class Readline < Formula
   EOS
 
   def install
-    ENV.universal_binary
-    system "./configure", "--prefix=#{prefix}", "--enable-multibyte"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 

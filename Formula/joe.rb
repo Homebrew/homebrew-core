@@ -1,6 +1,6 @@
 class Joe < Formula
   desc "Joe's Own Editor (JOE)"
-  homepage "http://joe-editor.sourceforge.net/index.html"
+  homepage "https://joe-editor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.3/joe-4.3.tar.gz"
   sha256 "985d6a8f943a06e64165996c24d7fecaeae8c59efb52998a49b3fb4b8a3e26e1"
 

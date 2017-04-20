@@ -4,16 +4,15 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
   sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "6f8a945c6a6bf6690c3d83f154182f106b3e65b3c13a877db29ffaacfc73963b" => :sierra
-    sha256 "9548e6c5426357175eaedde7af97536f1a231386d74905fb03fe3a55265c7e65" => :el_capitan
-    sha256 "c8e803b1c3c24662ca2b45d9a00d12578103116d6d42983220965340fadaec4e" => :yosemite
+    sha256 "02c864665601d8877cc6a3ab3128f3881179fce30a0b4759889785e625510e22" => :sierra
+    sha256 "15d450ae98bf8641f6007b14b9dffe1966684c929bc001ce81549acabc9c65df" => :el_capitan
+    sha256 "a08754ba33e157e809a9fd8224f286e42d697818e82cd13c360842b806aefaa4" => :yosemite
   end
 
-  option :universal
   option :cxx11
   option "with-xz", "Include support for LZMA compression"
 
@@ -23,9 +22,9 @@ class Libtiff < Formula
   # Patches from Debian for CVE-2016-10094, and various other issues.
   # All reported upstream, so should be safe to remove this block on next stable.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-4.debian.tar.xz"
-    sha256 "74c9c85b43e1bb1016f96665090da7d8481a48f66a53a43100ab78f729cef0c0"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.7-6.debian.tar.xz"
+    sha256 "9c9048c28205bdbeb5ba36c7a194d0cd604bd137c70961607bfc8a079be5fa31"
     apply "patches/01-CVE.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
@@ -41,11 +40,20 @@ class Libtiff < Formula
           "patches/13-CVE.patch",
           "patches/14-CVE.patch",
           "patches/15-TIFFFaxTabEnt_bugfix.patch",
-          "patches/16-CVE-2016-10094.patch"
+          "patches/16-CVE-2016-10094.patch",
+          "patches/17-CVE-2017-5225.patch",
+          "patches/18-CVE-2017-7595.patch",
+          "patches/19-CVE-2017-7598.patch",
+          "patches/20-CVE-2017-7596_CVE-2017-7597_CVE-2017-7599_CVE-2017-7600.patch",
+          "patches/21-CVE-2017-7601.patch",
+          "patches/22-CVE-2017-7602.patch",
+          "patches/23-CVE-2017-7592.patch",
+          "patches/24-CVE-2017-7593.patch",
+          "patches/25-CVE-2017-7594_part1.patch",
+          "patches/26-CVE-2017-7594_part2.patch"
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.cxx11 if build.cxx11?
 
     args = %W[

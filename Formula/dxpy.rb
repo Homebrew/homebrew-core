@@ -17,8 +17,6 @@ class Dxpy < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  conflicts_with "android-sdk", :because => "both install `dx` binaries"
-
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/26/79/ef9a8bcbec5abc4c618a80737b44b56f1cb393b40238574078c5002b97ce/beautifulsoup4-4.4.1.tar.gz"
     sha256 "87d4013d0625d4789a4f56b8d79a04d5ce6db1152bb65f1d39744f7709a366b4"

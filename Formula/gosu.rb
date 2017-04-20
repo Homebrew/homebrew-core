@@ -1,15 +1,15 @@
 class Gosu < Formula
   desc "Pragmatic language for the JVM"
   homepage "http://gosu-lang.org/"
-  url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.3.tar.gz"
-  sha256 "f67a579ef72449194b7b583e0de01e5e56fc33d0d5b0df23b482d5391ea9ae48"
+  url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.6.tar.gz"
+  sha256 "5d6313ba3679b2089b2eca6c1ac45ed968790d103378f24588bf870318f48192"
   head "https://github.com/gosu-lang/gosu-lang.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55f1dce8004ee791206118048ea9a6a0d2311561b6f063cf0803166b85536cb0" => :sierra
-    sha256 "fd9496ee3c6fb407098f0bc0827e24206bb294fbc4b02937027c9a4a48b0966c" => :el_capitan
-    sha256 "12e1c2dde23b52b7a2a12d090ef54f83c9f30bc5bba7b124fe64547e538ccbc4" => :yosemite
+    sha256 "9655ec17694b5410a1deb620c8d6c03c5ddc0532814d11ce0bcf9487c9b5f5ac" => :sierra
+    sha256 "fd311848681a64d3727889d47c061a52a55d64dc5236df1b06c0628a0bf71837" => :el_capitan
+    sha256 "dee97ff03b12443a4fcaab053ca8860377279e9b8676f4b487f57e7095422d1e" => :yosemite
   end
 
   depends_on :java => "1.8+"

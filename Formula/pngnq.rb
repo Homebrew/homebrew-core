@@ -1,6 +1,6 @@
 class Pngnq < Formula
   desc "Tool for optimizing PNG images"
-  homepage "http://pngnq.sourceforge.net/"
+  homepage "https://pngnq.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pngnq/pngnq/1.1/pngnq-1.1.tar.gz"
   sha256 "c147fe0a94b32d323ef60be9fdcc9b683d1a82cd7513786229ef294310b5b6e2"
   revision 1

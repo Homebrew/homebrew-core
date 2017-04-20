@@ -1,14 +1,14 @@
 class Libgee < Formula
   desc "Collection library providing GObject-based interfaces"
   homepage "https://wiki.gnome.org/Projects/Libgee"
-  url "https://download.gnome.org/sources/libgee/0.18/libgee-0.18.1.tar.xz"
-  sha256 "99686bbe5a9c89ba9502c25f61314ee8efa0dd2a1159c9a639afc1458c2839a2"
+  url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.0.tar.xz"
+  sha256 "21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb"
 
   bottle do
     cellar :any
-    sha256 "1ff99c3fcc93d1445540219b4327c9b05f1ae6c59f9c0b84f660c3c78ca07c74" => :sierra
-    sha256 "16f97389ce63e4b9bbd37c7d83caf273dfb723001895d7af17dfa5fed8713172" => :el_capitan
-    sha256 "f559db2d7dabd1d6b5fc63d6e86afec93346e74b14d7eb11f02128e3fc70f8ab" => :yosemite
+    sha256 "def51b848030a5079529f08b9886177e93fa88133b39a7db5fc94f681cbca19d" => :sierra
+    sha256 "cd590c7857ad9bc2485d057cf7d4ec1e55555af4875479bfa7a416ddc02618ec" => :el_capitan
+    sha256 "c05334f4f4a72e3185ea1130a10ab939dce5ba3cf7d40a9056fc1973957c5dd3" => :yosemite
   end
 
   depends_on "pkg-config" => :build

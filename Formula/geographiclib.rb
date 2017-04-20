@@ -1,15 +1,14 @@
 class Geographiclib < Formula
   desc "C++ geography library"
-  homepage "http://geographiclib.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.46.tar.gz"
-  sha256 "3a0606fd99fb099572ba1923f556b05b545965359edb92930a658fc99172d962"
+  homepage "https://geographiclib.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.48.tar.gz"
+  sha256 "7203d56123b6f6fb31842295d57b2418f79fb0db9a06f2f65ee9e415c6f0cb70"
 
   bottle do
     cellar :any
-    sha256 "794832fcaa3be5b14828169f55a1ad2e03a61bd35ad0612e79bd3165fb0b8f31" => :sierra
-    sha256 "a0fcfdfb1de30b9fa7f06880d361da5cda5f69cbe71195d40cd7365275a22099" => :el_capitan
-    sha256 "ae55c9b959d4288af4034bac7217a76d21d643a64f4ec4ce91ff640abb5ae86c" => :yosemite
-    sha256 "987c4d54b285eb8ed0051ae422a32b152a74bd3becbd84a9e673858e1322809c" => :mavericks
+    sha256 "f330164f390a5a55cb8b14e8e5ec3d140c0a5563d3365608e7068dd09542cb2d" => :sierra
+    sha256 "bd02a5b4a1ed096d7ae1ae7df893fa8e17fecdf537173aeb34682a014309cad8" => :el_capitan
+    sha256 "a5fc291555d18dcd2c80a6ea3f7ff77337b8c60cc016c07c2cda52599bf1c963" => :yosemite
   end
 
   depends_on "cmake" => :build

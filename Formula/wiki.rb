@@ -3,15 +3,14 @@ require "language/go"
 class Wiki < Formula
   desc "Fetch summaries from MediaWiki wikis, like Wikipedia"
   homepage "https://github.com/walle/wiki"
-  url "https://github.com/walle/wiki/archive/1.3.0.tar.gz"
-  sha256 "c12edcaed5c9d5e69fc43e77713a68948a399017467d248ba59367b5d458a9e6"
+  url "https://github.com/walle/wiki/archive/1.4.0.tar.gz"
+  sha256 "b9adb27485feba68574e3abf5564577f2fcec1bf2176fc8f80b09b6f8ca6ffff"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "47bf79617a9159b39ca3341bfd9faf2bcc215d920c6fac175049e15ce7452b4b" => :sierra
-    sha256 "97f41b03a165bc89869253240e906e0075ec936069a08ecd483c516bb987e3ce" => :el_capitan
-    sha256 "36d2954d46a09d460740d16771792ed832b3b81770a5b28a86b28f3e2bd65a53" => :yosemite
-    sha256 "271812a50a0455e1947006624f0442f084c69ab387cc858d41be26a4cce195f0" => :mavericks
+    sha256 "0f3302cb5063486d6cb1beb1a25c771b50c03f0318f05e7d3520b1a2d05a445b" => :sierra
+    sha256 "6e6d9036b7943ef08cbf92c5aec72b214599aa83bd0a038f4d7a0d19a90a70b0" => :el_capitan
+    sha256 "b7f224cc011a63259a7ef24b2709a4fb3ba053b15f1861a6c3f03d29925251f8" => :yosemite
   end
 
   depends_on "go" => :build

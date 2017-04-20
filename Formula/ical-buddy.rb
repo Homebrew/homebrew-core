@@ -1,9 +1,9 @@
 class IcalBuddy < Formula
   desc "Get events and tasks from the macOS calendar database"
   homepage "http://hasseg.org/icalBuddy/"
-  head "https://github.com/ali-rantakari/icalBuddy.git"
   url "https://github.com/ali-rantakari/icalBuddy/archive/v1.8.10.tar.gz"
   sha256 "3fb50cffd305ed6ac0ebb479e04ff254074ee5e4b1a1c279bd24c3cc56bcccb0"
+  head "https://github.com/ali-rantakari/icalBuddy.git"
 
   bottle do
     cellar :any_skip_relocation

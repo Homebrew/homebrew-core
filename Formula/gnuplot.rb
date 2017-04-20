@@ -1,13 +1,13 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
-  sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
+  sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
 
   bottle do
-    sha256 "248bea9c816f6da0c3723e3bd14a874fcfd6d0fe7f0283bc3b4704632f74af4c" => :sierra
-    sha256 "fa7ed60920684032ade79dd4334fd66f5675d7e36bdea07f20a4be551f82b5e6" => :el_capitan
-    sha256 "2efbe8de41120ff75e2572328db4eba6adc80519a4396b4c14ad68b415f45e3d" => :yosemite
+    sha256 "396cd2d3c9efaec862ee85584265d581e95a7e9baacd86a49b63a373282168a4" => :sierra
+    sha256 "eab3867b1f875653987cdfe0c02236a7c6e5cdf70f5d2bf1f89c67782f8672bd" => :el_capitan
+    sha256 "fe94c99facb225000db381a47d934daa243c48815195123db10d14628e92335c" => :yosemite
   end
 
   head do
@@ -22,42 +22,42 @@ class Gnuplot < Formula
   option "without-lua", "Build without the lua/TikZ terminal"
   option "with-test", "Verify the build with make check"
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
-  option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
+  option "without-gd", "Build without gd based terminals"
+  option "with-libcerf", "Build with libcerf support"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt5"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "qt" => "with-qt@5.7"
+  deprecated_option "with-qt" => "with-qt@5.7"
+  deprecated_option "with-qt5" => "with-qt@5.7"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
-  deprecated_option "latex" => "with-tex"
-  deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "gd"
+  depends_on "gd" => :recommended
   depends_on "lua" => :recommended
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "readline"
-  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
-  depends_on :tex => :optional
   depends_on :x11 => :optional
 
-  needs :cxx11 if build.with? "qt5"
+  needs :cxx11 if build.with? "qt@5.7"
+
+  resource "libcerf" do
+    url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.5.tgz"
+    mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libcerf/libcerf-1.5.tgz"
+    sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
+  end
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt5"
+    ENV.cxx11 if build.with? "qt@5.7"
 
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
@@ -65,6 +65,15 @@ class Gnuplot < Formula
       # when building against an SDK (Nov 2013).
       ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
       ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
+    end
+
+    if build.with? "libcerf"
+      # Build libcerf
+      resource("libcerf").stage do
+        system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
+        system "make", "install"
+      end
+      ENV.prepend "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
     end
 
     # Help configure find libraries
@@ -75,16 +84,21 @@ class Gnuplot < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
+      --without-latex
     ]
 
+    args << "--without-libcerf" if build.without? "libcerf"
+
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
+
+    args << "--without-gd" if build.without? "gd"
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt5"
+    if build.with? "qt@5.7"
       args << "--with-qt"
     else
       args << "--with-qt=no"
@@ -97,12 +111,6 @@ class Gnuplot < Formula
     args << "--without-lua" if build.without? "lua"
     args << ((build.with? "aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << ((build.with? "x11") ? "--with-x" : "--without-x")
-
-    if build.with? "tex"
-      args << "--with-latex"
-    else
-      args << "--without-latex"
-    end
 
     system "./prepare" if build.head?
     system "./configure", *args
@@ -125,10 +133,10 @@ class Gnuplot < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<-EOS.undent
-      set terminal png;
-      set output "#{testpath}/image.png";
+      set terminal dumb;
+      set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"image.png"
+    File.exist? testpath/"graph.txt"
   end
 end

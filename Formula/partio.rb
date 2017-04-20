@@ -1,6 +1,6 @@
 class Partio < Formula
   desc "Particle library for 3D graphics"
-  homepage "http://www.partio.us"
+  homepage "https://github.com/wdas/partio"
   url "https://github.com/wdas/partio/archive/v1.1.0.tar.gz"
   sha256 "133f386f076bd6958292646b6ba0e3db6d1e37bde3b8a6d1bc4b7809d693999d"
 

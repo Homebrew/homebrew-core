@@ -1,14 +1,14 @@
 class Smali < Formula
   desc "Assembler/disassembler for Android's Java VM implementation"
   homepage "https://github.com/JesusFreke/smali"
-  url "https://bitbucket.org/JesusFreke/smali/downloads/smali-2.1.3.jar"
-  sha256 "9b63186344a095d9bbffb27b7100ddfe933432f2b8f90f649a1e5e8cc26bb355"
+  url "https://bitbucket.org/JesusFreke/smali/downloads/smali-2.2.0.jar"
+  sha256 "381b3ab7e376b8322e31091f57f2e8a6882bd704025b88cd4de678a7b3448ee0"
 
   bottle :unneeded
 
   resource "baksmali-jar" do
-    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.1.3.jar"
-    sha256 "01ec5e42ccd197658314967e86e311a695bc86b2ace32fc4ad95e34d3595750a"
+    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.2.0.jar"
+    sha256 "699717fd18ee4ca35b7c5a29a659de23d80c9c53d26aea9eb5eb0dde99657bb7"
   end
 
   resource "baksmali" do
@@ -52,8 +52,8 @@ class Smali < Formula
     .end method
     EOS
 
-    system bin/"smali", "-o", "classes.dex", "input.smali"
-    system bin/"baksmali", "-o", pwd, "classes.dex"
+    system bin/"smali", "assemble", "-o", "classes.dex", "input.smali"
+    system bin/"baksmali", "disassemble", "-o", pwd, "classes.dex"
     assert_match "Hello World!", File.read("HelloWorld.smali")
   end
 end

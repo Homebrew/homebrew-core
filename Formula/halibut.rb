@@ -4,7 +4,7 @@ class Halibut < Formula
   url "http://www.chiark.greenend.org.uk/~sgtatham/halibut/halibut-1.1.tar.gz"
   sha256 "b964950d11ed09d3af28ac095da539613f6e50d650f01fe72b4ae752724c80a0"
 
-  head "git://git.tartarus.org/simon/halibut.git"
+  head "https://git.tartarus.org/simon/halibut.git"
 
   bottle do
     cellar :any_skip_relocation

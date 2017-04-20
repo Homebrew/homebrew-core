@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.17.tar.gz"
-  sha256 "b75bba87199ef6a6ccc5dfbcaf70949009dc12089eafad8c5254afc9002aa903"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.18.tar.gz"
+  sha256 "ae6f5e2cf7b936496cf60260cd7fd5a0862c21f48cd240448021c4ea067a0f0c"
 
   bottle do
-    sha256 "657f7a5d6e9a1d60f20095904748fc217446a1758455da9d39215c2128884903" => :sierra
-    sha256 "b2abbd2f4416e05a5d12bca93d2ac1655225ac20decc495edbec2ee21a1c4f41" => :el_capitan
-    sha256 "8f914a0a7dce4fc0672874d018fcb2f1b91ab57f51b8fc2d3d0702c473a6047b" => :yosemite
+    sha256 "3aa35b07d2472e31d629b9597b4c14ad66c5e29cfcdecd002aa98aa85199f51a" => :sierra
+    sha256 "2c1964485faefa013ae432fa5e4693c08aaf530b377f26062f8831644a4cef20" => :el_capitan
+    sha256 "09f3a2b3032cffc893f6724df450bae3eaa929852eae94e12474d1538aac22e4" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -27,7 +27,7 @@ class Mysql < Formula
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
   # Needs at least Clang 3.3, which shipped alongside Lion.
-  # Note: MySQL themselves don't support anything below Mavericks.
+  # Note: MySQL themselves don't support anything below El Capitan.
   depends_on :macos => :lion
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
@@ -43,7 +43,7 @@ class Mysql < Formula
 
   def install
     # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
+    # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
@@ -82,12 +82,6 @@ class Mysql < Formula
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
@@ -97,6 +91,12 @@ class Mysql < Formula
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
+
+    # We don't want to keep a 240MB+ folder around most users won't need.
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+    rm_rf prefix/"mysql-test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
@@ -108,13 +108,10 @@ class Mysql < Formula
     (prefix/"scripts").install "client/mysql_install_db"
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
-    # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
-
+    # Fix up the control script and link into bin.
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
   end
 
@@ -173,9 +170,23 @@ class Mysql < Formula
   end
 
   test do
-    system "/bin/sh", "-n", "#{bin}/mysqld_safe"
-    (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{testpath}"
+    begin
+      # Expects datadir to be a completely clean dir, which testpath isn't.
+      dir = Dir.mktmpdir
+      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+
+      pid = fork do
+        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+      end
+      sleep 2
+
+      output = shell_output("curl 127.0.0.1:3306")
+      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+      assert_match version.to_s, output
+    ensure
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end

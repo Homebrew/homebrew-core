@@ -1,16 +1,16 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.11.0-P2/bind-9.11.0-P2.tar.gz"
-  mirror "https://fossies.org/linux/misc/dns/bind9/9.11.0-P2/bind-9.11.0-P2.tar.gz"
-  version "9.11.0-P2"
-  sha256 "d651f83ce1c08c83d6ac8201685c4f2b5fdb79794f3a4f93c3948e0ef439c1e5"
+  url "https://ftp.isc.org/isc/bind9/9.11.0-P5/bind-9.11.0-P5.tar.gz"
+  mirror "https://fossies.org/linux/misc/dns/bind9/9.11.0-P5/bind-9.11.0-P5.tar.gz"
+  version "9.11.0-P5"
+  sha256 "1e283f0567b484687dfd7b936e26c9af4f64043daf73cbd8f3eb1122c9fb71f5"
   head "https://source.isc.org/git/bind9.git"
 
   bottle do
-    sha256 "ebd3457d697a5abf409b77e415cde3c53e72417060aa48862f0b07a539f56484" => :sierra
-    sha256 "cf3ae06e6dff27f4ce1ec0580430790f3b6173ddf4bdebb464756384a63b63fd" => :el_capitan
-    sha256 "b5183985190a5d853e1189ea36a779fd93d4e5aa55df09fa69cc667003547082" => :yosemite
+    sha256 "70b9541b0a0151cafa1cb7dd127000b57c032605a2867e03e4bbcb183ef41367" => :sierra
+    sha256 "b53e6e628bd547af12af95d1052cd5ddb318b8ee3ea145dc7fde04a5e61ca3bd" => :el_capitan
+    sha256 "5e5a53e619059bb5d7bd14576c6dffefbeb52aa6233a9cdbeb546f0779b83e1b" => :yosemite
   end
 
   depends_on "openssl"

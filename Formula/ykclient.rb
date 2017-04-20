@@ -21,14 +21,10 @@ class Ykclient < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "help2man" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

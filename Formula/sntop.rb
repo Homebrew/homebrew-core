@@ -1,6 +1,6 @@
 class Sntop < Formula
   desc "Curses-based utility that polls hosts to determine connectivity"
-  homepage "http://sntop.sourceforge.net/"
+  homepage "https://sntop.sourceforge.io/"
   url "http://distcache.freebsd.org/ports-distfiles/sntop-1.4.3.tar.gz"
   sha256 "943a5af1905c3ae7ead064e531cde6e9b3dc82598bbda26ed4a43788d81d6d89"
 

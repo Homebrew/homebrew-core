@@ -1,34 +1,31 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.4.0/node-v7.4.0.tar.xz"
-  sha256 "9f15b916f8677ec1615c46bdd6d2208ed1b24fad26384f9ac249f5b09d31c32b"
+  url "https://nodejs.org/dist/v7.9.0/node-v7.9.0.tar.xz"
+  sha256 "a569764b884929f31a0772600a5cf36048ad42aa8c54ba4cabea6c067ef96a29"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "a2f35c4d38572814b57788f212634371fd7ee8cfc0ed255866ed8cb3ae540bec" => :sierra
-    sha256 "6342589b72df4c41c5464d2f6c4ffea49a5dd553180a4a2e02f704a14898a350" => :el_capitan
-    sha256 "c7ece376ad2c8ca73270ce664f588152a04655c8b5dc264b5307cea84d09ece8" => :yosemite
+    sha256 "ada52db50ebad785b42be6868d41e7e052c4d885957b27e4a103aba2e0f94597" => :sierra
+    sha256 "37b3900577c93ebc31d60364aeeaa8583e6b0620fa1ed8516a06c016df98a0d4" => :el_capitan
+    sha256 "e12949986420b242cc5237fc8bffce797fa9787385fd54b9679e6024678ac157" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
-  option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
+  option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
   deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-icu4c" => "with-full-icu"
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
+  depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
 
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
-  conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
-  conflicts_with "node@4", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
+  conflicts_with "node@0.12", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
@@ -42,16 +39,8 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-4.0.5.tgz"
-    sha256 "195f654387867484a17826990fce2d46177a16f4911297c53b870597c037a27e"
-  end
-
-  resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
-    mirror "https://downloads.sourceforge.net/project/icu/ICU4C/58.2/icu4c-58_2-src.tgz"
-    version "58.2"
-    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
+    url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
+    sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
   end
 
   def install
@@ -59,13 +48,9 @@ class Node < Formula
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
+    args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" if build.with? "openssl"
     args << "--tag=head" if build.head?
-
-    if build.with? "full-icu"
-      resource("icu4c").stage buildpath/"deps/icu"
-      args << "--with-intl=full-icu"
-    end
 
     system "./configure", *args
     system "make", "install"
@@ -132,27 +117,13 @@ class Node < Formula
   end
 
   def caveats
-    s = ""
-
     if build.without? "npm"
-      s += <<-EOS.undent
+      <<-EOS.undent
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
           #{HOMEBREW_PREFIX}/lib/node_modules
       EOS
     end
-
-    if build.without? "full-icu"
-      s += <<-EOS.undent
-        Please note by default only English locale support is provided. If you need
-        full locale support you should either rebuild with full icu:
-          `brew reinstall node --with-full-icu`
-        or add full icu data at runtime following:
-          https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
-      EOS
-    end
-
-    s
   end
 
   test do
@@ -163,7 +134,7 @@ class Node < Formula
     assert_equal "hello", output
     output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"en-EN\").format(1234.56))'").strip
     assert_equal "1,234.56", output
-    if build.with? "full-icu"
+    if build.with? "icu4c"
       output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
       assert_equal "1.234,56", output
     end

@@ -1,6 +1,7 @@
 class Gtkx < Formula
   desc "GUI toolkit"
-  homepage "http://gtk.org/"
+  homepage "https://gtk.org/"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.31.tar.xz"
@@ -8,10 +9,9 @@ class Gtkx < Formula
   end
 
   bottle do
-    sha256 "99aa757a41d35651816dc44acf1eefb85ce2334c90e2c4801f57158ed9765a42" => :sierra
-    sha256 "1ccd4e2e5e0e4be8ab9cc577a88560eb41568713d2b3a32609377b85fcbd077e" => :el_capitan
-    sha256 "276e32ca1759b28b020f401c780e3bde6f18f85167f2e01595ea1248e403f62b" => :yosemite
-    sha256 "4ae4cefcbaf0d6fc3755b2255bde899a10d9371d97f4630c71105cece297cd0d" => :mavericks
+    sha256 "860a8dd62ae8990a7dc3c403421fa3ee6bdf8ae810463fd5368094676b7c827d" => :sierra
+    sha256 "6be79985859e6f5a6bec18a23bf2bb5364b9f536bcd1283913d72f0cb32baa8c" => :el_capitan
+    sha256 "f18ee768ba59c29741133b7427f28ffdb2d615eb1c783d5b2995249b8b473086" => :yosemite
   end
 
   head do
@@ -23,7 +23,6 @@ class Gtkx < Formula
     depends_on "gtk-doc" => :build
   end
 
-  option :universal
   option "with-quartz-relocation", "Build with quartz relocation support"
 
   depends_on "pkg-config" => :build
@@ -34,18 +33,18 @@ class Gtkx < Formula
   depends_on "gobject-introspection"
   depends_on "hicolor-icon-theme"
 
-  # Patch to allow Freeciv's gtk2 client to run.
+  # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
   # See:
+  # - https://bugzilla.gnome.org/show_bug.cgi?id=757187
+  # referenced from
   # - https://bugzilla.gnome.org/show_bug.cgi?id=557780
   # - Homebrew/homebrew-games#278
   patch do
-    url "https://bug557780.bugzilla-attachments.gnome.org/attachment.cgi?id=306776"
-    sha256 "4d7a1fe8d55174dc7f0be0016814668098d38bbec233b05a6c46180e96a159fc"
+    url "https://bug757187.bugzilla-attachments.gnome.org/attachment.cgi?id=331173"
+    sha256 "ce5adf1a019ac7ed2a999efb65cfadeae50f5de8663638c7f765f8764aa7d931"
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = ["--disable-dependency-tracking",
             "--disable-silent-rules",
             "--prefix=#{prefix}",

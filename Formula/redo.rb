@@ -18,7 +18,7 @@ class Redo < Formula
 
   def install
     ENV["PREFIX"] = prefix
-    system "./redo install"
+    system "./redo", "install"
     rm share/"doc/redo/README.md" # lets not have two copies
     man1.install resource("docs")
   end

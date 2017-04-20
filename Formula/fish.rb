@@ -3,20 +3,15 @@ class Fish < Formula
   homepage "https://fishshell.com"
 
   stable do
-    url "https://fishshell.com/files/2.4.0/fish-2.4.0.tar.gz"
-    mirror "https://github.com/fish-shell/fish-shell/releases/download/2.4.0/fish-2.4.0.tar.gz"
-    sha256 "06bbb2323360439c4044da762d114ec1aa1aba265cec71c0543e6a0095c9efc5"
+    url "https://github.com/fish-shell/fish-shell/releases/download/2.5.0/fish-2.5.0.tar.gz"
+    mirror "https://fishshell.com/files/2.5.0/fish-2.5.0.tar.gz"
+    sha256 "f8c0edadca2de379ccf305aeace660a9255fa2180c72e85e97705a24c256b2a5"
   end
 
   bottle do
-    sha256 "0935641436db91447c2ebfa271df82a39ae0be428044a59aab9a41992d12e57f" => :sierra
-    sha256 "1f9faaa90bb1200db70221c8c5a79bcb524dd4b09808276f93315353b06af493" => :el_capitan
-    sha256 "36f144331928e5a9dcd612b303457ae6b4ae2d6afb17b873b709c1f80369d359" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/fish-shell/fish-shell/releases/download/2.5b1/fish-2.5b1.tar.gz"
-    sha256 "cecfaac793d1228fda38bc8ddc549015cd9455d6f01cf888f26311d15c794d3a"
+    sha256 "d012c7b4d1dce5e766fe9990f19ec7ac0ae5c4a69fc15e01cf123e8f88c1910f" => :sierra
+    sha256 "2b28972cc66472fa11782b344c64b51569a43d0fd8b098ad4b787a1c79aca2b1" => :el_capitan
+    sha256 "385def41fe9c29237b7319218ae0184f64b6b750e525f92ee6913cf20c478a69" => :yosemite
   end
 
   head do

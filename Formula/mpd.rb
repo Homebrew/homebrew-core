@@ -1,13 +1,13 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.2.tar.xz"
-  sha256 "552a87d71c2981baeddf28c1856a7e071ea0236dd38bc75ec25d58529605ff77"
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.6.tar.xz"
+  sha256 "f4055e1189e5cc00e83706b2e0b5ead924ced0303e073d7802ee9f9a8eba4b47"
 
   bottle do
-    sha256 "08a6c27bbbe3df6d42f22d44ea49201d0c5a817520ef6872980595f72de64813" => :sierra
-    sha256 "7562d3c655af4d5eb07ab107ccb95439fbc1ebe0f2022532f032005839b6c957" => :el_capitan
-    sha256 "622849f9e3652e2e524135f1965945530200a5eabd4b3c45c599e556141181ab" => :yosemite
+    sha256 "772293121659866f47d554b60eea57460a489659599ea9f83435c8a372c05ac8" => :sierra
+    sha256 "2913600b2efe25fe2591f87a8bd9b59b044ada4fac1abe783b1fb18ee966ec55" => :el_capitan
+    sha256 "cec38e434121b587c6e4f771e106ffd6724b1d7c3ccfcd19cfc45ba9259aca2d" => :yosemite
   end
 
   head do
@@ -25,6 +25,7 @@ class Mpd < Formula
   option "with-yajl", "Build with yajl support (for playing from soundcloud)"
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
+  option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -58,6 +59,7 @@ class Mpd < Formula
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
+  depends_on "pulseaudio" => :optional
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -89,6 +91,7 @@ class Mpd < Formula
     args << "--enable-vorbis-encoder" if build.with? "libvorbis"
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./configure", *args
     system "make"

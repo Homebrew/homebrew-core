@@ -1,15 +1,14 @@
 class Eiffelstudio < Formula
   desc "Development environment for the Eiffel language"
   homepage "https://www.eiffel.com"
-  url "https://ftp.eiffel.com/pub/download/16.05/eiffelstudio-16.05.tar"
-  sha256 "7154ee73671b7b29892d7b6ac5ef3819dc2aec95c262e95e9482c6f35a897e25"
+  url "https://ftp.eiffel.com/pub/download/17.01/eiffelstudio-17.01.9.9700.tar"
+  sha256 "610344e8e4bbb4b8ccedc22e57b6ffa6b8fd7b9ffee05edad15fc1aa2b1259a1"
 
   bottle do
     cellar :any
-    sha256 "d19b199c5e25f0dd6589107a879a9ec3fb06ebf02a44491cf7430ac8798a8e85" => :sierra
-    sha256 "4231e0735d8a2db64e084e84bc9fe9eab31fd6cdc144f6519f07e5db87812dc8" => :el_capitan
-    sha256 "ee15c05e2f4410e479e338b7fb263fdccb03e55cf3dbceb3724140ea872cd058" => :yosemite
-    sha256 "2eda67f3856bb63209d0ca8292d47feea8fd3077fbfc345e7fc5bd03599d833e" => :mavericks
+    sha256 "7946945393c414071a069c74adc5baeed9f93ab8be40d5f3bd6dbac77c7a8fd2" => :sierra
+    sha256 "d6c4d4709cdde7bb552e8a72e3af85dfdff5fb25ac776d370cfd5da34e23dd9b" => :el_capitan
+    sha256 "be7febcd611d5eb9282fa3480d00764cee7b4c91cf1dfd0cceb2d0618ba5a9f7" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -28,7 +27,7 @@ class Eiffelstudio < Formula
   def install
     system "./compile_exes", ise_platform
     system "./make_images", ise_platform
-    prefix.install Dir["Eiffel_16.05/*"]
+    prefix.install Dir["Eiffel_17.01/*"]
     bin.mkpath
     env = { :ISE_EIFFEL => prefix, :ISE_PLATFORM => ise_platform }
     (bin/"ec").write_env_script(prefix/"studio/spec/#{ise_platform}/bin/ec", env)

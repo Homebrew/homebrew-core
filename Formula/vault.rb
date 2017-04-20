@@ -7,14 +7,15 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.6.4",
-      :revision => "f4adc7fa960ed8e828f94bc6785bcdbae8d1b263"
+      :tag => "v0.7.0",
+      :revision => "614deacfca3f3b7162bbf30a36d6fc7362cd47f0"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
-    sha256 "a33d5e5517222e74a8f260af4ce5074da1e8e9771dbe0f66d3b318df96d8b45a" => :sierra
-    sha256 "d90242f9c818ea5e905df1e4c85a076d00601436594b2d5db408513394873690" => :el_capitan
-    sha256 "edf4396087bf7ac0d91179e5418c4cff783909eb917c4910f5f9d531e02c2caf" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "334905a9eaf657649c8df1282fb56239c75eb2afc2acfc4b6d2fa5004253edb1" => :sierra
+    sha256 "6fe1bf96e2e9e508b66f4e2af6569c53bac78555aa0df5476dbf057d1dde85c3" => :el_capitan
+    sha256 "ed6cb308d84c472d08a249ea051655ee8466f57658151e70c5870142697df6fb" => :yosemite
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"

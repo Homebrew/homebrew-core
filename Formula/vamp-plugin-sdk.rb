@@ -1,15 +1,16 @@
 class VampPluginSdk < Formula
   desc "audio processing plugin system sdk"
   homepage "http://www.vamp-plugins.org"
-  url "https://code.soundsoftware.ac.uk/attachments/download/1520/vamp-plugin-sdk-2.6.tar.gz"
-  sha256 "d0d3578137ac0c1e63f31561081a8d61da526a81152bc1dc9383b629bc07f85f"
   head "https://code.soundsoftware.ac.uk/hg/vamp-plugin-sdk", :using => :hg
 
   stable do
+    url "https://code.soundsoftware.ac.uk/attachments/download/1520/vamp-plugin-sdk-2.6.tar.gz"
+    sha256 "d0d3578137ac0c1e63f31561081a8d61da526a81152bc1dc9383b629bc07f85f"
     # activate osx specific items in Makefile.in
     # https://code.soundsoftware.ac.uk/issues/1473
     patch :p1, :DATA
   end
+
   bottle do
     cellar :any
     sha256 "3a2e87cfd4ba5c0eb9675ad4a0cb2fd412315bd71f81cde9d5fd0648bafdd08c" => :sierra

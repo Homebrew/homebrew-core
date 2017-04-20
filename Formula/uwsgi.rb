@@ -1,19 +1,21 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.14.tar.gz"
-  sha256 "21b3d1ef926d835ff23576193a2c60d4c896d8e21567850cf0677a4764122887"
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz"
+  sha256 "572ef9696b97595b4f44f6198fe8c06e6f4e6351d930d22e5330b071391272ff"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "a651f0ac7fe61dc1f550f58691958147cec11d8ab9674d029949cf393d2a4db0" => :sierra
-    sha256 "1d2536f6050440d0451ec0c39681efeff984601147d6cf47830f2b7d6f79f1b5" => :el_capitan
-    sha256 "1a12d456801270b232d319878340ddff923bc94963f76558218ab89b71d7409a" => :yosemite
+    sha256 "09cd8cf501bb7ffd6dc1ce48628c80798700d3b79e329321e59c98a6e3d127e1" => :sierra
+    sha256 "94d275b2699c23828ff7610372a3b6b5ff11ec63222eba33db6de22adb806424" => :el_capitan
+    sha256 "986cb7457249c53bf40df451f39675a8871fdefe1f111ae7e02eb70a89404ab5" => :yosemite
   end
 
   option "with-java", "Compile with Java support"
   option "with-php", "Compile with PHP support (PHP must be built for embedding)"
   option "with-ruby", "Compile with Ruby support"
+
+  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
@@ -27,7 +29,7 @@ class Uwsgi < Formula
   depends_on "libffi" => :optional
   depends_on "libxslt" => :optional
   depends_on "libyaml" => :optional
-  depends_on "lua51" => :optional
+  depends_on "lua@5.1" => :optional
   depends_on "mongodb" => :optional
   depends_on "mongrel2" => :optional
   depends_on "mono" => :optional
@@ -98,7 +100,7 @@ class Uwsgi < Formula
     plugins << "jvm" if build.with? "java"
     plugins << "jwsgi" if build.with? "java"
     plugins << "libtcc" if build.with? "tcc"
-    plugins << "lua" if build.with? "lua"
+    plugins << "lua" if build.with? "lua@5.1"
     plugins << "mongodb" if build.with? "mongodb"
     plugins << "mongodblog" if build.with? "mongodb"
     plugins << "mongrel2" if build.with? "mongrel2"

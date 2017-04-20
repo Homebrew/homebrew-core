@@ -3,9 +3,25 @@
 class QtAT55 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
+  url "https://download.qt.io/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/archive/qt/5.5/5.5.1/single/qt-everywhere-opensource-src-5.5.1.tar.xz"
   sha256 "6f028e63d4992be2b4a5526f2ef3bfa2fe28c5c757554b11d9e8d86189652518"
+  revision 1
+
+  bottle do
+    sha256 "f44403a72ab524a6f010bcf86f1414c42729f4763f4e7c2cfb0f6cba2b6135d2" => :sierra
+    sha256 "e1e66c950b66c9bd59b43566a4a5919f4f14a0331c7d9aa062d8c6a152e157c4" => :el_capitan
+    sha256 "debdc797d8314548a7cfc05ac97699d98ceeaf46265180a979bbb96190024d1c" => :yosemite
+  end
+
+  keg_only :versioned_formula
+
+  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
+  # configuration and thus untested in practice. Builds on OS X 10.7 have been
+  # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
+  depends_on :macos => :mountain_lion
+
+  depends_on :xcode => :build
 
   # Build error: Fix library detection for QtWebEngine with Xcode 7.
   # https://codereview.qt-project.org/#/c/1w27759/
@@ -54,32 +70,11 @@ class QtAT55 < Formula
     sha256 "63b5f37d694d0bd1db6d586d98f3c551239dc8818588f3b90dc75dfe6e9952be"
   end
 
-  bottle do
-    sha256 "527c9dbc9f71b6cb2bf6134b5f92730e5f1b639ae700f914126ae4d7aee0b7fb" => :sierra
-    sha256 "41811d73ca7dc49280e48802c3420bb210f7272464cc2f59d40f03c79b323df0" => :el_capitan
-    sha256 "642e52296c4b27b8ecfc3ad2646f4459582365b08c65cf94eb3f9f70c9513230" => :yosemite
-  end
-
   # Additional MaxOSX10.12 SDK bluetooth fixes
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/qt%405.5/qtconnectivity-bluetooth-fix-2.patch"
     sha256 "d6d6b41aab16d8fbb1bdd1a9c05c519064258c4d5612d281e7f8661ec8990eaf"
   end
-
-  bottle do
-    sha256 "527c9dbc9f71b6cb2bf6134b5f92730e5f1b639ae700f914126ae4d7aee0b7fb" => :sierra
-    sha256 "41811d73ca7dc49280e48802c3420bb210f7272464cc2f59d40f03c79b323df0" => :el_capitan
-    sha256 "642e52296c4b27b8ecfc3ad2646f4459582365b08c65cf94eb3f9f70c9513230" => :yosemite
-  end
-
-  keg_only "Older version of qt5"
-
-  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on OS X 10.7 have been
-  # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  depends_on :macos => :mountain_lion
-
-  depends_on :xcode => :build
 
   def install
     args = %W[
@@ -114,6 +109,16 @@ class QtAT55 < Formula
     # see: https://github.com/Homebrew/homebrew/issues/27184
     inreplace prefix/"mkspecs/qconfig.pri", /\n\n# pkgconfig/, ""
     inreplace prefix/"mkspecs/qconfig.pri", /\nPKG_CONFIG_.*=.*$/, ""
+
+    # Qt tries to find xcrun using xcrun, which fails with Xcode 8 with the
+    # error "Project ERROR: Xcode not set up properly. You may need to confirm
+    # the license agreement by running /usr/bin/xcodebuild."
+    # See https://github.com/Homebrew/homebrew-core/issues/8777.
+    # Fixed upstream 7 Jul 2016 in http://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9.
+    if MacOS::Xcode.version >= "8.0"
+      inreplace prefix/"mkspecs/features/mac/default_pre.prf",
+                /xcrun -find xcrun/, "xcrun -find xcodebuild"
+    end
 
     # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
     # because we don't like having them in `bin`. Also add a `-qt5` suffix to

@@ -1,13 +1,13 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.23.tar.xz"
-  sha256 "fa4c0c99f41e92fe1330bed3968d176c6f47ef2e3aea2f83977d5501afa40bdb"
+  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.25.tar.xz"
+  sha256 "28959254c32b8cd87e9599b6beb97352cf0638524e0f5ac3e1754f08462f3585"
 
   bottle do
-    sha256 "81252cb6b996527204361c6d0d2a4ea7d88253cbb89af04d412538642c81afdd" => :sierra
-    sha256 "a6d502f21b947fa1204f80dde1039761d078bf9abb60595da37bfa956984bb8b" => :el_capitan
-    sha256 "b84d56e79dc041835b79790c5c85dc999156341130eec2e30d3c2f2f849ca3c3" => :yosemite
+    sha256 "f7285af68fab7ea442523ff4418e606b2346f02be87db6a7c64622c697b0da80" => :sierra
+    sha256 "a5942f79b1c95a2832b84cadc87c624f5b20f67d6ac784291c8bb86fbef4e802" => :el_capitan
+    sha256 "f4ee1e185ef2f5b5498c0f494096ac068bf9006685cdac088724108ec968bcda" => :yosemite
   end
 
   head do

@@ -27,13 +27,13 @@ class Parrot < Formula
     sha256 "ff4125f633f43c19134e2520c0964025f4ea14efd5ce826d0cd905c550fbb24a" => :mavericks
   end
 
-  conflicts_with "rakudo-star"
-
   depends_on "gmp" => :optional
   depends_on "icu4c" => :optional
   depends_on "pcre" => :optional
   depends_on "readline" => :optional
   depends_on "libffi" => :optional
+
+  conflicts_with "rakudo-star"
 
   def install
     system "perl", "Configure.pl", "--prefix=#{prefix}",

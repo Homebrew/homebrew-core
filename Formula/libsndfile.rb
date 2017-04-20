@@ -1,18 +1,15 @@
 class Libsndfile < Formula
   desc "C library for files containing sampled sound"
   homepage "http://www.mega-nerd.com/libsndfile/"
-  url "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.26.tar.gz"
-  sha256 "cd6520ec763d1a45573885ecb1f8e4e42505ac12180268482a44b28484a25092"
+  url "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.27.tar.gz"
+  sha256 "a391952f27f4a92ceb2b4c06493ac107896ed6c76be9a613a4731f076d30fac0"
 
   bottle do
     cellar :any
-    sha256 "5bbb028907886307e1ffd660eeb3d99f858831e9da626901866bb39d7f7a84d1" => :sierra
-    sha256 "14fb9d6ecd9bf39fce4d59b7d772edad94566e60e922724f014f034f7e343992" => :el_capitan
-    sha256 "5817f2567471377ce161172d58059cd0cfcbbe9cb1e5f6eb80b501a629d40b5f" => :yosemite
-    sha256 "a5700a479cafd48d22e2032d95207abcd2d43fc56015348684522b8a61eb4f04" => :mavericks
+    sha256 "d62e838578eef2bd9ec76a8cc2ee48016c20b83bd4edce89b61892a640d666fa" => :sierra
+    sha256 "31bdf218e00a1df4e659e098b4abb73a75f69e3a3372a9116f57a2714d27fe35" => :el_capitan
+    sha256 "4b6e891dc0dde551f1ee73ea508553ebb1c84c08fbdc5ae0e874e30ab0367ffb" => :yosemite
   end
-
-  option :universal
 
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
@@ -23,8 +20,6 @@ class Libsndfile < Formula
   depends_on "libvorbis"
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

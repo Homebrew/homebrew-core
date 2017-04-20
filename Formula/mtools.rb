@@ -13,9 +13,9 @@ class Mtools < Formula
     sha256 "2415b06b3cc473180cf59e0bd13a4b373ea38996afea75fc24a3f6d71f8bea38" => :mavericks
   end
 
-  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
-
   depends_on :x11 => :optional
+
+  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
 
   def install
     # Prevents errors such as "mainloop.c:89:15: error: expected ')'"

@@ -1,9 +1,9 @@
 class Antigen < Formula
   desc "Plugin manager for zsh, inspired by oh-my-zsh and vundle."
   homepage "http://antigen.sharats.me/"
-  url "https://github.com/zsh-users/antigen/releases/download/v1.3.4/v1.3.4.tar.gz"
-  sha256 "8f0c7e1109f8ea2221cf42aba513ac0ce3adaef161ed7c4c83f505d4c9197e44"
-  head "https://github.com/zsh-users/antigen.git"
+  url "https://github.com/zsh-users/antigen/releases/download/v2.0.1/v2.0.1.tar.gz"
+  sha256 "9bcd6c60ad3a66d6707b1be5bb4b4743b5017ad2a339c81d66cabcf9f8e0887c"
+  head "https://github.com/zsh-users/antigen.git", :branch => "develop"
 
   bottle :unneeded
 

@@ -1,8 +1,8 @@
 class Minimesos < Formula
   desc "Testing infrastructure for Mesos frameworks"
   homepage "https://minimesos.org/"
-  url "https://github.com/ContainerSolutions/minimesos/archive/0.10.2.tar.gz"
-  sha256 "16b198078c9384426f8849b08e92e173816c4d6626331bc6569aa5de89dffbdd"
+  url "https://github.com/ContainerSolutions/minimesos/archive/0.13.0.tar.gz"
+  sha256 "4e510b734d025a806bcbe2e613d4057e3456809473bd1bb665d5244f02b44dcc"
 
   bottle :unneeded
 
@@ -13,6 +13,6 @@ class Minimesos < Formula
   end
 
   test do
-    assert_match "Docker", shell_output("#{bin}/minimesos --help 2>&1", 125)
+    assert_match "Docker", shell_output("#{bin}/minimesos --help 2>&1", 1)
   end
 end

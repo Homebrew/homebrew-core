@@ -1,26 +1,13 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-
-  stable do
-    url "https://github.com/h2o/h2o/archive/v2.0.6.tar.gz"
-    sha256 "bf4f2dc3b2f1a6886eb7ee6487cb6ba4b206700055a1d2ca9c2a99a82d21055b"
-
-    depends_on "openssl"
-  end
+  url "https://github.com/h2o/h2o/archive/v2.2.0.tar.gz"
+  sha256 "1f3bfa8a01b65287a3352dbfc12f0ce7a79f5e8d7649aa4d4b39b763b6e28177"
 
   bottle do
-    sha256 "72a73995197aa85a33a933309cc6439a2d9ba0e4df62e2fcdb11cfa14d985870" => :sierra
-    sha256 "915b71553d0fc0e7f815a1d2c64486ef87c6e61f40a6ab0fb2d2860166c93eba" => :el_capitan
-    sha256 "b090435d46399fa5098b5c5c27aa329464f65c16f9c658a2d1810ff5593f284b" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/h2o/h2o/archive/v2.1.0-beta4.tar.gz"
-    version "2.1.0-beta4"
-    sha256 "780d4b210f1a9b76a1a29cad794305631afb739c79b3835902b13aaf01507e60"
-
-    depends_on "openssl@1.1"
+    sha256 "3f5eaa6f2ae3cc3152d9d5518ec62215755c346ba5c098da5259f4edbd5216dc" => :sierra
+    sha256 "b89feeb6650df6ffc426b6c6a4f578b3477062c10a8ab3b672ba0a04735c1551" => :el_capitan
+    sha256 "39104a862f55a3f0704bc55cf04b29ce8c4ba661778210b61b66dac24634901e" => :yosemite
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
@@ -28,6 +15,7 @@ class H2o < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "openssl"
   depends_on "libuv" => :optional
   depends_on "wslay" => :optional
 

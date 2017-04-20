@@ -1,15 +1,17 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.7.2/node-v4.7.2.tar.xz"
-  sha256 "ad1b8309a621f725b5d8205f0fc5bbb7b396a438c108e6fba417c1a914932dfc"
+  url "https://nodejs.org/dist/v4.8.2/node-v4.8.2.tar.xz"
+  sha256 "b961350b8490c791bdd3663925662ba0fbe01e004b43f1c2779baffcc816b930"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "9bfbf45f8c1d1aa63d2556ca69e878634fc701df7a730b99f5f6f748b27a55b0" => :sierra
-    sha256 "8d3026205953ed0b56b942771ff978aac2eb8c56e3a2a588e69bcbbd76986045" => :el_capitan
-    sha256 "b8415cde68f9d17ee92394b857423b0c1d1a4ffbff361c4e1df1823d5c366983" => :yosemite
+    sha256 "80d39c9b8459b5ddf40049b23a8eb1c53a9e6b7f39092dd56fbf0e36c12b9c08" => :sierra
+    sha256 "d0da6b9665978a2cce3b5355a2b079738bc9716fe5d02cd22169fe53b7d6e364" => :el_capitan
+    sha256 "2da3fe902a8daff3e6e01b0e09e3ae5ab30b819f940244318d57ca4e896528ed" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
@@ -20,21 +22,16 @@ class NodeAT4 < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
-  conflicts_with "node", :because => "Differing versions of the same formula"
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
-  conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
-
+  # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"
-    sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
+    url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
+    sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz"
-    version "56.1"
-    sha256 "3a64e9105c734dcf631c0b3ed60404531bce6c0f5a64bfe1a6402a4cc2314816"
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
 
   def install

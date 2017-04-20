@@ -1,6 +1,6 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
-  homepage "http://iperf.sourceforge.net/"
+  homepage "https://iperf.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/iperf/iperf-2.0.5.tar.gz"
   sha256 "636b4eff0431cea80667ea85a67ce4c68698760a9837e1e9d13096d20362265b"
 
@@ -17,5 +17,16 @@ class Iperf < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    begin
+      server = IO.popen("#{bin}/iperf --server")
+      sleep 1
+      assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
+    ensure
+      Process.kill("SIGINT", server.pid)
+      Process.wait(server.pid)
+    end
   end
 end

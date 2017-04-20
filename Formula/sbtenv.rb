@@ -28,15 +28,6 @@ class Sbtenv < Formula
     (var_lib/"plugins").install_symlink "#{prefix}/default-plugins/sbt-install"
   end
 
-  def caveats; <<-EOS.undent
-    To use Homebrew's directories rather than ~/.sbtenv add to your profile:
-      export SBTENV_ROOT=#{var}/sbtenv
-
-    To enable shims and autocompletion add to your profile:
-      eval "$(sbtenv init -)"
-    EOS
-  end
-
   test do
     shell_output("eval \"$(#{bin}/sbtenv init -)\" && sbtenv versions")
   end

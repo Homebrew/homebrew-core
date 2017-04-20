@@ -3,12 +3,12 @@ class Libsecret < Formula
   homepage "https://wiki.gnome.org/Projects/Libsecret"
   url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.5.tar.xz"
   sha256 "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
+  revision 1
 
   bottle do
-    sha256 "a29a01464259946430fafbc568dbee944b54ea9163699f75c4d905c3d5c8a665" => :sierra
-    sha256 "07d7fd02e1c3857a2a27415575248ea89a19c7dd1a86efe53fcf1866dce1bf46" => :el_capitan
-    sha256 "090ea52539396135f710956cd051cbab59d6dd7fb94d8666dc4ed4e0312cddac" => :yosemite
-    sha256 "b7f878856f2f272de7d0456ad3c82a6e260a9a272a7c4eefc1504a668a430fb0" => :mavericks
+    sha256 "70dc8c53fe5e90878623f3d78dc31e23894429e5ffac816efaa17ac683d6e80d" => :sierra
+    sha256 "bc8741bca918709da77c0144e985918b720afcd27b6228963f117348994d680c" => :el_capitan
+    sha256 "9abd02a3cc9049c185321f691df43da2b150a2f55ca0463e346632b93a7a7900" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -31,7 +31,7 @@ class Libsecret < Formula
       --prefix=#{prefix}
     ]
 
-    args << "--enable-gobject-introspection" if build.with? "gobject-introspection"
+    args << "--enable-introspection" if build.with? "gobject-introspection"
     args << "--enable-vala" if build.with? "vala"
 
     system "./configure", *args

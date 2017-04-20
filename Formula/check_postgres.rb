@@ -3,15 +3,15 @@ class CheckPostgres < Formula
   homepage "https://bucardo.org/wiki/Check_postgres"
   url "https://bucardo.org/downloads/check_postgres-2.22.0.tar.gz"
   sha256 "29cd8ea0a0c0fcd79a1e6afb3f5a1d662c1658eef207ea89276ddb30121b85a8"
-  revision 1
+  revision 2
 
   head "https://github.com/bucardo/check_postgres.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "280d4e53327b9cc6ffd04229e5a81170a8a9288f156fdaea3b9c00f5280cd3d7" => :sierra
-    sha256 "280d4e53327b9cc6ffd04229e5a81170a8a9288f156fdaea3b9c00f5280cd3d7" => :el_capitan
-    sha256 "280d4e53327b9cc6ffd04229e5a81170a8a9288f156fdaea3b9c00f5280cd3d7" => :yosemite
+    sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :sierra
+    sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :el_capitan
+    sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :yosemite
   end
 
   depends_on :postgresql

@@ -21,7 +21,7 @@ class GccAT48 < Formula
     `uname -r`.chomp
   end
 
-  homepage "https://gcc.gnu.org"
+  homepage "https://gcc.gnu.org/"
   url "https://ftpmirror.gnu.org/gcc/gcc-4.8.5/gcc-4.8.5.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.8.5/gcc-4.8.5.tar.bz2"
   sha256 "22fb1e7e0f68a63cee631d85b20461d1ea6bda162f03096350e38c8d427ecf23"
@@ -146,7 +146,7 @@ class GccAT48 < Formula
     args << "--enable-plugin" if MacOS.version > :tiger
 
     # Otherwise make fails during comparison at stage 3
-    # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
     args << "--with-dwarf2" if MacOS.version < :leopard
 
     args << "--disable-nls" if build.without? "nls"

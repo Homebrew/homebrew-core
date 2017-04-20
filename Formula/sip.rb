@@ -1,15 +1,15 @@
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19/sip-4.19.tar.gz"
-  sha256 "014bf55f653e0d8bcc582705ef4fbd61e0859a36e959ab46d8fa060cdf0b5e27"
+  url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.2/sip-4.19.2.tar.gz"
+  sha256 "432b4aad25254e6997913e33b1ca3cf5fd21d5729a50a3ce2edccbea82c80533"
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "381afdbce9721809f59c0048f997fa5baee488dcf43d6f34fdb467f9332ef837" => :sierra
-    sha256 "55397defb3f9f7f33bc4815a072aeefc29cd8bdc2fca751359092bd472ccfe05" => :el_capitan
-    sha256 "30cff0d8cb2ca0346a02f6c62505ddfe99446f63d5bf61fefa0a9934bc8b0bf5" => :yosemite
+    sha256 "05a3d53af8562d67d16b8ec43d817c289f8fc71a0361bfe1d8ef347706fba185" => :sierra
+    sha256 "65fd457bb8abd264318f4986649589d4e3f24596d6119055d76e218021d3e960" => :el_capitan
+    sha256 "c1a19cd5ba519acc15190be899954e42cba72e329d454c41ded5a8c18e4bdbb0" => :yosemite
   end
 
   option "without-python", "Build without python2 support"

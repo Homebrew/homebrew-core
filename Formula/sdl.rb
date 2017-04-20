@@ -6,12 +6,10 @@ class Sdl < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "2534e56731bace9e14fbda11d1d42bf0975e16e82c614213494088e13e8b2f40" => :sierra
-    sha256 "c9c66beaee50897468330709dc618246b298d63854309863e958e6b46ecec06a" => :el_capitan
-    sha256 "ec2202243209e378fc50bb9ad1bd7c7cff0ae893f81780228113b542059e3a92" => :yosemite
-    sha256 "92f71a40ad275455e0db75057fcfd29ca35abbf583de73e106ccb903541405af" => :mavericks
-    sha256 "10f73b430cc6794a9fe16382ffe9616ab6bf541f46f6bda903472699369a7856" => :mountain_lion
+    rebuild 3
+    sha256 "ae6f7a419e0277feccf2e26bc0f711c6f63737578590599202edc85090b9c934" => :sierra
+    sha256 "cabb4d2ed0c7910cbf4a47fe27d36c5e61c09ea6c5d47963ba9cb56f379ba1e1" => :el_capitan
+    sha256 "d583cfc1e6029298076b6d49b974606ad92e90a700ace2d811b42091abe8a327" => :yosemite
   end
 
   head do
@@ -24,7 +22,6 @@ class Sdl < Formula
 
   option "with-x11", "Compile with support for X11 video driver"
   option "with-test", "Compile and install the tests"
-  option :universal
 
   deprecated_option "with-x11-driver" => "with-x11"
   deprecated_option "with-tests" => "with-test"
@@ -62,8 +59,6 @@ class Sdl < Formula
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl.pc.in sdl-config.in], "@prefix@", HOMEBREW_PREFIX
 
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head? || build.with?("x11")
 
     args = %W[--prefix=#{prefix}]
@@ -93,13 +88,13 @@ class Sdl < Formula
         system "./configure"
         system "make"
         # Tests don't have a "make install" target
-        (share/"tests").install %w[checkkeys graywin loopwave testalpha testbitmap testblitspeed testcdrom
-                                   testcursor testdyngl testerror testfile testgamma testgl testhread testiconv
-                                   testjoystick testkeys testloadso testlock testoverlay testoverlay2 testpalette
-                                   testplatform testsem testsprite testtimer testver testvidinfo testwin testwm
-                                   threadwin torturethread]
-        (share/"test_extras").install %w[icon.bmp moose.dat picture.xbm sail.bmp sample.bmp sample.wav]
-        bin.write_exec_script Dir["#{share}/tests/*"]
+        (pkgshare/"tests").install %w[checkkeys graywin loopwave testalpha testbitmap testblitspeed testcdrom
+                                      testcursor testdyngl testerror testfile testgamma testgl testhread testiconv
+                                      testjoystick testkeys testloadso testlock testoverlay testoverlay2 testpalette
+                                      testplatform testsem testsprite testtimer testver testvidinfo testwin testwm
+                                      threadwin torturethread]
+        (pkgshare/"test_extras").install %w[icon.bmp moose.dat picture.xbm sail.bmp sample.bmp sample.wav]
+        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
       end
       # Point sdl-config back at the normal prefix once we've built everything.
       inreplace bin/"sdl-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"

@@ -14,23 +14,42 @@ class Hub < Formula
   end
 
   devel do
-    url "https://github.com/github/hub/archive/v2.3.0-pre8.tar.gz"
-    version "2.3.0-pre8"
-    sha256 "1cea4a5958f7ca72c232ede173f5e4893e007aaddf6842d48665dff6fb1d7e19"
+    url "https://github.com/github/hub/archive/v2.3.0-pre9.tar.gz"
+    version "2.3.0-pre9"
+    sha256 "3246a5e3a071a7ccb06c30230a720b6457837bd6b97b32ab248dfb2b2222dbfb"
   end
 
   option "without-completions", "Disable bash/zsh completions"
+  option "without-docs", "Don't install man pages"
 
   depends_on "go" => :build
 
   def install
-    system "script/build", "-o", "hub"
-    bin.install "hub"
-    man1.install Dir["man/*"]
+    if build.stable?
+      system "script/build", "-o", "hub"
+      bin.install "hub"
+      man1.install Dir["man/*"] if build.with? "docs"
+    elsif build.with? "docs"
+      begin
+        deleted = ENV.delete "SDKROOT"
+        ENV["GEM_HOME"] = buildpath/"gem_home"
+        system "gem", "install", "bundler"
+        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+        system "make", "man-pages"
+      ensure
+        ENV["SDKROOT"] = deleted
+      end
+      system "make", "install", "prefix=#{prefix}"
+    else
+      system "script/build", "-o", "hub"
+      bin.install "hub"
+    end
 
     if build.with? "completions"
       bash_completion.install "etc/hub.bash_completion.sh"
       zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+      # TODO: Remove the conditional when hub 2.3.0 is released.
+      fish_completion.install "etc/hub.fish_completion" => "hub.fish" unless build.stable?
     end
   end
 

@@ -1,43 +1,24 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
-  revision 2
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.7.4.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.7.4.src.tar.gz"
-    version "1.7.4"
-    sha256 "4c189111e9ba651a2bb3ee868aa881fab36b2f2da3409e80885ca758a6b614cc"
+    url "https://storage.googleapis.com/golang/go1.8.1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.8.1.src.tar.gz"
+    version "1.8.1"
+    sha256 "33daf4c03f86120fdfdc66bddf6bfff4661c7ca11c5da473e537f4d69b470e57"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}",
-          :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
-    end
-
-    # Upstream commit from 14 Dec 2016 "crypto/x509: speed up and deflake
-    # non-cgo Darwin root cert discovery"
-    patch do
-      url "https://github.com/golang/go/commit/3357daa.patch"
-      sha256 "c3945cacd5a208cf0bbd6125c77665ef1829035ae09133f3fd50e1022e0f2032"
+          :branch => "release-branch.go#{go_version}"
     end
   end
 
   bottle do
-    sha256 "bd477ed1ab7ab3f53074e4e634f313b9c66ba76b0d9e9d50461ab680f5a8018f" => :sierra
-    sha256 "3372db7913383d69fcc2c67086f735638ae6fb6be90d4c9d03032867eea5b91d" => :el_capitan
-    sha256 "1a3c23da7fc76f2446c601b34c8cfcbdc408a97735e66c02c3da177cf344342f" => :yosemite
-  end
-
-  devel do
-    url "https://storage.googleapis.com/golang/go1.8rc1.src.tar.gz"
-    version "1.8rc1"
-    sha256 "aa25758b754369018c507bbf646dda7839a41ffe4fd85a014c9704d7d8720dda"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
+    sha256 "015c5519b51885b1e916425e29f2d15a57b740ffc274a0cab37a6d7375a39e7b" => :sierra
+    sha256 "214cb2e4926792847f95aedbdf4dc27cf1a3b0b2cc2432abde0cf1d0282f5203" => :el_capitan
+    sha256 "e6eb9e29cbdbdf57b8bd25f0bed706dea61c7a7945434ffdbfd4323cefc49079" => :yosemite
   end
 
   head do
@@ -54,8 +35,7 @@ class Go < Formula
 
   depends_on :macos => :mountain_lion
 
-  # Should use the last stable binary release to bootstrap.
-  # More explicitly, leave this at 1.7 when 1.7.1 is released.
+  # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
     version "1.7"
@@ -63,8 +43,6 @@ class Go < Formula
   end
 
   def install
-    ENV.permit_weak_imports
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
@@ -102,7 +80,8 @@ class Go < Formula
   end
 
   def caveats; <<-EOS.undent
-    As of go 1.2, a valid GOPATH is required to use the `go get` command:
+    A valid GOPATH is required to use the `go get` command.
+    If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
 
     You may wish to add the GOROOT-based install location to your PATH:

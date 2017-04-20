@@ -61,7 +61,6 @@ class Libsoup < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -lsoup-2.4
     ]
     system ENV.cc, "test.c", "-o", "test", *flags

@@ -1,22 +1,23 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
-  homepage "http://kubernetes.io/"
+  homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.5.2",
-      :revision => "08e099554f3c31f6e6f07b448ab3ed78d0520507"
+      :tag => "v1.6.2",
+      :revision => "477efc3cbe6a7effca06bd1452fa356e2201e1ee"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    sha256 "61272b68222b5236facc5c3e0385e0a8d02302312aee33a72413257df94c1239" => :sierra
-    sha256 "a036fdd2bfd50f1a2e811273aa140ffb1c70fa51ef1725ee4388f18bf67f7e52" => :el_capitan
-    sha256 "acc5e4b83bc07df1b027737e6331f4532f7fb4e4f4714b7404525c6ee042b7c3" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "d279c2ccfd4c7b292d17f986b3343daa6fc1f623c5ca6efdb47be596ec5ea783" => :sierra
+    sha256 "abe4db7246df1d5df3007bfebedaeb6114ea19fb393940f44599c081deee47bd" => :el_capitan
+    sha256 "154a2032c3b757b60efeb13e827c1ae63381a25f870783f07fd13611967bdd71" => :yosemite
   end
 
   devel do
     url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.5.3-beta.0",
-        :revision => "b5f9d56cab78ccaad2b726223ba8be5802026f0b"
-    version "1.5.3-beta.0"
+        :tag => "v1.6.3-beta.0",
+        :revision => "a5dec22fe9062288a6c79ef77cc5cfdd0f9c7a89"
+    version "1.6.3-beta.0"
   end
 
   depends_on "go" => :build
@@ -39,6 +40,10 @@ class KubernetesCli < Formula
       # Install bash completion
       output = Utils.popen_read("#{bin}/kubectl completion bash")
       (bash_completion/"kubectl").write output
+
+      # Install zsh completion
+      output = Utils.popen_read("#{bin}/kubectl completion zsh")
+      (zsh_completion/"kubectl").write output
     end
   end
 

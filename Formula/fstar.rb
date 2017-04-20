@@ -1,21 +1,21 @@
 class Fstar < Formula
-  desc "Language with a type system for program verification"
+  desc "ML-like language aimed at program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
-      :tag => "v0.9.2.0",
-      :revision => "2a8ce0b3dfbfb9703079aace0d73f2479f0d0ce2"
-  revision 3
+      :tag => "v0.9.4.0",
+      :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
+  revision 1
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fed93a145c1455025bb3e799f14ca456e5326147059e60655daf2b90d5d31765" => :sierra
-    sha256 "af3a84d4b8fa2f76fe5863dd001aadb38200fe7409bac1ba1e5460b91ca2c72d" => :el_capitan
-    sha256 "158cb0755c2b09565fc3d605e1bbf6e894c7176e69f707f9ee01a4d844d879b6" => :yosemite
+    cellar :any
+    sha256 "9021919136bf13c486c3594801a247db59c2c675dad6ac42e7a4a320ec8e76b1" => :sierra
+    sha256 "500f9933149f1b8149cbc91475d150bfff1a03a3d66f58978fa6dcdb8fd0bd1b" => :el_capitan
+    sha256 "3736e3c9c1baedd1b6eaff6217fe90d54c50f026b6f5161bfae1b8168b260224" => :yosemite
   end
 
   depends_on "opam" => :build
-  depends_on "gmp" => :build
+  depends_on "gmp"
   depends_on "ocaml" => :recommended
   depends_on "z3" => :recommended
 
@@ -31,28 +31,31 @@ class Fstar < Formula
     system "opam", "init", "--no-setup"
 
     if build.stable?
-      system "opam", "install", "batteries=2.5.3", "zarith=1.3", "yojson=1.1.6"
+      system "opam", "install", "batteries=2.5.3", "zarith=1.4.1", "yojson=1.3.3", "pprint=20140424"
     else
-      system "opam", "install", "batteries", "zarith", "yojson"
+      system "opam", "install", "batteries", "zarith", "yojson", "pprint"
     end
 
     system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
 
-    bin.install "src/ocaml-output/fstar.exe"
+    (libexec/"bin").install "bin/fstar.exe"
+    (bin/"fstar.exe").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/fstar.exe --fstar_home #{prefix} $@
+    EOS
 
-    (libexec/"stdlib").install Dir["lib/*"]
-    (libexec/"contrib").install Dir["contrib/*"]
+    (libexec/"ulib").install Dir["ulib/*"]
+    (libexec/"contrib").install Dir["ucontrib/*"]
     (libexec/"examples").install Dir["examples/*"]
     (libexec/"tutorial").install Dir["doc/tutorial/*"]
     (libexec/"src").install Dir["src/*"]
-    (libexec/"licenses").install "LICENSE-fsharp.txt", Dir["3rdparty/licenses/*"]
+    prefix.install "LICENSE-fsharp.txt"
 
-    prefix.install_symlink libexec/"stdlib"
+    prefix.install_symlink libexec/"ulib"
     prefix.install_symlink libexec/"contrib"
     prefix.install_symlink libexec/"examples"
     prefix.install_symlink libexec/"tutorial"
     prefix.install_symlink libexec/"src"
-    prefix.install_symlink libexec/"licenses"
   end
 
   def caveats; <<-EOS.undent
@@ -71,12 +74,6 @@ class Fstar < Formula
 
   test do
     system "#{bin}/fstar.exe",
-    "--include", "#{prefix}/examples/unit-tests",
-    "--admit_fsi", "FStar.Set",
-    "FStar.Set.fsi", "FStar.Heap.fst",
-    "FStar.ST.fst", "FStar.All.fst",
-    "FStar.List.fst", "FStar.String.fst",
-    "FStar.Int32.fst", "unit1.fst",
-    "unit2.fst", "testset.fst"
+    "#{prefix}/examples/hello/hello.fst"
   end
 end

@@ -12,8 +12,6 @@ class SdlMixer < Formula
     sha256 "559377bb70595dc716d1f0c703e986ea4bc30666085812756230b00194b97d87" => :yosemite
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "flac" => :optional
@@ -24,8 +22,6 @@ class SdlMixer < Formula
 
   def install
     inreplace "SDL_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
-
-    ENV.universal_binary if build.universal?
 
     args = %W[
       --prefix=#{prefix}

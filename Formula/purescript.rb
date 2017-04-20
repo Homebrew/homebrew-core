@@ -5,23 +5,23 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.5.tar.gz"
-  sha256 "cb38d14e353bf200471385dd08dc5108f4f8690a76806e79c8f2fb3f8facca9c"
+  url "https://github.com/purescript/purescript/archive/v0.11.4.tar.gz"
+  sha256 "74a58e01a9b6a18eb000fe40ab521b4c53484d510ea1ecd868899ecf0be1f915"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "c384fb0ebb7229d5a329a75624430eda19fa703a45673cf323ce4f173c39577f" => :sierra
-    sha256 "36d657fbbe5b709d8870dc737326f749f26e4734f0e2df6f03cc65144a110334" => :el_capitan
-    sha256 "fe61f809dd28fed3ea6c3c0df4ff3d69e66bcba82e2311419671d626c2b7c8fe" => :yosemite
+    sha256 "e7072aa63bdcde7a6a96ff26db392f025383e6d0bfce8535f4d2787ebcc9d798" => :sierra
+    sha256 "473f0b5ddd0d8d28c9ac28805c4f1a42dd7dd3bdf6e97a5b5f991598be4b4a56" => :el_capitan
+    sha256 "1145b4cfb35bb48ada8e9261f93302b50e3c515df4b36a04b889fe940b2e4bf1" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package "--allow-newer=turtle:directory",
-                          "--constraint", "directory < 1.4",
-                          :using => ["alex", "happy"]
+    inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
+    bin.install (buildpath/"scripts").children
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do

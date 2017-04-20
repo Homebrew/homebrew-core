@@ -1,6 +1,6 @@
 class Makensis < Formula
   desc "System to create Windows installers"
-  homepage "http://nsis.sourceforge.net/"
+  homepage "https://nsis.sourceforge.io/"
 
   stable do
     url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01-src.tar.bz2"

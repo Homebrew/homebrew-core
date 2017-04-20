@@ -1,13 +1,13 @@
 class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "http://augeas.net"
-  url "http://download.augeas.net/augeas-1.7.0.tar.gz"
-  sha256 "b9315575d07f7ba28ca2f9f60b4987dfe77b5970c98b59dc6ca7873fc4979763"
+  url "http://download.augeas.net/augeas-1.8.0.tar.gz"
+  sha256 "515ce904138d99ff51d45ba7ed0d809bdee6c42d3bc538c8c820e010392d4cc5"
 
   bottle do
-    sha256 "5aea6d7dacc6810656d1818aaf7ef9a57bd086dad1ec2e2ad57a3c37b35438a5" => :sierra
-    sha256 "09deb1d25802e17034606b4fdd2509e59b50b25c4ff481a73ee5509770c9e265" => :el_capitan
-    sha256 "fe5a04d2e9d02a1bdc013e4db6bd3047e9c7e12b2ab400cdb21f34b9d0a1ff63" => :yosemite
+    sha256 "15994a8faab3ffce25247d555c27a88c7e3be9dc44c6e9543a9c347c3c77a60f" => :sierra
+    sha256 "a5a85a19c1ddf5e649d60d0d1f473aae3360f1ae42959f5e384ff5a90d20bc55" => :el_capitan
+    sha256 "c3144c07fa149b7909954e751ebe57031371bfe6961cbf509e2d8cb3110e7ba9" => :yosemite
   end
 
   head do
@@ -20,7 +20,6 @@ class Augeas < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libxml2"
   depends_on "readline"
 
   def install

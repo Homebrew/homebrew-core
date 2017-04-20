@@ -3,15 +3,15 @@ class Euca2ools < Formula
 
   desc "Eucalyptus client API tools-works with Amazon EC2 and IAM"
   homepage "https://github.com/eucalyptus/euca2ools"
-  url "https://downloads.eucalyptus.com/software/euca2ools/3.3/source/euca2ools-3.3.2.tar.xz"
-  sha256 "16825975ac1af7baceb8e0fc872ebefe867c22bf9b64e70dffd8d64309b203b7"
+  url "https://downloads.eucalyptus.com/software/euca2ools/3.4/source/euca2ools-3.4.1.tar.xz"
+  sha256 "af2027306cf7829ee512c02c1160e96a8f9c152b77f6eb408bf3dee4d4bb551d"
   head "https://github.com/eucalyptus/euca2ools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "842868f9c30cc8173b480903272ef7a11809915ef01252680e4dfc242ed1f584" => :sierra
-    sha256 "af37b408ef3ce6912698c3ef48ba4cabebf9d0fe4ad2d16704546c47aa4c20ea" => :el_capitan
-    sha256 "c6fe875e4fae5a7fc063a4bf49be0e2857f95ee3bf8712593b686a9ab7522856" => :yosemite
+    sha256 "7efc52eafdb0791e2fcd47913a2a09b31da507fc6178d002c584b95f975601f9" => :sierra
+    sha256 "1c2cd17c3d6264962ce1e2a056362ecbb3e0007b1a3de8bfff23afe4bf7c0b25" => :el_capitan
+    sha256 "38ea8a3ffad6554b519c4307f32174a58dc46e2cb9d66acdadea50265038ee5f" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -22,8 +22,8 @@ class Euca2ools < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
-    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
+    url "https://files.pythonhosted.org/packages/b6/61/7b374462d5b6b1d824977182db287758d549d8680444bad8d530195acba2/requests-2.12.5.tar.gz"
+    sha256 "d902a54f08d086a7cc6e58c20e2bb225b1ae82c19c35e5925269ee94fb9fce00"
   end
 
   resource "six" do
@@ -32,8 +32,8 @@ class Euca2ools < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/c4/68/cf0ab7e26de58d14d441f19f7f9c2ab15eb109b0b2640f8b19c1da34e9e0/lxml-3.7.1.tar.gz"
-    sha256 "1c7f6771838300787cfa1bb3ed6512e9dc78e60ecb308a8ed49ac956569c1cca"
+    url "https://files.pythonhosted.org/packages/66/45/f11fc376f784c6f2e77ffc7a9d02374ff3ceb07ede8c56f918939409577c/lxml-3.7.2.tar.gz"
+    sha256 "59d9176360dbc3919e9d4bfca85c1ca64ab4f4ee00e6f119d7150ba887e3410a"
   end
 
   resource "PyYAML" do

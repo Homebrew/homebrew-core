@@ -13,8 +13,6 @@ class Neon < Formula
 
   keg_only :provided_pre_mountain_lion
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
@@ -25,7 +23,6 @@ class Neon < Formula
   patch :DATA
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--enable-shared",

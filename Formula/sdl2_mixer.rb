@@ -13,8 +13,6 @@ class Sdl2Mixer < Formula
     sha256 "88f7ef2099f2261534cb4f3e33d65132243b36fb4a6efa648fcbba34ec6c0b77" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "flac" => :optional
@@ -25,7 +23,6 @@ class Sdl2Mixer < Formula
   depends_on "libvorbis" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
     inreplace "SDL2_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     ENV["SMPEG_CONFIG"] = "#{Formula["smpeg2"].bin}/smpeg2-config" if build.with? "smpeg2"

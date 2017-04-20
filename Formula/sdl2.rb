@@ -6,9 +6,10 @@ class Sdl2 < Formula
 
   bottle do
     cellar :any
-    sha256 "dd9b949459f217f2cd2c432e48fee2ba8a0035ffbce6c01ce0c35018691325d0" => :sierra
-    sha256 "2bb9bcf7da27c98413d7e54df03b89e75eb5118079d4b57dd4e06019b41e3c61" => :el_capitan
-    sha256 "cc4d5280aa614e389c1b6be3bf9430dbf97712ae8af492e3adbb4c496aec4068" => :yosemite
+    rebuild 1
+    sha256 "69c56053fd1246671263129fa4df611c6137bc59f75b95b81695ff4223b11d6f" => :sierra
+    sha256 "9dfa30c355fc8b7eafda55004a0bd201c06c18dd64a33ac1cb6308534f6dd3bc" => :el_capitan
+    sha256 "adc5a228885785a39e437bc51177df9b35aeade907af642a9d6885fca0b20443" => :yosemite
   end
 
   head do
@@ -20,7 +21,6 @@ class Sdl2 < Formula
   end
 
   option "with-test", "Compile and install the tests"
-  option :universal
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
   if MacOS.version <= :snow_leopard
@@ -35,8 +35,6 @@ class Sdl2 < Formula
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl2.pc.in sdl2-config.in], "@prefix@", HOMEBREW_PREFIX
-
-    ENV.universal_binary if build.universal?
 
     system "./autogen.sh" if build.head? || build.devel?
 
@@ -63,18 +61,18 @@ class Sdl2 < Formula
         inreplace %w[controllermap.c loopwave.c loopwavequeue.c testmultiaudio.c
                      testoverlay2.c testsprite2.c],
                   /"(\w+\.(?:bmp|dat|wav))"/,
-                  "\"#{share}/test_extras/\\1\""
+                  "\"#{pkgshare}/test_extras/\\1\""
         system "./configure", "--without-x"
         system "make"
         # Tests don't have a "make install" target
-        (share/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
-                                   testerror testfile testgl2 testiconv testjoystick testkeys
-                                   testloadso testlock testmultiaudio testoverlay2 testplatform
-                                   testsem testshape testsprite2 testthread testtimer testver
-                                   testwm2 torturethread]
-        (share/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
-                                         picture.xbm sample.bmp sample.wav shapes]
-        bin.write_exec_script Dir["#{share}/tests/*"]
+        (pkgshare/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
+                                      testerror testfile testgl2 testiconv testjoystick testkeys
+                                      testloadso testlock testmultiaudio testoverlay2 testplatform
+                                      testsem testshape testsprite2 testthread testtimer testver
+                                      testwm2 torturethread]
+        (pkgshare/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
+                                            picture.xbm sample.bmp sample.wav shapes]
+        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
       end
       # Point sdl-config back at the normal prefix once we've built everything.
       inreplace bin/"sdl2-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"

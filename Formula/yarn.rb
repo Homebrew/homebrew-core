@@ -1,24 +1,19 @@
-require "language/node"
-
 class Yarn < Formula
-  desc "Javascript package manager"
+  desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/0.19.1/yarn-v0.19.1.tar.gz"
-  sha256 "751e1c0becbb2c3275f61d79ad8c4fc336e7c44c72d5296b5342a6f468526d7d"
+  url "https://yarnpkg.com/downloads/0.23.2/yarn-v0.23.2.tar.gz"
+  sha256 "2e4f3c5eb0bddad10fdc08a300ab43fe0f626544893deb9e07a4497e998cb82f"
   head "https://github.com/yarnpkg/yarn.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "a1b9445a742676dbfb6bbeac3601f14860bcd86e59b5226c5f027ca42cb308f9" => :sierra
-    sha256 "4ab5849dd81ab11b4da37ea602418448d15f475eb9e54ad1fb27373a7753a253" => :el_capitan
-    sha256 "bff86423ac026c491119782db5d5a73f549d27b1e376ba0afe6b31724b9c5f91" => :yosemite
-  end
+  bottle :unneeded
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    libexec.install Dir["*"]
+    bin.install_symlink "#{libexec}/bin/yarn.js" => "yarn"
+    bin.install_symlink "#{libexec}/bin/yarn.js" => "yarnpkg"
+    inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
   end
 
   test do

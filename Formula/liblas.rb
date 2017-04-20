@@ -1,6 +1,6 @@
 class Liblas < Formula
   desc "C/C++ library for reading and writing the LAS LiDAR format"
-  homepage "http://liblas.org"
+  homepage "https://liblas.org/"
   url "http://download.osgeo.org/liblas/libLAS-1.8.1.tar.bz2"
   sha256 "9adb4a98c63b461ed2bc82e214ae522cbd809cff578f28511122efe6c7ea4e76"
   head "https://github.com/libLAS/libLAS.git"
@@ -23,7 +23,7 @@ class Liblas < Formula
     mkdir "macbuild" do
       # CMake finds boost, but variables like this were set in the last
       # version of this formula. Now using the variables listed here:
-      #   http://liblas.org/compilation.html
+      #   https://liblas.org/compilation.html
       ENV["Boost_INCLUDE_DIR"] = "#{HOMEBREW_PREFIX}/include"
       ENV["Boost_LIBRARY_DIRS"] = "#{HOMEBREW_PREFIX}/lib"
       args = ["-DWITH_GEOTIFF=ON", "-DWITH_GDAL=ON"] + std_cmake_args

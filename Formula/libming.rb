@@ -1,14 +1,14 @@
 class Libming < Formula
   desc "C library for generating Macromedia Flash files"
   homepage "http://www.libming.org"
-  url "https://github.com/libming/libming/archive/ming-0_4_7.tar.gz"
-  sha256 "118aa1338dd74b34dd2cd22bce286ca0571e8b9aa433999646d1c0157ea9a7dc"
+  url "https://github.com/libming/libming/archive/ming-0_4_8.tar.gz"
+  sha256 "2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c"
 
   bottle do
     cellar :any
-    sha256 "40d795df57d1e133795eec2398be3009c12f4fde529da0ce58ae7890c15fe93d" => :sierra
-    sha256 "d94345b9515ac352ab1da123536f28d431c99d70cfde7e31110a6b18186d7a8d" => :el_capitan
-    sha256 "2fc3c18b64fe9cacdc0c5098d9d9a1b8b672aedd660208949e227b98241cac08" => :yosemite
+    sha256 "38b7d494355b3b2368dffe806814b62accd9bb8a2bcdd2c3d000449a7cb0a316" => :sierra
+    sha256 "c9a220b978be081b1f202b5964c2231a38eb8ea415746bb4d9b4f73bd03325ae" => :el_capitan
+    sha256 "dcab3bcff475f2b5266dbbd6e86c65223dc20aa2372544b2b55842e401f564bd" => :yosemite
   end
 
   depends_on "autoconf" => :build

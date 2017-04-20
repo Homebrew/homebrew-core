@@ -3,14 +3,17 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.10.1.tar.gz"
-  sha256 "c91b5fddb50dfd46545c12c1e96d1bb5e2794652c11421a6f5d9dad2bbca4d52"
+  url "https://github.com/certbot/certbot/archive/v0.13.0.tar.gz"
+  sha256 "ef23822043435261750e7a9c1211601b65f9f9a5e634cfbf5011632b0a62edd4"
+  revision 1
+
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "11ddd3a55ff34ac0b3107b4e69839cd34ce9d11f0ab01a757b8a8be1a3c9b028" => :sierra
-    sha256 "16e2adc541566b368afe477ee6dc1ff01350cbb98ffab419a8d97e610ffeb1f8" => :el_capitan
-    sha256 "58df902d3f261ebfa477cb8c5b17c9030057524ad5d75a720f1cc86eb3de9279" => :yosemite
+    cellar :any
+    sha256 "8a0e2181771eb28de459886c94353769ffbbd238dd4c794cf13cb0918f855d7b" => :sierra
+    sha256 "da3b79f50b3cbb2ca6388e480235ff01814834d4820c1411d0d94e47b28dc136" => :el_capitan
+    sha256 "3eb7b8787c357218b50014eb6392f59eab146593897a7223b9d0360599e432a0" => :yosemite
   end
 
   depends_on "augeas"
@@ -18,9 +21,24 @@ class Certbot < Formula
   depends_on "openssl@1.1"
   depends_on :python
 
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
+  resource "argparse" do
+    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
+    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+  end
+
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "ConfigArgParse" do
@@ -34,8 +52,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/82/f7/d6dfd7595910a20a563a83a762bf79a253c4df71759c3b228accb3d7e5e4/cryptography-1.7.1.tar.gz"
-    sha256 "953fef7d40a49a795f4d955c5ce4338abcec5dea822ed0414ed30348303fdb4c"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "enum34" do
@@ -48,9 +66,14 @@ class Certbot < Formula
     sha256 "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
   end
 
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
+    sha256 "e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+  end
+
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/94/fe/efb1cb6f505e1a560b3d080ae6b9fddc11e7c542d694ce4635c49b1ccdcb/idna-2.2.tar.gz"
-    sha256 "0ac27740937d86850010e035c6a10a564158a5accddf1aa24df89b0309252426"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "ipaddress" do
@@ -63,19 +86,19 @@ class Certbot < Formula
     sha256 "b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+  end
+
   resource "parsedatetime" do
-    url "https://files.pythonhosted.org/packages/8b/20/37822d52be72c99cad913fad0b992d982928cac882efbbc491d4b9d216a9/parsedatetime-2.1.tar.gz"
-    sha256 "17c578775520c99131634e09cfca5a05ea9e1bd2a05cd06967ebece10df7af2d"
+    url "https://files.pythonhosted.org/packages/32/a8/29473ee95f1ceb5c3428d35387200be404cf6dfc60c110e75d775e27979a/parsedatetime-2.3.tar.gz"
+    sha256 "94ca3c9efcf2652a7a8ee6b11983e7344988a3c658fd617f8021689446ab79ee"
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/c3/2c/63275fab26a0fd8cadafca71a3623e4d0f0ee8ed7124a5bb128853d178a7/pbr-1.10.0.tar.gz"
-    sha256 "186428c270309e6fdfe2d5ab0949ab21ae5f7dea831eab96701b86bd666af39c"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
-    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+    url "https://files.pythonhosted.org/packages/35/a5/3d1beff9fc149b3da814419369a8c24ecf0d1410637fc91002989f433a1a/pbr-2.0.0.tar.gz"
+    sha256 "0ccd2db529afd070df815b1521f01401d43de03941170f8a800e7531faba265d"
   end
 
   resource "pycparser" do
@@ -88,19 +111,24 @@ class Certbot < Formula
     sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+  end
+
   resource "pyRFC3339" do
     url "https://files.pythonhosted.org/packages/7a/8a/78e04792f04da5f3780058f8cfc35ff9eb74080faffbf321c58e6d34d089/pyRFC3339-1.0.tar.gz"
     sha256 "8dfbc6c458b8daba1c0f3620a8c78008b323a268b27b7359e92a4ae41325f535"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/d0/e1/aca6ef73a7bd322a7fc73fd99631ee3454d4fc67dc2bee463e2adf6bb3d3/pytz-2016.10.tar.bz2"
-    sha256 "7016b2c4fa075c564b81c37a252a5fccf60d8964aa31b7f5eae59aeb594ae02b"
+    url "https://files.pythonhosted.org/packages/a4/09/c47e57fc9c7062b4e83b075d418800d322caa87ec0ac21e6308bd3a2d519/pytz-2017.2.zip"
+    sha256 "f5c056e8f62d45ba8215e5cb8f50dfccb198b4b9fbea8500674f3443e4689589"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
-    sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "six" do
@@ -124,15 +152,11 @@ class Certbot < Formula
   end
 
   # Required because augeas formula doesn't ship these.
+  # Capped at 0.5.0: Requirement.parse('python-augeas<=0.5.0'))
+  # https://github.com/certbot/certbot/commit/1c51ae25887f2dc31
   resource "python-augeas" do
     url "https://files.pythonhosted.org/packages/41/e6/4b6740cb3e31b82252099994cea751c648b846aa7874343c31d68c2215be/python-augeas-0.5.0.tar.gz"
     sha256 "67d59d66cdba8d624e0389b87b2a83a176f21f16a87553b50f5703b23f29bac2"
-  end
-
-  # Required for the nginx module.
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
   end
 
   def install
@@ -151,5 +175,9 @@ class Certbot < Formula
 
   test do
     assert_match version.to_s, pipe_output("#{bin}/certbot --version 2>&1")
+    # This throws a bad exit code but we can check it actually is failing
+    # for the right reasons by asserting. --version never fails even if
+    # resources are missing or outdated/too new/etc.
+    assert_match "running as non-root", shell_output("#{bin}/certbot 2>&1", 1)
   end
 end

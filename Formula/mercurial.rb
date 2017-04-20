@@ -3,25 +3,28 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.0.2.tar.gz"
-  sha256 "ae6659dba27508a9a6417d535a89e282d5c8a5ea77b6e00af102822145b06d02"
+  url "https://mercurial-scm.org/release/mercurial-4.1.3.tar.gz"
+  sha256 "103d2ae187d5c94110c0e86ccc3b46f55fcd8e21c78d1c209bac7b59a73e86d8"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "20f193ea1672ab2126fe9de7055cc95f0115e49ba4a8b6d896f0e33d1cbf1691" => :sierra
-    sha256 "bf107e7f54ef8478ee6dd2268f96edce6ea6c54fce01f02e89795fd000442d97" => :el_capitan
-    sha256 "a5859696439b125ee70e98cd03ee44e75310f255a7ad1ecafe5db3945cf0b168" => :yosemite
+    sha256 "e49e2540768bbd66225f9723f579c27b1d028586eab078981c3b2ec7710ec18d" => :sierra
+    sha256 "9cc86c8ffc8a56b82f043ec2701ea96da9665f981905d7094864c01e33eca252" => :el_capitan
+    sha256 "f63a79bb2a423bc2d1ce0e39b513eb15a4d86b466f5a11a98a30887c4dca0a39" => :yosemite
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
-  if build.with? "custom-python"
-    depends_on :python
-  else
-    depends_on "python"
-  end
+  depends_on :python
 
   def install
     system "make", "PREFIX=#{prefix}", "install-bin"
+
+    # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
+    cd "contrib/chg" do
+      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", \
+             "HG=#{bin}/hg"
+      bin.install "chg"
+    end
+
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"
     man5.install "doc/hgignore.5", "doc/hgrc.5"

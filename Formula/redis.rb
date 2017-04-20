@@ -1,15 +1,16 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
-  homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.6.tar.gz"
-  sha256 "2e1831c5a315e400d72bda4beaa98c0cfbe3f4eb8b20c269371634390cf729fa"
+  homepage "https://redis.io/"
+  url "http://download.redis.io/releases/redis-3.2.8.tar.gz"
+  sha256 "61b373c23d18e6cc752a69d5ab7f676c6216dc2853e46750a8c4ed791d68482c"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abb8250399ccf96671e78df26dea7864886e61ece76b55845dc1767670f2ced1" => :sierra
-    sha256 "1e42b350f206627a52a6e3f4703353491d09a619b65b73d6229ec1af275a3940" => :el_capitan
-    sha256 "57b058e071c66eed4e081046945a5432aa658e2c5ba2939dadddbdb68036bf9c" => :yosemite
+    rebuild 2
+    sha256 "3166b2859236788d20d85dc65c64a103fda930ac3b9c32c8c768a8026a89dcba" => :sierra
+    sha256 "6e65bc7cb9e10bcd43c42eaca4713e454e9159e29d82bfff6a2143ab14be1b30" => :el_capitan
+    sha256 "101be1a5a2a5bb5842d5b8329d8988e68737e61b735310fd770db51810c6924b" => :yosemite
   end
 
   devel do
@@ -79,5 +80,6 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
+    %w[run db/redis log].each { |p| assert (var/p).exist?, "#{var/p} doesn't exist!" }
   end
 end

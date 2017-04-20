@@ -1,17 +1,25 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.5/gperftools-2.5.tar.gz"
-  sha256 "6fa2748f1acdf44d750253e160cf6e2e72571329b42e563b455bde09e9e85173"
+  revision 1
   head "https://github.com/gperftools/gperftools.git"
+
+  stable do
+    url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.5/gperftools-2.5.tar.gz"
+    sha256 "6fa2748f1acdf44d750253e160cf6e2e72571329b42e563b455bde09e9e85173"
+
+    # Fix finding default zone on macOS Sierra (https://github.com/gperftools/gperftools/issues/827)
+    patch do
+      url "https://github.com/gperftools/gperftools/commit/acac6af26b0ef052b39f61a59507b23e9703bdfa.patch"
+      sha256 "36289228d240cb8714f7543772544dc1541e8fec37ab6cc7915296d7bcec3dcf"
+    end
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "0ff12c9b0f6ae1649717b57c1b9f18e69052fe957e99f719b99dff8a66b8f917" => :sierra
-    sha256 "35a478cc1f30e79b07099318b24d82fbdcbb53bc52cdd09688c55ba3f8e12d72" => :el_capitan
-    sha256 "86f429aa714330a0b550397e306f691340e4beaa5dd3def7d62a3cb42b5200de" => :yosemite
-    sha256 "8b50e2171af61bf38094d6173d5c39d34c42559440c94ca27fae750e8012cb17" => :mavericks
+    sha256 "f007d19e148f697e681ba71f9c3721ec1f9640b7a48bd0a55c129085ba1a3a89" => :sierra
+    sha256 "f29fe0e250ee9cc6cba00dc839bf0097db992ba4ec11aff4ab9dbd69e7dd10e8" => :el_capitan
+    sha256 "e6af4a9899529cf2aa1ab0c7c6a667cf1a1df9a207a51c0dbb64128d1e1f1d05" => :yosemite
   end
 
   # Needed for stable due to the patch; otherwise, just head

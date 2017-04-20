@@ -1,15 +1,17 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.1/xapian-omega-1.4.1.tar.xz"
-  sha256 "d114bb16431adad50f505edadfb4c97aca9657132b239509ff8cf335aff738af"
+  url "https://oligarchy.co.uk/xapian/1.4.3/xapian-omega-1.4.3.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-omega/xapian-omega_1.4.3.orig.tar.xz"
+  sha256 "2eea0344a0703ba379d845b86d08a9c2e9faf0deb21834d9ea6939b712c6216e"
 
   bottle do
-    sha256 "513cf3679b92be4aa65c3a098323960d53691d0b69f13b846c4e6d0ee762195d" => :sierra
-    sha256 "b6db4104b569317cb9ab1dd8b7a8876f4e8902373567b23433150be6905bf772" => :el_capitan
-    sha256 "f4830534a3a4803142c6ce5b037955c98b0756bd9c483f435314d0a1dcd6d2ec" => :yosemite
+    sha256 "53f9899d6a964d8ae8b0de390dec626836aa24a1004d45352dd7746f53af7934" => :sierra
+    sha256 "cdba43e3a877484ee608c3c9a55fc96ebf38b17fb78e1bf2f5b84881aed170b8" => :el_capitan
+    sha256 "be5b012a19ea29890fac384b2a1ea3ffe96654da8fa65390c8345fa4d6c88900" => :yosemite
   end
 
+  depends_on "libmagic"
   depends_on "pcre"
   depends_on "xapian"
 

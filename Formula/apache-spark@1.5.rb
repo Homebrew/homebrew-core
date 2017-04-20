@@ -4,11 +4,11 @@ class ApacheSparkAT15 < Formula
   url "https://d3kbcqa49mib13.cloudfront.net/spark-1.5.2-bin-hadoop2.6.tgz"
   version "1.5.2"
   sha256 "409c4b34f196acc5080b893b0579cda000c192fc4cc9336009395b2a559b676e"
+  revision 1
 
   bottle :unneeded
 
-  conflicts_with "apache-spark", :because => "Differing version of same formula"
-  conflicts_with "apache-spark@1.6", :because => "Differing version of same formula"
+  keg_only :versioned_formula
 
   def install
     # Rename beeline to distinguish it from hive's beeline

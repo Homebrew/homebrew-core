@@ -1,15 +1,14 @@
 class Libev < Formula
   desc "Asynchronous event library"
   homepage "http://software.schmorp.de/pkg/libev.html"
-  url "http://dist.schmorp.de/libev/Attic/libev-4.22.tar.gz"
-  sha256 "736079e8ac543c74d59af73f9c52737b3bfec9601f020bf25a87a4f4d0f01bd6"
+  url "http://dist.schmorp.de/libev/Attic/libev-4.24.tar.gz"
+  sha256 "973593d3479abdf657674a55afe5f78624b0e440614e2b8cb3a07f16d4d7f821"
 
   bottle do
     cellar :any
-    sha256 "3cf730f34b1c7abd294027dc63d41c05f8030b59bca98ef6a202875f74b81162" => :sierra
-    sha256 "218e853cb1518b865bc5e3eddda8f2dde1aa3d0fbdaef9a57d5744f32753d8f1" => :el_capitan
-    sha256 "dec143577828c516a9c3d6b7d0ee917b92a1ca152cf51b8847f5f712a45fd4cc" => :yosemite
-    sha256 "6d1791789a21f1b1637f56b76b4e49256adffcec6d13a337a16038d06f186f69" => :mavericks
+    sha256 "f9eace710427fcb1d9c3e821da0ecab3d5ff60e3a00750a7bfd4b17fd3d3d872" => :sierra
+    sha256 "3ff3f21def203c8a3d6175b659aa20cb6ed4bcdb8f6922087b4ec9c568e67c75" => :el_capitan
+    sha256 "6a41433542500be7a4fc7c350494839add102a73e2c66ef7578c91c73036985b" => :yosemite
   end
 
   def install
@@ -20,5 +19,38 @@ class Libev < Formula
 
     # Remove compatibility header to prevent conflict with libevent
     (include/"event.h").unlink
+  end
+
+  test do
+    (testpath/"test.c").write <<-'EOS'.undent
+      /* Wait for stdin to become readable, then read and echo the first line. */
+
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <ev.h>
+
+      ev_io stdin_watcher;
+
+      static void stdin_cb (EV_P_ ev_io *watcher, int revents) {
+        char *buf;
+        size_t nbytes = 255;
+        buf = (char *)malloc(nbytes + 1);
+        getline(&buf, &nbytes, stdin);
+        printf("%s", buf);
+        ev_io_stop(EV_A_ watcher);
+        ev_break(EV_A_ EVBREAK_ALL);
+      }
+
+      int main() {
+        ev_io_init(&stdin_watcher, stdin_cb, STDIN_FILENO, EV_READ);
+        ev_io_start(EV_DEFAULT, &stdin_watcher);
+        ev_run(EV_DEFAULT, 0);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lev", "-o", "test", "test.c"
+    input = "hello, world\n"
+    assert_equal input, pipe_output("./test", input, 0)
   end
 end

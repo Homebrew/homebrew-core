@@ -15,9 +15,9 @@ class Mitie < Formula
     sha256 "25a3ca7c81987f46cb52f4cc8b8c8de674db5c232d9b6e8383d376fad00ae3ea" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
   option "without-models", "Don't download the v0.2 models (~415MB)"
+
+  depends_on :python if MacOS.version <= :snow_leopard
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"
@@ -36,16 +36,16 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/libmitie.dylib", "mitielib/libmitie.a"
     (lib/"python2.7/site-packages").install "mitielib/mitie.py"
-    (share/"mitie").install "examples", "sample_text.txt",
+    pkgshare.install "examples", "sample_text.txt",
       "sample_text.reference-output", "sample_text.reference-output-relations"
     bin.install "ner_example", "ner_stream", "relation_extraction_example"
   end
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lmitie",
-           share/"mitie/examples/C/ner/ner_example.c",
+           pkgshare/"examples/C/ner/ner_example.c",
            "-o", testpath/"ner_example"
     system "./ner_example", share/"MITIE-models/english/ner_model.dat",
-           share/"mitie/sample_text.txt"
+           pkgshare/"sample_text.txt"
   end
 end

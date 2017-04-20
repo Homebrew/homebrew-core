@@ -1,14 +1,14 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://01.org/hyperscan"
-  url "https://github.com/01org/hyperscan/archive/v4.3.2.tar.gz"
-  sha256 "6cd5820d6da51d6fe4ab12066d1efd9afecc1bc6fb7d6eca9c98f76fd391dbd5"
+  url "https://github.com/01org/hyperscan/archive/v4.4.1.tar.gz"
+  sha256 "3a082d92a3cb0cd724bc1190d24cc39752bd3db35d22115fda03d2e91ccd94cd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60c473e1af60905f5de69f4ed425527355fa628b550b01d535d21c157cfd9289" => :sierra
-    sha256 "57f1248ed0d3968f94df20d6b619898b04f29899030eb6a6875d9398b6bae665" => :el_capitan
-    sha256 "d5bc8b69070850a7b10dbb879e83c1091c00cd5ed5301d635259227f99bfc328" => :yosemite
+    sha256 "76f697bd8a976f80642ba826d3b8a6656d9531076a198d67856238c6b77632c8" => :sierra
+    sha256 "900368f5cd3b4aa0f04240138572b6d53c467f83489005242974bb7726528a69" => :el_capitan
+    sha256 "4a952f8bc7b5c4f1df39a1ba1be0fb92d06fda0869b64af3c817de39311d7239" => :yosemite
   end
 
   option "with-debug", "Build with debug symbols"
@@ -17,6 +17,7 @@ class Hyperscan < Formula
   depends_on "boost" => :build
   depends_on "ragel" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
 
   def install
     mkdir "build" do

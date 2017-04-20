@@ -12,6 +12,12 @@ class Cmus < Formula
     sha256 "150534ed291aeb39a6c1a84a6efa6f1e4b518c0e3eae4e18efac9a5496e826af" => :yosemite
   end
 
+  devel do
+    url "https://github.com/cmus/cmus/archive/v2.8.0-rc0.tar.gz"
+    sha256 "b594087f16053f4db49e89d72b1c6dbb12e221373e806e62b3e97c327de1dac9"
+    version "2.8.0-rc0"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libao"
   depends_on "mad"

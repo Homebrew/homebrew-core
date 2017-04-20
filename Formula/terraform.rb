@@ -3,17 +3,20 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.8.4.tar.gz"
-  sha256 "71e93503614f073f00eb65b1379ac6b80ea8a881998490a016af15208853be73"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.3.tar.gz"
+  sha256 "de57ba63f0314ba4e21818f048551a22afe61662bd72b3c81b01a47284fcaf3d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
-    sha256 "e1a862010f45c40579c60824d44e363a8e6dafec1133621ff17001ec242edb69" => :sierra
-    sha256 "e39368674d9ae7c8ced56afdb2c9272ace52b5ead3eed14fc7641a0dce066d6f" => :el_capitan
-    sha256 "bb9f76ff821920f745f5f7c0fc4e82718d68f5f64e3ca91a3def83158d70a65b" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "173d66ac92bc7d433a2559a02211a2405290e169f74b360eb128e5373f911063" => :sierra
+    sha256 "732e1007d284433516c1575042801463d5e3dc63811746414c1e5748d2acb0a9" => :el_capitan
+    sha256 "66c7c136e54458bdf7f7ffa51c0afe38cbbb86395448df7e896b12c2802c5c5e" => :yosemite
   end
 
   depends_on "go" => :build
+
+  conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
@@ -27,61 +30,45 @@ class Terraform < Formula
 
   go_resource "github.com/kisielk/errcheck" do
     url "https://github.com/kisielk/errcheck.git",
-        :revision => "9c1292e1c962175f76516859f4a88aabd86dc495"
+        :revision => "23699b7e2cbfdb89481023524954ba2aeff6be90"
   end
 
   go_resource "github.com/kisielk/gotool" do
     url "https://github.com/kisielk/gotool.git",
-        :revision => "5e136deb9b893bbe6c8f23236ff4378b7a8a0dbb"
+        :revision => "0de1eaf82fa3f583ce21fde859f1e7e0c5e9b220"
   end
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
+        :revision => "d63e2b22b05a9682de336cd4802bba367ed429e7"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by terraform, which doesn't need to
-    # get installed permanently
-    ENV.append_path "PATH", buildpath
+    ENV.prepend_create_path "PATH", buildpath/"bin"
 
-    terrapath = buildpath/"src/github.com/hashicorp/terraform"
-    terrapath.install Dir["*"]
+    dir = buildpath/"src/github.com/hashicorp/terraform"
+    dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
+    %w[src/github.com/mitchellh/gox src/golang.org/x/tools/cmd/stringer
+       src/github.com/kisielk/errcheck].each do |path|
+      cd(path) { system "go", "install" }
     end
 
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      ENV.deparallelize { system "go", "build" }
-      buildpath.install "stringer"
-    end
-
-    cd "src/github.com/kisielk/errcheck" do
-      system "go", "build"
-      buildpath.install "errcheck"
-    end
-
-    cd terrapath do
+    cd dir do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      # Runs format check and test suite via makefile
-      ENV.deparallelize { system "make", "test", "vet" }
-
-      # Generate release binary
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "bin"
+      system "make", "test", "vet", "bin"
 
-      # Install release binary
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
+      prefix.install_metafiles
     end
   end
 

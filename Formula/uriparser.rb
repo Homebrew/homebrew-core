@@ -1,6 +1,6 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
-  homepage "http://uriparser.sourceforge.net/"
+  homepage "https://uriparser.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/uriparser/Sources/0.8.4/uriparser-0.8.4.tar.bz2"
   mirror "https://mirrors.kernel.org/debian/pool/main/u/uriparser/uriparser_0.8.4.orig.tar.bz2"
   sha256 "ce7ccda4136974889231e8426a785e7578e66a6283009cfd13f1b24a5e657b23"
@@ -14,7 +14,7 @@ class Uriparser < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/uriparser/git"
+    url "https://git.code.sf.net/p/uriparser/git.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
@@ -36,11 +36,11 @@ class Uriparser < Formula
 
   test do
     expected = <<-EOS.undent
-      uri:          http://brew.sh
-      scheme:       http
+      uri:          https://brew.sh
+      scheme:       https
       hostText:     brew.sh
       absolutePath: false
     EOS
-    assert_equal expected, shell_output("#{bin}/uriparse http://brew.sh").chomp
+    assert_equal expected, shell_output("#{bin}/uriparse https://brew.sh").chomp
   end
 end

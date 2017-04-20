@@ -14,15 +14,15 @@ end
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-7.12.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz"
-  sha256 "834ff3c5948b30718343ea57b11cbc3235d7995c6a4f3a5cecec8c8114164f94"
-  revision 1
+  url "https://ftpmirror.gnu.org/gdb/gdb-7.12.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz"
+  sha256 "4607680b973d3ec92c30ad029f1b7dbde3876869e6b3a117d8a7e90081113186"
 
   bottle do
-    sha256 "cddcc8e78bbff0cabe56a2d2a57ce9045defcb3ec28d17871d014171fc582465" => :sierra
-    sha256 "6cec71a37016b259d5e07f4de0a828075bc556252635078cc70ee8870bd7c9d8" => :el_capitan
-    sha256 "79c050699683460e4a78c3055a602665b2fc8dd72f639edab61cbe6f48ae79f7" => :yosemite
+    rebuild 1
+    sha256 "810225f267677d661ded76c3f8548ed9f24a03feaaa3597d229694eab654b3fd" => :sierra
+    sha256 "2032ce5c512f0885171e4826d0a8a9f1a2fae2f24cec4c851a284c26eceaa221" => :el_capitan
+    sha256 "eaad3b6eb64408088da0760cf0ca92c39a121a5f58d1835bd74f4b745fb2697c" => :yosemite
   end
 
   deprecated_option "with-brewed-python" => "with-python"
@@ -70,13 +70,11 @@ class Gdb < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "install"
 
-    # Remove conflicting items with binutils
-    rm_rf include
-    rm_rf lib
-    rm_rf share/"locale"
-    rm_rf share/"info"
+    # Don't install bfd or opcodes, as they are provided by binutils
+    inreplace ["bfd/Makefile", "opcodes/Makefile"], /^install:/, "dontinstall:"
+
+    system "make", "install"
   end
 
   def caveats; <<-EOS.undent

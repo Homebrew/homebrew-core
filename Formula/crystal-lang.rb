@@ -1,20 +1,22 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.20.4.tar.gz"
-  sha256 "fd099f278b71bbb5cad1927c93933d1feba554fbf8f6f4ab9165f535765f5e31"
+  url "https://github.com/crystal-lang/crystal/archive/0.21.1.tar.gz"
+  sha256 "eb93de3b388641fd2a09a2d10ab9fe40a58148d888fc48e4583a86ee1ddb1085"
+  revision 1
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "ec71a4e7fea963517452ddab11677961d7f142c704d4284da07cdd0fcb51cbcd" => :sierra
-    sha256 "6a65d4fc969f1e7b7d97a615b7ce9228a061b6de6edf9141bfe03105abeaeb6e" => :el_capitan
-    sha256 "fd77bcb80689e26b80e63490329fb7a3f7731414d793191cea2f20d6b96fd4bc" => :yosemite
+    sha256 "eb7191cf66c9924e2baa4cb27101498f2fddbd5e63710611bb3cdc0dfef95aa2" => :sierra
+    sha256 "61b740f3670b4ee99319fc018378faf5507c518c30d252641dccf507cff64c56" => :el_capitan
+    sha256 "2c70c93b00d658dc9ac82b575bfaedfdb7d26e6cfd31298783b935c1db5c65cc" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
   option "without-shards", "Do not include `shards` dependency manager"
 
   depends_on "pkg-config" => :build
+  depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
   depends_on "llvm"
@@ -23,9 +25,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.20.3/crystal-0.20.3-1-darwin-x86_64.tar.gz"
-    version "0.20.3"
-    sha256 "0088972c5cad9543f262976ae6c8ee1dbcbefdee3a8bedae851998bfa7098637"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.21.0/crystal-0.21.0-1-darwin-x86_64.tar.gz"
+    version "0.21.0"
+    sha256 "e92abb33a9a592febb4e629ad68375b2577acd791a71220b8dc407904be469ee"
   end
 
   resource "shards" do
@@ -63,7 +65,7 @@ class CrystalLang < Formula
     bin.install ".build/crystal"
     prefix.install "src"
     bash_completion.install "etc/completion.bash" => "crystal"
-    zsh_completion.install "etc/completion.zsh" => "crystal"
+    zsh_completion.install "etc/completion.zsh" => "_crystal"
   end
 
   test do

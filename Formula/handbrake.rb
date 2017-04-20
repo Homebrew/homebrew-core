@@ -1,14 +1,14 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows."
   homepage "https://handbrake.fr/"
-  url "https://handbrake.fr/rotation.php?file=HandBrake-1.0.1.tar.bz2"
-  sha256 "af4badcdf56465abc798e5e11fe0e437e23ea89bbee20798408980a34c4d5876"
+  url "https://handbrake.fr/rotation.php?file=HandBrake-1.0.7.tar.bz2"
+  sha256 "ffdee112f0288f0146b965107956cd718408406b75db71c44d2188f5296e677f"
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
-    sha256 "fa7575ce0ac15726e60ae4053604b333bb3eabc030afaa6de5c0cea9d4dfec72" => :sierra
-    sha256 "74169323e0cd9b053fcbb2f7e225c4c2d2ddb2eae0058328072ecbeee985d6d3" => :el_capitan
-    sha256 "a8197b1eadd55487bff94a1d2ddcc596d22438e672074b7c47cb42d9099ca9cc" => :yosemite
+    sha256 "61a9dce983af5963dc6233fadef0a4c4c79391057f71e584298172e6fe80d3dc" => :sierra
+    sha256 "37c825fa81b75fa8ea85ff58b00fe152a71acaaa52d02a490a8c13766dfa33c1" => :el_capitan
+    sha256 "b14c568a5f20f04f6f15805111df263dd231ad86f599af9a928aa6eaf0b4f9d7" => :yosemite
   end
 
   depends_on "autoconf" => :build

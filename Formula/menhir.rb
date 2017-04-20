@@ -1,21 +1,17 @@
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
-  url "http://cristal.inria.fr/~fpottier/menhir/menhir-20161115.tar.gz"
-  sha256 "f31037f904c863b241bd90dd4ba6cd8f5ea86255477c13a2f7d0e02724ab16c9"
+  url "http://cristal.inria.fr/~fpottier/menhir/menhir-20170418.tar.gz"
+  sha256 "31deadeef2129ffcbdd78717007e13f87031432e6c3601f7e829bb0e5f9c7d2b"
 
   bottle do
-    sha256 "60f84b925e70bf005f84a9441c2134c2ffe48980d6c44883ce84e154b0c46d9a" => :sierra
-    sha256 "016653898fd56dfd858cfd227dbb5b9678c4e9daf4b10c0555b7042ed8d93ed5" => :el_capitan
-    sha256 "bde51805532613d051e17044779da9e2707c29aa8ffe94c62a83a862a81e1f26" => :yosemite
+    sha256 "86157755557dd51f1a9322adc8327807be6ccb7fdf4a4ea451d9c177f7f9e78e" => :sierra
+    sha256 "c279ad81a33a688861afe7c9a32d6dd98ec404d4bec00cb0e563e7a3356a8c5a" => :el_capitan
+    sha256 "b169d89422b88a6121f56f1d1d4d25fa1990b6ed5b89577a328ceb5406d6178a" => :yosemite
   end
 
+  depends_on "ocamlbuild" => :build
   depends_on "ocaml"
-  depends_on "ocamlbuild"
-
-  # Workaround parallelized build failure by separating all steps
-  # Submitted to menhir-list@yquem.inria.fr on 24th Feb 2016.
-  patch :DATA
 
   def install
     system "make", "PREFIX=#{prefix}", "all"
@@ -45,22 +41,3 @@ class Menhir < Formula
     assert File.exist? "test.mli"
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index f426f5d..54f397e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -116,7 +116,11 @@ all:
-	  echo "let ocamlfind = false" >> src/installation.ml ; \
-	fi
- # Compile the library modules and the Menhir executable.
--	@ $(MAKE) -C src library bootstrap
-+	@ $(MAKE) -C src library
-+	@ $(MAKE) -C src .versioncheck
-+	@ $(MAKE) -C src stage1
-+	@ $(MAKE) -C src stage2
-+	@ $(MAKE) -C src stage3
- # The source file menhirLib.ml is created by concatenating all of the source
- # files that make up MenhirLib. This file is not needed to compile Menhir or
- # MenhirLib. It is installed at the same time as MenhirLib and is copied by

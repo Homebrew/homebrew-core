@@ -1,14 +1,13 @@
 class Algol68g < Formula
   desc "Algol 68 compiler-interpreter"
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
-  url "https://jmvdveer.home.xs4all.nl/algol68g-2.8.3.tar.gz"
-  sha256 "568bc93950463f8a70c3973097360945a4dfb300c422a8410cfc638d6ba548e7"
+  url "https://jmvdveer.home.xs4all.nl/algol68g-2.8.4.tar.gz"
+  sha256 "5823ccd0c18fe10a368a117cc3924748c4a5d0fe8dff0d9d818ff73c342565f0"
 
   bottle do
-    sha256 "35d3ba002e09ec60ff236c6d0a6fcc815ea49f5e9b40f0155057b22da87e1245" => :sierra
-    sha256 "467a5892fd9cdd854eaabb2b298dbc55bc8dec961960ef54e5730f6854d388f8" => :el_capitan
-    sha256 "6f4ba5db40637d0a5d10d0f416854e2497d59ec43abc108484a3420f36903323" => :yosemite
-    sha256 "5ec387dbb47eeeca93019a449ced1e7e5472f0ada413e19258c81cb3ec41d76d" => :mavericks
+    sha256 "888a4d7dfa4d9379d09657fe3ff4d673238c9827dfbe443f8cacbd40a32c042e" => :sierra
+    sha256 "78c7f1fea5c16a6c7e8d774bbd91174bb541a9548766a70c2da3660f73c8a01c" => :el_capitan
+    sha256 "8b635fbd56159120fef7b0dca5364de8baa2b7d9a2f87956b86d31e4dd51a111" => :yosemite
   end
 
   depends_on "gsl" => :optional

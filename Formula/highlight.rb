@@ -1,14 +1,15 @@
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
-  url "http://www.andre-simon.de/zip/highlight-3.34.tar.bz2"
-  sha256 "1ea4ff989d192a0c2538f7b18683f41829596800e9f6fecf58d9d621218664bb"
-  head "svn://svn.code.sf.net/p/syntaxhighlight/code/highlight/"
+  url "http://www.andre-simon.de/zip/highlight-3.35.tar.bz2"
+  sha256 "8a14b49f5e0c07daa9f40b4ce674baa00bb20061079473a5d386656f6d236d05"
+  revision 1
+  head "https://svn.code.sf.net/p/syntaxhighlight/code/highlight/"
 
   bottle do
-    sha256 "71ec6876cf2721b4c9bfebe50a67180bd655b78ce516fe821c9f6e7cd44bfb61" => :sierra
-    sha256 "fb21c1eeff2e1fdd59c888ecd2072c7aca8540d3922e4f8853b070feab34e988" => :el_capitan
-    sha256 "199291e27b269ae831bc3c32995d93d9e0000773c48edf677c4b4145782c7b5e" => :yosemite
+    sha256 "2bdce4573b9b22e140864a64881be0c3bc6d0f9bcd9e6bf675c9f1918f9e5c45" => :sierra
+    sha256 "e0749500a0c52285529468abf009ddfeb8573d82cf106d0838e97484ceefd599" => :el_capitan
+    sha256 "e6faeaa3fffb136ffd73dbdc4cf7147f1f2aa7594e06195e213c2feb6699a2e3" => :yosemite
   end
 
   depends_on "pkg-config" => :build

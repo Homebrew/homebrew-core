@@ -3,26 +3,31 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/8e/dc/cc09e88d5f6794c38823db6218fb16c9c637fc2749f6da96621ed55b502f/awsebcli-3.9.0.tar.gz"
-  sha256 "6aad6ee6fa20ec72389e6617ddd35dcd264a2fa14d001e6fb5693e648ea530b0"
+  url "https://files.pythonhosted.org/packages/f5/a5/00acee082439b0dea611799c1917ca6b19cebf4a0f1283b24f1a73396e58/awsebcli-3.10.1.tar.gz"
+  sha256 "655cceec51801415698d789d9956977bdb2037da29c6535b4952cf57a2cb3001"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2b4d34060473aa9a447530c5c6b4fe07caa7f748d4ac4748108d9ee4cab7e5c" => :sierra
-    sha256 "ed56745d25c84baa157a820942cd553865c1e068afb85b1db0edb4759457acc4" => :el_capitan
-    sha256 "be65e017d4cb6afee298b47516cd6b4f81e9d4fcaf070ac7e1a8d01a88cd3b02" => :yosemite
+    sha256 "1eca1d3ed5293d38b208a69f0a89828f36e8c3fd7f0db440dfeb500fa42796da" => :sierra
+    sha256 "487d66d28bb14d0c1aa3fc52fac0b0bfeb756dfe70a0c51c4970efddaa9da271" => :el_capitan
+    sha256 "8628ca51eab134e17fd06b481842ce4c264d66118fd22aa1411fe82bab7f1511" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+  end
+
   resource "blessed" do
-    url "https://files.pythonhosted.org/packages/0f/56/2ff802d1a91ea50f7597328d6048aa3995b329b284c05d464aa24d6d5635/blessed-1.9.5.tar.gz"
-    sha256 "b93b5c7600814638c0913c8325608327a24e3731977d9a4f003ecf37b08ca6e5"
+    url "https://files.pythonhosted.org/packages/c2/04/be691f2ad9d70252476bb0d74a1e46390364d751b021b747b7dc1c8dfb0c/blessed-1.14.2.tar.gz"
+    sha256 "2342125fd4f27f00d2677798bd06be2e6a1178e77c0298080abe4f720070693b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ac/6a/7d949a29bb0dcf1d8b602562a003ab7a796e45e824ae3752ff31f631b0a5/botocore-1.4.87.tar.gz"
-    sha256 "6ac64c778455a4e10b6556ee27592b9f7fb31925faf0054181c26ae7e40fea39"
+    url "https://files.pythonhosted.org/packages/8e/7c/d30801e93b84846a2383ad1767bb0510a598c42c17df3dab5720a780f475/botocore-1.5.39.tar.gz"
+    sha256 "d89c3d79beaf4555885f5c0f756e287c10075d4534ad61b9072420402157e813"
   end
 
   resource "cement" do
@@ -56,13 +61,23 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/8f/d8/6e3e602a3e90c5e3961d3d159540df6b2ff32f5ab2ee8ee1d28235a425c1/jmespath-0.9.0.tar.gz"
-    sha256 "08dfaa06d4397f283a01e57089f3360e3b52b5b9da91a70e1fd91e9f0cdd3d3d"
+    url "https://files.pythonhosted.org/packages/96/6e/0723cccec195a37de6a428ad8879fe063b6debe5c855444e9285b27d253e/jmespath-0.9.2.tar.gz"
+    sha256 "54c441e2e08b23f12d7fa7d8e6761768c47c969e6aed10eead57505ba760aee9"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
   end
 
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/67/f6/ad4d6964da803ffe0ec9d513b0be6924be0f502636c17781308561f08034/pathspec-0.5.0.tar.gz"
     sha256 "aa3a071054d4740b963c91a3127a5e0e1358351718bae2a3f731ec24fb0bdd1f"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
   resource "python-dateutil" do
@@ -93,6 +108,11 @@ class AwsElasticbeanstalk < Formula
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/db/40/6ffc855c365769c454591ac30a25e9ea0b3e8c952a1259141f5b9878bd3d/tabulate-0.7.5.tar.gz"
     sha256 "9071aacbd97a9a915096c1aaf0dc684ac2672904cd876db5904085d6dac9810e"
+  end
+
+  resource "termcolor" do
+    url "https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz"
+    sha256 "1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
   end
 
   resource "wcwidth" do

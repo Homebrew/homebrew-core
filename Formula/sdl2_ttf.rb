@@ -12,14 +12,11 @@ class Sdl2Ttf < Formula
     sha256 "3b2dafa7edea6a2173c9ae17bb6a1cc5137a9004ffc44b6443bc885456adbb1b" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "freetype"
 
   def install
-    ENV.universal_binary if build.universal?
     inreplace "SDL2_ttf.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     system "./configure", "--disable-dependency-tracking",

@@ -1,14 +1,14 @@
 class GoogleJavaFormat < Formula
   desc "reformats Java source code to comply with Google Java Style."
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/archive/google-java-format-1.2.tar.gz"
-  sha256 "d8ec631f04d44c6035ed762ccc414ac312aced80acf2223a27acbe22f87bb8c6"
+  url "https://github.com/google/google-java-format/archive/google-java-format-1.3.tar.gz"
+  sha256 "d334b9bffb8cb6c9078a5b0cc0982515226838422b3705c05934413999a69d65"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "357c8d6fe08df50e95b426691f2822963abf62dc5c211082a7eda05ebacec897" => :sierra
-    sha256 "849feab99fe3e2667b0105117ebfc3958729bd7aff4b812bc887e2cc016ea59b" => :el_capitan
-    sha256 "61946ad4592bccf2cf454a5f2a9852eaf728426952b8fa2cab6c94bc66995b1f" => :yosemite
+    sha256 "e393dae7521416a76d31067874a8633cf80a79531a78085b8ff836a9049c7886" => :sierra
+    sha256 "7f4cd5af0fe23370d5f494dad918ff1454a699a073d9a63496249cc614dbe6a7" => :el_capitan
+    sha256 "02374c403254edb8e69e164030f634850ae4bea8907622dd4d78731922c1e1fb" => :yosemite
   end
 
   depends_on "maven" => :build

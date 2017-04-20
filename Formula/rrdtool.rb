@@ -23,8 +23,6 @@ class Rrdtool < Formula
   depends_on "pango"
   depends_on "lua" => :optional
 
-  env :userpaths # For perl, ruby
-
   # Ha-ha, but sleeping is annoying when running configure a lot
   patch :DATA
 

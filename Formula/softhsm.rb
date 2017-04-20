@@ -1,23 +1,30 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.1.0.tar.gz"
-  sha256 "0399b06f196fbfaebe73b4aeff2e2d65d0dc1901161513d0d6a94f031dcd827e"
+  url "https://dist.opendnssec.org/source/softhsm-2.2.0.tar.gz"
+  sha256 "eb6928ae08da44fca4135d84d6b79ad7345f408193208c54bf69f5b2e71f85f7"
 
   bottle do
-    sha256 "6d50085c72282396e0d850a440c307130dae3087cc7ed21376d219184278c258" => :sierra
-    sha256 "562ec5baec50d318c7eae4a2f12def095008c19d24d359d05e794e0fa17212fa" => :el_capitan
-    sha256 "39f1bc348f541d122a8bd03d978be09ca971f7e9373707c26e9ba82eee262563" => :yosemite
+    sha256 "59d5370c78d7efec097ec01bbcdd45b6a9d03fbfcd25ba95eb6bb339f69fbeec" => :sierra
+    sha256 "f85bd50478506c2b885e1170ff7ad2761663d82ff3ffcaead3726a79358a3aea" => :el_capitan
+    sha256 "64c03ef2f241c633f8b74987e89b09274d590147629c7c292fa209f821c01947" => :yosemite
   end
 
-  depends_on "botan"
+  depends_on "openssl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}/softhsm",
+                          "--localstatedir=#{var}",
+                          "--with-crypto-backend=openssl",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    (var/"lib/softhsm/tokens").mkpath
   end
 
   test do

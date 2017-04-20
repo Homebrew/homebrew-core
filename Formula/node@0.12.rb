@@ -3,12 +3,13 @@ class NodeAT012 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.12.18/node-v0.12.18.tar.xz"
   sha256 "aec65fae74d1b8d649c145f8ede70afa481002af49cca3336368a7502cb0dc1f"
+  revision 2
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
   bottle do
-    sha256 "378660a4ccc4d3a56de6efed02682bf20c86a33c1021ce880e1cc359dea45354" => :sierra
-    sha256 "953a182bf211ee7b2dcde85d124dc9ac161b1cb5c72fdc641fdb311b1f5b4e9e" => :el_capitan
-    sha256 "f54dc660effe3003b76977385e4077d21c8f3096f2e6bdf3045cb0fe26ec37e8" => :yosemite
+    sha256 "51c70b3652b479638db3f31a5fef8d4aab60f78a1f2ac096d9de49787acae1bc" => :sierra
+    sha256 "dd8d6548b9b20f0b6eb56e67c272cb3fbe51f34a8969c5194d9ce64c417ee6d6" => :el_capitan
+    sha256 "2e13ca45909852a1e2f1df034f6d774b92251ab05c605e90b4eb41bf6bf22028" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -23,11 +24,8 @@ class NodeAT012 < Formula
   # https://github.com/Homebrew/homebrew/issues/36681
   depends_on "icu4c" => :optional
 
-  conflicts_with "node", :because => "Differing versions of the same formula"
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
-  conflicts_with "node@4", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
+  conflicts_with "node", :because => "Differing version of same formula"
+  conflicts_with "node@0.10", :because => "Differing version of same formula"
 
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-2.15.11.tgz"

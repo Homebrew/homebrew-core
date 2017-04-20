@@ -12,15 +12,12 @@ class PamYubico < Formula
     sha256 "8b68985a95c26661f9cad4467449a60e826cbbf95e67c20a2edbbcf474cf13f6" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libyubikey"
   depends_on "ykclient"
   depends_on "ykpers"
 
   def install
-    ENV.universal_binary if build.universal?
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     system "./configure", "--prefix=#{prefix}",

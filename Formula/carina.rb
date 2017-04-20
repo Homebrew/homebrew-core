@@ -2,14 +2,15 @@ class Carina < Formula
   desc "command-line client for Carina"
   homepage "https://github.com/getcarina/carina"
   url "https://github.com/getcarina/carina.git",
-        :tag => "v2.0.1",
-        :revision => "15e3e772a56553e563598288be720c703c4166e6"
+        :tag => "v2.1.3",
+        :revision => "2b3ec267e298e095d7c2f81a2d82dc50a720e81c"
   head "https://github.com/getcarina/carina.git"
 
   bottle do
-    sha256 "0b90a3e277e586074d876c5d84d800640ba273f0cc6e9fb776e0507bafcade9b" => :sierra
-    sha256 "04b201c2952c6d81aee9885285530f8a8e19be332de266443df542ada48062ae" => :el_capitan
-    sha256 "0fa4c677d1055496b02c11beb2fec16604f8daf4b87d5e204205825790ac4d81" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "ee6c8cdf2eddda983618f7de29bf3bcc7e81d8d9a7085a037d67cd7cdb25377a" => :sierra
+    sha256 "34086f8b3418d96c3ee5c2f50ad5ffc7ee839fd26b36d0e8911c364a8c82586e" => :el_capitan
+    sha256 "0706998cd1dc286030e20382ac69a96c744ec558784685f769aa4276966dcd12" => :yosemite
   end
 
   depends_on "go" => :build

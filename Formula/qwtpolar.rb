@@ -1,18 +1,19 @@
 class Qwtpolar < Formula
   desc "Library for displaying values on a polar coordinate system"
-  homepage "http://qwtpolar.sourceforge.net/"
+  homepage "https://qwtpolar.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
+  revision 3
 
   bottle do
-    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :sierra
-    sha256 "d251c45be1aaa0f07d9d0b883b1f3469879d3f31ba5b7326f423d96fd73a986b" => :el_capitan
-    sha256 "b22fa716068e8e059496b09bfa1857e9f5684fdde05e85fbac15d04a7ca30a5a" => :yosemite
+    sha256 "b558ba6e4b4b269cd8ff207eccf1882073103aa702e2848a7a0f0cce711aff73" => :sierra
+    sha256 "8d9e370d42d980081cf7626fc9a0ff7315e05fe1c41dc48c9de21edf353aab5d" => :el_capitan
+    sha256 "e9ac24fce3339281d5b17f38a6c0fc1ff11b2d1afa3f7f727b620992348bf4c4" => :yosemite
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
 
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "qwt"
 
   # Update designer plugin linking back to qwtpolar framework/lib after install
@@ -34,9 +35,9 @@ class Qwtpolar < Formula
       # Don't build examples now, since linking flawed until qwtpolar installed
       s.sub! /\+(=\s*QwtPolarExamples)/, "-\\1"
 
-      # Install Qt plugin in `lib/qt5/plugins/designer`, not `plugins/designer`.
+      # Install Qt plugin in `lib/qt/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_POLAR_INSTALL_PREFIX\})/(plugins/designer)$},
-             "\\1/lib/qt5/\\2"
+             "\\1/lib/qt/\\2"
     end
 
     ENV["QMAKEFEATURES"] = "#{Formula["qwt"].opt_prefix}/features"
@@ -60,7 +61,7 @@ class Qwtpolar < Formula
       s.gsub! "qwtPolarAddLibrary(qwtpolar)", "qwtPolarAddLibrary(qwtpolar)\nqwtPolarAddLibrary(qwt)"
     end
     cd "examples" do
-      system Formula["qt5"].opt_bin/"qmake"
+      system Formula["qt"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
       assert File.exist?("bin/polardemo.app/Contents/MacOS/polardemo"), "Failed to build polardemo"

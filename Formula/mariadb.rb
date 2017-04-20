@@ -1,21 +1,20 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.1.20/source/mariadb-10.1.20.tar.gz"
-  sha256 "c24e83f24d674d9912319f9e9422f093c8ca6be1721a4380cbd74792b89ba0b9"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.22/source/mariadb-10.1.22.tar.gz"
+  sha256 "bcb0572e7ad32cea9740a21e9255f733bdf60a5561ffbda317c22dd12b3966ce"
 
   bottle do
-    sha256 "19183b99cbcfd45b4674cfd9524b2c742f8809649ce39085f813cf78d781d050" => :sierra
-    sha256 "04b201f8a447ef03aac43bb3f432d98a266acf8adcfad69f6fea485da65faed2" => :el_capitan
-    sha256 "e9edfa3f0a8895503f660cf1afce196d9f66c55a8259d1595f96efc3b588b738" => :yosemite
+    sha256 "3654c9ca2941c0977563e3528aae55bbe62ce6312e504c62471befc284316c66" => :sierra
+    sha256 "7f22ed68e8d00e20df658f1a5db966c88ab06a413257750cfcdd6131387013e7" => :el_capitan
+    sha256 "e4f1e192d1f476e84c1cbd9931a2262d2d6602c63871a854c871cd0f5f5b79ae" => :yosemite
   end
 
   devel do
-    url "http://ftp.osuosl.org/pub/mariadb/mariadb-10.2.3/source/mariadb-10.2.3.tar.gz"
-    sha256 "7dcbb0c35d2c25e8a2d5bef5a5ebbf578eb755e1dd810ca0e55d529521296249"
+    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.5/source/mariadb-10.2.5.tar.gz"
+    sha256 "6629bd2392ccba2fb30ce3a27efddba1f695ac739538007ad1d15caeed19ff50"
   end
 
-  option :universal
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
@@ -72,6 +71,9 @@ class Mariadb < Formula
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
+    # disable MyRocks, which is currently alpha
+    args << "-DPLUGIN_ROCKSDB=NO" if build.devel?
+
     args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
 
     # Build the embedded server
@@ -85,12 +87,6 @@ class Mariadb < Formula
 
     # Compile with BLACKHOLE engine enabled if chosen
     args << "-DPLUGIN_BLACKHOLE=YES" if build.with? "blackhole-storage-engine"
-
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"

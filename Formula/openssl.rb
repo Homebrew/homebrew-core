@@ -4,15 +4,15 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2j.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2j.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2j.tar.gz"
-  sha256 "e7aff292be21c259c6af26469c7a9b3ba26e9abaaffd325e3dccc9785256c431"
+  url "https://www.openssl.org/source/openssl-1.0.2k.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2k.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2k.tar.gz"
+  sha256 "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
 
   bottle do
-    sha256 "109fe24d2ee82d89e1ee60587d91c953cdd3384db5374e8e83635c456fa15ed0" => :sierra
-    sha256 "7b331c548a5a82f7a111c6218be3e255a2a1a6c19888c2b7ceaf02f2021c1628" => :el_capitan
-    sha256 "a3083052e81d711dd6da2d5bda7418d321eba26570a63818e52f5f68247c63f2" => :yosemite
+    sha256 "dd9c13cce879896bee642615b49a2f84d9832b6b61cbe91d9444dbcfee7d9d98" => :sierra
+    sha256 "9b7cf0b4bd40cafd5ff2a7daf83e1d9e29c37421d3f81062fc3b781f5282027a" => :el_capitan
+    sha256 "0218d9875b8bed1cabd4a214eb17dda59e90e8fa2847af651f36288244600e2a" => :yosemite
   end
 
   keg_only :provided_by_osx,
@@ -44,8 +44,10 @@ class Openssl < Formula
 
   def install
     # OpenSSL will prefer the PERL environment variable if set over $PATH
-    # which can cause some odd edge cases & isn't intended. Unset for safety.
+    # which can cause some odd edge cases & isn't intended. Unset for safety,
+    # along with perl modules in PERL5LIB.
     ENV.delete("PERL")
+    ENV.delete("PERL5LIB")
 
     # Load zlib from an explicit path instead of relying on dyld's fallback
     # path, which is empty in a SIP context. This patch will be unnecessary
@@ -132,7 +134,7 @@ class Openssl < Formula
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
     certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     valid_certs = certs.select do |cert|

@@ -1,14 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.11.0.tar.xz"
-  sha256 "7e7e8d69d494892373b87007674be5820a4bc1ef596a0117d03ea3169119fd0b"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.12.2.tar.xz"
+  sha256 "d21a9e23506e618d561fb25a8a7bd6134f927b86147930103487117a7a678c4a"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "3e57569cb8058b98a9c46fe7cf0e65b2b4007286dd607256446abd5cac0e9d8a" => :sierra
-    sha256 "505487e55a7a38e08c06f8ac301fa33d4c890c10432ffb3bde5a173dd2fa12b8" => :el_capitan
-    sha256 "dc138bfcb944111b4c94f95bd985b8f406ba8fb33e2a449cf641ca5463fee04d" => :yosemite
+    sha256 "b2f5e8d1be066285f723d17173d1c6cd854ebd419dc3e440bb18e277b09ae22c" => :sierra
+    sha256 "7f17f19cce5cee6509ab3c5c5ceb6e74bc5bd198c2488752c4e32d1478771225" => :el_capitan
+    sha256 "ffada28a5ff7e7c2c0de2d2dfb5eac0396faeb24d4bdbc929a5177e23aadb81f" => :yosemite
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -31,13 +31,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.11.0.tar.xz"
-    sha256 "3975399f1be3d959edf0fded03eab8fbf94787bfd0318b7644c77cf61e4a7b48"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.12.2.tar.xz"
+    sha256 "6f656085c2fdca94df1cc3eb8624c38099f920318c428e34ef0333ecf7f4cd59"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.11.0.tar.xz"
-    sha256 "b3d3e78829c0b69b727aaca407ecfe239a46db3f354f16189f7a7c10af9528d8"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.12.2.tar.xz"
+    sha256 "7ed1da04e6b0f7fb54a3c7546c6a30fe999b5c8ffcf5e3418521e7550b7f9558"
   end
 
   def install
@@ -48,11 +48,6 @@ class Git < Formula
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which "python"
     ENV["PERL_PATH"] = which "perl"
-
-    # Support Tcl versions before "lime" color name was introduced
-    # https://github.com/Homebrew/homebrew-core/issues/115
-    # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
-    inreplace "gitk-git/gitk", "lime", '"#99FF00"'
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 

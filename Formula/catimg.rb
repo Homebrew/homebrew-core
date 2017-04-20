@@ -1,22 +1,21 @@
 class Catimg < Formula
   desc "Insanely fast image printing in your terminal"
   homepage "https://github.com/posva/catimg"
-  url "https://github.com/posva/catimg/archive/v2.2.1.tar.gz"
-  sha256 "eb76d3baeb5e7382d8839d7d4351794166c0b6e8d777ffe0087a3401f907e991"
+  url "https://github.com/posva/catimg/archive/v2.3.2.tar.gz"
+  sha256 "295ef6581805bacee438f2f396ebae6eb5b42cfbf60b18d94f7efa5e11d5e858"
   head "https://github.com/posva/catimg.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "004d77ed58956a5c7f85038a9cf6aed7b78c8da5ccfe8ec1edc78feb5f316a53" => :sierra
-    sha256 "19de4732fcede883809385808503dcf14594a7a8a439d709d0d8cffa98e2c646" => :el_capitan
-    sha256 "19e3d77b6b033a0623245a9d7cf8cd7d2a79d8cbf8a52200da9af1a91bbec0dc" => :yosemite
-    sha256 "9ca32408359ad0d0fdc1b0649e3901decf92351d6944a241861976636113ed73" => :mavericks
+    sha256 "6d8ab22fd51467aa6954cce4133006e36b50d4cdfe33beab20f3fe6d10e95861" => :sierra
+    sha256 "4e665f7c1a4ecfd7e1950d6c356dfed8f92d0ab96b27042d5160997e2b019f9a" => :el_capitan
+    sha256 "2bbd68a3e61450ce10e98e0ab3be0b79bc7246afec39a64b17b2397febab904b" => :yosemite
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", "-DMAN_OUTPUT_PATH=#{man1}", ".", *std_cmake_args
     system "make", "install"
   end
 
