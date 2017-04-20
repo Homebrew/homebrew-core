@@ -1,9 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/archive/sleuthkit-4.3.1.tar.gz"
-  sha256 "91a9aa86041f8746038b8e8b0c6e07584971b025a9dd239c6f46d3db52c85d98"
-  head "https://github.com/sleuthkit/sleuthkit.git", :branch => "develop"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.4.0/sleuthkit-4.4.0.tar.gz"
+  sha256 "7d252562622f657001e080777c5fe1fd919b952fa3d658c86a62e57b6ad70f57"
 
   bottle do
     cellar :any
@@ -22,9 +21,6 @@ class Sleuthkit < Formula
     depends_on :ant => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
 
@@ -35,7 +31,6 @@ class Sleuthkit < Formula
     ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"
     ENV.java_cache if build.with? "jni"
 
-    system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           if build.without? "jni" then "--disable-java" end,
                           "--prefix=#{prefix}"
