@@ -1,9 +1,9 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.21.0.tar.gz"
-  mirror "https://fossies.org/linux/privat/monit-5.21.0.tar.gz"
-  sha256 "fbf76163ed4a180854d378af60fed0cdbc5a8772823957234efc182ead10c03c"
+  url "https://mmonit.com/monit/dist/monit-5.22.0.tar.gz"
+  mirror "https://fossies.org/linux/privat/monit-5.22.0.tar.gz"
+  sha256 "9fc58b5e3caafd64f0b6fff3e65ae757239fab37d04fb33efce177da15176183"
 
   bottle do
     sha256 "cf5fe0d85c03d64e0d1f213c76f70d25df9856b93f60cd5e4facc13d271e1cd6" => :sierra
