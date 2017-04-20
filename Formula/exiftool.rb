@@ -8,9 +8,9 @@ class Exiftool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a452876e071f1fb7a3943e8113f9f7e81ed914f2a2ad9c0fd19810d6dff5a69d" => :sierra
-    sha256 "53ed9abc1a9f35b274e42a94871dd552459836a03f9dc61450e6911a362f7788" => :el_capitan
-    sha256 "53ed9abc1a9f35b274e42a94871dd552459836a03f9dc61450e6911a362f7788" => :yosemite
+    sha256 "7ea5573b988fa6288eb3c238f7bd3a462b44c25d9555a3d7d64f52638d0110ac" => :sierra
+    sha256 "2c48acc68eeeca7a610abc45c1eb0acb64c69682090654e2c3e54d23929497a0" => :el_capitan
+    sha256 "2c48acc68eeeca7a610abc45c1eb0acb64c69682090654e2c3e54d23929497a0" => :yosemite
   end
 
   def install
