@@ -17,13 +17,9 @@ class Kafkacat < Formula
   depends_on "yajl"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --enable-json
-    ]
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-json"
     system "make"
     system "make", "install"
   end
