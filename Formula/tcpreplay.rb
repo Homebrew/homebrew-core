@@ -1,8 +1,8 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "http://tcpreplay.appneta.com"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.2.2/tcpreplay-4.2.2.tar.gz"
-  sha256 "e674166b54486db8f5417554ed88c06f44f368d70585c2897b0bc085009d8dd5"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.2.3/tcpreplay-4.2.3.tar.gz"
+  sha256 "68d8d49dab5bf58b2e8d244eee1ee7f2379d967da19fe97dd9d59bcf40a22abc"
 
   bottle do
     cellar :any
