@@ -3,7 +3,7 @@ class Pyexiv2 < Formula
   homepage "http://tilloy.net/dev/pyexiv2/"
   url "https://launchpad.net/pyexiv2/0.3.x/0.3.2/+download/pyexiv2-0.3.2.tar.bz2"
   sha256 "0abc117c6afa71f54266cb91979a5227f60361db1fcfdb68ae9615398d7a2127"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "44a97c27ad937f771fe3ef93bda6d88ecfab78a9b579ee9f6d48e55c051716cf" => :sierra
