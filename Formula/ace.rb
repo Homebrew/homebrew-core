@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.2.tar.bz2"
-  sha256 "e334aa2f90e570c311d2c7cc18ca9908d682d86a537e358caadc01df1fdd4c37"
+  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.3.tar.bz2"
+  sha256 "b80e7b8137d48dc68b281233417fe19b21a904ea642a05ea795bd6a546bcbb1d"
 
   bottle do
     cellar :any
