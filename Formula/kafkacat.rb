@@ -13,18 +13,15 @@ class Kafkacat < Formula
     sha256 "19bc3da24e213841b428fa755a9b259c6132eba3181b03c4ac5eff116ba8702b" => :yosemite
   end
 
-  option "without-yajl", "Build without JSON support"
-
   depends_on "librdkafka"
-  depends_on "yajl" => :recommended
+  depends_on "yajl"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-json
     ]
-
-    args << "--enable-json" if build.with?("yajl")
 
     system "./configure", *args
     system "make"
