@@ -119,6 +119,9 @@ class Llvm < Formula
     resource "polly" do
       url "http://llvm.org/git/polly.git"
     end
+
+    depends_on :xcode => "8.0" if build.with? "toolchain" && MacOS.version == :sierra
+    depends_on :xcode => "7.3" if build.with? "toolchain" && MacOS.version <= :el_capitan
   end
 
   keg_only :provided_by_osx
