@@ -10,17 +10,18 @@ class X3270 < Formula
     sha256 "897d18de2b85172e751719687710f20b1717293b10dac669d6eb052e08d4b02a" => :yosemite
   end
 
+  option "without-x11", "Exclude x3270 (X11-based version)"
   option "with-c3270", "Include c3270 (curses-based version)"
   option "with-s3270", "Include s3270 (displayless version)"
   option "with-tcl3270", "Include tcl3270 (integrated with Tcl)"
   option "with-pr3287", "Include pr3287 (printer emulation)"
 
-  depends_on :x11
+  depends_on :x11 => :recommended
   depends_on "openssl"
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--enable-x3270"
+    args << "--enable-x3270" if build.with? "x11"
     args << "--enable-c3270" if build.with? "c3270"
     args << "--enable-s3270" if build.with? "s3270"
     args << "--enable-tcl3270" if build.with? "tcl3270"
