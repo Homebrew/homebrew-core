@@ -1,8 +1,8 @@
 class Fleetctl < Formula
   desc "Distributed init system"
   homepage "https://github.com/coreos/fleet"
-  url "https://github.com/coreos/fleet/archive/v0.11.8.tar.gz"
-  sha256 "22f2f40c1c2938504b31e9dbb54eb6eb54569458a4dffe5e0020e917a5e1f66f"
+  url "https://github.com/coreos/fleet/archive/v0.13.0.tar.gz"
+  sha256 "e3bf3998f91b1f2766a2e8a2d7c7aaf814583df0233da80712866d309580362b"
   head "https://github.com/coreos/fleet.git"
 
   bottle do
