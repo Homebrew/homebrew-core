@@ -6,9 +6,9 @@ class Libgeotiff < Formula
   head "https://svn.osgeo.org/metacrs/geotiff/trunk/libgeotiff"
 
   bottle do
-    sha256 "e132dbc428f2ab5fb85099983b1558954f6bcf71e9acf2c65beb02b4c9cda198" => :sierra
-    sha256 "56bef37d2a51e3af48a53c43d6610618c8f75040cb53e7716f3e02e8b15fceea" => :el_capitan
-    sha256 "2b1d937bf755a56f048fdf7ea221485e5acd104e595433b8f02e90baf6db979a" => :yosemite
+    sha256 "194dc211dc45fe89183b53245ed494f4338afedaf65635202ae61df4495139aa" => :sierra
+    sha256 "2256a133251e48d5df3719d1e83e9b2ac2e8be7bea41fcff25d036dce1e3cef7" => :el_capitan
+    sha256 "0e283a6d16503c98c978092d98573f68a8d4e59aefe0b86f7ba6e6e3f33597c8" => :yosemite
   end
 
   depends_on "libtiff"
