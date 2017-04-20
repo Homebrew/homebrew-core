@@ -11,12 +11,11 @@ class Dvtm < Formula
     sha256 "88bffcbc907f9ffa900331acf5f994af07f5c1787c328ac56c72935813f57b92" => :mavericks
   end
 
-  # https://github.com/martanne/dvtm/issues/19
-  depends_on MaximumMacOSRequirement => :yosemite
+  depends_on "homebrew/dupes/ncurses"
 
   def install
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
-    system "make", "PREFIX=#{prefix}", "LIBS=-lc -lutil -lncurses", "install"
+    system "make", "PREFIX=#{prefix}", "LIBS=-lc -lutil -lncurses -L#{HOMEBREW_PREFIX}/opt/ncurses/lib", "install"
   end
 
   test do
