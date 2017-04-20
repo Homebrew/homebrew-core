@@ -26,6 +26,7 @@ class Lua < Formula
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
+  # Also don't let the makefile override our CC
   patch :DATA
 
   # completion provided by advanced readline power patch
@@ -208,7 +209,7 @@ index 8c9ee67..7f92407 100644
 
  macosx:
 -	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX" SYSLIBS="-lreadline" CC=cc
-+	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline" CC=cc
++	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline"
 
  mingw:
 	$(MAKE) "LUA_A=lua52.dll" "LUA_T=lua.exe" \
