@@ -2,8 +2,8 @@ class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
   url "https://github.com/immortal/immortal.git",
-      :tag => "0.13.1",
-      :revision => "8ec87531e9f5d2ce1ec64e76c8bbae5dc58feecf"
+      :tag => "0.13.2",
+      :revision => "7dbcf52fa0d68c11051d5f2b621202aded3242fe"
 
   head "https://github.com/immortal/immortal.git"
 
