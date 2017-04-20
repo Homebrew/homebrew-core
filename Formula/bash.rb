@@ -63,7 +63,13 @@ class Bash < Formula
 
   def caveats; <<-EOS.undent
     In order to use this build of bash as your login shell,
-    it must be added to /etc/shells.
+    it must be added to /etc/shells:
+      sudo -s
+      echo #{HOMEBREW_PREFIX}/bin/bash >> /etc/shell
+      exit
+
+    To switch shells run:
+      chsh -s #{HOMEBREW_PREFIX}/bin/bash
     EOS
   end
 
