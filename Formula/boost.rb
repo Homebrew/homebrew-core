@@ -18,10 +18,9 @@ class Boost < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e5607a5dea289ee90f3da7258dbaec86301ce3d7f4c0b9f377c280edd3b25a8c" => :sierra
-    sha256 "5aa1c0ac09e0a02172410c3b150127025cebb877bd991888fd9942a94be88229" => :el_capitan
-    sha256 "dfec6aa1ab706974b3b9eae6ce20701d909f582c5fe7d250ac99a24d90997074" => :yosemite
+    sha256 "0635fbede12e90441d95cfafd01546dd01d05eeda7a5a1feae7159e0969af374" => :sierra
+    sha256 "8fb1128dadc8a14d7af3340147ca4d3b234517690b4bd1d58d37af96187d3c11" => :el_capitan
+    sha256 "a5f92572cd13bb211b13ad245aea8fd8f5372a3e9cb5e83909f0e18490b9c53b" => :yosemite
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
