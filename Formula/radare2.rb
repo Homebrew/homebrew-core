@@ -20,15 +20,24 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
-  revision 1
 
   stable do
-    url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
-    sha256 "7bc1e206a2b4def6bdb8684c2af0281b007986a0b5b5da652bd03be264ca0fa5"
+    url "http://cloud.radare.org/get/1.4.0/radare2-1.4.0.tar.gz"
+    sha256 "bf6e9ad94fd5828d3936563b8b13218433fbf44231cacfdf37a7312ae2b3e93e"
 
     resource "bindings" do
-      url "http://cloud.radare.org/get/1.1.0/radare2-bindings-1.0.1.tar.gz"
-      sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
+      url "http://cloud.radare.org/get/1.4.0/radare2-bindings-1.4.0.tar.gz"
+      sha256 "0abd4c854db4932cf16d6b044ac11382f63b97779f9c5bea9167d6be1e14391c"
+    end
+
+    resource "extras" do
+      url "http://cloud.radare.org/get/1.4.0/radare2-extras-1.4.0.tar.gz"
+      sha256 "919bd7a3cac075f83a788ef676b4735f0e31ecd7ef97d9949f78cadeb61099aa"
+    end
+
+    resource "bindings-1.4.0-patch" do
+      url "https://github.com/radare/radare2-bindings/commit/ece587c44a434254c2f09ff200d519a4010841d1.diff"
+      sha256 "3f46fbd90f6aa453d89cb8d8dc4f516dc229226cdebcdefae3ac7b55aa83a864"
     end
   end
 
@@ -44,6 +53,10 @@ class Radare2 < Formula
     resource "bindings" do
       url "https://github.com/radare/radare2-bindings.git"
     end
+
+    resource "extras" do
+      url "https://github.com/radare/radare2-extras.git"
+    end
   end
 
   option "with-code-signing", "Codesign executables to provide unprivileged process attachment"
@@ -55,7 +68,7 @@ class Radare2 < Formula
   depends_on "gmp"
   depends_on "libewf"
   depends_on "libmagic"
-  depends_on "lua@5.1" # It seems to latch onto Lua@5.1 rather than Lua. Enquire this upstream.
+  depends_on "lua"
   depends_on "openssl"
   depends_on "yara"
 
@@ -73,13 +86,22 @@ class Radare2 < Formula
     end
     system "make", "install"
 
+    resource("extras").stage do
+      ENV.append_path "PATH", bin
+      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+
+      system "./configure", "--prefix=#{prefix}"
+      system "make", "all"
+      system "make", "install"
+    end
+
     resource("bindings").stage do
       ENV.append_path "PATH", bin
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       # Language versions.
       perl_version = `/usr/bin/perl -e 'printf "%vd", $^V;'`
-      lua_version = "5.1"
+      lua_version = Utils.popen_read("lua -v 2>&1").match(/%r{5\.\d}/)
 
       # Lazily bind to Python.
       inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
@@ -90,6 +112,9 @@ class Radare2 < Formula
       inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
       inreplace "Makefile", "LUAPKG=", "#LUAPKG="
       inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
+      # Fix for Makefile error, fixed in next release
+      Pathname.pwd.install resource("bindings-1.4.0-patch")
+      system "patch", "-p1", "-i", "ece587c44a434254c2f09ff200d519a4010841d1.diff"
       make_install_args = %W[
         R2_PLUGIN_PATH=#{lib}/radare2/#{version}
         LUAPKG=lua-#{lua_version}
