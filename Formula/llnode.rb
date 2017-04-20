@@ -6,9 +6,9 @@ class Llnode < Formula
 
   bottle do
     cellar :any
-    sha256 "36392d62bc628689f2ddab8187060109ad1d1addd873ae981b2ffd96f684b310" => :sierra
-    sha256 "bcd866c8bd7bd66edb956d6719befd70450624830a573273242fc9af831884ae" => :el_capitan
-    sha256 "e5524be06f0eff1ce306b3c306d8cbeb8fa0b718549d3a2d067c8852109e922b" => :yosemite
+    sha256 "f034907bd92fbc2bc3d7a3aba49e0fa0faf9958433b92974d818c8c85f6368c8" => :sierra
+    sha256 "43b8c4c9f5f468679847a5170a3c47ded9c00609184e91d72fe9c70c50d119dc" => :el_capitan
+    sha256 "db24c0aef38751fc5ddd9f9835b69b70ddcd1fbb45e262f155e12b3c4451a9b9" => :yosemite
   end
 
   depends_on :macos => :yosemite
