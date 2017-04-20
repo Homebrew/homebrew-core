@@ -1,9 +1,9 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftpmirror.gnu.org/guile/guile-2.2.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/guile/guile-2.2.0.tar.xz"
-  sha256 "c18198ff6e8b05c620dbdd49b816a2e63a2688af843b5cf8e965041f1adcb515"
+  url "https://ftpmirror.gnu.org/guile/guile-2.2.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/guile/guile-2.2.1.tar.xz"
+  sha256 "f21512374a6d553ec45fd6b09c73dd1ddce93315621f3856e72efa9aab811a66"
 
   bottle do
     sha256 "6f75b9defe2af4b88da18f37e4ee1e51ad2a8fd30f97993bb47fdee6c567c09c" => :sierra
