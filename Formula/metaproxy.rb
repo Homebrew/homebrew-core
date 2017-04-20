@@ -3,6 +3,7 @@ class Metaproxy < Formula
   homepage "https://www.indexdata.com/metaproxy"
   url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.11.8.tar.gz"
   sha256 "9060db1fca1187077f7c9e274e6118add5770a4cbd849286a755b49e4be59d68"
+  revision 1
 
   bottle do
     cellar :any
