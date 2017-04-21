@@ -1,8 +1,8 @@
 class Lilv < Formula
   desc "C library to use LV2 plugins"
   homepage "https://drobilla.net/software/lilv/"
-  url "https://download.drobilla.net/lilv-0.22.0.tar.bz2"
-  sha256 "cd279321223ef11ca01551767d3c16d68cb31f689e02320a0b2e37b4f7d17ab4"
+  url "https://download.drobilla.net/lilv-0.24.0.tar.bz2"
+  sha256 "fa60de536d3648aa3b1a445261fd77bd80d0246a071eed2e7ca51ea91a27fb9e"
 
   bottle do
     cellar :any
@@ -23,5 +23,10 @@ class Lilv < Formula
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
+  end
+
+  test do
+    lv2info = shell_output("#{bin}/lv2info --version")
+    assert_equal lv2info.lines.first, "lv2info (lilv) 0.24.0"
   end
 end
