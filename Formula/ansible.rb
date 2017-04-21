@@ -5,7 +5,7 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.3.0.0.tar.gz"
   sha256 "299f3907cd566a20e163942fa82b6afc86ef89c2726ba503b90c1a651e82a458"
-  revision 1
+  revision 2
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -35,6 +35,7 @@ class Ansible < Formula
   #   python-keyczar (Accelerated Mode)
   #   passlib (htpasswd core module)
   #   zabbix-api (Zabbix extras module)
+  #   junos-eznc (Juniper device support)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -218,6 +219,11 @@ class Ansible < Formula
     sha256 "54c441e2e08b23f12d7fa7d8e6761768c47c969e6aed10eead57505ba760aee9"
   end
 
+  resource "jxmlease" do
+    url "https://files.pythonhosted.org/packages/80/b3/a1ffc5ea763c84780a9acfaa4f69a98f6c974eaf297e20d9d3648ef7d95b/jxmlease-1.0.1.tar.gz"
+    sha256 "fb04cfd54d8d7e4cc533108750047e9ccf43139c3c0220f8a082274b19564e98"
+  end
+
   resource "jsonpatch" do
     url "https://files.pythonhosted.org/packages/be/c1/947048a839120acefc13a614280be3289db404901d1a2d49b6310c6d5757/jsonpatch-1.15.tar.gz"
     sha256 "ae23cd08b2f7246f8f2475363501e740c4ef93f08f2a3b7b9bcfac0cc37fceb1"
@@ -233,6 +239,11 @@ class Ansible < Formula
     sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
   end
 
+  resource "junos-eznc" do
+    url "https://files.pythonhosted.org/packages/9b/3c/d50f8e8e8cd562bccd63bee252e65c96fb05cc293bce11846c489612e3a1/junos-eznc-2.1.1.tar.gz"
+    sha256 "69f1db68bc68f9d624705c7c809a54a539762c734df69cb2d76ee3db01dc882f"
+  end
+
   resource "kerberos" do
     url "https://files.pythonhosted.org/packages/46/73/1e7520780a50c9470aeba2b3c020981201c8662b618fb2889a3e3dc2aeed/kerberos-1.2.5.tar.gz"
     sha256 "b32ae66b1da2938a2ae68f83d67ce41b5c5e3b6c731407104cd209ba426dadfe"
@@ -241,6 +252,11 @@ class Ansible < Formula
   resource "keystoneauth1" do
     url "https://files.pythonhosted.org/packages/74/12/cb9734c841f2fbd30a3dda2275438b657d075d03975891f33761de1b5b91/keystoneauth1-2.19.0.tar.gz"
     sha256 "1a249d6f2413195a86478a3de774a27b11798b4a477eb1e8217d8e40b89bfcfe"
+  end
+
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/39/e8/a8e0b1fa65dd021d48fe21464f71783655f39a41f218293c1c590d54eb82/lxml-3.7.3.tar.gz"
+    sha256 "aa502d78a51ee7d127b4824ff96500f0181d3c7826e6ee7b800d068be79361c7"
   end
 
   resource "monotonic" do
@@ -266,6 +282,11 @@ class Ansible < Formula
   resource "netifaces" do
     url "https://files.pythonhosted.org/packages/a7/4c/8e0771a59fd6e55aac993a7cc1b6a0db993f299514c464ae6a1ecf83b31d/netifaces-0.10.5.tar.gz"
     sha256 "59d8ad52dd3116fcb6635e175751b250dc783fb011adba539558bd764e5d628b"
+  end
+
+  resource "ncclient" do
+    url "https://files.pythonhosted.org/packages/e9/cf/cb131bcaf9b31f8d9d1b9ec3aa9a861dd72a7269a9ff07217b60157fa526/ncclient-0.5.3.tar.gz"
+    sha256 "fe6b9c16ed5f1b21f5591da74bfdd91a9bdf69eb4e918f1c06b3c8db307bd32b"
   end
 
   resource "ntlm-auth" do
@@ -353,6 +374,11 @@ class Ansible < Formula
     sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
+  resource "pyserial" do
+    url "https://pypi.python.org/packages/8d/88/cf848688ae011085a6da5a470740dafa3a4b105f84a5f79c3b720c19279c/pyserial-3.3.tar.gz"
+    sha256 "2949cddffc2b05683065a3cd2345114b1a49b08df8cb843d69ba99dc3e19edc2"
+  end
+
   resource "python-cinderclient" do
     url "https://files.pythonhosted.org/packages/46/f1/a2cbf4f76d2e5a9bf357c9f4374cfff30ebbd198b6422801554de4d51abf/python-cinderclient-2.0.1.tar.gz"
     sha256 "d86d753d47fe142e323d2c3885f8e0a0295b7105d71e241e3a6b5fa83b910df2"
@@ -431,6 +457,11 @@ class Ansible < Formula
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/8b/13/517e8ec7c13f0bb002be33fbf53c4e3198c55bb03148827d72064426fe6e/s3transfer-0.1.10.tar.gz"
     sha256 "ba1a9104939b7c0331dc4dd234d79afeed8b66edce77bbeeecd4f56de74a0fc1"
+  end
+
+  resource "scp" do
+    url "https://files.pythonhosted.org/packages/1d/a9/618f1e40e30c69ffab668493953e74e6c266f383af6e34e1b8f089e41139/scp-0.10.2.tar.gz"
+    sha256 "18f59e48df67fac0b069591609a0f4d50d781a101ddb8ec705f0c2e3501a8386"
   end
 
   resource "shade" do
