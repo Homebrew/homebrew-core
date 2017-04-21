@@ -1,8 +1,8 @@
 class Gssh < Formula
   desc "SSH automation tool based on Groovy DSL"
   homepage "https://github.com/int128/groovy-ssh"
-  url "https://github.com/int128/groovy-ssh/archive/2.8.0.tar.gz"
-  sha256 "d283bb2d42ffad64fc4b6bcaa4c6e0fa3641a672e9b52584149389a6aeed7241"
+  url "https://github.com/int128/groovy-ssh/archive/2.9.0.tar.gz"
+  sha256 "9199c675b91041858a246eee156c6ed0d65d153efafb62820f66d3722b9d17bf"
 
   bottle do
     cellar :any_skip_relocation
