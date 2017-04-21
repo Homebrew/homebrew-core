@@ -7,9 +7,9 @@ class Urh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9648b1c47693910049285a5c4dbd25dbdfdcac4e4d85fa51335b4fb0bf110d3" => :sierra
-    sha256 "fe2b1e6eba603e25d76c41acdd25f110998f6281c9e9616945776fa48a72d87e" => :el_capitan
-    sha256 "1e0488f9838e18d8520210b80520736ab5617948c819e477fecacd08783eff11" => :yosemite
+    sha256 "da46d82cc814a8e75d13b6714099b5888d3c74a05a97f24a7f14a0ca4925c1f5" => :sierra
+    sha256 "4d160147b6e1b365f01fbb9e39076b343c669811f3a5b7481fadd51438615b81" => :el_capitan
+    sha256 "2871fda6962a971b1e669d9a86e258a73474460e6a73aa5f341804fe2ed1d836" => :yosemite
   end
 
   option "with-hackrf", "Build with libhackrf support"
