@@ -3,6 +3,7 @@ class GitLfs < Formula
   homepage "https://github.com/git-lfs/git-lfs"
   url "https://github.com/git-lfs/git-lfs/archive/v2.0.2.tar.gz"
   sha256 "e266bdffa53e947ba1d0bf8944d73029384bad2ed05af92bc10918d07eec6b63"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +15,21 @@ class GitLfs < Formula
   depends_on "go" => :build
 
   def install
+    begin
+      deleted = ENV.delete "SDKROOT"
+      ENV["GEM_HOME"] = buildpath/"gem_home"
+      system "gem", "install", "ronn"
+      ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+    ensure
+      ENV["SDKROOT"] = deleted
+    end
+
     system "./script/bootstrap"
+    system "./script/man"
+
     bin.install "bin/git-lfs"
+    man1.install Dir["man/*.1"]
+    doc.install Dir["man/*.html"]
   end
 
   def caveats; <<-EOS.undent
