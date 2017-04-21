@@ -5,9 +5,9 @@ class Byteman < Formula
   sha256 "5d5238620d4fa6c11c6a8ec212b27894febc23ebb92c68c45e530c01c096ea32"
 
   devel do
-    url "https://downloads.jboss.org/byteman/4.0.0-BETA3/byteman-download-4.0.0-BETA3-bin.zip"
-    sha256 "51a387cd3a795fe130cf475f47bc222ddd17022ff2f6632c0530084f684355f4"
-    version "4.0.0-BETA3"
+    url "https://downloads.jboss.org/byteman/4.0.0-BETA4/byteman-download-4.0.0-BETA4-bin.zip"
+    sha256 "223a4c9c384b59d0f2422cbaef432864dc76c706156b7ee864eaa2422db9976c"
+    version "4.0.0-BETA4"
   end
 
   bottle :unneeded
