@@ -3,7 +3,7 @@ class Lapack < Formula
   homepage "http://www.netlib.org/lapack/"
   url "http://www.netlib.org/lapack/lapack-3.7.0.tgz"
   sha256 "ed967e4307e986474ab02eb810eed1d1adc73f5e1e3bc78fb009f6fe766db3be"
-  revision 1
+  revision 2
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
@@ -25,18 +25,6 @@ class Lapack < Formula
                       "-DLAPACKE:BOOL=ON",
                       *std_cmake_args
       system "make", "install"
-
-      %W[#{lib}/libblas.dylib #{lib}/liblapack.dylib #{lib}/liblapacke.dylib
-         #{lib}/libtmglib.dylib].each do |f|
-        macho = MachO.open(f)
-        macho.change_dylib_id(macho.dylib_id.sub("@rpath", lib.to_s))
-        macho.linked_dylibs.each do |dylib|
-          if dylib.include?("@rpath")
-            macho.change_dylib(dylib, dylib.sub("@rpath", lib.to_s))
-          end
-        end
-        macho.write!
-      end
     end
   end
 
