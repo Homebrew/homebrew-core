@@ -51,6 +51,7 @@
   "pebble-sdk": "pebble/pebble-sdk",
   "pocl": "homebrew/science",
   "qrupdate": "homebrew/science",
+  "qtplay": "homebrew/boneyard",
   "quassel": "caskroom/cask",
   "salt": "homebrew/science",
   "shark": "homebrew/science",
