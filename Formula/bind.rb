@@ -7,9 +7,9 @@ class Bind < Formula
   head "https://source.isc.org/git/bind9.git"
 
   bottle do
-    sha256 "70b9541b0a0151cafa1cb7dd127000b57c032605a2867e03e4bbcb183ef41367" => :sierra
-    sha256 "b53e6e628bd547af12af95d1052cd5ddb318b8ee3ea145dc7fde04a5e61ca3bd" => :el_capitan
-    sha256 "5e5a53e619059bb5d7bd14576c6dffefbeb52aa6233a9cdbeb546f0779b83e1b" => :yosemite
+    sha256 "6175d2f631ba926b56e3a33492f297d9bd82240f6997a7fe70c64bd461d5eb79" => :sierra
+    sha256 "8783aaab04f7b189393d0936652cd0a49aa5b4d1f94e61d31e851ea96b596f7f" => :el_capitan
+    sha256 "b66b31e13ad6b151492a38fc713390a609721cb99d5b02380b0208e4dc1e3e59" => :yosemite
   end
 
   depends_on "openssl"
