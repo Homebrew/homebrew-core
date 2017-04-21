@@ -1,8 +1,8 @@
 class Gtef < Formula
   desc "GNOME Text Editor Framework"
   homepage "https://wiki.gnome.org/Projects/Gtef"
-  url "https://download.gnome.org/sources/gtef/2.0/gtef-2.0.0.tar.xz"
-  sha256 "12fb28b101bc14a7ed266a25e8ff41c0535e1201ce38905e443c8fca83e5ac71"
+  url "https://download.gnome.org/sources/gtef/2.0/gtef-2.0.1.tar.xz"
+  sha256 "8432f0f404b93e5a2702978b5f121b8f9ae2167c906e9f2ed7b5165142e27a4f"
 
   bottle do
     sha256 "d6b45a7bb9234ae2aa59bafe8a836f04643fa631d92b98e4b53257b52790051b" => :sierra
