@@ -5,9 +5,9 @@ class Gjs < Formula
   sha256 "99c225ab2149bd31f7ac84d6ee1ea9ae843bf9a806ca853786d90e3182c4f4a1"
 
   bottle do
-    sha256 "6c81bc33d2b9533a2e250c71e952e45752a43fd7fb2e80a43c1378af0e2d5e4b" => :sierra
-    sha256 "9e9a16e10ff1c8a18661431eea5dacadaef54a2b3836dc8930f007db8eb0d4da" => :el_capitan
-    sha256 "a577cb56007fcdc2438a269e0ddcec9270991caddbb67bb196983125b8e5f9f1" => :yosemite
+    sha256 "c6c3b714cc5db5e7936317519e746263ae574148f568b51cfb40edbc7a341af1" => :sierra
+    sha256 "dd99869f90052c85f6cac41d073c802341de454235e588d2a1fcda697520306b" => :el_capitan
+    sha256 "e112d2f46bfa1a6269ce3c0203ffa2576b426d3317dced1f16e7e029fc6a0879" => :yosemite
   end
 
   depends_on "pkg-config" => :build
