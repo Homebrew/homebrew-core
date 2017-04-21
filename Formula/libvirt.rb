@@ -5,6 +5,8 @@ class Libvirt < Formula
   sha256 "9d9d26b70e13b1b2dfde5789ed52fc4528289a37e0f158418e9746263b37175e"
   head "https://github.com/libvirt/libvirt.git"
 
+  head "https://github.com/libvirt/libvirt.git"
+
   bottle do
     sha256 "4dcb8adbe13f081f2fc1403cc47e9dc335a8c7bda32be5856960885e44ae65a2" => :sierra
     sha256 "f9237dee634dfc7b9306ce18b7414bec4b5debc8589464fdc32baaf97175921a" => :el_capitan
