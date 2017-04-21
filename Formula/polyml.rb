@@ -12,9 +12,26 @@ class Polyml < Formula
     sha256 "1b6f485f1840b4f8d28978b82902a978030fde47f35fbc81cd6c83d61cf4d5ff" => :mavericks
   end
 
+  option "with-x", "With X11/Motif support"
+
+  if build.with? "x"
+    depends_on :x11
+    depends_on "openmotif"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--disable-debug",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-debug
+      --prefix=#{prefix}
+    ]
+    if build.with? "x"
+      args << "--with-x"
+    else
+      args << "--without-x"
+    end
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
