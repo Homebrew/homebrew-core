@@ -3,7 +3,7 @@ class Jq < Formula
   homepage "https://stedolan.github.io/jq/"
   url "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz"
   sha256 "c4d2bfec6436341113419debf479d833692cc5cdab7eb0326b5a4d4fbe9f493c"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -25,6 +25,18 @@ class Jq < Formula
 
   def install
     system "autoreconf", "-iv" unless build.stable?
+
+    # install ruby gems for generating man page
+    cd "docs" do
+      docs_path = `pwd`.chomp
+      bundle_path = "#{docs_path}/vendor/bundle"
+      ENV["GEM_HOME"] = docs_path
+      ENV["GEM_PATH"] = docs_path
+      ENV["BUNDLE_PATH"] = bundle_path
+      system "gem", "install", "--no-document", "bundler"
+      system "bin/bundle", "install"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-maintainer-mode",
