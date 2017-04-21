@@ -6,17 +6,12 @@ class Fantom < Formula
 
   bottle :unneeded
 
-  option "with-src", "Also install fantom source"
-  option "with-examples", "Also install fantom examples"
-
   def install
-    rm_f Dir["bin/*.exe", "bin/*.dll", "lib/dotnet/*"]
-    rm_rf "examples" if build.without? "examples"
-    rm_rf "src" if build.without? "src"
-
     # Select the macOS JDK path in the config file
     inreplace "etc/build/config.props", "//jdkHome=/System", "jdkHome=/System"
+    inreplace "etc/build/config.props", "jdkHome=/C:", "//jdkHome=/System"
 
+    # Mark bin/ executable
     libexec.install Dir["*"]
     chmod 0755, Dir["#{libexec}/bin/*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
