@@ -6,6 +6,7 @@ If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Alrea
 ```bash
 cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update
 ```
+Likewise when getting errors of the form `fatal: Cannot update paths and switch to branch 'X' at the same time.`
 
 ## How do I install these formulae?
 Just `brew install <formula>`. This is the default tap for Homebrew and is installed by default.
