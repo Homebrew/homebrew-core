@@ -10,6 +10,11 @@ class MobileShell < Formula
     sha256 "398f486fc155ba3e345bd26834b4bff6c16e0535237e196cb766cf472fc3811b" => :yosemite
   end
 
+  devel do
+    url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.3.0-rc2/mosh-1.3.0-rc2.tar.gz"
+    sha256 "8b6bff33c469ccea0438877c68774a6b2ded6fccd99b1db180222da82f0654ae"
+  end
+
   head do
     url "https://github.com/mobile-shell/mosh.git", :shallow => false
 
