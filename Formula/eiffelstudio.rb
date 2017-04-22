@@ -12,7 +12,7 @@ class Eiffelstudio < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
+  depends_on "gtk+" => "build-from-source"
 
   def ise_platform
     if Hardware::CPU.ppc?
