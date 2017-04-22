@@ -5,13 +5,12 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
   head "https://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.tar.bz2"
-    sha256 "9756f5a2129b6a83ba701e546173cbff86caa671b0af73eb8f72c03b20c066c6"
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.1.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.1.tar.xz"
+    sha256 "6cfb4eaae566dc7afb7ac0f1f2db2c0d69969952acab0debf084ee8f7b071583"
 
     # Patch to fix texture compression issues. Still relevant on 2.0.
     # https://bugs.winehq.org/show_bug.cgi?id=14939
