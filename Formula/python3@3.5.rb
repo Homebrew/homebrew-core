@@ -1,7 +1,6 @@
 class Python3AT35 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  revision 3
 
   head "https://hg.python.org/cpython", :using => :hg
 
@@ -24,7 +23,6 @@ class Python3AT35 < Formula
     sha256 "075f5e63188dfcd5a13ef1f9658b26aa2d8d943fbc5c5c50e05fc973bc38f7c1" => :yosemite
   end
 
-  option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
@@ -38,7 +36,7 @@ class Python3AT35 < Formula
   depends_on "gdbm" => :recommended
   depends_on "openssl"
   depends_on "xz" => :recommended # for the lzma module added in 3.3
-  depends_on "homebrew/dupes/tcl-tk" => :optional
+  depends_on "tcl-tk" => :optional
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
   depends_on "sphinx-doc" => [:build, :optional]
 
@@ -81,19 +79,6 @@ class Python3AT35 < Formula
   # The HOMEBREW_PREFIX location of site-packages.
   def site_packages
     HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
-  end
-
-  fails_with :llvm do
-    build 2336
-    cause <<-EOS.undent
-      Could not find platform dependent libraries <exec_prefix>
-      Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
-      python.exe(14122) malloc: *** mmap(size=7310873954244194304) failed (error code=12)
-      *** error: can't allocate region
-      *** set a breakpoint in malloc_error_break to debug
-      Could not import runpy module
-      make: *** [pybuilddir.txt] Segmentation fault: 11
-    EOS
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -151,11 +136,6 @@ class Python3AT35 < Formula
       s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
       s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universalsdk" << "--with-universal-archs=intel"
     end
 
     if build.with? "sqlite"
