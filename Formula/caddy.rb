@@ -8,9 +8,10 @@ class Caddy < Formula
   head "https://github.com/mholt/caddy.git"
 
   bottle do
-    sha256 "3fcc2e64753aabde5b809da791c376addfd58b08a5f63b9f41d7e078dc040c1a" => :sierra
-    sha256 "271af6296bb1df1f7d2b6ac26b283327a94f9484139912bc31bc5ec26fabbeca" => :el_capitan
-    sha256 "b3b8f51c1948343bd533e3f4831940b4c6e3d276e4fe806eceb146bc4799bf8c" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "5693bf56070fe587138812b391b9dc636dc594d88d655e0271169c44454611d3" => :sierra
+    sha256 "0cd90759abaf7f54c3d45bf2a2803a28712d545e4a1bf3ecde5a9607eed4c981" => :el_capitan
+    sha256 "74f50b19f0ef3360b4810f0eb385a05599fe4488c5c32b8fed5a39209d9be642" => :yosemite
   end
 
   depends_on "go" => :build
