@@ -22,6 +22,16 @@ class Depqbf < Formula
     sha256 "edb3184a04766933b092713d0ae5782e4a3da31498629f8bb2b31234a563e817"
   end
 
+  resource "bloqqer" do
+    url "http://fmv.jku.at/bloqqer/bloqqer-035-f899eab-141029.tar.gz"
+    sha256 "f4640baa75ddee156ca938f2c6669d2636fe5418046235e37dbffa9f246a318a"
+  end
+
+  resource "picosat" do
+    url "http://fmv.jku.at/picosat/picosat-960.tar.gz"
+    sha256 "edb3184a04766933b092713d0ae5782e4a3da31498629f8bb2b31234a563e817"
+  end
+
   def install
     inreplace "makefile" do |s|
       s.gsub! "$(CC) $(CFLAGS) -static qdpll_main.o",
