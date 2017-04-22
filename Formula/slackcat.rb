@@ -3,8 +3,8 @@ require "language/go"
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
   homepage "https://github.com/vektorlab/slackcat"
-  url "https://github.com/vektorlab/slackcat/archive/v1.1.tar.gz"
-  sha256 "f22c6915c4f8e17e7df8ed2dc22905870a8c05bd683c84b2e12205a6a387ea27"
+  url "https://github.com/vektorlab/slackcat/archive/v1.2.tar.gz"
+  sha256 "efde5f9acdf072a833ccbbea5414c80dd5cd177664db41a3e61bf2eb384a8fe5"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,29 +16,24 @@ class Slackcat < Formula
 
   depends_on "go" => :build
 
+  go_resource "github.com/BurntSushi/toml" do
+    url "https://github.com/BurntSushi/toml.git",
+        :revision => "b26d9c308763d68093482582cea63d69be07a0f0"
+  end
+
   go_resource "github.com/bluele/slack" do
     url "https://github.com/bluele/slack.git",
-        :revision => "ffdcd19858d03d5ebabba5bead2b5dfb18b2c73f"
+        :revision => "3b1fffcc45b37a2644a23eb7dc434d4d9f0987ba"
   end
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "1efa31f08b9333f1bd4882d61f9d668a70cd902e"
+        :revision => "8ba6f23b6e36d03666a14bd9421f5e3efcb59aca"
   end
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        :revision => "87d4004f2ab62d0d255e0a38f1680aa534549fe3"
-  end
-
-  go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable.git",
-        :revision => "9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "56b76bdf51f7708750eac80fa38b952bb9f32639"
+        :revision => "9131ab34cf20d2f6d83fdc67168a5430d1c7dc23"
   end
 
   go_resource "github.com/skratchdot/open-golang" do
