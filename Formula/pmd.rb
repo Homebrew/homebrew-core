@@ -14,9 +14,6 @@ class Pmd < Formula
   depends_on :java => "1.8+"
   depends_on "maven" => :build
 
-  # Fix doclint errors; see https://sourceforge.net/p/pmd/bugs/1516/
-  patch :DATA
-
   def install
     java_user_home = buildpath/"java_user_home"
     ENV["_JAVA_OPTIONS"] = "-Duser.home=#{buildpath}/java_user_home"
@@ -81,17 +78,3 @@ class Pmd < Formula
       "rulesets/java/basic.xml", "-f", "textcolor", "-l", "java"
   end
 end
-
-__END__
-diff --git a/pom.xml b/pom.xml
-index 66bd239..8fb40c5 100644
---- a/pom.xml
-+++ b/pom.xml
-@@ -277,6 +277,7 @@
-         <pmd.dogfood.ruleset>${config.basedir}/src/main/resources/rulesets/internal/dogfood.xml</pmd.dogfood.ruleset>
-         <checkstyle.configLocation>${config.basedir}/etc/checkstyle-config.xml</checkstyle.configLocation>
-         <checkstyle.suppressionsFile>${config.basedir}/etc/checkstyle-suppressions.xml</checkstyle.suppressionsFile>
-+        <additionalparam>-Xdoclint:none</additionalparam>
-     </properties>
-
-     <build>
