@@ -22,7 +22,7 @@ class Caddy < Formula
 
   go_resource "github.com/dustin/go-humanize" do
     url "https://github.com/dustin/go-humanize.git",
-        :revision => "7a41df006ff9af79a29f0ffa9c5f21fbe6314a2d"
+        :revision => "259d2a102b871d17f30e3cd9881a642961a1e486"
   end
 
   go_resource "github.com/flynn/go-shlex" do
@@ -30,9 +30,14 @@ class Caddy < Formula
         :revision => "3f9db97f856818214da2e1057f8ad84803971cff"
   end
 
+  go_resource "github.com/golang/snappy" do
+    url "https://github.com/golang/snappy.git",
+        :revision => "553a641470496b2327abcac10b36396bd98e45c9"
+  end
+
   go_resource "github.com/gorilla/websocket" do
     url "https://github.com/gorilla/websocket.git",
-        :revision => "0674c7c7968d9fac5f0f678325161ec31df406af"
+        :revision => "a91eba7f97777409bc2c443f5534d41dd20c5720"
   end
 
   go_resource "github.com/hashicorp/go-syslog" do
@@ -62,7 +67,7 @@ class Caddy < Formula
 
   go_resource "github.com/lucas-clemente/quic-go" do
     url "https://github.com/lucas-clemente/quic-go.git",
-        :revision => "86e02c4d2c459b70073cd5c39468e8a5a22db45a"
+        :revision => "61f5f1e66861b725f31c7da25eccf59abfe2fd94"
   end
 
   go_resource "github.com/lucas-clemente/quic-go-certificates" do
@@ -72,12 +77,12 @@ class Caddy < Formula
 
   go_resource "github.com/mholt/archiver" do
     url "https://github.com/mholt/archiver.git",
-        :revision => "24d540239654d76e79c8f4e3d5bd56d90712becb"
+        :revision => "c55f48c22890807c9698370fe5e08eca3704834b"
   end
 
   go_resource "github.com/miekg/dns" do
     url "https://github.com/miekg/dns.git",
-        :revision => "ca336a1f95a6b89be9c250df26c7a41742eb4a6f"
+        :revision => "6ebcb714d36901126ee2807031543b38c56de963"
   end
 
   go_resource "github.com/naoina/go-stringutil" do
@@ -87,7 +92,7 @@ class Caddy < Formula
 
   go_resource "github.com/naoina/toml" do
     url "https://github.com/naoina/toml.git",
-        :revision => "751171607256bb66e64c9f0220c00662420c38e9"
+        :revision => "ac014c6b6502388d89a85552b7208b8da7cfe104"
   end
 
   go_resource "github.com/nwaples/rardecode" do
@@ -95,9 +100,19 @@ class Caddy < Formula
         :revision => "f22b7ef81a0afac9ce1447d37e5ab8e99fbd2f73"
   end
 
+  go_resource "github.com/pierrec/lz4" do
+    url "https://github.com/pierrec/lz4.git",
+        :revision => "f5b77fd73d83122495309c0f459b810f83cc291f"
+  end
+
+  go_resource "github.com/pierrec/xxHash" do
+    url "https://github.com/pierrec/xxHash.git",
+        :revision => "5a004441f897722c627870a981d02b29924215fa"
+  end
+
   go_resource "github.com/russross/blackfriday" do
     url "https://github.com/russross/blackfriday.git",
-        :revision => "5f33e7b7878355cd2b7e6b8eefc48a5472c69f70"
+        :revision => "b253417e1cb644d645a0a3bb1fa5034c8030127c"
   end
 
   go_resource "github.com/shurcooL/sanitized_anchor_name" do
@@ -107,22 +122,27 @@ class Caddy < Formula
 
   go_resource "github.com/ulikunitz/xz" do
     url "https://github.com/ulikunitz/xz.git",
-        :revision => "76f94b7c69c6f84be96bcfc2443042b198689565"
+        :revision => "3807218c9f4ed05861fa9eb75b8fb8afd3325a34"
   end
 
   go_resource "github.com/xenolf/lego" do
     url "https://github.com/xenolf/lego.git",
-        :revision => "f5d538caab6dc0c167d4e32990c79bbf9eff578c"
+        :revision => "5dfe609afb1ebe9da97c9846d97a55415e5a5ccd"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "41d678d1df78cd0410143162dff954e6dc09300f"
+        :revision => "96846453c37f0876340a66a47f3f75b1f3a6cd2d"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "f2499483f923065a842d38eb4c7f1927e6fc6e6d"
+        :revision => "0b588ed7a0cd59c271d128ec8c429c1c1607e8ab"
+  end
+
+  go_resource "golang.org/x/text" do
+    url "https://go.googlesource.com/text.git",
+        :revision => "a9a820217f98f7c8a207ec1e45a874e1fe12c478"
   end
 
   go_resource "gopkg.in/natefinch/lumberjack.v2" do
@@ -137,7 +157,7 @@ class Caddy < Formula
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://gopkg.in/yaml.v2.git",
-        :revision => "a5b47d31c556af34a302ce5d659e6fea44d90de0"
+        :revision => "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
   end
 
   def install
