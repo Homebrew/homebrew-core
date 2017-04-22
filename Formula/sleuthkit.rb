@@ -3,7 +3,6 @@ class Sleuthkit < Formula
   homepage "https://www.sleuthkit.org/"
   url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.4.0/sleuthkit-4.4.0.tar.gz"
   sha256 "7d252562622f657001e080777c5fe1fd919b952fa3d658c86a62e57b6ad70f57"
-  head "https://github.com/sleuthkit/sleuthkit.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -22,9 +21,6 @@ class Sleuthkit < Formula
     depends_on :ant => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
 
