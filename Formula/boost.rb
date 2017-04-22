@@ -1,6 +1,7 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   stable do
@@ -37,6 +38,13 @@ class Boost < Formula
   end
 
   needs :cxx11 if build.cxx11?
+
+  # fix error: no member named 'make_array' in namespace 'boost::serialization'
+  # https://svn.boost.org/trac/boost/ticket/12978
+  patch :p2 do
+    url "https://github.com/boostorg/serialization/commit/1d86261.diff"
+    sha256 "155f603a00975a1702808be072c1420964feac8323de39c111a9d3a363a4ed9a"
+  end
 
   def install
     # Force boost to compile with the desired compiler
