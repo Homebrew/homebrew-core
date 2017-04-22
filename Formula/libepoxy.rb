@@ -12,13 +12,16 @@ class Libepoxy < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "test"
+      system "ninja", "install"
+    end
   end
 
   test do
