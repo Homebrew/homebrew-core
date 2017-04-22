@@ -1,6 +1,6 @@
 class Apel < Formula
   desc "Emacs Lisp library to help write portable Emacs programs"
-  homepage "http://git.chise.org/elisp/apel/"
+  homepage "http://git.chise.org/gitweb/?p=elisp/apel.git"
   url "http://git.chise.org/elisp/dist/apel/apel-10.8.tar.gz"
   sha256 "a511cc36bb51dc32b4915c9e03c67a994060b3156ceeab6fafa0be7874b9ccfe"
 
