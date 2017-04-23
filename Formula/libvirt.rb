@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-3.0.0.tar.xz"
-  sha256 "9d9d26b70e13b1b2dfde5789ed52fc4528289a37e0f158418e9746263b37175e"
+  url "https://libvirt.org/sources/libvirt-3.1.0.tar.xz"
+  sha256 "7879029a0fcac4e58dbeec66f0bc77771565c4b6667212c8f6251eefb03732a9"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
