@@ -40,6 +40,11 @@ class Slackcat < Formula
         :revision => "75fb7ed4208cf72d323d7d02fd1a5964a7a9073c"
   end
 
+  go_resource "github.com/BurntSushi/toml" do
+    url "https://github.com/BurntSushi/toml.git",
+        :revision => "056c9bc7be7190eaa7715723883caffa5f8fa3e4"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     Language::Go.stage_deps resources, buildpath/"src"
