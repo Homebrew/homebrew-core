@@ -1,8 +1,8 @@
 class Fping < Formula
   desc "Scriptable ping program for checking if multiple hosts are up"
   homepage "https://fping.org/"
-  url "https://fping.org/dist/fping-3.16.tar.gz"
-  sha256 "2f753094e4df3cdb1d99be1687c0fb7d2f14c0d526ebf03158c8c5519bc78f54"
+  url "https://fping.org/dist/fping-4.0.tar.gz"
+  sha256 "67eb4152b98ad34f99d2eec4e1098a0bb52caf13c0c89cd147349d08190fe8ce"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,13 +21,11 @@ class Fping < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--sbindir=#{bin}",
-                          "--enable-ipv6"
+                          "--sbindir=#{bin}"
     system "make", "install"
   end
 
   test do
-    output = shell_output("#{bin}/fping -A localhost")
-    assert_equal "127.0.0.1 is alive", output.chomp
+    assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
   end
 end
