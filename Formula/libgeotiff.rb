@@ -3,7 +3,6 @@ class Libgeotiff < Formula
   homepage "https://geotiff.osgeo.org/"
   url "http://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.4.2.tar.gz"
   sha256 "ad87048adb91167b07f34974a8e53e4ec356494c29f1748de95252e8f81a5e6e"
-  head "https://svn.osgeo.org/metacrs/geotiff/trunk/libgeotiff"
 
   bottle do
     sha256 "194dc211dc45fe89183b53245ed494f4338afedaf65635202ae61df4495139aa" => :sierra
@@ -11,26 +10,24 @@ class Libgeotiff < Formula
     sha256 "0e283a6d16503c98c978092d98573f68a8d4e59aefe0b86f7ba6e6e3f33597c8" => :yosemite
   end
 
-  depends_on "libtiff"
-  depends_on "lzlib"
-  depends_on "jpeg"
-  depends_on "proj"
+  head do
+    url "https://svn.osgeo.org/metacrs/geotiff/trunk/libgeotiff"
 
-  if build.head?
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
 
+  depends_on "libtiff"
+  depends_on "lzlib"
+  depends_on "jpeg"
+  depends_on "proj"
+
   def install
-    args = ["--disable-dependency-tracking", "--prefix=#{prefix}",
-            "--with-libtiff=#{HOMEBREW_PREFIX}",
-            "--with-zlib=#{HOMEBREW_PREFIX}",
-            "--with-jpeg=#{HOMEBREW_PREFIX}"]
-    if build.head?
-      system "./autogen.sh"
-    end
-    system "./configure", *args
+    system "./autogen.sh" if build.head?
+
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make" # Separate steps or install fails
     system "make", "install"
   end
@@ -64,8 +61,8 @@ class Libgeotiff < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-L#{lib}", "-ltiff", "-lgeotiff", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-ltiff", "-lgeotiff", "-o", "test"
     system "./test", "test.tif"
-    assert_match(/GeogInvFlatteningGeoKey.*123.456/, shell_output("#{bin}/listgeo test.tif"))
+    assert_match /GeogInvFlatteningGeoKey.*123.456/, shell_output("#{bin}/listgeo test.tif")
   end
 end
