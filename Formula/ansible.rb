@@ -10,9 +10,9 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    sha256 "d597f7c7435d1dbb6bfa9521cb671ee723f72f8d336383698109c67f79cc5156" => :sierra
-    sha256 "1fff82debc6f50d73911a1d501a6924e16e232e13180f775782d42fc5e4f0b9b" => :el_capitan
-    sha256 "ef922bba21a31aa2dff31928d4a52565f24a316c7e19d6fbf065be937c96c23a" => :yosemite
+    sha256 "ee7c98538ca33d73515eeb1416a9594c50512c4460d1919a0ce436f057e94f6d" => :sierra
+    sha256 "6d9ee9a4fb97eda50bb09d4880f13bcbe63ba857edf0761aaca7f13805782468" => :el_capitan
+    sha256 "3def4c4163033ea4ee388647b8a1228714d5a60de8c89baec4d8857fb98fcefa" => :yosemite
   end
 
   depends_on "pkg-config" => :build
