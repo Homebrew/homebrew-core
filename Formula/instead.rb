@@ -1,8 +1,8 @@
 class Instead < Formula
   desc "Interpreter of simple text adventures"
   homepage "https://instead.syscall.ru/"
-  url "https://github.com/instead-hub/instead/archive/2.4.1.tar.gz"
-  sha256 "2368d6e7a38ce1e82feea3848d10916f52caf6103579ac5fbc2bd6dcfdf89c6e"
+  url "https://github.com/instead-hub/instead/archive/3.0.0.tar.gz"
+  sha256 "c31c38523b666a43d8f639c433b3e9b7470b38b300e94b718181493f575921e5"
   head "https://github.com/instead-hub/instead.git"
 
   bottle do
