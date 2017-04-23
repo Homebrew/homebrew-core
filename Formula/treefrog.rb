@@ -3,6 +3,7 @@ class Treefrog < Formula
   homepage "http://www.treefrogframework.org/"
   url "https://github.com/treefrogframework/treefrog-framework/archive/v1.16.0.tar.gz"
   sha256 "b125f2b45d65423c6affd2fd7c60c8534de6d85d06a25d8b65035e4bdb79e73b"
+  revision 1
   head "https://github.com/treefrogframework/treefrog-framework.git", :branch => "master"
 
   bottle do
