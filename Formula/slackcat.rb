@@ -16,6 +16,11 @@ class Slackcat < Formula
 
   depends_on "go" => :build
 
+  go_resource "github.com/BurntSushi/toml" do
+    url "https://github.com/BurntSushi/toml.git",
+        :revision => "056c9bc7be7190eaa7715723883caffa5f8fa3e4"
+  end
+
   go_resource "github.com/bluele/slack" do
     url "https://github.com/bluele/slack.git",
         :revision => "ffdcd19858d03d5ebabba5bead2b5dfb18b2c73f"
@@ -44,11 +49,6 @@ class Slackcat < Formula
   go_resource "github.com/skratchdot/open-golang" do
     url "https://github.com/skratchdot/open-golang.git",
         :revision => "75fb7ed4208cf72d323d7d02fd1a5964a7a9073c"
-  end
-
-  go_resource "github.com/BurntSushi/toml" do
-    url "https://github.com/BurntSushi/toml.git",
-        :revision => "056c9bc7be7190eaa7715723883caffa5f8fa3e4"
   end
 
   def install
