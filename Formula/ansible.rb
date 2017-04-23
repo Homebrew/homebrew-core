@@ -5,7 +5,7 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.3.0.0.tar.gz"
   sha256 "299f3907cd566a20e163942fa82b6afc86ef89c2726ba503b90c1a651e82a458"
-  revision 1
+  revision 2
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
