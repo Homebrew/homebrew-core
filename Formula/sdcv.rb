@@ -1,12 +1,9 @@
 class Sdcv < Formula
   desc "StarDict Console Version"
   homepage "https://dushistov.github.io/sdcv/"
-  # Requested a tag 16 Sep 2016 https://github.com/Dushistov/sdcv/issues/10
-  url "https://github.com/Dushistov/sdcv.git",
-      :revision => "c347ae7da9b7969e00696b18035d9a7d200e43e3"
-  version "0.5-2013-09-10"
-  revision 2
-
+  url "https://github.com/Dushistov/sdcv/archive/v0.5.1.tar.gz"
+  sha256 "d0c64429547adb127d5ff9f0f0db8c4bc663bc413dfb5b5d32c924a67171c247"
+  version_scheme 1
   head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
