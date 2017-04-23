@@ -20,15 +20,14 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
-  revision 1
 
   stable do
-    url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
-    sha256 "7bc1e206a2b4def6bdb8684c2af0281b007986a0b5b5da652bd03be264ca0fa5"
+    url "http://cloud.radare.org/get/1.3.0/radare2-1.3.0.tar.gz"
+    sha256 "3bcef4ce443a7c45a6311d5917f6e6197d5ca3a20c3dd26da5aa4cac4b0497cf"
 
     resource "bindings" do
-      url "http://cloud.radare.org/get/1.1.0/radare2-bindings-1.0.1.tar.gz"
-      sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
+      url "http://cloud.radare.org/get/1.3.0/radare2-bindings-1.3.0.tar.gz"
+      sha256 "3ea745c99862975310fa3918a8d29b27e317a967443bbf0a8bd8992802882396"
     end
   end
 
