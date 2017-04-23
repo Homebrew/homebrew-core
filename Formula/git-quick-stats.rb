@@ -14,6 +14,6 @@ class GitQuickStats < Formula
     system "git", "init"
     assert_match "All branches (sorted by most recent commit)",
       shell_output("#{bin}/git-quick-stats branchesByDate")
-    assert_match /^Invalid argument/, shell_output("#{bin}/git-quick-stats command")
+    assert_match /^Invalid argument/, shell_output("#{bin}/git-quick-stats command", 1)
   end
 end
