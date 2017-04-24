@@ -58,7 +58,7 @@ class Bullet < Formula
 
   test do
     (testpath/"test.cpp").write <<-EOS.undent
-      #include "bullet/LinearMath/btPolarDecomposition.h"
+      #include "LinearMath/btPolarDecomposition.h"
       int main() {
         btMatrix3x3 I = btMatrix3x3::getIdentity();
         btMatrix3x3 u, h;
@@ -66,7 +66,16 @@ class Bullet < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lLinearMath", "-lc++", "-o", "test"
+    args = []
+    if build.with? "framework"
+      args << "-framework" << "LinearMath"
+      args << "-F#{frameworks}"
+      args << "-I#{frameworks}/LinearMath.framework/Headers"
+    else
+      args << "-I#{include}/bullet"
+      args << "-L#{lib}" << "-lLinearMath"
+    end
+    system ENV.cc, "test.cpp", *args, "-lc++", "-o", "test"
     system "./test"
   end
 end
