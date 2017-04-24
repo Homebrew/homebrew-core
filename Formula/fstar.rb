@@ -41,7 +41,7 @@ class Fstar < Formula
     (libexec/"bin").install "bin/fstar.exe"
     (bin/"fstar.exe").write <<-EOS.undent
       #!/bin/sh
-      #{libexec}/bin/fstar.exe --fstar_home #{prefix} $@
+      #{libexec}/bin/fstar.exe --fstar_home #{prefix} "$@"
     EOS
 
     (libexec/"ulib").install Dir["ulib/*"]
