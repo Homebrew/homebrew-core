@@ -21,13 +21,17 @@ class JpegTurbo < Formula
   keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg."
 
   option "without-test", "Skip build-time checks (Not Recommended)"
+  option "with-java", "Generate the Java wrapper"
 
   depends_on "libtool" => :build
   depends_on "nasm" => :build
+  depends_on "java" if build.with? "java"
 
   def install
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     args = %W[--disable-dependency-tracking --prefix=#{prefix} --with-jpeg8 --mandir=#{man}]
+
+    args << "--with-java" if build.with? "java"
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
