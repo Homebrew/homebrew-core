@@ -52,7 +52,6 @@ class Bullet < Formula
 
       # examples and extras only work with static libraries
       prefix.install "examples" if build.with? "demo"
-      prefix.install "Extras" if build.with? "extra"
     end
   end
 
