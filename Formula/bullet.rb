@@ -32,12 +32,13 @@ class Bullet < Formula
       args << "-DFRAMEWORK=ON"
       args << "-DCMAKE_INSTALL_PREFIX=#{frameworks}"
       args << "-DCMAKE_INSTALL_NAME_DIR=#{frameworks}"
+      args << "-DBUILD_BULLET2_DEMOS=OFF"
     else
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+      args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
     end
 
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
-    args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
 
     # always build and install shared libraries
     system "cmake", *args, "-DBUILD_SHARED_LIBS=ON"
