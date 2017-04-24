@@ -2,8 +2,8 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v1.4.1",
-    :revision => "3f9807ab8282e1af64128834b246c41ce50172d4"
+    :tag => "v1.5.0",
+    :revision => "031cbe45b7da52e19f0c0fae235776b38024517f"
 
   head "https://github.com/openshift/origin.git"
 
@@ -16,9 +16,9 @@ class OpenshiftCli < Formula
 
   devel do
     url "https://github.com/openshift/origin.git",
-      :tag => "v1.5.0-alpha.2",
-      :revision => "e4b43ee6f35d3dd8b2cbd7e92bc8a9225fa94653"
-    version "1.5.0-alpha.2"
+      :tag => "v3.6.0-alpha.1",
+      :revision => "46942adea0aed0ff58965f846aa5d5021ce30e50"
+    version "3.6.0-alpha.1"
   end
 
   depends_on "go" => :build
@@ -39,6 +39,10 @@ class OpenshiftCli < Formula
 
   test do
     assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
-    assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
+    if version >= "3.6.0-alpha.0"
+      assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
+    else
+      assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
+    end
   end
 end
