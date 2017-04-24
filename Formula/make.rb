@@ -13,7 +13,9 @@ class Make < Formula
 
   option "with-default-names", "Do not prepend 'g' to the binary"
 
-  depends_on "guile" => :optional
+  deprecated_option "with-guile" => "with-guile@2.0"
+
+  depends_on "guile@2.0" => :optional
 
   def install
     args = %W[
@@ -21,7 +23,7 @@ class Make < Formula
       --prefix=#{prefix}
     ]
 
-    args << "--with-guile" if build.with? "guile"
+    args << "--with-guile" if build.with? "guile@2.0"
     args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args
