@@ -3,7 +3,7 @@ class OpenSceneGraph < Formula
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
   sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
-  revision 1
+  revision 2
   head "https://github.com/openscenegraph/OpenSceneGraph"
 
   bottle do
