@@ -69,6 +69,6 @@ class DockerMachineDriverXhyve < Formula
 
   test do
     assert_match "xhyve-memory-size",
-    shell_output("#{Formula["docker-machine"].bin}/docker-machine create --driver xhyve -h")
+    shell_output("#{Formula["docker-machine"].bin}/docker-machine create --driver xhyve --help")
   end
 end
