@@ -21,6 +21,12 @@ class Pyenv < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    To enable auto-activation, add the following to your profile:
+      eval "$(pyenv init -)"
+    EOS
+  end
+
   test do
     shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions")
   end
