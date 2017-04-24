@@ -17,6 +17,9 @@ class Intltool < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make", "install"
+	Dir[bin/"intltool-*"].each do |f|
+		inrelace f, "#!/usr/bin/perl -w", "#!/usr/bin/env perl -w"
+	end
   end
 
   test do
