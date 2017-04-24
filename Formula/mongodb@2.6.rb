@@ -6,8 +6,7 @@ class MongodbAT26 < Formula
 
   depends_on :macos => :snow_leopard
   depends_on "scons" => :build
-  depends_on "boost" => :optional
-  depends_on "openssl" => :optional
+  depends_on "openssl"
 
   def install
     # This modifies the SConstruct file to include 10.10, 10.11, and 10.12 osx versions as accepted build options.
