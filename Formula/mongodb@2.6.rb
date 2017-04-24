@@ -4,6 +4,13 @@ class MongodbAT26 < Formula
   url "https://fastdl.mongodb.org/src/mongodb-src-r2.6.12.tar.gz"
   sha256 "2dd51eabcfcd133573be74c0131c85b67764042833e7d94077e86adc0b9406dc"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "233a848522494300b37a97498d6349b9d734a0bf637ade1d9a5ed56783e6982f" => :sierra
+    sha256 "3178051c3c82b0f0b306bd85a43693fc3f5dfb898fa2eb13ab21620e00c8a916" => :el_capitan
+    sha256 "57b17de046e3808e1357271eb7fd0de4b33aeaa1fdfcce5494a35daf4ba95260" => :yosemite
+  end
+
   depends_on :macos => :snow_leopard
   depends_on "scons" => :build
   depends_on "openssl"
