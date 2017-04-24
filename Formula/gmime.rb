@@ -1,8 +1,8 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
-  sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
+  url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.0.tar.xz"
+  sha256 "9d4874fb66d8b09d79ba144d2fbcab6157cf5986268fc4fdc9d98daa12c1a791"
 
   bottle do
     sha256 "05af2f1ac617529df02b43e6494c480cb442387a96702614ce3eba537d26989a" => :sierra
@@ -11,7 +11,6 @@ class Gmime < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libgpg-error" => :build
   depends_on "gobject-introspection" => :recommended
   depends_on "glib"
 
@@ -21,7 +20,6 @@ class Gmime < Formula
       --prefix=#{prefix}
       --enable-largefile
       --disable-vala
-      --disable-mono
       --disable-glibtest
     ]
 
@@ -30,6 +28,7 @@ class Gmime < Formula
     else
       args << "--disable-introspection"
     end
+
     system "./configure", *args
     system "make", "install"
   end
@@ -40,15 +39,15 @@ class Gmime < Formula
       #include <gmime/gmime.h>
       int main (int argc, char **argv)
       {
-        g_mime_init(0);
-        if (gmime_major_version>=2) {
+        g_mime_init();
+        if (gmime_major_version>=3) {
           return 0;
         } else {
           return 1;
         }
       }
       EOS
-    flags = `pkg-config --cflags --libs gmime-2.6`.split
+    flags = `pkg-config --cflags --libs gmime-3.0`.split
     system ENV.cc, "-o", "test", "test.c", *(flags + ENV.cflags.to_s.split)
     system "./test"
   end
