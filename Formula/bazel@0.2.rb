@@ -3,6 +3,7 @@ class BazelAT02 < Formula
   homepage "https://bazel.io/"
   url "https://github.com/bazelbuild/bazel/archive/0.2.3.tar.gz"
   sha256 "37fd2d49c57df171b704bf82c94e7bf954d94748e2a8621c5456c5c9d5f2c845"
+  revision 1
   head "https://github.com/bazelbuild/bazel.git"
 
   bottle do
