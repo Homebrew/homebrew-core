@@ -19,6 +19,11 @@ class Mftrace < Formula
     depends_on "autoconf" => :build
   end
 
+  head do
+    url "https://github.com/hanwen/mftrace.git"
+    depends_on "autoconf" => :build
+  end
+
   depends_on "potrace"
   depends_on "t1utils"
   depends_on "fontforge" => [:recommended, :run]
