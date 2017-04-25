@@ -3,8 +3,8 @@ class Coreutils < Formula
   homepage "https://www.gnu.org/software/coreutils"
 
   stable do
-    url "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
+    url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
+    mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
     sha256 "8891d349ee87b9ff7870f52b6d9312a9db672d2439d289bc57084771ca21656b"
 
     # Remove for > 8.27

@@ -1,7 +1,7 @@
 class Less < Formula
   desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
-  url "https://ftpmirror.gnu.org/less/less-487.tar.gz"
+  url "https://ftp.gnu.org/gnu/less/less-487.tar.gz"
   mirror "http://www.greenwoodsoftware.com/less/less-487.tar.gz"
   sha256 "f3dc8455cb0b2b66e0c6b816c00197a71bf6d1787078adeee0bcf2aea4b12706"
 
