@@ -107,6 +107,15 @@ class AnsibleLint < Formula
   end
 
   test do
-    system "#{bin}/ansible-lint", "--version"
+    ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
+    (testpath/"playbook.yml").write <<-EOF.undent
+      ---
+      - hosts: all
+        gather_facts: False
+        tasks:
+        - name: ping
+          ping:
+    EOF
+    system bin/"ansible-lint", '-v',testpath/"playbook.yml"
   end
 end
