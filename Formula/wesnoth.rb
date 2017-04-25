@@ -3,13 +3,13 @@ class Wesnoth < Formula
   homepage "https://www.wesnoth.org/"
   url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
   sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-
+  revision 1
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
-    sha256 "a6f059a27c01c95a43603b26f59f2d3506ebccbd98d0099e649e4d9d57d377e2" => :sierra
-    sha256 "5a20e3463745819f8d569b1422f47886ae532c7f40e53d531d7c844bad39ba49" => :el_capitan
-    sha256 "b1533d980e7675354c265a431867c4b044e5209314b66c37da7909260c795bed" => :yosemite
+    sha256 "eccd2c41d2b593da221651141e6a1045985cc667cac039470c29245b1c0c6231" => :sierra
+    sha256 "05e6d967a2afe8f73aadb11dedfc483a8ab485552b203f781629a6c8ff75f618" => :el_capitan
+    sha256 "e22de7ea619a6fc590d2fbba502526a4a8d7c7b624c2d8ff0b3d2976f1788e11" => :yosemite
   end
 
   option "with-ccache", "Speeds recompilation, convenient for beta testers"

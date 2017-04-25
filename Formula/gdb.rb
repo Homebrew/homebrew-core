@@ -14,8 +14,8 @@ end
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-7.12.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-7.12.1.tar.xz"
   sha256 "4607680b973d3ec92c30ad029f1b7dbde3876869e6b3a117d8a7e90081113186"
 
   bottle do
@@ -26,6 +26,7 @@ class Gdb < Formula
   end
 
   deprecated_option "with-brewed-python" => "with-python"
+  deprecated_option "with-guile" => "with-guile@2.0"
 
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"
   option "with-version-suffix", "Add a version suffix to program"
@@ -33,7 +34,7 @@ class Gdb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
-  depends_on "guile" => :optional
+  depends_on "guile@2.0" => :optional
 
   if MacOS.version >= :sierra
     patch do
@@ -55,7 +56,7 @@ class Gdb < Formula
       "--disable-dependency-tracking",
     ]
 
-    args << "--with-guile" if build.with? "guile"
+    args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
 
     if build.with? "python"
