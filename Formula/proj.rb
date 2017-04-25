@@ -1,5 +1,5 @@
 class Proj < Formula
-  desc "PROJ.4, a Cartographic Projections Library"
+  desc "Cartographic Projections Library by OSGeo"
   homepage "https://trac.osgeo.org/proj/"
   url "http://download.osgeo.org/proj/proj-4.9.3.tar.gz"
   sha256 "6984542fea333488de5c82eea58d699e4aff4b359200a9971537cd7e047185f7"
@@ -12,6 +12,8 @@ class Proj < Formula
   end
 
   option "with-vdatum", "Install vertical datum files (~380 MB)"
+
+  depends_on "cmake" => :build
 
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
@@ -67,12 +69,6 @@ class Proj < Formula
 
   skip_clean :la
 
-  option "with-cmake", "Install the CMake library helpers to allow find_package(PROJ4)"
-
-  if build.with? "cmake"
-    depends_on "cmake" => :build
-  end
-
   def install
     resources.each do |r|
       if r.name == "datumgrid"
@@ -82,15 +78,9 @@ class Proj < Formula
       end
     end
 
-    if build.without? "cmake"
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
+    mkdir "proj4-build" do
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
-    else
-      mkdir "proj4-build" do
-        system "cmake", "..", *std_cmake_args
-        system "make", "install"
-      end
     end
   end
 
