@@ -100,7 +100,6 @@ class Mpd < Formula
     if build.with? "upnp"
       args << "--enable-upnp"
       args << "--enable-expat"
-      args << "--with-expat=/usr/local/opt/expat"
     end
 
     system "./configure", *args
