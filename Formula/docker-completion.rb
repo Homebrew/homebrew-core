@@ -3,7 +3,7 @@ class DockerCompletion < Formula
   homepage "https://github.com/docker/docker"
   url "https://github.com/docker/docker/archive/v17.04.0-ce.tar.gz"
   version "17.04.0"
-  sha256 "b6ee0aa93ecea44e956d3627907e10557b3ec37d13ddfb40e436656e5037c640"
+  sha256 "76e84fbb7b5f1077f424ff40ddd14c98247f5aa3f49ad6412eede5a8cb11a29e"
   head "https://github.com/docker/docker"
 
   bottle :unneeded
