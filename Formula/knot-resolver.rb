@@ -1,8 +1,8 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.5.tar.xz"
-  sha256 "30e24f9681e40c79a0aadbbfd78aaa72534dd3bca3347de89dfeae055b2c99e4"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.6.tar.xz"
+  sha256 "31e1b8899c5592433e5265a8e9685126fc5aeff3bd6b10884154b2e34b786f3c"
   head "https://gitlab.labs.nic.cz/knot/resolver.git"
 
   bottle do
@@ -11,18 +11,17 @@ class KnotResolver < Formula
     sha256 "b11ee53d173470d439f82291452aed21641355571673a8dd9bed7dda3cdf38cf" => :yosemite
   end
 
-  depends_on "knot"
-  depends_on "luajit"
-  depends_on "libuv"
-  depends_on "gnutls"
-  depends_on "lmdb"
-
-  depends_on "cmocka" => :build
-  depends_on "pkg-config" => :build
-
   option "without-nettle", "Compile without DNS cookies support"
   option "with-hiredis", "Compile with Redis cache storage support"
   option "with-libmemcached", "Compile with memcached cache storage support"
+
+  depends_on "cmocka" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gnutls"
+  depends_on "knot"
+  depends_on "luajit"
+  depends_on "libuv"
+  depends_on "lmdb"
   depends_on "nettle" => :recommended
   depends_on "hiredis" => :optional
   depends_on "libmemcached" => :optional
