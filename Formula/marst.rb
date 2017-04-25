@@ -1,7 +1,7 @@
 class Marst < Formula
   desc "Algol-to-C translator"
   homepage "https://www.gnu.org/software/marst"
-  url "https://ftpmirror.gnu.org/marst/marst-2.7.tar.gz"
+  url "https://ftp.gnu.org/gnu/marst/marst-2.7.tar.gz"
   sha256 "3ee7b9d1cbe3cd9fb5f622717da7bb5506f1a6da3b30f812e2384b87bce4da50"
 
   bottle do
