@@ -67,6 +67,12 @@ class Proj < Formula
 
   skip_clean :la
 
+  option "with-cmake", "Install the CMake library helpers to allow find_package(PROJ4)"
+
+  if build.with? "cmake"
+    depends_on "cmake" => :build
+  end
+
   def install
     resources.each do |r|
       if r.name == "datumgrid"
@@ -76,9 +82,16 @@ class Proj < Formula
       end
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    if build.without? "cmake"
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{prefix}"
+      system "make", "install"
+    else
+      mkdir "proj4-build" do
+        system "cmake", "..", *std_cmake_args
+        system "make", "install"
+      end
+    end
   end
 
   test do
