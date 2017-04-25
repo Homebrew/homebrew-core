@@ -116,6 +116,6 @@ class AnsibleLint < Formula
         - name: ping
           ping:
     EOF
-    system bin/"ansible-lint", '-v',testpath/"playbook.yml"
+    system bin/"ansible-lint", testpath/"playbook.yml"
   end
 end
