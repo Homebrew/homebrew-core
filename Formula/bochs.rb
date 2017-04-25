@@ -12,14 +12,14 @@ class Bochs < Formula
   end
 
   option "with-gdb-stub", "Enable GDB Stub"
+  option "without-sdl2", "Disable graphical support"
 
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
+  depends_on "sdl2" => :recommended
 
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-sdl2
       --with-nogui
       --enable-disasm
       --disable-docbook
@@ -47,6 +47,8 @@ class Bochs < Formula
       --enable-long-phy-addres
       --with-term
     ]
+
+    args << "--with-sdl2" if build.with? "sdl2"
 
     if build.with? "gdb-stub"
       args << "--enable-gdb-stub"

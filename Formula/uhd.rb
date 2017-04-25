@@ -3,13 +3,13 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   url "https://github.com/EttusResearch/uhd/archive/release_003_010_000_000.tar.gz"
   sha256 "9e018c069851fd68ba63908a9f9944763832ce657f5b357d4e6c64293ad0d2cd"
-  revision 2
+  revision 3
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "184d412fa23bc97b0bedfa15d323304c11e47e4a27e004956d9b9b1453a15c00" => :sierra
-    sha256 "9fcd8caf375223ca79d7361fd8142cdde289a830364dc37439f99b688f9e222b" => :el_capitan
-    sha256 "37a83dbf239ce5949230ab6ae1e6776bb927b5d26f566c74286c08cc5f73c7eb" => :yosemite
+    sha256 "9822bd7e387db89b7013730ef78648bfeb0f27570833363309d3798b3cdf93d3" => :sierra
+    sha256 "2419be46a5cfb70905fc8cfab497b646b151485bbd3910f5678166351f42e317" => :el_capitan
+    sha256 "3c3709ca944686a0b353fb8d20a174cb6c539e65f8ebf2d09d0f00f9bf4ac36c" => :yosemite
   end
 
   depends_on "cmake" => :build
