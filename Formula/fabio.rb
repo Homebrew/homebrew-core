@@ -1,8 +1,8 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/eBay/fabio"
-  url "https://github.com/eBay/fabio/archive/v1.4.2.tar.gz"
-  sha256 "692793d0ff53195121ea2838a08b9e66532cfbbf02eb831ca166031efbffa9fa"
+  url "https://github.com/fabiolb/fabio/archive/v1.4.3.tar.gz"
+  sha256 "9afdf89bbe5e1a5cf17cbffe255d75cfc51f170c8d30f64e659317f82aed042f"
   head "https://github.com/eBay/fabio.git"
 
   bottle do
