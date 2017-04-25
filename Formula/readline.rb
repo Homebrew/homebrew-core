@@ -1,8 +1,8 @@
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
-  url "https://ftpmirror.gnu.org/readline/readline-7.0.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
+  url "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/readline/readline-7.0.tar.gz"
   version "7.0.3"
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
   revision 1
@@ -20,8 +20,8 @@ class Readline < Formula
     003 9e43aa93378c7e9f7001d8174b1beb948deefa6799b6f581673f465b7d9d4780
   ].each_slice(2) do |p, checksum|
     patch :p0 do
-      url "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-#{p}"
-      mirror "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-#{p}"
+      url "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-#{p}"
+      mirror "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-#{p}"
       sha256 checksum
     end
   end

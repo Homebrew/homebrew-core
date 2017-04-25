@@ -1,26 +1,23 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.2.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/b/bear/bear_2.2.1.orig.tar.gz"
-  sha256 "bfe711fae29f173f9d33a7d8c42434a2f40d0247fbb6ff618fdd91c878f76a7b"
+  url "https://github.com/rizsotto/Bear/archive/2.3.3.tar.gz"
+  sha256 "020a252510c437a59a238b3326a7cc2c0b9f074c2b5e74402f14fece87342732"
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
     cellar :any
-    sha256 "3e94a1b7226e68015afdb570f214ca00f2815cfd26b027b7c5e512b42642290b" => :sierra
-    sha256 "635e3966b880c02cb91fd53ce90fa1711bb51b94989aa2de08f6d055f5c25f3d" => :el_capitan
-    sha256 "3dadf1db08f65a09ba16cfe1246d09262f61115d1cdc1de0371ddafa4b6f6b9c" => :yosemite
+    sha256 "cb297f3175a7f3fd386ef6374218e54e4c8eb0c8fe3b9b89af03e9ccf08f6193" => :sierra
+    sha256 "b11a35951a19d652b826a8c0597a3ed1f470298c6e9713d6de1252e9e9b40e7e" => :el_capitan
+    sha256 "4858a80fbb47dce0fb020db7e1840780ff17fda8fae04fd3db7af6075987d484" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
