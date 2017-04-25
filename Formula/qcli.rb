@@ -5,6 +5,13 @@ class Qcli < Formula
   sha256 "5362dc8325aeb37e0742a5e5df7b831e7fe82a7b06c72c50463a43a7ad0b56bc"
   head "https://github.com/bavc/qctools.git"
 
+  bottle do
+    cellar :any
+    sha256 "7a9637cd76b12c80f8d8827d0742f2045f28d8d2582052787b0455b124e8af39" => :sierra
+    sha256 "91e36418ed0a3290a6da316c5948c4f200a93e3f5ad250012afae8450ac2458b" => :el_capitan
+    sha256 "9757043d262d517856e343206ae9ed580dad634894c330cd12b278acfdb23796" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "qwt"
   depends_on "qt"
