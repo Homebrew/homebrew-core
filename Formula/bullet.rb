@@ -25,35 +25,35 @@ class Bullet < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-    args << "-DINSTALL_EXTRA_LIBS=ON" << "-DBUILD_UNIT_TESTS=OFF"
-
-    if build.with? "framework"
-      args << "-DFRAMEWORK=ON"
-      args << "-DCMAKE_INSTALL_PREFIX=#{frameworks}"
-      args << "-DCMAKE_INSTALL_NAME_DIR=#{frameworks}"
-      args << "-DBUILD_BULLET2_DEMOS=OFF"
-    else
-      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-      args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
-    end
-
+    args = std_cmake_args + %w[
+      -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF
+    ]
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
 
-    # always build and install shared libraries
-    system "cmake", *args, "-DBUILD_SHARED_LIBS=ON"
-    system "make"
+    args_shared = args.dup + %w[
+      -DBUILD_BULLET2_DEMOS=OFF -DBUILD_SHARED_LIBS=ON
+    ]
+
+    args_framework = %W[
+      -DFRAMEWORK=ON
+      -DCMAKE_INSTALL_PREFIX=#{frameworks}
+      -DCMAKE_INSTALL_NAME_DIR=#{frameworks}
+    ]
+
+    args_shared += args_framework if build.with? "framework"
+
+    args_static = args.dup << "-DBUILD_SHARED_LIBS=OFF"
+    args_static << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+
+    system "cmake", ".", *args_shared
     system "make", "install"
 
-    # build static libraries if it's not a framework
-    if build.without? "framework"
-      system "cmake", *args, "-DBUILD_SHARED_LIBS=OFF"
-      system "make"
-      system "make", "install"
+    system "make", "clean"
 
-      # examples and extras only work with static libraries
-      prefix.install "examples" if build.with? "demo"
-    end
+    system "cmake", ".", *args_static
+    system "make", "install"
+
+    prefix.install "examples" if build.with? "demo"
   end
 
   test do
@@ -66,16 +66,16 @@ class Bullet < Formula
         return 0;
       }
     EOS
-    args = []
+
     if build.with? "framework"
-      args << "-framework" << "LinearMath"
-      args << "-F#{frameworks}"
-      args << "-I#{frameworks}/LinearMath.framework/Headers"
-    else
-      args << "-I#{include}/bullet"
-      args << "-L#{lib}" << "-lLinearMath"
+      system ENV.cc, "test.cpp", "-F#{frameworks}", "-framework", "LinearMath",
+                     "-I#{frameworks}/LinearMath.framework/Headers", "-lc++",
+                     "-o", "f_test"
+      system "./f_test"
     end
-    system ENV.cc, "test.cpp", *args, "-lc++", "-o", "test"
+
+    system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",
+                   "-lLinearMath", "-lc++", "-o", "test"
     system "./test"
   end
 end
