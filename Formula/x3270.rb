@@ -5,22 +5,24 @@ class X3270 < Formula
   sha256 "654756cc1204fd69a861d416d350a0ab3c9cea317173a80b06aca0402a517d3e"
 
   bottle do
-    sha256 "1cd09052ab45a091596bf1be4cc8bab7acbbd8adf0b28f7667590c8b46871230" => :sierra
-    sha256 "2bed418e88841d641907b730a260dfcac9394c1c69b24eadcdf32e00570f2c0f" => :el_capitan
-    sha256 "897d18de2b85172e751719687710f20b1717293b10dac669d6eb052e08d4b02a" => :yosemite
+    rebuild 1
+    sha256 "a02bd6ef6daa2fc941c2db69ae51dd5849593df4186b8a8fd0de58527faedcdd" => :sierra
+    sha256 "ebd2763771ac4dd5e0675bd70d7877d258f09775721f6c2dfbec6beb07280bb5" => :el_capitan
+    sha256 "345e32a6ff0343ff370d7562138da8a3dba3a248e601a5a23ca6a1c7588f76b8" => :yosemite
   end
 
-  option "with-c3270", "Include c3270 (curses-based version)"
-  option "with-s3270", "Include s3270 (displayless version)"
-  option "with-tcl3270", "Include tcl3270 (integrated with Tcl)"
-  option "with-pr3287", "Include pr3287 (printer emulation)"
+  option "with-x11", "Include x3270 (X11-based version)"
+  option "without-c3270", "Exclude c3270 (curses-based version)"
+  option "without-s3270", "Exclude s3270 (displayless version)"
+  option "without-tcl3270", "Exclude tcl3270 (integrated with Tcl)"
+  option "without-pr3287", "Exclude pr3287 (printer emulation)"
 
-  depends_on :x11
+  depends_on :x11 => :optional
   depends_on "openssl"
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--enable-x3270"
+    args << "--enable-x3270" if build.with? "x11"
     args << "--enable-c3270" if build.with? "c3270"
     args << "--enable-s3270" if build.with? "s3270"
     args << "--enable-tcl3270" if build.with? "tcl3270"
@@ -32,6 +34,6 @@ class X3270 < Formula
   end
 
   test do
-    system bin/"x3270", "--version"
+    system bin/"c3270", "--version"
   end
 end
