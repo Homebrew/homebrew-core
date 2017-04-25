@@ -2,15 +2,22 @@ class Srcml < Formula
   desc "convert source code to XML"
   homepage "http://www.srcml.org/"
   url "http://sead1.open.ac.uk/srcml/srcml-0.9.5.tar.gz"
-  version "0.9.5"
   sha256 "55dd2115548e270724af4251187343656d2dfda0e7d372fee15ae27262e3fa8e"
 
+  bottle do
+    root_url "http://sead1.open.ac.uk/srcml"
+    cellar :any
+    rebuild 1
+    sha256 "4ccf28e8a31f43dc80d0eb0b9947db18215803804b590506fd52403f1bc28f9d" => :sierra
+    sha256 "406e548e4cd91f19b67bb764c16adb7b6467bf8fde1a791f5c001fc9a7925ae3" => :el_capitan
+  end
+
   depends_on "cmake" => :build
-  depends_on "LibArchive" => :build
   depends_on "antlr@2" => :build
   depends_on "libantlr3c" => :build
-  depends_on "Boost"
-  depends_on "libxml2"
+  depends_on "boost" => :build
+  depends_on "libxml2" => :build
+  depends_on "libarchive"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -20,19 +27,11 @@ class Srcml < Formula
   patch :DATA
 
   test do
-    (testpath/"Hello.java").write <<-EOS.undent
-      int
+    (testpath/"Hello.java").write <<-EOS
+int
     EOS
-    (testpath/"Hello-result.xml").write <<-EOS.undent
-      <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-      <unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="Hello.java"><expr_stmt><expr><name>int</name></expr></expr_stmt>
-      </unit>
-    EOS
-
-    do
-      exec "#{bin}/srcml", "Hello.java", "-o", "Hello.xml"
-      exec "diff", "Hello.xml", "Hello-result.xml"
-    end
+    exec "#{bin}/srcml", "Hello.java", "-o", "/dev/null"
+  end
 end
 __END__
 diff -r -u a/CMake/config.cmake b/CMake/config.cmake
