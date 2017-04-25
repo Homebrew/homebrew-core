@@ -1,5 +1,5 @@
 class LibidnAT2 < Formula
-  desc "International domain name library"
+  desc "International domain name library (IDNA2008, Punycode and TR46)"
   homepage "https://www.gnu.org/software/libidn/#libidn2"
   url "https://ftp.gnu.org/gnu/libidn/libidn2-2.0.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.0.1.tar.xz"
