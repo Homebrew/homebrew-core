@@ -3,11 +3,12 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/3.05.00.tar.gz"
   sha256 "3fe83e06d0f73b39f6e92ed9fc7ccba3ef734877b76aa5ddaaa778fac095d996"
+  revision 1
 
   bottle do
-    sha256 "d2ec7a1ef8859c28dd0d1e2e5a4bf54224bf971e11863bef693687fb3f166180" => :sierra
-    sha256 "ebbb35f1423ee0ee446908af35d0aa2d7cf062e709599a0f9defad8cdac4498a" => :el_capitan
-    sha256 "626c9003f601105a4e7e3bee9fca179f63b9823b970b547aa458e09e98644c84" => :yosemite
+    sha256 "45167af1ab8944f17e1a978d9c7d397c505d0557a3ddecd4561a8e9553884e07" => :sierra
+    sha256 "a6029be869ded018b10584b781e3ecc3b4ad0abaf7b31d354c92d102a26dbb18" => :el_capitan
+    sha256 "f726ac1c5c03d6ba4f6b4ee1c54e062985526c754e1a15d06b59be16d52fd6b8" => :yosemite
   end
 
   head do
@@ -31,7 +32,7 @@ class Tesseract < Formula
   depends_on "pkg-config" => :build
 
   depends_on "leptonica"
-  depends_on "libtiff" => :recommended
+  depends_on "libtiff"
 
   if build.with? "training-tools"
     depends_on "libtool" => :build
@@ -62,6 +63,14 @@ class Tesseract < Formula
   resource "snum" do
     url "https://github.com/USCDataScience/counterfeit-electronics-tesseract/raw/319a6eeacff181dad5c02f3e7a3aff804eaadeca/Training%20Tesseract/snum.traineddata"
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
+  end
+
+  # remove on next release, > 3.05.00
+  # upstream fix for building with OpenCL enabled
+  # https://github.com/tesseract-ocr/tesseract/pull/814
+  patch do
+    url "https://github.com/tesseract-ocr/tesseract/commit/b18cad4.patch"
+    sha256 "10c59baa54c3406fcd03f36cd0f1e3cc2ba150f082d14f919274a541b3cff7b2"
   end
 
   def install

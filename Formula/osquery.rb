@@ -5,18 +5,18 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.4.0",
       :revision => "76fe5d748cbcf41a4c3f40193bde05739cf7d83f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "72cf52151e9df071aa5791363e711e0b9bd2d8bf07a7678ffa5a6033ce38678b" => :sierra
-    sha256 "b3abedc2825bf60de32cf02430f93205a8181720654431c73d50ece88946c2fa" => :el_capitan
-    sha256 "dcd7700ea4cb73278a0554c67328e94c40a807817507d7d379e5da0b0fe8cb6f" => :yosemite
+    sha256 "f9a702fbb57530871eb3d601a0d88666d2f094ff56babd39da3cd38f444deeed" => :sierra
+    sha256 "18fd06609dd094cc99c4ceedab9d3c12429f34034cd107e74b73913b5973aa63" => :el_capitan
   end
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.10 and above. Do not remove this.
-  depends_on :macos => :yosemite
+  # osquery only supports OS X 10.11 and above. Do not remove this.
+  depends_on :macos => :el_capitan
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -130,7 +130,7 @@ class Osquery < Formula
 
       # Apply same patch as osquery upstream for setuid syscalls.
       Pathname.pwd.install resource("thrift-0.10-patch")
-      system "patch", "-p1", "-i", "gistfile1.txt"
+      system "patch", "-p1", "-i", "patch-thrift-0.10.diff"
 
       exclusions = %W[
         --without-ruby
