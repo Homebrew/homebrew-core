@@ -13,24 +13,17 @@ class Glew < Formula
     sha256 "2b72bd7d59343ae64eaa87fd69f806759ac356a77300bb6b6a6ab40247384dc2" => :mavericks
   end
 
-  option "with-cmake", "Build GLEW with CMake"
-
-  depends_on "cmake" => [:build, :optional] if build.with? "cmake"
+  depends_on "cmake" => :build
 
   patch :DATA
 
   def install
     inreplace "glew.pc.in", "Requires: @requireslib@", ""
 
-    if build.with? "cmake"
-      cd "build" do
-        system "cmake", "./cmake", *std_cmake_args
-        system "make"
-        system "make", "install"
-      end
-    else
-      system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "all"
-      system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "install.all"
+    cd "build" do
+      system "cmake", "./cmake", *std_cmake_args
+      system "make"
+      system "make", "install"
     end
 
     doc.install Dir["doc/*"]
