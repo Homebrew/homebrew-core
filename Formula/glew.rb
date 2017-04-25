@@ -18,6 +18,8 @@ class Glew < Formula
   depends_on "cmake" => [:build, :optional] if build.with? "cmake"
 
   def install
+    inreplace "glew.pc.in", "Requires: @requireslib@", ""
+
     if build.with? "cmake"
       cd "build" do
         system "cmake", "./cmake", *std_cmake_args
@@ -25,7 +27,6 @@ class Glew < Formula
         system "make", "install"
       end
     else
-      inreplace "glew.pc.in", "Requires: @requireslib@", ""
       system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "all"
       system "make", "GLEW_PREFIX=#{prefix}", "GLEW_DEST=#{prefix}", "install.all"
     end
