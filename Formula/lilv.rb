@@ -1,16 +1,14 @@
 class Lilv < Formula
   desc "C library to use LV2 plugins"
   homepage "https://drobilla.net/software/lilv/"
-  url "https://download.drobilla.net/lilv-0.22.0.tar.bz2"
-  sha256 "cd279321223ef11ca01551767d3c16d68cb31f689e02320a0b2e37b4f7d17ab4"
+  url "https://download.drobilla.net/lilv-0.24.2.tar.bz2"
+  sha256 "f7ec65b1c1f1734ded3a6c051bbaf50f996a0b8b77e814a33a34e42bce50a522"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "65ae432ffc7b608b80346984640c9afcf4ab94fdbfa9e354759d7232680f97a8" => :sierra
-    sha256 "bdece8afbd612253dc269a2259d01ab99c27c6383c8244bc27e4da7e5a5ce2e4" => :el_capitan
-    sha256 "d5310728dc038ea81fb298bdc740d11ecba02a917f1f54472459539cf8b2f54d" => :yosemite
-    sha256 "0cc10d77bb89587c07f3f23ddbed630a861ecc73f1da8efa9b36958a04406964" => :mavericks
+    sha256 "4ee314969758f0d53d10eae544d858cca171cceacb5119698368ac9c6b8d7765" => :sierra
+    sha256 "860fd323f1c16c13857584328ebd97b4603986d405e6f8fe64cfc2394084243d" => :el_capitan
+    sha256 "e31927820fa0da477314a4756497cfc2ac6f96d0c279c14e69985725e31f792e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
