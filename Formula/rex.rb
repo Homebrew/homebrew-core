@@ -4,6 +4,13 @@ class Rex < Formula
   url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.5.0.tar.gz"
   sha256 "c042a0ed4920070d4508b6e7d2c36d28b3a5691938f2e0a0d7717977b44b82d0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "39840d711c9bdac2700d09527b30172b45b208e94f4ff655ac093866f8a6f66b" => :sierra
+    sha256 "dac55c6a5871f9111c40060b7faecf9d21a3234e0936b449f862c4ec9706a70b" => :el_capitan
+    sha256 "d02002fba499b2a3ed5271ccf1c3ddbaf75629d747aed289a4f53de7aad9d081" => :yosemite
+  end
+
   depends_on :perl => "5.16"
 
   resource "Module::Build" do
