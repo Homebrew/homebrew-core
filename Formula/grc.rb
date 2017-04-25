@@ -1,8 +1,8 @@
 class Grc < Formula
   desc "Colorize logfiles and command output"
   homepage "http://korpus.juls.savba.sk/~garabik/software/grc.html"
-  url "https://github.com/garabik/grc/archive/v1.10.1.tar.gz"
-  sha256 "2ee6f2b798a3c39064e41f388605d35c1964711445974e0e5bd384c339195c27"
+  url "https://github.com/garabik/grc/archive/v1.11.tar.gz"
+  sha256 "38789ffc5a56dd7c6bad24e9cf8da0a751d50ec7f3cd52de4a7fcb5f2b8304f8"
   head "https://github.com/garabik/grc.git"
 
   bottle :unneeded
@@ -12,14 +12,11 @@ class Grc < Formula
   conflicts_with "cc65", :because => "both install `grc` binaries"
 
   def install
-    inreplace ["grc", "grc.1"], "/etc", etc
-    inreplace ["grcat", "grcat.1"], "/usr/local", prefix
+    # so that the completions don't end up in etc/profile.d
+    inreplace "install.sh",
+      "mkdir -p $PROFILEDIR\ncp -fv grc.bashrc $PROFILEDIR", ""
 
-    etc.install "grc.conf"
-    bin.install %w[grc grcat]
-    pkgshare.install Dir["conf.*"]
-    man1.install %w[grc.1 grcat.1]
-
+    system "./install.sh", prefix, HOMEBREW_PREFIX
     etc.install "grc.bashrc"
     etc.install "grc.zsh"
     etc.install "grc.fish"

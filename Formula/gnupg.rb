@@ -12,6 +12,7 @@ class Gnupg < Formula
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
+  option "with-gpg-zip", "Additionally install the gpg-zip utility"
   option "without-libusb", "Disable the internal CCID driver"
 
   deprecated_option "without-libusb-compat" => "without-libusb"
@@ -29,7 +30,7 @@ class Gnupg < Formula
   depends_on "adns"
   depends_on "libusb" => :recommended
   depends_on "readline" => :optional
-  depends_on "homebrew/fuse/encfs" => :optional
+  depends_on "encfs" => :optional
 
   def install
     args = %W[
@@ -56,7 +57,8 @@ class Gnupg < Formula
     man1.install_symlink "gpg2.1" => "gpg.1"
     man1.install_symlink "gpgv2.1" => "gpgv.1"
 
-    bin.install "tools/gpgsplit" => "gpgsplit2" if build.with? "gpgsplit"
+    bin.install "tools/gpgsplit" if build.with? "gpgsplit"
+    bin.install "tools/gpg-zip" if build.with? "gpg-zip"
   end
 
   def post_install
