@@ -1,8 +1,8 @@
 class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "http://entropymine.com/imageworsener/"
-  url "http://entropymine.com/imageworsener/imageworsener-1.3.0.tar.gz"
-  sha256 "2d4e40463658a577056ee17f204aac2a626b291f187f5f6e42b0c4140408d125"
+  url "http://entropymine.com/imageworsener/imageworsener-1.3.1.tar.gz"
+  sha256 "beb0c988c02b1d461dccdb3d6c4fc229316a692ea38689874013ba349dff66d1"
 
   bottle do
     cellar :any
