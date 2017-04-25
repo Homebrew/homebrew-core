@@ -19,6 +19,8 @@ class Profanity < Formula
     depends_on "libtool" => :build
   end
 
+  option "with-python-plugin-support", "Build with support for python plugins"
+
   depends_on "pkg-config" => :build
   depends_on "ossp-uuid"
   depends_on "libstrophe"
@@ -29,13 +31,19 @@ class Profanity < Formula
   depends_on "libotr" => :recommended
   depends_on "gpgme" => :recommended
   depends_on "terminal-notifier" => :optional
+  # this always uses homebrewed python version
+  depends_on "python" if build.with? "python-plugin-support"
 
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+    args << "--disable-python-plugins" if build.without? "python-plugin-support"
+
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--disable-python-plugins",
-                          "--prefix=#{prefix}"
+    system "./configure", *args
     system "make", "install"
   end
 
