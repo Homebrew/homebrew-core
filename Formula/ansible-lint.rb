@@ -6,6 +6,13 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/41/55/b89f9c47dda2ae4eaf4e391b1db6f675f5894f873ac1ee9758fa430416a9/ansible-lint-3.4.12.tar.gz"
   sha256 "2f77054fc126ab03aac78b453f50deac1eab6b754bb00ebed00ba01f6ce8e586"
 
+  bottle do
+    cellar :any
+    sha256 "83379d55b2f3b7536258b24f7efe970dd92de9f7c91fb577583dc42ed711b71c" => :sierra
+    sha256 "04aa5056aae3df7ff6f9808d753d1ac4c2d2ac3394605ff1c309a231201b62d9" => :el_capitan
+    sha256 "962a24c88cf757b7ae12c900df3a1559cce4290b83e3781255353d596e9026a7" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on :python
   depends_on "libyaml"
