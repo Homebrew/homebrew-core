@@ -3,13 +3,13 @@ class Lapack < Formula
   homepage "http://www.netlib.org/lapack/"
   url "http://www.netlib.org/lapack/lapack-3.7.0.tgz"
   sha256 "ed967e4307e986474ab02eb810eed1d1adc73f5e1e3bc78fb009f6fe766db3be"
-  revision 1
+  revision 2
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
-    sha256 "e57cd51d208ddbcca2aa73d9004ca615314f49dbd0aabc32a6c315be0709c967" => :sierra
-    sha256 "c3cfebcf1620b0ef5efbb3287a95d662c035075a999940a6ed03d86e5b8232c2" => :el_capitan
-    sha256 "b89c6f5b6c0e1d4971a80026d071ac2826af020e19c504df0ce909f297d85385" => :yosemite
+    sha256 "26a40d104a1eb3aa734306a5fdadc5b45010a4b9414e95572cc6abe6433bb9a4" => :sierra
+    sha256 "c4e22f5cf4e3f702c3528755c0880403e74ef08f0c48be7c4fbef972ea9cc18a" => :el_capitan
+    sha256 "4ca805b1f1c88e8e62120cac73f9dd91cb8db83f8dfbbd6e53577565a804f918" => :yosemite
   end
 
   keg_only :provided_by_osx
@@ -25,18 +25,6 @@ class Lapack < Formula
                       "-DLAPACKE:BOOL=ON",
                       *std_cmake_args
       system "make", "install"
-
-      %W[#{lib}/libblas.dylib #{lib}/liblapack.dylib #{lib}/liblapacke.dylib
-         #{lib}/libtmglib.dylib].each do |f|
-        macho = MachO.open(f)
-        macho.change_dylib_id(macho.dylib_id.sub("@rpath", lib.to_s))
-        macho.linked_dylibs.each do |dylib|
-          if dylib.include?("@rpath")
-            macho.change_dylib(dylib, dylib.sub("@rpath", lib.to_s))
-          end
-        end
-        macho.write!
-      end
     end
   end
 
