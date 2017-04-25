@@ -20,6 +20,8 @@ class Wget < Formula
     depends_on "gettext"
   end
 
+  deprecated_option "enable-iri" => "with-iri"
+  deprecated_option "with-iri" => "with-libidn@2"
   deprecated_option "enable-debug" => "with-debug"
 
   option "with-debug", "Build with debug support"
@@ -28,6 +30,7 @@ class Wget < Formula
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "openssl"
   depends_on "pcre" => :optional
+  depends_on "libidn@2" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
 
@@ -45,6 +48,7 @@ class Wget < Formula
 
     args << "--disable-debug" if build.without? "debug"
     args << "--disable-pcre" if build.without? "pcre"
+    args << "--disable-iri" if build.without? "libidn@2"
     args << "--with-metalink" if build.with? "libmetalink"
     args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"
 
