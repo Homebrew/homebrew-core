@@ -14,7 +14,7 @@ class ImagemagickAT6 < Formula
     sha256 "8af8736c27512fe4689f9d1221b5a5d1babd1777d4f80ab551e8c05c0de42c09" => :yosemite
   end
 
-  keg_only "Older version of imagemagick"
+  keg_only :versioned_formula
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
