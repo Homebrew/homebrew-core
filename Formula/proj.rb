@@ -1,7 +1,6 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "http://proj4.org"
-
   url "http://download.osgeo.org/proj/proj-4.9.3.tar.gz"
   sha256 "6984542fea333488de5c82eea58d699e4aff4b359200a9971537cd7e047185f7"
 
