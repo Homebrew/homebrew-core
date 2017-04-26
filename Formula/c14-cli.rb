@@ -12,7 +12,9 @@ class C14Cli < Formula
     ENV["GOBIN"] = buildpath
     (buildpath/"src/github.com/online-net/c14-cli").install Dir["*"]
 
-    system "go", "build", "-o", "#{bin}/c14", "-v", "-ldflags", "-X  github.com/online-net/c14-cli/pkg/version.GITCOMMIT=homebrew", "github.com/online-net/c14-cli/cmd/c14/"
+    system "go", "build", "-ldflags",
+           "-X  github.com/online-net/c14-cli/pkg/version.GITCOMMIT=homebrew",
+           "-o", bin/"c14", "github.com/online-net/c14-cli/cmd/c14/"
   end
 
   test do
