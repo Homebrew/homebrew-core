@@ -14,6 +14,7 @@ class Libvpx < Formula
   option "with-gcov", "Enable code coverage"
   option "with-visualizer", "Enable post processing visualizer"
   option "with-examples", "Build examples (vpxdec/vpxenc)"
+  option "with-highbitdepth", "Enable high bit depth support for VP9"
 
   deprecated_option "gcov" => "with-gcov"
   deprecated_option "visualizer" => "with-visualizer"
@@ -35,6 +36,7 @@ class Libvpx < Formula
     args << (build.with?("examples") ? "--enable-examples" : "--disable-examples")
     args << "--enable-gcov" if !ENV.compiler == :clang && build.with?("gcov")
     args << "--enable-postproc" << "--enable-postproc-visualizer" if build.with? "visualizer"
+    args << "--enable-vp9-highbitdepth" if build.with? "highbitdepth"
 
     mkdir "macbuild" do
       system "../configure", *args
