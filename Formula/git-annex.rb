@@ -7,6 +7,7 @@ class GitAnnex < Formula
   homepage "https://git-annex.branchable.com/"
   url "https://hackage.haskell.org/package/git-annex-6.20170321/git-annex-6.20170321.tar.gz"
   sha256 "f86351a99bbfff0285914c4639d2bc68ffcc172a6dacdef164254261cf1f0795"
+
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -21,9 +22,7 @@ class GitAnnex < Formula
   depends_on "cabal-install" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
-  depends_on "libidn"
   depends_on "libmagic"
-  depends_on "gnutls"
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
