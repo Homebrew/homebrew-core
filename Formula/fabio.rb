@@ -3,7 +3,7 @@ class Fabio < Formula
   homepage "https://github.com/eBay/fabio"
   url "https://github.com/fabiolb/fabio/archive/v1.4.3.tar.gz"
   sha256 "9afdf89bbe5e1a5cf17cbffe255d75cfc51f170c8d30f64e659317f82aed042f"
-  head "https://github.com/eBay/fabio.git"
+  head "https://github.com/fabiolb/fabio.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,12 +16,12 @@ class Fabio < Formula
   depends_on "consul" => :recommended
 
   def install
-    mkdir_p buildpath/"src/github.com/eBay"
-    ln_s buildpath, buildpath/"src/github.com/eBay/fabio"
+    mkdir_p buildpath/"src/github.com/fabiolb"
+    ln_s buildpath, buildpath/"src/github.com/fabiolb/fabio"
 
     ENV["GOPATH"] = buildpath.to_s
 
-    system "go", "install", "github.com/eBay/fabio"
+    system "go", "install", "github.com/fabiolb/fabio"
     bin.install "#{buildpath}/bin/fabio"
   end
 
