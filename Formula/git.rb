@@ -14,13 +14,13 @@ class Git < Formula
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
   option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
   option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
+  option "with-brewed-libressl", "Build with Homebrew LibreSSL"
   option "with-brewed-curl", "Use Homebrew's version of cURL library"
   option "with-brewed-svn", "Use Homebrew's version of SVN"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
 
   depends_on "pcre" => :optional
   depends_on "gettext" => :optional
-  depends_on "openssl" if build.with? "brewed-openssl"
   depends_on "curl" if build.with? "brewed-curl"
   depends_on "go" => :build if build.with? "persistent-https"
   # Trigger an install of swig before subversion, as the "swig" doesn't get pulled in otherwise
@@ -29,6 +29,13 @@ class Git < Formula
     depends_on "swig"
     depends_on "subversion" => "with-perl"
   end
+
+  if build.with?("brewed-openssl") && build.with?("brewed-libressl")
+    odie "Options --with-brewed-openssl and --with-brewed-libressl are mutually exclusive."
+  end
+
+  depends_on "openssl" if build.with? "brewed-openssl"
+  depends_on "libressl" if build.with? "brewed-libressl"
 
   resource "html" do
     url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.12.2.tar.xz"
@@ -86,7 +93,9 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
     ]
-    args << "NO_OPENSSL=1" << "APPLE_COMMON_CRYPTO=1" if build.without? "brewed-openssl"
+    if build.without?("brewed-openssl") && build.without?("brewed-libressl")
+      args << "NO_OPENSSL=1" << "APPLE_COMMON_CRYPTO=1"
+    end
 
     system "make", "install", *args
 
