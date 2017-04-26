@@ -3,14 +3,15 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/4d/3b/29491b2a1dd87c70a740c99f53569eaa70d8cad58517dc8e1f1b15e2eb04/todoman-3.0.1.tar.gz"
-  sha256 "af69c9890405c6609f1c5c84cd8da669c8b4cdadf76b7a4ef88be7bd97e66611"
+  url "https://files.pythonhosted.org/packages/81/7e/30547f981ca6d5f9d8e51f4e27ab6dda9a81d4156c006deba9f7a332407c/todoman-3.1.0.tar.gz"
+  sha256 "ad4ec5c63f8813acc6bf403cf9ceb99447b2661c0c27efaea745db2e870e0408"
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
-    sha256 "977cfd59c0fa06d1a874c0b2fbeee964245c5c83767c20094fe9552e0b8df3dd" => :sierra
-    sha256 "825f9172dd01baaa93a6fe9e2eb75f5b9ef3c2aff0094d948a6332ace0b62e43" => :el_capitan
-    sha256 "a7c4bb8f55a5ac9734017905f313f11ee7d6533d8bfa8d6834bb3706c3dab8c4" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "adeb1303553c7e7219713b10fbaedf91c7c77112dc08863ae5ff049051d18820" => :sierra
+    sha256 "80925ea0b29b4318c068174f63f099ac0706ca6a4cabbe70bc3258137befe290" => :el_capitan
+    sha256 "aeb132bcf1a5eaa1ebb9332ba28a52452a47346dcb893838e469aab0bd3439a5" => :yosemite
   end
 
   depends_on :python3
