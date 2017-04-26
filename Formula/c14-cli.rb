@@ -5,6 +5,13 @@ class C14Cli < Formula
   sha256 "cff3597273daff87e8d6e85cfef2b4d83400f0a0a905f39a4a67560b4966513c"
   head "https://github.com/online-net/c14-cli.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5f933f312db20563688f11a278981c87e6771f16f7c3f3bccb29301b12e46bb6" => :sierra
+    sha256 "94aa82618c853ee2f011e265e2131bce73e3cda2fcc2abacb4c64e2ebb325996" => :el_capitan
+    sha256 "010ccda715de1b29406ee14d7439c33b17fc5741aa5c96439d01f2ce30f2431a" => :yosemite
+  end
+
   depends_on "go" => :build
 
   def install
