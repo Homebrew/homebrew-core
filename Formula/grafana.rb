@@ -9,9 +9,10 @@ class Grafana < Formula
   head "https://github.com/grafana/grafana.git"
 
   bottle do
-    sha256 "36e61585e585aef974a99c8169060a48efa3891e3cd3d74fde35a35d34024052" => :sierra
-    sha256 "d9c0db0692a96c3f386cd94d73687adc37f74d6a2098c2559cae9030fcf9bd5a" => :el_capitan
-    sha256 "85ac4a720c9b3fe8179f6ccc07a54402b1e228d508a780f0e11f96ff9c3f89c3" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "7c7bcf3fa6db1c54dc94ab030ac0c8adc3d20761e695446ba13c1db98c6568d4" => :sierra
+    sha256 "96f30bf66355d985b23b39d2466f23e6a83455a4c9a1b9479eefaacc6415ef64" => :el_capitan
+    sha256 "41b6bca25925ab369383de74667e0b2ed5a79db8003ff3f3b82c73eeab5d047e" => :yosemite
   end
 
   depends_on "go" => :build
