@@ -31,7 +31,7 @@ class Pgbouncer < Formula
   def caveats; <<-EOS.undent
     The config file: #{etc}/pgbouncer.ini is in the "ini" format and you
     will need to edit it for your particular setup. See:
-    http://pgbouncer.projects.postgresql.org/doc/config.html
+    https://pgbouncer.github.io/config.html
 
     The auth_file option should point to the #{etc}/userlist.txt file which
     can be populated by the #{bin}/mkauth.py script.

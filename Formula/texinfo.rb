@@ -1,8 +1,8 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
   sha256 "246cf3ffa54985118ec2eea2b8d0c71b92114efe6282c2ae90d65029db4cf93a"
 
   bottle do

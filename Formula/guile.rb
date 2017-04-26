@@ -1,14 +1,14 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftpmirror.gnu.org/guile/guile-2.2.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/guile/guile-2.2.0.tar.xz"
-  sha256 "c18198ff6e8b05c620dbdd49b816a2e63a2688af843b5cf8e965041f1adcb515"
+  url "https://ftp.gnu.org/gnu/guile/guile-2.2.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.2.tar.xz"
+  sha256 "1c91a46197fb1adeba4fd62a25efcf3621c6450be166d7a7062ef6ca7e11f5ab"
 
   bottle do
-    sha256 "6f75b9defe2af4b88da18f37e4ee1e51ad2a8fd30f97993bb47fdee6c567c09c" => :sierra
-    sha256 "1484efe6e4ce820c04f1937b0efa1f33a4576b6eddb445f12205674e4b90ef18" => :el_capitan
-    sha256 "cafb17a5cfa061aeb11a6afb61374279e0940b0be8b6e11a708c65f16b4559fb" => :yosemite
+    sha256 "f99bf6e5381bcb8c0a77d1eeee51f5a3a10094771cba1e06c6036c66dfcc0181" => :sierra
+    sha256 "894296e0f264fb2e9b093dfd2798363ef8ece41e5d92ba9544f65f5690c9c662" => :el_capitan
+    sha256 "dd1dbd7d3c0f9c5be7ae5177e7024739026886e9422704b2e561c5ed25f11052" => :yosemite
   end
 
   head do
