@@ -6,6 +6,13 @@ class Binaryen < Formula
 
   head "https://github.com/WebAssembly/binaryen.git"
 
+  bottle do
+    cellar :any
+    sha256 "cf97939e920df902e21ad075aa9c3c2c587280cb63335e154a89c90e5fd4185b" => :sierra
+    sha256 "bf5846f96131f98695e475a73a7d5c14767e2886ac3c56a609ee2b6f0e48f253" => :el_capitan
+    sha256 "5e2269c335a5e6777a85ea729a597d07ce4676fe19f3aef08ec14582e0389402" => :yosemite
+  end
+
   depends_on "cmake" => :build
 
   needs :cxx11
