@@ -32,6 +32,16 @@ class Datomic < Formula
     (var+"log/datomic").mkpath
   end
 
+  def caveats
+    <<-EOS.undent
+      All commands have been installed with the prefix "datomic-".
+
+      We agreed to the Datomic Free Edition License for you:
+        http://www.datomic.com/datomic-free-edition-license.html
+      If this is unacceptable you should uninstall.
+    EOS
+  end
+
   plist_options :manual => "transactor #{HOMEBREW_PREFIX}/etc/datomic/free-transactor.properties"
 
   def plist; <<-EOS.undent
@@ -58,16 +68,6 @@ class Datomic < Formula
         <string>#{var}/log/datomic/output.log</string>
     </dict>
     </plist>
-    EOS
-  end
-
-  def caveats
-    <<-EOS.undent
-      All commands have been installed with the prefix "datomic-".
-
-      We agreed to the Datomic Free Edition License for you:
-        http://www.datomic.com/datomic-free-edition-license.html
-      If this is unacceptable you should uninstall.
     EOS
   end
 
