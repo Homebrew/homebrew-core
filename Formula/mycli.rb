@@ -3,7 +3,7 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://pypi.python.org/packages/d3/ba/13b9ca22e77fbe6770c39c6fae912ec2fe95bbbbcc7b1ed287851f04c438/mycli-1.10.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/d3/ba/13b9ca22e77fbe6770c39c6fae912ec2fe95bbbbcc7b1ed287851f04c438/mycli-1.10.0.tar.gz"
   sha256 "e3ff390c66dcd9ea15235ea36ee7ad26630197c21d95e78926df54f41ad1fcc7"
 
   bottle do
@@ -26,8 +26,8 @@ class Mycli < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/23/be/4876b52d5cc159cbd4b0ff6e7aa419a26470849a43a8f647857a4a24467b/prompt_toolkit-1.0.13.tar.gz"
-    sha256 "33d68ca09f76cd73287fde7df5748ffacf26a8238dd61ee81ac50860ea7c6776"
+    url "https://files.pythonhosted.org/packages/55/56/8c39509b614bda53e638b7500f12577d663ac1b868aef53426fc6a26c3f5/prompt_toolkit-1.0.14.tar.gz"
+    sha256 "cc66413b1b4b17021675d9f2d15d57e640b06ddfd99bb724c73484126d22622f"
   end
 
   resource "pycryptodome" do
@@ -41,8 +41,8 @@ class Mycli < Formula
   end
 
   resource "PyMySQL" do
-    url "https://files.pythonhosted.org/packages/90/c2/d81638491baa572d6e79b78bde42c7449d2e45b578c919c0df1a76cb859b/PyMySQL-0.7.10.tar.gz"
-    sha256 "9468bd7d54df68e49c39e91d7c223d13dedf9e4284173cb5d761673e6275024e"
+    url "https://files.pythonhosted.org/packages/29/f8/919a28976bf0557b7819fd6935bfd839118aff913407ca58346e14fa6c86/PyMySQL-0.7.11.tar.gz"
+    sha256 "56e3f5bcef6501012233620b54f6a7b8a34edc5751e85e4e3da9a0d808df5f68"
   end
 
   resource "six" do
