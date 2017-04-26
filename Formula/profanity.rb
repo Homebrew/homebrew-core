@@ -31,8 +31,7 @@ class Profanity < Formula
   depends_on "libotr" => :recommended
   depends_on "gpgme" => :recommended
   depends_on "terminal-notifier" => :optional
-  # this always uses homebrewed python version
-  depends_on "python" if build.with? "python-plugin-support"
+  depends_on :python if build.with? "python-plugin-support"
 
   def install
     args = %W[
