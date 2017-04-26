@@ -86,7 +86,13 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
     ]
-    args << "NO_OPENSSL=1" << "APPLE_COMMON_CRYPTO=1" if build.without? "brewed-openssl"
+
+    if build.with? "brewed-openssl"
+      openssl_prefix = Formula["openssl"].opt_prefix
+      args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
+    else
+      args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
+    end
 
     system "make", "install", *args
 
