@@ -7,9 +7,9 @@ class PureFtpd < Formula
   sha256 "0609807335aade4d7145abdbb5cb05c9856a3e626babe90658cb0df315cb0a5c"
 
   bottle do
-    sha256 "4f3743bf4cbb5b60dc5711706df379b8815f9bcba6adaa2b31e30fe11b037f9b" => :sierra
-    sha256 "10fbab7ef2764b2e73a0ce6cf05cbd690c2a588510e849ba9b07ad8f471e4a1d" => :el_capitan
-    sha256 "124a7cfc3b61fafeb24e0d30bd1b3ed3845520172b457940c89a37481995e1d7" => :yosemite
+    sha256 "cb6e0e3bf30f7adbed8b2a39c95e8656eaa1b2d81672aca1c200b8c37e399f48" => :sierra
+    sha256 "50c1b92540ecb9b99a34c57b03fdab13d581c4b05d31f405d67ac2a9e5f45528" => :el_capitan
+    sha256 "108a3d878df5f0258a7ecbfd63004c844b4d621c4cbf2e4bcd5eb5ffd4a5ff7d" => :yosemite
   end
 
   option "with-virtualchroot", "Follow symbolic links even for chrooted accounts"
