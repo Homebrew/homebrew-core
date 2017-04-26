@@ -6,10 +6,10 @@ class Oauth2Proxy < Formula
   head "https://github.com/bitly/oauth2_proxy.git"
 
   bottle do
-    sha256 "6eb329e21c7cb6dccad6d03ac8d7260a3ff2ebc4f322d5ae5d8c390bbf697622" => :sierra
-    sha256 "982baa090eaedfacbbf82ac94721ecd8c466fba96987638bfc94c7e898f65224" => :el_capitan
-    sha256 "078a955570fd82bbaa4003e5869b5b5368f06e567d5ff3edef0ede524e4741e7" => :yosemite
-    sha256 "6d8ad6797411db753926c7cfe5df394034cbdf9d574df71c0d35ce8e5febe261" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "48fde51ae6c8f7c1ea348526117953ced48616c0e9a7678867c31998fdc13612" => :sierra
+    sha256 "56c173bc0afde492037cd5c572ae600562058ae0c9c0dc8b0155d902332bbe37" => :el_capitan
+    sha256 "bf940346696e4c891da94647640886d5aa78c261649730ddb08bc7efc3bea63e" => :yosemite
   end
 
   depends_on "go" => :build
