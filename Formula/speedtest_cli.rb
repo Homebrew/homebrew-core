@@ -1,8 +1,8 @@
 class SpeedtestCli < Formula
   desc "Command-line interface for https://speedtest.net bandwidth tests"
   homepage "https://github.com/sivel/speedtest-cli"
-  url "https://github.com/sivel/speedtest-cli/archive/v1.0.4.tar.gz"
-  sha256 "8548af6284763030f346d5c0aab9bd19dfdebdcb36b20f068c7c8227edfefae0"
+  url "https://github.com/sivel/speedtest-cli/archive/v1.0.6.tar.gz"
+  sha256 "9ed312e552929241ed090e0c9370801c348e252af89e498034cf4a1ae2aa8aaa"
   head "https://github.com/sivel/speedtest-cli.git"
 
   bottle :unneeded

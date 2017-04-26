@@ -1,14 +1,14 @@
 class Gssh < Formula
   desc "SSH automation tool based on Groovy DSL"
   homepage "https://github.com/int128/groovy-ssh"
-  url "https://github.com/int128/groovy-ssh/archive/2.8.0.tar.gz"
-  sha256 "d283bb2d42ffad64fc4b6bcaa4c6e0fa3641a672e9b52584149389a6aeed7241"
+  url "https://github.com/int128/groovy-ssh/archive/2.9.0.tar.gz"
+  sha256 "9199c675b91041858a246eee156c6ed0d65d153efafb62820f66d3722b9d17bf"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef87c8277a63c28f90ac45c462571fe9737171d5f0f44a1a22c5cdd8364c924a" => :sierra
-    sha256 "26044731fb75bfce1e35486f523d8789fb62ce49b3b1d31f79429faefdd73caa" => :el_capitan
-    sha256 "bfb87766d99f8c69b9c9daa0c6656483e570f714ebe81ba2a198b544d23ea842" => :yosemite
+    sha256 "c8e18abd807d0ecce46b9541ee8f595633375e04aabc392478b17542db15a8b9" => :sierra
+    sha256 "63dbeda42ab0d8d6af23d04b1485f868e8ee5b2f315c5538406c8da2901d8884" => :el_capitan
+    sha256 "62ca0404e4429f62df84b96dba7b0219db9d883595f31a4427bd884a2e45b705" => :yosemite
   end
 
   depends_on :java => "1.7+"
