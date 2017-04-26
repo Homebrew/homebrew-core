@@ -1,10 +1,8 @@
 class Freediameter < Formula
   desc "Open source Diameter (Authentication) protocol implementation"
   homepage "http://www.freediameter.net"
-  url "http://www.freediameter.net/hg/freeDiameter/archive/1.2.0.tar.gz"
-  sha256 "0601a7f559af6596dff8e18f5c9b17bc66de50d8e05640aa64a3403a841cb228"
-  revision 3
-
+  url "http://www.freediameter.net/hg/freeDiameter/archive/1.2.1.tar.gz"
+  sha256 "bd7f105542e9903e776aa006c6931c1f5d3d477cb59af33a9162422efa477097"
   head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
@@ -28,22 +26,32 @@ class Freediameter < Formula
   end
 
   def install
+    # Support libidn 2.x. Upstream Trac is DOA.
+    # Emailed help@freediameter.net on 26/04/2017 with patch.
+    %w[
+      cmake/Modules/FindIDNA.cmake
+      include/freeDiameter/CMakeLists.txt
+      libfdproto/ostr.c
+    ].each { |f| inreplace f, "idna.h", "idn2.h" }
+    inreplace "cmake/Modules/FindIDNA.cmake", "NAMES idn", "NAMES idn2"
+
     args = std_cmake_args + %W[
       -DDEFAULT_CONF_PATH=#{etc}
       -DDISABLE_SCTP=ON
+      -DIDNA_INCLUDE_DIR=#{Formula["libidn"].opt_include}
     ]
-
     args << "-DALL_EXTENSIONS=ON" if build.with? "all-extensions"
-    args << ".."
 
     mkdir "build" do
-      system "cmake", *args
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
 
     prefix.install "doc", "contrib"
+  end
 
+  def post_install
     unless File.exist?(etc/"freeDiameter.conf")
       cp prefix/"doc/freediameter.conf.sample", etc/"freeDiameter.conf"
     end
@@ -52,12 +60,12 @@ class Freediameter < Formula
   def caveats; <<-EOS.undent
     To configure freeDiameter, edit #{etc}/freeDiameter.conf to taste.
 
-    Sample configuration files can be found in #{prefix}/doc
+    Sample configuration files can be found in #{opt_prefix}/doc
 
     For more information about freeDiameter configuration options, read:
       http://www.freediameter.net/trac/wiki/Configuration
 
-    Other potentially useful files can be found in #{prefix}/contrib
+    Other potentially useful files can be found in #{opt_prefix}/contrib
     EOS
   end
 
@@ -82,5 +90,9 @@ class Freediameter < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/freeDiameterd --version")
   end
 end
