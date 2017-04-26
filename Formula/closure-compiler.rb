@@ -1,8 +1,8 @@
 class ClosureCompiler < Formula
   desc "JavaScript optimizing compiler"
   homepage "https://github.com/google/closure-compiler"
-  url "https://search.maven.org/remotecontent?filepath=com/google/javascript/closure-compiler/v20170409/closure-compiler-v20170409.jar"
-  sha256 "23f2ec52dd09fd5d5614ae6f6b93667bfe4526cbc281e04277e53b8888763548"
+  url "https://search.maven.org/remotecontent?filepath=com/google/javascript/closure-compiler/v20170423/closure-compiler-v20170423.jar"
+  sha256 "3b61782f4a88e85fcf98a61b05c764a48ed8eb1177bebf713c22e09ada4c96e0"
 
   bottle :unneeded
 
