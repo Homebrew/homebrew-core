@@ -1,16 +1,27 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
-  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
+  revision 1
   head "https://github.com/boostorg/boost.git"
+
+  stable do
+    url "https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2"
+    sha256 "7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332"
+
+    # Remove for > 1.64.0
+    # "Replace boost::serialization::detail::get_data function."
+    # Upstream PR from 26 Jan 2017 https://github.com/boostorg/mpi/pull/39
+    patch :p2 do
+      url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch"
+      sha256 "c7af75a83fef90fdb9858bc988d64ca569ae8d940396b9bc60a57d63fca2587b"
+    end
+  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e5607a5dea289ee90f3da7258dbaec86301ce3d7f4c0b9f377c280edd3b25a8c" => :sierra
-    sha256 "5aa1c0ac09e0a02172410c3b150127025cebb877bd991888fd9942a94be88229" => :el_capitan
-    sha256 "dfec6aa1ab706974b3b9eae6ce20701d909f582c5fe7d250ac99a24d90997074" => :yosemite
+    sha256 "94c29d2d149a6383fa4050e7cb478e3dcae66895d78b0a0492d8fff63dd73a14" => :sierra
+    sha256 "24ae06f30527b4b2375cc2c375ce1af22e4dc0db04dd65896c80231e46ea0ba8" => :el_capitan
+    sha256 "ab391a24436ffb4e32dd580d4b0de42e25f822d985273f16595ee865d7a5d995" => :yosemite
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
@@ -27,6 +38,13 @@ class Boost < Formula
   end
 
   needs :cxx11 if build.cxx11?
+
+  # fix error: no member named 'make_array' in namespace 'boost::serialization'
+  # https://svn.boost.org/trac/boost/ticket/12978
+  patch :p2 do
+    url "https://github.com/boostorg/serialization/commit/1d86261.diff"
+    sha256 "155f603a00975a1702808be072c1420964feac8323de39c111a9d3a363a4ed9a"
+  end
 
   def install
     # Force boost to compile with the desired compiler

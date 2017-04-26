@@ -14,9 +14,9 @@ class Redis < Formula
   end
 
   devel do
-    url "https://github.com/antirez/redis/archive/4.0-rc2.tar.gz"
-    sha256 "70941c192e6afe441cf2c8d659c39ab955e476030c492179a91dcf3f02f5db67"
-    version "4.0RC2"
+    url "https://github.com/antirez/redis/archive/4.0-rc3.tar.gz"
+    sha256 "bc948bcb32dc4ba43412dd791b4bb48c64de9debb797346b9c9f1b2cb98f96f4"
+    version "4.0RC3"
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
