@@ -1,8 +1,8 @@
 class Gperf < Formula
   desc "Perfect hash function generator"
   homepage "https://www.gnu.org/software/gperf"
-  url "https://ftpmirror.gnu.org/gperf/gperf-3.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
+  url "https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gperf/gperf-3.1.tar.gz"
   sha256 "588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2"
 
   bottle do

@@ -1,8 +1,8 @@
 class Bc < Formula
   desc "arbitrary precision numeric processing language"
   homepage "https://www.gnu.org/software/bc/"
-  url "https://ftpmirror.gnu.org/bc/bc-1.07.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz"
+  url "https://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/bc/bc-1.07.1.tar.gz"
   sha256 "62adfca89b0a1c0164c2cdca59ca210c1d44c3ffc46daf9931cf4942664cb02a"
 
   bottle do
