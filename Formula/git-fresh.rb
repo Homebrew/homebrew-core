@@ -14,3 +14,4 @@ class GitFresh < Formula
     system "#{bin}/git-fresh", "-T"
   end
 end
+
