@@ -1,8 +1,8 @@
 class RancherCli < Formula
   desc "The Rancher CLI is a unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v0.5.0.tar.gz"
-  sha256 "c126fd29834e3f99de7262eb455d3c318cb8d1f602c13f702023d38a9059fbb1"
+  url "https://github.com/rancher/cli/archive/v0.5.2.tar.gz"
+  sha256 "4b7bd71f9f23e465e61c1cd5fd97957fff3265fad6e90ca51c48322bede9108b"
 
   bottle do
     cellar :any_skip_relocation
