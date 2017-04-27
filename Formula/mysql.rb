@@ -130,7 +130,7 @@ class Mysql < Formula
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost by default
-      bind_address = 127.0.0.1
+      bind-address = 127.0.0.1
       EOS
       File.write(etc/"my.cnf", s)
     end
