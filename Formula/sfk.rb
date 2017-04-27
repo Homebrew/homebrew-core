@@ -13,8 +13,6 @@ class Sfk < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    # permission issue fixed in version 1.8.1 (HEAD)
-    chmod 0755, "install-sh"
     system "make"
     system "make", "install"
   end
