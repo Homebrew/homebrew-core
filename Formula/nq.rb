@@ -1,8 +1,8 @@
 class Nq < Formula
   desc "Unix command-line queue utility"
   homepage "https://github.com/chneukirchen/nq"
-  url "https://github.com/chneukirchen/nq/archive/v0.1.tar.gz"
-  sha256 "e0962a5e6a2cbf799bba7a79af22c40d21e5a80605df42c8bba37d3d8efb1793"
+  url "https://github.com/chneukirchen/nq/archive/v0.2.1.tar.gz"
+  sha256 "1773290791cce646e5e54e935118498a95948ca39ff5d58ac6dc65135275d3fc"
 
   head "https://github.com/chneukirchen/nq.git"
 
