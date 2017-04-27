@@ -1,8 +1,8 @@
 class Byteman < Formula
   desc "Java bytecode manipulation tool for testing, monitoring and tracing."
   homepage "https://byteman.jboss.org/"
-  url "https://downloads.jboss.org/byteman/3.0.9/byteman-download-3.0.9-bin.zip"
-  sha256 "5d5238620d4fa6c11c6a8ec212b27894febc23ebb92c68c45e530c01c096ea32"
+  url "https://downloads.jboss.org/byteman/3.0.10/byteman-download-3.0.10-bin.zip"
+  sha256 "39320f350dca3dff939d63031c48282dabaf599d34000501c1e0dcda29e7c1d4"
 
   devel do
     url "https://downloads.jboss.org/byteman/4.0.0-BETA4/byteman-download-4.0.0-BETA4-bin.zip"
