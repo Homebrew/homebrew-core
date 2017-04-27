@@ -133,6 +133,15 @@ class Mariadb < Formula
       inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -148,6 +157,8 @@ class Mariadb < Formula
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot
@@ -168,7 +179,6 @@ class Mariadb < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{var}/mysql</string>
       </array>
       <key>RunAtLoad</key>

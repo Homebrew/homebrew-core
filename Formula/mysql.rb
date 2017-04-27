@@ -113,6 +113,15 @@ class Mysql < Formula
               /^(PATH=".*)(")/,
               "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -129,6 +138,8 @@ class Mysql < Formula
     s = <<-EOS.undent
     We've installed your MySQL database without a root password. To secure it run:
         mysql_secure_installation
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect run:
         mysql -uroot
@@ -157,7 +168,6 @@ class Mysql < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{datadir}</string>
       </array>
       <key>RunAtLoad</key>
