@@ -2,8 +2,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.5.0/bit-0.5.0-brew.tar.gz"
-  sha256 "d276985d777657a4c9e5b3d5556cf5d5a05d3faf5ca88fcc993563a8b445aa5b"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.5.2/bit-0.5.2-brew.tar.gz"
+  sha256 "c6e183684e6f69c729886f96bbb05d39cfad429c92452a48c6c4b421fc1e8be7"
 
   bottle do
     cellar :any_skip_relocation
