@@ -5,6 +5,12 @@ class Knot < Formula
   sha256 "f90258bcb29c1f351cd8d824ff8d67aef906ae5d5ff0f652c4f69c69ed8a704f"
   revision 1
 
+  bottle do
+    sha256 "1b965a09c2f290dce6101f3611c5ce249439e6067172546828e8b52360e07384" => :sierra
+    sha256 "b93e2b97a65355b7abb6eca3ce6bdd2ca6e538957c44b9f2a292d67970bdc91e" => :el_capitan
+    sha256 "00644360ba8d10852a378e0f160c385c0d3e8a2e831750b58096c1f9b5a5000e" => :yosemite
+  end
+
   head do
     url "https://gitlab.labs.nic.cz/labs/knot.git"
 
