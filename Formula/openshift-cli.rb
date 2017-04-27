@@ -39,6 +39,9 @@ class OpenshiftCli < Formula
 
   test do
     assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
-    assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
-  end
+    if version >= '3.6.0-alpha.0'
+      assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
+    else
+      assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
+    end
 end
