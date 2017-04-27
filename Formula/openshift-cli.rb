@@ -44,4 +44,5 @@ class OpenshiftCli < Formula
     else
       assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
     end
+  end
 end
