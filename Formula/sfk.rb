@@ -1,5 +1,5 @@
 class Sfk < Formula
-  desc "Command Line Tools Collection"
+  desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
   url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.8.5/sfk-1.8.5.tar.gz"
   sha256 "294bc3f3fc4318a198da47d48ebe38652d57bb0dee2c11fa9c0025d3d8ad9dc4"
