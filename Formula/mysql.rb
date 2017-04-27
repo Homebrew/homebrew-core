@@ -123,6 +123,17 @@ class Mysql < Formula
       system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
     end
+
+    # Create my.cnf that binds to 127.0.0.1 by default
+    unless (etc/"my.cnf").exist?
+      s = <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost by default
+      bind_address = 127.0.0.1
+      EOS
+      File.write(etc/"my.cnf", s)
+    end
   end
 
   def caveats
@@ -130,11 +141,11 @@ class Mysql < Formula
     We've installed your MySQL database without a root password. To secure it run:
         mysql_secure_installation
 
+    We've installed a default server config which only allows connections from localhost.
+    You'll find that config here: #{etc}/my.cnf
+
     To connect run:
         mysql -uroot
-
-    Using brew services will place a plist file at #{ENV["HOME"]}/Library/LaunchAgents/#{plist_name}
-    This plist file overrides the bind address to 127.0.0.1. Edit this plist file if you need to change the server's bind address.
     EOS
     if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
       s += <<-EOS.undent
@@ -160,7 +171,6 @@ class Mysql < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{datadir}</string>
       </array>
       <key>RunAtLoad</key>
