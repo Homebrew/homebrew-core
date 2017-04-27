@@ -15,7 +15,10 @@ class FirebaseCli < Formula
   end
 
   test do
-    # other commands require login to use
-    system bin/"firebase", "--help"
+    (testpath/"test.exp").write <<-EOS.undent
+      spawn firebase login:ci --no-localhost
+      expect "Paste"
+    EOS
+    assert_match "authorization code", shell_output("expect -f test.exp")
   end
 end
