@@ -16,7 +16,7 @@ class FirebaseCli < Formula
 
   test do
     (testpath/"test.exp").write <<-EOS.undent
-      spawn firebase login:ci --no-localhost
+      spawn #{bin}/firebase login:ci --no-localhost
       expect "Paste"
     EOS
     assert_match "authorization code", shell_output("expect -f test.exp")
