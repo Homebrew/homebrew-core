@@ -1,8 +1,8 @@
 class Sfk < Formula
-  desc "Command Line Tools Collection"
+  desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
-  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.8.2/sfk-1.8.2.tar.gz"
-  sha256 "028e062463185345172983bfcd099f4b00e5ef7bccc1f5b4902f42868194219c"
+  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.8.5/sfk-1.8.5.tar.gz"
+  sha256 "294bc3f3fc4318a198da47d48ebe38652d57bb0dee2c11fa9c0025d3d8ad9dc4"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +13,6 @@ class Sfk < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    # permission issue fixed in version 1.8.1 (HEAD)
-    chmod 0755, "install-sh"
     system "make"
     system "make", "install"
   end
