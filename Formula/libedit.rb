@@ -17,7 +17,6 @@ class Libedit < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-widec",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
