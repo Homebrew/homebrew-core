@@ -12,17 +12,44 @@ class Gmime < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgpg-error" => :build
+  depends_on "gobject-introspection" => :recommended
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-largefile",
-                          "--enable-introspection",
-                          "--disable-vala",
-                          "--disable-mono",
-                          "--disable-glibtest"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-largefile
+      --disable-vala
+      --disable-mono
+      --disable-glibtest
+    ]
+
+    if build.with? "gobject-introspection"
+      args << "--enable-introspection"
+    else
+      args << "--disable-introspection"
+    end
+    system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
+      #include <gmime/gmime.h>
+      int main (int argc, char **argv)
+      {
+        g_mime_init(0);
+        if (gmime_major_version>=2) {
+          return 0;
+        } else {
+          return 1;
+        }
+      }
+      EOS
+    flags = `pkg-config --cflags --libs gmime-2.6`.split
+    system ENV.cc, "-o", "test", "test.c", *(flags + ENV.cflags.to_s.split)
+    system "./test"
   end
 end
