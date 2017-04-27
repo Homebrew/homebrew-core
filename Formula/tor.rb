@@ -11,12 +11,6 @@ class Tor < Formula
     sha256 "9bc64bf56797221ebce23972c908565399995058f2db6ba05c4a3ea26b61e3d0" => :yosemite
   end
 
-  devel do
-    url "https://www.torproject.org/dist/tor-0.3.0.5-rc.tar.gz"
-    mirror "https://tor.eff.org/dist/tor-0.3.0.5-rc.tar.gz"
-    sha256 "622c9366d8b753da9192e037d0a13d2d87ffec25b5c606a3d73a2452976b43e0"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl"
