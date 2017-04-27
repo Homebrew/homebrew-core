@@ -15,11 +15,25 @@ class Hesiod < Formula
   depends_on "libtool" => :build
   depends_on "libidn"
 
+  # Upstream patch for configure.ac, ensures later patch applies cleanly.
+  patch do
+    url "https://github.com/achernya/hesiod/commit/0f7999db.patch"
+    sha256 "3f70b537e2345672b31d2a7f2f50cf3bd794063dde3d24757afd93e7656b563e"
+  end
+
+  # Adds libidn2 support.
+  patch do
+    url "https://github.com/achernya/hesiod/pull/13.patch"
+    sha256 "a339e1e4d9b825cd248eea641f3fc13239a60b95442a9d9e1d9556becfca174f"
+  end
+
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-libidn2",
+                          "--without-libidn"
     system "make", "install"
   end
 
