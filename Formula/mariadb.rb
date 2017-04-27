@@ -151,6 +151,9 @@ class Mariadb < Formula
 
     To connect:
         mysql -uroot
+
+    Using brew services will place a plist file at #{ENV["HOME"]}/Library/LaunchAgents/#{plist_name}
+    This plist file overrides the bind address to 127.0.0.1. Edit this plist file if you need to change the server's bind address.
     EOS
   end
 

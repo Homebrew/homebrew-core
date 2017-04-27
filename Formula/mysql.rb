@@ -132,6 +132,9 @@ class Mysql < Formula
 
     To connect run:
         mysql -uroot
+
+    Using brew services will place a plist file at #{ENV["HOME"]}/Library/LaunchAgents/#{plist_name}
+    This plist file overrides the bind address to 127.0.0.1. Edit this plist file if you need to change the server's bind address.
     EOS
     if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
       s += <<-EOS.undent
