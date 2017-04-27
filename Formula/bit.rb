@@ -7,9 +7,9 @@ class Bit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fbcaf33ed93b9c0cd11b9aa6f5142d8544cb6d2e028b45aea0631d30bb22a27" => :sierra
-    sha256 "1b2a55c573e5f1889794abe397032e307247425af97705404d6d433db3451afe" => :el_capitan
-    sha256 "1b2a55c573e5f1889794abe397032e307247425af97705404d6d433db3451afe" => :yosemite
+    sha256 "9805732d4fdcc054e940d60f330b7b0d25b45ca38d29168e196e31f7d7d3b0ed" => :sierra
+    sha256 "63c23872f85bd67d240052fa7a93957ecead787af0fc663286d821c5909a705a" => :el_capitan
+    sha256 "63c23872f85bd67d240052fa7a93957ecead787af0fc663286d821c5909a705a" => :yosemite
   end
 
   def install
