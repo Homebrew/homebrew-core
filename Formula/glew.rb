@@ -16,19 +16,21 @@ class Glew < Formula
   depends_on "cmake" => :build
 
   patch do
+    url "https://github.com/nigels-com/glew/commit/925722f.patch"
+    sha256 "6f36179dc42f1bbf5dd5bfe525457e4988749b56ee68180482c3a82b999792ed"
+  end
+
+  patch do
     url "https://github.com/nigels-com/glew/pull/143.patch"
     sha256 "7761252b504e869e66edfe1615b8eef40311b9eebd6268ae164d4c83af1b31e0"
   end
 
   def install
-    inreplace "glew.pc.in", "Requires: @requireslib@", ""
-
     cd "build" do
       system "cmake", "./cmake", *std_cmake_args
       system "make"
       system "make", "install"
     end
-
     doc.install Dir["doc/*"]
   end
 
