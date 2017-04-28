@@ -44,7 +44,7 @@ class Groonga < Formula
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      :revision => "71936098048f915a797de990776564c924d40b6a"
+      :revision => "c8b87d5d32f34964f8c8dec1a020bd90dc5be701"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
