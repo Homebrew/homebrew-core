@@ -1,8 +1,8 @@
 class Gnuradio < Formula
   desc "SDK providing the signal processing runtime and processing blocks"
   homepage "https://gnuradio.org/"
-  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.10.1.tar.gz"
-  sha256 "63d7b65cc4abe22f47b8f41caaf7370a0a502b91e36e29901ba03e8838ab4937"
+  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
+  sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
