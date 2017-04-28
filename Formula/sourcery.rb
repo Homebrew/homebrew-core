@@ -13,11 +13,10 @@ class Sourcery < Formula
   depends_on :xcode => ["8.0", :build]
 
   def install
-    ENV.delete("CC")
-    ENV["SDKROOT"] = MacOS.sdk_path
-    system "swift", "build", "-c", "release"
-    bin.install ".build/release/sourcery"
-    lib.install Dir[".build/release/*.dylib"]
+    rake "build"
+    inreplace "bin/sourcery", '"${parent_path}"', libexec
+    bin.install "bin/sourcery"
+    libexec.install "bin/Sourcery.app"
   end
 
   test do
