@@ -7,6 +7,13 @@ class FlintChecker < Formula
       :tag => "v0.0.4",
       :revision => "393190ab5fa61e442b82ba1a4b54135c1fcbcd22"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d5aa899806bfdaed0efc45a30e15f102dc53d11d0a20a0f4e335f400bd0eb04a" => :sierra
+    sha256 "b515140682a88d55bd78ee83727a52d1b78b3627991acd22f2693de1a581f782" => :el_capitan
+    sha256 "88f5110b6a4bd8d7910da4c81968b19d70626c5cf74ea778dea039a4cf78a9fc" => :yosemite
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/octokit/go-octokit" do
