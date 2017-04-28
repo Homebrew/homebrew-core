@@ -127,10 +127,10 @@ class Mysql < Formula
     # Create my.cnf that binds to 127.0.0.1 by default
     unless (etc/"my.cnf").exist?
       s = <<-EOS.undent
-      # Default Homebrew MySQL server config
-      [mysqld]
-      # Only allow connections from localhost by default
-      bind-address = 127.0.0.1
+        # Default Homebrew MySQL server config
+        [mysqld]
+        # Only allow connections from localhost
+        bind-address = 127.0.0.1
       EOS
       File.write(etc/"my.cnf", s)
     end
@@ -141,8 +141,7 @@ class Mysql < Formula
     We've installed your MySQL database without a root password. To secure it run:
         mysql_secure_installation
 
-    We've installed a default server config which only allows connections from localhost.
-    You'll find that config here: #{etc}/my.cnf
+    MySQL is configured to only allow connections from localhost by default
 
     To connect run:
         mysql -uroot
