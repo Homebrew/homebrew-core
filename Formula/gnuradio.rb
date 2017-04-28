@@ -59,6 +59,7 @@ class Gnuradio < Formula
 
   def install
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     res = %w[Markdown Cheetah lxml]
