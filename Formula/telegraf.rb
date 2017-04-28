@@ -33,6 +33,11 @@ class Telegraf < Formula
     (etc/"telegraf.d").mkpath
   end
 
+  def post_install
+    # Create directory for additional user configurations
+    (etc/"telegraf.d").mkpath
+  end
+
   plist_options :manual => "telegraf -config #{HOMEBREW_PREFIX}/etc/telegraf.conf"
 
   def plist; <<-EOS.undent
