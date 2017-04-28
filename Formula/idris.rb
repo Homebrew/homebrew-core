@@ -22,11 +22,29 @@ class Idris < Formula
   depends_on "gmp"
   depends_on "libffi" => :recommended
 
+  # Remove once trifecta > 1.6 is released to Hackage
+  # Fix "Couldn't match type 'Parser' with 'IdrisInnerParser' ..."
+  # Upstream commit from 27 Oct 2016 "Remove redundant constraint in DeltaParsing method"
+  # See http://git.haskell.org/ghc.git/blob/HEAD:/docs/users_guide/8.0.2-notes.rst#l32
+  resource "trifecta-patch" do
+    url "https://github.com/ekmett/trifecta/commit/aaa47fa.patch"
+    sha256 "eb5d36506461d6caae38b27ca7d9045d69efb3dea3fe718b44ee97a719feca1c"
+  end
+
   def install
     args = []
     args << "-f FFI" if build.with? "libffi"
     args << "-f release" if build.stable?
-    install_cabal_package *args
+
+    cabal_sandbox do
+      system "cabal", "get", "trifecta"
+      resource("trifecta-patch").stage do
+        system "patch", "-p1", "-i", Pathname.pwd/"aaa47fa.patch", "-d",
+                        buildpath/"trifecta-1.6"
+      end
+      cabal_sandbox_add_source "trifecta-1.6"
+      install_cabal_package *args
+    end
   end
 
   test do
