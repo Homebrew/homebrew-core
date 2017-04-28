@@ -8,6 +8,8 @@ class CargoCompletion < Formula
 
   bottle :unneeded
 
+  conflicts_with "rust", :because => "both install shell completion for cargo"
+
   def install
     bash_completion.install "src/etc/cargo.bashcomp.sh" => "cargo"
     zsh_completion.install "src/etc/_cargo"
