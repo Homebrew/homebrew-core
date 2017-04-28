@@ -94,6 +94,7 @@ class Git < Formula
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
     end
 
+    system "make", "test", *args
     system "make", "install", *args
 
     # Install the macOS keychain credential helper
