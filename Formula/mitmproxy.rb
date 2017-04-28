@@ -8,9 +8,10 @@ class Mitmproxy < Formula
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 "0ddd7494a065cc6296fff9ea88a532c9f9e175bca54d0f0968ace3223d5bd892" => :sierra
-    sha256 "6375b4fb18c3e84d53296afcce7e70f9e6bec1ed346819e333058054039b0a88" => :el_capitan
-    sha256 "2763f78f8e81c1dcde3e4e99a07dd5183faf9b816870c9384debe6929a39c466" => :yosemite
+    cellar :any
+    sha256 "11d10f614eb468bd1fe099b175a5398a526d9bccc231366b0687fc9c1322e357" => :sierra
+    sha256 "8129f5dc7ea39841bd2cc91a34a68d6e8990050d497ccd86a6cddafc2e65e30a" => :el_capitan
+    sha256 "ff8befb69a8481eebbd206248459efec24794c8a0b47f9c09feb7d1701f74673" => :yosemite
   end
 
   depends_on "openssl@1.1"
