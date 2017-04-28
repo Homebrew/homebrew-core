@@ -8,6 +8,13 @@ class BandcampDl < Formula
   sha256 "9e2268295ca6ef6e6991569726d1a912a110e7a87079eeef269477a5adafb5b2"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c295a1c1a4a58922b592361a7bb97e22526c47e084a30712ae15476eeec9682d" => :sierra
+    sha256 "1e2629df2ce14ca4fa6ad9e680c899bf621da2fb3a894ddaab71dc054920b3c9" => :el_capitan
+    sha256 "9611608daa0438f0e1d37eef9cabf37b78857a7ea7e23ae31197a0a9572360ec" => :yosemite
+  end
+
   depends_on :python3
 
   resource "beautifulsoup4" do
