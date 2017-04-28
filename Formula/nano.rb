@@ -21,9 +21,6 @@ class Nano < Formula
   depends_on "ncurses"
 
   def install
-    # Otherwise SIGWINCH will not be defined
-    ENV.append_to_cflags "-U_XOPEN_SOURCE" if MacOS.version < :leopard
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
