@@ -1,9 +1,9 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "http://www.grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.2.5.tar.gz"
-  sha256 "44b60a7d2d6108ee569f970373401b57486146bc980bf4dd8187ed052e95cb83"
-  revision 1
+  url "https://github.com/grpc/grpc.git",
+      :tag => "v1.3.0",
+      :revision => "3ef2355eaedc07f8900ad98d079448169a2a2a06"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
@@ -12,9 +12,9 @@ class Grpc < Formula
     sha256 "9a2fc6fe4e4f6d37188ead38006bdb97a97f8a6c7ab14f2e670e532ad24fecef" => :yosemite
   end
 
-  depends_on "openssl"
-  depends_on "pkg-config" => :build
-  depends_on "protobuf"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
     system "make", "install", "prefix=#{prefix}"
@@ -31,7 +31,7 @@ class Grpc < Formula
         return GRPC_STATUS_OK;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lgrpc", "-o", "test"
+    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", "-o", "test"
     system "./test"
   end
 end
