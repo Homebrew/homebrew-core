@@ -9,9 +9,9 @@ class MpsYoutube < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f62012fcfd6741ddfc611dc8f9c708e05c58c53124c31d1b33f5f05e5c3a379" => :sierra
-    sha256 "19f703e559355d7ce49fc19a21475216ce0bcd87d4076e65ed2235af5ace13d9" => :el_capitan
-    sha256 "c1a6f0b5da9da27ce987f3a48fb810c62110354f7a978785974f4d267ba4936e" => :yosemite
+    sha256 "6a0bce23c1aba661233997b6d59e3ac3ee9b790b428a84e01ec759d3e0380302" => :sierra
+    sha256 "1793393451f9e24e1fa33d8059529073d6fd79cc70db197052794084ba0e4e58" => :el_capitan
+    sha256 "b08913a3417e99db5c27e4173a20a2a98aecf98f964ac814bd491286f37d053c" => :yosemite
   end
 
   depends_on "python3"
