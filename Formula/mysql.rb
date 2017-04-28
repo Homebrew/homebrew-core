@@ -113,6 +113,15 @@ class Mysql < Formula
               /^(PATH=".*)(")/,
               "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -122,17 +131,6 @@ class Mysql < Formula
       ENV["TMPDIR"] = nil
       system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
-    end
-
-    # Create my.cnf that binds to 127.0.0.1 by default
-    unless (etc/"my.cnf").exist?
-      s = <<-EOS.undent
-        # Default Homebrew MySQL server config
-        [mysqld]
-        # Only allow connections from localhost
-        bind-address = 127.0.0.1
-      EOS
-      File.write(etc/"my.cnf", s)
     end
   end
 
