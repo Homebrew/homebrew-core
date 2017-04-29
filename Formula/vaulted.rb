@@ -3,8 +3,8 @@ require "language/go"
 class Vaulted < Formula
   desc "Allows the secure storage and execution of environments"
   homepage "https://github.com/miquella/vaulted"
-  url "https://github.com/miquella/vaulted/archive/v2.1.1.tar.gz"
-  sha256 "e8adc5d8b2e6b1ad264c851aa864bdd57359b0024a5768de5f1231e3ae5f644c"
+  url "https://github.com/miquella/vaulted/archive/v2.2.0.tar.gz"
+  sha256 "2b92f4973d4273dfb508f7e11469d072e91d0762864cf60ee720998024c0feb4"
 
   head "https://github.com/miquella/vaulted.git"
 
