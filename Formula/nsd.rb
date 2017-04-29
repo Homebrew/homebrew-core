@@ -1,8 +1,8 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.15.tar.gz"
-  sha256 "494a862cfcd26a525a4bf06306eb7ab0387b34678ac6d37767507438e3a23a4b"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.16.tar.gz"
+  sha256 "7f8367ad23cc5cddffa885e7e2f549123c8b4123db9726df41d99f255d6baab2"
 
   bottle do
     sha256 "a151c4ee34b03883204024d75a8764110f60b27ecd16833565a462dd518aefef" => :sierra
@@ -22,6 +22,7 @@ class Nsd < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --localstatedir=#{var}
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
