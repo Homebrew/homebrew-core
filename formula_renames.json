@@ -64,6 +64,7 @@
   "google-perftools": "gperftools",
   "gradle214": "gradle@2.14",
   "grails25": "grails@2.5",
+  "grunt": "grunt-cli",
   "gsl1": "gsl@1",
   "gst-plugins-bad010": "gst-plugins-bad@0.10",
   "gst-plugins-base010": "gst-plugins-base@0.10",

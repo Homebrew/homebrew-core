@@ -1,6 +1,6 @@
 require "language/node"
 
-class Grunt < Formula
+class GruntCli < Formula
   desc "JavaScript Task Runner"
   homepage "https://gruntjs.com/"
   url "https://registry.npmjs.org/grunt-cli/-/grunt-cli-1.2.0.tgz"
