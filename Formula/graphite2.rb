@@ -1,10 +1,23 @@
 class Graphite2 < Formula
   desc "Smart font renderer for non-Roman scripts"
   homepage "http://graphite.sil.org"
-  url "https://github.com/silnrsi/graphite/archive/1.3.9.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphite2/graphite2_1.3.9.orig.tar.gz"
-  sha256 "f82f92d86a63da79eba10a37c80d943dce883bd72dbc99ebe5bdb7022d3e2391"
+  revision 1
+
   head "https://github.com/silnrsi/graphite.git"
+
+  stable do
+    url "https://github.com/silnrsi/graphite/releases/download/1.3.9/graphite2-1.3.9.tgz"
+    # Debian mirror the release tarball, not the GitHub archive tarball.
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/graphite2/graphite2_1.3.9.orig.tar.gz"
+    sha256 "ec0185b663059553fd46e8c4a4f0dede60a02f13a7a1fefc2ce70332ea814567"
+
+    # Patch for CVE-2017-5436.
+    # https://www.vuxml.org/freebsd/cf133acc-82e7-4755-a66a-5ddf90dacbe6.html
+    patch do
+      url "https://github.com/silnrsi/graphite/commit/1ce331d5548b.patch"
+      sha256 "39613db98f959b48adc2387d37a5f384566172b906d949edad452fcd48c3874c"
+    end
+  end
 
   bottle do
     cellar :any
