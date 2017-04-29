@@ -14,6 +14,15 @@ class Druid < Formula
     cd libexec do
       system "bin/init"
     end
+
+    Pathname.glob("#{libexec}/bin/*.sh") do |file|
+      (bin+"druid-#{file.basename}").write <<-EOS.undent
+        #!/bin/bash
+        cd #{libexec}
+        bin/#{file.basename} "$@"
+      EOS
+      chmod 0755, bin+"druid-#{file.basename}"
+    end
   end
 
   test do
@@ -21,15 +30,13 @@ class Druid < Formula
     ENV["DRUID_LOG_DIR"] = testpath
     ENV["DRUID_PID_DIR"] = testpath
 
-    cd libexec do
-      begin
-        fork { exec "bin/broker.sh start" }
-        sleep 30
-        output = shell_output("curl -s http://localhost:8082/status")
-        assert_match /version/m, output
-      ensure
-        system "bin/broker.sh", "stop"
-      end
+    begin
+      fork { exec bin/"druid-broker.sh", "start" }
+      sleep 30
+      output = shell_output("curl -s http://localhost:8082/status")
+      assert_match /version/m, output
+    ensure
+      system bin/"druid-broker.sh", "stop"
     end
   end
 end
