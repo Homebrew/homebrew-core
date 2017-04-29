@@ -3,7 +3,7 @@ class ProtobufC < Formula
   homepage "https://github.com/protobuf-c/protobuf-c"
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.2.1/protobuf-c-1.2.1.tar.gz"
   sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "d38d06b1bc9886aaa0a5c684d5225f45d2cc6e9f1fff293bbcc49138b153065e" => :sierra
