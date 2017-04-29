@@ -8,9 +8,9 @@ class Upscaledb < Formula
 
   bottle do
     cellar :any
-    sha256 "72bff8f4ed0ab971455323df110b4c943f2df81f949786d35e45fa000a7f0af8" => :sierra
-    sha256 "06f4e20e40bb56130ff85e5939b0344d0673b09d955402cde39a98070cee82bc" => :el_capitan
-    sha256 "2e48d0b0bb6c9802a511c35abd1a7c0fb0782d73c554bc4ee2104a8b431ccf84" => :yosemite
+    sha256 "41646b2bafdd2d90cc85d82e529c90602554010468a33715a5108e88ca2c191f" => :sierra
+    sha256 "732b2d9f23a95649b7fb246d3ca58b864af54c81715564cff73e2ac9dc442073" => :el_capitan
+    sha256 "abe0e8f7b2956b769ec6961907921bb690f2f24f73fe6cc9ce46a3bd0b18ef39" => :yosemite
   end
 
   option "without-java", "Do not build the Java wrapper"
