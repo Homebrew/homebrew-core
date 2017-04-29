@@ -5,6 +5,7 @@ class Minio < Formula
     :tag => "RELEASE.2017-03-16T21-50-32Z",
     :revision => "6e7d33df203d0c11d014b6625bfd18aada22328a"
   version "20170316215032"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,10 @@ class Minio < Formula
     sha256 "157af8ad8cde930743a2033c723ba1ecf05079d9eca39bddafdf735321aee6e5" => :yosemite
   end
 
-  depends_on "go" => :build
+  ## Minio depends on go1.7.x only because of the apparent incompatibilities with go1.8
+  ## for now, until the upstream https://github.com/minio/minio/tree/go1.8 is merged
+  ## and a new release is out we don't need to change the below line.
+  depends_on "go@1.7" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -83,6 +87,41 @@ class Minio < Formula
   end
 
   test do
-    system "#{bin}/minio", "version"
+    (testpath/"config.json").write <<-EOS.undent
+{
+        "version": "14",
+        "credential": {
+                "accessKey": "minio",
+                "secretKey": "minio123"
+        },
+        "region": "us-east-1",
+        "browser": "on",
+        "logger": {
+                "console": {
+                        "level": "error",
+                        "enable": true
+                },
+                "file": {
+                        "level": "error",
+                        "enable": false,
+                        "filename": ""
+                }
+        },
+        "notify": {
+                "redis": {
+                        "1": {
+                                "enable": true,
+                                "address": "127.0.0.1:6379",
+                                "password": "",
+                                "key": "minio_events"
+                        }
+                }
+        }
+}
+EOS
+    minio_io = IO.popen("#{bin}/minio --config-dir #{testpath} server #{testpath}/export", :err=>[:child, :out])
+    sleep 1
+    Process.kill("INT", minio_io.pid)
+    assert_match("getsockopt: connection refused", minio_io.read)
   end
 end
