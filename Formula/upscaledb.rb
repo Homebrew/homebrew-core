@@ -1,9 +1,10 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
-  sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
-  revision 4
+  url "https://github.com/cruppstahl/upscaledb/archive/upscaledb-2.2.0.tar.gz"
+  sha256 "82de6e25de8a7e656103db95e4e06d121c8169cc4ae3d028be1119a6de3e154c"
+  revision 5
+  head "https://github.com/cruppstahl/upscaledb.git"
 
   bottle do
     cellar :any
@@ -12,19 +13,14 @@ class Upscaledb < Formula
     sha256 "2e48d0b0bb6c9802a511c35abd1a7c0fb0782d73c554bc4ee2104a8b431ccf84" => :yosemite
   end
 
-  head do
-    url "https://github.com/cruppstahl/upscaledb.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
   option "without-java", "Do not build the Java wrapper"
   option "without-protobuf", "Disable access to remote databases"
 
   deprecated_option "without-remote" => "without-protobuf"
 
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
   depends_on "boost"
   depends_on "gnutls"
   depends_on "openssl"
@@ -40,6 +36,7 @@ class Upscaledb < Formula
     build 503
     cause "error: member access into incomplete type 'const std::type_info"
   end
+
   def install
     # Fix collision with isset() in <sys/params.h>
     # See https://github.com/Homebrew/homebrew-core/pull/4145
@@ -47,7 +44,7 @@ class Upscaledb < Formula
       "#  include \"2protobuf/protocol.h\"",
       "#  include \"2protobuf/protocol.h\"\n#define isset(f, b)       (((f) & (b)) == (b))"
 
-    system "./bootstrap.sh" if build.head?
+    system "./bootstrap.sh"
 
     args = %W[
       --disable-debug
