@@ -7,7 +7,7 @@ class DhallJson < Formula
   homepage "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library"
   url "https://hackage.haskell.org/package/dhall-json-1.0.1/dhall-json-1.0.1.tar.gz"
   sha256 "ccf235f785207bedf29ea42d4ee26b44c2d2777fda8aa8d0306beaca43960726"
-  head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library"
+  head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library.git"
 
   bottle do
     cellar :any_skip_relocation
