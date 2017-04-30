@@ -1,10 +1,9 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  url "https://github.com/cruppstahl/upscaledb/archive/upscaledb-2.2.0.tar.gz"
-  sha256 "82de6e25de8a7e656103db95e4e06d121c8169cc4ae3d028be1119a6de3e154c"
+  url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
+  sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
   revision 5
-  head "https://github.com/cruppstahl/upscaledb.git"
 
   bottle do
     cellar :any
@@ -13,14 +12,19 @@ class Upscaledb < Formula
     sha256 "abe0e8f7b2956b769ec6961907921bb690f2f24f73fe6cc9ce46a3bd0b18ef39" => :yosemite
   end
 
+  head do
+    url "https://github.com/cruppstahl/upscaledb.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+  end
+
   option "without-java", "Do not build the Java wrapper"
   option "without-protobuf", "Disable access to remote databases"
 
   deprecated_option "without-remote" => "without-protobuf"
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "boost"
   depends_on "gnutls"
   depends_on "openssl"
@@ -44,7 +48,7 @@ class Upscaledb < Formula
       "#  include \"2protobuf/protocol.h\"",
       "#  include \"2protobuf/protocol.h\"\n#define isset(f, b)       (((f) & (b)) == (b))"
 
-    system "./bootstrap.sh"
+    system "./bootstrap.sh" if build.head?
 
     args = %W[
       --disable-debug
