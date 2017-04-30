@@ -23,6 +23,9 @@ class Freedink < Formula
                           "--prefix=#{prefix}"
 
     system "make", "install"
+  end
+
+  def post_install
     ln_s "#{HOMEBREW_PREFIX}/freedink-data/share/dink", "#{share}/dink"
   end
 
