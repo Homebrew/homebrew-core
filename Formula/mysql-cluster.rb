@@ -143,6 +143,7 @@ class MysqlCluster < Formula
       #{var}/mysql-cluster
     Note that in a production system there are other parameters
     that you would set to tune the configuration.
+    MySQL is configured to only allow connections from localhost by default
 
     Set up databases to run AS YOUR USER ACCOUNT with:
       unset TMPDIR
@@ -176,6 +177,8 @@ class MysqlCluster < Formula
     datadir=#{var}/mysql-cluster/mysqld_data
     basedir=#{opt_prefix}
     port=5000
+    # Only allow connections from localhost
+    bind-address = 127.0.0.1
     EOCNF
   end
 
@@ -301,7 +304,7 @@ class MysqlCluster < Formula
       "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
       pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+        exec bin/"mysqld", "--datadir=#{dir}"
       end
       sleep 2
 
