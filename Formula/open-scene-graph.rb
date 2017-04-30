@@ -46,6 +46,10 @@ class OpenSceneGraph < Formula
   def install
     ENV.cxx11 if build.cxx11?
 
+    if MacOS.full_version.to_s.split(".").count < 3
+      inreplace "CMakeLists.txt", "    LIST(GET MACOS_VERSION_LIST 2 MACOS_VERSION_PATCH)", ""
+    end
+
     # Turning off FFMPEG takes this change or a dozen "-DFFMPEG_" variables
     if build.without? "ffmpeg"
       inreplace "CMakeLists.txt", "FIND_PACKAGE(FFmpeg)", "#FIND_PACKAGE(FFmpeg)"
