@@ -30,6 +30,7 @@ class Freedink < Formula
   end
 
   test do
-    FileTest.executable? "src/freedink"
+    FileTest.executable? "src/freedink" &&
+    %x[src/freedink -vwis].split("\n").first == 'GNU FreeDink 108.4'
   end
 end
