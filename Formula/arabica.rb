@@ -28,4 +28,9 @@ class Arabica < Formula
     system "make", "check" if build.with? "test"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.file").write("writing some test file, if you need to\n")
+    system bin/"arabica", "-o"
+  end
 end
