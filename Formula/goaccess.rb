@@ -6,9 +6,10 @@ class Goaccess < Formula
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
-    sha256 "c52a8beb2d42ffc02d265abaa6c5aae84acd1787904735b235ea11d9e3553415" => :sierra
-    sha256 "0b845a59b6fe117a60e55d7f52f46621a3465e1304a1d5e780a2f49c1c1b2b06" => :el_capitan
-    sha256 "dc2a54373fb0f3db142076508ea1f7dbff30c7aa293dcb188d6f13a52337a74d" => :yosemite
+    rebuild 1
+    sha256 "7b794bcc28f24f010682e2e18d0c480cdf9d75d07b50964944f3b3fd6428972a" => :sierra
+    sha256 "272e53e58e3fcd8c894285d1a90a3288edde0959a3f049bff24a6ed9180dbc3c" => :el_capitan
+    sha256 "af9801407d647456b2421673aeefdc5d1bd00446d912126c8bc662cfad437937" => :yosemite
   end
 
   option "with-geoip", "Enable IP location information using GeoIP"
