@@ -15,9 +15,12 @@ class Speex < Formula
   depends_on "pkg-config" => :build
   depends_on "libogg" => :recommended
   depends_on "fftw" => :optional
+  depends_on "speexdsp" => :optional
 
   def install
     ENV.deparallelize
+    ENV["SPEEXDSP_CFLAGS"] = "-I#{HOMEBREW_PREFIX}/include/speex" if build.with? "speexdsp"
+    ENV["SPEEXDSP_LIBS"] = "-L#{HOMEBREW_PREFIX}/lib -lspeexdsp" if build.with? "speexdsp"
     args = %W[
       --prefix=#{prefix}
       --disable-debug
