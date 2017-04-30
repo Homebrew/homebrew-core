@@ -4,7 +4,7 @@ class OpenSceneGraph < Formula
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
   sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
   revision 2
-  head "https://github.com/openscenegraph/OpenSceneGraph"
+  head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
     sha256 "cb9a0626f05f66c50c4b0256dcb3e839700009f4ea0858083510a9c0a20bdc3a" => :sierra
