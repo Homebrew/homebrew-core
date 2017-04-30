@@ -3,6 +3,7 @@ class Speexdsp < Formula
   homepage "https://github.com/xiph/speexdsp"
   url "https://github.com/xiph/speexdsp/archive/SpeexDSP-1.2rc3.tar.gz"
   sha256 "e8be7482df7c95735e5466efb371bd7f21115f39eb45c20ab7264d39c57b6413"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,12 +16,19 @@ class Speexdsp < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "fftw" => :optional
 
   def install
+    ENV.append "LIBS", "-lfftw3f" if build.with? "fftw"
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --enable-sse
+    ]
+    args << "--with-fft=gpl-fftw3" if build.with? "fftw"
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
