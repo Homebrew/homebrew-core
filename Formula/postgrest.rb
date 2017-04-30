@@ -6,9 +6,8 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
-  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
-  revision 1
+  url "https://github.com/begriffs/postgrest/archive/v0.4.1.0.tar.gz"
+  sha256 "c4bd246703dde82c3169b2600a55b742f7ae01fe4cf1a86fe2f9c52bd3dcc9e5"
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
