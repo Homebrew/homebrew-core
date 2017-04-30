@@ -7,11 +7,9 @@ class Duck < Formula
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
-    cellar :any
-    sha256 "9c26f43d53d498873e07b076e4e2d1582a7d7fb7aebecd4277c48f877ad3f2ae" => :sierra
-    sha256 "357282a2d6092927a8dd133e9868646dffab55b339376280b8476d19cf7db6b8" => :el_capitan
-    sha256 "fb45a7ae70bbf69a247563591deb6b5f8a305f4a2bf073bd216c4567cd6e3864" => :yosemite
-    sha256 "6aaab98af32f261163510703ea45f15aeedc38fb81af648952a294ddf96c438a" => :mavericks
+    sha256 "81bdff2dedcef593430a3fe22474f9d96036c8bd91229117311a91beea8f65f9" => :sierra
+    sha256 "cde2cc8f04fde06bf0b3a8629eb5b6505b3ef6b3d956145ae0ea739936f1e774" => :el_capitan
+    sha256 "db301fd94421e00950a3077ffb3e7895ea34e9ecd5b31264d2cce7a7667aa06b" => :yosemite
   end
 
   depends_on :java => ["1.8+", :build]
