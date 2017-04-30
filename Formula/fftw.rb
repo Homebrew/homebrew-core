@@ -4,21 +4,13 @@ class Fftw < Formula
   url "http://fftw.org/fftw-3.3.6-pl2.tar.gz"
   version "3.3.6-pl2"
   sha256 "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
-
-  bottle do
-    cellar :any
-    sha256 "293e6d290a437b18e0a1563622ca1e6bb3efc0574de8db461dc7066281fcf8e4" => :sierra
-    sha256 "3b0c6440faf90169571c67ef1f6532db743adfb64ccb41e5786eaffc2a2d925f" => :el_capitan
-    sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
-  end
+  revison 1
 
   option "with-fortran", "Enable Fortran bindings"
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
   depends_on :fortran => :optional
-  depends_on :mpi => [:cc, :optional]
-  needs :openmp if build.with? "openmp"
 
   def install
     args = ["--enable-shared",
