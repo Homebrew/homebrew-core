@@ -18,9 +18,9 @@ class Ola < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cppunit" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "cppunit"
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
