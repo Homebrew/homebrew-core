@@ -5,17 +5,18 @@ class AdrTools < Formula
   sha256 "1ef028cfeaa1b262a5c62845aa8965be169705370983f9ff73b17ec77bf75f70"
 
   def install
-    # Override adr-config with custom config to point to homebrew dirs
-    system "echo '#!/bin/bash' > src/adr-config"
-    system "echo 'echo adr_bin_dir=\"#{bin}\"' >> src/adr-config"
-    system "echo 'echo adr_template_dir=\"#{prefix}\"' >> src/adr-config"
+    inreplace "src/adr-config" do |s|
+      s.sub! "# Config for when running from the source directory.", "#!/bin/bash"
+      s.sub! %q('"$(dirname $0)"'), bin
+      s.sub! %q('"$(dirname $0)"'), prefix
+    end
 
-    prefix.install Dir["src/*.md"] # Places the base templates in `prefix`
-    bin.install Dir["src/*"]       # Copies the rest to `prefix/bin`
+    prefix.install Dir["src/*.md"]
+    bin.install Dir["src/*"]
   end
 
   test do
-    assert_match(/Run 'adr help COMMAND' for help on a specific command./,
-                 pipe_output("#{bin}/adr help"))
+    assert_match(/0001-record-architecture-decisions.md/, shell_output("#{bin}/adr-init"))
+    assert_match(/0001-record-architecture-decisions.md/, shell_output("#{bin}/adr-list"))
   end
 end
