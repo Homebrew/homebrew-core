@@ -1,9 +1,8 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
-  url "https://luajit.org/download/LuaJIT-2.0.4.tar.gz"
-  sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 3
+  url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
+  sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
 
   head "https://luajit.org/git/luajit-2.0.git"
 
