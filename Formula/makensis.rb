@@ -12,11 +12,6 @@ class Makensis < Formula
     end
   end
 
-  resource "zlib-win32" do
-    url "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip"
-    sha256 "a03fd15af45e91964fb980a30422073bc3f3f58683e9fdafadad3f7db10762b1"
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "e18b6829e0db4cf473b1869cff4a21d3a3a1bd9a82bf267ec9a04b24b60dfbd6" => :sierra
@@ -28,6 +23,11 @@ class Makensis < Formula
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
   depends_on "zlib" => :build
+
+  resource "zlib-win32" do
+    url "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip"
+    sha256 "a03fd15af45e91964fb980a30422073bc3f3f58683e9fdafadad3f7db10762b1"
+  end
 
   # scons appears to have no builtin way to override the compiler selection,
   # and the only options supported on macOS are 'gcc' and 'g++'.
@@ -42,7 +42,7 @@ class Makensis < Formula
 
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
-       @zlib_path = Dir.pwd
+      @zlib_path = Dir.pwd
     end
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
