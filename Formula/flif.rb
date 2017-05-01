@@ -6,6 +6,13 @@ class Flif < Formula
   sha256 "aa02a62974d78f8109cff21ecb6d805f1d23b05b2db7189cfdf1f0d97ff89498"
   head "https://github.com/FLIF-hub/FLIF.git"
 
+  bottle do
+    cellar :any
+    sha256 "756f685e55f7c798743756723815fb3f39d82ef92f5cc78eb175d8cea52498a3" => :sierra
+    sha256 "3fd4e69366470a6810815d111a8e0188c627fe7d50375cd93c0da00ad6617fb2" => :el_capitan
+    sha256 "bbd4e35f6947e3b304469031f42c3720a94c10d9fb7540eed9e7b08bef6ee319" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libpng"
   depends_on "sdl2"
