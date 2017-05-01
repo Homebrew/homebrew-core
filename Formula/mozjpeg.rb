@@ -1,29 +1,8 @@
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
-  revision 1
-
-  stable do
-    url "https://github.com/mozilla/mozjpeg/releases/download/v3.1/mozjpeg-3.1-release-source.tar.gz"
-    sha256 "deedd88342c5da219f0047d9a290cd58eebe1b7a513564fcd8ebc49670077a1f"
-
-    # Fix crashes in ASM code with current llvm/clang versions.
-    # See https://github.com/libjpeg-turbo/libjpeg-turbo/pull/20
-    # and https://github.com/mozilla/mozjpeg/issues/202 for info.
-    patch do
-      url "https://github.com/libjpeg-turbo/libjpeg-turbo/commit/8b2c04f774d.patch"
-      sha256 "6c0509334dc4956a82e6b69019a77593a4c4f1b5da1c1ff9569c698b1199d270"
-    end
-
-    # Fix negative shift with IFAST FDCT and qual=100
-    # Patch from freebsd/freebsd-ports based on commit:
-    # https://github.com/libjpeg-turbo/libjpeg-turbo/commit/4cfa3f4
-    # See https://github.com/mozilla/mozjpeg/pull/186 for info.
-    patch :p0 do
-      url "https://raw.githubusercontent.com/freebsd/freebsd-ports/a608b6f56cca5/graphics/mozjpeg/files/patch-jcdctmgr.c"
-      sha256 "1b94aac7d0e4dcadc9dae1dc33607faa468f0de3c4f07c8f918de64a54478253"
-    end
-  end
+  url "https://github.com/mozilla/mozjpeg/releases/download/v3.2/mozjpeg-3.2-release-source.tar.gz"
+  sha256 "8aecc1ecad447a73ae01b9a546e99142345e5a92838d84af425f2b19202e7b73"
 
   bottle do
     cellar :any
@@ -48,7 +27,7 @@ class Mozjpeg < Formula
   depends_on "libpng" => :optional
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--with-jpeg8"
