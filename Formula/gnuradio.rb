@@ -16,7 +16,6 @@ class Gnuradio < Formula
   depends_on "pkg-config" => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on "boost"
-  depends_on "cppunit"
   depends_on "fftw"
   depends_on "gsl"
   depends_on "zeromq"
@@ -77,9 +76,9 @@ class Gnuradio < Formula
 
     args << "-DENABLE_DEFAULT=OFF"
     enabled_components = %w[gr-analog gr-fft volk gr-filter gnuradio-runtime
-                            gr-blocks testing gr-pager gr-noaa gr-channels
-                            gr-audio gr-fcd gr-vocoder gr-fec gr-digital
-                            gr-dtv gr-atsc gr-trellis gr-zeromq]
+                            gr-blocks gr-pager gr-noaa gr-channels gr-audio
+                            gr-fcd gr-vocoder gr-fec gr-digital gr-dtv gr-atsc
+                            gr-trellis gr-zeromq]
     if build.with? "python"
       enabled_components << "python"
       enabled_components << "gr-utils"
