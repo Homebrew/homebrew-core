@@ -6,7 +6,7 @@ class Pgplot < Formula
   mirror "ftp://ftp.us.horde.org/pub/linux/gentoo/distro/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "7309161e824a16654a361eb9ba61c5250c1ee8f933bd86ee6e222a4e58836739" => :sierra
