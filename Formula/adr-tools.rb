@@ -5,11 +5,15 @@ class AdrTools < Formula
   sha256 "1ef028cfeaa1b262a5c62845aa8965be169705370983f9ff73b17ec77bf75f70"
 
   def install
-    inreplace "src/adr-config" do |s|
-      s.sub! "# Config for when running from the source directory.", "#!/bin/bash"
-      s.sub! %q('"$(dirname $0)"'), bin
-      s.sub! %q('"$(dirname $0)"'), prefix
-    end
+    config = buildpath/"src/adr-config"
+
+    # Unlink and re-write to matches homebrew's installation conventions
+    config.unlink
+    config.write <<-EOS.undent
+      #!/bin/bash
+      echo 'adr_bin_dir=\"#{bin}\"'
+      echo 'adr_template_dir=\"#{prefix}\"'
+    EOS
 
     prefix.install Dir["src/*.md"]
     bin.install Dir["src/*"]
