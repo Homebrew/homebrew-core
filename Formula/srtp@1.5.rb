@@ -6,9 +6,9 @@ class SrtpAT15 < Formula
 
   bottle do
     cellar :any
-    sha256 "e7342989d32260ecd2ba2010dbf54b6efc72466c13168f310f90a67c4300aa40" => :sierra
-    sha256 "ee4a921ed6fe35f7a56fe4173e5632cbd8fc7cac78cd93050c2a6687ac3a59d2" => :el_capitan
-    sha256 "471ee22eb25ecdef32f5f0a3bb9d1d68f32b2b3081611f38e9bc4a6522dfac3d" => :yosemite
+    sha256 "574082dd0e1214e6aaf6d4a0e7515eac1d29faef7b8d9c817757d9ba76688b61" => :sierra
+    sha256 "563c8b58a1333c177d79ca153c53463941201a5ac01738be23f50cb99ffe79f5" => :el_capitan
+    sha256 "6a71d0cdc64d62df915ade2c3e107317e98ffeb28902f99eb3c890af0f88999f" => :yosemite
   end
 
   keg_only :versioned_formula
