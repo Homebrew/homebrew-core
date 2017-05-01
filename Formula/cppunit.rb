@@ -1,8 +1,8 @@
 class Cppunit < Formula
   desc "Unit testing framework for C++"
   homepage "https://wiki.freedesktop.org/www/Software/cppunit/"
-  url "https://dev-www.libreoffice.org/src/cppunit-1.13.2.tar.gz"
-  sha256 "3f47d246e3346f2ba4d7c9e882db3ad9ebd3fcbd2e8b732f946e0e3eeb9f429f"
+  url "https://dev-www.libreoffice.org/src/cppunit-1.14.0.tar.gz"
+  sha256 "3d569869d27b48860210c758c4f313082103a5e58219a7669b52bfd29d674780"
 
   bottle do
     cellar :any
@@ -20,6 +20,6 @@ class Cppunit < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/cppunit-config --version")
+    assert_match "Usage", shell_output("#{bin}/DllPlugInTester", 2)
   end
 end
