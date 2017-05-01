@@ -4,6 +4,8 @@ class Speex < Formula
   url "http://downloads.us.xiph.org/releases/speex/speex-1.2.0.tar.gz"
   sha256 "eaae8af0ac742dc7d542c9439ac72f1f385ce838392dc849cae4536af9210094"
 
+  option "with-sse", "Build with SSE support"
+
   bottle do
     cellar :any
     sha256 "5aa61761fb5426de78297fdc83579515dda1a880f47c925cb3405b7175079b92" => :sierra
@@ -17,14 +19,12 @@ class Speex < Formula
 
   def install
     ENV.deparallelize
-    ENV["SPEEXDSP_CFLAGS"] = "-I#{HOMEBREW_PREFIX}/include/speex" if build.with? "speexdsp"
-    ENV["SPEEXDSP_LIBS"] = "-L#{HOMEBREW_PREFIX}/lib -lspeexdsp" if build.with? "speexdsp"
     args = %W[
       --prefix=#{prefix}
       --disable-debug
       --disable-dependency-tracking
-      --enable-sse
     ]
+    args << "--enable-sse" if build.with? "sse"
     system "./configure", *args
     system "make", "install"
   end
