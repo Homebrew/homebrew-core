@@ -3,6 +3,7 @@ class JsonFortran < Formula
   homepage "https://github.com/jacobwilliams/json-fortran"
   url "https://github.com/jacobwilliams/json-fortran/archive/5.3.0.tar.gz"
   sha256 "1e85796c0b4e0a6f08c1b49d1b46d30609d0bed630741b02ea83b4be9bf61c62"
+  revision 1
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
