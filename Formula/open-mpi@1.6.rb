@@ -3,6 +3,7 @@ class OpenMpiAT16 < Formula
   homepage "https://www.open-mpi.org/"
   url "https://www.open-mpi.org/software/ompi/v1.6/downloads/openmpi-1.6.5.tar.bz2"
   sha256 "fe37bab89b5ef234e0ac82dc798282c2ab08900bf564a1ec27239d3f1ad1fc85"
+  revision 1
 
   bottle do
     sha256 "ae8d527e2b9802f27001c5b1a4a64e215208b9fc6af7b6a118f9fb7b042d0f05" => :sierra
