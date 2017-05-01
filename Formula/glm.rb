@@ -8,9 +8,9 @@ class Glm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cff9b98a4cec203adc38cd1768179dc9068f89b6e743b40098108be5df86c0b5" => :sierra
-    sha256 "cff9b98a4cec203adc38cd1768179dc9068f89b6e743b40098108be5df86c0b5" => :el_capitan
-    sha256 "cff9b98a4cec203adc38cd1768179dc9068f89b6e743b40098108be5df86c0b5" => :yosemite
+    sha256 "ba49e2196719d9c3859cbcb4a213d313dcdfd209caf7b9fe2f44331de21921ed" => :sierra
+    sha256 "1885a6a396966741e8bd31941ee26482d6399c93cd9eb3accba70f223cca2322" => :el_capitan
+    sha256 "1885a6a396966741e8bd31941ee26482d6399c93cd9eb3accba70f223cca2322" => :yosemite
   end
 
   option "with-doxygen", "Build documentation"
