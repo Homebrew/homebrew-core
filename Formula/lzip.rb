@@ -1,8 +1,8 @@
 class Lzip < Formula
   desc "LZMA-based compression program similar to gzip or bzip2"
   homepage "http://www.nongnu.org/lzip/lzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzip-1.18.tar.gz"
-  sha256 "47f9882a104ab05532f467a7b8f4ddbb898fa2f1e8d9d468556d6c2d04db14dd"
+  url "https://download.savannah.gnu.org/releases/lzip/lzip-1.19.tar.gz"
+  sha256 "ffadc4f56be1bc0d3ae155ec4527bd003133bdc703a753b2cc683f610e646ba9"
 
   bottle do
     cellar :any_skip_relocation
