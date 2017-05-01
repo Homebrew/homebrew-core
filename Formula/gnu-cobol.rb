@@ -1,7 +1,7 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
   homepage "http://www.opencobol.org/"
-  revision 4
+  revision 5
 
   stable do
     url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/1.1/gnu-cobol-1.1.tar.gz"
