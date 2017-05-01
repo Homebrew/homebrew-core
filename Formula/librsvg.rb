@@ -16,7 +16,6 @@ class Librsvg < Formula
   depends_on "glib"
   depends_on "libcroco"
   depends_on "pango"
-  depends_on "libgsf" => :optional
   depends_on "gtk+3" => :optional
 
   def install
@@ -28,7 +27,6 @@ class Librsvg < Formula
       --enable-pixbuf-loader=yes
       --enable-introspection=yes
     ]
-    args << "--enable-svgz" if build.with? "libgsf"
 
     system "./configure", *args
 
