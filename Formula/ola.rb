@@ -3,7 +3,7 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
   sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
-  revision 1
+  revision 2
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
@@ -36,7 +36,12 @@ class Ola < Formula
     sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+    ENV["ac_cv_gnu_plus_plus_98"] = "no"
+
     resource("protobuf-c").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{buildpath}/vendor/protobuf-c"
