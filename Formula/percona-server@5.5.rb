@@ -74,12 +74,6 @@ class PerconaServerAT55 < Formula
     # Compile with readline unless libedit is explicitly chosen
     args << "-DWITH_READLINE=yes" if build.without? "libedit"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.include? "enable-local-infile"
 
