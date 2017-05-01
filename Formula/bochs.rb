@@ -1,8 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.8/bochs-2.6.8.tar.gz"
-  sha256 "79700ef0914a0973f62d9908ff700ef7def62d4a28ed5de418ef61f3576585ce"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
+  sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
   revision 1
 
   bottle do
@@ -38,11 +38,10 @@ class Bochs < Formula
       --enable-show-ips
       --enable-logging
       --enable-usb
-      --enable-ne2000
       --enable-cpu-level=6
       --enable-clgd54xx
       --enable-avx
-      --enable-vmx
+      --enable-vmx=2
       --enable-smp
       --enable-long-phy-addres
       --with-term
@@ -70,6 +69,7 @@ class Bochs < Formula
         error: action=report
         info: action=ignore
         debug: action=ignore
+        display_library: nogui
       EOS
 
     expected = <<-ERR.undent
