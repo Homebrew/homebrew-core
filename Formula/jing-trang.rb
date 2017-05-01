@@ -18,18 +18,18 @@ class JingTrang < Formula
 
   test do
     (testpath/"test.rnc").write <<-EOS.undent
-    namespace core = "http://www.bbc.co.uk/ontologies/coreconcepts/"
-    start = response
-    response = element response { results }
-    results = element results { thing* }
+      namespace core = "http://www.bbc.co.uk/ontologies/coreconcepts/"
+      start = response
+      response = element response { results }
+      results = element results { thing* }
 
-    thing = element thing {
-      attribute id { xsd:string } &
-      element core:preferredLabel { xsd:string } &
-      element core:label { xsd:string &  attribute xml:lang { xsd:language }}* &
-      element core:disambiguationHint { xsd:string }? &
-      element core:slug { xsd:string }?
-    }
+      thing = element thing {
+        attribute id { xsd:string } &
+        element core:preferredLabel { xsd:string } &
+        element core:label { xsd:string &  attribute xml:lang { xsd:language }}* &
+        element core:disambiguationHint { xsd:string }? &
+        element core:slug { xsd:string }?
+      }
     EOS
     (testpath/"test.xml").write <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
