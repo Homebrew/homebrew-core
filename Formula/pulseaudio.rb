@@ -36,11 +36,13 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "openssl"
+  depends_on "dbus" => :recommended
   depends_on "speexdsp" => :recommended
   depends_on "glib" => :optional
   depends_on "gconf" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
+  depends_on "fftw" => :optional
 
   fails_with :clang do
     build 421
@@ -60,6 +62,12 @@ class Pulseaudio < Formula
     ]
 
     args << "--disable-nls" if build.without? "nls"
+    args << "--disable-dbus" if build.without? "dbus"
+    args << "--disable-glib2" if build.without? "glib"
+    args << "--disable-gtk3" if build.without? "gtk+3"
+    args << "--disable-gconf" if build.without? "gconf"
+    args << "--disable-jack" if build.without? "jack"
+    args << "--without-fftw" if build.without? "fftw"
 
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure
