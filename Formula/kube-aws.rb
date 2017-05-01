@@ -1,8 +1,8 @@
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.5.tar.gz"
-  sha256 "86a15c882ef63e3a24fbd96f8af0b945911b7b2092051baa397d6a5046a1d21f"
+  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.6.tar.gz"
+  sha256 "cde5ce0d1a72361ba0011092fdce7966eda2ce0337b801dbbdb150fde971afb8"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
@@ -42,10 +42,13 @@ class KubeAws < Formula
     require "yaml"
 
     system "#{bin}/kube-aws"
-    cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
-                "keyName" => "key", "region" => "west",
-                "availabilityZone" => "zone", "kmsKeyArn" => "arn",
-                "worker"=>{ "nodePools"=>[{ "name"=>"nodepool1" }] } }
+    cluster = { "clusterName"=>"test-cluster",
+                "apiEndpoints"=>[{ "name"=>"default", "dnsName"=>"dns",
+                "loadBalancer"=>{ "createRecordSet"=>false } }],
+                "keyName"=>"key", "region"=>"west", "availabilityZone"=>"zone",
+                "kmsKeyArn"=>"arn",
+                "worker"=>{ "nodePools"=>[{ "name"=>"nodepool1" }] },
+                "addons"=>{ "rescheduler"=>{ "enabled"=>false } } }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
            "--availability-zone", "zone", "--key-name", "key",
