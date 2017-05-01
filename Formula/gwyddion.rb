@@ -1,9 +1,8 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.47/gwyddion-2.47.tar.gz"
-  sha256 "7b440e082f7fbfa38ad0355bafb1576c52eb4b35c4b97c3ac525a4cec879ddf2"
-  revision 1
+  url "http://gwyddion.net/download/2.48/gwyddion-2.48.tar.gz"
+  sha256 "45f4f1f987172845c4bc0e9de52e4e229a98e94d386625d654bafc2e1cadda10"
 
   bottle do
     sha256 "6ddc06a1388396662d2be33a7efec97f54b35d61bccbfeaee49aa3fd2959d726" => :sierra
@@ -12,7 +11,6 @@ class Gwyddion < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gnu-sed" => :build
   depends_on "fftw"
   depends_on "gtk+"
   depends_on "gtk-mac-integration"
@@ -25,7 +23,9 @@ class Gwyddion < Formula
   depends_on "gtksourceview" if build.with? "python"
 
   def install
-    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+    # Don't explicitly link against libpython. Will be patched in the next release:
+    # <https://sourceforge.net/p/gwyddion/mailman/message/35815736/>
+    inreplace "modules/pygwy/Makefile.in", /\$\(no_undefined\) \$\(PYTHON_LDFLAGS\)/, ""
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
                           "--prefix=#{prefix}",
