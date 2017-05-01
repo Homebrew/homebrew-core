@@ -23,6 +23,7 @@ class Nasm < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "manpages" if build.head?
+    system "make", "rdf"
     system "make", "install", "install_rdf"
   end
 
