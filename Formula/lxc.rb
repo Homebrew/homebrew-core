@@ -3,7 +3,6 @@ class Lxc < Formula
   homepage "https://linuxcontainers.org"
   url "https://linuxcontainers.org/downloads/lxd/lxd-2.13.tar.gz"
   sha256 "8cabd676699f281dfa5e840fa1a2f8e000584964a44b99705c4846a8b5221b45"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
