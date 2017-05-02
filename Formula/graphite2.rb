@@ -41,7 +41,7 @@ class Graphite2 < Formula
   test do
     resource("testfont").stage do
       shape = shell_output("#{bin}/gr2fonttest Simple-Graphite-Font.ttf 'abcde'")
-      assert_match /67.*36.*37.*38.*71/m, shape
+      assert_match(/67.*36.*37.*38.*71/m, shape)
     end
   end
 end
