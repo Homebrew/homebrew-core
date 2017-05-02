@@ -1,25 +1,15 @@
 class Rtags < Formula
   desc "ctags-like source code cross-referencer with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
+  url "https://github.com/Andersbakken/rtags.git",
+      :tag => "v2.9",
+      :revision => "ffa21b5408a30a346815bc4db6e74e2c6562d936"
   head "https://github.com/Andersbakken/rtags.git"
 
-  stable do
-    url "https://github.com/Andersbakken/rtags.git",
-        :tag => "v2.8",
-        :revision => "6ac7740eaf05cdd9b699185f71cc2d1f634a761b"
-
-    # Fix test failure "couldn't find process for pid"
-    # Upstream commit from 4 Jan 2017 "Copy environment from indexmessage"
-    patch do
-      url "https://github.com/Andersbakken/rtags/commit/cddf96a.patch"
-      sha256 "c7d2c62cba6ef8180ac6214af6dfdf2d0f6425b9453de7b55053ddcc74ce5fe2"
-    end
-  end
-
   bottle do
-    sha256 "3e2649ceda64ae71a42c1907c34ba186b9b6937faaee13cec239c60f134c30f7" => :sierra
-    sha256 "c221421644f29d5f2680d7fe6375d6c7c46f2b4eeb5665707ca29a26541cf50e" => :el_capitan
-    sha256 "d875068e438884f4166a7a859fad9affbcb7a12c4164df38277fd548e6dc203b" => :yosemite
+    sha256 "471c990b09499dd3ce896331eb1cf1c73091badcd06d7724f03a2856ce1b3256" => :sierra
+    sha256 "a641d3de062b40cafbbee2c4a4a13844772ad251f9b64e6bb8abf0efb9d6eddd" => :el_capitan
+    sha256 "83cfd43643a8bb537fa5fa1d42a5e11079de9cdf2d5003c84ff6b970cbda98cc" => :yosemite
   end
 
   depends_on "cmake" => :build

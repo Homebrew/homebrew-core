@@ -1,20 +1,19 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.4.tar.xz"
-  sha256 "d569446a83ab88872c265f238f8f42b5928a6b3eebb22fd1db3dbc0dd9128795"
-  revision 1
+  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.0.tar.xz"
+  sha256 "3c2948f451dd107b3838bd6580bd7df95aa455d16f595aefab6e7553cccfc8d2"
 
   bottle do
-    sha256 "9696ce453f8388bf34a2bfb0259634accc017a505a46354829a6de1c651eaafa" => :sierra
-    sha256 "780097cac9ca5f467816c33bd1cec41d805bcb01633e15c0d0fb6a9d927e309d" => :el_capitan
-    sha256 "c16df3dd5f759fae32ed0e28c3f10ec5775bf0668f25e472f917d6dc0010dfc1" => :yosemite
+    sha256 "178943fb60d754e189c50aad580be9591e0276cbc08826b80f57a03bd11a67fb" => :sierra
+    sha256 "71683effed8ec84d45e34053c8506b4a58074797dcc1a48b7a4420eee7147939" => :el_capitan
+    sha256 "940294499f8fabcc430ccded69ebe0aa922348ca04b8b3db4283f7191b44abf2" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "mm-common" => :build
+  depends_on "coreutils" => :build
   depends_on "libgit2-glib"
   depends_on "gtk+3"
   depends_on "libpeas"
@@ -24,9 +23,11 @@ class GnomeBuilder < Formula
   depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "json-glib"
+  depends_on "libsoup"
+  depends_on "gspell"
+  depends_on "enchant"
   depends_on "gjs" => :recommended
   depends_on "vala" => :recommended
-  depends_on "devhelp" => :recommended
   depends_on "ctags" => :recommended
   depends_on "meson" => :recommended
   depends_on :python3 => :optional
@@ -36,6 +37,10 @@ class GnomeBuilder < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+
+    # Bugreport opened at https://bugzilla.gnome.org/show_bug.cgi?id=780293
+    ENV.append "LIBS", `pkg-config --libs enchant`.chomp
+    inreplace "doc/Makefile.in", "cp -R", "gcp -R"
 
     ENV.cxx11
 

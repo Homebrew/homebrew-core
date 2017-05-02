@@ -1,14 +1,14 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "http://www.numpy.org"
-  url "https://files.pythonhosted.org/packages/b7/9d/8209e555ea5eb8209855b6c9e60ea80119dab5eff5564330b35aa5dc4b2c/numpy-1.12.0.zip"
-  sha256 "ff320ecfe41c6581c8981dce892fe6d7e69806459a899e294e4bf8229737b154"
+  url "https://files.pythonhosted.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+  sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8952c7dcb2461a4b1cc47ec2f20caadc48c179627dcc44e5909110d62f94a315" => :sierra
-    sha256 "44652cf8ebf75c35c27ee50940536c2c0a7c4450056e08c3b5003a146b763745" => :el_capitan
-    sha256 "aa17213442ba40d95ae0aee3d258f70222d6f4795deddf7b016330391901735e" => :yosemite
+    sha256 "9b5b02de10765dc7cfb66ab5237667e7106fb4f26468f202f5ea7ddac609b983" => :sierra
+    sha256 "bf6733745645afc5834e27fcd9db0cc9feb86164c4d3e6069ecb486d930ccdaa" => :el_capitan
+    sha256 "ec1d2fff7205da6d89270182ef8ff4b821725258954b971ad514ecca891e67d7" => :yosemite
   end
 
   head do

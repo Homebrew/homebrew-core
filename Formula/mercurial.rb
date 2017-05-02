@@ -7,10 +7,10 @@ class Mercurial < Formula
   sha256 "63571be1202f83c72041eb8ca2a2ebaeda284d2031fd708919fc610589d3359e"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5527615a14972fa172a6c1b8bd7d45256fb257eec85c910fd3c1fffb7c7de1d9" => :sierra
-    sha256 "f6ffda7603408c8f9f7bf59d8f2dfe8158d0e5fc69730f77de71192e9c5631b3" => :el_capitan
-    sha256 "9106b86ebdbf92e27a08d7761398162471085861ab35fc3c4d802ab5de060c19" => :yosemite
+    rebuild 1
+    sha256 "53a54f6cda2606bbbb46df691deb2bc88cf7524ce0599439c229f59e89c91aaf" => :sierra
+    sha256 "78621cf531c481e66afaf9c97ff9801a6e5b0bec9100f3ba09cc5c08dba65485" => :el_capitan
+    sha256 "d51e10db092a7fd4e73d9245e4181edfb9f19431a7d0e29d167d80e92793edbf" => :yosemite
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
@@ -18,6 +18,14 @@ class Mercurial < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "install-bin"
+
+    # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
+    cd "contrib/chg" do
+      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", \
+             "HG=#{bin}/hg"
+      bin.install "chg"
+    end
+
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"
     man5.install "doc/hgignore.5", "doc/hgrc.5"

@@ -2,7 +2,7 @@ require "language/node"
 
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
-  homepage "http://grafana.org"
+  homepage "https://grafana.com/"
   url "https://github.com/grafana/grafana/archive/v4.1.1.tar.gz"
   sha256 "34ecd6c7d3e30b7b0eecf78f57383ad3b4754f5da9da77f031ca4b5866fe9893"
 

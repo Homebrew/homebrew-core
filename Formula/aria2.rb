@@ -39,7 +39,7 @@ class Aria2 < Formula
   end
 
   test do
-    system "#{bin}/aria2c", "http://brew.sh"
+    system "#{bin}/aria2c", "https://brew.sh/"
     assert File.exist?("index.html"), "Failed to create index.html!"
   end
 end

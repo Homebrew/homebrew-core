@@ -5,14 +5,14 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.7.tar.gz"
-  sha256 "059c016dc4af550f1f39db55095488653795025d72023fdcbab366d0c4af704e"
+  url "https://github.com/purescript/purescript/archive/v0.11.0.tar.gz"
+  sha256 "3ba5469b1244933dd2fe6fd62ec11c34b606863bf37280d0b53953eb271642a9"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "1cfbe96996e3e66500df1ae97f5701d8e10eec7fb3c95f4706ac947dbedd1863" => :sierra
-    sha256 "dbe6d2bbc294b0177736f537547b22886491814c2eeb7f911ce8b3d883e7fad8" => :el_capitan
-    sha256 "10a9d1cb56b8db272d770c5def376c50fc3ddca69be52a9d31da5cacba390f8e" => :yosemite
+    sha256 "8297e49bd764dce5a2a403685e4efafca4ea0dbe8d544aa9f2d95a586995e9ba" => :sierra
+    sha256 "ad7cff338158226eaa8196921b86f2b494b8a92a6060726bc8a0e3e22c51ae61" => :el_capitan
+    sha256 "b3eff0f81885bf12386735d6090f7c44143966c1bf9da22d82bd090582051c50" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -31,7 +31,7 @@ class Purescript < Formula
       main :: Int
       main = 1
     EOS
-    system bin/"psc", test_module_path, "-o", test_target_path
+    system bin/"purs", "compile", test_module_path, "-o", test_target_path
     assert File.exist?(test_target_path)
   end
 end

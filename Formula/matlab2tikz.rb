@@ -8,6 +8,6 @@ class Matlab2tikz < Formula
   bottle :unneeded
 
   def install
-    (share/"matlab2tikz").install Dir["src/*"]
+    pkgshare.install Dir["src/*"]
   end
 end

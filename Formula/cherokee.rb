@@ -54,7 +54,7 @@ class Cherokee < Formula
 
     prefix.install "org.cherokee.webserver.plist"
     (prefix+"org.cherokee.webserver.plist").chmod 0644
-    (share+"cherokee/admin/server.py").chmod 0755
+    (pkgshare/"admin/server.py").chmod 0755
   end
 
   def caveats

@@ -1,6 +1,6 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
-  homepage "http://postgis.net"
+  homepage "https://postgis.net/"
   url "http://download.osgeo.org/postgis/source/postgis-2.3.2.tar.gz"
   sha256 "e92e34c18f078a3d1a2503cd870efdc4fa9e134f0bcedbbbdb8b46b0e6af09e4"
 
@@ -116,11 +116,11 @@ class Postgis < Formula
   def caveats
     <<-EOS.undent
       To create a spatially-enabled database, see the documentation:
-        http://postgis.net/docs/manual-2.2/postgis_installation.html#create_new_db_extensions
+        https://postgis.net/docs/manual-2.2/postgis_installation.html#create_new_db_extensions
       If you are currently using PostGIS 2.0+, you can go the soft upgrade path:
         ALTER EXTENSION postgis UPDATE TO "#{version}";
       Users of 1.5 and below will need to go the hard-upgrade path, see here:
-        http://postgis.net/docs/manual-2.2/postgis_installation.html#upgrading
+        https://postgis.net/docs/manual-2.2/postgis_installation.html#upgrading
 
       PostGIS SQL scripts installed to:
         #{opt_pkgshare}

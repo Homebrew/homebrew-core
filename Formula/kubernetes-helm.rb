@@ -2,15 +2,15 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.2.2",
-      :revision => "1b330722aafcb8123114ae51f69d1e884a326f3e"
+      :tag => "v2.2.3",
+      :revision => "1402a4d6ec9fb349e17b912e32fe259ca21181e3"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d219802a01f4f6f45bf11506a03e0b78f89c7c4f280149a535ab4376ead0cbf" => :sierra
-    sha256 "2c980fb59b1a84f1f145d369b500bdf3e85df5394d1d937615bf041c04f69b59" => :el_capitan
-    sha256 "7c7ad7606ba3e279bfe8601f724b2f550b27a8b7001f68cb192452beaba8ad1f" => :yosemite
+    sha256 "df4ca14688105118d77281dd23a30198b2491f510bea8aa05ce0026fc6c7d745" => :sierra
+    sha256 "e6c697f33a299ca293db4c81232a96ab5e52ea08eb839dd80578601019029e1d" => :el_capitan
+    sha256 "6d521c604d9860d00bd7d0c55ee1f7590a63af9e9e1d5b8b6ef3b1766ed62c04" => :yosemite
   end
 
   depends_on :hg => :build
@@ -27,11 +27,6 @@ class KubernetesHelm < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Set git config to follow redirects
-      # Change in behavior in git: https://github.com/git/git/commit/50d3413740d1da599cdc0106e6e916741394cc98
-      # Upstream issue: https://github.com/niemeyer/gopkg/issues/50
-      system "git", "config", "--global", "http.https://gopkg.in.followRedirects", "true"
-
       # Bootstap build
       system "make", "bootstrap"
 

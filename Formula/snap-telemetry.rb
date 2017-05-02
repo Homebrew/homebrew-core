@@ -1,16 +1,16 @@
 class SnapTelemetry < Formula
   desc "Snap is an opensource telemetry framework"
   homepage "http://snap-telemetry.io/"
-  url "https://github.com/intelsdi-x/snap/archive/1.1.0.tar.gz"
-  sha256 "461aeb9fe7752478e40fa00ad3485086cc1af726b29bfe40a1216fa3aa3a3f17"
+  url "https://github.com/intelsdi-x/snap/archive/1.2.0.tar.gz"
+  sha256 "a9dd4727e9044d2067c1e95b37f7c5db32175b198e6c488aedde292777f9eb5e"
 
   head "https://github.com/intelsdi-x/snap.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f888f341ae06ed3d0989f17d008059df26e60193b31271ce9a33add68f5083dd" => :sierra
-    sha256 "0f47d8c45d35caa8acf3122b5c52bee6bd9de5cfc82f06745bf40451bc447de4" => :el_capitan
-    sha256 "e608643a5b15777cab39a2a0f7fedefd09678f0394e400896addacb9f40b5c2e" => :yosemite
+    sha256 "2676fbe80fc6b0c6888258ae2c515780bd369f8b662dceca8d6d8a371b8d5480" => :sierra
+    sha256 "bc2fbb3ca43e058ce66f14b51cdb0bc8df16858f1911f6f5941a372c1ed977ac" => :el_capitan
+    sha256 "bdd97463314785303574f2fa5fc024b4b9171138e67d29f15135eafc59d12017" => :yosemite
   end
 
   depends_on "go" => :build

@@ -1,6 +1,7 @@
 class Rogue < Formula
   desc "Dungeon crawling video game"
-  homepage "https://web.archive.org/web/20160604020207/http://rogue.rogueforge.net/"
+  # Historical homepage: https://web.archive.org/web/20160604020207/rogue.rogueforge.net/
+  homepage "https://sourceforge.net/projects/roguelike/"
   url "http://pkgs.fedoraproject.org/repo/pkgs/rogue/rogue5.4.4-src.tar.gz/033288f46444b06814c81ea69d96e075/rogue5.4.4-src.tar.gz"
   version "5.4.4"
   sha256 "7d37a61fc098bda0e6fac30799da347294067e8e079e4b40d6c781468e08e8a1"

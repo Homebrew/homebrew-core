@@ -20,7 +20,7 @@ class GccAT46 < Formula
   end
 
   desc "GNU compiler collection"
-  homepage "https://gcc.gnu.org"
+  homepage "https://gcc.gnu.org/"
   url "https://ftpmirror.gnu.org/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   sha256 "35af16afa0b67af9b8eb15cafb76d2bc5f568540552522f5dc2c88dd45d977e8"
@@ -130,7 +130,7 @@ class GccAT46 < Formula
     args << "--enable-plugin" if MacOS.version > :tiger
 
     # Otherwise make fails during comparison at stage 3
-    # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
     args << "--with-dwarf2" if MacOS.version < :leopard
 
     args << "--disable-nls" if build.without? "nls"

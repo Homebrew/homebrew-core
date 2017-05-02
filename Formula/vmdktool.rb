@@ -1,6 +1,6 @@
 class Vmdktool < Formula
   desc "Converts raw filesystems to VMDK files and vice versa"
-  homepage "http://manned.org/vmdktool"
+  homepage "https://manned.org/vmdktool"
   url "https://people.freebsd.org/~brian/vmdktool/vmdktool-1.4.tar.gz"
   sha256 "981eb43d3db172144f2344886040424ef525e15c85f84023a7502b238aa7b89c"
 

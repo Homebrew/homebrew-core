@@ -3,24 +3,24 @@ class S6 < Formula
   homepage "https://skarnet.org/software/s6/"
 
   stable do
-    url "https://skarnet.org/software/s6/s6-2.4.0.0.tar.gz"
-    sha256 "5e788d5935dbcce76ac9a99cfcf6ee46a2ffb84220c84225df7589e9a3585560"
+    url "https://skarnet.org/software/s6/s6-2.5.0.0.tar.gz"
+    sha256 "11413aea4add3aea2d0f3f7515d274ac58d4adfb03661a1f6ce7fa2abd24dab1"
 
     resource "skalibs" do
-      url "https://skarnet.org/software/skalibs/skalibs-2.4.0.0.tar.gz"
-      sha256 "a58cdcc8a2f083090632cdee01f962bee2f99c3f8be61f36c1e13adaef42cea9"
+      url "https://skarnet.org/software/skalibs/skalibs-2.5.0.0.tar.gz"
+      sha256 "38408ff6d0aec581010ecf9e49703ec5f4c8887bbe68717ec087634a7ade849c"
     end
 
     resource "execline" do
-      url "https://skarnet.org/software/execline/execline-2.2.0.0.tar.gz"
-      sha256 "93bd744f2e3ad204cb89f147efdc6ca4e622f9c6bfc9895e0b2cb8b0480029de"
+      url "https://skarnet.org/software/execline/execline-2.3.0.0.tar.gz"
+      sha256 "a0ec43b8feba299cc1e5c65b1978ed76571afa595bc53165373e29a57468f425"
     end
   end
 
   bottle do
-    sha256 "d0de567c7b5a62e1d8c2ebdfb4805fcb298e4ed803aa04bbcf5b7df36c18b653" => :sierra
-    sha256 "6380e7aa1495e3fce80bc9b07eab4abbb8d5ee5544faa8d2aa2d649139ff1988" => :el_capitan
-    sha256 "d79a5fe7916358ba01046fcccad8523514e00805d04c134bd4ae7938d19b19ff" => :yosemite
+    sha256 "62b19578d47cbff4b6935e3b79da653dc36e77e2efcb27792297084d2b38aeaa" => :sierra
+    sha256 "1549d49c059293f216a0746c580109b79de2f0262188ed5afab1d01744ba7f34" => :el_capitan
+    sha256 "d20b9a56cbebad3551b15ff028a9dd056c234a448ded791a8f36227d18b54c68" => :yosemite
   end
 
   head do

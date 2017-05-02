@@ -12,8 +12,8 @@ class Mkclean < Formula
     sha256 "51b53b0e49a5fe451c6bd3589e780e51ac23c637493c8804233057cb79b9d40d" => :mavericks
   end
 
-  # Fixes compile error with XCode-4.3+, a hardcoded /Developer.  Reported as:
-  # https://sourceforge.net/tracker/?func=detail&aid=3505611&group_id=68739&atid=522228
+  # Fixes compile error with Xcode-4.3+, a hardcoded /Developer.  Reported as:
+  # https://sourceforge.net/p/matroska/bugs/9/
   patch :DATA if MacOS.prefer_64_bit?
 
   def install

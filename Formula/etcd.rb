@@ -1,15 +1,15 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v3.1.3.tar.gz"
-  sha256 "4c4dfc3312aa400b1b6ee18857ca9969d3fc9cfe18463d7682f3d210e8bf0878"
+  url "https://github.com/coreos/etcd/archive/v3.1.5.tar.gz"
+  sha256 "d9019b45df696f1dae286a511bd28b03751e37343c752380318e2a13ac994318"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3d902e422a375210ae88302ba5132c55b3c66f3e4b978da904d68819421d285" => :sierra
-    sha256 "78cd0d11f489fd6cad512ba0c8cae53fae09501b26173fcf9fd26563291cd79b" => :el_capitan
-    sha256 "cb2acb300dac3da16032adede6cf88473ed8586fc6bc558eee7c1d122f7d559b" => :yosemite
+    sha256 "c9e4b77cf6af716e5bfa0f94521409d89979937cfe54e95f3f8a802287e84246" => :sierra
+    sha256 "e2d4c474b795e81440e4f72199b90cf57b118dc3fa36955f47537a084fcf98fa" => :el_capitan
+    sha256 "fd726467254e543714dfb6e6ded654e57d25e045299652c181113d7e065795ab" => :yosemite
   end
 
   depends_on "go" => :build

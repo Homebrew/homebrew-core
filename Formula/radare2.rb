@@ -19,7 +19,7 @@ end
 
 class Radare2 < Formula
   desc "Reverse engineering framework"
-  homepage "http://radare.org"
+  homepage "https://radare.org"
   revision 1
 
   stable do

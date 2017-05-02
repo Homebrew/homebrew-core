@@ -1,7 +1,7 @@
 class Potrace < Formula
   desc "Convert bitmaps to vector graphics"
-  homepage "https://potrace.sourceforge.io"
-  url "http://potrace.sourceforge.net/download/1.13/potrace-1.13.tar.gz"
+  homepage "https://potrace.sourceforge.io/"
+  url "https://potrace.sourceforge.io/download/1.13/potrace-1.13.tar.gz"
   sha256 "6252438b6b6644b9b6298056b4c5de3690a1d4e862b66889abe21eecdf16b784"
 
   bottle do
@@ -13,7 +13,7 @@ class Potrace < Formula
   end
 
   resource "head.pbm" do
-    url "http://potrace.sourceforge.net/img/head.pbm"
+    url "https://potrace.sourceforge.io/img/head.pbm"
     sha256 "3c8dd6643b43cf006b30a7a5ee9604efab82faa40ac7fbf31d8b907b8814814f"
   end
 

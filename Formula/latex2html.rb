@@ -13,7 +13,6 @@ class Latex2html < Formula
 
   depends_on "netpbm"
   depends_on "ghostscript"
-  depends_on :tex => :optional
 
   def install
     system "./configure", "--prefix=#{prefix}",

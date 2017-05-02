@@ -1,6 +1,6 @@
 class Osmfilter < Formula
   desc "Command-line tool to filter OpenStreetMap files for specific tags"
-  homepage "http://wiki.openstreetmap.org/wiki/Osmfilter"
+  homepage "https://wiki.openstreetmap.org/wiki/Osmfilter"
   url "https://gitlab.com/osm-c-tools/osmctools.git",
     :tag => "0.6", :revision => "7594309ea6f8437a04514f68cc36029cafa951fd"
 

@@ -30,7 +30,7 @@ class Paps < Formula
   end
 
   test do
-    # http://paps.sourceforge.net/small-hello.utf8
+    # https://paps.sourceforge.io/small-hello.utf8
     utf8 = <<-EOS
 paps by Dov Grobgeld (דב גרובגלד)
 Printing through Παν語 (Pango)

@@ -3,14 +3,14 @@ require "language/go"
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/2.2.1.tar.gz"
-  sha256 "6ec369db9dfe2b8991ef08d885477772a78d5165a49a55d542ca368898349dbe"
+  url "https://github.com/juju/charmstore-client/archive/2.2.2.tar.gz"
+  sha256 "9e603b7af4f6e136c3cdfbfff0ce0f8f986cae49c0c17fa1bee2a2e3f7f4b853"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "81f53ef3cf04f02a9fd4cfba8e4d62a7617dc3f3d666e67788a6ff9242699ef1" => :sierra
-    sha256 "337e5ec536c1f840aa4165b4a0167fad52bfa88ce273aabbd34b164a450853b5" => :el_capitan
-    sha256 "0bb88c2873be6c396c20ff9fcf2214cc7314a12edb76e57e72a21eb02c758003" => :yosemite
+    sha256 "ea04bd37b2df2ea2824d8d87a506929bbcb443a99f9c2c1a04a2888c1baca577" => :sierra
+    sha256 "20a11dc53ae3388fd819b7c8074eafab242eadeb79d4c3057eb5cb748205c8b7" => :el_capitan
+    sha256 "abf62af86d0061fab31f92aabc3d5a9d1ff2d9f18a524d16a49313a94774bb81" => :yosemite
   end
 
   depends_on "go" => :build

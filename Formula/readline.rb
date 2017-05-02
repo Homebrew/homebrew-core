@@ -33,7 +33,7 @@ class Readline < Formula
   EOS
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-multibyte"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 

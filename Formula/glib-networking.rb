@@ -5,9 +5,10 @@ class GlibNetworking < Formula
   sha256 "3f1a442f3c2a734946983532ce59ed49120319fdb10c938447c373d5e5286bee"
 
   bottle do
-    sha256 "f67d5db99ec583b6b5424cffc8a297735702fcfeecb0db80c81bd0bebb4d8cff" => :sierra
-    sha256 "8abcb1f2b6ce564f5cee634b2dd709292fbf08bfd57c5c4703892ac83cc2d44f" => :el_capitan
-    sha256 "b099f5acc9784e2512e3ba302e9eff7df8dbf8da457d15c74e50cbf15fd233fe" => :yosemite
+    rebuild 1
+    sha256 "84ec040e4e75a461d0a2ba38fb8718fa080b1d002d5da6c18aa58ba748d792e9" => :sierra
+    sha256 "27c3c26afbe7557a4be8644794bd4d9db68b5c13544d9524ba1eebe7cecd7cd2" => :el_capitan
+    sha256 "14f091c53a11a6c6c1972fd3f2f6f5f73a8732ccb27fb9ad68e604a3d2330250" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -60,7 +61,7 @@ class GlibNetworking < Formula
       "-I#{HOMEBREW_PREFIX}/opt/gettext/include",
       "-L#{HOMEBREW_PREFIX}/lib",
       "-L#{HOMEBREW_PREFIX}/opt/gettext/lib",
-      "-lgio-2.0", "-lgobject-2.0", "-lglib-2.0", "-lintl"
+      "-lgio-2.0", "-lgobject-2.0", "-lglib-2.0"
     ]
 
     system ENV.cc, "gtls-test.c", "-o", "gtls-test", *flags

@@ -1,6 +1,6 @@
 class Unnethack < Formula
   desc "Fork of Nethack"
-  homepage "http://sourceforge.net/apps/trac/unnethack/"
+  homepage "https://sourceforge.net/projects/unnethack/"
   url "https://downloads.sourceforge.net/project/unnethack/unnethack/5.1.0/unnethack-5.1.0-20131208.tar.gz"
   sha256 "d92886a02fd8f5a427d1acf628e12ee03852fdebd3af0e7d0d1279dc41c75762"
 

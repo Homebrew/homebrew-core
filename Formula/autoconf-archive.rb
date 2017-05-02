@@ -1,16 +1,15 @@
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
-  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2016.09.16.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2016.09.16.tar.xz"
-  sha256 "e8f2efd235f842bad2f6938bf4a72240a5e5fcd248e8444335e63beb60fabd82"
+  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2017.03.21.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2017.03.21.tar.xz"
+  sha256 "386ad455f12bdeb3a7d19280441a5ab77355142349200ff11040a8d9d455d765"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "45734c6b3d192455d2acc3869dbb94ae2bc09a55fb86a348ff62769d71c16cbd" => :sierra
-    sha256 "7ae05e07723ff6ac37e0847f1233b7021b0fd25496a4d52a4198fa9ba6b48942" => :el_capitan
-    sha256 "c03a8439f143550e2fd7f94ea8053c00a6023f794faadd0ce6a6b0ebe654f225" => :yosemite
-    sha256 "c03a8439f143550e2fd7f94ea8053c00a6023f794faadd0ce6a6b0ebe654f225" => :mavericks
+    sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :sierra
+    sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :el_capitan
+    sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :yosemite
   end
 
   # autoconf-archive is useless without autoconf

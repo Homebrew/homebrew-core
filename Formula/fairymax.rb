@@ -1,6 +1,6 @@
 class Fairymax < Formula
   desc "AI for playing Chess variants"
-  homepage "http://www.chessvariants.org/index/msdisplay.php?itemid=MSfairy-max"
+  homepage "https://www.chessvariants.com/index/msdisplay.php?itemid=MSfairy-max"
   url "http://hgm.nubati.net/git/fairymax.git", :tag => "4.8V", :revision => "b12e1192005c781f64ed9c25c9825d20384d2468"
   version "4.8V"
   head "http://hgm.nubati.net/git/fairymax.git"

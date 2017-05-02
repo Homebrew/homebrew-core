@@ -1,7 +1,7 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-7.0.0.tar.gz"
+  url "https://packages.groonga.org/source/groonga/groonga-7.0.0.tar.gz"
   sha256 "cde519dc4192095a1ad7effd20f9df5b3a8cc38a947b0ec3bf1d681505ff7b30"
 
   bottle do
@@ -38,7 +38,7 @@ class Groonga < Formula
   depends_on "zstd" => :optional
 
   resource "groonga-normalizer-mysql" do
-    url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
+    url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
     sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
   end
 

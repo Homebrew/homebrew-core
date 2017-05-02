@@ -5,7 +5,6 @@ class Cdrtools < Formula
 
   stable do
     url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01.tar.bz2"
-    mirror "https://www.mirrorservice.org/sites/downloads.sourceforge.net/c/cd/cdrtools/cdrtools-3.01.tar.bz2"
     mirror "https://fossies.org/linux/misc/cdrtools-3.01.tar.bz2"
     sha256 "ed282eb6276c4154ce6a0b5dee0bdb81940d0cbbfc7d03f769c4735ef5f5860f"
 

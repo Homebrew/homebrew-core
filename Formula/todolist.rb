@@ -1,14 +1,14 @@
 class Todolist < Formula
   desc "Very fast, simple task manager for the command-line, based upon GTD."
   homepage "http://todolist.site"
-  url "https://github.com/gammons/todolist/archive/0.5.1.tar.gz"
-  sha256 "c7eff52b380a7e8287fceb049be9eca88fe1214598d4764f183a2fef469e5ae9"
+  url "https://github.com/gammons/todolist/archive/0.5.2.tar.gz"
+  sha256 "915b3284fd4ace4d22486ce9a2662d11e63b21f13238437d49a6102c8a9b4c77"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cb29a453110be80800d81185fd1b73f0f8507c18a7ffa8947e37fd5cf50ee8d" => :sierra
-    sha256 "653b9e1105d4f45c329cdb931d13452323d54cb4994e02fc2db48f9e4ea7bc23" => :el_capitan
-    sha256 "00e2c661bf38a93f7d6e3642ae59444557140b3644216262af80364fc957204a" => :yosemite
+    sha256 "33099c6f8e272f1cfe3f96b526764f5067975b84b01b1e147768ce3f3bd72a09" => :sierra
+    sha256 "0093cef065ef3e1b99b8302c1ee30828bd2206e76cf35a568f8e2c8c4446b4fa" => :el_capitan
+    sha256 "0fe2e016558570648c38c4da676857e436bc459fc30d29045838705a2d06c3d5" => :yosemite
   end
 
   depends_on "go" => :build

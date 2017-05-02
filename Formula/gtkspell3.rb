@@ -1,7 +1,7 @@
 class Gtkspell3 < Formula
   desc "Gtk widget for highlighting and replacing misspelled words"
   homepage "https://gtkspell.sourceforge.io/"
-  url "http://gtkspell.sourceforge.net/download/gtkspell3-3.0.7.tar.gz"
+  url "https://gtkspell.sourceforge.io/download/gtkspell3-3.0.7.tar.gz"
   sha256 "13f2e6d3e2554cc24253ef592074b28c117db33b7a4465c98c69a3e0a4fa3cc2"
 
   bottle do

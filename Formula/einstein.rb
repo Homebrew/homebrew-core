@@ -1,7 +1,7 @@
 class Einstein < Formula
   desc "Remake of the old DOS game Sherlock"
-  homepage "https://web.archive.org/web/20120621005109/http://games.flowix.com/en/index.html"
-  url "https://web.archive.org/web/20120621005109/http://games.flowix.com/files/einstein/einstein-2.0-src.tar.gz"
+  homepage "https://web.archive.org/web/20120621005109/games.flowix.com/en/index.html"
+  url "https://web.archive.org/web/20120621005109/games.flowix.com/files/einstein/einstein-2.0-src.tar.gz"
   sha256 "0f2d1c7d46d36f27a856b98cd4bbb95813970c8e803444772be7bd9bec45a548"
 
   bottle do

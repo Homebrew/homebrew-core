@@ -76,7 +76,6 @@ class Gitg < Formula
     libsoup = Formula["libsoup"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
-    webkitgtk = Formula["webkitgtk"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
@@ -100,7 +99,6 @@ class Gitg < Formula
       -I#{libsoup.opt_include}/libsoup-2.4
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
-      -I#{webkitgtk.opt_include}/webkitgtk-4.0
       -DGIT_SSH=1
       -D_REENTRANT
       -L#{atk.opt_lib}
@@ -116,7 +114,6 @@ class Gitg < Formula
       -L#{libsoup.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
-      -L#{webkitgtk.opt_lib}
       -latk-1.0
       -lcairo
       -lcairo-gobject

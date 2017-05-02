@@ -1,27 +1,28 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  url "https://embed.cs.utah.edu/creduce/creduce-2.5.0.tar.gz"
-  sha256 "2dcd784e1d27df60f4ea1d92c4c556c02da4152db353d544dce8b7813fa443e4"
-  revision 4
-
+  revision 1
   head "https://github.com/csmith-project/creduce.git"
+
+  stable do
+    url "https://embed.cs.utah.edu/creduce/creduce-2.6.0.tar.gz"
+    sha256 "cdacc1046ca3ae2b0777b8f235428e7976b0fb97c2f69979c8accd8d2cc0c55d"
+
+    # Remove for > 2.6.0
+    # LLVM 4.0 compatibility
+    # Upstream commit "clang_delta: Namespace-qualify clang::StringLiteral"
+    # Upstream PR from 19 Dec 2016 https://github.com/csmith-project/creduce/pull/128
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/ba1b8a6.patch"
+      sha256 "c55148fc8f8d2b2e39ed25041b1335c8223185969656e4effa336cae9c7b671c"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "136ec198e5d772b98e7b6ea4083d81f92bc9febcbb69bbd5387e40d36d947e10" => :sierra
-    sha256 "50b01810de9ae4b5ee56e3ddbe228ba08e62ea51764d0a7a811c8a24f700ac88" => :el_capitan
-    sha256 "b4239ef06b45717a901f3abc699e53ee390f690215bec0725c0174fdad5fca48" => :yosemite
-  end
-
-  # changes from upstream to fix compilation with LLVM 3.9
-  patch do
-    url "https://github.com/csmith-project/creduce/commit/377e4f93790690edcd0cde057bb96300aca22858.diff"
-    sha256 "1bf6201132dd41953f4c7d454a8f383f432e5a3f2fac416d681bc5e8e8065e18"
-  end
-  patch do
-    url "https://github.com/csmith-project/creduce/commit/d09b8f69419d6c65c7b32675962c9aee813713b5.diff"
-    sha256 "995fcb3c5c7aef60ce34ece07a5d225f0bf7886539479988d8b8a6cc0c52de90"
+    sha256 "0c54ac74a5bb0cc1229fd90c1afcf8c09c0759e90082660c33481bff373b7ac7" => :sierra
+    sha256 "6985dfbee5b136f4ca393983720fcf9431466afc5a032959050dc721491fea8a" => :el_capitan
+    sha256 "bc31670711e121246e4b98fd1eb932f7298766827a1492da38816b1944d43f23" => :yosemite
   end
 
   depends_on "astyle"
@@ -55,9 +56,9 @@ class Creduce < Formula
   end
 
   resource "Regexp::Common" do
-    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060101.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060101.tar.gz"
-    sha256 "8d052550e1ddc222f498104f4ce3d56d953e7640b55805c59493060ae6f06815"
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
+    sha256 "fc2fc178facf0292974d6511bad677dd038fe60d7ac118e3b83a1ca9e98a8403"
   end
 
   resource "Sys::CPU" do

@@ -1,13 +1,13 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://live.gnome.org/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.2.tar.xz"
-  sha256 "ea128ab52a824fcd06e5448fbb2bd8d9a13740d51c66d445828edba71321a621"
+  url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.8.tar.xz"
+  sha256 "fd55a9037d39e7a10f0db64309f5f0265fa32ec962bf85066087b83a2807f40a"
 
   bottle do
-    sha256 "be50545abc36b43fe093e29eda2692246111d8c37a3d154537724485e12a86a4" => :sierra
-    sha256 "7ae820550037c8df9fb51976bcdd72079a94ebcac9e1afdf1c84a5d819ff1f08" => :el_capitan
-    sha256 "5ff0ceedf7b85ad8ac06a3bbb9eac249c0ae73da2723c25b321ce6174824d564" => :yosemite
+    sha256 "3faa6b4be8e06f768fc550e7373edccd09ec308e00a65fd48a01eb46f0d77bac" => :sierra
+    sha256 "d26028a584955b8ebe2002261ccd34cd8ef8b5f287b6da211276fb981bd405dd" => :el_capitan
+    sha256 "6bd1f2ed688b6f637a942400d55fc6f4e51db40887421a80b1ffcce185d3e084" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -15,10 +15,11 @@ class JsonGlib < Formula
   depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-debug",
+    system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-introspection=yes"
+    system "make"
     system "make", "install"
   end
 

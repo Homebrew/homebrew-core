@@ -9,10 +9,10 @@ class Maven < Formula
   end
 
   devel do
-    url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.0-alpha-1/binaries/apache-maven-3.5.0-alpha-1-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/maven/maven-3/3.5.0-alpha-1/binaries/apache-maven-3.5.0-alpha-1-bin.tar.gz"
-    sha256 "7421b3737729ea4e3865c33af6fbf4e50f9820b477d46eaff9492ad940785cd7"
-    version "3.5.0-alpha-1"
+    url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.0-beta-1/binaries/apache-maven-3.5.0-beta-1-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/maven/maven-3/3.5.0-beta-1/binaries/apache-maven-3.5.0-beta-1-bin.tar.gz"
+    sha256 "26870ab318d8226540fe8fa6f876bb14a85776f15acf516a9375686bb551bcdf"
+    version "3.5.0-beta-1"
   end
 
   bottle :unneeded

@@ -3,16 +3,16 @@ class TomcatAT80 < Formula
   homepage "https://tomcat.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.tar.gz"
-    sha256 "a57204b5434755b5767299bbcd32e3afd2d6327cafa6b8372077f824aa7176d7"
+    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.42/bin/apache-tomcat-8.0.42.tar.gz"
+    sha256 "be876f955657791a480c167ea126663f56aa908da5c354bd4b3d60b3aa5c6e1e"
 
     depends_on :java => "1.7+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.39/bin/apache-tomcat-8.0.39-fulldocs.tar.gz"
-      version "8.0.39"
-      sha256 "198d67aa67de1a7262e9aa31945a9f53804c37051096c3147c978920ff00a2f6"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.0.42/bin/apache-tomcat-8.0.42-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.42/bin/apache-tomcat-8.0.42-fulldocs.tar.gz"
+      version "8.0.42"
+      sha256 "788a9981307d53ef3292dee2cf66c32d38b8e8235763d6b98ba12d16d397d2cb"
     end
   end
 

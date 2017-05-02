@@ -1,8 +1,7 @@
 class Trafshow < Formula
   desc "Continuous network traffic display"
   # Upstream homepage down since late 2014, but only displays a manpage.
-  # homepage "http://soft.risp.ru/trafshow/index_en.shtml"
-  homepage "https://web.archive.org/web/20130707021442/http://soft.risp.ru/trafshow/index_en.shtml"
+  homepage "https://web.archive.org/web/20130707021442/soft.risp.ru/trafshow/index_en.shtml"
   url "http://distcache.freebsd.org/ports-distfiles/trafshow-5.2.3.tgz"
   sha256 "ea7e22674a66afcc7174779d0f803c1f25b42271973b4f75fab293b8d7db11fc"
 

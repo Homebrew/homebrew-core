@@ -1,16 +1,14 @@
 class Admesh < Formula
   desc "Processes triangulated solid meshes"
   homepage "https://github.com/admesh/admesh"
-  url "https://github.com/admesh/admesh/releases/download/v0.98.2/admesh-0.98.2.tar.gz"
-  sha256 "ae34a6f42136a434ae242dcd76415dca326ecd1fe55bbd253bb56318ceee382b"
+  url "https://github.com/admesh/admesh/releases/download/v0.98.3/admesh-0.98.3.tar.gz"
+  sha256 "b349c835383b6648fd159e528a530fdcb31aed95024d7a294280ac8096ec7624"
 
   bottle do
     cellar :any
-    sha256 "1666781d8c745fc2754a0228ba5c5c740642afdf9fc7c9e9ac37bf641897caba" => :sierra
-    sha256 "90592b8b41e8d58daccb90426a3f1fa1a946367c9430be65892eb1ec0a912a4f" => :el_capitan
-    sha256 "f081b675e54064716a089b2af95d7b4a6ecc7c38d2e5c3f064027dc247faa758" => :yosemite
-    sha256 "3c073a473a28305ef75d0a8f32dfb0c79845f3d4ae5d277299e5ee309da62ace" => :mavericks
-    sha256 "411599b23cc2285c382de174dbddfbb6f48b687ee9364de8d4a6af1596600cd6" => :mountain_lion
+    sha256 "3de4fbc48e0d5ca620bb5fa9cb20d18065fa00fa0c007109473bd495e17686d1" => :sierra
+    sha256 "a2de7016b2356c0e2e860c80999bd27edd9967fb85069ed33c60b9dcd35f725b" => :el_capitan
+    sha256 "3f3db422de01a8e239d7ef6027d0264d3857feac781ef739072b6ec0d50894a0" => :yosemite
   end
 
   def install

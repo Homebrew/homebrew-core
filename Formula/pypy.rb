@@ -4,24 +4,15 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.6.0-src.tar.bz2"
-    sha256 "7411448045f77eb9e087afdce66fe7eafda1876c9e17aad88cf891f762b608b0"
-
-    # Disable clock_gettime() use on Darwin; applied upstream.
-    # This fixes 10.11 when built using the Xcode 8 SDK.
-    # See: https://github.com/Homebrew/homebrew-core/issues/6949
-    patch do
-      url "https://bitbucket.org/pypy/pypy/commits/91e202bbd0b983c88fa9c33b9215b0f910d1f405/raw"
-      sha256 "7a5f5d1c3c0e7bd1652c4d17018d8c1328338b73858712c02c41ef563a04314c"
-    end
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.7.0-src.tar.bz2"
+    sha256 "e522ea7ca51b16ee5505f22b86803664b762a263a6d69ba84c359fcf8365ad3e"
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a56e0a57985790a3b99130e00f4c729b3c2bd2a2efdfe28c17e0bb6df8abad70" => :sierra
-    sha256 "b76162bcb6c7c4e340e25a79f594a567dc8d6cc6a9549f36a3dd40419469e949" => :el_capitan
-    sha256 "67eef40ed21dca1f3c51d8cdb487651d37dd55622f6fef2c7abffb21784f3c30" => :yosemite
+    sha256 "4901eaef6ed09427b72cb0d27d42149f445434d229b03029df7b0806492838de" => :sierra
+    sha256 "68669258f0f303f89a7400f0ec470a353486b39411dc3ddb34ad5a80dd0bff3f" => :el_capitan
+    sha256 "570e243262d65d2e25e9cf97618422aa902647f16a7efb02990aa531ed0e4f61" => :yosemite
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \

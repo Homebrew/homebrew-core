@@ -20,7 +20,7 @@ class GccAT5 < Formula
   end
 
   desc "The GNU Compiler Collection"
-  homepage "https://gcc.gnu.org"
+  homepage "https://gcc.gnu.org/"
   url "https://ftpmirror.gnu.org/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2"
   sha256 "608df76dec2d34de6558249d8af4cbee21eceddbcb580d666f7a5a583ca3303a"
@@ -125,7 +125,7 @@ class GccAT5 < Formula
     args << "--enable-plugin" if MacOS.version > :tiger
 
     # Otherwise make fails during comparison at stage 3
-    # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
     args << "--with-dwarf2" if MacOS.version < :leopard
 
     args << "--disable-nls" if build.without? "nls"

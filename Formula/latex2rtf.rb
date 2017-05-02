@@ -17,8 +17,8 @@ class Latex2rtf < Formula
                    "BINDIR=#{bin}",
                    "MANDIR=#{man1}",
                    "INFODIR=#{info}",
-                   "SUPPORTDIR=#{share}/latex2rtf",
-                   "CFGDIR=#{share}/latex2rtf/cfg",
+                   "SUPPORTDIR=#{pkgshare}",
+                   "CFGDIR=#{pkgshare}/cfg",
                    "install"
   end
 end

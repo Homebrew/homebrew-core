@@ -11,13 +11,7 @@ class Pianod < Formula
     sha256 "33d938cf80c04f224f72bca2592a20b28707246c5c5450baaf1974e4114e8bfc" => :mavericks
   end
 
-  devel do
-    url "http://deviousfish.com/Downloads/pianod2/Devel/pianod2-189.tar.gz"
-    sha256 "dad7a1a5b18a712178d3835ef2cd898f0f92a8d608987bdfc807ce2226fab863"
-  end
-
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg" => :build if build.devel?
 
   depends_on "libao"
   depends_on "libgcrypt"

@@ -1,17 +1,15 @@
 class Slrn < Formula
   desc "Powerful console-based newsreader"
   homepage "https://slrn.sourceforge.io/"
-  url "http://jedsoft.org/releases/slrn/slrn-1.0.2.tar.bz2"
-  sha256 "99acbc51e7212ccc5c39556fa8ec6ada772f0bb5cc45a3bb90dadb8fe764fb59"
+  url "http://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2"
+  sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
 
   head "git://git.jedsoft.org/git/slrn.git"
 
   bottle do
-    sha256 "930c23567b3808175fdf01fdda647045c62291eef3202212b112a0ee063c88af" => :sierra
-    sha256 "d2133ed755fd711a95ccc7d94f716d3f792d6b787e28e573a528fe9e60784bc9" => :el_capitan
-    sha256 "53301c562341b8443fee424b3b3c8118f52e8e19249e00460e2b4e18b2c20e9f" => :yosemite
-    sha256 "7f3179279619eeff0bd9ec3ca02637595f0cef4ba65860602069ada1a459b5ac" => :mavericks
-    sha256 "27b04746ba09720a832c3691a2997d52baf5daf4b2a368a4081eb2554449b270" => :mountain_lion
+    sha256 "46721d6d7a4ac469837a4e41bfdc279727ee7c3dd38351eb3d47aa7b43e64062" => :sierra
+    sha256 "d45e3c8765302bd61709b091143becf4c7ce78913256620c956dcf2b95431910" => :el_capitan
+    sha256 "06d71ffeb008854c63eeadf6f45633cf692e648490cb20c2ba5f3229cc3dc808" => :yosemite
   end
 
   depends_on "s-lang"

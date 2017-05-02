@@ -40,12 +40,12 @@ class BulkExtractor < Formula
 
   test do
     input_file = testpath/"data.txt"
-    input_file.write "http://brew.sh\n(201)555-1212\n"
+    input_file.write "https://brew.sh\n(201)555-1212\n"
 
     output_dir = testpath/"output"
     system "#{bin}/bulk_extractor", "-o", output_dir, input_file
 
-    assert_match "http://brew.sh", (output_dir/"url.txt").read
+    assert_match "https://brew.sh", (output_dir/"url.txt").read
     assert_match "(201)555-1212", (output_dir/"telephone.txt").read
   end
 end

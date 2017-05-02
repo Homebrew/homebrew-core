@@ -21,9 +21,9 @@ class Iozone < Formula
     cd "src/current" do
       system "make", "macosx", "CC=#{ENV.cc}"
       bin.install "iozone"
-      shared = %w[Generate_Graphs client_list gengnuplot.sh gnu3d.dem
-                  gnuplot.dem gnuplotps.dem iozone_visualizer.pl report.pl]
-      (share/"iozone").install(*shared)
+      pkgshare.install %w[Generate_Graphs client_list gengnuplot.sh gnu3d.dem
+                          gnuplot.dem gnuplotps.dem iozone_visualizer.pl
+                          report.pl]
     end
     man1.install "docs/iozone.1"
   end

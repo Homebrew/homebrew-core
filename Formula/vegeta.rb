@@ -3,14 +3,14 @@ require "language/go"
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/v6.2.0.tar.gz"
-  sha256 "f58d8cf885b4d230612f4b5d458fc1ec1b6dac6bc6c1d088ec081a03234a6cae"
+  url "https://github.com/tsenart/vegeta/archive/v6.3.0.tar.gz"
+  sha256 "b9eaf9dc748fa58360395641ff50a33e53c805bf8a45ba3d787133d97b2269c6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d7aa6533148d3cf25e5d6bc731ace3af481b7258e3335c0256293b6da4ac9100" => :sierra
-    sha256 "c1d8e0a8fd18c9e02dc84a016016d37a6668aa70081ae861a734781b9c22884f" => :el_capitan
-    sha256 "7028d0d721260655ae42cacf7f63f38373ada4053120d46178bb7ad9657f877e" => :yosemite
+    sha256 "47e1b8f045671f42701a959baac1d37e967b6be0196dff6b8c088df5763a2a5f" => :sierra
+    sha256 "aadfb9ec8717221b59cad02eb1eec3464e75e8c05ff3f695f07291b8a9b87fdb" => :el_capitan
+    sha256 "4e449d903b750dbbe063b024cd06ba82edb1490db4774fdda9c4e228df8256be" => :yosemite
   end
 
   depends_on "go" => :build
@@ -22,7 +22,7 @@ class Vegeta < Formula
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "6250b412798208e6c90b03b7c4f226de5aa299e2"
+        :revision => "a6577fac2d73be281a500b310739095313165611"
   end
 
   def install

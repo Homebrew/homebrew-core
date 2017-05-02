@@ -81,7 +81,7 @@ class PostgresqlAT94 < Formula
       https://github.com/Homebrew/homebrew/issues/issue/2510
 
     To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
-      http://www.postgresql.org/docs/9.3/static/upgrading.html
+      https://www.postgresql.org/docs/9.3/static/upgrading.html
     EOS
 
     if MacOS.prefer_64_bit?

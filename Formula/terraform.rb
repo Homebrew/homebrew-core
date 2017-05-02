@@ -3,24 +3,21 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.8.8.tar.gz"
-  sha256 "030714052a63dbdadc7cf290256a1c88ccad53650481129528495dd271ee11d2"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.1.tar.gz"
+  sha256 "af8402ce84b85a16cfac3796c1f30f229a0d0e93585c6c618af2f25aae067e65"
+  revision 1
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a7099d14502f309093ba33240fb67c44233b7766bb4ff01404eb7679aab8b7a" => :sierra
-    sha256 "b11a5f5dc1036400921af35eb4975d66ea51c8889cdca828d4f161caeb1d0972" => :el_capitan
-    sha256 "f075b4005d08bca00129e17989fc7e098db46b5a81a83c2c375c335c389162b9" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/hashicorp/terraform/archive/v0.9.0-beta2.tar.gz"
-    sha256 "0485a8b209ab3a6ecba33b2e788058783404c532e2489f515f90a2e4232e15c0"
-    version "0.9.0-beta2"
+    sha256 "5c6ca950dffbd9456c9cdac4113a2643377cdec3fc3ed720568dcb8dd71bbb2e" => :sierra
+    sha256 "897de40afdd87c3f283f66f410ff2c17dc2cf2ce58b8672de5335e7b40c8e9f3" => :el_capitan
+    sha256 "f22d3b34455c7e34201be5b487d85336bee7d9e7d1e432989a3bc708b4c31f73" => :yosemite
   end
 
   depends_on "go" => :build
+
+  conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
 
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
@@ -47,50 +44,39 @@ class Terraform < Formula
         :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
   end
 
+  # vet error (please remove after next version release)
+  # upstream issue: https://github.com/hashicorp/terraform/pull/12839
+  patch do
+    url "https://github.com/hashicorp/terraform/commit/bc4a3d62a59dc14c11a8546cc4e7e32ec7553fab.patch"
+    sha256 "ac312a0cc46833a45ef51d56961bdc7c7d60cb8c709ee305f476e4b68e8685e5"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by terraform, which doesn't need to
-    # get installed permanently
-    ENV.append_path "PATH", buildpath
+    ENV.prepend_create_path "PATH", buildpath/"bin"
 
-    terrapath = buildpath/"src/github.com/hashicorp/terraform"
-    terrapath.install Dir["*"]
+    dir = buildpath/"src/github.com/hashicorp/terraform"
+    dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
+    %w[src/github.com/mitchellh/gox src/golang.org/x/tools/cmd/stringer
+       src/github.com/kisielk/errcheck].each do |path|
+      cd(path) { system "go", "install" }
     end
 
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      ENV.deparallelize { system "go", "build" }
-      buildpath.install "stringer"
-    end
-
-    cd "src/github.com/kisielk/errcheck" do
-      system "go", "build"
-      buildpath.install "errcheck"
-    end
-
-    cd terrapath do
+    cd dir do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      # Runs format check and test suite via makefile
-      ENV.deparallelize { system "make", "test", "vet" }
-
-      # Generate release binary
-      # Upsteam issue for parallelization errors:
-      # https://github.com/hashicorp/terraform/issues/12064
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      ENV.deparallelize { system "make", "bin" }
+      system "make", "test", "vet", "bin"
 
-      # Install release binary
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
+      prefix.install_metafiles
     end
   end
 

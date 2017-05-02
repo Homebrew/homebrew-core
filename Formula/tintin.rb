@@ -1,14 +1,14 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.1/tintin-2.01.1.tar.gz"
-  sha256 "cc0ba550880bd5efdba8fde11d1e4ddd4ae8737f81e6f64649de23ed99cbbca4"
+  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.2/tintin-2.01.2.tar.gz"
+  sha256 "01e11e3cded48ff686b2ea16e767acf1f6b5ea326551ecff091552e89f4a038e"
 
   bottle do
     cellar :any
-    sha256 "53ef21f8401cc2eb2382025308d7f60ce526dc767ac5f2da27c83779c9601d8c" => :sierra
-    sha256 "2da30697e6faf758f370e4f94c6481e6ea01d19eb66302a29f2e6205a94d3744" => :el_capitan
-    sha256 "8e7c563ee4dc513ac7890da9f2d6e6f72be399c46af02444f5e09b50e7a84d95" => :yosemite
+    sha256 "83b285b7b301a92fab1edcf9123bd5a14c1e25b79e899d638a8ff6d0d624a05c" => :sierra
+    sha256 "e58eb5055b943111c93dd2ede24df92b9b0d2ada69b128d43d4a837cc045ba5b" => :el_capitan
+    sha256 "0fe0c128b0c4d22a6015e56220f3906a2e61e3b17294a5cf68e03104fbd33c06" => :yosemite
   end
 
   depends_on "pcre"

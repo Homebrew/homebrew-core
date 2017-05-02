@@ -5,12 +5,12 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/18/6c/6fe6f718073024e23fb0bfaff8d0a6db596adc7d29f259edd325e93bd33c/fdroidserver-0.7.0.tar.gz"
   sha256 "3de76a02d17260a5fd65b089ceaabcc578e238ffe71f205a8f6f37e705648d6e"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 "e5acb7e77486c4759655fae3e8e4772765bcdedc42bb26c674393736af60d2a2" => :sierra
-    sha256 "186eecebd2b775315e6f6b3e1e6da8cf24323bb5485f2fbae93b26351b657856" => :el_capitan
-    sha256 "bb317bd21a749fcd79b419a265714460564125a302bc24c678f5c1e1be493f94" => :yosemite
+    sha256 "149a47a04cf22b9eee63231b3b9bc3772bcb0aa6238a54e79e4a6ad4ed782133" => :sierra
+    sha256 "a8a48d0e78dd730093809eb8419eb099524017b9bc1ed89dadcbfbe17c0ce009" => :el_capitan
+    sha256 "650aa7fe89a6ffc2d7b8f9a4494a1f44a7d494efc95975e15dbd7286e5a53655" => :yosemite
   end
 
   depends_on :python3
@@ -22,8 +22,13 @@ class Fdroidserver < Formula
   depends_on "android-sdk" => :recommended
 
   resource "apache-libcloud" do
-    url "https://files.pythonhosted.org/packages/d3/44/847e2e81da096b89ef56cb1c66093e61b06a8e1262f8ea2a76358e0d7b65/apache-libcloud-1.3.0.tar.bz2"
-    sha256 "3b74fa9ee317b9e744f25fe2381c4a582545fe1259d133afc5a660b935a9861b"
+    url "https://files.pythonhosted.org/packages/1d/a6/569313d0c95b6e0bbebc5f2c8197a7261c85556a3de84d42e9093d7d6996/apache-libcloud-1.5.0.tar.bz2"
+    sha256 "ea3dd7825e30611e5a018ab18107b33a9029097d64bd8b39a87feae7c2770282"
+  end
+
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
   end
 
   resource "args" do
@@ -31,9 +36,14 @@ class Fdroidserver < Formula
     sha256 "a785b8d837625e9b61c39108532d95b85274acd679693b71ebb5156848fcf814"
   end
 
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
+    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+  end
+
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/0a/f3/686af8873b70028fccf67b15c78fd4e4667a3da995007afc71e786d61b0a/cffi-1.8.3.tar.gz"
-    sha256 "c321bd46faa7847261b89c0469569530cad5a41976bb6dba8202c0159f476568"
+    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
+    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
   end
 
   resource "clint" do
@@ -42,8 +52,8 @@ class Fdroidserver < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6c/c5/7fc1f8384443abd2d71631ead026eb59863a58cad0149b94b89f08c8002f/cryptography-1.5.3.tar.gz"
-    sha256 "cf82ddac919b587f5e44247579b433224cc2e03332d2ea4d89aa70d7e6b64ae5"
+    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
+    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
   end
 
   resource "gitdb2" do
@@ -52,48 +62,48 @@ class Fdroidserver < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/d7/16/e914d345d7d4e988f9196b9719a99220bad6a5dbd636162f9b5cc35f3bd6/GitPython-2.1.0.tar.gz"
-    sha256 "3ebda1e6ff1ef68597e41dcd1b99c2a5ae902f4dc2b22ad3533cc89c32b42aad"
+    url "https://files.pythonhosted.org/packages/e8/87/a1cdd8b210e4b825ec34fef996d2680dc00ee9517379c167e9a57af0664e/GitPython-2.1.3.tar.gz"
+    sha256 "3826185b11e1fc372e7d31251e9b65e11ccb7c27f82c771d619048bdb5b66c81"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/fb/84/8c27516fbaa8147acd2e431086b473c453c428e24e8fb99a1d89ce381851/idna-2.1.tar.gz"
-    sha256 "ed36f281aebf3cd0797f163bb165d84c31507cedd15928b095b1675e2d04c676"
-  end
-
-  resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/bb/26/3b64955ff73f9e3155079b9ed31812afdfa5333b5c76387454d651ef593a/ipaddress-1.0.17.tar.gz"
-    sha256 "3a21c5a15f433710aaa26f1ae174b615973a25182006ae7f9c26de151cd51716"
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "mwclient" do
-    url "https://files.pythonhosted.org/packages/39/61/f743f760a720c4fd303192d12c3c8bd902543e7749a9efb1ba44b4ab0ead/mwclient-0.8.2.tar.gz"
-    sha256 "e16fa5bc4fd1a2acfc5cc3897e7132500917198bd17350b543893c17abe2cbb6"
-  end
-
-  resource "ndg-httpsclient" do
-    url "https://files.pythonhosted.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz"
-    sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
+    url "https://files.pythonhosted.org/packages/66/84/e99c39f3ab25a18eea9371d4e47ba79866d08f2e0ef3d70926f3ebd05c1b/mwclient-0.8.4.tar.gz"
+    sha256 "eedffd90912ec9ea1044c3e15c62d62df8763ad87cfd1f47ccf7ef53e1b7a018"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/ce/92/7f07412a4f04e55c1e83a09c6fd48075b5df96c1dbd4078c3407c5be1dff/oauthlib-2.0.0.tar.gz"
-    sha256 "0ad22b4f03fd75ef18d5793e1fed5e2361af5d374009f7722b4af390a0030dfd"
+    url "https://files.pythonhosted.org/packages/d2/4c/5ac894a469e25ebd02f6b3c2adb9f55253e6d1ca1f16a7d247ae6d48b4c8/oauthlib-2.0.1.tar.gz"
+    sha256 "132ad46df25e53a84b33f1fd43f80e973cda2cb018cc0168d7d0c8c4d5cef9b5"
+  end
+
+  resource "olefile" do
+    url "https://files.pythonhosted.org/packages/35/17/c15d41d5a8f8b98cc3df25eb00c5cee76193114c78e5674df6ef4ac92647/olefile-0.44.zip"
+    sha256 "61f2ca0cd0aa77279eb943c07f607438edf374096b66332fae1ee64a6f0f73ad"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/6b/4e/971b8c917456a2ec9666311f7e695493002a64022397cd668150b5efd2a8/paramiko-2.0.2.tar.gz"
-    sha256 "411bf90fa22b078a923ff19ef9772c1115a0953702db93549a2848acefd141dc"
+    url "https://files.pythonhosted.org/packages/64/79/5e8baeedb6baf1d5879efa8cd012f801efc232e56a068550ba00d7e82625/paramiko-2.1.2.tar.gz"
+    sha256 "5fae49bed35e2e3d45c4f7b0db2d38b9ca626312d91119b3991d0ecf8125e310"
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/46/4f/94f6165052774839b4a4af0c72071aa528d5dc8cb8bc6bb43e24a55c10cc/Pillow-3.4.2.tar.gz"
-    sha256 "0ee9975c05602e755ff5000232e0335ba30d507f6261922a658ee11b1cec36d1"
+    url "https://files.pythonhosted.org/packages/8d/80/eca7a2d1a3c2dafb960f32f844d570de988e609f5fd17de92e1cf6a01b0a/Pillow-4.0.0.tar.gz"
+    sha256 "ee26d2d7e7e300f76ba7b796014c04011394d0c4a5ed9a288264a3e443abca50"
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/f7/83/377e3dd2e95f9020dbd0dfd3c47aaa7deebe3c68d3857a4e51917146ae8b/pyasn1-0.1.9.tar.gz"
-    sha256 "853cacd96d1f701ddd67aa03ecc05f51890135b7262e922710112f12a2ed2a7f"
+    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
+    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
   end
 
   resource "pyasn1-modules" do
@@ -106,24 +116,24 @@ class Fdroidserver < Formula
     sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+  end
+
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
-  end
-
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2e/ad/e627446492cc374c284e82381215dcd9a0a87c4f6e90e9789afefe6da0ad/requests-2.11.1.tar.gz"
-    sha256 "5acf980358283faba0b897c73959cecf8b841205bb4b2ad3ef545f46eae1a133"
+    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
+    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
   end
 
   resource "requests-oauthlib" do
-    url "https://files.pythonhosted.org/packages/46/9b/c28061cc63298bc29ff7d668e18c5293bb522e946aaeb98e4c552d2c0f7b/requests-oauthlib-0.7.0.tar.gz"
-    sha256 "198807c592b75438485c890f0403b1a8e363c86be1a87da687be18991a6850b0"
+    url "https://files.pythonhosted.org/packages/80/14/ad120c720f86c547ba8988010d5186102030591f71f7099f23921ca47fe5/requests-oauthlib-0.8.0.tar.gz"
+    sha256 "883ac416757eada6d3d07054ec7092ac21c7f35cb1d2cf82faf205637081f468"
   end
 
   resource "six" do
@@ -137,9 +147,30 @@ class Fdroidserver < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["freetype"].opt_include}/freetype2"
-    virtualenv_create(libexec, "python3")
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+
+    resource("Pillow").stage do
+      inreplace "setup.py" do |s|
+        sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
+        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+      end
+
+      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
+      ENV.delete "SDKROOT"
+      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
+      venv.pip_install Pathname.pwd
+    end
+
+    res = resources.map(&:name).to_set - ["Pillow"]
+
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
+
+    venv.pip_install_and_link buildpath
     doc.install "examples"
   end
 
