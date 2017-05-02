@@ -1,8 +1,8 @@
 class Primesieve < Formula
   desc "Fast C/C++ prime number generator"
   homepage "http://primesieve.org/"
-  url "https://dl.bintray.com/kimwalisch/primesieve/primesieve-5.7.0.tar.gz"
-  sha256 "4a3e542dd3079dd9c0caf2d67fbb7b79757f65d705bdc8cf50555e65653fa1d1"
+  url "https://github.com/kimwalisch/primesieve/archive/v6.0.tar.gz"
+  sha256 "4b462d9682c595fc4d332c9b22240c571a4c0d8331bcb38c854a50d36229678a"
 
   bottle do
     cellar :any
@@ -12,13 +12,16 @@ class Primesieve < Formula
     sha256 "b15504dd7f1bfb4cd9dc5d4474b7180bd5b345d49e10619f5383516efa061964" => :mavericks
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--disable-silent-rules",
-           "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
-    system "#{bin}/primesieve", "2", "1000", "--count=1", "-p2"
+    system "#{bin}/primesieve", "100", "--count", "--print"
   end
 end
