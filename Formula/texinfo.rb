@@ -34,6 +34,6 @@ class Texinfo < Formula
       @bye
     EOS
     system "#{bin}/makeinfo", "test.texinfo"
-    assert_match /Hello World!/, File.read("test.info")
+    assert_match "Hello World!", File.read("test.info")
   end
 end
