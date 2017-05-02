@@ -12,7 +12,7 @@ class AprUtil < Formula
     sha256 "29aefc556d7712da0a957d9b34e4e6e320f3997922a1b1b18705c486acfb6890" => :yosemite
   end
 
-  keg_only :provided_by_osx, "Apple's CLT package contains apr."
+  keg_only :provided_by_osx, "Apple's CLT package contains apr"
 
   depends_on "apr"
   depends_on "openssl"
