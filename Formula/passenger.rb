@@ -1,8 +1,8 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.2.tar.gz"
-  sha256 "7fb03a54650ef5e508895c9e45bc2d8151f6c4811ea6797e81f017fedddfdbab"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.3.tar.gz"
+  sha256 "e1d39cbc041693c8dc0247c98ecf5180eed2abaaa09295209b72d8b0c1935994"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
@@ -16,22 +16,15 @@ class Passenger < Formula
   depends_on :macos => :lion
   depends_on "pcre"
   depends_on "openssl"
-  depends_on "apr-util"
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
 
-    ENV["APU_CONFIG"] = Formula["apr-util"].opt_bin/"apu-1-config"
-    ENV["APR_CONFIG"] = Formula["apr"].opt_bin/"apr-1-config"
-
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
       s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
       s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
     end
-    inreplace "src/ruby_supportlib/phusion_passenger/config/nginx_engine_compiler.rb",
-      "http://nginx.org",
-      "https://nginx.org"
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"
