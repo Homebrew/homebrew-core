@@ -36,8 +36,6 @@ class GnomeBuilder < Formula
   needs :cxx11
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
-
     # Bugreport opened at https://bugzilla.gnome.org/show_bug.cgi?id=780293
     ENV.append "LIBS", `pkg-config --libs enchant`.chomp
     inreplace "doc/Makefile.in", "cp -R", "gcp -R"
