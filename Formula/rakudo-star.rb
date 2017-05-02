@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Perl 6 compiler"
   homepage "http://rakudo.org/"
-  url "http://rakudo.org/downloads/star/rakudo-star-2017.01.tar.gz"
-  sha256 "583a91f21fd65e50df6e60ea047c8d4baf725a32265bcab1ac178cda7fc3f21f"
+  url "https://github.com/rakudo/rakudo/archive/2017.02.tar.gz"
+  sha256 "a9a16bef4d826e77d28a2ca7ffe7c1ccde2a236b7ec36a6522e54eb54ac11e85"
 
   bottle do
     sha256 "5cfef784285a5e46be149ebfc07cef95b41b9162e6925067dd6351ed1b37b4ed" => :sierra
