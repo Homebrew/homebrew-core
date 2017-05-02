@@ -18,7 +18,7 @@ class JpegTurbo < Formula
     depends_on "autoconf" => :build
   end
 
-  keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg."
+  keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg"
 
   option "without-test", "Skip build-time checks (Not Recommended)"
 
