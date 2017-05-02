@@ -1,9 +1,9 @@
 class Cheapglk < Formula
   desc "Extremely minimal Glk library"
   homepage "http://www.eblong.com/zarf/glk/index.html"
-  url "http://www.eblong.com/zarf/glk/cheapglk-104.tar.gz"
-  version "1.0.4"
-  sha256 "87f1c0a1f2df7b6dc9e34a48b026b0c7bc1752b9a320e5cda922df32ff40cb57"
+  url "http://www.eblong.com/zarf/glk/cheapglk-106.tar.gz"
+  version "1.0.6"
+  sha256 "2753562a173b4d03ae2671df2d3c32ab7682efd08b876e7e7624ebdc8bf1510b"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class Cheapglk < Formula
     sha256 "93d9f95fbdef5fc3c51b3ecbd69fedea47bbaaf9a89e3a3f8275b9c801bba2e3" => :yosemite
   end
 
-  keg_only "Conflicts with other Glk libraries"
+  keg_only "it conflicts with other Glk libraries"
 
   def install
     system "make"
@@ -41,6 +41,6 @@ class Cheapglk < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcheapglk", "-o", "test"
-    system "echo test | ./test"
+    assert_match version.to_s, pipe_output("./test", "echo test", 0)
   end
 end
