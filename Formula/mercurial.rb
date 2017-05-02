@@ -25,6 +25,14 @@ class Mercurial < Formula
       bin.install "chg"
     end
 
+    # Configure a nicer default pager
+    (buildpath/"hgrc").write <<-EOS.undent
+      [pager]
+      pager = less -FRX
+    EOS
+
+    (etc/"mercurial").install "hgrc"
+
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"
     man5.install "doc/hgignore.5", "doc/hgrc.5"
