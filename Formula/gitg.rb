@@ -1,9 +1,8 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
-  sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
-  revision 1
+  url "https://download.gnome.org/sources/gitg/3.24/gitg-3.24.0.tar.xz"
+  sha256 "3e4ec4a8ae83bc7ced8c7610927ade70e37daa5e8beeb4f357a6ea30b4cc951e"
 
   bottle do
     sha256 "4132836f7275773fc4fc52017295455416e067d044b75e610070ddb6448d6903" => :sierra
@@ -30,8 +29,6 @@ class Gitg < Formula
   depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
