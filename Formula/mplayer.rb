@@ -21,6 +21,8 @@ class Mplayer < Formula
   end
 
   depends_on "yasm" => :build
+  depends_on "freetype" => :build
+  depends_on "libpng" => :build # required by freetype
   depends_on "libcaca" => :optional
 
   unless MacOS.prefer_64_bit?
@@ -41,6 +43,7 @@ class Mplayer < Formula
       --disable-cdparanoia
       --prefix=#{prefix}
       --disable-x11
+      --enable-freetype
     ]
 
     args << "--enable-caca" if build.with? "libcaca"
