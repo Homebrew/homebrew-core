@@ -4,17 +4,18 @@ class Zyre < Formula
   url "https://github.com/zeromq/zyre/releases/download/v2.0.0/zyre-2.0.0.tar.gz"
   sha256 "8735bdf11ad9bcdccd4c4fd05cebfbbaea8511e21376bc7ad22f3cbbc038e263"
 
-  head "https://github.com/zeromq/zyre.git"
+  head do
+    url "https://github.com/zeromq/zyre.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   option "with-drafts", "Build and install draft classes and methods"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-
-  depends_on "zeromq" => :run
-  depends_on "czmq" => :run
+  depends_on "zeromq"
+  depends_on "czmq"
 
   def install
     args = [
