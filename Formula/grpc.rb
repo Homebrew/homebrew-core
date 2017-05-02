@@ -4,6 +4,7 @@ class Grpc < Formula
   url "https://github.com/grpc/grpc.git",
       :tag => "v1.3.0",
       :revision => "3ef2355eaedc07f8900ad98d079448169a2a2a06"
+  revision 1
   head "https://github.com/grpc/grpc.git"
 
   bottle do
@@ -15,6 +16,7 @@ class Grpc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "protobuf"
 
   def install
     system "make", "install", "prefix=#{prefix}"
