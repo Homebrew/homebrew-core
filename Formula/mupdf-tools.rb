@@ -1,8 +1,8 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.10a-source.tar.gz"
-  sha256 "aacc1f36b9180f562022ef1ab3439b009369d944364f3cff8a2a898834e3a836"
+  url "https://mupdf.com/downloads/mupdf-1.11-source.tar.gz"
+  sha256 "209474a80c56a035ce3f4958a63373a96fad75c927c7b1acdc553fc85855f00a"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -15,12 +15,16 @@ class MupdfTools < Formula
   depends_on :macos => :snow_leopard
 
   def install
+    # Work around bug: https://bugs.ghostscript.com/show_bug.cgi?id=697842
+    inreplace "Makerules", "RANLIB_CMD := xcrun", "RANLIB_CMD = xcrun"
+
     system "make", "install",
            "build=release",
            "verbose=yes",
            "HAVE_X11=no",
            "CC=#{ENV.cc}",
-           "prefix=#{prefix}"
+           "prefix=#{prefix}",
+           "HAVE_GLFW=no" # Do not build OpenGL viewer: https://bugs.ghostscript.com/show_bug.cgi?id=697842
 
     # Symlink `mutool` as `mudraw` (a popular shortcut for `mutool draw`).
     bin.install_symlink bin/"mutool" => "mudraw"
@@ -28,7 +32,6 @@ class MupdfTools < Formula
   end
 
   test do
-    pdf = test_fixtures("test.pdf")
-    assert_match "Homebrew test", shell_output("#{bin}/mutool draw -F txt #{pdf}")
+    assert_match "Homebrew test", shell_output("#{bin}/mutool draw -F txt #{test_fixtures("test.pdf")}")
   end
 end
