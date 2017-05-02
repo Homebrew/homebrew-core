@@ -1,10 +1,12 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-3.40.tar.gz"
+  url "https://hashcat.net/files/hashcat-3.5.0.tar.gz"
   # Note the mirror will return 301 until the version becomes outdated.
-  mirror "https://hashcat.net/files_legacy/hashcat-3.40.tar.gz"
-  sha256 "92627197daa850dc7d723793150801c0791fe31f6c767de68417cee097ad6f4c"
+  mirror "https://hashcat.net/files_legacy/hashcat-3.5.0.tar.gz"
+  sha256 "ed56265d5f05320dadce1e5fda2abda3ea49709b4d11b435dd1fde777fa503b6"
+  version_scheme 1
+
   head "https://github.com/hashcat/hashcat.git"
 
   bottle do
