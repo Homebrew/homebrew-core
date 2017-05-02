@@ -12,7 +12,8 @@ class Gettext < Formula
     sha256 "e3091192716347fc54f6e8a8184d892feed5309672daa061a1407b071af80c05" => :mavericks
   end
 
-  keg_only :shadowed_by_osx, "macOS provides the BSD gettext library and some software gets confused if both are in the library path."
+  keg_only :shadowed_by_osx,
+    "macOS provides the BSD gettext library & some software gets confused if both are in the library path"
 
   # https://savannah.gnu.org/bugs/index.php?46844
   depends_on "libxml2" if MacOS.version <= :mountain_lion
