@@ -22,7 +22,8 @@ class AdrTools < Formula
   end
 
   test do
-    assert_match(/0001-record-architecture-decisions.md/, shell_output("#{bin}/adr-init"))
-    assert_match(/0001-record-architecture-decisions.md/, shell_output("#{bin}/adr-list"))
+    file = "0001-record-architecture-decisions.md"
+    assert_match file, shell_output("#{bin}/adr-init")
+    assert_match file, shell_output("#{bin}/adr-list")
   end
 end
