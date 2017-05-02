@@ -31,14 +31,8 @@ class Cmake < Formula
       --mandir=/share/man
       --system-zlib
       --system-bzip2
+      --system-curl
     ]
-
-    # https://github.com/Homebrew/legacy-homebrew/issues/45989
-    if MacOS.version <= :lion
-      args << "--no-system-curl"
-    else
-      args << "--system-curl"
-    end
 
     if build.with? "docs"
       # There is an existing issue around macOS & Python locale setting
