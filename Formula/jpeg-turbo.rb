@@ -27,7 +27,12 @@ class JpegTurbo < Formula
 
   def install
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
-    args = %W[--disable-dependency-tracking --prefix=#{prefix} --with-jpeg8 --mandir=#{man}]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-jpeg8
+      --mandir=#{man}
+    ]
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
