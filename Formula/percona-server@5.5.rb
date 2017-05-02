@@ -6,9 +6,10 @@ class PerconaServerAT55 < Formula
   sha256 "2c5f23a5bd41e36c681d882b94e021a2fe34acfb3951945146ee2ead2aeb7f1c"
 
   bottle do
-    sha256 "122ac9f6d7d33fafed9927c8bccfd933f82df0e3b3a64a40733e86088e07647d" => :sierra
-    sha256 "14dd4085444332e5f05fbcd0bb26e0fa8573ce9569e7817939e4b1e9a3018aad" => :el_capitan
-    sha256 "cf5ff63513d937d546119e3da98e2ca54afab297f1c062dbcfc3221ab94ccb78" => :yosemite
+    rebuild 1
+    sha256 "755c0f8120547fe59b2fe2aa62101fa88a3b0b6ae1647667bffebf7ce1f84eb1" => :sierra
+    sha256 "f1c4583daa1e90e92f58b6b10ba636132e4f7612a821605083556430e7eeaf2f" => :el_capitan
+    sha256 "9194a567168d19680e0910fba0aa6b5a04d936a306a60f4d5d334c1eab8b1631" => :yosemite
   end
 
   keg_only :versioned_formula
