@@ -36,9 +36,9 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   resource "gmp" do
-    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
+    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 

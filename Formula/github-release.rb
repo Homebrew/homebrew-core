@@ -1,15 +1,15 @@
 class GithubRelease < Formula
   desc "Create and edit releases on Github (and upload artifacts)"
   homepage "https://github.com/aktau/github-release"
-  url "https://github.com/aktau/github-release/archive/v0.7.0.tar.gz"
-  sha256 "af870c97e8bc3f611f764eec1089e1d70a650b807e465ea6c14a231d77bb091c"
+  url "https://github.com/aktau/github-release/archive/v0.7.2.tar.gz"
+  sha256 "057d57b01cd45d0316e2d32b7593ff0f4bb493d4767b5701b21b54301d74ff48"
   head "https://github.com/aktau/github-release.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef4477e6950f0def9528cda3effe42e5a31725f7379ea568bd1a9d50ae7481a5" => :sierra
-    sha256 "faf00dfd2c510001d92f25e11fe10509b5dbe9ff846c2957fc208954c7c2a23b" => :el_capitan
-    sha256 "3cff556d724221a62e1af368351f8bab202d900549815884d25de3a2341ca23d" => :yosemite
+    sha256 "e94b764f5aaf43c51cbd03702d3a645ea572d797578f8ece2e1a582055782e9b" => :sierra
+    sha256 "a8a9c18b04a892300a0594f96dbd79862915522ab7f23c4e125a3334a660d16b" => :el_capitan
+    sha256 "4fa1eefc30b795cb2b49f7f15505d1d625aa2bbff9f2e06d39c9b8f2c29bd21a" => :yosemite
   end
 
   depends_on "go" => :build

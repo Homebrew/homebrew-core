@@ -3,14 +3,15 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v2.0.1.tar.gz"
-  sha256 "b0ccc49924762ea78290d62c463be8c041f1837f9005f583ad09c47122547e9d"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v2.0.2.tar.gz"
+  sha256 "42e8cbcd27b85e60a165d1a28692098181813bbd9d7731a42b2cda68824c6c9d"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
-    sha256 "0ddd7494a065cc6296fff9ea88a532c9f9e175bca54d0f0968ace3223d5bd892" => :sierra
-    sha256 "6375b4fb18c3e84d53296afcce7e70f9e6bec1ed346819e333058054039b0a88" => :el_capitan
-    sha256 "2763f78f8e81c1dcde3e4e99a07dd5183faf9b816870c9384debe6929a39c466" => :yosemite
+    cellar :any
+    sha256 "11d10f614eb468bd1fe099b175a5398a526d9bccc231366b0687fc9c1322e357" => :sierra
+    sha256 "8129f5dc7ea39841bd2cc91a34a68d6e8990050d497ccd86a6cddafc2e65e30a" => :el_capitan
+    sha256 "ff8befb69a8481eebbd206248459efec24794c8a0b47f9c09feb7d1701f74673" => :yosemite
   end
 
   depends_on "openssl@1.1"
@@ -53,13 +54,13 @@ class Mitmproxy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b6/fa/ca682d5ace0700008d246664e50db8d095d23750bb212c0086305450c276/certifi-2017.1.23.tar.gz"
-    sha256 "81877fb7ac126e9215dfb15bfef7115fdc30e798e0013065158eed0707fd99ce"
+    url "https://files.pythonhosted.org/packages/dd/0e/1e3b58c861d40a9ca2d7ea4ccf47271d4456ae4294c5998ad817bd1b4396/certifi-2017.4.17.tar.gz"
+    sha256 "f7527ebf7461582ce95f7a9e03dd141ce810d40590834f4ec20cddd54234c10a"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "click" do
@@ -68,8 +69,8 @@ class Mitmproxy < Formula
   end
 
   resource "construct" do
-    url "https://files.pythonhosted.org/packages/69/77/dd3d3b4cb4130a3fafa488e0ac3b973fbef2f38fdef30e98b2062309a338/construct-2.8.10.tar.gz"
-    sha256 "9030e9db1163b7786d2c058a97ad92640f45d38f2795384cbac5e2ece77921b9"
+    url "https://files.pythonhosted.org/packages/b5/78/3a49752baea1578019384a873adbec5782ab13ea71d066781a0c9c5d1e38/construct-2.8.12.tar.gz"
+    sha256 "67ee2c69a11bdadc0705c7e0de0ff16ef74b730932537e22ac1f64f479240ffa"
   end
 
   resource "cryptography" do
@@ -83,13 +84,13 @@ class Mitmproxy < Formula
   end
 
   resource "h2" do
-    url "https://files.pythonhosted.org/packages/43/4c/c7004150cdb3f007116d6fb908fef773ceda4cd56da21a20c4eaf650d6e1/h2-2.6.0.tar.gz"
-    sha256 "9e9c185bf304a98eb96f6850ee019e5107d870c6f1cf7a61313c27f0c3c71a37"
+    url "https://files.pythonhosted.org/packages/c9/ad/73a6c1a40eadbf9eef93fe16285a366c834cbd61783c30e6c23ef4b11e53/h2-2.6.2.tar.gz"
+    sha256 "af35878673c83a44afbc12b13ac91a489da2819b5dc1e11768f3c2406f740fe9"
   end
 
   resource "hpack" do
-    url "https://files.pythonhosted.org/packages/7b/24/3e84d3650f719b9cabc5f125c270713c2239650cdf8296dfd77485051573/hpack-2.3.0.tar.gz"
-    sha256 "51bd9aa8151efd190d70fe87991b1e3b79be0f93f0e34088fba2a8d34877a0a9"
+    url "https://files.pythonhosted.org/packages/44/f1/b4440e46e265a29c0cb7b09b6daec6edf93c79eae713cfed93fbbf8716c5/hpack-3.0.0.tar.gz"
+    sha256 "8eec9c1f4bfae3408a3f30500261f7e6a65912dc138526ea054f9ad98892e9d2"
   end
 
   resource "html2text" do
@@ -108,8 +109,8 @@ class Mitmproxy < Formula
   end
 
   resource "jsbeautifier" do
-    url "https://files.pythonhosted.org/packages/e6/23/c89d87f8a88bcb1988aec29ca17078c9167688e43dbba1377c158eea7ab0/jsbeautifier-1.6.11.tar.gz"
-    sha256 "714b184b539b8c9ad9d03e631bf5e256eeaac9380ffb69b8d6b9ef030751d244"
+    url "https://files.pythonhosted.org/packages/f1/56/dbe9134fa145210dd89937147ac6eef584d91f0486de2afa85dcf48f4523/jsbeautifier-1.6.12.tar.gz"
+    sha256 "64a8f205c9cfd7e30888ed4da23237dcee9c300c871df84463ea2bb251495f5d"
   end
 
   resource "kaitaistruct" do
@@ -178,8 +179,8 @@ class Mitmproxy < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/1e/7c/ea047f7bbd1ff22a7f69fe55e7561040e3e54d6f31da6267ef9748321f98/tornado-4.4.2.tar.gz"
-    sha256 "2898f992f898cd41eeb8d53b6df75495f2f423b6672890aadaf196ea1448edcc"
+    url "https://files.pythonhosted.org/packages/5c/0b/2e5cef0d30811532b27ece726fb66a41f63344af8b693c90cec9474d9022/tornado-4.4.3.tar.gz"
+    sha256 "f267acc96d5cf3df0fd8a7bfb5a91c2eb4ec81d5962d1a7386ceb34c655634a8"
   end
 
   resource "urwid" do

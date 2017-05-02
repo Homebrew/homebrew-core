@@ -4,15 +4,15 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.7.0-src.tar.bz2"
-    sha256 "e522ea7ca51b16ee5505f22b86803664b762a263a6d69ba84c359fcf8365ad3e"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.7.1-src.tar.bz2"
+    sha256 "d01bee43c6df79f7bbc1149bb3e85f489491fb2358a6a1f9a7f0d6e07715832f"
   end
 
   bottle do
     cellar :any
-    sha256 "4901eaef6ed09427b72cb0d27d42149f445434d229b03029df7b0806492838de" => :sierra
-    sha256 "68669258f0f303f89a7400f0ec470a353486b39411dc3ddb34ad5a80dd0bff3f" => :el_capitan
-    sha256 "570e243262d65d2e25e9cf97618422aa902647f16a7efb02990aa531ed0e4f61" => :yosemite
+    sha256 "b75849c0ee2e1cf5b412a05e9375964b29034bef926dbc416621c33f0964adbe" => :sierra
+    sha256 "e72125aaebda4ae9d4d6c3a68cb72f2b9ad9c7213bff78c9c1e0f8dabccba30f" => :el_capitan
+    sha256 "4f1d2f306dcb117825b5240ef3f4fe2b0e09266ef3df70e6971bda56da0a5e4f" => :yosemite
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \

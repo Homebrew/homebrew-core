@@ -6,9 +6,10 @@ class Python < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "c125108285f306af28bb46522ca5a332d9326eddea3cd2015817acd044a3bfb1" => :sierra
-    sha256 "e9cf38579d340f64197808bb607c9a15f020943083d48324fd551316750fcd12" => :el_capitan
-    sha256 "0a0cb3a0f2880f64055eecc74c952c959795b02bcd9f8c1a32cbda3000b147af" => :yosemite
+    rebuild 1
+    sha256 "04406760996fadee04eecd6fae7870291e659145c590f88d85da70b0bda21df6" => :sierra
+    sha256 "119c368e8d776cb909d860b5bc816f5c425317ec472dd2ba98faaae660af7bec" => :el_capitan
+    sha256 "b8cd522582741df7a034846b8458d8f46516b2c80a19dbfe04e7eaffe915d85b" => :yosemite
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -32,9 +33,8 @@ class Python < Formula
   depends_on "sqlite" => :recommended
   depends_on "gdbm" => :recommended
   depends_on "openssl"
-  depends_on "homebrew/dupes/tcl-tk" => :optional
+  depends_on "tcl-tk" => :optional
   depends_on "berkeley-db@4" => :optional
-  depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
 
   skip_clean "bin/pip", "bin/pip-2.7"
   skip_clean "bin/easy_install", "bin/easy_install-2.7"
@@ -159,7 +159,7 @@ class Python < Formula
     end
 
     if build.with? "tcl-tk"
-      tcl_tk = Formula["homebrew/dupes/tcl-tk"].opt_prefix
+      tcl_tk = Formula["tcl-tk"].opt_prefix
       cppflags << "-I#{tcl_tk}/include"
       ldflags  << "-L#{tcl_tk}/lib"
     end
@@ -270,8 +270,8 @@ class Python < Formula
     end
 
     if build.with? "tcl-tk"
-      include_dirs << Formula["homebrew/dupes/tcl-tk"].opt_include
-      library_dirs << Formula["homebrew/dupes/tcl-tk"].opt_lib
+      include_dirs << Formula["tcl-tk"].opt_include
+      library_dirs << Formula["tcl-tk"].opt_lib
     end
 
     cfg = lib_cellar/"distutils/distutils.cfg"

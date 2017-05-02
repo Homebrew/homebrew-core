@@ -20,7 +20,7 @@ class Libffi < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_osx, "Some formulae require a newer version of libffi."
+  keg_only :provided_by_osx, "some formulae require a newer version of libffi"
 
   def install
     system "./autogen.sh" if build.head?

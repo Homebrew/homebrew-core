@@ -1,15 +1,15 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.52.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.52.tar.gz"
-  sha256 "54797f6e763d417627f89f60e4ae0a431dab0523f92f83def23ea02d0defafea"
+  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.53.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.53.tar.gz"
+  sha256 "9b15ec2d381f44936323adfd4f989fa35add517cccbbfa581896b02a393c2cc4"
 
   bottle do
     cellar :any
-    sha256 "44580fceb6477e2f4fb6a4d4659a48b41c5b5b8bf6477a1679467830dfa0324b" => :sierra
-    sha256 "ed10cf7c59d160631d12c558e6debaa0c31a4cef7946a479af95d6be076f8a6c" => :el_capitan
-    sha256 "0cbd499c1d9e7126dddfcad9817ac442904c3fdde416c3c3b9f545566d6be58c" => :yosemite
+    sha256 "7154e2f62155293ceeeb8ad059747e9e63d3ede14883fa95e4f0a509947ccf7c" => :sierra
+    sha256 "ad773ae2fb74c77a33d76bb5f5dc6c25e65ce4bb3ae9c1d52488ec00de54a63d" => :el_capitan
+    sha256 "e690c0741c566325dcf63ae6265bc1bad010992dc61e0acb824573dc3d5d3f63" => :yosemite
   end
 
   option "with-ssl", "Enable SSL support"
@@ -20,12 +20,6 @@ class Libmicrohttpd < Formula
   end
 
   def install
-    # Remove for > 0.9.52
-    # Equivalent to upstream commit from 11 Nov 2016 https://gnunet.org/git/libmicrohttpd.git/commit/?id=52e995c0a7741967ab68883a63a8c7e70a4589ee
-    # "mhd_itc.c: fixed typo preventing build on Solaris and other systems"
-    inreplace "src/microhttpd/mhd_itc.c", "(0 != fcntl (pip.fd[i],",
-                                          "(0 != fcntl (itc.fd[i],"
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

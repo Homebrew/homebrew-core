@@ -19,7 +19,7 @@ class ArpScan < Formula
     depends_on "autoconf" => :build
   end
 
-  depends_on "homebrew/dupes/libpcap" => :optional
+  depends_on "libpcap" => :optional
 
   def install
     system "autoreconf", "--install" if build.head?

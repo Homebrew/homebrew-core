@@ -13,14 +13,16 @@ class MecabJumandic < Formula
   end
 
   # Via ./configure --help, valid choices are utf8 (default), euc-jp, sjis
-  option "charset=", "Select charset: utf8 (default), euc-jp, or sjis"
+  option "with-charset=", "Select charset: utf8 (default), euc-jp, or sjis"
+
+  deprecated_option "charset=" => "with-charset="
 
   depends_on "mecab"
 
   link_overwrite "lib/mecab/dic"
 
   def install
-    charset = ARGV.value("charset") || "utf8"
+    charset = ARGV.value("with-charset") || "utf8"
     args = %W[
       --disable-debug
       --disable-dependency-tracking

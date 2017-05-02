@@ -3,14 +3,14 @@ require "language/node"
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/babel-cli/-/babel-cli-6.23.0.tgz"
-  sha256 "76cccec388472ff02274e27f9fa9657f5a88af5f2da02c9eebb6d92351d06c34"
+  url "https://registry.npmjs.org/babel-cli/-/babel-cli-6.24.1.tgz"
+  sha256 "d69a00bdb4f35184cda1f5bfe8075cd4d569600b8e61d864d1f08e360367933b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7e63adb35ef55305e100deeba0a70531840ecec7fd36621b87c972e8569769d" => :sierra
-    sha256 "f40c7bde8a92aa6c4379e4fc2fb57ae18ba938d32e6946f7df31e89be9551f82" => :el_capitan
-    sha256 "fa8e7ac3d0ad66013745fe499bec73982c3cd4a18a24fdca707ecc42d4a5d821" => :yosemite
+    sha256 "7b4b364e14e7e046d1e3732261e23c1e91a5b9f0063e6dcc341b0cdae086ff9e" => :sierra
+    sha256 "426c9de5a3dd170c9264478900f45a292590f48a2c8b51aa0d3ee6650381ec85" => :el_capitan
+    sha256 "f7ad8b1845bbecef506586b434e0249859e2bc48be3a165cc94dd5f981c7f800" => :yosemite
   end
 
   depends_on "node"

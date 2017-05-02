@@ -30,4 +30,28 @@ class Aggregate < Formula
                    "LDFLAGS=#{ENV.ldflags}",
                    "install"
   end
+
+  test do
+    # Test case taken from here: http://horms.net/projects/aggregate/examples.shtml
+    test_input = <<-EOS.undent
+      10.0.0.0/19
+      10.0.255.0/24
+      10.1.0.0/24
+      10.1.1.0/24
+      10.1.2.0/24
+      10.1.2.0/25
+      10.1.2.128/25
+      10.1.3.0/25
+    EOS
+
+    expected_output = <<-EOS.undent
+      10.0.0.0/19
+      10.0.255.0/24
+      10.1.0.0/23
+      10.1.2.0/24
+      10.1.3.0/25
+    EOS
+
+    assert_equal expected_output, pipe_output("#{bin}/aggregate", test_input), "Test Failed"
+  end
 end

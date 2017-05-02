@@ -15,11 +15,11 @@ class Gcc < Formula
   homepage "https://gcc.gnu.org/"
   revision 1
 
-  head "https://gcc.gnu.org/svn/gcc/trunk", :using => :svn
+  head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
-    url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
     sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
   end
 

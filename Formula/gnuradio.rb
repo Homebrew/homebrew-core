@@ -1,22 +1,15 @@
 class Gnuradio < Formula
   desc "SDK providing the signal processing runtime and processing blocks"
   homepage "https://gnuradio.org/"
-  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.10.1.tar.gz"
-  sha256 "63d7b65cc4abe22f47b8f41caaf7370a0a502b91e36e29901ba03e8838ab4937"
+  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
+  sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "4d064a778aa85bb11b16a9bb3ebcb2c403ab40405ffd54bf50ef35c5d8f14c2d" => :sierra
-    sha256 "1578ae20b2b080b2c71e7ff6ffb30179d8896e77853aa68c1266a4ed1eca36c5" => :el_capitan
-    sha256 "2125887a9ea16693e55a88ac70b5a3ae9e31df932f3a624169dd2620e53cece5" => :yosemite
-  end
-
-  # Fixes linkage of python (swig) bindings directly to python
-  # https://github.com/gnuradio/gnuradio/pull/1146
-  # Merged into master, probably will be in next release
-  patch do
-    url "https://github.com/gnuradio/gnuradio/pull/1146.patch"
-    sha256 "fbf9842292cc1c2cfcf708d648d01c9a42fb98c5bba542a272dcdac504454d26"
+    rebuild 1
+    sha256 "60eb27fab026ab6139576f3ffdc55d6b7da1ee7f8495650a8fc97e25a59d85e4" => :sierra
+    sha256 "fbf5dbdf430db136a5e97075052f3e2453c10ec2477e35f5928081d8f00910d5" => :el_capitan
+    sha256 "0143a5b0e8cbe007520660143de7350943cecced240f0956135e3484c18664eb" => :yosemite
   end
 
   option "without-python", "Build without python support"
@@ -24,7 +17,6 @@ class Gnuradio < Formula
   depends_on "pkg-config" => :build
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on "boost"
-  depends_on "cppunit"
   depends_on "fftw"
   depends_on "gsl"
   depends_on "zeromq"
@@ -45,28 +37,29 @@ class Gnuradio < Formula
 
   # cheetah starts here
   resource "Markdown" do
-    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.4.tar.gz"
-    sha256 "b8370fce4fbcd6b68b6b36c0fb0f4ec24d6ba37ea22988740f4701536611f1ae"
+    url "https://files.pythonhosted.org/packages/1d/25/3f6d2cb31ec42ca5bd3bfbea99b63892b735d76e26f20dd2dcc34ffe4f0d/Markdown-2.6.8.tar.gz"
+    sha256 "0ac8a81e658167da95d063a9279c9c1b2699f37c7c4153256a458b3a43860e33"
   end
 
   resource "Cheetah" do
-    url "https://pypi.python.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
     sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
   end
   # cheetah ends here
 
   resource "lxml" do
-    url "https://pypi.python.org/packages/source/l/lxml/lxml-2.0.tar.gz"
-    sha256 "062e6dbebcbe738eaa6e6298fe38b1ddf355dbe67a9f76c67a79fcef67468c5b"
+    url "https://files.pythonhosted.org/packages/39/e8/a8e0b1fa65dd021d48fe21464f71783655f39a41f218293c1c590d54eb82/lxml-3.7.3.tar.gz"
+    sha256 "aa502d78a51ee7d127b4824ff96500f0181d3c7826e6ee7b800d068be79361c7"
   end
 
   resource "cppzmq" do
-    url "https://github.com/zeromq/cppzmq/raw/a4459abdd1d70fd980f9c166d73da71fe9762e0b/zmq.hpp"
-    sha256 "f042d4d66e2a58bd951a3eaf108303e862fad2975693bebf493931df9cd251a5"
+    url "https://raw.githubusercontent.com/zeromq/cppzmq/46fc0572c5e9f09a32a23d6f22fd79b841f77e00/zmq.hpp"
+    sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
   end
 
   def install
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     res = %w[Markdown Cheetah lxml]
@@ -84,9 +77,9 @@ class Gnuradio < Formula
 
     args << "-DENABLE_DEFAULT=OFF"
     enabled_components = %w[gr-analog gr-fft volk gr-filter gnuradio-runtime
-                            gr-blocks testing gr-pager gr-noaa gr-channels
-                            gr-audio gr-fcd gr-vocoder gr-fec gr-digital
-                            gr-dtv gr-atsc gr-trellis gr-zeromq]
+                            gr-blocks gr-pager gr-noaa gr-channels gr-audio
+                            gr-fcd gr-vocoder gr-fec gr-digital gr-dtv gr-atsc
+                            gr-trellis gr-zeromq]
     if build.with? "python"
       enabled_components << "python"
       enabled_components << "gr-utils"

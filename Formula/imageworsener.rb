@@ -1,15 +1,14 @@
 class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
   homepage "http://entropymine.com/imageworsener/"
-  url "http://entropymine.com/imageworsener/imageworsener-1.3.0.tar.gz"
-  sha256 "2d4e40463658a577056ee17f204aac2a626b291f187f5f6e42b0c4140408d125"
+  url "http://entropymine.com/imageworsener/imageworsener-1.3.1.tar.gz"
+  sha256 "beb0c988c02b1d461dccdb3d6c4fc229316a692ea38689874013ba349dff66d1"
 
   bottle do
     cellar :any
-    sha256 "2c4ae0df2084aa737d7be2f64f5b349b79b7828dfaf5722594c8239e0c173f35" => :sierra
-    sha256 "37bae78184cee10bef03a1bb927bd7b4310e12eec8d9cede33a01a6f3eb50ead" => :el_capitan
-    sha256 "18495cbe551d223ab723bb0dd477322a1c75a04191a0a4df264b17765025fa64" => :yosemite
-    sha256 "26f7718a20005d76eedc46023a45a70cceea07cd86123b59d2809e8b3bb291d5" => :mavericks
+    sha256 "79d62b82a5d98f7d51598ba6cc70df5dd4e751a6343031e0271bfb8182a14747" => :sierra
+    sha256 "cc99a6e3155b29e82d2f49b727197272570b9a69db56523bdc3b17d520aeb65e" => :el_capitan
+    sha256 "61cf20408c2169d6f76c1556cb577eb4992a33d214395c17c2ce472d0adf4506" => :yosemite
   end
 
   head do

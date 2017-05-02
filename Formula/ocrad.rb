@@ -1,17 +1,15 @@
 class Ocrad < Formula
   desc "Optical character recognition (OCR) program"
   homepage "https://www.gnu.org/software/ocrad/"
-  url "https://ftpmirror.gnu.org/ocrad/ocrad-0.25.tar.lz"
-  mirror "https://ftp.gnu.org/gnu/ocrad/ocrad-0.25.tar.lz"
-  sha256 "e710be9c030fbcbce2315077326c8268feb422c0bc39fa744644cbbd1f5d4dd4"
+  url "https://ftp.gnu.org/gnu/ocrad/ocrad-0.26.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ocrad/ocrad-0.26.tar.lz"
+  sha256 "c383d37869baa0990d38d38836d4d567e9e2862aa0cd704868b62dafeac18e3c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "035cc08529d27d2469c77adbe414ed30f4ca674efcb268c58a47d0d270b721fa" => :sierra
-    sha256 "9acb5576ee58fe3d968649659c9f374277d145a2050ce62ecd70d6d675645efb" => :el_capitan
-    sha256 "99dba4fcc35dcea80dcf70e783832a57578f36406aa9a465398cf511ff2bae6e" => :yosemite
-    sha256 "ee28a84a3c13a281f601f92920201a00af54509201f62ffb9d84d0e554001c7d" => :mavericks
-    sha256 "2e338636210625c15a91389b2d53b7464c05c38017d0fba37076e100794668e1" => :mountain_lion
+    sha256 "219b9bf172b5f7379c849a8e55b04dabd74f054564fdaec2fb40502f7e996967" => :sierra
+    sha256 "eb1f66d4cfb2c2c6768c89053fca5fc762c12b401b745cbbd1e6faad3ae25dcf" => :el_capitan
+    sha256 "fb3e7e6ab86d242c309a1bb2eaa83451b6fa7369a63222b8025de70a3dbb8615" => :yosemite
   end
 
   def install

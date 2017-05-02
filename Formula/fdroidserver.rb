@@ -5,12 +5,12 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/18/6c/6fe6f718073024e23fb0bfaff8d0a6db596adc7d29f259edd325e93bd33c/fdroidserver-0.7.0.tar.gz"
   sha256 "3de76a02d17260a5fd65b089ceaabcc578e238ffe71f205a8f6f37e705648d6e"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 "149a47a04cf22b9eee63231b3b9bc3772bcb0aa6238a54e79e4a6ad4ed782133" => :sierra
-    sha256 "a8a48d0e78dd730093809eb8419eb099524017b9bc1ed89dadcbfbe17c0ce009" => :el_capitan
-    sha256 "650aa7fe89a6ffc2d7b8f9a4494a1f44a7d494efc95975e15dbd7286e5a53655" => :yosemite
+    sha256 "1b5dedfb4a68337b5c5bc96915f76262676c15af2b54549cbdff591a69f1c272" => :sierra
+    sha256 "c3653a35bae6f1fbbd63b68e411286a42d2d227217c305bd31ba66b961ef8d9d" => :el_capitan
+    sha256 "4944ef16caa110f491d0d07f77e1d709b1ff882cdc7c3697d427c1260b7a576e" => :yosemite
   end
 
   depends_on :python3
@@ -19,7 +19,6 @@ class Fdroidserver < Formula
   depends_on "libtiff"
   depends_on "webp"
   depends_on "openssl@1.1"
-  depends_on "android-sdk" => :recommended
 
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/1d/a6/569313d0c95b6e0bbebc5f2c8197a7261c85556a3de84d42e9093d7d6996/apache-libcloud-1.5.0.tar.bz2"

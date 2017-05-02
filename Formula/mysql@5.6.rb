@@ -1,13 +1,14 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.35.tar.gz"
-  sha256 "dddcba169b98844d7c65346cbd791c853edf942d78440381685087b84aa35020"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.36.tar.gz"
+  sha256 "0af81a5538fc7fe2b747295dfa96589ace8831d2a7d4a26660fca456babeb147"
 
   bottle do
-    sha256 "7dd2d0ba17ffc5874b1316acb96832bc65af5ceafca9fcef8cf000523b6a44ef" => :sierra
-    sha256 "73009d08e0de90b192eb23093ed8e45c1a2e35f4b890559da8a27313f9c12eef" => :el_capitan
-    sha256 "8e745f888fe26b8cd3fcdf91152c9f3f3692194d6724a4a5cc942d4fa5f32491" => :yosemite
+    rebuild 1
+    sha256 "7a6b8849cde35cd6feb4ff1f50ab58279f8ab533922426606b6670cb1921b565" => :sierra
+    sha256 "19706d5ecd52f3f6817e8d47663349f5e6b2de0774b9719ae28f09789860ff0b" => :el_capitan
+    sha256 "903a1bc4b8c73e101a876d599b04dae53a8fd58473add0e89af091ec468b37b4" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -100,16 +101,22 @@ class MysqlAT56 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mysqlaccess"
     libexec.install bin/"mysqlaccess.conf"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -125,6 +132,8 @@ class MysqlAT56 < Formula
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot
@@ -145,7 +154,6 @@ class MysqlAT56 < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{datadir}</string>
       </array>
       <key>RunAtLoad</key>
@@ -165,7 +173,7 @@ class MysqlAT56 < Formula
       "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
       pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+        exec bin/"mysqld", "--datadir=#{dir}"
       end
       sleep 2
 

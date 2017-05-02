@@ -14,7 +14,7 @@ class Ld64 < Formula
   end
 
   keg_only :provided_by_osx,
-    "ld64 is an updated version of the ld shipped by Apple."
+    "ld64 is an updated version of the ld shipped by Apple"
 
   depends_on MaximumMacOSRequirement => :snow_leopard
 

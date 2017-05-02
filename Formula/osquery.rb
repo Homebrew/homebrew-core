@@ -3,21 +3,20 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.3.4",
-      :revision => "f5bcc66ee39af1cdd1a9a55455e8e1543ae3f13e"
+      :tag => "2.4.2",
+      :revision => "62dda71321e4fe492595298c3300c270c4888f8f"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "de745bc03d182d6156f6d793500cbc16087e7d869c175fb400db8b84d8a81440" => :sierra
-    sha256 "6f083844833d4d2522645d1d481fcc111731b44556d8e3e8f5d5108d1c2b8d56" => :el_capitan
-    sha256 "3e4bf00eb7f27daa347175b058bc3a7cbfbadf02f79490a6bce67d57b8c7b2b0" => :yosemite
+    sha256 "c85c48463f39c49296a58ebe5e26bec0f5937b7a26cb5495d6e611c4397932c2" => :sierra
+    sha256 "bee77670712fa2cdd11155398faae5f071d176d97cde074bd0750dc4de63f833" => :el_capitan
   end
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.10 and above. Do not remove this.
-  depends_on :macos => :yosemite
+  # osquery only supports OS X 10.11 and above. Do not remove this.
+  depends_on :macos => :el_capitan
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -27,7 +26,9 @@ class Osquery < Formula
   depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
+  depends_on "libarchive"
   depends_on "libmagic"
+  depends_on "lldpd"
   depends_on "lz4"
   depends_on "openssl"
   depends_on "rocksdb"
@@ -51,8 +52,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/0.14.4.tar.gz"
-    sha256 "2e935275c6f7eb25e7d850b354344c92cacb7c193b708ec64ffce10ec6afa7f4"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.0.107.tar.gz"
+    sha256 "0560918ef2a4b660e49981378af42d999b91482a31e720be2d9c427f21ac8ad0"
   end
 
   resource "cpp-netlib" do
@@ -67,13 +68,13 @@ class Osquery < Formula
   end
 
   resource "thrift" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.9.3/thrift-0.9.3.tar.gz"
-    sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
+    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.tar.gz"
+    sha256 "2289d02de6e8db04cbbabb921aeb62bfe3098c4c83f36eec6c31194301efa10b"
   end
 
-  resource "thrift-patch" do
-    url "https://gist.githubusercontent.com/ilovezfs/1d098a46e30b9e8bf78d4871e541d2fe/raw/3f5cf999f36aed3f2b5a477bafa6f9c16862649b/gistfile1.txt"
-    sha256 "61955afa09ef244fc84a72ef019de15515e76377aceeb2cbf1e93fa0df374cd2"
+  resource "thrift-0.10-patch" do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
+    sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
   end
 
   def install
@@ -82,9 +83,6 @@ class Osquery < Formula
     vendor = buildpath/"brew_vendor"
 
     resource("aws-sdk-cpp").stage do
-      inreplace "CMakeLists.txt", "${CMAKE_CXX_FLAGS_RELEASE} -s",
-                                  "${CMAKE_CXX_FLAGS_RELEASE}"
-
       args = std_cmake_args + %W[
         -DSTATIC_LINKING=1
         -DNO_HTTP_CLIENT=1
@@ -128,10 +126,9 @@ class Osquery < Formula
       ENV["PY_PREFIX"] = vendor/"thrift"
       ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3"
 
-      # Remove SSLv3
-      # See https://github.com/apache/thrift/commit/b819260c653f6fd9602419ee2541060ecb930c4c
-      Pathname.pwd.install resource("thrift-patch")
-      system "patch", "-p1", "-i", "gistfile1.txt"
+      # Apply same patch as osquery upstream for setuid syscalls.
+      Pathname.pwd.install resource("thrift-0.10-patch")
+      system "patch", "-p1", "-i", "patch-thrift-0.10.diff"
 
       exclusions = %W[
         --without-ruby
@@ -146,8 +143,8 @@ class Osquery < Formula
         --without-qt
         --without-qt4
         --without-nodejs
+        --without-python
         --with-cpp
-        --with-python
         --with-openssl=#{Formula["openssl"].opt_prefix}
       ]
 
@@ -168,7 +165,7 @@ class Osquery < Formula
     ENV["THRIFT_HOME"] = vendor/"thrift"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise
-                                            thrift thrift-patch]
+                                            thrift thrift-0.10-patch]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",

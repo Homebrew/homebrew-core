@@ -1,15 +1,15 @@
 class Kafkacat < Formula
   desc "Generic command-line non-JVM Apache Kafka producer and consumer"
   homepage "https://github.com/edenhill/kafkacat"
-  url "https://github.com/edenhill/kafkacat/archive/1.3.0.tar.gz"
-  sha256 "1170daa3ec66f32542872fb8a181f021589dc19d510ebc3b141adccc02d2ae5d"
+  url "https://github.com/edenhill/kafkacat.git",
+      :tag => "1.3.1",
+      :revision => "0ab52045cde0c16f9f99dad41cee019ff88e974e"
 
   bottle do
     cellar :any
-    sha256 "25a5f4adac93dba85de1681b79ff87d923eb5a1a95582853e92cd70a22c83c4d" => :sierra
-    sha256 "632efceabc31814305eb5331bc25a361414afd9ef1562cb9bb6463526997bb5e" => :el_capitan
-    sha256 "32bcf9d514f4e566029b3427098c6d73f78dad911fd6b762e38395c1ef41edb8" => :yosemite
-    sha256 "c1dcf8abd6c4917950403a872bca4d0502a116dfdfb0eb29c950f03a120ada6f" => :mavericks
+    sha256 "dad8f463c25cc6b481e9205485f1496689b23ea0a4fd208409588508d610ee7c" => :sierra
+    sha256 "5bc56f600f522ff0e4b90e46b73c3fe689fe4fd8a89de277256af68b5303cdbd" => :el_capitan
+    sha256 "c19822fe3aeea1c75ae42ab5947fd9178716501e842438f05bed7b80c2e8805d" => :yosemite
   end
 
   option "with-yajl", "Adds JSON support"

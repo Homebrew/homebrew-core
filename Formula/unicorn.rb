@@ -1,15 +1,15 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "http://www.unicorn-engine.org"
-  url "https://github.com/unicorn-engine/unicorn/archive/1.0.tar.gz"
-  sha256 "27efa24e465f3eca9a1fa8f7f456f6fecd91beeba0b4be21b34308040047def9"
+  url "https://github.com/unicorn-engine/unicorn/archive/1.0.1.tar.gz"
+  sha256 "3a6a4f2b8c405ab009040ca43af8e4aa10ebe44d9c8b336aa36dc35df955017c"
   head "https://github.com/unicorn-engine/unicorn.git"
 
   bottle do
     cellar :any
-    sha256 "8943c77556744e636793bb3c9a417b6c8712b9cf059d757ae5dc6880817628a4" => :sierra
-    sha256 "c4079b050b89afa1e6cb4ebc16306756fcc53d0866052ffe749b058d77c114a2" => :el_capitan
-    sha256 "56cd2f48585ad5d43b0b4e63e1d82e160d914bf0fd3a753649f69c4d7f3272b2" => :yosemite
+    sha256 "81d29e7f28335317dd40976d904636ccd7d0679b71747ad13530dc991f327122" => :sierra
+    sha256 "3519d8189333c5ae43eb618e18db7b6be4cf9cc288c6a45ca3b618964d62395c" => :el_capitan
+    sha256 "f8c7cb546985c5e34dddb2c2e338314d024e266085fcbdc3f7e52e0f426e4e29" => :yosemite
   end
 
   option "with-all", "Build with support for ARM64, Motorola 64k, PowerPC and "\

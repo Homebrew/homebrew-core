@@ -1,30 +1,21 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 1
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.1/ldc-1.1.1-src.tar.gz"
-    sha256 "3d35253a76288a78939fea467409462f0b87461ffb89550eb0d9958e59eb7e97"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.2.0/ldc-1.2.0-src.tar.gz"
+    sha256 "910e8a670f0fadcaf64403c924091d6debf7ad29e203808f5f2b6899217e6f2b"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.3/ldc-0.17.3-src.tar.gz"
-      sha256 "325bd540f7eb71c309fa0ee9ef6d196a75ee2c3ccf323076053e6b7b295c2dad"
-    end
-
-    # Remove for > 1.1.1
-    # Upstream commit from 26 Feb 2017 "Fix build for LLVM 4.0"
-    # See https://github.com/ldc-developers/ldc/pull/2017
-    resource "ldc-lts-patch" do
-      url "https://github.com/ldc-developers/ldc/commit/4847d8a.patch"
-      sha256 "7d93765898ce5501eb9660d76e9837682eb0dd38708fa640b6b443b02577a172"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
+      sha256 "48428afde380415640f3db4e38529345f3c8485b1913717995547f907534c1c3"
     end
   end
 
   bottle do
-    sha256 "fc28f525e6e84937e605075bb5a5544182246e88d03350cd5269223827ff6e6e" => :sierra
-    sha256 "9f991528ec26750e25732dd431e0c2b4b59e79abd03481a5b73cccdc2efe0ee6" => :el_capitan
-    sha256 "313b430f7066f800b0c9f99f57c17dbbec08650b4014058d4b011bac9bf67830" => :yosemite
+    sha256 "6e12e9f8be1ebb5d3e18c08729d52467b894b4ef2907e8c8e682580ec87c2e7d" => :sierra
+    sha256 "d9d2f9a9b8bfea447bc0abe64199f31992b0fdccf2b897d26aee1ec9d9c46114" => :el_capitan
+    sha256 "f29f90210d4e53f147fe67c30cee4527d5dfb326765c134dcdd0d7d41292ed70" => :yosemite
   end
 
   head do
@@ -44,14 +35,6 @@ class Ldc < Formula
   def install
     ENV.cxx11
     (buildpath/"ldc-lts").install resource("ldc-lts")
-
-    # Remove for > 1.1.1
-    if build.stable?
-      resource("ldc-lts-patch").stage do
-        system "patch", "-p1", "-i", Pathname.pwd/"4847d8a.patch", "-d",
-                        buildpath/"ldc-lts"
-      end
-    end
 
     cd "ldc-lts" do
       mkdir "build" do

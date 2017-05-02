@@ -1,11 +1,8 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/2.2.19/tarball/percona-toolkit-2.2.19.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/percona-toolkit/percona-toolkit_2.2.19.orig.tar.gz"
-  sha256 "e9f4d4730265813fa7a39ed8799d12ca5775c8e5d6fa27ff48bae11db0f7e671"
-  revision 1
-
+  url "https://www.percona.com/downloads/percona-toolkit/3.0.2/source/tarball/percona-toolkit-3.0.2.tar.gz"
+  sha256 "ace5325424af6f115b4b31c5a62b0ff48b24aed43b3991f479ab18dfc1c1572d"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle :disable, "To use the user's database of choice."
@@ -41,6 +38,8 @@ class PerconaToolkit < Formula
   end
 
   test do
-    system bin/"pt-summary"
+    input = "SELECT name, password FROM user WHERE id='12823';"
+    output = pipe_output("#{bin}/pt-fingerprint", input, 0)
+    assert_equal "select name, password from user where id=?;", output.chomp
   end
 end

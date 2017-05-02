@@ -2,20 +2,21 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.3.0/bit-0.3.0-brew.tar.gz"
-  sha256 "e328c05abb0327e2691b1f1c30bae7a71a9db52cf1aa99f7fa55f6de6dc9330d"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.5.3/bit-0.5.3-brew.tar.gz"
+  sha256 "539c0bd75c19a02cc84ffa738bdf5425fb32af900ce88f501032a6222c9bcdff"
 
   bottle do
-    sha256 "003e4ce34fd481171e0dc932248d61ae115e562387afeffd2b409c8e110e14f1" => :sierra
-    sha256 "464ca185774365c3c51a53a38bf95da4d99214568f721a97b834c9e656232e53" => :el_capitan
-    sha256 "54a0cfc3a89d9b6eeeedf2d8f8e9c091242ca73b6f7a91edfc9ee48e6f7ad185" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "cf66e35183ac949b85363c2082da9b59076cd19b347e610c4ec6108577c68e32" => :sierra
+    sha256 "a73d115fe024446462b6d9ca7a04bf15a9e4ebd951966c61527aeb526e8a8cc8" => :el_capitan
+    sha256 "a73d115fe024446462b6d9ca7a04bf15a9e4ebd951966c61527aeb526e8a8cc8" => :yosemite
   end
 
-  depends_on "node"
-
   def install
-    system "npm", "install", "-g", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    libexec.install Dir["*"]
+    bin.install_symlink Dir["#{libexec}/bin/bit"]
+    bin.install_symlink Dir["#{libexec}/bin/bit.js"]
+    bin.install_symlink "#{libexec}/bin/node" => "bitNode"
   end
 
   test do

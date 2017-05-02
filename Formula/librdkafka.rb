@@ -1,21 +1,21 @@
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/v0.9.4.tar.gz"
-  sha256 "5007ad20a6753f709803e72c5f2c09483dcbce0f16b94b17cf677fb3e6045907"
-
+  url "https://github.com/edenhill/librdkafka/archive/v0.9.5.tar.gz"
+  sha256 "dd395ffca89c9591e567366f3ad2517cee76578a10d0a16a93f990c33f553179"
   head "https://github.com/edenhill/librdkafka.git"
 
   bottle do
     cellar :any
-    sha256 "3f89621392055facce588981b67bfa294817112bcc0a16cdc09e174502f986b9" => :sierra
-    sha256 "ec2833fbcf5003c0e566122523b34347509743eb2f3e81989866fcaf9b17087f" => :el_capitan
-    sha256 "0d4340247793dd7fae4c573d1b30ab8c500d13e6684c23540b1b8d563d7ce46b" => :yosemite
+    sha256 "71c8c1129d979b71e0f913123fcee18de35f9cfff8e8ebe4b9853715f12fb883" => :sierra
+    sha256 "7da8d9887c86f7d89661e626499162b465c28ff14661903cf77a74026bfa9024" => :el_capitan
+    sha256 "154a6c61b2ad9f0ace15cc8265cda3ed718296af399f7b68b5783da0cc96b316" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "lzlib"
   depends_on "openssl"
+  depends_on "lz4" => :recommended
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -3,12 +3,12 @@ class Pyexiv2 < Formula
   homepage "http://tilloy.net/dev/pyexiv2/"
   url "https://launchpad.net/pyexiv2/0.3.x/0.3.2/+download/pyexiv2-0.3.2.tar.bz2"
   sha256 "0abc117c6afa71f54266cb91979a5227f60361db1fcfdb68ae9615398d7a2127"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "44a97c27ad937f771fe3ef93bda6d88ecfab78a9b579ee9f6d48e55c051716cf" => :sierra
-    sha256 "a31fab0ae66512370a1955e1f347e9594ff5be04b9636c1ea5c54f68746b936e" => :el_capitan
-    sha256 "89ba145ba9594b4492438f220115847a8fad9d9cb68ed52b0f7ebe45f053d8f1" => :yosemite
+    sha256 "92e4e745cc20cef9d1809f4cf86b0d84c8f3c1bd22ca1867d6fd85aeef8c9bdc" => :sierra
+    sha256 "55378934bd6a10490e875b23b054a99ff135bc1508b7fd1311897b563f7a585f" => :el_capitan
+    sha256 "4eb3c1973d2c4951b5ee0184665dfa13bbe5ed8b77b101ed5421c37bea1abaf8" => :yosemite
   end
 
   depends_on "scons" => :build

@@ -1,17 +1,18 @@
 class Osc < Formula
   include Language::Python::Virtualenv
 
-  desc "The Command Line Interface to work with an Open Build Service"
+  desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.157.2.tar.gz"
   sha256 "cde6384f069e3b08cc425cf5105251acb77f5f8c9413888b5f4ab89fec068f07"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "2fb7940ff685c9c718a1f213039f6c6ceac2a7b6b30a3a527ffacb53a9256ec8" => :sierra
-    sha256 "e440940de123fbd52690a99e51575d5426dc91c3f79450c58f3f1b174963c315" => :el_capitan
-    sha256 "d0d4f711e22a0f1641b2e81336a07e5bc2f9870a1bb9f6a35646251b7c524213" => :yosemite
+    sha256 "270c8e8287ab6ca0972c84d8537223b3e2467e5a43074f025f84858dba6650b1" => :sierra
+    sha256 "84c33037737ab5df04ecd1a04ac46c1b69d55a9b3ace6e0b523304306c3337e6" => :el_capitan
+    sha256 "5a0071dbfba9979a9ba05d197fbacd02153e108eac1f6560e5385e6a5a2140c8" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -30,8 +31,8 @@ class Osc < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/9c/58/7e8d8c04995a422c3744929721941c400af0a2a8b8633f129d92f313cfb8/M2Crypto-0.25.1.tar.gz"
-    sha256 "ac303a1881307a51c85ee8b1d87844d9866ee823b4fdbc52f7e79187c2d9acef"
+    url "https://files.pythonhosted.org/packages/11/29/0b075f51c38df4649a24ecff9ead1ffc57b164710821048e3d997f1363b9/M2Crypto-0.26.0.tar.gz"
+    sha256 "05d94fd9b2dae2fb8e072819a795f0e05d3611b09ea185f68e1630530ec09ae8"
   end
 
   def install

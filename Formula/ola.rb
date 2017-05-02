@@ -3,13 +3,14 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
   sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
-  revision 1
+  revision 2
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "3634a0b314dfbad14424e87f0de04d2d34232bd1771419cf9f257ea1fb8f4413" => :sierra
-    sha256 "bc4bbbf61dab618082a6aba42eb5ce2251ccac7686c6d3904c6f631557a7c131" => :el_capitan
-    sha256 "07aec2b01a983343c6c6741e457a00f83357f968c914135123bf08b91c81b381" => :yosemite
+    rebuild 1
+    sha256 "6ce670e79cfa2f07be5424998a68121bb74970862b9869ef9913c7836de6c86b" => :sierra
+    sha256 "24d8de266ffb22252740cf630b36989055c15b76c260657128729982254f0aa3" => :el_capitan
+    sha256 "ca034130d624c101077f2b660bb6ea7c07ce043b681c5b8530393f06982e389e" => :yosemite
   end
 
   option "with-libftdi", "Install FTDI USB plugin for OLA."
@@ -18,9 +19,9 @@ class Ola < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cppunit" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "cppunit"
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
@@ -36,7 +37,12 @@ class Ola < Formula
     sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+    ENV["ac_cv_gnu_plus_plus_98"] = "no"
+
     resource("protobuf-c").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{buildpath}/vendor/protobuf-c"

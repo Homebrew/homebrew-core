@@ -1,13 +1,13 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.48/vte-0.48.1.tar.xz"
-  sha256 "d3b7d6a13e6b850f3ea1c35af2746ef78039493ed4bb87cb7a36f29b260861f6"
+  url "https://download.gnome.org/sources/vte/0.48/vte-0.48.2.tar.xz"
+  sha256 "c278b301edfe38b43baec1bccc86e225dacea5b670a96ca7ea55ca9a4b030690"
 
   bottle do
-    sha256 "7021496e3792f5c6b6a5e3c65dd4c1401fb01d575e4e4c38ed3ce6d0de05c049" => :sierra
-    sha256 "834190450a00b3a8fc72d1c6303d374848d42fdccd3d0790c1b81aec2cb09c90" => :el_capitan
-    sha256 "0561e660b4eca8f2a4ac32126eaaf3669b43bcf75cc9981224899df71621d93b" => :yosemite
+    sha256 "ddd46aed0fdc050f42a5ff9fb1aa4485b927f0a91ad1dee6b37d1188b015c252" => :sierra
+    sha256 "4cacdd5225c08662562c6847ef2aeeb7fbdac0b189507754b2e52aa1c810486e" => :el_capitan
+    sha256 "57d6129a532d534ed641f6010bef8fcca10d3474d13c7df5ce73f132718fa7ed" => :yosemite
   end
 
   depends_on "pkg-config" => :build

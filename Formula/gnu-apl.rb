@@ -1,8 +1,8 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  url "https://ftpmirror.gnu.org/apl/apl-1.7.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/apl/apl-1.7.tar.gz"
+  url "https://ftp.gnu.org/gnu/apl/apl-1.7.tar.gz"
+  mirror "https://ftpmirror.gnu.org/apl/apl-1.7.tar.gz"
   sha256 "8ff6e28256d7a3cdfa9dc6025e3905312310b27a43645ef5d617fd4a5b43b81f"
 
   bottle do

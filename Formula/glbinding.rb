@@ -1,15 +1,14 @@
 class Glbinding < Formula
   desc "C++ binding for the OpenGL API"
   homepage "https://github.com/cginternals/glbinding"
-  url "https://github.com/cginternals/glbinding/archive/v2.1.1.tar.gz"
-  sha256 "253671f2b730a6efa55de92a704938bb0f1761d151f3f8e87c043c51d46ea1e4"
-  revision 1
+  url "https://github.com/cginternals/glbinding/archive/v2.1.2.tar.gz"
+  sha256 "d453d375d3e578fc5990ec41ad648d2ad3de73917a448ff6042bd9f555c0c0c0"
 
   bottle do
     cellar :any
-    sha256 "258219e09335035aebfeea0248c35bbcc1102c0f2b58b827ee2ae28d3bd5fd6d" => :sierra
-    sha256 "2725b863dd6375904bdfe1fb26bc014f3a982f8584a5f15b55105b91e6f8cf61" => :el_capitan
-    sha256 "8aabae194bf3f9546f2c9a13de096f319caa1643f1b94657beb5d22117518956" => :yosemite
+    sha256 "0bfa8cc86b4780171fa6d3f0291b7a42df4ac0dad2515e3ebfc48a4251053a84" => :sierra
+    sha256 "e9f164a73222dfb97042204c213f2fba91362cfe60d736a1837124018447b807" => :el_capitan
+    sha256 "c0601d21497363fd8c855c0ae8dc8dd799fa9eabd2253aa03dacf8bc0fd18dc2" => :yosemite
   end
 
   option "with-glfw", "Enable tools that display OpenGL information for your system"

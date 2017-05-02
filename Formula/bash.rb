@@ -5,10 +5,10 @@ class Bash < Formula
   head "https://git.savannah.gnu.org/git/bash.git"
 
   stable do
-    url "https://ftpmirror.gnu.org/bash/bash-4.4.tar.gz"
+    url "https://ftp.gnu.org/gnu/bash/bash-4.4.tar.gz"
     mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4.tar.gz"
     mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4.tar.gz"
-    mirror "https://ftp.gnu.org/gnu/bash/bash-4.4.tar.gz"
+    mirror "https://ftpmirror.gnu.org/bash/bash-4.4.tar.gz"
     mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
     sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
@@ -29,10 +29,10 @@ class Bash < Formula
       012 fac271d2bf6372c9903e3b353cb9eda044d7fe36b5aab52f21f3f21cd6a2063e
     ].each_slice(2) do |p, checksum|
       patch :p0 do
-        url "https://ftpmirror.gnu.org/bash/bash-4.4-patches/bash44-#{p}"
+        url "https://ftp.gnu.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
         mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-4.4-patches/bash44-#{p}"
         mirror "https://mirrors.kernel.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
-        mirror "https://ftp.gnu.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
+        mirror "https://ftpmirror.gnu.org/bash/bash-4.4-patches/bash44-#{p}"
         mirror "https://gnu.cu.be/bash/bash-4.4-patches/bash44-#{p}"
         mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
         sha256 checksum

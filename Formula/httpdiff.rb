@@ -20,6 +20,6 @@ class Httpdiff < Formula
   end
 
   test do
-    system bin/"httpdiff", "http://brew.sh", "http://brew.sh"
+    system bin/"httpdiff", "https://brew.sh/", "https://brew.sh/"
   end
 end

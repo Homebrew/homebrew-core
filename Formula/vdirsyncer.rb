@@ -5,7 +5,7 @@ class Vdirsyncer < Formula
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://files.pythonhosted.org/packages/d7/83/1173613bc62b85f8c074b6589072951ad4f7e674d51d8bad875be38bc813/vdirsyncer-0.15.0.tar.gz"
   sha256 "52f7acccab443ce20aca2623b80475f741844929977c08b2f8f11fc9ba2f4a21"
-  head "https://github.com/pimutils/vdirsyncer"
+  head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
     sha256 "6114db2c17ab20ea51bda2792b5f750322e6d25a67f181146cfe54995b9edcad" => :sierra
@@ -14,6 +14,7 @@ class Vdirsyncer < Formula
   end
 
   option "with-remotestorage", "Build with support for remote-storage"
+  option "with-google", "Build with support for google storage types"
 
   depends_on :python3
 
@@ -45,6 +46,18 @@ class Vdirsyncer < Formula
   resource "requests-toolbelt" do
     url "https://files.pythonhosted.org/packages/ab/bf/2af6b25f880e2d529a524f98837d33b1048a2a15703fc4806185b54e9672/requests-toolbelt-0.7.1.tar.gz"
     sha256 "c3843884269d79e492522f3e9f490917e074c1ddbb80111968970e721fe36eaf"
+  end
+
+  if (build.with? "remotestorage") || (build.with? "google")
+    resource "oauthlib" do
+      url "https://files.pythonhosted.org/packages/fa/2e/25f25e6c69d97cf921f0a8f7d520e0ef336dd3deca0142c0b634b0236a90/oauthlib-2.0.2.tar.gz"
+      sha256 "b3b9b47f2a263fe249b5b48c4e25a5bce882ff20a0ac34d553ce43cff55b53ac"
+    end
+
+    resource "requests-oauthlib" do
+      url "https://files.pythonhosted.org/packages/80/14/ad120c720f86c547ba8988010d5186102030591f71f7099f23921ca47fe5/requests-oauthlib-0.8.0.tar.gz"
+      sha256 "883ac416757eada6d3d07054ec7092ac21c7f35cb1d2cf82faf205637081f468"
+    end
   end
 
   def install

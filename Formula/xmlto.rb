@@ -1,15 +1,15 @@
 class Xmlto < Formula
   desc "Convert XML to another format (based on XSL or other tools)"
-  homepage "https://fedorahosted.org/xmlto/"
-  url "https://fedorahosted.org/releases/x/m/xmlto/xmlto-0.0.28.tar.bz2"
+  homepage "https://pagure.io/xmlto/"
+  url "https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2"
   sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55b1bf9e049e2e70ea31baa5a1e64d48ef98cab1de1b13b99f5cf2b446b741d2" => :sierra
-    sha256 "25c7921f993a9cc8c4b9e2bd8a4e6f1a90b7f755f747b55f391ed063f123f64d" => :el_capitan
-    sha256 "add17a1f3fd3569e3a8ed9e970f5d9397bdf1cca185c47b50af4f56492f8afff" => :yosemite
-    sha256 "afd12ae6c79db17692175c1da036fbcf3df0c33592c0c6d7a686ce37f2443838" => :mavericks
+    rebuild 1
+    sha256 "e6c35d8216b36e13a890d839296f51989d58fbf6e35666ee161dcae6f1e5fcd3" => :sierra
+    sha256 "7b12ea43ff42eb5acdf91a1b2390af62cb95abd80e0a651581653c3d2b470b60" => :el_capitan
+    sha256 "b0042227a7b6f00c5e4f7eb0e9b0ce6959ff401035d0914a8be60d685929c4a4" => :yosemite
   end
 
   depends_on "docbook"
@@ -31,6 +31,15 @@ class Xmlto < Formula
     ENV.deparallelize
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test").write <<-EOS.undent
+      <?xmlif if foo='bar'?>
+      Passing test.
+      <?xmlif fi?>
+    EOS
+    assert_equal "Passing test.", shell_output("cat test | #{bin}/xmlif foo=bar").strip
   end
 end
 

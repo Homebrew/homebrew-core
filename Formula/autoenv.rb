@@ -16,4 +16,10 @@ class Autoenv < Formula
       source #{opt_prefix}/activate.sh
     EOS
   end
+
+  test do
+    (testpath/"test/.env").write "echo it works\n"
+    testcmd = "yes | bash -c '. #{prefix}/activate.sh; autoenv_cd test'"
+    assert_match "it works", shell_output(testcmd)
+  end
 end

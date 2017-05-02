@@ -1,14 +1,14 @@
 class Fox < Formula
   desc "Toolkit for developing Graphical User Interfaces easily."
   homepage "http://www.fox-toolkit.org/"
-  url "http://ftp.fox-toolkit.org/pub/fox-1.6.51.tar.gz"
-  sha256 "15a99792965d933a4936e48b671c039657546bdec6a318c223ab1131624403d1"
+  url "http://ftp.fox-toolkit.org/pub/fox-1.6.54.tar.gz"
+  sha256 "960f16a8a69d41468f841039e83c2f58f3cb32622fc283a69f20381abb355219"
 
   bottle do
     cellar :any
-    sha256 "84e26e4ae534c17cf53eb27f611990d565cf5f942001e131ed9204570cf3c371" => :sierra
-    sha256 "3ae937491777d69408c0062cb7e21e2231037d7e8b3036c6bf0f0e6c83f070ad" => :el_capitan
-    sha256 "06f31b3d710dde932f37b8d24b45791a04cfa3767bee288a03ee31587a156980" => :yosemite
+    sha256 "735e60cd429680c3b8f916bbb83f7c136feda4ce37c4f61c80766c695d477f73" => :sierra
+    sha256 "c5b0074d80dbc0e39e6f1adfefc3890276e40a26abc196b0961dda30b18e8f7e" => :el_capitan
+    sha256 "b48658df4242bc972a47238d0885463399b220c46067ea34033f024197469728" => :yosemite
   end
 
   depends_on :x11

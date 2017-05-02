@@ -1,13 +1,14 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-12/source/tarball/percona-server-5.7.17-12.tar.gz"
-  sha256 "2f89b40c940009bb54093c6740024c2dda918859ba731d03e76340e83e0a47b5"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-13/source/tarball/percona-server-5.7.17-13.tar.gz"
+  sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
 
   bottle do
-    sha256 "07d65e9938b7fc00274001cdb495785e3ddbaf7247510f3f5c2d5af4c227f18b" => :sierra
-    sha256 "feffff3276f9aad029e9423a3c680aa879303b049f72c289d5400bf6fdab9f6c" => :el_capitan
-    sha256 "edef11ecc55aaedaaa132af37ff6f222c30ab6aedfe4fe9c75724e33c38f008a" => :yosemite
+    rebuild 1
+    sha256 "a77bda4943bfd6ab295d5c042c806bc044a47beef41eaf5bd74d8521180d315f" => :sierra
+    sha256 "9fab0738a55814f62622e14eb1e6b9df92d9c56e9d14a80e3c9fa1a12fc2b397" => :el_capitan
+    sha256 "cb78808b0d7db49a98c1aba69c9a4ef974b8a5a16ff5c9076f8b18dcdc338aab" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -119,11 +120,22 @@ class PerconaServer < Formula
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot

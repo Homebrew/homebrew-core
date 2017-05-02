@@ -1,14 +1,14 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20170304.tar.gz"
-  sha256 "45d448a5ac53c9e230522600f03dad7abc70788367d09c3edcb4ae4285050004"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20170415.tar.gz"
+  sha256 "dfbcfb63686fa3b7a16a4bac34de81adb02eeaf23593b3e63cca906bf4dbef67"
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 "5b6c7080ff1238f66496d53790f74f8edaedae1581d21288f850c2a242b4a55b" => :sierra
-    sha256 "da8d22eea21ecaff5d987d0f8fd3f729c85b9691b60c53c87972c2ae0fab3b7f" => :el_capitan
-    sha256 "5499c7f227728d60e2f352aae183f3387b1ff5d2735aa0103193d4ddc4e26192" => :yosemite
+    sha256 "be08d9da7f42080a39701421e4a4fbed39169af0ef67a91aad9ed7f699fac878" => :sierra
+    sha256 "162b59e4b89c7b6ef8d3b0d7511f2b4fc714000d67c9e9536ca8602ef15d73f9" => :el_capitan
+    sha256 "e40c216569efbdc5fd7224dca832d3006aa3f2319970d077b80b78bc9eb9b32f" => :yosemite
   end
 
   depends_on "autoconf" => :build

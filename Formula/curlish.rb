@@ -23,6 +23,6 @@ class Curlish < Formula
   end
 
   test do
-    system "#{bin}/curlish", "http://brew.sh"
+    system "#{bin}/curlish", "https://brew.sh/"
   end
 end

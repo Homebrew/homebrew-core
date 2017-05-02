@@ -30,8 +30,8 @@ class Cogl < Formula
   # grep: Regular expression too big
   if MacOS.version == :lion
     resource "grep" do
-      url "https://ftpmirror.gnu.org/grep/grep-2.20.tar.xz"
-      mirror "https://ftp.gnu.org/gnu/grep/grep-2.20.tar.xz"
+      url "https://ftp.gnu.org/gnu/grep/grep-2.20.tar.xz"
+      mirror "https://ftpmirror.gnu.org/grep/grep-2.20.tar.xz"
       sha256 "f0af452bc0d09464b6d089b6d56a0a3c16672e9ed9118fbe37b0b6aeaf069a65"
     end
   end

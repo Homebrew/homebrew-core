@@ -1,13 +1,13 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.0.tar.xz"
-  sha256 "3c2948f451dd107b3838bd6580bd7df95aa455d16f595aefab6e7553cccfc8d2"
+  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.1.tar.xz"
+  sha256 "d0630dceeaf09285640ecec79545baf811321636a441824a9243e7f3a4467583"
 
   bottle do
-    sha256 "178943fb60d754e189c50aad580be9591e0276cbc08826b80f57a03bd11a67fb" => :sierra
-    sha256 "71683effed8ec84d45e34053c8506b4a58074797dcc1a48b7a4420eee7147939" => :el_capitan
-    sha256 "940294499f8fabcc430ccded69ebe0aa922348ca04b8b3db4283f7191b44abf2" => :yosemite
+    sha256 "25bdad91764b3c50a4c52ae68141b1883bfbfe1e28d6ed9065cbd653ff5c72d3" => :sierra
+    sha256 "f5b9b92e03baae589773fcbc9afe7739004960f2723bb8e36c24035391148b5a" => :el_capitan
+    sha256 "f73b64920271da0e0b3df1454f316f16aa6db9ed23ea0159609779b59fb87b80" => :yosemite
   end
 
   depends_on "pkg-config" => :build

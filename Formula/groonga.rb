@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "https://packages.groonga.org/source/groonga/groonga-7.0.0.tar.gz"
-  sha256 "cde519dc4192095a1ad7effd20f9df5b3a8cc38a947b0ec3bf1d681505ff7b30"
+  url "https://packages.groonga.org/source/groonga/groonga-7.0.2.tar.gz"
+  sha256 "79faddce8c0a187261a6ff787356590a790d1f93bb58d6c57064e9383ce295e5"
 
   bottle do
-    sha256 "d13ebb07365c2feae4680a8fc792e8fbe38af8e0b2162cad9469244d7f79d0e1" => :sierra
-    sha256 "9241ce130f99a6df44123aa3e32691935226bf2440862cb36d3be8b806d1eb7d" => :el_capitan
-    sha256 "844c1ae161105d715379289da87754eeda4fb666691abcdac05790b75f9856f3" => :yosemite
+    sha256 "d1da378f75f35da55dcd980c7ae2ee65f1c238c26d80e47d80162bb12345b51e" => :sierra
+    sha256 "3e16e348ffa9eda3ab79c76037620da496fcf263dac41a6b6d63a60e5e325b3b" => :el_capitan
+    sha256 "7909a3f1e81fb6e7fd7a5d5ed8502568f285493dfb76f62f1c232a4dd58bc9f3" => :yosemite
   end
 
   head do
@@ -44,7 +44,7 @@ class Groonga < Formula
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      :revision => "71936098048f915a797de990776564c924d40b6a"
+      :revision => "c8b87d5d32f34964f8c8dec1a020bd90dc5be701"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"

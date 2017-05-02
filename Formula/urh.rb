@@ -1,15 +1,14 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/29/47/f00588ff9d6807c7f8b54e1c7cf6fe8f66fd1f4ddaa85f03d7f2eff6719c/urh-1.6.1.8.tar.gz"
-  sha256 "7baca3e51484946644584509966d827943b3abd42fd82dcaf0d3e3c2acabaf8f"
+  url "https://files.pythonhosted.org/packages/8d/2b/5bef3fff35286b3c21b9569763646484a78fd09d1562b0fef78ba5b10420/urh-1.6.2.6.tar.gz"
+  sha256 "444783ec3b4ef1c981d6b95dd6aa8d48cfc22c1d070416d474f9129b4f6085be"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c05000a9a37bd2b2c0db09855562a6dcd53405e868ed03ebb19a65ab1c80533d" => :sierra
-    sha256 "a95cdc8b6844d4d7d38e170f9746a45a150b56247f4ed00bd351e9d1620130d2" => :el_capitan
-    sha256 "965797575cd63983be12b5e8f5ff04ca8c3b9d131e8feb698b7b94a1720ad99d" => :yosemite
+    sha256 "5880068317f19e75d7a0747f8fe3a50bbcc2cf1c24ce60741035efdc88d622b4" => :sierra
+    sha256 "1f2a076b59e1dc9e9d56d2ded40454f9c734133264ce616c8922cb054027f1d7" => :el_capitan
+    sha256 "16219ca053d7da65a9c6f6126025d36bc03267ad20420ecd1eea741196a86843" => :yosemite
   end
 
   option "with-hackrf", "Build with libhackrf support"
@@ -17,14 +16,18 @@ class Urh < Formula
   depends_on "pkg-config" => :build
 
   depends_on :python3
-  depends_on "pyqt5"
-  depends_on "numpy" => ["with-python3"]
+  depends_on "pyqt"
 
   depends_on "hackrf" => :optional
 
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+    sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
+  end
+
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/3c/2f/f3ab91349c666f009077157b12057e613a3152a46a6c3be883777546b6de/psutil-5.2.0.tar.gz"
-    sha256 "2fc91d068faa5613c093335f0e758673ef8c722ad4bfa4aded64c13ae69089eb"
+    url "https://files.pythonhosted.org/packages/57/93/47a2e3befaf194ccc3d05ffbcba2cdcdd22a231100ef7e4cf63f085c900b/psutil-5.2.2.tar.gz"
+    sha256 "44746540c0fab5b95401520d29eb9ffe84b3b4a235bd1d1971cbe36e1f38dd13"
   end
 
   resource "pyzmq" do

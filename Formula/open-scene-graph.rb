@@ -3,20 +3,20 @@ class OpenSceneGraph < Formula
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
   sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
-  revision 1
-  head "https://github.com/openscenegraph/OpenSceneGraph"
+  revision 2
+  head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "4bf6acd394ae2c0c9d8f97731c6e8acd68020fcd65c1b8135a3ea82491b907d9" => :sierra
-    sha256 "0eda111a9f1cf95deb5aa758ca3125d45ab2e597647c230984aa95ec0ea42e2d" => :el_capitan
-    sha256 "012db4d0fd27e67ecd076a7e79ba8e80b80305ae42d8b2d72c9b8cb8de93e038" => :yosemite
+    sha256 "cb9a0626f05f66c50c4b0256dcb3e839700009f4ea0858083510a9c0a20bdc3a" => :sierra
+    sha256 "13927bfd3a1f9114e1d7b4abec5b0841b1adecdc4d252d9c509da1a3227bdf0b" => :el_capitan
+    sha256 "7746a76561b02eebf7e750207c3097d89f1a38faba8979f40e006d0ca030d122" => :yosemite
   end
 
   option :cxx11
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
 
   deprecated_option "docs" => "with-docs"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -32,7 +32,7 @@ class OpenSceneGraph < Formula
   depends_on "collada-dom" => :optional
   depends_on "gnuplot" => :optional
   depends_on "ffmpeg" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
@@ -67,8 +67,8 @@ class OpenSceneGraph < Formula
       args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom"
     end
 
-    if build.with? "qt5"
-      args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"].opt_prefix}"
+    if build.with? "qt"
+      args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_prefix}"
     end
 
     mkdir "build" do

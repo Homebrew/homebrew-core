@@ -12,8 +12,8 @@ class Cairo < Formula
   end
 
   devel do
-    url "https://cairographics.org/snapshots/cairo-1.15.2.tar.xz"
-    sha256 "268cc265a7f807403582f440643064bf52896556766890c8df7bad02d230f6c9"
+    url "https://cairographics.org/snapshots/cairo-1.15.4.tar.xz"
+    sha256 "deddf31e196e826e7790bbbf7d0f4b3fd15df243aa48511b349f1791b96be291"
   end
 
   head do

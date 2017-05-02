@@ -2,16 +2,16 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.3.1",
-    :revision => "ab0aebaeba32c3a3ca3c201c1e02dc35dd862c99"
+    :tag => "v0.3.2",
+    :revision => "c290fd6efa3891782b023001e96cf8c8827d31e0"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
-    rebuild 2
-    sha256 "2e654baa07d35b1058324e4f9f3826fa4ced2a0d354741c3000b654137f44819" => :sierra
-    sha256 "3a6a8810cd7600ab4f00f185f6e379c8e741a57d71159d0edf1c9a316a861c42" => :el_capitan
-    sha256 "66a1fd8dde1dac18630b7c808b0babfc13f4735a0e208dde8ab4ea12ceab29a6" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "92c1201ecaa20aecaa254895ffc3b317e284207a3857a8aa8aef633b8d42684d" => :sierra
+    sha256 "71ba7150d265ae5070b565b7ff569246b70e7d5cd522671672dc2f2b1e518991" => :el_capitan
+    sha256 "50350637e1382b54042c9a97499f238f06249eebeebb064385b71a23a4cdd3b6" => :yosemite
   end
 
   option "without-qcow2", "Do not support qcow2 disk image format"

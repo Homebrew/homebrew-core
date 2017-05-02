@@ -1,20 +1,18 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.14/sbcl-1.3.14-source.tar.bz2"
-  sha256 "bf963d58533d839eb76a8028abd17071708d964d5dce07787839cfb6d0d6dcca"
-  revision 1
-
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.17/sbcl-1.3.17-source.tar.bz2"
+  sha256 "94b9f576328de3a5d9ced452fdaa4d2f55437af8838fbbfb4f226c86591a0daf"
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
   bottle do
-    sha256 "0319bfca503c34a5c6644dfb3a67079d83045101dda37500f6f741d969b02a4d" => :sierra
-    sha256 "8b0109891ff37154eb55fb5378285aa5cf321e46c2cd52d8d86caa7e9dce990d" => :el_capitan
-    sha256 "916eae4f6b5b9b2c6e77ede91153b7b88dd19c22ab7052f40fc9326dc3576767" => :yosemite
+    sha256 "b5a457e22a591cc46a84e3e602a7bfa41eace0fad81101a202f773513221d4ec" => :sierra
+    sha256 "23a45de1528bc4d89e12e02dd9d6c0f3ce890cd1a5a8b0a372ed2b500ae0ce78" => :el_capitan
+    sha256 "6c3d1750222b95612168303c07a3437135d814036d99902e35d1ad6aa05ead52" => :yosemite
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
-  option "with-ldb", "Include low-level debugger in the build"
+  option "without-ldb", "Don't include low-level debugger"
   option "without-sources", "Don't install SBCL sources"
   option "without-core-compression", "Build SBCL without support for compressed cores and without a dependency on zlib"
   option "without-threads", "Build SBCL without support for native threads"
@@ -31,44 +29,11 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-base-target-features.diff"
-    sha256 "e101d7dc015ea71c15a58a5c54777283c89070bf7801a13cd3b3a1969a6d8b75"
-  end
-
-  patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
   end
 
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-posix-tests.diff"
-    sha256 "06908aaa94ba82447d64cf15eb8e011ac4c2ae4c3050b19b36316f64992ee21d"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-use-mach-exception-handler.diff"
-    sha256 "089b8fdc576a9a32da0b2cdf2b7b2d8bfebf3d542ac567f1cb06f19c03eaf57d"
-  end
-
-  def write_features
-    features = []
-    features << ":sb-thread" if build.with? "threads"
-    features << ":sb-core-compression" if build.with? "core-compression"
-    features << ":sb-ldb" if build.with? "ldb"
-    features << ":sb-xref-for-internals" if build.with? "internal-xref"
-
-    File.open("customize-target-features.lisp", "w") do |file|
-      file.puts "(lambda (list)"
-      features.each do |f|
-        file.puts "  (pushnew #{f} list)"
-      end
-      file.puts "  list)"
-    end
-  end
-
   def install
-    write_features
-
     # Remove non-ASCII values from environment as they cause build failures
     # More information: https://bugs.gentoo.org/show_bug.cgi?id=174702
     ENV.delete_if do |_, value|
@@ -77,18 +42,26 @@ class Sbcl < Formula
       ascii_val =~ /[\x80-\xff]/n
     end
 
-    bootstrap = MacOS.prefer_64_bit? ? "bootstrap64" : "bootstrap32"
-    resource(bootstrap).stage do
-      # We only need the binaries for bootstrapping, so don't install anything:
-      command = "#{Dir.pwd}/src/runtime/sbcl"
-      core = "#{Dir.pwd}/output/sbcl.core"
-      xc_cmdline = "#{command} --core #{core} --disable-debugger --no-userinit --no-sysinit"
+    (buildpath/"version.lisp-expr").write('"1.0.99.999"') if build.head?
 
-      cd buildpath do
-        Pathname.new("version.lisp-expr").write('"1.0.99.999"') if build.head?
-        system "./make.sh", "--prefix=#{prefix}", "--xc-host=#{xc_cmdline}"
-      end
-    end
+    bootstrap = MacOS.prefer_64_bit? ? "bootstrap64" : "bootstrap32"
+    tmpdir = Pathname.new(Dir.mktmpdir)
+    tmpdir.install resource(bootstrap)
+
+    command = "#{tmpdir}/src/runtime/sbcl"
+    core = "#{tmpdir}/output/sbcl.core"
+    xc_cmdline = "#{command} --core #{core} --disable-debugger --no-userinit --no-sysinit"
+
+    args = [
+      "--prefix=#{prefix}",
+      "--xc-host=#{xc_cmdline}",
+    ]
+    args << "--with-sb-core-compression" if build.with? "core-compression"
+    args << "--with-sb-ldb" if build.with? "ldb"
+    args << "--with-sb-thread" if build.with? "threads"
+    args << "--with-sb-xref-internal" if build.with? "internal-xref"
+
+    system "./make.sh", *args
 
     ENV["INSTALL_ROOT"] = prefix
     system "sh", "install.sh"

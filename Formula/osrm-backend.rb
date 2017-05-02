@@ -1,14 +1,14 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.6.3.tar.gz"
-  sha256 "87c010c9e99e56cda601c357d8ffdea1f5b4bb1bb79275f202ae6247bf3b308a"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.7.0.tar.gz"
+  sha256 "8896d96c638e840015a3d50eafe39f7aee32aceb8472dd25769b270830912e23"
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "81dd0f510d17a4a6e6271878ca2c18a9a0759825d91e36d07e882a74269950e9" => :sierra
-    sha256 "f1a73aa28ce75844da8f485fe93464f51b3ff3c380f5d358ab390f033993e530" => :el_capitan
+    sha256 "bd85c92f63a0fe9eba52498242570f29aee7a836a20e1d84bfd65181622627a7" => :sierra
+    sha256 "6d3d6a1ae6571e38c7e08d3422432ac84021e84b0ed7e3a9e09359277171e0a7" => :el_capitan
   end
 
   # "invalid use of non-static data member 'offset'"

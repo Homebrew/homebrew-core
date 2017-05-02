@@ -8,7 +8,6 @@ class Gifcap < Formula
   bottle :unneeded
 
   depends_on "ffmpeg"
-  depends_on "android-sdk" => :optional
 
   def install
     bin.install "gifcap"

@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-4.8.0.520.tar.bz2"
-  sha256 "d5f5b3e096a4eec1ae6bc2fb8b78c8c9376c1e6673371b577d80b1eeaf3940c9"
+  url "https://download.mono-project.com/sources/mono/mono-4.8.1.0.tar.bz2"
+  sha256 "18cb38a670e51609c36c687ed90ad42cfedabeffd0a2dc5f7f0c46249eb8dbef"
 
   bottle do
-    sha256 "2ac39baa78967daac81147a8f28cfd8e379f348317044d268966e7e34ed10fa8" => :sierra
-    sha256 "e9a15e00b2fef73f67b80d0d462f9185fef921b94420d9dd7cd456b00f74dcd1" => :el_capitan
-    sha256 "8656dfa498f2138de0c0cee11f60aa27d88ce4dac7cdcab702d54842396b4c19" => :yosemite
+    sha256 "ecd5d2b9f7b291dbaec3d05c29680c8f70bde4808d82320bebe6155cb45c6ab1" => :sierra
+    sha256 "a36188b252d8742d5c9d440d60d5a416328fb3a596b8679a0ec9dd986409e95b" => :el_capitan
+    sha256 "b55ff56c58542d7f771117d511982be934c7d355de97b4e1d61ca55abf05568c" => :yosemite
   end
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -33,8 +33,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.0.2",
-        :revision => "6ce41a922dd9ebb9766ca4b89b7a32f6a82e43e9"
+        :tag => "4.1.13",
+        :revision => "e8ff6c9f603df58dd0bd181146679150ce641918"
   end
 
   def install

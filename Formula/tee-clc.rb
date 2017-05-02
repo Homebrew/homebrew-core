@@ -1,8 +1,8 @@
 class TeeClc < Formula
-  desc "Microsoft Team Explorer Everywhere 2015 Command Line Client"
+  desc "Microsoft Team Explorer Everywhere command-line Client"
   homepage "https://www.visualstudio.com/en-us/products/team-explorer-everywhere-vs.aspx"
-  url "https://download.microsoft.com/download/8/F/6/8F68DDC8-4E75-4BEA-951E-C14BFF336E81/TEE-CLC-14.0.3.zip"
-  sha256 "615125b71305f2f8d03178d6850ea5088b52b1998bd99ff07eed5c22e29af5eb"
+  url "https://github.com/Microsoft/team-explorer-everywhere/releases/download/v14.114.0/TEE-CLC-14.114.0.zip"
+  sha256 "22f4670c5e7d95cb23e16f34fcc1854d6d31440688c87ee02b859804bfdaeb21"
 
   bottle :unneeded
 

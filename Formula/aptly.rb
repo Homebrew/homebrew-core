@@ -1,15 +1,15 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/smira/aptly/archive/v1.0.0.tar.gz"
-  sha256 "d919ae4be762b689a03aee9eff9209091c40b7d37327fc718c981f4e1a77e8ea"
+  url "https://github.com/smira/aptly/archive/v1.0.1.tar.gz"
+  sha256 "e7431e56f0850751c8d6e06e8a0db7dc0d113a60fecfb22c230846f5a7365881"
   head "https://github.com/smira/aptly.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d769447635d35442dd39a40e59096e999ae427e4ee3ec42d0f9331c5db74c75" => :sierra
-    sha256 "8afbbb462f8a0c7d6bda1ed77984d79dda2ffce83d2f233c9e5e5f043f76c73d" => :el_capitan
-    sha256 "1b10cdd4d43b5da6d8cc1b54f0122895428b7834b4627c3221bde158e42d9267" => :yosemite
+    sha256 "39483b7e222a9d683b09963316a45542b1ec0feda960ba0fe2bc316c0df07f80" => :sierra
+    sha256 "2d114bfb81310b2af4eca98373d3bcfbac529dc7beef44b18ca7bfe3e585811c" => :el_capitan
+    sha256 "952bdf9c5dd8fb93e77ee2281425f11481d8633a1fb5a836e5cef5a188bdc42e" => :yosemite
   end
 
   depends_on "go" => :build

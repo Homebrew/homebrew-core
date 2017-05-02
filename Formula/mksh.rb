@@ -1,15 +1,15 @@
 class Mksh < Formula
   desc "MirBSD Korn Shell"
   homepage "https://www.mirbsd.org/mksh.htm"
-  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R54.tgz"
-  mirror "https://pub.allbsd.org/MirOS/dist/mir/mksh/mksh-R54.tgz"
-  sha256 "8bce3837c386684aa7780f085f1a4dbd5e3e26fb5c528ee0d41ae29af7f39013"
+  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R55.tgz"
+  mirror "https://pub.allbsd.org/MirOS/dist/mir/mksh/mksh-R55.tgz"
+  sha256 "ced42cb4a181d97d52d98009eed753bd553f7c34e6991d404f9a8dcb45c35a57"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4105d7c15156683e919a9b26be1a6c73c0ee6f4dcbc23236690977a370d36a09" => :sierra
-    sha256 "85be92bfc3197078676eb1c1938d12f040ffe7b02b84c307db9d5ba5644e1960" => :el_capitan
-    sha256 "bd9619a5f6e39befae565d833840e83b49da62865764d80791c43efbcfe9e32d" => :yosemite
+    sha256 "9e0b4936345b39cbbb0cfda7702528eb92fb723b60decd1be2522863dd596e69" => :sierra
+    sha256 "d3437810086c5ac4b89cd09dd39add4a8c2873344fd6b48e6961acf69366f22b" => :el_capitan
+    sha256 "b5f7b0a0d6110edd9aae8d2be717983cc6f0fafcbdfc5cc62cb051fbb636ed3c" => :yosemite
   end
 
   def install

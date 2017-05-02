@@ -1,15 +1,14 @@
 class Cimg < Formula
   desc "C++ toolkit for image processing"
   homepage "http://cimg.eu/"
-  url "http://cimg.eu/files/CImg_1.6.9.zip"
-  sha256 "857988d2b4e36989342f475d55f4e3044243831f9fb5d65667de7ab6217a0e04"
+  url "http://cimg.eu/files/CImg_1.7.9.zip"
+  sha256 "fa7800d420807e367c0f77e6d5076decba55dc51c9319f9e9e5cf822ac0ce81d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1fd54143bdc49bb378ec3576a65ecb33c278b8031653bdc67de5aa7c0cd5d145" => :sierra
-    sha256 "4279078a6e13098070cc62632596a0f2187115eab197fc093eca49f8c57d175a" => :el_capitan
-    sha256 "df6f99dab3ac2e1046e891d2594d9e9845d4b2164421bd4fccebf50d4a74e0cf" => :yosemite
-    sha256 "066d8e2062bf9b0cfb7b0ff4a4edf24c55e5fdaecb8cf262e549081c281f2fe5" => :mavericks
+    sha256 "0a682bf144d609aeb8c185839226ded8fccc08e7f13fe63ec6399928105f8fb6" => :sierra
+    sha256 "99a4424e348cc18c366a58137ad22e1d9fbe5de88afce72e32dea13fe64aa7ac" => :el_capitan
+    sha256 "99a4424e348cc18c366a58137ad22e1d9fbe5de88afce72e32dea13fe64aa7ac" => :yosemite
   end
 
   def install

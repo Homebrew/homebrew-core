@@ -1,17 +1,15 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
-  url "https://luajit.org/download/LuaJIT-2.0.4.tar.gz"
-  sha256 "620fa4eb12375021bef6e4f237cbd2dd5d49e56beb414bee052c746beef1807d"
-  revision 3
+  url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
+  sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
 
   head "https://luajit.org/git/luajit-2.0.git"
 
   bottle do
-    sha256 "f9badbb9d75d07cb8a9297e874035a20c85795b43e80360e209b26dcb051fac9" => :sierra
-    sha256 "38f869762b310ed4b62150517b7aac477230e3d86a2dbd4863859cb3f463bcbd" => :el_capitan
-    sha256 "faa9c576ca33772c05060c680b6db988f8cde56b0a7c857b29bf4f0e53b23e14" => :yosemite
-    sha256 "be43da3326342c34c0bb36b6f697154a13b9b86a854a320e7dc2f656f475e463" => :mavericks
+    sha256 "bdebedd2ab2bea98e10591308a5246c81aa7628ee7d17a0f20aeebeebf8bec22" => :sierra
+    sha256 "1d7aaa71d670da1e52b92e6db270ba935b9047e08e5cda52c70b14623d1b5bdf" => :el_capitan
+    sha256 "a96de1c4d07aac2ee35f8df2498e305da7466fed04ae291d42bd63c24e8dc658" => :yosemite
   end
 
   devel do

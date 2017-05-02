@@ -1,14 +1,14 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.ctan.org/pkg/latex2html"
-  url "http://mirrors.ctan.org/support/latex2html/latex2html-2016.tar.gz"
-  sha256 "ab1dbc18ab0ec62f65c1f8c14f2b74823a0a2fc54b07d73ca49524bcae071309"
+  url "http://mirrors.ctan.org/support/latex2html/latex2html-2017.2.tar.gz"
+  sha256 "4b8c21ef292817c85ba553f560129723bcae4ee9a6ec7a22ce2289329db7c1ef"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96aba432faa475b5201a84d032e5e4e90d95264e23387ba20bd59fea5d06403b" => :sierra
-    sha256 "093a49aaa3b77c884b9e7aa7ebcff872dc763a984c779fa03b3a50013c311ea1" => :el_capitan
-    sha256 "6a304d1b869c3bdb472c4eea5b4251e626a89446c3d55443da81bbbbe626a59c" => :yosemite
+    sha256 "8ef1c505140cf839ae71708e3785812a538622a19ee76c19ec1901b6a4567edc" => :sierra
+    sha256 "ee26a1cfa8ff76d1f1d7a0d3435e5a792fbc34e35e43cf84c22321c1df665f3a" => :el_capitan
+    sha256 "8c53c049249208b6441c43500b8921c0869b4d0fef6226194ce4e1a8a8c8cbfe" => :yosemite
   end
 
   depends_on "netpbm"
@@ -19,5 +19,19 @@ class Latex2html < Formula
                           "--without-mktexlsr",
                           "--with-texpath=#{share}/texmf/tex/latex/html"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.tex").write <<-EOS.undent
+      \\documentclass{article}
+      \\usepackage[utf8]{inputenc}
+      \\title{Experimental Setup}
+      \\date{\\today}
+      \\begin{document}
+      \\maketitle
+      \\end{document}
+    EOS
+    system "#{bin}/latex2html", "test.tex"
+    assert_match /Experimental Setup/, File.read("test/test.html")
   end
 end

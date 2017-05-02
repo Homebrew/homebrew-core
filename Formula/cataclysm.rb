@@ -20,7 +20,7 @@ class Cataclysm < Formula
 
   depends_on "gettext"
   # needs `set_escdelay`, which isn't present in system ncurses before 10.6
-  depends_on "homebrew/dupes/ncurses" if MacOS.version < :snow_leopard
+  depends_on "ncurses" if MacOS.version < :snow_leopard
 
   if build.with? "tiles"
     depends_on "sdl2"

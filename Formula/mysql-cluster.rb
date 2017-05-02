@@ -1,13 +1,14 @@
 class MysqlCluster < Formula
   desc "Shared-nothing clustering and auto-sharding for MySQL"
   homepage "https://www.mysql.com/products/cluster/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-gpl-7.5.5.tar.gz"
-  sha256 "2a93deda2a1451a24ec8f8e62aa4e2d547e006a757c19481627efd2372752546"
+  url "https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.5/mysql-cluster-gpl-7.5.6.tar.gz"
+  sha256 "f799932e0baeb4cf61d735b662ebefba6d2d7b156cb66fc81c1bef4a4a43848d"
 
   bottle do
-    sha256 "563c3a2337f717edd22af2a2570ecbcd1550a18a5fefe3b049e62683cdf7a4c8" => :sierra
-    sha256 "b1a0bcd342668543236cbd392152e9830071bdf3acda4f9c98753c761f7b02dc" => :el_capitan
-    sha256 "8c49517858b08c6ce47fc29eb4cf9f1526f8601972c0cd81e6903379c6bd7a00" => :yosemite
+    rebuild 1
+    sha256 "3eec1779c488fed8866ce5648c46fb76747b9028d41db67d1d56117e6497737a" => :sierra
+    sha256 "ea45e531c06a0e6aa7c3d8d3a8cf33efc2548bc6f5406ab5a3d8630729030351" => :el_capitan
+    sha256 "6a01cbaba92ed7538facca6acacf0eb792b7eed1a887bbfbd3d5a8afe580bb7f" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -110,15 +111,14 @@ class MysqlCluster < Formula
 
     # Link the setup script into bin
     bin.install_symlink prefix/"scripts/mysql_install_db"
+
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
-    libexec.install "#{bin}/mcc_config.py"
+    libexec.install bin/"mcc_config.py"
 
     plist_path("ndb_mgmd").write ndb_mgmd_startup_plist("ndb_mgmd")
     plist_path("ndb_mgmd").chmod 0644
@@ -144,6 +144,7 @@ class MysqlCluster < Formula
       #{var}/mysql-cluster
     Note that in a production system there are other parameters
     that you would set to tune the configuration.
+    MySQL is configured to only allow connections from localhost by default
 
     Set up databases to run AS YOUR USER ACCOUNT with:
       unset TMPDIR
@@ -177,6 +178,8 @@ class MysqlCluster < Formula
     datadir=#{var}/mysql-cluster/mysqld_data
     basedir=#{opt_prefix}
     port=5000
+    # Only allow connections from localhost
+    bind-address = 127.0.0.1
     EOCNF
   end
 
@@ -302,7 +305,7 @@ class MysqlCluster < Formula
       "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
       pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+        exec bin/"mysqld", "--datadir=#{dir}"
       end
       sleep 2
 

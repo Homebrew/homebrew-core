@@ -1,25 +1,22 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool."
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.18.1.tar.gz"
-  sha256 "482fa737691c260e16adcc32bc3fd43ba50a309495faec6b2f3098b517e6c0e9"
-  revision 2
+  url "https://github.com/ruben2020/codequery/archive/v0.21.0.tar.gz"
+  sha256 "9af232e0d3bb10e5defbc222a9e422f4580dd5766cfc7f921d38baa18675f98d"
 
   bottle do
     cellar :any
-    sha256 "0a69d079240d98269069d0c38ca1579685084d975cf6c3e49e92554e2562e0a7" => :sierra
-    sha256 "7b305f7a624567e92d16637863d6d8c16946e8df22ece7502d5bd187a5e8517e" => :el_capitan
-    sha256 "d21a56640656f08060dd3c9e8b1800808f314e90f003a7d51158deb6be5f2a6e" => :yosemite
+    sha256 "cf8477f991795c39b7993c3eab785eb5b069c684db0c0d24d08777faee44993b" => :sierra
+    sha256 "f9c4cf1314b4c84622ea4dd3f8950e683cf2030f6bdb5b1ea63374ea7bc25a74" => :el_capitan
+    sha256 "5b80bb8794e765c0436ee8abe8ac667813f42810a12dccccabe909a8b0733496" => :yosemite
   end
 
   depends_on "cmake" => :build
-  depends_on "qt5"
-  depends_on "qscintilla2"
+  depends_on "qt"
 
   def install
     args = std_cmake_args
     args << "-DBUILD_QT5=ON"
-    args << "-DQT5QSCINTILLA_LIBRARY=#{Formula["qscintilla2"].opt_lib}/libqscintilla2_qt5.dylib"
 
     share.install "test"
     mkdir "build" do

@@ -2,18 +2,19 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      :tag => "v1.3",
-      :revision => "6d0d36bf914a3f5373627a362d65facdcfbbfe5f"
+      :tag => "v1.4",
+      :revision => "186d471305cad6fe83d8716d6b328f0e8b32b38c"
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
     cellar :any
-    sha256 "b56e2d528201db2b00fc882c79894ac52a203426ecaf5f907d29eb92e6fa2f48" => :sierra
-    sha256 "b140b43c431be3d32ce16a39ebe34e94dc0f09eb726033e6dd32da8735ad9d6e" => :el_capitan
-    sha256 "33724f504e60de3b402c4a2046550eeef4bbd8ccdd5275bba9220781d8f4a3db" => :yosemite
+    sha256 "d5be43193e19576821a9d3972414a670e703eb912b89c1dc1d41a3ffa6a13b37" => :sierra
+    sha256 "4b1313fc86ef4c94fd67b7d170d863f742578713692629596277fe2f45c00779" => :el_capitan
+    sha256 "99e2bf86c8767c16eb89da3ab0f2ec38795c61a803679e3484e55954a84bbac7" => :yosemite
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "glew"
   depends_on "libzip"

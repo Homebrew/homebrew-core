@@ -5,7 +5,7 @@ class MongoOrchestration < Formula
   homepage "https://github.com/10gen/mongo-orchestration"
   url "https://files.pythonhosted.org/packages/96/91/271dce3d51e2b276c352c5061699650b596cb07987f1e0a101513f9aa93e/mongo-orchestration-0.6.9.tar.gz"
   sha256 "a48ba59e0d15800544683f3aa69d3b6936d9b1e297a91b6beb0b6f1dfec5a523"
-  head "https://github.com/10gen/mongo-orchestration"
+  head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
     cellar :any_skip_relocation

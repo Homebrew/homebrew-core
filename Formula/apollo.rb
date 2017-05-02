@@ -7,10 +7,10 @@ class Apollo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dfc1a0470c8680c940c16aafdf2fa062e75ca86f0f6a233ee5db1b4c6641322b" => :sierra
-    sha256 "146dd562ab5633b9c0ad828454ab286c14401c12aa0be8cc43ccf3a9a384f356" => :el_capitan
-    sha256 "b8a694359a6d00622a1c09b760974bad45a6d800426f74c1bd5e727cac8a6f0a" => :yosemite
-    sha256 "bed6c5eee098ede0d6ad87fb12a4076dfa06149ceceb607a7633e00b3b9e2cec" => :mavericks
+    rebuild 1
+    sha256 "1d4d6ac835aa8f72d8fb3084780e215986737c6609dff27a552730f2df9f5fc7" => :sierra
+    sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :el_capitan
+    sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :yosemite
   end
 
   deprecated_option "no-bdb" => "without-bdb"
@@ -18,6 +18,8 @@ class Apollo < Formula
 
   option "without-bdb", "Install without bdb store support"
   option "without-mqtt", "Install without MQTT protocol support"
+
+  depends_on :java => "1.7+"
 
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
   resource "bdb-je" do
@@ -39,7 +41,7 @@ class Apollo < Formula
     (libexec/"lib").install resource("bdb-je") if build.with? "bdb"
     (libexec/"lib").install resource("mqtt") if build.with? "mqtt"
 
-    bin.write_exec_script libexec/"bin/apollo"
+    (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.java_home_env
   end
 
   def caveats; <<-EOS.undent
@@ -71,5 +73,11 @@ class Apollo < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system bin/"apollo", "create", testpath
+    assert_predicate testpath/"bin/apollo-broker", :exist?
+    assert_predicate testpath/"bin/apollo-broker", :executable?
   end
 end

@@ -1,8 +1,8 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
   sha256 "cae466e6e58c7292355e7080248f244db3a4cf755f33f4fa25ca7f9a7ed09af0"
   revision 1
 

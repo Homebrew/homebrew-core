@@ -3,21 +3,21 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical."
   homepage "http://conjure-up.io"
-  url "https://github.com/conjure-up/conjure-up/archive/2.1.tar.gz"
-  sha256 "933f94c21b999fd24b4c304ba27c59bde9c83f478f5ee6a45cb8f265aaac2658"
-
+  url "https://github.com/conjure-up/conjure-up/archive/2.1.5.tar.gz"
+  sha256 "df8278ffca2eab81bf02e6fe422e283baaee52b01e8a7b3bad1ca91ffa691af0"
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
   bottle do
-    sha256 "44333b2f820368ba0b2a444c67168fba999152ba681c55a8535505462575376e" => :sierra
-    sha256 "64ae5c6a33c1e8a4b2c8bd0100d4ad5c91c77b172c885f07e056e5cf5e409b7f" => :el_capitan
-    sha256 "1e406f6345d405a67eca6f9d03a1566a65e5b510892b45d5a9e0aaf750d99b67" => :yosemite
+    cellar :any
+    sha256 "406feece9b1f71e9a5e176146c2c3c2019cf60ef1cf98e103a3529d56a64671e" => :sierra
+    sha256 "013ca91ccb21ce08eadea1c336fc02c4553bf66fde397f06fa98577666064c63" => :el_capitan
+    sha256 "569e1d339c080f4f0c3c33e4c1e2db0c4332129c9c1f9ba33a1ee24fbf9e9f78" => :yosemite
   end
 
   devel do
-    url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta1.tar.gz"
-    version "2.2-beta1"
-    sha256 "1db2696b12e78aafc62d6987a879f8d4c37a5b058208ebe15f42a978b526268e"
+    url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta2.tar.gz"
+    version "2.2-beta2"
+    sha256 "82f41e8a41efdcc49644dc8d2069b787b413ee1845c1ec944494d85f1ff37265"
   end
 
   depends_on :python3
@@ -26,6 +26,21 @@ class ConjureUp < Formula
   depends_on "juju-wait"
   depends_on "jq"
   depends_on "wget"
+
+  resource "ubuntui" do
+    url "https://pypi.python.org/packages/fa/e3/2f3821c455c0207e615280fb6bf2560e952be500e0769b2d24525bbf8ede/ubuntui-0.1.4.tar.gz#"
+    sha256 "d52206d14e0db6072f435bddadc934cbcaabf6d1cb6f758522eaa7fabf210239"
+  end
+
+  resource "macumba" do
+    url "https://pypi.python.org/packages/76/09/07ac27b7a4bd8511ed3c4b0e16b407ba085323779f917da3be9b0b34e9e7/macumba-0.9.3.tar.gz"
+    sha256 "b6b71064f86b6e886b5f23235577b0c1a27df2c3122a65f55a03908cf13a4b06"
+  end
+
+  resource "bundle-placement" do
+    url "https://pypi.python.org/packages/84/d9/4c416af49f210f46034fbcbe3ee195c272643ae5286e963aa31ea86bff99/bundle-placement-0.0.1.tar.gz"
+    sha256 "a73a4d0dff43f815d1055352d21926dbf722329613e8cfa9e630374ca4e03408"
+  end
 
   resource "python-utils" do
     url "https://pypi.python.org/packages/46/e8/60bc82e7bb5d9e326c4691ed73e02a2a0e3ce6bb7adefd8cb2d9d8456b3a/python-utils-2.0.1.tar.gz"
@@ -43,8 +58,8 @@ class ConjureUp < Formula
   end
 
   resource "progressbar2" do
-    url "https://pypi.python.org/packages/3c/3e/c4a8aca4eb5ce2e462d56a9c6bfc54f8502f07708462786b1b6caf91b7a2/progressbar2-3.16.0.tar.gz"
-    sha256 "2472df1f98e458d36294e5e43439825ca1fc64dd8e44bdb4740005bd38f963ba"
+    url "https://pypi.python.org/packages/8a/66/e0c1ace7ca3ee91a3e0c9e4a9ac9cb8e78679265e2a201286063d478e471/progressbar2-3.16.1.tar.gz"
+    sha256 "886142e7753bb5ec02b1af36d3cf936e37ea382b46e988456e0b3f1afd2821f3"
   end
 
   resource "requests" do
@@ -63,8 +78,8 @@ class ConjureUp < Formula
   end
 
   resource "ws4py" do
-    url "https://pypi.python.org/packages/aa/60/5d135c8161a2a67d7c227d57bb599fad967d818dbcdca08daa2d60eb87b9/ws4py-0.3.4.tar.gz"
-    sha256 "85d5c01bb0d031e151a32fad56094caf54e20c2ddb51cf25b5709421ff92d007"
+    url "https://pypi.python.org/packages/b8/98/a90f1d96ffcb15dfc220af524ce23e0a5881258dafa197673357ce1683dd/ws4py-0.4.2.tar.gz"
+    sha256 "7ac69ce3e6ec6917a5d678b65f0a18e244a4dc670db6414bc0271b3f4911237f"
   end
 
   resource "urwid" do

@@ -1,22 +1,40 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.42.0.tar.gz"
-  sha256 "5668a4a83242ac397239d001fbf071955a9e0a17ad255cb17b74345a434f7a93"
   head "https://github.com/facebook/flow.git"
+
+  stable do
+    url "https://github.com/facebook/flow/archive/v0.45.0.tar.gz"
+    sha256 "9a76cb1669d5d1f07a55b3163edb0329c46565033eaf7ed9320058b6e3a9cbbf"
+
+    # Remove for > 0.45.0
+    # Upstream commit from 28 Apr 2017 "Add `make all-homebrew`"
+    patch do
+      url "https://github.com/facebook/flow/commit/8a811a4b443ec545d89aa201d5ebcc254ae220e4.patch"
+      sha256 "f92aca59e2014b91974c02672e0d55b3b278d3a267150cfb534d266befda4ad4"
+    end
+
+    # Remove for > 0.45.0
+    # Upstream commit from 28 Apr 2017 "mktemp's interface changed in OSX 10.11"
+    patch do
+      url "https://github.com/facebook/flow/commit/7cc0f0b3f34e6932e7a713de2a651a1848eef395.patch"
+      sha256 "d7eac833d7ee1dd7ee6ec47dfdc4f68e9b31555d3d39670d675ec81ec8a5127d"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9115bbfe4a87e7cd605b33f70817a45efe4e11d36376dd4b6b06e1cea0a62083" => :sierra
-    sha256 "a27d9d47a83919ed9b86fbba1d3b72c4db1cb930dbaa12299177c2e95969b7f8" => :el_capitan
-    sha256 "6c331d278009dc497d4353ad0fd7054621bf0fab9a76e60c03b91e68aa4852b9" => :yosemite
+    sha256 "d18214fdc02524e872422e38391f67eca3923a5ae8c92ca7b19e053aaa853128" => :sierra
+    sha256 "ed10e631f87e8316d3473719fd15761da02e79993cd04617545226acbdd6a899" => :el_capitan
+    sha256 "9add8e39f9ee1c20e904043a64ca9b2dc62e0b907be3bb8a3055f3321b3b810f" => :yosemite
   end
 
   depends_on "ocaml" => :build
-  depends_on "ocamlbuild" => :build
+  depends_on "opam" => :build
 
   def install
-    system "make"
+    system "make", "all-homebrew"
+
     bin.install "bin/flow"
 
     bash_completion.install "resources/shell/bash-completion" => "flow-completion.bash"

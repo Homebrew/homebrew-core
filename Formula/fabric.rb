@@ -3,17 +3,15 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/1.13.1.tar.gz"
-  sha256 "59ee3b780e0cd3b8c5db7333d2006a5f932e8e79e2f334aec76c6f97b298bac6"
-  revision 2
-
+  url "https://github.com/fabric/fabric/archive/1.13.2.tar.gz"
+  sha256 "5323fac7323c136a45ca67d0f98a421c19f71298a9a31428f2761f9cd3373063"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
     cellar :any
-    sha256 "c8c91ac29a5a9bf9e3d9dc80cfffd350ed57c0dbcff877c535e01f26596a6eb9" => :sierra
-    sha256 "070b0d545fab86c0d5f14042ef99dd4e4930ba25b05ac7a91467eb778af6a2d1" => :el_capitan
-    sha256 "b8683be1be214bdefa003b315ba9d116e80da46477786c89b9e0dc8ac86eb665" => :yosemite
+    sha256 "e69a44a372dd321d1ba07eb26be48f69a4e5f3429ee21898dbadecd6322b67d0" => :sierra
+    sha256 "4ad8c3ffea46e03a465844bfb1e17e9687afc6a467d89f77b73e2460966815e0" => :el_capitan
+    sha256 "d356514aa87f7711aba23f507876040e213cdc25cadf79e0f714a3dd2d74c9ed" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -25,13 +23,13 @@ class Fabric < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
-    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
+    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do

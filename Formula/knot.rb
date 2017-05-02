@@ -1,38 +1,27 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  revision 1
-
-  stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.4.1.tar.xz"
-    sha256 "c064ddf99bf5fc24dd3c6a3a523394760357e204c8b69f0e691e49bc0d9b704c"
-
-    resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
-      sha256 "531ef29ed2a15dfe4993448eb4e8463c5ed8eebf1472a5608c6ac0a6f62b3a12"
-    end
-  end
+  url "https://secure.nic.cz/files/knot-dns/knot-2.4.3.tar.xz"
+  sha256 "f90258bcb29c1f351cd8d824ff8d67aef906ae5d5ff0f652c4f69c69ed8a704f"
+  revision 2
 
   bottle do
-    sha256 "d5d3051cbf98d10d1a8f95ba998fc3b1ddda3f1e4a6e70877ecd10b2d0abfefc" => :sierra
-    sha256 "8334092eefbe05ea9b3fcd534a096de9ee452e0787c76f89c279a0f6a6b2aa24" => :el_capitan
-    sha256 "bde99d16719194630b6f273569b50eb14800387b84fe2d50d24ac8f9706a9ecc" => :yosemite
+    sha256 "ec1adaf0212fbc8796d5dd4a87a3e6a23b9873ba09144ee0a3714a7e8ef506d2" => :sierra
+    sha256 "524b278d19f1de5af1ab0a7271a1babe299ef6b834766f48281b1b7994bb0f69" => :el_capitan
+    sha256 "f6e013d49c36b34981e4a117f6d4d60c49215c32c8cf93d0391523f297f0bdcb" => :yosemite
   end
 
   head do
     url "https://gitlab.labs.nic.cz/labs/knot.git"
 
-    resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm.git"
-    end
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
   end
 
   # due to AT_REMOVEDIR
   depends_on :macos => :yosemite
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gnutls"
@@ -42,19 +31,9 @@ class Knot < Formula
   depends_on "openssl"
   depends_on "userspace-rcu"
   depends_on "protobuf-c"
-  depends_on "libevent"
+  depends_on "fstrm"
 
   def install
-    resource("fstrm").stage do
-      system "autoreconf", "-fvi"
-      system "./configure", "--prefix=#{libexec}/fstrm"
-      system "make", "install"
-    end
-
-    ENV.append "CFLAGS", "-I#{libexec}/fstrm/include"
-    ENV.append "LDFLAGS", "-L#{libexec}/fstrm/lib"
-    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/fstrm/lib/pkgconfig"
-
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

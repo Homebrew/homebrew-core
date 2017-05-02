@@ -1,15 +1,15 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://github.com/bup/bup"
-  url "https://github.com/bup/bup/archive/0.29.tar.gz"
-  sha256 "7cdfd8a7f081059f0c125a4363a6d1f59c8e95c7f57aa660ca31516af946186c"
+  url "https://github.com/bup/bup/archive/0.29.1.tar.gz"
+  sha256 "d24b53c842d1edc907870aa69facbd45f68d778cc013b1c311b655d10d017250"
   head "https://github.com/bup/bup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d81816f644534d1084940426f8ba67051a348745b8d378fff82dc994ea0ada53" => :sierra
-    sha256 "b1ca2ccebf8a07a69d5ec1c44b469437c2fd833d1715f62744835f50f2bf68a6" => :el_capitan
-    sha256 "eeac85ec30e1186df3c19d52563ea2f2baa9b73c6e92f64f983624faa497847a" => :yosemite
+    sha256 "ffe848617a641266d6915ce1c0fa6713dd02d978f47da33ffb9b91b15adbbe05" => :sierra
+    sha256 "d17a4b3cfa4233179a4828b23fdae5bf19a8bb605080c697b52d548354e797cb" => :el_capitan
+    sha256 "462b39a188a6fd32d9df4812a629b3bf8692f38439125d98e58e306261277903" => :yosemite
   end
 
   option "with-pandoc", "Build and install the manpages"
@@ -23,33 +23,28 @@ class Bup < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "backports_abc" do
-    url "https://pypi.python.org/packages/source/b/backports_abc/backports_abc-0.4.tar.gz"
-    sha256 "8b3e4092ba3d541c7a2f9b7d0d9c0275b21c6a01c53a61c731eba6686939d0a5"
-  end
-
-  resource "backports.ssl-match-hostname" do
-    url "https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/backports.ssl_match_hostname-3.5.0.1.tar.gz"
-    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
+    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
+    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
   end
 
   resource "certifi" do
-    url "https://pypi.python.org/packages/source/c/certifi/certifi-2016.2.28.tar.gz"
-    sha256 "5e8eccf95924658c97b990b50552addb64f55e1e3dfe4880456ac1f287dc79d0"
+    url "https://files.pythonhosted.org/packages/b6/fa/ca682d5ace0700008d246664e50db8d095d23750bb212c0086305450c276/certifi-2017.1.23.tar.gz"
+    sha256 "81877fb7ac126e9215dfb15bfef7115fdc30e798e0013065158eed0707fd99ce"
   end
 
   resource "singledispatch" do
-    url "https://pypi.python.org/packages/source/s/singledispatch/singledispatch-3.4.0.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/d9/e9/513ad8dc17210db12cb14f2d4d190d618fb87dd38814203ea71c87ba5b68/singledispatch-3.4.0.3.tar.gz"
     sha256 "5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "tornado" do
-    url "https://pypi.python.org/packages/source/t/tornado/tornado-4.3.tar.gz"
-    sha256 "c9c2d32593d16eedf2cec1b6a41893626a2649b40b21ca9c4cac4243bde2efbf"
+    url "https://files.pythonhosted.org/packages/5c/0b/2e5cef0d30811532b27ece726fb66a41f63344af8b693c90cec9474d9022/tornado-4.4.3.tar.gz"
+    sha256 "f267acc96d5cf3df0fd8a7bfb5a91c2eb4ec81d5962d1a7386ceb34c655634a8"
   end
 
   def install

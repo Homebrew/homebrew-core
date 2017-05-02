@@ -1,8 +1,8 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftpmirror.gnu.org/global/global-6.5.6.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/global/global-6.5.6.tar.gz"
+  url "https://ftp.gnu.org/gnu/global/global-6.5.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.5.6.tar.gz"
   sha256 "122f9afa69a8daa0f64c12db7f02981fe573f51a163fa3829ed4f832cd281505"
 
   bottle do

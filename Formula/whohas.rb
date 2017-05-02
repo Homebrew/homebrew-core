@@ -9,6 +9,6 @@ class Whohas < Formula
   def install
     bin.install "program/whohas"
     man1.install "usr/share/man/man1/whohas.1"
-    (share+"whohas").install "intro.txt"
+    pkgshare.install "intro.txt"
   end
 end

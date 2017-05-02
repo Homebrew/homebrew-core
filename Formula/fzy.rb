@@ -1,15 +1,15 @@
 class Fzy < Formula
   desc "Fast, simple fuzzy text selector with an advanced scoring algorithm."
   homepage "https://github.com/jhawthorn/fzy"
-  url "https://github.com/jhawthorn/fzy/archive/0.8.tar.gz"
-  sha256 "44293ef6a33ef5c9400b9546c580170a2df0ac4342b8fe447cee2af35e241b89"
+  url "https://github.com/jhawthorn/fzy/archive/0.9.tar.gz"
+  sha256 "72182686806ddce7807d85c27efc321a1b01087643ce8006b1225e3617eecff5"
   head "https://github.com/jhawthorn/fzy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d03e1e8bcbc53e1b4f2dd8faa0352673bdf2e274db66d68d232bc8f031ef85c4" => :sierra
-    sha256 "bbd94cfef33c2c30abe08fbeb6fc497d3c5a5ecbbc31b9f8b99a718b7ca4a735" => :el_capitan
-    sha256 "5f48d3fb088a8d44a3e11cd2b35fb04745c24841c78b72d444fd74ccc4f45229" => :yosemite
+    sha256 "c1831deb1a5de5c25a48d304dcecd34b87bd9dee67980ea7cbc343289d82a77f" => :sierra
+    sha256 "88b4a4dd16289fc68a4205911e2a7a1d82ca25aafe1beef9a249c02787c28a98" => :el_capitan
+    sha256 "a72164d23f90277c08c19617c57ddacf7c30dfc9751cc9428d2b1ffd8bd513df" => :yosemite
   end
 
   def install

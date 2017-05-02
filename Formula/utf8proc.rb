@@ -1,6 +1,6 @@
 class Utf8proc < Formula
   desc "Clean C library for processing UTF-8 Unicode data"
-  homepage "http://julialang.org/utf8proc/"
+  homepage "https://julialang.org/utf8proc/"
   url "https://github.com/JuliaLang/utf8proc/archive/v2.1.tar.gz"
   sha256 "241c409d8f6c0e4f332e41f3f1bd39552e36dcc00084fbacd03682b2969a301e"
 
