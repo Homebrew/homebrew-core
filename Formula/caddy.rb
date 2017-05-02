@@ -175,6 +175,40 @@ class Caddy < Formula
            "-o", bin/"caddy", "github.com/mholt/caddy/caddy"
   end
 
+
+  def post_install
+    (etc/"caddy/").mkpath
+    (var/"caddy").mkpath
+    (etc/"caddy/Caddyfile").mkfile
+  end
+
+  plist_options :manual => "caddy"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <false/>
+        <key>ProgramArguments</key>
+        <array>
+            <string>#{opt_bin}/caddy</string>
+            <string>-port 2015</string>
+            <string>-root var/caddy</string>
+            <string>-conf etc/caddy/Caddyfile</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     begin
       io = IO.popen("#{bin}/caddy")
