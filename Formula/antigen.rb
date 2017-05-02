@@ -8,17 +8,17 @@ class Antigen < Formula
   bottle :unneeded
 
   def install
-    pkgshare.install "bin/antigen.zsh"
+    zsh_function.install "bin/antigen.zsh" => "antigen"
   end
 
   def caveats; <<-EOS.undent
     To activate antigen, add the following to your ~/.zshrc:
-      source #{HOMEBREW_PREFIX}/share/antigen/antigen.zsh
+      autoload -Uz antigen && antigen
     EOS
   end
 
   test do
-    (testpath/".zshrc").write "source #{HOMEBREW_PREFIX}/share/antigen/antigen.zsh\n"
+    (testpath/".zshrc").write "autoload -Uz antigen && antigen\n"
     system "zsh", "--login", "-i", "-c", "antigen help"
   end
 end
