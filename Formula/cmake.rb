@@ -1,8 +1,8 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.8/cmake-3.8.0.tar.gz"
-  sha256 "cab99162e648257343a20f61bcd0b287f5e88e36fcb2f1d77959da60b7f35969"
+  url "https://cmake.org/files/v3.8/cmake-3.8.1.tar.gz"
+  sha256 "ce5d9161396e06501b00e52933783150a87c33080d4bdcef461b5b7fd24ac228"
   head "https://cmake.org/cmake.git"
 
   bottle do
