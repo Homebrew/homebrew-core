@@ -46,7 +46,7 @@ class Makensis < Formula
     end
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
-    scons "STRIP=0", "ZLIB_W32=#{@zlib_path}", "makensis"
+    scons "STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu", "makensis"
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
   end
