@@ -19,7 +19,7 @@ class Mozjpeg < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg."
+  keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"
 
   depends_on "pkg-config" => :build
   depends_on "nasm" => :build
