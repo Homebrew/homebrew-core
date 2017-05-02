@@ -4,6 +4,7 @@ class Libmpc < Formula
   url "https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz"
   mirror "http://multiprecision.org/mpc/download/mpc-1.0.3.tar.gz"
   sha256 "617decc6ea09889fb08ede330917a00b16809b8db88c29c31bfbb49cbf88ecc3"
+  revision 1
 
   bottle do
     cellar :any
