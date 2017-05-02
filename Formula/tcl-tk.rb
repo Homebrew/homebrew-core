@@ -14,7 +14,7 @@ class TclTk < Formula
   end
 
   keg_only :provided_by_osx,
-    "Tk installs some X11 headers and OS X provides an (older) Tcl/Tk."
+    "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
   deprecated_option "enable-threads" => "with-threads"
 
