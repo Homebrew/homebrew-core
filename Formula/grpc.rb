@@ -15,6 +15,7 @@ class Grpc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "protobuf"
 
   def install
     system "make", "install", "prefix=#{prefix}"
