@@ -13,7 +13,7 @@ class LibunwindHeaders < Formula
   end
 
   keg_only :provided_by_osx,
-    "This package includes official development headers not installed by Apple."
+    "this formula includes official development headers not installed by Apple"
 
   def install
     inreplace "include/libunwind.h", "__MAC_10_6", "__MAC_NA" if MacOS.version < :snow_leopard
