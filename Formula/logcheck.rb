@@ -1,9 +1,9 @@
 class Logcheck < Formula
   desc "Mail anomalies in the system logfiles to the administrator"
   homepage "https://logcheck.alioth.debian.org/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/logcheck/logcheck_1.3.17.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.17.tar.xz"
-  sha256 "c2d3fc323e8c6555e91d956385dbfd0f67b55872ed0f6a7ad8ad2526a9faf03a"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/logcheck/logcheck_1.3.18.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.18.tar.xz"
+  sha256 "077b9149ccd2b747b52785afa89da844f3d072c017c9e719925dec6acb9a9af4"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +16,6 @@ class Logcheck < Formula
 
   def install
     inreplace "Makefile", "$(DESTDIR)/$(CONFDIR)", "$(CONFDIR)"
-    # email sent to logcheck mailing list asking whether this patch can land upstream:
-    # https://lists.alioth.debian.org/pipermail/logcheck-users/2015-December/000328.html
-    inreplace "src/logcheck-test", "mktemp --tmpdir logcheck-test", "mktemp /tmp/logcheck-test"
-
     system "make", "install", "--always-make", "DESTDIR=#{prefix}",
                    "SBINDIR=sbin", "BINDIR=bin", "CONFDIR=#{etc}/logcheck"
   end
