@@ -5,9 +5,10 @@ class PerconaServer < Formula
   sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
 
   bottle do
-    sha256 "99a4df804615f630ad9d8fd69b586d4eaa50e8f3047461e41215f9f96b29ae99" => :sierra
-    sha256 "541871922271a522c9cb2c16059e24df4cc9319275377a458aa881cd13bfa2d9" => :el_capitan
-    sha256 "9ab803502ca6cd911a3c075442f1162ee05eb2aa963d2a5bd55581f1ca68d6b5" => :yosemite
+    rebuild 1
+    sha256 "a77bda4943bfd6ab295d5c042c806bc044a47beef41eaf5bd74d8521180d315f" => :sierra
+    sha256 "9fab0738a55814f62622e14eb1e6b9df92d9c56e9d14a80e3c9fa1a12fc2b397" => :el_capitan
+    sha256 "cb78808b0d7db49a98c1aba69c9a4ef974b8a5a16ff5c9076f8b18dcdc338aab" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
