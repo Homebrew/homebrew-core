@@ -6,9 +6,9 @@ class Capnp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c017adc3ee4e0f1af501a3228d1069995750561ac0459c3430aa90c178a77fc" => :sierra
-    sha256 "821b56780106b139788ecdcad979dd8f5af734e6aae776ffc6476943ab6ab542" => :el_capitan
-    sha256 "35edb1dacc06cf7c784b37b8625f0cea35a190ecb6fe6e5d913b40eb34c3fa5f" => :yosemite
+    sha256 "fe035ee20666f60bea72a033625e30981da7cf49bca28e3ded78daeb9a0cc9f3" => :sierra
+    sha256 "5ef99277556769e117350e4c4c625c4498aab44aec043c24a3e8596ee98a311a" => :el_capitan
+    sha256 "7068ca3b3c0db13d8669d1c6e70c5a4a5f31872b70741c8cd54485b5f66052db" => :yosemite
   end
 
   needs :cxx11
