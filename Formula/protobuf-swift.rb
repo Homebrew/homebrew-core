@@ -1,8 +1,8 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Apple Swift."
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.14.tar.gz"
-  sha256 "6ba6746f7036fb0274df5705406e6bdb8d8e2c7fc5a30bc2348dcae1d7cca39d"
+  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.15.tar.gz"
+  sha256 "2131366f4b81d68660dfbccf3ad06188ea62a7928fbca922a6969adbb0696606"
 
   bottle do
     cellar :any
