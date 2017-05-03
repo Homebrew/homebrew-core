@@ -1,8 +1,8 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.8.2/node-v4.8.2.tar.xz"
-  sha256 "b961350b8490c791bdd3663925662ba0fbe01e004b43f1c2779baffcc816b930"
+  url "https://nodejs.org/dist/v4.8.3/node-v4.8.3.tar.xz"
+  sha256 "d84e7544c2e31a2d0825b4f8b093d169bf8bdb1881ee8cf75ff937918e59e9cb"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -30,6 +30,7 @@ class NodeAT4 < Formula
 
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
     version "58.2"
     sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
@@ -66,11 +67,11 @@ class NodeAT4 < Formula
         system "make", "install"
         # `package.json` has relative paths to the npm_install directory.
         # This copies back over the vanilla `package.json` that is expected.
-        # https://github.com/Homebrew/homebrew/issues/46131#issuecomment-157845008
+        # https://github.com/Homebrew/legacy-homebrew/issues/46131#issuecomment-157845008
         cp buildpath/"npm_install/package.json", libexec/"npm/lib/node_modules/npm"
         # Remove manpage symlinks from the buildpath, they are breaking bottle
         # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
-        # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
+        # https://github.com/Homebrew/legacy-homebrew/pull/47081#issuecomment-165280470
         rm_rf libexec/"npm/share/"
       end
 
@@ -101,7 +102,7 @@ class NodeAT4 < Formula
     # Let's do the manpage dance. It's just a jump to the left.
     # And then a step to the right, with your hand on rm_f.
     ["man1", "man3", "man5", "man7"].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
+      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
       rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
       ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
