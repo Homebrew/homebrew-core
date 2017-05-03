@@ -29,6 +29,11 @@ class Gcc < Formula
     sha256 "807d107ada2e8774a5bf1461d3f8dc636d1135bdfde5a64f03ccabc063a11328" => :yosemite
   end
 
+  devel do
+    url "http://mirrors.concertpass.com/gcc/snapshots/7-20170305/gcc-7-20170305.tar.bz2"
+    sha256 "ea44ed9c765acacf3ae03a33ea386e70af98f51e97f4506c5bc7b54ded56d19e"
+  end
+
   # GCC's Go compiler is not currently supported on macOS.
   # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
   option "with-java", "Build the gcj compiler"
