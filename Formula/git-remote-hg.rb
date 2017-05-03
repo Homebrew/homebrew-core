@@ -1,4 +1,6 @@
 class GitRemoteHg < Formula
+  include Language::Python::Virtualenv
+
   desc "Transparent bidirectional bridge between Git and Mercurial"
   homepage "https://github.com/felipec/git-remote-hg"
   url "https://github.com/felipec/git-remote-hg/archive/v0.3.tar.gz"
@@ -16,8 +18,15 @@ class GitRemoteHg < Formula
   depends_on :hg
   depends_on :python if MacOS.version <= :snow_leopard
 
+  resource "hg" do
+    url "https://mercurial-scm.org/release/mercurial-4.1.3.tar.gz"
+    sha256 "103d2ae187d5c94110c0e86ccc3b46f55fcd8e21c78d1c209bac7b59a73e86d8"
+  end
+
   def install
-    inreplace "git-remote-hg", "python2", "python"
+    venv = virtualenv_create(libexec)
+    venv.pip_install resource("hg")
+    inreplace "git-remote-hg", /#!.*/, "#!#{libexec}/bin/python"
     system "make", "install", "prefix=#{prefix}"
   end
 
