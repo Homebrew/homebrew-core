@@ -3,8 +3,8 @@ require "language/go"
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.10.1.tar.gz"
-  sha256 "c2b084c34f9bf67a3ed38a6b97db24b74109cca9f18ec19695a46f26c6f7ad0a"
+  url "https://github.com/mholt/caddy/archive/v0.10.2.tar.gz"
+  sha256 "f7040977df1570274a98f1d58581f8efe63b346822312719913f7c8dbcf59184"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
@@ -68,7 +68,7 @@ class Caddy < Formula
 
   go_resource "github.com/lucas-clemente/quic-go" do
     url "https://github.com/lucas-clemente/quic-go.git",
-        :revision => "2674c9835963711795a608cfeed0bdbeeade1e7a"
+        :revision => "5f25ffc795f3f7c60586123e550c0d01b9f6cfb4"
   end
 
   go_resource "github.com/lucas-clemente/quic-go-certificates" do
@@ -133,12 +133,12 @@ class Caddy < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "c7af5bf2638a1164f2eb5467c39c6cffbd13a02e"
+        :revision => "12e9ca725de4806fbda1610fd95aacad15bd6810"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "da118f7b8e5954f39d0d2130ab35d4bf0e3cb344"
+        :revision => "feeb485667d1fdabe727840fe00adc22431bc86e"
   end
 
   go_resource "golang.org/x/text" do
