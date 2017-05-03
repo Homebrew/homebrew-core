@@ -2,8 +2,8 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.3.1",
-      :revision => "32562a3040bb5ca690339b9840b6f60f8ce25da4"
+      :tag => "v2.4.1",
+      :revision => "46d9ea82e2c925186e1fc620a8320ce1314cbb02"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
@@ -33,6 +33,7 @@ class KubernetesHelm < Formula
       # Make binary
       system "make", "build"
       bin.install "bin/helm"
+      bin.install "bin/tiller"
 
       # Install man pages
       man1.install Dir["docs/man/man1/*"]
