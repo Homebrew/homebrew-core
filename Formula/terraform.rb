@@ -3,9 +3,23 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.3.tar.gz"
-  sha256 "de57ba63f0314ba4e21818f048551a22afe61662bd72b3c81b01a47284fcaf3d"
   head "https://github.com/hashicorp/terraform.git"
+
+  stable do
+    url "https://github.com/hashicorp/terraform/archive/v0.9.4.tar.gz"
+    sha256 "aeb7ae29a8da6035d995ffb00f767911746165f4cb7432657d361f399370f377"
+
+    # fix vet errors (please remove after next version release)
+    # upstream issue: https://github.com/hashicorp/terraform/pull/14001
+    patch do
+      url "https://github.com/hashicorp/terraform/commit/fc942c620213858cfae5885431c897204d3a14f3.patch"
+      sha256 "3d8ce68c2a803ff99b2a601e8da6c175d275a36f53b7360e3ca73ec71aee47b1"
+    end
+    patch do
+      url "https://github.com/hashicorp/terraform/commit/0ffb5aa1d6dbcf298a046a2c2c9b322ad69f024e.patch"
+      sha256 "7390c9eb616900c50dcba78ae9983af333a18915cc4e055f5b009e758e89f23c"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -40,7 +54,7 @@ class Terraform < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "d63e2b22b05a9682de336cd4802bba367ed429e7"
+        :revision => "5682db0e919ed9cfc6f52ac32e170511a106eb3b"
   end
 
   def install
