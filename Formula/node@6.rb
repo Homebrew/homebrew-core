@@ -1,8 +1,8 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.10.2/node-v6.10.2.tar.xz"
-  sha256 "80aa11333da99813973a99646e2113c6be5b63f665c0731ed14ecb94cbe846b6"
+  url "https://nodejs.org/dist/v6.10.3/node-v6.10.3.tar.xz"
+  sha256 "82262a703e61164e09170a14d88b1726720651b0c7ee87a277654247b21b5388"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
@@ -74,11 +74,11 @@ class NodeAT6 < Formula
         system "make", "install"
         # `package.json` has relative paths to the npm_install directory.
         # This copies back over the vanilla `package.json` that is expected.
-        # https://github.com/Homebrew/homebrew/issues/46131#issuecomment-157845008
+        # https://github.com/Homebrew/legacy-homebrew/issues/46131#issuecomment-157845008
         cp buildpath/"npm_install/package.json", libexec/"npm/lib/node_modules/npm"
         # Remove manpage symlinks from the buildpath, they are breaking bottle
         # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
-        # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
+        # https://github.com/Homebrew/legacy-homebrew/pull/47081#issuecomment-165280470
         rm_rf libexec/"npm/share/"
       end
 
@@ -109,7 +109,7 @@ class NodeAT6 < Formula
     # Let's do the manpage dance. It's just a jump to the left.
     # And then a step to the right, with your hand on rm_f.
     ["man1", "man3", "man5", "man7"].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
+      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
       rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
       ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
