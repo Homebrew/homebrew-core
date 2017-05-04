@@ -17,6 +17,11 @@ class Fpc < Formula
   end
 
   def install
+    # The bootstrap binary does not recognize anything above 10.9
+    # http://bugs.freepascal.org/view.php?id=30711
+    # https://github.com/Homebrew/homebrew-core/issues/5732
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.9"
+
     fpc_bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage { fpc_bootstrap.install Dir["*"] }
 
