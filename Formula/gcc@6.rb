@@ -5,6 +5,12 @@ class GccAT6 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
   sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
 
+  bottle do
+    sha256 "1e735a72ac85834927fcac843f30c5166f88dfa910c052caac826843ccec4927" => :sierra
+    sha256 "9df78ad5b4c442ec37870fa0aaecbc57cd15a2b826d50be059c3aca5df91a6a7" => :el_capitan
+    sha256 "947e8edb596ebfea654991123c8d943a1ac2cf9d05192e6a7a9d8f594d162477" => :yosemite
+  end
+
   # GCC's Go compiler is not currently supported on macOS.
   # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
   option "with-java", "Build the gcj compiler"
