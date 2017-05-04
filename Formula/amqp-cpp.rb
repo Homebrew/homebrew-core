@@ -1,8 +1,8 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.7.0.tar.gz"
-  sha256 "4668a5dab5bc0b1dda2bb1253e7c3214f6fce9f3edcf8728fad01bb6c8a29b97"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.7.2.tar.gz"
+  sha256 "7842cbc5db7379fd60dddfe72e43d013f84a10770808b7206f0181aa7e96239d"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
@@ -18,10 +18,6 @@ class AmqpCpp < Formula
 
   def install
     ENV.cxx11
-
-    # Workarounds for https://github.com/CopernicaMarketingSoftware/AMQP-CPP/issues/123
-    cp Dir["include/{endian,exception,frame,protocolexception}.h"], "src/"
-    inreplace "src/CMakeLists.txt", /^messageimpl.h$\n/, ""
 
     system "cmake", "-DBUILD_SHARED=ON", "-DCMAKE_MACOSX_RPATH=1", *std_cmake_args
     system "make"
