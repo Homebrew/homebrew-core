@@ -3,6 +3,7 @@ class Opencoarrays < Formula
   homepage "http://opencoarrays.org"
   url "https://github.com/sourceryinstitute/opencoarrays/releases/download/1.8.8/OpenCoarrays-1.8.8.tar.gz"
   sha256 "d31336119f5874af30305fec0be8e67838d5b3baa856338f3ef58e5742ef9949"
+  revision 1
 
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
@@ -13,7 +14,11 @@ class Opencoarrays < Formula
     sha256 "fa3e7e32db42b67198043aa0c22dcd6f814b234897d2cfd8c9195fe4fd1e017b" => :yosemite
   end
 
-  option "without-test", "Skip build time tests (not recommended)"
+  # As long as there are known failures with Homebrew's default compiler,
+  # we turn the tests off by default
+  # https://github.com/sourceryinstitute/OpenCoarrays/issues/374
+  # option "without-test", "Skip build time tests (not recommended)"
+  option "with-test", "Perform build time tests"
 
   depends_on "gcc"
   depends_on :fortran
