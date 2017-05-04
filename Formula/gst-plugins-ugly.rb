@@ -1,8 +1,8 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.10.4.tar.xz"
-  sha256 "6386c77ca8459cba431ed0b63da780c7062c7cc48055d222024d8eaf198ffa59"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.12.0.tar.xz"
+  sha256 "5e68ba5046e83ee87b17d7a13931e6091466fd771e1338c5b929ee0944d40ad6"
 
   bottle do
     sha256 "e8e895fd9d536d42f7cc5a1184b6aa305eda478254800e2e8f74e0a00a50a251" => :sierra
