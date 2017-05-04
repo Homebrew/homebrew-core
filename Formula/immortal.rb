@@ -53,10 +53,9 @@ class Immortal < Formula
     Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/immortal/immortal" do
       ldflags = "-s -w -X main.version=#{version}"
-      system "go", "build", "-ldflags", ldflags, "-o", "immortal", "cmd/immortal/main.go"
-      system "go", "build", "-ldflags", ldflags, "-o", "immortalctl", "cmd/immortalctl/main.go"
-      system "go", "build", "-ldflags", ldflags, "-o", "immortaldir", "cmd/immortaldir/main.go"
-      bin.install %w[immortal immortalctl immortaldir]
+      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortal", "cmd/immortal/main.go"
+      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortalctl", "cmd/immortalctl/main.go"
+      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortaldir", "cmd/immortaldir/main.go"
       man8.install Dir["man/*.8"]
     end
   end
