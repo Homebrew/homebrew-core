@@ -1,9 +1,8 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.18.4.tar.xz"
-  sha256 "39ebc07e37437d6ecdeb0f645783484e28a882b38f7e619ad12c2bf9b5548025"
-  revision 3
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.20.2.tar.xz"
+  sha256 "a540cb96f0a2a8f2e3001108d8432d2f21b45f6b12bd511eeebaadd5c934947e"
 
   bottle do
     sha256 "8c4a04483ac9929ea6927b6ac266460d58e91ba59ebd079f4860a957cdac688c" => :sierra
@@ -44,7 +43,6 @@ class Efl < Formula
     ENV.cxx11
 
     args = %W[
-      --disable-cxx-bindings
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
@@ -56,7 +54,6 @@ class Efl < Formula
 
   test do
     system bin/"edje_cc", "-V"
-    system bin/"eolian_gen", "-h"
     system bin/"eet", "-V"
   end
 end
