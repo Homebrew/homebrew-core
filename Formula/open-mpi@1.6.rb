@@ -6,9 +6,9 @@ class OpenMpiAT16 < Formula
   revision 1
 
   bottle do
-    sha256 "ae8d527e2b9802f27001c5b1a4a64e215208b9fc6af7b6a118f9fb7b042d0f05" => :sierra
-    sha256 "77ebcca1ed3f06a7a8d3db0b9b4dc45e79eed9c3e3dd02712d39a3e1f057ad27" => :el_capitan
-    sha256 "592617bbe7ed6037d66c7548008b1eff9b29293541515ec32a8b01af334ac150" => :yosemite
+    sha256 "1544bc7afa0770d1b16d68834bebc6a6df3ec5786cddc208c2ab98bf3830302b" => :sierra
+    sha256 "f2e4d5ebbec3cf80800d23b1280347eda1af9199f11ff3e911561ae68da6b590" => :el_capitan
+    sha256 "14b7c80bb0b0db1bb77ccb36f4ee149ab1007b014706752efe19819d59f18772" => :yosemite
   end
 
   keg_only :versioned_formula
