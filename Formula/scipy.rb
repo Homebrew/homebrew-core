@@ -7,9 +7,9 @@ class Scipy < Formula
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 "24852ec494ce62531ab60744ffb2d7a4acf55a16a311bcaeb931a717640584d8" => :sierra
-    sha256 "fe83a68967644820a02109eb85cd2b1d0dc8be48ec8a7407c35863a8dc86c2e3" => :el_capitan
-    sha256 "681f5b88966188641b911fe7adc82297664a9df074640b080920566a0bed152c" => :yosemite
+    sha256 "26fe901e224b85e72eadd59496f466a6ae671690ae1dca722cb26e55b2152c36" => :sierra
+    sha256 "b344e7c765b05c3427c36b4bdf49d59a616f9734110549b8e41621d8ca63ef51" => :el_capitan
+    sha256 "e19062e7c343583e46f493a23c44650dac1fb97fd0028b9f95f6f510887cde49" => :yosemite
   end
 
   option "without-python", "Build without python2 support"
