@@ -1,8 +1,8 @@
 class Ne < Formula
   desc "The nice editor"
   homepage "http://ne.di.unimi.it"
-  url "http://ne.di.unimi.it/ne-3.0.1.tar.gz"
-  sha256 "92b646dd2ba64052e62deaa4239373821050a03e1b7d09d203ce04f2adfbd0e4"
+  url "http://ne.di.unimi.it/ne-3.1.0.tar.gz"
+  sha256 "bf2a664e788e4f39073d0000a4ba80f02c43c556cb7fd714704f13175a4b8b51"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,9 @@ class Ne < Formula
   end
 
   def install
-    system "make"
+    cd "src" do
+      system "make"
+    end
     system "make", "PREFIX=#{prefix}", "install"
   end
 
