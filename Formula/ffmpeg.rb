@@ -179,15 +179,6 @@ class Ffmpeg < Formula
 
     system "./configure", *args
 
-    if MacOS.prefer_64_bit?
-      inreplace "config.mak" do |s|
-        shflags = s.get_make_var "SHFLAGS"
-        if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-          s.change_make_var! "SHFLAGS", shflags
-        end
-      end
-    end
-
     system "make", "install"
 
     if build.with? "tools"
