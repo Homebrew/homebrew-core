@@ -26,7 +26,7 @@ class GstValidate < Formula
   depends_on "json-glib"
 
   def install
-    inreplace "tools/gst-validate-launcher.in", "env python2", "env python"
+    inreplace "tools/gst-validate-launcher.in", "env python3", "env python"
 
     args = %W[
       --prefix=#{prefix}
