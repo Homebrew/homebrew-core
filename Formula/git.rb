@@ -13,19 +13,23 @@ class Git < Formula
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
   option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
-  option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
-  option "with-brewed-curl", "Use Homebrew's version of cURL library"
-  option "with-brewed-svn", "Use Homebrew's version of SVN"
+  option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
+  option "with-curl", "Use Homebrew's version of cURL library"
+  option "with-subversion", "Use Homebrew's version of SVN"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
+
+  deprecated_option "with-brewed-openssl" => "with-openssl"
+  deprecated_option "with-brewed-curl" => "with-curl"
+  deprecated_option "with-brewed-svn" => "with-subversion"
 
   depends_on "pcre" => :optional
   depends_on "gettext" => :optional
-  depends_on "openssl" if build.with? "brewed-openssl"
-  depends_on "curl" if build.with? "brewed-curl"
+  depends_on "openssl" => :optional
+  depends_on "curl" => :optional
   depends_on "go" => :build if build.with? "persistent-https"
   # Trigger an install of swig before subversion, as the "swig" doesn't get pulled in otherwise
   # See https://github.com/Homebrew/homebrew/issues/34554
-  if build.with? "brewed-svn"
+  if build.with? "subversion"
     depends_on "swig"
     depends_on "subversion" => "with-perl"
   end
@@ -51,7 +55,7 @@ class Git < Formula
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 
-    if build.with? "brewed-svn"
+    if build.with? "subversion"
       ENV["PERLLIB_EXTRA"] = %W[
         #{Formula["subversion"].opt_lib}/perl5/site_perl
         #{Formula["subversion"].opt_prefix}/Library/Perl/#{perl_version}/darwin-thread-multi-2level
@@ -87,7 +91,7 @@ class Git < Formula
       LDFLAGS=#{ENV.ldflags}
     ]
 
-    if build.with? "brewed-openssl"
+    if build.with? "openssl"
       openssl_prefix = Formula["openssl"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
@@ -150,8 +154,8 @@ class Git < Formula
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
     # To avoid this feature hooking into the system OpenSSL, remove it.
-    # If you need it, install git --with-brewed-openssl.
-    rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
+    # If you need it, install git --with-openssl.
+    rm "#{libexec}/git-core/git-imap-send" if build.without? "openssl"
 
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
