@@ -2,7 +2,7 @@ class Neatvi < Formula
   desc "ex/vi clone for editing bidirectional uft-8 text"
   homepage "http://repo.or.cz/w/neatvi.git"
   url "git://repo.or.cz/neatvi.git",
-    :tag => "04", :revision => "3bf27b04ec791df5a624dc4487422f382b96327c"
+    :tag => "05", :revision => "ed2e096607df03ce155e4c6ab786f8b697799988"
 
   head "git://repo.or.cz/neatvi.git"
 
