@@ -13,7 +13,7 @@ class Libvorbis < Formula
   end
 
   head do
-    url "https://svn.xiph.org/trunk/vorbis"
+    url "https://git.xiph.org/vorbis.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
