@@ -13,6 +13,8 @@ class KubernetesHelm < Formula
     sha256 "5be9c707046fc54d8aa291708d169b8633128360fd7c3e35cc5ae614cc8ebe76" => :yosemite
   end
 
+  option "with-tiller", "Include the Tiller server-side binary"
+
   depends_on :hg => :build
   depends_on "go" => :build
   depends_on "glide" => :build
@@ -33,6 +35,7 @@ class KubernetesHelm < Formula
       # Make binary
       system "make", "build"
       bin.install "bin/helm"
+      bin.install "bin/tiller" if build.with? "tiller"
 
       # Install man pages
       man1.install Dir["docs/man/man1/*"]
