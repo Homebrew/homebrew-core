@@ -18,12 +18,9 @@ class Libdc1394 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "03c936f6b09101d9df8c5781ea638f68b022883740b352f656c07046b6f2e085" => :sierra
-    sha256 "aca2dc5c08f1e56d834f814d63edf32e0af86f0fa27e6fdd2df2f247179cf96f" => :el_capitan
-    sha256 "7ae3e7c4217d0c76b2caa3c961480d646ed0a50fabde1567cb6f10c1b2f08e18" => :yosemite
-    sha256 "c5036e695691464ce2f5b6b957b08f77b8ec436475c9eb8948305f26da81af48" => :mavericks
-    sha256 "989b8f20b2ad01c6c3d607fe974c3cf5ad005b51afa8455ec712325c8d4d5b22" => :mountain_lion
+    sha256 "22a0a8780a225508d5522f147997622d61a286d9edc39ec751208aa3e603a4fc" => :sierra
+    sha256 "8a8a439402bab51e569063363df076ab1220780bc0db4bc45931fb1401a2acb4" => :el_capitan
+    sha256 "204ba8144423650855fc083cc2726d3a914eb52d210a6136c9cfcc698a81c816" => :yosemite
   end
 
   head do
