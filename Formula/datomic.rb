@@ -23,7 +23,7 @@ class Datomic < Formula
     data = var/"lib/datomic"
     (etc/"datomic").mkpath
     (etc/"datomic").install libexec/"config/samples/free-transactor-template.properties" => "free-transactor.properties"
- 
+
     inreplace "#{etc}/datomic/free-transactor.properties" do |s|
       s.gsub! "# data-dir=data", "data-dir=#{data}/"
       s.gsub! "# log-dir=log", "log-dir=#{data}/log"
