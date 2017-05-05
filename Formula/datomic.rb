@@ -17,19 +17,22 @@ class Datomic < Formula
     end
 
     # create directory for datomic data and logs
-    (var+"lib/datomic").mkpath
+    (var/"lib/datomic").mkpath
 
     # install free-transactor properties
     data = var/"lib/datomic"
-    (etc+"datomic").mkpath
-    cp libexec/"config/samples/free-transactor-template.properties", etc/"datomic/free-transactor.properties"
-    inreplace "#{etc}/datomic/free-transactor.properties",
-      "# data-dir=data", "data-dir=#{data}/"
-    inreplace "#{etc}/datomic/free-transactor.properties",
-      "# log-dir=log", "log-dir=#{data}/log"
+    (etc/"datomic").mkpath
+    (etc/"datomic").install libexec/"config/samples/free-transactor-template.properties" => "free-transactor.properties"
+ 
+    inreplace "#{etc}/datomic/free-transactor.properties" do |s|
+      s.gsub! "# data-dir=data", "data-dir=#{data}/"
+      s.gsub! "# log-dir=log", "log-dir=#{data}/log"
+    end
+  end
 
+  def post_install
     # create directory for datomic stdout+stderr output logs
-    (var+"log/datomic").mkpath
+    (var/"log/datomic").mkpath
   end
 
   def caveats
