@@ -3,6 +3,7 @@ class Sjk < Formula
   homepage "https://github.com/aragozin/jvm-tools"
   url "https://github.com/aragozin/jvm-tools/archive/jvmtool-umbrella-pom-0.5.1.tar.gz"
   sha256 "d6e34a7e9ce8a094bcf8b5ceab092c04a7307a9a4e7eca0005b7d4f70dd98942"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
