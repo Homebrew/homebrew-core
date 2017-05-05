@@ -1,14 +1,15 @@
 class Yadm < Formula
   desc "Yet Another Dotfiles Manager"
   homepage "https://thelocehiliosan.github.io/yadm/"
-  url "https://github.com/TheLocehiliosan/yadm/archive/1.08.tar.gz"
-  sha256 "2fecf62b739ac8d6c48aa52b972f5926345457743589bc5cbe1f26b5c690f60f"
+  url "https://github.com/TheLocehiliosan/yadm/archive/1.09.tar.gz"
+  sha256 "c84f4cf7acb1542ce2e560c4a1cedbfc08ab5412d4307c8e77a92683af0d98fe"
 
   bottle :unneeded
 
   def install
     bin.install "yadm"
     man1.install "yadm.1"
+    bash_completion.install "completion/yadm.bash_completion"
   end
 
   test do
