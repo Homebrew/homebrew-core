@@ -10,6 +10,8 @@ class Ldc < Formula
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
       sha256 "48428afde380415640f3db4e38529345f3c8485b1913717995547f907534c1c3"
     end
+
+    depends_on "libconfig"
   end
 
   bottle do
@@ -41,7 +43,6 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
-  depends_on "libconfig"
 
   def install
     ENV.cxx11
