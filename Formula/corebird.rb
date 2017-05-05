@@ -1,8 +1,8 @@
 class Corebird < Formula
   desc "Native Gtk+ Twitter Client"
   homepage "https://corebird.baedert.org"
-  url "https://github.com/baedert/corebird/releases/download/1.4.2/corebird-1.4.2.tar.xz"
-  sha256 "1c07a65382e78308f7de406be8464789c1ec42d531c519b69510a685234b4074"
+  url "https://github.com/baedert/corebird/releases/download/1.5/corebird-1.5.tar.xz"
+  sha256 "6414668383c08f3a4bbb83da61ec4643ee7dd0470f60bac26f1e65771f03f7e1"
 
   bottle do
     sha256 "a7401a2c8a4b172978e5a4eaa7f895c18ab97292188018f30ad7c6da93fabe94" => :sierra
