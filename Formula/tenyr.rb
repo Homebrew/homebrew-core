@@ -1,9 +1,8 @@
 class Tenyr < Formula
   desc "32-bit computing environment (including simulated CPU)"
   homepage "http://tenyr.info/"
-  url "https://github.com/kulp/tenyr/archive/v0.9.3.tar.gz"
-  sha256 "62405d084d205c148f6cc4121b7fca817c3fbad5c300e3e137f4a3cb731329bc"
-
+  url "https://github.com/kulp/tenyr/archive/v0.9.4.tar.gz"
+  sha256 "15785cf62bbf59bed88cfe1c3f41de63b3fe421695ddd5481ceb9a7a5eea27ff"
   head "https://github.com/kulp/tenyr.git", :branch => "develop"
 
   bottle do
@@ -13,8 +12,6 @@ class Tenyr < Formula
     sha256 "a7f0be7a6661480330e68f655eb67d5e0fe5a1bbd360ad2a2032eba45c595d96" => :yosemite
   end
 
-  # pkg-config is used after v0.9.3 for sdl2, instead of sdl2-config
-  # prepare for post-v0.9.3 versions (including HEAD) by depending on it now
   depends_on "pkg-config" => :build
   depends_on "bison" => :build # tenyr requires bison >= 2.5
   # sdl2_image implies sdl2. If we specify sdl2 separately, we create
