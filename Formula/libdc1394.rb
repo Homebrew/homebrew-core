@@ -1,7 +1,8 @@
 class Libdc1394 < Formula
   desc "Provides API for IEEE 1394 cameras"
   homepage "https://damien.douxchamps.net/ieee1394/libdc1394/"
-  head "https://git.code.sf.net/p/libdc1394/code", :using => :git
+  revision 1
+
   stable do
     url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.2/libdc1394-2.2.2.tar.gz"
     sha256 "ff8744a92ab67a276cfaf23fa504047c20a1ff63262aef69b4f5dbaa56a45059"
@@ -9,7 +10,10 @@ class Libdc1394 < Formula
     # fix issue due to bug in OSX Firewire stack
     # libdc1394 author comments here:
     # https://permalink.gmane.org/gmane.comp.multimedia.libdc1394.devel/517
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8275aa07f/libdc1394/capture.patch"
+      sha256 "6e3675b7fb1711c5d7634a76d723ff25e2f7ae73cd1fbf3c4e49ba8e5dcf6c39"
+    end
   end
 
   bottle do
@@ -22,12 +26,16 @@ class Libdc1394 < Formula
     sha256 "989b8f20b2ad01c6c3d607fe974c3cf5ad005b51afa8455ec712325c8d4d5b22" => :mountain_lion
   end
 
+  head do
+    url "https://git.code.sf.net/p/libdc1394/code.git"
+    depends_on "libusb"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   depends_on "sdl"
-  depends_on "libusb"
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
 
   def install
     Dir.chdir("libdc1394") if build.head?
@@ -39,18 +47,3 @@ class Libdc1394 < Formula
     system "make", "install"
   end
 end
-
-__END__
-diff --git a/dc1394/macosx/capture.c b/dc1394/macosx/capture.c
-index c7c71f2..8959535 100644
---- a/dc1394/macosx/capture.c
-+++ b/dc1394/macosx/capture.c
-@@ -150,7 +150,7 @@ callback (buffer_info * buffer, NuDCLRef dcl)
-
-     for (i = 0; i < buffer->num_dcls; i++) {
-         int packet_size = capture->frames[buffer->i].packet_size;
--        if ((buffer->pkts[i].status & 0x1F) != 0x11) {
-+        if (buffer->pkts[i].status && (buffer->pkts[i].status & 0x1F) != 0x11) {
-             dc1394_log_warning ("packet %d had error status %x",
-                     i, buffer->pkts[i].status);
-             corrupt = 1;
