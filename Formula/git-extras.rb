@@ -4,8 +4,8 @@ class GitExtras < Formula
   head "https://github.com/tj/git-extras.git"
 
   stable do
-    url "https://github.com/tj/git-extras/archive/4.2.0.tar.gz"
-    sha256 "53668af26c58e7866addbd2b14b29f63ee39029bdcee5f48957c4a958bdb225f"
+    url "https://github.com/tj/git-extras/archive/4.3.0.tar.gz"
+    sha256 "25e608ba17b49d38e1f1f9938cceb9a7406f4e2a5e9488898c193e82ac42e3be"
     # Disable "git extras update", which will produce a broken install under Homebrew
     # https://github.com/Homebrew/homebrew/issues/44520
     # https://github.com/tj/git-extras/pull/491
@@ -36,14 +36,14 @@ end
 
 __END__
 diff --git a/bin/git-extras b/bin/git-extras
-index 3856179..e2ac72c 100755
+index e49cd24..4ae28b5 100755
 --- a/bin/git-extras
 +++ b/bin/git-extras
-@@ -4,13 +4,12 @@ VERSION="4.0.0"
+@@ -4,13 +4,12 @@ VERSION="4.3.0"
  INSTALL_SCRIPT="https://raw.githubusercontent.com/tj/git-extras/master/install.sh"
 
  update() {
--  local bin=$(which git-extras)
+-  local bin="$(which git-extras)"
 -  local prefix=${bin%/*/*}
 -  local orig=$PWD
 -
