@@ -13,15 +13,7 @@ class Ranger < Formula
     sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
   end
 
-  # requires 2.6 or newer; Leopard comes with 2.5
-  depends_on :python if MacOS.version <= :leopard
-
   def install
-    if MacOS.version <= :leopard
-      inreplace %w[ranger.py ranger/ext/rifle.py],
-        "#!/usr/bin/python", "#!#{PythonRequirement.new.which_python}"
-    end
-
     man1.install "doc/ranger.1"
     libexec.install "ranger.py", "ranger"
     bin.install_symlink libexec+"ranger.py" => "ranger"
