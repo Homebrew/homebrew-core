@@ -3,8 +3,8 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.9.tar.gz"
-  sha256 "7dba775f7fdf6c8dc28ace8795e8f57c0b7dd6148f14fe4b17c5a4eb46b675ec"
+  url "https://github.com/zquestz/s/archive/v0.5.10.tar.gz"
+  sha256 "8a5ba823d02f495dd1bb150882ddccd2bb082efff4c996b9b43e4cd5599d3df2"
   head "https://github.com/zquestz/s.git"
 
   bottle do
@@ -18,7 +18,7 @@ class SSearch < Formula
 
   go_resource "github.com/FiloSottile/gvt" do
     url "https://github.com/FiloSottile/gvt.git",
-        :revision => "1f87bb350317842680fd7e0fdec64b4e14c79576"
+        :revision => "50d83ea21cb0405e81efd284951e111b3a68d701"
   end
 
   def install
