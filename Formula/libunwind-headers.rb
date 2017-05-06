@@ -16,8 +16,6 @@ class LibunwindHeaders < Formula
     "this formula includes official development headers not installed by Apple"
 
   def install
-    inreplace "include/libunwind.h", "__MAC_10_6", "__MAC_NA" if MacOS.version < :snow_leopard
-
     include.install Dir["include/*"]
     (include/"libunwind").install Dir["src/*.h*"]
     (include/"libunwind/libunwind_priv.h").unlink
