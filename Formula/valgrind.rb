@@ -31,7 +31,6 @@ class Valgrind < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :macos => :snow_leopard
   # https://bugs.kde.org/show_bug.cgi?id=365327#c2
   # https://github.com/Homebrew/homebrew-core/pull/6231#issuecomment-255779374
   depends_on MaximumMacOSRequirement => :el_capitan
