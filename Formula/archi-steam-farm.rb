@@ -1,9 +1,9 @@
 class ArchiSteamFarm < Formula
   desc "ASF is a C# application that allows you to farm steam cards"
   homepage "https://github.com/JustArchi/ArchiSteamFarm"
-  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.3.1.3/ASF.zip"
-  version "2.3.1.3"
-  sha256 "14157584c44b26bcfcc6df0e176747e77171cc0ed50baa5f52f4a3f78610ba96"
+  url "https://github.com/JustArchi/ArchiSteamFarm/releases/download/2.3.1.4/ASF.zip"
+  version "2.3.1.4"
+  sha256 "73941584b97a8b4820a5c4587e033092873f520ff88dbe9b8da085e72b7525bf"
 
   bottle do
     cellar :any_skip_relocation
