@@ -20,7 +20,7 @@ class Darkstat < Formula
 
   def install
     # Fix clockid_t redefinition on Sierra and later
-    if MacOS.version >= :sierra
+    if MacOS.version >= :el_capitan
       inreplace "now.c", "__MACH__", "__TOTO__"
     end
 
