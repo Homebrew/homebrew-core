@@ -17,17 +17,28 @@ class Macvim < Formula
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
+  conflicts_with "vim",
+    :because => "They both override system vim" if build.with? "override-system-vim"
+
   depends_on :xcode => :build
   depends_on "cscope" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on "gettext" => :optional
 
   if MacOS.version >= :mavericks
     option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
   end
 
+  option "with-ruby", "Build with brewed ruby instead of the system version"
+  option "with-perl", "Build with brewed perl instead of the system version"
+
   depends_on :python => :recommended
   depends_on :python3 => :optional
+  depends_on "ruby" => :optional
+  depends_on "perl" => :optional
+  depends_on "homebrew/dupes/ncurses" => :optional
+  depends_on "homebrew/dupes/libiconv" => :optional
 
   def install
     # Avoid "fatal error: 'ruby/config.h' file not found"
@@ -87,10 +98,22 @@ class Macvim < Formula
       args << "--enable-pythoninterp"
     end
 
+    args << "--disable-nls" if build.without? "gettext"
+
     system "./configure", *args
     system "make"
 
-    prefix.install "src/MacVim/build/Release/MacVim.app"
+    apppath = "src/MacVim/build/Release/MacVim.app"
+
+    if build.with? "gettext"
+      system "INSTALL_DATA=install " +
+             "FILEMOD=644 " +
+             "LOCALEDIR=../../#{apppath}/Contents/Resources/vim/runtime/lang " +
+             "make -C src/po install"
+    end
+
+    prefix.install apppath
+
     inreplace "src/MacVim/mvim", %r{^# VIM_APP_DIR=\/Applications$},
                                  "VIM_APP_DIR=#{prefix}"
     bin.install "src/MacVim/mvim"
@@ -112,9 +135,23 @@ class Macvim < Formula
 
   test do
     # Simple test to check if MacVim was linked to Python version in $PATH
-    if build.with? "python"
+    if build.with? "python3"
+      system_framework_path = `python3-config --exec-prefix`.chomp
+      assert_match system_framework_path, `mvim --version`
+    elsif build.with? "python"
       system_framework_path = `python-config --exec-prefix`.chomp
       assert_match system_framework_path, `mvim --version`
+    end
+
+    # Check whether MacVim is built with +gettext
+    if build.with? "gettext"
+      assert_match "+gettext", `#{bin}/mvim --version`
+    end
+
+    # Check if MacVim was linked to Ruby version in $PATH
+    if build.with? "ruby"
+      ruby_ver = `ruby -e 'print(RUBY_VERSION)'`.chomp
+      assert_match "-lruby." + ruby_ver, `#{bin}/mvim --version`
     end
   end
 end
