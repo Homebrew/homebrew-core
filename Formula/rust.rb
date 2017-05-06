@@ -16,6 +16,12 @@ class Rust < Formula
       url "https://github.com/phildawes/racer/archive/2.0.6.tar.gz"
       sha256 "a9704478f72037e76d4d3702fe39b3c50597bde35dac1a11bf8034de87bbdc70"
     end
+
+    # Currently rust stable won't build on Sierra according to our
+    # knowledge. Before we update to a version that works or otherwise patch
+    # the current version, let's disable it on Sierra to stop folks from
+    # wasting hours and hours trying to build it.
+    depends_on MaximumMacOSRequirement => :el_capitan
   end
 
   bottle do
