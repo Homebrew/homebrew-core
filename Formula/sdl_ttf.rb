@@ -7,12 +7,9 @@ class SdlTtf < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "731c0e10eeaba063a23911df2ecd0cf68aa2e3d17cd4fc047515c034a2581b41" => :sierra
-    sha256 "7e57e640eb289ddeddb5ef0342e57389675e828346e1855fe8ee383c46d43ec4" => :el_capitan
-    sha256 "3bab7379b69d8bde9d2df8384852774b13d1be5378711ab9dffe97e548f5c156" => :yosemite
-    sha256 "657a236fbbe182aaa216b2f2d7935b257dc23cca3e4a26978cdee89cb39be341" => :mavericks
-    sha256 "909f446963645f9634ae76e5f5eb3f3045e6872108a8c124b690bb3c53bb8630" => :mountain_lion
+    sha256 "22972859bc6ab2f2a6fd8a4cf5394e647336e4b83d982b02e7015ceb7799e59a" => :sierra
+    sha256 "981960db1d2539b57bc42deb12ab59e163214d881612c1fffea72e4927e1c82a" => :el_capitan
+    sha256 "cea0e7f2cb248778bc3af4cab3f3ddd7469d4b24d72780891d2cd54dbc9d7216" => :yosemite
   end
 
   depends_on "pkg-config" => :build
