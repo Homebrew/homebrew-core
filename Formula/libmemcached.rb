@@ -26,8 +26,6 @@ class Libmemcached < Formula
   patch :DATA
 
   def install
-    ENV.append_to_cflags "-undefined dynamic_lookup" if MacOS.version <= :leopard
-
     args = ["--prefix=#{prefix}"]
 
     if build.with? "sasl"
