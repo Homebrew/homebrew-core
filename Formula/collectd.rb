@@ -51,7 +51,6 @@ class Collectd < Formula
       --localstatedir=#{var}
     ]
 
-    args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
     args << "--enable-python" if build.with? "python"
     args << "--enable-write_riemann" if build.with? "protobuf-c"
