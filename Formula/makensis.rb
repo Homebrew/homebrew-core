@@ -22,7 +22,6 @@ class Makensis < Formula
   depends_on "cppunit" => :build
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
-  depends_on "zlib" => :build
 
   resource "zlib-win32" do
     url "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip"
