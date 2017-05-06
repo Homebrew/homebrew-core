@@ -3,7 +3,7 @@ class Gtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/2.10/gtksourceview-2.10.5.tar.gz"
   sha256 "f5c3dda83d69c8746da78c1434585169dd8de1eecf2a6bcdda0d9925bf857c97"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
