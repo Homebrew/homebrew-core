@@ -16,6 +16,7 @@ class Git < Formula
   option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
   option "with-curl", "Use Homebrew's version of cURL library"
   option "with-subversion", "Use Homebrew's version of SVN"
+  option "with-perl", "Build against a custom Perl rather than system default"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
 
   deprecated_option "with-brewed-openssl" => "with-openssl"
@@ -27,6 +28,7 @@ class Git < Formula
   depends_on "openssl" => :optional
   depends_on "curl" => :optional
   depends_on "go" => :build if build.with? "persistent-https"
+  depends_on :perl => ["5.6", :optional]
   # Trigger an install of swig before subversion, as the "swig" doesn't get pulled in otherwise
   # See https://github.com/Homebrew/homebrew/issues/34554
   if build.with? "subversion"
@@ -50,16 +52,19 @@ class Git < Formula
     ENV["NO_DARWIN_PORTS"] = "1"
     ENV["V"] = "1" # build verbosely
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
-    ENV["PYTHON_PATH"] = which "python"
-    ENV["PERL_PATH"] = which "perl"
+    ENV["PYTHON_PATH"] = which("python")
+    ENV["PERL_PATH"] = which("perl")
 
-    perl_version = /\d\.\d+/.match(`perl --version`)
+    perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+    # If building with a non-system Perl search everywhere declared in @INC.
+    perl_inc = Utils.popen_read("perl -e 'print join\":\",@INC'").sub(":.", "")
 
     if build.with? "subversion"
       ENV["PERLLIB_EXTRA"] = %W[
         #{Formula["subversion"].opt_lib}/perl5/site_perl
-        #{Formula["subversion"].opt_prefix}/Library/Perl/#{perl_version}/darwin-thread-multi-2level
       ].join(":")
+    elsif build.with? "perl"
+      ENV["PERLLIB_EXTRA"] = perl_inc
     elsif MacOS.version >= :mavericks
       ENV["PERLLIB_EXTRA"] = %W[
         #{MacOS.active_developer_dir}
