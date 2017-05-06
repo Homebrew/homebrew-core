@@ -1,10 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.4.tar.gz"
-  sha256 "a79d5da0133344d38f8b3d3355c16269f11c15fbeedd0521e1a657b00ac503bb"
-  revision 2
-
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
+  sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
@@ -33,7 +31,11 @@ class DnscryptProxy < Formula
 
     system "./autogen.sh"
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix} --sysconfdir=#{etc}]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+    ]
 
     if build.with? "plugins"
       args << "--enable-plugins"
