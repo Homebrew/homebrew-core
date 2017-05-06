@@ -26,12 +26,6 @@ class Libvirt < Formula
     depends_on "rpcgen" => :build
   end
 
-  if MacOS.version <= :leopard
-    # Definitely needed on Leopard, but not on Snow Leopard.
-    depends_on "readline"
-    depends_on "libxml2"
-  end
-
   def install
     args = %W[
       --prefix=#{prefix}
