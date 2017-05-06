@@ -1,10 +1,8 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "http://www.grpc.io/"
-  url "https://github.com/grpc/grpc.git",
-      :tag => "v1.3.0",
-      :revision => "3ef2355eaedc07f8900ad98d079448169a2a2a06"
-  revision 1
+  url "https://github.com/grpc/grpc/archive/v1.3.1.tar.gz"
+  sha256 "e4a8c50e7134c90784d90849c6e5cd68d7975d18e683ec6258e56eda19276296"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
@@ -16,6 +14,8 @@ class Grpc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "c-ares"
+  depends_on "openssl"
   depends_on "protobuf"
 
   def install
