@@ -3,7 +3,7 @@ class Pygtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/pygtksourceview.html"
   url "https://download.gnome.org/sources/pygtksourceview/2.10/pygtksourceview-2.10.1.tar.bz2"
   sha256 "b4b47c5aeb67a26141cb03663091dfdf5c15c8a8aae4d69c46a6a943ca4c5974"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
