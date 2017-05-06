@@ -47,8 +47,27 @@ class Gmime < Formula
         }
       }
       EOS
-    flags = `pkg-config --cflags --libs gmime-3.0`.split
-    system ENV.cc, "-o", "test", "test.c", *(flags + ENV.cflags.to_s.split)
+    gettext = Formula["gettext"]
+    glib = Formula["glib"]
+    pcre = Formula["pcre"]
+    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    flags += %W[
+      -I#{gettext.opt_include}
+      -I#{glib.opt_include}/glib-2.0
+      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{include}/gmime-3.0
+      -I#{pcre.opt_include}
+      -D_REENTRANT
+      -L#{gettext.opt_lib}
+      -L#{glib.opt_lib}
+      -L#{lib}
+      -lgio-2.0
+      -lglib-2.0
+      -lgmime-3.0
+      -lgobject-2.0
+      -lintl
+    ]
+    system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end
 end
