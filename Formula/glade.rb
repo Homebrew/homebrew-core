@@ -59,24 +59,31 @@ class Glade < Formula
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    gtkx = Formula["gtk+3"]
+    gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
+    libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
+    pcre = Formula["pcre"]
     pixman = Formula["pixman"]
-    flags = %W[
+    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    flags += %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
+      -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtkx.opt_include}/gtk-3.0
-      -I#{gtkx.opt_lib}/gtk-3.0/include
+      -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgladeui-2.0
+      -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
+      -I#{pcre.opt_include}
       -I#{pixman.opt_include}/pixman-1
       -D_REENTRANT
       -L#{atk.opt_lib}
@@ -84,18 +91,19 @@ class Glade < Formula
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
-      -L#{gtkx.opt_lib}
+      -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lcairo-gobject
+      -lgdk-3
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lgladeui-2
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
+      -lgtk-3
       -lintl
       -lpango-1.0
       -lpangocairo-1.0
