@@ -183,10 +183,8 @@ class SubversionAT18 < Formula
       arches = begin
         if build.universal?
           Hardware::CPU.universal_archs.as_arch_flags
-        elsif MacOS.version <= :leopard
-          "-arch #{Hardware::CPU.arch_32_bit}"
         else
-          "-arch #{Hardware::CPU.arch_64_bit}"
+          "-arch #{MacOS.preferred_arch}"
         end
       end
       perl_core = Pathname.new(`perl -MConfig -e 'print $Config{archlib}'`)+"CORE"
