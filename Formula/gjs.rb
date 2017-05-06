@@ -1,8 +1,8 @@
 class Gjs < Formula
   desc "Javascript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.2.tar.xz"
-  sha256 "99c225ab2149bd31f7ac84d6ee1ea9ae843bf9a806ca853786d90e3182c4f4a1"
+  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.3.tar.xz"
+  sha256 "669b7d78ad98390a762eec50d7cc637e25f196d986c0200d9f1c3a0e0cd90f33"
 
   bottle do
     sha256 "c6c3b714cc5db5e7936317519e746263ae574148f568b51cfb40edbc7a341af1" => :sierra
@@ -17,9 +17,6 @@ class Gjs < Formula
   depends_on "gtk+3" => :recommended
 
   needs :cxx11
-
-  # patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=780350
-  patch :DATA
 
   resource "mozjs38" do
     url "https://archive.mozilla.org/pub/firefox/releases/38.8.0esr/source/firefox-38.8.0esr.source.tar.bz2"
@@ -77,18 +74,3 @@ class Gjs < Formula
     system "#{bin}/gjs", "test.js"
   end
 end
-
-__END__
-diff --git a/gi/arg.cpp b/gi/arg.cpp
-index 5502b00..aacc07d 100644
---- a/gi/arg.cpp
-+++ b/gi/arg.cpp
-@@ -37,6 +37,8 @@
- #include "gjs/byteArray.h"
- #include "gjs/jsapi-wrapper.h"
- #include <util/log.h>
-+#include <cstdlib>
-+#include <cmath>
-
- bool
- _gjs_flags_value_is_valid(JSContext   *context,
