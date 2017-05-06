@@ -12,7 +12,6 @@ class Mupdf < Formula
     sha256 "4a6fda775162b101b4fe907bda57277fcb19514aaa4ae434ef6ad155ee72e649" => :yosemite
   end
 
-  depends_on :macos => :snow_leopard
   depends_on :x11
   depends_on "openssl"
 
