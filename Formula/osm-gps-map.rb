@@ -36,7 +36,7 @@ class OsmGpsMap < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-      #include <osmgpsmap-1.0/osm-gps-map.h>
+      #include <osm-gps-map.h>
 
       int main(int argc, char *argv[]) {
         OsmGpsMap *map;
