@@ -7,9 +7,9 @@ class Subversion < Formula
   revision 2
 
   bottle do
-    sha256 "a1eb24f126de1cbe776690c6d8320638c9c917d3d45aeb06f38530236272e6ce" => :sierra
-    sha256 "b63e9e5af0e18ae59e851795ca551e2b2161fcea99dc7d4b147ca44f572e0062" => :el_capitan
-    sha256 "5be40371113a10bfb441edeceea9df3705290df1db296adf4a2616ed81c73185" => :yosemite
+    sha256 "7cf67dcdef0730425392ccf69f50142815cf6cdc335d39c027540002a830b327" => :sierra
+    sha256 "342cef6d443725e2cfacc1416d2e907ab1e1433c984866f4da4e561016f470a2" => :el_capitan
+    sha256 "100e17e03f2ad01c32db60f2ca12e6593523aad0be4d1c9fc297138164662f86" => :yosemite
   end
 
   deprecated_option "java" => "with-java"
