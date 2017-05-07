@@ -153,9 +153,14 @@ class Subversion < Formula
       system "make", "swig-pl"
       system "make", "install-swig-pl"
 
-      # Some of the libraries get installed into the wrong place, they end up having the
-      # prefix in the directory name twice.
+      # Some of the libraries get installed into the wrong place, they end up
+      # having the prefix in the directory name twice.
       lib.install Dir["#{prefix}/#{lib}/*"]
+      # This is only created when building against system Perl, but it isn't
+      # purged by Homebrew's post-install cleaner because that doesn't check
+      # "Library" directories. It is however pointless to keep around as it
+      # only contains the perllocal.pod installation file.
+      rm_rf prefix/"Library/Perl"
     end
 
     if build.with? "java"
