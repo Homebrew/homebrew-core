@@ -31,7 +31,7 @@ class Subversion < Formula
   depends_on :perl => ["5.6", :recommended]
 
   # Bindings require swig
-  depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
+  depends_on "swig" => :build if build.with?("perl") || build.with?("python") || build.with?("ruby")
 
   # For Serf
   depends_on "scons" => :build
