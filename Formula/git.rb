@@ -29,12 +29,7 @@ class Git < Formula
   depends_on "curl" => :optional
   depends_on "go" => :build if build.with? "persistent-https"
   depends_on :perl => ["5.6", :optional]
-  # Trigger an install of swig before subversion, as the "swig" doesn't get pulled in otherwise
-  # See https://github.com/Homebrew/homebrew/issues/34554
-  if build.with? "subversion"
-    depends_on "swig"
-    depends_on "subversion" => "with-perl"
-  end
+  depends_on "subversion" => :optional
 
   resource "html" do
     url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.12.2.tar.xz"
