@@ -1,5 +1,5 @@
 class Gjs < Formula
-  desc "Javascript Bindings for GNOME"
+  desc "JavaScript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
   url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.3.tar.xz"
   sha256 "669b7d78ad98390a762eec50d7cc637e25f196d986c0200d9f1c3a0e0cd90f33"
