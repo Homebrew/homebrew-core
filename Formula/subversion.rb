@@ -185,7 +185,7 @@ class Subversion < Formula
       s += <<-EOS.undent
 
         The perl bindings are located in various subdirectories of:
-          #{prefix}/Library/Perl
+          #{opt_lib}/perl5
       EOS
     end
 
