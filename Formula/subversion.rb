@@ -28,6 +28,7 @@ class Subversion < Formula
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
   depends_on :python => :optional
+  depends_on :perl => ["5.6", :optional]
 
   # Bindings require swig
   depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
@@ -137,14 +138,15 @@ class Subversion < Formula
       # In theory SWIG can be built in parallel, in practice...
       ENV.deparallelize
 
-      perl_core = Pathname.new(`perl -MConfig -e 'print $Config{archlib}'`)+"CORE"
+      archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
+      perl_core = Pathname.new(archlib)/"CORE"
       unless perl_core.exist?
-        onoe "perl CORE directory does not exist in '#{perl_core}'"
+        onoe "'#{perl_core}' does not exist"
       end
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl"
