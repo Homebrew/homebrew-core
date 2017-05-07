@@ -17,8 +17,8 @@ class Subversion < Formula
   deprecated_option "ruby" => "with-ruby"
 
   option "with-java", "Build Java bindings"
-  option "with-perl", "Build Perl bindings"
-  option "with-ruby", "Build Ruby bindings"
+  option "without-ruby", "Build without Ruby bindings"
+  option "without-perl", "Build without Perl bindings"
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
@@ -28,7 +28,7 @@ class Subversion < Formula
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
   depends_on :python => :optional
-  depends_on :perl => ["5.6", :optional]
+  depends_on :perl => ["5.6", :recommended]
 
   # Bindings require swig
   depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
@@ -185,8 +185,9 @@ class Subversion < Formula
     if build.with? "ruby"
       s += <<-EOS.undent
 
-        You may need to add the Ruby bindings to your RUBYLIB from:
+        If you wish to use the Ruby bindings you may need to add:
           #{HOMEBREW_PREFIX}/lib/ruby
+        to your RUBYLIB.
       EOS
     end
 
