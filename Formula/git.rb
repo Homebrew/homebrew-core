@@ -157,6 +157,12 @@ class Git < Formula
     # If you need it, install git --with-openssl.
     rm "#{libexec}/git-core/git-imap-send" if build.without? "openssl"
 
+    # This is only created when building against system Perl, but it isn't
+    # purged by Homebrew's post-install cleaner because that doesn't check
+    # "Library" directories. It is however pointless to keep around as it
+    # only contains the perllocal.pod installation file.
+    rm_rf prefix/"Library/Perl"
+
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
     (buildpath/"gitconfig").write <<-EOS.undent
