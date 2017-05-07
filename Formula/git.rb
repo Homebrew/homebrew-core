@@ -16,7 +16,6 @@ class Git < Formula
   option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
   option "with-curl", "Use Homebrew's version of cURL library"
   option "with-subversion", "Use Homebrew's version of SVN"
-  option "with-perl", "Build against a custom Perl rather than system default"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
 
   deprecated_option "with-brewed-openssl" => "with-openssl"
@@ -28,8 +27,14 @@ class Git < Formula
   depends_on "openssl" => :optional
   depends_on "curl" => :optional
   depends_on "go" => :build if build.with? "persistent-https"
-  depends_on :perl => ["5.6", :optional]
-  depends_on "subversion" => :optional
+
+  if build.with? "subversion"
+    depends_on "subversion"
+    depends_on :perl => ["5.6", :recommended]
+  else
+    option "with-perl", "Build against a custom Perl rather than system default"
+    depends_on :perl => ["5.6", :optional]
+  end
 
   resource "html" do
     url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.12.2.tar.xz"
