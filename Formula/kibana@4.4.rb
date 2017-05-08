@@ -68,8 +68,6 @@ class KibanaAT44 < Formula
     (prefix/"installedPlugins").mkdir
   end
 
-  plist_options :manual => "kibana"
-
   def caveats; <<-EOS.undent
     Config: #{etc}/kibana/
     If you wish to preserve your plugins upon upgrade, make a copy of
@@ -77,6 +75,8 @@ class KibanaAT44 < Formula
     new keg location after upgrading.
     EOS
   end
+
+  plist_options :manual => "kibana"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
