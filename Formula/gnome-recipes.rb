@@ -1,8 +1,8 @@
 class GnomeRecipes < Formula
   desc "Formula for GNOME recipes"
   homepage "https://wiki.gnome.org/Apps/Recipes"
-  url "https://download.gnome.org/sources/gnome-recipes/1.0/gnome-recipes-1.0.4.tar.xz"
-  sha256 "f8f1f0f79121e91130a589b1c20ad4739d93d2253232ecdc3d4bc966db7efc45"
+  url "https://download.gnome.org/sources/gnome-recipes/1.0/gnome-recipes-1.0.8.tar.xz"
+  sha256 "6affe1f0ab02c35b8e7767039439bd8c9d18dc99336d414684497423a9e091f5"
 
   bottle do
     sha256 "52eadb3c7c53eac0b2400561e42cbd394a9ad1c4c835319b9a5fdd5d8e66adf4" => :sierra
