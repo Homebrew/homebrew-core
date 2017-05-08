@@ -1,8 +1,8 @@
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "https://github.com/westes/flex"
-  url "https://github.com/westes/flex/releases/download/v2.6.3/flex-2.6.3.tar.gz"
-  sha256 "68b2742233e747c462f781462a2a1e299dc6207401dac8f0bbb316f48565c2aa"
+  url "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
+  sha256 "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
 
   bottle do
     sha256 "ab9447f77fbef802c703ad7e8ac606e217205880b55b20b90c2f58674f848162" => :sierra
