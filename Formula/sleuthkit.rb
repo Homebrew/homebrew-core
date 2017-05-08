@@ -11,8 +11,6 @@ class Sleuthkit < Formula
     sha256 "69843bf2119ca3851d07b79e5cde093eb9ac4ace1d3237a54e91c62212fdc680" => :yosemite
   end
 
-  conflicts_with "irods", :because => "both install `ils`"
-
   option "with-jni", "Build Sleuthkit with JNI bindings"
   option "with-debug", "Build debug version"
 
@@ -24,6 +22,7 @@ class Sleuthkit < Formula
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
 
+  conflicts_with "irods", :because => "both install `ils`"
   conflicts_with "ffind",
     :because => "both install a 'ffind' executable."
 
