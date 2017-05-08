@@ -1,8 +1,8 @@
 class OpencoreAmr < Formula
   desc "Audio codecs extracted from Android open source project"
   homepage "https://opencore-amr.sourceforge.io/"
-  url "https://downloads.sourceforge.net/opencore-amr/opencore-amr-0.1.4.tar.gz"
-  sha256 "029918505e6a357b2b09432c7892a192d740d8b82f8a44c2e0805ba45643a95b"
+  url "https://downloads.sourceforge.net/opencore-amr/opencore-amr-0.1.5.tar.gz"
+  sha256 "2c006cb9d5f651bfb5e60156dbff6af3c9d35c7bbcc9015308c0aff1e14cd341"
 
   bottle do
     cellar :any
