@@ -108,6 +108,36 @@ class GdkPixbuf < Formula
   end
 
   test do
-    system bin/"gdk-pixbuf-csource", test_fixtures("test.png")
+    (testpath/"test.c").write <<-EOS.undent
+      #include <gdk-pixbuf/gdk-pixbuf.h>
+
+      int main(int argc, char *argv[]) {
+        GType type = gdk_pixbuf_get_type();
+        return 0;
+      }
+    EOS
+    gettext = Formula["gettext"]
+    glib = Formula["glib"]
+    libpng = Formula["libpng"]
+    pcre = Formula["pcre"]
+    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    flags += %W[
+      -I#{gettext.opt_include}
+      -I#{glib.opt_include}/glib-2.0
+      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{include}/gdk-pixbuf-2.0
+      -I#{libpng.opt_include}/libpng16
+      -I#{pcre.opt_include}
+      -D_REENTRANT
+      -L#{gettext.opt_lib}
+      -L#{glib.opt_lib}
+      -L#{lib}
+      -lgdk_pixbuf-2.0
+      -lglib-2.0
+      -lgobject-2.0
+      -lintl
+    ]
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
   end
 end
