@@ -4,6 +4,7 @@ class X264 < Formula
   # the latest commit on the stable branch
   url "https://git.videolan.org/git/x264.git", :revision => "97eaef2ab82a46d13ea5e00270712d6475fbe42b"
   version "r2748"
+  revision 1
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
@@ -28,6 +29,8 @@ class X264 < Formula
       --enable-static
       --enable-strip
     ]
+    args <<  "--extra-cflags=-framework OpenCL"
+    args <<  "--extra-ldflags=-framework OpenCL"
     args << "--disable-lsmash" if build.without? "l-smash"
     args << "--bit-depth=10" if build.with? "10-bit"
 
