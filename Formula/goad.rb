@@ -3,7 +3,9 @@ require "language/go"
 class Goad < Formula
   desc "AWS Lambda powered, highly distributed, load testing tool built in Go"
   homepage "https://goad.io/"
-  url "https://github.com/goadapp/goad.git", :tag => "v1.4.1"
+  url "https://github.com/goadapp/goad.git",
+      :tag => "v1.4.1",
+      :revision => "6cd24daf34c487894e7008e080c017989d03db4a"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,6 +35,7 @@ class Goad < Formula
     cd dir do
       system "make", "build"
       bin.install "build/goad"
+      prefix.install_metafiles
     end
   end
 
