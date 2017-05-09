@@ -7,9 +7,9 @@ class Make < Formula
   revision 1
 
   bottle do
-    sha256 "d6a0f2bfd83a8299b6a7dfa4aa936ffcd03603da10c26cccad06137c668df894" => :sierra
-    sha256 "08fce0ecb389bc90b3acc5ea32835da463dd791682e021e8f9bac6c3fabadc3d" => :el_capitan
-    sha256 "2c4367b9f688209028b611bf22f2eab38885b7eaea91561a19d963ad72e4313e" => :yosemite
+    sha256 "c369d10d81412b5402be1e14be57a4074278b59dfe0a1c9e348e0cd46a533878" => :sierra
+    sha256 "969c45027b8e0aa4a4a2fea0ad6e2d3ff311b55080d017b93239f2611e131ef2" => :el_capitan
+    sha256 "c094c8b7e6cb3438d16378a4748f4c8930be5c82fc99408fb40ee27556d9a84a" => :yosemite
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
