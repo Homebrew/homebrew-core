@@ -16,7 +16,8 @@ class Djview4 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "djvulibre"
-  depends_on "qt"
+  # avoid bug QTBUG-58344 on qt 5.7 and 5.8. version 5.9 would be fine
+  depends_on "qt@5.5"
 
   def install
     inreplace "src/djview.pro", "10.6", MacOS.version
