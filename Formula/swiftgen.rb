@@ -1,7 +1,9 @@
 class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
-  url "https://github.com/SwiftGen/SwiftGen.git", :tag => "4.2.0"
+  url "https://github.com/SwiftGen/SwiftGen.git",
+      :tag => "4.2.1",
+      :revision => "0ce335af8d3720e18b3553aede1205ae678de096"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
@@ -13,7 +15,8 @@ class Swiftgen < Formula
   depends_on :xcode => ["8.0", :build]
 
   def install
-    rake "install[#{bin},#{lib},#{pkgshare}/templates]"
+    ENV["NO_CODE_LINT"]="1" # Disable swiftlint Build Phase to avoid build errors if versions mismatch
+    rake "cli:install[#{bin},#{lib},#{pkgshare}/templates]"
 
     fixtures = {
       "Resources/Fixtures/Images/Images.xcassets" => "Images.xcassets",
