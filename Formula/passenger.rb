@@ -1,8 +1,8 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.3.tar.gz"
-  sha256 "e1d39cbc041693c8dc0247c98ecf5180eed2abaaa09295209b72d8b0c1935994"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.4.tar.gz"
+  sha256 "6e8460143fff88c7ae833b43ff5389c0b0d2654ee38ab1ac62e24a3814416de0"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
@@ -29,8 +29,6 @@ class Passenger < Formula
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"
-
-    system("/usr/bin/ruby ./bin/passenger-config compile-nginx-engine")
 
     (libexec/"download_cache").mkpath
 
@@ -60,6 +58,9 @@ class Passenger < Formula
     ruby_libdir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
     system "/usr/bin/ruby", "./dev/install_scripts_bootstrap_code.rb",
       "--ruby", ruby_libdir, *Dir[libexec/"bin/*"]
+
+    system("/usr/bin/ruby ./bin/passenger-config compile-nginx-engine")
+    cp Dir["buildout/support-binaries/nginx*"], libexec/"buildout/support-binaries", :preserve => true
 
     nginx_addon_dir = `/usr/bin/ruby ./bin/passenger-config about nginx-addon-dir`.strip
     nginx_addon_dir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
