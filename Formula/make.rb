@@ -36,17 +36,20 @@ class Make < Formula
   end
 
   def caveats
-    if build.without? "default-names" then <<-EOS.undent
-      The command has been installed with the prefix "g".
-      If you do not want the prefix, install using the "with-default-names" option.
+    if build.without? "default-names"
+      <<-EOS.undent
+        All commands have been installed with the prefix 'g'.
+        If you do not want the prefix, install using the "with-default-names" option.
 
-      If you need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
-        PATH="#{opt_libexec}/gnubin:$PATH"
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
 
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+            PATH="#{opt_libexec}/gnubin:$PATH"
+
+        Additionally, you can access their man pages with normal names if you add
+        the "gnuman" directory to your MANPATH from your bashrc as well:
+
+            MANPATH="#{opt_libexec}/gnuman:$MANPATH"
       EOS
     end
   end
