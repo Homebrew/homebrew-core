@@ -48,7 +48,8 @@ class Docbook < Formula
     (etc/"xml").mkpath
 
     %w[42 412 43 44 45 50].each do |version|
-      resource("xml#{version}").stage do |r|
+      # Ruby 1.8.7 workaround: without the second argument, r will be an Array
+      resource("xml#{version}").stage do |r, _|
         if version == "412"
           cp prefix/"docbook/xml/4.2/catalog.xml", "catalog.xml"
 
