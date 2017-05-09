@@ -20,10 +20,12 @@ class Tmpwatch < Formula
   end
 
   test do
-    touch %w[a b c]
-    ten_minutes_ago = Time.new - 600
-    File.utime(ten_minutes_ago, ten_minutes_ago, "a")
-    system "#{sbin}/tmpwatch", "2m", testpath
-    assert_equal %w[b c], Dir["*"]
+    mkdir "test" do
+      touch %w[a b c]
+      ten_minutes_ago = Time.new - 600
+      File.utime(ten_minutes_ago, ten_minutes_ago, "a")
+      system "#{sbin}/tmpwatch", "2m", Pathname.pwd
+      assert_equal %w[b c], Dir["*"]
+    end
   end
 end
