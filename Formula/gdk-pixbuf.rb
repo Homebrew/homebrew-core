@@ -22,9 +22,6 @@ class GdkPixbuf < Formula
   depends_on "gobject-introspection"
   depends_on "shared-mime-info"
 
-  # 'loaders.cache' must be writable by other packages
-  skip_clean "lib/gdk-pixbuf-2.0"
-
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
   # files, this will need to be updated if that internal version number
@@ -75,12 +72,6 @@ class GdkPixbuf < Formula
     (lib/"gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache").unlink
   end
 
-  # Where we want to store the loaders.cache file, which should be in a
-  # Keg-specific lib directory, not in the global Homebrew lib directory
-  def module_file
-    "#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
-  end
-
   # The directory that loaders.cache gets linked into, also has the "loaders"
   # directory that is scanned by gdk-pixbuf-query-loaders in the first place
   def module_dir
@@ -88,18 +79,14 @@ class GdkPixbuf < Formula
   end
 
   def post_install
-    ENV["GDK_PIXBUF_MODULE_FILE"] = module_file
     ENV["GDK_PIXBUF_MODULEDIR"] = "#{module_dir}/loaders"
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
-    # Link newly created module_file into global gdk-pixbuf directory
-    ln_sf module_file, module_dir
   end
 
   def caveats
     if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
       <<-EOS.undent
         Programs that require this module need to set the environment variable
-          export GDK_PIXBUF_MODULE_FILE="#{module_file}"
           export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
         If you need to manually update the query loader cache, set these variables then run
           #{bin}/gdk-pixbuf-query-loaders --update-cache
