@@ -2,7 +2,7 @@ class ConjureUp < Formula
   include Language::Python::Virtualenv
 
   desc "Big software deployments so easy it's almost magical."
-  homepage "http://conjure-up.io"
+  homepage "https://conjure-up.io"
   url "https://github.com/conjure-up/conjure-up/archive/2.1.5.tar.gz"
   sha256 "df8278ffca2eab81bf02e6fe422e283baaee52b01e8a7b3bad1ca91ffa691af0"
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
