@@ -3,6 +3,7 @@ class Fits < Formula
   homepage "https://projects.iq.harvard.edu/fits"
   url "https://github.com/harvard-lts/fits/archive/1.1.0.tar.gz"
   sha256 "57ba2ee001c2c113a1cae84d1c8f8e9a49e21fc39307abe2bd97de0a2c1689c0"
+  revision 1
 
   bottle do
     cellar :any
@@ -35,8 +36,9 @@ class Fits < Formula
     # fits-env.sh is a helper script that sets up environment
     # variables, so we want to tuck this away in libexec
     libexec.install "fits-env.sh"
-    bin.install "fits.sh" => "fits"
-    bin.install "fits-ngserver.sh" => "fits-ngserver"
+    bin.install "fits.sh", "fits-ngserver.sh"
+    bin.install_symlink bin/"fits.sh" => "fits"
+    bin.install_symlink bin/"fits-ngserver.sh" => "fits-ngserver"
   end
 
   test do
