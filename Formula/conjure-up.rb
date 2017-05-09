@@ -17,7 +17,7 @@ class ConjureUp < Formula
   devel do
     url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta3.tar.gz"
     version "2.2-beta3"
-    sha256 "21349a09ec4836d6c8cf98128183fca12d1601374352974a2a32758f49ba21d1"
+    sha256 "f473d1fbbab96d5b32016f6e44c2ded94589b8286e84cd56dfbe6ff14f30bdb2"
   end
 
   depends_on :python3
