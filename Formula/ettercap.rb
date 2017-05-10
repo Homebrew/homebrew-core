@@ -1,9 +1,20 @@
 class Ettercap < Formula
   desc "Multipurpose sniffer/interceptor/logger for switched LAN"
   homepage "https://ettercap.github.io/ettercap/"
-  url "https://github.com/Ettercap/ettercap/archive/v0.8.2.tar.gz"
-  sha256 "f38514f35bea58bfe6ef1902bfd4761de0379942a9aa3e175fc9348f4eef2c81"
+  revision 1
+
   head "https://github.com/Ettercap/ettercap.git"
+
+  stable do
+    url "https://github.com/Ettercap/ettercap/archive/v0.8.2.tar.gz"
+    sha256 "f38514f35bea58bfe6ef1902bfd4761de0379942a9aa3e175fc9348f4eef2c81"
+
+    # Fixes CVE-2017-6430.
+    patch do
+      url "https://github.com/Ettercap/ettercap/commit/4ad7f85d.patch"
+      sha256 "a53322b8f103d92e3947b947083e548a92e05c0c2814ee870ec21a31eb0035c3"
+    end
+  end
 
   bottle do
     rebuild 2
