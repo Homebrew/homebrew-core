@@ -3,8 +3,8 @@ class Dbt < Formula
 
   desc "Data build tool"
   homepage "https://github.com/fishtown-analytics/dbt"
-  url "https://files.pythonhosted.org/packages/01/53/ab9689b799eeac0e3d36915f61cf30c56b0a623fbe07bf791ec27d834888/dbt-0.8.0.tar.gz"
-  sha256 "9f7595233686111e3746dfd4ead51d8e09a7cf35de5d1e4748ab6ec713517282"
+  url "https://files.pythonhosted.org/packages/a9/d1/1a20e818bc05e198154996616c12c5a49f84ac2a3faf632d23f6462d06c6/dbt-0.8.1.tar.gz"
+  sha256 "c78bb64e4172f8d954fdd95d9b9c00c1a3de1a5349b6cbd22baa7cebff1c6fa9"
 
   head "https://github.com/fishtown-analytics/dbt.git", :branch => "development"
 
