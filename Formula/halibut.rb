@@ -1,7 +1,7 @@
 class Halibut < Formula
   desc "Yet another free document preparation system"
-  homepage "http://www.chiark.greenend.org.uk/~sgtatham/halibut/"
-  url "http://www.chiark.greenend.org.uk/~sgtatham/halibut/halibut-1.1.tar.gz"
+  homepage "https://www.chiark.greenend.org.uk/~sgtatham/halibut/"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/halibut/halibut-1.1.tar.gz"
   sha256 "b964950d11ed09d3af28ac095da539613f6e50d650f01fe72b4ae752724c80a0"
 
   head "https://git.tartarus.org/simon/halibut.git"
