@@ -49,18 +49,6 @@ class Darktable < Formula
     assert File.size?(expected_file)
   end
 
-  def test_lua
-    expected_string = "Hello Homebrew world!"
-    lua_code = <<-EOL
-    dt = require "darktable"
-    dt.print("#{expected_string}")
-    EOL
-
-    stdout = shell_output(bin/"darktable-cli image.dng -o image.jpg --core --luacmd '#{lua_code}'", 0)
-
-    assert_match expected_string, stdout
-  end
-
   test do
     require "open-uri"
 
@@ -72,6 +60,13 @@ class Darktable < Formula
     test_convert_to("tif")
     test_convert_to("png")
 
-    test_lua
+    expected_string = "Hello Homebrew world!"
+    lua_code = <<-EOL
+    dt = require "darktable"
+    dt.print("#{expected_string}")
+    EOL
+
+    stdout = shell_output(bin/"darktable-cli image.dng -o image.jpg --core --luacmd '#{lua_code}'", 0)
+    assert_match expected_string, stdout
   end
 end
