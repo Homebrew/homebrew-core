@@ -12,12 +12,13 @@ class Jrep < Formula
     ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp
     ENV["MAVEN_OPTS"] = "-Dmaven.repo.local=" + `pwd`.chomp + "/m2repo/"
     ENV["PREFIX"] = "#{prefix}"
-    
+    ENV["MANDIR"] = "#{man}"
+
     system "mkcmake"
     system "mkcmake", "install"
   end
 
   test do
-    system "jrep", "a", "/etc/hosts"
+    system "#{bin}/jrep", "a", "/etc/hosts"
   end
 end
