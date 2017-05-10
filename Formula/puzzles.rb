@@ -1,6 +1,6 @@
 class Puzzles < Formula
   desc "Collection of one-player puzzle games"
-  homepage "http://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
+  homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   url "https://mirrors.kernel.org/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20161228.7cae89f.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20161228.7cae89f.orig.tar.gz"
   version "20161228.7cae89f"
