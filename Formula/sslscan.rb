@@ -13,14 +13,32 @@ class Sslscan < Formula
     sha256 "0537cb08b5d621601741a9b92d9a0bcec978242b3ca5830711a49a3ebf99036b" => :yosemite
   end
 
-  depends_on "openssl"
+  option "with-openssl", "Don't statically link OpenSSL"
+
+  depends_on "openssl" => :optional
+
+  resource "openssl" do
+    url "https://github.com/openssl/openssl.git",
+        :branch => "OpenSSL_1_0_2-stable"
+  end
 
   def install
-    system "make"
+    if build.with? "openssl"
+      system "make"
+    else
+      (buildpath/"openssl").install resource("openssl")
+      ENV.deparallelize do
+        system "make", "static"
+      end
+    end
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
+    if build.without? "openssl"
+      assert_match "static", shell_output("#{bin}/sslscan --version")
+    end
     system "#{bin}/sslscan", "google.com"
   end
 end
