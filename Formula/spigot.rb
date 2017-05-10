@@ -1,7 +1,7 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
-  homepage "http://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "http://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20170219.02cd6ee.tar.gz"
+  homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20170219.02cd6ee.tar.gz"
   sha256 "c14f220de17c02b3b67f428b5d92618f1a0167bcbad890201de3a114a076aabb"
 
   bottle do
