@@ -3,17 +3,15 @@ class Osc < Formula
 
   desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.157.2.tar.gz"
-  sha256 "cde6384f069e3b08cc425cf5105251acb77f5f8c9413888b5f4ab89fec068f07"
-  revision 1
+  url "https://github.com/openSUSE/osc/archive/0.158.0.tar.gz"
+  sha256 "467efd9628aa745d5be76176d5bfb5cbad47f820208051b35c6a1b54928ab912"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f5a0497846cdca2537bfcc80a7f8ec0966bb4bf7b9a74106ea79cdb59430f5bd" => :sierra
-    sha256 "4d44601aef066a50b4e949c42a8b3d01f428dc8f70b86f2f9b0267cffc48ea60" => :el_capitan
-    sha256 "a04dec1471836e11771b389e9a06816160d8a2282fe267c60ed7122684e07cf4" => :yosemite
+    sha256 "cf4adda29c741e7bcba4c5b65852d7942e353bfaa976dd2e3d5633acff8215b3" => :sierra
+    sha256 "582ef1d1774810282e7a45cffabba0e7f96420749b2459b337b6c0c1cf198e55" => :el_capitan
+    sha256 "3e8e90ec555e1e7de6593a9e6858743faf50c84bf9786123549c2a2f5ea0e529" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

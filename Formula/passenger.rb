@@ -1,15 +1,14 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.3.tar.gz"
-  sha256 "e1d39cbc041693c8dc0247c98ecf5180eed2abaaa09295209b72d8b0c1935994"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.4.tar.gz"
+  sha256 "6e8460143fff88c7ae833b43ff5389c0b0d2654ee38ab1ac62e24a3814416de0"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
-    cellar :any
-    sha256 "f446d04ec545aab711e4c6920205ad52f0c1da282fe9da1a4ecc906085a5b641" => :sierra
-    sha256 "a4426f39a59bff00d8d329b96c463f54125e4791fe6eddf5b2c2a4bbe8c77f41" => :el_capitan
-    sha256 "e81a080cd4fb7ac7532d4eae1c76dfc10791ff3cb0b287e9902188b03adcd6e3" => :yosemite
+    sha256 "255c52aabadb3967c64531f475e39c2f3e08ea3068c33f12ea83de44d2c95a7b" => :sierra
+    sha256 "102517e493951ae2a5563c04e38f453f7f7445bbf32af0c08ede3af8c9307211" => :el_capitan
+    sha256 "02351f07430761f124fd1f99df283dde6921e21e514e6f11be25d4f40700a260" => :yosemite
   end
 
   option "without-apache2-module", "Disable Apache2 module"
@@ -29,8 +28,6 @@ class Passenger < Formula
 
     rake "apache2" if build.with? "apache2-module"
     rake "nginx"
-
-    system("/usr/bin/ruby ./bin/passenger-config compile-nginx-engine")
 
     (libexec/"download_cache").mkpath
 
@@ -60,6 +57,9 @@ class Passenger < Formula
     ruby_libdir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
     system "/usr/bin/ruby", "./dev/install_scripts_bootstrap_code.rb",
       "--ruby", ruby_libdir, *Dir[libexec/"bin/*"]
+
+    system("/usr/bin/ruby ./bin/passenger-config compile-nginx-engine")
+    cp Dir["buildout/support-binaries/nginx*"], libexec/"buildout/support-binaries", :preserve => true
 
     nginx_addon_dir = `/usr/bin/ruby ./bin/passenger-config about nginx-addon-dir`.strip
     nginx_addon_dir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)

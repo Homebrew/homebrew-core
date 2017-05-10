@@ -1,15 +1,14 @@
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
-  url "https://github.com/google/glog/archive/v0.3.4.tar.gz"
-  sha256 "ce99d58dce74458f7656a68935d7a0c048fa7b4626566a71b7f4e545920ceb10"
-  revision 1
+  url "https://github.com/google/glog/archive/v0.3.5.tar.gz"
+  sha256 "277846fa6ac3d569fed48c8e32191ffd286ca52b808f243c81a4a91a9f9ff113"
 
   bottle do
     cellar :any
-    sha256 "ba281274fae4fe2d690ee8da9c2760127541766e7cdf8674f298adb8e1da9ee7" => :sierra
-    sha256 "48f7420d05c130c6df1a507d217d472cf25ffaa670685a2d94c98fefe26c40d2" => :el_capitan
-    sha256 "e088fb40a28364979695cec6318bd10b6d3d5d3ac7a5ead6c494bda6fb6b1d21" => :yosemite
+    sha256 "a3e0adb8c4bd45b73b6200b2e503e55bd59749e45ce31b90f72bb11bd341d427" => :sierra
+    sha256 "1fc76882e8bb6f5fea7f1479e89e09c7b4e82dd4130d0a0fb12dbc948a805166" => :el_capitan
+    sha256 "253d15bc60962e7f9a9bb77eddebc0153c3f8895b5e06dadb0ddad4bb97b4c09" => :yosemite
   end
 
   depends_on "gflags"
