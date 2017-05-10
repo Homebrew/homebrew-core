@@ -5,7 +5,6 @@ class DcosCli < Formula
   homepage "https://github.com/dcos/dcos-cli"
   url "https://github.com/dcos/dcos-cli/archive/0.5.1.tar.gz"
   sha256 "5dbf129acc9662ada5eb71024e80f04c44f97b13697dc44a5670eaac148d3222"
-  revision 1
   head "git@github.com:dcos/dcos-cli.git"
 
   depends_on :python3
