@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.12.2.tar.xz"
-  sha256 "d21a9e23506e618d561fb25a8a7bd6134f927b86147930103487117a7a678c4a"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.13.0.tar.xz"
+  sha256 "4bbf2ab6f2341253a38f95306ec7936833eb1c42572da5c1fa61f0abb2191258"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
