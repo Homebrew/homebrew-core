@@ -35,6 +35,11 @@ class Darktable < Formula
   fails_with "gcc" => 6
   fails_with "gcc" => 7
 
+  resource "raw_sample" do
+    url "https://raw.pixls.us/getfile.php/1033/nice/homebrew.raw"
+    sha256 "b22f1e36331f679abb8b13e433b9bbde3988723adf10fee7aa0dda6381016a98"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
@@ -45,17 +50,12 @@ class Darktable < Formula
 
   def test_convert_to(extension)
     expected_file = "image.#{extension}"
-    system bin/"darktable-cli", "image.dng", "-o", expected_file
+    system bin/"darktable-cli", "homebrew.raw", "-o", expected_file
     assert File.size?(expected_file)
   end
 
   test do
-    require "open-uri"
-
-    File.open(testpath/"image.dng", "wb") do |fo|
-      fo.write open("https://raw.pixls.us/getfile.php/1033/nice/homebrew.raw").read
-    end
-
+    testpath.install resource("raw_sample")
     test_convert_to("jpg")
     test_convert_to("tif")
     test_convert_to("png")
@@ -66,7 +66,7 @@ class Darktable < Formula
     dt.print("#{expected_string}")
     EOL
 
-    stdout = shell_output(bin/"darktable-cli image.dng -o image.jpg --core --luacmd '#{lua_code}'", 0)
+    stdout = shell_output(bin/"darktable-cli homebrew.raw -o image_lua_test.jpg --core --luacmd '#{lua_code}'", 0)
     assert_match expected_string, stdout
   end
 end
