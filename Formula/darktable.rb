@@ -45,13 +45,11 @@ class Darktable < Formula
 
   def test_convert_to(extension)
     expected_file = "image.#{extension}"
-    ohai "Converting raw to #{extension}"
     system bin/"darktable-cli", "image.dng", "-o", expected_file
     assert File.size?(expected_file)
   end
 
   def test_lua
-    ohai "Testing Lua support"
     expected_string = "Hello Homebrew world!"
     lua_code = <<-EOL
     dt = require "darktable"
@@ -66,7 +64,6 @@ class Darktable < Formula
   test do
     require "open-uri"
 
-    ohai "Downloading sample image"
     File.open(testpath/"image.dng", "wb") do |fo|
       fo.write open("https://raw.pixls.us/getfile.php/1033/nice/homebrew.raw").read
     end
