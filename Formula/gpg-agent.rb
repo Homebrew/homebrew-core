@@ -22,6 +22,7 @@ class GpgAgent < Formula
   depends_on "pinentry"
 
   def install
+    ENV.permit_weak_imports
     # don't use Clang's internal stdint.h
     ENV["gl_cv_absolute_stdint_h"] = "#{MacOS.sdk_path}/usr/include/stdint.h"
 
