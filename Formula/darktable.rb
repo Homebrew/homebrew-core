@@ -51,8 +51,6 @@ class Darktable < Formula
   end
 
   def test_lua
-    require "open3"
-
     ohai "Testing Lua support"
     expected_string = "Hello Homebrew world!"
     lua_code = <<-EOL
@@ -60,9 +58,9 @@ class Darktable < Formula
     dt.print("#{expected_string}")
     EOL
 
-    stdout = Open3.capture3(bin/"darktable-cli image.dng -o image.jpg --core --luacmd '#{lua_code}'")
+    stdout = shell_output(bin/"darktable-cli image.dng -o image.jpg --core --luacmd '#{lua_code}'", 0)
 
-    assert_match expected_string, stdout[0]
+    assert_match expected_string, stdout
   end
 
   test do
