@@ -73,7 +73,7 @@ class Pacparser < Formula
         "res" => "3ffe:8311:ffff",
       },
       {
-        "cmd" => "-c 0.0.0.0 -u http://www.google.co.in/",
+        "cmd" => "-c 0.0.0.0 -u http://www.example.com/",
         "res" => "END-OF-SCRIPT",
       },
       {
