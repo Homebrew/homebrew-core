@@ -118,6 +118,7 @@ class DcosCli < Formula
   end
 
   test do
-    system bin/"dcos", "--version"
+    assert_match "dcoscli.version=", shell_output("#{bin}/dcos --version")
+    assert_match "dcos \[options\] \[\<command\>\] \[\<args\>...\]", shell_output("#{bin}/dcos --help")
   end
 end
