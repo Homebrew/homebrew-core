@@ -27,7 +27,7 @@ class GccAT47 < Formula
   sha256 "92e61c6dc3a0a449e62d72a38185fda550168a86702dea07125ebd3ec3996282"
   revision 1
 
-  head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_7-branch"
+  head "https://gcc.gnu.org/git/gcc.git", :branch => "gcc-4_7-branch"
 
   bottle do
     sha256 "126b6a0f98a16e0f8a18f27959c5f71c81bfce1a6a3b48d66a1832bff6d70be5" => :sierra
