@@ -1,9 +1,9 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.5/zabbix-3.2.5.tar.gz"
-  mirror "https://fossies.org/linux/misc/zabbix-3.2.5.tar.gz"
-  sha256 "2f25d4622f85f9faa9626c9d5b3dbd9bf098f494fae007fecd52c8dc5545504e"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.6/zabbix-3.2.6.tar.gz"
+  mirror "https://fossies.org/linux/misc/zabbix-3.2.6.tar.gz"
+  sha256 "98f025b39515b196552b8a23e2fe20a8180b5e99e613ce7378725a46ed8b62d6"
 
   bottle do
     sha256 "416888eb64629e71246febb7f0348fab22080d59933e81a7a14476b97e877ce2" => :sierra
