@@ -37,6 +37,9 @@ class Gtkx3 < Formula
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 
+    # TODO: Remove when it fails. See https://git.gnome.org/browse/gtk+/commit/?id=74bd3f3810133d44f333aa5f8d02ae3de19a6834
+    inreplace "gdk/quartz/gdkeventloop-quartz.c", "g_string_appendi", "g_string_append"
+
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install
     bin.mkpath
