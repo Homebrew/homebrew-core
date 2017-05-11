@@ -4,6 +4,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
   sha256 "24cf9a69369be64a9f6f8cc11a1be33ab7780ad77a6a1b93719438f49f69960d"
+  revision 1
 
   bottle do
     sha256 "da72dd30eff4131ff8177528b5bf03f6e0273e553bdf34e8daa490696e24a92c" => :sierra
@@ -31,6 +32,16 @@ class Gnupg < Formula
   depends_on "libusb" => :recommended
   depends_on "readline" => :optional
   depends_on "encfs" => :optional
+
+  # Patch for possible keyring corruption when updating/deleting keys.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/gnupg2/gnupg2_2.1.20-4.debian.tar.bz2"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/gnupg2/gnupg2_2.1.20-4.debian.tar.bz2"
+    sha256 "aa2d9e58e35aeed14f2cfb8ae77eadbe14c97fef85a42819a79cc6c4f73415b3"
+    apply "patches/0053-g10-invalidate-the-fd-cache-for-keyring.patch",
+          "patches/0056-gpg-Fix-typo.patch",
+          "patches/0057-gpg-Properly-account-for-ring-trust-packets.patch"
+  end
 
   def install
     args = %W[
