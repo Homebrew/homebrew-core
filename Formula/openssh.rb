@@ -17,8 +17,6 @@ class Openssh < Formula
   # https://github.com/Homebrew/homebrew-dupes/pull/482#issuecomment-118994372
 
   depends_on "openssl"
-  depends_on "ldns" => :optional
-  depends_on "pkg-config" => :build if build.with? "ldns"
 
   # Both these patches are applied by Apple.
   patch do
@@ -43,18 +41,12 @@ class Openssh < Formula
     # We introduce this issue with patching, it's not an upstream bug.
     inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
 
-    args = %W[
-      --with-libedit
-      --with-kerberos5
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}/ssh
-      --with-pam
-      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
-    ]
-
-    args << "--with-ldns" if build.with? "ldns"
-
-    system "./configure", *args
+    system "./configure", "--with-libedit",
+                          "--with-kerberos5",
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}/ssh",
+                          "--with-pam",
+                          "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
     system "make"
     system "make", "install"
 
