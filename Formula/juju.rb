@@ -12,9 +12,9 @@ class Juju < Formula
   end
 
   devel do
-    url "https://launchpad.net/juju/2.2/2.2-beta3/+download/juju-core_2.2-beta3.tar.gz"
-    sha256 "0d041cfa97224cf659444bfe42d16e63c8c4b5e0a3605162a43295b5b0ca0a86"
-    version "2.2-beta3"
+    url "https://launchpad.net/juju/2.2/2.2-beta4/+download/juju-core_2.2-beta4.tar.gz"
+    sha256 "592a0f1f47e3a42648d4647a08d159af9d68faf80974ab4171bd4bd22a2200eb"
+    version "2.2-beta4"
   end
 
   depends_on "go" => :build
