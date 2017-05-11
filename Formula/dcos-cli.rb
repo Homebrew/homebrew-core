@@ -7,6 +7,13 @@ class DcosCli < Formula
   sha256 "5dbf129acc9662ada5eb71024e80f04c44f97b13697dc44a5670eaac148d3222"
   head "https://github.com/dcos/dcos-cli.git"
 
+  bottle do
+    cellar :any
+    sha256 "e38054a743f8a02a4a47cd90214818c987f2e474f3f2b307914ed64ff938a000" => :sierra
+    sha256 "4684fa30f4e662f76bc3f0fbd45ad4ea74171c246e044f59ad56db115fb86cf2" => :el_capitan
+    sha256 "28479782355b5f5ea6d257970009a8d720d26c7f2688f6be4a5844a399299202" => :yosemite
+  end
+
   depends_on :python3
   depends_on "openssl@1.1"
 
