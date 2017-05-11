@@ -33,7 +33,7 @@ class Go < Formula
   option "without-godoc", "godoc will not be installed for you"
   option "without-race", "Build without race detector"
 
-  depends_on :macos => :mountain_lion
+ depends_on :macos => :lion
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
