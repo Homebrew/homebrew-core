@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.4.tar.gz"
-  sha256 "0ca340d4092116debb09d85412fdf7f082d08bc99a7d53b0e222ab7d18390a6c"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.4.1.tar.gz"
+  sha256 "882ed16dff343d8154f94dac1c26ab46a0d1a2dfdf7269f4090eebb192b6d007"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -30,7 +30,6 @@ class Ibex < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --with-affine
       --with-optim
     ]
 
@@ -40,8 +39,6 @@ class Ibex < Formula
     args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
-    system "make", "-C", "3rd/filibsrc"
-    system "./waf", "build"
     system "./waf", "install"
 
     pkgshare.install %w[examples benchs]
@@ -59,9 +56,9 @@ class Ibex < Formula
     # so that pkg-config can remain a build-time only dependency
     inreplace %w[makefile slam/makefile] do |s|
       s.gsub! /CXXFLAGS.*pkg-config --cflags ibex./,
-              "CXXFLAGS := -ffloat-store -I#{include} -I#{include}/ibex"
-      s.gsub! /LIBS.*pkg-config --libs  ibex./,
-              "LIBS := -L#{lib} -libex -lprim -lClp -lCoinUtils -lm"
+              "CXXFLAGS := -I#{include} -I#{include}/ibex "\
+                          "-I#{include}/ibex/3rd/coin -I#{include}/ibex/3rd"
+      s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
     system "make", "ctc01", "ctc02", "symb01", "solver01", "solver02"
