@@ -51,6 +51,8 @@ class GstPluginsBad < Formula
 
     args << "--with-gtk=3.0" if build.with? "gtk+3"
 
+    args << "--with-gtk=3.0" if build.with? "gtk+3"
+
     if build.head?
       # autogen is invoked in "stable" build because we patch configure.ac
       ENV["NOCONFIGURE"] = "yes"
