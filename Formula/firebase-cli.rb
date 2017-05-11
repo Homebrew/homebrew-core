@@ -9,9 +9,9 @@ class FirebaseCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae707281f0ec9d5258de00428f7f4603342a085863661e11a943b79d6f845122" => :sierra
-    sha256 "5ad10fb04f6eb3a4aabb105704590fa4b38c283b7a5e42886bf292f71eeab4f7" => :el_capitan
-    sha256 "7f5b2ca0f4b17f5161ae051ee692002b9181e14d10955ab2e9f69473441a2967" => :yosemite
+    sha256 "4c996479b8238a409e3aa7a56a9ce44ad9171b36f9f3a390bd4cb822d50706fb" => :sierra
+    sha256 "12380e80e4d79089aade13349782ea0249c6089bbc83e84a0c614f5d33a86e7e" => :el_capitan
+    sha256 "cf5e8075e8e2b89cc5bddb88ee9a2d39acfc0e45019dc8fbab3f484372ad65cd" => :yosemite
   end
 
   depends_on "node"
