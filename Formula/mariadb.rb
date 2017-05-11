@@ -3,6 +3,7 @@ class Mariadb < Formula
   homepage "https://mariadb.org/"
   url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.23/source/mariadb-10.1.23.tar.gz"
   sha256 "54d8114e24bfa5e3ebdc7d69e071ad1471912847ea481b227d204f9d644300bf"
+  revision 1
 
   bottle do
     sha256 "04cd62eea7f3209cbb84c3f0ae272a1506895fe694adbde590c2cdf070fa4de5" => :sierra

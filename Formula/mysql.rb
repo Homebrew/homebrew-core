@@ -3,7 +3,7 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.18.tar.gz"
   sha256 "ae6f5e2cf7b936496cf60260cd7fd5a0862c21f48cd240448021c4ea067a0f0c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9d3c7b6dbb318dd8bcf7bdda510a8570289ae4329daf1663cc6f002ae5b087c7" => :sierra
