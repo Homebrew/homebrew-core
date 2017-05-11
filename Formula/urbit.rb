@@ -1,8 +1,8 @@
 class Urbit < Formula
   desc "Personal cloud computer"
   homepage "https://urbit.org"
-  url "https://github.com/urbit/urbit/archive/v0.4.4.tar.gz"
-  sha256 "6bed356efb834519a9c3d5eaa4891465ccfaa92c5e5cad9dd125baf537c54b08"
+  url "https://github.com/urbit/urbit/archive/v0.4.5.tar.gz"
+  sha256 "ac013b5a02d250450c983a3efc0997f2a5f5675bc3e16b51ed0a54dff1caef7c"
 
   bottle do
     cellar :any
