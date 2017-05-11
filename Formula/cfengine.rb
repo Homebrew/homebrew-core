@@ -5,11 +5,9 @@ class Cfengine < Formula
   sha256 "0abb7e91d667a4f339b61e105dc66c583fa98e0217c6fc7fcf8a73300badca98"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "9e44968c018b2c768a8e06e56f7a7d2d1055e681c7d5ac15f8965d2ccb88e668" => :sierra
-    sha256 "116955921224f5bab1043aec945fec298febb2798758abb559970304b9320bba" => :el_capitan
-    sha256 "6519f4ca5364019cd9239db4433c2b8eda6bfbb8e02e25441530b17805b10105" => :yosemite
+    sha256 "c20e03c47ec3c2d5e580dbef1b60cdab5619aab548b92904e1fc3f4e20308b74" => :sierra
+    sha256 "3146afa8ef4e2c5cedc7861dece69a9dc51f4fb4724b724363a616a600b6045f" => :el_capitan
+    sha256 "a3a2527726612948e9ca8e6f82ef5bd6d21c53780b8c618db2c0455b0aa7e19c" => :yosemite
   end
 
   depends_on "libxml2" if MacOS.version < :mountain_lion
