@@ -6,9 +6,9 @@ class Libproxy < Formula
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
-    sha256 "3efe53e47f393d978c1cba75c56ed8a550848182e5b80e92abb23cf3af12c79d" => :sierra
-    sha256 "d1aa41e48f2380cca100bfce1fda8c98645e14e0d63c34ea3750d3d5be1d4e92" => :el_capitan
-    sha256 "0acc5be47d4c208d48d0b21fd676953feda403b119990f7388837d0cd36fbf24" => :yosemite
+    sha256 "2da6c1c16c4d821a03f3af0095e8c083650d8236b2a9a08cb5af1b2b235658a7" => :sierra
+    sha256 "2afb8712e1a562617d7ab8fcd1436290e83f65dd636e1927761d2e9e914879cc" => :el_capitan
+    sha256 "af63072e26e2dd635ff04988d1dbb68e4f83d966aad935a6071072fe22508f15" => :yosemite
   end
 
   depends_on "cmake" => :build
