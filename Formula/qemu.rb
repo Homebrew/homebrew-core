@@ -15,10 +15,10 @@ class Qemu < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
-  depends_on "libpng" => :recommended
   depends_on "gnutls"
   depends_on "glib"
   depends_on "pixman"
+  depends_on "libpng" => :recommended
   depends_on "vde" => :optional
   depends_on "sdl2" => :optional
   depends_on "gtk+" => :optional
