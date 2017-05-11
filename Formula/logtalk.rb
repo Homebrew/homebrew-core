@@ -1,9 +1,9 @@
 class Logtalk < Formula
   desc "Object-oriented logic programming language"
   homepage "http://logtalk.org"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3106stable.tar.gz"
-  version "3.10.6"
-  sha256 "194b8951e5dd4890c99737d38064e14cf0b72e3af108018efe004fe4f254618b"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3107stable.tar.gz"
+  version "3.10.7"
+  sha256 "614ae6e4a5a064b90c171d5804c40d9739e9d919b4444da5f26a57dd0eb23497"
 
   bottle do
     cellar :any_skip_relocation
