@@ -5,9 +5,9 @@ class Corebird < Formula
   sha256 "6414668383c08f3a4bbb83da61ec4643ee7dd0470f60bac26f1e65771f03f7e1"
 
   bottle do
-    sha256 "a7401a2c8a4b172978e5a4eaa7f895c18ab97292188018f30ad7c6da93fabe94" => :sierra
-    sha256 "bd5c64459452e1890f6dce1faf0bbf3bc86bd95419d7f3042d37a68e28514f6b" => :el_capitan
-    sha256 "b40a0f4f3779ea105d2ace59490de15a18f3cee8be4dca61c29eb85d58e2c905" => :yosemite
+    sha256 "1d1a8de6fdf0bb1eed7bfa24398e43247ee1f06b007c33fe79815fb2082ff7f7" => :sierra
+    sha256 "2e1d1a7cd09f385805d0672e9a1b7e211c4778b0b711e5b3095418442c36ac13" => :el_capitan
+    sha256 "b20316807a544dee5cce001624260d3a0faa14dcba857704c0aa8842d203f5a3" => :yosemite
   end
 
   depends_on "pkg-config" => :build
