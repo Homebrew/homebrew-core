@@ -17,11 +17,9 @@ class Ettercap < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 "4f2e62c67e6e445378dfc8647a45e988a3ec967b40bd2b1647205f34b2fa7ebd" => :sierra
-    sha256 "65ea7526addde2a4a53a3148c056e12514481394e4c9e2d04f79edf0fb3b9c58" => :el_capitan
-    sha256 "90cb2fbbd2d792293aad154f293f8d2c8b486b6478c3087ad8657005f3e1d1cd" => :yosemite
-    sha256 "6f11280ec2f3d7e6b89663ced4fd4d0051a5e35b335108a56561dab6e8728257" => :mavericks
+    sha256 "f85423bcf1ce3e7ce82ad5e715b41ea3caeee57a3d09831bf571c9b962e2c5a0" => :sierra
+    sha256 "098a75f317b974e46155b1c03661478606a9e83ea95aba948063eb0987fab703" => :el_capitan
+    sha256 "5d9ce456cf6d6cab416fdae7c935501ab607020a94bd73cdfa41536f6751dbf1" => :yosemite
   end
 
   option "without-curses", "Install without curses interface"
