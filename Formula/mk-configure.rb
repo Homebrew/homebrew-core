@@ -5,7 +5,6 @@ class MkConfigure < Formula
   sha256 "a675c532f6a857c79dedef2cce4776dda8becfbe7d2126e5f67175aee56c3957"
 
   depends_on "bmake" => :build
-  depends_on "makedepend" => :build
   depends_on "makedepend"
 
   def install
@@ -14,7 +13,7 @@ class MkConfigure < Formula
 
     system "bmake", "all"
     system "bmake", "install"
-    cp "presentation/presentation.pdf", "#{share}/doc/mk-configure/"
+    (share/"doc/mk-configure").install("presentation/presentation.pdf")
   end
 
   test do
