@@ -21,6 +21,12 @@ class Libxml2 < Formula
             "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch",
             "patches/0008-Fix-attribute-decoding-during-XML-schema-validation.patch"
     end
+
+    # https://bugzilla.gnome.org/show_bug.cgi?id=766834
+    patch do
+      url "https://git.gnome.org/browse/libxml2/patch/?id=3169602058bd2d04913909e869c61d1540bc7fb4"
+      sha256 "42082b0e7fa80eac68abeace98ea5a03e8cd44cd781c13966eb0758b9a1749b3"
+    end
   end
 
   bottle do
