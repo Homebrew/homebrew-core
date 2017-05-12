@@ -1,9 +1,9 @@
 class Openvpn < Formula
-  desc "SSL VPN implementing OSI layer 2 or 3 secure network extension"
+  desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.1.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.1.tar.xz"
-  sha256 "fde9e22c6df7a335d2d58c6a4d5967be76df173c766a5c51ece57fd044c76ee5"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.2.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.2.tar.xz"
+  sha256 "df5c4f384b7df6b08a2f6fa8a84b9fd382baf59c2cef1836f82e2a7f62f1bff9"
 
   bottle do
     sha256 "9f4d38e20c752064701d6f068af28d90e89614107776b6c8e64ad1d25afedacc" => :sierra
@@ -14,31 +14,25 @@ class Openvpn < Formula
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
+  depends_on "pkg-config" => :build
   depends_on "lzo"
   depends_on "openssl"
-  depends_on "pkcs11-helper" => [:optional, "without-threading", "without-slotevent"]
-
-  if build.with? "pkcs11-helper"
-    depends_on "pkg-config" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-crypto-library=openssl
-      --prefix=#{prefix}
-      --enable-password-save
-    ]
-
-    args << "--enable-pkcs11" if build.with? "pkcs11-helper"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-crypto-library=openssl",
+                          "--prefix=#{prefix}"
     system "make", "install"
+
+    # Install OpenVPN's new contrib helper allowing the use of
+    # macOS keychain certificates with OpenVPN.
+    cd "contrib/keychain-mcd" do
+      system "make"
+      sbin.install "keychain-mcd"
+      man8.install "keychain-mcd.8"
+    end
 
     inreplace "sample/sample-config-files/openvpn-startup.sh",
               "/etc/openvpn", "#{etc}/openvpn"
