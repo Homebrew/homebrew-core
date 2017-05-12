@@ -3,8 +3,8 @@ require "language/go"
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.8.3.tar.gz"
-  sha256 "ecec8d5ab062cdac8e24a4d5792f78cb9b8f554ee4c443801e8eaa1c3b5e2f5e"
+  url "https://github.com/getgauge/gauge/archive/v0.8.4.tar.gz"
+  sha256 "303f5bb845045c92ca0b8ec28173ce4a380c96bad1c9fced5ea8f77a56b7ea2a"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
