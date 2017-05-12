@@ -14,6 +14,10 @@ class Gtkx3 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
+  # Without this gdk-pixbuf cannot be used to load SVG icons, for example.
+  # Technically librsvg depends on gdk-pixbuf and not the other way around,
+  # because it declares its availability when it's installed.
+  depends_on "librsvg" => :recommended
   depends_on "atk"
   depends_on "gobject-introspection"
   depends_on "libepoxy"
