@@ -63,7 +63,7 @@ class Darktable < Formula
     dt.print("#{expected_string}")
     EOL
 
-    stdout = shell_output(bin/"darktable-cli homebrew.raw -o image_lua_test.jpg --core --luacmd '#{lua_code}'", 0)
+    stdout = shell_output(bin/"darktable-cli homebrew.raw -o image_lua_test.jpg --core --luacmd '#{lua_code}'")
     assert_match expected_string, stdout
   end
 end
