@@ -4,7 +4,7 @@ class Darktable < Formula
   url "https://github.com/darktable-org/darktable/releases/download/release-2.2.4/darktable-2.2.4.tar.xz"
   sha256 "bd5445d6b81fc3288fb07362870e24bb0b5378cacad2c6e6602e32de676bf9d8"
 
-  depends_on "cmake"    => :build
+  depends_on "cmake" => :build
   depends_on "intltool" => :build
   depends_on "jpeg"
   depends_on "desktop-file-utils"
