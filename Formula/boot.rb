@@ -1,4 +1,4 @@
-class BootClj < Formula
+class Boot < Formula
   desc "Build tooling for Clojure"
   homepage "http://boot-clj.com"
   url "https://github.com/boot-clj/boot-bin/releases/download/2.5.2/boot.sh",
