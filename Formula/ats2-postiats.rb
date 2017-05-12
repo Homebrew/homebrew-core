@@ -12,11 +12,33 @@ class Ats2Postiats < Formula
   end
 
   depends_on "gmp"
+  depends_on "json-c" => :recommended
+  depends_on "bdw-gc" => :optional
 
   def install
     ENV.deparallelize
+    ENV["PATSHOME"] = "#{lib}/ats2-postiats-#{version}"
+    ENV["PATH"] = ENV["PATSHOME"] + "/bin:" + ENV["PATH"]
+
     system "./configure", "--prefix=#{prefix}"
-    system "make", "all", "install"
+
+    args = `%W`
+    args << "GCFLAG=-D_ATS_GCBDW" if build.with?("bohem-gc")
+
+    system "make", *args, "all"
+    system "make", "install"
+  end
+
+  def caveats; <<-EOS.undent
+    A valid PATSHOME is required to compile ATS programs, and a valid
+    PATSHOMELOCS is required to use packages installed with npm.
+
+    Please add the following to your environment configuration:
+      ATSVERSION=`brew list ats2-postiats | head -n 1 | cut -d '/' -f 6`
+      export PATSHOME=`brew --prefix ats2-postiats`/lib/ats2-postiats-${ATSVERSION}
+      export PATSHOMELOCS=./node_modules:./../../node_modules:./../../../../node_modules
+      export PATH=${PATSHOME}/bin:${PATH}
+    EOS
   end
 
   test do
