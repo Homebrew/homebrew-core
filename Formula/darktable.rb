@@ -51,7 +51,7 @@ class Darktable < Formula
   test do
     testpath.install resource("raw_sample")
 
-    %(jpg tif png).each do |extension|
+    %w(jpg tif png).each do |extension|
       expected_file = "image.#{extension}"
       system bin/"darktable-cli", "homebrew.raw", "-o", expected_file
       assert File.size?(expected_file)
