@@ -48,17 +48,14 @@ class Darktable < Formula
     end
   end
 
-  def test_convert_to(extension)
-    expected_file = "image.#{extension}"
-    system bin/"darktable-cli", "homebrew.raw", "-o", expected_file
-    assert File.size?(expected_file)
-  end
-
   test do
     testpath.install resource("raw_sample")
-    test_convert_to("jpg")
-    test_convert_to("tif")
-    test_convert_to("png")
+
+    %(jpg tif png).each do |extension|
+      expected_file = "image.#{extension}"
+      system bin/"darktable-cli", "homebrew.raw", "-o", expected_file
+      assert File.size?(expected_file)
+    end
 
     expected_string = "Hello Homebrew world!"
     lua_code = <<-EOL
