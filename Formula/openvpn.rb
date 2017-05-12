@@ -17,27 +17,13 @@ class Openvpn < Formula
   depends_on "pkg-config" => :build
   depends_on "lzo"
   depends_on "openssl"
-  depends_on "pkcs11-helper" => [:optional, "without-threading", "without-slotevent"]
-
-  if build.with? "pkcs11-helper"
-    depends_on "pkg-config" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-crypto-library=openssl
-      --prefix=#{prefix}
-    ]
-
-    args << "--enable-pkcs11" if build.with? "pkcs11-helper"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-crypto-library=openssl",
+                          "--prefix=#{prefix}"
     system "make", "install"
 
     # Install OpenVPN's new contrib helper allowing the use of
