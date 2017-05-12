@@ -2,9 +2,8 @@ class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "http://gerbv.gpleda.org/"
   # 2.6.1 is the latest official stable release but it is very buggy and incomplete
-  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.6.0/gerbv-2.6.0.tar.gz"
-  sha256 "5c55425c3493bc8407949be8b4e572434a6b378f5727cc0dcef97dc2e7574dd0"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.6.1/gerbv-2.6.1.tar.gz"
+  sha256 "7aa6a2c622dc9ff7acd88411dddf95ae25ae3b5d97020f3ea91e97d82bf0d96c"
 
   bottle do
     sha256 "a69031681f05aedd2c22b9f0aa8b0c00d4f647eec5dced1bcdd5d39becad429f" => :sierra
@@ -13,11 +12,16 @@ class Gerbv < Formula
     sha256 "0f6b404bb3a7334413c40f05f42d23d8c4e962c3030287937cf5a0586dcb2c9c" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+"
 
   def install
     ENV.append "CPPFLAGS", "-DQUARTZ"
+    inreplace "autogen.sh", "libtool", "glibtool"
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
