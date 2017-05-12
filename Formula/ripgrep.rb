@@ -6,9 +6,9 @@ class Ripgrep < Formula
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
-    sha256 "ae11f7184b49d756e32a3d9bf4ac17aa083e90cf8011433dfcfa968a0f23d2ef" => :sierra
-    sha256 "11a04d4397af3b992f2ce9faffdf0efed04ef6e341af8b74284e7c64e9a44585" => :el_capitan
-    sha256 "b6afa53155c9cc4cebb55bf14e8f00cc7db645c2b5edafdd881585403af7afdc" => :yosemite
+    sha256 "cb81327bd6f3eae5abc3ca0e445c5ad1c1051c5f56c71504478ce21927a13d3a" => :sierra
+    sha256 "2267c6a6bcad614c5c96709e50829de6a77d0c8c06e488383801aa5d21262949" => :el_capitan
+    sha256 "0a80a55397476474d0e33daad3966407c0f84cd504bc8aad4c944c7144a03bef" => :yosemite
   end
 
   depends_on "rust" => :build
