@@ -14,7 +14,6 @@ class Darktable < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gphoto2"
-  depends_on "graphicsmagick" => :optional
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "json-glib"
@@ -29,6 +28,7 @@ class Darktable < Formula
   depends_on "openjpeg"
   depends_on "osm-gps-map"
   depends_on "pugixml"
+  depends_on "graphicsmagick" => :optional
 
   needs :openmp
 
