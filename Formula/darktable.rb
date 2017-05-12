@@ -58,10 +58,10 @@ class Darktable < Formula
     end
 
     expected_string = "Hello Homebrew world!"
-    lua_code = <<-EOL
-    dt = require "darktable"
-    dt.print("#{expected_string}")
-    EOL
+    lua_code = <<-EOS.undent
+      dt = require "darktable"
+      dt.print("#{expected_string}")
+    EOS
 
     stdout = shell_output(bin/"darktable-cli homebrew.raw -o image_lua_test.jpg --core --luacmd '#{lua_code}'")
     assert_match expected_string, stdout
