@@ -7,8 +7,8 @@ class Bluepill < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7e09b52470e9eab5b5162c8772380f15e0cbd4a5d1469e3eb7c4ffe1f756955" => :sierra
-    sha256 "70e5c61b9dc318bb2fea072130b360b777ae85942f69a62e9069a868fb85348d" => :el_capitan
+    sha256 "a3525389f1615e4402eee3e77931b57caa057c7a11a592300950ae777f22aa10" => :sierra
+    sha256 "5f836ca162fdbf43412bc45716da5842b74844c2d84bb9f12cf72ea07fac6916" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needed for xcode 8
