@@ -30,11 +30,11 @@ class ZshCompletions < Formula
   end
 
   test do
-    (testpath/".zshrc").write <<-EOS.undent
-      fpath=(#{HOMEBREW_PREFIX}/share/zsh-completions $fpath)
-      autoload -U compinit
-      compinit
+    (testpath/"test.zsh").write <<-EOS.undent
+      fpath=(#{pkgshare} $fpath)
+      autoload _ack
+      which _ack
     EOS
-    system "/bin/zsh", "--login", "-i", "-c", "which _ack"
+    assert_match /^_ack/, shell_output("/bin/zsh test.zsh")
   end
 end
