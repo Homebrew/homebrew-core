@@ -1,8 +1,8 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.78.tar.gz"
-  sha256 "31048901dd8744d12b3e6ac1bc904c08a72cad8118bd6a1f56ce489701ffd1b6"
+  url "https://github.com/danmar/cppcheck/archive/1.79.tar.gz"
+  sha256 "9c222fb41452fa40020233ef3c314f8e43c01600f08d9a03d3584cd121a0c7e1"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
