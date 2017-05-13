@@ -1,8 +1,8 @@
 class TerminalNotifier < Formula
   desc "Send macOS User Notifications from the command-line"
   homepage "https://github.com/julienXX/terminal-notifier"
-  url "https://github.com/julienXX/terminal-notifier/archive/1.7.2.tar.gz"
-  sha256 "64287240ec31dab01c7d1f250f58e48a454607785d2b6fbb91a84d862958f8d3"
+  url "https://github.com/julienXX/terminal-notifier/archive/1.8.0.tar.gz"
+  sha256 "390ae441156c1c621c56ccb3cffa670ba74ee60762bbcf12c92686b749bf232e"
   head "https://github.com/julienXX/terminal-notifier.git"
 
   bottle do
@@ -19,11 +19,9 @@ class TerminalNotifier < Formula
     xcodebuild "-project", "Terminal Notifier.xcodeproj",
                "-target", "terminal-notifier",
                "SYMROOT=build",
-               "-verbose"
-    prefix.install Dir["build/Release/*"]
-    inner_binary = "#{prefix}/terminal-notifier.app/Contents/MacOS/terminal-notifier"
-    bin.write_exec_script inner_binary
-    chmod 0755, bin/"terminal-notifier"
+               "-verbose",
+               "CODE_SIGN_IDENTITY="
+    bin.install "build/Release/terminal-notifier"
   end
 
   test do
