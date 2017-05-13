@@ -1,8 +1,8 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.5.tar.xz"
-  sha256 "318fe068cd414c0af91759a87c29fd577cd5d42bf7a6f50caff27535c02ac7f3"
+  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.6.tar.xz"
+  sha256 "132788919667254b42c026ab39ab3c3a5be59be8575c05fa4b371ca8aed55825"
 
   bottle do
     sha256 "32a037cadf438566743c2e2bf9ce5eb964afeba84e95ae9397db10c1f59d6c6e" => :sierra
