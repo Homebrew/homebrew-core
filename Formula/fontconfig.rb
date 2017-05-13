@@ -50,11 +50,21 @@ class Fontconfig < Formula
   depends_on "freetype"
 
   def install
+    font_dirs = %w[
+      /System/Library/Fonts
+      /Library/Fonts
+      ~/Library/Fonts
+    ]
+
+    if MacOS.version >= :sierra
+      font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font3"
+    end
+
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
-                          "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
+                          "--with-add-fonts=#{font_dirs.join(",")}",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}"
