@@ -1,8 +1,8 @@
 class S3fs < Formula
   desc "FUSE-based file system backed by Amazon S3"
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
-  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.80.tar.gz"
-  sha256 "de8381c9bd73e491904e73561882dc91e5fad9c28fe88834a93d7b4fe12cbd35"
+  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.82.tar.gz"
+  sha256 "8a40f0b11b558b6d733eeff4fcc025cc416df37b6732001bb0c630f6d6d760dd"
 
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
@@ -23,6 +23,14 @@ class S3fs < Formula
   depends_on :osxfuse
 
   def install
+    # Fix "error: no matching function for call to 'clock_gettime'"
+    # Reported 14 May 2017 https://github.com/s3fs-fuse/s3fs-fuse/issues/600
+    if MacOS.version >= :sierra
+      inreplace "src/cache.cpp", "return clock_gettime(clk_id, ts);",
+                                 "return clock_gettime((clockid_t)clk_id, ts);"
+
+    end
+
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--with-gnutls", "--prefix=#{prefix}"
     system "make", "install"
