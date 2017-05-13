@@ -4,6 +4,7 @@ class Kafkacat < Formula
   url "https://github.com/edenhill/kafkacat.git",
       :tag => "1.3.1",
       :revision => "0ab52045cde0c16f9f99dad41cee019ff88e974e"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,20 +13,13 @@ class Kafkacat < Formula
     sha256 "c19822fe3aeea1c75ae42ab5947fd9178716501e842438f05bed7b80c2e8805d" => :yosemite
   end
 
-  option "with-yajl", "Adds JSON support"
-
   depends_on "librdkafka"
-  depends_on "yajl" => :optional
+  depends_on "yajl"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--enable-json" if build.with?("yajl")
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-json"
     system "make"
     system "make", "install"
   end
