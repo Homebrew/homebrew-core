@@ -15,6 +15,11 @@ class Libbladerf < Formula
   depends_on "cmake" => :build
   depends_on "libusb"
 
+  patch do
+    url "https://github.com/Nuand/bladeRF/commit/b6f6267.diff"
+    sha256 "c9b80e04e7e6c7b6ddc6ce3944650d6ae9ad30f4187857a84632993fb9ccc39d"
+  end
+
   def install
     mkdir "host/build" do
       system "cmake", "..", *std_cmake_args

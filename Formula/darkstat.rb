@@ -19,6 +19,11 @@ class Darkstat < Formula
   end
 
   def install
+    # Fix clockid_t redefinition on Sierra and later
+    if MacOS.version >= :el_capitan
+      inreplace "now.c", "__MACH__", "__TOTO__"
+    end
+
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
