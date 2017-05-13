@@ -5,9 +5,10 @@ class PerconaServer < Formula
   sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
 
   bottle do
-    sha256 "99a4df804615f630ad9d8fd69b586d4eaa50e8f3047461e41215f9f96b29ae99" => :sierra
-    sha256 "541871922271a522c9cb2c16059e24df4cc9319275377a458aa881cd13bfa2d9" => :el_capitan
-    sha256 "9ab803502ca6cd911a3c075442f1162ee05eb2aa963d2a5bd55581f1ca68d6b5" => :yosemite
+    rebuild 2
+    sha256 "945f68c016119599a33c34fb3f18310546f5631a7042ee8d73dd021049a6ec5a" => :sierra
+    sha256 "83b82b15a19c8f5764bbee437a6eeb82242ad95dbb92b7c4d752907fa0d1b721" => :el_capitan
+    sha256 "b56e1431a778649e6f0cfccef69180f0f7efad87ebfc31036a6a96b1c803ed38" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -119,11 +120,22 @@ class PerconaServer < Formula
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot

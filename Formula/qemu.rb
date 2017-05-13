@@ -1,24 +1,24 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
-  homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.8.1.tar.bz2"
-  sha256 "018e4c7ed22c220395cf41f835d01505e49d0e579a548bd3d72b03809442bbcd"
+  homepage "http://www.qemu.org/"
+  url "http://download.qemu.org/qemu-2.9.0.tar.bz2"
+  sha256 "00bfb217b1bb03c7a6c3261b819cfccbfb5a58e3e2ceff546327d271773c6c14"
 
   head "git://git.qemu-project.org/qemu.git"
 
   bottle do
-    sha256 "3a709657c309d04d3c2a91de375fe80f81d8f441eb42d029cf1e8e364774d56e" => :sierra
-    sha256 "ff966d6bdc3b80a786d87e1ae01e6099de4c6da6bee5442dd343bed898cd24f1" => :el_capitan
-    sha256 "3a13d18575c6d8b3817f39a08cd6d7d2b96b8dca7237a799011e7ebb51cf1c63" => :yosemite
+    sha256 "8afbc041c76c72bbb49b593a1eacca35203bd051949a6c9d357987992abc0a7c" => :sierra
+    sha256 "391f6289f07515ccfb3a73e7d34e24c1dd5418058f41c469e34d55e59b527021" => :el_capitan
+    sha256 "2d238d81ad1fc903f9024fea48de4f4ab9a8fe9aabb267f518393e216cf82de2" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
-  depends_on "libpng" => :recommended
   depends_on "gnutls"
   depends_on "glib"
   depends_on "pixman"
+  depends_on "libpng" => :recommended
   depends_on "vde" => :optional
   depends_on "sdl2" => :optional
   depends_on "gtk+" => :optional
@@ -36,7 +36,7 @@ class Qemu < Formula
 
   # 3.2MB working disc-image file hosted on upstream's servers for people to use to test qemu functionality.
   resource "armtest" do
-    url "http://wiki.qemu.org/download/arm-test-0.2.tar.gz"
+    url "http://download.qemu.org/arm-test-0.2.tar.gz"
     sha256 "4b4c2dce4c055f0a2adb93d571987a3d40c96c6cbfd9244d19b9708ce5aea454"
   end
 

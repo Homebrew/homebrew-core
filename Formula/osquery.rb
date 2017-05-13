@@ -3,20 +3,20 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.4.0",
-      :revision => "76fe5d748cbcf41a4c3f40193bde05739cf7d83f"
+      :tag => "2.4.2",
+      :revision => "62dda71321e4fe492595298c3300c270c4888f8f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "72cf52151e9df071aa5791363e711e0b9bd2d8bf07a7678ffa5a6033ce38678b" => :sierra
-    sha256 "b3abedc2825bf60de32cf02430f93205a8181720654431c73d50ece88946c2fa" => :el_capitan
-    sha256 "dcd7700ea4cb73278a0554c67328e94c40a807817507d7d379e5da0b0fe8cb6f" => :yosemite
+    sha256 "c85c48463f39c49296a58ebe5e26bec0f5937b7a26cb5495d6e611c4397932c2" => :sierra
+    sha256 "bee77670712fa2cdd11155398faae5f071d176d97cde074bd0750dc4de63f833" => :el_capitan
   end
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.10 and above. Do not remove this.
-  depends_on :macos => :yosemite
+  # osquery only supports OS X 10.11 and above. Do not remove this.
+  depends_on :macos => :el_capitan
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -26,6 +26,7 @@ class Osquery < Formula
   depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
+  depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lldpd"
   depends_on "lz4"
@@ -51,8 +52,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/0.14.4.tar.gz"
-    sha256 "2e935275c6f7eb25e7d850b354344c92cacb7c193b708ec64ffce10ec6afa7f4"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.0.107.tar.gz"
+    sha256 "0560918ef2a4b660e49981378af42d999b91482a31e720be2d9c427f21ac8ad0"
   end
 
   resource "cpp-netlib" do
@@ -82,9 +83,6 @@ class Osquery < Formula
     vendor = buildpath/"brew_vendor"
 
     resource("aws-sdk-cpp").stage do
-      inreplace "CMakeLists.txt", "${CMAKE_CXX_FLAGS_RELEASE} -s",
-                                  "${CMAKE_CXX_FLAGS_RELEASE}"
-
       args = std_cmake_args + %W[
         -DSTATIC_LINKING=1
         -DNO_HTTP_CLIENT=1
@@ -130,7 +128,7 @@ class Osquery < Formula
 
       # Apply same patch as osquery upstream for setuid syscalls.
       Pathname.pwd.install resource("thrift-0.10-patch")
-      system "patch", "-p1", "-i", "gistfile1.txt"
+      system "patch", "-p1", "-i", "patch-thrift-0.10.diff"
 
       exclusions = %W[
         --without-ruby

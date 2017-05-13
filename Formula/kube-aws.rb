@@ -1,15 +1,15 @@
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.5.tar.gz"
-  sha256 "86a15c882ef63e3a24fbd96f8af0b945911b7b2092051baa397d6a5046a1d21f"
+  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.6.tar.gz"
+  sha256 "cde5ce0d1a72361ba0011092fdce7966eda2ce0337b801dbbdb150fde971afb8"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d486f64d76f822d0f282d575543f1dc5008b8306deaeb3d4ee984ae1604a9924" => :sierra
-    sha256 "d6f7cbe965878315250494441844d3de9bb2e0b2b7eb9d5e8d3faae3904a815f" => :el_capitan
-    sha256 "e10ba1d9474a9cc8bbdafa8919132af3463f9c652ad50dd258a44e0a55723edf" => :yosemite
+    sha256 "cd7c728101b81407aa2cc09a27d7e85d42fdd0726dfccd041fb7f7b34271ef02" => :sierra
+    sha256 "8f9269c178f2ec2eea325bc3b5be960964f99006b06935e9552bcecd7c05a537" => :el_capitan
+    sha256 "7a59866cef92fbb090ad5311e4bb0f1b05b04efbfc052da4792ff8e6eefd5cfe" => :yosemite
   end
 
   depends_on "go" => :build
@@ -42,10 +42,13 @@ class KubeAws < Formula
     require "yaml"
 
     system "#{bin}/kube-aws"
-    cluster = { "clusterName" => "test-cluster", "externalDNSName" => "dns",
-                "keyName" => "key", "region" => "west",
-                "availabilityZone" => "zone", "kmsKeyArn" => "arn",
-                "worker"=>{ "nodePools"=>[{ "name"=>"nodepool1" }] } }
+    cluster = { "clusterName"=>"test-cluster",
+                "apiEndpoints"=>[{ "name"=>"default", "dnsName"=>"dns",
+                "loadBalancer"=>{ "createRecordSet"=>false } }],
+                "keyName"=>"key", "region"=>"west", "availabilityZone"=>"zone",
+                "kmsKeyArn"=>"arn",
+                "worker"=>{ "nodePools"=>[{ "name"=>"nodepool1" }] },
+                "addons"=>{ "rescheduler"=>{ "enabled"=>false } } }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
            "--availability-zone", "zone", "--key-name", "key",

@@ -2,15 +2,15 @@ class Kafkacat < Formula
   desc "Generic command-line non-JVM Apache Kafka producer and consumer"
   homepage "https://github.com/edenhill/kafkacat"
   url "https://github.com/edenhill/kafkacat.git",
-      :tag => "1.3.0",
-      :revision => "b79896cceedf81df7873850f38e5e2c4ad3e3e57"
-  revision 2
+      :tag => "1.3.1",
+      :revision => "0ab52045cde0c16f9f99dad41cee019ff88e974e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d6d0216bf1ea263494f9286e90bc965e9009fd05227d201d0bee0afb0ccebaac" => :sierra
-    sha256 "f3e04c8005e9bd353717c04be4191bd1404385fb6e502ae6f52402e95b73189f" => :el_capitan
-    sha256 "19bc3da24e213841b428fa755a9b259c6132eba3181b03c4ac5eff116ba8702b" => :yosemite
+    sha256 "dad8f463c25cc6b481e9205485f1496689b23ea0a4fd208409588508d610ee7c" => :sierra
+    sha256 "5bc56f600f522ff0e4b90e46b73c3fe689fe4fd8a89de277256af68b5303cdbd" => :el_capitan
+    sha256 "c19822fe3aeea1c75ae42ab5947fd9178716501e842438f05bed7b80c2e8805d" => :yosemite
   end
 
   depends_on "librdkafka"

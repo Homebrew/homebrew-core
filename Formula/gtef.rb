@@ -1,13 +1,13 @@
 class Gtef < Formula
   desc "GNOME Text Editor Framework"
   homepage "https://wiki.gnome.org/Projects/Gtef"
-  url "https://download.gnome.org/sources/gtef/2.0/gtef-2.0.0.tar.xz"
-  sha256 "12fb28b101bc14a7ed266a25e8ff41c0535e1201ce38905e443c8fca83e5ac71"
+  url "https://download.gnome.org/sources/gtef/2.0/gtef-2.0.1.tar.xz"
+  sha256 "8432f0f404b93e5a2702978b5f121b8f9ae2167c906e9f2ed7b5165142e27a4f"
 
   bottle do
-    sha256 "d6b45a7bb9234ae2aa59bafe8a836f04643fa631d92b98e4b53257b52790051b" => :sierra
-    sha256 "18d083c4faba1b9065c978c004887d76d99f31d1f257164e9154a8cfe24eeba7" => :el_capitan
-    sha256 "1abfe88582878bcfd8ebcc16a59d0bcdfd7576ba42f4aa0f39b671a6f49bd6f4" => :yosemite
+    sha256 "e9029727148e5970ee01ceb8cc4e3cc3b226aaa1c6d4a87b97ecb515cefd8ae4" => :sierra
+    sha256 "35aa0e7a2d72109c47ccf2b8a438d10bd299c3d77f6bdce64cd4795c0e74e872" => :el_capitan
+    sha256 "76e0fcbdc905feb1a1bfb2ce7854a3e7707d3959588fc6aab7624911b8f792df" => :yosemite
   end
 
   depends_on "pkg-config" => :build

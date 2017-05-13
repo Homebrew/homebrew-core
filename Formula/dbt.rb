@@ -3,16 +3,16 @@ class Dbt < Formula
 
   desc "Data build tool"
   homepage "https://github.com/fishtown-analytics/dbt"
-  url "https://files.pythonhosted.org/packages/01/53/ab9689b799eeac0e3d36915f61cf30c56b0a623fbe07bf791ec27d834888/dbt-0.8.0.tar.gz"
-  sha256 "9f7595233686111e3746dfd4ead51d8e09a7cf35de5d1e4748ab6ec713517282"
+  url "https://files.pythonhosted.org/packages/a9/d1/1a20e818bc05e198154996616c12c5a49f84ac2a3faf632d23f6462d06c6/dbt-0.8.1.tar.gz"
+  sha256 "c78bb64e4172f8d954fdd95d9b9c00c1a3de1a5349b6cbd22baa7cebff1c6fa9"
 
   head "https://github.com/fishtown-analytics/dbt.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "113214912c60b8ed5633dae7fef84739d91932d89b7f466207e9574a418b8db9" => :sierra
-    sha256 "adc761e337769ba7acd86fe63c6c43ddc5e8258e50455b310751b8107a8aa30c" => :el_capitan
-    sha256 "e495bbc50ea4403a4e4f41462f3019e07c30ed3a82601ab026fb4c91bfe0ac97" => :yosemite
+    sha256 "c338c162aaa75ed2585dfc1a3111c9b29d1adebd4833698536b2a92e55e84a2b" => :sierra
+    sha256 "e87d39de3c820b1de93fc7e12a046082a522e665d14a1a590137440f48773a27" => :el_capitan
+    sha256 "fe6a3b19ca61277ebd6d73845fa503fe2b54bf68bcb0402bcd791864504e311c" => :yosemite
   end
 
   depends_on "python3"

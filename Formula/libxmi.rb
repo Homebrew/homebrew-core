@@ -1,8 +1,8 @@
 class Libxmi < Formula
   desc "C/C++ function library for rasterizing 2D vector graphics"
   homepage "https://www.gnu.org/software/libxmi/"
-  url "https://ftpmirror.gnu.org/libxmi/libxmi-1.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libxmi/libxmi-1.2.tar.gz"
+  url "https://ftp.gnu.org/gnu/libxmi/libxmi-1.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libxmi/libxmi-1.2.tar.gz"
   sha256 "9d56af6d6c41468ca658eb6c4ba33ff7967a388b606dc503cd68d024e08ca40d"
 
   bottle do

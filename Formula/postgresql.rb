@@ -1,15 +1,15 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.2/postgresql-9.6.2.tar.bz2"
-  sha256 "0187b5184be1c09034e74e44761505e52357248451b0c854dddec6c231fe50c9"
+  url "https://ftp.postgresql.org/pub/source/v9.6.3/postgresql-9.6.3.tar.bz2"
+  sha256 "1645b3736901f6d854e695a937389e68ff2066ce0cde9d73919d6ab7c995b9c6"
 
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "75795830b5d1ed481cd21e91e1c74e03a49d51e521a6cf7b167d1976cbf515dd" => :sierra
-    sha256 "df15dfcfc4672767a739012565d52990198a121cdaaa4ca986c1cd7ecddd69d9" => :el_capitan
-    sha256 "fb64a01714c6abf4509eddf6f3011d774987c6f322fde0bb35c0b476acf3eb19" => :yosemite
+    sha256 "9114cef478fd44f8ff0e1ecef5d3ac59aaefdc6907d984d721be1d418a91d932" => :sierra
+    sha256 "6fff45123e78105945a03b5c159f68d638d41a88421c25c28ecfb30def846dda" => :el_capitan
+    sha256 "a3070af563a1328ec92946b502e827c3f0a6d5c98d45abb414b3acbed7829bd1" => :yosemite
   end
 
   option "without-perl", "Build without Perl support"
@@ -22,7 +22,6 @@ class Postgresql < Formula
 
   depends_on "openssl"
   depends_on "readline"
-  depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
 
   option "with-python", "Enable PL/Python2"
   depends_on :python => :optional
@@ -104,7 +103,7 @@ class Postgresql < Formula
   def caveats; <<-EOS.undent
     If builds of PostgreSQL 9 are failing and you have version 8.x installed,
     you may need to remove the previous version first. See:
-      https://github.com/Homebrew/homebrew/issues/2510
+      https://github.com/Homebrew/legacy-homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
       https://www.postgresql.org/docs/9.6/static/upgrading.html

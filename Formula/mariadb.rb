@@ -1,13 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.22/source/mariadb-10.1.22.tar.gz"
-  sha256 "bcb0572e7ad32cea9740a21e9255f733bdf60a5561ffbda317c22dd12b3966ce"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.23/source/mariadb-10.1.23.tar.gz"
+  sha256 "54d8114e24bfa5e3ebdc7d69e071ad1471912847ea481b227d204f9d644300bf"
 
   bottle do
-    sha256 "3654c9ca2941c0977563e3528aae55bbe62ce6312e504c62471befc284316c66" => :sierra
-    sha256 "7f22ed68e8d00e20df658f1a5db966c88ab06a413257750cfcdd6131387013e7" => :el_capitan
-    sha256 "e4f1e192d1f476e84c1cbd9931a2262d2d6602c63871a854c871cd0f5f5b79ae" => :yosemite
+    sha256 "04cd62eea7f3209cbb84c3f0ae272a1506895fe694adbde590c2cdf070fa4de5" => :sierra
+    sha256 "fac8cb5ab929041a7b29b28f18d1f1f0e5fcef1b197fef330f3f4cc783529532" => :el_capitan
+    sha256 "a0dc238797384b8bb9e72b7c4bd5f7faa37d16fab61676fb01c776c765fea061" => :yosemite
   end
 
   devel do
@@ -39,11 +39,13 @@ class Mariadb < Formula
     :because => "both install plugins"
 
   def install
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
+    if build.devel?
+      # Don't hard-code the libtool path. See:
+      # https://github.com/Homebrew/homebrew/issues/20185
+      inreplace "cmake/libutils.cmake",
+        "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
+        "COMMAND libtool -static -o ${TARGET_LOCATION}"
+    end
 
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
@@ -114,8 +116,10 @@ class Mariadb < Formula
     # Fix up the control script and link into bin
     inreplace "#{prefix}/support-files/mysql.server" do |s|
       s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
+      if build.devel?
+        # pidof can be replaced with pgrep from proctools on Mountain Lion
+        s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
+      end
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"
@@ -133,6 +137,15 @@ class Mariadb < Formula
       inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -148,6 +161,8 @@ class Mariadb < Formula
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot
@@ -168,7 +183,6 @@ class Mariadb < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{var}/mysql</string>
       </array>
       <key>RunAtLoad</key>

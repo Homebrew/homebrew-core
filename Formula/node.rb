@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.9.0/node-v7.9.0.tar.xz"
-  sha256 "a569764b884929f31a0772600a5cf36048ad42aa8c54ba4cabea6c067ef96a29"
+  url "https://nodejs.org/dist/v7.10.0/node-v7.10.0.tar.xz"
+  sha256 "dc34dd15524ba821ffcae7b245eabe8631e2614d5e3cb8ff08fbfdadf5919f21"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "ada52db50ebad785b42be6868d41e7e052c4d885957b27e4a103aba2e0f94597" => :sierra
-    sha256 "37b3900577c93ebc31d60364aeeaa8583e6b0620fa1ed8516a06c016df98a0d4" => :el_capitan
-    sha256 "e12949986420b242cc5237fc8bffce797fa9787385fd54b9679e6024678ac157" => :yosemite
+    sha256 "e0bc03434ca1a644632dca9508f50fc05c2ca5f153cc0fb15aaea2492168d0af" => :sierra
+    sha256 "01ad1c0eed098a6810b5ad763859909487dfd93f69f81e02ff28daae602a0b00" => :el_capitan
+    sha256 "45e22994c7aef4d0690824dc1f0ba31243b1e305be02fabfed288fe077d4db19" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -37,7 +37,6 @@ class Node < Formula
 
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
-  # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
     sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
@@ -70,11 +69,11 @@ class Node < Formula
         system "make", "install"
         # `package.json` has relative paths to the npm_install directory.
         # This copies back over the vanilla `package.json` that is expected.
-        # https://github.com/Homebrew/homebrew/issues/46131#issuecomment-157845008
+        # https://github.com/Homebrew/legacy-homebrew/issues/46131#issuecomment-157845008
         cp buildpath/"npm_install/package.json", libexec/"npm/lib/node_modules/npm"
         # Remove manpage symlinks from the buildpath, they are breaking bottle
         # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
-        # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
+        # https://github.com/Homebrew/legacy-homebrew/pull/47081#issuecomment-165280470
         rm_rf libexec/"npm/share/"
       end
 
@@ -105,7 +104,7 @@ class Node < Formula
     # Let's do the manpage dance. It's just a jump to the left.
     # And then a step to the right, with your hand on rm_f.
     ["man1", "man3", "man5", "man7"].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
+      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
       rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
       ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"

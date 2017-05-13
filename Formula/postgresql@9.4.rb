@@ -1,13 +1,13 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.11/postgresql-9.4.11.tar.bz2"
-  sha256 "e3eb51d045c180b03d2de1f0c3af9356e10be49448e966ca01dfc2c6d1cc9d23"
+  url "https://ftp.postgresql.org/pub/source/v9.4.12/postgresql-9.4.12.tar.bz2"
+  sha256 "fca055481875d1c49e31c28443f56472a1474b3fbe25b7ae64440c6118f82e64"
 
   bottle do
-    sha256 "64c96e272b4c3e959740c1a1f9001486aaff9aa4a641b451985c8184fb615f7a" => :sierra
-    sha256 "8a19d613cf84baafb05aad54ce62ae485974396ae4553ebdd981d9cf402dc15e" => :el_capitan
-    sha256 "4ccd2cd0600da4c27cd4b1f0be251820f95097f4752521ecb17d0e1ba5b8d7b9" => :yosemite
+    sha256 "18c0730abb8c6722231bd61c28da3ac649f378547afa6e7ffaa30831a04119e5" => :sierra
+    sha256 "1514a47e4147b522986eca8337e27bc7a2001e12f82d6e6641c3fda0ef028998" => :el_capitan
+    sha256 "d54bcce2a9c033541b19969795c039efc88ce62a265892595e550e46ac32ba92" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -18,7 +18,6 @@ class PostgresqlAT94 < Formula
 
   depends_on "openssl"
   depends_on "readline"
-  depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
   depends_on :python => :optional
 
   fails_with :clang do
@@ -47,7 +46,6 @@ class PostgresqlAT94 < Formula
     ]
 
     args << "--with-perl" if build.with? "perl"
-
     args << "--with-python" if build.with? "python"
 
     # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
@@ -78,7 +76,7 @@ class PostgresqlAT94 < Formula
     s = <<-EOS.undent
     If builds of PostgreSQL 9 are failing and you have version 8.x installed,
     you may need to remove the previous version first. See:
-      https://github.com/Homebrew/homebrew/issues/issue/2510
+      https://github.com/Homebrew/legacy-homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
       https://www.postgresql.org/docs/9.3/static/upgrading.html

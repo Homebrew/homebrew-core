@@ -21,8 +21,8 @@ class GccAT49 < Formula
 
   desc "The GNU Compiler Collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftpmirror.gnu.org/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2"
   sha256 "6c11d292cd01b294f9f84c9a59c230d80e9e4a47e5c6355f046bb36d4f358092"
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
@@ -98,6 +98,7 @@ class GccAT49 < Formula
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
+      "--enable-plugin",
       # Use 'bootstrap-debug' build configuration to force stripping of object
       # files prior to comparison during bootstrap (broken by Xcode 6.3).
       "--with-build-config=bootstrap-debug",
@@ -110,14 +111,6 @@ class GccAT49 < Formula
       # install-info is run.
       "MAKEINFO=missing",
     ]
-
-    # "Building GCC with plugin support requires a host that supports
-    # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
-
-    # Otherwise make fails during comparison at stage 3
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if MacOS.version < :leopard
 
     args << "--disable-nls" if build.without? "nls"
 

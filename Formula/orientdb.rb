@@ -1,14 +1,14 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com/"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.18.tar.gz"
-  sha256 "aab85c6a10e1e7d36a163ee6268815e6285e198e90d386f1b068c05b85e19ad6"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.19.tar.gz"
+  sha256 "877a9534cdc5cce51aa0e8dfb02be71be0eb4be1d0da0365d2600b8601daace9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d5a4e4b2affc0295febe1bd92ce6dadd0196e1862e7f86632a905ba1ec13d61" => :sierra
-    sha256 "72d91bd654332809220edeb6e1d1795ad4c09d4d1b83a9755b7bd07cdc65a14d" => :el_capitan
-    sha256 "72d91bd654332809220edeb6e1d1795ad4c09d4d1b83a9755b7bd07cdc65a14d" => :yosemite
+    sha256 "ea3725e7b685560f9455fa98bb22e171b818392d5e9c4cb2e8340639db0baa73" => :sierra
+    sha256 "94194fa38f110c3c0c6e9950d6b17f6dcbd0411df2b2e0c5f7b4c9f53617b310" => :el_capitan
+    sha256 "94194fa38f110c3c0c6e9950d6b17f6dcbd0411df2b2e0c5f7b4c9f53617b310" => :yosemite
   end
 
   def install

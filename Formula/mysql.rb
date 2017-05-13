@@ -3,11 +3,12 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.18.tar.gz"
   sha256 "ae6f5e2cf7b936496cf60260cd7fd5a0862c21f48cd240448021c4ea067a0f0c"
+  revision 1
 
   bottle do
-    sha256 "3aa35b07d2472e31d629b9597b4c14ad66c5e29cfcdecd002aa98aa85199f51a" => :sierra
-    sha256 "2c1964485faefa013ae432fa5e4693c08aaf530b377f26062f8831644a4cef20" => :el_capitan
-    sha256 "09f3a2b3032cffc893f6724df450bae3eaa929852eae94e12474d1538aac22e4" => :yosemite
+    sha256 "9d3c7b6dbb318dd8bcf7bdda510a8570289ae4329daf1663cc6f002ae5b087c7" => :sierra
+    sha256 "4c765b04a656f88ff4020c0a2c23e22a8bd7645ee61787565fac63cdc82f2dcf" => :el_capitan
+    sha256 "91ceb7a04609580e29c1b355ea3dc5047d63d1f1c15f06fb088ba70f03f23b4f" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -56,7 +57,6 @@ class Mysql < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=yes
       -DWITH_SSL=system
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
@@ -113,6 +113,15 @@ class Mysql < Formula
               /^(PATH=".*)(")/,
               "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -129,6 +138,8 @@ class Mysql < Formula
     s = <<-EOS.undent
     We've installed your MySQL database without a root password. To secure it run:
         mysql_secure_installation
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect run:
         mysql -uroot
@@ -157,7 +168,6 @@ class Mysql < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{datadir}</string>
       </array>
       <key>RunAtLoad</key>

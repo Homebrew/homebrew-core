@@ -1,14 +1,14 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "http://invisible-island.net/byacc/byacc.html"
-  url "ftp://invisible-island.net/byacc/byacc-20170201.tgz"
-  sha256 "90b768d177f91204e6e7cef226ae1dc7cac831b625774cebd3e233a917754f91"
+  url "ftp://invisible-island.net/byacc/byacc-20170430.tgz"
+  sha256 "44cb43306c0f1e7b8539025fb02120261488d872969c8aa658bd50b0a5467299"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62b3f87a17d1fa2309444b295b3f1b92e2c2afaa8566effbdf2f3dd7f06a3052" => :sierra
-    sha256 "9fde660e4a2eac410064b77801c364cc3c7dbb9a0fabe1c5aa929aeb1aec6808" => :el_capitan
-    sha256 "59e8adc373dd31b8087d6a82fa2c6fcb7c50f21d23b2c65d6f91f9d72b754211" => :yosemite
+    sha256 "0fe9ae7c9e17d4c86b482c1687154a0505d3789aaef27ecb7447020a97fed735" => :sierra
+    sha256 "db200946b47757fa0dacf8a4c5869b02b44a77277406f9a4d9ac9927b3ddbc03" => :el_capitan
+    sha256 "b9d1cf3f27f5b0e32d41a5838057779953f5642ebf0bcf7c15a03193a3e14568" => :yosemite
   end
 
   def install

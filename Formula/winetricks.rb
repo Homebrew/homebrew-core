@@ -12,8 +12,8 @@ class Winetricks < Formula
   depends_on "cabextract"
   depends_on "p7zip"
   depends_on "unrar"
-  depends_on "wine"
-  depends_on "zenity" => [:optional, :run]
+  depends_on "wine" => :optional
+  depends_on "zenity" => :optional
 
   def install
     bin.install "src/winetricks"

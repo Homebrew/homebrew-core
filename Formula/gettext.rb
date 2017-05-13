@@ -1,8 +1,8 @@
 class Gettext < Formula
   desc "GNU internationalization (i18n) and localization (l10n) library"
   homepage "https://www.gnu.org/software/gettext/"
-  url "https://ftpmirror.gnu.org/gettext/gettext-0.19.8.1.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gettext/gettext-0.19.8.1.tar.xz"
+  url "https://ftp.gnu.org/gnu/gettext/gettext-0.19.8.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.19.8.1.tar.xz"
   sha256 "105556dbc5c3fbbc2aa0edb46d22d055748b6f5c7cd7a8d99f8e7eb84e938be4"
 
   bottle do
@@ -12,7 +12,8 @@ class Gettext < Formula
     sha256 "e3091192716347fc54f6e8a8184d892feed5309672daa061a1407b071af80c05" => :mavericks
   end
 
-  keg_only :shadowed_by_osx, "macOS provides the BSD gettext library and some software gets confused if both are in the library path."
+  keg_only :shadowed_by_osx,
+    "macOS provides the BSD gettext library & some software gets confused if both are in the library path"
 
   # https://savannah.gnu.org/bugs/index.php?46844
   depends_on "libxml2" if MacOS.version <= :mountain_lion

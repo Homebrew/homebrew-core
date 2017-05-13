@@ -6,9 +6,10 @@ class PerconaServerAT56 < Formula
   sha256 "c71c3f80662982ade22a0a538c5fd595b1761472c98efc2509124ecc4004d1e7"
 
   bottle do
-    sha256 "2baa1f237c534c5b088a63a50658aae0cda1e98bda7b8dbac18d4df226af27c5" => :sierra
-    sha256 "92ac77c2779325e14a03237e2aaa66c6367937a0f7226df05053d9dce50ec943" => :el_capitan
-    sha256 "c301571bb6c86b0e9ca0830a66a063a70d8b3a66d470379b251addcbce606385" => :yosemite
+    rebuild 2
+    sha256 "cc19cbb74b1decb3299739b83d9ed362b91ff0d1416104bb4bfef247ad3b17cd" => :sierra
+    sha256 "c08a8da7d0744e63bf0a4723e7a18718ca5fb3409e2e8a0b498c65c10ab9e5e0" => :el_capitan
+    sha256 "8466687c1b3048a4b4163f09010052dabb60be2c2dd7c15fa79341a1f0a457c6" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -82,12 +83,6 @@ class PerconaServerAT56 < Formula
     # Build with InnoDB Memcached plugin
     args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
 
-    # Make universal for binding to universal applications
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
@@ -117,6 +112,15 @@ class PerconaServerAT56 < Formula
     libexec.mkpath
     mv "#{bin}/mysqlaccess", libexec
     mv "#{bin}/mysqlaccess.conf", libexec
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -132,6 +136,8 @@ class PerconaServerAT56 < Formula
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot

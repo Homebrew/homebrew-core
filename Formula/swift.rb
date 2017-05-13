@@ -6,46 +6,46 @@ class Swift < Formula
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.
   stable do
-    url "https://github.com/apple/swift/archive/swift-3.1-RELEASE.tar.gz"
-    sha256 "bc8f4fc1cb5e9cddcdca4208dc5db89696d6ab507e739d498519a0262bd453c0"
+    url "https://github.com/apple/swift/archive/swift-3.1.1-RELEASE.tar.gz"
+    sha256 "03eb54e7f89109a85c9b2a9bfdee88d2d7e1bdef73ae0385b30fe4661efaf407"
 
     resource "clang" do
-      url "https://github.com/apple/swift-clang/archive/swift-3.1-RELEASE.tar.gz"
-      sha256 "bb4543904e82f433a6a65612c9c4d8218dc5358f8097318f4f7fd6af145dd1f5"
+      url "https://github.com/apple/swift-clang/archive/swift-3.1.1-RELEASE.tar.gz"
+      sha256 "ed41f1231bae030a412455491a5244ede53a4761617194b2dda573f5776361ad"
     end
 
     resource "cmark" do
-      url "https://github.com/apple/swift-cmark/archive/swift-3.1-RELEASE.tar.gz"
-      sha256 "f0906c6048cdc93c85106090a878dea7ca3b6d862091f82fe8073e273d3fc011"
+      url "https://github.com/apple/swift-cmark/archive/swift-3.1.1-RELEASE.tar.gz"
+      sha256 "51db8067f11976a7ca38a6ff9f173d3d9e3df290991be87835cdc003e0b62e4e"
     end
 
     resource "compiler-rt" do
-      url "https://github.com/apple/swift-compiler-rt/archive/swift-3.1-RELEASE.tar.gz"
-      sha256 "d1d4eec2649f9c02007f666975b41bb0174713384c80665f15e7f34345049d96"
+      url "https://github.com/apple/swift-compiler-rt/archive/swift-3.1.1-RELEASE.tar.gz"
+      sha256 "569568141b1f9ff0f433eaf815a0c19592bf43407bb4150d647aa9c7bc2a7c7b"
     end
 
     resource "llbuild" do
-      url "https://github.com/apple/swift-llbuild/archive/swift-3.1-RELEASE.tar.gz"
-      sha256 "578c0d28fc74df52c77dd6c1bfc91e45f0d9d2349e82855ae2f9715d1b25ac36"
+      url "https://github.com/apple/swift-llbuild/archive/swift-3.1.1-RELEASE.tar.gz"
+      sha256 "ea59fd6603fe5d71598895832d6eef9314f1af99a72050536e473e9bb08a57df"
     end
 
     resource "llvm" do
-      url "https://github.com/apple/swift-llvm/archive/swift-3.1-RELEASE.tar.gz"
-      sha256 "5f99110ac0fcd70b7fabf02989cfd0e7f1f1b6368b80d69f1506ce1fdc38c83e"
+      url "https://github.com/apple/swift-llvm/archive/swift-3.1.1-RELEASE.tar.gz"
+      sha256 "fc6ac7c0c6afff344a8d4e5299b7417f414f1499cf374953e06c339d8177fc26"
     end
 
     resource "swiftpm" do
-      url "https://github.com/apple/swift-package-manager/archive/swift-3.1-RELEASE.tar.gz"
-      sha256 "54e66ff2fbe06011207e07a75807b9c0d317355c655c1d74580411e705f2b824"
+      url "https://github.com/apple/swift-package-manager/archive/swift-3.1.1-RELEASE.tar.gz"
+      sha256 "5f98dd6fd41170e2f51f85131ca50cba3d50a187ce94b7a1db7a776c2815c778"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "0a1ec73f37a04a51bfd8804ff57b6543af9571d0022d18121aa388bfb4842166" => :sierra
+    sha256 "3f856e641147d9a743dc7e978e0dab93652ad43b59a0c064af35ab679412c5ad" => :sierra
   end
 
-  keg_only :provided_by_osx, "Apple's CLT package contains Swift."
+  keg_only :provided_by_osx, "Apple's CLT package contains Swift"
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build

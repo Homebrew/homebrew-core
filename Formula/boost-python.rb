@@ -3,13 +3,15 @@ class BoostPython < Formula
   homepage "https://www.boost.org/"
   url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
   sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
+  url "https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2"
+  sha256 "7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "3b47066b435fc7b9acb677969bf2fa54e634a45ee91d089f222169d012ab487a" => :sierra
-    sha256 "0958d5f3c4de00cc9b391c5ba4225c798056941be69cda4c6df913bf81f57c33" => :el_capitan
-    sha256 "14b55a75a1328adfe89f9234c72ed769d159f93fc0a7e140c956de2c3c5d54c9" => :yosemite
+    sha256 "9b36914889a7c0492bc21821c7951f3d0417a519b90fdcdaf2435385d506a833" => :sierra
+    sha256 "3554a12bfb824365e3b57929f8ef29b31c24b536b30018546ac573f417b6904c" => :el_capitan
+    sha256 "c26e9665b68fc3e57acbca31f8698c1b9d55ac97de436908521bd0d5cfa97216" => :yosemite
   end
 
   option :cxx11

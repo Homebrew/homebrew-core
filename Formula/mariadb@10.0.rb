@@ -5,9 +5,10 @@ class MariadbAT100 < Formula
   sha256 "9a2cb7f06ecce1bb64dddc70c484e36507b50b756c110c1d37fa145a13a796bb"
 
   bottle do
-    sha256 "7ad3a0756df06bf1802e3c56da44c31966ecbbaf725c429fceca06ce45c3f8fa" => :sierra
-    sha256 "9077cfdc48f6d01395db18e87bcfce8f789aaa144c592b1356e741a294750a3d" => :el_capitan
-    sha256 "e4bd38eb881b62f2512480d30cd1e88b4846bae7f5356df547b0629f6c34dce5" => :yosemite
+    rebuild 2
+    sha256 "cd1a8bfb27d09b9ae995d8f5d0c3dbd0982dfcf6e9308b48f99809318b4e14b6" => :sierra
+    sha256 "f3fc5df634db4d14622bcb1f8d1a7bd27f2cb127bbaee6422fa9186b7deaa68b" => :el_capitan
+    sha256 "8a629ff434a99be76d9a5ac71ccbe4fbb1fc6c7683c115437a133a939e4c8699" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -108,6 +109,15 @@ class MariadbAT100 < Formula
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -123,6 +133,8 @@ class MariadbAT100 < Formula
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         mysql -uroot
@@ -143,7 +155,6 @@ class MariadbAT100 < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{var}/mysql</string>
       </array>
       <key>RunAtLoad</key>

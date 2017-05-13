@@ -1,14 +1,14 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "http://tcpreplay.appneta.com"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.2.2/tcpreplay-4.2.2.tar.gz"
-  sha256 "e674166b54486db8f5417554ed88c06f44f368d70585c2897b0bc085009d8dd5"
+  url "https://github.com/appneta/tcpreplay/releases/download/v4.2.5/tcpreplay-4.2.5.tar.gz"
+  sha256 "941026be34e1db5101d3d22ebddd6fff76179a1ee81e273338f533ba4eca89d7"
 
   bottle do
     cellar :any
-    sha256 "54e2b91bb468a674e6bf95b4adbc4d1f039188732c5e89585b68a0846f0afb90" => :sierra
-    sha256 "c3084c304adfee6a233383728f4554a4769fefb88469e3abe25e6beecd1c40eb" => :el_capitan
-    sha256 "f005808bcf60fae4867515463204419b233927a7268fd491718adfb67aeed45b" => :yosemite
+    sha256 "63295be51e0bd4b572ce2e4f17679decb990ea48058aa5bdece6a6b108c6f681" => :sierra
+    sha256 "0b9515ebc8b05696d9de14c7a245ce35ce644e21083f4a66b2079163bbf3c4ce" => :el_capitan
+    sha256 "40f257f58f9949936289043317a345e717f0ea9ac33a197af249858574f5de7d" => :yosemite
   end
 
   depends_on "libdnet"

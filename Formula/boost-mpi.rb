@@ -1,14 +1,25 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
-  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
   head "https://github.com/boostorg/boost.git"
 
+  stable do
+    url "https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2"
+    sha256 "7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332"
+
+    # Remove for > 1.64.0
+    # "Replace boost::serialization::detail::get_data function."
+    # Upstream PR from 26 Jan 2017 https://github.com/boostorg/mpi/pull/39
+    patch :p2 do
+      url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch"
+      sha256 "c7af75a83fef90fdb9858bc988d64ca569ae8d940396b9bc60a57d63fca2587b"
+    end
+  end
+
   bottle do
-    sha256 "6d177c60f72c4182d72e7ebff037edd4ec25520b090fba74a617cf6c596524bd" => :sierra
-    sha256 "e5ddc5c4b9362352c63e46f1af46e6b1eb2269972a954afa0e7b4b484f3564aa" => :el_capitan
-    sha256 "d758f5b2305f113f8be1d423a23e7486e2c30a931592613db2b756d3223d6a2b" => :yosemite
+    sha256 "db1ffdc724d9d3ecc0bb199896361feef409e7728702765544044cdda3a0d1f2" => :sierra
+    sha256 "f4c6deb2f31c5ca9bcff6e2d416c8ca0cfafaa2d3b155c0d29743610e4cfef79" => :el_capitan
+    sha256 "a91cea8bddb121b6573165e0d108cd24e501bec97e61c29b0f37c414e87dc62c" => :yosemite
   end
 
   option :cxx11

@@ -3,16 +3,16 @@ require "language/go"
 class Vaulted < Formula
   desc "Allows the secure storage and execution of environments"
   homepage "https://github.com/miquella/vaulted"
-  url "https://github.com/miquella/vaulted/archive/v2.1.1.tar.gz"
-  sha256 "e8adc5d8b2e6b1ad264c851aa864bdd57359b0024a5768de5f1231e3ae5f644c"
+  url "https://github.com/miquella/vaulted/archive/v2.2.0.tar.gz"
+  sha256 "2b92f4973d4273dfb508f7e11469d072e91d0762864cf60ee720998024c0feb4"
 
   head "https://github.com/miquella/vaulted.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3e5997ac5d059daa21e70a20a81ae1ac921fb1a5d52686884e1dee0cd8f0061" => :sierra
-    sha256 "4e4afb85b441e944f731280761ded36de02cf27cff2a13d7e461483a453559ef" => :el_capitan
-    sha256 "d7c2bc58bdabf6ada0730ac1b90d3f08c9aaa3754b7070e17873b11445e63f7d" => :yosemite
+    sha256 "f26213f97d628b3fd09da3499599ce809836d35a8d9066c4ca0956337e8004e2" => :sierra
+    sha256 "d6cb9dee20339fe668adcf97447a6451f59e970ccef032cb97665582fa064ce4" => :el_capitan
+    sha256 "643939ca33c34a15ac264bf4cb66aaf1b14fb175528b40ab2fbaa206baa62624" => :yosemite
   end
 
   depends_on "go" => :build

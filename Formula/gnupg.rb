@@ -4,14 +4,16 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
   sha256 "24cf9a69369be64a9f6f8cc11a1be33ab7780ad77a6a1b93719438f49f69960d"
+  revision 1
 
   bottle do
-    sha256 "da72dd30eff4131ff8177528b5bf03f6e0273e553bdf34e8daa490696e24a92c" => :sierra
-    sha256 "fa918f6b7d0693dbaee150f2e35be7a3836465ec70b4f21d0a6d7b328c71d53b" => :el_capitan
-    sha256 "1bffe1390ca8c2de5d4eca6e6fd3af90ff16ebd8f9a715ff0c91d43f30e0b0fe" => :yosemite
+    sha256 "05f9ab32a72ea08558ff601c3129bd28f96254be825166af32071e9d85ad4e96" => :sierra
+    sha256 "d04710133f5b4024613b6050e71e18320ec7bc5d1f3ece9881670b41e7dabc88" => :el_capitan
+    sha256 "4c652325ce87064d12a927e4ee2584e1feb0f27b2e7288b4b9d1d19c78712797" => :yosemite
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
+  option "with-gpg-zip", "Additionally install the gpg-zip utility"
   option "without-libusb", "Disable the internal CCID driver"
 
   deprecated_option "without-libusb-compat" => "without-libusb"
@@ -29,7 +31,17 @@ class Gnupg < Formula
   depends_on "adns"
   depends_on "libusb" => :recommended
   depends_on "readline" => :optional
-  depends_on "homebrew/fuse/encfs" => :optional
+  depends_on "encfs" => :optional
+
+  # Patch for possible keyring corruption when updating/deleting keys.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/gnupg2/gnupg2_2.1.20-4.debian.tar.bz2"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/gnupg2/gnupg2_2.1.20-4.debian.tar.bz2"
+    sha256 "aa2d9e58e35aeed14f2cfb8ae77eadbe14c97fef85a42819a79cc6c4f73415b3"
+    apply "patches/0053-g10-invalidate-the-fd-cache-for-keyring.patch",
+          "patches/0056-gpg-Fix-typo.patch",
+          "patches/0057-gpg-Properly-account-for-ring-trust-packets.patch"
+  end
 
   def install
     args = %W[
@@ -56,7 +68,8 @@ class Gnupg < Formula
     man1.install_symlink "gpg2.1" => "gpg.1"
     man1.install_symlink "gpgv2.1" => "gpgv.1"
 
-    bin.install "tools/gpgsplit" => "gpgsplit2" if build.with? "gpgsplit"
+    bin.install "tools/gpgsplit" if build.with? "gpgsplit"
+    bin.install "tools/gpg-zip" if build.with? "gpg-zip"
   end
 
   def post_install

@@ -1,13 +1,13 @@
 class RakudoStar < Formula
   desc "Perl 6 compiler"
   homepage "http://rakudo.org/"
-  url "http://rakudo.org/downloads/star/rakudo-star-2017.01.tar.gz"
-  sha256 "583a91f21fd65e50df6e60ea047c8d4baf725a32265bcab1ac178cda7fc3f21f"
+  url "http://rakudo.org/downloads/star/rakudo-star-2017.04.tar.gz"
+  sha256 "731ddb63f17bf211b2bf2681fdb7aefc6fe1161dbaab0831d93de4a854153018"
 
   bottle do
-    sha256 "5cfef784285a5e46be149ebfc07cef95b41b9162e6925067dd6351ed1b37b4ed" => :sierra
-    sha256 "4b4004ef1db0bee289176404a36611a987c362b92489ddbb46e5173c5b366099" => :el_capitan
-    sha256 "99334acafe6eec093891ed0bfc17173c4a6e3dceb0722bb89edabb1f3d089726" => :yosemite
+    sha256 "b816c1150120abc3d5acc4d1ca233b7e5ce6daabb302f152cd6ce51e8a0b68b6" => :sierra
+    sha256 "495e76ed9c925686a0a7d5487dbb4ad47ac21351c425255735b6efee88742b4d" => :el_capitan
+    sha256 "9c8d50de0cd4441d44458657be33779027d12da855da32fc0d516c812340770c" => :yosemite
   end
 
   option "with-jvm", "Build also for jvm as an alternate backend."

@@ -102,19 +102,8 @@ class SubversionAT18 < Formula
       EOS
     end
 
-    if build.with? "java"
-      # Java support doesn't build correctly in parallel:
-      # https://github.com/Homebrew/homebrew/issues/20415
-      ENV.deparallelize
-
-      unless build.universal?
-        opoo "A non-Universal Java build was requested."
-        puts <<-EOS.undent
-        To use Java bindings with various Java IDEs, you might need a universal build:
-          `brew install subversion --universal --java`
-        EOS
-      end
-    end
+    # Java support doesn't build correctly in parallel: https://github.com/Homebrew/homebrew/issues/20415
+    ENV.deparallelize if build.with? "java"
 
     # Use existing system zlib
     # Use dep-provided other libraries
@@ -147,13 +136,6 @@ class SubversionAT18 < Formula
       args << "RUBY=/usr/bin/ruby"
     end
 
-    # If Python is built universally, then extensions built with that Python
-    # are too. This default behaviour is not desired when building an extension
-    # for a single architecture.
-    if build.with?("python") && (which "python").universal? && !build.universal?
-      ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
-    end
-
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
     ENV["ac_cv_python_compile"] = ENV.cc
@@ -179,16 +161,6 @@ class SubversionAT18 < Formula
     if build.with? "perl"
       # In theory SWIG can be built in parallel, in practice...
       ENV.deparallelize
-      # Remove hard-coded ppc target, add appropriate ones
-      arches = begin
-        if build.universal?
-          Hardware::CPU.universal_archs.as_arch_flags
-        elsif MacOS.version <= :leopard
-          "-arch #{Hardware::CPU.arch_32_bit}"
-        else
-          "-arch #{Hardware::CPU.arch_64_bit}"
-        end
-      end
       perl_core = Pathname.new(`perl -MConfig -e 'print $Config{archlib}'`)+"CORE"
       unless perl_core.exist?
         onoe "perl CORE directory does not exist in '#{perl_core}'"
@@ -196,7 +168,7 @@ class SubversionAT18 < Formula
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) #{arches} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl", "DESTDIR=#{prefix}"

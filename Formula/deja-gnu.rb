@@ -1,8 +1,8 @@
 class DejaGnu < Formula
   desc "Framework for testing other programs"
   homepage "https://www.gnu.org/software/dejagnu/"
-  url "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.tar.gz"
+  url "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.tar.gz"
   sha256 "00b64a618e2b6b581b16eb9131ee80f721baa2669fa0cdee93c500d1a652d763"
 
   bottle do

@@ -1,32 +1,36 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0183.tar.gz"
-  version "0.183"
-  sha256 "c12b3051f2f11331a38f557eac7f3074166e48155133b2f3e7cc323df56ce8b0"
+  url "https://github.com/mamedev/mame/archive/mame0185.tar.gz"
+  version "0.185"
+  sha256 "c265b43af5459ef2a2133eaf727a8f065630af31f373374c53565a89bc650e33"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "66871364d02de67bad8248c6851150306ee293c8be4b289f36b2cf1a32ceae29" => :sierra
-    sha256 "a3e8ae8d87b1dc3075b531fdaf04285ce456bec0747f3254132ced60aee08fff" => :el_capitan
-    sha256 "a43c3ed6f6d85269c6596679268eb0e25d9e884abb9826d2df11230cc1d6d9d0" => :yosemite
+    sha256 "bc4c63a2eb651a17c1cf268054b3236960dd1f70c8d1cdfd2e23805abec2447b" => :sierra
+    sha256 "6d1ad158406d9dee24f9adf80661e28d6e4ffa7d017a11195cabbe7197a5df35" => :el_capitan
+    sha256 "0eefac4fa24278c626e0395c51627959bcbe42d7c24c4c84752fdeb8322180a9" => :yosemite
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "sdl2"
+  depends_on "expat"
   depends_on "flac"
   depends_on "portmidi"
+  depends_on "utf8proc"
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
     system "make", "TOOLS=1",
                    "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
                    "USE_LIBSDL=1",
+                   "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_PORTMIDI=1"
+                   "USE_SYSTEM_LIB_PORTMIDI=1",
+                   "USE_SYSTEM_LIB_UTF8PROC=1"
     bin.install %w[
       aueffectutil castool chdman floptool imgtool jedutil ldresample
       ldverify nltool nlwav pngcmp regrep romcmp src2html srcclean unidasm

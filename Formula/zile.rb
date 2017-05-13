@@ -1,8 +1,8 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftpmirror.gnu.org/zile/zile-2.4.13.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/zile/zile-2.4.13.tar.gz"
+  url "https://ftp.gnu.org/gnu/zile/zile-2.4.13.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.13.tar.gz"
   sha256 "c795f369ea432219c21bf59ffc9322fd5f221217021a8fbaa6f9fed91778ac0e"
 
   bottle do

@@ -3,28 +3,21 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.13.0.tar.gz"
-  sha256 "ef23822043435261750e7a9c1211601b65f9f9a5e634cfbf5011632b0a62edd4"
-  revision 1
-
+  url "https://github.com/certbot/certbot/archive/v0.14.0.tar.gz"
+  sha256 "f5a7ade95303a39750db287ac039dd3ee806acdd5c3ee2403300dcfff9587b18"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "8a0e2181771eb28de459886c94353769ffbbd238dd4c794cf13cb0918f855d7b" => :sierra
-    sha256 "da3b79f50b3cbb2ca6388e480235ff01814834d4820c1411d0d94e47b28dc136" => :el_capitan
-    sha256 "3eb7b8787c357218b50014eb6392f59eab146593897a7223b9d0360599e432a0" => :yosemite
+    sha256 "9459f92da890ea804857197ac1eca2d4a2e457ce3a0c39e18aca97a1e3e37d03" => :sierra
+    sha256 "a3e2a1b412d4a41e8f70ed4c6fa9ad0a8f20afb64f39f2dadff38e12fec9b9cc" => :el_capitan
+    sha256 "276ff129ecf01dcaeab208c5c46db43daf1ca3cb9f11606b156658b19ff57349" => :yosemite
   end
 
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
   depends_on :python
-
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
-  end
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
@@ -97,8 +90,8 @@ class Certbot < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/35/a5/3d1beff9fc149b3da814419369a8c24ecf0d1410637fc91002989f433a1a/pbr-2.0.0.tar.gz"
-    sha256 "0ccd2db529afd070df815b1521f01401d43de03941170f8a800e7531faba265d"
+    url "https://files.pythonhosted.org/packages/1e/f0/9963f6ff9fb3861384be272c07522a9e85441ea5524f7fe15d07cadcae2a/pbr-3.0.0.tar.gz"
+    sha256 "568f988af109114fbfa0525dcb6836b069838360d11732736ecc82e4c15d5c12"
   end
 
   resource "pycparser" do
@@ -107,8 +100,8 @@ class Certbot < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+    url "https://files.pythonhosted.org/packages/9f/32/80fe4fddeb731b7766cd09fe0b2032a91b43dae655e216792af2a6ae3190/pyOpenSSL-17.0.0.tar.gz"
+    sha256 "48abfe9d2bb8eb8d8947c8452b0223b7b1be2383b332f3b4f248fe59ef0bafdd"
   end
 
   resource "pyparsing" do
@@ -147,8 +140,8 @@ class Certbot < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/44/af/cea1e18bc0d3be0e0824762d3236f0e61088eeed75287e7b854d65ec9916/zope.interface-4.3.3.tar.gz"
-    sha256 "8780ef68ca8c3fe1abb30c058a59015129d6e04a6b02c2e56b9c7de6078dfa88"
+    url "https://files.pythonhosted.org/packages/36/f6/1c2d593acb13562831631c281d75bd0091c50b0c004106d9823da784c3af/zope.interface-4.4.0.tar.gz"
+    sha256 "e50e5e87cde9bf0ed59229fd372390c2d68b3674ae313858ef544d32051e2cd3"
   end
 
   # Required because augeas formula doesn't ship these.

@@ -15,7 +15,7 @@ class Libogg < Formula
   end
 
   head do
-    url "https://svn.xiph.org/trunk/ogg"
+    url "https://git.xiph.org/ogg.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

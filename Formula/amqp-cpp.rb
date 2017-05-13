@@ -1,15 +1,15 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.6.2.tar.gz"
-  sha256 "1a60d900a8e32b55b39229f2ea00070156b99c0a1336450d531038e6241a4d8b"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.7.3.tar.gz"
+  sha256 "b1e5c6124056d67aefc4bb8b0a93cce3d0a9f6b897c47da9475bd40247fa33f9"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
     cellar :any
-    sha256 "f6a140f35b267b9cdd933da245bc822b41eb39ce9cf7728fdaf2e2b7b1cd85a5" => :sierra
-    sha256 "d55ffcc984e7c28383677382523e50fd706fb7a3e61daf3f4a531fd609f80491" => :el_capitan
-    sha256 "e2df5e3dd1ed00d3400addc5b79479b91e0fc34dead3b6c45b8a2aacf3f043d6" => :yosemite
+    sha256 "385de73989606bb2fed2bac8378b7c13b6329270698d8d5b3173fe2c8a4cd9e3" => :sierra
+    sha256 "b497747f2cee526765574f30c413dc3cfd97d8d0a8f07ef38a44b4f12ff54fae" => :el_capitan
+    sha256 "5c405ed3753c18d155a8f3a0def332d8229178155376d1fb5bac94085ed9e34a" => :yosemite
   end
 
   needs :cxx11
@@ -18,6 +18,7 @@ class AmqpCpp < Formula
 
   def install
     ENV.cxx11
+
     system "cmake", "-DBUILD_SHARED=ON", "-DCMAKE_MACOSX_RPATH=1", *std_cmake_args
     system "make"
     system "make", "install"

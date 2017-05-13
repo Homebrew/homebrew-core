@@ -9,14 +9,14 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.wp.mines-telecom.fr/"
-  url "https://github.com/gpac/gpac/archive/v0.7.0.tar.gz"
-  sha256 "bdf7403fd2624973d3354e5aaca1ef935d58d25877221707239f494ed71c5733"
+  url "https://github.com/gpac/gpac/archive/v0.7.1.tar.gz"
+  sha256 "c7a18b9eea1264fee392e7222d16b180e0acdd6bb173ff6b8baadbf50b3b1d7f"
   head "https://github.com/gpac/gpac.git"
 
   bottle do
-    sha256 "597da09d46c30397e67ca45d64c5783972db18e4f50a7a58c75c624d43e8e0d5" => :sierra
-    sha256 "01308c943c8804c2ad077d860e9b58e47ad86beb85a019a85bd4de1fb659c710" => :el_capitan
-    sha256 "2ddd05953278ade434e2bc7ba6e13c3a53767586d45816c7f6a1c7c2fa05df7b" => :yosemite
+    sha256 "d685f84d817cfc62818f37d0eac9d743458973d7ec261a90fc9e8d1524f9f8bd" => :sierra
+    sha256 "fa0031a62d043da3a90d3d63113bcc8206313cf0ce649d6e8ca5b5edfb23818c" => :el_capitan
+    sha256 "d0ae48d8fd147077cf818df012921e7ae7e39a1768d61d9f82a9f361c1fff067" => :yosemite
   end
 
   depends_on "openssl"

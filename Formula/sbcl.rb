@@ -1,23 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.17/sbcl-1.3.17-source.tar.bz2"
+  sha256 "94b9f576328de3a5d9ced452fdaa4d2f55437af8838fbbfb4f226c86591a0daf"
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
-  stable do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.16/sbcl-1.3.16-source.tar.bz2"
-    sha256 "b7dd98017b70aec351ec4475c68438d52f3f6633269a4ae399216b632c9b8863"
-
-    # Fixes CI builds; see https://bugs.launchpad.net/sbcl/+bug/1678347
-    patch do
-      url "https://github.com/Homebrew/formula-patches/raw/59046765bf0dec14ac7910c51b6656256cd37514/sbcl/patch-float-state-saving.diff"
-      sha256 "71544ce39e6216fd3cdd6a6a2d3a845bdf0acc86482840addfeb6de069473eb9"
-    end
-  end
-
   bottle do
-    sha256 "61e6bffd237780167867996fc82fe3ba884369e9f0131366ffce7ea960fd14fc" => :sierra
-    sha256 "55d625750b1125bd5ffe734810182aeef9c2a8b5884040bc2580bfaa6fad3a99" => :el_capitan
-    sha256 "ab0aeab4e49f5c087916d9ac85958ae24686d86b23b668bb50b6143fc6e04225" => :yosemite
+    sha256 "b5a457e22a591cc46a84e3e602a7bfa41eace0fad81101a202f773513221d4ec" => :sierra
+    sha256 "23a45de1528bc4d89e12e02dd9d6c0f3ce890cd1a5a8b0a372ed2b500ae0ce78" => :el_capitan
+    sha256 "6c3d1750222b95612168303c07a3437135d814036d99902e35d1ad6aa05ead52" => :yosemite
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"

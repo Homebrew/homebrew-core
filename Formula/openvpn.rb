@@ -1,44 +1,38 @@
 class Openvpn < Formula
-  desc "SSL VPN implementing OSI layer 2 or 3 secure network extension"
+  desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.1.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.1.tar.xz"
-  sha256 "fde9e22c6df7a335d2d58c6a4d5967be76df173c766a5c51ece57fd044c76ee5"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.2.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.2.tar.xz"
+  sha256 "df5c4f384b7df6b08a2f6fa8a84b9fd382baf59c2cef1836f82e2a7f62f1bff9"
 
   bottle do
-    sha256 "9f4d38e20c752064701d6f068af28d90e89614107776b6c8e64ad1d25afedacc" => :sierra
-    sha256 "1d1be7da89a42bb4361e1fec916f71c20fc4b4937aa422659c3dd5ba532627a4" => :el_capitan
-    sha256 "c663b342985bc14d2d91c85130cd9357499b4ff72b5e031d9b48264867910ce9" => :yosemite
+    sha256 "a5a6702461c9cfeed907c9ef9dcc6e52a8d7518a4c51c15ba8eea5a1340d1ba9" => :sierra
+    sha256 "3a1cddedd2d3d4677427152274bd293914ed162aa1fd956073f5c92c55a29dbb" => :el_capitan
+    sha256 "9ea5b9133b56e6b36c9de3c512a24d28fb171b4420150ea3672525a5ff1187a6" => :yosemite
   end
 
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
+  depends_on "pkg-config" => :build
   depends_on "lzo"
   depends_on "openssl"
-  depends_on "pkcs11-helper" => [:optional, "without-threading", "without-slotevent"]
-
-  if build.with? "pkcs11-helper"
-    depends_on "pkg-config" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-crypto-library=openssl
-      --prefix=#{prefix}
-      --enable-password-save
-    ]
-
-    args << "--enable-pkcs11" if build.with? "pkcs11-helper"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-crypto-library=openssl",
+                          "--prefix=#{prefix}"
     system "make", "install"
+
+    # Install OpenVPN's new contrib helper allowing the use of
+    # macOS keychain certificates with OpenVPN.
+    cd "contrib/keychain-mcd" do
+      system "make"
+      sbin.install "keychain-mcd"
+      man8.install "keychain-mcd.8"
+    end
 
     inreplace "sample/sample-config-files/openvpn-startup.sh",
               "/etc/openvpn", "#{etc}/openvpn"

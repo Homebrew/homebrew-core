@@ -39,7 +39,9 @@ class Vapoursynth < Formula
   end
 
   test do
-    system bin/"vspipe", "--version"
+    py3 = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
     system "python3", "-c", "import vapoursynth"
+    system bin/"vspipe", "--version"
   end
 end

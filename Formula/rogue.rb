@@ -13,7 +13,7 @@ class Rogue < Formula
   end
 
   def install
-    ENV.ncurses_define if MacOS.version >= :snow_leopard
+    ENV.ncurses_define
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

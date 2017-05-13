@@ -1,7 +1,7 @@
 class Tcpflow < Formula
   desc "TCP flow recorder"
   homepage "https://github.com/simsong/tcpflow"
-  url "http://digitalcorpora.org/downloads/tcpflow/tcpflow-1.4.5.tar.gz"
+  url "https://digitalcorpora.org/downloads/tcpflow/tcpflow-1.4.5.tar.gz"
   sha256 "f39fed437911b858c97937bc902f68f9a690753617abe825411a8483a7f70c72"
 
   bottle do

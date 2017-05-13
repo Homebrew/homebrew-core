@@ -1,40 +1,24 @@
 class Kvazaar < Formula
   desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  head "https://github.com/ultravideo/kvazaar.git"
-
-  stable do
-    url "https://github.com/ultravideo/kvazaar/archive/v1.0.0.tar.gz"
-    sha256 "40eb7b4b23897299e99050f0c011e9380cf898b25615dd143f018b278b972a46"
-
-    # Remove for > 1.0.0
-    # Upstream commit from 2 Feb 2017 "Fix encoder getting stuck on OS-X"
-    # See https://github.com/ultravideo/kvazaar/issues/153
-    patch do
-      url "https://github.com/ultravideo/kvazaar/commit/d893474.patch"
-      sha256 "0d2087dcf535ce01b2cc8afdb138f207e7e2389976fda6167bbb7c22c78c4797"
-    end
-
-    # Remove for > 1.0.0
-    # Upstream commit from 8 Feb 2017 "Fix crash with sub-LCU frame sizes and WPP"
-    # See https://github.com/ultravideo/kvazaar/issues/153
-    patch do
-      url "https://github.com/ultravideo/kvazaar/commit/b8e3513.patch"
-      sha256 "de52ecb665f65be4d364f0070632e660f4bf5a16a47e63064846595b64afe14a"
-    end
-  end
+  url "https://github.com/ultravideo/kvazaar/releases/download/v1.1.0/kvazaar-v1.1.0.tar.gz"
+  sha256 "81386b25651ad328b2b94c269eb5601096b966724e6c308ecc3096eb37ef33bb"
 
   bottle do
     cellar :any
-    sha256 "5dd89059b3af46dc2bb14659e85ef3df0335e1cb4983776618e2a11ebc33bdb5" => :sierra
-    sha256 "5bda05263252256cefadb228ec8588f09568d00875a00ef0f12da69ab06868f6" => :el_capitan
-    sha256 "ec981006d5607147b9af8a1a1d6e9dca1642b1dd85ac8a528f1c801f82053573" => :yosemite
+    sha256 "4f7c9e10e8725fb90eaa7f49fe5dfdc6e746d346294328d6a6f9d0b4b44aebdc" => :sierra
+    sha256 "f6389f0c17f8383a575d38db1ef54337909a9654136b68016f6b14853872f03a" => :el_capitan
+    sha256 "cbc275e60845c45f968dce9e00d11124830f5a72966c6814b42f8fffaa821df0" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  head do
+    url "https://github.com/ultravideo/kvazaar.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "yasm" => :build
 
   resource "videosample" do
@@ -43,7 +27,7 @@ class Kvazaar < Formula
   end
 
   def install
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

@@ -6,12 +6,12 @@ class Pgplot < Formula
   mirror "ftp://ftp.us.horde.org/pub/linux/gentoo/distro/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "7309161e824a16654a361eb9ba61c5250c1ee8f933bd86ee6e222a4e58836739" => :sierra
-    sha256 "dc92b321bffacc0cc72d88625442aeff25cf73f48de03b39461453913a9032be" => :el_capitan
-    sha256 "aee1eefd09fee703fd788f12f1a89c617891c0575dea4bac656972640ac6aef7" => :yosemite
+    sha256 "0fd1049b91baecac19ada9a9d2895e422b8f6d3735f261fa8656fa164f97fc29" => :sierra
+    sha256 "3447cf688a740777d4d5cf17dc95ff2b95daa429c01e5e6f2672fb7a5620ef7d" => :el_capitan
+    sha256 "5032c0dea8c4cc6c267cd8a4d1de5e262f57d79c123279daccd4457ec011ab45" => :yosemite
   end
 
   depends_on :x11

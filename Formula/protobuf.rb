@@ -1,15 +1,14 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.2.0.tar.gz"
-  sha256 "2a25c2b71c707c5552ec9afdfb22532a93a339e1ca5d38f163fe4107af08c54c"
-  revision 1
+  url "https://github.com/google/protobuf/archive/v3.3.0.tar.gz"
+  sha256 "94c414775f275d876e5e0e4a276527d155ab2d0da45eed6b7734301c330be36e"
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "6534deb026f410c45202e91bd51aca49b2a7b0aa79c42d1ee41b9b1691583eb0" => :sierra
-    sha256 "5175646b484104f094eacb4db99eb0b1d66f03d5120e1c8de38be43f921e786e" => :el_capitan
-    sha256 "34fd57a99d1cfdc6f85eb2cd503c406e336c05636987d6a69633a588215d94a8" => :yosemite
+    sha256 "b0b89d8ed02a2d4d54619f7e1dd37797797f580f434229dc96a4f772056c7493" => :sierra
+    sha256 "c6ffdc50994d81d836df2d5dac2a3d5e82b05ae6c323a0ead9c1d0217801d9c5" => :el_capitan
+    sha256 "10a15ee1d092b59765c94a15bb4dca77c0a9370180a3813018c5c083593173d3" => :yosemite
   end
 
   # this will double the build time approximately if enabled

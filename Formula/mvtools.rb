@@ -39,7 +39,7 @@ class Mvtools < Formula
     script = <<-PYTHON.undent.split("\n").join(";")
       import vapoursynth as vs
       core = vs.get_core()
-      core.std.LoadPlugin(path="#{HOMEBREW_PREFIX}/lib/libmvtools.dylib")
+      core.std.LoadPlugin(path="#{lib}/libmvtools.dylib")
     PYTHON
 
     system "python3", "-c", script

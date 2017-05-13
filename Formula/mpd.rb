@@ -26,6 +26,7 @@ class Mpd < Formula
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
   option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
+  option "with-upnp", "Build with upnp database plugin support"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -60,6 +61,10 @@ class Mpd < Formula
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
   depends_on "pulseaudio" => :optional
+  if build.with? "upnp"
+    depends_on "expat"
+    depends_on "libupnp"
+  end
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -82,8 +87,6 @@ class Mpd < Formula
     ]
 
     args << "--disable-mad" if build.without? "mad"
-    args << "--disable-curl" if MacOS.version <= :leopard
-
     args << "--enable-zzip" if build.with? "libzzip"
     args << "--enable-lastfm" if build.with? "lastfm"
     args << "--disable-lame-encoder" if build.without? "lame"
@@ -92,6 +95,10 @@ class Mpd < Formula
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
     args << "--enable-pulse" if build.with? "pulseaudio"
+    if build.with? "upnp"
+      args << "--enable-upnp"
+      args << "--enable-expat"
+    end
 
     system "./configure", *args
     system "make"

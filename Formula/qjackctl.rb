@@ -1,15 +1,14 @@
 class Qjackctl < Formula
   desc "simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.4.tar.gz"
-  sha256 "531db2f7eca654fd8769a1281dccb54ebca57a0b2a575734d1bafc3896a46ba5"
-  revision 2
+  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.4.5.tar.gz"
+  sha256 "c50da569ec8466ac6cc72c65e2d8212eb9c40149daed0a10fb7795ff9ddc4ab7"
   head "https://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
-    sha256 "5a0d5ca2e9b76d767d87b87df1fc595ef99995084998af2e6b374549ba9325bf" => :sierra
-    sha256 "a148d86c836504cb34694ef7670418d0885c42912d3284e89376f4eee8d43f8e" => :el_capitan
-    sha256 "d7bf65e4635543f4f45244a0ecf82883d612e09f182907b681d8a09c20877573" => :yosemite
+    sha256 "916c1421965be60c8bbef853e7111c69f111f698f04fda455148b293a7bbded5" => :sierra
+    sha256 "9c172b06e49ef31184b6330aee463fa76cb94bdc902c7275d9fc50683f072449" => :el_capitan
+    sha256 "1e72a2901d1a254c499dfaaf22c89cfad8d0b0871fd5c9bf9bb0d6fc57992e63" => :yosemite
   end
 
   depends_on "pkg-config" => :build

@@ -1,15 +1,15 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/2.2.0.tar.gz"
-  sha256 "99d37253de53df25260c41db95cc65ee39a4209690c3814a1c5693a3cdf0c9cc"
+  url "https://github.com/mfikes/planck/archive/2.4.0.tar.gz"
+  sha256 "e678d5e13867d5417011548c320a3e01fa4e3999c39a307f50e198cec1d7094e"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
     cellar :any
-    sha256 "b4318ff7cbcd7fd34087636db868c75ebcb3bdab1fd0788c4db4426963ff994e" => :sierra
-    sha256 "16350f5db666611250cd98507314567af706f1f031f5e8e24320233865184414" => :el_capitan
-    sha256 "5e726041cd50428c818b69d4ad03c5fa78c37ac515a0ea07aefa9899c0b7d84c" => :yosemite
+    sha256 "293bce0873a308586fec82b0dee53cd051cebe7e36b285661f4fc35c58140098" => :sierra
+    sha256 "6642ce1866b61d13bccf05662c492e07f841f835aa69976fd3c0a5fe3e5f0662" => :el_capitan
+    sha256 "01eaf82afa56e5cab36f0953ac03d7e13e8f5f9d5ba4c63efc2dfa35883d5334" => :yosemite
   end
 
   depends_on "libzip"

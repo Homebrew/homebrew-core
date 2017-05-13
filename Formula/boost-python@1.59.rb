@@ -41,8 +41,6 @@ class BoostPythonAT159 < Formula
             "threading=multi,single",
             "link=shared,static"]
 
-    args << "address-model=32_64" << "architecture=x86" << "pch=off" if build.universal?
-
     # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.

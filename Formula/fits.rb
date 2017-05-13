@@ -1,14 +1,15 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://github.com/harvard-lts/fits/archive/1.0.7.tar.gz"
-  sha256 "9094071db178c1ba48bd3a0c957138c461190f28f3dc97c81a8d84d2233eb198"
+  url "https://github.com/harvard-lts/fits/archive/1.1.0.tar.gz"
+  sha256 "57ba2ee001c2c113a1cae84d1c8f8e9a49e21fc39307abe2bd97de0a2c1689c0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6e40f1fd9f8f1942695e0d40a6c6ba0a8c3ed742fc3fb463600617457a62eccb" => :sierra
-    sha256 "2bfd30983cebe22bef49a889e4af586158f3b8f2ea9bc0f9560aa359a27ebf62" => :el_capitan
-    sha256 "14f8f42715e72893d27ac1e6d3941dc5eec0b77e3838becb86475c70643a1522" => :yosemite
+    sha256 "e9c4804b16a628a72f546e3d33361ecfc19d3baf779992a52f6a9685f4ecfdb3" => :sierra
+    sha256 "8f54130183f2c98d4ef07510891fa78fc6ced0761a4237c360e71f614da3dc14" => :el_capitan
+    sha256 "4ad20c354f89507a904707a8bb66c40496904f31d5ad4043e0d410341f927a70" => :yosemite
   end
 
   depends_on "ant" => :build
@@ -35,8 +36,9 @@ class Fits < Formula
     # fits-env.sh is a helper script that sets up environment
     # variables, so we want to tuck this away in libexec
     libexec.install "fits-env.sh"
-    bin.install "fits.sh" => "fits"
-    bin.install "fits-ngserver.sh" => "fits-ngserver"
+    bin.install "fits.sh", "fits-ngserver.sh"
+    bin.install_symlink bin/"fits.sh" => "fits"
+    bin.install_symlink bin/"fits-ngserver.sh" => "fits-ngserver"
   end
 
   test do
