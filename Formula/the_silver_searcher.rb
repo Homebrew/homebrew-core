@@ -14,17 +14,13 @@ class TheSilverSearcher < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "xz" => :recommended
 
   def install
     # Stable tarball does not include pre-generated configure script
-    system "aclocal", "-I #{HOMEBREW_PREFIX}/share/aclocal"
-    system "autoconf"
-    system "autoheader"
-    system "automake", "--add-missing"
+    system "autoreconf", "-fiv"
 
     args = %W[
       --disable-dependency-tracking
