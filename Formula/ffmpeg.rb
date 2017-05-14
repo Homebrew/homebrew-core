@@ -1,8 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.3.tar.bz2"
-  sha256 "21e08647c9e740a4d3b85bf455b31d079fe0faba9555fa9329230e8541cf6bdc"
+  url "https://ffmpeg.org/releases/ffmpeg-3.3.1.tar.bz2"
+  sha256 "fcb2cd7b77fcb66a00abccd5a04e34342a02cab9f89626f28cf1abca715b6730"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -164,18 +164,13 @@ class Ffmpeg < Formula
     end
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
-    # prevents GCC from building VDA support. GCC has no problems on
-    # 10.9 and earlier.
+    # prevents GCC from building VDA support.
     # See: https://github.com/Homebrew/homebrew/issues/33741
-    if MacOS.version < :yosemite || ENV.compiler == :clang
+    if MacOS.version != :yosemite || ENV.compiler == :clang
       args << "--enable-vda"
     else
       args << "--disable-vda"
     end
-
-    # For 32-bit compilation under gcc 4.2, see:
-    # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
 
     system "./configure", *args
 
