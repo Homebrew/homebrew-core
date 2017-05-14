@@ -7,10 +7,9 @@ class VampPluginSdk < Formula
 
   bottle do
     cellar :any
-    sha256 "3a2e87cfd4ba5c0eb9675ad4a0cb2fd412315bd71f81cde9d5fd0648bafdd08c" => :sierra
-    sha256 "3c1665b45ed9060ddcc00036b760e48e2d8f884877a8976bfb5d5bb8b8dc09b0" => :el_capitan
-    sha256 "9f9faa350b6a0072264107506a243cc627459da143e41b1cde8af2cad1b52079" => :yosemite
-    sha256 "86a5d017be8bccf01f43b6e99fb2f441bde4dc6edff36837d58467926563e4f7" => :mavericks
+    sha256 "f5b77eaf0b80183cf7c19b08c4734b49393ad38e382da03666a8c8a3b5063b5d" => :sierra
+    sha256 "acd0d2d514e459907217d67a6a2652bce37e6b87564fc9383a1e22763b84472a" => :el_capitan
+    sha256 "ada7d84cbd975d1857e83651815a8a3a465ee04299fd32e5d90eba6646d6325c" => :yosemite
   end
 
   depends_on "automake" => :build
