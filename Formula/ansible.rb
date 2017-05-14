@@ -23,7 +23,6 @@ class Ansible < Formula
   # Collect requirements from:
   #   ansible
   #   docker-py
-  #   pyrax (Rackspace)
   #   shade (OpenStack)
   #   pywinrm (Windows)
   #   kerberos (Windows)
@@ -36,6 +35,7 @@ class Ansible < Formula
   #   passlib (htpasswd core module)
   #   zabbix-api (Zabbix extras module)
   #   junos-eznc (Juniper device support)
+  #   dnspython (DNS Lookup - dig)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -157,6 +157,11 @@ class Ansible < Formula
   resource "deprecation" do
     url "https://files.pythonhosted.org/packages/ab/fe/edad444ecab087e57dd32a10e38ef0d7448b3ab8ff8bfa65b022d3a43a1c/deprecation-1.0.tar.gz"
     sha256 "36d2a2356ca89fb73f72bfb866a2f28e183535a7f131a3b34036bc48590165b6"
+  end
+
+  resource "dnspython" do
+    url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
+    sha256 "40f563e1f7a7b80dc5a4e76ad75c23da53d62f1e15e6e517293b04e1f84ead7c"
   end
 
   resource "docker-py" do
