@@ -13,6 +13,7 @@ class Freeimage < Formula
     :using => FreeimageHttpDownloadStrategy
   version "3.17.0"
   sha256 "fbfc65e39b3d4e2cb108c4ffa8c41fd02c07d4d436c594fff8dab1a6d5297f89"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,10 @@ class Freeimage < Formula
     sha256 "9d1e914ae20deb7066caf5f1cf52c3d48c0c04ccd36b791170c7e1fcb3528a36" => :mountain_lion
   end
 
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
+    sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
+  end
 
   # fix GCC 5.0 compile.
   patch do
@@ -51,124 +55,3 @@ class Freeimage < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/Makefile.fip b/Makefile.fip
-old mode 100755
-new mode 100644
-index b59c419..6e177fc
---- a/Makefile.fip
-+++ b/Makefile.fip
-@@ -5,8 +5,9 @@ include fipMakefile.srcs
- 
- # General configuration variables:
- DESTDIR ?= /
--INCDIR ?= $(DESTDIR)/usr/include
--INSTALLDIR ?= $(DESTDIR)/usr/lib
-+PREFIX ?= /usr/local
-+INCDIR ?= $(DESTDIR)$(PREFIX)/include
-+INSTALLDIR ?= $(DESTDIR)$(PREFIX)/lib
- 
- # Converts cr/lf to just lf
- DOS2UNIX = dos2unix
-@@ -35,9 +36,9 @@ endif
- 
- TARGET  = freeimageplus
- STATICLIB = lib$(TARGET).a
--SHAREDLIB = lib$(TARGET)-$(VER_MAJOR).$(VER_MINOR).so
--LIBNAME	= lib$(TARGET).so
--VERLIBNAME = $(LIBNAME).$(VER_MAJOR)
-+SHAREDLIB = lib$(TARGET).$(VER_MAJOR).$(VER_MINOR).dylib
-+LIBNAME	= lib$(TARGET).dylib
-+VERLIBNAME = lib$(TARGET).$(VER_MAJOR).dylib
- HEADER = Source/FreeImage.h
- HEADERFIP = Wrapper/FreeImagePlus/FreeImagePlus.h
- 
-@@ -49,7 +50,7 @@ all: dist
- dist: FreeImage
-	mkdir -p Dist
-	cp *.a Dist/
--	cp *.so Dist/
-+	cp *.dylib Dist/
-	cp Source/FreeImage.h Dist/
-	cp Wrapper/FreeImagePlus/FreeImagePlus.h Dist/
-
-@@ -68,14 +69,15 @@ $(STATICLIB): $(MODULES)
- 	$(AR) r $@ $(MODULES)
- 
- $(SHAREDLIB): $(MODULES)
--	$(CC) -s -shared -Wl,-soname,$(VERLIBNAME) $(LDFLAGS) -o $@ $(MODULES) $(LIBRARIES)
-+	$(CXX) -dynamiclib -install_name $(LIBNAME) -current_version $(VER_MAJOR).$(VER_MINOR) -compatibility_version $(VER_MAJOR) $(LDFLAGS) -o $@ $(MODULES)
- 
- install:
- 	install -d $(INCDIR) $(INSTALLDIR)
--	install -m 644 -o root -g root $(HEADER) $(INCDIR)
--	install -m 644 -o root -g root $(HEADERFIP) $(INCDIR)
--	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)
--	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)
-+	install -m 644 $(HEADER) $(INCDIR)
-+	install -m 644 $(HEADERFIP) $(INCDIR)
-+	install -m 644 $(STATICLIB) $(INSTALLDIR)
-+	install -m 755 $(SHAREDLIB) $(INSTALLDIR)
-+	ln -s $(SHAREDLIB) $(INSTALLDIR)/$(LIBNAME)
-	ln -sf $(SHAREDLIB) $(INSTALLDIR)/$(VERLIBNAME)
-	ln -sf $(VERLIBNAME) $(INSTALLDIR)/$(LIBNAME)
-
-diff --git a/Makefile.gnu b/Makefile.gnu
-old mode 100755
-new mode 100644
-index 92f6358..264b70f
---- a/Makefile.gnu
-+++ b/Makefile.gnu
-@@ -5,8 +5,9 @@ include Makefile.srcs
- 
- # General configuration variables:
- DESTDIR ?= /
--INCDIR ?= $(DESTDIR)/usr/include
--INSTALLDIR ?= $(DESTDIR)/usr/lib
-+PREFIX ?= /usr/local
-+INCDIR ?= $(DESTDIR)$(PREFIX)/include
-+INSTALLDIR ?= $(DESTDIR)$(PREFIX)/lib
- 
- # Converts cr/lf to just lf
- DOS2UNIX = dos2unix
-@@ -35,9 +36,9 @@ endif
- 
- TARGET  = freeimage
- STATICLIB = lib$(TARGET).a
--SHAREDLIB = lib$(TARGET)-$(VER_MAJOR).$(VER_MINOR).so
--LIBNAME	= lib$(TARGET).so
--VERLIBNAME = $(LIBNAME).$(VER_MAJOR)
-+SHAREDLIB = lib$(TARGET).$(VER_MAJOR).$(VER_MINOR).dylib
-+LIBNAME	= lib$(TARGET).dylib
-+VERLIBNAME = lib$(TARGET).$(VER_MAJOR).dylib
- HEADER = Source/FreeImage.h
- 
- 
-@@ -49,7 +50,7 @@ all: dist
- dist: FreeImage
-	mkdir -p Dist
-	cp *.a Dist/
--	cp *.so Dist/
-+	cp *.dylib Dist/
-	cp Source/FreeImage.h Dist/
- 
- dos2unix:
-@@ -67,13 +68,13 @@ $(STATICLIB): $(MODULES)
- 	$(AR) r $@ $(MODULES)
- 
- $(SHAREDLIB): $(MODULES)
--	$(CC) -s -shared -Wl,-soname,$(VERLIBNAME) $(LDFLAGS) -o $@ $(MODULES) $(LIBRARIES)
-+	$(CXX) -dynamiclib -install_name $(LIBNAME) -current_version $(VER_MAJOR).$(VER_MINOR) -compatibility_version $(VER_MAJOR) $(LDFLAGS) -o $@ $(MODULES)
- 
- install:
- 	install -d $(INCDIR) $(INSTALLDIR)
--	install -m 644 -o root -g root $(HEADER) $(INCDIR)
--	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)
--	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)
-+	install -m 644 $(HEADER) $(INCDIR)
-+	install -m 644 $(STATICLIB) $(INSTALLDIR)
-+	install -m 755 $(SHAREDLIB) $(INSTALLDIR)
- 	ln -sf $(SHAREDLIB) $(INSTALLDIR)/$(VERLIBNAME)
- 	ln -sf $(VERLIBNAME) $(INSTALLDIR)/$(LIBNAME)	
- #	ldconfig
