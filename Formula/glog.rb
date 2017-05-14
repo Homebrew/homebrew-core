@@ -7,9 +7,9 @@ class Glog < Formula
 
   bottle do
     cellar :any
-    sha256 "a3e0adb8c4bd45b73b6200b2e503e55bd59749e45ce31b90f72bb11bd341d427" => :sierra
-    sha256 "1fc76882e8bb6f5fea7f1479e89e09c7b4e82dd4130d0a0fb12dbc948a805166" => :el_capitan
-    sha256 "253d15bc60962e7f9a9bb77eddebc0153c3f8895b5e06dadb0ddad4bb97b4c09" => :yosemite
+    sha256 "c5ed5359196732957cfabbe516c87437df4969547471d8ba6dff78414ab0feb8" => :sierra
+    sha256 "2a7a2aef322dfd7431221bb8b5807c67d06bbe8d6407d44ed6cedceda8a45098" => :el_capitan
+    sha256 "ccb8f5022bffec4a768851feb5a8cc1bf52ee7d9b8b87b8f9ce6bc4cd28278f9" => :yosemite
   end
 
   depends_on "gflags"
