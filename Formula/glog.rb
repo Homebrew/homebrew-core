@@ -2,7 +2,8 @@ class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
   url "https://github.com/google/glog/archive/v0.3.5.tar.gz"
-  sha256 "277846fa6ac3d569fed48c8e32191ffd286ca52b808f243c81a4a91a9f9ff113"
+  sha256 "7580e408a2c0b5a89ca214739978ce6ff480b5e7d8d7698a2aa92fadc484d1e0"
+  revision 1
 
   bottle do
     cellar :any
