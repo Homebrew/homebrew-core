@@ -3,6 +3,8 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-1.8.tar.xz"
   sha256 "b65fc54e965399e31a30448b5f6c8067fcd6ad369e9908ff7c1fd45669c5e017"
+  revision 1
+
   head "https://github.com/weechat/weechat.git"
 
   bottle do
@@ -30,7 +32,11 @@ class Weechat < Formula
   depends_on "curl" => :optional
 
   def install
-    args = std_cmake_args << "-DENABLE_GUILE=OFF"
+    args = std_cmake_args + %W[
+      -DENABLE_GUILE=OFF
+      -DCA_FILE=#{etc}/openssl/cert.pem
+      -DENABLE_JAVASCRIPT=OFF
+    ]
     if build.with? "debug"
       args -= %w[-DCMAKE_BUILD_TYPE=Release]
       args << "-DCMAKE_BUILD_TYPE=Debug"
@@ -42,7 +48,6 @@ class Weechat < Formula
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python"
-    args << "-DENABLE_JAVASCRIPT=OFF"
 
     mkdir "build" do
       system "cmake", "..", *args
