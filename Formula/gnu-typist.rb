@@ -7,12 +7,9 @@ class GnuTypist < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "6dc14826f6eb2607ef2f0a8875e8f02dc6bb94add086c08aaf60c7eb3f90bc26" => :sierra
-    sha256 "7354c4eaf20f8c710b6921fcfa51e77f3959ee2240338a6657fdfff9c59de60e" => :el_capitan
-    sha256 "38fbd18da939021fe2ba02f505109a68df569d5e89629b97bfb52366be917dae" => :yosemite
-    sha256 "e6242d04086f6519b7d1e8150e03c28e83ade7e34162132010d1dc68abb80420" => :mavericks
-    sha256 "14030bc96288152a37b885d74c351be91ba18c03d48430ad95b9294d46ff0544" => :mountain_lion
+    sha256 "014e293ce1ed514fe95e6fce4cbedefdc876a51b6d38a740183b8ce959899e5a" => :sierra
+    sha256 "75fcb398d3997d6d9357bb6cf5638d2e10e469ce114b344865d37112754cc7af" => :el_capitan
+    sha256 "285c918d6b2240e294e6b192aff25de0f0383f9ac645d8883e04e3443e52b674" => :yosemite
   end
 
   depends_on "gettext"
