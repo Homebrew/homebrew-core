@@ -6,6 +6,13 @@ class Cockroach < Formula
   sha256 "ca87b10eec688195e0df4f85431b019f2980ae4b511ee321f91f945315efeb76"
   head "https://github.com/cockroachdb/cockroach.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6985249e02d60f44d369b51c3371ebe65d3002b6db1f7769afa09f2cbe54c3a9" => :sierra
+    sha256 "cdfaab2efe1581e48597c368de211a75b6de12e32c598b0587e28dd5c29c4b9f" => :el_capitan
+    sha256 "c1637df663dfe64a7f38673f67c683512181773629e1f322b3c66de1425fa8a7" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "xz" => :build
