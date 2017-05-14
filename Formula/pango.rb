@@ -20,36 +20,23 @@ class Pango < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
-  depends_on "glib"
-  if build.with? "x11"
-    depends_on "cairo" => ["with-x11"]
-  else
-   depends_on "cairo"
-  end
-  depends_on "harfbuzz"
+  depends_on "cairo"
   depends_on "fontconfig"
+  depends_on "glib"
   depends_on "gobject-introspection"
+  depends_on "harfbuzz"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --enable-man
-      --with-html-dir=#{share}/doc
-      --enable-introspection=yes
-      --enable-static
-    ]
-
-    if build.with? "x11"
-      args << "--with-xft"
-    else
-      args << "--without-xft"
-    end
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-html-dir=#{share}/doc",
+                          "--enable-introspection=yes",
+                          "--enable-man",
+                          "--enable-static",
+                          "--without-xft"
+
     system "make"
     system "make", "install"
   end
