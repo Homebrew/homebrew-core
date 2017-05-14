@@ -3,6 +3,7 @@ class Miniupnpc < Formula
   homepage "https://miniupnp.tuxfamily.org"
   url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.0.tar.gz"
   sha256 "d434ceb8986efbe199c5ca53f90ed53eab290b1e6d0530b717eb6fa49d61f93b"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,20 @@ class Miniupnpc < Formula
     sha256 "f92562f92f51ab605904f4a540b107a526d16ddd1a4d9567f9c40ec4843ed125" => :mavericks
   end
 
+  # Patch for CVE-2017-8798. Due to upstream developing everything
+  # within the same tree it doesn't apply cleanly from a repo patch.
+  # https://github.com/miniupnp/miniupnp/commit/f0f1f4b22d6a98536377
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c6df018c/miniupnpc/CVE-2017-8798.diff"
+    sha256 "0c75dfed81bb66118e3eb3d1764e229a24a196ca33f060896478a067037ea222"
+  end
+
   def install
     system "make", "INSTALLPREFIX=#{prefix}", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/upnpc --help 2>&1", 1)
+    assert_match version.to_s, output
   end
 end
