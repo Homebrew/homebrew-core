@@ -1,5 +1,5 @@
 class Bdsup2sub < Formula
-  desc "A tool to convert and tweak bitmap based subtitle streams"
+  desc "Convert and tweak bitmap based subtitle streams"
   homepage "https://github.com/mjuhasz/BDSup2Sub"
   url "https://github.com/mjuhasz/BDSup2Sub/archive/5.1.2.tar.gz"
   sha256 "9441f1f842547a008c1878711cdc62c6656c0efea88e29bdfa6f21ac24ba87cd"
