@@ -46,7 +46,7 @@ class GccAT6 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
     sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
-  end
+  end if OS.mac?
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -77,9 +77,9 @@ class GccAT6 < Formula
     arch = MacOS.prefer_64_bit? ? "x86_64" : "i686"
 
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
+      ("--build=#{arch}-apple-darwin#{osmajor}" if OS.mac?),
+      ("--libdir=#{lib}/gcc/#{version_suffix}" if OS.mac?),
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -99,10 +99,13 @@ class GccAT6 < Formula
       "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
     ]
 
+    # Fix cc1: error while loading shared libraries: libisl.so.15
+    args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" if OS.linux?
+
     # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
     # format to avoid failure during the stage 3 comparison of object files.
     # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if MacOS.version <= :mountain_lion
+    args << "--with-dwarf2" if OS.mac? && MacOS.version <= :mountain_lion
 
     args << "--disable-nls" if build.without? "nls"
 
