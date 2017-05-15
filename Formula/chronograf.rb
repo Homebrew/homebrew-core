@@ -9,6 +9,13 @@ class Chronograf < Formula
 
   head "https://github.com/influxdata/chronograf.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9527ed7c43a72e995867f2e602317fe943ad9fc3f1a8ec09d93ec8412ee9c0e1" => :sierra
+    sha256 "b7a85a00281d8758b12ae4ec4db04b886429bba2dc74031aef671d2290dcef91" => :el_capitan
+    sha256 "7dd8aa75f0c185444ad363845d758091d1387033c5c3d27a3c018542aece0c78" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
