@@ -20,9 +20,9 @@ class Bitlbee < Formula
   end
 
   bottle do
-    sha256 "25e0fccb21f49326295ef5b24de1b6001ebb60e82f7dfad58ea1b14753aa7006" => :sierra
-    sha256 "9f2fe2cde9e8282312eeeea3b694f94d6669ece67a653156c93270f9b6d8f1cb" => :el_capitan
-    sha256 "7d1a271ad5feff5e3a5c3beadc4371e648218ee230547d59c9346471451f8c2b" => :yosemite
+    sha256 "a73fcc3ea892e02dff11eda82c9338230f16778d786dbcfecae89802fb0859cb" => :sierra
+    sha256 "f1e4ace83358ed1164d5d8cfbe7ffe239b5698d24211150b86dbf4d4fb589a37" => :el_capitan
+    sha256 "85eebf3ba9ee2e986ef1c54b99a8df958cf48a1d5112f765e5498d9be23b9426" => :yosemite
   end
 
   option "with-pidgin", "Use finch/libpurple for all communication with instant messaging networks"
