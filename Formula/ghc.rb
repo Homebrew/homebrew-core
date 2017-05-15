@@ -39,7 +39,7 @@ class Ghc < Formula
   depends_on "ncurses" unless OS.mac?
 
   # This dependency is needed for the bootstrap executables.
-  depends_on "gmp" => :build if OS.linux?
+  depends_on "gmp" => :build unless OS.mac?
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
@@ -121,8 +121,9 @@ class Ghc < Formula
     end
 
     if OS.linux?
-      # Fix error while loading shared libraries: libgmp.so.3
+      # Fix error while loading shared libraries: libgmp.so.3, libgmp.so.10
       ln_s Formula["gmp"].lib/"libgmp.so", gmp/"lib/libgmp.so.3"
+      ln_s Formula["gmp"].lib/"libgmp.so", gmp/"lib/libgmp.so.10"
       ENV.prepend_path "LD_LIBRARY_PATH", gmp/"lib"
       # Fix /usr/bin/ld: cannot find -lgmp
       ENV.prepend_path "LIBRARY_PATH", gmp/"lib"
