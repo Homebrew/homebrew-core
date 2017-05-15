@@ -1,10 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
-  sha256 "24cf9a69369be64a9f6f8cc11a1be33ab7780ad77a6a1b93719438f49f69960d"
-  revision 1
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.21.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.21.tar.bz2"
+  sha256 "7aead8a8ba75b69866f583b6c747d91414d523bfdfbe9a8e0fe026b16ba427dd"
 
   bottle do
     sha256 "05f9ab32a72ea08558ff601c3129bd28f96254be825166af32071e9d85ad4e96" => :sierra
@@ -33,16 +32,6 @@ class Gnupg < Formula
   depends_on "readline" => :optional
   depends_on "encfs" => :optional
 
-  # Patch for possible keyring corruption when updating/deleting keys.
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/gnupg2/gnupg2_2.1.20-4.debian.tar.bz2"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/gnupg2/gnupg2_2.1.20-4.debian.tar.bz2"
-    sha256 "aa2d9e58e35aeed14f2cfb8ae77eadbe14c97fef85a42819a79cc6c4f73415b3"
-    apply "patches/0053-g10-invalidate-the-fd-cache-for-keyring.patch",
-          "patches/0056-gpg-Fix-typo.patch",
-          "patches/0057-gpg-Properly-account-for-ring-trust-packets.patch"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -60,7 +49,10 @@ class Gnupg < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
-    system "make", "check"
+
+    # 2.1.21 has a nasty regression inside sandboxed environments.
+    # See previous: https://dev.gnupg.org/T2980
+    # system "make", "check"
 
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"
