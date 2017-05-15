@@ -19,7 +19,6 @@ class Makensis < Formula
     sha256 "867cf5c8c0699cc8d3ce570571ef883cd6a2ebf0ac657e5091ed60b4b03ff88b" => :yosemite
   end
 
-  depends_on "cppunit" => :build
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
