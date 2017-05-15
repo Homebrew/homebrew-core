@@ -2,7 +2,8 @@ class Ode < Formula
   desc "Library for simulating articulated rigid body dynamics"
   homepage "http://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.14.tar.gz"
-  sha256 "1072fc98d9d00262a0d6136e7b9ff7f5d953bbdb23b646f426909d28c0b4f6db"
+  sha256 "a6e22c3713e656d4c8114415089f4aaa685e24fab3a8ad7f3ee54692e5e8d318"
+  revision 1
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
@@ -41,5 +42,18 @@ class Ode < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <ode/ode.h>
+      int main() {
+        dInitODE();
+        dCloseODE();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lc++", "-o", "test"
+    system "./test"
   end
 end
