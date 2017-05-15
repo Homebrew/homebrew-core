@@ -22,7 +22,7 @@ class Kettle < Formula
     end
   end
 
-  plist_options :manual => "kettle"
+  plist_options :manual => "pdicarte /usr/local/etc/kettle/carte-config.xml"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
