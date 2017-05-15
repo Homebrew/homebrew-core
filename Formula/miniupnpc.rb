@@ -7,10 +7,9 @@ class Miniupnpc < Formula
 
   bottle do
     cellar :any
-    sha256 "8434730606542a3b9c2a4e79d3fbcaf9bdf311aca79875a18d4274c79090056a" => :sierra
-    sha256 "15e81b0d06dc52291dd1146701bc0fed14ed9423fd182782f7538326fccc52cc" => :el_capitan
-    sha256 "40c1d6a4be66b1c5d69aa420ea33864f3330c68ff098571f6483e67c463fab42" => :yosemite
-    sha256 "f92562f92f51ab605904f4a540b107a526d16ddd1a4d9567f9c40ec4843ed125" => :mavericks
+    sha256 "26ce335083a2a7b3c3f59ca42ca213c47c79cfe3f9b93d98bc36d695d5b845fb" => :sierra
+    sha256 "3a9436ceedef5818b7ee069db2f83e7080d9bf721e25cf77c012a8d3013ae2d3" => :el_capitan
+    sha256 "75507b0ea568402299cc5788d292df98da1887b76e16afc5f5db96aeb247554b" => :yosemite
   end
 
   # Patch for CVE-2017-8798. Due to upstream developing everything
