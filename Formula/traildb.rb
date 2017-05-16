@@ -1,8 +1,8 @@
 class Traildb < Formula
   desc "Blazingly-fast database for log-structured data"
-  homepage "http://traildb.io"
-  url "https://github.com/traildb/traildb/archive/0.5.tar.gz"
-  sha256 "4d1b61cc7068ec3313fe6322fc366a996c9d357dd3edf667dd33f0ab2c103271"
+  homepage "http://traildb.io/"
+  url "https://github.com/traildb/traildb/archive/0.6.tar.gz"
+  sha256 "f73515fe56c547f861296cf8eecc98b8e8bf00d175ad9fb7f4b981ad7cf8b67c"
 
   bottle do
     cellar :any
@@ -28,8 +28,11 @@ class Traildb < Formula
     resource("judy").stage do
       system "./configure", "--disable-debug", "--disable-dependency-tracking",
           "--disable-shared", "--prefix=#{judyprefix}"
-      # Build with -j1 because parallel builds are broken
-      system "make", "-j1", "install"
+
+      # Parallel build is broken
+      ENV.deparallelize do
+        system "make", "-j1", "install"
+      end
     end
 
     ENV["PREFIX"] = prefix
