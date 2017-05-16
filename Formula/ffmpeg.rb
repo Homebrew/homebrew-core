@@ -1,14 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.3.tar.bz2"
-  sha256 "21e08647c9e740a4d3b85bf455b31d079fe0faba9555fa9329230e8541cf6bdc"
+  url "https://ffmpeg.org/releases/ffmpeg-3.3.1.tar.bz2"
+  sha256 "fcb2cd7b77fcb66a00abccd5a04e34342a02cab9f89626f28cf1abca715b6730"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "7624726a384cc7e6e7306a53f34bd4991ab9aea056f1256a63ababfe9901ba35" => :sierra
-    sha256 "106cf4bb2bd92ce01f22b2170d67af296e705c12cfb461df35194cbc183d99ac" => :el_capitan
-    sha256 "4bce4dbb76c2ae954ca183d81b7282ddd29659933219e728bfabef59f8eccfa2" => :yosemite
+    sha256 "fb8109e330e243103d282f691271aa54cf13520c5017a808888f11b37b13d74b" => :sierra
+    sha256 "60d3bf410b2bad22cb7ca4e86917b320f9a8e681ae33bf9b1c858698fbe001d2" => :el_capitan
+    sha256 "a10dd63d3825ad4163838983f0e4efb68e302fef0a8cecaa38989a4a70008fc0" => :yosemite
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -164,18 +164,13 @@ class Ffmpeg < Formula
     end
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
-    # prevents GCC from building VDA support. GCC has no problems on
-    # 10.9 and earlier.
+    # prevents GCC from building VDA support.
     # See: https://github.com/Homebrew/homebrew/issues/33741
-    if MacOS.version < :yosemite || ENV.compiler == :clang
+    if MacOS.version != :yosemite || ENV.compiler == :clang
       args << "--enable-vda"
     else
       args << "--disable-vda"
     end
-
-    # For 32-bit compilation under gcc 4.2, see:
-    # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
 
     system "./configure", *args
 

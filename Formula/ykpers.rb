@@ -1,15 +1,14 @@
 class Ykpers < Formula
   desc "YubiKey personalization library and tool"
   homepage "https://developers.yubico.com/yubikey-personalization/"
-  url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.17.3.tar.gz"
-  sha256 "482fc3984fc659c801cfc51313268f248507094ed5224f4394cfd66e23af9c0c"
+  url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.18.0.tar.gz"
+  sha256 "cf333e133b551adf5963e0f5fe0566f4e397f9784d4c1b8fc56b9d2ebcf982ad"
 
   bottle do
     cellar :any
-    sha256 "caa9b3e94726845cb1d1d972a822e105bf7092d9ddf5bcda90e33f14039eaf4b" => :sierra
-    sha256 "61d466fe3b295a6b4a6a1642dc8f1a393e28a6e9705260cf4107e8ad62a8bcab" => :el_capitan
-    sha256 "b3b65497b0b754c40a4b72ba607f9cc8149400dc2b4a89debc9a752f8add51a9" => :yosemite
-    sha256 "708fcea4a38578c8dabe046c07d8705bb8d1874c8b389c46e2edd6bc4f8b1d5c" => :mavericks
+    sha256 "d7a19fbf9d4d0b380af56ed2f4fb3c7b279297e2ff176a634605b1b6cfd46c7a" => :sierra
+    sha256 "d39fed920432cc5316fa02d986fc6cc1f028e1dad509d0e0c1bab1444126259d" => :el_capitan
+    sha256 "02867771a2d90229629d86afd76ac596ad6a52e5f5a696047442ba00a23b7589" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -28,6 +27,6 @@ class Ykpers < Formula
   end
 
   test do
-    assert_match "1.17.3", shell_output("#{bin}/ykinfo -V 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/ykinfo -V 2>&1")
   end
 end
