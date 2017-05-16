@@ -1,0 +1,18 @@
+# Documentation: http://docs.brew.sh/Formula-Cookbook.html
+#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
+
+class LinuxmainGenerator < Formula
+  desc "A shell command to automatically add code to Swift Package Manager projects to run unit tests on Linux."
+  homepage "https://github.com/valeriomazzeo/linuxmain-generator"
+  url "https://github.com/valeriomazzeo/linuxmain-generator/archive/0.2.0.tar.gz"
+  sha256 "84a7a29ef8680426d52591631610b683c853910c49532ad17d7101bd35ed207b"
+
+  def install
+    system "unset CC; swift build -c release"
+    bin.install ".build/release/linuxmain-generator"
+  end
+  
+  test do
+    system "#{bin}/linuxmain-generator", "--help"
+  end
+end
