@@ -5,7 +5,7 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.3.0.0.tar.gz"
   sha256 "299f3907cd566a20e163942fa82b6afc86ef89c2726ba503b90c1a651e82a458"
-  revision 3
+  revision 2
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -23,7 +23,6 @@ class Ansible < Formula
   # Collect requirements from:
   #   ansible
   #   docker-py
-  #   pyrax (Rackspace)
   #   shade (OpenStack)
   #   pywinrm (Windows)
   #   kerberos (Windows)
@@ -36,6 +35,7 @@ class Ansible < Formula
   #   passlib (htpasswd core module)
   #   zabbix-api (Zabbix extras module)
   #   junos-eznc (Juniper device support)
+  #   dnspython (DNS Lookup - dig)
 
   ### setup_requires dependencies
   resource "pbr" do
