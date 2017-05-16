@@ -68,7 +68,7 @@ class Linkerd < Formula
       exec "#{bin}/linkerd #{pkgshare}/default.yaml"
     end
 
-    sleep 5
+    sleep 10
 
     begin
       assert_match /It works!/, shell_output("curl -s -H 'Host: web' http://localhost:4140")
