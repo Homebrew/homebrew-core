@@ -3,7 +3,7 @@ class Swftools < Formula
   homepage "http://www.swftools.org/"
   url "http://www.swftools.org/swftools-0.9.2.tar.gz"
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "479570fcb99302996b55c361db1a6bb4a3abee611533b854fa350956f6b8cf61" => :sierra
@@ -16,7 +16,8 @@ class Swftools < Formula
   option "with-xpdf", "Build with PDF support"
 
   depends_on :x11 if build.with? "xpdf"
-  depends_on "jpeg" => :optional
+  depends_on "jpeg"
+  depends_on "freetype"
   depends_on "lame" => :optional
   depends_on "fftw" => :optional
 
