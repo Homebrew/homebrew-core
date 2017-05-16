@@ -1,9 +1,8 @@
 class Crowdin < Formula
   desc "Command-line tool that allows to manage your resources with crowdin.com"
   homepage "https://support.crowdin.com/cli-tool/"
-  url "https://crowdin.com/downloads/crowdin-cli-2.0.11.zip"
-  sha256 "027925176948b8973ba1a9fab4f0c097bf49f2df0c23be20d79049bd7af4fbc3"
-
+  url "https://crowdin.com/downloads/crowdin-cli-2.0.12.zip"
+  sha256 "6fbfba28ae22ba17f1d8aa262c849ef2c3735ae327b10f22445d5739ee138291"
   bottle :unneeded
 
   depends_on :java => "1.7+"
