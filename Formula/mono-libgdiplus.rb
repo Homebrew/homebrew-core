@@ -21,7 +21,8 @@ class MonoLibgdiplus < Formula
   depends_on "giflib"
 
   def install
-    system "./autogen.sh", "--disable-debug",
+    system "autoreconf", "-fiv"
+    system "./configure", "--disable-debug",
                            "--disable-dependency-tracking",
                            "--disable-silent-rules",
                            "--without-x11",
