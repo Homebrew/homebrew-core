@@ -3,6 +3,7 @@ class Datomic < Formula
   homepage "http://www.datomic.com/"
   url "https://my.datomic.com/downloads/free/0.9.5561"
   sha256 "50f67065f9ca43ab71d27b60fa68d3aae7d818095accc76bdfbb529fba1fac90"
+  revision 1
 
   bottle :unneeded
 
