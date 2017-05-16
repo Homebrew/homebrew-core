@@ -3,7 +3,7 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/3.05.00.tar.gz"
   sha256 "3fe83e06d0f73b39f6e92ed9fc7ccba3ef734877b76aa5ddaaa778fac095d996"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "45167af1ab8944f17e1a978d9c7d397c505d0557a3ddecd4561a8e9553884e07" => :sierra
@@ -68,9 +68,11 @@ class Tesseract < Formula
   # remove on next release, > 3.05.00
   # upstream fix for building with OpenCL enabled
   # https://github.com/tesseract-ocr/tesseract/pull/814
-  patch do
-    url "https://github.com/tesseract-ocr/tesseract/commit/b18cad4.patch"
-    sha256 "10c59baa54c3406fcd03f36cd0f1e3cc2ba150f082d14f919274a541b3cff7b2"
+  unless build.head?
+    patch do
+      url "https://github.com/tesseract-ocr/tesseract/commit/b18cad4.patch"
+      sha256 "10c59baa54c3406fcd03f36cd0f1e3cc2ba150f082d14f919274a541b3cff7b2"
+    end
   end
 
   def install
