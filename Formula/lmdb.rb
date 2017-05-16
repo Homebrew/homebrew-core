@@ -20,6 +20,22 @@ class Lmdb < Formula
       system "make", "test", "SOEXT=.dylib"
       system "make", "install", "SOEXT=.dylib", "prefix=#{prefix}"
     end
+    (lib/"pkgconfig/lmdb.pc").write(lmdb_pc)
+  end
+
+  def lmdb_pc; <<-EOS.undent
+    prefix=#{prefix}
+    exec_prefix=#{prefix}
+    libdir=${exec_prefix}/lib
+    includedir=${prefix}/include
+
+    Name: liblmdb
+    Description: Lightning Memory-Mapped Database
+    URL: https://symas.com/products/lightning-memory-mapped-database/
+    Version: #{version}
+    Libs: -L${libdir} -llmdb
+    Cflags: -I${includedir}
+    EOS
   end
 
   test do
