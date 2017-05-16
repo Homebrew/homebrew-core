@@ -1,6 +1,3 @@
-# Documentation: http://docs.brew.sh/Formula-Cookbook.html
-#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
-
 class LinuxmainGenerator < Formula
   desc "A shell command to automatically add code to Swift Package Manager projects to run unit tests on Linux."
   homepage "https://github.com/valeriomazzeo/linuxmain-generator"
