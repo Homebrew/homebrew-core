@@ -68,9 +68,11 @@ class Tesseract < Formula
   # remove on next release, > 3.05.00
   # upstream fix for building with OpenCL enabled
   # https://github.com/tesseract-ocr/tesseract/pull/814
-  patch do
-    url "https://github.com/tesseract-ocr/tesseract/commit/b18cad4.patch"
-    sha256 "10c59baa54c3406fcd03f36cd0f1e3cc2ba150f082d14f919274a541b3cff7b2"
+  unless build.head?
+    patch do
+      url "https://github.com/tesseract-ocr/tesseract/commit/b18cad4.patch"
+      sha256 "10c59baa54c3406fcd03f36cd0f1e3cc2ba150f082d14f919274a541b3cff7b2"
+    end
   end
 
   def install
