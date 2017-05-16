@@ -1,11 +1,11 @@
 class LinuxmainGenerator < Formula
-  desc "A shell command to automatically add code to Swift Package Manager projects to run unit tests on Linux."
+  desc "A shell command to keep SPM project's tests in sync between OSX and Linux."
   homepage "https://github.com/valeriomazzeo/linuxmain-generator"
   url "https://github.com/valeriomazzeo/linuxmain-generator/archive/0.2.0.tar.gz"
   sha256 "84a7a29ef8680426d52591631610b683c853910c49532ad17d7101bd35ed207b"
 
   def install
-    system "unset CC; swift build -c release"
+    system "swift", "build", "-c", "release"
     bin.install ".build/release/linuxmain-generator"
   end
   
