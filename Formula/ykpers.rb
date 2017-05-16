@@ -28,6 +28,6 @@ class Ykpers < Formula
   end
 
   test do
-    assert_match "1.18.0", shell_output("#{bin}/ykinfo -V 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/ykinfo -V 2>&1")
   end
 end
