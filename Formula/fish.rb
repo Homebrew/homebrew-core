@@ -17,6 +17,11 @@ class Fish < Formula
   devel do
     url "https://github.com/fish-shell/fish-shell/releases/download/2.6b1/fish-2.6b1.tar.gz"
     sha256 "be36568dfebc0cb144b769e9ac09a570d09c528859e426480c9b4f96b0ccf001"
+
+    patch do
+      url "https://github.com/fish-shell/fish-shell/commit/40501667389c2ae1ad7e7cc1c39200466ad12232.diff"
+      sha256 "af47bcac6789aee745429fc6bb1c6498003a1ba8f05d27ec06f84e71441a0eda"
+    end
   end
 
   head do
