@@ -11,6 +11,6 @@ class LinuxmainGenerator < Formula
   end
   
   test do
-    system "#{bin}/linuxmain-generator", "--help"
+    system "#{bin}/linuxmain-generator", "-h"
   end
 end
