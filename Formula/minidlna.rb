@@ -1,9 +1,8 @@
 class Minidlna < Formula
   desc "Media server software, compliant with DLNA/UPnP-AV clients"
   homepage "https://sourceforge.net/projects/minidlna/"
-  url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.1.5/minidlna-1.1.5.tar.gz"
-  sha256 "8477ad0416bb2af5cd8da6dde6c07ffe1a413492b7fe40a362bc8587be15ab9b"
-  revision 1
+  url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.2.0/minidlna-1.2.0.tar.gz"
+  sha256 "8d34436580c4c44be25976d5e46bc5b71af69bf441c4492774eac001164c4433"
 
   bottle do
     cellar :any
@@ -31,9 +30,8 @@ class Minidlna < Formula
   depends_on "ffmpeg"
 
   def install
-    ENV.append_to_cflags "-std=gnu89"
     system "./autogen.sh" if build.head?
-    system "./configure", "--exec-prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
@@ -102,16 +100,14 @@ class Minidlna < Formula
       log_dir=#{testpath}/.config/minidlna
     EOS
 
-    pid = fork do
-      exec "#{sbin}/minidlnad -f minidlna.conf -p 8081 -P #{testpath}/minidlna.pid"
-    end
+    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", "8081", "-P",
+                             testpath/"minidlna.pid"
     sleep 2
 
     begin
       assert_match /MiniDLNA #{version}/, shell_output("curl localhost:8081")
     ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
+      Process.kill("SIGINT", File.read("minidlna.pid").to_i)
     end
   end
 end
