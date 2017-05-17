@@ -1,8 +1,8 @@
 class Rkflashtool < Formula
   desc "Tools for flashing Rockchip devices"
   homepage "https://sourceforge.net/projects/rkflashtool/"
-  url "https://downloads.sourceforge.net/project/rkflashtool/rkflashtool-5.1/rkflashtool-5.1-src.tar.bz2"
-  sha256 "2cad0e0c116357b721a6ac98fb3a91b43fe0269cda66e75eda4adec3330b7735"
+  url "https://downloads.sourceforge.net/project/rkflashtool/rkflashtool-6.1/rkflashtool-6.1-src.tar.bz2"
+  sha256 "2bc0ec580caa790b0aee634388a9110a429baf4b93ff2c4fce3d9ab583f51339"
 
   head "https://git.code.sf.net/p/rkflashtool/Git.git"
 
@@ -15,21 +15,11 @@ class Rkflashtool < Formula
     sha256 "1f3260720ba6ca946000f10f3675140d8b5e737e6fd18abe7b5c0cb4f7b2d972" => :mavericks
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libusb"
 
-  # Add file 'version.h' that has been forgotten in the tarball
-  resource "version" do
-    url "https://downloads.sourceforge.net/project/rkflashtool/rkflashtool-5.1/version.h"
-    sha256 "b7bd8e3c66170d5f6e6a68c5add677ad365e37b4121251de87ad29e7fdf06cd6"
-  end
-
   def install
-    resource("version").stage { buildpath.install "version.h" } if build.stable?
-    system "make"
-
-    # No 'install' method found in Makefile
-    bin.install "rkflashtool", "rkcrc", "rkmisc", "rkpad",
-      "rkparameters", "rkparametersblock", "rkunpack", "rkunsign"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
