@@ -1,8 +1,8 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.11.0/infer-osx-v0.11.0.tar.xz"
-  sha256 "0c435efa311cb70a79b5b8ae9cc4e714651e6653c5542a58cc624f2439d68e36"
+  url "https://github.com/facebook/infer/releases/download/v0.12.0/infer-osx-v0.12.0.tar.xz"
+  sha256 "3b97bcabf85af8feb8d6fd0b8622fe2b4fbf27fa215fab61e3a660b5435b6d21"
 
   bottle do
     cellar :any
