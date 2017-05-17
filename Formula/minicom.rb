@@ -5,10 +5,9 @@ class Minicom < Formula
   sha256 "532f836b7a677eb0cb1dca8d70302b73729c3d30df26d58368d712e5cca041f1"
 
   bottle do
-    sha256 "d2195e67bda7158fee69a8a343961490dda50f35ac6f472dbba2e7317d00c2b2" => :sierra
-    sha256 "81f7a4e2671a83ed8ee528b74dc47d6b5bf57995d066048b3130a097ff22203d" => :el_capitan
-    sha256 "ab76b20b7ad26d544946d6fa39722e3709fd2b2de5c8da3693c56c1829db8f8a" => :yosemite
-    sha256 "18f41c6b651d70c248efba991f044d3f1ed4226ec0bd916773609e865abf0c1a" => :mavericks
+    sha256 "63584b5ee8463dfb6cef69ad32308c51a4e83778dd44b80fc4c1e7c40cb48b2e" => :sierra
+    sha256 "820aae10f1c298350f51f7571d4d6becb4b0cfc876fb77126ea1e43bec8466e4" => :el_capitan
+    sha256 "5f17b6f15c2417acbda3a91b64f7df166b29fd2389adc52f011e2541f1fdbcb9" => :yosemite
   end
 
   def install
