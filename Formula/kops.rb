@@ -1,20 +1,9 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
+  url "https://github.com/kubernetes/kops/archive/1.6.0.tar.gz"
+  sha256 "39ef8382d7557c4eacf9678feae42f473f2a9c436f4a518dfcf6a630eea6c2ce"
   head "https://github.com/kubernetes/kops.git"
-
-  stable do
-    url "https://github.com/kubernetes/kops/archive/1.5.3.tar.gz"
-    sha256 "70d27f43580250a081333dd88d7437df5151063638da1eef567d78a04021b1cf"
-
-    # Remove for > 1.5.3
-    # Fix "sha1sum command is not available"
-    # Upstream PR from 10 Mar 2017 "Fix makefile to correctly detect macOS shasum"
-    patch do
-      url "https://github.com/kubernetes/kops/pull/2097.patch"
-      sha256 "238c431622e8be0229057811823210b97a9b17f8611f90d6aef3a76a97abef96"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
