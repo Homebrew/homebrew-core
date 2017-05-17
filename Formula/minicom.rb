@@ -1,8 +1,8 @@
 class Minicom < Formula
   desc "Menu-driven communications program"
   homepage "https://alioth.debian.org/projects/minicom/"
-  url "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/minicom/minicom_2.7.orig.tar.gz"
-  sha256 "9ac3a663b82f4f5df64114b4792b9926b536c85f59de0f2d2b321c7626a904f4"
+  url "https://alioth.debian.org/frs/download.php/file/4215/minicom-2.7.1.tar.gz"
+  sha256 "532f836b7a677eb0cb1dca8d70302b73729c3d30df26d58368d712e5cca041f1"
 
   bottle do
     sha256 "d2195e67bda7158fee69a8a343961490dda50f35ac6f472dbba2e7317d00c2b2" => :sierra
