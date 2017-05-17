@@ -8,11 +8,9 @@ class Rkflashtool < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b049c39dfe71266669ed37b0af50f5d1fa981963eee08abab29a8cfb32ccc23f" => :sierra
-    sha256 "6e129daf2945875ed2f3d162cc4705e1643d826e910574d61d7947c96de007e5" => :el_capitan
-    sha256 "6c42ca5e0a23c0e246b6e58baff3a32215ba94e60115c8ef4f38306dadfabbeb" => :yosemite
-    sha256 "1f3260720ba6ca946000f10f3675140d8b5e737e6fd18abe7b5c0cb4f7b2d972" => :mavericks
+    sha256 "cbeb2509bcd210026250c915a9909e8f056e9e2da1f599d7a611695c334f4966" => :sierra
+    sha256 "7a8b5c66395b179ce38845c36369b1a65c6eacc73fd29227809597257669af6d" => :el_capitan
+    sha256 "cf5c51c7aa18c9304ade585c82d9083421eafde114ef6ab22736a24f45530226" => :yosemite
   end
 
   depends_on "pkg-config" => :build
