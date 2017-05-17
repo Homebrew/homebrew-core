@@ -1,12 +1,9 @@
-require "language/go"
-
 class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-    :tag => "v0.5.1",
-    :revision => "70524e3d02d0cf31f3d13737193a1459150781c8"
-  sha256 "5f3fe0bb1a0ca75616ba2cb6cba7b11c535ac6c732e83c71f708dc074e489b1f"
+      :tag => "v0.6.2",
+      :revision => "578f42522a56b5da4bd4b932f199b212eeb38e0b"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,11 +14,6 @@ class Leaps < Formula
 
   depends_on "go" => :build
 
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-        :revision => "db8e4de5b2d6653f66aea53094624468caad15d2"
-  end
-
   def install
     ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
@@ -29,7 +21,6 @@ class Leaps < Formula
 
     mkdir_p buildpath/"src/github.com/jeffail/"
     ln_sf buildpath, buildpath/"src/github.com/jeffail/leaps"
-    Language::Go.stage_deps resources, buildpath/"src"
 
     system "go", "build", "-o", "#{bin}/leaps", "github.com/jeffail/leaps/cmd/leaps"
   end
