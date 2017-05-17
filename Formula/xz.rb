@@ -14,7 +14,10 @@ class Xz < Formula
     sha256 "82eef73a78db1c46ed8482c357f6ad1797a62f4c9124410b362efe885082892c" => :yosemite
   end
 
+  option :universal
+
   def install
+    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
