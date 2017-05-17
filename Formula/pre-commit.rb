@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.13.6.tar.gz"
-  sha256 "8c17b735467247097a1505b9259813a3ff7899e8534b12f4a68290b1f5fe6f32"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.14.0.tar.gz"
+  sha256 "5d8d7a979324ccb11151fac698ed884145a5e43a81ea112ec8b6bc8b0d0977b8"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,23 +16,13 @@ class PreCommit < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "aspy.yaml" do
-    url "https://github.com/asottile/aspy.yaml/archive/v0.2.2.tar.gz"
-    sha256 "91940ed68ae9bf4d72a70e26b133be2affc9912935c131dcfaeb99ba7099aa29"
+    url "https://files.pythonhosted.org/packages/d7/42/f48357329822c750f4830591f1272e0dea0fff65775d8decf00d3b4a5f6e/aspy.yaml-0.3.0.tar.gz"
+    sha256 "fe82d46c5949dde211f2da24e58181bbeea7b6a18057a1b44250f03e5f6f3c89"
   end
 
   resource "cached-property" do
     url "https://files.pythonhosted.org/packages/ae/02/09b905981aefb99c97ad53ac1cc0a90f02c1457a549eae98d87e8e6f2d7e/cached-property-1.3.0.tar.gz"
     sha256 "458e78b1c7286ece887d92c9bee829da85717994c5e3ddd253a40467f488bc81"
-  end
-
-  resource "functools32" do
-    url "https://files.pythonhosted.org/packages/c5/60/6ac26ad05857c601308d8fb9e87fa36d0ebf889423f47c3502ef034365db/functools32-3.2.3-2.tar.gz"
-    sha256 "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"
-  end
-
-  resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
-    sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
   end
 
   resource "nodeenv" do
@@ -48,6 +38,11 @@ class PreCommit < Formula
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "virtualenv" do
