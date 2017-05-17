@@ -188,21 +188,5 @@ class Uwsgi < Formula
       Process.kill("SIGINT", pid)
       Process.wait(pid)
     end
-
-    if build.with? "python3"
-      pid = fork do
-        exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python3 -w helloworld"
-      end
-      sleep 2
-
-      begin
-        assert_match "Hello World", shell_output("curl localhost:8080")
-        # TODO: Would be good to capture the stdout of the exec and test that the python version is 3*, but not sure how.
-        # assert_match "Python version: 3", shell_output("curl localhost:8080")
-      ensure
-        Process.kill("SIGINT", pid)
-        Process.wait(pid)
-      end
-    end
   end
 end
