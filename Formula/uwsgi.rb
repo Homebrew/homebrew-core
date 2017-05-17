@@ -123,10 +123,13 @@ class Uwsgi < Formula
       system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
     end
 
-    python_versions = ["python", "python2"]
-    python_versions << "python3" if build.with? "python3"
-    python_versions.each do |v|
-      system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", v
+    python_versions = {
+      "python"=>"python",
+      "python2"=>"python",
+    }
+    python_versions["python3"] = "python3" if build.with? "python3"
+    python_versions.each do |k, v|
+      system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end
 
     bin.install "uwsgi"
@@ -184,6 +187,22 @@ class Uwsgi < Formula
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
+    end
+
+    if build.with? "python3"
+      pid = fork do
+        exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python3 -w helloworld"
+      end
+      sleep 2
+
+      begin
+        assert_match "Hello World", shell_output("curl localhost:8080")
+        # TODO: Would be good to capture the stdout of the exec and test that the python version is 3*, but not sure how.
+        # assert_match "Python version: 3", shell_output("curl localhost:8080")
+      ensure
+        Process.kill("SIGINT", pid)
+        Process.wait(pid)
+      end
     end
   end
 end
