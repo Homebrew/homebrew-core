@@ -32,6 +32,13 @@ class Gnupg < Formula
   depends_on "readline" => :optional
   depends_on "encfs" => :optional
 
+  # Upstream commit 16 May 2017 "Suppress error for card availability check."
+  # See https://dev.gnupg.org/rGa8dd96826f8484c0ae93c954035b95c2a75c80f2
+  patch do
+    url "https://files.gnupg.net/file/data/4cbbk5wdkpo72hbwah6g/PHID-FILE-sxw2ecnjqxzopc2wimxp/file"
+    sha256 "3adb7fd095f8bc29fd550bf499f5f198dd20e3d5c97d5bcb79e91d95fd53a781"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -48,11 +55,8 @@ class Gnupg < Formula
 
     system "./configure", *args
     system "make"
+    system "make", "check"
     system "make", "install"
-
-    # 2.1.21 has a nasty regression inside sandboxed environments.
-    # See previous: https://dev.gnupg.org/T2980
-    # system "make", "check"
 
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"
