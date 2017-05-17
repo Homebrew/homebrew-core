@@ -3,9 +3,8 @@ require "language/go"
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
-  url "https://github.com/immortal/immortal/archive/0.13.2.tar.gz"
-  sha256 "f34674720828c984ef34df33b75b614fabe81e4fd50eb152746a33a273daa4f9"
-  revision 1
+  url "https://github.com/immortal/immortal/archive/0.13.3.tar.gz"
+  sha256 "0d5646ae4d57d867b6178f2fb105ee4e8a1567580baea6683752cdc27cbb910f"
   head "https://github.com/immortal/immortal.git"
 
   bottle do
@@ -17,7 +16,7 @@ class Immortal < Formula
 
   depends_on "go" => :build
 
-  go_resource "gopkg.in/yaml.v2" do
+  go_resource "github.com/go-yaml/yaml" do
     url "https://github.com/go-yaml/yaml.git",
         :revision => "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
   end
