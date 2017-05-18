@@ -15,6 +15,9 @@ class Collectd < Formula
 
   head do
     url "https://github.com/collectd/collectd.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
   end
 
   option "with-java", "Enable Java support"
@@ -26,8 +29,6 @@ class Collectd < Formula
   deprecated_option "debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
   depends_on "libtool" => :build
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
