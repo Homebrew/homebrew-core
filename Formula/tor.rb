@@ -32,6 +32,10 @@ class Tor < Formula
     system "make", "install"
   end
 
+  def post_install
+    mkdir_p "#{HOMEBREW_PREFIX}/var/lib/tor"
+  end
+
   plist_options :manual => "tor"
 
   def plist; <<-EOS.undent
