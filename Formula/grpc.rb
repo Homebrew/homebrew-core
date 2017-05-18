@@ -12,15 +12,13 @@ class Grpc < Formula
     sha256 "9ede8a74e121aae5516fb35a84b980c402a71d9fe1338707782a40326f49cd3b" => :yosemite
   end
 
-  option "with-tools", "Build tools"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "c-ares"
   depends_on "openssl"
   depends_on "protobuf"
-  depends_on "gflags" if build.with? "tools"
+  depends_on "gflags"
 
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
@@ -32,11 +30,9 @@ class Grpc < Formula
 
     system "make", "install-plugins", "prefix=#{prefix}"
 
-    if build.with? "tools"
-      (buildpath/"third_party/googletest").install resource("gtest")
-      system "make", "grpc_cli", "prefix=#{prefix}"
-      bin.install "bins/opt/grpc_cli"
-    end
+    (buildpath/"third_party/googletest").install resource("gtest")
+    system "make", "grpc_cli", "prefix=#{prefix}"
+    bin.install "bins/opt/grpc_cli"
   end
 
   test do
