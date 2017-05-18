@@ -1,16 +1,9 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01-src.tar.bz2"
-    sha256 "604c011593be484e65b2141c50a018f1b28ab28c994268e4ecd377773f3ffba1"
-
-    resource "nsis" do
-      url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01.zip"
-      sha256 "daa17556c8690a34fb13af25c87ced89c79a36a935bf6126253a9d9a5226367c"
-    end
-  end
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01-src.tar.bz2"
+  sha256 "604c011593be484e65b2141c50a018f1b28ab28c994268e4ecd377773f3ffba1"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,6 +14,11 @@ class Makensis < Formula
 
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
+
+  resource "nsis" do
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.01/nsis-3.01.zip"
+    sha256 "daa17556c8690a34fb13af25c87ced89c79a36a935bf6126253a9d9a5226367c"
+  end
 
   resource "zlib-win32" do
     url "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip"
