@@ -1,14 +1,17 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.11.tar.xz"
-  sha256 "db440670cb6f3c098b076df3735fbc4e69359bd605385e87c90ee48344a804ca"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.15.tar.xz"
+  sha256 "c8a012c2a99132629ab043f764a2b7cb6388483a015cd15c7a4288bec3590fdb"
 
   bottle do
     sha256 "37356f6d632d1ba3645b30859806d9082cc2aebd6904f1116ceb3cc21d804beb" => :sierra
     sha256 "709d1eddbbe107de1aa8fdf7826174b7701eb22c215bbce7e063b1586a26acca" => :el_capitan
     sha256 "9ae80358c79627df484a6e5c144efb86f14cf63f36c52d89234f0853977007f0" => :yosemite
   end
+
+  # see https://bugzilla.gnome.org/show_bug.cgi?id=781118
+  patch :DATA
 
   option "with-quartz-relocation", "Build with quartz relocation support"
 
@@ -111,3 +114,33 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gdk/quartz/gdkscreen-quartz.c b/gdk/quartz/gdkscreen-quartz.c
+index 586f7af..d032643 100644
+--- a/gdk/quartz/gdkscreen-quartz.c
++++ b/gdk/quartz/gdkscreen-quartz.c
+@@ -79,7 +79,7 @@ gdk_quartz_screen_init (GdkQuartzScreen *quartz_screen)
+   NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
+   NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
+
+-  _gdk_screen_set_resolution (screen, size.width);
++  _gdk_screen_set_resolution (screen, 72.0);
+
+   gdk_quartz_screen_calculate_layout (quartz_screen);
+
+@@ -334,11 +334,8 @@ gdk_quartz_screen_get_height (GdkScreen *screen)
+ static gint
+ get_mm_from_pixels (NSScreen *screen, int pixels)
+ {
+-  const float mm_per_inch = 25.4;
+-  NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
+-  NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
+-  float dpi = size.width;
+-  return (pixels / dpi) * mm_per_inch;
++  const float dpi = 72.0;
++  return (pixels / dpi) * 25.4;
+ }
+
+ static gchar *
+
