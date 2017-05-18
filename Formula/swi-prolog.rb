@@ -1,8 +1,8 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/stable/src/swipl-7.4.1.tar.gz"
-  sha256 "891e314e8f5d856ef71d8bbce5d255a18b0c8f227628748bb0e1e19473273cc1"
+  url "http://www.swi-prolog.org/download/stable/src/swipl-7.4.2.tar.gz"
+  sha256 "7f17257da334bc1e7a35e9cf5cb8fca01d82f1ea406c7ace76e9062af8f0df8b"
 
   bottle do
     sha256 "0e5128fa677354c723a15b8d82a74a28ff6585efefa0c334e64798eee4ce2964" => :sierra
@@ -11,8 +11,8 @@ class SwiProlog < Formula
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.5.2.tar.gz"
-    sha256 "e16a5e74af16b1830d6a6f9950e56e2039b73e9dc70313603557a85d5490dafe"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.5.6.tar.gz"
+    sha256 "47c31d4d3140e96706295555b01916dd7bde6c4151c80515a48e7aabfc747288"
   end
 
   head do
