@@ -3,8 +3,8 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://github.com/fonttools/fonttools/releases/download/3.11.0/fonttools-3.11.0.zip"
-  sha256 "b9f0c93914d83f27b32b5eb89c640ce1f1cb6f8466bff6079ff27903275f8994"
+  url "https://github.com/fonttools/fonttools/releases/download/3.12.1/fonttools-3.12.1.zip"
+  sha256 "026d78e87fb5243d536fb19c03d293f080b82f156f48da92df1c1c7f02177cbd"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
