@@ -3,6 +3,7 @@ class Grpc < Formula
   homepage "http://www.grpc.io/"
   url "https://github.com/grpc/grpc/archive/v1.3.2.tar.gz"
   sha256 "6228fb43e6b11b1dec5aa21e66482bb45013b45cb70c1ca062f4848469d1ab99"
+  revision 1
   head "https://github.com/grpc/grpc.git"
 
   bottle do
@@ -17,11 +18,21 @@ class Grpc < Formula
   depends_on "c-ares"
   depends_on "openssl"
   depends_on "protobuf"
+  depends_on "gflags"
+
+  resource "gtest" do
+    url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
+    sha256 "58a6f4277ca2bc8565222b3bbd58a177609e9c488e8a72649359ba51450db7d8"
+  end
 
   def install
     system "make", "install", "prefix=#{prefix}"
 
     system "make", "install-plugins", "prefix=#{prefix}"
+
+    (buildpath/"third_party/googletest").install resource("gtest")
+    system "make", "grpc_cli", "prefix=#{prefix}"
+    bin.install "bins/opt/grpc_cli"
   end
 
   test do
