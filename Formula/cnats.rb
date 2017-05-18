@@ -1,8 +1,8 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/cnats"
-  url "https://github.com/nats-io/cnats/archive/v1.5.0.tar.gz"
-  sha256 "84ce55250a16cd6a4f1350d8903ea046e6cb5add525b54be6dc65227e7343d3a"
+  url "https://github.com/nats-io/cnats/archive/v1.6.0.tar.gz"
+  sha256 "ce2eb48ac9fa6e89cacb3271f06780a2161c9b7f71dc520e09d4b1b0c4091dd8"
 
   bottle do
     cellar :any
@@ -24,7 +24,7 @@ class Cnats < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-      #include <nats.h>
+      #include <nats/nats.h>
       #include <stdio.h>
       int main() {
         printf("%s\\n", nats_GetVersion());
