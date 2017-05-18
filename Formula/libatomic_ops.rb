@@ -6,10 +6,9 @@ class LibatomicOps < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f1ae1dd838e499bca0fafb07339b3fc742cdea3341760ecaece9b42d8e919f3" => :sierra
-    sha256 "2ca5c62c613dd85ac4901f9e937a901b19048f9e691c8f91961099dcf0ce08a9" => :el_capitan
-    sha256 "7ef7eb4cccf81644068a38b67f1ad191d100b29130f9561f3d676b3c651a7566" => :yosemite
-    sha256 "df26486b811bd7c6fe6a18622c4716e2e106b9726a8887a9bca69c4f7bc8b56a" => :mavericks
+    sha256 "fc80848a3579f5de3f041b1cfb59ac94844555367f6eaf17628d177bd587d780" => :sierra
+    sha256 "912aa8d5209d8404722163995bc40b4d5ee14772f2bdd8f7da925cbd5958cbb1" => :el_capitan
+    sha256 "319892011eb1e30819c7a0bfad69677f1b53c6522248350610bbff6b4063b2a6" => :yosemite
   end
 
   def install
