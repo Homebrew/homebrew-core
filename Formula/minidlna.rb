@@ -6,10 +6,9 @@ class Minidlna < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5eadd2ce885299d36c2f1c6dc50e34a2f54ff18b6a76340e7859d35f26122345" => :sierra
-    sha256 "333bbc7986eefd5978982ad1b7c72c5a4ff2c22be9b0af9357f7629b56e6bbdb" => :el_capitan
-    sha256 "310c94efdbe5776636689b1c0d49f8a4d67c542d6a47c4426a01561bd85ca605" => :yosemite
+    sha256 "6caa52d90cb785abfaab9f7b693924b184ba7d0e226ac722b32cde5bae378fbf" => :sierra
+    sha256 "527e7622ff531aab9cecd253499d81ec3ea976c527fbe45db36fc513b39ddf23" => :el_capitan
+    sha256 "d94820c5a1bae266d7e6572044f9f07f0484d97ca37cfc8c5cd2cc05933056dc" => :yosemite
   end
 
   head do
