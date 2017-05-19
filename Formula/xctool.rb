@@ -15,7 +15,7 @@ class Xctool < Formula
   depends_on :xcode => "7.0"
 
   def install
-    system "./scripts/build.sh", "XT_INSTALL_ROOT=#{libexec}", "-IDECustomDerivedDataLocation=#{buildpath}"
+    system "./scripts/build.sh", "SYMROOT=build", "XT_INSTALL_ROOT=#{libexec}", "-IDECustomDerivedDataLocation=#{buildpath}"
     bin.install_symlink "#{libexec}/bin/xctool"
   end
 
