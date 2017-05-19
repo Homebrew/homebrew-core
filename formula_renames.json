@@ -168,5 +168,6 @@
   "vim74": "vim@7.4",
   "wires": "geckodriver",
   "zeromq32": "zeromq@3.2",
-  "zeromq40": "zeromq@4.0"
+  "zeromq40": "zeromq@4.0",
+  "zeromq41": "zeromq@4.1"
 }
