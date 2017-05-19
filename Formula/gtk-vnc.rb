@@ -5,9 +5,9 @@ class GtkVnc < Formula
   sha256 "f34baa696615ef67666e8465b4d0ac563355e999a77d2cc42ad4625a24f7aab1"
 
   bottle do
-    sha256 "ceb838e4d4f47747d1108b8aac8dfa4b4770331122973631c2d6e1bfad9460a3" => :sierra
-    sha256 "ec8719eb4a3ce0dfed33d1f9eb4c79927bac33faae2cc6deeaf579aea282c2be" => :el_capitan
-    sha256 "56dea445fa75ae05a7f68cab3e0d75d9931b5479361fc2a5a0e6f1df6ad34ebe" => :yosemite
+    sha256 "c95f372db04ab13aa14d32a08365c70b2509f44e2e00e35dbe8951c0fbf2ff35" => :sierra
+    sha256 "8a06aa2e8724eff7e84b5249eaa8d0b2f82dba260b35fab9785c4ff4ed2ef065" => :el_capitan
+    sha256 "9d4ceb7f6eddd4a8db287c1e4c4dcdca1bd302eaaf11879d2080c39e771c333e" => :yosemite
   end
 
   # Fails with Xcode 7.1 or older
