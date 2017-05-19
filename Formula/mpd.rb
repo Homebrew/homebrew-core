@@ -1,8 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.6.tar.xz"
-  sha256 "f4055e1189e5cc00e83706b2e0b5ead924ced0303e073d7802ee9f9a8eba4b47"
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.7.tar.xz"
+  sha256 "005ac663b39a76701ba043cce4caef82ac6b0c2f16aae12fdc28e1b3b5b6c780"
 
   bottle do
     sha256 "772293121659866f47d554b60eea57460a489659599ea9f83435c8a372c05ac8" => :sierra
@@ -67,6 +67,8 @@ class Mpd < Formula
   end
 
   def install
+    ENV.deparallelize
+
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
     # The build is fine with G++.
