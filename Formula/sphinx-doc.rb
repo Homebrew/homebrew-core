@@ -1,8 +1,8 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/95/d2/811beb24fa68afeb673e7a069aa3dbb95f57b426075d734ed913b47ca2ec/Sphinx-1.5.6.tar.gz"
-  sha256 "565a72dd39dd6ea2e8c548d34c127c981e4bcaead69a2c456a6e33ef69151ace"
+  url "https://files.pythonhosted.org/packages/0a/32/594257b9fccc8ce4d120e86d481cabe55ee9de7c1686af2ee58eb4ec741e/Sphinx-1.6.1.tar.gz"
+  sha256 "7581d82c3f206f0ac380edeeba890a2e2d2be011e5abe94684ceb0df4b6acc3f"
 
   bottle do
     cellar :any_skip_relocation
@@ -71,6 +71,16 @@ class SphinxDoc < Formula
   resource "snowballstemmer" do
     url "https://files.pythonhosted.org/packages/20/6b/d2a7cb176d4d664d94a6debf52cd8dbae1f7203c8e42426daa077051d59c/snowballstemmer-1.2.1.tar.gz"
     sha256 "919f26a68b2c17a7634da993d91339e288964f93c274f1343e3bbbe2096e1128"
+  end
+
+  resource "sphinxcontrib-websupport" do
+    url "https://files.pythonhosted.org/packages/c5/6b/f0630436b931ad4f8331a9399ca18a7d447f0fcc0c7178fb56b1aee68d01/sphinxcontrib-websupport-1.0.1.tar.gz"
+    sha256 "7a85961326aa3a400cd4ad3c816d70ed6f7c740acd7ce5d78cd0a67825072eb9"
+  end
+
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
+    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
   end
 
   def install
