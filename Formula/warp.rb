@@ -4,6 +4,13 @@ class Warp < Formula
   url "https://github.com/spolu/warp/archive/v0.0.3.tar.gz"
   sha256 "9079899099b63ee470e693b7f2723cbf8d75cafe880b4329cf9f516c2669e8ca"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "562aed9e482aa4423476a0a83e9ecb36822ac19968f4440362a3b273bdcaf4dc" => :sierra
+    sha256 "cc33305d446538db611f039f585648afed84268b1c98fc9a0c5ded76185eee0e" => :el_capitan
+    sha256 "7bad4e1c81ee20c9908e7317bf8d8b71c807df95355e1e232ac055769b56a9c4" => :yosemite
+  end
+
   depends_on "go" => :build
 
   def install
