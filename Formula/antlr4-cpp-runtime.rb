@@ -4,6 +4,13 @@ class Antlr4CppRuntime < Formula
   url "http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip"
   sha256 "3aa4bac23c60df14a687839b5e6aa7e94054112d3d3c5c8b1cffe270a4aeeaf7"
 
+  bottle do
+    cellar :any
+    sha256 "5234bcb1f4db6ef16b1f5921d9992fba3778099bc7a9692ae35c10157478498e" => :sierra
+    sha256 "7e9caa8a5dce7785e6d9769747fd5e21c91391237caf64632d21a6975f09336a" => :el_capitan
+    sha256 "b8ad063314e460e17e18def0d963c8cc644c93133b75949dcc641eecef16125b" => :yosemite
+  end
+
   depends_on "cmake" => :build
 
   def install
