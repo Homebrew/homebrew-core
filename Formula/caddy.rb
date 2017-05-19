@@ -3,8 +3,8 @@ require "language/go"
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.10.2.tar.gz"
-  sha256 "f7040977df1570274a98f1d58581f8efe63b346822312719913f7c8dbcf59184"
+  url "https://github.com/mholt/caddy/archive/v0.10.3.tar.gz"
+  sha256 "fbbecb2eed383fd9deb9177f899ba8c8ebf15f767f4fefa0cc558f07ed337260"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
@@ -16,9 +16,9 @@ class Caddy < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/dsnet/compress" do
-    url "https://github.com/dsnet/compress.git",
-        :revision => "b9aab3c6a04eef14c56384b4ad065e7b73438862"
+  go_resource "github.com/codahale/aesnicheck" do
+    url "https://github.com/codahale/aesnicheck.git",
+        :revision => "349fcc471aaccc29cd074e1275f1a494323826cd"
   end
 
   go_resource "github.com/dustin/go-humanize" do
@@ -29,11 +29,6 @@ class Caddy < Formula
   go_resource "github.com/flynn/go-shlex" do
     url "https://github.com/flynn/go-shlex.git",
         :revision => "3f9db97f856818214da2e1057f8ad84803971cff"
-  end
-
-  go_resource "github.com/golang/snappy" do
-    url "https://github.com/golang/snappy.git",
-        :revision => "553a641470496b2327abcac10b36396bd98e45c9"
   end
 
   go_resource "github.com/gorilla/websocket" do
@@ -68,17 +63,12 @@ class Caddy < Formula
 
   go_resource "github.com/lucas-clemente/quic-go" do
     url "https://github.com/lucas-clemente/quic-go.git",
-        :revision => "5f25ffc795f3f7c60586123e550c0d01b9f6cfb4"
+        :revision => "8489c94f4d3aaa5feaa284a16376cfb8ea7d2c2c"
   end
 
   go_resource "github.com/lucas-clemente/quic-go-certificates" do
     url "https://github.com/lucas-clemente/quic-go-certificates.git",
         :revision => "d2f86524cced5186554df90d92529757d22c1cb6"
-  end
-
-  go_resource "github.com/mholt/archiver" do
-    url "https://github.com/mholt/archiver.git",
-        :revision => "c55f48c22890807c9698370fe5e08eca3704834b"
   end
 
   go_resource "github.com/miekg/dns" do
@@ -96,54 +86,29 @@ class Caddy < Formula
         :revision => "e6f5723bf2a66af014955e0888881314cf294129"
   end
 
-  go_resource "github.com/nwaples/rardecode" do
-    url "https://github.com/nwaples/rardecode.git",
-        :revision => "f22b7ef81a0afac9ce1447d37e5ab8e99fbd2f73"
-  end
-
-  go_resource "github.com/pierrec/lz4" do
-    url "https://github.com/pierrec/lz4.git",
-        :revision => "f5b77fd73d83122495309c0f459b810f83cc291f"
-  end
-
-  go_resource "github.com/pierrec/xxHash" do
-    url "https://github.com/pierrec/xxHash.git",
-        :revision => "5a004441f897722c627870a981d02b29924215fa"
-  end
-
   go_resource "github.com/russross/blackfriday" do
     url "https://github.com/russross/blackfriday.git",
-        :revision => "b253417e1cb644d645a0a3bb1fa5034c8030127c"
-  end
-
-  go_resource "github.com/shurcooL/sanitized_anchor_name" do
-    url "https://github.com/shurcooL/sanitized_anchor_name.git",
-        :revision => "79c90efaf01eddc01945af5bc1797859189b830b"
-  end
-
-  go_resource "github.com/ulikunitz/xz" do
-    url "https://github.com/ulikunitz/xz.git",
-        :revision => "3807218c9f4ed05861fa9eb75b8fb8afd3325a34"
+        :revision => "0ba0f2b6ed7c475a92e4df8641825cb7a11d1fa3"
   end
 
   go_resource "github.com/xenolf/lego" do
     url "https://github.com/xenolf/lego.git",
-        :revision => "b1fd84c6ffc6896cfd64eca69775bc634d459702"
+        :revision => "aaa8e70aec58a858b6bef0706b367dd5e8d58128"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "12e9ca725de4806fbda1610fd95aacad15bd6810"
+        :revision => "0fe963104e9d1877082f8fb38f816fcd97eb1d10"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "feeb485667d1fdabe727840fe00adc22431bc86e"
+        :revision => "513929065c19401a1c7b76ecd942f9f86a0c061b"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "470f45bf29f4147d6fbd7dfd0a02a848e49f5bf4"
+        :revision => "19e51611da83d6be54ddafce4a4af510cb3e9ea4"
   end
 
   go_resource "gopkg.in/natefinch/lumberjack.v2" do
