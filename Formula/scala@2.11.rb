@@ -1,11 +1,10 @@
 class ScalaAT211 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.11.8/scala-2.11.8.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.11.8.tgz"
-  sha256 "87fc86a19d9725edb5fd9866c5ee9424cdb2cd86b767f1bb7d47313e8e391ace"
-  revision 1
+  url "https://downloads.lightbend.com/scala/2.11.11/scala-2.11.11.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.11.11/scala-2.11.11.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.11.11.tgz"
+  sha256 "12037ca64c68468e717e950f47fc77d5ceae5e74e3bdca56f6d02fd5bfd6900b"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,14 +21,14 @@ class ScalaAT211 < Formula
   depends_on :java => "1.6+"
 
   resource "docs" do
-    url "https://downloads.lightbend.com/scala/2.11.8/scala-docs-2.11.8.txz"
-    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.11.8.txz"
-    sha256 "f79180418c9a4827306c2e30d8de451d29daf72ec441e023ae73d25b39b3c0db"
+    url "https://downloads.lightbend.com/scala/2.11.11/scala-docs-2.11.11.txz"
+    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.11.11.txz"
+    sha256 "14f1db4764286b7f4c2a1237fd6a650dac352b44ffb6811505af5e703053b362"
   end
 
   resource "src" do
-    url "https://github.com/scala/scala/archive/v2.11.8.tar.gz"
-    sha256 "4f11273b4b3c771019253b2c09102245d063a7abeb65c7b1c4519bd57605edcf"
+    url "https://github.com/scala/scala/archive/v2.11.11.tar.gz"
+    sha256 "f97bccddbc53fc4da027fda3d2e6ad3d7776ec7ce56adad0ddb505266e1689e1"
   end
 
   resource "completion" do
