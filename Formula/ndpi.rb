@@ -18,6 +18,8 @@ class Ndpi < Formula
   depends_on "libtool" => :build
   depends_on "json-c"
 
+  head "https://github.com/ntop/nDPI.git", :branch => "dev"
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
