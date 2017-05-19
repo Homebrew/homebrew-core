@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.6.3",
-      :revision => "0480917b552be33e2dba47386e51decb1a211df6"
+      :tag => "v1.6.4",
+      :revision => "d6f433224538d4f9ca2f7ae19b252e6fcb66a3ae"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -46,5 +46,6 @@ class KubernetesCli < Formula
 
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
+    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
   end
 end
