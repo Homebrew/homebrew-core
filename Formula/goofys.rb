@@ -4,8 +4,8 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag => "v0.0.10",
-      :revision => "6b1426ffa4010f35997d943de13c7dd2d03cf217"
+      :tag => "v0.0.11",
+      :revision => "f8874334db1342fd90495afb1619ed188699f25c"
 
   head "https://github.com/kahing/goofys.git"
 
