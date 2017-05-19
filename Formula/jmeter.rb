@@ -1,8 +1,8 @@
 class Jmeter < Formula
   desc "Load testing and performance measurement application"
   homepage "https://jmeter.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-3.1.tgz"
-  sha256 "e697a17ef47f645c81f02c8f98f56400e2a182fa580904d329a0d277935edeec"
+  url "https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-3.2.tgz"
+  sha256 "98d424d909eb0d15df90e9afa24e0deeefbb9e19822b89875a2e4aecc98d4542"
 
   bottle do
     cellar :any_skip_relocation
