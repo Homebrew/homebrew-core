@@ -12,7 +12,7 @@ class ArchiSteamFarm < Formula
     sha256 "0054489a26c12f9379ad9f79ac959c07e9b4a6d0a387e08400ad8cb978a602d8" => :yosemite
   end
 
-  depends_on "mono"
+  depends_on "mono" => :recommended
 
   def install
     libexec.install "ASF.exe"
