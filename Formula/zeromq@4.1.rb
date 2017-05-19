@@ -40,7 +40,6 @@ class ZeromqAT41 < Formula
 
     args << "--with-norm" if build.with? "norm"
 
-    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
     system "make", "install"
