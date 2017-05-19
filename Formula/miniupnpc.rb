@@ -20,6 +20,14 @@ class Miniupnpc < Formula
     sha256 "0c75dfed81bb66118e3eb3d1764e229a24a196ca33f060896478a067037ea222"
   end
 
+  # Patch for CVE-2017-8798. Due to upstream developing everything
+  # within the same tree it doesn't apply cleanly from a repo patch.
+  # https://github.com/miniupnp/miniupnp/commit/f0f1f4b22d6a98536377
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c6df018c/miniupnpc/CVE-2017-8798.diff"
+    sha256 "0c75dfed81bb66118e3eb3d1764e229a24a196ca33f060896478a067037ea222"
+  end
+
   def install
     system "make", "INSTALLPREFIX=#{prefix}", "install"
   end
