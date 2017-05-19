@@ -12,6 +12,11 @@ class Plzip < Formula
     sha256 "3e7f98cc5a785d008c7fa9a9dac0b641240ca268089964730705601744e7ff38" => :mavericks
   end
 
+  devel do
+    url "http://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.5-rc2.tar.lz"
+    sha256 "3b4ba622875f33d124ddf79f13ad3ff0fb977fec078f1fd6e88f0432515472f5"
+  end
+
   depends_on "lzlib"
 
   def install
