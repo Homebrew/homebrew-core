@@ -3,6 +3,8 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   url "https://nginx.org/download/nginx-1.12.0.tar.gz"
   sha256 "b4222e26fdb620a8d3c3a3a8b955e08b713672e1bc5198d1e4f462308a795b30"
+  revision 1
+
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
@@ -22,10 +24,7 @@ class Nginx < Formula
   option "with-passenger", "Compile with support for Phusion Passenger module"
   option "with-webdav", "Compile with support for WebDAV module"
   option "with-debug", "Compile with support for debug log"
-  option "with-http2", "Compile with support for the HTTP/2 module"
   option "with-gunzip", "Compile with support for gunzip module"
-
-  deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
   depends_on "passenger" => :optional
@@ -74,6 +73,7 @@ class Nginx < Formula
       --http-log-path=#{var}/log/nginx/access.log
       --error-log-path=#{var}/log/nginx/error.log
       --with-http_gzip_static_module
+      --with-http_v2_module
     ]
 
     if build.with? "passenger"
@@ -81,11 +81,9 @@ class Nginx < Formula
       args << "--add-module=#{nginx_ext}"
     end
 
-    args << "--with-ipv6" if build.stable?
     args << "--with-http_dav_module" if build.with? "webdav"
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"
-    args << "--with-http_v2_module" if build.with? "http2"
 
     if build.head?
       system "./auto/configure", *args
