@@ -8,9 +8,9 @@ class ScalaAT211 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b448b114a8f51481c2e62d1e3050316856d920a0225a2c4a957a97aca1571205" => :sierra
-    sha256 "b448b114a8f51481c2e62d1e3050316856d920a0225a2c4a957a97aca1571205" => :el_capitan
-    sha256 "b448b114a8f51481c2e62d1e3050316856d920a0225a2c4a957a97aca1571205" => :yosemite
+    sha256 "b67c0d39221c0229b114ac25d78d44f3c474809dc437367f7666b3a55c83b689" => :sierra
+    sha256 "d18b60ac5195015f000fcaabc99f5aac1aa7d413a6e6d152bb2c10e3e9fc682f" => :el_capitan
+    sha256 "d18b60ac5195015f000fcaabc99f5aac1aa7d413a6e6d152bb2c10e3e9fc682f" => :yosemite
   end
 
   keg_only :versioned_formula
