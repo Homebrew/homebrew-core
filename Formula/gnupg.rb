@@ -36,7 +36,7 @@ class Gnupg < Formula
   # Upstream commit 16 May 2017 "Suppress error for card availability check."
   # See https://dev.gnupg.org/rGa8dd96826f8484c0ae93c954035b95c2a75c80f2
   patch do
-    url "https://files.gnupg.net/file/data/4cbbk5wdkpo72hbwah6g/PHID-FILE-sxw2ecnjqxzopc2wimxp/file"
+    url "https://dev.gnupg.org/rGa8dd96826f8484c0ae93c954035b95c2a75c80f2?diff=1"
     sha256 "3adb7fd095f8bc29fd550bf499f5f198dd20e3d5c97d5bcb79e91d95fd53a781"
   end
 
