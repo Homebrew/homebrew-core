@@ -1,8 +1,8 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.10.0.tar.gz"
-  sha256 "9273a30e8fea9b5ebdd11ea64ff9164e03500660d4be26e2bc13e4e09c1c9ecc"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.11.0.tar.gz"
+  sha256 "bc5bcabcf9d03d93d86d9f2599aef8adca8922c76ea2d01cc4ad9a70d466ca36"
 
   bottle do
     sha256 "0f4d805b9d8a7086c481310d13e5807e90561e0eadaa1597135700c8e7bf1327" => :sierra
