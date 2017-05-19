@@ -49,7 +49,6 @@ class Vim < Formula
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
-    ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
 
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
@@ -82,13 +81,18 @@ class Vim < Formula
       opts << "--without-x"
     end
 
-    if build.with? "lua"
+    if build.with?("lua") || build.with?("luajit")
+      ENV["LUA_PREFIX"] = HOMEBREW_PREFIX
       opts << "--enable-luainterp"
-    end
+      opts << "--with-luajit" if build.with? "luajit"
 
-    if build.with? "luajit"
-      opts << "--with-luajit"
-      opts << "--enable-luainterp"
+      if build.with?("lua") && build.with?("luajit")
+        onoe <<-EOS.undent
+          Vim will not link against both Luajit & Lua simultaneously.
+          Proceeding with Lua.
+        EOS
+        opts -= %w[--with-luajit]
+      end
     end
 
     # We specify HOMEBREW_PREFIX as the prefix to make vim look in the
