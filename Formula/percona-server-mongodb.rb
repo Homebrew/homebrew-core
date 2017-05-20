@@ -7,6 +7,12 @@ class PerconaServerMongodb < Formula
   version "3.4.4-1.4"
   sha256 "4111f54644a3e3d80de189c69967a1f2e520adce8b6ef97e9dff68b09a66da0a"
 
+  bottle do
+    sha256 "51845ac02f101856e604b8e6e43bd0f3633c7e7cb9209bb7907ab69ad63c82be" => :sierra
+    sha256 "bcbf59ed52d7feaad23525d176aeeff168748a8c15c72e6c56c81b764f987316" => :el_capitan
+    sha256 "fcfdf9061c7a44a94d2f97dc2f1184c3181419d4f659d5d19d6b8e1225408d50" => :yosemite
+  end
+
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
   option "with-sasl", "Compile with SASL support"
 
