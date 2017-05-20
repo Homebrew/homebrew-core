@@ -19,6 +19,13 @@ class Qt < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/634a19fb/qt5/QTBUG-57656.patch"
       sha256 "a69fc727f4378dbe0cf05ecf6e633769fe7ee6ea52b1630135a05d5adfa23d87"
     end
+
+    # Upstream issue QTBUG-58344 "UI crash upon start" which won't be fixed in qt 5.7, 5.8
+    # See https://codereview.qt-project.org/#/c/183183/
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a2c2bea6/qt5/QTBUG-58344.patch"
+      sha256 "b5eebbe587ab64b66aea4938c0d2b90a00516d4d5b33d0971d049d919b4fcf9d"
+    end
   end
 
   bottle do
