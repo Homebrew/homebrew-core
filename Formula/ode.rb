@@ -23,7 +23,6 @@ class Ode < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libccd"
   depends_on :x11 => :optional
 
   def install
