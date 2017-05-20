@@ -31,6 +31,13 @@ class Saldl < Formula
     # a2x/asciidoc needs this to build the man page successfully
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
+    # Fixes clock_gettime build error on macOS 10.11
+    # Reported 28 January 2017 https://github.com/saldl/saldl/issues/8
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "wscript", "clock_gettime(CLOCK_MONOTONIC_RAW, &tp);",
+                           "not_a_function(NOT_A_SYMBOL, &tp);"
+    end
+
     args = ["--prefix=#{prefix}"]
 
     # head uses git describe to acquire a version
