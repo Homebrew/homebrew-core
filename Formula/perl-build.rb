@@ -5,6 +5,13 @@ class PerlBuild < Formula
   sha256 "921880b901ce8322577ae8004cb3214e1223f5ecef0553d02419e7aa265c76b8"
   head "https://github.com/tokuhirom/perl-build.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "bcfeb9326b4783d8fb60c0e9850854528677e5d81bf7c6863584bba9f27d52e0" => :sierra
+    sha256 "a6a0f5a53f5755544ac0422288a7f163ca41a8a7f6747bc6564c3498dfae4320" => :el_capitan
+    sha256 "5b52eb99f45233a8776170cb31fc0b1e9057b1c74e7e5d9ceddd8bad1460b61d" => :yosemite
+  end
+
   # Perl::Strip dependency
   resource "common::sense" do
     url "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/common-sense-3.74.tar.gz"
