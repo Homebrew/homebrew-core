@@ -50,8 +50,7 @@ class PerconaServerMongodb < Formula
       system "./build.sh", *args
     end
 
-    mkdir "src/mongo-tools"
-    cp Dir["src/github.com/mongodb/mongo-tools/bin/*"], "src/mongo-tools/"
+    (buildpath/"src/mongo-tools").install Dir["src/github.com/mongodb/mongo-tools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}
