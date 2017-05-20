@@ -4,6 +4,8 @@ class Ndpi < Formula
   url "https://github.com/ntop/nDPI/archive/1.8.tar.gz"
   sha256 "cea26a7f280301cc3a0e714b560d48b57ae2cf6453b71eb647ceb3fccecb5ba2"
 
+  head "https://github.com/ntop/nDPI.git", :branch => "dev"
+
   bottle do
     cellar :any
     rebuild 1
@@ -17,8 +19,6 @@ class Ndpi < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "json-c"
-
-  head "https://github.com/ntop/nDPI.git", :branch => "dev"
 
   def install
     system "./autogen.sh"
