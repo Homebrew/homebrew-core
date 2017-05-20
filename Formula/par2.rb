@@ -1,8 +1,8 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://github.com/Parchive/par2cmdline"
-  url "https://github.com/Parchive/par2cmdline/archive/v0.7.0.tar.gz"
-  sha256 "d877b728d6d3af422904644310980e4da9eba6685960950fd1cd8277c7b63bd5"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v0.7.1/par2cmdline-0.7.1.tar.bz2"
+  sha256 "65bd96b96aece0c280025c2d4345a68e4d63f25fd408b4f617c033a2ff6196cd"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,19 +11,15 @@ class Par2 < Formula
     sha256 "12774bc7430ebd4e281e5478c0930e17aa1f5f92ac1dc7c8baf9c4b5cea59f58" => :yosemite
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-
   def install
-    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
     # Protect a file with par2.
-    test_file = "some-file"
-    (testpath/test_file).write "file contents"
+    test_file = testpath/"some-file"
+    File.write(test_file, "file contents")
     system "#{bin}/par2", "create", test_file
 
     # "Corrupt" the file by overwriting, then ask par2 to repair it.
