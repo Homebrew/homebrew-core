@@ -75,23 +75,20 @@ class PerconaServerMongodb < Formula
 
     scons "install", *args
 
-    (buildpath+"mongod.conf").write mongodb_conf
+    (buildpath/"mongod.conf").write <<-EOS.undent
+      systemLog:
+        destination: file
+        path: #{var}/log/mongodb/mongo.log
+        logAppend: true
+      storage:
+        dbPath: #{var}/mongodb
+      net:
+        bindIp: 127.0.0.1
+    EOS
     etc.install "mongod.conf"
 
     (var+"mongodb").mkpath
     (var+"log/mongodb").mkpath
-  end
-
-  def mongodb_conf; <<-EOS.undent
-    systemLog:
-      destination: file
-      path: #{var}/log/mongodb/mongo.log
-      logAppend: true
-    storage:
-      dbPath: #{var}/mongodb
-    net:
-      bindIp: 127.0.0.1
-    EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
