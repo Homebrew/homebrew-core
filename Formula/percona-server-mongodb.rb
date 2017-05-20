@@ -86,9 +86,11 @@ class PerconaServerMongodb < Formula
         bindIp: 127.0.0.1
     EOS
     etc.install "mongod.conf"
+  end
 
-    (var+"mongodb").mkpath
-    (var+"log/mongodb").mkpath
+  def post_install
+    (var/"mongodb").mkpath
+    (var/"log/mongodb").mkpath
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
