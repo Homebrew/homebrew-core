@@ -1,9 +1,8 @@
 class Ode < Formula
   desc "Library for simulating articulated rigid body dynamics"
   homepage "http://www.ode.org/"
-  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.14.tar.gz"
-  sha256 "a6e22c3713e656d4c8114415089f4aaa685e24fab3a8ad7f3ee54692e5e8d318"
-  revision 1
+  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.15.2.tar.gz"
+  sha256 "bc481ae33f8e139b7beebb18bcb43df5c0251ff9518d82794b393ba1407bae96"
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
@@ -15,12 +14,10 @@ class Ode < Formula
 
   option "with-double-precision", "Compile ODE with double precision"
   option "with-shared", "Compile ODE with shared library support"
-  option "with-libccd", "Enable all libccd colliders (except box-cylinder)"
   option "with-x11", "Build the drawstuff library and demos"
 
   deprecated_option "enable-double-precision" => "with-double-precision"
   deprecated_option "enable-shared" => "with-shared"
-  deprecated_option "enable-libccd" => "with-libccd"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -29,10 +26,9 @@ class Ode < Formula
   depends_on :x11 => :optional
 
   def install
-    args = ["--prefix=#{prefix}"]
+    args = ["--prefix=#{prefix}", "--enable-ou", "--enable-libccd"]
     args << "--enable-double-precision" if build.with? "double-precision"
     args << "--enable-shared" if build.with? "shared"
-    args << "--enable-libccd" if build.with? "libccd"
     args << "--with-demos" if build.with? "x11"
 
     inreplace "bootstrap", "libtoolize", "glibtoolize"
