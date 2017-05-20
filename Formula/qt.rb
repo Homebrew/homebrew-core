@@ -23,7 +23,7 @@ class Qt < Formula
     # Upstream issue QTBUG-58344 "UI crash upon start" which won't be fixed in qt 5.7, 5.8
     # See https://codereview.qt-project.org/#/c/183183/
     patch do
-      url "https://raw.githubusercontent.com/theirix/formula-patches/qt-58344/qt5/QTBUG-58344.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/qt-58344/qt5/QTBUG-58344.patch"
       sha256 "b5eebbe587ab64b66aea4938c0d2b90a00516d4d5b33d0971d049d919b4fcf9d"
     end
   end
