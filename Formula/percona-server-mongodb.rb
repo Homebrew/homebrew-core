@@ -134,6 +134,34 @@ class PerconaServerMongodb < Formula
   end
 
   test do
-    system "#{bin}/mongod", "--sysinfo"
+    begin
+      (testpath/"mongodb_test.js").write <<-EOS.undent
+        printjson(db.getCollectionNames())
+        // create test collection
+        db.test.insertOne(
+          {
+            "name": "test"
+          }
+        )
+        printjson(db.getCollectionNames())
+        // shows documents
+        cursor = db.test.find({})
+        while (cursor.hasNext()) {
+          printjson(cursor.next())
+        }
+        db.test.deleteMany({})
+        // drop test collection
+        db.test.drop()
+        printjson(db.getCollectionNames())
+      EOS
+      pid = fork do
+        exec "#{bin}/mongod", "--port", "27018", "--dbpath", testpath
+      end
+      sleep 1
+      system "#{bin}/mongo", "localhost:27018", testpath/"mongodb_test.js"
+    ensure
+      Process.kill "SIGTERM", pid
+      Process.wait pid
+    end
   end
 end
