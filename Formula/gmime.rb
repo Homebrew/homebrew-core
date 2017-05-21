@@ -1,8 +1,8 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.0.tar.xz"
-  sha256 "9d4874fb66d8b09d79ba144d2fbcab6157cf5986268fc4fdc9d98daa12c1a791"
+  url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.1.tar.xz"
+  sha256 "c28459ea86107e3a04ad06081f0b2b96b57f0774db44bae7a72ae18ad6483e00"
 
   bottle do
     rebuild 1
