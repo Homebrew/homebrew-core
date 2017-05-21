@@ -5,10 +5,9 @@ class Gmime < Formula
   sha256 "c28459ea86107e3a04ad06081f0b2b96b57f0774db44bae7a72ae18ad6483e00"
 
   bottle do
-    rebuild 1
-    sha256 "229d1fc5ff823df51b6dd040f44de258e8927b9402b484d1ca932f5b59b56628" => :sierra
-    sha256 "c8571c9ebfec0c1b958b43e337cf6ac2ab8e0a06a9787763aac67eac22f6f30c" => :el_capitan
-    sha256 "cb9b5c435c4c6a8f00251d7551cabafed360fa7e9f10033bb79ab043e8080f96" => :yosemite
+    sha256 "8bce8a92be361ea532e19ac04699dff58e422d571e835ecbf1c3e9dfc54c3fd0" => :sierra
+    sha256 "d43d3106c3d1bfeb5ab6a7a04cbd7fce51435fe48d5c575aab34fd3916db4492" => :el_capitan
+    sha256 "0b5b13d467bbc99ab66611a2f08e02a819a276750a262532d9aa6699198d8cbb" => :yosemite
   end
 
   depends_on "pkg-config" => :build
