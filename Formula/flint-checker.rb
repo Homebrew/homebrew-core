@@ -6,9 +6,9 @@ class FlintChecker < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5aa899806bfdaed0efc45a30e15f102dc53d11d0a20a0f4e335f400bd0eb04a" => :sierra
-    sha256 "b515140682a88d55bd78ee83727a52d1b78b3627991acd22f2693de1a581f782" => :el_capitan
-    sha256 "88f5110b6a4bd8d7910da4c81968b19d70626c5cf74ea778dea039a4cf78a9fc" => :yosemite
+    sha256 "0d246b741b5a09fcb7aa0641ba2322e55db92eb98b755f6528171e0ce82c782e" => :sierra
+    sha256 "be77f701f14ecabf655ddbf92eb132aa0cca9413196343783032a665ce2b33c0" => :el_capitan
+    sha256 "5dcce77a6426af8579cd283a120f6bb3b8cce384f6d4934c995dc7b23779bc51" => :yosemite
   end
 
   depends_on "go" => :build
