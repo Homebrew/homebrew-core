@@ -35,6 +35,18 @@ class GnuTime < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<-EOS.undent
+    If you compiled "with-default-names" and you use zsh, then
+    this command will be overshadowed by a built-in. To fix this,
+    add the following to your .zshrc:
+
+        ## Disable builtin `time` command so that gnu-time may be used instead
+        if ! [ -x "$(which time)" ] ;then disable -r time ; fi
+
+    EOS
+  end
+
   test do
     system bin/"gtime", "ruby", "--version"
   end
