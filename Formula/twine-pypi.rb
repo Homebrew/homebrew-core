@@ -7,6 +7,13 @@ class TwinePypi < Formula
   sha256 "918d7ebab52280bac573af9a6c80622202f0cdeab14cb3360f9ffb9848be946d"
   head "https://github.com/pypa/twine.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "066bdae89f90d41fc81f1f08668e29b4df5badac4ece00680e37fc7c211beec0" => :sierra
+    sha256 "9375c66ab1b4ce0f96d1ad64d1690d4f255572d11463ef1649aae0118b3f86ff" => :el_capitan
+    sha256 "f55f7b3174f25b4c5152feded1417b2f45f59b622f13a1891d4345ca218d20b8" => :yosemite
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   # setup requires
