@@ -7,12 +7,7 @@ class ScalaAT210 < Formula
   sha256 "54adf583dae6734d66328cafa26d9fa03b8c4cf607e27b9f3915f96e9bcd2d67"
   revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "9933db580acebc499249d084291de7b0c3c29532c9ad1ecf58b2251eece9eefc" => :sierra
-    sha256 "9933db580acebc499249d084291de7b0c3c29532c9ad1ecf58b2251eece9eefc" => :el_capitan
-    sha256 "9933db580acebc499249d084291de7b0c3c29532c9ad1ecf58b2251eece9eefc" => :yosemite
-  end
+  bottle :unneeded
 
   keg_only :versioned_formula
 
