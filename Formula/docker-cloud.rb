@@ -1,8 +1,8 @@
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
-  url "https://pypi.python.org/packages/0b/37/5dab4fa0559b0402736d5f23a2ef0b3252baccde45f1d571583cadd6e50b/docker-cloud-1.0.7.tar.gz"
-  sha256 "249bd3928173276687feaea55c6a43e572947b5a592107ff6f4e245efc208f20"
+  url "https://pypi.python.org/packages/28/32/19981b368bd9c64f45217e007dbd42990b1cf108ade46cd68e3687c07d41/docker-cloud-1.0.8.tar.gz"
+  sha256 "f999de30510fee95f89f6c6096e42219f1cf604e2febf32bfa55bea188dc7d62"
 
   bottle do
     cellar :any
