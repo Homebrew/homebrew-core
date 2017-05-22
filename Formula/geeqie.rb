@@ -3,6 +3,7 @@ class Geeqie < Formula
   homepage "http://www.geeqie.org/"
   url "http://www.geeqie.org/geeqie-1.3.tar.xz"
   sha256 "4b6f566dd1a8badac68c4353c7dd0f4de17f8627b85a7a70d5eb1ae3b540ec3f"
+  revision 1
 
   bottle do
     sha256 "81d37ee2270c7c7f0b0c38042ee06bdbf3ec1ca4465b75e9687b033a77a8aa94" => :sierra
