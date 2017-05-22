@@ -10,12 +10,12 @@ class Bitlbee < Formula
     # Fixes a couple of bugs/potential crashes.
     patch do
       url "https://github.com/bitlbee/bitlbee/commit/17a58dfa.patch"
-      sha256 "2eab8a84eac25d3e5630e7da8cbd45f6e6a2e0d70d0dac111c8b0053b73cab68"
+      sha256 "c0b65656c8ba0c4df3bf422891bc8a3dc86f544c1efd5d5282573b528a93537e"
     end
 
     patch do
       url "https://github.com/bitlbee/bitlbee/commit/eb73d05e.patch"
-      sha256 "0bdf1478f21b666cf1df194d05be7bcaf9b7d6d1ce3c99ac90563288e3c30935"
+      sha256 "2f48226cca5149f62b446101e1104b9782f3c80f0bcab6fa34a6b4f71fc2ce7c"
     end
   end
 
