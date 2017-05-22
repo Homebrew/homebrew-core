@@ -25,15 +25,14 @@ class Gitg < Formula
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
-  depends_on :python3 => :optional
-  depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
+                          "--disable-schemas-compile",
+                          "--disable-python"
     system "make", "install"
   end
 
