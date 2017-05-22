@@ -1,10 +1,9 @@
 class Diffutils < Formula
   desc "File comparison utilities"
   homepage "https://www.gnu.org/s/diffutils/"
-  url "https://ftp.gnu.org/gnu/diffutils/diffutils-3.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/diffutils/diffutils-3.5.tar.xz"
-  sha256 "dad398ccd5b9faca6b0ab219a036453f62a602a56203ac659b43e889bec35533"
-  revision 1
+  url "https://ftp.gnu.org/gnu/diffutils/diffutils-3.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/diffutils/diffutils-3.6.tar.xz"
+  sha256 "d621e8bdd4b573918c8145f7ae61817d1be9deb4c8d2328a65cea8e11d783bd6"
 
   bottle do
     cellar :any_skip_relocation
