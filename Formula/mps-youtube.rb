@@ -28,6 +28,11 @@ class MpsYoutube < Formula
     sha256 "b4876a526191bd7264fcee9cb08d9de921dbfe823852cc9c343e5fb031ffad08"
   end
 
+  resource "youtube_dl" do
+    url "https://pypi.python.org/packages/33/53/be5fd3d2e8b4af17cce81cdece45426856868692e2b7821a957108ff302e/youtube_dl-2016.12.31.tar.gz"
+    sha256 "cdba662fc6ff00b9b972da3bf4ac76d3db95841767871155a9518bfc6afb9a82"
+  end
+
   def install
     virtualenv_install_with_resources
   end
