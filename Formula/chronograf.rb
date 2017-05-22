@@ -4,8 +4,8 @@ class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack."
   homepage "https://docs.influxdata.com/chronograf/latest/"
   url "https://github.com/influxdata/chronograf.git",
-      :tag => "1.3.0",
-      :revision => "99099e8a5c160f7fa436c1b8a4dedfa5fb6e0c2f"
+      :tag => "1.3.1.0",
+      :revision => "ce0000b6ea08321be8afcab9898454aeb800eee7"
 
   head "https://github.com/influxdata/chronograf.git"
 
