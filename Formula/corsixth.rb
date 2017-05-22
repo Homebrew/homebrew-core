@@ -11,7 +11,7 @@ class Corsixth < Formula
     # Applies the upstream patch prioritising newer Luas over older ones.
     patch do
       url "https://github.com/CorsixTH/CorsixTH/commit/46420b76.patch"
-      sha256 "076639d0da1f29c263fe2dae96bc759029270d421d7d9388516ed8147defd722"
+      sha256 "2d8d9a144ca4e2fd6a640ec280e505597bdc8b1447cb04de65a10aef092e80ac"
     end
   end
   bottle do
