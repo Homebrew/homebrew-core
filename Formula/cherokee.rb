@@ -9,7 +9,7 @@ class Cherokee < Formula
     # OSX 10.9 patch
     patch do
       url "https://github.com/cherokee/webserver/commit/d0213768fdc6cf3aee61fe0be398d7825c01198f.diff"
-      sha256 "c1dd1cf1d7a392b697ebd32b4860ae7bbdb569112ff7b8380a220300afd62b7f"
+      sha256 "97def30be1d72e8b53217f7af58543e35dcfec3e6dc8d0758553de1e4f4d742a"
     end
   end
   bottle do
