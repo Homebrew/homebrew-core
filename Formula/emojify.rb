@@ -1,19 +1,23 @@
 class Emojify < Formula
   desc "Emoji on the command-line :scream:"
   homepage "https://github.com/mrowa44/emojify"
-  url "https://github.com/mrowa44/emojify/archive/v1.0.2.tar.gz"
-  sha256 "a75d49d623f92974d7852526591d5563c27b7655c20ebdd66a07b8a47dae861c"
+  url "https://github.com/mrowa44/emojify/archive/2.0.0.tar.gz"
+  sha256 "61f4532381d5505511f752ff1f867ceeb0f1921a3e68716bea11185fbd730cbb"
   head "https://github.com/mrowa44/emojify.git"
 
   bottle :unneeded
 
+  depends_on "bash"
+
   def install
+    inreplace "emojify", "#!/usr/bin/env bash", "#!#{Formula["bash"].opt_bin}/bash"
     bin.install "emojify"
   end
 
   test do
+    ENV.delete("LC_CTYPE")
     input = "Hey, I just :raising_hand: you, and this is :scream: , but here's my :calling: , so :telephone_receiver: me, maybe?"
-    expected = "Hey, I just 🙋 you, and this is 😱 , but here's my 📲 , so 📞 me, maybe?"
+    expected = "Hey, I just 🙋  you, and this is 😱  , but here's my 📲  , so 📞  me, maybe?"
     assert_equal(expected, shell_output("#{bin}/emojify \"#{input}\"").strip)
   end
 end
