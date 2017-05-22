@@ -19,8 +19,6 @@ class GitExtras < Formula
     sha256 "efbef7117744b5cba7962be7c607bb216c7d84bf899867017b372bb99e47675b" => :yosemite
   end
 
-  conflicts_with "git-town",
-    :because => "git-extras also ships a git-sync binary"
   conflicts_with "git-utils",
     :because => "both install a `git-pull-request` script"
 
