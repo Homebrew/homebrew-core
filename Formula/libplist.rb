@@ -6,11 +6,9 @@ class Libplist < Formula
 
   bottle do
     cellar :any
-    sha256 "17e002302e49764d8433d7103e54b6269201f1b3ad1d8c699a280edb3e23db93" => :sierra
-    sha256 "44d4da500ed4448656ce335d43ff89c8df8bfc7fd7d78515e9e111e32673e645" => :el_capitan
-    sha256 "c6f8dbc8fc0431d41e73c8f7da6a1292ec7d26358208540d99f775ad9af900ca" => :yosemite
-    sha256 "5bfb26555e67a5a8b144ea187e32ba4b287901e4b7358e9b617aad2ddc82f9eb" => :mavericks
-    sha256 "251e34405ba2111cb2f30e0857b81072b92563ebd9efa77e240214daf106560f" => :mountain_lion
+    sha256 "da5d4dedb8a981298f8c67bf116b92dd178ed834208f6fb7a0a55987ff8cfc95" => :sierra
+    sha256 "34e757ae78d7a84a8fdee4fe158409f9ebd690c477400eb836fc2ed88c1353e9" => :el_capitan
+    sha256 "8279838cdf74669ce421a35ccd416f5fb6c2a33dc24515ef160086b15a88b883" => :yosemite
   end
 
   head do
