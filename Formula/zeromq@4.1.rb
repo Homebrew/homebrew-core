@@ -4,6 +4,13 @@ class ZeromqAT41 < Formula
   url "https://github.com/zeromq/zeromq4-1/releases/download/v4.1.6/zeromq-4.1.6.tar.gz"
   sha256 "02ebf60a43011e770799336365bcbce2eb85569e9b5f52aa0d8cc04672438a0a"
 
+  bottle do
+    cellar :any
+    sha256 "e700b4b8c44cd8d10e2a537fdf1f5331ad793ca5cfaa17d4f56b624189ceddd9" => :sierra
+    sha256 "34ecd9741d19b20fb597a6609abfef9d50e2d46620bc6b64a134838b7796f999" => :el_capitan
+    sha256 "5cc32b092021d8f0977e732279046feb15e6701f63abe3ebe99f524dcee8533c" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-libpgm", "Build with PGM extension"
