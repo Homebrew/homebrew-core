@@ -21,12 +21,9 @@ class Yasm < Formula
     depends_on "gettext"
   end
 
-  depends_on :python => :optional
+  deprecated_option "with-python" => "with-cython"
 
-  resource "cython" do
-    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
-  end
+  depends_on "cython" => [:build, :optional]
 
   def install
     args = %W[
@@ -34,17 +31,13 @@ class Yasm < Formula
       --prefix=#{prefix}
     ]
 
-    if build.with? "python"
-      ENV.prepend_create_path "PYTHONPATH", buildpath+"lib/python2.7/site-packages"
-      resource("cython").stage do
-        system "python", "setup.py", "build", "install", "--prefix=#{buildpath}"
-      end
-
+    if build.with? "cython"
+      ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
       args << "--enable-python"
       args << "--enable-python-bindings"
     end
 
-    # https://github.com/Homebrew/homebrew/pull/19593
+    # https://github.com/Homebrew/legacy-homebrew/pull/19593
     ENV.deparallelize
 
     system "./autogen.sh" if build.head?
