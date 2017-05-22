@@ -1,8 +1,8 @@
 class Libplist < Formula
   desc "Library for Apple Binary- and XML-Property Lists"
   homepage "http://www.libimobiledevice.org/"
-  url "http://www.libimobiledevice.org/downloads/libplist-1.12.tar.bz2"
-  sha256 "0effdedcb3de128c4930d8c03a3854c74c426c16728b8ab5f0a5b6bdc0b644be"
+  url "http://www.libimobiledevice.org/downloads/libplist-2.0.0.tar.bz2"
+  sha256 "3a7e9694c2d9a85174ba1fa92417cfabaea7f6d19631e544948dc7e17e82f602"
 
   bottle do
     cellar :any
@@ -21,38 +21,45 @@ class Libplist < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-python", "Enable Cython Python bindings"
+  option "without-cython", "Skip building Cython Python bindings"
+
+  deprecated_option "with-python" => "without-cython"
 
   depends_on "pkg-config" => :build
-  depends_on "libxml2"
-  depends_on :python => :optional
-
-  resource "cython" do
-    url "https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz#md5=890b494a12951f1d6228c416a5789554"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
-  end
+  depends_on "cython" => [:build, :recommended]
 
   def install
     ENV.deparallelize
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
     ]
-
-    if build.with? "python"
-      resource("cython").stage do
-        ENV.prepend_create_path "PYTHONPATH", buildpath+"lib/python2.7/site-packages"
-        system "python", "setup.py", "build", "install", "--prefix=#{buildpath}",
-                 "--single-version-externally-managed", "--record=installed.txt"
-      end
-      ENV.prepend_path "PATH", "#{buildpath}/bin"
-    else
-      args << "--without-cython"
-    end
+    args << "--without-cython" if build.without? "cython"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install", "PYTHON_LDFLAGS=-undefined dynamic_lookup"
+  end
+
+  test do
+    (testpath/"test.plist").write <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>test</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/bin/echo</string>
+        </array>
+      </dict>
+      </plist>
+    EOS
+    system bin/"plistutil", "-i", "test.plist", "-o", "test_binary.plist"
+    assert_predicate testpath/"test_binary.plist", :exist?,
+                     "Failed to create converted plist!"
   end
 end
