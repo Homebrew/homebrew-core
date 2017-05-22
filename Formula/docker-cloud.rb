@@ -26,8 +26,8 @@ class DockerCloud < Formula
   end
 
   resource "python-dockercloud" do
-    url "https://pypi.python.org/packages/ab/a4/845497d492e3222371632a7e43fcc504f6733db371755ee62beb3225a48e/python-dockercloud-1.0.8.tar.gz"
-    sha256 "caf4d6423edaa8cddeedf2d7863e6f4b567f8d8feff9163444c18c6300014e21"
+    url "https://pypi.python.org/packages/30/20/2be83cb1291102e182052143a1c2461e36b683a03228a55a150265162f88/python-dockercloud-1.0.11.tar.gz"
+    sha256 "e7752ea88ce5906e70acb22bc0884acf50a6fa0ac148a2bc4fce2bb788830f4b"
   end
 
   resource "backports.ssl-match-hostname" do
