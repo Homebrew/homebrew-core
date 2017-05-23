@@ -11,7 +11,16 @@ class Admesh < Formula
     sha256 "3f3db422de01a8e239d7ef6027d0264d3857feac781ef739072b6ec0d50894a0" => :yosemite
   end
 
+  head do
+    url "https://github.com/admesh/admesh.git"
+
+    depends_on "libtool"  => :build
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+  end
+
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
