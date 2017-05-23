@@ -5,17 +5,17 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.1.0.tar.gz"
-    sha256 "9c95971f6b3f1467d9ffa58d25c49aefcba99ac058fe396aa0022c261de0c49c"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.1.1.tar.gz"
+    sha256 "c71e735e0ab61757866a00a8bfdf4921e19aa3af1efc23dab96a9c764061eb33"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.16.2.tar.gz"
-      sha256 "a9c8ab9338eac18ce3630a006c19a4adcc161abe59e06cc2a933dd73d8add684"
+      url "https://github.com/nabla-c0d3/nassl/archive/0.16.3.tar.gz"
+      sha256 "2b9cdc4462a673b4884ead7dd1b258ba69edf126bb7555c52c0bb0a3a55e4ecb"
     end
 
     resource "openssl" do
       url "https://github.com/PeterMosmans/openssl.git",
-          :revision => "118f16ee8df5906026e4a41b9bed7902da259175"
+          :revision => "e90b60086e4ed9649cb3aab08f2b4c6529e7a95a"
     end
   end
 
@@ -92,14 +92,9 @@ class Sslyze < Formula
     sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/b6/0c/53c42edca789378b8c05a5496e689f44e5dd82bc6861d1ae5a926ee51b84/typing-3.5.3.0.tar.gz"
-    sha256 "ca2daac7e393e8ee86e9140cd0cf0172ff6bb50ebdf0b06281770f98f31bff21"
+    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
+    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
   end
 
   resource "zlib" do
@@ -139,6 +134,7 @@ class Sslyze < Formula
       venv.pip_install resource("cryptography")
     end
     venv.pip_install_and_link buildpath
+    system "python", "run_tests.py"
   end
 
   test do
