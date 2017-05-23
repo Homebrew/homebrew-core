@@ -1,8 +1,8 @@
 class Gammu < Formula
   desc "Command-line utility to control a phone"
   homepage "https://wammu.eu/gammu/"
-  url "https://dl.cihar.com/gammu/releases/gammu-1.38.2.tar.xz"
-  sha256 "28b22f9c9d71d6143bcc8bbb1611d754a581aa818e0554ce828b3ce812915d69"
+  url "https://dl.cihar.com/gammu/releases/gammu-1.38.3.tar.xz"
+  sha256 "b2f6ee7b07d003b4fa800e72e2c3f45f16c378ec1d81b7a60253d60b14a67dab"
   head "https://github.com/gammu/gammu.git"
 
   bottle do
