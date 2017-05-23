@@ -3,8 +3,8 @@ require "language/node"
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v4.2.0.tar.gz"
-  sha256 "87c9f123b2511dd57a6ff14c7b67dc3def678eefd9d22fd27e8fbb907a8e076a"
+  url "https://github.com/grafana/grafana/archive/v4.3.0.tar.gz"
+  sha256 "d81e5fdb7ac702646a4b17343796970c91000ea5ea2036880e0e3e36c7a0a8a5"
 
   head "https://github.com/grafana/grafana.git"
 
@@ -28,7 +28,11 @@ class Grafana < Formula
       system "go", "run", "build.go", "build"
       system "yarn", "install"
       system "npm", "install", "grunt-cli", *Language::Node.local_npm_install_args
-      system "node_modules/grunt-cli/bin/grunt", "build"
+
+      args = ["build"]
+      # Avoid PhantomJS error "unrecognized selector sent to instance"
+      args << "--force" unless build.bottle?
+      system "node_modules/grunt-cli/bin/grunt", *args
 
       bin.install "bin/grafana-cli"
       bin.install "bin/grafana-server"
