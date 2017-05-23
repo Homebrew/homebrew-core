@@ -1,11 +1,11 @@
 class Dfmt < Formula
   desc "Formatter for D source code"
-  homepage "https://github.com/Hackerpilot/dfmt"
-  url "https://github.com/Hackerpilot/dfmt.git",
-      :tag => "v0.4.5",
-      :revision => "4fe021df9771d83c325c879012842402a28ca5c7"
+  homepage "https://github.com/dlang-community/dfmt"
+  url "https://github.com/dlang-community/dfmt.git",
+      :tag => "v0.5.0",
+      :revision => "fef85e388a41add75020675ab33ed7e55c3efe85"
 
-  head "https://github.com/Hackerpilot/dfmt.git", :shallow => false
+  head "https://github.com/dlang-community/dfmt.git", :shallow => false
 
   bottle do
     sha256 "94174f2b10198e8a58f548d0f55d67bf9660c07eee15ef7c89a5a874ad107649" => :sierra
@@ -14,19 +14,9 @@ class Dfmt < Formula
     sha256 "cf0880574305df3859312cb927aa6a72d1041694677eb5305e64152416c34a8a" => :mavericks
   end
 
-  devel do
-    url "https://github.com/Hackerpilot/dfmt.git",
-        :tag => "v0.5.0-beta.5",
-        :revision => "9fb13d0cafb3a9f0252e7e45277c37c28889731c"
-    version "0.5.0-beta5"
-  end
-
   depends_on "dmd" => :build
 
   def install
-    if build.stable?
-      rmtree "libdparse/experimental_allocator"
-    end
     system "make"
     bin.install "bin/dfmt"
   end
