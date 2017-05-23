@@ -21,7 +21,6 @@ class SaneBackends < Formula
   depends_on "net-snmp"
 
   def install
-    ENV.deparallelize # Makefile does not seem to be parallel-safe
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
@@ -29,7 +28,6 @@ class SaneBackends < Formula
                           "--enable-local-backends",
                           "--enable-libusb",
                           "--disable-latex"
-    system "make"
     system "make", "install"
   end
 
