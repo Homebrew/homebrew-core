@@ -21,9 +21,11 @@ class Bluepill < Formula
                "SYMROOT=../",
                "DSTROOT=../dstroot"
     bin.install "dstroot/usr/local/bin/bluepill"
+    bin.install "dstroot/usr/local/bin/bp"
   end
 
   test do
     assert_match "Usage:", shell_output("#{bin}/bluepill -h")
+    assert_match "Usage:", shell_output("#{bin}/bp -h")
   end
 end
