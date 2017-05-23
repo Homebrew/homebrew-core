@@ -94,6 +94,6 @@ class Audacious < Formula
   end
 
   test do
-    system bin/"audacious", "-H", "-V", "-q", "-E", test_fixtures("test.wav"), "-p"
+    system bin/"audacious", "--help"
   end
 end
