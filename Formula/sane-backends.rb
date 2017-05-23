@@ -1,22 +1,11 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
-  revision 1
-
+  url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+  mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
+  sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
-
-  stable do
-    url "https://fossies.org/linux/misc/sane-backends-1.0.25.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.25.orig.tar.gz"
-    sha256 "a4d7ba8d62b2dea702ce76be85699940992daf3f44823ddc128812da33dc6e2c"
-
-    # Fixes some missing headers missing error. Reported upstream
-    # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
-      sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
-    end
-  end
 
   bottle do
     sha256 "9ae23943f94606cef5b487b13316de6315b1902649c4b727a1e2fcb3b7cff6f0" => :sierra
