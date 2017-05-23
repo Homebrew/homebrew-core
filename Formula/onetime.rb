@@ -30,11 +30,11 @@ class Onetime < Formula
   end
 
   devel do
-    url "http://red-bean.com/onetime/onetime-2.0-beta13.tar.gz"
+    url "http://red-bean.com/onetime/onetime-2.0-beta15.tar.gz"
     # FIXME: I can't rememeber why the custom version was added now, but
     # we're stuck with it now as 2.0-beta(n) is "less" than 2.0.0(n).
-    version "2.0.13"
-    sha256 "573c7f3a380a9c844dce7f8fe9dcc0086a7b0614b11a56f0b740617bc3dbfe52"
+    version "2.0.15"
+    sha256 "7f3678a70f6b83fdd961c1aa9795ee513afffb6e8684d28179cbac63add5d8f2"
   end
 
   def install
