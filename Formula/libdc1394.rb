@@ -1,11 +1,10 @@
 class Libdc1394 < Formula
   desc "Provides API for IEEE 1394 cameras"
   homepage "https://damien.douxchamps.net/ieee1394/libdc1394/"
-  revision 1
 
   stable do
-    url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.2/libdc1394-2.2.2.tar.gz"
-    sha256 "ff8744a92ab67a276cfaf23fa504047c20a1ff63262aef69b4f5dbaa56a45059"
+    url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.5/libdc1394-2.2.5.tar.gz"
+    sha256 "350cc8d08aee5ffc4e1f3049e2e1c2bc6660642d424595157da97ab5b1263337"
 
     # fix issue due to bug in OSX Firewire stack
     # libdc1394 author comments here:
