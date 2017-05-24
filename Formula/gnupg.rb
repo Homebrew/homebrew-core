@@ -14,6 +14,7 @@ class Gnupg < Formula
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
   option "with-gpg-zip", "Additionally install the gpg-zip utility"
+  option "with-large-secmem", "Additionally allocate extra secure memory"
   option "without-libusb", "Disable the internal CCID driver"
 
   deprecated_option "without-libusb-compat" => "without-libusb"
@@ -53,6 +54,7 @@ class Gnupg < Formula
 
     args << "--disable-ccid-driver" if build.without? "libusb"
     args << "--with-readline=#{Formula["readline"].opt_prefix}" if build.with? "readline"
+    args << "--enable-large-secmem" if build.with? "large-secmem"
 
     system "./configure", *args
     system "make"
