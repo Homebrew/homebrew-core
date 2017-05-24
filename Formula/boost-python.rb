@@ -16,12 +16,7 @@ class BoostPython < Formula
   option "without-python", "Build without python 2 support"
 
   depends_on :python3 => :optional
-
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
+  depends_on "boost"
 
   def install
     # "layout" should be synchronized with boost
