@@ -1,10 +1,10 @@
 class GoAT17 < Formula
   desc "Go programming environment (1.7)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.7.5.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.7.5.src.tar.gz"
-  version "1.7.5"
-  sha256 "4e834513a2079f8cbbd357502cccaac9507fd00a1efe672375798858ff291815"
+  url "https://storage.googleapis.com/golang/go1.7.6.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.7.6.src.tar.gz"
+  version "1.7.6"
+  sha256 "1a67a4e688673fdff7ba41e73482b0e59ac5bd0f7acf703bc6d50cc775c5baba"
 
   bottle do
     sha256 "d3f5087ea127087bce5fd9e12db25244bc2d9db15f3fc5cb1c1f02118ffcf2f2" => :sierra
@@ -18,12 +18,12 @@ class GoAT17 < Formula
   option "without-godoc", "godoc will not be installed for you"
   option "without-race", "Build without race detector"
 
+  depends_on :macos => :mountain_lion
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.7"
   end
-
-  depends_on :macos => :mountain_lion
 
   resource "gobootstrap" do
     url "https://storage.googleapis.com/golang/go1.4-bootstrap-20161024.tar.gz"
