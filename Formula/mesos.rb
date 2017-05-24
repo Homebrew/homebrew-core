@@ -4,6 +4,7 @@ class Mesos < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.2.0/mesos-1.2.0.tar.gz"
   mirror "https://archive.apache.org/dist/mesos/1.2.0/mesos-1.2.0.tar.gz"
   sha256 "60dfd06cd1eec6f69af4ff77f7a92043fe7ead60bedf5605eecd14ffa7a3fb41"
+  revision 1
 
   bottle do
     sha256 "7f95b0ae80c39d56f8f2e34a93f80c92a9dc9c9edddd61a6d4171c256bb1994e" => :sierra
@@ -129,7 +130,7 @@ class Mesos < Formula
 
     # stage protobuf build dependencies
     ENV.prepend_create_path "PYTHONPATH", buildpath/"protobuf/lib/python2.7/site-packages"
-    %w[six python-dateutil pytz python-gflags google-apputils].each do |r|
+    %w[python-dateutil pytz python-gflags google-apputils].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(buildpath/"protobuf")
       end
@@ -137,9 +138,13 @@ class Mesos < Formula
 
     protobuf_path = libexec/"protobuf/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", protobuf_path
-    resource("protobuf").stage do
-      ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils"
-      system "python", *Language::Python.setup_install_args(libexec/"protobuf")
+    %w[six protobuf].each do |r|
+      resource(r).stage do
+        if r == "protobuf"
+          ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils"
+        end
+        system "python", *Language::Python.setup_install_args(libexec/"protobuf")
+      end
     end
     pth_contents = "import site; site.addsitedir('#{protobuf_path}')\n"
     (lib/"python2.7/site-packages/homebrew-mesos-protobuf.pth").write pth_contents
