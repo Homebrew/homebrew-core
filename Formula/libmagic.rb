@@ -1,9 +1,9 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.30.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.30.tar.gz"
-  sha256 "694c2432e5240187524c9e7cf1ec6acc77b47a0e19554d34c14773e43dbbf214"
+  url "ftp://ftp.astron.com/pub/file/file-5.31.tar.gz"
+  mirror "https://fossies.org/linux/misc/file-5.31.tar.gz"
+  sha256 "09c588dac9cff4baa054f51a36141793bcf64926edc909594111ceae60fce4ee"
 
   bottle do
     sha256 "7b8f1701d7565c1d89de611d2633962d58411fff01027b47327934932bfa2f66" => :sierra
