@@ -19,7 +19,7 @@ class Imageworsener < Formula
   end
 
   depends_on "libpng" => :recommended
-  depends_on "jpeg" => :optional
+  depends_on "jpeg" => :recommended
   depends_on "webp" => :optional
 
   def install
