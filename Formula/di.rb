@@ -6,9 +6,9 @@ class Di < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8366dd18b3af3ee4539dddf27ca01480ca7456d6d9747c7c0fdd748acb3c5609" => :sierra
-    sha256 "7636f4122c876f85c8b5030b2fba71fbb4d408af182b3aaa3efe5ed8d0e2045f" => :el_capitan
-    sha256 "d476ffdabbd6eb1eeb552215d8a4ebe23c33577dbbba1bb72c163d771d7fc245" => :yosemite
+    sha256 "bdf922a2d6b32c5c3bb7cacb3efac022eeec7fc2b923904cee17d0c0aded6550" => :sierra
+    sha256 "a8449b5fc5e3e28570f2311a3aa9a7a95beff6373b5e207ae64688773cc3e667" => :el_capitan
+    sha256 "cb9cd891f6d513bb6f4f064622a36a2a69ea3b945b023ea683411d53c8273233" => :yosemite
   end
 
   def install
