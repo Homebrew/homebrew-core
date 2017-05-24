@@ -55,15 +55,6 @@ class Fzf < Formula
     bin.install "bin/fzf-tmux"
   end
 
-  def caveats; <<-EOS.undent
-    To install useful keybindings and fuzzy completion:
-      #{opt_prefix}/install
-
-    To use fzf in Vim, add the following line to your .vimrc:
-      set rtp+=#{opt_prefix}
-    EOS
-  end
-
   test do
     (testpath/"list").write %w[hello world].join($/)
     assert_equal "world", shell_output("cat #{testpath}/list | #{bin}/fzf -f wld").chomp
