@@ -41,6 +41,8 @@ class Pypy < Formula
     sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
+  patch :p0, :DATA if MacOS.version >= :sierra
+
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
 
@@ -164,3 +166,20 @@ class Pypy < Formula
     system scripts_folder/"pip", "list"
   end
 end
+
+__END__
+--- rpython/rlib/rtime.py	2016-09-06 05:46:10.000000000 -0500
++++ rpython/rlib/rtime.py	2016-09-28 15:56:54.000000000 -0500
+@@ -163,11 +163,9 @@
+     globals().update(rffi_platform.configure(CConfigForClockGetTime))
+     TIMESPEC = TIMESPEC
+     CLOCK_PROCESS_CPUTIME_ID = CLOCK_PROCESS_CPUTIME_ID
+-    eci_with_lrt = eci.merge(ExternalCompilationInfo(libraries=['rt']))
+     c_clock_gettime = external('clock_gettime',
+                                [lltype.Signed, lltype.Ptr(TIMESPEC)],
+-                               rffi.INT, releasegil=False,
+-                               compilation_info=eci_with_lrt)
++                               rffi.INT, releasegil=False)
+ if need_rusage:
+     RUSAGE = RUSAGE
+     RUSAGE_SELF = RUSAGE_SELF or 0
