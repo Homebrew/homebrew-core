@@ -54,7 +54,7 @@ class Qca < Formula
 
   if build.with? "api-docs"
     depends_on "graphviz" => :build
-    depends_on "doxygen" => [:build, "with-graphviz"]
+    depends_on "doxygen" => :build
   end
 
   def install
