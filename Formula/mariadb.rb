@@ -1,18 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.23/source/mariadb-10.1.23.tar.gz"
-  sha256 "54d8114e24bfa5e3ebdc7d69e071ad1471912847ea481b227d204f9d644300bf"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.6/source/mariadb-10.2.6.tar.gz"
+  sha256 "c385c76e40d6e5f0577eba021805da5f494a30c9ef51884baefe206d5658a2e5"
 
   bottle do
     sha256 "04cd62eea7f3209cbb84c3f0ae272a1506895fe694adbde590c2cdf070fa4de5" => :sierra
     sha256 "fac8cb5ab929041a7b29b28f18d1f1f0e5fcef1b197fef330f3f4cc783529532" => :el_capitan
     sha256 "a0dc238797384b8bb9e72b7c4bd5f7faa37d16fab61676fb01c776c765fea061" => :yosemite
-  end
-
-  devel do
-    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.5/source/mariadb-10.2.5.tar.gz"
-    sha256 "6629bd2392ccba2fb30ce3a27efddba1f695ac739538007ad1d15caeed19ff50"
   end
 
   option "with-test", "Keep test when installing"
@@ -39,14 +34,6 @@ class Mariadb < Formula
     :because => "both install plugins"
 
   def install
-    if build.devel?
-      # Don't hard-code the libtool path. See:
-      # https://github.com/Homebrew/homebrew/issues/20185
-      inreplace "cmake/libutils.cmake",
-        "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-        "COMMAND libtool -static -o ${TARGET_LOCATION}"
-    end
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -72,9 +59,6 @@ class Mariadb < Formula
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
-
-    # disable MyRocks, which is currently alpha
-    args << "-DPLUGIN_ROCKSDB=NO" if build.devel?
 
     args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
 
@@ -114,18 +98,11 @@ class Mariadb < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      if build.devel?
-        # pidof can be replaced with pgrep from proctools on Mountain Lion
-        s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-      end
-    end
+    inreplace "#{prefix}/support-files/mysql.server", /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
     # Move sourced non-executable out of bin into libexec
-    libexec.mkpath
     libexec.install "#{bin}/wsrep_sst_common"
     # Fix up references to wsrep_sst_common
     %w[
