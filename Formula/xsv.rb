@@ -1,8 +1,8 @@
 class Xsv < Formula
   desc "Fast CSV toolkit written in Rust."
   homepage "https://github.com/BurntSushi/xsv"
-  url "https://github.com/BurntSushi/xsv/archive/0.11.0.tar.gz"
-  sha256 "b0c21849eaa445d75765fd56da5f47359ef8cffa5970a329345f1fcb724cb5fe"
+  url "https://github.com/BurntSushi/xsv/archive/0.12.0.tar.gz"
+  sha256 "72f791d4903fd56fed83295679f599025491d970d825351f5364a617c9bb5f11"
   head "https://github.com/BurntSushi/xsv.git"
 
   bottle do
