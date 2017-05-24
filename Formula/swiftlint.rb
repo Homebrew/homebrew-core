@@ -12,6 +12,13 @@ class Swiftlint < Formula
     sha256 "1497b77e5c45890d620d45abf90b8dea7e81b78c1a90f7742a3d95f8c508485d" => :el_capitan
   end
 
+  devel do
+    url "https://github.com/realm/SwiftLint.git",
+        :tag => "0.19.0-rc.1",
+        :revision => "8ed4424a9a07f5ceae5aa7181f35f2d4f2579522"
+    version "0.19.0-rc.1"
+  end
+
   depends_on :xcode => ["7.0", :run]
   depends_on :xcode => ["8.0", :build]
 
