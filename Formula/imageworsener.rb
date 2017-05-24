@@ -32,6 +32,7 @@ class Imageworsener < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
+    args << "--without-png" if build.without? "libpng"
     args << "--without-jpeg" if build.without? "jpeg"
     args << "--without-webp" if build.without? "webp"
 
