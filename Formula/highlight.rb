@@ -4,7 +4,7 @@ class Highlight < Formula
   url "http://www.andre-simon.de/zip/highlight-3.35.tar.bz2"
   sha256 "8a14b49f5e0c07daa9f40b4ce674baa00bb20061079473a5d386656f6d236d05"
   revision 1
-  head "https://svn.code.sf.net/p/syntaxhighlight/code/highlight/"
+  head "https://github.com/andre-simon/highlight.git"
 
   bottle do
     sha256 "2bdce4573b9b22e140864a64881be0c3bc6d0f9bcd9e6bf675c9f1918f9e5c45" => :sierra
