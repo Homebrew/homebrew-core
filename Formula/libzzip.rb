@@ -1,8 +1,8 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://sourceforge.net/projects/zziplib/"
-  url "https://downloads.sourceforge.net/project/zziplib/zziplib13/0.13.62/zziplib-0.13.62.tar.bz2"
-  sha256 "a1b8033f1a1fd6385f4820b01ee32d8eca818409235d22caf5119e0078c7525b"
+  url "https://github.com/gdraheim/zziplib/archive/v0.13.66.tar.gz"
+  sha256 "59b18c7c4ed348ba8d63fa7e194e6b012cd94197265b7a7b3afb539d8206bd7d"
 
   bottle do
     cellar :any
@@ -18,9 +18,12 @@ class Libzzip < Formula
   deprecated_option "sdl" => "with-sdl"
 
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "sdl" => :optional
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     args = %W[
       --without-debug
       --disable-dependency-tracking
@@ -29,9 +32,6 @@ class Libzzip < Formula
     args << "--enable-sdl" if build.with? "sdl"
     system "./configure", *args
     system "make", "install"
-
-    ENV.deparallelize # fails without this when a compressed file isn't ready
-    system "make", "check" # runing this after install bypasses DYLD issues
   end
 
   test do
