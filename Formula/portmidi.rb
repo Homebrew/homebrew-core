@@ -7,10 +7,9 @@ class Portmidi < Formula
 
   bottle do
     cellar :any
-    rebuild 3
-    sha256 "8d0e59b88da1d021b9464c0b92e4d31cc1020a4d5df3aba8dbd6215a3e824947" => :sierra
-    sha256 "68210f8cb3379b3875517ebf880652358279ae6bf8980d3e3d736b145a7c4643" => :el_capitan
-    sha256 "e287ea36bef8843c5b48c455bec0192a786f09691921153ae9c7c1afa17e90c0" => :yosemite
+    sha256 "3ab40020a258be907f829205952a3336f424c0de4588fe41c5859e8c16ebaf72" => :sierra
+    sha256 "0d699de535a558e1bc72811f0b0ac7ccc158ee224564ff8e4d0b959c5872a9dc" => :el_capitan
+    sha256 "c36b7219ff6d838884d8fbe13a1d159b5375e5868b9a9c0d84de332952549e36" => :yosemite
   end
 
   option "with-java", "Build Java-based app and bindings."
