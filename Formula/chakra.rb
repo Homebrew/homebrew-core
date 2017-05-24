@@ -1,8 +1,8 @@
 class Chakra < Formula
   desc "The core part of the Chakra JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.4.4.tar.gz"
-  sha256 "448cf905fec91bd6b1b04c7c849f6b6f488d65f49c7943a6a9db9a136aac6f32"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.5.0.tar.gz"
+  sha256 "acaa6e788f8e3defba7350c7ef7bac93ba6c31cca7cd821420725d5ab0151539"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,23 +12,11 @@ class Chakra < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c" => :optional
+  depends_on "icu4c"
 
   def install
-    # Build fails with -Os default
-    # Upstream issue from 26 Jan 2016 https://github.com/Microsoft/ChakraCore/issues/2417
-    # Fixed in master https://github.com/obastemur/ChakraCore/commit/cda81f4
-    ENV.O3
-
-    args = ["--static"]
-    if build.with? "icu4c"
-      args << "--icu=#{Formula["icu4c"].opt_include}"
-    else
-      args << "--no-icu"
-    end
-    system "./build.sh", *args
-
-    bin.install "BuildLinux/Release/ch" => "chakra"
+    system "./build.sh", "--lto-thin", "--static", "--icu=#{Formula["icu4c"].opt_include}", "-j=#{ENV.make_jobs}", "-y"
+    bin.install "out/Release/ch" => "chakra"
   end
 
   test do
