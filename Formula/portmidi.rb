@@ -14,18 +14,15 @@ class Portmidi < Formula
 
   option "with-java", "Build Java-based app and bindings."
 
+  deprecated_option "with-python" => "with-cython"
+
   depends_on "cmake" => :build
-  depends_on :python => :optional
+  depends_on "cython" => [:build, :optional]
   depends_on :java => :optional
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
   # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
   patch :DATA if build.without? "java"
-
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
-  end
 
   def install
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
@@ -43,13 +40,7 @@ class Portmidi < Formula
     system "make", "-f", "pm_mac/Makefile.osx"
     system "make", "-f", "pm_mac/Makefile.osx", "install"
 
-    if build.with? "python"
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
-      resource("Cython").stage do
-        system "python", *Language::Python.setup_install_args(buildpath/"cython")
-      end
-      ENV.prepend_path "PATH", buildpath/"cython/bin"
-
+    if build.with? "cython"
       cd "pm_python" do
         # There is no longer a CHANGES.txt or TODO.txt.
         inreplace "setup.py" do |s|
@@ -59,6 +50,8 @@ class Portmidi < Formula
         # Provide correct dirs (that point into the Cellar)
         ENV.append "CFLAGS", "-I#{include}"
         ENV.append "LDFLAGS", "-L#{lib}"
+
+        ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
         system "python", *Language::Python.setup_install_args(prefix)
       end
     end

@@ -18,11 +18,7 @@ class Reposurgeon < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
-  end
+  depends_on "cython" => [:build, :recommended]
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -30,14 +26,11 @@ class Reposurgeon < Formula
     elisp.install "reposurgeon-mode.el"
 
     if build.with? "cython"
-      resource("Cython").stage do
-        system "python", *Language::Python.setup_install_args(buildpath/"vendor")
-      end
-      ENV.prepend_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+      pyincludes = Utils.popen_read("python-config --cflags").chomp
+      pylib = Utils.popen_read("python-config --ldflags").chomp
       system "make", "install-cyreposurgeon", "prefix=#{prefix}",
-             "CYTHON=#{buildpath}/vendor/bin/cython",
-             "pyinclude=" + `python-config --cflags`.chomp,
-             "pylib=" + `python-config --ldflags`.chomp
+                     "CYTHON=#{Formula["cython"].opt_bin}/cython",
+                     "pyinclude=#{pyincludes}", "pylib=#{pylib}"
     end
   end
 
