@@ -3,6 +3,7 @@ class Portmidi < Formula
   homepage "https://sourceforge.net/projects/portmedia/"
   url "https://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip"
   sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,10 +15,8 @@ class Portmidi < Formula
 
   option "with-java", "Build Java-based app and bindings."
 
-  deprecated_option "with-python" => "with-cython"
-
   depends_on "cmake" => :build
-  depends_on "cython" => [:build, :optional]
+  depends_on "cython" => :build
   depends_on :java => :optional
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
@@ -40,20 +39,18 @@ class Portmidi < Formula
     system "make", "-f", "pm_mac/Makefile.osx"
     system "make", "-f", "pm_mac/Makefile.osx", "install"
 
-    if build.with? "cython"
-      cd "pm_python" do
-        # There is no longer a CHANGES.txt or TODO.txt.
-        inreplace "setup.py" do |s|
-          s.gsub! "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
-          s.gsub! "TODO = open('TODO.txt').read()", 'TODO = ""'
-        end
-        # Provide correct dirs (that point into the Cellar)
-        ENV.append "CFLAGS", "-I#{include}"
-        ENV.append "LDFLAGS", "-L#{lib}"
-
-        ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
-        system "python", *Language::Python.setup_install_args(prefix)
+    cd "pm_python" do
+      # There is no longer a CHANGES.txt or TODO.txt.
+      inreplace "setup.py" do |s|
+        s.gsub! "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
+        s.gsub! "TODO = open('TODO.txt').read()", 'TODO = ""'
       end
+      # Provide correct dirs (that point into the Cellar)
+      ENV.append "CFLAGS", "-I#{include}"
+      ENV.append "LDFLAGS", "-L#{lib}"
+
+      ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
+      system "python", *Language::Python.setup_install_args(prefix)
     end
   end
 end
