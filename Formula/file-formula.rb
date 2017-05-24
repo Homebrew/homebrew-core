@@ -2,9 +2,8 @@
 class FileFormula < Formula
   desc "Utility to determine file types"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.30.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.30.tar.gz"
-  sha256 "694c2432e5240187524c9e7cf1ec6acc77b47a0e19554d34c14773e43dbbf214"
+  url "ftp://ftp.astron.com/pub/file/file-5.31.tar.gz"
+  sha256 "09c588dac9cff4baa054f51a36141793bcf64926edc909594111ceae60fce4ee"
   head "https://github.com/file/file.git"
 
   bottle do
