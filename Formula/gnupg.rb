@@ -14,7 +14,7 @@ class Gnupg < Formula
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
   option "with-gpg-zip", "Additionally install the gpg-zip utility"
-  option "with-large-secmem", "Additionally enable a larger secure memory"
+  option "with-large-secmem", "Additionally allocate extra secure memory"
   option "without-libusb", "Disable the internal CCID driver"
 
   deprecated_option "without-libusb-compat" => "without-libusb"
