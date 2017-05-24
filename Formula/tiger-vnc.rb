@@ -17,13 +17,15 @@ class TigerVnc < Formula
   depends_on "fltk"
   depends_on :x11
 
-  def install
-    # Fix "redefinition of 'kVK_RightCommand' as different kind of symbol"
-    # Reported 16 May 2017 https://github.com/TigerVNC/tigervnc/issues/459
-    if DevelopmentTools.clang_build_version >= 800
-      inreplace "vncviewer/cocoa.mm", "const int kVK_RightCommand = 0x36;", ""
-    end
+  # Remove for > 1.8.0
+  # Fix "redefinition of 'kVK_RightCommand' as different kind of symbol"
+  # Upstream commit from 24 May 2017 "Compatibility with macOS 10.12 SDK"
+  patch do
+    url "https://github.com/TigerVNC/tigervnc/commit/2b0a0ef0.patch"
+    sha256 "a0129712ecbd154b0ba1ac2714373514c72df92fd4ee1fd8aed2da231435949f"
+  end
 
+  def install
     turbo = Formula["jpeg-turbo"]
     args = std_cmake_args + %W[
       -DJPEG_INCLUDE_DIR=#{turbo.include}
