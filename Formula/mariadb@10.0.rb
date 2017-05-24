@@ -1,8 +1,8 @@
 class MariadbAT100 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.0.30/source/mariadb-10.0.30.tar.gz"
-  sha256 "9a2cb7f06ecce1bb64dddc70c484e36507b50b756c110c1d37fa145a13a796bb"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.0.31/source/mariadb-10.0.31.tar.gz"
+  sha256 "371f2dae0b9e1a92939fba1efca77ac83ba15b6b6dcfd389ca5cbf79eb8b842a"
 
   bottle do
     rebuild 2
@@ -28,12 +28,6 @@ class MariadbAT100 < Formula
   depends_on "openssl"
 
   def install
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -102,11 +96,7 @@ class MariadbAT100 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server", /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
@@ -141,7 +131,7 @@ class MariadbAT100 < Formula
     EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.0/bin/mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
