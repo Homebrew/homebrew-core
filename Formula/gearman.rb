@@ -1,8 +1,8 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.15/gearmand-1.1.15.tar.gz"
-  sha256 "ac61a005c5395a525d963b9f60ec387d371b8709e91bd4a2546a89d3e80a4cd0"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.16/gearmand-1.1.16.tar.gz"
+  sha256 "d0207fa3004318af3c65d4ac8c9a1dddd547acf104fccd1280013a7f091da2c8"
 
   bottle do
     sha256 "aabcb5dc7a9c3336fb3fa624022b8de3f228224bbf79efc5c546fb1f19ac8861" => :sierra
@@ -13,8 +13,6 @@ class Gearman < Formula
   option "with-mysql", "Compile with MySQL persistent queue enabled"
   option "with-postgresql", "Compile with Postgresql persistent queue enabled"
 
-  # https://bugs.launchpad.net/gearmand/+bug/1318151
-  # https://bugs.launchpad.net/gearmand/+bug/1236815
   # https://github.com/Homebrew/homebrew/issues/33246
   patch :DATA
 
@@ -105,22 +103,6 @@ class Gearman < Formula
 end
 
 __END__
-diff --git a/libgearman-1.0/gearman.h b/libgearman-1.0/gearman.h
-index 7f6d5e7..a39978a 100644
---- a/libgearman-1.0/gearman.h
-+++ b/libgearman-1.0/gearman.h
-@@ -50,7 +50,11 @@
- #endif
- 
- #ifdef __cplusplus
-+#ifdef _LIBCPP_VERSION
- #  include <cinttypes>
-+#else
-+# include <tr1/cinttypes>
-+#endif
- #  include <cstddef>
- #  include <cstdlib>
- #  include <ctime>
 diff --git a/libgearman/byteorder.cc b/libgearman/byteorder.cc
 index 674fed9..b2e2182 100644
 --- a/libgearman/byteorder.cc
@@ -140,16 +122,3 @@ index 674fed9..b2e2182 100644
  }
 +
 +#endif
-diff --git a/libgearman/client.cc b/libgearman/client.cc
-index d76d479..324f535 100644
---- a/libgearman/client.cc
-+++ b/libgearman/client.cc
-@@ -946,7 +946,7 @@ gearman_return_t gearman_client_job_status(gearman_client_st *client_shell,
-       *denominator= do_task->impl()->denominator;
-     }
- 
--    if (is_known == false and is_running == false)
-+    if (! is_known and ! is_running)
-     {
-       if (do_task->impl()->options.is_running) 
-       {
