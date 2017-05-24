@@ -4,6 +4,12 @@ class MariadbAT101 < Formula
   url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.23/source/mariadb-10.1.23.tar.gz"
   sha256 "54d8114e24bfa5e3ebdc7d69e071ad1471912847ea481b227d204f9d644300bf"
 
+  bottle do
+    sha256 "848b017be38cef4627447af77cc770fdee901a069f4b6c11fe745f473987fa69" => :sierra
+    sha256 "d9441cddff32aae8755b4701573cb8f7c3509ce615afa2cf6e13ac022ed16163" => :el_capitan
+    sha256 "be6397acb20a7045fb05dbf7743e8356a1217c1c7957f1577b786e76c45601a1" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-test", "Keep test when installing"
