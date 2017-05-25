@@ -6,7 +6,7 @@ class Pgplot < Formula
   mirror "ftp://ftp.us.horde.org/pub/linux/gentoo/distro/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "0fd1049b91baecac19ada9a9d2895e422b8f6d3735f261fa8656fa164f97fc29" => :sierra
@@ -16,6 +16,7 @@ class Pgplot < Formula
 
   depends_on :x11
   depends_on :fortran
+  depends_on "libpng"
 
   # from MacPorts: https://trac.macports.org/browser/trunk/dports/graphics/pgplot/files
   patch :p0 do
@@ -89,5 +90,29 @@ class Pgplot < Formula
       doc.install Dir["*.doc", "*.html"]
       (share/"examples").install Dir["*demo*", "../examples/pgdemo*.f", "../cpg/cpgdemo*.c", "../drivers/*/pg*demo.*"]
     end
+  end
+
+  test do
+    (testpath/"test.f90").write <<-EOS.undent
+      PROGRAM SIMPLE
+      INTEGER I, IER, PGBEG
+      REAL XR(100), YR(100)
+      REAL XS(5), YS(5)
+      data XS/1.,2.,3.,4.,5./
+      data YS/1.,4.,9.,16.,25./
+      IER = PGBEG(0,'?',1,1)
+      IF (IER.NE.1) STOP
+      CALL PGENV(0.,10.,0.,20.,0,1)
+      CALL PGLAB('(x)', '(y)', 'A Simple Graph')
+      CALL PGPT(5,XS,YS,9)
+      DO 10 I=1,60
+          XR(I) = 0.1*I
+          YR(I) = XR(I)**2
+   10 CONTINUE
+      CALL PGLINE(60,XR,YR)
+      CALL PGEND
+      END
+    EOS
+    system "gfortran", "-o", "test", "test.f90", "-lpgplot", "-lX11", "-L/usr/X11/lib", "-I/usr/X11/include"
   end
 end
