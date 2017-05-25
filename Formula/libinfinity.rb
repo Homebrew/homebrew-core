@@ -1,9 +1,8 @@
 class Libinfinity < Formula
   desc "GObject-based C implementation of the Infinote protocol"
   homepage "https://gobby.github.io"
-  url "http://releases.0x539.de/libinfinity/libinfinity-0.6.6.tar.gz"
-  sha256 "3df9397b52d61392cbe98084aada9b7362a34811ef21baa0db87fdfd754f92cc"
-  revision 1
+  url "http://releases.0x539.de/libinfinity/libinfinity-0.7.1.tar.gz"
+  sha256 "626ee0841bfe24f471580cd17d906dd83b973cf4f10019574adfdfc5327482cb"
 
   bottle do
     sha256 "41aa8345422458ad73c954071fc093b4c81f4be7839beef9a06499065e17b117" => :sierra
@@ -18,16 +17,10 @@ class Libinfinity < Formula
   depends_on "gnutls"
   depends_on "gsasl"
 
-  # MacPorts patch to fix pam include. This is still applicable to 0.6.4.
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f8e3d2e4/libinfinity/patch-infinoted-infinoted-pam.c.diff"
-    sha256 "d5924d6ee90c3aa756e52b97e32345dc1d77afdb5e4e0de8eac2a343d95ade00"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-gtk3", "--with-inftextgtk", "--with-infgtk"
+                          "--with-inftextgtk", "--with-infgtk"
     system "make", "install"
   end
 
