@@ -1,7 +1,7 @@
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
-  url "https://pypi.python.org/packages/28/32/19981b368bd9c64f45217e007dbd42990b1cf108ade46cd68e3687c07d41/docker-cloud-1.0.8.tar.gz"
+  url "https://files.pythonhosted.org/packages/28/32/19981b368bd9c64f45217e007dbd42990b1cf108ade46cd68e3687c07d41/docker-cloud-1.0.8.tar.gz"
   sha256 "f999de30510fee95f89f6c6096e42219f1cf604e2febf32bfa55bea188dc7d62"
 
   bottle do
@@ -16,53 +16,53 @@ class DockerCloud < Formula
   depends_on "libyaml"
 
   resource "ago" do
-    url "https://pypi.python.org/packages/source/a/ago/ago-0.0.6.tar.gz"
-    sha256 "a64811a5a44cd3ba687d800986edf0f7a97859b8da75d3347c915b58b0869b44"
+    url "https://files.pythonhosted.org/packages/83/1a/17e89f0be2cf69e17fbc96012bd6a2bf6d88a8fd3ac79854cc7007971943/ago-0.0.9.tar.gz"
+    sha256 "18ab19c41374e6eb55fd9b9d19e988c6dd7033818bb3cd7600269475ba657601"
   end
 
-  resource "pyyaml" do
-    url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.10.tar.gz"
-    sha256 "e713da45c96ca53a3a8b48140d4120374db622df16ab71759c9ceb5b8d46fe7c"
-  end
-
-  resource "python-dockercloud" do
-    url "https://pypi.python.org/packages/ab/a4/845497d492e3222371632a7e43fcc504f6733db371755ee62beb3225a48e/python-dockercloud-1.0.8.tar.gz"
-    sha256 "caf4d6423edaa8cddeedf2d7863e6f4b567f8d8feff9163444c18c6300014e21"
-  end
-
-  resource "backports.ssl-match-hostname" do
-    url "https://pypi.python.org/packages/source/b/backports.ssl_match_hostname/backports.ssl_match_hostname-3.4.0.2.tar.gz"
-    sha256 "07410e7fb09aab7bdaf5e618de66c3dac84e2e3d628352814dc4c37de321d6ae"
-  end
-
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
-    sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
-  end
-
-  resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.2.tar.gz"
-    sha256 "3e95445c1db500a344079a47b171c45ef18f57d188dffdb0e4165c71bea8eb3d"
-  end
-
-  resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.7.0.tar.gz"
-    sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
-  end
-
-  resource "tabulate" do
-    url "https://pypi.python.org/packages/source/t/tabulate/tabulate-0.7.2.tar.gz"
-    sha256 "532ccab8d9e4659a5f016d84814df86cc04763785e9de2739e890d956dc82d8f"
-  end
-
-  resource "websocket-client" do
-    url "https://pypi.python.org/packages/a3/1e/b717151e29a70e8f212edae9aebb7812a8cae8477b52d9fe990dcaec9bbd/websocket_client-0.37.0.tar.gz"
-    sha256 "678b246d816b94018af5297e72915160e2feb042e0cde1a9397f502ac3a52f41"
+  resource "backports.ssl_match_hostname" do
+    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
+    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
   end
 
   resource "future" do
-    url "https://pypi.python.org/packages/source/f/future/future-0.15.0.tar.gz"
-    sha256 "7f8ad46e287ac32e3dae78be41098c83d690b364142e0a5f11958c2b549420b0"
+    url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
+    sha256 "e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+  end
+
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
+  end
+
+  resource "python-dockercloud" do
+    url "https://files.pythonhosted.org/packages/30/20/2be83cb1291102e182052143a1c2461e36b683a03228a55a150265162f88/python-dockercloud-1.0.11.tar.gz"
+    sha256 "e7752ea88ce5906e70acb22bc0884acf50a6fa0ac148a2bc4fce2bb788830f4b"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/72/46/4abc3f5aaf7bf16a52206bb0c68677a26c216c1e6625c78c5aef695b5359/requests-2.14.2.tar.gz"
+    sha256 "a274abba399a23e8713ffd2b5706535ae280ebe2b8069ee6a941cb089440d153"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/1c/a1/3367581782ce79b727954f7aa5d29e6a439dc2490a9ac0e7ea0a7115435d/tabulate-0.7.7.tar.gz"
+    sha256 "83a0b8e17c09f012090a50e1e97ae897300a72b35e0c86c0b53d3bd2ae86d8c6"
+  end
+
+  resource "websocket-client" do
+    url "https://files.pythonhosted.org/packages/a7/2b/0039154583cb0489c8e18313aa91ccd140ada103289c5c5d31d80fd6d186/websocket_client-0.40.0.tar.gz"
+    sha256 "40ac14a0c54e14d22809a5c8d553de5a2ae45de3c60105fae53bcb281b3fe6fb"
   end
 
   def install
