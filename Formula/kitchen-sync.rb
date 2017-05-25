@@ -15,10 +15,11 @@ class KitchenSync < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "yaml-cpp" => (MacOS.version <= :mountain_lion ? "c++11" : [])
+  depends_on "yaml-cpp"
 
   depends_on :mysql => :recommended
   depends_on :postgresql => :optional
+  depends_on "mariadb" => :optional
 
   needs :cxx11
 
