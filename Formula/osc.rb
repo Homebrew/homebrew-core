@@ -5,6 +5,7 @@ class Osc < Formula
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.158.0.tar.gz"
   sha256 "467efd9628aa745d5be76176d5bfb5cbad47f820208051b35c6a1b54928ab912"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -16,7 +17,6 @@ class Osc < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
-  depends_on "curl"
   depends_on "openssl" # For M2Crypto
 
   resource "pycurl" do
@@ -40,6 +40,9 @@ class Osc < Formula
   end
 
   def install
+    # avoid pycurl error about compile-time and link-time curl version mismatch
+    ENV.delete "SDKROOT"
+
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" }
     resource("M2Crypto").stage do
