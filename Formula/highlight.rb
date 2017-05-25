@@ -6,9 +6,9 @@ class Highlight < Formula
   head "https://github.com/andre-simon/highlight.git"
 
   bottle do
-    sha256 "2bdce4573b9b22e140864a64881be0c3bc6d0f9bcd9e6bf675c9f1918f9e5c45" => :sierra
-    sha256 "e0749500a0c52285529468abf009ddfeb8573d82cf106d0838e97484ceefd599" => :el_capitan
-    sha256 "e6faeaa3fffb136ffd73dbdc4cf7147f1f2aa7594e06195e213c2feb6699a2e3" => :yosemite
+    sha256 "179f95d061b602625709cbc4aad5372f4877032db46e733eaaa08b07226fcc45" => :sierra
+    sha256 "026f86ab725716c32c22eff4d41d754636a19accd58ae615916cecce3c65a8f3" => :el_capitan
+    sha256 "3ac8d0948d20e9f0467b2b870d2c4ccb775b7b459a50b1322723ef89f31f586d" => :yosemite
   end
 
   depends_on "pkg-config" => :build
