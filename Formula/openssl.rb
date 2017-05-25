@@ -10,9 +10,9 @@ class Openssl < Formula
   sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
 
   bottle do
-    sha256 "dd9c13cce879896bee642615b49a2f84d9832b6b61cbe91d9444dbcfee7d9d98" => :sierra
-    sha256 "9b7cf0b4bd40cafd5ff2a7daf83e1d9e29c37421d3f81062fc3b781f5282027a" => :el_capitan
-    sha256 "0218d9875b8bed1cabd4a214eb17dda59e90e8fa2847af651f36288244600e2a" => :yosemite
+    sha256 "b9a6d41e2889890de8db396c2c2809711baff4272494eb4011c6473f099ba4f1" => :sierra
+    sha256 "8650d9af7937c232b54b3229ac86f0fc141799040564d57488f70caeed1b4ee4" => :el_capitan
+    sha256 "d1bc6fd09adc76f099f810f3bfe2b96baf87219432ca0a104fafac48ffaa88b6" => :yosemite
   end
 
   keg_only :provided_by_osx,
