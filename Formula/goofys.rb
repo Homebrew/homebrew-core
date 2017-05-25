@@ -66,6 +66,7 @@ class Goofys < Formula
     cd gopath/"src/github.com/kahing/goofys" do
       system "go", "build", "-o", "goofys"
       bin.install "goofys"
+      prefix.install_metafiles
     end
   end
 
