@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
+  revision 2
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -75,9 +75,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2k.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2k.tar.gz"
-    sha256 "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
+    url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
+    sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
   end
 
   resource "libtool" do
