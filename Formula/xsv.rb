@@ -6,9 +6,9 @@ class Xsv < Formula
   head "https://github.com/BurntSushi/xsv.git"
 
   bottle do
-    sha256 "c2717baa8aa5b65215110c1c86e15ed753b6027a824c85394feff8a581c7e03f" => :sierra
-    sha256 "19338062a97e4ef3f6f0df0e4f4b7949827919290f498ec3be306cb804360ae2" => :el_capitan
-    sha256 "a135ff68e70b2df982e783be0178d438cc79203b5959d11d90a613703b9e9897" => :yosemite
+    sha256 "85bd78adf255149d4d6a646462572b72f2a3c154173f34f4b1bfe9f390b77f68" => :sierra
+    sha256 "27100a2dc22c8eb3b885003dfd8b761df21b3ac76f3d285127c381cdd1cdba66" => :el_capitan
+    sha256 "b5171016edd9758a393163ff5393eb77cd0c4936f60badbff77adfd0e8373671" => :yosemite
   end
 
   depends_on "rust" => :build
