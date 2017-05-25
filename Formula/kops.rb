@@ -4,6 +4,7 @@ class Kops < Formula
   url "https://github.com/kubernetes/kops/archive/1.6.0.tar.gz"
   sha256 "483da291fc5a7a72c151e15ab586e6106f807564894669070705d2e1762e5595"
   head "https://github.com/kubernetes/kops.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
