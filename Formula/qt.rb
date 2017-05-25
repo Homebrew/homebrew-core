@@ -29,9 +29,10 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 "eff56a84940888c0e9bcb6a95cd5b4d434bee36c6df3162d954cb15f10627c32" => :sierra
-    sha256 "0f322056717bb8f821aa809c79a3842ce914ce112bc273bbee9f2f05f0819fe3" => :el_capitan
-    sha256 "762149a177db074d9ee721395739bcc7c264a6fac0604a6a1bc2f913098df2bc" => :yosemite
+    rebuild 1
+    sha256 "ce3b733a2acace3b95b35738a3fdbb7e329613ffa369300a0e80a2dd237c9082" => :sierra
+    sha256 "ae2005c8092f8d00bcdfb0bd82ed47935ddb50abee9f16e65835a2cb6555df24" => :el_capitan
+    sha256 "a56ec9c06bc95de647cdfb51560aabcc6199de79890aff3b3a5267d1d44736dc" => :yosemite
   end
 
   keg_only "Qt 5 has CMake issues when linked"
