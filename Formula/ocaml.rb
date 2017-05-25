@@ -25,6 +25,13 @@ class Ocaml < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
+  pour_bottle? do
+    # The ocaml compilers embed prefix information in weird ways that the default
+    # brew detection doesn't find, and so needs to be explicitly blacklisted.
+    reason "The bottle needs to be installed into /usr/local."
+    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "6810d92aec79c61720173c17357452683262d9cda66493756f64e44cee514d9a" => :sierra
