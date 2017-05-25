@@ -9,9 +9,9 @@ class Pgplot < Formula
   revision 4
 
   bottle do
-    sha256 "0fd1049b91baecac19ada9a9d2895e422b8f6d3735f261fa8656fa164f97fc29" => :sierra
-    sha256 "3447cf688a740777d4d5cf17dc95ff2b95daa429c01e5e6f2672fb7a5620ef7d" => :el_capitan
-    sha256 "5032c0dea8c4cc6c267cd8a4d1de5e262f57d79c123279daccd4457ec011ab45" => :yosemite
+    sha256 "06c11d0278bfcdbd7300ebcd71b71cee4d73ffab5c894b6c140e6ac7aa64758d" => :sierra
+    sha256 "ef4a6c5d3d9cd5883c94245b1c2158058aaba6df1bda14b0cf60b45b6585bc8b" => :el_capitan
+    sha256 "74aeb46030d7c3c6c6e3bdbae94bf6525c8c5adfa8d41474f2764fc83e0a3ab2" => :yosemite
   end
 
   depends_on :x11
