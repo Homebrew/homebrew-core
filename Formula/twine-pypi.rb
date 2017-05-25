@@ -3,8 +3,8 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://github.com/pypa/twine/archive/1.8.1.tar.gz"
-  sha256 "918d7ebab52280bac573af9a6c80622202f0cdeab14cb3360f9ffb9848be946d"
+  url "https://github.com/pypa/twine/archive/1.9.0.tar.gz"
+  sha256 "6bac3ab30ba277b8f953b1c7b3c5ce7e7b8eb079d4fcb72a4805ef963e0a0a3d"
   head "https://github.com/pypa/twine.git"
 
   bottle do
@@ -38,8 +38,13 @@ class TwinePypi < Formula
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/ab/bf/2af6b25f880e2d529a524f98837d33b1048a2a15703fc4806185b54e9672/requests-toolbelt-0.7.1.tar.gz"
-    sha256 "c3843884269d79e492522f3e9f490917e074c1ddbb80111968970e721fe36eaf"
+    url "https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz"
+    sha256 "f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/46/b0/615b394ac0b25f1f1ef229e223c335558d69db97301c93e932fb7e5e4679/tqdm-4.11.2.tar.gz"
+    sha256 "14baa7a9ea7723d46f60de5f8c6f20e840baa7e3e193bf0d9ec5fe9103a15254"
   end
 
   def install
