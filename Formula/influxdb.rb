@@ -23,6 +23,11 @@ class Influxdb < Formula
     revision = `git rev-parse HEAD`.strip
     version = `git describe --tags`.strip
 
+    # "main.version" must have version number only.
+    if version[0] == "v"
+      version = version[1..-1]
+    end
+
     cd influxdb_path do
       system "gdm", "restore"
       system "go", "install",
