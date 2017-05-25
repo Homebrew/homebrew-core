@@ -19,6 +19,11 @@ class Gpgme < Formula
   depends_on "pth"
 
   def install
+    # Fix incorrect shared library suffix in CMake file
+    # Reported 25 May 2017 https://dev.gnupg.org/T3181
+    inreplace "lang/cpp/src/GpgmeppConfig.cmake.in.in", "libgpgme.so;",
+                                                        "libgpgme.dylib;"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
