@@ -206,6 +206,12 @@ class Llvm < Formula
       ENV.permit_arch_flags
     end
 
+    if MacOS.version >= :el_capitan
+      inreplace "#{libcxx_buildpath}/include/string",
+        "basic_string<_CharT, _Traits, _Allocator>::basic_string(const allocator_type& __a)",
+        "basic_string<_CharT, _Traits, _Allocator>::basic_string(const allocator_type& __a) noexcept(is_nothrow_copy_constructible<allocator_type>::value)"
+    end
+
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_INCLUDE_DOCS=OFF
