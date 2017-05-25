@@ -12,8 +12,10 @@ class Libvisio < Formula
     sha256 "d71a0ec9ad1fa8ea8775332c809ee202d9b7049f546da2a89021055ad8a3c696" => :yosemite
   end
 
+  option "with-tests", "Enable unit tests"
+  
   depends_on "pkg-config" => :build
-  depends_on "cppunit" => :build
+  depends_on "cppunit" => :build if build.with?("tests") || build.bottle?
   depends_on "boost"
   depends_on "librevenge"
   depends_on "icu4c"
@@ -21,10 +23,14 @@ class Libvisio < Formula
   def install
     # Needed for Boost 1.59.0 compatibility.
     ENV["LDFLAGS"] = "-lboost_system-mt"
-    system "./configure", "--without-docs",
-                          "-disable-dependency-tracking",
-                          "--enable-static=no",
-                          "--prefix=#{prefix}"
+    args = %w[
+      --without-docs
+      -disable-dependency-tracking
+      --enable-static=no
+      --prefix=#{prefix}
+    ]
+    args << "--enable-tests" if build.with? "tests" || build.bottle?
+    system "./configure", *args
     system "make", "install"
   end
 
