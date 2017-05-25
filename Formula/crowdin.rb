@@ -9,16 +9,11 @@ class Crowdin < Formula
   depends_on :java => "1.7+"
 
   def install
-    bin.install "crowdin-cli.jar"
-    crowdin = bin/"crowdin"
-    crowdin.write <<-EOS.undent
-      #!/bin/bash
-      java -jar "#{bin}/crowdin-cli.jar" "$@"
-    EOS
-    chmod 0755, crowdin
+    libexec.install "crowdin-cli.jar"
+    bin.write_jar_script libexec/"crowdin-cli.jar", "crowdin"
   end
 
   test do
-    system "java", "-jar", "#{bin}/crowdin-cli.jar"
+    system bin/"crowdin"
   end
 end
