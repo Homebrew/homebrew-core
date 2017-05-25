@@ -21,37 +21,37 @@ class Goofys < Formula
 
   go_resource "github.com/Sirupsen/logrus" do
     url "https://github.com/Sirupsen/logrus.git",
-        :revision => "10f801ebc38b33738c9d17d50860f484a0988ff5"
+        :revision => "5e5dc898656f695e2a086b8e12559febbfc01562"
   end
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "ab403a54a148f2d857920810291539e1f817ee7b"
+        :revision => "d70f47eeca3afd795160003bc6e28b001d60c67c"
   end
 
   go_resource "github.com/jacobsa/fuse" do
     url "https://github.com/jacobsa/fuse.git",
-        :revision => "dc1be2d5b8abc34991a649f7499f9f673e36bb46"
+        :revision => "fe7f3a55dcaa3a8f3d5ff6a85b16b62b7a2c446c"
   end
 
   go_resource "github.com/kardianos/osext" do
     url "https://github.com/kardianos/osext.git",
-        :revision => "9d302b58e975387d0b4d9be876622c86cefe64be"
+        :revision => "ae77be60afb1dcacde03767a8c37337fad28ac14"
   end
 
   go_resource "github.com/sevlyar/go-daemon" do
     url "https://github.com/sevlyar/go-daemon.git",
-        :revision => "8577c7ddef908e104dae56c9e46f0956cb33c844"
+        :revision => "1ae26ef5036ad04968706917222a23c535673d8c"
   end
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-        :revision => "119305b4ceb81cc9314ee187970584a0923b0679"
+        :revision => "3e0b91b57e3af799519f9df577f4a27235e004d2"
   end
 
   go_resource "golang.org/x/net" do
     url "https://github.com/golang/net.git",
-        :revision => "0819898fb4973868bba6de59b6aaad75beea9a6a"
+        :revision => "7dcfb8076726a3fdd9353b6b8a1f1b6be6811bd6"
   end
 
   def install
