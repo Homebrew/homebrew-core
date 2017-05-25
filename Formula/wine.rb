@@ -168,6 +168,12 @@ class Wine < Formula
     sha256 "55fb169a7711938f5df0497d1ffe28419fbef50011dc01d00b216379e6a2256c"
   end
 
+  resource "mpg123" do
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.24.0/mpg123-1.24.0.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.24.0.tar.bz2"
+    sha256 "55fb169a7711938f5df0497d1ffe28419fbef50011dc01d00b216379e6a2256c"
+  end
+
   fails_with :clang do
     build 425
     cause "Clang prior to Xcode 5 miscompiles some parts of wine"
