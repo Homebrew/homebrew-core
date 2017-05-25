@@ -19,6 +19,9 @@ class Gpgme < Formula
   depends_on "pth"
 
   def install
+    inreplace "lang/cpp/src/GpgmeppConfig.cmake.in.in", "libgpgme.so;",
+                                                        "libgpgme.dylib;"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
