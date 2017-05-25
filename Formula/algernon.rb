@@ -1,9 +1,8 @@
 class Algernon < Formula
-  desc "HTTP/2 web server with built-in support for Lua and templates"
+  desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "http://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.3.tar.gz"
-  sha256 "46577afcd255f9c4f193f2408c418e0ca5a66db9c9b4e553058fd4bef28631c1"
-  sha256 "a5a5976ce75c58b0a1ec10ee8185457fa590bc4e7473f061053bba85474208cc"
+  url "https://github.com/xyproto/algernon/archive/1.4.3.tar.gz"
+  sha256 "cf67a0938153e8a15743f46c3164944c2f3f2ad6d3b45b862c26945c9f20cd49"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
@@ -15,7 +14,6 @@ class Algernon < Formula
 
   depends_on "glide" => :build
   depends_on "go" => :build
-  depends_on "readline"
 
   def install
     ENV["GLIDE_HOME"] = buildpath/"glide_home"
