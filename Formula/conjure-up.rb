@@ -5,6 +5,7 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.1.5.tar.gz"
   sha256 "df8278ffca2eab81bf02e6fe422e283baaee52b01e8a7b3bad1ca91ffa691af0"
+  revision 1
   head "https://github.com/conjure-up/conjure-up.git", :branch => "master"
 
   bottle do
@@ -15,9 +16,9 @@ class ConjureUp < Formula
   end
 
   devel do
-    url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta2.tar.gz"
-    version "2.2-beta2"
-    sha256 "82f41e8a41efdcc49644dc8d2069b787b413ee1845c1ec944494d85f1ff37265"
+    url "https://github.com/conjure-up/conjure-up/archive/2.2.0-beta4.tar.gz"
+    version "2.2-beta4"
+    sha256 "6d14a24c7b6119e984d241dcd0b935d9f43f3a7dabbe911a5e9c0029061b89db"
   end
 
   depends_on :python3
@@ -28,13 +29,28 @@ class ConjureUp < Formula
   depends_on "wget"
 
   resource "ubuntui" do
-    url "https://pypi.python.org/packages/fa/e3/2f3821c455c0207e615280fb6bf2560e952be500e0769b2d24525bbf8ede/ubuntui-0.1.4.tar.gz#"
-    sha256 "d52206d14e0db6072f435bddadc934cbcaabf6d1cb6f758522eaa7fabf210239"
+    url "https://pypi.python.org/packages/ba/dd/bb48f3852a80679a2fd0e7728f763d9b737c068da10b0239bff3a2e07896/ubuntui-0.1.6.tar.gz"
+    sha256 "10310507867122aad5f39f5bd4c478771b07331a3df60f68a9aebb1b7cd22f58"
   end
 
   resource "macumba" do
     url "https://pypi.python.org/packages/76/09/07ac27b7a4bd8511ed3c4b0e16b407ba085323779f917da3be9b0b34e9e7/macumba-0.9.3.tar.gz"
     sha256 "b6b71064f86b6e886b5f23235577b0c1a27df2c3122a65f55a03908cf13a4b06"
+  end
+
+  resource "python-dateutil" do
+    url "https://pypi.python.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
+  end
+
+  resource "theblues" do
+    url "https://pypi.python.org/packages/ab/09/21a4718cb6f06573153de35af742e4c251ca9b628c9001d06f6ed4b2cae5/theblues-0.3.8.tar.gz"
+    sha256 "649f4013d3b9024f7990a7e0b42aed2196daea64a7c8501dde4f1f57ab8aa031"
+  end
+
+  resource "websockets" do
+    url "https://pypi.python.org/packages/73/e9/e570b5f948514db504fed6f4eb014c826bdcaa053a6bfaa1f9f4c97c3f9a/websockets-3.3.tar.gz"
+    sha256 "305ab7fdd86afd08c2723461c949e153f7b01233f95a108619a15e41b7a74c93"
   end
 
   resource "bundle-placement" do
@@ -100,6 +116,11 @@ class ConjureUp < Formula
   resource "requests-oauthlib" do
     url "https://pypi.python.org/packages/80/14/ad120c720f86c547ba8988010d5186102030591f71f7099f23921ca47fe5/requests-oauthlib-0.8.0.tar.gz"
     sha256 "883ac416757eada6d3d07054ec7092ac21c7f35cb1d2cf82faf205637081f468"
+  end
+
+  resource "juju" do
+    url "https://pypi.python.org/packages/bd/c1/acb19e12456f0afb4e9fca96606e7de4ee036afded0300ee2b29e8b08bad/juju-0.4.2.tar.gz"
+    sha256 "a3d301d411a7559b2e6a8b33794be708803f266cd82878eeefc40f03d7a1a29f"
   end
 
   def install
