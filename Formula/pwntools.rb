@@ -8,9 +8,10 @@ class Pwntools < Formula
 
   bottle do
     cellar :any
-    sha256 "2303e7900dbd0964ef3b63cafa430ba0b0b02ce5039e857e650804333f40682b" => :sierra
-    sha256 "88f43faf56c4bc42b2c504e81fdd527c1bb19f3caab3f3625f8503275123c625" => :el_capitan
-    sha256 "7513491b7df65c68f6e561c49aaebe75f5db6e57820d5fa51cefc2ad19b66cc5" => :yosemite
+    rebuild 1
+    sha256 "0eebee6707ff2d7a5267e8c60b38e372b1abe37654df2f8a0ea70aa3ec389afe" => :sierra
+    sha256 "e5e31af9d1470a575ad509a9c51d72aa1367fafcdd289c5ed2fe18bc55974db5" => :el_capitan
+    sha256 "36d76e0e6a9a1ffc21576cf2fdcd7ce49ec4f12a2ec4b5c9361646806e77c976" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
