@@ -113,5 +113,14 @@ class Curl < Formula
     system libexec/"mk-ca-bundle.pl", "test.pem"
     assert File.exist?("test.pem")
     assert File.exist?("certdata.txt")
+
+    if build.with? "libidn2"
+      ENV.delete("LC_CTYPE")
+      ENV["LANG"] = "en_US.UTF-8"
+      system bin/"curl", "-L", "www.räksmörgås.se", "-o", "index.html"
+      assert_predicate testpath/"index.html", :exist?,
+                       "Failed to download IDN example site!"
+      assert_match "www.xn--rksmrgs-5wao1o.se", File.read("index.html")
+    end
   end
 end
