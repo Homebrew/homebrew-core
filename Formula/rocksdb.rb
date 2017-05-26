@@ -1,8 +1,8 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.3.6.tar.gz"
-  sha256 "9d7bba096b950a08469acae77ea5cb75c61d80693e15c83bce376191f8c1d844"
+  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.4.5.tar.gz"
+  sha256 "58655edd7075d442d3129c48a1deea87461f2e532e258be81b272f938d291549"
 
   bottle do
     cellar :any
@@ -69,7 +69,7 @@ class Rocksdb < Formula
     assert_match "rocksdb_sanity_test <path>", shell_output("#{bin}/rocksdb_sanity_test --help 2>&1", 1)
     assert_match "rocksdb_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_stress --help 2>&1", 1)
     assert_match "rocksdb_write_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_write_stress --help 2>&1", 1)
-    assert_match "ldb - LevelDB Tool", shell_output("#{bin}/rocksdb_ldb --help 2>&1", 1)
+    assert_match "ldb - RocksDB Tool", shell_output("#{bin}/rocksdb_ldb --help 2>&1", 1)
     assert_match "rocksdb_repl_stress:", shell_output("#{bin}/rocksdb_repl_stress --help 2>&1", 1)
     assert_match "rocksdb_dump:", shell_output("#{bin}/rocksdb_dump --help 2>&1", 1)
     assert_match "rocksdb_undump:", shell_output("#{bin}/rocksdb_undump --help 2>&1", 1)
