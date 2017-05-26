@@ -80,5 +80,12 @@ class Wget < Formula
 
   test do
     system bin/"wget", "-O", "/dev/null", "https://google.com"
+
+    if build.with? "libidn2"
+      system bin/"wget", "--local-encoding=utf-8", "www.räksmörgås.se"
+      assert_predicate testpath/"index.html", :exist?,
+                       "Failed to download IDN example site!"
+      assert_match "www.xn--rksmrgs-5wao1o.se", File.read("index.html")
+    end
   end
 end
