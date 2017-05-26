@@ -1,8 +1,8 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/v1.3.0.tar.gz"
-  sha256 "e1c2ad59e18e9a0af4bfb3f75c9b1c783877f2bcf839784b5bf488bb36b80bf7"
+  url "https://github.com/mvdan/sh/archive/v1.3.1.tar.gz"
+  sha256 "322768c53a2e83f84b69e9f85dd9865d60d3001244c4a6b6a15ff779c6bd8b4a"
   head "https://github.com/mvdan/sh.git"
 
   bottle do
@@ -16,7 +16,8 @@ class Shfmt < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/mvdan/sh").install Dir.glob(buildpath/"*")
+    (buildpath/"src/github.com/mvdan").mkpath
+    ln_sf buildpath, buildpath/"src/github.com/mvdan/sh"
     system "go", "build", "-a", "-tags", "production brew", "-o", "#{bin}/shfmt", "github.com/mvdan/sh/cmd/shfmt"
   end
 
