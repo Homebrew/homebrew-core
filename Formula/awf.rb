@@ -1,8 +1,8 @@
 class Awf < Formula
   desc "'A Widget Factory' is a theme preview application for gtk2 and gtk3"
   homepage "https://github.com/valr/awf"
-  url "https://github.com/valr/awf/archive/v1.3.1.tar.gz"
-  sha256 "62a0b02170109c81ffbd4420b9385470d62de6fffa39002795e6992fcb4e36d8"
+  url "https://github.com/valr/awf/archive/v1.4.0.tar.gz"
+  sha256 "bb14517ea3eed050b3fec37783b79c515a0f03268a55dfd0b96a594b5b655c78"
   head "https://github.com/valr/awf.git"
 
   bottle do
