@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.14.1.tar.gz"
-  sha256 "7992fced742649e7b7668e4db7685de12248a4ffba66810cb336e9b6412e3567"
+  url "https://github.com/certbot/certbot/archive/v0.14.2.tar.gz"
+  sha256 "e1883c7cc7788997aada06007c24967cbcdc7fc61e4cb0460b83c40484c6da09"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -96,8 +96,8 @@ class Certbot < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/1e/f0/9963f6ff9fb3861384be272c07522a9e85441ea5524f7fe15d07cadcae2a/pbr-3.0.0.tar.gz"
-    sha256 "568f988af109114fbfa0525dcb6836b069838360d11732736ecc82e4c15d5c12"
+    url "https://files.pythonhosted.org/packages/18/2e/28a7d361a568b1a6c86946674e8ac35a609573c3a3d12bb20f6aaf1c39bf/pbr-3.0.1.tar.gz"
+    sha256 "d7e8917458094002b9a2e0030ba60ba4c834c456071f2d0c1ccb5265992ada91"
   end
 
   resource "pycparser" do
