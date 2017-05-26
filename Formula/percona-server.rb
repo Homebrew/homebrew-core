@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-13/source/tarball/percona-server-5.7.17-13.tar.gz"
-  sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.18-14/source/tarball/percona-server-5.7.18-14.tar.gz"
+  sha256 "4c617e2f9a1c601caebb5ff470c675e3d03ba3b8071cd3261ae24fe11671e3bd"
 
   bottle do
     rebuild 2
@@ -115,8 +115,6 @@ class PerconaServer < Formula
     # Fix up the control script and link into bin
     inreplace "#{prefix}/support-files/mysql.server" do |s|
       s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
     end
 
     bin.install_symlink prefix/"support-files/mysql.server"
