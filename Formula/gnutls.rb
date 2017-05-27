@@ -8,9 +8,9 @@ class Gnutls < Formula
   revision 1
 
   bottle do
-    sha256 "b943c4631233e6d04e1aab8de24b7d0994f63b9c2860025bd7c96e2519584d07" => :sierra
-    sha256 "d14b3871b8313cd7e478674151a230deca87c368c10831ed32b686ed9266cab6" => :el_capitan
-    sha256 "aa5b352a6a82a43aa76573778a0c0b195b7633edddec3f893f0708c231046812" => :yosemite
+    sha256 "ceb8bcbf1490cf84c5c4d4f49443fa389df668ec04036478266498b1b4a2afff" => :sierra
+    sha256 "04489238ec96172143d961f408e08f392a6094c76cc898e1c04405116fd0729d" => :el_capitan
+    sha256 "1cb1932fc5cefa7754e25a44d06b84aa605088b4363608db2f5eb9c10820e071" => :yosemite
   end
 
   depends_on "pkg-config" => :build
