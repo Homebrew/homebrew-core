@@ -13,6 +13,12 @@ class AngularCli < Formula
     sha256 "9faa57bc40d1d3b82003d2754541ca8dcc3c3fd10437f5d98c3dc80007692413" => :yosemite
   end
 
+  devel do
+    url "https://registry.npmjs.org/@angular/cli/-/cli-1.1.0-rc.2.tgz"
+    version "1.1.0-rc.2"
+    sha256 "a025f4abd05665d88d1104a4854bde69921e2e49e8b327c60e52207e8fa64e7e"
+  end
+
   depends_on "node"
 
   def install
