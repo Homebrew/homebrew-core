@@ -5,6 +5,7 @@ class Gnutls < Formula
   mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.12.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.12.tar.xz"
   sha256 "63cb39a5eaa029381df2e49a74cfb7be89fc4a592445191818ffe1e66bde57cb"
+  revision 1
 
   bottle do
     sha256 "b943c4631233e6d04e1aab8de24b7d0994f63b9c2860025bd7c96e2519584d07" => :sierra
