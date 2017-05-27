@@ -7,9 +7,9 @@ class InfluxdbAT08 < Formula
 
   bottle do
     cellar :any
-    sha256 "d7411ee359075af9bfddad7f8c818d56672d0867c3ec1ae5c62601938f41bf99" => :sierra
-    sha256 "97be74cb4f7bb3b6857e7f40c87d6ca19da48f305245b5eee1a349f4bdf6c343" => :el_capitan
-    sha256 "fe419c7e4f1e3e94f5b9fa69bf765177535b2345163597bbbee94d3b7d19532e" => :yosemite
+    sha256 "3e206b8e301f586d213c6ca1a5a9d49f01b1d611fead974b371e744bb06d7212" => :sierra
+    sha256 "b35297a227fbc8771b45aa7b8b8e75babc414808b72f16bd08c72af510a9d9dc" => :el_capitan
+    sha256 "694d33a93e8dde975b11ebd9e8a79a106112a625c1e1f67e71a6115c7b388797" => :yosemite
   end
 
   keg_only :versioned_formula
