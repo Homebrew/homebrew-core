@@ -1,11 +1,11 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/en/index.html"
-  url "https://github.com/xicilion/fibjs/releases/download/v0.2.1/fullsrc.zip"
-  version "0.2.1"
-  sha256 "914d79bb18e5309228747d73c481c1c243db8cc0ab1b29ec66f201cc2d8f85b9"
+  url "https://github.com/fibjs/fibjs.git",
+      :tag => "v0.3.1",
+      :revision => "378e5274a5933c4de44bd6ecbae19692af3680de"
 
-  head "https://github.com/xicilion/fibjs.git"
+  head "https://github.com/fibjs/fibjs.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,14 @@ class Fibjs < Formula
   depends_on "cmake" => :build
 
   def install
-    system "./build", "release", "-j#{ENV.make_jobs}"
+    # the build script breaks when CI is set by Homebrew
+    begin
+      env_ci = ENV.delete "CI"
+      system "./build", "release", "-j#{ENV.make_jobs}"
+    ensure
+      ENV["CI"] = env_ci
+    end
+
     bin.install "bin/Darwin_amd64_release/fibjs"
   end
 
