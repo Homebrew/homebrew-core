@@ -6,10 +6,9 @@ class Smlnj < Formula
   sha256 "a993d2d967455ec48d7689348ee3a7dce7c80cf5e6ce40ee5e0b30bbba620f2f"
 
   bottle do
-    sha256 "b58be5ea2c0a346e8e4852799eb8031396c06d1d17b264e42f7154c4ddcad5a0" => :sierra
-    sha256 "fc353e6d773f98a37abc5dac918ff3403d713f20ef1c920685399bf81041a5a4" => :el_capitan
-    sha256 "7d48eadff3701885a4bf181efae449caa3b81fe0fcbbc909db8669eca8f9b6dd" => :yosemite
-    sha256 "e88f8bc8a40eb4b2149c9d3266de6936b08b29eed978af827d6326d6cac1f7b9" => :mavericks
+    sha256 "87c5a04fd6bee4badcae7e6cd62e61ab6347f9eda1b5919abf0e091fffc179c3" => :sierra
+    sha256 "dc5f252e6c69d676484c3d31542f8bcc988ff6cec8424efd3566888c439ee37f" => :el_capitan
+    sha256 "4bde820e2b6807631ded1ca30a6139d9b31d3a262c2519a16bea0051a1d81a1c" => :yosemite
   end
 
   resource "cm" do
