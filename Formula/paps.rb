@@ -31,17 +31,17 @@ class Paps < Formula
 
   test do
     # https://paps.sourceforge.io/small-hello.utf8
-    utf8 = <<-EOS
-paps by Dov Grobgeld (דב גרובגלד)
-Printing through Παν語 (Pango)
+    utf8 = <<-EOS.undent
+      paps by Dov Grobgeld (דב גרובגלד)
+      Printing through Παν語 (Pango)
 
-Arabic السلام عليكم
-Bengali (বাঙ্লা)  ষাগতোম
-Greek (Ελληνικά)  Γειά σας
-Hebrew שָׁלוֹם
-Japanese  (日本語) こんにちは, ｺﾝﾆﾁﾊ
-Chinese  (中文,普通话,汉语) 你好
-Vietnamese  (Tiếng Việt)  Xin Chào
+      Arabic السلام عليكم
+      Bengali (বাঙ্লা)  ষাগতোম
+      Greek (Ελληνικά)  Γειά σας
+      Hebrew שָׁלוֹם
+      Japanese  (日本語) こんにちは, ｺﾝﾆﾁﾊ
+      Chinese  (中文,普通话,汉语) 你好
+      Vietnamese  (Tiếng Việt)  Xin Chào
     EOS
     safe_system "echo '#{utf8}' |  #{bin}/paps > paps.ps"
   end
