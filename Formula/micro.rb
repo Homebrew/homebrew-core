@@ -4,8 +4,8 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-    :tag => "v1.1.4",
-    :revision => "5dc8fe40ca3f2d64ff2574a074ce91b92ba14c9d"
+    :tag => "v1.2.0",
+    :revision => "be8124154b2b3e761578a186c42a18ace5a43865"
   head "https://github.com/zyedidia/micro.git", :shallow => false
 
   bottle do
@@ -22,6 +22,11 @@ class Micro < Formula
         :revision => "4a1e882c79dcf4ec00d2e29fac74b9c8938d5052"
   end
 
+  go_resource "github.com/dustin/go-humanize" do
+    url "https://github.com/dustin/go-humanize.git",
+        :revision => "259d2a102b871d17f30e3cd9881a642961a1e486"
+  end
+
   go_resource "github.com/gdamore/encoding" do
     url "https://github.com/gdamore/encoding.git",
         :revision => "b23993cbb6353f0e6aa98d0ee318a34728f628b9"
@@ -34,17 +39,17 @@ class Micro < Formula
 
   go_resource "github.com/lucasb-eyer/go-colorful" do
     url "https://github.com/lucasb-eyer/go-colorful.git",
-        :revision => "9c2852a141bf4711e4276f8f119c90d0f20a556c"
+        :revision => "c900de9dbbc73129068f5af6a823068fc5f2308c"
   end
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        :revision => "281032e84ae07510239465db46bf442aa44b953a"
+        :revision => "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
     url "https://github.com/mattn/go-runewidth.git",
-        :revision => "14207d285c6c197daabb5c9793d63e7af9ab2d50"
+        :revision => "97311d9f7767e3d6f422ea06661bc2c7a19e8a5d"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
@@ -54,12 +59,12 @@ class Micro < Formula
 
   go_resource "github.com/sergi/go-diff" do
     url "https://github.com/sergi/go-diff.git",
-        :revision => "24e2351369ec4949b2ed0dc5c477afdd4c4034e8"
+        :revision => "feef008d51ad2b3778f85d387ccf91735543008d"
   end
 
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
-        :revision => "99a8c34ef9c866b59dc56f3f7b627e457c7690e2"
+        :revision => "b402f3114ec730d8bddb074a6c137309f561aa78"
   end
 
   go_resource "github.com/zyedidia/clipboard" do
@@ -79,22 +84,27 @@ class Micro < Formula
 
   go_resource "github.com/zyedidia/tcell" do
     url "https://github.com/zyedidia/tcell.git",
-        :revision => "f03d5b8b2730cb2578c427d120a5692ca54fb67b"
+        :revision => "7095cc1c7f4173ae48314d80878e9985a0658889"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "a689eb3bc4b53af70390acc3cf68c9f549b6b8d6"
+        :revision => "48359f4f600b3a2d5cf657458e3f940021631a56"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "06d6eba81293389cafdff7fca90d75592194b2d9"
+        :revision => "19e51611da83d6be54ddafce4a4af510cb3e9ea4"
+  end
+
+  go_resource "gopkg.in/yaml.v2" do
+    url "https://gopkg.in/yaml.v2.git",
+        :revision => "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
   end
 
   go_resource "layeh.com/gopher-luar" do
     url "https://github.com/layeh/gopher-luar.git",
-        :revision => "80196fe2abc5682963fc7a5261f5a5d77509938b"
+        :revision => "16281577dff29557258daa8ca9bc9b2e05f451f2"
   end
 
   def install
