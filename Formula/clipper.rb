@@ -1,4 +1,3 @@
-# encoding: UTF-8
 class Clipper < Formula
   desc "Share macOS clipboard with tmux and other local and remote apps"
   homepage "https://wincent.com/products/clipper"
