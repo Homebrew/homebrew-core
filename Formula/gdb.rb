@@ -45,9 +45,7 @@ class Gdb < Formula
     end
   end
 
-  if build.with? "python"
-    depends_on UniversalBrewedPython
-  end
+  depends_on UniversalBrewedPython if build.with? "python"
 
   def install
     args = [
