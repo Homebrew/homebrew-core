@@ -21,7 +21,7 @@ class Tbb < Formula
   depends_on "swig" => :build
 
   def install
-    compiler = ENV.compiler == :clang ? "clang" : "gcc"
+    compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
 
     if build.cxx11?
