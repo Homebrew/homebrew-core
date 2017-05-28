@@ -15,13 +15,12 @@ class Postgresql < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
+  option "with-python", "Enable PL/Python2"
+  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
 
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
-
-  option "with-python", "Enable PL/Python2"
-  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
 
   depends_on "openssl"
   depends_on "readline"
