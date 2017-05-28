@@ -27,7 +27,7 @@ class GtkMacIntegration < Formula
       --enable-introspection=yes
     ]
 
-    args << ((build.without? "gtk+3") ? "--without-gtk3" : "--with-gtk3")
+    args << (build.without?("gtk+3") ? "--without-gtk3" : "--with-gtk3")
     system "./configure", *args
     system "make", "install"
   end
