@@ -100,9 +100,7 @@ class Ghc < Formula
             "--with-ld=ld", # Avoid hardcoding superenv's ld.
             "--with-gcc=#{ENV.cc}"] # Always.
 
-    if ENV.compiler == :clang
-      args << "--with-clang=#{ENV.cc}"
-    end
+    args << "--with-clang=#{ENV.cc}" if ENV.compiler == :clang
 
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
     # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
