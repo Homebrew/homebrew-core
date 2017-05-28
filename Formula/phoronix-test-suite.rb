@@ -16,6 +16,7 @@ class PhoronixTestSuite < Formula
 
   def install
     system "./install-sh", prefix
+    bash_completion.install "./pts-core/static/bash_completion"
   end
 
   test do
@@ -25,14 +26,9 @@ end
 
 
 __END__
+diff -ur a/install-sh b/install-sh
 --- a/install-sh	2012-01-04 08:43:26.000000000 -0800
 +++ b/install-sh	2017-04-13 10:18:17.000000000 -0500
-@@ -56,4 +56,4 @@
- mkdir -p $DESTDIR$INSTALL_PREFIX/share/phoronix-test-suite/
- mkdir -p $DESTDIR$INSTALL_PREFIX/share/doc/phoronix-test-suite/
--mkdir -p $DESTDIR$INSTALL_PREFIX/../etc/bash_completion.d/
-+mkdir -p $DESTDIR$INSTALL_PREFIX/etc/bash_completion.d/
-
 @@ -72,4 +72,4 @@
  cp documentation/man-pages/*.1 $DESTDIR$INSTALL_PREFIX/share/man/man1/
 -cp pts-core/static/bash_completion $DESTDIR$INSTALL_PREFIX/../etc/bash_completion.d/phoronix-test-suite
@@ -47,23 +43,15 @@ __END__
 +if [ "X$INSTALL_PREFIX" = "X" ] && which xdg-mime >/dev/null && which xdg-icon-resource >/dev/null
  then
 
-@@ -114,7 +114,7 @@
- fi
+ diff -ur a/pts-core/objects/client/pts_client.php b/pts-core/objects/client/pts_client.php
+ --- a/pts-core/objects/client/pts_client.php	2017-05-02 18:30:16.000000000 +0200
+ +++ b/pts-core/objects/client/pts_client.php	2017-05-02 18:31:53.000000000 +0200
+ @@ -803,6 +803,8 @@
+  	}
+  	public static function user_agreement_check($command)
+  	{
+ +		return true;
+ +
+  		$pso = pts_storage_object::recover_from_file(PTS_CORE_STORAGE);
 
---- a/pts-core/objects/client/pts_client.php	2017-05-02 18:30:16.000000000 +0200
-+++ b/pts-core/objects/client/pts_client.php	2017-05-02 18:31:53.000000000 +0200
-@@ -803,6 +803,8 @@
- 	}
- 	public static function user_agreement_check($command)
- 	{
-+		return true;
-+
- 		$pso = pts_storage_object::recover_from_file(PTS_CORE_STORAGE);
-
- 		if($pso == false)
-
--echo -e "\nPhoronix Test Suite Installation Completed\n
-+echo "\nPhoronix Test Suite Installation Completed\n
- Executable File: $INSTALL_PREFIX/bin/phoronix-test-suite
- Documentation: $INSTALL_PREFIX/share/doc/phoronix-test-suite/
- Phoronix Test Suite Files: $INSTALL_PREFIX/share/phoronix-test-suite/\n"
+  		if($pso == false)
