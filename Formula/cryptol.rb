@@ -4,7 +4,7 @@ class Cryptol < Formula
   include Language::Haskell::Cabal
 
   desc "Domain-specific language for specifying cryptographic algorithms"
-  homepage "http://www.cryptol.net/"
+  homepage "https://www.cryptol.net/"
   url "https://hackage.haskell.org/package/cryptol-2.4.0/cryptol-2.4.0.tar.gz"
   sha256 "d34471f734429c25b52ca71ce63270ec3157a8413eeaf7f65dd7abe3cb27014d"
   head "https://github.com/GaloisInc/cryptol.git"
