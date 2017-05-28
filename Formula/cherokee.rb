@@ -1,17 +1,9 @@
 class Cherokee < Formula
   desc "Modern, user friendly web server"
   homepage "http://cherokee-project.com/"
+  url "http://pkgs.fedoraproject.org/repo/pkgs/cherokee/cherokee-1.2.103.tar.gz/527b3de97ef9727bfd5f6832043cf916/cherokee-1.2.103.tar.gz"
+  sha256 "790777e7b4355b60698443161e45b5a20a9d0ab8c4c47924e00d19da8b74dfcd"
 
-  stable do
-    url "http://pkgs.fedoraproject.org/repo/pkgs/cherokee/cherokee-1.2.103.tar.gz/527b3de97ef9727bfd5f6832043cf916/cherokee-1.2.103.tar.gz"
-    sha256 "790777e7b4355b60698443161e45b5a20a9d0ab8c4c47924e00d19da8b74dfcd"
-
-    # OSX 10.9 patch
-    patch do
-      url "https://github.com/cherokee/webserver/commit/d0213768fdc6cf3aee61fe0be398d7825c01198f.diff"
-      sha256 "97def30be1d72e8b53217f7af58543e35dcfec3e6dc8d0758553de1e4f4d742a"
-    end
-  end
   bottle do
     sha256 "db0adb2f4e099777e5309d1b2ca2102c8ae576eb45a51c827f0e2fb7866b66ed" => :sierra
     sha256 "f6944776619d9338169b1676cc10d9960c27cb7a88b1189a4e02e1f577d4e2d6" => :el_capitan
@@ -19,17 +11,14 @@ class Cherokee < Formula
     sha256 "ef4d94b51cc425dd704d0007cf9980024035406cb00345158fd84b1901c04437" => :mavericks
   end
 
-  head do
-    url "https://github.com/cherokee/webserver.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "wget" => :build
-  end
-
   depends_on "gettext"
   depends_on "openssl"
+
+  # OS X 10.9 patch
+  patch do
+    url "https://github.com/cherokee/webserver/commit/d0213768fdc6cf3aee61fe0be398d7825c01198f.diff"
+    sha256 "97def30be1d72e8b53217f7af58543e35dcfec3e6dc8d0758553de1e4f4d742a"
+  end
 
   def install
     if build.head?
