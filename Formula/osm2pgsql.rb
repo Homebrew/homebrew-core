@@ -27,7 +27,16 @@ class Osm2pgsql < Formula
 
   def install
     args = std_cmake_args
-    args << "-DWITH_LUA=OFF" if build.without? "lua"
+
+    if build.with? "lua"
+      # This is essentially a CMake disrespects superenv problem
+      # rather than an upstream issue to handle.
+      lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
+      inreplace "cmake/FindLua.cmake", "LUA_VERSIONS5 5.3 5.2 5.1 5.0",
+                                       "LUA_VERSIONS5 #{lua_version}"
+    else
+      args << "-DWITH_LUA=OFF"
+    end
 
     mkdir "build" do
       system "cmake", "..", *args
