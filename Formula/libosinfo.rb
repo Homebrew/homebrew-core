@@ -12,7 +12,6 @@ class Libosinfo < Formula
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "wget" => :build
 
   depends_on "check"
   depends_on "gettext"
@@ -25,6 +24,9 @@ class Libosinfo < Formula
   depends_on "vala" => :optional
 
   def install
+    # avoid wget dependency
+    inreplace "Makefile.in", "wget -q -O", "curl -o"
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}
