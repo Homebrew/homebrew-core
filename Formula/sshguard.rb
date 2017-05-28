@@ -32,11 +32,11 @@ class Sshguard < Formula
   end
 
   def firewall
-    MacOS.version >= :lion ? "pf" : "ipfw"
+    (MacOS.version >= :lion) ? "pf" : "ipfw"
   end
 
   def log_path
-    MacOS.version >= :lion ? "/var/log/system.log" : "/var/log/secure.log"
+    (MacOS.version >= :lion) ? "/var/log/system.log" : "/var/log/secure.log"
   end
 
   def caveats
