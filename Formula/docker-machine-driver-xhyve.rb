@@ -33,9 +33,7 @@ class DockerMachineDriverXhyve < Formula
 
     cd build_root do
       git_hash = `git rev-parse --short HEAD --quiet`.chomp
-      if build.head?
-        git_hash = "HEAD-#{git_hash}"
-      end
+      git_hash = "HEAD-#{git_hash}" if build.head?
 
       if build.with? "qcow2"
         build_tags << " qcow2"
