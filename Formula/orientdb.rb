@@ -47,7 +47,6 @@ class Orientdb < Formula
     sleep 3
     system "#{bin}/orientdb", "start"
     sleep 3
-
   ensure
     system "#{bin}/orientdb", "stop"
   end
