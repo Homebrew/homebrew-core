@@ -21,7 +21,7 @@ class Soci < Formula
   depends_on "sqlite" if MacOS.version <= :snow_leopard
 
   def translate(a)
-    a == "pg" ? "postgresql" : a
+    (a == "pg") ? "postgresql" : a
   end
 
   fails_with :clang do
