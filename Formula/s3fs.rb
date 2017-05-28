@@ -2,7 +2,7 @@ class S3fs < Formula
   desc "FUSE-based file system backed by Amazon S3"
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
   url "https://github.com/s3fs-fuse/s3fs-fuse.git",
-      :revision => "a08880ae1580f3ab9a90d179180e05923d1af315"
+      :revision => "620f6ec61627d9cec812013ba79dc7d724b45914"
   version "1.82.1"
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
