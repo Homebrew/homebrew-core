@@ -18,7 +18,6 @@ class Xplanetfx < Formula
 
   depends_on "xplanet"
   depends_on "imagemagick"
-  depends_on "wget"
   depends_on "coreutils"
   depends_on "gnu-sed" => :optional
 
