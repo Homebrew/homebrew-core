@@ -33,7 +33,7 @@ class Ledger < Formula
   def install
     ENV.cxx11
 
-    flavor = (build.with? "debug") ? "debug" : "opt"
+    flavor = build.with?("debug") ? "debug" : "opt"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
