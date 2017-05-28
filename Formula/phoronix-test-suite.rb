@@ -20,7 +20,7 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    assert_match "Ringsaker", "#{bin}/phoronix-test-suite version | grep -v ^$ | sed 's/.*(\(.*\))/\1/'"
+    assert_match "Ringsaker", "#{bin}/phoronix-test-suite version | grep -v ^$ | sed 's/.*(\(.*\)).*/\1/'"
   end
 end
 
