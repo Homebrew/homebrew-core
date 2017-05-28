@@ -1,6 +1,6 @@
 class BaculaFd < Formula
   desc "Network backup solution"
-  homepage "http://www.bacula.org/"
+  homepage "https://www.bacula.org/"
   url "https://downloads.sourceforge.net/project/bacula/bacula/7.4.7/bacula-7.4.7.tar.gz"
   sha256 "6f6075c2ca90a63cdeeca39b0b82a3ea07ce9999dedc68951d88bed7fbc0be40"
 
