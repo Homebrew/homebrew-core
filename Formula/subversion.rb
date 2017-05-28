@@ -142,9 +142,7 @@ class Subversion < Formula
 
       archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
       perl_core = Pathname.new(archlib)/"CORE"
-      unless perl_core.exist?
-        onoe "'#{perl_core}' does not exist"
-      end
+      onoe "'#{perl_core}' does not exist" unless perl_core.exist?
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
