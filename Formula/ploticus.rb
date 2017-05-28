@@ -35,19 +35,19 @@ class Ploticus < Formula
   test do
     assert_match "ploticus 2.", shell_output("#{bin}/ploticus -version 2>&1", 1)
 
-    (testpath/"test.in").write <<-EOS
-#proc areadef
-  rectangle: 1 1 4 2
-  xrange: 0 5
-  yrange: 0 100
+    (testpath/"test.in").write <<-EOS.undent
+      #proc areadef
+        rectangle: 1 1 4 2
+        xrange: 0 5
+        yrange: 0 100
 
-#proc xaxis:
-  stubs: text
-  Africa
-  Americas
-  Asia
-  Europe,\\nAustralia,\\n\& Pacific
-EOS
+      #proc xaxis:
+        stubs: text
+        Africa
+        Americas
+        Asia
+        Europe,\\nAustralia,\\n\& Pacific
+    EOS
     system "#{bin}/ploticus", "-f", "test.in", "-png", "-o", "test.png"
     assert_match "PNG image data", shell_output("file test.png")
   end
