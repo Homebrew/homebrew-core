@@ -4,6 +4,12 @@ class Bartycrouch < Formula
   url "https://github.com/Flinesoft/BartyCrouch/archive/3.8.0.tar.gz"
   sha256 "8180b7f016ad9dd34f9fd022c94bf476e8648aa608b4d5b928519bdf0e940a76"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b11ab8ba03c1b3fbc0d1a4f00a239e913114bbdd9a2a4f3d60a152718807c426" => :sierra
+    sha256 "5767a6f7eb837fdf6922fd94f11994c390f6d293919a761b575cef457a683022" => :el_capitan
+  end
+
   depends_on :xcode => ["8.0", :build]
 
   def install
