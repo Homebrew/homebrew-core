@@ -33,13 +33,9 @@ class Pachi < Formula
     system "make"
     bin.install "pachi"
 
-    if build.with? "patterns"
-      share.install resource("patterns")
-    end
+    share.install resource("patterns") if build.with? "patterns"
 
-    if build.with? "book"
-      share.install resource("book")
-    end
+    share.install resource("book") if build.with? "book"
   end
 
   if (build.with? "book") || (build.with? "patterns")
