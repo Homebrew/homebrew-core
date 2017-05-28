@@ -5,7 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-4.2.tar.gz"
   sha256 "23a412308fc9c2b354a0e91a89588a4af2af061b47da80bc4233ccb0cceef47d"
-  
+
   head "https://www.mercurial-scm.org/repo/hg", :using => :hg
 
   bottle do
