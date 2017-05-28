@@ -29,19 +29,15 @@ class Tenyr < Formula
 
     # JIT build is not available until we can pull in AsmJit somehow
     # HEAD version can build with JIT enabled, using git submodule
-    # Right now there is no way for `build.with?("jit")` to be true
-    if build.without?("jit")
-      args << "JIT=0"
-    end
+    # Right now there is no way for `build.with? "jit"` to be true
+    args << "JIT=0" if build.without? "jit"
 
     # Use our own build directory (tenyr's default build directory encodes
     # builder platform information in the path)
     builddir = "build/homebrew"
     args << "BUILDDIR=" + builddir
 
-    if build.without?("sdl2_image")
-      args << "SDL=0"
-    end
+    args << "SDL=0" if build.without?("sdl2_image")
 
     system "make", *args
 
