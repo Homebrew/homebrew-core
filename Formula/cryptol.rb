@@ -21,7 +21,12 @@ class Cryptol < Formula
   depends_on "z3" => :run
 
   def install
-    install_cabal_package :using => ["alex", "happy"]
+    # Remove sbv constraint for > 2.4.0
+    if build.stable?
+      install_cabal_package "--constraint", "sbv < 5.15", :using => ["alex", "happy"]
+    else
+      install_cabal_package :using => ["alex", "happy"]
+    end
   end
 
   test do
