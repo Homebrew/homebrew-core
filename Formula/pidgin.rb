@@ -62,9 +62,7 @@ class Pidgin < Formula
 
     args << "--with-tclconfig=#{MacOS.sdk_path}/usr/lib"
     args << "--with-tkconfig=#{MacOS.sdk_path}/usr/lib"
-    if build.without? "gui"
-      args << "--disable-gtkui"
-    end
+    args << "--disable-gtkui" if build.without? "gui"
 
     system "./configure", *args
     system "make", "install"
