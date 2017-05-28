@@ -51,7 +51,7 @@ class OpenSceneGraph < Formula
     end
 
     args = std_cmake_args
-    args << "-DBUILD_DOCUMENTATION=" + ((build.with? "docs") ? "ON" : "OFF")
+    args << "-DBUILD_DOCUMENTATION=" + (build.with?("docs") ? "ON" : "OFF")
     args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
 
     if MacOS.prefer_64_bit?
