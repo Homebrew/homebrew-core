@@ -74,8 +74,8 @@ class Pgplot < Formula
     mkdir "build" do
       # activate drivers
       cp "../drivers.list", "."
-      ["GIF", "VGIF", "LATEX", "PNG", "TPNG", "PS",
-       "VPS", "CPS", "VCPS", "XWINDOW", "XSERVE"].each do |drv|
+      %w[GIF VGIF LATEX PNG TPNG PS
+         VPS CPS VCPS XWINDOW XSERVE].each do |drv|
         inreplace "drivers.list", %r{^! (.*\/#{drv} .*)}, '  \1'
       end
 
