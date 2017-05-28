@@ -56,9 +56,7 @@ class OpenMpi < Formula
 
     # If Fortran bindings were built, there will be stray `.mod` files
     # (Fortran header) in `lib` that need to be moved to `include`.
-    if build.with? "fortran"
-      include.install Dir["#{lib}/*.mod"]
-    end
+    include.install Dir["#{lib}/*.mod"] if build.with? "fortran"
   end
 
   test do
