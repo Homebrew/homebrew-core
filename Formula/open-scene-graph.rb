@@ -20,7 +20,6 @@ class OpenSceneGraph < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg"
-  depends_on "wget"
   depends_on "gtkglext"
   depends_on "freetype"
   depends_on "gdal" => :optional
