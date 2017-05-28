@@ -159,9 +159,7 @@ class Ffmpeg < Formula
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    if %w[fdk-aac openssl].any? { |f| build.with? f }
-      args << "--enable-nonfree"
-    end
+    args << "--enable-nonfree" if build.with?("fdk-aac") || build.with?("openssl")
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
     # prevents GCC from building VDA support.
