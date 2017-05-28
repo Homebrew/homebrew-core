@@ -23,7 +23,7 @@ class Runit < Formula
       # The commands are compiled and copied into the 'command' directory and
       # names added to package/commands. Read the file for the commands and
       # install them in homebrew.
-      rcmds = File.open("package/commands").read
+      rcmds = File.read("package/commands")
 
       rcmds.split("\n").each do |r|
         bin.install("command/#{r.chomp}")
