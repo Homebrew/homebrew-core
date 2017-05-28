@@ -61,9 +61,7 @@ class Freetds < Formula
     # Translate formula's "--with" options to configuration script's "--enable"
     # options
     %w[msdblib sybase-compat odbc-wide krb5].each do |option|
-      if build.with? option
-        args << "--enable-#{option}"
-      end
+      args << "--enable-#{option}" if build.with? option
     end
 
     if build.head?
