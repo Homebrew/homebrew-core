@@ -15,7 +15,7 @@ class Stone < Formula
   option "with-ssl", "SSL support"
 
   def install
-    target = (build.with? "ssl") ? "macosx-ssl" : "macosx"
+    target = build.with?("ssl") ? "macosx-ssl" : "macosx"
     system "make", target
     bin.install "stone"
   end
