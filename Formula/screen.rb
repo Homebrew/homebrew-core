@@ -36,9 +36,7 @@ class Screen < Formula
   depends_on "automake" => :build
 
   def install
-    if build.head?
-      cd "src"
-    end
+    cd "src" if build.head?
 
     # With parallel build, it fails
     # because of trying to compile files which depend osdef.h
