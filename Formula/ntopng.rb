@@ -36,7 +36,6 @@ class Ntopng < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "json-glib" => :build
-  depends_on "wget" => :build
   depends_on "zeromq" => :build
   depends_on "gnutls" => :build
 
