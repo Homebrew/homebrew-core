@@ -50,6 +50,18 @@ __END__
 @@ -114,7 +114,7 @@
  fi
 
+--- a/pts-core/objects/client/pts_client.php	2017-05-02 18:30:16.000000000 +0200
++++ b/pts-core/objects/client/pts_client.php	2017-05-02 18:31:53.000000000 +0200
+@@ -803,6 +803,8 @@
+ 	}
+ 	public static function user_agreement_check($command)
+ 	{
++		return true;
++
+ 		$pso = pts_storage_object::recover_from_file(PTS_CORE_STORAGE);
+
+ 		if($pso == false)
+
 -echo -e "\nPhoronix Test Suite Installation Completed\n
 +echo "\nPhoronix Test Suite Installation Completed\n
  Executable File: $INSTALL_PREFIX/bin/phoronix-test-suite
