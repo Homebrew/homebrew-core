@@ -21,7 +21,6 @@ class Corsixth < Formula
     sha256 "879015e727a6decec4d24f65d810890caa766107339e81f1e6c6b96a70e1b944" => :yosemite
   end
 
-
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "ffmpeg"
