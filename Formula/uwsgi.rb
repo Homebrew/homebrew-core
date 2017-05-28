@@ -73,22 +73,22 @@ class Uwsgi < Formula
 
     system "python", "uwsgiconfig.py", "--verbose", "--build", "brew"
 
-    plugins = ["airbrake", "alarm_curl", "alarm_speech", "asyncio", "cache",
-               "carbon", "cgi", "cheaper_backlog2", "cheaper_busyness",
-               "corerouter", "curl_cron", "cplusplus", "dumbloop", "dummy",
-               "echo", "emperor_amqp", "fastrouter", "forkptyrouter", "gevent",
-               "http", "logcrypto", "logfile", "ldap", "logpipe", "logsocket",
-               "msgpack", "notfound", "pam", "ping", "psgi", "pty", "rawrouter",
-               "router_basicauth", "router_cache", "router_expires",
-               "router_hash", "router_http", "router_memcached",
-               "router_metrics", "router_radius", "router_redirect",
-               "router_redis", "router_rewrite", "router_static",
-               "router_uwsgi", "router_xmldir", "rpc", "signal", "spooler",
-               "sqlite3", "sslrouter", "stats_pusher_file",
-               "stats_pusher_socket", "symcall", "syslog",
-               "transformation_chunked", "transformation_gzip",
-               "transformation_offload", "transformation_tofile",
-               "transformation_toupper", "ugreen", "webdav", "zergpool"]
+    plugins = %w[airbrake alarm_curl alarm_speech asyncio cache
+                 carbon cgi cheaper_backlog2 cheaper_busyness
+                 corerouter curl_cron cplusplus dumbloop dummy
+                 echo emperor_amqp fastrouter forkptyrouter gevent
+                 http logcrypto logfile ldap logpipe logsocket
+                 msgpack notfound pam ping psgi pty rawrouter
+                 router_basicauth router_cache router_expires
+                 router_hash router_http router_memcached
+                 router_metrics router_radius router_redirect
+                 router_redis router_rewrite router_static
+                 router_uwsgi router_xmldir rpc signal spooler
+                 sqlite3 sslrouter stats_pusher_file
+                 stats_pusher_socket symcall syslog
+                 transformation_chunked transformation_gzip
+                 transformation_offload transformation_tofile
+                 transformation_toupper ugreen webdav zergpool]
 
     plugins << "alarm_xmpp" if build.with? "gloox"
     plugins << "emperor_mongodb" if build.with? "mongodb"
