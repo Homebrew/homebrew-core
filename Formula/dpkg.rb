@@ -4,9 +4,9 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.23.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.23.tar.xz"
-  sha256 "cc08802a0cea2ccd0c10716bc71531ff9b9234dd454b83a59f71117a37f36923"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.24.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.24.tar.xz"
+  sha256 "d853081d3e06bfd46a227056e591f094e42e78fa8a5793b0093bad30b710d7b4"
 
   bottle do
     sha256 "da977afc391afc86460a5deac82d9b2da95d3e7f2697a6cb1e8657bbbf5a7462" => :sierra
@@ -16,12 +16,18 @@ class Dpkg < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
+  depends_on "gpatch"
   depends_on "xz" # For LZMA
 
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
     ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
+
+    # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences
+    # of the CVE-2017-8283 vulnerability.
+    # http://www.openwall.com/lists/oss-security/2017/04/20/2
+    ENV["PATCH"] = Formula["gpatch"].opt_bin/"patch"
 
     # Theoretically, we could reinsert a patch here submitted upstream previously
     # but the check for PERL_LIB remains in place and incompatible with Homebrew.
