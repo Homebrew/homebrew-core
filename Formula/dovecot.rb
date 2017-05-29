@@ -77,7 +77,7 @@ class Dovecot < Formula
   def caveats; <<-EOS.undent
     For Dovecot to work, you may need to create a dovecot user
     and group depending on your configuration file options.
-    
+
     Dovecot by default requires a higher limit on open files per
     process than the Mac OS X standard of 256 open files. In order
     to silence the warning from dovecot, the launchd plist sets
