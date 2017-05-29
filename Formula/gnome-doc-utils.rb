@@ -17,7 +17,7 @@ class GnomeDocUtils < Formula
   depends_on :python
   depends_on "docbook"
   depends_on "gettext"
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
 
   def install
     # Find our docbook catalog
@@ -31,5 +31,9 @@ class GnomeDocUtils < Formula
     # Compilation doesn't work right if we jump straight to make install
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/gnome-doc-tool --version")
   end
 end
