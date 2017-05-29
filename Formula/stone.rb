@@ -12,11 +12,21 @@ class Stone < Formula
     sha256 "ab43aca5038bdf014c1a5aaadb9e526626c9c4369dcaeac045b9dce6514b30bc" => :mavericks
   end
 
-  option "with-ssl", "SSL support"
+  deprecated_option "with-ssl" => "with-openssl"
+
+  depends_on "openssl" => :optional
 
   def install
-    target = build.with?("ssl") ? "macosx-ssl" : "macosx"
-    system "make", target
+    if build.with? "openssl"
+      inreplace "Makefile", "SSL=/usr", "SSL=#{Formula["openssl"].opt_prefix}"
+      system "make", "macosx-ssl"
+    else
+      system "make", "macosx"
+    end
     bin.install "stone"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/stone -h 2>&1", 1)
   end
 end
