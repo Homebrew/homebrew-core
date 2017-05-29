@@ -16,6 +16,12 @@ class Yarn < Formula
     inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
   end
 
+  def caveats; <<-EOS.undent
+    Add path:
+      export PATH="$PATH:`yarn global bin`"
+    EOS
+  end
+
   test do
     (testpath/"package.json").write('{"name": "test"}')
     system bin/"yarn", "add", "jquery"
