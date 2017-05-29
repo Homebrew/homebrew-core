@@ -21,9 +21,9 @@ class Rpm < Formula
   revision 3
 
   bottle do
-    sha256 "8b9ab7929c55cb361aaba7a1cb8412fdc7049288b708912d1b3b6ab86586d726" => :sierra
-    sha256 "020694b5a675e38cc0679736fb56caa06b6baf13eb3c1ee1107f3e29cf2ceb86" => :el_capitan
-    sha256 "01e312ff43e9f9a4409bdc2c5234b3fb52fc6ff7ab6bd4afb249dde533bcde64" => :yosemite
+    sha256 "3e4d2a304cf1cc10cb12a1c57474850c2715c279522e62ea3310c66ba510ad1e" => :sierra
+    sha256 "e597c4a7937e92473250f931e70adc682214190848bd29ed99505154e98c0903" => :el_capitan
+    sha256 "3a276b6a3f7273f8f88effbb057e8d65fc53fa9e812054951bfdd5ce618f54ac" => :yosemite
   end
 
   depends_on "rpm2cpio" => :build
