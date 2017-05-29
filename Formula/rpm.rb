@@ -18,7 +18,7 @@ class Rpm < Formula
       :using => RpmDownloadStrategy
   version "5.4.15"
   sha256 "d4ae5e9ed5df8ab9931b660f491418d20ab5c4d72eb17ed9055b80b71ef6c4ee"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "8b9ab7929c55cb361aaba7a1cb8412fdc7049288b708912d1b3b6ab86586d726" => :sierra
