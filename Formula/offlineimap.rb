@@ -58,6 +58,8 @@ class Offlineimap < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/offlineimap</string>
+          <string>-u</string>
+          <string>basic</string>
         </array>
         <key>StartInterval</key>
         <integer>300</integer>
