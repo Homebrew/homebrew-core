@@ -17,6 +17,10 @@ class Fribidi < Formula
   depends_on "glib"
   depends_on "pcre"
 
+  depends_on "pkg-config" => :build
+  depends_on "glib"
+  depends_on "pcre"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--with-glib", "--prefix=#{prefix}"
