@@ -102,6 +102,16 @@ class Dovecot < Formula
         <string>#{var}/log/dovecot/dovecot.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/dovecot/dovecot.log</string>
+        <key>SoftResourceLimits</key>
+        <dict>
+        <key>NumberOfFiles</key>
+        <integer>1000</integer>
+        </dict>
+        <key>HardResourceLimits</key>
+        <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+        </dict>
       </dict>
     </plist>
     EOS
