@@ -1,8 +1,10 @@
 class Pachi < Formula
-  desc "pachi"
+  desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "http://pachi.or.cz/"
   url "http://repo.or.cz/w/pachi.git/snapshot/pachi-11.00-retsugen.tar.gz"
   sha256 "2aaf9aba098d816d20950d283c8eaed522f3fa71f68390a4c384c0c1ab03cd6f"
+  revision 1
+
   head "https://github.com/pasky/pachi.git"
 
   bottle do
@@ -30,27 +32,27 @@ class Pachi < Formula
   def install
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
+
     system "make"
     bin.install "pachi"
 
-    share.install resource("patterns") if build.with? "patterns"
-
-    share.install resource("book") if build.with? "book"
+    pkgshare.install resource("patterns") if build.with? "patterns"
+    pkgshare.install resource("book") if build.with? "book"
   end
 
-  if (build.with? "book") || (build.with? "patterns")
-    def caveats; <<-EOS.undent
-      This formula also downloads additional data, such as opening books and
-      pattern files. They are stored in #{share}.
+  def caveats
+    return if build.without?("patterns") || build.without?("book")
+    <<-EOS.undent
+      This formula also downloads additional data, such as opening books
+      and pattern files. They are stored in #{opt_pkgshare}.
 
-      At present, pachi cannot be pointed to external files, so make sure to
-      set the working directory to #{share} if you
-      want pachi to take advantage of these additional files.
+      At present, pachi cannot be pointed to external files, so make sure
+      to set the working directory to #{opt_pkgshare} if you want pachi
+      to take advantage of these additional files.
     EOS
-    end
   end
 
   test do
-    assert_match /^= [A-T][0-9]+$/, shell_output("echo \"genmove b\" | #{bin}/pachi")
+    assert_match /^= [A-T][0-9]+$/, pipe_output("#{bin}/pachi", "genmove b\n", 0)
   end
 end
