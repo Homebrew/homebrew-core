@@ -7,10 +7,10 @@ class Itstool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1ce80023c123419edc5705d9f26a4c4d15dde6dff09c672921197f94bf7daae" => :sierra
-    sha256 "4bbeea37b4f8f887458ffae502c74306a931ffbda43c34ae0f05eb5011dffd28" => :el_capitan
-    sha256 "22b1b0163b35b35fefbea27321cea0359dba726b832cf892729825ff718add6e" => :yosemite
-    sha256 "e8e0dbf50b44a058553bc63d039809cc1d96efb8c8a8c73b5e6f9f10b568d644" => :mavericks
+    rebuild 1
+    sha256 "57f0c56db4668c2dbc8aa42fcbbe9e7d28e232ce136e6b0422bc3f270de5cbcf" => :sierra
+    sha256 "c8a0dbd869f856272f94b1f855fe61e916ed842bb7eadcf6b18af86432b20e8e" => :el_capitan
+    sha256 "c8a0dbd869f856272f94b1f855fe61e916ed842bb7eadcf6b18af86432b20e8e" => :yosemite
   end
 
   head do
