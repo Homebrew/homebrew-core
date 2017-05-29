@@ -1,8 +1,8 @@
 class Liboping < Formula
   desc "C library to generate ICMP echo requests"
   homepage "https://noping.cc/"
-  url "https://noping.cc/files/liboping-1.8.0.tar.bz2"
-  sha256 "1dcb9182c981b31d67522ae24e925563bed57cf950dc681580c4b0abb6a65bdb"
+  url "https://noping.cc/files/liboping-1.10.0.tar.bz2"
+  sha256 "eb38aa93f93e8ab282d97e2582fbaea88b3f889a08cbc9dbf20059c3779d5cd8"
 
   bottle do
     sha256 "d1f47bef9f08fa16e0dff46fc42ab617aa2a4124456a84db918c363cde62432d" => :sierra
@@ -21,5 +21,10 @@ class Liboping < Formula
 
   def caveats
     "Run oping and noping sudo'ed in order to avoid the 'Operation not permitted'"
+  end
+
+  test do
+    system bin/"oping", "-h"
+    system bin/"noping", "-h"
   end
 end
