@@ -14,7 +14,7 @@ class Evince < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "poppler"
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
@@ -30,6 +30,7 @@ class Evince < Formula
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
