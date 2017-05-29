@@ -21,7 +21,7 @@ class Itstool < Formula
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
 
   def install
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
