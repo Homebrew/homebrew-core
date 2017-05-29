@@ -77,6 +77,15 @@ class Dovecot < Formula
   def caveats; <<-EOS.undent
     For Dovecot to work, you may need to create a dovecot user
     and group depending on your configuration file options.
+    
+    Dovecot by default requires a higher limit on open files per
+    process than the Mac OS X standard of 256 open files. In order
+    to silence the warning from dovecot, the launchd plist sets
+    both hard and soft resource limits of 512 open files. It is
+    suggested you also set default_client_limit = 512 in
+    10-master.conf. If you are running a production server, set
+    these limits in launchd and conf to 1000 or higher as needed.
+
     EOS
   end
 
@@ -102,6 +111,16 @@ class Dovecot < Formula
         <string>#{var}/log/dovecot/dovecot.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/dovecot/dovecot.log</string>
+        <key>SoftResourceLimits</key>
+        <dict>
+        <key>NumberOfFiles</key>
+        <integer>512</integer>
+        </dict>
+        <key>HardResourceLimits</key>
+        <dict>
+        <key>NumberOfFiles</key>
+        <integer>512</integer>
+        </dict>
       </dict>
     </plist>
     EOS
