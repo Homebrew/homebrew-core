@@ -16,7 +16,7 @@ class Anjuta < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "gtksourceview3"
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
   depends_on "libgda"
   depends_on "gdl"
   depends_on "vte3"
