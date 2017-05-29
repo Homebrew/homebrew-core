@@ -1,7 +1,7 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  revision 2
+  revision 3
 
   stable do
     url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
@@ -41,7 +41,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_osx
 
-  depends_on :python => :optional
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
     if build.head?
@@ -57,12 +57,10 @@ class Libxml2 < Formula
     ENV.deparallelize
     system "make", "install"
 
-    if build.with? "python"
-      cd "python" do
-        # We need to insert our include dir first
-        inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-        system "python", "setup.py", "install", "--prefix=#{prefix}"
-      end
+    cd "python" do
+      # We need to insert our include dir first
+      inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+      system "python", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -83,5 +81,8 @@ class Libxml2 < Formula
     args += %w[test.c -o test]
     system ENV.cc, *args
     system "./test"
+
+    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
+    system "python", "-c", "import libxml2"
   end
 end
