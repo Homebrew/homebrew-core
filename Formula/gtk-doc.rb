@@ -19,7 +19,7 @@ class GtkDoc < Formula
   depends_on "glib"
   depends_on "docbook"
   depends_on "docbook-xsl"
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
   depends_on :perl => "5.18" if MacOS.version <= :mavericks
 
   def install
