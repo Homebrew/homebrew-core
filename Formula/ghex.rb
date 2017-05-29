@@ -5,9 +5,10 @@ class Ghex < Formula
   sha256 "c67450f86f9c09c20768f1af36c11a66faf460ea00fbba628a9089a6804808d3"
 
   bottle do
-    sha256 "d0f9fbf54dd15dcccfd56ca3aebb9e0e52772ddc9d6c5ff3f6e11075f7c3dd94" => :sierra
-    sha256 "ab58d6fccf6c772e901ef0049677e07c5e415137b8923fd2ec47ab64f214cafc" => :el_capitan
-    sha256 "dc4d519fdc43685cc1ce7f0dbc79075f0fea71e228738ad0c1df2f635eb2362f" => :yosemite
+    rebuild 1
+    sha256 "02c744417d58dc442de342f0277ca4d320dde285365d5c88d002932cad2538de" => :sierra
+    sha256 "8123441a65bd5d45a1baf9a227911a1edeb514240d8c81fa563de5cc756b3fc8" => :el_capitan
+    sha256 "378e85b6e1f712c2415430f426a6381e03c692f8e8f72b93a77f94c2e205fe5a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
