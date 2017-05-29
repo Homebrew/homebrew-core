@@ -1,10 +1,8 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
-  sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
-  revision 2
-  head "https://github.com/OpenLightingProject/ola.git"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.4/ola-0.10.4.tar.gz"
+  sha256 "be0aacf5b2a61dd2b75e0ee3ec9a642012751268aa2d28bd24e8d87837a8f707"
 
   bottle do
     rebuild 1
@@ -13,14 +11,18 @@ class Ola < Formula
     sha256 "ca034130d624c101077f2b660bb6ea7c07ce043b681c5b8530393f06982e389e" => :yosemite
   end
 
+  head do
+    url "https://github.com/OpenLightingProject/ola.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option "with-libftdi", "Install FTDI USB plugin for OLA."
   option "with-rdm-tests", "Install RDM Tests for OLA."
   deprecated_option "with-ftdi" => "with-libftdi"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "cppunit" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
@@ -37,12 +39,7 @@ class Ola < Formula
     sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
-    ENV["ac_cv_gnu_plus_plus_98"] = "no"
-
     resource("protobuf-c").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{buildpath}/vendor/protobuf-c"
@@ -59,12 +56,13 @@ class Ola < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-python-libs
+      --disable-unittests
     ]
 
     args << "--enable-rdm-tests" if build.with? "rdm-tests"
     args << "--enable-doxygen-man" if build.with? "doxygen"
 
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
     system "make", "install"
   end
