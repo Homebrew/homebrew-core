@@ -6,6 +6,8 @@ class IosWebkitDebugProxy < Formula
 
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
+  head "https://github.com/google/ios-webkit-debug-proxy.git"
+
   bottle do
     cellar :any
     sha256 "d62c288078faece5ce96abccb6b83e39ee264bdb562bf08fca7ecf6f6ab36836" => :sierra
