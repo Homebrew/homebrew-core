@@ -71,7 +71,7 @@ class Druid < Formula
 
     begin
       pid = fork { exec bin/"druid-broker.sh", "start" }
-      sleep 5
+      sleep 30
       output = shell_output("curl -s http://localhost:8082/status")
       assert_match /version/m, output
     ensure
