@@ -14,6 +14,10 @@ class Jhipster < Formula
   end
 
   test do
-    assert_match "Executing jhipster:info\nExecution complete\n", shell_output("#{bin}/jhipster info")
+    expected = <<-EOS.undent
+      Executing jhipster:info
+      Execution complete
+    EOS
+    assert_equal expected, shell_output("#{bin}/jhipster info")
   end
 end
