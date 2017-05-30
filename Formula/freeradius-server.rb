@@ -1,8 +1,8 @@
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
-  url "ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.13.tar.bz2"
-  sha256 "b3be0d8849878c31af0a5375d20b7b20c9d1c1572e89dc3f22992824cefffb84"
+  url "ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.14.tar.bz2"
+  sha256 "2771f6ecd6c816ac4d52b66bb8ae6781ca20e1e4984c5804fc4e67de3a807c59"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   bottle do
@@ -11,7 +11,7 @@ class FreeradiusServer < Formula
     sha256 "6ceca0a4e7f7ce6e7e9e246b4b8f1b2ac7cfbbeeceb895909cbbf4e77638d5f0" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "talloc"
 
   def install
@@ -21,8 +21,8 @@ class FreeradiusServer < Formula
       --prefix=#{prefix}
       --sbindir=#{bin}
       --localstatedir=#{var}
-      --with-openssl-includes=#{Formula["openssl"].opt_include}
-      --with-openssl-libraries=#{Formula["openssl"].opt_lib}
+      --with-openssl-includes=#{Formula["openssl@1.1"].opt_include}
+      --with-openssl-libraries=#{Formula["openssl@1.1"].opt_lib}
       --with-talloc-lib-dir=#{Formula["talloc"].opt_lib}
       --with-talloc-include-dir=#{Formula["talloc"].opt_include}
     ]
@@ -38,6 +38,7 @@ class FreeradiusServer < Formula
   end
 
   test do
-    assert_match /77C8009C912CFFCF3832C92FC614B7D1/, shell_output("#{bin}/smbencrypt homebrew")
+    output = shell_output("#{bin}/smbencrypt homebrew")
+    assert_match "77C8009C912CFFCF3832C92FC614B7D1", output
   end
 end
