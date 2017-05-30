@@ -11,10 +11,14 @@ class Ripgrep < Formula
     sha256 "0a80a55397476474d0e33daad3966407c0f84cd504bc8aad4c944c7144a03bef" => :yosemite
   end
 
-  depends_on "rust" => :build
+  depends_on "multirust" => :build
 
   def install
-    system "cargo", "build", "--release"
+    system "multirust", "update", "nightly"
+    system "multirust", "override", "nightly"
+
+    ENV["RUSTFLAGS"] = "-C target-feature=+ssse3"
+    system "cargo", "build", "--release", "--features", "simd-accel"
 
     bin.install "target/release/rg"
     man1.install "doc/rg.1"
