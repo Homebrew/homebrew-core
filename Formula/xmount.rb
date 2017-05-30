@@ -2,8 +2,8 @@ class Xmount < Formula
   desc "Convert between multiple input & output disk image types"
   homepage "https://www.pinguin.lu/xmount/"
   url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
-      :tag => "v0.7.4",
-      :revision => "ca84080b2c857de6951f154886bb7ed5fa100149"
+      :tag => "v0.7.5",
+      :revision => "432ae6609af67f457e812378e6d2c7a1aacce777"
 
   bottle do
     sha256 "4162068d6ede326a5419c795bfb9fb017d084bf561134e753d0bc5ea39c12a08" => :sierra
