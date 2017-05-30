@@ -16,7 +16,7 @@ class Osm2pgsql < Formula
   depends_on "boost"
   depends_on "geos"
   depends_on "proj"
-  depends_on "lua" => :recommended
+  depends_on "lua"
 
   # Compatibility with GEOS 3.6.1
   # Upstream PR from 27 Oct 2016 "Geos36"
