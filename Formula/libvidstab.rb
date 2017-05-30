@@ -1,8 +1,8 @@
 class Libvidstab < Formula
   desc "Transcode video stabilization plugin"
   homepage "http://public.hronopik.de/vid.stab/"
-  url "https://github.com/georgmartius/vid.stab/archive/release-0.98b.tar.gz"
-  sha256 "530f0bf7479ec89d9326af3a286a15d7d6a90fcafbb641e3b8bdb8d05637d025"
+  url "https://github.com/georgmartius/vid.stab/archive/v1.1.0.tar.gz"
+  sha256 "14d2a053e56edad4f397be0cb3ef8eb1ec3150404ce99a426c4eb641861dc0bb"
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Libvidstab < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DUSE_OMP=OFF", *std_cmake_args
     system "make", "install"
   end
 end
