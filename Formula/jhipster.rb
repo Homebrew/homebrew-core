@@ -14,6 +14,6 @@ class Jhipster < Formula
   end
 
   test do
-    system bin/"jhipster", "info"
+    assert_match "Executing jhipster:info\nExecution complete\n", shell_output("#{bin}/jhipster info")
   end
 end
