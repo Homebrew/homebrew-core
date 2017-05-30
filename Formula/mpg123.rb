@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.23.8.tar.bz2"
-  mirror "https://mpg123.orgis.org/download/mpg123-1.23.8.tar.bz2"
-  sha256 "de2303c8ecb65593e39815c0a2f2f2d91f708c43b85a55fdd1934c82e677cf8e"
+  url "https://www.mpg123.de/download/mpg123-1.25.0.tar.bz2"
+  mirror "https://mpg123.orgis.org/download/mpg123-1.25.0.tar.bz2"
+  sha256 "552e3e1db045e00f474252917007795ac295863fc8b13891859b3382d2f24e48"
 
   bottle do
     cellar :any
@@ -32,6 +32,6 @@ class Mpg123 < Formula
   end
 
   test do
-    system bin/"mpg123", test_fixtures("test.mp3")
+    system bin/"mpg123", "--test", test_fixtures("test.mp3")
   end
 end
