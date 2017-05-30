@@ -6,9 +6,9 @@ class Xmount < Formula
       :revision => "432ae6609af67f457e812378e6d2c7a1aacce777"
 
   bottle do
-    sha256 "4162068d6ede326a5419c795bfb9fb017d084bf561134e753d0bc5ea39c12a08" => :sierra
-    sha256 "6da7e85a81d46691f96b425302a4dbc15b5bbfd41d2e7a12751de2937e3bf8b9" => :el_capitan
-    sha256 "b53e4ac2e5bf222d6f64092d44f2dbdd318b7362db3bb10ab3c114dcbae6837a" => :yosemite
+    sha256 "a7c90944e8790ce74164a68f484c07ce5231902a9ce0c81b7dea9ddbbbf47dc8" => :sierra
+    sha256 "4aef49b3ed42bec95ff2c2922940a28b9c1be0b1bb04f28f37be1e01e1808120" => :el_capitan
+    sha256 "2fd1e5caf50d64243c5151b016754acbe115d42150eb9a5ad26176e604fbb2e2" => :yosemite
   end
 
   depends_on "cmake" => :build
