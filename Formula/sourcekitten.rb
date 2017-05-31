@@ -5,6 +5,7 @@ class Sourcekitten < Formula
       :tag => "0.17.6",
       :revision => "91d9d5b20876da2afcbf34664bccc0bfd26088c7"
   head "https://github.com/jpsim/SourceKitten.git"
+  revision 1
 
   bottle do
     cellar :any
