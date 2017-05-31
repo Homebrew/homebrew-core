@@ -22,22 +22,17 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "http://cloud.radare.org/get/1.4.0/radare2-1.4.0.tar.gz"
-    sha256 "bf6e9ad94fd5828d3936563b8b13218433fbf44231cacfdf37a7312ae2b3e93e"
+    url "http://cloud.radare.org/get/1.5.0/radare2-1.5.0.tar.gz"
+    sha256 "cf79fa776a37bc835481c235df740900c1e7b5fbd1fb9029383cc4268c3c85aa"
 
     resource "bindings" do
-      url "http://cloud.radare.org/get/1.4.0/radare2-bindings-1.4.0.tar.gz"
-      sha256 "0abd4c854db4932cf16d6b044ac11382f63b97779f9c5bea9167d6be1e14391c"
+      url "http://cloud.radare.org/get/1.5.0/radare2-bindings-1.5.0.tar.gz"
+      sha256 "466ec7c80f849b0a0460943bdf0a4ae0f1195f7e0cd6173a350c0e25b370a262"
     end
 
     resource "extras" do
-      url "http://cloud.radare.org/get/1.4.0/radare2-extras-1.4.0.tar.gz"
-      sha256 "919bd7a3cac075f83a788ef676b4735f0e31ecd7ef97d9949f78cadeb61099aa"
-    end
-
-    resource "bindings-1.4.0-patch" do
-      url "https://github.com/radare/radare2-bindings/commit/ece587c44a434254c2f09ff200d519a4010841d1.diff"
-      sha256 "3f46fbd90f6aa453d89cb8d8dc4f516dc229226cdebcdefae3ac7b55aa83a864"
+      url "http://cloud.radare.org/get/1.5.0/radare2-extras-1.5.0.tar.gz"
+      sha256 "fe7ba0b85101b65fc9c7dea2206729094b1bfc4c88a45478c7869f9f590bd815"
     end
   end
 
@@ -101,7 +96,7 @@ class Radare2 < Formula
 
       # Language versions.
       perl_version = `/usr/bin/perl -e 'printf "%vd", $^V;'`
-      lua_version = Utils.popen_read("lua -v 2>&1").match(/%r{5\.\d}/)
+      lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
 
       # Lazily bind to Python.
       inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
@@ -112,9 +107,6 @@ class Radare2 < Formula
       inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
       inreplace "Makefile", "LUAPKG=", "#LUAPKG="
       inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
-      # Fix for Makefile error, fixed in next release
-      Pathname.pwd.install resource("bindings-1.4.0-patch")
-      system "patch", "-p1", "-i", "ece587c44a434254c2f09ff200d519a4010841d1.diff"
       make_install_args = %W[
         R2_PLUGIN_PATH=#{lib}/radare2/#{version}
         LUAPKG=lua-#{lua_version}
