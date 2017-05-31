@@ -12,6 +12,10 @@ class Grc < Formula
   conflicts_with "cc65", :because => "both install `grc` binaries"
 
   def install
+    # fix non-standard prefix installs
+    inreplace ["grc", "grc.1"], "/etc", etc
+    inreplace ["grcat", "grcat.1"], "/usr/local", HOMEBREW_PREFIX
+
     # so that the completions don't end up in etc/profile.d
     inreplace "install.sh",
       "mkdir -p $PROFILEDIR\ncp -fv grc.bashrc $PROFILEDIR", ""
