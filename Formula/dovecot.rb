@@ -77,7 +77,6 @@ class Dovecot < Formula
   def caveats; <<-EOS.undent
     For Dovecot to work, you may need to create a dovecot user
     and group depending on your configuration file options.
-
     EOS
   end
 
