@@ -3,7 +3,7 @@ class Imake < Formula
   homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.7.tar.bz2"
   sha256 "690c2c4ac1fad2470a5ea73156cf930b8040dc821a0da4e322014a42c045f37e"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "c18f6112b0367970f491177f5f1c164e24bcb9fc5a13eee0c9822c98748336c8" => :sierra
@@ -47,5 +47,12 @@ class Imake < Formula
                             "--prefix=#{HOMEBREW_PREFIX}"
       system "make", "install"
     end
+  end
+
+  test do
+    # Use pipe_output because the return code is unimportant here.
+    output = pipe_output("#{bin}/imake -v -s/dev/null -f/dev/null -T/dev/null 2>&1")
+    gcc_major_ver = Formula["gcc"].version_suffix
+    assert_match "#{Formula["gcc"].opt_bin}/cpp-#{gcc_major_ver}", output
   end
 end
