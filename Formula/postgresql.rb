@@ -96,6 +96,9 @@ class Postgresql < Formula
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
       system "#{bin}/initdb", "#{var}/postgres"
+      system "brew", "services", "start", "postgresql"
+      system "createdb"
+      system "brew", "services", "stop", "postgresql"
     end
   end
 
