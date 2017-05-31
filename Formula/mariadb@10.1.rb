@@ -1,8 +1,8 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.23/source/mariadb-10.1.23.tar.gz"
-  sha256 "54d8114e24bfa5e3ebdc7d69e071ad1471912847ea481b227d204f9d644300bf"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.24/source/mariadb-10.1.24.tar.gz"
+  sha256 "b3df99ae5b1ec8cf6cede4cbc4ae3f54ce66464549cba6d56d9ff4d24e4d551e"
 
   bottle do
     sha256 "848b017be38cef4627447af77cc770fdee901a069f4b6c11fe745f473987fa69" => :sierra
@@ -24,7 +24,6 @@ class MariadbAT101 < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
   def install
