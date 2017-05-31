@@ -20,7 +20,7 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    assert_match "Ringsaker", "#{bin}/phoronix-test-suite version | grep -v ^$"
+    assert_match "Ringsaker", shell_output("#{bin}/phoronix-test-suite version | grep -v ^$")
   end
 end
 
