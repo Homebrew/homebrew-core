@@ -7,9 +7,9 @@ class Bear < Formula
 
   bottle do
     cellar :any
-    sha256 "c43f145350e67422be9d05b7b21d2ad7b811638b7b3c0ec15dcccd2f2e82fe98" => :sierra
-    sha256 "093f8de0d3265e12b0671ee661beed290e03f1dc747ae4af3e3c71ca7a2fa4b1" => :el_capitan
-    sha256 "30a35feae4da6ac42669b630773bba9f24561c53b95ca1c870bed83c36fe27a8" => :yosemite
+    sha256 "8aa07985195f658febe161fe51f8fe8a884da27e0f4ee9774e3a65a8f347aa35" => :sierra
+    sha256 "4bc0902c7f4ec8119127e9f58b9a65a488fe7e2af93261bbcda69f83cfe4999b" => :el_capitan
+    sha256 "6b1cc6ae4b3b53ded3bc9f18c489accc61d1755771a1cb84eb0e8fa9b7c1a937" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
