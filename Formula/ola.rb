@@ -18,6 +18,14 @@ class Ola < Formula
     depends_on "libtool" => :build
   end
 
+  head do
+    url "https://github.com/OpenLightingProject/ola.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   option "with-libftdi", "Install FTDI USB plugin for OLA."
   option "with-rdm-tests", "Install RDM Tests for OLA."
   deprecated_option "with-ftdi" => "with-libftdi"
