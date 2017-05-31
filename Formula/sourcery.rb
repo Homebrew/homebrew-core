@@ -10,6 +10,7 @@ class Sourcery < Formula
     sha256 "9135cda2764ace0b9fa5c8e8132f247a344dc442972a6d3a37b3e3a248f507ed" => :el_capitan
   end
 
+  depends_on :xcode => ["6.0", :run]
   depends_on :xcode => ["8.0", :build]
 
   def install
