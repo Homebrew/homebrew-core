@@ -2,7 +2,11 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
 
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
+  if MacOS.version >= :sierra
+    head "https://gcc.gnu.org/svn/gcc/trunk", :using => :svn
+  else
+    head "svn://gcc.gnu.org/svn/gcc/trunk"
+  end
 
   stable do
     url "https://ftp.gnu.org/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
