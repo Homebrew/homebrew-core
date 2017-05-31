@@ -6,7 +6,7 @@ class ApacheArrow < Formula
 
   head "https://github.com/apache/arrow.git"
 
-  depends_on "boost" => :build
+  depends_on "boost"
   depends_on "cmake" => :build
 
   def install
