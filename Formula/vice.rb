@@ -25,6 +25,8 @@ class Vice < Formula
   depends_on "portaudio"
   depends_on "sdl2"
   depends_on "xz"
+  depends_on "sdl2"
+  depends_on "ffmpeg"
 
   # needed to avoid Makefile errors with the vendored ffmpeg 2.4.2
   resource "make" do
