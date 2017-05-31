@@ -13,6 +13,7 @@ class Mednafen < Formula
   depends_on "libsndfile"
   depends_on :macos => :sierra # needs clock_gettime
   depends_on "gettext"
+  depends_on "gcc" if DevelopmentTools.clang_build_version >= 800
 
   def install
     # Fix run-time crash "Assertion failed: (x == TestLLVM15470_Counter), function
