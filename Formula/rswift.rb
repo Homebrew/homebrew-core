@@ -2,8 +2,8 @@ class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
   url "https://github.com/mac-cain13/R.swift.git",
-      :tag => "v3.2.0",
-      :revision => "f6890959c056097f51703efde71e38aadbc65515"
+      :tag => "v3.3.0",
+      :revision => "d341d73f6009553717d5a0e8d813c21dc9f11e31"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +14,12 @@ class Rswift < Formula
   depends_on :xcode => "8.0"
 
   def install
-    xcodebuild "-configuration", "Release", "-scheme", "rswift", "SYMROOT=symroot", "OBJROOT=objroot"
-    bin.install "symroot/Release/rswift"
+    ENV["CC"] = which(ENV.cc)
+    system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
+    bin.install ".build/release/rswift"
   end
 
   test do
-    system "#{bin}/rswift", "-h"
+    assert_match version.to_s, shell_output("#{bin}/rswift --version")
   end
 end
