@@ -20,6 +20,13 @@ class AzureCli < Formula
 
   def install
     rm_rf "bin/windows"
+
+    # Workaround for incorrect file system permissios inside the npm published
+    # easy_table@0.0.1 package, which would break build with npm@5.
+    # See: https://github.com/Azure/azure-xplat-cli/issues/3605
+    inreplace "package.json", '"easy-table": "0.0.1",',
+              '"easy-table": "https://github.com/eldargab/easy-table/archive/v0.0.1.tar.gz",'
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")
