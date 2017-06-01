@@ -4,8 +4,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.4.0",
-      :revision => "75afc9fbb024df55fa01acd1a4c2f76d44961746"
+      :tag => "v5.4.1",
+      :revision => "725943bf9e3ca6f5e7d286ded25b0207fc68caaa"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -27,7 +27,7 @@ class Kibana < Formula
     end
 
     # do not build packages for other platforms
-    platforms = Set.new(["darwin-x64", "linux-x64", "linux-x86", "windows-x86"])
+    platforms = Set.new(["darwin-x64", "linux-x64", "windows-x64"])
     if MacOS.prefer_64_bit?
       platform = "darwin-x64"
     else
@@ -36,7 +36,6 @@ class Kibana < Formula
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
     inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
-    inreplace buildpath/"tasks/build/notice.js", /linux-x64/, "darwin-x64"
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"
