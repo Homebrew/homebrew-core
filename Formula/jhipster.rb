@@ -14,6 +14,8 @@ class Jhipster < Formula
   end
 
   depends_on "node"
+  depends_on "yarn"
+  depends_on :java => "1.8+"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
