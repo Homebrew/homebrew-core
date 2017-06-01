@@ -36,6 +36,7 @@ class Botan < Formula
 
     args << "--enable-debug" if build.with? "debug"
 
+    cd "botan--git" if build.head?
     system "./configure.py", *args
     # A hack to force them use our CFLAGS. MACH_OPT is empty in the Makefile
     # but used for each call to cc/ld.
