@@ -3,6 +3,7 @@ class Exim < Formula
   homepage "https://exim.org"
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
   sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
+  revision 1
 
   bottle do
     sha256 "b76c1dc01d5ff622c16ddbaee4405b6738bd0a4443fa162714994bc055224014" => :sierra
@@ -15,7 +16,7 @@ class Exim < Formula
 
   depends_on "pcre"
   depends_on "berkeley-db@4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     cp "src/EDITME", "Local/Makefile"
