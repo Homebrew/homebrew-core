@@ -1,8 +1,8 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/v0.87.tar.gz"
-  sha256 "ac177953e7c834d5326fc52d63377b6d0b42d05db8017556390629b87e44e183"
+  url "https://github.com/traviscross/mtr/archive/v0.92.tar.gz"
+  sha256 "568a52911a8933496e60c88ac6fea12379469d7943feb9223f4337903e4bc164"
   head "https://github.com/traviscross/mtr.git"
 
   bottle do
@@ -40,7 +40,6 @@ class Mtr < Formula
   end
 
   test do
-    output = shell_output("#{sbin}/mtr --help 2>&1", 1)
-    assert_equal "mtr: unable to get raw sockets.", output.chomp
+    system sbin/"mtr", "--help"
   end
 end
