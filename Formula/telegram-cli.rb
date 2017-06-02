@@ -25,7 +25,7 @@ class TelegramCli < Formula
   # Pull Request: https://github.com/vysheng/tg/pull/1306
   patch do
     url "https://github.com/vysheng/tg/pull/1306.patch"
-    sha256 "97c692d332f3078144f514e2bebe08c3be187a0d4a2ab4bf240479f1a0f6c740"
+    sha256 "3af765a62515df998fb0a03bfc7d3cecb4bd80d641fdd86a97d940af135855ab"
   end
 
   def install

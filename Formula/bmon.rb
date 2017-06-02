@@ -3,11 +3,12 @@ class Bmon < Formula
   homepage "https://github.com/tgraf/bmon"
   url "https://github.com/tgraf/bmon/releases/download/v4.0/bmon-4.0.tar.gz"
   sha256 "02fdc312b8ceeb5786b28bf905f54328f414040ff42f45c83007f24b76cc9f7a"
+  revision 1
 
   bottle do
-    sha256 "579fa840a05774fcd8d688f265b87f612a1a6f21913eee2ce7f35da684c590ae" => :sierra
-    sha256 "fdd05ca0f6505ec723a84d4dff9512dd827956e2ba84765dbfecbad2bf3eb20b" => :el_capitan
-    sha256 "754511a0b323367dd461a6cea4d1895d42b2c47cd952e6613dcfbe25ac2a2f9f" => :yosemite
+    sha256 "cb12924bc48e319aeb50cc16e2ad48370c9d2b298d9a876e87ecf5e2c6a11c73" => :sierra
+    sha256 "b55a43411b7791b326c42fa3e71ee4a23a3e8d4e1f94fac4e4a1195f5dcdb641" => :el_capitan
+    sha256 "fdca9c39cc4f74004b9bc6b04ba67f50367156f1074406de2b2546ab116c627c" => :yosemite
   end
 
   head do

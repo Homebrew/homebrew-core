@@ -1,22 +1,22 @@
 class Osc < Formula
   include Language::Python::Virtualenv
 
-  desc "The Command Line Interface to work with an Open Build Service"
+  desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.157.2.tar.gz"
-  sha256 "cde6384f069e3b08cc425cf5105251acb77f5f8c9413888b5f4ab89fec068f07"
+  url "https://github.com/openSUSE/osc/archive/0.158.0.tar.gz"
+  sha256 "467efd9628aa745d5be76176d5bfb5cbad47f820208051b35c6a1b54928ab912"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "2fb7940ff685c9c718a1f213039f6c6ceac2a7b6b30a3a527ffacb53a9256ec8" => :sierra
-    sha256 "e440940de123fbd52690a99e51575d5426dc91c3f79450c58f3f1b174963c315" => :el_capitan
-    sha256 "d0d4f711e22a0f1641b2e81336a07e5bc2f9870a1bb9f6a35646251b7c524213" => :yosemite
+    sha256 "67e5fd956a0eda970b7cd02ee877a1c78ec5698f42a0fa5d695982569656fb02" => :sierra
+    sha256 "45acffc71bb69257e17d1437cad60ddb710c647861181986a8cb18a70f3098cb" => :el_capitan
+    sha256 "56b1e8dd313976b31a598498db72e032209920dc0d196aa0b991c11c7e6ddb96" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
-  depends_on "curl"
   depends_on "openssl" # For M2Crypto
 
   resource "pycurl" do
@@ -30,11 +30,19 @@ class Osc < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/9c/58/7e8d8c04995a422c3744929721941c400af0a2a8b8633f129d92f313cfb8/M2Crypto-0.25.1.tar.gz"
-    sha256 "ac303a1881307a51c85ee8b1d87844d9866ee823b4fdbc52f7e79187c2d9acef"
+    url "https://files.pythonhosted.org/packages/11/29/0b075f51c38df4649a24ecff9ead1ffc57b164710821048e3d997f1363b9/M2Crypto-0.26.0.tar.gz"
+    sha256 "05d94fd9b2dae2fb8e072819a795f0e05d3611b09ea185f68e1630530ec09ae8"
+  end
+
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
+    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
   end
 
   def install
+    # avoid pycurl error about compile-time and link-time curl version mismatch
+    ENV.delete "SDKROOT"
+
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" }
     resource("M2Crypto").stage do

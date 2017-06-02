@@ -3,8 +3,8 @@ class Screen < Formula
   homepage "https://www.gnu.org/software/screen"
 
   stable do
-    url "https://ftpmirror.gnu.org/screen/screen-4.5.1.tar.gz"
-    mirror "https://ftp.gnu.org/gnu/screen/screen-4.5.1.tar.gz"
+    url "https://ftp.gnu.org/gnu/screen/screen-4.5.1.tar.gz"
+    mirror "https://ftpmirror.gnu.org/screen/screen-4.5.1.tar.gz"
     sha256 "97db2114dd963b016cd4ded34831955dcbe3251e5eee45ac2606e67e9f097b2d"
 
     # This patch is to disable the error message
@@ -36,9 +36,7 @@ class Screen < Formula
   depends_on "automake" => :build
 
   def install
-    if build.head?
-      cd "src"
-    end
+    cd "src" if build.head?
 
     # With parallel build, it fails
     # because of trying to compile files which depend osdef.h

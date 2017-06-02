@@ -5,13 +5,13 @@ class MpsYoutube < Formula
   homepage "https://github.com/mps-youtube/mps-youtube"
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.7.1.tar.gz"
   sha256 "917958ab02f8dace9c84974f510bd8838f905814c1a05a91fb1a38d37d19f0e8"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f62012fcfd6741ddfc611dc8f9c708e05c58c53124c31d1b33f5f05e5c3a379" => :sierra
-    sha256 "19f703e559355d7ce49fc19a21475216ce0bcd87d4076e65ed2235af5ace13d9" => :el_capitan
-    sha256 "c1a6f0b5da9da27ce987f3a48fb810c62110354f7a978785974f4d267ba4936e" => :yosemite
+    sha256 "b6e203e6b93d8e4b22d6dfd732a2fdcd3ed0e97c71ca655c54d80c6df1f7cbf9" => :sierra
+    sha256 "d7eb2117bda8da380d1d37b72a90d4b2ab81251666bf5f8f2d6dd1f1cfad1d9c" => :el_capitan
+    sha256 "026970283c1b6df0951f7ed4155c6719acb014948f02d963a7c9866d911c4292" => :yosemite
   end
 
   depends_on "python3"
@@ -24,8 +24,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/19/21/0ff2fe2aabfea1a6ba2fd13275df2d137a703c98f1485ef5fa94cd9f82fa/youtube_dl-2017.4.11.tar.gz"
-    sha256 "940d8541f9b1b6a1a099c60ec0e48cb552fc1f12c7ce69b39495b42c16ee7845"
+    url "https://files.pythonhosted.org/packages/38/e3/4e3bbc6cdc7a51030c5e3a130c056f6e5fd78f12793f7797f0ccf092b2e3/youtube_dl-2017.5.18.1.tar.gz"
+    sha256 "b4876a526191bd7264fcee9cb08d9de921dbfe823852cc9c343e5fb031ffad08"
   end
 
   def install

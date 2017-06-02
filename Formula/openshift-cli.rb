@@ -2,23 +2,23 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v1.4.1",
-    :revision => "3f9807ab8282e1af64128834b246c41ce50172d4"
+    :tag => "v1.5.1",
+    :revision => "7b451fc9cade386042723a2c03c2deee626b579c"
 
   head "https://github.com/openshift/origin.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f5db02df96decff2ff51a2debfc303694a2b3c5ea85af9b3fe75d57146e0bf6" => :sierra
-    sha256 "93d16838b365823d84030517ed3a42471a76a3f1449396ed8f3c40eaefeafa1e" => :el_capitan
-    sha256 "934957e2e652b4f21206a037bbf6c5f03a53e67326475884760590d9f2a1916a" => :yosemite
+    sha256 "349a5809fc1e681f722147bfa4044d3f2d3d6ff39a99b1264fe313be71c183c4" => :sierra
+    sha256 "9f30956118d9a9a009d737818a70498befa62432f222865b33bca23f943a9910" => :el_capitan
+    sha256 "b76d411adf0a5beabd7ea380f2013ecfb91ee6dc30f35b9cccd67265967817fc" => :yosemite
   end
 
   devel do
     url "https://github.com/openshift/origin.git",
-      :tag => "v1.5.0-alpha.2",
-      :revision => "e4b43ee6f35d3dd8b2cbd7e92bc8a9225fa94653"
-    version "1.5.0-alpha.2"
+      :tag => "v3.6.0-alpha.1",
+      :revision => "46942adea0aed0ff58965f846aa5d5021ce30e50"
+    version "3.6.0-alpha.1"
   end
 
   depends_on "go" => :build
@@ -39,6 +39,10 @@ class OpenshiftCli < Formula
 
   test do
     assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
-    assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
+    if version >= "3.6.0-alpha.0"
+      assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
+    else
+      assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
+    end
   end
 end

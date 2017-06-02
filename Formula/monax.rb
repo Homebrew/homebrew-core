@@ -1,15 +1,15 @@
 class Monax < Formula
   desc "Blockchain application platform CLI"
   homepage "https://erisindustries.com"
-  url "https://github.com/monax/cli/archive/v0.16.0.tar.gz"
-  sha256 "b5a1b52e07de585903e7f505fd16ef7dddf4ab43d850aee909f9cf8aa902d197"
+  url "https://github.com/monax/cli/archive/v0.17.0.tar.gz"
+  sha256 "c13d163a39c79e1c651d2ff7072c3c9e4e88fb38dc5f92bcc87acb3f54ad01ee"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3da0e1c7b6cbcf3a0d973292c0c3751fa1d5254341845af92ec9a8c61f0b58b" => :sierra
-    sha256 "15da3977ae30866f6fc5e6e287887c9304b8860999ec84a3a12b655d3f51a7db" => :el_capitan
-    sha256 "a7e282a0ec7ec7852abd17f8cfdfced983e8285aa697accf2e1bb07e5edb42cb" => :yosemite
+    sha256 "305385f9e631893c31496dfef6fe1aa0c87865cc7e66b94a749f853853ea1249" => :sierra
+    sha256 "64a6b82656b477b0edcdbd9f1a1c3dd937419b890ee96f623a36de6cf46e9bac" => :el_capitan
+    sha256 "7010eb9e3521f32597c4c965c8858969250ceca0426e2b3acd724a0b8d1119e1" => :yosemite
   end
 
   depends_on "go" => :build

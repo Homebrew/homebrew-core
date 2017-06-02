@@ -49,7 +49,7 @@ class ShibbolethSp < Formula
   end
 
   def caveats
-    mod = (build.with? "apache-22")? "mod_shib_22.so" : "mod_shib_24.so"
+    mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
     <<-EOS.undent
       You must manually edit httpd.conf to include
       LoadModule mod_shib #{lib}/shibboleth/#{mod}

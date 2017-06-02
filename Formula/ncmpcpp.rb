@@ -1,23 +1,24 @@
 class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "https://rybczak.net/ncmpcpp/"
-  url "https://ncmpcpp.rybczak.net/stable/ncmpcpp-0.7.7.tar.bz2"
+  url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.7.7.tar.bz2"
   sha256 "b7bcbec83b1f88cc7b21f196b10be09a27b430566c59f402df170163464d01ef"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "3595e188d8fb6bab50d8e4f086f6eb6b7e28eb2fb69c6eb11c50ff90956e8327" => :sierra
-    sha256 "598500607763ae05abb5689ff72655d5156d0d176db8eeb0d3797d1f5e160a99" => :el_capitan
-    sha256 "4d6ac3b7a0efc84797b776cf07f3478f109d6e1f4d8b8ae31770812c38cc5e70" => :yosemite
+    sha256 "f1829140c57c35a84df82067969f9aa06fbabdbf5996fb8a537db4c8cc6cf6d4" => :sierra
+    sha256 "15c39036a7fb314abaa2d4efd315413553cfea676574860d000782983fa2a3c1" => :el_capitan
+    sha256 "5df36c4e9ee3cea5b27f28c8e51b8071872df34a023f136f98358f2e112c24c5" => :yosemite
   end
 
   head do
-    url "git://repo.or.cz/ncmpcpp.git"
+    url "https://github.com/arybczak/ncmpcpp.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "ncurses"
   end
 
   deprecated_option "outputs" => "with-outputs"
@@ -61,12 +62,9 @@ class Ncmpcpp < Formula
     args << "--enable-visualizer" if build.with? "visualizer"
     args << "--enable-clock" if build.with? "clock"
 
-    if build.head?
-      # Also runs configure
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "./autogen.sh" if build.head?
+    system "./configure", *args
+    system "make"
     system "make", "install"
   end
 

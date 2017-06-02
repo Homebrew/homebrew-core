@@ -7,9 +7,11 @@ class Molecule < Formula
   sha256 "41c995cb654a201042c956e892aba3c42f9889b0970831dc6ee843b4122e5136"
 
   bottle do
-    sha256 "db42c3a42e54cf3da190fa669df522072880b7c4349531b8d3e4cc81e2d06286" => :sierra
-    sha256 "a64728d0cdc6ed1c182d1685d7933b9a9865f369036e6387c30ec494c35af48a" => :el_capitan
-    sha256 "92980f819d28826c7732b7ef455443bd1f67f1afcec836a66377892b8a08442b" => :yosemite
+    cellar :any
+    rebuild 1
+    sha256 "abbcd44fb7c2ce7258a0622c9f33bf0a235b2f60a39ffd3399b4e1c48f90773f" => :sierra
+    sha256 "8158a0e0b04210df50374c6bc8ecdb9eb6dfdf21ed366b07f5189cc6b86cca39" => :el_capitan
+    sha256 "97e8946334422df187c1fa5965184e856ce6f129028bbef2f2b6d22144977929" => :yosemite
   end
 
   depends_on :python
@@ -90,8 +92,8 @@ class Molecule < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "docker-py" do

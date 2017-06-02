@@ -1,19 +1,19 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/64/78/9d63754981e97c8e7cf14500d262fc573145624d4c765d5047f58e3fdf4e/Sphinx-1.5.5.tar.gz"
-  sha256 "4064ea6c56feeb268838cb8fbbee507d0c3d5d92fa63a7df935a916b52c9e2f5"
+  url "https://files.pythonhosted.org/packages/0a/32/594257b9fccc8ce4d120e86d481cabe55ee9de7c1686af2ee58eb4ec741e/Sphinx-1.6.1.tar.gz"
+  sha256 "7581d82c3f206f0ac380edeeba890a2e2d2be011e5abe94684ceb0df4b6acc3f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a395868d05482e6dc4be5ca10b76437e0d6fff042dbae30cc8152134582ecc1f" => :sierra
-    sha256 "06c93a16fd2eb269c4df5f65cdad3b468040060b5150fde56958040d70da144c" => :el_capitan
-    sha256 "be0273f30233ac901559d247783f5e13967e7c7e30ef26f2102ed679ddbe30a3" => :yosemite
+    sha256 "9145f68c953762c6134f85e72cc2c11b4a70f63e8fa4e61d7afcfe230cca4da1" => :sierra
+    sha256 "3c75808d07de23bff9b030843b378d47291ed0870149d16925aaf029c5b37161" => :el_capitan
+    sha256 "4a523532c523b09753f6b4392915aee24a19596773b570f6806381da7ca7c482" => :yosemite
   end
 
   keg_only <<-EOS.undent
-    This formula is mainly used internally by other formulae.
-    Users are advised to use `pip` to install sphinx-doc.
+    this formula is mainly used internally by other formulae.
+    Users are advised to use `pip` to install sphinx-doc
   EOS
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -59,8 +59,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
-    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
+    url "https://files.pythonhosted.org/packages/72/46/4abc3f5aaf7bf16a52206bb0c68677a26c216c1e6625c78c5aef695b5359/requests-2.14.2.tar.gz"
+    sha256 "a274abba399a23e8713ffd2b5706535ae280ebe2b8069ee6a941cb089440d153"
   end
 
   resource "six" do
@@ -71,6 +71,16 @@ class SphinxDoc < Formula
   resource "snowballstemmer" do
     url "https://files.pythonhosted.org/packages/20/6b/d2a7cb176d4d664d94a6debf52cd8dbae1f7203c8e42426daa077051d59c/snowballstemmer-1.2.1.tar.gz"
     sha256 "919f26a68b2c17a7634da993d91339e288964f93c274f1343e3bbbe2096e1128"
+  end
+
+  resource "sphinxcontrib-websupport" do
+    url "https://files.pythonhosted.org/packages/c5/6b/f0630436b931ad4f8331a9399ca18a7d447f0fcc0c7178fb56b1aee68d01/sphinxcontrib-websupport-1.0.1.tar.gz"
+    sha256 "7a85961326aa3a400cd4ad3c816d70ed6f7c740acd7ce5d78cd0a67825072eb9"
+  end
+
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
+    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
   end
 
   def install

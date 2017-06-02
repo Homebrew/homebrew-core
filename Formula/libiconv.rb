@@ -1,8 +1,8 @@
 class Libiconv < Formula
   desc "Conversion library"
   homepage "https://www.gnu.org/software/libiconv/"
-  url "https://ftpmirror.gnu.org/libiconv/libiconv-1.15.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libiconv/libiconv-1.15.tar.gz"
+  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.15.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.15.tar.gz"
   sha256 "ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178"
 
   bottle do

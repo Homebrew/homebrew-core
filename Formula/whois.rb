@@ -13,9 +13,6 @@ class Whois < Formula
   end
 
   def install
-    # autodie was not shipped with the system perl 5.8
-    inreplace "make_version_h.pl", "use autodie;", "" if MacOS.version < :snow_leopard
-
     system "make", "whois", "HAVE_ICONV=1", "whois_LDADD+=-liconv"
     bin.install "whois"
     man1.install "whois.1"

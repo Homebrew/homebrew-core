@@ -3,15 +3,15 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.3.tar.gz"
-  sha256 "de57ba63f0314ba4e21818f048551a22afe61662bd72b3c81b01a47284fcaf3d"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.6.tar.gz"
+  sha256 "2af004ee5a155317e6df0158a5d9121d15aa349202ca7d7dd8321f2d9af2218c"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "173d66ac92bc7d433a2559a02211a2405290e169f74b360eb128e5373f911063" => :sierra
-    sha256 "732e1007d284433516c1575042801463d5e3dc63811746414c1e5748d2acb0a9" => :el_capitan
-    sha256 "66c7c136e54458bdf7f7ffa51c0afe38cbbb86395448df7e896b12c2802c5c5e" => :yosemite
+    sha256 "48d89528361bf9578278c9eb39f19faf3af721dd4c533c84ee3ea9317df2474e" => :sierra
+    sha256 "15320d2b071962ba614c04aaec5813f97a1dcb98772fe363d1dedd5765320831" => :el_capitan
+    sha256 "f27ccbfc403ed97cab67a58fbc33c9cce5b87faf84e8f598563dac7c5c3c99f6" => :yosemite
   end
 
   depends_on "go" => :build
@@ -40,7 +40,7 @@ class Terraform < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "d63e2b22b05a9682de336cd4802bba367ed429e7"
+        :revision => "5682db0e919ed9cfc6f52ac32e170511a106eb3b"
   end
 
   def install

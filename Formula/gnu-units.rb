@@ -1,8 +1,8 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftpmirror.gnu.org/units/units-2.14.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/units/units-2.14.tar.gz"
+  url "https://ftp.gnu.org/gnu/units/units-2.14.tar.gz"
+  mirror "https://ftpmirror.gnu.org/units/units-2.14.tar.gz"
   sha256 "9d33893d82f3ddd831d5822992007c40bcd0826ae67d3cbc96539951fb0a82e8"
 
   bottle do

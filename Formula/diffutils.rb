@@ -1,16 +1,15 @@
 class Diffutils < Formula
   desc "File comparison utilities"
   homepage "https://www.gnu.org/s/diffutils/"
-  url "https://ftpmirror.gnu.org/diffutils/diffutils-3.5.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/diffutils/diffutils-3.5.tar.xz"
-  sha256 "dad398ccd5b9faca6b0ab219a036453f62a602a56203ac659b43e889bec35533"
-  revision 1
+  url "https://ftp.gnu.org/gnu/diffutils/diffutils-3.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/diffutils/diffutils-3.6.tar.xz"
+  sha256 "d621e8bdd4b573918c8145f7ae61817d1be9deb4c8d2328a65cea8e11d783bd6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "859f17793a93abdec6feeadfec6ea1775c7bca09c50a6fad88bfd93868820ab5" => :sierra
-    sha256 "73ee52551558cb650c9af9667c83cf929244af2b39bd2285c950d73473c207fa" => :el_capitan
-    sha256 "cc7870628c8e708863c3ab94f142d461e1a614a654d71a7dc325ebb1d4fe103b" => :yosemite
+    sha256 "e25b8b0c5e7cde495e36ab63e7e6d682dbe8039f0de292b85ce7f19b94ea1e41" => :sierra
+    sha256 "b333804e8f86f2d99ac44c5cee06a3f615b8e69de0b68090792fd48436e8463a" => :el_capitan
+    sha256 "e5c66fefaabbcbf9149128538bde4935be2bbc60849721c90546b21bca932399" => :yosemite
   end
 
   def install

@@ -1,8 +1,8 @@
 class Idutils < Formula
   desc "ID database and query tools"
   homepage "https://www.gnu.org/s/idutils/"
-  url "https://ftpmirror.gnu.org/idutils/idutils-4.6.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz"
+  url "https://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/idutils/idutils-4.6.tar.xz"
   sha256 "8181f43a4fb62f6f0ccf3b84dbe9bec71ecabd6dfdcf49c6b5584521c888aac2"
 
   bottle do
@@ -22,9 +22,7 @@ class Idutils < Formula
     # https://github.com/Homebrew/homebrew/issues/44993
     # This is thought to be an El Capitan bug:
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    if MacOS.version == :el_capitan
-      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
-    end
+    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

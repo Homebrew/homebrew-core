@@ -22,12 +22,21 @@ class Osm2pgsql < Formula
   # Upstream PR from 27 Oct 2016 "Geos36"
   patch do
     url "https://github.com/openstreetmap/osm2pgsql/pull/636.patch"
-    sha256 "54aa12fe5a3ebbc9ecc02b7e5771939b99f6437f5a55b67d8835df6d8d58619a"
+    sha256 "89d1edb197d79a5567636ca0574d68877a31b82157ae8ad549614fd8327a4c79"
   end
 
   def install
     args = std_cmake_args
-    args << "-DWITH_LUA=OFF" if build.without? "lua"
+
+    if build.with? "lua"
+      # This is essentially a CMake disrespects superenv problem
+      # rather than an upstream issue to handle.
+      lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
+      inreplace "cmake/FindLua.cmake", "LUA_VERSIONS5 5.3 5.2 5.1 5.0",
+                                       "LUA_VERSIONS5 #{lua_version}"
+    else
+      args << "-DWITH_LUA=OFF"
+    end
 
     mkdir "build" do
       system "cmake", "..", *args

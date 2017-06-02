@@ -7,7 +7,6 @@ class Rabbitmq < Formula
   bottle :unneeded
 
   depends_on "erlang"
-  depends_on "simplejson" => :python if MacOS.version <= :leopard
 
   def install
     # Install the base files

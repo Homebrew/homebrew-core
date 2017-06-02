@@ -1,8 +1,8 @@
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
-  url "https://ftpmirror.gnu.org/findutils/findutils-4.6.0.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz"
+  url "https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.6.0.tar.gz"
   sha256 "ded4c9f73731cd48fec3b6bdaccce896473b6d8e337e9612e16cf1431bb1169d"
 
   bottle do
@@ -25,9 +25,7 @@ class Findutils < Formula
     # https://github.com/Homebrew/homebrew/issues/44993
     # This is thought to be an el_capitan bug:
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    if MacOS.version == :el_capitan
-      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
-    end
+    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
     args = %W[
       --prefix=#{prefix}

@@ -1,28 +1,29 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 2
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.1/ldc-1.1.1-src.tar.gz"
-    sha256 "3d35253a76288a78939fea467409462f0b87461ffb89550eb0d9958e59eb7e97"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.2.0/ldc-1.2.0-src.tar.gz"
+    sha256 "910e8a670f0fadcaf64403c924091d6debf7ad29e203808f5f2b6899217e6f2b"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
       sha256 "48428afde380415640f3db4e38529345f3c8485b1913717995547f907534c1c3"
     end
+
+    depends_on "libconfig"
   end
 
   bottle do
-    sha256 "f37e3efb0fda9dee9efaca65fe8085d01ee2e9bab9f7b4796c8b5dd9a7eb18b7" => :sierra
-    sha256 "8a49c6463d3056ebf935d3ef6eff9d2745e1f38c16022e6a2b561e8769c9c64c" => :el_capitan
-    sha256 "207ba64c9defcf4d52bc917927c93fb6278a6ad67f306be2278e18adecf68205" => :yosemite
+    sha256 "6e12e9f8be1ebb5d3e18c08729d52467b894b4ef2907e8c8e682580ec87c2e7d" => :sierra
+    sha256 "d9d2f9a9b8bfea447bc0abe64199f31992b0fdccf2b897d26aee1ec9d9c46114" => :el_capitan
+    sha256 "f29f90210d4e53f147fe67c30cee4527d5dfb326765c134dcdd0d7d41292ed70" => :yosemite
   end
 
   devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.2.0-beta2/ldc-1.2.0-beta2-src.tar.gz"
-    sha256 "33388995c4a3dfcd34d77d2cd5759ae35c7636ebdcc65d71ba6e4f4736c4fcb1"
-    version "1.2.0-beta2"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.3.0-beta1/ldc-1.3.0-beta1-src.tar.gz"
+    version "1.3.0-beta1"
+    sha256 "35d5c37e967ccfa762572d0c5cb73e42617615d5eb16e43595a4bf239dd14e49"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
@@ -42,7 +43,6 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
-  depends_on "libconfig"
 
   def install
     ENV.cxx11

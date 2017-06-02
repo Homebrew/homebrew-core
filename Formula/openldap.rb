@@ -42,7 +42,7 @@ class Openldap < Formula
       --enable-valsort
     ]
 
-    args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db4"
+    args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db@4"
     args << "--enable-sssvlv=yes" if build.with? "sssvlv"
 
     system "./configure", *args

@@ -3,12 +3,13 @@ class Libcds < Formula
   homepage "https://libcds.sourceforge.io/doc/cds-api/index.html"
   url "https://github.com/khizmax/libcds/archive/v2.2.0.tar.gz"
   sha256 "e582fbd6492c91ff24b11468f094b111d5f62eca69e6445c88bf16cad50e40ed"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "17e4584663eaf891444b4feef6932917eac10c4d0f3cee58cc48cd6dc2af8415" => :sierra
-    sha256 "7c444cf3570fb54e1647ba9235066f9d7f6a35b97b9a2cec6397faf2d8e9555b" => :el_capitan
-    sha256 "35498f70f6f1f52df20dd1c1759168410af73724184c16ba3c4a2de9fd6dc78a" => :yosemite
+    sha256 "ee0060141ee5b0540715f3f178421cf12d3e1ba2c539aadb070d2b1412efc4be" => :sierra
+    sha256 "a8a24425aa1107fe73725f01cfed435a468691ac95bfd19616026385bd86b379" => :el_capitan
+    sha256 "924226a8aaaa7502c847ac0f9d0335e46edcb17f107fc308d122eade0d450c44" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -8,9 +8,10 @@ class Duplicity < Formula
 
   bottle do
     cellar :any
-    sha256 "1925a84c09215552a8c2f422b9530bc5a2247b96b8dcac52c29444bdb7569375" => :sierra
-    sha256 "2aa6ad3d05ec04dda268adc929bd41aaaef55a969b29151e65ac79bd160fefcd" => :el_capitan
-    sha256 "f3b5d8808429d7301515f68fae652d8f525653f730f0b3c9709e6af88f36d023" => :yosemite
+    rebuild 1
+    sha256 "9ee46ba6fcc526e68b32c0aa0e452f5b4d1dbf6835a11c65f1d8280f375fa7b9" => :sierra
+    sha256 "f649abf5af71c4304b8d1511d6ef0a289fc6c86339685b3fe729e00a14806c9c" => :el_capitan
+    sha256 "15bed264c75f2086dc4b3b32baf1dc1e48489d21fcbe2984f4c52de54985a1e8" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -63,8 +64,8 @@ class Duplicity < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "debtcollector" do

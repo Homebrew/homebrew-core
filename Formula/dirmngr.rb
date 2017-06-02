@@ -13,7 +13,7 @@ class Dirmngr < Formula
     sha256 "42803096ab9d5c97c43cb06a72096fb03664b10b4e0ba014a42af657a9648ec7" => :yosemite
   end
 
-  keg_only "GPG 2.1.x ships an internal dirmngr which it must use."
+  keg_only "GPG 2.1.x ships an internal dirmngr which it must use"
 
   depends_on "libassuan"
   depends_on "libgpg-error"

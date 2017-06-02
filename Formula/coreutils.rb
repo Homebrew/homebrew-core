@@ -3,8 +3,8 @@ class Coreutils < Formula
   homepage "https://www.gnu.org/software/coreutils"
 
   stable do
-    url "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
+    url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
+    mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
     sha256 "8891d349ee87b9ff7870f52b6d9312a9db672d2439d289bc57084771ca21656b"
 
     # Remove for > 8.27
@@ -69,9 +69,7 @@ class Coreutils < Formula
     # https://github.com/Homebrew/homebrew/issues/44993
     # This is thought to be an el_capitan bug:
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    if MacOS.version == :el_capitan
-      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
-    end
+    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
     if build.head?
       system "./bootstrap"

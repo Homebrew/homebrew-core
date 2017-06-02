@@ -1,15 +1,14 @@
 class Polyml < Formula
   desc "Standard ML implementation"
   homepage "http://www.polyml.org"
-  url "https://github.com/polyml/polyml/archive/v5.6.tar.gz"
-  sha256 "20d7b98ae56fe030c64054dbe0644e9dc02bae781caa8994184ea65a94a0a615"
+  url "https://github.com/polyml/polyml/archive/v5.7.tar.gz"
+  sha256 "19340d8e9cea15c3fd786dde27028cd2947608955a376d1317a20268c8a19279"
   head "https://github.com/polyml/polyml.git"
 
   bottle do
-    sha256 "7eea9f9f85b3440aa94d5e77a6c8590188ec7ab9cb77542503beec335fcc8e1f" => :sierra
-    sha256 "27ef28e7daab282bd024a940b24288f46cdd5113cffc090c1ea4df56c3b39593" => :el_capitan
-    sha256 "8f54bb02f692bf1e64de70b9370210e397f1cb42747fd375eb57f28c3e0014f9" => :yosemite
-    sha256 "1b6f485f1840b4f8d28978b82902a978030fde47f35fbc81cd6c83d61cf4d5ff" => :mavericks
+    sha256 "59ee15e0f1281b4b95dfa0a7e37ba1d88f05d29811312ec4f3fd67d47289868d" => :sierra
+    sha256 "9e5d445fd251ff33ade65fa821aa7275ff1fb54b37295c4da9b3f93400ab58cc" => :el_capitan
+    sha256 "d3a5221871918026176725fe056fac0d99668667e640f6b9418be4d8a3d18667" => :yosemite
   end
 
   def install

@@ -1,14 +1,13 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-10.0.0.tar.xz"
-  sha256 "12be72c373645b5bb9b9ea79ce8447958a1b806162868bb67803baa6d0032333"
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-12.0.0.tar.xz"
+  sha256 "5c2401d1cc36d8a2d57cb791a5a22f3cda69cb0824c6cee35326b35e7f94b536"
 
   bottle do
-    rebuild 1
-    sha256 "c113c8bb693860c805a9b43139aa5edc1ffd86312be9ab439757aa8255a87d38" => :sierra
-    sha256 "04916af312e71b5e9c924effb189987cf2e139efc45c33b2db587f9e09bd259b" => :el_capitan
-    sha256 "7d89364c783fe77afbe0e55801b2f582a824c176cdd36ff313bfa9e9a24329be" => :yosemite
+    sha256 "76d928c1cc2674571a48240dc01a845575cb217f496012add6fc55947afceccd" => :sierra
+    sha256 "461b6991b49ff54634bb97a68b5797b991a01ea95256b5808a5e8f85fd345ee3" => :el_capitan
+    sha256 "6d1f2dad93caf2d942ea179f907473ed7e3176b6e585476e8329bb06f6e2ebb4" => :yosemite
   end
 
   head do
@@ -26,24 +25,15 @@ class Mkvtoolnix < Formula
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
   depends_on :ruby => ["1.9", :build]
+  depends_on "boost"
+  depends_on "libebml"
+  depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
   depends_on "qt" => :optional
   depends_on "gettext" => :optional
-
-  # On Mavericks, the bottle (without c++11) can be used
-  # because mkvtoolnix is linked against libc++ by default
-  if MacOS.version >= "10.9"
-    depends_on "boost"
-    depends_on "libmatroska"
-    depends_on "libebml"
-  else
-    depends_on "boost" => "c++11"
-    depends_on "libmatroska" => "c++11"
-    depends_on "libebml" => "c++11"
-  end
 
   needs :cxx11
 

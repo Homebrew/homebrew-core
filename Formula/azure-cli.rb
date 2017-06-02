@@ -3,16 +3,17 @@ require "language/node"
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.12-April2017.tar.gz"
-  version "0.10.12"
-  sha256 "44cebf1d0dd85bd313cb6c8c336546d19380a3326b4112d23eb7a59ea9fc7b4d"
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.12-May2017.tar.gz"
+  version "0.10.13"
+  sha256 "60194e770b8dca0485db9d4c99f9cd432f7b43096cc5ad0353f52fd5b1b29181"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "952ca68755e683023f17f350f11dbc870e0f24ea121adb8fc2d009ae5657b8e5" => :sierra
-    sha256 "d334aceb873c334bd9b5066d783b50008fa1f81f2092bb0b857a4b5d76e2b87a" => :el_capitan
-    sha256 "8a0aa8faf62a049c5a2b3ad0699585420823a5480c2414f882a8dd36688b14e7" => :yosemite
+    rebuild 1
+    sha256 "3d9cce38a38527dda6131d937e22c5ead62e071b7dfafc49f2f6eb3123bba0aa" => :sierra
+    sha256 "6f892658bd3cb909822027352e8826eefd7c9258d9b3488513526da0995d8af7" => :el_capitan
+    sha256 "a9301281b69223213f638fc92b99a4f8032fd354464adfe30d5031664ad4af75" => :yosemite
   end
 
   depends_on "node"
@@ -20,6 +21,13 @@ class AzureCli < Formula
 
   def install
     rm_rf "bin/windows"
+
+    # Workaround for incorrect file system permissios inside the npm published
+    # easy_table@0.0.1 package, which would break build with npm@5.
+    # See: https://github.com/Azure/azure-xplat-cli/issues/3605
+    inreplace "package.json", '"easy-table": "0.0.1",',
+              '"easy-table": "https://github.com/eldargab/easy-table/archive/v0.0.1.tar.gz",'
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")

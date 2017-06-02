@@ -44,9 +44,7 @@ class Squid < Formula
       --enable-storeio=yes
     ]
 
-    if build.head?
-      system "./bootstrap.sh"
-    end
+    system "./bootstrap.sh" if build.head?
     system "./configure", *args
     system "make", "install"
   end

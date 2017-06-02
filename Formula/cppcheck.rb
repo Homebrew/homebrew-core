@@ -1,15 +1,14 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.78.tar.gz"
-  sha256 "31048901dd8744d12b3e6ac1bc904c08a72cad8118bd6a1f56ce489701ffd1b6"
+  url "https://github.com/danmar/cppcheck/archive/1.79.tar.gz"
+  sha256 "9c222fb41452fa40020233ef3c314f8e43c01600f08d9a03d3584cd121a0c7e1"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    rebuild 1
-    sha256 "ed03ed3ef038cc7da0e4aa83d520f6c9e34e92d9a7b4f4efae0bd7b54ace775b" => :sierra
-    sha256 "10bf6ee8d192ae51cade858efe9575b8c1112e06e955e5d0406d78978a20271b" => :el_capitan
-    sha256 "3e64f1ee49d495cad0fdec7ed6af73ab9c7e0da4c9461b09c786fd5c08174afc" => :yosemite
+    sha256 "e33980f04ef74c841f668dc4f0a7e21d2117839ae6e12eae1b81c69bef0066f7" => :sierra
+    sha256 "fa8cacf84b503fcdca099279d273839c7aa684a45a98d18379e86c487e2f26e1" => :el_capitan
+    sha256 "3596b3c82f459fd5ac032bb94a83ee016142f192b41568890e2d79a72ceebb8f" => :yosemite
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"

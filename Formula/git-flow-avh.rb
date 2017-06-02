@@ -3,8 +3,8 @@ class GitFlowAvh < Formula
   homepage "https://github.com/petervanderdoes/gitflow-avh"
 
   stable do
-    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.10.2.tar.gz"
-    sha256 "09b9de0790276cbff2906c31193bdac859235a0cdfb56cedd13b4a1a4ee75065"
+    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.11.0.tar.gz"
+    sha256 "06ad2110088e46e3712f799a43bf6cc5c3720fc25c69dbb3bbf4cf486cf2f330"
 
     resource "completion" do
       url "https://github.com/petervanderdoes/git-flow-completion/archive/0.5.2.tar.gz"
@@ -14,10 +14,9 @@ class GitFlowAvh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e2df432d7835876d080c404837633511a13181befb3bbd857a40d77cbe020bb7" => :sierra
-    sha256 "f16f3a8de06322d7a45e24e18853ff9098ba1b1e95527e551148477f5f0da8a1" => :el_capitan
-    sha256 "b63e13602b8b78cf8d966bf0a16f7c4444d8c6e177ec3ec8c4ca309130586708" => :yosemite
-    sha256 "b63e13602b8b78cf8d966bf0a16f7c4444d8c6e177ec3ec8c4ca309130586708" => :mavericks
+    sha256 "33e03f83ebcf7f30f2fb8bd51b81449c34a40b0e83d0624ee447d91f186f27dd" => :sierra
+    sha256 "7e66cfac66122d10749ae8560bf055eb45dc11b54f61f1a35bd97baea348f15f" => :el_capitan
+    sha256 "7e66cfac66122d10749ae8560bf055eb45dc11b54f61f1a35bd97baea348f15f" => :yosemite
   end
 
   head do

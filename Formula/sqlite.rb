@@ -1,18 +1,18 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2017/sqlite-autoconf-3180000.tar.gz"
-  version "3.18.0"
-  sha256 "3757612463976e7d08c5e9f0af3021613fc24bbcfe1c51197d6776b9ece9ac5c"
+  url "https://sqlite.org/2017/sqlite-autoconf-3190200.tar.gz"
+  version "3.19.2"
+  sha256 "ca5361fb01cc3ad63d6fd4eb2cb0b6398e629595896d3558f7e121d37dac2ffc"
 
   bottle do
     cellar :any
-    sha256 "38e50995fa5295ec3873c87e0cb2f8c68cb02109b30f27d5562972d4b28dcfc1" => :sierra
-    sha256 "4f5fd757fbfab9c3576c23086fc2fb9628516227cef4b448041410a90fc49e96" => :el_capitan
-    sha256 "231f85b981fb70cf871297ea7701cf8cd6f1ac00189b0dcbaeb172b001cc58db" => :yosemite
+    sha256 "0b676bdd1bbf66128678a9c50f72c0706b9a33fa2a614dbc04ad404813431201" => :sierra
+    sha256 "507f5277756cae0686a250a7206928505860d26bd071e136f2cef1c119f3ac30" => :el_capitan
+    sha256 "5c6a7591359e9b4017239202535a237fee0aca215be7e12f0b962f9b3da2ea2d" => :yosemite
   end
 
-  keg_only :provided_by_osx, "macOS provides an older sqlite3."
+  keg_only :provided_by_osx, "macOS provides an older sqlite3"
 
   option "with-docs", "Install HTML documentation"
   option "without-rtree", "Disable the R*Tree index module"
@@ -36,9 +36,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://www.sqlite.org/2017/sqlite-doc-3180000.zip"
-    version "3.18.0"
-    sha256 "6f763eba9f51cb1096d1d40fbdd7ff974203060ddb892fc735adb2d7d42f1dad"
+    url "https://www.sqlite.org/2017/sqlite-doc-3190200.zip"
+    version "3.19.2"
+    sha256 "0d136abeea8d045ab7acef64ce84028dacb418584fa5a259e7ab4233ef21ff46"
   end
 
   def install

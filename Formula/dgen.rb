@@ -30,9 +30,7 @@ class Dgen < Formula
       --disable-sdltest
       --prefix=#{prefix}
     ]
-    if build.with? "debugger"
-      args << "--enable-debugger"
-    end
+    args << "--enable-debugger" if build.with? "debugger"
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"

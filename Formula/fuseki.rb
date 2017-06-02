@@ -38,8 +38,6 @@ class Fuseki < Formula
     prefix.install "Data"
   end
 
-  plist_options :manual => "fuseki start"
-
   def caveats; <<-EOS.undent
     Quick-start guide:
 
@@ -55,6 +53,8 @@ class Fuseki < Formula
       https://issues.apache.org/jira/browse/JENA-536
     EOS
   end
+
+  plist_options :manual => "fuseki start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

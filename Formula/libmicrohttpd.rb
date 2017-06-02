@@ -1,15 +1,15 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.53.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.53.tar.gz"
-  sha256 "9b15ec2d381f44936323adfd4f989fa35add517cccbbfa581896b02a393c2cc4"
+  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.55.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.55.tar.gz"
+  sha256 "0c1cab8dc9f2588bd3076a28f77a7f8de9560cbf2d80e53f9a8696ada80ed0f8"
 
   bottle do
     cellar :any
-    sha256 "7154e2f62155293ceeeb8ad059747e9e63d3ede14883fa95e4f0a509947ccf7c" => :sierra
-    sha256 "ad773ae2fb74c77a33d76bb5f5dc6c25e65ce4bb3ae9c1d52488ec00de54a63d" => :el_capitan
-    sha256 "e690c0741c566325dcf63ae6265bc1bad010992dc61e0acb824573dc3d5d3f63" => :yosemite
+    sha256 "fa246ec8a891bb8e2d30d370481bdafa50a655e40a7464abc108bd439c4b628b" => :sierra
+    sha256 "fba444e775c81f2a790f1644f3243aa79d0bf9a6944fb56907968233d2106c2b" => :el_capitan
+    sha256 "67bd7b02c040618e6d041d4e6969b7abbb7f193b2cee2514701f86239ce1e8f2" => :yosemite
   end
 
   option "with-ssl", "Enable SSL support"

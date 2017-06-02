@@ -1,13 +1,13 @@
 class Gjs < Formula
-  desc "Javascript Bindings for GNOME"
+  desc "JavaScript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.1.tar.xz"
-  sha256 "21198950472c3c8f4a4679b0292c663faed04b07ee5de026bfd19eaa4ed15a84"
+  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.3.tar.xz"
+  sha256 "669b7d78ad98390a762eec50d7cc637e25f196d986c0200d9f1c3a0e0cd90f33"
 
   bottle do
-    sha256 "6c81bc33d2b9533a2e250c71e952e45752a43fd7fb2e80a43c1378af0e2d5e4b" => :sierra
-    sha256 "9e9a16e10ff1c8a18661431eea5dacadaef54a2b3836dc8930f007db8eb0d4da" => :el_capitan
-    sha256 "a577cb56007fcdc2438a269e0ddcec9270991caddbb67bb196983125b8e5f9f1" => :yosemite
+    sha256 "d482b9aab25ce9099e3205a438507d34a31b1c252140d034b53e015bd7490326" => :sierra
+    sha256 "7bec881a9a2f7996eee7922801f3f00cbf7db8b22ed64b7573e1cc209f6daf59" => :el_capitan
+    sha256 "ac1d5467c00620cda2bd1cde60d663c7e275298fb4b229108c14ea2cd7cf5255" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,9 +17,6 @@ class Gjs < Formula
   depends_on "gtk+3" => :recommended
 
   needs :cxx11
-
-  # patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=780350
-  patch :DATA
 
   resource "mozjs38" do
     url "https://archive.mozilla.org/pub/firefox/releases/38.8.0esr/source/firefox-38.8.0esr.source.tar.bz2"
@@ -77,18 +74,3 @@ class Gjs < Formula
     system "#{bin}/gjs", "test.js"
   end
 end
-
-__END__
-diff --git a/gi/arg.cpp b/gi/arg.cpp
-index 5502b00..aacc07d 100644
---- a/gi/arg.cpp
-+++ b/gi/arg.cpp
-@@ -37,6 +37,8 @@
- #include "gjs/byteArray.h"
- #include "gjs/jsapi-wrapper.h"
- #include <util/log.h>
-+#include <cstdlib>
-+#include <cmath>
-
- bool
- _gjs_flags_value_is_valid(JSContext   *context,

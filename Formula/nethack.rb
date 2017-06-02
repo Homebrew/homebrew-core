@@ -18,7 +18,7 @@ class Nethack < Formula
   skip_clean "libexec/save"
 
   def install
-    # Build everything in-order; no multi builds.
+    # Build everything in-order
     ENV.deparallelize
 
     # Generate makefiles for OS X
@@ -27,10 +27,8 @@ class Nethack < Formula
         hintfile = "macosx10.10"
       elsif MacOS.version >= :lion
         hintfile = "macosx10.7"
-      elsif MacOS.version >= :leopard
-        hintfile = "macosx10.5"
       else
-        hintfile = "macosx"
+        hintfile = "macosx10.5"
       end
 
       inreplace "hints/#{hintfile}",

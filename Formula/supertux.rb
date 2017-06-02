@@ -28,7 +28,7 @@ class Supertux < Formula
   # https://github.com/SuperTux/supertux/issues/614
   patch do
     url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff"
-    sha256 "bb88211eacf76698521b5b85972e2facd93bceab92fa37529ec3ff5482d82956"
+    sha256 "f5941084fbb06d88762c8793d71a5d38b521926144a62af4b01c2ce81a463577"
   end
 
   needs :cxx11

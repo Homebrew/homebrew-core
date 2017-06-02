@@ -1,16 +1,15 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
-  sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
-  revision 1
-  head "https://github.com/openscenegraph/OpenSceneGraph"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.6.tar.gz"
+  sha256 "58e9436b811d0344723116cb1ada6ef305bdb6d97f42f04a700a29eda17f54b2"
+  head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
     rebuild 1
-    sha256 "952b9cdfd5b52d2dea8f12b6adc4bd1ff20ac3c56309d2ca4ba6810086ad9aed" => :sierra
-    sha256 "490b7fc3ebc2c71026fc761e5ffcc63f0b9c2f512173550275b72fefb8d4a3a3" => :el_capitan
-    sha256 "54094214e8eed2886dce2789eff5156dc917febfae8bc681190af233f7d946ba" => :yosemite
+    sha256 "fa515dddcf46a25dfef02a83896cbdb404cab22381d8de06bea82fdad9d97d6d" => :sierra
+    sha256 "f0431363c7ab2fb6b72576e22f22dd6fe96b871667ad3119f5ec1806e7521e79" => :el_capitan
+    sha256 "abd62947899d155aeaf2f15dc11c34be004633b80d6bf6446f39a62b738a7e1f" => :yosemite
   end
 
   option :cxx11
@@ -22,7 +21,6 @@ class OpenSceneGraph < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg"
-  depends_on "wget"
   depends_on "gtkglext"
   depends_on "freetype"
   depends_on "gdal" => :optional
@@ -53,7 +51,7 @@ class OpenSceneGraph < Formula
     end
 
     args = std_cmake_args
-    args << "-DBUILD_DOCUMENTATION=" + ((build.with? "docs") ? "ON" : "OFF")
+    args << "-DBUILD_DOCUMENTATION=" + (build.with?("docs") ? "ON" : "OFF")
     args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
 
     if MacOS.prefer_64_bit?

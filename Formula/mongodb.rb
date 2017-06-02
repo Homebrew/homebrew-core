@@ -3,13 +3,13 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.3.tar.gz"
-  sha256 "889d49312ed072130936cfa3281123a0e89228c04f3f8e992a0b92669b28d767"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.4.tar.gz"
+  sha256 "09e962bf3428474b9790bbd464cb6176817f9da6121c30e096240dbb4d51c9f6"
 
   bottle do
-    sha256 "eb3ff789f6265d5144a1d4baefdbb74f81969c983a1219b716bd5511677c407f" => :sierra
-    sha256 "77e7aa4a799d79d66ebcb8f46f472083311787e6058bb8d0326a2b54a7a98310" => :el_capitan
-    sha256 "74543a22c2b18d537c6b13e1b5ed9c5662f0228c2673434239a6ed2004652b84" => :yosemite
+    sha256 "6bce1a94cb3cda934bc9c12bd8ca1da3411fa6959f7e71fa6ba822a399fd5a82" => :sierra
+    sha256 "23169e737a9c73dde8aa497ea754d370a102c634a2d12fb96224556e4b8063c6" => :el_capitan
+    sha256 "5124e03c37ef9d6dd673ddebeb9bd403456170c2168c6f558b9b4c1379df8459" => :yosemite
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -23,7 +23,7 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.4.2",
+        :tag => "r3.4.4",
         :revision => "17fbdf31abca50cdfe27482b05b1476f42ecab0a",
         :shallow => false
   end

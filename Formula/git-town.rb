@@ -1,15 +1,23 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "http://www.git-town.com"
-  url "https://github.com/Originate/git-town/archive/v3.1.0.tar.gz"
-  sha256 "3a7227e99a1d5824d191769866c28a8d4fc6b4b0ac4cef278fc5cf9c1f033327"
+  url "https://github.com/Originate/git-town/archive/v4.0.1.tar.gz"
+  sha256 "b30488ca1b6ea7e5502221d22abacc1b0f2f1ed1421761afb6daa539de8ac1fb"
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c1d8ae4daeca8318043ca93f121a68459b7ec27f751291875249f3870044ba6d" => :sierra
+    sha256 "43ff6d7ceaeb9e085397b60485c6401de969c4ab9106f6422ce22a1db03cb89b" => :el_capitan
+  end
+
+  depends_on "go" => :build
+  depends_on :macos => :el_capitan
 
   def install
-    libexec.install Dir["src/*"]
-    bin.write_exec_script Dir["#{libexec}/git-*"]
-    man1.install Dir["man/man1/*"]
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/Originate").mkpath
+    ln_sf buildpath, buildpath/"src/github.com/Originate/git-town"
+    system "go", "build", "-o", bin/"git-town"
   end
 
   test do

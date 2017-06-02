@@ -10,13 +10,13 @@ class Parrot < Formula
     # remove at 8.2.0, already in HEAD
     patch do
       url "https://github.com/parrot/parrot/commit/7524bf5384ddebbb3ba06a040f8acf972aa0a3ba.diff"
-      sha256 "170f63df33fa2dc870902bd703c371bb6d601b515618f5830ab921bffa22e87b"
+      sha256 "6322ba2f4dc8acf433f6f3379196b359bedf4e54aa0f7956cb2724529223bce1"
     end
 
     # remove at 8.2.0, already in HEAD
     patch do
       url "https://github.com/parrot/parrot/commit/854aec65d6de8eaf5282995ab92100a2446f0cde.diff"
-      sha256 "dfe8b5e26b104f8fb2c1efe0a8316ffcba399463bd164c22e7cf2327fac2540e"
+      sha256 "3a5874d71672ad3111cc962ffed9b248529f21832c9feae86377a0bd1dc54612"
     end
   end
 

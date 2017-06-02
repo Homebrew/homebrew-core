@@ -1,13 +1,13 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.6/postgresql-9.5.6.tar.bz2"
-  sha256 "bb9e5f6d34e20783e96e10c1d6c0c09c31749e802aaa46b793ce2522725ae12f"
+  url "https://ftp.postgresql.org/pub/source/v9.5.7/postgresql-9.5.7.tar.bz2"
+  sha256 "8b1e936f82109325decc0f5575e846b93fb4fd384e8c4bde83ff5e7f87fc6cad"
 
   bottle do
-    sha256 "7fdfb189c77eac47c6e5c969f6986ea1d10ef949b56a26b6c84c2ef4ff7faa2b" => :sierra
-    sha256 "4d8091bf98a26b86fdc4620672b3e61eba4ddf13bdda9b7d0265968bc7f5238a" => :el_capitan
-    sha256 "9732b49b0eb711a48250df0a604127cb259a7903ae498339281833329aa862b9" => :yosemite
+    sha256 "6cfcc59cb1c98a964e6f191d2f9c459574bee8ca8e78e389409cb80f7f9feed6" => :sierra
+    sha256 "4949ac441c6c9f261f9783b028faadfab06bbe2572c22f17d02d96532b21349a" => :el_capitan
+    sha256 "87f87eb5edad293873e86f6ae079cd4b24e2dad64db0657167e54a06760ec795" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -20,7 +20,6 @@ class PostgresqlAT95 < Formula
 
   depends_on "openssl"
   depends_on "readline"
-  depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
   depends_on :python => :optional
   depends_on :python3 => :optional
 
@@ -95,7 +94,7 @@ class PostgresqlAT95 < Formula
   def caveats; <<-EOS.undent
     If builds of PostgreSQL 9 are failing and you have version 8.x installed,
     you may need to remove the previous version first. See:
-      https://github.com/Homebrew/homebrew/issues/2510
+      https://github.com/Homebrew/legacy-homebrew/issues/2510
 
     To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
       https://www.postgresql.org/docs/9.5/static/upgrading.html

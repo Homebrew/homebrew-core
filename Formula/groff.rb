@@ -1,8 +1,8 @@
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
-  url "https://ftpmirror.gnu.org/groff/groff-1.22.3.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz"
+  url "https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.3.tar.gz"
   sha256 "3a48a9d6c97750bfbd535feeb5be0111db6406ddb7bb79fc680809cda6d828a5"
 
   bottle do

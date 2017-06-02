@@ -1,15 +1,14 @@
 class Nasm < Formula
   desc "Netwide Assembler (NASM) is an 80x86 assembler"
   homepage "http://www.nasm.us/"
-  url "http://www.nasm.us/pub/nasm/releasebuilds/2.12.02/nasm-2.12.02.tar.xz"
-  sha256 "4c866b60c0b1c4ebc715205d007b4640ff4e36af637c9a7deb87b2900e544321"
+  url "http://www.nasm.us/pub/nasm/releasebuilds/2.13.01/nasm-2.13.01.tar.xz"
+  sha256 "aa0213008f0433ecbe07bb628506a5c4be8079be20fc3532a5031fd639db9a5e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c653c00ed3df6a74b59f66586f3cf570b2ec27f97e5ab90dc8b2284f2fd166aa" => :sierra
-    sha256 "d8763b4360c196f58d978d35b2aa59873c00ebf7b4859092a6b5f0c57f80bba3" => :el_capitan
-    sha256 "b5e0065fbda4bc95c00bb43e157698fd853cba2eaddfa77b15d2c5349d38d416" => :yosemite
-    sha256 "6e0a8849f85a2c2f7729c270bf42ac4525188eda1a524287a061d18240c13f52" => :mavericks
+    sha256 "3bf967e428595a156fe97185a07d82bba91c3b2003b08f329bf94fb87136f463" => :sierra
+    sha256 "138c9fd695681960f7eecb1ce352723bbb313afb1fdd4a7966427c4b5199e22b" => :el_capitan
+    sha256 "821356bf15a266e2c3d45ef019c237422ced030696ca5f0b0f69a6974e7bd8fa" => :yosemite
   end
 
   head do
@@ -23,6 +22,7 @@ class Nasm < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "manpages" if build.head?
+    system "make", "rdf"
     system "make", "install", "install_rdf"
   end
 

@@ -3,12 +3,13 @@ class Servus < Formula
   homepage "https://github.com/HBPVIS/Servus"
   url "https://github.com/HBPVIS/Servus/archive/1.5.0.tar.gz"
   sha256 "42fb9c060f17f040ad3c7563f5e87c89f5a221a5aa7da21384fc26b9c725ecc8"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e9a959eeaacec3a8b99607f71fbf8bc900d96d5949e5329e32909e83d39b4c18" => :sierra
-    sha256 "7fbf4c4b8d9524e8b76ba6602f46f42a9e2cdc3605c1a482168ac5689a4fd707" => :el_capitan
-    sha256 "206d176deea834d37313413c98c932b2063e8feab5d485c8b74ff264c66c5914" => :yosemite
+    sha256 "cf27ad2330c4fa780bbe5c8e8327d936bf1809278b393f4daab05ffeba2772e9" => :sierra
+    sha256 "667dfbe34a3570d06673a66a45b168fffbc8e680998bab04e4a0cb691271dcd8" => :el_capitan
+    sha256 "d8b5639d032358b2980e8246883f1951dec46de4bc4a84c64f014372c1b40032" => :yosemite
   end
 
   depends_on "cmake" => :build

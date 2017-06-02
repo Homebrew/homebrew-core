@@ -1,21 +1,21 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_30_1_RTM/src/nss-3.30.1.tar.gz"
-  sha256 "1fa273a9a18611bfd22ecd61283172a5aa66af7d0783c7018f42d48000be5eb6"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_30_2_RTM/src/nss-3.30.2.tar.gz"
+  sha256 "0d4a77ff26bcee79fa8afe0125e0df6ae9e798b6b36782fa29e28febf7cfce24"
 
   bottle do
     cellar :any
-    sha256 "5c99c83e8d677d52f55a9782ce30ff8f74f5e9fd4ac1ed148dd78023f23cea14" => :sierra
-    sha256 "7c3f11cd94d268c948fc8c052348788471a6153fe32a3ca7cb7c303d80bb5067" => :el_capitan
-    sha256 "6ea1560c7a1afa04a3dba617798a793cd69307df4deafd9b1c5461139b538bc5" => :yosemite
+    sha256 "f320d62acfd52d9d865c6ceb6aa3027677dd87c1e457b79284f08d7a34db998d" => :sierra
+    sha256 "6ebfd9a63df4761e243acfea9144c3383d984ab43c88e0d3d373f9ae8fa27973" => :el_capitan
+    sha256 "ef28502fdf1641800b3db1432d60f7fc3bf2d8c92dbbe15135e03fdb5a4e6a9d" => :yosemite
   end
 
   keg_only <<-EOS.undent
-    Having this library symlinked makes Firefox pick it up instead of built-in,
-    so it then randomly crashes without meaningful explanation.
+    Firefox can pick this up instead of the built-in library, resulting in
+    random crashes without meaningful explanation.
 
-    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details.
+    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details
   EOS
 
   depends_on "nspr"
