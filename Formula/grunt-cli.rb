@@ -5,6 +5,7 @@ class GruntCli < Formula
   homepage "https://gruntjs.com/"
   url "https://registry.npmjs.org/grunt-cli/-/grunt-cli-1.2.0.tgz"
   sha256 "fdb1d4bd83435b3f70614b608e0027a0d75ebfda151396bb99c46405334a01d8"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
