@@ -1,8 +1,8 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz"
-  sha256 "e7f340412a61c7934b5143faef8d13529b29242ebfba2eba48169f4a8392f535"
+  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
+  sha256 "7f7f5414e044ac11fee2a1e0bc225469f51fb0cdf821e67df762a43098223f27"
 
   bottle do
     cellar :any
@@ -21,11 +21,10 @@ class Zookeeper < Formula
     depends_on "automake" => :build
   end
 
-  option "with-perl", "Build Perl bindings"
-
   deprecated_option "perl" => "with-perl"
 
   depends_on :python => :optional
+  depends_on :perl => ["5.8", :optional]
 
   def shim_script(target)
     <<-EOS.undent
@@ -104,10 +103,10 @@ class Zookeeper < Formula
     (var/"run/zookeeper/data").mkpath
 
     Pathname.glob("#{libexec}/bin/*.sh") do |path|
-      next if path == libexec+"bin/zkEnv.sh"
+      next if path == libexec/"bin/zkEnv.sh"
       script_name = path.basename
-      bin_name    = path.basename ".sh"
-      (bin+bin_name).write shim_script(script_name)
+      bin_name = path.basename(".sh")
+      (bin/bin_name).write shim_script(script_name)
     end
 
     defaults = etc/"zookeeper/defaults"
@@ -119,7 +118,7 @@ class Zookeeper < Formula
     inreplace "conf/zoo_sample.cfg",
               /^dataDir=.*/, "dataDir=#{var}/run/zookeeper/data"
     cp "conf/zoo_sample.cfg", "conf/zoo.cfg"
-    (etc/"zookeeper").install ["conf/zoo.cfg", "conf/zoo_sample.cfg"]
+    (etc/"zookeeper").install %w[conf/zoo.cfg conf/zoo_sample.cfg]
   end
 
   plist_options :manual => "zkServer start"
