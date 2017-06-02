@@ -90,6 +90,7 @@ class QtAT55 < Formula
       -nomake examples
     ]
 
+    xcodebuild "SYMROOT=build"
     system "./configure", *args
     system "make"
     ENV.deparallelize
