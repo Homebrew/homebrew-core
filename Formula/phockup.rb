@@ -5,6 +5,7 @@ class Phockup < Formula
   sha256 "8bced90fd663ab9acf8e48e630904da7d493e2fe78add63b0c5d60c18c6de2ad"
 
   depends_on "exiftool"
+  depends_on "python3"
 
   def install
     bin.install "phockup.py" => "phockup"
