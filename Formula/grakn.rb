@@ -4,6 +4,8 @@ class Grakn < Formula
   url "https://github.com/graknlabs/grakn/releases/download/v0.12.1/grakn-dist-0.12.1.tar.gz"
   sha256 "3658138ccd74e51a0072a42f5e4fff43763506b02e581b572b05f50b1c63eb72"
 
+  bottle :unneeded
+
   depends_on :java => "1.8+"
 
   def install
