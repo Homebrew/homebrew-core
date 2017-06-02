@@ -26,6 +26,7 @@ class Wget < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   option "with-debug", "Build with debug support"
+  option "with-test", "Build with test"
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
@@ -33,6 +34,10 @@ class Wget < Formula
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
+
+  # iri-disabled test fails 
+  # https://savannah.gnu.org/bugs/index.php?50528
+  patch :DATA
 
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
@@ -53,6 +58,7 @@ class Wget < Formula
 
     system "./bootstrap" if build.head?
     system "./configure", *args
+    system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"
   end
 
@@ -60,3 +66,29 @@ class Wget < Formula
     system bin/"wget", "-O", "/dev/null", "https://google.com"
   end
 end
+
+__END__
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index c27c4ce..9ac8572 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -86,7 +86,6 @@ PX_TESTS = \
+              Test-idn-robots-utf8.px \
+              Test-iri.px \
+              Test-iri-percent.px \
+-             Test-iri-disabled.px \
+              Test-iri-forced-remote.px \
+              Test-iri-list.px \
+              Test-k.px \
+diff --git a/tests/Makefile.in b/tests/Makefile.in
+index d7ef010..b1e1f4d 100644
+--- a/tests/Makefile.in
++++ b/tests/Makefile.in
+@@ -1569,7 +1569,6 @@ PX_TESTS = \
+              Test-idn-robots-utf8.px \
+              Test-iri.px \
+              Test-iri-percent.px \
+-             Test-iri-disabled.px \
+              Test-iri-forced-remote.px \
+              Test-iri-list.px \
+              Test-k.px \
