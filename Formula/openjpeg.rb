@@ -3,7 +3,7 @@ class Openjpeg < Formula
   homepage "http://www.openjpeg.org/"
   url "https://github.com/uclouvain/openjpeg/archive/v2.1.2.tar.gz"
   sha256 "4ce77b6ef538ef090d9bde1d5eeff8b3069ab56c4906f083475517c2c023dfa7"
-  revision 1
+  revision 2
 
   head "https://github.com/uclouvain/openjpeg.git"
 
@@ -18,7 +18,7 @@ class Openjpeg < Formula
   option "with-static", "Build a static library."
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => [:build, :recommended]
+  depends_on "doxygen" => :build
   depends_on "little-cms2"
   depends_on "libtiff"
   depends_on "libpng"
