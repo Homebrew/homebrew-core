@@ -1,9 +1,9 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
-  sha256 "626aafee84af9d2ce253d2c143dc1c0902dda045780cc241f39970fc60be05bc"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
+  sha256 "b9b85eba0793ea3e6e66b896eb031fa05e1a4517277cc9ab10816b359254cd9a"
 
   bottle do
     cellar :any
