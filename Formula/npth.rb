@@ -1,9 +1,9 @@
 class Npth < Formula
   desc "New GNU portable threads library"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/npth/npth-1.4.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/npth/npth-1.4.tar.bz2"
-  sha256 "8915141836a3169a502d65c1ebd785fcc6d406cae5ee84474272ebf2fa96f1f2"
+  url "https://gnupg.org/ftp/gcrypt/npth/npth-1.5.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/npth/npth-1.5.tar.bz2"
+  sha256 "294a690c1f537b92ed829d867bee537e46be93fbd60b16c04630fbbfcd9db3c2"
 
   bottle do
     cellar :any
