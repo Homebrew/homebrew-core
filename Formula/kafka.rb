@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirror.nbtelecom.com.br/apache/kafka/0.10.2.0/kafka_2.11-0.10.2.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.10.2.0/kafka_2.11-0.10.2.0.tgz"
-  sha256 "4c9e73059dea2dcb5022135f8e7eff5f187ffcc27a27b365b326ee61040214cd"
+  url "http://mirror.nbtelecom.com.br/apache/kafka/0.10.2.1/kafka_2.11-0.10.2.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/0.10.2.1/kafka_2.11-0.10.2.1.tgz"
+  sha256 "b86f75c8f078bc818031568155dd442ba6c1ed849663d0a7da9870efc96be461"
 
   bottle do
     sha256 "ca56f89d5f7974749318f3fa98a7b1796f7652dacdde7e01bc88168b125bf68b" => :sierra
@@ -36,7 +36,6 @@ class Kafka < Formula
     rm_rf "bin/windows"
 
     libexec.install "libs"
-
     prefix.install "bin"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8+"))
     Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
@@ -44,9 +43,11 @@ class Kafka < Formula
     mv "config", "kafka"
     etc.install "kafka"
     libexec.install_symlink etc/"kafka" => "config"
+  end
 
+  def post_install
     # create directory for kafka stdout+stderr output logs when run by launchd
-    (var+"log/kafka").mkpath
+    (var/"log/kafka").mkpath
   end
 
   plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
@@ -80,6 +81,7 @@ class Kafka < Formula
 
   test do
     ENV["LOG_DIR"] = "#{testpath}/kafkalog"
+    logs = testpath/"kafkalog"
 
     (testpath/"kafka").mkpath
     cp "#{etc}/kafka/zookeeper.properties", testpath/"kafka"
@@ -110,6 +112,6 @@ class Kafka < Formula
       sleep 10
     end
 
-    assert_match /test message/, IO.read("#{testpath}/kafka/demo.out")
+    assert_match "test message", IO.read("#{testpath}/kafka/demo.out")
   end
 end
