@@ -3,6 +3,7 @@ class FreeradiusServer < Formula
   homepage "https://freeradius.org/"
   url "ftp://ftp.freeradius.org/pub/freeradius/freeradius-server-3.0.14.tar.bz2"
   sha256 "2771f6ecd6c816ac4d52b66bb8ae6781ca20e1e4984c5804fc4e67de3a807c59"
+  revision 1
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   bottle do
@@ -11,7 +12,7 @@ class FreeradiusServer < Formula
     sha256 "c9b8955f905b2207454a49a8c769b79cc26b63d0dd046a38d40bf68b80213da9" => :yosemite
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "talloc"
 
   def install
@@ -21,8 +22,8 @@ class FreeradiusServer < Formula
       --prefix=#{prefix}
       --sbindir=#{bin}
       --localstatedir=#{var}
-      --with-openssl-includes=#{Formula["openssl@1.1"].opt_include}
-      --with-openssl-libraries=#{Formula["openssl@1.1"].opt_lib}
+      --with-openssl-includes=#{Formula["openssl"].opt_include}
+      --with-openssl-libraries=#{Formula["openssl"].opt_lib}
       --with-talloc-lib-dir=#{Formula["talloc"].opt_lib}
       --with-talloc-include-dir=#{Formula["talloc"].opt_include}
     ]
