@@ -1,9 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.29.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.29.1.tar.gz"
-  sha256 "ccfa9ffb7eb91e9e87c21c108324b911250c9ffa838bffb64b1caafadcb0f388"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.30.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/dovecot-2.2.30.1.tar.gz"
+  sha256 "9049db49f7ccd76850a17872896dfb8778676bab38454575f59bb39f16b083a4"
 
   bottle do
     rebuild 1
@@ -17,7 +17,8 @@ class Dovecot < Formula
   option "with-pigeonhole-unfinished-features", "Build unfinished new Sieve addon features/extensions"
   option "with-stemmer", "Build with libstemmer support"
 
-  depends_on "openssl"
+  depends_on "pkg-config" => :build
+  depends_on "openssl@1.1"
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
@@ -27,7 +28,7 @@ class Dovecot < Formula
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      :revision => "304e1160341275565e032b00a9855d272f0c2a51"
+      :revision => "9ea5add413942d0aa2335cd8133c682263325ed8"
   end
 
   def install
@@ -38,6 +39,7 @@ class Dovecot < Formula
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --with-ssl=openssl
+      --with-ssldir=#{etc}/openssl
       --with-sqlite
       --with-zlib
       --with-bzlib
@@ -47,11 +49,15 @@ class Dovecot < Formula
     args << "--with-pam" if build.with? "pam"
 
     if build.with? "stemmer"
-      args << "--with-libstemmer"
+      args << "--with-stemmer"
 
       resource("stemmer").stage do
         system "make", "dist_libstemmer_c"
         system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
+        system "make", "-C", buildpath/"libstemmer_c"
+        mv buildpath/"libstemmer_c/libstemmer.o", buildpath/"libstemmer_c/libstemmer.a"
+        ENV.prepend "LDFLAGS", "-L#{buildpath}/libstemmer_c"
+        ENV.prepend "CPPFLAGS", "-I#{buildpath}/libstemmer_c/include"
       end
     end
 
@@ -119,6 +125,6 @@ class Dovecot < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{sbin}/dovecot --version")
+    assert_match version.to_s, shell_output("#{sbin}/dovecot --version")
   end
 end
