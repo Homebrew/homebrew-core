@@ -8,10 +8,9 @@ class Lmdb < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "31c30590d1d685e7418d45b50b5e636cea5ea5147b472172ff4f809686297892" => :sierra
-    sha256 "655ec022ac655fde5a3c88ca4b71c0c6942a0c758e12262d495d15747fc65ecd" => :el_capitan
-    sha256 "36f056edff5219f3efca010d290f8882d5dd053c10cf8f1d673a7a6477f7b20e" => :yosemite
+    sha256 "f7d8acade2be32886edf1d039e57070e35db0bdeca6f37ef7f42530ad404cc91" => :sierra
+    sha256 "b4dd9a1387599e22744bbb769ce71fd1588e5ea6f1ef1d83a2d32f71190cb6ff" => :el_capitan
+    sha256 "66e48198e7bf2a466a614727a71b10e3b865cf1f65451fe10c7d5d4068e46a5c" => :yosemite
   end
 
   def install
