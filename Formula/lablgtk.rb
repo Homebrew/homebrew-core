@@ -3,6 +3,7 @@ class Lablgtk < Formula
   homepage "http://lablgtk.forge.ocamlcore.org"
   url "https://forge.ocamlcore.org/frs/download.php/1627/lablgtk-2.18.5.tar.gz"
   sha256 "2bf251db21c077fdd26c035ea03edd8fe609187f908e520e87a8ffdd9c36d233"
+  revision 1
 
   bottle do
     sha256 "5029b4d9053a5ad9d4b1164aaed7af7070deeca502e388f9973894c02ca018a5" => :sierra
