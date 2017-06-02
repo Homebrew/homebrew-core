@@ -1,16 +1,13 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "http://www.ntop.org/products/ntop/"
-  revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/2.4.tar.gz"
-    sha256 "86f8ed46983f46bcd931304d3d992fc1af572b11e461ab9fb4f0f472429bd5dd"
+    url "https://github.com/ntop/ntopng/archive/3.0.tar.gz"
+    sha256 "3780f1e71bc7aa404f40ea9b805d195943cdb5095d712f41669eae138d388ad5"
 
     resource "nDPI" do
-      # tip of 1.8-stable branch; four commits beyond the 1.8 tag
-      url "https://github.com/ntop/nDPI.git",
-        :revision => "6fb81f146e2542cfbf7fab7d53678339c7747b35"
+      url "https://github.com/ntop/nDPI.git", :branch => "2.0-stable"
     end
   end
 
@@ -48,6 +45,11 @@ class Ntopng < Formula
   depends_on "mariadb" => :optional
 
   def install
+    # Prevent "make install" failure "cp: the -H, -L, and -P options may not be
+    # specified with the -r option"
+    # Reported 2 Jun 2017 https://github.com/ntop/ntopng/issues/1285
+    inreplace "Makefile.in", "cp -Lr", "cp -LR"
+
     resource("nDPI").stage do
       system "./autogen.sh"
       system "make"
@@ -60,6 +62,6 @@ class Ntopng < Formula
   end
 
   test do
-    system "#{bin}/ntopng", "-h"
+    system "#{bin}/ntopng", "-V"
   end
 end
