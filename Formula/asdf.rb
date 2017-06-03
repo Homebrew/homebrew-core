@@ -6,18 +6,22 @@ class Asdf < Formula
 
   bottle :unneeded
 
-  depends_on "coreutils" => :run
-  depends_on "automake" => :run
   depends_on "autoconf" => :run
-  depends_on "openssl" => :run
-  depends_on "libyaml" => :run
-  depends_on "readline" => :run
+  depends_on "automake" => :run
   depends_on "libtool" => :run
-  depends_on "unixodbc" => :run
+
+  depends_on "coreutils"
+  depends_on "libyaml"
+  depends_on "openssl"
+  depends_on "readline"
+  depends_on "unixodbc"
 
   def install
     bash_completion.install "completions/asdf.bash"
+    libexec.install Dir["bin/private"]
     prefix.install Dir["*"]
+
+    inreplace "#{prefix}/lib/commands/reshim.sh", "exec $(asdf_dir)/bin/private/asdf-exec ", "exec $(asdf_dir)/libexec/private/asdf-exec "
   end
 
   def caveats; <<-EOS.undent
