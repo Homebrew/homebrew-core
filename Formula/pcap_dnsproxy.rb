@@ -1,8 +1,8 @@
 class PcapDnsproxy < Formula
   desc "Powerful DNS proxy designed to anti DNS spoofing"
   homepage "https://github.com/chengr28/Pcap_DNSProxy"
-  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.8.4.tar.gz"
-  sha256 "a15ee4c00fe4863aaf54bdeec71de2739a5ea1ab4f8e14ca0c6712ba3ed5695c"
+  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.9.0.tar.gz"
+  sha256 "4c7854874d7c06b5fcbdb8cb22f58eedb124721670c042eb7676d76987e97b34"
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
@@ -11,7 +11,7 @@ class PcapDnsproxy < Formula
     sha256 "5ad62a89c78c853de0181efaf10af9f3e25a18130dfa467a848fbc19c18c8c9b" => :yosemite
   end
 
-  depends_on :macos => :yosemite
+  depends_on :macos => :el_capitan
   depends_on :xcode => :build
   depends_on "libsodium"
   depends_on "openssl@1.1"
