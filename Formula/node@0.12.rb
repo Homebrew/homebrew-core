@@ -32,6 +32,15 @@ class NodeAT012 < Formula
     sha256 "927974142c9a44e9bd879d9e9762e7de379b43c5acfae32b02b44f60e59a9c9c"
   end
 
+  # Fix build failure with >= Xcode 8.3 "../deps/v8/include/v8.h:5800:54: error:
+  # 'CreateHandle' is a protected member of 'v8::HandleScope'"
+  if DevelopmentTools.clang_build_version >= 802
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1eec325/node%400.12/v8-xcode-8.3.diff"
+      sha256 "55e0c540c96b41be05c42bb65383df5b984dd7386a9e4477b3fc716d4ae75a27"
+    end
+  end
+
   def install
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
@@ -99,7 +108,7 @@ class NodeAT012 < Formula
       # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
       rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
-      ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      cp Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     npm_root = node_modules/"npm"

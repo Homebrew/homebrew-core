@@ -1,9 +1,9 @@
 class Heroku < Formula
   desc "Everything you need to get started with Heroku"
   homepage "https://cli.heroku.com"
-  url "https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-v6.6.18-1a1fd10-darwin-x64.tar.xz"
-  version "6.6.18"
-  sha256 "e47e428adfd9c16b8bff6668c7671e4fe679aac94285457d6999f80aff8edc2a"
+  url "https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-v6.7.4-97fc5c6-darwin-x64.tar.xz"
+  version "6.7.4"
+  sha256 "5660eff0521837a10e78a91234945b3dfe3a31b9bc786c80ba0c11c3ff0ff339"
 
   bottle :unneeded
 

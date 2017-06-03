@@ -1,16 +1,15 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/v0.87.tar.gz"
-  sha256 "ac177953e7c834d5326fc52d63377b6d0b42d05db8017556390629b87e44e183"
+  url "https://github.com/traviscross/mtr/archive/v0.92.tar.gz"
+  sha256 "568a52911a8933496e60c88ac6fea12379469d7943feb9223f4337903e4bc164"
   head "https://github.com/traviscross/mtr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0130688611371db10059beb68d9d9685cfcd0f2836ee7b13f065c23d2c42e645" => :sierra
-    sha256 "72fcba3d0131ff90e068ad0076738b95f20d096553cc519eb6107d94b58a2513" => :el_capitan
-    sha256 "8a95636a767153b0bf2a6b00136f450d86bbcf6558ca6a4b5b561b2ce86843d7" => :yosemite
-    sha256 "7dfd1382e2334613185fef1f749b15a30206c62c2aaeded8c6c8f74007b68ec6" => :mavericks
+    sha256 "0558426657c36a32f26d65c96b6111753f7189b5b198715df33b9a4f64e25732" => :sierra
+    sha256 "1700c0b67f337a9089de95ded89391be790ad440336b252be1d109b9b8352cc7" => :el_capitan
+    sha256 "90aa1e5d224e98d572525b09715390f0fbf2b72954cd3c0b87b9cd6af6ff8ac2" => :yosemite
   end
 
   depends_on "automake" => :build
@@ -40,7 +39,6 @@ class Mtr < Formula
   end
 
   test do
-    output = shell_output("#{sbin}/mtr --help 2>&1", 1)
-    assert_equal "mtr: unable to get raw sockets.", output.chomp
+    system sbin/"mtr", "--help"
   end
 end
