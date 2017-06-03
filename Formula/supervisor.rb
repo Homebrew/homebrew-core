@@ -3,8 +3,8 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/3.3.1.tar.gz"
-  sha256 "454f532fae5a54363838fba42bc568f7b2fd0fd71d946b8c39d848a225d0da0f"
+  url "https://github.com/Supervisor/supervisor/archive/3.3.2.tar.gz"
+  sha256 "c54190f948b0d876ec43f0ca9eea71b1757c4c9290a2fa5005204b98567b6a5b"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Supervisor < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "meld3" do
-    url "https://pypi.python.org/packages/source/m/meld3/meld3-1.0.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/45/a0/317c6422b26c12fe0161e936fc35f36552069ba8e6f7ecbd99bbffe32a5f/meld3-1.0.2.tar.gz"
     sha256 "f7b754a0fde7a4429b2ebe49409db240b5699385a572501bb0d5627d299f9558"
   end
 
