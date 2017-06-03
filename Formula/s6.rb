@@ -3,17 +3,17 @@ class S6 < Formula
   homepage "https://skarnet.org/software/s6/"
 
   stable do
-    url "https://skarnet.org/software/s6/s6-2.5.0.0.tar.gz"
-    sha256 "11413aea4add3aea2d0f3f7515d274ac58d4adfb03661a1f6ce7fa2abd24dab1"
+    url "https://skarnet.org/software/s6/s6-2.5.1.0.tar.gz"
+    sha256 "73cd4c1975905db92122a7c7eebd0c480d046624426800b3bcc5a432e6af27cd"
 
     resource "skalibs" do
-      url "https://skarnet.org/software/skalibs/skalibs-2.5.0.0.tar.gz"
-      sha256 "38408ff6d0aec581010ecf9e49703ec5f4c8887bbe68717ec087634a7ade849c"
+      url "https://skarnet.org/software/skalibs/skalibs-2.5.1.1.tar.gz"
+      sha256 "aa387f11a01751b37fd32603fdf9328a979f74f97f0172def1b0ad73b7e8d51d"
     end
 
     resource "execline" do
-      url "https://skarnet.org/software/execline/execline-2.3.0.0.tar.gz"
-      sha256 "a0ec43b8feba299cc1e5c65b1978ed76571afa595bc53165373e29a57468f425"
+      url "https://skarnet.org/software/execline/execline-2.3.0.1.tar.gz"
+      sha256 "2bf65aaaf808718952e05c2221b4e9472271e53ebd915c8d1d49a3e992583bf4"
     end
   end
 
