@@ -21,13 +21,8 @@ class Asdf < Formula
   end
 
   def caveats; <<-EOS.undent
-    #########################################
-
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-
          source #{prefix}/asdf.sh
-
-    #########################################
     EOS
   end
 
