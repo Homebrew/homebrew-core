@@ -5,9 +5,9 @@ class Advancemame < Formula
   sha256 "779b3b43e3fbdf4bb24e97c418499cd4550446494e19f5d576827242b0821814"
 
   bottle do
-    sha256 "8b7b3f32468dfe574ed50d3de41f80b7e0082e872e598bced0ce0886800dfcd5" => :sierra
-    sha256 "0f4ca16ef965fdd5f87b2cc3865041e0cea0b18662b98012d076a752e66ebd0d" => :el_capitan
-    sha256 "7a00857e5e1381e5e2f1792e24c838d6588c9b0c70fa96c04cf7379ab169b13b" => :yosemite
+    sha256 "2a64703b056e341dd6ee4773038f5d4fa289ae120e64b852d103c41cffec3fee" => :sierra
+    sha256 "1f67883e185c7d2afe1bfef2ab7eac425c15c4540d648cabb40b2cde8aba0e7f" => :el_capitan
+    sha256 "1865a05529d60f846bb97b29c936aaf49f975d788d3687a7b7e87fcd0681bf3d" => :yosemite
   end
 
   depends_on "sdl"
