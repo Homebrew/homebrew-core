@@ -1,5 +1,5 @@
 class Nedit < Formula
-  desc "fast, compact Motif/X11 plain text editor"
+  desc "Fast, compact Motif/X11 plain text editor"
   homepage "https://sourceforge.net/projects/nedit/"
   url "https://downloads.sourceforge.net/project/nedit/nedit-source/nedit-5.6a-src.tar.gz"
   sha256 "53677983cb6c91c5da1fcdcac90f7f9a193f08fa13b7a6330bc9ce21f9461eed"
