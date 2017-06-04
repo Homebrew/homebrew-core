@@ -1,7 +1,7 @@
 require "language/go"
 
 class Teleconsole < Formula
-  desc "free service to share your terminal session with people you trust"
+  desc "Free service to share your terminal session with people you trust"
   homepage "https://www.teleconsole.com"
   url "https://github.com/gravitational/teleconsole/archive/0.3.1.tar.gz"
   sha256 "663307a1dfe4baadf7e1ed9f5b66b1d203bf9696068e9bcd86e535f286e64d59"
