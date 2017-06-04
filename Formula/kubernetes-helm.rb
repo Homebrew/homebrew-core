@@ -5,6 +5,7 @@ class KubernetesHelm < Formula
       :tag => "v2.4.2",
       :revision => "82d8e9498d96535cc6787a6a9194a76161d29b4c"
   head "https://github.com/kubernetes/helm.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
