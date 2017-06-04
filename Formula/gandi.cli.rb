@@ -1,7 +1,7 @@
 class GandiCli < Formula
   include Language::Python::Virtualenv
 
-  desc "command-line interface to Gandi.net products using the public API"
+  desc "Command-line interface to Gandi.net products using the public API"
   homepage "http://cli.gandi.net"
   url "https://files.pythonhosted.org/packages/73/ae/f63bd762bdd0adb1bc0ad102076acf7e33f12b4ce4280a41fa0807b44f9b/gandi.cli-0.19.tar.gz"
   sha256 "0e8e1150f68c8921f279c629e6e7beaa4125d10c0d1990ede991fb0ceec928f3"
