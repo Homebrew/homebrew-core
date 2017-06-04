@@ -24,7 +24,6 @@ class PhoronixTestSuite < Formula
   end
 end
 
-
 __END__
 diff -ur a/install-sh b/install-sh
 --- a/install-sh	2012-01-04 08:43:26.000000000 -0800
