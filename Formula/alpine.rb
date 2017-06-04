@@ -14,10 +14,16 @@ class Alpine < Formula
 
   def install
     ENV.deparallelize
-    system "./configure", "--disable-debug",
-                          "--with-ssl-dir=#{Formula["openssl"].opt_prefix}",
-                          "--with-ssl-certs-dir=#{etc}/openssl",
-                          "--prefix=#{prefix}"
+
+    args = %W[
+      --disable-debug
+      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
+      --with-ssl-certs-dir=#{etc}/openssl
+      --prefix=#{prefix}
+      --with-passfile=.pine-passfile
+    ]
+
+    system "./configure", *args
     system "make", "install"
   end
 
