@@ -1,7 +1,7 @@
 require "language/go"
 
 class Rclone < Formula
-  desc "rsync for cloud storage"
+  desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
   url "https://github.com/ncw/rclone/archive/v1.36.tar.gz"
   sha256 "a573b70e3aeb355b943dddd6ae9375386fc21bf12dfba601d8d7280f97c4c884"
