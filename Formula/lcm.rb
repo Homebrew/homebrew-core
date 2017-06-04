@@ -1,5 +1,5 @@
 class Lcm < Formula
-  desc "libraries and tools for message passing and data marshalling"
+  desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.3.1/lcm-1.3.1.zip"
   sha256 "3fd7c736cf218549dfc1bff1830000ad96f3d8a8d78d166904323b1df573ade1"
