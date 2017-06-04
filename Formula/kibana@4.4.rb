@@ -45,7 +45,7 @@ class KibanaAT44 < Formula
 
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
     Pathname.new("#{ENV["HOME"]}/.npmrc").write Language::Node.npm_cache_config
-    system "npm", "install"
+    system "npm", "install", *Language::Node.local_npm_install_args
     system "npm", "run", "build"
     mkdir "tar" do
       system "tar", "--strip-components", "1", "-xf", Dir[buildpath/"target/kibana-*-#{platform}.tar.gz"].first
