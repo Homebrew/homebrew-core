@@ -1,5 +1,5 @@
 class Dungeon < Formula
-  desc "the classic text adventure"
+  desc "The classic text adventure"
   homepage "https://github.com/GOFAI/dungeon"
   url "https://github.com/GOFAI/dungeon/archive/4.0.tar.gz"
   sha256 "be2217be9e23861f22c14c4395da272fca5fb08a1741f52fd393792908279bea"
