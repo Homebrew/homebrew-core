@@ -9,9 +9,9 @@ class Fish < Formula
   end
 
   bottle do
-    sha256 "d012c7b4d1dce5e766fe9990f19ec7ac0ae5c4a69fc15e01cf123e8f88c1910f" => :sierra
-    sha256 "2b28972cc66472fa11782b344c64b51569a43d0fd8b098ad4b787a1c79aca2b1" => :el_capitan
-    sha256 "385def41fe9c29237b7319218ae0184f64b6b750e525f92ee6913cf20c478a69" => :yosemite
+    sha256 "c40e50463f8c2c3f6a7112117aead0cd367dcabd460f5c477cd84eb90f7ca9fa" => :sierra
+    sha256 "0e96903e4fdd6a58dfd9e96a920e33056919f952de2dfecd9e4122db5a29b036" => :el_capitan
+    sha256 "b9ce33c6f9066e4f72a8e2870f1113cf7c89d7975fd77be5a97358398f30221b" => :yosemite
   end
 
   head do
