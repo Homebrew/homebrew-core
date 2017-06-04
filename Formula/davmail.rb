@@ -3,12 +3,13 @@ class Davmail < Formula
   homepage "https://davmail.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/davmail/davmail/4.8.0/davmail-4.8.0-2479.zip"
   sha256 "5cd0dceadffa958c72be299ee2edc0ec945eaf2f66cbab3e93e20cd24408fbbf"
+  revision 1
 
   bottle :unneeded
 
   def install
     libexec.install Dir["*"]
-    bin.write_jar_script libexec/"davmail.jar", "davmail"
+    bin.write_jar_script libexec/"davmail.jar", "davmail", "-Djava.awt.headless=true"
   end
 
   plist_options :manual => "davmail"
