@@ -1,5 +1,5 @@
 class Cli53 < Formula
-  desc "command-line tool for Amazon Route 53"
+  desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
   url "https://github.com/barnybug/cli53/archive/0.8.8.tar.gz"
   sha256 "31c4dcd25c0fa514d6d02f5668bd55295ec2d5c07ee3e2e5219034b9bbc3d37f"
