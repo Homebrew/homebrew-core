@@ -1,5 +1,5 @@
 class Rubberband < Formula
-  desc "audio time stretcher tool and library"
+  desc "Audio time stretcher tool and library"
   homepage "http://breakfastquay.com/rubberband/"
   head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
 
