@@ -1,5 +1,5 @@
 class JfrogCliGo < Formula
-  desc "command-line interface for Jfrog Artifactory and Bintray"
+  desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/JFrogDev/jfrog-cli-go"
   url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.9.0.tar.gz"
   sha256 "d422a32a249be781576f44f1adf2fc35396fb0be172557affa6e51bc6f2aec9d"
