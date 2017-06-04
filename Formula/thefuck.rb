@@ -3,22 +3,22 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/01/1a/10e676e130e6b1d7f59905074da19bb4b85f901d8c62cee8cf90f7e5d168/thefuck-3.16.tar.gz"
-  sha256 "4d33b30db8e1496148a558494f3a3508677ff58214da1c024a5201c899ec7c75"
+  url "https://files.pythonhosted.org/packages/b8/87/0dac1eb9797cbfade40b2565e3b3bae727c0793887595277cb49c8d6fd45/thefuck-3.18.tar.gz"
+  sha256 "e7a5f728b5ab2e2654e1256341f2df7545a872494aeb574d72214610bca0fe7b"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18b6fbb95e163593386c6813dd4e235c33312660fdc5985db3c5cb219e376f03" => :sierra
-    sha256 "ecb4ebadb1431e531f70aa9b3b68d7fa2e88641d462322227c94daeda53d07ed" => :el_capitan
-    sha256 "fca3ab9b25c4295e7fddb2497da715a67b7d5d20fdc77d963d780fb62c8c7a21" => :yosemite
+    sha256 "287b1a0c768cef5027dce94249249720f337e7cb5233d221979d8b700ee3af1d" => :sierra
+    sha256 "9c706102129a24713e417de97999f3623b3df05e366c83ad8c063f2dc79c9751" => :el_capitan
+    sha256 "7ecc647f71c80eb862098ebc6cd1e16b224d7de962df266111e0d58cb41ab88a" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz"
-    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
+    url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
+    sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
   end
 
   resource "decorator" do

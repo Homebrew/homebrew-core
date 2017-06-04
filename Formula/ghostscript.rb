@@ -1,13 +1,35 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
-  sha256 "2be1d014888a34187ad4bbec19ab5692cc943bd1cb14886065aeb43a3393d053"
+  revision 1
+
+  stable do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
+    sha256 "2be1d014888a34187ad4bbec19ab5692cc943bd1cb14886065aeb43a3393d053"
+
+    # Remove for > 9.21
+    # First part of fix for CVE-2017-8291
+    # https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-8291
+    # https://bugs.ghostscript.com/show_bug.cgi?id=697799
+    # Upstream commit from 27 Apr 2017 "Bug 697799: have .eqproc check its parameters"
+    patch do
+      url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=4f83478c88"
+      sha256 "81f087fa6f3de81a83a4830a7b243b6da5506d783cf37ef1259cd600b1322e47"
+    end
+
+    # Remove for > 9.21
+    # Second part of fix for CVE-2017-8291
+    # Upstream commit from 27 Apr 2017 "Bug 697799: have .rsdparams check its parameters"
+    patch do
+      url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=04b37bbce1"
+      sha256 "366bf4ded600fc7b0a8e2b0d4c877cc3ad5a0ccc192cb660d81f729575a47259"
+    end
+  end
 
   bottle do
-    sha256 "f4de879cfb6e4ef5e5c93dddeab48adf458c5a07a8804682498967fe9d359742" => :sierra
-    sha256 "b8e066aece53c8e75f5883eac8617fde563733938029955a6cf07f7d8b4227c6" => :el_capitan
-    sha256 "37b17208e6839ca273a73c5dd0f0a7e8f625f6d5aa816b74bd57de3375f94b00" => :yosemite
+    sha256 "36abfbade13731398f5746b4697a53aceb0e5c7ab17440a2687bfbd7251446d8" => :sierra
+    sha256 "e612d9a2411dd9dae86e53408270c4fc32e7ae5a1348724fe328eef0a1a916b5" => :el_capitan
+    sha256 "6a3b69ab539d1b6bf99135c36322bd74da4dc2a61686cff0d3249d0310e1870f" => :yosemite
   end
 
   head do

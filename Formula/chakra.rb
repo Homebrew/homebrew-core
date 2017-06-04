@@ -1,34 +1,22 @@
 class Chakra < Formula
   desc "The core part of the Chakra JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.4.2.tar.gz"
-  sha256 "97756d827de1f15dc1b7b28acbc0c6f7d15f46c7a70f3dce83b1f0c52016d1ad"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.5.0.tar.gz"
+  sha256 "acaa6e788f8e3defba7350c7ef7bac93ba6c31cca7cd821420725d5ab0151539"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6dd73487b7fe3486c5162fa6cb0475472c5edaf04b43e50fcc539ad62cad9db3" => :sierra
-    sha256 "9f8ee94c2044f43e06e507da197f3f7968563b71a9c5cd8b8e6b52c62dfa9f9e" => :el_capitan
-    sha256 "b577dbf946cc30b1156b77157034ff386c3f4bd45f1cbdf2e927626ec807c10b" => :yosemite
+    cellar :any
+    sha256 "c99d26f04dbac1fce7f4ec6cae0db0d8e68f82666cfc2c6f32e91ea8fbe10deb" => :sierra
+    sha256 "ecac360f3374d9a0cc57d30a9fba61f497c633a46bab6025479ee18c87ebb9bd" => :el_capitan
+    sha256 "9595742613dec59fd0531b1033e769e2c237ce22ff83f5f3c44bd0601da11f95" => :yosemite
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c" => :optional
+  depends_on "icu4c"
 
   def install
-    # Build fails with -Os default
-    # Upstream issue from 26 Jan 2016 https://github.com/Microsoft/ChakraCore/issues/2417
-    # Fixed in master https://github.com/obastemur/ChakraCore/commit/cda81f4
-    ENV.O3
-
-    args = ["--static"]
-    if build.with? "icu4c"
-      args << "--icu=#{Formula["icu4c"].opt_include}"
-    else
-      args << "--no-icu"
-    end
-    system "./build.sh", *args
-
-    bin.install "BuildLinux/Release/ch" => "chakra"
+    system "./build.sh", "--lto-thin", "--static", "--icu=#{Formula["icu4c"].opt_include}", "-j=#{ENV.make_jobs}", "-y"
+    bin.install "out/Release/ch" => "chakra"
   end
 
   test do

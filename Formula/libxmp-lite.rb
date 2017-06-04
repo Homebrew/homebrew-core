@@ -17,7 +17,7 @@ class LibxmpLite < Formula
   # Already in master. Original PR 6 Nov 2016 https://github.com/cmatsuoka/libxmp/pull/82
   patch :p2 do
     url "https://github.com/cmatsuoka/libxmp/commit/a028835.patch"
-    sha256 "68eb66e6a8c799376f7bb2d9d96bfa8d26470ad5706d6c0cdb774d05dbbc0c15"
+    sha256 "ad9e2d4526afd8bae94873fbc4c249e67a3705c6781ab198623f096ea442e982"
   end
 
   def install

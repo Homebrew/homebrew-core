@@ -118,6 +118,7 @@ class GccAT47 < Formula
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
+      "--enable-plugin",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
@@ -127,10 +128,6 @@ class GccAT47 < Formula
       # install-info is run.
       "MAKEINFO=missing",
     ]
-
-    # "Building GCC with plugin support requires a host that supports
-    # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
 
     args << "--disable-nls" if build.without? "nls"
 

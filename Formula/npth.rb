@@ -1,15 +1,15 @@
 class Npth < Formula
   desc "New GNU portable threads library"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/npth/npth-1.3.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/npth/npth-1.3.tar.bz2"
-  sha256 "bca81940436aed0734eb8d0ff8b179e04cc8c087f5625204419f5f45d736a82a"
+  url "https://gnupg.org/ftp/gcrypt/npth/npth-1.5.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/npth/npth-1.5.tar.bz2"
+  sha256 "294a690c1f537b92ed829d867bee537e46be93fbd60b16c04630fbbfcd9db3c2"
 
   bottle do
     cellar :any
-    sha256 "1dd86e0fb9379ec101c85acb6689c43f2df49117ee9494060acb503d24516d09" => :sierra
-    sha256 "c29fe0821faba0cc0b22738a7588d536c263ed0fd8b10ccd151bc0a69f05519f" => :el_capitan
-    sha256 "2c067eec2b441b5edc2119432f02e9e8dde51cc7ed33515357b6c70e1bf7722b" => :yosemite
+    sha256 "b75192b1cfa25b8d0c61525e1a3333a1574f68b8ecbbb6006d0dcf5af38a4770" => :sierra
+    sha256 "97a9bd2af91b311445605e77fdb9452a2c432e53c7e14028391b4d8e770f2514" => :el_capitan
+    sha256 "ad02061ff36a845c25a271924b562973ec3c6bb21845c0b0baa5bf5fe703416a" => :yosemite
   end
 
   def install

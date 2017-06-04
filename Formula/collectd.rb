@@ -8,29 +8,30 @@ class Collectd < Formula
   end
 
   bottle do
-    sha256 "f9adc84dbfdd0acfff4292077b58c9c496a38b4d31b83aa011caba556b2c6fd1" => :sierra
-    sha256 "8b089b6fa5bd2f6860b1fa9ec8136ab12e216d9537bf204311123fae0b04da63" => :el_capitan
-    sha256 "cf32fb80a6d26f60862fcf2fbba1eaf1c50d83d45cb6cce37178a48ec2b05e91" => :yosemite
+    rebuild 1
+    sha256 "6604660223da27b57b6547e982b62e4a67350a214fa7a7f13ed08d06aa7cf5a5" => :sierra
+    sha256 "489870b68d80dd7a9bef6cfefa463da0163573a13547ae14766a45a3de4000aa" => :el_capitan
+    sha256 "17008bc89ddf6684f2a941efe848c3412e7e92007e40b812186a5e8af1024537" => :yosemite
   end
 
   head do
     url "https://github.com/collectd/collectd.git"
 
-    depends_on "libtool" => :build
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end
 
   option "with-java", "Enable Java support"
   option "with-python", "Enable Python support"
-  option "with-protobuf-c", "Enable write_riemann via protobuf-c support"
+  option "with-riemann-client", "Enable write_riemann support"
   option "with-debug", "Enable debug support"
 
   deprecated_option "java" => "with-java"
   deprecated_option "debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "protobuf-c" => :optional
+  depends_on "libtool" => :build
+  depends_on "riemann-client" => :optional
   depends_on :java => :optional
   depends_on :python => :optional
   depends_on "net-snmp"
@@ -51,10 +52,9 @@ class Collectd < Formula
       --localstatedir=#{var}
     ]
 
-    args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
     args << "--enable-python" if build.with? "python"
-    args << "--enable-write_riemann" if build.with? "protobuf-c"
+    args << "--enable-write_riemann" if build.with? "riemann-client"
     args << "--enable-debug" if build.with? "debug"
 
     system "./build.sh" if build.head?

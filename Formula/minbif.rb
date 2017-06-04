@@ -45,9 +45,9 @@ class Minbif < Formula
       ENABLE_VIDEO=OFF
       ENABLE_TLS=ON
     ]
-    args << "ENABLE_IMLIB=" + ((build.with? "imlib2") ? "ON" : "OFF")
-    args << "ENABLE_CACA=" + ((build.with? "libcaca") ? "ON" : "OFF")
-    args << "ENABLE_PAM=" + ((build.with? "pam") ? "ON" : "OFF")
+    args << "ENABLE_IMLIB=" + (build.with?("imlib2") ? "ON" : "OFF")
+    args << "ENABLE_CACA=" + (build.with?("libcaca") ? "ON" : "OFF")
+    args << "ENABLE_PAM=" + (build.with?("pam") ? "ON" : "OFF")
 
     system "make", *args
     system "make", "install"

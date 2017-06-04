@@ -1,13 +1,13 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v2.8/nano-2.8.1.tar.gz"
-  sha256 "a48650dab5fc069bb953d020721b6c0f650969abf5a34a27dfd6f038215c5910"
+  url "https://www.nano-editor.org/dist/v2.8/nano-2.8.4.tar.gz"
+  sha256 "78a2f3b3f6b500fad995c5e207d2816cbd6b531154aa2a3a2bd50c8fdf7dc57f"
 
   bottle do
-    sha256 "c5b98efd0f358755054cfbaf63ec66f8aa23a7c68214151dfef11f80d387b615" => :sierra
-    sha256 "4f9790191389775592d70aeca0aa85e040f12afde2df210bf0c04be34767dc45" => :el_capitan
-    sha256 "b0401e6cd4b1079ccc9943b775429b89c8f7e77c4a2fffa94e79db525c61ea79" => :yosemite
+    sha256 "4221d156c06c06db498f2fa8611a6c2d4240c9d3a7bb83d223e7b80c4b07863c" => :sierra
+    sha256 "54e9896910b1648d62dd9626ce9dbf4c2ddf32c1bc4553e4a1595b4c68d5c7b1" => :el_capitan
+    sha256 "e13762936882ec05b44f38011a19dbab29f4d70b81e49a9e27ed5af7c576db4e" => :yosemite
   end
 
   head do
@@ -21,9 +21,6 @@ class Nano < Formula
   depends_on "ncurses"
 
   def install
-    # Otherwise SIGWINCH will not be defined
-    ENV.append_to_cflags "-U_XOPEN_SOURCE" if MacOS.version < :leopard
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

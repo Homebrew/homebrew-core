@@ -8,9 +8,11 @@ class Fdroidserver < Formula
   revision 7
 
   bottle do
-    sha256 "1b5dedfb4a68337b5c5bc96915f76262676c15af2b54549cbdff591a69f1c272" => :sierra
-    sha256 "c3653a35bae6f1fbbd63b68e411286a42d2d227217c305bd31ba66b961ef8d9d" => :el_capitan
-    sha256 "4944ef16caa110f491d0d07f77e1d709b1ff882cdc7c3697d427c1260b7a576e" => :yosemite
+    cellar :any
+    rebuild 1
+    sha256 "3948f3aed727748544e315216e328fd760d645a3ca2d61ffd8a69eca35b6aa5f" => :sierra
+    sha256 "0f3e0fa14969fba3b19e1645a90f0f06daa225c047e54f37d545a2759ac223a4" => :el_capitan
+    sha256 "eb0948c568c07d53abb998f9c969c7a0b1daa10523e21d22a106e7fd410e9cce" => :yosemite
   end
 
   depends_on :python3
@@ -51,8 +53,8 @@ class Fdroidserver < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "gitdb2" do

@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v9.1.0",
-      :revision => "0118d891c7ec1a0ff9e92fae57b02780fac75a7b"
+      :tag => "v9.2.0",
+      :revision => "adfc38756f38a2114a402a799c46da85a542419b"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "edd1762bc189c83fb80b60fd2b5d33715f7a3d46f53c826a61d3710e740a1639" => :sierra
-    sha256 "dfe5a523f0b5d1e9413ede20160c21d3a9daa1a73146f9363a6d650b5dfa7188" => :el_capitan
-    sha256 "985d92f7eb0fd71a650e144c38caac86931824152bd90199edc55e8f8e82ea5e" => :yosemite
+    sha256 "bb327e480c7885c62f3cd3501ebb6f0d8caf8c4d1874acab6316352ebc439dc9" => :sierra
+    sha256 "4a3a4a246e252775096b96ac5e0efd493ab516bd96e0d60da589ce805adec9b7" => :el_capitan
+    sha256 "547433e131bb13cfa7a321ca26e07f2c268e8a0df894a74b8d931ae8998a1488" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,17 +24,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.1.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.2.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "9.1.0"
-    sha256 "b9fa9dfd1b50b327c51c720a5e5eaf587e207a1d213fb0c170f67957cae1acd5"
+    version "9.2.0"
+    sha256 "cc4983905332f6b5b2c9bc25171cb71a1585d4b58866b4fefe4c60c907e4d774"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.1.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.2.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "9.1.0"
-    sha256 "e6c97f7748f104a30cf439221dcc12635f22ae6fd751992103ae0f0f6935b7d4"
+    version "9.2.0"
+    sha256 "6f22044f096e9752c0aa84eb5d79bffe272f9cd384e3929ee714071a6c2bd1f8"
   end
 
   def install

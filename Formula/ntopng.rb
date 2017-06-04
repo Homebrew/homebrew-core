@@ -1,24 +1,20 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "http://www.ntop.org/products/ntop/"
-  revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/2.4.tar.gz"
-    sha256 "86f8ed46983f46bcd931304d3d992fc1af572b11e461ab9fb4f0f472429bd5dd"
+    url "https://github.com/ntop/ntopng/archive/3.0.tar.gz"
+    sha256 "3780f1e71bc7aa404f40ea9b805d195943cdb5095d712f41669eae138d388ad5"
 
     resource "nDPI" do
-      # tip of 1.8-stable branch; four commits beyond the 1.8 tag
-      url "https://github.com/ntop/nDPI.git",
-        :revision => "6fb81f146e2542cfbf7fab7d53678339c7747b35"
+      url "https://github.com/ntop/nDPI.git", :branch => "2.0-stable"
     end
   end
 
   bottle do
-    sha256 "60f5fea02d8b2b3a21a692948ff766b46022577bd7b9b06089f47394d6c757dd" => :sierra
-    sha256 "1fc7e9e953d8f56e76be90b02b3d45e91cd2a9bb398a6635a992c733574e6058" => :el_capitan
-    sha256 "22821f8c3b10ebab568755a86349ed0a65a28ea04f262df94771e71b8f423502" => :yosemite
-    sha256 "156d8545cc8632d4ecb92d2cea86f784da0150f0cd9e0a567985ba9785b1ae1f" => :mavericks
+    sha256 "accef6e537eca111021c9eefb3b142b80ddeec313b0c3f8924aaf785a9f839ed" => :sierra
+    sha256 "ec35e60a6fd33a1ed3631b2bc99845923388ba8f5ee5d61d06b342fe78547061" => :el_capitan
+    sha256 "6b0c53620382b61d40c1553fcfe15f0d8da5cefc8f3687627540f81ddb827edb" => :yosemite
   end
 
   head do
@@ -36,7 +32,6 @@ class Ntopng < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "json-glib" => :build
-  depends_on "wget" => :build
   depends_on "zeromq" => :build
   depends_on "gnutls" => :build
 
@@ -49,6 +44,11 @@ class Ntopng < Formula
   depends_on "mariadb" => :optional
 
   def install
+    # Prevent "make install" failure "cp: the -H, -L, and -P options may not be
+    # specified with the -r option"
+    # Reported 2 Jun 2017 https://github.com/ntop/ntopng/issues/1285
+    inreplace "Makefile.in", "cp -Lr", "cp -LR"
+
     resource("nDPI").stage do
       system "./autogen.sh"
       system "make"
@@ -61,6 +61,6 @@ class Ntopng < Formula
   end
 
   test do
-    system "#{bin}/ntopng", "-h"
+    system "#{bin}/ntopng", "-V"
   end
 end

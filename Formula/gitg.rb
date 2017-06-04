@@ -1,14 +1,13 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
-  sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
-  revision 1
+  url "https://download.gnome.org/sources/gitg/3.24/gitg-3.24.0.tar.xz"
+  sha256 "3e4ec4a8ae83bc7ced8c7610927ade70e37daa5e8beeb4f357a6ea30b4cc951e"
 
   bottle do
-    sha256 "4132836f7275773fc4fc52017295455416e067d044b75e610070ddb6448d6903" => :sierra
-    sha256 "326c39b1aef24d993dbf6897ed2e0166a6e0e403fbae6c808e1eb90c4b1c613d" => :el_capitan
-    sha256 "36b4f56fb22dbb3375f926adc2eed61254070eb6793c4b8add14e9d0db4a5a9a" => :yosemite
+    sha256 "c20220ca9f8a8d72c651afa7490f9a1fcc91665fe19f4a6e202ef5b28b8704d9" => :sierra
+    sha256 "ba2fba4a28434f41295de8878814e68526915d647fbd0a7c42035149e0c11d32" => :el_capitan
+    sha256 "584ee19894af861db5a818c7df9ab25f4b74bcd678770d5e5fbec031cb2f40f3" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -26,17 +25,14 @@ class Gitg < Formula
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
-  depends_on :python3 => :optional
-  depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
+                          "--disable-schemas-compile",
+                          "--disable-python"
     system "make", "install"
   end
 

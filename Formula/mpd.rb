@@ -1,13 +1,13 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.6.tar.xz"
-  sha256 "f4055e1189e5cc00e83706b2e0b5ead924ced0303e073d7802ee9f9a8eba4b47"
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.8.tar.xz"
+  sha256 "7d177f29663c4a0997413401e52bbf11d2bb472773bbcf9294f839c4b8751e35"
 
   bottle do
-    sha256 "772293121659866f47d554b60eea57460a489659599ea9f83435c8a372c05ac8" => :sierra
-    sha256 "2913600b2efe25fe2591f87a8bd9b59b044ada4fac1abe783b1fb18ee966ec55" => :el_capitan
-    sha256 "cec38e434121b587c6e4f771e106ffd6724b1d7c3ccfcd19cfc45ba9259aca2d" => :yosemite
+    sha256 "0f5d27ec4ac18febd627a3bc7b672b95ba11bbe2ed8290138efe829cf1144bab" => :sierra
+    sha256 "d1b986f673ce55787dc930e64bafad957349794a7c9822088dcceb11a1594398" => :el_capitan
+    sha256 "38effc03901f25555fec205ff64b141a852a8585b5b67c04f35aef3b15bb3258" => :yosemite
   end
 
   head do
@@ -26,6 +26,7 @@ class Mpd < Formula
   option "with-opus", "Build with opus support (for Opus encoding and decoding)"
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
   option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
+  option "with-upnp", "Build with upnp database plugin support"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -60,6 +61,10 @@ class Mpd < Formula
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
   depends_on "pulseaudio" => :optional
+  if build.with? "upnp"
+    depends_on "expat"
+    depends_on "libupnp"
+  end
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -82,8 +87,6 @@ class Mpd < Formula
     ]
 
     args << "--disable-mad" if build.without? "mad"
-    args << "--disable-curl" if MacOS.version <= :leopard
-
     args << "--enable-zzip" if build.with? "libzzip"
     args << "--enable-lastfm" if build.with? "lastfm"
     args << "--disable-lame-encoder" if build.without? "lame"
@@ -92,6 +95,10 @@ class Mpd < Formula
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
     args << "--enable-pulse" if build.with? "pulseaudio"
+    if build.with? "upnp"
+      args << "--enable-upnp"
+      args << "--enable-expat"
+    end
 
     system "./configure", *args
     system "make"

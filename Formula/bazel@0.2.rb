@@ -22,7 +22,7 @@ class BazelAT02 < Formula
     # Use nanosleep(2) instead of poll(2) to sleep.
     patch do
       url "https://github.com/bazelbuild/bazel/commit/fefd232.patch"
-      sha256 "1f668d35ed81ce4c3d12c0011b1aaaabbf8ee65f633733cd96b77e57e79f8536"
+      sha256 "454065d3d2fd7173e27cdaa29fd85a7b337f0a1c3e8d2d9c01843f858de332b3"
     end
   end
 

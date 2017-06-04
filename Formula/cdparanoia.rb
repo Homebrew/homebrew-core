@@ -20,11 +20,6 @@ class Cdparanoia < Formula
     sha256 "3eca8ff34d2617c460056f97457b5ac62db1983517525e5c73886a2dea9f06d9"
   end
 
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2a22152/cdparanoia/patch-paranoia_paranoia.c.10.4.diff"
-    sha256 "4d6d51909d1b29a3c8ac349f5132a8acd96628355117efb3f192408d2cc4829e"
-  end
-
   def install
     system "autoconf"
     # Libs are installed as keg-only because most software that searches for cdparanoia

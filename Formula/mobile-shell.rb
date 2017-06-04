@@ -3,11 +3,12 @@ class MobileShell < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.0.tar.gz"
   sha256 "320e12f461e55d71566597976bd9440ba6c5265fa68fbf614c6f1c8401f93376"
+  revision 1
 
   bottle do
-    sha256 "6ab4f7e7cf8e149f10931471658063356b485b0ca34037f44c93afaae34c1c0f" => :sierra
-    sha256 "86daec2c4d1517f4485989c69f989caf1a16fdc891cb2f4a949371bd5b4eeda0" => :el_capitan
-    sha256 "398f486fc155ba3e345bd26834b4bff6c16e0535237e196cb766cf472fc3811b" => :yosemite
+    sha256 "092d47a9a6836e66597775dadca0bc78c57b04879cf6c392f7514605d8c53a50" => :sierra
+    sha256 "c406e65d8589855f49487feefea50166c5fb37395b07fa7c54f5882b2a5fbe2d" => :el_capitan
+    sha256 "435b0730e2335d91a5317219c46f703993215333f370f1c998b0122770844e7b" => :yosemite
   end
 
   head do
@@ -27,6 +28,13 @@ class MobileShell < Formula
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
 
   def install
+    # Remove for > 1.3.0
+    # Upstream commit from 29 Apr 2017 "Disable unicode-later-combining.test for now"
+    # See https://github.com/mobile-shell/mosh/commit/df4dbe0d6c9c3ac7a6a102f315090c9b7aa75ad6
+    if build.stable?
+      inreplace "src/tests/Makefile.in", /^\tunicode-later-combining.test \\$\n/, ""
+    end
+
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"

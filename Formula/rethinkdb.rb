@@ -25,7 +25,7 @@ class Rethinkdb < Formula
   # Reported 1 Aug 2016: "Fix the build on case-sensitive macOS file systems"
   patch do
     url "https://github.com/rethinkdb/rethinkdb/pull/6024.patch"
-    sha256 "b9bdea085117368f69b34bd9076a303a0e4b3922149e9513691c887c23d12ee3"
+    sha256 "76238de65bbdaf8bccd603f4ade7c48d24e09ba8fc77db66e0b1728d790598ae"
   end
 
   def install

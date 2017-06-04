@@ -1,16 +1,16 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2017-04-01.tar.gz"
-  version "20170401"
-  sha256 "908b2152eea1a7c5eefe27131d322308a9c30ed62e1254824404a2ab92bb2992"
+  url "https://github.com/google/re2/archive/2017-06-01.tar.gz"
+  version "20170601"
+  sha256 "bb60df9576e595c1c636020cad6a09c47926f9228c0db7dc43ac9ed059ad502e"
   head "https://github.com/google/re2.git"
 
   bottle do
     cellar :any
-    sha256 "d88edd339a32fbef58f47a882ec40d9a28e585755f27dbd8a8b369c97ad4c836" => :sierra
-    sha256 "6a419730af2255632c663de92b77323dc2df0b7d1d85b43e410366a9b1ddb8ce" => :el_capitan
-    sha256 "05a1ecd25145cb71d21b8214bafef9f91e8f8fbadd453207c213c5cd9e676e0b" => :yosemite
+    sha256 "1a5ba0d547cc62d51f3a27e6dedbfdb706a12e4065eef64a0ba1dab9d86d7f61" => :sierra
+    sha256 "91eb90a856183ef7dae756ff1a67e87694c19bc5ace9d3ea28c4865eedb1f138" => :el_capitan
+    sha256 "2e26e1f6796f8fc98999f69d0f9c93109e18617df8becbbd2862f2870e5e4417" => :yosemite
   end
 
   needs :cxx11

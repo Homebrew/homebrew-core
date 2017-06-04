@@ -9,12 +9,12 @@ class Freerdp < Formula
 
     patch do
       url "https://github.com/FreeRDP/FreeRDP/commit/1d3289.diff"
-      sha256 "90a4f288349dd13b658b3401762373f0dec8414233bf304df0715724c8352cec"
+      sha256 "1bc1d4e1447245790587f0bb32db8f5b0e18c5ba984be2df687c8c78350de1ff"
     end
 
     patch do
       url "https://github.com/FreeRDP/FreeRDP/commit/e32f9e.diff"
-      sha256 "1b8ec9d5e229b4ed50790042bee7ceb3e85bdd88c9bc2dcfdf2e9d97e921649d"
+      sha256 "90a9601457ae12d1b4c90050a4af532bcb54a75a9c0f5886907d19f1963ab710"
     end
 
     # https://github.com/FreeRDP/FreeRDP/pull/1682/files

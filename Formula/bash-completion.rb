@@ -36,7 +36,7 @@ class BashCompletion < Formula
   end
 
   def caveats; <<-EOS.undent
-    Add the following lines to your ~/.bash_profile:
+    Add the following line to your ~/.bash_profile:
       [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
     EOS
   end

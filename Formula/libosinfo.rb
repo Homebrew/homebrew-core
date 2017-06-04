@@ -1,18 +1,18 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://fedorahosted.org/releases/l/i/libosinfo/libosinfo-1.0.0.tar.gz"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.0.0.tar.gz"
   sha256 "f7b425ecde5197d200820eb44401c5033771a5d114bd6390230de768aad0396b"
 
   bottle do
-    sha256 "8333caf213bde3c6d468db1511061277d0424e255fadd000508d86613479c18e" => :sierra
-    sha256 "6a8d53d43ab4b9889780e5393f0d332a0276d1ff3790032830b42e7b394d09dc" => :el_capitan
-    sha256 "78fa165080b4feed8020fa47d5c13e0a601aa74ea63673f7213fc2197a4be248" => :yosemite
+    rebuild 1
+    sha256 "a47562567ab29bd73b7f8412c66e744092102fcfa9919fff6659adfb5149b2f6" => :sierra
+    sha256 "657ba115e5432c8ab9e1262abd8b759fa847d8cded4249ee7681c0a73cddb5fd" => :el_capitan
+    sha256 "f15d2fccb9db83969e14a854ec1e3c8c1a4a78ba5e47e638622abcb0fe38edf8" => :yosemite
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "wget" => :build
 
   depends_on "check"
   depends_on "gettext"
@@ -25,6 +25,9 @@ class Libosinfo < Formula
   depends_on "vala" => :optional
 
   def install
+    # avoid wget dependency
+    inreplace "Makefile.in", "wget -q -O", "curl -o"
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}
@@ -36,7 +39,11 @@ class Libosinfo < Formula
     ]
 
     args << "--disable-introspection" if build.without? "gobject-introspection"
-    args << "--enable-vala" if build.with? "vala"
+    if build.with? "vala"
+      args << "--enable-vala"
+    else
+      args << "--disable-vala"
+    end
 
     system "./configure", *args
 
@@ -78,7 +85,10 @@ class Libosinfo < Formula
       for name in hvnames:
         print ("  HV short id " + name)
     EOS
-
+    ENV.append_path "GI_TYPELIB_PATH", lib+"girepository-1.0"
+    ENV.append_path "GI_TYPELIB_PATH", Formula["gobject-introspection"].opt_lib+"girepository-1.0"
+    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["pygobject3"].opt_lib+"python2.7/site-packages"
     system "python", "test.py"
   end
 end

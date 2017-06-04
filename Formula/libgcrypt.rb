@@ -1,15 +1,15 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
-  sha256 "626aafee84af9d2ce253d2c143dc1c0902dda045780cc241f39970fc60be05bc"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
+  sha256 "b9b85eba0793ea3e6e66b896eb031fa05e1a4517277cc9ab10816b359254cd9a"
 
   bottle do
     cellar :any
-    sha256 "80363bc060150813df38493638551e24b48e8c9bf106e06e22c98b51cad65687" => :sierra
-    sha256 "360f008a45b2c32de7963f307ff80da0b53cf2d257c87412dc2465984a3797ec" => :el_capitan
-    sha256 "461822c0429c16e33c2c5f8be173fedc3228cea786683e463ae628789ea6c1e1" => :yosemite
+    sha256 "3ee390e97f01b7c76598e792e70535a36f6ef8c7c17aaa53da2e85d58f8a3247" => :sierra
+    sha256 "56f8d744f774ba092ffd329221284f7cdbfbba737020a184e9836ab7b8f94ba3" => :el_capitan
+    sha256 "b72790d88a631f9d524dc2bc4604360d2bbbac8a95fe0553bef88ad070ddec82" => :yosemite
   end
 
   depends_on "libgpg-error"

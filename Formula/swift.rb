@@ -45,7 +45,7 @@ class Swift < Formula
     sha256 "3f856e641147d9a743dc7e978e0dab93652ad43b59a0c064af35ab679412c5ad" => :sierra
   end
 
-  keg_only :provided_by_osx, "Apple's CLT package contains Swift."
+  keg_only :provided_by_osx, "Apple's CLT package contains Swift"
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build

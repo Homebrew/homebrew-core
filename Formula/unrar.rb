@@ -1,15 +1,14 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "http://www.rarlab.com"
-  url "http://www.rarlab.com/rar/unrarsrc-5.4.5.tar.gz"
-  sha256 "e470c584332422893fb52e049f2cbd99e24dc6c6da971008b4e2ae4284f8796c"
-  revision 1
+  url "http://www.rarlab.com/rar/unrarsrc-5.5.3.tar.gz"
+  sha256 "d1d9ef4a9247db088f825666de8f8bb69006d8d8b0e004ff366b3e04c103a2b3"
 
   bottle do
     cellar :any
-    sha256 "4f4dc2cec588ab76bc09c41ce70f14edadea9973c8d355a9a309e5a4c9992b54" => :sierra
-    sha256 "eb0ae9f689c8f4018160129ca11fbfb8c8f87aa3cd99d790dfa44b70a536a1d7" => :el_capitan
-    sha256 "ee98c32d1856c375c21ad4bd43c3e52e6751209152927e7603a93ec2900ca299" => :yosemite
+    sha256 "401d808d3d81a9e9416edf373c3cc2488bb27a708b8b89b7d4c3ce29240fa567" => :sierra
+    sha256 "ff5758b0d48110600df160d1f78c6486ed02ce52d195a13f16d7cc9f75e55953" => :el_capitan
+    sha256 "529b9b1eb6f231cfd6468305d17384f2aea314591da6d5df9c3ee4d852861185" => :yosemite
   end
 
   def install

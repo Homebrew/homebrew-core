@@ -1,14 +1,14 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.27.tar.gz"
-  mirror "https://fossies.org/linux/privat/freetds-1.00.27.tar.gz"
-  sha256 "c30f170219cbbaa2651dcbce85b5b6959dd169f57f7ca0b88815c5874f2552cf"
+  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.40.tar.bz2"
+  mirror "https://fossies.org/linux/privat/freetds-1.00.40.tar.bz2"
+  sha256 "699affda9ec8066c4b051b6535149f165c3e6170d1f834a6d00641da15911782"
 
   bottle do
-    sha256 "19314614331706f3275bfd81ea33e45966187e2be3f58b67b479e338fac54780" => :sierra
-    sha256 "2368946a107b19a63d2e198b3ca7ad9a6d27403b0df580c17dedf595004d7a78" => :el_capitan
-    sha256 "7b33a7c8beba9a5669cef24956610268c7db71bda5be4837fd7a04a375037f64" => :yosemite
+    sha256 "65e09e172024926a1db108f23c72ea7772c87181d427b9e45fbc4fb46a9478a2" => :sierra
+    sha256 "4fbc8dab0425e7ee2354d3d7f2e3837eb8d2e3021472a4350c96167e51209324" => :el_capitan
+    sha256 "927303d5a4528bb1187b7ecb14b42eab6cac3d9ba35c23ab200a4381ae7f8fed" => :yosemite
   end
 
   head do
@@ -61,9 +61,7 @@ class Freetds < Formula
     # Translate formula's "--with" options to configuration script's "--enable"
     # options
     %w[msdblib sybase-compat odbc-wide krb5].each do |option|
-      if build.with? option
-        args << "--enable-#{option}"
-      end
+      args << "--enable-#{option}" if build.with? option
     end
 
     if build.head?

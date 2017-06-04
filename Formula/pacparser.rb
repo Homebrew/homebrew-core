@@ -90,7 +90,7 @@ class Pacparser < Formula
       },
       {
         "cmd" => "-u http://www.google.com",  ## internet
-        "res" => "isResolvable",              ## requried
+        "res" => "isResolvable",              ## required
       },
       {
         "cmd" => "-u http://www.notresolvabledomainXXX.com",

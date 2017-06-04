@@ -1,6 +1,6 @@
 class Angolmois < Formula
   desc "BM98-like rhythm game"
-  homepage "http://mearie.org/projects/angolmois/"
+  homepage "https://mearie.org/projects/angolmois/"
 
   stable do
     url "https://github.com/lifthrasiir/angolmois/archive/angolmois-2.0-alpha2.tar.gz"

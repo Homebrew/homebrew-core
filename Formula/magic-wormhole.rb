@@ -7,9 +7,11 @@ class MagicWormhole < Formula
   sha256 "14aed4b453278651d92c3fd8955a105e2d33dcde279fa25d1d759e0e769f16b3"
 
   bottle do
-    sha256 "0e20136fa84484f543b1945bf173d8218792128ab2e7eac79e80f6f989bfb5fd" => :sierra
-    sha256 "425659c1f57bdf8a848eada8ec4ffebf38766d0d8c02621c6d2bc85d28ccae43" => :el_capitan
-    sha256 "7f12096efc5c26f91615f69ffe77aa7358814f00955f93601f973da8de457b09" => :yosemite
+    cellar :any
+    rebuild 1
+    sha256 "1a8585fef93daec28fab0e9a6ab3529df32d5e6a0d74ddebc0ed9ad661eedc71" => :sierra
+    sha256 "c8e5482bc5a74debe8191f9e8206151990de23a704d7750039366304b56a1a0a" => :el_capitan
+    sha256 "f4d27eceafc15ad2abd04c310c8bda060d433208ce3cab515c9bd8394f15dd1b" => :yosemite
   end
 
   depends_on :python
@@ -62,8 +64,8 @@ class MagicWormhole < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "enum34" do

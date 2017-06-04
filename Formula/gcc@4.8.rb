@@ -71,10 +71,6 @@ class GccAT48 < Formula
   depends_on "isl@0.12"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
-  # The as that comes with Tiger isn't capable of dealing with the
-  # PPC asm that comes in libitm
-  depends_on "cctools" => :build if MacOS.version < :leopard
-
   fails_with :gcc_4_0
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -89,10 +85,6 @@ class GccAT48 < Formula
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
-
-    if MacOS.version < :leopard
-      ENV["AS"] = ENV["AS_FOR_TARGET"] = "#{Formula["cctools"].bin}/as"
-    end
 
     if build.with? "all-languages"
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
@@ -126,6 +118,7 @@ class GccAT48 < Formula
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
+      "--enable-plugin",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
@@ -140,14 +133,6 @@ class GccAT48 < Formula
     # files prior to comparison during bootstrap (broken by Xcode 6.3).
     # This causes bottle errors for gcc48 on Mountain Lion, so scope it to 10.10.
     args << "--with-build-config=bootstrap-debug" if MacOS.version >= :yosemite
-
-    # "Building GCC with plugin support requires a host that supports
-    # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
-
-    # Otherwise make fails during comparison at stage 3
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if MacOS.version < :leopard
 
     args << "--disable-nls" if build.without? "nls"
 

@@ -24,7 +24,7 @@ class CrosstoolNg < Formula
   depends_on "binutils"
   depends_on "libelf"
   depends_on "grep" => :optional
-  depends_on "homebrew/dupes/make" => :optional
+  depends_on "make" => :optional
 
   def install
     args = %W[
