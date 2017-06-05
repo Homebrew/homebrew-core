@@ -13,12 +13,34 @@ class Ecl < Formula
   end
 
   depends_on "gmp"
+  depends_on "bdw-gc"
+  depends_on "libffi"
 
   def install
+    gmp = Formula["gmp"]
+    bdwgc = Formula["bdwgc"]
+    libffi = Formula["libffi"]
+
+    # These environment variables are necessary or bdwgc won't be found until the
+    # next upstream release:
+    # https://gitlab.com/embeddable-common-lisp/ecl/issues/346
+    ENV.append "CFLAGS", "-I#{bdwgc.opt_include}"
+    ENV.append "CXXFLAGS", "-I#{bdwgc.opt_include}"
+    ENV.append "LDFLAGS", "-L#{bdwgc.opt_lib}"
+
+    # Parallel-make support is being actively worked on and there is not a PR
+    # ready at this time:
+    # https://gitlab.com/embeddable-common-lisp/ecl/tree/revert-make-split
     ENV.deparallelize
-    system "./configure", "--prefix=#{prefix}",
+
+    system "./configure",
+                          "--prefix=#{prefix}",
+                          "--with-gmp-prefix=#{gmp.prefix}",
+                          "--with-libffi-prefix=#{libffi.prefix}",
                           "--enable-threads=yes",
-                          "--with-system-gmp=yes"
+                          "--with-dffi=system",
+                          "--with-cxx",
+                          "--enable-gmp=system"
     system "make"
     system "make", "install"
   end
@@ -28,5 +50,9 @@ class Ecl < Formula
       (write-line (write-to-string (+ 2 2)))
     EOS
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp
+    (testpath/"compile-test.cl").write <<-EOS.undent
+      (compile (defun two-plus-two () (write-line (write-to-string (+ 2 2)))))
+    EOS
+    shell_output("#{bin}/ecl -shell #{testpath}/compile-test.cl").chomp
   end
 end
