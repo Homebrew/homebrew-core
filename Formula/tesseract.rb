@@ -1,9 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.00.tar.gz"
-  sha256 "3fe83e06d0f73b39f6e92ed9fc7ccba3ef734877b76aa5ddaaa778fac095d996"
-  revision 1
+  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.01.tar.gz"
+  sha256 "05898f93c5d057fada49b9a116fc86ad9310ff1726a0f499c3e5211b3af47ec1"
 
   bottle do
     sha256 "45167af1ab8944f17e1a978d9c7d397c505d0557a3ddecd4561a8e9553884e07" => :sierra
@@ -65,25 +64,7 @@ class Tesseract < Formula
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
 
-  # remove on next release, > 3.05.00
-  # upstream fix for building with OpenCL enabled
-  # https://github.com/tesseract-ocr/tesseract/pull/814
-  unless build.head?
-    patch do
-      url "https://github.com/tesseract-ocr/tesseract/commit/b18cad4.patch"
-      sha256 "10c59baa54c3406fcd03f36cd0f1e3cc2ba150f082d14f919274a541b3cff7b2"
-    end
-  end
-
   def install
-    if build.head?
-      # ld: symbol(s) not found for _clSetKernelArg and other symbols
-      # Regression caused by https://github.com/tesseract-ocr/tesseract/commit/b1c921b
-      # Reported 13 Sep 2016 https://github.com/tesseract-ocr/tesseract/issues/426
-      inreplace "api/Makefile.am", "$(GENERIC_LIBRARY_VERSION) -no-undefined",
-                                   "$(GENERIC_LIBRARY_VERSION)"
-    end
-
     if build.with? "training-tools"
       icu4c = Formula["icu4c"]
       ENV.append "CFLAGS", "-I#{icu4c.opt_include}"
