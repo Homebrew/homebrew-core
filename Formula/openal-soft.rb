@@ -1,8 +1,8 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "http://kcat.strangesoft.net/openal.html"
-  url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.17.2.tar.bz2"
-  sha256 "a341f8542f1f0b8c65241a17da13d073f18ec06658e1a1606a8ecc8bbc2b3314"
+  url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.18.0.tar.bz2"
+  sha256 "4433b1391c61a7ca36d82c946c8f0ffe410569d6437e4ce72b3547aaf966ecde"
   head "http://repo.or.cz/openal-soft.git"
 
   bottle do
