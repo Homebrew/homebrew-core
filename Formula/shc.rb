@@ -1,8 +1,8 @@
 class Shc < Formula
   desc "Shell Script Compiler"
   homepage "https://neurobin.github.io/shc"
-  url "https://github.com/neurobin/shc/archive/3.9.5.tar.gz"
-  sha256 "b4b36abb2ec8829b6adaf08a8d36d3b0a50103b5809ca788cf0cd5b5011831d3"
+  url "https://github.com/neurobin/shc/archive/3.9.6.tar.gz"
+  sha256 "da6a2a3ff4c356a61e086c616561bf681489993cab00c426bad0cfd703a68063"
   head "https://github.com/neurobin/shc.git"
 
   bottle do
