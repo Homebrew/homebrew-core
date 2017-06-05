@@ -5,9 +5,9 @@ class Libgweather < Formula
   sha256 "1227316037b63dac4153031a22abccb3d2ac679a7409e29cd303eec499eb653c"
 
   bottle do
-    sha256 "d621f898f92c2da41d6a61489e6b28a85ce93d4ebf260540b55483e90e1a8039" => :sierra
-    sha256 "c2b981972f31600c9203608441c4188c34c3a582f5f3f7cb207e36f9cf0947b1" => :el_capitan
-    sha256 "22c0bcdfb526e92b225a8a1a008a66f17516425f369150cbbfa9e677e38ec3f3" => :yosemite
+    sha256 "2844a557e659e911a0295f21541601f051283d4a3e8d6271d0e05acbf62adf72" => :sierra
+    sha256 "19cb86132efb301dc7f94f3cc6951a7b7b658349ef7baf9d5d5aaf2ab1c17b14" => :el_capitan
+    sha256 "cb5c41f0deabcbf8676cbf316f81883bf9c7efe0fb45439d3134cfb483507489" => :yosemite
   end
 
   depends_on "pkg-config" => :build
