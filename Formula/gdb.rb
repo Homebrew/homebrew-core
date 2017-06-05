@@ -1,22 +1,9 @@
-class UniversalBrewedPython < Requirement
-  satisfy { archs_for_command("python").universal? }
-
-  def message; <<-EOS.undent
-    A build of GDB using a brewed Python was requested, but Python is not
-    a universal build.
-
-    GDB requires Python to be built as a universal binary or it will fail
-    if attempting to debug a 32-bit binary on a 64-bit host.
-    EOS
-  end
-end
-
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-7.12.1.tar.xz"
-  sha256 "4607680b973d3ec92c30ad029f1b7dbde3876869e6b3a117d8a7e90081113186"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.0.tar.xz"
+  sha256 "f6a24ffe4917e67014ef9273eb8b547cb96a13e5ca74895b06d683b391f3f4ee"
 
   bottle do
     rebuild 1
@@ -35,17 +22,6 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile@2.0" => :optional
-
-  if MacOS.version >= :sierra
-    patch do
-      # Patch is needed to work on new 10.12 installs with SIP.
-      # See http://sourceware-org.1504.n7.nabble.com/gdb-on-macOS-10-12-quot-Sierra-quot-td415708.html
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9d3dbc2/gdb/0001-darwin-nat.c-handle-Darwin-16-aka-Sierra.patch"
-      sha256 "a71489440781ae133eeba5a3123996e55f72bd914dbfdd3af0b0700f6d0e4e08"
-    end
-  end
-
-  depends_on UniversalBrewedPython if build.with? "python"
 
   def install
     args = [
