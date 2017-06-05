@@ -13,6 +13,12 @@ class Babel < Formula
     sha256 "f7ad8b1845bbecef506586b434e0249859e2bc48be3a165cc94dd5f981c7f800" => :yosemite
   end
 
+  devel do
+    url "https://registry.npmjs.org/babel-cli/-/babel-cli-7.0.0-alpha.12.tgz"
+    version "7.0.0-alpha.12"
+    sha256 "a81e2421486ca48d3961c4ab1fada8acd3bb3583ccfb28822cbb0b16a2635144"
+  end
+
   depends_on "node"
 
   def install
