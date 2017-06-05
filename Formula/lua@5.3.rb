@@ -3,6 +3,7 @@ class LuaAT53 < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
   sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,12 +12,9 @@ class LuaAT53 < Formula
     sha256 "d0e79e1f4097bf550a488ec987e5e7316d3c4b95d4e5e588e348debcd0df7320" => :yosemite
   end
 
-  option "without-luarocks", "Don't build with Luarocks support embedded"
+  keg_only :versioned_formula
 
-  # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/homebrew/pull/5043
-  # ***Update me with each version bump!***
-  patch :DATA
+  option "without-luarocks", "Don't build with Luarocks support embedded"
 
   resource "luarocks" do
     url "https://keplerproject.github.io/luarocks/releases/luarocks-2.3.0.tar.gz"
@@ -35,21 +33,9 @@ class LuaAT53 < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.3"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.3"
-    (lib/"pkgconfig/lua-5.3.pc").write pc_file
-
-    # Renaming from Lua to Lua53.
-    # Note that the naming must be both lua-version & lua.version.
-    # Software can't find the libraries without supporting both the hyphen or full stop.
-    mv "#{bin}/lua", "#{bin}/lua-5.3"
-    mv "#{bin}/luac", "#{bin}/luac-5.3"
-    mv "#{man1}/lua.1", "#{man1}/lua-5.3.1"
-    mv "#{man1}/luac.1", "#{man1}/luac-5.3.1"
-    bin.install_symlink "lua-5.3" => "lua5.3"
-    bin.install_symlink "luac-5.3" => "luac5.3"
-    include.install_symlink "lua-5.3" => "lua5.3"
-    (lib/"pkgconfig").install_symlink "lua-5.3.pc" => "lua5.3.pc"
+    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    (lib/"pkgconfig/lua.pc").write pc_file
 
     # This resource must be handled after the main install, since there's a lua dep.
     # Keeping it in install rather than postinstall means we can bottle.
@@ -65,8 +51,8 @@ class LuaAT53 < Formula
         system "make", "install"
 
         (share/"lua/5.3/luarocks").install_symlink Dir["#{libexec}/share/lua/5.3/luarocks/*"]
-        bin.install_symlink libexec/"bin/luarocks-5.3"
-        bin.install_symlink libexec/"bin/luarocks-admin-5.3"
+        bin.install_symlink libexec/"bin/luarocks"
+        bin.install_symlink libexec/"bin/luarocks-admin"
 
         # This block ensures luarock exec scripts don't break across updates.
         inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
@@ -103,67 +89,12 @@ class LuaAT53 < Formula
   end
 
   test do
-    system "#{bin}/lua-5.3", "-e", "print ('Ducks are cool')"
+    system "#{bin}/lua", "-e", "print ('Ducks are cool')"
+
+    if File.exist?(bin/"luarocks")
+      mkdir testpath/"luarocks"
+      system bin/"luarocks", "install", "moonscript", "--tree=#{testpath}/luarocks"
+      assert File.exist? testpath/"luarocks/bin/moon"
+    end
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 7fa91c8..a825198 100644
---- a/Makefile
-+++ b/Makefile
-@@ -41,7 +41,7 @@ PLATS= aix bsd c89 freebsd generic linux macosx mingw posix solaris
- # What to install.
- TO_BIN= lua luac
- TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
--TO_LIB= liblua.a
-+TO_LIB= liblua.5.3.3.dylib
- TO_MAN= lua.1 luac.1
-
- # Lua version and release.
-@@ -63,6 +63,7 @@ install: dummy
-	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
-	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
-	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
-+	ln -s -f liblua.5.3.3.dylib $(INSTALL_LIB)/liblua.5.3.dylib
-
- uninstall:
-	cd src && cd $(INSTALL_BIN) && $(RM) $(TO_BIN)
-diff --git a/src/Makefile b/src/Makefile
-index 2e7a412..d0c4898 100644
---- a/src/Makefile
-+++ b/src/Makefile
-@@ -28,7 +28,7 @@ MYOBJS=
-
- PLATS= aix bsd c89 freebsd generic linux macosx mingw posix solaris
-
--LUA_A=	liblua.a
-+LUA_A=	liblua.5.3.3.dylib
- CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
-	lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o \
-	ltm.o lundump.o lvm.o lzio.o
-@@ -56,11 +56,12 @@ o:	$(ALL_O)
- a:	$(ALL_A)
-
- $(LUA_A): $(BASE_O)
--	$(AR) $@ $(BASE_O)
--	$(RANLIB) $@
-+	$(CC) -dynamiclib -install_name HOMEBREW_PREFIX/lib/liblua.5.3.dylib \
-+		-compatibility_version 5.3 -current_version 5.3.3 \
-+		-o liblua.5.3.3.dylib $^
-
- $(LUA_T): $(LUA_O) $(LUA_A)
--	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
-+	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.3 $(LIBS)
-
- $(LUAC_T): $(LUAC_O) $(LUA_A)
-	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
-@@ -110,7 +111,7 @@ linux:
-	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl -lreadline"
-
- macosx:
--	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX" SYSLIBS="-lreadline" CC=cc
-+	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline" CC=cc
-
- mingw:
-	$(MAKE) "LUA_A=lua53.dll" "LUA_T=lua.exe" \
