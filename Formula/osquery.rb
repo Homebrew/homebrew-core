@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.4.2",
-      :revision => "62dda71321e4fe492595298c3300c270c4888f8f"
-  revision 2
+      :tag => "2.4.6",
+      :revision => "f9cb7149a9ac53c4aa563886d3bd37955876753f"
 
   bottle do
     cellar :any
@@ -15,8 +14,8 @@ class Osquery < Formula
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.11 and above. Do not remove this.
-  depends_on :macos => :el_capitan
+  # osquery only supports macOS 10.12 and above. Do not remove this.
+  depends_on :macos => :sierra
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
