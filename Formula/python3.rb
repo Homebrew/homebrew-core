@@ -4,6 +4,7 @@ class Python3 < Formula
   url "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz"
   sha256 "a01810ddfcec216bcdb357a84bfaafdfaa0ca42bbdaa4cb7ff74f5a9961e4041"
   head "https://github.com/python/cpython", :using => :git
+  revision 1
 
   bottle do
     rebuild 1
