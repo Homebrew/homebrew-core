@@ -1,8 +1,8 @@
 class Ne < Formula
   desc "The nice editor"
   homepage "http://ne.di.unimi.it"
-  url "http://ne.di.unimi.it/ne-3.1.0.tar.gz"
-  sha256 "bf2a664e788e4f39073d0000a4ba80f02c43c556cb7fd714704f13175a4b8b51"
+  url "http://ne.di.unimi.it/ne-3.1.1.tar.gz"
+  sha256 "ec4f5d919c38b1a5938b609a722d0d88a68c404b4564e3bb654b96b30582add9"
 
   bottle do
     cellar :any_skip_relocation
