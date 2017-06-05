@@ -1,8 +1,9 @@
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
   homepage "https://www.colordiff.org/"
-  url "https://www.colordiff.org/colordiff-1.0.17.tar.gz"
-  sha256 "780f70916f6fdc2eccbb519069662de1411705601ba1f1808a7e34f4d987d427"
+  url "https://www.colordiff.org/colordiff-1.0.18.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/colordiff-1.0.18.tar.gz"
+  sha256 "29cfecd8854d6e19c96182ee13706b84622d7b256077df19fbd6a5452c30d6e0"
 
   bottle do
     cellar :any_skip_relocation
