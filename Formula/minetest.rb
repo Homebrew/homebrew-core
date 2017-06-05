@@ -3,12 +3,12 @@ class Minetest < Formula
   homepage "http://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/0.4.15.tar.gz"
-    sha256 "5684e6118e3484f8901323f1ca4179202659010b33c72f02bc03df792493e3a9"
+    url "https://github.com/minetest/minetest/archive/0.4.16.tar.gz"
+    sha256 "0ef3793de9f569746ea78af7a66fe96ef65400019e5e64a04a5c3fa26a707655"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/0.4.15.tar.gz"
-      sha256 "f583ea55f511bbcc106c60f7d488ec3fe6b961efc3fd648603b6acd0189d7d8a"
+      url "https://github.com/minetest/minetest_game/archive/0.4.16.tar.gz"
+      sha256 "ea914555949b4faccda5e13143cb021d2f9a5fa19abd1f5e4b7b65004cbd2b5a"
     end
   end
 
