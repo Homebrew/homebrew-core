@@ -13,13 +13,33 @@ class Libfreenect < Formula
     sha256 "f714532e1b21365063746846544a340dac70cf0c5cc877a207dd17284ee100b7" => :mavericks
   end
 
+  option :universal
+  option "with-opencv", "Build with OpenCV support"
+  option "with-opencv3", "Build with OpenCV 3 support"
+  option "with-python", "Build with Python support"
+  option "with-python3", "Build with Python 3 support"
+
   depends_on "cmake" => :build
   depends_on "libusb"
+  depends_on "opencv" if build.with? "opencv"
+  depends_on "opencv3" if build.with? "opencv3"
+  depends_on "python" if build.with? "python"
+  depends_on "python3" if build.with? "python3"
 
   def install
+    args = std_cmake_args
+    args << "-DBUILD_OPENNI2_DRIVER=ON"
+    args << "-DBUILD_CV=ON" if build.with? "opencv" or build.with? "opencv3"
+    args << "-DBUILD_PYTHON2=ON" if build.with? "python"
+    args << "-DBUILD_PYTHON3=ON" if build.with? "python3"
+
+    if build.universal?
+      ENV.universal_binary
+      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
+    end
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DBUILD_OPENNI2_DRIVER=ON"
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
