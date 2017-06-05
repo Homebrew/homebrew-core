@@ -27,6 +27,7 @@ class Wget < Formula
 
   option "with-debug", "Build with debug support"
 
+  depends_on "python3" => :build
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "openssl@1.1"
@@ -38,6 +39,7 @@ class Wget < Formula
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
     # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
     ENV.append "LDFLAGS", "-liconv"
+    ENV.store "PYTHON", Formula["python3"].opt_bin/"python3"
 
     args = %W[
       --prefix=#{prefix}
