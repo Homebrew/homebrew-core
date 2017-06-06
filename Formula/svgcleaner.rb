@@ -7,9 +7,9 @@ class Svgcleaner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a74395c183377b0ada02b3f23be828c1aa5c408523454415ceb3f8d24e606b8f" => :sierra
-    sha256 "bd250af9b560c4f814e617595365ac70fc326cda0f292bb9bc22c04f03ef59f8" => :el_capitan
-    sha256 "fc7ca24b2943747931b88913ed9930107577c18a50da8a0f4b8c209a725baf26" => :yosemite
+    sha256 "15ddb0a036c475fb50aea4d0e3e1bbc9f2cf72e197aafe4ed95e213093af2e78" => :sierra
+    sha256 "f54c2e895dd670200768356d8bd8208e3b84a5927e7d1c20fef06dc5e7a5aede" => :el_capitan
+    sha256 "daad56eafd53428772d394dc84694de182f18b6720e2c74f7f17567acaabb877" => :yosemite
   end
 
   depends_on "rust" => :build
