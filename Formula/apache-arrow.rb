@@ -19,11 +19,11 @@ class ApacheArrow < Formula
     ENV.store "PATH", new_env.join(":")
     chdir "cpp"
     build_type = "Release"
-    mkdir build_type.downcase
-    chdir build_type.downcase
-    system "cmake", "-D", "CMAKE_BUILD_TYPE=#{build_type}", "-D", "CMAKE_INSTALL_PREFIX:PATH=#{prefix}", ".."
-    system "make", "unittest"
-    system "make", "install"
+    mkdir build_type.downcase do
+      system "cmake", "-D", "CMAKE_BUILD_TYPE=#{build_type}", "-D", "CMAKE_INSTALL_PREFIX:PATH=#{prefix}", ".."
+      system "make", "unittest"
+      system "make", "install"
+    end
   end
 
   test do
