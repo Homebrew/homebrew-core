@@ -16,12 +16,9 @@ class ApacheArrow < Formula
     ENV.cxx11
 
     chdir "cpp"
-    build_type = "Release"
-    mkdir build_type.downcase do
-      system "cmake", "-D", "CMAKE_BUILD_TYPE=#{build_type}", "-D", "CMAKE_INSTALL_PREFIX:PATH=#{prefix}", ".."
-      system "make", "unittest"
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "unittest"
+    system "make", "install"
   end
 
   test do
