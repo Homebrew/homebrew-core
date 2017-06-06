@@ -3,6 +3,7 @@ class Lzip < Formula
   homepage "http://www.nongnu.org/lzip/lzip.html"
   url "https://download.savannah.gnu.org/releases/lzip/lzip-1.19.tar.gz"
   sha256 "ffadc4f56be1bc0d3ae155ec4527bd003133bdc703a753b2cc683f610e646ba9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
