@@ -8,10 +8,9 @@ class Sdl2Mixer < Formula
 
   bottle do
     cellar :any
-    sha256 "04d9e57c8daeede86c1e566d361ed14919898f9fe0e67e7b5c84b35e5b82e4f6" => :sierra
-    sha256 "4c63b972ec35dd92dc7d39a901aca46d2108fb8cfa74b6ff9b244bc2fe21b5a6" => :el_capitan
-    sha256 "ff8cbe8c234afe384813837bda9eabeb93ee488c8114437ad6e8eb0ea3497be4" => :yosemite
-    sha256 "88f7ef2099f2261534cb4f3e33d65132243b36fb4a6efa648fcbba34ec6c0b77" => :mavericks
+    sha256 "c64414c8a3c09931479dcfa8d66363e7dd9e37538c1368fb890be8c2434481a0" => :sierra
+    sha256 "435b75cff646b1e4c4f7f6861be2e1549bc85416b155e54bf5608db6a68cc034" => :el_capitan
+    sha256 "10eebd63b6c51341966513cc8eb5160e9f5805d984d582cee2e42dad4ca3b0e7" => :yosemite
   end
 
   depends_on "pkg-config" => :build
