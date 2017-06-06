@@ -40,12 +40,6 @@ class GpgAgent < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
-      Remember to add "use-standard-socket" to your ~/.gnupg/gpg-agent.conf
-      file.
-    EOS
-  end
-
   test do
     system "#{bin}/gpg-agent", "--help"
   end
