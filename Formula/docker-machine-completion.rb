@@ -17,6 +17,6 @@ class DockerMachineCompletion < Formula
 
   test do
     assert_match "-F _docker_machine",
-      shell_output("bash -c 'source #{bash_completion}/docker-machine.bash && complete -p docker-machine'")
+      shell_output("bash -O extglob -c 'source #{bash_completion}/docker-machine.bash && complete -p docker-machine'")
   end
 end
