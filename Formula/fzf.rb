@@ -3,8 +3,8 @@ require "language/go"
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.16.7.tar.gz"
-  sha256 "9676664e02393d19dd0f0a1ae4cf5d20e3fffcba666a0cffc40ff6c590c67760"
+  url "https://github.com/junegunn/fzf/archive/0.16.8.tar.gz"
+  sha256 "daef99f67cff3dad261dbcf2aef995bb78b360bcc7098d7230cb11674e1ee1d4"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
@@ -16,24 +16,24 @@ class Fzf < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/junegunn/go-isatty" do
-    url "https://github.com/junegunn/go-isatty.git",
+  go_resource "github.com/mattn/go-isatty" do
+    url "https://github.com/mattn/go-isatty.git",
         :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
   end
 
-  go_resource "github.com/junegunn/go-runewidth" do
-    url "https://github.com/junegunn/go-runewidth.git",
+  go_resource "github.com/mattn/go-runewidth" do
+    url "https://github.com/mattn/go-runewidth.git",
         :revision => "14207d285c6c197daabb5c9793d63e7af9ab2d50"
   end
 
-  go_resource "github.com/junegunn/go-shellwords" do
-    url "https://github.com/junegunn/go-shellwords.git",
-        :revision => "33bd8f1ebe16d6e5eb688cc885749a63059e9167"
+  go_resource "github.com/mattn/go-shellwords" do
+    url "https://github.com/mattn/go-shellwords.git",
+        :revision => "02e3cf038dcea8290e44424da473dd12be796a8a"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "453249f01cfeb54c3d549ddb75ff152ca243f9d8"
+        :revision => "e1a4589e7d3ea14a3352255d04b6f1a418845e5e"
   end
 
   def install
@@ -42,8 +42,8 @@ class Fzf < Formula
     ln_s buildpath, buildpath/"src/github.com/junegunn/fzf"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd buildpath/"src/fzf" do
-      system "go", "build"
+    cd buildpath do
+      system "go", "build", "-o", "fzf", "-ldflags", "-X main.revision=brew"
       bin.install "fzf"
     end
 
