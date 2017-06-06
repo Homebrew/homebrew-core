@@ -39,14 +39,34 @@ class Python < Formula
   skip_clean "bin/pip", "bin/pip-2.7"
   skip_clean "bin/easy_install", "bin/easy_install-2.7"
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/26/d1/dc7fe14ce4a3ff3faebf1ac11350de4104ea2d2a80c98393b55c84362b0c/setuptools-32.1.0.tar.gz"
-    sha256 "86d57bf86edc0ecfd2dc0907ed3710bc4501fb13a06c0fcaf7632305b00ce832"
+  resource "appdirs" do
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
+    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+  end
+  
   resource "pip" do
     url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
     sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/88/13/7d560b75334a8e4b4903f537b7e5a1ad9f1a2f1216e2587aaaf91b38c991/setuptools-35.0.2.zip"
+    sha256 "1e55496ca8058db68ae12ac29a985d1ee2c2483a5901f7692fb68fa2f9a250fd"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "wheel" do
@@ -208,9 +228,9 @@ class Python < Formula
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
 
-    (libexec/"setuptools").install resource("setuptools")
-    (libexec/"pip").install resource("pip")
-    (libexec/"wheel").install resource("wheel")
+    resources.each do |r|
+      (libexec/r.name).install r
+    end
 
     if MacOS.version > :snow_leopard && build.with?("sphinx-doc")
       cd "Doc" do
@@ -231,6 +251,9 @@ class Python < Formula
     site_packages_cellar.unlink if site_packages_cellar.exist?
     site_packages_cellar.parent.install_symlink site_packages
 
+    distutils_cfg = lib_cellar/"distutils/distutils.cfg"
+    distutils_cfg.unlink if distutils_cfg.exist?
+
     # Write our sitecustomize.py
     rm_rf Dir["#{site_packages}/sitecustomize.py[co]"]
     (site_packages/"sitecustomize.py").atomic_write(sitecustomize)
@@ -243,21 +266,11 @@ class Python < Formula
     rm_rf Dir["#{site_packages}/distribute*"]
     rm_rf Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"]
 
-    setup_args = ["-s", "setup.py", "--no-user-cfg", "install", "--force",
-                  "--verbose",
-                  "--single-version-externally-managed",
-                  "--record=installed.txt",
-                  "--install-scripts=#{bin}",
-                  "--install-lib=#{site_packages}"]
-
-    (libexec/"setuptools").cd { system "#{bin}/python", *setup_args }
-    (libexec/"pip").cd { system "#{bin}/python", *setup_args }
-    (libexec/"wheel").cd { system "#{bin}/python", *setup_args }
-
-    # When building from source, these symlinks will not exist, since
-    # post_install happens after linking.
-    %w[pip pip2 pip2.7 easy_install easy_install-2.7 wheel].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
+    system bin/"python", "-sS", "-m", "ensurepip"
+    libexec.children.each do |path|
+      system bin/"python", "-sS", "-m", "pip", "--isolated",
+             "install", "--ignore-installed", "--no-deps", "--no-cache-dir",
+             "--upgrade", "--target", site_packages, path.to_s
     end
 
     # Help distutils find brewed stuff when building extensions
@@ -274,8 +287,7 @@ class Python < Formula
       library_dirs << Formula["tcl-tk"].opt_lib
     end
 
-    cfg = lib_cellar/"distutils/distutils.cfg"
-    cfg.atomic_write <<-EOF.undent
+    distutils_cfg.atomic_write <<-EOF.undent
       [install]
       prefix=#{HOMEBREW_PREFIX}
 
