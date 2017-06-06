@@ -11,6 +11,7 @@ class Scriptcs < Formula
     sha256 "21891cea519df48979320ba74660002d270fb414181e3f7087505169af15a471" => :yosemite
   end
 
+  # Checks for mozroots during build, can't be only :recommended.
   depends_on "mono"
 
   def install
@@ -28,6 +29,6 @@ class Scriptcs < Formula
   test do
     test_file = "tests.csx"
     (testpath/test_file).write('Console.WriteLine("{0}, {1}!", "Hello", "world");')
-    assert_equal "Hello, world!", `scriptcs #{test_file}`.strip
+    assert_equal "Hello, world!", shell_output("#{bin}/scriptcs #{test_file}").strip
   end
 end

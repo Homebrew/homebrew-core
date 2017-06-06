@@ -11,7 +11,7 @@ class Autorest < Formula
     sha256 "da1dc0e3a25b005db13ffbb95b145c060162648ad700998e4814a7969e17cbb1" => :yosemite
   end
 
-  depends_on "mono"
+  depends_on "mono" => :recommended
 
   resource "swagger" do
     url "https://raw.githubusercontent.com/Azure/autorest/764d308b3b75ba83cb716708f5cef98e63dde1f7/Samples/petstore/petstore.json"

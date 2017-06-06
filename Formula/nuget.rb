@@ -1,13 +1,13 @@
 class Nuget < Formula
   desc "Package manager for Microsoft development platform including .NET"
   homepage "https://www.nuget.org/"
-  url "https://dist.nuget.org/win-x86-commandline/v4.0.0/NuGet.exe"
-  version "4.0.0"
-  sha256 "cc52f94b2f1ba7cd485e546f8059cada2e9daee2ae27abde54507e9b1661e6d1"
+  url "https://dist.nuget.org/win-x86-commandline/v4.1.0/nuget.exe"
+  version "4.1.0"
+  sha256 "4c1de9b026e0c4ab087302ff75240885742c0faa62bd2554f913bbe1f6cb63a0"
 
   bottle :unneeded
 
-  depends_on "mono"
+  depends_on "mono" => :recommended
 
   def install
     libexec.install "NuGet.exe" => "nuget.exe"
@@ -18,6 +18,7 @@ class Nuget < Formula
   end
 
   test do
-    assert_match "NuGet.Protocol.Core.v3", shell_output("#{bin}/nuget list NuGet.Protocol.Core.v3")
+    output = shell_output("#{bin}/nuget list NuGet.Protocol.Core.v3")
+    assert_match "NuGet.Protocol.Core.v3", output
   end
 end

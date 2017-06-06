@@ -7,7 +7,7 @@ class Ckan < Formula
 
   bottle :unneeded
 
-  depends_on "mono"
+  depends_on "mono" => :recommended
 
   def install
     (libexec/"bin").install "ckan.exe"
