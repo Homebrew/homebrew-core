@@ -12,6 +12,11 @@ class Cmake < Formula
     sha256 "9b53dec241998124c67645be81c8e85db097404115e466cf409caf43add783ae" => :yosemite
   end
 
+  devel do
+    url "https://cmake.org/files/v3.9/cmake-3.9.0-rc1.tar.gz"
+    sha256 "67112b62e9ecc6e857a94a55a9e64cb779d851db36e4791348938878285474c2"
+  end
+
   option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
