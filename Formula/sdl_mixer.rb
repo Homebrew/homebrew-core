@@ -7,9 +7,9 @@ class SdlMixer < Formula
 
   bottle do
     cellar :any
-    sha256 "568e373cf4e876779e63e36258be20c0e6acb6df81a81653ff09cb9b09deca99" => :sierra
-    sha256 "e2398010d90664403b7f9c306b46876deec07e6d970371a47c7f7484ffa201f8" => :el_capitan
-    sha256 "559377bb70595dc716d1f0c703e986ea4bc30666085812756230b00194b97d87" => :yosemite
+    sha256 "9f15e2bce269d4ccff667f10e38eb9fb55d4468e88712501fef373663ea98c24" => :sierra
+    sha256 "2f4e988e1b90a45a607a5d0d6cb43be000d16c0989a753dcb65cd1793fbeec0f" => :el_capitan
+    sha256 "4aa230e9616aefcfdb64ac42bde5eec3bbb1c509963f8c526972dddfd91ad8a3" => :yosemite
   end
 
   depends_on "pkg-config" => :build
