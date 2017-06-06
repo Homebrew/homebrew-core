@@ -1,22 +1,9 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
+  url "https://www.cpan.org/src/5.0/perl-5.26.0.tar.gz"
+  sha256 "ebe7c66906d4fb55449380ab1b7e004eeef52c38d3443fa301f8e17a1a4cb67f"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
-
-  stable do
-    url "https://www.cpan.org/src/5.0/perl-5.24.1.tar.xz"
-    sha256 "03a77bac4505c270f1890ece75afc7d4b555090b41aa41ea478747e23b2afb3f"
-
-    # Fixes Time::HiRes module bug related to the presence of clock_gettime
-    # https://rt.perl.org/Public/Bug/Display.html?id=128427
-    # Merged upstream, should be in the next release.
-    if DevelopmentTools.clang_build_version >= 800
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/b18137128c4e0cb7e92e9ee007a9f78bc9d03b21/perl/clock_gettime.patch"
-        sha256 "612825c24ed19d6fa255bb42af59dff46ee65c16ea77abf4a59b754aa8ab05ac"
-      end
-    end
-  end
 
   bottle do
     sha256 "af578c645e5ff6162b29c693c6145345fef4dfc848f9d999a6e1f36330318c63" => :sierra
@@ -42,6 +29,10 @@ class Perl < Formula
         end
       end
     end
+
+    # We don't want the build process to go snooping around externally
+    # for things like the `Test` perl module.
+    ENV.delete("PERL5LIB")
 
     args = %W[
       -des
@@ -81,12 +72,13 @@ class Perl < Formula
 
     You can set that up like this:
       PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{shell_profile}
+      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{Utils::Shell.profile}
     EOS
   end
 
   test do
-    (testpath/"test.pl").write "print 'Perl is not an acronym, but JAPH is a Perl acronym!';"
-    system "#{bin}/perl", "test.pl"
+    phrase = "Perl is not an acronym, but JAPH is a Perl acronym!"
+    (testpath/"test.pl").write "print '#{phrase}';"
+    assert_match phrase, shell_output("#{bin}/perl test.pl")
   end
 end
