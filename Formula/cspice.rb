@@ -1,9 +1,9 @@
 class Cspice < Formula
   desc "Observation geometry system for robotic space science missions"
-  homepage "https://naif.jpl.nasa.gov/naif/index.html"
+  homepage "https://naif.jpl.nasa.gov/naif/toolkit.html"
   url "https://naif.jpl.nasa.gov/pub/naif/toolkit/C/MacIntel_OSX_AppleC_64bit/packages/cspice.tar.Z"
-  version "65"
-  sha256 "c009981340de17fb1d9b55e1746f32336e1a7a3ae0b4b8d68f899ecb6e96dd5d"
+  version "66"
+  sha256 "f5d48c4b0d558c5d71e8bf6fcdf135b0943210c1ff91f8191dfc447419a6b12e"
 
   bottle do
     cellar :any_skip_relocation
