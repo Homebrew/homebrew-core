@@ -10,13 +10,7 @@ class ApacheArrow < Formula
   depends_on "cmake" => :build
 
   def install
-    env = ENV["PATH"]
-    new_env = []
-    env.split(":").each do |value|
-      new_env.push value unless value.include? "shims/super"
-    end
-    new_env.push "/usr/local/bin"
-    ENV.store "PATH", new_env.join(":")
+    ENV.prepend_path "PATH", "/usr/local/bin"
     chdir "cpp"
     build_type = "Release"
     mkdir build_type.downcase do
