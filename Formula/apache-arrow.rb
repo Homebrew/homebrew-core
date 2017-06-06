@@ -9,8 +9,12 @@ class ApacheArrow < Formula
   depends_on "boost"
   depends_on "cmake" => :build
 
+  needs :cxx11
+
   def install
     ENV.prepend_path "PATH", "/usr/local/bin"
+    ENV.cxx11
+
     chdir "cpp"
     build_type = "Release"
     mkdir build_type.downcase do
