@@ -15,6 +15,13 @@ class Bazel < Formula
   depends_on :macos => :yosemite
 
   def install
+    # Works around "Error: couldn't connect to server"
+    # Upstream issue 13 Sep 2016 https://github.com/bazelbuild/bazel/issues/1767
+    if MacOS.version == :sierra
+      inreplace "src/main/cpp/blaze.cc", "for (int ii = 0; ii < 600; ++ii) {",
+                                         "for (int ii = 0; ii < 60000; ++ii) {"
+    end
+
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
