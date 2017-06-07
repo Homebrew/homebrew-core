@@ -1,5 +1,3 @@
-require "language/go"
-
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
@@ -14,40 +12,16 @@ class Fzf < Formula
     sha256 "4cda9c89cbfc568916b8d8b965b39ca0020d15a83b316e4e7d2b4466e3d4a8d0" => :yosemite
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
 
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
-  end
-
-  go_resource "github.com/mattn/go-runewidth" do
-    url "https://github.com/mattn/go-runewidth.git",
-        :revision => "14207d285c6c197daabb5c9793d63e7af9ab2d50"
-  end
-
-  go_resource "github.com/mattn/go-shellwords" do
-    url "https://github.com/mattn/go-shellwords.git",
-        :revision => "02e3cf038dcea8290e44424da473dd12be796a8a"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-        :revision => "e1a4589e7d3ea14a3352255d04b6f1a418845e5e"
-  end
-
   def install
+    ENV["GLIDE_HOME"] = buildpath/"glide_home"
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/junegunn"
+    (buildpath/"src/github.com/junegunn").mkpath
     ln_s buildpath, buildpath/"src/github.com/junegunn/fzf"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd buildpath do
-      system "go", "build", "-o", "fzf", "-ldflags", "-X main.revision=brew"
-      bin.install "fzf"
-    end
-
-    prefix.install %w[install uninstall LICENSE]
+    system "glide", "install"
+    system "go", "build", "-o", bin/"fzf", "-ldflags", "-X main.revision=brew"
     (prefix/"shell").install %w[bash zsh fish].map { |s| "shell/key-bindings.#{s}" }
     (prefix/"shell").install %w[bash zsh].map { |s| "shell/completion.#{s}" }
     (prefix/"plugin").install "plugin/fzf.vim"
