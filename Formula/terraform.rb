@@ -14,6 +14,12 @@ class Terraform < Formula
     sha256 "f27ccbfc403ed97cab67a58fbc33c9cce5b87faf84e8f598563dac7c5c3c99f6" => :yosemite
   end
 
+  devel do
+    url "https://github.com/hashicorp/terraform/archive/v0.9.0-beta1.tar.gz"
+    sha256 "01630791abd800250436a01efd707a0ec558d4d57f018754b12a88ab2ebbbeab"
+    version "0.9.0-beta1"
+  end
+
   depends_on "go" => :build
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
