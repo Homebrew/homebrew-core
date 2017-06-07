@@ -11,6 +11,13 @@ class Zsh < Formula
     # building zsh.texi is not available.
     option "with-texi2html", "Build HTML documentation"
     depends_on "texi2html" => [:build, :optional]
+
+    # apply patch that fixes nvcsformats which is broken in zsh-5.2 and will propably be fixed in 5.2.1
+    # See https://github.com/zsh-users/zsh/commit/4105f79a3a9b5a85c4ce167865e5ac661be160dc
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/zsh/nvcs-formats-fix.patch"
+      sha256 "f351cd67d38b9d8a9c2013ae47b77a753eca3ddeb6bfd807bd8b492516479d94"
+    end
   end
 
   bottle do
