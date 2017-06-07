@@ -1,11 +1,8 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-
-  stable do
-    url "https://collectd.org/files/collectd-5.7.1.tar.bz2"
-    sha256 "7edd3643c0842215553b2421d5456f4e9a8a58b07e216b40a7e8e91026d8e501"
-  end
+  url "https://collectd.org/files/collectd-5.7.2.tar.bz2"
+  sha256 "9d20a0221569a8d6b80bbc52b86e5e84965f5bafdbf5dfc3790e0fed0763e592"
 
   bottle do
     rebuild 1
