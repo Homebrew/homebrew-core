@@ -13,7 +13,7 @@ class Pgcli < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
-  depends_on :postgresql
+  depends_on :postgresql => :run
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
