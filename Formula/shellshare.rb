@@ -1,8 +1,8 @@
 class Shellshare < Formula
   desc "Live Terminal Broadcast"
   homepage "https://shellshare.net"
-  url "https://github.com/vitorbaptista/shellshare/archive/v1.0.2.tar.gz"
-  sha256 "37c452bb87f89f2bce08da49155c88574303aba40c051c6fbff293f5afd4e0dd"
+  url "https://github.com/vitorbaptista/shellshare/archive/v1.0.3.tar.gz"
+  sha256 "d984a413c3b1f785265430519e9b1eecc6e47b96d63f5b207f82872dab0a0765"
 
   bottle :unneeded
 
