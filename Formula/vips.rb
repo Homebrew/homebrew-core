@@ -4,6 +4,12 @@ class Vips < Formula
   url "https://github.com/jcupitt/libvips/releases/download/v8.5.5/vips-8.5.5.tar.gz"
   sha256 "0891af4531d6f951a16ca6d03020b73796522d5fcf7c6247f2f04c896ecded28"
 
+  bottle do
+    sha256 "125ff0462395a3159a2b8ffe750a6adea11b271458446eae00b4018346ed860c" => :sierra
+    sha256 "a9042423e275380896d5919b9db919dd71106ce355f7da5f6b11a83bac08a61a" => :el_capitan
+    sha256 "adad586a8bda37ac58d394cd5fa66e19fc084b1dfd789fe6fd64e62f3ea9e9fd" => :yosemite
+  end
+
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "fontconfig"
