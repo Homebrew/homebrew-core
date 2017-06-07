@@ -18,10 +18,16 @@ class Yaz < Formula
     depends_on "libtool" => :build
   end
 
+  # to support an app called MarcEdit that uses yaz for Z39.50 client
+  # functionality and expects it to be installed with  --universal and
+  # --without-icu4c
+  option :universal
+
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
 
   def install
+    ENV.universal_binary if build.universal?
     system "./buildconf.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
