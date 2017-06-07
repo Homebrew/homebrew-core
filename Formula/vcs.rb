@@ -25,11 +25,12 @@ class Vcs < Formula
   end
 
   test do
-    system "#{Formula["ffmpeg"].opt_bin}/ffmpeg", "-y", "-filter_complex",
-           "testsrc=rate=1:duration=2", "#{testpath}/video.mp4"
+    system Formula["ffmpeg"].bin/"ffmpeg", "-f", "rawvideo", "-s", "hd720",
+           "-pix_fmt", "yuv420p", "-r", "30", "-t", "5", "-i", "/dev/zero",
+           testpath/"video.mp4"
     assert (testpath/"video.mp4").exist?
 
-    system "#{bin}/vcs", "#{testpath}/video.mp4", "-n1", "-o", "#{testpath}/video.png"
-    assert (testpath/"video.png").exist?
+    system bin/"vcs", "-i", "1", "-o", testpath/"sheet.png", testpath/"video.mp4"
+    assert (testpath/"sheet.png").exist?
   end
 end
