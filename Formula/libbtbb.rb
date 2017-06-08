@@ -16,20 +16,7 @@ class Libbtbb < Formula
   depends_on "cmake" => :build
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # Requires headers macOS doesn't supply.
-  resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
-    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
-  end
-
   def install
-    resource("libpcap").stage do
-      system "./configure", "--prefix=#{libexec}/vendor", "--enable-ipv6"
-      system "make", "install"
-    end
-
-    ENV.prepend_path "PATH", libexec/"vendor/bin"
-    ENV.append_to_cflags "-I#{libexec}/vendor/include"
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
