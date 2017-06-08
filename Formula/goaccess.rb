@@ -12,13 +12,14 @@ class Goaccess < Formula
     sha256 "af9801407d647456b2421673aeefdc5d1bd00446d912126c8bc662cfad437937" => :yosemite
   end
 
-  option "with-geoip", "Enable IP location information using GeoIP"
+  option "with-libmaxminddb", "Enable IP location information using enhanced GeoIP2 databases"
 
-  deprecated_option "enable-geoip" => "with-geoip"
+  deprecated_option "enable-geoip" => "with-libmaxminddb"
+  deprecated_option "with-geoip" => "with-libmaxminddb"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "geoip" => :optional
+  depends_on "libmaxminddb" => :optional
   depends_on "tokyo-cabinet"
 
   def install
@@ -32,7 +33,7 @@ class Goaccess < Formula
       --enable-tcb=btree
     ]
 
-    args << "--enable-geoip" if build.with? "geoip"
+    args << "--enable-geoip=mmdb" if build.with? "libmaxminddb"
 
     system "./configure", *args
     system "make", "install"
