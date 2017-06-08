@@ -6,9 +6,9 @@ class Ufoai < Formula
   revision 1
 
   bottle do
-    sha256 "300bb5018f23a611b94b7a24803488a1bab5016374f10b40acd211192fef3383" => :sierra
-    sha256 "b44b1699fe48d50f9e46c50cbe4beeeacca20cea57e4a0ddd2807161e1b60b7d" => :el_capitan
-    sha256 "6132d7c71ba7a523873a0325ac3368cbd35e739a23427aebe318c307657955ba" => :yosemite
+    sha256 "74aa04bb327cb0b2498d1987253332c25d86f9b8bad37b82449451e038c4f388" => :sierra
+    sha256 "d6d5b3236cbda52cacd0fbcf6fa1ec9bd2c650cd3628e2084346be3fbf5f46eb" => :el_capitan
+    sha256 "a6b25142d6b2ba920d4fcce8ee6c9794c663ec4a10b9ef669d8d955bd717e816" => :yosemite
   end
 
   depends_on "pkg-config" => :build
