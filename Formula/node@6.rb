@@ -3,7 +3,7 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.10.3/node-v6.10.3.tar.xz"
   sha256 "82262a703e61164e09170a14d88b1726720651b0c7ee87a277654247b21b5388"
-  revision 1
+  revision 2
 
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
@@ -35,8 +35,8 @@ class NodeAT6 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.0.1.tgz"
-    sha256 "cc31b845140791a85ab607636c6f0108346f8eb6cad7971919fd01ff4f4a1d7a"
+    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
+    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
   end
 
   resource "icu4c" do
