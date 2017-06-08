@@ -6,6 +6,8 @@ class Mercurial < Formula
   url "https://mercurial-scm.org/release/mercurial-4.2.1.tar.gz"
   sha256 "d7d5572f5aa0797fbf2168440eaa51149df88645fe37af8b15fa660d9a8158a0"
 
+  head "https://www.mercurial-scm.org/repo/hg/archive/tip.tar.gz"
+
   bottle do
     sha256 "964af78c7db295e17831f417cb922a2ccb1a50438cfa6219dc1b44a28d18d9f0" => :sierra
     sha256 "1d4774736aab4174fe80f3dcfa4b79e4950db40ea55ba0fa3e32943a8c5381b1" => :el_capitan
@@ -34,8 +36,10 @@ class Mercurial < Formula
     (etc/"mercurial").install "hgrc"
 
     # Install man pages, which come pre-built in source releases
-    man1.install "doc/hg.1"
-    man5.install "doc/hgignore.5", "doc/hgrc.5"
+    if build.stable?
+      man1.install "doc/hg.1"
+      man5.install "doc/hgignore.5", "doc/hgrc.5"
+    end
 
     # install the completion scripts
     bash_completion.install "contrib/bash_completion" => "hg-completion.bash"
