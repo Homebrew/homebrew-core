@@ -3,7 +3,7 @@ class Supertux < Formula
   homepage "https://supertuxproject.org/"
   url "https://github.com/SuperTux/supertux/releases/download/v0.5.1/SuperTux-v0.5.1-Source.tar.gz"
   sha256 "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
-  revision 1
+  revision 2
 
   head "https://github.com/SuperTux/supertux.git"
 
@@ -19,7 +19,7 @@ class Supertux < Formula
   depends_on "boost" => :build
   depends_on "sdl2"
   depends_on "sdl2_image"
-  depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "sdl2_mixer"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "glew"
