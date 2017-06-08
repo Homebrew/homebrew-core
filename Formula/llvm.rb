@@ -130,6 +130,7 @@ class Llvm < Formula
   option "with-python", "Build bindings against custom Python"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
+  option "without-experimental", "Do not build libc++experimental library"
 
   depends_on "libffi" => :recommended # http://llvm.org/docs/GettingStarted.html#requirement
   depends_on "graphviz" => :optional # for the 'dot' tool (lldb)
@@ -227,7 +228,13 @@ class Llvm < Formula
       args << "-DLLVM_BUILD_LLVM_DYLIB=ON"
     end
 
-    args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
+    if build_libcxx?
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+      if build.with? "experimental"
+        args << "-DLIBCXX_ENABLE_EXPERIMENTAL_LIBRARY=ON"
+        args << "-DLIBCXX_INSTALL_EXPERIMENTAL_LIBRARY=ON"
+      end
+    end
 
     if build.with?("lldb") && build.with?("python")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -329,6 +336,19 @@ class Llvm < Formula
       }
     EOS
 
+    if build.with? "experimental"
+      (testpath/"test_experimental.cpp").write <<-EOS.undent
+        #include <iostream>
+        #include <experimental/filesystem>
+
+        int main()
+        {
+            std::cout << std::experimental::filesystem::current_path() << std::endl;
+            return 0;
+        }
+      EOS
+    end
+
     # Testing Command Line Tools
     if MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
@@ -377,6 +397,19 @@ class Llvm < Formula
               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
       assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./test").chomp
+
+      # link against installed libc++experimental
+      if build.with? "experimental"
+        system "#{bin}/clang++", "-v", "-nostdinc",
+                "-std=c++11", "-stdlib=libc++",
+                "-lc++experimental",
+                "-I#{opt_include}/c++/v1",
+                "-I#{libclangxc}/include",
+                "-I#{MacOS.sdk_path}/usr/include",
+                "-L#{lib}",
+                "-Wl,-rpath,#{lib}", "test_experimental.cpp", "-o", "test_experimental"
+        assert_match testpath.to_s, shell_output("./test_experimental").chomp
+      end
     end
   end
 end
