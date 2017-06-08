@@ -5,6 +5,13 @@ class GetIplayer < Formula
   sha256 "0e1e16f3706efa98893e33b1602cc00bb3d8e22e269bfc5a1a078559e4c21ce6"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "45360cdeab5192316733a734f50f91b045c313f273b6b22bd9e71ae52a084990" => :sierra
+    sha256 "31763d76e946a5a4e1cafbe8dcffa3695996258ba342a6b32ff478283400c6f6" => :el_capitan
+    sha256 "0bcbaecb42f1558300dd45ff1b8d72faf8943a4502de0a75efeb02de3f416856" => :yosemite
+  end
+
   depends_on "atomicparsley" => :recommended
   depends_on "ffmpeg" => :recommended
 
