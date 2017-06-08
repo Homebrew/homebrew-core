@@ -87,6 +87,7 @@ class Gdal < Formula
   depends_on :python => :optional if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
   depends_on :fortran => :build if build.with?("python") || build.with?("python3")
+  depends_on "numpy" if build.with?("python") || build.with?("python3")
 
   # Extra linking libraries in configure test of armadillo may throw warning
   # see: https://trac.osgeo.org/gdal/ticket/5455
@@ -97,11 +98,6 @@ class Gdal < Formula
       url "https://gist.githubusercontent.com/dakcarto/7abad108aa31a1e53fb4/raw/b56887208fd91d0434d5a901dae3806fb1bd32f8/gdal-armadillo.patch"
       sha256 "e6880b9256abe2c289f4b1196792a626c689772390430c36976c0c5e0f339124"
     end
-  end
-
-  resource "numpy" do
-    url "https://pypi.python.org/packages/source/n/numpy/numpy-1.9.3.tar.gz"
-    sha256 "c3b74d3b9da4ceb11f66abd21e117da8cf584b63a0efbd01a9b7e91b693fbbd6"
   end
 
   resource "libkml" do
@@ -287,20 +283,6 @@ class Gdal < Formula
     system "./configure", *configure_args
     system "make"
     system "make", "install"
-
-    inreplace "swig/python/setup.cfg", /#(.*_dirs)/, "\\1"
-    Language::Python.each_python(build) do |python, python_version|
-      numpy_site_packages = buildpath/"homebrew-numpy/lib/python#{python_version}/site-packages"
-      numpy_site_packages.mkpath
-      ENV["PYTHONPATH"] = numpy_site_packages
-      resource("numpy").stage do
-        system python, *Language::Python.setup_install_args(buildpath/"homebrew-numpy")
-      end
-      cd "swig/python" do
-        system python, *Language::Python.setup_install_args(prefix)
-        bin.install Dir["scripts/*"] if python == "python"
-      end
-    end
 
     if build.with? "swig-java"
       cd "swig/java" do
