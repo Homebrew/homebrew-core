@@ -1,7 +1,8 @@
 class Corkscrew < Formula
   desc "Tunnel SSH through HTTP proxies"
-  homepage "http://www.agroman.net/corkscrew/"
-  url "http://www.agroman.net/corkscrew/corkscrew-2.0.tar.gz"
+  homepage "https://packages.debian.org/sid/corkscrew"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
   sha256 "0d0fcbb41cba4a81c4ab494459472086f377f9edb78a2e2238ed19b58956b0be"
 
   bottle do
