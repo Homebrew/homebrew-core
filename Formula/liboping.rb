@@ -24,6 +24,7 @@ class Liboping < Formula
   end
 
   test do
-    system bin/"oping", "-c", "1", "https://www.github.com"
+    system bin/"oping", "-h"
+    system bin/"noping", "-h"
   end
 end
