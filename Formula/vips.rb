@@ -5,9 +5,9 @@ class Vips < Formula
   sha256 "19a77ab200eb0ddfcd8babab130fe43c7730880d1f1fdfbdd8def519af32c4b8"
 
   bottle do
-    sha256 "125ff0462395a3159a2b8ffe750a6adea11b271458446eae00b4018346ed860c" => :sierra
-    sha256 "a9042423e275380896d5919b9db919dd71106ce355f7da5f6b11a83bac08a61a" => :el_capitan
-    sha256 "adad586a8bda37ac58d394cd5fa66e19fc084b1dfd789fe6fd64e62f3ea9e9fd" => :yosemite
+    sha256 "4a0c68b0f49ce94e76f107a42a2029a2ba389c26034c714f320eaa7b5f929346" => :sierra
+    sha256 "d644dc9086393b392d5ec4b35872d76361c6898b63314288f27d1bf6603a9de3" => :el_capitan
+    sha256 "085895b0d5f4d05a862f833a4a9b457365fd63b73f7ad02fd8965b17bd23bc0f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
