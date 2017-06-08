@@ -3,6 +3,7 @@ class Rex < Formula
   homepage "https://rexify.org"
   url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.5.0.tar.gz"
   sha256 "c042a0ed4920070d4508b6e7d2c36d28b3a5691938f2e0a0d7717977b44b82d0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +12,14 @@ class Rex < Formula
     sha256 "d02002fba499b2a3ed5271ccf1c3ddbaf75629d747aed289a4f53de7aad9d081" => :yosemite
   end
 
-  depends_on :perl => "5.16"
+  # This is the easiest way to go for now, until there's a new upstream
+  # release that supports Perl 5.26.x. Note when using non-system Perl
+  # in future the following modules are required:
+  # inc::latest
+  # File::Remove
+  # YAML::Tiny
+  # Module::Install
+  depends_on :macos => :mavericks
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
@@ -126,8 +134,8 @@ class Rex < Formula
   end
 
   resource "List::MoreUtils" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.416.tar.gz"
-    sha256 "d2ce2f93a4fba8e20a602eba2405d08f5b28c23764a5273fb0abbc413f74c5a5"
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.419.tar.gz"
+    sha256 "5f8e65608f5dc583faa6a703d19d277ad46dfc1816e51f8ff34fb8322ed48615"
   end
 
   resource "Net::HTTP" do
@@ -206,8 +214,15 @@ class Rex < Formula
   end
 
   def install
+    # First prevent trying to sniff around elsewhere for required modules.
+    ENV.delete("PERL5LIB")
+
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
+
+    # If you're using a new enough perl it'll blow up & require your
+    # confirmation that you know what you're doing. Skip that.
+    ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1"
 
     resources.each do |res|
       res.stage do
@@ -217,22 +232,23 @@ class Rex < Formula
 
     perl_build
     (libexec/"lib").install "blib/lib/Rex", "blib/lib/Rex.pm"
-
-    # Use system Perl
-    inreplace("bin/rexify") { |s| s.gsub!(/^#!perl$/, "#!/usr/bin/env perl") }
+    inreplace "bin/rex", "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    inreplace "bin/rexify", "#!perl", "#!/usr/bin/perl"
 
     %w[rex rexify].each do |cmd|
       libexec.install "bin/#{cmd}"
-      chmod 0755, libexec/cmd
+      chmod 0555, libexec/cmd
       (bin/cmd).write_env_script(libexec/cmd, :PERL5LIB => ENV["PERL5LIB"])
       man1.install "blib/man1/#{cmd}.1"
     end
   end
 
   test do
-    assert_match "\(R\)\?ex #{version}", shell_output("#{bin}/rex -v"), "rex -v is expected to print out Rex version"
+    assert_match "\(R\)\?ex #{version}", shell_output("#{bin}/rex -v"),
+      "rex -v is expected to print out Rex version"
     system bin/"rexify", "brewtest"
-    assert (testpath/"brewtest/Rexfile").exist?, "rexify is expected to create a new Rex project and pre-populate its Rexfile"
+    assert_predicate testpath/"brewtest/Rexfile", :exist?,
+      "rexify is expected to create a new Rex project & pre-populate its Rexfile"
   end
 
   private
