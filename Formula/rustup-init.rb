@@ -5,6 +5,12 @@ class RustupInit < Formula
   url "https://github.com/rust-lang-nursery/rustup.rs/archive/1.3.0.tar.gz"
   sha256 "c0ca06b70104fed8f1de5a6f5ecfd8478e8bc03f15add8d7896b86b3b15e81e3"
 
+  bottle do
+    sha256 "5993d8463639960825110af68dc87ebb4831d3bd378a1ce03f4f3b2af24e3340" => :sierra
+    sha256 "856932cfdc8d610ebdec649810fd000e01eda6f7a730340a78b9effe6303bd92" => :el_capitan
+    sha256 "ad435f8ce2421ff946d8f124cd601b23864da418e7db9bf00b52fd39766388a5" => :yosemite
+  end
+
   depends_on "rust" => :build
 
   def install
