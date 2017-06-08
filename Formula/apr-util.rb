@@ -21,7 +21,6 @@ class AprUtil < Formula
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
-  depends_on "openldap" => :optional
 
   def install
     # Stick it in libexec otherwise it pollutes lib with a .exp file.
@@ -36,12 +35,6 @@ class AprUtil < Formula
     args << "--with-mysql=#{Formula["mysql"].opt_prefix}" if build.with? "mysql"
     args << "--with-freetds=#{Formula["freetds"].opt_prefix}" if build.with? "freetds"
     args << "--with-odbc=#{Formula["unixodbc"].opt_prefix}" if build.with? "unixodbc"
-
-    if build.with? "openldap"
-      args << "--with-ldap"
-      args << "--with-ldap-lib=#{Formula["openldap"].opt_lib}"
-      args << "--with-ldap-include=#{Formula["openldap"].opt_include}"
-    end
 
     system "./configure", *args
     system "make"
