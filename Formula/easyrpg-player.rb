@@ -3,6 +3,7 @@ class EasyrpgPlayer < Formula
   homepage "https://easyrpg.org/"
   url "https://github.com/EasyRPG/Player/archive/0.5.1.tar.gz"
   sha256 "d93c092c38a8af81099b99645e15f0189ff2ffc0552cb2094ecb6c337f219b7c"
+  revision 1
   head "https://github.com/EasyRPG/Player.git"
 
   bottle do
@@ -26,7 +27,7 @@ class EasyrpgPlayer < Formula
   depends_on "mpg123"
   depends_on "pixman"
   depends_on "sdl2"
-  depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "sdl2_mixer"
   depends_on "speex"
 
   def install
