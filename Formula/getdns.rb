@@ -16,6 +16,11 @@ class Getdns < Formula
     sha256 "d91ec104b33880ac901f36b8cc01b22f9086fcf7d4ab94c0cbc56336d1f6bec0"
   end
 
+  devel do
+    url "https://getdnsapi.net/releases/getdns-1-1-0-rc1/getdns-1.1.0-rc1.tar.gz"
+    sha256 "d91ec104b33880ac901f36b8cc01b22f9086fcf7d4ab94c0cbc56336d1f6bec0"
+  end
+
   depends_on "openssl"
   depends_on "unbound" => :recommended
   depends_on "libidn" => :recommended
