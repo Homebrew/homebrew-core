@@ -7,9 +7,9 @@ class Colordiff < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cc4e89679b9cc83ea97edb37a9c1d766ba3273e21087297496567f55b677bb77" => :sierra
-    sha256 "46960826668ad5d3ae1ee49afa1ba85da5ba9377b9c5d27393589c588a95a779" => :el_capitan
-    sha256 "46960826668ad5d3ae1ee49afa1ba85da5ba9377b9c5d27393589c588a95a779" => :yosemite
+    sha256 "c4d57d0ae142725bd320600864843ce040457c7652a3e403e1c65a6e53b42afd" => :sierra
+    sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :el_capitan
+    sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :yosemite
   end
 
   conflicts_with "cdiff", :because => "both install `cdiff` binaries"
