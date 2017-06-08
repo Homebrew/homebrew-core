@@ -61,6 +61,7 @@ class Mpd < Formula
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
   depends_on "pulseaudio" => :optional
+  depends_on "libao" => :optional       # Output to libao
   if build.with? "upnp"
     depends_on "expat"
     depends_on "libupnp"
@@ -95,6 +96,7 @@ class Mpd < Formula
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
     args << "--enable-pulse" if build.with? "pulseaudio"
+    args << "--enable-ao" if build.with? "libao"
     if build.with? "upnp"
       args << "--enable-upnp"
       args << "--enable-expat"
