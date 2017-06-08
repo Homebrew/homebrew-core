@@ -3,6 +3,7 @@ class Ufoai < Formula
   homepage "http://ufoai.org/"
   url "https://git.code.sf.net/p/ufoai/code.git", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
   version "2.5.0+20150216"
+  revision 1
 
   bottle do
     sha256 "300bb5018f23a611b94b7a24803488a1bab5016374f10b40acd211192fef3383" => :sierra
@@ -13,7 +14,7 @@ class Ufoai < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "sdl2_ttf"
-  depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "sdl2_mixer"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "xvid"
