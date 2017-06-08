@@ -3,18 +3,18 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.17.0-src.tar.gz"
-    sha256 "4baba3895b75f2492df6ce5a28a916307ecd1c088dc1fd02dbfa8a8e86174f87"
+    url "https://static.rust-lang.org/dist/rustc-1.18.0-src.tar.gz"
+    sha256 "d2dc36e99b9e2269488b2bcddde43c234e6bde03edf70cba82a027ff49c36111"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.18.0",
-          :revision => "fe7b0cdcf5ca7aab81630706ce40b70f6aa2e666"
+          :tag => "0.19.0",
+          :revision => "28d1d60d4b634b70d7ceb0808144f2337c83ab95"
     end
 
     resource "racer" do
-      url "https://github.com/phildawes/racer/archive/2.0.6.tar.gz"
-      sha256 "a9704478f72037e76d4d3702fe39b3c50597bde35dac1a11bf8034de87bbdc70"
+      url "https://github.com/phildawes/racer/archive/2.0.8.tar.gz"
+      sha256 "b6a1d3033fe5ca27674afceee936cf6d04b6fc11709513e230a039a2200f8797"
     end
   end
 
