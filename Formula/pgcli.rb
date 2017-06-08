@@ -13,7 +13,14 @@ class Pgcli < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
-  depends_on :postgresql
+  depends_on :postgresql unless which("pg_config")
+
+  def pg_config_path
+    result = Pathname.new("#{HOMEBREW_PREFIX}/bin/pg_config") || which("pg_config")
+    if File.exist?(result) && result
+      result.dirname
+    end
+  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
@@ -71,6 +78,10 @@ class Pgcli < Formula
   end
 
   def install
+    if pg_config_path
+      ENV.append_path "PATH", pg_config_path
+    end
+
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
       r.stage do
