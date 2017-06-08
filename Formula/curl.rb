@@ -14,6 +14,7 @@ class Curl < Formula
 
   keg_only :provided_by_osx
 
+  option "with-libidn2", "Build with support for Internationalized Domain Names"
   option "with-rtmpdump", "Build with RTMP support"
   option "with-libssh2", "Build with scp and sftp support"
   option "with-c-ares", "Build with C-Ares async DNS support"
@@ -21,6 +22,8 @@ class Curl < Formula
   option "with-libmetalink", "Build with libmetalink support."
   option "with-nghttp2", "Build with HTTP/2 support (requires OpenSSL)"
 
+  deprecated_option "with-idn" => "with-libidn2"
+  deprecated_option "with-libidn" => "with-libidn2"
   deprecated_option "with-rtmp" => "with-rtmpdump"
   deprecated_option "with-ssh" => "with-libssh2"
   deprecated_option "with-ares" => "with-c-ares"
@@ -40,6 +43,13 @@ class Curl < Formula
   depends_on "c-ares" => :optional
   depends_on "libmetalink" => :optional
   depends_on "nghttp2" => :optional
+  depends_on "libunistring" if build.with? "libidn2"
+
+  resource "libidn2" do
+    url "https://ftp.gnu.org/gnu/libidn/libidn2-2.0.2.tar.gz"
+    mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.0.2.tar.gz"
+    sha256 "8cd62828b2ab0171e0f35a302f3ad60c3a3fffb45733318b3a8205f9d187eeab"
+  end
 
   def install
     args = %W[
@@ -68,6 +78,21 @@ class Curl < Formula
     args << (build.with?("gssapi") ? "--with-gssapi" : "--without-gssapi")
     args << (build.with?("rtmpdump") ? "--with-librtmp" : "--without-librtmp")
 
+    if build.with? "libidn2"
+      resource("libidn2").stage do
+        system "./configure", "--disable-dependency-tracking",
+                              "--disable-silent-rules",
+                              "--prefix=#{libexec}/vendor/libidn2",
+                              "--with-packager=Homebrew"
+        system "make", "install"
+      end
+      ENV.prepend_path "PATH", libexec/"vendor/libidn2/bin"
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"vendor/libidn2/lib/pkgconfig"
+      args << "--with-libidn2"
+    else
+      args << "--without-libidn2"
+    end
+
     if build.with? "c-ares"
       args << "--enable-ares=#{Formula["c-ares"].opt_prefix}"
     else
@@ -89,5 +114,14 @@ class Curl < Formula
     system libexec/"mk-ca-bundle.pl", "test.pem"
     assert File.exist?("test.pem")
     assert File.exist?("certdata.txt")
+
+    if build.with? "libidn2"
+      ENV.delete("LC_CTYPE")
+      ENV["LANG"] = "en_US.UTF-8"
+      system bin/"curl", "-L", "www.räksmörgås.se", "-o", "index.html"
+      assert_predicate testpath/"index.html", :exist?,
+                       "Failed to download IDN example site!"
+      assert_match "www.xn--rksmrgs-5wao1o.se", File.read("index.html")
+    end
   end
 end

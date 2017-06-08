@@ -1,5 +1,3 @@
-# NOTE: Configure will fail if using awk 20110810 from dupes.
-# Upstream issue: https://savannah.gnu.org/bugs/index.php?37063
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
@@ -24,8 +22,11 @@ class Wget < Formula
   end
 
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "enable-iri" => "with-iri"
+  deprecated_option "with-iri" => "with-libidn2"
 
   option "with-debug", "Build with debug support"
+  option "with-libidn2", "Build with support for Internationalized Domain Names"
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
@@ -33,6 +34,13 @@ class Wget < Formula
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
+  depends_on "libunistring" if build.with? "libidn2"
+
+  resource "libidn2" do
+    url "https://ftp.gnu.org/gnu/libidn/libidn2-2.0.2.tar.gz"
+    mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.0.2.tar.gz"
+    sha256 "8cd62828b2ab0171e0f35a302f3ad60c3a3fffb45733318b3a8205f9d187eeab"
+  end
 
   def install
     # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
@@ -51,6 +59,21 @@ class Wget < Formula
     args << "--with-metalink" if build.with? "libmetalink"
     args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"
 
+    if build.with? "libidn2"
+      resource("libidn2").stage do
+        system "./configure", "--disable-dependency-tracking",
+                              "--disable-silent-rules",
+                              "--prefix=#{libexec}/vendor/libidn2",
+                              "--with-packager=Homebrew"
+        system "make", "install"
+      end
+      ENV.prepend "LDFLAGS", "-L#{libexec}/vendor/libidn2/lib"
+      ENV.prepend "CPPFLAGS", "-I#{libexec}/vendor/libidn2/include"
+      args << "--enable-iri"
+    else
+      args << "--disable-iri"
+    end
+
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
@@ -58,5 +81,12 @@ class Wget < Formula
 
   test do
     system bin/"wget", "-O", "/dev/null", "https://google.com"
+
+    if build.with? "libidn2"
+      system bin/"wget", "--local-encoding=utf-8", "www.räksmörgås.se"
+      assert_predicate testpath/"index.html", :exist?,
+                       "Failed to download IDN example site!"
+      assert_match "www.xn--rksmrgs-5wao1o.se", File.read("index.html")
+    end
   end
 end
