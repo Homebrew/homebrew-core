@@ -3,6 +3,7 @@ class Onscripter < Formula
   homepage "https://onscripter.osdn.jp/"
   url "https://onscripter.osdn.jp/onscripter-20161102.tar.gz"
   sha256 "e9a39b1c45cc47c363eb15773a9944da7a29eff74261ccb656ff5ce4b5fdd5d8"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Onscripter < Formula
   depends_on "sdl"
   depends_on "sdl_ttf"
   depends_on "sdl_image"
-  depends_on "sdl_mixer" => "with-libvorbis"
+  depends_on "sdl_mixer"
   depends_on "smpeg"
   depends_on "jpeg"
   depends_on "lua" => :recommended
