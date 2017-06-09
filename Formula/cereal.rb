@@ -8,8 +8,11 @@ class Cereal < Formula
   bottle :unneeded
 
   option "with-test", "Build and run the test suite"
+  option "with-cmake", "Export cereal-config.cmake"
 
   deprecated_option "with-tests" => "with-test"
+
+  depends_on "cmake" => :build if build.with? "cmake"
 
   if build.with? "test"
     depends_on "cmake" => :build
@@ -29,9 +32,17 @@ class Cereal < Formula
         system "cmake", "..", *std_cmake_args
         system "make"
         system "make", "test"
+        system "make", "install"
       end
+    elsif build.with? "cmake"
+      ENV.cxx11
+      mkdir "build" do
+        system "cmake", "..", "-DJUST_INSTALL_CEREAL=ON", *std_cmake_args
+        system "make", "install"
+      end
+    else
+      include.install "include/cereal"
     end
-    include.install "include/cereal"
   end
 
   test do
