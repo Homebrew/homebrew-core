@@ -11,9 +11,9 @@ class Chronograf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d3460d2be945b969f66216ac7ea08e48b4c3026eaf730e58904583e7c7cd552" => :sierra
-    sha256 "dc6f30722ed9fa65937f8fae33c50324c9a658a870cf76c6db5c91ea658124bb" => :el_capitan
-    sha256 "bd272392056f3e48c84e0f85aa5fd1636e773d7ad57fbbf8c67b45cb239485b0" => :yosemite
+    sha256 "e48d2d92576b82d071cae972811caa48dc08d016dc4c15f78840017645403dd1" => :sierra
+    sha256 "ed96fe66ee6a680df3a456dfef9dd12c290bdf4ae8bde1adca6a2867758f4b5f" => :el_capitan
+    sha256 "10fdbbfce7b857a88ea86b518fa6356f4b1d28a243d0d2a0e311af378be919da" => :yosemite
   end
 
   depends_on "go" => :build
