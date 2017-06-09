@@ -6,9 +6,9 @@ class Libhttpseverywhere < Formula
 
   bottle do
     cellar :any
-    sha256 "3e77a83c87ca574213b6288724d99d3f62985e71a2d843f93171b4057600f557" => :sierra
-    sha256 "b7e3be38b435a95ddaebcfff5a141b3c1caa1a3bd31a3ab8d33773a4f3e1c934" => :el_capitan
-    sha256 "1cdc86e9997ead1ce78847880ce213bd47e5a28e403c273cf6449f804c71854d" => :yosemite
+    sha256 "c72b32519161d1da678d33eece07e1bd6aebe2a5e023e63d2cd2074754a7ec5a" => :sierra
+    sha256 "4272c5bf990c67a2f2c5b7315784565ea32fb8f8d5a6fac6035aee8b4158da11" => :el_capitan
+    sha256 "471090f365e9895583a1bf0e6bbcf8f4f4cc3355f1804ea30a88d3e236e26a85" => :yosemite
   end
 
   depends_on "meson" => :build
