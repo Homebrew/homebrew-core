@@ -189,7 +189,7 @@ class PerconaServer < Formula
       sleep 1
       system "#{bin}/mysql", "--verbose", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
     ensure
-      Process.kill "SIGTERM", pid
+      system "#{bin}/mysqladmin", "shutdown", "--user=root", "--port=3307"
       Process.wait pid
     end
   end
