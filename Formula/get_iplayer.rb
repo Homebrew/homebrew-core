@@ -28,14 +28,13 @@ class GetIplayer < Formula
   end
 
   def install
-    resource("IO::Socket::IP").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make", "install"
-    end
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    resource("Mojolicious").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make", "install"
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
     end
 
     inreplace ["get_iplayer", "get_iplayer.cgi"] do |s|
@@ -43,42 +42,9 @@ class GetIplayer < Formula
       s.gsub! "#!/usr/bin/env perl", "#!/usr/bin/perl"
     end
 
+    bin.install "get_iplayer", "get_iplayer.cgi"
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
     man1.install "get_iplayer.1"
-
-    libexec.install "get_iplayer"
-    (bin/"get_iplayer").write_env_script \
-      "#{libexec}/get_iplayer",
-      :PERL5LIB => "#{libexec}/lib/perl5:$PERL5LIB"
-
-    libexec.install "get_iplayer.cgi"
-    (libexec/"get_iplayer.cgi").chmod 0444
-
-    (libexec/"get_iplayer_web_pvr").write <<-EOS.undent
-      #!/bin/bash
-      source "#{etc}/default/get_iplayer_web_pvr"
-      echo "Starting Web PVR Manager (Ctrl-C to stop)..."
-      screen -d -m /usr/bin/perl "#{libexec}/get_iplayer.cgi" \
-        -l $LISTEN -p $PORT -g "#{libexec}/get_iplayer"
-      echo "Waiting for Web PVR Manager to start..."
-      sleep 5
-      echo "Opening Web PVR Manager..."
-      open "http://$LISTEN:$PORT"
-      echo "Showing Web PVR Manager output..."
-      screen -r
-    EOS
-    (libexec/"get_iplayer_web_pvr").chmod 0555
-    (bin/"get_iplayer_web_pvr").write_env_script \
-      "#{libexec}/get_iplayer_web_pvr",
-      :PERL5LIB => "#{libexec}/lib/perl5:$PERL5LIB"
-
-    (buildpath/"get_iplayer_web_pvr_default").write <<-EOS.undent
-      # use 0.0.0.0 to bind to all interfaces
-      LISTEN=127.0.0.1
-      # port must be higher than 1024 for unprivileged users
-      PORT=1935
-    EOS
-    (etc/"default").install "get_iplayer_web_pvr_default" =>
-                            "get_iplayer_web_pvr"
   end
 
   test do
