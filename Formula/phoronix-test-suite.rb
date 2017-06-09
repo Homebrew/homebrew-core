@@ -11,7 +11,7 @@ class PhoronixTestSuite < Formula
     sha256 "128720345d82750d788cf4c50d0865d5922041018315633233266cffd6693f02" => :yosemite
   end
 
-   def install
+  def install
     system "./install-sh", prefix
     bash_completion.install "./pts-core/static/bash_completion"
   end
