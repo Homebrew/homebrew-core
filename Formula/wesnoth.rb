@@ -3,7 +3,7 @@ class Wesnoth < Formula
   homepage "https://www.wesnoth.org/"
   url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
   sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-  revision 1
+  revision 2
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
@@ -27,7 +27,7 @@ class Wesnoth < Formula
 
   depends_on "sdl"
   depends_on "sdl_image" # Must have png support
-  depends_on "sdl_mixer" => "with-libvorbis" # The music is in .ogg format
+  depends_on "sdl_mixer" # The music is in .ogg format
   depends_on "sdl_net"
   depends_on "sdl_ttf"
 
