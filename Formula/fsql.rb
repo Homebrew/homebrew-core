@@ -1,8 +1,8 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries."
   homepage "https://github.com/kshvmdn/fsql"
-  url "https://github.com/kshvmdn/fsql/archive/v0.1.1.tar.gz"
-  sha256 "d3ff000b8374d2eb9a44aa20220c758a82a24c82ee8a369fae146e84fc422f2c"
+  url "https://github.com/kshvmdn/fsql/archive/v0.2.1.tar.gz"
+  sha256 "def6ddd2f9a5f64bc03821223f760250eecb775762e848f37fb105cf0254ad1c"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Fsql < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kshvmdn").mkpath
     ln_s buildpath, buildpath/"src/github.com/kshvmdn/fsql"
-    system "go", "build", "-o", bin/"fsql"
+    system "go", "build", "-o", bin/"fsql", "github.com/kshvmdn/fsql/cmd/fsql"
   end
 
   test do
@@ -27,10 +27,11 @@ class Fsql < Formula
       foo
       foo/baz.txt
     EOS
-    assert_equal expected, shell_output("#{bin}/fsql SELECT name FROM foo")
-    output = shell_output("#{bin}/fsql SELECT name FROM . WHERE name = bar.txt")
-    assert_equal "bar.txt", output.chomp
-    output = shell_output("#{bin}/fsql SELECT all FROM . WHERE size \\> 500gb")
-    assert_equal "", output
+    cmd = "#{bin}/fsql SELECT FULLPATH\\(name\\) FROM foo"
+    assert_equal expected, shell_output(cmd)
+    cmd = "#{bin}/fsql SELECT name FROM . WHERE name = bar.txt"
+    assert_equal "bar.txt", shell_output(cmd).chomp
+    cmd = "#{bin}/fsql SELECT name FROM . WHERE FORMAT\\(size\, GB\\) \\> 500"
+    assert_equal "", shell_output(cmd)
   end
 end
