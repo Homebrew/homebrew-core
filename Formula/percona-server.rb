@@ -164,4 +164,34 @@ class PerconaServer < Formula
     </plist>
     EOS
   end
+
+  test do
+    begin
+      (testpath/"mysql_test.sql").write <<-EOS.undent
+        CREATE DATABASE `mysql_test`;
+        USE `mysql_test`;
+        CREATE TABLE `mysql_test`.`test` (
+        `id` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(127) NOT NULL COMMENT '42',
+        PRIMARY KEY (`id`),
+        KEY `name` (`name`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+        INSERT INTO `mysql_test`.`test` VALUES (NULL, '42');
+        SELECT * FROM `mysql_test`.`test` WHERE `name` = '42';
+        DELETE FROM `mysql_test`.`test` WHERE `name` = '42';
+        DROP TABLE `mysql_test`.`test`;
+        DROP DATABASE `mysql_test`;
+      EOS
+      # mysql throws error if any file exists in the data directory
+      system "#{bin}/mysqld", "--log-error-verbosity=3", "--initialize-insecure", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}"
+      pid = fork do
+        exec "#{opt_bin}/mysqld_safe", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}", "--bind-address=127.0.0.1", "--port=3307"
+      end
+      sleep 1
+      system "#{bin}/mysql", "--verbose", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
+    ensure
+      Process.kill "SIGTERM", pid
+      Process.wait pid
+    end
+  end
 end
