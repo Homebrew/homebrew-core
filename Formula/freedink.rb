@@ -16,8 +16,8 @@ class Freedink < Formula
   depends_on "pkg-config" => :build
 
   resource "freedink-data" do
-    url "https://ftpmirror.gnu.org/freedink/freedink-data-1.08.20170401.tar.xz"
-    sha256 "e8d3f3ff55b1a86661949d08d901740d65a6092027886fd791f6c315b9c7a7ff"
+    url "https://ftpmirror.gnu.org/freedink/freedink-data-1.08.20170409.tar.gz"
+    sha256 "e1f1e23c7846bc74479610a65cc0169906e844c5193f0d83ba69accc54a3bdf5"
   end
 
   def install
