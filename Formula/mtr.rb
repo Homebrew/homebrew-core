@@ -33,8 +33,12 @@ class Mtr < Formula
   end
 
   def caveats; <<-EOS.undent
-    mtr requires root privileges so you will need to run `sudo mtr`.
+    mtr requires root privileges so you will need to run `sudo mtr` or
+    setuid-root the #{sbin}/mtr-packet binary.
     You should be certain that you trust any software you grant root privileges.
+
+    More information on security and mtr is available here:
+    https://github.com/traviscross/mtr/blob/master/SECURITY
     EOS
   end
 
