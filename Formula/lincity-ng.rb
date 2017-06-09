@@ -1,7 +1,7 @@
 class LincityNg < Formula
   desc "City simulation game"
   homepage "https://github.com/lincity-ng/lincity-ng/"
-  revision 1
+  revision 2
   head "https://github.com/lincity-ng/lincity-ng.git"
 
   stable do
@@ -29,7 +29,7 @@ class LincityNg < Formula
   depends_on "sdl"
   depends_on "sdl_gfx"
   depends_on "sdl_image"
-  depends_on "sdl_mixer" => "with-libvorbis"
+  depends_on "sdl_mixer"
   depends_on "sdl_ttf"
 
   def install
