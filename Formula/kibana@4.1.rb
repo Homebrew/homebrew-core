@@ -3,7 +3,7 @@ require "language/node"
 class KibanaAT41 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", :tag => "v4.1.8", :revision => "e4f4c5bef5fbec91f0890bd08f6a622f6c4648ad"
+  url "https://github.com/elastic/kibana.git", :tag => "v4.1.11", :revision => "c55c5d9acf510bed020a4fdc1c4ca8c81c7b7a1b"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -15,8 +15,8 @@ class KibanaAT41 < Formula
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v4.4.4/node-v4.4.4.tar.gz"
-    sha256 "53c694c203ee18e7cd393612be08c61ed6ab8b2a165260984a99c014d1741414"
+    url "https://nodejs.org/dist/v4.4.7/node-v4.4.7.tar.xz"
+    sha256 "1ef900b9cb3ffb617c433a3247a9d67ff36c9455cbc9c34175bee24bdbfdf731"
   end
 
   def install
@@ -42,9 +42,7 @@ class KibanaAT41 < Formula
 
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
     Pathname.new("#{ENV["HOME"]}/.npmrc").write Language::Node.npm_cache_config
-    system "npm", "install", "grunt-cli", "bower"
-    system "npm", "install"
-    system "node_modules/.bin/bower", "install"
+    system "npm", "install", "--verbose"
     system "node_modules/.bin/grunt", "build"
 
     mkdir "tar" do
