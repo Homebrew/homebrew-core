@@ -3,6 +3,7 @@ class Fzf < Formula
   homepage "https://github.com/junegunn/fzf"
   url "https://github.com/junegunn/fzf/archive/0.16.8.tar.gz"
   sha256 "daef99f67cff3dad261dbcf2aef995bb78b360bcc7098d7230cb11674e1ee1d4"
+  revision 1
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
@@ -23,6 +24,8 @@ class Fzf < Formula
     ln_s buildpath, buildpath/"src/github.com/junegunn/fzf"
     system "glide", "install"
     system "go", "build", "-o", bin/"fzf", "-ldflags", "-X main.revision=brew"
+
+    prefix.install "install", "uninstall"
     (prefix/"shell").install %w[bash zsh fish].map { |s| "shell/key-bindings.#{s}" }
     (prefix/"shell").install %w[bash zsh].map { |s| "shell/completion.#{s}" }
     (prefix/"plugin").install "plugin/fzf.vim"
