@@ -10,9 +10,9 @@ class LincityNg < Formula
   end
 
   bottle do
-    sha256 "74fb79c8d696a70137abd631c660230e6b90d3174b564fa37c2bd69faf60d200" => :sierra
-    sha256 "a618caffe64ab2b5df4e03b83f6bfa65684b33d1cfbb2ba8fbc263a3d51c3e49" => :el_capitan
-    sha256 "2f26f46f39bea9e6608bedd12db9282dea17ef67455321a02b3aedd2006d53e4" => :yosemite
+    sha256 "cae5f270842c10affb29d6f9c592a96913d9ca630c49d22afa03cba6d3a6121c" => :sierra
+    sha256 "b9f326c678a9317f141ad13749cb4075ab42144855254d344de15bc22c4020e5" => :el_capitan
+    sha256 "6eae33edda53f256caa2fde01d334bc19b2c9810c8cf8e039ad1094c71619691" => :yosemite
   end
 
   devel do
