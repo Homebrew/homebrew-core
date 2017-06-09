@@ -6,9 +6,9 @@ class PhoronixTestSuite < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c29c9748f6ba2c76c20a0dedbc96b72d0dc4ccd243506d5752c1f9e42964aece" => :sierra
-    sha256 "128720345d82750d788cf4c50d0865d5922041018315633233266cffd6693f02" => :el_capitan
-    sha256 "128720345d82750d788cf4c50d0865d5922041018315633233266cffd6693f02" => :yosemite
+    sha256 "96c7846ced5089c34d2e83a79a701dba815cc131b0db183607bad27bffe0bff6" => :sierra
+    sha256 "f05c1ba748ffa1fcfcdeecb4ebb518232074d300b131af0a7e7c421c513a41b5" => :el_capitan
+    sha256 "f05c1ba748ffa1fcfcdeecb4ebb518232074d300b131af0a7e7c421c513a41b5" => :yosemite
   end
 
   def install
