@@ -1,8 +1,8 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "http://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/version_32.tar.gz"
-  sha256 "724dfdeb0ea1130ba86dde207635a4eaf32e1acabe1e24d02e99f7d00ef59f56"
+  url "https://github.com/WebAssembly/binaryen/archive/version_33.tar.gz"
+  sha256 "858038e5a04ceb416fa789902151592f9eacade8e03bc84785401cfec50fb3c8"
 
   head "https://github.com/WebAssembly/binaryen.git"
 
@@ -14,6 +14,7 @@ class Binaryen < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on :macos => :el_capitan # needs thread-local storage
 
   needs :cxx11
 
