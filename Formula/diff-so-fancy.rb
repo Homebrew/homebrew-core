@@ -3,8 +3,8 @@ require "language/node"
 class DiffSoFancy < Formula
   desc "Good-lookin' diffs with diff-highlight and more"
   homepage "https://github.com/so-fancy/diff-so-fancy"
-  url "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-0.11.4.tgz"
-  sha256 "1812b1a36b77c371fc811cc0a9746204954b2c3ab4734ab310b4f01009630b15"
+  url "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-1.0.0.tgz"
+  sha256 "13d8d6f8dd3b3100ab48de04df593daf137e21c28d1e10082b75f723f9b182b9"
 
   bottle do
     cellar :any_skip_relocation
