@@ -1,9 +1,9 @@
 class FetchCrl < Formula
   desc "Retrieve certificate revocation lists (CRLs)"
   homepage "https://wiki.nikhef.nl/grid/FetchCRL3"
-  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.17.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fetch-crl/fetch-crl_3.0.17.orig.tar.gz"
-  sha256 "22f460388416bdabdb59d2f8fd423c5b097886649e4a2650867106a7e6c8cfe7"
+  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.19.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fetch-crl/fetch-crl_3.0.19.orig.tar.gz"
+  sha256 "64d8f573601568554415c9ad853864285313538a90de92b3dcf2d16b92b2bcde"
 
   bottle do
     cellar :any_skip_relocation
