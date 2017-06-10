@@ -1,5 +1,5 @@
 class Wxmac < Formula
-  desc "wxWidgets, a cross-platform C++ GUI toolkit (for macOS)"
+  desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
   revision 4
 
