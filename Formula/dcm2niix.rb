@@ -5,6 +5,13 @@ class Dcm2niix < Formula
   sha256 "17756f28dc42965854b7389d166df6d70c126486887fd2037b99d4a082c037ab"
   head "https://github.com/rordenlab/dcm2niix.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b92a6d21ae029d80ef09aa435309a492e7b7399854273dba72c21df16db2b7d0" => :sierra
+    sha256 "15af59a69443485e5d481bcf1cfe0d8ebc46c75ea7cdd0519dd692565bdd981a" => :el_capitan
+    sha256 "1ec7b18384f0759f345b6751bab7009cb3adeb4d3d643fd9f89c21f328c35664" => :yosemite
+  end
+
   option "with-batch"
 
   depends_on "cmake" => :build
