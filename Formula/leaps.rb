@@ -2,8 +2,8 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-      :tag => "v0.6.2",
-      :revision => "578f42522a56b5da4bd4b932f199b212eeb38e0b"
+      :tag => "v0.7.0",
+      :revision => "5fd7c3b10c1aad9c7d35288bbaa3d350515a5472"
 
   bottle do
     cellar :any_skip_relocation
@@ -38,7 +38,7 @@ class Leaps < Formula
       sleep(1)
 
       # Check that the server is responding correctly
-      assert_match /Choose a document from the left to get started/, shell_output("curl -o- http://localhost#{port}")
+      assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
     ensure
       # Stop the server gracefully
       Process.kill("HUP", leaps_pid)
