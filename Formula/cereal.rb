@@ -26,18 +26,13 @@ class Cereal < Formula
   needs :cxx11
 
   def install
-    if build.with? "test"
+    if build.with?("test") || build.with?("cmake")
       ENV.cxx11
       mkdir "build" do
-        system "cmake", "..", *std_cmake_args
-        system "make"
-        system "make", "test"
-        system "make", "install"
-      end
-    elsif build.with? "cmake"
-      ENV.cxx11
-      mkdir "build" do
-        system "cmake", "..", "-DJUST_INSTALL_CEREAL=ON", *std_cmake_args
+        args = std_cmake_args
+        args << "-DJUST_INSTALL_CEREAL=ON" if build.with? "cmake"
+        system "cmake", "..", *args
+        system "make", "test" if build.with? "test"
         system "make", "install"
       end
     else
