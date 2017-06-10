@@ -48,19 +48,19 @@ class Wxmac < Formula
     # Fix Issue: Creating wxComboCtrl without wxTE_PROCESS_ENTER style results in an assert.
     patch do
       url "https://github.com/wxWidgets/wxWidgets/commit/cee3188c1abaa5b222c57b87cc94064e56921db8.patch"
-      sha256 "c6503ba36a166c031426be4554b033bae5b0d9da6fabd33c10ffbcb8672a0c2d"
+      sha256 "b60177afbbb3a8395fd86883e311dd48b0f4e1ece1b78b5f1a341dbfbeb76ebc"
     end
 
     # Fix Issue: Building under macOS in C++11 mode for i386 architecture (but not amd64) results in an error about narrowing conversion.
     patch do
       url "https://github.com/wxWidgets/wxWidgets/commit/ee486dba32d02c744ae4007940f41a5b24b8c574.patch"
-      sha256 "88ef4c5ec0422d00ae01aff18143216d1e20608f37090be7f18e924c631ab678"
+      sha256 "6d066c5848454255ba0734b8d787ecb334cc4b177a74c8bb3b5f3f83950c3268"
     end
 
     # Fix Issue: Building under macOS in C++11 results in several -Winconsistent-missing-override warnings.
     patch do
       url "https://github.com/wxWidgets/wxWidgets/commit/173ecd77c4280e48541c33bdfe499985852935ba.patch"
-      sha256 "018fdb6abda38f5d017cffae5925fa4ae8afa9c84912c61e0afd26cd4f7b5473"
+      sha256 "f8f9881b788f51b0042da7decd9916ca1e4bf0ef5364edd9431c55f97e678cb7"
     end
   end
 
