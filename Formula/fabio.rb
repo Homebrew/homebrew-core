@@ -52,7 +52,7 @@ class Fabio < Formula
           exec "consul agent -dev -bind 127.0.0.1"
           puts "consul started"
         end
-        sleep 15
+        sleep 30
       else
         puts "Consul already running"
       end
@@ -60,7 +60,7 @@ class Fabio < Formula
         exec "#{bin}/fabio &>fabio-start.out&"
         puts "fabio started"
       end
-      sleep 5
+      sleep 10
       assert_equal true, port_open?(LOCALHOST_IP, FABIO_DEFAULT_PORT)
       system "killall", "fabio" # fabio forks off from the fork...
       system "consul", "leave"
