@@ -52,8 +52,8 @@ class PostgresqlAT94 < Formula
     if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
       args << "--with-tcl"
 
-      if File.exist?("#{MacOS.sdk_path}/usr/lib/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/usr/lib"
+      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
       end
     end
 

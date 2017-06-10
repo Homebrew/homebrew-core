@@ -60,8 +60,8 @@ class Pidgin < Formula
     args << "--disable-perl" if build.without? "perl"
     args << "--enable-cyrus-sasl" if build.with? "gsasl"
 
-    args << "--with-tclconfig=#{MacOS.sdk_path}/usr/lib"
-    args << "--with-tkconfig=#{MacOS.sdk_path}/usr/lib"
+    args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+    args << "--with-tkconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework"
     args << "--disable-gtkui" if build.without? "gui"
 
     system "./configure", *args
