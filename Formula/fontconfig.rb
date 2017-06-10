@@ -7,10 +7,9 @@ class Fontconfig < Formula
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
   bottle do
-    rebuild 1
-    sha256 "c9aa0691856cf65926f3cf0a98437b5a5d31277eda5b3adbf2936e095e410923" => :sierra
-    sha256 "65bff1d201c1cf194f69f39d0bc02e8a4c5b1a8cbfafa22f9581501d84835df2" => :el_capitan
-    sha256 "da7afd6fc112fc9fe6c2e6b5fa0fec98434ccdaad88c76447e0c741d3c9cd40a" => :yosemite
+    sha256 "5fb55037ab6f6927673d82e69d9760dda96eaf5df94c3a3e389d9c78df0551e8" => :sierra
+    sha256 "fb799680da59f2585f2f8e5eb171617664e0097942b7fb3bc6266c39d830147b" => :el_capitan
+    sha256 "fb94391f03d14f14c751d2492aefa4dd09b218e6c5b51236a79dfe477f33b54e" => :yosemite
   end
 
   pour_bottle? do
