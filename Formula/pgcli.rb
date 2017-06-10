@@ -1,8 +1,8 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/44/c7/a3a1df56b7eefdbf2aaf833d2856262f075ece87530d98936d4147d3e32e/pgcli-1.5.1.tar.gz"
-  sha256 "10d7334a9a90c8eec107dca89f8bde0a5dbfa10bfc5f187402c3f1adffee36d7"
+  url "https://files.pythonhosted.org/packages/f8/65/9ff27e98944b775154496d7c05da9c90379fa6b077b6066800c13cc141f7/pgcli-1.6.0.tar.gz"
+  sha256 "f19a12ec525ef3f21baab7da67d82e1ca99086a9ba06bdf0592b9412be7c09e8"
 
   bottle do
     cellar :any
@@ -31,13 +31,13 @@ class Pgcli < Formula
   end
 
   resource "pgspecial" do
-    url "https://files.pythonhosted.org/packages/71/cc/93ee525a00e5ad6306945529d6f9c7ea0058d2f7a72ad25759c21e558780/pgspecial-1.7.0.tar.gz"
-    sha256 "297e231caf77e129c4d0b71f97ca022be8d32684928af5959050de727245db4a"
+    url "https://files.pythonhosted.org/packages/bd/61/b35b4622813d6659653290bf6c001b22dc0c5d0b88c0948db47d15d1c42d/pgspecial-1.8.0.tar.gz"
+    sha256 "89f524909e97554bb3eeceb186a834e86cb71e34afef3a95fe645049ead894b7"
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/23/be/4876b52d5cc159cbd4b0ff6e7aa419a26470849a43a8f647857a4a24467b/prompt_toolkit-1.0.13.tar.gz"
-    sha256 "33d68ca09f76cd73287fde7df5748ffacf26a8238dd61ee81ac50860ea7c6776"
+    url "https://files.pythonhosted.org/packages/55/56/8c39509b614bda53e638b7500f12577d663ac1b868aef53426fc6a26c3f5/prompt_toolkit-1.0.14.tar.gz"
+    sha256 "cc66413b1b4b17021675d9f2d15d57e640b06ddfd99bb724c73484126d22622f"
   end
 
   resource "psycopg2" do
