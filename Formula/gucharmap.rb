@@ -14,11 +14,11 @@ class Gucharmap < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "desktop-file-utils" => :build
-  depends_on "wget" => :build
   depends_on "coreutils" => :build
   depends_on "gtk+3"
 
   def install
+    ENV["WGET"] = "curl"
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -28,7 +28,7 @@ class Gucharmap < Formula
                           "--disable-schemas-compile",
                           "--enable-introspection=no",
                           "--with-unicode-data=download"
-    system "make"
+    system "make", "WGETFLAGS=--remote-name --remote-time --connect-timeout 30 --retry 8"
     system "make", "install"
   end
 
