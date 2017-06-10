@@ -1,9 +1,9 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.0.2/irssi-1.0.2.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/irssi/irssi_1.0.2.orig.tar.xz"
-  sha256 "5c1c3cc2caf103aad073fadeb000e0f8cb3b416833a7f43ceb8bd9fcf275fbe9"
+  url "https://github.com/irssi/irssi/releases/download/1.0.3/irssi-1.0.3.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/irsssi_1.0.3.orig.tar.xz"
+  sha256 "838220297dcbe7c8c42d01005059779a82f5b7b7e7043db37ad13f5966aff581"
 
   bottle do
     sha256 "abf418d0c17b0e98989acafa80bd89f07971f7bef285776f1358d796650115c0" => :sierra
