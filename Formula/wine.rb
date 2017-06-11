@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 2
+  revision 3
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -35,9 +35,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.9.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.9.tar.xz"
-    sha256 "ac46f7bbbbc1dc135c95e4f98d28bf6e3d7a78fb7f9ba6caa7354a3e8786545f"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.10.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.10.tar.xz"
+    sha256 "488df7ffd2e81da455bf428fc9eb784bb4273a890334500895665711bd52f179"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.3.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -87,9 +87,9 @@ class Wine < Formula
   end
 
   resource "jpeg" do
-    url "http://www.ijg.org/files/jpegsrc.v8d.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg8/libjpeg8_8d.orig.tar.gz"
-    sha256 "00029b1473f0f0ea72fbca3230e8cb25797fbb27e58ae2e46bb8bf5a806fe0b3"
+    url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg9/libjpeg9_9b.orig.tar.gz"
+    sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
   end
 
   resource "libtiff" do
@@ -133,9 +133,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
-    sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.3.tar.bz2"
+    sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
   end
 
   resource "gd" do
@@ -145,9 +145,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.13/libgphoto2-2.5.13.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.13.tar.bz2"
-    sha256 "ceaacbdf187d1cd1aed5336991f46b0100f6960b6c8383f9aeab98f1f64780ef"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.14/libgphoto2-2.5.14.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.14.tar.bz2"
+    sha256 "d3ce70686fb87d6791b9adcbb6e5693bfbe1cfef9661c23c75eb8a699ec4e274"
   end
 
   resource "net-snmp" do
@@ -163,9 +163,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.24.0/mpg123-1.24.0.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.24.0.tar.bz2"
-    sha256 "55fb169a7711938f5df0497d1ffe28419fbef50011dc01d00b216379e6a2256c"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.0/mpg123-1.25.0.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.0.tar.bz2"
+    sha256 "552e3e1db045e00f474252917007795ac295863fc8b13891859b3382d2f24e48"
   end
 
   fails_with :clang do
