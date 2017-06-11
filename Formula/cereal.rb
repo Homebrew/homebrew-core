@@ -5,39 +5,15 @@ class Cereal < Formula
   sha256 "1921f26d2e1daf9132da3c432e2fd02093ecaedf846e65d7679ddf868c7289c4"
   head "https://github.com/USCiLab/cereal.git", :branch => "develop"
 
-  bottle :unneeded
-
-  option "with-test", "Build and run the test suite"
-  option "with-cmake", "Export cereal-config.cmake"
-
-  deprecated_option "with-tests" => "with-test"
-
-  depends_on "cmake" => :build if build.with? "cmake"
-
-  if build.with? "test"
-    depends_on "cmake" => :build
-    depends_on "boost" => :build
-  end
+  depends_on "cmake" => :build
 
   # error: chosen constructor is explicit in copy-initialization
   # Reported 3 Sep 2016: https://github.com/USCiLab/cereal/issues/339
   depends_on :macos => :yosemite
 
-  needs :cxx11
-
   def install
-    if build.with?("test") || build.with?("cmake")
-      ENV.cxx11
-      mkdir "build" do
-        args = std_cmake_args
-        args << "-DJUST_INSTALL_CEREAL=ON" if build.with? "cmake"
-        system "cmake", "..", *args
-        system "make", "test" if build.with? "test"
-        system "make", "install"
-      end
-    else
-      include.install "include/cereal"
-    end
+    system "cmake", ".", "-DJUST_INSTALL_CEREAL=ON", *std_cmake_args
+    system "make", "install"
   end
 
   test do
