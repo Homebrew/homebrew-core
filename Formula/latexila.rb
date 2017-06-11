@@ -1,8 +1,8 @@
 class Latexila < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.0.tar.xz"
-  sha256 "2c47d6bf0a647715a3029af2b38099e9dac0c4a0a60c122917b36afd3f6ce31f"
+  url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.1.tar.xz"
+  sha256 "fd4c7bf68f29db292127e97b21c5a6d41c03eee73b9e8eca706375452b479007"
 
   bottle do
     rebuild 1
