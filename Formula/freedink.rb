@@ -34,6 +34,6 @@ class Freedink < Formula
   end
 
   test do
-    FileTest.executable?("#{bin}/freedink") && shell_output("#{bin}/freedink -vwis").split("\n").first == "GNU FreeDink 108.4" && FileText.exists?("#{prefix}/share/dink/dink/Dink.dat")
+    FileTest.executable?("#{bin}/freedink") && shell_output("#{bin}/freedink -vwis").split("\n").first == "GNU FreeDink 108.4" && FileTest.exists?("#{share}/dink/dink/Dink.dat")
   end
 end
