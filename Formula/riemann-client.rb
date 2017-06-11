@@ -7,9 +7,9 @@ class RiemannClient < Formula
 
   bottle do
     cellar :any
-    sha256 "9856af75fe69543e8e364c86a2be2ebd044e9b3de30c32e0fb7d6274199a0b5b" => :sierra
-    sha256 "062a6545b63ecc33a9331509630443d77904132297c8beae3642aba6d2ba1b87" => :el_capitan
-    sha256 "5e17f7589983a2f2e6e58516f7b6151032744d423b222502a23e572e6566b0f1" => :yosemite
+    sha256 "2313f0725f6d26800341804ebd819d3a569732cb1c909ea5ffc35c2d229317dd" => :sierra
+    sha256 "c3eed9747670362a03b19f98bb14737374db2ec60f09db8465b781fa260503a3" => :el_capitan
+    sha256 "c5d61a0d90db42fbc859068e6c1eac710e7b23ab5a4cf6b6f92b4680f1f49e5c" => :yosemite
   end
 
   depends_on "autoconf" => :build
