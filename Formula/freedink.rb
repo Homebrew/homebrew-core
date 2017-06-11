@@ -28,15 +28,12 @@ class Freedink < Formula
 
     system "make", "install"
     resource("freedink-data").stage do
-      system "sed", "-i.bak", "-e", "s,^VERSION,#VERSION,", "-e", "s,^SOURCE_DATE_EPOCH,#SOURCE_DATE_EPOCH,", "-e", "s,xargs -0r,xargs -0,", "Makefile"
-      version=Dir.pwd.split("/")[-1].split("-")[-1]
-      source_date = Dir.pwd.split("/")[-1].split(".")[-1].match(/(\d{4})(\d{2})(\d{2})/).to_a[1..-1].join("-")
-      source_date_epoch = Time.parse("#{source_date} 0:00 UTC").to_i
-      system "make", "install", "VERSION=#{version}", "SOURCE_DATE_EPOCH=#{source_date_epoch}", "PREFIX=#{prefix}"
+      system "sed", "-i.bak", "-e", "s,xargs -0r,xargs -0,", "Makefile"
+      system "make", "install", "PREFIX=#{prefix}"
     end
   end
 
   test do
-    FileTest.executable?("#{bin}/freedink") && shell_output("#{bin}/freedink -vwis").split("\n").first == "GNU FreeDink 108.4"
+    FileTest.executable?("#{bin}/freedink") && shell_output("#{bin}/freedink -vwis").split("\n").first == "GNU FreeDink 108.4" && FileText.exists?("#{prefix}/share/dink/dink/Dink.dat")
   end
 end
