@@ -1,7 +1,7 @@
 class Freedink < Formula
   desc "Portable version of the Dink Smallwood game engine."
   homepage "https://www.gnu.org/software/freedink/"
-  url "https://ftpmirror.gnu.org/freedink/freedink-108.4.tar.gz"
+  url "https://ftp.gnu.org/gnu/freedink/freedink-108.4.tar.gz"
   sha256 "82cfb2e019e78b6849395dc4750662b67087d14f406d004f6d9e39e96a0c8521"
 
   depends_on "check"
@@ -16,7 +16,7 @@ class Freedink < Formula
   depends_on "pkg-config" => :build
 
   resource "freedink-data" do
-    url "https://ftpmirror.gnu.org/freedink/freedink-data-1.08.20170409.tar.gz"
+    url "https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20170409.tar.gz"
     sha256 "e1f1e23c7846bc74479610a65cc0169906e844c5193f0d83ba69accc54a3bdf5"
   end
 
@@ -37,7 +37,6 @@ class Freedink < Formula
   end
 
   test do
-    FileTest.executable? "src/freedink" &&
-    shell_output("#{bin}/freedink", "-vwis").split("\n").first == "GNU FreeDink 108.4"
+    FileTest.executable?("#{bin}/freedink") && shell_output("#{bin}/freedink -vwis").split("\n").first == "GNU FreeDink 108.4"
   end
 end
