@@ -1,8 +1,8 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-0-0/getdns-1.0.0.tar.gz"
-  sha256 "a0460269c6536501a7c0af9bc97f9339e05a012f8191d5c10f79042aa62f9e96"
+  url "https://getdnsapi.net/releases/getdns-1-1-0/getdns-1.1.0.tar.gz"
+  sha256 "aa47bca275b97f623dc6799cee97d3465fa46521d94bd9892e08e8d5d88f09c3"
   head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
@@ -12,8 +12,8 @@ class Getdns < Formula
   end
 
   devel do
-    url "https://getdnsapi.net/releases/getdns-1-1-0-rc1/getdns-1.1.0-rc1.tar.gz"
-    sha256 "d91ec104b33880ac901f36b8cc01b22f9086fcf7d4ab94c0cbc56336d1f6bec0"
+    url "https://getdnsapi.net/releases/getdns-1-1-1rc1/getdns-1.1.1rc1.tar.gz"
+    sha256 "f63340b1d05410b875217c6abd7066586fc55a811db4ae90ffd01d2240e05e57"
   end
 
   depends_on "openssl"
