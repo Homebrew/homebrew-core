@@ -2,8 +2,8 @@ class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/en/index.html"
   url "https://github.com/fibjs/fibjs.git",
-      :tag => "v0.3.1",
-      :revision => "378e5274a5933c4de44bd6ecbae19692af3680de"
+      :tag => "v0.4.0",
+      :revision => "dbb0a18444d5d832c1181ed1ec277450ec220181"
 
   head "https://github.com/fibjs/fibjs.git"
 
