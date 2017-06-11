@@ -1,8 +1,8 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "http://www.rarlab.com"
-  url "http://www.rarlab.com/rar/unrarsrc-5.5.3.tar.gz"
-  sha256 "d1d9ef4a9247db088f825666de8f8bb69006d8d8b0e004ff366b3e04c103a2b3"
+  url "http://www.rarlab.com/rar/unrarsrc-5.5.4.tar.gz"
+  sha256 "278cc3ecdeb23290bab1ee654390fa9a6a8a5d586df81e3e034448fab2a972bc"
 
   bottle do
     cellar :any
@@ -12,6 +12,10 @@ class Unrar < Formula
   end
 
   def install
+    # Fix "makefile:132: *** missing separator."
+    # Reported to dev AT rarlab.com 11 Jun 2017
+    inreplace "makefile", "  ", "\t"
+
     # upstream doesn't particularly care about their unix targets,
     # so we do the dirty work of renaming their shared objects to
     # dylibs for them.
