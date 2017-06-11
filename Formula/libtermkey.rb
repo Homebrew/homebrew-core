@@ -6,9 +6,9 @@ class Libtermkey < Formula
 
   bottle do
     cellar :any
-    sha256 "e67485b331eeac167fcad54f504952fc1bcfb8a52aa22e6fd139839bb7d6585e" => :sierra
-    sha256 "366ea267ec414f63966f3443b21f7479d888f999df1545eb97b8e76b0631afbb" => :el_capitan
-    sha256 "d8bbe8d3e78821cd3785c7582ed7355ea74e966a3572abd92499db014907fefa" => :yosemite
+    sha256 "d6ed7a2c17bce7c8d6e96530ebe7cfabbf814e701c301d824b11ea22cd46d7d0" => :sierra
+    sha256 "782f20517ff7f10a76a5969eb698c9fd9fc279459c56cfb90dda81c30ec5b5ce" => :el_capitan
+    sha256 "07bfd3dd2f19032d05d2415642569df0ec8a74f48f545b3e5e1a8548849e9b42" => :yosemite
   end
 
   depends_on "pkg-config" => :build
