@@ -18,10 +18,10 @@ class Glog < Formula
 
   def install
     mkdir "glog-build" do
-      args = std_cmake_args
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+    lib.install_symlink "libglog.dylib" => "libglog.0.dylib"
   end
 
   test do
