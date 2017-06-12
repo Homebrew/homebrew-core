@@ -1,9 +1,9 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.29.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.29.1.tar.gz"
-  sha256 "ccfa9ffb7eb91e9e87c21c108324b911250c9ffa838bffb64b1caafadcb0f388"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.30.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/dovecot-2.2.30.2.tar.gz"
+  sha256 "f3dba79c1ceeaa9dd0633f648d3a607704bf3d0591e7d48168084c8add87189e"
 
   bottle do
     rebuild 1
@@ -27,7 +27,7 @@ class Dovecot < Formula
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      :revision => "304e1160341275565e032b00a9855d272f0c2a51"
+        :revision => "66556ea9fc0f14464dc6bb3d39bf071b36d90ab6"
   end
 
   def install
