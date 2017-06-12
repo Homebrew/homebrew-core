@@ -1,8 +1,8 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://sourceforge.net/projects/zziplib/"
-  url "https://github.com/gdraheim/zziplib/archive/v0.13.66.tar.gz"
-  sha256 "59b18c7c4ed348ba8d63fa7e194e6b012cd94197265b7a7b3afb539d8206bd7d"
+  url "https://github.com/gdraheim/zziplib/archive/v0.13.67.tar.gz"
+  sha256 "1278178bdabac832da6bbf161033d890d335a2e38493c5af553ff5ce7b9b0220"
 
   bottle do
     cellar :any
