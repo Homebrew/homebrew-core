@@ -62,7 +62,7 @@ class MinimalRacket < Formula
 
     # show that the config file isn't malformed
     output = shell_output("'#{bin}/raco' pkg config")
-    assert $?.success?
+    assert $CHILD_STATUS.success?
     assert_match Regexp.new(<<-EOS.undent), output
       ^name:
         #{version}
