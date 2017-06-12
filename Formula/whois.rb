@@ -1,8 +1,9 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://mirrors.kernel.org/debian/pool/main/w/whois/whois_5.2.15.tar.xz"
-  sha256 "7a5a6b690bfc6360d92d9328adbe5c1f096a41f0d6548ce0df4aa664dcb37188"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/whois/whois_5.2.16.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/whois/whois_5.2.16.tar.xz"
+  sha256 "e9d208b61ccea96b611e522d30fb753dbefed0d44cfabe346e1928690453fc3a"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
