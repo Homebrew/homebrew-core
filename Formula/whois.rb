@@ -8,9 +8,9 @@ class Whois < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f76c5338e4a2a6d4fa2a20937e410a634b7c4d7eb11a1ddab6a539c66b19440" => :sierra
-    sha256 "ac5d8ca304855154b1f6bc8b068431bb0cb2d96c114c73153d63145ac747d608" => :el_capitan
-    sha256 "6a364e35b236f85c81a5338fc27e89af7c90798ec0c8437654bfb57daf92417e" => :yosemite
+    sha256 "5b5d063e1c7831f4ddf7c392a37db28528c43acb003d7cf9e9cb741270861045" => :sierra
+    sha256 "c1694fe0f3b5ff0f2ccd3f9d57776c30c7a54e0e05a2c00cd17cbff64e775cab" => :el_capitan
+    sha256 "e6cb80d8cdc877295efb6f94febb702e46541fc5874bec8449740e061facc844" => :yosemite
   end
 
   def install
