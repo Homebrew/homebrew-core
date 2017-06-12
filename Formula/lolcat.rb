@@ -7,9 +7,9 @@ class Lolcat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "418b84a736d082079aeca4af6d2446c185e6062c2c1c15647ddd4357e9ea73fa" => :sierra
-    sha256 "0bf6b7d10ce44f854e3f81c1392d75ba0e4346a92807fb66b97223b8ccd6ad6d" => :el_capitan
-    sha256 "9878b6167975b0ad58868d55f1b36465f9a88910dcf22c119950f3d7203a0d83" => :yosemite
+    sha256 "543a885917eb4ca99f191d640cdb8271f2e9b18530a9a6e6dc577246d22fde52" => :sierra
+    sha256 "581dce6a68add5a6506a147fdc3943240c0b80d9c42d8110256a0fed753f728f" => :el_capitan
+    sha256 "90275ea5161e9ed964e965d0df6e08e03713a064cd2e117096c325c14c337122" => :yosemite
   end
 
   def install
