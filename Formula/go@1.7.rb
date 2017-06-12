@@ -2,6 +2,7 @@ class GoAT17 < Formula
   desc "Go programming environment (1.7)"
   homepage "https://golang.org"
   url "https://storage.googleapis.com/golang/go1.7.6.src.tar.gz"
+  mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.7.6.src.tar.gz/sha512/b01846bfb17bf91a9c493c4d6c43bbe7e17270b9e8a229a2be4032b78ef9395f5512917ea9faab74a120c755bbd53bbd816b033caadcbb7679e91702b37f8c7f/go1.7.6.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go1.7.6.src.tar.gz"
   version "1.7.6"
   sha256 "1a67a4e688673fdff7ba41e73482b0e59ac5bd0f7acf703bc6d50cc775c5baba"
