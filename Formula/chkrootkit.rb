@@ -7,9 +7,9 @@ class Chkrootkit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe08ca7c95b7153659a55de068d320103719eca8d7672bae9af1542c88af5046" => :sierra
-    sha256 "d2092429968f96cff683f76ca3c302e1d55a01c0d63d44fcfefd31bd077f939d" => :el_capitan
-    sha256 "bb5b75999c36b2323e0348b161bfe0d4891d9f09782367aa8b8eaf345f04de26" => :yosemite
+    sha256 "2ddd7a341ced3bdfd2a622e48e19627fccaeaff174c7241c42cc0e3305557a16" => :sierra
+    sha256 "18d66e7ae08f00fef387e72c8f8f9f74042f32247e52adabf5b838c4ffc83d58" => :el_capitan
+    sha256 "889be3584a64397ade2ccf4bf373a1e9c85b73880d209f6e10d7e19eecc122e7" => :yosemite
   end
 
   def install
