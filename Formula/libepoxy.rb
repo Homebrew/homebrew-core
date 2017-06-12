@@ -6,9 +6,9 @@ class Libepoxy < Formula
 
   bottle do
     cellar :any
-    sha256 "ebaebfb27513e366d1917e48a2fd1f2c68394a7213f35f4b4d88d96db8d6757f" => :sierra
-    sha256 "54e86d039473c9971023253694b36d8a38824f4df97a8095de90bb4bf0557d8f" => :el_capitan
-    sha256 "fcf8b7560ec836403bcae4d69a16c27793a7042b09673e1c2914cf010d6381f1" => :yosemite
+    sha256 "a96a0e088b6f292422108da73868700ef1a332ebd170695a77e90be7a12a4f86" => :sierra
+    sha256 "0ce6f61e0062f6869e47b95363b373502c62cf343ef26bedcf0c4a9819851c79" => :el_capitan
+    sha256 "55b56dd68e17a27fa211426ea199084dbdca228a4fc63ddd0d1b3f79ea3c9a1a" => :yosemite
   end
 
   depends_on "meson" => :build
