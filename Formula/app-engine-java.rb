@@ -23,6 +23,6 @@ class AppEngineJava < Formula
       Signal.trap "INT", "IGNORE"
       Process.kill "INT", 0
     end
-    assert_equal(130, $CHILD_STATUS.exitstatus, "Dev App Server exited with unexpected status code")
+    assert_equal(130, $?.exitstatus, "Dev App Server exited with unexpected status code")
   end
 end

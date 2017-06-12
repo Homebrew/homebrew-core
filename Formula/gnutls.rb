@@ -71,7 +71,7 @@ class Gnutls < Formula
         openssl_io.close_write
       end
 
-      $CHILD_STATUS.success?
+      $?.success?
     end
 
     openssldir = etc/"openssl"
