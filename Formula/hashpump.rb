@@ -43,6 +43,6 @@ class Hashpump < Formula
       -a '&waffle=liege' -k 14`
     assert_match /0e41270260895979317fff3898ab85668953aaa2/, output
     assert_match /&waffle=liege/, output
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
