@@ -489,7 +489,7 @@ class Wine < Formula
         "x11" (or use winetricks).
 
         For best results with X11, install the latest version of XQuartz:
-          https://xquartz.macosforge.org/
+          https://www.xquartz.org/
       EOS
     end
     s
