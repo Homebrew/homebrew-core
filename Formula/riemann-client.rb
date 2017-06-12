@@ -1,8 +1,9 @@
 class RiemannClient < Formula
   desc "C client library for the Riemann monitoring system"
   homepage "https://github.com/algernon/riemann-c-client"
-  url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-1.10.0.tar.gz"
-  sha256 "74e6c8f79a230598278f44533b42b48a2f9531523a7e3d458e5618efc8f96b22"
+  url "https://github.com/algernon/riemann-c-client.git",
+      :revision => "7bfcc65197b084b03ed942df5f24806c33cd121e"
+  version "1.10.1"
   head "https://github.com/algernon/riemann-c-client.git"
 
   bottle do
@@ -19,13 +20,6 @@ class RiemannClient < Formula
 
   depends_on "json-c"
   depends_on "protobuf-c"
-
-  # Fix build failure "error: only weak aliases are supported on darwin"
-  # Reported 11 Jun 2017 https://github.com/algernon/riemann-c-client/issues/19
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1edeff1/riemann-client/alias-fix.diff"
-    sha256 "4d4c33ab109688364ebbbcbf2487b1f80dd9b7aece0dfed8c4f1d804d0b56f3e"
-  end
 
   def install
     system "autoreconf", "-i"
