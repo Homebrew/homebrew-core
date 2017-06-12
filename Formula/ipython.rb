@@ -7,6 +7,13 @@ class Ipython < Formula
   sha256 "5c53e8ee4d4bec27879982b9f3b4aa2d6e3cfd7b26782d250fa117f85bb29814"
   head "https://github.com/ipython/ipython.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f04497b8631058b0b9a1cc74e27e04043a987fd1dd3753bfe24cb609be5f743d" => :sierra
+    sha256 "bc796d073bf0739bc0c5e91004fb416edcb4c21f1a515ac3478b7d7178a6b8ef" => :el_capitan
+    sha256 "018ed4c621b035431f14cb57249ebbf56cedd8be18691a042f62bee5fab496f5" => :yosemite
+  end
+
   depends_on :python3
 
   resource "appnope" do
