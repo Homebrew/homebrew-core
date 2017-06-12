@@ -62,6 +62,6 @@ class Parrot < Formula
 
     out = `#{bin}/parrot #{path}`
     assert_equal "0123456789", out
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
