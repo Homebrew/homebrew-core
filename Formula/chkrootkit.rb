@@ -1,9 +1,9 @@
 class Chkrootkit < Formula
   desc "Rootkit detector"
   homepage "http://www.chkrootkit.org/"
-  url "ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit-0.51.tar.gz"
-  mirror "https://fossies.org/linux/misc/chkrootkit-0.51.tar.gz"
-  sha256 "f66166f5cbff39d9079fc0cac303fdf9e6b4a65a987110e947de94803c5c1378"
+  url "ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit-0.52.tar.gz"
+  mirror "https://fossies.org/linux/misc/chkrootkit-0.52.tar.gz"
+  sha256 "c578c0b9c8ae0729c2de7075f896f3d168e768c52e319a7706c9a7e46ff7a211"
 
   bottle do
     cellar :any_skip_relocation
