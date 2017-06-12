@@ -47,6 +47,6 @@ class RakudoStar < Formula
   test do
     out = `#{bin}/perl6 -e 'loop (my $i = 0; $i < 10; $i++) { print $i }'`
     assert_equal "0123456789", out
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
