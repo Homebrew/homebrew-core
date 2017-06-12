@@ -42,6 +42,6 @@ class EulerPy < Formula
       stdin.close
       assert_match 'Successfully created "001.py".', stdout.read
     end
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

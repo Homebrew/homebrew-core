@@ -18,6 +18,6 @@ class Checkstyle < Formula
     output = `#{bin}/checkstyle -c /sun_checks.xml #{path}`
     errors = output.lines.select { |line| line.start_with?("[ERROR] #{path}") }
     assert_match "#{path}:1:17: '{' is not preceded with whitespace.", errors.join(" ")
-    assert_equal errors.size, $?.exitstatus
+    assert_equal errors.size, $CHILD_STATUS.exitstatus
   end
 end

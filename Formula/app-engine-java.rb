@@ -19,10 +19,10 @@ class AppEngineJava < Formula
     (testpath/"WEB-INF/appengine-web.xml").write "<appengine-web-app><threadsafe>true</threadsafe></appengine-web-app>"
     Process.setsid
     IO.popen("#{bin}/dev_appserver.sh . 2>&1") do |io|
-      assert_not_nil(io.gets, "Dev App Server terminated prematurely") until $_ == "INFO: Dev App Server is now running\n"
+      assert_not_nil(io.gets, "Dev App Server terminated prematurely") until $LAST_READ_LINE == "INFO: Dev App Server is now running\n"
       Signal.trap "INT", "IGNORE"
       Process.kill "INT", 0
     end
-    assert_equal(130, $?.exitstatus, "Dev App Server exited with unexpected status code")
+    assert_equal(130, $CHILD_STATUS.exitstatus, "Dev App Server exited with unexpected status code")
   end
 end

@@ -162,7 +162,7 @@ class Mesos < Formula
     rescue Timeout::Error
       Process.kill "TERM", agent
     end
-    assert $?.exitstatus, "agent process died, check MESOS-6606-related behavior"
+    assert $CHILD_STATUS.exitstatus, "agent process died, check MESOS-6606-related behavior"
 
     # Make tests for minimal functionality.
     master = fork do

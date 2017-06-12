@@ -6,7 +6,7 @@ class Erlang18Requirement < Requirement
     erl = which("erl")
     next unless erl
     `#{erl} -noshell -eval 'io:fwrite("~s", [erlang:system_info(otp_release) >= "18"])' -s erlang halt | grep -q '^true'`
-    next unless $?.exitstatus.zero?
+    next unless $CHILD_STATUS.exitstatus.zero?
     erl
   end
 

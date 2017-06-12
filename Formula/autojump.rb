@@ -36,12 +36,12 @@ class Autojump < Formula
   test do
     path = testpath/"foo/bar"
     path.mkpath
-    output = %x(
+    output = `
       source #{etc}/profile.d/autojump.sh
       j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd
-    ).strip
+    `.strip
     assert_equal path.realpath.to_s, output
   end
 end

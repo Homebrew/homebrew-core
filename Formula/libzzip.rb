@@ -1,14 +1,14 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://sourceforge.net/projects/zziplib/"
-  url "https://github.com/gdraheim/zziplib/archive/v0.13.66.tar.gz"
-  sha256 "59b18c7c4ed348ba8d63fa7e194e6b012cd94197265b7a7b3afb539d8206bd7d"
+  url "https://github.com/gdraheim/zziplib/archive/v0.13.67.tar.gz"
+  sha256 "1278178bdabac832da6bbf161033d890d335a2e38493c5af553ff5ce7b9b0220"
 
   bottle do
     cellar :any
-    sha256 "d52566bf4fdde138bcc5100df2cd637a3fe06838f359d8f7a287d4ca194867d0" => :sierra
-    sha256 "695803033aa85df08b1690909f6f0efa3ba7cbcf12c63246087ecc6c485d5f4b" => :el_capitan
-    sha256 "5f7745b6c8452a8264d9cb08bdff10949244d171ceeb9968a2e6c299b787dfe9" => :yosemite
+    sha256 "e041856e291f2b6731d586ef8deb08593f65fc2f859019ff54c248e6c960c608" => :sierra
+    sha256 "08baf77479ed193c4d80d3f0b6ce1d2625987d31b72ce26faed321ac21f55740" => :el_capitan
+    sha256 "58fd8baaaadd33339ece54c63dde70fd4147c6f0302e28b953c10e85700fbb47" => :yosemite
   end
 
   option "with-sdl", "Enable SDL usage and create SDL_rwops_zzip.pc"
