@@ -21,7 +21,8 @@ class Glog < Formula
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
-    lib.install_symlink "libglog.dylib" => "libglog.0.dylib"
+    # remove after a release fixing https://github.com/google/glog/issues/196
+    lib/"libglog.dylib" => "libglog.0.dylib"
   end
 
   test do
