@@ -104,8 +104,9 @@ class Rust < Formula
 
   def post_install
     Dir["#{lib}/rustlib/**/*.dylib"].each do |dylib|
-      chmod 0755, dylib
+      chmod 0664, dylib
       MachO::Tools.change_dylib_id(dylib, "@rpath/#{File.basename(dylib)}")
+      chmod 0444, dylib
     end
   end
 
