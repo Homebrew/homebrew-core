@@ -63,6 +63,6 @@ class Mosquitto < Formula
 
   test do
     quiet_system "#{sbin}/mosquitto", "-h"
-    assert_equal 3, $?.exitstatus
+    assert_equal 3, $CHILD_STATUS.exitstatus
   end
 end
