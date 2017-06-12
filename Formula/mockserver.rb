@@ -34,7 +34,7 @@ class Mockserver < Formula
 
     loop do
       Utils.popen_read("curl", "-s", "http://localhost:#{port}/status", "-X", "PUT")
-      break if $?.exitstatus.zero?
+      break if $CHILD_STATUS.exitstatus.zero?
     end
 
     system "curl", "-s", "http://localhost:#{port}/stop", "-X", "PUT"
