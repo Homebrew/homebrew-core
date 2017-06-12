@@ -1,6 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.18.0-src.tar.gz"
@@ -19,7 +20,6 @@ class Rust < Formula
   end
 
   bottle do
-    rebuild 1
     sha256 "330dd281718d164d7415d83a6a8376cb2cc161ecee82e3fb6ba869a885b7fe8b" => :sierra
     sha256 "c90ae66966ab11382c50fc49c8ddb6320aa34390f3e76081a592e39a7e48a9fa" => :el_capitan
     sha256 "b0cfdaeb92b85192846d864f20fb6ca3a162163fb549918a223b4eef4eae3d91" => :yosemite
