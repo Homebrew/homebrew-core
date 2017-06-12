@@ -1,8 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/e2/64/678fbb04bb4a94d004f8ea5330a3d55697f754d0b65c3ac204d15923add9/urh-1.6.4.2.tar.gz"
-  sha256 "97300857d854d73bcab22dc6edfbea28e175bee6204b88ebd8becc623bff6c00"
+  url "https://files.pythonhosted.org/packages/66/2f/1cf04ec59830834c498956ddec163a5a87d1e6455133ff04df2d73c030b8/urh-1.6.6.tar.gz"
+  sha256 "67ab5eed2c26bd3a1baab228b730cc7bcc3df080b8aac53180303fa965a559c6"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -21,8 +21,8 @@ class Urh < Formula
   depends_on "hackrf" => :optional
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
-    sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
+    url "https://files.pythonhosted.org/packages/05/84/0feb999c05f252af50a5fbc463268044feda92cdaad8cb0d0a6073d76057/numpy-1.13.0.zip"
+    sha256 "dcff367b725586830ff0e20b805c7654c876c2d4585c0834a6049502b9d6cf7e"
   end
 
   resource "psutil" do
