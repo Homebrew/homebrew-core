@@ -6,8 +6,8 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.4.1.0.tar.gz"
-  sha256 "c4bd246703dde82c3169b2600a55b742f7ae01fe4cf1a86fe2f9c52bd3dcc9e5"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.2.0.tar.gz"
+  sha256 "9337d8f623a748d789d9a580fb5e5538e225b654eaaad94d5eac8df2cdeaeb5e"
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
@@ -21,7 +21,14 @@ class Postgrest < Formula
   depends_on "postgresql"
 
   def install
-    install_cabal_package :using => ["happy"]
+    # Workaround for "error: redefinition of enumerator '_CLOCK_REALTIME'" and
+    # other similar errors.
+    # Reported 11 Jun 2017 https://github.com/haskell-foundation/foundation/issues/342
+    if MacOS.version == :el_capitan
+      install_cabal_package "--constraint", "foundation < 0.0.10", :using => ["happy"]
+    else
+      install_cabal_package :using => ["happy"]
+    end
   end
 
   test do
