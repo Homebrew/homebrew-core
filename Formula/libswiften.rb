@@ -15,7 +15,7 @@ class Libswiften < Formula
     sha256 "162f1c07d37888abd2c2f616f3bc512209ed5575444f5f17b555b974e0461939" => :yosemite
     sha256 "0cd2296d234b0c59bcd9dc5e0ebf78f7439ac7c91e415efad693976d01666338" => :mavericks
   end
-	
+
   head do
     url "git://swift.im/swift"
   end
