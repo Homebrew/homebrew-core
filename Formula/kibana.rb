@@ -4,14 +4,14 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.3.2",
-      :revision => "6c330d3c77b0af1c5a29302e0a7a45f33fcb6869"
+      :tag => "v5.4.1",
+      :revision => "725943bf9e3ca6f5e7d286ded25b0207fc68caaa"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "a679d2d123fd8ed83dfd9e6db29388cede33d94f6c8f4d035acef721290905f5" => :sierra
-    sha256 "d7f6430c81be111ef5ee9707ff6d66b41db2f2cd030c58d64d4bc04d35262d6b" => :el_capitan
-    sha256 "09f799c9cf08dea35adcbcefe22b58b247e39eef5b3c8cb0286fe5eb8273d625" => :yosemite
+    sha256 "4740e799c140ee9f49a8051bd335186906e2fa886bfdf39f5b9dd2a50132d074" => :sierra
+    sha256 "17732a62d8727afb2c28674b839717c4a7ff9dc7eb4c4336f4e4e25f7df2f06c" => :el_capitan
+    sha256 "2628de60f25dfba79280763b6d8539a4c67b17aa2138f601be4bb24c9fc883bb" => :yosemite
   end
 
   resource "node" do
@@ -27,7 +27,7 @@ class Kibana < Formula
     end
 
     # do not build packages for other platforms
-    platforms = Set.new(["darwin-x64", "linux-x64", "linux-x86", "windows-x86"])
+    platforms = Set.new(["darwin-x64", "linux-x64", "windows-x64"])
     if MacOS.prefer_64_bit?
       platform = "darwin-x64"
     else
@@ -36,7 +36,6 @@ class Kibana < Formula
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
     inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
-    inreplace buildpath/"tasks/build/notice.js", /linux-x64/, "darwin-x64"
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"

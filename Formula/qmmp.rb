@@ -1,9 +1,9 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
-  homepage "http://qmmp.ylsoftware.com"
+  homepage "http://qmmp.ylsoftware.com/"
   url "http://qmmp.ylsoftware.com/files/qmmp-1.1.8.tar.bz2"
   sha256 "17bc88d00ea0753e6fc7273592e894320f05cae807f7cc2c6a5351c73217f010"
-  head "http://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
+  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
     sha256 "679fa917fffada98dd35bff2a06476650c122fe8214214d87063507724dedd67" => :sierra

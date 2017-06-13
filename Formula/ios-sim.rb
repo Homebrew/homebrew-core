@@ -3,15 +3,15 @@ require "language/node"
 class IosSim < Formula
   desc "Command-line application launcher for the iOS Simulator"
   homepage "https://github.com/phonegap/ios-sim"
-  url "https://registry.npmjs.org/ios-sim/-/ios-sim-5.0.13.tgz"
-  sha256 "7d304f1bc2982db64d46f97623cdfe0f256d58d7a55da95373ff8cdfbb4edc35"
+  url "https://registry.npmjs.org/ios-sim/-/ios-sim-5.1.0.tgz"
+  sha256 "3238a64fe51ff4c301e2fd2bc486f6aa2c7641068c8e58f23c0d30b8430ff78f"
   head "https://github.com/phonegap/ios-sim.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "06b0fc6e49f1dce6a2c85e6e59627f4400b30c4645020137cb0bcc9d646be636" => :sierra
-    sha256 "450b22522fca80417b40ea99451485f13146a717363033dfc7260bdf2f573c05" => :el_capitan
-    sha256 "7998c7b99ab13e674449230968392ab1c201b9cf400186fd939d4e7cb5308171" => :yosemite
+    sha256 "c334b2759c11e6e656391d82e30e894bb9fbc5fab09d405da71711815c9d8013" => :sierra
+    sha256 "a3384d8abb99de093e4fe00a540202530b0af36ca5d020abe2125ce0360de354" => :el_capitan
+    sha256 "15aef85c6fa0175464244a195b006adbb022d04ae481597d282e744d8c83e000" => :yosemite
   end
 
   depends_on :macos => :mountain_lion

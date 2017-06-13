@@ -8,9 +8,10 @@ class Buku < Formula
 
   bottle do
     cellar :any
-    sha256 "04f5b6bb39dc4a3b6ce7aebd09fd19a56ca7c1a2b4fc4c035a938b82ff64df48" => :sierra
-    sha256 "66cd319c81aac93226b230bf2ac584b0f40d97dca86fa256c2ef66fef67fc668" => :el_capitan
-    sha256 "7b0bbf99449cad49006d40750d1d87b39ecae2df848853074fb711964b83334a" => :yosemite
+    rebuild 1
+    sha256 "fd3e0ec867ee1211d3b5b0f528d3814ee507f167bd756a98e36f28fe4b2cb857" => :sierra
+    sha256 "cc435163e4753de5fd0adb4567947a06e114feb16dbf073a2431d9af3f1540e0" => :el_capitan
+    sha256 "c5354b1581a82f96412d4337a9b462c56b29aeaf557411f68e145e5a9fa2ac5d" => :yosemite
   end
 
   depends_on :python3
@@ -37,8 +38,8 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "idna" do

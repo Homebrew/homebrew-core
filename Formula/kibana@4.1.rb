@@ -3,20 +3,20 @@ require "language/node"
 class KibanaAT41 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", :tag => "v4.1.8", :revision => "e4f4c5bef5fbec91f0890bd08f6a622f6c4648ad"
+  url "https://github.com/elastic/kibana.git", :tag => "v4.1.11", :revision => "c55c5d9acf510bed020a4fdc1c4ca8c81c7b7a1b"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "ec28125079c89536ba4a20be57b82de931cc486ab7a1ab64769a1f57cddd5a02" => :sierra
-    sha256 "55e4b928b6ec55c40fb32fb5efe12a445741d3dad2716ab9b5eb7850b3da71b4" => :el_capitan
-    sha256 "2ecc450f936d0b2507b25a7d8ed89bb0eef16f9f6e88d6ae6c51b48dc227addf" => :yosemite
+    sha256 "d81ea2796186dd5e9c72dea66e999e146303dde2142530616d41830b9b5a40a1" => :sierra
+    sha256 "9b5eca0a33f7c527bd99df0231ebf4411a379cd7fc6530ed006281fa31dcc6e4" => :el_capitan
+    sha256 "9cd201b9528383802ea1aac3881782d414638f9fe8b8e25b1d53e542a2f80d05" => :yosemite
   end
 
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v4.4.4/node-v4.4.4.tar.gz"
-    sha256 "53c694c203ee18e7cd393612be08c61ed6ab8b2a165260984a99c014d1741414"
+    url "https://nodejs.org/dist/v4.4.7/node-v4.4.7.tar.xz"
+    sha256 "1ef900b9cb3ffb617c433a3247a9d67ff36c9455cbc9c34175bee24bdbfdf731"
   end
 
   def install
@@ -42,9 +42,7 @@ class KibanaAT41 < Formula
 
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
     Pathname.new("#{ENV["HOME"]}/.npmrc").write Language::Node.npm_cache_config
-    system "npm", "install", "grunt-cli", "bower"
-    system "npm", "install"
-    system "node_modules/.bin/bower", "install"
+    system "npm", "install", "--verbose"
     system "node_modules/.bin/grunt", "build"
 
     mkdir "tar" do

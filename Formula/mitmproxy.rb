@@ -9,9 +9,10 @@ class Mitmproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "11d10f614eb468bd1fe099b175a5398a526d9bccc231366b0687fc9c1322e357" => :sierra
-    sha256 "8129f5dc7ea39841bd2cc91a34a68d6e8990050d497ccd86a6cddafc2e65e30a" => :el_capitan
-    sha256 "ff8befb69a8481eebbd206248459efec24794c8a0b47f9c09feb7d1701f74673" => :yosemite
+    rebuild 1
+    sha256 "b8ac9a526de8b2df9f3909ee570ef88e97d4a38a103b2ba7da839e89a91ffff1" => :sierra
+    sha256 "f069381d6a957678f9fa5ff19ab54ba915c3b08a05858db68565fe4b1349b38f" => :el_capitan
+    sha256 "a4355aa8c07ffa31b76656ec0fa97b83038a9c8d528f62b2206322e088bf56be" => :yosemite
   end
 
   depends_on "openssl@1.1"
@@ -74,8 +75,8 @@ class Mitmproxy < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "cssutils" do

@@ -8,9 +8,10 @@ class AnsibleLint < Formula
 
   bottle do
     cellar :any
-    sha256 "237b38dee0e69d681ba7ac77f3526eff8cdf64e4f6be047f9edf4825be75d987" => :sierra
-    sha256 "dbafa20d7df97bcf7494419f808c29c465e3a4dd3e989846f9f5696f1fc4646c" => :el_capitan
-    sha256 "101a557fdc7174d8a97043e13b03e53124bc708e9fba075697d362929c3afc1b" => :yosemite
+    rebuild 1
+    sha256 "3db5519fd566a32fd2d288d1bc87d300a9aa23be652eff56976882d37dc15128" => :sierra
+    sha256 "6818878f35fd2a879c8ab4018a3c5152f875f4cabd1b0e5b113d19a48edaa829" => :el_capitan
+    sha256 "f6417a4447f78d8f3a8687c27b32683315428f199f644cfa115782813681bbb8" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -40,8 +41,8 @@ class AnsibleLint < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "enum34" do

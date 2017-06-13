@@ -13,14 +13,8 @@ class Luajit < Formula
   end
 
   devel do
-    url "https://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz"
-    sha256 "713924ca034b9d99c84a0b7b701794c359ffb54f8e3aa2b84fad52d98384cf47"
-
-    # https://github.com/LuaJIT/LuaJIT/issues/180
-    patch do
-      url "https://github.com/LuaJIT/LuaJIT/commit/5837c2a2fb1ba6651.diff"
-      sha256 "7b5d233fc3a95437bd1c8459ad35bba63825655f47951b6dba1d053df7f98587"
-    end
+    url "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
+    sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
   end
 
   deprecated_option "enable-debug" => "with-debug"

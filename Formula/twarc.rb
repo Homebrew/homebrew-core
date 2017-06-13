@@ -3,14 +3,14 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/76/54/b1df185d5aec612bf7d898b9e7b2dd30e2294526ed59b6a6c512a5073b69/twarc-1.1.1.tar.gz"
-  sha256 "0ceaba2505315a27ef4af0b5da15ba0178d3155c0f316559523ddc23868fd8e6"
+  url "https://files.pythonhosted.org/packages/96/69/f40a0236ba1f5dbfe518d07f0c6ebbf9408567baf46b90b0c0b2c4888491/twarc-1.1.2.tar.gz"
+  sha256 "2741b3078bce75542f0c1aad0b626220ec0356a827f287a4d06e695d9f33ded8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d29a6f87e5b0457007b03af1ca9e57ab185f360a798335400542e76841ef5cd" => :sierra
-    sha256 "6bb1e0c8ea5d19b1a46e6b993bdfbbda9cc5d850b2d801153f6b7d298bf484e7" => :el_capitan
-    sha256 "b68fc95c0496086d06ab7b4ada1c8baeb8642e8780640a9af19773598e166514" => :yosemite
+    sha256 "72c327b36af3efc89b41e120aaa635b4fa5b35bb9de43f9913a712d5b9bbd55f" => :sierra
+    sha256 "abd2495c5bb06106cb3a5cb1e089942b4724ca8c7a11907c853e0b50ed270e1f" => :el_capitan
+    sha256 "04676fe672e7ba534d9c5ddcdf77c7cf1e15f6f82b9e48a21558bdd08ab3ae24" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

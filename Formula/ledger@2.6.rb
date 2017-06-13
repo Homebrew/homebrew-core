@@ -63,10 +63,8 @@ class LedgerAT26 < Formula
       "--output", balance,
       "balance", "--collapse", "equity"
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
 
-    if build.with? "python"
-      system "python", "#{share}/ledger/demo.py"
-    end
+    system "python", "#{share}/ledger/demo.py" if build.with? "python"
   end
 end

@@ -1,26 +1,15 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
+  url "https://github.com/kubernetes/kops/archive/1.6.1.tar.gz"
+  sha256 "842363057ced88097373af49f5306a20192c7c92570e68964f2d1c0cb9ea1285"
   head "https://github.com/kubernetes/kops.git"
-
-  stable do
-    url "https://github.com/kubernetes/kops/archive/1.5.3.tar.gz"
-    sha256 "70d27f43580250a081333dd88d7437df5151063638da1eef567d78a04021b1cf"
-
-    # Remove for > 1.5.3
-    # Fix "sha1sum command is not available"
-    # Upstream PR from 10 Mar 2017 "Fix makefile to correctly detect macOS shasum"
-    patch do
-      url "https://github.com/kubernetes/kops/pull/2097.patch"
-      sha256 "238c431622e8be0229057811823210b97a9b17f8611f90d6aef3a76a97abef96"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9172496c06f759401db4d4387380f508a294c05b14de9e92f6b61e21486c89dd" => :sierra
-    sha256 "876d549d0a7cee2b0517ef3224c7d3adef6646548accd174d447e52bd0a2916a" => :el_capitan
-    sha256 "e305dcd14ef5cec6d9d03551a7134e1e6c79e17676961c4dceda826642dfbc4b" => :yosemite
+    sha256 "18f418a4d06b4179c0146bde8bc7ef79b954813ed209f2445464a392e05f2d09" => :sierra
+    sha256 "1c9a76dedd7173c6d4540ede03142b7f74e594bd1f625b13ba6d9340d642eca8" => :el_capitan
+    sha256 "5c66416bd9a4a2a8a931f13cbaacce9bfa9a9626ccfd59da6afb5358f16c2ccb" => :yosemite
   end
 
   depends_on "go" => :build

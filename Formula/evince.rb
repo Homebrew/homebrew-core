@@ -5,16 +5,17 @@ class Evince < Formula
   sha256 "043895af7bbd6f1b57f9ab8778e78cf9c0af5dfcc347eaa94a17bf864c04dc8f"
 
   bottle do
-    sha256 "0be498d975555699b50484616d36c5e677593b896783f97b74a02aaeecc72c56" => :sierra
-    sha256 "4525b9cfc002ad792726ed52ed5adafb7b67fa89012326cb45675b78944591ad" => :el_capitan
-    sha256 "b2ceec83a245cba2f087d7dbc974937e94c3824c172548be5e7afc6b5425674f" => :yosemite
+    rebuild 1
+    sha256 "ddf756a0186ae049303383706b8a427dd1228a2745e359c2fc2d26918b7e909d" => :sierra
+    sha256 "28887aff4011d856466d07e3a58cc0bb9d7979eb7f6fb04c79733e4b384df1e8" => :el_capitan
+    sha256 "d167358cd1278860c21057dca9d908963b6e8e0972aed47bd963f99c7e11ae0c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "poppler"
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
@@ -30,6 +31,7 @@ class Evince < Formula
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

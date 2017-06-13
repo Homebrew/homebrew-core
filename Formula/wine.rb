@@ -5,6 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 3
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -28,15 +29,15 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "7f28a12ba47576f62a534c49b5a086bf309706bf77bb4872224a3e87824c07f1" => :sierra
-    sha256 "fe13b11c4d87ab5c8af8080dc7c9df2def7b1211785830714c04419f3005a4ef" => :el_capitan
-    sha256 "6be069b4ed010b5f0e28f00df8c726360d3aa0bf6626ce053121f0b432e149fd" => :yosemite
+    sha256 "3d3adabd3b438c8b36c3ab9665a29274eecc4d29997d9f93988e0c54ede94066" => :sierra
+    sha256 "b73051da82b2caf14d9fbadb43bfd6673d86429660d7d7072242642c1f15da54" => :el_capitan
+    sha256 "9a07e30a16149ce98bb8d5fd601278707eee85b0787e1426321868241429acbe" => :yosemite
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.7.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.7.tar.xz"
-    sha256 "e55a43088e313c45f7ab49272b7cb441c06f5659fb4220b2325dc060db0ee14c"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.10.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.10.tar.xz"
+    sha256 "488df7ffd2e81da455bf428fc9eb784bb4273a890334500895665711bd52f179"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.3.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -69,14 +70,14 @@ class Wine < Formula
   end
 
   resource "mono" do
-    url "https://dl.winehq.org/wine/wine-mono/4.6.4/wine-mono-4.6.4.msi", :using => :nounzip
-    sha256 "91b7d58177b9a9355edf007dab94535471aebdddae12734ceb4a219d2ecc4152"
+    url "https://dl.winehq.org/wine/wine-mono/4.7.0/wine-mono-4.7.0.msi", :using => :nounzip
+    sha256 "7698474dd9cb9eb80796b5812dff37386ba97b78b21ca23b20079ca5ad6ca5a1"
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2k.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2k.tar.gz"
-    sha256 "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
+    url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
+    sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
   end
 
   resource "libtool" do
@@ -86,15 +87,15 @@ class Wine < Formula
   end
 
   resource "jpeg" do
-    url "http://www.ijg.org/files/jpegsrc.v8d.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg8/libjpeg8_8d.orig.tar.gz"
-    sha256 "00029b1473f0f0ea72fbca3230e8cb25797fbb27e58ae2e46bb8bf5a806fe0b3"
+    url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg9/libjpeg9_9b.orig.tar.gz"
+    sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
-    sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
+    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
+    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
   end
 
   resource "little-cms2" do
@@ -110,9 +111,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
-    sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8/freetype-2.8.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.tar.bz2"
+    sha256 "a3c603ed84c3c2495f9c9331fe6bba3bb0ee65e06ec331e0a0fb52158291b40b"
   end
 
   resource "libusb" do
@@ -132,9 +133,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
-    sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.3.tar.bz2"
+    sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
   end
 
   resource "gd" do
@@ -144,9 +145,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.12/libgphoto2-2.5.12.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.12.tar.bz2"
-    sha256 "b9bb28990fde45ac385e4851a07dbad2e1250404b535b0a3a3b898bb431e4e2e"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.14/libgphoto2-2.5.14.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.14.tar.bz2"
+    sha256 "d3ce70686fb87d6791b9adcbb6e5693bfbe1cfef9661c23c75eb8a699ec4e274"
   end
 
   resource "net-snmp" do
@@ -155,22 +156,16 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.25.orig.tar.gz"
-    mirror "https://fossies.org/linux/misc/sane-backends-1.0.25.tar.gz"
-    sha256 "a4d7ba8d62b2dea702ce76be85699940992daf3f44823ddc128812da33dc6e2c"
-  end
-
-  # Fixes some missing headers missing error. Reported upstream
-  # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
-  resource "sane-backends-patch" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
-    sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
+    url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
+    sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.24.0/mpg123-1.24.0.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.24.0.tar.bz2"
-    sha256 "55fb169a7711938f5df0497d1ffe28419fbef50011dc01d00b216379e6a2256c"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.0/mpg123-1.25.0.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.0.tar.bz2"
+    sha256 "552e3e1db045e00f474252917007795ac295863fc8b13891859b3382d2f24e48"
   end
 
   fails_with :clang do
@@ -427,11 +422,6 @@ class Wine < Formula
 
       resource("sane-backends").stage do
         save_env do
-          # Cannot have "patch do" here
-          Pathname.pwd.install resource("sane-backends-patch")
-          system "patch", "-p1", "-i", "1.0.25-missing-types.patch"
-
-          ENV.deparallelize
           system "./configure", "--disable-dependency-tracking",
                                 "--prefix=#{libexec}",
                                 "--localstatedir=#{var}",
@@ -440,7 +430,6 @@ class Wine < Formula
                                 "--enable-libusb",
                                 "--disable-latex",
                                 *depflags
-          system "make"
           system "make", "install"
         end
       end
@@ -500,7 +489,7 @@ class Wine < Formula
         "x11" (or use winetricks).
 
         For best results with X11, install the latest version of XQuartz:
-          https://xquartz.macosforge.org/
+          https://www.xquartz.org/
       EOS
     end
     s

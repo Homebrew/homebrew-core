@@ -3,24 +3,28 @@ class Jbig2dec < Formula
   homepage "https://ghostscript.com/jbig2dec.html"
   url "http://downloads.ghostscript.com/public/jbig2dec/jbig2dec-0.13.tar.gz"
   sha256 "5aaca0070992cc2e971e3bb2338ee749495613dcecab4c868fc547b4148f5311"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8b0f528a21bc3fc6ef4a333a892d0bafee3650a40c2192102152ebab4702cd2b" => :sierra
-    sha256 "9d486cf625f24d6b3d681451b041998ef70b86801c7cc0e75ffb074162267a08" => :el_capitan
-    sha256 "5418d7ca54b8366f5f2135c130921f2426e67e872ace91ddb843689f7f61b9f7" => :yosemite
+    sha256 "e19f9e1b02a373ffa8ef57815e117466564cce65c2c9375734f2814235b692c4" => :sierra
+    sha256 "3baac1e2249e2e5f3598da7c2e23eae663efac0391d73b8057de4abc49b91683" => :el_capitan
+    sha256 "a1d8a3379bcccbe0243581037a4c98ad86f43c331e59c400eb1e273ce29f26e8" => :yosemite
   end
 
   depends_on "libpng" => :optional
 
   # These are all upstream already, remove on next release.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.debian.tar.xz"
-    sha256 "c4776c27e4633a7216e02ca6efcc19039ca757e8bd8fe0a7fbfdb07fa4c30d23"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
+    sha256 "41114245b7410a03196c5f7def10efa78c9da12b4bac9d21d6fbe96ded4232dd"
     apply "patches/020160518~1369359.patch",
           "patches/020161212~e698d5c.patch",
-          "patches/020161214~9d2c4f3.patch"
+          "patches/020161214~9d2c4f3.patch",
+          "patches/020170426~5e57e48.patch",
+          "patches/020170503~b184e78.patch",
+          "patches/020170510~ed6c513.patch"
   end
 
   def install
@@ -29,7 +33,6 @@ class Jbig2dec < Formula
       --prefix=#{prefix}
       --disable-silent-rules
     ]
-
     args << "--without-libpng" if build.without? "libpng"
 
     system "./configure", *args

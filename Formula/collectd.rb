@@ -1,36 +1,33 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-
-  stable do
-    url "https://collectd.org/files/collectd-5.7.1.tar.bz2"
-    sha256 "7edd3643c0842215553b2421d5456f4e9a8a58b07e216b40a7e8e91026d8e501"
-  end
+  url "https://collectd.org/files/collectd-5.7.2.tar.bz2"
+  sha256 "9d20a0221569a8d6b80bbc52b86e5e84965f5bafdbf5dfc3790e0fed0763e592"
 
   bottle do
-    sha256 "f9adc84dbfdd0acfff4292077b58c9c496a38b4d31b83aa011caba556b2c6fd1" => :sierra
-    sha256 "8b089b6fa5bd2f6860b1fa9ec8136ab12e216d9537bf204311123fae0b04da63" => :el_capitan
-    sha256 "cf32fb80a6d26f60862fcf2fbba1eaf1c50d83d45cb6cce37178a48ec2b05e91" => :yosemite
+    sha256 "2e997eacb1907d2e4e565c3eaa04ea49a987f5b791caeb09ae936f0c15698b02" => :sierra
+    sha256 "a1409bee446cc876e7c0fb9732c1b83317c8b104c17a179dd11711bb4b84da2f" => :el_capitan
+    sha256 "64a759a6b2bb56345f4f8ad7db06ce4ef9e0dbe95469ebd1305f9ced0d54aecd" => :yosemite
   end
 
   head do
     url "https://github.com/collectd/collectd.git"
 
-    depends_on "libtool" => :build
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end
 
   option "with-java", "Enable Java support"
   option "with-python", "Enable Python support"
-  option "with-protobuf-c", "Enable write_riemann via protobuf-c support"
+  option "with-riemann-client", "Enable write_riemann support"
   option "with-debug", "Enable debug support"
 
   deprecated_option "java" => "with-java"
   deprecated_option "debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "protobuf-c" => :optional
+  depends_on "libtool" => :build
+  depends_on "riemann-client" => :optional
   depends_on :java => :optional
   depends_on :python => :optional
   depends_on "net-snmp"
@@ -51,10 +48,9 @@ class Collectd < Formula
       --localstatedir=#{var}
     ]
 
-    args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
     args << "--enable-python" if build.with? "python"
-    args << "--enable-write_riemann" if build.with? "protobuf-c"
+    args << "--enable-write_riemann" if build.with? "riemann-client"
     args << "--enable-debug" if build.with? "debug"
 
     system "./build.sh" if build.head?

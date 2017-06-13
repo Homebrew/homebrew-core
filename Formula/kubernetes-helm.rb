@@ -2,15 +2,15 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.3.1",
-      :revision => "32562a3040bb5ca690339b9840b6f60f8ce25da4"
+      :tag => "v2.4.2",
+      :revision => "82d8e9498d96535cc6787a6a9194a76161d29b4c"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76bbd83bd12ef47901814c4b48682416a18559b868839453d1c2d26c21a0f89f" => :sierra
-    sha256 "a64f6d4145fc0dbbfe32f219397e0c979d24aea68ce99c33459a62e6bed86846" => :el_capitan
-    sha256 "5be9c707046fc54d8aa291708d169b8633128360fd7c3e35cc5ae614cc8ebe76" => :yosemite
+    sha256 "caa9b5c47a62e3445c9ae94ddca89841fc3d7602cbd79660aeae2e35a1c0879b" => :sierra
+    sha256 "5ff0a2d6bf4fbb499d25f98d0f720672ed48e422c7798865e523158a2d838619" => :el_capitan
+    sha256 "50d6a3fd46698fd7012b511206da9830912f200ec74b029ff00e849ef2bf1cfb" => :yosemite
   end
 
   depends_on :hg => :build
@@ -33,6 +33,7 @@ class KubernetesHelm < Formula
       # Make binary
       system "make", "build"
       bin.install "bin/helm"
+      bin.install "bin/tiller"
 
       # Install man pages
       man1.install Dir["docs/man/man1/*"]

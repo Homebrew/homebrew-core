@@ -1,14 +1,14 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "http://lfe.io/"
-  url "https://github.com/rvirding/lfe/archive/v1.2.1.tar.gz"
-  sha256 "1967c6d3f604ea3ba5013b021426d8a28f45eee47fd208109ef116af2e74ab23"
+  url "https://github.com/rvirding/lfe/archive/v1.3.tar.gz"
+  sha256 "1946c0df595ae49ac33fe583f359812dec6349da6acf43c1458534de3267036b"
   head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do
-    sha256 "43a6e8bc1ff565e9e9c738f4b91ab689e8b9571dad53a7ff44158553fb9491aa" => :sierra
-    sha256 "6bdbd8d5c785775f5f30872ed3d154d9b26a9135dc076688b35d6aba7f6967ff" => :el_capitan
-    sha256 "5c28efffc677617959a383bd2eed80d226fa81c44ca368a0b9fc13aca8b7b1d1" => :yosemite
+    sha256 "a6f27b9dd837d866fb471db3556677112c4f8ca3df386596f975083a939c8a16" => :sierra
+    sha256 "47827019926bdbfb6b0fa0c7fe123b0007482670aa651408e736f00c4796ce01" => :el_capitan
+    sha256 "aab3e33761e9db3c4e5cceb8769edca70f2eb618e0bed5e3658ab2fdc3bae2ac" => :yosemite
   end
 
   depends_on "erlang"

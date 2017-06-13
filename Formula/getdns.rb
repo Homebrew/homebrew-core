@@ -1,19 +1,19 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-0-0/getdns-1.0.0.tar.gz"
-  sha256 "a0460269c6536501a7c0af9bc97f9339e05a012f8191d5c10f79042aa62f9e96"
+  url "https://getdnsapi.net/releases/getdns-1-1-0/getdns-1.1.0.tar.gz"
+  sha256 "aa47bca275b97f623dc6799cee97d3465fa46521d94bd9892e08e8d5d88f09c3"
   head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
-    sha256 "eb0a9afe598e9611814d9ca21ff7e897dd4b2182df29797f2624a22ed661a892" => :sierra
-    sha256 "db7b5abcbb815b325cf60a334b31eee7f65485bf037895d61b24fb368200ea13" => :el_capitan
-    sha256 "0c372cc5b79342c227df9ab8dc678a064f2ffd351409d8aa5536d6522d7012aa" => :yosemite
+    sha256 "91fccbcb1ea628fefa2848fccc318953dfc71d34ffeff44adbf596352ceac16b" => :sierra
+    sha256 "8181df1a84e1c4affdc521ab9062f4834b9279e22d3c2bc312192857063961c8" => :el_capitan
+    sha256 "f9259f55b25aa8c20a880c90c63fbbbc2a33da2b68a617799d43d0ae7abcacb1" => :yosemite
   end
 
   devel do
-    url "https://getdnsapi.net/releases/getdns-1-1-0-rc1/getdns-1.1.0-rc1.tar.gz"
-    sha256 "d91ec104b33880ac901f36b8cc01b22f9086fcf7d4ab94c0cbc56336d1f6bec0"
+    url "https://getdnsapi.net/releases/getdns-1-1-1rc1/getdns-1.1.1rc1.tar.gz"
+    sha256 "f63340b1d05410b875217c6abd7066586fc55a811db4ae90ffd01d2240e05e57"
   end
 
   depends_on "openssl"

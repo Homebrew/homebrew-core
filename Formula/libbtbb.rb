@@ -8,28 +8,16 @@ class Libbtbb < Formula
 
   bottle do
     cellar :any
-    sha256 "d9bbae0f63e26ea0651c39fcb57e206152eb65a4e71f799decb28986679504db" => :sierra
-    sha256 "3ba1e4a1d131161b4a06bfaad8935f4dab0728d88109aa0d9fbdd5844d7e0feb" => :el_capitan
-    sha256 "03b875fe72f70e859bb298aa4a1bb4327ad4422a0f18e564aa2f72639baab592" => :yosemite
+    rebuild 1
+    sha256 "b7dc719910c8c6fe4a14bf016dd98a6e9aeff4163bcc2763ba79c1030cf60432" => :sierra
+    sha256 "904bceae63d8ad367c07e90ffc095d0e3163bb45116b90bf1986791b030beb32" => :el_capitan
+    sha256 "72fa7e942ce1fe4d7a2cc983bc79893b56924ebdd9076917db47c5b73408bb79" => :yosemite
   end
 
   depends_on "cmake" => :build
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # Requires headers macOS doesn't supply.
-  resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
-    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
-  end
-
   def install
-    resource("libpcap").stage do
-      system "./configure", "--prefix=#{libexec}/vendor", "--enable-ipv6"
-      system "make", "install"
-    end
-
-    ENV.prepend_path "PATH", libexec/"vendor/bin"
-    ENV.append_to_cflags "-I#{libexec}/vendor/include"
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"

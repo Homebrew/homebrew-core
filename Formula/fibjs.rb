@@ -1,24 +1,30 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/en/index.html"
-  url "https://github.com/xicilion/fibjs/releases/download/v0.2.1/fullsrc.zip"
-  version "0.2.1"
-  sha256 "914d79bb18e5309228747d73c481c1c243db8cc0ab1b29ec66f201cc2d8f85b9"
+  url "https://github.com/fibjs/fibjs.git",
+      :tag => "v0.4.1",
+      :revision => "a267b736e20443f9ae8d808bbd8b7112a22d8d6e"
 
-  head "https://github.com/xicilion/fibjs.git"
+  head "https://github.com/fibjs/fibjs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "88e3ab32d1beeff05ff560df3a801754497968d5be899fe1a5a9d09b91fb9ba1" => :sierra
-    sha256 "ba281f85ad6e3b0ad65c47c25d8b3f3eda6a969f429735432a62451e024bab33" => :el_capitan
-    sha256 "acb0013c7cf6d3f6dbf7793b5a3a1a627afd39af55c0b5e0cdf0b64da7eab9eb" => :yosemite
-    sha256 "e08ec48ecb64a708f148d56e60f2b54d75629e3a9e0ee9bb88d8afa13a4964e4" => :mavericks
+    sha256 "3c9d6becbe0c703d259005f96bab5efa090efbf66328ac9a9102cb1f25d4d596" => :sierra
+    sha256 "286f64272a8718e26353ffb07e206b8ae8fe26d1ec208c87619620447d0fef68" => :el_capitan
+    sha256 "ff021e457dba610fc58390c259511ddc14577c6df7b23c16ca740ba51d749b43" => :yosemite
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "./build", "release", "-j#{ENV.make_jobs}"
+    # the build script breaks when CI is set by Homebrew
+    begin
+      env_ci = ENV.delete "CI"
+      system "./build", "release", "-j#{ENV.make_jobs}"
+    ensure
+      ENV["CI"] = env_ci
+    end
+
     bin.install "bin/Darwin_amd64_release/fibjs"
   end
 

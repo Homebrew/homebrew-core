@@ -63,13 +63,13 @@ class Msitools < Formula
 
     # msidiff: diff two installers
     lines = `#{bin}/msidiff --list installer1.msi installer2.msi 2>/dev/null`.split("\n")
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
     assert_equal "-Program Files/test/test1.txt", lines[-2]
     assert_equal "+Program Files/test/test2.txt", lines[-1]
 
     # msiinfo: show info for an installer
     out = `#{bin}/msiinfo suminfo installer1.msi`
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
     assert_match /Author: BigCo/, out
 
     # msiextract: extract files from an installer

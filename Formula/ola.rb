@@ -1,26 +1,27 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
-  sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
-  revision 2
-  head "https://github.com/OpenLightingProject/ola.git"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.4/ola-0.10.4.tar.gz"
+  sha256 "be0aacf5b2a61dd2b75e0ee3ec9a642012751268aa2d28bd24e8d87837a8f707"
 
   bottle do
-    rebuild 1
-    sha256 "6ce670e79cfa2f07be5424998a68121bb74970862b9869ef9913c7836de6c86b" => :sierra
-    sha256 "24d8de266ffb22252740cf630b36989055c15b76c260657128729982254f0aa3" => :el_capitan
-    sha256 "ca034130d624c101077f2b660bb6ea7c07ce043b681c5b8530393f06982e389e" => :yosemite
+    sha256 "5648e88c98f2164018c3d15fe20cc7f9633313c64eb88ee43cd3d461cdd3713e" => :sierra
+    sha256 "e02d2bcdb219f6a881c11cbde008ecdd5e2213884bbae9e90ce30215620eec00" => :el_capitan
+    sha256 "28ccbad1d470c0d2835908f1e5ea8c22eb2376a322d5eb61dd43e300df60f2ff" => :yosemite
+  end
+
+  head do
+    url "https://github.com/OpenLightingProject/ola.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   option "with-libftdi", "Install FTDI USB plugin for OLA."
   option "with-rdm-tests", "Install RDM Tests for OLA."
   deprecated_option "with-ftdi" => "with-libftdi"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "cppunit" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
@@ -37,12 +38,7 @@ class Ola < Formula
     sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
-    ENV["ac_cv_gnu_plus_plus_98"] = "no"
-
     resource("protobuf-c").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{buildpath}/vendor/protobuf-c"
@@ -59,12 +55,13 @@ class Ola < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-python-libs
+      --disable-unittests
     ]
 
     args << "--enable-rdm-tests" if build.with? "rdm-tests"
     args << "--enable-doxygen-man" if build.with? "doxygen"
 
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
     system "make", "install"
   end

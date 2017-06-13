@@ -1,15 +1,15 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.3.4.tar.gz"
-  sha256 "0ca340d4092116debb09d85412fdf7f082d08bc99a7d53b0e222ab7d18390a6c"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.4.1.tar.gz"
+  sha256 "882ed16dff343d8154f94dac1c26ab46a0d1a2dfdf7269f4090eebb192b6d007"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "6fd704a5f75e8f25f94dc4ac12e65a61acdceadb6a7e7e593aacde6410cf2ea6" => :sierra
-    sha256 "ecd64c878bd4f7a680a262e7c245d71c3b133c355f3087051986156b651e0b70" => :el_capitan
-    sha256 "5a8ecc5f3b8971c4d8c2697c20455d33e769d85313ed07b5a4337528738b2ea2" => :yosemite
+    sha256 "f9ce37564f7bb3e7b27542d9fd88f92c268d8fd3859bc0f46d68c527ffc76e4c" => :sierra
+    sha256 "4c921a5b1f8c2897e6924ab080636fa27950d23fab93b88e68b981c8c7eee833" => :el_capitan
+    sha256 "03df426e2fc6477877779f4e5dabfcc423f3a926ce14301fb0090906ff1a789d" => :yosemite
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
@@ -30,7 +30,6 @@ class Ibex < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --with-affine
       --with-optim
     ]
 
@@ -40,8 +39,6 @@ class Ibex < Formula
     args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
-    system "make", "-C", "3rd/filibsrc"
-    system "./waf", "build"
     system "./waf", "install"
 
     pkgshare.install %w[examples benchs]
@@ -59,9 +56,9 @@ class Ibex < Formula
     # so that pkg-config can remain a build-time only dependency
     inreplace %w[makefile slam/makefile] do |s|
       s.gsub! /CXXFLAGS.*pkg-config --cflags ibex./,
-              "CXXFLAGS := -ffloat-store -I#{include} -I#{include}/ibex"
-      s.gsub! /LIBS.*pkg-config --libs  ibex./,
-              "LIBS := -L#{lib} -libex -lprim -lClp -lCoinUtils -lm"
+              "CXXFLAGS := -I#{include} -I#{include}/ibex "\
+                          "-I#{include}/ibex/3rd/coin -I#{include}/ibex/3rd"
+      s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
     system "make", "ctc01", "ctc02", "symb01", "solver01", "solver02"

@@ -16,7 +16,7 @@ class Pugixml < Formula
   depends_on "cmake" => :build
 
   def install
-    shared = (build.with? "shared") ? "ON" : "OFF"
+    shared = build.with?("shared") ? "ON" : "OFF"
     system "cmake", ".", "-DBUILD_SHARED_LIBS=#{shared}",
                          "-DBUILD_PKGCONFIG=ON", *std_cmake_args
     system "make", "install"

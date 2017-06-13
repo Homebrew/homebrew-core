@@ -7,7 +7,23 @@ class ZshHistorySubstringSearch < Formula
   bottle :unneeded
 
   def install
-    inreplace "README.md", "source zsh-history", "source #{opt_prefix}/zsh-history"
-    prefix.install Dir["*.zsh"]
+    pkgshare.install "zsh-history-substring-search.zsh"
+  end
+
+  def caveats
+    <<-EOS.undent
+    To activate the history search, add the following at the end of your .zshrc:
+
+      source #{HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+    You will also need to force reload of your .zshrc:
+
+      source ~/.zshrc
+    EOS
+  end
+
+  test do
+    assert_match "i",
+      shell_output("zsh -c '. #{pkgshare}/zsh-history-substring-search.zsh && echo $HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS'")
   end
 end

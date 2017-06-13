@@ -12,8 +12,6 @@ class MupdfTools < Formula
     sha256 "1984e3b0e8e71d4b1add14be7d1f4b9625b1a0dbe67c64fd67f0db237d5e78c5" => :yosemite
   end
 
-  depends_on :macos => :snow_leopard
-
   def install
     # Work around bug: https://bugs.ghostscript.com/show_bug.cgi?id=697842
     inreplace "Makerules", "RANLIB_CMD := xcrun", "RANLIB_CMD = xcrun"

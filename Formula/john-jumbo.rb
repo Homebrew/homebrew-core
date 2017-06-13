@@ -12,7 +12,7 @@ class JohnJumbo < Formula
     # https://github.com/magnumripper/JohnTheRipper/issues/1901
     patch do
       url "https://github.com/magnumripper/JohnTheRipper/commit/d29ad8aabaa9726eb08f440001c37611fa072e0c.diff"
-      sha256 "de5c09397f3666d0592e0f418f26a78a6624c5a947347ec2440e141c8915ae82"
+      sha256 "29660e4fb33e01730b5650094b872b416b36565501acfca2eb94ee2217525e0c"
     end
   end
 

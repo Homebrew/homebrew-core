@@ -1,15 +1,15 @@
 class Servus < Formula
   desc "Library and Utilities for zeroconf networking"
   homepage "https://github.com/HBPVIS/Servus"
-  url "https://github.com/HBPVIS/Servus/archive/1.5.0.tar.gz"
-  sha256 "42fb9c060f17f040ad3c7563f5e87c89f5a221a5aa7da21384fc26b9c725ecc8"
-  revision 1
+  url "https://github.com/HBPVIS/Servus.git",
+      :tag => "1.5.1",
+      :revision => "eee576548a05292179f4892d48b97108d8ed07c0"
 
   bottle do
     cellar :any
-    sha256 "cf27ad2330c4fa780bbe5c8e8327d936bf1809278b393f4daab05ffeba2772e9" => :sierra
-    sha256 "667dfbe34a3570d06673a66a45b168fffbc8e680998bab04e4a0cb691271dcd8" => :el_capitan
-    sha256 "d8b5639d032358b2980e8246883f1951dec46de4bc4a84c64f014372c1b40032" => :yosemite
+    sha256 "6946b4f5b7151f94cdb6e75ae47fda08a1da867f5690e757ee9d82875836905a" => :sierra
+    sha256 "39e8d21f40ecf08f3bf68e565648c9b94e4eb5d1acda854d8ff58676dce9a7dc" => :el_capitan
+    sha256 "3f23b83c09997e5e51b0089b7d2fad4ee8d7527fe29633cb6551a239acff59d7" => :yosemite
   end
 
   depends_on "cmake" => :build

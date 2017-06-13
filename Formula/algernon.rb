@@ -1,21 +1,20 @@
 class Algernon < Formula
-  desc "HTTP/2 web server with built-in support for Lua and templates"
+  desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "http://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.3.tar.gz"
-  sha256 "46577afcd255f9c4f193f2408c418e0ca5a66db9c9b4e553058fd4bef28631c1"
-  sha256 "a5a5976ce75c58b0a1ec10ee8185457fa590bc4e7473f061053bba85474208cc"
+  url "https://github.com/xyproto/algernon/archive/1.4.3.tar.gz"
+  sha256 "cf67a0938153e8a15743f46c3164944c2f3f2ad6d3b45b862c26945c9f20cd49"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
   bottle do
-    sha256 "c01c2947279e6bbc29eaca07a022cb3276d82d6f7ff6dfa9f1057e12ed764c91" => :sierra
-    sha256 "ac0d53e57be4a00dd8ade3c9ea384730d00ba4f540b5db64d697692a66935446" => :el_capitan
-    sha256 "0f6c5ee39192dc9f48f735fd8d68656cc50fda5234758490f5f53d41a85469cd" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "42651ae0197dd14d82a5ec1e50416c0575028139d067f5b2cd38dda99b310752" => :sierra
+    sha256 "8b95001602a0ef83151445ae00488a3e69ab4f2d0abaaf2ec4fd23420b00fa58" => :el_capitan
+    sha256 "2ee0fd1db921f44d1d2bada985064b8b969e338ea1f52a25b50c9ab291768f92" => :yosemite
   end
 
   depends_on "glide" => :build
   depends_on "go" => :build
-  depends_on "readline"
 
   def install
     ENV["GLIDE_HOME"] = buildpath/"glide_home"

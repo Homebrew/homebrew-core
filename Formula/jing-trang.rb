@@ -35,14 +35,14 @@ class JingTrang < Formula
       <?xml version="1.0" encoding="UTF-8"?>
       <response xmlns:core="http://www.bbc.co.uk/ontologies/coreconcepts/">
         <results>
-          <thing id="http://www.bbc.co.uk/things/31684f19-84d6-41f6-b033-7ae08098572a#id">
+          <thing id="https://www.bbc.co.uk/things/31684f19-84d6-41f6-b033-7ae08098572a#id">
             <core:preferredLabel>Technology</core:preferredLabel>
             <core:label xml:lang="en-gb">Technology</core:label>
             <core:label xml:lang="es">Tecnología</core:label>
             <core:label xml:lang="ur">ٹیکنالوجی</core:label>
             <core:disambiguationHint>News about computers, the internet, electronics etc.</core:disambiguationHint>
           </thing>
-          <thing id="http://www.bbc.co.uk/things/0f469e6a-d4a6-46f2-b727-2bd039cb6b53#id">
+          <thing id="https://www.bbc.co.uk/things/0f469e6a-d4a6-46f2-b727-2bd039cb6b53#id">
             <core:preferredLabel>Science</core:preferredLabel>
             <core:label xml:lang="en-gb">Science</core:label>
             <core:label xml:lang="es">Ciencia</core:label>

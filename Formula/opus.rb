@@ -1,14 +1,14 @@
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opus-1.1.4.tar.gz"
-  sha256 "9122b6b380081dd2665189f97bfd777f04f92dc3ab6698eea1dbb27ad59d8692"
+  url "https://archive.mozilla.org/pub/opus/opus-1.1.5.tar.gz"
+  sha256 "eb84981ca0f40a3e5d5e58d2e8582cb2fee05a022825a6dfe14d14b04eb563e4"
 
   bottle do
     cellar :any
-    sha256 "fa157f731dac20c3da949a7e78756c6d274137d51161c41286f77d18fdf9846e" => :sierra
-    sha256 "e978cb0514e9985ed819c16ad9858f905e15624dbc8a86bdf42bb42108f6a4b7" => :el_capitan
-    sha256 "46c8d10883030bd6bf106277215535fa48e772d812b58dffafc7bafc43cd22b6" => :yosemite
+    sha256 "3094061c9de9b038a9b7e45472441cf06fa2b76fec729e2722eeda56a2ca99b6" => :sierra
+    sha256 "a0d04fe1aa549a6bf80d5c54803b3c32a5fd669d38c7c94416076e4c73ed38d0" => :el_capitan
+    sha256 "5ce71bb0df2d64a85129694e7bf62349afe1b62a56b876ab4fa65d364cec7ee3" => :yosemite
   end
 
   head do

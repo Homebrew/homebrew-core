@@ -1,8 +1,8 @@
 class Antlr < Formula
   desc "ANother Tool for Language Recognition"
   homepage "http://www.antlr.org/"
-  url "http://www.antlr.org/download/antlr-4.6-complete.jar"
-  sha256 "bd74482f0ee68001926863d4239d23b70719141db522343d39defc4f2cf25969"
+  url "http://www.antlr.org/download/antlr-4.7-complete.jar"
+  sha256 "cd8bc38c2b72426f8d5922843c1b8ffcd0238fa34722597a944a153d8c570864"
 
   bottle :unneeded
 

@@ -50,9 +50,7 @@ class Lldpd < Formula
 
   def plist
     additional_args = ""
-    if build.with? "snmp"
-      additional_args += "<string>-x</string>"
-    end
+    additional_args += "<string>-x</string>" if build.with? "snmp"
     <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

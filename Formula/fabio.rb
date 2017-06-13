@@ -1,15 +1,15 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
-  url "https://github.com/fabiolb/fabio/archive/v1.4.3.tar.gz"
-  sha256 "9afdf89bbe5e1a5cf17cbffe255d75cfc51f170c8d30f64e659317f82aed042f"
+  url "https://github.com/fabiolb/fabio/archive/v1.5.0.tar.gz"
+  sha256 "7aaa56719fa4592d736b3887311a7c8c7cbd28a81952ac488170738096fa2ab0"
   head "https://github.com/fabiolb/fabio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74d35ccc0a7363cfa9594d4bce89dd8f5288ec129d90b917c721a58c3e606025" => :sierra
-    sha256 "3dd75e43c419f4b5e0a708affd6a79fb872bec225c8e3d7b19d6a6b0b62cfa93" => :el_capitan
-    sha256 "818563ba0fc4782679bf2bc1ad7d28e425d965dd1871e66da825cf91cec03681" => :yosemite
+    sha256 "e5c41326d34ec918ef0ee51bb27e5622bef93d2c8d4824b5910fe4a8da6d1ab9" => :sierra
+    sha256 "39c33bf46cf7daa6883d947d48c3ae955d4aeac7d99cbb96d0c80fce7ce802c8" => :el_capitan
+    sha256 "1ff01bcc5e793ffc2a71253374cbc9e3ec6db5904f62afa5e6ae8ac057ef2974" => :yosemite
   end
 
   depends_on "go" => :build
@@ -52,7 +52,7 @@ class Fabio < Formula
           exec "consul agent -dev -bind 127.0.0.1"
           puts "consul started"
         end
-        sleep 15
+        sleep 30
       else
         puts "Consul already running"
       end
@@ -60,7 +60,7 @@ class Fabio < Formula
         exec "#{bin}/fabio &>fabio-start.out&"
         puts "fabio started"
       end
-      sleep 5
+      sleep 10
       assert_equal true, port_open?(LOCALHOST_IP, FABIO_DEFAULT_PORT)
       system "killall", "fabio" # fabio forks off from the fork...
       system "consul", "leave"

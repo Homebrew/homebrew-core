@@ -1,14 +1,13 @@
 class Clutter < Formula
   desc "Generic high-level canvas library"
   homepage "https://wiki.gnome.org/Projects/Clutter"
-  url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.0.tar.xz"
-  sha256 "67514e7824b3feb4723164084b36d6ce1ae41cb3a9897e9f1a56c8334993ce06"
+  url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.2.tar.xz"
+  sha256 "e7233314983055e9018f94f56882e29e7fc34d8d35de030789fdcd9b2d0e2e56"
 
   bottle do
-    sha256 "5210bc8ba72d624f8e927c540f6f926bb7b3a292fbc74a49e2b72fc6651b7300" => :sierra
-    sha256 "ee1428123c15251c5393d5ad5f0693704e7aa60c131dc1d56de3df48a5dcb4c2" => :el_capitan
-    sha256 "61e314bfe13c06db50812c577a88099e9f6dbff7ec0fa7a14fcce0fde7c55611" => :yosemite
-    sha256 "6f9fb993c83c0e52d8e8b0e3edb15657cfb68159912810ae5787f1050c781fd8" => :mavericks
+    sha256 "16b3ecbbf37e62ce9e491ca525a948571f51c349fa25ba381db566fd0f825457" => :sierra
+    sha256 "3bfa2df55eed3598e510999b02f8d226eca4a4fc58ba7adcace0e443ca5cc64e" => :el_capitan
+    sha256 "c224d96814d9ef9c1929d2e4dbe4251e09395bbf9d61fc3a9f20886daf8581c8" => :yosemite
   end
 
   depends_on "pkg-config" => :build

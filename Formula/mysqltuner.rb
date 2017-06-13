@@ -1,8 +1,8 @@
 class Mysqltuner < Formula
   desc "Increase performance and stability of a MySQL installation"
   homepage "http://mysqltuner.com"
-  url "https://github.com/major/MySQLTuner-perl/archive/1.6.18.tar.gz"
-  sha256 "ae2b2668198fb78a7685fc4a372bafcef0a91b1dca15d065dae73eeb74bcd6cb"
+  url "https://github.com/major/MySQLTuner-perl/archive/1.7.2.tar.gz"
+  sha256 "f2d8dcf588cfb8d9351e44d64d14dd2d306c5b599d0b7cada98b53c4f0ec48ec"
   head "https://github.com/major/MySQLTuner-perl.git"
 
   bottle :unneeded

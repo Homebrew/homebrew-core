@@ -1,14 +1,13 @@
 class MariadbAT100 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.0.30/source/mariadb-10.0.30.tar.gz"
-  sha256 "9a2cb7f06ecce1bb64dddc70c484e36507b50b756c110c1d37fa145a13a796bb"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.0.31/source/mariadb-10.0.31.tar.gz"
+  sha256 "371f2dae0b9e1a92939fba1efca77ac83ba15b6b6dcfd389ca5cbf79eb8b842a"
 
   bottle do
-    rebuild 2
-    sha256 "cd1a8bfb27d09b9ae995d8f5d0c3dbd0982dfcf6e9308b48f99809318b4e14b6" => :sierra
-    sha256 "f3fc5df634db4d14622bcb1f8d1a7bd27f2cb127bbaee6422fa9186b7deaa68b" => :el_capitan
-    sha256 "8a629ff434a99be76d9a5ac71ccbe4fbb1fc6c7683c115437a133a939e4c8699" => :yosemite
+    sha256 "9109fb75ed255282003956f37afb4af4115c2336f44fe4a19db29e27933a393c" => :sierra
+    sha256 "e7c311563d545636bf8c097164e7382ad83abae666c9216a18f62a00c84771f0" => :el_capitan
+    sha256 "d7cd667ee4e322929ecee9e984a712a6eb967ee7bedca82f9f22c59f34f4f7cd" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -28,12 +27,6 @@ class MariadbAT100 < Formula
   depends_on "openssl"
 
   def install
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -102,11 +95,7 @@ class MariadbAT100 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server", /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
@@ -141,7 +130,7 @@ class MariadbAT100 < Formula
     EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.0/bin/mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

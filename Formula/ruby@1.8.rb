@@ -50,11 +50,6 @@ class RubyAT18 < Formula
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
 
-    if build.universal?
-      ENV.universal_binary
-      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
-    end
-
     args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
     args << "--enable-install-doc" if build.with? "doc"
 

@@ -11,7 +11,7 @@ class Mlton < Formula
     # Configure GMP location via Makefile (https://github.com/MLton/mlton/pull/136)
     patch do
       url "https://github.com/MLton/mlton/commit/6e79342cdcf2e15193d95fcd3a46d164b783aed4.diff"
-      sha256 "2d44891eaf3fdecd3b0f6de2bdece463c71c425100fbac2d00196ad159e5c707"
+      sha256 "dddf7dbc654dd7c69be8c2c6212a6e63e8400e9cc0ffd1e1cc59c7ac3c58d0ba"
     end
   end
 

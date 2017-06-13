@@ -5,9 +5,9 @@ class Sbt < Formula
   sha256 "b6e073d7c201741dcca92cfdd1dd3cd76c42a47dc9d8c8ead8df7117deed7aef"
 
   devel do
-    url "https://github.com/sbt/sbt/releases/download/v1.0.0-M5/sbt-1.0.0-M5.tgz"
-    sha256 "06340442a3d6872dbdaceb3cb09e6812838a93da121954cfa8a2e07b1b527c74"
-    version "1.0.0-M5"
+    url "https://github.com/sbt/sbt/releases/download/v1.0.0-M6/sbt-1.0.0-M6.tgz"
+    sha256 "3af45cfa3a857331d5dce667e575f2f623d51d088ef4b129de638e6d1493b31a"
+    version "1.0.0-M6"
   end
 
   bottle :unneeded

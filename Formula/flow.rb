@@ -4,29 +4,22 @@ class Flow < Formula
   head "https://github.com/facebook/flow.git"
 
   stable do
-    url "https://github.com/facebook/flow/archive/v0.45.0.tar.gz"
-    sha256 "9a76cb1669d5d1f07a55b3163edb0329c46565033eaf7ed9320058b6e3a9cbbf"
+    url "https://github.com/facebook/flow/archive/v0.47.0.tar.gz"
+    sha256 "cf4bda660731c6d0731d1193fac458f590a1313172989b4a4561f64fbcc2cc1c"
 
-    # Remove for > 0.45.0
-    # Upstream commit from 28 Apr 2017 "Add `make all-homebrew`"
+    # Remove for > 0.47.0
+    # [PR] Remove 4.04 ocaml version upper bound
     patch do
-      url "https://github.com/facebook/flow/commit/8a811a4b443ec545d89aa201d5ebcc254ae220e4.patch"
-      sha256 "f92aca59e2014b91974c02672e0d55b3b278d3a267150cfb534d266befda4ad4"
-    end
-
-    # Remove for > 0.45.0
-    # Upstream commit from 28 Apr 2017 "mktemp's interface changed in OSX 10.11"
-    patch do
-      url "https://github.com/facebook/flow/commit/7cc0f0b3f34e6932e7a713de2a651a1848eef395.patch"
-      sha256 "d7eac833d7ee1dd7ee6ec47dfdc4f68e9b31555d3d39670d675ec81ec8a5127d"
+      url "https://github.com/facebook/flow/commit/e905086b3a1c2c35b6f204e422b8ce17ab6a4c10.patch"
+      sha256 "02451e3213855ff984a2115db7d116f5924f59661182683e7b71c81b09f77b53"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d18214fdc02524e872422e38391f67eca3923a5ae8c92ca7b19e053aaa853128" => :sierra
-    sha256 "ed10e631f87e8316d3473719fd15761da02e79993cd04617545226acbdd6a899" => :el_capitan
-    sha256 "9add8e39f9ee1c20e904043a64ca9b2dc62e0b907be3bb8a3055f3321b3b810f" => :yosemite
+    sha256 "f3095c2f199c504791e8c17ad660565788b752b54dd6bbc916b9ab1b52c7ff80" => :sierra
+    sha256 "4be6ed7a5bda5ce8d73d2631fc49eb73eafb2897f7543d04bc97a453d90f818f" => :el_capitan
+    sha256 "10ff53fd8118aa86d38de9ebcec8ab380d7b740752a9ae77b0bc56c1d82c7730" => :yosemite
   end
 
   depends_on "ocaml" => :build

@@ -3,6 +3,7 @@ class Libfaketime < Formula
   homepage "http://www.code-wizards.com/projects/libfaketime"
   url "http://code-wizards.com/projects/libfaketime/libfaketime-0.9.5.tar.gz"
   sha256 "5e07678d440d632bef012068ca58825402da5ad25954513e785717cc539c213d"
+  head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
     rebuild 1

@@ -1,15 +1,15 @@
 class Osh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "https://v6shell.org/"
-  url "https://v6shell.org/src/osh-4.3.2.tar.gz"
-  sha256 "6123b24cd87e70cbf99f26ce5dea992abedf7e4f0c6ad964853427919b47dcc7"
+  url "https://v6shell.org/src/osh-4.4.0.tar.gz"
+  sha256 "65a77c73a92c282159f455e04cc0b4de6bd7e1c3db99405e0cb7fe281fd88e81"
   version_scheme 1
-  head "https://github.com/JNeitzel/v6shell.git"
+  head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
   bottle do
-    sha256 "964ca2eb8344d93890c32c4330fd66bb5e6d77635349de1525bc1ffb1825041c" => :sierra
-    sha256 "723350de5a7d4f40eae9f67b1d3c1e1a7c911a0c5c17e77e52cbed6615e03842" => :el_capitan
-    sha256 "8928ba25a0a3f5c13aa8896e728eaf239d7451ad84081e41fd4509d86969b500" => :yosemite
+    sha256 "3981b2b01455ff2f689feb0355ca0f2b8eea7049cf2dd81943d83f8c58bd586a" => :sierra
+    sha256 "e4ad8a13f302abac406b9c948965574237afa06a7a9b62c854bfdf6afb4465a8" => :el_capitan
+    sha256 "ffba74a1d76e0234e60877c6472f72dceab8c23771cd7b1c04bccff798d6628c" => :yosemite
   end
 
   option "with-examples", "Build with shell examples"
@@ -20,7 +20,8 @@ class Osh < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man}"
+    system "./configure", "osh", "sh6"
+    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man1}"
 
     if build.with? "examples"
       resource("examples").stage do

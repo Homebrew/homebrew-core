@@ -1,19 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.22/source/mariadb-10.1.22.tar.gz"
-  sha256 "bcb0572e7ad32cea9740a21e9255f733bdf60a5561ffbda317c22dd12b3966ce"
+  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.6/source/mariadb-10.2.6.tar.gz"
+  sha256 "c385c76e40d6e5f0577eba021805da5f494a30c9ef51884baefe206d5658a2e5"
 
   bottle do
-    rebuild 1
-    sha256 "b2fb95845e59337eb168d52937401a6c75b8ac30638f11fb91e1232125d17fb1" => :sierra
-    sha256 "37de79c161518b0e1a14a8747a3ae2b79f5e93e837f17eb6afa3081c65459ea6" => :el_capitan
-    sha256 "d6da0b6169d6eafb7228de64284485f5f4e99402b731b2504a9f02f9e8f332c3" => :yosemite
-  end
-
-  devel do
-    url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.5/source/mariadb-10.2.5.tar.gz"
-    sha256 "6629bd2392ccba2fb30ce3a27efddba1f695ac739538007ad1d15caeed19ff50"
+    sha256 "8f4a13008e4b1f3dd5ded3ea54ccacc1a77d0735d255027e1d9abe7089a26bdc" => :sierra
+    sha256 "b65d947f17aca66bc740673b2860cfdfefe3b924c3877fb75ccc2b85886bc735" => :el_capitan
+    sha256 "86aa0595f68d44bfe4a9d50b03e54c23b860f3b54ccd5e7fbcd6f18f58e96c3d" => :yosemite
   end
 
   option "with-test", "Keep test when installing"
@@ -40,12 +34,6 @@ class Mariadb < Formula
     :because => "both install plugins"
 
   def install
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -71,9 +59,6 @@ class Mariadb < Formula
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
-
-    # disable MyRocks, which is currently alpha
-    args << "-DPLUGIN_ROCKSDB=NO" if build.devel?
 
     args << "-DWITH_UNIT_TESTS=OFF" if build.without? "test"
 
@@ -113,16 +98,11 @@ class Mariadb < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
+    inreplace "#{prefix}/support-files/mysql.server", /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
 
     # Move sourced non-executable out of bin into libexec
-    libexec.mkpath
     libexec.install "#{bin}/wsrep_sst_common"
     # Fix up references to wsrep_sst_common
     %w[

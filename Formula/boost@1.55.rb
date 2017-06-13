@@ -26,7 +26,7 @@ class BoostAT155 < Formula
 
     patch :p2 do
       url "https://github.com/boostorg/chrono/commit/143260d.diff"
-      sha256 "f6f40b576725b15ddfe24497ddcd597f387dfdf674f6dd301b8dcb723593ee22"
+      sha256 "d8ff71e910df35f6e5b6adb15a3a927988e184e65ddc219e741db3a67b2f9dd2"
     end
   end
 

@@ -6,12 +6,7 @@ class Scala < Formula
   mirror "https://www.scala-lang.org/files/archive/scala-2.12.2.tgz"
   sha256 "196168b246fcf10e275491c5e58a50ca9eb696da95e49155b3f86f001346a6f5"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "78585de9189392bf4b8aba6693ad089754c1e53256e8ad4b84a95e86c5b025e7" => :sierra
-    sha256 "fe102152679625ec1164bb9d27b961dfbdd413a5a50c451a5cb676919eca1ecc" => :el_capitan
-    sha256 "fe102152679625ec1164bb9d27b961dfbdd413a5a50c451a5cb676919eca1ecc" => :yosemite
-  end
+  bottle :unneeded
 
   option "with-docs", "Also install library documentation"
   option "with-src", "Also install sources for IDE support"

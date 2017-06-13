@@ -42,13 +42,20 @@ class KubeAws < Formula
     require "yaml"
 
     system "#{bin}/kube-aws"
-    cluster = { "clusterName"=>"test-cluster",
-                "apiEndpoints"=>[{ "name"=>"default", "dnsName"=>"dns",
-                "loadBalancer"=>{ "createRecordSet"=>false } }],
-                "keyName"=>"key", "region"=>"west", "availabilityZone"=>"zone",
-                "kmsKeyArn"=>"arn",
-                "worker"=>{ "nodePools"=>[{ "name"=>"nodepool1" }] },
-                "addons"=>{ "rescheduler"=>{ "enabled"=>false } } }
+    cluster = {
+      "clusterName" => "test-cluster",
+      "apiEndpoints" => [{
+        "name" => "default",
+        "dnsName" => "dns",
+        "loadBalancer" => { "createRecordSet" => false },
+      }],
+      "keyName" => "key",
+      "region" => "west",
+      "availabilityZone" => "zone",
+      "kmsKeyArn" => "arn",
+      "worker" => { "nodePools" => [{ "name"=>"nodepool1" }] },
+      "addons" => { "rescheduler" => { "enabled"=>false } },
+    }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
            "--availability-zone", "zone", "--key-name", "key",

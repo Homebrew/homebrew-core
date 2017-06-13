@@ -41,14 +41,12 @@ class RakudoStar < Formula
     # Move the man pages out of the top level into share.
     # Not all backends seem to generate man pages at this point (moar does not, parrot does),
     # so we need to check if the directory exists first.
-    if File.directory?("#{prefix}/man")
-      mv "#{prefix}/man", share
-    end
+    mv "#{prefix}/man", share if File.directory?("#{prefix}/man")
   end
 
   test do
     out = `#{bin}/perl6 -e 'loop (my $i = 0; $i < 10; $i++) { print $i }'`
     assert_equal "0123456789", out
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

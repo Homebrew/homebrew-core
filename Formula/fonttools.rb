@@ -3,15 +3,15 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://github.com/fonttools/fonttools/releases/download/3.11.0/fonttools-3.11.0.zip"
-  sha256 "b9f0c93914d83f27b32b5eb89c640ce1f1cb6f8466bff6079ff27903275f8994"
+  url "https://github.com/fonttools/fonttools/releases/download/3.13.1/fonttools-3.13.1.zip"
+  sha256 "ded1f9a6cdd6ed19a3df05ae40066d579ffded17369b976f9e701cf31b7b1f2d"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80f411cc801c5bd9eb628906d803c0104264da426cd7877fe49b15a54570d2a2" => :sierra
-    sha256 "afeeb89590468e228105c677af855d1c6f290211d08a9b667fa243506dcace1a" => :el_capitan
-    sha256 "cedf788f998df47cfd9b7a1e903576ac0a5d5557c98a4e71eb1710aaf8801eac" => :yosemite
+    sha256 "74e6059a72984c16e4e12defa56caff2e0e48ae93cd3605f94c6090e8d11ed3b" => :sierra
+    sha256 "84e5b6a8cc5c52d988c95404726195c59186bb637a5d5e378aac8b9596e11e4a" => :el_capitan
+    sha256 "3af56b703bcf6dd8c2597fed785d661f775dd0e31acf128997dfda20889a0273" => :yosemite
   end
 
   option "with-pygtk", "Build with pygtk support for pyftinspect"

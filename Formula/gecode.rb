@@ -85,9 +85,7 @@ class Gecode < Formula
       -L#{lib}
       -o test
     ]
-    if build.with? "qt"
-      args << "-lgecodegist"
-    end
+    args << "-lgecodegist" if build.with? "qt"
     system ENV.cxx, "test.cpp", *args
     assert_match "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}", shell_output("./test")
   end

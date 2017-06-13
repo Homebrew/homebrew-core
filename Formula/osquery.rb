@@ -3,20 +3,18 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.4.2",
-      :revision => "62dda71321e4fe492595298c3300c270c4888f8f"
-  revision 1
+      :tag => "2.4.6",
+      :revision => "f9cb7149a9ac53c4aa563886d3bd37955876753f"
 
   bottle do
     cellar :any
-    sha256 "c85c48463f39c49296a58ebe5e26bec0f5937b7a26cb5495d6e611c4397932c2" => :sierra
-    sha256 "bee77670712fa2cdd11155398faae5f071d176d97cde074bd0750dc4de63f833" => :el_capitan
+    sha256 "e833f61fa0ec4a3a82c29234657b16e925c6b4494dd14e7c3968f15a7edc3770" => :sierra
   end
 
   fails_with :gcc => "6"
 
-  # osquery only supports OS X 10.11 and above. Do not remove this.
-  depends_on :macos => :el_capitan
+  # osquery only supports macOS 10.12 and above. Do not remove this.
+  depends_on :macos => :sierra
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build

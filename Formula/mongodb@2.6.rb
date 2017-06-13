@@ -11,7 +11,6 @@ class MongodbAT26 < Formula
     sha256 "57b17de046e3808e1357271eb7fd0de4b33aeaa1fdfcce5494a35daf4ba95260" => :yosemite
   end
 
-  depends_on :macos => :snow_leopard
   depends_on "scons" => :build
   depends_on "openssl"
 

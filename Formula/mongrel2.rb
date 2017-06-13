@@ -10,7 +10,7 @@ class Mongrel2 < Formula
     # ensure unit tests work on 1.11.0. remove after next release
     patch do
       url "https://github.com/mongrel2/mongrel2/commit/7cb8532e2ecc341d77885764b372a363fbc72eff.patch"
-      sha256 "b1861a49c7edff66cfd6bd898c8ce2e0ed7a5e9ecc454fdab337fb70af2346cd"
+      sha256 "46350471602726f6d0c1012f93e305dc2ca6fcdaa2187f1be3b6922c64ec7fdd"
     end
   end
 

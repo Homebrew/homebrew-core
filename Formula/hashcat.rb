@@ -60,7 +60,7 @@ class Hashcat < Formula
     # Test 1 (dictionary attack, -a 0):
     #
 
-    hash = File.open(hash_file, "rb").read.strip
+    hash = File.open(hash_file, "rb") { |f| f.read.strip }
 
     attack_mode = "0"
 

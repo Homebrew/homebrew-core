@@ -1,17 +1,17 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers."
   homepage "https://github.com/wercker/stern"
-  url "https://github.com/wercker/stern/archive/1.5.0.tar.gz"
-  sha256 "2e2e1baef022fa850d5fc9ceb4053a35cd033e9059621c4cdabff874cb39cbaf"
+  url "https://github.com/wercker/stern/archive/1.5.1.tar.gz"
+  sha256 "f7a9afcbfd9d9ce2d7e933ac5390e55e900ad2c2cbcab4afcac2a1f4dc2210e4"
 
   head "https://github.com/wercker/stern.git",
     :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "33146c5768cd6dcc101fe5557b61b937cd550e61d6be34b44088351e6de7cdd1" => :sierra
-    sha256 "7ccf008b8e3db8f8afcc8047b144a036f8d985615231576641fb46e3cbce35dc" => :el_capitan
-    sha256 "cefee06366dee336ce9cb3996b1c2d45c584e5fa3dab9a17e55638be19ac4e43" => :yosemite
+    sha256 "84069ad767e638e916c00f13231a2f47170b79619e4cab1315aa85ceb7535fe4" => :sierra
+    sha256 "8212fa765da479b688496e1bb69a5d16510aef99acbe8403007f557cb6f52449" => :el_capitan
+    sha256 "7d57ea2096a2755619e99e75f0180307132663bb8e5fd9e5f3272cadb50ebe01" => :yosemite
   end
 
   depends_on "go" => :build

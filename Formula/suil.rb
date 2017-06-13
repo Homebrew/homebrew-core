@@ -31,7 +31,8 @@ class Suil < Formula
         return suil_ui_supported("my-host", "my-ui");
       }
     EOS
-    system ENV.cc, "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "test.c", "-o", "test"
+    lv2 = Formula["lv2"].opt_include
+    system ENV.cc, "-I#{lv2}", "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "test.c", "-o", "test"
     system "./test"
   end
 end

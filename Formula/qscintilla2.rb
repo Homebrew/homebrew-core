@@ -31,7 +31,7 @@ class Qscintilla2 < Formula
   end
 
   def install
-    spec = ENV.compiler == :clang && MacOS.version >= :mavericks ? "macx-clang" : "macx-g++"
+    spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
     args = %W[-config release -spec #{spec}]
 
     cd "Qt4Qt5" do

@@ -1,14 +1,13 @@
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
-  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.6.0/rrdtool-1.6.0.tar.gz"
-  sha256 "cd948e89cd2d8825fab4a6fb0323f810948d934af7d92c9ee8b5e9e1350e52d7"
+  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.0/rrdtool-1.7.0.tar.gz"
+  sha256 "f97d348935b91780f2cd80399719e20c0b91f0a23537c0a85f9ff306d4c5526b"
 
   bottle do
-    sha256 "328ea9b56ce467ee468df5bda24f3673fcad99d84d35b3d2366a2ad7b42ee54a" => :sierra
-    sha256 "9647245353e70af2aa0f352374e998811151121f7b471e7ea0cadb865727bb38" => :el_capitan
-    sha256 "76f4843dd99e86cf07b2ef100deff5b2178541013cb978b3d77940e1b7bb34b5" => :yosemite
-    sha256 "1bcde0f4b65abdcb032903bbc986df86f3d8813b93c1581bd752b03e57e9f3fe" => :mavericks
+    sha256 "9118f17c71711617a9a2ed33bdc5bd738f0dc99c83eb73d0818892b5e20ba044" => :sierra
+    sha256 "13db68e30a36777abacc58b37080f19d5e184bdc7a69e5470337273f9d567c1d" => :el_capitan
+    sha256 "6928ae9eea858d09e114fd82c128b0dacfa629067e8879c8429ce2eb51ba79dc" => :yosemite
   end
 
   head do

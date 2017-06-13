@@ -1,13 +1,13 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.6.tar.xz"
-  sha256 "f4055e1189e5cc00e83706b2e0b5ead924ced0303e073d7802ee9f9a8eba4b47"
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.9.tar.xz"
+  sha256 "cd77a2869e32354b004cc6b34fcb0bee56114caa2d9ed862aaa8071441e34eb7"
 
   bottle do
-    sha256 "772293121659866f47d554b60eea57460a489659599ea9f83435c8a372c05ac8" => :sierra
-    sha256 "2913600b2efe25fe2591f87a8bd9b59b044ada4fac1abe783b1fb18ee966ec55" => :el_capitan
-    sha256 "cec38e434121b587c6e4f771e106ffd6724b1d7c3ccfcd19cfc45ba9259aca2d" => :yosemite
+    sha256 "6aa7348e26c4fb985f5405f536067d6748cbddae11c56dca364fdcef9a5f4003" => :sierra
+    sha256 "f1b13e9f6cdbf31213193d7447891ac33f2e679947d62f83d8f18a44d77e3d31" => :el_capitan
+    sha256 "01312a38398480beef23781ec61b470a9d478b59d044aaa64d31b10c3f225e78" => :yosemite
   end
 
   head do
@@ -61,6 +61,7 @@ class Mpd < Formula
   depends_on "mad" => :optional
   depends_on "libmodplug" => :optional  # MODPlug decoder
   depends_on "pulseaudio" => :optional
+  depends_on "libao" => :optional       # Output to libao
   if build.with? "upnp"
     depends_on "expat"
     depends_on "libupnp"
@@ -87,8 +88,6 @@ class Mpd < Formula
     ]
 
     args << "--disable-mad" if build.without? "mad"
-    args << "--disable-curl" if MacOS.version <= :leopard
-
     args << "--enable-zzip" if build.with? "libzzip"
     args << "--enable-lastfm" if build.with? "lastfm"
     args << "--disable-lame-encoder" if build.without? "lame"
@@ -97,6 +96,7 @@ class Mpd < Formula
     args << "--enable-nfs" if build.with? "libnfs"
     args << "--enable-modplug" if build.with? "libmodplug"
     args << "--enable-pulse" if build.with? "pulseaudio"
+    args << "--enable-ao" if build.with? "libao"
     if build.with? "upnp"
       args << "--enable-upnp"
       args << "--enable-expat"

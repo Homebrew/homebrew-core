@@ -1,15 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.6.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.6.tar.bz2"
-  sha256 "f627d51eda85f5ae5f5c8c9fc1f6539ffc2a270dd7500dc7f67490a8534ca849"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.7.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.7.tar.bz2"
+  sha256 "689ddf62221b152779d8846ab5b2063cc7fd41ec1a9f04eefab09b5d5486dbb5"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "522111fc9df2a5f6e60f464ca67bd5a60387d7369c03e9d626d2732f8e66714b" => :sierra
-    sha256 "e610c5ecc9296423c2fbc66cb78e65c4c69a7159f8d8f36c727e1bd18fa81e5e" => :el_capitan
-    sha256 "50d9c288babdada6ee13d27eec4e9e365b8ca5a67149960199f9f6e86e05517d" => :yosemite
+    sha256 "222222ac7bfc31a9b9b3022c2f88e578b41dd93c6bbc0c5ad8d5651701038489" => :sierra
+    sha256 "e6f70edbd14b27790d2b854638d9741543dacd175f3a0081ff106068d1c61085" => :el_capitan
+    sha256 "38f177e30b9fbe9d3f1cb826bd21b33327af3437c5414fd80155eceeb70d8d01" => :yosemite
   end
 
   deprecated_option "with-qt5" => "with-qt"
@@ -35,26 +35,7 @@ class Wireshark < Formula
   depends_on "gtk+" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
-  # 2017-04-14 set fossies as main url due to tcpdump connection issues
-  resource "libpcap" do
-    url "https://fossies.org/linux/misc/libpcap-1.8.1.tar.gz"
-    mirror "http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz"
-    sha256 "673dbc69fdc3f5a86fb5759ab19899039a8e5e6c631749e48dcd9c6f0c83541e"
-  end
-
   def install
-    if MacOS.version <= :mavericks
-      resource("libpcap").stage do
-        system "./configure", "--prefix=#{libexec}/vendor",
-                              "--enable-ipv6",
-                              "--disable-universal"
-        system "make", "install"
-      end
-      ENV.prepend_path "PATH", libexec/"vendor/bin"
-      ENV.prepend "CFLAGS", "-I#{libexec}/vendor/include"
-      ENV.prepend "LDFLAGS", "-L#{libexec}/vendor/lib"
-    end
-
     args = std_cmake_args
     args << "-DENABLE_GNUTLS=ON" << "-DENABLE_GCRYPT=ON"
 

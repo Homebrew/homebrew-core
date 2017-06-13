@@ -1,15 +1,15 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/v1.8.0.tar.gz"
-  sha256 "df176a9b8d4972fdb95cdccac0b9788eab2ae00fb14a1516f49bcdd335093493"
+  url "https://github.com/square/certigo/archive/v1.9.1.tar.gz"
+  sha256 "b1acf595317ab0c3eb6e13bbce9efb8972c4130a2a914010bc5dcc3c2f103e32"
   head "https://github.com/square/certigo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aa3aaf06906e545dd4eea3c8415c309fe27537fc5382d5bb2fb011a047fc2227" => :sierra
-    sha256 "931a15e947fbbc4ba93faefbcf8e6881ca5795256834058d40fa279e09b4c0cd" => :el_capitan
-    sha256 "7c5a3643a4e034be473bc14bbff42a02961a5a5ac46d4ba0b32215acd3ae384b" => :yosemite
+    sha256 "a823139b18d5e5c838e74236e789ba2ce7faf152edb26378e3b0ec14a9ef007a" => :sierra
+    sha256 "852b069dbd5ea23c3d803358ee0b5a104113e280de277467e2a9f66c0a715ccb" => :el_capitan
+    sha256 "a00efcc2cd32db3de93b5caefed7410f19c61f03b47e9ef8d31698a287d811eb" => :yosemite
   end
 
   depends_on "go" => :build

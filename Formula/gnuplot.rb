@@ -109,8 +109,8 @@ class Gnuplot < Formula
     # Per upstream: "--with-tutorial is horribly out of date."
     args << "--without-tutorial"
     args << "--without-lua" if build.without? "lua"
-    args << ((build.with? "aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
-    args << ((build.with? "x11") ? "--with-x" : "--without-x")
+    args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
+    args << (build.with?("x11") ? "--with-x" : "--without-x")
 
     system "./prepare" if build.head?
     system "./configure", *args

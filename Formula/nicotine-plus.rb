@@ -2,7 +2,7 @@ class NicotinePlus < Formula
   include Language::Python::Virtualenv
 
   desc "Graphical client for the SoulSeek peer-to-peer system."
-  homepage "http://www.nicotine-plus.org/"
+  homepage "https://www.nicotine-plus.org/"
   url "https://github.com/Nicotine-Plus/nicotine-plus/archive/1.4.1.tar.gz"
   sha256 "1b38ef196d981e4eb96fa990cc463143289784f988f559c4400b1d461497b7d6"
   head "https://github.com/Nicotine-Plus/nicotine-plus.git"

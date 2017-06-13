@@ -1,18 +1,16 @@
-require "language/node"
-
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v4.2.0.tar.gz"
-  sha256 "87c9f123b2511dd57a6ff14c7b67dc3def678eefd9d22fd27e8fbb907a8e076a"
+  url "https://github.com/grafana/grafana/archive/v4.3.2.tar.gz"
+  sha256 "02753931d9abb5d94e0695fdb44f5ede0a537cad57a7d60f44125056c04129ab"
 
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7c7bcf3fa6db1c54dc94ab030ac0c8adc3d20761e695446ba13c1db98c6568d4" => :sierra
-    sha256 "96f30bf66355d985b23b39d2466f23e6a83455a4c9a1b9479eefaacc6415ef64" => :el_capitan
-    sha256 "41b6bca25925ab369383de74667e0b2ed5a79db8003ff3f3b82c73eeab5d047e" => :yosemite
+    sha256 "ffa6027d1da42fcd265b76b240f0ed15e373101bf1ecf5af63a6fe88943d3ff9" => :sierra
+    sha256 "9f25eb9cf733fd0f1f022509bbc411b7e0e3cfae0287450ac5df93022dadc182" => :el_capitan
+    sha256 "8b6dfe422ecc7e1842b3dc23c2c18eb6b8e1204e51b3d191d129d8d706cf2200" => :yosemite
   end
 
   depends_on "go" => :build
@@ -27,8 +25,11 @@ class Grafana < Formula
     cd grafana_path do
       system "go", "run", "build.go", "build"
       system "yarn", "install"
-      system "npm", "install", "grunt-cli", *Language::Node.local_npm_install_args
-      system "node_modules/grunt-cli/bin/grunt", "build"
+
+      args = ["build"]
+      # Avoid PhantomJS error "unrecognized selector sent to instance"
+      args << "--force" unless build.bottle?
+      system "node_modules/grunt-cli/bin/grunt", *args
 
       bin.install "bin/grafana-cli"
       bin.install "bin/grafana-server"
