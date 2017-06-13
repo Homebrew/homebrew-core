@@ -7,13 +7,17 @@ class Libswiften < Formula
 
   # Patch to fix build error of dynamic library with Apple's Secure Transport API
   # Fixed upstream: https://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
-  patch :DATA
+  patch :DATA unless build.head?
 
   bottle do
     sha256 "d7a96ec5a0f396486acf810c88efec48beff0778e770084a980d09773029ffd7" => :sierra
     sha256 "e9bf41171f626c71350d0db7f13857b56c57f63248a229fe0ac4ed09c42dcfcf" => :el_capitan
     sha256 "162f1c07d37888abd2c2f616f3bc512209ed5575444f5f17b555b974e0461939" => :yosemite
     sha256 "0cd2296d234b0c59bcd9dc5e0ebf78f7439ac7c91e415efad693976d01666338" => :mavericks
+  end
+	
+  head do
+    url "git://swift.im/swift"
   end
 
   depends_on "scons" => :build
@@ -49,7 +53,7 @@ class Libswiften < Formula
     args << prefix
 
     scons *args
-    man1.install "Swift/Packaging/Debian/debian/swiften-config.1" unless build.stable?
+    man1.install "Swift/Packaging/Debian/debian/swiften-config.1" unless build.head?
   end
 
   test do
