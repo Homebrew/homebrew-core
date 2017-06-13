@@ -10,10 +10,9 @@ class AzureCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3d9cce38a38527dda6131d937e22c5ead62e071b7dfafc49f2f6eb3123bba0aa" => :sierra
-    sha256 "6f892658bd3cb909822027352e8826eefd7c9258d9b3488513526da0995d8af7" => :el_capitan
-    sha256 "a9301281b69223213f638fc92b99a4f8032fd354464adfe30d5031664ad4af75" => :yosemite
+    sha256 "5da09ce76738480b12c23090359685475fdf26b81d741f794b8e1d94860c9268" => :sierra
+    sha256 "dcd04f095c2e28b3fb97a987ed76f91fe38fb19b46856242cd55816b955181f0" => :el_capitan
+    sha256 "91676bc0e163c0de09cb16c83a4121596f6054d2706397c8a4bfeec40c58b43e" => :yosemite
   end
 
   depends_on "node"
