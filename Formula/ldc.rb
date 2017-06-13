@@ -21,9 +21,9 @@ class Ldc < Formula
   end
 
   devel do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.3.0-beta1/ldc-1.3.0-beta1-src.tar.gz"
-    version "1.3.0-beta1"
-    sha256 "35d5c37e967ccfa762572d0c5cb73e42617615d5eb16e43595a4bf239dd14e49"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.3.0-beta2/ldc-1.3.0-beta2-src.tar.gz"
+    version "1.3.0-beta2"
+    sha256 "a6a13f356192d40649af7290820cf85127369f40d554c2fdd853dc098dce885f"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
