@@ -1,7 +1,7 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
-  homepage "http://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "http://www.pgpool.net/download.php?f=pgpool-II-3.6.2.tar.gz"
+  homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
+  url "https://www.pgpool.net/download.php?f=pgpool-II-3.6.2.tar.gz"
   sha256 "f90de6dbe3b2fd7adac7521fc285a1addf1585102c7f7eddb48147a0801d1158"
 
   bottle do
