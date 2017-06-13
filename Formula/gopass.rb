@@ -6,7 +6,6 @@ class Gopass < Formula
   head "https://github.com/justwatchcom/gopass.git"
 
   depends_on "go" => :build
-
   depends_on :gpg => :run
 
   def install
@@ -14,21 +13,16 @@ class Gopass < Formula
     (buildpath/"src/github.com/justwatchcom/gopass").install buildpath.children
 
     cd "src/github.com/justwatchcom/gopass" do
+      prefix.install_metafiles
       ENV["PREFIX"] = prefix
       system "make", "install"
     end
 
-    (bash_completion/"gopass-completion.bash").write `#{bin}/gopass completion bash`
+    output = Utils.popen_read("#{bin}/gopass completion bash")
+    (bash_completion/"gopass-completion").write output
   end
 
   test do
-    # TODO: make this work, is currently stuck
-    #
-    # Gpg.create_test_key(testpath)
-    # system bin/"gopass", "init", "Testing"
-    # system bin/"gopass", "generate", "Email/testing@foo.bar", "15"
-    # assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
-
     assert_match version.to_s, shell_output("#{bin}/gopass version")
   end
 end
