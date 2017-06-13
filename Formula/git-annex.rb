@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20170519/git-annex-6.20170519.tar.gz"
-  sha256 "28606a334b8c2dfd3dfe7975b5310602c2f36c1b639131c082c76b7b8033772b"
+  url "https://hackage.haskell.org/package/git-annex-6.20170520/git-annex-6.20170520.tar.gz"
+  sha256 "f8cf9b44172ce1914c8be8134795c4197d02960b81a2ba596712cbd35e002717"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -26,6 +26,13 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
+    # Workaround for "error: redefinition of enumerator '_CLOCK_REALTIME'" and
+    # other similar errors.
+    # Reported 11 Jun 2017 https://github.com/haskell-foundation/foundation/issues/342
+    if MacOS.version == :el_capitan
+      (buildpath/"cabal.config").write("constraints: foundation < 0.0.10\n")
+    end
+
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
