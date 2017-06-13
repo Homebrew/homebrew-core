@@ -11,6 +11,11 @@ class Zsh < Formula
     # building zsh.texi is not available.
     option "with-texi2html", "Build HTML documentation"
     depends_on "texi2html" => [:build, :optional]
+
+    patch :p1 do
+      url "https://gist.githubusercontent.com/abraithwaite/8c9fae1c51acb1a3ba51a435bba4c88e/raw/57c71239a96e8a8b9478cd4f8ffe96f5bb456a79/40305.patch"
+      sha256 "3ef83561dd34dab3fe2c7689739cb3c6bd631ce0b0ba8a07907e369f9139a981"
+    end
   end
 
   bottle do
