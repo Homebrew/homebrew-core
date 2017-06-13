@@ -1,8 +1,8 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.2.tar.xz"
-  sha256 "bea6fdec3d10939954495da898d872ee836b75c35699074cbf02a64fcb80d5b3"
+  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.3.tar.xz"
+  sha256 "0b808a06c9685a62fca34b680abb8bc7fb2fda074478e329b063c1f872b826f6"
 
   bottle do
     cellar :any
@@ -11,14 +11,20 @@ class Libepoxy < Formula
     sha256 "fcf8b7560ec836403bcae4d69a16c27793a7042b09673e1c2914cf010d6381f1" => :yosemite
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on :python => :build if MacOS.version <= :snow_leopard
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+    # see https://github.com/anholt/libepoxy/pull/128
+    inreplace "src/meson.build", "version=1", "version 1"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "test"
+      system "ninja", "install"
+    end
   end
 
   test do
