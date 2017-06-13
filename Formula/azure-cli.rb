@@ -3,9 +3,9 @@ require "language/node"
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.12-May2017.tar.gz"
-  version "0.10.13"
-  sha256 "60194e770b8dca0485db9d4c99f9cd432f7b43096cc5ad0353f52fd5b1b29181"
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.14-June2017.tar.gz"
+  version "0.10.14"
+  sha256 "3a74f8007a53c625c939be21703183130ebc086462674ba66c9c5988f24d3dc4"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
@@ -21,12 +21,6 @@ class AzureCli < Formula
 
   def install
     rm_rf "bin/windows"
-
-    # Workaround for incorrect file system permissios inside the npm published
-    # easy_table@0.0.1 package, which would break build with npm@5.
-    # See: https://github.com/Azure/azure-xplat-cli/issues/3605
-    inreplace "package.json", '"easy-table": "0.0.1",',
-              '"easy-table": "https://github.com/eldargab/easy-table/archive/v0.0.1.tar.gz",'
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
