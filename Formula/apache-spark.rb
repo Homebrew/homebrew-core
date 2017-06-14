@@ -18,6 +18,6 @@ class ApacheSpark < Formula
   end
 
   test do
-    system "#{bin}/spark-shell <<<'sc.parallelize(1 to 1000).count()'"
+    assert_match "Long = 1000", pipe_output(bin/"spark-shell", "sc.parallelize(1 to 1000).count()")
   end
 end
