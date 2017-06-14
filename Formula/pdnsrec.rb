@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.4.tar.bz2"
-  sha256 "2338778f49ccd03401e65f6f4b39047890e691c8ff6d810ecee45321fb4f1e4d"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.5.tar.bz2"
+  sha256 "ba43ce4280b3a06afebe58c5d63680f51dd525c63d1de7f3b229b380e6b1b7af"
 
   bottle do
     sha256 "2cdc2cca4313b14afa5f744a2f2fa9bf9a6d56a32a9d13b5fb04cbe976f430d3" => :sierra
@@ -25,12 +25,6 @@ class Pdnsrec < Formula
 
   def install
     ENV.cxx11
-
-    # Remove for > 4.0.3; using inreplace avoids Autotools dependencies
-    # Upstream PR "Fall back to SystemV ucontexts on boost >= 1.61"
-    # See https://github.com/PowerDNS/pdns/commit/fbf562c
-    inreplace "configure", "boost/context/detail/fcontext.hpp",
-                           "boost/context/fcontext.hpp"
 
     args = %W[
       --prefix=#{prefix}
