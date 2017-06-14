@@ -4,14 +4,16 @@ class Flow < Formula
   head "https://github.com/facebook/flow.git"
 
   stable do
-    url "https://github.com/facebook/flow/archive/v0.47.0.tar.gz"
-    sha256 "cf4bda660731c6d0731d1193fac458f590a1313172989b4a4561f64fbcc2cc1c"
+    url "https://github.com/facebook/flow/archive/v0.48.0.tar.gz"
+    sha256 "8772896075dc4028e62720fe18a6608f278f471931b2a8fff280d0efc0fd4f29"
 
-    # Remove for > 0.47.0
-    # [PR] Remove 4.04 ocaml version upper bound
+    # Remove for > 0.48.0
+    # Fix "Error: Some fatal warnings were triggered"
+    # Upstream commit from 13 Jun 2017 "[PR] Disable all warnings for homebrew &
+    # opam release builds"
     patch do
-      url "https://github.com/facebook/flow/commit/e905086b3a1c2c35b6f204e422b8ce17ab6a4c10.patch"
-      sha256 "02451e3213855ff984a2115db7d116f5924f59661182683e7b71c81b09f77b53"
+      url "https://github.com/facebook/flow/commit/9130d821d.patch"
+      sha256 "acbe71d6f065390f86184827ada544840c9fdfa654bd0c81446b6fd5173002f4"
     end
   end
 
