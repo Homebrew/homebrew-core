@@ -1,8 +1,8 @@
 class Libmikmod < Formula
   desc "Portable sound library"
   homepage "http://mikmod.shlomifish.org"
-  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.10/libmikmod-3.3.10.tar.gz"
-  sha256 "00b3f5298431864ebd069de793ec969cfea3ae6f340f6dfae1ff7da1ae24ef48"
+  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.11/libmikmod-3.3.11.tar.gz"
+  sha256 "d1ba23ce8191ac917f9080bbc1e5e879887c01acd7bd311b1315932c4312abea"
 
   bottle do
     cellar :any
