@@ -184,12 +184,12 @@ class PerconaServer < Formula
       # mysql throws error if any file exists in the data directory
       system "#{bin}/mysqld", "--log-error-verbosity=3", "--initialize-insecure", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}"
       pid = fork do
-        exec "#{opt_bin}/mysqld_safe", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}", "--bind-address=127.0.0.1", "--port=3307"
+        exec "#{opt_bin}/mysqld_safe", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}", "--bind-address=127.0.0.1", "--port=3307", "--socket=#{testpath}/mysql.sock"
       end
       sleep 3
-      system "#{bin}/mysql", "--verbose", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
+      system "#{bin}/mysql", "--verbose", "--host=127.0.0.1", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
     ensure
-      system "#{bin}/mysqladmin", "shutdown", "--user=root", "--port=3307"
+      system "#{bin}/mysqladmin", "shutdown", "--user=root", "--host=127.0.0.1", "--port=3307"
       Process.wait pid
     end
   end
