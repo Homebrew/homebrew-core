@@ -23,9 +23,16 @@ class Libftdi < Formula
   # https://www.mail-archive.com/libftdi@developer.intra2net.com/msg03013.html
   patch :DATA
 
+  option "universal", "Build universal binary (32-bit & 64-bit)"
+
   def install
+    ENV.universal_binary if build.universal?
+
+    extra_cmake_args = []
+    extra_cmake_args << "-DBUILD_TESTS=OFF" if build.universal?
+
     mkdir "libftdi-build" do
-      system "cmake", "..", "-DLINK_PYTHON_LIBRARY=OFF", *std_cmake_args
+      system "cmake", "..", "-DLINK_PYTHON_LIBRARY=OFF", *extra_cmake_args, *std_cmake_args
       system "make", "install"
       (libexec/"bin").install "examples/find_all"
     end
@@ -38,9 +45,19 @@ class Libftdi < Formula
 end
 __END__
 diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
-index 8b52745..31ef1c6 100644
+index 8b52745..df0529a 100644
 --- a/python/CMakeLists.txt
 +++ b/python/CMakeLists.txt
+@@ -12,8 +12,8 @@ if ( PYTHON_BINDINGS )
+       set ( SWIG_FOUND TRUE )
+     endif ()
+   endif ()
+-  find_package ( PythonLibs )
+   find_package ( PythonInterp )
++  find_package ( PythonLibs )
+ endif ()
+
+ if ( SWIG_FOUND AND PYTHONLIBS_FOUND AND PYTHONINTERP_FOUND )
 @@ -30,6 +30,8 @@ if ( SWIG_FOUND AND PYTHONLIBS_FOUND AND PYTHONINTERP_FOUND )
 
    if ( LINK_PYTHON_LIBRARY )
