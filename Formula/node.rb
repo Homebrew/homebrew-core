@@ -1,9 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.1.0/node-v8.1.0.tar.xz"
-  sha256 "f2ff20b69b782dee85e887ad06e830590b2250856f6df325ed15a368bb6777fc"
-  revision 1
+  url "https://nodejs.org/dist/v8.1.1/node-v8.1.1.tar.xz"
+  sha256 "7b0d176dc4a1db37789e009825ba03d2e3f834227e5efd296167e7ef6b287847"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -41,15 +40,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
     sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
-  end
-
-  # Remove for > 8.1.0
-  # Fix "All versions of `npm init` hang on Node 8.1.0"
-  # Upstream PR from 8 Jun 2017 "Revert 'readline: clean up event
-  # listener in onNewListener'"
-  patch do
-    url "https://github.com/nodejs/node/pull/13560.patch"
-    sha256 "036e86cee567059415847850a84bed6f80405b02f98b8ce9a5d921a7c480127e"
   end
 
   def install
