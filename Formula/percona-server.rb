@@ -186,7 +186,7 @@ class PerconaServer < Formula
       pid = fork do
         exec "#{opt_bin}/mysqld_safe", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}", "--bind-address=127.0.0.1", "--port=3307"
       end
-      sleep 1
+      sleep 3
       system "#{bin}/mysql", "--verbose", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
     ensure
       system "#{bin}/mysqladmin", "shutdown", "--user=root", "--port=3307"
