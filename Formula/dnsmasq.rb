@@ -3,6 +3,7 @@ class Dnsmasq < Formula
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
   url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
   sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
+  revision 1
 
   bottle do
     sha256 "b0b61da17a54a80fd7b6d492bb652e42d568d5d98a3ed2aef3861a4b899c4214" => :sierra
