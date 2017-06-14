@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.2.tar.gz"
-  sha256 "1a323d72c32180b7141c9e6ebf199fc68a0208dfebad4640cd2c4c27235e3b9c"
+  url "https://www.unbound.net/downloads/unbound-1.6.3.tar.gz"
+  sha256 "4c7e655c1d0d2d133fdeb81bc1ab3aa5c155700f66c9f5fb53fa6a5c3ea9845f"
 
   bottle do
     sha256 "58236b81d6e98f4805ec71fb6603995dc048679447f65ae161c7d1d44a51a8c0" => :sierra
