@@ -20,10 +20,7 @@ class Pilosa < Formula
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     mkdir_p buildpath/"src/github.com/pilosa/"
     ln_s buildpath, buildpath/"src/github.com/pilosa/pilosa"
-    system "glide", "install"
-    system "go", "build", "-o", bin/"pilosa", "-ldflags",
-           "-X github.com/pilosa/pilosa/cmd.Version=#{version}",
-           "github.com/pilosa/pilosa/cmd/pilosa"
+    system "make", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=#{version}"
   end
 
   plist_options :manual => "pilosa server"
@@ -57,7 +54,7 @@ class Pilosa < Formula
   test do
     begin
       server = fork do
-        exec "#{bin}/pilosa", "server", "--bind", "10101"
+        exec "#{bin}/pilosa", "server"
       end
       sleep 0.5
       assert_match("Welcome. Pilosa is running.", shell_output("curl localhost:10101"))
