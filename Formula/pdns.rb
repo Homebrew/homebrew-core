@@ -3,6 +3,7 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.0.3.tar.bz2"
   sha256 "60fa21550b278b41f58701af31c9f2b121badf271fb9d7642f6d35bfbea8e282"
+  revision 1
 
   bottle do
     rebuild 1
@@ -35,6 +36,7 @@ class Pdns < Formula
   def install
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/#{name}
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
@@ -52,6 +54,7 @@ class Pdns < Formula
     system "./configure", *args
 
     system "make", "install"
+    mkdir "#{var}/log/#{name}"
   end
 
   plist_options :manual => "pdns_server start"
@@ -61,19 +64,23 @@ class Pdns < Formula
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
     <dict>
-      <key>KeepAlive</key>
-      <true/>
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{opt_bin}/pdns_server</string>
+        <string>#{sbin}/pdns_server</string>
       </array>
-      <key>EnvironmentVariables</key>
-      <key>KeepAlive</key>
+      <key>RunAtLoad</key>
       <true/>
-      <key>SHAuthorizationRight</key>
-      <string>system.preferences</string>
+      <key>KeepAlive</key>
+      <dict>
+        <key>Crashed</key>
+        <true/>
+      </dict>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/#{name}/pdns_server.err</string>
+      <key>StandardOutPath</key>
+      <string>/dev/null</string>
     </dict>
     </plist>
     EOS
