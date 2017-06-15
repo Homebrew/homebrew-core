@@ -3,8 +3,8 @@ class S6 < Formula
   homepage "https://skarnet.org/software/s6/"
 
   stable do
-    url "https://skarnet.org/software/s6/s6-2.5.1.0.tar.gz"
-    sha256 "73cd4c1975905db92122a7c7eebd0c480d046624426800b3bcc5a432e6af27cd"
+    url "https://skarnet.org/software/s6/s6-2.6.0.0.tar.gz"
+    sha256 "146dd54086063c6ffb6f554c3e92b8b12a24165fdfab24839de811f79dcf9a40"
 
     resource "skalibs" do
       url "https://skarnet.org/software/skalibs/skalibs-2.5.1.1.tar.gz"
