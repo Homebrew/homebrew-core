@@ -9,9 +9,9 @@ class Docutils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cae7b82e3555eacdd6156c67af59a71d03274b006857ddbc84fe639136b21902" => :sierra
-    sha256 "1a7d2c671cbd6f88c81de7c2abf2cc099794313b082c81ae8079b86d40ad3cd2" => :el_capitan
-    sha256 "1a7d2c671cbd6f88c81de7c2abf2cc099794313b082c81ae8079b86d40ad3cd2" => :yosemite
+    sha256 "6818d075546c76d51350b02b1ca003ca1ffe1b1eb36ba6ad82073ca65898087f" => :sierra
+    sha256 "68facf0a5a3540d63e554dd5225683ca514193823468038d8ef0f6a7d7204c25" => :el_capitan
+    sha256 "f889bbf58533bd947c0b5db906e7e1a8f3ec8439f13f6532b33f8d325a83a380" => :yosemite
   end
 
   def install
