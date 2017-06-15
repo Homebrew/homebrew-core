@@ -1,5 +1,5 @@
 class Go < Formula
-  desc "The Go programming language"
+  desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
 
   stable do
@@ -19,6 +19,17 @@ class Go < Formula
     sha256 "1a011d2ce120f1c0936aaa8b4c0605d8e4c0c245798eb392bad9ddcd18db16b6" => :sierra
     sha256 "8374a1e50c6a8037515a92b07539b63bd6fa25bdd82367b7066677f772b5d787" => :el_capitan
     sha256 "ce872cce8e12aa79e2ec688059b696b2e2080a16a1c86011271ec0c3cdc7c6af" => :yosemite
+  end
+
+  devel do
+    url "https://storage.googleapis.com/golang/go1.9beta1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.9beta1.src.tar.gz"
+    version "1.9beta1"
+    sha256 "e42dbd2071aadb28a4d293225b04b6b4215a35a7f04417a0e47ffa38f81d642d"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
   end
 
   head do
