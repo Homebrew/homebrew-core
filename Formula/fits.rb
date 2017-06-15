@@ -1,9 +1,8 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://github.com/harvard-lts/fits/archive/1.1.0.tar.gz"
-  sha256 "57ba2ee001c2c113a1cae84d1c8f8e9a49e21fc39307abe2bd97de0a2c1689c0"
-  revision 1
+  url "https://github.com/harvard-lts/fits/archive/1.1.1.tar.gz"
+  sha256 "cc2fb1e3c60d18b4c7a5cf092e4177a14d435ac76824fff01a4b522ba0dd3099"
 
   bottle do
     cellar :any
