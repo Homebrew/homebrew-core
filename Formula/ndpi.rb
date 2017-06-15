@@ -1,8 +1,8 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "http://www.ntop.org/products/ndpi/"
-  url "https://github.com/ntop/nDPI/archive/1.8.tar.gz"
-  sha256 "cea26a7f280301cc3a0e714b560d48b57ae2cf6453b71eb647ceb3fccecb5ba2"
+  url "https://github.com/ntop/nDPI/archive/2.0.tar.gz"
+  sha256 "90ae6e4de83bda5bb7405207020c1e0be364841510fdf5f0a2d48974e1a3fbcb"
 
   head "https://github.com/ntop/nDPI.git", :branch => "dev"
 
