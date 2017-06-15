@@ -1,8 +1,8 @@
 class Gofabric8 < Formula
   desc "CLI for fabric8 running on Kubernetes or OpenShift"
   homepage "https://github.com/fabric8io/gofabric8/"
-  url "https://github.com/fabric8io/gofabric8/archive/v0.4.124.tar.gz"
-  sha256 "c9274fc81a1952c065dce1c07a46065bb8f9ecb4492e777ac38c5fa91b542159"
+  url "https://github.com/fabric8io/gofabric8/archive/v0.4.131.tar.gz"
+  sha256 "73ef1f3fe5027014df7c77e67071f1426fbdd8b4ce20c603020aaa6c4a7d7fe7"
 
   bottle do
     cellar :any_skip_relocation
