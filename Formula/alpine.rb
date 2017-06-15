@@ -10,8 +10,6 @@ class Alpine < Formula
     sha256 "551758443501811d21f90d3fc4f29a0787cca2409e9413138c9b8fac96395da0" => :yosemite
   end
 
-  option "with-passfile", "Enable password cache file"
-
   depends_on "openssl"
 
   def install
@@ -22,9 +20,8 @@ class Alpine < Formula
       --with-ssl-dir=#{Formula["openssl"].opt_prefix}
       --with-ssl-certs-dir=#{etc}/openssl
       --prefix=#{prefix}
+      --with-passfile=.pine-passfile
     ]
-
-    args << "--with-passfile=.pine-passfile" if build.with? "passfile"
 
     system "./configure", *args
     system "make", "install"
