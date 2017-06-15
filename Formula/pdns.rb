@@ -68,7 +68,7 @@ class Pdns < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{sbin}/pdns_server</string>
+        <string>#{opt_sbin}/pdns_server</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
