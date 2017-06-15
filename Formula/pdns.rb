@@ -36,7 +36,7 @@ class Pdns < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --sysconfdir=#{etc}/#{name}
+      --sysconfdir=#{etc}/pdns
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
@@ -54,7 +54,7 @@ class Pdns < Formula
     system "./configure", *args
 
     system "make", "install"
-    mkdir "#{var}/log/#{name}"
+    (var/"log/pdns").mkpath
   end
 
   plist_options :manual => "pdns_server start"
@@ -78,7 +78,7 @@ class Pdns < Formula
         <true/>
       </dict>
       <key>StandardErrorPath</key>
-      <string>#{var}/log/#{name}/pdns_server.err</string>
+      <string>#{var}/log/pdns/pdns_server.err</string>
       <key>StandardOutPath</key>
       <string>/dev/null</string>
     </dict>
