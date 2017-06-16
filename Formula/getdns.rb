@@ -10,11 +10,6 @@ class Getdns < Formula
     sha256 "f9259f55b25aa8c20a880c90c63fbbbc2a33da2b68a617799d43d0ae7abcacb1" => :yosemite
   end
 
-  devel do
-    url "https://getdnsapi.net/releases/getdns-1-1-1rc1/getdns-1.1.1rc1.tar.gz"
-    sha256 "f63340b1d05410b875217c6abd7066586fc55a811db4ae90ffd01d2240e05e57"
-  end
-
   depends_on "openssl"
   depends_on "unbound" => :recommended
   depends_on "libidn" => :recommended
