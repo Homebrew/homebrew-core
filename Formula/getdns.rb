@@ -25,9 +25,9 @@ class Getdns < Formula
   head do
     url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
-    depends_on "libtool"
-    depends_on "autoconf"
-    depends_on "automake"
+    depends_on "libtool" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   def install
