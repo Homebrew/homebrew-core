@@ -7,8 +7,10 @@ class MongodbAT32 < Formula
   sha256 "625eb28fd47b2af63b30343a064de7f42e5265f4c642874ec766ba3643fd80d7"
 
   bottle do
-    sha256 "6589a5adf6b5085a25427e53e4f863bc8291a58262c5cd7ab9e0eb6e5f85d038" => :el_capitan_or_later
-    sha256 "3c9632089db9371f12bcbd793fef0f49529c021fab247454f7e5c0a0974b1dab" => :yosemite
+    rebuild 1
+    sha256 "8d7d25b3ef41bdae9deefcbb6be435969d01d1eddb8c1fceba8298eb6eb0fbcc" => :sierra
+    sha256 "c0b230748a2bfecaddbabb088806ed2089a36ba159d41e9e9a095d1683a1c6a2" => :el_capitan
+    sha256 "8732218a0070fea8fedd2476ad81df78bf6811f19623c8ef2fa6920eae206a41" => :yosemite
   end
 
   keg_only :versioned_formula
