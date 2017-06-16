@@ -3,7 +3,6 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-1-0/getdns-1.1.0.tar.gz"
   sha256 "aa47bca275b97f623dc6799cee97d3465fa46521d94bd9892e08e8d5d88f09c3"
-  head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
     sha256 "91fccbcb1ea628fefa2848fccc318953dfc71d34ffeff44adbf596352ceac16b" => :sierra
@@ -23,7 +22,9 @@ class Getdns < Formula
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
 
-  if build.head?
+  head do
+    url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
+
     depends_on "libtool"
     depends_on "autoconf"
     depends_on "automake"
