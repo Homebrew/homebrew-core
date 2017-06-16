@@ -3,8 +3,8 @@ class DcosCli < Formula
 
   desc "Cross-platform command-line utility to manage DC/OS clusters"
   homepage "https://dcos.io/docs/latest/usage/cli/"
-  url "https://github.com/dcos/dcos-cli/archive/0.5.1.tar.gz"
-  sha256 "5dbf129acc9662ada5eb71024e80f04c44f97b13697dc44a5670eaac148d3222"
+  url "https://github.com/dcos/dcos-cli/archive/0.5.2.tar.gz"
+  sha256 "de9c67cbc22449d590a4f8237f55b8568af90ce0c4668c20b65ae78d2efc133b"
   head "https://github.com/dcos/dcos-cli.git"
 
   bottle do
@@ -18,11 +18,6 @@ class DcosCli < Formula
   depends_on :python3
   depends_on "openssl@1.1"
 
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
-  end
-
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
     sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
@@ -31,6 +26,16 @@ class DcosCli < Formula
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
     sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+  end
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/dd/0e/1e3b58c861d40a9ca2d7ea4ccf47271d4456ae4294c5998ad817bd1b4396/certifi-2017.4.17.tar.gz"
+    sha256 "f7527ebf7461582ce95f7a9e03dd141ce810d40590834f4ec20cddd54234c10a"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
+    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
   resource "cryptography" do
@@ -73,11 +78,6 @@ class DcosCli < Formula
     sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
   end
 
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
-    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
-  end
-
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
     sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
@@ -99,8 +99,8 @@ class DcosCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/8c/ff/78297074b9b4cf102f9bbd71b62508965dd5c1876e016ef131e5b15c16a4/requests-2.14.1.tar.gz"
-    sha256 "b3b191d677e526c1e512db86bc7387ccb8356e8826bcc7faa07f78f09afe68dd"
+    url "https://files.pythonhosted.org/packages/2c/b5/2b6e8ef8dd18203b6399e9f28c7d54f6de7b7549853fe36d575bd31e29a7/requests-2.18.1.tar.gz"
+    sha256 "c6f3bdf4a4323ac7b45d01e04a6f6c20e32a052cd04de81e05103abc049ad9b9"
   end
 
   resource "six" do
@@ -116,6 +116,11 @@ class DcosCli < Formula
   resource "toml" do
     url "https://files.pythonhosted.org/packages/5c/b2/8a18ced00a43f2cc5261f9ac9f1c94621251400a80db1567177719355177/toml-0.9.2.tar.gz"
     sha256 "b3953bffe848ad9a6d554114d82f2dcb3e23945e90b4d9addc9956f37f336594"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/96/d9/40e4e515d3e17ed0adbbde1078e8518f8c4e3628496b56eb8f026a02b9e4/urllib3-1.21.1.tar.gz"
+    sha256 "b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5"
   end
 
   resource "virtualenv" do
