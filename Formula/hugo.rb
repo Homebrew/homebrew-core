@@ -1,9 +1,9 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/spf13/hugo/archive/v0.22.1.tar.gz"
-  sha256 "cb7b5a653595e0c19f4509c15cd18a3d64df53689e6c028bdd9dfef74a4414ce"
-  head "https://github.com/spf13/hugo.git"
+  url "https://github.com/gohugoio/hugo/archive/v0.23.tar.gz"
+  sha256 "580a6ae2873215419615fc1146a39122b80799e674b0a033446785fd72a29626"
+  head "https://github.com/gohugoio/hugo.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +17,8 @@ class Hugo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/spf13/hugo").install buildpath.children
-    cd "src/github.com/spf13/hugo" do
+    (buildpath/"src/github.com/gohugoio/hugo").install buildpath.children
+    cd "src/github.com/gohugoio/hugo" do
       system "govendor", "sync"
       system "go", "build", "-o", bin/"hugo", "main.go"
 
