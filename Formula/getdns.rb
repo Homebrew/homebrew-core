@@ -10,13 +10,6 @@ class Getdns < Formula
     sha256 "f9259f55b25aa8c20a880c90c63fbbbc2a33da2b68a617799d43d0ae7abcacb1" => :yosemite
   end
 
-  depends_on "openssl"
-  depends_on "unbound" => :recommended
-  depends_on "libidn" => :recommended
-  depends_on "libevent" => :recommended
-  depends_on "libuv" => :optional
-  depends_on "libev" => :optional
-
   head do
     url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
@@ -24,6 +17,13 @@ class Getdns < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  depends_on "openssl"
+  depends_on "unbound" => :recommended
+  depends_on "libidn" => :recommended
+  depends_on "libevent" => :recommended
+  depends_on "libuv" => :optional
+  depends_on "libev" => :optional
 
   def install
     if build.head?
