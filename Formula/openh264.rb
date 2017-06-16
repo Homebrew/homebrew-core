@@ -7,10 +7,9 @@ class Openh264 < Formula
 
   bottle do
     cellar :any
-    sha256 "903bf2b9e0404082ff0d07e0647be4cbb06522fb8ca03e106333013629d8a2e7" => :sierra
-    sha256 "3643187b745aaaf1ddf568ea2b1f89c3bedd32623958f65136c48def0ab01707" => :el_capitan
-    sha256 "34aea9729427b13ce07e86de2e5163ddef33db8fc4e96ec181d726312e32e977" => :yosemite
-    sha256 "b7bb8df9a884286502451298496266ad0f8a4efe3aac57c859c615365406a3b1" => :mavericks
+    sha256 "d3daaa5995cb2ad25fb3a4e0a9e99de2c4ca5c98f3da4f455b5e58d04aa3e6b2" => :sierra
+    sha256 "1b9c6a03cd9dfe776d1de7c23e1b210f25bbeb1b99e4a12d1f4b8a354498a3ab" => :el_capitan
+    sha256 "28303efdce99fbcc37ee2045398ea060170e6690936acfb8c2f4bb1378dac079" => :yosemite
   end
 
   depends_on "nasm" => :build
