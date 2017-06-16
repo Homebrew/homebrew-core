@@ -28,7 +28,7 @@ class Freedink < Formula
 
     system "make", "install"
     resource("freedink-data").stage do
-      system "sed", "-i.bak", "-e", "s,xargs -0r,xargs -0,", "Makefile"
+      inreplace "Makefile", "xargs -0r", "xargs -0"
       system "make", "install", "PREFIX=#{prefix}"
     end
   end
