@@ -5,10 +5,27 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20170520/git-annex-6.20170520.tar.gz"
-  sha256 "f8cf9b44172ce1914c8be8134795c4197d02960b81a2ba596712cbd35e002717"
   revision 1
   head "git://git-annex.branchable.com/"
+
+  stable do
+    url "https://hackage.haskell.org/package/git-annex-6.20170520/git-annex-6.20170520.tar.gz"
+    sha256 "f8cf9b44172ce1914c8be8134795c4197d02960b81a2ba596712cbd35e002717"
+
+    # Fix "Utility/QuickCheck.hs:38:10: error: Duplicate instance declarations"
+    # Upstream commit from 17 Jun 2017 "Fix build with QuickCheck 2.10."
+    patch do
+      url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=75cecbbe3fdafdb6652e95ac17cd755c28e67f20"
+      sha256 "2d50b633b29895755c8cbe1b55262866f5c09fe346ee5d552edde5e141730de7"
+    end
+
+    # Fix two "git annex test" failures with QuickCheck 2.10
+    # Upstream commit from 17 Jun 2017 "fix failing quickcheck properties"
+    patch do
+      url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=da8e84efe997fcbfcf489bc4fa9cc835ed131d3a"
+      sha256 "3ab0dfe93e2f121818cce74dd76653a7acd8c2c97b34529b1684a640cabf79fc"
+    end
+  end
 
   bottle do
     sha256 "ae69e1189101b1e202dd3acfd097d5d2f69818f968639448354a3c0b4a11e220" => :sierra
