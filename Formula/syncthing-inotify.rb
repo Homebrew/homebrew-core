@@ -6,9 +6,9 @@ class SyncthingInotify < Formula
   head "https://github.com/syncthing/syncthing-inotify.git"
 
   bottle do
-    sha256 "dec93b9b38dbb1eb1ac03ee0ba536f48b1cf87f224fd193ffe64f4f824de4646" => :sierra
-    sha256 "f9fee9216c207e1c2ba0b004d4a5dc83a204a5845c7a6445999ba4baebb0d8bb" => :el_capitan
-    sha256 "c6ad5afd61f7c91fb4ed60c6bfccee2a1d9ae532509a7edd2ae24bbaa74dbd4d" => :yosemite
+    sha256 "442dd6b530e40bd18668f482f2071afa64fcf333892ae3b8a47f435d74396baa" => :sierra
+    sha256 "651c2857b6b05a2122123e520153db5605f5b89b255b6fd99e785e9465e64691" => :el_capitan
+    sha256 "da3e6893fd0d8b2a17f6bb486c1e9d23d3066a36faac1e845d8d373e2a5b32b5" => :yosemite
   end
 
   depends_on "go" => :build
