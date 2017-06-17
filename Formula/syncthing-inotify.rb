@@ -1,8 +1,8 @@
 class SyncthingInotify < Formula
   desc "File watcher intended for use with Syncthing"
   homepage "https://github.com/syncthing/syncthing-inotify"
-  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.5.tar.gz"
-  sha256 "552db71ddd086ffd21390e3bca4ceb2de53e0d4383a9321b8be17611ddb92aa4"
+  url "https://github.com/syncthing/syncthing-inotify/archive/v0.8.7.tar.gz"
+  sha256 "e5ba978039de457f35f2923d0e97b163e412c55104d275c2ba211ce99d05e633"
   head "https://github.com/syncthing/syncthing-inotify.git"
 
   bottle do
@@ -12,7 +12,6 @@ class SyncthingInotify < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -20,7 +19,6 @@ class SyncthingInotify < Formula
     dir = buildpath/"src/github.com/syncthing/syncthing-inotify"
     dir.install buildpath.children
     cd dir do
-      system "godep", "restore"
       system "go", "build", "-ldflags", "-w -X main.Version=#{version}"
       bin.install name
     end
