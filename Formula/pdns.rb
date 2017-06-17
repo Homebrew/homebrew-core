@@ -34,9 +34,12 @@ class Pdns < Formula
   depends_on :postgresql => :optional
 
   def install
+    # FIXME: needs a /var/run dir option
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/pdns
+      --localstatedir=#{var}
+      --with-socketdir=#{var}/run
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
@@ -55,6 +58,7 @@ class Pdns < Formula
 
     system "make", "install"
     (var/"log/pdns").mkpath
+    (var/"run").mkpath
   end
 
   plist_options :manual => "pdns_server start"
