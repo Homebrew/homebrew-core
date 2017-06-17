@@ -1,8 +1,8 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/libnfs-1.11.0.tar.gz"
-  sha256 "fc2e45df14d8714ccd07dc2bbe919e45a2e36318bae7f045cbbb883a7854640f"
+  url "https://github.com/sahlberg/libnfs/archive/libnfs-2.0.0.tar.gz"
+  sha256 "7ea6cd8fa6c461d01091e584d424d28e137d23ff4b65b95d01a3fd0ef95d120e"
 
   bottle do
     cellar :any
