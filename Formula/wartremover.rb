@@ -1,9 +1,9 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
-  homepage "https://github.com/puffnfresh/wartremover"
-  url "https://github.com/puffnfresh/wartremover/archive/v2.1.0.tar.gz"
-  sha256 "a2d200d40ac9c5b7a2d31e934547035d929c0640f7d441c84c77cf8f6e52dea6"
-  head "https://github.com/puffnfresh/wartremover.git"
+  homepage "https://github.com/wartremover/wartremover"
+  url "https://github.com/wartremover/wartremover/archive/v2.1.1.tar.gz"
+  sha256 "4c789ee33ecff2b655bc839c5ebc7b20d581f99529f8f553628ed38d9615e553"
+  head "https://github.com/wartremover/wartremover.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,13 +13,15 @@ class Wartremover < Formula
   end
 
   depends_on "sbt" => :build
+  depends_on :java => "1.6+"
 
   def install
     # Prevents sandbox violation
     ENV.java_cache
-    system "sbt", "core/assembly"
-    libexec.install Dir["core/target/scala-*/wartremover-assembly-*.jar"]
-    bin.write_jar_script Dir[libexec/"wartremover-assembly-*.jar"][0], "wartremover"
+    system "./sbt", "-sbt-jar", Formula["sbt"].opt_libexec/"bin/sbt-launch.jar",
+                    "core/assembly"
+    libexec.install "wartremover-assembly.jar"
+    bin.write_jar_script libexec/"wartremover-assembly.jar", "wartremover"
   end
 
   test do
