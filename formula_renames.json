@@ -159,6 +159,7 @@
   "subversion18": "subversion@1.8",
   "swig2": "swig@2",
   "swig304": "swig@3.04",
+  "tensorflow": "libtensorflow",
   "thrift090": "thrift@0.90",
   "tomcat6": "tomcat@6",
   "tomcat7": "tomcat@7",
