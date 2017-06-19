@@ -7,10 +7,9 @@ class Srtp < Formula
 
   bottle do
     cellar :any
-    sha256 "edc628518330f632e92ef467d52cff87d15892fd0b6f01e8fd69b2a4934e4689" => :sierra
-    sha256 "ef1eaaf4b9570c996126650e6d7f4d67af899385d6fcc8801e2ed82e802b74ed" => :el_capitan
-    sha256 "5f5ce6bf99c16c7575e9c7d7c0596ad1c7e7b1933ac65efc4b42c2f6a1925d7d" => :yosemite
-    sha256 "963b5974e985f0b2c42691c5bc0052a6a467c5516e158b7af3534492feef1785" => :mavericks
+    sha256 "9a3afccfaec1f8bf9d96a7237837b95a971c8aeb44b889a0c35bbdb1898f7717" => :sierra
+    sha256 "581b4e442ea397d970ccc3e36397bdcf71796d94c4f2ae0fda0aad02ec762249" => :el_capitan
+    sha256 "a1b87e2333a7f32f38c41d4c458b5426a25f9750d505db6655847e3e2429b501" => :yosemite
   end
 
   depends_on "pkg-config" => :build
