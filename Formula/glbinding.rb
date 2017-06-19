@@ -3,6 +3,7 @@ class Glbinding < Formula
   homepage "https://github.com/cginternals/glbinding"
   url "https://github.com/cginternals/glbinding/archive/v2.1.3.tar.gz"
   sha256 "48f2e590a4a951005f79fec6c487217aa9b344a33ca1a8d2b7e618f04681ec60"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,6 +13,7 @@ class Glbinding < Formula
   end
 
   option "with-glfw", "Enable tools that display OpenGL information for your system"
+  option "with-static", "Build static instead of shared glbinding libraries"
 
   depends_on "cmake" => :build
   depends_on "glfw" => :optional
@@ -21,6 +23,7 @@ class Glbinding < Formula
     ENV.cxx11
     args = std_cmake_args
     args << "-DGLFW_LIBRARY_RELEASE=" if build.without? "glfw"
+    args << "-DBUILD_SHARED_LIBS:BOOL=OFF" if build.with? "static"
     system "cmake", ".", *args
     system "cmake", "--build", ".", "--target", "install"
   end
