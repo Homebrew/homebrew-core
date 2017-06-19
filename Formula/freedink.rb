@@ -4,6 +4,12 @@ class Freedink < Formula
   url "https://ftp.gnu.org/gnu/freedink/freedink-108.4.tar.gz"
   sha256 "82cfb2e019e78b6849395dc4750662b67087d14f406d004f6d9e39e96a0c8521"
 
+  bottle do
+    sha256 "4550fb1f25bc39cfa56fcbcf379ae550d2f38336a2ea2accb8476bac1798aa90" => :sierra
+    sha256 "078e167005c6b4a4629b0d8a0c3c93d1f496dd503163c674b843e4c1c6d58642" => :el_capitan
+    sha256 "f6c9c620180b22989a2c57a7eca7d75c1e6fb895a62c6f24ff9d7e51b39f50a5" => :yosemite
+  end
+
   depends_on "check"
   depends_on "sdl2_image"
   depends_on "sdl_mixer"
