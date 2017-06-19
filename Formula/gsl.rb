@@ -7,9 +7,9 @@ class Gsl < Formula
 
   bottle do
     cellar :any
-    sha256 "1bb5851b23af3a29907fe944b0223f84a2a13f9f493a124b9f659f3ac77cfbce" => :sierra
-    sha256 "ca5dd754f6988ee2083be33660530854b3a8d4ab2ab6026d9da6613cfec7431e" => :el_capitan
-    sha256 "27e916ed0e2bec74aeb88e694a22f0076e225c6a0b8c9b5450d5cbc0db842e3e" => :yosemite
+    sha256 "ea19659efea6c85dfda0b42468fd2d4bc980ec2689a07fa3506ea2a5fc9a9c89" => :sierra
+    sha256 "0e58f3748624d439a7152557518e389827a8a38dfa7ea486625d38e86291f9b2" => :el_capitan
+    sha256 "e8f5a126564d238ed734d3f069b183304ec1a707473cbce7fdde512122ccf3fb" => :yosemite
   end
 
   def install
