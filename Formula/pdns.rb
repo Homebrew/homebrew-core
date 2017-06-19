@@ -34,7 +34,6 @@ class Pdns < Formula
   depends_on :postgresql => :optional
 
   def install
-    # FIXME: needs a /var/run dir option
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/pdns
@@ -93,5 +92,25 @@ class Pdns < Formula
   test do
     output = shell_output("#{sbin}/pdns_server --version 2>&1", 99)
     assert_match "PowerDNS Authoritative Server #{version}", output
+  end
+
+  def caveats
+    <<-EOS.udent
+    pdns_server must be run as root to bind to port 53 in OS X. To work around this
+    you can either change the 'local-port' setting in pdns.conf, (probably not
+    what you want to do), or start pdns_server as root.  This can be accomplished
+    with 'sudo brew services start pdns', but it gives pdns_server too much
+    privilege for the liking of any experienced sysadmin.
+
+    pdns_server has two configuration settings that allow it to drop privilege once
+    it has bound to a privileged port: 'setuid' and 'setgid'.  Both require numeric
+    values to function properly in OS X.
+
+    See https://doc.powerdns.com/md/authoritative/settings/ for a documentation on
+    all pdns_server settings.
+
+    See https://gist.github.com/mprzybylski/2b16a0f7e00762a0444612e1b0dcf78e for
+    useful hints on creating separate, unprivileged, for services like pdns_server.
+    EOS
   end
 end
