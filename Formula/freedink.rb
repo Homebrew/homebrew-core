@@ -34,8 +34,7 @@ class Freedink < Formula
   end
 
   test do
-    assert FileTest.executable?("#{bin}/freedink")
-    assert shell_output("#{bin}/freedink -vwis").split("\n").first == "GNU FreeDink 108.4"
+    assert_match "GNU FreeDink 108.4", shell_output("#{bin}/freedink -vwis").split("\n").first
     assert FileTest.exists?("#{share}/dink/dink/Dink.dat")
   end
 end
