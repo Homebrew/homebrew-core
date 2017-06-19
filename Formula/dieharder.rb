@@ -7,10 +7,9 @@ class Dieharder < Formula
 
   bottle do
     cellar :any
-    sha256 "6970071bd722a3bbca3892ec4101d06b59461fb9ab3d47aebf71e8ce9d750cd4" => :sierra
-    sha256 "ee6c8f5dd87948423016574258755ea42a01f55c38e81bbf6dc3d35d5cf0d733" => :el_capitan
-    sha256 "6bf47d1e141f260abcf8926d75c82ff7ae45e582cb1af79fc984a849d9a08f71" => :yosemite
-    sha256 "3a1fafb4843d5a16798b9a9375446b52bffb7f9a0516884b444d7e8a4d4adc24" => :mavericks
+    sha256 "758c782ab9ba74df2bf493296435eafc24b97fdda7493485bf367f4afd7a50e7" => :sierra
+    sha256 "7adbcdbabc0c75df4394b7934dc5d8b33ef325ebf58a082e061fc333b0f82b1d" => :el_capitan
+    sha256 "c401b110311adafced06a2e5dc61b1ae2d159cfdf749b9b8835b791487facd33" => :yosemite
   end
 
   depends_on "gsl"
