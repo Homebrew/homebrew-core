@@ -95,7 +95,7 @@ class Pdns < Formula
   end
 
   def caveats
-    <<-EOS.udent
+    <<-EOS.undent
     pdns_server must be run as root to bind to port 53 in OS X. To work around this
     you can either change the 'local-port' setting in pdns.conf, (probably not
     what you want to do), or start pdns_server as root.  This can be accomplished
