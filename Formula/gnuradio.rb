@@ -3,6 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
