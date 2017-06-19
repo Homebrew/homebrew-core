@@ -1,7 +1,7 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
@@ -23,6 +23,15 @@ class Ghostscript < Formula
     patch do
       url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=04b37bbce1"
       sha256 "366bf4ded600fc7b0a8e2b0d4c877cc3ad5a0ccc192cb660d81f729575a47259"
+    end
+
+    # Remove for > 9.21
+    # Fixes regression caused by the first part of the CVE-2017-8291 fix above
+    # https://bugs.ghostscript.com/show_bug.cgi?id=697846
+    # Upstream commit from 3 May 2017 "Bug 697846: revision to commit 4f83478c88 (.eqproc)"
+    patch do
+      url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=57f20719e1"
+      sha256 "0b2f6008542c6f01caf20f56aa084cd906b96e0974820f2b613b1ae12618b233"
     end
   end
 
