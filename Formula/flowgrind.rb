@@ -7,10 +7,9 @@ class Flowgrind < Formula
 
   bottle do
     cellar :any
-    sha256 "57550eebc62d8a105cc82856571e4d31f6b9fcca83390ec5b24ae29bb6fa9d1b" => :sierra
-    sha256 "aeaf5c5a359cd07f13a9ef8c38ee75ff7bff94a86e751bf990f9741943ee8066" => :el_capitan
-    sha256 "a11e7064945a39adafcc5ba607ac2522bc928b130bcf92e575e65b5feca82a80" => :yosemite
-    sha256 "8fec1cceaea769c8f98bcbd423bab0bb69003288ba1f0932c7d6de1b64845789" => :mavericks
+    sha256 "b13583ff611b4c252d47e140555d2a05dfe619174ff77e63f4de7ab288c1e8d8" => :sierra
+    sha256 "a53dc12f90921d61c7e62d9566630fc364ba13b818cd548dc87441c68cc53bb7" => :el_capitan
+    sha256 "3b86d221274174dee723d0f8a1f49533b52e811d8a6646220e65c19973fbeb59" => :yosemite
   end
 
   depends_on "gsl"
