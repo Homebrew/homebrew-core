@@ -1,8 +1,8 @@
 class Mcabber < Formula
   desc "Console Jabber client"
   homepage "https://mcabber.com/"
-  url "https://mcabber.com/files/mcabber-1.0.5.tar.bz2"
-  sha256 "a0f200817d2b6196fe4d37918ce16f6fed83a3cef861d7165161e8b1cafcad47"
+  url "https://mcabber.com/files/mcabber-1.1.0.tar.bz2"
+  sha256 "04fc2c22c36da75cf4b761b5deccd074a19836368f38ab9d03c1e5708b41f0bd"
 
   bottle do
     sha256 "809dca7d8e2f2ed7071db7d27f36632911b0d0f1d7f1c962b081751122e15048" => :sierra
