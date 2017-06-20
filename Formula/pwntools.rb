@@ -3,8 +3,8 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://pwntools.com/"
-  url "https://github.com/Gallopsled/pwntools/archive/3.6.1.tar.gz"
-  sha256 "ac55777449a93d6a691c9f2230020c93961228aa9857a1e5fd4b3d3cf1073b13"
+  url "https://github.com/Gallopsled/pwntools/archive/3.7.0.tar.gz"
+  sha256 "ebbe14a334de1d8f9c3ac7500d35f81a06b1d7d8d920ce79647340f159959f6d"
 
   bottle do
     cellar :any
