@@ -106,6 +106,8 @@ class Python < Formula
       --datadir=#{share}
       --enable-framework=#{frameworks}
       --without-ensurepip
+      --with-lto
+      --enable-optimizations
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
