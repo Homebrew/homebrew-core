@@ -54,7 +54,7 @@ class Qt < Formula
   # and can be removed with the next version bump
   # https://bugreports.qt.io/browse/QTBUG-56814
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/qt5/QTBUG-56814.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
     sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
   end
 
