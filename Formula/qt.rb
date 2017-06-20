@@ -47,13 +47,16 @@ class Qt < Formula
   #   * poppler    (with `--with-qt` option)
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
-    sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+    sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f505be2ac701158b"
   end
 
   # Fix macdeployqt for homebrew. This patch is included in Qt 5.10
   # and can be removed with the next version bump
   # https://bugreports.qt.io/browse/QTBUG-56814
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/qt5/QTBUG-56814.patch"
+    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
+  end
 
   def install
     args = %W[
@@ -159,19 +162,3 @@ class Qt < Formula
     system "./hello"
   end
 end
-
-__END__
-diff --git a/qttools/src/macdeployqt/shared/shared.cpp b/qttools/src/macdeployqt/shared/shared.cpp
-index 5577265..2d614cb 100644
---- a/qttools/src/macdeployqt/shared/shared.cpp
-+++ b/qttools/src/macdeployqt/shared/shared.cpp
-@@ -803,6 +803,10 @@ void changeInstallName(const QString &bundlePath, const FrameworkInfo &framework
-             deployedInstallName = framework.deployedInstallName;
-         }
-         changeInstallName(framework.installName, deployedInstallName, binary);
-+        QString canonicalInstallName = QFileInfo(framework.installName).canonicalFilePath();
-+        if (canonicalInstallName != framework.installName) {
-+            changeInstallName(canonicalInstallName, deployedInstallName, binary);
-+        }
-     }
- }
