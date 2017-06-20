@@ -4,8 +4,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.0.0",
-      :revision => "e3d65a193e96c7b228589fc9699e39998ec12e4e"
+      :tag => "v1.0.1",
+      :revision => "66c74253672d6392b3f53271f9fec7e9530120d1"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
@@ -15,7 +15,6 @@ class Packer < Formula
     sha256 "1ebf37130fba12a90163c06eb4b5900e2fd538c0431782e0c175034cf8de71f0" => :yosemite
   end
 
-  depends_on :hg => :build
   depends_on "go" => :build
   depends_on "govendor" => :build
 
@@ -29,11 +28,6 @@ class Packer < Formula
         :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        :revision => "cbb995d093b2c4a12ac074e53d90373ecc827527"
-  end
-
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
@@ -42,23 +36,13 @@ class Packer < Formula
     # doesn't need to be installed permanently.
     ENV.append_path "PATH", buildpath
 
-    # TODO: remove "else" (mitchellh path) on next release
-    if build.head?
-      packerpath = buildpath/"src/github.com/hashicorp/packer"
-    else
-      packerpath = buildpath/"src/github.com/mitchellh/packer"
-    end
+    packerpath = buildpath/"src/github.com/hashicorp/packer"
     packerpath.install Dir["{*,.git}"]
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mitchellh/gox" do
       system "go", "build"
       buildpath.install "gox"
-    end
-
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      system "go", "build"
-      buildpath.install "stringer"
     end
 
     cd packerpath do
