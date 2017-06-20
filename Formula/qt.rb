@@ -6,6 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
   sha256 "f70b5c66161191489fc13c7b7eb69bf9df3881596b183e7f6d94305a39837517"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.8", :shallow => false
 
   bottle do
@@ -47,6 +48,15 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+  end
+
+  # Remove for >= 5.10
+  # Fix for upstream issue "macdeployqt does not work with Homebrew"
+  # See https://bugreports.qt.io/browse/QTBUG-56814
+  # Upstream commit from 23 Dec 2016 https://github.com/qt/qttools/commit/8f9b747f030bb41556831a23ec2a8e7e76fb7dc0#diff-2b6e250f93810fd9bcf9bbecf5d2be88
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
+    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
   end
 
   def install
