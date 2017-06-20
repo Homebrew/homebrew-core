@@ -6,6 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
   sha256 "f70b5c66161191489fc13c7b7eb69bf9df3881596b183e7f6d94305a39837517"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.8", :shallow => false
 
   bottle do
@@ -48,6 +49,11 @@ class Qt < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
+
+  # Fix macdeployqt for homebrew. This patch is included in Qt 5.10
+  # and can be removed with the next version bump
+  # https://bugreports.qt.io/browse/QTBUG-56814
+  patch :DATA
 
   def install
     args = %W[
@@ -153,3 +159,19 @@ class Qt < Formula
     system "./hello"
   end
 end
+
+__END__
+diff --git a/qttools/src/macdeployqt/shared/shared.cpp b/qttools/src/macdeployqt/shared/shared.cpp
+index 5577265..2d614cb 100644
+--- a/qttools/src/macdeployqt/shared/shared.cpp
++++ b/qttools/src/macdeployqt/shared/shared.cpp
+@@ -803,6 +803,10 @@ void changeInstallName(const QString &bundlePath, const FrameworkInfo &framework
+             deployedInstallName = framework.deployedInstallName;
+         }
+         changeInstallName(framework.installName, deployedInstallName, binary);
++        QString canonicalInstallName = QFileInfo(framework.installName).canonicalFilePath();
++        if (canonicalInstallName != framework.installName) {
++            changeInstallName(canonicalInstallName, deployedInstallName, binary);
++        }
+     }
+ }
