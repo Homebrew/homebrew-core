@@ -1,5 +1,5 @@
 class Convox < Formula
-  desc "The convox AWS PaaS CLI tool"
+  desc "Command-line interface for the Rack PaaS on AWS"
   homepage "https://convox.com/"
   url "https://github.com/convox/rack/archive/20170614131937.tar.gz"
   sha256 "f69576d4a5dcc24743e612696cf5062fc935edca7296e1c4eb0ac825c35637d6"
