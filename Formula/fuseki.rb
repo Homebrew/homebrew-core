@@ -1,57 +1,34 @@
 class Fuseki < Formula
   desc "SPARQL server"
-  homepage "https://jena.apache.org/documentation/serving_data/"
-  url "https://archive.apache.org/dist/jena/binaries/jena-fuseki1-1.4.0-distribution.tar.gz"
-  version "1.4.0"
-  sha256 "8f0cfa13d9a94df9dfb5a424177a0d3d9873b605e0ae610ba6e5f3d30f06f9bf"
+  homepage "https://jena.apache.org/documentation/fuseki2/"
+  url "https://www.apache.org/dyn/closer.lua?path=/jena/binaries/apache-jena-fuseki-2.6.0.tar.gz"
+  sha256 "a6d7843fcd3ce730349505442195ba8e611312325ae46cbe4a0a08f1788bb004"
 
   bottle :unneeded
 
   def install
-    # Remove windows files
-    rm_f "fuseki-server.bat"
+    prefix.install "bin"
 
-    # Write the installation path into the wrapper shell script
-    inreplace "fuseki-server" do |s|
-      s.gsub!(/export FUSEKI_HOME=.+/,
-              %Q(export FUSEKI_HOME="#{libexec}"))
+    %w[fuseki-server fuseki].each do |exe|
+      libexec.install exe
+      (bin/exe).write_env_script(libexec/exe,
+                                 :FUSEKI_BASE => var/"fuseki",
+                                 :FUSEKI_HOME => libexec,
+                                 :FUSEKI_LOGS => var/"log/fuseki",
+                                 :FUSEKI_RUN => var/"run")
     end
 
-    # Install and symlink wrapper binaries into place
-    libexec.install "fuseki-server", "fuseki"
-    bins = ["s-delete", "s-get", "s-head", "s-post", "s-put", "s-query", "s-update", "s-update-form"]
-    chmod 0755, bins
-    libexec.install bins
-    bin.install_symlink Dir["#{libexec}/*"]
     # Non-symlinked binaries and application files
-    libexec.install "fuseki-server.jar", "pages"
+    libexec.install "fuseki-server.jar",
+                    "fuseki.war",
+                    "webapp"
+  end
 
-    etc.install "config.ttl" => "fuseki.ttl"
-
+  def post_install
     # Create a location for dataset and log files,
     # in case we're being used in LaunchAgent mode
     (var/"fuseki").mkpath
     (var/"log/fuseki").mkpath
-
-    prefix.install "config-examples.ttl", "config-inf-tdb.ttl", "config-tdb-text.ttl", "config-tdb.ttl"
-
-    prefix.install "Data"
-  end
-
-  def caveats; <<-EOS.undent
-    Quick-start guide:
-
-    * See the Fuseki documentation for instructions on using an in-memory database:
-      https://jena.apache.org/documentation/serving_data/#fuseki-server-starting-with-an-empty-dataset
-
-    * Running from the LaunchAgent is different the standard configuration and
-      uses traditional Unix paths: please inspect the settings here first:
-      #{etc}/fuseki.ttl
-
-    * NOTE: Fuseki uses 1) log4j.configuration if defined, 2) 'log4j.properties' file if exists,
-      or built-in configuration. See also:
-      https://issues.apache.org/jira/browse/JENA-536
-    EOS
   end
 
   plist_options :manual => "fuseki start"
@@ -70,11 +47,7 @@ class Fuseki < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/fuseki-server</string>
-          <string>--config</string>
-          <string>#{etc}/fuseki.ttl</string>
         </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
     EOS
