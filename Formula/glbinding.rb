@@ -3,6 +3,7 @@ class Glbinding < Formula
   homepage "https://github.com/cginternals/glbinding"
   url "https://github.com/cginternals/glbinding/archive/v2.1.3.tar.gz"
   sha256 "48f2e590a4a951005f79fec6c487217aa9b344a33ca1a8d2b7e618f04681ec60"
+  revision 1
 
   bottle do
     cellar :any
@@ -37,7 +38,7 @@ class Glbinding < Formula
       }
       EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
-                    "-I#{include}/glbinding", "-I#{lib}/glbinding",
+                    "-I#{include}/glbinding", "-I#{lib}/glbinding", "-framework", "OpenGL",
                     "-lglbinding", *ENV.cflags.to_s.split
     system "./test"
   end
