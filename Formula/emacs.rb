@@ -38,6 +38,12 @@ class Emacs < Formula
   depends_on "imagemagick@6" => :optional
   depends_on "mailutils" => :optional
 
+  # Revert the disabling of multicolor fonts on OS X
+  patch do
+    url "https://gist.githubusercontent.com/jd/0413dbceb19080f03854cef09f6861ab/raw/8f5a12c3d9c9d1131302dd8ed91972e409758e4a/emacs-revert-9344612d3cd164317170b6189ec43175757e4231.diff"
+    sha256 "2fe449f8e716daa62d322e22e3694ced2d8ddf785d99c30a4e601524598a7ec3"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
