@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com/"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.19.tar.gz"
-  sha256 "877a9534cdc5cce51aa0e8dfb02be71be0eb4be1d0da0365d2600b8601daace9"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.22.tar.gz"
+  sha256 "13a42109a7bbffd17fac765c691ddfd69e1c8789cc21b6eee1d25d4f82ce809f"
 
   bottle do
     cellar :any_skip_relocation
