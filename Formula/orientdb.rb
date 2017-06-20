@@ -6,9 +6,9 @@ class Orientdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea3725e7b685560f9455fa98bb22e171b818392d5e9c4cb2e8340639db0baa73" => :sierra
-    sha256 "94194fa38f110c3c0c6e9950d6b17f6dcbd0411df2b2e0c5f7b4c9f53617b310" => :el_capitan
-    sha256 "94194fa38f110c3c0c6e9950d6b17f6dcbd0411df2b2e0c5f7b4c9f53617b310" => :yosemite
+    sha256 "d8d7b9a340025873fcbbf3dfa093468b6fcba66296b2dc07543f9a192f6a8b3f" => :sierra
+    sha256 "ac78ef356d7a8e6a6eded506c4ff13dc1a953c5d4867979c4a257cbd373e633e" => :el_capitan
+    sha256 "ac78ef356d7a8e6a6eded506c4ff13dc1a953c5d4867979c4a257cbd373e633e" => :yosemite
   end
 
   def install
