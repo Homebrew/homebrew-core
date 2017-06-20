@@ -47,7 +47,7 @@ class Qt < Formula
   #   * poppler    (with `--with-qt` option)
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
-    sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f505be2ac701158b"
+    sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
   # Fix macdeployqt for homebrew. This patch is included in Qt 5.10
