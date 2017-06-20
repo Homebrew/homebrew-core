@@ -3,6 +3,7 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/3.24/gitg-3.24.0.tar.xz"
   sha256 "3e4ec4a8ae83bc7ced8c7610927ade70e37daa5e8beeb4f357a6ea30b4cc951e"
+  revision 1
 
   bottle do
     sha256 "c20220ca9f8a8d72c651afa7490f9a1fcc91665fe19f4a6e202ef5b28b8704d9" => :sierra
@@ -15,6 +16,7 @@ class Gitg < Formula
   depends_on "intltool" => :build
   depends_on "gtksourceview3"
   depends_on "gobject-introspection"
+  depends_on "libgit2"
   depends_on "libgit2-glib"
   depends_on "gsettings-desktop-schemas"
   depends_on "libgee"
