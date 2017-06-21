@@ -7,9 +7,10 @@ class Minisat < Formula
 
   bottle do
     cellar :any
-    sha256 "07e5dfbdbd902cdbe2ca75dd7a4e20860d27d73f7d1bc8f3670cdc1cd2a35cf7" => :sierra
-    sha256 "48501545b910edc9f8a806222ddf8187106b08333311251576a6d79e6ac0d6dd" => :el_capitan
-    sha256 "cc724792432a7fdab827197121867c1bc0b2b9189ff43dceb75e57178dce0da6" => :yosemite
+    rebuild 1
+    sha256 "49beae2955b65f28958cca6bbc62d2b167b60ff12c1aa6b11b271f4a930dc147" => :sierra
+    sha256 "4b77aa17b8b641964712013ffd0468e35c35a24f04ab285928d40b297abab50d" => :el_capitan
+    sha256 "a59c127edb56b612832b7dce88ff7bb426b42d573130a4d201d3f1c619e47006" => :yosemite
   end
 
   depends_on "gcc"
