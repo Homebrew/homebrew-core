@@ -3,6 +3,7 @@ class Metricbeat < Formula
   homepage "https://www.elastic.co/products/beats/metricbeat"
   url "https://github.com/elastic/beats/archive/v5.4.2.tar.gz"
   sha256 "6a02dffae1b09bc7e2ea673268124bab43c012e8a3b400f53e26c156448f2a99"
+  revision 1
 
   head "https://github.com/elastic/beats.git"
 
