@@ -6,10 +6,9 @@ class Lsdvd < Formula
 
   bottle do
     cellar :any
-    sha256 "24d7f2b86648de4b7477d41b0a2adfefa870ac2a973f4a31e16bb88a88fc3904" => :sierra
-    sha256 "29aa32a4b1b1c327aaea8b568f625c0c8e49723a3397d722df927e0b1b4493d7" => :el_capitan
-    sha256 "9af38820e4747c002f38be75d31577533980ca731f12cffc2b9f41c6a37e1a3d" => :yosemite
-    sha256 "b00f07a2636d1d73ab1b3456843d35de78e01f98f9ac818c4f0d70a88893253b" => :mavericks
+    sha256 "d64473d3ff0f1b1b7dce0435da6305aa384a374ebca7154498770a9c66297cb7" => :sierra
+    sha256 "eefa4b673d38a87354cdac631ee7e7a1054e69e29e912ff52c2fa84995f7e189" => :el_capitan
+    sha256 "4662e19252627e7f8e344fc0f8b52e83e908f26e9253aad7590eef126ebae7f0" => :yosemite
   end
 
   depends_on "pkg-config" => :build
