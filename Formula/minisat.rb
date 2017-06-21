@@ -7,11 +7,9 @@ class Minisat < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e296736a66cb2bc26a32f98539bd3136347d86df75dbc3147a94c48769b886b9" => :sierra
-    sha256 "d895e637af42fc0a6673d13e3e97c6a0f1e6fad62af1d814c98023135762737b" => :el_capitan
-    sha256 "4d8f920ddf46061ddd5cbe7196bf9c19651e8fcc7740f3d7b8679f8cc1323a73" => :yosemite
-    sha256 "ea128681692834733f758f52ec1b3d87b347d5db7d1c8849fe17bdf09b1e6152" => :mavericks
+    sha256 "07e5dfbdbd902cdbe2ca75dd7a4e20860d27d73f7d1bc8f3670cdc1cd2a35cf7" => :sierra
+    sha256 "48501545b910edc9f8a806222ddf8187106b08333311251576a6d79e6ac0d6dd" => :el_capitan
+    sha256 "cc724792432a7fdab827197121867c1bc0b2b9189ff43dceb75e57178dce0da6" => :yosemite
   end
 
   # Upstream commits to fix some declaration errors
