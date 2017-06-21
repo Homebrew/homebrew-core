@@ -12,6 +12,7 @@ class Glbinding < Formula
   end
 
   option "with-glfw", "Enable tools that display OpenGL information for your system"
+  option "with-static", "Build static instead of shared glbinding libraries"
 
   depends_on "cmake" => :build
   depends_on "glfw" => :optional
@@ -21,6 +22,7 @@ class Glbinding < Formula
     ENV.cxx11
     args = std_cmake_args
     args << "-DGLFW_LIBRARY_RELEASE=" if build.without? "glfw"
+    args << "-DBUILD_SHARED_LIBS:BOOL=OFF" if build.with? "static"
     system "cmake", ".", *args
     system "cmake", "--build", ".", "--target", "install"
   end
@@ -35,7 +37,7 @@ class Glbinding < Formula
       }
       EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
-                    "-I#{include}/glbinding", "-I#{lib}/glbinding",
+                    "-I#{include}/glbinding", "-I#{lib}/glbinding", "-framework", "OpenGL",
                     "-lglbinding", *ENV.cflags.to_s.split
     system "./test"
   end
