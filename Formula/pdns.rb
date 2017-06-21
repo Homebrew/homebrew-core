@@ -29,7 +29,7 @@ class Pdns < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl"q
   depends_on "sqlite"
   depends_on :postgresql => :optional
 
@@ -62,17 +62,11 @@ class Pdns < Formula
 
   def caveats
     <<-EOS.undent
-    pdns_server must be run as root to bind to port 53 in OS X. To work around this
-    you can either change the 'local-port' setting in pdns.conf, (probably not
-    what you want to do), or start pdns_server as root.  This can be accomplished
-    with 'sudo brew services start pdns', but it gives pdns_server too much
-    privilege for the liking of any experienced sysadmin.
-
     pdns_server has two configuration settings that allow it to drop privilege once
     it has bound to a privileged port: 'setuid' and 'setgid'.  Both require numeric
     values to function properly in OS X.
 
-    See https://doc.powerdns.com/md/authoritative/settings/ for a documentation on
+    See https://doc.powerdns.com/md/authoritative/settings/ for explanations of
     all pdns_server settings.
 
     See https://gist.github.com/mprzybylski/2b16a0f7e00762a0444612e1b0dcf78e for
@@ -80,7 +74,7 @@ class Pdns < Formula
     EOS
   end
 
-  plist_options :manual => "pdns_server start"
+  plist_options :startup => true, :manual => "sudo pdns_server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
