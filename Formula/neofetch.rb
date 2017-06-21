@@ -1,8 +1,8 @@
 class Neofetch < Formula
   desc "Fast, highly customisable system info script"
   homepage "https://github.com/dylanaraps/neofetch"
-  url "https://github.com/dylanaraps/neofetch/archive/3.1.0.tar.gz"
-  sha256 "db7afe24d859b9c8230c3491640d996701816ddc9cf66f98a5071775e8b4ffe5"
+  url "https://github.com/dylanaraps/neofetch/archive/3.2.0.tar.gz"
+  sha256 "6aecd51c165a36692b4f6481b3071ab936aafc3fccffabbbfda140567f16431d"
   head "https://github.com/dylanaraps/neofetch.git"
 
   bottle do
