@@ -12,6 +12,8 @@ class Minisat < Formula
     sha256 "cc724792432a7fdab827197121867c1bc0b2b9189ff43dceb75e57178dce0da6" => :yosemite
   end
 
+  depends_on "gcc"
+
   # Upstream commits to fix some declaration errors
   patch do
     url "https://github.com/niklasso/minisat/commit/9bd874980a7e5d65cecaba4edeb7127a41050ed1.patch"
