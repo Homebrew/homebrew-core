@@ -28,6 +28,7 @@ class Metricbeat < Formula
       (etc/"metricbeat").install "metricbeat.yml"
       (etc/"metricbeat").install "metricbeat.template.json"
       (etc/"metricbeat").install "metricbeat.template-es2x.json"
+      (etc/"metricbeat").install "metricbeat.template-es6x.json"
     end
 
     (bin/"metricbeat").write <<-EOS.undent
