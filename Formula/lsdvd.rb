@@ -1,8 +1,8 @@
 class Lsdvd < Formula
   desc "Read the content info of a DVD"
   homepage "https://sourceforge.net/projects/lsdvd"
-  url "https://downloads.sourceforge.net/project/lsdvd/lsdvd/0.16%20-%20I%20hate%20James%20Blunt/lsdvd-0.16.tar.gz"
-  sha256 "04ae3e2d823ed427e31d57f3677d28ec36bdf3bf984d35f7bdfab030d89b20f1"
+  url "https://downloads.sourceforge.net/project/lsdvd/lsdvd/lsdvd-0.17.tar.gz"
+  sha256 "7d2c5bd964acd266b99a61d9054ea64e01204e8e3e1a107abe41b1274969e488"
 
   bottle do
     cellar :any
@@ -12,23 +12,18 @@ class Lsdvd < Formula
     sha256 "b00f07a2636d1d73ab1b3456843d35de78e01f98f9ac818c4f0d70a88893253b" => :mavericks
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libdvdread"
   depends_on "libdvdcss" => :optional
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cb1d457/lsdvd/patch-configure.diff"
-    sha256 "3535ad1ad4c8fc2e49287190edcd89cd9d0679682ee94aca200252b9e1d80cd9"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cb1d457/lsdvd/patch-lsdvd_c.diff"
-    sha256 "33a8f5876a0aa09532424066da71c64d18ab67154ecbebd66f81d98843937079"
-  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    system bin/"lsdvd", "--help"
   end
 end
