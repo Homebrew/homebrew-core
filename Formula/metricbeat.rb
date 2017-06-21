@@ -26,6 +26,7 @@ class Metricbeat < Formula
       system "make"
       libexec.install "metricbeat"
 
+      (etc/"metricbeat").install "metricbeat.full.yml"
       (etc/"metricbeat").install "metricbeat.yml"
       (etc/"metricbeat").install "metricbeat.template.json"
       (etc/"metricbeat").install "metricbeat.template-es2x.json"
