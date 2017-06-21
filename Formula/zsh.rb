@@ -1,6 +1,7 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
+  revision 1
 
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.xz"
@@ -12,9 +13,13 @@ class Zsh < Formula
     option "with-texi2html", "Build HTML documentation"
     depends_on "texi2html" => [:build, :optional]
 
-    patch :p1 do
-      url "https://gist.githubusercontent.com/abraithwaite/8c9fae1c51acb1a3ba51a435bba4c88e/raw/57c71239a96e8a8b9478cd4f8ffe96f5bb456a79/40305.patch"
-      sha256 "3ef83561dd34dab3fe2c7689739cb3c6bd631ce0b0ba8a07907e369f9139a981"
+    # Remove for > 5.3.1
+    # Upstream commit from 10 Jan 2017 "40305: fix some problems redisplaying
+    # command line after"
+    # See https://github.com/zsh-users/zsh/commit/34656ec2f00d6669cef56afdbffdd90639d7b465
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0b7bf62/zsh/fix-autocomplete.patch"
+      sha256 "4f70882293e2d936734c7ddf40e296da7ef5972fa6f43973b9ca68bf028e2c38"
     end
   end
 
