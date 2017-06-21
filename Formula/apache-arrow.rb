@@ -16,10 +16,11 @@ class ApacheArrow < Formula
   def install
     ENV.cxx11
 
-    chdir "cpp"
-    system "cmake", ".", *std_cmake_args
-    system "make", "unittest"
-    system "make", "install"
+    cd "cpp" do
+      system "cmake", ".", *std_cmake_args
+      system "make", "unittest"
+      system "make", "install"
+    end
   end
 
   test do
