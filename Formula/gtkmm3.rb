@@ -3,6 +3,7 @@ class Gtkmm3 < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.0.tar.xz"
   sha256 "05da4d4b628fb20c8384630ddf478a3b5562952b2d6181fe28d58f6cbc0514f5"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,13 +18,6 @@ class Gtkmm3 < Formula
   depends_on "atkmm"
 
   needs :cxx11
-
-  # circumvent a bug in gtk+3
-  # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772281
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/60d3df52/gtkmm3/gtk_clipboard_get_selection.patch"
-    sha256 "0849da0516850eeffdab22941aa5d30cca40d4a7775683665e044b84d5ca0d85"
-  end
 
   def install
     ENV.cxx11
