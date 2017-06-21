@@ -1,8 +1,8 @@
 class Mapcrafter < Formula
   desc "Minecraft map renderer"
   homepage "https://mapcrafter.org"
-  url "https://github.com/mapcrafter/mapcrafter/archive/v.2.3.1.tar.gz"
-  sha256 "b88e53ccffc00f83717f2e686dbed047b95f011187af2b7a23ba7f5cd3537679"
+  url "https://github.com/mapcrafter/mapcrafter/archive/v.2.4.tar.gz"
+  sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
 
   bottle do
     cellar :any
