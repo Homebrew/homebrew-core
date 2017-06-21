@@ -3,6 +3,7 @@ class Minisat < Formula
   homepage "http://minisat.se"
   url "https://github.com/niklasso/minisat/archive/releases/2.2.0.tar.gz"
   sha256 "3ed44da999744c0a1be269df23c3ed8731cdb83c44a4f3aa29b3d6859bb2a4da"
+  revision 1
 
   bottle do
     cellar :any
