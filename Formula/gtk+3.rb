@@ -5,9 +5,9 @@ class Gtkx3 < Formula
   sha256 "3e0c3ad01f3c8c5c9b1cc1ae00852bd55164c8e5a9c1f90ba5e07f14f175fe2c"
 
   bottle do
-    sha256 "5ebc52a5731f83fdf0137a3acb8508a67453deabd47fd7b293600dbf3e40ad18" => :sierra
-    sha256 "dd4ef2c3f8d495389daaf257cb19b85f4d7c82c126d9ee8c6a74ad84b5120869" => :el_capitan
-    sha256 "1be3c9d2ff82bdfd97f27a4a90f3eb8080b9da7719bbcb0dc6baa06fb5d9bf53" => :yosemite
+    sha256 "a9306c76f8ec710028f16b2decedc7265e1e9fbf95c25a0466d9bd9024380676" => :sierra
+    sha256 "62f7b715b1ab9d9010a40003e63b8a498bc91fbb23485a7e39bd0efb4a852318" => :el_capitan
+    sha256 "16184c07877da86c2f7e287ff14eefae19d0baa24c1513213ca521ce8a8d9811" => :yosemite
   end
 
   # see https://bugzilla.gnome.org/show_bug.cgi?id=781118
