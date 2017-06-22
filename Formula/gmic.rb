@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_2.0.0.tar.gz"
-  sha256 "27c57f0ca630895a0dab5c0eff854f3133a29743267c4aa196dc2d1936463ca4"
+  url "https://gmic.eu/files/source/gmic_2.0.2.tar.gz"
+  sha256 "7da9f08d62a9d23fc8badbc7c819cf76f4a9ce3db763710268fdcb80d83ecfc6"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
@@ -22,6 +22,7 @@ class Gmic < Formula
   depends_on "openexr" => :optional
 
   def install
+    cp "resources/CMakeLists.txt", buildpath
     args = std_cmake_args
     args << "-DENABLE_X=OFF"
     args << "-DENABLE_JPEG=OFF" if build.without? "jpeg"
