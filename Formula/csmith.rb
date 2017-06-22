@@ -7,11 +7,9 @@ class Csmith < Formula
 
   bottle do
     cellar :any
-    sha256 "e7af5c8ea1d90d0cfa558ac49dc77a6ca462ca5c798be903f6740dfdc9145c69" => :sierra
-    sha256 "38f7cf4e3e01431a0b2a32aa723f6862490c5f5580b389d4bad84287c1ff068e" => :el_capitan
-    sha256 "66393d59fae564c88c0040f6d117d7dc5b50400614f1c0b9e235cb54053fe159" => :yosemite
-    sha256 "365711b325bf93d13b6c6c6c430a7b136f4e2962ea18814213911c204db71d37" => :mavericks
-    sha256 "92fbb0c44e5cb1042c22aae462acf6afc22a568b7b446dbccaecb5bbd07b0921" => :mountain_lion
+    sha256 "2e78da57153124cb3feca12955d0bbadbc4e90dbff6c34a08532aea55c75ba8e" => :sierra
+    sha256 "472992fd577ec20b025397c840823abf8f88d719e7d86bba427446a38cc5584d" => :el_capitan
+    sha256 "277a9e03f3bfdd03f1e3136ef867604c7f6c4f9763346223bb41b47f0fa72f0d" => :yosemite
   end
 
   def install
