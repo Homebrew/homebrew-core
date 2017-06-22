@@ -22,14 +22,19 @@ class Pdns < Formula
   end
 
   option "with-postgresql", "Enable the PostgreSQL backend"
+  resource "pdns-brew-default-config" do
+    url "https://github.com/mprzybylski/pdns-brew-default-config/archive/0.2.tar.gz"
+    sha256 "5abe291cbd789688504731e08cf098a8b5afda9f1928c20c4c0ba8eef025e6b5"
+  end
 
   deprecated_option "pgsql" => "with-postgresql"
   deprecated_option "with-pgsql" => "with-postgresql"
 
   depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "boost"
   depends_on "lua"
-  depends_on "openssl"q
+  depends_on "openssl"
   depends_on "sqlite"
   depends_on :postgresql => :optional
 
@@ -44,13 +49,14 @@ class Pdns < Formula
       --with-sqlite3
     ]
 
+    # default backend modules
+    module_list="--with-modules=bind gsqlite3"
+
     # Include the PostgreSQL backend if requested
-    if build.with? "postgresql"
-      args << "--with-modules=gsqlite3 gpgsql"
-    else
-      # SQLite3 backend only is the default
-      args << "--with-modules=gsqlite3"
-    end
+    # ( This pattern can be adapted to additional optional modules.  Just remember to
+    # include a space in front of the module name )
+    module_list << " gpgsql" if build.with? "postgresql"
+    args << module_list
 
     system "./bootstrap" if build.head?
     system "./configure", *args
@@ -58,23 +64,19 @@ class Pdns < Formula
     system "make", "install"
     (var/"log/pdns").mkpath
     (var/"run").mkpath
+    unless (etc/"pdns/pdns.conf").exist?
+      # install a runnable default config with a flat file backend
+      resource("pdns-brew-default-config").stage do
+        # pdns_server needs to start as root, but should drop privilege once it
+        # binds to port 53
+        # UNPRIV_UID and UNPRIV_GID populate pdns.conf
+        system "cmake", ".", "-DETCDIR=#{etc}", "-DUNPRIV_UID=_sandbox", "-DUNPRIV_GID=_sandbox"
+        system "make", "install"
+      end
+    end
   end
 
-  def caveats
-    <<-EOS.undent
-    pdns_server has two configuration settings that allow it to drop privilege once
-    it has bound to a privileged port: 'setuid' and 'setgid'.  Both require numeric
-    values to function properly in OS X.
-
-    See https://doc.powerdns.com/md/authoritative/settings/ for explanations of
-    all pdns_server settings.
-
-    See https://gist.github.com/mprzybylski/2b16a0f7e00762a0444612e1b0dcf78e for
-    useful hints on creating separate, unprivileged, for services like pdns_server.
-    EOS
-  end
-
-  plist_options :startup => true, :manual => "sudo pdns_server start"
+  plist_options :startup => true, :manual => "sudo pdns_server"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
