@@ -22,10 +22,6 @@ class Pdns < Formula
   end
 
   option "with-postgresql", "Enable the PostgreSQL backend"
-  resource "pdns-brew-default-config" do
-    url "https://github.com/mprzybylski/pdns-brew-default-config/archive/0.2.tar.gz"
-    sha256 "5abe291cbd789688504731e08cf098a8b5afda9f1928c20c4c0ba8eef025e6b5"
-  end
 
   deprecated_option "pgsql" => "with-postgresql"
   deprecated_option "with-pgsql" => "with-postgresql"
@@ -38,6 +34,10 @@ class Pdns < Formula
   depends_on "sqlite"
   depends_on :postgresql => :optional
 
+  resource "pdns-brew-default-config" do
+    url "https://github.com/mprzybylski/pdns-brew-default-config/archive/0.2.tar.gz"
+    sha256 "5abe291cbd789688504731e08cf098a8b5afda9f1928c20c4c0ba8eef025e6b5"
+  end
   def install
     args = %W[
       --prefix=#{prefix}
