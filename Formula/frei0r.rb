@@ -1,8 +1,8 @@
 class Frei0r < Formula
   desc "Minimalistic plugin API for video effects"
   homepage "https://frei0r.dyne.org/"
-  url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.4.tar.gz"
-  sha256 "8470fcabde9f341b729be3be16385ffc8383d6f3328213907a43851b6e83be57"
+  url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz"
+  sha256 "e0c24630961195d9bd65aa8d43732469e8248e8918faa942cfb881769d11515e"
 
   bottle do
     cellar :any_skip_relocation
