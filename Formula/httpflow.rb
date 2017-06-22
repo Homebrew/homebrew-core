@@ -1,8 +1,8 @@
 class Httpflow < Formula
   desc "Packet capture and analysis utility similar to tcpdump for HTTP"
   homepage "https://github.com/six-ddc/httpflow"
-  url "https://github.com/six-ddc/httpflow/archive/0.0.4.tar.gz"
-  sha256 "0926e22690bb65d81d8bfd4d1794ded69ca057731d4fd7b68ed60b840f9d3ecb"
+  url "https://github.com/six-ddc/httpflow/archive/0.0.5.tar.gz"
+  sha256 "a20b12243bcdd4ac8c8c14706cb508ec36aceea72e1fff2892777783b8441e46"
   head "https://github.com/six-ddc/httpflow.git"
 
   bottle do
