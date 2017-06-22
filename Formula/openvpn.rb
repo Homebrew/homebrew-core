@@ -4,6 +4,7 @@ class Openvpn < Formula
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.3.tar.xz"
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.3.tar.xz"
   sha256 "15e15fc97f189b52aee7c90ec8355aa77469c773125110b4c2f089abecde36fb"
+  revision 1
 
   bottle do
     sha256 "1fd1b64c45e92591247c3cb073577d6a161c9e19118c067a2b965833c4b5b448" => :sierra
@@ -16,7 +17,7 @@ class Openvpn < Formula
 
   depends_on "pkg-config" => :build
   depends_on "lzo"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "pkcs11-helper" do
     url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.22/pkcs11-helper-1.22.tar.bz2"
