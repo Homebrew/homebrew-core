@@ -3,14 +3,15 @@ class Buku < Formula
 
   desc "Command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v2.9.tar.gz"
-  sha256 "d4175aab5fab72d41cd646f688311bc347d5fcdad23dc58ee87dffb695c5a51b"
-  revision 1
+  url "https://github.com/jarun/Buku/archive/v3.0.tar.gz"
+  sha256 "5a6f66366bd2e1f2e85f386efd44f126bf313dc3a0d552330051916708afe497"
 
   bottle do
-    sha256 "6d237a8fbda814bc8f5f1c5739edeb4bad9701854fbe6760940aa6811684d700" => :sierra
-    sha256 "ba1c70daa46784ecb8bc317b9a9a8109c27be02b400e6fc000e2aa2bd16c7716" => :el_capitan
-    sha256 "079bdc221fe79f0b8f95dc35115ff9ee91324c8c6b7ad9a5737533a83c1240ce" => :yosemite
+    cellar :any
+    rebuild 1
+    sha256 "fd3e0ec867ee1211d3b5b0f528d3814ee507f167bd756a98e36f28fe4b2cb857" => :sierra
+    sha256 "cc435163e4753de5fd0adb4567947a06e114feb16dbf073a2431d9af3f1540e0" => :el_capitan
+    sha256 "c5354b1581a82f96412d4337a9b462c56b29aeaf557411f68e145e5a9fa2ac5d" => :yosemite
   end
 
   depends_on :python3
@@ -22,8 +23,8 @@ class Buku < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
-    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
+    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
   end
 
   resource "beautifulsoup4" do
@@ -32,13 +33,13 @@ class Buku < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "idna" do
@@ -72,8 +73,8 @@ class Buku < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/20/56/a6aa403b0998f857b474a538343ee483f5c02491bd1aebf61d42a3f60f77/urllib3-1.20.tar.gz"
-    sha256 "97ef2b6e2878d84c0126b9f4e608e37a951ca7848e4855a7f7f4437d5c34a72f"
+    url "https://files.pythonhosted.org/packages/34/95/7b28259d0006ed681c424cd71a668363265eac92b67dddd018eb9a22bff8/urllib3-1.21.tar.gz"
+    sha256 "d0f08f1472754890c8b228106eb831a7a68c93565bd0818936c30bb839913647"
   end
 
   def install
@@ -109,7 +110,18 @@ class Buku < Formula
           </DL><p>
       </DL>
     EOS
-    system bin/"buku", "--import", "bookmarks.html"
+
+    (testpath/"import").write <<-EOS.undent
+      spawn #{bin}/buku --nc --import bookmarks.html
+      expect "Add imported folders names as tags? (y/n): "
+      send "y\r"
+      expect {
+          -re ".*ERROR.*" { exit 1 }
+          "1. Title unknown"
+      }
+      spawn sleep 5
+    EOS
+    system "/usr/bin/expect", "-f", "import"
 
     # Test online components -- fetch titles
     system bin/"buku", "--update"
@@ -117,7 +129,7 @@ class Buku < Formula
     # Test crypto functionality
     (testpath/"crypto-test").write <<-EOS.undent
       # Lock bookmark database
-      spawn buku --lock
+      spawn #{bin}/buku --lock
       expect "Password: "
       send "password\r"
       expect "Password: "
@@ -128,7 +140,7 @@ class Buku < Formula
       }
 
       # Unlock bookmark database
-      spawn buku --unlock
+      spawn #{bin}/buku --unlock
       expect "Password: "
       send "password\r"
       expect {

@@ -1,32 +1,16 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  revision 2
-
-  stable do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
-    sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
-
-    patch do
-      # Fixes https://bugs.freedesktop.org/show_bug.cgi?id=97546, "fc-cache
-      # failure with /System/Library/Fonts", and #4172.
-      #
-      # Patch from upstream maintainer Akira TAGOH. See
-      #   https://bugs.freedesktop.org/show_bug.cgi?id=97546#c7
-      #   https://bugs.freedesktop.org/attachment.cgi?id=126464
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3790bcd/fontconfig/patch-2.12.1-fccache.diff"
-      sha256 "e7c074109a367bf3966578034b20d11f7e0b4a611785a040aef1fd11359af04d"
-    end
-  end
+  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
+  sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
 
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
   bottle do
-    cellar :any
-    sha256 "593f068ccb155b27dad21699b753020292beaaa31bcd984ff4e70375ed3e7f41" => :sierra
-    sha256 "151acfcc10e7d9c38aca5e23d5acdb953f3d627f05e206a097d039e6e8168a4a" => :el_capitan
-    sha256 "72c9f7932c02e7ad44d9bed147ea26f84a7bc5ba681da6eb00e52c381b6f7a68" => :yosemite
-    sha256 "644c80b9c9b8af2c13329043f6921cac3d0effdd6a5ecc696484113a46b90488" => :mavericks
+    rebuild 1
+    sha256 "320647254df248fe051768352f6d671d7cc2347fc5d25a04a7a3c2c93cd7e731" => :sierra
+    sha256 "3b52ab43bf9b6685d7a56c91e1792bf2faa701df97db8cb1f5b55a1c392120db" => :el_capitan
+    sha256 "7fc0ad1907ed19ce3d2668fd46fc1b41da80b79cfb540c61edbfe5c0a2daa76c" => :yosemite
   end
 
   pour_bottle? do
@@ -50,11 +34,23 @@ class Fontconfig < Formula
   depends_on "freetype"
 
   def install
+    font_dirs = %w[
+      /System/Library/Fonts
+      /Library/Fonts
+      ~/Library/Fonts
+    ]
+
+    if MacOS.version == :sierra
+      font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font3"
+    elsif MacOS.version == :high_sierra
+      font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font4"
+    end
+
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
-                          "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
+                          "--with-add-fonts=#{font_dirs.join(",")}",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}"

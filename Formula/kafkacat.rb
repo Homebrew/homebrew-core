@@ -1,31 +1,25 @@
 class Kafkacat < Formula
   desc "Generic command-line non-JVM Apache Kafka producer and consumer"
   homepage "https://github.com/edenhill/kafkacat"
-  url "https://github.com/edenhill/kafkacat/archive/1.3.0.tar.gz"
-  sha256 "1170daa3ec66f32542872fb8a181f021589dc19d510ebc3b141adccc02d2ae5d"
+  url "https://github.com/edenhill/kafkacat.git",
+      :tag => "1.3.1",
+      :revision => "0ab52045cde0c16f9f99dad41cee019ff88e974e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "25a5f4adac93dba85de1681b79ff87d923eb5a1a95582853e92cd70a22c83c4d" => :sierra
-    sha256 "632efceabc31814305eb5331bc25a361414afd9ef1562cb9bb6463526997bb5e" => :el_capitan
-    sha256 "32bcf9d514f4e566029b3427098c6d73f78dad911fd6b762e38395c1ef41edb8" => :yosemite
-    sha256 "c1dcf8abd6c4917950403a872bca4d0502a116dfdfb0eb29c950f03a120ada6f" => :mavericks
+    sha256 "14038aa18ab2f7f982000b3a5ad347f9519809b3bab0cfe47424bb73f333de6e" => :sierra
+    sha256 "ef21329872a809c9a01e6361fcc2d0830f5b9c33455286260b45713acf19285f" => :el_capitan
+    sha256 "cc9011d799bd2dfcb514c9ac499bda051e14a30f73ea8884048fa3d1337ceb47" => :yosemite
   end
 
-  option "with-yajl", "Adds JSON support"
-
   depends_on "librdkafka"
-  depends_on "yajl" => :optional
+  depends_on "yajl"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--enable-json" if build.with?("yajl")
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-json"
     system "make"
     system "make", "install"
   end

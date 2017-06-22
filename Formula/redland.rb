@@ -67,8 +67,8 @@ class Redland < Formula
 
         if build.with? "ruby"
           `ruby --version` =~ /ruby (\d\.\d).\d \(.*\) \[(.*)\]/
-          ruby_install_dir = lib + "ruby/site_ruby/" + $1
-          ruby_arch_install_dir = ruby_install_dir + $2
+          ruby_install_dir = lib + "ruby/site_ruby/" + Regexp.last_match(1)
+          ruby_arch_install_dir = ruby_install_dir + Regexp.last_match(2)
           ruby_install_dir.mkpath
           ruby_arch_install_dir.mkpath
           args << "--with-ruby"

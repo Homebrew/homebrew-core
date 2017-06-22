@@ -1,5 +1,5 @@
 class GoogleJavaFormat < Formula
-  desc "reformats Java source code to comply with Google Java Style."
+  desc "Reformats Java source code to comply with Google Java Style."
   homepage "https://github.com/google/google-java-format"
   url "https://github.com/google/google-java-format/archive/google-java-format-1.3.tar.gz"
   sha256 "d334b9bffb8cb6c9078a5b0cc0982515226838422b3705c05934413999a69d65"

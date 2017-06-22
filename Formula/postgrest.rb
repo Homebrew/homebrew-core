@@ -6,15 +6,15 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
-  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.2.0.tar.gz"
+  sha256 "9337d8f623a748d789d9a580fb5e5538e225b654eaaad94d5eac8df2cdeaeb5e"
   revision 1
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
-    sha256 "bd954738a49778863f1be944532aabfd239f4d7fcfd7662b5ac5a17d0ec0a66a" => :sierra
-    sha256 "8c55e41a94e4653c6bdfffe74848768cb723d318df82c79a1374ff606e8fcd64" => :el_capitan
-    sha256 "20b20d5183a9ab6083926b62491276c1d6fd4df831e735a294a6f45f9cefc050" => :yosemite
+    sha256 "177b1866ff455308bdd5752ceee48866ef68b5c723aa2661e77d9cf636cdbf64" => :sierra
+    sha256 "84cce0bbfadb1f1bca40a84af4c4e3a4033698de33fd5d5a5efcb32bbd8f5dd9" => :el_capitan
+    sha256 "8d18b2c13b44e60a7f62052af7a0e2ccb197f4f992300a21efc04ef3fa882a77" => :yosemite
   end
 
   depends_on "ghc" => :build

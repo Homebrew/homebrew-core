@@ -8,9 +8,10 @@ class Reposurgeon < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e34761c579d091ae9448b794f2d50448a21f4da8515acf0bc12685f8836cc3f" => :sierra
-    sha256 "6de5b68703983ac4e6210e69ee5b2014aa5d0c24778ba946dca43ba370cf4158" => :el_capitan
-    sha256 "761f69aa74c3a931ff8f7affdce5848251a5d71d5b082dbba79bd5e444cc0997" => :yosemite
+    rebuild 1
+    sha256 "c854e5ad35c59bd1c717f8f232f7e581b2423d80836541156255f44f0de6aecb" => :sierra
+    sha256 "38730f4bde6958779efb2f19096f45579920d18e926eedc9adc55311d9b05efa" => :el_capitan
+    sha256 "0aaefd3b688bdcfda7a3b53c485c97d5a7bcd50138dd84b9626da15aa07cfe38" => :yosemite
   end
 
   option "without-cython", "Build without cython (faster compile)"
@@ -18,11 +19,7 @@ class Reposurgeon < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
-  end
+  depends_on "cython" => [:build, :recommended]
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -30,14 +27,11 @@ class Reposurgeon < Formula
     elisp.install "reposurgeon-mode.el"
 
     if build.with? "cython"
-      resource("Cython").stage do
-        system "python", *Language::Python.setup_install_args(buildpath/"vendor")
-      end
-      ENV.prepend_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+      pyincludes = Utils.popen_read("python-config --cflags").chomp
+      pylib = Utils.popen_read("python-config --ldflags").chomp
       system "make", "install-cyreposurgeon", "prefix=#{prefix}",
-             "CYTHON=#{buildpath}/vendor/bin/cython",
-             "pyinclude=" + `python-config --cflags`.chomp,
-             "pylib=" + `python-config --ldflags`.chomp
+                     "CYTHON=#{Formula["cython"].opt_bin}/cython",
+                     "pyinclude=#{pyincludes}", "pylib=#{pylib}"
     end
   end
 

@@ -1,8 +1,8 @@
 class Binutils < Formula
   desc "FSF Binutils for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftpmirror.gnu.org/binutils/binutils-2.28.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.28.tar.gz"
   sha256 "cd717966fc761d840d451dbd58d44e1e5b92949d2073d75b73fccb476d772fcf"
 
   bottle do

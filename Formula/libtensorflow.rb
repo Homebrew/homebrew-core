@@ -1,14 +1,14 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.0.1.tar.gz"
-  sha256 "deea3c65e0703da96d9c3f1162e464c51d37659dd129396af134e9e8f1ea8c05"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.2.0.tar.gz"
+  sha256 "03dbf7548d1fc1c11ed58da5fa68616f795c819f868f43478cbcaa26abed374f"
 
   bottle do
     cellar :any
-    sha256 "0f92ebdc243573a77c1cf0584b68a5c4dd155360d85b960f1aba87139d18373e" => :sierra
-    sha256 "f92bad9c13d39fb1b814db84e8dbbaf9672f05c9ba327c069db9b608b2e173e4" => :el_capitan
-    sha256 "86d31c16d7c5dc239f5a8fbdb48a3b3f281bccc79a271f792a994e41effe5a23" => :yosemite
+    sha256 "09c17052b8500ca29b16e0b0cf897ff2f1fa1ac58dbb1f8379620f74727cbe75" => :sierra
+    sha256 "5253b9433228b62e9db77e03ad76f2d03960c9e8e5d7c3888c44c9f090b38c4b" => :el_capitan
+    sha256 "148f9ee2c1a09e20dbbe126212494e76aa8a699801cd8a1f5838d8d4534f0d4d" => :yosemite
   end
 
   depends_on "bazel" => :build
@@ -23,6 +23,8 @@ class Libtensorflow < Formula
     ENV["USE_DEFAULT_PYTHON_LIB_PATH"] = "1"
     ENV["TF_NEED_OPENCL"] = "0"
     ENV["TF_NEED_CUDA"] = "0"
+    ENV["TF_NEED_MKL"] = "0"
+    ENV["TF_NEED_VERBS"] = "0"
     system "./configure"
 
     system "bazel", "build", "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow.so"

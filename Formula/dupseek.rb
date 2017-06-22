@@ -1,5 +1,5 @@
 class Dupseek < Formula
-  desc "interactive program to find and remove duplicate files."
+  desc "Interactive program to find and remove duplicate files."
   homepage "http://www.beautylabs.net/software/dupseek.html"
   url "http://www.beautylabs.net/software/dupseek-1.3.tgz"
   sha256 "c046118160e4757c2f8377af17df2202d6b9f2001416bfaeb9cd29a19f075d93"

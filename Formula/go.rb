@@ -1,12 +1,12 @@
 class Go < Formula
-  desc "The Go programming language"
+  desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.8.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.8.src.tar.gz"
-    version "1.8"
-    sha256 "406865f587b44be7092f206d73fc1de252600b79b3cacc587b74b5ef5c623596"
+    url "https://storage.googleapis.com/golang/go1.8.3.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.8.3.src.tar.gz"
+    version "1.8.3"
+    sha256 "5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -16,9 +16,20 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "70f447e2d0a5214e533699ffa7ebadccd587919b288ee609ddb4e6ac84fc64e5" => :sierra
-    sha256 "e593929c05df7894bebde4575c7e82238ca66b7a0ebf3286e2e74be39435f303" => :el_capitan
-    sha256 "9bb46c195e6b2cd66d54cd0cac9823a69ec14eb0f02efa2fd8bfffcb6d19e0b4" => :yosemite
+    sha256 "1a011d2ce120f1c0936aaa8b4c0605d8e4c0c245798eb392bad9ddcd18db16b6" => :sierra
+    sha256 "8374a1e50c6a8037515a92b07539b63bd6fa25bdd82367b7066677f772b5d787" => :el_capitan
+    sha256 "ce872cce8e12aa79e2ec688059b696b2e2080a16a1c86011271ec0c3cdc7c6af" => :yosemite
+  end
+
+  devel do
+    url "https://storage.googleapis.com/golang/go1.9beta1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.9beta1.src.tar.gz"
+    version "1.9beta1"
+    sha256 "e42dbd2071aadb28a4d293225b04b6b4215a35a7f04417a0e47ffa38f81d642d"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
   end
 
   head do

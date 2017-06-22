@@ -1,16 +1,14 @@
 class Stk < Formula
   desc "Sound Synthesis Toolkit"
   homepage "https://ccrma.stanford.edu/software/stk/"
-  url "https://ccrma.stanford.edu/software/stk/release/stk-4.5.0.tar.gz"
-  sha256 "619f1a0dee852bb2b2f37730e2632d83b7e0e3ea13b4e8a3166bf11191956ee3"
+  url "https://ccrma.stanford.edu/software/stk/release/stk-4.5.1.tar.gz"
+  sha256 "3466860901a181120d3bd0407e4aeb5ab24127a4350c314af106778c1db88594"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "fb9f9ccc2be022a9dedda6fa46ef27bee10455a164d42c11e1e03202f769c805" => :sierra
-    sha256 "8d8b488cd816e06005998c7ecf1d76a1fee75698a567073d0dc654ce64b51647" => :el_capitan
-    sha256 "3549b42faa4640d337110a5f5a44841790b1764cee11acb2145ffa638b3570a2" => :yosemite
-    sha256 "b1195d0437e7ab54130a2c49aaf2ab77f4b587b08e0bbb4513c1898f4db0c010" => :mavericks
+    sha256 "5c344b00f598b39142e6dcc1c89014285bbe262cb5da0fff0c541d3030fd2ec4" => :sierra
+    sha256 "15e49e8bd743392c616b9d7b1475e90b42f0d0850062cb4ab04b7462da0162d3" => :el_capitan
+    sha256 "d121a9d4cb0e4b9cde3bc8a2cf304e39bc2e5520506decb7e1464cdc151e4317" => :yosemite
   end
 
   option "with-debug", "Compile with debug flags and modified CFLAGS for easier debugging"

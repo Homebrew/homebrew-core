@@ -18,12 +18,12 @@ class Rpm < Formula
       :using => RpmDownloadStrategy
   version "5.4.15"
   sha256 "d4ae5e9ed5df8ab9931b660f491418d20ab5c4d72eb17ed9055b80b71ef6c4ee"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "a3c01318b36b61c27dafa2c2e2fdc4f47a3b4dd0711e40f38f005a9a011d8958" => :sierra
-    sha256 "b0c2b8f564ce9a39ba6ba4287906b426420a23689105e381b684c812ba4372fe" => :el_capitan
-    sha256 "29bc65fb2f35846f07630b4b38099723ffd920ca6569e4ee72c495bda38ebcc2" => :yosemite
+    sha256 "3e4d2a304cf1cc10cb12a1c57474850c2715c279522e62ea3310c66ba510ad1e" => :sierra
+    sha256 "e597c4a7937e92473250f931e70adc682214190848bd29ed99505154e98c0903" => :el_capitan
+    sha256 "3a276b6a3f7273f8f88effbb057e8d65fc53fa9e812054951bfdd5ce618f54ac" => :yosemite
   end
 
   depends_on "rpm2cpio" => :build

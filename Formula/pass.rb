@@ -1,16 +1,17 @@
 class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
-  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.tar.xz"
-  sha256 "161ac3bd3c452a97f134aa7aa4668fe3f2401c839fd23c10e16b8c0ae4e15500"
+  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.1.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/password-store/password-store_1.7.1.orig.tar.xz"
+  sha256 "f6d2199593398aaefeaa55e21daddfb7f1073e9e096af6d887126141e99d9869"
 
   head "https://git.zx2c4.com/password-store", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02acc93c5b5d1fe7531f9c7288c0c893442e7f3d3d576ac9c0d0027210035a87" => :sierra
-    sha256 "02acc93c5b5d1fe7531f9c7288c0c893442e7f3d3d576ac9c0d0027210035a87" => :el_capitan
-    sha256 "02acc93c5b5d1fe7531f9c7288c0c893442e7f3d3d576ac9c0d0027210035a87" => :yosemite
+    sha256 "cde7a0225dbcd62b9cc9d8e5e8d9ed8e0534bbe590cb3cc974cc31a8177defdd" => :sierra
+    sha256 "692b37f152b5bad4d841323c7938b8d1f94c858026d7ad941b7a270ee9503705" => :el_capitan
+    sha256 "692b37f152b5bad4d841323c7938b8d1f94c858026d7ad941b7a270ee9503705" => :yosemite
   end
 
   depends_on "qrencode"
@@ -25,9 +26,24 @@ class Pass < Formula
   end
 
   test do
-    Gpg.create_test_key(testpath)
-    system bin/"pass", "init", "Testing"
-    system bin/"pass", "generate", "Email/testing@foo.bar", "15"
-    assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
+    (testpath/"batch.gpg").write <<-EOS.undent
+      Key-Type: RSA
+      Key-Length: 2048
+      Subkey-Type: RSA
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %no-protection
+      %commit
+    EOS
+    begin
+      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system bin/"pass", "init", "Testing"
+      system bin/"pass", "generate", "Email/testing@foo.bar", "15"
+      assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
+    ensure
+      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+    end
   end
 end

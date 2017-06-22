@@ -1,20 +1,24 @@
 class Expat < Formula
   desc "XML 1.0 parser"
-  homepage "https://expat.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/expat/expat/2.2.0/expat-2.2.0.tar.bz2"
-  mirror "https://fossies.org/linux/www/expat-2.2.0.tar.bz2"
-  sha256 "d9e50ff2d19b3538bd2127902a89987474e1a4db8e43a66a4d1a712ab9a504ff"
+  homepage "https://libexpat.github.io/"
+  url "https://downloads.sourceforge.net/project/expat/expat/2.2.1/expat-2.2.1.tar.bz2"
+  mirror "https://fossies.org/linux/www/expat-2.2.1.tar.bz2"
+  sha256 "1868cadae4c82a018e361e2b2091de103cd820aaacb0d6cfa49bd2cd83978885"
   head "https://github.com/libexpat/libexpat.git"
 
   bottle do
     cellar :any
-    sha256 "5e88f87911f6bc4da80d7c184bdda34e6c8de41740f6536602517a933e9ea9bb" => :sierra
-    sha256 "b12ee86df3f1faa5eb07e2624ab464428d9b96fb09cadc25a20fe7a065459f54" => :el_capitan
-    sha256 "228e8d539fc0447150a0f1508cad4ab33347e45178964966df0802389b0c5a3d" => :yosemite
-    sha256 "48dcc5c1d0dedd3ebac9e238ff5e5cf1d725577062f5902cb58cfcb9f105d5f2" => :mavericks
+    sha256 "5703d1c1102f1228d6112eec9e127a43568bcf6ad2c5500195cfa6f14245c94a" => :sierra
+    sha256 "31d368c2d0fbeee449e47af09aa28bc81b4f820a5ec0f240d0da2701fcfb2122" => :el_capitan
+    sha256 "d58a80f9cca7e993f6b001fb0defeb68ced7b9cd05c39a787a355a4bf915d5f2" => :yosemite
   end
 
-  keg_only :provided_by_osx, "macOS includes Expat 1.5."
+  keg_only :provided_by_osx, "macOS includes Expat 1.5"
+
+  # Upstream commit from 18 Jun 2017 "configure.ac: Fix mis-detection of
+  # getrandom on Debian GNU/kFreeBSD (#50)"
+  # See https://github.com/libexpat/libexpat/commit/602e6c78ca750c082b72f8cdf4a38839b312959f
+  patch :DATA
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -61,3 +65,16 @@ class Expat < Formula
     assert_equal "tag:str|data:Hello, world!|", shell_output("./test")
   end
 end
+
+__END__
+--- a/configure
++++ b/configure
+@@ -16341,7 +16341,7 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+   }
+
+ _ACEOF
+-if ac_fn_c_try_compile "$LINENO"; then :
++if ac_fn_c_try_link "$LINENO"; then :
+
+
+ $as_echo "#define HAVE_GETRANDOM 1" >>confdefs.h

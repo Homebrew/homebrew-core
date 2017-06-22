@@ -4,19 +4,19 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.3.0",
-      :revision => "ce7908cdac87af1e3b02ac4038fc3985602cf95a"
+      :tag => "v5.4.2",
+      :revision => "5aaf7ebf6cd3398b2ba6076d4e4e7e070e19a5a3"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "d8b6ffb613c4ed5d693ea5f573e053a79db5edceef482f55da162281d07fe043" => :sierra
-    sha256 "951fe3873fdfd6680a782a4e3d64c12a4a6f602e020a618230d3480d67db09a7" => :el_capitan
-    sha256 "a4ebfa26082bc70303afa9e3a6e03ec2c1b87622d8ba95a684fbedfaa85d056e" => :yosemite
+    sha256 "a75da0f16938158115a33fdbf174455a3222e678f777fb4f0816a0d228240c5f" => :sierra
+    sha256 "0647928b4dbc647dfa3d77d8595772c5a38c4fa90354075d5361964e95bed251" => :el_capitan
+    sha256 "554603e55678449e7fc3bfb170deed2b04d5b5f5ec383b7920373697f28ba0ee" => :yosemite
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.9.5/node-v6.9.5.tar.xz"
-    sha256 "d7fed1a354b29503f3e176d7fdb90b1a9de248e0ce9b3eb56cc26bb1f3d5b6b3"
+    url "https://nodejs.org/dist/v6.10.2/node-v6.10.2.tar.xz"
+    sha256 "80aa11333da99813973a99646e2113c6be5b63f665c0731ed14ecb94cbe846b6"
   end
 
   def install
@@ -27,7 +27,7 @@ class Kibana < Formula
     end
 
     # do not build packages for other platforms
-    platforms = Set.new(["darwin-x64", "linux-x64", "linux-x86", "windows-x86"])
+    platforms = Set.new(["darwin-x64", "linux-x64", "windows-x64"])
     if MacOS.prefer_64_bit?
       platform = "darwin-x64"
     else
@@ -36,7 +36,6 @@ class Kibana < Formula
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
     inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
-    inreplace buildpath/"tasks/build/notice.js", /linux-x64/, "darwin-x64"
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"

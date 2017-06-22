@@ -6,13 +6,13 @@ class AprUtil < Formula
   revision 4
 
   bottle do
-    rebuild 1
-    sha256 "315f64f6b345302aaeb9eb6635b6679e7460757da0cb1555f3610387813a44c7" => :sierra
-    sha256 "d305a48dad4a0ceb01cc9cc874fbac7b18a6d1721cc4e385f8614dd6d666cbdb" => :el_capitan
-    sha256 "df0ccddb589927e907f83149156b274dfaaaf8f82067f901f38789728a3193dc" => :yosemite
+    rebuild 2
+    sha256 "1feb3b7b790cbe28922c4abdec6264f930206ab6674a6c90a8489b668051f5db" => :sierra
+    sha256 "56a0274b232f3f31f627dca837db4df941719d817fec108fdac7c9acac739caa" => :el_capitan
+    sha256 "29aefc556d7712da0a957d9b34e4e6e320f3997922a1b1b18705c486acfb6890" => :yosemite
   end
 
-  keg_only :provided_by_osx, "Apple's CLT package contains apr."
+  keg_only :provided_by_osx, "Apple's CLT package contains apr"
 
   depends_on "apr"
   depends_on "openssl"
@@ -21,7 +21,7 @@ class AprUtil < Formula
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
-  depends_on "homebrew/dupes/openldap" => :optional
+  depends_on "openldap" => :optional
 
   def install
     # Stick it in libexec otherwise it pollutes lib with a .exp file.

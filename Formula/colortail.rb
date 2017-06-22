@@ -19,7 +19,7 @@ class Colortail < Formula
 
   # Upstream PR to fix the build on ML
   patch do
-    url "https://github.com/joakim666/colortail/pull/12.diff"
+    url "https://github.com/joakim666/colortail/commit/36dd0437bb364fd1493934bdb618cc102a29d0a5.diff"
     sha256 "2bb9963f6fc586c8faff3b51a48896cf09c68c4229c39c6ae978a59cb58d0fd7"
   end
 

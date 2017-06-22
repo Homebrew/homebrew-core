@@ -4,24 +4,30 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.23.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.23.tar.xz"
-  sha256 "cc08802a0cea2ccd0c10716bc71531ff9b9234dd454b83a59f71117a37f36923"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.24.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.24.tar.xz"
+  sha256 "d853081d3e06bfd46a227056e591f094e42e78fa8a5793b0093bad30b710d7b4"
 
   bottle do
-    sha256 "da977afc391afc86460a5deac82d9b2da95d3e7f2697a6cb1e8657bbbf5a7462" => :sierra
-    sha256 "2ed46ae760f9fa6e8bc9c52932044f79d19ec71c60f92c9d59458049ad7c1538" => :el_capitan
-    sha256 "51a1c27b4bbb276d5e4f2fae4fd47b24398525b735e0717d88b463b646362267" => :yosemite
+    sha256 "9e8db9fe18ba33977e4fd45375248da847c481d2f1b58b82b18c90671bace287" => :sierra
+    sha256 "d830b2d5460fce38ab859d8d3d3a4ce618e32b3ad08ea3d7020a0ecc214aeb18" => :el_capitan
+    sha256 "9bf757d4e0e3902bbbc97a28a2532ac1a3c8220ad487c5a18a38925483e43062" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
+  depends_on "gpatch"
   depends_on "xz" # For LZMA
 
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
     ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
+
+    # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences
+    # of the CVE-2017-8283 vulnerability.
+    # http://www.openwall.com/lists/oss-security/2017/04/20/2
+    ENV["PATCH"] = Formula["gpatch"].opt_bin/"patch"
 
     # Theoretically, we could reinsert a patch here submitted upstream previously
     # but the check for PERL_LIB remains in place and incompatible with Homebrew.

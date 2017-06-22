@@ -3,12 +3,13 @@ class Mapserver < Formula
   homepage "http://mapserver.org/"
   url "http://download.osgeo.org/mapserver/mapserver-7.0.4.tar.gz"
   sha256 "c91d40da5cc242b20ca7e29c41bd9eb23097b98a77908b1d708e9708f6f6cf69"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ca153f9d18dd67a56243d5e35075912fe2ea64c5cdb7bed48d269c2f0c50c8c0" => :sierra
-    sha256 "e3d905a18cd9509733225f01c879aeb2a170406dc5b34dd072252f30dc7db724" => :el_capitan
-    sha256 "152152b5084d353299b06dc55c09b8cd64c4607d227a991f7c2de467f5b9c0fc" => :yosemite
+    sha256 "770f4416f9dad46fb24d4c77655ce5b4f0fde80c01e87140d6d01fd3be010f5b" => :sierra
+    sha256 "410fcf486c9f534ed45fa676f3ac12b08dfa7765a0d4b611deef2736231922cd" => :el_capitan
+    sha256 "750bf42407ba4718345924fb793a5cb7101d6abb93af3be9776e47bbdea8d74c" => :yosemite
   end
 
   option "with-fastcgi", "Build with fastcgi support"
@@ -41,6 +42,7 @@ class Mapserver < Formula
       -DWITH_WFS=ON
       -DWITH_FRIBIDI=OFF
       -DWITH_HARFBUZZ=OFF
+      -DPYTHON_EXECUTABLE:FILEPATH=#{which("python")}
     ]
 
     # Install within our sandbox.

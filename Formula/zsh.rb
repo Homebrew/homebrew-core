@@ -1,6 +1,7 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
+  revision 1
 
   stable do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.xz"
@@ -11,12 +12,21 @@ class Zsh < Formula
     # building zsh.texi is not available.
     option "with-texi2html", "Build HTML documentation"
     depends_on "texi2html" => [:build, :optional]
+
+    # Remove for > 5.3.1
+    # Upstream commit from 10 Jan 2017 "40305: fix some problems redisplaying
+    # command line after"
+    # See https://github.com/zsh-users/zsh/commit/34656ec2f00d6669cef56afdbffdd90639d7b465
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0b7bf62/zsh/fix-autocomplete.patch"
+      sha256 "4f70882293e2d936734c7ddf40e296da7ef5972fa6f43973b9ca68bf028e2c38"
+    end
   end
 
   bottle do
-    sha256 "054988ed570c911f1758f08b71777707154101b180570577d1d4a4380043a041" => :sierra
-    sha256 "8fb846fbfb27744a50b4e5cff2767f6fca49016f356bd6273dedfc8e2abdd919" => :el_capitan
-    sha256 "4ca1f10d588cedb061826c6a6aa0bbde233627cf86188deed0bd07321f91d739" => :yosemite
+    sha256 "d2d06b18e4d6daccc5d2e344ecc6c2a4cf4ea46dd349e6ab0f021cd5064b6b7b" => :sierra
+    sha256 "21c94f839f949ec6007948a34d7a5861874e73b2fdfed60edc238d42aa5016a6" => :el_capitan
+    sha256 "130c8b5367cd7f94f6ff0de8a6d02c723671263a5e49e361dd502b3dbc737073" => :yosemite
   end
 
   head do

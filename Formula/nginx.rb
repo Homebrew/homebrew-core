@@ -1,19 +1,21 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.10.3.tar.gz"
-  sha256 "75020f1364cac459cb733c4e1caed2d00376e40ea05588fb8793076a4c69dd90"
+  url "https://nginx.org/download/nginx-1.12.0.tar.gz"
+  sha256 "b4222e26fdb620a8d3c3a3a8b955e08b713672e1bc5198d1e4f462308a795b30"
+  revision 1
+
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "365060465e5306d95ba6c2fb3d4463f9a343dfd2b5b2aa7e904372842834dfea" => :sierra
-    sha256 "5d6e5cde3a9ee66fca63e3c0c7988bfbc2db606729cfd220550f2433a6932a98" => :el_capitan
-    sha256 "39896b77f0ada05c5a01ac481023429a7baf09097cf5992a3db2d68cc6b7069f" => :yosemite
+    sha256 "b57e068963566e2c945f9fccf0c643b2ad650136e434b9d6dac08b7e4fca47ec" => :sierra
+    sha256 "da5b826fd1dfa5647cacdf02fa49fc0d95168912fedba13ec6214091a0216327" => :el_capitan
+    sha256 "220078c438d928056c9f3983d74a21ae1608d6c9d8a42ba68ad7dcb396da5599" => :yosemite
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.11.12.tar.gz"
-    sha256 "2aff7f9396d1f77256efc363e1cc05ba52d40a29e6de4d9bc08aa444eea14122"
+    url "https://nginx.org/download/nginx-1.13.1.tar.gz"
+    sha256 "a5856c72a6609a4dc68c88a7f3c33b79e6693343b62952e021e043fe347b6776"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -22,10 +24,7 @@ class Nginx < Formula
   option "with-passenger", "Compile with support for Phusion Passenger module"
   option "with-webdav", "Compile with support for WebDAV module"
   option "with-debug", "Compile with support for debug log"
-  option "with-http2", "Compile with support for the HTTP/2 module"
   option "with-gunzip", "Compile with support for gunzip module"
-
-  deprecated_option "with-spdy" => "with-http2"
 
   depends_on "pcre"
   depends_on "passenger" => :optional
@@ -74,6 +73,7 @@ class Nginx < Formula
       --http-log-path=#{var}/log/nginx/access.log
       --error-log-path=#{var}/log/nginx/error.log
       --with-http_gzip_static_module
+      --with-http_v2_module
     ]
 
     if build.with? "passenger"
@@ -81,11 +81,9 @@ class Nginx < Formula
       args << "--add-module=#{nginx_ext}"
     end
 
-    args << "--with-ipv6" if build.stable?
     args << "--with-http_dav_module" if build.with? "webdav"
     args << "--with-debug" if build.with? "debug"
     args << "--with-http_gunzip_module" if build.with? "gunzip"
-    args << "--with-http_v2_module" if build.with? "http2"
 
     if build.head?
       system "./auto/configure", *args

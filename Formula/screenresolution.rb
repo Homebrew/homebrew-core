@@ -13,9 +13,6 @@ class Screenresolution < Formula
     sha256 "9e6944af938c0c9ec9e1e4a79a6849fabb222baa0d977a9425bee6a2827595d0" => :mavericks
   end
 
-  # Uses CGDisplayModeRef type, introduced in 10.6
-  depends_on :macos => :snow_leopard
-
   def install
     system "make", "CC=#{ENV.cc}"
     system "make", "PREFIX=#{prefix}", "install"

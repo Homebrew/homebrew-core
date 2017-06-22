@@ -1,13 +1,13 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.4.tar.xz"
-  sha256 "f8fdc5fc66356dc4edf915048cceeee065a0e0cb70b3b2598f62bda320129a3e"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.6.tar.xz"
+  sha256 "ca152b7383a1e9f7fd74ae96023dc6770dc5043414793bfe768ff06b6759e573"
 
   bottle do
-    sha256 "a3099d0b90c8f2eb594782877777391a70a65ec579df477b02c3e60306536ce5" => :sierra
-    sha256 "0bcbfb2561ee8b7d7e43724d05461a1f33c4063fb56b3c508951e8871c047f90" => :el_capitan
-    sha256 "954959c96ca8d1a7a94fc1c8932d28801728a0a7f6d5e9510677d6585b7c3347" => :yosemite
+    sha256 "9a3b7c067180b377e5caac5debdb477feda07db598602d34c9e037b6c4701402" => :sierra
+    sha256 "fda967c19a3c80effebe70dd1389ce443d662ef572ec84485c64060d60c2474c" => :el_capitan
+    sha256 "9be657bfbfb322e057022b10255fffbe3f18994e20a49de3a43ec55921fd1dd8" => :yosemite
   end
 
   head do
@@ -20,32 +20,23 @@ class Pango < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
-  depends_on "glib"
   depends_on "cairo"
-  depends_on "harfbuzz"
   depends_on "fontconfig"
+  depends_on "glib"
   depends_on "gobject-introspection"
+  depends_on "harfbuzz"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --enable-man
-      --with-html-dir=#{share}/doc
-      --enable-introspection=yes
-      --enable-static
-    ]
-
-    if build.with? "x11"
-      args << "--with-xft"
-    else
-      args << "--without-xft"
-    end
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-html-dir=#{share}/doc",
+                          "--enable-introspection=yes",
+                          "--enable-man",
+                          "--enable-static",
+                          "--without-xft"
+
     system "make"
     system "make", "install"
   end

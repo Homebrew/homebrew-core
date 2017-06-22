@@ -2,16 +2,14 @@ class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
   homepage "https://wiki.archlinux.org/index.php/makepkg"
   url "https://projects.archlinux.org/git/pacman.git",
-      :tag => "v5.0.1",
-      :revision => "f38de43eb68f1d9c577b4378310640c1eaa93338"
-  revision 1
-
+      :tag => "v5.0.2",
+      :revision => "0c633c27eaeab2a9d30efb01199579896ccf63c9"
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
-    sha256 "d8d4be7d77ef9964f310054ea50a7c577002a4ed79fbeab7b0f76c481851c878" => :sierra
-    sha256 "e8e801eb7fd95203b695c1be269ea163a0fd5c964a9bd81d88815417957e117a" => :el_capitan
-    sha256 "cb6989f1b3b7f7bf6fbb686d514191d50684345156b4a7ef51633d17fb7e01a5" => :yosemite
+    sha256 "457411b6d7fd00d32cde12826b55a93fbb6d59552215a19d7289550e64d3880a" => :sierra
+    sha256 "3052d0fdbd76e5e277f0e463eff423249e9b0c08c126a6d27affa1e5c69335ed" => :el_capitan
+    sha256 "64718b5dff7f979eaabd7f9d6aa18d56156bdfbd90f767820f1de6823361d870" => :yosemite
   end
 
   # libalpm now calls fstatat, which is only available for >= 10.10
@@ -21,7 +19,8 @@ class Makepkg < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
-  depends_on "asciidoc" => ["with-docbook-xsl", :build]
+  depends_on "asciidoc" => :build
+  depends_on "docbook-xsl" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libarchive"

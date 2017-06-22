@@ -1,13 +1,13 @@
 class Latexila < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.0.tar.xz"
-  sha256 "2c47d6bf0a647715a3029af2b38099e9dac0c4a0a60c122917b36afd3f6ce31f"
+  url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.1.tar.xz"
+  sha256 "fd4c7bf68f29db292127e97b21c5a6d41c03eee73b9e8eca706375452b479007"
 
   bottle do
-    sha256 "ed89fce16151b4f639aace9da401b28d9a97b6e7d431d0db0501d463f91b1282" => :sierra
-    sha256 "d72177928abac4aea9e52704c5d8b6b8c8b86a6683f05968c3010a6fcda048a1" => :el_capitan
-    sha256 "1f9b9bac1620676ded276ba07255fb6bf33bb9ac88018453f4d9dde8b0a970e6" => :yosemite
+    sha256 "555752d351e0c83809db83a12826fafc70eb8b3f42cd6cec562c94ed2e980cce" => :sierra
+    sha256 "cdd1d3f32364007b576187d44169beb7a108f36d10bcac8814c6bf642b4d5833" => :el_capitan
+    sha256 "096af7f51fab05c9f5bd467fde1f1a2628490217f29bc7354ee5d2a4762d6032" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -21,7 +21,7 @@ class Latexila < Formula
   depends_on "gobject-introspection"
   depends_on "gnome-icon-theme"
   depends_on "gnome-themes-standard" => :optional
-  depends_on "libxml2" => "with-python"
+  depends_on "libxml2"
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install

@@ -1,15 +1,14 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "http://www.rarlab.com"
-  url "http://www.rarlab.com/rar/unrarsrc-5.4.5.tar.gz"
-  sha256 "e470c584332422893fb52e049f2cbd99e24dc6c6da971008b4e2ae4284f8796c"
-  revision 1
+  url "http://www.rarlab.com/rar/unrarsrc-5.5.5.tar.gz"
+  sha256 "a4553839cb2f025d0d9c5633816a83a723e3938209f17620c8c15da06ed061ef"
 
   bottle do
     cellar :any
-    sha256 "4f4dc2cec588ab76bc09c41ce70f14edadea9973c8d355a9a309e5a4c9992b54" => :sierra
-    sha256 "eb0ae9f689c8f4018160129ca11fbfb8c8f87aa3cd99d790dfa44b70a536a1d7" => :el_capitan
-    sha256 "ee98c32d1856c375c21ad4bd43c3e52e6751209152927e7603a93ec2900ca299" => :yosemite
+    sha256 "05fa17550ff64de344006347c0e0af6d54fbd0a723d571db90e6340e4fbf9109" => :sierra
+    sha256 "8f2453d676950c922210cce792bbc761e29272d8ff6a5dbfba6ce34107495842" => :el_capitan
+    sha256 "e0ab60d95eb97a091b2dab5f0d36965d3673fde981eef971706667f6920fab1e" => :yosemite
   end
 
   def install
@@ -36,7 +35,7 @@ class Unrar < Formula
 
     rarpath.write data.unpack("m").first
     assert_equal contentpath, `#{bin}/unrar lb #{rarpath}`.strip
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
 
     system "#{bin}/unrar", "x", rarpath, testpath
     assert_equal "Homebrew\n", (testpath/contentpath).read

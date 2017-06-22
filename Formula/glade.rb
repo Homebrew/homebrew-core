@@ -6,9 +6,10 @@ class Glade < Formula
   revision 1
 
   bottle do
-    sha256 "5ce422e93894c6136ef3df57e8440c482c0bfac5277a41ed8f2fc79879caec86" => :sierra
-    sha256 "93e1cacb5f672dd4913191e16f81a6c24ca45943faf7493f7b0b0363dbfe69d6" => :el_capitan
-    sha256 "97be70ab4496c03f9fae820dffaaa5fcc9c1d3399adbe797bbe52e50ab1aad76" => :yosemite
+    rebuild 1
+    sha256 "01d2d5d6277b331485281d6668d5a2494367813a7cf09e4eb3670955ace238aa" => :sierra
+    sha256 "420cee7949561ae0c5ed7d5c7472a83b655d8dc427bdf965b49d7e989c71fe4e" => :el_capitan
+    sha256 "8c9c09600f97e65562ac8afc4eebe3a66a8122db850f86aacc65195e4f97ccfd" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -59,24 +60,31 @@ class Glade < Formula
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    gtkx = Formula["gtk+3"]
+    gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
+    libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
+    pcre = Formula["pcre"]
     pixman = Formula["pixman"]
-    flags = %W[
+    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    flags += %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
+      -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtkx.opt_include}/gtk-3.0
-      -I#{gtkx.opt_lib}/gtk-3.0/include
+      -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgladeui-2.0
+      -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
+      -I#{pcre.opt_include}
       -I#{pixman.opt_include}/pixman-1
       -D_REENTRANT
       -L#{atk.opt_lib}
@@ -84,18 +92,19 @@ class Glade < Formula
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
-      -L#{gtkx.opt_lib}
+      -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lcairo-gobject
+      -lgdk-3
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lgladeui-2
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
+      -lgtk-3
       -lintl
       -lpango-1.0
       -lpangocairo-1.0

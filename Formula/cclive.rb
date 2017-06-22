@@ -24,4 +24,10 @@ class Cclive < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    url = "https://youtu.be/VaVZL7F6vqU"
+    output = shell_output("#{bin}/cclive --no-download #{url} 2>&1")
+    assert_match "Martin Luther King Jr Day", output
+  end
 end

@@ -2,15 +2,15 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.2.3",
-      :revision => "1402a4d6ec9fb349e17b912e32fe259ca21181e3"
+      :tag => "v2.5.0",
+      :revision => "012cb0ac1a1b2f888144ef5a67b8dab6c2d45be6"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df4ca14688105118d77281dd23a30198b2491f510bea8aa05ce0026fc6c7d745" => :sierra
-    sha256 "e6c697f33a299ca293db4c81232a96ab5e52ea08eb839dd80578601019029e1d" => :el_capitan
-    sha256 "6d521c604d9860d00bd7d0c55ee1f7590a63af9e9e1d5b8b6ef3b1766ed62c04" => :yosemite
+    sha256 "9210f647404f11ba0f4b6eb4b9723de0ce3c005a301732cfd3ad6e35504aa69e" => :sierra
+    sha256 "88084b5f890ecd0da9306aea1e840ca274f10e9054a617ec027b807f44cdbb26" => :el_capitan
+    sha256 "01bd3eedfbed2600f05a5733c21bad6cd4f8965dc55d9f08026fffa2f89fcc20" => :yosemite
   end
 
   depends_on :hg => :build
@@ -33,6 +33,10 @@ class KubernetesHelm < Formula
       # Make binary
       system "make", "build"
       bin.install "bin/helm"
+      bin.install "bin/tiller"
+
+      # Install man pages
+      man1.install Dir["docs/man/man1/*"]
 
       # Install bash completion
       bash_completion.install "scripts/completions.bash" => "helm"
@@ -45,5 +49,6 @@ class KubernetesHelm < Formula
 
     version_output = shell_output("#{bin}/helm version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
+    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
   end
 end

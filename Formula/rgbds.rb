@@ -1,23 +1,22 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/archive/v0.2.5.tar.gz"
-  sha256 "4bf10cbdd1f8f528c36d8ce92cc072d21e582fd75b5c21d13194b09d5c60ab25"
-
+  url "https://github.com/rednex/rgbds/archive/v0.3.1.tar.gz"
+  sha256 "3f58bc39fe9e90168d7618093160ce3caf9bdd3cfda311e92f618eb7ccba6f2d"
   head "https://github.com/rednex/rgbds.git"
 
   bottle do
     cellar :any
-    sha256 "32bd3ca1a387e01d23ccc2b621b700c3f45bf7626b9bef91613c722b023eb77d" => :sierra
-    sha256 "9dbd994deb0e9f78e3bdaaefe4aa23b44b3a4cae1beddf87032f72ae006263ff" => :el_capitan
-    sha256 "7f71d3c42a1bb7908401f8bc45d3cd7ec00c48d6423c42c8b7add48e866d753f" => :yosemite
+    sha256 "92eaf4a84c12a39bacb64f4e01ccf431798822a432a8215f69ebbaab924823fc" => :sierra
+    sha256 "b5afb551e61a709eb6333276e0d5b16dced5ec7e08c138e5f702582caa03347b" => :el_capitan
+    sha256 "38f4d8ce78bf285e753f7bfc43cf222ecc40471f34bb7672b4ac35be9f85e0a7" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpng" => :build
+  depends_on "libpng"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "PNGFLAGS=-I#{Formula["libpng"].opt_include}"
+    system "make", "install", "PREFIX=#{prefix}", "mandir=#{man}"
   end
 
   test do

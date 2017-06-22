@@ -90,6 +90,7 @@ class Fontforge < Formula
 
   test do
     system bin/"fontforge", "-version"
+    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
     system "python", "-c", "import fontforge"
   end
 end

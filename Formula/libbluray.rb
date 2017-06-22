@@ -1,14 +1,14 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/pub/videolan/libbluray/1.0.0/libbluray-1.0.0.tar.bz2"
-  sha256 "f7e3add335c7bbef45824fcd2249a9bf293868598c13f8479352c44ec95374cc"
+  url "https://download.videolan.org/pub/videolan/libbluray/1.0.1/libbluray-1.0.1.tar.bz2"
+  sha256 "0f9f9a1db2f48cafc70ed2596ff3594b597e2027408f5f2be6191c245d67853a"
 
   bottle do
     cellar :any
-    sha256 "11ebf8f77e5562b5eed56947c226ad6296c19ff1b0673c0c6193d371bcb3b662" => :sierra
-    sha256 "4c77115e125da37a65fc2e25dc5c81fc3570a929ad326260ebf34c6766ce14ef" => :el_capitan
-    sha256 "9fc846e7a84e60a6a19c5efc3f9e8cc433cc980761b232e4f99775afa3769b8a" => :yosemite
+    sha256 "027cc70d3f1d213fb2fc94c7ee11fa68e14da49c5028276a0ada242cc16da37a" => :sierra
+    sha256 "a34fd7a55a8a5322a2e389889c9ec9c9e39638c59c9bb1ecfc22d2e7fa9c1298" => :el_capitan
+    sha256 "967f6e43aa8e1be447a837d3eee4dd7d4542918ca375b0d1d14b6fa2dafa7c94" => :yosemite
   end
 
   head do
@@ -19,12 +19,10 @@ class Libbluray < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-ant", "Disable Support for BD Java"
-
+  depends_on "ant" => :build
   depends_on "pkg-config" => :build
-  depends_on "freetype" => :recommended
   depends_on "fontconfig"
-  depends_on "ant" => [:build, :optional]
+  depends_on "freetype" => :recommended
 
   def install
     # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
@@ -32,7 +30,6 @@ class Libbluray < Formula
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
     args << "--without-freetype" if build.without? "freetype"
-    args << "--disable-bdjava" if build.without? "ant"
 
     system "./bootstrap" if build.head?
     system "./configure", *args

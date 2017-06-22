@@ -3,12 +3,13 @@ class Gtkmm3 < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.0.tar.xz"
   sha256 "05da4d4b628fb20c8384630ddf478a3b5562952b2d6181fe28d58f6cbc0514f5"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f4b74a3653a650d6673252ec452828cc77c19b785eca7dbc1896d2f0d9d67750" => :sierra
-    sha256 "19c9ff80587d879c5971fe677170609d85066cb3a0fe66846af82d84a64f02f0" => :el_capitan
-    sha256 "08b2a592bb496de2d0b5e18cb260b4b214b8993ece9038340dc338bef0f2b488" => :yosemite
+    sha256 "44bace026b2f99cd52f6fd38944d900464ed97675566b9d58c1635efa8d54ee0" => :sierra
+    sha256 "a7f83483da7dcbe06e4f4ce7d0ebb248b9280959c011162aee08063543a5074b" => :el_capitan
+    sha256 "78002f674ecec3f63842e65abc73fbaec4235d44a61cac6378cb4e5544a2cb5b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,13 +18,6 @@ class Gtkmm3 < Formula
   depends_on "atkmm"
 
   needs :cxx11
-
-  # circumvent a bug in gtk+3
-  # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772281
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/60d3df52/gtkmm3/gtk_clipboard_get_selection.patch"
-    sha256 "0849da0516850eeffdab22941aa5d30cca40d4a7775683665e044b84d5ca0d85"
-  end
 
   def install
     ENV.cxx11

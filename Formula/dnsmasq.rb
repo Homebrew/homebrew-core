@@ -1,15 +1,13 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
-  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.76.tar.gz"
-  sha256 "777c4762d2fee3738a0380401f2d087b47faa41db2317c60660d69ad10a76c32"
+  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
+  sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "98d0c8520998b8038c610e43db5fc2f215a164c02810718e6e508d4651f6f523" => :sierra
-    sha256 "be3f214a1a48bee2aa64f8602d1227a1fb7f60ad7e30d1241b3e5b8410ec40b1" => :el_capitan
-    sha256 "ff12dc78fd0b31297e333c991d37d8c1f6979d753755ddc8c09d5153cbf54a22" => :yosemite
-    sha256 "56cfdbe6df3ecff3a6ccf444d8fd79fb234f2b566abc1a4a4631d960eb16851a" => :mavericks
+    sha256 "415358496ac88fd957a33ba6d0ffe0baacc1d908f7f668e89b3bcf89181b92c1" => :el_capitan_or_later
+    sha256 "102cb81febe3c1211107bf3d8b712784446f6e44808a279936d8f232a0ae07b3" => :yosemite
   end
 
   option "with-libidn", "Compile with IDN support"

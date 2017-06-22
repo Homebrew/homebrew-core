@@ -1,15 +1,14 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com/"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.15.tar.gz"
-  sha256 "9a553c9d91eb03d954b085c6ecbe05c54526b166c8ca86f1fb27036b2f4dba03"
+  url "https://orientdb.com/download.php?file=orientdb-community-2.2.22.tar.gz"
+  sha256 "13a42109a7bbffd17fac765c691ddfd69e1c8789cc21b6eee1d25d4f82ce809f"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "359342720516992b900b46b28847870513e30223e45f09f8b2507eb5c5889ecb" => :sierra
-    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :el_capitan
-    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :yosemite
+    sha256 "d8d7b9a340025873fcbbf3dfa093468b6fcba66296b2dc07543f9a192f6a8b3f" => :sierra
+    sha256 "ac78ef356d7a8e6a6eded506c4ff13dc1a953c5d4867979c4a257cbd373e633e" => :el_capitan
+    sha256 "ac78ef356d7a8e6a6eded506c4ff13dc1a953c5d4867979c4a257cbd373e633e" => :yosemite
   end
 
   def install
@@ -48,7 +47,6 @@ class Orientdb < Formula
     sleep 3
     system "#{bin}/orientdb", "start"
     sleep 3
-
   ensure
     system "#{bin}/orientdb", "stop"
   end
@@ -99,7 +97,7 @@ class Orientdb < Formula
       "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     begin
-      assert_match /OrientDB console v.2.2.15/, pipe_output("#{bin}/orientdb-console \"exit;\"")
+      assert_match "OrientDB console v.#{version}", pipe_output("#{bin}/orientdb-console \"exit;\"")
     end
   end
 end

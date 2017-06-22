@@ -1,15 +1,15 @@
 class RiemannClient < Formula
   desc "C client library for the Riemann monitoring system"
   homepage "https://github.com/algernon/riemann-c-client"
-  url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-1.9.1.tar.gz"
-  sha256 "6c8279362384e0ee01cb84a12f645bf7229c7d61f565158fe4ecc82c36ce8dc0"
+  url "https://github.com/algernon/riemann-c-client/archive/riemann-c-client-1.10.1.tar.gz"
+  sha256 "93ccef65536e0cd3a1b3301847773f50fc298a455b4294e465d73fa7daf7c8bf"
   head "https://github.com/algernon/riemann-c-client.git"
 
   bottle do
     cellar :any
-    sha256 "9856af75fe69543e8e364c86a2be2ebd044e9b3de30c32e0fb7d6274199a0b5b" => :sierra
-    sha256 "062a6545b63ecc33a9331509630443d77904132297c8beae3642aba6d2ba1b87" => :el_capitan
-    sha256 "5e17f7589983a2f2e6e58516f7b6151032744d423b222502a23e572e6566b0f1" => :yosemite
+    sha256 "c9450f504bbf36468970200f717672264059da7ddcfb1aa3adbcb00bb1ebf16f" => :sierra
+    sha256 "44a0af4942453419f6ca5c86ce24ed117069102987609c3b0381ff2139786f99" => :el_capitan
+    sha256 "0488fdbe4fc70847b15f4c2959f27ab0acf14d3ce9735fd770d43607d4efe850" => :yosemite
   end
 
   depends_on "autoconf" => :build

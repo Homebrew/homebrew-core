@@ -1,9 +1,9 @@
 class Heroku < Formula
-  desc "Everything you need to get started with Heroku"
+  desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
-  url "https://cli-assets.heroku.com/branches/stable/5.6.28-2643c0a/heroku-v5.6.28-2643c0a-darwin-amd64.tar.xz"
-  version "5.6.28-2643c0a"
-  sha256 "7d0320800410821349a0f44be1ca49619388ef934e3ae2334b7c6b1f5028da95"
+  url "https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-v6.11.14-c5f9179-darwin-x64.tar.xz"
+  version "6.11.14"
+  sha256 "f032ac4cf47f7ed5660db6a32bc5955ac7f939c8b7246cdf68dce7105bc5d18b"
 
   bottle :unneeded
 

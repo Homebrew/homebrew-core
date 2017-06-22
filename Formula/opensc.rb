@@ -11,7 +11,7 @@ class Opensc < Formula
     # Can be removed for next release: https://github.com/Homebrew/homebrew-core/issues/5338
     patch do
       url "https://github.com/OpenSC/OpenSC/commit/2746a7f430cb02fbd21cf9c2f0819124e6adca76.diff"
-      sha256 "0e39427cb9430971be70cdde3ae57aa10fb0f7fe0acea35bf066d8a651873270"
+      sha256 "ba7b66afd7e00f66ec191f3796e23a212bd67fd4e35a018744b0a9c11bc33bed"
     end
   end
 

@@ -1,7 +1,7 @@
 class Cdargs < Formula
   desc "Bookmarks for the shell"
-  homepage "http://www.skamphausen.de/cgi-bin/ska/CDargs"
-  url "http://www.skamphausen.de/downloads/cdargs/cdargs-1.35.tar.gz"
+  homepage "https://www.skamphausen.de/cgi-bin/ska/CDargs"
+  url "https://www.skamphausen.de/downloads/cdargs/cdargs-1.35.tar.gz"
   sha256 "ee35a8887c2379c9664b277eaed9b353887d89480d5749c9ad957adf9c57ed2c"
 
   bottle do
@@ -13,7 +13,7 @@ class Cdargs < Formula
   end
 
   # fixes zsh usage using the patch provided at the cdargs homepage
-  # (See http://www.skamphausen.de/cgi-bin/ska/CDargs)
+  # (See https://www.skamphausen.de/cgi-bin/ska/CDargs)
   patch :DATA
 
   def install

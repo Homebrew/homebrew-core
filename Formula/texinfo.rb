@@ -1,8 +1,8 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
   sha256 "246cf3ffa54985118ec2eea2b8d0c71b92114efe6282c2ae90d65029db4cf93a"
 
   bottle do
@@ -13,8 +13,8 @@ class Texinfo < Formula
   end
 
   keg_only :provided_by_osx, <<-EOS.undent
-    Software that uses TeX, such as lilypond and octave, require a newer version
-    of these files.
+    software that uses TeX, such as lilypond and octave, require a newer
+    version of these files
   EOS
 
   def install
@@ -34,6 +34,6 @@ class Texinfo < Formula
       @bye
     EOS
     system "#{bin}/makeinfo", "test.texinfo"
-    assert_match /Hello World!/, File.read("test.info")
+    assert_match "Hello World!", File.read("test.info")
   end
 end

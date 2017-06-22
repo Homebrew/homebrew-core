@@ -20,7 +20,7 @@ class Ssdb < Formula
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
     system "make", "install", "PREFIX=#{prefix}"
 
-    ["bench", "cli", "dump", "repair", "server"].each do |suffix|
+    %w[bench cli dump repair server].each do |suffix|
       bin.install "#{prefix}/ssdb-#{suffix}"
     end
 

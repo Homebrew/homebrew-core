@@ -2,21 +2,14 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.4.5.tar.gz"
-  sha256 "d300c4e358aee951af6dfd1684ef0c034758b47171544230f3ccf6ce24fe4347"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.4.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.4.tar.gz"
+  sha256 "107a5b522fbb8318d4c3be668075e5e607296f0a9255d71674caa94571336efa"
 
   bottle do
-    sha256 "c0f9a4fc4f853b8a98288d4c4151b26d0551a76e87d3fb233213618f23727c8d" => :sierra
-    sha256 "6bcd7052d8412883af1d56e2920429d781f38e68df3727bc8eb2bb6bcabc3574" => :el_capitan
-    sha256 "525e5a4b9b742c5b5cb037cc3690ab37d104ac82fc990f7f967a390c27b78c2c" => :yosemite
-  end
-
-  devel do
-    url "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.2.tar.gz"
-    mirror "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.2.tar.gz"
-    version "2.5.2-beta1"
-    sha256 "0ffa7d70809284a4ac96e965918a61c1d7930bca865457a7db0ff0afc8201c82"
+    sha256 "266a78adbadfd8698691c4d43d06f55a130d3600e8da07b703e17e511ec32f5b" => :sierra
+    sha256 "88c9cf082ba35d9f3c63e9d15e27315e7502bdd569a6551f0a0cbbed62e4e893" => :el_capitan
+    sha256 "f5571d4fd87840911e683c2240a1d5a2bf940a3de6e14033d1759af824f6840e" => :yosemite
   end
 
   head do
@@ -27,7 +20,7 @@ class Libressl < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only "LibreSSL is not linked to prevent conflict with the system OpenSSL."
+  keg_only "LibreSSL is not linked to prevent conflict with the system OpenSSL"
 
   def install
     args = %W[
@@ -61,7 +54,7 @@ class Libressl < Formula
         openssl_io.close_write
       end
 
-      $?.success?
+      $CHILD_STATUS.success?
     end
 
     # LibreSSL install a default pem - We prefer to use macOS for consistency.

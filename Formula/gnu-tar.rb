@@ -1,8 +1,8 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
   sha256 "cae466e6e58c7292355e7080248f244db3a4cf755f33f4fa25ca7f9a7ed09af0"
   revision 1
 
@@ -29,9 +29,7 @@ class GnuTar < Formula
     # https://github.com/Homebrew/homebrew/issues/44993
     # This is thought to be an el_capitan bug:
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    if MacOS.version == :el_capitan
-      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
-    end
+    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
     args = ["--prefix=#{prefix}", "--mandir=#{man}"]
     args << "--program-prefix=g" if build.without? "default-names"

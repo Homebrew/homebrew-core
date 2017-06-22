@@ -1,9 +1,8 @@
 class DockerMachineCompletion < Formula
-  desc "docker-machine completion script"
+  desc "Docker-machine completion script"
   homepage "https://docs.docker.com/machine/completion/"
-  url "https://github.com/docker/machine/archive/v0.10.0.tar.gz"
-  sha256 "ed64698723436e68341a1ebd8486006293eac306bfa8628e924b38bfcb5b039d"
-  revision 1
+  url "https://github.com/docker/machine/archive/v0.12.0.tar.gz"
+  sha256 "2238dbb8580ca2399c64fa6cda0089a9dde6142d4dcbb8d750aedbeee042fbfe"
   head "https://github.com/docker/machine.git"
 
   bottle :unneeded
@@ -18,6 +17,6 @@ class DockerMachineCompletion < Formula
 
   test do
     assert_match "-F _docker_machine",
-      shell_output("bash -c 'source #{bash_completion}/docker-machine.bash && complete -p docker-machine'")
+      shell_output("bash -O extglob -c 'source #{bash_completion}/docker-machine.bash && complete -p docker-machine'")
   end
 end

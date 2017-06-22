@@ -3,14 +3,13 @@ class Libgnomecanvasmm < Formula
   homepage "https://launchpad.net/libgnomecanvasmm"
   url "https://download.gnome.org/sources/libgnomecanvasmm/2.26/libgnomecanvasmm-2.26.0.tar.bz2"
   sha256 "996577f97f459a574919e15ba7fee6af8cda38a87a98289e9a4f54752d83e918"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "15147e0f9e1614c93bceb72530d5aa8900051dc6a169731d47c5a92592f75640" => :sierra
-    sha256 "0f0e6854e6fc0c24e55e8983b2f8bb0f8c272b4c4cc86d20b70a79ceb8bc3fb0" => :el_capitan
-    sha256 "34c1f6021fbfbacf98c46313bcf4b5581e49dda7886c7c208ef9bf9f71b22d30" => :yosemite
-    sha256 "ca4427db512b6049c304cf70a30e3664af4b80780eb7836c20ff4c22695ab102" => :mavericks
+    sha256 "404eca75023dead784e6d4f66935852441cffbef97904efaa71398752c582877" => :sierra
+    sha256 "0ad818d20c460a6667b00ebf568323bac65e75028c4ab310e50d2bf050b40c00" => :el_capitan
+    sha256 "1d96bae9e5f10677f2d30a2681ceaec4d82e416940ce7ef8b067a273144c619a" => :yosemite
   end
 
   depends_on "pkg-config" => :build

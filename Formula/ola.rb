@@ -1,26 +1,28 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/archive/0.10.3.tar.gz"
-  sha256 "474db6752940cea6cd9493dcbeeb13429b5d29f4777973d08738cb5ef04c9dcd"
-  revision 1
-  head "https://github.com/OpenLightingProject/ola.git"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.4/ola-0.10.4.tar.gz"
+  sha256 "be0aacf5b2a61dd2b75e0ee3ec9a642012751268aa2d28bd24e8d87837a8f707"
 
   bottle do
-    sha256 "3634a0b314dfbad14424e87f0de04d2d34232bd1771419cf9f257ea1fb8f4413" => :sierra
-    sha256 "bc4bbbf61dab618082a6aba42eb5ce2251ccac7686c6d3904c6f631557a7c131" => :el_capitan
-    sha256 "07aec2b01a983343c6c6741e457a00f83357f968c914135123bf08b91c81b381" => :yosemite
+    sha256 "5648e88c98f2164018c3d15fe20cc7f9633313c64eb88ee43cd3d461cdd3713e" => :sierra
+    sha256 "e02d2bcdb219f6a881c11cbde008ecdd5e2213884bbae9e90ce30215620eec00" => :el_capitan
+    sha256 "28ccbad1d470c0d2835908f1e5ea8c22eb2376a322d5eb61dd43e300df60f2ff" => :yosemite
+  end
+
+  head do
+    url "https://github.com/OpenLightingProject/ola.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   option "with-libftdi", "Install FTDI USB plugin for OLA."
   option "with-rdm-tests", "Install RDM Tests for OLA."
   deprecated_option "with-ftdi" => "with-libftdi"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "cppunit"
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
@@ -53,12 +55,13 @@ class Ola < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-python-libs
+      --disable-unittests
     ]
 
     args << "--enable-rdm-tests" if build.with? "rdm-tests"
     args << "--enable-doxygen-man" if build.with? "doxygen"
 
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
     system "make", "install"
   end

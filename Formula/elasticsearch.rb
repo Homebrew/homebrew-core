@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.3.0.tar.gz"
-  sha256 "effd922973e9f4fe25565e0a194a4b534c08b22849f03cb9fea13c311401e21b"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.2.tar.gz"
+  sha256 "0206124d101a293b34b19cebee83fbf0e2a540f5214aabf133cde0719b896150"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"

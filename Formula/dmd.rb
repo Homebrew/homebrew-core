@@ -3,53 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.073.2.tar.gz"
-    sha256 "1cd983d73b0fa1a20232fb46dbc3a39434adfa00fc7668563983ec8ca210726a"
+    url "https://github.com/dlang/dmd/archive/v2.074.1.tar.gz"
+    sha256 "1e4191beaa6cce4ebf1810e01884b646b3bac7b098e1ae577a7f55be59dfc336"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.073.2.tar.gz"
-      sha256 "9c0c1a818deb6a0d410f83f067450cc5b41287328c44c2d46c0d2e7de84aa68e"
+      url "https://github.com/dlang/druntime/archive/v2.074.1.tar.gz"
+      sha256 "c1171677ed1a3803e751feeacd8df82288872f78a5170471b7ca7c61631348cd"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.073.2.tar.gz"
-      sha256 "6a3b16649a33bcc3db522404a1fe98f046eedf082a96648f7972ab112c2cb289"
+      url "https://github.com/dlang/phobos/archive/v2.074.1.tar.gz"
+      sha256 "2bec9f067256c7a1a8fcf62f8a59ae82f094479cfac0e385280afc6af23cbea8"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.073.2.tar.gz"
-      sha256 "6e702dcbf73d4673a8a9320a01170ad1ae59945a3646d343b14c4cac88b735e6"
+      url "https://github.com/dlang/tools/archive/v2.074.1.tar.gz"
+      sha256 "2fbaf425554210786b865d1e468698d46c48462b118a25a201ce1865445b217b"
     end
   end
 
   bottle do
-    sha256 "15d0e7df1e0ca6394deebfcb241de401c58d255cc29985b72e3a30a6be160441" => :sierra
-    sha256 "6d5c55b67bdb8091aa46095be773c154caf967c0f0b64927e9f2d02e7117843a" => :el_capitan
-    sha256 "5c2eeb78936b42e91edc2cb9038f6772b16af0ca2a3d24b4788261417077fcd3" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/dlang/dmd/archive/v2.074.0-b1.tar.gz"
-    sha256 "03f10875697a7d439620f2093873ea7c35085555e064382649ce087952549427"
-    version "2.074.0-b1"
-
-    resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.074.0-b1.tar.gz"
-      sha256 "501b8acb7dca5193f4614860523df099a0a16a2aec51e275f800ac5e09e14148"
-      version "2.074.0-b1"
-    end
-
-    resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.074.0-b1.tar.gz"
-      sha256 "1b7f26097026546560a0c03080b90120829560a847bec7ba368464152c09e3e5"
-      version "2.074.0-b1"
-    end
-
-    resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.074.0-b1.tar.gz"
-      sha256 "b92b6ebfebd69bca7453cfd742611fccadacae7bda52f5ddaad8ae20749e7625"
-      version "2.074.0-b1"
-    end
+    sha256 "85a954b09b04ceb889752d7b620f5ada359cc6985e618ba4ba9e5735a56164cb" => :sierra
+    sha256 "3113c6bab913420074c842c1847c3b3c922d5528833fcdcd485ba3a9f1797fbf" => :el_capitan
+    sha256 "4edaa821f8306ec9ed5e707ba607e4851f6276f1a047a61f0f0be8c09b74dd62" => :yosemite
   end
 
   head do

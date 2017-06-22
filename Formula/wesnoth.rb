@@ -3,13 +3,13 @@ class Wesnoth < Formula
   homepage "https://www.wesnoth.org/"
   url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
   sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-
+  revision 2
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
-    sha256 "a6f059a27c01c95a43603b26f59f2d3506ebccbd98d0099e649e4d9d57d377e2" => :sierra
-    sha256 "5a20e3463745819f8d569b1422f47886ae532c7f40e53d531d7c844bad39ba49" => :el_capitan
-    sha256 "b1533d980e7675354c265a431867c4b044e5209314b66c37da7909260c795bed" => :yosemite
+    sha256 "0eab287604f183bff52439b413879a630ca8ce62833131540bc147294c8ad457" => :sierra
+    sha256 "bd9f859488d70e12dbcae79d2aa28250f1cc6311808eb2cb13a372992a0ee639" => :el_capitan
+    sha256 "9bc94966a6746592913681f2665c35e8bb1c3c90d9d061505d4cf9cbfb4e9e26" => :yosemite
   end
 
   option "with-ccache", "Speeds recompilation, convenient for beta testers"
@@ -27,7 +27,7 @@ class Wesnoth < Formula
 
   depends_on "sdl"
   depends_on "sdl_image" # Must have png support
-  depends_on "sdl_mixer" => "with-libvorbis" # The music is in .ogg format
+  depends_on "sdl_mixer" # The music is in .ogg format
   depends_on "sdl_net"
   depends_on "sdl_ttf"
 

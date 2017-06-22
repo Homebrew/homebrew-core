@@ -1,14 +1,14 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.28.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.28.tar.gz"
-  sha256 "e0288f59e326ab87cb3881fdabadafe542f4dc7ab9996db13863a439ebbc1f25"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.30.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/dovecot-2.2.30.2.tar.gz"
+  sha256 "f3dba79c1ceeaa9dd0633f648d3a607704bf3d0591e7d48168084c8add87189e"
 
   bottle do
-    sha256 "451e5a9cf041884d19c7c9435d187175ba9d7b1bb26a7e83bff59eb7bebc6ff2" => :sierra
-    sha256 "4e7aee618f21b3738cf638b307f667b058cd8cbdfd0c012d31eed1282934f580" => :el_capitan
-    sha256 "1e2a2348be463de818db8ac31840759c7b16e35d2270d25547099d01774407e2" => :yosemite
+    sha256 "3c74e8413c484405bbd6d1ff2a5e5a1136fea9112e17fead077a54312737eb11" => :sierra
+    sha256 "0529afabbd963323672c73fadc3c2fe0d56e2582141e4965788dbb5b3983bb67" => :el_capitan
+    sha256 "06510299ad125e7ba2a61f467b9e91b9b27f4d7919b9f2d7354d91b76655b1b0" => :yosemite
   end
 
   option "with-pam", "Build with PAM support"
@@ -20,13 +20,13 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.17.tar.gz"
-    sha256 "74d869c7532cbf4fe41e3cc95a1aa6ce32e98f4d423f0d099da1e0fba022dae3"
+    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.18.tar.gz"
+    sha256 "dd871bb57fad22795460f613f3c9484a8bf229272ac00956d837a34444f1c3a9"
   end
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-      :revision => "304e1160341275565e032b00a9855d272f0c2a51"
+        :revision => "66556ea9fc0f14464dc6bb3d39bf071b36d90ab6"
   end
 
   def install
@@ -102,6 +102,16 @@ class Dovecot < Formula
         <string>#{var}/log/dovecot/dovecot.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/dovecot/dovecot.log</string>
+        <key>SoftResourceLimits</key>
+        <dict>
+        <key>NumberOfFiles</key>
+        <integer>1000</integer>
+        </dict>
+        <key>HardResourceLimits</key>
+        <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+        </dict>
       </dict>
     </plist>
     EOS

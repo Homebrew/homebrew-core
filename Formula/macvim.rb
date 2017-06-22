@@ -2,15 +2,15 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-130.tar.gz"
-  version "8.0-130"
-  sha256 "5dd5895b35341a4a5f65f2a61dd730ba9e1c336ac04cfed64c154142ce18db0c"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-134.tar.gz"
+  version "8.0-134"
+  sha256 "5b512d9c02703df7ffcd3f5268e5ac8a21e1e046dca60ec7544791f11b523e0a"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "a403b1b412870f5ead8c418246d35d255cfc0ea0304ddca0e72811ee6bb765d8" => :sierra
-    sha256 "0ae4cae9d31f3873b3c99395e7a454c34b84f4c41b3050c9cb35c4f0b0d5078f" => :el_capitan
-    sha256 "be11b22bf735c891c2c16f2e310575cce11cb42955ad4dee375a65551924fec3" => :yosemite
+    sha256 "95d3f7ff923aaaed9aff3ff905524805f3821a7691713b520144026037f3c925" => :sierra
+    sha256 "bbdb00f397618d6470de8dabd9b6211a6fdfab59a8c5ea4c6caa193716107c9a" => :el_capitan
+    sha256 "fb64b6d6f3e21f79492a32f8fb2fc0a613b1ce618c00589047f26b26dd2e64d1" => :yosemite
   end
 
   option "with-override-system-vim", "Override system vim"
@@ -91,9 +91,7 @@ class Macvim < Formula
     system "make"
 
     prefix.install "src/MacVim/build/Release/MacVim.app"
-    inreplace "src/MacVim/mvim", %r{^# VIM_APP_DIR=\/Applications$},
-                                 "VIM_APP_DIR=#{prefix}"
-    bin.install "src/MacVim/mvim"
+    bin.install_symlink prefix/"MacVim.app/Contents/bin/mvim"
 
     # Create MacVim vimdiff, view, ex equivalents
     executables = %w[mvimdiff mview mvimex gvim gvimdiff gview gvimex]

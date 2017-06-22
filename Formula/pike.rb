@@ -51,9 +51,7 @@ class Pike < Formula
       args << "--with-abi=32"
     end
 
-    if build.without? "machine-code"
-      args << "--without-machine-code"
-    end
+    args << "--without-machine-code" if build.without? "machine-code"
 
     ENV.deparallelize
 

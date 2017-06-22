@@ -1,14 +1,14 @@
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
-  url "https://github.com/bcicen/ctop/archive/v0.5.1.tar.gz"
-  sha256 "45cdcd0bb145b1b1312c464690669635abfd09c0b591b41c3771492d0db6d43f"
+  url "https://github.com/bcicen/ctop/archive/v0.6.0.tar.gz"
+  sha256 "659c87de3d1c4b90d6b481c096d50d799deaf0f591b430606b6f2295862bcbc0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4925e2c0d9bfda6d11bb1a65be18f533e8255b8715608840cbd1ff2b5db8787a" => :sierra
-    sha256 "c3b3cc72c661c7b6ead5d1bb993aecb45e22df845b8252964cfce3779c6c1c7c" => :el_capitan
-    sha256 "0b294c3e766755428f1b96f60894ba75ba8d62c158135195f3acf0e39764378a" => :yosemite
+    sha256 "2ac847bd4659f31f4d3685cb9d1b95ade335c600f0fe1850662bf177fa07fe51" => :sierra
+    sha256 "6fba466a0a4ca79c719c9a638920186ec1e68a27bed351285bdd7c118b8ebeab" => :el_capitan
+    sha256 "f0c5a1a1e1cc7d60314a4f276eb976ff9669ea1a2dfa8dce9d6fea0f0ab08bf7" => :yosemite
   end
 
   depends_on "go" => :build

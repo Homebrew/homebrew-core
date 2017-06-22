@@ -33,7 +33,7 @@ class Rlvm < Formula
   # https://github.com/eglaysher/rlvm/issues/76
   patch do
     url "https://github.com/eglaysher/rlvm/commit/668863d2222b962ee8e7d9829e972ef05c990302.diff"
-    sha256 "048bb7a3794a7b3eccb3976e6f61e6f250e14fa37c8ac79a52b4d231612730a4"
+    sha256 "89019d1743af6a458f3fb7a2d71ff69ead00ebf252d501a1d97c2f3b8e5eff0d"
   end
 
   def install

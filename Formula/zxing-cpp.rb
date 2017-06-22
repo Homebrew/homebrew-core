@@ -15,9 +15,7 @@ class ZxingCpp < Formula
   depends_on "cmake" => :build
 
   def install
-    if build.stable?
-      cd "cpp"
-    end
+    cd "cpp" if build.stable?
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
@@ -33,9 +31,7 @@ class ZxingCpp < Formula
         end
       end
 
-      if build.head?
-        system "make", "install"
-      end
+      system "make", "install" if build.head?
     end
   end
 

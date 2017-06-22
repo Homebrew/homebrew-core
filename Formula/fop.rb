@@ -1,16 +1,10 @@
 class Fop < Formula
   desc "XSL-FO print formatter for making PDF or PS documents"
   homepage "https://xmlgraphics.apache.org/fop/index.html"
-  url "https://www.apache.org/dyn/closer.cgi?path=/xmlgraphics/fop/binaries/fop-2.1-bin.tar.gz"
-  sha256 "a93b59aa4d0b6d573c9090d8f21dee6c7d0c449a4bd2d48a1723e233dfb423ea"
+  url "https://www.apache.org/dyn/closer.cgi?path=/xmlgraphics/fop/binaries/fop-2.2-bin.tar.gz"
+  sha256 "9dc1f9d1cb9acf5b3352116924c0b7678a88703b1214d537bc027c6867ec4dfe"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "0fad00e377ebc241a84d27f7cc8e25250a0f57b5247895c10c47416fe4cce284" => :sierra
-    sha256 "657c88e138769d842e0f48daf3abd3798194eca420a3327fa5b0b667e7dfbece" => :el_capitan
-    sha256 "a3ce519cfe5f54a0823515e2e75f878373d47e8174f9d470976db9ca2f792759" => :yosemite
-    sha256 "38602cef629a33f05149c3411ea6b82451deec872aa6cbe1fa8203ad2ee875fb" => :mavericks
-  end
+  bottle :unneeded
 
   depends_on :java => "1.6+"
 
@@ -20,8 +14,13 @@ class Fop < Formula
   end
 
   def install
+    rm_rf Dir["fop/*.bat"] # Remove Windows files.
     libexec.install Dir["*"]
-    bin.write_exec_script libexec/"fop"
+
+    executable = libexec/"fop/fop"
+    executable.chmod 0555
+    bin.write_exec_script executable
+
     resource("hyph").stage do
       (libexec/"build").install "fop-hyph.jar"
     end
@@ -55,6 +54,6 @@ class Fop < Formula
       </xsl:stylesheet>
     EOS
     system bin/"fop", "-xml", "test.xml", "-xsl", "test.xsl", "-pdf", "test.pdf"
-    File.exist? testpath/"test.pdf"
+    assert_predicate testpath/"test.pdf", :exist?
   end
 end

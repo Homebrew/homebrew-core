@@ -1,21 +1,34 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.0.2.tar.gz"
-  sha256 "e266bdffa53e947ba1d0bf8944d73029384bad2ed05af92bc10918d07eec6b63"
+  url "https://github.com/git-lfs/git-lfs/archive/v2.1.1.tar.gz"
+  sha256 "655c1e9bf931afb958c2b81de5c1c38b3ebd6831a04ca5fdcf58cba05e2948d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3414a8428b190fc67eb33d6de33df7d06155e327836658b9ea0c7e62b6b71fd" => :sierra
-    sha256 "68cc2a111b3461790bb46467eb56c30a20a586a49984ff3b4ef4ece42165a3cc" => :el_capitan
-    sha256 "db9d930626a054f4b334d45a5eb96d7f27ac5efae2706a4757f47bd10915e2c6" => :yosemite
+    sha256 "beb9826536e9be17bea8c09e4adcfd532782dc267966136061c4e3f63f531346" => :sierra
+    sha256 "7672101cbeb1e55b9f138d5f483f03292bf914078943af496c780d283112c30d" => :el_capitan
+    sha256 "7fa48298bde3ff306a154970a7cc5dd33170fd80d322a98e24d8aeb1a05661ed" => :yosemite
   end
 
   depends_on "go" => :build
 
   def install
+    begin
+      deleted = ENV.delete "SDKROOT"
+      ENV["GEM_HOME"] = buildpath/"gem_home"
+      system "gem", "install", "ronn"
+      ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+    ensure
+      ENV["SDKROOT"] = deleted
+    end
+
     system "./script/bootstrap"
+    system "./script/man"
+
     bin.install "bin/git-lfs"
+    man1.install Dir["man/*.1"]
+    doc.install Dir["man/*.html"]
   end
 
   def caveats; <<-EOS.undent

@@ -1,7 +1,7 @@
 class Ucommon < Formula
   desc "GNU C++ runtime library for threads, sockets, and parsing"
   homepage "https://www.gnu.org/software/commoncpp/"
-  url "https://ftpmirror.gnu.org/commonc++/ucommon-6.2.2.tar.gz"
+  url "https://ftp.gnu.org/gnu/commonc++/ucommon-6.2.2.tar.gz"
   sha256 "1ddcef26dc5c930225de6ab9adc3c389cb3f585eba0b0f164206f89d2dafea66"
   revision 1
 
