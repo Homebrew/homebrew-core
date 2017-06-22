@@ -7,9 +7,9 @@ class ApacheArrow < Formula
   head "https://github.com/apache/arrow.git"
 
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
-  depends_on "ccache" => :recommended
-  depends_on "boost"
   depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "ccache" => :recommended
 
   needs :cxx11
 
