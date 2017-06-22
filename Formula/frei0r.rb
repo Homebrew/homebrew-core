@@ -13,12 +13,15 @@ class Frei0r < Formula
     sha256 "a20918ebf08da3636deb4bb4c3bacaf395186f2bf88685ad8380d665e7402e24" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
+  depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "cairo" => :optional
   depends_on "homebrew/science/opencv" => :optional
 
   def install
-    system "cmake", ".", *std_cmake_args
+    ENV["CAIRO_CFLAGS"] = "-I#{Formula["cairo"].opt_include}/cairo" if build.with? "cairo"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 end
