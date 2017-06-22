@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v2.2.0.tar.gz"
-  sha256 "b12bea0474a0ce5f4df10729607661b1afbecd5e95083835ccee7b54493c9452"
+  url "https://github.com/gravitational/teleport/archive/v2.2.1.tar.gz"
+  sha256 "5a5c7be4615a3ef3e6915a4330b71cd063dd3a86013b8a72a5dbbca882eb28ac"
 
   bottle do
     sha256 "63b0884c6bfa160884e42cd8a06abaecc8d3618e751a64cbd7b656f1901316d4" => :sierra
