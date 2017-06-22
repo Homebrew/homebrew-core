@@ -3,6 +3,7 @@ class Planck < Formula
   homepage "http://planck-repl.org/"
   url "https://github.com/mfikes/planck/archive/2.5.0.tar.gz"
   sha256 "f3a1b9041c38c0d9e4e42aa2791e237562296e942986173d6df0efc6bd226cc7"
+  revision 1
   head "https://github.com/mfikes/planck.git"
 
   bottle do
@@ -12,12 +13,12 @@ class Planck < Formula
     sha256 "ddd3bb7d1cbac50105b556735132cf6dfe60e084325d2e66e6c29e59f69eac78" => :yosemite
   end
 
-  depends_on "libzip"
-  depends_on "icu4c"
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "leiningen" => :build
   depends_on :xcode => :build
+  depends_on "libzip"
+  depends_on "icu4c"
   depends_on :macos => :mavericks
 
   def install
