@@ -3,7 +3,7 @@ class EbookTools < Formula
   homepage "https://sourceforge.net/projects/ebook-tools/"
   url "https://downloads.sourceforge.net/project/ebook-tools/ebook-tools/0.2.2/ebook-tools-0.2.2.tar.gz"
   sha256 "cbc35996e911144fa62925366ad6a6212d6af2588f1e39075954973bbee627ae"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,8 +14,8 @@ class EbookTools < Formula
     sha256 "09c68b7cea454f3181f5df5eae0b5b9ece75e697bcc876354de8de0fc6aa9e9a" => :mavericks
   end
 
-  depends_on "libzip"
   depends_on "cmake" => :build
+  depends_on "libzip"
 
   def install
     system "cmake", ".",
