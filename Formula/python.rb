@@ -107,7 +107,6 @@ class Python < Formula
       --enable-framework=#{frameworks}
       --without-ensurepip
       --with-lto
-      --enable-optimizations
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
