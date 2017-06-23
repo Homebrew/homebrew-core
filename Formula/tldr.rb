@@ -8,10 +8,9 @@ class Tldr < Formula
 
   bottle do
     cellar :any
-    sha256 "3e843db1b1f35c9fb0e3cdd47f2eacaaf0411a8158d3c13a8826cccb0692ce7d" => :sierra
-    sha256 "3f98b7a5abcf565a4bce8c674b1f8d0ac5f79075a96f8695eab627a162b8154b" => :el_capitan
-    sha256 "9124b5e08e84aaf28cefb7a13ca37c969eb42edb3801ad73c6cb0e9a9092bc49" => :yosemite
-    sha256 "6087f487eb4de38affd318f610b95af55724624ea376ba0010e451f2bffc82bd" => :mavericks
+    sha256 "5ff44173bde5f458335b89ba3e4f4c9a1d917dc3f0f4059477d82d91e079f691" => :sierra
+    sha256 "f8b2e7e60cc4ff8c212914f5bcf4b7d413ae7a69e095c6ce29ce79010d6354b5" => :el_capitan
+    sha256 "376962a72d11da559d25aabb3d22f7b2105e21809c58d09597ab312b3685719a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
