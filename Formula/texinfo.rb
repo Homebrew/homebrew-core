@@ -1,9 +1,9 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
-  sha256 "246cf3ffa54985118ec2eea2b8d0c71b92114efe6282c2ae90d65029db4cf93a"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.4.tar.xz"
+  sha256 "6ae2e61d87c6310f9af7c6f2426bd0470f251d1a6deb61fba83a3b3baff32c3a"
 
   bottle do
     sha256 "ddcd68fb9757b11e5b8ea39e22996815aaf763b05711e21e17e45ba4ea68741a" => :sierra
