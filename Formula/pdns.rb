@@ -3,6 +3,7 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.0.3.tar.bz2"
   sha256 "60fa21550b278b41f58701af31c9f2b121badf271fb9d7642f6d35bfbea8e282"
+  revision 1
 
   bottle do
     rebuild 1
@@ -26,54 +27,65 @@ class Pdns < Formula
   deprecated_option "with-pgsql" => "with-postgresql"
 
   depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
   depends_on :postgresql => :optional
-
+  
   def install
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/pdns
+      --localstatedir=#{var}
+      --with-socketdir=#{var}/run
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
     ]
 
+    # default backend modules
+    module_list="--with-modules=bind gsqlite3"
+
     # Include the PostgreSQL backend if requested
-    if build.with? "postgresql"
-      args << "--with-modules=gsqlite3 gpgsql"
-    else
-      # SQLite3 backend only is the default
-      args << "--with-modules=gsqlite3"
-    end
+    # ( This pattern can be adapted to additional optional modules.  Just remember to
+    # include a space in front of the module name )
+    module_list << " gpgsql" if build.with? "postgresql"
+    args << module_list
 
     system "./bootstrap" if build.head?
     system "./configure", *args
 
     system "make", "install"
+    (var/"log/pdns").mkpath
+    (var/"run").mkpath
   end
 
-  plist_options :manual => "pdns_server start"
+  plist_options :startup => true, :manual => "sudo pdns_server"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
     <dict>
-      <key>KeepAlive</key>
-      <true/>
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{opt_bin}/pdns_server</string>
+        <string>#{opt_sbin}/pdns_server</string>
       </array>
-      <key>EnvironmentVariables</key>
-      <key>KeepAlive</key>
+      <key>RunAtLoad</key>
       <true/>
-      <key>SHAuthorizationRight</key>
-      <string>system.preferences</string>
+      <key>KeepAlive</key>
+      <dict>
+        <key>Crashed</key>
+        <true/>
+      </dict>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/pdns/pdns_server.err</string>
+      <key>StandardOutPath</key>
+      <string>/dev/null</string>
     </dict>
     </plist>
     EOS
