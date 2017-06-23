@@ -5,9 +5,9 @@ class Glib < Formula
   sha256 "25ee7635a7c0fcd4ec91cbc3ae07c7f8f5ce621d8183511f414ded09e7e4e128"
 
   bottle do
-    sha256 "09a03c4df6c1ea3cbe95ea90a511b2b2c73b6190f43f8e570ceedb6cda15839a" => :sierra
-    sha256 "9cabf92f6e7b1cd432e704752cd975e349e1d2ea9a87941cff1779c6dc5e9765" => :el_capitan
-    sha256 "f3f1aa4e6e9575016d106c97f087088c8ff1103c213d49126e3a0998341af995" => :yosemite
+    sha256 "6676ac794f50963131d761521b174c4efee254ed81c87bb232dc0d257c18b9a3" => :sierra
+    sha256 "0c01d6caf33f29db737fa98e7e8139bd2f2bb907b73ffc537dd7aed421519e6d" => :el_capitan
+    sha256 "c84e0a51965e4664f0d3998427dfa2af4f1f4378717af27a26f9fbb2fb48083e" => :yosemite
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
