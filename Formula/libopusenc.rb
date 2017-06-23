@@ -4,6 +4,13 @@ class Libopusenc < Formula
   url "https://archive.mozilla.org/pub/opus/libopusenc-0.1.tar.gz"
   sha256 "bd6d14e8897a2f80065ef34a516c70e74f8e00060abdbc238e79e5f99bca3e96"
 
+  bottle do
+    cellar :any
+    sha256 "d4ca5b8cda0c64259a461f7a5102412122c14c32c4b7f33eb31279dcfd96f895" => :sierra
+    sha256 "53b36128d06e78d72fcb9f2e40be1186b16f847bd38a1ded13cc37bb89fcb763" => :el_capitan
+    sha256 "73ee617767aa5fd6bc62d35f38883bc7eb099ba7d5a88369c428dbd585726ec0" => :yosemite
+  end
+
   head do
     url "https://git.xiph.org/libopusenc.git"
 
