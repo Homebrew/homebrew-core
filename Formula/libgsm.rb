@@ -1,8 +1,8 @@
 class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "http://www.quut.com/gsm/"
-  url "http://www.quut.com/gsm/gsm-1.0.13.tar.gz"
-  sha256 "52c518244d428c2e56c543b98c9135f4a76ff780c32455580b793f60a0a092ad"
+  url "http://www.quut.com/gsm/gsm-1.0.16.tar.gz"
+  sha256 "725a3768a1e23ab8648b4df9d470aed38eb1635af3cbc8d0b64fef077236f4ce"
 
   bottle do
     cellar :any
@@ -32,7 +32,7 @@ class Libgsm < Formula
     man3.mkpath
 
     # Dynamic library must be built first
-    system "make", "lib/libgsm.1.0.13.dylib",
+    system "make", "lib/libgsm.1.0.16.dylib",
            "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
            "LDFLAGS=#{ENV.ldflags}"
     system "make", "all",
