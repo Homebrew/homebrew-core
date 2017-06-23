@@ -8,9 +8,9 @@ class Planck < Formula
 
   bottle do
     cellar :any
-    sha256 "492c1bc87a56114aaae051b6f2ff2c43119c5a6ad7b27f42e9bc887b9cda9a2d" => :sierra
-    sha256 "6ecfcddf2bcea693217c05259258ce83e1c0e384cb6184a1db9651f5237b4ab4" => :el_capitan
-    sha256 "ddd3bb7d1cbac50105b556735132cf6dfe60e084325d2e66e6c29e59f69eac78" => :yosemite
+    sha256 "f8b6f93ec5aadcc6a7091cc5bca9b0d728546478b58465171b0b4c132a506bb1" => :sierra
+    sha256 "287e93bdefba1a33e952228e2d6525a0431f8bdbc4723c3b55c8a4902341b91e" => :el_capitan
+    sha256 "8a472520407b30c16dea4656f39561f90cb1e4711b6fe465e3e54a270accd79e" => :yosemite
   end
 
   depends_on "cmake" => :build
