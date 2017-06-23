@@ -33,11 +33,7 @@ class Pdns < Formula
   depends_on "openssl"
   depends_on "sqlite"
   depends_on :postgresql => :optional
-
-  resource "pdns-brew-default-config" do
-    url "https://github.com/mprzybylski/pdns-brew-default-config/archive/0.2.tar.gz"
-    sha256 "5abe291cbd789688504731e08cf098a8b5afda9f1928c20c4c0ba8eef025e6b5"
-  end
+  
   def install
     args = %W[
       --prefix=#{prefix}
@@ -64,16 +60,6 @@ class Pdns < Formula
     system "make", "install"
     (var/"log/pdns").mkpath
     (var/"run").mkpath
-    unless (etc/"pdns/pdns.conf").exist?
-      # install a runnable default config with a flat file backend
-      resource("pdns-brew-default-config").stage do
-        # pdns_server needs to start as root, but should drop privilege once it
-        # binds to port 53
-        # UNPRIV_UID and UNPRIV_GID populate pdns.conf
-        system "cmake", ".", "-DETCDIR=#{etc}", "-DUNPRIV_UID=_sandbox", "-DUNPRIV_GID=_sandbox"
-        system "make", "install"
-      end
-    end
   end
 
   plist_options :startup => true, :manual => "sudo pdns_server"
