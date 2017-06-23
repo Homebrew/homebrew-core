@@ -4,6 +4,7 @@ class Ppsspp < Formula
   url "https://github.com/hrydgard/ppsspp.git",
       :tag => "v1.4.2",
       :revision => "3ae4c122e5131a818ca88c54b1e62a66710d8799"
+  revision 1
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
