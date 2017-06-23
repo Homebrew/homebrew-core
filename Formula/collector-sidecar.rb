@@ -5,9 +5,9 @@ class CollectorSidecar < Formula
   sha256 "e551ab2254ff6985584298079b1d00f11b6488c0d9b23864a1f4e3c51d1cfe58"
 
   bottle do
-    sha256 "a9aaafbc4ed7ac7b8f94e320757702cf38a91e889e721bbe576fecb860747d75" => :sierra
-    sha256 "378b416968e1ec9320670213ff0e11833b2f1b2f7f9fe842338ea2de73d8f1de" => :el_capitan
-    sha256 "889b43fa8159c46c3631e1ab05a5ad50963d1e6ff24b95235f15353b568f6c95" => :yosemite
+    sha256 "3aabb1cfdcbc5f75943f9dca321041c30c9e4780c0c705c5f2aa7d99dc61b440" => :sierra
+    sha256 "13deca1abfdb172279e944281257ad5ecc7a0249d7b6f420748070771f7f279d" => :el_capitan
+    sha256 "7f0c882ea42c401cb0228b1801c22b98184b03b17785ef873e13806cec5d7a49" => :yosemite
   end
 
   depends_on "glide" => :build
