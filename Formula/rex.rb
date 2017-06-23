@@ -1,8 +1,9 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers."
-  homepage "https://rexify.org"
+  homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.5.0.tar.gz"
   sha256 "c042a0ed4920070d4508b6e7d2c36d28b3a5691938f2e0a0d7717977b44b82d0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,7 @@ class Rex < Formula
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
     # MacOS Perl installation has 0.4003
-    url "http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-0.4222.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4222.tar.gz"
     sha256 "e74b45d9a74736472b74830599cec0d1123f992760f9cd97104f94bee800b160"
   end
 
@@ -53,6 +54,11 @@ class Rex < Formula
   resource "File::Listing" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/File-Listing-6.04.tar.gz"
     sha256 "1e0050fcd6789a2179ec0db282bf1e90fb92be35d1171588bd9c47d52d959cf5"
+  end
+
+  resource "File::Remove" do
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/File-Remove-1.57.tar.gz"
+    sha256 "b3becd60165c38786d18285f770b8b06ebffe91797d8c00cc4730614382501ad"
   end
 
   resource "HTML::Parser" do
@@ -106,7 +112,7 @@ class Rex < Formula
   end
 
   resource "Canary::Stability" do
-    url "http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/Canary-Stability-2012.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Canary-Stability-2012.tar.gz"
     sha256 "fd240b111d834dbae9630c59b42fae2145ca35addc1965ea311edf0d07817107"
   end
 
@@ -126,8 +132,23 @@ class Rex < Formula
   end
 
   resource "List::MoreUtils" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.416.tar.gz"
-    sha256 "d2ce2f93a4fba8e20a602eba2405d08f5b28c23764a5273fb0abbc413f74c5a5"
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.419.tar.gz"
+    sha256 "5f8e65608f5dc583faa6a703d19d277ad46dfc1816e51f8ff34fb8322ed48615"
+  end
+
+  resource "Module::ScanDeps" do
+    url "https://cpan.metacpan.org/authors/id/R/RS/RSCHUPP/Module-ScanDeps-1.23.tar.gz"
+    sha256 "162b6f771197ad4662ac60c427d473b4c0a41cac476fa96b48556cce7fca040e"
+  end
+
+  resource "YAML::Tiny" do
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.70.tar.gz"
+    sha256 "bbce4b52b5eafdb04e3043975a08dbf394d00b7d2c958adb9d03d9f7e9291255"
+  end
+
+  resource "Module::Install" do
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Module-Install-1.18.tar.gz"
+    sha256 "29068ac33502cec959844c206516c09cc4a847cb57327d41015f605153ca645e"
   end
 
   resource "Net::HTTP" do
@@ -205,9 +226,18 @@ class Rex < Formula
     sha256 "771f7d02abd1ded94d9e37d3f66e795c8d2026d04defbeb5b679ca058116bbf3"
   end
 
+  resource "inc::latest" do
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/inc-latest-0.500.tar.gz"
+    sha256 "daa905f363c6a748deb7c408473870563fcac79b9e3e95b26e130a4a8dc3c611"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
+
+    # Spare Perl v5.23+ users a long-winded gripe from JSON::XS module's author.
+    # See https://github.com/RexOps/Rex/issues/1153
+    ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1"
 
     resources.each do |res|
       res.stage do
@@ -217,9 +247,7 @@ class Rex < Formula
 
     perl_build
     (libexec/"lib").install "blib/lib/Rex", "blib/lib/Rex.pm"
-
-    # Use system Perl
-    inreplace("bin/rexify") { |s| s.gsub!(/^#!perl$/, "#!/usr/bin/env perl") }
+    inreplace "bin/rexify", "#!perl", "#!/usr/bin/env perl"
 
     %w[rex rexify].each do |cmd|
       libexec.install "bin/#{cmd}"
