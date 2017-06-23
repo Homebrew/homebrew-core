@@ -1,8 +1,8 @@
 class CollectorSidecar < Formula
   desc "Manage log collectors through Graylog"
   homepage "https://github.com/Graylog2/collector-sidecar"
-  url "https://github.com/Graylog2/collector-sidecar/archive/0.1.1.tar.gz"
-  sha256 "c71f9762a74e10827d9f671b31d826d63fb9b35e5c3230a361b65edfcfc02ff7"
+  url "https://github.com/Graylog2/collector-sidecar/archive/0.1.2.tar.gz"
+  sha256 "e551ab2254ff6985584298079b1d00f11b6488c0d9b23864a1f4e3c51d1cfe58"
 
   bottle do
     sha256 "a9aaafbc4ed7ac7b8f94e320757702cf38a91e889e721bbe576fecb860747d75" => :sierra
