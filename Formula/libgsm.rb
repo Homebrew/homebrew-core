@@ -31,6 +31,8 @@ class Libgsm < Formula
     man1.mkpath
     man3.mkpath
 
+    inreplace "Makefile", "libgsm.1.0.13.dylib", "libgsm.1.0.16.dylib"
+
     # Dynamic library must be built first
     system "make", "lib/libgsm.1.0.16.dylib",
            "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
