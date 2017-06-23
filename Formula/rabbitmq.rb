@@ -3,10 +3,13 @@ class Rabbitmq < Formula
   homepage "https://www.rabbitmq.com"
   url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.9/rabbitmq-server-generic-unix-3.6.9.tar.xz"
   sha256 "012e8efbd0f40c086030803c92fea2e3af37b8d1515a553896fb5c1f3960bc40"
+  revision 1
 
   bottle :unneeded
 
-  depends_on "erlang"
+  # Incompatible with Erlang/OTP 20.0
+  # See upstream issue from 23 Jun 2017 https://github.com/rabbitmq/rabbitmq-server/issues/1272
+  depends_on "erlang@19"
 
   def install
     # Install the base files
@@ -19,7 +22,8 @@ class Rabbitmq < Formula
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      erlang = Formula["erlang"]
+      erlang = Formula["erlang@19"]
+      s.gsub! /^ERL_DIR=$/, "ERL_DIR=#{erlang.opt_bin}/"
       s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
       s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
     end
