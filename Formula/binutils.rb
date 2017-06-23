@@ -16,6 +16,7 @@ class Binutils < Formula
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--enable-deterministic-archives",
                           "--program-prefix=g",
                           "--prefix=#{prefix}",
                           "--infodir=#{info}",
