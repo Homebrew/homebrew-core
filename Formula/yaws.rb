@@ -3,6 +3,7 @@ class Yaws < Formula
   homepage "http://yaws.hyber.org"
   url "http://yaws.hyber.org/download/yaws-2.0.4.tar.gz"
   sha256 "da6677c315aadc7c64c970ef74eaa29f61eba886c7d30c61806651ac38c1e6c5"
+  revision 1
 
   bottle do
     sha256 "5ab4f7256486913bedd6bb616ca04b838fc317719539f71ee0da63abd0d9c1ab" => :sierra
@@ -20,7 +21,9 @@ class Yaws < Formula
 
   option "without-yapp", "Omit yaws applications"
 
-  depends_on "erlang"
+  # Incompatible with Erlang/OTP 20.0
+  # See upstream issue from 9 Jun 2017 https://github.com/klacke/yaws/issues/309
+  depends_on "erlang@19"
 
   # the default config expects these folders to exist
   skip_clean "var/log/yaws"
