@@ -1,7 +1,7 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  revision 9
+  revision 10
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
@@ -34,7 +34,10 @@ class Couchdb < Formula
 
   depends_on "spidermonkey"
   depends_on "icu4c"
-  depends_on "erlang"
+
+  # Incompatible with Erlang/OTP 20.0
+  # See upstream issue from 23 Jun 2017 https://github.com/apache/couchdb/issues/611
+  depends_on "erlang@19"
 
   resource "geocouch" do
     url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
@@ -60,7 +63,7 @@ class Couchdb < Formula
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
                           "--disable-init",
-                          "--with-erlang=#{HOMEBREW_PREFIX}/lib/erlang/usr/include",
+                          "--with-erlang=#{Formula["erlang@19"].opt_lib}/erlang/usr/include",
                           "--with-js-include=#{HOMEBREW_PREFIX}/include/js",
                           "--with-js-lib=#{HOMEBREW_PREFIX}/lib"
     system "make"
