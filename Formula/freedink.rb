@@ -3,6 +3,7 @@ class Freedink < Formula
   homepage "https://www.gnu.org/software/freedink/"
   url "https://ftp.gnu.org/gnu/freedink/freedink-108.4.tar.gz"
   sha256 "82cfb2e019e78b6849395dc4750662b67087d14f406d004f6d9e39e96a0c8521"
+  revision 1
 
   bottle do
     sha256 "4550fb1f25bc39cfa56fcbcf379ae550d2f38336a2ea2accb8476bac1798aa90" => :sierra
