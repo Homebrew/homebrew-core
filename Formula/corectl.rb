@@ -23,20 +23,20 @@ class Corectl < Formula
   def install
     ENV["GOPATH"] = buildpath
 
-    opamroot = buildpath/"opamroot"
+    path = buildpath/"src/github.com/TheNewNormal/#{name}"
+    path.install Dir["*"]
+
+    opamroot = path/"opamroot"
     opamroot.mkpath
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
-
-    path = buildpath/"src/github.com/TheNewNormal/#{name}"
-    path.install Dir["*"]
 
     args = []
     args << "VERSION=#{version}" if build.stable?
 
     cd path do
       system "opam", "init", "--no-setup"
-      system "opam", "install", "uri", "ocamlfind", "qcow-format", "conf-libev"
+      system "opam", "install", "uri", "ocamlfind", "qcow-format", "conf-libev", "io-page<2"
 
       system "make", "tarball", *args
 
