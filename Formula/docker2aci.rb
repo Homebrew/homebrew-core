@@ -4,6 +4,13 @@ class Docker2aci < Formula
   url "https://github.com/appc/docker2aci/archive/v0.16.0.tar.gz"
   sha256 "7a8abe8b809a0dcf7a583c6a8ba8232eedb97d30750fa4b4f0620e9db6e504fb"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "07aa14d46698ae7cd5aaef1048dbc1e802361846bdae134c2ed08796d01e6f75" => :sierra
+    sha256 "5487ddd0cb050bca91e6663ee430ddf08ec7995b4c4c31d9a39b91fb99f3217c" => :el_capitan
+    sha256 "aef97426abd25cb8b8c0e20ba2285b8c63c31fb98a34a1af55c36bd9749185ad" => :yosemite
+  end
+
   depends_on "go" => :build
 
   def install
