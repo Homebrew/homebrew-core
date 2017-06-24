@@ -3,7 +3,7 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
   sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
