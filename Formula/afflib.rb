@@ -1,8 +1,8 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.15.tar.gz"
-  sha256 "cc705a3b4108594fe36f1d843f4a7c60c93fe79375fda3018c21f5cd24949f1c"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.16.tar.gz"
+  sha256 "9c0522941a24a3aafa027e510c6add5ca9f4defd2d859da3e0b536ad11b6bf72"
 
   bottle do
     cellar :any
