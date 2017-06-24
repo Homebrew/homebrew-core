@@ -97,6 +97,6 @@ class Presto < Formula
 
   test do
     system bin/"presto-server", "run", "--help"
-    assert_equal "Presto CLI #{version}", shell_output("#{bin}/presto --version").strip
+    assert_equal "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
   end
 end
