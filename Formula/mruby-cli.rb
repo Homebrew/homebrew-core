@@ -6,30 +6,21 @@ class MrubyCli < Formula
 
   def install
     ENV["MRUBY_CLI_LOCAL"] = "true"
-    rewrite_build_config
-    system "rake", "compile"
-    cp "mruby/build/host/bin/mruby-cli", "mruby-cli"
-    bin.install "mruby-cli"
-  end
 
-  # The upstream build_config.rb assumes it will be compiled on Linux.
-  # It also automatically cross compiles to MacOS, Linux, and Windows
-  # This configuration compiles a single MacOS binary using clang
-  def rewrite_build_config
-    build_config = <<-eos
+    rm buildpath/"build_config.rb"
+
+    (buildpath/"build_config.rb").write <<-EOS.undent
       MRuby::Build.new do |conf|
         toolchain :clang
-
         conf.gem File.expand_path(File.dirname(__FILE__))
       end
-    eos
+    EOS
 
-    File.open("build_config.rb", "w") do |f|
-      f.write(build_config)
-    end
+    system "rake", "compile"
+    bin.install "mruby/build/host/bin/mruby-cli"
   end
 
   test do
-    system "#{bin}/mruby-cli", "-v"
+    system "#{bin}/mruby-cli", "--setup=brew"
   end
 end
