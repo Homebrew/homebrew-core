@@ -1,5 +1,5 @@
 class Binutils < Formula
-  desc "FSF Binutils for native development"
+  desc "FSF/GNU ld, ar, readelf, etc. for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.28.tar.gz"
@@ -16,6 +16,7 @@ class Binutils < Formula
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--enable-deterministic-archives",
                           "--program-prefix=g",
                           "--prefix=#{prefix}",
                           "--infodir=#{info}",
