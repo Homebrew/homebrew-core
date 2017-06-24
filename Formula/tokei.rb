@@ -1,11 +1,18 @@
+# Documentation: http://docs.brew.sh/Formula-Cookbook.html
+#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
+# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
+
 class Tokei < Formula
-  desc "Program that allows you to count code, quickly."
-  homepage "https://github.com/Aaronepower"
-  url "https://github.com/Aaronepower/tokei/releases/download/v6.0.1/tokei-v6.0.1-x86_64-apple-darwin.tar.gz"
-  sha256 "ac62187453747125b473b1a540e788097ae309fccff3ba71007c7a882db46aea"
+  desc "A program that allows you to count code, quickly."
+  homepage ""
+  url "https://github.com/Aaronepower/tokei/archive/v6.0.1.tar.gz"
+  sha256 "f7f455995fa4f14019bb2f3a5203d7b551d8c453e9b7a533de6fa8d707c7fd74"
+
+  depends_on "rust" => :build
 
   def install
-    bin.install "tokei"
+    system "cargo", "build", "--release"
+    bin.install "target/release/tokei"
   end
 
   test do
