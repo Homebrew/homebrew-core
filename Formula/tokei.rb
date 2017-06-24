@@ -1,10 +1,6 @@
-# Documentation: http://docs.brew.sh/Formula-Cookbook.html
-#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Tokei < Formula
-  desc "A program that allows you to count code, quickly."
-  homepage ""
+  desc "Program that allows you to count code, quickly."
+  homepage "https://github.com/Aaronepower/tokei"
   url "https://github.com/Aaronepower/tokei/archive/v6.0.1.tar.gz"
   sha256 "f7f455995fa4f14019bb2f3a5203d7b551d8c453e9b7a533de6fa8d707c7fd74"
 
