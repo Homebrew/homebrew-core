@@ -21,11 +21,13 @@ class ZeroInstall < Formula
   depends_on "gtk+" => :optional
 
   def install
+    ENV.append_path "PATH", Formula["gnupg"].opt_bin
+
     opamroot = buildpath/"opamroot"
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
     system "opam", "init", "--no-setup"
-    modules = %w[yojson xmlm ounit react ppx_tools lwt extlib ocurl sha]
+    modules = %w[yojson xmlm ounit react ppx_tools lwt<3 extlib ocurl sha]
     modules << "lablgtk" if build.with? "gtk+"
     system "opam", "install", *modules
 
