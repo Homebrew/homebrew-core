@@ -1,6 +1,6 @@
 class GradleCompletion < Formula
-  desc "Gradle tab completion for bash and zsh"
-  homepage "https://gradle.org"
+  desc "Bash and Zsh completion for Gradle"
+  homepage "https://gradle.org/"
   url "https://github.com/gradle/gradle-completion/archive/v1.2.0.tar.gz"
   sha256 "47c23526d94ac4fa5862ed9d6e3cd4b4704ecb1f880f60827f0d154a7b75392e"
   head "https://github.com/gradle/gradle-completion.git"
