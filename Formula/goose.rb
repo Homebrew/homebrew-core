@@ -22,10 +22,9 @@ class Goose < Formula
     cd "src/github.com/golang/dep" do
       system "go", "install", "github.com/golang/dep/cmd/dep"
     end
-    ENV.append_path "PATH", buildpath/"bin"
 
     cd "src/github.com/pressly/goose" do
-      system "dep", "ensure"
+      system buildpath/"bin/dep", "ensure"
       system "go", "build", "-o", "goose", "github.com/pressly/goose/cmd/goose"
       bin.install "goose"
     end
