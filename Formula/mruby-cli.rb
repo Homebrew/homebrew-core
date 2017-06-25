@@ -7,6 +7,7 @@ class MrubyCli < Formula
   def install
     ENV["MRUBY_CLI_LOCAL"] = "true"
 
+    # Edit config to skip building Linux and Windows binaries
     rm buildpath/"build_config.rb"
 
     (buildpath/"build_config.rb").write <<-EOS.undent
@@ -22,5 +23,7 @@ class MrubyCli < Formula
 
   test do
     system "#{bin}/mruby-cli", "--setup=brew"
+    assert File.file? "brew/mrblib/brew.rb"
+    assert File.file? "brew/tools/brew/brew.c"
   end
 end
