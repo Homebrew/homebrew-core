@@ -20,6 +20,6 @@ class Bit < Formula
   end
 
   test do
-    system bin/"bit", "init" ,"--skip-update"
+    system bin/"bit", "init", "--skip-update"
   end
 end
