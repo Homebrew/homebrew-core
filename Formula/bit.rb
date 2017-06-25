@@ -20,7 +20,6 @@ class Bit < Formula
   end
 
   test do
-    assert_equal "successfully initialized an empty bit scope.\n",
-                 shell_output("#{bin}/bit init --skip-update")
+    system bin/"bit", "init" ,"--skip-update"
   end
 end
