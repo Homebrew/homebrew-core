@@ -120,6 +120,7 @@
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
   "open-mpi16": "open-mpi@1.6",
+  "osh": "etsh",
   "percona-server55": "percona-server@5.5",
   "percona-server56": "percona-server@5.6",
   "perl514": "perl@5.14",
