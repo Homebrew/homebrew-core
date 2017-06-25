@@ -30,6 +30,9 @@ class Doctl < Formula
     ].join(" ")
     system "go", "build", "-ldflags", ldflags, "github.com/digitalocean/doctl/cmd/doctl"
     bin.install "doctl"
+
+    (bash_completion/"doctl").write `#{bin}/doctl completion bash`
+    (zsh_completion/"doctl").write `#{bin}/doctl completion zsh`
   end
 
   test do
