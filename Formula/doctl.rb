@@ -31,10 +31,8 @@ class Doctl < Formula
     system "go", "build", "-ldflags", ldflags, "github.com/digitalocean/doctl/cmd/doctl"
     bin.install "doctl"
 
-    output = Utils.popen_read("#{bin}/doctl completion bash")
-    (bash_completion/"doctl").write output
-    output = Utils.popen_read("#{bin}/doctl completion zsh")
-    (zsh_completion/"doctl").write output
+    (bash_completion/"doctl").write `#{bin}/doctl completion bash`
+    (zsh_completion/"doctl").write `#{bin}/doctl completion zsh`
   end
 
   test do
