@@ -12,6 +12,8 @@ class Teleport < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "etsh", :because => "both install `tsh` binaries"
+
   def install
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
