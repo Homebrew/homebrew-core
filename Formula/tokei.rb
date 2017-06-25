@@ -12,13 +12,14 @@ class Tokei < Formula
   end
 
   test do
-    (testpath/"lib.rs").write <<-EOS
-  #[cfg(test)]
-  mod tests {
-      #[test]
-      fn it_works() {
+    (testpath/"lib.rs").write <<-EOS.undent
+      #[cfg(test)]
+      mod tests {
+          #[test]
+          fn test() {
+              println!("It works!");
+          }
       }
-  }
     EOS
     system bin/"tokei", "lib.rs"
   end
