@@ -6,9 +6,9 @@ class Lapack < Formula
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
-    sha256 "9013bc0a104d3d3163155cadbbf847d94e53513fe569bf8d9262977b9d192c0f" => :sierra
-    sha256 "7ebe016039ef1ba945a049a51449a245242df8300ac178547f240d624c1f3e7c" => :el_capitan
-    sha256 "fa4a66bf44fce6ced094c29b10632cb99368bff26818455eb6147de3edffc4d1" => :yosemite
+    sha256 "41d1bb9c224f0248680549d3c5a6a100d72182ca5a686c0bf93d8fd3a9161d13" => :sierra
+    sha256 "3e31bb5858b3338834d3a69a087db8f7ec15f52a6b222f2aea4c6eb9e649b095" => :el_capitan
+    sha256 "fb6b1e6cb50b3b1d1b4bb85c6b6e0393e3fadba89fc42e7aa593e6a649f4bf0e" => :yosemite
   end
 
   keg_only :provided_by_osx
