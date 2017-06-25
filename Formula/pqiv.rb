@@ -1,8 +1,8 @@
 class Pqiv < Formula
   desc "Powerful image viewer with minimal UI"
   homepage "https://github.com/phillipberndt/pqiv"
-  url "https://github.com/phillipberndt/pqiv/archive/2.8.5.tar.gz"
-  sha256 "7895fe0cb7b18d9e40d0353df2ec964aed4e1bb7fa7e1ea9a1e00858d3a89ce9"
+  url "https://github.com/phillipberndt/pqiv/archive/2.9.tar.gz"
+  sha256 "e57298ae7123bd6b01b751f6ef2d7a7853e731a3271b50095683442a406da99c"
   head "https://github.com/phillipberndt/pqiv.git"
 
   bottle do
@@ -18,6 +18,7 @@ class Pqiv < Formula
   depends_on "poppler" => :recommended
   depends_on "imagemagick" => :recommended
   depends_on "libarchive" => :recommended
+  depends_on "webp" => :recommended
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -25,8 +26,6 @@ class Pqiv < Formula
   end
 
   test do
-    # pqiv does not work at all unless a display is present
-    # (it just outputs an GTK error message)
-    system "#{bin}/pqiv 2>&1 | grep -qi gtk"
+    assert_match version.to_s, shell_output("#{bin}/pqiv --version 2>&1")
   end
 end
