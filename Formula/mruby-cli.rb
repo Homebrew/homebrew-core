@@ -4,6 +4,13 @@ class MrubyCli < Formula
   url "https://github.com/hone/mruby-cli/archive/v0.0.4.tar.gz"
   sha256 "97d889b5980193c562e82b42089b937e675b73950fa0d0c4e46fbe71d16d719f"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d436b8d717f89db9807338345f4b0f385abcfc45f56e9b0b7decc333d4d05ad6" => :sierra
+    sha256 "2f56375783e9365bafc0868d505b54eea315f6dad9a0095decbbd61abeb345ac" => :el_capitan
+    sha256 "a06806ca6a22d3b015e073a984e832013f2efe729870e2aa6d0b17e91a4b9855" => :yosemite
+  end
+
   def install
     ENV["MRUBY_CLI_LOCAL"] = "true"
 
