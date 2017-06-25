@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.13.1.tar.xz"
-  sha256 "3bc1becd983f77ab154a46801624369dbc40c3dd04b4c4b07ad026f5684688fe"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.13.2.tar.xz"
+  sha256 "0d10ac3751466f81652b62cbda83cc8d8ffd014911462138e039f176e413dde5"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -37,13 +37,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.13.1.tar.xz"
-    sha256 "eb2a463434a00cc7381788faa29499cd32c19a5437d97d7dcf65b25603b2b411"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.13.2.tar.xz"
+    sha256 "54f0d36d375e7f71441994e60c18b6e2cc43581d5827e806e0bddb6904e17dfc"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.13.1.tar.xz"
-    sha256 "e3dd097d06c44f6d8191ae468b6fc401eaf6992f4962041e9c3af4a06335ff70"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.13.2.tar.xz"
+    sha256 "30e1e1313000eb81f0e348e5083758a33703941a60ab111057b46c3dad968b6e"
   end
 
   def install
