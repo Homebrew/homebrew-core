@@ -9,6 +9,12 @@ class Neovim < Formula
     depends_on "luajit" => :build
   end
 
+  bottle do
+    sha256 "b04f8a559f1f17aef15699afb83be2a85b626a81dec72e1b686bcdf916456c01" => :sierra
+    sha256 "5774c42876eeccfae2b242acdbda91f84761b9bb680e663a707b6a15667ff4a9" => :el_capitan
+    sha256 "8a8e12c9082f67366f6bfd4780f262b935d033e5ade1a6ddf9fd6eb9cb9e0eba" => :yosemite
+  end
+
   head do
     url "https://github.com/neovim/neovim.git"
 
