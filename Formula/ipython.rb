@@ -114,15 +114,11 @@ class Ipython < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
+    ipykernel = resource("ipykernel")
 
-    %w[appnope decorator ipython_genutils jedi pexpect pickleshare prompt_toolkit ptyprocess Pygments simplegeneric six traitlets wcwidth].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install (resources - [ipykernel])
     venv.pip_install_and_link buildpath
-
-    %w[jupyter_client jupyter_core python-dateutil pyzmq tornado ipykernel].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install ipykernel
   end
 
   test do
