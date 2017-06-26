@@ -146,15 +146,11 @@ class IpythonAT5 < Formula
 
   def install
     venv = virtualenv_create(libexec)
+    ipykernel = resource("ipykernel")
 
-    %w[appnope backports.shutil_get_terminal_size decorator enum34 ipython_genutils pathlib2 pexpect pickleshare prompt_toolkit ptyprocess Pygments scandir simplegeneric six traitlets wcwidth].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install (resources - [ipykernel])
     venv.pip_install_and_link buildpath
-
-    %w[backports_abc certifi jupyter_client jupyter_core python-dateutil pyzmq singledispatch tornado ipykernel].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install ipykernel
   end
 
   test do
