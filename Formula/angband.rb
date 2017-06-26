@@ -6,9 +6,9 @@ class Angband < Formula
   head "https://github.com/angband/angband.git"
 
   bottle do
-    sha256 "f3e87c6c6e443fb4807d1473939c47b664ae77c6d0ccf351ac9f08fdc5fe1c8a" => :sierra
-    sha256 "0f4d8be0d57e68a136d38bc34a4afd6d0df1ecebbe9539be2a25e0e5b3057c9f" => :el_capitan
-    sha256 "667101e3cdd23661642f61493bc879cce67257c0e78de3100ebd74506ca7ede9" => :yosemite
+    sha256 "87585187f01fa753e59d6b6f804c1436c96c356c6f82878d5f57c3e54d80d4ce" => :sierra
+    sha256 "4aa7a0f0218a488f89b5b6a8068d51f32c6331f02aaf360c35690e52f0d337ff" => :el_capitan
+    sha256 "0733eb9c331522191a5017cf3fa3d20c5acb9da308db825bd9aba7dba43b3b3f" => :yosemite
   end
 
   option "with-cocoa", "Install Cocoa app"
