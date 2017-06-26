@@ -6,9 +6,9 @@ class Librem < Formula
 
   bottle do
     cellar :any
-    sha256 "3dc7d7827e0be3545a675a54f78d2baf812dfe5c45a8068de7de2a39daf8c44e" => :sierra
-    sha256 "7ca8c91179b72228b42b28adf9cc63d90169f199e657ea8275646c71224fd4ef" => :el_capitan
-    sha256 "45cf36acfb57d518a9c1a9da4a2c63a57371d7be90f1343f6cb2d61691afa6da" => :yosemite
+    sha256 "d3ae13b97276ec22412989e517b2ce10f8649088444b485016108952591b30b3" => :sierra
+    sha256 "ef42e569ec7be8cbf83d49f858e9657b493f76380afc00ce49ad9bc5ed5c912d" => :el_capitan
+    sha256 "4ceca1440d4432e89c9f1150b8e68ee7343546eda4d6cd2aa6b06abffe8afddf" => :yosemite
   end
 
   depends_on "libre"
