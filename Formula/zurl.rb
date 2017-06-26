@@ -1,9 +1,8 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.7.1.tar.bz2"
-  sha256 "d94970bafb64224e233e060d1ae591b3f418e1d809afe46099c3c16f19322187"
-  revision 1
+  url "https://dl.bintray.com/fanout/source/zurl-1.8.0.tar.bz2"
+  sha256 "cfa24b97712c3a2fc6901f78dedd4712373be773a57d31dace65a56a617dfcaf"
 
   bottle do
     cellar :any
@@ -18,8 +17,8 @@ class Zurl < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/12/b8/06a9c0769d1f8024f8ffc516e4150a959d05658fc27eaead5cc199d31194/pyzmq-16.0.0.tar.gz"
-    sha256 "712000cc23e3845936d22b6085be40679fd38d789a3d20836be191b8a86f15a7"
+    url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
+    sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
   end
 
   def install
