@@ -3,6 +3,7 @@ class Ecl < Formula
   homepage "https://common-lisp.net/project/ecl/"
   url "https://common-lisp.net/project/ecl/static/files/release/ecl-16.1.3.tgz"
   sha256 "76a585c616e8fa83a6b7209325a309da5bc0ca68e0658f396f49955638111254"
+  revision 1
 
   head "https://gitlab.com/embeddable-common-lisp/ecl.git"
 
@@ -12,13 +13,16 @@ class Ecl < Formula
     sha256 "f86b66f182afdc3b7a8e8e51ca3e230d6ccc308d760faae1b2b345fd1ead0ab3" => :yosemite
   end
 
+  depends_on "bdw-gc"
   depends_on "gmp"
+  depends_on "libffi"
 
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads=yes",
-                          "--with-system-gmp=yes"
+                          "--enable-boehm=system",
+                          "--enable-gmp=system"
     system "make"
     system "make", "install"
   end
