@@ -21,9 +21,11 @@ class Glibmm < Formula
     ENV.cxx11
 
     # see https://bugzilla.gnome.org/show_bug.cgi?id=781947
-    inreplace "gio/giomm/Makefile.in", "OS_COCOA_TRUE", "OS_COCOA_TEMP"
-    inreplace "gio/giomm/Makefile.in", "OS_COCOA_FALSE", "OS_COCOA_TRUE"
-    inreplace "gio/giomm/Makefile.in", "OS_COCOA_TEMP", "OS_COCOA_FALSE"
+    inreplace "gio/giomm/Makefile.in" do |s|
+      s.gsub! "OS_COCOA_TRUE", "OS_COCOA_TEMP"
+      s.gsub! "OS_COCOA_FALSE", "OS_COCOA_TRUE"
+      s.gsub! "OS_COCOA_TEMP", "OS_COCOA_FALSE"
+    end
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
