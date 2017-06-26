@@ -8,9 +8,9 @@ class Fobis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46e449b0ac1eeae10a05d4021bdfe98226ce1d4eff51fe6c410a8e22efc72746" => :sierra
-    sha256 "c207fc4e30f2d0dbaf1b8b3015012d0490f1e00762a1868147476516cad46875" => :el_capitan
-    sha256 "2213f68df5dc52a2a0d6dca26b4bac1b6391c0bdaf364780ff3d04872e4edc5a" => :yosemite
+    sha256 "36c944d6623254f0befee6187a0f12b12d121c91bf7394eeadca741c2ea41398" => :sierra
+    sha256 "6e78d28082cf41874949412285e73c618fd4d91aa82b0326aeb56e9e7cd8f935" => :el_capitan
+    sha256 "497465ce3e15bd96c27063384317899380488a16d6f101bad80e87bac5143d22" => :yosemite
   end
 
   option "without-pygooglechart", "Disable support for coverage charts generated with pygooglechart"
