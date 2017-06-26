@@ -6,9 +6,9 @@ class Ipv6calc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a67a510d9788019d98836c391811b08af79f0bcbdfa0fc0b7c2ea119b7bc9afd" => :sierra
-    sha256 "ef399281d676e0f9d65038fa7d43f7abca807e3aaf437366126a8a1a4f6a8bf6" => :el_capitan
-    sha256 "ad4d9073a25962b4321648ee79658e04517d340025cc6ae346342d301cab3a40" => :yosemite
+    sha256 "c6bdf091f2496a5ffcb776d18fd1dba83ca1051c9755c45449183e7c22d8814a" => :sierra
+    sha256 "768f3b011dd2c900b2d3030d63eba0d4ae3c417ba6aa5a9f4802a686ef74c562" => :el_capitan
+    sha256 "a129eaac7552df52afc8be73d6644ea4b556847efc9be48baf208fe04ca164e0" => :yosemite
   end
 
   def install
