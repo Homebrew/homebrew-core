@@ -1,9 +1,8 @@
 class Apr < Formula
   desc "Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.5.2.tar.bz2"
-  sha256 "7d03ed29c22a7152be45b8e50431063736df9e1daa1ddf93f6a547ba7a28f67a"
-  revision 3
+  url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.6.2.tar.bz2"
+  sha256 "09109cea377bab0028bba19a92b5b0e89603df9eab05c0f7dbd4dd83d48dcebd"
 
   bottle do
     cellar :any
