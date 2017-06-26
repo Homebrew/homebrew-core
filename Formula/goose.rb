@@ -10,7 +10,7 @@ class Goose < Formula
 
   go_resource "github.com/golang/dep" do
     url "https://github.com/golang/dep.git",
-        :revision => "c79b048e07eccf76d323d4c2e88d7c6d72ea735f"
+        :revision => "77df563b6a79bfe62932d91ed37e587c68878a56"
   end
 
   def install
@@ -20,13 +20,12 @@ class Goose < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/golang/dep" do
-      system "go", "install", "github.com/golang/dep/cmd/dep"
+      system "go", "install", ".../cmd/dep"
     end
 
     cd "src/github.com/pressly/goose" do
       system buildpath/"bin/dep", "ensure"
-      system "go", "build", "-o", "goose", "github.com/pressly/goose/cmd/goose"
-      bin.install "goose"
+      system "go", "build", "-o", bin/"goose", ".../cmd/goose"
     end
   end
 
