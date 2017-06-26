@@ -1,21 +1,9 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
+  url "https://github.com/facebook/flow/archive/v0.49.0.tar.gz"
+  sha256 "f682e87c95baba37f8303534a91b7518b9281299bc78fd4c568f893e4b7bd3c5"
   head "https://github.com/facebook/flow.git"
-
-  stable do
-    url "https://github.com/facebook/flow/archive/v0.48.0.tar.gz"
-    sha256 "8772896075dc4028e62720fe18a6608f278f471931b2a8fff280d0efc0fd4f29"
-
-    # Remove for > 0.48.0
-    # Fix "Error: Some fatal warnings were triggered"
-    # Upstream commit from 13 Jun 2017 "[PR] Disable all warnings for homebrew &
-    # opam release builds"
-    patch do
-      url "https://github.com/facebook/flow/commit/9130d821d.patch"
-      sha256 "acbe71d6f065390f86184827ada544840c9fdfa654bd0c81446b6fd5173002f4"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
