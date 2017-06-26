@@ -151,6 +151,9 @@ class IpythonAT5 < Formula
     venv.pip_install (resources - [ipykernel])
     venv.pip_install_and_link buildpath
     venv.pip_install ipykernel
+
+    man1.mkpath
+    man1.install libexec/"share/man/man1/ipython.1"
   end
 
   test do
