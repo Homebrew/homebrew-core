@@ -14,7 +14,7 @@ class Axel < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
