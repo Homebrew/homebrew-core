@@ -22,6 +22,7 @@ class Iamy < Formula
     cd dir do
       system "go", "build", "-o", bin/"iamy", "-ldflags",
              "-X main.Version=v#{version}"
+      prefix.install_metafiles
     end
   end
 
