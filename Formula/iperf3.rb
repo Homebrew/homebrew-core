@@ -1,8 +1,8 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://github.com/esnet/iperf/archive/3.1.7.tar.gz"
-  sha256 "1d99e3b309aa94d8f4fe7b4e953f038396ab46c1fc809ac06fffbe21ffcb64b3"
+  url "https://github.com/esnet/iperf/archive/3.2.tar.gz"
+  sha256 "cb20d3a33e07a3b45a49a358b044f4998f452ef9d1a8a5cbde476b6ab9e9b526"
 
   bottle do
     cellar :any
@@ -19,9 +19,12 @@ class Iperf3 < Formula
     depends_on "autoconf" => :build
   end
 
+  depends_on "openssl"
+
   def install
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
   end
