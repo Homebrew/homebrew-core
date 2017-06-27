@@ -13,7 +13,11 @@ class Yarn < Formula
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/bin/yarn.js" => "yarn"
     bin.install_symlink "#{libexec}/bin/yarn.js" => "yarnpkg"
-    inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
+    if build.head?
+      inreplace "#{libexec}/package.json", '"installationMethod": "unknown"', '"installationMethod": "homebrew"'
+    else
+      inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
+    end
   end
 
   test do
