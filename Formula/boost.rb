@@ -42,8 +42,8 @@ class Boost < Formula
   # fix error: no member named 'make_array' in namespace 'boost::serialization'
   # https://svn.boost.org/trac/boost/ticket/12978
   patch :p2 do
-    url "https://github.com/boostorg/serialization/commit/1d86261.diff"
-    sha256 "155f603a00975a1702808be072c1420964feac8323de39c111a9d3a363a4ed9a"
+    url "https://github.com/boostorg/serialization/commit/1d86261581230e2dc5d617a9b16287d326f3e229.diff?full_index=1"
+    sha256 "56620635277eccbb20d970d9a1cdd803b9bb18790f108bd225594ff9d2d9e8bd"
   end
 
   def install
