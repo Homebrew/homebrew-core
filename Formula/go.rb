@@ -22,10 +22,9 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.9beta1.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.9beta1.src.tar.gz"
-    version "1.9beta1"
-    sha256 "e42dbd2071aadb28a4d293225b04b6b4215a35a7f04417a0e47ffa38f81d642d"
+    url "https://storage.googleapis.com/golang/go1.9beta2.src.tar.gz"
+    version "1.9beta2"
+    sha256 "4ca11b29e9c3b2ef1db837a80bc3a54a6ba392dc3f7447cb99972f9c96daa8c3"
 
     resource "gotools" do
       url "https://go.googlesource.com/tools.git"
