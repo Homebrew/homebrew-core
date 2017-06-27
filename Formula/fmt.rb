@@ -6,9 +6,9 @@ class Fmt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e6a6247c6c8ad0a40df3173a3a28c3064f4741e9970ff63252251691b7a4146f" => :sierra
-    sha256 "34ffe6f55356bbffd9ec0a976a107503a3d0070831ed8fb6d50023e3e99dd457" => :el_capitan
-    sha256 "908d5d7a074af5e0809807b996d0fee7008b779103e2978aad7a17a81212404a" => :yosemite
+    sha256 "bbc85439060bd61a32e51f81cc9f85a9dffa33ce469be41202267e6389886e64" => :sierra
+    sha256 "834e3662962513589804942894ced8d5dc5dfbb98d557060da8b6b071acba6ef" => :el_capitan
+    sha256 "5f6b23785f1fa87dce60777a0ed77381d7307b9116fdf60e0aa2dbb23e542852" => :yosemite
   end
 
   depends_on "cmake" => :build
