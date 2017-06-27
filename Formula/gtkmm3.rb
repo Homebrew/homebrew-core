@@ -1,9 +1,8 @@
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.0.tar.xz"
-  sha256 "05da4d4b628fb20c8384630ddf478a3b5562952b2d6181fe28d58f6cbc0514f5"
-  revision 1
+  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.1.tar.xz"
+  sha256 "6a0c2cc0894a69b666e688e5e6e93621d7625db5e77fd37551310d75c00896b0"
 
   bottle do
     cellar :any
