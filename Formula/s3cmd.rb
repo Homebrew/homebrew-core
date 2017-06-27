@@ -1,8 +1,8 @@
 class S3cmd < Formula
   desc "Command-line tool for the Amazon S3 service"
   homepage "http://s3tools.org/s3cmd"
-  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/1.6.1/s3cmd-1.6.1.tar.gz"
-  sha256 "4675794f84d8744ee3d35873d180f41c7b2116895ccbe2738a9bc552e1cf214e"
+  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.0/s3cmd-2.0.0.tar.gz"
+  sha256 "bf2a50802f1031cba83e99be488965803899d8ab0228c800c833b55c7269cd48"
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
@@ -15,19 +15,19 @@ class S3cmd < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.2.tar.gz"
-    sha256 "3e95445c1db500a344079a47b171c45ef18f57d188dffdb0e4165c71bea8eb3d"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "python-magic" do
-    url "https://pypi.python.org/packages/source/p/python-magic/python-magic-0.4.10.tar.gz"
-    sha256 "79fd2865ec96074749825f9e9562953995d5bf12b6793f24d75c37479ad4a2c3"
+    url "https://files.pythonhosted.org/packages/65/0b/c6b31f686420420b5a16b24a722fe980724b28d76f65601c9bc324f08d02/python-magic-0.4.13.tar.gz"
+    sha256 "604eace6f665809bebbb07070508dfa8cabb2d7cb05be9a56706c60f864f1289"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
@@ -42,5 +42,9 @@ class S3cmd < Formula
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     man1.install Dir[libexec/"share/man/man1/*"]
+  end
+
+  test do
+    system bin/"s3cmd", "--help"
   end
 end
