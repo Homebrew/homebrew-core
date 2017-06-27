@@ -1,8 +1,8 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  url "https://yarnpkg.com/downloads/0.24.6/yarn-v0.24.6.tar.gz"
-  sha256 "c375ab86d4ca0b46addc5b462280bd42ddefb114ee0025d38044bb4610cd625d"
+  url "https://yarnpkg.com/downloads/0.25.4/yarn-v0.25.4.tar.gz"
+  sha256 "e538ac75560799fccef0646c5607a83e472b61a9c80675ebc4d211d50231e2e1"
   head "https://github.com/yarnpkg/yarn.git"
 
   bottle :unneeded
