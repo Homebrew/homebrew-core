@@ -13,6 +13,12 @@ class Dub < Formula
     sha256 "b0882c369fb17175f79b2f4b469d91dc0da2bd777686fabbbe53b02ff259d412" => :yosemite
   end
 
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.4.0-beta.1.tar.gz"
+    version "1.4.0-beta.1"
+    sha256 "9c5bc4bacfa085ae652da9af1f290ceb52eedf36a8f903a4b7b2a680be48fe30"
+  end
+
   depends_on "pkg-config" => [:recommended, :run]
   depends_on "dmd" => :build
 
@@ -23,6 +29,10 @@ class Dub < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/dub --version")
+    if build.stable?
+      assert_match version.to_s, shell_output("#{bin}/dub --version")
+    else
+      assert_match version.to_s, shell_output("#{bin}/dub --version").split(/[ ,]/)[2]
+    end
   end
 end
