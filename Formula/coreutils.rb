@@ -112,7 +112,7 @@ class Coreutils < Formula
     Additionally, you can access their man pages with normal names if you add
     the "gnuman" directory to your MANPATH from your bashrc as well:
 
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+        MANPATH="#{opt_libexec}/gnuman:$(eval "$(: ${MANPATH:=}; /usr/libexec/path_helper -s)"; echo "$MANPATH")"
 
     EOS
   end
