@@ -1,8 +1,8 @@
 class Iamy < Formula
   desc "AWS IAM import and export tool"
   homepage "https://github.com/99designs/iamy"
-  url "https://github.com/99designs/iamy/archive/v2.0.0.tar.gz"
-  sha256 "44906985ac2a7a0f4a703c4eb872e626770ffa1ea01a589279e75867a4348630"
+  url "https://github.com/99designs/iamy/archive/v2.1.0.tar.gz"
+  sha256 "3458668c2a6c82878807facb6858b52ee51b539aa51fd6b505b4dfa41a93649b"
   head "https://github.com/99designs/iamy.git"
 
   bottle do
@@ -12,17 +12,14 @@ class Iamy < Formula
     sha256 "2691c8fcf937d4fe3887204cdec9836cb9123e747223eb5a324b21cb19bdd303" => :yosemite
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
   depends_on "awscli"
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/99designs/iamy"
     dir.install buildpath.children
     cd dir do
-      system "glide", "install"
       system "go", "build", "-o", bin/"iamy", "-ldflags",
              "-X main.Version=v#{version}"
     end
