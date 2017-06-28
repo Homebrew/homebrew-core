@@ -1,10 +1,8 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
-  url "https://github.com/EasyRPG/Player/archive/0.5.1.tar.gz"
-  sha256 "d93c092c38a8af81099b99645e15f0189ff2ffc0552cb2094ecb6c337f219b7c"
-  revision 1
-  head "https://github.com/EasyRPG/Player.git"
+  url "https://easyrpg.org/downloads/player/easyrpg-player-0.5.2.tar.gz"
+  sha256 "3ede43b0bbcd72103507d1f076810506b03d374b481dfe41c9f733bb21cddd24"
 
   bottle do
     cellar :any
@@ -13,9 +11,6 @@ class EasyrpgPlayer < Formula
     sha256 "fba0e66131648a46ea3a1accff15dec77e7ecf57e557263218d2584cc76b0a4a" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "harfbuzz"
@@ -31,7 +26,6 @@ class EasyrpgPlayer < Formula
   depends_on "speex"
 
   def install
-    system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
