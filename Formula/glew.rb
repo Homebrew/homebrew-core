@@ -8,18 +8,18 @@ class Glew < Formula
     sha256 "c572c30a4e64689c342ba1624130ac98936d7af90c3103f9ce12b8a0c5736764"
 
     patch do
-      url "https://github.com/nigels-com/glew/commit/925722f.patch"
-      sha256 "6f36179dc42f1bbf5dd5bfe525457e4988749b56ee68180482c3a82b999792ed"
+      url "https://github.com/nigels-com/glew/commit/925722f91060a0a19acbf1a209cd7b96ed390c19.patch?full_index=1"
+      sha256 "d20be5c8dde10eef46f8e8bb46818bd26e49ff9d2d657b7a4a7a478684a8e548"
     end
 
     patch do
-      url "https://github.com/nigels-com/glew/commit/e7bf0f70.patch"
-      sha256 "ccab4b2e2edafe9b96bf277891061dbfb1b0dd0f1de75d574c653d7c49ce9c5c"
+      url "https://github.com/nigels-com/glew/commit/e7bf0f70b3b9528764e605794aa868db09ad47f4.patch?full_index=1"
+      sha256 "2265dabd566701b991290a0948966ff88ab507452bf67367fb30f3d88c34fe7f"
     end
 
     patch do
-      url "https://github.com/nigels-com/glew/commit/298528cd.patch"
-      sha256 "3d9dad811b74ec9502f096393f18f16e4d29891df786ff55d91f4e2301d4d773"
+      url "https://github.com/nigels-com/glew/commit/298528cd87019fe642a7ce9dfa772b62d7bf6aeb.patch?full_index=1"
+      sha256 "d8c75c35f1c7dd0b13991c46e90f1181777696eea6918fc261668cd02bd27727"
     end
   end
 
