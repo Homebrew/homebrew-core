@@ -3,7 +3,7 @@ class Libcdr < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.3.tar.xz"
   sha256 "66e28e502abef7f6f494ce03de037d532f5e7888cfdee62c01203c8325b33f22"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any

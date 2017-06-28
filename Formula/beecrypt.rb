@@ -3,7 +3,7 @@ class Beecrypt < Formula
   homepage "https://beecrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/beecrypt/beecrypt/4.2.1/beecrypt-4.2.1.tar.gz"
   sha256 "286f1f56080d1a6b1d024003a5fa2158f4ff82cae0c6829d3c476a4b5898c55d"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
