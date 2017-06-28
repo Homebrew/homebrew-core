@@ -1,8 +1,8 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz"
-  sha256 "2d579d9f403eb95064781ffb28aca2b258ca55d7a2ba056a8fa2b3e6b79721f2"
+  url "https://github.com/fail2ban/fail2ban/archive/0.9.6.tar.gz"
+  sha256 "1712e4eda469513fb2f44951957a4159e0fa62cb9da16ed48e7f4f4037f0b976"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,8 @@ class Fail2ban < Formula
     sha256 "f39d0f4aa122b1e40ce05ad9010901beefacd560c5d84960eed4448daa3915f2" => :mavericks
   end
 
+  depends_on :python
+
   def install
     rm "setup.cfg"
     inreplace "setup.py" do |s|
@@ -20,20 +22,14 @@ class Fail2ban < Formula
       s.gsub! %r{/var}, var
     end
 
-    # Replace hardcoded paths
-    inreplace "fail2ban-client", "/usr/share/fail2ban", libexec
-    inreplace "fail2ban-server", "/usr/share/fail2ban", libexec
-    inreplace "fail2ban-regex", "/usr/share/fail2ban", libexec
+    inreplace "bin/fail2ban-client", "/etc", etc
 
-    inreplace "fail2ban-client", "/etc", etc
-    inreplace "fail2ban-regex", "/etc", etc
-
-    inreplace "fail2ban-server", "/var", var
+    inreplace "bin/fail2ban-server", "/var", var
     inreplace "config/fail2ban.conf", "/var/run", (var/"run")
 
     inreplace "setup.py", "/usr/share/doc/fail2ban", (libexec/"doc")
 
-    system "python", "setup.py", "install", "--prefix=#{prefix}", "--install-lib=#{libexec}"
+    system "python", *Language::Python.setup_install_args(prefix)
   end
 
   def caveats
@@ -75,5 +71,10 @@ class Fail2ban < Formula
       </dict>
       </plist>
     EOS
+  end
+
+  test do
+    system bin/"fail2ban-client", "-h"
+    system bin/"fail2ban-server", "-h"
   end
 end
