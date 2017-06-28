@@ -8,8 +8,8 @@ class Gd < Formula
     sha256 "137f13a7eb93ce72e32ccd7cebdab6874f8cf7ddf31d3a455a68e016ecd9e4e6"
 
     patch do
-      url "https://github.com/libgd/libgd/commit/381e89de.patch"
-      sha256 "5604fb87dfaabff0ae399bb6f6ed0fbe01dbb8a63db9cead85623c7bc63d4963"
+      url "https://github.com/libgd/libgd/commit/381e89de16125bb0e86ffc144d6fe3e9cfdd898f.patch?full_index=1"
+      sha256 "93bcd92e7d18ef1f4cf4466482f41de8f0c65a7644c10bb88d10d59de96a13f1"
     end
   end
 
