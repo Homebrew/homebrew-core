@@ -11,8 +11,8 @@ class Ettercap < Formula
 
     # Fixes CVE-2017-6430.
     patch do
-      url "https://github.com/Ettercap/ettercap/commit/4ad7f85d.patch"
-      sha256 "a53322b8f103d92e3947b947083e548a92e05c0c2814ee870ec21a31eb0035c3"
+      url "https://github.com/Ettercap/ettercap/commit/4ad7f85dc01202e363659aa473c99470b3f4e1f4.patch?full_index=1"
+      sha256 "13be172067e133f64a31b14de434acea261ac795d493897d085958192ac1cdd4"
     end
   end
 
