@@ -12,8 +12,8 @@ class Doxygen < Formula
     # "Bug 776791 - [1.8.13 Regression] Segfault building the breathe docs"
     # Upstream PR from 4 Jan 2017 https://github.com/doxygen/doxygen/pull/555
     patch do
-      url "https://github.com/doxygen/doxygen/commit/0f02761.patch"
-      sha256 "2c3d700c3a7c191ef432099db30abc3360c021d3a3dd1836440385dde8a1c264"
+      url "https://github.com/doxygen/doxygen/commit/0f02761a158a5e9ddbd5801682482af8986dbc35.patch?full_index=1"
+      sha256 "6705eb83b419ad9a696290c624b8ff363ff39b94b250008d0ef36200254c2a08"
     end
   end
 
