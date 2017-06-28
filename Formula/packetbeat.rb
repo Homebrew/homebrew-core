@@ -8,9 +8,9 @@ class Packetbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "185a1e59e3bd8d04ad384722994cc8e9de1b0d6892cf370ed7c471813f9499a1" => :sierra
-    sha256 "22db168b98a636fadf7afcd6581c73c91be6a61e39df21b2bc92587edc4156c6" => :el_capitan
-    sha256 "25cb4df6dad22191680bbab0db0401958e04fa7b37aaed8608fac8658b94fb22" => :yosemite
+    sha256 "f7fa33228dce3364c6312b5b68d85ac13153e14fb1bbdf78a2748010fd1f2423" => :sierra
+    sha256 "28a47907c1074b01c7ce9f22e62b2a16fcbb2f3d6d7cc70b5a620e15fbb0beed" => :el_capitan
+    sha256 "0f3a170e874403fe513e1c95aa1f73e92c9fe7925cc0ed81a44f92f96281e188" => :yosemite
   end
 
   depends_on "go" => :build
