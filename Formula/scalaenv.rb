@@ -1,9 +1,9 @@
 class Scalaenv < Formula
   desc "Command-line tool to manage Scala environments"
-  homepage "https://github.com/mazgi/scalaenv"
-  url "https://github.com/mazgi/scalaenv/archive/version/0.0.11.tar.gz"
-  sha256 "696d41db414517d58277704030233168339c414a3eee008805c430dbf5a730e1"
-  head "https://github.com/mazgi/scalaenv.git"
+  homepage "https://github.com/scalaenv/scalaenv"
+  url "https://github.com/scalaenv/scalaenv/archive/version/0.0.13.tar.gz"
+  sha256 "1285ff88007631944e6ef8e8d9b5669b45324475e17b3fe2d0196404ed5df32e"
+  head "https://github.com/scalaenv/scalaenv.git"
 
   bottle :unneeded
 

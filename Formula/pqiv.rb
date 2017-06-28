@@ -1,15 +1,15 @@
 class Pqiv < Formula
   desc "Powerful image viewer with minimal UI"
   homepage "https://github.com/phillipberndt/pqiv"
-  url "https://github.com/phillipberndt/pqiv/archive/2.8.3.tar.gz"
-  sha256 "b90c45d829eb180459dcfbf1420b8feb670dc9bb542fe307adbc4ff201445bbd"
+  url "https://github.com/phillipberndt/pqiv/archive/2.9.tar.gz"
+  sha256 "e57298ae7123bd6b01b751f6ef2d7a7853e731a3271b50095683442a406da99c"
   head "https://github.com/phillipberndt/pqiv.git"
 
   bottle do
     cellar :any
-    sha256 "23ee53fc6d98f8513490e3c0c495a288796b4efc637d1cefa00373e755a3415d" => :sierra
-    sha256 "d09aa830367b7ca46b603f541580285f6daed7248e7c53cd00efe30494e09245" => :el_capitan
-    sha256 "20cb3a3110160004be6489889c155b22eec9d845f08c3019707d1af47bad9f4f" => :yosemite
+    sha256 "0de9bc7c1b3f57220b22b181f619534cddb90b2569d2d29a5da798473bb84a5f" => :sierra
+    sha256 "031bfb0ab1ac2320e4f7fa4ce7027cfab9cd00fca5c050ee8b4e9c77547d898c" => :el_capitan
+    sha256 "e9d35506895d59fae456e97d824fd15be02dc88f7ee18f2541aa230382bdcba9" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -18,6 +18,7 @@ class Pqiv < Formula
   depends_on "poppler" => :recommended
   depends_on "imagemagick" => :recommended
   depends_on "libarchive" => :recommended
+  depends_on "webp" => :recommended
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -25,8 +26,6 @@ class Pqiv < Formula
   end
 
   test do
-    # pqiv does not work at all unless a display is present
-    # (it just outputs an GTK error message)
-    system "#{bin}/pqiv 2>&1 | grep -qi gtk"
+    assert_match version.to_s, shell_output("#{bin}/pqiv --version 2>&1")
   end
 end

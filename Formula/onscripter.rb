@@ -3,12 +3,13 @@ class Onscripter < Formula
   homepage "https://onscripter.osdn.jp/"
   url "https://onscripter.osdn.jp/onscripter-20161102.tar.gz"
   sha256 "e9a39b1c45cc47c363eb15773a9944da7a29eff74261ccb656ff5ce4b5fdd5d8"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6d722b32bb2a3f120b8df06013d5876eb1484b68d40bdc6155bcde2cf88546fb" => :sierra
-    sha256 "b5d74322c46656129c0ac285b8702842ea0611ab3dc8f6ac7a2f385bd348387a" => :el_capitan
-    sha256 "89ec41fe247d1a90ca201a4906cc304480b2c3edc97dd1bf12ff1f0f90c59e02" => :yosemite
+    sha256 "46e7b53ef1de1e204dffa25762d6bfa03477283797542cc5d85ba6560d3c6683" => :sierra
+    sha256 "cf2419ac1d5bce4282e59a52160c30c1c1f252b79b091e8d63cf42431ee9251f" => :el_capitan
+    sha256 "8b6b99662b85cae18e11ec22d1a72bf86947a6f3107bb292bb764309c08e02ce" => :yosemite
   end
 
   option "with-english", "Build with single-byte character mode"
@@ -17,7 +18,7 @@ class Onscripter < Formula
   depends_on "sdl"
   depends_on "sdl_ttf"
   depends_on "sdl_image"
-  depends_on "sdl_mixer" => "with-libvorbis"
+  depends_on "sdl_mixer"
   depends_on "smpeg"
   depends_on "jpeg"
   depends_on "lua" => :recommended

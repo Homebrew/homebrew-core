@@ -1,8 +1,8 @@
 class Checkstyle < Formula
   desc "Check Java source against a coding standard"
   homepage "https://checkstyle.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/checkstyle/checkstyle/7.6.1/checkstyle-7.6.1-all.jar"
-  sha256 "e05f866715fe7bc264494cdaeb4b20e0aaa1dd3d2c60f88d71363913f9caf947"
+  url "https://downloads.sourceforge.net/project/checkstyle/checkstyle/7.8.2/checkstyle-7.8.2-all.jar"
+  sha256 "838c3314060f27fd3e33c1475adaacf2f4b2cb1774db9c2bf64177bd98f2fe27"
 
   bottle :unneeded
 
@@ -18,6 +18,6 @@ class Checkstyle < Formula
     output = `#{bin}/checkstyle -c /sun_checks.xml #{path}`
     errors = output.lines.select { |line| line.start_with?("[ERROR] #{path}") }
     assert_match "#{path}:1:17: '{' is not preceded with whitespace.", errors.join(" ")
-    assert_equal errors.size, $?.exitstatus
+    assert_equal errors.size, $CHILD_STATUS.exitstatus
   end
 end

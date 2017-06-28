@@ -21,7 +21,7 @@ class Xu4 < Formula
   depends_on "libpng"
 
   resource "ultima4" do
-    url "http://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
+    url "https://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
     sha256 "94aa748cfa1d0e7aa2e518abebb994f3c18acf7edb78c3bd37cd0a4404e6ba74"
   end
 

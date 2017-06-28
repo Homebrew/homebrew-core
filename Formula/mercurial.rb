@@ -3,14 +3,13 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.1.1.tar.gz"
-  sha256 "63571be1202f83c72041eb8ca2a2ebaeda284d2031fd708919fc610589d3359e"
+  url "https://mercurial-scm.org/release/mercurial-4.2.1.tar.gz"
+  sha256 "d7d5572f5aa0797fbf2168440eaa51149df88645fe37af8b15fa660d9a8158a0"
 
   bottle do
-    rebuild 1
-    sha256 "53a54f6cda2606bbbb46df691deb2bc88cf7524ce0599439c229f59e89c91aaf" => :sierra
-    sha256 "78621cf531c481e66afaf9c97ff9801a6e5b0bec9100f3ba09cc5c08dba65485" => :el_capitan
-    sha256 "d51e10db092a7fd4e73d9245e4181edfb9f19431a7d0e29d167d80e92793edbf" => :yosemite
+    sha256 "964af78c7db295e17831f417cb922a2ccb1a50438cfa6219dc1b44a28d18d9f0" => :sierra
+    sha256 "1d4774736aab4174fe80f3dcfa4b79e4950db40ea55ba0fa3e32943a8c5381b1" => :el_capitan
+    sha256 "a97a5f1ee0c17076d4328a993b6e1a999d8aaf9b3903dd6cfc9b6c06b30884d9" => :yosemite
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
@@ -25,6 +24,14 @@ class Mercurial < Formula
              "HG=#{bin}/hg"
       bin.install "chg"
     end
+
+    # Configure a nicer default pager
+    (buildpath/"hgrc").write <<-EOS.undent
+      [pager]
+      pager = less -FRX
+    EOS
+
+    (etc/"mercurial").install "hgrc"
 
     # Install man pages, which come pre-built in source releases
     man1.install "doc/hg.1"

@@ -1,8 +1,8 @@
 class Unrtf < Formula
   desc "RTF to other formats converter"
   homepage "https://www.gnu.org/software/unrtf/"
-  url "https://ftpmirror.gnu.org/unrtf/unrtf-0.21.9.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/unrtf/unrtf-0.21.9.tar.gz"
+  url "https://ftp.gnu.org/gnu/unrtf/unrtf-0.21.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/unrtf/unrtf-0.21.9.tar.gz"
   sha256 "22a37826f96d754e335fb69f8036c068c00dd01ee9edd9461a36df0085fb8ddd"
 
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", :using => :hg

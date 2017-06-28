@@ -1,31 +1,33 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.24.1.tar.gz"
-  sha256 "fa117de2c6096dd896a333b9c770572a939e04a02abe6745b6b07f5363063ca3"
+  url "https://notmuchmail.org/releases/notmuch-0.24.2.tar.gz"
+  sha256 "aa76a96684d5c5918d940182b6fe40f7d6745f144476fdda57388479d586cc51"
   head "git://git.notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    sha256 "0fb3360c41dfc3ed91420875b3ec74f78c124743e79036c30248f49a4ce9bf45" => :sierra
-    sha256 "087c52f7178efd621eab51187406332380134cc08f2759af4a488294db39bd95" => :el_capitan
-    sha256 "58440c1e81a60042efc6cada19db917d9af7c9094ee7a7dc7cc7be5e1a7f24f4" => :yosemite
+    sha256 "06a9306db0c26b38989d7857901fb405c8afd526fd6440af69e52158f0bb6d3b" => :sierra
+    sha256 "3d29b0dfb986dd17a1aec423a7cce1b335155a5e31cdc21f09285c8165303c18" => :el_capitan
+    sha256 "5784e44063cdd04a095db78811c16f002f997670705f217b462657c9779869a3" => :yosemite
   end
 
   option "without-python", "Build without python support"
 
   depends_on "pkg-config" => :build
-  depends_on "gmime"
+  depends_on "libgpg-error" => :build
+  depends_on "glib"
   depends_on "talloc"
   depends_on "xapian"
+  depends_on "zlib"
   depends_on :emacs => ["24.1", :optional]
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
 
-  # Requires zlib >= 1.2.11
-  resource "zlib" do
-    url "http://zlib.net/zlib-1.2.11.tar.gz"
-    sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
+  # Currently requires gmime 2.6.x
+  resource "gmime" do
+    url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
+    sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
   end
 
   # Fix SIP issue with python bindings
@@ -34,10 +36,10 @@ class Notmuch < Formula
   patch :DATA
 
   def install
-    resource("zlib").stage do
-      system "./configure", "--prefix=#{buildpath}/zlib", "--static"
+    resource("gmime").stage do
+      system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
       system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/zlib/lib/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
     end
 
     args = %W[--prefix=#{prefix}]

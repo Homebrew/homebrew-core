@@ -1,14 +1,14 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "http://mapserver.org/"
-  url "http://download.osgeo.org/mapserver/mapserver-7.0.4.tar.gz"
-  sha256 "c91d40da5cc242b20ca7e29c41bd9eb23097b98a77908b1d708e9708f6f6cf69"
+  url "http://download.osgeo.org/mapserver/mapserver-7.0.6.tar.gz"
+  sha256 "dcbebd62976deef1490b084d8f6a0b2f2a1a25407efb6e058390025375539507"
 
   bottle do
     cellar :any
-    sha256 "ca153f9d18dd67a56243d5e35075912fe2ea64c5cdb7bed48d269c2f0c50c8c0" => :sierra
-    sha256 "e3d905a18cd9509733225f01c879aeb2a170406dc5b34dd072252f30dc7db724" => :el_capitan
-    sha256 "152152b5084d353299b06dc55c09b8cd64c4607d227a991f7c2de467f5b9c0fc" => :yosemite
+    sha256 "1ab6c6b519e7ba102308e125a84ad3a28a1c058c93dc9a14db33b646ca85315e" => :sierra
+    sha256 "7a89c7d190dad3b7686139102cabeb24e8fea79d739982020a95d5a7b5958138" => :el_capitan
+    sha256 "82f0e7a8b6d0f90831f74aea71e70b1463bdce213b763b559da3f23db6864c0c" => :yosemite
   end
 
   option "with-fastcgi", "Build with fastcgi support"
@@ -41,6 +41,7 @@ class Mapserver < Formula
       -DWITH_WFS=ON
       -DWITH_FRIBIDI=OFF
       -DWITH_HARFBUZZ=OFF
+      -DPYTHON_EXECUTABLE:FILEPATH=#{which("python")}
     ]
 
     # Install within our sandbox.

@@ -2,22 +2,15 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.6.0",
-      :revision => "fff5156092b56e6bd60fff75aad4dc9de6b6ef37"
+      :tag => "v1.6.6",
+      :revision => "7fa1c1756d8bc963f1a389f4a6937dc71f08ada2"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec0fe7de3bb8def900e8f238a57f4645fc870b64e79346e0a3108e47bc01d701" => :sierra
-    sha256 "558c06887bdcac310c5a18d2e1d0aed5152f35491984f50bba945e44fab0fa37" => :el_capitan
-    sha256 "9bcfb52b91a113603851736d9a1924ae8ab11c17462e0b41499e593d79fea7cf" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.6.1-beta.0",
-        :revision => "8d26223577ea3c9ad94c6e858a6ec43ef8927a9c"
-    version "1.6.1-beta.0"
+    sha256 "fdcdc3f168288a0a0289c518a811cfe544e19d3ceba1f61fd5cc86ebd259a31b" => :sierra
+    sha256 "8dc6e6eb12fa3ec5d4cd6148c2f425ad453d98ce05be79e3853b49fca61584ce" => :el_capitan
+    sha256 "0f6d79b7e5cac303959f38dc786388e78aa7a3cfbd9c5f8d79c03705b3f19ad0" => :yosemite
   end
 
   depends_on "go" => :build
@@ -53,5 +46,6 @@ class KubernetesCli < Formula
 
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
+    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
   end
 end

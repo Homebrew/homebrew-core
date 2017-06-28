@@ -1,6 +1,7 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "http://delta.affinix.com/qca/"
+  revision 1
   head "https://anongit.kde.org/qca.git"
 
   stable do
@@ -10,29 +11,29 @@ class Qca < Formula
     # upstream fixes for macOS building (remove on 2.2.0 upgrade)
     patch do
       url "https://github.com/KDE/qca/commit/7ba0ee591e0f50a7e7b532f9eb7e500e7da784fb.diff"
-      sha256 "fee535fdd01c1ba981bb5ece381cfa01e6e3decca38d62b24c4f20fd8620c1ce"
+      sha256 "31977c97ff07d562244211536fa51d0a155b5a13a865a4a231dbb5a15bf3bd61"
     end
     patch do
       url "https://github.com/KDE/qca/commit/b435c1b87b14ac2d2de9f83e586bfd6d8c2a755e.diff"
-      sha256 "187de5c4f4cb8975ca562ee7ca38592ce12a844b9606a68af8e3dd932f67818d"
+      sha256 "9f53b78fcdb723522aeea406a44e2229d200f649f60f787911e4ddea8528e5f1"
     end
     patch do
       url "https://github.com/KDE/qca/commit/f4b2eb0ced5310f3c43398eb1f03e0c065e08a82.diff"
-      sha256 "a3529a29dd55008be9575bc965cb760365b650a62f5c6c8c441d433e9c9556db"
+      sha256 "4bcffdbdd4cbf216861290f10010da15ceae1bc2470e69c31930e3e59d57deb7"
     end
 
     # use major version for framework, instead of full version
     # see: https://github.com/KDE/qca/pull/3
     patch do
       url "https://github.com/KDE/qca/pull/3.patch"
-      sha256 "ec90fc28c64629ecb81571f5d0e4962cfd6237892b692ac488cd0c87a0adb7b9"
+      sha256 "4972c941df8eee0b974d3cf01211ebc9650c6fba8dca9be6b2567fdd86c25785"
     end
   end
 
   bottle do
-    sha256 "49bcd8ddf979e195df13ab645d7400c6c8fdf87d53d953c5a2cf42607169ba85" => :sierra
-    sha256 "54c46dee59de352e5deb1dfef16bf3cd58ac7d931c5dddf321991ab8a131d80e" => :el_capitan
-    sha256 "b6c45096e403d0ccebf365424a83736b796bbbb5cbebed4207e37ffcfcd4610d" => :yosemite
+    sha256 "d906fecec28f2af312e2309398c43c9d5208ace0a24f65462d5c0ee6999acaa6" => :sierra
+    sha256 "7ef949fefdbddb7309cd3f687fa2ad2a4c02622b7ca92d7416494bd13d40eb4c" => :el_capitan
+    sha256 "d3a865bed9af87d7d54b87080cc973341385ced03dd5d257a9bc590e4d656c80" => :yosemite
   end
 
   option "with-api-docs", "Build API documentation"
@@ -41,7 +42,7 @@ class Qca < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "qt5"
+  depends_on "qt"
 
   # Plugins (QCA needs at least one plugin to do anything useful)
   depends_on "openssl" # qca-ossl
@@ -53,7 +54,7 @@ class Qca < Formula
 
   if build.with? "api-docs"
     depends_on "graphviz" => :build
-    depends_on "doxygen" => [:build, "with-graphviz"]
+    depends_on "doxygen" => :build
   end
 
   def install

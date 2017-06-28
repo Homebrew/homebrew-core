@@ -1,15 +1,14 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.3/zabbix-3.2.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/zabbix-3.2.3.tar.gz"
-  sha256 "e6dba74039d8d6efff86ec3da99909f4daeaeb66d48781bbb666e3094533da25"
-  revision 1
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.6/zabbix-3.2.6.tar.gz"
+  mirror "https://fossies.org/linux/misc/zabbix-3.2.6.tar.gz"
+  sha256 "98f025b39515b196552b8a23e2fe20a8180b5e99e613ce7378725a46ed8b62d6"
 
   bottle do
-    sha256 "35a2068460d9ca35b0a52f8beb8e56a0c3144eb469a4fff993c35eaadafc9ff8" => :sierra
-    sha256 "be5a15450a93c860ae19d8a4fbf6738282dfc9e6fecc3bb633b3863f2472659a" => :el_capitan
-    sha256 "8f22eb0c9e5fc108a6e3127c86eef174542214c3e7f08ab535dfda4e06cc061d" => :yosemite
+    sha256 "53cf139fba01e23e9e99d376bd87eb731a4f4820893be1a959dcc6b3e5031e6b" => :sierra
+    sha256 "8ab8b527d7d05970133f06f6e3218be819c2c7879555a3a76c3009c4b1770d8a" => :el_capitan
+    sha256 "aabb18d6d862d1fc6d594f1cf5752f378ed4f8e43b3ef5c687d82d1d28de7d15" => :yosemite
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
@@ -34,6 +33,7 @@ class Zabbix < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/zabbix
       --enable-agent
       --with-iconv=#{MacOS.sdk_path}/usr
     ]
@@ -72,6 +72,6 @@ class Zabbix < Formula
   end
 
   test do
-    system "#{sbin}/zabbix_agentd", "--print"
+    system sbin/"zabbix_agentd", "--print"
   end
 end

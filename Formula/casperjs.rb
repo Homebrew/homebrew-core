@@ -1,19 +1,18 @@
 class Casperjs < Formula
   desc "Navigation scripting and testing tool for PhantomJS"
   homepage "http://www.casperjs.org/"
-  url "https://github.com/casperjs/casperjs/archive/1.1.4.tar.gz"
-  sha256 "3afa9210a2676cd9f5cda6227af0b656655b796107108562ec1fef550bdb11e7"
+  url "https://github.com/casperjs/casperjs/archive/1.1.4-1.tar.gz"
+  version "1.1.4-1"
+  sha256 "c95dd17ac58872e9b74dcfd0d55ce22a5545abdae237cc2b9b945fe14c9a2d31"
   head "https://github.com/casperjs/casperjs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2169e087db1920067eed5cd4c02742d5fc28934224960f34fca01ef7f0cd44cd" => :sierra
-    sha256 "2169e087db1920067eed5cd4c02742d5fc28934224960f34fca01ef7f0cd44cd" => :el_capitan
-    sha256 "2169e087db1920067eed5cd4c02742d5fc28934224960f34fca01ef7f0cd44cd" => :yosemite
+    sha256 "885f4f9d0b7e6ceabcde8c5542d14766212e7d189ae426c4bbe6ecd99eb25148" => :sierra
+    sha256 "8f0ae4b24ce77c1fa4b93f480dcaa24b64dd0b0b8ac10ea695b91c18d1908568" => :el_capitan
+    sha256 "8f0ae4b24ce77c1fa4b93f480dcaa24b64dd0b0b8ac10ea695b91c18d1908568" => :yosemite
   end
 
-  # For embedded Phantomjs
-  depends_on :macos => :snow_leopard
   depends_on "phantomjs"
 
   def install

@@ -1,17 +1,16 @@
 class PcapDnsproxy < Formula
   desc "Powerful DNS proxy designed to anti DNS spoofing"
   homepage "https://github.com/chengr28/Pcap_DNSProxy"
-  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.8.4.tar.gz"
-  sha256 "a15ee4c00fe4863aaf54bdeec71de2739a5ea1ab4f8e14ca0c6712ba3ed5695c"
+  url "https://github.com/chengr28/Pcap_DNSProxy/archive/v0.4.9.0.tar.gz"
+  sha256 "4c7854874d7c06b5fcbdb8cb22f58eedb124721670c042eb7676d76987e97b34"
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
-    sha256 "addff90b1ba84293b545778b055448e4ab6fa45f753b79c3e392d9e9d30fa1b0" => :sierra
-    sha256 "1c462cda06356957500baf934c508d263114575fe5368061d204b1c7b1e50b3f" => :el_capitan
-    sha256 "5ad62a89c78c853de0181efaf10af9f3e25a18130dfa467a848fbc19c18c8c9b" => :yosemite
+    sha256 "645cf86c499459e461357fe0a4d41cc451aa35b9b61dfc956bf525aa0b7814b6" => :sierra
+    sha256 "819294a6e3ec1cb7b5738bec6b1d39178707deb5be3ab87bbeda6dbbbf68c545" => :el_capitan
   end
 
-  depends_on :macos => :yosemite
+  depends_on :macos => :el_capitan
   depends_on :xcode => :build
   depends_on "libsodium"
   depends_on "openssl@1.1"

@@ -1,13 +1,13 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.0.tar.xz"
-  sha256 "3c2948f451dd107b3838bd6580bd7df95aa455d16f595aefab6e7553cccfc8d2"
+  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
+  sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
 
   bottle do
-    sha256 "178943fb60d754e189c50aad580be9591e0276cbc08826b80f57a03bd11a67fb" => :sierra
-    sha256 "71683effed8ec84d45e34053c8506b4a58074797dcc1a48b7a4420eee7147939" => :el_capitan
-    sha256 "940294499f8fabcc430ccded69ebe0aa922348ca04b8b3db4283f7191b44abf2" => :yosemite
+    sha256 "5f852460c67649119913b3c5dfc5bfe76b42f191c78e6e8302487ee8baa3025e" => :sierra
+    sha256 "a1ccb47ab832c9a088e823c48f70faca7278f19da315f4b11cecb8d38ed93e14" => :el_capitan
+    sha256 "fb44801f3fd18316a5cba11573c09993bf5a868df3d58d5a62993690a42c8c53" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -36,8 +36,6 @@ class GnomeBuilder < Formula
   needs :cxx11
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
-
     # Bugreport opened at https://bugzilla.gnome.org/show_bug.cgi?id=780293
     ENV.append "LIBS", `pkg-config --libs enchant`.chomp
     inreplace "doc/Makefile.in", "cp -R", "gcp -R"

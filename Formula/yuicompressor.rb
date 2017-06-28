@@ -20,6 +20,6 @@ class Yuicompressor < Formula
 
     output = `#{bin}/yuicompressor --nomunge --preserve-semi #{path}`.strip
     assert_equal "var i=1;console.log(i);", output
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

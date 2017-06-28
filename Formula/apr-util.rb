@@ -1,18 +1,16 @@
 class AprUtil < Formula
   desc "Companion library to apr, the Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.5.4.tar.bz2"
-  sha256 "a6cf327189ca0df2fb9d5633d7326c460fe2b61684745fd7963e79a6dd0dc82e"
-  revision 4
+  url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.6.0.tar.bz2"
+  sha256 "8474c93fa74b56ac6ca87449abe3e155723d5f534727f3f33283f6631a48ca4c"
 
   bottle do
-    rebuild 1
-    sha256 "315f64f6b345302aaeb9eb6635b6679e7460757da0cb1555f3610387813a44c7" => :sierra
-    sha256 "d305a48dad4a0ceb01cc9cc874fbac7b18a6d1721cc4e385f8614dd6d666cbdb" => :el_capitan
-    sha256 "df0ccddb589927e907f83149156b274dfaaaf8f82067f901f38789728a3193dc" => :yosemite
+    sha256 "8bfcb9021f0f213ced509efb5afb7851eb28c33d624acf17bb5121e3a71ff36f" => :sierra
+    sha256 "663eff863f4c7037cbd9c9f9667c784b6fc5df5f8c2b89d9f70f9eb40a3f59fe" => :el_capitan
+    sha256 "8f9e70f286f8cee9a9b5630f99318def94ee09d4a314618c295e2f5ffe6b5b38" => :yosemite
   end
 
-  keg_only :provided_by_osx, "Apple's CLT package contains apr."
+  keg_only :provided_by_osx, "Apple's CLT package contains apr"
 
   depends_on "apr"
   depends_on "openssl"
@@ -21,7 +19,7 @@ class AprUtil < Formula
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
   depends_on "sqlite" => :optional
-  depends_on "homebrew/dupes/openldap" => :optional
+  depends_on "openldap" => :optional
 
   def install
     # Stick it in libexec otherwise it pollutes lib with a .exp file.

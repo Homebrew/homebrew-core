@@ -3,13 +3,13 @@ class Ocamlsdl < Formula
   homepage "https://ocamlsdl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ocamlsdl/OCamlSDL/ocamlsdl-0.9.1/ocamlsdl-0.9.1.tar.gz"
   sha256 "abfb295b263dc11e97fffdd88ea1a28b46df8cc2b196777093e4fe7f509e4f8f"
-  revision 4
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "cad75622c767f4e08cb367cffec7e4ad4e3ebdad501807c27c893a28e0adf81e" => :sierra
-    sha256 "63e481cde43f1c8cd108627513a59c31d1d97a42077573d6de9b53ec1909117c" => :el_capitan
-    sha256 "99d9e398a1f74a9b653fe304605258cc8b6e41d553ce83e9a0e2e26e0a16edde" => :yosemite
+    sha256 "3cbd8b17e7ba41062954cd36d3f784fffd3146b7aeb0f8872a908dfeaf65b62f" => :sierra
+    sha256 "fff3e2f01f837db3fe9150f74938ac2c817f4601e0406f48081bcacecd782a5a" => :el_capitan
+    sha256 "f2018ad8438395157b104d7f5579e956773f905aca1511331b9f7ad9f94d24bb" => :yosemite
   end
 
   depends_on "sdl"

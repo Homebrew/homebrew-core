@@ -3,15 +3,15 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.2.tar.gz"
-  sha256 "a5e3924bf72899149b572409c82da4b7d71ac556fd460790577bdf50f27709a4"
+  url "https://github.com/hashicorp/terraform/archive/v0.9.9.tar.gz"
+  sha256 "f5318fd720cb7c1a005f3afa782c6d39fd1ee9a001cacea4e43cd43f56d4f369"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2328e473548a9c223da19b30a950fe799d5499e28664f1f04a25a54a0305cb8" => :sierra
-    sha256 "53feb7d27f84f9b1595c0ad35f9bfc10368481274cbf66f18ae00eae7c984165" => :el_capitan
-    sha256 "434955c161b7767057b85e7c941acbb6eee949ca19f6a0d6382ede98ae7cb149" => :yosemite
+    sha256 "b75a50c361b3a7fe13587bf2fa24a18a67ff35b99862af5022eb8b09779e6137" => :sierra
+    sha256 "e2661473ab8f2892f7b364189327752360a1d502079608d3846a2b533046a25f" => :el_capitan
+    sha256 "985730b133409fd251a443aec10001a3dd37b63a00efb734874a80cc0f9aecc2" => :yosemite
   end
 
   depends_on "go" => :build
@@ -40,7 +40,7 @@ class Terraform < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "d63e2b22b05a9682de336cd4802bba367ed429e7"
+        :revision => "5682db0e919ed9cfc6f52ac32e170511a106eb3b"
   end
 
   def install
@@ -64,7 +64,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "bin"
+      system "make", "test", "vet", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"

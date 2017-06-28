@@ -1,15 +1,15 @@
 class ConsulBackinator < Formula
   desc "Consul backup and restoration application"
   homepage "https://github.com/myENA/consul-backinator"
-  url "https://github.com/myENA/consul-backinator/archive/v1.5.tar.gz"
-  sha256 "cff9aa319ac5081098ccef685a5e141707ad041ab228b8eebfde86ef566f680a"
+  url "https://github.com/myENA/consul-backinator/archive/v1.6.1.tar.gz"
+  sha256 "c5635f445657ab47d3d1e76fd649aa89bba7d991061f64c8b34b074bd0e71775"
   head "https://github.com/myENA/consul-backinator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12116c450bd509dd6f9abf23f29fe2eb0905f1776c53af703c80868de1ffaa6b" => :sierra
-    sha256 "4d58e1dff579429de8772e1f7fe04ed8f2bfe8c66d8538548cbed039560e7c38" => :el_capitan
-    sha256 "6722622aaf962998842eb682d591b9a3af9321b96dcf03efff4f0f3b6e1a950d" => :yosemite
+    sha256 "457755196f443139e556a8b27c1da973d1113fc7ae0d0ecf29644a7f52ba5faf" => :sierra
+    sha256 "4122a459c57f6e9fd3b4aadd9e9db7b78131fa22443e94e6b7114babca292f25" => :el_capitan
+    sha256 "98d2dd63f34f55cb472422c7a67cd5e851d8a24d72bc24df027f32b8294c903a" => :yosemite
   end
 
   depends_on "go" => :build

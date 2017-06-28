@@ -3,15 +3,14 @@ class SvtplayDl < Formula
 
   desc "Download videos from http://svtplay.se"
   homepage "https://svtplay-dl.se/"
-  url "https://pypi.python.org/packages/26/49/651d5c215049efb40f2c775904ecdaa83f4bc6b126256c60b8325f0738cc/svtplay-dl-1.9.3.tar.gz"
-  sha256 "245ac9463ce7dd71ce434815ceb4140080bffdb7025d55fcd8c22fc023d4d6b7"
-  revision 1
+  url "https://pypi.python.org/packages/5b/e2/5a39556872e68dbf36673e808d190a801fa35f81d13f0faf2a737db0f6cd/svtplay-dl-1.9.4.tar.gz"
+  sha256 "95898e32284316f6c4f9a3d8f2f553d4c220f4da18836c7e89ed90836d4cabcc"
 
   bottle do
     cellar :any
-    sha256 "d4dc34db83c9dea6e092bd066d64c3d93c181d6922f176962bbb4eda889f808d" => :sierra
-    sha256 "631aab55748d0642f129f367c7444ded2dc38dd2ec28160f1936221201abd728" => :el_capitan
-    sha256 "87890dced0fa323a716976fa2e21806a35d66cb0663a230680330be6f78429d3" => :yosemite
+    sha256 "f98acee5ccebbcee23d05eac7f2122b90d6f613a74140a31844e473cc8c7db73" => :sierra
+    sha256 "9046990ca1c3a63e07dc17b6553bff94ac9becd76e6e6d8250fc800fe9d8cf0e" => :el_capitan
+    sha256 "a3d86c9a1d315ba0a54b4da1f45c48a7325d975e231b06e27582d3bb778b976a" => :yosemite
   end
 
   depends_on "rtmpdump"
@@ -23,13 +22,13 @@ class SvtplayDl < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
-    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
+    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do
@@ -73,8 +72,8 @@ class SvtplayDl < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
+    url "https://files.pythonhosted.org/packages/9f/32/80fe4fddeb731b7766cd09fe0b2032a91b43dae655e216792af2a6ae3190/pyOpenSSL-17.0.0.tar.gz"
+    sha256 "48abfe9d2bb8eb8d8947c8452b0223b7b1be2383b332f3b4f248fe59ef0bafdd"
   end
 
   resource "pyparsing" do

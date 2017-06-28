@@ -3,14 +3,13 @@ class Libglademm < Formula
   homepage "https://gnome.org"
   url "https://download.gnome.org/sources/libglademm/2.6/libglademm-2.6.7.tar.bz2"
   sha256 "38543c15acf727434341cc08c2b003d24f36abc22380937707fc2c5c687a2bc3"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "7c77469914b7ee2946ee35b33814b0436205606d6e0081ae455102060a3c57cb" => :sierra
-    sha256 "0d0d09182101ac8f2dac48163073bf70998d04741ee156137605eedc91f65361" => :el_capitan
-    sha256 "a9f54db752f73d96c4332e7794ba770a222b5bcb1a70b654630886851ed07247" => :yosemite
-    sha256 "71ea08cf3a79daf7ecdc5ee7437d66288e3f4851808e04f64b3739fccac4d86a" => :mavericks
+    sha256 "9795cfd20206a8ddf58197587e346cd634a2998f02c2bbe7c8508d7796a46432" => :sierra
+    sha256 "0f032c04b8d4de0f67c76456a9533114bd5bc032503eb2b03f990c9a6227138b" => :el_capitan
+    sha256 "f53f8356f4d58604c5dd1153058dfa0b4b9aea04f18f823fb4ab29d2ccaa50f5" => :yosemite
   end
 
   depends_on "pkg-config" => :build

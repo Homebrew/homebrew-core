@@ -1,28 +1,73 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
-  sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
+  url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.1.tar.xz"
+  sha256 "c28459ea86107e3a04ad06081f0b2b96b57f0774db44bae7a72ae18ad6483e00"
 
   bottle do
-    sha256 "05af2f1ac617529df02b43e6494c480cb442387a96702614ce3eba537d26989a" => :sierra
-    sha256 "5b97393ade91622508cd7902a50b2bbeab57d109da9211b6d80053186a84d86a" => :el_capitan
-    sha256 "a74503cf97b51a46a7b43f862c1b9cd1f2220b3fc38ba4b56f607b72371f28aa" => :yosemite
+    sha256 "8bce8a92be361ea532e19ac04699dff58e422d571e835ecbf1c3e9dfc54c3fd0" => :sierra
+    sha256 "d43d3106c3d1bfeb5ab6a7a04cbd7fce51435fe48d5c575aab34fd3916db4492" => :el_capitan
+    sha256 "0b5b13d467bbc99ab66611a2f08e02a819a276750a262532d9aa6699198d8cbb" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libgpg-error" => :build
+  depends_on "gobject-introspection" => :recommended
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-largefile",
-                          "--enable-introspection",
-                          "--disable-vala",
-                          "--disable-mono",
-                          "--disable-glibtest"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-largefile
+      --disable-vala
+      --disable-glibtest
+    ]
+
+    if build.with? "gobject-introspection"
+      args << "--enable-introspection"
+    else
+      args << "--disable-introspection"
+    end
+
+    system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
+      #include <gmime/gmime.h>
+      int main (int argc, char **argv)
+      {
+        g_mime_init();
+        if (gmime_major_version>=3) {
+          return 0;
+        } else {
+          return 1;
+        }
+      }
+      EOS
+    gettext = Formula["gettext"]
+    glib = Formula["glib"]
+    pcre = Formula["pcre"]
+    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
+    flags += %W[
+      -I#{gettext.opt_include}
+      -I#{glib.opt_include}/glib-2.0
+      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{include}/gmime-3.0
+      -I#{pcre.opt_include}
+      -D_REENTRANT
+      -L#{gettext.opt_lib}
+      -L#{glib.opt_lib}
+      -L#{lib}
+      -lgio-2.0
+      -lglib-2.0
+      -lgmime-3.0
+      -lgobject-2.0
+      -lintl
+    ]
+    system ENV.cc, "-o", "test", "test.c", *flags
+    system "./test"
   end
 end

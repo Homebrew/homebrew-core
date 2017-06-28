@@ -1,28 +1,15 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  revision 1
+  url "https://embed.cs.utah.edu/creduce/creduce-2.7.0.tar.gz"
+  sha256 "36dca859c97a988e71b1a08e0cbd5849e4da051d248c5e483494194c4a231a41"
   head "https://github.com/csmith-project/creduce.git"
 
-  stable do
-    url "https://embed.cs.utah.edu/creduce/creduce-2.6.0.tar.gz"
-    sha256 "cdacc1046ca3ae2b0777b8f235428e7976b0fb97c2f69979c8accd8d2cc0c55d"
-
-    # Remove for > 2.6.0
-    # LLVM 4.0 compatibility
-    # Upstream commit "clang_delta: Namespace-qualify clang::StringLiteral"
-    # Upstream PR from 19 Dec 2016 https://github.com/csmith-project/creduce/pull/128
-    patch do
-      url "https://github.com/csmith-project/creduce/commit/ba1b8a6.patch"
-      sha256 "c55148fc8f8d2b2e39ed25041b1335c8223185969656e4effa336cae9c7b671c"
-    end
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0c54ac74a5bb0cc1229fd90c1afcf8c09c0759e90082660c33481bff373b7ac7" => :sierra
-    sha256 "6985dfbee5b136f4ca393983720fcf9431466afc5a032959050dc721491fea8a" => :el_capitan
-    sha256 "bc31670711e121246e4b98fd1eb932f7298766827a1492da38816b1944d43f23" => :yosemite
+    cellar :any
+    sha256 "4120c4b554d246afc4830bdb600a03b59e066f7ca7785aeb59c2898f0fbf9263" => :sierra
+    sha256 "7d9c698240b32363e90f448e9ca7083d0b8ca7490ca3ae8054d5d9b8fd04db09" => :el_capitan
+    sha256 "6278c6d29696dcdc7abf5e008afb9f1ebd454ced27a82b6e07dffc8a05680889" => :yosemite
   end
 
   depends_on "astyle"
@@ -44,9 +31,9 @@ class Creduce < Formula
   end
 
   resource "File::Which" do
-    url "https://cpan.metacpan.org/authors/id/A/AD/ADAMK/File-Which-1.09.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/File-Which-1.09.tar.gz"
-    sha256 "b72fec6590160737cba97293c094962adf4f7d44d9e68dde7062ecec13f4b2c3"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.21.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/P/PL/PLICEASE/File-Which-1.21.tar.gz"
+    sha256 "9def5f10316bfd944e56b7f8a2501be1d44c288325309462aa9345e340854bcc"
   end
 
   resource "Getopt::Tabular" do
@@ -56,9 +43,9 @@ class Creduce < Formula
   end
 
   resource "Regexp::Common" do
-    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2016060801.tar.gz"
-    sha256 "fc2fc178facf0292974d6511bad677dd038fe60d7ac118e3b83a1ca9e98a8403"
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017040401.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-2017040401.tar.gz"
+    sha256 "0664c26bb69d7c862849432fde921d4c201fabefd36bff6a9e0996d295053ab8"
   end
 
   resource "Sys::CPU" do
@@ -69,6 +56,9 @@ class Creduce < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    # Avoid ending up with llvm's Cellar path hard coded.
+    ENV["CLANG_FORMAT"] = Formula["llvm"].opt_bin/"clang-format"
 
     resources.each do |r|
       r.stage do

@@ -1,16 +1,16 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services."
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.3.0.tar.gz"
-  sha256 "311030e33ec6f5f335ddf9e0b8eb3a1cd9e378dbc7c0937658a02099457c5895"
+  url "https://github.com/elastic/beats/archive/v5.4.3.tar.gz"
+  sha256 "a7714383de1a610c7318e8a2751a230b64c8ca243058abd59b1886aabcc3965b"
 
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3fa90ebe8e2c68920cd34e49d52ffacdca8974d91c98ac76db6e6fa8d22a1e91" => :sierra
-    sha256 "9cfb4ae0772284205da5d997046c885ec1df6e4c621187078b5235b74e06a045" => :el_capitan
-    sha256 "834dce682e4d9422ac0c52ed394b0b10e5d28fe432e507dd5a738fba70e185ca" => :yosemite
+    sha256 "2c9f8e529dd9310f776fd12f3d0acf8ed524dcf1dd42297c62ca4552c63fa766" => :sierra
+    sha256 "e2d04d927bdcc9116645b6f0e632ebfb7628e9ef26a6e813bd2537580c06add4" => :el_capitan
+    sha256 "23d0c046079a1967c85c8ecb0c7881cfcdcdd27e3337f0bd16ce30a34802cccb" => :yosemite
   end
 
   depends_on "go" => :build
@@ -25,9 +25,11 @@ class Metricbeat < Formula
       system "make"
       libexec.install "metricbeat"
 
+      (etc/"metricbeat").install "metricbeat.full.yml"
       (etc/"metricbeat").install "metricbeat.yml"
       (etc/"metricbeat").install "metricbeat.template.json"
       (etc/"metricbeat").install "metricbeat.template-es2x.json"
+      (etc/"metricbeat").install "metricbeat.template-es6x.json"
     end
 
     (bin/"metricbeat").write <<-EOS.undent

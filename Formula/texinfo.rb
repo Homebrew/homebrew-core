@@ -1,20 +1,19 @@
 class Texinfo < Formula
   desc "Official documentation format of the GNU project"
   homepage "https://www.gnu.org/software/texinfo/"
-  url "https://ftpmirror.gnu.org/texinfo/texinfo-6.3.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/texinfo/texinfo-6.3.tar.xz"
-  sha256 "246cf3ffa54985118ec2eea2b8d0c71b92114efe6282c2ae90d65029db4cf93a"
+  url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/texinfo/texinfo-6.4.tar.xz"
+  sha256 "6ae2e61d87c6310f9af7c6f2426bd0470f251d1a6deb61fba83a3b3baff32c3a"
 
   bottle do
-    sha256 "ddcd68fb9757b11e5b8ea39e22996815aaf763b05711e21e17e45ba4ea68741a" => :sierra
-    sha256 "f0fcad49893de2e4167658cf13dc6b6ef0a458e764637b63ff2ba623959e4928" => :el_capitan
-    sha256 "91d4ca04c9b42751af95b6114b477afe01221758ba152763d4177332a67399d9" => :yosemite
-    sha256 "5990ad5d13570b6991156fa2db000dfe25273614c27912d46d8802577d85fe8c" => :mavericks
+    sha256 "bcd43bfb0b31234232ed4d4894a7ffb16b23384105bce519ee7e83a12b01ecb2" => :sierra
+    sha256 "f078d51fc568e628efb932f30451e4886b208d12c591aac03bafcc545d2c709a" => :el_capitan
+    sha256 "c85b9e3b8577e56160abca0b98c22e162e0f576ecc49253deca1363e6758a58d" => :yosemite
   end
 
   keg_only :provided_by_osx, <<-EOS.undent
-    Software that uses TeX, such as lilypond and octave, require a newer version
-    of these files.
+    software that uses TeX, such as lilypond and octave, require a newer
+    version of these files
   EOS
 
   def install
@@ -34,6 +33,6 @@ class Texinfo < Formula
       @bye
     EOS
     system "#{bin}/makeinfo", "test.texinfo"
-    assert_match /Hello World!/, File.read("test.info")
+    assert_match "Hello World!", File.read("test.info")
   end
 end

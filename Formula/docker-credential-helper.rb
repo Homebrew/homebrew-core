@@ -1,15 +1,15 @@
 class DockerCredentialHelper < Formula
   desc "macOS Credential Helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/v0.5.0.tar.gz"
-  sha256 "3e1b9d270d48c730706277735efdf0ab704130fcfbee7eea8a0642f5cdba6b08"
+  url "https://github.com/docker/docker-credential-helpers/archive/v0.5.2.tar.gz"
+  sha256 "aa334cbadf67d61fcdc116ec9ed787bf3ac6eac330a9baf1fef8581bff37ad10"
   head "https://github.com/docker/docker-credential-helpers.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "828f38190cb50e4c46231ec8702045ba043bd235e01e4394c927af5c107b340b" => :sierra
-    sha256 "1802d5eceea5272559401accfe011d9a6f11df89e2686a7b937bf1dbe6f1475d" => :el_capitan
-    sha256 "f0397eb7d5f5729c134c775fd8a6087ed470c17826a914e320644811d6bc9fca" => :yosemite
+    sha256 "a85d6c3b4c3c26cedab3504e4c969c18599a91be3a10c1d23046a5d7ac4f7aa1" => :sierra
+    sha256 "124dae0355057c012f8811d72321de9422b82a6cdcb93577cfb8880a782f7226" => :el_capitan
+    sha256 "a386f37e68e5b577d831b081d9e08c07588fc4b1ec35b501dd16fe9b22724de9" => :yosemite
   end
 
   depends_on "go" => :build

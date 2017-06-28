@@ -14,8 +14,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.04/ocaml-4.04.0.tar.xz"
-  sha256 "64ed6dad2316d5dff7440cea89f0f0abe07ce508b9104d1bfadf3782e79856b4"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.04/ocaml-4.04.2.tar.xz"
+  sha256 "d158ed3e9446b300554baeaaa8cca2e9491420b505a9878940205074e2970f2e"
   head "https://caml.inria.fr/svn/ocaml/trunk", :using => :svn
 
   pour_bottle? do
@@ -27,9 +27,9 @@ class Ocaml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7448dcd0685f7e129ace58707f821f53a89fb436edba86d20e86a203c2deb5e" => :sierra
-    sha256 "cba95bfb38d7f4466830906b67e69f63463ae90fdf28ef05abbf6234760c8d9a" => :el_capitan
-    sha256 "fe05592478358e1ffab4f83c03ad6567865978e52341544131c66da1e9917a02" => :yosemite
+    sha256 "83eb66e6d8edefac54ef0c6d35463c2da5d6913de6ca9ba1b4285e1b9989a489" => :sierra
+    sha256 "e609fa7017393ce93f11020190563c104a7cfc9f7d498214a538ba53ef9ece28" => :el_capitan
+    sha256 "6993d8c8c3a60a871b851ec38d7957a7c6a4588b681d6c142cad07d133d3f6d2" => :yosemite
   end
 
   devel do

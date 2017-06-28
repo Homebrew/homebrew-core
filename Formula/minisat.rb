@@ -3,15 +3,17 @@ class Minisat < Formula
   homepage "http://minisat.se"
   url "https://github.com/niklasso/minisat/archive/releases/2.2.0.tar.gz"
   sha256 "3ed44da999744c0a1be269df23c3ed8731cdb83c44a4f3aa29b3d6859bb2a4da"
+  revision 1
 
   bottle do
     cellar :any
     rebuild 1
-    sha256 "e296736a66cb2bc26a32f98539bd3136347d86df75dbc3147a94c48769b886b9" => :sierra
-    sha256 "d895e637af42fc0a6673d13e3e97c6a0f1e6fad62af1d814c98023135762737b" => :el_capitan
-    sha256 "4d8f920ddf46061ddd5cbe7196bf9c19651e8fcc7740f3d7b8679f8cc1323a73" => :yosemite
-    sha256 "ea128681692834733f758f52ec1b3d87b347d5db7d1c8849fe17bdf09b1e6152" => :mavericks
+    sha256 "49beae2955b65f28958cca6bbc62d2b167b60ff12c1aa6b11b271f4a930dc147" => :sierra
+    sha256 "4b77aa17b8b641964712013ffd0468e35c35a24f04ab285928d40b297abab50d" => :el_capitan
+    sha256 "a59c127edb56b612832b7dce88ff7bb426b42d573130a4d201d3f1c619e47006" => :yosemite
   end
+
+  depends_on "gcc"
 
   # Upstream commits to fix some declaration errors
   patch do

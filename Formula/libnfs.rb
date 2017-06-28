@@ -1,14 +1,14 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/libnfs-1.11.0.tar.gz"
-  sha256 "fc2e45df14d8714ccd07dc2bbe919e45a2e36318bae7f045cbbb883a7854640f"
+  url "https://github.com/sahlberg/libnfs/archive/libnfs-2.0.0.tar.gz"
+  sha256 "7ea6cd8fa6c461d01091e584d424d28e137d23ff4b65b95d01a3fd0ef95d120e"
 
   bottle do
     cellar :any
-    sha256 "fb5bb94ad156100a9dfc77afd9507ea65762da0a198342a838ca485d48a10eab" => :sierra
-    sha256 "4906ad802609a739bc2d45237bf21e66470cce0302cfab85752417b53ae07aea" => :el_capitan
-    sha256 "4ca6f45a9d7316a4c10d1e1a650db9ba969b4e00450f425b1586b4b6250facee" => :yosemite
+    sha256 "fad6dded94a8ad815f99ce5df0116c30798ed30f3dd67272742c61183a15f6f1" => :sierra
+    sha256 "507e2c7199d82a3c057f95f4ccb9210f04e00e43881b5807186d9641edfc9bd3" => :el_capitan
+    sha256 "e83eac3ac327b5e4da5e6d7aa39668ce7067ee0fa8cab04023f268339977ee1e" => :yosemite
   end
 
   depends_on "libtool" => :build

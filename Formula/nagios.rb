@@ -1,13 +1,13 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.2.4/nagios-4.2.4.tar.gz"
-  sha256 "b0055c475683ce50d77b1536ff0cec9abf89139adecf771601fa021ef9a20b70"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.3.2/nagios-4.3.2.tar.gz"
+  sha256 "687814b40b03b40361377aeace057dddb23459ffb8c00434bc1a95b21ccdf796"
 
   bottle do
-    sha256 "d8358e2d0a63c408f7e42c3b27b17b60f901650f17eaa491dc046a09e83de692" => :sierra
-    sha256 "95b1d1288c2215c7b039afa50c2e9acdd07eaff87e64414c08bdf7275308f122" => :el_capitan
-    sha256 "d05b0bd016ecdbb4345ab8c909a9a68cb7f88753025bddf293f9eb3925b0fb7b" => :yosemite
+    sha256 "ba0760140556633d7d0e6288c4c608759f45b59d1978e98faf3f48a3bf31e1ab" => :sierra
+    sha256 "6ef8d969ea7df2495432e7b2697781b599c3fb1ad838a8a14fa8a0af96154352" => :el_capitan
+    sha256 "4505f31cb8c616a7d31449150f3b1ac6c9ae21d503ae6ccb1a07641631e4ff7f" => :yosemite
   end
 
   depends_on "gd"

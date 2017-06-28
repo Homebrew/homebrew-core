@@ -1,27 +1,26 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.5.tar.gz"
-  sha256 "f44c96ade3a1d3c547f36504d75633bedbb9b8f6f42dac4fff75166db7d3aadf"
-  revision 1
-  head "https://github.com/openscenegraph/OpenSceneGraph"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.6.tar.gz"
+  sha256 "58e9436b811d0344723116cb1ada6ef305bdb6d97f42f04a700a29eda17f54b2"
+  head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "4bf6acd394ae2c0c9d8f97731c6e8acd68020fcd65c1b8135a3ea82491b907d9" => :sierra
-    sha256 "0eda111a9f1cf95deb5aa758ca3125d45ab2e597647c230984aa95ec0ea42e2d" => :el_capitan
-    sha256 "012db4d0fd27e67ecd076a7e79ba8e80b80305ae42d8b2d72c9b8cb8de93e038" => :yosemite
+    rebuild 1
+    sha256 "fa515dddcf46a25dfef02a83896cbdb404cab22381d8de06bea82fdad9d97d6d" => :sierra
+    sha256 "f0431363c7ab2fb6b72576e22f22dd6fe96b871667ad3119f5ec1806e7521e79" => :el_capitan
+    sha256 "abd62947899d155aeaf2f15dc11c34be004633b80d6bf6446f39a62b738a7e1f" => :yosemite
   end
 
   option :cxx11
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
 
   deprecated_option "docs" => "with-docs"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg"
-  depends_on "wget"
   depends_on "gtkglext"
   depends_on "freetype"
   depends_on "gdal" => :optional
@@ -32,7 +31,7 @@ class OpenSceneGraph < Formula
   depends_on "collada-dom" => :optional
   depends_on "gnuplot" => :optional
   depends_on "ffmpeg" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
@@ -52,7 +51,7 @@ class OpenSceneGraph < Formula
     end
 
     args = std_cmake_args
-    args << "-DBUILD_DOCUMENTATION=" + ((build.with? "docs") ? "ON" : "OFF")
+    args << "-DBUILD_DOCUMENTATION=" + (build.with?("docs") ? "ON" : "OFF")
     args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
 
     if MacOS.prefer_64_bit?
@@ -67,8 +66,8 @@ class OpenSceneGraph < Formula
       args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom"
     end
 
-    if build.with? "qt5"
-      args << "-DCMAKE_PREFIX_PATH=#{Formula["qt5"].opt_prefix}"
+    if build.with? "qt"
+      args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_prefix}"
     end
 
     mkdir "build" do

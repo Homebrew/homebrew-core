@@ -1,13 +1,13 @@
 class Gtksourceview3 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.0.tar.xz"
-  sha256 "4f7bfd06ea7a79886483e8a7769f7b05e1a41430cca258dd2b06be4a8a0e57f9"
+  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.3.tar.xz"
+  sha256 "3eed05486a6420c3e2fdda0bbb19a0d905ed09ebf442302a026ab7e574204cbd"
 
   bottle do
-    sha256 "1eb8a5a70179b0392cf7a204ecbc452836b327d5a8188844d9ec053cd2c6b504" => :sierra
-    sha256 "1254f4ab2215868fc7e92e57bf072862f43d07441012b0ba8c5b2b9cc6a38c0c" => :el_capitan
-    sha256 "3a018e062b738d9d06553ab9d4e59790d1cb9bac46944e477d9fe493301707e6" => :yosemite
+    sha256 "0a63f62804178b5358578d1bc8dcacc36cf88693e2cacd43d2ac2ac8805b5806" => :sierra
+    sha256 "397efccd32ac66a828d17ea4108036357e7bfebd2f5d5b6e2044ce996c4f1f7b" => :el_capitan
+    sha256 "be512cd00182050941b6dd452e20f5f81ff48f3b47a32c89e194680c550b6908" => :yosemite
   end
 
   depends_on "pkg-config" => :build

@@ -1,5 +1,5 @@
 class Suil < Formula
-  desc "lightweight C library for loading and wrapping LV2 plugin UIs"
+  desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
   homepage "https://drobilla.net/software/suil/"
   url "https://download.drobilla.net/suil-0.8.2.tar.bz2"
   sha256 "787608c1e5b1f5051137dbf77c671266088583515af152b77b45e9c3a36f6ae8"
@@ -31,7 +31,8 @@ class Suil < Formula
         return suil_ui_supported("my-host", "my-ui");
       }
     EOS
-    system ENV.cc, "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "test.c", "-o", "test"
+    lv2 = Formula["lv2"].opt_include
+    system ENV.cc, "-I#{lv2}", "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "test.c", "-o", "test"
     system "./test"
   end
 end

@@ -1,14 +1,15 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
-  homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0531.tar.gz"
-  sha256 "ea1ef37be8b5a764cd278dce0a85bab36c49f18a617acaeed7a8eae741cc3fcc"
+  homepage "https://vim.sourceforge.io/"
+  url "https://github.com/vim/vim/archive/v8.0.0666.tar.gz"
+  sha256 "6c043355dfe503f2abfbc600a5f6c99ef21c2fba72577527e84c21f2db13d9a4"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "d3103bd6aa42629e9d9e3a2ad927ce5945f7c0e1e9684607829962d5cf2e7b07" => :sierra
-    sha256 "1448df6a0fedb0a15f819e3e986fc43ac88aad9dd25b65eaede6deb9af4eef2b" => :el_capitan
-    sha256 "d6c45540be573d8180f167a0a7dc3c5b058655ecb7b41d541134c38490ed65a9" => :yosemite
+    sha256 "f851dd0e9ca421bd1030d8aee36347f4182fa4f6a3267281acbb0239dc01beb0" => :sierra
+    sha256 "a3ba27f5b6a282ae71f86972ce9bc98795664a026ac4ee88e8727d73f8a8c4bf" => :el_capitan
+    sha256 "6b3d00b04cbfbc805d8029c1a504cd37f73eda9a12d8d917d1a671185cecddc4" => :yosemite
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
@@ -49,7 +50,6 @@ class Vim < Formula
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
-    ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
 
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
@@ -82,13 +82,18 @@ class Vim < Formula
       opts << "--without-x"
     end
 
-    if build.with? "lua"
+    if build.with?("lua") || build.with?("luajit")
+      ENV["LUA_PREFIX"] = HOMEBREW_PREFIX
       opts << "--enable-luainterp"
-    end
+      opts << "--with-luajit" if build.with? "luajit"
 
-    if build.with? "luajit"
-      opts << "--with-luajit"
-      opts << "--enable-luainterp"
+      if build.with?("lua") && build.with?("luajit")
+        onoe <<-EOS.undent
+          Vim will not link against both Luajit & Lua simultaneously.
+          Proceeding with Lua.
+        EOS
+        opts -= %w[--with-luajit]
+      end
     end
 
     # We specify HOMEBREW_PREFIX as the prefix to make vim look in the

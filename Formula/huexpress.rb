@@ -3,19 +3,20 @@ class Huexpress < Formula
   homepage "https://github.com/kallisti5/huexpress"
   url "https://github.com/kallisti5/huexpress/archive/3.0.3.tar.gz"
   sha256 "159a13cd469d0645377377604c0fc4b3d3d1980d4d0e71c634c293f99db2c497"
+  revision 2
   head "https://github.com/kallisti5/huexpress.git"
 
   bottle do
     cellar :any
-    sha256 "cf0ed74cfe5407985ef14c807cea97ce85e3ed1b156fc5634ba5d16841cfffff" => :sierra
-    sha256 "a3cc21304fdd6906df6f1a8bbf7f2ae3a467b906ec81df725f8a9b85431dc1e3" => :el_capitan
-    sha256 "74672f9c6a4efa91a47184edd67d5a4356d47f8acaf663e53543be24598e1c90" => :yosemite
+    sha256 "1cdd931e7b87a37d41aafc6b2c6b9809cac5ed245b9238e8b9e353467206e553" => :sierra
+    sha256 "acf49ec01f3711b8efd5ff085f62946bd43da4325c93cccbb3d6eb9159f6e7e7" => :el_capitan
+    sha256 "1bf4ccbc2e318b79d3b210b02a97e2dd425316ccdf1caccc611bbede117e142a" => :yosemite
   end
 
   depends_on "scons" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl2"
-  depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "sdl2_mixer"
   depends_on "libvorbis"
   depends_on "libzip"
 

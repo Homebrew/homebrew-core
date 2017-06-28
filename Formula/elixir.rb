@@ -6,7 +6,7 @@ class Erlang18Requirement < Requirement
     erl = which("erl")
     next unless erl
     `#{erl} -noshell -eval 'io:fwrite("~s", [erlang:system_info(otp_release) >= "18"])' -s erlang halt | grep -q '^true'`
-    next unless $?.exitstatus.zero?
+    next unless $CHILD_STATUS.exitstatus.zero?
     erl
   end
 
@@ -24,16 +24,16 @@ end
 
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
-  homepage "http://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.4.2.tar.gz"
-  sha256 "cb4e2ec4d68b3c8b800179b7ae5779e2999aa3375f74bd188d7d6703497f553f"
+  homepage "https://elixir-lang.org/"
+  url "https://github.com/elixir-lang/elixir/archive/v1.4.5.tar.gz"
+  sha256 "bef1a0ea7a36539eed4b104ec26a82e46940959345ed66509ec6cc3d987bada0"
 
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "dbee59c2920e7a4aaa60cd93600758ce76d9379d90e927f3d945e80944d5fa56" => :sierra
-    sha256 "df0f1857cc107cce9d3a15b6fc6ca60d534adcaa558849b2607bfab0a2d21495" => :el_capitan
-    sha256 "cc1a8f3220148fd05d8f7210cb3cdab81905b96b88586d5347979072683b6a9f" => :yosemite
+    sha256 "b59dde1332bce0aabc7aebe9527607adb68dc1c1a8070c2d0c1b1e702511ff62" => :sierra
+    sha256 "c994c7a94a52eac63fa0478175f8a0e256b3ef2b73e81f61b67429830fbc201e" => :el_capitan
+    sha256 "291946687a7d64541b69a132daab1d400592a115ed02ae1f0116fbe1799aee67" => :yosemite
   end
 
   depends_on Erlang18Requirement

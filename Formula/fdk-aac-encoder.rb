@@ -47,9 +47,7 @@ class FdkAacEncoder < Formula
 
       position_in_period += position_in_period_delta
 
-      if position_in_period >= 1.0
-        position_in_period -= 1.0
-      end
+      position_in_period -= 1.0 if position_in_period >= 1.0
     end
 
     samples.map! do |sample|

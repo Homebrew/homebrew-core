@@ -1,25 +1,24 @@
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  url "https://github.com/buger/gor.git",
-    :tag => "v0.15.1",
-    :revision => "967c380dc3ca1a96c6cbabd6296b0656a6546016"
-  head "https://github.com/buger/gor.git"
+  url "https://github.com/buger/goreplay.git",
+      :tag => "v0.16.0.2",
+      :revision => "74225ebb2236a46fd18a8fa4fa7de441497c13c4"
+  head "https://github.com/buger/goreplay.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91081c290396a2d8d52fa9f76b075af47764df3774f3a1d9a8cebdb111f0b665" => :sierra
-    sha256 "664cff81e41321a473a087aa0ca465fa8df7ddc6844c468c3445fe9fb76cb6e5" => :el_capitan
-    sha256 "07bfff5c49bdcd69bc145369d306a7b538b58586b4d6347639b92531b3074644" => :yosemite
-    sha256 "aebc9f938167cc563d674b7acaf0110cb359d854fb98689135ae9fd09be0648d" => :mavericks
+    sha256 "be3d38e72512a06ba10818963b72edd43a906a38c1cca1b6224bdbd0b8d2a971" => :sierra
+    sha256 "52f1f8609a0d319c352bd758fa7c73a857ff9fe9f07a2fe25df3801d425fa607" => :el_capitan
+    sha256 "160b2205ee416e6ac7a79fea27588eee268c3657f5d42eccc6e20410d963c01b" => :yosemite
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/buger/gor").install buildpath.children
-    cd "src/github.com/buger/gor" do
+    (buildpath/"src/github.com/buger/goreplay").install buildpath.children
+    cd "src/github.com/buger/goreplay" do
       system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
       prefix.install_metafiles
     end

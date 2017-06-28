@@ -1,14 +1,18 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.11.tar.xz"
-  sha256 "db440670cb6f3c098b076df3735fbc4e69359bd605385e87c90ee48344a804ca"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.16.tar.xz"
+  sha256 "3e0c3ad01f3c8c5c9b1cc1ae00852bd55164c8e5a9c1f90ba5e07f14f175fe2c"
 
   bottle do
-    sha256 "37356f6d632d1ba3645b30859806d9082cc2aebd6904f1116ceb3cc21d804beb" => :sierra
-    sha256 "709d1eddbbe107de1aa8fdf7826174b7701eb22c215bbce7e063b1586a26acca" => :el_capitan
-    sha256 "9ae80358c79627df484a6e5c144efb86f14cf63f36c52d89234f0853977007f0" => :yosemite
+    sha256 "a9306c76f8ec710028f16b2decedc7265e1e9fbf95c25a0466d9bd9024380676" => :sierra
+    sha256 "62f7b715b1ab9d9010a40003e63b8a498bc91fbb23485a7e39bd0efb4a852318" => :el_capitan
+    sha256 "16184c07877da86c2f7e287ff14eefae19d0baa24c1513213ca521ce8a8d9811" => :yosemite
   end
+
+  # see https://bugzilla.gnome.org/show_bug.cgi?id=781118
+  # see https://bugzilla.gnome.org/show_bug.cgi?id=772281
+  patch :DATA
 
   option "with-quartz-relocation", "Build with quartz relocation support"
 
@@ -111,3 +115,50 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gdk/quartz/gdkscreen-quartz.c b/gdk/quartz/gdkscreen-quartz.c
+index 586f7af..d032643 100644
+--- a/gdk/quartz/gdkscreen-quartz.c
++++ b/gdk/quartz/gdkscreen-quartz.c
+@@ -79,7 +79,7 @@ gdk_quartz_screen_init (GdkQuartzScreen *quartz_screen)
+   NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
+   NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
+
+-  _gdk_screen_set_resolution (screen, size.width);
++  _gdk_screen_set_resolution (screen, 72.0);
+
+   gdk_quartz_screen_calculate_layout (quartz_screen);
+
+@@ -334,11 +334,8 @@ gdk_quartz_screen_get_height (GdkScreen *screen)
+ static gint
+ get_mm_from_pixels (NSScreen *screen, int pixels)
+ {
+-  const float mm_per_inch = 25.4;
+-  NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
+-  NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
+-  float dpi = size.width;
+-  return (pixels / dpi) * mm_per_inch;
++  const float dpi = 72.0;
++  return (pixels / dpi) * 25.4;
+ }
+
+ static gchar *
+diff --git a/gtk/gtkclipboard-quartz.c b/gtk/gtkclipboard-quartz.c
+index fec31f5..2b0b098 100644
+--- a/gtk/gtkclipboard-quartz.c
++++ b/gtk/gtkclipboard-quartz.c
+@@ -1253,3 +1253,12 @@ gtk_clipboard_get_selection (GtkClipboard *clipboard)
+
+   return clipboard->selection;
+ }
++
++GtkClipboard *
++gtk_clipboard_get_default (GdkDisplay *display)
++{
++  g_return_val_if_fail (display != NULL, NULL);
++  g_return_val_if_fail (GDK_IS_DISPLAY (display), NULL);
++
++  return gtk_clipboard_get_for_display (display, GDK_SELECTION_CLIPBOARD);
++}
+

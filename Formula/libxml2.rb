@@ -1,7 +1,7 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  revision 2
+  revision 3
 
   stable do
     url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
@@ -25,10 +25,9 @@ class Libxml2 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "08ae8ecc02d55f390122cb6a66e252720ff76ac003f3605a0ff1a700b8da32cd" => :sierra
-    sha256 "935c1dc0821ca6c4676357c4a6a4339946f8a5d699b6da95f74380f098e61db1" => :el_capitan
-    sha256 "eb7c876f407381400b8c64c9a3107aa50dc853823c4bbf2e856f32e93cb68bac" => :yosemite
+    sha256 "fb8338703ee9691cc48ca8898a16baa3b2657635ebacb6071dee49725bd052d6" => :sierra
+    sha256 "04751be7609addc8fef6fa5cfd0413fbec46cbe2a0bab3fe52ff98371356eb87" => :el_capitan
+    sha256 "1ec98ced07f46c0976bd919fe97cf72092a28c1338d43410384d37f6439634c0" => :yosemite
   end
 
   head do
@@ -41,7 +40,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_osx
 
-  depends_on :python => :optional
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
     if build.head?
@@ -57,12 +56,10 @@ class Libxml2 < Formula
     ENV.deparallelize
     system "make", "install"
 
-    if build.with? "python"
-      cd "python" do
-        # We need to insert our include dir first
-        inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-        system "python", "setup.py", "install", "--prefix=#{prefix}"
-      end
+    cd "python" do
+      # We need to insert our include dir first
+      inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+      system "python", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -83,5 +80,8 @@ class Libxml2 < Formula
     args += %w[test.c -o test]
     system ENV.cc, *args
     system "./test"
+
+    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
+    system "python", "-c", "import libxml2"
   end
 end

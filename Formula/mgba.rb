@@ -1,7 +1,7 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  revision 1
+  revision 2
   head "https://github.com/mgba-emu/mgba.git"
 
   stable do
@@ -17,10 +17,12 @@ class Mgba < Formula
 
   bottle do
     cellar :any
-    sha256 "2dd5217c3983abd7a89908647251ab1dd9784e385b481325ebffdb559f01e344" => :sierra
-    sha256 "e40931849cc341855777add7e5b4b5fae4ae33bb5db044f52d90b6b423824429" => :el_capitan
-    sha256 "a57adec40fb57cd57d37eb540fb930e097cd4b9286209addf45167e5d7fa7e69" => :yosemite
+    sha256 "dd6308c5e3b5004c9b55df9bcfd5f1c5c3e3aa0050e769fcc58d81be1e0491fb" => :sierra
+    sha256 "7ec13b00acd5c566c67e85f5b1749aebfc2d5eff418d9cf6da9f9a499b1be359" => :el_capitan
+    sha256 "3eb36eff19b505da7b3f0744d1f118a8c292ddd14cbbf27d51d4c51b4d879087" => :yosemite
   end
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -29,7 +31,7 @@ class Mgba < Formula
   depends_on "libepoxy" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libzip" => :recommended
-  depends_on "qt5" => :recommended
+  depends_on "qt" => :recommended
   depends_on "sdl2"
 
   def install
@@ -46,11 +48,11 @@ class Mgba < Formula
     cmake_args << "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
     cmake_args << "-DUSE_PNG=OFF"    if build.without? "libpng"
     cmake_args << "-DUSE_LIBZIP=OFF" if build.without? "libzip"
-    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt5"
+    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt"
 
     system "cmake", ".", *cmake_args, *std_cmake_args
     system "make", "install"
-    if build.with? "qt5"
+    if build.with? "qt"
       # Replace SDL frontend binary with a script for running Qt frontend
       # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
       rm "#{bin}/mgba"

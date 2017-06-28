@@ -1,14 +1,14 @@
 class RancherCli < Formula
   desc "The Rancher CLI is a unified tool to manage your Rancher server"
   homepage "https://github.com/rancher/cli"
-  url "https://github.com/rancher/cli/archive/v0.5.0.tar.gz"
-  sha256 "c126fd29834e3f99de7262eb455d3c318cb8d1f602c13f702023d38a9059fbb1"
+  url "https://github.com/rancher/cli/archive/v0.6.1.tar.gz"
+  sha256 "0b9a834ed32c642305bbbf26160cf8563ff7b2101c756c6234040495e85876b0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc6cf021fb3a26726af6872abd95211a9d33cc9fa93d61b2659736268d2ca340" => :sierra
-    sha256 "8d5476574783a86d3f949e979119ec6030ad9e81ec0504a5d037882d49576462" => :el_capitan
-    sha256 "1f90cf5bcd2f49ce13530c6928e3adf14712f4a98979e7d4f416b1485d960193" => :yosemite
+    sha256 "12eb2eb8cd564a116bb6808570d4be1556ee70681d743841ae999b6a732096a7" => :sierra
+    sha256 "f8f640fa6a2952dda27fe79a0806cea8c28476b453752220a36ff583d56b4aed" => :el_capitan
+    sha256 "d14ff98048a8dda616dd908dfad5d21d201853cd92c3948eee5f1e66afb71669" => :yosemite
   end
 
   depends_on "go" => :build

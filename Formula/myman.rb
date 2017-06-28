@@ -6,14 +6,15 @@ class Myman < Formula
   head ":pserver:anonymous:@myman.cvs.sourceforge.net:/cvsroot/myman", :using => :cvs
 
   bottle do
-    sha256 "0d4f0baea895f5c18f0719ddefe41c7a91a475e4f58dccaaf001c7efebe6d0ea" => :sierra
-    sha256 "afa7eac94ad1954334d4e2574b40b763bbbb354572005552f3482f4c6eab27f2" => :el_capitan
-    sha256 "9b14137f2ae42a2e13bd1066d43467f0e7a647df225b2d013c64fdb8cead3ac3" => :yosemite
+    rebuild 1
+    sha256 "ba8e3fdadba971f9763e96f531c704d030d3ff6f6c6557d43cac92e01aa163a7" => :sierra
+    sha256 "8ffde037fde62bf63f22852046222de94c028feaaf3da00a710e91a49828d400" => :el_capitan
+    sha256 "65ef05e9d57905b960792f00ca8195e6c9aeae14b053a79384dbf2158b99e1de" => :yosemite
   end
 
   depends_on "coreutils" => :build
   depends_on "gnu-sed" => :build
-  depends_on "homebrew/dupes/groff" => :build
+  depends_on "groff" => :build
 
   def install
     ENV["RMDIR"] = "grmdir"

@@ -3,15 +3,15 @@ class Httpie < Formula
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.org/"
-  url "https://github.com/jkbrzt/httpie/archive/0.9.8.tar.gz"
-  sha256 "5ccc65dd8e60a9310f575c1a9600f3cc7daf8704cc88bf6c40118b3659b98dc7"
-  revision 2
+  url "https://files.pythonhosted.org/packages/28/93/4ebf2de4bc74bd517a27a600b2b23a5254a20f28e6e36fc876fd98f7a51b/httpie-0.9.9.tar.gz"
+  sha256 "f1202e6fa60367e2265284a53f35bfa5917119592c2ab08277efc7fffd744fcb"
   head "https://github.com/jkbrzt/httpie.git"
 
   bottle do
-    sha256 "cd9d1c5ade5f51176a03f3432805f54de28134b457d0784c8c32dea6323a5911" => :sierra
-    sha256 "6d160f5c614b086807141f23387f534265cbca101b841cca7b7335130cccf3b4" => :el_capitan
-    sha256 "5ac94650f140cfd50118f509094c6f56260ea360c5514898b985b9209d97fa56" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "fe55d19f3636ebd3a468f1a5da19ac94450f9802b0b2144d69db194a31f5b876" => :sierra
+    sha256 "1f18fdcc215966f3d3e68efc7f724235d6901810002dae343114fc62ff499def" => :el_capitan
+    sha256 "619756b72cb0680b449ff55011f53f6c90a155e7c4ca01a9c4c85d251c394fe6" => :yosemite
   end
 
   depends_on :python3

@@ -1,12 +1,14 @@
 class ApacheFlink < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.2.0/flink-1.2.0-bin-hadoop27-scala_2.11.tgz"
-  version "1.2.0"
-  sha256 "ccb37938fef54236252a3e895cdca63d881c6138515109b4ad4da2a0fb9b8ac8"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.3.1/flink-1.3.1-bin-hadoop27-scala_2.11.tgz"
+  version "1.3.1"
+  sha256 "6522d0d8a10af596e40ed710306027758a0535c1e078f587eee420032a75eed9"
   head "https://github.com/apache/flink.git"
 
   bottle :unneeded
+
+  depends_on :java => "1.7+"
 
   def install
     rm_f Dir["bin/*.bat"]

@@ -1,14 +1,13 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.0.tar.gz"
-  sha256 "6b7db874e6debda742fee8869d722e5a17faf1086e93c911b8564532aeeffab7"
-  revision 1
+  url "https://www.unbound.net/downloads/unbound-1.6.4.tar.gz"
+  sha256 "df0a88816ec31ccb8284c9eb132e1166fbf6d9cde71fbc4b8cd08a91ee777fed"
 
   bottle do
-    sha256 "1524bb0a7378a890adcf794bdde5a14b3c7184bab1bad6bdb962ca939d01fc26" => :sierra
-    sha256 "9e776be5da4e9058edaf99a81be1ec16fed7f613a014366eab3bcd6057adc778" => :el_capitan
-    sha256 "88f88dcf06ce464bec1926ed7ba2fda7849b3ff4116c89ac2b69066a0ebfb6d9" => :yosemite
+    sha256 "53d185a4939f5a2186478289cf41e294d77c2a1ee1ba1e3e1edb2706214ea324" => :sierra
+    sha256 "8b63f65a77a8c7d7de1a27c86983dac0ecf6851d78ff47218ae02a5ab2ab5973" => :el_capitan
+    sha256 "6c28b979421307de00000d28987914f2bbcdd76be5be65fe9705c2971c42ae43" => :yosemite
   end
 
   depends_on "openssl"
@@ -43,9 +42,11 @@ class Unbound < Formula
   end
 
   def post_install
-    if File.read(etc/"unbound/unbound.conf").include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
-      inreplace etc/"unbound/unbound.conf", 'username: "@@HOMEBREW-UNBOUND-USER@@"', "username: \"#{ENV["USER"]}\""
-    end
+    conf = etc/"unbound/unbound.conf"
+    return unless conf.exist?
+    return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
+    inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
+                    "username: \"#{ENV["USER"]}\""
   end
 
   plist_options :startup => true

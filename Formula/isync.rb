@@ -4,13 +4,13 @@ class Isync < Formula
   url "https://downloads.sourceforge.net/project/isync/isync/1.2.1/isync-1.2.1.tar.gz"
   sha256 "e716de28c9a08e624a035caae3902fcf3b511553be5d61517a133e03aa3532ae"
 
+  revision 1
+
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "76ed1f0a0d407d27870f7beb51c38275e6034b1c3c74ee0f3628e08fdadf6607" => :sierra
-    sha256 "38fb0d21a245178886acb1262f57ddde284adbf889039baf3401bf2028d7cba7" => :el_capitan
-    sha256 "074b9295e7ac9773eafac5bdc20e32d42d8023ffccd275235d0cb72ff09574cf" => :yosemite
-    sha256 "147097d617448be4d6796bf189a05200c1afd738ad64fe05aa40c61db10b5194" => :mavericks
+    sha256 "d4d22c5cb4efbd4b8378287930031b201d5108f2280c1606a7c9b7068bca7f1e" => :sierra
+    sha256 "dabc0f978a20e521315c850f284b171d33b2e534b08d4a4da852cae984ec56f5" => :el_capitan
+    sha256 "969e22c9a348a2c2178912beefcaeca26cecc95834b2d8afc9f725847413463b" => :yosemite
   end
 
   head do
@@ -35,6 +35,40 @@ class Isync < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  plist_options :manual => "isync"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+        </dict>
+        <key>KeepAlive</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mbsync</string>
+          <string>Periodic</string>
+        </array>
+        <key>StartInterval</key>
+        <integer>300</integer>
+        <key>RunAtLoad</key>
+        <true />
+        <key>StandardErrorPath</key>
+        <string>/dev/null</string>
+        <key>StandardOutPath</key>
+        <string>/dev/null</string>
+      </dict>
+    </plist>
+    EOS
   end
 
   test do

@@ -1,17 +1,19 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
   homepage "http://www.gecode.org/"
-  url "http://www.gecode.org/download/gecode-5.0.0.tar.gz"
-  sha256 "f4ff2fa115fed8c09a049b2d8520363b1f9b1a39d80461f597e29dab2ba9e77b"
+  url "http://www.gecode.org/download/gecode-5.1.0.tar.gz"
+  sha256 "f9885f97e0f80b54eaf1a8f9d0c419d831229a689619f6429c6148f5c50740d0"
 
   bottle do
     cellar :any
-    sha256 "b07a271d4087f7816cce5123c74f0e543527cd315ae5a9fd8d2f2ff31950cbfd" => :sierra
-    sha256 "5069485f83581c158bdc1d0a79fa89daaf044cc4fef6967a595d09e8c77c7466" => :el_capitan
-    sha256 "b02d94fdeb69e26e4de952c62d3955586cf23cd8b15bca7d3caa018ecd9848db" => :yosemite
+    sha256 "a9a444e09a5afa31e6ec872b37603b1bb5463fd989c85d2971cf373363a9fc7b" => :sierra
+    sha256 "a8b6584f71e730587cd3c4b4dac38afd9e5c3d25a26d1cb531a6c760344592ac" => :el_capitan
+    sha256 "5288ebe7c86747c9b884a3139ecaf6bda4b9226ba930d7582ff6528ed1e63968" => :yosemite
   end
 
-  depends_on "qt5" => :optional
+  deprecated_option "with-qt5" => "with-qt"
+
+  depends_on "qt" => :optional
 
   def install
     args = %W[
@@ -19,9 +21,9 @@ class Gecode < Formula
       --disable-examples
     ]
     ENV.cxx11
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "--enable-qt"
-      ENV.append_path "PKG_CONFIG_PATH", "#{HOMEBREW_PREFIX}/opt/qt5/lib/pkgconfig"
+      ENV.append_path "PKG_CONFIG_PATH", "#{HOMEBREW_PREFIX}/opt/qt/lib/pkgconfig"
     else
       args << "--disable-qt"
     end
@@ -73,7 +75,7 @@ class Gecode < Formula
 
     args = %W[
       -std=c++11
-      -I#{HOMEBREW_PREFIX}/opt/qt5/include
+      -I#{HOMEBREW_PREFIX}/opt/qt/include
       -I#{include}
       -lgecodedriver
       -lgecodesearch
@@ -83,9 +85,7 @@ class Gecode < Formula
       -L#{lib}
       -o test
     ]
-    if build.with? "qt5"
-      args << "-lgecodegist"
-    end
+    args << "-lgecodegist" if build.with? "qt"
     system ENV.cxx, "test.cpp", *args
     assert_match "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}", shell_output("./test")
   end

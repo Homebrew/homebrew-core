@@ -69,7 +69,7 @@ class Gupnp < Formula
     EOS
     system ENV.cc, "-I#{include}/gupnp-1.0", "-L#{lib}", "-lgupnp-1.0",
            "-I#{Formula["gssdp"].opt_include}/gssdp-1.0",
-           "-I#{Formula["gssdp"].opt_lib}", "-lgssdp-1.0",
+           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-1.0",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-lglib-2.0", "-lgobject-2.0",

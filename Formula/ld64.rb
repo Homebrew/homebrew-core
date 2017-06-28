@@ -14,7 +14,7 @@ class Ld64 < Formula
   end
 
   keg_only :provided_by_osx,
-    "ld64 is an updated version of the ld shipped by Apple."
+    "ld64 is an updated version of the ld shipped by Apple"
 
   depends_on MaximumMacOSRequirement => :snow_leopard
 
@@ -57,16 +57,6 @@ class Ld64 < Formula
     mv "Makefile-97", "Makefile"
     inreplace "src/ld/Options.cpp", "@@VERSION@@", version
 
-    if MacOS.version < :leopard
-      # No CommonCrypto
-      inreplace "src/ld/MachOWriterExecutable.hpp" do |s|
-        s.gsub! "<CommonCrypto/CommonDigest.h>", "<openssl/md5.h>"
-        s.gsub! "CC_MD5", "MD5"
-      end
-
-      inreplace "Makefile", "-Wl,-exported_symbol,__mh_execute_header", ""
-    end
-
     args = %W[
       CC=#{ENV.cc}
       CXX=#{ENV.cxx}
@@ -75,7 +65,6 @@ class Ld64 < Formula
     ]
 
     args << 'RC_SUPPORTED_ARCHS="armv6 armv7 i386 x86_64"' if MacOS.version >= :lion
-    args << "OTHER_LDFLAGS_LD64=-lcrypto" if MacOS.version < :leopard
 
     # Macports makefile hardcodes optimization
     inreplace "Makefile" do |s|

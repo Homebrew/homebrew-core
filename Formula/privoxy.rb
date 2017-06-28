@@ -60,4 +60,17 @@ class Privoxy < Formula
     </plist>
     EOS
   end
+
+  test do
+    bind_address = "127.0.0.1:8118"
+    (testpath/"config").write("listen-address #{bind_address}\n")
+    begin
+      server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")
+      sleep 1
+      assert_match "200 OK", shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
+    ensure
+      Process.kill("SIGINT", server.pid)
+      Process.wait(server.pid)
+    end
+  end
 end

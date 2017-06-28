@@ -39,9 +39,7 @@ class Timidity < Formula
     formats << "speex" if build.with? "speex"
     formats << "ao" if build.with? "libao"
 
-    if formats.any?
-      args << "--enable-audio=" + formats.join(",")
-    end
+    args << "--enable-audio=" + formats.join(",") if formats.any?
 
     system "./configure", *args
     system "make", "install"

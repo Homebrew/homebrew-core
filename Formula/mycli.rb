@@ -3,13 +3,14 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://files.pythonhosted.org/packages/22/e5/91ae1334660623610fa431b068ab027ff0260456ebd8331c8228669322a8/mycli-1.9.0.tar.gz"
-  sha256 "70ccf669db7949fe0f97695c82665e0fb737356f2e1d7f227f4eeda29f3311b2"
+  url "https://files.pythonhosted.org/packages/d3/ba/13b9ca22e77fbe6770c39c6fae912ec2fe95bbbbcc7b1ed287851f04c438/mycli-1.10.0.tar.gz"
+  sha256 "e3ff390c66dcd9ea15235ea36ee7ad26630197c21d95e78926df54f41ad1fcc7"
 
   bottle do
-    sha256 "59ac7a804b0b85d1aa8085c55b73cfada367da1cec1d8d3a9c1363e405a4acc5" => :sierra
-    sha256 "471856d3be8da3828ec24261dd303ced33d81b012dcc5476fa66847e5ef2bc09" => :el_capitan
-    sha256 "ad3c4c954a39248e757e22cafa038fd6cce8d9fe38a8c85916bf531c37a0e445" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "536fd1d384ca20ac324faf71afd36ec6f843a1bff6d861115c019782eaf7decb" => :sierra
+    sha256 "56a3c12c4ed9992e7a56e05ed79528dc19793a18c830b454f60e867a342bd203" => :el_capitan
+    sha256 "b325516f12c51b385a5bf5f25a9f0503eac6dbd1369fd9cc6166041c95cfe80e" => :yosemite
   end
 
   depends_on :python
@@ -26,8 +27,8 @@ class Mycli < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/23/be/4876b52d5cc159cbd4b0ff6e7aa419a26470849a43a8f647857a4a24467b/prompt_toolkit-1.0.13.tar.gz"
-    sha256 "33d68ca09f76cd73287fde7df5748ffacf26a8238dd61ee81ac50860ea7c6776"
+    url "https://files.pythonhosted.org/packages/55/56/8c39509b614bda53e638b7500f12577d663ac1b868aef53426fc6a26c3f5/prompt_toolkit-1.0.14.tar.gz"
+    sha256 "cc66413b1b4b17021675d9f2d15d57e640b06ddfd99bb724c73484126d22622f"
   end
 
   resource "pycryptodome" do
@@ -41,8 +42,8 @@ class Mycli < Formula
   end
 
   resource "PyMySQL" do
-    url "https://files.pythonhosted.org/packages/90/c2/d81638491baa572d6e79b78bde42c7449d2e45b578c919c0df1a76cb859b/PyMySQL-0.7.10.tar.gz"
-    sha256 "9468bd7d54df68e49c39e91d7c223d13dedf9e4284173cb5d761673e6275024e"
+    url "https://files.pythonhosted.org/packages/29/f8/919a28976bf0557b7819fd6935bfd839118aff913407ca58346e14fa6c86/PyMySQL-0.7.11.tar.gz"
+    sha256 "56e3f5bcef6501012233620b54f6a7b8a34edc5751e85e4e3da9a0d808df5f68"
   end
 
   resource "six" do

@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.11.1",
-      :revision => "a67a225cf0b1dc48820415e7fe9a4f176463a8ed"
+      :tag => "v9.3.0",
+      :revision => "3df822b2c6e3b083986002bb9f012599bd74f6e9"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd995771f16391195c946885c9fc6c74cc0ba5c44f35035cd0643c8177554115" => :sierra
-    sha256 "469b9be73bb1a99dee97dc442ac9892368c35106780d141e7ec2cd692404499e" => :el_capitan
-    sha256 "6191d74538ab360453da8edeabdc1d158404cd10453af95598afe3aec023c85a" => :yosemite
+    sha256 "2a0f34a2e9ba1d7dd6c3c580d0d7bcc3e0cb1b67424ffd8a38b54f769c08331c" => :sierra
+    sha256 "4fcdd2c38529b237882400d0f4fade4938147ea5ffa8863b0b529ba84a52a79a" => :el_capitan
+    sha256 "562ad9c736f140468b0434cfd6a86f16f6be8435004e0ec8b1f3ba274ea2cb86" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,17 +24,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.1/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.3.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "1.11.1"
-    sha256 "1581e1534e80e8fa72ede15171269728f8123a18a0654975a7cf44daf8e650b9"
+    version "9.3.0"
+    sha256 "38c3e93b92a5d46d1ca7831820574ebdefef08fd3792a713e1b6ce1f26a175eb"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.1/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.3.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "1.11.1"
-    sha256 "fc0bfbd4f5289b738ce73a27e6ab65687187c01b2709d6c50dd92c868f500d5b"
+    version "9.3.0"
+    sha256 "22cb81b7f7e5f46bc6f16176805c96a7cdcbbe4bc0fd7c48fc146e789a5c6b75"
   end
 
   def install

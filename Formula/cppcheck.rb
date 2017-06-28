@@ -1,24 +1,25 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.78.tar.gz"
-  sha256 "31048901dd8744d12b3e6ac1bc904c08a72cad8118bd6a1f56ce489701ffd1b6"
+  url "https://github.com/danmar/cppcheck/archive/1.79.tar.gz"
+  sha256 "9c222fb41452fa40020233ef3c314f8e43c01600f08d9a03d3584cd121a0c7e1"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "8731efe94974cf0d9bf13552ccb634d741b53d349fe7ae53a1ad9dc81764f9ad" => :sierra
-    sha256 "ff26a2a8cec976d1a566dd67fdbf009d81a293408beb18aae59889a221b95bee" => :el_capitan
-    sha256 "62d2b29867144ebeda28a7af1049890c278c0d6463a1248d3ec2b14842e9082a" => :yosemite
+    sha256 "e33980f04ef74c841f668dc4f0a7e21d2117839ae6e12eae1b81c69bef0066f7" => :sierra
+    sha256 "fa8cacf84b503fcdca099279d273839c7aa684a45a98d18379e86c487e2f26e1" => :el_capitan
+    sha256 "3596b3c82f459fd5ac032bb94a83ee016142f192b41568890e2d79a72ceebb8f" => :yosemite
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"
-  option "with-qt5", "Build the cppcheck GUI (requires Qt)"
+  option "with-qt", "Build the cppcheck GUI (requires Qt)"
 
   deprecated_option "no-rules" => "without-rules"
-  deprecated_option "with-gui" => "with-qt5"
+  deprecated_option "with-gui" => "with-qt"
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "pcre" if build.with? "rules"
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
   needs :cxx11
 
@@ -40,7 +41,7 @@ class Cppcheck < Formula
     # Move the python addons to the cppcheck pkgshare folder
     (pkgshare/"addons").install Dir.glob(bin/"*.py")
 
-    if build.with? "qt5"
+    if build.with? "qt"
       cd "gui" do
         if build.with? "rules"
           system "qmake", "HAVE_RULES=yes",

@@ -1,13 +1,13 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-10.0.0.tar.xz"
-  sha256 "12be72c373645b5bb9b9ea79ce8447958a1b806162868bb67803baa6d0032333"
+  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-13.0.0.tar.xz"
+  sha256 "855e4ea7b0d5a7066dc8db6f8f54a1d9da8ed5616d9c1cea8bc198d4adb57642"
 
   bottle do
-    sha256 "86385603b1057b637b1b5acaf61c8300b7dcc5fb7f8da25d6d86d24c23ff5e8f" => :sierra
-    sha256 "79164274c263386649464a4b7a4cc7d6801efbfe72eeb21cbe110a6d969b83ed" => :el_capitan
-    sha256 "6140e599eb261ae364d4333962d4f366a81abc2a4127f56f138f2da6779b97b8" => :yosemite
+    sha256 "95ec0116ff1b5c5dc468bf0d072d43e61776b7426114e00684a1ba813c5e91ea" => :sierra
+    sha256 "44f072b66e5ff22c4bdebb77ca14fc06b04d837d7e7616f7724add0c62890292" => :el_capitan
+    sha256 "dfab98f2d39081b1acadbd1ead2de965069ee9acc91b237edf1ffcd4420f8226" => :yosemite
   end
 
   head do
@@ -17,30 +17,23 @@ class Mkvtoolnix < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt5", "Build with QT GUI"
+  option "with-qt", "Build with Qt GUI"
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
   depends_on :ruby => ["1.9", :build]
+  depends_on "boost"
+  depends_on "libebml"
+  depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "gettext" => :optional
-
-  # On Mavericks, the bottle (without c++11) can be used
-  # because mkvtoolnix is linked against libc++ by default
-  if MacOS.version >= "10.9"
-    depends_on "boost"
-    depends_on "libmatroska"
-    depends_on "libebml"
-  else
-    depends_on "boost" => "c++11"
-    depends_on "libmatroska" => "c++11"
-    depends_on "libebml" => "c++11"
-  end
 
   needs :cxx11
 
@@ -69,10 +62,12 @@ class Mkvtoolnix < Formula
       --with-extra-libs=#{extra_libs}
     ]
 
-    if build.with? "qt5"
-      args << "--with-moc=#{Formula["qt5"].opt_bin}/moc"
-      args << "--with-rcc=#{Formula["qt5"].opt_bin}/rcc"
-      args << "--with-uic=#{Formula["qt5"].opt_bin}/uic"
+    if build.with?("qt")
+      qt = Formula["qt"]
+
+      args << "--with-moc=#{qt.opt_bin}/moc"
+      args << "--with-uic=#{qt.opt_bin}/uic"
+      args << "--with-rcc=#{qt.opt_bin}/rcc"
       args << "--enable-qt"
     else
       args << "--disable-qt"

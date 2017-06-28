@@ -3,13 +3,14 @@ class Globjects < Formula
   homepage "https://github.com/cginternals/globjects"
   url "https://github.com/cginternals/globjects/archive/v1.0.0.tar.gz"
   sha256 "be2f95b4e98eef61a57925985735af266fef667eec63a39f65def5d5d808a30a"
+  revision 1
   head "https://github.com/cginternals/globjects.git"
 
   bottle do
     cellar :any
-    sha256 "fd8e1291e9e46a57116ce1533a8ef9243f1949f18b866f655cd0c245e8d7849d" => :sierra
-    sha256 "4e2d49ddfc4c868561ea4a4970eb9447c8b0c951dd58e5057ced8ce5c2c90e4b" => :el_capitan
-    sha256 "06d967f26d47c9c6532ee24485e5cde3eeb5d74feccdfde46811048c97a18b5a" => :yosemite
+    sha256 "120730ab24fd8acf2caa89eb48564e1cdee2c5773cacca04fa633b9cfa4a46a1" => :sierra
+    sha256 "5896b4d2ea3dea176c8291a39db31762b89256478f9bf14374d55e20b017c4fc" => :el_capitan
+    sha256 "813da817fbf45546bbe0cfe9d3beb2e0d4138bf9e5d09a7114e3a825db916d40" => :yosemite
   end
 
   depends_on "cmake" => :build

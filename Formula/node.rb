@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.8.0/node-v7.8.0.tar.xz"
-  sha256 "6821aaee58bbc8bc8d08fec6989a42278b725a21382500dc20fd9d9f71398f02"
+  url "https://nodejs.org/dist/v8.1.2/node-v8.1.2.tar.xz"
+  sha256 "ac190c1964ee0c28d4c163c0ccbb47435b2e4bd9b4c065b74a93373105c574b3"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "95613cb9796550d8aadc24ca82f55f8c5d7c4eb89815b1fb7e1cfd65e998241f" => :sierra
-    sha256 "0a6ab520d75cb99855b8b82dd229ba19cfa89561d53bd73f623dd6ad1ac60d7b" => :el_capitan
-    sha256 "bd6c53b86bd62f50976f5c4ebc73c633273210c05f01aede33fcf896d74153d5" => :yosemite
+    sha256 "9bd39ffe728cdab31708cbb0a9b1faa7e36b1c0e74ec02d90309d64be4006005" => :sierra
+    sha256 "0dcb7aab1aafa6d153ddf9023998dbe8b407b0702521a3913fdd584a222fcb60" => :el_capitan
+    sha256 "663dae25d823e473c5b51b162273b9e194989812e240f0bbe1ff07faf8784645" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -37,10 +37,9 @@ class Node < Formula
 
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
-  # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
-    sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
+    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
+    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
   end
 
   def install
@@ -56,31 +55,20 @@ class Node < Formula
     system "make", "install"
 
     if build.with? "npm"
-      resource("npm").stage buildpath/"npm_install"
-
-      # make sure npm can find node
+      # Allow npm to find Node before installation has completed.
       ENV.prepend_path "PATH", bin
-      # set log level temporarily for npm's `make install`
-      ENV["NPM_CONFIG_LOGLEVEL"] = "verbose"
-      # unset prefix temporarily for npm's `make install`
-      ENV.delete "NPM_CONFIG_PREFIX"
 
-      cd buildpath/"npm_install" do
-        system "./configure", "--prefix=#{libexec}/npm"
-        system "make", "install"
-        # `package.json` has relative paths to the npm_install directory.
-        # This copies back over the vanilla `package.json` that is expected.
-        # https://github.com/Homebrew/homebrew/issues/46131#issuecomment-157845008
-        cp buildpath/"npm_install/package.json", libexec/"npm/lib/node_modules/npm"
-        # Remove manpage symlinks from the buildpath, they are breaking bottle
-        # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
-        # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
-        rm_rf libexec/"npm/share/"
-      end
+      bootstrap = buildpath/"npm_bootstrap"
+      bootstrap.install resource("npm")
+      system "node", bootstrap/"bin/npm-cli.js", "install",
+             "--verbose", "--global", "--prefix=#{libexec}",
+             resource("npm").cached_download
+      # These symlinks are never used & they've caused issues in the past.
+      rm_rf libexec/"share"
 
       if build.with? "completion"
         bash_completion.install \
-          buildpath/"npm_install/lib/utils/completion.sh" => "npm"
+          bootstrap/"lib/utils/completion.sh" => "npm"
       end
     end
   end
@@ -94,21 +82,21 @@ class Node < Formula
     # Kill npm but preserve all other modules across node updates/upgrades.
     rm_rf node_modules/"npm"
 
-    cp_r libexec/"npm/lib/node_modules/npm", node_modules
+    cp_r libexec/"lib/node_modules/npm", node_modules
     # This symlink doesn't hop into homebrew_prefix/bin automatically so
-    # remove it and make our own. This is a small consequence of our bottle
-    # npm make install workaround. All other installs **do** symlink to
-    # homebrew_prefix/bin correctly. We ln rather than cp this because doing
-    # so mimics npm's normal install.
-    ln_sf npm_exec, "#{HOMEBREW_PREFIX}/bin/npm"
+    # we make our own. This is a small consequence of our
+    # bottle-npm-and-retain-a-private-copy-in-libexec setup
+    # All other installs **do** symlink to homebrew_prefix/bin correctly.
+    # We ln rather than cp this because doing so mimics npm's normal install.
+    ln_sf npm_exec, HOMEBREW_PREFIX/"bin/npm"
 
     # Let's do the manpage dance. It's just a jump to the left.
     # And then a step to the right, with your hand on rm_f.
-    ["man1", "man3", "man5", "man7"].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
+    %w[man1 man3 man5 man7].each do |man|
+      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
       rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
-      ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     npm_root = node_modules/"npm"

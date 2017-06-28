@@ -1,22 +1,20 @@
 class Angband < Formula
   desc "Dungeon exploration game"
   homepage "http://rephial.org/"
-  url "http://rephial.org/downloads/4.0/angband-4.0.5.tar.gz"
-  sha256 "0d769a0f349842b0c78cbcd1804a9e08f064e75ca26b957710e4c2a3eb14f852"
+  url "http://rephial.org/downloads/4.1/angband-4.1.0.tar.gz"
+  sha256 "ea52266e52b66d6bf2ab3728b3bc6c7c3875130973430021e31bf56000c0df8b"
   head "https://github.com/angband/angband.git"
 
   bottle do
-    sha256 "f3e87c6c6e443fb4807d1473939c47b664ae77c6d0ccf351ac9f08fdc5fe1c8a" => :sierra
-    sha256 "0f4d8be0d57e68a136d38bc34a4afd6d0df1ecebbe9539be2a25e0e5b3057c9f" => :el_capitan
-    sha256 "667101e3cdd23661642f61493bc879cce67257c0e78de3100ebd74506ca7ede9" => :yosemite
+    sha256 "87585187f01fa753e59d6b6f804c1436c96c356c6f82878d5f57c3e54d80d4ce" => :sierra
+    sha256 "4aa7a0f0218a488f89b5b6a8068d51f32c6331f02aaf360c35690e52f0d337ff" => :el_capitan
+    sha256 "0733eb9c331522191a5017cf3fa3d20c5acb9da308db825bd9aba7dba43b3b3f" => :yosemite
   end
 
   option "with-cocoa", "Install Cocoa app"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11 => :optional
-  depends_on "homebrew/dupes/tcl-tk" => "with-x11" if build.with? :x11
   depends_on "sdl" => :optional
   if build.with? "sdl"
     depends_on "sdl_image"
@@ -34,9 +32,9 @@ class Angband < Formula
       --enable-curses
       --disable-ncursestest
       --disable-sdltest
+      --disable-x11
       --with-ncurses-prefix=#{MacOS.sdk_path}/usr
     ]
-    args << "--disable-x11" if build.without? :x11
     args << "--enable-sdl" if build.with? "sdl"
 
     system "./configure", *args

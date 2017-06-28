@@ -1,6 +1,6 @@
 
 class Ksh < Formula
-  desc "ksh93, the KornShell"
+  desc "KornShell, ksh93"
   homepage "http://www.kornshell.com"
   url "https://opensource.apple.com/source/ksh/ksh-23/ast-ksh.2012-08-01.tgz",
     :using => :nounzip

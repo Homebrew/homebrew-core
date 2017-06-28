@@ -1,20 +1,17 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.4.tar.gz"
-  sha256 "a79d5da0133344d38f8b3d3355c16269f11c15fbeedd0521e1a657b00ac503bb"
-  revision 1
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
+  sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "14de34e98b96ef029d98202ca0422ee9e35345bcea3881e0d990c6d193295506" => :sierra
-    sha256 "dd17ce5cf3bd581f94e42e12ecde0bf6f80510b5443452d5099b392be9b10b35" => :el_capitan
-    sha256 "7de091af5d6b8d2ebe22fba6be333ac6431bbeb0ab545747def1f8923e8a26d1" => :yosemite
+    sha256 "e054db367a116362a02c0ec3c06e449540cc81cca7db63e87cfc41040dd4b028" => :sierra
+    sha256 "971af437377420e432e932a444b0a98b3ab5d2d347ce72b42a231e240d428a5e" => :el_capitan
+    sha256 "6a4228c880a0755a4b02da9adc7fd717d2261bf086ddf0506853f8edbbf882ba" => :yosemite
   end
 
-  option "with-plugins", "Support plugins and install example plugins."
-
-  deprecated_option "plugins" => "with-plugins"
+  option "without-plugins", "Disable support for plugins"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -25,17 +22,20 @@ class DnscryptProxy < Formula
   depends_on "ldns" => :recommended
 
   def install
-    # Modify hard-coded path to resolver list
-    inreplace "dnscrypt-proxy.conf",
-      "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
-      "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
-
-    # Run as unprivileged user
-    inreplace "dnscrypt-proxy.conf", "# User _dnscrypt-proxy", "User nobody"
+    # Modify hard-coded path to resolver list & run as unprivileged user.
+    inreplace "dnscrypt-proxy.conf" do |s|
+      s.gsub! "# ResolversList /usr/local/share/dnscrypt-proxy/dnscrypt-resolvers.csv",
+              "ResolversList #{opt_pkgshare}/dnscrypt-resolvers.csv"
+      s.gsub! "# User _dnscrypt-proxy", "User nobody"
+    end
 
     system "./autogen.sh"
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix} --sysconfdir=#{etc}]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+    ]
 
     if build.with? "plugins"
       args << "--enable-plugins"

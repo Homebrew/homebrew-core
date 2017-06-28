@@ -3,19 +3,17 @@ class EbookTools < Formula
   homepage "https://sourceforge.net/projects/ebook-tools/"
   url "https://downloads.sourceforge.net/project/ebook-tools/ebook-tools/0.2.2/ebook-tools-0.2.2.tar.gz"
   sha256 "cbc35996e911144fa62925366ad6a6212d6af2588f1e39075954973bbee627ae"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "94ee9c4e2a0dffa0fecc5669aa6d38e8355650510ab42091ed63e7fd7dcb4bac" => :sierra
-    sha256 "5e8c1713c5d418a039181ca164e5a9f04691f430c2262a778627457e928104b9" => :el_capitan
-    sha256 "66d084a7aed69b423d60ab2d193c73751a68a489c717178db36662f50ad9cdb3" => :yosemite
-    sha256 "09c68b7cea454f3181f5df5eae0b5b9ece75e697bcc876354de8de0fc6aa9e9a" => :mavericks
+    sha256 "c6e286e88e063821bec84c5d7589e24da162568abee86c7a14a3c49a47fdcfee" => :sierra
+    sha256 "3da2cbaf77b390a4c5fdc216483e15ce38d87c151e6365fbc9f9a4b1c501d7b1" => :el_capitan
+    sha256 "0d90d2e7ff07b4dc30f40fe769f9e8805b8dee163f44ecc9d7a529064d37c70d" => :yosemite
   end
 
-  depends_on "libzip"
   depends_on "cmake" => :build
+  depends_on "libzip"
 
   def install
     system "cmake", ".",

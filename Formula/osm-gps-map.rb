@@ -5,10 +5,10 @@ class OsmGpsMap < Formula
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
 
   bottle do
-    sha256 "4d5e367da76a98493963cb0b5bb50132346a627318e92851faef84b7228ca284" => :sierra
-    sha256 "764f9a62335f14db107b7d3e9c5ec0c8bb1d1fdbf032457bcca49a0c222bde92" => :el_capitan
-    sha256 "2950e2e4a2f492e76cc42a097b537336bd92c07c3057cc35057cbb01af445a1e" => :yosemite
-    sha256 "2386d1592d78c701e237ce1fa74478d762551e415320d8664270865b566502e7" => :mavericks
+    rebuild 1
+    sha256 "39d671106b914b85fb0730b3d35f96c501d287cedae1c8ad71683ec4c540a0ee" => :sierra
+    sha256 "8bb0e6b77b1eb48fb6ea0700828a9b7cb15967ba09b21f35dbdf0f3f1451e585" => :el_capitan
+    sha256 "30748d2eed1125991271b993672bfb7d90385802e1c2feba5f6f2dd22340fc95" => :yosemite
   end
 
   head do
@@ -36,7 +36,7 @@ class OsmGpsMap < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-      #include <osmgpsmap-1.0/osm-gps-map.h>
+      #include <osm-gps-map.h>
 
       int main(int argc, char *argv[]) {
         OsmGpsMap *map;

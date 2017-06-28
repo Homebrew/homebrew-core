@@ -1,22 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-3.3.2.tar.bz2"
+  sha256 "216900d5c0af9017bb8f76b0ad23f0ac53cf7fc618cf04b40d989bd99b088e6a"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.2.4.tar.bz2"
-    sha256 "c0fa3593a2e9e96ace3c1757900094437ad96d1d6ca19f057c378b5f394496a4"
-
-    option "with-libebur128", "Enable using libebur128 for EBU R128 loudness measurement"
-
-    # only vendored in head
-    depends_on "libebur128" => :optional
-  end
-
   bottle do
-    sha256 "c4d1d895fca521400a0f6d27d7dfa3553ebda8c0f6c90fcd44a5b55aefe27aa4" => :sierra
-    sha256 "c0ca7c202d7051596be029aeaec362b7faa8dae900eb1c4f5a4d00c86d2000f7" => :el_capitan
-    sha256 "b07df0bf4f6c7402730d710b92758054941c8b437fa742c09a706115c8fc39e5" => :yosemite
+    sha256 "5a376b449da71f11aec2426ceab28c5797f429e8d1e29934541a7d57d4fed34f" => :sierra
+    sha256 "0d2fe136c30cc3a89746a1bfe67e4579766edda52f5f8f80b44aeafe0257e216" => :el_capitan
+    sha256 "57879c39bc53a7868ea5da360e4567c004062c581321a3707352151f12686768" => :yosemite
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -98,12 +90,6 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
 
   def install
-    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace %w[libavdevice/v4l2.c libavutil/time.c], "HAVE_CLOCK_GETTIME",
-                                                         "UNDEFINED_GIBBERISH"
-    end
-
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -126,7 +112,6 @@ class Ffmpeg < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
-    args << "--enable-libebur128" if build.stable? && build.with?("libebur128")
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"
@@ -174,34 +159,18 @@ class Ffmpeg < Formula
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    if %w[fdk-aac openssl].any? { |f| build.with? f }
-      args << "--enable-nonfree"
-    end
+    args << "--enable-nonfree" if build.with?("fdk-aac") || build.with?("openssl")
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
-    # prevents GCC from building VDA support. GCC has no problems on
-    # 10.9 and earlier.
+    # prevents GCC from building VDA support.
     # See: https://github.com/Homebrew/homebrew/issues/33741
-    if MacOS.version < :yosemite || ENV.compiler == :clang
+    if MacOS.version != :yosemite || ENV.compiler == :clang
       args << "--enable-vda"
     else
       args << "--disable-vda"
     end
 
-    # For 32-bit compilation under gcc 4.2, see:
-    # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
-
     system "./configure", *args
-
-    if MacOS.prefer_64_bit?
-      inreplace "config.mak" do |s|
-        shflags = s.get_make_var "SHFLAGS"
-        if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-          s.change_make_var! "SHFLAGS", shflags
-        end
-      end
-    end
 
     system "make", "install"
 

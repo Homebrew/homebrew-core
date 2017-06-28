@@ -1,20 +1,18 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/0.7.94/MediaInfo_CLI_0.7.94_GNU_FromSource.tar.bz2"
-  version "0.7.94"
-  sha256 "af32c03b1c9ab62a35d5e486bbc8988fd1c764abcb6d1a89402235cd5b16546f"
+  url "https://mediaarea.net/download/binary/mediainfo/0.7.96/MediaInfo_CLI_0.7.96_GNU_FromSource.tar.bz2"
+  version "0.7.96"
+  sha256 "4fb6786a818cb470bd8dbefd2224b9ab6537b827d84ccc532d288d151bda15a2"
 
   bottle do
     cellar :any
-    sha256 "3a586fac4e237c89c57ff7ff6247ef7cb28b383ea24f019e2f1d98662de87492" => :sierra
-    sha256 "0657b3ef7849fac6c7db740da7b089dea48d41e29cf1047796419537c891845c" => :el_capitan
-    sha256 "09b6188c0752c67d49b24d6cde70ffcf09f06047a5d157e0c5f095f93b12674f" => :yosemite
+    sha256 "0659a0144e2d1f515a8076d0a213d94c7a1855511988bbd2a71a90ef5d6d1280" => :sierra
+    sha256 "8ac3d22dfeaafa5c89990d734bdfa431cc697c1c4f9c1c50154ba26b2d26605c" => :el_capitan
+    sha256 "987b6e7c520071d878269ac366fd7da5b09e1761d1c40e483704a4e09846b227" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  # fails to build against Leopard's older libcurl
-  depends_on "curl" if MacOS.version < :snow_leopard
 
   def install
     cd "ZenLib/Project/GNU/Library" do

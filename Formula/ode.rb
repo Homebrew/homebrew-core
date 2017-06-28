@@ -2,15 +2,15 @@ class Ode < Formula
   desc "Library for simulating articulated rigid body dynamics"
   homepage "http://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.14.tar.gz"
-  sha256 "1072fc98d9d00262a0d6136e7b9ff7f5d953bbdb23b646f426909d28c0b4f6db"
+  sha256 "a6e22c3713e656d4c8114415089f4aaa685e24fab3a8ad7f3ee54692e5e8d318"
+  revision 1
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0878fe75d32116ec15f5c33397b484f9aa5497b9393ef34764d4af0b80d46b88" => :sierra
-    sha256 "a819c7f5b726beab6c2dbb4bd4e0e09535e31e012fd6c2827d798eba88ecefec" => :el_capitan
-    sha256 "978f6488c0bec75919bfc2b12882a5d7c517e5e9a3ff3c55eea5bc9a3f99b7fb" => :yosemite
-    sha256 "1909c03ba89ab957497e58a02a95972e57f37bb7d4a45a5e7aa822eb37177e5c" => :mavericks
+    sha256 "ade1ba4974e416c49ba02cc2b70520aabf4b79b2fa83e9cc560350e2d8268b68" => :sierra
+    sha256 "eecd333626f8b081c9e245f46dcda62b8133ac1f99b63555771411d6f378fc85" => :el_capitan
+    sha256 "2438a9e2e4484f85a94c7ac65759105ff4dec47128a5e48a37807e0d0ebc233c" => :yosemite
   end
 
   option "with-double-precision", "Compile ODE with double precision"
@@ -41,5 +41,18 @@ class Ode < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <ode/ode.h>
+      int main() {
+        dInitODE();
+        dCloseODE();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lc++", "-o", "test"
+    system "./test"
   end
 end

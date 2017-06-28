@@ -1,17 +1,16 @@
 class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/moreutils/moreutils_0.60.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/moreutils/moreutils_0.60.orig.tar.xz"
-  sha256 "e42d18bacbd2d003779a55fb3542befa5d1d217ee37c1874e8c497581ebc17c5"
+  url "git://git.joeyh.name/moreutils",
+      :tag => "0.61",
+      :revision => "01d1b22f22fae647cbfd855dc82f8d9548607ab0"
   head "git://git.joeyh.name/moreutils"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae130c5fa715e6c9cf338201f5318f58bfa98910b67b26bcf4f68a247dc36083" => :sierra
-    sha256 "b9865588c4d434d5e35d19cdf2b39b36031d6b6cd77835e182fd5e76fa7cba48" => :el_capitan
-    sha256 "b39209ebca05c0aa733dbf01c615be42db78f9438431e82df52f7f3914c9788a" => :yosemite
-    sha256 "512b618f6a652f673485616677c6207a8645a3dcfe98b619787e58c3cb5a5811" => :mavericks
+    sha256 "54ce8fa9a91115d36ac2cc272ba332e52fe04512d896f1e40b917d6fa4bc8b12" => :sierra
+    sha256 "7dce0f11e1219a6ee585caba77d9d1c949a83c3d251d5cd373b25374e0be81d1" => :el_capitan
+    sha256 "629be4e3aa6af9b9bc9eaddf519227f20271470d750a27418984e0bcffd2bd04" => :yosemite
   end
 
   option "without-parallel", "Build without the 'parallel' tool."

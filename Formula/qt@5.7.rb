@@ -14,7 +14,7 @@ class QtAT57 < Formula
     sha256 "a5fe56be34bf03a68d0c42aae04d381ce1254cd3e72959793af33f4800f602ec" => :yosemite
   end
 
-  keg_only "Older version of qt5"
+  keg_only :versioned_formula
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"

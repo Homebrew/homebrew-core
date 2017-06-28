@@ -22,8 +22,8 @@ class GccAT47 < Formula
   end
 
   homepage "https://gcc.gnu.org/"
-  url "https://ftpmirror.gnu.org/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
   sha256 "92e61c6dc3a0a449e62d72a38185fda550168a86702dea07125ebd3ec3996282"
   revision 1
 
@@ -118,6 +118,7 @@ class GccAT47 < Formula
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
+      "--enable-plugin",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
@@ -127,10 +128,6 @@ class GccAT47 < Formula
       # install-info is run.
       "MAKEINFO=missing",
     ]
-
-    # "Building GCC with plugin support requires a host that supports
-    # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
 
     args << "--disable-nls" if build.without? "nls"
 

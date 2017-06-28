@@ -3,6 +3,7 @@ class ErlangAT18 < Formula
   homepage "https://www.erlang.org/"
   url "https://github.com/erlang/otp/archive/OTP-18.3.4.tar.gz"
   sha256 "d9e68a8cdef4db0935b02d4b163cf3af403405f756488874736298cf48b90ae9"
+  head "https://github.com/erlang/otp.git", :branch => "maint-18"
 
   bottle do
     cellar :any
@@ -72,10 +73,7 @@ class ErlangAT18 < Formula
     args << "--enable-native-libs" if build.with? "native-libs"
     args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
     args << "--enable-wx" if build.with? "wxmac"
-
-    if MacOS.version >= :snow_leopard && MacOS::CLT.installed?
-      args << "--with-dynamic-trace=dtrace"
-    end
+    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     if build.without? "hipe"
       # HIPE doesn't strike me as that reliable on macOS

@@ -21,7 +21,7 @@ class Ponysay < Formula
   # https://github.com/erkin/ponysay/pull/225
   patch do
     url "https://github.com/tdsmith/ponysay/commit/44fb0f85821eb34a811abb27d2c601a5d30af1f1.diff"
-    sha256 "0570b94a1179c189291cd9bad28cb93762aeed5ad6bbc3536027e178d0e6b9df"
+    sha256 "6d2e8e60c13a1e08e0408809edaa72ce8b00cce5e522b88e12a9b9c1047663d6"
   end
 
   def install

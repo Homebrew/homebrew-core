@@ -1,13 +1,13 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.24.tar.xz"
-  sha256 "4fe29f582eef357faa541a53835b6885e24e6f28b80a3abcdf3b57f5393bbdb2"
+  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.26.tar.xz"
+  sha256 "baa1eecb7d6e18881f4455060d80ee7cb95ae7e2695fdccf7e21ccc8f879a982"
 
   bottle do
-    sha256 "1bfc5f0d3b3d756011dd26eafbb25d8cebbdc4b2da87342cff85e58329e086dc" => :sierra
-    sha256 "1a2950246a1a1f7695c2689b3299282e447790137aa16971007c2f5d162c530f" => :el_capitan
-    sha256 "81e4e0d9759095922b73e70b92f239bbfab09c7965db6d92d437379809c35e17" => :yosemite
+    sha256 "8e00ea568178d522b731ad39bcbe70d4a1b3b34a73a3dd32f55fe2d1bd68b88b" => :sierra
+    sha256 "f92c1d99de60c34112df0a650a7eadf27365226baed1b3a8a8e4ad77d1903fbe" => :el_capitan
+    sha256 "7c11420594a1d9f4ae140c8541b024e3eaeae05364e01320fbc8a777cd5d2276" => :yosemite
   end
 
   head do
@@ -44,9 +44,7 @@ class Squid < Formula
       --enable-storeio=yes
     ]
 
-    if build.head?
-      system "./bootstrap.sh"
-    end
+    system "./bootstrap.sh" if build.head?
     system "./configure", *args
     system "make", "install"
   end

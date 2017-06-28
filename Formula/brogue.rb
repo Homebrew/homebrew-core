@@ -15,7 +15,10 @@ class Brogue < Formula
 
   # put the highscores file in HOMEBREW_PREFIX/var/brogue/ instead of a
   # version-dependent location.
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c999df7dff/brogue/1.7.4.patch"
+    sha256 "ac5f86930a0190146ca35856266e8e8af06ac925bc8ae4c73c202352f258669c"
+  end
 
   def install
     (var/"brogue").mkpath
@@ -44,39 +47,3 @@ class Brogue < Formula
     system "#{bin}/brogue", "--version"
   end
 end
-
-__END__
---- a/src/platform/platformdependent.c	2013-10-08 21:53:15.000000000 +0200
-+++ b/src/platform/platformdependent.c	2013-10-08 21:55:22.000000000 +0200
-@@ -75,7 +75,7 @@
-	short i;
-	FILE *scoresFile;
-
--	scoresFile = fopen("BrogueHighScores.txt", "w");
-+	scoresFile = fopen("HOMEBREW_PREFIX/var/brogue/BrogueHighScores.txt", "w");
-	for (i=0; i<HIGH_SCORES_COUNT; i++) {
-		fprintf(scoresFile, "%li\t%li\t%s", (long) 0, (long) 0, "(empty entry)\n");
-	}
-@@ -128,11 +128,11 @@
-	time_t rawtime;
-	struct tm * timeinfo;
-
--	scoresFile = fopen("BrogueHighScores.txt", "r");
-+	scoresFile = fopen("HOMEBREW_PREFIX/var/brogue/BrogueHighScores.txt", "r");
-
-	if (scoresFile == NULL) {
-		initScores();
--		scoresFile = fopen("BrogueHighScores.txt", "r");
-+		scoresFile = fopen("HOMEBREW_PREFIX/var/brogue/BrogueHighScores.txt", "r");
-	}
-
-	for (i=0; i<HIGH_SCORES_COUNT; i++) {
-@@ -197,7 +197,7 @@
-	short i;
-	FILE *scoresFile;
-
--	scoresFile = fopen("BrogueHighScores.txt", "w");
-+	scoresFile = fopen("HOMEBREW_PREFIX/var/brogue/BrogueHighScores.txt", "w");
-
-	for (i=0; i<HIGH_SCORES_COUNT; i++) {
-		// save the entry

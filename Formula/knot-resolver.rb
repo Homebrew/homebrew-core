@@ -1,28 +1,27 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.2.4.tar.xz"
-  sha256 "630b2ad0bfdcf59164957a377adef8b1fddc37a58a7e1d10e76a1b497a30f036"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.3.1.tar.xz"
+  sha256 "cc9631fe1a92628e81e74b324a7f70c0b29840d426de05d7d045fdf85ab01117"
   head "https://gitlab.labs.nic.cz/knot/resolver.git"
 
   bottle do
-    sha256 "498c815df362ad5e41cce593b4f3343bd85255f72e1cc4aaa160dff156c976f0" => :sierra
-    sha256 "bc50808a19aa55bbcd100053f6278abf3fcdecf14b0994404763937b384eee39" => :el_capitan
-    sha256 "78ca38ec0316c76bafce31a85670c50c9a9c9516c68d4abba0aa6b206597514e" => :yosemite
+    sha256 "97e664c3320bec41300452e56cb4b4d43fab1635ad305262e62b574f23cef3d7" => :sierra
+    sha256 "d2d21f98367b41a08f1bfb9ae97775d0fd985d0a4a531a5b6afa3092a05569a9" => :el_capitan
+    sha256 "3940ef3918847dff72ebf31416c8a450251fb90404657e6a6c4b5d8bd4bd23fb" => :yosemite
   end
-
-  depends_on "knot"
-  depends_on "luajit"
-  depends_on "libuv"
-  depends_on "gnutls"
-  depends_on "lmdb"
-
-  depends_on "cmocka" => :build
-  depends_on "pkg-config" => :build
 
   option "without-nettle", "Compile without DNS cookies support"
   option "with-hiredis", "Compile with Redis cache storage support"
   option "with-libmemcached", "Compile with memcached cache storage support"
+
+  depends_on "cmocka" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gnutls"
+  depends_on "knot"
+  depends_on "luajit"
+  depends_on "libuv"
+  depends_on "lmdb"
   depends_on "nettle" => :recommended
   depends_on "hiredis" => :optional
   depends_on "libmemcached" => :optional

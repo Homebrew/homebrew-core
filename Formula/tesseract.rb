@@ -1,13 +1,13 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.00.tar.gz"
-  sha256 "3fe83e06d0f73b39f6e92ed9fc7ccba3ef734877b76aa5ddaaa778fac095d996"
+  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.01.tar.gz"
+  sha256 "05898f93c5d057fada49b9a116fc86ad9310ff1726a0f499c3e5211b3af47ec1"
 
   bottle do
-    sha256 "d2ec7a1ef8859c28dd0d1e2e5a4bf54224bf971e11863bef693687fb3f166180" => :sierra
-    sha256 "ebbb35f1423ee0ee446908af35d0aa2d7cf062e709599a0f9defad8cdac4498a" => :el_capitan
-    sha256 "626c9003f601105a4e7e3bee9fca179f63b9823b970b547aa458e09e98644c84" => :yosemite
+    sha256 "6b3a0e12659b57344a67bfde229353593ba06b4fe26b7eb1eb9e585f8906a032" => :sierra
+    sha256 "788a83d200ba3aa34140fa0d2dbc2ecbf6cfb2a3eeb412417cbbf68dfc4678b4" => :el_capitan
+    sha256 "8798858e2d3846eb7b10335cb08c349fd18bb040a2e8b5e9bb3737d1bf2071d5" => :yosemite
   end
 
   head do
@@ -31,7 +31,7 @@ class Tesseract < Formula
   depends_on "pkg-config" => :build
 
   depends_on "leptonica"
-  depends_on "libtiff" => :recommended
+  depends_on "libtiff"
 
   if build.with? "training-tools"
     depends_on "libtool" => :build
@@ -65,14 +65,6 @@ class Tesseract < Formula
   end
 
   def install
-    if build.head?
-      # ld: symbol(s) not found for _clSetKernelArg and other symbols
-      # Regression caused by https://github.com/tesseract-ocr/tesseract/commit/b1c921b
-      # Reported 13 Sep 2016 https://github.com/tesseract-ocr/tesseract/issues/426
-      inreplace "api/Makefile.am", "$(GENERIC_LIBRARY_VERSION) -no-undefined",
-                                   "$(GENERIC_LIBRARY_VERSION)"
-    end
-
     if build.with? "training-tools"
       icu4c = Formula["icu4c"]
       ENV.append "CFLAGS", "-I#{icu4c.opt_include}"

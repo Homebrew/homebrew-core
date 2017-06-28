@@ -5,12 +5,13 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 3
   head "https://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.tar.bz2"
-    sha256 "9756f5a2129b6a83ba701e546173cbff86caa671b0af73eb8f72c03b20c066c6"
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.1.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.1.tar.xz"
+    sha256 "6cfb4eaae566dc7afb7ac0f1f2db2c0d69969952acab0debf084ee8f7b071583"
 
     # Patch to fix texture compression issues. Still relevant on 2.0.
     # https://bugs.winehq.org/show_bug.cgi?id=14939
@@ -28,16 +29,15 @@ class Wine < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "a88a5a5a77040bdc38d584fae1a23566b11d1b76e0b740dc76ffdc95a3251e83" => :sierra
-    sha256 "41f4842e57f7ad9503f49b5cd7150ebd8ba2ed705be3ef0f19e435e2c3ec204a" => :el_capitan
-    sha256 "76b2a1a0266b236cfcc5b36f4c323ee0f76d30908701f1f449472831c83fee5a" => :yosemite
+    sha256 "3d3adabd3b438c8b36c3ab9665a29274eecc4d29997d9f93988e0c54ede94066" => :sierra
+    sha256 "b73051da82b2caf14d9fbadb43bfd6673d86429660d7d7072242642c1f15da54" => :el_capitan
+    sha256 "9a07e30a16149ce98bb8d5fd601278707eee85b0787e1426321868241429acbe" => :yosemite
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.5.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.5.tar.xz"
-    sha256 "13f92b7ab483323aaabbc6519851e688ad4372ea30569961c831d40d6d3bccd2"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.11.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.11.tar.xz"
+    sha256 "efa96dade206aa21accf0da195335a805d38209d6a14320607c6308ebde4cc3c"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.3.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -70,32 +70,32 @@ class Wine < Formula
   end
 
   resource "mono" do
-    url "https://dl.winehq.org/wine/wine-mono/4.6.4/wine-mono-4.6.4.msi", :using => :nounzip
-    sha256 "91b7d58177b9a9355edf007dab94535471aebdddae12734ceb4a219d2ecc4152"
+    url "https://dl.winehq.org/wine/wine-mono/4.7.0/wine-mono-4.7.0.msi", :using => :nounzip
+    sha256 "7698474dd9cb9eb80796b5812dff37386ba97b78b21ca23b20079ca5ad6ca5a1"
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2k.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2k.tar.gz"
-    sha256 "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
+    url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
+    sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
   end
 
   resource "libtool" do
-    url "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
+    url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
+    mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
     sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
   end
 
   resource "jpeg" do
-    url "http://www.ijg.org/files/jpegsrc.v8d.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg8/libjpeg8_8d.orig.tar.gz"
-    sha256 "00029b1473f0f0ea72fbca3230e8cb25797fbb27e58ae2e46bb8bf5a806fe0b3"
+    url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg9/libjpeg9_9b.orig.tar.gz"
+    sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
-    sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
+    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
+    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
   end
 
   resource "little-cms2" do
@@ -105,15 +105,15 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.28.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.28/libpng-1.6.28.tar.xz"
-    sha256 "d8d3ec9de6b5db740fefac702c37ffcf96ae46cb17c18c1544635a3852f78f7a"
+    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.29.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.29/libpng-1.6.29.tar.xz"
+    sha256 "4245b684e8fe829ebb76186327bb37ce5a639938b219882b53d64bd3cfc5f239"
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
-    sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8/freetype-2.8.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.tar.bz2"
+    sha256 "a3c603ed84c3c2495f9c9331fe6bba3bb0ee65e06ec331e0a0fb52158291b40b"
   end
 
   resource "libusb" do
@@ -133,9 +133,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.1.tar.bz2"
-    sha256 "b449a3e10c47e1d1c7a6ec6e2016cca73d3bd68fbbd4f0ae5cc6b573f7d6c7f3"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.3.tar.bz2"
+    sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
   end
 
   resource "gd" do
@@ -145,9 +145,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.12/libgphoto2-2.5.12.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.12.tar.bz2"
-    sha256 "b9bb28990fde45ac385e4851a07dbad2e1250404b535b0a3a3b898bb431e4e2e"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.14/libgphoto2-2.5.14.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.14.tar.bz2"
+    sha256 "d3ce70686fb87d6791b9adcbb6e5693bfbe1cfef9661c23c75eb8a699ec4e274"
   end
 
   resource "net-snmp" do
@@ -156,16 +156,16 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.25.orig.tar.gz"
-    mirror "https://fossies.org/linux/misc/sane-backends-1.0.25.tar.gz"
-    sha256 "a4d7ba8d62b2dea702ce76be85699940992daf3f44823ddc128812da33dc6e2c"
+    url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
+    sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
 
-  # Fixes some missing headers missing error. Reported upstream
-  # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
-  resource "sane-backends-patch" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
-    sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
+  resource "mpg123" do
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.0/mpg123-1.25.0.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.0.tar.bz2"
+    sha256 "552e3e1db045e00f474252917007795ac295863fc8b13891859b3382d2f24e48"
   end
 
   fails_with :clang do
@@ -239,22 +239,24 @@ class Wine < Formula
         system "make", "install"
 
         %w[libcrypto libssl].each do |libname|
-          system "lipo", "-create", "#{dirs.first}/#{libname}.1.0.0.dylib",
-                                    "#{dirs.last}/#{libname}.1.0.0.dylib",
-                         "-output", "#{libexec}/lib/#{libname}.1.0.0.dylib"
+          rm_f libexec/"lib/#{libname}.1.0.0.dylib"
+          MachO::Tools.merge_machos("#{libexec}/lib/#{libname}.1.0.0.dylib",
+                                    "#{dirs.first}/#{libname}.1.0.0.dylib",
+                                    "#{dirs.last}/#{libname}.1.0.0.dylib")
           rm_f libexec/"lib/#{libname}.a"
         end
 
         Dir.glob("#{dirs.first}/engines/*.dylib") do |engine|
           libname = File.basename(engine)
-          system "lipo", "-create", "#{dirs.first}/engines/#{libname}",
-                                    "#{dirs.last}/engines/#{libname}",
-                         "-output", "#{libexec}/lib/engines/#{libname}"
+          rm_f libexec/"lib/engines/#{libname}"
+          MachO::Tools.merge_machos("#{libexec}/lib/engines/#{libname}",
+                                    "#{dirs.first}/engines/#{libname}",
+                                    "#{dirs.last}/engines/#{libname}")
         end
 
-        system "lipo", "-create", "#{dirs.first}/openssl",
-                                  "#{dirs.last}/openssl",
-                       "-output", "#{libexec}/bin/openssl"
+        MachO::Tools.merge_machos("#{libexec}/bin/openssl",
+                                  "#{dirs.first}/openssl",
+                                  "#{dirs.last}/openssl")
 
         confs = archs.map do |arch|
           <<-EOS.undent
@@ -420,11 +422,6 @@ class Wine < Formula
 
       resource("sane-backends").stage do
         save_env do
-          # Cannot have "patch do" here
-          Pathname.pwd.install resource("sane-backends-patch")
-          system "patch", "-p1", "-i", "1.0.25-missing-types.patch"
-
-          ENV.deparallelize
           system "./configure", "--disable-dependency-tracking",
                                 "--prefix=#{libexec}",
                                 "--localstatedir=#{var}",
@@ -433,9 +430,18 @@ class Wine < Formula
                                 "--enable-libusb",
                                 "--disable-latex",
                                 *depflags
-          system "make"
           system "make", "install"
         end
+      end
+
+      resource("mpg123").stage do
+        system "./configure", "--disable-debug",
+                              "--disable-dependency-tracking",
+                              "--prefix=#{libexec}",
+                              "--with-default-audio=coreaudio",
+                              "--with-module-suffix=.so",
+                              "--with-cpu=generic"
+        system "make", "install"
       end
     end
 
@@ -483,7 +489,7 @@ class Wine < Formula
         "x11" (or use winetricks).
 
         For best results with X11, install the latest version of XQuartz:
-          https://xquartz.macosforge.org/
+          https://www.xquartz.org/
       EOS
     end
     s

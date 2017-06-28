@@ -1,21 +1,21 @@
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
-  url "https://github.com/ocaml/ocamlbuild/archive/0.9.3.tar.gz"
-  sha256 "32e4824906888c61244909eab0d2c22d31f18fc9579873a070a4cf7947c2c0a9"
+  url "https://github.com/ocaml/ocamlbuild/archive/0.11.0.tar.gz"
+  sha256 "1717edc841c9b98072e410f1b0bc8b84444b4b35ed3b4949ce2bec17c60103ee"
   revision 1
   head "https://github.com/ocaml/ocamlbuild.git"
 
   bottle do
-    sha256 "db18212dbf85bca4e50400ab75d5ba45fffbb924dcf842fe5a5b7b7cbc040553" => :sierra
-    sha256 "094d83c43ad3f010b485e255e4018e8d2c270e02ff3c0f261bbab04d8297626a" => :el_capitan
-    sha256 "43b9081e69d0432f4c61d6d618bfa64f93f4ecf47a028d70332e4d092f919d9f" => :yosemite
+    sha256 "c0967a4ad6e92d53941db22065fcf83ea6e1f1b5d02ea9d3533cebed5ab88686" => :sierra
+    sha256 "21fd3297dd1fd9fa0562b441752050d2736faa48a71ce7196cd918da91b81b5e" => :el_capitan
+    sha256 "3dea9c0a9dc05e5f82d88b29cecfccb2943e6cd4912ac2021b9f0ee42d5521fb" => :yosemite
   end
 
   depends_on "ocaml"
 
   def install
-    system "make", "configure", "OCAMLBUILD_BINDIR=#{bin}", "OCAMLBUILD_LIBDIR=#{lib}"
+    system "make", "configure", "OCAMLBUILD_BINDIR=#{bin}", "OCAMLBUILD_LIBDIR=#{lib}", "OCAMLBUILD_MANDIR=#{man}"
     system "make"
     system "make", "install"
   end

@@ -1,8 +1,8 @@
 class Presto < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.165/presto-server-0.165.tar.gz"
-  sha256 "a22a1d912b11755cf8353f3c714740b7bf04237beaf171689ef20ab0590696d8"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.179/presto-server-0.179.tar.gz"
+  sha256 "a348b88541a77d4d76014ba3bfa525ece8c7d5a388c564131649ade419758f3d"
 
   bottle :unneeded
 
@@ -12,7 +12,7 @@ class Presto < Formula
   resource "presto-cli" do
     version cli_version
     url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/#{version}/presto-cli-#{version}-executable.jar"
-    sha256 "8b831133ceff433ad7c0e42eea8411baa47e52caceef86e6ee976c70fc68343a"
+    sha256 "f9ac124ce2acae655df927e860016f6db333ec112d2ba3bf7b3e9bb93b057965"
   end
 
   def install
@@ -32,7 +32,7 @@ class Presto < Formula
       -XX:+UseGCOverheadLimit
       -XX:+ExplicitGCInvokesConcurrent
       -XX:+HeapDumpOnOutOfMemoryError
-      -XX:OnOutOfMemoryError=kill -9 %p
+      -XX:+ExitOnOutOfMemoryError
     EOS
 
     (libexec/"etc/config.properties").write <<-EOS.undent
@@ -97,5 +97,6 @@ class Presto < Formula
 
   test do
     system bin/"presto-server", "run", "--help"
+    assert_equal "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
   end
 end
