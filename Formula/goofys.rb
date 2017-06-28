@@ -3,21 +3,10 @@ require "language/go"
 class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
+  url "https://github.com/kahing/goofys.git",
+      :tag => "v0.0.13",
+      :revision => "9ba2bf3938464a92e0c3bbe36919938fc67f0839"
   head "https://github.com/kahing/goofys.git"
-
-  stable do
-    url "https://github.com/kahing/goofys.git",
-        :tag => "v0.0.12",
-        :revision => "2f5cac015cb09482b60f0e9f7976ec353c5ad063"
-
-    # Remove for > 0.0.12
-    # Fix "case-insensitive import collision"
-    # Upstream commit from 6 Jun 2017 "Lowercase github.com/Sirupsen/logrus"
-    patch do
-      url "https://github.com/kahing/goofys/commit/04ee797.patch"
-      sha256 "a659701b9ae750cb387f3aa329a8e8054fc4fdcaa742487c985b8b3135ed8a19"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
@@ -29,14 +18,9 @@ class Goofys < Formula
   depends_on "go" => :build
   depends_on :osxfuse
 
-  go_resource "github.com/Sirupsen/logrus" do
-    url "https://github.com/Sirupsen/logrus.git",
-        :revision => "85b1699d505667d13f8ac4478c1debbf85d6c5de"
-  end
-
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "d70f47eeca3afd795160003bc6e28b001d60c67c"
+        :revision => "b892ba3809cd07fcf2b064e166b0c2e16e0147bd"
   end
 
   go_resource "github.com/jacobsa/fuse" do
@@ -54,19 +38,34 @@ class Goofys < Formula
         :revision => "821596c79672d38b7923916e766363184c00079c"
   end
 
+  go_resource "github.com/shiena/ansicolor" do
+    url "https://github.com/shiena/ansicolor.git",
+        :revision => "a422bbe96644373c5753384a59d678f7d261ff10"
+  end
+
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
         :revision => "3dd8bd46d9a1ccbd37b3ba6e3dc1dc7d37ba8dc5"
   end
 
+  go_resource "github.com/sirupsen/logrus" do
+    url "https://github.com/sirupsen/logrus.git",
+        :revision => "3d4380f53a34dcdc95f0c1db702615992b38d9a4"
+  end
+
+  go_resource "github.com/stretchr/testify" do
+    url "https://github.com/stretchr/testify.git",
+        :revision => "f6abca593680b2315d2075e0f5e2a9751e3f431a"
+  end
+
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "59a0b19b5533c7977ddeb86b017bf507ed407b12"
+        :revision => "8663ed5da4fd087c3cfb99a996e628b72e2f0948"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "0b25a408a50076fbbcae6b7ac0ea5fbb0b085e79"
+        :revision => "90796e5a05ce440b41c768bd9af257005e470461"
   end
 
   def install
