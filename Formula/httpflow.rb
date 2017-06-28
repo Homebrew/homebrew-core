@@ -7,9 +7,9 @@ class Httpflow < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54424d3b3df0f9e0667e23879ab493938b61b40c0a81b0c1a6f5551a373e6254" => :sierra
-    sha256 "d1a956d95729f71d43e9d13740a9a38950f5c05e2c8af83362c3afcc35d3762b" => :el_capitan
-    sha256 "4ef84470498e7c1f86bc6962073f5e97a00049268823d3fa313087c21bc26deb" => :yosemite
+    sha256 "eaed64a4fad883f5085131bdc8584e83044ac6b2282daa110e3decf94ae11a7e" => :sierra
+    sha256 "3f64470510030ce9fa0241ae229619fb6c1ca99bffb72826ab63b6d343f7ef8f" => :el_capitan
+    sha256 "159bb97cf4d34ae30506fb5ce854231e95423ecd904d985ae1c4ee43e81dca6c" => :yosemite
   end
 
   def install
