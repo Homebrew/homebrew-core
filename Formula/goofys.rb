@@ -10,9 +10,9 @@ class Goofys < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05b9c356a3fa68746fdf7e2f82b80567aba078a34b3c0fcbbe4b5fbfccc03914" => :sierra
-    sha256 "61b5088aa3eae805a9dcc58483a4a59fbc2b95737d551525f9389770a6cec27d" => :el_capitan
-    sha256 "1fd955ceee7f6da1feadc193c37d036f0b22d63a2d4a7472b7aec32788d264bf" => :yosemite
+    sha256 "aa282b6a0ef61c30a88f57431f468bab3d097a12bfb5a7be9de6321e342c0d4b" => :sierra
+    sha256 "9b5f7fe96d0530669f9b7d2512457e3132da3599850e6b55e36164c8d52c0ee4" => :el_capitan
+    sha256 "d0bbfd50655615cf2dff7257ab8645bc76ae250ec0871097435f3b7dfcd5e61c" => :yosemite
   end
 
   depends_on "go" => :build
