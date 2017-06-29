@@ -21,20 +21,20 @@ class Taisei < Formula
 
   # Fix newline at end of file to match master
   patch do
-    url "https://github.com/laochailan/taisei/commit/779ff58684b1f229aedfcc03bfc6ac7aac17bf6a.diff"
-    sha256 "eec218752bb025024112442ed9a254e352f71be966de98c3d9d4f1ed482059a0"
+    url "https://github.com/laochailan/taisei/commit/779ff58684b1f229aedfcc03bfc6ac7aac17bf6a.diff?full_index=1"
+    sha256 "8c3a8d2fa9be35df5212b8ea5d54e7d97a0ad09ef7b78078d8a33803f6913373"
   end
 
   # Fix missing inline symbols
   patch do
-    url "https://github.com/laochailan/taisei/commit/0f78b1a7eb05aa741541ca56559d7a3f381b57e2.diff"
-    sha256 "a68859106a5426a4675b2072eb659fd4fb30c46a7c94f3af20a1a2e434685e1b"
+    url "https://github.com/laochailan/taisei/commit/0f78b1a7eb05aa741541ca56559d7a3f381b57e2.diff?full_index=1"
+    sha256 "d3ab0ae7b2dad63f4a33af699218e905df1193e43857ae44181c5fc015168f93"
   end
 
   # Support Mac OS X build
   patch do
-    url "https://github.com/laochailan/taisei/commit/be8be15.patch"
-    sha256 "29225ba39ce1aa093897ad4276da35a972b320e3ad01ffa14ab7b32e3acb4626"
+    url "https://github.com/laochailan/taisei/commit/be8be15.patch?full_index=1"
+    sha256 "1830a52cb39020c349f681c8af459f96561c72466e279ec0fd08d2f2f096c516"
   end
 
   def install
