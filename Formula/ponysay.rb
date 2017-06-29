@@ -20,8 +20,8 @@ class Ponysay < Formula
   # fix shell completion install paths
   # https://github.com/erkin/ponysay/pull/225
   patch do
-    url "https://github.com/tdsmith/ponysay/commit/44fb0f85821eb34a811abb27d2c601a5d30af1f1.diff"
-    sha256 "6d2e8e60c13a1e08e0408809edaa72ce8b00cce5e522b88e12a9b9c1047663d6"
+    url "https://github.com/tdsmith/ponysay/commit/44fb0f85821eb34a811abb27d2c601a5d30af1f1.diff?full_index=1"
+    sha256 "16f8eb70387bb67fbe7329fad01d5514e6ba5f8ed128af11a9152ab7aa8bf570"
   end
 
   def install
