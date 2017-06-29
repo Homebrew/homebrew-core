@@ -12,6 +12,15 @@ class Gzip < Formula
     sha256 "e240320b82c71f8367a696558a4863469b52fcb0ca8245ba0f0c83483f126507" => :yosemite
   end
 
+  # Fix crash from usage of %n in dynamic format strings on High Sierra
+  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/bc289fc24ab/archivers/gzip/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
