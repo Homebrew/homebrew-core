@@ -10,23 +10,23 @@ class Qca < Formula
 
     # upstream fixes for macOS building (remove on 2.2.0 upgrade)
     patch do
-      url "https://github.com/KDE/qca/commit/7ba0ee591e0f50a7e7b532f9eb7e500e7da784fb.diff"
-      sha256 "31977c97ff07d562244211536fa51d0a155b5a13a865a4a231dbb5a15bf3bd61"
+      url "https://github.com/KDE/qca/commit/7ba0ee591e0f50a7e7b532f9eb7e500e7da784fb.diff?full_index=1"
+      sha256 "3f6c8a8bbd246556c690142c209a34973981be66e46fee991a456fb2e8b66d72"
     end
     patch do
-      url "https://github.com/KDE/qca/commit/b435c1b87b14ac2d2de9f83e586bfd6d8c2a755e.diff"
-      sha256 "9f53b78fcdb723522aeea406a44e2229d200f649f60f787911e4ddea8528e5f1"
+      url "https://github.com/KDE/qca/commit/b435c1b87b14ac2d2de9f83e586bfd6d8c2a755e.diff?full_index=1"
+      sha256 "9ea01ad6b21282ff62b18ac02588f7106b75056ab8379dff3fdfcff13a6c122f"
     end
     patch do
-      url "https://github.com/KDE/qca/commit/f4b2eb0ced5310f3c43398eb1f03e0c065e08a82.diff"
-      sha256 "4bcffdbdd4cbf216861290f10010da15ceae1bc2470e69c31930e3e59d57deb7"
+      url "https://github.com/KDE/qca/commit/f4b2eb0ced5310f3c43398eb1f03e0c065e08a82.diff?full_index=1"
+      sha256 "d6c27ebfd8fec5284e4a0a39faf62e44764be5baff08141bd7f4da6d0b9f438d"
     end
 
     # use major version for framework, instead of full version
     # see: https://github.com/KDE/qca/pull/3
     patch do
-      url "https://github.com/KDE/qca/pull/3.patch"
-      sha256 "4972c941df8eee0b974d3cf01211ebc9650c6fba8dca9be6b2567fdd86c25785"
+      url "https://github.com/KDE/qca/pull/3.patch?full_index=1"
+      sha256 "37281b8fefbbdab768d7abcc39fb1c1bf85159730c2a4de6e84f0bf318ebac2c"
     end
   end
 
