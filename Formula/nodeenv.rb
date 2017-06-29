@@ -8,9 +8,9 @@ class Nodeenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d36e410297cf9fcd4970ee07a91343390b0f5e1b38bf830987cc5710f6c42b8b" => :sierra
-    sha256 "7c97359ed2b57939aac392229d0e9cef0fe0942c5f7c23fd203c9ebb7111fd5c" => :el_capitan
-    sha256 "b776c11f551766eb8756da7bf9dd27caf60eaa805cf7d0ed07c7e8ce0d915565" => :yosemite
+    sha256 "89d883152e213d8a38d933272d717ee0aaf229aa5958ad69285091dab09c2138" => :sierra
+    sha256 "c2f11f9d4a5a97ee9867ed6d3bd516c228b81308e5b12eca6ac18dc52231cb82" => :el_capitan
+    sha256 "4896da3820fe3fa49916753223379063137dc49cead42a4f652d5be9f7454ecc" => :yosemite
   end
 
   def install
