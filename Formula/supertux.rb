@@ -27,8 +27,8 @@ class Supertux < Formula
   # Fix symlink passing to physfs
   # https://github.com/SuperTux/supertux/issues/614
   patch do
-    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff"
-    sha256 "f5941084fbb06d88762c8793d71a5d38b521926144a62af4b01c2ce81a463577"
+    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff?full_index=1"
+    sha256 "2b12aeead4f425a0626051e246a9f6d527669624803d53d6d0b5758e51099059"
   end
 
   needs :cxx11
