@@ -21,8 +21,8 @@ class Tlsdate < Formula
 
   # Upstream PR to fix the build on macOS
   patch do
-    url "https://github.com/ioerror/tlsdate/pull/160.patch"
-    sha256 "78a739d952d2fa0046eec958194136c50751c0e97bfe9f5ed173ecc864f8adb8"
+    url "https://github.com/ioerror/tlsdate/pull/160.patch?full_index=1"
+    sha256 "c2af25386fd7ffa889e421e864fdd72bbf90f2551347e6155ad7fb7b13122b90"
   end
 
   def install
