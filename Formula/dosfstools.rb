@@ -9,8 +9,8 @@ class Dosfstools < Formula
 
     # This patch restores the old defaults in versions up to v3.0.28
     patch do
-      url "https://github.com/dosfstools/dosfstools/commit/1e76e577.patch"
-      sha256 "824c800a589db8a779fddbbd4b8eef5a2941f838ef8f46ad390a680c8cabd2a4"
+      url "https://github.com/dosfstools/dosfstools/commit/1e76e577.patch?full_index=1"
+      sha256 "7dafc9e5642f8c1f316ac9dedbc0e4becf198b582b255b53bdf45b8de84bf6b6"
     end
   end
   bottle do
