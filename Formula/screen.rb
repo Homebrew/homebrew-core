@@ -3,9 +3,9 @@ class Screen < Formula
   homepage "https://www.gnu.org/software/screen"
 
   stable do
-    url "https://ftp.gnu.org/gnu/screen/screen-4.5.1.tar.gz"
-    mirror "https://ftpmirror.gnu.org/screen/screen-4.5.1.tar.gz"
-    sha256 "97db2114dd963b016cd4ded34831955dcbe3251e5eee45ac2606e67e9f097b2d"
+    url "https://ftp.gnu.org/gnu/screen/screen-4.6.0.tar.gz"
+    mirror "https://ftpmirror.gnu.org/screen/screen-4.6.0.tar.gz"
+    sha256 "9433706b653e941cc4c745f28e252e57be2a141eded923e61cc2c4a09768fed4"
 
     # This patch is to disable the error message
     # "/var/run/utmp: No such file or directory" on launch
