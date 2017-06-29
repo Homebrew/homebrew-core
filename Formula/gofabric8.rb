@@ -1,8 +1,8 @@
 class Gofabric8 < Formula
   desc "CLI for fabric8 running on Kubernetes or OpenShift"
   homepage "https://github.com/fabric8io/gofabric8/"
-  url "https://github.com/fabric8io/gofabric8/archive/v0.4.124.tar.gz"
-  sha256 "c9274fc81a1952c065dce1c07a46065bb8f9ecb4492e777ac38c5fa91b542159"
+  url "https://github.com/fabric8io/gofabric8/archive/v0.4.132.tar.gz"
+  sha256 "c28c757d5c5fd803374eec7d270f82b9fcb5ec0380c912ac9e8d63f26a629dec"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,7 @@ class Gofabric8 < Formula
     dir.install buildpath.children
 
     cd dir do
+      system "make", "templates"
       system "make", "install", "REV=homebrew"
       prefix.install_metafiles
     end
