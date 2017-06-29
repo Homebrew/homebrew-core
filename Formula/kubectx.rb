@@ -3,7 +3,8 @@ class Kubectx < Formula
   homepage "https://github.com/ahmetb/kubectx"
   url "https://github.com/ahmetb/kubectx/archive/v0.3.1.tar.gz"
   sha256 "4e995f5bec6f41c8d5b6e77f413a58ead077816348e72de26dde3655ec2b7d0b"
-  head "https://github.com/ahmetb/kubectx.git", :branch => "master"
+  head "https://github.com/ahmetb/kubectx.git"
+
   bottle :unneeded
 
   option "with-short-names", "link as \"kctx\" and \"kns\" instead"
