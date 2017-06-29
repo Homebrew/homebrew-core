@@ -36,5 +36,6 @@ class Minishift < Formula
 
   test do
     assert_equal "-- Installing default add-ons ... OK\nminishift v#{version}\n", shell_output("#{bin}/minishift version")
+    assert_equal "Stopped\n", shell_output("#{bin}/minishift status")
   end
 end
