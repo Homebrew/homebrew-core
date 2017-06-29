@@ -19,8 +19,8 @@ class Colortail < Formula
 
   # Upstream PR to fix the build on ML
   patch do
-    url "https://github.com/joakim666/colortail/commit/36dd0437bb364fd1493934bdb618cc102a29d0a5.diff"
-    sha256 "2bb9963f6fc586c8faff3b51a48896cf09c68c4229c39c6ae978a59cb58d0fd7"
+    url "https://github.com/joakim666/colortail/commit/36dd0437bb364fd1493934bdb618cc102a29d0a5.diff?full_index=1"
+    sha256 "87e4a6b24f447312cc3ea3d8b65af54a37d0723e682dfb70b9a0c4b21e0e102c"
   end
 
   def install
