@@ -11,8 +11,8 @@ class Phantomjs < Formula
     # Fixes build.py for non-standard Homebrew prefixes.  Applied
     # upstream, can be removed in next release.
     patch do
-      url "https://github.com/ariya/phantomjs/commit/6090f5457d2051ab374264efa18f655fa3e15e79.diff"
-      sha256 "43c7d2c76db434aa845c0504209052af6011a20d1295b203c3bee881071aa471"
+      url "https://github.com/ariya/phantomjs/commit/6090f5457d2051ab374264efa18f655fa3e15e79.diff?full_index=1"
+      sha256 "6ff047216fa76c2350f8fd20497b1264904eda0d6cade9bf2ebb3843740cd03f"
     end
   end
 
