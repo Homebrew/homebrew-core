@@ -16,8 +16,8 @@ class LibxmpLite < Formula
   # Upstream commit "libxmp-lite building (wrong format loaders)"
   # Already in master. Original PR 6 Nov 2016 https://github.com/cmatsuoka/libxmp/pull/82
   patch :p2 do
-    url "https://github.com/cmatsuoka/libxmp/commit/a028835.patch"
-    sha256 "ad9e2d4526afd8bae94873fbc4c249e67a3705c6781ab198623f096ea442e982"
+    url "https://github.com/cmatsuoka/libxmp/commit/a028835.patch?full_index=1"
+    sha256 "74b8689dcc23943168c6ae6afbda94dbcca78d08caae860b31ff573610ec5f92"
   end
 
   def install
