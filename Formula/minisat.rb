@@ -17,13 +17,13 @@ class Minisat < Formula
 
   # Upstream commits to fix some declaration errors
   patch do
-    url "https://github.com/niklasso/minisat/commit/9bd874980a7e5d65cecaba4edeb7127a41050ed1.patch"
-    sha256 "01075c9b855a3ba5296da8522f3569446c35af25e51759d610b39292b5f97872"
+    url "https://github.com/niklasso/minisat/commit/9bd874980a7e5d65cecaba4edeb7127a41050ed1.patch?full_index=1"
+    sha256 "80be41fb79648ce41f9822115a8af1f0d356304c44d810e1fb5ed18b39bd1cfb"
   end
 
   patch do
-    url "https://github.com/niklasso/minisat/commit/cfae87323839064832c8b3608bf595548dd1a1f3.patch"
-    sha256 "5e6ff10d692067b2715033db0a9eaeec45480c138e3453fee2a5668348fb786c"
+    url "https://github.com/niklasso/minisat/commit/cfae87323839064832c8b3608bf595548dd1a1f3.patch?full_index=1"
+    sha256 "72c4d0f2ba7ae3561eac04418d1757fc5bf185c5b29dcaa775b8e9efab3796bc"
   end
 
   fails_with :clang do
