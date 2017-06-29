@@ -62,6 +62,15 @@ class Coreutils < Formula
   conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
   conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
+  # Fix crash from usage of %n in dynamic format strings on High Sierra
+  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/b832494a90b/sysutils/coreutils/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
+
   def install
     # Work around unremovable, nested dirs bug that affects lots of
     # GNU projects. See:
