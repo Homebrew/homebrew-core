@@ -11,8 +11,8 @@ class Neko < Formula
     patch do
       # To workaround issue https://github.com/HaxeFoundation/neko/issues/130
       # It is a commit already applied to the upstream.
-      url "https://github.com/HaxeFoundation/neko/commit/a8c71ad97faaccff6c6e9e09eba2d5efd022f8dc.patch"
-      sha256 "234dc4e55c96e148ad901c4a46eb0c66bc369648023b1fcc63d1adef0ab81da3"
+      url "https://github.com/HaxeFoundation/neko/commit/a8c71ad97faaccff6c6e9e09eba2d5efd022f8dc.patch?full_index=1"
+      sha256 "a5d08e5ff2f6372c780d2864b699aae714fc37d4ab987cea11764082757ddb39"
     end
   end
 
