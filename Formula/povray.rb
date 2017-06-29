@@ -49,8 +49,8 @@ class Povray < Formula
 
   # Fixes some compiler warnings; comes from the upstream repo, should be in next release.
   patch do
-    url "https://github.com/POV-Ray/povray/commit/b3846f5723745e6e7926883ec6bc404922a900e6.diff"
-    sha256 "ffedef1b81da101a7d70c9afdcd7f7d935eeaccd23c3560ca36ef4063299cf1c"
+    url "https://github.com/POV-Ray/povray/commit/b3846f5723745e6e7926883ec6bc404922a900e6.diff?full_index=1"
+    sha256 "e5eb95abf3fd87663b48386882491276e6b9c73c523efd0447ef6ee7e383f35e"
   end
 
   # Replaces references to shared_ptr with boost::shared_ptr
