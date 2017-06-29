@@ -7,9 +7,9 @@ class Wiredtiger < Formula
 
   bottle do
     cellar :any
-    sha256 "da99b2e657972518071a86f4633b54f5e74ed6e34b8ad047e0c2f6abbdb8f7d1" => :sierra
-    sha256 "a75213abe8e436012bbf2a3830fdd941dc2987c1259a6c9ea1813392e8b8ffdf" => :el_capitan
-    sha256 "9d0ddaaf2a8c765723f820d676d54340e1ea90566ca4e74a1537ecc8216578d5" => :yosemite
+    sha256 "3b9f4b876961b205cec7edcd6704756d0ece6c01b3c963f32d8ca72ace02321a" => :sierra
+    sha256 "2b33cdb3259147a246938f4e3bc4b151c82d925b33530486b50fbc946463d4a5" => :el_capitan
+    sha256 "70db1152f21fae652582d93e4a14f48c9beb580bc92053a22aa13d9ae8a425fb" => :yosemite
   end
 
   depends_on "snappy"
