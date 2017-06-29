@@ -1,8 +1,8 @@
 class Mp3blaster < Formula
   desc "Text-based mp3 player"
   homepage "https://mp3blaster.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/mp3blaster/mp3blaster/mp3blaster-3.2.5/mp3blaster-3.2.5.tar.gz"
-  sha256 "129115742c77362cc3508eb7782702cfb44af2463a5453e8d19ea68abccedc29"
+  url "https://downloads.sourceforge.net/project/mp3blaster/mp3blaster/mp3blaster-3.2.6/mp3blaster-3.2.6.tar.gz"
+  sha256 "43d9f656367d16aaac163f93dc323e9843c3dd565401567edef3e1e72b9e1ee0"
 
   bottle do
     sha256 "7bb86d54a00ebdb133382a31ffa022d819cadbd0d33b074c4f08a92f7814aa06" => :sierra
