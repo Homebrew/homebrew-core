@@ -7,8 +7,8 @@ class AwsApigatewayImporter < Formula
 
   # Pin aws-sdk-java-core for JSONObject compatibility
   patch do
-    url "https://github.com/awslabs/aws-apigateway-importer/commit/660e3ce.diff"
-    sha256 "0dcfd1e03d653708726672dc6e6bf6f4b3e5d0184a75f224bf64f9bc7974b931"
+    url "https://github.com/awslabs/aws-apigateway-importer/commit/660e3ce.diff?full_index=1"
+    sha256 "6ff63c504b906e1fb6d0f2a9772761edeef3b37b3dca1e48bba72432d863a852"
   end
 
   bottle do
