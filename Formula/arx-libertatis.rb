@@ -8,8 +8,8 @@ class ArxLibertatis < Formula
 
     # Add a missing include to CMakeLists.txt
     patch do
-      url "https://github.com/arx/ArxLibertatis/commit/442ba4af978160abd3856a9daec38f5b6e213cb4.patch"
-      sha256 "36f32c3f03d25eb1e5ee8229cc5834176ad60769d77ff0c356e56b810a2cacc3"
+      url "https://github.com/arx/ArxLibertatis/commit/442ba4af978160abd3856a9daec38f5b6e213cb4.patch?full_index=1"
+      sha256 "de361866cc51c14f317a67dcfd3b736160a577238f931c78a525ea2864b1add9"
     end
   end
 
