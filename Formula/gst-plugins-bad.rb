@@ -27,6 +27,7 @@ class GstPluginsBad < Formula
   depends_on "dirac" => :optional
   depends_on "faac" => :optional
   depends_on "faad2" => :optional
+  depends_on "fdk-aac" => :optional
   depends_on "gnutls" => :optional
   depends_on "gtk+3" => :optional
   depends_on "libdvdread" => :optional
