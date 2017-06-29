@@ -3,6 +3,7 @@ class Trash < Formula
   homepage "http://hasseg.org/trash/"
   url "https://github.com/ali-rantakari/trash/archive/v0.8.5.tar.gz"
   sha256 "1e08fdcdeaa216be1aee7bf357295943388d81e62c2c68c30c830ce5c43aae99"
+  head "https://github.com/ali-rantakari/trash.git"
 
   bottle do
     cellar :any_skip_relocation
