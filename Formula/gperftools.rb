@@ -10,8 +10,8 @@ class Gperftools < Formula
 
     # Fix finding default zone on macOS Sierra (https://github.com/gperftools/gperftools/issues/827)
     patch do
-      url "https://github.com/gperftools/gperftools/commit/acac6af26b0ef052b39f61a59507b23e9703bdfa.patch"
-      sha256 "36289228d240cb8714f7543772544dc1541e8fec37ab6cc7915296d7bcec3dcf"
+      url "https://github.com/gperftools/gperftools/commit/acac6af26b0ef052b39f61a59507b23e9703bdfa.patch?full_index=1"
+      sha256 "164b99183c9194706670bec032bb96d220ce27fc5257b322d994096516133376"
     end
   end
 
