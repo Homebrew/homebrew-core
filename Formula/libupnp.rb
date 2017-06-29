@@ -6,9 +6,9 @@ class Libupnp < Formula
 
   bottle do
     cellar :any
-    sha256 "19af0c05c9f8dda92e2e056cee17b6798841707c62c906917b78d9e9ec53b0be" => :sierra
-    sha256 "b0230fef08232c7de0fa8835924f6799baa728568727836b3e054a4a611078e1" => :el_capitan
-    sha256 "ad0a51a91b7e3c0d227cfe2caec446e447497179050924695907d6411259e8fe" => :yosemite
+    sha256 "9396b311d0ccf64bce92ae68ba54b50614e2e694293c17033411abef3fad45f8" => :sierra
+    sha256 "b8799e64ad5dcb2b5fc61b3365815affc8c33b5493f48cdf185445942ed0e639" => :el_capitan
+    sha256 "1778385bedb76e9d6fb344682503ef95c9fa970bd3f78e2c7a6d8c30f2ddc263" => :yosemite
   end
 
   option "without-ipv6", "Disable IPv6 support"
