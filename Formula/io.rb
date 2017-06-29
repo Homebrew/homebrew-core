@@ -11,8 +11,8 @@ class Io < Formula
 
     # Fix build on Sierra. Already merged upstream.
     patch do
-      url "https://github.com/stevedekorte/io/commit/db4d9c2.patch"
-      sha256 "c62c9f502cb941eb86226149e6d9a0a78d392d2dc25097efc1854ad44381ff68"
+      url "https://github.com/stevedekorte/io/commit/db4d9c2.patch?full_index=1"
+      sha256 "6ca94e7fd84da4f7e0b48f67fd862d2f5d10f159fa5c84b6af26c723acee77c3"
     end
   end
 
