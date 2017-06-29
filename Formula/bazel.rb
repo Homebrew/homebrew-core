@@ -17,8 +17,8 @@ class Bazel < Formula
   # Upstream PR from 27 Jun 2017 "Fix build failure with old OS X mktemp"
   # See https://github.com/bazelbuild/bazel/issues/3279
   patch do
-    url "https://github.com/bazelbuild/bazel/pull/3281.patch"
-    sha256 "2d5c0e7d33c472ceda7fe33b78da6869bddb0a5e53e5c487346e1b69fa6f22b8"
+    url "https://github.com/bazelbuild/bazel/pull/3281.patch?full_index=1"
+    sha256 "2584b81dfe0115281ece11a3dd5dbfe07233700fc904c81a58c0bcaf0f48c275"
   end
 
   def install
