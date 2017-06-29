@@ -1,8 +1,9 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  url "https://github.com/google/snappy/releases/download/1.1.4/snappy-1.1.4.tar.gz"
-  sha256 "134bfe122fd25599bb807bb8130e7ba6d9bdb851e0b16efcb83ac4f5d0b70057"
+  url "https://github.com/google/snappy/archive/1.1.5.tar.gz"
+  sha256 "c67d8d23387b1902ceff134af26e401d5412c510adeeabe6bb6b47c106b08e45"
+  head "https://github.com/google/snappy.git"
 
   bottle do
     cellar :any
@@ -10,21 +11,11 @@ class Snappy < Formula
     sha256 "171e6724d109bed4cc95b6a843c2637fa0f5ed301dda5063a89b1353c1282488" => :yosemite
   end
 
-  head do
-    url "https://github.com/google/snappy.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   def install
-    ENV.deparallelize if build.stable?
-
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
