@@ -1,8 +1,9 @@
 class Fleetctl < Formula
   desc "Distributed init system"
   homepage "https://github.com/coreos/fleet"
-  url "https://github.com/coreos/fleet/archive/v0.11.8.tar.gz"
-  sha256 "22f2f40c1c2938504b31e9dbb54eb6eb54569458a4dffe5e0020e917a5e1f66f"
+  url "https://github.com/coreos/fleet.git",
+      :tag => "v1.0.0",
+      :revision => "b8127afc06e3e41089a7fc9c3d7d80c9925f4dab"
   head "https://github.com/coreos/fleet.git"
 
   bottle do
@@ -22,6 +23,6 @@ class Fleetctl < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/fleetctl -version")
+    assert_match version.to_s, shell_output("#{bin}/fleetctl --version")
   end
 end
