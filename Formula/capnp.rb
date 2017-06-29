@@ -3,6 +3,7 @@ class Capnp < Formula
   homepage "https://capnproto.org/"
   url "https://capnproto.org/capnproto-c++-0.6.1.tar.gz"
   sha256 "8082040cd8c3b93c0e4fc72f2799990c72fdcf21c2b5ecdae6611482a14f1a04"
+  head "https://github.com/capnproto/capnproto.git"
 
   bottle do
     cellar :any_skip_relocation
