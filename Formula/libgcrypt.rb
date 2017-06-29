@@ -1,9 +1,9 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
-  sha256 "b9b85eba0793ea3e6e66b896eb031fa05e1a4517277cc9ab10816b359254cd9a"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.8.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.8.tar.bz2"
+  sha256 "948276ea47e6ba0244f36a17b51dcdd52cfd1e664b0a1ac3bc82134fb6cec199"
 
   bottle do
     cellar :any
@@ -14,19 +14,13 @@ class Libgcrypt < Formula
 
   depends_on "libgpg-error"
 
-  resource "config.h.ed" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/libgcrypt/config.h.ed"
-    version "113198"
-    sha256 "d02340651b18090f3df9eed47a4d84bed703103131378e1e493c26d7d0c7aab1"
-  end
-
   def install
     # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
     # Seems to be a Clang issue rather than an upstream one, so
     # keep checking whether or not this is necessary.
     # Should be reported to GnuPG if still an issue when near stable.
     # https://github.com/Homebrew/homebrew-core/issues/1957
-    ENV.O1 if DevelopmentTools.clang_build_version >= 800
+    ENV.O1 if DevelopmentTools.clang_build_version == 800
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
