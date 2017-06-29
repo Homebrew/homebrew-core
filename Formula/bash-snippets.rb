@@ -11,7 +11,7 @@ class BashSnippets < Formula
   option "without-weather", "Don't install weather"
 
   def install
-    snippets = %w"crypt currency movies stocks weather"
+    snippets = %w[crypt currency movies stocks weather]
 
     snippets.delete("crypt") if build.without?("crypt")
     snippets.delete("currency") if build.without?("currency")
