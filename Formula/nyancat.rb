@@ -14,8 +14,8 @@ class Nyancat < Formula
 
   # Makefile: Add install directory option
   patch do
-    url "https://github.com/klange/nyancat/pull/34.patch"
-    sha256 "407e01bae1d97e5153fb467a8cf0b4bc68320bea687294d56bcbacc944220d2c"
+    url "https://github.com/klange/nyancat/pull/34.patch?full_index=1"
+    sha256 "24a0772d2725e151b57727ce887f4b3911d19e875785eb7e13a68f4b987831e8"
   end
 
   def install
