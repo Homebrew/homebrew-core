@@ -11,15 +11,15 @@ class Valabind < Formula
     # patch necessary to support vala 0.36.0
     # remove upon next release
     patch do
-      url "https://github.com/radare/valabind/commit/f23ff9421c1875d18b1e558596557009b45faa19.patch"
-      sha256 "9fe8f9485e1a4f52c68831670b880efcbbae33c6bc70e67297a00cc1d2fe0d4f"
+      url "https://github.com/radare/valabind/commit/f23ff9421c1875d18b1e558596557009b45faa19.patch?full_index=1"
+      sha256 "d76e5fffaa209468619d5db36f3f8dad89480c1b74d3d2b14b14fa029d2c4234"
     end
 
     # patch to support BSD sed
     # remove upon next release
     patch do
-      url "https://github.com/radare/valabind/commit/03762a0fca7ff4bbfe3e668f70bb75422e05ac07.patch"
-      sha256 "13c5712ed5b081135d1e2df0dd04e1a05856b76de1e0acfef838c2fbc76964c5"
+      url "https://github.com/radare/valabind/commit/03762a0fca7ff4bbfe3e668f70bb75422e05ac07.patch?full_index=1"
+      sha256 "2d9eb2c9c1b64327bc444fc3fc94f7ef284535d9cf28d9ecf887859b253426b3"
     end
   end
 
