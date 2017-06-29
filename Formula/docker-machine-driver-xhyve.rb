@@ -2,8 +2,8 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.3.2",
-    :revision => "c290fd6efa3891782b023001e96cf8c8827d31e0"
+    :tag => "v0.3.3",
+    :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
@@ -44,7 +44,7 @@ class DockerMachineDriverXhyve < Formula
         ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
         ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
         ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
-        system "opam", "install", "-y", "uri", "qcow-format", "conf-libev"
+        system "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1", "conf-libev"
       end
 
       go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
