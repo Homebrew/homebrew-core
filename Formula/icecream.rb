@@ -8,19 +8,19 @@ class Icecream < Formula
 
     # fixes --without-man
     patch do
-      url "https://github.com/icecc/icecream/commit/641b039ecaa126fbb3bdfa716ce3060f624bb68e.diff"
-      sha256 "bc54b1819ff87df36f66afd86770a1752ec93872d1f5186da2fc6d8b6dc89ab6"
+      url "https://github.com/icecc/icecream/commit/641b039ecaa126fbb3bdfa716ce3060f624bb68e.diff?full_index=1"
+      sha256 "2f846e2442b3422511a6d77938d70b74e00f6b90d572cc56f9ab9bfa99c99379"
     end
 
     # these fix docbook2X detection
     patch do
-      url "https://github.com/icecc/icecream/commit/df212c10336b6369ab244d9c888263774c9087dc.diff"
-      sha256 "48b5b02b83b52979015cc2b56d5688c6e622f12ee8f1fc914887f9cd6cf58321"
+      url "https://github.com/icecc/icecream/commit/df212c10336b6369ab244d9c888263774c9087dc.diff?full_index=1"
+      sha256 "6128f8f9f168efee74976e81ba7f071e522cb9242b62a7ddda22b711359ec080"
     end
 
     patch do
-      url "https://github.com/icecc/icecream/commit/a40bae096bd51f328d6ff299077c5530729b0580.diff"
-      sha256 "81d50d56bfda26b16b96ab92bd00f5e5f341598d5d2867df0362ed1b2966373e"
+      url "https://github.com/icecc/icecream/commit/a40bae096bd51f328d6ff299077c5530729b0580.diff?full_index=1"
+      sha256 "0f45048093b093ed09bb55f86de8d07d157104b796329c751f98ff240c123071"
     end
   end
 
