@@ -8,8 +8,8 @@ class Luaver < Formula
     sha256 "5c7eb65ea9b3cb4f10987c1d564e6e86bd6ad4f9d829a799121c83f0d85bd390"
 
     patch do
-      url "https://github.com/DhavalKapil/luaver/pull/9.patch"
-      sha256 "390929ef53b6e8e372451049eeffbfa51b9e31d7071e386478b871a835aba2db"
+      url "https://github.com/DhavalKapil/luaver/pull/9.patch?full_index=1"
+      sha256 "0fa92083eabc2e9cb369c3aefbcf17cee15442ad8c22b18cbe6e2a39e226ca8e"
     end
   end
 
