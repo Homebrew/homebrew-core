@@ -1,8 +1,8 @@
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v1.1.tar.gz"
-  sha256 "15ce2a205147b8dd9da5de1ffa6e4b273ac8385959740786f7342057d0209cc3"
+  url "https://github.com/jarun/nnn/archive/v1.2.tar.gz"
+  sha256 "d8b1f04ef99324a16504d14999833fe97da7840e058e37538fb350cd39e38022"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,12 +16,11 @@ class Nnn < Formula
   end
 
   test do
-    touch "foobar"
     # Testing this curses app requires a pty
     require "pty"
     PTY.spawn(bin/"nnn") do |r, w, _pid|
       w.write "q"
-      assert_match "foobar", r.read
+      assert_match "cwd: #{testpath.realpath}", r.read
     end
   end
 end
