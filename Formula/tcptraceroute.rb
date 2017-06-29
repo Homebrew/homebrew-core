@@ -12,8 +12,8 @@ class Tcptraceroute < Formula
     # Call `pcap_lib_version()` rather than access `pcap_version` directly
     # upstream issue: https://github.com/mct/tcptraceroute/issues/5
     patch do
-      url "https://github.com/mct/tcptraceroute/commit/3772409867b3c5591c50d69f0abacf780c3a555f.patch"
-      sha256 "e7f118f0da011e1f879b8582d17f6f5515d5db491a61d7c71c6f8f71b3cdea0d"
+      url "https://github.com/mct/tcptraceroute/commit/3772409867b3c5591c50d69f0abacf780c3a555f.patch?full_index=1"
+      sha256 "c08e013eb01375e5ebf891773648a0893ccba32932a667eed00a6cee2ccf182e"
     end
   end
 
