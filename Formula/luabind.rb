@@ -32,8 +32,8 @@ class Luabind < Formula
 
   # apply upstream commit to enable building with clang
   patch do
-    url "https://github.com/luabind/luabind/commit/3044a9053ac50977684a75c4af42b2bddb853fad.diff"
-    sha256 "7b8be00f0ccd9a3012f0dd64d180452b4f9f0893f900ddfe8aad69f3cca995e2"
+    url "https://github.com/luabind/luabind/commit/3044a9053ac50977684a75c4af42b2bddb853fad.diff?full_index=1"
+    sha256 "d04cbe7e5ed732943b1caf547321ac81b1db49271a5956a5f218905016c8900e"
   end
 
   # include C header that is not pulled in automatically on OS X 10.9 anymore
