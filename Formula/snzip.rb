@@ -7,9 +7,9 @@ class Snzip < Formula
 
   bottle do
     cellar :any
-    sha256 "b15034887eb517ed04e4529a9781b6657ca4a9c184b8a72db70de62a42902661" => :sierra
-    sha256 "272aced692ec9214e2829e8898f6af3054c8889fe2eddc20f3cc248e1d7e038f" => :el_capitan
-    sha256 "3fca6b3f51e034880a90c3f218d9a39129a4acf3ebf0ed07f0127b9b7fd635bd" => :yosemite
+    sha256 "823e1f1e956fa360c53a42d388bd8ae2743a9acaf7a5b5e0ef9917bedbd8fa0e" => :sierra
+    sha256 "68b4d3fd3d9eaf7aca423e3ab5b4b70f132c1c93ecb0340ed9a955e4dc05e55a" => :el_capitan
+    sha256 "48922501808047146276f2ba24babe2c1f31f4ba602bc31c9ad04bd28e95316d" => :yosemite
   end
 
   depends_on "snappy"
