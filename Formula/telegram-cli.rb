@@ -24,8 +24,8 @@ class TelegramCli < Formula
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   # Pull Request: https://github.com/vysheng/tg/pull/1306
   patch do
-    url "https://github.com/vysheng/tg/pull/1306.patch"
-    sha256 "3af765a62515df998fb0a03bfc7d3cecb4bd80d641fdd86a97d940af135855ab"
+    url "https://github.com/vysheng/tg/pull/1306.patch?full_index=1"
+    sha256 "1cdaa1f3e1f7fd722681ea4e02ff31a538897ed9d704c61f28c819a52ed0f592"
   end
 
   def install
