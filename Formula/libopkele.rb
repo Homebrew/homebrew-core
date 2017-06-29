@@ -9,8 +9,8 @@ class Libopkele < Formula
 
     # Fix argument-lookup failure on gcc 4.7.1
     patch do
-      url "https://github.com/hacker/libopkele/commit/9ff6244998b0d41e71f7cc7351403ad590e990e4.diff"
-      sha256 "381b5533a2704a96f0be9ddec16afbc2b853240084168ff40c04dcb34417b9a3"
+      url "https://github.com/hacker/libopkele/commit/9ff6244998b0d41e71f7cc7351403ad590e990e4.diff?full_index=1"
+      sha256 "a06c378b1ededc64eb581a26a82bd56c941df149a83940586ddcf494fac65716"
     end
   end
 
