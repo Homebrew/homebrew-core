@@ -8,13 +8,13 @@ class Freerdp < Formula
     sha256 "c0f137df7ab6fb76d7e7d316ae4e0ca6caf356e5bc0b5dadbdfadea5db992df1"
 
     patch do
-      url "https://github.com/FreeRDP/FreeRDP/commit/1d3289.diff"
-      sha256 "1bc1d4e1447245790587f0bb32db8f5b0e18c5ba984be2df687c8c78350de1ff"
+      url "https://github.com/FreeRDP/FreeRDP/commit/1d3289.diff?full_index=1"
+      sha256 "09628c01238615c425e35f287b46f100fddcc2e5fea0adc41416fecee8129731"
     end
 
     patch do
-      url "https://github.com/FreeRDP/FreeRDP/commit/e32f9e.diff"
-      sha256 "90a9601457ae12d1b4c90050a4af532bcb54a75a9c0f5886907d19f1963ab710"
+      url "https://github.com/FreeRDP/FreeRDP/commit/e32f9e.diff?full_index=1"
+      sha256 "829ce02ff1e618a808d6d505b815168cdef9cf0012db25d5b8470657852be93b"
     end
 
     # https://github.com/FreeRDP/FreeRDP/pull/1682/files
@@ -36,7 +36,7 @@ class Freerdp < Formula
     depends_on :xcode => :build # for "ibtool"
 
     patch do
-      url "https://github.com/untoldone/FreeRDP/commit/65e53694eb5d6faa5d57a31a54defd1c5233ac09.diff"
+      url "https://github.com/untoldone/FreeRDP/commit/65e53694eb5d6faa5d57a31a54defd1c5233ac09.diff?full_index=1"
       sha256 "a017305311312006d253908615a7af29c5f71a0cf2dcea1de9e35616a9df3d00"
     end
   end
