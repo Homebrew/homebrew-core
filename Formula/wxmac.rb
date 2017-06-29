@@ -10,14 +10,14 @@ class Wxmac < Formula
     sha256 "346879dc554f3ab8d6da2704f651ecb504a22e9d31c17ef5449b129ed711585d"
 
     # Patch for wxOSXPrintData, custom paper not applied
-    # http://trac.wxwidgets.org/ticket/16959
+    # https://trac.wxwidgets.org/ticket/16959
     patch do
-      url "http://trac.wxwidgets.org/raw-attachment/ticket/16959/wxPaperCustomPatch.patch"
+      url "https://trac.wxwidgets.org/raw-attachment/ticket/16959/wxPaperCustomPatch.patch"
       sha256 "391b5c05caa3843de1579294a62918d9e00b2311313ee2ce1c1943cd5a8494b3"
     end
 
     # Various fixes related to Yosemite. Revisit in next stable release.
-    # Please keep an eye on http://trac.wxwidgets.org/ticket/16329 as well
+    # Please keep an eye on https://trac.wxwidgets.org/ticket/16329 as well
     # Theoretically the above linked patch should still be needed, but it isn't.
     # Try to find out why.
     patch do
@@ -27,7 +27,7 @@ class Wxmac < Formula
 
     # Remove uncenessary <QuickTime/QuickTime.h> includes
     # Fixes building against Xcode 8 with macOS 10.12 SDK
-    # http://trac.wxwidgets.org/changeset/f6a2d1caef5c6d412c84aa900cb0d3990b350938/git-wxWidgets
+    # https://trac.wxwidgets.org/changeset/f6a2d1caef5c6d412c84aa900cb0d3990b350938/git-wxWidgets
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-quicktime-removal.diff"
       sha256 "ebddf09877b053a6fafbf61ac52e4a7b511489dc8437110f80f00d5d2b5ff885"
