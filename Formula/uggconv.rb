@@ -1,7 +1,7 @@
 class Uggconv < Formula
   desc "Universal Game Genie code convertor"
-  homepage "http://wyrmcorp.com/software/uggconv/index.shtml"
-  url "http://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
+  homepage "https://wyrmcorp.com/software/uggconv/index.shtml"
+  url "https://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
   sha256 "9a215429bc692b38d88d11f38ec40f43713576193558cd8ca6c239541b1dd7b8"
 
   bottle do
