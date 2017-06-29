@@ -12,8 +12,8 @@ class Boost < Formula
     # "Replace boost::serialization::detail::get_data function."
     # Upstream PR from 26 Jan 2017 https://github.com/boostorg/mpi/pull/39
     patch :p2 do
-      url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch"
-      sha256 "c7af75a83fef90fdb9858bc988d64ca569ae8d940396b9bc60a57d63fca2587b"
+      url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch?full_index=1"
+      sha256 "e3765f6fe04e50089a315f20be392c73834b06274ef6624a4b91464a7409c010"
     end
   end
 
