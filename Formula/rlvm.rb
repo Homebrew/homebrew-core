@@ -32,8 +32,8 @@ class Rlvm < Formula
   # Fix missing system header after boost update
   # https://github.com/eglaysher/rlvm/issues/76
   patch do
-    url "https://github.com/eglaysher/rlvm/commit/668863d2222b962ee8e7d9829e972ef05c990302.diff"
-    sha256 "89019d1743af6a458f3fb7a2d71ff69ead00ebf252d501a1d97c2f3b8e5eff0d"
+    url "https://github.com/eglaysher/rlvm/commit/668863d2222b962ee8e7d9829e972ef05c990302.diff?full_index=1"
+    sha256 "4837f691a31d927cd2d6547d3c04c86de30cec0daacc38e3f6940bbdad954e98"
   end
 
   def install
