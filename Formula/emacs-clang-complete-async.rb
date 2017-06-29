@@ -24,8 +24,8 @@ class EmacsClangCompleteAsync < Formula
 
   # https://github.com/Golevka/emacs-clang-complete-async/pull/59
   patch do
-    url "https://github.com/yocchi/emacs-clang-complete-async/commit/5ce197b15d7b8c9abfc862596bf8d902116c9efe.diff"
-    sha256 "6f638c473781a8f86a0ab970303579256f49882744863e36924748c010e7c1ed"
+    url "https://github.com/yocchi/emacs-clang-complete-async/commit/5ce197b15d7b8c9abfc862596bf8d902116c9efe.diff?full_index=1"
+    sha256 "ba3bbb1ebbfdbf430d18cc79b9918ca500eb4d6949e0479a24016e46fe5a920c"
   end
 
   def install
