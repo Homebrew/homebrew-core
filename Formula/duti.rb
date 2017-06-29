@@ -20,8 +20,8 @@ class Duti < Formula
   # See https://github.com/moretension/duti/pull/20.
   if MacOS.version >= :el_capitan
     patch do
-      url "https://github.com/moretension/duti/pull/20.patch"
-      sha256 "8fab50d10242f8ebc4be10e9a9e11d3daf91331d438d06f692fb6ebd6cbec2f8"
+      url "https://github.com/moretension/duti/pull/20.patch?full_index=1"
+      sha256 "2dee8e25f7c53a9fa4cbd756ad06b308e7eabb385cf589aba02bc7f50ae76c3e"
     end
   end
 
