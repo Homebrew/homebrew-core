@@ -29,6 +29,13 @@ class Z3 < Formula
       end
     end
 
+    # qprofdiff is not yet part of the source release (it will be as soon as a
+    # version is released after 4.5.0), so we only include it in HEAD builds
+    if build.head?
+      system "make", "-C", "contrib/qprofdiff"
+      bin.install "contrib/qprofdiff/qprofdiff"
+    end
+
     pkgshare.install "examples"
   end
 
