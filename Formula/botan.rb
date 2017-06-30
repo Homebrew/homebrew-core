@@ -16,7 +16,7 @@ class Botan < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   needs :cxx11
 
@@ -29,6 +29,8 @@ class Botan < Formula
       --cpu=#{MacOS.preferred_arch}
       --cc=#{ENV.compiler}
       --os=darwin
+      --with-external-includedir=#{Formula["openssl@1.1"].include}
+      --with-external-libdir=#{Formula["openssl@1.1"].lib}
       --with-openssl
       --with-zlib
       --with-bzip2
