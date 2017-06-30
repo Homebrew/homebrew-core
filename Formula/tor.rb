@@ -1,9 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://tor.eff.org/dist/tor-0.3.0.8.tar.gz"
-  mirror "https://www.torproject.org/dist/tor-0.3.0.8.tar.gz"
-  sha256 "663a3ba7b8a124c0f8a7351eaa2dda6fd518de3f3c4ee28fff869bfb03860d48"
+  url "https://tor.eff.org/dist/tor-0.3.0.9.tar.gz"
+  mirror "https://www.torproject.org/dist/tor-0.3.0.9.tar.gz"
+  sha256 "48d4880bf6ccb19ce9af2abde6946d7cf0635cc807548badbf4a221a79581e42"
 
   bottle do
     sha256 "a5711584a1c11f5f0474a0946639c9a056c023de90cbc13edb074c72c08987a6" => :sierra
