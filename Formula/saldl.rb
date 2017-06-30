@@ -8,9 +8,9 @@ class Saldl < Formula
 
   bottle do
     cellar :any
-    sha256 "723d7e0181ea35f4b6643682db7731434411454239ef7c61a9393cd8cf5c9a08" => :sierra
-    sha256 "f006aa31bd31f9410a5579a92354c3d4acba5a7ac2102564423120ba1b45ef06" => :el_capitan
-    sha256 "689d5ea91227117ad5c43d52925456a8e75b069e4900a15a5853a6de96b8ffd5" => :yosemite
+    sha256 "51f9b200ce0f93749b8e7fd66c7c8985f3b6fd14ca32bafc57b9c83a37ef4664" => :sierra
+    sha256 "93737eb942258a0b35944347ebc70d362dd2d8cdcb47e88fed89217df2cc7b4a" => :el_capitan
+    sha256 "ad37aabeb7277950a137f2482ddfbe424676c5513691c65bb569725b3e09a3f0" => :yosemite
   end
 
   depends_on "pkg-config" => :build
