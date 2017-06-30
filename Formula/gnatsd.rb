@@ -3,7 +3,7 @@ class Gnatsd < Formula
   homepage "https://nats.io"
   url "https://github.com/nats-io/gnatsd/archive/v0.9.6.tar.gz"
   sha256 "18d6d1b014bfd262da101e15ed914e194b51b47e3e1a8ca4e8743c742d65310c"
-  head "https://github.com/apcera/gnatsd.git"
+  head "https://github.com/nats-io/gnatsd.git"
 
   bottle do
     cellar :any_skip_relocation
