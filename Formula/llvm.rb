@@ -130,7 +130,11 @@ class Llvm < Formula
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
 
-  depends_on "libffi" => :recommended # https://llvm.org/docs/GettingStarted.html#requirement
+  # https://llvm.org/docs/GettingStarted.html#requirement
+  depends_on "libffi" => :recommended
+
+  # for the 'dot' tool (lldb)
+  depends_on "graphviz" => :optional
 
   depends_on "ocaml" => :optional
   if build.with? "ocaml"
