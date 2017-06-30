@@ -1,8 +1,8 @@
 class Vifm < Formula
   desc "Ncurses based file manager with vi like keybindings"
   homepage "https://vifm.info/"
-  url "https://github.com/vifm/vifm/releases/download/v0.8.2/vifm-0.8.2.tar.bz2"
-  sha256 "8b466d766658a24d07fc2039a26fefc6a018f5653684a6035183ca79f02c211f"
+  url "https://github.com/vifm/vifm/releases/download/v0.9/vifm-0.9.tar.bz2"
+  sha256 "ab10c99d1e4c24ff8a03c20be1c202cc15874750cc47a1614e6fe4f8d816a7fd"
 
   bottle do
     sha256 "c371771e464449ebc7d8ef84c89f0b9b75eccc91bf1f1d35ca7b9d38bca885f7" => :sierra
