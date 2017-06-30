@@ -5,9 +5,9 @@ class Logrotate < Formula
   sha256 "435a3f9a534a37e11657532a090f6bf521d8696bdf9cb799a360c1750ba3aea9"
 
   bottle do
-    sha256 "9d80ac390902aa814b54a6b867af6f9bda867a61d2273eb1f5a1075c2d2a78dc" => :sierra
-    sha256 "89e9dd258e1169afb9dc8b73c468730e15dc65f1bf35f46beb197fc1765ef2da" => :el_capitan
-    sha256 "96acb7bb80d18c06d793a271332813155fb09b983f69af2a36acfe9939ff7c8d" => :yosemite
+    sha256 "c71cc8692bdd28fcf4ba25002d1177a9f60e3c68cbe1fecc46d16a1cb56ec58f" => :sierra
+    sha256 "809a917ade7e1e83bfd871f87be42a9001d0b082190e2ea5ca77c8b840598c0c" => :el_capitan
+    sha256 "d7bbd4bdbe2de2730ee27c92fc215e7d6fecb0c1ff0daa3baecb46f904b8a10d" => :yosemite
   end
 
   depends_on "popt"
