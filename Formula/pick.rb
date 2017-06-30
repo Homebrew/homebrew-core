@@ -1,8 +1,8 @@
 class Pick < Formula
   desc "Utility to choose one option from a set of choices"
   homepage "https://github.com/calleerlandsson/pick"
-  url "https://github.com/calleerlandsson/pick/releases/download/v1.6.1/pick-1.6.1.tar.gz"
-  sha256 "b2d0384c376b697b7e8f17843485e6373514f001b35be18b6414a2fd5ced8d9b"
+  url "https://github.com/calleerlandsson/pick/releases/download/v1.7.0/pick-1.7.0.tar.gz"
+  sha256 "950531c56edc4be375fe4e89291caa807322b298143043e2e2963de34e96de15"
 
   bottle do
     cellar :any_skip_relocation
