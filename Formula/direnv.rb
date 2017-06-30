@@ -1,8 +1,8 @@
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
-  url "https://github.com/direnv/direnv/archive/v2.11.3.tar.gz"
-  sha256 "2d34103a7f9645059270763a0cfe82085f6d9fe61b2a85aca558689df0e7b006"
+  url "https://github.com/direnv/direnv/archive/v2.12.0.tar.gz"
+  sha256 "a86d91ba34f2e72659e0ac114fcadc22c4e813ea88a70320e5b06a2702219df1"
 
   head "https://github.com/direnv/direnv.git"
 
@@ -16,6 +16,9 @@ class Direnv < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/direnv").mkpath
+    ln_s buildpath, buildpath/"src/github.com/direnv/direnv"
     system "make", "install", "DESTDIR=#{prefix}"
   end
 
