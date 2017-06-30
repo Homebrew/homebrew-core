@@ -19,7 +19,7 @@ class Lumo < Formula
   def install
     ENV["BOOT_HOME"] = "#{buildpath}/.boot"
     ENV["BOOT_LOCAL_REPO"] = "#{buildpath}/.m2/repository"
-    system "boot", "release"
+    system "boot", "release-ci"
     bin.install "build/lumo"
   end
 
