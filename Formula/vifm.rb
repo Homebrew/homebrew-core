@@ -5,10 +5,9 @@ class Vifm < Formula
   sha256 "ab10c99d1e4c24ff8a03c20be1c202cc15874750cc47a1614e6fe4f8d816a7fd"
 
   bottle do
-    sha256 "c371771e464449ebc7d8ef84c89f0b9b75eccc91bf1f1d35ca7b9d38bca885f7" => :sierra
-    sha256 "cd87c86ced448263187664d65b06a627a311d0ea456a6eda4c68bddadca82de6" => :el_capitan
-    sha256 "0967f7e9dce7d0fa2572e897532dea2af274726a944a518c13119547a2b4f699" => :yosemite
-    sha256 "7cf24c1685bbf8b4cdc799f3f6ff767809207dd72b1f2f121d1a7b74c6c909c4" => :mavericks
+    sha256 "43c49f57d80cae5391aa31e7f344b2082e163bf9ff0003988c5fa4f419d46566" => :sierra
+    sha256 "427c8115c17a6a7143a2ce8b9a00d1f0639a15d2f61f7492623d6f958351cd35" => :el_capitan
+    sha256 "d9eb249223e2cc06049f21e9e14c544d640858d10faafeca395c99005c7c0125" => :yosemite
   end
 
   def install
