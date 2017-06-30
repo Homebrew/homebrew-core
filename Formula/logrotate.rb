@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.12.2/logrotate-3.12.2.tar.gz"
-  sha256 "754777ada2ef2f34378e8f6025cdb0c0725e212f12195d59971c42df0ae0597f"
+  url "https://github.com/logrotate/logrotate/releases/download/3.12.3/logrotate-3.12.3.tar.gz"
+  sha256 "435a3f9a534a37e11657532a090f6bf521d8696bdf9cb799a360c1750ba3aea9"
 
   bottle do
     sha256 "9d80ac390902aa814b54a6b867af6f9bda867a61d2273eb1f5a1075c2d2a78dc" => :sierra
@@ -74,7 +74,7 @@ diff --git i/examples/logrotate-default w/examples/logrotate-default
 index 56e9103..c61a33a 100644
 --- i/examples/logrotate-default
 +++ w/examples/logrotate-default
-@@ -14,22 +14,7 @@ dateext
+@@ -14,23 +14,7 @@ dateext
  # uncomment this if you want your log files compressed
  #compress
  
@@ -84,6 +84,7 @@ index 56e9103..c61a33a 100644
  
 -# no packages own wtmp and btmp -- we'll rotate them here
 -/var/log/wtmp {
+-    missingok
 -    monthly
 -    create 0664 root utmp
 -    minsize 1M
