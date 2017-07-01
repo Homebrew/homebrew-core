@@ -1,8 +1,8 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.1+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.6/bash-completion-2.6.tar.xz"
-  sha256 "61fb652da0b1674443c34827263fe2335f9ddb12670bff208fc383a8955ca5ef"
+  url "https://github.com/scop/bash-completion/releases/download/2.7/bash-completion-2.7.tar.xz"
+  sha256 "41ba892d3f427d4a686de32673f35401bc947a7801f684127120cdb13641441e"
   head "https://github.com/scop/bash-completion.git"
 
   bottle do
