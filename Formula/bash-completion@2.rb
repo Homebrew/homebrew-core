@@ -3,6 +3,7 @@ class BashCompletionAT2 < Formula
   homepage "https://github.com/scop/bash-completion"
   url "https://github.com/scop/bash-completion/releases/download/2.6/bash-completion-2.6.tar.xz"
   sha256 "61fb652da0b1674443c34827263fe2335f9ddb12670bff208fc383a8955ca5ef"
+  revision 1
   head "https://github.com/scop/bash-completion.git"
 
   bottle do
@@ -13,11 +14,27 @@ class BashCompletionAT2 < Formula
   end
 
   depends_on "bash"
+  depends_on "coreutils"
+
+  # Temporarily needed as the patch modifies automake files
+  # Remove when patch is removed
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
 
   conflicts_with "bash-completion", :because => "Differing version of same formula"
 
+  # Patch to fix legacy autocompletions path
+  # Upstream issue: https://github.com/scop/bash-completion/issues/127
+  # Upstream PR: https://github.com/scop/bash-completion/pull/132
+  patch do
+    url "https://github.com/scop/bash-completion/commit/01052d3744afe41d4448d1b19dee94ea3a88dd2f.patch?full_index=1"
+    sha256 "e65a6a54d788e94daac35fb1b626b1ab3f20323443602c29baf645b769f3cb64"
+  end
+
   def install
-    inreplace "bash_completion", "readlink -f", "readlink"
+    # Temporarily needed as the patch modifies automake files
+    # Remove when patch is removed
+    system "aclocal"
 
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     ENV.deparallelize
