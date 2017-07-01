@@ -7,9 +7,9 @@ class MediaInfo < Formula
 
   bottle do
     cellar :any
-    sha256 "0659a0144e2d1f515a8076d0a213d94c7a1855511988bbd2a71a90ef5d6d1280" => :sierra
-    sha256 "8ac3d22dfeaafa5c89990d734bdfa431cc697c1c4f9c1c50154ba26b2d26605c" => :el_capitan
-    sha256 "987b6e7c520071d878269ac366fd7da5b09e1761d1c40e483704a4e09846b227" => :yosemite
+    sha256 "48a18e63881d6428e41042dd6d26019f455d2b62b44879c2fa9d5edd34f1e845" => :sierra
+    sha256 "895d744a5399925ae22ed0e0b8cf7ed47a3bb70de4f4f90aa7a04ba3c0661bf3" => :el_capitan
+    sha256 "34bcf5d0e5717e6a450580014ad231a403a1c06e20e6891d3f5adc87f5777c91" => :yosemite
   end
 
   depends_on "pkg-config" => :build
