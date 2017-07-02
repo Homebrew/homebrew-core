@@ -3,33 +3,33 @@ class Tomcat < Formula
   homepage "https://tomcat.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz"
-    sha256 "7fb92567df38c6e1f86081cbf864d308d0cf520586a5bac052a6c6037f42dd91"
+    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16.tar.gz"
+    sha256 "939fb7c9fae3298dd0ccb4724b9c943c524e8af287531c8f3bbec0707e5780f1"
 
     depends_on :java => "1.7+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15-fulldocs.tar.gz"
-      version "8.5.15"
-      sha256 "f85e0188fc220f11a0805de0e5712dd263de406513a7ae913869da30da8b0fd6"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16-fulldocs.tar.gz"
+      version "8.5.16"
+      sha256 "89fb481635834af7abc9cfefd67b530f1f3154c3bc2a820ceeb80e2e9c0d91c0"
     end
   end
 
   devel do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M21/bin/apache-tomcat-9.0.0.M21.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M21/bin/apache-tomcat-9.0.0.M21.tar.gz"
-    version "9.0.0.M21"
-    sha256 "c959c5a8ef09af269ddb0681d428f82ff5b3ba10ffbff177f671938f27ca7cee"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M22/bin/apache-tomcat-9.0.0.M22.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M22/bin/apache-tomcat-9.0.0.M22.tar.gz"
+    version "9.0.0.M22"
+    sha256 "c1b359d52edae793dde83cb65ef47dc202e8394d7328c823a9a53c02d09f2742"
 
     depends_on :java => "1.8+"
 
     resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M21/bin/apache-tomcat-9.0.0.M21-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M21/bin/apache-tomcat-9.0.0.M21-fulldocs.tar.gz"
-      version "9.0.0.M21"
-      sha256 "156c8e66827a2261ba794acd52eac1542404e528e680948fcf7b2510d15ff7ef"
+      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M22/bin/apache-tomcat-9.0.0.M22-fulldocs.tar.gz"
+      mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M22/bin/apache-tomcat-9.0.0.M22-fulldocs.tar.gz"
+      version "9.0.0.M22"
+      sha256 "57223a9dd8d1b164a492432f04fbcf02a390777e2aaa252b5574d5ed607acc60"
     end
   end
 
