@@ -7,9 +7,10 @@ class Compose2kube < Formula
   head "https://github.com/kelseyhightower/compose2kube.git"
 
   bottle do
-    sha256 "e77b7695ecee39b715f8e04a11a4b0d1299e6c3f02350414c27cf68cd25eb7cb" => :sierra
-    sha256 "c2b21ee0e5d1afbb2bf411cab7c8080f391967a67ccd0ebb798bcd3aa9158588" => :el_capitan
-    sha256 "95150f85aed2956b82385d0d73cf45cd9bc2445100f69eaae19c0388f00b37ec" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "1d2cb6b785c7cc7b06a5bcaf0a39fda3ad66548b2ff09fbd23bdf293f1c1ebf0" => :sierra
+    sha256 "90b2466bb93be95570354475aa1cadf5b35af8944f84abfa612cea4d210d6b67" => :el_capitan
+    sha256 "210e6242a05505b20208e03d278c272c1d90e54b747908119400ed018636d2a6" => :yosemite
   end
 
   depends_on "go" => :build
