@@ -5,7 +5,7 @@ class Kibana < Formula
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
       :tag => "v5.4.3",
-      :revision => "79c3ab1b64609651a88d889c0092490a5d96274f"
+      :revision => "0c83527f76c8338a1ab83a30b42e2a46cadf74da"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
