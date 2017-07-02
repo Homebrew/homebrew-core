@@ -15,6 +15,6 @@ class Erlangpl < Formula
   test do
     # We're testing if tool is installed properly because
     # running it in tests requires running Erlang VM node to test on
-    assert_match(/^Usage: erlangpl/, shell_output("#{bin}/erlangpl --help", 1))
+    assert_match(/Usage: erlangpl/, shell_output("#{bin}/erlangpl --help", 1))
   end
 end
