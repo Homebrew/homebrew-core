@@ -6,10 +6,9 @@ class Jython < Formula
 
   # This isn't accidental; there is actually a compile process here.
   bottle do
-    sha256 "355056444220bf1bb7bd5aeeb761c81a6632426ec2bd193270600615e5eaec44" => :sierra
-    sha256 "12a261c1f35421587b21cb1e9de24dbe109716746c5393d8d2046e15aab0b821" => :el_capitan
-    sha256 "2cfee4b728f3eb12528b66f53efee4fd2963c8da4103a47a1789afe75f1d5192" => :yosemite
-    sha256 "a20a699bcbec43953cec0f8de72dc98ceef2264fc62744cc62d0a96c5e2b175e" => :mavericks
+    sha256 "98bd9e1dcd92f8a0e281db6430985a2b67b2db36143d04a286502128fa9598af" => :sierra
+    sha256 "865533fa4016f5d378badbd0fce6e9bad6b373a65b6feab152a27dffdd12603b" => :el_capitan
+    sha256 "39b916844c6df58ca9e20f8125df6d4166fbcb18d732069a92a5b71edab13093" => :yosemite
   end
 
   def install
