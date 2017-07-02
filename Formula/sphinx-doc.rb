@@ -1,8 +1,8 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/72/68/ad424cd0caf5ea9d3b53b0ed5653eb09c4abde99b0c0ec84141935281775/Sphinx-1.6.2.tar.gz"
-  sha256 "67527d767dff9a2e2159c501265cff47b6d96d39e036e8b971d6c143ff303197"
+  url "https://files.pythonhosted.org/packages/10/91/ceb2e0d763e0c626f7afd7e3272a5bb76dd06eed1f0b908270ea31984062/Sphinx-1.6.3.tar.gz"
+  sha256 "af8bdb8c714552b77d01d4536e3d6d2879d6cb9d25423d29163d5788e27046e6"
 
   bottle do
     cellar :any_skip_relocation
@@ -79,8 +79,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/27/c7/a45641c83c6e28f4922ba6af3d4ae4d79b41932c2f3d77fed9e0bf878149/requests-2.17.3.tar.gz"
-    sha256 "8d29f97ed1541709b57caddb77bb20592411d7ca10ec4f03275f49ee8456e225"
+    url "https://files.pythonhosted.org/packages/2c/b5/2b6e8ef8dd18203b6399e9f28c7d54f6de7b7549853fe36d575bd31e29a7/requests-2.18.1.tar.gz"
+    sha256 "c6f3bdf4a4323ac7b45d01e04a6f6c20e32a052cd04de81e05103abc049ad9b9"
   end
 
   resource "six" do
