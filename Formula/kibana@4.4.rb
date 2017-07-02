@@ -20,8 +20,7 @@ class KibanaAT44 < Formula
   end
 
   def install
-    resource("node").stage buildpath/"node"
-    cd buildpath/"node" do
+    resource("node").stage do
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "install"
     end
@@ -44,8 +43,7 @@ class KibanaAT44 < Formula
     inreplace buildpath/"tasks/build/archives.js", /(await exec\('zip'.*)/, "// \\1"
 
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
-    Pathname.new("#{ENV["HOME"]}/.npmrc").write Language::Node.npm_cache_config
-    system "npm", "install"
+    system "npm", "install", "-ddd", "--build-from-source", "--#{Language::Node.npm_cache_config}"
     system "npm", "run", "build"
     mkdir "tar" do
       system "tar", "--strip-components", "1", "-xf", Dir[buildpath/"target/kibana-*-#{platform}.tar.gz"].first
