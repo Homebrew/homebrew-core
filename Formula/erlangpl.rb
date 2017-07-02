@@ -13,10 +13,8 @@ class Erlangpl < Formula
   end
 
   test do
-    system "erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
-    # Erlang Perf Lab requires Erlang/Elixir node to be present even with only
-    # --version or --help commands so we're testing if erlang is present since
-    # we're depending on it
-    # system "#{bin}/erlangpl -n e@127.0.0.1 -c epl"
+    # We're testing if tool is installed properly because
+    # running it in tests requires running Erlang VM node to test on
+    assert_match(/^Usage: erlangpl/, shell_output("#{bin}/erlangpl --help", 1))
   end
 end
