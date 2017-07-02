@@ -19,9 +19,9 @@ class Lumo < Formula
   def install
     ENV.java_cache
     system "boot", "--no-colors"
-    system "yarn", "install"
-    system "yarn", "lint"
-    system "yarn", "type:check"
+    system "yarn", "--no-colors", "install"
+    system "yarn", "--no-colors", "lint"
+    system "yarn", "--no-colors", "type:check"
     system "boot", "--no-colors", "test"
     system "boot", "--no-colors", "release-ci"
     bin.install "build/lumo"
