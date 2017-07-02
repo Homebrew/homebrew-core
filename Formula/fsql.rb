@@ -23,12 +23,8 @@ class Fsql < Formula
   test do
     (testpath/"bar.txt").write("hello")
     (testpath/"foo/baz.txt").write("world")
-    expected = <<-EOS.undent
-      foo        
-      foo/baz.txt
-    EOS
     cmd = "#{bin}/fsql SELECT FULLPATH\\(name\\) FROM foo"
-    assert_equal expected, shell_output(cmd)
+    assert_match %r{^foo\s+foo/baz.txt$}, shell_output(cmd)
     cmd = "#{bin}/fsql SELECT name FROM . WHERE name = bar.txt"
     assert_equal "bar.txt", shell_output(cmd).chomp
     cmd = "#{bin}/fsql SELECT name FROM . WHERE FORMAT\\(size\, GB\\) \\> 500"
