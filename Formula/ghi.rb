@@ -6,6 +6,13 @@ class Ghi < Formula
   revision 1
   head "https://github.com/stephencelis/ghi.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "38a33195b01a4b46b301e2cd4fb7110034aae37294dd8d90ce57207fd19341d6" => :sierra
+    sha256 "f8eabb05b5eb8cc024a3f6e73bec17a81ca43f6b29c6acc2bb0b42cb396f0762" => :el_capitan
+    sha256 "f8eabb05b5eb8cc024a3f6e73bec17a81ca43f6b29c6acc2bb0b42cb396f0762" => :yosemite
+  end
+
   depends_on :ruby => "1.8"
 
   resource "multi_json" do
