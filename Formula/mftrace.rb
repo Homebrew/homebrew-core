@@ -7,10 +7,9 @@ class Mftrace < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "bcb02aa4645912fe6c0201e4a89ea30cb5313a674d80c231778b7fa31378ec2c" => :sierra
-    sha256 "ad6f46655a7124478dc7ef6a3c1155e98651e0e09417c6092bcb964d9b2d0c66" => :el_capitan
-    sha256 "cfd1f6865fb61eb8a3e3b56732859387537553bb26c61ecad9c0499ef34be82a" => :yosemite
+    sha256 "e7a7fbdc4271c85405debec19621dc71b3665925e5915090ad1f16037775e454" => :sierra
+    sha256 "1d89d94a65434990494709f9488f3a2847f5dc4a8b3f5e8b26a64cf3437bf583" => :el_capitan
+    sha256 "a0319882dcc7a8e51556b0d05c22b09309ac418eacf6318fbde474dea41ce2c4" => :yosemite
   end
 
   head do
