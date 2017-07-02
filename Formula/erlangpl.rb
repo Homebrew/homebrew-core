@@ -14,7 +14,7 @@ class Erlangpl < Formula
 
   test do
     system "erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
-    # Erlang Perf Lab required Erlang/Elixir node to be presetn event with only
+    # Erlang Perf Lab requires Erlang/Elixir node to be present even with only
     # --version or --help commands so we're testing if erlang is present since
     # we're depending on it
     # system "#{bin}/erlangpl -n e@127.0.0.1 -c epl"
