@@ -1,8 +1,8 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries."
   homepage "https://github.com/kshvmdn/fsql"
-  url "https://github.com/kshvmdn/fsql/archive/v0.3.0.tar.gz"
-  sha256 "8dafa4680e6f72e1f0a52de7b0cd683de533db4635569de2a35a7122091325f7"
+  url "https://github.com/kshvmdn/fsql/archive/v0.3.1.tar.gz"
+  sha256 "b88110426a60aa2c48f7b4e52e117a899d43d1bba2614346b729234cd4bd9184"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,7 +24,7 @@ class Fsql < Formula
     (testpath/"bar.txt").write("hello")
     (testpath/"foo/baz.txt").write("world")
     expected = <<-EOS.undent
-      foo
+      foo        
       foo/baz.txt
     EOS
     cmd = "#{bin}/fsql SELECT FULLPATH\\(name\\) FROM foo"
