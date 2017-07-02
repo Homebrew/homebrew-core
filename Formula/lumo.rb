@@ -1,8 +1,8 @@
 class Lumo < Formula
   desc "Fast, cross-platform, standalone ClojureScript REPL"
   homepage "https://github.com/anmonteiro/lumo"
-  url "https://github.com/anmonteiro/lumo/archive/1.5.0.tar.gz"
-  sha256 "bc12097bd6c1ddf30ab4d8791e8904d09deac64b7424740aee1c539b4ee0c26a"
+  url "https://github.com/anmonteiro/lumo/archive/1.6.0.tar.gz"
+  sha256 "d5ab1d926ecef8624117250f6bd0cff1f78aba763ddc3221b676d3610eee69e3"
   head "https://github.com/anmonteiro/lumo.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Lumo < Formula
   def install
     ENV["BOOT_HOME"] = "#{buildpath}/.boot"
     ENV["BOOT_LOCAL_REPO"] = "#{buildpath}/.m2/repository"
-    system "boot", "release"
+    system "boot", "release-ci"
     bin.install "build/lumo"
   end
 
