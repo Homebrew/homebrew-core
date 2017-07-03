@@ -5,6 +5,13 @@ class HasteClient < Formula
   sha256 "489ea560e788256ca1ca96a5efa4457a9e70c4f7893a760083c7d9f42b272f6b"
   head "https://github.com/seejohnrun/haste-client.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3c60485b86bdd3cc480a78bff9bdc3709c149c9800fdc80e9fcb7145bf184c9f" => :sierra
+    sha256 "c4ee0154b0c96463021362f0b3a7497d904d799c6948df2d13d039e4301f38a8" => :el_capitan
+    sha256 "7eff89acc8fa7b93406aa23cc0551cd7ebf5f191eb2df54ed4946d6bdd11e537" => :yosemite
+  end
+
   depends_on :ruby => "2.3"
 
   resource "faraday" do
