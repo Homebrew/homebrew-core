@@ -1,10 +1,10 @@
 class Dfix < Formula
   desc "Auto-upgrade tool for D source code"
-  homepage "https://github.com/Hackerpilot/dfix"
-  url "https://github.com/Hackerpilot/dfix.git",
+  homepage "https://github.com/dlang-community/dfix"
+  url "https://github.com/dlang-community/dfix.git",
       :tag => "v0.3.1",
       :revision => "d796fb0d04882dc31862a808e2cff03ff829b56a"
-  head "https://github.com/Hackerpilot/dfix.git", :shallow => false
+  head "https://github.com/dlang-community/dfix.git", :shallow => false
 
   bottle do
     sha256 "58c2e5ee2f3fe572a0b07797af26de4d44e9194bf65a2eef89cf46d8d2dc7da4" => :sierra
@@ -16,6 +16,7 @@ class Dfix < Formula
   depends_on "dmd" => :build
 
   def install
+    rm_rf "libdparse/experimental_allocator" if build.stable?
     system "make"
     system "make", "test"
     bin.install "bin/dfix"
