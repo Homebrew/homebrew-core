@@ -16,7 +16,12 @@ class Dfix < Formula
   depends_on "dmd" => :build
 
   def install
+    # Remove for > 0.3.1
+    # Fix build failure from std.experimental.allocator.common.Ternary conflict
+    # experimental_allocator module was removed in dlang-community/libdparse@1e811d2
+    # See upstream issue from 3 Jul 2017 https://github.com/dlang-community/dfix/issues/45
     rm_rf "libdparse/experimental_allocator" if build.stable?
+
     system "make"
     system "make", "test"
     bin.install "bin/dfix"
