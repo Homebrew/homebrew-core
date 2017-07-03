@@ -4,7 +4,7 @@ class Golo < Formula
   url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.2.0.zip"
   sha256 "bf61b5a2565c31ed39829453d2c129c4604efaac6f6a7e546d199ec82e9ec654"
   head "https://github.com/eclipse/golo-lang.git"
-  
+
   bottle :unneeded
 
   depends_on :java => "1.8+"
