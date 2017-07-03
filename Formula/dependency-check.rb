@@ -32,10 +32,10 @@ class DependencyCheck < Formula
     output = shell_output("#{libexec}/bin/dependency-check --version").strip
     assert_match "Dependency-Check Core version #{version}", output
 
-    (testpath/"temp-props.properties").write <<-EOPROP.unindent
+    (testpath/"temp-props.properties").write <<-EOS.undent
       cve.startyear=2017
       analyzer.assembly.enabled=false
-      EOPROP
+    EOS
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
                "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath
     assert File.exist?(testpath/"dependency-check-report.xml")
