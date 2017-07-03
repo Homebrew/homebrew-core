@@ -21,6 +21,7 @@ class MingwW64 < Formula
 
   resource "binutils" do
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.28.tar.gz"
     sha256 "cd717966fc761d840d451dbd58d44e1e5b92949d2073d75b73fccb476d772fcf"
   end
 
@@ -99,7 +100,6 @@ class MingwW64 < Formula
         CC=#{target}-gcc
         CXX=#{target}-g++
         CPP=#{target}-cpp
-        LD=#{target}-gcc
         --host=#{target}
         --prefix=#{arch_dir}/#{target}
       ]
