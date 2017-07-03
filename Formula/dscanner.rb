@@ -1,11 +1,11 @@
 class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code."
-  homepage "https://github.com/Hackerpilot/Dscanner"
-  url "https://github.com/Hackerpilot/Dscanner.git",
+  homepage "https://github.com/dlang-community/Dscanner"
+  url "https://github.com/dlang-community/Dscanner.git",
     :tag => "v0.4.0",
     :revision => "87e42ae1941aeda81cc8e6c4343ab3c8d77036cd"
 
-  head "https://github.com/Hackerpilot/Dscanner.git"
+  head "https://github.com/dlang-community/Dscanner.git"
 
   bottle do
     sha256 "cee064b929cb506b88e7bed826e94ec8b8ffbf04e19767f6c10a8a816007978b" => :sierra
