@@ -1,13 +1,11 @@
 class Wxmac < Formula
   desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  revision 4
-
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   stable do
-    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2"
-    sha256 "346879dc554f3ab8d6da2704f651ecb504a22e9d31c17ef5449b129ed711585d"
+    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.3/wxWidgets-3.0.3.tar.bz2"
+    sha256 "08c8033f48ec1b23520f036cde37b5ae925a6a65f137ded665633ca159b9307b"
 
     # Patch for wxOSXPrintData, custom paper not applied
     # https://trac.wxwidgets.org/ticket/16959
