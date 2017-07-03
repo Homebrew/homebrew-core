@@ -8,11 +8,9 @@ class Cspice < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "c450800dfa0e61ec4a1d8ed5aa2f7bd2c2f5541272fd145af1673e7235b49c75" => :sierra
-    sha256 "daa552c39c338739c8c435d1b7c5c77975172905ff91b5893667da6ad60f7a7e" => :el_capitan
-    sha256 "fda8c9832e01c3b51bf68981434501632083a0a88909f62b4248f63f248a5971" => :yosemite
-    sha256 "61e4b947ed7223919ae92ddfcaf1f64267ab8d27467bcfb4de51cbdd10edbaa1" => :mavericks
+    sha256 "5ffb3eec6da9aa84ff58330734d024df9ea1378b1cc93365736b66d4315c47b9" => :sierra
+    sha256 "ceec1738779c07c06bd21b5c81816fb66854b728a1a098fe5ac1f37a176ee32f" => :el_capitan
+    sha256 "ff72f9d54707e03e86016b286117528720134acd4f23bd6e6b4402c8cd4def73" => :yosemite
   end
 
   conflicts_with "openhmd", :because => "both install `simple` binaries"
