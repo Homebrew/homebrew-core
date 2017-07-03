@@ -2,6 +2,7 @@ class Cspice < Formula
   desc "Observation geometry system for robotic space science missions"
   homepage "https://naif.jpl.nasa.gov/naif/toolkit.html"
   url "https://naif.jpl.nasa.gov/pub/naif/toolkit/C/MacIntel_OSX_AppleC_64bit/packages/cspice.tar.Z"
+  mirror "https://dl.bintray.com/homebrew/mirror/cspice-66.tar.Z"
   version "66"
   sha256 "f5d48c4b0d558c5d71e8bf6fcdf135b0943210c1ff91f8191dfc447419a6b12e"
 
