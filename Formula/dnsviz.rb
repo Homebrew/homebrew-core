@@ -3,8 +3,8 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://github.com/dnsviz/dnsviz/releases/download/v0.6.5/dnsviz-0.6.5.tar.gz"
-  sha256 "4598476625b2cd81224bc908d6fb98086c9568460d2074e35320fd651dadb269"
+  url "https://github.com/dnsviz/dnsviz/releases/download/v0.6.6/dnsviz-0.6.6.tar.gz"
+  sha256 "b89076aabc79744556f284e4c9b757a19ea5043c2cd61d957fb8995c713b5a37"
 
   bottle do
     cellar :any
@@ -19,23 +19,23 @@ class Dnsviz < Formula
   depends_on "bind" => :optional
 
   resource "dnspython" do
-    url "https://pypi.python.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
+    url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
     sha256 "40f563e1f7a7b80dc5a4e76ad75c23da53d62f1e15e6e517293b04e1f84ead7c"
   end
 
   resource "pygraphviz" do
-    url "https://pypi.python.org/packages/98/bb/a32e33f7665b921c926209305dde66fe41003a4ad934b10efb7c1211a419/pygraphviz-1.3.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/98/bb/a32e33f7665b921c926209305dde66fe41003a4ad934b10efb7c1211a419/pygraphviz-1.3.1.tar.gz"
     sha256 "7c294cbc9d88946be671cc0d8602aac176d8c56695c0a7d871eadea75a958408"
   end
 
   resource "m2crypto" do
-    url "https://pypi.python.org/packages/9c/58/7e8d8c04995a422c3744929721941c400af0a2a8b8633f129d92f313cfb8/M2Crypto-0.25.1.tar.gz"
-    sha256 "ac303a1881307a51c85ee8b1d87844d9866ee823b4fdbc52f7e79187c2d9acef"
+    url "https://files.pythonhosted.org/packages/11/29/0b075f51c38df4649a24ecff9ead1ffc57b164710821048e3d997f1363b9/M2Crypto-0.26.0.tar.gz"
+    sha256 "05d94fd9b2dae2fb8e072819a795f0e05d3611b09ea185f68e1630530ec09ae8"
   end
 
   resource "typing" do
-    url "https://pypi.python.org/packages/19/2f/b1090ace275335a9c0dde9a4623b109b7960a2b5370ae59d1eb1539afd8a/typing-3.5.2.2.tar.gz"
-    sha256 "2bce34292653af712963c877f3085250a336738e64f99048d1b8509bebc4772f"
+    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
+    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
   end
 
   def install
@@ -44,8 +44,8 @@ class Dnsviz < Formula
       system libexec/"bin/python", "setup.py", "build_ext", "--openssl=#{Formula["openssl"].opt_prefix}", "install"
     end
     venv.pip_install resources.reject { |r| r.name == "m2crypto" }
-    venv.pip_install_and_link buildpath
-    man1.install Dir["doc/man/*.1"]
+    system libexec/"bin/python", "setup.py", "build"
+    system libexec/"bin/python", "setup.py", "install", "--prefix=#{libexec}", "--install-data=#{prefix}", "--install-scripts=#{bin}"
   end
 
   test do
