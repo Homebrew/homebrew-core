@@ -38,6 +38,9 @@ class Mono < Formula
   end
 
   def install
+    # Mono 64-bit isn't fully supported, so let's build a 32-bit one!
+    ENV.m32
+
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
@@ -45,7 +48,7 @@ class Mono < Formula
       --enable-nls=no
     ]
 
-    args << "--build=" + (MacOS.prefer_64_bit? ? "x86_64": "i686") + "-apple-darwin"
+    args << "--build=i686-apple-darwin"
 
     system "./configure", *args
     system "make"
