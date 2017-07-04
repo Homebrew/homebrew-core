@@ -81,7 +81,7 @@ class Unicorn < Formula
       }
     EOS
     system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
-      "-lpthread", "-lm", "-lunicorn"
+      "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
   end
 end
