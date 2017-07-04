@@ -55,7 +55,7 @@ class Mdxmini < Formula
         printf("%s\\n", title);
     }
     EOS
-    system ENV.cc, "mdxtest.c", "-lmdxmini", "-o", "mdxtest"
+    system ENV.cc, "mdxtest.c", "-L#{lib}", "-lmdxmini", "-o", "mdxtest"
 
     result = `#{testpath}/mdxtest #{testpath}/pop-00.mdx #{testpath}`.chomp
     result.force_encoding("ascii-8bit") if result.respond_to? :force_encoding
