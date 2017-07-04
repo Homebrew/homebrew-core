@@ -139,7 +139,7 @@ class Gnuradio < Formula
           top.run();
         }
     EOS
-    system ENV.cxx,
+    system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"]}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
            "-lboost_system",
            (testpath/"test.c++"),
