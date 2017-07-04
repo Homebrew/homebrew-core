@@ -29,7 +29,7 @@ class Openh264 < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lopenh264", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lopenh264", "-o", "test"
     system "./test"
   end
 end
