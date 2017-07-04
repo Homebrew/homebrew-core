@@ -35,7 +35,7 @@ class Hayai < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-lhayai_main", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lhayai_main", "-o", "test"
     system "./test"
   end
 end
