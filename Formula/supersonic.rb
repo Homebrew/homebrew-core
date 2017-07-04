@@ -106,7 +106,7 @@ class Supersonic < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-stdlib=libc++", "-lsupersonic", "-lglog", "-lprotobuf", "-lboost_system", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++1y", "-stdlib=libc++", "-L#{lib}", "-lsupersonic", "-lglog", "-lprotobuf", "-lboost_system", "-o", "test"
     system "./test"
   end
 end
