@@ -158,7 +158,7 @@ class Guichan < Formula
     EOS
     system ENV.cc, "helloworld.cpp", ENV.cppflags, "-I#{HOMEBREW_PREFIX}/include/SDL",
         "-L#{Formula["SDL"].opt_lib}", "-framework", "Foundation", "-framework", "CoreGraphics", "-framework", "Cocoa",
-        "-lSDL", "-lSDLmain", "-lSDL_image", "-lguichan", "-lguichan_sdl", "-lobjc", "-lc++", "-o", "helloworld"
+        "-lSDL", "-lSDLmain", "-lSDL_image", "-L#{lib}", "-lguichan", "-lguichan_sdl", "-lobjc", "-lc++", "-o", "helloworld"
     helloworld = fork do
       system testpath/"helloworld"
     end
