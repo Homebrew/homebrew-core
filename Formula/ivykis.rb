@@ -32,7 +32,7 @@ class Ivykis < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test_ivykis.c", "-livykis", "-o", "test_ivykis"
+    system ENV.cc, "test_ivykis.c", "-L#{lib}", "-livykis", "-o", "test_ivykis"
     system "./test_ivykis"
   end
 end
