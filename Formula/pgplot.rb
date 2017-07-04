@@ -113,6 +113,6 @@ class Pgplot < Formula
       CALL PGEND
       END
     EOS
-    system "gfortran", "-o", "test", "test.f90", "-lpgplot", "-lX11", "-L/usr/X11/lib", "-I/usr/X11/include"
+    system "gfortran", "-o", "test", "test.f90", "-L#{lib}", "-lpgplot", "-lX11", "-L/usr/X11/lib", "-I/usr/X11/include"
   end
 end
