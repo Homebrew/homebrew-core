@@ -45,7 +45,7 @@ class Newt < Formula
         newtFinished();
       }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-lnewt"
+    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lnewt"
     system "./test"
   end
 end
