@@ -8,10 +8,9 @@ class Mruby < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c461d71acb8acd4a5d1d3d4e4223225387f34bc48c657a604b8d29ef0ac65d7" => :sierra
-    sha256 "a086424c6137f85d5c814e8a0216430081d9c583e2e3849231d82fd49ec118b8" => :el_capitan
-    sha256 "9798334879beef5eba0f79bcd5720bc39b1466eade5254bcd8c38ef5a6a6b026" => :yosemite
-    sha256 "874a62ef53850b0987d0be761b8b767072803bae69f620a6595bc8759822f0c6" => :mavericks
+    sha256 "2389720557c8a6421882561d096dfd84317f47c628b03852d86a34b2afb61aec" => :sierra
+    sha256 "d9a8487acd5544562cfea50da211f5268f86630ed5d197ab1c9bab68b453ca9c" => :el_capitan
+    sha256 "77e4dc3179a3e0f86c35fdf3aad37ff57c31cf9410f776cc953d9cfe797186a7" => :yosemite
   end
 
   depends_on "bison" => :build
