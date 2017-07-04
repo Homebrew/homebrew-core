@@ -7,10 +7,9 @@ class Dfix < Formula
   head "https://github.com/dlang-community/dfix.git", :shallow => false
 
   bottle do
-    sha256 "58c2e5ee2f3fe572a0b07797af26de4d44e9194bf65a2eef89cf46d8d2dc7da4" => :sierra
-    sha256 "6b19da6a3db617b0dcce69a9c19b6b212e6f64adaacfe0e7296328c74aa8f398" => :el_capitan
-    sha256 "28db097fe0facaa42f4b1a441f89237e1ad2480ecb7d81f56dd6937d586e1974" => :yosemite
-    sha256 "186aaedeb0b223858a5cb16e133ef03886fe81ece596e376c111342251842c5e" => :mavericks
+    sha256 "bc69197be2687f97b4ce65c1589f4e09c082c5bdb41ee8b51248ffd34ccd0890" => :sierra
+    sha256 "ee8da255bb3663a160cc9e2040f594b0e71490feda65c56f213a5912ff99ca36" => :el_capitan
+    sha256 "70715e792ec79f8b867bba5547b8f193d1d42fe1c36cb78a553051c7d37e407b" => :yosemite
   end
 
   depends_on "dmd" => :build
