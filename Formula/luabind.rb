@@ -94,7 +94,7 @@ class Luabind < Formula
       }
     EOS
     system ENV.cxx, "-shared", "-o", "hello.dylib", "-I#{HOMEBREW_PREFIX}/include/lua-5.1",
-           testpath/"hello.cpp", "-lluabind", "-llua5.1"
+           testpath/"hello.cpp", "-L#{lib}", "-lluabind", "-llua5.1"
     assert_match /hello world!/, `lua5.1 -e "package.loadlib('#{testpath}/hello.dylib', 'init')(); greet()"`
   end
 end
