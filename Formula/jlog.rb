@@ -58,7 +58,7 @@ class Jlog < Formula
         jlog_ctx_close(ctx);
       }
     EOF
-    system ENV.cc, "jlogtest.c", "-I#{include}", "-ljlog", "-o", "jlogtest"
+    system ENV.cc, "jlogtest.c", "-I#{include}", "-L#{lib}", "-ljlog", "-o", "jlogtest"
     system testpath/"jlogtest"
   end
 end
