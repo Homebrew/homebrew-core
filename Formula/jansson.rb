@@ -32,7 +32,7 @@ class Jansson < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-ljansson", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ljansson", "-o", "test"
     system "./test"
   end
 end
