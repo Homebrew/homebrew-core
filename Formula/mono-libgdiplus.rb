@@ -28,6 +28,9 @@ class MonoLibgdiplus < Formula
   depends_on "pixman"
 
   def install
+    # Mono 64-bit isn't fully supported, so let's build a 32-bit one!
+    ENV.m32
+
     system "autoreconf", "-fiv"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
