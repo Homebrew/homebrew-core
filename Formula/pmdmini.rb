@@ -56,7 +56,7 @@ class Pmdmini < Formula
         printf("%s\\n", title);
     }
     EOS
-    system ENV.cc, "pmdtest.c", "-lpmdmini", "-o", "pmdtest"
+    system ENV.cc, "pmdtest.c", "-L#{lib}", "-lpmdmini", "-o", "pmdtest"
     result = `#{testpath}/pmdtest #{testpath}/dd06.m #{testpath}`.chomp
     assert_equal "mus #06", result
   end
