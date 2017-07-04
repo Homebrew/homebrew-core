@@ -52,7 +52,7 @@ class Msgpack < Formula
       }
     EOS
 
-    system ENV.cc, "-o", "test", "test.c", "-lmsgpackc"
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lmsgpackc"
     assert_equal "1\n2\n3\n", `./test`
   end
 end
