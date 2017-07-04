@@ -50,7 +50,7 @@ class R3 < Formula
       }
     EOS
     system ENV.cc, "test.cpp", "-o", "test",
-                  "-lr3", "-I#{include}/r3"
+                  "-L#{lib}", "-lr3", "-I#{include}/r3"
     system "./test"
   end
 end
