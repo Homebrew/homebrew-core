@@ -46,7 +46,7 @@ class Snappystream < Formula
         }
       }
     EOS
-    system ENV.cxx, "testsnappystream.cxx", "-lsnappy", "-lsnappystream", "-o", "testsnappystream"
+    system ENV.cxx, "testsnappystream.cxx", "-lsnappy", "-L#{lib}", "-lsnappystream", "-o", "testsnappystream"
     system "./testsnappystream < #{__FILE__} > out.dat && diff #{__FILE__} out.dat"
   end
 end
