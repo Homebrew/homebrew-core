@@ -57,7 +57,7 @@ class Gl2ps < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
+    system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
     system "./test"
     assert File.exist?("test.eps") && File.size("test.eps") > 0
   end
