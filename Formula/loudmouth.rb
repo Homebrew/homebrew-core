@@ -39,7 +39,7 @@ class Loudmouth < Formula
   test do
     cp pkgshare/"examples/lm-send-async.c", testpath
     system ENV.cc, "lm-send-async.c", "-o", "test",
-      "-lloudmouth-1", "-lglib-2.0",
+      "-L#{lib}", "-L#{Formula["glib"].opt_lib}", "-lloudmouth-1", "-lglib-2.0",
       "-I#{include}/loudmouth-1.0",
       "-I#{Formula["glib"].opt_include}/glib-2.0",
       "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
