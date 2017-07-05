@@ -56,7 +56,7 @@ class Beecrypt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lbeecrypt", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lbeecrypt", "-o", "test"
     assert_match /ZF8D/, shell_output("./test")
   end
 end
