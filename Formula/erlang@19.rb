@@ -32,6 +32,16 @@ class ErlangAT19 < Formula
   depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
+  # Check if this patch can be removed when OTP 19.4 is released.
+  # Erlang will crash on macOS 10.13 any time the crypto lib is used.
+  # The Erlang team has an open PR for the patch but it needs to be applied to
+  # older releases. See https://github.com/erlang/otp/pull/1501 and
+  # https://bugs.erlang.org/browse/ERL-439 for additional information.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1f4a770/erlang%4019/boring-ssl-high-sierra.patch"
+    sha256 "5aae52e7947db400a7798e8cda6e33e30088edf816e842cb09974b92c6b5eba6"
+  end
+
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_19.3.tar.gz"
     mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/erlang/otp_doc_man_19.3.tar.gz"
