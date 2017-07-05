@@ -31,6 +31,6 @@ class PkgConfig < Formula
   end
 
   test do
-    system "#{bin}/pkg-config", "--libs", "openssl"
+    system "#{bin}/pkg-config", "--libs", "libpcre"
   end
 end
