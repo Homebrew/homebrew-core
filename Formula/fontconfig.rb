@@ -1,8 +1,8 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
-  sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
+  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.4.tar.bz2"
+  sha256 "668293fcc4b3c59765cdee5cee05941091c0879edcc24dfec5455ef83912e45c"
 
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
