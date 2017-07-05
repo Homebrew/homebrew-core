@@ -15,6 +15,15 @@ class Lftp < Formula
   depends_on "openssl"
   depends_on "libidn"
 
+  # Fix crash from usage of %n in dynamic format strings on High Sierra
+  # Repurposed patch, credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/edf0ee1e2cf/devel/m4/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
