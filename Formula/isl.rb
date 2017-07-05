@@ -51,7 +51,7 @@ class Isl < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lisl", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lisl", "-o", "test"
     system "./test"
   end
 end
