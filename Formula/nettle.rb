@@ -50,7 +50,7 @@ class Nettle < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lnettle", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lnettle", "-o", "test"
     system "./test"
   end
 end
