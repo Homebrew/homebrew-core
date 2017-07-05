@@ -44,7 +44,8 @@ class Mpfr < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lgmp", "-lmpfr", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-L#{Formula["gmp"].opt_lib}", "-lgmp",
+                   "-lmpfr", "-o", "test"
     system "./test"
   end
 end
