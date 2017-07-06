@@ -13,8 +13,8 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/V8.6/files/coq-8.6.tar.gz"
-  sha256 "6e3c3cf5c8e2b0b760dc52738e2e849f3a8c630869659ecc0cf41413fcee81df"
+  url "https://coq.inria.fr/distrib/8.6.1/files/coq-8.6.1.tar.gz"
+  sha256 "32f8aa92853483dec18030def9f0857a708fee56cf4287e39c9a260f08138f9d"
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
@@ -35,11 +35,9 @@ class Coq < Formula
     system "opam", "init", "--no-setup"
     system "opam", "install", "ocamlfind"
 
-    camlp5_lib = Formula["camlp5"].opt_lib/"ocaml/camlp5"
     system "opam", "config", "exec", "--",
            "./configure", "-prefix", prefix,
                           "-mandir", man,
-                          "-camlp5dir", camlp5_lib,
                           "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
