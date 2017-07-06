@@ -15,6 +15,12 @@ class Wpscan < Formula
     end
   end
 
+  bottle do
+    sha256 "49178b5a7589c7069af8e3a08cc528ae26b3e929abfbf2fe48a12f3c44778b8a" => :sierra
+    sha256 "3988316cd584e6a1b90b95fd490f4a048fb05a583e416c53ef6402829768f597" => :el_capitan
+    sha256 "c4ce8ec9c235fc7e1010bf3ba95a94241ded02116429cc21974411454e3b116a" => :yosemite
+  end
+
   depends_on :ruby => "2.1.9"
 
   def install
