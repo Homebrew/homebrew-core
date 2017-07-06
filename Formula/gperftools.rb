@@ -13,6 +13,16 @@ class Gperftools < Formula
       url "https://github.com/gperftools/gperftools/commit/acac6af26b0ef052b39f61a59507b23e9703bdfa.patch?full_index=1"
       sha256 "164b99183c9194706670bec032bb96d220ce27fc5257b322d994096516133376"
     end
+
+    # Prevents build failure on Xcode >= 7.3:
+    # Undefined symbols for architecture x86_64:
+    #   "operator delete(void*, unsigned long)", referenced from:
+    #     ProcMapsIterator::~ProcMapsIterator() in libsysinfo.a(sysinfo.o)
+    # Reported 17 April 2016: gperftools/gperftools#794
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/edb49c752c0c02eb9e47bd2ab9788d504fd5b495/gperftools/revert-sized-delete-aliases.patch"
+      sha256 "49eb4f2ac52ad38723d3bf371e7d682644ef09ee7c1e2e2098e69b6c085153b6"
+    end
   end
 
   bottle do
@@ -26,16 +36,6 @@ class Gperftools < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  # Prevents build failure on Xcode >= 7.3:
-  # Undefined symbols for architecture x86_64:
-  #   "operator delete(void*, unsigned long)", referenced from:
-  #     ProcMapsIterator::~ProcMapsIterator() in libsysinfo.a(sysinfo.o)
-  # Reported 17 April 2016: gperftools/gperftools#794
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/edb49c752c0c02eb9e47bd2ab9788d504fd5b495/gperftools/revert-sized-delete-aliases.patch"
-    sha256 "49eb4f2ac52ad38723d3bf371e7d682644ef09ee7c1e2e2098e69b6c085153b6"
-  end
 
   def install
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
