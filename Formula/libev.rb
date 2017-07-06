@@ -2,6 +2,7 @@ class Libev < Formula
   desc "Asynchronous event library"
   homepage "http://software.schmorp.de/pkg/libev.html"
   url "http://dist.schmorp.de/libev/Attic/libev-4.24.tar.gz"
+  mirror "https://fossies.org/linux/misc/libev-4.24.tar.gz"
   sha256 "973593d3479abdf657674a55afe5f78624b0e440614e2b8cb3a07f16d4d7f821"
 
   bottle do
