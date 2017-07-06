@@ -1,8 +1,8 @@
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.6.tar.gz"
-  sha256 "cde5ce0d1a72361ba0011092fdce7966eda2ce0337b801dbbdb150fde971afb8"
+  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.7.tar.gz"
+  sha256 "f9fa80bfc71f08590bf3e268fedd5df46015d429ca70fab8d7221284efd849db"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
@@ -53,8 +53,9 @@ class KubeAws < Formula
       "region" => "west",
       "availabilityZone" => "zone",
       "kmsKeyArn" => "arn",
-      "worker" => { "nodePools" => [{ "name"=>"nodepool1" }] },
-      "addons" => { "rescheduler" => { "enabled"=>false } },
+      "worker" => { "nodePools" => [{ "name" => "nodepool1" }] },
+      "addons" => { "clusterAutoscaler" => { "enabled" => false },
+                    "rescheduler" => { "enabled" => false } },
     }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
