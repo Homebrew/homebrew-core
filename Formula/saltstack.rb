@@ -3,8 +3,8 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/4b/d5/7614db7c0274549da147f5c6871052fb666e01ba33d5377bfd34a9fe7be4/salt-2016.11.5.tar.gz"
-  sha256 "b81427a4a3e47a98726f948bdc16a5b6b366f93fdac0b2c817e8f87d9036f8be"
+  url "https://files.pythonhosted.org/packages/3a/a5/9a32888daee8f1c374d1490eb5a6e9874c28f9d7c9e49703bf279f643004/salt-2016.11.6.tar.gz"
+  sha256 "9031af68d31d0416fe3161526ef122a763afc6182bd63fe48b6c4d0a16a0703a"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -50,9 +50,19 @@ class Saltstack < Formula
     sha256 "f7527ebf7461582ce95f7a9e03dd141ce810d40590834f4ec20cddd54234c10a"
   end
 
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
+    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  end
+
   resource "futures" do
     url "https://files.pythonhosted.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz"
     sha256 "51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
+    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
   end
 
   resource "msgpack-python" do
@@ -71,8 +81,8 @@ class Saltstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/72/46/4abc3f5aaf7bf16a52206bb0c68677a26c216c1e6625c78c5aef695b5359/requests-2.14.2.tar.gz"
-    sha256 "a274abba399a23e8713ffd2b5706535ae280ebe2b8069ee6a941cb089440d153"
+    url "https://files.pythonhosted.org/packages/2c/b5/2b6e8ef8dd18203b6399e9f28c7d54f6de7b7549853fe36d575bd31e29a7/requests-2.18.1.tar.gz"
+    sha256 "c6f3bdf4a4323ac7b45d01e04a6f6c20e32a052cd04de81e05103abc049ad9b9"
   end
 
   resource "singledispatch" do
@@ -88,6 +98,11 @@ class Saltstack < Formula
   resource "tornado" do
     url "https://files.pythonhosted.org/packages/df/42/a180ee540e12e2ec1007ac82a42b09dd92e5461e09c98bf465e98646d187/tornado-4.5.1.tar.gz"
     sha256 "db0904a28253cfe53e7dedc765c71596f3c53bb8a866ae50123320ec1a7b73fd"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/96/d9/40e4e515d3e17ed0adbbde1078e8518f8c4e3628496b56eb8f026a02b9e4/urllib3-1.21.1.tar.gz"
+    sha256 "b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5"
   end
 
   def install
