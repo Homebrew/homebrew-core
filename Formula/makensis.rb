@@ -12,6 +12,9 @@ class Makensis < Formula
     sha256 "5c116395f0a53447856051885ef9c606e60ab8925cb9ec97a21cf72c2c90097d" => :yosemite
   end
 
+  # From http://nsis.sourceforge.net/Special_Builds#Large_strings
+  option "with-large-strings", "Enable strings up to 8192 characters instead of default 1024"
+
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
@@ -42,7 +45,11 @@ class Makensis < Formula
     end
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
-    scons "STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu", "makensis"
+    if build.with? "large-strings"
+      scons "NSIS_MAX_STRLEN=8192", "STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu", "makensis"
+    else
+      scons "STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu", "makensis"
+    end
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
   end
@@ -61,12 +68,12 @@ index a344456..37c575b 100755
 +import os
 +
  Import('defenv')
- 
+
  ### Configuration options
 @@ -440,6 +442,9 @@ Help(cfg.GenerateHelpText(defenv))
  env = Environment()
  cfg.Update(env)
- 
+
 +defenv['CC'] = os.environ['CC']
 +defenv['CXX'] = os.environ['CXX']
 +
