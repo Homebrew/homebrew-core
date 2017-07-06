@@ -1,8 +1,7 @@
 class Freealut < Formula
   desc "Implementation of OpenAL's ALUT standard"
   homepage "https://github.com/vancegroup/freealut"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/freealut/freealut_1.1.0.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/f/freealut/freealut_1.1.0.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/f/freealut/freealut_1.1.0.orig.tar.gz"
   sha256 "60d1ea8779471bb851b89b49ce44eecb78e46265be1a6e9320a28b100c8df44f"
 
   bottle do

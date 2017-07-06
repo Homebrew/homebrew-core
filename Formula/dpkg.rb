@@ -5,7 +5,7 @@ class Dpkg < Formula
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
   url "https://dl.bintray.com/homebrew/mirror/dpkg-1.18.24.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.18.24.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.18.24.tar.xz"
   sha256 "d853081d3e06bfd46a227056e591f094e42e78fa8a5793b0093bad30b710d7b4"
 
   bottle do

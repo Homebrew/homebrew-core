@@ -3,7 +3,7 @@ class Dbus < Formula
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.20.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.20.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.10.20.orig.tar.gz"
   sha256 "e574b9780b5425fde4d973bb596e7ea0f09e00fe2edd662da9016e976c460b48"
 
   bottle do
@@ -14,7 +14,7 @@ class Dbus < Formula
 
   devel do
     url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.14.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.14.orig.tar.gz"
+    mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.11.14.orig.tar.gz"
     sha256 "55cfc7fdd2cccb2fce1f75d2132ad4801b5ed6699fc2ce79ed993574adf90c80"
 
     depends_on "coreutils" => :build

@@ -29,8 +29,7 @@ class Libquicktime < Formula
 
   # Fix CVE-2016-2399. Applied upstream on March 6th 2017.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-10.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-10.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-10.debian.tar.xz"
     sha256 "550cc827c675aeb37727f6daaa311b649246dc9f952e830f0796c25af1137340"
     apply "patches/CVE-2016-2399.patch"
   end

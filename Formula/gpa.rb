@@ -2,7 +2,7 @@ class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
   url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.9.10.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/gpa/gpa_0.9.10.orig.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.9.10.orig.tar.bz2"
   sha256 "c3b9cc36fd9916e83524930f99df13b1d5f601f4c0168cb9f5d81422e282b727"
 
   bottle do
