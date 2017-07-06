@@ -14,12 +14,12 @@ class Heroku < Formula
     sha256 "9bdbae7f53c81edad257a7b8a1628d102f48404500f483756027e7203432fd7e" => :yosemite
   end
 
-  depends_on "node"
+  depends_on "node@8"
 
   def install
     inreplace "bin/run.js", "npm update -g heroku-cli", "brew upgrade heroku"
     inreplace "bin/run", "node \"$DIR/run.js\"",
-                         "#{Formula["node"].opt_bin}/node \"$DIR/run.js\""
+                         "#{Formula["node@8"].opt_bin}/node \"$DIR/run.js\""
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
