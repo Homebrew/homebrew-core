@@ -2,7 +2,7 @@ class PerlAT514 < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
   url "https://www.cpan.org/src/5.0/perl-5.14.4.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/p/perl/perl_5.14.2.orig.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/p/perl/perl_5.14.2.orig.tar.bz2"
   sha256 "803fd44c492fcef79fda456a6f50455766e00ddec2e568a543630f65ff3f44cb"
 
   bottle do

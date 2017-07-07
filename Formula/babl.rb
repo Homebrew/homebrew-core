@@ -2,7 +2,7 @@ class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
   url "https://download.gimp.org/pub/babl/0.1/babl-0.1.28.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/b/babl/babl_0.1.28.orig.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/b/babl/babl_0.1.28.orig.tar.bz2"
   sha256 "63f3ed23e72a857a0e6df53d9d968a325024177b01edbe314a0c98b499eb8603"
 
   bottle do

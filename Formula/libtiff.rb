@@ -22,8 +22,7 @@ class Libtiff < Formula
   # All of these have been reported upstream & should
   # be fixed in the next release, but please check.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
     sha256 "8803ef2917ceb80c472e97d85e86f71a20d04cf7de94ebffcc1b3100f51058ce"
     apply "patches/01-CVE-2015-7554.patch",
           "patches/02-CVE.patch",

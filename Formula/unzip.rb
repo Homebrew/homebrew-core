@@ -18,8 +18,7 @@ class Unzip < Formula
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/unzip
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/u/unzip/unzip_6.0-21.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/u/unzip/unzip_6.0-21.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-21.debian.tar.xz"
     sha256 "8accd9d214630a366476437a3ec1842f2e057fdce16042a7b19ee569c33490a3"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch

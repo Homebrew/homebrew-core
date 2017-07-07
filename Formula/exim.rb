@@ -21,8 +21,7 @@ class Exim < Formula
   # Patch applied upstream but doesn't apply cleanly from git.
   # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
     sha256 "6440231912f6ead8097c94deb90524f9a0d1413447ba9ff3a734c4359e2aff3c"
     apply "patches/79_CVE-2017-1000369.patch"
   end

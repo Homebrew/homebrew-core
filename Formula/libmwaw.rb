@@ -17,8 +17,7 @@ class Libmwaw < Formula
   # Fixed upstream, will be in the next release.
   # https://sourceforge.net/p/libmwaw/libmwaw/ci/68b3b74569881248bfb6cbb4266177cc253b292f/
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libm/libmwaw/libmwaw_0.3.11-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libm/libmwaw/libmwaw_0.3.11-3.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/libm/libmwaw/libmwaw_0.3.11-3.debian.tar.xz"
     sha256 "5377a0fb979c595b4b66076b57be980724d0afc9681a4e10c1566ac6cfc26886"
     apply "patches/CVE-2017-9433.diff"
   end

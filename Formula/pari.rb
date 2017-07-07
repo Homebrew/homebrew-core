@@ -2,7 +2,7 @@ class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
   url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.9.2.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/p/pari/pari_2.9.2.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/p/pari/pari_2.9.2.orig.tar.gz"
   sha256 "9aa24cbbcf4e0b09dcc21cf9b09f2eb08e38ee16ab13651be7274c9b3e46207e"
 
   bottle do

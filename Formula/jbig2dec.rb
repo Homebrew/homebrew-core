@@ -16,8 +16,7 @@ class Jbig2dec < Formula
 
   # These are all upstream already, remove on next release.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
     sha256 "41114245b7410a03196c5f7def10efa78c9da12b4bac9d21d6fbe96ded4232dd"
     apply "patches/020160518~1369359.patch",
           "patches/020161212~e698d5c.patch",

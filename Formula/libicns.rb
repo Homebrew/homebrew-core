@@ -2,7 +2,7 @@ class Libicns < Formula
   desc "Library for manipulation of the macOS .icns resource format"
   homepage "https://icns.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/icns/libicns-0.8.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/libi/libicns/libicns_0.8.1.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/libi/libicns/libicns_0.8.1.orig.tar.gz"
   sha256 "335f10782fc79855cf02beac4926c4bf9f800a742445afbbf7729dab384555c2"
   revision 3
 

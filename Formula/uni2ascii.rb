@@ -3,8 +3,7 @@ class Uni2ascii < Formula
   # homepage/url: "the website you are looking for is suspended"
   # Switched to Debian mirrors June 2015.
   homepage "https://billposer.org/Software/uni2ascii.html"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/u/uni2ascii/uni2ascii_4.18.orig.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/u/uni2ascii/uni2ascii_4.18.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/u/uni2ascii/uni2ascii_4.18.orig.tar.gz"
   sha256 "9e24bb6eb2ced0a2945e2dabed5e20c419229a8bf9281c3127fa5993bfa5930e"
 
   bottle do

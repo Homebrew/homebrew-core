@@ -2,7 +2,7 @@ class Ophcrack < Formula
   desc "Microsoft Windows password cracker using rainbow tables"
   homepage "https://ophcrack.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.7.0/ophcrack-3.7.0.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/o/ophcrack/ophcrack_3.7.0.orig.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/o/ophcrack/ophcrack_3.7.0.orig.tar.bz2"
   sha256 "9d5615dd8e42a395898423f84e29d94ad0b1d4a28fcb14c89a1e2bb1a0374409"
 
   bottle do
