@@ -1,12 +1,18 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
+  revision 1
 
   stable do
     url "https://github.com/neovim/neovim/archive/v0.2.0.tar.gz"
     sha256 "72e263f9d23fe60403d53a52d4c95026b0be428c1b9c02b80ab55166ea3f62b5"
 
     depends_on "luajit" => :build
+
+    patch do
+      url "https://github.com/neovim/neovim/commit/35fad15c8907f741ce21779393e4377de753e4f9.patch?full_index=1"
+      sha256 "b156fdc92a3850eca3047620087f25a021800b729a3c30fd0164404b2ff7848b"
+    end
   end
 
   bottle do
