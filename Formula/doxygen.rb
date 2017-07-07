@@ -6,6 +6,7 @@ class Doxygen < Formula
 
   stable do
     url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.src.tar.gz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/doxygen/doxygen_1.8.13.orig.tar.gz"
     sha256 "af667887bd7a87dc0dbf9ac8d86c96b552dfb8ca9c790ed1cbffaa6131573f6b"
 
     # Remove for > 1.8.13
