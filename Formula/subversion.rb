@@ -1,10 +1,9 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
-  sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
-  revision 3
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.6.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.6.tar.bz2"
+  sha256 "dbcbc51fb634082f009121f2cb64350ce32146612787ffb0f7ced351aacaae19"
 
   bottle do
     sha256 "42e3082d6c0afb51e4009e790296b7d651c3f8df389450524607ceaa807b5985" => :sierra
@@ -151,9 +150,6 @@ class Subversion < Formula
       system "make", "swig-pl"
       system "make", "install-swig-pl"
 
-      # Some of the libraries get installed into the wrong place, they end up
-      # having the prefix in the directory name twice.
-      lib.install Dir["#{prefix}/#{lib}/*"]
       # This is only created when building against system Perl, but it isn't
       # purged by Homebrew's post-install cleaner because that doesn't check
       # "Library" directories. It is however pointless to keep around as it
