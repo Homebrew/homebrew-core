@@ -1,8 +1,8 @@
 class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
-  url "https://github.com/elastic/beats/archive/v5.4.3.tar.gz"
-  sha256 "a7714383de1a610c7318e8a2751a230b64c8ca243058abd59b1886aabcc3965b"
+  url "https://github.com/elastic/beats/archive/v5.5.0.tar.gz"
+  sha256 "3f826ce614b6caef12a5584d3c97a4496222a70b02b818b3ec5bb08dc3aa6994"
 
   head "https://github.com/elastic/beats.git"
 
