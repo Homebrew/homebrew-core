@@ -19,6 +19,9 @@ class V8AT315 < Formula
   end
 
   def install
+    # Bully GYP into correctly linking with c++11
+    ENV.cxx11
+    ENV["GYP_DEFINES"] = "clang=1 mac_deployment_target=#{MacOS.version}"
     (buildpath/"build/gyp").install resource("gyp")
 
     # fix up libv8.dylib install_name
