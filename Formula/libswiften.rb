@@ -1,13 +1,17 @@
 class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften"
-  url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
-  sha256 "8aa490431190294e62a9fc18b69ccc63dd0f561858d7d0b05c9c65f4d6ba5397"
   revision 1
+  head "git://swift.im/swift"
 
-  # Patch to fix build error of dynamic library with Apple's Secure Transport API
-  # Fixed upstream: https://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
-  patch :DATA
+  stable do
+    url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
+    sha256 "8aa490431190294e62a9fc18b69ccc63dd0f561858d7d0b05c9c65f4d6ba5397"
+
+    # Patch to fix build error of dynamic library with Apple's Secure Transport API
+    # Fixed upstream: https://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
+    patch :DATA
+  end
 
   bottle do
     sha256 "d7a96ec5a0f396486acf810c88efec48beff0778e770084a980d09773029ffd7" => :sierra
@@ -50,7 +54,6 @@ class Libswiften < Formula
     args << prefix
 
     scons *args
-    man1.install "Swift/Packaging/Debian/debian/swiften-config.1" unless build.stable?
   end
 
   test do
