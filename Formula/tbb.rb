@@ -20,6 +20,9 @@ class Tbb < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
 
+  # Patch clang C++11 support (reported upstream by email)
+  patch :DATA
+
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
@@ -54,3 +57,15 @@ class Tbb < Formula
     system "./test"
   end
 end
+
+__END__
+--- a/include/tbb/tbb_config.h
++++ b/include/tbb/tbb_config.h
+@@ -740,7 +740,7 @@
+
+ // The implicit upcasting of the tuple of a reference of a derived class to a base class fails on icc 13.X if the system's gcc environment is 4.8
+ // Also in gcc 4.4 standard library the implementation of the tuple<&> conversion (tuple<A&> a = tuple<B&>, B is inherited from A) is broken.
+-#if __GXX_EXPERIMENTAL_CXX0X__ && ((__INTEL_COMPILER >=1300 && __INTEL_COMPILER <=1310 && __TBB_GLIBCXX_VERSION>=40700) || (__TBB_GLIBCXX_VERSION < 40500))
++#if __GXX_EXPERIMENTAL_CXX0X__ && !__clang__ && ((__INTEL_COMPILER >=1300 && __INTEL_COMPILER <=1310 && __TBB_GLIBCXX_VERSION>=40700) || (__TBB_GLIBCXX_VERSION < 40500))
+ #define __TBB_UPCAST_OF_TUPLE_OF_REF_BROKEN 1
+ #endif
