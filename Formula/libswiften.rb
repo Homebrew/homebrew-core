@@ -2,7 +2,7 @@ class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften"
   revision 1
-  head "https://swift.im/git/swift", :using => :git
+  head "git://swift.im/swift"
 
   stable do
     url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
