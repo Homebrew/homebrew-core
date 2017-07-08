@@ -3,8 +3,8 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/dbohdan/remarshal"
-  url "https://github.com/dbohdan/remarshal/archive/v0.6.0.tar.gz"
-  sha256 "19e85b010ada81f3094ce4e607d6f26aeb2ea40c92c4c704fe1cdb8fd8f637ee"
+  url "https://github.com/dbohdan/remarshal/archive/v0.7.0.tar.gz"
+  sha256 "785f1928e3522671a21eb2e0ce7b6882e8589ccb195b4ee49dec2403fe3d6f4b"
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
@@ -23,13 +23,13 @@ class Remarshal < Formula
   end
 
   resource "pytoml" do
-    url "https://files.pythonhosted.org/packages/f0/10/e47db5fb819505674b2be4f8c2ae9f29aed840e81569761d6b6b7bf59954/pytoml-0.1.11.zip"
-    sha256 "a9aa2e60b254b9e33c8e44562465516cb4db3ae78e68502e881ac6e0ea6a0cb6"
+    url "https://files.pythonhosted.org/packages/6d/2a/c5a0eb781cff59df8613a531f07f9d82bb47ea595aa91c6f114f1621a94a/pytoml-0.1.14.tar.gz"
+    sha256 "aff69147d436c3ba8c7f3bc1b3f4aa3d7e47d305a495f2631872e6429694aabf"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
-    sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
+    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
+    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
   end
 
   resource "six" do
