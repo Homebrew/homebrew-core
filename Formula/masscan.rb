@@ -1,8 +1,8 @@
 class Masscan < Formula
   desc "TCP port scanner, scans entire Internet in under 5 minutes"
   homepage "https://github.com/robertdavidgraham/masscan/"
-  url "https://github.com/robertdavidgraham/masscan/archive/1.0.3.tar.gz"
-  sha256 "331edd529df1904bcbcfb43029ced7e2dafe1744841e74cd9fc9f440b8301085"
+  url "https://github.com/robertdavidgraham/masscan/archive/1.0.4.tar.gz"
+  sha256 "51de345f677f46595fc3bd747bfb61bc9ff130adcbec48f3401f8057c8702af9"
   head "https://github.com/robertdavidgraham/masscan.git"
 
   bottle do
@@ -14,6 +14,12 @@ class Masscan < Formula
   end
 
   def install
+    # Fix `dyld: lazy symbol binding failed: Symbol not found: _clock_gettime`
+    # Reported 8 July 2017: https://github.com/robertdavidgraham/masscan/issues/284
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "src/pixie-timer.c", "#elif defined(CLOCK_MONOTONIC)", "#elif defined(NOT_A_MACRO)"
+    end
+
     system "make"
     bin.install "bin/masscan"
   end
