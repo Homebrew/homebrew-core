@@ -53,7 +53,6 @@ class Libswiften < Formula
     args << prefix
 
     scons *args
-    man1.install "Swift/Packaging/Debian/debian/swiften-config.1" unless build.head?
   end
 
   test do
