@@ -28,6 +28,7 @@ class Libswiften < Formula
     args = %W[
       -j #{ENV.make_jobs}
       V=1
+      linkflags=-headerpad_max_install_names
       optimize=1 debug=0
       allow_warnings=1
       swiften_dll=1
