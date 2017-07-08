@@ -2,7 +2,8 @@ class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases."
   homepage "https://grafana.com"
   url "https://github.com/grafana/grafana/archive/v4.4.1.tar.gz"
-  sha256 "8579fbed20e745b7dd3e352c5828a6d867524e1069f03a161c2b8e7b9e510cf8"
+  sha256 "36c644cd1e630668814235316b76f68758ec5c7f5119e424a73e1bf85a4b969e"
+  revision 1
 
   head "https://github.com/grafana/grafana.git"
 
