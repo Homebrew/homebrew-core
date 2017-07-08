@@ -20,6 +20,7 @@ class Tbb < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
 
+  # Patch clang C++11 support (reported upstream by email)
   patch :DATA
 
   def install
@@ -56,6 +57,7 @@ class Tbb < Formula
     system "./test"
   end
 end
+
 __END__
 --- a/include/tbb/tbb_config.h
 +++ b/include/tbb/tbb_config.h
