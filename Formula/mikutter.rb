@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.5.8.tar.gz"
-  sha256 "a4c6e30d1d9ffbacd1b5b0f33d80e6645bbb053509ed593234d3a37de6b809ae"
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.9.tar.gz"
+  sha256 "7ca631240a179ffbce8a7739f7c1258d117ea8361f1ab02862a5547d6d6df6cf"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -106,8 +106,8 @@ class Mikutter < Formula
   end
 
   resource "memoist" do
-    url "https://rubygems.org/gems/memoist-0.15.0.gem"
-    sha256 "b838329d7fe7e067e0d0717828db529126f44b8c0c527c884d162ebb4ecba379"
+    url "https://rubygems.org/gems/memoist-0.16.0.gem"
+    sha256 "70bd755b48477c9ef9601daa44d298e04a13c1727f8f9d38c34570043174085f"
   end
 
   resource "metaclass" do
@@ -191,8 +191,8 @@ class Mikutter < Formula
   end
 
   resource "test-unit" do
-    url "https://rubygems.org/gems/test-unit-3.2.4.gem"
-    sha256 "470fe5e582650ea485c7a5c2242fc9b6dc2018d9aa11dab1662a3b672919ab26"
+    url "https://rubygems.org/gems/test-unit-3.2.5.gem"
+    sha256 "a230fc4f832ca770bf0bdcd82dd6e83f48fb24cf4e6e883bf83806c09d197d15"
   end
 
   resource "text" do
@@ -206,8 +206,8 @@ class Mikutter < Formula
   end
 
   resource "twitter-text" do
-    url "https://rubygems.org/gems/twitter-text-1.14.2.gem"
-    sha256 "d71abba271418cbe79e28905678a6ec8ae72ccad478865f4cb3fc89f51338d52"
+    url "https://rubygems.org/gems/twitter-text-1.14.7.gem"
+    sha256 "6fbf511d449d61a2e2198dd758622193aa74d6e95a6ec7111725cce0e181629c"
   end
 
   resource "typed-array" do
