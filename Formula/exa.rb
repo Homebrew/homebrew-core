@@ -1,8 +1,8 @@
 class Exa < Formula
   desc "Modern replacement for 'ls'"
   homepage "https://the.exa.website"
-  url "https://github.com/ogham/exa/archive/v0.6.0.tar.gz"
-  sha256 "84cd6b3c389d5ec0483f8e438557d971897b5e1015d22a8cb3ae7558f87f4bf0"
+  url "https://github.com/ogham/exa/archive/v0.7.0.tar.gz"
+  sha256 "1be554f28a234741cdc336891996969c49c16c80c8ca84dedb05e76b4ccac709"
   head "https://github.com/ogham/exa.git"
 
   bottle do
