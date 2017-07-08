@@ -17,11 +17,10 @@ class Duti < Formula
   depends_on "autoconf" => :build
 
   # Add hardcoded SDK path for El Capitan or later.
-  # See https://github.com/moretension/duti/pull/20.
   if MacOS.version >= :el_capitan
     patch do
-      url "https://github.com/moretension/duti/pull/20.patch?full_index=1"
-      sha256 "2dee8e25f7c53a9fa4cbd756ad06b308e7eabb385cf589aba02bc7f50ae76c3e"
+      url "https://github.com/moretension/duti/commit/7dbcae8.patch?full_index=1"
+      sha256 "09ea9bec926f38beb217c597fc224fc19c972e44835783a57fe8a54450cb8fb6"
     end
   end
 
@@ -32,6 +31,7 @@ class Duti < Formula
   end
 
   test do
-    system "#{bin}/duti", "-x", "txt"
+    assert_match "com.apple.TextEdit", shell_output("#{bin}/duti -l public.text"),
+                 "TextEdit not found among the handlers for public.text"
   end
 end
