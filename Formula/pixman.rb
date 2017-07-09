@@ -3,6 +3,7 @@ class Pixman < Formula
   homepage "https://cairographics.org/"
   url "https://cairographics.org/releases/pixman-0.34.0.tar.gz"
   sha256 "21b6b249b51c6800dc9553b65106e1e37d0e25df942c90531d4c3997aa20a88e"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,7 +20,6 @@ class Pixman < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-gtk",
-                          "--disable-mmx", # MMX assembler fails with Xcode 7
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
