@@ -9,9 +9,9 @@ class Gitless < Formula
 
   bottle do
     cellar :any
-    sha256 "f16d0e7909cca731e87ae2569f62e5b283664dbbfc112c3b7c15f8403d6cd59f" => :sierra
-    sha256 "ee7486d30db75ea6f73bc2bedf322d8cb7a9be67580bbeca53a119a6b38cceb3" => :el_capitan
-    sha256 "e8f90da27475437beb603d6340c33147b256049396f38f4c3e7cd808ee8cf44d" => :yosemite
+    sha256 "cbcebd2cc10c536e6c2c64090a780a6809e41ea073d129ba421fbd26e1653948" => :sierra
+    sha256 "187b3ecd7f650a7f56e035210b102dc575c1d42a662e8b3757c9dd767861856d" => :el_capitan
+    sha256 "345542f3356bea13faad1fbf9ba82a9b41d196e08f86ec40d80457a51a76ca2f" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
