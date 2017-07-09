@@ -1,8 +1,20 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  url "https://download.gnome.org/sources/libgit2-glib/0.25/libgit2-glib-0.25.0.tar.xz"
-  sha256 "4a256b9acfb93ea70d37213a4083e2310e59b05f2c7595242fe3c239327bc565"
+  revision 1
+
+  stable do
+    url "https://download.gnome.org/sources/libgit2-glib/0.25/libgit2-glib-0.25.0.tar.xz"
+    sha256 "4a256b9acfb93ea70d37213a4083e2310e59b05f2c7595242fe3c239327bc565"
+
+    # Remove for > 0.25.0
+    # Upstream commit from 8 Jul 2017 for libgit 0.26.0 compatibility
+    # See https://bugzilla.gnome.org/show_bug.cgi?id=784706
+    patch do
+      url "https://github.com/GNOME/libgit2-glib/commit/995b33c.patch?full_index=1"
+      sha256 "2f878912a5497ce9e27c45c14e512201cde24f3acfdaaae171eddf53d15e4d53"
+    end
+  end
 
   bottle do
     sha256 "4e627c1327c45d61a3b5bd0d608b01e21bf4b8fd9b3db47ab2c308297e640840" => :sierra

@@ -3,6 +3,7 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
   sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
+  revision 1
 
   bottle do
     sha256 "5f852460c67649119913b3c5dfc5bfe76b42f191c78e6e8302487ee8baa3025e" => :sierra
@@ -14,6 +15,7 @@ class GnomeBuilder < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "coreutils" => :build
+  depends_on "libgit2"
   depends_on "libgit2-glib"
   depends_on "gtk+3"
   depends_on "libpeas"
