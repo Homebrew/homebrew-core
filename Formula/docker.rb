@@ -1,11 +1,9 @@
 class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
-  url "https://github.com/docker/docker.git",
-      :tag => "v17.05.0-ce",
-      :revision => "89658bed64c2a8fe05a978e5b87dbec409d57a0f"
-
-  head "https://github.com/docker/docker.git"
+  url "https://github.com/docker/docker-ce.git",
+      :tag => "v17.06.0-ce",
+      :revision => "02c1d876176546b5f069dae758d6a7d2ead6bd48"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,18 +23,22 @@ class Docker < Formula
   end
 
   def install
-    ENV["AUTO_GOPATH"] = "1"
     ENV["DOCKER_EXPERIMENTAL"] = "1" if build.with? "experimental"
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/docker/cli"
+    dir.install (buildpath/"components/cli").children
+    cd dir do
+      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+      ldflags = ["-X github.com/docker/cli/cli.GitCommit=#{commit}",
+                 "-X github.com/docker/cli/cli.Version=#{version}-ce"]
+      system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
+             "github.com/docker/cli/cmd/docker"
 
-    system "hack/make.sh", "dynbinary-client"
-
-    build_version = build.head? ? File.read("VERSION").chomp : "#{version}-ce"
-    bin.install "bundles/#{build_version}/dynbinary-client/docker-#{build_version}" => "docker"
-
-    if build.with? "completions"
-      bash_completion.install "contrib/completion/bash/docker"
-      fish_completion.install "contrib/completion/fish/docker.fish"
-      zsh_completion.install "contrib/completion/zsh/_docker"
+      if build.with? "completions"
+        bash_completion.install "contrib/completion/bash/docker"
+        fish_completion.install "contrib/completion/fish/docker.fish"
+        zsh_completion.install "contrib/completion/zsh/_docker"
+      end
     end
   end
 
