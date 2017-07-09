@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.4.0/sleuthkit-4.4.0.tar.gz"
-  sha256 "7d252562622f657001e080777c5fe1fd919b952fa3d658c86a62e57b6ad70f57"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.4.1/sleuthkit-4.4.1.tar.gz"
+  sha256 "d90eed4064be64f156fa36a17c724bea9e76d3f4993eb092e977fb394b90130c"
 
   bottle do
     cellar :any
