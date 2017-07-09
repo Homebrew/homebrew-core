@@ -3,6 +3,7 @@ class Mariadb < Formula
   homepage "https://mariadb.org/"
   url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.6/source/mariadb-10.2.6.tar.gz"
   sha256 "c385c76e40d6e5f0577eba021805da5f494a30c9ef51884baefe206d5658a2e5"
+  revision 1
 
   bottle do
     sha256 "8f4a13008e4b1f3dd5ded3ea54ccacc1a77d0735d255027e1d9abe7089a26bdc" => :sierra
@@ -33,7 +34,21 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
+  # Remove for >= 10.2.7
+  # Upstream commit from 7 Jul 2017 "Fix for MDEV-13270: Wrong output for
+  # mariadb_config on OSX"
+  # See https://jira.mariadb.org/browse/MDEV-13270
+  resource "mariadb-config-patch" do
+    url "https://github.com/MariaDB/mariadb-connector-c/commit/3f356c0.patch?full_index=1"
+    sha256 "3f01377b6b806c5e6850c380df271c5835feb80434553a63e91528b40d3ac566"
+  end
+
   def install
+    resource("mariadb-config-patch").stage do
+      system "patch", "-p1", "-i", Pathname.pwd/"3f356c0.patch", "-d",
+                      buildpath/"libmariadb"
+    end
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
