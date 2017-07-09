@@ -5,6 +5,12 @@ class Zork < Formula
   sha256 "169e1848b1e3c503591c23ad4e66ce45e1d5ae617831634e1da9c8fca659e283"
   head "https://github.com/devshane/zork.git"
 
+  bottle do
+    sha256 "d2fe9ee55de4906a3a99d30070d81f73637f3972a6e0c44eb7ab2461c024c684" => :sierra
+    sha256 "8dc6fd49cf72dfa69f677eb1cfd7850f781271c35e4adbacdac00bf918ce6fec" => :el_capitan
+    sha256 "cb1076cd985679e6d9d093f4887c95bc7f0eb046c2799ec5000611703f428d47" => :yosemite
+  end
+
   def install
     system "make", "DATADIR=#{share}", "BINDIR=#{bin}"
     system "make", "install", "DATADIR=#{share}", "BINDIR=#{bin}", "MANDIR=#{man}"
