@@ -3,8 +3,9 @@ class Sshuttle < Formula
 
   desc "Proxy server that works as a poor man's VPN"
   homepage "https://github.com/sshuttle/sshuttle"
-  url "https://files.pythonhosted.org/packages/48/be/c1c9ead0c38383c4b2a192de4679f09413ddc6701988ca56bd220c64ec50/sshuttle-0.78.1.tar.gz"
-  sha256 "03a71648ce476de06a075bd9a972492d494b414ae51304bf535b80ff22be2d3c"
+  url "https://github.com/sshuttle/sshuttle.git",
+      :tag => "v0.78.3",
+      :revision => "b65bb290230b0f78fe0bb46f215c16076392b28e"
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do
