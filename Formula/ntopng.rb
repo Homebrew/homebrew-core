@@ -44,6 +44,10 @@ class Ntopng < Formula
   depends_on "mariadb" => :optional
 
   def install
+    if build.with? "mariadb"
+      inreplace "configure.seed", "mariadb_config", "mysql_config"
+    end
+
     # Prevent "make install" failure "cp: the -H, -L, and -P options may not be
     # specified with the -r option"
     # Reported 2 Jun 2017 https://github.com/ntop/ntopng/issues/1285
@@ -52,7 +56,7 @@ class Ntopng < Formula
     resource("nDPI").stage do
       system "./autogen.sh"
       system "make"
-      (buildpath/"nDPI").install Dir["*"]
+      (buildpath / "nDPI").install Dir["*"]
     end
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
