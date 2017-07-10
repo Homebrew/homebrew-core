@@ -1,9 +1,8 @@
 class Dbxml < Formula
   desc "Embeddable XML database with XQuery support and other advanced features"
   homepage "https://www.oracle.com/us/products/database/berkeley-db/xml/overview/index.html"
-  url "http://download.oracle.com/berkeley-db/dbxml-6.0.18.tar.gz"
-  sha256 "5851f60a47920718b701752528a449f30b16ddbf5402a2a5e8cde8b4aecfabc8"
-  revision 2
+  url "http://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
+  sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
 
   bottle do
     cellar :any
@@ -18,16 +17,18 @@ class Dbxml < Formula
 
   def install
     inreplace "dbxml/configure" do |s|
-      s.gsub! "lib/libdb-*.la | sed 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed 's/.*db-\\(.*\\).a"
+      s.gsub! "lib/libdb-*.la | sed -e 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed -e 's\/.*db-\\(.*\\).a"
       s.gsub! "lib/libdb-*.la", "lib/libdb-*.a"
+      s.gsub! "libz.a", "libz.dylib"
     end
 
     cd "dbxml" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
-                            "--with-xqilla=#{HOMEBREW_PREFIX}",
-                            "--with-xerces=#{HOMEBREW_PREFIX}",
-                            "--with-berkeleydb=#{HOMEBREW_PREFIX}"
+                            "--with-xqilla=#{Formula["xqilla"].opt_prefix}",
+                            "--with-xerces=#{Formula["xerces-c"].opt_prefix}",
+                            "--with-berkeleydb=#{Formula["berkeley-db"].opt_prefix}"
       system "make", "install"
     end
   end
