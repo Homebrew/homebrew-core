@@ -1,8 +1,8 @@
 class Yadm < Formula
   desc "Yet Another Dotfiles Manager"
   homepage "https://thelocehiliosan.github.io/yadm/"
-  url "https://github.com/TheLocehiliosan/yadm/archive/1.10.0.tar.gz"
-  sha256 "3f77b51197fe14d24f670dbc3e5edc4ae329fdd91c03db297ab929e7bc1168bb"
+  url "https://github.com/TheLocehiliosan/yadm/archive/1.11.0.tar.gz"
+  sha256 "7c07f9eab328ca8d21018516f2b39de9dedb92d22620ab059ea57745542f86d2"
 
   bottle :unneeded
 
