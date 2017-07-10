@@ -1,8 +1,8 @@
 class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
-  url "http://dl.osdn.jp/yash/66984/yash-2.44.tar.xz"
-  sha256 "f1352b49195a3879284e3ab60af4b30d3a87d696c838b246e2068ccbdfcf2e66"
+  url "http://dl.osdn.jp/yash/67984/yash-2.45.tar.xz"
+  sha256 "5b127d71e0e1edd462b224322c01332819a38eaa442baad807283e139ee56e11"
 
   bottle do
     sha256 "da1943d53ced363a3670017129947a4ba996ec82604112788ad7f02830612663" => :sierra
