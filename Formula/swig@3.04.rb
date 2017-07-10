@@ -42,6 +42,6 @@ class SwigAT304 < Formula
     system ENV.cc, "-c", "test.c"
     system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
     system ENV.cc, "-bundle", "-flat_namespace", "-undefined", "suppress", "test.o", "test_wrap.o", "-o", "test.bundle"
-    assert_equal "2", shell_output("ruby run.rb").strip
+    assert_equal "2", shell_output("/usr/bin/ruby run.rb").strip
   end
 end
