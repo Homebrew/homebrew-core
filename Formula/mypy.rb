@@ -2,8 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.511",
-      :revision => "88e8ef28be2465d1693ace4d39cd422987a97220"
+      :tag => "v0.520",
+      :revision => "cb7d6b0859f3277ecb1ac75ab9550e62715dc009"
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -26,8 +26,8 @@ class Mypy < Formula
   end
 
   resource "typed-ast" do
-    url "https://files.pythonhosted.org/packages/89/3d/9684616ba2b69ed73cc51396d777544e8379806fce1d60731b2237c3063c/typed-ast-1.0.3.tar.gz"
-    sha256 "67184179697ea9128fa8fec1d3b4e26b41d6a2eceab4674c6e3da4b024309862"
+    url "https://files.pythonhosted.org/packages/6c/8c/308968906916c5523c3a0e5ecb8ba8d79b8baf67f05faf1dffcb2a78ae7e/typed-ast-1.0.4.tar.gz"
+    sha256 "73f09aac0119f6664a3f471a1ec1c9b719f572bc9212913cea96a78b22c2e96e"
   end
 
   def install
@@ -65,17 +65,12 @@ class Mypy < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
-    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
-
     (testpath/"broken.py").write <<-EOS.undent
       def p() -> None:
-        print ('hello')
+        print('hello')
       a = p()
     EOS
-
-    output = pipe_output("#{bin}/mypy #{testpath}/broken.py 2>&1")
-    assert_match "\"p\" does not return a value", output
-    system "python3", "-c", "import typing"
+    output = pipe_output("#{bin}/mypy broken.py 2>&1")
+    assert_match '"p" does not return a value', output
   end
 end
