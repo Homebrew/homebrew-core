@@ -5,8 +5,8 @@ class MysqlConnectorOdbc < Formula
   sha256 "eca40e1ad359cd1d7e23b6692e60179c8e3daa66337e7a0232de4162664d9885"
 
   depends_on "cmake" => :build
-  depends_on "openssl" => :build
-  depends_on "mysql" => :build
+  depends_on "openssl"
+  depends_on "mysql"
   depends_on "unixodbc"
   # implicit conflicts_with libiodbc, because unixodbc conflicts with libiodbc
 
