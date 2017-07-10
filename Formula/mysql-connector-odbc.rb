@@ -13,19 +13,11 @@ class MysqlConnectorOdbc < Formula
   def install
     args = std_cmake_args
     args << "-DWITH_UNIXODBC=1"
-    # NOTE : Supplying MYSQL_DIR will cause the configuration step to ignore
-    #        the MYSQL_INCLUDE_DIR and MYSQL_LIB_DIR settings.
-    #        This can lead to errors during the link step, so avoid it:
-    # args << "-DMYSQL_DIR=#{Formula["mysql"].opt_prefix}"
-    args << "-DMYSQL_INCLUDE_DIR=#{Formula["mysql"].opt_include}/mysql"
-    args << "-DMYSQL_LIB_DIR=#{Formula["mysql"].opt_lib}"
-    args << "-DMYSQLCLIENT_STATIC_LINKING=1"
-    args << "-DMYSQL_LINK_FLAGS=-L#{Formula["mysql"].opt_lib}"
-
-    # For static linking:
-    ssl_libs = "#{Formula["openssl"].opt_lib}/libssl.a "
-    ssl_libs << "#{Formula["openssl"].opt_lib}/libcrypto.a"
-    args << "-DMYSQL_EXTRA_LIBRARIES=#{ssl_libs}"
+    args << "-DMYSQL_DIR=#{Formula["mysql"].opt_prefix}"
+    # NOTE : Some of the connector source code relies on functions that are
+    #        implemented in the static libmysqlclient.
+    #        Include the static library in the link as well:
+    args << "-DMYSQL_EXTRA_LIBRARIES=#{Formula["mysql"].opt_lib}/libmysqlclient.a"
 
     system "cmake", ".", *args
     # There are parallel build issues for the tests, and there is no easy way
