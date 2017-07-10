@@ -11,7 +11,6 @@ class Pumba < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV["CGO_ENABLED"] = "0"
 
     (buildpath/"src/github.com/gaia-adm/pumba").install buildpath.children
 
