@@ -19,11 +19,11 @@ class Chruby < Formula
   end
 
   def caveats; <<-EOS.undent
-    Add the following to the ~/.bashrc or ~/.zshrc file:
+    Add the following to the ~/.bash_profile or ~/.zshrc file:
       source #{opt_share}/chruby/chruby.sh
 
     To enable auto-switching of Rubies specified by .ruby-version files,
-    add the following to ~/.bashrc or ~/.zshrc:
+    add the following to ~/.bash_profile or ~/.zshrc:
       source #{opt_share}/chruby/auto.sh
     EOS
   end

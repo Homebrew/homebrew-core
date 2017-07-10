@@ -1,13 +1,25 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  url "https://download.gnome.org/sources/libgit2-glib/0.25/libgit2-glib-0.25.0.tar.xz"
-  sha256 "4a256b9acfb93ea70d37213a4083e2310e59b05f2c7595242fe3c239327bc565"
+  revision 1
+
+  stable do
+    url "https://download.gnome.org/sources/libgit2-glib/0.25/libgit2-glib-0.25.0.tar.xz"
+    sha256 "4a256b9acfb93ea70d37213a4083e2310e59b05f2c7595242fe3c239327bc565"
+
+    # Remove for > 0.25.0
+    # Upstream commit from 8 Jul 2017 for libgit 0.26.0 compatibility
+    # See https://bugzilla.gnome.org/show_bug.cgi?id=784706
+    patch do
+      url "https://github.com/GNOME/libgit2-glib/commit/995b33c.patch?full_index=1"
+      sha256 "2f878912a5497ce9e27c45c14e512201cde24f3acfdaaae171eddf53d15e4d53"
+    end
+  end
 
   bottle do
-    sha256 "4e627c1327c45d61a3b5bd0d608b01e21bf4b8fd9b3db47ab2c308297e640840" => :sierra
-    sha256 "46b738430e7a042252f01150fb4e52bd978b0a6da586515c908474791713a817" => :el_capitan
-    sha256 "580760f5b1310aa1580ed6dd145be5729e4acdc860878d3ecf4a6609c4204a6d" => :yosemite
+    sha256 "8db724848fe735443da4dcc29c42470fcb105044e713bfacce46daaae5db462e" => :sierra
+    sha256 "9de8bae017a7c7c0eef1190823ffd36f857d3fe7a7f33ce7413e702e308245cb" => :el_capitan
+    sha256 "cc8c2c3e286e8880e81f8b2e49469218df520d54724bda04b2a8bccca3ec9fbb" => :yosemite
   end
 
   head do

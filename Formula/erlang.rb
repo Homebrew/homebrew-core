@@ -8,9 +8,10 @@ class Erlang < Formula
 
   bottle do
     cellar :any
-    sha256 "db6554d163e54857310c409a70e839236538487a2216f622f734c4891c5fbc7d" => :sierra
-    sha256 "abb306ab90539ca3f5f86a40175f67377b44e746b0f625c947a629e300c3d01f" => :el_capitan
-    sha256 "e08c701dbf691f95739972e969f16ae3310ad9870beb54d490e459694942a112" => :yosemite
+    rebuild 1
+    sha256 "b4e979bf1ff16101cda4fa1f45dc2b5a99f98049837a4ca346950db3ee89307a" => :sierra
+    sha256 "bddd6b6697d7594f5c0622a778cb94e823abf67e42f0659124ca924a4c136de0" => :el_capitan
+    sha256 "d470aed142018511d7a40e32ad36f0b680f040e73bee3c603432ecb4279ad8e4" => :yosemite
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
@@ -40,6 +41,16 @@ class Erlang < Formula
     url "https://www.erlang.org/download/otp_doc_html_20.0.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_html_20.0.tar.gz"
     sha256 "1ab25110b148ce263d6e68cd5a3b912299b6066cfcd9d2fce416a4e9b7d2543a"
+  end
+
+  # Check if this patch can be removed when OTP 20.1 is released.
+  # Erlang will crash on macOS 10.13 any time the crypto lib is used.
+  # The Erlang team has an open PR for the patch but it needs to be applied to
+  # older releases. See https://github.com/erlang/otp/pull/1501 and
+  # https://bugs.erlang.org/browse/ERL-439 for additional information.
+  patch do
+    url "https://github.com/erlang/otp/pull/1501.patch?full_index=1"
+    sha256 "e449d698a82e07eddfd86b5b06a0b4ab8fb4674cb72fc6ab037aa79b096f0a12"
   end
 
   def install

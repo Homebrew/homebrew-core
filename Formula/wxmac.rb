@@ -1,44 +1,15 @@
 class Wxmac < Formula
   desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  revision 4
-
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.3.1/wxWidgets-3.0.3.1.tar.bz2"
+  sha256 "3164ad6bc5f61c48d2185b39065ddbe44283eb834a5f62beb13f1d0923e366e4"
   head "https://github.com/wxWidgets/wxWidgets.git"
-
-  stable do
-    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2"
-    sha256 "346879dc554f3ab8d6da2704f651ecb504a22e9d31c17ef5449b129ed711585d"
-
-    # Patch for wxOSXPrintData, custom paper not applied
-    # https://trac.wxwidgets.org/ticket/16959
-    patch do
-      url "https://trac.wxwidgets.org/raw-attachment/ticket/16959/wxPaperCustomPatch.patch"
-      sha256 "391b5c05caa3843de1579294a62918d9e00b2311313ee2ce1c1943cd5a8494b3"
-    end
-
-    # Various fixes related to Yosemite. Revisit in next stable release.
-    # Please keep an eye on https://trac.wxwidgets.org/ticket/16329 as well
-    # Theoretically the above linked patch should still be needed, but it isn't.
-    # Try to find out why.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-yosemite.diff"
-      sha256 "02ab6d044ceab85127cad11f2eba2164e7f3fe5c95d6a863e8231a57d1f87d6f"
-    end
-
-    # Remove uncenessary <QuickTime/QuickTime.h> includes
-    # Fixes building against Xcode 8 with macOS 10.12 SDK
-    # https://trac.wxwidgets.org/changeset/f6a2d1caef5c6d412c84aa900cb0d3990b350938/git-wxWidgets
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-quicktime-removal.diff"
-      sha256 "ebddf09877b053a6fafbf61ac52e4a7b511489dc8437110f80f00d5d2b5ff885"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "a5efe8ecbcfebf941096b9a5fdeb3321be2906bbe530d0a3af7ce7dacb20c0a7" => :sierra
-    sha256 "148b27f56a089b435842087450efa57a701851378648a32a8f1d3fbc988d9b9f" => :el_capitan
-    sha256 "b29cf28e87e89b86ad601efdbdb38840b4810b2bf6e49f6b4c42c4530da36100" => :yosemite
+    sha256 "9766307eb821a254c81002e7318aa89dc2f4cd7a5a09515fce54eb96ae70f898" => :sierra
+    sha256 "2e1552eb9bd91dec735b107686b0dfa501e6bc37997d8e1b1faea930783b63ae" => :el_capitan
+    sha256 "0a159643c82f3d57e5c10e3755b1e085bbf92cf5fdd1f87e26e8757faa4b40bf" => :yosemite
   end
 
   devel do

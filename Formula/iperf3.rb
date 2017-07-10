@@ -30,6 +30,13 @@ class Iperf3 < Formula
   end
 
   test do
-    system bin/"iperf3", "--version"
+    begin
+      server = IO.popen("#{bin}/iperf3 --server")
+      sleep 1
+      assert_match "Bitrate", pipe_output("#{bin}/iperf3 --client 127.0.0.1 --time 1")
+    ensure
+      Process.kill("SIGINT", server.pid)
+      Process.wait(server.pid)
+    end
   end
 end

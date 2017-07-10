@@ -3,17 +3,19 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
   sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
+  revision 1
 
   bottle do
-    sha256 "5f852460c67649119913b3c5dfc5bfe76b42f191c78e6e8302487ee8baa3025e" => :sierra
-    sha256 "a1ccb47ab832c9a088e823c48f70faca7278f19da315f4b11cecb8d38ed93e14" => :el_capitan
-    sha256 "fb44801f3fd18316a5cba11573c09993bf5a868df3d58d5a62993690a42c8c53" => :yosemite
+    sha256 "75411800654698f175dec305851a03e8bf94c310523878fbf9feb151b47c8dc8" => :sierra
+    sha256 "095a901d8515992bcb6f604fe6fc6009702f6a0e2a8a1fcfe4040bcd12187e1a" => :el_capitan
+    sha256 "896efcefdf31f09371ddf1ed5a832c942dfa7670f52dc815fa89028e1a0e064d" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "coreutils" => :build
+  depends_on "libgit2"
   depends_on "libgit2-glib"
   depends_on "gtk+3"
   depends_on "libpeas"

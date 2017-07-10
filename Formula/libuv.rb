@@ -1,15 +1,15 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.13.0.tar.gz"
-  sha256 "e084937b2753de250ce9999b9924c22a1fba33b8499e64e44e2e2cff34f1642a"
+  url "https://github.com/libuv/libuv/archive/v1.13.1.tar.gz"
+  sha256 "6a4976887594ec9f4e8521c95598dbbc478c59733056a5cf46354e93a1bc8400"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "ffa1fbff68f28afc31050aeff66b21b695834361882e66f594309df74191ce09" => :sierra
-    sha256 "45c605c73b6d599f4826ebfa2660cd20c4b16d64d2a019ed583bd81b7cb0b783" => :el_capitan
-    sha256 "b02527e44b929b79b4f887d8c7be2ded4f778e313ccf6d708843bf0506b00923" => :yosemite
+    sha256 "58cd0113bf0363839bcc0cf6e08798873d0acf572de8efb895583744d8694a01" => :sierra
+    sha256 "71a374a011ec7da1f451c27b0e03a89f4c66f729b390115c10e5dcc656cd5099" => :el_capitan
+    sha256 "eef3b088de095b55e3975f076f67450ba6a4dbd7a31c9584f3bfd6e1196a6642" => :yosemite
   end
 
   option "with-test", "Execute compile time checks (Requires Internet connection)"

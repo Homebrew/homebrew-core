@@ -1,16 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.0.2.src.tgz"
-  version "1.0.2"
-  sha256 "f71bffe2414e99ddd35a650df5745100de491afb7f601a6942b653a1d2a30577"
+  url "https://binaries.cockroachdb.com/cockroach-v1.0.3.src.tgz"
+  version "1.0.3"
+  sha256 "80e9f3858dc0fd3e0cf08540b3f9a3e3f0fcefd8bc66bfc14e716de36be25765"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1b629b27125f9c3502ede75696a22aa5340df4606649d32460b20fabaa3ad95" => :sierra
-    sha256 "3fe94f00f5665f518ab8fd5fc87212754a1b8695c2dddba8496416dc4da2f107" => :el_capitan
-    sha256 "00c6b5c8127924d86acf5d576330952c34182cb16b19e30188c2feb2599e3fb8" => :yosemite
+    sha256 "acd84d2beb4b4abccb942f7196033f07057552152867e156d0096949c41932d2" => :sierra
+    sha256 "55e466fe461a31a25f22aa157607ce09079fe2a44b2cc4df2cd6caad31b79ea1" => :el_capitan
+    sha256 "db6dd7ab4ce5ff884bef39324c3260d1771e3d4fcaef17958f5db6836bdf4168" => :yosemite
   end
 
   depends_on "cmake" => :build

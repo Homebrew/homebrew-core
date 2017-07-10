@@ -1,15 +1,15 @@
 class Exa < Formula
   desc "Modern replacement for 'ls'"
   homepage "https://the.exa.website"
-  url "https://github.com/ogham/exa/archive/v0.6.0.tar.gz"
-  sha256 "84cd6b3c389d5ec0483f8e438557d971897b5e1015d22a8cb3ae7558f87f4bf0"
+  url "https://github.com/ogham/exa/archive/v0.7.0.tar.gz"
+  sha256 "1be554f28a234741cdc336891996969c49c16c80c8ca84dedb05e76b4ccac709"
   head "https://github.com/ogham/exa.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "51387bb2d0a5b6a6087e8e826f1ffd72852152a0d392afea650368d7b2cf78b1" => :sierra
-    sha256 "87144c3eaf9c2d1a78d27f926af4826ab6470e9331dbe8fdf84af5c34cad0658" => :el_capitan
-    sha256 "22538ceddc613b45dbbc80a85ad0ea0f397c755c53fe58df605105bf1f411653" => :yosemite
+    sha256 "96577212829215a642d989b6de615bdf36d4b7170fa8d4e2e8cafb259b442f99" => :sierra
+    sha256 "b356d32e38e2b7d0ca3b9874ab33a9aead45d1c46d8fa84e1b4819f0c7a78632" => :el_capitan
+    sha256 "5693b6852ccdf92ec6b71dd671be1980aeefea0c0e86aaf9e3d86058afe42b52" => :yosemite
   end
 
   depends_on "cmake" => :build
