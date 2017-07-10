@@ -3,6 +3,7 @@ class Strongswan < Formula
   homepage "https://www.strongswan.org"
   url "https://download.strongswan.org/strongswan-5.5.3.tar.bz2"
   sha256 "c5ea54b199174708de11af9b8f4ecf28b5b0743d4bc0e380e741f25b28c0f8d4"
+  revision 1
 
   bottle do
     sha256 "1f94fb9fbd97fb9d85203f23c14127c641f9652bd996d78d8893739fb14a6df7" => :sierra
@@ -37,6 +38,7 @@ class Strongswan < Formula
       --enable-charon
       --enable-cmd
       --enable-constraints
+      --enable-curve25519
       --enable-eap-gtc
       --enable-eap-identity
       --enable-eap-md5
