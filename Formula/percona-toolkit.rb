@@ -5,6 +5,13 @@ class PerconaToolkit < Formula
   sha256 "f1da1d6c3ad04875806f55ad2aa0706a10bc7f22fb55307ee97c169296276e0e"
   head "lp:percona-toolkit", :using => :bzr
 
+  bottle do
+    cellar :any
+    sha256 "a5643929d04349f4618f2daff00268f3dc5274f149f6f6d7d5a6c68a8b67b3c1" => :sierra
+    sha256 "675125ad200de1571bf55387c662708f786d2b5261de67457be1803a68558af8" => :el_capitan
+    sha256 "a4a2ff61ac3c22367caf6d413ec9ac99c2f0afbbe570ced8017dec998bb30434" => :yosemite
+  end
+
   depends_on :mysql
   depends_on "openssl"
 
