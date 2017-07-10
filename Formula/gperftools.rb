@@ -1,8 +1,8 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6/gperftools-2.6.tar.gz"
-  sha256 "87d556694bb1d2c16de34acb9a9db36f7b82b491762ee19e795ef2bef9394daf"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6.1/gperftools-2.6.1.tar.gz"
+  sha256 "38b467eb42a028f253d227fbc428263cb39e6c8687c047466aa2ce5bb4699d81"
 
   bottle do
     cellar :any
@@ -21,10 +21,6 @@ class Gperftools < Formula
 
   def install
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
-
-    # Workaround for undefined symbol error for ___lsan_ignore_object
-    # Reported 5 Jul 2017 https://github.com/gperftools/gperftools/issues/901
-    ENV.append_to_cflags "-Wl,-U,___lsan_ignore_object"
 
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
