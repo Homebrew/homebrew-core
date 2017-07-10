@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.6/source/tarball/percona-xtrabackup-2.4.6.tar.gz"
-  sha256 "1e21ab097550901d8f2fa3dc37402ba6a994afa0722760f8f19cb369565e5e8b"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.7/source/tarball/percona-xtrabackup-2.4.7.tar.gz"
+  sha256 "9c45516956bf2dc4e6ac1c16ae173710b15a39258e402794841c5b608a39d510"
 
   bottle do
     sha256 "4c95d5ceb69cb0526d59cc914cfeb048afa1c9867db3c0d6948a751c46b28512" => :sierra
@@ -21,9 +21,9 @@ class PerconaXtrabackup < Formula
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
+    sha256 "629f865e8317f52602b2f2efd2b688002903d2e4bbcba5427cb6188b043d6f99"
   end
 
   resource "boost" do
