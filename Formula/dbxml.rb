@@ -5,10 +5,9 @@ class Dbxml < Formula
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
 
   bottle do
-    cellar :any
-    sha256 "f12996781a7a784ff65b5fbb33b5285f996fda729e7fcd4104890ea55010c549" => :sierra
-    sha256 "babca444db17952084979d91bb17680f3a8a3d009f03cef87686bb7bd4ae6054" => :el_capitan
-    sha256 "3a64c61d48a1f0c864d6f780c0b73ccd82a26f24958d64c1ddff6c5f35ea9b2f" => :yosemite
+    sha256 "a471d0f7df2e846a3eee974b29d33e48185e45ec49791552f034d0b4c7f28fdd" => :sierra
+    sha256 "bf89aad9e0c5341a69f45041044f4a87f73c469973c4c039f105c5af2d30c9fd" => :el_capitan
+    sha256 "8fe99043112262ad2575e3624b2755147a474d7abce7369624b2746932a212af" => :yosemite
   end
 
   depends_on "xerces-c"
