@@ -5,9 +5,9 @@ class PerconaXtrabackup < Formula
   sha256 "9c45516956bf2dc4e6ac1c16ae173710b15a39258e402794841c5b608a39d510"
 
   bottle do
-    sha256 "4c95d5ceb69cb0526d59cc914cfeb048afa1c9867db3c0d6948a751c46b28512" => :sierra
-    sha256 "45868a3a28739f5153cff0fed62e33a0ee9d91c8e72ea6b6b1be3aa8bcbc9572" => :el_capitan
-    sha256 "59a6cbc5e13468be470be4affc10ac5a5a6981d4fd7cec6f6af904117164d36b" => :yosemite
+    sha256 "7f97be597d718e5e906fd39af2cfda61be6a8c50ac1ad06d70c3deb92d3bdf94" => :sierra
+    sha256 "ba9094df79677eb0923b70013be2ec96266b9af2fb93b50923a7ec6603475acd" => :el_capitan
+    sha256 "388f6608b8f0577c9bc2f603021c3f7985a9a4c0f5ba21b21a2feb3fbdc22d24" => :yosemite
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
