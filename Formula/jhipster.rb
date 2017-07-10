@@ -3,8 +3,8 @@ require "language/node"
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular applications"
   homepage "https://jhipster.github.io/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.6.0.tgz"
-  sha256 "5ce978ecb0ef3e5321e2a55975d2255939d1bd9059f3ccc190f554294ca2a1fd"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.6.1.tgz"
+  sha256 "13e5d0624c8fcdf69ec6bf2c902d481159b4450261e7a314d0a5af6d06e06d16"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,10 +23,6 @@ class Jhipster < Formula
   end
 
   test do
-    expected = <<-EOS.undent
-      Executing jhipster:info
-      Execution complete
-    EOS
-    assert_equal expected, shell_output("#{bin}/jhipster info")
+    assert_match "Execution complete", shell_output("#{bin}/jhipster info")
   end
 end
