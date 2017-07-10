@@ -5,13 +5,13 @@ class Mongodb < Formula
   homepage "https://www.mongodb.org/"
 
   stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.5.tar.gz"
-    sha256 "84806e5496a1a0a8fe9a59d6eab0acfab0e68476437e94e2772f898677bb21f0"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.6.tar.gz"
+    sha256 "8170360f6dfede9c19c131f3d76831e952b3f1494925aa7e2a3a2f95b58ad901"
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.4.5",
-          :revision => "4d4d96583c40a25a4ee7e2d038d75181a300ec3c",
+          :tag => "r3.4.6",
+          :revision => "29b8883c560319b016f8bd4927807fa36f1a682f",
           :shallow => false
     end
   end
@@ -23,12 +23,24 @@ class Mongodb < Formula
   end
 
   devel do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.6.tar.gz"
-    sha256 "57839e0e19c5fa986d498857e7ac617c368f1a5768539b28b7740d7079ea1670"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.9.tar.gz"
+    sha256 "3b1805a5b84248207da976d8ff40781cb19d2d9004dadae074b4a2406a756e47"
+
+    depends_on :xcode => ["8.3.2", :build]
+
+    resource "PyYAML" do
+      url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+      sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    end
+
+    resource "typing" do
+      url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
+      sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
+    end
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.5.6",
+        :tag => "r3.5.9",
         :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
     end
   end
@@ -46,7 +58,19 @@ class Mongodb < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
-    ENV.libcxx if build.devel?
+
+    if build.devel?
+      ENV.libcxx
+
+      ["PyYAML", "typing"].each do |r|
+        resource(r).stage do
+          system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+        end
+      end
+    end
+    (buildpath/".brew_home/Library/Python/2.7/lib/python/site-packages/vendor.pth").write <<-EOS.undent
+      import site; site.addsitedir("#{buildpath}/vendor/lib/python2.7/site-packages")
+    EOS
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
