@@ -3,12 +3,15 @@ class VarnishAT4 < Formula
   homepage "https://www.varnish-cache.org/"
   url "https://repo.varnish-cache.org/source/varnish-4.1.6.tar.gz"
   sha256 "c7ac460b521bebf772868b2f5aefc2f2508a1e133809cd52d3ba1b312226e849"
+  revision 1
 
   bottle do
     sha256 "aecd2d0903cf3b7db9ac053ca5b4df827b30f76dc8635a771070e8af89ef1732" => :sierra
     sha256 "4a1943c1c5e0aef77e214108dbbf36d90660d96ae48d625745fb133e5f44439c" => :el_capitan
     sha256 "beda0e89f0c8c9018f67867aa01fab39b4ce3661e839ca2744ac44bc8d3cfde0" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "docutils" => :build
