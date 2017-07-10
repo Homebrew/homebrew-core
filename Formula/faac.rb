@@ -1,8 +1,8 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "http://www.audiocoding.com/faac.html"
-  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.28/faac-1.28.tar.gz"
-  sha256 "c5141199f4cfb17d749c36ba8cfe4b25f838da67c22f0fec40228b6b9c3d19df"
+  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.tar.gz"
+  sha256 "8cc7b03ceb2722223a6457e95d4c994731d80214a03ba33d1af76ba53f4b3197"
 
   bottle do
     cellar :any
@@ -14,7 +14,12 @@ class Faac < Formula
     sha256 "e2cf2e63defd76653bc96443956f28bb9e0388a76cda5d0c8c463528d68a191a" => :mountain_lion
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    system "./bootstrap"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
