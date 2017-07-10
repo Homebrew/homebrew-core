@@ -16,7 +16,7 @@ class Dbxml < Formula
 
   def install
     inreplace "dbxml/configure" do |s|
-      s.gsub! "lib/libdb-*.la | sed -e 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed -e 's\/.*db-\\(.*\\).a"
+      s.gsub! "lib/libdb-*.la | sed -e 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed -e 's/.*db-\\(.*\\).a"
       s.gsub! "lib/libdb-*.la", "lib/libdb-*.a"
       s.gsub! "libz.a", "libz.dylib"
     end
