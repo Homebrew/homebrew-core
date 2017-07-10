@@ -23,7 +23,6 @@ class Jhipster < Formula
   end
 
   test do
-    expected = "Execution complete"
-    assert_equal expected, shell_output("#{bin}/jhipster info").split("\n").pop
+    assert_match "Execution complete", shell_output("#{bin}/jhipster info")
   end
 end
