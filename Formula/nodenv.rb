@@ -1,8 +1,8 @@
 class Nodenv < Formula
   desc "Manage multiple NodeJS versions"
   homepage "https://github.com/nodenv/nodenv"
-  url "https://github.com/nodenv/nodenv/archive/v1.1.0.tar.gz"
-  sha256 "1ca6a50d1f42356f0ff569c8cc2a74fe38ff500272d8d4973dc2d165fe569d09"
+  url "https://github.com/nodenv/nodenv/archive/v1.1.1.tar.gz"
+  sha256 "12520d5a4d18dc9e809514176adab622c5f0e30a429b5671784b4f463ecd05a7"
   head "https://github.com/nodenv/nodenv.git"
 
   bottle :unneeded
