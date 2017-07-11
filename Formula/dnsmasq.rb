@@ -6,8 +6,9 @@ class Dnsmasq < Formula
   revision 2
 
   bottle do
-    sha256 "415358496ac88fd957a33ba6d0ffe0baacc1d908f7f668e89b3bcf89181b92c1" => :el_capitan_or_later
-    sha256 "102cb81febe3c1211107bf3d8b712784446f6e44808a279936d8f232a0ae07b3" => :yosemite
+    sha256 "deab432ffe48c9a40fd159b3c6478e16accc287698906b7eff11cf816914fc72" => :sierra
+    sha256 "93b314d46b19d8a67455eb2330e3ed3afd7a59f85008c2f65c2270a15b7d4b8e" => :el_capitan
+    sha256 "0391398c1c7b047159d9264cb2e8f7df57b3f445821fcc122b03ed23fa1bac09" => :yosemite
   end
 
   option "with-libidn", "Compile with IDN support"
