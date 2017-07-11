@@ -1,8 +1,8 @@
 class Gflags < Formula
   desc "Library for processing command-line flags"
   homepage "https://gflags.github.io/gflags/"
-  url "https://github.com/gflags/gflags/archive/v2.2.0.tar.gz"
-  sha256 "466c36c6508a451734e4f4d76825cf9cd9b8716d2b70ef36479ae40f08271f88"
+  url "https://github.com/gflags/gflags/archive/v2.2.1.tar.gz"
+  sha256 "ae27cdbcd6a2f935baa78e4f21f675649271634c092b1be01469440495609d0e"
 
   bottle do
     cellar :any
