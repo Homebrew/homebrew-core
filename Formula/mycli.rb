@@ -7,10 +7,10 @@ class Mycli < Formula
   sha256 "0e27ad54e59c5e13ac30ed4bf53556ef57813c38edb56ad099ffad7bc18918de"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "536fd1d384ca20ac324faf71afd36ec6f843a1bff6d861115c019782eaf7decb" => :sierra
-    sha256 "56a3c12c4ed9992e7a56e05ed79528dc19793a18c830b454f60e867a342bd203" => :el_capitan
-    sha256 "b325516f12c51b385a5bf5f25a9f0503eac6dbd1369fd9cc6166041c95cfe80e" => :yosemite
+    cellar :any
+    sha256 "8c06f7db25f281f0a718ec365ded27ca181db037ad43437ede84809de35fc97c" => :sierra
+    sha256 "6040bbcd96dca0904c5052b1c27fa8d21b28a02a3fd7352104b81ef50338ac5a" => :el_capitan
+    sha256 "1b84789fb795b08bb66bfff45dcc822fab53b7bb8c8d22df239b141b4b16cf77" => :yosemite
   end
 
   depends_on :python
