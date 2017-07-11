@@ -7,6 +7,7 @@ class Purescript < Formula
   homepage "http://www.purescript.org"
   url "https://github.com/purescript/purescript/archive/v0.11.6.tar.gz"
   sha256 "8bd2e4f844666a553d93c2e55c72c6361fbc08c706157d9d975dc7c1b730304e"
+  revision 1
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -30,7 +31,7 @@ class Purescript < Formula
         system "cabal", "get", "purescript-#{version}"
         mv "purescript-#{version}/purescript.cabal", "."
       end
-      install_cabal_package :using => ["alex", "happy"]
+      install_cabal_package "-f release", :using => ["alex", "happy"]
     end
   end
 
