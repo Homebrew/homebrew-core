@@ -1,8 +1,8 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
-  url "https://github.com/alexellis/faas-cli/archive/0.3.tar.gz"
-  sha256 "d4db7ddb0ea1dadf469c3da9893b004874d19570d09457e8cf86e5aef0df00f5"
+  url "https://github.com/alexellis/faas-cli/archive/0.4.tar.gz"
+  sha256 "f7ecebde2545243e9f37f7feb9fc2a171585d3f9e7998f981611f038bbc93987"
 
   bottle do
     cellar :any_skip_relocation
