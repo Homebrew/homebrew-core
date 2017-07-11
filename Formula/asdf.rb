@@ -18,6 +18,7 @@ class Asdf < Formula
 
   def install
     bash_completion.install "completions/asdf.bash"
+    fish_completion.install "completions/asdf.fish"
     libexec.install "bin/private"
     prefix.install Dir["*"]
 
@@ -27,6 +28,9 @@ class Asdf < Formula
   def caveats; <<-EOS.undent
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
          source #{prefix}/asdf.sh
+
+    If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
+         source #{prefix}/asdf.fish
     EOS
   end
 
