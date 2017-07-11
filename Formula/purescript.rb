@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.11.5.tar.gz"
-  sha256 "c184470a4204303b3de92a305005591133c2f7019a12625d2a7d6cd1dd54d5d3"
+  url "https://github.com/purescript/purescript/archive/v0.11.6.tar.gz"
+  sha256 "8bd2e4f844666a553d93c2e55c72c6361fbc08c706157d9d975dc7c1b730304e"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -21,7 +21,17 @@ class Purescript < Formula
   def install
     inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
     bin.install (buildpath/"scripts").children
-    install_cabal_package :using => ["alex", "happy"]
+
+    cabal_sandbox do
+      if build.head?
+        cabal_install "hpack"
+        system "./.cabal-sandbox/bin/hpack"
+      else
+        system "cabal", "get", "purescript-#{version}"
+        mv "purescript-#{version}/purescript.cabal", "."
+      end
+      install_cabal_package :using => ["alex", "happy"]
+    end
   end
 
   test do
