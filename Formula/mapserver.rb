@@ -3,7 +3,7 @@ class Mapserver < Formula
   homepage "http://mapserver.org/"
   url "http://download.osgeo.org/mapserver/mapserver-7.0.6.tar.gz"
   sha256 "dcbebd62976deef1490b084d8f6a0b2f2a1a25407efb6e058390025375539507"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -36,6 +36,11 @@ class Mapserver < Formula
     # harfbuzz but fribidi currently fails to build with:
     # fribidi-common.h:61:12: fatal error: 'glib.h' file not found
     args = std_cmake_args + %w[
+      -DWITH_KML=ON
+      -DWITH_CURL=ON
+      -DWITH_CLIENT_WMS=ON
+      -DWITH_CLIENT_WFS=ON
+      -DWITH_SOS=ON
       -DWITH_PROJ=ON
       -DWITH_GDAL=ON
       -DWITH_OGR=ON
