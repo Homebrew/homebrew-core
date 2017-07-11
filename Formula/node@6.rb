@@ -6,9 +6,9 @@ class NodeAT6 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "74159033c3e96d00872fc60d3725a8841adc5f7c3d61da22d62c16facfcb526c" => :sierra
-    sha256 "bc4f18a7b9bfa3fbecc8d467bf1caa9aa3d0bfd053084532fb52d249431a1b12" => :el_capitan
-    sha256 "44e975b2a7ec5198562e9cf1c611fa3fc6f2fa095db9995acb0328f445a36b3e" => :yosemite
+    sha256 "93bc45e0570362804a93d6edf3989d7479d8c3c795a9f22ca5ce0d47171825e7" => :sierra
+    sha256 "8bfc166360d798169a52024c3ce9cf1953b434cd137634723f18dfb131dd0f84" => :el_capitan
+    sha256 "22b525de497b46e86fd2ac33a990692e817e7bb834e3ac434ff706f2b0a0b1a9" => :yosemite
   end
 
   keg_only :versioned_formula
