@@ -24,9 +24,6 @@ class Node < Formula
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
 
-  conflicts_with "node@0.12", :because => "Differing version of same formula"
-  conflicts_with "node@0.10", :because => "Differing version of same formula"
-
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
   fails_with :gcc_4_0
