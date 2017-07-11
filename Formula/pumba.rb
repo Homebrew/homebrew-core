@@ -22,6 +22,7 @@ class Pumba < Formula
   end
 
   test do
-    system "#{bin}/pumba", "--help"
+    output = shell_output("#{bin}/pumba --version")
+    assert_match "Pumba version #{version}", output
   end
 end
