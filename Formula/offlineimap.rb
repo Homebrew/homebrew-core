@@ -3,6 +3,7 @@ class Offlineimap < Formula
   homepage "http://offlineimap.org/"
   url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.2.tar.gz"
   sha256 "7203435e34f73e90d1833b72c49a859decf7b5828384a2648ee4b2d1ef3bdc66"
+  revision 1
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
@@ -12,12 +13,21 @@ class Offlineimap < Formula
     sha256 "28a194619a4727852905343ffa00570f2c5b169dabba20d0605f9924ccac08cd" => :yosemite
   end
 
+  depends_on "asciidoc" => :build
+  depends_on "docbook-xsl" => :build
+  depends_on "sphinx-doc" => :build
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "make", "docs"
+    man1.install "docs/offlineimap.1"
+    man7.install "docs/offlineimapui.7"
+
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resource("six").stage do
       system "python", *Language::Python.setup_install_args(libexec/"vendor")
