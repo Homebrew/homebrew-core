@@ -2,8 +2,8 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      :tag => "0.17.6",
-      :revision => "91d9d5b20876da2afcbf34664bccc0bfd26088c7"
+      :tag => "0.18.0",
+      :revision => "9b2867db9f1cb3138fb5a77f7993e05c64899ab1"
   head "https://github.com/jpsim/SourceKitten.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Sourcekitten < Formula
   end
 
   depends_on :xcode => ["6.0", :run]
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["8.3", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
