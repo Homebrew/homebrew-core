@@ -8,7 +8,7 @@ class Precomp < Formula
   def install
     # HEAD already has that, but current stable version does not compile with clang without that patch
     inreplace "contrib/packmp3/Makefile", "-fsched-spec-load ", ""
-    
+
     # Seems like Yosemite does not like the -s flag
     inreplace "Makefile", " -s ", " "
 
