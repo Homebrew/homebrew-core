@@ -44,7 +44,7 @@ class Libmodplug < Formula
         }
       }
     EOS
-    system ENV.cc, "test_null.cpp", "-lmodplug", "-o", "test_null"
+    system ENV.cc, "test_null.cpp", "-L#{lib}", "-lmodplug", "-o", "test_null"
     system "./test_null"
 
     # Second, acquire an actual music file from a popular internet
@@ -69,7 +69,7 @@ class Libmodplug < Formula
         }
       }
     EOS
-    system ENV.cc, "test_mod.cpp", "-lmodplug", "-lstdc++", "-o", "test_mod"
+    system ENV.cc, "test_mod.cpp", "-L#{lib}", "-lmodplug", "-lstdc++", "-o", "test_mod"
     system "./test_mod"
   end
 end
