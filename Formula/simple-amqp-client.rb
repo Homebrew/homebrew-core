@@ -38,7 +38,7 @@ class SimpleAmqpClient < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-lSimpleAmqpClient", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lSimpleAmqpClient", "-o", "test"
     system "./test"
   end
 end
