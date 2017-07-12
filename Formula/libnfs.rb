@@ -42,7 +42,7 @@ class Libnfs < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-lnfs", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lnfs", "-o", "test"
     system "./test"
   end
 end
