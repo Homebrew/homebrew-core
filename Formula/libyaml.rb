@@ -29,7 +29,7 @@ class Libyaml < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lyaml", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lyaml", "-o", "test"
     system "./test"
   end
 end
