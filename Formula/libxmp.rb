@@ -55,7 +55,7 @@ class Libxmp < Formula
       }
     EOS
 
-    system ENV.cc, "libxmp_test.c", "-lxmp", "-o", "libxmp_test"
+    system ENV.cc, "libxmp_test.c", "-L#{lib}", "-lxmp", "-o", "libxmp_test"
     assert_equal "give me an om", shell_output("\"#{testpath}/libxmp_test\" #{test_mod}").chomp
   end
 end
