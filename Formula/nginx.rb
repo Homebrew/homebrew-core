@@ -7,9 +7,9 @@ class Nginx < Formula
   head "http://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "b57e068963566e2c945f9fccf0c643b2ad650136e434b9d6dac08b7e4fca47ec" => :sierra
-    sha256 "da5b826fd1dfa5647cacdf02fa49fc0d95168912fedba13ec6214091a0216327" => :el_capitan
-    sha256 "220078c438d928056c9f3983d74a21ae1608d6c9d8a42ba68ad7dcb396da5599" => :yosemite
+    sha256 "93bcf8e3aec465c219b6c0b4f4d5437c61bf00f2a930ef5702e0521edc51f20e" => :sierra
+    sha256 "8a7c3580534aa0854927f750d4f044a2a85f90d4c1936338a4a09fef7db0824e" => :el_capitan
+    sha256 "0caae754f402abbe1eca413a7f0291fe2499d5779bb1e537d7f80a4d7d3156d3" => :yosemite
   end
 
   devel do
