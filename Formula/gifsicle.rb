@@ -6,11 +6,9 @@ class Gifsicle < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2c99fa43de4ecd237798feaad2fab1e83b22d2f84170f3b954dd84dfd6869a9d" => :sierra
-    sha256 "2d40a7dc8d0f2a39134872a99ab8e8c3f5e5dc6381826abdd8d4f89c3fe287d0" => :el_capitan
-    sha256 "f4699986ab815c25764b4c7049fc067d6209922bcfd8b841bb19f2ae41c66f8d" => :yosemite
-    sha256 "29af107b09e41c0e40a10411565345cb636e724cd28e9d2f4e58c5dc0dd819c9" => :mavericks
+    sha256 "0f36e4e772117c0a8b54f61e6186a3c77f09091728890f817fd779b05d357978" => :sierra
+    sha256 "8a9f1a6685f096bce9db192c9ecb7e27bcdb3d520e5d583a2bc4529292a40a18" => :el_capitan
+    sha256 "0248e063028fc460eba873bb8c2b963db5a6f6e6b51a4d9d73639a781728f0aa" => :yosemite
   end
 
   head do
