@@ -30,7 +30,7 @@ class SblimSfcc < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-lcimcClient", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcimcClient", "-o", "test"
     system "./test"
   end
 end
