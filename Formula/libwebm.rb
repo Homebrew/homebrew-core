@@ -34,7 +34,7 @@ class Libwebm < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-lwebm", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lwebm", "-o", "test"
     system "./test"
   end
 end
