@@ -1,8 +1,8 @@
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
-  url "https://github.com/bcicen/ctop/archive/v0.6.0.tar.gz"
-  sha256 "659c87de3d1c4b90d6b481c096d50d799deaf0f591b430606b6f2295862bcbc0"
+  url "https://github.com/bcicen/ctop/archive/v0.6.1.tar.gz"
+  sha256 "68748870f1b0f67a210d7c963e196747882272180e9d651a1823cdaa8214f101"
 
   bottle do
     cellar :any_skip_relocation
