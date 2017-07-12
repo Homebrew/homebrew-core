@@ -1,9 +1,8 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.12.0.tar.gz"
-  sha256 "b4222e26fdb620a8d3c3a3a8b955e08b713672e1bc5198d1e4f462308a795b30"
-  revision 1
+  url "https://nginx.org/download/nginx-1.12.1.tar.gz"
+  sha256 "8793bf426485a30f91021b6b945a9fd8a84d87d17b566562c3797aba8fac76fb"
 
   head "http://hg.nginx.org/nginx/", :using => :hg
 
@@ -14,8 +13,8 @@ class Nginx < Formula
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.13.2.tar.gz"
-    sha256 "d77f234d14989d273a363f570e1d892395c006fef2ec04789be90f41a1919b70"
+    url "https://nginx.org/download/nginx-1.13.3.tar.gz"
+    sha256 "5b73f98004c302fb8e4a172abf046d9ce77739a82487e4873b39f9b0dcbb0d72"
   end
 
   # Before submitting more options to this formula please check they aren't
