@@ -27,7 +27,7 @@ class Libvterm < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-lvterm", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lvterm", "-o", "test"
     system "./test"
   end
 end
