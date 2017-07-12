@@ -60,7 +60,7 @@ class Libucl < Formula
         flag = true;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-lucl", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lucl", "-o", "test"
     system "./test", testpath/"test.cfg"
   end
 end
