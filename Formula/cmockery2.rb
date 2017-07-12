@@ -28,7 +28,7 @@ class Cmockery2 < Formula
   end
 
   test do
-    system ENV.cc, share+"example/calculator.c", "-lcmockery", "-o", "calculator"
+    system ENV.cc, share+"example/calculator.c", "-L#{lib}", "-lcmockery", "-o", "calculator"
     system "./calculator"
   end
 end
