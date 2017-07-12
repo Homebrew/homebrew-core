@@ -3,6 +3,7 @@ class Geoipupdate < Formula
   homepage "https://github.com/maxmind/geoipupdate"
   url "https://github.com/maxmind/geoipupdate/releases/download/v2.4.0/geoipupdate-2.4.0.tar.gz"
   sha256 "8b4e88ce8d84e9c75bc681704d19ec5c63c54f01e945f7669f97fb0df7e13952"
+  revision 1
 
   bottle do
     sha256 "c73d5d3d4ca5fd9247781271a804d92ea56069fa762ecb65378220e6c2e8bf26" => :sierra
@@ -18,17 +19,25 @@ class Geoipupdate < Formula
   end
 
   def install
-    system "./bootstrap" if build.head?
+    # Configure for free GeoLite2 and GeoLite Legacy Databases
+    # See http://dev.maxmind.com/geoip/geoipupdate/
+    inreplace "conf/GeoIP.conf.default" do |s|
+      s.gsub! /^UserId 0$/, "UserId 999999"
+      s.gsub! /^# (ProductIds 506 517 533 GeoLite.*$)/, "\\1"
+    end
 
+    system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--datadir=#{var}",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}"
     system "make", "install"
   end
 
   def post_install
     (var/"GeoIP").mkpath
+    system bin/"geoipupdate", "-v"
   end
 
   test do
