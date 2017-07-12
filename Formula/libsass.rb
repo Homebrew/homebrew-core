@@ -48,7 +48,7 @@ class Libsass < Formula
         }
       }
     EOS
-    system ENV.cc, "-o", "test", "test.c", "-lsass"
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lsass"
     system "./test"
   end
 end
