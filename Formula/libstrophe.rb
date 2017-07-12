@@ -49,7 +49,7 @@ class Libstrophe < Formula
         return 0;
       }
       EOS
-    flags = ["-I#{include}/", "-lstrophe"]
+    flags = ["-I#{include}/", "-L#{lib}", "-lstrophe"]
     system ENV.cc, "-o", "test", "test.c", *(flags + ENV.cflags.to_s.split)
     system "./test"
   end
