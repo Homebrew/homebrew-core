@@ -3,8 +3,8 @@ require "language/go"
 class Aurora < Formula
   desc "Beanstalkd queue server console"
   homepage "https://xuri.me/aurora"
-  url "https://github.com/Luxurioust/aurora/archive/2.0.tar.gz"
-  sha256 "b1c9bfbc41b1e94824c64634d36f11ca7dc928635456cf258bd21f099edb3e22"
+  url "https://github.com/xuri/aurora/archive/2.1.tar.gz"
+  sha256 "921f137e269c3abc4c352822cb73cc6edff69434d4685c8aabc24978e951e800"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,19 +17,24 @@ class Aurora < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-        :revision => "99064174e013895bbd9b025c31100bd1d9b590ca"
+        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
   end
 
   go_resource "github.com/rakyll/statik" do
     url "https://github.com/rakyll/statik.git",
-        :revision => "e383bbf6b2ec1a2fb8492dfd152d945fb88919b6"
+        :revision => "89fe3459b5c829c32e89bdff9c43f18aad728f2f"
+  end
+
+  go_resource "github.com/xuri/aurora" do
+    url "https://github.com/xuri/aurora.git",
+        :revision => "ba6eea49d8e2ba665613b570b1532ac9fbfcfbbb"
   end
 
   def install
     ENV["GOPATH"] = buildpath
     Language::Go.stage_deps resources, buildpath/"src"
-    mkdir_p "src/github.com/Luxurioust"
-    ln_s buildpath, "src/github.com/Luxurioust/aurora"
+    (buildpath/"src/github.com/xuri").mkpath
+    ln_s buildpath, "src/github.com/xuri/aurora"
     system "go", "build", "-o", bin/"aurora"
   end
 
