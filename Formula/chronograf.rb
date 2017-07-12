@@ -3,10 +3,8 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack."
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf.git",
-      :tag => "1.3.3.4",
-      :revision => "1bdfbbcc806b7957eeaf8b16507f518280e9afda"
-
+  url "https://github.com/influxdata/chronograf/archive/1.3.6.1.tar.gz"
+  sha256 "6864016d2be15efcf56d484578b7114a28f1ed63e851f24c75e4804c7b9da8fc"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
@@ -25,17 +23,13 @@ class Chronograf < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV.prepend_create_path "PATH", buildpath/"bin"
+    Language::Node.setup_npm_environment
     chronograf_path = buildpath/"src/github.com/influxdata/chronograf"
     chronograf_path.install buildpath.children
 
     cd chronograf_path do
       system "make", "dep"
-      cd "ui" do
-        system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-        system "npm", "run", "build"
-        touch ".jssrc"
-      end
-      system "make", ".bindata"
+      system "make", ".jssrc"
       system "make", "chronograf"
       bin.install "chronograf"
     end
