@@ -48,7 +48,7 @@ class Libchewing < Formula
         return 0;
     }
     EOS
-    system ENV.cc, "test.cpp", "-lchewing", "-o", "test"
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lchewing", "-o", "test"
     system "./test"
   end
 end
