@@ -6,8 +6,8 @@ class Dnsmasq < Formula
   revision 2
 
   bottle do
-    sha256 "deab432ffe48c9a40fd159b3c6478e16accc287698906b7eff11cf816914fc72" => :sierra
-    sha256 "93b314d46b19d8a67455eb2330e3ed3afd7a59f85008c2f65c2270a15b7d4b8e" => :el_capitan
+    rebuild 1
+    sha256 "93b314d46b19d8a67455eb2330e3ed3afd7a59f85008c2f65c2270a15b7d4b8e" => :el_capitan_or_later
     sha256 "0391398c1c7b047159d9264cb2e8f7df57b3f445821fcc122b03ed23fa1bac09" => :yosemite
   end
 
