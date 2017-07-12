@@ -31,7 +31,7 @@ class I2util < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lI2util", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lI2util", "-o", "test"
     system "./test"
   end
 end
