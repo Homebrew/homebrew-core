@@ -37,9 +37,9 @@ class Elixir < Formula
   end
 
   devel do
-    url "https://github.com/elixir-lang/elixir/archive/v1.5.0-rc.0.tar.gz"
-    version "1.5.0-rc.0"
-    sha256 "26731f227272aedf11f5ac11887f52b4b478e9c849345515855c01601d5f494e"
+    url "https://github.com/elixir-lang/elixir/archive/v1.5.0-rc.1.tar.gz"
+    version "1.5.0-rc.1"
+    sha256 "1ad60996c2141e61d36fc9c87726fa4d71353c7017c6ceb75221fe1edea14f6b"
   end
 
   depends_on Erlang18Requirement
