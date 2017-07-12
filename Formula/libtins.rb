@@ -34,6 +34,6 @@ class Libtins < Formula
         Tins::Sniffer sniffer("en0");
       }
     EOS
-    system ENV.cxx, "test.cpp", "-ltins", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-ltins", "-o", "test"
   end
 end
