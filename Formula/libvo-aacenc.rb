@@ -32,7 +32,7 @@ class LibvoAacenc < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lvo-aacenc", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lvo-aacenc", "-o", "test"
     system "./test"
   end
 end
