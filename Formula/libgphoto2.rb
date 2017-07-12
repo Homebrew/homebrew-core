@@ -40,7 +40,7 @@ class Libgphoto2 < Formula
         return gp_camera_new(&camera);
       }
     EOS
-    system ENV.cc, "test.c", "-lgphoto2", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lgphoto2", "-o", "test"
     system "./test"
   end
 end
