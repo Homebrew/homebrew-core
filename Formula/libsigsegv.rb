@@ -62,7 +62,7 @@ class Libsigsegv < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-lsigsegv", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lsigsegv", "-o", "test"
     assert_match /Test passed/, shell_output("./test")
   end
 end
