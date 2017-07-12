@@ -49,7 +49,7 @@ class Libmodbus < Formula
         return (p == 0);
       }
     EOS
-    system ENV.cc, "hellomodbus.c", "-o", "foo", "-lmodbus",
+    system ENV.cc, "hellomodbus.c", "-o", "foo", "-L#{lib}", "-lmodbus",
       "-I#{include}/libmodbus", "-I#{include}/modbus"
     system "./foo"
   end
