@@ -8,9 +8,9 @@ class Aurora < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3818dbfb08b076da83da55b4a34ff7b7e44e9b0b6c4a30c86a0c453241da60a" => :sierra
-    sha256 "98475705d9202a9634a1ec530acb6715b6e1c853ffec430da730e96e5b7bef7c" => :el_capitan
-    sha256 "8a9886f3bf81184f237cba2e121926b99c2ad2af1c6f9ad9abba9617b54146c6" => :yosemite
+    sha256 "d2af9495df0060035181a1991a9e29a8723336b312ac794e4b9a716cc38ce58e" => :sierra
+    sha256 "f0361aa58cf382e6daafb4cfd13dad45d398e4d6edff5cccd813efc165df199b" => :el_capitan
+    sha256 "150614c06c473e101d34f65f0e4114581df8d9808a3ec36df9425c9fd5246c4d" => :yosemite
   end
 
   depends_on "go" => :build
