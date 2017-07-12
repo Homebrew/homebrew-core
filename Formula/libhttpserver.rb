@@ -38,7 +38,7 @@ class Libhttpserver < Formula
 
   test do
     system ENV.cxx, pkgshare/"examples/hello_world.cpp",
-      "-o", "hello_world", "-lhttpserver", "-lcurl"
+      "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
     pid = fork { exec "./hello_world" }
     sleep 1 # grace time for server start
     begin
