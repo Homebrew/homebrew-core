@@ -61,7 +61,7 @@ class Libghthash < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-lghthash", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lghthash", "-o", "test"
     system "./test"
   end
 end
