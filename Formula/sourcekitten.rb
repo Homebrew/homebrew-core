@@ -13,7 +13,7 @@ class Sourcekitten < Formula
   end
 
   depends_on :xcode => ["6.0", :run]
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["8.3", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
