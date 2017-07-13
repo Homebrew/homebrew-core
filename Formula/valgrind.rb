@@ -19,6 +19,12 @@ class Valgrind < Formula
     depends_on "libtool" => :build
   end
 
+  # Fix crash at huge file limit on macOS: https://bugs.kde.org/show_bug.cgi?id=381815
+  patch :p0 do
+    url "https://bugs.kde.org/attachment.cgi?id=106527"
+    sha256 "0c3948225ce8ad4762b0334c1dfea9ce0c8680bf1273ef24fd2c3209288dac68"
+  end
+
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
   skip_clean "lib/valgrind"
