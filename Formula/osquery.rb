@@ -5,7 +5,7 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.5.0",
       :revision => "445fc126482a1fa2bfb206defe45dac84bce48b0"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -32,6 +32,7 @@ class Osquery < Formula
   depends_on "openssl"
   depends_on "rocksdb"
   depends_on "sleuthkit"
+  depends_on "snappy"
   depends_on "yara"
   depends_on "xz"
 
