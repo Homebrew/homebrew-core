@@ -3,6 +3,7 @@ class Snappy < Formula
   homepage "https://google.github.io/snappy/"
   url "https://github.com/google/snappy/archive/1.1.5.tar.gz"
   sha256 "c67d8d23387b1902ceff134af26e401d5412c510adeeabe6bb6b47c106b08e45"
+  revision 1
   head "https://github.com/google/snappy.git"
 
   bottle do
@@ -14,6 +15,13 @@ class Snappy < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
+  # Make sure we install a libsnappy.1.dylib symlink
+  # PR from 6 Jul 2017 "Set both VERSION and SOVERSION for target snappy"
+  patch do
+    url "https://github.com/google/snappy/pull/45.patch?full_index=1"
+    sha256 "ca9fd0bb48d14d1b59c402addb68a9b184ca680525a9b4acceaf7a614fd24f50"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
