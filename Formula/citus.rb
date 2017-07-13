@@ -7,9 +7,9 @@ class Citus < Formula
 
   bottle do
     cellar :any
-    sha256 "7688fd62e48fe1a645449bcf7d9230cb2f22866fcd91d289483d4ba8ed945cc8" => :sierra
-    sha256 "8cf21dd3e584f942d12e0b7c65bc94cc894ab86f53cca8c90dc16f2344f3fc16" => :el_capitan
-    sha256 "b2843da55e46339a6f645558f24bb721ad21b92189c607fcd4f5a9ef06fd2476" => :yosemite
+    sha256 "c19695c6f0e0462b1846700a3ae35519c4669c6f55b3819f31902dbd757c30c5" => :sierra
+    sha256 "4012fd35ca5a335c9e1fd858f2cd35b647a98047d3ee7232d811b47659485dc9" => :el_capitan
+    sha256 "c2935d135f36c3310a80c851cf49684c3857fd8c81d79517b932873bce6db7a1" => :yosemite
   end
 
   depends_on "postgresql"
