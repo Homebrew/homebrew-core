@@ -20,7 +20,7 @@ class Geoipupdate < Formula
 
   def install
     # Configure for free GeoLite2 and GeoLite Legacy Databases
-    # See http://dev.maxmind.com/geoip/geoipupdate/
+    # See https://dev.maxmind.com/geoip/geoipupdate/
     inreplace "conf/GeoIP.conf.default" do |s|
       s.gsub! /^UserId 0$/, "UserId 999999"
       s.gsub! /^# (ProductIds 506 517 533 GeoLite.*$)/, "\\1"
