@@ -4,12 +4,9 @@ class Orientdb < Formula
   url "https://orientdb.com/download.php?file=orientdb-teleporter-community-2.2.23.tar.gz"
   sha256 "de4c90e517c40dcdab515b8fa6ed482b71f59b10768c929655e59a88d2c8cb8a"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "806d80c84edfb3d53aa23cf61aa19a9214f48a4502a311a07db24558396e3b6c" => :sierra
-    sha256 "9036d32fc602eb475b884233590f58f83bbd862f9c7bedc9d1f1f310fee82c45" => :el_capitan
-    sha256 "9036d32fc602eb475b884233590f58f83bbd862f9c7bedc9d1f1f310fee82c45" => :yosemite
-  end
+  bottle :unneeded
+
+  depends_on :java => "1.6+"
 
   def install
     rm_rf Dir["{bin,benchmarks}/*.{bat,exe}"]
