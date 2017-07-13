@@ -8,9 +8,9 @@ class Ipmitool < Formula
 
   bottle do
     cellar :any
-    sha256 "09ab8411437d99d24051e033082c4f0868902fc6653010bc833a68c17dfc2577" => :sierra
-    sha256 "79028e7c9ed529b3ec4bac14933350326320c24aeed1b172ea07f2fc39020720" => :el_capitan
-    sha256 "df7ecf265d230af6f9a480348d386a9330149ac7e459f6cc98f47438f355516a" => :yosemite
+    sha256 "c7e13ccde0f639c52aa915a71f9779ec0b514ed1260c5c9078754498f80c9ec3" => :sierra
+    sha256 "d6ce46b2b93ac040cb3ac235bd68ecab496b8dbebee22fb4fb69ad52aa75e9c9" => :el_capitan
+    sha256 "5e9ad832c757416534a30df441ba41f83a4634bb80c224d4e42e7395b58cb9a6" => :yosemite
   end
 
   depends_on "openssl"
