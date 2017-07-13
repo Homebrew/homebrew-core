@@ -21,6 +21,9 @@ class Mplayer < Formula
 
   depends_on "yasm" => :build
   depends_on "libcaca" => :optional
+  depends_on "libdvdread" => :optional
+  depends_on "libdvdnav" => :optional
+  depends_on "pkg-config" => :build if build.with? "libdvdnav"
 
   unless MacOS.prefer_64_bit?
     fails_with :clang do
@@ -43,6 +46,12 @@ class Mplayer < Formula
     ]
 
     args << "--enable-caca" if build.with? "libcaca"
+    args << "--enable-dvdnav" if build.with? "libdvdnav"
+
+    if build.with? "libdvdread"
+      ENV["LDFLAGS"] = "-L#{Formula["libdvdread"].opt_lib} -ldvdread"
+      args << "--enable-dvdread"
+    end
 
     system "./configure", *args
     system "make"
