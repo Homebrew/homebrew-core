@@ -3,7 +3,7 @@ class RedisLeveldb < Formula
   homepage "https://github.com/KDr2/redis-leveldb"
   url "https://github.com/KDr2/redis-leveldb/archive/v1.4.tar.gz"
   sha256 "b34365ca5b788c47b116ea8f86a7a409b765440361b6c21a46161a66f631797c"
-  revision 2
+  revision 3
   head "https://github.com/KDr2/redis-leveldb.git"
 
   bottle do
