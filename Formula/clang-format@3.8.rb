@@ -1,7 +1,7 @@
 class ClangFormatAT38 < Formula
   desc "Formatting tools for C/C++/ObjC/Java/JavaScript/TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  url "http://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz"
+  url "https://llvm.org/releases/3.8.0/llvm-3.8.0.src.tar.xz"
   sha256 "555b028e9ee0f6445ff8f949ea10e9cd8be0d084840e21fbbe1d31d51fc06e46"
 
   bottle do
@@ -18,12 +18,12 @@ class ClangFormatAT38 < Formula
   depends_on "subversion" => :build
 
   resource "clang" do
-    url "http://llvm.org/releases/3.8.0/cfe-3.8.0.src.tar.xz"
+    url "https://llvm.org/releases/3.8.0/cfe-3.8.0.src.tar.xz"
     sha256 "04149236de03cf05232d68eb7cb9c50f03062e339b68f4f8a03b650a11536cf9"
   end
 
   resource "libcxx" do
-    url "http://llvm.org/releases/3.8.0/libcxx-3.8.0.src.tar.xz"
+    url "https://llvm.org/releases/3.8.0/libcxx-3.8.0.src.tar.xz"
     sha256 "36804511b940bc8a7cefc7cb391a6b28f5e3f53f6372965642020db91174237b"
   end
 
