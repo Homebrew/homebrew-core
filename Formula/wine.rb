@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 3
+  revision 4
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -105,9 +105,9 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.29.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.29/libpng-1.6.29.tar.xz"
-    sha256 "4245b684e8fe829ebb76186327bb37ce5a639938b219882b53d64bd3cfc5f239"
+    url "https://download.sourceforge.net/libpng/libpng-1.6.30.tar.xz"
+    mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.30.tar.xz"
+    sha256 "267c332ffff70cc599d3929207869f698798f1df143aa5f9597b007c14353666"
   end
 
   resource "freetype" do
@@ -133,9 +133,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.3.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.3.tar.bz2"
-    sha256 "bd24bf6602731a11295c025909d918180e98385625182d3b999fd6f1ab34f8bd"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.4.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.4.tar.bz2"
+    sha256 "668293fcc4b3c59765cdee5cee05941091c0879edcc24dfec5455ef83912e45c"
   end
 
   resource "gd" do
@@ -163,9 +163,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.0/mpg123-1.25.0.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.25.0.tar.bz2"
-    sha256 "552e3e1db045e00f474252917007795ac295863fc8b13891859b3382d2f24e48"
+    url "https://www.mpg123.de/download/mpg123-1.25.2.tar.bz2"
+    mirror "https://mpg123.orgis.org/download/mpg123-1.25.2.tar.bz2"
+    sha256 "5314b0fb8ad291bfc79ff4c5c321b971916819a65233ec065434358fcf8aee38"
   end
 
   fails_with :clang do
