@@ -3,7 +3,7 @@ class Snzip < Formula
   homepage "https://github.com/kubo/snzip"
   url "https://bintray.com/artifact/download/kubo/generic/snzip-1.0.4.tar.gz"
   sha256 "a45081354715d48ed31899508ebed04a41d4b4a91dca37b79fc3b8ee0c02e25e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
