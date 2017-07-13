@@ -3,7 +3,7 @@ class Wiredtiger < Formula
   homepage "http://www.wiredtiger.com"
   url "https://github.com/wiredtiger/wiredtiger/releases/download/2.9.1/wiredtiger-2.9.1.tar.bz2"
   sha256 "2995acab3422f1667b50e487106c6c88b8666d3cf239d8ecffa2dbffb17dfdcf"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
