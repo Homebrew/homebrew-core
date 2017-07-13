@@ -1,7 +1,7 @@
 class Theora < Formula
   desc "Open video compression format"
   homepage "https://www.theora.org/"
-  url "http://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
+  url "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
   sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
 
   bottle do
@@ -14,7 +14,7 @@ class Theora < Formula
   end
 
   devel do
-    url "http://downloads.xiph.org/releases/theora/libtheora-1.2.0alpha1.tar.xz"
+    url "https://downloads.xiph.org/releases/theora/libtheora-1.2.0alpha1.tar.xz"
     version "1.2.0alpha1"
     sha256 "5be692c6be66c8ec06214c28628d7b6c9997464ae95c4937805e8057808d88f7"
   end
