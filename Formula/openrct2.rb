@@ -1,9 +1,8 @@
 class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.website"
-  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.0.7.tar.gz"
-  sha256 "cf35b6e058d675ae8369c9845f9c7c9e4269a1f4a57da91dcdcdcde7e608adac"
-  revision 1
+  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.0.tar.gz"
+  sha256 "0347a47d380fc18ea543928c92a13d1bdb4431573154afeb80fa33f1149e6992"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
