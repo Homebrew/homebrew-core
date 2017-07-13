@@ -1,34 +1,34 @@
 class LlvmAT37 < Formula
   desc "Next-gen compiler infrastructure"
-  homepage "http://llvm.org/"
+  homepage "https://llvm.org/"
 
   stable do
-    url "http://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz"
+    url "https://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz"
     sha256 "be7794ed0cec42d6c682ca8e3517535b54555a3defabec83554dbc74db545ad5"
 
     resource "clang" do
-      url "http://llvm.org/releases/3.7.1/cfe-3.7.1.src.tar.xz"
+      url "https://llvm.org/releases/3.7.1/cfe-3.7.1.src.tar.xz"
       sha256 "56e2164c7c2a1772d5ed2a3e57485ff73ff06c97dff12edbeea1acc4412b0674"
     end
 
     resource "clang-tools-extra" do
-      url "http://llvm.org/releases/3.7.1/clang-tools-extra-3.7.1.src.tar.xz"
+      url "https://llvm.org/releases/3.7.1/clang-tools-extra-3.7.1.src.tar.xz"
       sha256 "4a91edaccad1ce984c7c49a4a87db186b7f7b21267b2b03bcf4bd7820715bc6b"
     end
 
     resource "polly" do
-      url "http://llvm.org/releases/3.7.1/polly-3.7.1.src.tar.xz"
+      url "https://llvm.org/releases/3.7.1/polly-3.7.1.src.tar.xz"
       sha256 "ce9273ad315e1904fd35dc64ac4375fd592f3c296252ab1d163b9ff593ec3542"
     end
 
     resource "libcxx" do
-      url "http://llvm.org/releases/3.7.1/libcxx-3.7.1.src.tar.xz"
+      url "https://llvm.org/releases/3.7.1/libcxx-3.7.1.src.tar.xz"
       sha256 "357fbd4288ce99733ba06ae2bec6f503413d258aeebaab8b6a791201e6f7f144"
     end
 
     if MacOS.version <= :snow_leopard
       resource "libcxxabi" do
-        url "http://llvm.org/releases/3.7.1/libcxxabi-3.7.1.src.tar.xz"
+        url "https://llvm.org/releases/3.7.1/libcxxabi-3.7.1.src.tar.xz"
         sha256 "a47faaed90f577da8ca3b5f044be9458d354a53fab03003a44085a912b73ab2a"
       end
     end
@@ -42,27 +42,27 @@ class LlvmAT37 < Formula
   end
 
   head do
-    url "http://llvm.org/git/llvm.git", :branch => "release_37"
+    url "https://llvm.org/git/llvm.git", :branch => "release_37"
 
     resource "clang" do
-      url "http://llvm.org/git/clang.git", :branch => "release_37"
+      url "https://llvm.org/git/clang.git", :branch => "release_37"
     end
 
     resource "clang-tools-extra" do
-      url "http://llvm.org/git/clang-tools-extra.git", :branch => "release_37"
+      url "https://llvm.org/git/clang-tools-extra.git", :branch => "release_37"
     end
 
     resource "polly" do
-      url "http://llvm.org/git/polly.git", :branch => "release_37"
+      url "https://llvm.org/git/polly.git", :branch => "release_37"
     end
 
     resource "libcxx" do
-      url "http://llvm.org/git/libcxx.git", :branch => "release_37"
+      url "https://llvm.org/git/libcxx.git", :branch => "release_37"
     end
 
     if MacOS.version <= :snow_leopard
       resource "libcxxabi" do
-        url "http://llvm.org/git/libcxxabi.git", :branch => "release_37"
+        url "https://llvm.org/git/libcxxabi.git", :branch => "release_37"
       end
     end
   end
