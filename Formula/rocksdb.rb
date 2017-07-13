@@ -3,6 +3,7 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v5.5.2.tar.gz"
   sha256 "c505d8b4aab235346f5555f00a900a45d4912ba902b49228acbcbc61d50163e7"
+  revision 1
 
   bottle do
     cellar :any
