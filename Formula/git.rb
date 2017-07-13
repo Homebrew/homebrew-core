@@ -114,6 +114,11 @@ class Git < Formula
       system "make", "clean"
     end
 
+    # Generate diff-highlight perl script executable
+    cd "contrib/diff-highlight" do
+      system "make"
+    end
+
     # Install the netrc credential helper
     cd "contrib/credential/netrc" do
       system "make", "test"
