@@ -37,6 +37,11 @@ class KubernetesCli < Formula
       # Install zsh completion
       output = Utils.popen_read("#{bin}/kubectl completion zsh")
       (zsh_completion/"kubectl").write output
+
+      # Install man pages
+      # Leave step this for the end as this dirties the git tree
+      system "hack/generate-docs.sh"
+      man1.install Dir["docs/man/man1/*.1"]
     end
   end
 
