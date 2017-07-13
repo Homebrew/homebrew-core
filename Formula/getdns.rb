@@ -35,6 +35,7 @@ class Getdns < Formula
     args = [
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
+      "--without-stubby",
     ]
     args << "--enable-stub-only" if build.without? "unbound"
     args << "--without-libidn" if build.without? "libidn"
