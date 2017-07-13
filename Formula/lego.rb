@@ -3,8 +3,8 @@ require "language/go"
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://github.com/xenolf/lego"
-  url "https://github.com/xenolf/lego/archive/v0.3.1.tar.gz"
-  sha256 "628a0dfa7c02ba833056ad8077a0e391a6658f03ddeec51d3c9f3f937cb482ab"
+  url "https://github.com/xenolf/lego/archive/v0.4.0.tar.gz"
+  sha256 "2768fe44bc7a31e8ee3779983142143f5db4aee43548f89f3531f23ee402dd87"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,72 +18,117 @@ class Lego < Formula
 
   go_resource "cloud.google.com/go" do
     url "https://code.googlesource.com/gocloud.git",
-        :revision => "49467e5deee2b3e98455bb834e029afc067d04f5"
+        :revision => "3e1507a0d90d17e4fdd8ef75e8f037ebecc854ba"
+  end
+
+  go_resource "github.com/Azure/azure-sdk-for-go" do
+    url "https://github.com/Azure/azure-sdk-for-go.git",
+        :revision => "7d2af13b1fbbe2e48bc4d2d5d3c580a54274fb15"
+  end
+
+  go_resource "github.com/Azure/go-autorest" do
+    url "https://github.com/Azure/go-autorest.git",
+        :revision => "5b4b9cc27e8f7150d75a133d74b176a067b7e7b6"
   end
 
   go_resource "github.com/JamesClonk/vultr" do
     url "https://github.com/JamesClonk/vultr.git",
-        :revision => "42d4701246e48d1b81b80471e418ea0d1cc99586"
+        :revision => "743eb4ae7f548cb4da4e55b9e5a2c9077125bd82"
   end
 
   go_resource "github.com/aws/aws-sdk-go" do
     url "https://github.com/aws/aws-sdk-go.git",
-        :revision => "00e2bf9d1518c2b7d8a97eb05b5d2a9afd1dd34e"
+        :revision => "8db8ca6fe5d53b066a9a519275dcbd0819345188"
   end
 
-  go_resource "github.com/juju/ratelimit" do
-    url "https://github.com/juju/ratelimit.git",
-        :revision => "77ed1c8a01217656d2080ad51981f6e99adaa177"
+  go_resource "github.com/decker502/dnspod-go" do
+    url "https://github.com/decker502/dnspod-go.git",
+        :revision => "f33a2c6040fc2550a631de7b3a53bddccdcd73fb"
+  end
+
+  go_resource "github.com/dgrijalva/jwt-go" do
+    url "https://github.com/dgrijalva/jwt-go.git",
+        :revision => "a539ee1a749a2b895533f979515ac7e6e0f5b650"
+  end
+
+  go_resource "github.com/dnsimple/dnsimple-go" do
+    url "https://github.com/dnsimple/dnsimple-go.git",
+        :revision => "5a5b427618a76f9eed5ede0f3e6306fbd9311d2e"
+  end
+
+  go_resource "github.com/edeckers/auroradnsclient" do
+    url "https://github.com/edeckers/auroradnsclient.git",
+        :revision => "8b777c170cfd377aa16bb4368f093017dddef3f9"
+  end
+
+  go_resource "github.com/google/go-querystring" do
+    url "https://github.com/google/go-querystring.git",
+        :revision => "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
   end
 
   go_resource "github.com/miekg/dns" do
     url "https://github.com/miekg/dns.git",
-        :revision => "db96a2b759cdef4f11a34506a42eb8d1290c598e"
+        :revision => "0559e6d230af0a3a7273853cb6994ebea21bfbe5"
   end
 
   go_resource "github.com/ovh/go-ovh" do
     url "https://github.com/ovh/go-ovh.git",
-        :revision => "d2b2eae2511fa5fcd0bdef9f1790ea3979fa35d4"
+        :revision => "d95f6f91b1fb339a53fc438df7289cd85756193b"
   end
 
-  go_resource "github.com/codegangsta/cli" do
+  go_resource "github.com/pyr/egoscale" do
+    url "https://github.com/pyr/egoscale.git",
+        :revision => "987e683a7552f34ee586217d1cc8507d52e80ab9"
+  end
+
+  go_resource "github.com/rainycape/memcache" do
+    url "https://github.com/rainycape/memcache.git",
+        :revision => "1031fa0ce2f20c1c0e1e1b51951d8ea02c84fa05"
+  end
+
+  go_resource "github.com/timewasted/linode" do
+    url "https://github.com/timewasted/linode.git",
+        :revision => "37e84520dcf74488f67654f9c775b9752c232dc1"
+  end
+
+  go_resource "github.com/urfave/cli" do
     url "https://github.com/urfave/cli.git",
-        :revision => "168c95418e66e019fe17b8f4f5c45aa62ff80e23"
-  end
-
-  go_resource "github.com/weppos/dnsimple-go" do
-    url "https://github.com/weppos/dnsimple-go.git",
-        :revision => "65c1ca73cb19baf0f8b2b33219b7f57595a3ccb0"
+        :revision => "4b90d79a682b4bf685762c7452db20f2a676ecb2"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "611beeb3d5df450a45f4b67f9e25235f54beda72"
+        :revision => "dd85ac7e6a88fc6ca420478e934de5f1a42dd3c6"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "57bfaa875b96fb91b4766077f34470528d4b03e9"
+        :revision => "f01ecb60fe3835d80d9a0b7b2bf24b228c89260e"
   end
 
   go_resource "golang.org/x/oauth2" do
     url "https://go.googlesource.com/oauth2.git",
-        :revision => "04e1573abc896e70388bd387a69753c378d46466"
+        :revision => "cce311a261e6fcf29de72ca96827bdb0b7d9c9e6"
   end
 
   go_resource "google.golang.org/api" do
     url "https://code.googlesource.com/google-api-go-client.git",
-        :revision => "593853e2d377362656ee40abf6df5cd3030c736b"
+        :revision => "e665075b5ff79143ba49c58fab02df9dc122afd5"
   end
 
   go_resource "gopkg.in/ini.v1" do
     url "https://gopkg.in/ini.v1.git",
-        :revision => "cf53f9204df4fbdd7ec4164b57fa6184ba168292"
+        :revision => "d3de07a94d22b4a0972deb4b96d790c2c0ce8333"
+  end
+
+  go_resource "gopkg.in/ns1/ns1-go.v2" do
+    url "https://gopkg.in/ns1/ns1-go.v2.git",
+        :revision => "c563826f4cbef9c11bebeb9f20a3f7afe9c1e2f4"
   end
 
   go_resource "gopkg.in/square/go-jose.v1" do
     url "https://gopkg.in/square/go-jose.v1.git",
-        :revision => "e3f973b66b91445ec816dd7411ad1b6495a5a2fc"
+        :revision => "aa2e30fdd1fe9dd3394119af66451ae790d50e0d"
   end
 
   def install
