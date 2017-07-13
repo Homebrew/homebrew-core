@@ -18,7 +18,7 @@ class Bazel < Formula
   # See https://github.com/bazelbuild/bazel/issues/3279
   patch do
     url "https://github.com/bazelbuild/bazel/pull/3281.patch?full_index=1"
-    sha256 "2584b81dfe0115281ece11a3dd5dbfe07233700fc904c81a58c0bcaf0f48c275"
+    sha256 "704dff309fa2f6ee5304f72fcbe6d2576326e1bb8e1e41385dc02d773ee35665"
   end
 
   def install
