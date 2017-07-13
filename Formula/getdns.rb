@@ -4,6 +4,8 @@ class Getdns < Formula
   url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
   sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
 
+  revision 1
+
   bottle do
     sha256 "b5bbb4aa869bc4abc5eaa110a3d86d826f125a4d4ccc0ffcd481eba3da911fe7" => :sierra
     sha256 "13cee3f0bab7cc9a786c1c04c39ff67d8f9c794f9aec5336272fbfa2ae785e75" => :el_capitan
@@ -45,8 +47,14 @@ class Getdns < Formula
     # https://github.com/getdnsapi/getdns/issues/166
     ENV.deparallelize
 
-    system "./configure", "--prefix=#{prefix}", *args
+    system "./configure", "--prefix=#{prefix}", "--without-stubby", *args
     system "make", "install"
+  end
+
+  def caveats
+    <<-EOS.undent
+      The Stubby DNS Privacy daemon has been moved to a separate formula; see stubby.
+    EOS
   end
 
   test do
