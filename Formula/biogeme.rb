@@ -1,7 +1,7 @@
 class Biogeme < Formula
   desc "Maximum likelihood estimation of choice models"
-  homepage "http://biogeme.epfl.ch"
-  url "http://biogeme.epfl.ch/distrib/biogeme-2.6a.tar.gz"
+  homepage "https://biogeme.epfl.ch/"
+  url "https://biogeme.epfl.ch/distrib/biogeme-2.6a.tar.gz"
   sha256 "f6de0ea12f83ed183f31a41b9a56d1ec7226d2305549fb89ea7b1de8273ede49"
 
   bottle do
