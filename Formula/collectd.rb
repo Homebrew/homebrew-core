@@ -26,7 +26,7 @@ class Collectd < Formula
   deprecated_option "debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :build
+  depends_on "libtool" => :run
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
   depends_on :python => :optional
