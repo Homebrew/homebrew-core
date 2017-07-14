@@ -7,9 +7,9 @@ class Snappy < Formula
 
   bottle do
     cellar :any
-    sha256 "d08c9481821fe677c168641ab2bd0bfd71d6dfcb4ece3fd92088d945db1b8f07" => :sierra
-    sha256 "2a75b17fb7db744e6236c2fdbcec0fcd411918667174237530e913b76906dba1" => :el_capitan
-    sha256 "455aa0bb50317dd87378a2484eab60a92bb256ae9c5bc385df1174c522af83ef" => :yosemite
+    sha256 "b36b34447922cd528aa8170776da33862196659701935708d468001a4688daec" => :sierra
+    sha256 "503ce22c869b985c9ca15ca923751227715cbedda401f184892f6614c10b6b41" => :el_capitan
+    sha256 "6c4b1694e7aa296c9bb97c52c47a747a27e82d89b5138596ef2d89ce99ddae67" => :yosemite
   end
 
   depends_on "cmake" => :build
