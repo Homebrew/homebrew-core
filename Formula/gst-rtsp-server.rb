@@ -5,9 +5,9 @@ class GstRtspServer < Formula
   sha256 "d8ba9264e8ae6e440293328e759e40456f161aa66077b3143dd07581136190b3"
 
   bottle do
-    sha256 "75915b1d856445e13715c50b5d54241f63ef11ded283ecf8448a27ed6de86e19" => :sierra
-    sha256 "f2ed51f45157e7b75f027270f2a8a12fc153e32f7228083dafa30003da7edc61" => :el_capitan
-    sha256 "0b3f9ce5842204f8f9a066e3d0d15b32c78efc96d96ea0c0835602579a56bc37" => :yosemite
+    sha256 "9987f49b9f2e98a5a56554b9795f38a4154083b6ff8677d19ea5503f1d2b43ec" => :sierra
+    sha256 "ec97cd73ce6600d5a975dd00971f348220bb7a0174ebca6256e6eaa77fa53f0f" => :el_capitan
+    sha256 "d0d005effac7e47ff7d26db9135da43734bf1a145bea73518b8d090d44cb6ba9" => :yosemite
   end
 
   depends_on "libtool" => :build
