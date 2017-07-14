@@ -1,8 +1,8 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.1.tar.xz"
-  sha256 "7def8049d1c44e50199023159dfada60af58fd503ef58a020b79044bda705b97"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.2.tar.xz"
+  sha256 "9c2c7edde4f59d74eb414e0701c55131f562e5c605a3ce9b091754f106c09e37"
 
   bottle do
     sha256 "02b5d5467c0916699663e7cf38da6123b72423072024bdc878bc71ded08629c6" => :sierra
@@ -40,13 +40,6 @@ class GstPluginsBad < Formula
   depends_on "sound-touch" => :optional
   depends_on "srtp" => :optional
   depends_on "libvo-aacenc" => :optional
-
-  # gst-libs/gst/gl/cocoa/gstglwindow_cocoa.h is missing in the 1.12.1 release. Fixed by this commit:
-  # https://cgit.freedesktop.org/gstreamer/gst-plugins-bad/commit/?id=450b1c92abe2ae8f84e557f61c9512a1f4006bab
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4fba405/gst-plugins-bad/gstglwindow_cocoa.patch"
-    sha256 "fb6ee96a8c33bcf182ffd22b025bbc652d0225e87bceb9f24793ae9e520fa2cd"
-  end
 
   def install
     args = %W[
