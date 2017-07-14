@@ -1,9 +1,9 @@
 class Owfs < Formula
   desc "Monitor and control physical environment using Dallas/Maxim 1-wire system"
   homepage "http://owfs.org/"
-  url "https://downloads.sourceforge.net/project/owfs/owfs/3.1p5/owfs-3.1p5.tar.gz"
-  version "3.1p5"
-  sha256 "87138566695f26743bc2b7334695b34b89b78ace1615ea74731158f51a27601f"
+  url "https://downloads.sourceforge.net/project/owfs/owfs/3.2p0/owfs-3.2p0.tar.gz"
+  version "3.2p0"
+  sha256 "8e0d9697660be639cb3c9d0b780114695d1fb0f71caab3d78571ba0a7df68590"
 
   bottle do
     cellar :any
