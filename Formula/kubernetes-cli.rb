@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.7.0",
-      :revision => "d3ada0119e776222f11ec7945e6d860061339aad"
+      :tag => "v1.7.1",
+      :revision => "1dc5c66f5dd61da08412a74221ecc79208c2165b"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -36,7 +36,12 @@ class KubernetesCli < Formula
 
       # Install zsh completion
       output = Utils.popen_read("#{bin}/kubectl completion zsh")
-      (zsh_completion/"kubectl").write output
+      (zsh_completion/"_kubectl").write output
+
+      # Install man pages
+      # Leave this step for the end as this dirties the git tree
+      system "hack/generate-docs.sh"
+      man1.install Dir["docs/man/man1/*.1"]
     end
   end
 
