@@ -401,6 +401,7 @@ class Wine < Formula
         ln_s "darwin13.h", "include/net-snmp/system/darwin14.h"
         ln_s "darwin13.h", "include/net-snmp/system/darwin15.h"
         ln_s "darwin13.h", "include/net-snmp/system/darwin16.h"
+        ln_s "darwin13.h", "include/net-snmp/system/darwin17.h"
 
         system "./configure", "--disable-debugging",
                               "--prefix=#{libexec}",
