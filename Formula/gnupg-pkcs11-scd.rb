@@ -1,8 +1,8 @@
 class GnupgPkcs11Scd < Formula
   desc "Enable the use of PKCS#11 tokens with GnuPG"
   homepage "https://gnupg-pkcs11.sourceforge.io"
-  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.7.6/gnupg-pkcs11-scd-0.7.6.tar.bz2"
-  sha256 "2962dc39a80c5aa9e71f0b847de8f66a9f02b620696d213bb138c17ffec9f7af"
+  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.8.0/gnupg-pkcs11-scd-0.8.0.tar.bz2"
+  sha256 "391d16c1a8c9a4771963b72fca04becdf8953a3223e23db738a4c94c62beb834"
 
   bottle do
     cellar :any
