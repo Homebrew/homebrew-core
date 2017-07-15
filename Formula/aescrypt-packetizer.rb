@@ -1,8 +1,8 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.10.tgz"
-  sha256 "153da7971cc3084610943dba44e0284848af72c06d019a3c913656f8c0ad48f1"
+  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.13.tgz"
+  sha256 "87cd6f6e15828a93637aa44f6ee4f01bea372ccd02ecf1702903f655fbd139a8"
 
   bottle do
     cellar :any_skip_relocation
