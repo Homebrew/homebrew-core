@@ -1,8 +1,8 @@
 class Tarsnap < Formula
   desc "Online backups for the truly paranoid"
   homepage "https://www.tarsnap.com/"
-  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.37.tgz"
-  sha256 "fa999413651b3bd994547a10ffe3127b4a85a88b1b9a253f2de798888718dbfa"
+  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
+  sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
 
   bottle do
     cellar :any
@@ -22,6 +22,13 @@ class Tarsnap < Formula
   depends_on "xz" => :optional
 
   def install
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    # Reported 20 Aug 2017 https://github.com/Tarsnap/tarsnap/issues/286
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "libcperciva/util/monoclock.c", "CLOCK_MONOTONIC",
+                                                "UNDEFINED_GIBBERISH"
+    end
+
     system "autoreconf", "-iv" if build.head?
 
     args = %W[
