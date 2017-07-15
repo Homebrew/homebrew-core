@@ -1,8 +1,8 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.2/hbase-1.2.2-bin.tar.gz"
-  sha256 "8c9cc9a19e3f4a3137509513b5c1b9e1b5a2283ed261d44af9af1c02c5453c20"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6/hbase-1.2.6-bin.tar.gz"
+  sha256 "a0fbc22373a7f2d66648c6d9fe13477e689df50c8ee533eda962d4e8fa2185ea"
 
   bottle do
     sha256 "86649e9faaa2d32bdf1d3c79bb8264afde9f7cd6196800ea4c5eb1753df7bf9e" => :sierra
@@ -168,9 +168,9 @@ class Hbase < Formula
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
     system "#{bin}/start-hbase.sh"
-    sleep 2
+    sleep 10
     begin
-      assert_match /Zookeeper/, pipe_output("nc 127.0.0.1 2181 2>&1", "stats")
+      assert_match "Zookeeper", pipe_output("nc 127.0.0.1 2181 2>&1", "stats")
     ensure
       system "#{bin}/stop-hbase.sh"
     end
