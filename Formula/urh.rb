@@ -1,8 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/66/2f/1cf04ec59830834c498956ddec163a5a87d1e6455133ff04df2d73c030b8/urh-1.6.6.tar.gz"
-  sha256 "67ab5eed2c26bd3a1baab228b730cc7bcc3df080b8aac53180303fa965a559c6"
+  url "https://files.pythonhosted.org/packages/ba/17/be6c3eecb25acd192297a15f8fbc069db148b86a52b4ddccbc704f67ebd6/urh-1.7.0.tar.gz"
+  sha256 "9f2b2c70981d117152ce36c382a403d69401d7e53782f4f24822044d77ebc8ac"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -21,8 +21,8 @@ class Urh < Formula
   depends_on "hackrf" => :optional
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/05/84/0feb999c05f252af50a5fbc463268044feda92cdaad8cb0d0a6073d76057/numpy-1.13.0.zip"
-    sha256 "dcff367b725586830ff0e20b805c7654c876c2d4585c0834a6049502b9d6cf7e"
+    url "https://files.pythonhosted.org/packages/c0/3a/40967d9f5675fbb097ffec170f59c2ba19fc96373e73ad47c2cae9a30aed/numpy-1.13.1.zip"
+    sha256 "c9b0283776085cb2804efff73e9955ca279ba4edafd58d3ead70b61d209c4fbb"
   end
 
   resource "psutil" do
@@ -59,6 +59,12 @@ class Urh < Formula
   test do
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", "-c", "import urh.util.crc;c = urh.util.crc.crc_generic();assert(c.crc([1, 2, 3]) == [True, False, False, False, False, False, True, True, False, False, False, False, False, False, True, True])"
+    (testpath/"test.py").write <<-EOS.undent
+      from urh.util.GenericCRC import GenericCRC;
+      c = GenericCRC();
+      expected = [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]
+      assert(expected == c.crc([1, 2, 3]).tolist())
+    EOS
+    system "python3", "test.py"
   end
 end
