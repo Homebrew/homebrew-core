@@ -4,8 +4,8 @@ class GitExtras < Formula
   head "https://github.com/tj/git-extras.git"
 
   stable do
-    url "https://github.com/tj/git-extras/archive/4.3.0.tar.gz"
-    sha256 "25e608ba17b49d38e1f1f9938cceb9a7406f4e2a5e9488898c193e82ac42e3be"
+    url "https://github.com/tj/git-extras/archive/4.4.0.tar.gz"
+    sha256 "16c2184f13272dd032717ebd22a88762759cd10d2b9357e4ac7bd992bdd7686d"
     # Disable "git extras update", which will produce a broken install under Homebrew
     # https://github.com/Homebrew/homebrew/issues/44520
     # https://github.com/tj/git-extras/pull/491
