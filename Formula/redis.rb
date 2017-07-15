@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.9.tar.gz"
-  sha256 "6eaacfa983b287e440d0839ead20c2231749d5d6b78bbe0e0ffa3a890c59ff26"
+  url "http://download.redis.io/releases/redis-4.0.0.tar.gz"
+  sha256 "d539ae309295721d5c3ed7298939645b6f86ab5d25fdf2a0352ab575c159df2d"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
@@ -10,12 +10,6 @@ class Redis < Formula
     sha256 "cc1fe39dedd78b18fa6342cb9626183f2b2ae7138b11c247d17901506678244d" => :sierra
     sha256 "da746dba8fe2adaf47d764680c6232270fd08a6697ab1c2cc320bfd67e7dc08f" => :el_capitan
     sha256 "18f7b5ccb4afdb99f8554f8b013cc2d7fca4ae29fa0807fa591cf6dd6017dca0" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/antirez/redis/archive/4.0-rc3.tar.gz"
-    sha256 "bc948bcb32dc4ba43412dd791b4bb48c64de9debb797346b9c9f1b2cb98f96f4"
-    version "4.0RC3"
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
