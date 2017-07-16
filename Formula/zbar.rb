@@ -1,7 +1,7 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://zbar.sourceforge.io"
-  revision 4
+  revision 5
 
   stable do
     url "https://downloads.sourceforge.net/project/zbar/zbar/0.10/zbar-0.10.tar.bz2"
