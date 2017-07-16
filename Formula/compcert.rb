@@ -3,7 +3,7 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
   sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -25,7 +25,10 @@ class Compcert < Formula
     # creates problems since Xcode's gcc does not support CFI,
     # but superenv will trick it into using clang which does. This
     # causes problems with the compcert compiler at runtime.
-    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
+    inreplace "configure" do |s|
+      s.gsub! "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
+      s.gsub! "  8.6)", "  8.6.1)"
+    end
 
     args = ["-prefix", prefix]
     args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
