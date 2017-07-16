@@ -3,6 +3,7 @@ class Infer < Formula
   homepage "http://fbinfer.com/"
   url "https://github.com/facebook/infer/releases/download/v0.12.0/infer-osx-v0.12.0.tar.xz"
   sha256 "3b97bcabf85af8feb8d6fd0b8622fe2b4fbf27fa215fab61e3a660b5435b6d21"
+  revision 1
 
   bottle do
     cellar :any
