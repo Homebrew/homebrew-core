@@ -7,11 +7,9 @@ class OneMl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84e3117aaf277d154ed4aef11c51f9317d401b44b2af1bb19c40a300876154e2" => :sierra
-    sha256 "f494747ba756eef47b6ed68b6886549b531f0e684ba09b43e71a3c1b2736de26" => :el_capitan
-    sha256 "cc73f66afbba3987c55fcf9f1f285c8597c81390dcead47a65023e6d44aa6b02" => :yosemite
-    sha256 "8697e17bf008608f3f81b8b561ec8ed82e3cdf9b06850a88c213b06f87b2abba" => :mavericks
-    sha256 "d9cc9f66611ddf1d255a3090886d84f76ecd90c82fc1b6833a9c736f372dc484" => :mountain_lion
+    sha256 "97fd29ed2044756e418c6ae09c70796b112c5677d716c5032e7b77f002c3a658" => :sierra
+    sha256 "1d3496b1f0cc6d06d1a9b68a53c0d5d182cbc791a3795c61605e1b406d2eb394" => :el_capitan
+    sha256 "c1052202350991040d99b3316a18cc808d8e16f75bb475edad18a73cc71da902" => :yosemite
   end
 
   depends_on "ocaml" => :build
