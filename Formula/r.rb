@@ -5,9 +5,9 @@ class R < Formula
   sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
 
   bottle do
-    sha256 "d0254993416c177d7fa49b9cde95eb8bd262e3a801408b21951cc0f7755e0a0e" => :sierra
-    sha256 "2098376a2d552573a1b0e2ff29c076b05a0161ec276260b5b76a80e87d5cd6c1" => :el_capitan
-    sha256 "be31e78c3df77a46e91500b4809cb7f89bceacabc0c38d1bc3e56beab31bff6e" => :yosemite
+    sha256 "ead3a96538eb9bade8990d67cf97bda800107887e0ebd8c0017410fdfa1a244c" => :sierra
+    sha256 "93e5072a56a26fc212a9e617d36a786fe807c70e2487551f616484cede800623" => :el_capitan
+    sha256 "d7a2ccb1236b46d32ee2ed5a3c43a39b3b4d1c955e58f229ac3f75bfed5d4359" => :yosemite
   end
 
   depends_on "pkg-config" => :build
