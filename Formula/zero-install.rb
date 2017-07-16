@@ -4,6 +4,7 @@ class ZeroInstall < Formula
   url "https://github.com/0install/0install/archive/v2.12-1.tar.gz"
   version "2.12-1"
   sha256 "317ac6ac680d021cb475962b7f6c2bcee9c35ce7cf04ae00d72bba8113f13559"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -30,7 +31,7 @@ class ZeroInstall < Formula
     system "opam", "init", "--no-setup"
     modules = %w[yojson xmlm ounit react ppx_tools lwt<3 extlib ocurl sha]
     modules << "lablgtk" if build.with? "gtk+"
-    system "opam", "install", *modules
+    system "opam", "config", "exec", "opam", "install", *modules
 
     system "opam", "config", "exec", "make"
     inreplace "dist/install.sh", '"/usr/local"', prefix
