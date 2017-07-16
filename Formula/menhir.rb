@@ -3,7 +3,7 @@ class Menhir < Formula
   homepage "http://cristal.inria.fr/~fpottier/menhir"
   url "http://cristal.inria.fr/~fpottier/menhir/menhir-20170607.tar.gz"
   sha256 "00caa66ed0d1544defda24539f2ca1d37b92120e0575aafc5fcabd8e5364ce61"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "45ea2725cf33b536e5c7026a77829a7ef06c47bd8ba997365271e52e3ab106b0" => :sierra
