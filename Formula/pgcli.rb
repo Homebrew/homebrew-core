@@ -1,8 +1,8 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/f8/65/9ff27e98944b775154496d7c05da9c90379fa6b077b6066800c13cc141f7/pgcli-1.6.0.tar.gz"
-  sha256 "f19a12ec525ef3f21baab7da67d82e1ca99086a9ba06bdf0592b9412be7c09e8"
+  url "https://files.pythonhosted.org/packages/d2/71/59473625a4df68df7593b3fb86ac5a81bc5e29e2f9247acdfa4be08d3e43/pgcli-1.7.0.tar.gz"
+  sha256 "fd8ef5011a354063dd53c95e9b39125c601f8bd406f973a74601f919aafb1181"
 
   bottle do
     cellar :any
@@ -14,6 +14,16 @@ class Pgcli < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
   depends_on :postgresql
+
+  resource "backports.csv" do
+    url "https://files.pythonhosted.org/packages/6a/0b/2071ad285e87dd26f5c02147ba13abf7ec777ff20416a60eb15ea204ca76/backports.csv-1.0.5.tar.gz"
+    sha256 "8c421385cbc6042ba90c68c871c5afc13672acaf91e1508546d6cda6725ebfc6"
+  end
+
+  resource "cli-helpers" do
+    url "https://files.pythonhosted.org/packages/2b/7e/307131c2c3f3abef2d1e68b7088882c078da6ce5bb57cbe79bac12718c72/cli_helpers-0.2.1.tar.gz"
+    sha256 "a868e69e780c1fd5091c83e784e8b18e2005cab921f1dfda4ffd376271ee85ac"
+  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
@@ -65,6 +75,11 @@ class Pgcli < Formula
     sha256 "becd7cc7cebbdf311de8ceedfcf2bd2403297024418801947f8c953025beeff8"
   end
 
+  resource "terminaltables" do
+    url "https://files.pythonhosted.org/packages/9b/c4/4a21174f32f8a7e1104798c445dacdc1d4df86f2f26722767034e4de4bff/terminaltables-3.1.0.tar.gz"
+    sha256 "f3eb0eb92e3833972ac36796293ca0906e998dc3be91fbe1f8615b331b853b81"
+  end
+
   resource "wcwidth" do
     url "https://files.pythonhosted.org/packages/55/11/e4a2bb08bb450fdbd42cc709dd40de4ed2c472cf0ccb9e64af22279c5495/wcwidth-0.1.7.tar.gz"
     sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
@@ -77,6 +92,9 @@ class Pgcli < Formula
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
+
+    # backports is a namespace package
+    touch libexec/"vendor/lib/python2.7/site-packages/backports/__init__.py"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
