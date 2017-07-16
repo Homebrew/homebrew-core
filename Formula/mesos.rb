@@ -49,6 +49,20 @@ class Mesos < Formula
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
+  if DevelopmentTools.clang_build_version >= 802 # does not affect < Xcode 8.3
+    # _scheduler.so segfault when Mesos is built with Xcode 8.3.2
+    # Reported 29 May 2017 https://issues.apache.org/jira/browse/MESOS-7583
+    # The issue does not occur with Xcode 9 beta 3.
+    fails_with :clang do
+      build 802
+      cause "Segmentation fault in _scheduler.so"
+    end
+  end
+
+  # error: 'Megabytes(32).Megabytes::<anonymous>' is not a constant expression
+  # because it refers to an incompletely initialized variable
+  fails_with :gcc => "7"
+
   needs :cxx11
 
   def install
