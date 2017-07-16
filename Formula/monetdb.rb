@@ -7,7 +7,7 @@ class RRequirement < Requirement
     R not found. The R integration module requires R.
     Do one of the following:
     - install R
-    -- run brew install homebrew/science/r or brew install Caskroom/cask/r
+    -- run brew install r or brew cask install r-app
     - remove the --with-r option
     EOS
   end
