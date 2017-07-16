@@ -15,7 +15,7 @@ class Ssreflect < Formula
   homepage "https://math-comp.github.io/math-comp/"
   url "http://ssr.msr-inria.inria.fr/FTP/ssreflect-1.5.tar.gz"
   sha256 "bad978693d1bfd0a89586a34678bcc244e3b7efba6431e0f83d8e1ae8f82a142"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "654fb1c617736a464bf6590ec9d178dd253f69f0866c703bfa50818bac43cd5b" => :sierra
