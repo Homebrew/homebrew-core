@@ -9,10 +9,9 @@ class Fstar < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ad015ac7f7202d4db5801ccb0922ce984935dc337193aa78611721c120d88784" => :sierra
-    sha256 "1dfe626f31ebac5bff51e984dd3b67536543758527e8fedb6774aea13ccbf36d" => :el_capitan
-    sha256 "44cd67be2acca5988b9bd3c234afebbaed3e6c89fc94041b4191bf19916f9c36" => :yosemite
+    sha256 "dbd43955ad872d0c7217f9d7f2c0140ca6114a162ac41b73c6dba50f7637c0ce" => :sierra
+    sha256 "55f4d2b1397c5087574f6103c4849b7167c9d094ae8293d59a59be674c3dd93a" => :el_capitan
+    sha256 "d24224b03bbb333691295e99e3322a2a5b4729d97d3d3aeac82beafab7af5274" => :yosemite
   end
 
   depends_on "opam" => :build
