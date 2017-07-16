@@ -1,5 +1,4 @@
 class CrosstoolNg < Formula
-
   desc "Tool for building toolchains"
   homepage "http://crosstool-ng.org"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.23.0.tar.xz"
@@ -26,7 +25,6 @@ class CrosstoolNg < Formula
   depends_on "make"
 
   def install
-
     ENV.append "MAKE", "gmake"
     ENV.append "OBJDUMP", "gobjdump"
     ENV.append "READELF", "greadelf"
@@ -46,11 +44,10 @@ class CrosstoolNg < Formula
     # Must be done in two steps
     system "make"
     system "make", "install"
-
   end
 
   test do
     assert_match "This is crosstool-NG", shell_output("make -rf #{bin}/ct-ng version")
   end
-  
+
 end
