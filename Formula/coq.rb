@@ -15,6 +15,7 @@ class Coq < Formula
   homepage "https://coq.inria.fr/"
   url "https://coq.inria.fr/distrib/8.6.1/files/coq-8.6.1.tar.gz"
   sha256 "32f8aa92853483dec18030def9f0857a708fee56cf4287e39c9a260f08138f9d"
+  revision 1
   head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
 
   bottle do
