@@ -4,7 +4,7 @@ class Fstar < Formula
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.4.0",
       :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
-  revision 1
+  revision 2
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
@@ -30,11 +30,18 @@ class Fstar < Formula
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
 
     system "opam", "init", "--no-setup"
+    inreplace "opamroot/compilers/4.04.2/4.04.2/4.04.2.comp",
+      '["./configure"', '["./configure" "-no-graph"' # avoid X11
+
+    # remove when the OPAM deps have OCaml 4.05.0 compatible versions
+    system "opam", "switch", "4.04.2"
 
     if build.stable?
-      system "opam", "install", "batteries=2.5.3", "zarith=1.4.1", "yojson=1.3.3", "pprint=20140424"
+      system "opam", "config", "exec", "opam", "install", "batteries=2.5.3",
+             "zarith=1.4.1", "yojson=1.3.3", "pprint=20140424"
     else
-      system "opam", "install", "batteries", "zarith", "yojson", "pprint"
+      system "opam", "config", "exec", "opam", "install", "batteries", "zarith",
+             "yojson", "pprint"
     end
 
     system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
