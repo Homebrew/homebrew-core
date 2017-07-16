@@ -8,10 +8,9 @@ class ZeroInstall < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d763e6f40daecae76c4b13fe07415b34fed02acbc0af435660cbc8366f4bae70" => :sierra
-    sha256 "311457af0361373c81ba2008402a8073b4b0d20afab1cf37b4d4fc651ab31046" => :el_capitan
-    sha256 "7435c7338aa470c9365a1c693fc03138496875f8781ae80f9c8f6bff1c905641" => :yosemite
+    sha256 "bf4bb4e75194ac7f85969298f592fa460c459fe5363aaca290c16055cbb6be91" => :sierra
+    sha256 "fc20a07f9e2f81feeeb0b755838b5e6f327206f9a95c00f13b7fcea851c00199" => :el_capitan
+    sha256 "173371c177694ff72038f504c81bde55777960d14678bf1d0b942487aff444ef" => :yosemite
   end
 
   depends_on "pkg-config" => :build
