@@ -3,6 +3,7 @@ class UnisonAT240 < Formula
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
   url "https://www.seas.upenn.edu/~bcpierce/unison/download/releases/unison-2.40.128/unison-2.40.128.tar.gz"
   sha256 "5a1ea828786b9602f2a42c2167c9e7643aba2c1e20066be7ce46de4779a5ca54"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
