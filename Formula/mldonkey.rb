@@ -7,9 +7,9 @@ class Mldonkey < Formula
   head "https://github.com/ygrek/mldonkey.git", :branch => "next"
 
   bottle do
-    sha256 "da8c1bd6176070cca2b681d5fb56888ea0704615ca75ae7c74a555f597689116" => :sierra
-    sha256 "3ffeb23b857161ecf7d48d6479f0494012f63245069591b7f3fbd728fc1a0f8c" => :el_capitan
-    sha256 "69891decdf1c9ae9b9b5b2880c6b4cbbb7ecd65792929c0672d27caeb872520a" => :yosemite
+    sha256 "3ce7cea1dcb24867f474488fb7b85fd8c0387fefaf1919c67e9a2ff538a12e39" => :sierra
+    sha256 "a5b13542b152b3421029a6fe2d66d7c9e25b31647ed7b9cb16644866dbeffaa8" => :el_capitan
+    sha256 "89af4b702b61cfe0fed14df0d0550a8005ef8456ab403874a8ea3f5330465f53" => :yosemite
   end
 
   depends_on "camlp4" => :build
