@@ -1,14 +1,24 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.3.2.tar.bz2"
-  sha256 "216900d5c0af9017bb8f76b0ad23f0ac53cf7fc618cf04b40d989bd99b088e6a"
-  head "https://github.com/FFmpeg/FFmpeg.git"
+
+  stable do
+    url "https://ffmpeg.org/releases/ffmpeg-3.3.2.tar.bz2"
+    sha256 "216900d5c0af9017bb8f76b0ad23f0ac53cf7fc618cf04b40d989bd99b088e6a"
+
+    depends_on "yasm" => :build
+  end
 
   bottle do
     sha256 "5a376b449da71f11aec2426ceab28c5797f429e8d1e29934541a7d57d4fed34f" => :sierra
     sha256 "0d2fe136c30cc3a89746a1bfe67e4579766edda52f5f8f80b44aeafe0257e216" => :el_capitan
     sha256 "57879c39bc53a7868ea5da360e4567c004062c581321a3707352151f12686768" => :yosemite
+  end
+
+  head do
+    url "https://github.com/FFmpeg/FFmpeg.git"
+
+    depends_on "nasm" => :build
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -45,7 +55,6 @@ class Ffmpeg < Formula
 
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
-  depends_on "yasm" => :build
 
   depends_on "lame" => :recommended
   depends_on "x264" => :recommended
