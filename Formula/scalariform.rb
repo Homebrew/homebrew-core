@@ -1,11 +1,11 @@
 class Scalariform < Formula
   desc "Scala source code formatter"
-  homepage "https://github.com/daniel-trinh/scalariform"
-  url "https://github.com/daniel-trinh/scalariform/releases/download/0.1.7/scalariform.jar"
-  sha256 "8cb179402a7960310a8c6639a20ab94277ec3052cb75ea3ddba31265d070f0d6"
+  homepage "https://github.com/scala-ide/scalariform"
+  url "https://github.com/scala-ide/scalariform/releases/download/0.2.1/scalariform.jar"
+  sha256 "35d0de7c969d39facc21f2842116326f0115467748665894e1b58a5c675f58fd"
 
   head do
-    url "https://github.com/daniel-trinh/scalariform.git"
+    url "https://github.com/scala-ide/scalariform.git"
     depends_on "sbt" => :build
   end
 
