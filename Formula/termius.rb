@@ -3,8 +3,8 @@ class Termius < Formula
 
   desc "CLI tool for termius.com (aka serverauditor.com)"
   homepage "https://termius.com"
-  url "https://github.com/Crystalnix/termius-cli/archive/v1.1.1.tar.gz"
-  sha256 "5a6fd8f418babb567d5972fb3395553660c0ccaefbd3823115e1b3793d26c9dd"
+  url "https://github.com/Crystalnix/termius-cli/archive/v1.1.2.tar.gz"
+  sha256 "f024ecaa61e2afcdabaa3255fb335812927a1634f2f6ce8d60a98dab51f85799"
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "develop"
 
   bottle do
