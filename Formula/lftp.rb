@@ -1,9 +1,9 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
-  homepage "https://lftp.tech"
-  url "https://lftp.yar.ru/ftp/lftp-4.7.7.tar.bz2"
-  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.7.7.tar.bz2"
-  sha256 "fe441f20a9a317cfb99a8b8e628ba0457df472b6d93964d17374d5b5ebdf9280"
+  homepage "https://lftp.yar.ru/"
+  url "https://lftp.yar.ru/ftp/lftp-4.8.0.tar.xz"
+  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.8.0.tar.xz"
+  sha256 "7a2880968088b4aeec43b6b6680fef0e065e1dddcce9b409390157e9766b690f"
 
   bottle do
     sha256 "d27973d0a87c6cb2362be22562ae8082f521c68895a394294219aa2812409d32" => :sierra
@@ -14,15 +14,6 @@ class Lftp < Formula
   depends_on "readline"
   depends_on "openssl"
   depends_on "libidn"
-
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Repurposed patch, credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/edf0ee1e2cf/devel/m4/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
