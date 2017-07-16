@@ -4,7 +4,7 @@ class Fstar < Formula
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.4.0",
       :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
-  revision 1
+  revision 2
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do

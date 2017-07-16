@@ -14,8 +14,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.04/ocaml-4.04.2.tar.xz"
-  sha256 "d158ed3e9446b300554baeaaa8cca2e9491420b505a9878940205074e2970f2e"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.05/ocaml-4.05.0.tar.xz"
+  sha256 "04a527ba14b4d7d1b2ea7b2ae21aefecfa8d304399db94f35a96df1459e02ef9"
   head "https://caml.inria.fr/svn/ocaml/trunk", :using => :svn
 
   pour_bottle? do
@@ -30,12 +30,6 @@ class Ocaml < Formula
     sha256 "83eb66e6d8edefac54ef0c6d35463c2da5d6913de6ca9ba1b4285e1b9989a489" => :sierra
     sha256 "e609fa7017393ce93f11020190563c104a7cfc9f7d498214a538ba53ef9ece28" => :el_capitan
     sha256 "6993d8c8c3a60a871b851ec38d7957a7c6a4588b681d6c142cad07d133d3f6d2" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/ocaml/ocaml/archive/4.05.0+beta3.tar.gz"
-    version "4.05.0+beta3"
-    sha256 "3d82d5b32310d1c010981c12508e0ff63fb71b0c89457bcac813b7c291d4b61c"
   end
 
   option "with-x11", "Install with the Graphics module"
