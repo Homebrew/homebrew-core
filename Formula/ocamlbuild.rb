@@ -7,9 +7,9 @@ class Ocamlbuild < Formula
   head "https://github.com/ocaml/ocamlbuild.git"
 
   bottle do
-    sha256 "c0967a4ad6e92d53941db22065fcf83ea6e1f1b5d02ea9d3533cebed5ab88686" => :sierra
-    sha256 "21fd3297dd1fd9fa0562b441752050d2736faa48a71ce7196cd918da91b81b5e" => :el_capitan
-    sha256 "3dea9c0a9dc05e5f82d88b29cecfccb2943e6cd4912ac2021b9f0ee42d5521fb" => :yosemite
+    sha256 "e8438ae3c391e979cb38682cc8db1d5cb4cbd228b8332255e39c7b866e7a01da" => :sierra
+    sha256 "c8dc260e66ddfdc78d6844320be9a7c2f8e191eb8fc7421ad5bf6e5482e7570b" => :el_capitan
+    sha256 "498e4af06474baa080371eabf1b83b4608aa376e834f38b3291093c6d29ccca6" => :yosemite
   end
 
   depends_on "ocaml"
