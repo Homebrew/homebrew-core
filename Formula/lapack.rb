@@ -2,7 +2,7 @@ class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "http://www.netlib.org/lapack/"
   url "http://www.netlib.org/lapack/lapack-3.7.1.tgz"
-  sha256 "1af2e1aa940eb72c4154f3a1072418b922d1d163c1bc322de5171d9aaa715b79"
+  sha256 "f6c53fd9f56932f3ddb3d5e24c1c07e4cd9b3b08e7f89de9c867125eecc9a1c8"
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
