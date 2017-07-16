@@ -3,6 +3,7 @@ class Coccinelle < Formula
   homepage "http://coccinelle.lip6.fr/"
   url "http://coccinelle.lip6.fr/distrib/coccinelle-1.0.6.tgz"
   sha256 "8452ed265c209dae99cbb33b67bc7912e72f8bca1e24f33f1a88ba3d7985e909"
+  revision 1
 
   bottle do
     sha256 "0693fefe1f7978255ade853c00cf6a1e0d8c7811113ca1aa80a7cef9c12c6279" => :sierra
