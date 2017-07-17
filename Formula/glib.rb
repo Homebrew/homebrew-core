@@ -89,6 +89,9 @@ class Glib < Formula
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+      # correct linking of framework - caused broken links downstream
+      s.gsub! "-Wl,-framework -Wl,CoreFoundation",
+              "-Wl,-framework,CoreFoundation"
     end
 
     (share+"gtk-doc").rmtree
