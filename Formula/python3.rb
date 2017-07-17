@@ -1,8 +1,8 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz"
-  sha256 "a01810ddfcec216bcdb357a84bfaafdfaa0ca42bbdaa4cb7ff74f5a9961e4041"
+  url "https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz"
+  sha256 "9229773be41ed144370f47f0f626a1579931f5a390f1e8e3853174d52edd64a9"
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
@@ -10,11 +10,6 @@ class Python3 < Formula
     sha256 "77fddf274eed11c29f7d9dc0b7b1183860fa70ffff00bcf046150a0f65cd675c" => :sierra
     sha256 "e9060ef5d5e291e55533e2b8e7ce742906e53c2eb1302ed54036301016eefe19" => :el_capitan
     sha256 "16753928434530a84ec309c0a083ba3da9535b8e7750fd5b2440e77c71c8f7b0" => :yosemite
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/3.6.2/Python-3.6.2rc1.tar.xz"
-    sha256 "16bd96ec3e26365a110d8fd9f582f9123edf9cca04a65c5304c91f524129ca05"
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
