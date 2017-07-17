@@ -11,7 +11,7 @@ class Knot < Formula
   end
 
   head do
-    url "https://gitlab.labs.nic.cz/labs/knot.git"
+    url "https://gitlab.labs.nic.cz/knot/knot-dns.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
