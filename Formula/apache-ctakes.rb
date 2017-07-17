@@ -18,8 +18,8 @@ class ApacheCtakes < Formula
   def install
     rm_f Dir["bin/*.bat", "bin/*.cmd", "bin/ctakes.profile", "bin/ctakes-ytex",
              "libexec/*.bat", "libexec/*.cmd"]
-    pkgshare.install_symlink libexec/"resources/org/apache/ctakes/examples"
     libexec.install %w[bin config desc lib resources]
+    pkgshare.install_symlink libexec/"resources/org/apache/ctakes/examples"
 
     if build.with? "ctakes-resources"
       resource("ctakes-resources").stage do
