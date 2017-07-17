@@ -2,8 +2,8 @@ class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
   url "https://github.com/broadinstitute/cromwell/releases/download/28/cromwell-28.jar"
-  sha256 "25c6c30fe062fb4a8384ef82aa5313ad5a5ee05eae62a2c831219d7c6c756347"
-
+  sha256 "c9ce762df236588ded042ceaf099848c0c1685d34788442ee251615ff13b5190"
+  revision 1
   head do
     url "https://github.com/broadinstitute/cromwell.git"
     depends_on "sbt" => :build
