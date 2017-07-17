@@ -6,9 +6,9 @@ class FreeradiusServer < Formula
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   bottle do
-    sha256 "f0a1016c6df804583e42d458be1f9f26c3fc70a904657f6732a233fe84f1a425" => :sierra
-    sha256 "ab2d430e1198fd82e12ba2e7695235ee00113a397f835f059d6679277a8d1c55" => :el_capitan
-    sha256 "021a45cffae2aef7b1d150d45c1fb2c00a75194ce940ee06d6903fec86c686da" => :yosemite
+    sha256 "ff932637e3ec318b58513eae08c1f5e8dbfe6ae1ec7754f1e7eee0c009c51d2f" => :sierra
+    sha256 "759a444aec877b3ab6d06938fbb7b01a4ab7e7302e8ad5843837187dacc30973" => :el_capitan
+    sha256 "65f998ce03daee3c05bb02cc83ac8de864c47193fdc4637305edb2dfea6c2260" => :yosemite
   end
 
   depends_on "openssl"
