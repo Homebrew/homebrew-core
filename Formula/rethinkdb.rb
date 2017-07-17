@@ -1,8 +1,8 @@
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://www.rethinkdb.com/"
-  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.5.tgz"
-  sha256 "dd8aeee169b177179bfe080725f0560443e0f26dae875b32ae25d90cf2f8ee10"
+  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.6.tgz"
+  sha256 "c42159666910ad01be295a57caf8839ec3a89227d8919be5418e3aa1f0a3dc28"
 
   bottle do
     cellar :any
@@ -19,13 +19,6 @@ class Rethinkdb < Formula
   fails_with :gcc do
     build 5666 # GCC 4.2.1
     cause "RethinkDB uses C++0x"
-  end
-
-  # Fixes "'availability.h' file not found"
-  # Reported 1 Aug 2016: "Fix the build on case-sensitive macOS file systems"
-  patch do
-    url "https://github.com/rethinkdb/rethinkdb/pull/6024.patch?full_index=1"
-    sha256 "cc8d8cae6e266cc0e417a844d0103b817caadc8e634e46e6bf50b778ce676377"
   end
 
   def install
