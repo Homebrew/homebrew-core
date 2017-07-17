@@ -3,7 +3,7 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v5.5.2.tar.gz"
   sha256 "c505d8b4aab235346f5555f00a900a45d4912ba902b49228acbcbc61d50163e7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,6 +16,7 @@ class Rocksdb < Formula
   depends_on "snappy"
   depends_on "lz4"
   depends_on "gflags"
+  depends_on "jemalloc"
 
   def install
     ENV.cxx11
