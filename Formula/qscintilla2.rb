@@ -3,6 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.1/QScintilla_gpl-2.10.1.tar.gz"
   sha256 "97f98a9d91f908db6ce37fecc6d241d955b388a1c487173b60726cba9a3dfa64"
+  revision 1
 
   bottle do
     sha256 "4579cfb238d11f856d95fd6a18fbc9051c19e72dbcca95750aa84329bdee1d1f" => :sierra
@@ -11,23 +12,14 @@ class Qscintilla2 < Formula
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
-  option "with-python", "Build Python bindings"
+  option "without-python", "Do not build Python bindings"
   option "without-python3", "Do not build Python3 bindings"
 
+  depends_on "pyqt"
   depends_on "qt"
+  depends_on "sip"
+  depends_on :python => :recommended
   depends_on :python3 => :recommended
-  depends_on :python => :optional
-
-  if build.with?("python") && build.with?("python3")
-    depends_on "sip" => "with-python3"
-    depends_on "pyqt" => "with-python"
-  elsif build.with?("python")
-    depends_on "sip"
-    depends_on "pyqt" => "with-python"
-  elsif build.with?("python3")
-    depends_on "sip" => "with-python3"
-    depends_on "pyqt"
-  end
 
   def install
     spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
