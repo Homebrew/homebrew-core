@@ -3,7 +3,7 @@ class VimAT74 < Formula
   homepage "http://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "cedecb3829f8f0ee0a7f1a066a6d85684d1abfd05548b4ecdf255a78718efea3" => :sierra
@@ -117,9 +117,9 @@ class VimAT74 < Formula
 
       # Expand the link and get the python exec path
       vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      system_framework_path = `python-config --exec-prefix`.chomp
+      python_framework_path = `python2-config --exec-prefix`.chomp
 
-      assert_equal system_framework_path, vim_framework_path
+      assert_equal python_framework_path, vim_framework_path
     end
   end
 end

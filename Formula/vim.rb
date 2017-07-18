@@ -3,6 +3,7 @@ class Vim < Formula
   homepage "https://vim.sourceforge.io/"
   url "https://github.com/vim/vim/archive/v8.0.0728.tar.gz"
   sha256 "85e724aaa5fa14ecef6193529e89de60ee56b6f8779874c8cbee7da9ca56d02b"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do

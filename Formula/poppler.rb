@@ -3,6 +3,7 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.56.0.tar.xz"
   sha256 "869dbadf99ed882e776acbdbc06689d8a81872a2963440b1e8516cd7a2577173"
+  revision 1
 
   bottle do
     sha256 "183cfb95cb3f30ee45db2e6b6bef3a9b98bd001b6b03c209a6e3fdd62b15313d" => :sierra
