@@ -22,7 +22,7 @@ class Cromwell < Formula
       bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
     else
       libexec.install "cromwell-#{version}.jar"
-      bin.write_jar_script libexec/"cromwell-#{version}.jar", "cromwell"
+      bin.write_jar_script libexec/"cromwell-28.jar", "cromwell"
     end
   end
 
