@@ -3,6 +3,7 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.3/sip-4.19.3.tar.gz"
   sha256 "740df844f80cc45dcc9b23294a92492923bc403ce88e68c35783f27c177c4b74"
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
@@ -12,9 +13,8 @@ class Sip < Formula
     sha256 "d2f1ca2d1b51efe597cafbadb04387defbeea13307786ac982168ae81c6cd234" => :yosemite
   end
 
-  option "without-python", "Build without python2 support"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on :python => :recommended
+  depends_on :python3 => :recommended
 
   def install
     if build.without?("python3") && build.without?("python")
