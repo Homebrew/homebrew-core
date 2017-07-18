@@ -1,13 +1,9 @@
 class Cputhrottle < Formula
   desc "Limit the CPU usage of a process"
   homepage "http://www.willnolan.com/cputhrottle/cputhrottle.html"
-  # http://www.willnolan.com/cputhrottle/cputhrottle.tar.gz has a different
-  # checksum; contacted the author 18 Sep 2017 requesting versioned tarballs.
-  url "https://www.mirrorservice.org/sites/distfiles.macports.org/cputhrottle/20100515/cputhrottle.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/cputhrottle-20100515.tar.gz"
-  version "20100515"
-  sha256 "fdf284e1c278e4a98417bbd3eeeacf40db684f4e79a9d4ae030632957491163b"
-  revision 1
+  url "http://www.willnolan.com/cputhrottle/cputhrottle-1.0.0.tar.gz"
+  sha256 "08243656d0abf6dd5fd9542d33553507ce395ee4e0a1aeb5df08ca78bc83ec21"
+  version_scheme 1
 
   bottle do
     sha256 "32da8a76bd7589b850afe95fce181cfa7d2efd68724bea9e81f57609edbce854" => :sierra
@@ -16,13 +12,8 @@ class Cputhrottle < Formula
     sha256 "6df740581ec759d149a2f456da278361fcff522718799b5a24ca03762f8908b2" => :mavericks
   end
 
-  depends_on "boost" => :build
-
   def install
-    boost = Formula["boost"]
-    system "make", "BOOST_PREFIX=#{boost.opt_prefix}",
-                   "BOOST_INCLUDES=#{boost.opt_include}",
-                   "all"
+    system "make", "all"
     bin.install "cputhrottle"
   end
 
