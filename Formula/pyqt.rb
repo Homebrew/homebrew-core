@@ -3,6 +3,7 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9/PyQt5_gpl-5.9.tar.gz"
   sha256 "ab0e7999cf202cc72962c78aefe461d16497b3c1a8282ab966ad90b6cb271096"
+  revision 1
 
   bottle do
     sha256 "4bbaeeef5adfd07fc2ab80ffb861a28af9f416a45e177cf26e955f478c2feaad" => :sierra
@@ -15,15 +16,10 @@ class Pyqt < Formula
 
   deprecated_option "enable-debug" => "with-debug"
 
-  depends_on :python3 => :recommended
-  depends_on :python => :optional
   depends_on "qt"
-
-  if build.with? "python3"
-    depends_on "sip" => "with-python3"
-  else
-    depends_on "sip"
-  end
+  depends_on "sip"
+  depends_on :python => :recommended
+  depends_on :python3 => :recommended
 
   def install
     if build.without?("python3") && build.without?("python")
