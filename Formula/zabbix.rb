@@ -5,9 +5,9 @@ class Zabbix < Formula
   sha256 "3ea0c299bd69bc728177128740f0476bc1a2c1de438330df5bbd8f5fc6090712"
 
   bottle do
-    sha256 "53cf139fba01e23e9e99d376bd87eb731a4f4820893be1a959dcc6b3e5031e6b" => :sierra
-    sha256 "8ab8b527d7d05970133f06f6e3218be819c2c7879555a3a76c3009c4b1770d8a" => :el_capitan
-    sha256 "aabb18d6d862d1fc6d594f1cf5752f378ed4f8e43b3ef5c687d82d1d28de7d15" => :yosemite
+    sha256 "f5339668b22723446077ccb27043d2231ed62c0bc9dc7e2195fe94c49b1a6e4b" => :sierra
+    sha256 "a00256ad062808595260400eddb4fa75707adf04817bd7a48d42098897404ae7" => :el_capitan
+    sha256 "c3bad0c8a76d1b20fe163805ecf26a8a6f040305e172ffc6a09ceacf645d9746" => :yosemite
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
