@@ -9,9 +9,9 @@ class Xdot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7cb38b8fb14e2c2b7ee8d16d73300c3af56617ae044e088b4fe05ae61ec9f5c5" => :sierra
-    sha256 "7cb38b8fb14e2c2b7ee8d16d73300c3af56617ae044e088b4fe05ae61ec9f5c5" => :el_capitan
-    sha256 "7cb38b8fb14e2c2b7ee8d16d73300c3af56617ae044e088b4fe05ae61ec9f5c5" => :yosemite
+    sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :sierra
+    sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :el_capitan
+    sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :yosemite
   end
 
   depends_on "pygobject3"
