@@ -7,10 +7,9 @@ class Mat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ba9e05f83512d744c55a694e592699984986291de73be9cff605d6289b01a99" => :sierra
-    sha256 "d3b96d99a81bbf560d6aa6f288d85c10e1f3ff31c54559fd22958a8a882baeb6" => :el_capitan
-    sha256 "4e8d9c641e402bbd41330df930eb3476ebd502bb6c671691a699b775d28a03f5" => :yosemite
-    sha256 "53c46830d2c77a24e2096e8aa6e30fdc1a2510957573b8578d8316dfeab1b635" => :mavericks
+    sha256 "7d4635e0a5ba485e170331015408512caf7f3de11bfe66e739ad8abe288add6d" => :sierra
+    sha256 "bcd1ab8ac5dfef8d65e0c0b361314a5df7e178efb556b02983fda2149cada310" => :el_capitan
+    sha256 "a0cfbbe2c51f0310fcfd61c4ae97bc5e10738216bd2904b367c913d49377c467" => :yosemite
   end
 
   depends_on :python => :optional
