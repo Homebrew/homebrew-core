@@ -24,11 +24,21 @@ class Awscli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
+    # Remove Windows file
+    inreplace buildpath/"setup.py", "'bin/aws.cmd',", ""
     venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"
 
     bash_completion.install "bin/aws_bash_completer"
-    zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
+    zsh_completion.install "bin/aws_zsh_completer.sh"
+    (zsh_completion/"_aws").write <<-EOS.undent
+        #compdef aws
+        _aws () {
+          local e
+          e=$(dirname ${funcsourcetrace[1]%:*})/aws_zsh_completer.sh
+          if [[ -f $e ]]; then source $e; fi
+        }
+    EOS
   end
 
   def caveats; <<-EOS.undent
