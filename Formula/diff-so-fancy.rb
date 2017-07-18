@@ -3,7 +3,7 @@ class DiffSoFancy < Formula
   homepage "https://github.com/so-fancy/diff-so-fancy"
   url "https://github.com/so-fancy/diff-so-fancy/archive/v1.1.0.tar.gz"
   sha256 "4313659fc5bd3d076f3725e9f412d8f84312661c772c7429321896e7d09c61ac"
-  head "https://github.com/so-fancy/diff-so-fancy.git"
+  head "https://github.com/so-fancy/diff-so-fancy.git", :branch => "next"
 
   bottle :unneeded
 
