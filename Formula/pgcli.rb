@@ -6,10 +6,9 @@ class Pgcli < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "bfbaad5983794cc4b1982f7badeda15f7a519d2581de37b03fc27079b8172b27" => :sierra
-    sha256 "0f5af9807c88167aea45ef47b405f28425c918e6bb650228b7b065d5b421479c" => :el_capitan
-    sha256 "0d42b5d4682f209cae274ecf3530edfe43217539c0da00d53b1779797ccd5f08" => :yosemite
+    sha256 "1574ae0f26253987feda503b74c0a4bdcb5e6bdfaba55c8cbe304555d8dabd3f" => :sierra
+    sha256 "6aafb608eabec0b673849edde41555334e4570f32714f6b117f00dd491507d1f" => :el_capitan
+    sha256 "0b4f03a74c1dbfbe5daf2d515315852a5a585e59ec84dd6092b232490b9537e5" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
