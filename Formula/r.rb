@@ -3,6 +3,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz"
   sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
+  revision 1
 
   bottle do
     sha256 "ead3a96538eb9bade8990d67cf97bda800107887e0ebd8c0017410fdfa1a244c" => :sierra
@@ -19,6 +20,10 @@ class R < Formula
   depends_on "xz"
   depends_on :fortran
   depends_on "homebrew/science/openblas" => :optional
+  depends_on :java => :optional
+
+  # needed to preserve executable permissions on files without shebangs
+  skip_clean "lib/R/bin"
 
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
@@ -34,6 +39,7 @@ class R < Formula
       "--without-x",
       "--with-aqua",
       "--with-lapack",
+      "--enable-R-shlib",
       "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
     ]
 
@@ -43,6 +49,12 @@ class R < Formula
     else
       args << "--with-blas=-framework Accelerate"
       ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang
+    end
+
+    if build.with? "java"
+      args << "--enable-java"
+    else
+      args << "--disable-java"
     end
 
     # Help CRAN packages find gettext and readline
@@ -64,12 +76,17 @@ class R < Formula
       end
     end
 
+    r_home = lib/"R"
+
     # make Homebrew packages discoverable for R CMD INSTALL
-    inreplace lib/"R/etc/Makeconf" do |s|
+    inreplace r_home/"etc/Makeconf" do |s|
       s.gsub!(/^CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include")
       s.gsub!(/^LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib")
       s.gsub!(/.LDFLAGS =.*/, "\\0 $(LDFLAGS)")
     end
+
+    include.install_symlink Dir[r_home/"include/*"]
+    lib.install_symlink Dir[r_home/"lib/*"]
   end
 
   def post_install
@@ -82,5 +99,6 @@ class R < Formula
 
   test do
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
+    assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
   end
 end
