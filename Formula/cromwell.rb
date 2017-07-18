@@ -21,7 +21,7 @@ class Cromwell < Formula
       libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
       bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
     else
-      libexec.install "cromwell-#{version}.jar"
+      libexec.install "cromwell-28.jar"
       bin.write_jar_script libexec/"cromwell-28.jar", "cromwell"
     end
   end
