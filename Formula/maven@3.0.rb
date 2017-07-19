@@ -1,7 +1,8 @@
 class MavenAT30 < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://archive.apache.org/dist/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz"
   sha256 "d98d766be9254222920c1d541efd466ae6502b82a39166c90d65ffd7ea357dd9"
 
   bottle :unneeded
