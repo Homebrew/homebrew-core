@@ -1,8 +1,8 @@
 class Swiftplate < Formula
   desc "Cross-platform Swift framework templates from the command-line"
   homepage "https://github.com/JohnSundell/SwiftPlate"
-  url "https://github.com/JohnSundell/SwiftPlate/archive/1.3.0.tar.gz"
-  sha256 "edd0329dd04e579e17b71d3b9624781fda2fdb046eb9a5ea1a7a391144b900a8"
+  url "https://github.com/JohnSundell/SwiftPlate/archive/1.4.0.tar.gz"
+  sha256 "13c6e9d2204c24ed95ad26f3e8266b8c62e709db626acf5e511ced23de9b9143"
   head "https://github.com/JohnSundell/SwiftPlate.git"
 
   bottle do
