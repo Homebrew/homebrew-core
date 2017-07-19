@@ -3,6 +3,7 @@ class Pioneer < Formula
   homepage "https://pioneerspacesim.net/"
   url "https://github.com/pioneerspacesim/pioneer/archive/20170415.tar.gz"
   sha256 "dfbcfb63686fa3b7a16a4bac34de81adb02eeaf23593b3e63cca906bf4dbef67"
+  revision 1
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
@@ -28,6 +29,11 @@ class Pioneer < Formula
   def install
     ENV.cxx11
     ENV["PIONEER_DATA_DIR"] = "#{pkgshare}/data"
+
+    # Upstream issue "assimp 4.0.0 support"
+    # Reported 19 Jul 2017 https://github.com/pioneerspacesim/pioneer/issues/4054
+    inreplace "configure.ac", "aiGetVersionMinor() >= 2",
+                              "aiGetVersionMinor() >= 0"
 
     # Remove as soon as possible
     # https://github.com/pioneerspacesim/pioneer/issues/3839
