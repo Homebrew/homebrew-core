@@ -1,19 +1,9 @@
 class Wpscan < Formula
   desc "Black box WordPress vulnerability scanner"
   homepage "https://wpscan.org"
+  url "https://github.com/wpscanteam/wpscan/archive/2.9.3.tar.gz"
+  sha256 "1bacc03857cca5a2fdcda060886bf51dbf73b129abbb7251b8eb95bc874e5376"
   head "https://github.com/wpscanteam/wpscan.git"
-
-  stable do
-    url "https://github.com/wpscanteam/wpscan/archive/2.9.2.tar.gz"
-    sha256 "01c888bf2310354823a9522cd929e0caad5570c14eef6f47754c90e268fccad8"
-
-    patch do
-      # - Remove xmlrpc/client requirement, already fixed in wpscanteam/wpscan@ec831f7.
-      # - Add Gemfile.lock from wpscanteam/wpscan@21f4de2 for reproducibility.
-      url "https://gist.githubusercontent.com/anonymous/aa09eed140172009f1eda6268023342c/raw/f69a26776f7768858da08c902ae3d5f75b3e7c36/wpscan-2.9.2-brew.patch"
-      sha256 "f8329ba709a0078651532816a8023b285d24652bab299ed7dde8b3e846ca810e"
-    end
-  end
 
   bottle do
     sha256 "49178b5a7589c7069af8e3a08cc528ae26b3e929abfbf2fe48a12f3c44778b8a" => :sierra
