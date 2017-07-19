@@ -1,8 +1,8 @@
 class Recoverjpeg < Formula
   desc "Tool to recover JPEG images from a file system image"
   homepage "https://www.rfc1149.net/devel/recoverjpeg.html"
-  url "https://www.rfc1149.net/download/recoverjpeg/recoverjpeg-2.3.tar.gz"
-  sha256 "d6a63f0362c1f62ba9d022e044bf6cd404250547a921f25aa2d0087d08faf1ab"
+  url "https://www.rfc1149.net/download/recoverjpeg/recoverjpeg-2.6.1.tar.gz"
+  sha256 "32038b650acd8dc041d25c8d7078c987e8e0bad377fd1f9e7436614be810f103"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,5 +16,9 @@ class Recoverjpeg < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/recoverjpeg -V")
   end
 end
