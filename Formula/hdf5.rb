@@ -3,6 +3,7 @@ class Hdf5 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.bz2"
   sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
+  revision 1
 
   bottle do
     sha256 "4b84596fa90199c9911ab75b294d67316febe17f5bd865aaee6034983990bdbb" => :sierra
@@ -12,7 +13,6 @@ class Hdf5 < Formula
 
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-parallel" => "with-mpi"
-  deprecated_option "enable-cxx" => "with-cxx"
 
   option :cxx11
 
@@ -41,7 +41,7 @@ class Hdf5 < Formula
       --enable-build-mode=production
     ]
 
-    if build.with?("cxx") && build.without?("mpi")
+    if build.without?("mpi")
       args << "--enable-cxx"
     else
       args << "--disable-cxx"
