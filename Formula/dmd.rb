@@ -77,32 +77,58 @@ class Dmd < Formula
     prefix.install "samples"
     man.install Dir["docs/man/*"]
 
-    # A proper dmd.conf is required for later build steps:
-    conf = buildpath/"dmd.conf"
-    # Can't use opt_include or opt_lib here because dmd won't have been
-    # linked into opt by the time this build runs:
-    conf.write <<-EOS.undent
-        [Environment]
-        DFLAGS=-I#{include}/dlang/dmd -L-L#{lib}
-        EOS
-    etc.install conf
-    install_new_dmd_conf
+    if build.head?
+      make_args.unshift "DMD_DIR=#{buildpath}", "DRUNTIME_PATH=#{buildpath}/druntime", "PHOBOS_PATH=#{buildpath}/phobos"
+      (buildpath/"druntime").install resource("druntime")
+      (buildpath/"phobos").install resource("phobos")
+      system "make", "-C", "druntime", *make_args
+      system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
 
-    make_args.unshift "DMD=#{bin}/dmd"
+      resource("tools").stage do
+        inreplace "posix.mak", "install: $(TOOLS) $(CURL_TOOLS)", "install: $(TOOLS) $(ROOT)/dustmite"
+        system "make", "install", *make_args
+      end
 
-    (buildpath/"druntime").install resource("druntime")
-    (buildpath/"phobos").install resource("phobos")
+      (include/"dlang/dmd").install Dir["druntime/import/*"]
+      cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
+      lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
 
-    system "make", "-C", "druntime", *make_args
-    system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
+      conf = buildpath/"dmd.conf"
+      # Can't use opt_include or opt_lib here because dmd won't have been
+      # linked into opt by the time this build runs:
+      conf.write <<-EOS.undent
+          [Environment]
+          DFLAGS=-I#{include}/dlang/dmd -L-L#{lib}
+          EOS
+      etc.install conf
+    else
+      # A proper dmd.conf is required for later build steps:
+      conf = buildpath/"dmd.conf"
+      # Can't use opt_include or opt_lib here because dmd won't have been
+      # linked into opt by the time this build runs:
+      conf.write <<-EOS.undent
+          [Environment]
+          DFLAGS=-I#{include}/dlang/dmd -L-L#{lib}
+          EOS
+      etc.install conf
+      install_new_dmd_conf
 
-    (include/"dlang/dmd").install Dir["druntime/import/*"]
-    cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
-    lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
+      make_args.unshift "DMD=#{bin}/dmd"
 
-    resource("tools").stage do
-      inreplace "posix.mak", "install: $(TOOLS) $(CURL_TOOLS)", "install: $(TOOLS) $(ROOT)/dustmite"
-      system "make", "install", *make_args
+      (buildpath/"druntime").install resource("druntime")
+      (buildpath/"phobos").install resource("phobos")
+
+      system "make", "-C", "druntime", *make_args
+      system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
+
+      (include/"dlang/dmd").install Dir["druntime/import/*"]
+      cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
+      lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
+
+      resource("tools").stage do
+        inreplace "posix.mak", "install: $(TOOLS) $(CURL_TOOLS)", "install: $(TOOLS) $(ROOT)/dustmite"
+        system "make", "install", *make_args
+      end
     end
   end
 
