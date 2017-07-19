@@ -3,6 +3,7 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.16.tar.xz"
   sha256 "3e0c3ad01f3c8c5c9b1cc1ae00852bd55164c8e5a9c1f90ba5e07f14f175fe2c"
+  revision 1
 
   bottle do
     sha256 "a9306c76f8ec710028f16b2decedc7265e1e9fbf95c25a0466d9bd9024380676" => :sierra
@@ -14,9 +15,16 @@ class Gtkx3 < Formula
   # see https://bugzilla.gnome.org/show_bug.cgi?id=772281
   patch :DATA
 
+  patch do
+    url "https://github.com/GNOME/gtk/compare/gtk-3-22...tschoonj:native-quartz-filechooser-dialog.patch"
+  end
+
   option "with-quartz-relocation", "Build with quartz relocation support"
 
   depends_on "pkg-config" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gdk-pixbuf"
   depends_on "atk"
   depends_on "gobject-introspection"
@@ -41,10 +49,13 @@ class Gtkx3 < Formula
 
     args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 
+    system "autoreconf", "-f"
     system "./configure", *args
+    rm "testsuite/gtk/gtkresources.c"
     # necessary to avoid gtk-update-icon-cache not being found during make install
     bin.mkpath
     ENV.prepend_path "PATH", bin
+    system "make"
     system "make", "install"
     # Prevent a conflict between this and Gtk+2
     mv bin/"gtk-update-icon-cache", bin/"gtk3-update-icon-cache"
