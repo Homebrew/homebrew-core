@@ -36,9 +36,8 @@ class Lesspipe < Formula
   
   def caveats
     <<-EOS
-      lesspipe.sh gets symlinked to /usr/local/bin/lesspipe.sh.
       Append the following to your .bash_profile/.bashrc:
-      export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+      export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
     EOS
   end
 end
