@@ -25,4 +25,8 @@ class Wordplay < Formula
     bin.install "wordplay"
     pkgshare.install "words721.txt"
   end
+
+  test do
+    assert_equal "BREW", shell_output("#{bin}/wordplay -s ERWB").strip
+  end
 end

@@ -1,17 +1,16 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.16.tar.xz"
-  sha256 "3e0c3ad01f3c8c5c9b1cc1ae00852bd55164c8e5a9c1f90ba5e07f14f175fe2c"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.17.tar.xz"
+  sha256 "a6c1fb8f229c626a3d9c0e1ce6ea138de7f64a5a6bc799d45fa286fe461c3437"
 
   bottle do
-    sha256 "a9306c76f8ec710028f16b2decedc7265e1e9fbf95c25a0466d9bd9024380676" => :sierra
-    sha256 "62f7b715b1ab9d9010a40003e63b8a498bc91fbb23485a7e39bd0efb4a852318" => :el_capitan
-    sha256 "16184c07877da86c2f7e287ff14eefae19d0baa24c1513213ca521ce8a8d9811" => :yosemite
+    sha256 "2512bb567493724c1e88f0773bee5d8e028c80b15b1e3ef25c085bfaf0657304" => :sierra
+    sha256 "300eccfdd8a88a2499891e7924444b7e0cd311b90e054820ec12c9e0793364f3" => :el_capitan
+    sha256 "ffcb7262c67de59c89e66216288021cdf29cbe0b714f91570057e919ec8f0c44" => :yosemite
   end
 
   # see https://bugzilla.gnome.org/show_bug.cgi?id=781118
-  # see https://bugzilla.gnome.org/show_bug.cgi?id=772281
   patch :DATA
 
   option "with-quartz-relocation", "Build with quartz relocation support"
@@ -144,21 +143,3 @@ index 586f7af..d032643 100644
  }
 
  static gchar *
-diff --git a/gtk/gtkclipboard-quartz.c b/gtk/gtkclipboard-quartz.c
-index fec31f5..2b0b098 100644
---- a/gtk/gtkclipboard-quartz.c
-+++ b/gtk/gtkclipboard-quartz.c
-@@ -1253,3 +1253,12 @@ gtk_clipboard_get_selection (GtkClipboard *clipboard)
-
-   return clipboard->selection;
- }
-+
-+GtkClipboard *
-+gtk_clipboard_get_default (GdkDisplay *display)
-+{
-+  g_return_val_if_fail (display != NULL, NULL);
-+  g_return_val_if_fail (GDK_IS_DISPLAY (display), NULL);
-+
-+  return gtk_clipboard_get_for_display (display, GDK_SELECTION_CLIPBOARD);
-+}
-

@@ -1,15 +1,15 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.8.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.8.tar.bz2"
-  sha256 "948276ea47e6ba0244f36a17b51dcdd52cfd1e664b0a1ac3bc82134fb6cec199"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.8.0.tar.bz2"
+  sha256 "23e49697b87cc4173b03b4757c8df4314e3149058fa18bdc4f82098f103d891b"
 
   bottle do
     cellar :any
-    sha256 "83c46c8bcf7fbaee2ba7140179fc1f4965af5fca38873df7e8d0c61b214da89e" => :sierra
-    sha256 "1a3d9d442fcee318295902030c35ffcd4c6bcf61f749cc51485e52e0e68887d3" => :el_capitan
-    sha256 "eaf1961e564e530619a0ae87094a4a40210d054bb9826fceb8e611562916adfe" => :yosemite
+    sha256 "f05ef0b1309ebab4e9606ed0b237ba3b262cfa70108d17df4882424f15c221d4" => :sierra
+    sha256 "13297e186d6cfab8d90edb52f69d4f4ea732464d6d5d039829243b3c5ed60f19" => :el_capitan
+    sha256 "8abd405da76c3f3361c529721a48f4ee1d75884fad8699526833e6b6d85fe3dd" => :yosemite
   end
 
   depends_on "libgpg-error"
@@ -27,7 +27,8 @@ class Libgcrypt < Formula
                           "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
+                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
+                          "--disable-jent-support" # Requires ENV.O0, which is unpleasant.
 
     # Parallel builds work, but only when run as separate steps
     system "make"

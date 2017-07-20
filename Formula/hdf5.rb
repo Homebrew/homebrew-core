@@ -3,16 +3,16 @@ class Hdf5 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.bz2"
   sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
+  revision 1
 
   bottle do
-    sha256 "4b84596fa90199c9911ab75b294d67316febe17f5bd865aaee6034983990bdbb" => :sierra
-    sha256 "06ef6a48b30e0e7defe21f5b5b8629192a26f27dcb546ef35b9910e91b65d5f4" => :el_capitan
-    sha256 "7cd785f3fd24110986772625c521665070af91fe3074fb2ad0f24cb635bc93eb" => :yosemite
+    sha256 "23036072b3ae09d944d5dd202d424a1664f789373314ef6e2e150a7a48f31b85" => :sierra
+    sha256 "4d162fc09c0816911e8d79b875c991498c320146b48c126b6de68689efe9c107" => :el_capitan
+    sha256 "837619f72eefccde1fb4a0fd91031d0a14ec3eadcf60fadc888dfcedd1fce774" => :yosemite
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-parallel" => "with-mpi"
-  deprecated_option "enable-cxx" => "with-cxx"
 
   option :cxx11
 
@@ -41,7 +41,7 @@ class Hdf5 < Formula
       --enable-build-mode=production
     ]
 
-    if build.with?("cxx") && build.without?("mpi")
+    if build.without?("mpi")
       args << "--enable-cxx"
     else
       args << "--disable-cxx"

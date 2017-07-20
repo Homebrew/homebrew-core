@@ -3,17 +3,16 @@ class Pgcli < Formula
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/d2/71/59473625a4df68df7593b3fb86ac5a81bc5e29e2f9247acdfa4be08d3e43/pgcli-1.7.0.tar.gz"
   sha256 "fd8ef5011a354063dd53c95e9b39125c601f8bd406f973a74601f919aafb1181"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "bfbaad5983794cc4b1982f7badeda15f7a519d2581de37b03fc27079b8172b27" => :sierra
-    sha256 "0f5af9807c88167aea45ef47b405f28425c918e6bb650228b7b065d5b421479c" => :el_capitan
-    sha256 "0d42b5d4682f209cae274ecf3530edfe43217539c0da00d53b1779797ccd5f08" => :yosemite
+    sha256 "1574ae0f26253987feda503b74c0a4bdcb5e6bdfaba55c8cbe304555d8dabd3f" => :sierra
+    sha256 "6aafb608eabec0b673849edde41555334e4570f32714f6b117f00dd491507d1f" => :el_capitan
+    sha256 "0b4f03a74c1dbfbe5daf2d515315852a5a585e59ec84dd6092b232490b9537e5" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
-  depends_on :postgresql
 
   resource "backports.csv" do
     url "https://files.pythonhosted.org/packages/6a/0b/2071ad285e87dd26f5c02147ba13abf7ec777ff20416a60eb15ea204ca76/backports.csv-1.0.5.tar.gz"
@@ -85,9 +84,26 @@ class Pgcli < Formula
     sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
   end
 
+  resource "libpq" do
+    url "https://ftp.postgresql.org/pub/source/v9.6.3/postgresql-9.6.3.tar.bz2"
+    sha256 "1645b3736901f6d854e695a937389e68ff2066ce0cde9d73919d6ab7c995b9c6"
+  end
+
   def install
+    resource("libpq").stage do
+      system "./configure", "--disable-debug",
+                            "--prefix=#{libexec}/libpq",
+                            "--with-openssl"
+      system "make"
+      system "make", "-C", "src/bin", "install"
+      system "make", "-C", "src/include", "install"
+      system "make", "-C", "src/interfaces", "install"
+    end
+
+    ENV.prepend_path "PATH", libexec/"libpq/bin"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
+      next if r.name == "libpq"
       r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end

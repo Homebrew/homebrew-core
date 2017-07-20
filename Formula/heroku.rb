@@ -3,15 +3,15 @@ require "language/node"
 class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
-  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.12.9.tgz"
-  sha256 "d5b7a0450dd1816c98798f5ab7aed0360fb94ba1d85526ef908c5b5a0df8b83d"
+  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.12.11.tgz"
+  sha256 "5420fae717c175de3acba2f1e444af799a2e587efe16e4aab7c351ce6264bbc3"
   head "https://github.com/heroku/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72fb6f833b16effaa899df7c67703ed915fcd5d7df12ef36621e6ec0006301d1" => :sierra
-    sha256 "304f42296136901c8e2502fcf58fad1dcece960f5e3218b2d7a8ea8a04711030" => :el_capitan
-    sha256 "5e15ad595e4cd4b0fbfee5aae2d0e023ff249fd1ee743afbe3a2da574d1c6783" => :yosemite
+    sha256 "da9ac37405f5aa07887fc039b4632157c525f0826e985a9fdf8be88fbdafa657" => :sierra
+    sha256 "ff42e4e0af0bcb77871cc84072fbecbf23c24ee87c34d0b348ba67dc9bad94d8" => :el_capitan
+    sha256 "379e7930906d0a05b589ba33b126310b61d46adbaa0dac03249a68ae3d8e5ad4" => :yosemite
   end
 
   depends_on "node"

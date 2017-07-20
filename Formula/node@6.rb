@@ -6,9 +6,10 @@ class NodeAT6 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "93bc45e0570362804a93d6edf3989d7479d8c3c795a9f22ca5ce0d47171825e7" => :sierra
-    sha256 "8bfc166360d798169a52024c3ce9cf1953b434cd137634723f18dfb131dd0f84" => :el_capitan
-    sha256 "22b525de497b46e86fd2ac33a990692e817e7bb834e3ac434ff706f2b0a0b1a9" => :yosemite
+    rebuild 1
+    sha256 "50f78ee6be8fdf8e8eec9d3abb73d7c924559d916b15a25d4f05e6724866da19" => :sierra
+    sha256 "cbbe8a624637c18d759639c6101515650188cbee502ee812239dc0af71b57a4f" => :el_capitan
+    sha256 "3bb9865a592cc8f48460d2c231200942462e9b06ee3710e36ae29541be955759" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -33,8 +34,8 @@ class NodeAT6 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
-    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
+    url "https://registry.npmjs.org/npm/-/npm-5.3.0.tgz"
+    sha256 "dd96ece7cbd6186a51ca0a5ab7e1de0113333429603ec2ccb6259e0bef2e03eb"
   end
 
   resource "icu4c" do
@@ -65,9 +66,8 @@ class NodeAT6 < Formula
 
       bootstrap = buildpath/"npm_bootstrap"
       bootstrap.install resource("npm")
-      system "node", bootstrap/"bin/npm-cli.js", "install",
-             "--verbose", "--global", "--prefix=#{libexec}",
-             resource("npm").cached_download
+      system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
+             "--prefix=#{libexec}", resource("npm").cached_download
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
 
@@ -83,7 +83,6 @@ class NodeAT6 < Formula
 
     node_modules = HOMEBREW_PREFIX/"lib/node_modules"
     node_modules.mkpath
-    npm_exec = node_modules/"npm/bin/npm-cli.js"
     # Kill npm but preserve all other modules across node updates/upgrades.
     rm_rf node_modules/"npm"
 
@@ -93,15 +92,16 @@ class NodeAT6 < Formula
     # bottle-npm-and-retain-a-private-copy-in-libexec setup
     # All other installs **do** symlink to homebrew_prefix/bin correctly.
     # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf npm_exec, HOMEBREW_PREFIX/"bin/npm"
+    ln_sf node_modules/"npm/bin/npm-cli.js", HOMEBREW_PREFIX/"bin/npm"
+    ln_sf node_modules/"npm/bin/npx-cli.js", HOMEBREW_PREFIX/"bin/npx"
 
     # Let's do the manpage dance. It's just a jump to the left.
     # And then a step to the right, with your hand on rm_f.
-    %w[man1 man3 man5 man7].each do |man|
+    %w[man1 man5 man7].each do |man|
       # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
-      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"]
+      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     npm_root = node_modules/"npm"
