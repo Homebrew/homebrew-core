@@ -33,7 +33,7 @@ class Lesspipe < Formula
     assert File.exist?("homebrew.tar.gz")
     assert_match /file2.txt/, shell_output("tar tvzf homebrew.tar.gz | #{bin}/tarcolor")
   end
-  
+
   def caveats
     <<-EOS
       Append the following to your .bash_profile/.bashrc:
