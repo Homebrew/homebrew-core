@@ -17,6 +17,12 @@ class HaskellStack < Formula
     sha256 "086d41db9d06a816a2b9ec44d2d580e2bba078abc5fc9863dfbc948ee263434a" => :yosemite
   end
 
+  devel do
+    url "https://github.com/commercialhaskell/stack/archive/v1.5.0-rc1.tar.gz"
+    version "1.5.0-rc1"
+    sha256 "a8e980d990444a7448e6cb3bc6523716f3d9cccfebb127814998154ab3549a27"
+  end
+
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
 
   depends_on "ghc" => :build
