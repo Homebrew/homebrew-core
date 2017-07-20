@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.19.tar.gz"
-  sha256 "0fc18b5ac2b1454c49ebe7ffa0f37beaf97d45f17735b884369d9b0549a78f85"
+  url "https://github.com/aajanki/yle-dl/archive/2.20.tar.gz"
+  sha256 "e06a403a05c2c54862051fef1b8fecbf409bfb0a4dfbdd3903eea5e74ac0a63c"
 
   head "https://github.com/aajanki/yle-dl.git"
 
@@ -40,11 +40,11 @@ class YleDl < Formula
     end
 
     resource("AdobeHDS.php").stage(pkgshare)
-    system "make", "install", "SYS=darwin", "prefix=#{prefix}", "mandir=#{man}"
 
-    # change shebang to plain python (python2 is not guaranteed to exist)
-    inreplace bin/"yle-dl", "#!/usr/bin/env python2", "#!/usr/bin/env python"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    system "python", *Language::Python.setup_install_args(libexec)
 
+    bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
