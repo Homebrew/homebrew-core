@@ -1,8 +1,8 @@
 class ReattachToUserNamespace < Formula
   desc "Reattach process (e.g., tmux) to background"
   homepage "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard"
-  url "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/archive/v2.5.tar.gz"
-  sha256 "26f87979a4a2cf81ca4ff9e1e097e7132babf2ff2ef5eb03ebfc3b510345a147"
+  url "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/archive/v2.6.tar.gz"
+  sha256 "80f5640a53823e39f87cc78a7567f38dd3f440f9c721e4929fde77dae6b71eb5"
 
   head "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git"
 
