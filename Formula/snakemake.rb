@@ -1,9 +1,9 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
-  url "https://pypi.python.org/packages/source/s/snakemake/snakemake-3.5.5.tar.gz"
-  sha256 "1f13667fd0dea7d2f35414399646288b8aece2cf9791566992001d95d123eb1b"
-  revision 1
+  url "https://files.pythonhosted.org/packages/e5/d9/525fc2ff7c3bb6d990281188f4607f9e7651f19d9cb71a83b08aeb6b1bcf/snakemake-3.13.3.tar.gz"
+  sha256 "ad5c2544adfb25704b85b0bec46fbf1d904586969cb03ff9d414924c485a3dda"
+  head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
