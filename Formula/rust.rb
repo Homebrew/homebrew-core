@@ -1,21 +1,20 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.18.0-src.tar.gz"
-    sha256 "d2dc36e99b9e2269488b2bcddde43c234e6bde03edf70cba82a027ff49c36111"
+    url "https://static.rust-lang.org/dist/rustc-1.19.0-src.tar.gz"
+    sha256 "15231f5053fb72ad82be91f5abfd6aa60cb7898c5089e4f1ac5910a731090c51"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.19.0",
-          :revision => "28d1d60d4b634b70d7ceb0808144f2337c83ab95"
+          :tag => "0.20.0",
+          :revision => "a60d185c878c470876e123b0e40b0ba9f3271163"
     end
 
     resource "racer" do
-      url "https://github.com/phildawes/racer/archive/2.0.8.tar.gz"
-      sha256 "b6a1d3033fe5ca27674afceee936cf6d04b6fc11709513e230a039a2200f8797"
+      url "https://github.com/racer-rust/racer/archive/2.0.9.tar.gz"
+      sha256 "31185317118a069569611572daf28890989d52222c390448feacf17bb469fb87"
     end
   end
 
@@ -53,8 +52,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2017-04-27/cargo-0.18.0-x86_64-apple-darwin.tar.gz"
-    sha256 "e5c69ed75f73cfcff0498a06da1017acaa190d912e0fe5e432b1439e4c0d4110"
+    url "https://static.rust-lang.org/dist/2017-06-08/cargo-0.19.0-x86_64-apple-darwin.tar.gz"
+    sha256 "bd0b62b6afbfb1435ac5a72cee072f0f65b29c6c0baeb11f4f9b9b16dc241151"
   end
 
   def install
@@ -77,10 +76,9 @@ class Rust < Formula
     ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
 
     resource("cargo").stage do
-      system "./configure", "--prefix=#{prefix}", "--local-rust-root=#{prefix}",
-                            "--enable-optimize"
-      system "make"
-      system "make", "install"
+      ENV["RUSTC"] = bin/"rustc"
+      system "cargo", "build", "--release", "--verbose"
+      bin.install "target/release/cargo"
     end
 
     if build.with? "racer"
