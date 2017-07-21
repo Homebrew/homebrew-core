@@ -486,7 +486,7 @@ class Wine < Formula
       s += <<-EOS.undent
 
         By default Wine uses a native Mac driver. To switch to the X11 driver, use
-        regedit to set the "graphics" key under "HKCU\Software\Wine\Drivers" to
+        regedit to set the "graphics" key under "HKCU\/Software\/Wine\/Drivers" to
         "x11" (or use winetricks).
 
         For best results with X11, install the latest version of XQuartz:
