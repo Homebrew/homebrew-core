@@ -21,6 +21,6 @@ class Akamai < Formula
   end
 
   test do
-    assert_match "purge\tPurge", shell_output("yes y | #{bin}/akamai get purge")
+    assert_match "purge\tPurge", shell_output("yes | #{bin}/akamai get purge")
   end
 end
