@@ -4,6 +4,12 @@ class Transfig < Formula
   url "https://downloads.sourceforge.net/project/mcj/fig2dev-3.2.6a.tar.xz"
   sha256 "5e61a3d9a4f83db4b3199ee82dd54bb65b544369f1e8e38a2606c44cf71667a7"
 
+  bottle do
+    sha256 "86fcdda34519a6ee41eaa47ee532fc68bd8d9833e34ff8c75d52b4f421c1e02f" => :sierra
+    sha256 "3b7d9bfdc4516e0843a4c913dbc8fc4d3ba703ac35b9913386681f6d28c6e359" => :el_capitan
+    sha256 "f2341d90701cd3d63f964d34cf3cfbb1efe4f61653a263ddefecc1d8afcd774d" => :yosemite
+  end
+
   depends_on :x11
   depends_on "ghostscript"
   depends_on "libpng"
