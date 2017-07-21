@@ -84,7 +84,7 @@ class AnsibleAT20 < Formula
   #
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.10.0.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do
