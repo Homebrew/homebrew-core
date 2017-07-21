@@ -1,8 +1,8 @@
 class Repl < Formula
   desc "Wrap non-interactive programs with a REPL"
-  homepage "https://github.com/defunkt/repl"
-  url "https://github.com/defunkt/repl/archive/v1.0.0.tar.gz"
-  sha256 "d0542404f03159b0d6eb22a1aa4a509714c87c8594fca5121c578d50d950307d"
+  homepage "https://github.com/pvdb/repl"
+  url "https://github.com/pvdb/repl/archive/v2.0.0.tar.gz"
+  sha256 "4cf4f98b6bec99f031e1ac6a7176d1b38022557a7ea3dd046eae55a1e7c93cd5"
 
   bottle :unneeded
 
