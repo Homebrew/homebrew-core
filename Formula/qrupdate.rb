@@ -4,6 +4,13 @@ class Qrupdate < Formula
   url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
 
+  bottle do
+    cellar :any
+    sha256 "797a5f20ea8a61b1c71588b5ccce081daf479239df9e8ac587f52134e3ee2685" => :sierra
+    sha256 "5376220c35da94d8f1162dc34624a051fc415363046978f6788678b35af13813" => :el_capitan
+    sha256 "2b527726bd3303edc9712e3e47b672a266cbb8065b4e41c51951746f2da8c08d" => :yosemite
+  end
+
   depends_on :fortran
   depends_on "veclibfort"
 
