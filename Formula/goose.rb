@@ -10,7 +10,7 @@ class Goose < Formula
 
   go_resource "github.com/golang/dep" do
     url "https://github.com/golang/dep.git",
-        :revision => "77df563b6a79bfe62932d91ed37e587c68878a56"
+        :revision => "20e24628a053fd5da9d32598e75e80734717cb5f"
   end
 
   def install
@@ -30,6 +30,8 @@ class Goose < Formula
   end
 
   test do
-    system bin/"goose", "sqlite3", "./foo.db", "status", "create"
+    output = shell_output("#{bin}/goose sqlite3 foo.db status create")
+    assert_match "Migration", output
+    assert_predicate testpath/"foo.db", :exist?, "Failed to create foo.db!"
   end
 end
