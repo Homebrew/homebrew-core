@@ -11,7 +11,7 @@ class Presto < Formula
   cli_version = version
   resource "presto-cli" do
     version cli_version
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/#{version}/presto-cli-#{version}-executable.jar"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.181/presto-cli-0.181-executable.jar"
     sha256 "76adac8d618dbbbc8f5f9511a9bfaa6ab0913b417bfb49856a7ec1df81e1129d"
   end
 
@@ -97,6 +97,6 @@ class Presto < Formula
 
   test do
     system bin/"presto-server", "run", "--help"
-    assert_equal "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
+    assert_equal "Presto CLI 0.181", shell_output("#{bin}/presto --version").chomp
   end
 end
