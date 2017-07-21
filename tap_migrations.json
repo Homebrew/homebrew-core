@@ -50,7 +50,6 @@
   "pdf-tools": "dunn/emacs",
   "pebble-sdk": "pebble/pebble-sdk",
   "pocl": "homebrew/science",
-  "qrupdate": "homebrew/science",
   "quassel": "caskroom/cask",
   "salt": "homebrew/science",
   "shark": "homebrew/science",
