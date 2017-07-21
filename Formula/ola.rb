@@ -1,8 +1,8 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.4/ola-0.10.4.tar.gz"
-  sha256 "be0aacf5b2a61dd2b75e0ee3ec9a642012751268aa2d28bd24e8d87837a8f707"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.5/ola-0.10.5.tar.gz"
+  sha256 "e9dfdcf4d0cd270e4cfcb2dbe661d610a521386bfa49b18243c25462692d0283"
 
   bottle do
     sha256 "5648e88c98f2164018c3d15fe20cc7f9633313c64eb88ee43cd3d461cdd3713e" => :sierra
