@@ -4,6 +4,13 @@ class Metis < Formula
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
   sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
 
+  bottle do
+    cellar :any
+    sha256 "9c8deed80ece8c24e7ebccbce8410557b27afe711d3f59fccb7d781254d0cc34" => :sierra
+    sha256 "54f75262475744bc6ad3ba66ac801e03c18bbac00a9bcf0ca9d05853f2022498" => :el_capitan
+    sha256 "b33c2fc2c8a1cdb9f48faf41201bdc6384090b8dbd6ed3eecd05264eb6431c0b" => :yosemite
+  end
+
   depends_on "cmake" => :build
 
   def install
