@@ -54,7 +54,7 @@ class Presto < Formula
     EOS
 
     resource("presto-cli").stage do
-      bin.install "presto-cli-0.181-executable.jar" => "presto"
+      bin.install "presto-cli-#{version}-executable.jar" => "presto"
     end
   end
 
@@ -96,6 +96,6 @@ class Presto < Formula
 
   test do
     system bin/"presto-server", "run", "--help"
-    assert_equal "Presto CLI 0.181", shell_output("#{bin}/presto --version").chomp
+    assert_equal "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
   end
 end
