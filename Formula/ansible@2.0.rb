@@ -1,4 +1,4 @@
-class AnsibleAT20 < Formula
+xclass AnsibleAT20 < Formula
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
@@ -83,7 +83,7 @@ class AnsibleAT20 < Formula
   # Install requests with [security]
   #
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.11.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.10.tar.gz"
     sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
   end
 
