@@ -5,6 +5,13 @@ class Openblas < Formula
   sha256 "9c40b5e4970f27c5f6911cb0a28aa26b6c83f17418b69f8e5a116bb983ca8557"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
+  bottle do
+    cellar :any
+    sha256 "c6adfc265c1c896dce168dad78dde108045fb2f97b4395b15dee02c3f287b716" => :sierra
+    sha256 "60f23bbf885a52e920e0bdfdceeeb5aa5e8006caaf802f517c373b7f068d8671" => :el_capitan
+    sha256 "559bae2d31a9f0853f9e884839c6fb439d530113a2c19af17079d638aec8244e" => :yosemite
+  end
+
   keg_only :provided_by_osx,
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
