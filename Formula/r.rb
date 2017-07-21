@@ -19,7 +19,7 @@ class R < Formula
   depends_on "readline"
   depends_on "xz"
   depends_on :fortran
-  depends_on "homebrew/science/openblas" => :optional
+  depends_on "openblas" => :optional
   depends_on :java => :optional
 
   # needed to preserve executable permissions on files without shebangs
