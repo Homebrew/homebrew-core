@@ -1,4 +1,4 @@
-xclass AnsibleAT20 < Formula
+class AnsibleAT20 < Formula
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
