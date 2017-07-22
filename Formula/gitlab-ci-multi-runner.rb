@@ -4,8 +4,8 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v9.3.0",
-      :revision => "3df822b2c6e3b083986002bb9f012599bd74f6e9"
+      :tag => "v9.4.0",
+      :revision => "ef0b1a696948498be6744d764f683607ff8be1d9"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
@@ -24,17 +24,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.3.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.4.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "9.3.0"
-    sha256 "38c3e93b92a5d46d1ca7831820574ebdefef08fd3792a713e1b6ce1f26a175eb"
+    version "9.4.0"
+    sha256 "f337272e4cb665a14e6f430088bb407dceb753042193a16c7c56cb7a35f22e81"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.3.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.4.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "9.3.0"
-    sha256 "22cb81b7f7e5f46bc6f16176805c96a7cdcbbe4bc0fd7c48fc146e789a5c6b75"
+    version "9.4.0"
+    sha256 "738053824ccffff65b6043f0bc1e74b41a5ab2a139e0421f32789d2a9b7e1011"
   end
 
   def install
