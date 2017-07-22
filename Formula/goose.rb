@@ -3,8 +3,8 @@ require "language/go"
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v2.0.0.tar.gz"
-  sha256 "ebb5036ce89bfbb8e0594149454293fab6c2639873be824b0746994ab5a8668b"
+  url "https://github.com/pressly/goose/archive/v2.1.0.tar.gz"
+  sha256 "c5dcfab9b726e3ab4847ae1ab7dc7e3563623f2e0f815b350d7a87d40c3b161f"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Goose < Formula
 
   go_resource "github.com/golang/dep" do
     url "https://github.com/golang/dep.git",
-        :revision => "20e24628a053fd5da9d32598e75e80734717cb5f"
+        :revision => "3781a6ffbbdf1c2d46ac2bc1c551ff0ea6baf647"
   end
 
   def install
