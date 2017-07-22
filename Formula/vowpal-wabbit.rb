@@ -1,8 +1,8 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.3.1.tar.gz"
-  sha256 "7455aa2093d8baa9035c0a79ac9cfbceda2982f83b668950c4e4dceb79f66a52"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.4.0.tar.gz"
+  sha256 "8624c33fd516e8b738fbbc6fc49f62ac03f97af183dbecff298162b4bf5736d5"
 
   bottle do
     cellar :any
@@ -21,6 +21,14 @@ class VowpalWabbit < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   needs :cxx11
+
+  # Remove for > 8.4.0
+  # Fix "error: no member named 'codecvt_utf8_utf16' in namespace 'std'"
+  # Upstream commit from 22 Jul 2017 "make codecvt a universal include"
+  patch do
+    url "https://github.com/JohnLangford/vowpal_wabbit/commit/c632a1e09.patch?full_index=1"
+    sha256 "d7b7b3e594ad5ed4ee8c2a664ab98ec650df271d821b93842c1763c220459fe7"
+  end
 
   def install
     ENV.cxx11
