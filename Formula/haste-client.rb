@@ -1,9 +1,19 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
-  url "https://github.com/seejohnrun/haste-client/archive/v0.2.2.tar.gz"
-  sha256 "489ea560e788256ca1ca96a5efa4457a9e70c4f7893a760083c7d9f42b272f6b"
   head "https://github.com/seejohnrun/haste-client.git"
+
+  stable do
+    url "https://github.com/seejohnrun/haste-client/archive/v0.2.3.tar.gz"
+    sha256 "becbc13c964bb88841a440db4daff8e535e49cc03df7e1eddf16f95e2696cbaf"
+
+    # Remove for > 0.2.3
+    # Upstream commit from 19 Jul 2017 "Bump version to 0.2.3"
+    patch do
+      url "https://github.com/seejohnrun/haste-client/commit/1037d89.patch?full_index=1"
+      sha256 "1e9c47f35c65f253fd762c673b7677921b333c02d2c4e4ae5f182fcd6a5747c6"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +25,8 @@ class HasteClient < Formula
   depends_on :ruby => "2.3"
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.12.1.gem"
-    sha256 "0350b3d3adc9418e4e761198866709fc1b27db116cf52484989aa94d084a7df2"
+    url "https://rubygems.org/gems/faraday-0.12.2.gem"
+    sha256 "6299046a78613ce330b67060e648a132ba7cca4f0ea769bc1d2bbcb22a23ec94"
   end
 
   resource "multipart-post" do
