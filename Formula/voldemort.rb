@@ -6,9 +6,9 @@ class Voldemort < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d4fe894dafb965550b30e1ab8bbbfed1019fb33be830db3779b596d13212ad4" => :sierra
-    sha256 "fa17ebb844d76054267dba56931e4434328f3c69c1feae1c1f259cf16368baf7" => :el_capitan
-    sha256 "992c7ff4c25d8374de15c28b95cefc2b8f14c28d0d30bd68bc92f342f7c6f7bb" => :yosemite
+    sha256 "41f36e0d347191ca716ff5f7a0198cc38c71955ba47fa3f4a4f10848ebe90109" => :sierra
+    sha256 "f8329c6366b5a657ba17f24868b867a6647f6050aa9556890ab75cfb5676616f" => :el_capitan
+    sha256 "923f3e8a556148823c9c13bb4e1f8d8b8d343447ff613ebd5759193ed20fe892" => :yosemite
   end
 
   depends_on "gradle" => :build
