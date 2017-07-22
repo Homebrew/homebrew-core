@@ -3,7 +3,7 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.5.6/vips-8.5.6.tar.gz"
   sha256 "19a77ab200eb0ddfcd8babab130fe43c7730880d1f1fdfbdd8def519af32c4b8"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e291227ecd67f990f277a5757530fef478954e3d1d6bee105d39001911dae321" => :sierra
@@ -46,6 +46,8 @@ class Vips < Formula
     if build.with? "graphicsmagick"
       args << "--with-magick" << "--with-magickpackage=GraphicsMagick"
     end
+
+    args << "--without-libwebp" if build.without? "webp"
 
     system "./configure", *args
     system "make", "install"
