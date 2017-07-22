@@ -16,11 +16,10 @@ class Tclreadline < Formula
 
 
   def install
-      system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
+    system "./autogen.sh", "--disable-dependency-tracking",
+                           "--disable-silent-rules",
+                           "--prefix=#{prefix}",
+                           "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
 
     system "make", "install" 
   end
@@ -41,6 +40,6 @@ class Tclreadline < Formula
   end
 
   test do
-    system "echo 'set auto_path [linsert $auto_path 0 /usr/local/lib] ; if {[package require tclreadline] eq {" + version + "} } {exit 0} else {exit 1}' | tclsh -"
+    system "echo 'set auto_path [linsert $auto_path 0 #{lib}] ; if {[package require tclreadline] eq {" + version + "} } {exit 0} else {exit 1}' | tclsh -"
   end
 end
