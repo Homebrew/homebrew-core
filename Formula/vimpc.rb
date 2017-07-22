@@ -3,6 +3,7 @@ class Vimpc < Formula
   homepage "https://sourceforge.net/projects/vimpc/"
   url "https://downloads.sourceforge.net/project/vimpc/Release%200.09.1/vimpc-0.09.1.tar.gz"
   sha256 "082fa9974e01bf563335ebf950b2f9bc129c0d05c0c15499f7827e8418306031"
+  revision 1
 
   bottle do
     sha256 "42ad0fa38466e3422fa12606eda6d4aca684bcc00de9a0771d52dd58d4cdea8f" => :sierra

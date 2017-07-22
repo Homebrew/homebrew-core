@@ -1,8 +1,19 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.11.tar.gz"
-  sha256 "249d510c96142f14c8c45f5f8f6bd824bfd45f534cc386aa60ca492ab2f98ede"
+  head "git://git.musicpd.org/master/libmpdclient.git"
+
+  stable do
+    url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.12.tar.xz"
+    sha256 "9ecd1ed8f6e355c622ab10af4aef5fb06da21d2ffc5b6313747d0245ad8279f8"
+
+    # Fix build failure "Tried to form an absolute path to a source dir"
+    # Upstream PR from 22 Jul 2017 "meson.build: fix build with meson > 0.38.1"
+    patch do
+      url "https://github.com/MusicPlayerDaemon/libmpdclient/pull/4.patch?full_index=1"
+      sha256 "402591fadcac4aab99081f9e927b8b6487fb6778351da3088f45508a04317dc1"
+    end
+  end
 
   bottle do
     cellar :any
@@ -11,22 +22,13 @@ class Libmpdclient < Formula
     sha256 "98202831315d735c430e8b7071f513b4eafb3715bbcf51090db87b451d59d242" => :yosemite
   end
 
-  head do
-    url "git://git.musicpd.org/master/libmpdclient.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   depends_on "doxygen" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    inreplace "autogen.sh", "libtoolize", "glibtoolize"
-    system "./autogen.sh" if build.head?
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "meson", "--prefix=#{prefix}", ".", "output"
+    system "ninja", "-C", "output"
+    system "ninja", "-C", "output", "install"
   end
 end
