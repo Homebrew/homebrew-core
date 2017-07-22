@@ -15,6 +15,10 @@ class Flow < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
 
+  # Fix "compilation of ocaml-migrate-parsetree failed"
+  # Reported 24 Jul 2017 https://github.com/ocaml/opam/issues/3007
+  patch :DATA
+
   def install
     system "make", "all-homebrew"
 
@@ -34,3 +38,20 @@ class Flow < Formula
     assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 515e581..8886bf6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -174,8 +174,8 @@ all-homebrew:
+	export OPAMYES="1"; \
+	export FLOW_RELEASE="1"; \
+	opam init --no-setup && \
+-	opam pin add flowtype . && \
+-	opam install flowtype --deps-only && \
++	opam pin add -n flowtype . && \
++	opam config exec -- opam install flowtype --deps-only && \
+	opam config exec -- make
+
+ clean:
