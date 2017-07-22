@@ -8,9 +8,9 @@ class Mpdas < Formula
   head "https://github.com/hrkfdn/mpdas.git"
 
   bottle do
-    sha256 "48431521ae8094de8b4aff26b9ad3d0fd2af3f17100e66efe3cda51c933a6101" => :sierra
-    sha256 "418c94fd6545efffad07f8583a5c3589ff36ea222854ac1fc25c82beac1195c9" => :el_capitan
-    sha256 "236b7a6af73fb604918cc688aca942075ce7c31b68912d5139ea8d290cfe60da" => :yosemite
+    sha256 "aa5c89ffde717e1b266dde5f07db0243e40fe5a609e4f1e335ac282127b5c1dd" => :sierra
+    sha256 "90e390e32c5e0e27d91041b64172d91c0aaad08cdadcacb66c2a4b8fa165d9c2" => :el_capitan
+    sha256 "102c6569759c6043a2ac29e59423773956c6eed6cc271d748c8da2d83aafbadd" => :yosemite
   end
 
   depends_on "pkg-config" => :build
