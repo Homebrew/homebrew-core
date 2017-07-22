@@ -1,8 +1,8 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-3.2.1.tar.gz"
-  sha256 "2e53efd33d0f8b98fcc9c5ece26e87119a6bbbc7c4820a9563610143d46712a6"
+  url "https://www.finnie.org/software/2ping/2ping-4.0.1.tar.gz"
+  sha256 "95aa1a694da402cee7fefd1da61a08828bf11d82b012824802098a3d5e380567"
   head "https://github.com/rfinnie/2ping.git"
 
   bottle do
@@ -13,9 +13,12 @@ class Twoping < Formula
     sha256 "455058787cef02cf7fb4cd2b1d289764a6863b06caa32868259048947d7fdbd2" => :mavericks
   end
 
+  depends_on :python3
+
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    pyver = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
     man1.install "doc/2ping.1"
     man1.install_symlink "2ping.1" => "2ping6.1"
     bin.install Dir["#{libexec}/bin/*"]
