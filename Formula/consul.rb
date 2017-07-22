@@ -2,8 +2,8 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v0.8.5",
-      :revision => "2c7715154d8d4568524b76d2d4deb7ca6fd1b285"
+      :tag => "v0.9.0",
+      :revision => "b79d951ced8c5f18fe73d35b2806f3435e40cd64"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
@@ -15,14 +15,7 @@ class Consul < Formula
     sha256 "0850195b671a18e67eb9e8317a9386b69c55de2a45f6219b0a11578ea06d1931" => :yosemite
   end
 
-  option "with-web-ui", "Installs the consul web ui"
-
   depends_on "go" => :build
-
-  resource "web-ui" do
-    url "https://releases.hashicorp.com/consul/0.8.5/consul_0.8.5_web_ui.zip"
-    sha256 "4f7b90d8159480daeff6f3673f56fc75c00e4fd05de9c5c6d22a4af2fbc78368"
-  end
 
   def install
     contents = Dir["{*,.git,.gitignore}"]
@@ -36,14 +29,12 @@ class Consul < Formula
       system "make"
       bin.install "bin/consul"
       zsh_completion.install "contrib/zsh-completion/_consul"
+      pkgshare.install "ui" => "web-ui"
     end
-
-    # install web-ui to package share folder.
-    (pkgshare/"web-ui").install resource("web-ui") if build.with? "web-ui"
   end
 
   def caveats; <<-EOS.undent
-    If consul was built with --with-web-ui, you can activate the UI by running
+    You can activate the UI by running
     consul with `-ui-dir #{pkgshare}/web-ui`.
     EOS
   end
