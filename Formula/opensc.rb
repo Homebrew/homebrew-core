@@ -6,9 +6,9 @@ class Opensc < Formula
   head "https://github.com/OpenSC/OpenSC.git"
 
   bottle do
-    sha256 "b3f2e064e807dcabaf847e89c8a66f4c1b2d0258f481bc8351faa862e6f50bef" => :sierra
-    sha256 "88e03e589902a65e99c085bac993fef782a3e5011757b330f98d1984a195ff42" => :el_capitan
-    sha256 "68f04600dd085c6720559b78ea8387f40ed7045fa4c281beedb13faa6545fdc0" => :yosemite
+    sha256 "f3dbc36b378c985b058d27b0f3ce8de474efee88a6baf20ea868b741b3be4b1d" => :sierra
+    sha256 "bc4df60a5ce3522c562080ddebd1ff36f1bda21e5fa856ff53ab7b92e3e7d5ee" => :el_capitan
+    sha256 "4f0fe7e41fca7a552e58c6cc0968a98ab749c04519531e0e6030f4582f857989" => :yosemite
   end
 
   option "without-man-pages", "Skip building manual pages"
