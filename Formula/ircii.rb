@@ -6,10 +6,9 @@ class Ircii < Formula
   sha256 "4e5a70fc4577de06fd5855ab7ca0a501fd16e02d5fd34e434a2b5abac80a2eda"
 
   bottle do
-    rebuild 1
-    sha256 "9e1fbbdb6b3abac22fb52d6cd029bdab058f9d7a2455535881d32fa77d97c5e8" => :sierra
-    sha256 "9a2e2275bdb236a0918637e41865eaa18c8eae2f3df3eebdb311a517adc65ac5" => :el_capitan
-    sha256 "b79e9fab42085365159d688993a026942df36b70b64cb67d2e06f663a1d212a0" => :yosemite
+    sha256 "e8168dd5f7bb02880b0f8d199326fb81d7cf068cd2960d10aadd698d645bfa5a" => :sierra
+    sha256 "bd98e7588df62ead1c94d09b2fb200475f4c09a0950a572ae527f13f6443107e" => :el_capitan
+    sha256 "2bc24641161180093f7ea30ddbe7692afda55f1bbf9d46ed59b7773acf8137de" => :yosemite
   end
 
   depends_on "openssl"
