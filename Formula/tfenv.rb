@@ -1,8 +1,8 @@
 class Tfenv < Formula
   desc "Terraform version manager inspired by rbenv"
   homepage "https://github.com/kamatama41/tfenv"
-  url "https://github.com/kamatama41/tfenv/archive/v0.5.0.tar.gz"
-  sha256 "04c0188b293f61a5e4722d3b288025078f1c3a68ced5e7cea430f7122e5eabed"
+  url "https://github.com/kamatama41/tfenv/archive/v0.5.1.tar.gz"
+  sha256 "dda9d6bf205c47fac1cb8fae6750a4fe26bbf8fff7765f1f7b03ce45862ef404"
   head "https://github.com/kamatama41/tfenv.git"
 
   bottle :unneeded
