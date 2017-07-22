@@ -1,8 +1,8 @@
 class Orc < Formula
   desc "Oil Runtime Compiler (ORC)"
   homepage "https://cgit.freedesktop.org/gstreamer/orc/"
-  url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.26.tar.xz"
-  sha256 "7d52fa80ef84988359c3434e1eea302d077a08987abdde6905678ebcad4fa649"
+  url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.27.tar.xz"
+  sha256 "51e53e58fc8158e5986a1f1a49a6d970c5b16493841cf7b9de2c2bde7ce36b93"
 
   bottle do
     cellar :any
