@@ -17,9 +17,9 @@ class Libmpdclient < Formula
 
   bottle do
     cellar :any
-    sha256 "ab84b63fdac72459fe7cff11655ef233ae2561aa218177229d40f4848e1c452d" => :sierra
-    sha256 "1fa73b275597ded3bbed6a39aadce1dd9af6f77711c4cfd8f3d9a50b31e3662a" => :el_capitan
-    sha256 "98202831315d735c430e8b7071f513b4eafb3715bbcf51090db87b451d59d242" => :yosemite
+    sha256 "264914a87afdba24d2ade99a10d43470907cee12ecb07b863f9381afc4516927" => :sierra
+    sha256 "cea26f473cb4791365fc8da31b0d73202616e731dcc827a14e37f2d004470a25" => :el_capitan
+    sha256 "05bfb56583a4144507dd9102101a5136210295324057f03aab41841aab03b4e0" => :yosemite
   end
 
   depends_on "doxygen" => :build
