@@ -3,7 +3,8 @@ class Mpdas < Formula
   homepage "https://www.50hz.ws/mpdas/"
   url "https://www.50hz.ws/mpdas/mpdas-0.4.3.tar.gz"
   mirror "https://github.com/hrkfdn/mpdas/archive/0.4.3.tar.gz"
-  sha256 "925089a1d395352c27df68b274b33258a09e334e784322e72dc064241aa2e075"
+  sha256 "069e368bde35b2b3bd79439052c863a0f8c3b25ed454b5ab51f84fa6878b674e"
+  revision 1
   head "https://github.com/hrkfdn/mpdas.git"
 
   bottle do
@@ -17,6 +18,7 @@ class Mpdas < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man1}", "CONFIG=#{etc}", "install"
+    etc.install "mpdasrc.example"
   end
 
   test do
