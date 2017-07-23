@@ -1,8 +1,8 @@
 class MysqlConnectorC < Formula
   desc "MySQL database connector for C applications"
   homepage "https://dev.mysql.com/downloads/connector/c/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C/mysql-connector-c-6.1.10-src.tar.gz"
-  sha256 "73d2c3d633dcec63b9e985e524cc386ce52ddedcd06bdc40e094aaae35b14a69"
+  url "https://dev.mysql.com/get/Downloads/Connector-C/mysql-connector-c-6.1.11-src.tar.gz"
+  sha256 "c8664851487200162b38b6f3c8db69850bd4f0e4c5ff5a6d161dbfb5cb76b6c4"
 
   bottle do
     sha256 "6f0b845224739ff3e1405bb94e96a24c99ce1007eff212168c86b3f6ba37c4ac" => :sierra
