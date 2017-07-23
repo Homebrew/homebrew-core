@@ -3,6 +3,7 @@ class Mpc < Formula
   homepage "https://www.musicpd.org/clients/mpc/"
   url "https://www.musicpd.org/download/mpc/0/mpc-0.28.tar.gz"
   sha256 "53385c2d9af0a0025943045b46cb2079b300c1224d615ac98f7ff140e968600d"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,5 +19,9 @@ class Mpc < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
+  end
+
+  test do
+    assert_match "query", shell_output("#{bin}/mpc list 2>&1", 1)
   end
 end
