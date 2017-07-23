@@ -1,9 +1,9 @@
 class Xapian < Formula
   desc "C++ search engine library with many bindings"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.3/xapian-core-1.4.3.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.3.orig.tar.xz"
-  sha256 "7d5295511ca2de70463a29e75f6a2393df5dc1485bf33074b778c66e1721e475"
+  url "https://oligarchy.co.uk/xapian/1.4.4/xapian-core-1.4.4.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/x/xapian-core/xapian-core_1.4.4.orig.tar.xz"
+  sha256 "a6a985a9841a452d75cf2169196b7ca6ebeef27da7c607078cd401ad041732d9"
 
   bottle do
     cellar :any
