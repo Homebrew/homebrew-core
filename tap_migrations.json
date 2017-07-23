@@ -42,7 +42,6 @@
   "newick-utils": "homebrew/science",
   "nlopt": "homebrew/science",
   "octave": "homebrew/science",
-  "opencv": "homebrew/science",
   "openfst": "homebrew/science",
   "opengrm-ngram": "homebrew/science",
   "osxfuse": "caskroom/cask",
