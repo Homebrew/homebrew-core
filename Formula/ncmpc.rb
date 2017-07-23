@@ -6,9 +6,9 @@ class Ncmpc < Formula
   revision 1
 
   bottle do
-    sha256 "d6dea0bd60e7d938df31a851f7c2f8f21476114e375b90d54aa3cd1eaa07c0dc" => :sierra
-    sha256 "99b512e3c6e36e22c48e04eba8cfdb751b3cf603cb241e5290f2961eeed68aef" => :el_capitan
-    sha256 "4de982b7fbbb34b72d38ee56312bcc706ad9857dfe7d2fdd4c0a0c2c34280319" => :yosemite
+    sha256 "31af467381a348580ef78519ec1eb63fd2c862b8964562a4a623af27319dc7a8" => :sierra
+    sha256 "9849997446693fcfe6a9cdfc9c569e4fde7db6376b8ff159024c9b1b0bdd9a30" => :el_capitan
+    sha256 "63e019d248f1060ac1f346ce2b32813420bdb1b343edaf85499f1453a8fb8c36" => :yosemite
   end
 
   depends_on "pkg-config" => :build
