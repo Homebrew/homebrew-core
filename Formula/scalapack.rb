@@ -4,6 +4,13 @@ class Scalapack < Formula
   url "http://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
 
+  bottle do
+    cellar :any
+    sha256 "e4814d509597fbacb427a5b8b76803cf4a68921a5d23b09fa928f496711aebaa" => :sierra
+    sha256 "b592ffa39e508c9ea58ad2bc63b7c77c0bce7da82ca844f3a4a32e2f265337f4" => :el_capitan
+    sha256 "f99b2896ad413f0cab5b3e4228931909d5e52cc40c84bede3c849d26113a87e6" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on :fortran
   depends_on :mpi => [:cc, :f90]
