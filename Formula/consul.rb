@@ -29,14 +29,7 @@ class Consul < Formula
       system "make"
       bin.install "bin/consul"
       zsh_completion.install "contrib/zsh-completion/_consul"
-      pkgshare.install "ui" => "web-ui"
     end
-  end
-
-  def caveats; <<-EOS.undent
-    You can activate the UI by running
-    consul with `-ui-dir #{pkgshare}/web-ui`.
-    EOS
   end
 
   plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
