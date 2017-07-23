@@ -1,8 +1,8 @@
 class T1utils < Formula
   desc "Command-line tools for dealing with Type 1 fonts"
   homepage "https://www.lcdf.org/type/"
-  url "https://www.lcdf.org/type/t1utils-1.39.tar.gz"
-  sha256 "0faef3e5c4927b38b05ac99ee177b7d7cddbbf5b4452f98b244f684b52b0d4c4"
+  url "https://www.lcdf.org/type/t1utils-1.40.tar.gz"
+  sha256 "56060d147f628fb3a356aea35e5119c0b3fdf1ed8c750e0ab16b95cdf1713d8b"
 
   bottle do
     cellar :any_skip_relocation
