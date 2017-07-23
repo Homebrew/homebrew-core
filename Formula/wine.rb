@@ -5,13 +5,12 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 4
   head "https://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.1.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.1.tar.xz"
-    sha256 "6cfb4eaae566dc7afb7ac0f1f2db2c0d69969952acab0debf084ee8f7b071583"
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.2.tar.xz"
+    sha256 "f71884f539928877f4b415309f582825d3d3c9976104e43d566944c710713c9a"
 
     # Patch to fix texture compression issues. Still relevant on 2.0.
     # https://bugs.winehq.org/show_bug.cgi?id=14939
@@ -163,9 +162,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://www.mpg123.de/download/mpg123-1.25.2.tar.bz2"
-    mirror "https://mpg123.orgis.org/download/mpg123-1.25.2.tar.bz2"
-    sha256 "5314b0fb8ad291bfc79ff4c5c321b971916819a65233ec065434358fcf8aee38"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.3/mpg123-1.25.3.tar.bz2"
+    mirror "https://mpg123.orgis.org/download/mpg123-1.25.3.tar.bz2"
+    sha256 "c24848dd1fcaf6900a2b1f5549996904f75fe6e05de982da655f8c626b375644"
   end
 
   fails_with :clang do
