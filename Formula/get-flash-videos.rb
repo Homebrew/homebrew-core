@@ -1,8 +1,8 @@
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
-  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.92.tar.gz"
-  sha256 "e4b64eb51058e55f07cb66b7c50b11ea1ca0a57162946b7af96db748ed22cdcb"
+  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.93.tar.gz"
+  sha256 "7ae062331ee5681bcf595dc96460ceb5653b1935cfa09869b7017ff7e05fdfb6"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,8 +20,8 @@ class GetFlashVideos < Formula
   end
 
   resource "LWP::Protocol" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-6.15.tar.gz"
-    sha256 "6f349d45c21b1ec0501c4437dfcb70570940e6c3d5bff783bd91d4cddead8322"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.26.tar.gz"
+    sha256 "d0c5435275f8638ff36fff8f655ad2ccad1156e66cc47bfacfb9e44fc585b24f"
   end
 
   resource "Tie::IxHash" do
@@ -30,13 +30,13 @@ class GetFlashVideos < Formula
   end
 
   resource "WWW::Mechanize" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/WWW-Mechanize-1.75.tar.gz"
-    sha256 "5310051feb66c6ef9f7a4c070c66ec6092932129fc9cd18bba009ce999b7930b"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-1.86.tar.gz"
+    sha256 "0e5468b89afeff096fb6d9b91a9a58418746c89445fb01adb5caa25ecf32d469"
   end
 
   resource "Term::ProgressBar" do
-    url "https://cpan.metacpan.org/authors/id/S/SZ/SZABGAB/Term-ProgressBar-2.17.tar.gz"
-    sha256 "c1e0602c738a91fe54b01bcaa0d1a898b07ef6815c55eb2ebd6da4e3be20f696"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MANWAR/Term-ProgressBar-2.20.tar.gz"
+    sha256 "f9017571fee9eb1ba782a3ec56cc7f085960da8c462701162c973817297b7dae"
   end
 
   resource "Class::MethodMaker" do
