@@ -5,9 +5,9 @@ class MysqlConnectorC < Formula
   sha256 "c8664851487200162b38b6f3c8db69850bd4f0e4c5ff5a6d161dbfb5cb76b6c4"
 
   bottle do
-    sha256 "6f0b845224739ff3e1405bb94e96a24c99ce1007eff212168c86b3f6ba37c4ac" => :sierra
-    sha256 "252b03549c645c40155c281e02ffb130298bca5efdf40d2179051dd854e1b0ed" => :el_capitan
-    sha256 "2e5182e2fd30babb7aba13049c0f36e05b0f3ebf0e9bb2dc64370f28047ba955" => :yosemite
+    sha256 "bb5c0c5854d6af0299c18d14a48dcb6dc5fdca98b2bde9b4c654c5584c3670b1" => :sierra
+    sha256 "e2035138e14b87fb0ff971ab9bc34631140ac0478e250866d9ce236de952c66e" => :el_capitan
+    sha256 "d6aaf4eca97640dc5f5785a2bf8cc45cf7d829d50798ee0f6551b473c621b792" => :yosemite
   end
 
   depends_on "cmake" => :build
