@@ -6,6 +6,7 @@ class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
   head "https://source.winehq.org/git/wine.git"
+  revision 1
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
@@ -162,9 +163,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.3/mpg123-1.25.3.tar.bz2"
-    mirror "https://mpg123.orgis.org/download/mpg123-1.25.3.tar.bz2"
-    sha256 "c24848dd1fcaf6900a2b1f5549996904f75fe6e05de982da655f8c626b375644"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.4/mpg123-1.25.4.tar.bz2"
+    mirror "https://mpg123.orgis.org/download/mpg123-1.25.4.tar.bz2"
+    sha256 "cdb5620e8aab83f75a27dab3394a44b9cc4017fc77b2954b8425ca416db6b3e7"
   end
 
   fails_with :clang do
