@@ -1,9 +1,8 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.50.0.tar.gz"
-  sha256 "859b6f5e1fce4d5813591fbc08e60605630d0b15e1825f877876ecd1476b8fdd"
-  revision 1
+  url "https://github.com/facebook/flow/archive/v0.51.0.tar.gz"
+  sha256 "fdca12cbce9312b413a277161f1fd6a6fdd2078c47c5c41af7df9676ded4d398"
   head "https://github.com/facebook/flow.git"
 
   bottle do
@@ -15,6 +14,8 @@ class Flow < Formula
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+
+  patch :DATA
 
   def install
     system "make", "all-homebrew"
@@ -35,3 +36,20 @@ class Flow < Formula
     assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 515e581..8886bf6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -174,8 +174,8 @@ all-homebrew:
+ 	export OPAMYES="1"; \
+ 	export FLOW_RELEASE="1"; \
+ 	opam init --no-setup && \
+-	opam pin add flowtype . && \
+-	opam install flowtype --deps-only && \
++	opam pin add -n flowtype . && \
++	opam config exec -- opam install flowtype --deps-only && \
+ 	opam config exec -- make
+ 
+ clean:
