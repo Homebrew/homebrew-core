@@ -20,6 +20,10 @@ class Plplot < Formula
   depends_on :fortran => :optional
   depends_on :java => :optional
 
+  # Patch reported upstream. Fixes 5.12 cmake issue in cmake/modules/pkg-config.cmake that gets
+  # triggered when passing `--with-fortran`
+  patch :DATA
+
   def install
     args = std_cmake_args
     args << "-DENABLE_java=OFF" if build.without? "java"
@@ -69,3 +73,18 @@ class Plplot < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git i/cmake/modules/pkg-config.cmake w/cmake/modules/pkg-config.cmake
+index 2b46dbe..7ecc789 100644
+--- i/cmake/modules/pkg-config.cmake
++++ w/cmake/modules/pkg-config.cmake
+@@ -230,7 +230,7 @@ function(pkg_config_link_flags link_flags_out link_flags_in)
+     "/System/Library/Frameworks/([^ ]*)\\.framework"
+     "-framework \\1"
+     link_flags
+-    ${link_flags}
++    "${link_flags}"
+     )
+     #message("(frameworks) link_flags = ${link_flags}")
+   endif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
