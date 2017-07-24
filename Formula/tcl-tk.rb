@@ -5,7 +5,7 @@ class TclTk < Formula
   mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.6-src.tar.gz"
   version "8.6.6"
   sha256 "a265409781e4b3edcc4ef822533071b34c3dc6790b893963809b9fe221befe07"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "de26155e0b2fee960af4791d39e3d6c79421c635c0a914be8a0254ff28f4fad2" => :sierra
@@ -16,9 +16,6 @@ class TclTk < Formula
   keg_only :provided_by_osx,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
-  deprecated_option "enable-threads" => "with-threads"
-
-  option "with-threads", "Build with multithreading support"
   option "without-tcllib", "Don't build tcllib (utility modules)"
   option "without-tk", "Don't build the Tk (window toolkit)"
 
@@ -35,9 +32,12 @@ class TclTk < Formula
   end
 
   def install
-    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
-    args << "--enable-threads" if build.with? "threads"
-    args << "--enable-64bit" if MacOS.prefer_64_bit?
+    args = %W[
+      --prefix=#{prefix}
+      --mandir=#{man}
+      --enable-threads
+      --enable-64bit
+    ]
 
     cd "unix" do
       system "./configure", *args
@@ -51,15 +51,10 @@ class TclTk < Formula
       ENV.prepend_path "PATH", bin # so that tk finds our new tclsh
 
       resource("tk").stage do
-        args = ["--prefix=#{prefix}", "--mandir=#{man}", "--with-tcl=#{lib}"]
-        args << "--enable-threads" if build.with? "threads"
-        args << "--enable-64bit" if MacOS.prefer_64_bit?
-        args << "--enable-aqua=yes" << "--without-x"
-
         cd "unix" do
-          system "./configure", *args
+          system "./configure", *args, "--enable-aqua=yes",
+                                "--without-x", "--with-tcl=#{lib}"
           system "make", "TK_LIBRARY=#{lib}"
-          # system "make", "test"  # for maintainers
           system "make", "install"
           system "make", "install-private-headers"
           ln_s bin/"wish8.6", bin/"wish"
