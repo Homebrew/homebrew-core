@@ -5,9 +5,9 @@ class BaculaFd < Formula
   sha256 "cf4959b5fb3ab0e64f5f42880b5dfdd7c4faa5b2532f2c24d823591826f74003"
 
   bottle do
-    sha256 "411d002c1ef603c4ab452d379f31d740977cce512589db456d109a14e9715e55" => :sierra
-    sha256 "cdeb541938314fb0a37975bede92faa38f74cdd4b00d661feb46a378b4ef19c4" => :el_capitan
-    sha256 "4e7b604a2178719595a5c857006474995bcf3e63f1d4bd029acb0647a3eb5cd7" => :yosemite
+    sha256 "4c0f8bb842c5d2d7f070ffc35a55b725c4ebef5974753d975a2b4a99435c569f" => :sierra
+    sha256 "ae951283c20b09dc860f6def265e988571fc79b3faa91ac7aea19cebb5bdd2d0" => :el_capitan
+    sha256 "f541b60f9f1cfef49ba67643ffa195b7c0725bee2a9726e37b1957e3491cfc65" => :yosemite
   end
 
   depends_on "readline"
