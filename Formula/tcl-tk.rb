@@ -8,9 +8,9 @@ class TclTk < Formula
   revision 2
 
   bottle do
-    sha256 "de26155e0b2fee960af4791d39e3d6c79421c635c0a914be8a0254ff28f4fad2" => :sierra
-    sha256 "9481cea8f38c644eb12f6a42463082469f1e91fe7616b167fbda46ded9bef336" => :el_capitan
-    sha256 "f137c8176792d8363989981c2f3838f8edee73738a02bf899caddd8460abdd86" => :yosemite
+    sha256 "00cb0c31a7a9fb3820685bb5a0baee3e8b3d81e2b3b7f021277bbb833a710ee0" => :sierra
+    sha256 "7821833c62e38916e07c2c2a491db4d8ad7d5016a95abb39e3678dbfe3821502" => :el_capitan
+    sha256 "c0449527355ede1293309ff674ec02e9df91188f9d85173d134ed388cee0afb3" => :yosemite
   end
 
   keg_only :provided_by_osx,
