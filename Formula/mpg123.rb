@@ -1,10 +1,10 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.3/mpg123-1.25.3.tar.bz2"
-  mirror "https://www.mpg123.de/download/mpg123-1.25.3.tar.bz2"
-  mirror "https://mpg123.orgis.org/download/mpg123-1.25.3.tar.bz2"
-  sha256 "c24848dd1fcaf6900a2b1f5549996904f75fe6e05de982da655f8c626b375644"
+  url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.4/mpg123-1.25.4.tar.bz2"
+  mirror "https://www.mpg123.de/download/mpg123-1.25.4.tar.bz2"
+  mirror "https://mpg123.orgis.org/download/mpg123-1.25.4.tar.bz2"
+  sha256 "cdb5620e8aab83f75a27dab3394a44b9cc4017fc77b2954b8425ca416db6b3e7"
 
   bottle do
     sha256 "a948000e58f5453b336465d2301c9268aac26f32d6181e3012055d14ed8ef864" => :sierra
