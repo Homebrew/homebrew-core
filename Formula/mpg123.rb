@@ -7,9 +7,9 @@ class Mpg123 < Formula
   sha256 "cdb5620e8aab83f75a27dab3394a44b9cc4017fc77b2954b8425ca416db6b3e7"
 
   bottle do
-    sha256 "a948000e58f5453b336465d2301c9268aac26f32d6181e3012055d14ed8ef864" => :sierra
-    sha256 "708339d1dd99a685aea4d48a648a06746c0f51618518cdd6ddaf4094cbb9d3a4" => :el_capitan
-    sha256 "4240c4349208045a3c4bc6c07683a94fbd887ee85ecbe8924739f8d004f7ed63" => :yosemite
+    sha256 "410bd72a44b4009be2e422bd033a89d4f5476bb3ecd618cc60ab52cb0948c530" => :sierra
+    sha256 "72e6bcb622dc61d07c2867e4eda38db99619ab96b7febd0708ff1537ffdd2357" => :el_capitan
+    sha256 "aed10a2e8ad91d3f6a0c00c6ddc7d0034e8f26149e4e747b8ceb3aece390c578" => :yosemite
   end
 
   def install
