@@ -4,6 +4,13 @@ class Afsctool < Formula
   url "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
   version "1.6.4"
   sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
+  revision 1
+
+  # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
+  patch do
+    url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.diff?full_index=1"
+    sha256 "a541526679eb5d2471b3f257dab6103300d950f7b2f9d49bbfeb9f27dfc48542"
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +22,8 @@ class Afsctool < Formula
 
   def install
     cd "afsctool_34" do
-      system ENV.cc, ENV.cflags, "-lz",
-         "-framework", "CoreServices", "-o", "afsctool", "afsctool.c"
+      system ENV.cc, ENV.cflags, "-lz", "afsctool.c",
+                     "-framework", "CoreServices", "-o", "afsctool"
       bin.install "afsctool"
     end
   end
