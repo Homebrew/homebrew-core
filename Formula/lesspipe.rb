@@ -36,8 +36,8 @@ class Lesspipe < Formula
 
   def caveats
     <<-EOS
-      Append the following to your .bash_profile/.bashrc:
-      export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+      Append the following to your #{shell_profile}:
+      export LESSOPEN="|#{HOMEBREW_PREFIX}/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
     EOS
   end
 end
