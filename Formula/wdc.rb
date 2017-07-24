@@ -1,8 +1,8 @@
 class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers."
   homepage "https://designerror.github.io/webdav-client-cpp"
-  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.1.tar.gz"
-  sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
+  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.2.tar.gz"
+  sha256 "94a4a46cf4ae3e3ec37c712fe5ac0e9c09f5028c2e44a68767b521a97cf7a6d4"
 
   bottle do
     cellar :any_skip_relocation
