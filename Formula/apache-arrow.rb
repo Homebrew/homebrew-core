@@ -1,8 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.4.1/apache-arrow-0.4.1.tar.gz"
-  sha256 "499401661f9c768ba7e8a27f02a2079efc207628d7fd856cf03aa301f5dc9986"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.5.0/apache-arrow-0.5.0.tar.gz"
+  sha256 "007a84294091324567bcfd826460e49fd98641c681828e77b79d62261d842bd7"
 
   head "https://github.com/apache/arrow.git"
 
@@ -16,6 +16,7 @@ class ApacheArrow < Formula
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "jemalloc"
   depends_on "ccache" => :recommended
 
   needs :cxx11
