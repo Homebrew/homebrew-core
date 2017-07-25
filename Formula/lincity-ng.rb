@@ -17,7 +17,6 @@ class LincityNg < Formula
 
   devel do
     url "https://downloads.sourceforge.net/project/lincity-ng.berlios/lincity-ng-2.9.beta.tar.bz2"
-    version "2.9.beta"
     sha256 "542506135e833f7fd7231c0a5b2ab532fab719d214add461227af72d97ac9d4f"
   end
 
