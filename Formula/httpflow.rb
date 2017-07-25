@@ -6,10 +6,10 @@ class Httpflow < Formula
   head "https://github.com/six-ddc/httpflow.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eaed64a4fad883f5085131bdc8584e83044ac6b2282daa110e3decf94ae11a7e" => :sierra
-    sha256 "3f64470510030ce9fa0241ae229619fb6c1ca99bffb72826ab63b6d343f7ef8f" => :el_capitan
-    sha256 "159bb97cf4d34ae30506fb5ce854231e95423ecd904d985ae1c4ee43e81dca6c" => :yosemite
+    cellar :any
+    sha256 "02f297152a11c184e4b16e3881d416f9cd388ecab8a4979a02bf0bbf6f2c4f56" => :sierra
+    sha256 "aae82cdbdfbda4766e7ac39ac7cf0d588ae05379b6de60fe9a62521eaf097f61" => :el_capitan
+    sha256 "f1f6b80b4d0ae25da4bc0b626ce3da653ad48f55c4d9e82c3e60ec51ff6ddea4" => :yosemite
   end
 
   depends_on "pcre"
