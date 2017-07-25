@@ -15,7 +15,6 @@ class Babel < Formula
 
   devel do
     url "https://registry.npmjs.org/babel-cli/-/babel-cli-7.0.0-alpha.12.tgz"
-    version "7.0.0-alpha.12"
     sha256 "a81e2421486ca48d3961c4ab1fada8acd3bb3583ccfb28822cbb0b16a2635144"
   end
 
