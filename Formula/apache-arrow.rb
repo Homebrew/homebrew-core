@@ -8,9 +8,9 @@ class ApacheArrow < Formula
 
   bottle do
     cellar :any
-    sha256 "4baf8d8e346d82f8babed57ec2097843297d62222dc61d8c9c7359b58906f6cc" => :sierra
-    sha256 "cc4fcc810cf56d16285bf7084a704b0ccf51906149c416423b92c24889c460d4" => :el_capitan
-    sha256 "85ae6ec3bec5d9c9796a8d1dd87c7af8e6301d282c8327a58385519eda0c4214" => :yosemite
+    sha256 "12cf3b8b04c5c84b81a20017ff3df29577dcb470d4998a542ec13b6b0d9eda8a" => :sierra
+    sha256 "181f54ef1b1c21fa23492b3b0ac7d24960ab1c508611c07e9c63429201faf0bb" => :el_capitan
+    sha256 "c4177126e46fea32614aae23e9d21f03334d75f8afd1940511931c3e70a3c67e" => :yosemite
   end
 
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
