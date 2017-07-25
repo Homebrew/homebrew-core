@@ -2,7 +2,6 @@ class Proctools < Formula
   desc "pgrep, pkill, and pfind for OpenBSD and Darwin (macOS)"
   homepage "https://proctools.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/proctools/proctools/0.4pre1/proctools-0.4pre1.tar.gz"
-  version "0.4pre1"
   sha256 "4553b9c6eda959b12913bc39b6e048a8a66dad18f888f983697fece155ec5538"
 
   bottle do
