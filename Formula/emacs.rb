@@ -130,6 +130,13 @@ class Emacs < Formula
     <dict>
       <key>Label</key>
       <string>#{plist_name}</string>
+      <key>EnvironmentVariables</key>
+      <dict>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
+        <key>LC_ALL</key>
+        <string>en_US.UTF-8</string>
+      </dict>
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/emacs</string>
