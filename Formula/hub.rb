@@ -15,7 +15,6 @@ class Hub < Formula
 
   devel do
     url "https://github.com/github/hub/archive/v2.3.0-pre10.tar.gz"
-    version "2.3.0-pre10"
     sha256 "9b4764dc2647bc0c14de2bd386e6f428f002d93baf01059d994e1cfa928483fc"
   end
 
