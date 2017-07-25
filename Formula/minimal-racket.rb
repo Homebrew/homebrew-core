@@ -2,7 +2,6 @@ class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
   url "https://mirror.racket-lang.org/installers/6.9/racket-minimal-6.9-src-builtpkgs.tgz"
-  version "6.9"
   sha256 "0b8eb43c16e2380ff47fd7883d7886a1d34935ead3546cde9e292318ddefba87"
 
   bottle do
