@@ -7,7 +7,7 @@ class Yarn < Formula
 
   bottle :unneeded
 
-  depends_on "node"
+  depends_on "node" => :recommended
 
   def install
     libexec.install Dir["*"]
