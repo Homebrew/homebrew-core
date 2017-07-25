@@ -7,7 +7,6 @@ class Byteman < Formula
   devel do
     url "https://downloads.jboss.org/byteman/4.0.0-BETA5/byteman-download-4.0.0-BETA5-bin.zip"
     sha256 "d947650cfb72698152952d18aa8f7668d9876dc22ce71af1719527d4eb2764c0"
-    version "4.0.0-BETA5"
   end
 
   bottle :unneeded
