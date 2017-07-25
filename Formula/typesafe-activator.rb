@@ -2,7 +2,6 @@ class TypesafeActivator < Formula
   desc "Tools for working with Lightbend Reactive Platform"
   homepage "https://www.lightbend.com/community/core-tools/activator-and-sbt"
   url "https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12-minimal.zip"
-  version "1.3.12"
   sha256 "d5037bcc2793011a03807a123035d2b3dafde32bcf0fab9112cb958a59ad9386"
 
   bottle :unneeded
