@@ -3,7 +3,6 @@ class Makensis < Formula
   homepage "https://nsis.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02/nsis-3.02-src.tar.bz2"
   sha256 "c44ad18462c56ada4b4303513997076b960f7a991993c5c43ae0edb4936dd83d"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
