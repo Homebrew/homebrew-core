@@ -14,7 +14,6 @@ class TomcatAT7 < Formula
 
   resource "fulldocs" do
     url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.77/bin/apache-tomcat-7.0.77-fulldocs.tar.gz"
-    version "7.0.77"
     sha256 "e6f1a22b145b35607fb94a5901aa9ae87fce0a11247d52e03da522de33b57430"
   end
 
