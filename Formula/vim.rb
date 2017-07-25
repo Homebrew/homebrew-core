@@ -3,6 +3,7 @@ class Vim < Formula
   homepage "https://vim.sourceforge.io/"
   url "https://github.com/vim/vim/archive/v8.0.0771.tar.gz"
   sha256 "d4afcf3c84882517f3c887764ca8d68dc37f4987b7f41e1902d72b00702db52a"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -106,6 +107,7 @@ class Vim < Formula
                           "--enable-multibyte",
                           "--with-tlib=ncurses",
                           "--enable-cscope",
+                          "--enable-terminal",
                           "--with-compiledby=Homebrew",
                           *opts
     system "make"
