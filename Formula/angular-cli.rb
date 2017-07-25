@@ -14,7 +14,6 @@ class AngularCli < Formula
 
   devel do
     url "https://registry.npmjs.org/@angular/cli/-/cli-1.3.0-rc.0.tgz"
-    version "1.3.0-rc.0"
     sha256 "e1acc8851e6013f0819e7537c9c4abaa1b1d87eeb9371912bddbdcc8fcf31c3f"
   end
 
