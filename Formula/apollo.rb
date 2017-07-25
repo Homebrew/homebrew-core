@@ -2,7 +2,6 @@ class Apollo < Formula
   desc "Multi-protocol messaging broker based on ActiveMQ"
   homepage "https://activemq.apache.org/apollo"
   url "https://archive.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
-  version "1.7.1"
   sha256 "74577339a1843995a5128d14c68b21fb8f229d80d8ce1341dd3134f250ab689d"
 
   bottle do
