@@ -14,7 +14,6 @@ class TomcatAT6 < Formula
 
   resource "fulldocs" do
     url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.51/bin/apache-tomcat-6.0.51-fulldocs.tar.gz"
-    version "6.0.51"
     sha256 "e55e70d17f0a648c268afb83787f0f8714aabf3800c22b4c8157774a08a37d44"
   end
 
