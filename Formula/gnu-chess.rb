@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.4.tar.gz"
-  sha256 "3c425c0264f253fc5cc2ba969abe667d77703c728770bd4b23c456cbe5e082ef"
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.5.tar.gz"
+  sha256 "9a99e963355706cab32099d140b698eda9de164ebce40a5420b1b9772dd04802"
 
   bottle do
     sha256 "986750bf4784a983b5b9cdb41ebaecea3df181755bdd3b9925a06521fd9ebc07" => :sierra
@@ -20,6 +20,8 @@ class GnuChess < Formula
   end
 
   option "with-book", "Download the opening book (~25MB)"
+
+  depends_on "readline"
 
   resource "book" do
     url "https://ftp.gnu.org/gnu/chess/book_1.02.pgn.gz"
