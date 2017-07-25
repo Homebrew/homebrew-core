@@ -16,7 +16,6 @@ class GitMultipush < Formula
   devel do
     url "https://github.com/gavinbeatty/git-multipush/archive/git-multipush-v2.4.rc2.tar.gz"
     sha256 "999d9304f322c1b97d150c96be64ecde30980f97eaaa9d66f365b8b11894c46d"
-    version "2.4.rc2"
   end
 
   depends_on "asciidoc" => :build
