@@ -1,8 +1,8 @@
 class Monax < Formula
   desc "Blockchain application platform CLI"
   homepage "https://erisindustries.com"
-  url "https://github.com/monax/cli/archive/v0.17.0.tar.gz"
-  sha256 "c13d163a39c79e1c651d2ff7072c3c9e4e88fb38dc5f92bcc87acb3f54ad01ee"
+  url "https://github.com/monax/monax/archive/v0.18.0.tar.gz"
+  sha256 "fa90621e8d518c10ea6c239fdd917196f5be5a523d257a4c1855e0bd3ca1e7bd"
   version_scheme 1
 
   bottle do
@@ -20,8 +20,8 @@ class Monax < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
     (buildpath/"src/github.com/monax").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/monax/cli"
-    system "go", "install", "github.com/monax/cli/cmd/monax"
+    ln_sf buildpath, buildpath/"src/github.com/monax/monax"
+    system "go", "install", "github.com/monax/monax/cmd/monax"
   end
 
   test do
