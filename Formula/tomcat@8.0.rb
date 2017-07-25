@@ -11,7 +11,6 @@ class TomcatAT80 < Formula
     resource "fulldocs" do
       url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.0.43/bin/apache-tomcat-8.0.43-fulldocs.tar.gz"
       mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.43/bin/apache-tomcat-8.0.43-fulldocs.tar.gz"
-      version "8.0.43"
       sha256 "568bd83e85e0f1b66470b19f6198ea705061379e8d92188dae7acd7aa3bd6568"
     end
   end
