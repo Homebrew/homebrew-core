@@ -3,8 +3,8 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/3.3.2.tar.gz"
-  sha256 "c54190f948b0d876ec43f0ca9eea71b1757c4c9290a2fa5005204b98567b6a5b"
+  url "https://github.com/Supervisor/supervisor/archive/3.3.3.tar.gz"
+  sha256 "cb835ee21a755d32396f5ccb40daa4ce8bb4a24d92f8bf3f25d3a76ba2fb0bc3"
 
   bottle do
     cellar :any_skip_relocation
