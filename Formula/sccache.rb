@@ -21,6 +21,6 @@ class Sccache < Formula
       }
     EOS
     system "#{bin}/sccache", "cc", "hello.c", "-o", "hello-c"
-    assert_equal "Hello, world!\n", `./hello-c`
+    assert_equal "Hello, world!", shell_output("./hello-c").chomp
   end
 end
