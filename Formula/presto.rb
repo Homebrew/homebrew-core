@@ -10,7 +10,6 @@ class Presto < Formula
 
   resource "presto-cli" do
     url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.181/presto-cli-0.181-executable.jar"
-    version "0.181"
     sha256 "76adac8d618dbbbc8f5f9511a9bfaa6ab0913b417bfb49856a7ec1df81e1129d"
   end
 
