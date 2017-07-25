@@ -23,7 +23,6 @@ class Go < Formula
 
   devel do
     url "https://storage.googleapis.com/golang/go1.9beta2.src.tar.gz"
-    version "1.9beta2"
     sha256 "4ca11b29e9c3b2ef1db837a80bc3a54a6ba392dc3f7447cb99972f9c96daa8c3"
 
     resource "gotools" do
