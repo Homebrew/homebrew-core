@@ -2,7 +2,6 @@ class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
   url "https://neo4j.com/artifact.php?name=neo4j-community-3.2.2-unix.tar.gz"
-  version "3.2.2"
   sha256 "de607436b9708ee708447be367439a4c8c30bd97ca77e84e3a081b8b6d378d95"
 
   bottle :unneeded
