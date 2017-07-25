@@ -2,7 +2,6 @@ class ScmManager < Formula
   desc "Manage Git, Mercurial, and Subversion repos over HTTP"
   homepage "https://www.scm-manager.org"
   url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.51/scm-server-1.51-app.tar.gz"
-  version "1.51"
   sha256 "a7302f064443c814da44baf961227568575aff110e3e974d0a7d07894f81567f"
 
   bottle do
@@ -16,7 +15,6 @@ class ScmManager < Formula
 
   resource "client" do
     url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.51/scm-cli-client-1.51-jar-with-dependencies.jar"
-    version "1.51"
     sha256 "9697f390fb0a3d02a805ea66e9b6bb2b3fdf4d53036ec1bea7348e0872e1baae"
   end
 
