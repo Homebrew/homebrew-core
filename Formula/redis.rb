@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-4.0.0.tar.gz"
-  sha256 "d539ae309295721d5c3ed7298939645b6f86ab5d25fdf2a0352ab575c159df2d"
+  url "http://download.redis.io/releases/redis-4.0.1.tar.gz"
+  sha256 "2049cd6ae9167f258705081a6ef23bb80b7eff9ff3d0d7481e89510f27457591"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
