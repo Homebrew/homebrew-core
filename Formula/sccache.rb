@@ -13,6 +13,14 @@ class Sccache < Formula
   end
 
   test do
-    system "#{bin}/sccache", "--help"
+    (testpath/"hello.c").write <<-EOS.undent
+      #include <stdio.h>
+      int main() {
+        printf("Hello, world!\n");
+        return 0;
+      }
+    EOS
+    system "#{bin}/sccache", "cc", "hello.c", "-o", "hello-c"
+    assert_equal "Hello, world!\n", `./hello-c`
   end
 end
