@@ -1,31 +1,22 @@
-class JenkinsJobBuilder < Formula
+class JenkinsJobBuilderAT2 < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "http://ci.openstack.org/jjb.html"
-  url "https://files.pythonhosted.org/packages/f1/ac/734f7dc9e16e725e2ff37eff4b87970a7a7fc69fbff977a4e5004fee0651/jenkins-job-builder-1.6.1.tar.gz"
-  sha256 "64fa63ad18ae874dbb17bd96d3c74ea6ec31c4af91a83aac2de3eaf79d9d7dec"
+  # https://pypi.python.org/pypi/jenkins-job-builder/2.0.0.0b2
+  url "https://files.pythonhosted.org/packages/93/d3/c33e4dfae405c2c9bbe10a9dd1ffc2786f58902cd2834acef144aa9e506e/jenkins-job-builder-2.0.0.0b2.tar.gz"
+  sha256 "5d0c93ec4454279e7fceea7e4b4416e7a2a782737bcad5930b892566b8a01ef8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "299a6d4567c4a0907397c3b22b88c95782065bb3708df6a53589c25f9e3a3193" => :sierra
-    sha256 "299a6d4567c4a0907397c3b22b88c95782065bb3708df6a53589c25f9e3a3193" => :el_capitan
-    sha256 "299a6d4567c4a0907397c3b22b88c95782065bb3708df6a53589c25f9e3a3193" => :yosemite
+    sha256 "2533618745cc485ee9b9f2b908d2c26caaf98b7ca2cbf9d8c4c2f4705602b983" => :sierra
+    sha256 "2533618745cc485ee9b9f2b908d2c26caaf98b7ca2cbf9d8c4c2f4705602b983" => :el_capitan
+    sha256 "2533618745cc485ee9b9f2b908d2c26caaf98b7ca2cbf9d8c4c2f4705602b983" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  devel do
-    url "https://files.pythonhosted.org/packages/93/d3/c33e4dfae405c2c9bbe10a9dd1ffc2786f58902cd2834acef144aa9e506e/jenkins-job-builder-2.0.0.0b2.tar.gz"
-    sha256 "5d0c93ec4454279e7fceea7e4b4416e7a2a782737bcad5930b892566b8a01ef8"
-  end
-
   resource "pyyaml" do
     url "http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
-  end
-
-  resource "ordereddict" do
-    url "https://files.pythonhosted.org/packages/source/o/ordereddict/ordereddict-1.1.tar.gz"
-    sha256 "1c35b4ac206cef2d24816c89f89cf289dd3d38cf7c449bb3fab7bf6d43f01b1f"
   end
 
   resource "python-jenkins" do
@@ -43,9 +34,9 @@ class JenkinsJobBuilder < Formula
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
-  resource "pip" do
-    url "https://files.pythonhosted.org/packages/source/p/pip/pip-7.1.2.tar.gz"
-    sha256 "ca047986f0528cfa975a14fb9f7f106271d4e0c3fe1ddced6c1db2e7ae57a477"
+  resource "stevedore" do
+    url "https://files.pythonhosted.org/packages/08/58/e21f4691e8e75a290bdbfa366f06b9403c653642ef31f879e07f6f9ad7db/stevedore-1.25.0.tar.gz"
+    sha256 "c8a373b90487b7a1b52ebaa3ca5059315bf68d9ebe15b2203c2fa675bd7e1e7e"
   end
 
   resource "multi_key_dict" do
@@ -53,16 +44,9 @@ class JenkinsJobBuilder < Formula
     sha256 "deebdec17aa30a1c432cb3f437e81f8621e1c0542a0c0617a74f71e232e9939e"
   end
 
-  resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/08/58/e21f4691e8e75a290bdbfa366f06b9403c653642ef31f879e07f6f9ad7db/stevedore-1.25.0.tar.gz"
-    sha256 "c8a373b90487b7a1b52ebaa3ca5059315bf68d9ebe15b2203c2fa675bd7e1e7e"
-  end
-
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    packages_to_install = %w[pyyaml ordereddict python-jenkins pbr six pip multi_key_dict]
-    packages_to_install << "stevedore" if build.devel?
-    packages_to_install.each do |r|
+    %w[pyyaml python-jenkins pbr six stevedore multi_key_dict].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
