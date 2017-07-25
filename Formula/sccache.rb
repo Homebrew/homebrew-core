@@ -16,7 +16,7 @@ class Sccache < Formula
     (testpath/"hello.c").write <<-EOS.undent
       #include <stdio.h>
       int main() {
-        printf("Hello, world!\n");
+        puts("Hello, world!");
         return 0;
       }
     EOS
