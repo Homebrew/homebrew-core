@@ -15,7 +15,6 @@ class Cmus < Formula
   devel do
     url "https://github.com/cmus/cmus/archive/v2.8.0-rc0.tar.gz"
     sha256 "b594087f16053f4db49e89d72b1c6dbb12e221373e806e62b3e97c327de1dac9"
-    version "2.8.0-rc0"
   end
 
   depends_on "pkg-config" => :build
