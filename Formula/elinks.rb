@@ -15,7 +15,6 @@ class Elinks < Formula
 
   devel do
     url "http://elinks.cz/download/elinks-0.12pre6.tar.bz2"
-    version "0.12pre6"
     sha256 "383646375b8a325bef5a132c8300caab90eb0b842c5f8eff68febc00e29acada"
   end
 
