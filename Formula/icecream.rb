@@ -34,7 +34,6 @@ class Icecream < Formula
 
   devel do
     url "https://github.com/icecc/icecream/archive/1.1rc1.tar.gz"
-    version "1.1rc1"
     sha256 "95bdb66228cc8f5d97a829f1ee4e3f2d32caf064e9614919e8af0f708a13c654"
 
     depends_on "lzo"
