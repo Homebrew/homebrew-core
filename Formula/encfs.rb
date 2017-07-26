@@ -1,8 +1,8 @@
 class Encfs < Formula
   desc "Encrypted pass-through FUSE file system"
   homepage "https://vgough.github.io/encfs/"
-  url "https://github.com/vgough/encfs/archive/v1.9.1.tar.gz"
-  sha256 "67203aeff7a06ce7be83df4948db296be89a00cffe1108a0a41c96d7481106a4"
+  url "https://github.com/vgough/encfs/archive/v1.9.2.tar.gz"
+  sha256 "cd9e972cd9565cdc26473c86d2c77c98de31fc6f604fa7d149dd5d6e35d46eaa"
   head "https://github.com/vgough/encfs.git"
 
   bottle do
