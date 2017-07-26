@@ -45,7 +45,7 @@ class GstPluginsBad < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-yadif
-      --disable-sdl
+      --disable-examples
       --disable-debug
       --disable-dependency-tracking
     ]
