@@ -3,7 +3,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz"
   sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9b96002d2a130dba0ead8984d4a76c1b057d8ef7427d6f5895f7e0c2698d86ef" => :sierra
@@ -35,6 +35,7 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
+      "--enable-R-framework=#{frameworks}",
       "--without-cairo",
       "--without-x",
       "--with-aqua",
@@ -76,7 +77,7 @@ class R < Formula
       end
     end
 
-    r_home = lib/"R"
+    r_home = frameworks/"R.framework/Resources"
 
     # make Homebrew packages discoverable for R CMD INSTALL
     inreplace r_home/"etc/Makeconf" do |s|
@@ -85,16 +86,21 @@ class R < Formula
       s.gsub!(/.LDFLAGS =.*/, "\\0 $(LDFLAGS)")
     end
 
+    bin.install_symlink Dir[r_home/"bin/{R,Rscript}"]
     include.install_symlink Dir[r_home/"include/*"]
     lib.install_symlink Dir[r_home/"lib/*"]
+    (lib/"pkgconfig").install_symlink frameworks/"lib/pkgconfig/libR.pc"
+    man1.install_symlink Dir[r_home/"man1/*"]
   end
 
   def post_install
-    short_version =
-      `#{bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
+    ENV.delete "R_HOME" # Rscript prints garbage if R_HOME is set
+    short_version = `#{bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
     site_library = HOMEBREW_PREFIX/"lib/R/#{short_version}/site-library"
+    site_library_cellar = frameworks/"R.framework/Resources/site-library"
     site_library.mkpath
-    ln_s site_library, lib/"R/site-library"
+    site_library_cellar.unlink if site_library_cellar.exist?# Avoid conflict when revision up
+    ln_s site_library, site_library_cellar
   end
 
   test do
