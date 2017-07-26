@@ -6,9 +6,9 @@ class Encfs < Formula
   head "https://github.com/vgough/encfs.git"
 
   bottle do
-    sha256 "8329a0a80ee9ce5f54c211c95233755f5636f78088fee492340d80d64a1b08ed" => :sierra
-    sha256 "b1bf8ed2da863b827d0f8c15d3d27aef446351830e336afec49d75e0be209a56" => :el_capitan
-    sha256 "38595ac5d8fedd8544fee9989f2bd68196c091df9a7bcd7e9e494952e8d3843a" => :yosemite
+    sha256 "c2a1b09f4e54c6a5325045004d4f9eba4f4f3ac75954ab79302f22f9835ed70f" => :sierra
+    sha256 "27f0e9e05a1f7eca238318e53eb6dd79a13875f84ea258250d15bf679ecc0f46" => :el_capitan
+    sha256 "37dcf80058b6db6d3dd9a0b18ea71310bf731c390c658f00de13b6a1db7fe879" => :yosemite
   end
 
   depends_on "cmake" => :build
