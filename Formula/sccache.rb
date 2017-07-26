@@ -8,7 +8,7 @@ class Sccache < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
+    system "cargo", "build", "--release", "--features", "all"
     bin.install "target/release/sccache"
   end
 
