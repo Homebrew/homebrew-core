@@ -6,7 +6,6 @@ class BashSnippets < Formula
 
   bottle :unneeded
 
-
   def install
     system "./install.sh", "--prefix=#{prefix}", "all"
   end
