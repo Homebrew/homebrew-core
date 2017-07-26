@@ -2,8 +2,8 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-6.0.4.24953.tar.gz"
-  sha256 "021981eac3ca87aab6ef6ed2d460fd02cf0414b19dc73cb0d0d3d09aaca5aa80"
+  url "https://dist.duck.sh/duck-src-6.2.0.25806.tar.gz"
+  sha256 "271230bc6158312efd28f06cbe1a9d2581aa068aad3c85aafd1c90f427c8ecf1"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
@@ -26,7 +26,7 @@ class Duck < Formula
   end
 
   test do
-    system "#{bin}/duck", "--download", Formula["wget"].stable.url, testpath/"test"
-    (testpath/"test").verify_checksum Formula["wget"].stable.checksum
+    system "#{bin}/duck", "--download", Formula["libmagic"].stable.url, testpath/"test"
+    (testpath/"test").verify_checksum Formula["libmagic"].stable.checksum
   end
 end
