@@ -11,16 +11,10 @@ class BashSnippets < Formula
   end
 
   test do
-    system "#{bin}/weather", "-h"
-    system "#{bin}/weather", "-v"
     output = shell_output("#{bin}/weather Paramus").lines.first
     assert_equal "Weather report: Paramus, United States of America", output.chomp
-    system "#{bin}/qrify", "-h"
-    system "#{bin}/qrify", "-v"
     output = shell_output("#{bin}/qrify This is a test")
     assert_match "████ ▄▄▄▄▄ █▀ █▀▄█ ▄▄▄▄▄ ████", output.chomp
-    system "#{bin}/stocks", "-h"
-    system "#{bin}/stocks", "-v"
     output = shell_output("#{bin}/stocks Apple")
     assert_match "AAPL stock info", output.chomp
   end
