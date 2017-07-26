@@ -99,7 +99,7 @@ class R < Formula
     site_library = HOMEBREW_PREFIX/"lib/R/#{short_version}/site-library"
     site_library_cellar = frameworks/"R.framework/Resources/site-library"
     site_library.mkpath
-    site_library_cellar.unlink if site_library_cellar.exist?# Avoid conflict when revision up
+    site_library_cellar.unlink if site_library_cellar.exist? # Avoid conflict when revision up
     ln_s site_library, site_library_cellar
   end
 
