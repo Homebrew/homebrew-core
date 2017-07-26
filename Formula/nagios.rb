@@ -62,7 +62,7 @@ class Nagios < Formula
     system "make", "install-webconf"
   end
 
-  def postinstall
+  def post_install
     (var/"lib/nagios/rw").mkpath
 
     config = etc/"nagios/nagios.cfg"
