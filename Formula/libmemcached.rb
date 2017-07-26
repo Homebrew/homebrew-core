@@ -24,4 +24,48 @@ class Libmemcached < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <assert.h>
+      #include <string.h>
+
+      #include <libmemcached-1.0/memcached.h>
+
+      int main(int argc, char **argv) {
+          const char *conf = "--SERVER=localhost:11211";
+          memcached_st *memc = memcached(conf, strlen(conf));
+          assert(memc != NULL);
+
+          // Add a value.
+          const char *key = "key";
+          const char *val = "val";
+          assert(memcached_add(memc, key, strlen(key), val, strlen(val),
+                               (time_t)0, (uint32_t)0) == MEMCACHED_SUCCESS);
+
+          // Fetch and check the added value.
+          size_t return_val_len;
+          uint32_t return_flags;
+          memcached_return_t error;
+          char *return_val = memcached_get(memc, key, strlen(key),
+                                           &return_val_len, &return_flags, &error);
+          assert(return_val != NULL);
+          assert(error == MEMCACHED_SUCCESS);
+          assert(return_val_len == strlen(val));
+          assert(strncmp(return_val, val, return_val_len) == 0);
+          assert(return_flags == 0);
+          free(return_val);
+
+          memcached_free(memc);
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmemcached", "test.c", "-o", "test"
+
+    memcached = Formula["memcached"].bin/"memcached"
+    # Assumes port 11211 is not already taken
+    io = IO.popen("#{memcached} --listen=localhost:11211")
+    sleep 1
+    system "./test"
+    Process.kill "TERM", io.pid
+  end
 end
