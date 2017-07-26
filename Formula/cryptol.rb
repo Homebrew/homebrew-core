@@ -5,8 +5,8 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-2.4.0/cryptol-2.4.0.tar.gz"
-  sha256 "d34471f734429c25b52ca71ce63270ec3157a8413eeaf7f65dd7abe3cb27014d"
+  url "https://hackage.haskell.org/package/cryptol-2.5.0/cryptol-2.5.0.tar.gz"
+  sha256 "910928617beb1434ad5681672b78ede5dda7715b85dcb8246fa8d9ddb2261cf1"
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
@@ -21,12 +21,7 @@ class Cryptol < Formula
   depends_on "z3" => :run
 
   def install
-    # Remove sbv constraint for > 2.4.0
-    if build.stable?
-      install_cabal_package "--constraint", "sbv < 5.15", :using => ["alex", "happy"]
-    else
-      install_cabal_package :using => ["alex", "happy"]
-    end
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do
@@ -34,11 +29,7 @@ class Cryptol < Formula
       :prove \\(x : [8]) -> x == x
       :prove \\(x : [32]) -> x + zero == x
     EOS
-    expected = <<-EOS.undent
-      Loading module Cryptol
-      Q.E.D.
-      Q.E.D.
-    EOS
+    expected = /Q\.E\.D\..*Q\.E\.D/m
     assert_match expected, shell_output("#{bin}/cryptol -b helloworld.icry")
   end
 end
