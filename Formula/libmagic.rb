@@ -32,4 +32,24 @@ class Libmagic < Formula
     rm bin/"file"
     rm man1/"file.1"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <assert.h>
+      #include <stdio.h>
+
+      #include <magic.h>
+
+      int main(int argc, char **argv) {
+          magic_t cookie = magic_open(MAGIC_MIME_TYPE);
+          assert(cookie != NULL);
+          assert(magic_load(cookie, NULL) == 0);
+          // Prints the MIME type of the file referenced by the first argument.
+          puts(magic_file(cookie, argv[1]));
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmagic", "test.c", "-o", "test"
+    cp test_fixtures("test.png"), "test.png"
+    assert_equal "image/png", shell_output("./test test.png").chomp
+  end
 end
