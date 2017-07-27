@@ -12,7 +12,6 @@ class Geos < Formula
   end
 
   option :cxx11
-  option "with-php", "Build the PHP extension"
   option "without-python", "Do not build the Python extension"
   option "with-ruby", "Build the ruby extension"
 
@@ -32,7 +31,6 @@ class Geos < Formula
       "--prefix=#{prefix}",
     ]
 
-    args << "--enable-php" if build.with?("php")
     args << "--enable-python" if build.with?("python")
     args << "--enable-ruby" if build.with?("ruby")
 
