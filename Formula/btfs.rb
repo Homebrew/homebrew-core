@@ -7,9 +7,9 @@ class Btfs < Formula
 
   bottle do
     cellar :any
-    sha256 "dcf77a38114495f29e64983a60cb3d0e62b0fa645cad60c32fb2357d1a4bf60e" => :sierra
-    sha256 "58e90041b8552a2cfc490066330e17839fd848a8fb7b011df4fc4b49fcab927c" => :el_capitan
-    sha256 "44eb8e7c5145aec2088c4edf88718b87886f04497dba22160d033e7d680385bf" => :yosemite
+    sha256 "aa0adc46da1ae7380db57ffc8f39f51841cb504cf75408b9229672b81dfb889a" => :sierra
+    sha256 "c117d9c6d93a78ff2f54d6b3739fa253b107361f579763715e15c4e155f87c8f" => :el_capitan
+    sha256 "4138de4b883e0ee32042143e85d1aed24aa1e82277e7684fbe4066753876571d" => :yosemite
   end
 
   depends_on "autoconf" => :build
