@@ -17,7 +17,7 @@ class Postgrest < Formula
     sha256 "8d18b2c13b44e60a7f62052af7a0e2ccb197f4f992300a21efc04ef3fa882a77" => :yosemite
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "postgresql"
 
