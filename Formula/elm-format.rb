@@ -17,7 +17,7 @@ class ElmFormat < Formula
     sha256 "964df8c9e60c3ab2968fa6d6304beee5d0eefd993001a35e26da279b54e2e543" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
