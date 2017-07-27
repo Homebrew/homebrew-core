@@ -15,7 +15,7 @@ class HopenpgpTools < Formula
     sha256 "f0248da438ef0e4a2ad9dd16246b863a5cdd9bda1d280261ccc1a6e2683f42f0" => :yosemite
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
