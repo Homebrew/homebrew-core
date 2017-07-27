@@ -1,8 +1,8 @@
 class WoboqCodebrowser < Formula
   desc "Generate HTML from C++ Code"
   homepage "https://code.woboq.org/"
-  url "https://github.com/woboq/woboq_codebrowser/archive/2.0.1.tar.gz"
-  sha256 "f2ec67bb49415986a4bbef515024009433756c83e14fa84f5acc40c83eec19e6"
+  url "https://github.com/woboq/woboq_codebrowser/archive/2.1.tar.gz"
+  sha256 "f7c803260a9a79405c4c2c561443c49702811f38dcf1081238ef024a6654caa0"
 
   bottle do
     sha256 "61b8336b7118c845ff09ea2d8733a741fe5bf1e08469d474c62ddea3245519e8" => :sierra
