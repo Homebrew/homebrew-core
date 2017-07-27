@@ -3,7 +3,7 @@ class Yarn < Formula
   homepage "https://yarnpkg.com/"
   url "https://yarnpkg.com/downloads/0.27.5/yarn-v0.27.5.tar.gz"
   sha256 "f0f3510246ee74eb660ea06930dcded7b684eac2593aa979a7add84b72517968"
-  head "https://github.com/yarnpkg/yarn.git"
+  revision 1
 
   bottle :unneeded
 
@@ -11,8 +11,8 @@ class Yarn < Formula
 
   def install
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/yarn.js" => "yarn"
-    bin.install_symlink "#{libexec}/bin/yarn.js" => "yarnpkg"
+    (bin/"yarn").write_env_script "#{libexec}/bin/yarn.js", :PREFIX => HOMEBREW_PREFIX
+    (bin/"yarnpkg").write_env_script "#{libexec}/bin/yarn.js", :PREFIX => HOMEBREW_PREFIX
     inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
   end
 
