@@ -5,8 +5,8 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-src.tar.xz"
-  sha256 "11625453e1d0686b3fa6739988f70ecac836cadc30b9f0c8b49ef9091d6118b1"
+  url "https://downloads.haskell.org/~ghc/8.2.1/ghc-8.2.1-src.tar.xz"
+  sha256 "cfc2d496708dacea3ea7dde4c6a4b921b97a7f550ee2acea44cfa535840593f0"
 
   bottle do
     sha256 "bb2f8381ad551dfd540a2cad0db09b11f38a67090795b6b374d4bf596361e924" => :sierra
@@ -15,7 +15,7 @@ class Ghc < Formula
   end
 
   head do
-    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.0"
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.2"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -33,6 +33,7 @@ class Ghc < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on :macos => :lion
+  depends_on :python3 => :build if build.bottle? || build.with?("test")
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   resource "gmp" do
@@ -56,16 +57,19 @@ class Ghc < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-x86_64-apple-darwin.tar.xz"
-    sha256 "ff50a2df9f002f33b9f09717ebf5ec5a47906b9b65cc57b1f9849f8b2e06788d"
+    url "https://downloads.haskell.org/~ghc/8.2.1/ghc-8.2.1-x86_64-apple-darwin.tar.xz"
+    sha256 "900c802025fb630060dbd30f9738e5d107a4ca5a50d5c1262cd3e69fe4467188"
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-testsuite.tar.xz"
-    sha256 "52235d299eb56292f2c273dc490792788b8ba11f4dc600035d050c8a4c1f4cf2"
+    url "https://downloads.haskell.org/~ghc/8.2.1/ghc-8.2.1-testsuite.tar.xz"
+    sha256 "49ea3a913c3c556d4af8bbf5afd40a7ce740341eaef3498d2db3bc842c9d431b"
   end
 
   def install
+    ENV["CC"] = ENV.cc
+    ENV["LD"] = "ld"
+
     # Setting -march=native, which is what --build-from-source does, fails
     # on Skylake (and possibly other architectures as well) with the error
     # "Segmentation fault: 11" for at least the following files:
@@ -96,11 +100,7 @@ class Ghc < Formula
     end
 
     args = ["--with-gmp-includes=#{gmp}/include",
-            "--with-gmp-libraries=#{gmp}/lib",
-            "--with-ld=ld", # Avoid hardcoding superenv's ld.
-            "--with-gcc=#{ENV.cc}"] # Always.
-
-    args << "--with-clang=#{ENV.cc}" if ENV.compiler == :clang
+            "--with-gmp-libraries=#{gmp}/lib"]
 
     # As of Xcode 7.3 (and the corresponding CLT) `nm` is a symlink to `llvm-nm`
     # and the old `nm` is renamed `nm-classic`. Building with the new `nm`, a
