@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.5.2/bazel-0.5.2-dist.zip"
-  sha256 "2418c619bdd44257a170b85b9d2ecb75def29e751b725e27186468ada2e009ea"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.5.3/bazel-0.5.3-dist.zip"
+  sha256 "d6d27e87bb3ccc6f70f885d51b70c4a9924f0b198dec8ccb82baceb912075212"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,13 +14,6 @@ class Bazel < Formula
 
   depends_on :java => "1.8+"
   depends_on :macos => :yosemite
-
-  # Upstream PR from 27 Jun 2017 "Fix build failure with old OS X mktemp"
-  # See https://github.com/bazelbuild/bazel/issues/3279
-  patch do
-    url "https://github.com/bazelbuild/bazel/pull/3281.patch?full_index=1"
-    sha256 "704dff309fa2f6ee5304f72fcbe6d2576326e1bb8e1e41385dc02d773ee35665"
-  end
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
