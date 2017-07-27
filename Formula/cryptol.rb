@@ -15,7 +15,7 @@ class Cryptol < Formula
     sha256 "1771ed234b8889a79618847eee03c2e748496c37d56f4e2336a5be8a8cb89692" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
   depends_on "z3" => :run
 
