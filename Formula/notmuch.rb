@@ -3,6 +3,7 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org"
   url "https://notmuchmail.org/releases/notmuch-0.25.tar.gz"
   sha256 "65d28d1f783d02629039f7d15d9a2bada147a7d3809f86fe8d13861b0f6ae60b"
+  revision 1
   head "git://notmuchmail.org/git/notmuch"
 
   bottle do
@@ -17,6 +18,7 @@ class Notmuch < Formula
   depends_on "pkg-config" => :build
   depends_on "libgpg-error" => :build
   depends_on "glib"
+  depends_on "gmime"
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
@@ -24,24 +26,12 @@ class Notmuch < Formula
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
 
-  # Currently requires gmime 2.6.x
-  resource "gmime" do
-    url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
-    sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
-  end
-
   # Fix SIP issue with python bindings
   # A more comprehensive patch has been submitted upstream
   # https://notmuchmail.org/pipermail/notmuch/2016/022631.html
   patch :DATA
 
   def install
-    resource("gmime").stage do
-      system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
-    end
-
     args = %W[--prefix=#{prefix}]
 
     if build.with? "emacs"
