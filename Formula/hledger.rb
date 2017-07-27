@@ -15,7 +15,7 @@ class Hledger < Formula
     sha256 "15038796cdab0dd16bbd3a7d42344bbea4ba1694b2ecda0e0b7d8a1f87765768" => :yosemite
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
   def install
