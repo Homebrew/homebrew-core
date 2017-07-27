@@ -1,8 +1,8 @@
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.10.4.tar.gz"
-  sha256 "411e6bf10520e938712887a31f2132bfd19e2c79543e7aef158f7c77d03ae2bf"
+  url "https://github.com/mholt/caddy/archive/v0.10.5.tar.gz"
+  sha256 "4e54aff931aa42565ae49dae2c9d8f5654d8b1a410eb6be70035d68561f6265c"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
