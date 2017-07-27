@@ -17,7 +17,7 @@ class Cless < Formula
     sha256 "7e5f360fccaee62ea35aaba208d88a20e64fabf4a512da71323191cd582fb35d" => :mavericks
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
