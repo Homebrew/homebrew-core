@@ -19,7 +19,7 @@ class HaskellStack < Formula
 
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
   def install
