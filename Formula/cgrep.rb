@@ -15,7 +15,7 @@ class Cgrep < Formula
     sha256 "015553f35840cd8e3f88b231a90cee8ad96b90772356f411d87f40b50fc36863" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
   depends_on "pcre"
 
