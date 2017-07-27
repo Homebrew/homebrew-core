@@ -16,7 +16,7 @@ class Arx < Formula
     sha256 "47d9f6b76fe542ae8553a9c7ad56eaecd59a755210be97265774949e67562936" => :yosemite
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
   def install
