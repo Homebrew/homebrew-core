@@ -14,7 +14,7 @@ class Mighttpd2 < Formula
     sha256 "b21f19f4262c05883e11b37388ff46126c1130bf84c568105e9e47b6266290d6" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
