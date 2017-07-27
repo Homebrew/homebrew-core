@@ -6,9 +6,9 @@ class Psqlodbc < Formula
 
   bottle do
     cellar :any
-    sha256 "43662f7a39cee6a6fbc40c91fe1002405bae906900daa67b9a4a71faa92cdd44" => :sierra
-    sha256 "c4423ead2ce18a484ed122a0537d8a1b11b20772f35a31f1960a5bee602fc6d0" => :el_capitan
-    sha256 "7594c0aee1fd22d63ed7fedb4394c49499bb7612686f4b354eb56bbf2cfaac7b" => :yosemite
+    sha256 "ea65d3c1ab051fe19fd431704ac5a1f4602d6e9103f199866d3965982ebbd0f8" => :sierra
+    sha256 "f6f472ae0d6cb4022c3a7900dd7dbae0617e4a8317f542349efc9ee84089e849" => :el_capitan
+    sha256 "851118d307bdefb65b07e789f2770809c9e3f76f93ca570e256bacabe9bb353b" => :yosemite
   end
 
   head do
