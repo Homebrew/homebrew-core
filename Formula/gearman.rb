@@ -1,8 +1,8 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.16/gearmand-1.1.16.tar.gz"
-  sha256 "d0207fa3004318af3c65d4ac8c9a1dddd547acf104fccd1280013a7f091da2c8"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.17/gearmand-1.1.17.tar.gz"
+  sha256 "f9fa59d60c0ad03b449942c6fe24abe09456056852fae89a05052fa25c113c0f"
 
   bottle do
     sha256 "90236fe0c61400d6dd1be7240bdd0d7ac3bd69569aa9e024254e6c0eb6471872" => :sierra
