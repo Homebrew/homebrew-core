@@ -5,9 +5,10 @@ class WoboqCodebrowser < Formula
   sha256 "f7c803260a9a79405c4c2c561443c49702811f38dcf1081238ef024a6654caa0"
 
   bottle do
-    sha256 "61b8336b7118c845ff09ea2d8733a741fe5bf1e08469d474c62ddea3245519e8" => :sierra
-    sha256 "503bfd97e11ae244521a501487f4a4d0b48c512550ced9cb29fc5e4fcb355eb7" => :el_capitan
-    sha256 "ceec3aed2f4ccf00b27d2676113dde02cc131251745abbfc039e37a8391c52eb" => :yosemite
+    cellar :any
+    sha256 "f89367b274491906702004966f4d2f4b2f1f8b7cbc496eca90261dfe8a69dcd8" => :sierra
+    sha256 "3bd5cf8c807767b82559d4b278722a24667adb9d5d1a4b9bca653c4f36f05423" => :el_capitan
+    sha256 "e54d6d923cc9fb157e04135829edc1882c282f8a1582c272b923ecd5ddd3da0e" => :yosemite
   end
 
   depends_on "llvm"
