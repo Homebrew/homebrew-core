@@ -2,7 +2,6 @@ class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
   url "https://github.com/broadinstitute/cromwell/releases/download/28.2/cromwell-28_2.jar"
-  version "28.2"
   sha256 "d575ec83d2950bb2e6524b132cebb83f012c6adec5ff8dc44eeb191acca28f1d"
 
   head do
@@ -19,11 +18,10 @@ class Cromwell < Formula
     if build.head?
       system "sbt", "assembly"
       libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
-      bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
     else
-      libexec.install "cromwell-28.jar"
-      bin.write_jar_script libexec/"cromwell-28.jar", "cromwell"
+      libexec.install Dir["cromwell-*.jar"][0]
     end
+    bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
   end
 
   test do
