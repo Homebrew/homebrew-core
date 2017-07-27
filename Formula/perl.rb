@@ -68,12 +68,14 @@ class Perl < Formula
 
     You can set that up like this:
       PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{shell_profile}
+      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{Utils::Shell.profile}
     EOS
   end
 
   test do
-    (testpath/"test.pl").write "print 'Perl is not an acronym, but JAPH is a Perl acronym!';"
+    (testpath/"test.pl").write <<-EOS.undent
+      print 'Perl is not an acronym, but JAPH is a Perl acronym!';
+    EOS
     system "#{bin}/perl", "test.pl"
   end
 end

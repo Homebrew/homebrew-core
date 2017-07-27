@@ -353,7 +353,7 @@ class Python < Formula
   def caveats; <<-EOS.undent
     This formula installs a python2 executable to #{HOMEBREW_PREFIX}/bin.
     If you wish to have this formula's python executable in your PATH then add
-    the following to #{shell_profile}:
+    the following to #{Utils::Shell.profile}:
       export PATH="#{opt_libexec}/bin:$PATH"
 
     Pip and setuptools have been installed. To update them
