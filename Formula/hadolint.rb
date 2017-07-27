@@ -15,7 +15,7 @@ class Hadolint < Formula
     sha256 "c079436775b7811e6e3b566fa040d9c39580c31e9362fad7386f2527212fde10" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
