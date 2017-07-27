@@ -16,7 +16,7 @@ class DhallJson < Formula
     sha256 "b56b05a088808e65a5aa17be13675504ca49a50ae4cd395a28a0709912f40e63" => :yosemite
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
   def install
