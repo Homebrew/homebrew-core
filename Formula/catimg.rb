@@ -7,9 +7,9 @@ class Catimg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d8ab22fd51467aa6954cce4133006e36b50d4cdfe33beab20f3fe6d10e95861" => :sierra
-    sha256 "4e665f7c1a4ecfd7e1950d6c356dfed8f92d0ab96b27042d5160997e2b019f9a" => :el_capitan
-    sha256 "2bbd68a3e61450ce10e98e0ab3be0b79bc7246afec39a64b17b2397febab904b" => :yosemite
+    sha256 "b003fe4bb7c6f605143cfae9d061abb64669759bcb691c7bc063b6a71409f7b8" => :sierra
+    sha256 "6bc7df392cf75f39e2d0a81080ebd7ca56f6a878c3108617a9831cdb74dffacb" => :el_capitan
+    sha256 "e689ddb6558a7657d5d17e79d29a387ba63490603a902079f47f25e3112525a3" => :yosemite
   end
 
   depends_on "cmake" => :build
