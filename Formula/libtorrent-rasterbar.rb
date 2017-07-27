@@ -3,6 +3,7 @@ class LibtorrentRasterbar < Formula
   homepage "http://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_4/libtorrent-rasterbar-1.1.4.tar.gz"
   sha256 "ccf42367803a6df7edcf4756d1f7d0a9ce6158ec33b851b3b58fd470ac4eeba6"
+  revision 1
 
   bottle do
     cellar :any
@@ -26,6 +27,7 @@ class LibtorrentRasterbar < Formula
   depends_on "boost-python" if build.with? "python"
 
   def install
+    ENV.cxx11
     args = ["--disable-debug",
             "--disable-dependency-tracking",
             "--disable-silent-rules",

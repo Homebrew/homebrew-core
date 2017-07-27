@@ -1,8 +1,8 @@
 class Btfs < Formula
   desc "BitTorrent filesystem based on FUSE"
   homepage "https://github.com/johang/btfs"
-  url "https://github.com/johang/btfs/archive/v2.13.tar.gz"
-  sha256 "494c3e16261e3c7535efa86493e09270dde29cd7121e97c29d226c239cbeabd6"
+  url "https://github.com/johang/btfs/archive/v2.14.tar.gz"
+  sha256 "3f4eb0c2a97c382a72491ca7dbde928c17aa44b76d5992e52c3ce3cf0d4d7f42"
   head "https://github.com/johang/btfs.git"
 
   bottle do
@@ -19,6 +19,7 @@ class Btfs < Formula
   depends_on "libtorrent-rasterbar"
 
   def install
+    ENV.cxx11
     inreplace "configure.ac", "fuse >= 2.8.0", "fuse >= 2.7.3"
     system "autoreconf", "--force", "--install"
     system "./configure", "--disable-debug",
