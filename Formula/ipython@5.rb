@@ -1,6 +1,4 @@
 class IpythonAT5 < Formula
-  include Language::Python::Virtualenv
-
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/21/86/58d06db0c82af66c2d47faead027c3ce775cfbf9bc9d2f13f85d95f0a162/ipython-5.4.1.tar.gz"
@@ -40,8 +38,8 @@ class IpythonAT5 < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/cc/ac/5a16f1fc0506ff72fcc8fd4e858e3a1c231f224ab79bb7c4c9b2094cc570/decorator-4.0.11.tar.gz"
-    sha256 "953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76"
+    url "https://files.pythonhosted.org/packages/bb/e0/f6e41e9091e130bf16d4437dabbac3993908e4d6485ecbc985ef1352db94/decorator-4.1.2.tar.gz"
+    sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
   end
 
   resource "enum34" do
@@ -100,8 +98,8 @@ class IpythonAT5 < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
-    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
+    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
+    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
   end
 
   resource "pyzmq" do
@@ -145,15 +143,41 @@ class IpythonAT5 < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    xy = Language::Python.major_minor_version "python"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+
+    # install other resources
     ipykernel = resource("ipykernel")
+    (resources - [ipykernel]).each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
 
-    venv.pip_install (resources - [ipykernel])
-    venv.pip_install_and_link buildpath
-    venv.pip_install ipykernel
+    # install and link IPython
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python", *Language::Python.setup_install_args(libexec)
+    bin.install libexec/"bin/ipython"
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
+    # install IPython man page
     man1.mkpath
     man1.install libexec/"share/man/man1/ipython.1"
+
+    # install IPyKernel
+    ipykernel.stage do
+      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+    end
+
+    # install kernel
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", buildpath
+    inreplace buildpath/"share/jupyter/kernels/python2/kernel.json", "]", <<-EOS.undent
+      ],
+      "env": {
+        "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
+      }
+    EOS
+    (etc/"jupyter/kernels/python2").install Dir[buildpath/"share/jupyter/kernels/python2/*"]
   end
 
   test do
