@@ -1,9 +1,8 @@
 class TarsnapGui < Formula
-  desc "Cross platform GUI for the Tarsnap command-line client"
+  desc "Cross-platform GUI for the Tarsnap command-line client"
   homepage "https://github.com/Tarsnap/tarsnap-gui/wiki"
-  url "https://github.com/Tarsnap/tarsnap-gui/archive/v0.9.tar.gz"
-  sha256 "e47e1e611f2c7bb5111bcc1d2d86fa2c045ba4af23f8430bbc3c72f546572cb8"
-  revision 1
+  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.tar.gz"
+  sha256 "cd21d2a85f073e72f10900632fdcb49956985255a5711fb4f6d434433b09dac9"
   head "https://github.com/Tarsnap/tarsnap-gui.git"
 
   bottle do
@@ -19,6 +18,7 @@ class TarsnapGui < Formula
   def install
     system "qmake"
     system "make"
+    system "macdeployqt", "Tarsnap.app"
     prefix.install "Tarsnap.app"
   end
 
