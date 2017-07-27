@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-3.2.3.tar.gz"
-  sha256 "ad800e313ece9b4e4ef11b2bdfe15bd73d3c8e51833bc4466525b8f0d8ac86aa"
+  url "https://www.openinfosecfoundation.org/download/suricata-4.0.0.tar.gz"
+  sha256 "6b8b183a8409829ca92c71854cc1abed45f04ccfb7f14c08211f4edf571fa577"
 
   bottle do
     sha256 "856f7fca47975c28ca75d5ff3ed73c78ccbf9db4d94018f7f9a9e5724182ad6c" => :sierra
