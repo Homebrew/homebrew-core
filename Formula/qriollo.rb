@@ -12,7 +12,7 @@ class Qriollo < Formula
     sha256 "bc0ef3114f072bfcbf3b647f47d77f82e24f650b52edfbd1b3f34fd4dcc08c98" => :mavericks
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
 
   def install
     system "make"
