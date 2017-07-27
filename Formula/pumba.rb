@@ -22,7 +22,7 @@ class Pumba < Formula
   end
 
   test do
-    output = shell_output("#{bin}/pumba --version")
-    assert_match "Pumba version #{version}", output
+    output = shell_output("#{bin}/pumba rm test-container")
+    assert_match "INFO[0000] Remove containers", output
   end
 end
