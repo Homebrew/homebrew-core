@@ -15,7 +15,7 @@ class Idris < Formula
     sha256 "8fed2cb59d66a0990aeed6ab21c10e6e45d5517bbc8c14ed8061458f8334a0ac" => :yosemite
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "pkg-config" => :build
 
