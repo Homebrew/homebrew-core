@@ -1,8 +1,8 @@
 class GnomeRecipes < Formula
   desc "Formula for GNOME recipes"
   homepage "https://wiki.gnome.org/Apps/Recipes"
-  url "https://download.gnome.org/sources/gnome-recipes/1.4/gnome-recipes-1.4.6.tar.xz"
-  sha256 "792585df5cb77ee670ca9eb8e6b0fceb823fe092805c026466f01d153f3e9833"
+  url "https://download.gnome.org/sources/gnome-recipes/1.6/gnome-recipes-1.6.2.tar.xz"
+  sha256 "8a11ed483b422dbbedb10237dac8b47fe94d76d40cac87ae6d19292942c94f9c"
 
   bottle do
     sha256 "5010150333537fad3d944ea98abe521a9da2e8221f925ce483ef0f5dd348d398" => :sierra
@@ -32,7 +32,6 @@ class GnomeRecipes < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
-      system "ninja", "test"
       system "ninja", "install"
     end
   end
