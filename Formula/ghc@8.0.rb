@@ -8,6 +8,12 @@ class GhcAT80 < Formula
   url "https://downloads.haskell.org/~ghc/8.0.2/ghc-8.0.2-src.tar.xz"
   sha256 "11625453e1d0686b3fa6739988f70ecac836cadc30b9f0c8b49ef9091d6118b1"
 
+  bottle do
+    sha256 "9184f9147b526c425fd14498dca9fa1550c563857291c3c5ad616c6e5e521e47" => :sierra
+    sha256 "be71492dc8783027300be80d8554bf0a239ba53991002094dc11c5d982f7294f" => :el_capitan
+    sha256 "715e6fd851a5044e1ccaa812b12db136cfa96c9b6e118893f93d92c625040e95" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-test", "Verify the build using the testsuite"
