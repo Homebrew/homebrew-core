@@ -35,7 +35,7 @@ class GitAnnex < Formula
 
   option "with-git-union-merge", "Build the git-union-merge tool"
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
