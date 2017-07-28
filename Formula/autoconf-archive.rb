@@ -15,6 +15,9 @@ class AutoconfArchive < Formula
   # autoconf-archive is useless without autoconf
   depends_on "autoconf" => :run
 
+  conflicts_with "gnome-common",
+    :because => "both install certain autoconf macros"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
