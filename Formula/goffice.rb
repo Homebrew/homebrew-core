@@ -12,9 +12,8 @@ class Goffice < Formula
 
   head do
     url "https://github.com/GNOME/goffice.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "gnome-common" => :build
+    depends_on "automake" => :build
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
   end
@@ -23,8 +22,8 @@ class Goffice < Formula
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "cairo"
-  depends_on "gettext"
   depends_on "gdk-pixbuf"
+  depends_on "gettext"
   depends_on "gtk+3"
   depends_on "libgsf"
   depends_on "librsvg"
