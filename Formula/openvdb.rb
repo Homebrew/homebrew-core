@@ -1,8 +1,8 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v4.0.1.tar.gz"
-  sha256 "ba17c66e633d84bd31393893f54bde863723367b218bdb15b633fab1cf43a764"
+  url "https://github.com/dreamworksanimation/openvdb/archive/v4.0.2.tar.gz"
+  sha256 "d86852dfff43251a3566f3a25e801591df498a9591558a39f237e935f15e138e"
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
