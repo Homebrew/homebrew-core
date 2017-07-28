@@ -11,39 +11,18 @@ class Uwsgi < Formula
     sha256 "986cb7457249c53bf40df451f39675a8871fdefe1f111ae7e02eb70a89404ab5" => :yosemite
   end
 
-  option "with-java", "Compile with Java support"
   option "with-php", "Compile with PHP support (PHP must be built for embedding)"
-  option "with-ruby", "Compile with Ruby support"
-
-  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "openssl"
+  depends_on "yajl"
   depends_on :python if MacOS.version <= :snow_leopard
 
-  depends_on "geoip" => :optional
-  depends_on "gloox" => :optional
-  depends_on "go" => [:build, :optional]
-  depends_on "jansson" => :optional
-  depends_on "libffi" => :optional
   depends_on "libxslt" => :optional
-  depends_on "libyaml" => :optional
-  depends_on "lua@5.1" => :optional
-  depends_on "mongodb" => :optional
-  depends_on "mongrel2" => :optional
-  depends_on "mono" => :optional
-  depends_on "nagios" => :optional
-  depends_on "postgresql" => :optional
-  depends_on "pypy" => :optional
   depends_on "python" => :optional
   depends_on "python3" => :optional
-  depends_on "rrdtool" => :optional
-  depends_on "rsyslog" => :optional
-  depends_on "tcc" => :optional
   depends_on "v8" => :optional
-  depends_on "zeromq" => :optional
-  depends_on "yajl" if build.without? "jansson"
 
   # "no such file or directory: '... libpython2.7.a'"
   # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
@@ -58,14 +37,11 @@ class Uwsgi < Formula
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
-    json = build.with?("jansson") ? "jansson" : "yajl"
-    yaml = build.with?("libyaml") ? "libyaml" : "embedded"
-
     (buildpath/"buildconf/brew.ini").write <<-EOS.undent
       [uwsgi]
       ssl = true
-      json = #{json}
-      yaml = #{yaml}
+      json = yajl
+      yaml = embedded
       inherit = base
       plugin_dir = #{libexec}/uwsgi
       embedded_plugins = null
@@ -90,31 +66,7 @@ class Uwsgi < Formula
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
 
-    plugins << "alarm_xmpp" if build.with? "gloox"
-    plugins << "emperor_mongodb" if build.with? "mongodb"
-    plugins << "emperor_pg" if build.with? "postgresql"
-    plugins << "ffi" if build.with? "libffi"
-    plugins << "fiber" if build.with? "ruby"
-    plugins << "gccgo" if build.with? "go"
-    plugins << "geoip" if build.with? "geoip"
-    plugins << "jvm" if build.with? "java"
-    plugins << "jwsgi" if build.with? "java"
-    plugins << "libtcc" if build.with? "tcc"
-    plugins << "lua" if build.with? "lua@5.1"
-    plugins << "mongodb" if build.with? "mongodb"
-    plugins << "mongodblog" if build.with? "mongodb"
-    plugins << "mongrel2" if build.with? "mongrel2"
-    plugins << "mono" if build.with? "mono"
-    plugins << "nagios" if build.with? "nagios"
-    plugins << "pypy" if build.with? "pypy"
     plugins << "php" if build.with? "php"
-    plugins << "rack" if build.with? "ruby"
-    plugins << "rbthreads" if build.with? "ruby"
-    plugins << "ring" if build.with? "java"
-    plugins << "rrdtool" if build.with? "rrdtool"
-    plugins << "rsyslog" if build.with? "rsyslog"
-    plugins << "servlet" if build.with? "java"
-    plugins << "stats_pusher_mongodb" if build.with? "mongodb"
     plugins << "v8" if build.with? "v8"
     plugins << "xslt" if build.with? "libxslt"
 
