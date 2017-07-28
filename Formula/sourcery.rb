@@ -1,8 +1,8 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code."
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/0.7.2.tar.gz"
-  sha256 "bc5be164ecd5287c4e63615c13b772b6bd56b7fc0e12a8000cd3cd00010beb8e"
+  url "https://github.com/Antondomashnev/Sourcery/archive/0.7.3.tar.gz"
+  sha256 "f8dd2dfb5457c35f443435a5cd3fef52721aaf11fccfa17151551e7f1d725e34"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
