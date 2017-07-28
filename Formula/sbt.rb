@@ -3,7 +3,7 @@ class Sbt < Formula
   homepage "http://www.scala-sbt.org"
   url "https://github.com/sbt/sbt/archive/v0.13.16.tar.gz"
   version "0.13.16"
-  sha256 "22729580a581e966259267eda4d937a2aecad86848f8a82fcc716dcae8dc760c"
+  sha256 "cd116f533bfaf6e3f0b712f3cf0e03f038d335917153abe1a9c89b885882ebdc"
 
   devel do
     url "https://github.com/sbt/sbt/releases/download/v1.0.0-RC2/sbt-1.0.0-RC2.tgz"
