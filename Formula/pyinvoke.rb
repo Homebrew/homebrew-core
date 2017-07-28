@@ -3,8 +3,8 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "http://pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/0.19.0.tar.gz"
-  sha256 "3b25c3618cc5c86236eb73f94780a55846aff88351e914eab276210900402289"
+  url "https://github.com/pyinvoke/invoke/archive/0.20.1.tar.gz"
+  sha256 "892f1e7988f919ecad3511e57ee6766d31553582c3ca27c84708f12cb24c05a3"
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
