@@ -10,10 +10,9 @@ class Libpeas < Formula
     sha256 "cbaaef5811b5f5417d491d360749901e98afdddc5f3b6db8f6d6a4a1b62fb7a1" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "gettext" => :build
-  depends_on "gnome-common" => :build
+  depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
