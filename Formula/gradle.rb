@@ -4,6 +4,12 @@ class Gradle < Formula
   url "https://services.gradle.org/distributions/gradle-4.0.2-all.zip"
   sha256 "b683cb9f8510f3ae9533871e6b244c24eb9398e8c5b432471f91f48dbc91e7a9"
 
+  devel do
+    url "https://services.gradle.org/distributions/gradle-4.1-rc-1-all.zip"
+    version "4.1-rc-1"
+    sha256 "eb504c25abae8ee43e01a56f6873137d74ce68c43b8b1fe89dc0562e6b81ca51"
+  end
+
   bottle :unneeded
 
   option "with-all", "Installs Javadoc, examples, and source in addition to the binaries"
