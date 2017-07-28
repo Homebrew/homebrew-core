@@ -5,6 +5,11 @@ class Yarn < Formula
   sha256 "f0f3510246ee74eb660ea06930dcded7b684eac2593aa979a7add84b72517968"
   revision 1
 
+  devel do
+    url "https://yarnpkg.com/downloads/0.28.4/yarn-v0.28.4.tar.gz"
+    sha256 "057ef781107bb5d3e7a2a655d75054fbeb265a249a905375bc25bec10d42b31f"
+  end
+
   bottle :unneeded
 
   depends_on "node" => :recommended
