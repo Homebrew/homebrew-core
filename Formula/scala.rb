@@ -1,10 +1,10 @@
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.12.2/scala-2.12.2.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.12.2.tgz"
-  sha256 "196168b246fcf10e275491c5e58a50ca9eb696da95e49155b3f86f001346a6f5"
+  url "https://downloads.lightbend.com/scala/2.12.3/scala-2.12.3.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.3/scala-2.12.3.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.3.tgz"
+  sha256 "2b796ab773fbedcc734ba881a6486d54180b699ade8ba7493e91912044267c8c"
 
   bottle :unneeded
 
@@ -14,14 +14,14 @@ class Scala < Formula
   depends_on :java => "1.8+"
 
   resource "docs" do
-    url "https://downloads.lightbend.com/scala/2.12.2/scala-docs-2.12.2.txz"
-    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.2.txz"
-    sha256 "b64ac34aac4d61c8925ec51fcedc13438aa2ad8d49afa25d46ba4a1d0bb87f6c"
+    url "https://downloads.lightbend.com/scala/2.12.3/scala-docs-2.12.3.txz"
+    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.3.txz"
+    sha256 "b3b2b4d222b5dc210505b9615fdfa18711a7f44faa4ecea3be5a1c1b03d5fac0"
   end
 
   resource "src" do
-    url "https://github.com/scala/scala/archive/v2.12.2.tar.gz"
-    sha256 "822ef9c8077765cf558c1bbc88e957ccae77402ca02f432053f4f3bf4f91a2b1"
+    url "https://github.com/scala/scala/archive/v2.12.3.tar.gz"
+    sha256 "09b0c51f214ec60bf0597f9d8cd22a29d2b2c4b204b1ac01cb7122f8bac95d27"
   end
 
   resource "completion" do
