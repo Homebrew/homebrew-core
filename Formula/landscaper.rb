@@ -31,7 +31,6 @@ class Landscaper < Formula
   end
 
   test do
-    version_output = shell_output("#{bin}/landscaper version 2>&1")
-    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
+    assert_match "This is Landscaper v#{version}", pipe_output("#{bin}/landscaper apply 2>&1")
   end
 end
