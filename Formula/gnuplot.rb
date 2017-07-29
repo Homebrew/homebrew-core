@@ -3,6 +3,7 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
   sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
+  revision 1
 
   bottle do
     sha256 "396cd2d3c9efaec862ee85584265d581e95a7e9baacd86a49b63a373282168a4" => :sierra
@@ -20,11 +21,8 @@ class Gnuplot < Formula
 
   option "with-cairo", "Build the Cairo based terminals"
   option "without-lua", "Build without the lua/TikZ terminal"
-  option "with-test", "Verify the build with make check"
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
   option "with-aquaterm", "Build with AquaTerm support"
-  option "without-gd", "Build without gd based terminals"
-  option "with-libcerf", "Build with libcerf support"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
@@ -34,13 +32,11 @@ class Gnuplot < Formula
   deprecated_option "with-qt5" => "with-qt@5.7"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
-  deprecated_option "tests" => "with-test"
-  deprecated_option "with-tests" => "with-test"
 
   depends_on "pkg-config" => :build
-  depends_on "gd" => :recommended
-  depends_on "lua" => :recommended
+  depends_on "gd"
   depends_on "readline"
+  depends_on "lua" => :recommended
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "qt@5.7" => :optional
@@ -67,31 +63,24 @@ class Gnuplot < Formula
       ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
     end
 
-    if build.with? "libcerf"
-      # Build libcerf
-      resource("libcerf").stage do
-        system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
-        system "make", "install"
-      end
-      ENV.prepend "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
+    # Build libcerf
+    resource("libcerf").stage do
+      system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
+      system "make", "install"
     end
-
-    # Help configure find libraries
-    pdflib = Formula["pdflib-lite"].opt_prefix
+    ENV.prepend "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
-      --without-latex
+      --without-tutorial
     ]
 
-    args << "--without-libcerf" if build.without? "libcerf"
-
-    args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
-
-    args << "--without-gd" if build.without? "gd"
+    if build.with? "pdflib-lite"
+      args << "--with-pdf=#{Formula["pdflib-lite"].opt_prefix}"
+    end
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
@@ -104,10 +93,6 @@ class Gnuplot < Formula
       args << "--with-qt=no"
     end
 
-    # The tutorial requires the deprecated subfigure TeX package installed
-    # or it halts in the middle of the build for user-interactive resolution.
-    # Per upstream: "--with-tutorial is horribly out of date."
-    args << "--without-tutorial"
     args << "--without-lua" if build.without? "lua"
     args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << (build.with?("x11") ? "--with-x" : "--without-x")
@@ -116,7 +101,6 @@ class Gnuplot < Formula
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
-    system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"
   end
 
