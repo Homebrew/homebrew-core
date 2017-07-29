@@ -140,17 +140,23 @@ class Ipython < Formula
     end
 
     # install kernel
-    system libexec/"bin/ipython", "kernel", "install", "--prefix", buildpath
-    inreplace buildpath/"share/jupyter/kernels/python3/kernel.json", "]", <<-EOS.undent
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", share
+    inreplace share/"share/jupyter/kernels/python3/kernel.json", "]", <<-EOS.undent
       ],
       "env": {
         "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
       }
     EOS
-    (etc/"jupyter/kernels/python3").install Dir[buildpath/"share/jupyter/kernels/python3/*"]
+  end
+
+  def post_install
+    (etc/"jupyter/kernels/python3").install Dir[share/"share/jupyter/kernels/python3/*"]
   end
 
   test do
     assert_equal "4", shell_output("#{bin}/ipython -c 'print(2+2)'").chomp
+
+    system bin/"ipython", "kernel", "install", "--prefix", testpath
+    assert File.exist?(testpath/"share/jupyter/kernels/python3/kernel.json"), "Failed to install kernel"
   end
 end
