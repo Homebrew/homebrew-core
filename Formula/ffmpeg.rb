@@ -3,8 +3,8 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-3.3.2.tar.bz2"
-    sha256 "216900d5c0af9017bb8f76b0ad23f0ac53cf7fc618cf04b40d989bd99b088e6a"
+    url "https://ffmpeg.org/releases/ffmpeg-3.3.3.tar.bz2"
+    sha256 "1069ac8fc7f52e566bea28b41b9c437246aeb5096f82fb26fa96dc7d5a10a473"
 
     depends_on "yasm" => :build
   end
