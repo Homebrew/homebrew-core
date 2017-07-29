@@ -7,9 +7,9 @@ class SuiteSparse < Formula
 
   bottle do
     cellar :any
-    sha256 "9344c95830eebd2e6a418beb5a3671cb3955a8b798486994d2c2163c7a4a86c2" => :sierra
-    sha256 "925358aebf66ab22eb8f577cb3adcfc1f16045645266c4bab226a520261f78c0" => :el_capitan
-    sha256 "3a527e97525683038594795e95794cb763aabad83c6df44fcecc0c7e57a8ef45" => :yosemite
+    sha256 "04927e85ebcc7a550d399b39cb773206e380b3d26ddb1d35f4d2e6f88e6f36ea" => :sierra
+    sha256 "df8fa69e0bedbce60be7de8c19a5164eadf51f3bdf31dc1561c2edd688a9ad2e" => :el_capitan
+    sha256 "cf849ee340a48be83e92ed588bf66cc9f0f817978dd147456ff7186fbf39d5a8" => :yosemite
   end
 
   depends_on "metis"
