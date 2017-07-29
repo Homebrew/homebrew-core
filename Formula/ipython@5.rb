@@ -185,5 +185,8 @@ class IpythonAT5 < Formula
 
   test do
     assert_equal "4", shell_output("#{bin}/ipython -c 'print 2+2'").chomp
+
+    system bin/"ipython", "kernel", "install", "--prefix", testpath
+    assert File.exists?(testpath/"share/jupyter/kernels/python2/kernel.json"), "Failed to install kernel"    
   end
 end
