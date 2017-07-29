@@ -170,14 +170,17 @@ class IpythonAT5 < Formula
     end
 
     # install kernel
-    system libexec/"bin/ipython", "kernel", "install", "--prefix", buildpath
-    inreplace buildpath/"share/jupyter/kernels/python2/kernel.json", "]", <<-EOS.undent
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", share
+    inreplace share/"share/jupyter/kernels/python2/kernel.json", "]", <<-EOS.undent
       ],
       "env": {
         "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
       }
     EOS
-    (etc/"jupyter/kernels/python2").install Dir[buildpath/"share/jupyter/kernels/python2/*"]
+  end
+
+  def post_install
+    (etc/"jupyter/kernels/python2").install Dir[share/"share/jupyter/kernels/python2/*"]
   end
 
   test do
