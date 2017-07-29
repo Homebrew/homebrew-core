@@ -157,6 +157,6 @@ class Ipython < Formula
     assert_equal "4", shell_output("#{bin}/ipython -c 'print(2+2)'").chomp
 
     system bin/"ipython", "kernel", "install", "--prefix", testpath
-    assert File.exist?(testpath/"share/jupyter/kernels/python3/kernel.json"), "Failed to install kernel"
+    assert_predicate testpath/"share/jupyter/kernels/python3/kernel.json", :exist?, "Failed to install kernel"
   end
 end
