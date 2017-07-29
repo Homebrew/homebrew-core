@@ -1,5 +1,5 @@
 class Pacapt < Formula
-  desc "Package manager in the style or Arch's pacman"
+  desc "Package manager in the style of Arch's pacman"
   homepage "https://github.com/icy/pacapt"
   url "https://github.com/icy/pacapt/archive/v2.3.13.tar.gz"
   sha256 "078596bcbf6cb5e50abdeae2cf057432bccda5c716eb48fefdeee8da04998b7f"
