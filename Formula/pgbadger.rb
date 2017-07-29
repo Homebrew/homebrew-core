@@ -8,9 +8,9 @@ class Pgbadger < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2fe3fa1558342e01dd2ad4c62cba39dfbc1c5638dec568f7a552e65253877c4e" => :sierra
-    sha256 "c0cc5f00e22d8665e5226fd4cad7f004acc03a4b8ea93796066a847a46e54462" => :el_capitan
-    sha256 "c0cc5f00e22d8665e5226fd4cad7f004acc03a4b8ea93796066a847a46e54462" => :yosemite
+    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :sierra
+    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :el_capitan
+    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :yosemite
   end
 
   def install
