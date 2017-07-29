@@ -37,13 +37,14 @@ class Octave < Formula
   depends_on "graphicsmagick"
   depends_on "hdf5"
   depends_on "libsndfile"
+  depends_on "libtool" => :run
   depends_on "pcre"
   depends_on "portaudio"
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "readline"
   depends_on "suite-sparse"
-  depends_on "transfig"
   depends_on "veclibfort"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
