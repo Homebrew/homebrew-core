@@ -1,20 +1,55 @@
 class BashSnippets < Formula
   desc "Collection of small bash scripts for heavy terminal users"
   homepage "https://github.com/alexanderepstein/Bash-Snippets"
-  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.16.0.tar.gz"
-  sha256 "19a029a204f16bd4db30cf7fa32aa6953dd10dcb996138b9bc65c01612afaac7"
+  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.16.2.tar.gz"
+  sha256 "bbe899bf1b3095761fb405e9adebe9ff9bc4178dbcad2121a91d821b4308d107"
 
   bottle :unneeded
 
+  option "with-cheat", "Install cheat"
+  option "with-cloudup", "Install cloudup"
+  option "with-crypt", "Install crypt"
+  option "with-cryptocurrency", "Install cryptocurrency"
+  option "with-currency", "Install currency"
+  option "with-geo", "Install geo"
+  option "with-movies", "Install movies"
+  option "with-newton", "Install newton"
+  option "with-qrify", "Install qrify"
+  option "with-short", "Install short"
+  option "with-siteciphers", "Install siteciphers"
+  option "with-stocks", "Install stocks"
+  option "with-taste", "Install taste"
+  option "with-todo", "Install todo"
+  option "with-weather", "Install weather"
+  option "with-ytview", "Install ytview"
+  option "without-all-tools", "Do not install all available snippets"
+
+  if build.with?("all-tools") || build.with?("cheat")
+    conflicts_with "cheat", :because => "Both install a `cheat` executable"
+  end
+
   def install
-    system "./install.sh", "--prefix=#{prefix}", "all"
+    if build.with? "all-tools"
+      system "./install.sh", "--prefix=#{prefix}", "all"
+    else
+      %w[cheat cloudup crypt cryptocurrency currency geo movies newton qrify
+         short siteciphers stocks taste todo weather ytview].each do |tool|
+        system "./install.sh", "--prefix=#{prefix}", tool if build.with? tool
+      end
+    end
   end
 
   test do
-    output = shell_output("#{bin}/weather Paramus").lines.first
-    assert_equal "Weather report: Paramus, United States of America", output.chomp
-    output = shell_output("#{bin}/qrify This is a test")
-    assert_match "████ ▄▄▄▄▄ █▀ █▀▄█ ▄▄▄▄▄ ████", output
-    assert_match "AAPL stock info", shell_output("#{bin}/stocks Apple")
+    if build.with?("all-tools") || build.with?("weather")
+      output = shell_output("#{bin}/weather Paramus").lines.first
+      assert_equal "Weather report: Paramus, United States of America", output.chomp
+    end
+    if build.with?("all-tools") || build.with?("qrify")
+      output = shell_output("#{bin}/qrify This is a test")
+      assert_match "████ ▄▄▄▄▄ █▀ █▀▄█ ▄▄▄▄▄ ████", output
+    end
+    if build.with?("all-tools") || build.with?("stocks")
+      assert_match "AAPL stock info", shell_output("#{bin}/stocks Apple")
+    end
   end
 end
