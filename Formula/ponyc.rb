@@ -1,8 +1,8 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.16.0.tar.gz"
-  sha256 "661ba34ba03011bfe1deeaf65f97e86dabd6216994d5471bb24f8792ae1111d6"
+  url "https://github.com/ponylang/ponyc/archive/0.16.1.tar.gz"
+  sha256 "4004d7efb92ab72b84d390d1909a763ab618b7ae842b8c986013333e48c4e8c0"
 
   bottle do
     cellar :any
