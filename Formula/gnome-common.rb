@@ -12,6 +12,9 @@ class GnomeCommon < Formula
     sha256 "a96e5dedc2888b6caa326da0abd8eb7d3f1426407e8bef82a6ba0f41adb7016a" => :mavericks
   end
 
+  conflicts_with "autoconf-archive",
+    :because => "both install certain autoconf macros"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
