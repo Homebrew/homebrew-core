@@ -3,8 +3,8 @@ class Awslogs < Formula
 
   desc "Simple command-line tool to read AWS CloudWatch logs"
   homepage "https://github.com/jorgebastida/awslogs"
-  url "https://github.com/jorgebastida/awslogs/archive/0.8.tar.gz"
-  sha256 "74163ff3dad377de71014d11fd5ffeeb84bf1d8f6a4acbb45f9fae762551b037"
+  url "https://github.com/jorgebastida/awslogs/archive/0.10.tar.gz"
+  sha256 "6b05e930ab83d2f7fce4f4aa0320bb855efcd951deb70644a043db539bc56bcf"
   head "https://github.com/jorgebastida/awslogs.git"
 
   bottle do
