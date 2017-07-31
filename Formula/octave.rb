@@ -13,7 +13,7 @@ class Octave < Formula
   end
 
   head do
-    url "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
+    url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
     depends_on :hg => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -22,7 +22,7 @@ class Octave < Formula
     depends_on "librsvg" => :build
   end
 
-  depends_on "gnu-sed" => :build # http://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
+  depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
   depends_on :fortran
   depends_on "arpack"
@@ -64,7 +64,7 @@ class Octave < Formula
       # Remove for > 4.2.1
       # Remove inline keyword on file_stat destructor which breaks macOS
       # compilation (bug #50234).
-      # Upstream commit from 24 Feb 2017 http://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
+      # Upstream commit from 24 Feb 2017 https://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
       inreplace "liboctave/system/file-stat.cc",
         "inline file_stat::~file_stat () { }", "file_stat::~file_stat () { }"
     end
