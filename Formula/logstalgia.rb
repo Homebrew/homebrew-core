@@ -6,10 +6,9 @@ class Logstalgia < Formula
   revision 2
 
   bottle do
-    sha256 "4fae5eeb1bb14c971dd617336aa9212d1805b3093e7b0a7cb44f92e7fe1ef09c" => :sierra
-    sha256 "ff663d84629d8d26a43498394ff9ea8231d79e60c836e2f7862685a7ee3f6592" => :el_capitan
-    sha256 "d224adca8bdd80d7145b23be1a70e201fe49139b47eea9a713d18cfb38c52c61" => :yosemite
-    sha256 "7527bbe6dc03b41d5dad76d4a60fe698c54baa9453b089d821985b3c048e487f" => :mavericks
+    sha256 "07a224c6269166f3a5d997a2ed6b66383c3f6751a40a9eb0953ec5f77865eaed" => :sierra
+    sha256 "a5c3faad0786b636fa87a5c60aaf097ab3cf8ae7c1aefe4410e78fdaa837255e" => :el_capitan
+    sha256 "8426a074b0331fd5d2a3e2c0036973e771890fb84169020167ff518d0d49880b" => :yosemite
   end
 
   head do
