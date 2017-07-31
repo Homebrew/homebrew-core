@@ -16,15 +16,10 @@ class Micro < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/zyedidia/micro"
 
-    dir = buildpath/"src/github.com/zyedidia/micro"
-    dir.install (buildpath/"cmd")
-    dir.install (buildpath/"tools")
-    dir.install (buildpath/"runtime")
-    dir.install (buildpath/"Makefile")
+    (buildpath/"src/github.com/zyedidia/micro").install buildpath.children
 
-    cd dir do
+    cd "src/github.com/zyedidia/micro" do
       system "make", "build-quick"
       bin.install "micro"
     end
