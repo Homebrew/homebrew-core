@@ -7,9 +7,9 @@ class Dcm2niix < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7761bca4948f64e5acc95d39a269598058595b2991be1d81d1eb128d0e23a73f" => :sierra
-    sha256 "4cdcd4cc40138a073125da27a57fc54b8f9614c88efcc2bdf118140e0a92f9f5" => :el_capitan
-    sha256 "fc0d48e20598d26b0906bfa2ccb9c61f5d513af9b5eb5ccc7c6243aef0940cff" => :yosemite
+    sha256 "16151f67a12a03458f1cc1f5e9794ec01d50430dd29ac61ff357faee07c51223" => :sierra
+    sha256 "9d3c88c2689f255fab4d89f3cbb369948684f875d214186489d6dc8b1ac70616" => :el_capitan
+    sha256 "4a177fc2fb4fb59f1076b5518ec917df81a9a217a457e1d74e84260d8ca98c91" => :yosemite
   end
 
   option "with-batch"
