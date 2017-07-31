@@ -1,9 +1,9 @@
 class Flawfinder < Formula
   desc "Examines code and reports possible security weaknesses"
   homepage "https://www.dwheeler.com/flawfinder/"
-  url "https://www.dwheeler.com/flawfinder/flawfinder-1.31.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/flawfinder/flawfinder-1.31.tar.gz"
-  sha256 "bca7256fdf71d778eb59c9d61fc22b95792b997cc632b222baf79cfc04887c30"
+  url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.0.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/flawfinder/flawfinder-2.0.0.tar.gz"
+  sha256 "1dece3dd21017b92f6857033bc729db3cf7d7ba8b58088534ed360bde5d0644f"
 
   head "https://git.code.sf.net/p/flawfinder/code.git"
 
