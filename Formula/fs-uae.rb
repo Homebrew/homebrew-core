@@ -1,12 +1,10 @@
 class FsUae < Formula
   desc "Amiga emulator"
   homepage "https://fs-uae.net/"
-
-  stable do
-    url "https://fs-uae.net/stable/2.8.1u3/fs-uae-2.8.1u3.tar.gz"
-    version "2.8.1u3"
-    sha256 "7cc84844a77853f4fe2f2fc7da20ce94adc1a0c0c4b982ea28852a60b8a4d83a"
-  end
+  url "https://fs-uae.net/stable/2.8.1u3/fs-uae-2.8.1u3.tar.gz"
+  version "2.8.1u3"
+  sha256 "7cc84844a77853f4fe2f2fc7da20ce94adc1a0c0c4b982ea28852a60b8a4d83a"
+  revision 1
 
   bottle do
     cellar :any
