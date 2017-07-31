@@ -3,7 +3,7 @@ class Widelands < Formula
   homepage "https://wl.widelands.org/"
   url "https://launchpad.net/widelands/build19/build19/+download/widelands-build19-src.tar.bz2"
   sha256 "e511f9d26828a2b71b64cdfc6674e6e847543b2da73961ab882acca36c7c01a6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7beb3a76b5f1a8c8b80b0b7493e460b69e081fd6b104447fa6e8f4f47f132ef4" => :sierra
