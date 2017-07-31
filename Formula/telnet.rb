@@ -5,7 +5,7 @@ class Telnet < Formula
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
   depends_on :xcode => :build
-  depends_on :macos => :high_sierra
+  keg_only :provided_pre_high_sierra
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -16,19 +16,26 @@ class Telnet < Formula
     resource("libtelnet").stage do
       xcodebuild "SYMROOT=build"
 
-      libtelnet_dst = buildpath / "telnet.tproj" / "build" / "Products"
-      libtelnet_dst.install("build/Release/libtelnet.a")
-      libtelnet_dst.install("build/Release/usr/local/include/libtelnet/")
+      libtelnet_dst = buildpath/"telnet.tproj/build/Products"
+      libtelnet_dst.install "build/Release/libtelnet.a"
+      libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
-    system "make", "-C", "telnet.tproj", "OBJROOT=build/Intermediates", "SYMROOT=build/Products", "DSTROOT=build/Archive", "CFLAGS=$(CC_Flags) -isystembuild/Products/", "LDFLAGS=$(LD_Flags) -Lbuild/Products/", "install"
+    system "make", 
+      "-C", "telnet.tproj",
+      "OBJROOT=build/Intermediates",
+      "SYMROOT=build/Products",
+      "DSTROOT=build/Archive",
+      "CFLAGS=$(CC_Flags) -isystembuild/Products/",
+      "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
+      "install"
 
     bin.install "telnet.tproj/build/Archive/usr/bin/telnet"
     man.install "telnet.tproj/build/Archive/usr/share/man/man1/"
   end
 
   test do
-    output = shell_output("(sleep 2; echo 'quit') | telnet towel.blinkenlights.nl", 1)
+    output = pipe_output("#{bin}/telnet 'towel.blinkenlights.nl'", "sleep 2; echo 'quit'", 1)
     assert_match "So long And Thanks for all the fish", output
 
     output = shell_output("MANPAGER='head -n 2' man telnet")
