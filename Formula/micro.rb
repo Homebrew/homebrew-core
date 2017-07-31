@@ -7,9 +7,9 @@ class Micro < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42b621909d3b7b61b41faf322f38f42e0739aa3964008a14686e5cba5e7bf9c3" => :sierra
-    sha256 "d601ec47f7deaf7dd8421501feea65ea02bb631a67835cf12f9de7a230184027" => :el_capitan
-    sha256 "a250e35d2688835bd858cda94ef5a55ae45ad0d9ba45c39456b04f85e067544c" => :yosemite
+    sha256 "3d6b9d548f9e7ad12eb2648a9276c28b910bc95da557dbd5322a138a1bf9750e" => :sierra
+    sha256 "9616b3ca262556b887d9a4f8dc2bb2ed1487606b08ad930408afa5e540cc2dd5" => :el_capitan
+    sha256 "8cbbf1cec882bf73ec86e95ca77d0046cba8d3885e2721c3ba435b9bce5de0f2" => :yosemite
   end
 
   depends_on "go" => :build
