@@ -6,6 +6,13 @@ class Snapcraft < Formula
   url "https://files.pythonhosted.org/packages/bb/9c/a4361b89e478e5459678908692251636d43d14d88c56b8ff53dd239cadec/snapcraft-2.33.tar.gz"
   sha256 "269ed290dc7853e812852b24a5ffb7cdae5f8351afee17769f0c849043c70ac9"
 
+  bottle do
+    cellar :any
+    sha256 "cb5185c07b4913e6caafbf223a21780552b764cfbf057d59e4363bcff38da94a" => :sierra
+    sha256 "e5328abd75852cc45b8b7e3ef0432d801cffe1f35a772471ad0bec0570636574" => :el_capitan
+    sha256 "84b8de7a7cf9445ed12a0b6444417aced60d2a67360c2e9f42cf15dc64416fab" => :yosemite
+  end
+
   depends_on "libmagic"
   depends_on "libsodium"
   depends_on "libyaml"
