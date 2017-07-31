@@ -7,7 +7,7 @@ Just `brew install <formula>`. This is the default tap for Homebrew and is insta
 ## Troubleshooting
 First, please run `brew update` (twice) and `brew doctor`.
 
-Second, read the [Troubleshooting Checklist](http://docs.brew.sh/Troubleshooting.html).
+Second, read the [Troubleshooting Checklist](https://docs.brew.sh/Troubleshooting.html).
 
 **If you don’t read these it will take us far longer to help you with your problem.**
 
