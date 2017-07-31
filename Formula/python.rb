@@ -1,6 +1,6 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
-  homepage "https://www.python.org"
+  homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz"
   sha256 "35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731"
   revision 1
@@ -304,7 +304,7 @@ class Python < Formula
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <http://docs.brew.sh/Homebrew-and-Python.html>
+      # <https://docs.brew.sh/Homebrew-and-Python.html>
       import re
       import os
       import sys
@@ -365,7 +365,7 @@ class Python < Formula
     They will install into the site-package directory
       #{site_packages}
 
-    See: http://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python.html
     EOS
   end
 
