@@ -4,8 +4,8 @@ class Goad < Formula
   desc "AWS Lambda powered, highly distributed, load testing tool built in Go"
   homepage "https://goad.io/"
   url "https://github.com/goadapp/goad.git",
-      :tag => "v1.4.1",
-      :revision => "6cd24daf34c487894e7008e080c017989d03db4a"
+      :tag => "2.0.1",
+      :revision => "bd9b62a2449c76689f6997d99e3fb41a0d47dab7"
 
   bottle do
     cellar :any_skip_relocation
