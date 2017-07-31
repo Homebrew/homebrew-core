@@ -1,9 +1,8 @@
 class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
-  url "https://github.com/zyedidia/micro.git",
-    :tag => "v1.3.0",
-    :revision => "fad95c028a3d4d783282f5545a4a676dfec7f82c"
+  url "https://github.com/zyedidia/micro/releases/download/v1.3.0/micro-1.3.0-src.tar.gz"
+  sha256 "d76c0c849fdd622cdb3ffa4db17244f466ec683dc545188c12f60175747496af"
   head "https://github.com/zyedidia/micro.git", :shallow => false
 
   bottle do
@@ -26,7 +25,7 @@ class Micro < Formula
     dir.install (buildpath/"Makefile")
 
     cd dir do
-      system "make", "build"
+      system "make", "build-quick"
       bin.install "micro"
     end
   end
