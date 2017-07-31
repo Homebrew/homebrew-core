@@ -4,8 +4,8 @@ class Telnet < Formula
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
-  depends_on :xcode => :build
   keg_only :provided_pre_high_sierra
+  depends_on :xcode => :build
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
@@ -21,7 +21,7 @@ class Telnet < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
-    system "make", 
+    system "make",
       "-C", "telnet.tproj",
       "OBJROOT=build/Intermediates",
       "SYMROOT=build/Products",
