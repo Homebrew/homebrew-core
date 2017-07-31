@@ -8,10 +8,10 @@ class Watson < Formula
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
-    rebuild 1
-    sha256 "abd34fcb26af6dfedbd04309e1f89cdf344b22106230babc52cde7278ebf83fa" => :sierra
-    sha256 "c442d3832a3fe7d1be02c4e164ffa2f0acfdb0037c973ed251c5c847bccdd28e" => :el_capitan
-    sha256 "3903dade326956273ec9f34e00b105aa3bfd7ea92a33aa2a9b1c2a2b68b3cce1" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "3c02d6ef307d174e75b8f8226bec7a1263e29cc3ee587b8c97479cc29297a8d3" => :sierra
+    sha256 "c999f0874b78be18341f9a93e4e4b8d4c898d763310f638fbb188deae5956706" => :el_capitan
+    sha256 "b099cb9ea64d813b1d963f031da81dfad321b50a64d8d919045dfb1a933ad454" => :yosemite
   end
 
   depends_on :python
