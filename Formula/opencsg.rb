@@ -3,6 +3,7 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
   sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
+  revision 1
 
   bottle do
     cellar :any
