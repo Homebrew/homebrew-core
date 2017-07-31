@@ -13,8 +13,8 @@ class Rust < Formula
     end
 
     resource "racer" do
-      url "https://github.com/racer-rust/racer/archive/2.0.9.tar.gz"
-      sha256 "31185317118a069569611572daf28890989d52222c390448feacf17bb469fb87"
+      url "https://github.com/racer-rust/racer/archive/2.0.10.tar.gz"
+      sha256 "8e81da4f238117affe7631a7656b219294950ff17b2bea85794060be11b80489"
     end
   end
 
