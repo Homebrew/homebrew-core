@@ -9,10 +9,9 @@ class Goad < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "331937d2ca071b3da60f458b1d5750b3b16defbafe795f52b44780639da38672" => :sierra
-    sha256 "d7deb965c800fc18375e808f76e8a6a05419c346257b550201f079ea5c922933" => :el_capitan
-    sha256 "93c7b9b8d2f3ad8ddd689bb0079478c3b5ac9c044af3cffdf1f874e526656002" => :yosemite
+    sha256 "9ed1595041e435db8dfc4c90cf43e48aea463f2854665211af060885b8353818" => :sierra
+    sha256 "3ba719abd7916592eb6286ae8b5b4274cecb17644bbccf8440305908459dfcc7" => :el_capitan
+    sha256 "37bd1aa77d0505833517d48aac34e1c8be80312b91a098c62f8dc61bac99c5bf" => :yosemite
   end
 
   depends_on "go" => :build
