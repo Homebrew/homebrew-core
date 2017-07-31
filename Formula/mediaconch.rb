@@ -36,7 +36,7 @@ class Mediaconch < Formula
               "--disable-dependency-tracking",
               "--enable-static",
               "--enable-shared",
-              "--with-libcurl=runtime",
+              "--with-libcurl",
               "--prefix=#{prefix}",
               "--libdir=#{lib}/mediaconch",
               "--includedir=#{include}/mediaconch"]
