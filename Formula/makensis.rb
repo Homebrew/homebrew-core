@@ -45,11 +45,9 @@ class Makensis < Formula
     end
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
-    args = %W[STRIP=0 ZLIB_W32=#{@zlib_path}]
-    args << "SKIPUTILS=NSIS Menu"
+    args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu"] 
     args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
-    args << "makensis"
-    scons *args
+    scons "makensis", *args
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
   end
