@@ -67,8 +67,7 @@ class Gnuplot < Formula
       system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
       system "make", "install"
     end
-
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{buildpath}/libcerf/lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
