@@ -32,12 +32,12 @@ class Pypy < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/25/4e/1b16cfe90856235a13872a6641278c862e4143887d11a12ac4905081197f/setuptools-28.8.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/25/4e/1b16cfe90856235a13872a6641278c862e4143887d11a12ac4905081197f/setuptools-28.8.0.tar.gz"
     sha256 "432a1ad4044338c34c2d09b0ff75d509b9849df8cf329f4c1c7706d9c2ba3c61"
   end
 
   resource "pip" do
-    url "https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
     sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
   end
 
@@ -139,7 +139,7 @@ class Pypy < Formula
     To update setuptools and pip between pypy releases, run:
         pip_pypy install --upgrade pip setuptools
 
-    See: http://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python.html
     EOS
   end
 
