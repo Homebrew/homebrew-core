@@ -3,7 +3,7 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
   sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3192949de4abd0e6c7f9213fbf85bfff07dc3e123403abb5c4712ae07563ff67" => :sierra
@@ -67,7 +67,7 @@ class Gnuplot < Formula
       system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
       system "make", "install"
     end
-    ENV.prepend "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
