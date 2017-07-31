@@ -1,9 +1,8 @@
 class Libcds < Formula
   desc "C++ library of Concurrent Data Structures"
   homepage "https://libcds.sourceforge.io/doc/cds-api/index.html"
-  url "https://github.com/khizmax/libcds/archive/v2.2.0.tar.gz"
-  sha256 "e582fbd6492c91ff24b11468f094b111d5f62eca69e6445c88bf16cad50e40ed"
-  revision 1
+  url "https://github.com/khizmax/libcds/archive/v2.3.0.tar.gz"
+  sha256 "4e9f64ee350ce69daad2a1d620474ed79de593816bfb1bb2cb202c8d24944d79"
 
   bottle do
     cellar :any
