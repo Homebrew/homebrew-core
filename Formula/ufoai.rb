@@ -1,6 +1,6 @@
 class Ufoai < Formula
   desc "UFO: Alien Invasion"
-  homepage "http://ufoai.org/"
+  homepage "https://ufoai.org/"
   url "https://git.code.sf.net/p/ufoai/code.git", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
   version "2.5.0+20150216"
   revision 1
