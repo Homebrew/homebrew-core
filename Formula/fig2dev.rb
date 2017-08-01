@@ -5,9 +5,9 @@ class Fig2dev < Formula
   sha256 "5e61a3d9a4f83db4b3199ee82dd54bb65b544369f1e8e38a2606c44cf71667a7"
 
   bottle do
-    sha256 "86fcdda34519a6ee41eaa47ee532fc68bd8d9833e34ff8c75d52b4f421c1e02f" => :sierra
-    sha256 "3b7d9bfdc4516e0843a4c913dbc8fc4d3ba703ac35b9913386681f6d28c6e359" => :el_capitan
-    sha256 "f2341d90701cd3d63f964d34cf3cfbb1efe4f61653a263ddefecc1d8afcd774d" => :yosemite
+    sha256 "31feda2231f672f7c15c2a74f9b392e0fa8378a0b7598010ed04e4a532f7a079" => :sierra
+    sha256 "ab4631a22c7d46b00f5271c390e64cf07f7acd54cd382937b153d0507c7d568f" => :el_capitan
+    sha256 "f144d58e99b3fa4b3798c30ba6c70b35b28c9840193357d89b748928200a4a48" => :yosemite
   end
 
   depends_on :x11
