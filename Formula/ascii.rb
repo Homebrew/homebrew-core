@@ -16,9 +16,9 @@ class Ascii < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff21b9c17c8c80a0c9c675cab06e342e62fa32fb4d3d5885c6bb7f8f0ea0cfca" => :sierra
-    sha256 "d2a31c1e0de81dbae47fe587471ed8bd16e1d5d665c312ec4d04de27cc926c97" => :el_capitan
-    sha256 "2ecf284b12789cc7efbe63a294792c932ccb2ef9e38b12acd05ac33e246cd296" => :yosemite
+    sha256 "ea9d061985b9f11b415b943b1f4ce5aa5528052701911acc0d62a47f0b233e4d" => :sierra
+    sha256 "6bf609ef12568dc3e2cc48bccc9414047483ca9f9dccb13493c8b5b462f8fe7b" => :el_capitan
+    sha256 "33eda7e9a5da959b27427bd0eca7b27ceca70e4cc3a41e52ff1b0c1fbbcd7cd1" => :yosemite
   end
 
   head do
