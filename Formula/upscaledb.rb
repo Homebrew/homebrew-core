@@ -1,10 +1,8 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
-  sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
-  revision 5
+  url "http://files.upscaledb.com/dl/upscaledb-2.2.1.tar.gz"
+  sha256 "6058aa87b9c63da20e660729458deaf5bd75cbce352164dbe54c37471ab95435"
 
   bottle do
     cellar :any
