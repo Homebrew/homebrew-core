@@ -3,6 +3,7 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
   sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
+  revision 1
 
   bottle do
     sha256 "b5bbb4aa869bc4abc5eaa110a3d86d826f125a4d4ccc0ffcd481eba3da911fe7" => :sierra
@@ -34,6 +35,7 @@ class Getdns < Formula
     args = [
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
+      "--without-stubby",
     ]
     args << "--enable-stub-only" if build.without? "unbound"
     args << "--without-libidn" if build.without? "libidn"
