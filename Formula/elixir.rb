@@ -31,9 +31,9 @@ class Elixir < Formula
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "249639d1f2c0b2d5815abc07766aeb6fdf0358485e65a270731499f667de4e45" => :sierra
-    sha256 "743c796575d9db10c6fd6628b8b119d1cc8f0ea4ee437d66f491cdc28e3b3832" => :el_capitan
-    sha256 "792ff99038a291c890a842ba82a28b41532adaf89ea7eb977a4f7a247a21d917" => :yosemite
+    sha256 "ca8ab373ca0623706abf177adb15919b065c36930f0bfed6fdf6901163a4192c" => :sierra
+    sha256 "740afe30e277007ac12e05a0b01e7f2f8b01f0745529357afb49d1cbfaaca152" => :el_capitan
+    sha256 "4b2b2a83b99fdf16f12aa33273b6201b6698e640cd6f657f05fc7ffe411e71f5" => :yosemite
   end
 
   depends_on Erlang18Requirement
