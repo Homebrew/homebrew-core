@@ -14,13 +14,6 @@ class OpenshiftCli < Formula
     sha256 "b76d411adf0a5beabd7ea380f2013ecfb91ee6dc30f35b9cccd67265967817fc" => :yosemite
   end
 
-  devel do
-    url "https://github.com/openshift/origin.git",
-      :tag => "v3.6.0-alpha.1",
-      :revision => "46942adea0aed0ff58965f846aa5d5021ce30e50"
-    version "3.6.0-alpha.1"
-  end
-
   depends_on "go" => :build
   depends_on "socat"
 
@@ -30,8 +23,7 @@ class OpenshiftCli < Formula
 
     system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
 
-    arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/oc"
+    bin.install "_output/local/bin/darwin/amd64/oc"
     bin.install_symlink "oc" => "oadm"
 
     bash_completion.install Dir["contrib/completions/bash/*"]
@@ -39,10 +31,6 @@ class OpenshiftCli < Formula
 
   test do
     assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
-    if version >= "3.6.0-alpha.0"
-      assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
-    else
-      assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
-    end
+    assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
   end
 end
