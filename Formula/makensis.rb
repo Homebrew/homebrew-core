@@ -6,9 +6,9 @@ class Makensis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad705d703ce08086971ea662c0aaf9fd794c0f141e415680222e0cc20e5e4929" => :sierra
-    sha256 "7e40085a63e244754a62213d00084fce86ff2d77d0ad2c29427fca244087bcc3" => :el_capitan
-    sha256 "91f586655bf0ce929e42a5f5868b2c4f15d6608a964a5430fedf78e1ebebf3e3" => :yosemite
+    sha256 "0588148e9bf4ac37af42b79d24552a9786aa00c27295d625643832ee7d8e25c0" => :sierra
+    sha256 "458ce8cc204a59dc7b3a4ecbff84437c842be1ef3eebc0c79eb5d4709d59ef16" => :el_capitan
+    sha256 "2b802ba4f889a4add1ca35d16c0e9a291afde7f55fb3cea6b47d5a637a4d3934" => :yosemite
   end
 
   depends_on "mingw-w64" => :build
