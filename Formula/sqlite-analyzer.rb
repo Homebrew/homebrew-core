@@ -7,9 +7,9 @@ class SqliteAnalyzer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e5a9bc4d8e39eef480d2ff6626556372fcd23c5681998969529d516a066da0d" => :sierra
-    sha256 "4dc7291b2bf2fa2ddf84290e30e0870816089417f51c2c9533ac189d4ad429e1" => :el_capitan
-    sha256 "bcfe976a2389731fabb34e01dc251b32671056c0a36a4ac4fc14e753acce2155" => :yosemite
+    sha256 "70945e6c252604c8cd9ae273689a28b6ab9a0df645ac61f49fd032caffdc3c1b" => :sierra
+    sha256 "2c83b998a4dd9b3592e15290a36e8f1c10e113f1483089079d52da40fcb6c1a6" => :el_capitan
+    sha256 "0ab64a58708a5a793cf28ddc62bb6ec68a2399e7bfc819b392d53c8365c66c56" => :yosemite
   end
 
   def install
