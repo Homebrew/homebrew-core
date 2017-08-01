@@ -13,7 +13,10 @@ class Apng2gif < Formula
 
   depends_on "libpng"
 
-  fails_with :clang if MacOS.version <= :yosemite
+  if MacOS.version <= :yosemite
+    depends_on "gcc"
+    fails_with :clang
+  end
 
   def install
     system "make"
