@@ -20,6 +20,13 @@ class Nodenv < Formula
       system "make", "-C", "src"
     end
 
+    if build.head?
+      # Record exact git revision for `nodenv --version` output
+      git_revision = `git rev-parse --short HEAD`.chomp
+      inreplace "libexec/nodenv---version", /^(version=.+)/,
+                                           "\\1--g#{git_revision}"
+    end
+
     prefix.install "bin", "completions", "libexec"
   end
 
