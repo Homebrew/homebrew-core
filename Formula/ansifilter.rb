@@ -1,8 +1,8 @@
 class Ansifilter < Formula
   desc "Strip or convert ANSI codes into HTML, (La)Tex, RTF, or BBCode"
   homepage "http://www.andre-simon.de/doku/ansifilter/ansifilter.html"
-  url "http://www.andre-simon.de/zip/ansifilter-2.5.tar.bz2"
-  sha256 "30d05ccfa9be98b0328ee29fe39473e55047f1d32a9a2460d3d4d1ff2475f0e2"
+  url "http://www.andre-simon.de/zip/ansifilter-2.6.tar.bz2"
+  sha256 "4e3abd8c18197db85575c38418dbc8ee424d0caa0681589e5296fc8e72251175"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Ansifilter < Formula
 
   test do
     path = testpath/"ansi.txt"
-    path.write "f\x1b[31moo"
+    path.write "f\x1b[31moo\n"
 
     assert_equal "foo", shell_output("#{bin}/ansifilter #{path}").strip
   end
