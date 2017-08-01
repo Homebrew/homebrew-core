@@ -3,8 +3,8 @@ require "language/go"
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
-  url "https://github.com/immortal/immortal/archive/0.14.0.tar.gz"
-  sha256 "a280078875cd0c80c723c4e8412bee1a61e694d282b030a44639bf7e86632175"
+  url "https://github.com/immortal/immortal/archive/0.15.0.tar.gz"
+  sha256 "bf0fa8f16f8045211a43f42001ed685959a28427a970f50db79c1a9176603b7b"
   head "https://github.com/immortal/immortal.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Immortal < Formula
 
   go_resource "github.com/go-yaml/yaml" do
     url "https://github.com/go-yaml/yaml.git",
-        :revision => "1be3d31502d6eabc0dd7ce5b0daab022e14a5538"
+        :revision => "25c4ec802a7d637f88d584ab26798e94ad14c13b"
   end
 
   go_resource "github.com/nbari/violetear" do
@@ -28,7 +28,7 @@ class Immortal < Formula
 
   go_resource "github.com/immortal/logrotate" do
     url "https://github.com/immortal/logrotate.git",
-        :revision => "3691ab555939319a80a8833983faedb8b76d9cc6"
+        :revision => "859105169067e6c76e08f888fb76cf4929fe9064"
   end
 
   go_resource "github.com/immortal/multiwriter" do
