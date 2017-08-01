@@ -2,8 +2,8 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.11",
-      :revision => "942ae6faa64ab6de73d093e628bc5b036f1a967c"
+      :tag => "v2.12",
+      :revision => "db1244c1c14514324474f362c857112e89bbf0c6"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
