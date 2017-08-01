@@ -1,8 +1,8 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02/nsis-3.02-src.tar.bz2"
-  sha256 "c44ad18462c56ada4b4303513997076b960f7a991993c5c43ae0edb4936dd83d"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02.1/nsis-3.02.1-src.tar.bz2"
+  sha256 "5f6d135362c70f6305317b3af6d8398184ac1a22d3f23b9c4164543c13fb8d60"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +15,8 @@ class Makensis < Formula
   depends_on "scons" => :build
 
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02/nsis-3.02.zip"
-    sha256 "b63bf7cb1e2522754ccb5628e54277f553bc6810d6229d0fe7eb1d78b3457206"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02.1/nsis-3.02.1.zip"
+    sha256 "deef3e3d90ab1a9e0ef294fff85eead25edbcb429344ad42fc9bc42b5c3b1fb5"
   end
 
   # v1.2.8 is outdated, but the last version available as compiled DLL
@@ -31,11 +31,6 @@ class Makensis < Formula
   patch :DATA
 
   def install
-    # makensis fails to build under libc++; since it's just a binary with
-    # no Homebrew dependencies, we can just use libstdc++
-    # https://sourceforge.net/p/nsis/bugs/1085/
-    ENV.libstdcxx if ENV.compiler == :clang
-
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
       @zlib_path = Dir.pwd
