@@ -7,11 +7,20 @@ class Nodenv < Formula
 
   bottle :unneeded
 
+  option "without-bash-extension", "Skip compilation of the dynamic bash extension to speed up nodenv."
+
   depends_on "node-build" => :recommended
 
   def install
     inreplace "libexec/nodenv", "/usr/local", HOMEBREW_PREFIX
-    prefix.install "bin", "libexec", "completions"
+
+    if build.with? "bash-extension"
+      # Compile optional bash extension.
+      system "src/configure"
+      system "make", "-C", "src"
+    end
+
+    prefix.install "bin", "completions", "libexec"
   end
 
   test do
