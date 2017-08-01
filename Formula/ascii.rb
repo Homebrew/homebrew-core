@@ -1,8 +1,18 @@
 class Ascii < Formula
   desc "List ASCII idiomatic names and octal/decimal code-point forms"
   homepage "http://www.catb.org/~esr/ascii/"
-  url "http://www.catb.org/~esr/ascii/ascii-3.16.tar.gz"
-  sha256 "a94bb3970e8f1f63566f055517aecbdd46b11c4ccf142f77ffb80a79994f03a9"
+
+  stable do
+    url "http://www.catb.org/~esr/ascii/ascii-3.17.tar.gz"
+    sha256 "94e55080fa20168cb9501693d7715869f329a7be1e74de0bd55faa493ee25445"
+
+    # NEWS file is needed for the build but missing from the release tarball
+    # Reported 31 Jul 2017 to esr AT thyrsus DOT com
+    resource "NEWS" do
+      url "http://www.catb.org/~esr/ascii/NEWS"
+      sha256 "b743afe2b21f88beb0d0cfb732ed3c4cb646ce37a7017c82f99e8d92149bfd33"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +27,12 @@ class Ascii < Formula
   end
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" if build.head?
+    if build.head?
+      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    else
+      buildpath.install resource("NEWS")
+    end
+
     bin.mkpath
     man1.mkpath
     system "make"
