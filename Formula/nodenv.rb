@@ -12,7 +12,14 @@ class Nodenv < Formula
   depends_on "node-build" => :recommended
 
   def install
-    inreplace "libexec/nodenv", "/usr/local", HOMEBREW_PREFIX
+    inreplace "libexec/nodenv" do |s|
+      s.gsub! "/usr/local", HOMEBREW_PREFIX
+      s.gsub! '"${BASH_SOURCE%/*}"/../libexec', libexec
+    end
+
+    %w[--version hooks versions].each do |cmd|
+      inreplace "libexec/nodenv-#{cmd}", "${BASH_SOURCE%/*}", libexec
+    end
 
     if build.with? "bash-extension"
       # Compile optional bash extension.
