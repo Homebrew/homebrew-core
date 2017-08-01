@@ -3,8 +3,8 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/3a/a5/9a32888daee8f1c374d1490eb5a6e9874c28f9d7c9e49703bf279f643004/salt-2016.11.6.tar.gz"
-  sha256 "9031af68d31d0416fe3161526ef122a763afc6182bd63fe48b6c4d0a16a0703a"
+  url "https://files.pythonhosted.org/packages/bc/73/15fdafe2e25f2862bc98ac551db72a4c169536ccdb6bd7200995c7543aff/salt-2017.7.0.tar.gz"
+  sha256 "aaf45f8dcf95a20b56072e620100432d058ab297210c4902dc90e197b236b064"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -46,8 +46,8 @@ class Saltstack < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/dd/0e/1e3b58c861d40a9ca2d7ea4ccf47271d4456ae4294c5998ad817bd1b4396/certifi-2017.4.17.tar.gz"
-    sha256 "f7527ebf7461582ce95f7a9e03dd141ce810d40590834f4ec20cddd54234c10a"
+    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
+    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
   end
 
   resource "chardet" do
@@ -81,8 +81,8 @@ class Saltstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/2c/b5/2b6e8ef8dd18203b6399e9f28c7d54f6de7b7549853fe36d575bd31e29a7/requests-2.18.1.tar.gz"
-    sha256 "c6f3bdf4a4323ac7b45d01e04a6f6c20e32a052cd04de81e05103abc049ad9b9"
+    url "https://files.pythonhosted.org/packages/07/2e/81fdfdfac91cf3cb2518fb149ac67caf0e081b485eab68e9aee63396f7e8/requests-2.18.2.tar.gz"
+    sha256 "5b26fcc5e72757a867e4d562333f841eddcef93548908a1bb1a9207260618da9"
   end
 
   resource "singledispatch" do
@@ -101,8 +101,8 @@ class Saltstack < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/96/d9/40e4e515d3e17ed0adbbde1078e8518f8c4e3628496b56eb8f026a02b9e4/urllib3-1.21.1.tar.gz"
-    sha256 "b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5"
+    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
+    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
   end
 
   def install
