@@ -22,11 +22,17 @@ class TclTk < Formula
     sha256 "c0449527355ede1293309ff674ec02e9df91188f9d85173d134ed388cee0afb3" => :yosemite
   end
 
-  head do
-    url "https://github.com/tcltk/tcl.git", :branch => "core_8_6_7_rc"
+  devel do
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7rc0-src.tar.gz"
+    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc0-src.tar.gz"
+    version "8.6.7rc0"
+    sha256 "97840c0edb8a7d8160714b2317d3e7cb0bb45b88264881939db09c3f323fba97"
 
     resource "tk" do
-      url "https://github.com/tcltk/tk.git", :branch => "core_8_6_7_rc"
+      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7rc0-src.tar.gz"
+      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc0-src.tar.gz"
+      version "8.6.7rc0"
+      sha256 "edb88456da559237d41db5541890a432fb5c437186fd7b18d14f680dea450f6e"
     end
   end
 
