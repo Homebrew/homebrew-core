@@ -3,6 +3,7 @@ class Watchman < Formula
   homepage "https://github.com/facebook/watchman"
   url "https://github.com/facebook/watchman/archive/v4.7.0.tar.gz"
   sha256 "77c7174c59d6be5e17382e414db4907a298ca187747c7fcb2ceb44da3962c6bf"
+  revision 1
   head "https://github.com/facebook/watchman.git"
 
   bottle do
