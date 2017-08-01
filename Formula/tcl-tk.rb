@@ -91,4 +91,3 @@ class TclTk < Formula
     assert_equal "honk", pipe_output("#{bin}/tclsh", "puts honk\n").chomp
   end
 end
-
