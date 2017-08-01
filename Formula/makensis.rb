@@ -31,11 +31,6 @@ class Makensis < Formula
   patch :DATA
 
   def install
-    # makensis fails to build under libc++; since it's just a binary with
-    # no Homebrew dependencies, we can just use libstdc++
-    # https://sourceforge.net/p/nsis/bugs/1085/
-    ENV.libstdcxx if ENV.compiler == :clang
-
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
       @zlib_path = Dir.pwd
