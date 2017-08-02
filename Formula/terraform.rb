@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.9.11.tar.gz"
-  sha256 "400fbf7c65a5f4b599d1b3d20db8ad9d45930a80ce3abf14aa7ed56eac22b3fb"
+  url "https://github.com/hashicorp/terraform/archive/v0.10.0.tar.gz"
+  sha256 "37fad4afde1978d0a4841176b577a2e446144cec836fb14f177704d111c72f0a"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -40,7 +40,7 @@ class Terraform < Formula
 
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :revision => "5682db0e919ed9cfc6f52ac32e170511a106eb3b"
+        :branch => "release-branch.go1.8"
   end
 
   def install
@@ -101,6 +101,7 @@ class Terraform < Formula
         count = 4
       }
     EOS
-    system "#{bin}/terraform", "graph", testpath
+    system "#{bin}/terraform", "init"
+    system "#{bin}/terraform", "graph"
   end
 end
