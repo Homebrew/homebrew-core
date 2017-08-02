@@ -12,8 +12,8 @@ class Swiftlint < Formula
     sha256 "17da84902560bb1d7e936c5ea3d6618e38b3995b9185d1c06c09d0775d0967e8" => :el_capitan
   end
 
-  depends_on :xcode => ["7.0", :run]
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["8.0", :run]
+  depends_on :xcode => ["8.3", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
