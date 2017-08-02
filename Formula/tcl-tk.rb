@@ -1,11 +1,21 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl.tk/"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tcl8.6.6-src.tar.gz"
-  mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.6-src.tar.gz"
-  version "8.6.6"
-  sha256 "a265409781e4b3edcc4ef822533071b34c3dc6790b893963809b9fe221befe07"
   revision 2
+
+  stable do
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tcl8.6.6-src.tar.gz"
+    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.6-src.tar.gz"
+    version "8.6.6"
+    sha256 "a265409781e4b3edcc4ef822533071b34c3dc6790b893963809b9fe221befe07"
+
+    resource "tk" do
+      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tk8.6.6-src.tar.gz"
+      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.6-src.tar.gz"
+      version "8.6.6"
+      sha256 "d62c371a71b4744ed830e3c21d27968c31dba74dd2c45f36b9b071e6d88eb19d"
+    end
+  end
 
   bottle do
     sha256 "00cb0c31a7a9fb3820685bb5a0baee3e8b3d81e2b3b7f021277bbb833a710ee0" => :sierra
@@ -13,18 +23,23 @@ class TclTk < Formula
     sha256 "c0449527355ede1293309ff674ec02e9df91188f9d85173d134ed388cee0afb3" => :yosemite
   end
 
+  devel do
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7rc0-src.tar.gz"
+    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc0-src.tar.gz"
+    sha256 "97840c0edb8a7d8160714b2317d3e7cb0bb45b88264881939db09c3f323fba97"
+
+    resource "tk" do
+      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7rc0-src.tar.gz"
+      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc0-src.tar.gz"
+      sha256 "edb88456da559237d41db5541890a432fb5c437186fd7b18d14f680dea450f6e"
+    end
+  end
+
   keg_only :provided_by_osx,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
   option "without-tcllib", "Don't build tcllib (utility modules)"
   option "without-tk", "Don't build the Tk (window toolkit)"
-
-  resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tk8.6.6-src.tar.gz"
-    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.6-src.tar.gz"
-    version "8.6.6"
-    sha256 "d62c371a71b4744ed830e3c21d27968c31dba74dd2c45f36b9b071e6d88eb19d"
-  end
 
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
@@ -54,7 +69,7 @@ class TclTk < Formula
         cd "unix" do
           system "./configure", *args, "--enable-aqua=yes",
                                 "--without-x", "--with-tcl=#{lib}"
-          system "make", "TK_LIBRARY=#{lib}"
+          system "make"
           system "make", "install"
           system "make", "install-private-headers"
           ln_s bin/"wish8.6", bin/"wish"
