@@ -3,6 +3,7 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://github.com/scipy/scipy/releases/download/v0.19.1/scipy-0.19.1.tar.xz"
   sha256 "0dca04c4860afdcb066cab4fd520fcffa8c85e9a7b5aa37a445308e899d728b3"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
@@ -14,13 +15,10 @@ class Scipy < Formula
   option "without-python", "Build without python2 support"
 
   depends_on "swig" => :build
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
   depends_on :fortran
-
-  numpy_options = []
-  numpy_options << "with-python3" if build.with? "python3"
-  depends_on "numpy" => numpy_options
+  depends_on "numpy"
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on :python3 => :recommended
 
   cxxstdlib_check :skip
 
@@ -69,6 +67,8 @@ class Scipy < Formula
   end
 
   test do
-    system "python", "-c", "import scipy"
+    Language::Python.each_python(build) do |python, _version|
+      system python, "-c", "import scipy"
+    end
   end
 end
