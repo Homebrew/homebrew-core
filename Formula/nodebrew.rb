@@ -9,12 +9,14 @@ class Nodebrew < Formula
 
   def install
     bin.install "nodebrew"
-    system "#{bin}/nodebrew", "setup_dirs"
     bash_completion.install "completions/bash/nodebrew-completion" => "nodebrew"
     zsh_completion.install "completions/zsh/_nodebrew"
   end
 
   def caveats; <<-EOS.undent
+    You need to manually run setup_dirs to create directories required by nodebrew:
+      #{opt_bin}/nodebrew setup_dirs
+
     Add path:
       export PATH=$HOME/.nodebrew/current/bin:$PATH
 
