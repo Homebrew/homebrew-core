@@ -3,8 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://files.pythonhosted.org/packages/7a/b6/332fa148e50c976f49a94deced0c572c243766bf817ceb5b6053276bb370/mycli-1.11.0.tar.gz"
-  sha256 "0e27ad54e59c5e13ac30ed4bf53556ef57813c38edb56ad099ffad7bc18918de"
+  url "https://files.pythonhosted.org/packages/58/94/fe3e1a660138b1eaf9db38079261728c424bad32fc975b35749951d8cdf2/mycli-1.12.0.tar.gz"
+  sha256 "155bc080844e8170e2877b92c34571b6ed821104a0081b1ab76a57cf25305acf"
 
   bottle do
     cellar :any
@@ -32,8 +32,8 @@ class Mycli < Formula
   end
 
   resource "cli_helpers" do
-    url "https://files.pythonhosted.org/packages/2b/7e/307131c2c3f3abef2d1e68b7088882c078da6ce5bb57cbe79bac12718c72/cli_helpers-0.2.1.tar.gz"
-    sha256 "a868e69e780c1fd5091c83e784e8b18e2005cab921f1dfda4ffd376271ee85ac"
+    url "https://files.pythonhosted.org/packages/03/65/9a5b81f879131076e47fa7f0e633a2e6524cdae7d14ef66a58bb810c100e/cli_helpers-0.2.3.tar.gz"
+    sha256 "eaa887b46ef448c8864ba460cce4fa26866e45e337dc32a2b4741ccb033c42f1"
   end
 
   resource "click" do
@@ -67,13 +67,13 @@ class Mycli < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/55/56/8c39509b614bda53e638b7500f12577d663ac1b868aef53426fc6a26c3f5/prompt_toolkit-1.0.14.tar.gz"
-    sha256 "cc66413b1b4b17021675d9f2d15d57e640b06ddfd99bb724c73484126d22622f"
+    url "https://files.pythonhosted.org/packages/8a/ad/cf6b128866e78ad6d7f1dc5b7f99885fb813393d9860778b2984582e81b5/prompt_toolkit-1.0.15.tar.gz"
+    sha256 "858588f1983ca497f1cf4ffde01d978a3ea02b01c8a26a8bbc5cd2e66d816917"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
-    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
+    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
   resource "Pygments" do
