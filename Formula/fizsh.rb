@@ -4,8 +4,8 @@ class Fizsh < Formula
   head "https://github.com/zsh-users/fizsh", :using => :git
 
   stable do
-    url "https://downloads.sourceforge.net/project/fizsh/fizsh-1.0.8.tar.gz"
-    sha256 "3d17933c4773532209f9771221ec1dbb33d11fa4e0fbccc506a38d1b4f2359c7"
+    url "https://downloads.sourceforge.net/project/fizsh/fizsh-1.0.9.tar.gz"
+    sha256 "dbbbe03101f82e62f1dfe1f8af7cde23bc043833679bc74601a0a3d58a117b07"
   end
 
   bottle do
