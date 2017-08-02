@@ -3,8 +3,8 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://tailordev.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/a0/50/486002b61713a1a193b524ffdc19ceac435136280ead723caa31d3d22a22/td-watson-1.5.1.tar.gz"
-  sha256 "32f6bb8f18fa9e18e0f458204974ae6cee653bda9cd0f41476af37586e8e72c8"
+  url "https://files.pythonhosted.org/packages/37/49/f1ee677017cd8343d5ef3a6c5c449f4763d26f4ba5cb3aa1b38769133ee7/td-watson-1.5.2.tar.gz"
+  sha256 "6e03d44a9278807fe5245e9ed0943f13ffb88e11249a02655c84cb86260b27c8"
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
