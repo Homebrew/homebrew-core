@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.9/racket-minimal-6.9-src-builtpkgs.tgz"
-  sha256 "0b8eb43c16e2380ff47fd7883d7886a1d34935ead3546cde9e292318ddefba87"
+  url "https://mirror.racket-lang.org/installers/6.10/racket-minimal-6.10-src-builtpkgs.tgz"
+  sha256 "832496dad6c05121842ef3eec852505b658600653a40bbf9fe7d82dac9f7013d"
 
   bottle do
     sha256 "7133142df6b9e7566ea07c712dbb45bb9850b31907f54fe085c07798201a9933" => :sierra
