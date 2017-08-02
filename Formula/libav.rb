@@ -14,6 +14,8 @@ class Libav < Formula
 
   option "without-faac", "Disable AAC encoder via faac"
   option "without-lame", "Disable MP3 encoder via libmp3lame"
+  option "without-libvorbis", "Disable Vorbis encoding via libvorbis"
+  option "without-libvpx", "Disable VP8 de/encoding via libvpx"
   option "without-x264", "Disable H.264 encoder via x264"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder via xvid"
 
@@ -25,9 +27,7 @@ class Libav < Formula
   option "with-sdl", "Enable avplay"
   option "with-speex", "Enable Speex de/encoding via libspeex"
   option "with-theora", "Enable Theora encoding via libtheora"
-  option "with-libvorbis", "Enable Vorbis encoding via libvorbis"
   option "with-libvo-aacenc", "Enable VisualOn AAC encoder"
-  option "with-libvpx", "Enable VP8 de/encoding via libvpx"
 
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
@@ -36,21 +36,21 @@ class Libav < Formula
   depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
 
   depends_on "faac" => :recommended
+  depends_on "fdk-aac" => :recommended
+  depends_on "freetype" => :recommended
   depends_on "lame" => :recommended
+  depends_on "libvorbis" => :recommended
+  depends_on "libvpx" => :recommended
+  depends_on "opus" => :recommended
   depends_on "x264" => :recommended
   depends_on "xvid" => :recommended
 
   depends_on "fontconfig" => :optional
-  depends_on "freetype" => :optional
-  depends_on "fdk-aac" => :optional
   depends_on "frei0r" => :optional
   depends_on "gnutls" => :optional
   depends_on "libvo-aacenc" => :optional
-  depends_on "libvorbis" => :optional
-  depends_on "libvpx" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openssl" => :optional
-  depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
   depends_on "sdl" => :optional
