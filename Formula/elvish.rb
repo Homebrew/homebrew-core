@@ -16,9 +16,10 @@ class Elvish < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/elves").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/elves/elvish"
-    system "go", "build", "-o", bin/"elvish"
+    (buildpath/"src/github.com/elves/elvish").install buildpath.children
+    cd "src/github.com/elves/elvish" do
+      system "go", "build", "-o", bin/"elvish"
+    end
   end
 
   test do
