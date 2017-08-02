@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v0.15.4.tar.gz"
-  sha256 "237d661da51605ff424ec16f1a99dcb990a041f34ba82ab43da5aaf917f455d7"
+  url "https://github.com/pre-commit/pre-commit/archive/v0.16.0.tar.gz"
+  sha256 "15c5d82dd40a97c0b68c83012cd422b6bbf756e2040ee5b24391c43e5fa6370d"
 
   bottle do
     cellar :any_skip_relocation
@@ -28,7 +28,7 @@ class PreCommit < Formula
       system "git", "init"
       (testpath/".pre-commit-config.yaml").write <<-EOF.undent
       -   repo: https://github.com/pre-commit/pre-commit-hooks
-          sha: 5541a6a046b7a0feab73a21612ab5d94a6d3f6f0
+          sha: v0.9.1
           hooks:
           -   id: trailing-whitespace
       EOF
