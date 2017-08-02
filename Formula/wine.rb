@@ -6,7 +6,7 @@ class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
   head "https://source.winehq.org/git/wine.git"
-  revision 1
+  revision 2
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
@@ -121,11 +121,6 @@ class Wine < Formula
     url "https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2"
     mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.21.orig.tar.bz2"
     sha256 "7dce9cce9a81194b7065ee912bcd55eeffebab694ea403ffb91b67db66b1824b"
-  end
-
-  resource "libusb-compat" do
-    url "https://downloads.sourceforge.net/project/libusb/libusb-compat-0.1/libusb-compat-0.1.5/libusb-compat-0.1.5.tar.bz2"
-    sha256 "404ef4b6b324be79ac1bfb3d839eac860fbc929e6acb1ef88793a6ea328bc55a"
   end
 
   resource "webp" do
@@ -340,14 +335,6 @@ class Wine < Formula
         system "make", "install"
       end
 
-      resource("libusb-compat").stage do
-        system "./configure", "--disable-dependency-tracking",
-                              "--prefix=#{libexec}",
-                              "--disable-static",
-                              *depflags
-        system "make", "install"
-      end
-
       resource("webp").stage do
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
@@ -429,8 +416,7 @@ class Wine < Formula
                                 "--localstatedir=#{var}",
                                 "--without-gphoto2",
                                 "--enable-local-backends",
-                                "--enable-libusb",
-                                "--disable-latex",
+                                "--with-usb=yes",
                                 *depflags
           system "make", "install"
         end
