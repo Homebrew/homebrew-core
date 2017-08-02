@@ -51,14 +51,6 @@ class Octave < Formula
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
-  # If GraphicsMagick was built from source, it is possible that it was
-  # done to change quantum depth. If so, our Octave bottles are no good.
-  # https://github.com/Homebrew/homebrew-science/issues/2737
-  def pour_bottle?
-    Tab.for_name("graphicsmagick").without?("quantum-depth-32") &&
-      Tab.for_name("graphicsmagick").without?("quantum-depth-8")
-  end
-
   def install
     if build.stable?
       # Remove for > 4.2.1
