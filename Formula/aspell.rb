@@ -4,6 +4,7 @@ class Aspell < Formula
   url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.6.1.tar.gz"
   sha256 "f52583a83a63633701c5f71db3dc40aab87b7f76b29723aeb27941eff42df6e1"
+  revision 1
 
   bottle do
     sha256 "19aabc91c400ab10f801600f7c7863d673cf1fe4c42f7d8a050b4fd3a97bec8b" => :sierra
@@ -14,13 +15,43 @@ class Aspell < Formula
   end
 
   devel do
-    url "https://alpha.gnu.org/gnu/aspell/aspell-0.60.7-20110707.tar.gz"
-    sha256 "084005bd37013f17b725eca033fe19053b2ab33144e990685486746cb10416a5"
-    version "0.60.7-20110707"
+    url "ftp://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz"
+    sha256 "86b5662f24316142f70c5890787bdc5596625ca3604dfe85926ee61f27f2365e"
+    version "0.60.7-20170129"
+  end
+
+  # Dictionaries installed by default: en, de, es, fr
+  option "without-lang-en", "Install en dictionary"
+  resource "en" do
+    url "https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2017.01.22-0.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/aspell/dict/en/aspell6-en-2017.01.22-0.tar.bz2"
+    sha256 "93c73fae3eab5ea3ca6db3cea8770715a820f1b7d6ea2b932dd66a17f8fd55e1"
+  end
+
+  option "without-lang-de", "Install de dictionary"
+  resource "de" do
+    url "https://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
+    sha256 "ba6c94e11bc2e0e6e43ce0f7822c5bba5ca5ac77129ef90c190b33632416e906"
+  end
+
+  option "without-lang-es", "Install es dictionary"
+  resource "es" do
+    url "https://ftp.gnu.org/gnu/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
+    sha256 "ad367fa1e7069c72eb7ae37e4d39c30a44d32a6aa73cedccbd0d06a69018afcc"
+  end
+
+  option "without-lang-fr", "Install fr dictionary"
+  resource "fr" do
+    url "https://ftp.gnu.org/gnu/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
+    sha256 "f9421047519d2af9a7a466e4336f6e6ea55206b356cd33c8bd18cb626bf2ce91"
   end
 
   option "with-all-langs", "Install all available dictionaries"
 
+  # Other dictionaries
   option "with-lang-af", "Install af dictionary"
   resource "af" do
     url "https://ftp.gnu.org/gnu/aspell/dict/af/aspell-af-0.50-0.tar.bz2"
@@ -119,13 +150,6 @@ class Aspell < Formula
     sha256 "f74a079617979c1623e8e7313e4ecd3bc260db92ce55b1f2a3a5e7077dacd3c1"
   end
 
-  option "with-lang-de", "Install de dictionary"
-  resource "de" do
-    url "https://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
-    sha256 "ba6c94e11bc2e0e6e43ce0f7822c5bba5ca5ac77129ef90c190b33632416e906"
-  end
-
   option "with-lang-de_alt", "Install de_alt dictionary"
   resource "de_alt" do
     url "https://ftp.gnu.org/gnu/aspell/dict/de-alt/aspell6-de-alt-2.1-1.tar.bz2"
@@ -140,25 +164,11 @@ class Aspell < Formula
     sha256 "3f6508937dcaa64a6c70ee5f722f088b46b202a6409961b93b705d4ec4f56380"
   end
 
-  option "with-lang-en", "Install en dictionary"
-  resource "en" do
-    url "https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2015.02.15-0.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/aspell/dict/en/aspell6-en-2015.02.15-0.tar.bz2"
-    sha256 "865ba3492b54cad102d9de4c0e59494710ca018e0341057ade66bde32d58182a"
-  end
-
   option "with-lang-eo", "Install eo dictionary"
   resource "eo" do
     url "https://ftp.gnu.org/gnu/aspell/dict/eo/aspell6-eo-2.1.20000225a-2.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/eo/aspell6-eo-2.1.20000225a-2.tar.bz2"
     sha256 "41d2d18d6a4de6422185a31ecfc1a3de2e751f3dfb2cbec8f275b11857056e27"
-  end
-
-  option "with-lang-es", "Install es dictionary"
-  resource "es" do
-    url "https://ftp.gnu.org/gnu/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
-    sha256 "ad367fa1e7069c72eb7ae37e4d39c30a44d32a6aa73cedccbd0d06a69018afcc"
   end
 
   option "with-lang-et", "Install et dictionary"
@@ -187,13 +197,6 @@ class Aspell < Formula
     url "https://ftp.gnu.org/gnu/aspell/dict/fo/aspell5-fo-0.2.16-1.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/fo/aspell5-fo-0.2.16-1.tar.bz2"
     sha256 "f7e0ddc039bb4f5c142d39dab72d9dfcb951f5e46779f6e3cf1d084a69f95e08"
-  end
-
-  option "with-lang-fr", "Install fr dictionary"
-  resource "fr" do
-    url "https://ftp.gnu.org/gnu/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
-    sha256 "f9421047519d2af9a7a466e4336f6e6ea55206b356cd33c8bd18cb626bf2ce91"
   end
 
   option "with-lang-fy", "Install fy dictionary"
@@ -674,16 +677,10 @@ class Aspell < Formula
     ENV.prepend_path "PATH", bin
 
     languages = []
-
     available_languages.each do |lang|
       languages << lang if build.with? "lang-#{lang}"
     end
-
-    if build.with? "all-langs"
-      languages.concat(available_languages)
-    elsif languages.empty?
-      languages << "en"
-    end
+    languages.concat(available_languages) if build.with? "all-langs"
 
     languages.each do |lang|
       resource(lang).stage do
