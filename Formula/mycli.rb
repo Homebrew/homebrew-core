@@ -3,8 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://files.pythonhosted.org/packages/7a/b6/332fa148e50c976f49a94deced0c572c243766bf817ceb5b6053276bb370/mycli-1.11.0.tar.gz"
-  sha256 "0e27ad54e59c5e13ac30ed4bf53556ef57813c38edb56ad099ffad7bc18918de"
+  url "https://files.pythonhosted.org/packages/58/94/fe3e1a660138b1eaf9db38079261728c424bad32fc975b35749951d8cdf2/mycli-1.12.0.tar.gz"
+  sha256 "155bc080844e8170e2877b92c34571b6ed821104a0081b1ab76a57cf25305acf"
 
   bottle do
     cellar :any
@@ -32,8 +32,8 @@ class Mycli < Formula
   end
 
   resource "cli_helpers" do
-    url "https://files.pythonhosted.org/packages/2b/7e/307131c2c3f3abef2d1e68b7088882c078da6ce5bb57cbe79bac12718c72/cli_helpers-0.2.1.tar.gz"
-    sha256 "a868e69e780c1fd5091c83e784e8b18e2005cab921f1dfda4ffd376271ee85ac"
+    url "https://files.pythonhosted.org/packages/03/65/9a5b81f879131076e47fa7f0e633a2e6524cdae7d14ef66a58bb810c100e/cli_helpers-0.2.3.tar.gz"
+    sha256 "eaa887b46ef448c8864ba460cce4fa26866e45e337dc32a2b4741ccb033c42f1"
   end
 
   resource "click" do
