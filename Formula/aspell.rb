@@ -19,28 +19,28 @@ class Aspell < Formula
   end
 
   # Dictionaries installed by default: en, de, es, fr
-  option "without-lang-en", "Install en dictionary"
+  option "without-lang-en", "Do not install en dictionary"
   resource "en" do
     url "https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2017.01.22-0.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/en/aspell6-en-2017.01.22-0.tar.bz2"
     sha256 "93c73fae3eab5ea3ca6db3cea8770715a820f1b7d6ea2b932dd66a17f8fd55e1"
   end
 
-  option "without-lang-de", "Install de dictionary"
+  option "without-lang-de", "Do not install de dictionary"
   resource "de" do
     url "https://ftp.gnu.org/gnu/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/de/aspell6-de-20030222-1.tar.bz2"
     sha256 "ba6c94e11bc2e0e6e43ce0f7822c5bba5ca5ac77129ef90c190b33632416e906"
   end
 
-  option "without-lang-es", "Install es dictionary"
+  option "without-lang-es", "Do not install es dictionary"
   resource "es" do
     url "https://ftp.gnu.org/gnu/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/es/aspell6-es-1.11-2.tar.bz2"
     sha256 "ad367fa1e7069c72eb7ae37e4d39c30a44d32a6aa73cedccbd0d06a69018afcc"
   end
 
-  option "without-lang-fr", "Install fr dictionary"
+  option "without-lang-fr", "Do not install fr dictionary"
   resource "fr" do
     url "https://ftp.gnu.org/gnu/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/fr/aspell-fr-0.50-3.tar.bz2"
