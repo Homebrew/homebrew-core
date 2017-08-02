@@ -1,6 +1,7 @@
 class GitFlowAvh < Formula
   desc "AVH edition of git-flow"
   homepage "https://github.com/petervanderdoes/gitflow-avh"
+  revision 1
 
   stable do
     url "https://github.com/petervanderdoes/gitflow-avh/archive/1.11.0.tar.gz"
