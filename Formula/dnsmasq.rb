@@ -3,7 +3,7 @@ class Dnsmasq < Formula
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
   url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
   sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -23,6 +23,15 @@ class Dnsmasq < Formula
 
   def install
     ENV.deparallelize
+
+    # Re-evaluate whether this is needed for dnsmasq > 2.77
+    # Fix __memcpy_chk crash in strcpy(cache->name.sname, canon);
+    # Reported 12 Jul 2017 to simon AT thekelleys DOT org DOT uk
+    # See https://github.com/Homebrew/homebrew-core/issues/14463
+    if MacOS.version >= :sierra
+      inreplace "src/config.h", "#define SMALLDNAME 50 ",
+                                "#define SMALLDNAME 255 "
+    end
 
     # Fix etc location
     inreplace %w[dnsmasq.conf.example src/config.h man/dnsmasq.8
