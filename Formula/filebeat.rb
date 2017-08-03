@@ -3,7 +3,7 @@ class Filebeat < Formula
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats/archive/v5.5.1.tar.gz"
   sha256 "b6c85901b1feb0e184dd56d9012ccda10bf62566ddfbe3d9790c771b73db3a46"
-
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -23,9 +23,10 @@ class Filebeat < Formula
 
     cd gopath/"src/github.com/elastic/beats/filebeat" do
       system "make"
+      system "make", "modules"
       libexec.install "filebeat"
-
-      (etc/"filebeat").install("filebeat.yml", "filebeat.template.json", "filebeat.template-es2x.json")
+      (prefix/"module").install Dir["_meta/module.generated/*"]
+      (etc/"filebeat").install Dir["filebeat.*"]
     end
 
     prefix.install_metafiles gopath/"src/github.com/elastic/beats"
