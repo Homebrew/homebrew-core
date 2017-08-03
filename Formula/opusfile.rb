@@ -6,10 +6,9 @@ class Opusfile < Formula
 
   bottle do
     cellar :any
-    sha256 "60977347332d650de34fead40a69312d3eac3b00d8d7756726bef751bc9b4ca9" => :sierra
-    sha256 "dc95a08834e93a459f47c0dc4114542b038a79d266c4722da27365879901b71a" => :el_capitan
-    sha256 "f04e162a07dff00edb780fb3eed26084b7416debb33c13061d8d84d84d47fefc" => :yosemite
-    sha256 "a44a9b6a34eae4f1a0c6c3b3c0fd1bae2e2c7893376e3b345d5498eee30a8622" => :mavericks
+    sha256 "71557f495eaf37e08c1987170d4b94a75e5a049fb41af7988bc53731d8500095" => :sierra
+    sha256 "2ed73162c2ae71f702da1cdbf6f9c998834f3d727cb1a9e6e09f1d59cbe35d01" => :el_capitan
+    sha256 "5b5023288476b08cb64389b002973565f84fd6ed58ece780e417770f33e3520d" => :yosemite
   end
 
   head do
