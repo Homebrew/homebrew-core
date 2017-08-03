@@ -3,8 +3,8 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/b8/87/0dac1eb9797cbfade40b2565e3b3bae727c0793887595277cb49c8d6fd45/thefuck-3.18.tar.gz"
-  sha256 "e7a5f728b5ab2e2654e1256341f2df7545a872494aeb574d72214610bca0fe7b"
+  url "https://files.pythonhosted.org/packages/dd/a9/3aea08d8794e1fe4768fbc61aa7841674493e8dc097d4957fb825b4f12c8/thefuck-3.19.tar.gz"
+  sha256 "9848c966c6d8bfbc51892393b13f7548e3d3646afb1d0f13c0abb681113a56c0"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -22,13 +22,13 @@ class Thefuck < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/cc/ac/5a16f1fc0506ff72fcc8fd4e858e3a1c231f224ab79bb7c4c9b2094cc570/decorator-4.0.11.tar.gz"
-    sha256 "953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76"
+    url "https://files.pythonhosted.org/packages/bb/e0/f6e41e9091e130bf16d4437dabbac3993908e4d6485ecbc985ef1352db94/decorator-4.1.2.tar.gz"
+    sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
   end
 
   resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/ab/d8/ac7489d50146f29d0a14f65545698f4545d8a6b739b24b05859942048b56/pathlib2-2.2.1.tar.gz"
-    sha256 "ce9007df617ef6b7bd8a31cd2089ed0c1fed1f7c23cf2bf1ba140b3dd563175d"
+    url "https://files.pythonhosted.org/packages/a1/14/df0deb867c2733f7d857523c10942b3d6612a1b222502fdffa9439943dfb/pathlib2-2.3.0.tar.gz"
+    sha256 "d32550b75a818b289bd4c1f96b60c89957811da205afcceab75bc8b4857ea5b3"
   end
 
   resource "psutil" do
