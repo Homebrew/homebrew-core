@@ -1,8 +1,8 @@
 class Eg < Formula
   desc "Expert Guide. Norton Guide Reader For GNU/Linux"
   homepage "https://github.com/davep/eg"
-  url "https://github.com/davep/eg/archive/eg-v1.01.tar.gz"
-  sha256 "bb7a2af37c8d5d07f785466692f21561257ff99106d2cb91db13ba2e946ff13b"
+  url "https://github.com/davep/eg/archive/v1.02.tar.gz"
+  sha256 "6b73fff51b5cf82e94cdd60f295a8f80e7bbb059891d4c75d5b1a6f0c5cc7003"
   head "https://github.com/davep/eg.git"
 
   bottle do
