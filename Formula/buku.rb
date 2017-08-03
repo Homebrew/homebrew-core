@@ -5,6 +5,7 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v3.2.tar.gz"
   sha256 "2375fc22e7e417fe23814589257f007cfdc1b1e3f8e47619a7d6e83ff0fb4f09"
+  revision 1
 
   bottle do
     cellar :any
@@ -42,8 +43,8 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/2a/0c/31bd69469e90035381f0197b48bf71032991d9f07a7e444c311b4a23a3df/cryptography-1.9.tar.gz"
-    sha256 "5518337022718029e367d982642f3e3523541e098ad671672a90b82474c84882"
+    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
+    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
   end
 
   resource "idna" do
