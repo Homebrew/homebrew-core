@@ -1,8 +1,8 @@
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opusfile-0.8.tar.gz"
-  sha256 "2c231ed3cfaa1b3173f52d740e5bbd77d51b9dfecb87014b404917fba4b855a4"
+  url "https://archive.mozilla.org/pub/opus/opusfile-0.9.tar.gz"
+  sha256 "f75fb500e40b122775ac1a71ad80c4477698842a8fe9da4a1b4a1a9f16e4e979"
 
   bottle do
     cellar :any
@@ -19,10 +19,10 @@ class Opusfile < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
   depends_on "pkg-config" => :build
-  depends_on "opus"
   depends_on "libogg"
+  depends_on "openssl"
+  depends_on "opus"
 
   resource "music_48kbps.opus" do
     url "https://www.opus-codec.org/examples/samples/music_48kbps.opus"
