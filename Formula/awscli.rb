@@ -9,9 +9,9 @@ class Awscli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4e76f461e977fd5086cf204001fca6ef9931d8c9d2184ddd452575f541f9119" => :sierra
-    sha256 "95444001ef06abb0a56a368dde984a2a4cffd0806e457bf37b14ae9a4d004c8d" => :el_capitan
-    sha256 "a67c0af893f5eb99c810bd1a436663314b741678ad0e329b6d629af9a52c4c5b" => :yosemite
+    sha256 "ce7922a061dadca7c207f633678da4ee484fe9d0fefbdf81828d3a785e4e6d47" => :sierra
+    sha256 "1d90ee0424e21d588ef241566b43858fa03086d9ac8ba6ec5fb69a5a7551dc28" => :el_capitan
+    sha256 "a4b13c7146b7c2a7b1b379a87596dc2752a7af58f8f871f8042a6a9bbf8e2ed0" => :yosemite
   end
 
   # Use :python on Lion to avoid urllib3 warning
