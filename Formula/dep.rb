@@ -5,6 +5,13 @@ class Dep < Formula
   sha256 "f7887b1aae33ea6555eef82b8f597dbd670faf808af2c744e8eade338e51e9c3"
   head "https://github.com/golang/dep.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d562efca1bffe3c7a511541dea20f4dd6ebd00caf6168d885ad75694dc4b40c7" => :sierra
+    sha256 "aaa8cc53d486b10a9c912fa2a8dea031e606c94d523d23d1e7858c23bbbeafaf" => :el_capitan
+    sha256 "b9ed0e4ec47c52b4c70cb556d021d225a500dcedfe5d7e49e04c9c476c5a9905" => :yosemite
+  end
+
   depends_on "go"
 
   def install
