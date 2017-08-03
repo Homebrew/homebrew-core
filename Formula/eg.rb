@@ -6,12 +6,9 @@ class Eg < Formula
   head "https://github.com/davep/eg.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "3db2d5fbfd6b6b2cf268cc08bdd3469333083c57ae666c43ed8349db70becb17" => :sierra
-    sha256 "e7d8afd59c28e7b0b1c41adddf33a81612beb702dafcc361b6419f8ceb557849" => :el_capitan
-    sha256 "a76496f35cb02e8c6a71a821e408ddc7c771810a594c2f42359802f4e8833a2b" => :yosemite
-    sha256 "2197c470b87aa65d756c2e574477bfaaf4ce755427d1fa7bb56d948292237eb6" => :mavericks
+    sha256 "307a0ce0f1514288179dbbc56fdac3de02100c80e8c57b1abedcab5cd0cff458" => :sierra
+    sha256 "500a97f229b78ab83b97591d9276f7d9e1e4ce4d392f2530f5c8a9f10543b469" => :el_capitan
+    sha256 "65d2bab2a43912dfd487f817724dc7feee3ba3e226c07d0bd78ad22edcea970c" => :yosemite
   end
 
   depends_on "s-lang"
