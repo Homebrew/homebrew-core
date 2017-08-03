@@ -5,6 +5,7 @@ class Telnet < Formula
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
   keg_only :provided_pre_high_sierra
+
   depends_on :xcode => :build
 
   resource "libtelnet" do
@@ -35,10 +36,11 @@ class Telnet < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/telnet 'towel.blinkenlights.nl'", "sleep 2; echo 'quit'", 1)
-    assert_match "So long And Thanks for all the fish", output
-
-    output = shell_output("MANPAGER='head -n 2' man telnet")
-    assert_match "TELNET(1)", output
+    IO.popen("#{bin}/telnet 'towel.blinkenlights.nl'", "w+") do |pipe|
+      sleep 2
+      pipe.puts "quit\n"
+      pipe.close_write
+      assert_match "So long And Thanks for all the fish", pipe.read
+    end
   end
 end
