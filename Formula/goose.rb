@@ -1,5 +1,3 @@
-require "language/go"
-
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
@@ -13,25 +11,14 @@ class Goose < Formula
     sha256 "8422c26d13ad5706c3c2f3e00afdf29197c43fc68d66fd2bc2b663ddd361977b" => :yosemite
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-
-  go_resource "github.com/golang/dep" do
-    url "https://github.com/golang/dep.git",
-        :revision => "3781a6ffbbdf1c2d46ac2bc1c551ff0ea6baf647"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
-
     (buildpath/"src/github.com/pressly/goose").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/golang/dep" do
-      system "go", "install", ".../cmd/dep"
-    end
-
     cd "src/github.com/pressly/goose" do
-      system buildpath/"bin/dep", "ensure"
+      system "dep", "ensure"
       system "go", "build", "-o", bin/"goose", ".../cmd/goose"
     end
   end
