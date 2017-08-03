@@ -20,6 +20,7 @@ class Elvish < Formula
     (buildpath/"src/github.com/elves/elvish").install buildpath.children
     cd "src/github.com/elves/elvish" do
       system "go", "build", "-o", bin/"elvish"
+      prefix.install_metafiles
     end
   end
 
