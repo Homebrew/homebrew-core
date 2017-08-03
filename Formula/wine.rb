@@ -35,15 +35,15 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.13.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.13.tar.xz"
-    sha256 "6fbca3ddd19b061ce65a267639efae93cf38cfabbe4a9c148a17a44703587ef8"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.14.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.14.tar.xz"
+    sha256 "03f934d95181f728600ca04d395f10e821ee38cfa31655e872e4d27d2a8795c6"
 
-    # Patch to fix screen-flickering issues. Still relevant on 2.3.
+    # Patch to fix screen-flickering issues. Still relevant on 2.14.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
     patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=57353"
-      sha256 "55436526e786c3cac35c7b522f01ca5cc5b826bd0d2bd9e98f53e6a5043a151e"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/74c2566/wine/2.14.patch"
+      sha256 "6907471d18996ada60cc0cbc8462a1698e90720c0882846dfbfb163e5d3899b8"
     end
   end
 
