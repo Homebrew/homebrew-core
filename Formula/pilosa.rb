@@ -1,3 +1,5 @@
+require "language/go"
+
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
@@ -15,13 +17,23 @@ class Pilosa < Formula
   depends_on "go" => :build
   depends_on "glide" => :build
 
+  go_resource "github.com/rakyll/statik" do
+    url "https://github.com/rakyll/statik.git",
+        :revision => "89fe3459b5c829c32e89bdff9c43f18aad728f2f"
+  end
+
   def install
     require "time"
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     mkdir_p buildpath/"src/github.com/pilosa/"
     ln_s buildpath, buildpath/"src/github.com/pilosa/pilosa"
-    system "make", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=#{version}"
+    ENV.prepend_create_path "PATH", buildpath/"bin"
+    Language::Go.stage_deps resources, buildpath/"src"
+    cd "src/github.com/rakyll/statik" do
+      system "go", "install"
+    end
+    system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=#{version}"
   end
 
   plist_options :manual => "pilosa server"
@@ -59,6 +71,7 @@ class Pilosa < Formula
       end
       sleep 0.5
       assert_match("Welcome. Pilosa is running.", shell_output("curl localhost:10101"))
+      assert_match("<!DOCTYPE html>", shell_output("curl --user-agent NotCurl localhost:10101"))
     ensure
       Process.kill "TERM", server
       Process.wait server
