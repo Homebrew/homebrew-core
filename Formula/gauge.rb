@@ -42,6 +42,12 @@ class Gauge < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    We are constantly looking to make Gauge better, and report usage statistics anonymously over time.
+    If you do not want to participate please read instructions https://manpage.getgauge.io/gauge_telemetry_off.html on how to turn it off.
+    EOS
+  end
+
   test do
     assert_match version.to_s[0, 5], shell_output("#{bin}/gauge -v")
   end
