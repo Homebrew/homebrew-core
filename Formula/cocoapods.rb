@@ -6,9 +6,9 @@ class Cocoapods < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "928c4313f4af25d4da3a801aeda63ec621483f4678ee32a7e07923ec0fac8e07" => :sierra
-    sha256 "b9d99baf30717a70e6334d164fa74f6119d8e5c0ec9073b1c07dca70595e0633" => :el_capitan
-    sha256 "d80d01c190d45c16cb18a4c79aef04ab7f2e686bb4bdd8163e2b8aa9270c791c" => :yosemite
+    sha256 "1b9566ecb99a91fb105dd4bb0ce7059ff89eddabc495fb386d0d317f64308c4c" => :sierra
+    sha256 "33faf556d7e8ef624f42acf31677deaa1708ffd787cb66b5d5e495b00b2b0f59" => :el_capitan
+    sha256 "516a923705fd0f8688c3ca0737171555e2a8536e745a3ff6b437f18d070b90d5" => :yosemite
   end
 
   def install
