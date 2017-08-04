@@ -8,6 +8,8 @@ class Cake < Formula
 
   depends_on "mono" => :recommended
 
+  conflicts_with "coffeescript", :because => "both install `cake` binaries"
+
   def install
     libexec.install Dir["*.dll"]
     libexec.install Dir["*.exe"]
