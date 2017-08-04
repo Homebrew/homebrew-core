@@ -12,11 +12,16 @@ class Exa < Formula
     sha256 "5693b6852ccdf92ec6b71dd671be1980aeefea0c0e86aaf9e3d86058afe42b52" => :yosemite
   end
 
+  option "without-git", "Build without Git support"
+
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    args = ["PREFIX=#{prefix}"]
+    args << "FEATURES=" if build.without? "git"
+
+    system "make", "install", *args
     bash_completion.install "contrib/completions.bash" => "exa"
     zsh_completion.install  "contrib/completions.zsh"  => "_exa"
     fish_completion.install "contrib/completions.fish" => "exa.fish"
