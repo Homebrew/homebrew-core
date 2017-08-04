@@ -1,8 +1,8 @@
 class Pngcrush < Formula
   desc "Optimizer for PNG files"
   homepage "https://pmt.sourceforge.io/pngcrush"
-  url "https://downloads.sourceforge.net/project/pmt/pngcrush/1.8.11/pngcrush-1.8.11.tar.xz"
-  sha256 "8d530328650ec82f3cbe998729ada8347eb3dbbdf706d9021c5786144d18f5b0"
+  url "https://downloads.sourceforge.net/project/pmt/pngcrush/1.8.12/pngcrush-1.8.12.tar.xz"
+  sha256 "591b0de2f241c60e3eb57435a2280e62a2184aaa8e3bb82a648077b54b34b921"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +12,13 @@ class Pngcrush < Formula
   end
 
   def install
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    # Reported 20 Aug 2017 https://sourceforge.net/p/pmt/bugs/77/
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "Makefile", "-DPNGCRUSH_USE_CLOCK_GETTIME=1",
+                            "-DPNGCRUSH_USE_CLOCK_GETTIME=0"
+    end
+
     system "make", "CC=#{ENV.cc}",
                    "LD=#{ENV.cc}",
                    "CFLAGS=#{ENV.cflags}",
