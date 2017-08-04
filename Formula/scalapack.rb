@@ -3,6 +3,7 @@ class Scalapack < Formula
   homepage "http://www.netlib.org/scalapack/"
   url "http://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
+  revision 8
 
   bottle do
     cellar :any
