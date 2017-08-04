@@ -11,6 +11,7 @@ class Wtf < Formula
     bin.install "wtf"
     man6.install "wtf.6"
     (share+"misc").install %w[acronyms acronyms.comp]
+    (share+"misc").install "acronyms-o.real" => "acronyms-o"
   end
 
   test do
