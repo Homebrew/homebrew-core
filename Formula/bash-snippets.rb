@@ -1,8 +1,8 @@
 class BashSnippets < Formula
   desc "Collection of small bash scripts for heavy terminal users"
   homepage "https://github.com/alexanderepstein/Bash-Snippets"
-  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.17.3.tar.gz"
-  sha256 "84d9b06c956552c0bf0ba36c208596bb9d335f67ff2ef379c07f611e4aa080a3"
+  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.18.0.tar.gz"
+  sha256 "61602551a999448e9142489ad62d1e5da72a3b1354e010f1ee7135e4524d2eae"
 
   bottle :unneeded
 
@@ -20,6 +20,7 @@ class BashSnippets < Formula
   option "with-stocks", "Install stocks"
   option "with-taste", "Install taste"
   option "with-todo", "Install todo"
+  option "with-transfer", "Install transfer"
   option "with-weather", "Install weather"
   option "with-ytview", "Install ytview"
   option "without-all-tools", "Do not install all available snippets"
@@ -34,7 +35,7 @@ class BashSnippets < Formula
     else
       args = []
       %w[cheat cloudup crypt cryptocurrency currency geo movies newton qrify
-         short siteciphers stocks taste todo weather ytview].each do |tool|
+         short siteciphers stocks taste todo transfer weather ytview].each do |tool|
         args << tool if build.with? tool
       end
       system "./install.sh", "--prefix=#{prefix}", *args
