@@ -7,9 +7,9 @@ class Depqbf < Formula
 
   bottle do
     cellar :any
-    sha256 "3b26eb6dfa10a2297904e3d0024f10f513e3df10fa6f27201c64b31c553893b9" => :sierra
-    sha256 "5a4004f64cc0b9a3e4be0d99ddaa51fe06df333bbffea827f80dba70fe8dd28d" => :el_capitan
-    sha256 "4019f3d5d76accf7dd6b04cb097b3972baf9de770cd9d0d0294e34360a9cf528" => :yosemite
+    sha256 "fea1eb8ca62fccc5ce43b0a645fb67feffbf97c5a343d0ea6c9a015c37e24ccc" => :sierra
+    sha256 "3229005d870984af6beee544d5178094fc859525bd96552ac42301860c175f5b" => :el_capitan
+    sha256 "2e56b8bac22dbf77677e825ee6242fea35545c2714859c4f22872c1c0fb056e3" => :yosemite
   end
 
   resource "nenofex" do
