@@ -1,11 +1,8 @@
-require "English"
-
 class Xcodegen < Formula
-  desc "Tool that generates your Xcode project from a project spec."
+  desc "Tool that generates your Xcode project from a project spec"
   homepage "https://github.com/yonaskolb/XcodeGen"
-  url "https://github.com/yonaskolb/XcodeGen/archive/#{version}.tar.gz"
-  version "0.1"
-  sha256 "29338d4fb17160408fc781e01143b3eff3dc4dc8db8305ef04864dea9e11bb62"
+  url "https://github.com/yonaskolb/XcodeGen/archive/0.3.0.tar.gz"
+  sha256 "f84b14309807909bae1a64f026a7e6e768ca9234b7f0865f05cbbdd606f7528d"
   head "https://github.com/yonaskolb/XcodeGen.git"
 
   depends_on :xcode
@@ -16,13 +13,26 @@ class Xcodegen < Formula
     ohai "Building XcodeGen"
     system("swift build -c release -Xlinker -rpath -Xlinker @executable_path -Xswiftc -static-stdlib")
     system("install_name_tool -change #{yaml_lib_path} #{frameworks}/libCYaml.dylib #{xcodegen_path}")
-    odie "Error building XcodeGen" if $CHILD_STATUS.exitstatus != 0
     frameworks.install yaml_lib_path
     bin.install xcodegen_path
   end
 
   test do
-    output = `#{bin}/XcodeGen`
-    assert !output.empty?, "Failed installing XcodeGen"
+    (testpath/"xcodegen.yml").write <<-EOS.undent
+      name: GeneratedProject
+      targets:
+        - name: TestProject
+          type: application
+          platform: iOS
+          sources: TestProject
+          settings:
+            PRODUCT_BUNDLE_IDENTIFIER: com.test
+            PRODUCT_NAME: TestProject
+          scheme:
+            configVariants
+    EOS
+    Dir.mkdir(File.join(testpath, "TestProject"))
+    system("#{bin}/XcodeGen --spec #{File.join(testpath, "xcodegen.yml")}")
+    system("xcodebuild -project #{File.join(testpath, "GeneratedProject.xcodeproj")}")
   end
 end
