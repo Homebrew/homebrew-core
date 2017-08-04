@@ -3,9 +3,9 @@ require "language/go"
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.5-1.5/source/tarball/percona-server-mongodb-3.4.5-1.5.tar.gz"
-  version "3.4.5-1.5"
-  sha256 "aa3909678ad0b5a828cd57fa3d10b0f6560700ae8b574469ceb3175ad87d243f"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.6-1.7/source/tarball/percona-server-mongodb-3.4.6-1.7.tar.gz"
+  version "3.4.6-1.7"
+  sha256 "9449d0bfb88e23a4bce0e5ffb223fa5177ba726c2780d073c30256f148123c18"
 
   bottle do
     sha256 "1284d029ab99e696b06559b9850d442704b68ccd32c818199137cf7262a67524" => :sierra
