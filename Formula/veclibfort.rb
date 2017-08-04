@@ -3,6 +3,7 @@ class Veclibfort < Formula
   homepage "https://github.com/mcg1969/vecLibFort"
   url "https://github.com/mcg1969/vecLibFort/archive/0.4.2.tar.gz"
   sha256 "c61316632bffa1c76e3c7f92b11c9def4b6f41973ecf9e124d68de6ae37fbc85"
+  revision 4
   head "https://github.com/mcg1969/vecLibFort.git"
 
   bottle do
