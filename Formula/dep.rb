@@ -1,8 +1,8 @@
 class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
-  url "https://github.com/golang/dep/archive/v0.2.1.tar.gz"
-  sha256 "f1ac592709f6e35805915321c3a6b351dbf099767d1362111fe1d43a1565714f"
+  url "https://github.com/golang/dep/archive/v0.3.0.tar.gz"
+  sha256 "7d816ffb14f57c4b01352676998a8cda9e4fb24eaec92bd79526e1045c5a0c83"
   head "https://github.com/golang/dep.git"
 
   bottle do
