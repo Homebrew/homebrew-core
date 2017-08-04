@@ -5,8 +5,10 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+
+  revision 3
+
   head "https://source.winehq.org/git/wine.git"
-  revision 2
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
@@ -58,6 +60,7 @@ class Wine < Formula
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
+  depends_on "libusb"
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi", :using => :nounzip
@@ -411,7 +414,7 @@ class Wine < Formula
       resource("sane-backends").stage do
         save_env do
           system "./configure", "--disable-dependency-tracking",
-                                "--prefix=#{libexec}",
+                                "--prefix=#{prefix}",
                                 "--localstatedir=#{var}",
                                 "--without-gphoto2",
                                 "--enable-local-backends",
