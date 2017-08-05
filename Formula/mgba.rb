@@ -22,16 +22,14 @@ class Mgba < Formula
     sha256 "49dec7dc507d9048599cdd75379cff76789c0e6eb65a7a5c6da5451381008f7b" => :yosemite
   end
 
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg" => :recommended
-  depends_on "imagemagick" => :recommended
-  depends_on "libepoxy" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libzip" => :recommended
-  depends_on "qt" => :recommended
+  depends_on "ffmpeg"
+  depends_on "imagemagick"
+  depends_on "libepoxy"
+  depends_on "libpng"
+  depends_on "libzip"
+  depends_on "qt"
   depends_on "sdl2"
 
   def install
@@ -42,22 +40,13 @@ class Mgba < Formula
       s.gsub! "Applications", "."
     end
 
-    cmake_args = []
-    cmake_args << "-DUSE_EPOXY=OFF"  if build.without? "libepoxy"
-    cmake_args << "-DUSE_MAGICK=OFF" if build.without? "imagemagick"
-    cmake_args << "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
-    cmake_args << "-DUSE_PNG=OFF"    if build.without? "libpng"
-    cmake_args << "-DUSE_LIBZIP=OFF" if build.without? "libzip"
-    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt"
-
-    system "cmake", ".", *cmake_args, *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
-    if build.with? "qt"
-      # Replace SDL frontend binary with a script for running Qt frontend
-      # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
-      rm "#{bin}/mgba"
-      bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
-    end
+
+    # Replace SDL frontend binary with a script for running Qt frontend
+    # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
+    rm bin/"mgba"
+    bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
   end
 
   test do
