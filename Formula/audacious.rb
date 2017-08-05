@@ -33,27 +33,24 @@ class Audacious < Formula
   depends_on "gettext" => :build
   depends_on "make" => :build
   depends_on "pkg-config" => :build
-
-  depends_on "neon"
+  depends_on "faad2"
+  depends_on "ffmpeg"
+  depends_on "flac"
+  depends_on "fluid-synth"
   depends_on "glib"
+  depends_on "lame"
+  depends_on "libbs2b"
+  depends_on "libcue"
+  depends_on "libnotify"
+  depends_on "libsamplerate"
+  depends_on "libsoxr"
+  depends_on "libvorbis"
+  depends_on "mpg123"
+  depends_on "neon"
+  depends_on "sdl2"
+  depends_on "wavpack"
   depends_on :python if MacOS.version <= :snow_leopard
-
-  depends_on "faad2" => :recommended
-  depends_on "ffmpeg" => :recommended
-  depends_on "flac" => :recommended
-  depends_on "fluid-synth" => :recommended
-  depends_on "lame" => :recommended
-  depends_on "libbs2b" => :recommended
-  depends_on "libcue" => :recommended
-  depends_on "libnotify" => :recommended
-  depends_on "libsamplerate" => :recommended
-  depends_on "libsoxr" => :recommended
-  depends_on "libvorbis" => :recommended
-  depends_on "mpg123" => :recommended
   depends_on "qt" => :recommended
-  depends_on "sdl2" => :recommended
-  depends_on "wavpack" => :recommended
-
   depends_on "gtk+" => :optional
   depends_on "jack" => :optional
   depends_on "libmms" => :optional
