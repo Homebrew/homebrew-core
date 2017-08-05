@@ -11,27 +11,19 @@ class Scummvm < Formula
     sha256 "213a1905e6d46cfe685e0cf25f0d7bb164bace5abbaff9497f4c1e40f794240d" => :yosemite
   end
 
-  option "with-all-engines", "Enable all engines (including broken or unsupported)"
-
+  depends_on "faad2"
+  depends_on "flac"
+  depends_on "fluid-synth"
+  depends_on "freetype"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libvorbis"
+  depends_on "mad"
   depends_on "sdl2"
-  depends_on "libvorbis" => :recommended
-  depends_on "mad" => :recommended
-  depends_on "flac" => :recommended
-  depends_on "libmpeg2" => :optional
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "theora" => :recommended
-  depends_on "faad2" => :recommended
-  depends_on "fluid-synth" => :recommended
-  depends_on "freetype" => :recommended
+  depends_on "theora"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --enable-release
-    ]
-    args << "--enable-all-engines" if build.with? "all-engines"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-release"
     system "make"
     system "make", "install"
     (share+"pixmaps").rmtree
