@@ -1,8 +1,8 @@
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
   homepage "https://github.com/floitsch/double-conversion"
-  url "https://github.com/floitsch/double-conversion/archive/v1.1.5.tar.gz"
-  sha256 "03b976675171923a726d100f21a9b85c1c33e06578568fbc92b13be96147d932"
+  url "https://github.com/floitsch/double-conversion/archive/v3.0.0.tar.gz"
+  sha256 "152f15355242b6b1fbb4098fcd825bf08527eda0c65e8446939222a13f0b3915"
 
   head "https://github.com/floitsch/double-conversion.git"
 
