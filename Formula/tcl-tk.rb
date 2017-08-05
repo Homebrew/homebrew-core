@@ -24,14 +24,14 @@ class TclTk < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7rc0-src.tar.gz"
-    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc0-src.tar.gz"
-    sha256 "97840c0edb8a7d8160714b2317d3e7cb0bb45b88264881939db09c3f323fba97"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7rc1-src.tar.gz"
+    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc1-src.tar.gz"
+    sha256 "2ca5d7e389482b7d77bf32dd48640437f5e814acfca1dd5ea329dba8250ec720"
 
     resource "tk" do
-      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7rc0-src.tar.gz"
-      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc0-src.tar.gz"
-      sha256 "edb88456da559237d41db5541890a432fb5c437186fd7b18d14f680dea450f6e"
+      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7rc1-src.tar.gz"
+      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.7rc1-src.tar.gz"
+      sha256 "8a42af1f250d58bada58bfb6e6d87bdc911d3935b570130c8eb323245d8d90ff"
     end
   end
 
