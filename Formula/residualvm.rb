@@ -11,29 +11,19 @@ class Residualvm < Formula
     sha256 "b1aa19050c3ee60834ebcf49f40dc1ec90d246e4d0ca70343218e0f08c3b5e96" => :yosemite
   end
 
-  option "with-all-engines", "Enable all engines (including broken or unsupported)"
-  option "with-safedisc", "Enable SafeDisc decryption for Myst III"
-
+  depends_on "faad2"
+  depends_on "flac"
+  depends_on "fluid-synth"
+  depends_on "freetype"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libvorbis"
+  depends_on "mad"
   depends_on "sdl"
-  depends_on "libvorbis" => :recommended
-  depends_on "mad" => :recommended
-  depends_on "flac" => :recommended
-  depends_on "libmpeg2" => :optional
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "theora" => :recommended
-  depends_on "faad2" => :recommended
-  depends_on "fluid-synth" => :recommended
-  depends_on "freetype" => :recommended
+  depends_on "theora"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --enable-release
-    ]
-    args << "--enable-all-engines" if build.with? "all-engines"
-    args << "--enable-safedisc" if build.with? "safedisc"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-release"
     system "make"
     system "make", "install"
     (share+"icons").rmtree
