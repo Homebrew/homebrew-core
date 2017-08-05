@@ -3,6 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
   sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
+  revision 1
 
   bottle do
     sha256 "983bfc816485426b63a65d2afb52f6945acb4ccfdbe7044909055d4c2f9aeb94" => :sierra
@@ -13,23 +14,19 @@ class Plplot < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "pango"
   depends_on "freetype"
   depends_on "libtool" => :run
-  depends_on :x11 => :optional
-  depends_on :fortran => :optional
+  depends_on "pango"
+  depends_on :fortran
   depends_on :java => :optional
+  depends_on :x11 => :optional
 
   # Patch reported upstream. Fixes 5.12 cmake issue in cmake/modules/pkg-config.cmake that gets
   # triggered when passing `--with-fortran`
   patch :DATA
 
   def install
-    args = std_cmake_args
-    args << "-DENABLE_java=OFF" if build.without? "java"
-    args << "-DPLD_xwin=OFF" if build.without? "x11"
-    args << "-DENABLE_f95=OFF" if build.without? "fortran"
-    args += %w[
+    args = std_cmake_args + %w[
       -DENABLE_ada=OFF
       -DENABLE_d=OFF
       -DENABLE_qt=OFF
@@ -41,6 +38,8 @@ class Plplot < Formula
       -DPLD_wxwidgets=OFF
       -DENABLE_wxwidgets=OFF
     ]
+    args << "-DENABLE_java=OFF" if build.without? "java"
+    args << "-DPLD_xwin=OFF" if build.without? "x11"
 
     mkdir "plplot-build" do
       system "cmake", "..", *args
@@ -52,24 +51,15 @@ class Plplot < Formula
   test do
     (testpath/"test.c").write <<-EOS.undent
       #include <plplot.h>
-
       int main(int argc, char *argv[]) {
-        plparseopts( &argc, argv, PL_PARSE_FULL );
-        plsdev( "extcairo" );
+        plparseopts(&argc, argv, PL_PARSE_FULL);
+        plsdev("extcairo");
         plinit();
         return 0;
       }
     EOS
-    flags = %W[
-      -I#{include}/plplot
-      -L#{lib}
-      -lcsirocsa
-      -lltdl
-      -lm
-      -lplplot
-      -lqsastime
-    ]
-    system ENV.cc, "test.c", "-o", "test", *flags
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}/plplot", "-L#{lib}",
+                   "-lcsirocsa", "-lltdl", "-lm", "-lplplot", "-lqsastime"
     system "./test"
   end
 end
