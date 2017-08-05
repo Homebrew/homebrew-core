@@ -65,9 +65,9 @@ class Raine < Formula
   end
 
   resource "libpng" do
-    url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.28.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/1.6.28/libpng-1.6.28.tar.xz"
-    sha256 "d8d3ec9de6b5db740fefac702c37ffcf96ae46cb17c18c1544635a3852f78f7a"
+    url "https://download.sourceforge.net/libpng/libpng-1.6.31.tar.xz"
+    mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.31.tar.xz"
+    sha256 "232a602de04916b2b5ce6f901829caf419519e6a16cc9cd7c1c91187d3ee8b41"
   end
 
   resource "sdl" do
@@ -103,9 +103,9 @@ class Raine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
-    sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8/freetype-2.8.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.tar.bz2"
+    sha256 "a3c603ed84c3c2495f9c9331fe6bba3bb0ee65e06ec331e0a0fb52158291b40b"
   end
 
   resource "sdl_ttf" do
@@ -121,10 +121,10 @@ class Raine < Formula
   def install
     ENV.m32
 
-    ENV.prepend "PATH", "#{buildpath}/bin", File::PATH_SEPARATOR
+    ENV.prepend_create_path "PATH", buildpath/"bin"
     ENV.append_to_cflags "-I#{buildpath}/include"
     ENV.append "LDFLAGS", "-L#{buildpath}/lib"
-    ENV.prepend "PKG_CONFIG_PATH", "#{buildpath}/lib/pkgconfig", File::PATH_SEPARATOR
+    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"lib/pkgconfig"
 
     # Install private copies of all dependencies in buildpath
     resources.each do |r|
@@ -134,7 +134,7 @@ class Raine < Formula
           inreplace "src/video/quartz/SDL_QuartzVideo.h",
                     /(CGDirectPaletteRef.+)$/,
                     "#if (MAC_OS_X_VERSION_MIN_REQUIRED < 1070)\n\\1\n#endif"
-        elsif name == "sdl_ttf"
+        elsif r.name == "sdl_ttf"
           inreplace "SDL_ttf.c",
                     "for ( row = 0; row < glyph->bitmap.rows; ++row ) {",
                     "for ( row = 0; row < glyph->pixmap.rows; ++row ) {"
