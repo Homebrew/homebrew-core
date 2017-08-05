@@ -28,59 +28,21 @@ class Gd < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "fontconfig" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "webp" => :recommended
+  depends_on "fontconfig"
+  depends_on "freetype"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "webp"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --without-x
-      --without-xpm
-    ]
-
-    if build.with? "libpng"
-      args << "--with-png=#{Formula["libpng"].opt_prefix}"
-    else
-      args << "--without-png"
-    end
-
-    if build.with? "fontconfig"
-      args << "--with-fontconfig=#{Formula["fontconfig"].opt_prefix}"
-    else
-      args << "--without-fontconfig"
-    end
-
-    if build.with? "freetype"
-      args << "--with-freetype=#{Formula["freetype"].opt_prefix}"
-    else
-      args << "--without-freetype"
-    end
-
-    if build.with? "jpeg"
-      args << "--with-jpeg=#{Formula["jpeg"].opt_prefix}"
-    else
-      args << "--without-jpeg"
-    end
-
-    if build.with? "libtiff"
-      args << "--with-tiff=#{Formula["libtiff"].opt_prefix}"
-    else
-      args << "--without-tiff"
-    end
-
-    if build.with? "webp"
-      args << "--with-webp=#{Formula["webp"].opt_prefix}"
-    else
-      args << "--without-webp"
-    end
-
     system "./bootstrap.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-freetype=#{Formula["freetype"].opt_prefix}",
+                          "--with-png=#{Formula["libpng"].opt_prefix}",
+                          "--without-x",
+                          "--without-xpm"
     system "make", "install"
   end
 
