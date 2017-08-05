@@ -16,8 +16,8 @@ class Coffeescript < Formula
   end
 
   devel do
-    url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.0.0-beta3.tgz"
-    sha256 "b4b63767f750a4ec16a3be87b1fd8c1006a4b7f65bbc5dcc16b523f177e1cd3b"
+    url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.0.0-beta4.tgz"
+    sha256 "90171eecc9bba7d5b16e17752e903404edc94867cee58205bc0cf23a5fbeb2fe"
   end
 
   depends_on "node"
