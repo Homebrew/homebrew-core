@@ -3,6 +3,7 @@ class MrubyCli < Formula
   homepage "https://github.com/hone/mruby-cli"
   url "https://github.com/hone/mruby-cli/archive/v0.0.4.tar.gz"
   sha256 "97d889b5980193c562e82b42089b937e675b73950fa0d0c4e46fbe71d16d719f"
+  head "https://github.com/hone/mruby-cli.git"
 
   bottle do
     cellar :any_skip_relocation
