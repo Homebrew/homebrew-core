@@ -5,8 +5,8 @@ class Idris < Formula
 
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris-dev/archive/v1.1.0.tar.gz"
-  sha256 "74d4a4fdfb4cb8cf86d3ea0487044fc58c65565f29a46ef1fc1a635fefab7df0"
+  url "https://github.com/idris-lang/Idris-dev/archive/v1.1.1.tar.gz"
+  sha256 "27fff953189739d18cb8aa01223d8bac0d3ad9ec29c5fcc752454711a30b43e8"
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
@@ -15,16 +15,13 @@ class Idris < Formula
     sha256 "6a3a3573d721b3351c669b3c78a2158c12e1ec389d7e91c9bc0f218f183d3f5b" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
-
-  depends_on "gmp"
-  depends_on "libffi" => :recommended
+  depends_on "libffi"
 
   def install
-    args = []
-    args << "-f FFI" if build.with? "libffi"
+    args = ["-f FFI"]
     args << "-f release" if build.stable?
     install_cabal_package *args
   end
