@@ -3,6 +3,8 @@ class Chromaprint < Formula
   homepage "https://acoustid.org/chromaprint"
   url "https://github.com/acoustid/chromaprint/releases/download/v1.4.2/chromaprint-1.4.2.tar.gz"
   sha256 "989609a7e841dd75b34ee793bd1d049ce99a8f0d444b3cea39d57c3e5d26b4d4"
+  revision 1
+  head "https://github.com/acoustid/chromaprint.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +14,19 @@ class Chromaprint < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ffmpeg" => :recommended
 
   def install
-    system "cmake", ".", *std_cmake_args
+    options = std_cmake_args.dup
+    options << "-DBUILD_TOOLS=ON" if build.with?("ffmpeg")
+    system "cmake", ".", *options
     system "make", "install"
+  end
+
+  test do
+    if build.with?("ffmpeg")
+      out = shell_output("#{bin}/fpcalc -json -format s16le -rate 44100 -channels 2 -length 10 /dev/zero")
+      assert_equal "AQAAO0mUaEkSRZEGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", JSON.parse(out)["fingerprint"]
+    end
   end
 end
