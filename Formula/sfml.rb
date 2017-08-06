@@ -4,6 +4,7 @@ class Sfml < Formula
   homepage "https://www.sfml-dev.org/"
   url "https://www.sfml-dev.org/files/SFML-2.4.2-sources.zip"
   sha256 "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
+  revision 1
   head "https://github.com/SFML/SFML.git"
 
   bottle do
