@@ -3,7 +3,7 @@ class Rlvm < Formula
   homepage "http://www.rlvm.net/"
   url "https://github.com/eglaysher/rlvm/archive/release-0.14.tar.gz"
   sha256 "6d1717540b8db8aca1480ebafae3354b24e3122a77dd2ee81f4b964c7b10dcc0"
-  revision 2
+  revision 3
   head "https://github.com/eglaysher/rlvm.git"
 
   bottle do
