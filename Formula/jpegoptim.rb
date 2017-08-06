@@ -4,6 +4,7 @@ class Jpegoptim < Formula
   url "https://github.com/tjko/jpegoptim/archive/RELEASE.1.4.4.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/j/jpegoptim/jpegoptim_1.4.4.orig.tar.gz"
   sha256 "bc6b018ae8c3eb12d07596693d54243e214780a2a2303a6578747d3671f45da3"
+  revision 1
   head "https://github.com/tjko/jpegoptim.git"
 
   bottle do
