@@ -27,7 +27,6 @@ class Logstalgia < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
-  depends_on "jpeg"
   depends_on "pcre"
 
   needs :cxx11
