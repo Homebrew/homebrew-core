@@ -3,7 +3,7 @@ class Ufoai < Formula
   homepage "https://ufoai.org/"
   url "https://git.code.sf.net/p/ufoai/code.git", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
   version "2.5.0+20150216"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "74aa04bb327cb0b2498d1987253332c25d86f9b8bad37b82449451e038c4f388" => :sierra
