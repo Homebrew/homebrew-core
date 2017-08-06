@@ -7,7 +7,7 @@ class Dcmtk < Formula
   mirror "http://dicom.offis.de/download/dcmtk/snapshot/old/dcmtk-3.6.1_20170228.tar.gz"
   version "3.6.1-20170228"
   sha256 "8de2f2ae70f71455288ec85c96a2579391300c7462f69a4a6398e9ec51779c11"
-
+  revision 1
   head "git://git.dcmtk.org/dcmtk.git"
 
   bottle do
