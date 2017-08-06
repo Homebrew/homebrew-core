@@ -19,7 +19,6 @@ class Mal4s < Formula
   depends_on "libtool" => :build
   depends_on "glm" => :build
   depends_on "glew"
-  depends_on "jpeg"
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"
