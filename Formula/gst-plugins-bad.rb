@@ -3,6 +3,7 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.2.tar.xz"
   sha256 "9c2c7edde4f59d74eb414e0701c55131f562e5c605a3ce9b091754f106c09e37"
+  revision 1
 
   bottle do
     sha256 "3ebc1c4d2af058d38a4b836e1eb4e854be0167c7e21d7db5beca5663f198adb5" => :sierra
