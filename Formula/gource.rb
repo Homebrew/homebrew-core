@@ -25,7 +25,6 @@ class Gource < Formula
   depends_on "glm" => :build
   depends_on "freetype"
   depends_on "glew"
-  depends_on "jpeg"
   depends_on "libpng"
   depends_on "pcre"
   depends_on "sdl2"
