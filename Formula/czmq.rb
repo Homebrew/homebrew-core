@@ -26,8 +26,6 @@ class Czmq < Formula
   depends_on "xmlto" => :build
   depends_on "zeromq"
 
-  conflicts_with "mono", :because => "both install `makecert` binaries"
-
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
