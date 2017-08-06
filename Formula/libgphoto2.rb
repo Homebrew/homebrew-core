@@ -3,6 +3,7 @@ class Libgphoto2 < Formula
   homepage "http://www.gphoto.org/proj/libgphoto2/"
   url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.14/libgphoto2-2.5.14.tar.bz2"
   sha256 "d3ce70686fb87d6791b9adcbb6e5693bfbe1cfef9661c23c75eb8a699ec4e274"
+  revision 1
 
   bottle do
     sha256 "895b3f2dc366053a23eb650670178ba2294dfc174859176f875e4418af75e25e" => :sierra
