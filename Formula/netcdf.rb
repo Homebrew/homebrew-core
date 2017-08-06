@@ -6,6 +6,12 @@ class Netcdf < Formula
   sha256 "4d44c6f4d02a8faf10ea619bfe1ba8224cd993024f4da12988c7465f663c8cae"
   revision 6
 
+  bottle do
+    sha256 "822e3ee88e46b7af29dd228d8739e8b409feb574279ba99018ed8e8f38b0ca73" => :sierra
+    sha256 "987301f908676c27ff6a8e55b0c6b126ffe79e39ecb8bd074b6218d5aa131a93" => :el_capitan
+    sha256 "8a52314ee59ceab2c182035265de853a88deefda445132d9feaf0f3c4f426943" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on :fortran
