@@ -3,6 +3,7 @@ class GstPluginsUgly < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.12.2.tar.xz"
   sha256 "1cc3942bbf3ea87da3e35437d4e014e991b103db22a6174f62a98c89c3f5f466"
+  revision 1
 
   bottle do
     sha256 "fbacf3e4730592a4857491d69d0dd0338ff0477ab2105cd11a1565c0a67bfee7" => :sierra
