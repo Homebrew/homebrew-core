@@ -18,16 +18,16 @@ class Libgeotiff < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "libtiff"
-  depends_on "lzlib"
   depends_on "jpeg"
+  depends_on "libtiff"
   depends_on "proj"
 
   def install
     system "./autogen.sh" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-jpeg"
     system "make" # Separate steps or install fails
     system "make", "install"
   end
