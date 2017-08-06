@@ -4,6 +4,7 @@ class Mame < Formula
   url "https://github.com/mamedev/mame/archive/mame0188.tar.gz"
   version "0.188"
   sha256 "d3e55ec783fde39124bdb867ded9eadfcf769697d6c3d933444a29a785d6c99b"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -27,6 +28,12 @@ class Mame < Formula
 
   # Needs compiler and library support C++14.
   needs :cxx14
+
+  # jpeg 9 compatibility
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b7053a/mame/jpeg9.patch"
+    sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
+  end
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
