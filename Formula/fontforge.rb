@@ -3,6 +3,7 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
   sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
+  revision 1
 
   bottle do
     sha256 "ee0fb02bb443e91d56903a333f7b517e6e888584ebd0fafab4d09b2a7a4ee4df" => :sierra
