@@ -17,12 +17,12 @@ class Slackcat < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-        :revision => "b26d9c308763d68093482582cea63d69be07a0f0"
+        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
   end
 
   go_resource "github.com/bluele/slack" do
     url "https://github.com/bluele/slack.git",
-        :revision => "3b1fffcc45b37a2644a23eb7dc434d4d9f0987ba"
+        :revision => "b5a7526d62db4690f8a49a30c8ed46f90d0f29f7"
   end
 
   go_resource "github.com/codegangsta/cli" do
@@ -32,7 +32,7 @@ class Slackcat < Formula
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        :revision => "9131ab34cf20d2f6d83fdc67168a5430d1c7dc23"
+        :revision => "67c513e5729f918f5e69786686770c27141a4490"
   end
 
   go_resource "github.com/skratchdot/open-golang" do
