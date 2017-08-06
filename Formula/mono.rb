@@ -29,7 +29,6 @@ class Mono < Formula
   depends_on "cmake" => :build
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
-  conflicts_with "czmq", :because => "both install `makecert` binaries"
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
