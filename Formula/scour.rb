@@ -3,8 +3,8 @@ class Scour < Formula
 
   desc "SVG file scrubber"
   homepage "https://www.codedread.com/scour/"
-  url "https://files.pythonhosted.org/packages/cd/3e/b914c3264766621992b0a381ccd3e7342d64640dc560f6aa411cc9594265/scour-0.35.tar.gz"
-  sha256 "7b33a0fc7ed578e7d1fcf4f68eb4c38cd080c243ea57537840062d37cd0d3c8e"
+  url "https://github.com/scour-project/scour/archive/v0.36.tar.gz"
+  sha256 "1b6820430c671c71406bf79afced676699d03bd3fcc65f01a651da5dcbcf3d3b"
   head "https://github.com/scour-project/scour.git"
 
   bottle do
