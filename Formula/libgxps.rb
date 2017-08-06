@@ -3,6 +3,7 @@ class Libgxps < Formula
   homepage "https://live.gnome.org/libgxps"
   url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
   sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
+  revision 1
 
   bottle do
     cellar :any
@@ -40,7 +41,7 @@ class Libgxps < Formula
       "--prefix=#{prefix}",
     ]
 
-    args << "--without-libjpeg" if build.without? "libjpeg"
+    args << "--without-libjpeg" if build.without? "jpeg"
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-liblcms2" if build.without? "lcms2"
 
