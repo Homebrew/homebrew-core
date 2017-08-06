@@ -3,7 +3,7 @@ class Onscripter < Formula
   homepage "https://onscripter.osdn.jp/"
   url "https://onscripter.osdn.jp/onscripter-20161102.tar.gz"
   sha256 "e9a39b1c45cc47c363eb15773a9944da7a29eff74261ccb656ff5ce4b5fdd5d8"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -22,6 +22,12 @@ class Onscripter < Formula
   depends_on "smpeg"
   depends_on "jpeg"
   depends_on "lua" => :recommended
+
+  # jpeg 9 compatibility
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eeb2de3/onscripter/jpeg9.patch"
+    sha256 "08695ddcbc6b874b903694ac783f7c21c61b5ba385572463d17fbf6ed75f60a1"
+  end
 
   def install
     incs = [
