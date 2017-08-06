@@ -58,7 +58,7 @@ class Gdal < Formula
 
   if build.with? "complete"
     # Raster libraries
-    depends_on "homebrew/science/netcdf" # Also brings in HDF5
+    depends_on "netcdf" # Also brings in HDF5
     depends_on "jasper"
     depends_on "webp"
     depends_on "homebrew/science/cfitsio"
