@@ -5,6 +5,12 @@ class Vtk < Formula
   sha256 "c7e727706fb689fb6fd764d3b47cac8f4dc03204806ff19a10dfd406c6072a27"
   head "https://github.com/Kitware/VTK.git"
 
+  bottle do
+    sha256 "1d1b2423c8bf2c79b779ab2d5d32a983f755e6056788f489e3aaafb70ae650c5" => :sierra
+    sha256 "d771b4665170d6de59e4142c707568897216d839aadd8bbe52dba0f6a8b1061d" => :el_capitan
+    sha256 "9ea70e9cb046572350beb8ff5d3728f37ef7855855dd7f8a5e37dba3982f7e0f" => :yosemite
+  end
+
   option "without-python", "Build without python2 support"
 
   depends_on "cmake" => :build
