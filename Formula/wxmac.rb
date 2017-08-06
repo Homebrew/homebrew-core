@@ -3,6 +3,7 @@ class Wxmac < Formula
   homepage "https://www.wxwidgets.org"
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.3.1/wxWidgets-3.0.3.1.tar.bz2"
   sha256 "3164ad6bc5f61c48d2185b39065ddbe44283eb834a5f62beb13f1d0923e366e4"
+  revision 1
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
