@@ -3,6 +3,7 @@ class LittleCms2 < Formula
   homepage "http://www.littlecms.com/"
   url "https://downloads.sourceforge.net/project/lcms/lcms/2.8/lcms2-2.8.tar.gz"
   sha256 "66d02b229d2ea9474e62c2b6cd6720fde946155cd1d0d2bffdab829790a0fb22"
+  revision 1
 
   bottle do
     cellar :any
