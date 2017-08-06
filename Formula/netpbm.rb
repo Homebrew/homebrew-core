@@ -9,6 +9,7 @@ class Netpbm < Formula
     url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 3014
   end
   version "10.73.13"
+  revision 1
   version_scheme 1
 
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
