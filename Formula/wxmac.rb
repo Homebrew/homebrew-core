@@ -43,6 +43,9 @@ class Wxmac < Formula
   depends_on "libtiff"
 
   def install
+    # https://trac.wxwidgets.org/ticket/17929#ticket
+    ENV.prepend "CPPFLAGS", "-D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=1"
+
     args = [
       "--prefix=#{prefix}",
       "--enable-unicode",
