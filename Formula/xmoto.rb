@@ -3,6 +3,7 @@ class Xmoto < Formula
   homepage "https://xmoto.tuxfamily.org/"
   url "https://download.tuxfamily.org/xmoto/xmoto/0.5.11/xmoto-0.5.11-src.tar.gz"
   sha256 "a584a6f9292b184686b72c78f16de4b82d5c5b72ad89e41912ff50d03eca26b2"
+  revision 1
 
   bottle do
     sha256 "d0beb0f81e97e0495fd012a01865a3a14fe9649077dbea2b91a660e90dd77248" => :sierra
