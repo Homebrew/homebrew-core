@@ -3,7 +3,7 @@ class Openclonk < Formula
   homepage "http://www.openclonk.org"
   url "http://www.openclonk.org/builds/release/7.0/openclonk-7.0-src.tar.bz2"
   sha256 "bc1a231d72774a7aa8819e54e1f79be27a21b579fb057609398f2aa5700b0732"
-  revision 1
+  revision 2
   head "https://github.com/openclonk/openclonk", :using => :git
 
   bottle do
