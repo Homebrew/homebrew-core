@@ -3,6 +3,7 @@ class MonoLibgdiplus < Formula
   homepage "http://www.mono-project.com/docs/gui/libgdiplus/"
   url "https://github.com/mono/libgdiplus/archive/5.4.tar.gz"
   sha256 "ce31da0c6952c8fd160813dfa9bf4a9a871bfe7284e9e3abff9a8ee689acfe58"
+  revision 1
 
   bottle do
     cellar :any
