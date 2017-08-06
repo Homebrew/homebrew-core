@@ -3,6 +3,7 @@ class Fox < Formula
   homepage "http://www.fox-toolkit.org/"
   url "http://ftp.fox-toolkit.org/pub/fox-1.6.54.tar.gz"
   sha256 "960f16a8a69d41468f841039e83c2f58f3cb32622fc283a69f20381abb355219"
+  revision 1
 
   bottle do
     cellar :any
