@@ -3,6 +3,7 @@ class Jpeginfo < Formula
   homepage "https://www.kokkonen.net/tjko/projects.html"
   url "https://www.kokkonen.net/tjko/src/jpeginfo-1.6.1.tar.gz"
   sha256 "629e31cf1da0fa1efe4a7cc54c67123a68f5024f3d8e864a30457aeaed1d7653"
+  revision 1
 
   bottle do
     cellar :any
