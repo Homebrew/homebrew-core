@@ -12,8 +12,6 @@ class Jhead < Formula
     sha256 "10e9a0850168acc870d4be63b9fd8fbd197f1ff16fe23ab9faa0277836a0772c" => :yosemite
   end
 
-  depends_on "jpeg"
-
   # Patch to provide a proper install target to the Makefile. The patch has
   # been submitted upstream through email. We need to carry this patch until
   # upstream decides to incorporate it.
