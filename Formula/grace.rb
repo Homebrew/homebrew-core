@@ -3,7 +3,7 @@ class Grace < Formula
   homepage "http://plasma-gate.weizmann.ac.il/Grace/"
   url "https://mirrors.kernel.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c3a3a4047612f704f3d66b67abfd8786414bc008a593db862b01373561af9d85" => :sierra
