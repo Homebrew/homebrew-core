@@ -4,7 +4,7 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
   sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
