@@ -3,8 +3,8 @@ require "language/go"
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
   homepage "https://github.com/vektorlab/slackcat"
-  url "https://github.com/vektorlab/slackcat/archive/v1.2.1.tar.gz"
-  sha256 "c565563bb0383dbf7e970d9b6dd4a3fa15f0bc16f60ef9f9713bccd73aab21a3"
+  url "https://github.com/vektorlab/slackcat/archive/v1.3.tar.gz"
+  sha256 "bea9d91f16d25fa91da24d0cbbebf333544d9e9a0b19549391ed7156199c6d77"
 
   bottle do
     cellar :any_skip_relocation
