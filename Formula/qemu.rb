@@ -3,7 +3,7 @@ class Qemu < Formula
   homepage "https://www.qemu.org/"
   url "https://download.qemu.org/qemu-2.9.0.tar.bz2"
   sha256 "00bfb217b1bb03c7a6c3261b819cfccbfb5a58e3e2ceff546327d271773c6c14"
-  revision 1
+  revision 2
 
   head "https://git.qemu.org/git/qemu.git"
 
