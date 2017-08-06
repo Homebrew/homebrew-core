@@ -3,6 +3,7 @@ class Flactag < Formula
   homepage "https://flactag.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/flactag/v2.0.4/flactag-2.0.4.tar.gz"
   sha256 "c96718ac3ed3a0af494a1970ff64a606bfa54ac78854c5d1c7c19586177335b2"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,6 +22,12 @@ class Flactag < Formula
   depends_on "s-lang"
   depends_on "unac"
   depends_on "jpeg"
+
+  # jpeg 9 compatibility
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ed0e680/flactag/jpeg9.patch"
+    sha256 "a8f3dda9e238da70987b042949541f89876009f1adbedac1d6de54435cc1e8d7"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
