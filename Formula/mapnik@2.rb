@@ -3,7 +3,7 @@ class MapnikAT2 < Formula
   homepage "http://www.mapnik.org/"
   url "https://s3.amazonaws.com/mapnik/dist/v2.2.0/mapnik-v2.2.0.tar.bz2"
   sha256 "9b30de4e58adc6d5aa8478779d0a47fdabe6bf8b166b67a383b35f5aa5d6c1b0"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "07181d3a7481f2127ce851527918cb23eab6ee3058bab4d3ce59dc3aea63b12f" => :sierra
@@ -22,6 +22,14 @@ class MapnikAT2 < Formula
   patch do
     url "https://gist.githubusercontent.com/tdsmith/22aeb0bfb9691de91463/raw/3064c193466a041d82e011dc5601312ccadc9e15/mapnik-boost-megadiff.diff"
     sha256 "40e83052ae892aa0b134c09d8610ebd891619895bb5f3e5d937d0c48ed42d1a6"
+  end
+
+  # jpeg 9 compatibility
+  # Upstream commit from 5 Oct 2015 "jpeg: fix re-occuring boolean/TRUE/FALSE
+  # issue + prefer using c++ headers"
+  patch do
+    url "https://github.com/mapnik/mapnik/commit/860631acc5.patch?full_index=1"
+    sha256 "53756f0af88b146ed9d02fba3fa376e2389b037ba55af2ce3ab3b4820016c61b"
   end
 
   depends_on "pkg-config" => :build
