@@ -6,9 +6,9 @@ class MapnikAT2 < Formula
   revision 5
 
   bottle do
-    sha256 "07181d3a7481f2127ce851527918cb23eab6ee3058bab4d3ce59dc3aea63b12f" => :sierra
-    sha256 "2eeeb0066e3fcf317e5eada889297b659e513a5142bad69b5e44cd809d873cc1" => :el_capitan
-    sha256 "c96f4f7d7bbbf5bda62b501877b0bac1b285ed84074e67e09f84a75530ec6390" => :yosemite
+    sha256 "a134b1ce0863aa3acc1b704efbe4a6412ab2219c3d6dce4c860b8de3d979433a" => :sierra
+    sha256 "62de5437b3b5769baf4fbb6dca73362c1f2e272e6dbeb2459c97202d5e0219ba" => :el_capitan
+    sha256 "8ff3727156a798dbb88edc01d8f438c167873ba66afecd0d635a7f95a0410593" => :yosemite
   end
 
   keg_only :versioned_formula
