@@ -2,6 +2,7 @@ class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
   url "https://cocl.us/sbt01316tgz"
+  mirror "https://dl.bintray.com/homebrew/mirror/sbt-0.13.16"
   version "0.13.16"
   sha256 "22729580a581e966259267eda4d937a2aecad86848f8a82fcc716dcae8dc760c"
 
