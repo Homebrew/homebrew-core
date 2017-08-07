@@ -1,7 +1,7 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 3
+  revision 4
 
   stable do
     url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
@@ -68,6 +68,8 @@ class Ghostscript < Formula
       --disable-cups
       --disable-compile-inits
       --disable-gtk
+      --disable-fontconfig
+      --without-libidn
     ]
     args << "--without-x" if build.without? "x11"
 
