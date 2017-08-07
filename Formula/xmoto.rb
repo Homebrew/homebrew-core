@@ -6,9 +6,9 @@ class Xmoto < Formula
   revision 1
 
   bottle do
-    sha256 "d0beb0f81e97e0495fd012a01865a3a14fe9649077dbea2b91a660e90dd77248" => :sierra
-    sha256 "350e2da36abf8fff00315730804f996f19693e35abaf9575fe0695db2266a60c" => :el_capitan
-    sha256 "6f75a5d9669357094f10beaefedf52819c9a8a525a876ddb51d27f5f77e2fe07" => :yosemite
+    sha256 "62e3615560cb27578c0cced98e412c45ce7c936719b4281f1dc39d2b33d3d771" => :sierra
+    sha256 "5cb956846ea6f580b9ea5e5b1b906cee31dc563991c1bddae9c2c338040a3af3" => :el_capitan
+    sha256 "d9e6fc1564f7c0e6533824268d4782f670965428c7dd1247a3e50686a7bf535d" => :yosemite
   end
 
   head do
