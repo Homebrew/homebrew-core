@@ -36,9 +36,9 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 "efdcd55b4bda0fd1de726712250c9700858357782329112238f9a242310d46f2" => :sierra
-    sha256 "c37872c3eb02eb1aa1512cfb4bdc7669d9503e882e104c3c7764582a173fcec1" => :el_capitan
-    sha256 "e5afb61c2c630044820b44fb0c63bf7648c786f7de3f500ad76b3617c37ed4eb" => :yosemite
+    sha256 "9260610aa9daaee499420b73b31dea4385b84572ce45e643493d341f6a24de40" => :sierra
+    sha256 "e4607b6721fcbf05ef11b7dedebee8870fcea1eee8bdbb2bfb0a6e15cbcaf17c" => :el_capitan
+    sha256 "1ae88c8587a922be03eed483f951c3a88809714cdeadce90c2fc6dbaeceba8ef" => :yosemite
   end
 
   head do
