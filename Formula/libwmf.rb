@@ -6,11 +6,9 @@ class Libwmf < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "3b826d150b7a971d650454d6a82ad09ee2e1c9b9d1b19dda16d5d6e5023f4691" => :sierra
-    sha256 "a062ace9cbca36cd99122a6389b80a431326de7ef362dc860c74b500ed35e64c" => :el_capitan
-    sha256 "70682294445c1eb98008ffb13264be37f793c507aada2cdc108fcd8cd94ac97d" => :yosemite
-    sha256 "b39df9b3664b7c4e747e1c931628d8bf11b5ad43ecfda5986399e12fdacb1508" => :mavericks
+    sha256 "9df806eb6a4a3ca1a2b4b656ff02623175892981fbf136c89d4df5b5853bd20c" => :sierra
+    sha256 "205bf519460576ecf73e9314ba1171542be58ea22cea81c26424d661734f2d2f" => :el_capitan
+    sha256 "3554c19cc80eb6435ad630587a38dd094a3f33008c11a93a622f1eb62b2a3e2e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
