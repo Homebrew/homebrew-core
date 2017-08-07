@@ -5,9 +5,10 @@ class Ice < Formula
   sha256 "a6bd6faffb29e308ef8f977e27a526ff05dd60d68a72f6377462f9546c1c544a"
 
   bottle do
-    sha256 "e59783409909806a1d958fa589de9cfb5f690b20c8402270258ad88443a2787a" => :sierra
-    sha256 "9994eecf827c3d53e39af5e15b30e14b25a4d4cf2ea999e898be64d99788a1df" => :el_capitan
-    sha256 "2ba154cc8311481dcbb4f202e854251891a69b3ef3e9e9ac21e25870b6ad6e7f" => :yosemite
+    cellar :any
+    sha256 "4021c2f953aee4b244355df6b9313fbbf9507f298c61e60cb6e981103a35ba08" => :sierra
+    sha256 "81f4423f5b0683f6cd75df4ab26333e336ff42c81276025c5c1b684a50a6c2e8" => :el_capitan
+    sha256 "dffea0545e1f0482b1a923f36b5531b28d604076d4314fd86bf82c6180376c2e" => :yosemite
   end
 
   #
