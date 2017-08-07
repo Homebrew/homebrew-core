@@ -13,7 +13,7 @@ class Makensis < Formula
   end
 
   # Build makensis so installers can handle strings > 1024 characters
-  # From http://nsis.sourceforge.net/Special_Builds#Large_strings
+  # From https://nsis.sourceforge.io/Special_Builds#Large_strings
   # Upstream RFE to make this default the default behavior is
   # https://sourceforge.net/p/nsis/feature-requests/542/
   option "with-large-strings", "Enable strings up to 8192 characters instead of default 1024"
