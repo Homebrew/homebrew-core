@@ -6,9 +6,9 @@ class Grace < Formula
   revision 2
 
   bottle do
-    sha256 "c3a3a4047612f704f3d66b67abfd8786414bc008a593db862b01373561af9d85" => :sierra
-    sha256 "27a34f15e0d9898a82556b0f5972dfef6fe3fdd7ef4d331f4e851177cb7eeed4" => :el_capitan
-    sha256 "0721efb822050b87437e8ce49faa405a0bb83006453f35e9f6abce89ff4e7a7e" => :yosemite
+    sha256 "80eae698e6f2cf3dd8a1fb11937871f2e588417b3abfe22ff12d066dd9f0e747" => :sierra
+    sha256 "f178d67cb811997af5d52c11afb1e27c73bc44a1063aa06f08bc7ee189691812" => :el_capitan
+    sha256 "e1dc9c34d5417798dbd2d0c834fe099e7f1d8b395863964ffeb9fcb69e4b3c33" => :yosemite
   end
 
   depends_on :x11
