@@ -8,11 +8,9 @@ class Libpano < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "eb24ebf473383c25abebaa7a49689def8fffd32449a12312b9b9bd945e3f8566" => :sierra
-    sha256 "a4920c760a4aff60251d8876499ae14eeb52dd4f17adc5a19d14d2f79959590d" => :el_capitan
-    sha256 "9188bc29e6e0b271cea0e3b017c0f222825d49bf67d1f65f2a2ecbde6bf870ea" => :yosemite
-    sha256 "cfba56608e1be4c285ad75dd67299405384b690b8cad0d397859a4e29f7f2e9c" => :mavericks
+    sha256 "ee3a892768cab28490d0c5719d503faec655ed274b42d21cd93413c269430bfa" => :sierra
+    sha256 "cde19367882bcb0f1ef6aa389a56fad271dbe956055b8c3e7cafe9c27a559478" => :el_capitan
+    sha256 "d78f4a20ee2b3a55e91cb04f9655f719631fe8b3ac9ffed162e88a337a6e3a08" => :yosemite
   end
 
   depends_on "libpng"
