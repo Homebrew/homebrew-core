@@ -7,7 +7,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.6-5.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-7.0.6-5.tar.xz"
   sha256 "5dbcd45b67514fe1981703759d008f9aa2c6b6201917679dfd35776c904e51b2"
-  revision 1
+  revision 2
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
@@ -110,6 +110,7 @@ class Imagemagick < Formula
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
     args << "--enable-zero-configuration" if build.with? "zero-configuration"
+    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
