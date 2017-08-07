@@ -27,9 +27,9 @@ class Devil < Formula
 
   bottle do
     cellar :any
-    sha256 "1d95bffc40243d4489ebfe8335d4eea0691b66f2f0b2ee1a5dd699632346c692" => :sierra
-    sha256 "64054158e523a5f2e575301454119b3a9fd159d2941e8349c6f7effdf229ed0e" => :el_capitan
-    sha256 "906a89e5b5b593260a6bbd4cbab351adee051bde3dcaec7e61db62eacbcd74bd" => :yosemite
+    sha256 "25bd964db15fdfa4085b73bd1014044f36b877285db451089b4fa7928b02d555" => :sierra
+    sha256 "d3821710ef1409df56d15f6e277e3863abfbf568517f57a83eeafccd02afac2b" => :el_capitan
+    sha256 "5812c01a10936b7f7083d82f2a39d509fe630e41b78e2164f0482ab558026c69" => :yosemite
   end
 
   depends_on "cmake" => :build
