@@ -7,10 +7,9 @@ class Vncsnapshot < Formula
 
   bottle do
     cellar :any
-    sha256 "04d13b44f374f5c7008cc3b77fff32096dba662a6654a0afb8763e099030b3fb" => :sierra
-    sha256 "2ac624dd5c2267341ea88187403020edef2256537bb76274e4a5e986df20ffd8" => :el_capitan
-    sha256 "ccee01d747b767efa54eff88f366c26c996b8d0757b15a3beb57bb632f56f8b9" => :yosemite
-    sha256 "fe6c35f85c2832241fa87595b1c55456a192a4620910fbc83d62447f00aaeaad" => :mavericks
+    sha256 "534d56ed36faf618d5617a1f32b4d7e1fd7cd433a1fc4c64e8c1e9312d53b1c9" => :sierra
+    sha256 "1069a6f396c574c9efa7f6ac41772807f3d5e53c152a94a42733d64522d0a31d" => :el_capitan
+    sha256 "efd8f3255029bcb16a554855f3f3fdb7ea59604df888aec6380da1d7330e3094" => :yosemite
   end
 
   depends_on "jpeg"
