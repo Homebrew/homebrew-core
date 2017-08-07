@@ -7,9 +7,9 @@ class Librasterlite < Formula
 
   bottle do
     cellar :any
-    sha256 "6a1ad2cd9fc6c266be738c52824b0ed08ca907e8ff402bbb5e54527506321f21" => :sierra
-    sha256 "48063ae34020277b6eae28b25bdef98effa7e6f76a5f652f117a7c1639c17558" => :el_capitan
-    sha256 "4f849a0bb992fd9c60f882b2eed4bd1a5b6a29a8669dd81287827c395c4c8d53" => :yosemite
+    sha256 "e0c6a73f26ccdc9c730ffb04a791528b0338252afcf5c9f5ba9ca583b45ca7a7" => :sierra
+    sha256 "778da1f5f7c2b91d82afef12f4061dda7853c27cdc9130307b71011e3fa48229" => :el_capitan
+    sha256 "f19789002b0677c718b39361d3311b7a321c6d33290ce59dbc31d2061e1df58b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
