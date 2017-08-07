@@ -7,11 +7,9 @@ class Jp2a < Formula
 
   bottle do
     cellar :any
-    sha256 "34f358dbc4335ba01acb74b65a2c12965af1317b2d46d5815bf6aadc299c98bc" => :sierra
-    sha256 "d1c7db27a0b2704c0f5f3584fe7891e40ac1d26b175a85cbf8899c139330d4bc" => :el_capitan
-    sha256 "1a16fd055a4c68ef949df2f37f690259860d0c3d97962fc1b0bc5b8654f1b442" => :yosemite
-    sha256 "b31b7564584f3e91dc73c4f511d74c26341d621a5b6e0533541237400acfca84" => :mavericks
-    sha256 "d2f2828c5ed021cac439243a6c5fbb29b9ec460fc96d7fa19c69bec7838d4689" => :mountain_lion
+    sha256 "2d5c4358454d3fa29f6bf4ebb9f43992f7fd0fd68f9161476ae2cd79f51a652a" => :sierra
+    sha256 "ff1455c705893442d357efb79b275c6337b24a9e11c959e38f06df5cde4367ae" => :el_capitan
+    sha256 "2a175fef16afed3e74c834ff250f0278eedc60c4deb0296e62f073954605d97d" => :yosemite
   end
 
   option "without-test", "Skip compile-time tests"
