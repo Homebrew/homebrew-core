@@ -6,9 +6,9 @@ class Pike < Formula
   revision 1
 
   bottle do
-    sha256 "38300c1ce81213b7e0ecacb708843aa32864c63262833da5334e37295dabbfc9" => :sierra
-    sha256 "0f3a1cfde2029f9136684dac3d7462ef5311a5bcb03ccbe75aaf4727130c230b" => :el_capitan
-    sha256 "4501daa2c71467f7bb40b2f3ad4848fb55c284c1dcb0ca1a8bc940a1189cb8b6" => :yosemite
+    sha256 "0251c2e968307aec3ce415c257e897e76b2968055334764407711dcf191c78ff" => :sierra
+    sha256 "d631d66fbaa6053e9cf6fe9ecab1af00db0dc504c3cd4b86962e54ab7269f9d9" => :el_capitan
+    sha256 "44fc539a915050d3521b91f87f387937f3727179a89f4a51bec9973ac98f1bf5" => :yosemite
   end
 
   option "with-gettext", "Include Gettext support"
