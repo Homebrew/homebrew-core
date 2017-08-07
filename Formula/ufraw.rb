@@ -6,9 +6,9 @@ class Ufraw < Formula
   revision 2
 
   bottle do
-    sha256 "d77f0f432aa697d644d3a1458a9deeeb7802676a8ee95caa35e32f7bb8919906" => :sierra
-    sha256 "86999676fdcad5b68bb5a4de14ed2abc876b468473a61de71480d3464a2deba6" => :el_capitan
-    sha256 "dfa07415343481782b646a9b8de3d8fe2d3cbf54820be6fdaac8781c568999bd" => :yosemite
+    sha256 "74d32fc9213f4f8f9aa16249e17f5c23d6cb92c706bfe85a51f36ee5d05bd3a1" => :sierra
+    sha256 "7f60c27241d80fbd9b2a2aa1ed5a8635de6a7326850321a7dcafd819fb7aa564" => :el_capitan
+    sha256 "e894048c08cb563ebda3be58de6d89667f1c7ae6337738b03792ebe7306ce74d" => :yosemite
   end
 
   depends_on "pkg-config" => :build
