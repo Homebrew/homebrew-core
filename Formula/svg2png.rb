@@ -7,11 +7,9 @@ class Svg2png < Formula
 
   bottle do
     cellar :any
-    sha256 "22a97d87190d114288b5c51db065f923fb4df56f9f4a6c81095b8370964b3051" => :sierra
-    sha256 "258ad4ba971211f21ea22f9b361d9e277ac9764af30c4fbc8ebcc035589afd04" => :el_capitan
-    sha256 "6bdd52f199a81f7383199e6ec238486ca877976dcb90075f8f0872638ef517d1" => :yosemite
-    sha256 "db17ab6f2ee3343f874c810069ad3e2b16d858d496c5f61422b607245995f896" => :mavericks
-    sha256 "c1e7e5c1523c76fcdd3a994864b0c9b68e57800c95ea4ddaffd99cf5f82fad63" => :mountain_lion
+    sha256 "d3d9556295a1bed19da91bbe741d3980638bade739e37bbb19d01f517a5e442c" => :sierra
+    sha256 "327bbf146aedf651d8af446ae94a736fb89652cd8a4a7d8d0b00b1f6ca3f7693" => :el_capitan
+    sha256 "8d6abbad01e2b307369b7feadf2b79232b9b1f248bf5f789aa8a3231caffedff" => :yosemite
   end
 
   depends_on "pkg-config" => :build
