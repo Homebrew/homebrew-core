@@ -1,8 +1,8 @@
 class Jpeg < Formula
   desc "Image manipulation library"
   homepage "http://www.ijg.org"
-  url "http://www.ijg.org/files/jpegsrc.v8d.tar.gz"
-  sha256 "00029b1473f0f0ea72fbca3230e8cb25797fbb27e58ae2e46bb8bf5a806fe0b3"
+  url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
+  sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
 
   bottle do
     cellar :any
@@ -17,6 +17,7 @@ class Jpeg < Formula
 
   def install
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

@@ -3,7 +3,7 @@ class Mldonkey < Formula
   homepage "https://mldonkey.sourceforge.io"
   url "https://github.com/ygrek/mldonkey/releases/download/release-3-1-6/mldonkey-3.1.6.tar.bz2"
   sha256 "1b36b57c05a83c2e363c085bf8e80630884c6c92ecdeffc1ad5e1c39a98e043d"
-  revision 1
+  revision 2
   head "https://github.com/ygrek/mldonkey.git", :branch => "next"
 
   bottle do

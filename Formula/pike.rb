@@ -3,6 +3,7 @@ class Pike < Formula
   homepage "https://pike.lysator.liu.se"
   url "https://pike.lysator.liu.se/pub/pike/all/8.0.438/Pike-v8.0.438.tar.gz"
   sha256 "3865f8a4c9ba95c006602f24cc6ad0c07e9f936135d2346e21da627807a90ca0"
+  revision 1
 
   bottle do
     sha256 "38300c1ce81213b7e0ecacb708843aa32864c63262833da5334e37295dabbfc9" => :sierra

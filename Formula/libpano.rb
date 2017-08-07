@@ -4,7 +4,7 @@ class Libpano < Formula
   url "https://downloads.sourceforge.net/project/panotools/libpano13/libpano13-2.9.19/libpano13-2.9.19.tar.gz"
   version "13-2.9.19"
   sha256 "037357383978341dea8f572a5d2a0876c5ab0a83dffda431bd393357e91d95a8"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any

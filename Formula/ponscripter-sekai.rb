@@ -3,7 +3,7 @@ class PonscripterSekai < Formula
   homepage "https://github.com/sekaiproject/ponscripter-fork"
   url "https://github.com/sekaiproject/ponscripter-fork/archive/v0.0.6.tar.gz"
   sha256 "888a417808fd48f8f55da42c113b04d61396a1237b2b0fed2458e804b8ddf426"
-  revision 1
+  revision 2
   head "https://github.com/sekaiproject/ponscripter-fork.git"
 
   bottle do

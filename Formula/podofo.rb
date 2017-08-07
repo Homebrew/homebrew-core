@@ -3,6 +3,7 @@ class Podofo < Formula
   homepage "https://podofo.sourceforge.io"
   url "https://downloads.sourceforge.net/podofo/podofo-0.9.5.tar.gz"
   sha256 "854981cb897ebc14bac854ea0f25305372261a48a205363fe1c61659ba7b5304"
+  revision 1
 
   bottle do
     cellar :any

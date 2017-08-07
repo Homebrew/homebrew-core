@@ -5,7 +5,7 @@ class Dcraw < Formula
   mirror "https://distfiles.macports.org/dcraw/dcraw-9.27.0.tar.gz"
   mirror "https://mirror.csclub.uwaterloo.ca/MacPorts/mpdistfiles/dcraw/dcraw-9.27.0.tar.gz"
   sha256 "c1d8cc4f19752a3d3aaab1fceb712ea85b912aa25f1f33f68c69cd42ef987099"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any

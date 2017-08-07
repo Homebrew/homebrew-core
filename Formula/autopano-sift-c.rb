@@ -3,6 +3,7 @@ class AutopanoSiftC < Formula
   homepage "https://wiki.panotools.org/Autopano-sift-C"
   url "https://downloads.sourceforge.net/project/hugin/autopano-sift-C/autopano-sift-C-2.5.1/autopano-sift-C-2.5.1.tar.gz"
   sha256 "9a9029353f240b105a9c0e31e4053b37b0f9ef4bd9166dcb26be3e819c431337"
+  revision 1
 
   bottle do
     cellar :any

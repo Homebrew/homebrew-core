@@ -5,6 +5,7 @@ class Fltk < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fltk/fltk-1.3.4-source.tar.gz"
   mirror "https://fossies.org/linux/misc/fltk-1.3.4-source.tar.gz"
   sha256 "c8ab01c4e860d53e11d40dc28f98d2fe9c85aaf6dbb5af50fd6e66afec3dc58f"
+  revision 1
 
   bottle do
     sha256 "145440139990f28366947502ac96c89ecea165dd6e328b30495291ea55b0bd17" => :sierra

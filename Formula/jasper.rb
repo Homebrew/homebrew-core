@@ -3,6 +3,7 @@ class Jasper < Formula
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
   url "https://github.com/mdadams/jasper/archive/version-2.0.13.tar.gz"
   sha256 "b50413b41bfc82ae419298b41eadcde1aa31f362fb9dc2ac089e5cbc19f60c24"
+  revision 1
 
   bottle do
     sha256 "15b83ba35f6bb116b22355c6b72b4b7a88a1d0e1b503a9ec5ef0c1a2450e2952" => :sierra

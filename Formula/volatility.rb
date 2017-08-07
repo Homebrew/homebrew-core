@@ -5,6 +5,7 @@ class Volatility < Formula
   homepage "https://github.com/volatilityfoundation/volatility"
   url "https://downloads.volatilityfoundation.org/releases/2.6/volatility-2.6.zip"
   sha256 "5b73050d72bf94870ffce22843f03d4b0b7764011dec29ef1a0a5b1b46cf9295"
+  revision 1
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do

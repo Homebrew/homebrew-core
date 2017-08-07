@@ -1,6 +1,7 @@
 class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "http://www.minetest.net/"
+  revision 1
 
   stable do
     url "https://github.com/minetest/minetest/archive/0.4.16.tar.gz"

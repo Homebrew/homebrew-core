@@ -4,6 +4,7 @@ class Leptonica < Formula
   url "https://github.com/DanBloomberg/leptonica/releases/download/1.74.4/leptonica-1.74.4.tar.gz"
   mirror "http://www.leptonica.org/source/leptonica-1.74.4.tar.gz"
   sha256 "29c35426a416bf454413c6fec24c24a0b633e26144a17e98351b6dffaa4a833b"
+  revision 1
 
   bottle do
     cellar :any

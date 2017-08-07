@@ -3,6 +3,7 @@ class Tiff2png < Formula
   homepage "http://www.libpng.org/pub/png/apps/tiff2png.html"
   url "https://github.com/rillian/tiff2png/archive/v0.92.tar.gz"
   sha256 "64e746560b775c3bd90f53f1b9e482f793d80ea6e7f5d90ce92645fd1cd27e4a"
+  revision 1
 
   bottle do
     cellar :any

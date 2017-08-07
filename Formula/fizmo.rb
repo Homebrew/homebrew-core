@@ -3,6 +3,7 @@ class Fizmo < Formula
   homepage "https://fizmo.spellbreaker.org"
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.2.tar.gz"
   sha256 "369c3b58e019756229bf7e72cc5b15c049f1d6d5c65d7653267e67cef109e675"
+  revision 1
 
   bottle do
     sha256 "069909413fbd1df59ced112cded0166ccdd8303b4a7fc7b333459e2a047bc5ff" => :sierra

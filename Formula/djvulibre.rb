@@ -3,6 +3,7 @@ class Djvulibre < Formula
   homepage "https://djvu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.27/djvulibre-3.5.27.tar.gz"
   sha256 "e69668252565603875fb88500cde02bf93d12d48a3884e472696c896e81f505f"
+  revision 1
 
   bottle do
     rebuild 1

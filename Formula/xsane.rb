@@ -3,7 +3,7 @@ class Xsane < Formula
   homepage "http://www.xsane.org"
   url "http://www.xsane.org/download/xsane-0.999.tar.gz"
   sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d8986e38bfaee594922515ca9406213ddabb52c39d8567b997fe3008acc504e6" => :sierra
