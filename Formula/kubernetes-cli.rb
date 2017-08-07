@@ -36,7 +36,14 @@ class KubernetesCli < Formula
 
       # Install zsh completion
       output = Utils.popen_read("#{bin}/kubectl completion zsh")
-      (zsh_completion/"_kubectl").write output
+      # Note: The explicit header to enable auto-loading by compinit
+      # can be removed after Kubernetes 1.8.0 when kubernetes/kubernetes#50561
+      # becomes available upstream.
+      (zsh_completion/"_kubectl").write <<-EOS.undent
+        #compdef kubectl
+        #{output}
+        _complete kubectl
+      EOS
 
       # Install man pages
       # Leave this step for the end as this dirties the git tree
