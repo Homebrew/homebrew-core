@@ -1,8 +1,8 @@
 class Ansifilter < Formula
   desc "Strip or convert ANSI codes into HTML, (La)Tex, RTF, or BBCode"
   homepage "http://www.andre-simon.de/doku/ansifilter/ansifilter.html"
-  url "http://www.andre-simon.de/zip/ansifilter-2.8.tar.bz2"
-  sha256 "0d35842076f7931aed5d08447104d3ad134840bbef5ffed88f0701951dea049b"
+  url "http://www.andre-simon.de/zip/ansifilter-2.8.1.tar.bz2"
+  sha256 "65556f76c234e709e9c3d326042e88a769ebf456c2fbbc5e32ffb247214fc6c6"
 
   bottle do
     cellar :any_skip_relocation
