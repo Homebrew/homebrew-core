@@ -11,6 +11,12 @@ class Makensis < Formula
     sha256 "2b802ba4f889a4add1ca35d16c0e9a291afde7f55fb3cea6b47d5a637a4d3934" => :yosemite
   end
 
+  # Build makensis so installers can handle strings > 1024 characters
+  # From https://nsis.sourceforge.io/Special_Builds#Large_strings
+  # Upstream RFE to make this default the default behavior is
+  # https://sourceforge.net/p/nsis/feature-requests/542/
+  option "with-large-strings", "Enable strings up to 8192 characters instead of default 1024"
+
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
@@ -37,7 +43,9 @@ class Makensis < Formula
     end
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
-    scons "STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu", "makensis"
+    args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu"]
+    args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
+    scons "makensis", *args
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
   end
