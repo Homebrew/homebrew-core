@@ -5,8 +5,8 @@ class Syncthing < Formula
 
   stable do
     url "https://github.com/syncthing/syncthing.git",
-        :tag => "v0.14.33",
-        :revision => "d475ad7ce1c994358888c2fed250427ed0ef0243"
+        :tag => "v0.14.34",
+        :revision => "1f09488a0f1fdca07076b007b9789f23a6df1060"
 
     # Upstream fix for a sandbox violation triggered by the noupgrade option
     # Reported 25 Jul 2017 https://github.com/syncthing/syncthing/issues/4272
