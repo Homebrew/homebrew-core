@@ -6,9 +6,9 @@ class Botan < Formula
   head "https://github.com/randombit/botan.git"
 
   bottle do
-    sha256 "b40addf39ec157733de0b941ddea7c2b91af994b18c28565ccf307d141d9a9b4" => :sierra
-    sha256 "5b3337a48e4ffb9d3134d776af7e265e9979903d7ba7a9507aca38708ed41918" => :el_capitan
-    sha256 "b5209d8069b0b3832be573a3109b63347cea6e8be90f01546cf0915755fd8c5b" => :yosemite
+    sha256 "81a51ae9befa03e97b84206d7244cae9a2763f68fa7bd7f989b8e070f73731c9" => :sierra
+    sha256 "8d611e2fdb0e848193b363331fd668f4edae4139ff58d31c73a657e90cd0974f" => :el_capitan
+    sha256 "9b0bd3d8914a59621186e6147190f3068dffd36fb0822ef7b836c60acedb3bd4" => :yosemite
   end
 
   option "with-debug", "Enable debug build of Botan"
