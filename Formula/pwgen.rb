@@ -6,10 +6,9 @@ class Pwgen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2708a7cad30519c22cb27911af89ece70ffa11d50fe9a91ae54c181b8598b6e" => :sierra
-    sha256 "2e1168a759cb56294d7230d00373943bec205cee6095e33259ea37b439534642" => :el_capitan
-    sha256 "c51fbe547101e64291866313443a5a50c7744055ed580e6f659fa0fdccd98067" => :yosemite
-    sha256 "e4c38fac94b1bd13e9082cc9b512798927495ec9a92083381c99bd3b978d3d08" => :mavericks
+    sha256 "01a0709f74923e7b86d680f03d3ec056d3175cb7e54be176a26d5bfae890fd21" => :sierra
+    sha256 "7dade70b172cb91635afffe8bb1eadb251f9dbd3368ab9e4a37f98a7c0a14b01" => :el_capitan
+    sha256 "1799bdbb42974d10e2ff3a4e382351b1f03f0a3be31c15ff718d8935d1226101" => :yosemite
   end
 
   def install
