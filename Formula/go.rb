@@ -39,7 +39,6 @@ class Go < Formula
   end
 
   option "without-cgo", "Build without cgo (also disables race detector)"
-  option "without-godoc", "godoc will not be installed for you"
   option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
@@ -73,19 +72,15 @@ class Go < Formula
       system bin/"go", "install", "-race", "std"
     end
 
-    if build.with? "godoc"
-      ENV.prepend_path "PATH", bin
-      ENV["GOPATH"] = buildpath
-      (buildpath/"src/golang.org/x/tools").install resource("gotools")
-
-      if build.with? "godoc"
-        cd "src/golang.org/x/tools/cmd/godoc/" do
-          system "go", "build"
-          (libexec/"bin").install "godoc"
-        end
-        bin.install_symlink libexec/"bin/godoc"
-      end
+    # Build and install godoc
+    ENV.prepend_path "PATH", bin
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/golang.org/x/tools").install resource("gotools")
+    cd "src/golang.org/x/tools/cmd/godoc/" do
+      system "go", "build"
+      (libexec/"bin").install "godoc"
     end
+    bin.install_symlink libexec/"bin/godoc"
   end
 
   def caveats; <<-EOS.undent
@@ -113,10 +108,9 @@ class Go < Formula
     system bin/"go", "fmt", "hello.go"
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
-    if build.with? "godoc"
-      assert File.exist?(libexec/"bin/godoc")
-      assert File.executable?(libexec/"bin/godoc")
-    end
+    # godoc was installed
+    assert File.exist?(libexec/"bin/godoc")
+    assert File.executable?(libexec/"bin/godoc")
 
     if build.with? "cgo"
       ENV["GOOS"] = "freebsd"
