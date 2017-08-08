@@ -1,8 +1,8 @@
 class Bnd < Formula
   desc "The Swiss Army Knife for OSGi bundles"
   homepage "http://bnd.bndtools.org/"
-  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/3.3.0/biz.aQute.bnd-3.3.0.jar"
-  sha256 "b6b68dfcd0f5ba767a202bf35eb3eb964c63e679e8217dd514dac807e6cedee8"
+  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/3.4.0/biz.aQute.bnd-3.4.0.jar"
+  sha256 "e88a7b6b6582752e127c983587c7248bafce9c9a02bbd68882f436f69e3e0997"
 
   bottle :unneeded
 
@@ -15,13 +15,16 @@ class Bnd < Formula
     # Test bnd by resolving a launch.bndrun file against a trivial index.
     test_sha = "baad835c6fa65afc1695cc92a9e1afe2967e546cae94d59fa9e49b557052b2b1"
     test_bsn = "org.apache.felix.gogo.runtime"
-    test_file_name = "#{test_bsn}-1.0.0.jar"
+    test_version = "1.0.0"
+    test_version_next = "1.0.1"
+    test_file_name = "#{test_bsn}-#{test_version}.jar"
     (testpath/"index.xml").write <<-EOS.undent
       <?xml version="1.0" encoding="utf-8"?>
       <repository increment="0" name="Untitled" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
         <resource>
           <capability namespace="osgi.identity">
             <attribute name="osgi.identity" value="#{test_bsn}"/>
+            <attribute name="version" type="Version" value="#{test_version}"/>
           </capability>
           <capability namespace="osgi.content">
             <attribute name="osgi.content" value="#{test_sha}"/>
@@ -38,6 +41,6 @@ class Bnd < Formula
 
     output = shell_output("#{bin}/bnd resolve resolve -b launch.bndrun")
     assert_match /launch.bndrun\s+ok/, output
-    assert_match /#{test_bsn}\s+#{test_sha}.*#{test_file_name}/, output
+    assert_match /#{test_bsn};version='\[#{test_version},#{test_version_next}\)/, output
   end
 end
