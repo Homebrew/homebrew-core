@@ -4,8 +4,8 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      :tag => "0.16.0",
-      :revision => "87c7143fa400c25a9b0b73a17fb057cbbdb329fc"
+      :tag => "0.16.1",
+      :revision => "6e27770271eaf4745af5ff270e0c858bdd1c69ff"
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
