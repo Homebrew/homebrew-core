@@ -12,14 +12,35 @@ class OpenSp < Formula
     sha256 "d7b79be390f3c2b2a823e1156d896200db397dffb6cb6e6712d27539e05ca18b" => :yosemite
   end
 
+  depends_on "docbook" => :build
+  depends_on "ghostscript" => :build
+  depends_on "xmlto" => :build
+
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--disable-doc-build",
                           "--enable-http",
-                          "--enable-default-catalog=#{etc}/sgml/catalog",
-                          "--enable-default-search-path=#{HOMEBREW_PREFIX}/share/sgml"
+                          "--enable-default-catalog=#{etc}/sgml/catalog"
+
     system "make", "pkgdatadir=#{share}/sgml/opensp", "install"
+  end
+
+  test do
+    (testpath/"eg.sgml").write <<-EOS.undent
+      <!DOCTYPE TESTDOC [
+
+      <!ELEMENT TESTDOC - - (TESTELEMENT)+>
+      <!ELEMENT TESTELEMENT - - (#PCDATA)>
+
+      ]>
+      <TESTDOC>
+        <TESTELEMENT>Hello</TESTELEMENT>
+      </TESTDOC>
+    EOS
+
+    system "#{bin}/onsgmls", "--warning=type-valid", "eg.sgml"
   end
 end
