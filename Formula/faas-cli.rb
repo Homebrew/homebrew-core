@@ -21,10 +21,7 @@ class FaasCli < Formula
     (buildpath/"src/github.com/alexellis/faas-cli").install buildpath.children
     cd "src/github.com/alexellis/faas-cli" do
       commit = Utils.popen_read("git rev-list -1 HEAD").chomp
-
-      ldflags = "-X main.GitCommit=#{commit}"
-
-      system "go", "build", "-ldflags", ldflags, "-a",
+      system "go", "build", "-ldflags", "-X main.GitCommit=#{commit}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       prefix.install_metafiles
     end
