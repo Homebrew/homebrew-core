@@ -1,20 +1,9 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
+  url "https://github.com/syncthing/syncthing.git",
+    :tag => "v0.14.34", :revision => "1f09488a0f1fdca07076b007b9789f23a6df1060"
   head "https://github.com/syncthing/syncthing.git"
-
-  stable do
-    url "https://github.com/syncthing/syncthing.git",
-        :tag => "v0.14.33",
-        :revision => "d475ad7ce1c994358888c2fed250427ed0ef0243"
-
-    # Upstream fix for a sandbox violation triggered by the noupgrade option
-    # Reported 25 Jul 2017 https://github.com/syncthing/syncthing/issues/4272
-    patch do
-      url "https://github.com/syncthing/syncthing/commit/414c58174.patch?full_index=1"
-      sha256 "07419dc8b75766b2e4788d8eee1c80ed4238e262d1474813a6b6586494bf1aef"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
