@@ -1,9 +1,9 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v4.7.0.tar.gz"
-  sha256 "77c7174c59d6be5e17382e414db4907a298ca187747c7fcb2ceb44da3962c6bf"
-  revision 1
+  url "https://github.com/facebook/watchman/archive/v4.9.0-rc1.tar.gz"
+  version "4.9.0"
+  sha256 "3ecfe4a98da790fabcaca553d2f02b6ad9c28a9b0948c03fa5247e9138ed29ec"
   head "https://github.com/facebook/watchman.git"
 
   bottle do
@@ -16,6 +16,7 @@ class Watchman < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre"
 
   def install
