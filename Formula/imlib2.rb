@@ -6,9 +6,10 @@ class Imlib2 < Formula
   revision 1
 
   bottle do
-    sha256 "0d58796c04fef1a5eb224795968cba2e59e307b4d2abca96305f68d1a44b8df5" => :sierra
-    sha256 "6f6bcd1604ecbde13302d74d790a65baebbb77e1dc6c0e918d6671ebd0931a52" => :el_capitan
-    sha256 "dd10f2d260c7cadd5ae14d454da97b7c42fa23aa66b5d345e7014f9880f50e1c" => :yosemite
+    rebuild 1
+    sha256 "8ee074fbc1fa4ec9b48151518cc4dcfaf02ad15a9001288f636d94684e7172a1" => :sierra
+    sha256 "139bf652a1e3b056f9100d33adeab3a576cd87cc86e7d7566cf1acadd8638fda" => :el_capitan
+    sha256 "c817b22453401f614d195af1009aaa3a94d0e5c08db2d4ef34cf76a1c74720b5" => :yosemite
   end
 
   deprecated_option "without-x" => "without-x11"
