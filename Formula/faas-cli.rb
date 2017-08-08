@@ -1,8 +1,9 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
-  url "https://github.com/alexellis/faas-cli/archive/0.4.tar.gz"
-  sha256 "f7ecebde2545243e9f37f7feb9fc2a171585d3f9e7998f981611f038bbc93987"
+  url "https://github.com/alexellis/faas-cli.git",
+      :tag => "0.4.5",
+      :revision => "e9c738f9a2833980a1bfc0102b3dfdf0cce2684a"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +20,9 @@ class FaasCli < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/alexellis/faas-cli").install buildpath.children
     cd "src/github.com/alexellis/faas-cli" do
-      system "go", "build", "-o", bin/"faas-cli"
+      commit = Utils.popen_read("git rev-list -1 HEAD").chomp
+      system "go", "build", "-ldflags", "-X main.GitCommit=#{commit}", "-a",
+             "-installsuffix", "cgo", "-o", bin/"faas-cli"
       prefix.install_metafiles
     end
   end
@@ -58,6 +61,7 @@ class FaasCli < Formula
     expected = <<-EOS.undent
       Deploying: dummy_function.
       Removing old service.
+      Deployed.
       200 OK
       URL: http://localhost:#{port}/function/dummy_function
     EOS
