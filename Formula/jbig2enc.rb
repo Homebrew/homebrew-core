@@ -14,9 +14,10 @@ class Jbig2enc < Formula
 
   bottle do
     cellar :any
-    sha256 "011145d24fe4f42970a595ee4323a6754420499a46c5bfa30313f8f4318b3c7f" => :sierra
-    sha256 "15136e5595dd10e0557dafbb5edb8548de3887d5272d7a657cf701bee0db9222" => :el_capitan
-    sha256 "1d434092bcb7861ec0185ec6ccc24381e877e62ac2fc0828bef1d8b7762486ea" => :yosemite
+    rebuild 1
+    sha256 "0d092aaa3d99143057610d44328dda7ca35549f9a80683b637a5265d26e0cffd" => :sierra
+    sha256 "6164ddfa8f877e4d8cacbe4437d8dd5ec10465910446cb43e2d52f4f19023101" => :el_capitan
+    sha256 "0a34215dfcd908571ca6b65d3ca4d79c2758e3a4edbf4d3c8da944a8567fc02f" => :yosemite
   end
 
   head do
