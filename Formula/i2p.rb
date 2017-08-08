@@ -1,8 +1,8 @@
 class I2p < Formula
   desc "Anonymous overlay network - a network within a network"
   homepage "https://geti2p.net"
-  url "https://download.i2p2.de/releases/0.9.30/i2pinstall_0.9.30.jar"
-  sha256 "319421c892a12c36710ad71558927c844da08ea4e4d1c3ee69fc6be2cecce92e"
+  url "https://download.i2p2.de/releases/0.9.31/i2pinstall_0.9.31.jar"
+  sha256 "dc26fb5c268dfe63b98bce66381c24c908f0b8265ddf731f4daf6fb82c4b7376"
 
   bottle :unneeded
 
