@@ -3,8 +3,8 @@ require "language/go"
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.8.5.tar.gz"
-  sha256 "2f6384cfecfd40784c7c5a3280233ea5cf77f82d75c9eee8ebf3652d8a660dac"
+  url "https://github.com/getgauge/gauge/archive/v0.9.1.tar.gz"
+  sha256 "659cd9679fa258ec142cf80ed92282c41aac44152f1193fa804bf00550e64e3a"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
@@ -40,6 +40,12 @@ class Gauge < Formula
       system "go", "run", "build/make.go"
       system "go", "run", "build/make.go", "--install", "--prefix", prefix
     end
+  end
+
+  def caveats; <<-EOS.undent
+    We are constantly looking to make Gauge better, and report usage statistics anonymously over time.
+    If you do not want to participate please read instructions https://manpage.getgauge.io/gauge_telemetry_off.html on how to turn it off.
+    EOS
   end
 
   test do
