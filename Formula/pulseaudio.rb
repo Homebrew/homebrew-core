@@ -80,7 +80,7 @@ class Pulseaudio < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{opt_bin}/emacs</string>
+        <string>#{opt_bin}/pulseaudio</string>
         <string>--start</string>
       </array>
       <key>RunAtLoad</key>
