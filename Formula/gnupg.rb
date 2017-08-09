@@ -1,9 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.22.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.22.tar.bz2"
-  sha256 "46716faf9e1b92cfca86609f3bfffbf5bb4b6804df90dc853ff7061cfcfb4ad7"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.23.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.23.tar.bz2"
+  sha256 "a94476391595e9351f219188767a9d6ea128e83be5ed3226a7890f49aa2d0d77"
 
   bottle do
     sha256 "f0d36cbb12e9039664b4c33f4202a4ff44fb53745cb4d988c7dbca9c9c051acf" => :sierra
@@ -42,6 +42,7 @@ class Gnupg < Formula
       --sysconfdir=#{etc}
       --enable-symcryptrun
       --with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry
+      --enable-all-tests
     ]
 
     args << "--disable-ccid-driver" if build.without? "libusb"
@@ -52,12 +53,6 @@ class Gnupg < Formula
     system "make"
     system "make", "check"
     system "make", "install"
-
-    # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
-    bin.install_symlink "gpg2" => "gpg"
-    bin.install_symlink "gpgv2" => "gpgv"
-    man1.install_symlink "gpg2.1" => "gpg.1"
-    man1.install_symlink "gpgv2.1" => "gpgv.1"
 
     bin.install "tools/gpgsplit" if build.with? "gpgsplit"
     bin.install "tools/gpg-zip" if build.with? "gpg-zip"
