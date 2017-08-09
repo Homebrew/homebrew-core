@@ -69,7 +69,28 @@ class Pulseaudio < Formula
     system "make", "install"
   end
 
+  plist_options :manual => "pulseaudio"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/emacs</string>
+        <string>--start</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+    </dict>
+    </plist>
+    EOS
+  end
+
   test do
-    system bin/"pulseaudio", "--dump-modules"
+    assert_match "module-sine", shell_output("#{bin}/pulseaudio --dump-modules")
   end
 end
