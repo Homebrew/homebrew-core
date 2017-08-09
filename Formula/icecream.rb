@@ -5,11 +5,9 @@ class Icecream < Formula
   sha256 "92532791221d7ec041b7c5cf9998d9c3ee8f57cbd2da1819c203a4c6799ffc18"
 
   bottle do
-    sha256 "85ad1eca8866acbc1666a8054f9e30ccf8acb42c08cd05e6304a34186788dcd4" => :sierra
-    sha256 "b7735e14d19d4b8fb4e861fe2b40b19f524ab904c53b954062be9d9a26a2f99c" => :el_capitan
-    sha256 "9767c0d31cce91446873f3f4baa8068f73909e575f6a8f81f1ccfa33d17ec2b4" => :yosemite
-    sha256 "7dbedeb6418bd830e33818c95bb6339e193f37e664452a1ffc5af514b2778921" => :mavericks
-    sha256 "67891ddbf7f15b7e2f66f5e9ef5f12dc719317c2d0503d52aaad23527770affb" => :mountain_lion
+    sha256 "ff931dd74efc02cad494df41e2df0919fd1a65b2908ade15566b5a6f0974e3ee" => :sierra
+    sha256 "744922ad03cb2468d1b3251238f7130fb1e4295388370bf47d6edeb43a8c36b2" => :el_capitan
+    sha256 "0adc60662ea9ede33caf1fffb35a129593479a99c34bb36525c1c718b0a77639" => :yosemite
   end
 
   option "with-docbook2X", "Build with man page"
