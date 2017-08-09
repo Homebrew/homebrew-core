@@ -5,15 +5,16 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 1
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.2/Agda-2.5.2.tar.gz"
-    sha256 "d812cec3bf7f03c4b27248572475c7e060154102771a8434cc11ba89f5691439"
+    url "https://github.com/agda/agda.git",
+        :revision => "e3f598313ceac6de8903f9e5693efb30435691fc"
+    version "2.5.3-alpha1"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/v0.13.tar.gz"
-      sha256 "e7cffc2b8b168c3584b6d1e760d2b49850835444e4777caa69eb29b3677ef8bb"
+      url "https://github.com/agda/agda-stdlib.git",
+          :revision => "c47a1516aaf40892f97b14e3fd1f2bd0c628cadc"
+      version "2.5.3-alpha1"
     end
   end
 
@@ -31,17 +32,17 @@ class Agda < Formula
     end
   end
 
-  deprecated_option "without-malonzo" => "without-ghc@8.0"
-  deprecated_option "without-ghc" => "without-ghc@8.0"
+  deprecated_option "without-malonzo" => "without-ghc"
+  deprecated_option "without-ghc@8.0" => "without-ghc"
 
   option "without-stdlib", "Don't install the Agda standard library"
-  option "without-ghc@8.0", "Disable the GHC backend"
+  option "without-ghc", "Disable the GHC backend"
 
-  depends_on "ghc@8.0" => :recommended
-  if build.with? "ghc@8.0"
+  depends_on "ghc" => :recommended
+  if build.with? "ghc"
     depends_on "cabal-install"
   else
-    depends_on "ghc@8.0" => :build
+    depends_on "ghc" => :build
     depends_on "cabal-install" => :build
   end
 
@@ -167,8 +168,7 @@ class Agda < Formula
     system bin/"agda", "--js", simpletest
 
     # test the GHC backend
-    if build.with? "ghc@8.0"
-      ENV.prepend_path "PATH", Formula["ghc@8.0"].opt_bin
+    if build.with? "ghc"
       cabal_sandbox do
         cabal_install "text", "ieee754"
         dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
