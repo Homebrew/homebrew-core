@@ -6,6 +6,13 @@ class Cfitsio < Formula
   version "3.410"
   sha256 "a556ac7ea1965545dcb4d41cfef8e4915eeb8c0faa1b52f7ff70870f8bb5734c"
 
+  bottle do
+    cellar :any
+    sha256 "a72624afaa8ea443c369bb0488fc1c9777c0eb69406366abe5fb8baa9535cc1c" => :sierra
+    sha256 "3fed2108f06719ca7661466ae8cdaf9a8a1c36fd45e44472377e66ff483b62f6" => :el_capitan
+    sha256 "113ce9d721d80abc9d09aa5e4e947ee62a618c16e47510a3c2e58ae97211d5ac" => :yosemite
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "shared"
