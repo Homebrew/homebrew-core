@@ -12,6 +12,9 @@ class Makensis < Formula
     sha256 "4e7ee251f0e53b7cc3b254f6d7ee5a247f18287327f25dbba586ee75a43084fb" => :yosemite
   end
 
+  # From http://nsis.sourceforge.net/Special_Builds#Advanced_logging
+  option "with-advanced-logging", "Enable advanced logging of all installer actions"
+
   # Build makensis so installers can handle strings > 1024 characters
   # From https://nsis.sourceforge.io/Special_Builds#Large_strings
   # Upstream RFE to make this default the default behavior is
@@ -46,6 +49,7 @@ class Makensis < Formula
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
     args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu",
             "VERSION=#{version}"]
+    args << "NSIS_CONFIG_LOG=yes" if build.with? "advanced-logging"
     args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
     scons "makensis", *args
     bin.install "build/urelease/makensis/makensis"
