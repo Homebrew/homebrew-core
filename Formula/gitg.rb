@@ -1,9 +1,8 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.24/gitg-3.24.0.tar.xz"
-  sha256 "3e4ec4a8ae83bc7ced8c7610927ade70e37daa5e8beeb4f357a6ea30b4cc951e"
-  revision 1
+  url "https://download.gnome.org/sources/gitg/3.26/gitg-3.26.0.tar.xz"
+  sha256 "26730d437d6a30d6e341b9e8da99d2134dce4b96022c195609f45062f82b54d5"
 
   bottle do
     sha256 "37b53b2a0dfce8ad4a6e3304c72185bf2fa013b95263961cabf201b5a5bedb66" => :sierra
