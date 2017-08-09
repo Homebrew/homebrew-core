@@ -7,6 +7,7 @@ class DhallJson < Formula
   homepage "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library"
   url "https://hackage.haskell.org/package/dhall-json-1.0.4/dhall-json-1.0.4.tar.gz"
   sha256 "60d08cc7b89d60866a998e9fe9c3d8aa829b2e1530a6b290916f529aa40e994f"
+  revision 1
   head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library.git"
 
   bottle do
@@ -16,11 +17,17 @@ class DhallJson < Formula
     sha256 "b56b05a088808e65a5aa17be13675504ca49a50ae4cd395a28a0709912f40e63" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package
+    # Reported the need for the contraint bumps 9 Aug 2017:
+    # https://github.com/Gabriel439/Haskell-Dhall-JSON-Library/issues/5
+    # https://github.com/Gabriel439/Haskell-Dhall-JSON-Library/issues/6
+    install_cabal_package "--allow-newer=dhall-json:trifecta",
+                          "--constraint", "trifecta < 1.8",
+                          "--allow-newer=dhall-json:optparse-generic",
+                          "--constraint", "optparse-generic < 1.3"
   end
 
   test do
