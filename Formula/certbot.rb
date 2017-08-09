@@ -162,11 +162,7 @@ class Certbot < Formula
     %w[acme certbot-apache certbot-nginx].each do |r|
       venv.pip_install buildpath/r
     end
-
     pkgshare.install "examples"
-    # Keep the old name around temporarily for compatibility
-    # so that people's scripts don't suddenly bork.
-    bin.install_symlink bin/"certbot" => "letsencrypt"
   end
 
   test do
