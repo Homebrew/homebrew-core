@@ -3,8 +3,8 @@ require "language/node"
 class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
-  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.13.8.tgz"
-  sha256 "467c436f146198ad344d82572e3d3b75b148b832a0a8396811a86c9f019d37c3"
+  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.13.10.tgz"
+  sha256 "0ad0cfd7d827bca4589a864787c1fb103a41aa71699ba5de0d01ddd86f89d278"
   head "https://github.com/heroku/cli.git"
 
   bottle do
