@@ -14,7 +14,7 @@ class Mercury < Formula
   end
 
   depends_on "erlang" => :optional
-  depends_on "homebrew/science/hwloc" => :optional
+  depends_on "hwloc" => :optional
   depends_on "mono" => :optional
 
   def install
