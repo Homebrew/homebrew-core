@@ -1,8 +1,8 @@
 class BashSnippets < Formula
   desc "Collection of small bash scripts for heavy terminal users"
   homepage "https://github.com/alexanderepstein/Bash-Snippets"
-  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.18.0.tar.gz"
-  sha256 "61602551a999448e9142489ad62d1e5da72a3b1354e010f1ee7135e4524d2eae"
+  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.18.1.tar.gz"
+  sha256 "f88b3ad493a7f394656143ea2de70f2e30fe990f80770b0d77692a08fd163854"
 
   bottle :unneeded
 
