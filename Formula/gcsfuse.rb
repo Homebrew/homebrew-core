@@ -1,8 +1,8 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.21.0.tar.gz"
-  sha256 "e379abf9e6ce1f9f522c03a86407803e2799b8d8abdbdb6396ba2c447655c0d7"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.22.0.tar.gz"
+  sha256 "9808e434e295881c660ab77a96b57c91e907cbe1c5c96d4b865136d0730b3f8e"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
   bottle do
