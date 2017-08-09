@@ -47,8 +47,7 @@ class Gdal < Formula
 
   depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
-
-  depends_on "homebrew/science/armadillo" if build.with? "armadillo"
+  depends_on "armadillo" => :optional
 
   if build.with? "libkml"
     depends_on "autoconf" => :build
