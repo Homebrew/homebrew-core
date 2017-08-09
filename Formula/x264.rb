@@ -2,8 +2,9 @@ class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git", :revision => "97eaef2ab82a46d13ea5e00270712d6475fbe42b"
-  version "r2748"
+  url "https://git.videolan.org/git/x264.git",
+      :revision => "aaa9aa83a111ed6f1db253d5afa91c5fc844583f"
+  version "r2795"
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
