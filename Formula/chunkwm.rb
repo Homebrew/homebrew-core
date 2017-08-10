@@ -12,7 +12,7 @@ class Chunkwm < Formula
   option "without-ffm", "Do not build focus-follow-mouse plugin."
   option "without-border", "Do not build border plugin."
   option "with-transparency", "Build transparency plugin."
-  option "with-logging", "Redirect stdout and stderr to /tmp/chunkwm.log"
+  option "with-logging", "Redirect stdout and stderr to #{var}/log/chunkwm.log"
 
   def install
     # install chunkwm
@@ -94,9 +94,9 @@ class Chunkwm < Formula
         <key>KeepAlive</key>
         <true/>
         <key>StandardOutPath</key>
-        <string>/tmp/chunkwm.log</string>
+        <string>#{var}/log/chunkwm.log</string>
         <key>StandardErrorPath</key>
-        <string>/tmp/chunkwm.log</string>
+        <string>#{var}/log/chunkwm.log</string>
       </dict>
       </plist>
       EOS
