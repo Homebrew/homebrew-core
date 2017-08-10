@@ -10,7 +10,7 @@ class Chunkwm < Formula
   option "without-border", "Do not build border plugin."
   option "with-transparency", "Build transparency plugin."
 
-  depends_on :macos => :sierra
+  depends_on :macos => :el_capitan
 
   def install
     system "make", "install"
