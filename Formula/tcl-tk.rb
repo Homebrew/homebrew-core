@@ -1,9 +1,8 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl.tk/"
-  revision 1
-
-  stable do
+  
+  do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7-src.tar.gz"
     mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7-src.tar.gz"
     version "8.6.7"
