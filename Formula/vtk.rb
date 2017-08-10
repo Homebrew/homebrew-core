@@ -3,6 +3,8 @@ class Vtk < Formula
   homepage "http://www.vtk.org"
   url "http://www.vtk.org/files/release/8.0/VTK-8.0.0.tar.gz"
   sha256 "c7e727706fb689fb6fd764d3b47cac8f4dc03204806ff19a10dfd406c6072a27"
+  revision 2
+
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -24,17 +26,7 @@ class Vtk < Formula
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
   depends_on "qt" => :optional
-
-  # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? "qt"
-    if build.with? "python"
-      depends_on "sip"
-      depends_on "pyqt5" => ["with-python", "without-python3"]
-    elsif build.with? "python3"
-      depends_on "sip"   => ["with-python3", "without-python"]
-      depends_on "pyqt5"
-    end
-  end
+  depends_on "pyqt" if build.with? "qt"
 
   needs :cxx11
 
@@ -103,7 +95,7 @@ class Vtk < Formula
         args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'"
       end
 
-      system "cmake", *args, ".."
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
