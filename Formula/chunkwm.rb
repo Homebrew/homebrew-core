@@ -16,7 +16,7 @@ class Chunkwm < Formula
   def install
     # install chunkwm
     system "make", "install"
-    inreplace "#{buildpath}/examples/chunkwmrc", "~/.chunkwm_plugins", "$(brew --prefix chunkwm)/share/plugins"
+    inreplace "#{buildpath}/examples/chunkwmrc", "~/.chunkwm_plugins", "#{opt_pkgshare}/plugins"
     bin.install "#{buildpath}/bin/chunkwm"
     (pkgshare/"examples").install "#{buildpath}/examples/chunkwmrc"
 
@@ -69,7 +69,7 @@ class Chunkwm < Formula
     EOS
   end
 
-  plist_options :manual => "chunkwm"
+  plist_options :startup => false
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -82,19 +82,19 @@ class Chunkwm < Formula
       <array>
         <string>#{opt_bin}/chunkwm</string>
       </array>
-        <key>EnvironmentVariables</key>
-        <dict>
+      <key>EnvironmentVariables</key>
+      <dict>
         <key>PATH</key>
         <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
-        </dict>
+      </dict>
       <key>RunAtLoad</key>
       <true/>
       <key>KeepAlive</key>
       <true/>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/chunkwm/chunkwm.out</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/chunkwm/chunkwm.err</string>
+      <key>StandardOutPath</key>
+      <string>/tmp/chunkwm.out</string>
+      <key>StandardErrorPath</key>
+      <string>/tmp/chunkwm.err</string>
     </dict>
     </plist>
     EOS
