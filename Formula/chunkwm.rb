@@ -4,6 +4,10 @@ class Chunkwm < Formula
   url "https://github.com/koekeishiya/chunkwm/archive/v0.2.28.tar.gz"
   sha256 "917c6aa09521ff4b7463f731192eea6be6313f0fa4e585f63f85603d0993cf92"
 
+  head do
+    url "https://github.com/koekeishiya/chunkwm.git"
+  end
+
   option "without-tiling", "Do not build tiling plugin."
   option "without-ffm", "Do not build focus-follow-mouse plugin."
   option "without-border", "Do not build border plugin."
