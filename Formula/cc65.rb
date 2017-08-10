@@ -1,11 +1,9 @@
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
-  url "ftp://ftp.musoftware.de/pub/uz/cc65/cc65-sources-2.13.3.tar.bz2"
-  sha256 "a98a1b69d3fa15551fe7d53d5bebfc5f9b2aafb9642ee14b735587a421e00468"
+  url "https://github.com/cc65/cc65/archive/V2.16.tar.gz"
+  sha256 "fdbbf1efbf2324658a5774fdceef4a1b202322a04f895688d95694843df76792"
 
-  # CC65 stable has ceased to be maintained as of March 2013.
-  # The head build has a new home, and new maintainer, but no new stable release yet.
   head "https://github.com/cc65/cc65.git"
 
   bottle do
@@ -22,13 +20,8 @@ class Cc65 < Formula
 
     make_vars = ["prefix=#{prefix}", "libdir=#{share}"]
 
-    if head?
-      system "make", *make_vars
-      system "make", "install", *make_vars
-    else
-      system "make", "-f", "make/gcc.mak", *make_vars
-      system "make", "-f", "make/gcc.mak", "install", *make_vars
-    end
+    system "make", *make_vars
+    system "make", "install", *make_vars
   end
 
   def caveats; <<-EOS.undent
