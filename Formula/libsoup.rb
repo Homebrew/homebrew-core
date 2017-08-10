@@ -5,9 +5,9 @@ class Libsoup < Formula
   sha256 "442300ca1b1bf8a3bbf2f788203287ff862542d4fc048f19a92a068a27d17b72"
 
   bottle do
-    sha256 "78fac8b92b98239f87cb5cbba77cdee42f0bf2f4609447e370ddc14a3973234f" => :sierra
-    sha256 "25687655c70ca2d6243daeccca02f97b25e34234520d4a9a290b16e6a3e02d8d" => :el_capitan
-    sha256 "940af1f0e8fb0657eca2f5b967c62bdf56e511780668c7e1243917191d06dd23" => :yosemite
+    sha256 "4787dd219a09f98951f0ee455796ae3a48fb1c9c5d97a5bb9f98e79f91a370ed" => :sierra
+    sha256 "b8db5129637a32c8a4841b42bc7ee9f5efa1da6af5364fc2e4af511d721b02d0" => :el_capitan
+    sha256 "a3d4280081b479fe9b37df7acbd3fde7adca799453bab80ef0514ac0f218fcbb" => :yosemite
   end
 
   depends_on "pkg-config" => :build
