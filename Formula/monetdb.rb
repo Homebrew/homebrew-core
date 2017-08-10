@@ -50,7 +50,7 @@ class Monetdb < Formula
   depends_on "unixodbc" => :optional # Build the ODBC driver
   depends_on "geos" => :optional # Build the GEOM module
   depends_on "gsl" => :optional
-  depends_on "homebrew/science/cfitsio" => :optional
+  depends_on "cfitsio" => :optional
   depends_on "homebrew/php/libsphinxclient" => :optional
 
   def install

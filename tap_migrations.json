@@ -7,7 +7,6 @@
   "avidemux": "caskroom/cask",
   "awsenv": "Luzifer/tools",
   "cantera": "homebrew/science",
-  "cfitsio": "homebrew/science",
   "cloudfoundry-cli": "pivotal/tap",
   "cmucl": "caskroom/cask",
   "crystax-ndk": "caskroom/cask",

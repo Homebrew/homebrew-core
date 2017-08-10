@@ -61,7 +61,7 @@ class Gdal < Formula
     depends_on "netcdf" # Also brings in HDF5
     depends_on "jasper"
     depends_on "webp"
-    depends_on "homebrew/science/cfitsio"
+    depends_on "cfitsio"
     depends_on "epsilon"
     depends_on "libdap"
     depends_on "libxml2"
