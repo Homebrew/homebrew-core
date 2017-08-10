@@ -8,9 +8,9 @@ class Insect < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0937ee3986157830d4236f2c8fe7fe5c899987a31655a509ef7c4377c3320f37" => :sierra
-    sha256 "2ed00f6cc4f79444514ed856d728070593d2e8155d9fbb6bca1a22d24bc0cbf3" => :el_capitan
-    sha256 "7fbaa2aa1c505cf26f5a5b991f539a736474ac5aff1b9fdd22c7481ee44656b2" => :yosemite
+    sha256 "40cf66124fe03296789ac34ef8e65161364af736c991392376b0c2fe99b6d778" => :sierra
+    sha256 "5e47b94c7a5155fed0930fa35ccabd6afebb76e7d6ef2b44ce92718942027261" => :el_capitan
+    sha256 "b746305cde4e22ea981b8cbedc4cc7ff375247128c95fd55be7c4acbd785029c" => :yosemite
   end
 
   depends_on "node"
