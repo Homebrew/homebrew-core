@@ -90,6 +90,6 @@ class Chunkwm < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/chunkwm --version")
+    assert_match "chunkwm #{version}", shell_output("#{bin}/chunkwm --version")
   end
 end
