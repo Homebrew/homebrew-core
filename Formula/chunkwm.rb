@@ -1,7 +1,7 @@
 class Chunkwm < Formula
   desc "Tiling window manager for macOS based on plugin architecture"
   homepage "https://github.com/koekeishiya/chunkwm"
-  url "https://github.com/koekeishiya/chunkwm.git"
+  url "https://github.com/koekeishiya/chunkwm/archive/v0.2.28.tar.gz"
   sha256 "917c6aa09521ff4b7463f731192eea6be6313f0fa4e585f63f85603d0993cf92"
 
   option "without-tiling", "Do not build tiling plugin."
@@ -42,7 +42,7 @@ class Chunkwm < Formula
     # install transparency plugin
     if build.with? "transparency"
       system "make", "install", "--directory", "src/plugins/transparency"
-      (pkg_share/"plugins").install "#{buildpath}/plugins/transparency.so"
+      (pkgshare/"plugins").install "#{buildpath}/plugins/transparency.so"
     end
   end
 
@@ -64,6 +64,8 @@ class Chunkwm < Formula
       cp #{opt_pkgshare}/examples/khdrc ~/.khdrc
     EOS
   end
+
+  plist_options :manual => "chunkwm"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
