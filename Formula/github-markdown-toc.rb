@@ -6,9 +6,9 @@ class GithubMarkdownToc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31bcbaa4a40b5a3a95809160797c8ea5e2f91ac292e401b04edebaec5772d128" => :sierra
-    sha256 "cf2b7410f56f1cccf40e435c2200bb06e5e0d39ed593fa64d9ce18787db5da94" => :el_capitan
-    sha256 "a0b6d40d755f2f7293fb86ba0b5d27aa1b1073e845ce6829a73c1bcd7c7c0ba2" => :yosemite
+    sha256 "aa55273d31e7668f919e05084ee86d020079ea88c960e50acd040e03f54f1e6e" => :sierra
+    sha256 "0a625d0131a7f928c82194ee3aeec6cfbaffb81e690ae9a66b8bc95267493c9c" => :el_capitan
+    sha256 "15d2549f9ec4c3d5a38c6de1c965808d407df5c05ee78a54093d050bb48993a5" => :yosemite
   end
 
   depends_on "go" => :build
