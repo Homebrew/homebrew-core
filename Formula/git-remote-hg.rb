@@ -18,6 +18,8 @@ class GitRemoteHg < Formula
   depends_on :hg
   depends_on :python if MacOS.version <= :snow_leopard
 
+  conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"
+
   resource "hg" do
     url "https://mercurial-scm.org/release/mercurial-4.1.3.tar.gz"
     sha256 "103d2ae187d5c94110c0e86ccc3b46f55fcd8e21c78d1c209bac7b59a73e86d8"
