@@ -1,41 +1,14 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  revision 1
-
-  stable do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.xz"
-    sha256 "fc886cb2ade032d006da8322c09a7e92b2309177811428b121192d44832920da"
-
-    # We cannot build HTML doc on HEAD, because yodl which is required for
-    # building zsh.texi is not available.
-    option "with-texi2html", "Build HTML documentation"
-    depends_on "texi2html" => [:build, :optional]
-
-    # Remove for > 5.3.1
-    # Upstream commit from 10 Jan 2017 "40305: fix some problems redisplaying
-    # command line after"
-    # See https://github.com/zsh-users/zsh/commit/34656ec2f00d6669cef56afdbffdd90639d7b465
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0b7bf62/zsh/fix-autocomplete.patch"
-      sha256 "4f70882293e2d936734c7ddf40e296da7ef5972fa6f43973b9ca68bf028e2c38"
-    end
-  end
+  url "https://www.zsh.org/pub/zsh-5.4.1.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/zsh/zsh/5.4.1/zsh-5.4.1.tar.xz"
+  sha256 "94cbd57508287e8faa081424509738d496f5f41e32ed890e3a5498ce05d3633b"
 
   bottle do
     sha256 "d2d06b18e4d6daccc5d2e344ecc6c2a4cf4ea46dd349e6ab0f021cd5064b6b7b" => :sierra
     sha256 "21c94f839f949ec6007948a34d7a5861874e73b2fdfed60edc238d42aa5016a6" => :el_capitan
     sha256 "130c8b5367cd7f94f6ff0de8a6d02c723671263a5e49e361dd502b3dbc737073" => :yosemite
-  end
-
-  devel do
-    url "https://www.zsh.org/pub/development/zsh-5.3.1-test-2.tar.gz"
-    version "5.3.1-test-2"
-    sha256 "81d6a171f81bebb0ddcd5d2c3c30f9310bfd27447859bf7be06a9d9599126d6a"
-
-    option "with-texi2html", "Build HTML documentation"
-    depends_on "texi2html" => [:build, :optional]
   end
 
   head do
@@ -90,7 +63,6 @@ class Zsh < Formula
     else
       system "make", "install"
       system "make", "install.info"
-      system "make", "install.html" if build.with? "texi2html"
     end
   end
 
