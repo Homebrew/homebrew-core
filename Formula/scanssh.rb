@@ -41,3 +41,32 @@ __END__
       else
          { { echo "$as_me:2799: error: event.h or libevent.a not found in $withval" >&5
  echo "$as_me: error: event.h or libevent.a not found in $withval" >&2;}
+--- scanssh.c.orig	2017-08-10 13:48:53.000000000 +0100
++++ scanssh.c	2017-08-10 13:49:04.000000000 +0100
+@@ -1153,26 +1153,10 @@
+ 	/* Raising file descriptor limits */
+ 	rl.rlim_max = RLIM_INFINITY;
+ 	rl.rlim_cur = RLIM_INFINITY;
+-	if (setrlimit(RLIMIT_NOFILE, &rl) == -1) {
+-		/* Linux does not seem to like this */
+-		if (getrlimit(RLIMIT_NOFILE, &rl) == -1)
+-			err(1, "getrlimit: NOFILE");
+-		rl.rlim_cur = rl.rlim_max;
+-		if (setrlimit(RLIMIT_NOFILE, &rl) == -1)
+-			err(1, "setrlimit: NOFILE");
+-	}
+ 
+ 	/* Raising the memory limits */
+ 	rl.rlim_max = RLIM_INFINITY;
+ 	rl.rlim_cur = MAXSLOTS * EXPANDEDARGS * sizeof(struct argument) * 2;
+-	if (setrlimit(RLIMIT_DATA, &rl) == -1) {
+-		/* Linux does not seem to like this */
+-		if (getrlimit(RLIMIT_DATA, &rl) == -1)
+-			err(1, "getrlimit: DATA");
+-		rl.rlim_cur = rl.rlim_max;
+-		if (setrlimit(RLIMIT_DATA, &rl) == -1)
+-			err(1, "setrlimit: DATA");
+-	}
+ 	
+        
+ 	/* revoke privs */
