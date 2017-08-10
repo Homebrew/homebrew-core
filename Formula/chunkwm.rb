@@ -74,7 +74,7 @@ class Chunkwm < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-            <string>#{opt_bin}/chunkwm</string>
+        <string>#{opt_bin}/chunkwm</string>
       </array>
         <key>EnvironmentVariables</key>
         <dict>
