@@ -3,6 +3,7 @@ class Subversion < Formula
   homepage "https://subversion.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
+  mirror "https://www-eu.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
 
   bottle do
