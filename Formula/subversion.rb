@@ -1,9 +1,9 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.6.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.6.tar.bz2"
-  sha256 "dbcbc51fb634082f009121f2cb64350ce32146612787ffb0f7ced351aacaae19"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
+  sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
 
   bottle do
     sha256 "98c6f806e0e89757a65715f8a07f17bc1e5dadb64511f09f4e63ebadad2938ee" => :sierra
