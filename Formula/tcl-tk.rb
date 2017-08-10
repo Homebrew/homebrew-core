@@ -1,20 +1,10 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl.tk/"
-  
-  do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7-src.tar.gz"
-    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7-src.tar.gz"
-    version "8.6.7"
-    sha256 "7c6b8f84e37332423cfe5bae503440d88450da8cc1243496249faa5268026ba5"
-
-    resource "tk" do
-      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7-src.tar.gz"
-      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.7-src.tar.gz"
-      version "8.6.7"
-      sha256 "061de2a354f9b7c7d04de3984c90c9bc6dd3a1b8377bb45509f1ad8a8d6337aa"
-    end
-  end
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7-src.tar.gz"
+  mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7-src.tar.gz"
+  version "8.6.7"
+  sha256 "7c6b8f84e37332423cfe5bae503440d88450da8cc1243496249faa5268026ba5"
 
   bottle do
     sha256 "00cb0c31a7a9fb3820685bb5a0baee3e8b3d81e2b3b7f021277bbb833a710ee0" => :sierra
@@ -27,6 +17,13 @@ class TclTk < Formula
 
   option "without-tcllib", "Don't build tcllib (utility modules)"
   option "without-tk", "Don't build the Tk (window toolkit)"
+
+  resource "tk" do
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7-src.tar.gz"
+    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.7-src.tar.gz"
+    version "8.6.7"
+    sha256 "061de2a354f9b7c7d04de3984c90c9bc6dd3a1b8377bb45509f1ad8a8d6337aa"
+  end
 
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
