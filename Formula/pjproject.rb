@@ -1,8 +1,8 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "http://www.pjsip.org/"
-  url "http://www.pjsip.org/release/2.4.5/pjproject-2.4.5.tar.bz2"
-  sha256 "086f5e70dcaee312b66ddc24dac6ef85e6f1fec4eed00ff2915cebe0ee3cdd8d"
+  url "http://www.pjsip.org/release/2.6/pjproject-2.6.tar.bz2"
+  sha256 "2f5a1da1c174d845871c758bd80fbb580fca7799d3cfaa0d3c4e082b5161c7b4"
 
   bottle do
     cellar :any
@@ -19,10 +19,13 @@ class Pjproject < Formula
     system "make", "dep"
     system "make"
     system "make", "install"
-    bin.install "pjsip-apps/bin/pjsua-#{`uname -m`.chomp}-apple-darwin#{`uname -r`.chomp}" => "pjsua"
+
+    arch = Utils.popen_read("uname -m").chomp
+    rel = Utils.popen_read("uname -r").chomp
+    bin.install "pjsip-apps/bin/pjsua-#{arch}-apple-darwin#{rel}" => "pjsua"
   end
 
   test do
-    system "#{bin}/pjsua", "--version"
+    assert_match version.to_s, shell_output("#{bin}/pjsua --version 2>&1")
   end
 end
