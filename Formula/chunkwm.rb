@@ -8,13 +8,13 @@ class Chunkwm < Formula
     url "https://github.com/koekeishiya/chunkwm.git"
   end
 
-  depends_on :macos => :sierra
-
   option "without-tiling", "Do not build tiling plugin."
   option "without-ffm", "Do not build focus-follow-mouse plugin."
   option "without-border", "Do not build border plugin."
   option "with-transparency", "Build transparency plugin."
   option "with-logging", "Redirect stdout and stderr to /usr/local/var/log/chunkwm.log"
+
+  depends_on :macos => :sierra
 
   def install
     # install chunkwm
