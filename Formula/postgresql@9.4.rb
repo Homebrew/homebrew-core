@@ -5,9 +5,9 @@ class PostgresqlAT94 < Formula
   sha256 "0080f55d65194de8b96a2dab153443f8248ff2b2b10e6ab4cda2dcadcac7f2ab"
 
   bottle do
-    sha256 "18c0730abb8c6722231bd61c28da3ac649f378547afa6e7ffaa30831a04119e5" => :sierra
-    sha256 "1514a47e4147b522986eca8337e27bc7a2001e12f82d6e6641c3fda0ef028998" => :el_capitan
-    sha256 "d54bcce2a9c033541b19969795c039efc88ce62a265892595e550e46ac32ba92" => :yosemite
+    sha256 "36990554cc919bf5d75a6578b8d6db0c6c99a2037c9aff799a8e0ca1e8d61977" => :sierra
+    sha256 "dd97cb8607060c03ef3d3f089daadd62ce38fe0503173ebbc2c3e0f7399ea25a" => :el_capitan
+    sha256 "1dd6b753844f79ed778ef258923ab6425b17d7f357407b70b5e48cc9ddc512f4" => :yosemite
   end
 
   keg_only :versioned_formula
