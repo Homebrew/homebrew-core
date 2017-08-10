@@ -19,6 +19,7 @@ class ConjureUp < Formula
   depends_on "juju"
   depends_on "jq"
   depends_on "wget"
+  depends_on "redis"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/28/51/913ed4312b63b0a1b6cad5a761b2c163eb20e353c7a3f19f08e04e8675e5/aiofiles-0.3.1.tar.gz"
