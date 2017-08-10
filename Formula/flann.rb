@@ -5,6 +5,13 @@ class Flann < Formula
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
   revision 3
 
+  bottle do
+    cellar :any
+    sha256 "96ed9c1fa35e36a2981ccdb973ed7411b1794470d4237ed8a5ce5dbaa93040f8" => :sierra
+    sha256 "37edd98d6f63cc3ebcf76ee08fb282bb5397f8d65a639e332052faee329b874c" => :el_capitan
+    sha256 "551141c983b58fead9f9cf15b5c2b2e6c591af56acb7bfb2b64bc3760218c755" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "python" => :optional
