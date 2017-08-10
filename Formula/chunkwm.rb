@@ -12,7 +12,7 @@ class Chunkwm < Formula
   option "without-ffm", "Do not build focus-follow-mouse plugin."
   option "without-border", "Do not build border plugin."
   option "with-transparency", "Build transparency plugin."
-  option "with-logging", "Redirect stdout and stderr to #{var}/log/chunkwm.log"
+  option "with-logging", "Redirect stdout and stderr to /usr/local/var/log/chunkwm.log"
 
   def install
     # install chunkwm
