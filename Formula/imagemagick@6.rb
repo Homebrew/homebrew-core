@@ -9,10 +9,9 @@ class ImagemagickAT6 < Formula
   sha256 "99ad9eed5291b149cf20d91b1b87c81f65d76882d8d3e0b63d3773acd5481ef3"
 
   bottle do
-    rebuild 1
-    sha256 "fc56723e889cd32eab9317e0c1282a4077db3f25e03c0d0d19eda63d3fb626d4" => :sierra
-    sha256 "30081785d14ba060bc310689922d039be47c66e646373e3568598efb7f5c71d4" => :el_capitan
-    sha256 "4b1171e4c1a6eb79d367e3f577e67765a4b4a11e3a4018475eeb3e73bc2f5b32" => :yosemite
+    sha256 "787da13a7e5e38c23e013cde966c5485b6c6415ce15217f8e209ed78a17ba5b4" => :sierra
+    sha256 "6eaf1a9fc9db7f65ceb46a4e93916516d3a95c7819cdea68a0a101293604aae9" => :el_capitan
+    sha256 "9506d50bd570922d1d2b5c0f8934eb7f689ce7501bbe507419de5acd8713a15c" => :yosemite
   end
 
   keg_only :versioned_formula
