@@ -7,9 +7,10 @@ class Hivemind < Formula
   head "https://github.com/DarthSim/hivemind.git"
 
   bottle do
-    sha256 "1b4fa624a89134ad5a7297dbc6c8db6ed412257499fc356fc69da27f98f0c18a" => :sierra
-    sha256 "2c5b41c72bdb00649305da748c2728c7cfc8c8c4d269cd16c6d5f0cb691fe081" => :el_capitan
-    sha256 "da26893b9eee6d5ed41a6727aa00d72ea7899e248ba6a76d213c331f293d25fb" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "7c30727e8182de3464b652267eded12de9a6d8c78ed133e696882cb7a345e48d" => :sierra
+    sha256 "56e8604449bd4c51398cdffa0cab6a354eb47583fac73e9a6f745a4a1b1804b7" => :el_capitan
+    sha256 "dc7e1adc1ed256809185241c1df25664392e54c0b5dbd9a1a3b73402e4831553" => :yosemite
   end
 
   depends_on "go" => :build
