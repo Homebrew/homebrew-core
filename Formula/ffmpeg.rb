@@ -7,6 +7,13 @@ class Ffmpeg < Formula
     sha256 "1069ac8fc7f52e566bea28b41b9c437246aeb5096f82fb26fa96dc7d5a10a473"
 
     depends_on "yasm" => :build
+
+    # Upstream commit from 23 Jun 2017 "Add support for LibOpenJPEG v2.2/git"
+    # See https://github.com/FFmpeg/FFmpeg/commit/078322f33ced4b2db6ac3e5002f98233d6fbf643
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/dfe0fd6/ffmpeg/openjpeg-2.2.patch"
+      sha256 "77fbc0f61f2e5742f33116e0da3d246882717affeee2f25112a8a8a69dc17815"
+    end
   end
 
   bottle do
