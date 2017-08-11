@@ -8,9 +8,9 @@ class Ficy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84c0a9723612b39cf41b500d45aa9be9b67bcb779ce76983b06b38ae73d435ae" => :sierra
-    sha256 "17f8f21f973bb591cc29854c58cc26cc4a5de2550f1b6b02d3d258e67ea9cec9" => :el_capitan
-    sha256 "b7f3934b28587731dea3e2bb779f7c498adeec5d3c28e658bb78258b00aca8b0" => :yosemite
+    sha256 "c8e04a4eb2cf74a46ed02c14c18bb13b06dcdc8703f5913744e904492efe64d8" => :sierra
+    sha256 "b3230fe854623e9ef87868b028a7c3cdfa7b08cdd749def59312cbc47c510bec" => :el_capitan
+    sha256 "ba35c8e07903b74a37daf9131f26a578320f79252aa95e9ca7a5921065cd2a51" => :yosemite
   end
 
   def install
