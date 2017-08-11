@@ -22,7 +22,6 @@ class Pdns < Formula
   option "with-postgresql", "Enable the PostgreSQL backend"
   option "with-remote", "enable the Remote backend"
 
-
   deprecated_option "pgsql" => "with-postgresql"
   deprecated_option "with-pgsql" => "with-postgresql"
 
