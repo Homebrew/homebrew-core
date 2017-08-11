@@ -7,6 +7,8 @@ class SbtAT013 < Formula
 
   bottle :unneeded
 
+  keg_only :versioned_formula
+
   depends_on :java => "1.6+"
 
   def install
