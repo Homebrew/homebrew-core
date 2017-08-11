@@ -6,11 +6,9 @@ class Liblo < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "3e974c53259293996ce8b2293413aa5bc17986f773a40d067be7eef2b6461737" => :sierra
-    sha256 "d81d8b215a608d3bc9d5c125a04243372e9ac8c5b1b627045a30c728f89c1c7a" => :el_capitan
-    sha256 "e56f28e422f08467b0db99b6db4771a36cd6dba6f4880e57f993f84c41ee1df9" => :yosemite
-    sha256 "26f814026942763e874c480f35f0a3345c2267633d7fbc63cdeef4704dd991a4" => :mavericks
+    sha256 "a618d8405b4e13bc1871a5a24da2489a2b64f3d08bff3b7920bf8a6b2b3d6302" => :sierra
+    sha256 "4d5fb18d769550dd5415441b78e167533813c36391819f3c67ea7ea1e69ce7a2" => :el_capitan
+    sha256 "2e2a5f7bc6e95657cec57fc1b969c32dac1405a9731dffec1983c69cb941dde2" => :yosemite
   end
 
   head do
