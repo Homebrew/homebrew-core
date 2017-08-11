@@ -16,10 +16,14 @@ class CrosstoolNg < Formula
   depends_on "binutils"
   depends_on "libelf"
   depends_on "grep"
-  depends_on "make"
+  depends_on "make" => :optional
 
   def install
-    ENV.append "MAKE", "gmake"
+    if build.with? "make"
+      ENV.append "MAKE", "gmake"
+    else
+      ENV.append "MAKE", "make"
+    end
     ENV.append "OBJDUMP", "gobjdump"
     ENV.append "READELF", "greadelf"
     ENV.append "LIBTOOL", "glibtool"
