@@ -11,9 +11,9 @@ class Spim < Formula
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
-    sha256 "f7088896690bf5d131b89b101f7e6a56dcb927c7be741a92d3041a5943130e5c" => :sierra
-    sha256 "8e3b92783684c8e0e2fa55d1dc748579a496b545d4ec53f2b3d4832ac11da95b" => :el_capitan
-    sha256 "f8e4dbc74c5261a24df6913d496d002b9a8e597b0fe4a738f42adbb042ef6a80" => :yosemite
+    sha256 "8a3717f7373bd8b9f4a85b335c321b27597dcd64ee22fc05921e96241458a191" => :sierra
+    sha256 "0b2c254bc2ab638516345e0fe44b29859179c6ec62704fb369e485a645178bbd" => :el_capitan
+    sha256 "1207f278f326747acbb97e272724d72dd467e90b4ef798365206958ccd54957a" => :yosemite
   end
 
   def install
