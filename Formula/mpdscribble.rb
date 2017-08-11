@@ -3,6 +3,7 @@ class Mpdscribble < Formula
   homepage "https://mpd.wikia.com/wiki/Client:Mpdscribble"
   url "https://www.musicpd.org/download/mpdscribble/0.22/mpdscribble-0.22.tar.gz"
   sha256 "ff882d02bd830bdcbccfe3c3c9b0d32f4f98d9becdb68dc3135f7480465f1e38"
+  revision 1
 
   bottle do
     cellar :any
@@ -49,5 +50,9 @@ class Mpdscribble < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    system "#{bin}/mpdscribble", "--version"
   end
 end
