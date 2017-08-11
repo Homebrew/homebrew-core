@@ -32,7 +32,8 @@ class Haxe < Formula
       ENV["OPAMROOT"] = buildpath/"opamroot"
       ENV["OPAMYES"] = "1"
       system "opam", "init", "--no-setup"
-      system "opam", "install", "ocamlfind"
+      system "opam", "switch", "4.04.2"
+      system "opam", "config", "exec", "--", "opam", "install", "ocamlfind", "camlp4", "sedlex", "xml-light", "extlib", "rope", "ptmap"
       system "opam", "config", "exec", "--", "make", "ADD_REVISION=1"
     else
       system "make", "OCAMLOPT=ocamlopt.opt"
@@ -47,7 +48,7 @@ class Haxe < Formula
     cp "extra/haxelib_src/haxelib", "haxelib"
 
     bin.mkpath
-    system "make", "install", "INSTALL_BIN_DIR=#{bin}", "INSTALL_LIB_DIR=#{lib}/haxe"
+    system "make", "install", "INSTALL_BIN_DIR=#{bin}", "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{share}/haxe/std"
 
     # Replace the absolute symlink by a relative one,
     # such that binary package created by homebrew will work in non-/usr/local locations.
