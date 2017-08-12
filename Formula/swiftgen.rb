@@ -8,8 +8,7 @@ class Swiftgen < Formula
 
   bottle do
     cellar :any
-    sha256 "a54d2b9065eb4d918989b17acf1ad403f6c6892a80c6081c84d6d94af82484dd" => :sierra
-    sha256 "334be48adca8c6ce711e8d6e25cb7aa15550a51159f967377d049cf7d3c78427" => :el_capitan
+    sha256 "c2434af26b054b84dd350231a68169994862ea5db0153468e59178ce79ae8131" => :sierra
   end
 
   depends_on :xcode => ["8.3", :build]
