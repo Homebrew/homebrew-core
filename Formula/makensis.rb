@@ -43,7 +43,8 @@ class Makensis < Formula
     end
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
-    args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu"]
+    args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu",
+            "VERSION=#{version}"]
     args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
     scons "makensis", *args
     bin.install "build/urelease/makensis/makensis"
@@ -52,6 +53,15 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
+    (testpath/"test.nsi").write <<-EOS.undent
+      # name the installer
+      OutFile "test.exe"
+      # default section start; every NSIS script has at least one section.
+      Section
+      # default section end
+      SectionEnd
+    EOS
+    system "#{bin}/makensis", "#{testpath}/test.nsi"
   end
 end
 
