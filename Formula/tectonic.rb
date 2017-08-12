@@ -3,6 +3,7 @@ class Tectonic < Formula
   homepage "https://tectonic-typesetting.github.io/"
   url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.6.tar.gz"
   sha256 "5c201c979069dfb780040b42d8c516847668bd6d429eabb20f5fb15a3873832c"
+  revision 1
 
   bottle do
     sha256 "bfb4b5cc790c8aa94be88b05776ca8944725d0bb0efaffb6b908ac2a57c546bf" => :sierra

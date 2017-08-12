@@ -3,6 +3,7 @@ class Gjs < Formula
   homepage "https://wiki.gnome.org/Projects/Gjs"
   url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.6.tar.xz"
   sha256 "e85f65ba4b38bf80b6174949dfe6fce89e88b8213bbdde4ac1fde473c08bd312"
+  revision 1
 
   bottle do
     sha256 "26e009c4c5c57eddb13a87f3fca028afbca6fb3af265ab90909c1507b7d8603c" => :sierra
@@ -24,6 +25,9 @@ class Gjs < Formula
   end
 
   def install
+    ENV.cxx11
+    ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
+
     resource("mozjs38").stage do
       inreplace "config/rules.mk", "-install_name @executable_path/$(SHARED_LIBRARY) ", "-install_name #{lib}/$(SHARED_LIBRARY) "
       cd("js/src") do
@@ -57,7 +61,7 @@ class Gjs < Formula
       # remove mozjs static lib
       rm "#{lib}/libjs_static.ajs"
     end
-    ENV.cxx11
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
