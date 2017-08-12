@@ -4,6 +4,12 @@ class Hdf5AT18 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.19.tar.bz2"
   sha256 "59c03816105d57990329537ad1049ba22c2b8afe1890085f0c022b75f1727238"
 
+  bottle do
+    sha256 "8ee94808d2943cfb367b85c967f3c0a8623df0215a4d875e760df277b24ca13c" => :sierra
+    sha256 "660e3cd1299e526e26e50644e51b3ccf54da002f7d39df1da8ce3e4b2d6d7a95" => :el_capitan
+    sha256 "27680e9b0f0301299031c3b78c0a2d35b83c516b37ebf5a5b77c63b37b99b30f" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   deprecated_option "enable-parallel" => "with-mpi"
