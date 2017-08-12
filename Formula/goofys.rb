@@ -4,8 +4,8 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag => "v0.0.13",
-      :revision => "9ba2bf3938464a92e0c3bbe36919938fc67f0839"
+      :tag => "v0.0.15",
+      :revision => "b37d4f8b5fc0a0314a7b7ed66ff76ffa7a365c09"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
@@ -20,7 +20,7 @@ class Goofys < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "b892ba3809cd07fcf2b064e166b0c2e16e0147bd"
+        :revision => "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
   end
 
   go_resource "github.com/jacobsa/fuse" do
@@ -35,7 +35,7 @@ class Goofys < Formula
 
   go_resource "github.com/sevlyar/go-daemon" do
     url "https://github.com/sevlyar/go-daemon.git",
-        :revision => "821596c79672d38b7923916e766363184c00079c"
+        :revision => "298c54b0e0ae32ec2c6674fee8b60d2fefa4ae7e"
   end
 
   go_resource "github.com/shiena/ansicolor" do
@@ -45,27 +45,32 @@ class Goofys < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-        :revision => "3dd8bd46d9a1ccbd37b3ba6e3dc1dc7d37ba8dc5"
+        :revision => "3aa2ffab12a1852644f6d33cd782f877272bf305"
   end
 
   go_resource "github.com/sirupsen/logrus" do
     url "https://github.com/sirupsen/logrus.git",
-        :revision => "3d4380f53a34dcdc95f0c1db702615992b38d9a4"
+        :revision => "181d419aa9e2223811b824e8f0b4af96f9ba9302"
   end
 
   go_resource "github.com/stretchr/testify" do
     url "https://github.com/stretchr/testify.git",
-        :revision => "f6abca593680b2315d2075e0f5e2a9751e3f431a"
+        :revision => "890a5c3458b43e6104ff5da8dfa139d013d77544"
+  end
+
+  go_resource "golang.org/x/crypto" do
+    url "https://go.googlesource.com/crypto.git",
+        :revision => "b176d7def5d71bdd214203491f89843ed217f420"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "8663ed5da4fd087c3cfb99a996e628b72e2f0948"
+        :revision => "1c05540f6879653db88113bc4a2b70aec4bd491f"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "90796e5a05ce440b41c768bd9af257005e470461"
+        :revision => "e42485b6e20ae7d2304ec72e535b103ed350cc02"
   end
 
   def install
@@ -78,7 +83,9 @@ class Goofys < Formula
     Language::Go.stage_deps resources, gopath/"src"
 
     cd gopath/"src/github.com/kahing/goofys" do
-      system "go", "build", "-o", "goofys"
+      commit = Utils.popen_read("git rev-parse HEAD").chomp
+      system "go", "build", "-o", "goofys", "-ldflags",
+             "-X main.Version=#{commit}"
       bin.install "goofys"
       prefix.install_metafiles
     end
