@@ -2,9 +2,9 @@ class Minio < Formula
   desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-      :tag => "RELEASE.2017-07-24T18-27-35Z",
-      :revision => "461d60095df56cdb1370f20135429a5a24b400b3"
-  version "20170724182735"
+      :tag => "RELEASE.2017-08-05T00-00-53Z",
+      :revision => "aeafe668d8b6d25caac671d59e2b0f0473ce35d0"
+  version "20170805000053"
 
   bottle do
     cellar :any_skip_relocation
