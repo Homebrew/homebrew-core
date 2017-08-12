@@ -8,6 +8,7 @@ class Metabase < Formula
     url "https://github.com/metabase/metabase.git"
 
     depends_on "node" => :build
+    depends_on "yarn" => :build
     depends_on "leiningen" => :build
   end
 
@@ -17,7 +18,6 @@ class Metabase < Formula
 
   def install
     if build.head?
-      ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
       system "./bin/build"
       libexec.install "target/uberjar/metabase.jar"
     else
