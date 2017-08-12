@@ -5,8 +5,8 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 3
   head "https://source.winehq.org/git/wine.git"
-  revision 2
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
@@ -158,9 +158,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.4/mpg123-1.25.4.tar.bz2"
-    mirror "https://mpg123.orgis.org/download/mpg123-1.25.4.tar.bz2"
-    sha256 "cdb5620e8aab83f75a27dab3394a44b9cc4017fc77b2954b8425ca416db6b3e7"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.5/mpg123-1.25.5.tar.bz2"
+    mirror "https://mpg123.orgis.org/download/mpg123-1.25.5.tar.bz2"
+    sha256 "358da8602c001e6b25dddd496f50540a419e9922f0efe513e890f266135926b1"
   end
 
   fails_with :clang do
@@ -417,6 +417,11 @@ class Wine < Formula
                                 "--enable-local-backends",
                                 "--with-usb=yes",
                                 *depflags
+          # Remove for > 1.0.27
+          # Workaround for bug in Makefile.am described here:
+          # https://lists.alioth.debian.org/pipermail/sane-devel/2017-August/035576.html.
+          # Fixed in https://anonscm.debian.org/cgit/sane/sane-backends.git/commit/?id=519ff57
+          system "make"
           system "make", "install"
         end
       end
