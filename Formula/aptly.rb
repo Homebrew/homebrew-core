@@ -1,8 +1,8 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/smira/aptly/archive/v1.1.0.tar.gz"
-  sha256 "83528171ea0cb6f84c759fb5beaa5de85f845bf34d5c9a995c3d4c543c639be5"
+  url "https://github.com/smira/aptly/archive/v1.1.1.tar.gz"
+  sha256 "92aa5caa12d756cb7469fa5772a03d7631b73d655b7329408a4d597ee8fb0ba4"
   head "https://github.com/smira/aptly.git"
 
   bottle do
