@@ -3,6 +3,7 @@ class Zebra < Formula
   homepage "https://www.indexdata.com/zebra"
   url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.1.0.tar.gz"
   sha256 "1544f7929d03153ba79ea171b2128f8cab463ae28407035ae5046f8c4a100ea6"
+  revision 1
 
   bottle do
     sha256 "451f74b7153d3222d4b85d6186a870fec1795a5a4fcf93187cd0944edd182b08" => :sierra
