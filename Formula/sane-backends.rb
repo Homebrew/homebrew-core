@@ -30,8 +30,9 @@ class SaneBackends < Formula
                           "--with-usb=yes"
 
     # Remove for > 1.0.27
-    # Workaround for bug in Makefile.am described here: https://goo.gl/vqzVk5.
-    # It's already fixed in commit 519ff57. See https://goo.gl/Cmp6Br.
+    # Workaround for bug in Makefile.am described here:
+    # https://lists.alioth.debian.org/pipermail/sane-devel/2017-August/035576.html
+    # It's already fixed in commit 519ff57.
     system "make"
     system "make", "install"
   end
