@@ -5,6 +5,13 @@ class Cminpack < Formula
   sha256 "3c07fd21308c96477a2c900032e21d937739c233ee273b4347a0d4a84a32d09f"
   head "https://github.com/devernay/cminpack.git"
 
+  bottle do
+    cellar :any
+    sha256 "16664c7714c7e4337d453cc709dcee658662b7b61735608a278d81314557a08f" => :sierra
+    sha256 "ea2b1e1a4d1323e47df94c5fff2b66a8d3ecd2800f5f1dab788994e37192c628" => :el_capitan
+    sha256 "83b0004c7f4a707f51ee402f9d99f85f3c2d7f865c33f96f0a7ee85abfdb8ec1" => :yosemite
+  end
+
   depends_on "cmake" => :build
 
   def install
