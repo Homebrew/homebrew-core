@@ -6,9 +6,9 @@ class Tectonic < Formula
   revision 1
 
   bottle do
-    sha256 "bfb4b5cc790c8aa94be88b05776ca8944725d0bb0efaffb6b908ac2a57c546bf" => :sierra
-    sha256 "911f1157cd3a5a858f4338f0145be38da0025dfb4a008d138f9307498356decb" => :el_capitan
-    sha256 "e53f3203f455be568b7d8cdb51b2008d87d2b5c8bcee55c4784157288242b479" => :yosemite
+    sha256 "6097b9140e73f5cd1f584991302fe10816980a9566ab19288dee511ac2c1e2f2" => :sierra
+    sha256 "647a3ae4f31aaf517149c10fb1a805f6d1eaa83cd3d008e5d85fd1f57a987cdb" => :el_capitan
+    sha256 "064efc61497c63d50105d58bf2e79d079a6833892f4b5d2134a17eaf21b8097c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
