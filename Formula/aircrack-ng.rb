@@ -28,7 +28,7 @@ class AircrackNg < Formula
     # Fix incorrect OUI url
     inreplace "scripts/airodump-ng-oui-update",
       "http://standards.ieee.org/regauth/oui/oui.txt",
-      "http://standards-oui.ieee.org/oui.txt"
+      "http://standards-oui.ieee.org/oui/oui.txt"
 
     system "make", "CC=#{ENV.cc}"
     system "make", "prefix=#{prefix}", "mandir=#{man1}", "install"
