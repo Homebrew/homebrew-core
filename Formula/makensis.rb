@@ -12,7 +12,7 @@ class Makensis < Formula
     sha256 "4e7ee251f0e53b7cc3b254f6d7ee5a247f18287327f25dbba586ee75a43084fb" => :yosemite
   end
 
-  # From http://nsis.sourceforge.net/Special_Builds#Advanced_logging
+  # From https://nsis.sourceforge.io/Special_Builds#Advanced_logging
   option "with-advanced-logging", "Enable advanced logging of all installer actions"
 
   # Build makensis so installers can handle strings > 1024 characters
