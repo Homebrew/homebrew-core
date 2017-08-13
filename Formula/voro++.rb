@@ -5,6 +5,13 @@ class Voroxx < Formula
   sha256 "ef7970071ee2ce3800daa8723649ca069dc4c71cc25f0f7d22552387f3ea437e"
   revision 1
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9d522e672d8f551439c18b536e0ca2d0dc94a6036722eba12bbaba37d2aa3428" => :sierra
+    sha256 "b10e4cccc62a7fff1a34c6f80174e2f62cb12dfcaf2782b2c81cc567f0928943" => :el_capitan
+    sha256 "d7ce06fd7ebd51a8a592c2409f80eae0bbc6a5fc0d906ffa324534c805249af1" => :yosemite
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install("examples")
