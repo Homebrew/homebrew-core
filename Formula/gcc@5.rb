@@ -40,8 +40,6 @@ class GccAT5 < Formula
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
-  # enabling multilib on a host that can"t run 64-bit results in build failures
-  option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
 
   depends_on "gmp"
   depends_on "libmpc"
@@ -117,10 +115,10 @@ class GccAT5 < Formula
       args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
     end
 
-    if !MacOS.prefer_64_bit? || build.without?("multilib")
-      args << "--disable-multilib"
-    else
+    if MacOS.prefer_64_bit?
       args << "--enable-multilib"
+    else
+      args << "--disable-multilib"
     end
 
     args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
