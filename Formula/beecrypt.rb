@@ -7,9 +7,9 @@ class Beecrypt < Formula
 
   bottle do
     cellar :any
-    sha256 "45c68cd3ba2c04838c463abeb94e6ebec70d48edbcbdbc0fbec9a16ebb203d66" => :sierra
-    sha256 "cfb11a2e9a6d42635b3534437cdb72f854e1c6cf68bc5398bdeacf19474078cb" => :el_capitan
-    sha256 "ec32147dc97502c42673b24b15ce98c769310ced85c8096c91ce6d768fb00c76" => :yosemite
+    sha256 "9bb192a3b891680eedbacb38cd9a2daa694cbef4d1db7b844d1809fb5504d660" => :sierra
+    sha256 "aafed63c6eb816d71151cf20830d76375ef872d2502babfe20f94683b3fcbf33" => :el_capitan
+    sha256 "c321c1ab92e2f644460e3f2cba59495962735a3b046744692a171deebffba29b" => :yosemite
   end
 
   depends_on "libtool" => :build
