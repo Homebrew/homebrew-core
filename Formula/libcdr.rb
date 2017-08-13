@@ -7,9 +7,9 @@ class Libcdr < Formula
 
   bottle do
     cellar :any
-    sha256 "4c59ebfbb12f1d71d26b03899691dc6b62dcde619c53c2f096b8efc91aab6bdc" => :sierra
-    sha256 "5984f319a2bc8b3e3fd15daffaf588a737395d5e11813af84bba2884a3ebad1a" => :el_capitan
-    sha256 "69e4eeaa9f00aa68c8afde1327adf8a7d84d53fc24a4df0cf2d5d29494ccfba1" => :yosemite
+    sha256 "4d0c8dedeaf32a7dee5ca6f66bf50c5a18c2fbd78b53430f45503bdbf06cd39d" => :sierra
+    sha256 "2d892c2038af0be3292fe3fc19865fa0dc72de76bcdb7241139e290ba06c5724" => :el_capitan
+    sha256 "9790438fa6f9dd4140984d951f3525e53363efcde0c7897cb498a04caf94ef8e" => :yosemite
   end
 
   depends_on "pkg-config" => :build
