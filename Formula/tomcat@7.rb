@@ -1,8 +1,8 @@
 class TomcatAT7 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.77/bin/apache-tomcat-7.0.77.tar.gz"
-  sha256 "10a984f92e828ca97b4682318cac0d0ddf4220d88244ec4b25f8e3dd13b17979"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79.tar.gz"
+  sha256 "6cd91a30de93daa65d35c7430cb2c6951070e9ca1f043b4d91b51c8ce4d351c3"
 
   bottle :unneeded
 
@@ -13,8 +13,8 @@ class TomcatAT7 < Formula
   depends_on :java
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.77/bin/apache-tomcat-7.0.77-fulldocs.tar.gz"
-    sha256 "e6f1a22b145b35607fb94a5901aa9ae87fce0a11247d52e03da522de33b57430"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79-fulldocs.tar.gz"
+    sha256 "d7b13450583e199654bb0138a2b3b8b1ac1748ca56a9a67c2b93d37623cb07d7"
   end
 
   # Keep log folders
@@ -29,7 +29,7 @@ class TomcatAT7 < Formula
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
 
-    (share/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
+    (pkgshare/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 
   test do
