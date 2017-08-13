@@ -5,6 +5,12 @@ class Inetutils < Formula
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-1.9.4.tar.xz"
   sha256 "849d96f136effdef69548a940e3e0ec0624fc0c81265296987986a0dd36ded37"
 
+  bottle do
+    sha256 "899841c7d0ae008687349fa8858da32989b447bc2214c93767547235dd68aea3" => :sierra
+    sha256 "16234b74de732ad320598e361e2585f29dc6d1d74fcb63bebd351ec7a2c89aeb" => :el_capitan
+    sha256 "5f0e947e5e686a2abc9994c6045fbe624037d1fbca0a649913589fb1cd209731" => :yosemite
+  end
+
   option "with-default-names", "Do not prepend 'g' to the binary"
 
   depends_on "libidn"
