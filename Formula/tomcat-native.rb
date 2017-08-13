@@ -12,8 +12,6 @@ class TomcatNative < Formula
     sha256 "0de939cf4b43bba2bca9044fac764068deb8ce91c2060bf76732e7444f963ec1" => :yosemite
   end
 
-  option "with-apr", "Include APR support via Homebrew"
-
   depends_on "libtool" => :build
   depends_on "tomcat" => :recommended
   depends_on :java => "1.7+"
