@@ -6,6 +6,13 @@ class Wxmaxima < Formula
   revision 1
   head "https://github.com/andrejv/wxmaxima.git"
 
+  bottle do
+    cellar :any
+    sha256 "397d2368f687ec453a35f280972957a34ece0dc4aea79087ec9da1046266d502" => :sierra
+    sha256 "9a5834c460f783bb95c140b40904e28933891705ca353a2c9a078dee71f43143" => :el_capitan
+    sha256 "ba9c3a45ca1a866b9dd3a0999ed9a9da275a71e2fbdea9ab5b158d42e0fdecb7" => :yosemite
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
