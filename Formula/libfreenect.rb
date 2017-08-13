@@ -15,10 +15,28 @@ class Libfreenect < Formula
   depends_on "cmake" => :build
   depends_on "libusb"
 
+  HAS_PYTHON2 = true
+  if MacOS.version <= :snow_leopard
+    depends_on :python => :optional
+    HAS_PYTHON2 = build.with? :python
+  end
+
+  depends_on :python3 => :optional
+  HAS_PYTHON3 = build.with? :python3
+
+  if HAS_PYTHON2 || HAS_PYTHON3
+    depends_on "cython" => :build
+    depends_on "numpy"
+  end
+
   def install
+    args = std_cmake_args
+    args << "-DBUILD_OPENNI2_DRIVER=ON"
+    args << "-DBUILD_PYTHON2=#{HAS_PYTHON2 ? "ON" : "OFF"}"
+    args << "-DBUILD_PYTHON3=#{HAS_PYTHON3 ? "ON" : "OFF"}"
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                      "-DBUILD_OPENNI2_DRIVER=ON"
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
