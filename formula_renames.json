@@ -141,6 +141,7 @@
   "recipes": "gnome-recipes",
   "redis26": "redis@2.6",
   "redis28": "redis@2.8",
+  "root6": "root",
   "ruby187": "ruby@1.8",
   "ruby193": "ruby@1.9",
   "ruby20": "ruby@2.0",
