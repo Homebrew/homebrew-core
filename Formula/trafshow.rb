@@ -3,7 +3,9 @@ class Trafshow < Formula
   # Upstream homepage down since late 2014, but only displays a manpage.
   homepage "https://web.archive.org/web/20130707021442/soft.risp.ru/trafshow/index_en.shtml"
   url "http://distcache.freebsd.org/ports-distfiles/trafshow-5.2.3.tgz"
+  mirror "https://dl.bintray.com/homebrew/mirror/trafshow-5.2.3.tgz"
   sha256 "ea7e22674a66afcc7174779d0f803c1f25b42271973b4f75fab293b8d7db11fc"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -29,6 +31,14 @@ class Trafshow < Formula
     end
   end
 
+  # libpcap on 10.12 has pcap_lib_version() instead of pcap_version
+  if MacOS.version >= :sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7ad7c77/trafshow/patch-pcap-version-sierra.diff"
+      sha256 "03213c8b8b46241ecef8f427cdbec9b09f5fdc35b9d67672ad4b370a1186aed5"
+    end
+  end
+
   def install
     cp Dir["#{Formula["libtool"].opt_pkgshare}/*/config.{guess,sub}"], buildpath
 
@@ -40,5 +50,9 @@ class Trafshow < Formula
     bin.install "trafshow"
     man1.install "trafshow.1"
     etc.install ".trafshow" => "trafshow.default"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/trafshow -v 2>&1", 1)
   end
 end
