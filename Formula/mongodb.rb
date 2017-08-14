@@ -120,9 +120,11 @@ class Mongodb < Formula
 
     (buildpath+"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
+  end
 
-    (var+"mongodb").mkpath
-    (var+"log/mongodb").mkpath
+  def postinstall
+    (var/"mongodb").mkpath
+    (var/"log/mongodb").mkpath
   end
 
   def mongodb_conf; <<-EOS.undent
