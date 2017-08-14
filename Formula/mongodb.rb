@@ -99,10 +99,13 @@ class Mongodb < Formula
     ]
 
     args << "--osx-version-min=#{MacOS.version}" if build.stable?
-    args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}" if build.devel?
-    args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}" if build.devel?
     args << "CC=#{ENV.cc}"
     args << "CXX=#{ENV.cxx}"
+
+    if build.devel?
+      args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
+      args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
+    end
 
     args << "--use-sasl-client" if build.with? "sasl"
     args << "--use-system-boost" if build.with? "boost"
@@ -118,7 +121,7 @@ class Mongodb < Formula
 
     scons "install", *args
 
-    (buildpath+"mongod.conf").write mongodb_conf
+    (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
   end
 
