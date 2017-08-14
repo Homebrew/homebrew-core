@@ -7,9 +7,9 @@ class Rhash < Formula
 
   bottle do
     cellar :any
-    sha256 "24d81bee8d36e3be65981ac8ffbee6bbd0f08225d61890c2bf288dd73fa8e341" => :sierra
-    sha256 "2b0a7894d2fb528879129c659a5bb50fe6c26d9c6b67ffc19d1f7462d54cf310" => :el_capitan
-    sha256 "55f45a776a493178a094e3bf3d612b5720fffc33d14446ba2aac06b5be7e8358" => :yosemite
+    sha256 "e86d5f2ffe1c5f7192264fc308f14b417ff1f09793adb0e9365e8a00c4f1520a" => :sierra
+    sha256 "10643c17507d1dcb081d4287d49a6291bcdaec5ba633285f0e54e121c217d83f" => :el_capitan
+    sha256 "01e895a04facb08fe288db3bfcb9968d4c0b19db4964329eeb2b02d5ca08cdf7" => :yosemite
   end
 
   def install
