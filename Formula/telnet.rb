@@ -36,11 +36,7 @@ class Telnet < Formula
   end
 
   test do
-    IO.popen("#{bin}/telnet 'towel.blinkenlights.nl' 666", "w+") do |pipe|
-      sleep 1
-      pipe.puts "quit\n"
-      pipe.close_write
-      assert_match "=== The BOFH Excuse Server ===", pipe.read
-    end
+    output = shell_output("#{bin}/telnet 'towel.blinkenlights.nl' 666", 1)
+    assert_match "=== The BOFH Excuse Server ===", output
   end
 end
