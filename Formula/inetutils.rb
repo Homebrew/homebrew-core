@@ -30,7 +30,7 @@ class Inetutils < Formula
     if build.without? "default-names"
       # Binaries not shadowing macOS utils symlinked without 'g' prefix
       noshadow = %w[dnsdomainname rcp rexec rlogin rsh]
-      noshadow << "telnet" if MacOS.version >= :high_sierra
+      noshadow += %w[ftp telnet] if MacOS.version >= :high_sierra
       noshadow.each do |cmd|
         bin.install_symlink "g#{cmd}" => cmd
         man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
