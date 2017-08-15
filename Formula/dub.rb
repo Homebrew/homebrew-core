@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.4.0.tar.gz"
-  sha256 "11e2604e61fb89152044927df1f87561640da8406ea4bdb35655572bbdfd77f0"
+  url "https://github.com/dlang/dub/archive/v1.4.1.tar.gz"
+  sha256 "56f99f06fb1fde0c0f5d92261032fca1eeba1e23d224b614da9fffbcb22ef442"
   version_scheme 1
 
   head "https://github.com/dlang/dub.git"
@@ -23,10 +23,6 @@ class Dub < Formula
   end
 
   test do
-    if build.stable?
-      assert_match version.to_s, shell_output("#{bin}/dub --version")
-    else
-      assert_match version.to_s, shell_output("#{bin}/dub --version").split(/[ ,]/)[2]
-    end
+    assert_match version.to_s, shell_output("#{bin}/dub --version").split(/[ ,]/)[2]
   end
 end
