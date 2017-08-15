@@ -5,15 +5,11 @@ class DashbaseCli < Formula
   homepage "https://www.dashbase.io"
   url "https://files.pythonhosted.org/packages/1e/a1/a66cf8c37a4c660344361951dd8da1a41e744f14481a50cbe25149b2e54a/dashbase-1.0.0rc8.post3.tar.gz"
   sha256 "d7fdb0e3287eba88dbea81e93e4e24679ace473099752c658f4ef11b179c8873"
-  head "https://github.com/dashbase/dashbase-cmdline.git", :branch => "develop"
 
   depends_on "pkg-config" => :build
   depends_on :python
   depends_on "openssl@1.1"
   depends_on "libyaml"
-  depends_on "libffi"
-  depends_on "libxslt"
-  depends_on "libxml2"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
