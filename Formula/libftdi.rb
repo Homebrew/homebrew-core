@@ -1,8 +1,8 @@
 class Libftdi < Formula
   desc "Library to talk to FTDI chips"
   homepage "https://www.intra2net.com/en/developer/libftdi"
-  url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.3.tar.bz2"
-  sha256 "9a8c95c94bfbcf36584a0a58a6e2003d9b133213d9202b76aec76302ffaa81f4"
+  url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2"
+  sha256 "ec36fb49080f834690c24008328a5ef42d3cf584ef4060f3a35aa4681cb31b74"
 
   bottle do
     cellar :any
@@ -19,10 +19,6 @@ class Libftdi < Formula
   depends_on "boost" => :optional
   depends_on "confuse" => :optional
 
-  # Fix LINK_PYTHON_LIBRARY=OFF on macOS
-  # https://www.mail-archive.com/libftdi@developer.intra2net.com/msg03013.html
-  patch :DATA
-
   def install
     mkdir "libftdi-build" do
       system "cmake", "..", "-DLINK_PYTHON_LIBRARY=OFF", *std_cmake_args
@@ -36,17 +32,3 @@ class Libftdi < Formula
     system "python", pkgshare/"examples/simple.py"
   end
 end
-__END__
-diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
-index 8b52745..31ef1c6 100644
---- a/python/CMakeLists.txt
-+++ b/python/CMakeLists.txt
-@@ -30,6 +30,8 @@ if ( SWIG_FOUND AND PYTHONLIBS_FOUND AND PYTHONINTERP_FOUND )
-
-   if ( LINK_PYTHON_LIBRARY )
-     swig_link_libraries ( ftdi1 ${PYTHON_LIBRARIES} )
-+  elseif( APPLE )
-+    set_target_properties ( ${SWIG_MODULE_ftdi1_REAL_NAME} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup" )
-   endif ()
-
-   set_target_properties ( ${SWIG_MODULE_ftdi1_REAL_NAME} PROPERTIES NO_SONAME ON )
