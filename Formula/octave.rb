@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
   sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "8df6402ed13b6c6339221ab7ddfb7c69cda4c7e2074afca44e6df26e4c22dcb3" => :sierra
@@ -20,14 +20,18 @@ class Octave < Formula
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
+    depends_on "sundials"
   end
 
+  # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
+  depends_on :java => ["1.6+", :build, :recommended]
   depends_on :fortran
   depends_on "arpack"
   depends_on "epstool"
   depends_on "fftw"
+  depends_on "fig2dev"
   depends_on "fltk"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -66,29 +70,37 @@ class Octave < Formula
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-link-all-dependencies
+      --enable-shared
+      --disable-static
+      --disable-docs
+      --without-OSMesa
+      --without-qt
+      --with-hdf5-includedir=#{Formula["hdf5"].opt_include}
+      --with-hdf5-libdir=#{Formula["hdf5"].opt_lib}
+      --with-x=no
+      --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort
+      --with-portaudio
+      --with-sndfile
+    ]
+
+    args << "--disable-java" if build.without? "java"
+
     system "./bootstrap" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-link-all-dependencies",
-                          "--enable-shared",
-                          "--disable-static",
-                          "--disable-docs",
-                          "--disable-java",
-                          "--without-OSMesa",
-                          "--without-qt",
-                          "--with-x=no",
-                          "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
-                          "--with-portaudio",
-                          "--with-sndfile"
+    system "./configure", *args
     system "make", "all"
     system "make", "install"
   end
 
   test do
     system bin/"octave", "--eval", "(22/7 - pi)/pi"
-    # this is supposed to crash octave if there is a problem with veclibfort
+    # This is supposed to crash octave if there is a problem with veclibfort
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
+    # Test java bindings: check if javaclasspath is working, return error if not
+    system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
   end
 end
