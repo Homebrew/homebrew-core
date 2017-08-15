@@ -1,8 +1,8 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v1.6.0.tar.gz"
-  sha256 "38d31b1709f1ceaa718f6eae53785ac21ff9ff4c3cb66034ebac959742d54cb0"
+  url "https://github.com/nodejs/llnode/archive/v1.6.1.tar.gz"
+  sha256 "32aed9105818d4ec6ff68fac62193db1f581c3084280a34b3c7fc6fa26ce77d2"
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class Llnode < Formula
 
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "db72e9fcf55ba9d8089f0bc7e447180f8972b5c0"
+        :revision => "324dd166b7c0b39d513026fa52d6280ac6d56770"
   end
 
   resource "lldb" do
