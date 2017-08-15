@@ -9,9 +9,9 @@ class Pyinvoke < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "684d61ed83e0551361c94b87f998b41b0659d64952173cfa5d64eeae0d46cbed" => :sierra
-    sha256 "aee6700f0052e232fec49a6466ae5e14d9f97ec5613011857ed3505afe67d84a" => :el_capitan
-    sha256 "aa8ce13882140e3f2a12dd902e8a5a253b7b166c21cdf47385b6706b4d3dd856" => :yosemite
+    sha256 "ccc0584694bc5803204bbd9d22645e335a30687a2661e031022929aec7c59be7" => :sierra
+    sha256 "c76740efade8103fad62e669947d9f4479b77c0746e258eb23baa744c5875e42" => :el_capitan
+    sha256 "8fb5e8e31df38d26d06e77bc81f7d6fcadba99288c3ef8ed0d5f92cca3e9539f" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
