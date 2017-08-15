@@ -4,8 +4,8 @@ class Luaver < Formula
   head "https://github.com/DhavalKapil/luaver.git"
 
   stable do
-    url "https://github.com/DhavalKapil/luaver/archive/v1.0.0.tar.gz"
-    sha256 "5c7eb65ea9b3cb4f10987c1d564e6e86bd6ad4f9d829a799121c83f0d85bd390"
+    url "https://github.com/DhavalKapil/luaver/archive/v1.1.0.tar.gz"
+    sha256 "441b1b72818889593d15a035807c95321118ac34270da49cf8d5d64f5f2e486d"
 
     patch do
       url "https://github.com/DhavalKapil/luaver/pull/9.patch?full_index=1"
