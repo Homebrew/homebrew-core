@@ -1,9 +1,9 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.28.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/b/babl/babl_0.1.28.orig.tar.bz2"
-  sha256 "63f3ed23e72a857a0e6df53d9d968a325024177b01edbe314a0c98b499eb8603"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.30.tar.bz2"
+  mirror "https://mirrors.kernel.org/debian/pool/main/b/babl/babl_0.1.30.orig.tar.bz2"
+  sha256 "45c12c7b06d965123756821fc70c968137d16d44151a6eb55075f904e11d53cc"
 
   bottle do
     sha256 "3ce0980b598b09cd523b6e224a6a9fb8997153d3bd9f9aa2d7f2c5c1cc1fa126" => :sierra
