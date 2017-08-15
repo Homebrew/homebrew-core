@@ -15,9 +15,9 @@ class Netpbm < Formula
 
   bottle do
     cellar :any
-    sha256 "701a5ed0567ceeed7f5521b59a9ac3a91cf82dce41cafc20f70cde045bbd2c89" => :sierra
-    sha256 "39e9b0a36fbb8cd789851610f4adfd84c62dc18d0a08ccc6dbfec107c24c1456" => :el_capitan
-    sha256 "df2c8b60f6401b21986bd7b9d09004648eb67f690b32dfccb20763300f3d87c2" => :yosemite
+    sha256 "0ca108d31bfc6e1a8589ec437772d08dd9c29cd090b640c0fae7e3deb5c550c6" => :sierra
+    sha256 "2413a8d4e01fe8df09467ccf11001bc143312ed347f6b0bdc95c3841e0490e3f" => :el_capitan
+    sha256 "cf7a8c90735bdb22001b4f8b1fddf0a7f532f7209d390c4b88a5f29140f48344" => :yosemite
   end
 
   depends_on "libtiff"
