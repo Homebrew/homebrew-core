@@ -20,6 +20,7 @@ class Octave < Formula
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
+    depends_on "sundials"
   end
 
   # Complete list of dependecies at https://wiki.octave.org/Building
@@ -27,7 +28,6 @@ class Octave < Formula
   depends_on "pkg-config" => :build
   depends_on :fortran
   depends_on "arpack"
-  depends_on "curl"
   depends_on "epstool"
   depends_on "fftw"
   depends_on "fltk"
@@ -49,7 +49,6 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "readline"
-  depends_on "sundials" if build.head?
   depends_on "suite-sparse"
   depends_on "veclibfort"
 
