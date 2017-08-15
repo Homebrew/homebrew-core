@@ -10,15 +10,24 @@ class Fig2dev < Formula
     sha256 "f144d58e99b3fa4b3798c30ba6c70b35b28c9840193357d89b748928200a4a48" => :yosemite
   end
 
-  depends_on :x11
   depends_on "ghostscript"
   depends_on "libpng"
+  depends_on :x11 => :optional
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ace42c9611/fig2dev/fig2dev-no-x11.patch"
+    sha256 "0fff7d54cc29c280f3bfa3ede9febdd7158bc923d3e7fe71a1706a1b9ed5c0ee"
+  end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-transfig"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-transfig
+    ]
+    args << "--without-xpm" if build.without? "x11"
+    system "./configure", *args
     system "make", "install"
 
     # Install a fig file for testing
