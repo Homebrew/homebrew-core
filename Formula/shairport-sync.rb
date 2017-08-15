@@ -1,8 +1,8 @@
 class ShairportSync < Formula
   desc "AirTunes emulator. Shairport Sync adds multi-room capability."
   homepage "https://github.com/mikebrady/shairport-sync"
-  url "https://github.com/mikebrady/shairport-sync/archive/3.0.2.tar.gz"
-  sha256 "b348b9b3cf3994d9222430bc514c94a22f2ed173956fdb097f3354cdba8fd198"
+  url "https://github.com/mikebrady/shairport-sync/archive/3.1.tar.gz"
+  sha256 "a5b4d8330ac84ab37bb6438ca2449c73254f7d517ffe1f4721af86ebc69885c5"
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
@@ -24,7 +24,7 @@ class ShairportSync < Formula
   def install
     system "autoreconf", "-fvi"
     args = %W[
-      --with-os-type=darwin
+      --with-os=darwin
       --with-ssl=openssl
       --with-dns_sd
       --with-ao
