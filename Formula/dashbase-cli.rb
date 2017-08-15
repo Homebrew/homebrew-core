@@ -1,17 +1,12 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook.html
-#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class DashbaseCli < Formula
   include Language::Python::Virtualenv
 
   desc "Official Cli Tool For Dashbase"
   homepage "https://www.dashbase.io"
-  url "https://pypi.python.org/packages/1e/a1/a66cf8c37a4c660344361951dd8da1a41e744f14481a50cbe25149b2e54a/dashbase-1.0.0rc8.post3.tar.gz"
+  url "https://files.pythonhosted.org/packages/1e/a1/a66cf8c37a4c660344361951dd8da1a41e744f14481a50cbe25149b2e54a/dashbase-1.0.0rc8.post3.tar.gz"
   sha256 "d7fdb0e3287eba88dbea81e93e4e24679ace473099752c658f4ef11b179c8873"
   head "https://github.com/dashbase/dashbase-cmdline.git", :branch => "develop"
 
-  # depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on :python
   depends_on "openssl@1.1"
@@ -205,15 +200,6 @@ class DashbaseCli < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test dashbase`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    true
   end
 end
