@@ -1,8 +1,8 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "https://www.ccextractor.org/"
-  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.84/ccextractor.src.0.84.zip"
-  sha256 "8825849021fd8bfaa99ea63fc3c7e3f442b54450a1e50e93bf8b51627ebe60a7"
+  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.85/ccextractor-src-nowin.0.85.zip"
+  sha256 "2ac21c6483e206a796d26d6adb7e969eb038a97ead9e2b2a7ee91b8b08c6882e"
   head "https://github.com/ccextractor/ccextractor.git"
 
   bottle do
@@ -22,7 +22,10 @@ class Ccextractor < Formula
 
   test do
     touch testpath/"test"
-    system bin/"ccextractor", "test"
+    pid = fork do
+      exec bin/"ccextractor", testpath/"test"
+    end
+    Process.wait(pid)
     assert File.exist?("test.srt")
   end
 end
