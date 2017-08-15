@@ -23,15 +23,16 @@ class Luaver < Formula
   end
 
   test do
-    # lua_versions = %w[5.3.3 5.2.4 5.1.5]
-    # lua_versions.each do |v|
-    #   ENV.deparallelize { system ". #{bin}/luaver && luaver install #{v} < /dev/null" }
-    #   system ". #{bin}/luaver && luaver use #{v} && lua -v"
-    # end
-    # luajit_versions = %w[2.0.4]
-    # luajit_versions.each do |v|
-    #   system ". #{bin}/luaver && luaver install-luajit #{v} < /dev/null"
-    #   system ". #{bin}/luaver && luaver use-luajit #{v} && luajit -v"
-    # end
+    lua_versions = %w[5.3.3 5.2.4 5.1.5]
+    lua_versions.each do |v|
+      ENV.deparallelize
+      system "#{bin}/luaver install #{v} < /dev/null"
+      system "#{bin}/luaver use #{v} && lua -v"
+    end
+    luajit_versions = %w[2.0.4]
+    luajit_versions.each do |v|
+      system "#{bin}/luaver install-luajit #{v} < /dev/null"
+      system "#{bin}/luaver use-luajit #{v} && luajit -v"
+    end
   end
 end
