@@ -1,8 +1,8 @@
 class Gifsicle < Formula
   desc "GIF image/animation creator/editor"
   homepage "https://www.lcdf.org/gifsicle/"
-  url "https://www.lcdf.org/gifsicle/gifsicle-1.89.tar.gz"
-  sha256 "15b4cd27fff502c3769c245f71ed5484a38efd3f15106714a65db3a21b066f3e"
+  url "https://www.lcdf.org/gifsicle/gifsicle-1.90.tar.gz"
+  sha256 "2d73b096752d58fa604cea559199aa6f55b45a3ec833898f94ff7997d22b834d"
 
   bottle do
     cellar :any_skip_relocation
