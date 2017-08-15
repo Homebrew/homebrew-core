@@ -6,6 +6,12 @@ class Root < Formula
   sha256 "461bde21d78608422310f04c599e84ce8dfbdd91caf12c2a54db6c01f8228f5b"
   head "http://root.cern.ch/git/root.git"
 
+  bottle do
+    sha256 "670fb1844918af34669436dc9c2e503dfb6f7b43c1d959495fe73235f3eda8d0" => :sierra
+    sha256 "1c6406fb816573f8bf640ce13f1d74ff22df4aa4426139eaeba07abbfc63fc9f" => :el_capitan
+    sha256 "d4783e3fa16a01a570d58c545501524f826d9d6ad72be773010800b9695759b1" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "graphviz"
