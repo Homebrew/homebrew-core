@@ -9,6 +9,7 @@ class Cling < Formula
   sha256 "67b181309c5fe712dcd00903d48fb6965c46d517847d0b7f506a1921ba2f56b6"
 
   depends_on "cmake" => :build
+  depends_on "llvm" => :build
 
   resource "cling" do
     url "https://github.com/vgvassilev/cling/archive/v0.4.tar.gz"
@@ -16,8 +17,8 @@ class Cling < Formula
   end
 
   resource "clang" do
-    url "https://github.com/vgvassilev/clang.git", :using => :git, :tag => "cling-patches-r274612", :revision => "1d3611b352ada6e8fc8dd41631bd17495f37b258"
-    sha256 "17f60d37e62c7cecdded476a08e9483dedf16a681bb0f8eac225013dc016287b"
+    url "https://github.com/vgvassilev/clang.git", :using => :git, :tag => "cling-patches-r302975", :revision => "1d3611b352ada6e8fc8dd41631bd17495f37b258"
+    sha256 "1d3611b352ada6e8fc8dd41631bd17495f37b258"
   end
 
   def install
