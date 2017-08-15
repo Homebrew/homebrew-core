@@ -1,8 +1,19 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.7/p11-kit-0.23.7.tar.gz"
-  sha256 "988e7c86f2641b36702503481292ef0686e6b1c39d80b215699b6dbf1024be41"
+
+  stable do
+    url "https://github.com/p11-glue/p11-kit/releases/download/0.23.8/p11-kit-0.23.8.tar.gz"
+    sha256 "4ba134e5fe4b62bcaf7a2d66841767d9d23e875b977bba6939367a9f400b133f"
+
+    # Remove for > 0.23.8
+    # Fix "error: use of undeclared identifier 'SIZE_MAX'"
+    # Upstream commit from 16 Aug 2017 "build: Include <stdint.h> for SIZE_MAX"
+    patch do
+      url "https://github.com/p11-glue/p11-kit/commit/61acf20.patch?full_index=1"
+      sha256 "2d5e1c4bf8bf859aaf14ff14553cf1aad86090aa71e4f459439003328baa032e"
+    end
+  end
 
   bottle do
     sha256 "c1548c243f952524bf40d5f44d109126d9603108341485babe6d122f328b3411" => :sierra
