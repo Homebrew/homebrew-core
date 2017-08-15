@@ -49,7 +49,7 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "readline"
-  depends_on "sundials" # new dependency for octave > 4.2.1
+  depends_on "sundials" if build.head?
   depends_on "suite-sparse"
   depends_on "veclibfort"
 
