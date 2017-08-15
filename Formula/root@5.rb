@@ -6,6 +6,12 @@ class RootAT5 < Formula
   sha256 "fc868e5f4905544c3f392cc9e895ef5571a08e48682e7fe173bd44c0ba0c7dcd"
   revision 3
 
+  bottle do
+    sha256 "e4a87f41beae74b8ddae2f46f0e757de7cedbcda83d53092a5edf9c2fa5d6e58" => :sierra
+    sha256 "9acd7ee5e7d1fa8a65889ab89ff397d5be6a777179066d961ce49815f7ef953d" => :el_capitan
+    sha256 "f570484d7f040594bf33b566c53c89073d6df39ebac8f84c31d4f7b5eb9a75df" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   if MacOS.version == :sierra
