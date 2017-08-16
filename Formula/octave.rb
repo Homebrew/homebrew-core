@@ -40,7 +40,7 @@ class Octave < Formula
   depends_on "gnuplot"
   depends_on "graphicsmagick"
   depends_on "hdf5"
-  depends_on :java => ["1.6+", :optional]
+  depends_on :java => ["1.6+", :build, :recommended]
   depends_on "libsndfile"
   depends_on "libtool" => :run
   depends_on "pcre"
