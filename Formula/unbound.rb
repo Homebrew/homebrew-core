@@ -26,6 +26,7 @@ class Unbound < Formula
 
     if build.with? "python"
       ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
+      ENV.prepend "PYTHON_VERSION", "2.7"
 
       args << "--with-pyunbound"
       args << "--with-pythonmodule"
