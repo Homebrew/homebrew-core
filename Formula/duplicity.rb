@@ -9,10 +9,9 @@ class Duplicity < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9ee46ba6fcc526e68b32c0aa0e452f5b4d1dbf6835a11c65f1d8280f375fa7b9" => :sierra
-    sha256 "f649abf5af71c4304b8d1511d6ef0a289fc6c86339685b3fe729e00a14806c9c" => :el_capitan
-    sha256 "15bed264c75f2086dc4b3b32baf1dc1e48489d21fcbe2984f4c52de54985a1e8" => :yosemite
+    sha256 "def58ea614b08ba8523625055e8b5511926c16981f79335f6000812e7e04ed81" => :sierra
+    sha256 "9178ba9dfa97f2ca0278c049042e13fff0d14acad766a67f6cf59a63b04acd3b" => :el_capitan
+    sha256 "1e9e1b4798d9a834a8517b066f61cf5423fac3416b918050ca3e5315ef952379" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
