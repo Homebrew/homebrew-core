@@ -22,6 +22,8 @@ class Bitcoin < Formula
   depends_on "miniupnpc"
   depends_on "openssl"
 
+  needs :cxx11
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
