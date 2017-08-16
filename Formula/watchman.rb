@@ -6,9 +6,9 @@ class Watchman < Formula
   head "https://github.com/facebook/watchman.git"
 
   bottle do
-    sha256 "07e826368e27cc7401366d820cc8109fec8bd815143ec75b30a81cc0b84d766f" => :sierra
-    sha256 "bcea4d625e7c30ecc6f728e257f5de81125c7f14680cac684bc7c878655e167c" => :el_capitan
-    sha256 "c8374abbad804b919c372d6883302654b44b8d4b190e06b6e4dad172e038bf51" => :yosemite
+    sha256 "d42c5a991e4cddef004773474b3d28f3275113a6c1858d0ddaae274a11bbeb33" => :sierra
+    sha256 "83db75e3e7b186521d4b910a49836ec53ec85b987b6b35d63bc32b7282209dc7" => :el_capitan
+    sha256 "da774a8464b5ddab2342d7d8ba0211220cd630d8099b2605bc977a4574dfee1e" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
