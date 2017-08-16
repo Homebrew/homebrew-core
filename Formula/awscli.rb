@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/1.11.134.tar.gz"
-  sha256 "a759ac8010de8893f47b3f84efa37154b2fbe409d71d76524239ba2043e4435e"
+  url "https://github.com/aws/aws-cli/archive/1.11.135.tar.gz"
+  sha256 "967601c8cfd9118e366a5da0128428549da7d28554c7bf8dac63cd7d7c76cf4b"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
