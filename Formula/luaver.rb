@@ -22,8 +22,7 @@ class Luaver < Formula
   test do
     lua_versions = %w[5.3.3 5.2.4 5.1.5]
     lua_versions.each do |v|
-      ENV.deparallelize
-      system ". #{bin}/luaver install #{v} < /dev/null"
+      ENV.deparallelize { system ". #{bin}/luaver install #{v} < /dev/null" }
       system ". #{bin}/luaver use #{v} && lua -v"
     end
     luajit_versions = %w[2.0.4]
