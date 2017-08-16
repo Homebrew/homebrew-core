@@ -6,9 +6,9 @@ class T1utils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5e14909396bd86e81c3c33f2c6607d27dadc341b47b801c7962341edeaa360c" => :sierra
-    sha256 "ef1614e19de70eb93062028225d31638af49bedb776555115a4700a55376c091" => :el_capitan
-    sha256 "649df18b4370c27296864ac5566a5d97d4e4f3f124b2ce1daafc5ea5ec7df2d6" => :yosemite
+    sha256 "40e108fcb6088b1c4d1fc1061de851efe3fb826d7353c21d8862216ef8857cd2" => :sierra
+    sha256 "fc81594a73833517058d954a208275328ac7e90867ca6b3ca8d4a4553aa34be4" => :el_capitan
+    sha256 "0983d0a649572d241ba27ae239888f56c3fe108bf00e2ca9faffd2306a44988f" => :yosemite
   end
 
   head do
