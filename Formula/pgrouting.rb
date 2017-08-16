@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "http://www.pgrouting.org"
-  url "https://github.com/pgRouting/pgrouting/archive/v2.4.1.tar.gz"
-  sha256 "11d225391cdac8e15136a51664b22fa007d10cb78bf8208374470a9044850fd4"
+  url "https://github.com/pgRouting/pgrouting/archive/v2.4.2.tar.gz"
+  sha256 "f6d0df00279944f91ac672bdb6507a6c63755ba7cdd7e16022c4cb8ddaaf0034"
   head "https://github.com/pgRouting/pgrouting.git"
 
   bottle do
