@@ -7,9 +7,9 @@ class Sdcv < Formula
   head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
-    sha256 "e028819ccfe5e4f702cfc9853124380a5f4523de3f680f04a5cc6613ee720b4b" => :sierra
-    sha256 "d6ca2ae4117abc66cb6c9bc771114edcae9a62240e452e79caf02ea90f5e923b" => :el_capitan
-    sha256 "2a2b5cec3b4ec59d1b07d67a35cd69b13aa53a96a449a13031aeb9f1936385e5" => :yosemite
+    sha256 "e095b55dc837c81a8a5cd003579ed26cdfd20b2263b0ddca3adba1bdbf89390d" => :sierra
+    sha256 "43faef6640e9a8a01c78ea7816828966e42fd2aa6a110d947a72e0c930b0ee50" => :el_capitan
+    sha256 "f50d16cbcc92cc9bdfdea0aed25e10f8403f877f7a44830de420246eb2a4dfe7" => :yosemite
   end
 
   depends_on "pkg-config" => :build
