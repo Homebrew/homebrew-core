@@ -6,9 +6,9 @@ class Fits < Formula
 
   bottle do
     cellar :any
-    sha256 "fd792587001bce49cd0fbe5633a3186929e0acc220f0479f111081fdacf2acce" => :sierra
-    sha256 "b3a8fd54515d275b0abc18c700787b701b01aa1f773c1b08354d28909dc8eb76" => :el_capitan
-    sha256 "e44149423edebe64d2ba1e4002b3bb2b2b7c37e090bf26bda8e39bdbed4fde05" => :yosemite
+    sha256 "9a6d083c8c70fb75240e94b9a05a4db864eb9de6f718e2ff98e5cbe6e87f094e" => :sierra
+    sha256 "022efd61e0b8f100f30f84bb1223b6b6c28198bcc278721424fbfdf32a5c87d8" => :el_capitan
+    sha256 "b8a7e8240957b2347a4a90dbd15c671b6610809b3b39b887b9231210bd1f0874" => :yosemite
   end
 
   depends_on "ant" => :build
