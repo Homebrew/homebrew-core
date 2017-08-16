@@ -1,8 +1,8 @@
 class Sdcv < Formula
   desc "StarDict Console Version"
   homepage "https://dushistov.github.io/sdcv/"
-  url "https://github.com/Dushistov/sdcv/archive/v0.5.1.tar.gz"
-  sha256 "d0c64429547adb127d5ff9f0f0db8c4bc663bc413dfb5b5d32c924a67171c247"
+  url "https://github.com/Dushistov/sdcv/archive/v0.5.2.tar.gz"
+  sha256 "ec08dc084a0748d5a89df01a20bbf294f09b0366295cd418000f15d2e043c4f7"
   version_scheme 1
   head "https://github.com/Dushistov/sdcv.git"
 
