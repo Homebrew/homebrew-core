@@ -1,8 +1,8 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/howtowhale/dvm"
-  url "https://github.com/howtowhale/dvm/archive/0.8.3.tar.gz"
-  sha256 "f0fa2f8fc4532568ae5e624f983ebb7b60dc19749a9b531ae2279833a4bbce4d"
+  url "https://github.com/howtowhale/dvm/archive/0.9.0.tar.gz"
+  sha256 "ee54c4aa104cd49aaec3eb65078d9d01d18b1d1eb73a32dba3f7b645df5d74c4"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,24 +11,10 @@ class Dvm < Formula
     sha256 "f0d0822caae95580d42407bb5b286ca9d5ebce3ea87e9e9f6a1dc377291bb86c" => :yosemite
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    # `make` has to be deparallelized due to the following errors:
-    #   glide install
-    #   fatal: Not a git repository (or any of the parent directories): .git
-    #   CGO_ENABLED=0 go build ...
-    #   dvm-helper/dvm-helper.go:16:2: cannot find package "github.com/blang/semver"
-    #   make: *** [local] Error 1
-    # Reported 17 Feb 2017: https://github.com/howtowhale/dvm/issues/151
-    ENV.deparallelize
-
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-
-    # `depends_on "glide"` already has this covered
-    inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
 
     (buildpath/"src/github.com/howtowhale/dvm").install buildpath.children
 
