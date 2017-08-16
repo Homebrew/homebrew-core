@@ -94,8 +94,6 @@ class Octave < Formula
     system "./configure", *args
     system "make", "all"
     system "make", "install"
-
-    prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
   end
 
   test do
