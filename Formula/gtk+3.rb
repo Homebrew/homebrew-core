@@ -10,9 +10,6 @@ class Gtkx3 < Formula
     sha256 "2f87657f1c96770a85b3ae2cb577cdcc225feae73a2d2253008e69ab3e6777aa" => :yosemite
   end
 
-  # see https://bugzilla.gnome.org/show_bug.cgi?id=781118
-  patch :DATA
-
   option "with-quartz-relocation", "Build with quartz relocation support"
 
   depends_on "pkg-config" => :build
@@ -114,32 +111,3 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gdk/quartz/gdkscreen-quartz.c b/gdk/quartz/gdkscreen-quartz.c
-index 586f7af..d032643 100644
---- a/gdk/quartz/gdkscreen-quartz.c
-+++ b/gdk/quartz/gdkscreen-quartz.c
-@@ -79,7 +79,7 @@ gdk_quartz_screen_init (GdkQuartzScreen *quartz_screen)
-   NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
-   NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
-
--  _gdk_screen_set_resolution (screen, size.width);
-+  _gdk_screen_set_resolution (screen, 72.0);
-
-   gdk_quartz_screen_calculate_layout (quartz_screen);
-
-@@ -334,11 +334,8 @@ gdk_quartz_screen_get_height (GdkScreen *screen)
- static gint
- get_mm_from_pixels (NSScreen *screen, int pixels)
- {
--  const float mm_per_inch = 25.4;
--  NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
--  NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
--  float dpi = size.width;
--  return (pixels / dpi) * mm_per_inch;
-+  const float dpi = 72.0;
-+  return (pixels / dpi) * 25.4;
- }
-
- static gchar *
