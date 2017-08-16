@@ -70,38 +70,39 @@ class Octave < Formula
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
-    args = %W[ --prefix=#{prefix}
-               --disable-dependency-tracking
-               --disable-silent-rules
-               --enable-link-all-dependencies
-               --enable-shared
-               --disable-static
-               --disable-docs
-               --without-OSMesa
-               --without-qt
-               --with-hdf5-includedir=#{Formula["hdf5"].opt_include}
-               --with-hdf5-libdir=#{Formula["hdf5"].opt_lib}
-               --with-x=no
-               --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort
-               --with-portaudio
-               --with-sndfile]
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-link-all-dependencies
+      --enable-shared
+      --disable-static
+      --disable-docs
+      --without-OSMesa
+      --without-qt
+      --with-hdf5-includedir=#{Formula["hdf5"].opt_include}
+      --with-hdf5-libdir=#{Formula["hdf5"].opt_lib}
+      --with-x=no
+      --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort
+      --with-portaudio
+      --with-sndfile
+    ]
 
     args << "--disable-java" if build.without? "java"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "all"
-    system "make", "check" # Run octave's test suite
     system "make", "install"
 
     prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
   end
 
   test do
-    system "#{bin}/octave", "--eval", "(22/7 - pi)/pi"
+    system bin/"octave", "--eval", "(22/7 - pi)/pi"
     # This is supposed to crash octave if there is a problem with veclibfort
-    system "#{bin}/octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
+    system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
     # Test java bindings: check if javaclasspath is working, return error if not
-    system "#{bin}/octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
+    system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
   end
 end
