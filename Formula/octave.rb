@@ -26,12 +26,13 @@ class Octave < Formula
   # Complete list of dependecies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
+  depends_on :java => ["1.6+", :build, :recommended]
   depends_on :fortran
   depends_on "arpack"
   depends_on "epstool"
   depends_on "fftw"
-  depends_on "fltk"
   depends_on "fig2dev"
+  depends_on "fltk"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
@@ -40,7 +41,6 @@ class Octave < Formula
   depends_on "gnuplot"
   depends_on "graphicsmagick"
   depends_on "hdf5"
-  depends_on :java => ["1.6+", :build, :recommended]
   depends_on "libsndfile"
   depends_on "libtool" => :run
   depends_on "pcre"
