@@ -127,7 +127,7 @@ class Mongodb < Formula
     etc.install "mongod.conf"
   end
 
-  def postinstall
+  def post_install
     (var/"mongodb").mkpath
     (var/"log/mongodb").mkpath
   end
