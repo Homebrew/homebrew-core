@@ -4,40 +4,31 @@ class CrosstoolNg < Formula
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.23.0.tar.xz"
   sha256 "68a43ea98ccf9cb345cb6eec494a497b224fee24c882e8c14c6713afbbe79196"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  bottle do
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "3ada31fa193f947f2145794eb2b24f12b0d27106c707685f0e92678ac180d9e0" => :sierra
+    sha256 "1563e4b907a4e290d0b3b4e9c0bbfb840f42eb90b2c1a10c7a6632560d59dd9e" => :el_capitan
+    sha256 "a1a7a286d87ff625b6e5910f962e0248ddd610dcf91ddd3b8923bf4f7476a23d" => :yosemite
+  end
+
   depends_on "help2man" => :build
-  depends_on "xz" => :build
-  depends_on "coreutils"
-  depends_on "wget"
-  depends_on "gnu-sed"
-  depends_on "gawk"
+  depends_on "autoconf" => :run
+  depends_on "automake" => :run
+  depends_on "libtool" => :run
   depends_on "binutils"
-  depends_on "libelf"
+  depends_on "coreutils"
+  depends_on "flex"
+  depends_on "gawk"
+  depends_on "gnu-sed"
   depends_on "grep"
-  depends_on "make" => :optional
+  depends_on "m4"
+  depends_on "xz"
 
   def install
-    if build.with? "make"
-      ENV.append "MAKE", "gmake"
-    else
-      ENV.append "MAKE", "make"
-    end
-    ENV.append "OBJDUMP", "gobjdump"
-    ENV.append "READELF", "greadelf"
-    ENV.append "LIBTOOL", "glibtool"
-    ENV.append "LIBTOOLIZE", "glibtoolize"
-    ENV.append "OBJCOPY", "gobjcopy"
-    ENV.append "GREP", "ggrep"
-    ENV.append "INSTALL", "ginstall"
+    ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
 
-    args = %W[
-      --prefix=#{prefix}
-      --exec-prefix=#{prefix}
-    ]
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
 
     # Must be done in two steps
     system "make"
