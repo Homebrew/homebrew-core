@@ -29,7 +29,7 @@ class Payara < Formula
   EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/payara/bin/asadmin start-domain --verbose domain1"
+  plist_options :manual => "asadmin start-domain --verbose domain1"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
