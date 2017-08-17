@@ -3,6 +3,7 @@ class Fwknop < Formula
   homepage "https://www.cipherdyne.org/fwknop/"
   url "https://github.com/mrash/fwknop/archive/2.6.9.tar.gz"
   sha256 "0a8de8d3e2073ad08f5834d39def6c33fd035809cfddbea252174e7dc06a5a51"
+  revision 1
   head "https://github.com/mrash/fwknop.git"
 
   bottle do
@@ -22,7 +23,7 @@ class Fwknop < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--disable-silent-rules",
                           "--prefix=#{prefix}", "--with-gpgme", "--sysconfdir=#{etc}",
-                          "--with-gpg=#{Formula["gnupg2"].opt_bin}/gpg2"
+                          "--with-gpg=#{Formula["gnupg"].opt_bin}/gpg"
     system "make", "install"
   end
 
