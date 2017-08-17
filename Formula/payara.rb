@@ -1,9 +1,8 @@
 class Payara < Formula
   desc "Java EE application server forked from GlassFish"
   homepage "https://www.payara.fish"
-  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.172/payara-4.1.2.172.zip"
-  sha256 "5ca8e79822cf9a9e7adca84a21ab79acb91b5b86489bcd5c9b34f62ec86dcd4a"
-  revision 1
+  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.173/payara-4.1.2.173.zip"
+  sha256 "944fae8fa38e83cf291e6176152827113a4733174096c49a2cf3d218ba1ad7f2"
 
   bottle :unneeded
 
@@ -13,7 +12,7 @@ class Payara < Formula
 
   def install
     # Remove Windows scripts
-    rm_f Dir["**/*.bat"]
+    rm_f Dir["**/*.{bat,exe}"]
 
     inreplace "bin/asadmin", /AS_INSTALL=.*/,
                              "AS_INSTALL=#{libexec}/glassfish"
@@ -24,12 +23,12 @@ class Payara < Formula
 
   def caveats; <<-EOS.undent
     You may want to add the following to your .bash_profile:
-      export GLASSFISH_HOME=${opt_libexec}/glassfish
+      export GLASSFISH_HOME=#{opt_libexec}/glassfish
       export PATH=${PATH}:${GLASSFISH_HOME}/bin
   EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/payara/bin/asadmin start-domain --verbose domain1"
+  plist_options :manual => "asadmin start-domain --verbose domain1"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
