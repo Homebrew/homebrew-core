@@ -9,6 +9,9 @@ class TeamExplorerEverywhere < Formula
   depends_on :java => "1.6+"
 
   def install
+    prefix.install_metafiles
+    prefix.install "ThirdPartyNotices.html"
+
     libexec.install Dir["*"]
     (bin/"tf").write_env_script(libexec/"tf", :TF_CLC_HOME => libexec)
   end
