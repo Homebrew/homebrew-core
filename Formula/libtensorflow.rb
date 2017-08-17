@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.2.1.tar.gz"
-  sha256 "f2baf09b1a9a0500907b4d5cb5473070b3ecede06ed6e8d1096873c91922fb9e"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.3.0.tar.gz"
+  sha256 "e1af1bb767b57c3416de0d43a5f74d174c42b85231dffd36f3630173534d4307"
 
   bottle do
     cellar :any
@@ -25,6 +25,7 @@ class Libtensorflow < Formula
     ENV["TF_NEED_CUDA"] = "0"
     ENV["TF_NEED_MKL"] = "0"
     ENV["TF_NEED_VERBS"] = "0"
+    ENV["TF_NEED_MPI"] = "0"
     system "./configure"
 
     system "bazel", "build", "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow.so"
