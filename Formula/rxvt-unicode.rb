@@ -3,7 +3,7 @@ class RxvtUnicode < Formula
   homepage "http://software.schmorp.de/pkg/rxvt-unicode.html"
   url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.22.tar.bz2"
   sha256 "e94628e9bcfa0adb1115d83649f898d6edb4baced44f5d5b769c2eeb8b95addd"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -33,7 +33,6 @@ class RxvtUnicode < Formula
       --enable-smart-resize
     ]
 
-    args << "--disable-perl" if ENV.compiler == :clang
     args << "--disable-iso14755" if build.without? "iso14755"
     args << "--enable-unicode3" if build.with? "unicode3"
 
