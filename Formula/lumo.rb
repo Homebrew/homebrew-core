@@ -1,8 +1,8 @@
 class Lumo < Formula
-  desc "Fast, cross-platform, standalone ClojureScript REPL"
+  desc "Fast, cross-platform, standalone ClojureScript environment"
   homepage "https://github.com/anmonteiro/lumo"
-  url "https://github.com/anmonteiro/lumo/archive/1.6.0.tar.gz"
-  sha256 "d5ab1d926ecef8624117250f6bd0cff1f78aba763ddc3221b676d3610eee69e3"
+  url "https://github.com/anmonteiro/lumo/archive/1.7.0.tar.gz"
+  sha256 "c5b37815d41581974dd026f2f02389102c4af4934c87e15d4c3c1d85f3211e1e"
   head "https://github.com/anmonteiro/lumo.git"
 
   bottle do
