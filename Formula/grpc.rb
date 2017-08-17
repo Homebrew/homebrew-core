@@ -1,8 +1,8 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://www.grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.4.5.tar.gz"
-  sha256 "39545c6e3d5a41c6cdd42ef7ff8288bc58bacf47b791ed324268cdfa999db9df"
+  url "https://github.com/grpc/grpc/archive/v1.4.6.tar.gz"
+  sha256 "041e529a0eef5de3d427a61fcba6a46e8450f1e624a0fc9dbe263395ea100e06"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
