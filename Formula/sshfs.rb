@@ -6,9 +6,9 @@ class Sshfs < Formula
 
   bottle do
     cellar :any
-    sha256 "bcbf5da34a36c42fdc495f13eef2e6393c7c8269082ad47a33ba8de3762472d4" => :sierra
-    sha256 "eac485f8d8d5b5d04905eed01f82b1436f6fea5d658dd2af1603ffb8381536d7" => :el_capitan
-    sha256 "7e2f3a208e10a8c05a2183e2bb251e191b5b66d11d8c4f8f09569d9bd7325fdc" => :yosemite
+    sha256 "534fc64f25ee6757e4fd802988deee9d2df8f1c38604d36c525a12a67b1d23fa" => :sierra
+    sha256 "27c5e0d7f9bed4219c12267bd459fbd25a143abf0a9e3f5fa12fd0b587f10007" => :el_capitan
+    sha256 "61c578fbd666a6c2b5b452a7429e3fd5a64da153652d428386c41b4ebb6e30fa" => :yosemite
   end
 
   option "without-sshnodelay", "Don't compile NODELAY workaround for ssh"
