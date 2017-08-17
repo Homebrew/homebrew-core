@@ -9,14 +9,13 @@ class TeamExplorerEverywhere < Formula
   depends_on :java => "1.6+"
 
   def install
-    libexec.install Dir["#{buildpath}/*"]
-    bin.install libexec/"tf"
-    bin.env_script_all_files(libexec, :TF_CLC_HOME => libexec)
+    libexec.install Dir["*"]
+    (bin/"tf").write_env_script(libexec/"tf", :TF_CLC_HOME => libexec)
   end
 
   test do
     ENV["TF_ADDITIONAL_JAVA_ARGS"] = "-Duser.home=#{ENV["HOME"]}"
-    (testpath/"test.exp").write <<-EOS
+    (testpath/"test.exp").write <<-EOS.undent
       spawn #{bin}/tf workspace
       expect "workspace could not be determined"
       spawn #{bin}/tf eula
