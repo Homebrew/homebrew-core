@@ -7,6 +7,12 @@ class Pcl < Formula
 
   head "https://github.com/PointCloudLibrary/pcl.git"
 
+  bottle do
+    sha256 "f34f770e7f9014946fd04599406565ca1cd34d42c6093bb01976805c1c39c4af" => :sierra
+    sha256 "d84a9afa86d1abb2f0b043c98b1acb8d61bd8fda29162603908f8acde51c7e86" => :el_capitan
+    sha256 "809907a035a020a691b14cc9150b0a065619abb00d64962a511bfac1417f5b46" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
