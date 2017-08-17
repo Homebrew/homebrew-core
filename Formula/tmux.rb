@@ -19,7 +19,7 @@ class Tmux < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libevent"
+  depends_on "libevent@1.4"
   depends_on "utf8proc" => :optional
 
   resource "completion" do
