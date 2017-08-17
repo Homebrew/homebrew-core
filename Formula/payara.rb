@@ -24,7 +24,7 @@ class Payara < Formula
 
   def caveats; <<-EOS.undent
     You may want to add the following to your .bash_profile:
-      export GLASSFISH_HOME=${opt_libexec}/glassfish
+      export GLASSFISH_HOME=#{opt_libexec}/glassfish
       export PATH=${PATH}:${GLASSFISH_HOME}/bin
   EOS
   end
