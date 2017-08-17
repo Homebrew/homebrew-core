@@ -17,9 +17,17 @@ class TeamExplorerEverywhere < Formula
     ENV["TF_ADDITIONAL_JAVA_ARGS"] = "-Duser.home=#{ENV["HOME"]}"
     (testpath/"test.exp").write <<-EOS.undent
       spawn #{bin}/tf workspace
-      expect "workspace could not be determined"
+      set timeout 5
+      expect {
+        timeout { exit 1 }
+        "workspace could not be determined"
+      }
+
       spawn #{bin}/tf eula
-      expect "MICROSOFT TEAM EXPLORER EVERYWHERE"
+      expect {
+        "MICROSOFT TEAM EXPLORER EVERYWHERE" { exit 0 }
+        timeout { exit 1 }
+      }
     EOS
     system "expect", "-f", "test.exp"
   end
