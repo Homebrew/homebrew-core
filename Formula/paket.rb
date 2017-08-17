@@ -1,8 +1,8 @@
 class Paket < Formula
   desc "Dependency manager for .NET with support for NuGet and Git repositories"
   homepage "https://fsprojects.github.io/Paket/"
-  url "https://github.com/fsprojects/Paket/releases/download/5.85.2/paket.exe"
-  sha256 "c108b31e25072512c6c03d8fd8d0a80978b8483494ff3c04a80fd97ec3bdcdad"
+  url "https://github.com/fsprojects/Paket/releases/download/5.85.3/paket.exe"
+  sha256 "dc9b594adf41a7b5e980fda9545cbd6bfb7f497b730a0292414be06ea55ac475"
 
   bottle :unneeded
 
