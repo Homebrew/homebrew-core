@@ -5,6 +5,12 @@ class GmtAT4 < Formula
   mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.16-src.tar.bz2"
   sha256 "4ef6a55605821c3569279a7088586dfdcf1e779dd01b4c957db096cc60fe959d"
 
+  bottle do
+    sha256 "6044401d42210d958557b9194c4ae0a779f83c733158c946c1bf396e8471d3ed" => :sierra
+    sha256 "8b93d95db2ee9f4bc577493284faa322839533323b5a96c3211296261482efbe" => :el_capitan
+    sha256 "9f30a138411c966953810ffb1412d8d19ea1de9c89a5f36020bf614ccaffc02c" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   depends_on "gdal"
