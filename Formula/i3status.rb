@@ -3,7 +3,7 @@ class I3status < Formula
   homepage "https://i3wm.org/i3status"
   url "https://i3wm.org/i3status/i3status-2.11.tar.bz2"
   sha256 "98db7e730f0ce908eb656ac10d713ae6a885676621391d54f00b719752f18c5f"
-  revision 1
+  revision 2
   head "https://github.com/i3/i3status.git"
 
   bottle do
