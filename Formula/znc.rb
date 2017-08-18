@@ -37,7 +37,10 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
-    args = ["--prefix=#{prefix}"]
+    args = [
+      "--prefix=#{prefix}",
+      "--with-module-prefix=#{HOMEBREW_PREFIX/"lib/znc"}",
+    ]
     args << "--enable-debug" if build.with? "debug"
 
     system "./autogen.sh" if build.head?
