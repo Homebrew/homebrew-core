@@ -17,6 +17,7 @@ class Snapcraft < Formula
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
+  depends_on "squashfs"
   depends_on :python3
 
   resource "cffi" do
