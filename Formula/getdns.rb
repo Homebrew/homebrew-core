@@ -1,9 +1,20 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
-  sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
-  revision 1
+  revision 2
+
+  stable do
+    url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
+    sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
+
+    # Remove for > 1.1.2
+    # Upstream PR from 18 Aug 2017 "Fix issue on OS X 10.10 where TCP fast open
+    # is detected but not implemented causing TCP to fail"
+    patch do
+      url "https://github.com/getdnsapi/getdns/pull/328.patch?full_index=1"
+      sha256 "8528bc22d705502f238db7a73e9f1ddbafca398d4b133056b6b4b161adbc3929"
+    end
+  end
 
   bottle do
     sha256 "15e207c6fac993a047a179eecff02035046d3a7a29ea17e8fa20e9bc92281eb4" => :sierra
