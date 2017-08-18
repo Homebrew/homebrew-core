@@ -5,11 +5,10 @@ class CrosstoolNg < Formula
   sha256 "68a43ea98ccf9cb345cb6eec494a497b224fee24c882e8c14c6713afbbe79196"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3ada31fa193f947f2145794eb2b24f12b0d27106c707685f0e92678ac180d9e0" => :sierra
-    sha256 "1563e4b907a4e290d0b3b4e9c0bbfb840f42eb90b2c1a10c7a6632560d59dd9e" => :el_capitan
-    sha256 "a1a7a286d87ff625b6e5910f962e0248ddd610dcf91ddd3b8923bf4f7476a23d" => :yosemite
+    cellar :any
+    sha256 "bda4c02b605a79fa980bf8df055d3b9d1a7da01f4212a98ebc79a5ccc57649a3" => :sierra
+    sha256 "67563525dbf2cc4a8cf60da1e398474609c1aa8f0ef3d8ac68d318064aba4c28" => :el_capitan
+    sha256 "c119b94b8b4782935e7c2968d195cddcfd2faa089768c0a0bf84dfcb8d5713cc" => :yosemite
   end
 
   depends_on "help2man" => :build
