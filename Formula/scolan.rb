@@ -4,7 +4,7 @@ class Scolan < Formula
   desc "Sync clipboard over LAN"
   homepage "https://github.com/Cap32/scolan"
   url "https://registry.npmjs.org/scolan/-/scolan-0.0.0.tgz"
-  version "0.0.0"
+  # version "0.0.0"
   sha256 "09da31c47ff34e2f097ebc428995da0adae4eee95ec4c2da8096ed75d1e639cb"
 
   depends_on "node"
