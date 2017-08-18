@@ -3,7 +3,7 @@ class Bmon < Formula
   homepage "https://github.com/tgraf/bmon"
   url "https://github.com/tgraf/bmon/releases/download/v4.0/bmon-4.0.tar.gz"
   sha256 "02fdc312b8ceeb5786b28bf905f54328f414040ff42f45c83007f24b76cc9f7a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "cb12924bc48e319aeb50cc16e2ad48370c9d2b298d9a876e87ecf5e2c6a11c73" => :sierra
