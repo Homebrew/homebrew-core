@@ -5,6 +5,13 @@ class Libmatio < Formula
   sha256 "41209918cebd8cc87a4aa815fed553610911be558f027aee54af8b599c78b501"
   revision 2
 
+  bottle do
+    cellar :any
+    sha256 "26b8710ae06c3026ecd0118e67480bf1bda821a833515c3fb203642a933f955b" => :sierra
+    sha256 "42e3a6488ccacbcdcf774c8f46cc6809d3b78d9774f21b5304606cc088205202" => :el_capitan
+    sha256 "6aeb9ddcac1d873b51f290efa268c3c1f810778aa77e666796b7c1d08e60e775" => :yosemite
+  end
+
   depends_on "hdf5"
 
   resource "test_mat_file" do
