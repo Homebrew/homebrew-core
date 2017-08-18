@@ -16,7 +16,7 @@ class Coq < Formula
   url "https://coq.inria.fr/distrib/8.6.1/files/coq-8.6.1.tar.gz"
   sha256 "32f8aa92853483dec18030def9f0857a708fee56cf4287e39c9a260f08138f9d"
   revision 1
-  head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
+  head "git://scm.gforge.inria.fr/coq/coq.git"
 
   bottle do
     sha256 "275c1d6a33704757eb283ec5d2562193387f093e7dbe7c2cb4a4e96264d3aedf" => :sierra
@@ -31,8 +31,9 @@ class Coq < Formula
 
   def install
     ENV["OPAMYES"] = "1"
-    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
-    (Pathname.pwd/"opamroot").mkpath
+    opamroot = buildpath/"../opamroot"
+    opamroot.mkpath
+    ENV["OPAMROOT"] = opamroot
     system "opam", "init", "--no-setup"
     system "opam", "install", "ocamlfind"
 
