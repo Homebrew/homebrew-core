@@ -8,9 +8,9 @@ class I3status < Formula
 
   bottle do
     cellar :any
-    sha256 "109cf545c41a93607a72fe507e0da22a8ad0fdcea41c7493a8f825286acf1f4f" => :sierra
-    sha256 "5d2fb48e3a6d74b7a1426986efff59b05688b408630fbba1cdd3b8970c5f3eb9" => :el_capitan
-    sha256 "b81096aac3d8c989d22d670643ad00c74f531f17e9b6dcba4113f1890a4ce3fc" => :yosemite
+    sha256 "09050200d7660dcb5ab2b99684dd406978abf7738e609beeceec4cbef0761a6f" => :sierra
+    sha256 "cfd08ff2e313ae35000904e9f3e8c7d471f781578b9b899d6f9bd8ccc225748e" => :el_capitan
+    sha256 "b5f41db83b1b1f6b000b8de9e4499b2dffba1ceca33edbb9635d671d223ffbe8" => :yosemite
   end
 
   depends_on :x11
