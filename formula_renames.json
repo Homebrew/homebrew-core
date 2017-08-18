@@ -52,6 +52,7 @@
   "glfw2": "glfw@2",
   "glfw3": "glfw",
   "gmp4": "gmp@4",
+  "gmt4": "gmt@4",
   "gnupg2": "gnupg",
   "gnuplot4": "gnuplot@4",
   "go-app-engine-32": "app-engine-go-32",
