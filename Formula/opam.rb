@@ -89,8 +89,13 @@ class Opam < Formula
     system "make", "man"
     system "make", "install"
 
-    bash_completion.install "shell/opam_completion.sh"
-    zsh_completion.install "shell/opam_completion_zsh.sh" => "_opam"
+    if build.head?
+      bash_completion.install "src/state/complete.sh"
+      zsh_completion.install "src/state/complete.zsh" => "_opam"
+    else
+      bash_completion.install "shell/opam_completion.sh"
+      zsh_completion.install "shell/opam_completion_zsh.sh" => "_opam"
+    end
   end
 
   def caveats; <<-EOS.undent
