@@ -7,6 +7,12 @@ class Gmt < Formula
   mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.4.2-src.tar.xz"
   sha256 "ddcd63094aeda5a60f541626ed7ab4a78538d52dea24ba915f168e4606e587f5"
 
+  bottle do
+    sha256 "bf7317df2e9300d6da479e78f31e9dd62d8d873fdbe54ed2970dd669d29ffa24" => :sierra
+    sha256 "3511d1334f4906c4f9c3d976fe47bddf709c4b5196283d01753d89e831876e75" => :el_capitan
+    sha256 "2b9d336656d6d996e67ec5c45e063f3307ff20b1037fbc461a8da12ae7e2e6fc" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gdal"
