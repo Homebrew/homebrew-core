@@ -17,6 +17,12 @@ class Sqlcipher < Formula
 
   depends_on "openssl"
 
+  # Upstream SQLite patch for CVE-2017-10989
+  patch :p0 do
+    url "https://sqlite.org/src/vpatch?from=0db20efe201736b3&to=66de6f4a9504ec26"
+    sha256 "41d0570cbf80429e556e612acd5eeddcff0e586264a6bcb80bd5a27abc9159a2"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
