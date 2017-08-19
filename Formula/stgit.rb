@@ -1,10 +1,9 @@
 class Stgit < Formula
   desc "Push/pop utility built on top of Git"
-  homepage "https://gna.org/projects/stgit/"
-  url "http://download.gna.org/stgit/stgit-0.17.1.tar.gz"
-  sha256 "d43365a0c22e41a6fb9ba1a86de164d6475e79054e7f33805d6a829eb4056ade"
-
-  head "git://repo.or.cz/stgit.git"
+  homepage "https://github.com/ctmarinas/stgit"
+  url "https://github.com/ctmarinas/stgit/archive/v0.18.tar.gz"
+  sha256 "00c83a0a057ee61a300f2291b8926f85521ffd1c92b4cb5152e2be3bf836d3a5"
+  head "https://github.com/ctmarinas/stgit.git"
 
   bottle do
     cellar :any_skip_relocation
