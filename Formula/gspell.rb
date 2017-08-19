@@ -5,9 +5,9 @@ class Gspell < Formula
   sha256 "a59ba7e747bfbe93f6e511d7df3169d1530b518b46ca620cbc000fecbcdf0399"
 
   bottle do
-    sha256 "e942f15b83e0bff9a8d807d220ecdbb1ce3d2592e4d96512cf0918157b63138b" => :sierra
-    sha256 "eb2a0795ed4dedce9546802a5c61d35d1f548c801446e3f69f5b12052cc270ed" => :el_capitan
-    sha256 "8f6362428ec5f47c6d911589faf8180001c834848720f5259627eec1c025d63b" => :yosemite
+    sha256 "21a9151d10aa3e31d34d3b7ff8bda60430dfade9643b0f63e52bceaf9877f875" => :sierra
+    sha256 "3d9ad0c9fb1aa88e79f832e25ac1eeec893f1e7cb12969d1435b3230acde632b" => :el_capitan
+    sha256 "e334679062a6636fa756155721ce0a5424f0d971bb692d58de3dfe8f848a270a" => :yosemite
   end
 
   depends_on "pkg-config" => :build
