@@ -1,8 +1,8 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.8.tar.xz"
-  sha256 "5d68e5283cdc0bf9bda99c3e6a1d52ad07a03364fa186b6c26cfc86fcd396a19"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.9.tar.xz"
+  sha256 "8013b271ff1a691514b5bbc9b99f6ed456422d4da4a721a9db0b783abe8e740a"
 
   bottle do
     sha256 "76afcde6839f2f3e3f658b08cc0acf49151c53c75e5a8194ff6c20b8734fe879" => :sierra
@@ -20,7 +20,6 @@ class GdkPixbuf < Formula
   depends_on "libtiff"
   depends_on "libpng"
   depends_on "gobject-introspection"
-  depends_on "shared-mime-info"
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
