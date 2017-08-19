@@ -3,8 +3,8 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/bc/73/15fdafe2e25f2862bc98ac551db72a4c169536ccdb6bd7200995c7543aff/salt-2017.7.0.tar.gz"
-  sha256 "aaf45f8dcf95a20b56072e620100432d058ab297210c4902dc90e197b236b064"
+  url "https://files.pythonhosted.org/packages/d2/cd/348817b5b4d0ee160f72744bad39c8b6898df62e3287a4923b8a2cc07716/salt-2017.7.1.tar.gz"
+  sha256 "fe868415d0e1162157186f4c5263e9af902b0571870ad2da210e7edf5ff5331d"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -61,8 +61,8 @@ class Saltstack < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "msgpack-python" do
@@ -81,8 +81,8 @@ class Saltstack < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/07/2e/81fdfdfac91cf3cb2518fb149ac67caf0e081b485eab68e9aee63396f7e8/requests-2.18.2.tar.gz"
-    sha256 "5b26fcc5e72757a867e4d562333f841eddcef93548908a1bb1a9207260618da9"
+    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
+    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
   end
 
   resource "singledispatch" do
