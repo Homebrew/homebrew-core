@@ -1,11 +1,21 @@
 class Newsbeuter < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsbeuter.org/"
-  url "https://www.newsbeuter.org/downloads/newsbeuter-2.9.tar.gz"
-  sha256 "74a8bf019b09c3b270ba95adc29f2bbe48ea1f55cc0634276b21fcce1f043dc8"
-  revision 1
-
+  revision 2
   head "https://github.com/akrennmair/newsbeuter.git"
+
+  stable do
+    url "https://www.newsbeuter.org/downloads/newsbeuter-2.9.tar.gz"
+    sha256 "74a8bf019b09c3b270ba95adc29f2bbe48ea1f55cc0634276b21fcce1f043dc8"
+
+    # Remove for > 2.9
+    # Upstream commit from 13 Aug 2017
+    # See https://github.com/akrennmair/newsbeuter/commit/96e9506ae9e252c548665152d1b8968297128307
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/9e85ce0c072/net/newsbeuter/files/patch-CVE-2017-12904.diff"
+      sha256 "09023b3d1e2166e7a72f5a9e1fe5e4b8ca24329e23b74abe8e80bac8e5211848"
+    end
+  end
 
   bottle do
     cellar :any
