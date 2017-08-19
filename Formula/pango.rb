@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.10.tar.xz"
-  sha256 "5d41d94a1f70e92ba5808e13f2bf3ef198901ddc0dc7e74e5afde994724466f6"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.11.tar.xz"
+  sha256 "5b11140590e632739e4151cae06b8116160d59e22bf36a3ccd5df76d1cf0383e"
 
   bottle do
     sha256 "385b73650e02cc81340abf3f10e419876f84c53b819c97c200cbd7bfd6b907a4" => :sierra
@@ -19,12 +19,6 @@ class Pango < Formula
     depends_on "gtk-doc" => :build
   end
 
-  # see https://bugzilla.gnome.org/show_bug.cgi?id=786347
-  # next four lines should be removed for the next release
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
-  depends_on "gtk-doc" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -33,8 +27,7 @@ class Pango < Formula
   depends_on "harfbuzz"
 
   def install
-    # add conditional back for next release
-    system "./autogen.sh" # if build.head?
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
