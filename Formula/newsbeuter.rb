@@ -8,8 +8,8 @@ class Newsbeuter < Formula
     url "https://www.newsbeuter.org/downloads/newsbeuter-2.9.tar.gz"
     sha256 "74a8bf019b09c3b270ba95adc29f2bbe48ea1f55cc0634276b21fcce1f043dc8"
 
-    # Remove for > 2.9
-    # Upstream commit from 13 Aug 2017
+    # Remove for > 2.9; fix CVE-2017-12904
+    # Upstream commit from 13 Aug 2017 "Sanitize inputs to bookmark-cmd (#591)"
     # See https://github.com/akrennmair/newsbeuter/commit/96e9506ae9e252c548665152d1b8968297128307
     patch :p0 do
       url "https://raw.githubusercontent.com/macports/macports-ports/9e85ce0c072/net/newsbeuter/files/patch-CVE-2017-12904.diff"
