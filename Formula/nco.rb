@@ -4,6 +4,13 @@ class Nco < Formula
   url "https://downloads.sourceforge.net/project/nco/nco-4.6.8.tar.gz"
   sha256 "d818a9e4026d5cc5b4372a212ef3385449a757ee00b807ae9b91741bc79a545b"
 
+  bottle do
+    cellar :any
+    sha256 "8dafcb37843026036c796d8d9ceee983b1deed0e25e0101e6cc59129b7d12f89" => :sierra
+    sha256 "04bd384a4acde8da237bb53fd6c72d1b2476d9745938cfb0c5a334d199deea9c" => :el_capitan
+    sha256 "d511728b6e740e7b9c865263bd46ecf2be02d49d0e6313a086d9cd66ebbfc809" => :yosemite
+  end
+
   head do
     url "https://github.com/czender/nco.git"
     depends_on "autoconf" => :build
