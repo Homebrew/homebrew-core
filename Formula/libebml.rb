@@ -7,10 +7,9 @@ class Libebml < Formula
 
   bottle do
     cellar :any
-    sha256 "953d50863d804b564e80a60efc0ef8c13b1ad2763d17dfd06131b125039764ad" => :sierra
-    sha256 "102b5fa493597b2b3fffbf5b08f3dabf280fe113f180a5261c38457aef922e5b" => :el_capitan
-    sha256 "cac2465703dfe3b956e9d7b6cdeda3f61bbca6c31c7acd59fd11d88c1f55dd3d" => :yosemite
-    sha256 "645dc73f0462264c280368c1de64119e5b2ff895998dee8dc74d32a94b922581" => :mavericks
+    sha256 "72ea79b1b694d3ba054af56ed8aef46957e9ca2cb71642a0c9576121d1333e48" => :sierra
+    sha256 "07ee02f2d332d60c9377117e47471f44ef7843de0f162acd067fe732f4d23c1d" => :el_capitan
+    sha256 "c2d4a00cc8e80a2969fa14cb71a84f0e3e26342402c77fdbc641b2e48fec851e" => :yosemite
   end
 
   head do
