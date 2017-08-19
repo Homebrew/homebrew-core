@@ -1,8 +1,8 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.10.0/fullsrc.zip"
-  sha256 "221d3802ce3a93f3d7de8af0fd59d668e2bafe273f54efd497a9ebd78b580029"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.11.0/fullsrc.zip"
+  sha256 "aef7f21f5cf2e25b653b28a8ada245f9e7b43e0f9da5c71ea9bf4da599fb726b"
 
   head "https://github.com/fibjs/fibjs.git"
 
@@ -13,6 +13,7 @@ class Fibjs < Formula
     sha256 "c72a554505d8982cc22237ed77a98144edc9c3e207a68d9f3df04af1cb03e45f" => :yosemite
   end
 
+  depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
   depends_on "cmake" => :build
 
   def install
