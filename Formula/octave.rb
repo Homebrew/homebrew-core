@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
   sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "f608e821613391e30be7e0b32e8de5c02f010f82f1c4f7fbdc4569151dcde19c" => :sierra
@@ -26,7 +26,6 @@ class Octave < Formula
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
-  depends_on :java => ["1.6+", :build, :recommended]
   depends_on :fortran
   depends_on "arpack"
   depends_on "epstool"
@@ -51,6 +50,7 @@ class Octave < Formula
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "veclibfort"
+  depends_on :java => ["1.6+", :optional]
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
