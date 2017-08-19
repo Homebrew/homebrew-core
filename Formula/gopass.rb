@@ -5,6 +5,13 @@ class Gopass < Formula
   sha256 "1546546d6e9db9347e276b18a3c900c5359cf463058244ed4fc25d44d87f6f1b"
   head "https://github.com/justwatchcom/gopass.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9dfd468101d2e0137faebdd33d46a91ac4934931dbfab3ea08b0adc9c050fd66" => :sierra
+    sha256 "b2a54def1578006d95fed9c1da2ddb0eb86d249e1ee73d7a73f134d3ac898c28" => :el_capitan
+    sha256 "49a7bd2f45d6c0925aff14472b7ad8cf30fbda0e9cbe7b821e5c29af55ae8a06" => :yosemite
+  end
+
   depends_on "go" => :build
   depends_on :gpg => :run
 
