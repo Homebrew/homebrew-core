@@ -1,8 +1,9 @@
 class Lzop < Formula
   desc "File compressor"
   homepage "https://www.lzop.org/"
-  url "https://www.lzop.org/download/lzop-1.03.tar.gz"
-  sha256 "c1425b8c77d49f5a679d5a126c90ea6ad99585a55e335a613cae59e909dbb2c9"
+  url "https://dl.bintray.com/homebrew/mirror/lzop-1.04.tar.gz"
+  mirror "https://www.lzop.org/download/lzop-1.04.tar.gz"
+  sha256 "7e72b62a8a60aff5200a047eea0773a8fb205caf7acbe1774d95147f305a2f41"
 
   bottle do
     cellar :any
