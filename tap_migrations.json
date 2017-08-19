@@ -42,7 +42,6 @@
   "openfst": "homebrew/science",
   "opengrm-ngram": "homebrew/science",
   "osxfuse": "caskroom/cask",
-  "pcb": "homebrew/science",
   "pdf-tools": "dunn/emacs",
   "pebble-sdk": "pebble/pebble-sdk",
   "pocl": "homebrew/science",
