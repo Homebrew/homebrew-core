@@ -1,9 +1,9 @@
 class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libebml/libebml-1.3.4.tar.bz2"
-  mirror "https://www.bunkus.org/videotools/mkvtoolnix/sources/libebml-1.3.4.tar.bz2"
-  sha256 "c50d3ecf133742c6549c0669c3873f968e11a365a5ba17b2f4dc339bbe51f387"
+  url "https://dl.matroska.org/downloads/libebml/libebml-1.3.5.tar.xz"
+  mirror "https://www.bunkus.org/videotools/mkvtoolnix/sources/libebml-1.3.5.tar.xz"
+  sha256 "d818413f60742c2f036ba6f582c5e0320d12bffec1b0fc0fc17a398b6f04aa00"
 
   bottle do
     cellar :any
