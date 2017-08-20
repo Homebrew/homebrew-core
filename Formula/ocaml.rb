@@ -16,7 +16,7 @@ class Ocaml < Formula
   homepage "https://ocaml.org/"
   url "https://caml.inria.fr/pub/distrib/ocaml-4.05/ocaml-4.05.0.tar.xz"
   sha256 "04a527ba14b4d7d1b2ea7b2ae21aefecfa8d304399db94f35a96df1459e02ef9"
-  head "https://caml.inria.fr/svn/ocaml/trunk", :using => :svn
+  head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
