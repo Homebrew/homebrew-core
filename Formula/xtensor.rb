@@ -4,6 +4,13 @@ class Xtensor < Formula
   url "https://github.com/QuantStack/xtensor/archive/0.10.10.tar.gz"
   sha256 "ebc9b18793ee692ecb45965119d4fcd9e65908be4d068487a1b7892e31c508c7"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "24b76891de73a430bcbca8fd692e5c8ab524bf1339771fb9d2292f4062fa3b54" => :sierra
+    sha256 "24b76891de73a430bcbca8fd692e5c8ab524bf1339771fb9d2292f4062fa3b54" => :el_capitan
+    sha256 "24b76891de73a430bcbca8fd692e5c8ab524bf1339771fb9d2292f4062fa3b54" => :yosemite
+  end
+
   needs :cxx14
   depends_on "cmake" => :build
 
