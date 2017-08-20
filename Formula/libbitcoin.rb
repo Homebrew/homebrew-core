@@ -4,6 +4,13 @@ class Libbitcoin < Formula
   url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
   sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
 
+  bottle do
+    cellar :any
+    sha256 "7ce5a70a7fe2e5b2db4b66fbda711d38d3f3cf55c4c835ff9710168aa609e641" => :sierra
+    sha256 "4405d82c91471dd138879c08d06fc486b5bf9c3e27aff1d094349e795e4270f7" => :el_capitan
+    sha256 "f7bf5121903b955d5d79da1626d491504d79a1c2302d9e1b42ef5f40fc9c07e5" => :yosemite
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
