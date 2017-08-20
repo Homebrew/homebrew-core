@@ -37,7 +37,6 @@
   "meld": "caskroom/cask",
   "n98-magerun": "homebrew/php",
   "newick-utils": "homebrew/science",
-  "nlopt": "homebrew/science",
   "opencv": "homebrew/science",
   "openfst": "homebrew/science",
   "opengrm-ngram": "homebrew/science",
