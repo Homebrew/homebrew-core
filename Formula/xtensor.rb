@@ -34,6 +34,6 @@ class Xtensor < Formula
       }
     EOS
     system ENV.cxx, "-std=c++14", "test.cc", "-o", "test", "-I#{include}"
-    assert_match "323", shell_output("./test")
+    assert_equal "323", shell_output("./test").chomp
   end
 end
