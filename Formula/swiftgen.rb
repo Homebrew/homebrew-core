@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "5.0.0",
-      :revision => "6bc2699f84510ce8cdee94169a46d5870b1e4ac6"
+      :tag => "5.1.0",
+      :revision => "71032c4be44d5662601548556fc7d12822eb3a22"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
@@ -26,11 +26,12 @@ class Swiftgen < Formula
 
     fixtures = {
       "Resources/Fixtures/XCAssets/Images.xcassets" => "Images.xcassets",
+      "Resources/Fixtures/XCAssets/Colors.xcassets" => "Colors.xcassets",
       "Resources/Fixtures/Colors/colors.xml" => "colors.xml",
       "Resources/Fixtures/Strings/Localizable.strings" => "Localizable.strings",
       "Resources/Fixtures/Storyboards-iOS" => "Storyboards-iOS",
       "Resources/Fixtures/Fonts" => "Fonts",
-      "Resources/Tests/Expected/XCAssets/swift3-context-defaults.swift" => "images.swift",
+      "Resources/Tests/Expected/XCAssets/swift3-context-all.swift" => "xcassets.swift",
       "Resources/Tests/Expected/Colors/swift3-context-defaults.swift" => "colors.swift",
       "Resources/Tests/Expected/Strings/structured-swift3-context-localizable.swift" => "strings.swift",
       "Resources/Tests/Expected/Storyboards-iOS/swift3-context-all.swift" => "storyboards.swift",
@@ -44,8 +45,8 @@ class Swiftgen < Formula
 
     fixtures = pkgshare/"fixtures"
 
-    output = shell_output("#{bin}/swiftgen xcassets --templatePath #{pkgshare/"templates/xcassets/swift3.stencil"} #{fixtures}/Images.xcassets").strip
-    assert_equal output, (fixtures/"images.swift").read.strip, "swiftgen images failed"
+    output = shell_output("#{bin}/swiftgen xcassets --templatePath #{pkgshare/"templates/xcassets/swift3.stencil"} #{fixtures}/Images.xcassets #{fixtures}/Colors.xcassets").strip
+    assert_equal output, (fixtures/"xcassets.swift").read.strip, "swiftgen xcassets failed"
 
     output = shell_output("#{bin}/swiftgen colors --templatePath #{pkgshare/"templates/colors/swift3.stencil"} #{fixtures}/colors.xml").strip
     assert_equal output, (fixtures/"colors.swift").read.strip, "swiftgen colors failed"
