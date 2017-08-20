@@ -6,6 +6,13 @@ class Cppad < Formula
   sha256 "f491115fe0be06cc29cac938e90f6e3cfbddb9cb7f0a0ae1f68f17123e32d0c1"
   head "https://github.com/coin-or/CppAD.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :sierra
+    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :el_capitan
+    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :yosemite
+  end
+
   depends_on "cmake" => :build
 
   def install
