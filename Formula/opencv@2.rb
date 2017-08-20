@@ -5,6 +5,12 @@ class OpencvAT2 < Formula
   sha256 "4b00c110e6c54943cbbb7cf0d35c5bc148133ab2095ee4aaa0ac0a4f67c58080"
   revision 2
 
+  bottle do
+    sha256 "53cfcc3c43d671f32a7723e369c3501d65218f4084d9d2fa633671cf14c8381b" => :sierra
+    sha256 "2e52fa5d66acd5ab9c676d9444d9939659fdd9e2e15d7d196a842f2b6102e9c6" => :el_capitan
+    sha256 "c51746b88173a1ca76d231e5679675bf40f26b5fe89ec1d15ce9d302c460b26f" => :yosemite
+  end
+
   option "without-python", "Build without python2 support"
 
   depends_on "cmake" => :build
