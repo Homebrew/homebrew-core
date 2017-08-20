@@ -5,6 +5,13 @@ class Igraph < Formula
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
   revision 6
 
+  bottle do
+    cellar :any
+    sha256 "63d5ac34c831bfb3bdcdc89a408a6ad004198fb784a50facb3f898a567f7b9b1" => :sierra
+    sha256 "8718c7a6cd3ffed8ee706f6991f2791c6d02f663db93beadd56e592c3edf544d" => :el_capitan
+    sha256 "bf929af83b33d8a00fc52b72fcae9fa0636fcc506ee0cbf2bf7ab267d9ee14d2" => :yosemite
+  end
+
   depends_on "glpk"
   depends_on "gmp"
 
