@@ -4,8 +4,8 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag => "v0.0.15",
-      :revision => "b37d4f8b5fc0a0314a7b7ed66ff76ffa7a365c09"
+      :tag => "v0.0.16",
+      :revision => "e8b06fca04811c9faff8e481c367d07b8f5e9a90"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
@@ -20,7 +20,7 @@ class Goofys < Formula
 
   go_resource "github.com/codegangsta/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
+        :revision => "f017f86fccc5a039a98f23311f34fdf78b014f78"
   end
 
   go_resource "github.com/jacobsa/fuse" do
@@ -45,12 +45,12 @@ class Goofys < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-        :revision => "3aa2ffab12a1852644f6d33cd782f877272bf305"
+        :revision => "1c211f0807a3436707409fa313599dd8c7a48664"
   end
 
   go_resource "github.com/sirupsen/logrus" do
     url "https://github.com/sirupsen/logrus.git",
-        :revision => "181d419aa9e2223811b824e8f0b4af96f9ba9302"
+        :revision => "68806b4b77355d6c8577a2c8bbc6d547a5272491"
   end
 
   go_resource "github.com/stretchr/testify" do
@@ -60,7 +60,7 @@ class Goofys < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "b176d7def5d71bdd214203491f89843ed217f420"
+        :revision => "eb71ad9bd329b5ac0fd0148dd99bd62e8be8e035"
   end
 
   go_resource "golang.org/x/net" do
@@ -70,7 +70,7 @@ class Goofys < Formula
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "e42485b6e20ae7d2304ec72e535b103ed350cc02"
+        :revision => "43e60d72a8e2bd92ee98319ba9a384a0e9837c08"
   end
 
   def install
