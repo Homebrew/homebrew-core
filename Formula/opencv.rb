@@ -5,6 +5,12 @@ class Opencv < Formula
   sha256 "95029eb5578af3b20b8c7f8f6f59db1b827c2d5aaaa74b6becb1de647cbdda5a"
   revision 2
 
+  bottle do
+    sha256 "6d62ac40e7c800770f66c4671befc324167b89ebe6b050ceceafc8033a2bca02" => :sierra
+    sha256 "981a7a7b7ee4d6539556843b4a42d7bc45e0af84cb80e2c84556dda70fea0d29" => :el_capitan
+    sha256 "b4034120207584e69f1a6be81d993ce0da6800fd1675fd8d83f7cc03801318e3" => :yosemite
+  end
+
   option "without-python", "Build without python2 support"
 
   depends_on "cmake" => :build
