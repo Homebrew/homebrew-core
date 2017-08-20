@@ -3,8 +3,8 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  url "https://github.com/pazz/alot/archive/0.5.1.tar.gz"
-  sha256 "6a74fc9e8069a1d24da27f3d06981fc6871d386ee14578687578d62f21185d71"
+  url "https://github.com/pazz/alot/archive/0.6.tar.gz"
+  sha256 "36b4b3471e2815b3fac320d3b82be5c4252dce119d3d3112dcbf69dd67f0acb2"
   head "https://github.com/pazz/alot.git"
 
   bottle do
@@ -16,14 +16,20 @@ class Alot < Formula
 
   option "without-sphinx-doc", "Don't build documentation"
 
+  depends_on "swig" => :build
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
   depends_on "sphinx-doc" => [:build, :recommended]
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  resource "Automat" do
+    url "https://files.pythonhosted.org/packages/de/05/b8e453085cf8a7f27bb1226596f4ccf5cc9e758377d60284f990bbdc592c/Automat-0.6.0.tar.gz"
+    sha256 "3c1fd04ecf08ac87b4dd3feae409542e9bf7827257097b2b6ed5692f69d6f6a8"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/be/41/e909cb6d901e9689da947419505cc7fb7d242a08a62ee221fce6a009a523/attrs-17.2.0.tar.gz"
+    sha256 "5d4d1b99f94d69338f485984127e4473b3ab9e20f43821b0e546cc3b2302fd11"
   end
 
   resource "configobj" do
@@ -31,14 +37,39 @@ class Alot < Formula
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
-  resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/38/1b/d55c39f2cf442bd9fb2c59760ed058c84b57d25c680819c25f3aff741e1f/zope.interface-4.3.2.tar.gz"
-    sha256 "6a0e224a052e3ce27b3a7b1300a24747513f7a507217fcc2a4cb02eb92945cee"
+  resource "constantly" do
+    url "https://files.pythonhosted.org/packages/95/f1/207a0a478c4bb34b1b49d5915e2db574cadc415c9ac3a7ef17e29b2e8951/constantly-15.1.0.tar.gz"
+    sha256 "586372eb92059873e29eba4f9dec8381541b4d3834660707faf8ba59146dfc35"
+  end
+
+  resource "gpg" do
+    url "https://files.pythonhosted.org/packages/9f/46/4f6b63d1b5b82bac52b5b7723df8cd66a4864dc29861aa14d2d2de4a57f5/gpg-1.8.0.tar.gz"
+    sha256 "cd26e8a77c907e0d9f14a627bf71729456fd26aa2d1f4d275b808d70b089e4f4"
+  end
+
+  resource "hyperlink" do
+    url "https://files.pythonhosted.org/packages/83/df/3bdaf38f21f93429de02f04c6a967d2154955fc5b9a6a1a0b20a682edc13/hyperlink-17.3.1.tar.gz"
+    sha256 "bc4ffdbde9bdad204d507bd8f554f16bba82dd356f6130cb16f41422909c33bc"
+  end
+
+  resource "incremental" do
+    url "https://files.pythonhosted.org/packages/8f/26/02c4016aa95f45479eea37c90c34f8fab6775732ae62587a874b619ca097/incremental-17.5.0.tar.gz"
+    sha256 "7b751696aaf36eebfab537e458929e194460051ccad279c72b755a167eebd4b3"
+  end
+
+  resource "python-magic" do
+    url "https://files.pythonhosted.org/packages/65/0b/c6b31f686420420b5a16b24a722fe980724b28d76f65601c9bc324f08d02/python-magic-0.4.13.tar.gz"
+    sha256 "604eace6f665809bebbb07070508dfa8cabb2d7cb05be9a56706c60f864f1289"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   resource "Twisted" do
-    url "https://files.pythonhosted.org/packages/dc/c0/a0114a6d7fa211c0904b0de931e8cafb5210ad824996cc6a9d67f3bae22c/Twisted-16.6.0.tar.bz2"
-    sha256 "d0fe115ea7ef8cf632d05103de60356c6e992b2153d6830bdc4476f8accb1fca"
+    url "https://files.pythonhosted.org/packages/31/bf/7f86a8f8b9778e90d8b2921e9f442a8c8aa33fd2489fc10f236bc8af1749/Twisted-17.5.0.tar.bz2"
+    sha256 "f198a494f0df2482f7c5f99d7f3eef33d22763ffc76641b36fec476b878002ea"
   end
 
   resource "urwid" do
@@ -51,24 +82,9 @@ class Alot < Formula
     sha256 "08a66d0e76e94bc32bc590e35ed283e8a6b0c93adeb431dc576ec0a345f09bfd"
   end
 
-  resource "pygpgme" do
-    url "https://files.pythonhosted.org/packages/dc/96/b2bcbd3a216af313bb9045c2e573aa18653876a65db471b86be7598234dd/pygpgme-0.3.tar.gz"
-    sha256 "5fd887c407015296a8fd3f4b867fe0fcca3179de97ccde90449853a3dfb802e1"
-  end
-
-  resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/d8/94/4b2930f2146c1318e6250c85d884c87720f3089085e4d4ba53fa0f8c620c/python-magic-0.4.12.tar.gz"
-    sha256 "a04b20900100884d4fce40a767182a16fcb9d10756c67cdc21f5fa610b7c9d3c"
-  end
-
-  resource "incremental" do
-    url "https://files.pythonhosted.org/packages/da/b0/32233c9e84b0d44b39015fba8fec03e88053723c1b455925081dc6ccd9e7/incremental-16.10.1.tar.gz"
-    sha256 "14ad6b720ec47aad6c9caa83e47db1843e2b9b98742da5dda08e16a99f400342"
-  end
-
-  resource "constantly" do
-    url "https://files.pythonhosted.org/packages/95/f1/207a0a478c4bb34b1b49d5915e2db574cadc415c9ac3a7ef17e29b2e8951/constantly-15.1.0.tar.gz"
-    sha256 "586372eb92059873e29eba4f9dec8381541b4d3834660707faf8ba59146dfc35"
+  resource "zope.interface" do
+    url "https://files.pythonhosted.org/packages/c5/88/93373971f893714f0dc15e09696ec4886ee8b4e561ce5ae45612c2c516c4/zope.interface-4.4.2.tar.gz"
+    sha256 "4e59e427200201f69ef82956ddf9e527891becf5b7cde8ec3ce39e1d0e262eb0"
   end
 
   def install
