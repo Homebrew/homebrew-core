@@ -1,8 +1,8 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.01.tar.gz"
-  sha256 "0e1e16f3706efa98893e33b1602cc00bb3d8e22e269bfc5a1a078559e4c21ce6"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.02.tar.gz"
+  sha256 "45f38f25ea03d089523c0a4ecdc6905f1980e32e0df3bc922bad1bb282894675"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
@@ -24,8 +24,8 @@ class GetIplayer < Formula
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.33.tar.gz"
-    sha256 "3bf13d60663fc5fcfb7689ba71e0b7da2d5ac818d26b39da55f469ebb3f8fb02"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.43.tar.gz"
+    sha256 "ca177da7b0c1e2a31a1880c4a06afbbd1ada1da57146bfa030b7912a3d608b5e"
   end
 
   def install
@@ -51,7 +51,7 @@ class GetIplayer < Formula
   test do
     output = shell_output("\"#{bin}/get_iplayer\" --refresh --refresh-include=\"BBC None\" --quiet dontshowanymatches 2>&1")
     assert_match "get_iplayer #{pkg_version}-homebrew", output, "Unexpected version"
-    assert_match "INFO: 0 Matching Programmes", output, "Unexpected output"
+    assert_match "INFO: 0 matching programmes", output, "Unexpected output"
     assert_match "INFO: Using concurrent indexing", output,
                          "Mojolicious not found"
   end
