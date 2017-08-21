@@ -90,6 +90,9 @@ class OpencvAT2 < Formula
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal version.to_s, shell_output("./test").strip
-    assert_match version.to_s, shell_output("python -c 'import cv2; print(cv2.__version__)'")
+
+    ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
+    assert_match version.to_s,
+                 shell_output("python -c 'import cv2; print(cv2.__version__)'")
   end
 end
