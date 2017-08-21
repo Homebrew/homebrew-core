@@ -11,6 +11,8 @@ class OpencvAT2 < Formula
     sha256 "c51746b88173a1ca76d231e5679675bf40f26b5fe89ec1d15ce9d302c460b26f" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   option "without-python", "Build without python2 support"
 
   depends_on "cmake" => :build
