@@ -4,7 +4,7 @@ class ArgyllCms < Formula
   url "https://www.argyllcms.com/Argyll_V1.9.2_src.zip"
   version "1.9.2"
   sha256 "4d61ae0b91686dea721d34df2e44eaf36c88da87086fd50ccc4e999a58e9ce90"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -21,6 +21,12 @@ class ArgyllCms < Formula
   conflicts_with "num-utils", :because => "both install `average` binaries"
 
   def install
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    # Reported 20 Aug 2017 to graeme AT argyllcms DOT com
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "numlib/numsup.c", "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
+    end
+
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
     rm "bin/License.txt"
@@ -31,5 +37,6 @@ class ArgyllCms < Formula
     system bin/"targen", "-d", "0", "test.ti1"
     system bin/"printtarg", testpath/"test.ti1"
     %w[test.ti1.ps test.ti1.ti1 test.ti1.ti2].each { |f| File.exist? f }
+    assert_match "Calibrate a Display", shell_output("#{bin}/dispcal 2>&1", 1)
   end
 end
