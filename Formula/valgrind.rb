@@ -19,6 +19,10 @@ class Valgrind < Formula
     depends_on "libtool" => :build
   end
 
+  # valgrind does not yet support High Sierra
+  # https://bugs.kde.org/show_bug.cgi?id=383811
+  depends_on MaximumMacOSRequirement => :sierra
+
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
   skip_clean "lib/valgrind"
