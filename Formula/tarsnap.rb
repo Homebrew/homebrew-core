@@ -1,15 +1,13 @@
 class Tarsnap < Formula
   desc "Online backups for the truly paranoid"
   homepage "https://www.tarsnap.com/"
-  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.37.tgz"
-  sha256 "fa999413651b3bd994547a10ffe3127b4a85a88b1b9a253f2de798888718dbfa"
+  url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
+  sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
 
   bottle do
-    cellar :any
-    sha256 "40a6aa38f88d284ef5254c7a689c795b451ab78a03331dd8352e71999cf58db7" => :sierra
-    sha256 "40965861e708196ec3c18f9a99943f75a54dac2494c88aed96b3df70cd46d4fa" => :el_capitan
-    sha256 "4e256b38d10e905ece1c874a5655612f2f2cc8e7911bfe1d72b07ea2e209244a" => :yosemite
-    sha256 "0c8a97e409b389b5e696330123a1f185ebf17c91728274634a25dc7adfa72866" => :mavericks
+    sha256 "7d4da94d575085b3f2c2066ae5b0e83edd589d0238d065fb0f9ba68d916c3868" => :sierra
+    sha256 "6c4ff5911171f779b85bda69f07eb7a561ec0911517fe3a48b2cb917c1ff4f92" => :el_capitan
+    sha256 "6cc300ce4d0db123d225b9b2ff1d28625061440484932a9c572282de785d4819" => :yosemite
   end
 
   head do
@@ -22,6 +20,13 @@ class Tarsnap < Formula
   depends_on "xz" => :optional
 
   def install
+    # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    # Reported 20 Aug 2017 https://github.com/Tarsnap/tarsnap/issues/286
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      inreplace "libcperciva/util/monoclock.c", "CLOCK_MONOTONIC",
+                                                "UNDEFINED_GIBBERISH"
+    end
+
     system "autoreconf", "-iv" if build.head?
 
     args = %W[

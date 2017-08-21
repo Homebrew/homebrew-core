@@ -119,6 +119,7 @@
   "node6-lts": "node@6",
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
+  "opencv3": "opencv",
   "open-mpi16": "open-mpi@1.6",
   "osh": "etsh",
   "percona-server55": "percona-server@5.5",
