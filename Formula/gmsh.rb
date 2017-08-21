@@ -5,6 +5,13 @@ class Gmsh < Formula
   sha256 "f3105bcd30f843f5842d7d5507b7c3e40a6dfb3fdcf38f4bae2739dc10c7719d"
   head "http://gitlab.onelab.info/gmsh/gmsh.git"
 
+  bottle do
+    cellar :any
+    sha256 "7a28135adb27d4005d83c51950d4566abb41865a90a87b4136e4d159649e571b" => :sierra
+    sha256 "09d964553b98f6807b8799af30564b3f38b65696c3b8c818a99012bd555ba957" => :el_capitan
+    sha256 "9cd224592b9c5a6b647f27402294c4399ca4e85f50cdfdc4e0ac0099cb8eef55" => :yosemite
+  end
+
   option "with-oce", "Build with oce support (conflicts with opencascade)"
   option "with-opencascade", "Build with opencascade support (conflicts with oce)"
 
