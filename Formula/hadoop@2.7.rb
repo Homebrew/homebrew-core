@@ -7,6 +7,8 @@ class HadoopAT27 < Formula
 
   bottle :unneeded
 
+  keg_only :versioned_formula
+
   depends_on :java => "1.7+"
 
   def install
