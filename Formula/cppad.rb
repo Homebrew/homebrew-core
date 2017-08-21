@@ -8,9 +8,9 @@ class Cppad < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :sierra
-    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :el_capitan
-    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :yosemite
+    sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :sierra
+    sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :el_capitan
+    sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :yosemite
   end
 
   depends_on "cmake" => :build
