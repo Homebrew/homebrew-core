@@ -8,8 +8,8 @@ class Binaryen < Formula
 
   bottle do
     cellar :any
-    sha256 "54a170db5805e70d6fd62c2e60e2eaaa3d5d554bf8c20cf95b41ac1dc36ce782" => :sierra
-    sha256 "34f38e8f125ec50c39864069b45e49f3c3bfa5e7ca02a91de0e995aba2aefb01" => :el_capitan
+    sha256 "186881ed9555dd36459eec37df1190375256c82ec7b1c900e7745266221d8e93" => :sierra
+    sha256 "e5f2a45c1c8a435edb2e7ff2a591ba7e65506e11f2bce8a17b030413f85c22ce" => :el_capitan
   end
 
   depends_on "cmake" => :build
