@@ -23,6 +23,7 @@ class Nlopt < Formula
 
     if build.head?
       system "cmake", ".", *std_cmake_args,
+                      "-DBUILD_PYTHON=OFF",
                       "-DBUILD_MATLAB=OFF",
                       "-DBUILD_OCTAVE=OFF",
                       "-DWITH_CXX=ON"
@@ -30,6 +31,7 @@ class Nlopt < Formula
       system "./configure", "--prefix=#{prefix}",
                             "--enable-shared",
                             "--with-cxx",
+                            "--without-python",
                             "--without-octave"
       system "make"
     end
