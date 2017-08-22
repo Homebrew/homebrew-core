@@ -18,7 +18,7 @@ class Nlopt < Formula
     depends_on "swig" => :build
   end
 
-  depends_on "numpy"
+  depends_on "numpy" => :recommended
 
   def install
     ENV.deparallelize
