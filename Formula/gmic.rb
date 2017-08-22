@@ -16,7 +16,7 @@ class Gmic < Formula
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "fftw" => :recommended
-  depends_on "homebrew/science/opencv" => :optional
+  depends_on "opencv@2" => :optional
   depends_on "ffmpeg" => :optional
   depends_on "libtiff" => :optional
   depends_on "openexr" => :optional
