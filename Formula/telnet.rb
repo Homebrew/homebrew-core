@@ -4,6 +4,13 @@ class Telnet < Formula
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "64fa2138be873d53d055bcb1d31ec2583cab0956d98ed32b365414e4f08ecb1c" => :sierra
+    sha256 "915b9a554df5714d85ff831b0721fc471533970b6d7fe6ab2d0ccc7e441d99d0" => :el_capitan
+    sha256 "69ff324ea8f0bcc1478c31a3e5b99e183a947e312cf180027dfecc260c478500" => :yosemite
+  end
+
   keg_only :provided_pre_high_sierra
 
   depends_on :xcode => :build
