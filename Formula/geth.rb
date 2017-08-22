@@ -30,7 +30,7 @@ class Geth < Formula
     }
     EOS
     system "#{bin}/geth", "--datadir", "testchain", "init", "genesis.json"
-    assert_predicate testpath/"testchain/geth/chaindata/000001.log", :exist?, 
+    assert_predicate testpath/"testchain/geth/chaindata/000001.log", :exist?,
                      "Failed to create log file"
   end
 end
