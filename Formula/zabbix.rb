@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.2.7/zabbix-3.2.7.tar.gz"
-  sha256 "3ea0c299bd69bc728177128740f0476bc1a2c1de438330df5bbd8f5fc6090712"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.0/zabbix-3.4.0.tar.gz"
+  sha256 "7126df44de57eebc74e14e6738f604551b9a7d462e2f77d6ecfe03770850f013"
 
   bottle do
     sha256 "f5339668b22723446077ccb27043d2231ed62c0bc9dc7e2195fe94c49b1a6e4b" => :sierra
@@ -16,10 +16,13 @@ class Zabbix < Formula
 
   deprecated_option "agent-only" => "without-server-proxy"
 
+  depends_on "pcre"
+
   if build.with? "server-proxy"
     depends_on :mysql => :optional
     depends_on :postgresql if build.without? "mysql"
     depends_on "fping"
+    depends_on "libevent"
     depends_on "libssh2"
   end
 
@@ -35,6 +38,7 @@ class Zabbix < Formula
       --sysconfdir=#{etc}/zabbix
       --enable-agent
       --with-iconv=#{MacOS.sdk_path}/usr
+      --with-libpcre=#{Formula["pcre"].opt_prefix}
     ]
 
     if build.with? "server-proxy"
