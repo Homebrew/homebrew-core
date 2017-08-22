@@ -43,6 +43,12 @@ class ErlangAT19 < Formula
     sha256 "5aae52e7947db400a7798e8cda6e33e30088edf816e842cb09974b92c6b5eba6"
   end
 
+  # Pointer comparison triggers error with Xcode 9
+  patch do
+    url "https://github.com/erlang/otp/commit/a64c4d806fa54848c35632114585ad82b98712e8.diff?full_index=1"
+    sha256 "3261400f8d7f0dcff3a52821daea3391ebfa01fd859f9f2d9cc5142138e26e15"
+  end
+
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_19.3.tar.gz"
     mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/erlang/otp_doc_man_19.3.tar.gz"
