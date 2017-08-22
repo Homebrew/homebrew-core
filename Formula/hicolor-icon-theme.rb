@@ -1,8 +1,8 @@
 class HicolorIconTheme < Formula
   desc "Fallback theme for FreeDesktop.org icon themes"
   homepage "https://wiki.freedesktop.org/www/Software/icon-theme/"
-  url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.15.tar.xz"
-  sha256 "9cc45ac3318c31212ea2d8cb99e64020732393ee7630fa6c1810af5f987033cc"
+  url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.16.tar.xz"
+  sha256 "b0f8e770815fc80f7719d367608a2eb05572570cfca2734f986deae73e7d1f39"
 
   bottle do
     cellar :any_skip_relocation
