@@ -1,10 +1,9 @@
 class DockerCompletion < Formula
   desc "Bash, Zsh and Fish completion for Docker"
-  homepage "https://github.com/docker/docker"
-  url "https://github.com/moby/moby/archive/v17.05.0-ce.tar.gz"
-  version "17.05.0"
-  sha256 "4716df117d867b82ddab2e82395cd40aa3d0925a689eedcec8919729e4c9f121"
-  head "https://github.com/docker/docker.git"
+  homepage "https://www.docker.com/"
+  url "https://github.com/docker/docker-ce.git",
+      :tag => "v17.06.1-ce",
+      :revision => "874a7374f31c77aca693d025101b2de1b20b96c2"
 
   bottle :unneeded
 
@@ -12,9 +11,9 @@ class DockerCompletion < Formula
     :because => "docker already includes these completion scripts"
 
   def install
-    bash_completion.install "contrib/completion/bash/docker"
-    fish_completion.install "contrib/completion/fish/docker.fish"
-    zsh_completion.install "contrib/completion/zsh/_docker"
+    bash_completion.install "components/cli/contrib/completion/bash/docker"
+    fish_completion.install "components/cli/contrib/completion/fish/docker.fish"
+    zsh_completion.install "components/cli/contrib/completion/zsh/_docker"
   end
 
   test do
