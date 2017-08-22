@@ -13,7 +13,6 @@ class Geth < Formula
   end
 
   test do
-    system "#{bin}/geth", "version"
     (testpath/"genesis.json").write <<-EOS.undent
     {
       "config": {
@@ -31,6 +30,6 @@ class Geth < Formula
     }
     EOS
     system "#{bin}/geth", "--datadir", "testchain", "init", "genesis.json"
-    assert File.directory? "testchain/keystore"
+    assert File.file? "testchain/geth/chaindata/000001.log"
   end
 end
