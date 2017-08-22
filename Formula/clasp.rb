@@ -6,9 +6,9 @@ class Clasp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd9ad8525cfbb0692dd94cedbd76849edbc222fae644b27fe1e106679e39c64d" => :sierra
-    sha256 "66882d87c5b4aead5af374d54438cbac8877c493e0aaf56798e8c629581d7186" => :el_capitan
-    sha256 "a7770d88cfb59b6678f297ceaa8a38e305eb11a28df6a887205a36c90728c973" => :yosemite
+    sha256 "02cafaad412b7b4bc1c78bbd81f153345eb1eaf22050d55c2daba069a73ffa90" => :sierra
+    sha256 "09acf6c42509c7cc80311c181685ebb39c319a80668ab3e7a452586a72961f7b" => :el_capitan
+    sha256 "fb6c23036a3735c43cabbe38c324cd16cf07ed4c7463396d3c559bec6c4038be" => :yosemite
   end
 
   depends_on "cmake" => :build
