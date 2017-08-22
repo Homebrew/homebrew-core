@@ -20,6 +20,7 @@ class Pdns < Formula
   end
 
   option "with-postgresql", "Enable the PostgreSQL backend"
+  option "with-remote", "enable the Remote backend"
 
   deprecated_option "pgsql" => "with-postgresql"
   deprecated_option "with-pgsql" => "with-postgresql"
@@ -42,6 +43,8 @@ class Pdns < Formula
     # Include the PostgreSQL backend if requested
     if build.with? "postgresql"
       args << "--with-modules=gsqlite3 gpgsql"
+    elsif build.with? "remote"
+      args << "--with-modules=gsqlite3 remote"
     else
       # SQLite3 backend only is the default
       args << "--with-modules=gsqlite3"
