@@ -8,11 +8,9 @@ class Ghq < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "87b5fc1d352c8d96c10e605c92a2f56dcfb4357daa62d121b44df62e86e5426f" => :sierra
-    sha256 "c44dbb258731843fde8fee860d0935ae184db1439f5de11464f70444c8db7464" => :el_capitan
-    sha256 "2f59e9c8da2819b2a1d117352fc6d6e66e19a4ca4e31fa12bac955d57d7f5f17" => :yosemite
-    sha256 "45bb6555ca33acfad9a9b0d8abe702dc1a2c3b07c4fd28e889acc8c952383022" => :mavericks
+    sha256 "ad05a023f52f11867a400d0109c98258ddce536728d4218e3694c836033a0c7b" => :sierra
+    sha256 "fab4b2d64cd2b40e3b6045b145525e2a23fdfbad5b22ba37a28a85c909ee625d" => :el_capitan
+    sha256 "d8281b077e388d55fdb8a2012c884b5195fe42be4bb67c14e0ea2a1c481f288f" => :yosemite
   end
 
   option "without-completions", "Disable zsh completions"
