@@ -20,12 +20,14 @@ class Znc < Formula
 
   option "with-debug", "Compile ZNC with debug support"
   option "with-icu4c", "Build with icu4c for charset support"
+  option "with-python3", "Build with mod_python support, allowing Python ZNC modules"
 
   deprecated_option "enable-debug" => "with-debug"
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "icu4c" => :optional
+  depends_on "python3" => :optional
 
   needs :cxx11
 
@@ -39,6 +41,7 @@ class Znc < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--enable-debug" if build.with? "debug"
+    args << "--enable-python" if build.with? "python3"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
