@@ -36,7 +36,7 @@ class Telnet < Formula
   end
 
   test do
-    output = shell_output("#{bin}/telnet 'towel.blinkenlights.nl' 666", 1)
+    output = shell_output("#{bin}/telnet 94.142.241.111 666", 1)
     assert_match "=== The BOFH Excuse Server ===", output
   end
 end
