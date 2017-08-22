@@ -21,10 +21,8 @@ class Gomplate < Formula
   end
 
   test do
-    # Verify that we set the version correctly during the build.
-    ver = shell_output "#{bin/"gomplate"} --version"
-    assert_match "gomplate version #{version}", ver
-
+    output = shell_output("#{bin}/"gomplate" --version")
+    assert_equal "gomplate version #{version}", output.chomp
 
     test_template = <<-TEMPLATE.unindent
       {{ range ("foo:bar:baz" | strings.SplitN ":" 2) }}{{.}}
