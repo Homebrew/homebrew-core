@@ -9,6 +9,6 @@ class Qshell < Formula
   end
 
   test do
-    system "false"
+    system "qshell" "help"
   end
 end
