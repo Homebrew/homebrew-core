@@ -18,8 +18,6 @@ class Nlopt < Formula
     depends_on "swig" => :build
   end
 
-  depends_on "numpy"
-
   def install
     ENV.deparallelize
 
