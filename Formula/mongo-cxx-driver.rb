@@ -6,9 +6,9 @@ class MongoCxxDriver < Formula
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
   bottle do
-    sha256 "fd1ce6c023cbcf6859cb41f845ed45a42a1465de95339a6ad6effaa163754afa" => :sierra
-    sha256 "1c7be629080d9a85b25d76602617365d9a78f9442006b3e755aa1917a56411c2" => :el_capitan
-    sha256 "73d48c0bf767e929063400988525d21d551cd85c04a6e64cb96be91042bb8cf4" => :yosemite
+    sha256 "7ad27f3653c9918154c096f0c00c0e0d70289817a81ad11c84f17850ea0f774b" => :sierra
+    sha256 "96e2986f43166c5f54ef62a7dc36dc007a5e5a63057b9bc05d23b2e4ff53e2f0" => :el_capitan
+    sha256 "514fbb37aee0e2cb3d72c8a31e984e8be6bd5308081c1051598f9e7efea543c9" => :yosemite
   end
 
   needs :cxx11
