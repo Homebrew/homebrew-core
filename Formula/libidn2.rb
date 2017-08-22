@@ -1,5 +1,5 @@
 class Libidn2 < Formula
-  desc "International domain name library"
+  desc "International domain name library (IDNA2008, Punycode and TR46)"
   homepage "https://www.gnu.org/software/libidn/#libidn2"
   url "https://ftp.gnu.org/gnu/libidn/libidn2-2.0.3.tar.lz"
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.0.3.tar.lz"
@@ -10,6 +10,8 @@ class Libidn2 < Formula
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
+    depends_on "gettext" => :build
+    depends_on "gengetopt" => :build
   end
 
   depends_on "pkg-config" => :build
