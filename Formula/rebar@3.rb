@@ -7,9 +7,9 @@ class RebarAT3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68b9657015e37e5db014a38ae0aabcfb64d9edbfe560fe8f38431069ea1842d1" => :sierra
-    sha256 "c0c1c434896346b14d10a8d244713bb32c4793d39d3cabe704c51052ece42bd7" => :el_capitan
-    sha256 "752825614e65506b0b0376343eb0205025e904974edf255bbb48f834228e0019" => :yosemite
+    sha256 "f308031dda9b3e08f653bab39a5ba824a2e909e3193119a0b4303d7d45475210" => :sierra
+    sha256 "8ee6d81532dba979cdbd433144ee8d70e97d7d99913a05dce13a937c856b50ff" => :el_capitan
+    sha256 "1986a379754920128cd1de56037c41d428521a44184d5f7045c64de0279c2a43" => :yosemite
   end
 
   depends_on "erlang"
