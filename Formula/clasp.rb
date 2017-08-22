@@ -1,8 +1,8 @@
 class Clasp < Formula
   desc "Answer set solver for (extended) normal logic programs"
-  homepage "https://potassco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/potassco/clasp/3.2.0/clasp-3.2.0-source.tar.gz"
-  sha256 "eafb050408b586d561cd828aec331b4d3b92ea7a26d249a02c4f39b1675f4e68"
+  homepage "https://potassco.org/clasp/"
+  url "https://github.com/potassco/clasp/archive/v3.3.2.tar.gz"
+  sha256 "367f9f3f035308bd32d5177391a470d9805efc85a737c4f4d6d7b23ea241dfdf"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,29 +11,11 @@ class Clasp < Formula
     sha256 "a7770d88cfb59b6678f297ceaa8a38e305eb11a28df6a887205a36c90728c973" => :yosemite
   end
 
-  option "with-tbb", "Enable multi-thread support"
-
-  deprecated_option "with-mt" => "with-tbb"
-
-  depends_on "tbb" => :optional
+  depends_on "cmake" => :build
 
   def install
-    if build.with? "tbb"
-      ENV["TBB30_INSTALL_DIR"] = Formula["tbb"].opt_prefix
-      build_dir = "build/release_mt"
-    else
-      build_dir = "build/release"
-    end
-
-    args = %W[
-      --config=release
-      --prefix=#{prefix}
-    ]
-    args << "--with-mt=tbb" if build.with? "tbb"
-
-    bin.mkpath
-    system "./configure.sh", *args
-    system "make", "-C", build_dir, "install"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
