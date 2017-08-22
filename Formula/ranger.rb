@@ -3,8 +3,7 @@ class Ranger < Formula
   homepage "http://ranger.nongnu.org/"
   url "http://ranger.nongnu.org/ranger-1.8.1.tar.gz"
   sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
-
-  head "git://git.savannah.nongnu.org/ranger.git"
+  head "https://git.savannah.nongnu.org/git/ranger.git"
 
   bottle do
     cellar :any_skip_relocation
