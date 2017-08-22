@@ -33,6 +33,10 @@ class MidnightCommander < Formula
       --enable-vfs-sftp
     ]
 
+    # Fix compilation bug on macOS 10.13 by pretending we don't have utimensat()
+    # https://github.com/MidnightCommander/mc/pull/130
+    ENV["ac_cv_func_utimensat"] = "no" if MacOS.version >= :high_sierra
+
     args << "--disable-nls" if build.without? "nls"
 
     system "./configure", *args
