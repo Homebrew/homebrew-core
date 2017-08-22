@@ -6,7 +6,6 @@ class Geth < Formula
   head "https://github.com/ethereum/go-ethereum.git"
 
   depends_on "go" => :build
-  depends_on "cmake" => :build
 
   def install
     system "make", "geth"
@@ -15,5 +14,6 @@ class Geth < Formula
 
   test do
     system "#{bin}/geth", "-h"
+    system "#{bin}/geth", "version"
   end
 end
