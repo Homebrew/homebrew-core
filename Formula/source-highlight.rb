@@ -5,7 +5,7 @@ class SourceHighlight < Formula
   mirror "https://ftpmirror.gnu.org/src-highlite/source-highlight-3.1.8.tar.gz"
   mirror "https://fossies.org/linux/www/source-highlight-3.1.8.tar.gz"
   sha256 "01336a7ea1d1ccc374201f7b81ffa94d0aecb33afc7d6903ebf9fbf33a55ada3"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "a366f9add09de541bed40859ff81417b6a8639366187492258c8b1af5725ba71" => :sierra
