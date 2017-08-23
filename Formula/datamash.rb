@@ -1,9 +1,9 @@
 class Datamash < Formula
   desc "Tool to perform numerical, textual & statistical operations"
   homepage "https://www.gnu.org/software/datamash"
-  url "https://ftp.gnu.org/gnu/datamash/datamash-1.1.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.1.1.tar.gz"
-  sha256 "420819b3d7372ee3ce704add847cff7d08c4f8176c1d48735d4a632410bb801b"
+  url "https://ftp.gnu.org/gnu/datamash/datamash-1.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.2.tar.gz"
+  sha256 "e8d46fb22ccc77e5380f26cde622a733f363d388b04a2c22e7fb6de0e9d85996"
 
   bottle do
     cellar :any_skip_relocation
