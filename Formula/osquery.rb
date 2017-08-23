@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.6.0",
-      :revision => "3cd26ac48cc40f7b5a06f26af56434e662f75704"
-  revision 1
+      :tag => "2.7.0",
+      :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
 
   bottle do
     cellar :any
@@ -30,11 +29,13 @@ class Osquery < Formula
   depends_on "lldpd"
   depends_on "lz4"
   depends_on "openssl"
+  depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
   depends_on "snappy"
   depends_on "yara"
   depends_on "xz"
+  depends_on "zstd"
 
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
@@ -52,8 +53,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.1.5.tar.gz"
-    sha256 "fc16f2fb45254acb2fcbabe13a97daceb1d920a6ac684ef5c601871a29dcb0cf"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
+    sha256 "94d3bf8cbb1db18ebdb50fbf20aa48ad1838f1743bbd22ca04adbaad9bc284dc"
   end
 
   resource "cpp-netlib" do
@@ -87,7 +88,7 @@ class Osquery < Formula
         -DNO_HTTP_CLIENT=1
         -DMINIMIZE_SIZE=ON
         -DBUILD_SHARED_LIBS=OFF
-        -DBUILD_ONLY=firehose;kinesis;sts
+        -DBUILD_ONLY=ec2;firehose;kinesis;sts
         -DCMAKE_INSTALL_PREFIX=#{vendor}/aws-sdk-cpp
       ]
 
