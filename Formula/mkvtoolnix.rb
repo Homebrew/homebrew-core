@@ -3,6 +3,7 @@ class Mkvtoolnix < Formula
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
   url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-15.0.0.tar.xz"
   sha256 "73dc3b6f0a7147e28c06f44427fa0e824d0a4129e40c942d7642d9f451a51195"
+  revision 1
 
   bottle do
     sha256 "1bf59af579b2f89bc653697d21f04314c511e38577a2d3a031e80a5223ea1dfa" => :sierra
