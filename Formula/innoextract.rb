@@ -8,10 +8,9 @@ class Innoextract < Formula
 
   bottle do
     cellar :any
-    sha256 "38470781a26450fe20ccbb1718e387e644321e3ce7f904c72a70451d7b7cc033" => :sierra
-    sha256 "0e9fb5ed9c1a8d475ad8539f89abaf834ecfdc3734b8605bb4fe15ef0dc0aecc" => :el_capitan
-    sha256 "ebca784ee724f843cafd76fd2d9226f9c81675a4cdfc9fc67b6cbff93149df39" => :yosemite
-    sha256 "292b31136421aeeff77ee6492b389126de1a440c57676a5af1de3b143a78db91" => :mavericks
+    sha256 "c2a3454c2b3c3d39f505df076e63533e20a1cff4bdd523516b35276cf609b284" => :sierra
+    sha256 "bef90294c577a445f353c03a0ca5939daaf9c6f8fe50c6bd29bf93fdc61a00af" => :el_capitan
+    sha256 "34e96953feb584c54ce1c08ba4e47e4375cdc02571e8e66adb3f295c022cff44" => :yosemite
   end
 
   depends_on "cmake" => :build
