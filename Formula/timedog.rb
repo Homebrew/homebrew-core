@@ -1,8 +1,8 @@
 class Timedog < Formula
   desc "Lists files that were saved by a backup of the macOS Time Machine"
   homepage "https://github.com/nlfiedler/timedog"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/timedog/timedog-1.3.zip"
-  sha256 "4683f37a28407dabc5c56dc45e6480dd2db460289321edce8980a236cc2787ec"
+  url "https://github.com/nlfiedler/timedog/archive/v1.4.tar.gz"
+  sha256 "169ab408fe5c6b292a7d4adf0845c42160108fd43d6a392b95210204de49cb52"
   head "https://github.com/nlfiedler/timedog.git"
 
   bottle :unneeded
@@ -12,6 +12,6 @@ class Timedog < Formula
   end
 
   test do
-    assert_match "Cannot locate timemachine directory", shell_output("#{bin}/timedog 2>&1", 2)
+    assert_match "No machine directory found for host", shell_output("#{bin}/timedog 2>&1", 1)
   end
 end
