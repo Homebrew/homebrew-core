@@ -29,4 +29,24 @@ class Libunistring < Formula
     system "make", "check"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <uniname.h>
+      #include <unistdio.h>
+      #include <stdio.h>
+      #include <stdlib.h>
+      int main (void) {
+        uint32_t s[2] = {};
+        uint8_t buff[12] = {};
+        if (u32_uctomb (s, unicode_name_character ("BEER MUG"), sizeof s) != 1) abort();
+        if (u8_sprintf (buff, "%llU", s) != 4) abort();
+        printf ("%s\\n", buff);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lunistring",
+                   "-o", "test"
+    assert_equal "🍺", shell_output("./test").chomp
+  end
 end
