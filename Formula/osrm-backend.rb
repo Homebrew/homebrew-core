@@ -3,6 +3,7 @@ class OsrmBackend < Formula
   homepage "http://project-osrm.org/"
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.11.0.tar.gz"
   sha256 "de95e00933c0ac040bac65c24d6b9ced5c580a115f9e50ce3948f78993f4636b"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
@@ -25,7 +26,7 @@ class OsrmBackend < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF", *std_cmake_args
       system "make"
       system "make", "install"
     end
