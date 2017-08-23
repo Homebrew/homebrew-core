@@ -1,8 +1,8 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "http://druid.io"
-  url "http://static.druid.io/artifacts/releases/druid-0.10.0-bin.tar.gz"
-  sha256 "5c734587528287d35979f0da7ee50fa568322e35296309a16658414c5bb6fae4"
+  url "http://static.druid.io/artifacts/releases/druid-0.10.1-bin.tar.gz"
+  sha256 "3a32395305cc95c0cc351f2aa14de2f60ddd206ceb63e59a2b36bc96b98c421f"
 
   bottle :unneeded
 
@@ -12,8 +12,8 @@ class Druid < Formula
   depends_on :java => "1.8+"
 
   resource "mysql-metadata-storage" do
-    url "http://static.druid.io/artifacts/releases/mysql-metadata-storage-0.10.0.tar.gz"
-    sha256 "80c15f9614cadbd0f69c21a27d03af8b4533a59d793b0eb0283bc46565e9e1e6"
+    url "http://static.druid.io/artifacts/releases/mysql-metadata-storage-0.10.1.tar.gz"
+    sha256 "b6b3e18a2bdfc8d08c0c4dd09f0cdd95ce44bfcdb9e453ddfcd1af276fdd148d"
   end
 
   def install
