@@ -1,21 +1,9 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.tar.bz2"
+  sha256 "ea26712742e2fb079c2a566a31f3266973b76e38222b9f88b387e3c8b2f9902c"
   head "https://github.com/boostorg/boost.git"
-
-  stable do
-    url "https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2"
-    sha256 "7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332"
-
-    # Remove for > 1.64.0
-    # "Replace boost::serialization::detail::get_data function."
-    # Upstream PR from 26 Jan 2017 https://github.com/boostorg/mpi/pull/39
-    patch :p2 do
-      url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch?full_index=1"
-      sha256 "e3765f6fe04e50089a315f20be392c73834b06274ef6624a4b91464a7409c010"
-    end
-  end
 
   bottle do
     cellar :any
@@ -31,20 +19,9 @@ class Boost < Formula
 
   deprecated_option "with-icu" => "with-icu4c"
 
-  if build.cxx11?
-    depends_on "icu4c" => [:optional, "c++11"]
-  else
-    depends_on "icu4c" => :optional
-  end
+  depends_on "icu4c" => :optional
 
   needs :cxx11 if build.cxx11?
-
-  # fix error: no member named 'make_array' in namespace 'boost::serialization'
-  # https://svn.boost.org/trac/boost/ticket/12978
-  patch :p2 do
-    url "https://github.com/boostorg/serialization/commit/1d86261581230e2dc5d617a9b16287d326f3e229.diff?full_index=1"
-    sha256 "56620635277eccbb20d970d9a1cdd803b9bb18790f108bd225594ff9d2d9e8bd"
-  end
 
   def install
     # Force boost to compile with the desired compiler
@@ -78,6 +55,7 @@ class Boost < Formula
             "-j#{ENV.make_jobs}",
             "--layout=tagged",
             "--user-config=user-config.jam",
+            "-sNO_LZMA=1",
             "install"]
 
     if build.with? "single"

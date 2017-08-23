@@ -3,6 +3,7 @@ class VowpalWabbit < Formula
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
   url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.4.0.tar.gz"
   sha256 "8624c33fd516e8b738fbbc6fc49f62ac03f97af183dbecff298162b4bf5736d5"
+  revision 1
 
   bottle do
     cellar :any

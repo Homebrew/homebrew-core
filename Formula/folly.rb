@@ -3,6 +3,7 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2017.08.21.00.tar.gz"
   sha256 "ba8881c4d781daea3ca02663bc4b02befc6aa3c84bb1355365653e65fc1853a4"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Bitcoin < Formula
   homepage "https://bitcoin.org/"
   url "https://github.com/bitcoin/bitcoin/archive/v0.14.2.tar.gz"
   sha256 "e0ac23f01a953fcc6290c96799deeffb32aa76ca8e216c564d20c18e75a25219"
+  revision 1
   head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
