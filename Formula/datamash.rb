@@ -7,9 +7,9 @@ class Datamash < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b0e4f5e26b38b4db687a3e9eaeb103ef580461a40ddbc31af1eaf0758d54efa" => :sierra
-    sha256 "296cf7d1f291f1ffb0f6f877d1d1a7724877195f0a53e7abdeb7b91389742757" => :el_capitan
-    sha256 "734d31b032f5dc7ed2968c20d04938f9b028ed3e3b9587efc548bdfba2d589ce" => :yosemite
+    sha256 "b0eaec94032f69086bbbdcc7d38a59d7f03ba9511a8ce47a965fcf9e18229cb6" => :sierra
+    sha256 "d310a35d4ad9760fb4b936429f453b30baf6c5d474983c3928344f8dca145283" => :el_capitan
+    sha256 "cf022df27f4f7cf13b171e84d05816e8eddbae6c0190b0e339b269178d935ada" => :yosemite
   end
 
   head do
