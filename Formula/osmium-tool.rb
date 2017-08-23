@@ -7,9 +7,8 @@ class OsmiumTool < Formula
 
   bottle do
     cellar :any
-    sha256 "49b71d3333ab369aaebeff89105c79559e7bd3c743c5213ab7a0e04bc82b1787" => :sierra
-    sha256 "1994ded450727df891726f316421d6f8956e0f757678446fea16ca76d7d0a9bb" => :el_capitan
-    sha256 "b7949426174e8f4b18a15412bb588b9a698af0065e0e1d0e4e78752d2d02f171" => :yosemite
+    sha256 "5e5529cc807ed81151195eec2a31ba37aa168a02d96217bea33ac703901d4832" => :sierra
+    sha256 "824abf61d26ca3a7fe47a914167fe1b0548adfbfd26155a0e8c6a897dc7810f2" => :yosemite
   end
 
   depends_on "cmake" => :build
