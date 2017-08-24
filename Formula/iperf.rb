@@ -16,6 +16,13 @@ class Iperf < Formula
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
+
+    # Otherwise this definition confuses system headers on 10.13
+    # https://github.com/Homebrew/homebrew-core/issues/14418#issuecomment-324082915
+    if MacOS.version >= :high_sierra
+      inreplace "config.h", "#define bool int", ""
+    end
+
     system "make", "install"
   end
 
