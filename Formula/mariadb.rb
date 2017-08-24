@@ -26,11 +26,7 @@ class Mariadb < Formula
 
   conflicts_with "mysql", "mysql-cluster", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
   conflicts_with "mytop", :because => "both install `mytop` binaries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
