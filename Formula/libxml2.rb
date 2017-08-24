@@ -50,7 +50,8 @@ class Libxml2 < Formula
 
   def install
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
-    system "./autogen.sh", "--disable-dependency-tracking",
+    system "./autogen.sh"
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",
                           "--without-lzma"
