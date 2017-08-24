@@ -3,6 +3,7 @@ class MobileShell < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
   sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
+  revision 1
 
   bottle do
     sha256 "d1aa59fa052c0b919bd5d7e7a3fcbf3d225ae7bb8b237e52b1b73d4f8ff1bf1c" => :sierra
