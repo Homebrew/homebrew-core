@@ -33,7 +33,8 @@ class Fstar < Formula
 
     if build.stable?
       system "opam", "config", "exec", "opam", "install", "batteries=2.7.0",
-             "zarith=1.5", "yojson=1.4.0", "pprint=20140424", "stdint=0.4.2", "menhir=20170712"
+             "zarith=1.5", "yojson=1.4.0", "pprint=20140424", "stdint=0.4.2",
+             "menhir=20170712"
     else
       system "opam", "config", "exec", "opam", "install", "batteries", "zarith",
              "yojson", "pprint", "stdint", "menhir"
