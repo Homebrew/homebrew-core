@@ -5,6 +5,13 @@ class Gomplate < Formula
   sha256 "ddc2c6e5b2bc4e2cf75bbabf1a28da85a20f35007f38c1685741b44d227c5df4"
   head "https://github.com/hairyhenderson/gomplate.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "05645db690ebe754a1af90a0151254d8b945a69f28c4dd24458716767ae417a2" => :sierra
+    sha256 "a95e04ae37e15d509f141dc6f4155c216a756440bd1291275d533783b6c5b0cb" => :el_capitan
+    sha256 "f2aebeda4abbcd3f7ceb6c44807dbb3015de24dcef8f7e6f0d6082ff62b51ee4" => :yosemite
+  end
+
   depends_on "glide" => :build
   depends_on "go" => :build
   depends_on "upx" => :build
