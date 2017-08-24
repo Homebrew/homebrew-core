@@ -1,8 +1,8 @@
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/mapbox/tippecanoe"
-  url "https://github.com/mapbox/tippecanoe/archive/1.22.1.tar.gz"
-  sha256 "1452a932c02dcd8a25d96fae6ac3cc6b813c143c9923d555b89280722b7ebe43"
+  url "https://github.com/mapbox/tippecanoe/archive/1.22.2.tar.gz"
+  sha256 "47cadb0b37d6bb58e0582d68834595beb7c53609b4f4f3b705e57ed48edad35b"
 
   bottle do
     cellar :any_skip_relocation
