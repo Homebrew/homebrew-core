@@ -22,12 +22,16 @@ class Hydra < Formula
   depends_on "gtk+" => :optional
 
   def install
-    # Dirty hack to permit linking against our OpenSSL.
-    # https://github.com/vanhauser-thc/thc-hydra/issues/80
     inreplace "configure" do |s|
+      # Link against our OpenSSL
+      # https://github.com/vanhauser-thc/thc-hydra/issues/80
       s.gsub! "/opt/local/lib", Formula["openssl"].opt_lib
       s.gsub! "/opt/local/*ssl", Formula["openssl"].opt_lib
       s.gsub! "/opt/*ssl/include", Formula["openssl"].opt_include
+      # Avoid opportunistic linking of subversion
+      s.gsub! "libsvn", "oh_no_you_dont" if build.without? "subversion"
+      # Avoid opportunistic linking of libssh
+      s.gsub! "libssh", "certainly_not" if build.without? "libssh"
     end
 
     # Having our gcc in the PATH first can cause issues. Monitor this.
