@@ -1,8 +1,8 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v1.10.0.tar.gz"
-  sha256 "89537dd0f490f244c93539d716b2e67c30fb35c8800ee5a8d8e46ce29b19860d"
+  url "https://github.com/hairyhenderson/gomplate/archive/v2.0.0.tar.gz"
+  sha256 "ddc2c6e5b2bc4e2cf75bbabf1a28da85a20f35007f38c1685741b44d227c5df4"
   head "https://github.com/hairyhenderson/gomplate.git"
 
   depends_on "glide" => :build
