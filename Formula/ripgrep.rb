@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher."
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/0.5.2.tar.gz"
-  sha256 "5d880c590cbb09d907d64ba24557fb2b2f025c8363bcdde29f303e9261625eea"
+  url "https://github.com/BurntSushi/ripgrep/archive/0.6.0.tar.gz"
+  sha256 "102aff26fae9f455a8bcc435759d488f4944a34bee4b22b852f1cac3245b1b5e"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
@@ -24,11 +24,7 @@ class Ripgrep < Formula
     out_dir = Dir["target/release/build/ripgrep-*/out"].first
     bash_completion.install "#{out_dir}/rg.bash-completion"
     fish_completion.install "#{out_dir}/rg.fish"
-    if build.head?
-      zsh_completion.install "complete/_rg"
-    else
-      zsh_completion.install "#{out_dir}/_rg"
-    end
+    zsh_completion.install "complete/_rg"
   end
 
   test do
