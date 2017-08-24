@@ -7,11 +7,10 @@ class HttpLoad < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "066db733e2ca22f30545f7131ad2833b3c16559a769fb2ce18686336066d6466" => :sierra
-    sha256 "b7afff0a015534e8db9ba4e957014225bbf446c97378769a193da2e3753b14bc" => :el_capitan
-    sha256 "6a38746183341a185ac3f7da57afc365707c2647ebaa0dc1d836b670b9bae35e" => :yosemite
-    sha256 "0ba139d6c0adc4b5843bbbf3ce677ad58335029e7d4de0a18201bff0082e1e19" => :mavericks
+    cellar :any
+    sha256 "d0ee5757f7b530a23d0c27f603e7bf237599f4d279ea9c9261f1417e7ed3cf97" => :sierra
+    sha256 "70f69abf54c027ae1397ccd17b61e66108a5dbd03e8edd8db1ff6af0f8f135d9" => :el_capitan
+    sha256 "f4702e82a17b0c972164f2bc8ba985edccf0f3dc840627d37d5307d9b914ba25" => :yosemite
   end
 
   option "without-openssl", "Build without OpenSSL / HTTPS support"
