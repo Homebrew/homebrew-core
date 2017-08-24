@@ -30,6 +30,6 @@ class ProtobufC < Formula
       }
     EOS
     (testpath/"test.proto").write testdata
-    system Formula["protobuf"].bin/"protoc", "test.proto", "--c_out=."
+    system Formula["protobuf"].opt_bin/"protoc", "test.proto", "--c_out=."
   end
 end
