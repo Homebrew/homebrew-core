@@ -17,4 +17,19 @@ class ProtobufC < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    testdata = <<-EOS.undent
+      syntax = "proto3";
+      package test;
+      message TestCase {
+        string name = 4;
+      }
+      message Test {
+        repeated TestCase case = 1;
+      }
+    EOS
+    (testpath/"test.proto").write testdata
+    system Formula["protobuf"].opt_bin/"protoc", "test.proto", "--c_out=."
+  end
 end
