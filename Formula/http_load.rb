@@ -4,6 +4,7 @@ class HttpLoad < Formula
   url "https://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
   version "20160309"
   sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +14,9 @@ class HttpLoad < Formula
     sha256 "0ba139d6c0adc4b5843bbbf3ce677ad58335029e7d4de0a18201bff0082e1e19" => :mavericks
   end
 
-  option "with-openssl", "Build with OpenSSL for HTTPS support"
+  option "without-openssl", "Build without OpenSSL / HTTPS support"
 
-  depends_on "openssl" => :optional
+  depends_on "openssl" => :recommended
 
   def install
     bin.mkpath
@@ -37,7 +38,7 @@ class HttpLoad < Formula
   end
 
   test do
-    (testpath/"urls").write "http://brew.sh"
+    (testpath/"urls").write "https://brew.sh/"
     system "#{bin}/http_load", "-rate", "1", "-fetches", "1", "urls"
   end
 end
