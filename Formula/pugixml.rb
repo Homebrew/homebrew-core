@@ -1,6 +1,6 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
-  homepage "http://pugixml.org"
+  homepage "https://pugixml.org/"
   url "https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz"
   sha256 "00d974a1308e85ca0677a981adc1b2855cb060923181053fb0abf4e2f37b8f39"
 
