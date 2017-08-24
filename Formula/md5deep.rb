@@ -14,10 +14,16 @@ class Md5deep < Formula
     sha256 "5d68af238b95cffd8959418d804212c50a69cbae90c203d4abb56ceafea93399" => :mountain_lion
   end
 
-  # This won't work on < Leopard due to using the CommonCrypto Library
-  # Not completely impossible to fix, but doubt the demand is there.
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
+  # Fix compilation error due to pointer comparison
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://github.com/jessek/hashdeep/pull/361.diff?full_index=1"
+      sha256 "26af2c70fc573bbe09cf67af7fd9d121799771b448a460ee0efa958cbd80e584"
+    end
+  end
 
   def install
     system "sh", "bootstrap.sh"
