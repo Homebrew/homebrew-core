@@ -43,7 +43,6 @@ class Libxml2 < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   # These should return to being head-only whenever 2.9.5 is released.
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
