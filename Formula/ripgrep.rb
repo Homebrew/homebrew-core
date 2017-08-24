@@ -24,11 +24,7 @@ class Ripgrep < Formula
     out_dir = Dir["target/release/build/ripgrep-*/out"].first
     bash_completion.install "#{out_dir}/rg.bash-completion"
     fish_completion.install "#{out_dir}/rg.fish"
-    if build.head?
-      zsh_completion.install "complete/_rg"
-    else
-      zsh_completion.install "#{out_dir}/_rg"
-    end
+    zsh_completion.install "complete/_rg"
   end
 
   test do
