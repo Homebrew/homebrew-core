@@ -3,6 +3,7 @@ class ProtobufSwift < Formula
   homepage "https://github.com/alexeyxo/protobuf-swift"
   url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.22.tar.gz"
   sha256 "3d24391b0e91c0bf665aa045b99279300b6ebaaf0aff18a273b5f39aabcd3700"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class ProtobufSwift < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "protobuf"
+  depends_on "protobuf@3.1"
 
   def install
     system "protoc", "-Iplugin/compiler",
@@ -40,6 +41,6 @@ class ProtobufSwift < Formula
       }
     EOS
     (testpath/"test.proto").write(testdata)
-    system "protoc", "test.proto", "--swift_out=."
+    system Formula["protobuf@3.1"].opt_bin/"protoc", "test.proto", "--swift_out=."
   end
 end
