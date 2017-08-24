@@ -53,6 +53,14 @@ class QtAT57 < Formula
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
+  # Fix QTBUG-62266
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0af7ca663c/qt%405.7/QTBUG-62266.patch"
+      sha256 "60471b893eb394db18dacae8bd38727a955742626da641dd980dbb87a8808e9e"
+    end
+  end
+
   def install
     args = %W[
       -verbose
