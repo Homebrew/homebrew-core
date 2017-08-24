@@ -10,10 +10,11 @@ class Gspell < Formula
     sha256 "e334679062a6636fa756155721ce0a5424f0d971bb692d58de3dfe8f848a270a" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "enchant"
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
