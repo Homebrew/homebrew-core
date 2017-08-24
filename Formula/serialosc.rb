@@ -19,6 +19,13 @@ class Serialosc < Formula
   depends_on "libmonome"
 
   def install
+    # Upstream issue "clang 4.0.1 build failure on -Waddress-of-packed-member"
+    # Reported 24 Aug 2017 https://github.com/monome/serialosc/issues/28
+    if DevelopmentTools.clang_build_version >= 802
+      inreplace "wscript", '"-Werror"',
+                           '"-Werror", "-Wno-address-of-packed-member"'
+    end
+
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
     system "./waf", "install"
