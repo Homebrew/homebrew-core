@@ -14,13 +14,15 @@ class Phantomjs < Formula
       url "https://github.com/ariya/phantomjs/commit/6090f5457d2051ab374264efa18f655fa3e15e79.diff?full_index=1"
       sha256 "6ff047216fa76c2350f8fd20497b1264904eda0d6cade9bf2ebb3843740cd03f"
     end
-  end
 
-  # Fix a variant of QTBUG-62266 in included Qt source
-  # https://github.com/ariya/phantomjs/issues/15116
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/33dbb45f82/phantomjs/QTBUG-62266.diff"
-    sha256 "d47b52c6a932139a448340244f66ea126412d210ab94dc19da7c468afaf5f45a"
+    # Fix a variant of QTBUG-62266 in included Qt source
+    # https://github.com/ariya/phantomjs/issues/15116
+    if MacOS.version >= :high_sierra
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/33dbb45f82/phantomjs/QTBUG-62266.diff"
+        sha256 "d47b52c6a932139a448340244f66ea126412d210ab94dc19da7c468afaf5f45a"
+      end
+    end
   end
 
   bottle do
