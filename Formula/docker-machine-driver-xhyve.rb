@@ -20,7 +20,8 @@ class DockerMachineDriverXhyve < Formula
   depends_on "go" => :build
   depends_on "docker-machine" => :recommended
   if build.with? "qcow2"
-    depends_on "opam"
+    depends_on "ocaml" => :build
+    depends_on "opam" => :build
     depends_on "libev"
   end
 
@@ -44,7 +45,8 @@ class DockerMachineDriverXhyve < Formula
         ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
         ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
         ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
-        system "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1", "conf-libev"
+        system "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1",
+               "conf-libev", "mirage-block-unix>2.3.0", "lwt<3.1.0"
       end
 
       go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
