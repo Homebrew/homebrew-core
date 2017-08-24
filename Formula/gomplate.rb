@@ -21,7 +21,7 @@ class Gomplate < Formula
   end
 
   test do
-    output = shell_output("#{bin}/"gomplate" --version")
+    output = shell_output("#{bin}/gomplate --version")
     assert_equal "gomplate version #{version}", output.chomp
 
     test_template = <<-TEMPLATE.unindent
@@ -34,6 +34,6 @@ class Gomplate < Formula
       bar:baz
     EXPECTED
 
-    assert_match expected, pipe_output(bin/"gomplate", test_template, 0)
+    assert_match expected, pipe_output("#{bin}/gomplate", test_template, 0)
   end
 end
