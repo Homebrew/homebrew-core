@@ -1,8 +1,8 @@
 class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://vim.sourceforge.io/"
-  url "https://github.com/vim/vim/archive/v8.0.0983.tar.gz"
-  sha256 "5f3d5307d7055e3a55811546f6c787f1c65d209ae5b83e36c0de16d64fda8bf2"
+  url "https://github.com/vim/vim/archive/v8.0.0992.tar.gz"
+  sha256 "02872af5a928e73f5f7bd4026080dc95ddf24e50f4354254d8d2375878776e32"
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -45,6 +45,10 @@ class Vim < Formula
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
+
+  # patch author is Kazunobu Kuriyama
+  # see https://github.com/vim/vim/issues/2008
+  patch :DATA
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
@@ -141,3 +145,30 @@ class Vim < Formula
     end
   end
 end
+
+
+__END__
+diff --git a/src/term.c b/src/term.c
+index 6de45224c..fffede177 100644
+--- a/src/term.c
++++ b/src/term.c
+@@ -1685,6 +1685,19 @@ set_termname(char_u *term)
+ 		if (p)
+ 		    PC = *p;
+ # endif /* hpux */
++# ifdef __APPLE__
++		{
++		    /* By default, Terminal.app sets $TERM to xterm-256color,
++		     * while it doesn't actually support DECSCUSR.  Set t_SH
++		     * to an empty string so that the terminal won't receive
++		     * DECRQSS for DECSCUSR from Vim. (GitHub Issue #2008) */
++		    char *termprog = getenv("TERM_PROGRAM");
++		    if (termprog == NULL ||
++			    STRCMP(termprog, "Apple_Terminal") == 0)
++			set_string_option_direct((char_u *)"t_SH", -1,
++						   (char_u *)"", OPT_FREE, 0);
++		}
++# endif /* __APPLE__ */
+ 	    }
+ 	}
+ 	else	    /* try == 0 || try == 2 */
