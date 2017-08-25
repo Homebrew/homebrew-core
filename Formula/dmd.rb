@@ -121,12 +121,11 @@ class Dmd < Formula
       cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
       lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
 
-      conf = buildpath/"dmd.conf"
-      conf.write <<-EOS.undent
-          [Environment]
-          DFLAGS=-I#{opt_include}/dlang/dmd -L-L#{opt_lib}
-          EOS
-      etc.install conf
+      (buildpath/"dmd.conf").write <<-EOS.undent
+        [Environment]
+        DFLAGS=-I#{opt_include}/dlang/dmd -L-L#{opt_lib}
+      EOS
+      etc.install "dmd.conf"
     end
   end
 
