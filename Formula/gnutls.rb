@@ -1,9 +1,9 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.15.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.15.tar.xz"
-  sha256 "046081108b8b1fe455a13a4c5a4eaa0368e185b678f1670fe09a11a2d7ecfad5"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.0.tar.xz"
+  sha256 "2ab9e3c0131fcd9142382f37ba9c6d20022b76cba83560cbcaa8e4002d71fb72"
 
   bottle do
     sha256 "80b734325c3829c83067eee6d97adefb06480588be402e4e9f73109ea66f9d2e" => :sierra
