@@ -1,5 +1,5 @@
 class Brainfuck < Formula
-  desc "Interpreter for brainfuck written in C."
+  desc "Interpreter for brainfuck written in C"
   homepage "https://github.com/fabianishere/brainfuck"
   url "https://github.com/fabianishere/brainfuck/archive/2.7.0.tar.gz"
   sha256 "aaa14203aeece4e9627c8eb707c5c630020d22a6d4465c35595dbbc854ddddd7"
