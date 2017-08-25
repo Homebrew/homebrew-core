@@ -7,9 +7,9 @@ class Gjstest < Formula
   head "https://github.com/google/gjstest.git"
 
   bottle do
-    sha256 "4046f6b37a20d4d74ec0ec0f19b6dd5caaefde23cb96c4b5c1774088809fab7f" => :sierra
-    sha256 "26c47f55000408255ea0d88fd436aa4862b6ee904c9c7d28a40ecb497f107a6e" => :el_capitan
-    sha256 "1fb31a99306bef7e774445562a6c1585bde40d3136297c219135fb704feda291" => :yosemite
+    sha256 "4262b8706aeb9faac11ed87365a452d5996f109dc818a35877965d7e1d72107d" => :sierra
+    sha256 "3080f1cf83eb1f0fe616c84db85c852d990712b2a5165ddc5617e6761e071f2c" => :el_capitan
+    sha256 "f83395858229abff30841225b6f81ea5a49eb2781ec42395867c72b46561cd56" => :yosemite
   end
 
   depends_on :macos => :mavericks
