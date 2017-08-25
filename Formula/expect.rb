@@ -11,7 +11,7 @@ class Expect < Formula
   end
 
   option "with-threads", "Build with multithreading support"
-  option "with-brewed-tk", "Use Homebrew's Tk (has optional Cocoa and threads support)"
+  option "with-brewed-tk", "Use Homebrew's Tk (has Cocoa and threads support)"
 
   deprecated_option "enable-threads" => "with-threads"
 
@@ -31,8 +31,12 @@ class Expect < Formula
   end
 
   def install
-    args = ["--prefix=#{prefix}", "--exec-prefix=#{prefix}", "--mandir=#{man}"]
-    args << "--enable-shared"
+    args = %W[
+      --prefix=#{prefix}
+      --exec-prefix=#{prefix}
+      --mandir=#{man}
+      --enable-shared
+    ]
     args << "--enable-threads" if build.with? "threads"
     args << "--enable-64bit" if MacOS.prefer_64_bit?
 
@@ -40,8 +44,9 @@ class Expect < Formula
       args << "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib"
     else
       ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
-      args << "--with-tcl=#{MacOS.sdk_path}/usr/lib"
+      args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     end
+
     # Regenerate configure script. Remove after patch applied in newer
     # releases.
     system "autoreconf", "--force", "--install", "--verbose"
