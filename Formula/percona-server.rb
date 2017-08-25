@@ -57,6 +57,7 @@ class PerconaServer < Formula
 
     args = std_cmake_args + %W[
       -DMYSQL_DATADIR=#{datadir}
+      -DINSTALL_PLUGINDIR=lib/plugin
       -DSYSCONFDIR=#{etc}
       -DINSTALL_MANDIR=#{man}
       -DINSTALL_DOCDIR=#{doc}
