@@ -3,7 +3,7 @@ class Libbitcoin < Formula
   homepage "https://libbitcoin.org/"
   url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
   sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -29,7 +29,8 @@ class Libbitcoin < Formula
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}",
-                            "--enable-module-recovery"
+                            "--enable-module-recovery",
+                            "--with-bignum=no"
       system "make", "install"
     end
 
