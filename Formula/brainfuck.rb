@@ -2,7 +2,7 @@ class Brainfuck < Formula
   desc "Interpreter for brainfuck written in C"
   homepage "https://github.com/fabianishere/brainfuck"
   url "https://github.com/fabianishere/brainfuck/archive/2.7.0.tar.gz"
-  sha256 "aaa14203aeece4e9627c8eb707c5c630020d22a6d4465c35595dbbc854ddddd7"
+  sha256 "445e00ef848f8b9a3ac101872ac08046b32b3477520ff06804d0ede5c3654c63"
   head "https://github.com/fabianishere/brainfuck.git"
 
   option "with-debug", "Compile interpreter with debug support"
