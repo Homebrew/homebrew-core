@@ -9,9 +9,9 @@ class Ddar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f67f2b0cc120f77faeddea7b110d20fe07d704f39b1dde8dd22e3797fb1a2b34" => :sierra
-    sha256 "fc95482e4b3e32bedf27cc374cb393495ef9698b4ae297282de0ed6360c5c921" => :el_capitan
-    sha256 "f4d6892bbe9d74535d160ea50240aa976764f838c62d125343c3db2383eee2a9" => :yosemite
+    sha256 "3d9bd53fe084276e7e57ccbb4f4cadfef811182b487bc2e93dd4f373fd3784c5" => :sierra
+    sha256 "3925167c1884bc6dc522d603f216671a897e86faa6eee6c9e34a2bbeaa2d4450" => :el_capitan
+    sha256 "bb01afc3ebd42f46e00d00eddbcb8ae000ecbe50a19aa5512a84f7fab5faaf91" => :yosemite
   end
 
   depends_on "xmltoman" => :build
