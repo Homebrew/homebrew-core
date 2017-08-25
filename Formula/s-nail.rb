@@ -4,6 +4,12 @@ class SNail < Formula
   url "https://www.sdaoden.eu/downloads/s-nail-14.9.3.tar.gz"
   sha256 "9048abe94c8b732ddefcd70b9f6052da16977de76b07598790e4c763e97f911d"
 
+  bottle do
+    sha256 "a60e73ba770df3fc445e4d08930c44f6754e144a605cd6e359566dc3f37b2533" => :sierra
+    sha256 "ae1b9a1f45d5719dd2aaf3eeddee2391b86dc0691f4d4aadbd5f79f829ef8b91" => :el_capitan
+    sha256 "d8241de6c64e399204671dc5b11018c3fdb3e08d55a11b73f401567d84f92155" => :yosemite
+  end
+
   depends_on "libidn"
   depends_on "openssl"
 
