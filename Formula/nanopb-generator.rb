@@ -21,7 +21,7 @@ class NanopbGenerator < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/source/s/six/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
