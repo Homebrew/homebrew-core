@@ -15,6 +15,9 @@ class ProtobufSwift < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  # Upstream issue "protobuf 3.4.0 build failure"
+  # Reported 16 Aug 2017 https://github.com/alexeyxo/protobuf-swift/issues/217
   depends_on "protobuf@3.1"
 
   def install
