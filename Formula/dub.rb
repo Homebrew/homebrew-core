@@ -13,6 +13,18 @@ class Dub < Formula
     sha256 "a6fd6a055aaa21fe63b5fb7203d825922d12304e35ba11fea8794987b8688a62" => :yosemite
   end
 
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.5.0-beta.1.tar.gz"
+    sha256 "fd95787065f1059e8c29801e3f8bef3661fa37ed8bf39e2f379280e52433e37e"
+
+    # Minor problem with a missing public import, fixed in master,
+    # fix should be in next beta
+    patch do
+      url "https://github.com/dlang/dub/pull/1221.patch"
+      sha256 "8a6d31d0f1849f4c9a094264ace7d697c3d1a9b99a9536876276e5d1436a043f"
+    end
+  end
+
   depends_on "pkg-config" => [:recommended, :run]
   depends_on "dmd" => :build
 
