@@ -7,9 +7,9 @@ class Zbackup < Formula
 
   bottle do
     cellar :any
-    sha256 "6c0851da2b016b37a4ee95a6d181590382eda2c491a2a230ef37b2eb07ed57b8" => :sierra
-    sha256 "22c5b291a3daac5ed9959c18fa0a3152e44388dc78bd9c1ec417aea853444ae4" => :el_capitan
-    sha256 "8917c9b6f38a75b164b1daac0269da5e6fbfb0ba7f33b758f1224126c0642560" => :yosemite
+    sha256 "5604f7d12355aa94dde2feae94dd7e361a76d637d0dd297e4d54f9bb149b9b51" => :sierra
+    sha256 "c12be8aa04a509b3877a8dd24a49dc59e2e8688760be562e61883e931c0eee70" => :el_capitan
+    sha256 "7f833746286b96a12225a6149a585745e9c5cd1903d97ad40cc38f67cf0e7a1e" => :yosemite
   end
 
   depends_on "cmake" => :build
