@@ -11,10 +11,10 @@ class Pgrouting < Formula
     sha256 "82b9fd64e86045f6a9306db0981ed1a6b3740f2f4469012d082512f15c237ab2" => :el_capitan
     sha256 "2a6bba5c7030e3723000761483089fe76d71dd121329b0fa6c975b4219cf7058" => :yosemite
   end
-  
+
   devel do
     url "https://github.com/pgRouting/pgrouting/archive/v2.5.0-alpha.tar.gz"
-    version "v2.5.0-alpha"
+    version "2.5.0-alpha"
     sha256 "cb8e5af9bf90d805eee57276c2e69a7538a7c704063c3748dcbc72915c4fd3fd"
   end
 
