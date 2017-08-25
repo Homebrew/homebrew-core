@@ -1,8 +1,9 @@
 class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
-  url "https://rubygems.org/gems/braid-1.0.21.gem"
-  sha256 "97300ec6fd9172b25fd05f2c88107e5129a7b85a5f63c73aea40c266b1d80508"
+  url "https://github.com/cristibalan/braid.git",
+    :tag      => "v1.0.21",
+    :revision => "8d953288babe6bf320a390113cbca0f314607272"
 
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"
@@ -41,8 +42,8 @@ class Braid < Formula
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end
-    system "gem", "install", cached_download,
-           "--ignore-dependencies", "--no-document", "--install-dir", libexec
+    system "gem", "build", "braid.gemspec"
+    system "gem", "install", "--ignore-dependencies", "braid-#{version}.gem"
     bin.install libexec/"bin/braid"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
   end
