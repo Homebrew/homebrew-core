@@ -1,8 +1,8 @@
 class Clinfo < Formula
   desc "Print information about OpenCL platforms and devices"
   homepage "https://github.com/Oblomov/clinfo"
-  url "https://github.com/Oblomov/clinfo/archive/2.2.17.06.14.tar.gz"
-  sha256 "6179a92bbe1893b7c5b1dff7c8eaba277c194870d17039addf2d389cbb68b87e"
+  url "https://github.com/Oblomov/clinfo/archive/2.2.17.08.25.tar.gz"
+  sha256 "8e25c8f26ee0c7a3a4a34d2153c7af786b8e0c1d035a2d428b102333e3c1873b"
 
   bottle do
     cellar :any_skip_relocation
