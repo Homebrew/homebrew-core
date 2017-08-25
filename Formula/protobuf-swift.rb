@@ -41,6 +41,6 @@ class ProtobufSwift < Formula
       }
     EOS
     (testpath/"test.proto").write(testdata)
-    system "protoc", "test.proto", "--swift_out=."
+    system Formula["protobuf@3.1"].opt_bin/"protoc", "test.proto", "--swift_out=."
   end
 end
