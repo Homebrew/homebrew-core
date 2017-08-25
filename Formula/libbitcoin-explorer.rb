@@ -1,5 +1,5 @@
 class LibbitcoinExplorer < Formula
-  desc "Bitcoin Command-line Tool"
+  desc "Bitcoin command-line tool"
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.3.0.tar.gz"
   sha256 "029dc350497bdaad4d8559f7954405011b9e1b996aa4d4cc124f650e2eca00a6"
