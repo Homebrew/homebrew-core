@@ -122,12 +122,10 @@ class Dmd < Formula
       lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
 
       conf = buildpath/"dmd.conf"
-      # Can't use opt_include or opt_lib here because dmd won't have been
-      # linked into opt by the time this build runs:
       conf.write <<-EOS.undent
-        [Environment]
-        DFLAGS=-I#{include}/dlang/dmd -L-L#{lib}
-      EOS
+          [Environment]
+          DFLAGS=-I#{opt_include}/dlang/dmd -L-L#{opt_lib}
+          EOS
       etc.install conf
     end
   end
