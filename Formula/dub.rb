@@ -20,8 +20,8 @@ class Dub < Formula
     # Minor problem with a missing public import, fixed in master,
     # fix should be in next beta
     patch do
-      url "https://github.com/dlang/dub/pull/1221.patch"
-      sha256 "8a6d31d0f1849f4c9a094264ace7d697c3d1a9b99a9536876276e5d1436a043f"
+      url "https://github.com/dlang/dub/pull/1221.patch?full_index=1"
+      sha256 "40b38363c91f6aa1440d81f2b3cb29f0bf8aab3b8e945503437f271d290f4344"
     end
   end
 
