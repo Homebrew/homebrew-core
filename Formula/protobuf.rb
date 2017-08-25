@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.3.2.tar.gz"
-  sha256 "8b8e442becbeff637f160c1ef4a3a56769c50ba7c9ff939ccc94086530ff00e4"
+  url "https://github.com/google/protobuf/archive/v3.4.0.tar.gz"
+  sha256 "cd55ee08e64a86cf12aaadd4672961813f592c194ed0c9ad94da0ec75acf219f"
   head "https://github.com/google/protobuf.git"
 
   bottle do
