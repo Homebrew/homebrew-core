@@ -12,6 +12,11 @@ class Pgrouting < Formula
     sha256 "2a6bba5c7030e3723000761483089fe76d71dd121329b0fa6c975b4219cf7058" => :yosemite
   end
 
+  devel do
+    url "https://github.com/pgRouting/pgrouting/archive/v2.5.0-alpha.tar.gz"
+    sha256 "cb8e5af9bf90d805eee57276c2e69a7538a7c704063c3748dcbc72915c4fd3fd"
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cgal"
