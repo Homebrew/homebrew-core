@@ -3,8 +3,8 @@ class Sops < Formula
 
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/2.0.9.tar.gz"
-  sha256 "2d2695fe3d2bd852c293560b3376711d460b66084e6bb2c218d9b5e1c4d651da"
+  url "https://github.com/mozilla/sops/archive/2.0.10.tar.gz"
+  sha256 "24d661be7ba6fb80f4c501428ba81927f83a776af4ce1ecbdaf71cdd00d7a25d"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
@@ -17,6 +17,11 @@ class Sops < Formula
   depends_on "go" => :build
 
   def install
+    # Reported 25 Aug 2017 https://github.com/mozilla/sops/issues/237
+    if build.stable?
+      inreplace "cmd/sops/version.go", 'version = "2.0.9"', 'version = "2.0.10"'
+    end
+
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
     (buildpath/"src/go.mozilla.org").mkpath
