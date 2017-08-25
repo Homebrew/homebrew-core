@@ -3,7 +3,7 @@ class Opencv < Formula
   homepage "http://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.3.0.tar.gz"
   sha256 "95029eb5578af3b20b8c7f8f6f59db1b827c2d5aaaa74b6becb1de647cbdda5a"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "6d62ac40e7c800770f66c4671befc324167b89ebe6b050ceceafc8033a2bca02" => :sierra
@@ -12,6 +12,7 @@ class Opencv < Formula
   end
 
   option "without-python", "Build without python2 support"
+  option "with-qt", "Build with Qt and OpenGL support"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -24,6 +25,7 @@ class Opencv < Formula
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :recommended
   depends_on "numpy" if build.with?("python") || build.with?("python3")
+  depends_on "qt" if build.with?("qt")
 
   needs :cxx11
 
@@ -61,14 +63,14 @@ class Opencv < Formula
       -DWITH_GSTREAMER=OFF
       -DWITH_JASPER=OFF
       -DWITH_OPENEXR=ON
-      -DWITH_OPENGL=OFF
-      -DWITH_QT=OFF
       -DWITH_TBB=OFF
       -DWITH_VTK=OFF
     ]
 
     args << "-DBUILD_opencv_python2=" + (build.with?("python") ? "ON" : "OFF")
     args << "-DBUILD_opencv_python3=" + (build.with?("python3") ? "ON" : "OFF")
+    args << "-DWITH_QT="     + (build.with?("qt") ? "ON" : "OFF")
+    args << "-DWITH_OPENGL=" + (build.with?("qt") ? "ON" : "OFF")
 
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
