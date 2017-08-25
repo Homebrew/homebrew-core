@@ -30,25 +30,25 @@ class Dmd < Formula
 
   devel do
     url "https://github.com/dlang/dmd/archive/v2.076.0-b1.tar.gz"
-    sha256 "4239a110bd879ebaa137b06f7e8d5b1f7be89906407014a6c78af0e9428f40c8"
     version "2.076.0-b1"
+    sha256 "4239a110bd879ebaa137b06f7e8d5b1f7be89906407014a6c78af0e9428f40c8"
 
     resource "druntime" do
       url "https://github.com/dlang/druntime/archive/v2.076.0-b1.tar.gz"
-      sha256 "c87d68a82f733d1922ec9f0bae9eedc4ed8a4b6efca372818429198deecc5b3c"
       version "2.076.0-b1"
+      sha256 "c87d68a82f733d1922ec9f0bae9eedc4ed8a4b6efca372818429198deecc5b3c"
     end
 
     resource "phobos" do
       url "https://github.com/dlang/phobos/archive/v2.076.0-b1.tar.gz"
-      sha256 "985dcb145b649614601d7fd1e3608bb7d1f04ce006db130740910e43335f8718"
       version "2.076.0-b1"
+      sha256 "985dcb145b649614601d7fd1e3608bb7d1f04ce006db130740910e43335f8718"
     end
 
     resource "tools" do
       url "https://github.com/dlang/tools/archive/v2.076.0-b1.tar.gz"
-      sha256 "e325545812d4b822d4850af38d293cf0405fc53902723b42656733bd93368a59"
       version "2.076.0-b1"
+      sha256 "e325545812d4b822d4850af38d293cf0405fc53902723b42656733bd93368a59"
     end
   end
 
@@ -125,9 +125,9 @@ class Dmd < Formula
       # Can't use opt_include or opt_lib here because dmd won't have been
       # linked into opt by the time this build runs:
       conf.write <<-EOS.undent
-          [Environment]
-          DFLAGS=-I#{include}/dlang/dmd -L-L#{lib}
-          EOS
+        [Environment]
+        DFLAGS=-I#{include}/dlang/dmd -L-L#{lib}
+      EOS
       etc.install conf
     end
   end
