@@ -14,7 +14,6 @@ class Pgrouting < Formula
 
   devel do
     url "https://github.com/pgRouting/pgrouting/archive/v2.5.0-alpha.tar.gz"
-    version "2.5.0-alpha"
     sha256 "cb8e5af9bf90d805eee57276c2e69a7538a7c704063c3748dcbc72915c4fd3fd"
   end
 
