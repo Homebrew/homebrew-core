@@ -32,6 +32,8 @@ class LibbitcoinExplorer < Formula
   end
 
   def install
+    ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+
     resource("secp256k1").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
@@ -41,8 +43,6 @@ class LibbitcoinExplorer < Formula
                             "--with-bignum=no"
       system "make", "install"
     end
-
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig"
 
     resource("libbitcoin-network").stage do
       system "./autogen.sh"
