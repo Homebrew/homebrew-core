@@ -8,22 +8,22 @@ class LibbitcoinExplorer < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "zeromq"
   depends_on "libbitcoin"
+  depends_on "zeromq"
 
   resource "secp256k1" do
     url "https://github.com/libbitcoin/secp256k1/archive/v0.1.0.13.tar.gz"
     sha256 "9e48dbc88d0fb5646d40ea12df9375c577f0e77525e49833fb744d3c2a69e727"
   end
 
-  resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.3.0.tar.gz"
-    sha256 "7902de78b4c646daf2012e04bb7967784f67a6372a8a8d3c77417dabcc4b617d"
-  end
-
   resource "libbitcoin-network" do
     url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.3.0.tar.gz"
     sha256 "cab9142d2b94019c824365c0b39d7e31dbc9aaeb98c6b4bf22ce32b829395c19"
+  end
+
+  resource "libbitcoin-protocol" do
+    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.3.0.tar.gz"
+    sha256 "7902de78b4c646daf2012e04bb7967784f67a6372a8a8d3c77417dabcc4b617d"
   end
 
   resource "libbitcoin-client" do
@@ -37,13 +37,14 @@ class LibbitcoinExplorer < Formula
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}",
-                            "--enable-module-recovery"
+                            "--enable-module-recovery",
+                            "--with-bignum=no"
       system "make", "install"
     end
 
     ENV.prepend_path "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig"
 
-    resource("libbitcoin-protocol").stage do
+    resource("libbitcoin-network").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
@@ -51,7 +52,7 @@ class LibbitcoinExplorer < Formula
       system "make", "install"
     end
 
-    resource("libbitcoin-network").stage do
+    resource("libbitcoin-protocol").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
