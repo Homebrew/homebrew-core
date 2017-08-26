@@ -6,11 +6,13 @@ class Brainfuck < Formula
   head "https://github.com/fabianishere/brainfuck.git"
 
   option "with-debug", "Compile interpreter with debug support"
+  option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
 
   def install
     args = std_cmake_args
+    args << "-DBUILD_SHARED_LIB=ON"
     args << "-DENABLE_DEBUG=ON" if build.with? "debug"
 
     system "cmake", ".", *args
@@ -22,6 +24,6 @@ class Brainfuck < Formula
   end
 
   test do
-    system "#{bin}/brainfuck #{doc}/examples/hello.bf"
+    system "#{bin}/brainfuck", "#{doc}/examples/hello.bf"
   end
 end
