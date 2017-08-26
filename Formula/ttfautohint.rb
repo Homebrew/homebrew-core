@@ -6,10 +6,9 @@ class Ttfautohint < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9acbfeffd3e0b978dc9d6905398035155fff3012b17741b5d822afd06ad80318" => :sierra
-    sha256 "10fd60dde2cae31a861ce8dab53e49cab7237f93a7c1646d751d6bed9b7fa9f2" => :el_capitan
-    sha256 "2252e5b636d885d613a3cc4ee831777218124039132c5a3ba4ea1c3b96778f18" => :yosemite
+    sha256 "f33224ef2971fca34e8b765ca78b956cc0de3ddcaa2d2fe6c9dc789abe043803" => :sierra
+    sha256 "b3fadc4f292ddbfea133a4359a18d349970fc794415b2aeb774b38ccc021b641" => :el_capitan
+    sha256 "3c336390fbb0221d491e3d341e666259ed68fce7a8d147ef7b33b6eef0b8a9c2" => :yosemite
   end
 
   head do
