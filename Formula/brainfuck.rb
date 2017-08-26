@@ -22,6 +22,6 @@ class Brainfuck < Formula
   end
 
   test do
-    system "#{bin}/brainfuck | cat"
+    system "#{bin}/brainfuck #{doc}/examples/hello.bf"
   end
 end
