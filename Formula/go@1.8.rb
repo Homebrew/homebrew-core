@@ -7,6 +7,12 @@ class GoAT18 < Formula
   version "1.8.3"
   sha256 "5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6"
 
+  bottle do
+    sha256 "652a9bea1a98d115856bb47cacff9c1198cc5ab5f9612b28e0dfc8ba9c3aa112" => :sierra
+    sha256 "115ede307973b9a2b8b94e41424b9f22d1ef753583870dc9843e9d4a8610a641" => :el_capitan
+    sha256 "e324c8d247e30e345cba64ab70ee50b659b93d337eb7b2be003ab5b4fbf20d37" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "without-cgo", "Build without cgo (also disables race detector)"
