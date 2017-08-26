@@ -2,8 +2,8 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag => "v0.19.0",
-      :revision => "cfe084f488f915b3e41b00824a3e07d79e3677aa"
+      :tag => "v0.19.1",
+      :revision => "13feebcb176c2deeceb994282e2b09952a746d11"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
@@ -24,8 +24,13 @@ class ConsulTemplate < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      system "make", "bin-local"
-      bin.install "pkg/darwin_#{arch}/consul-template"
+      project = "github.com/hashicorp/consul-template"
+      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+      ldflags = ["-X #{project}/version.Name=consul-template",
+                 "-X #{project}/version.GitCommit=#{commit}"]
+      system "go", "build", "-o", bin/"consul-template", "-ldflags",
+             ldflags.join(" ")
+      prefix.install_metafiles
     end
   end
 
