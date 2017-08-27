@@ -1,8 +1,8 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "http://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.4.3.tar.gz"
-  sha256 "cf67a0938153e8a15743f46c3164944c2f3f2ad6d3b45b862c26945c9f20cd49"
+  url "https://github.com/xyproto/algernon/archive/1.5.1.tar.gz"
+  sha256 "5192b620ca14fbce47b2b940dbd76a8a31064b98859cd44dedd3bceae4d8a499"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
@@ -36,7 +36,7 @@ class Algernon < Formula
         exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "my.db",
                                 "--addr", ":45678"
       end
-      sleep(1)
+      sleep 20
       output = shell_output("curl -sIm3 -o- http://localhost:45678")
       assert_match /200 OK.*Server: Algernon/m, output
     ensure
