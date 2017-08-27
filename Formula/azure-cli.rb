@@ -24,6 +24,9 @@ class AzureCli < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")
+
+    # fix cxxstdlib warnings caused by installed (but not used) prebuild binaries for fibers
+    rm_rf Dir[libexec/"lib/node_modules/azure-cli/node_modules/fibers/bin/*-{46,48}"]
   end
 
   test do
