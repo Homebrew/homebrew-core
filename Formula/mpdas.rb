@@ -1,10 +1,9 @@
 class Mpdas < Formula
   desc "C++ client to submit tracks to audioscrobbler"
   homepage "https://www.50hz.ws/mpdas/"
-  url "https://www.50hz.ws/mpdas/mpdas-0.4.3.tar.gz"
-  mirror "https://github.com/hrkfdn/mpdas/archive/0.4.3.tar.gz"
-  sha256 "069e368bde35b2b3bd79439052c863a0f8c3b25ed454b5ab51f84fa6878b674e"
-  revision 2
+  url "https://www.50hz.ws/mpdas/mpdas-0.4.4.tar.gz"
+  mirror "https://github.com/hrkfdn/mpdas/archive/0.4.4.tar.gz"
+  sha256 "b262a009ba5194bba2e140eade22c9182cdeac8bfb19de250734f8693e0b0d27"
   head "https://github.com/hrkfdn/mpdas.git"
 
   bottle do
