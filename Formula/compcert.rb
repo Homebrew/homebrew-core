@@ -24,9 +24,7 @@ class Compcert < Formula
     # creates problems since Xcode's gcc does not support CFI,
     # but superenv will trick it into using clang which does. This
     # causes problems with the compcert compiler at runtime.
-    inreplace "configure" do |s|
-      s.gsub! "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
-    end
+    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
     args = ["-prefix", prefix]
     args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
