@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.8.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.8.tar.bz2"
-  sha256 "ecf02c148c9ab6e809026ad5743fe9be1739a9840ef6fece6837a7ddfbdf7edc"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.0.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.0.tar.xz"
+  sha256 "890bb41b826ff04e98fb089446ab37e5871e16205278bfeffc2a7c7364de3b04"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
@@ -38,7 +38,19 @@ class Wireshark < Formula
   depends_on "spandsp" => :optional
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
+  # Fix build due to missing source file (will be fixed in 2.4.1)
+  resource "udpdump.pod" do
+    url "https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;hb=v2.4.0;f=doc/udpdump.pod"
+    sha256 "4f2a6f7c0f39793c9bf14db5563fc284275a342677aeaef02d91a3980a5c37d1"
+  end
+
   def install
+    # Disable nghttp2 if requested (remove this for 2.4.1)
+    inreplace "CMakeLists.txt", /(set\(PACKAGELIST.*) NGHTTP2/, '\1' unless build.with?("nghttp2")
+
+    # Install missing udpdump.pod source file in srcdir (remove this for v2.4.1).
+    resource("udpdump.pod").stage(buildpath/"doc")
+
     args = std_cmake_args
     args << "-DENABLE_GNUTLS=ON"
 
