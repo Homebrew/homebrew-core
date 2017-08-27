@@ -1,9 +1,8 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
-  sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
-  revision 3
+  url "https://github.com/AbsInt/CompCert/archive/v3.1.tar.gz"
+  sha256 "9d0dd07f05a9a59b865041417dc61f16a664d85415f0271eb854412638e52e47"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,7 +26,6 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure" do |s|
       s.gsub! "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
-      s.gsub! "  8.6)", "  8.6.1)"
     end
 
     args = ["-prefix", prefix]
