@@ -5,6 +5,13 @@ class ErlangAT17 < Formula
   sha256 "387c612d1bc5ffbc68db7d05c3655804b310facc8bad921a3e0f3391970bc522"
   head "https://github.com/erlang/otp.git", :branch => "maint-17"
 
+  bottle do
+    cellar :any
+    sha256 "819a566e39049cb521e3a26f39746258d333acd4ce9bc91eff2dc8969905f2fc" => :sierra
+    sha256 "e4faf6f98903c5dd7fa4894f7a61f722101119572f6d32ab9000fa47332f148d" => :el_capitan
+    sha256 "ab5c9f75b67c92c103a7712104edf8dd4f6edb52eda6d0312b50bde0e1f83780" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
