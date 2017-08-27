@@ -9,9 +9,9 @@ class Flawfinder < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c480560a08ba8361768473bd48c8f3483434ff66f78b49fb4b62ff873a192e9" => :sierra
-    sha256 "5c480560a08ba8361768473bd48c8f3483434ff66f78b49fb4b62ff873a192e9" => :el_capitan
-    sha256 "5c480560a08ba8361768473bd48c8f3483434ff66f78b49fb4b62ff873a192e9" => :yosemite
+    sha256 "bd4528ceb62ee1e1579de9f4d3465e2423052fb6e9aa2fdd8ebeb775de538601" => :sierra
+    sha256 "bd4528ceb62ee1e1579de9f4d3465e2423052fb6e9aa2fdd8ebeb775de538601" => :el_capitan
+    sha256 "bd4528ceb62ee1e1579de9f4d3465e2423052fb6e9aa2fdd8ebeb775de538601" => :yosemite
   end
 
   resource "flaws" do
