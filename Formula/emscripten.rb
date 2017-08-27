@@ -16,6 +16,14 @@ class Emscripten < Formula
       url "https://github.com/kripken/emscripten-fastcomp-clang/archive/#{emscripten_tag}.tar.gz"
       sha256 "4653e5e5628a7f6731d7a30e0f462cd38e423741b57c360ab40423b5d44b603b"
     end
+
+    # Fix for when /usr/bin/env python resolves to python 3.x.
+    # Submitted upstream on 2017-08-27:
+    # https://github.com/kripken/emscripten/pull/5534
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ac7cb3/emscripten/emscripten-resolve-symlinks.patch"
+      sha256 "d34cec4c1a33e67465b94993ae836ded727cbe0bb9e2c31e73b4cd22d6995234"
+    end
   end
 
   bottle do
@@ -95,6 +103,7 @@ class Emscripten < Formula
   end
 
   test do
-    system "#{libexec}/llvm/bin/llvm-config", "--version"
+    system bin/"emcc"
+    assert_predicate testpath/".emscripten", :exist?, "Failed to create sample config"
   end
 end
