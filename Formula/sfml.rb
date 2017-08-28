@@ -27,7 +27,15 @@ class Sfml < Formula
   depends_on :macos => :lion
 
   def install
-    args = std_cmake_args
+    # Install pkg-config files, adding the CMake flag below isn't enough, as
+    # the CMakeLists.txt file currently doesn't consider MacOS X.
+    # This was fixed upstream for the future 2.5.0 release on 2016-12-19 in:
+    # https://github.com/SFML/SFML/commit/5fe5e5d6d7792e37685a437551ffa8ed5161fcc1
+    inreplace "CMakeLists.txt",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
+
+    args = std_cmake_args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
     args << "-DSFML_BUILD_DOC=TRUE" if build.with? "doxygen"
 
     # Always remove the "extlibs" to avoid install_name_tool failure
