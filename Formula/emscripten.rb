@@ -21,7 +21,7 @@ class Emscripten < Formula
     # Submitted upstream on 2017-08-27:
     # https://github.com/kripken/emscripten/pull/5534
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0ac7cb3/emscripten/emscripten-resolve-symlinks.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/8de3e51/emscripten/emscripten-resolve-symlinks.patch"
       sha256 "d34cec4c1a33e67465b94993ae836ded727cbe0bb9e2c31e73b4cd22d6995234"
     end
   end
