@@ -34,6 +34,8 @@ class Gegl < Formula
   depends_on "pango" => :optional
   depends_on "sdl" => :optional
 
+  conflicts_with "coreutils", :because => "both install `gcut` binaries"
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
