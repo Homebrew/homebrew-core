@@ -15,8 +15,6 @@ class Octave < Formula
   head do
     url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
     depends_on :hg => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
@@ -24,6 +22,8 @@ class Octave < Formula
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
   depends_on :fortran
@@ -63,12 +63,21 @@ class Octave < Formula
       # Upstream commit from 24 Feb 2017 https://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
       inreplace "liboctave/system/file-stat.cc",
         "inline file_stat::~file_stat () { }", "file_stat::~file_stat () { }"
+      inreplace "scripts/java/module.mk",
+        "-source 1.3 -target 1.3", "" # necessary for java >1.8
     end
 
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
+
+    # allow for recent Oracle Java (>=1.8) without requiring the old Apple Java 1.6
+    # this is more or less the same as in http://savannah.gnu.org/patch/index.php?9439
+    inreplace "libinterp/octave-value/ov-java.cc",
+      "#if ! defined (__APPLE__) && ! defined (__MACH__)", "#if 1" # treat mac's java like others
+    inreplace "configure.ac",
+      "-framework JavaVM", "" # remove framework JavaVM as it requires Java 1.6 after build
 
     args = %W[
       --prefix=#{prefix}
