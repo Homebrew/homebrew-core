@@ -7,8 +7,8 @@ class Dlib < Formula
 
   bottle do
     cellar :any
-    sha256 "f827cb24e59d19993240324660355aee3e02416b2ddbde65ebfbc6189b4e18ca" => :sierra
-    sha256 "bb3c1c36b791d5e6b3f041d04d5ae63c9cf7ed5f8ac588c310080bb13e0dba3b" => :el_capitan
+    sha256 "012c1d2f8261e839d1b51e15951f50533ca73a455d6d04dc31c2a87b561fcb3e" => :sierra
+    sha256 "015becd9021a2f7a8d3985f2ab8d63a6bb0a50655ec57152ef274f3a884b4966" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
