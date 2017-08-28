@@ -1,10 +1,8 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
-  sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
-  revision 8
-
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz"
+  sha256 "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783"
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
