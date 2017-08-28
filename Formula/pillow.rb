@@ -5,6 +5,12 @@ class Pillow < Formula
   sha256 "de9ef5d5bda3bfb5d70abd07c2a98bbdfd4b8908fce3e2e7478486ed7ee011eb"
   revision 1
 
+  bottle do
+    sha256 "2efa5b2de0de085f8d3baeffec23f91fdb871910afcca9f35a676b4f913637f4" => :sierra
+    sha256 "24ef23461bc60cce0268f4c00cb3748cfcad5e21394785c5d2b437bb4f188872" => :el_capitan
+    sha256 "db7d8da114fef04db91e7dec7b468729ea284851b9ed1e42972d662c89bb4d68" => :yosemite
+  end
+
   option "without-python", "Build without python2 support"
 
   depends_on "freetype"
