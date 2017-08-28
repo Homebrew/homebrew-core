@@ -17,6 +17,8 @@ class Fstar < Formula
   depends_on "gmp"
   depends_on "ocaml" => :recommended
 
+  # FStar uses a special cutting-edge release from the Z3 team.
+  # As we don't depend on the standard release we can't use the z3 formula.
   resource "z3" do
     url "https://github.com/Z3Prover/z3.git",
         :revision => "1f29cebd4df633a4fea50a29b80aa756ecd0e8e7"
@@ -32,10 +34,9 @@ class Fstar < Formula
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
 
     resource("z3").stage do
-      system "python", "scripts/mk_make.py"
+      system "python", "scripts/mk_make.py", "--prefix=#{libexec}"
       system "make", "-C", "build"
-
-      (libexec/"bin").install "build/z3"
+      system "make", "-C", "build", "install"
     end
 
     system "opam", "init", "--no-setup"
