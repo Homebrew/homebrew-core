@@ -6,9 +6,9 @@ class Pick < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cb2e68d97e5258e79e08effbc4800aebc9f134beb503a877e50c79436b71f98" => :sierra
-    sha256 "f26c1948463218fcd2d9c99d8fd114974d70de8e28a160cd30cc63237db0f2e5" => :el_capitan
-    sha256 "eef9be3cecfc764fbe796c703448a31dd1d9a9f84d28f3df71fd65d280369e37" => :yosemite
+    sha256 "294113d7ae651a7ca9b9641c1db5ba6784fa2e6926bf433d3fb2dca87ea12d41" => :sierra
+    sha256 "2245f9cc18f0d369c014a9b5f841359495b75bdeda1ea767506af4f01a1b2618" => :el_capitan
+    sha256 "7c381625b1aabd2e07a0662428026c9f011a3a57e815cf7c6f0a4b38e46552c4" => :yosemite
   end
 
   def install
