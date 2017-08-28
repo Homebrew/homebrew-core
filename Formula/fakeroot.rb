@@ -1,9 +1,9 @@
 class Fakeroot < Formula
   desc "Provide a fake root environment"
   homepage "https://tracker.debian.org/pkg/fakeroot"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fakeroot/fakeroot_1.20.2.orig.tar.bz2"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.20.2.orig.tar.bz2"
-  sha256 "7c0a164d19db3efa9e802e0fc7cdfeff70ec6d26cdbdc4338c9c2823c5ea230c"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fakeroot/fakeroot_1.22.orig.tar.bz2"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.22.orig.tar.bz2"
+  sha256 "bd806a4a1e641203eb3d4571a10089e8a038c10ec7e492fa1e061b03ae3ec6fe"
 
   bottle do
     cellar :any
@@ -70,7 +70,11 @@ class Fakeroot < Formula
   end
 
   test do
-    assert_equal "root", shell_output("#{bin}/fakeroot whoami").strip
+    if MacOS.version <= :yosemite
+      assert_equal "root", shell_output("#{bin}/fakeroot whoami").strip
+    else
+      assert_match version.to_s, shell_output("#{bin}/fakeroot -v")
+    end
   end
 end
 
