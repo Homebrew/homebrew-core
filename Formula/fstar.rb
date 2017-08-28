@@ -16,7 +16,11 @@ class Fstar < Formula
   depends_on "opam" => :build
   depends_on "gmp"
   depends_on "ocaml" => :recommended
-  depends_on "z3" => :recommended
+
+  resource "z3" do
+    url "https://github.com/Z3Prover/z3.git",
+        :revision => "1f29cebd4df633a4fea50a29b80aa756ecd0e8e7"
+  end
 
   def install
     ENV.deparallelize # Not related to F* : OCaml parallelization
@@ -26,6 +30,13 @@ class Fstar < Formula
     # Avoid having to depend on coreutils
     inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
+
+    resource("z3").stage do
+      system "python", "scripts/mk_make.py"
+      system "make", "-C", "build"
+
+      (libexec/"bin").install "build/z3"
+    end
 
     system "opam", "init", "--no-setup"
     inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
@@ -45,7 +56,7 @@ class Fstar < Formula
     (libexec/"bin").install "bin/fstar.exe"
     (bin/"fstar.exe").write <<-EOS.undent
       #!/bin/sh
-      #{libexec}/bin/fstar.exe --fstar_home #{prefix} "$@"
+      #{libexec}/bin/fstar.exe --smt #{libexec}/bin/z3 --fstar_home #{prefix} "$@"
     EOS
 
     (libexec/"ulib").install Dir["ulib/*"]
