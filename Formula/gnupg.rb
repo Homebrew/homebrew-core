@@ -1,9 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
-  homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.23.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.23.tar.bz2"
-  sha256 "a94476391595e9351f219188767a9d6ea128e83be5ed3226a7890f49aa2d0d77"
+  homepage "https://gnupg.org/"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.2.0.tar.bz2"
+  sha256 "d4514a0be0f7a1ff263193330019eb4b53c82f0f5e230af3c14df371271a45e6"
 
   bottle do
     sha256 "6bff30666e9c3dccdc3ac0a0111142c4f5708f29affb22ab9a08ed290cbf64fe" => :sierra
