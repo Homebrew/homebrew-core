@@ -21,7 +21,7 @@ class Haxe < Formula
     # See https://github.com/backtracking/ptmap/pull/4
     resource "ptmap" do
       url "https://github.com/ocaml/opam-repository/pull/10170.diff?full_index=1"
-      sha256 "2d5394638c370e654ee1b87e23a348d512da717df9bd52a16c1816c6047ba4f7"
+      sha256 "8b4938166ef02e3546898fb9d5742e466e7cb75f0a9a5548a999fbe38f504628"
     end
   end
 
@@ -42,8 +42,6 @@ class Haxe < Formula
       buildpath.install resource("ptmap")
       system "patch", "-p1", "-i", buildpath/"10170.diff", "-d",
                       "opamroot/repo/default"
-      inreplace "opamroot/repo/default/packages/ptmap/ptmap.2.0.2/opam",
-                /"obuild" {build}/, "\\0\n  \"qcheck\" {build & >= \"0.7\"}"
       system "opam", "update"
       system "opam", "config", "exec", "--", "opam", "install", "ocamlfind",
              "sedlex", "xml-light", "extlib", "rope", "ptmap>2.0.1"
