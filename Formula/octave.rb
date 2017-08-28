@@ -63,6 +63,8 @@ class Octave < Formula
       # Upstream commit from 24 Feb 2017 https://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
       inreplace "liboctave/system/file-stat.cc",
         "inline file_stat::~file_stat () { }", "file_stat::~file_stat () { }"
+      inreplace "scripts/java/module.mk",
+        "-source 1.3 -target 1.3", "" # necessary for java >1.8
     end
 
     # Default configuration passes all linker flags to mkoctfile, to be
@@ -72,8 +74,6 @@ class Octave < Formula
 
     # allow for recent Oracle Java (>=1.8) without requiring the old Apple Java 1.6
     # this is more or less the same as in http://savannah.gnu.org/patch/index.php?9439
-    inreplace "scripts/java/module.mk",
-        "-source 1.3 -target 1.3", "" # necessary for java >1.8
     inreplace "libinterp/octave-value/ov-java.cc",
         "#if ! defined (__APPLE__) && ! defined (__MACH__)", "#if 1" # treat mac's java like others
     inreplace "configure.ac",
