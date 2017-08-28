@@ -4,6 +4,7 @@ class Fstar < Formula
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.5.0",
       :revision => "fa9b1fda52216678e364656f5f40b3309ef8392d"
+  revision 1
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
@@ -16,7 +17,13 @@ class Fstar < Formula
   depends_on "opam" => :build
   depends_on "gmp"
   depends_on "ocaml" => :recommended
-  depends_on "z3" => :recommended
+
+  # FStar uses a special cutting-edge release from the Z3 team.
+  # As we don't depend on the standard release we can't use the z3 formula.
+  resource "z3" do
+    url "https://github.com/Z3Prover/z3.git",
+        :revision => "1f29cebd4df633a4fea50a29b80aa756ecd0e8e7"
+  end
 
   def install
     ENV.deparallelize # Not related to F* : OCaml parallelization
@@ -26,6 +33,12 @@ class Fstar < Formula
     # Avoid having to depend on coreutils
     inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
+
+    resource("z3").stage do
+      system "python", "scripts/mk_make.py", "--prefix=#{libexec}"
+      system "make", "-C", "build"
+      system "make", "-C", "build", "install"
+    end
 
     system "opam", "init", "--no-setup"
     inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
@@ -45,7 +58,7 @@ class Fstar < Formula
     (libexec/"bin").install "bin/fstar.exe"
     (bin/"fstar.exe").write <<-EOS.undent
       #!/bin/sh
-      #{libexec}/bin/fstar.exe --fstar_home #{prefix} "$@"
+      #{libexec}/bin/fstar.exe --smt #{libexec}/bin/z3 --fstar_home #{prefix} "$@"
     EOS
 
     (libexec/"ulib").install Dir["ulib/*"]
