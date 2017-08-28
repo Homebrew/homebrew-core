@@ -16,6 +16,13 @@ class Haxe < Formula
   head do
     url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
     depends_on "opam" => :build
+
+    # ptmap 2.0.2 is needed for OCaml 4.05.0 compatibility
+    # See https://github.com/backtracking/ptmap/pull/4
+    resource "ptmap" do
+      url "https://github.com/ocaml/opam-repository/pull/10170.diff?full_index=1"
+      sha256 "2d5394638c370e654ee1b87e23a348d512da717df9bd52a16c1816c6047ba4f7"
+    end
   end
 
   depends_on "ocaml" => :build
@@ -32,7 +39,14 @@ class Haxe < Formula
       ENV["OPAMROOT"] = buildpath/"opamroot"
       ENV["OPAMYES"] = "1"
       system "opam", "init", "--no-setup"
-      system "opam", "install", "ocamlfind"
+      buildpath.install resource("ptmap")
+      system "patch", "-p1", "-i", buildpath/"10170.diff", "-d",
+                      "opamroot/repo/default"
+      inreplace "opamroot/repo/default/packages/ptmap/ptmap.2.0.2/opam",
+                /"obuild" {build}/, "\\0\n  \"qcheck\" {build & >= \"0.7\"}"
+      system "opam", "update"
+      system "opam", "config", "exec", "--", "opam", "install", "ocamlfind",
+             "sedlex", "xml-light", "extlib", "rope", "ptmap>2.0.1"
       system "opam", "config", "exec", "--", "make", "ADD_REVISION=1"
     else
       system "make", "OCAMLOPT=ocamlopt.opt"
@@ -47,7 +61,8 @@ class Haxe < Formula
     cp "extra/haxelib_src/haxelib", "haxelib"
 
     bin.mkpath
-    system "make", "install", "INSTALL_BIN_DIR=#{bin}", "INSTALL_LIB_DIR=#{lib}/haxe"
+    system "make", "install", "INSTALL_BIN_DIR=#{bin}",
+           "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{lib}/haxe/std"
 
     # Replace the absolute symlink by a relative one,
     # such that binary package created by homebrew will work in non-/usr/local locations.
