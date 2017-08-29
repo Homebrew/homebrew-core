@@ -1,8 +1,8 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v1.0.0a/libqalculate-1.0.0.tar.gz"
-  sha256 "7cc5a67356374d7f4fb20619dc4dd7976bbe9ae8d5bc3a40b44c46264de9549b"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v2.0.0/libqalculate-2.0.0.tar.gz"
+  sha256 "86d04362f37aa5acbc78108e0044b96fbffbaa33c309c19c8c37ac4fb46c5485"
 
   bottle do
     sha256 "cfef7cbb714bef3f00d317a92fd45f2e4d1356e7f6f3a2a852beefbeb83f52c6" => :sierra
@@ -16,12 +16,14 @@ class Libqalculate < Formula
   depends_on "glib"
   depends_on "gnuplot"
   depends_on "gettext"
+  depends_on "mpfr"
   depends_on "readline"
   depends_on "wget"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--without-icu",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
