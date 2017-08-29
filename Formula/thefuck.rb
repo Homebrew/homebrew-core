@@ -3,8 +3,8 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/09/f4/a2802f810b582010a767410087c8ae37b97955ccb4fdf4aa154fe37c91a5/thefuck-3.21.tar.gz"
-  sha256 "f622905fd4a1a53fc3f324ee6f2811027f203f8b9d366aa61fc45892010e931a"
+  url "https://files.pythonhosted.org/packages/3e/ea/382d0be542567c5a20f39e733be3f6c3ad52ca762ae79b677e4b1be14b50/thefuck-3.23.tar.gz"
+  sha256 "646aa5affc55968d96a6bbef44344e320337f4deebe35627be5c80221053ae4f"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Thefuck < Formula
     sha256 "e89883492cd9a5061ef9d3cb90a9623bf9098510b9f4294ec80c46c8b37bdf28" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
@@ -26,24 +26,24 @@ class Thefuck < Formula
     sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
   end
 
-  resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/a1/14/df0deb867c2733f7d857523c10942b3d6612a1b222502fdffa9439943dfb/pathlib2-2.3.0.tar.gz"
-    sha256 "d32550b75a818b289bd4c1f96b60c89957811da205afcceab75bc8b4857ea5b3"
-  end
-
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/57/93/47a2e3befaf194ccc3d05ffbcba2cdcdd22a231100ef7e4cf63f085c900b/psutil-5.2.2.tar.gz"
     sha256 "44746540c0fab5b95401520d29eb9ffe84b3b4a235bd1d1971cbe36e1f38dd13"
   end
 
-  resource "scandir" do
-    url "https://files.pythonhosted.org/packages/bd/f4/3143e0289faf0883228017dbc6387a66d0b468df646645e29e1eb89ea10e/scandir-1.5.tar.gz"
-    sha256 "c2612d1a487d80fb4701b4a91ca1b8f8a695b1ae820570815e85e8c8b23f1283"
+  resource "pyte" do
+    url "https://files.pythonhosted.org/packages/20/8b/7d6fc4ccc1dda496ab55b7f4ed1907392d6c2f98057f77be2bd07018987e/pyte-0.6.0.tar.gz"
+    sha256 "cd99a50070dcdb59678e7adc52696e8de8d1972e87808574fd8a243f78a8b462"
   end
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/55/11/e4a2bb08bb450fdbd42cc709dd40de4ed2c472cf0ccb9e64af22279c5495/wcwidth-0.1.7.tar.gz"
+    sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
   end
 
   def install
@@ -61,6 +61,7 @@ class Thefuck < Formula
 
   test do
     ENV["THEFUCK_REQUIRE_CONFIRMATION"] = "false"
+    ENV["LC_ALL"] = "en_US.UTF-8"
 
     output = shell_output("#{bin}/thefuck --version 2>&1")
     assert_match "The Fuck #{version} using Python", output
