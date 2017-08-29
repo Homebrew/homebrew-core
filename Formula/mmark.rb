@@ -3,8 +3,8 @@ require "language/go"
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://github.com/miekg/mmark"
-  url "https://github.com/miekg/mmark/archive/v1.3.4.tar.gz"
-  sha256 "e03744da8d16cc742423685e2ad7cb1af61bf6dc5364c6875057b7c28ab26bb8"
+  url "https://github.com/miekg/mmark/archive/v1.3.6.tar.gz"
+  sha256 "9c49d335d0591003c9ac838f6f74f3ae8e0ac50dec892b6ed3485b17a8bedd77"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Mmark < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-    :revision => "443a628bc233f634a75bcbdd71fe5350789f1afa"
+        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
   end
 
   resource "test" do
