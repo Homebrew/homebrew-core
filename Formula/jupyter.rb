@@ -4,6 +4,13 @@ class Jupyter < Formula
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e30e56ef7ae0e40b5e532629b798565961f2eb8a5149eccd0521d9dcb12b20fa" => :sierra
+    sha256 "40923f4e196c25739ebdb443b2ba248ee378b3df8ac519ffb5b576c0a1b7709a" => :el_capitan
+    sha256 "bb350c710be3d9476725ac36e3eba65ee0ae3aae61f952aef1aede364e263a9a" => :yosemite
+  end
+
   option "with-qtconsole", "Install with Qtconsole"
   option "without-console", "Install without Jupyter Console"
   option "without-nbconvert", "Install without Nbconvert"
