@@ -1,19 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  revision 3
+  url "https://github.com/mgba-emu/mgba/archive/0.6.0.tar.gz"
+  sha256 "d8cf01befd7f452415a9191b058bc21e47e39c7f2c865257cd93c2780b17fe07"
   head "https://github.com/mgba-emu/mgba.git"
-
-  stable do
-    url "https://github.com/mgba-emu/mgba/archive/0.5.2.tar.gz"
-    sha256 "3d9fda762e6e0dd26ffbd3cbaa5365dc7ca7ed324cee5c65b7c85eaa3c37c4f3"
-
-    # Remove for > 0.5.2
-    # Upstream commit from 18 Jan 2017 "Feature: Support ImageMagick 7"
-    # https://github.com/mgba-emu/mgba/commit/2e3daaedc208824c9b8a54480bd614160cdda9e7
-    # Can't use the commit itself as a patch since it doesn't apply cleanly
-    patch :DATA
-  end
 
   bottle do
     cellar :any
