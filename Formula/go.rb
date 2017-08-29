@@ -36,9 +36,9 @@ class Go < Formula
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-    version "1.7"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    url "https://storage.googleapis.com/golang/go1.8.darwin-amd64.tar.gz"
+    version "1.8"
+    sha256 "6fdc9f98b76a28655a8770a1fc8197acd8ef746dd4d8a60589ce19604ba2a120"
   end
 
   def install
