@@ -9,9 +9,9 @@ class DcosCli < Formula
 
   bottle do
     cellar :any
-    sha256 "0e0b24daef2b2065b813b32f540457152d6b6c55e17d9a61fcd8d54e6e71d829" => :sierra
-    sha256 "754105981f84adf956ed85bc952911e472ca5893819d42d496fc9f8cb68d564b" => :el_capitan
-    sha256 "c7de60b0307e31851d2f759cdbaeaf48480eb06a6e687b3672357f1d8680dfac" => :yosemite
+    sha256 "a42d4706f8eeb2c443400e1cf1e52d3af7c6137e74c914feec57c0ef1d1ca941" => :sierra
+    sha256 "563489e3b4984c7e74248792490d1da60405d740a636c5e7df4bf3e8619fdc99" => :el_capitan
+    sha256 "1dbb4adae9173cc28628c1b6e940f820f4eef13ea69268edc096279d5164cb31" => :yosemite
   end
 
   depends_on :python3
