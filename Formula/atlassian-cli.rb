@@ -1,8 +1,8 @@
 class AtlassianCli < Formula
   desc "Command-line interface clients for Atlassian products"
   homepage "https://bobswift.atlassian.net/wiki/pages/viewpage.action?pageId=1966101"
-  url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-6.2.0-distribution.zip"
-  sha256 "e6c2cfaa8c00419de9e509bb740ad891cf4f425405402a43d2dd2c9d89bbc68f"
+  url "https://bobswift.atlassian.net/wiki/download/attachments/16285777/atlassian-cli-6.9.0-distribution.zip"
+  sha256 "56994ddee849a5819cfe1e9a4f5f295296689cd361a347f6efac4dabf5c2a706"
 
   bottle :unneeded
 
