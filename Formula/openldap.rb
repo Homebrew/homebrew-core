@@ -40,6 +40,7 @@ class Openldap < Formula
       --enable-translucent
       --enable-unique
       --enable-valsort
+      --with-pic
     ]
 
     args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db@4"
