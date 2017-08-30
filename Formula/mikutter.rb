@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.5.9.tar.gz"
-  sha256 "7ca631240a179ffbce8a7739f7c1258d117ea8361f1ab02862a5547d6d6df6cf"
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.10.tar.gz"
+  sha256 "d794153f17e110b6696b0bf1a050817cc61dd14127cbfdcd12e566656b30bc53"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -16,13 +16,13 @@ class Mikutter < Formula
   depends_on :ruby => "2.1"
 
   resource "addressable" do
-    url "https://rubygems.org/gems/addressable-2.5.1.gem"
-    sha256 "b09603b313a94fa3674d8fbaae77cc7c778e9d3cde5fea3b7c1fe447941818c5"
+    url "https://rubygems.org/gems/addressable-2.5.2.gem"
+    sha256 "73771ea960b3900d96e6b3729bd203e66f387d0717df83304411bf37efd7386e"
   end
 
   resource "atk" do
-    url "https://rubygems.org/gems/atk-3.1.6.gem"
-    sha256 "cbd1c61cadb79ee4dda060866a2f0687beebf8b223ad613b50b9dfd4fca9a6c6"
+    url "https://rubygems.org/gems/atk-3.1.8.gem"
+    sha256 "598a956506066e43037099899247031850e2ec764d3007f39d975fe01c5c367a"
   end
 
   resource "cairo" do
@@ -31,8 +31,8 @@ class Mikutter < Formula
   end
 
   resource "cairo-gobject" do
-    url "https://rubygems.org/gems/cairo-gobject-3.1.6.gem"
-    sha256 "cf21dfbcc53964159ec24adfe5109a91555f9cd25bbf9ccb2cccb89d8b13374e"
+    url "https://rubygems.org/gems/cairo-gobject-3.1.8.gem"
+    sha256 "a27bd60e70b02b399db7f70a7d7ac6b171a4556ed46a3ff06ae8cef85262ab0d"
   end
 
   resource "crack" do
@@ -46,43 +46,43 @@ class Mikutter < Formula
   end
 
   resource "delayer-deferred" do
-    url "https://rubygems.org/gems/delayer-deferred-1.1.1.gem"
-    sha256 "ec5adf6ad3680bf3f95a2ab7ac7996994d6a87e01528429570b2f6854d4484af"
+    url "https://rubygems.org/gems/delayer-deferred-1.0.4.gem"
+    sha256 "6bef17fec576f81fb74db5b6d1b883abec1824976120ccf99f413f34e385e2e6"
   end
 
   resource "gdk_pixbuf2" do
-    url "https://rubygems.org/gems/gdk_pixbuf2-3.1.6.gem"
-    sha256 "96cbf9ce330dff120a9d2ce23a61526039205af7882cc5edfb5ec4dd41453518"
+    url "https://rubygems.org/gems/gdk_pixbuf2-3.1.8.gem"
+    sha256 "3e7f59479224b62ca27b6078aa527e285b6e81dbbe36b04f0f02047cb2d6e5de"
   end
 
   resource "gettext" do
-    url "https://rubygems.org/gems/gettext-3.0.9.gem"
-    sha256 "390ee547437d62d00b859383d1af816cf06f0adee9ced1949f821b720d187c93"
+    url "https://rubygems.org/gems/gettext-3.2.4.gem"
+    sha256 "ffd3f6dd5b8e73dd8117ac2a7f7caabae1118de85624d47b7163f9ace1c4dd77"
   end
 
   resource "gio2" do
-    url "https://rubygems.org/gems/gio2-3.1.6.gem"
-    sha256 "a1f76a8ffe11f81c8255786a2085468bc8af729446741b90924fbcc1094b9512"
+    url "https://rubygems.org/gems/gio2-3.1.8.gem"
+    sha256 "97aa3245e39f2d94d569960fa780b6335c007f9039f720901f77619854242a8c"
   end
 
   resource "glib2" do
-    url "https://rubygems.org/gems/glib2-3.1.6.gem"
-    sha256 "d500e3c95fdd41888516c1545276b22549d8c09321fa294e66ddb0152c4fd316"
+    url "https://rubygems.org/gems/glib2-3.1.8.gem"
+    sha256 "fbb5ef561b82ff22280da9997927b71f6e7c872f0e1c36887c1ed760f07d72f5"
   end
 
   resource "gobject-introspection" do
-    url "https://rubygems.org/gems/gobject-introspection-3.1.6.gem"
-    sha256 "10dca962c2dc3746b6ed2d00a581270265c56ed7a73e61935a91218ad1b2e4cc"
+    url "https://rubygems.org/gems/gobject-introspection-3.1.8.gem"
+    sha256 "64397426f137e4b933b5a3d5d07915907e7b2705a72f7d3e0743609cf075e54e"
   end
 
   resource "gtk2" do
-    url "https://rubygems.org/gems/gtk2-3.1.6.gem"
-    sha256 "409e2f73b2e792466d1335f68ac79edf9522cf996faee22236f71ba86f00033f"
+    url "https://rubygems.org/gems/gtk2-3.1.8.gem"
+    sha256 "f93dbd54cdddc21b0e837cc1c66ceb220ffaa59a45562d7a18ce985889de2174"
   end
 
   resource "hashdiff" do
-    url "https://rubygems.org/gems/hashdiff-0.3.4.gem"
-    sha256 "0aac86b2486ad06e5496ac404b3c2f115b31d5ba1e110998fa0aa675e691d0d8"
+    url "https://rubygems.org/gems/hashdiff-0.3.6.gem"
+    sha256 "816ce4c22faeb0df029170dd101e34d238b90b388556ecde77413c373d5e1870"
   end
 
   resource "httpclient" do
@@ -96,8 +96,8 @@ class Mikutter < Formula
   end
 
   resource "json_pure" do
-    url "https://rubygems.org/gems/json_pure-1.8.6.gem"
-    sha256 "55d575c4aec98249473811a256b3f3a7c12a94ad008093032f5e5f28eacd94ee"
+    url "https://rubygems.org/gems/json_pure-2.1.0.gem"
+    sha256 "5a895821c7d6200764facf1a85d81e2696ef71701b08da479582910cab4bce8b"
   end
 
   resource "locale" do
@@ -121,8 +121,8 @@ class Mikutter < Formula
   end
 
   resource "mocha" do
-    url "https://rubygems.org/gems/mocha-0.14.0.gem"
-    sha256 "4bb00fdc69d628b15ad2b89ca6f490aaf92486f640282b8943fe3b43dee9a145"
+    url "https://rubygems.org/gems/mocha-1.3.0.gem"
+    sha256 "22f247ad94e92cef32baac2e671d1d7262f165dc933ead1940cf874c3d1fc25e"
   end
 
   resource "moneta" do
@@ -146,13 +146,13 @@ class Mikutter < Formula
   end
 
   resource "pango" do
-    url "https://rubygems.org/gems/pango-3.1.6.gem"
-    sha256 "ae711ef2e38ca007ca38f899dde3fcbf7b7d70afbf9b91b30af50202a333cbe9"
+    url "https://rubygems.org/gems/pango-3.1.8.gem"
+    sha256 "329d9b28ba6b4d6775cdd1ab81df8a4e92c8d9d3a69b6de682c9f9ddbfde988a"
   end
 
   resource "pkg-config" do
-    url "https://rubygems.org/gems/pkg-config-1.2.3.gem"
-    sha256 "bc193fda2ceb83cd0eeca87e1c9eba8e142dcd785699205246e28b1a7f14a84a"
+    url "https://rubygems.org/gems/pkg-config-1.2.7.gem"
+    sha256 "fc8ab6f3200cddfeacb8a29168daa38d8f76c0e09af91a00a3d423bc472d70af"
   end
 
   resource "pluggaloid" do
@@ -161,18 +161,18 @@ class Mikutter < Formula
   end
 
   resource "power_assert" do
-    url "https://rubygems.org/gems/power_assert-1.0.2.gem"
-    sha256 "7982eebfef963eebe680b6789b4cc9366d5ac6fe06b906a950856c9b0a610a99"
+    url "https://rubygems.org/gems/power_assert-1.1.0.gem"
+    sha256 "e541ceb7b0cf03331c3ab146f022e4705cff0d7eea3c79017459130b31ced96b"
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/gems/public_suffix-2.0.5.gem"
-    sha256 "f8488b110921532ff291af74eef70fa4e3c036141c4ef80009dcdc2b51721210"
+    url "https://rubygems.org/gems/public_suffix-3.0.0.gem"
+    sha256 "ae48d8122866e342c09f1f643c2b88e3547562fd6df85d83926445d75f90ca6a"
   end
 
   resource "rake" do
-    url "https://rubygems.org/gems/rake-10.5.0.gem"
-    sha256 "2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49"
+    url "https://rubygems.org/gems/rake-12.0.0.gem"
+    sha256 "f6b43059e2923ddd30128fbbf4eb2e610c020b888ad97b57d7d94abc12734806"
   end
 
   resource "ruby-hmac" do
@@ -231,8 +231,8 @@ class Mikutter < Formula
   end
 
   resource "webmock" do
-    url "https://rubygems.org/gems/webmock-1.24.6.gem"
-    sha256 "c516e1b309697af303e647dc2f3c7222b13ef70c1c4c5afb61e64bd595c9740f"
+    url "https://rubygems.org/gems/webmock-3.0.1.gem"
+    sha256 "53b2422e7b07a318f43d7bb9cbb3cf82ecfdaffa5f085c69b426db9e8efc463f"
   end
 
   def install
@@ -249,27 +249,29 @@ class Mikutter < Formula
 
     (bin/"mikutter").write(exec_script)
     pkgshare.install_symlink libexec/"core/skin"
-    libexec.install_symlink HOMEBREW_PREFIX/"lib/mikutter/plugin"
+    libexec.install_symlink lib/"mikutter/plugin"
   end
 
   def exec_script
     <<-EOS.undent
     #!/bin/bash
-    export GEM_HOME="#{HOMEBREW_PREFIX}/lib/mikutter/vendor"
+    export GEM_HOME="#{opt_lib}/mikutter/vendor"
     export DISABLE_BUNDLER_SETUP=1
-    export GTK_PATH="#{HOMEBREW_PREFIX}/lib/gtk-2.0"
+    export GTK_PATH="#{Formula["gtk+"].opt_lib}/gtk-2.0"
     exec ruby "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 
   test do
-    test_plugin = <<-EOS.undent
+    (testpath/"test_plugin").write <<-EOS.undent
       # -*- coding: utf-8 -*-
       Plugin.create(:brew) do
         Delayer.new { Thread.exit }
       end
     EOS
-    (testpath/"plugin/brew.rb").write(test_plugin)
-    system bin/"mikutter", "--confroot=#{testpath}", "--plugin=brew", "--debug"
+    system bin/"mikutter", "generate", "test_plugin"
+    assert File.file?(testpath/".mikutter/plugin/test_plugin/test_plugin.rb")
+    system bin/"mikutter", "plugin_depends",
+           testpath/".mikutter/plugin/test_plugin/test_plugin.rb"
   end
 end
