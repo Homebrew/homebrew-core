@@ -9,11 +9,9 @@ class Chipmunk < Formula
 
   bottle do
     cellar :any
-    sha256 "f6bcf7dae5c57ca130705245adaa09bf4c922539c9b46877ab0895b56e79bc3d" => :sierra
-    sha256 "b102e80b437f3547447919f633e0e247afe5644d545271439a0172777527a442" => :el_capitan
-    sha256 "778a6264346121cce1a36f6cb77c3ee3b4dfea44cb95f381f46b61ba04aa2080" => :yosemite
-    sha256 "638b8122b0ad67cdb134839805e82cd702e9ba4a787b6fbb8b71ff0161a47700" => :mavericks
-    sha256 "694a4ec57d96393397a18f9df95fc272900a1602bd962fcbb45e4e7fc23e16a1" => :mountain_lion
+    sha256 "11d92de45ec0fa8a25872f5ac18c92e3d1686c1d515d05d48731d19f5d3c30b3" => :sierra
+    sha256 "8848acb3fa314fad434f5eb143788831544453598d047342fe20c99045225d26" => :el_capitan
+    sha256 "58cc2257eb17a9d67fee0c9bb8350f88a3092f149f74deba3aba591c47ae9c00" => :yosemite
   end
 
   depends_on "cmake" => :build
