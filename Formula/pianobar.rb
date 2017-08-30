@@ -1,8 +1,8 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  url "https://6xq.net/pianobar/pianobar-2016.06.02.tar.bz2"
-  sha256 "c6efb0d0fe36013c6506dadf3718e8ed9471b7839654c97027e036ed16212559"
+  url "https://6xq.net/pianobar/pianobar-2017.08.30.tar.bz2"
+  sha256 "ec14db6cf1a7dbc1d8190b5ca0d256021e970587bcdaeb23904d4bca71a04674"
   head "https://github.com/PromyLOPh/pianobar.git"
 
   bottle do
