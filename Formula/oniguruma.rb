@@ -1,8 +1,8 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.6.0/onig-6.6.0.tar.gz"
-  sha256 "a2da05e61f2872f3af3c384e40618510a478c813c3a9eeff9c33c41e3909169d"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.6.1/onig-6.6.1.tar.gz"
+  sha256 "8f9731f9e48666236a1678e2b4ead69be682eefba3983a714b6b57cf5ee14372"
 
   bottle do
     cellar :any
