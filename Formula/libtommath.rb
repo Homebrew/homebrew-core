@@ -1,8 +1,8 @@
 class Libtommath < Formula
   desc "C library for number theoretic multiple-precision integers"
   homepage "http://www.libtom.net/LibTomMath/"
-  url "https://github.com/libtom/libtommath/releases/download/v1.0/ltm-1.0.tar.xz"
-  sha256 "993a7df9ee091fca430cdde3263df57d88ef62af8103903214da49fc51bbb56c"
+  url "https://github.com/libtom/libtommath/releases/download/v1.0.1/ltm-1.0.1.tar.xz"
+  sha256 "47032fb39d698ce4cf9c9c462c198e6b08790ce8203ad1224086b9b978636c69"
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
