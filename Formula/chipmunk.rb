@@ -1,9 +1,9 @@
 class Chipmunk < Formula
   desc "2D rigid body physics library written in C"
   homepage "https://chipmunk-physics.net/"
-  url "https://chipmunk-physics.net/release/Chipmunk-7.x/Chipmunk-7.0.1.tgz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/chipmunk/Chipmunk-7.0.1.tgz"
-  sha256 "fe54b464777d89882a9f9d3d6deb17189af8bc5d63833b25bb1a7d16c3e69260"
+  url "https://chipmunk-physics.net/release/Chipmunk-7.x/Chipmunk-7.0.2.tgz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/chipmunk/Chipmunk-7.0.2.tgz"
+  sha256 "288c8465fcaa671bab890c0b24627816efa10da2c5eabbeb36feb0d6deb1ca5a"
 
   head "https://github.com/slembcke/Chipmunk2D.git"
 
