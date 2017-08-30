@@ -10,6 +10,11 @@ class Tmux < Formula
     sha256 "d137eb4f725cd7784162c01b1e6053c88059079aed639b685f3a3eba82efe31f" => :yosemite
   end
 
+  devel do
+    url "https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6-rc.tar.gz"
+    sha256 "96ddc4e5d8a4dbd5bd1eea841e0c9d7a0484ae01e7e0de6857c5dbc7e69aaada"
+  end
+
   head do
     url "https://github.com/tmux/tmux.git"
 
