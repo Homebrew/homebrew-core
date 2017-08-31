@@ -13,6 +13,8 @@ class AutomakeAT112 < Formula
     sha256 "7a20cc435d255a4b2f31dfa4246020e91bcaeaa4706576b8847366f7422d31e8" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   depends_on "autoconf" => :run
 
   def install
