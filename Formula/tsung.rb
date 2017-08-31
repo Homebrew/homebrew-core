@@ -1,8 +1,8 @@
 class Tsung < Formula
   desc "Load testing for HTTP, PostgreSQL, Jabber, and others"
   homepage "http://tsung.erlang-projects.org/"
-  url "http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz"
-  sha256 "56846c3a90fd7037d9a76330cb8f3052238344491e2fe6ef1ebdb0b620eb3d84"
+  url "http://tsung.erlang-projects.org/dist/tsung-1.7.0.tar.gz"
+  sha256 "6394445860ef34faedf8c46da95a3cb206bc17301145bc920151107ffa2ce52a"
 
   head "https://github.com/processone/tsung.git"
 
