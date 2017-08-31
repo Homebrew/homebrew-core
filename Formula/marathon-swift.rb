@@ -1,5 +1,5 @@
 class MarathonSwift < Formula
-  desc "Makes it easy to write, run and manage your Swift scripts."
+  desc "Makes it easy to write, run and manage your Swift scripts"
   homepage "https://github.com/JohnSundell/Marathon"
   url "https://github.com/JohnSundell/Marathon/archive/1.0.1.tar.gz"
   sha256 "ebf455159497ae7747784dd9a95b9678dab27db49e8e10c7c6fc2878edcdbce9"
