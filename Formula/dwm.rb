@@ -1,9 +1,9 @@
 class Dwm < Formula
   desc "Dynamic window manager"
-  homepage "http://dwm.suckless.org/"
-  url "http://dl.suckless.org/dwm/dwm-6.1.tar.gz"
+  homepage "https://dwm.suckless.org/"
+  url "https://dl.suckless.org/dwm/dwm-6.1.tar.gz"
   sha256 "c2f6c56167f0acdbe3dc37cca9c1a19260c040f2d4800e3529a21ad7cce275fe"
-  head "http://git.suckless.org/dwm", :using => :git
+  head "https://git.suckless.org/dwm", :using => :git
 
   bottle do
     cellar :any_skip_relocation
