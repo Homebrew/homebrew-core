@@ -3,7 +3,7 @@ class Redex < Formula
   homepage "http://fbredex.com"
   url "https://github.com/facebook/redex/archive/v1.1.0.tar.gz"
   sha256 "af2c81db4e0346e1aeef570e105c60ebfea730d62fd928d996f884abda955990"
-
+  revision 1
   head "https://github.com/facebook/redex.git"
 
   bottle do
