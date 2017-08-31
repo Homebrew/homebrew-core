@@ -3,6 +3,7 @@ class Sysdig < Formula
   homepage "https://www.sysdig.org/"
   url "https://github.com/draios/sysdig/archive/0.17.0.tar.gz"
   sha256 "f009acc32f2b15fcb0d2267bde6f6de9b3445179003c979ba61a8836abdb78f9"
+  revision 1
 
   bottle do
     sha256 "b13af9d6e45d2e98a618260158b1c26659dd423f41a4251799967843dc08759a" => :sierra
