@@ -1,9 +1,8 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.12.0/infer-osx-v0.12.0.tar.xz"
-  sha256 "3b97bcabf85af8feb8d6fd0b8622fe2b4fbf27fa215fab61e3a660b5435b6d21"
-  revision 1
+  url "https://github.com/facebook/infer/releases/download/v0.12.1/infer-osx-v0.12.1.tar.xz"
+  sha256 "ce76b87bf4f70be594aaddc7402609af6338623fbb448dacca610e10bcb7c60a"
 
   bottle do
     cellar :any
@@ -24,15 +23,6 @@ class Infer < Formula
   depends_on "pkg-config" => :build
 
   def install
-    # Remove for > 0.12.0
-    # Fix conflicting version constraints:
-    # ppx_deriving -> cppo_ocamlbuild -> cppo >= 1.6.0
-    # ppx_deriving -> cppo_ocamlbuild -> jbuilder >= 1.0+beta10
-    inreplace "opam.lock" do |s|
-      s.gsub! /^cppo = 1\.4\.1$/, "cppo = 1.6.0"
-      s.gsub! /^jbuilder = 1\.0\+beta6$/, "jbuilder = 1.0+beta12"
-    end
-
     if build.without?("clang") && build.without?("java")
       odie "infer: --without-clang and --without-java are mutually exclusive"
     end
