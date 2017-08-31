@@ -1,8 +1,8 @@
 class RtAudio < Formula
   desc "API for realtime audio input/output"
   homepage "https://www.music.mcgill.ca/~gary/rtaudio/"
-  url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-4.1.2.tar.gz"
-  sha256 "294d044da313a430c44d311175a4f51c15d56d87ecf72ad9c236f57772ecffb8"
+  url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-5.0.0.tar.gz"
+  sha256 "799deae1192da52cc2c15a078ed3b42449580be7d096fe9bc841c5bba0289c57"
 
   head "https://github.com/thestk/rtaudio.git"
 
