@@ -3,7 +3,7 @@ class Offlineimap < Formula
   homepage "http://offlineimap.org/"
   url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.2.tar.gz"
   sha256 "7203435e34f73e90d1833b72c49a859decf7b5828384a2648ee4b2d1ef3bdc66"
-  revision 1
+  revision 2
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
@@ -68,6 +68,7 @@ class Offlineimap < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/offlineimap</string>
+          <string>-q</string>
           <string>-u</string>
           <string>basic</string>
         </array>
