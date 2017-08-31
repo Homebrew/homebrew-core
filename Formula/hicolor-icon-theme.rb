@@ -6,9 +6,9 @@ class HicolorIconTheme < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62ad54e057594fe218a8d7b5829d979883dd1118d6b65343933e3b1f5f14241f" => :sierra
-    sha256 "62ad54e057594fe218a8d7b5829d979883dd1118d6b65343933e3b1f5f14241f" => :el_capitan
-    sha256 "62ad54e057594fe218a8d7b5829d979883dd1118d6b65343933e3b1f5f14241f" => :yosemite
+    sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :sierra
+    sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :el_capitan
+    sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :yosemite
   end
 
   head do
