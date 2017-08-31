@@ -31,7 +31,9 @@ class Sfml < Formula
     # the CMakeLists.txt file currently doesn't consider MacOS X.
     # This was fixed upstream for the future 2.5.0 release on 2016-12-19 in:
     # https://github.com/SFML/SFML/commit/5fe5e5d6d7792e37685a437551ffa8ed5161fcc1
-    inreplace "CMakeLists.txt", "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)", "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
+    inreplace "CMakeLists.txt",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
 
     args = std_cmake_args
     args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
