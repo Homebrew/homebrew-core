@@ -9,7 +9,8 @@ class MarathonSwift < Formula
   def install
     if MacOS::Xcode.version >= "9.0"
       system "swift", "package", "--disable-sandbox", "update"
-      system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib", "--disable-sandbox"
+      system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib",
+             "--disable-sandbox"
     else
       ENV.delete("CC") # https://bugs.swift.org/browse/SR-3151
       system "swift", "package", "update"
