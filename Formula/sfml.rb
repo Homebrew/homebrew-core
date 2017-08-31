@@ -35,8 +35,7 @@ class Sfml < Formula
               "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
               "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
 
-    args = std_cmake_args
-    args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
+    args = std_cmake_args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
     args << "-DSFML_BUILD_DOC=TRUE" if build.with? "doxygen"
 
     # Always remove the "extlibs" to avoid install_name_tool failure
