@@ -1,10 +1,10 @@
 class Dmenu < Formula
   desc "Dynamic menu for X11"
-  homepage "http://tools.suckless.org/dmenu/"
-  url "http://dl.suckless.org/tools/dmenu-4.7.tar.gz"
+  homepage "https://tools.suckless.org/dmenu/"
+  url "https://dl.suckless.org/tools/dmenu-4.7.tar.gz"
   sha256 "a75635f8dc2cbc280deecb906ad9b7594c5c31620e4a01ba30dc83984881f7b9"
 
-  head "http://git.suckless.org/dmenu/", :using => :git
+  head "https://git.suckless.org/dmenu/", :using => :git
 
   bottle do
     cellar :any_skip_relocation
