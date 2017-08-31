@@ -1,8 +1,8 @@
 class TeamExplorerEverywhere < Formula
   desc "Run version control commands against a TFS server"
   homepage "https://go.microsoft.com/fwlink/?LinkId=242481"
-  url "https://github.com/Microsoft/team-explorer-everywhere/releases/download/14.120.0/TEE-CLC-14.120.0.zip"
-  sha256 "157389b282a00c0d2e33bfab61e88bb47acb7811facbc427b766ed19be1821ec"
+  url "https://github.com/Microsoft/team-explorer-everywhere/releases/download/14.123.0/TEE-CLC-14.123.0.zip"
+  sha256 "93fbf2372c7c719b41fe243fa3cef8ea1fa6b1e6dfb84990ad8664bbdbbb262b"
 
   bottle :unneeded
 
