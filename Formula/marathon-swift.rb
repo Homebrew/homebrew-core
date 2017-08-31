@@ -20,7 +20,9 @@ class MarathonSwift < Formula
   end
 
   test do
-    system "#{bin}/marathon", "create", "helloWorld", "import Foundation; print(\"Hello World\")", "--no-xcode", "--no-open"
+    system "#{bin}/marathon", "create", "helloWorld",
+           "import Foundation; print(\"Hello World\")", "--no-xcode",
+           "--no-open"
     system "#{bin}/marathon", "run", "helloWorld"
   end
 end
