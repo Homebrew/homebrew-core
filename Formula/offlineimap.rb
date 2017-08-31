@@ -68,6 +68,7 @@ class Offlineimap < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/offlineimap</string>
+          <string>-q</string>
           <string>-u</string>
           <string>basic</string>
         </array>
