@@ -8,10 +8,9 @@ class RtAudio < Formula
 
   bottle do
     cellar :any
-    sha256 "2ac9c8d3abfd8d934081ec1c4c5e52ae391e22d6cd29ae16272a2e698ea07763" => :sierra
-    sha256 "8289fb90b4b4f8c9c41856c60683db91b0fe65a063a31710d01ee3f724c74b70" => :el_capitan
-    sha256 "ec92e93d2452d3567e2bf193f4319b9ebdc9bf9be6a5ef675a413c8931b9efee" => :yosemite
-    sha256 "4636c591bca5a5c3f012342ae6a92332f12a0509999bed90b97fe1df8632a699" => :mavericks
+    sha256 "d573b5a8e5e832e4b10445a05fe7502e62d42b5f8ae74796944ef3b30af7c3eb" => :sierra
+    sha256 "b47e9e56e72e2e7969f811e8cb11db6a4436e4f5b5363db917043083b8dda612" => :el_capitan
+    sha256 "bd1920ca3ad3c0f67e7824b430fa32a4f48085a9bb7233e9157bf292d73bd099" => :yosemite
   end
 
   depends_on "cmake" => :build
