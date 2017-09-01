@@ -5,9 +5,9 @@ class Libpq < Formula
   sha256 "06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c"
 
   bottle do
-    sha256 "1c17bcf26b4972c360009e475f7a89e1afaa68273cfc4c5b2dcfbb8f250e7530" => :sierra
-    sha256 "f2454528f63410d062377f0681cf0c8b689a4f6fb6f91ed02d5ab50ccb75f4be" => :el_capitan
-    sha256 "025d7862d9dc3acc56b33afaf27a77c05854400fa9201a34fa60d5717474413a" => :yosemite
+    sha256 "8e1df6c6372d0f68bcfc463797205145205a6de4b5ffbb55edf761ba48b71986" => :sierra
+    sha256 "e0aba71bfa8a6c8daa47649c1764f42f628b844b7594fa36d5fdd6313c442121" => :el_capitan
+    sha256 "9dfaafa1b691a00bab92f677120d83b0909a454d6a44523a162821f5192e2cb2" => :yosemite
   end
 
   keg_only "conflicts with postgres formula"
