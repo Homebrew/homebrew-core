@@ -17,6 +17,15 @@ class Bochs < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2" => :recommended
 
+  # Fix pointer cast issue
+  # https://sourceforge.net/p/bochs/patches/537/
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9b520dd4c/bochs/xcode9.patch"
+      sha256 "373c670083a3e96f4012cfe7356d8b3584e2f0d10196b4294d56670124f5e5e7"
+    end
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
