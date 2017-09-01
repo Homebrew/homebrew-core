@@ -7,9 +7,9 @@ class Etcd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "70e0e4f976df9301d331bd129cceb564d2c5d7b80f5f6a7e28f24520da050fe9" => :sierra
-    sha256 "4cbf5be929c7a93b9e0260b1e70297d3948616dcd0dced41b38baf74f6a5ffc6" => :el_capitan
-    sha256 "70efd527424eb90d2aa28bee723c2065a888fcc3f3d5369da41d12def02c9cd7" => :yosemite
+    sha256 "8245f62c4af1c66720226aa29a7f02824e52d7ca330bd33bf7cdc6b9c5f8cdaa" => :sierra
+    sha256 "4504914d52f6e55f9144cb5143f5f104305405bd7cad87c9813e7ff882e72844" => :el_capitan
+    sha256 "89e310f706e6af8e39222d7b93736db3f23192a7e51efa59eb64a0142122a7d8" => :yosemite
   end
 
   depends_on "go" => :build
