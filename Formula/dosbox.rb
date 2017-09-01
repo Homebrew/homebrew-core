@@ -28,6 +28,15 @@ class Dosbox < Formula
 
   conflicts_with "dosbox-x", :because => "both install `dosbox` binaries"
 
+  # Fix compilation with Xcode 9
+  # https://sourceforge.net/p/dosbox/patches/274/
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9102536006/dosbox/xcode9.patch"
+      sha256 "a23a4cf691452e5d13e159063d9cd8b9bd508c4982116b471fd6fa72fc021eba"
+    end
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
