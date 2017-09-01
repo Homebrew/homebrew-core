@@ -7,10 +7,9 @@ class Freeswitch < Formula
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
-    rebuild 1
-    sha256 "0985a060f392d9346fb4cc10dfab6597d8069afb719b2e13f97bdcd3b15a47ee" => :sierra
-    sha256 "36fbd460a6b13ac81e3d7e64118c7991f85736a450131dfb97633c107acf9d85" => :el_capitan
-    sha256 "591ee2a92e20ab8e0f25258c77db869fafb3d42aac3b95b68ffc4b703b20ba44" => :yosemite
+    sha256 "d1086826c4aac6ba2fe94d01c0e318154ecc206a94dd214cc4fb23b755803fe2" => :sierra
+    sha256 "33098470d1a183e818aee08cd3686a11d6a20cb77f661c9b153c3cd86c2bdda4" => :el_capitan
+    sha256 "34a4df18d070a69f355df949f6a64f9e0f9cfeb45fbc7ef1eb14ebfd6016f931" => :yosemite
   end
 
   option "without-moh", "Do not install music-on-hold"
