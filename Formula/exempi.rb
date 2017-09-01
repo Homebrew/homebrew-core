@@ -1,8 +1,8 @@
 class Exempi < Formula
   desc "Library to parse XMP metadata"
   homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
-  url "https://libopenraw.freedesktop.org/download/exempi-2.3.0.tar.bz2"
-  sha256 "d89aed355e6d38b8525ffeaffe592b362fec3a8306a1d8116625908af8d89949"
+  url "https://libopenraw.freedesktop.org/download/exempi-2.4.3.tar.bz2"
+  sha256 "bfd1d8ebffe07918a5bfc7a5130ff82486d35575827cae8d131b9fa1c0c29c6e"
 
   bottle do
     cellar :any
