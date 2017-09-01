@@ -2,8 +2,8 @@ class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang-nursery/rustup.rs"
 
-  url "https://github.com/rust-lang-nursery/rustup.rs/archive/1.5.0.tar.gz"
-  sha256 "77771f75af0b4212d8144371390be9fe469d3f47251db009e843733c601df6c3"
+  url "https://github.com/rust-lang-nursery/rustup.rs/archive/1.6.0.tar.gz"
+  sha256 "928348f6770fdc391eea04bb31f9fec4238efba19502dd354d59871884b01189"
 
   bottle do
     sha256 "4aea59d5617cf25c4399dcde2be3a357e03d04d3c4ccbfa3851e42c03dec58bd" => :sierra
