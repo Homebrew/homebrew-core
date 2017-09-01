@@ -1,8 +1,8 @@
 class DockerCredentialHelper < Formula
   desc "macOS Credential Helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/v0.5.2.tar.gz"
-  sha256 "aa334cbadf67d61fcdc116ec9ed787bf3ac6eac330a9baf1fef8581bff37ad10"
+  url "https://github.com/docker/docker-credential-helpers/archive/v0.6.0.tar.gz"
+  sha256 "7d8cdb67c89dece68e96dce11eab9d03c1d798296d3f3601eec4589b24664e7a"
   head "https://github.com/docker/docker-credential-helpers.git"
 
   bottle do
