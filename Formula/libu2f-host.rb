@@ -6,9 +6,9 @@ class Libu2fHost < Formula
 
   bottle do
     cellar :any
-    sha256 "6b7ecd51461bc647a2c06ea3f29d02cef4eec1fb265d76f81c701c0992eb741a" => :sierra
-    sha256 "7f5b2f3c89f1e9c2d9c22f80ebf903e4885c44d34d5da1800b761a622fe4c806" => :el_capitan
-    sha256 "35bcfe1d4c996b0b203cc6cf9a41587eb5dcec62ed0ab78ecafe348b17849c3a" => :yosemite
+    sha256 "10b492fd38f6726b8132115a91a6a907ccf5050b76b2a094ed1142dec66867bb" => :sierra
+    sha256 "98647a59f024b315146404fde2a9956e229c043ab34d0f59d3a7986d2c975957" => :el_capitan
+    sha256 "904e6eeb43f8a9102019b038eb271104732301e818761ca49fe205ab897c1ea5" => :yosemite
   end
 
   depends_on "pkg-config" => :build
