@@ -1,10 +1,20 @@
+# Fix extraction on case-insensitive file systems.
+# Reported 4 Sep 2017 https://bugs.launchpad.net/qemu/+bug/1714750
+# This is actually an issue with u-boot and may take some time to sort out.
+class QemuDownloadStrategy < CurlDownloadStrategy
+  def stage
+    exclude = "#{name}-#{version}/roms/u-boot/scripts/Kconfig"
+    safe_system "tar", "xjf", cached_location, "--exclude", exclude
+    chdir
+  end
+end
+
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.9.0.tar.bz2"
-  sha256 "00bfb217b1bb03c7a6c3261b819cfccbfb5a58e3e2ceff546327d271773c6c14"
-  revision 2
-
+  url "https://download.qemu.org/qemu-2.10.0.tar.bz2",
+      :using => QemuDownloadStrategy
+  sha256 "7e9f39e1306e6dcc595494e91c1464d4b03f55ddd2053183e0e1b69f7f776d48"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
