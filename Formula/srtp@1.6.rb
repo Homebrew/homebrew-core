@@ -1,8 +1,8 @@
-class SrtpAT15 < Formula
+class SrtpAT16 < Formula
   desc "Implementation of the Secure Real-time Transport Protocol (SRTP)"
   homepage "https://github.com/cisco/libsrtp"
-  url "https://github.com/cisco/libsrtp/archive/v1.5.4.tar.gz"
-  sha256 "56a7b521c25134f48faff26b0b1e3d4378a14986a2d3d7bc6fefb48987304ff0"
+  url "https://github.com/cisco/libsrtp/archive/v1.6.0.tar.gz"
+  sha256 "1a3e7904354d55e45b3c5c024ec0eab1b8fa76fdbf4dd2ea2625dad2b3c6edde"
 
   bottle do
     cellar :any

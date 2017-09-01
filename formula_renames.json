@@ -155,7 +155,7 @@
   "solr55": "solr@5.5",
   "sonar": "sonarqube",
   "speedtest_cli": "speedtest-cli",
-  "srtp15": "srtp@1.5",
+  "srtp@1.5": "srtp@1.6",
   "stash-cli": "atlassian-cli",
   "subversion18": "subversion@1.8",
   "swig2": "swig@2",
