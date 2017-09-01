@@ -1,8 +1,8 @@
 class Dynamips < Formula
   desc "Cisco 7200/3600/3725/3745/2600/1700 Router Emulator"
   homepage "https://github.com/GNS3/dynamips"
-  url "https://github.com/GNS3/dynamips/archive/v0.2.16.tar.gz"
-  sha256 "0fcf18d701898a77cb589bd9bad16dde436ac1ccb87516fefe07d09de1a196c0"
+  url "https://github.com/GNS3/dynamips/archive/v0.2.17.tar.gz"
+  sha256 "d524ef32b78dd7384775920604912d3b4b212ded338cc4df930b0086df1e81ed"
 
   bottle do
     cellar :any_skip_relocation
