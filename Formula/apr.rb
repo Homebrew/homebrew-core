@@ -3,6 +3,7 @@ class Apr < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.6.2.tar.bz2"
   sha256 "09109cea377bab0028bba19a92b5b0e89603df9eab05c0f7dbd4dd83d48dcebd"
+  revision 1
 
   bottle do
     cellar :any
@@ -24,6 +25,8 @@ class Apr < Formula
     system "./configure", "--prefix=#{libexec}"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    rm Dir[libexec/"lib/*.la"]
 
     # No need for this to point to the versioned path.
     inreplace libexec/"bin/apr-1-config", libexec, opt_libexec
