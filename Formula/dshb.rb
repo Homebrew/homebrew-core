@@ -6,7 +6,7 @@ class Dshb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "491d5a425463fb4f328503f91cfe6e28a0785fdbf8ec7a323a366bab54e4158c" => :el_capitan
+    sha256 "491d5a425463fb4f328503f91cfe6e28a0785fdbf8ec7a323a366bab54e4158c" => :el_capitan_or_later
     sha256 "94085328f6ef593ca0d00923fabfe43586c1c4b51eaf555ce9c7db9d7db1f486" => :yosemite
   end
 
