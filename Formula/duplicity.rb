@@ -317,27 +317,28 @@ class Duplicity < Formula
   end
 
   test do
-    Gpg.create_test_key(testpath)
-    (testpath/"test/hello.txt").write "Hello!"
-    (testpath/"command.sh").write <<-EOS.undent
-      #!/usr/bin/expect -f
-      set timeout -1
-      spawn #{bin}/duplicity #{testpath} "file://test"
-      expect -exact "Local and Remote metadata are synchronized, no sync needed."
-      expect -exact "Last full backup date: none"
-      expect -exact "GnuPG passphrase:"
-      send -- "brew\n"
-      expect -exact "Retype passphrase to confirm:"
-      send -- "brew\n"
-      expect -exact "No signatures found, switching to full backup."
-      expect eof
-    EOS
-    chmod 0755, testpath/"command.sh"
-    system "./command.sh"
-    assert_match "duplicity-full-signatures", Dir["test/*"].to_s
+    Gpg.test(testpath) do
+      (testpath/"test/hello.txt").write "Hello!"
+      (testpath/"command.sh").write <<-EOS.undent
+        #!/usr/bin/expect -f
+        set timeout -1
+        spawn #{bin}/duplicity #{testpath} "file://test"
+        expect -exact "Local and Remote metadata are synchronized, no sync needed."
+        expect -exact "Last full backup date: none"
+        expect -exact "GnuPG passphrase:"
+        send -- "brew\n"
+        expect -exact "Retype passphrase to confirm:"
+        send -- "brew\n"
+        expect -exact "No signatures found, switching to full backup."
+        expect eof
+      EOS
+      chmod 0555, testpath/"command.sh"
+      system "./command.sh"
+      assert_match "duplicity-full-signatures", Dir["test/*"].to_s
 
-    # Ensure requests[security] is activated
-    script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
-    system libexec/"bin/python", "-c", script
+      # Ensure requests[security] is activated
+      script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
+      system libexec/"bin/python", "-c", script
+    end
   end
 end
