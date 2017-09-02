@@ -3,7 +3,7 @@ class TidyHtml5 < Formula
   homepage "http://www.html-tidy.org/"
   url "https://github.com/htacg/tidy-html5/archive/5.4.0.tar.gz"
   sha256 "a2d754b7349982e33f12d798780316c047a3b264240dc6bbd4641542e57a0b7a"
-  head "https://github.com/htacg/tidy-html5.git"
+  head "https://github.com/htacg/tidy-html5.git", :branch => "next"
 
   bottle do
     cellar :any
