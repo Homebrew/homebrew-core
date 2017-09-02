@@ -3,8 +3,8 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "http://www.nongnu.org/duplicity/"
-  url "https://launchpad.net/duplicity/0.7-series/0.7.13.1/+download/duplicity-0.7.13.1.tar.gz"
-  sha256 "adb8668fb10e0b0f91cb77f758d02c02bf5c02e6c4835904a82cbdab6db4bef2"
+  url "https://code.launchpad.net/duplicity/0.7-series/0.7.14/+download/duplicity-0.7.14.tar.gz"
+  sha256 "7a3eb74a2a36b004b10add2970b37cfbac0bd693d79513e6311c8e4b8c3dd73e"
 
   bottle do
     cellar :any
@@ -20,11 +20,12 @@ class Duplicity < Formula
   depends_on :gpg => :run
 
   # Generated with homebrew-pypi-poet from
-  # for i in azure-storage boto pyrax dropbox fasteners kerberos mega.py
+  # for i in azure-storage boto dropbox fasteners kerberos mega.py
   # paramiko pexpect pycrypto pycryptopp python-swiftclient python-keystoneclient
   # requests requests-oauthlib; do poet -r $i >> resources; done
   # Additional dependencies of requests[security] should also be installed:
   #   ndg-httpsclient, pyOpenSSL
+  # pyrax was dropped because it has pinned dependencies & is deprecated.
 
   # must be installed early
   resource "pytz" do
@@ -33,13 +34,8 @@ class Duplicity < Formula
   end
 
   resource "Babel" do
-    url "https://files.pythonhosted.org/packages/6e/96/ba2a2462ed25ca0e651fb7b66e7080f5315f91425a07ea5b34d7c870c114/Babel-2.3.4.tar.gz"
-    sha256 "c535c4403802f6eb38173cd4863e419e2274921a01a8aad8a5b497c131c62875"
-  end
-
-  resource "PrettyTable" do
-    url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
-    sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
+    url "https://files.pythonhosted.org/packages/3a/cb/46b76381ebda237c1b08d1c94394659679a4f1bd6475fe3703b303830ee0/Babel-2.5.0.tar.gz"
+    sha256 "754177ee7481b6fac1bf84edeeb6338ab51640984e97e4083657d384b1c8830d"
   end
 
   resource "PyNaCl" do
@@ -63,8 +59,8 @@ class Duplicity < Formula
   end
 
   resource "azure-storage" do
-    url "https://files.pythonhosted.org/packages/94/12/a6226245f5b2512048c38ca739d56a85100c32d4d94d29e0f3223cfd4a82/azure-storage-0.35.1.tar.gz"
-    sha256 "6818b6a8f68c0a6e8afec8881b833afbf206b5f669b1c2dbd6ee731bf02b157b"
+    url "https://files.pythonhosted.org/packages/5c/7e/eaa76c75b7001b1dd91a875b10c1b63fb9562e6c2bb12e5c8546177e27ba/azure-storage-0.36.0.tar.gz"
+    sha256 "fb6212dcbed91b49d9637aa5e8888eafdfcd523b7e560c8044d2d838bbd3ca5f"
   end
 
   resource "bcrypt" do
@@ -102,6 +98,7 @@ class Duplicity < Formula
     sha256 "71e3350b6b97acede200f30b3858749b21303a70fde4ded26e4cbe599a3b0466"
   end
 
+  # Pinned on 6.9.0 by duplicity's requirements.txt file. Don't update until that changes.
   resource "dropbox" do
     url "https://files.pythonhosted.org/packages/1f/7d/6e90b169fe4142b3b2332fd22d2aecfdc971e42eef19ea1c50b2384067f2/dropbox-6.9.0.tar.gz"
     sha256 "db1be6dab980f6819508c9f70d2c82b32aad4b7f5f0c52354fdb48ca4abdee49"
@@ -132,11 +129,6 @@ class Duplicity < Formula
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
-  resource "ip_associations_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/01/4e/230d9334ea61efb16dda8bef558fd11f8623f6f3ced8a0cf68559435b125/ip_associations_python_novaclient_ext-0.2.tar.gz"
-    sha256 "e4576c3ee149bcca7e034507ad9c698cb07dd9fa10f90056756aea0fa59bae37"
-  end
-
   resource "ipaddress" do
     url "https://files.pythonhosted.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
     sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
@@ -152,24 +144,14 @@ class Duplicity < Formula
     sha256 "b32ae66b1da2938a2ae68f83d67ce41b5c5e3b6c731407104cd209ba426dadfe"
   end
 
-  resource "keyring" do
-    url "https://files.pythonhosted.org/packages/37/0c/034139cd798dac3ceb4fcb4ed85e20c27f3e579c25cdaf066aad1552da3d/keyring-10.4.0.tar.gz"
-    sha256 "901a3f4ed0dfba473060281b58fd3b649ce70f59cb34a9cf6cb5551218283b26"
-  end
-
   resource "keystoneauth1" do
-    url "https://files.pythonhosted.org/packages/60/84/563732a068310ee9a8c3626a037efea22b3a926431d91f1ec991db89a70e/keystoneauth1-3.1.0.tar.gz"
-    sha256 "e5abfa8bbe866d52ca56afbe528d15214a60033cc1dc9804478cae7424f0f8fb"
+    url "https://files.pythonhosted.org/packages/19/05/00048afb5697ac54c0aad757ec8679f471040683e772039ef2977ab00a32/keystoneauth1-3.2.0.tar.gz"
+    sha256 "768036ee66372df2ad56716b8be4965cef9a59a01647992919516defb282e365"
   end
 
   resource "mega.py" do
     url "https://files.pythonhosted.org/packages/13/d2/cbbc5d21f2281fb59e27085c98b33bc93616be314b6fda5ad5d1955136ac/mega.py-0.9.18.tar.gz"
     sha256 "f3e15912ce2e5de18e31e7abef8a819a5546c184aa09586bfdaa42968cc827bf"
-  end
-
-  resource "mock" do
-    url "https://files.pythonhosted.org/packages/0c/53/014354fc93c591ccc4abff12c473ad565a2eb24dcd82490fae33dbf2539f/mock-2.0.0.tar.gz"
-    sha256 "b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba"
   end
 
   resource "monotonic" do
@@ -183,8 +165,8 @@ class Duplicity < Formula
   end
 
   resource "ndg-httpsclient" do
-    url "https://files.pythonhosted.org/packages/a2/a7/ad1c1c48e35dc7545dab1a9c5513f49d5fa3b5015627200d2be27576c2a0/ndg_httpsclient-0.4.2.tar.gz"
-    sha256 "580987ef194334c50389e0d7de885fccf15605c13c6eecaabd8d6c43768eb8ac"
+    url "https://files.pythonhosted.org/packages/25/4c/28c412126f0394dbb3d8005465357581f087fc7ec100b0e83838a90009b7/ndg_httpsclient-0.4.3.tar.gz"
+    sha256 "7bfd8c5cfcbc241a93ca6a4e45f952650f5c7ecf7c49b1dbcf5f4d390240be0b"
   end
 
   resource "netaddr" do
@@ -200,21 +182,6 @@ class Duplicity < Formula
   resource "oauthlib" do
     url "https://files.pythonhosted.org/packages/fa/2e/25f25e6c69d97cf921f0a8f7d520e0ef336dd3deca0142c0b634b0236a90/oauthlib-2.0.2.tar.gz"
     sha256 "b3b9b47f2a263fe249b5b48c4e25a5bce882ff20a0ac34d553ce43cff55b53ac"
-  end
-
-  resource "os_diskconfig_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/a9/2c/306ef3376bee5fda62c1255da05db2efedc8276be5be98180dbd224d9949/os_diskconfig_python_novaclient_ext-0.1.3.tar.gz"
-    sha256 "e7d19233a7b73c70244d2527d162d8176555698e7c621b41f689be496df15e75"
-  end
-
-  resource "os_networksv2_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/9e/86/6ec4aa97a5e426034f8cc5657186e18303ffb89f37e71375ee0b342b7b78/os_networksv2_python_novaclient_ext-0.26.tar.gz"
-    sha256 "613a75216d98d3ce6bb413f717323e622386c24fc9cc66148507539e7dc5bf19"
-  end
-
-  resource "os_virtual_interfacesv2_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/db/33/d5e87b099c9d394a966051cde526c9fcfdd46a51762a8054c98d3ae3b464/os_virtual_interfacesv2_python_novaclient_ext-0.20.tar.gz"
-    sha256 "6d39ff4174496a0f795d11f20240805a16bbf452091cf8eb9bd1d5ae2fca449d"
   end
 
   resource "oslo.config" do
@@ -268,8 +235,8 @@ class Duplicity < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/17/a2/266818077dbd002d53ebe5aaaa05a04786256cea8dba1899ac0b832ef028/pyasn1-0.3.2.tar.gz"
-    sha256 "90bd82e0db59d4319eaf01c2549b34c817d645275fce9ad41bac7429aa380690"
+    url "https://files.pythonhosted.org/packages/33/4b/b3838af9a0bd1d17463031cf28cb1c196618900ccf80b62979f48c42768b/pyasn1-0.3.3.tar.gz"
+    sha256 "01c20ade412088b42dcd5f0fef6149f6b7377297c5c5f222bb5ef0331ee3517c"
   end
 
   resource "pycparser" do
@@ -292,11 +259,6 @@ class Duplicity < Formula
     sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
-  resource "pyrax" do
-    url "https://files.pythonhosted.org/packages/b8/00/3b456dc8423f6f6a1b9b07c92c487809307a13dee83d22edb524b6f024b4/pyrax-1.9.8.tar.gz"
-    sha256 "e9db943447fdf2690046d7f98466fc4743497b74578efe6e400a6edbfd9728f5"
-  end
-
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
     sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
@@ -307,34 +269,9 @@ class Duplicity < Formula
     sha256 "f897eaa6b251a12e5d23130e8435fb5d2ead6f7ea1d1d20faf2ccc1c76c51c90"
   end
 
-  resource "python-novaclient" do
-    url "https://files.pythonhosted.org/packages/ac/10/aa4d81bb5ceac249b7facf86d021b7008a138b447ca9cbf09557fca61046/python-novaclient-2.27.0.tar.gz"
-    sha256 "d1279d5c2857cf8c56cb953639b36225bc1fec7fa30ee632940823506a7638ef"
-  end
-
   resource "python-swiftclient" do
     url "https://files.pythonhosted.org/packages/9a/a7/fa2e2def232d0c8b32677399f0381e3e6e602ce577e138fff57771a0b9e7/python-swiftclient-3.4.0.tar.gz"
     sha256 "54f7ae339bd076e295dd576ec98e55ba71205ee7e62964b27c8ec80c9351067d"
-  end
-
-  resource "rackspace-auth-openstack" do
-    url "https://files.pythonhosted.org/packages/3c/14/8932bf613797715bf1fe42b00d413025aac9414cf35bacca091a9191155a/rackspace-auth-openstack-1.3.tar.gz"
-    sha256 "c4c069eeb1924ea492c50144d8a4f5f1eb0ece945e0c0d60157cabcadff651cd"
-  end
-
-  resource "rackspace-novaclient" do
-    url "https://files.pythonhosted.org/packages/2a/fc/2c31fea5bc50cd5a849d9fa61343e95af8e2033b35f2650755dcc5365ff1/rackspace-novaclient-2.1.tar.gz"
-    sha256 "22fc44f623bae0feb32986ec4630abee904e4c96fba5849386a87e88c450eae7"
-  end
-
-  resource "rax_default_network_flags_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/36/cf/80aeb67615503898b6b870f17ee42a4e87f1c861798c32665c25d9c0494d/rax_default_network_flags_python_novaclient_ext-0.4.0.tar.gz"
-    sha256 "852bf49d90e7a1bc16aa0b25b46a45ba5654069f7321a363c8d94c5496666001"
-  end
-
-  resource "rax_scheduled_images_python_novaclient_ext" do
-    url "https://files.pythonhosted.org/packages/ef/3c/9cd2453e85979f15316953a37a93d5500d8f70046b501b13766c58cf1310/rax_scheduled_images_python_novaclient_ext-0.3.1.tar.gz"
-    sha256 "f170cf97b20bdc8a1784cc0b85b70df5eb9b88c3230dab8e68e1863bf3937cdb"
   end
 
   resource "requests" do
@@ -352,11 +289,6 @@ class Duplicity < Formula
     sha256 "8458571c4c57e1cf23593ad860bb601b6a604df6217f829c2bc70dc4b5af941b"
   end
 
-  resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/08/48/c97b668d6da7d7bebe7ea1817a6f76394b0ec959cb04214ca833c34359df/simplejson-3.11.1.tar.gz"
-    sha256 "01a22d49ddd9a168b136f26cac87d9a335660ce07aa5c630b8e3607d6f4325e7"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
@@ -365,11 +297,6 @@ class Duplicity < Formula
   resource "stevedore" do
     url "https://files.pythonhosted.org/packages/08/58/e21f4691e8e75a290bdbfa366f06b9403c653642ef31f879e07f6f9ad7db/stevedore-1.25.0.tar.gz"
     sha256 "c8a373b90487b7a1b52ebaa3ca5059315bf68d9ebe15b2203c2fa675bd7e1e7e"
-  end
-
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
-    sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
   end
 
   resource "urllib3" do
@@ -390,27 +317,28 @@ class Duplicity < Formula
   end
 
   test do
-    Gpg.create_test_key(testpath)
-    (testpath/"test/hello.txt").write "Hello!"
-    (testpath/"command.sh").write <<-EOS.undent
-      #!/usr/bin/expect -f
-      set timeout -1
-      spawn #{bin}/duplicity #{testpath} "file://test"
-      expect -exact "Local and Remote metadata are synchronized, no sync needed."
-      expect -exact "Last full backup date: none"
-      expect -exact "GnuPG passphrase:"
-      send -- "brew\n"
-      expect -exact "Retype passphrase to confirm:"
-      send -- "brew\n"
-      expect -exact "No signatures found, switching to full backup."
-      expect eof
-    EOS
-    chmod 0755, testpath/"command.sh"
-    system "./command.sh"
-    assert_match "duplicity-full-signatures", Dir["test/*"].to_s
+    Gpg.test(testpath) do
+      (testpath/"test/hello.txt").write "Hello!"
+      (testpath/"command.sh").write <<-EOS.undent
+        #!/usr/bin/expect -f
+        set timeout -1
+        spawn #{bin}/duplicity #{testpath} "file://test"
+        expect -exact "Local and Remote metadata are synchronized, no sync needed."
+        expect -exact "Last full backup date: none"
+        expect -exact "GnuPG passphrase:"
+        send -- "brew\n"
+        expect -exact "Retype passphrase to confirm:"
+        send -- "brew\n"
+        expect -exact "No signatures found, switching to full backup."
+        expect eof
+      EOS
+      chmod 0555, testpath/"command.sh"
+      system "./command.sh"
+      assert_match "duplicity-full-signatures", Dir["test/*"].to_s
 
-    # Ensure requests[security] is activated
-    script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
-    system libexec/"bin/python", "-c", script
+      # Ensure requests[security] is activated
+      script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
+      system libexec/"bin/python", "-c", script
+    end
   end
 end
