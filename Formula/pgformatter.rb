@@ -1,8 +1,8 @@
 class Pgformatter < Formula
   desc "PostgreSQL syntax beautifier"
   homepage "https://sqlformat.darold.net/"
-  url "https://github.com/darold/pgFormatter/archive/v2.0.tar.gz"
-  sha256 "ef2f7bc124a694c0384b6bda661582ad2dae7c25b289aba596a23fb17dd5f130"
+  url "https://github.com/darold/pgFormatter/archive/v2.1.tar.gz"
+  sha256 "f18d67e2e6ed45b164c5efdbadb82d07c65e0ba6cc93e039b39ecfdd5ff54ce8"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,19 +12,13 @@ class Pgformatter < Formula
   end
 
   def install
-    # Fix path to Perl modules. Per default, the script expects to
-    # find them in a lib directory beneath it's own path.
-    inreplace "pg_format", "$FindBin::Bin/lib", libexec
-
     system "perl", "Makefile.PL", "DESTDIR=."
     system "make", "install"
 
-    bin.install "blib/script/pg_format"
-    libexec.install "blib/lib/pgFormatter"
-    man1.install "blib/man1/pg_format.1"
-    man3.install "blib/man3/pgFormatter::Beautify.3pm"
-    man3.install "blib/man3/pgFormatter::CGI.3pm"
-    man3.install "blib/man3/pgFormatter::CLI.3pm"
+    prefix.install (buildpath/"usr/local").children
+    (libexec/"lib").install "blib/lib/pgFormatter"
+    libexec.install bin/"pg_format"
+    bin.install_symlink libexec/"pg_format"
   end
 
   test do
