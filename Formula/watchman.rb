@@ -11,6 +11,7 @@ class Watchman < Formula
     sha256 "da774a8464b5ddab2342d7d8ba0211220cd630d8099b2605bc977a4574dfee1e" => :yosemite
   end
 
+  depends_on :macos => :yosemite # older versions don't support fstatat(2)
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "autoconf" => :build
   depends_on "automake" => :build
