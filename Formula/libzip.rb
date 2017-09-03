@@ -6,9 +6,9 @@ class Libzip < Formula
 
   bottle do
     cellar :any
-    sha256 "50ffb3ac27076787296917112d8367d9e37d1e3cb095a8a5f8aaf0c10e66e8ad" => :sierra
-    sha256 "fea689c31e3100dea9767f0879b6ac9f263b52a0faeaf457b509d0b696d7fca2" => :el_capitan
-    sha256 "c950e33e4db6785c5b23f1c749c61f4fe67f721dae54a46082029f157c85eee5" => :yosemite
+    sha256 "4851da6bbf50facbf02119cce0f3dfabd0947f44f95a1479652c4e79121e3670" => :sierra
+    sha256 "22ecf2b59e06347de384adf7b635dd3dd3d7b0ac07328bf652eb7a12e74ac674" => :el_capitan
+    sha256 "132e57785f7973dfd451c8f44794a93e38f9f2040c0779b9eff6ba5a1f81711d" => :yosemite
   end
 
   conflicts_with "libtcod", :because => "both install `zip.h` header"
