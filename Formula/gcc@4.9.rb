@@ -59,6 +59,23 @@ class GccAT49 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # Fix build with Xcode 9
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/c2dae73416/gcc%404.9/xcode9.patch"
+      sha256 "92c13867afe18ccb813526c3b3c19d95a2dd00973f9939cf56ab7698bdd38108"
+    end
+  end
+
+  # Fix issues with macOS 10.13 headers and parallel build on APFS
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/19d56dcb8c/gcc%404.9/high_sierra.patch"
+      sha256 "360ba78af8b13cda0503eef2c809b98404613a7cda9798e53c8b65a9b61b37b5"
+    end
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
