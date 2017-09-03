@@ -4,6 +4,7 @@ class RubyAT23 < Formula
 
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.4.tar.xz"
   sha256 "341cd9032e9fd17c452ed8562a8d43f7e45bfe05e411d0d7d627751dd82c578c"
+  revision 1
 
   # Reverts an upstream commit which incorrectly tries to install headers
   # into SDKROOT, if defined
@@ -35,6 +36,12 @@ class RubyAT23 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
+
+  # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
+  patch :p0 do
+    url "https://bugs.ruby-lang.org/attachments/download/6691/rubygems-2613-ruby23.patch"
+    sha256 "510567a43d57ea9c8c7436b14e78d0a4d33380f410443dcf350b9867c9745748"
+  end
 
   def install
     # otherwise `gem` command breaks
