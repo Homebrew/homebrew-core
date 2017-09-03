@@ -6,16 +6,35 @@ class TeeClc < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.6+"
+
   conflicts_with "tiny-fugue", :because => "both install a `tf` binary"
 
   def install
     libexec.install "tf", "lib"
     (libexec/"native").install "native/macosx"
     bin.write_exec_script libexec/"tf"
+
+    prefix.install "ThirdPartyNotices.html"
     share.install "help"
   end
 
   test do
-    system "#{bin}/tf"
+    ENV["TF_ADDITIONAL_JAVA_ARGS"] = "-Duser.home=#{ENV["HOME"]}"
+    (testpath/"test.exp").write <<-EOS.undent
+      spawn #{bin}/tf workspace
+      set timeout 5
+      expect {
+        timeout { exit 1 }
+        "workspace could not be determined"
+      }
+
+      spawn #{bin}/tf eula
+      expect {
+        "MICROSOFT TEAM EXPLORER EVERYWHERE" { exit 0 }
+        timeout { exit 1 }
+      }
+    EOS
+    system "expect", "-f", "test.exp"
   end
 end

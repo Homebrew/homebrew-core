@@ -160,6 +160,7 @@
   "subversion18": "subversion@1.8",
   "swig2": "swig@2",
   "swig304": "swig@3.04",
+  "team-explorer-everywhere": "tee-clc",
   "tensorflow": "libtensorflow",
   "thrift090": "thrift@0.90",
   "tomcat6": "tomcat@6",
