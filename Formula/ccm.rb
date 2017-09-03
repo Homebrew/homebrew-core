@@ -1,8 +1,8 @@
 class Ccm < Formula
   desc "Create and destroy an Apache Cassandra cluster on localhost"
   homepage "https://github.com/pcmanus/ccm"
-  url "https://files.pythonhosted.org/packages/c6/11/f9d69d65ca3f8995aea37d94c8636b3662340a355ab61b583316a1cc36d1/ccm-2.1.6.tar.gz"
-  sha256 "16b1d1db66239e7af801ec1a6d4fc796c0155243db40676064648e597577ed9c"
+  url "https://files.pythonhosted.org/packages/99/4f/d2ea0eb3b200093648c9ea3c81bd532388cb46d2734ec2f83bbab4d765f8/ccm-2.8.2.tar.gz"
+  sha256 "ffb8520756e2a2630bb8eed804c1d9cfcc9e09faf12840c98ff7f24a59665bd5"
   head "https://github.com/pcmanus/ccm.git"
 
   bottle do
@@ -16,8 +16,8 @@ class Ccm < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
   resource "six" do
