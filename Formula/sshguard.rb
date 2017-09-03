@@ -6,8 +6,6 @@ class Sshguard < Formula
   revision 1
   version_scheme 1
 
-  head "https://bitbucket.org/sshguard/sshguard.git"
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -16,14 +14,16 @@ class Sshguard < Formula
     sha256 "dd5cfdc92ff81e8dc725ed3e263e0e1358149a3298bb9803c39a50d045e17421" => :yosemite
   end
 
-  if build.head?
+  head do
+    url "https://bitbucket.org/sshguard/sshguard.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "docutils" => :build
   end
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
