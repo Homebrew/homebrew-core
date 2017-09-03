@@ -3,6 +3,7 @@ class RubyAT22 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.7.tar.bz2"
   sha256 "80486c5991783185afeceeb315060a3dafc3889a2912e145b1a8457d7b005c5b"
+  revision 1
 
   bottle do
     sha256 "16992fc572462b4377210411cecc78970f49ede5dc57f53441b7ca3dd0919434" => :sierra
@@ -24,6 +25,12 @@ class RubyAT22 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
+
+  # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
+  patch :p0 do
+    url "https://bugs.ruby-lang.org/attachments/download/6690/rubygems-2613-ruby22.patch"
+    sha256 "d0a8c5552ac44d8bc985befaf12288263fa248516b41bede9beb65b48334e6e3"
+  end
 
   def install
     args = %W[
