@@ -3,6 +3,7 @@ class Jupyter < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -91,8 +92,8 @@ class Jupyter < Formula
   end
 
   resource "ipywidgets" do
-    url "https://files.pythonhosted.org/packages/99/26/daf5c44c8b2a4cbe80b4cafced8cc2c3c2a4b8f035e4ef53b037f47e8897/ipywidgets-6.0.0.tar.gz"
-    sha256 "afa6248850cff14ef86117db87aeab0b12237e4eaf740e73716460ed593a43a7"
+    url "https://files.pythonhosted.org/packages/0f/2d/55230d6127f74e25f0d41dec4c7742d8a461130a43a8c2489c200d7da16c/ipywidgets-7.0.0.tar.gz"
+    sha256 "63e454202f72796044e99846881c33767c47fa050735dc1f927657b9cd2b7fcd"
   end
 
   resource "Jinja2" do
@@ -111,8 +112,8 @@ class Jupyter < Formula
   end
 
   resource "jupyter_console" do
-    url "https://files.pythonhosted.org/packages/cb/83/f96e41ddb29ad76f806d6412e87e64af3120482dc0d8b5decf5eb8d82b99/jupyter_console-5.1.0.tar.gz"
-    sha256 "d0b4ae4dfe070be1e9d5690fa819328acffb5f37a8ef3baa1c7e3b77b443cfd7"
+    url "https://files.pythonhosted.org/packages/cd/bb/fa8901715c009a00ea4c42897da8585189d4781c64f4617a8bd65ca01a3a/jupyter_console-5.2.0.tar.gz"
+    sha256 "545dedd3aaaa355148093c5609f0229aeb121b4852995c2accfa64fe3e0e55cd"
   end
 
   resource "jupyter_core" do
@@ -131,21 +132,13 @@ class Jupyter < Formula
   end
 
   resource "nbconvert" do
-    url "https://files.pythonhosted.org/packages/44/33/b00216813a1a8b2825199f651665d6b28aabb62943a2914271f32fbdf9ae/nbconvert-5.2.1.tar.gz"
-    sha256 "9ed68ec7fe90a8672b43795b29ea91cc75ea355c83debc83ebd12171521ec274"
-  end
-
-  # Needed so nbconvert works with Python 2.7
-  # To be fixed in 5.3.0
-  # https://github.com/jupyter/nbconvert/issues/647
-  resource "nbconvert-patch" do
-    url "https://github.com/jupyter/nbconvert/commit/77d4956.patch?full_index=1"
-    sha256 "84a479f1935128133481d82331395e05e3573701e455c4e8bda2dbb981f49779"
+    url "https://files.pythonhosted.org/packages/bc/34/1862ab61293e59fa9df81da730b1ae51ba945c396ff5c2e81b77ecd4b025/nbconvert-5.3.0.tar.gz"
+    sha256 "92827c21afa05b6ab83f451306f1d630d4577fd65109ac8817f118e9648791a0"
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/f9/c5/89df4abf906f766727f976e170caa85b4f1c1d1feb1f45d716016e68e19f/nbformat-4.3.0.tar.gz"
-    sha256 "5febcce872672f1c97569e89323992bdcb8573fdad703f835e6521253191478b"
+    url "https://files.pythonhosted.org/packages/6e/0e/160754f7ae3e984863f585a3743b0ed1702043a81245907c8fae2d537155/nbformat-4.4.0.tar.gz"
+    sha256 "f7494ef0df60766b7cabe0a3651556345a963b74dbc16bc7c18479041170d402"
   end
 
   resource "notebook" do
@@ -199,8 +192,8 @@ class Jupyter < Formula
   end
 
   resource "qtconsole" do
-    url "https://files.pythonhosted.org/packages/cc/97/41fb735c918bfb3d9bac3fa8347addc2ffc82fd06084940a1821cf333ac8/qtconsole-4.3.0.tar.gz"
-    sha256 "2821ccf85853b83e4958521f82e36325208787eaf79b19b83905a99cc41aa209"
+    url "https://files.pythonhosted.org/packages/68/48/ed0e8989b7376704ecb8faa782384de98cc108de522ad8d21f449484de9a/qtconsole-4.3.1.tar.gz"
+    sha256 "eff8c2faeda567a0bef5781f419a64e9977988db101652b312b9d74ec0a5109c"
   end
 
   resource "scandir" do
@@ -234,8 +227,8 @@ class Jupyter < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/df/42/a180ee540e12e2ec1007ac82a42b09dd92e5461e09c98bf465e98646d187/tornado-4.5.1.tar.gz"
-    sha256 "db0904a28253cfe53e7dedc765c71596f3c53bb8a866ae50123320ec1a7b73fd"
+    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
+    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
   end
 
   resource "traitlets" do
@@ -254,8 +247,8 @@ class Jupyter < Formula
   end
 
   resource "widgetsnbextension" do
-    url "https://files.pythonhosted.org/packages/0a/09/083dbdbd6ba52004d6ee880877a7b3f6143f389743d20057e1eda3af3582/widgetsnbextension-2.0.0.tar.gz"
-    sha256 "566582a84642d0c0f78b756a954450a38a8743eeb8dad04b7cab3ca66f455e6f"
+    url "https://files.pythonhosted.org/packages/5a/ed/77cbdc2e2aae4a006627044a99ed89a89827435150c44f1106f5205f9326/widgetsnbextension-3.0.2.tar.gz"
+    sha256 "e8890d87c80782ee4ea3ed9afffc89a0af8b4ff475d1608d900f728ea55f041c"
   end
 
   def install
@@ -271,8 +264,6 @@ class Jupyter < Formula
     if build.with?("notebook") && build.without?("nbconvert")
       dependencies << "nbconvert"
     end
-
-    dependencies.delete "nbconvert-patch"
 
     linked.delete "jupyter_console" if build.without? "console"
     linked.delete "nbconvert" if build.without? "nbconvert"
@@ -293,11 +284,6 @@ class Jupyter < Formula
         system "python", *Language::Python.setup_install_args(libexec)
       end
     end
-
-    # patch nbconvert
-    buildpath.install resource("nbconvert-patch")
-    nbconvert_path = (build.with?("nbconvert") ? "lib/python#{xy}/site-packages" : "vendor/lib/python#{xy}/site-packages")
-    system "patch", "-p1", "-i", buildpath/"77d4956.patch", "-d", libexec/nbconvert_path
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :JUPYTER_PATH => ENV["JUPYTER_PATH"], :PYTHONPATH => ENV["PYTHONPATH"])
