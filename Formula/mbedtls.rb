@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://tls.mbed.org/download/mbedtls-2.4.2-apache.tgz"
-  sha256 "17dd98af7478aadacc480c7e4159e447353b5b2037c1b6d48ed4fd157fb1b018"
+  url "https://tls.mbed.org/download/mbedtls-2.6.0-apache.tgz"
+  sha256 "99bc9d4212d3d885eeb96273bcde8ecc649a481404b8d7ea7bb26397c9909687"
   head "https://github.com/ARMmbed/mbedtls.git", :branch => "development"
 
   bottle do
@@ -16,8 +16,6 @@ class Mbedtls < Formula
 
   def install
     inreplace "include/mbedtls/config.h" do |s|
-      # disable support for SSL 3.0
-      s.gsub! "#define MBEDTLS_SSL_PROTO_SSL3", "//#define MBEDTLS_SSL_PROTO_SSL3"
       # enable pthread mutexes
       s.gsub! "//#define MBEDTLS_THREADING_PTHREAD", "#define MBEDTLS_THREADING_PTHREAD"
       # allow use of mutexes within mbed TLS
