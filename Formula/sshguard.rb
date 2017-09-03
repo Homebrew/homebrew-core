@@ -14,7 +14,16 @@ class Sshguard < Formula
     sha256 "dd5cfdc92ff81e8dc725ed3e263e0e1358149a3298bb9803c39a50d045e17421" => :yosemite
   end
 
+  head do
+    url "https://bitbucket.org/sshguard/sshguard.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docutils" => :build
+  end
+
   def install
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
