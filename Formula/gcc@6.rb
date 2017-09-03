@@ -46,6 +46,15 @@ class GccAT6 < Formula
     sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
   end
 
+  # Fix parallel build on APFS filesystem
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/df0465c02a/gcc/apfs.patch"
+      sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
+    end
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
