@@ -5,8 +5,8 @@ class HopenpgpTools < Formula
 
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.4.tar.gz"
-  sha256 "e656cd989833c6d318d5c44931ef5a8cd98bb0ebb4bab70a2d2f701091d0abd8"
+  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.5.tar.gz"
+  sha256 "e0630a90c0565923b4244eb1df5ba034bcc8a7d092854d197cf47c783bd566f9"
   head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
@@ -28,7 +28,11 @@ class HopenpgpTools < Formula
 
   def install
     # Reported 7 Oct 2017 to clint AT debian DOT org
-    (buildpath/"cabal.config").write("constraints: happy<1.19.6\n")
+    # RE: happy, see https://github.com/simonmar/happy/issues/94
+    # RE: graphviz, see https://github.com/haskell-infra/hackage-trustees/issues/114
+    (buildpath/"cabal.config").write <<-EOS.undent
+      constraints: happy<1.19.6, graphviz >= 2999.17.0.0
+    EOS
 
     install_cabal_package :using => ["alex", "happy"]
   end
