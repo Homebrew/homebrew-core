@@ -1,9 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.57.0.tar.xz"
-  sha256 "0ea37de71b7db78212ebc79df59f99b66409a29c2eac4d882dae9f2397fe44d8"
-  revision 1
+  url "https://poppler.freedesktop.org/poppler-0.59.0.tar.xz"
+  sha256 "a3d626b24cd14efa9864e12584b22c9c32f51c46417d7c10ca17651f297c9641"
 
   bottle do
     sha256 "321e13d234350ad2991d55ac8fb6a0de028e978d680f8567556a340b4480c35c" => :sierra
@@ -41,6 +40,13 @@ class Poppler < Formula
   end
 
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
+
+  # Fix clang build failure due to missing user-provided default constructor
+  # Reported 4 Sep 2017 https://bugs.freedesktop.org/show_bug.cgi?id=102538
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b766b9/poppler/clang.diff"
+    sha256 "5c380a6f769758866eaa61bced5768165959aca457431eb02eeffe2c685dee87"
+  end
 
   def install
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
