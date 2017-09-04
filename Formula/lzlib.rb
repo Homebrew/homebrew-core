@@ -1,8 +1,8 @@
 class Lzlib < Formula
   desc "Data compression library"
   homepage "http://www.nongnu.org/lzip/lzlib.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.8.tar.gz"
-  sha256 "41bfa82c6ee184ed0884437dc4074ad505e64cb747432cefa97976b89045cbad"
+  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.9.tar.gz"
+  sha256 "2472f8d93830d0952b0c75f67e372d38c8f7c174dde2252369d5b20c87d3ba8e"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,5 +19,19 @@ class Lzlib < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOF.undent
+      #include <stdio.h>
+      #include <stdint.h>
+      #include "lzlib.h"
+      int main (void) {
+        printf ("%s", LZ_version());
+      }
+    EOF
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-llz",
+                   "-o", "test"
+    assert_equal version.to_s, shell_output("./test")
   end
 end
