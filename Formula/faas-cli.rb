@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/alexellis/faas-cli.git",
-      :tag => "0.4.10",
-      :revision => "26cfe469caa297394ffab9cc55c6ffe5d1f135b2"
+      :tag => "0.4.11",
+      :revision => "e0131833325dc900f9f375a240ddb708e657503a"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +21,7 @@ class FaasCli < Formula
     (buildpath/"src/github.com/alexellis/faas-cli").install buildpath.children
     cd "src/github.com/alexellis/faas-cli" do
       commit = Utils.popen_read("git rev-list -1 HEAD").chomp
-      system "go", "build", "-ldflags", "-X main.GitCommit=#{commit}", "-a",
+      system "go", "build", "-ldflags", "-s -w -X github.com/alexellis/faas-cli/commands.GitCommit=#{commit}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       prefix.install_metafiles
     end
@@ -67,8 +67,12 @@ class FaasCli < Formula
     EOS
 
     begin
-      output = shell_output("#{bin}/faas-cli -action deploy -yaml test.yml")
+      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
       assert_equal expected, output.chomp
+
+      commit = Utils.popen_read("git rev-list -1 HEAD").chomp
+      output = shell_output("#{bin}/faas-cli version")
+      assert_match commit, output.chomp
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
