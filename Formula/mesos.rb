@@ -64,8 +64,6 @@ class Mesos < Formula
   needs :cxx11
 
   def install
-    ENV.java_cache
-
     # Disable optimizing as libc++ does not play well with optimized clang
     # builds (see https://llvm.org/bugs/show_bug.cgi?id=28469 and
     # https://issues.apache.org/jira/browse/MESOS-5745).
@@ -98,7 +96,7 @@ class Mesos < Formula
               "import ext_modules",
               native_patch
 
-    # skip build javadoc because Homebrew sandbox ENV.java_cache
+    # skip build javadoc because Homebrew's setting user.home in _JAVA_OPTIONS
     # would trigger maven-javadoc-plugin bug.
     # https://issues.apache.org/jira/browse/MESOS-3482
     maven_javadoc_patch = <<-EOS.undent
