@@ -14,8 +14,6 @@ class BootClj < Formula
   end
 
   test do
-    ENV.java_cache
-
     system "#{bin}/boot", "repl", "-e", "(System/exit 0)"
   end
 end
