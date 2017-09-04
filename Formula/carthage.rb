@@ -9,7 +9,7 @@ class Carthage < Formula
 
   bottle do
     cellar :any
-    sha256 "ae221f34a59985f753f033cf38b5d2719b60e306b295cf2c4db0d8ad97614a31" => :sierra
+    sha256 "f3ff7f9c4cf0394633141cb69d3dea35dd9af81bb0325fb67548bfbe1550d8e7" => :sierra
   end
 
   depends_on :xcode => ["8.3", :build]
