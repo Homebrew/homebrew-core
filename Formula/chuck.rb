@@ -14,6 +14,15 @@ class Chuck < Formula
 
   depends_on :xcode => :build
 
+  # Fix pointer comparison error with Xcode 9
+  # Reported by email to chuck-dev@lists.cs.princeton.edu on 2017-09-04
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b052485f5d/chuck/xcode9.patch"
+      sha256 "fa2e008c8d90321c8876a49f83d7566dead362740711442f8e983d07e98a220b"
+    end
+  end
+
   def install
     # issue caused by the new macOS version, patch submitted upstream
     # to the chuck-dev mailing list
