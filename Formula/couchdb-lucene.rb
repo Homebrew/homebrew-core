@@ -16,8 +16,6 @@ class CouchdbLucene < Formula
   depends_on :java
 
   def install
-    ENV.java_cache
-
     system "mvn"
     system "tar", "-xzf", "target/couchdb-lucene-#{version}-dist.tar.gz", "--strip", "1"
 
