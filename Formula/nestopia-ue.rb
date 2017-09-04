@@ -6,9 +6,9 @@ class NestopiaUe < Formula
   head "https://github.com/rdanbrook/nestopia.git"
 
   bottle do
-    sha256 "2246c47a836949e3f166f3a8aaa01aeececcbdcea367e1e8bc1c884beb628f01" => :sierra
-    sha256 "9c6c71062aa1d665de3660c9926811444a9647be01aa7ba08dce7eda7f8f11fc" => :el_capitan
-    sha256 "24af85a335612e9da798ac15aa0d37375336e6d52e1ee173a40cd0b276e6fc82" => :yosemite
+    sha256 "9f66bf2e5c42ba743d4967d5b3cb9f4993a265a619dfd71de74478273a0b1f38" => :sierra
+    sha256 "1e319cdecfa2dbe1779b124cd4d758921d64128b0ccb06f1aab8a1d23a428fe9" => :el_capitan
+    sha256 "f3dda418bd311d3c4fd4856fb8464dedac1fa1051864497b365bc42cb683d59d" => :yosemite
   end
 
   depends_on "cmake" => :build
