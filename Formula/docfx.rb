@@ -11,7 +11,6 @@ class Docfx < Formula
   def install
     libexec.install Dir["*"]
 
-    bin.mkpath
     (bin/"docfx").write <<-EOS.undent
       #!/bin/bash
       mono #{libexec}/docfx.exe "$@"
@@ -20,6 +19,7 @@ class Docfx < Formula
 
   test do
     system bin/"docfx", "init", "-q"
-    assert_predicate testpath/"docfx_project/docfx.json", :exist?, "Failed to generate project"
+    assert_predicate testpath/"docfx_project/docfx.json", :exist?,
+                     "Failed to generate project"
   end
 end
