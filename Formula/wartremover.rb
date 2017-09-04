@@ -16,8 +16,6 @@ class Wartremover < Formula
   depends_on :java => "1.6+"
 
   def install
-    # Prevents sandbox violation
-    ENV.java_cache
     system "./sbt", "-sbt-jar", Formula["sbt"].opt_libexec/"bin/sbt-launch.jar",
                     "core/assembly"
     libexec.install "wartremover-assembly.jar"
