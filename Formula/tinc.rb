@@ -5,9 +5,9 @@ class Tinc < Formula
   sha256 "4db24feaff8db4bbb7edb7a4b8f5f8edc39b26eb5feccc99e8e67a6960c05587"
 
   bottle do
-    sha256 "0b2cc9de63b355dc50c709e234181ec6175eb0ef81d8b6074465dfe180e1deac" => :sierra
-    sha256 "fab217e8cc5648717e63bbe767989b9441f8f2c89f34bddf55832bfdc9f36147" => :el_capitan
-    sha256 "6a84961dee99c13355d9e5f24a0908440f4c692b8619a5657a48aeed9e13842b" => :yosemite
+    sha256 "6345debc1249e4630ce3492d39c2e7ac6c8ccf51f38004c68f3b1cbe715628a2" => :sierra
+    sha256 "3a24d224c09e29969db5f60e792bfd42275a7003678abec5567f7e45ef210057" => :el_capitan
+    sha256 "163e958fca8bf041a7ca89c215399fd06e1e11c29136080f03c5fb249b18ab36" => :yosemite
   end
 
   devel do
