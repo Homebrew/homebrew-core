@@ -20,7 +20,6 @@ class TeeClc < Formula
   end
 
   test do
-    ENV["TF_ADDITIONAL_JAVA_ARGS"] = "-Duser.home=#{ENV["HOME"]}"
     (testpath/"test.exp").write <<-EOS.undent
       spawn #{bin}/tf workspace
       set timeout 5
