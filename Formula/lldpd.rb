@@ -1,8 +1,8 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.7.tar.gz"
-  sha256 "b9360355c30a3c06fd5c0a6e658f2ad8bf77037d5a17c6fcabf20e62882e0db8"
+  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.8.tar.gz"
+  sha256 "9ee494e91bc33938575b2c09b26188c486ef8eac6e2155d250c189cc4e988c4f"
 
   bottle do
     sha256 "b90cef5460c6dfb31a4e7f3eb3330839cddf2554ddcf2ff42379ca46d2d80937" => :sierra
@@ -11,13 +11,11 @@ class Lldpd < Formula
   end
 
   option "with-snmp", "Build SNMP subagent support"
-  option "with-json", "Build JSON support for lldpcli"
 
   depends_on "pkg-config" => :build
   depends_on "readline"
   depends_on "libevent"
   depends_on "net-snmp" if build.with? "snmp"
-  depends_on "jansson" if build.with? "json"
 
   def install
     readline = Formula["readline"]
@@ -35,7 +33,6 @@ class Lldpd < Formula
       "LDFLAGS=-L#{readline.lib}",
     ]
     args << (build.with?("snmp") ? "--with-snmp" : "--without-snmp")
-    args << (build.with?("json") ? "--with-json" : "--without-json")
 
     system "./configure", *args
     system "make"
