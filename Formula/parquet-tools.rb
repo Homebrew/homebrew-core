@@ -16,7 +16,6 @@ class ParquetTools < Formula
   depends_on "maven" => :build
 
   def install
-    ENV.java_cache
     cd "parquet-tools" do
       system "mvn", "clean", "package", "-Plocal"
       libexec.install "target/parquet-tools-#{version}.jar"
