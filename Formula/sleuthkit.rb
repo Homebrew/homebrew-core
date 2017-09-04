@@ -28,7 +28,6 @@ class Sleuthkit < Formula
 
   def install
     ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"
-    ENV.java_cache if build.with? "jni"
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--disable-java" if build.without? "jni"
