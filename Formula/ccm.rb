@@ -1,8 +1,8 @@
 class Ccm < Formula
   desc "Create and destroy an Apache Cassandra cluster on localhost"
   homepage "https://github.com/pcmanus/ccm"
-  url "https://files.pythonhosted.org/packages/99/4f/d2ea0eb3b200093648c9ea3c81bd532388cb46d2734ec2f83bbab4d765f8/ccm-2.8.2.tar.gz"
-  sha256 "ffb8520756e2a2630bb8eed804c1d9cfcc9e09faf12840c98ff7f24a59665bd5"
+  url "https://files.pythonhosted.org/packages/3a/0e/66cd74ac3476ca79f9b467bcafeb95a9db7688b61d6c10fced7db4a53bbc/ccm-2.8.3.tar.gz"
+  sha256 "da8c4f0ababc372de2baf259dc9a6461e278e9cb20a0cc5a4adbc001c662cbc1"
   head "https://github.com/pcmanus/ccm.git"
 
   bottle do
