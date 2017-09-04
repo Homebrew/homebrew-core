@@ -56,8 +56,6 @@ class Kettle < Formula
   end
 
   test do
-    ENV.java_cache
-
     system "#{bin}/pdipan", "-file=#{libexec}/samples/transformations/Encrypt\ Password.ktr", "-level=RowLevel"
   end
 end
