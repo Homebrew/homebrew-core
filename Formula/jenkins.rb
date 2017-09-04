@@ -56,7 +56,7 @@ class Jenkins < Formula
 
   test do
     ENV["JENKINS_HOME"] = testpath
-    ENV["_JAVA_OPTIONS"] = "-Djava.io.tmpdir=#{testpath}"
+    ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
     pid = fork do
       exec "#{bin}/jenkins"
     end
