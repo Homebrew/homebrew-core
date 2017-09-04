@@ -18,4 +18,30 @@ class Argtable < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<-EOF.undent
+      #include "argtable2.h"
+      #include <assert.h>
+      #include <stdio.h>
+
+      int main (int argc, char **argv) {
+        struct arg_lit *all = arg_lit0 ("a", "all", "show all");
+        struct arg_end *end = arg_end(20);
+        void *argtable[] = {all, end};
+
+        assert (arg_nullcheck(argtable) == 0);
+        if (arg_parse(argc, argv, argtable) == 0) {
+          if (all->count) puts ("Received option");
+        } else {
+          puts ("Invalid option");
+        }
+      }
+    EOF
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-largtable2",
+                   "-o", "test"
+    assert_match "Received option", shell_output("./test -a")
+    assert_match "Received option", shell_output("./test --all")
+    assert_match "Invalid option", shell_output("./test -t")
+  end
 end
