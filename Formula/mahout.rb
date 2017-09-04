@@ -16,8 +16,6 @@ class Mahout < Formula
 
   def install
     if build.head?
-      ENV.java_cache
-
       chmod 755, "./bin"
       system "mvn", "-DskipTests", "clean", "install"
     end
