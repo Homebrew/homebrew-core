@@ -15,7 +15,6 @@ class Fits < Formula
   depends_on :java => "1.7+"
 
   def install
-    ENV.java_cache
     system "ant", "clean-compile-jar", "-noinput"
 
     libexec.install "lib",
