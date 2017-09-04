@@ -15,7 +15,7 @@ class Bdsup2sub < Formula
   depends_on :java
 
   def install
-    system "mvn", "clean", "package", "-Duser.home=#{buildpath}", "-DskipTests"
+    system "mvn", "clean", "package", "-DskipTests"
     libexec.install "target/BDSup2Sub-#{version}-jar-with-dependencies.jar"
     bin.write_jar_script(libexec/"BDSup2Sub-#{version}-jar-with-dependencies.jar", "BDSup2Sub")
   end
