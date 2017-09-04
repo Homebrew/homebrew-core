@@ -13,7 +13,6 @@ class AmmoniteRepl < Formula
   end
 
   test do
-    ENV["_JAVA_OPTIONS"] = "-Duser.home=#{testpath}"
     output = shell_output("#{bin}/amm -c 'print(\"hello world!\")'")
     assert_equal "hello world!", output.lines.last
   end
