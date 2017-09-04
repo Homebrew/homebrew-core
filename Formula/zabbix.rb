@@ -17,8 +17,8 @@ class Zabbix < Formula
 
   deprecated_option "agent-only" => "without-server-proxy"
 
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
 
   if build.with? "server-proxy"
     depends_on :mysql => :optional
