@@ -27,7 +27,6 @@ class Giter8 < Formula
   def install
     conscript_home = libexec/"conscript"
     ENV["CONSCRIPT_HOME"] = conscript_home
-    ENV.java_cache
 
     conscript_home.install resource("launcher")
     launcher = conscript_home/"launcher-#{resource("launcher").version}.jar"
