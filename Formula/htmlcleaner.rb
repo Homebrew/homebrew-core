@@ -15,8 +15,6 @@ class Htmlcleaner < Formula
   depends_on :java => "1.8+"
 
   def install
-    ENV.java_cache
-
     system "mvn", "--log-file", "build-output.log", "clean", "package"
     libexec.install Dir["target/htmlcleaner-*.jar"]
     bin.write_jar_script "#{libexec}/htmlcleaner-#{version}.jar", "htmlcleaner"
