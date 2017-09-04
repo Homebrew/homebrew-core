@@ -5,6 +5,7 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-136.tar.gz"
   version "8.0-136"
   sha256 "8999d085352fad0613c28220b27a497b8d2702ad904c62f4c8c743f23975e260"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -46,6 +47,7 @@ class Macvim < Formula
       --enable-perlinterp
       --enable-rubyinterp
       --enable-tclinterp
+      --enable-terminal
       --with-tlib=ncurses
       --with-compiledby=Homebrew
       --with-local-dir=#{HOMEBREW_PREFIX}
