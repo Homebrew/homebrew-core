@@ -4,6 +4,12 @@ class PopplerAT057 < Formula
   url "https://poppler.freedesktop.org/poppler-0.57.0.tar.xz"
   sha256 "0ea37de71b7db78212ebc79df59f99b66409a29c2eac4d882dae9f2397fe44d8"
 
+  bottle do
+    sha256 "42fd1c873083a927f05efb178ce7c0393f9cb08ef4c1733110c9826f58b02735" => :sierra
+    sha256 "12b5602dec8bd91e069b5448c20bbca6026dc1ca2d4bcc9450b604a1abcc3cc5" => :el_capitan
+    sha256 "7c4330ec76a5fce61d6a34b9fa6d57f3a6fc86242d8b8d614bb253893bbf1924" => :yosemite
+  end
+
   keg_only :versioned_formula
 
   option "with-qt", "Build Qt5 backend"
