@@ -6,9 +6,9 @@ class Nnn < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "940fa83f4e2322e226447d5481a5bf809c8d06feabdaf75ffd9f89a689279cb1" => :sierra
-    sha256 "152d3ba36196ea02ab8fc7d05c4f5bcd7d44408d20069463ae664f5d33992b3b" => :el_capitan
-    sha256 "44672ea1e59007ab09493f591c1da9ae3b949fbb3648738f1da4f494266402ff" => :yosemite
+    sha256 "1b9b77488be80d90fd6b90c7ed8c93df02cad18211321ba8199c629d693b5e27" => :sierra
+    sha256 "a5c1d353bdb32b395f827a3b86da9fa3f7336737063531cc5862eaf80fff7d2d" => :el_capitan
+    sha256 "d10bca08ca2a0dde952c1704eac053210a6e1a0bcb44daf7447866f15b8397ba" => :yosemite
   end
 
   def install
