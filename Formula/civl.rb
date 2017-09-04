@@ -18,10 +18,6 @@ class Civl < Formula
   end
 
   test do
-    # Civl needs to write configuration files to the user's home directory, but
-    # Java has its own logic for determining that path.
-    ENV["_JAVA_OPTIONS"] = "-Duser.home=#{testpath}"
-
     # Test with example suggested in manual.
     example = pkgshare/"examples/concurrency/locksBad.cvl"
     assert_match "The program MAY NOT be correct.",
