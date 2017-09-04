@@ -17,7 +17,7 @@ class ApacheFlink < Formula
   end
 
   test do
-    ENV["_JAVA_OPTIONS"] = "-Djava.io.tmpdir=#{testpath} -Duser.home=#{testpath}"
+    ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
     input = "benv.fromElements(1,2,3).print()\n"
     output = pipe_output("#{libexec}/bin/start-scala-shell.sh local", input, 1)
     assert_match "FINISHED", output
