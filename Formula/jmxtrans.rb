@@ -16,8 +16,6 @@ class Jmxtrans < Formula
   depends_on "maven" => :build
 
   def install
-    ENV.java_cache
-
     system "mvn", "package", "-DskipTests=true",
                              "-Dmaven.javadoc.skip=true",
                              "-Dcobertura.skip=true"
