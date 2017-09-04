@@ -20,4 +20,9 @@ class Arpoison < Formula
     bin.install "arpoison"
     man8.install "arpoison.8"
   end
+
+  test do
+    # arpoison needs to run as root to do anything useful
+    assert_match "target MAC", shell_output("#{bin}/arpoison", 1)
+  end
 end
