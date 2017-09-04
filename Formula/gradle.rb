@@ -18,7 +18,6 @@ class Gradle < Formula
   end
 
   test do
-    ENV.java_cache
     assert_match version.to_s, shell_output("#{bin}/gradle --version")
   end
 end
