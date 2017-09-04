@@ -14,7 +14,6 @@ class Gssh < Formula
   depends_on :java => "1.7+"
 
   def install
-    ENV.java_cache
     ENV["CIRCLE_TAG"] = version
     system "./gradlew", "shadowJar"
     libexec.install "cli/build/libs/gssh.jar"
