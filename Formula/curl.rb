@@ -12,6 +12,15 @@ class Curl < Formula
     sha256 "a2e024b135b021bc9159b45578faa9cb4e5a465cabedea5da2ae927f53920778" => :yosemite
   end
 
+  head do
+    url "https://github.com/curl/curl.git"
+    mirror "http://github.com/curl/curl.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_by_osx
 
   option "with-rtmpdump", "Build with RTMP support"
@@ -42,6 +51,8 @@ class Curl < Formula
   depends_on "nghttp2" => :optional
 
   def install
+    system "./buildconf" if build.head?
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
