@@ -15,7 +15,6 @@ class Voldemort < Formula
   depends_on :java => "1.7+"
 
   def install
-    ENV.java_cache
     system "./gradlew", "build", "-x", "test"
     libexec.install %w[lib dist contrib]
     bin.install Dir["bin/*{.sh,.py}"]
