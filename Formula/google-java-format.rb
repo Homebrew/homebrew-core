@@ -14,8 +14,6 @@ class GoogleJavaFormat < Formula
   depends_on "maven" => :build
 
   def install
-    ENV.java_cache
-
     system "mvn", "install", "-DskipTests=true", "-Dmaven.javadoc.skip=true", "-B"
     libexec.install "core/target/google-java-format-#{version}-all-deps.jar"
 
