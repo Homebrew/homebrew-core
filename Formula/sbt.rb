@@ -38,8 +38,7 @@ class Sbt < Formula
   end
 
   test do
-    ENV["_JAVA_OPTIONS"] = "-Dsbt.log.noformat=true"
-    ENV.java_cache
+    ENV.append "_JAVA_OPTIONS", "-Dsbt.log.noformat=true"
     assert_match "[info] #{version}", shell_output("#{bin}/sbt sbtVersion")
   end
 end
