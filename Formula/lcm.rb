@@ -28,8 +28,6 @@ class Lcm < Formula
   depends_on :python3 => :optional
 
   def install
-    ENV.java_cache
-
     if build.head?
       system "./bootstrap.sh"
     else
