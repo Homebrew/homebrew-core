@@ -17,6 +17,7 @@ class Zabbix < Formula
   deprecated_option "agent-only" => "without-server-proxy"
 
   depends_on "pcre"
+  depends_on "openssl"
 
   if build.with? "server-proxy"
     depends_on :mysql => :optional
@@ -39,6 +40,7 @@ class Zabbix < Formula
       --enable-agent
       --with-iconv=#{MacOS.sdk_path}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
 
     if build.with? "server-proxy"
