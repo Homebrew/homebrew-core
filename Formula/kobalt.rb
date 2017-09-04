@@ -16,8 +16,6 @@ class Kobalt < Formula
   end
 
   test do
-    ENV.java_cache
-
     (testpath/"src/main/kotlin/com/A.kt").write <<-EOS.undent
       package com
       class A
