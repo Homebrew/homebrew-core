@@ -18,6 +18,15 @@ class Atomicparsley < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  # Fix Xcode 9 pointer warnings
+  # https://bitbucket.org/wez/atomicparsley/issues/52/xcode-9-build-failure
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ac8624c36e/atomicparsley/xcode9.patch"
+      sha256 "15b87be1800760920ac696a93131cab1c0f35ce4c400697bb8b0648765767e5f"
+    end
+  end
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
