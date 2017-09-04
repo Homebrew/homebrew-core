@@ -17,7 +17,6 @@ class Abcl < Formula
   depends_on "rlwrap" => :recommended
 
   def install
-    ENV.java_cache
     system "ant"
 
     libexec.install "dist/abcl.jar", "dist/abcl-contrib.jar"
