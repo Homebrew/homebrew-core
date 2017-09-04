@@ -18,8 +18,6 @@ class Gosu < Formula
   skip_clean "libexec/ext"
 
   def install
-    ENV.java_cache
-
     system "mvn", "package"
     libexec.install Dir["gosu/target/gosu-#{version}-full/gosu-#{version}/*"]
     (libexec/"ext").mkpath
