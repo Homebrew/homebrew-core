@@ -1,9 +1,12 @@
 class Mpw < Formula
-  desc "Master Password for the terminal"
+  desc "Stateless/deterministic password and identity manager"
   homepage "https://ssl.masterpasswordapp.com/"
-  url "https://ssl.masterpasswordapp.com/mpw-2.1-cli4-0-gf6b2287.tar.gz"
-  version "2.1-cli4"
-  sha256 "6ea76592eb8214329072d04f651af99d73de188a59ef76975d190569c7fa2b90"
+
+  stable do
+    url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-1-0-g895df637.tar.gz"
+    sha256 "1b7992dcab2538cfd403ccb8645d69ae419dfedbb03b38515508af3e814c8164"
+    version "2.6-cli-1"
+  end
 
   bottle do
     cellar :any
@@ -14,28 +17,58 @@ class Mpw < Formula
     sha256 "290586cc77c94562e08977227209e16b9b821cb84e068bcf748b2e0ce07bdb0f" => :mavericks
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "openssl"
-
-  resource "libscrypt" do
-    url "https://ssl.masterpasswordapp.com/libscrypt-b12b554.tar.gz"
-    sha256 "c726daec68a345e420896f005394a948dc5a6924713ed94b684c856d4c247f0b"
+  head do
+    url "https://github.com/Lyndir/MasterPassword.git"
   end
 
+  option "without-json-c", "Disable JSON configuration support."
+  option "without-ncurses", "Disable colorized identicon support."
+  option "without-libxml2", "Disable test-case parsing support."
+
+  depends_on "libsodium"
+  depends_on "json-c" => :recommended
+  depends_on "ncurses" => :recommended
+  depends_on "libxml2" => :build
+
   def install
-    resource("libscrypt").stage buildpath/"lib/scrypt"
-    touch "lib/scrypt/.unpacked"
+    cd "platform-independent/cli-c" if build.head?
 
-    ENV["targets"] = "mpw mpw-tests"
+    # Features
+    if build.with? "json-c"
+      ENV["mpw_json"] = "1"
+    else
+      ENV["mpw_json"] = "0"
+    end
+    if build.with? "ncurses"
+      ENV["mpw_color"] = "1"
+    else
+      ENV["mpw_color"] = "0"
+    end
+    if build.with? "libxml2"
+      ENV["mpw_xml"] = "1"
+    else
+      ENV["mpw_xml"] = "0"
+    end
+
+    # Targets
+    if build.with? "libxml2"
+      ENV["targets"] = "mpw mpw-tests"
+    else
+      ENV["targets"] = "mpw"
+    end
+
+    # Build
     system "./build"
-    system "./mpw-tests"
 
+    # Test
+    system "./mpw-tests" if build.with? "libxml2"
+
+    # Install
     bin.install "mpw"
   end
 
   test do
-    assert_equal "RoliQeka7/Deqi",
-      shell_output("#{bin}/mpw -u user -P password test.com 2>/dev/null").strip
+    # The URL's package provides a test script for the mpw binary but I'm not sure how to run it from the `test` block.
+    # system "./mpw-cli-tests"
   end
 end
