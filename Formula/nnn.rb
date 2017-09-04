@@ -1,8 +1,8 @@
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v1.3.tar.gz"
-  sha256 "eb3a3248dd70f20a3a82b8e1bdfd35c0b2089aedeb71b14bf830c2f12a7b3b6a"
+  url "https://github.com/jarun/nnn/archive/v1.4.tar.gz"
+  sha256 "f1170864c26e55d89034d555572484950998fa6d99784237d76cd4e3bf45aed8"
 
   bottle do
     cellar :any_skip_relocation
