@@ -3,7 +3,6 @@ class Brainfuck < Formula
   homepage "https://github.com/fabianishere/brainfuck"
   url "https://github.com/fabianishere/brainfuck/archive/2.7.1.tar.gz"
   sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
-
   head "https://github.com/fabianishere/brainfuck.git"
 
   option "with-debug", "Compile interpreter with debug support"
@@ -25,6 +24,7 @@ class Brainfuck < Formula
   end
 
   test do
-    system "#{bin}/brainfuck", "-e", "++++++++[>++++++++<-]>+.+.+."
+    output = shell_output("#{bin}/brainfuck -e '++++++++[>++++++++<-]>+.+.+.'")
+    assert_equal "ABC", output.chomp
   end
 end
