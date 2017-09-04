@@ -17,7 +17,6 @@ class ApacheGeode < Formula
   end
 
   test do
-    ENV.java_cache
     begin
       output = shell_output("#{bin}/gfsh start locator --dir #{testpath} --name=geode_locator_brew_test")
       assert_match /Cluster configuration service is up and running/, output
