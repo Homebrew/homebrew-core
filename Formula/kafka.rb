@@ -24,8 +24,6 @@ class Kafka < Formula
   end
 
   def install
-    ENV.java_cache
-
     data = var/"lib"
     inreplace "config/server.properties",
       "log.dirs=/tmp/kafka-logs", "log.dirs=#{data}/kafka-logs"
