@@ -3,7 +3,7 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 16
+  revision 17
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
@@ -16,8 +16,12 @@ class Pdf2htmlex < Formula
   depends_on :macos => :lion
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "poppler"
   depends_on "gnu-getopt"
+
+  # Upstream issue "poppler 0.59.0 incompatibility"
+  # Reported 4 Sep 2017 https://github.com/coolwanglu/pdf2htmlEX/issues/733
+  depends_on "poppler@0.57"
+
   depends_on "ttfautohint" => :recommended if MacOS.version > :snow_leopard
 
   # Fontforge dependencies
