@@ -24,7 +24,8 @@ class Jsoncpp < Formula
                          "-DBUILD_SHARED_LIBS=ON",
                          "-DJSONCPP_WITH_CMAKE_PACKAGE=ON",
                          "-DJSONCPP_WITH_TESTS=OFF",
-                         "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF"
+                         "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF",
+                         "-DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND"
     system "make", "install"
   end
 
