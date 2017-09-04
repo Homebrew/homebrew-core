@@ -34,6 +34,7 @@ class Efl < Formula
   depends_on "libraw"
   depends_on "librsvg"
   depends_on "poppler"
+  depends_on "shared-mime-info"
   depends_on "webp" => :optional
   depends_on "glib" => :optional
 
@@ -50,6 +51,10 @@ class Efl < Formula
     system "./configure", *args
     system "make", "install"
     system "make", "install-doc" if build.with? "docs"
+  end
+
+  def post_install
+    system Formula["shared-mime-info"].opt_bin/"update-mime-database", "#{HOMEBREW_PREFIX}/share/mime"
   end
 
   test do
