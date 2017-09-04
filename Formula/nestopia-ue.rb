@@ -1,8 +1,8 @@
 class NestopiaUe < Formula
   desc "Nestopia UE (Undead Edition): NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://downloads.sourceforge.net/project/nestopiaue/1.47/nestopia-1.47.tgz"
-  sha256 "84624d30ab05d609db2734db0065616b268f79d4aa35f1cd90cb35ee8d96be0c"
+  url "https://downloads.sourceforge.net/project/nestopiaue/1.48/nestopia-1.48.tgz"
+  sha256 "e8a0f93569bc764427ec90cdee658ddef209601b4f4d3cfb4360563609b4a122"
   head "https://github.com/rdanbrook/nestopia.git"
 
   bottle do
@@ -11,15 +11,17 @@ class NestopiaUe < Formula
     sha256 "24af85a335612e9da798ac15aa0d37375336e6d52e1ee173a40cd0b276e6fc82" => :yosemite
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "libao"
   depends_on "libarchive"
   depends_on "libepoxy"
 
   def install
-    system "make", "PREFIX=#{prefix}", "DATADIR=#{pkgshare}"
-    bin.install "nestopia"
-    pkgshare.install "NstDatabase.xml"
+    cp "README.md", "README.unix"
+    system "cmake", ".", "-DCMAKE_INSTALL_DATAROOTDIR=#{pkgshare}", *std_cmake_args
+    system "make", "install"
   end
 
   test do
