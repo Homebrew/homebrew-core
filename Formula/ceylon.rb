@@ -19,8 +19,6 @@ class Ceylon < Formula
   end
 
   test do
-    ENV.java_cache
-
     cd "#{libexec}/samples/helloworld" do
       system "#{bin}/ceylon", "compile", "--out", "#{testpath}/modules", "--encoding", "UTF-8", "com.example.helloworld"
       system "#{bin}/ceylon", "doc", "--out", "#{testpath}/modules", "--encoding", "UTF-8", "--non-shared", "com.example.helloworld"
