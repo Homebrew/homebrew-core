@@ -3,6 +3,7 @@ class Zabbix < Formula
   homepage "https://www.zabbix.com/"
   url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.1/zabbix-3.4.1.tar.gz"
   sha256 "faaf1a1569ec6b4674d80e707904197c8b568f2b4660f636c28d0c42af471fd4"
+  revision 1
 
   bottle do
     sha256 "1578784f012abb39a5a3ca6fd9ba20b787f7e84f4b1911f9d7aacb033b041e71" => :sierra
@@ -16,6 +17,7 @@ class Zabbix < Formula
 
   deprecated_option "agent-only" => "without-server-proxy"
 
+  depends_on "openssl"
   depends_on "pcre"
 
   if build.with? "server-proxy"
@@ -39,6 +41,7 @@ class Zabbix < Formula
       --enable-agent
       --with-iconv=#{MacOS.sdk_path}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
 
     if build.with? "server-proxy"
