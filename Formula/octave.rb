@@ -74,7 +74,7 @@ class Octave < Formula
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
     # allow for recent Oracle Java (>=1.8) without requiring the old Apple Java 1.6
-    # this is more or less the same as in http://savannah.gnu.org/patch/index.php?9439
+    # this is more or less the same as in https://savannah.gnu.org/patch/index.php?9439
     inreplace "libinterp/octave-value/ov-java.cc",
       "#if ! defined (__APPLE__) && ! defined (__MACH__)", "#if 1" # treat mac's java like others
     inreplace "configure.ac",
