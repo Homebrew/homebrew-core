@@ -8,9 +8,9 @@ class Blockhash < Formula
 
   bottle do
     cellar :any
-    sha256 "a55403e6c23a73a46c8b320fc4a14386be03293f0935fddf05bc8a910d0257aa" => :sierra
-    sha256 "ada61986c03a4ea6b50aad241906bf4946c5ff0eac69def8e66c3bdb4f1a23bd" => :el_capitan
-    sha256 "f7209a7c71a24b0d78b64f85bb47e775f0ae181c59ed6567afe2dfdbcd77f4c0" => :yosemite
+    sha256 "ad5041dd82571cda1572111c458f3119f87d5fd76f73ed183a06b5f9819785e4" => :sierra
+    sha256 "404542e114e192e4666946b6811e0c8c49369fe7ef0d885c572fafd3ba695534" => :el_capitan
+    sha256 "b00df389c1d5b91b13d1908bd9e1f491bd774799892799f5242388052ea7288f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
