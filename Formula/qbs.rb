@@ -7,9 +7,9 @@ class Qbs < Formula
 
   bottle do
     cellar :any
-    sha256 "717dc0193d30ad8e28f33b100a7753ce5a0266b69e168c6a114ff6b84ad5ec68" => :sierra
-    sha256 "2aaa459c7ad7d1e6c39d14649d4c05b766374da50e2ac6b3e1fd61b7b47b1e69" => :el_capitan
-    sha256 "6c87156f701bc16793aeb468942419a03077ad3628107d2e0ed3c144b6d04098" => :yosemite
+    sha256 "7173c189bde0b10d206243f6ca85937069c714003a561981cb82b631b06b2e43" => :sierra
+    sha256 "ed47bd3e66624caaad90f941b945cafd9e2877746d22b4d6d4c99aa3fe461889" => :el_capitan
+    sha256 "ac2fbd09eef4f216a19cee838d7bb4df0a319743c579bd8a8f7b3b1b398879bc" => :yosemite
   end
 
   depends_on "qt"
