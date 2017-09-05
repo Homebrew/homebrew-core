@@ -3,7 +3,7 @@ class Pdftoipe < Formula
   homepage "https://github.com/otfried/ipe-tools"
   url "https://github.com/otfried/ipe-tools/archive/v7.2.7.tar.gz"
   sha256 "889cb31bd8769ba111f541ba795cf53fad474aeeafbc87b7cd37c8a24b2dc6f6"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -13,12 +13,13 @@ class Pdftoipe < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "poppler"
 
-  # Upstream issue "poppler 0.59.0 incompatibility"
-  # Reported 4 Sep 2017 https://github.com/otfried/ipe-tools/issues/27
-  depends_on "poppler@0.57"
+  needs :cxx11
 
   def install
+    ENV.cxx11
+
     cd "pdftoipe" do
       system "make"
       bin.install "pdftoipe"
