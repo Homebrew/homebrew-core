@@ -1,9 +1,10 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://www.zsh.org/pub/zsh-5.4.1.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/zsh/zsh/5.4.1/zsh-5.4.1.tar.xz"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.1/zsh-5.4.1.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.4.1.tar.xz"
   sha256 "94cbd57508287e8faa081424509738d496f5f41e32ed890e3a5498ce05d3633b"
+  revision 1
 
   bottle do
     sha256 "9b02aa96d53e036e3fefe5c529afc8b2bd286a53494286002b1fc05fabe57204" => :sierra
@@ -23,6 +24,12 @@ class Zsh < Formula
 
   depends_on "gdbm"
   depends_on "pcre"
+
+  resource "htmldoc" do
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.1/zsh-5.4.1-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.4.1-doc.tar.xz"
+    sha256 "b8b1a40aeec852806ad2b74b0a0c534320bf517e2fe2a087c0c9d39e75dc29f1"
+  end
 
   def install
     system "Util/preconfig" if build.head?
@@ -63,6 +70,10 @@ class Zsh < Formula
     else
       system "make", "install"
       system "make", "install.info"
+
+      resource("htmldoc").stage do
+        (pkgshare/"htmldoc").install Dir["Doc/*.html"]
+      end
     end
   end
 
