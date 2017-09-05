@@ -48,7 +48,18 @@ class Agda < Formula
 
   depends_on :emacs => ["23.4", :recommended]
 
+  # Upstream issue from 4 Sep 2017 "Agda fails to build with happy 1.19.6"
+  # See https://github.com/agda/agda/issues/2731
+  resource "cabal-config" do
+    url "https://www.stackage.org/lts-9.1/cabal.config"
+    version "lts-9.1"
+    sha256 "615e2a56ffd64d169fcc59f02a068d579bf5bdd83b13fd6746e20b8fdc79a738"
+  end
+
   def install
+    buildpath.install resource("cabal-config")
+    inreplace "cabal.config", "             Agda ==2.5.2,\n", ""
+
     # install Agda core
     install_cabal_package :using => ["alex", "happy", "cpphs"]
 
