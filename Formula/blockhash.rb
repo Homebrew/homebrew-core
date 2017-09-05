@@ -1,6 +1,6 @@
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
-  homepage "http://blockhash.io/"
+  homepage "https://github.com/commonsmachinery/blockhash"
   url "https://github.com/commonsmachinery/blockhash/archive/0.2.1.tar.gz"
   sha256 "549e0f52e7a7545bae7eca801c64c79b95cbe9417975718e262fddaf78b00cca"
   revision 2
