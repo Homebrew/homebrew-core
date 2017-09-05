@@ -1,8 +1,8 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://live.gnome.org/Vala"
-  url "https://download.gnome.org/sources/vala/0.36/vala-0.36.4.tar.xz"
-  sha256 "e9f23ce711c1a72ce664d10946fbc5953f01b0b7f2a3562e7a01e362d86de059"
+  url "https://download.gnome.org/sources/vala/0.38/vala-0.38.0.tar.xz"
+  sha256 "2d88f3961ea64c17f2fe14ad61db9129dd42b4f6de41432ad6a1a29ffe05c479"
 
   bottle do
     sha256 "d60bff583c824ca374f2ddec37b573969997e9c4a81a164cfda4a61dfe36f1be" => :sierra
@@ -13,6 +13,7 @@ class Vala < Formula
   depends_on "pkg-config" => :run
   depends_on "gettext"
   depends_on "glib"
+  depends_on "graphviz"
 
   def install
     system "./configure", "--disable-dependency-tracking",
