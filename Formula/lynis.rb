@@ -6,9 +6,9 @@ class Lynis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a94804cace3f7df007bc3ba8399db2512590b29bffaea97d75aa487215a6cde" => :sierra
-    sha256 "5a94804cace3f7df007bc3ba8399db2512590b29bffaea97d75aa487215a6cde" => :el_capitan
-    sha256 "5a94804cace3f7df007bc3ba8399db2512590b29bffaea97d75aa487215a6cde" => :yosemite
+    sha256 "a6d00b56462f1d0549e2baaf610aaee736268a96036bd52c66907343d99bb3fc" => :sierra
+    sha256 "a6d00b56462f1d0549e2baaf610aaee736268a96036bd52c66907343d99bb3fc" => :el_capitan
+    sha256 "a6d00b56462f1d0549e2baaf610aaee736268a96036bd52c66907343d99bb3fc" => :yosemite
   end
 
   def install
