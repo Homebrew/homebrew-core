@@ -1,8 +1,8 @@
 class Dxflib < Formula
   desc "C++ library for parsing DXF files"
   homepage "https://www.ribbonsoft.com/en/what-is-dxflib"
-  url "https://www.ribbonsoft.com/archives/dxflib/dxflib-2.5.0.0-1.src.tar.gz"
-  sha256 "20ad9991eec6b0f7a3cc7c500c044481a32110cdc01b65efa7b20d5ff9caefa9"
+  url "https://www.ribbonsoft.com/archives/dxflib/dxflib-3.17.0-src.tar.gz"
+  sha256 "26c5acfb55150c5fc5d4b35f21582824845628bea9a893e7fcf71c83e07fd227"
 
   bottle do
     cellar :any_skip_relocation
