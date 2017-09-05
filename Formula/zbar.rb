@@ -15,9 +15,9 @@ class Zbar < Formula
 
   bottle do
     cellar :any
-    sha256 "9f44e07b223035cd15e07a370a3a75b021e49abc29d68de28809943842caec9c" => :sierra
-    sha256 "1fccb59c8aa9182dbba49b4478302bd1ee1b1b8553ba1192863909edf74f4268" => :el_capitan
-    sha256 "2df581240af135006a7e19bde5e80da51e53e42cdafd36f25f944eb82965703f" => :yosemite
+    sha256 "b1d3f126b515d19d6bb1a35900c7aa9bddc36aa62b03d6f19f3c302584648ea3" => :sierra
+    sha256 "eb338869d998fa094a2c1a49565405e1c3c0b6697fbe55ebf3369ea35a58834e" => :el_capitan
+    sha256 "9e5ba88e909d3150b5496e2d70f8e63b63edbf918887428b3a57183da7878bf3" => :yosemite
   end
 
   head do
