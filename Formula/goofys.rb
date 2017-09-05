@@ -4,8 +4,8 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag => "v0.0.16",
-      :revision => "e8b06fca04811c9faff8e481c367d07b8f5e9a90"
+      :tag => "v0.0.17",
+      :revision => "3d40e98b163a797e800550a30e950dc06f7229b1"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
@@ -38,39 +38,29 @@ class Goofys < Formula
         :revision => "298c54b0e0ae32ec2c6674fee8b60d2fefa4ae7e"
   end
 
-  go_resource "github.com/shiena/ansicolor" do
-    url "https://github.com/shiena/ansicolor.git",
-        :revision => "a422bbe96644373c5753384a59d678f7d261ff10"
-  end
-
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-        :revision => "1c211f0807a3436707409fa313599dd8c7a48664"
+        :revision => "a452de7c734a0fa0f16d2e5725b0fa5934d9fbec"
   end
 
   go_resource "github.com/sirupsen/logrus" do
     url "https://github.com/sirupsen/logrus.git",
-        :revision => "68806b4b77355d6c8577a2c8bbc6d547a5272491"
-  end
-
-  go_resource "github.com/stretchr/testify" do
-    url "https://github.com/stretchr/testify.git",
-        :revision => "890a5c3458b43e6104ff5da8dfa139d013d77544"
+        :revision => "89742aefa4b206dcf400792f3bd35b542998eb3b"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "eb71ad9bd329b5ac0fd0148dd99bd62e8be8e035"
+        :revision => "81e90905daefcd6fd217b62423c0908922eadb30"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "1c05540f6879653db88113bc4a2b70aec4bd491f"
+        :revision => "66aacef3dd8a676686c7ae3716979581e8b03c47"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "43e60d72a8e2bd92ee98319ba9a384a0e9837c08"
+        :revision => "7ddbeae9ae08c6a06a59597f0c9edbc5ff2444ce"
   end
 
   def install
