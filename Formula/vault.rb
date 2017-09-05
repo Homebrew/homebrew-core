@@ -13,9 +13,9 @@ class Vault < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d5a4b9bc5c6a927168897bc427fd361ff948edc594b99816392967e69b53a37" => :sierra
-    sha256 "bc29b35885aa2d08b3f615f4da341db6b8160ee3b17f2f687e162e77ce962806" => :el_capitan
-    sha256 "eb907a9ab963d0a8d6eabb2bed139a4aaf621198abb766fb7935648a1c4d683c" => :yosemite
+    sha256 "28d1c91ea3bbbef25d9bb3be3a0e0a2fc595b764fbeb8ec42c264937fda007c8" => :sierra
+    sha256 "356dbb43dbb18fae7e474805c9fde5d14e648d090fcab8458a17551fc01835dd" => :el_capitan
+    sha256 "37bee050939947808686e062096d40903da168ff9feaf8229e246ad99ee8b696" => :yosemite
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
