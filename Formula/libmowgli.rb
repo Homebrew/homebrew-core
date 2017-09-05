@@ -1,8 +1,8 @@
 class Libmowgli < Formula
   desc "Core framework for Atheme applications"
   homepage "https://github.com/atheme/libmowgli-2"
-  url "https://github.com/atheme/libmowgli-2/archive/v2.1.0.tar.gz"
-  sha256 "46ef60c642c457a5d0e36bfc8c277e74d2ebf4ab9cbc4e40153781ed4ab0fe7d"
+  url "https://github.com/atheme/libmowgli-2/archive/v2.1.1.tar.gz"
+  sha256 "98d6cf3faba0a6f3e919598cbb21e069f4ba77af09ec968f377ac1b5d3f507d2"
   head "https://github.com/atheme/libmowgli-2.git"
 
   bottle do
