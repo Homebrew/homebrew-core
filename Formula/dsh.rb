@@ -5,10 +5,9 @@ class Dsh < Formula
   sha256 "520031a5474c25c6b3f9a0840e06a4fea4750734043ab06342522f533fa5b4d0"
 
   bottle do
-    sha256 "b9f958c1595b577fbe386d96a8dec6fbbb518792ba78b1d689598b6bd3cd53bb" => :sierra
-    sha256 "7bf6d4a1c75260ab37c82122f793be6270c98b50d95773e58ee83b26e8e5cd6f" => :el_capitan
-    sha256 "057887c4fb924646aa71dde1264a7030ecbf7d0a8d1d57e6c008a6887b03d46e" => :yosemite
-    sha256 "15918191492c128f41f7182084bcd051bf9d12472bba59725bd510a35e8f447f" => :mavericks
+    sha256 "9d694a476e5d74d7c3edbf284628e3f68c96c5a30c91b7fd3c624630805636ea" => :sierra
+    sha256 "0b6a147235228473634c424e5e12671b6e9a4609ce6b732dd5ca9f56f335add5" => :el_capitan
+    sha256 "fba83e836f8fa0ddca0a9c35f5f8781aabb0a3c7dfadc8eb6cd69ca1e2930cd0" => :yosemite
   end
 
   depends_on "libdshconfig"
