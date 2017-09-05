@@ -10,6 +10,11 @@ class Mariadb < Formula
     sha256 "e55ad3f2d6efef790c6053463fb2e56878db251512da3c1286aae11a5d430663" => :yosemite
   end
 
+  devel do
+    url "https://downloads.mariadb.org/f/mariadb-10.3.1/source/mariadb-10.3.1.tar.gz"
+    sha256 "3f6d45c7067033f161e505b6d8db6c559fa9c4c16459903f393d555e76e1d507"
+  end
+
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
   option "with-embedded", "Build the embedded server"
