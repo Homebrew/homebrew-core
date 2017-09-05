@@ -47,7 +47,7 @@ class Zookeeper < Formula
   def default_log4j_properties
     <<-EOS.undent
       log4j.rootCategory=WARN, zklog
-      log4j.appender.zklog = org.apache.log4j.FileAppender
+      log4j.appender.zklog = org.apache.log4j.RollingFileAppender
       log4j.appender.zklog.File = #{var}/log/zookeeper/zookeeper.log
       log4j.appender.zklog.Append = true
       log4j.appender.zklog.layout = org.apache.log4j.PatternLayout
