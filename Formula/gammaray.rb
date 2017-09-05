@@ -1,8 +1,8 @@
 class Gammaray < Formula
   desc "Examine and manipulate Qt application internals at runtime"
   homepage "https://www.kdab.com/kdab-products/gammaray/"
-  url "https://github.com/KDAB/GammaRay/releases/download/v2.8.0/gammaray-2.8.0.tar.gz"
-  sha256 "8d033f50ea62f9ff804cc4b8fa40b03f21c23481b4a98d03a65cc718124476c5"
+  url "https://github.com/KDAB/GammaRay/releases/download/v2.8.1/gammaray-2.8.1.tar.gz"
+  sha256 "b01533a524d6f66e4e15d94b7528c7c4d6d8dfc104621849be6155df6b52fc3f"
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
