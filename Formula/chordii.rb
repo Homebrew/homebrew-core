@@ -6,11 +6,9 @@ class Chordii < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21988d35455db7ffdf5106de88aa8ca8690a34e7d5df5f66f0e0c3e3f8544041" => :sierra
-    sha256 "0ac1735d61f7843a61e4364bbd6bf955d77046f20f5933b4dfa1c39666e1e595" => :el_capitan
-    sha256 "5592e19ddb7affade8a918992648c87bb92a83e201e28f8afdae87e3e3ba4c2b" => :yosemite
-    sha256 "f828c0158bfa52c9e136c0332ea595e788af14073082847d51bc4c96e6c909ac" => :mavericks
-    sha256 "532cb785f263790e7a314df2a276c2ee73de50fe630df8514586d888c0bb6281" => :mountain_lion
+    sha256 "5eed38c2781095a1ea852e8407d791ee09c87f06e8d596e49e3abb685f8234ad" => :sierra
+    sha256 "99c022cf0741bca48fd78d1bc5b5f0488e720321133a1357412d2342527a1dd8" => :el_capitan
+    sha256 "02cca7ec07939f7b29f1f2c844d250caaa9b7ba7d19e51f9e3eeb636d51b72d4" => :yosemite
   end
 
   def install
