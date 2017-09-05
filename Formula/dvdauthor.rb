@@ -6,9 +6,9 @@ class Dvdauthor < Formula
 
   bottle do
     cellar :any
-    sha256 "bd87b4f4e8c33a7a8275ea3b34c8e995f58b61d71a8a7b726d35639868b447c9" => :sierra
-    sha256 "f295c54bd810948d3acf3223d7132c036acd9842a4c7fc449ac111f5e6971d9f" => :el_capitan
-    sha256 "e91dd3ffd68dd00a08d6c2f72e395dbd95c83a2057ebe19bf0310d1abba4fa04" => :mavericks
+    sha256 "021c04387000c15dfd64763c9cf4eb7dd23ee0bed9e79941c8ff00182bf4e3b2" => :sierra
+    sha256 "adeee0423ba54e77da2710f1877e0cbc43733f833abc73ad76465a7d34c829a7" => :el_capitan
+    sha256 "b4c79aab01e4ae32f39107af7ef863fd75f75cf7d9e32731be3f2e2e4d49d782" => :yosemite
   end
 
   # Dvdauthor will optionally detect ImageMagick or GraphicsMagick, too.
