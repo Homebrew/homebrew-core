@@ -6,11 +6,9 @@ class Dterm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dea25b6f74359e9f66e1987716150e1299098bb433dc00d002c4cc8405eb83db" => :sierra
-    sha256 "65fbe5c0965c619cf0ecd9f71d08628935950ad51d61230b01e3c222c208520d" => :el_capitan
-    sha256 "021c79b8bd9eaf005e30fb2291c6ca7210ff37bdcf9ba6762fb53b81a21f1cf1" => :yosemite
-    sha256 "485ec99b145bdc2de1e066efc947e14007d5f4d9e421aefad31db399bab29e76" => :mavericks
-    sha256 "7eef65a8c4e22d8c1918b9ad38bc2feae87c1a4cec3671a5c5227648288dd319" => :mountain_lion
+    sha256 "a0f9f7bfcadc790624975724244e30d4459e0eb3172dc2646db2b58f7643589c" => :sierra
+    sha256 "6e18a2f46faa55e99fe070c7fd5e95940d66a5295f694605c9e90b416b577d37" => :el_capitan
+    sha256 "353231f24cda3e48779652002067ac2650b0182f4e7f69fc86b059139daf4511" => :yosemite
   end
 
   def install
