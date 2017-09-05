@@ -1,9 +1,9 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.0-615.tar.gz"
-  version "1.5.0-615"
-  sha256 "109d48b75e7ba34d5a0cb98346c098d9e0d29d58b6bc27b90014dbc558a491a4"
+  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.0-616.tar.gz"
+  version "1.5.0-616"
+  sha256 "b68d78c4e067bdd853176d469894d330f3268725842639af5edfe4977f04dc54"
 
   bottle do
     cellar :any_skip_relocation
