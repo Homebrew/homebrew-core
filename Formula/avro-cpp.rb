@@ -6,10 +6,9 @@ class AvroCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "a8cec4c5be2fa818b383f6d4ffc757be0a95ff38c4d758e7c85239affa98a90a" => :sierra
-    sha256 "238e5f3ebfee52d2e8822de253c93e04441909f140c13bb007277b1fd7acf721" => :el_capitan
-    sha256 "ced89ca959d6e9531033b8257176b381a31a3c8cf2a6cefb02df48e1655500ce" => :yosemite
-    sha256 "42eb7e8e11cd12a7411ca50e690975563d49d283ad7e17302c71bf0ae92d8471" => :mavericks
+    sha256 "319664d5b1f6dcfca5485ca7e30c10b316a6b865658bb4d86e94036312400792" => :sierra
+    sha256 "608da3caf3b22380430f27975bd00c240f9b852fb7b2bfa1a06c91ff25bf6245" => :el_capitan
+    sha256 "30de5dd8b0328916218197bf57e6d74695c770a9c53194a0ec4d2676934dc27b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
