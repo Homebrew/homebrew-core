@@ -1,8 +1,8 @@
 class ExactImage < Formula
   desc "Image processing library"
   homepage "https://exactcode.com/opensource/exactimage/"
-  url "https://dl.exactcode.de/oss/exact-image/exact-image-0.9.1.tar.bz2"
-  sha256 "79e6a58522897f9740aa3b5a337f63ad1e0361a772141b24aaff2e31264ece7d"
+  url "https://dl.exactcode.de/oss/exact-image/exact-image-0.9.2.tar.bz2"
+  sha256 "665b205740b17b4162fae73aa36eb7046f28bb216d612461ca0499ff47a566ba"
 
   bottle do
     rebuild 1
@@ -17,7 +17,7 @@ class ExactImage < Formula
   depends_on "freetype" => :optional
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--without-libungif"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
