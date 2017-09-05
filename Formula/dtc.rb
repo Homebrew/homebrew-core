@@ -7,11 +7,9 @@ class Dtc < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "416d5edbc2790bb3508a02e5f0d01fddd88e0ab43d5a4f522e3a8902cfdb394e" => :sierra
-    sha256 "0213fcb000d66a99c2c97f63d07ae36d949daba0f73a23ddbe57b8e6291b9099" => :el_capitan
-    sha256 "ed550f87fdb51917cb90124e41f2580508785d47c32e16e10c0637256e171585" => :yosemite
-    sha256 "dc180d41f215564fe6b161d9be8aa88cf50519c9f4035a2c08f88cfe59efedc9" => :mavericks
+    sha256 "e51ec039535cdc04002bfe0b0d9a0fba95a842fb24d6f7a7478f91627efdcad1" => :sierra
+    sha256 "21b2a94495d4ee45566ad89c92e8f1be054a6ef9be16db08c47efabfd90818c0" => :el_capitan
+    sha256 "43b895242bb617aabdf2b7c4e019af4115fdca865d980d61f09ab5f0806a8d1a" => :yosemite
   end
 
   def install
