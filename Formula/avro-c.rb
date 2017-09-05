@@ -6,9 +6,9 @@ class AvroC < Formula
 
   bottle do
     cellar :any
-    sha256 "2ac1ff52207a67f9efd9b62c616122472897183fd0823950e3b67e2ba72da6c6" => :sierra
-    sha256 "e4a3fac26f221aba730618345e9f024bce23b852d8318d59f95feff1adc5d20f" => :el_capitan
-    sha256 "3a486446c6a1b9ae93b0501214a42f54d14b9753646fbe3a8ec2b03025b476cc" => :yosemite
+    sha256 "babc65c0442620b00470abdda6d86d7035390b75b6ae113319c69df1fc24dc8b" => :sierra
+    sha256 "52ba34bf67cee89d559bd075baff35e7be512b5f53419783a82c1f0cf2ca3f8a" => :el_capitan
+    sha256 "f77867d708068930b40fb0e3e4e5bd5146487699599e87d4987c205fb6a3275d" => :yosemite
   end
 
   option "with-snappy", "Build with Snappy codec support"
