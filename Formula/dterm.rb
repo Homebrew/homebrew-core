@@ -1,8 +1,8 @@
 class Dterm < Formula
   desc "Terminal emulator for use with xterm and friends"
   homepage "http://www.knossos.net.nz/resources/free-software/dterm/"
-  url "http://www.knossos.net.nz/downloads/dterm-0.3.tgz"
-  sha256 "c12ece81a57296e39f564fe0269dbe34f048f4a47d2bf79b6a6215718091e67f"
+  url "http://www.knossos.net.nz/downloads/dterm-0.5.tgz"
+  sha256 "94533be79f1eec965e59886d5f00a35cb675c5db1d89419f253bb72f140abddb"
 
   bottle do
     cellar :any_skip_relocation
