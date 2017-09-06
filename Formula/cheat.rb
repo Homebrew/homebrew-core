@@ -3,8 +3,8 @@ class Cheat < Formula
 
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/chrisallenlane/cheat"
-  url "https://github.com/chrisallenlane/cheat/archive/2.2.0.tar.gz"
-  sha256 "a7860535fbb4156f8bc06d901080fb0eb0ba6526bcf336a80bed8b9355656c79"
+  url "https://github.com/chrisallenlane/cheat/archive/v2.2.1.tar.gz"
+  sha256 "04439b85ea2ebdc6d041352fb8b7aeb8768f2e4df68280371bee313f759f3a50"
   head "https://github.com/chrisallenlane/cheat.git"
 
   bottle do
@@ -22,8 +22,8 @@ class Cheat < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
-    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
+    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
+    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
   end
 
   def install
