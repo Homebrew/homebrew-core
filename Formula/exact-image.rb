@@ -5,11 +5,9 @@ class ExactImage < Formula
   sha256 "665b205740b17b4162fae73aa36eb7046f28bb216d612461ca0499ff47a566ba"
 
   bottle do
-    rebuild 1
-    sha256 "dd25b9e3767f661c13e0685ef575c986a7e64ec3368580b2ed0bb6441dd793f0" => :sierra
-    sha256 "70d2c9f04047842003395c40aab94e4d5f5f2505ed2a1caead3f2bc3b19fbb79" => :el_capitan
-    sha256 "0d4f8c47de237fad9ff663f7be0227694bc2cc2010a9e909c8d7e98ee3448677" => :yosemite
-    sha256 "981c8cee58d2985735f8716d1fff0db690de70eeb0e848eb0f8e340737b4134f" => :mavericks
+    sha256 "2dd2e178792d741119e2bb81a138f41ee89fbcfaf41ed0c46e8f81eaeb46e42c" => :sierra
+    sha256 "7f437345feae9532b1313bb331eed57ce7a6cd4cbfca2c42aadba6204206744c" => :el_capitan
+    sha256 "e259695a00a3962871e6b5030d579836d4f64e28daead6f297faf7783edd17af" => :yosemite
   end
 
   depends_on "pkg-config" => :build
