@@ -34,6 +34,14 @@ class Mame < Formula
     sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
   end
 
+  # Patch for Xcode 9: https://github.com/mamedev/mame/issues/2598
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7ab58e7967/mame/xcode9.patch"
+      sha256 "2d7d0ffa9adbee780ce584403f4c2a7386b5edb097321efafc1778fc0200573d"
+    end
+  end
+
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
     system "make", "USE_LIBSDL=1",
