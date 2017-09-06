@@ -7,9 +7,9 @@ class Gabedit < Formula
 
   bottle do
     cellar :any
-    sha256 "65355757dc6da502a9c0e1716aa0a7048f50b6b67fcd2325988ae0b629ba3bd0" => :sierra
-    sha256 "d32b12a340be7d2c2ae089ed2a6488063cd12b419e68cf6eb16d18761acb34be" => :el_capitan
-    sha256 "a48b0977eacecc156b170dbd1b8730d5f694e09aa9553b88e0dc6b68aa3e6cbb" => :yosemite
+    sha256 "22d5d4524dae2675c9184b322c6554331112fd799d1a8466b9e9d6338ada7ca5" => :sierra
+    sha256 "2e8e35a860589f035a40ddde03bfabc6908308ec5fac3fcefeb1e0a8a5a0f053" => :el_capitan
+    sha256 "3dcde0ef2c31cc12898b477370d571d2091d8f2a1c858e8deb71a4fa8b52bf09" => :yosemite
   end
 
   depends_on "pkg-config" => :build
