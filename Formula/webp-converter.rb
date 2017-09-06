@@ -1,7 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook.html
-#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class WebpConverter < Formula
   desc "Converter PNG/JPG to Webp and analytics all changes"
   homepage "https://github.com/Jacksgong/webp-converter"
@@ -9,8 +5,7 @@ class WebpConverter < Formula
   sha256 "481fc8d8a76b810e783dd8febbc4f88e4648c56e81af1cc6bda80d89c7e8f776"
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "webp"           => :run
-  # depends_on "cmake" => :build
+  depends_on "webp" => :run
 
   def install
     ENV["PYTHONPATH"] = libexec/"lib/python2.7/site-packages"
