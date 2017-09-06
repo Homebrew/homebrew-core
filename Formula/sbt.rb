@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
-  url "https://github.com/sbt/sbt/releases/download/v1.0.0/sbt-1.0.0.tgz"
-  sha256 "9ae04f4972145f2ac56c4deb868c9a5bb8b8b85c5151885dff3b997712645c5a"
+  url "https://cocl.us/sbt-1.0.1.tgz"
+  sha256 "5b68996a890b4a91efd9d13b9aca5e2b09f78c254c2907b3d548a9a7a73b0e5a"
 
   bottle :unneeded
 
@@ -10,7 +10,7 @@ class Sbt < Formula
 
   def install
     inreplace "bin/sbt" do |s|
-      s.gsub! 'etc_sbt_opts_file="${sbt_home}/conf/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
+      s.gsub! 'etc_sbt_opts_file="/etc/sbt/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
       s.gsub! "/etc/sbt/sbtopts", "#{etc}/sbtopts"
     end
 
