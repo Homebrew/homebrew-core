@@ -1,10 +1,9 @@
 class Gabedit < Formula
   desc "GUI to computational chemistry packages like Gamess-US, Gaussian, etc."
   homepage "https://gabedit.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit248/GabeditSrc248.tar.gz"
-  version "2.4.8"
-  sha256 "38d6437a18280387b46fd136f2201a73b33e45abde13fa802c64806b6b64e4d3"
-  revision 2
+  url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit250/GabeditSrc250.tar.gz"
+  version "2.5.0"
+  sha256 "45cdde213a09294bbf2df5f324ea11fc4c4045b3f9d58e4d67979e6f071c7689"
 
   bottle do
     cellar :any
