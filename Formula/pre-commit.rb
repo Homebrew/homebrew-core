@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "http://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v0.18.2.tar.gz"
   sha256 "196b1090a7e3ee80314953298ac636c566e87a014398c48e911d9a4c6599e776"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +14,10 @@ class PreCommit < Formula
     sha256 "4ccd390ef0b87a23e3a28cb079c83161bbe980874756574e721d53cd42656c18" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"
