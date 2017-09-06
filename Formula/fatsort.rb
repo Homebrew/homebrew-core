@@ -7,10 +7,9 @@ class Fatsort < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "53f12d55b4101fb0b3d5e30dacd0a8dfce6dc7ae1c8bd7bda8f49396d8c789e5" => :sierra
-    sha256 "104cd675fc257344c5c96209a8cc924f50cf1bc4696f966e10e61ebeb4e2f62c" => :el_capitan
-    sha256 "56540697be3d92f196343199911fc2a780fb4f554bd6542818659158081aaa43" => :yosemite
-    sha256 "24362ba75c2e644c1480ba2e73536fdf3010e1f76b6d0b3dbde54e396d95095f" => :mavericks
+    sha256 "d4742a8453bf67a815b862328b3714b1b30d7633688496b18350114e7c2acdd4" => :sierra
+    sha256 "96cc7c6ad5e64d86121b27e9d86ef33e1d2a6e9abde741253c0f06cf76249c8f" => :el_capitan
+    sha256 "717b1b1c912dd49ee1d034e640f9fcdd556634e2a29fd01da195e5e6a1e9f48b" => :yosemite
   end
 
   depends_on "help2man"
