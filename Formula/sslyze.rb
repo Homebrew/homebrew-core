@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.1.2.tar.gz"
-    sha256 "a77aea29beb0cf30b9371e9b5d5ddc8ef5616b411ac62603c914ce576b1bc9af"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.1.4.tar.gz"
+    sha256 "ac47eb9de81f3af4d13d21c4a4e4d1d66cdf2cf6e663e52067bdc78e9757edfe"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.16.3.tar.gz"
-      sha256 "2b9cdc4462a673b4884ead7dd1b258ba69edf126bb7555c52c0bb0a3a55e4ecb"
+      url "https://github.com/nabla-c0d3/nassl/archive/0.17.0.tar.gz"
+      sha256 "1a5f07ae40372bc5522068bc7f8509eac0169bc1233fea823810948aa071bad8"
     end
 
     resource "openssl" do
@@ -63,8 +63,8 @@ class Sslyze < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "ipaddress" do
@@ -83,13 +83,13 @@ class Sslyze < Formula
   end
 
   resource "tls-parser" do
-    url "https://files.pythonhosted.org/packages/c9/30/5d43c474e014f3f069b3c440eec332be3e9d2032693bc000aac71522754e/tls_parser-1.0.0.zip"
-    sha256 "ec1026656454da87f5a3b7f53a3a60a06d501044b2c1f664043436241657f84d"
+    url "https://files.pythonhosted.org/packages/56/d9/6b048b9434b55acede2fd54c4db901ecab1b642d3e9248635be153afbe8a/tls_parser-1.1.0.tar.gz"
+    sha256 "0652320987af8e8223e32d1b045f4d8f5cd1533b01cb90edab370eb358757df0"
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
-    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
+    url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
+    sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
   end
 
   resource "zlib" do
