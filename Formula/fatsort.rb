@@ -1,8 +1,9 @@
 class Fatsort < Formula
   desc "Sorts FAT16 and FAT32 partitions"
   homepage "https://fatsort.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fatsort/fatsort-1.3.365.tar.gz"
-  sha256 "77acc374b189e80e3d75d3508f3c0ca559f8030f1c220f7cfde719a4adb03f3d"
+  url "https://downloads.sourceforge.net/project/fatsort/fatsort-1.4.2.439.tar.xz"
+  version "1.4.2"
+  sha256 "bdbcf99307baef3e76d99700691ac525c9a9cf96d8433b45c89314940cc6a1e0"
 
   bottle do
     cellar :any_skip_relocation
