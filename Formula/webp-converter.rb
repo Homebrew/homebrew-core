@@ -1,8 +1,8 @@
 class WebpConverter < Formula
   desc "Converter PNG/JPG to Webp and analytics all changes"
-  homepage "https://jacksgong.com/webp-converter"
-  url "https://github.com/Jacksgong/webp-converter/archive/v4.0.0.tar.gz"
-  sha256 "481fc8d8a76b810e783dd8febbc4f88e4648c56e81af1cc6bda80d89c7e8f776"
+  homepage "https://github.com/Jacksgong/webp-converter"
+  url "https://github.com/Jacksgong/webp-converter/archive/v4.0.1.tar.gz"
+  sha256 "4be6d5f6cb2e70779c3c6ad114d1d2e30c96d9682d85f3892e444c6cc197b39c"
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "webp" => :run
