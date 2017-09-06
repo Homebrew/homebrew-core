@@ -1,8 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.wikia.com/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.7/freeciv-2.5.7.tar.bz2"
-  sha256 "ffe36736db6a64893681e9eea8b90f7abe05eaebe6b777e82149a98cad6dbed2"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.9/freeciv-2.5.9.tar.bz2"
+  sha256 "b83c73585ae80898b27379984f936591b51422c9caccb94880fa16030c975928"
 
   bottle do
     sha256 "3a4e8955bb518bc8fd7efd9c4ed79bf97cfda25ea9bd6a4befdd8f51d05be172" => :sierra
@@ -11,7 +11,8 @@ class Freeciv < Formula
   end
 
   head do
-    url "svn://svn.gna.org/svn/freeciv/trunk"
+    url "https://github.com/freeciv/freeciv.git"
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "gettext" => :build
