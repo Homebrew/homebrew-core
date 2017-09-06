@@ -3,7 +3,7 @@ class Sqlcipher < Formula
   homepage "http://sqlcipher.net"
   url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.1.tar.gz"
   sha256 "4172cc6e5a79d36e178d36bd5cc467a938e08368952659bcd95eccbaf0fa4ad4"
-  revision 1
+  revision 2
 
   head "https://github.com/sqlcipher/sqlcipher.git"
 
@@ -34,13 +34,27 @@ class Sqlcipher < Formula
     ]
 
     if build.with?("fts")
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
+      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
     else
-      args << "CFLAGS=-DSQLITE_HAS_CODEC"
+      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1"
     end
 
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    path = testpath/"school.sql"
+    path.write <<-EOS.undent
+      create table students (name text, age integer);
+      insert into students (name, age) values ('Bob', 14);
+      insert into students (name, age) values ('Sue', 12);
+      insert into students (name, age) values ('Tim', json_extract('{"age": 13}', '$.age'));
+      select name from students order by age asc;
+    EOS
+
+    names = shell_output("#{bin}/sqlcipher < #{path}").strip.split("\n")
+    assert_equal %w[Sue Tim Bob], names
   end
 end
