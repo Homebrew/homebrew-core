@@ -1,9 +1,8 @@
 class Fbida < Formula
   desc "View and edit photo images"
   homepage "https://linux.bytesex.org/fbida/"
-  url "https://dl.bytesex.org/releases/fbida/fbida-2.10.tar.gz"
-  sha256 "7a5a3aac61b40a6a2bbf716d270a46e2f8e8d5c97e314e927d41398a4d0b6cb6"
-  revision 1
+  url "https://dl.bytesex.org/releases/fbida/fbida-2.13.tar.gz"
+  sha256 "a887195dcd189055ee9b787eb03c8b7954df3aec540a1f90d8e92f873126db07"
 
   bottle do
     cellar :any
