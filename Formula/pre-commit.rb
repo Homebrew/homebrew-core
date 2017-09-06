@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "http://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v0.18.2.tar.gz"
   sha256 "196b1090a7e3ee80314953298ac636c566e87a014398c48e911d9a4c6599e776"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
