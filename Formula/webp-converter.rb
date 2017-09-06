@@ -1,6 +1,6 @@
 class WebpConverter < Formula
   desc "Converter PNG/JPG to Webp and analytics all changes"
-  homepage "https://github.com/Jacksgong/webp-converter"
+  homepage "https://jacksgong.com/webp-converter"
   url "https://github.com/Jacksgong/webp-converter/archive/v4.0.0.tar.gz"
   sha256 "481fc8d8a76b810e783dd8febbc4f88e4648c56e81af1cc6bda80d89c7e8f776"
 
