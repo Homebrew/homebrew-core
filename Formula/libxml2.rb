@@ -1,35 +1,10 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  revision 4
+  url "http://xmlsoft.org/sources/libxml2-2.9.5.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.5.tar.gz"
+  sha256 "4031c1ecee9ce7ba4f313e91ef6284164885cdb69937a123f6a83bb6a72dcd38"
   head "https://git.gnome.org/browse/libxml2.git"
-
-  stable do
-    url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
-    mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
-    sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
-
-    # All patches upstream already. Remove whenever 2.9.5 is released.
-    # Fixes CVE-2016-4658, CVE-2016-5131, CVE-2017-0663, CVE-2017-7375,
-    # CVE-2017-7376, CVE-2017-9047, CVE-2017-9048, CVE-2017-9049 and
-    # CVE-2017-9050.
-    patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-3.1.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-3.1.debian.tar.xz"
-      sha256 "9de354bf1315f0e631505789a6059fdbcef3fd2c262b1573935cdf6acf0ee976"
-      apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
-            "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
-            "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
-            "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
-            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch",
-            "patches/0008-Fix-attribute-decoding-during-XML-schema-validation.patch",
-            "patches/0009-Increase-buffer-space-for-port-in-HTTP-redirect-supp.patch",
-            "patches/0010-Prevent-unwanted-external-entity-reference.patch",
-            "patches/0011-Fix-handling-of-parameter-entity-references.patch",
-            "patches/0012-Fix-buffer-size-checks-in-xmlSnprintfElementContent.patch",
-            "patches/0013-Fix-type-confusion-in-xmlValidateOneNamespace.patch"
-    end
-  end
 
   bottle do
     cellar :any
