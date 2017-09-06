@@ -39,11 +39,12 @@ class Povray < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
+      --with-boost=#{Formula["boost"].opt_prefix}
       --without-libsdl
       --without-x
     ]
 
-    args << "--with-openexr=#{HOMEBREW_PREFIX}" if build.with? "openexr"
+    args << "--with-openexr=#{Formula["openexr"].opt_prefix}" if build.with? "openexr"
 
     # Adjust some scripts to search for `etc` in HOMEBREW_PREFIX.
     %w[allanim allscene portfolio].each do |script|
