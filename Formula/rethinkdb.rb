@@ -20,6 +20,15 @@ class Rethinkdb < Formula
     cause "RethinkDB uses C++0x"
   end
 
+  # Fix error with Xcode 9, patch merged upstream:
+  # https://github.com/rethinkdb/rethinkdb/pull/6450
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fb00ee376a/rethinkdb/xcode9.patch"
+      sha256 "abd50d91a247ee7de988020dd9d405a3d4cd93edb2875b7d5822ba0f513f85a0"
+    end
+  end
+
   def install
     args = ["--prefix=#{prefix}"]
 
