@@ -1,14 +1,14 @@
 class Crash < Formula
   desc "Kernel debugging shell for Java that allows gdb-like syntax"
   homepage "http://www.crashub.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/crashub/crash.distrib/1.3.1/crash.distrib-1.3.1.tar.gz"
-  sha256 "d79f1cda660c0086c353b7a11bccf98c4c6c4f2026d80916dd896fd914b177e4"
+  url "https://search.maven.org/remotecontent?filepath=org/crashub/crash.distrib/1.3.2/crash.distrib-1.3.2.tar.gz"
+  sha256 "9607a84c34b01e5df999ac5bde6de2357d2a0dfb7c5c0ce2a5aea772b174ef01"
 
   bottle :unneeded
 
   resource "docs" do
-    url "https://search.maven.org/remotecontent?filepath=org/crashub/crash.distrib/1.3.1/crash.distrib-1.3.1-docs.tar.gz"
-    sha256 "c594c005452fa02a54c60b47c82883b7a12e2293c00d1da24a9203b8d5898413"
+    url "https://search.maven.org/remotecontent?filepath=org/crashub/crash.distrib/1.3.2/crash.distrib-1.3.2-docs.tar.gz"
+    sha256 "b3bf1efe50fb640224819f822835e3897c038ab5555049f2279a5b26171178bb"
   end
 
   def install
