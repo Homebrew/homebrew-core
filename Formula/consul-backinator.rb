@@ -1,8 +1,8 @@
 class ConsulBackinator < Formula
   desc "Consul backup and restoration application"
   homepage "https://github.com/myENA/consul-backinator"
-  url "https://github.com/myENA/consul-backinator/archive/v1.6.1.tar.gz"
-  sha256 "c5635f445657ab47d3d1e76fd649aa89bba7d991061f64c8b34b074bd0e71775"
+  url "https://github.com/myENA/consul-backinator/archive/v1.6.2.tar.gz"
+  sha256 "e3697d1f42f6aadf54824f5dfcad08956ca75135b62d1ba7982152d8b4ad529c"
   head "https://github.com/myENA/consul-backinator.git"
 
   bottle do
@@ -32,7 +32,7 @@ class ConsulBackinator < Formula
   end
 
   test do
-    output = shell_output("#{bin}/consul-backinator --version 2>&1", 1)
+    output = shell_output("#{bin}/consul-backinator --version 2>&1")
     assert_equal version.to_s, output.strip
   end
 end
