@@ -1,21 +1,13 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "http://www.aqbanking.de/"
-  url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=205&file=01&dummy=gwenhywfar-4.17.0.tar.gz"
-  sha256 "11fdffaa2970c937251587fc62a41893c20f7ab3d74c2b66dfa81f40b2a82bfd"
+  url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=206&file=01&dummy=gwenhywfar-4.18.0.tar.gz"
+  sha256 "6915bba42d8b7f0213cee186a944296e5e5e97cdbde5b539a924261af03086ca"
 
   bottle do
     sha256 "b62a95d85fec26ddf586269a556c16be033562c4791d6e058cff05b886a32e46" => :sierra
     sha256 "deba73e094476999d92126d473b79ddc657444ce1c712e4e8370a34b2d46ea2b" => :el_capitan
     sha256 "4da7a21f6fb4f9ed1b408975f2f825f35b5e1d9d134e8e48019d08d15570d5a6" => :yosemite
-  end
-
-  head do
-    url "https://git.aqbanking.de/git/gwenhywfar.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   option "without-cocoa", "Build without cocoa support"
