@@ -1,8 +1,8 @@
 class Deis < Formula
   desc "The CLI for Deis Workflow"
   homepage "https://deis.io/"
-  url "https://github.com/deis/workflow-cli/archive/v2.17.0.tar.gz"
-  sha256 "fb28055bd00e775ad28eace087b8ddf0c8ca69ec8aa76251ce8f5667fd6b41eb"
+  url "https://github.com/deis/workflow-cli/archive/v2.18.0.tar.gz"
+  sha256 "886e3cd9642380ea92d0f76bc1b1114d32a010d4d577212f9396e3069a6b11ee"
 
   bottle do
     cellar :any_skip_relocation
