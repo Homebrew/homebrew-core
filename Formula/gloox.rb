@@ -1,8 +1,8 @@
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
-  url "https://camaya.net/download/gloox-1.0.14.tar.bz2"
-  sha256 "520b72a66fa9fea917a0336872101539f0bea30d1f871e12c31b6c2cd0203941"
+  url "https://camaya.net/download/gloox-1.0.20.tar.bz2"
+  sha256 "0243086c0f4f0440d6d8e55705f83249a4463a1d75a034be42b5312e8886dea8"
 
   bottle do
     cellar :any
