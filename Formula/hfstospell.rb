@@ -1,8 +1,8 @@
 class Hfstospell < Formula
   desc "Helsinki Finite-State Technology ospell"
-  homepage "http://www.ling.helsinki.fi/kieliteknologia/tutkimus/hfst/"
-  url "https://downloads.sourceforge.net/project/hfst/hfst/archive/hfstospell-0.3.0.tar.gz"
-  sha256 "07b5b368882cac2399edb1bb6e2dd91450b56f732c25413a19fcfe194342d70c"
+  homepage "https://hfst.github.io/"
+  url "https://github.com/hfst/hfst-ospell/releases/download/v0.4.5/hfstospell-0.4.5.tar.gz"
+  sha256 "cf10817d1d82f0a7268992ab6ccf475fae2d838e6b9fc59eb6db38e9c21a311e"
 
   bottle do
     cellar :any
@@ -13,13 +13,15 @@ class Hfstospell < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "libarchive"
+  depends_on "libxml++"
+
   needs :cxx11
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
