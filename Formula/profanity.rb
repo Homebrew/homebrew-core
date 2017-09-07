@@ -19,6 +19,8 @@ class Profanity < Formula
     depends_on "libtool" => :build
   end
 
+  option "without-python", "Build without Python plugin support"
+
   depends_on "pkg-config" => :build
   depends_on "ossp-uuid"
   depends_on "libstrophe"
@@ -28,14 +30,19 @@ class Profanity < Formula
   depends_on "gnutls"
   depends_on "libotr" => :recommended
   depends_on "gpgme" => :recommended
+  depends_on :python => :recommended
   depends_on "terminal-notifier" => :optional
 
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+    args << "--disable-python-plugins" if build.without? :python
+
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--disable-python-plugins",
-                          "--prefix=#{prefix}"
+    system "./configure", *args
     system "make", "install"
   end
 
