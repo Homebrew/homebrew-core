@@ -1,8 +1,8 @@
 class Gputils < Formula
   desc "GNU PIC Utilities"
   homepage "https://gputils.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.0.tar.gz"
-  sha256 "f6a517c186b991f504be5e4585316871d5950568257885d37487bb368dc76227"
+  url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.0-1.tar.bz2"
+  sha256 "6f88a018e85717b57a22f27a0ca41b2157633a82351f7755be92e2d7dc40bb14"
 
   bottle do
     sha256 "2fde655a5fd6bf53e546b53458361cde8903257984b119559a3f054e56dc5913" => :sierra
