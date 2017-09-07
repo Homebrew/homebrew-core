@@ -6,8 +6,8 @@ class Yarn < Formula
   revision 1
 
   devel do
-    url "https://yarnpkg.com/downloads/0.28.4/yarn-v0.28.4.tar.gz"
-    sha256 "057ef781107bb5d3e7a2a655d75054fbeb265a249a905375bc25bec10d42b31f"
+    url "https://yarnpkg.com/downloads/1.0.0/yarn-v1.0.0.tar.gz"
+    sha256 "0f3d47e35f391507edda1c87a3014b86c2eb32aaec00d0a4b1e7413bec63787d"
   end
 
   bottle :unneeded
