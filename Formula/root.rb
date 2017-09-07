@@ -63,8 +63,8 @@ class Root < Formula
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
       args << "-DPYTHON_LIBRARY='#{python_library}'"
     end
-    args << "-Dpython=" + (build.with?("python") ? "ON" : "OFF")
-    args << "-Dpython3=" + (build.with?("python3") ? "ON" : "OFF")
+    args << "-Dpython=" + (build.with?("python") || build.with?("python3") ? "ON" : "OFF")
+    # args << "-Dpython3=" + (build.with?("python3") ? "ON" : "OFF")
 
     mkdir "builddir" do
       system "cmake", "..", *args
