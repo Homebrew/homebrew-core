@@ -13,9 +13,9 @@ class Libressl < Formula
   end
 
   devel do
-    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.0.tar.gz"
-    mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.0.tar.gz"
-    sha256 "e48d557474571792699000c32ae97dcef34207d13ed93e4126f213d5dcbe8a53"
+    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.1.tar.gz"
+    mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.1.tar.gz"
+    sha256 "c293b3b5f1fc1d6349c019c3905355d577df32734b631d7e656503894e09127e"
   end
 
   head do
