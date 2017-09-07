@@ -20,6 +20,7 @@ class Sdl2 < Formula
     depends_on "libtool" => :build
   end
 
+  option :universal
   option "with-test", "Compile and install the tests"
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
@@ -31,6 +32,8 @@ class Sdl2 < Formula
   end
 
   def install
+    ENV.universal_binary if build.universal?
+
     # we have to do this because most build scripts assume that all sdl modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
