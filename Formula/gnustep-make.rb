@@ -6,10 +6,9 @@ class GnustepMake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72bdbf93d49c36d17dea050197fbe857aa44d56339993bc23b063e4a52f7880b" => :sierra
-    sha256 "1598a85b3b9bbf721fb75d57c36d5dd6bc5810ec0f5281b35d2e8a13d24edf12" => :el_capitan
-    sha256 "a944ce4d2cd6131d53837f1e674806a073f534e15870ffd01c484aaab8702f8c" => :yosemite
-    sha256 "e1aed229b3582202cc41d91a208a0e92b36cdb05007450ddd1e6c824e9cde952" => :mavericks
+    sha256 "7a2905ce98897c3f74f4802b66f27105c095f078074a874335f2286bec1957db" => :sierra
+    sha256 "a7fc1782bf06e382a4f240f648e55d09a2294202b7f2a7bedf506823acb67fa4" => :el_capitan
+    sha256 "5e005875a2b2b9edd967edcedf14ee4e927312d7e97878ea14d509e10e25186b" => :yosemite
   end
 
   def install
