@@ -5,10 +5,9 @@ class Gputils < Formula
   sha256 "6f88a018e85717b57a22f27a0ca41b2157633a82351f7755be92e2d7dc40bb14"
 
   bottle do
-    sha256 "2fde655a5fd6bf53e546b53458361cde8903257984b119559a3f054e56dc5913" => :sierra
-    sha256 "e92667f348195c4500354273997257b3adca4d7f7a1d1b0a45b394d1f2cada85" => :el_capitan
-    sha256 "0a6291a17acd99f297f0804a7f05bb175554bfb14e7c46fd19af7309817e628f" => :yosemite
-    sha256 "fffd0d648d5df7f6c48385414ae5eae42abb33bd2d3d0485792ed8d4e7fb2359" => :mavericks
+    sha256 "aba5cb544582e26bdb212f9782f911b0e9d36c5049d0aed3928c48ae9b74a6e9" => :sierra
+    sha256 "ad3a6688ca0dac1da0a10db36d9119d9bedcd8d0f389920a45832cc0676c67a3" => :el_capitan
+    sha256 "dd69717c349e405ed04eebc07fc86dcc09d3763f892488514528b328a725a3f9" => :yosemite
   end
 
   def install
