@@ -8,11 +8,9 @@ class FbClient < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b49d8c72dade2ec5b2c4e80b672343c0a29e222fd557e7a600df96b381d0c73" => :sierra
-    sha256 "f9e82a33c953c765995cedc81e8eec04d64d3db96eba7c4e08708c51e0147c3c" => :el_capitan
-    sha256 "bb16ff29baa1d2dbbf51a04b9cf0aa0bb5b7690e2fecd3be880b3138b0d21069" => :yosemite
-    sha256 "281f3a5eb5092dcf59ae63f96cb011fe2283c6c94ff421b2ce2d42aa311836ce" => :mavericks
-    sha256 "2d16d3c1edfb3544a3eb0ff9e4ddc8ccc93c4532d7adab83dc6f21dcae8706bf" => :mountain_lion
+    sha256 "9e49650c2e2c1d5294ba22c821218c7b48ec97647f627fdd67e2ab45d2c7f499" => :sierra
+    sha256 "ed82a23cee56924581955e38a0e75e457eeeefb044e3213de7fd17c74f437978" => :el_capitan
+    sha256 "70fc5a9498e3d66788f57299c21586fa866587c0c1010ae04f67feecc2ee39d8" => :yosemite
   end
 
   depends_on "pkg-config" => :build
