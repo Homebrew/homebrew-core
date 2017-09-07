@@ -6,9 +6,9 @@ class Tippecanoe < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c49f60ac7a2bde878942481f4380990e917f20655efac67c0c5ade482e675dc8" => :sierra
-    sha256 "a4e0aebe8ae80e5ec0a96bc9b460c0c595fe250ac1435c6b7aa30ac5ec57923e" => :el_capitan
-    sha256 "629b89b3c5e7c004cbd578de7d4f4117fb50accccd62e87235127183e3865800" => :yosemite
+    sha256 "990da3bcaba030ec5d81cc50f92928e3eb86b205814670b127368cc7807c9d97" => :sierra
+    sha256 "73c759c57da4a30b95269c19f323550d476eb754b23da19ebb6db21542ba1446" => :el_capitan
+    sha256 "9f3870843069adbd1bfe41aa326bdfd164268ce069b19eae357687a1cf592348" => :yosemite
   end
 
   def install
