@@ -3,8 +3,8 @@ class GandiCli < Formula
 
   desc "Command-line interface to Gandi.net products using the public API"
   homepage "http://cli.gandi.net"
-  url "https://files.pythonhosted.org/packages/73/ae/f63bd762bdd0adb1bc0ad102076acf7e33f12b4ce4280a41fa0807b44f9b/gandi.cli-0.19.tar.gz"
-  sha256 "0e8e1150f68c8921f279c629e6e7beaa4125d10c0d1990ede991fb0ceec928f3"
+  url "https://files.pythonhosted.org/packages/a7/97/186827e26434d453736493861e4af0ff740c8b08abe681dc471733dfe48d/gandi.cli-0.20.tar.gz"
+  sha256 "77e335cd4083b5c5ef0d28b2e23ff8e8ca7d4194e2decbce3e18f28f6c53a66a"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,9 +15,14 @@ class GandiCli < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/88/99/293dac0b3cdf58ce029ec5393624fac5c6bde52f737f9775bd9ef608ec98/appdirs-1.4.2.tar.gz"
-    sha256 "e2de7ae2b3be52542b711eacf4221683f1d2f7706a5550cb2c562ee4ba93ee74"
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
+    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
+    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
   resource "click" do
@@ -25,19 +30,14 @@ class GandiCli < Formula
     sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+  end
+
   resource "IPy" do
     url "https://files.pythonhosted.org/packages/88/28/79162bfc351a3f1ab44d663ab3f03fb495806fdb592170990a1568ffbf63/IPy-0.83.tar.gz"
     sha256 "61da5a532b159b387176f6eabf11946e7458b6df8fb8b91ff1d345ca7a6edab8"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
-    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
   end
 
   resource "PyYAML" do
@@ -46,17 +46,16 @@ class GandiCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
-    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
+    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
+    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
+    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
   end
 
   def install
-    virtualenv_create(libexec, "python")
     virtualenv_install_with_resources
   end
 
