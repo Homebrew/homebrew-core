@@ -11,9 +11,10 @@ class Postgrest < Formula
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
-    sha256 "177b1866ff455308bdd5752ceee48866ef68b5c723aa2661e77d9cf636cdbf64" => :sierra
-    sha256 "84cce0bbfadb1f1bca40a84af4c4e3a4033698de33fd5d5a5efcb32bbd8f5dd9" => :el_capitan
-    sha256 "8d18b2c13b44e60a7f62052af7a0e2ccb197f4f992300a21efc04ef3fa882a77" => :yosemite
+    cellar :any
+    sha256 "42fdf57147e9a959beaab758900462739e9470351b5a11055af00bbe18e03609" => :sierra
+    sha256 "d82e9e4ae9aeebfd7960596ad9ccd4bc3bc4547f57f0473aa3110f9dd52d2df0" => :el_capitan
+    sha256 "8a209377bc643030baded9368b7004238f5ce22fd4f75e69546ce611eb1c9873" => :yosemite
   end
 
   depends_on "cabal-install" => :build
