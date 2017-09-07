@@ -20,7 +20,7 @@ class Libftdi < Formula
 
   def install
     mkdir "libftdi-build" do
-      system "cmake", "..", "-DLINK_PYTHON_LIBRARY=OFF", *std_cmake_args
+      system "cmake", "..", "-DPYTHON_BINDINGS=OFF", *std_cmake_args
       system "make", "install"
       (libexec/"bin").install "examples/find_all"
     end
@@ -28,6 +28,5 @@ class Libftdi < Formula
 
   test do
     system libexec/"bin/find_all"
-    system "python", pkgshare/"examples/simple.py"
   end
 end
