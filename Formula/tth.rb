@@ -6,9 +6,9 @@ class Tth < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f3771daa6780c062624717bd4ccf921267b2318781f86ed26ad213a3eb3b273" => :sierra
-    sha256 "eb5c7de0bb431b91b4e2cb2d131ef6d0e9d8f4c7bd22dfc11d97078649413afb" => :el_capitan
-    sha256 "ebd874131b52829584cf26db15f6199c133a3cf96b90e5a71985c4bac298f7ba" => :yosemite
+    sha256 "967f09662001e1fa07500bb5355ac807d059850057bf32fc38b8fd38e5e966d9" => :sierra
+    sha256 "64a85a3a261d1e31cf3d0f3289f9dbc8275cc78c43a0bd49e1c6995897a331b9" => :el_capitan
+    sha256 "7d36ab2640514fd21ae733c2c9f93ce94dad7e5523963f7c2318a4680cfb2fe2" => :yosemite
   end
 
   def install
