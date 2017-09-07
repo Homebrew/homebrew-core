@@ -5,11 +5,9 @@ class Hspell < Formula
   sha256 "7310f5d58740d21d6d215c1179658602ef7da97a816bc1497c8764be97aabea3"
 
   bottle do
-    rebuild 1
-    sha256 "9875572a4d3bde9c4ee107eeade64bd374ba2ed50fba0cdc8b40349205675d32" => :sierra
-    sha256 "1f436c171499bca023363de7841c20bafec2dcdb4e5b18bb93bbea0581696540" => :el_capitan
-    sha256 "ff001fc54561695a7cd84a2ecc5b68a57d4e87e351e96515ae6a406ee3425c6e" => :yosemite
-    sha256 "ec1840ba37ee546ac0ea48c75a0f20f1bbe0c7b96c663c1035136b0ae2adea75" => :mavericks
+    sha256 "50be9b91b5158ce882207622b6a2581185f67a5c999c8f1105d522d800344a37" => :sierra
+    sha256 "f9648fc0bbf530759a8cd7057ebed5310c3b293c5cd2c1e284aef28f55e44ba7" => :el_capitan
+    sha256 "6ccb57a3f549935b58b3aaa56b0a49b5a7fc41692594d2e4a0d718a5be30fa84" => :yosemite
   end
 
   depends_on "autoconf" => :build
