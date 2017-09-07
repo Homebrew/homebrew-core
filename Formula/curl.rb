@@ -39,7 +39,9 @@ class Curl < Formula
   if MacOS.version < :mountain_lion || build.with?("nghttp2")
     depends_on "openssl"
   else
-    option "with-openssl", "Build with OpenSSL instead of Secure Transport"
+    option "with-openssl@1.1", "Build with OpenSSL 1.1 instead of Secure Transport"
+    depends_on "openssl@1.1" => :optional
+    option "with-openssl", "Build with OpenSSL 1.0 instead of Secure Transport"
     depends_on "openssl" => :optional
   end
 
@@ -63,11 +65,16 @@ class Curl < Formula
     # cURL has a new firm desire to find ssl with PKG_CONFIG_PATH instead of using
     # "--with-ssl" any more. "when possible, set the PKG_CONFIG_PATH environment
     # variable instead of using this option". Multi-SSL choice breaks w/o using it.
-    if MacOS.version < :mountain_lion || build.with?("openssl") || build.with?("nghttp2")
-      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
-      args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
-      args << "--with-ca-bundle=#{etc}/openssl/cert.pem"
-      args << "--with-ca-path=#{etc}/openssl/certs"
+    if MacOS.version < :mountain_lion || build.with?("openssl") || build.with?("openssl@1.1") || build.with?("nghttp2")
+      if build.with?("openssl@1.1")
+        openssl = "openssl@1.1"
+      else
+        openssl = "openssl"
+      end
+      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula[openssl].opt_lib}/pkgconfig"
+      args << "--with-ssl=#{Formula[openssl].opt_prefix}"
+      args << "--with-ca-bundle=#{etc}/#{openssl}/cert.pem"
+      args << "--with-ca-path=#{etc}/#{openssl}/certs"
     else
       args << "--with-darwinssl"
       args << "--without-ca-bundle"
