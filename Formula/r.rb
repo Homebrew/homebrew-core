@@ -21,6 +21,7 @@ class R < Formula
   depends_on :fortran
   depends_on "openblas" => :optional
   depends_on :java => :optional
+  depends_on "cairo" => build.with?("x11") ? ["with-x11"] : []
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin"
@@ -38,10 +39,13 @@ class R < Formula
       ENV["ac_cv_have_decl_clock_gettime"] = "no"
     end
 
+    # Fix cairo detection with Quartz-only cairo
+    inreplace ["configure", "m4/cairo.m4"], "cairo-xlib.h", "cairo.h"
+
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--without-cairo",
+      "--with-cairo",
       "--without-x",
       "--with-aqua",
       "--with-lapack",
