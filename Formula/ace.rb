@@ -6,9 +6,9 @@ class Ace < Formula
 
   bottle do
     cellar :any
-    sha256 "19c80cbb29f33edcbcb625c57741f3200b40289a511f17228fab6e6258c8eb80" => :sierra
-    sha256 "89da44bd204d9ca1fbd4d93f9e90fae4785557507228f16ba2d50a8e37fd48d7" => :el_capitan
-    sha256 "4d24253c4e350eefad30e21ea06fc893f7021d55e6b4a29ed41a009e67b70734" => :yosemite
+    sha256 "a3ec66c4a8f0aa33bf8079240a0eecf510455fece517bf6f4f2f07f2c1f8d1f1" => :sierra
+    sha256 "aa558003a97c0909a44adda0a0563a22e1a6bb6c560c15a656c545c19deb6701" => :el_capitan
+    sha256 "6fd93f3a1aecfa2861526ba41ff2998ca791e2668decffae36c2fa01db61b032" => :yosemite
   end
 
   def install
