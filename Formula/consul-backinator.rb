@@ -7,9 +7,9 @@ class ConsulBackinator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "457755196f443139e556a8b27c1da973d1113fc7ae0d0ecf29644a7f52ba5faf" => :sierra
-    sha256 "4122a459c57f6e9fd3b4aadd9e9db7b78131fa22443e94e6b7114babca292f25" => :el_capitan
-    sha256 "98d2dd63f34f55cb472422c7a67cd5e851d8a24d72bc24df027f32b8294c903a" => :yosemite
+    sha256 "354c3497e33d5c09e7b0d6aa635af387412facd8d3bd700781714199aea29a65" => :sierra
+    sha256 "13447c998681eb2f334af03fd14b5fa6566c4c728e0f3083f0897d3ad33fcafd" => :el_capitan
+    sha256 "efe3d460c5c8ed340aaa876d02c3b4463a22562370ddec6fc9ff9282f5ed5060" => :yosemite
   end
 
   depends_on "go" => :build
