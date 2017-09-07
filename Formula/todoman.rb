@@ -3,8 +3,8 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://github.com/pimutils/todoman/releases/download/v3.2.1/todoman-3.2.1.tar.gz"
-  sha256 "c4da9a8d14acc6f3f18b01a91bcda1ead2dd74e97576e520a1b6a7658795eda7"
+  url "https://github.com/pimutils/todoman/releases/download/v3.2.2/todoman-3.2.2.tar.gz"
+  sha256 "132a92c61a9af454a6f52d1e0ee1e7b215e15d225dd2b7eff35786b0d57738d4"
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
