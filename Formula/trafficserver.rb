@@ -51,11 +51,6 @@ class Trafficserver < Formula
 
     # Fix wrong username in the generated startup script for bottles.
     inreplace "rc/trafficserver.in", "@pkgsysuser@", "$USER"
-    if build.with? "experimental-plugins"
-      # Disable mysql_remap plugin due to missing symbol compile error:
-      # https://issues.apache.org/jira/browse/TS-3490
-      inreplace "plugins/experimental/Makefile", " mysql_remap", ""
-    end
 
     inreplace "lib/perl/Makefile",
       "Makefile.PL INSTALLDIRS=$(INSTALLDIRS)",
