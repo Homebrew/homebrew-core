@@ -2,8 +2,8 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v0.9.2",
-      :revision => "75ca2cace08e38de8af1731ee8614d0533d5a4d4"
+      :tag => "v0.9.3",
+      :revision => "112c0603d3d6fb23ab5f15e8fdb1a761da8eaf9a"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
