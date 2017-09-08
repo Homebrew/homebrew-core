@@ -19,12 +19,6 @@ class Clojure < Formula
     system "./install.sh", prefix
   end
 
-  def caveats; <<-EOS.undent
-      Run `clojure -h` to see Clojure runner options.
-      Run `clj` for an interactive Clojure REPL.
-    EOS
-  end
-
   test do
     system("#{bin}/clj -e nil")
     %w[clojure clj].each do |clj|
