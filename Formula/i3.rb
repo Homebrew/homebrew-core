@@ -1,8 +1,8 @@
 class I3 < Formula
   desc "Tiling window manager"
   homepage "https://i3wm.org/"
-  url "https://i3wm.org/downloads/i3-4.13.tar.bz2"
-  sha256 "94c13183e527a984132a3b050c8bf629626502a6e133e07b413641aec5f8cf8a"
+  url "https://i3wm.org/downloads/i3-4.14.tar.bz2"
+  sha256 "ae3abde3af1b87e269d8aad2348be6f7298338cb8e06bad11cbf91cdbf92a5d6"
   head "https://github.com/i3/i3.git"
 
   bottle do
@@ -28,8 +28,8 @@ class I3 < Formula
   depends_on "libxkbcommon"
 
   resource "xcb-util-xrm" do
-    url "https://github.com/Airblader/xcb-util-xrm/releases/download/v1.0/xcb-util-xrm-1.0.tar.bz2"
-    sha256 "9400ac1ecefdb469b2f6ef6bf0460643b6c252fb8406e91377b89dd12eefbbc0"
+    url "https://github.com/Airblader/xcb-util-xrm/releases/download/v1.2/xcb-util-xrm-1.2.tar.bz2"
+    sha256 "f75ec8d909cccda2f4d1460f9639338988a0946188b9d2109316c4509e82786d"
   end
 
   def install
