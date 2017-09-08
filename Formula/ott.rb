@@ -5,6 +5,13 @@ class Ott < Formula
   sha256 "c6abbbeb8cd44dc973d45d30bc5a7e42e212f2feba45c8e0489fab3c3cbf0d78"
   head "https://github.com/ott-lang/ott.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ed2772edcfd26b38e16d3fe7affef7f56e59d2104960119589147538b00feec1" => :sierra
+    sha256 "346a4a25c142cac3b2c4c4c0ac05101999d034320344e74d37e6859307b1a0ec" => :el_capitan
+    sha256 "6fdfc33c357a3ee8a6d89a4546c59ab916b41b2fc81cac4fcb177521f418c7b9" => :yosemite
+  end
+
   depends_on "ocaml" => :build
 
   def install
