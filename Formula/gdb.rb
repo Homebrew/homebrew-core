@@ -1,9 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.0.tar.xz"
-  sha256 "f6a24ffe4917e67014ef9273eb8b547cb96a13e5ca74895b06d683b391f3f4ee"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.0.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.0.1.tar.xz"
+  sha256 "3dbd5f93e36ba2815ad0efab030dcd0c7b211d7b353a40a53f4c02d7d56295e3"
 
   bottle do
     sha256 "b96357f0123e05b7e7ce81a9de3c62b28266de974d84e783cba967e87de45e2e" => :sierra
