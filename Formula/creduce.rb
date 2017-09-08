@@ -3,6 +3,7 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://embed.cs.utah.edu/creduce/creduce-2.7.0.tar.gz"
   sha256 "36dca859c97a988e71b1a08e0cbd5849e4da051d248c5e483494194c4a231a41"
+  revision 1
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Creduce < Formula
 
   depends_on "astyle"
   depends_on "delta"
-  depends_on "llvm"
+  depends_on "llvm@4"
 
   depends_on :macos => :mavericks
 
@@ -58,7 +59,7 @@ class Creduce < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # Avoid ending up with llvm's Cellar path hard coded.
-    ENV["CLANG_FORMAT"] = Formula["llvm"].opt_bin/"clang-format"
+    ENV["CLANG_FORMAT"] = Formula["llvm@4"].opt_bin/"clang-format"
 
     resources.each do |r|
       r.stage do
@@ -70,7 +71,7 @@ class Creduce < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
-                          "--with-llvm=#{Formula["llvm"].opt_prefix}",
+                          "--with-llvm=#{Formula["llvm@4"].opt_prefix}",
                           "--bindir=#{libexec}"
     system "make"
     system "make", "install"
