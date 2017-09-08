@@ -7,8 +7,8 @@
 class Itex2mml < Formula
   desc "Text filter to convert itex equations to MathML"
   homepage "https://golem.ph.utexas.edu/~distler/blog/itex2MML.html"
-  url "https://golem.ph.utexas.edu/~distler/blog/files/itexToMML-1.5.1.tar.gz"
-  sha256 "09f39f9db83d2693c9c80288644a8121cd268e956e44684722d29cd6343f524c"
+  url "https://golem.ph.utexas.edu/~distler/blog/files/itexToMML-1.5.6.tar.gz"
+  sha256 "e042fd0aa6e0cab09b28f9332e9f22c5f2b9bc94100386d70c105e7cf3eddf70"
 
   bottle do
     cellar :any_skip_relocation
