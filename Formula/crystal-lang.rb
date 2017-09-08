@@ -3,6 +3,7 @@ class CrystalLang < Formula
   homepage "https://crystal-lang.org/"
   url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
   sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
+  revision 1
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
@@ -18,7 +19,7 @@ class CrystalLang < Formula
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
-  depends_on "llvm"
+  depends_on "llvm@4"
   depends_on "pcre"
   depends_on "gmp"
   depends_on "libyaml" if build.with? "shards"
