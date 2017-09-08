@@ -10,9 +10,9 @@ class Castxml < Formula
 
   bottle do
     cellar :any
-    sha256 "2ed81c48d965c164f090b8867650ad0bb22fdceefac1ffb631cfe71f2a835a6f" => :sierra
-    sha256 "8efbc1538492369d8d5d11f4ab66efbc6ab2c2cc405cc3204b684aba5a5ba05e" => :el_capitan
-    sha256 "c3a892f7d51146dca4124c62e8b8222b733f5d968348f76f367ae6ba9ffc44c3" => :yosemite
+    sha256 "20ecdeb7cf69686765614ac7a408778866d05f6d53dab99b4dadca833a0a913e" => :sierra
+    sha256 "f0cf6a659bf4df48891080168307d82280ae50014af339c643f4ee173e42312d" => :el_capitan
+    sha256 "3abae7e083d39e6394f1ffff5fee6e4df9f3b6554ea18e79c711a24b0699fccd" => :yosemite
   end
 
   depends_on "cmake" => :build
