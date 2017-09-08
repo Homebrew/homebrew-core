@@ -84,6 +84,14 @@ class QtAT55 < Formula
     end
   end
 
+  # Fix Xcode 9 build errors
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6152bded7d/qt%405.5/xcode9.patch"
+      sha256 "757f377f3fcf753ef6d5b543e6291928d07591c3e3ee8a536a88433aa49d4fbb"
+    end
+  end
+
   def install
     args = %W[
       -prefix #{prefix}
