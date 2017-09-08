@@ -3,6 +3,7 @@ class Libdap < Formula
   homepage "https://www.opendap.org/"
   url "https://www.opendap.org/pub/source/libdap-3.19.0.tar.gz"
   sha256 "59c384c2da01104a4ef37f010f3bcf5d46e85e30fcfc942c9181e17128f168a5"
+  revision 1
 
   bottle do
     sha256 "110ec83b0705a4c30e65e460690a7026498a2ce128dd20b4e013539e3db17a91" => :sierra
@@ -51,6 +52,10 @@ class Libdap < Formula
     system "make"
     system "make", "check" if build.with? "test"
     system "make", "install"
+
+    # Ensure no Cellar versioning of libxml2 path in dap-config entries
+    xml2 = Formula["libxml2"]
+    inreplace bin/"dap-config", xml2.opt_prefix.realpath, xml2.opt_prefix
   end
 
   test do
