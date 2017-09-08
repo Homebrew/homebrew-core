@@ -22,6 +22,15 @@ class Bonniexx < Formula
     sha256 "4d38a57f8a3d99405d945bb27ffe81e0ab542b520f2de6fad021a6ad3ff8a3b6"
   end
 
+  # Remove the #ifdef _LARGEFILE64_SOURCE macros which not only prohibits the
+  # intended functionality of splitting into 2 GB files for such filesystems but
+  # also incorrectly tests for it in the first place. The ideal fix would be to
+  # replace the AC_TRY_RUN() in configure.in if the fail code actually worked.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/57a21ef/bonnie%2B%2B/remove-large-file-support-macros.diff"
+    sha256 "4d38a57f8a3d99405d945bb27ffe81e0ab542b520f2de6fad021a6ad3ff8a3b6"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
