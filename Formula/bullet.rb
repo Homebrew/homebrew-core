@@ -23,15 +23,35 @@ class Bullet < Formula
   deprecated_option "double-precision" => "with-double-precision"
 
   depends_on "cmake" => :build
+  depends_on "enet" => :recommended
+  depends_on :python => :recommended
+  depends_on "numpy" => :recommended
 
   def install
     args = std_cmake_args + %w[
       -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF
     ]
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
+    args << "-DBUILD_BULLET2_DEMOS=ON" if build.with? "demo"
+    args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
 
+    if build.with? "python"
+      args += %W[
+        -DBUILD_PYBULLET=ON
+        -DBUILD_PYBULLET_NUMPY=ON
+        -DBUILD_PYBULLET_CLSOCKET=ON
+        -DBUILD_PYBULLET_ENET=ON
+      ]
+    end
+
+    if build.with? "enet"
+      args += %W[
+        -DBUILD_ENET=ON
+        -DBUILD_CLSOCKET=ON
+      ]
+    end
     args_shared = args.dup + %w[
-      -DBUILD_BULLET2_DEMOS=OFF -DBUILD_SHARED_LIBS=ON
+      -DBUILD_SHARED_LIBS=ON
     ]
 
     args_framework = %W[
@@ -43,17 +63,24 @@ class Bullet < Formula
     args_shared += args_framework if build.with? "framework"
 
     args_static = args.dup << "-DBUILD_SHARED_LIBS=OFF"
-    args_static << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+    args_static << "-DBUILD_BULLET2_DEMOS=OFF"
 
-    system "cmake", ".", *args_shared
-    system "make", "install"
+    mkdir "build_cmake_static" do
+      puts "cmake", "..", *args_static
+      system "cmake", "..", *args_static
+      system "make", "install", "VERBOSE=1"
+    end
 
-    system "make", "clean"
+    mkdir "build_cmake_shared" do
+      puts "cmake", "..", *args_shared
+      system "cmake", "..", *args_shared
+      system "make", "install", "VERBOSE=1"
+    end
 
-    system "cmake", ".", *args_static
-    system "make", "install"
-
-    prefix.install "examples" if build.with? "demo"
+    if build.with? "demo"
+      prefix.install "build_cmake"
+      prefix.install "data"
+    end
   end
 
   test do
