@@ -1,8 +1,8 @@
 class Ivykis < Formula
   desc "Async I/O-assisting library"
   homepage "https://sourceforge.net/projects/libivykis"
-  url "https://downloads.sourceforge.net/project/libivykis/0.41/ivykis-0.41.tar.gz"
-  sha256 "2c934539a59029851b1332c8143ba9f21b79fb0185dd68d6eb259ae1b61ef3c5"
+  url "https://downloads.sourceforge.net/project/libivykis/0.42.1/ivykis-0.42.1.tar.gz"
+  sha256 "1872a42cc9f07e414ad3c81638c567fba1458fdf274b3522aa82dfd8af632031"
 
   bottle do
     cellar :any
