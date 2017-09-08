@@ -72,15 +72,13 @@ class LlvmAT4 < Formula
       sha256 "b443bb9617d776a7d05970e5818aa49aa2adfb2670047be8e9f242f58e84f01a"
     end
   end
+
   bottle do
     cellar :any
     sha256 "0c97a3cd61602de11f49bdff478a3eb43fd2b72c47b58bcd607a7a4b8652fdb2" => :sierra
     sha256 "cfe3899f563c1dd1f5f6db15d5aeee6163a990344d29892453fe6f0bc6b3299c" => :el_capitan
     sha256 "1bbffa119d25d27b4b2596c0277882d0a4de3c327bfecffcce98529cd4275486" => :yosemite
   end
-
-
-  keg_only :versioned_formula
 
   head do
     url "https://llvm.org/git/llvm.git", :branch => "release_40"
@@ -121,6 +119,8 @@ class LlvmAT4 < Formula
       url "https://llvm.org/git/polly.git", :branch => "release_40"
     end
   end
+
+  keg_only :versioned_formula
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
