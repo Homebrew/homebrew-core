@@ -1,8 +1,8 @@
 class Icbirc < Formula
   desc "Proxy IRC client and ICB server"
   homepage "https://www.benzedrine.ch/icbirc.html"
-  url "https://www.benzedrine.ch/icbirc-2.0.tar.gz"
-  sha256 "7607c7d80fc3939ccb913c9fcc57a63d3552af3615454e406ff0e3737c0ce6bd"
+  url "https://www.benzedrine.ch/icbirc-2.1.tar.gz"
+  sha256 "6839344d93c004da97ec6bb5d805a1db7e0a79efc3870445788043627162bbb1"
 
   bottle do
     cellar :any_skip_relocation
