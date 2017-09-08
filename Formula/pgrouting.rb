@@ -13,8 +13,8 @@ class Pgrouting < Formula
   end
 
   devel do
-    url "https://github.com/pgRouting/pgrouting/archive/v2.5.0-alpha.tar.gz"
-    sha256 "cb8e5af9bf90d805eee57276c2e69a7538a7c704063c3748dcbc72915c4fd3fd"
+    url "https://github.com/pgRouting/pgrouting/archive/v2.5.0-rc.tar.gz"
+    sha256 "c0b091382b8df8ca7d3f7a4b168cfc13386276b6b7e47a2c6f85fc907081c3c0"
   end
 
   depends_on "cmake" => :build
