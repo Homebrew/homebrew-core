@@ -1,8 +1,8 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
   homepage "https://www.isc.org/software/dhcp"
-  url "https://ftp.isc.org/isc/dhcp/4.3.5/dhcp-4.3.5.tar.gz"
-  sha256 "eb95936bf15d2393c55dd505bc527d1d4408289cec5a9fa8abb99f7577e7f954"
+  url "https://ftp.isc.org/isc/dhcp/4.3.6/dhcp-4.3.6.tar.gz"
+  sha256 "a41eaf6364f1377fe065d35671d9cf82bbbc8f21207819b2b9f33f652aec6f1b"
 
   bottle do
     rebuild 1
