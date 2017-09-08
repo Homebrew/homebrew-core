@@ -13,6 +13,8 @@ class Z3 < Formula
   end
 
   option "without-python", "Build without python 2 support"
+  option "with-debug", "Build in debug mode"
+  option "with-trace", "Build with support for tracing"
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
 
@@ -22,7 +24,14 @@ class Z3 < Formula
     end
 
     Language::Python.each_python(build) do |python, version|
-      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
+      args = ["--prefix=#{prefix}",
+              "--python",
+              "--pypkgdir=#{lib}/python#{version}/site-packages",
+              "--staticlib"]
+      args << "--trace" if build.with? "trace"
+      args << "--debug" if build.with? "debug"
+
+      system python, "scripts/mk_make.py", *args
       cd "build" do
         system "make"
         system "make", "install"
