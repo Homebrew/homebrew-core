@@ -1,8 +1,8 @@
 class Hspell < Formula
   desc "Free Hebrew linguistic project"
   homepage "http://hspell.ivrix.org.il/"
-  url "http://hspell.ivrix.org.il/hspell-1.3.tar.gz"
-  sha256 "603c25dcbaa65d171d9065da7369cfe0dc21bda8378bade13b42eda69c8b2fe7"
+  url "http://hspell.ivrix.org.il/hspell-1.4.tar.gz"
+  sha256 "7310f5d58740d21d6d215c1179658602ef7da97a816bc1497c8764be97aabea3"
 
   bottle do
     rebuild 1
