@@ -7,14 +7,12 @@ class Agda < Formula
   homepage "http://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://github.com/agda/agda.git",
-        :revision => "e3f598313ceac6de8903f9e5693efb30435691fc"
-    version "2.5.3-alpha1"
+    url "https://hackage.haskell.org/package/Agda-2.5.3/Agda-2.5.3.tar.gz"
+    sha256 "aa14d4a3582013100f71e64d71c5deff6caa2a286083e20fc16f6dbb0fdf0065"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "c47a1516aaf40892f97b14e3fd1f2bd0c628cadc"
-      version "2.5.3-alpha1"
+          :revision => "477ba28360133b1f5c45ce1b4e6b4efd467af331"
     end
   end
 
@@ -34,7 +32,6 @@ class Agda < Formula
   end
 
   deprecated_option "without-malonzo" => "without-ghc"
-  deprecated_option "without-ghc@8.0" => "without-ghc"
 
   option "without-stdlib", "Don't install the Agda standard library"
   option "without-ghc", "Disable the GHC backend"
@@ -49,18 +46,7 @@ class Agda < Formula
 
   depends_on :emacs => ["23.4", :recommended]
 
-  # Upstream issue from 4 Sep 2017 "Agda fails to build with happy 1.19.6"
-  # See https://github.com/agda/agda/issues/2731
-  resource "cabal-config" do
-    url "https://www.stackage.org/lts-9.1/cabal.config"
-    version "lts-9.1"
-    sha256 "615e2a56ffd64d169fcc59f02a068d579bf5bdd83b13fd6746e20b8fdc79a738"
-  end
-
   def install
-    buildpath.install resource("cabal-config")
-    inreplace "cabal.config", "             Agda ==2.5.2,\n", ""
-
     # install Agda core
     install_cabal_package :using => ["alex", "happy", "cpphs"]
 
