@@ -23,7 +23,8 @@ class Grafana < Formula
 
     cd grafana_path do
       system "go", "run", "build.go", "build"
-      system "yarn", "install"
+
+      system "yarn", "install", "--ignore-engines"
 
       args = ["build"]
       # Avoid PhantomJS error "unrecognized selector sent to instance"
