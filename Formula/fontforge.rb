@@ -3,7 +3,7 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
   sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c5f796bec473c8e3a365c793b9c581725d516b2a63907ace8d0085e4de02a97d" => :sierra
@@ -47,6 +47,10 @@ class Fontforge < Formula
     args << "--without-libspiro" if build.without? "libspiro"
     args << "--without-libuninameslist" if build.without? "libuninameslist"
 
+    # Fix header includes to avoid crash at runtime:
+    # https://github.com/fontforge/fontforge/pull/3147
+    inreplace "fontforgeexe/startnoui.c", "#include \"fontforgevw.h\"", "#include \"fontforgevw.h\"\n#include \"encoding.h\""
+
     system "./configure", *args
     system "make", "install"
 
@@ -75,7 +79,8 @@ class Fontforge < Formula
 
   test do
     system bin/"fontforge", "-version"
+    system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
     ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    system "python", "-c", "import fontforge"
+    system "python", "-c", "import fontforge; fontforge.font()"
   end
 end
