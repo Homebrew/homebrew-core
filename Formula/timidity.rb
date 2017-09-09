@@ -13,7 +13,7 @@ class Timidity < Formula
   end
 
   option "without-darwin", "Build without Darwin CoreAudio support"
-  option "without-freepats", "Build without the Freepats instrument patches from http://freepats.zenvoid.org/"
+  option "without-freepats", "Build without the Freepats instrument patches from https://freepats.zenvoid.org/"
 
   depends_on "libogg" => :recommended
   depends_on "libvorbis" => :recommended
@@ -22,7 +22,7 @@ class Timidity < Formula
   depends_on "libao" => :recommended
 
   resource "freepats" do
-    url "http://freepats.zenvoid.org/freepats-20060219.zip"
+    url "https://freepats.zenvoid.org/freepats-20060219.zip"
     sha256 "532048a5777aea717effabf19a35551d3fcc23b1ad6edd92f5de1d64600acd48"
   end
 
