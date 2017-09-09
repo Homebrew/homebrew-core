@@ -1,9 +1,8 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.6.tar.xz"
-  sha256 "e85f65ba4b38bf80b6174949dfe6fce89e88b8213bbdde4ac1fde473c08bd312"
-  revision 1
+  url "https://download.gnome.org/sources/gjs/1.48/gjs-1.48.7.tar.xz"
+  sha256 "09dbf6e1a7f821df7c50098acc4489cfb4e943ec12f10258bb42b1a71061c36e"
 
   bottle do
     sha256 "0813457080cdf5730ac849f274b7ae2d166e9384d0f8806ce829021f2b865ec7" => :sierra
