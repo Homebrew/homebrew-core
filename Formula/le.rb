@@ -5,10 +5,9 @@ class Le < Formula
   sha256 "258d586f83e8abd55144dc3f09d9ddaf6ef55e8a90543fdb0932fb77d089dd78"
 
   bottle do
-    sha256 "34f40cb44d65d5673e8fd6e7eb89ee895f918d54085cba1f0801d8ef140c2483" => :sierra
-    sha256 "a1c7c17792d36b71d8d638df984e7583e873ada961e3a9f95adf43c83005b00d" => :el_capitan
-    sha256 "36884568ab31a33098a472994adb9d2a5950fc713a1aeed9dae1ba5ff3fad81d" => :yosemite
-    sha256 "e8afe5fcbb5b40311216d0026b2b74caef69ea2289ae971ad29664290a10d8b7" => :mavericks
+    sha256 "bb670b11e7bf2813cf89cf35ad7e04b67c330cef6c1c07ab5b65fbe1879af67a" => :sierra
+    sha256 "285e9bf7c3debedb6286ca34971d939c673a35d4553817fdc48dc915e649ba0c" => :el_capitan
+    sha256 "82e83a7c1f1a030429b013d4fd138327003605193e683e092924e80b5e02bf8e" => :yosemite
   end
 
   conflicts_with "logentries", :because => "both install a le binary"
