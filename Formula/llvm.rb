@@ -62,6 +62,14 @@ class Llvm < Formula
       sha256 "c0a0ca32105e9881d86b7ca886220147e686edc97fdb9f3657c6659dc6568b7d"
     end
 
+    # Fixes "error: no type named 'pid_t' in the global namespace"
+    # https://github.com/Homebrew/homebrew-core/issues/17839
+    # Already fixed in upstream trunk
+    resource "lldb-fix-build" do
+      url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
+      sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+    end
+
     resource "openmp" do
       url "https://llvm.org/releases/5.0.0/openmp-5.0.0.src.tar.xz"
       sha256 "c0ef081b05e0725a04e8711d9ecea2e90d6c3fbb1622845336d3d095d0a3f7c5"
@@ -185,6 +193,12 @@ class Llvm < Formula
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
+
+      if build.stable?
+        resource("lldb-fix-build").stage do
+          system "patch", "-p1", "-i", Pathname.pwd/"324f93b5e30.patch", "-d", buildpath/"tools/lldb"
+        end
+      end
 
       # Building lldb requires a code signing certificate.
       # The instructions provided by llvm creates this certificate in the
