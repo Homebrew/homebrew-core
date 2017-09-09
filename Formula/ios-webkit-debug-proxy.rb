@@ -1,7 +1,7 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/1.8.tar.gz"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.tar.gz"
   sha256 "5a5ba157e76d984978f3f3aa22617b0c3c730d15e1a4d23a77c12e4a581189af"
 
   head "https://github.com/google/ios-webkit-debug-proxy.git"
@@ -18,9 +18,9 @@ class IosWebkitDebugProxy < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libimobiledevice"
   depends_on "libplist"
   depends_on "usbmuxd"
-  depends_on "libimobiledevice"
 
   def install
     system "./autogen.sh"
