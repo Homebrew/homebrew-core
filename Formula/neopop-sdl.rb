@@ -12,7 +12,7 @@ class NeopopSdl < Formula
   end
 
   head do
-    url "http://hg.nih.at/NeoPop-SDL/", :using => :hg
+    url "https://hg.nih.at/NeoPop-SDL/", :using => :hg
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "pkg-config" => :build
