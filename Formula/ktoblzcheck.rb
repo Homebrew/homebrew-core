@@ -1,8 +1,8 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.48.tar.gz"
-  sha256 "0f4e66d3a880355b1afc88870d224755e078dfaf192242d9c6acb8853f5bcf58"
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.49.tar.gz"
+  sha256 "e8971bc6689ea72b174c194bd43ba2c0b65112b0c3f9fd2371562e0c3ab57d29"
 
   bottle do
     sha256 "d176f6ea34fbda13e6ce060bb39d091919593840bef7db54eb4fa7996fcbdef1" => :sierra
