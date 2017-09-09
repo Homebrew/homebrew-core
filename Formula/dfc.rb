@@ -1,8 +1,8 @@
 class Dfc < Formula
   desc "Display graphs and colors of file system space/usage"
   homepage "https://projects.gw-computing.net/projects/dfc"
-  url "https://projects.gw-computing.net/attachments/download/614/dfc-3.1.0.tar.gz"
-  sha256 "8ad98ba1a9685a1bf33a2d3b8f2737dedef6019543d19d1b5ebd1783be740feb"
+  url "https://projects.gw-computing.net/attachments/download/615/dfc-3.1.1.tar.gz"
+  sha256 "962466e77407dd5be715a41ffc50a54fce758a78831546f03a6bb282e8692e54"
 
   head "https://github.com/Rolinh/dfc.git"
 
