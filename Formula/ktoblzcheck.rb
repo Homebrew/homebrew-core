@@ -5,11 +5,9 @@ class Ktoblzcheck < Formula
   sha256 "e8971bc6689ea72b174c194bd43ba2c0b65112b0c3f9fd2371562e0c3ab57d29"
 
   bottle do
-    sha256 "d176f6ea34fbda13e6ce060bb39d091919593840bef7db54eb4fa7996fcbdef1" => :sierra
-    sha256 "2bb0e477b065ae93362a88b4e4174ec11012f922daaac023821e11b990f9d3d3" => :el_capitan
-    sha256 "fdae7050c9000d7793a336a9baa3f3903922d385fe9cf8d0c61ca5c08f595520" => :yosemite
-    sha256 "7a9fda64f86b9762bb98e48299a0d35884f6d1163f8ed8647db9764ad9b76a9c" => :mavericks
-    sha256 "176bf59fd3b5cedac348101b150d2e13e33c08798d838a6ad3af50091ab6531a" => :mountain_lion
+    sha256 "45ad0c35749f0d557d7300010901b8babfdc1f5d88bc9f5d9c40a05a31be51b0" => :sierra
+    sha256 "a492323f12f328e1854a2a2c406cc0c470d5e61e6e4ea152d6a4b38cc54216ff" => :el_capitan
+    sha256 "becae478ba0d094c71ff876db74e9946b51e72df0c6d295e4bfbe0ea337294b0" => :yosemite
   end
 
   def install
