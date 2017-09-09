@@ -7,9 +7,9 @@ class Dfc < Formula
   head "https://github.com/Rolinh/dfc.git"
 
   bottle do
-    sha256 "b001963ac2219517ef02feab362d1438ebbd2e294079dafa9c526e49e6ca763e" => :sierra
-    sha256 "55eabadcaf7c107b2d23d6bee876948c24caabc26ac011ecbcabb2e72d622d63" => :el_capitan
-    sha256 "123863a4a8f25dd0bcc28a3b23d98639126ba838e11192d867ddaabc0f7553a5" => :yosemite
+    sha256 "029104b15817e039032593cb9828b76f42f4362b63eeb7d582c7d0d90fc917b8" => :sierra
+    sha256 "bd407f57305b87838f0083c5a3d65493a76097fda65f4ffeebacfbcf33baeddf" => :el_capitan
+    sha256 "ba254d9a1213beb84728657e996c667eb9a87f61ea118d12cf022b389a2e35b0" => :yosemite
   end
 
   depends_on "cmake" => :build
