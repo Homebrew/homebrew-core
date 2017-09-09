@@ -3,8 +3,8 @@ class JenkinsJobBuilder < Formula
   homepage "http://ci.openstack.org/jjb.html"
 
   stable do
-    url "https://files.pythonhosted.org/packages/f1/ac/734f7dc9e16e725e2ff37eff4b87970a7a7fc69fbff977a4e5004fee0651/jenkins-job-builder-1.6.1.tar.gz"
-    sha256 "64fa63ad18ae874dbb17bd96d3c74ea6ec31c4af91a83aac2de3eaf79d9d7dec"
+    url "https://files.pythonhosted.org/packages/c9/2f/1b4ccfbea99b4abada5a852f7704a83cc0f93c707d8b12da6de78366aa68/jenkins-job-builder-1.6.2.tar.gz"
+    sha256 "933f63b9f131d0c966af730ce4057828678e389d4a04048da186ff42bcf07305"
 
     resource "pbr" do
       url "https://files.pythonhosted.org/packages/c3/2c/63275fab26a0fd8cadafca71a3623e4d0f0ee8ed7124a5bb128853d178a7/pbr-1.10.0.tar.gz"
