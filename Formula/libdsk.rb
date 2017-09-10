@@ -5,10 +5,8 @@ class Libdsk < Formula
   sha256 "71eda9d0e33ab580cea1bb507467877d33d887cea6ec042b8d969004db89901a"
 
   bottle do
-    sha256 "3fa32e86ffffbc3754f2834a456ebf9510efa15ff2365c5658247a1948b0e934" => :sierra
-    sha256 "8ed498f088ad97d88d267351a8c90f9db54ac2f42e6670e5f4bda2eb20864852" => :el_capitan
-    sha256 "3e17fa4773145ca69db2ba8f36165b9a5f041a297a01b17a9692218790a5aa38" => :yosemite
-    sha256 "b1406d66e802413b7999190502ee986931f4c91f48c76ac6520506640a1c1dd5" => :mavericks
+    sha256 "d46bdf8e9c779b22a2a21c123572c08130aa36b8a817365ee3bd76219478aad3" => :sierra
+    sha256 "b14fb001603c2ba33a26c0f49c7b008659ca5aa05ffaa01ab8147bac4da40d46" => :el_capitan
   end
 
   def install
