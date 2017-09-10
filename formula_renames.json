@@ -71,6 +71,7 @@
   "gst-plugins-good010": "gst-plugins-good@0.10",
   "gst-plugins-ugly010": "gst-plugins-ugly@0.10",
   "gstreamer010": "gstreamer@0.10",
+  "gtef": "tepl",
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
   "influxdb08": "influxdb@0.8",
