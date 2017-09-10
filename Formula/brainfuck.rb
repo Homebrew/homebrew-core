@@ -5,6 +5,12 @@ class Brainfuck < Formula
   sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
   head "https://github.com/fabianishere/brainfuck.git"
 
+  bottle do
+    cellar :any
+    sha256 "354bb3372301325b49bfd4bd9b53084061af3bc3a3d6375e1c4635297c0dd008" => :sierra
+    sha256 "f8289bed7e6455b63f05baf367069f60fe478f6c78f064c06ab1e571a181c3b7" => :el_capitan
+  end
+
   option "with-debug", "Extend the interpreter with a debug command"
 
   depends_on "cmake" => :build
