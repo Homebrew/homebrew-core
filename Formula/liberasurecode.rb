@@ -1,8 +1,8 @@
 class Liberasurecode < Formula
   desc "Erasure Code API library written in C with pluggable backends"
-  homepage "https://bitbucket.org/tsg-/liberasurecode/"
-  url "https://bitbucket.org/tsg-/liberasurecode/downloads/liberasurecode-1.1.0.tar.gz"
-  sha256 "3f8aadab190b82a3c18fdfc2c36a908a39e478d68e91f5d89a59849e91449039"
+  homepage "https://github.com/openstack/liberasurecode"
+  url "https://github.com/openstack/liberasurecode/archive/1.5.0.tar.gz"
+  sha256 "713272e81e67f308c21fc6aad417f79b30fb1e7f2338293fa0eaadcc53611909"
 
   bottle do
     cellar :any
@@ -23,8 +23,6 @@ class Liberasurecode < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make"
-    system "make", "test"
     system "make", "install"
   end
 
