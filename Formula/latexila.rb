@@ -5,9 +5,8 @@ class Latexila < Formula
   sha256 "192a6759718e2b2122438a397bd37e90cb2f10b9ab30cdebfe2124e37cc3926d"
 
   bottle do
-    sha256 "774ca73e811ecd4dd1bcd57f9a6a482be42939f4b0bb0431c4921414323ee196" => :sierra
-    sha256 "55832e46ee032876b33c2db847b9d75b9089a5945d4b1f88d2bd4e3ea1674341" => :el_capitan
-    sha256 "aa8f9c27221af8f7dede4a0af9f1c38dd5538f2bfa660fe3bdc89830fd7a14f2" => :yosemite
+    sha256 "8bbe8391a2fe71b5b3579d26e6554188e7552d3b33347058f328667c8f755d21" => :sierra
+    sha256 "487f47d6785da634cb9031715ed3e325f5cffd4920fab98ef597cf536f948471" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
