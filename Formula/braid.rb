@@ -5,6 +5,12 @@ class Braid < Formula
     :tag      => "v1.0.21",
     :revision => "8d953288babe6bf320a390113cbca0f314607272"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f012bdbb9b0fdcc93ba7d985178e9ca1df05e96eebb873c98435c37ad7b27fae" => :sierra
+    sha256 "8fa89a95797a0e4f360c548716526e2bece4be8fcd394c109bfb3e82883cdb79" => :el_capitan
+  end
+
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"
     sha256 "1593f0bac948e24aa5e5099b7994b0fb5da69b6f29a82804ccf496bc125de4ab"
