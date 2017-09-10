@@ -17,13 +17,9 @@ class TrashCli < Formula
   end
 
   test do
-    require "securerandom"
-    filename = SecureRandom.hex
-
-    touch filename
-    assert File.exist?(filename)
-
-    system bin/"trash-put", filename
-    assert !File.exist?(filename)
+    touch "testfile"
+    assert File.exist?("testfile")
+    system bin/"trash-put", "testfile"
+    assert !File.exist?("testfile")
   end
 end
