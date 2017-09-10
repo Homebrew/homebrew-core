@@ -5,7 +5,7 @@ class Brainfuck < Formula
   sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
   head "https://github.com/fabianishere/brainfuck.git"
 
-  option "with-debug", "Compile interpreter with debug support"
+  option "with-debug", "Extend the interpreter with a debug command"
   option "with-examples", "Install brainfuck example programs"
   option "with-static-lib", "Build a static library"
 
