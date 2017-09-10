@@ -1,8 +1,8 @@
 class Le < Formula
   desc "Text editor with block and binary operations"
   homepage "https://github.com/lavv17/le"
-  url "http://lav.yar.ru/download/le/le-1.16.3.tar.xz"
-  sha256 "0be61306efd1e6b511c86d35c128e482e277e626ad949a56cb295489ef65d7b9"
+  url "http://lav.yar.ru/download/le/le-1.16.5.tar.xz"
+  sha256 "258d586f83e8abd55144dc3f09d9ddaf6ef55e8a90543fdb0932fb77d089dd78"
 
   bottle do
     sha256 "34f40cb44d65d5673e8fd6e7eb89ee895f918d54085cba1f0801d8ef140c2483" => :sierra
