@@ -1,8 +1,8 @@
 class Iozone < Formula
   desc "File system benchmark tool"
   homepage "http://www.iozone.org/"
-  url "http://www.iozone.org/src/current/iozone3_430.tar"
-  sha256 "e8388238326dc29359e5cb9f790d193f1e1bdadfbf260e010c50fa682387faed"
+  url "http://www.iozone.org/src/current/iozone3_465.tar"
+  sha256 "2e3d72916e7d7340a7c505fc0c3d28553fcc5ff2daf41d811368e55bd4e6a293"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +16,13 @@ class Iozone < Formula
   # Patch by @nijotz, adds O_DIRECT support when using -I flag.
   # See: https://github.com/Homebrew/homebrew/pull/10585
   patch :DATA
+
+  # Fix build failure "error: conflicting types for 'mythread_create'"
+  # Reported 10 Sep 2017 to capps AT iozone DOT org
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/56c6104/iozone/mythread_create.diff"
+    sha256 "ec1a1be0d0096c29711f2edba50c8183cfde886a55f18b41c2c7d1580d8f68c8"
+  end
 
   def install
     cd "src/current" do
