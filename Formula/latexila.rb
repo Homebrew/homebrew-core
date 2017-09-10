@@ -1,8 +1,8 @@
 class Latexila < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/latexila/3.24/latexila-3.24.3.tar.xz"
-  sha256 "a1df72539bbe3f84ba69463f7b6bceb9d964f08c4ef75909c1853c872d035870"
+  url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.0.tar.xz"
+  sha256 "192a6759718e2b2122438a397bd37e90cb2f10b9ab30cdebfe2124e37cc3926d"
 
   bottle do
     sha256 "774ca73e811ecd4dd1bcd57f9a6a482be42939f4b0bb0431c4921414323ee196" => :sierra
@@ -16,7 +16,7 @@ class Latexila < Formula
   depends_on "vala" => :build
   depends_on "gtksourceview3"
   depends_on "gspell"
-  depends_on "gtef"
+  depends_on "tepl"
   depends_on "libgee"
   depends_on "gobject-introspection"
   depends_on "gnome-icon-theme"
