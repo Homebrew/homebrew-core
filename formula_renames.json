@@ -37,6 +37,7 @@
   "elasticsearch24": "elasticsearch@2.4",
   "eris": "monax",
   "erlang-r18": "erlang@18",
+  "fbida": "exiftran",
   "ffmpeg28": "ffmpeg@2.8",
   "fig": "docker-compose",
   "freetds091": "freetds@0.91",
