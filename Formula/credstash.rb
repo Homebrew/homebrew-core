@@ -7,6 +7,12 @@ class Credstash < Formula
   sha256 "f1f433133dbf117c71444a1c367da25f5496f5c1d0fe2e205a50e9a233814df4"
   head "https://github.com/fugue/credstash.git"
 
+  bottle do
+    cellar :any
+    sha256 "a730490ff82b2b1db7419b2ec31d78b0ac08ee99c75118dcbea4b77b159914ad" => :sierra
+    sha256 "665cba805afe41674b13e9d32a629ad97587cfdca8fbecc05ce9919732e887af" => :el_capitan
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
