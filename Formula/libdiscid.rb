@@ -6,12 +6,8 @@ class Libdiscid < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c6560b587cc04d4bef36878a8f1f77f8bc870d6caba612170db2bd5a7a7621f7" => :sierra
-    sha256 "392984622c1f695d018cb6e79f3a6f4a7b66db8fc96c225631477b000a226ba2" => :el_capitan
-    sha256 "8fb4093273d7b74311c16574a8fe8979dad11b81e25e4ae261cd429e1078d873" => :yosemite
-    sha256 "1a812cec01d686ebceaabf3548715c767158a88e7ae245a9d44d14e2d632eab8" => :mavericks
-    sha256 "c6a182d34a50257902bf122b7cd48f4e5bab32dbf03a1d59c7769330d9eec7e5" => :mountain_lion
+    sha256 "6d43fee98239a6a600e59cce0f4f2ceda713bf27cc3d03bc8711d1c773ba84b6" => :sierra
+    sha256 "22e96d837cfe404cf268c41f6ce26c6b47eb8a991578ce1f18bcea862f9f1c91" => :el_capitan
   end
 
   def install
