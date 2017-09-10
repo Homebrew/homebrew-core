@@ -5,6 +5,7 @@ class Duplicity < Formula
   homepage "http://www.nongnu.org/duplicity/"
   url "https://code.launchpad.net/duplicity/0.7-series/0.7.14/+download/duplicity-0.7.14.tar.gz"
   sha256 "7a3eb74a2a36b004b10add2970b37cfbac0bd693d79513e6311c8e4b8c3dd73e"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Duplicity < Formula
   # Generated with homebrew-pypi-poet from
   # for i in azure-storage boto dropbox fasteners kerberos mega.py
   # paramiko pexpect pycrypto pycryptopp python-swiftclient python-keystoneclient
-  # requests requests-oauthlib; do poet -r $i >> resources; done
+  # requests requests-oauthlib typing; do poet -r $i >> resources; done
   # Additional dependencies of requests[security] should also be installed:
   #   ndg-httpsclient, pyOpenSSL
   # pyrax was dropped because it has pinned dependencies & is deprecated.
