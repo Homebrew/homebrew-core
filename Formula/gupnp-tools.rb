@@ -1,8 +1,8 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools."
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.13.tar.xz"
-  sha256 "aa3decb9d532c0e2e505adc592f431fd81c0231ded2981129e87da13712479ed"
+  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.14.tar.xz"
+  sha256 "682b952b3cf43818c7d27549c152ea52e43320500820ab3392cf5a29a95e7efa"
 
   bottle do
     sha256 "1dbf58cfb3c0a52e8032312e6090e88c4c0ddb2bb93de11dd9e0bb4feb9a8a55" => :sierra
@@ -17,7 +17,6 @@ class GupnpTools < Formula
   depends_on "gupnp-av"
   depends_on "gtk+3"
   depends_on "gtksourceview3"
-  depends_on "ossp-uuid"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
