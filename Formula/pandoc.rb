@@ -5,8 +5,8 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-1.19.2.2/pandoc-1.19.2.2.tar.gz"
-  sha256 "28cf7d653afd64c068773806a311919aad382089636b5eed4d010f818b619139"
+  url "https://hackage.haskell.org/package/pandoc-1.19.2.4/pandoc-1.19.2.4.tar.gz"
+  sha256 "bbe08c1f7fcfea98b899f9956c04159d493a26f65d3350aa6579aa5b93203556"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
@@ -15,8 +15,8 @@ class Pandoc < Formula
     sha256 "c061767f8f1c07e7e60b1b3920f324a8530469f53b0206a6de5901859bf02eb0" => :yosemite
   end
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     cabal_sandbox do
