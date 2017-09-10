@@ -26,8 +26,8 @@ class Zsh < Formula
   depends_on "pcre"
 
   resource "htmldoc" do
-    url "https://www.zsh.org/pub/zsh-5.4.1-doc.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.1/zsh-5.4.1-doc.tar.xz"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.1/zsh-5.4.1-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.4.1-doc.tar.xz"
     sha256 "b8b1a40aeec852806ad2b74b0a0c534320bf517e2fe2a087c0c9d39e75dc29f1"
   end
 
