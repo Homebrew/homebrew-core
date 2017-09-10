@@ -2,8 +2,8 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-    :tag      => "v1.0.21",
-    :revision => "8d953288babe6bf320a390113cbca0f314607272"
+      :tag => "v1.0.21",
+      :revision => "8d953288babe6bf320a390113cbca0f314607272"
 
   bottle do
     cellar :any_skip_relocation
