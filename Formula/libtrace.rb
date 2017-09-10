@@ -1,8 +1,8 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.0.tar.bz2"
-  sha256 "e89ac39808e2bb1e17e031191af8ab7bdbe3d2b0aeca4c6040e6fc8761ec0240"
+  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.1.tar.bz2"
+  sha256 "f97e3deea17a41987594980331d7325a6b81836d4d705320b7f7b9b35ff3d0ed"
 
   bottle do
     sha256 "19f87788d761a5bc9a8ebd8c5efbd043dbb21f7c3eaaaf38b0bc015b51b5c284" => :sierra
