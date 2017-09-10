@@ -5,6 +5,7 @@ class Duplicity < Formula
   homepage "http://www.nongnu.org/duplicity/"
   url "https://code.launchpad.net/duplicity/0.7-series/0.7.14/+download/duplicity-0.7.14.tar.gz"
   sha256 "7a3eb74a2a36b004b10add2970b37cfbac0bd693d79513e6311c8e4b8c3dd73e"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Duplicity < Formula
   # Generated with homebrew-pypi-poet from
   # for i in azure-storage boto dropbox fasteners kerberos mega.py
   # paramiko pexpect pycrypto pycryptopp python-swiftclient python-keystoneclient
-  # requests requests-oauthlib; do poet -r $i >> resources; done
+  # requests requests-oauthlib typing; do poet -r $i >> resources; done
   # Additional dependencies of requests[security] should also be installed:
   #   ndg-httpsclient, pyOpenSSL
   # pyrax was dropped because it has pinned dependencies & is deprecated.
@@ -297,6 +298,11 @@ class Duplicity < Formula
   resource "stevedore" do
     url "https://files.pythonhosted.org/packages/08/58/e21f4691e8e75a290bdbfa366f06b9403c653642ef31f879e07f6f9ad7db/stevedore-1.25.0.tar.gz"
     sha256 "c8a373b90487b7a1b52ebaa3ca5059315bf68d9ebe15b2203c2fa675bd7e1e7e"
+  end
+
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
+    sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
   end
 
   resource "urllib3" do
