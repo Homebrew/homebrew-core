@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.4.2.tar.gz"
-  sha256 "edc8349a598c726305cede5e37faed43a5268919452bd569adbf8439ac583ff6"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.5.1.tar.gz"
+  sha256 "6befc72b4c8170c0afede8a45446f6b06b5c93dc00507e50dd3af86bb78d5d9b"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -15,14 +15,17 @@ class Ibex < Formula
   option "with-java", "Enable Java bindings for CHOCO solver."
   option "with-ampl", "Use AMPL file loader plugin"
   option "without-ensta-robotics", "Don't build the Contractors for robotics (SLAM) plugin"
-  option "without-param-estim", "Don't build the Parameter Estimation (enhanced Q-intersection algorithm) plugin"
 
   depends_on :java => ["1.8+", :optional]
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => :build
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     if build.with?("java") && build.with?("ampl")
       odie "Cannot set options --with-java and --with-ampl simultaneously for now."
     end
@@ -31,17 +34,17 @@ class Ibex < Formula
       --prefix=#{prefix}
       --enable-shared
       --with-optim
+      --optim-lib=soplex
     ]
 
     args << "--with-jni" if build.with? "java"
     args << "--with-ampl" if build.with? "ampl"
-    args << "--with-ensta-robotics" if build.with? "ensta-robotics"
     args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
     system "./waf", "install"
 
-    pkgshare.install %w[examples benchs]
+    pkgshare.install %w[examples benchs-solver]
     (pkgshare/"examples/symb01.txt").write <<-EOS.undent
       function f(x)
         return ((2*x,-x);(-x,3*x));
@@ -51,7 +54,7 @@ class Ibex < Formula
 
   test do
     cp_r (pkgshare/"examples").children, testpath
-    cp pkgshare/"benchs/cyclohexan3D.bch", testpath/"c3D.bch"
+    cp pkgshare/"benchs-solver/others/cyclohexan3D.bch", testpath/"c3D.bch"
 
     # so that pkg-config can remain a build-time only dependency
     inreplace %w[makefile slam/makefile] do |s|
