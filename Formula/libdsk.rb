@@ -1,8 +1,8 @@
 class Libdsk < Formula
   desc "Library for accessing discs and disc image files"
   homepage "http://www.seasip.info/Unix/LibDsk/"
-  url "http://www.seasip.info/Unix/LibDsk/libdsk-1.4.0.tar.gz"
-  sha256 "645612159ad9a990183f8f80876e686e185d6b6aa7f2ddd623da22f314563f64"
+  url "http://www.seasip.info/Unix/LibDsk/libdsk-1.4.2.tar.gz"
+  sha256 "71eda9d0e33ab580cea1bb507467877d33d887cea6ec042b8d969004db89901a"
 
   bottle do
     sha256 "3fa32e86ffffbc3754f2834a456ebf9510efa15ff2365c5658247a1948b0e934" => :sierra
@@ -12,6 +12,10 @@ class Libdsk < Formula
   end
 
   def install
+    # Avoid lyx dependency
+    inreplace "Makefile.in", "SUBDIRS = . include lib tools man doc",
+                             "SUBDIRS = . include lib tools man"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
