@@ -1,8 +1,8 @@
 class Btfs < Formula
   desc "BitTorrent filesystem based on FUSE"
   homepage "https://github.com/johang/btfs"
-  url "https://github.com/johang/btfs/archive/v2.16.tar.gz"
-  sha256 "673013ba648285f380848ae2e2f8a06800f781a0680582c0d550cc0c563cc08b"
+  url "https://github.com/johang/btfs/archive/v2.17.tar.gz"
+  sha256 "80a5a3ad48bebf13441d506755b2402ac230dc3f1f648ce12d3855e5cf04e53b"
   head "https://github.com/johang/btfs.git"
 
   bottle do
