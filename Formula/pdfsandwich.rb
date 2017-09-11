@@ -12,7 +12,7 @@ class Pdfsandwich < Formula
   depends_on "unpaper"
   depends_on "imagemagick"
   depends_on "exact-image"
-  depends_on "ghostscript" => :optional
+  depends_on "ghostscript"
 
   def install
     system "./configure", "--disable-debug",
