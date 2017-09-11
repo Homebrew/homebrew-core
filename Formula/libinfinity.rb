@@ -1,9 +1,8 @@
 class Libinfinity < Formula
   desc "GObject-based C implementation of the Infinote protocol"
   homepage "https://gobby.github.io"
-  url "http://releases.0x539.de/libinfinity/libinfinity-0.6.6.tar.gz"
-  sha256 "3df9397b52d61392cbe98084aada9b7362a34811ef21baa0db87fdfd754f92cc"
-  revision 1
+  url "http://releases.0x539.de/libinfinity/libinfinity-0.6.8.tar.gz"
+  sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
 
   bottle do
     sha256 "41aa8345422458ad73c954071fc093b4c81f4be7839beef9a06499065e17b117" => :sierra
