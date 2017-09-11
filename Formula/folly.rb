@@ -7,8 +7,8 @@ class Folly < Formula
 
   bottle do
     cellar :any
-    sha256 "09710d18f02663872b129863d07985d57d01a85b6283a65f543bcdc21f01d2d4" => :sierra
-    sha256 "f86279e3c9178aa789527e7a4ea7bb2ce242abca8d7329ebccb4ef82c4bfea05" => :el_capitan
+    sha256 "d7ed7d7defc5f5b4888733c77d2a7324f658418beaa5695fefab50a8eab8e29c" => :sierra
+    sha256 "abfd0aa06ddd2d766d0eb948dd590d3a5197161cc93544f296f90e882e1c54e0" => :el_capitan
   end
 
   depends_on "autoconf" => :build
