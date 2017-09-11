@@ -1,8 +1,8 @@
 class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "http://www.quut.com/gsm/"
-  url "http://www.quut.com/gsm/gsm-1.0.13.tar.gz"
-  sha256 "52c518244d428c2e56c543b98c9135f4a76ff780c32455580b793f60a0a092ad"
+  url "http://www.quut.com/gsm/gsm-1.0.17.tar.gz"
+  sha256 "855a57d1694941ddf3c73cb79b8d0b3891e9c9e7870b4981613b734e1ad07601"
 
   bottle do
     cellar :any
