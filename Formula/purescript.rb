@@ -31,7 +31,11 @@ class Purescript < Formula
         system "cabal", "get", "purescript-#{version}"
         mv "purescript-#{version}/purescript.cabal", "."
       end
-      install_cabal_package "-f release", :using => ["alex", "happy"]
+
+      # Upstream issue "Build failure with protolude 0.2"
+      # Reported 11 Sep 2017 https://github.com/purescript/purescript/issues/3065
+      install_cabal_package "--constraint", "protolude < 0.2",
+                            "-f release", :using => ["alex", "happy"]
     end
   end
 
