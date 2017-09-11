@@ -2,8 +2,8 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag => "v0.19.2",
-      :revision => "7904344b9f673548df88570dc530437b30f5f179"
+      :tag => "v0.19.3",
+      :revision => "e08c9043f75346825b122c4b2f9d3dfe27e75c7a"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
