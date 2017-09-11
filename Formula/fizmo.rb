@@ -1,8 +1,8 @@
 class Fizmo < Formula
   desc "Z-Machine interpreter"
   homepage "https://fizmo.spellbreaker.org"
-  url "https://fizmo.spellbreaker.org/source/fizmo-0.8.4.tar.gz"
-  sha256 "de7396ea3dabe30cd6a596da0d0d1b6432f4ea82cf31b7d8c9020cb11a42a9e9"
+  url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
+  sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
 
   bottle do
     sha256 "1d7086e1db185650e7fa5a7bd77719e21e7acf71d99d05e3e91d1ab0e8485d6a" => :sierra
