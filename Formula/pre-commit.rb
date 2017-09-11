@@ -8,9 +8,8 @@ class PreCommit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61b3055fad490e5137f45aef82ab2778a65ecc1ba3e4e07c63b5492cf923e91f" => :sierra
-    sha256 "46462492f96073cab3bd102aa24cbca81f6a80bf15e4c1b236244fe8a430bc97" => :el_capitan
-    sha256 "b6936bdfae9a8259726c3b4b43da0a1abcbf208eb7f24fab430b9c496255904d" => :yosemite
+    sha256 "1e5fc2c55552d5cb59b18b7a4a866e3244b0ba9259e0c6c93c5a8577755bc732" => :sierra
+    sha256 "dbe4a121bb4266e0f5b6ef4fcac5887fded32f9e665a3d9bf516bf6ddfaf06a8" => :el_capitan
   end
 
   depends_on :python3
