@@ -1,11 +1,10 @@
 class Buku < Formula
   include Language::Python::Virtualenv
 
-  desc "Command-line bookmark manager"
+  desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v3.2.tar.gz"
-  sha256 "2375fc22e7e417fe23814589257f007cfdc1b1e3f8e47619a7d6e83ff0fb4f09"
-  revision 1
+  url "https://github.com/jarun/Buku/archive/v3.3.1.tar.gz"
+  sha256 "f0ea4e3b5949452179ad03c3fa9b5b1295313c3741ed11e896f07abd0502ab0b"
 
   bottle do
     cellar :any
@@ -48,8 +47,8 @@ class Buku < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "pycparser" do
@@ -58,8 +57,8 @@ class Buku < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c3/38/d95ddb6cc8558930600be088e174a2152261a1e0708a18bf91b5b8c90b22/requests-2.18.3.tar.gz"
-    sha256 "fb68a7baef4965c12d9cd67c0f5a46e6e28be3d8c7b6910c758fbcc99880b518"
+    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
+    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
   end
 
   resource "six" do
@@ -108,9 +107,9 @@ class Buku < Formula
 
     (testpath/"import").write <<-EOS.undent
       spawn #{bin}/buku --nc --import bookmarks.html
-      expect "Specify unique tag for imports (Enter to skip): "
-      send "\r"
-      expect "Add imported folders names as tags? (y/n): "
+      expect -re "DB file is being created at .*"
+      expect "You should encrypt it."
+      expect "Add parent folder names as tags? (y/n): "
       send "y\r"
       expect {
           -re ".*ERROR.*" { exit 1 }
