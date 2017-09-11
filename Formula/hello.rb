@@ -23,6 +23,6 @@ class Hello < Formula
     system "make", "install"
   end
   test do
-    system "#{bin}/hello", "--greeting=brew"
+    assert_equal "brew", shell_output("#{bin}/hello --greeting=brew").chomp
   end
 end
