@@ -5,10 +5,9 @@ class Gom < Formula
   sha256 "ac57e34b5fe273ed306efaeabb346712c264e341502913044a782cdf8c1036d8"
 
   bottle do
-    sha256 "10ba2ee65e74ce7a7da2e4671c090b01a65d3c2cbeab153c1e80b6caf3997abc" => :sierra
-    sha256 "c0d7ef477da47db79a99241bf4e514a74a43f2390c5c90b3a8eb11851f6a4b44" => :el_capitan
-    sha256 "060cf100046bd8bedf1ba4df90527754102fea42c7b20ff6147f813bd3c5fb8b" => :yosemite
-    sha256 "1c67b623bf29a0dabedf0cf2c686d1b22f3b28ff0a227fe96624754a14feb88f" => :mavericks
+    cellar :any
+    sha256 "0362cca9f99c933d1e2ff55e14c4a1bd6e29b603691ed31584c3c11ec047bba0" => :sierra
+    sha256 "cb6b8b45f13d113c9be5008ce9dc92dd3e10dee96f7b0f6f1b2f6425a82fce92" => :el_capitan
   end
 
   depends_on "meson" => :build
