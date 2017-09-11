@@ -1,8 +1,8 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services."
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.5.2.tar.gz"
-  sha256 "39e792324a35fe84ef9a63cd5324252bc71d1c665188e8d597e12ca170cfde7a"
+  url "https://github.com/elastic/beats/archive/v5.6.0.tar.gz"
+  sha256 "7ec86da04b97fa7dcddc88250f0f7d2efd06f4ef058cc0097d1d439526b9ed44"
 
   head "https://github.com/elastic/beats.git"
 
