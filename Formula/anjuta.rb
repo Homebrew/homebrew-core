@@ -5,10 +5,8 @@ class Anjuta < Formula
   sha256 "fb895464c1a3c915bb2bb3ea5d236fd17202caa7205f6792f70a75affc343d70"
 
   bottle do
-    rebuild 1
-    sha256 "7d412d9cdc31ddfb36d5bf3d9b697f9b3736791437177f404f7c72752e6fb23b" => :sierra
-    sha256 "b4c5b15d38d4206c30f099427d9453e103280484f8f9f9ad8a36c3e768746ced" => :el_capitan
-    sha256 "5f2462c47ad4fb52d7d296d1a0086eb0a1cdf22d8890e4f7caec2b2a5456e987" => :yosemite
+    sha256 "935fbd03876ae9fb3494d1529fe015776520eb7c7d481bc4cfff18219780d739" => :sierra
+    sha256 "37a80ca99005be4340e29d4ff98615b669363b53cdc2a16ffb36bdc35e799fbb" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
