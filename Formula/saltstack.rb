@@ -21,6 +21,9 @@ class Saltstack < Formula
   depends_on "openssl" # For M2Crypto
   depends_on "libgit2"
 
+  # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
+  # pygit2 be the same verison as libgit2 - mismatched versions are incompatible
+
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/90/61/f820ff0076a2599dd39406dcb858ecb239438c02ce706c8e91131ab9c7f1/Jinja2-2.9.6.tar.gz"
     sha256 "ddaa01a212cd6d641401cb01b605f4a4d9f37bfc93043d7f760ec70fb99ff9ff"
