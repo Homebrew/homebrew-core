@@ -5,6 +5,12 @@ class Pdfsandwich < Formula
   sha256 "96831eb191bcd43e730dcce169d5c14b47bba0b6cd5152a8703e3b573013a2a2"
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9b64e69da4fdfcfa2212b314e18e96557fca5f271a455d173192e3c590408bdc" => :sierra
+    sha256 "27688f66f92700117d759f60a3081d9bbbc743e94dcd8e349f44644e4dbe1619" => :el_capitan
+  end
+
   depends_on "gawk" => :build
   depends_on "ocaml" => :build
   depends_on "exact-image"
