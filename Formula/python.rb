@@ -12,6 +12,11 @@ class Python < Formula
     sha256 "dfc9bb395cb6d25f1fb214f4915185d8bcd853e1142b371f859a54137fad57fb" => :yosemite
   end
 
+  devel do
+    url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14rc1.tar.xz"
+    sha256 "9d62a5d8b56a897f94ce43489ed971f5a211459727048d73c807f04f318a0fb7"
+  end
+
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
