@@ -26,25 +26,17 @@ class Kibana < Formula
     end
 
     # do not build packages for other platforms
-    platforms = Set.new(["darwin-x64", "linux-x64", "windows-x64"])
-    if MacOS.prefer_64_bit?
-      platform = "darwin-x64"
-    else
-      raise "Installing Kibana via Homebrew is only supported on macOS x86_64"
-    end
-    platforms.delete(platform)
-    sub = platforms.to_a.join("|")
-    inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
+    inreplace buildpath/"tasks/config/platforms.js", /('(linux-x64|windows-x64)',?(?!;))/, "// \\1"
 
     # trick the build into thinking we've already downloaded the Node.js binary
-    mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"
+    mkdir_p buildpath/".node_binaries/#{resource("node").version}/darwin-x64"
 
     # set npm env and fix cache edge case (https://github.com/Homebrew/brew/pull/37#issuecomment-208840366)
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
     system "npm", "install", "-ddd", "--build-from-source", "--#{Language::Node.npm_cache_config}"
     system "npm", "run", "build", "--", "--release", "--skip-os-packages", "--skip-archives"
 
-    prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
+    prefix.install Dir["build/kibana-#{version}-darwin-x86_64/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
     inreplace "#{bin}/kibana-plugin", %r{/node/bin/node}, "/libexec/node/bin/node"
