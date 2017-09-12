@@ -17,9 +17,9 @@ class Saltstack < Formula
   depends_on "swig" => :build
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "zeromq"
+  depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
-  depends_on "libgit2"
 
   # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
   # pygit2 be the same verison as libgit2 - mismatched versions are incompatible
@@ -79,6 +79,11 @@ class Saltstack < Formula
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
   end
 
+  resource "pygit2" do
+    url "https://files.pythonhosted.org/packages/84/fa/867aec49165bd119b215d997e4d1211875e398d956b26888cd47070145a7/pygit2-0.26.0.tar.gz"
+    sha256 "a7f06d61f25ab644c39e0e9bd4846a6cc4af81ae27f889473e6f0e9511226cb1"
+  end
+
   resource "pyzmq" do
     url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
     sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
@@ -107,11 +112,6 @@ class Saltstack < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
     sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
-  end
-
-  resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/84/fa/867aec49165bd119b215d997e4d1211875e398d956b26888cd47070145a7/pygit2-0.26.0.tar.gz"
-    sha256 "a7f06d61f25ab644c39e0e9bd4846a6cc4af81ae27f889473e6f0e9511226cb1"
   end
 
   def install
