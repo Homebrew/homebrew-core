@@ -6,8 +6,8 @@ class Iozone < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "06d03be4d1ed3c2059f47f9b997233729cf6c10cc25e4562634762689675aca2" => :sierra
-    sha256 "aa525afb22a1c4909ffa5e6d74474431f91ee6cb5997f8bba7e02884f294bd7b" => :el_capitan
+    sha256 "5182985c07c2fcdcfd5e8096c2d175e6999e9a91cd3bfe54235e103340f7ee36" => :sierra
+    sha256 "39b896d0dca83fffc160be9688514dd65b7d2ce9e593e8af465b5adeaa905241" => :el_capitan
   end
 
   def install
