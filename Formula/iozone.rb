@@ -1,8 +1,8 @@
 class Iozone < Formula
   desc "File system benchmark tool"
   homepage "http://www.iozone.org/"
-  url "http://www.iozone.org/src/current/iozone3_468.tar"
-  sha256 "780801a4ce54503ea1060445497471b79bdb05db21338c77f96a5ac51ffac4ee"
+  url "http://www.iozone.org/src/current/iozone3_469.tar"
+  sha256 "0a200ec12a5b631ffb0973665f80ad563c4b00eac2e71f8acbb5176969bb5ea8"
 
   bottle do
     cellar :any_skip_relocation
