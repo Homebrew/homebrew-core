@@ -6,9 +6,8 @@ class Valabind < Formula
   head "https://github.com/radare/valabind.git"
 
   bottle do
-    sha256 "6383f4c303ff8540f628bafe454a8ca30c7441542bed6bb2714126adb36605b5" => :sierra
-    sha256 "1be71b4122e2719241c3a6be3aa47c96086495c509470bfd286f96d54847ba3a" => :el_capitan
-    sha256 "e792ae4b975cea3ec03c19f2b458974afb9214e98ef5ca123419cb6f6ec4c6cf" => :yosemite
+    sha256 "05e13594c23aca12a1ea9c7ff4a5e3a17bbe1a68a65dea80d5a8aa89892d26cf" => :sierra
+    sha256 "bf466be7a14313608f3d68a86135b2b25094457c0fb89b7dd389f57fc4cd173c" => :el_capitan
   end
 
   depends_on "pkg-config" => :run # :run, not :build, for vala
