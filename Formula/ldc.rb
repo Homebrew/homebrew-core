@@ -1,18 +1,15 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 1
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.3.0/ldc-1.3.0-src.tar.gz"
-    sha256 "efe31a639bcb44e1f5b752da21713376d9410a01279fecc8aab8572065a3050b"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.4.0/ldc-1.4.0-src.tar.gz"
+    sha256 "dd29a5833ae02307c387e87d861d5de588b9b16ea3574ef96f8da1f81bbd7c5c"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.4/ldc-0.17.4-src.tar.gz"
-      sha256 "48428afde380415640f3db4e38529345f3c8485b1913717995547f907534c1c3"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
+      sha256 "7aa540a135f9fa1ee9722cad73100a8f3600a07f9a11d199d8be68887cc90008"
     end
-
-    depends_on "libconfig"
   end
 
   bottle do
@@ -33,7 +30,8 @@ class Ldc < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "llvm@4"
+  depends_on "libconfig" => :build
+  depends_on "llvm"
 
   def install
     ENV.cxx11
@@ -42,7 +40,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm@4"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -50,10 +48,14 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm@4"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
+        -DLDC_WITH_LLD=OFF
+        -DRT_ARCHIVE_WITH_LDC=OFF
       ]
+      # LDC_WITH_LLD see https://github.com/ldc-developers/ldc/releases/tag/v1.4.0 Known issues
+      # RT_ARCHIVE_WITH_LDC see https://github.com/ldc-developers/ldc/issues/2350
 
       system "cmake", "..", *args
       system "make"
@@ -68,9 +70,11 @@ class Ldc < Formula
         writeln("Hello, world!");
       }
     EOS
-
+    system bin/"ldc2", "test.d"
+    assert_match "Hello, world!", shell_output("./test")
+    system bin/"ldc2", "-flto=thin", "test.d"
+    assert_match "Hello, world!", shell_output("./test")
     system bin/"ldc2", "-flto=full", "test.d"
-
     assert_match "Hello, world!", shell_output("./test")
     system bin/"ldmd2", "test.d"
     assert_match "Hello, world!", shell_output("./test")
