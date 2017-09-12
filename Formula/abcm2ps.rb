@@ -1,8 +1,8 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://github.com/leesavide/abcm2ps/archive/v8.13.14.tar.gz"
-  sha256 "89c4af97ae9448c055e9a7d48a6645e909f2895d3724a47ec4c39e91d125375e"
+  url "https://github.com/leesavide/abcm2ps/archive/v8.13.15.tar.gz"
+  sha256 "8a258efbd1f4c2776ea03bfd154a61a49599eeeaaa8c4e0ac8f84e0c0bb4f136"
 
   bottle do
     sha256 "f1994961111bcf45c3d6f96097d0186abea0d9aba4ba8e0b9e7ec0c1199f5079" => :sierra
@@ -14,7 +14,7 @@ class Abcm2ps < Formula
   depends_on "pango" => :optional
 
   def install
-    chmod 0755, "configure" # remove for > 8.13.14
+    chmod 0755, "configure" # remove for > 8.13.15
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
