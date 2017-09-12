@@ -49,6 +49,14 @@ class PerconaServer < Formula
     satisfy { datadir == var/"mysql" }
   end
 
+  # Fix C++ build failure due to Xcode 9 being very strict
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://github.com/percona/percona-server/pull/1925.patch?full_index=1"
+      sha256 "126ed7762ab94a4b2afdaa8a09d35d5e25dfd7cd5452cf51b4db90144e737e6e"
+    end
+  end
+
   def install
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/homebrew/issues/20185
