@@ -17,9 +17,8 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "6e3ad60d2c3ad7430cc5edf147b1c0e50a7e695e8c74451ab0a3f9d9723ecf46" => :sierra
-    sha256 "d49156d6f3d5717add11f697361b13c5bf321161ff3d84d7062e111f0dfdb513" => :el_capitan
+    sha256 "9553237b03315cbb567ad610c56c44b334adfc9ff46dbf224c90d01f99e9e4e2" => :sierra
+    sha256 "35a316fe3ac1be79163726e5b45f53c07ab25f10155b69d2df43d1a72878b7c8" => :el_capitan
   end
 
   head do
