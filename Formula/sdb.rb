@@ -18,9 +18,8 @@ class Sdb < Formula
 
   bottle do
     cellar :any
-    sha256 "0a5172a862a6e5c528caf30a40274c7435d12dc8fada163eb8a6727c5c0a2515" => :sierra
-    sha256 "ce33a994e6804e6159104318614c3b5c02a7abdb6d6c6422e9a031a41f7e896f" => :el_capitan
-    sha256 "49d380c751c0e65776961446ab788e544bcbbcd765674773c09426cec0dc440a" => :yosemite
+    sha256 "9e92bfac5dbcf84fe5e8b3067f3b3e04fd5f0a1d5639cd1bf676425132c45152" => :sierra
+    sha256 "b135f21561fedbcf92734ec7776ff5db0b00f0fd84cb7a9bcb3b9b823f6e767e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
