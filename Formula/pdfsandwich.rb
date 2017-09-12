@@ -25,6 +25,6 @@ class Pdfsandwich < Formula
   test do
     cp test_fixtures("test.pdf"), testpath/"test.pdf"
     system "#{bin}/pdfsandwich", testpath/"test.pdf"
-    assert File.exist?(testpath/'test_ocr.pdf')
+    assert File.exist?(testpath/"test_ocr.pdf")
   end
 end
