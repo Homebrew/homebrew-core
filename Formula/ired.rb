@@ -1,8 +1,8 @@
 class Ired < Formula
   desc "Minimalistic hexadecimal editor designed to be used in scripts."
   homepage "https://github.com/radare/ired"
-  url "https://www.radare.org/get/ired-0.5.0.tar.gz"
-  sha256 "dce25f6b9402b78f183ecf4d94a2d44db1a6946546217d6c60c3f179bfbfff84"
+  url "https://github.com/radare/ired/archive/0.6.tar.gz"
+  sha256 "c15d37b96b1a25c44435d824bd7ef1f9aea9dc191be14c78b689d3156312d58a"
 
   bottle do
     cellar :any_skip_relocation
