@@ -5,20 +5,19 @@ class Pdfsandwich < Formula
   sha256 "96831eb191bcd43e730dcce169d5c14b47bba0b6cd5152a8703e3b573013a2a2"
   head "svn://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
-  depends_on "ocaml" => :build
   depends_on "gawk" => :build
-  depends_on "tesseract"
-  depends_on "poppler"
-  depends_on "unpaper"
-  depends_on "imagemagick"
+  depends_on "ocaml" => :build
   depends_on "exact-image"
   depends_on "ghostscript"
+  depends_on "imagemagick"
+  depends_on "poppler"
+  depends_on "tesseract"
+  depends_on "unpaper"
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-
     system "make"
     system "make", "install"
   end
