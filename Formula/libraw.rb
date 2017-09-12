@@ -1,10 +1,9 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.18.2.tar.gz"
-  mirror "https://fossies.org/linux/privat/LibRaw-0.18.2.tar.gz"
-  sha256 "ce366bb38c1144130737eb16e919038937b4dc1ab165179a225d5e847af2abc6"
-  revision 1
+  url "https://www.libraw.org/data/LibRaw-0.18.4.tar.gz"
+  mirror "https://fossies.org/linux/privat/LibRaw-0.18.4.tar.gz"
+  sha256 "eaf4931b46e65861e88bbe704ccf370381e94d63e9a898b889ded4e0cb3b0c97"
 
   bottle do
     cellar :any
@@ -25,15 +24,15 @@ class Libraw < Formula
   end
 
   resource "gpl2" do
-    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.18.2.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL2-0.18.2.tar.gz"
-    sha256 "f467689182728240c6358c1b890e9fe4ee08667c74433f6bd6a4710e3ae2aab6"
+    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.18.4.tar.gz"
+    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL2-0.18.4.tar.gz"
+    sha256 "8961b0a90d4b1a5d00a13d9ed2f23e8f2c651b4a68c0470e01ba7668cc98145f"
   end
 
   resource "gpl3" do
-    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.18.2.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL3-0.18.2.tar.gz"
-    sha256 "01080bc2448de87339f086229319c9e1cca97ac0621416feb537b96f0dba4a57"
+    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.18.4.tar.gz"
+    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL3-0.18.4.tar.gz"
+    sha256 "9aa8ad60581b9c6a0ed81d96f897804cac832c7eeb087a38ca61fcd54838966c"
   end
 
   def install
