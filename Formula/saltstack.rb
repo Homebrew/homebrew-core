@@ -5,6 +5,7 @@ class Saltstack < Formula
   homepage "http://www.saltstack.org"
   url "https://files.pythonhosted.org/packages/d2/cd/348817b5b4d0ee160f72744bad39c8b6898df62e3287a4923b8a2cc07716/salt-2017.7.1.tar.gz"
   sha256 "fe868415d0e1162157186f4c5263e9af902b0571870ad2da210e7edf5ff5331d"
+  revision 1
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -18,8 +19,12 @@ class Saltstack < Formula
   depends_on "swig" => :build
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "zeromq"
+  depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
+
+  # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
+  # pygit2 must be the same version as libgit2 - mismatched versions are incompatible
 
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/90/61/f820ff0076a2599dd39406dcb858ecb239438c02ce706c8e91131ab9c7f1/Jinja2-2.9.6.tar.gz"
@@ -74,6 +79,11 @@ class Saltstack < Formula
   resource "pycrypto" do
     url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  end
+
+  resource "pygit2" do
+    url "https://files.pythonhosted.org/packages/84/fa/867aec49165bd119b215d997e4d1211875e398d956b26888cd47070145a7/pygit2-0.26.0.tar.gz"
+    sha256 "a7f06d61f25ab644c39e0e9bd4846a6cc4af81ae27f889473e6f0e9511226cb1"
   end
 
   resource "pyzmq" do
