@@ -15,12 +15,16 @@ class Gdb < Formula
   deprecated_option "with-guile" => "with-guile@2.0"
 
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+  option "with-python3", "Use the Homebrew version of Python 3 instead of 2.x"
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
+  depends_on "python3" => :optional
   depends_on "guile@2.0" => :optional
+
+  patch :p1, :DATA if build.with? "python3"
 
   def install
     args = [
@@ -34,6 +38,8 @@ class Gdb < Formula
 
     if build.with? "python"
       args << "--with-python=#{HOMEBREW_PREFIX}"
+    elsif build.with? "python3"
+      args << "--with-python=#{HOMEBREW_PREFIX}/bin/python3"
     else
       args << "--with-python=/usr"
     end
@@ -67,3 +73,32 @@ class Gdb < Formula
     system bin/"gdb", bin/"gdb", "-configuration"
   end
 end
+__END__
+diff --git a/gdb/configure-origin b/gdb/configure
+--- a/gdb/configure-origin
++++ b/gdb/configure
+@@ -9858,21 +9858,21 @@ fi
+     # We have a python program to use, but it may be too old.
+     # Don't flag an error for --with-python=auto (the default).
+     have_python_config=yes
+-    python_includes=`${python_prog} ${srcdir}/python/python-config.py --includes`
++    python_includes=`${python_prog}-config --includes`
+     if test $? != 0; then
+       have_python_config=failed
+       if test "${with_python}" != auto; then
+         as_fn_error "failure running python-config --includes" "$LINENO" 5
+       fi
+     fi
+-    python_libs=`${python_prog} ${srcdir}/python/python-config.py --ldflags`
++    python_libs=`${python_prog}-config --ldflags`
+     if test $? != 0; then
+       have_python_config=failed
+       if test "${with_python}" != auto; then
+         as_fn_error "failure running python-config --ldflags" "$LINENO" 5
+       fi
+     fi
+-    python_prefix=`${python_prog} ${srcdir}/python/python-config.py --exec-prefix`
++    python_prefix=`${python_prog}-config --exec-prefix`
+     if test $? != 0; then
+       have_python_config=failed
+       if test "${with_python}" != auto; then
