@@ -8,6 +8,7 @@ class Pdfsandwich < Formula
   depends_on "ocaml" => :build
   depends_on "gawk" => :build
   depends_on "tesseract"
+  depends_on "poppler"
   depends_on "unpaper"
   depends_on "imagemagick"
   depends_on "exact-image"
