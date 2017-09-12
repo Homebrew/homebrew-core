@@ -8,6 +8,7 @@ class Basex < Formula
   devel do
     url "http://files.basex.org/releases/latest/BaseX867-20170824.195627.zip"
     sha256 "290dd9d0917318e4971b5d412986b7272b042bc7ab4cc249964baaabf788cb65"
+    version "8.6.7-rc20170824.195627"
   end
 
   bottle :unneeded
