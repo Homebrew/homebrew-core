@@ -2,7 +2,7 @@ class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
   url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-267.tar.gz"
-  sha256 "5898bcc02e45a5fbc7b38af7ba6788d8a85f55e54285a668848c2064138aa9ea"
+  sha256 "5414b5a2951c86c62ebfe84714ff0e68d12c3d18b674353222e220c69e35e787"
   version_scheme 1
 
   bottle do
