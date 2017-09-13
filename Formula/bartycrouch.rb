@@ -2,7 +2,7 @@ class Bartycrouch < Formula
   desc "Incrementally update your Strings files."
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch/archive/3.8.1.tar.gz"
-  sha256 "4ff72004ad7f992da1175dbabe1e37cf30f60a31a67899c71f88018d40e83aaa"
+  sha256 "4cc815085c214fb5a28abb840d78258b4682f0e977f1ee07b8420449d79e44cb"
 
   bottle do
     cellar :any_skip_relocation
