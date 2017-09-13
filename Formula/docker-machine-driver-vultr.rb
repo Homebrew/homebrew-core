@@ -2,7 +2,7 @@ class DockerMachineDriverVultr < Formula
   desc "Docker Machine driver plugin for Vultr Cloud"
   homepage "https://github.com/janeczku/docker-machine-vultr"
   url "https://github.com/janeczku/docker-machine-vultr/archive/v1.4.0.tar.gz"
-  sha256 "00fb922126118a7b3e405b888f581fac798a3ebfd175d7f48a1f26d3e115878e"
+  sha256 "f69b1b33c7c73bea4ab1980fbf59b7ba546221d31229d03749edee24a1e7e8b5"
 
   head "https://github.com/janeczku/docker-machine-vultr.git"
 
