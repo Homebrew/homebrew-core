@@ -2,7 +2,7 @@ class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
   url "https://github.com/jbeder/yaml-cpp/archive/release-0.5.3.tar.gz"
-  sha256 "ac50a27a201d16dc69a881b80ad39a7be66c4d755eda1f76c3a68781b922af8f"
+  sha256 "3492d9c1f4319dfd5588f60caed7cec3f030f7984386c11ed4b39f8e3316d763"
 
   bottle do
     cellar :any
