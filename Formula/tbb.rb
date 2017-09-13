@@ -3,7 +3,7 @@ class Tbb < Formula
   homepage "https://www.threadingbuildingblocks.org/"
   url "https://github.com/01org/tbb/archive/2017_U7.tar.gz"
   version "2017_U7"
-  sha256 "755b7dfaf018f5d8ae3bf2e8cfa0fa4672372548e8cc043ed1eb5b22a9bf5b72"
+  sha256 "78ad6ec9dd492b9dcc4753938b06716f7458506084adc138ced09aa0aa609b6b"
 
   bottle do
     cellar :any
