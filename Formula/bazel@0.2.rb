@@ -2,7 +2,7 @@ class BazelAT02 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.io/"
   url "https://github.com/bazelbuild/bazel/archive/0.2.3.tar.gz"
-  sha256 "37fd2d49c57df171b704bf82c94e7bf954d94748e2a8621c5456c5c9d5f2c845"
+  sha256 "1dc9841cc504b9f022a5f8ef0918e7bbd9ee682f7e4b3074cca1015742dee9fc"
   revision 1
   head "https://github.com/bazelbuild/bazel.git"
 
