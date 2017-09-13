@@ -1,9 +1,8 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://live.gnome.org/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.24/pygobject-3.24.1.tar.xz"
-  sha256 "a628a95aa0909e13fb08230b1b98fc48adef10b220932f76d62f6821b3fdbffd"
-  revision 1
+  url "https://download.gnome.org/sources/pygobject/3.26/pygobject-3.26.0.tar.xz"
+  sha256 "7411acd600c8cb6f00d2125afa23303f2104e59b83e0a4963288dbecc3b029fa"
 
   bottle do
     cellar :any
@@ -24,9 +23,7 @@ class Pygobject3 < Formula
 
   def install
     Language::Python.each_python(build) do |python, _version|
-      system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=#{python}"
-      system "make", "install"
-      system "make", "clean"
+      system python, *Language::Python.setup_install_args(prefix)
     end
   end
 
