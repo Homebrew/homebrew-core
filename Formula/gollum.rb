@@ -2,7 +2,7 @@ class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
   url "https://github.com/trivago/gollum/archive/v0.4.5.tar.gz"
-  sha256 "dd539c10b1ccb170d7d91fc063cbaef505302ed44fdf26628db82454161f38d4"
+  sha256 "a1c9cf0659163d3252c1370a957f60f12e19b808ef8dd9af24cb5ee2b78bda1c"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
