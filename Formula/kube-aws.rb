@@ -2,7 +2,7 @@ class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
   url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.8.tar.gz"
-  sha256 "38b6bd0adbab695e5c009ad4f377e3ac21b8d4c001bc5a8a5f5cf845d2149b80"
+  sha256 "d4954b8d42dee8459329a799088267632e368e0b60652bfecab4a16d59a2f50a"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
