@@ -2,7 +2,7 @@ class Deisctl < Formula
   desc "Deis Control Utility"
   homepage "https://deis.io/"
   url "https://github.com/deis/deis/archive/v1.13.4.tar.gz"
-  sha256 "c59b244b2d4e87e04491898a401238ea6f302326957ffe1aeb6154485fe1d8ec"
+  sha256 "7f1b378d884d5b42d0b03df7c79aa31cc6081bcc4c23d880101e98fdfe7cb89a"
 
   bottle do
     sha256 "39a9a5939d7a3442fa9a69e6b1c9982d9cadbf97e78ab779e9a9b42d269c8596" => :sierra
