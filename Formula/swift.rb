@@ -7,7 +7,7 @@ class Swift < Formula
   # simply due to the nature of Swift's SDK Overlays.
   stable do
     url "https://github.com/apple/swift/archive/swift-3.1.1-RELEASE.tar.gz"
-    sha256 "03eb54e7f89109a85c9b2a9bfdee88d2d7e1bdef73ae0385b30fe4661efaf407"
+    sha256 "fe4dcb9ee1247acd6653fe193684e9cb212c6551e0b0b44849899bec99df3297"
 
     resource "clang" do
       url "https://github.com/apple/swift-clang/archive/swift-3.1.1-RELEASE.tar.gz"
