@@ -2,7 +2,7 @@ class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
   url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.11.0.tar.gz"
-  sha256 "bc5bcabcf9d03d93d86d9f2599aef8adca8922c76ea2d01cc4ad9a70d466ca36"
+  sha256 "6bcbbc5827bdccd997cd85fd977f5930051ef4df03fe5bcc6ba5b7db121d5a0c"
 
   bottle do
     cellar :any_skip_relocation
