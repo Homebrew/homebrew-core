@@ -2,7 +2,7 @@ class AwsApigatewayImporter < Formula
   desc "AWS API Gateway Importer"
   homepage "https://github.com/awslabs/aws-apigateway-importer"
   url "https://github.com/awslabs/aws-apigateway-importer/archive/aws-apigateway-importer-1.0.1.tar.gz"
-  sha256 "1aecfd348135c2e364ce5e105d91d5750472ac4cb8848679d774a2ac00024d26"
+  sha256 "8371e3fb1b6333cd50a76fdcdc1280ee8e489aec4bf9a1869325f9b8ebb73b54"
   revision 1
 
   # Pin aws-sdk-java-core for JSONObject compatibility
