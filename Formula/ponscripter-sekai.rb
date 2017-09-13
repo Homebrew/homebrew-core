@@ -2,7 +2,7 @@ class PonscripterSekai < Formula
   desc "NScripter-like visual novel engine"
   homepage "https://github.com/sekaiproject/ponscripter-fork"
   url "https://github.com/sekaiproject/ponscripter-fork/archive/v0.0.6.tar.gz"
-  sha256 "888a417808fd48f8f55da42c113b04d61396a1237b2b0fed2458e804b8ddf426"
+  sha256 "b1ac4f2c01aae1ca68420ea5274307e4c6b3eb1b85272ec41c7fbf07239c48d2"
   revision 2
   head "https://github.com/sekaiproject/ponscripter-fork.git"
 
