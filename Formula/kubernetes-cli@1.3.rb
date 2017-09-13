@@ -2,7 +2,7 @@ class KubernetesCliAT13 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes/archive/v1.3.10.tar.gz"
-  sha256 "7167e8c8e68d34596018103b55724f01d9b5e1f715c816c347a967cb438d6d18"
+  sha256 "480e3de5c4419a3309c71f2181c7ada7c910601a956cc3e3a19ee98884097855"
 
   bottle do
     cellar :any_skip_relocation
