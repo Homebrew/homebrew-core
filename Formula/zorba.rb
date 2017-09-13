@@ -2,7 +2,7 @@ class Zorba < Formula
   desc "NoSQL query processor"
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
-  sha256 "a27e8160aca5d3aa5a6525b930da7edde44f8824dd4fba39aaef3b9af2717b74"
+  sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
   revision 3
 
   bottle do
