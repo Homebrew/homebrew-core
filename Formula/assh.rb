@@ -2,7 +2,7 @@ class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://github.com/moul/advanced-ssh-config"
   url "https://github.com/moul/advanced-ssh-config/archive/v2.6.0.tar.gz"
-  sha256 "0b425b74ccbb3e440fe65489c6fbcf0000c865577dc516b8136008423ef89613"
+  sha256 "69b7f5c2d99200a36abea1dc5cdbfe6e0052d40b68a5c4099174395b5d586ad5"
   head "https://github.com/moul/advanced-ssh-config.git"
 
   bottle do
