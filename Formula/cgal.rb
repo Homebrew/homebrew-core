@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.9.1/CGAL-4.9.1.tar.xz"
-  sha256 "56557da971b5310c2678ffc5def4109266666ff3adc7babbe446797ee2b90cca"
+  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.10.1/CGAL-4.10.1.tar.xz"
+  sha256 "2baef1f4cca90dc82851267c36f8632bd6b39e8a5d15c23f1d78b4172d36d743"
 
   bottle do
     cellar :any
@@ -11,57 +11,28 @@ class Cgal < Formula
     sha256 "861fcbdd2cea9fd8365e53e8ec7218f11c33b6b2fc1d0d732eeaa39c1b0343fd" => :yosemite
   end
 
-  option :cxx11
   option "with-qt", "Build ImageIO and Qt components of CGAL"
-  option "with-eigen", "Build with Eigen3 support"
-  option "with-lapack", "Build with LAPACK support"
 
   deprecated_option "imaging" => "with-qt"
   deprecated_option "with-imaging" => "with-qt"
-  deprecated_option "with-eigen3" => "with-eigen"
   deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "eigen"
+  depends_on "gmp"
   depends_on "mpfr"
-
   depends_on "qt" => :optional
-  depends_on "eigen" => :optional
-
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "gmp"   => "c++11"
-  else
-    depends_on "boost"
-    depends_on "gmp"
-  end
 
   def install
-    ENV.cxx11 if build.cxx11?
-
-    args = std_cmake_args + %W[
-      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
-      -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
-    ]
-
-    if build.without? "qt"
-      args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
-    else
-      args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"
-    end
-
-    if build.with? "eigen"
-      args << "-DWITH_Eigen3=ON"
-    else
-      args << "-DWITH_Eigen3=OFF"
-    end
-
-    if build.with? "lapack"
-      args << "-DWITH_LAPACK=ON"
-    else
-      args << "-DWITH_LAPACK=OFF"
-    end
-
-    system "cmake", ".", *args
+    qt = build.with?("qt") ? "ON" : "OFF"
+    system "cmake", ".", *std_cmake_args,
+                    "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
+                    "-DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib",
+                    "-DWITH_CGAL_ImageIO=#{qt}",
+                    "-DWITH_CGAL_Qt5=#{qt}",
+                    "-DWITH_Eigen3=ON",
+                    "-DWITH_LAPACK=ON"
     system "make", "install"
   end
 
