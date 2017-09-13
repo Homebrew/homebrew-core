@@ -3,7 +3,7 @@ class Wolfssl < Formula
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
   url "https://github.com/wolfSSL/wolfssl/archive/v3.12.0-stable.tar.gz"
   version "3.12.0"
-  sha256 "5045f6dc4221a8cf4fa993d020dda0886be4028d0e2cefbf9713b58f6eb0e635"
+  sha256 "2ca3ad32d6d2311a614be7384a4d08d63e03116a251030738e5c003a3bf7fa8c"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
