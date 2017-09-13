@@ -1,18 +1,19 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  revision 1
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.10.3.tar.xz"
-    sha256 "4e07e93e34d4b93208f1579c21e7d91a236577b36f128a5332ffee85b4465955"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.12.2.tar.xz"
+    sha256 "5591ee7208ab30289a30658a82b76bf87169c927572d9b794f3a41ed48e1ee96"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "f55cef2e8236944ab7b51d658eaa7d241a66418a2e566be904e912eff8048757" => :sierra
-    sha256 "d33856fdc5b7f937c875d426fa4a48e19fc67a2e6f79fc462e13e00e701548fd" => :el_capitan
-    sha256 "e7b506ccb9d86c0d4198cc3d277de2b77d273609fe35f55dd6a2ce8176ed5187" => :yosemite
+    sha256 "e4ed6fc4ff4cbd7e6d9cd3df20b56db26d2fe0b0c42a2e007c24e1e12f6e6bf0" => :sierra
+    sha256 "6267bcc3e4daf3dcd325e5dd4d415dfb7d0a7c6fe83134065fc2b3cfdbc47dbc" => :el_capitan
+    sha256 "4d09a69e37767a316bda60c8699d093181c0e62a8671159ef85cd1e4c0b48bbb" => :yosemite
   end
 
   head do
@@ -74,9 +75,7 @@ class GstPluginsGood < Formula
     # Upstream says it hasn't "been actively tested in a long time";
     # successor is glimagesink (in gst-plugins-bad).
     # https://bugzilla.gnome.org/show_bug.cgi?id=756918
-    if MacOS.version == :snow_leopard
-      args << "--disable-osx_video"
-    end
+    args << "--disable-osx_video" if MacOS.version == :snow_leopard
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"

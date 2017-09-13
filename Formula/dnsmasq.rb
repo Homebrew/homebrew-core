@@ -1,15 +1,14 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
-  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.76.tar.gz"
-  sha256 "777c4762d2fee3738a0380401f2d087b47faa41db2317c60660d69ad10a76c32"
+  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
+  sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
+  revision 3
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "98d0c8520998b8038c610e43db5fc2f215a164c02810718e6e508d4651f6f523" => :sierra
-    sha256 "be3f214a1a48bee2aa64f8602d1227a1fb7f60ad7e30d1241b3e5b8410ec40b1" => :el_capitan
-    sha256 "ff12dc78fd0b31297e333c991d37d8c1f6979d753755ddc8c09d5153cbf54a22" => :yosemite
-    sha256 "56cfdbe6df3ecff3a6ccf444d8fd79fb234f2b566abc1a4a4631d960eb16851a" => :mavericks
+    sha256 "1651004656f0f8d654167421188eca24f8828253bd8b5948ba657c834c6bcb87" => :sierra
+    sha256 "9a2ef1302f2654af6c6598a1c1926e4733a800bf38d2af783b60daac352861bf" => :el_capitan
+    sha256 "7562571ad0156478738bd1d48e4c70e6877930f5649045adb907f4b3b33f4e19" => :yosemite
   end
 
   option "with-libidn", "Compile with IDN support"
@@ -19,40 +18,78 @@ class Dnsmasq < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn" => :optional
+  depends_on "gettext" if build.with? "libidn"
   depends_on "nettle" if build.with? "dnssec"
 
   def install
     ENV.deparallelize
 
+    # Re-evaluate whether this is needed for dnsmasq > 2.77
+    # Fix __memcpy_chk crash in strcpy(cache->name.sname, canon);
+    # Reported 12 Jul 2017 to simon AT thekelleys DOT org DOT uk
+    # See https://github.com/Homebrew/homebrew-core/issues/14463
+    if MacOS.version >= :sierra
+      inreplace "src/config.h", "#define SMALLDNAME 50 ",
+                                "#define SMALLDNAME 255 "
+    end
+
     # Fix etc location
-    inreplace "src/config.h", "/etc/dnsmasq.conf", "#{etc}/dnsmasq.conf"
+    inreplace %w[dnsmasq.conf.example src/config.h man/dnsmasq.8
+                 man/es/dnsmasq.8 man/fr/dnsmasq.8].each do |s|
+      s.gsub! "/var/lib/misc/dnsmasq.leases",
+              var/"lib/misc/dnsmasq/dnsmasq.leases", false
+      s.gsub! "/etc/dnsmasq.conf", etc/"dnsmasq.conf", false
+      s.gsub! "/var/run/dnsmasq.pid", var/"run/dnsmasq/dnsmasq.pid", false
+      s.gsub! "/etc/dnsmasq.d", etc/"dnsmasq.d", false
+      s.gsub! "/etc/ppp/resolv.conf", etc/"dnsmasq.d/ppp/resolv.conf", false
+      s.gsub! "/etc/dhcpc/resolv.conf", etc/"dnsmasq.d/dhcpc/resolv.conf", false
+      s.gsub! "/usr/sbin/dnsmasq", HOMEBREW_PREFIX/"sbin/dnsmasq", false
+    end
 
     # Optional IDN support
     if build.with? "libidn"
       inreplace "src/config.h", "/* #define HAVE_IDN */", "#define HAVE_IDN"
+      ENV.append_to_cflags "-I#{Formula["gettext"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["gettext"].opt_lib} -lintl"
     end
 
     # Optional DNSSEC support
     if build.with? "dnssec"
       inreplace "src/config.h", "/* #define HAVE_DNSSEC */", "#define HAVE_DNSSEC"
+      inreplace "dnsmasq.conf.example" do |s|
+        s.gsub! "#conf-file=%%PREFIX%%/share/dnsmasq/trust-anchors.conf",
+                "conf-file=#{opt_pkgshare}/trust-anchors.conf"
+        s.gsub! "#dnssec", "dnssec"
+      end
     end
 
     # Fix compilation on Lion
     ENV.append_to_cflags "-D__APPLE_USE_RFC_3542" if MacOS.version >= :lion
     inreplace "Makefile" do |s|
       s.change_make_var! "CFLAGS", ENV.cflags
+      s.change_make_var! "LDFLAGS", ENV.ldflags
     end
 
-    system "make", "install", "PREFIX=#{prefix}"
+    if build.with? "libidn"
+      system "make", "install-i18n", "PREFIX=#{prefix}"
+    else
+      system "make", "install", "PREFIX=#{prefix}"
+    end
 
-    prefix.install "dnsmasq.conf.example"
+    pkgshare.install "trust-anchors.conf" if build.with? "dnssec"
+    etc.install "dnsmasq.conf.example" => "dnsmasq.conf"
+  end
+
+  def post_install
+    (var/"lib/misc/dnsmasq").mkpath
+    (var/"run/dnsmasq").mkpath
+    (etc/"dnsmasq.d/ppp").mkpath
+    (etc/"dnsmasq.d/dhcpc").mkpath
   end
 
   def caveats; <<-EOS.undent
-    To configure dnsmasq, copy the example configuration to #{etc}/dnsmasq.conf
-    and edit to taste.
-
-      cp #{opt_prefix}/dnsmasq.conf.example #{etc}/dnsmasq.conf
+    To configure dnsmasq, take the default example configuration at
+      #{etc}/dnsmasq.conf and edit to taste.
     EOS
   end
 

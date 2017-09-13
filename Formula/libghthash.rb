@@ -13,14 +13,11 @@ class Libghthash < Formula
     sha256 "67fa9f1cda39b827ecd318a9f08980e322be034f00f198c0b7c83c2cf9a3d6a8" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "libtool" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
            "--prefix=#{prefix}"
@@ -64,7 +61,7 @@ class Libghthash < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-lghthash", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lghthash", "-o", "test"
     system "./test"
   end
 end

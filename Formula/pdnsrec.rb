@@ -1,13 +1,13 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.4.tar.bz2"
-  sha256 "2338778f49ccd03401e65f6f4b39047890e691c8ff6d810ecee45321fb4f1e4d"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.6.tar.bz2"
+  sha256 "f2182ac644268bb08b865a71351f11d75c5015ac0608a1469eb4c1cd5494d60d"
 
   bottle do
-    sha256 "2cdc2cca4313b14afa5f744a2f2fa9bf9a6d56a32a9d13b5fb04cbe976f430d3" => :sierra
-    sha256 "e529af26e330e54cb114e8adde9f458d83470da4f371bedac01a5c2dc724a339" => :el_capitan
-    sha256 "149d602439855b0b8a09854d746ab4f31d340db26179530e73309e77ac3878ef" => :yosemite
+    sha256 "cc9312578fb77bed4d92725ccec1a49d40a5113743117aff240d7a7021ca015c" => :sierra
+    sha256 "bd074b480630fc4dab01fe3886c2430dc3617aec6e34d6e68cc8cec84ffaebe7" => :el_capitan
+    sha256 "efe5c4b834cb36612741b353c4705fda3510f42f8ee09265b4077373e7a05669" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -25,12 +25,6 @@ class Pdnsrec < Formula
 
   def install
     ENV.cxx11
-
-    # Remove for > 4.0.3; using inreplace avoids Autotools dependencies
-    # Upstream PR "Fall back to SystemV ucontexts on boost >= 1.61"
-    # See https://github.com/PowerDNS/pdns/commit/fbf562c
-    inreplace "configure", "boost/context/detail/fcontext.hpp",
-                           "boost/context/fcontext.hpp"
 
     args = %W[
       --prefix=#{prefix}

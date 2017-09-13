@@ -4,15 +4,14 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.4-9.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.4-9.tar.xz"
-  sha256 "fb049db914cb5cb5e59e3242420e182c47e109dea980337563ae3145dc4f2a60"
-  head "http://git.imagemagick.org/repos/ImageMagick.git"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-1.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-1.tar.xz"
+  sha256 "426eaab13d03bc63887ae37c27819b313a58163114e744360b9288798c80e16f"
+  head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "5588d4cc6f4a0c35824162caf2b94e394d30536bb42bf04b53322f6f573b3b90" => :sierra
-    sha256 "0c8adc0a6e00f8b87f19662ca27810dba8d8e923769ee566cae9d6c825e5a447" => :el_capitan
-    sha256 "b186287f94eb9976106d798ddf6be1aadb31867f7398720984599b36b655da2c" => :yosemite
+    sha256 "df3b0c3f0a4416c0cc8112a8d71bbdec6364f84a29b8ada8e7e4ee28b78985b5" => :sierra
+    sha256 "657ff1758e17d409058551d1c91b84716c831b3f7e056f8e14069b49ee38f5f0" => :el_capitan
   end
 
   option "with-fftw", "Compile with FFTW support"
@@ -20,9 +19,6 @@ class Imagemagick < Formula
   option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
-  option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
-  option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit"
-  option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
   option "without-threads", "Disable threads support"
@@ -112,15 +108,7 @@ class Imagemagick < Formula
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
     args << "--enable-zero-configuration" if build.with? "zero-configuration"
-
-    if build.with? "quantum-depth-32"
-      quantum_depth = 32
-    elsif build.with?("quantum-depth-16") || build.with?("perl")
-      quantum_depth = 16
-    elsif build.with? "quantum-depth-8"
-      quantum_depth = 8
-    end
-    args << "--with-quantum-depth=#{quantum_depth}" if quantum_depth
+    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"

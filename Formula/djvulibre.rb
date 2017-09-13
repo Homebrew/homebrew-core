@@ -2,19 +2,17 @@ class Djvulibre < Formula
   desc "DjVu viewer"
   homepage "https://djvu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.27/djvulibre-3.5.27.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/d/djvulibre/djvulibre_3.5.27.orig.tar.gz"
   sha256 "e69668252565603875fb88500cde02bf93d12d48a3884e472696c896e81f505f"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "341f90c12908ef1da833403ec44518c37d0eecf59c809a36600dc44906fd8092" => :sierra
-    sha256 "eac32524be9ba27942b248fb6b330dcbb1e905b5e50a3957b9b0ed389e10f797" => :el_capitan
-    sha256 "8b23e45b77fd05646e3b81012eccdae2ecc67fe668b6974acf2ff744b1585402" => :yosemite
-    sha256 "b62d17ef5e5adf9da600eff7aa68b60f9eb7e7c067c6143749e0f74664c2618a" => :mavericks
+    sha256 "7f3f10f71e06342886c20b449551fc36d9edebf5bf5e90cb3fc355cf4624f4d9" => :sierra
+    sha256 "9f0fa17a46c514ab33d1d5fc88429f4d9f27926aef59807bdd74f94f8f4343ca" => :el_capitan
+    sha256 "a175ac622b0f8914e401ba93938b4316c08f35bc186c35196a5a3de6b56b95ab" => :yosemite
   end
 
   head do
-    url "git://git.code.sf.net/p/djvu/djvulibre-git"
+    url "https://git.code.sf.net/p/djvu/djvulibre-git.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build

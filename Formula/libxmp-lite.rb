@@ -1,6 +1,6 @@
 class LibxmpLite < Formula
   desc "Lite libxmp"
-  homepage "http://xmp.sourceforge.net"
+  homepage "https://xmp.sourceforge.io"
   url "https://downloads.sourceforge.net/project/xmp/libxmp/4.4.1/libxmp-lite-4.4.1.tar.gz"
   sha256 "bce9cbdaa19234e08e62660c19ed9a190134262066e7f8c323ea8ad2ac20dc39"
 
@@ -16,8 +16,8 @@ class LibxmpLite < Formula
   # Upstream commit "libxmp-lite building (wrong format loaders)"
   # Already in master. Original PR 6 Nov 2016 https://github.com/cmatsuoka/libxmp/pull/82
   patch :p2 do
-    url "https://github.com/cmatsuoka/libxmp/commit/a028835.patch"
-    sha256 "68eb66e6a8c799376f7bb2d9d96bfa8d26470ad5706d6c0cdb774d05dbbc0c15"
+    url "https://github.com/cmatsuoka/libxmp/commit/a028835.patch?full_index=1"
+    sha256 "74b8689dcc23943168c6ae6afbda94dbcca78d08caae860b31ff573610ec5f92"
   end
 
   def install
@@ -36,7 +36,7 @@ class LibxmpLite < Formula
       }
     EOS
 
-    system ENV.cc, "-I", include, "-L", lib, "-lxmp-lite", "test.c", "-o", "test"
+    system ENV.cc, "-I", include, "-L", lib, "-L#{lib}", "-lxmp-lite", "test.c", "-o", "test"
     system "#{testpath}/test"
   end
 end

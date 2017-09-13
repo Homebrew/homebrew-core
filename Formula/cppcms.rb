@@ -82,7 +82,8 @@ class Cppcms < Formula
           }
       }
     EOS
-    system ENV.cxx, "-o", "hello", "-std=c++11", "-stdlib=libc++", "-lc++", "-lcppcms", "hello.cpp"
+    system ENV.cxx, "-o", "hello", "-std=c++11", "-stdlib=libc++", "-lc++",
+                    "-L#{lib}", "-lcppcms", "hello.cpp"
     pid = fork { exec "./hello", "-c", "config.json" }
 
     sleep 1 # grace time for server start

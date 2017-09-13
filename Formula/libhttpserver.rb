@@ -14,8 +14,6 @@ class Libhttpserver < Formula
     sha256 "aec3bba3f8db0cb1e9fd99d66aafb1f2ed399197f11af43654f911205b62d5ee" => :mavericks
   end
 
-  option :universal
-
   depends_on "libmicrohttpd"
 
   depends_on "pkg-config" => :build
@@ -24,8 +22,6 @@ class Libhttpserver < Formula
   depends_on "libtool" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = [
       "--disable-dependency-tracking",
       "--disable-silent-rules",
@@ -42,7 +38,7 @@ class Libhttpserver < Formula
 
   test do
     system ENV.cxx, pkgshare/"examples/hello_world.cpp",
-      "-o", "hello_world", "-lhttpserver", "-lcurl"
+      "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
     pid = fork { exec "./hello_world" }
     sleep 1 # grace time for server start
     begin

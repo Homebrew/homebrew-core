@@ -1,14 +1,13 @@
 class LcdfTypetools < Formula
   desc "Manipulate OpenType and multiple-master fonts"
   homepage "https://www.lcdf.org/type/"
-  url "https://www.lcdf.org/type/lcdf-typetools-2.104.tar.gz"
-  sha256 "d7985458ead0850cb9549ff1d619ffc18da5d7be892be5e1fce6048d510f0fff"
+  url "https://www.lcdf.org/type/lcdf-typetools-2.106.tar.gz"
+  sha256 "503c3869f73a392ae0ba41e0fc4f7672e70e2d66e8a81f3bb183f495183fa967"
 
   bottle do
-    sha256 "8d5eace9f1dadaa4a1b05d5d6a9a1a4dcb622371c4c727ba1ab88abf014a2f53" => :sierra
-    sha256 "5195d35913f9c1bf338ce1176e7a01c3e0dec967c68f69691ae4bcf201889d6b" => :el_capitan
-    sha256 "ebfc8ad02b619eea5860a58a96b2255437c6b769f22ffb22354da0d7aa782967" => :yosemite
-    sha256 "07c5729e83fcfd149cacac02fd432f500e87cee4a645e15dd53677a3798eeeef" => :mavericks
+    sha256 "506c5c3094db4572915e4d0148e63e50fcbc1538fdc99dcaf5c5757c566b0d8e" => :sierra
+    sha256 "76dd55f25f7bb778507f1aa115f99b72323f61f292462841aaa1229df9bfa80e" => :el_capitan
+    sha256 "765f4c5554e9302c9162f887fd227c52bdf3e46602789d6cc52a86f59780e90a" => :yosemite
   end
 
   conflicts_with "open-mpi", :because => "both install same set of binaries."

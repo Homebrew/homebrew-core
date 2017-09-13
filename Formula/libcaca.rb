@@ -1,7 +1,9 @@
 class Libcaca < Formula
   desc "Convert pixel information into colored ASCII art"
   homepage "http://caca.zoy.org/wiki/libcaca"
-  url "https://fossies.org/linux/privat/libcaca-0.99.beta19.tar.gz"
+  url "http://caca.zoy.org/files/libcaca/libcaca-0.99.beta19.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libcaca/libcaca-0.99.beta19.tar.gz"
+  mirror "https://fossies.org/linux/privat/libcaca-0.99.beta19.tar.gz"
   version "0.99b19"
   sha256 "128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d3772f4"
 

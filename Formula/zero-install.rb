@@ -4,12 +4,13 @@ class ZeroInstall < Formula
   url "https://github.com/0install/0install/archive/v2.12-1.tar.gz"
   version "2.12-1"
   sha256 "317ac6ac680d021cb475962b7f6c2bcee9c35ce7cf04ae00d72bba8113f13559"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7079fda1ae395c7115cfa86ee8dad85b29b08b1d43d3e99e3fd318ac72af6916" => :sierra
-    sha256 "6e9829c5ada464aa7462596bfc4227533ba02450d5ebc4d8786f3107998cc2d4" => :el_capitan
-    sha256 "3cde544e078d4f436e76e05fd702975dceacdd25f0f6a48c8e878e21ca7f861e" => :yosemite
+    sha256 "bf4bb4e75194ac7f85969298f592fa460c459fe5363aaca290c16055cbb6be91" => :sierra
+    sha256 "fc20a07f9e2f81feeeb0b755838b5e6f327206f9a95c00f13b7fcea851c00199" => :el_capitan
+    sha256 "173371c177694ff72038f504c81bde55777960d14678bf1d0b942487aff444ef" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -21,13 +22,15 @@ class ZeroInstall < Formula
   depends_on "gtk+" => :optional
 
   def install
+    ENV.append_path "PATH", Formula["gnupg"].opt_bin
+
     opamroot = buildpath/"opamroot"
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
     system "opam", "init", "--no-setup"
-    modules = %w[yojson xmlm ounit react ppx_tools lwt extlib ocurl sha]
+    modules = %w[yojson xmlm ounit react ppx_tools lwt<3 extlib ocurl sha]
     modules << "lablgtk" if build.with? "gtk+"
-    system "opam", "install", *modules
+    system "opam", "config", "exec", "opam", "install", *modules
 
     system "opam", "config", "exec", "make"
     inreplace "dist/install.sh", '"/usr/local"', prefix

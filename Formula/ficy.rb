@@ -1,18 +1,16 @@
 class Ficy < Formula
   desc "Icecast/Shoutcast stream grabber suite"
   homepage "https://www.thregr.org/~wavexx/software/fIcy/"
-  url "https://www.thregr.org/~wavexx/software/fIcy/releases/fIcy-1.0.19.tar.gz"
-  sha256 "397df996fd63ce8608e62b195af61e88b0571aac01a51f1935dbf639c5424dcb"
+  url "https://www.thregr.org/~wavexx/software/fIcy/releases/fIcy-1.0.21.tar.gz"
+  sha256 "8564b16d3a52fa6dc286b02bfcc19e4acdc148c30f1750ca144e2ea47c84fd81"
 
   head "https://github.com/wavexx/fIcy.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "033e9e6d4384f813c16549ea6f6f31758e3f721084cf37e2cc45997f1c252242" => :sierra
-    sha256 "16c55392bb663480719ea585e7897851b8c3af789fdeed93e610b978d1167b2f" => :el_capitan
-    sha256 "e549c781d232c77be4628f2ad48f4511a226f0bd4f81b930629336af490f20aa" => :yosemite
-    sha256 "ceaaa6fe572fec4e2d14701e62696616f728b8f1dd29eae787afe19bdfdf70e6" => :mavericks
+    sha256 "c8e04a4eb2cf74a46ed02c14c18bb13b06dcdc8703f5913744e904492efe64d8" => :sierra
+    sha256 "b3230fe854623e9ef87868b028a7c3cdfa7b08cdd749def59312cbc47c510bec" => :el_capitan
+    sha256 "ba35c8e07903b74a37daf9131f26a578320f79252aa95e9ca7a5921065cd2a51" => :yosemite
   end
 
   def install

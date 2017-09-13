@@ -1,6 +1,6 @@
 class WCalc < Formula
   desc "Very capable calculator"
-  homepage "http://w-calc.sourceforge.net"
+  homepage "https://w-calc.sourceforge.io/"
   url "https://downloads.sourceforge.net/w-calc/wcalc-2.5.tar.bz2"
   sha256 "0e2c17c20f935328dcdc6cb4c06250a6732f9ee78adf7a55c01133960d6d28ee"
 

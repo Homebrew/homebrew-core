@@ -1,7 +1,8 @@
 class Lynx < Formula
   desc "Text-based web browser"
-  homepage "http://lynx.isc.org/release/"
+  homepage "https://invisible-island.net/lynx/"
   url "http://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.8rel.2.tar.bz2"
+  mirror "ftp://ftp.invisible-island.net/lynx/tarballs/lynx2.8.8rel.2.tar.bz2"
   version "2.8.8rel.2"
   sha256 "6980e75cf0d677fd52c116e2e0dfd3884e360970c88c8356a114338500d5bee7"
   revision 1
@@ -31,6 +32,6 @@ class Lynx < Formula
   end
 
   test do
-    system "#{bin}/lynx", "-dump", "http://checkip.dyndns.org"
+    system "#{bin}/lynx", "-dump", "https://example.org/"
   end
 end

@@ -1,8 +1,8 @@
 class Kobalt < Formula
   desc "Build system"
   homepage "http://beust.com/kobalt"
-  url "https://github.com/cbeust/kobalt/releases/download/0.931/kobalt-0.931.zip"
-  sha256 "63a530fbdec7e48b45807d842ad386c6bd5397fef3e8719591e855fc395c2b50"
+  url "https://github.com/cbeust/kobalt/releases/download/1.0.89/kobalt-1.0.89.zip"
+  sha256 "88b599347c2ca39794402aa86b7066e36a2eef1a0adccc9842b69688b3eea637"
 
   bottle :unneeded
 
@@ -16,8 +16,6 @@ class Kobalt < Formula
   end
 
   test do
-    ENV.java_cache
-
     (testpath/"src/main/kotlin/com/A.kt").write <<-EOS.undent
       package com
       class A

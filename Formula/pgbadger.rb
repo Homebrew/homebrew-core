@@ -1,16 +1,16 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://dalibo.github.io/pgbadger/"
-  url "https://github.com/dalibo/pgbadger/archive/v9.1.tar.gz"
-  sha256 "2fd7166d74692cc7d87f00b37cc5c7c1c6eddf156372376d382a40f67d694011"
+  url "https://github.com/dalibo/pgbadger/archive/v9.2.tar.gz"
+  sha256 "2107466309a409fb9e40f11bb77cac1f9ba7910d5328e7b2e08eb7a1c6d760ec"
 
   head "https://github.com/dalibo/pgbadger.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2fe3fa1558342e01dd2ad4c62cba39dfbc1c5638dec568f7a552e65253877c4e" => :sierra
-    sha256 "c0cc5f00e22d8665e5226fd4cad7f004acc03a4b8ea93796066a847a46e54462" => :el_capitan
-    sha256 "c0cc5f00e22d8665e5226fd4cad7f004acc03a4b8ea93796066a847a46e54462" => :yosemite
+    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :sierra
+    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :el_capitan
+    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :yosemite
   end
 
   def install

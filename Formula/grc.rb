@@ -1,39 +1,42 @@
 class Grc < Formula
   desc "Colorize logfiles and command output"
   homepage "http://korpus.juls.savba.sk/~garabik/software/grc.html"
-  url "https://github.com/garabik/grc/archive/v1.10.tar.gz"
-  sha256 "8d65a141c659c5f992b417c15fe8e1283698bb9f39f8b201fd811deb0841d1f0"
-  revision 1
+  url "https://github.com/garabik/grc/archive/v1.11.1.tar.gz"
+  sha256 "9ae4bcc9186d6856e861d5b0e29b7b14db3f14e6b643e2df0076c104a94dbcba"
   head "https://github.com/garabik/grc.git"
 
   bottle :unneeded
 
-  depends_on "coreutils"
   depends_on :python3
 
   conflicts_with "cc65", :because => "both install `grc` binaries"
 
   def install
+    # fix non-standard prefix installs
     inreplace ["grc", "grc.1"], "/etc", etc
-    inreplace ["grcat", "grcat.1"], "/usr/local", prefix
+    inreplace ["grcat", "grcat.1"], "/usr/local", HOMEBREW_PREFIX
 
-    etc.install "grc.conf"
-    bin.install %w[grc grcat]
-    pkgshare.install Dir["conf.*"]
-    man1.install %w[grc.1 grcat.1]
+    # so that the completions don't end up in etc/profile.d
+    inreplace "install.sh",
+      "mkdir -p $PROFILEDIR\ncp -fv grc.bashrc $PROFILEDIR", ""
 
+    system "./install.sh", prefix, HOMEBREW_PREFIX
     etc.install "grc.bashrc"
-    etc.install "grc.zsh" if build.head?
+    etc.install "grc.zsh"
+    etc.install "grc.fish"
+  end
 
-    # Probably can be removed for > 1.10
-    # Upstream issue "Error in ls command alias"
-    # Reported 5 Feb 2017 https://github.com/garabik/grc/issues/50
-    gnubin = Formula["coreutils"].opt_libexec/"gnubin"
-    bin.env_script_all_files(libexec/"bin", :PATH => "#{gnubin}:$PATH")
+  # Apply the upstream fix from garabik/grc@ddc789bf to preexisting config files
+  def post_install
+    grc_bashrc = etc/"grc.bashrc"
+    bad = /^    alias ls='colourify ls --color'$/
+    if grc_bashrc.exist? && File.read(grc_bashrc) =~ bad
+      inreplace grc_bashrc, bad, "    alias ls='colourify ls'"
+    end
   end
 
   def caveats; <<-EOS.undent
-    New shell sessions will start using GRC after you add this to your profile:
+    New shell sessions will use GRC if you add the relevant file to your profile e.g.:
       . #{etc}/grc.bashrc
     EOS
   end

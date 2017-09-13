@@ -1,34 +1,28 @@
 class Lsdvd < Formula
   desc "Read the content info of a DVD"
   homepage "https://sourceforge.net/projects/lsdvd"
-  url "https://downloads.sourceforge.net/project/lsdvd/lsdvd/0.16%20-%20I%20hate%20James%20Blunt/lsdvd-0.16.tar.gz"
-  sha256 "04ae3e2d823ed427e31d57f3677d28ec36bdf3bf984d35f7bdfab030d89b20f1"
+  url "https://downloads.sourceforge.net/project/lsdvd/lsdvd/lsdvd-0.17.tar.gz"
+  sha256 "7d2c5bd964acd266b99a61d9054ea64e01204e8e3e1a107abe41b1274969e488"
 
   bottle do
     cellar :any
-    sha256 "24d7f2b86648de4b7477d41b0a2adfefa870ac2a973f4a31e16bb88a88fc3904" => :sierra
-    sha256 "29aa32a4b1b1c327aaea8b568f625c0c8e49723a3397d722df927e0b1b4493d7" => :el_capitan
-    sha256 "9af38820e4747c002f38be75d31577533980ca731f12cffc2b9f41c6a37e1a3d" => :yosemite
-    sha256 "b00f07a2636d1d73ab1b3456843d35de78e01f98f9ac818c4f0d70a88893253b" => :mavericks
+    sha256 "d64473d3ff0f1b1b7dce0435da6305aa384a374ebca7154498770a9c66297cb7" => :sierra
+    sha256 "eefa4b673d38a87354cdac631ee7e7a1054e69e29e912ff52c2fa84995f7e189" => :el_capitan
+    sha256 "4662e19252627e7f8e344fc0f8b52e83e908f26e9253aad7590eef126ebae7f0" => :yosemite
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libdvdread"
   depends_on "libdvdcss" => :optional
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cb1d457/lsdvd/patch-configure.diff"
-    sha256 "3535ad1ad4c8fc2e49287190edcd89cd9d0679682ee94aca200252b9e1d80cd9"
-  end
-
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cb1d457/lsdvd/patch-lsdvd_c.diff"
-    sha256 "33a8f5876a0aa09532424066da71c64d18ab67154ecbebd66f81d98843937079"
-  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    system bin/"lsdvd", "--help"
   end
 end

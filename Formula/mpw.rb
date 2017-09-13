@@ -1,41 +1,38 @@
 class Mpw < Formula
-  desc "Master Password for the terminal"
+  desc "Stateless/deterministic password and identity manager"
   homepage "https://ssl.masterpasswordapp.com/"
-  url "https://ssl.masterpasswordapp.com/mpw-2.1-cli4-0-gf6b2287.tar.gz"
-  version "2.1-cli4"
-  sha256 "6ea76592eb8214329072d04f651af99d73de188a59ef76975d190569c7fa2b90"
+  url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-2-0-g30fdb54e.tar.gz"
+  version "2.6-cli-2"
+  sha256 "c206e512d193a154814a7c5d1faa8dc89e3fa0817b059bd6d957a61dc8ee1e68"
+  head "https://github.com/Lyndir/MasterPassword.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "03d033152f2da377654b0dabd823e304827fad58d08ab3c945978f61c5aba5bf" => :sierra
-    sha256 "23055a80705a261f15bf1f36cce7919dda62457b06c4af1bc1137ed172aa6844" => :el_capitan
-    sha256 "34b22632d5d225bcbc6b24dada0ce2b526c6739b9b0e55e9b1209f265d0a6888" => :yosemite
-    sha256 "290586cc77c94562e08977227209e16b9b821cb84e068bcf748b2e0ce07bdb0f" => :mavericks
+    sha256 "126ef4edcb6095bb0a6961986de07b23daec5dbe218e8895330d71df12c69456" => :sierra
+    sha256 "4be101a8af0048f3542ca880420da11c71b1b7efe634d9fbac7569a75b2ee828" => :el_capitan
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "openssl"
+  option "without-json-c", "Disable JSON configuration support"
+  option "without-ncurses", "Disable colorized identicon support"
 
-  resource "libscrypt" do
-    url "https://ssl.masterpasswordapp.com/libscrypt-b12b554.tar.gz"
-    sha256 "c726daec68a345e420896f005394a948dc5a6924713ed94b684c856d4c247f0b"
-  end
+  depends_on "libsodium"
+  depends_on "json-c" => :recommended
+  depends_on "ncurses" => :recommended
 
   def install
-    resource("libscrypt").stage buildpath/"lib/scrypt"
-    touch "lib/scrypt/.unpacked"
+    cd "platform-independent/cli-c" if build.head?
 
-    ENV["targets"] = "mpw mpw-tests"
+    ENV["targets"] = "mpw"
+    ENV["mpw_json"] = build.with?("json-c") ? "1" : "0"
+    ENV["mpw_color"] = build.with?("ncurses") ? "1" : "0"
+
     system "./build"
-    system "./mpw-tests"
-
+    system "./mpw-cli-tests"
     bin.install "mpw"
   end
 
   test do
-    assert_equal "RoliQeka7/Deqi",
-      shell_output("#{bin}/mpw -u user -P password test.com 2>/dev/null").strip
+    assert_equal "Jejr5[RepuSosp",
+      shell_output("#{bin}/mpw -q -Fnone -u 'Robert Lee Mitchell' -M 'banana colored duckling' -tlong -c1 -a3 'masterpasswordapp.com'").strip
   end
 end

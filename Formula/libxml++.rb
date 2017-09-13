@@ -1,6 +1,6 @@
 class Libxmlxx < Formula
   desc "C++ wrapper for libxml"
-  homepage "http://libxmlplusplus.sourceforge.net"
+  homepage "https://libxmlplusplus.sourceforge.io"
   url "https://download.gnome.org/sources/libxml++/2.40/libxml++-2.40.1.tar.xz"
   sha256 "4ad4abdd3258874f61c2e2a41d08e9930677976d303653cd1670d3e9f35463e9"
 
@@ -14,8 +14,6 @@ class Libxmlxx < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glibmm"
-  # LibXML++ can't compile agains the version of LibXML shipped with Leopard
-  depends_on "libxml2" if MacOS.version <= :leopard
 
   needs :cxx11
 

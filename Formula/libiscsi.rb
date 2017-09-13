@@ -37,11 +37,7 @@ class Libiscsi < Formula
 
   test do
     system bin/"iscsi-ls", "--usage"
-    if build.with? "cunit"
-      system bin/"iscsi-test-cu", "--list"
-    end
-    if build.with? "noinst"
-      system bin/"prog_noop_reply", "--usage"
-    end
+    system bin/"iscsi-test-cu", "--list" if build.with? "cunit"
+    system bin/"prog_noop_reply", "--usage" if build.with? "noinst"
   end
 end

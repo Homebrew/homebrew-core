@@ -1,14 +1,15 @@
 class DockerSwarm < Formula
   desc "Turn a pool of Docker hosts into a single, virtual host"
   homepage "https://github.com/docker/swarm"
-  url "https://github.com/docker/swarm/archive/v1.2.6.tar.gz"
-  sha256 "27771334c0fbe9c0b1230f90f125aa266158a17233d896d5e6816520a86a9fc4"
+  url "https://github.com/docker/swarm/archive/v1.2.8.tar.gz"
+  sha256 "be8d368000e2afbe4cda87330805978bbb2d9e33cd15bc82a8669a8cd0bcd4c6"
   head "https://github.com/docker/swarm.git"
 
   bottle do
-    sha256 "a5fa2857c0ea64376819f9983697888b2237b968e3eb301f8daf7ee291b5ce4d" => :sierra
-    sha256 "5e7b222ad49eae76a5754240fd98bce22a9f795c5e8928f26d9c185e6f91f0e0" => :el_capitan
-    sha256 "0b7c5090b689a6163fa3a1533a85bd3526edc75329d9536a8dd197c8556b1163" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "17efa0a36074c19516377ed860540ed5e8672794607d8a1a78b7f18b12b0f403" => :sierra
+    sha256 "de4c2cb59c9a198bec4bb6442cbb6fd0465964b27842d77d6d277429cfe51b27" => :el_capitan
+    sha256 "01b32b2a21df9ffb5f3e0721cbb33f65aa5ef8e0207ec9648feb769fcb4ae932" => :yosemite
   end
 
   depends_on "go" => :build

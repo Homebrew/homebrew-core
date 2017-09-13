@@ -1,29 +1,32 @@
 class Deis < Formula
-  desc "Deploy and manage applications on your own servers"
+  desc "The CLI for Deis Workflow"
   homepage "https://deis.io/"
-  url "https://github.com/deis/workflow-cli/archive/v2.10.0.tar.gz"
-  sha256 "de5a9b1dd8746059c77b63472ae8d9a788e3f3cccdb190f8f307e3fdbb309700"
+  url "https://github.com/deis/workflow-cli/archive/v2.18.0.tar.gz"
+  sha256 "886e3cd9642380ea92d0f76bc1b1114d32a010d4d577212f9396e3069a6b11ee"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a89e64ba9322120a17504308bd226e6cc9e9fc5c320f90d48908dc1c0a2f1915" => :sierra
-    sha256 "968c126fa500f22fca2bf8ee9c015e15c645c278ca212063a85a587acd0e834b" => :el_capitan
-    sha256 "6f5f2f84293444f497aed5c3b9bb8efb9c71ba65d06de2708d9cced75ad3447e" => :yosemite
+    sha256 "9a5e666e56d263cf75c838336534d1cbffd7eb51950aaad25630d0cb1f229f0b" => :sierra
+    sha256 "7e8b9a9545b65a3d9d50566c7a01236313492388ffe0db7df62eba628408d414" => :el_capitan
+    sha256 "1c6b8f51f68c214b508a16cddff08a8e36d78981aaae69638b862bb0315f76f2" => :yosemite
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = `dirname #{buildpath}`.chomp
-    ENV["GOBIN"] = ENV["GOPATH"] + "/bin"
-    (buildpath/"src/github.com/deis").mkpath
-    (buildpath/"bin").mkpath
-    ln_s buildpath, "src/github.com/deis/workflow-cli"
-    system "go", "get", "github.com/mitchellh/gox"
-    system "go", "get"
-    system "../bin/gox", "-verbose", "-ldflags",
-      "'-X=github.com/deis/workflow-cli/version.Version=v2.10.0'",
-      "-os=darwin", "-arch=amd64", "-output=#{bin}/deis"
+    ENV["GOPATH"] = buildpath
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    deispath = buildpath/"src/github.com/deis/workflow-cli"
+    deispath.install Dir["{*,.git}"]
+
+    cd deispath do
+      system "glide", "install"
+      system "go", "build", "-o", "build/deis",
+        "-ldflags",
+        "'-X=github.com/deis/workflow-cli/version.Version=v#{version}'"
+      bin.install "build/deis"
+    end
   end
 
   test do

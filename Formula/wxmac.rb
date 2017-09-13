@@ -1,70 +1,48 @@
 class Wxmac < Formula
-  desc "wxWidgets, a cross-platform C++ GUI toolkit (for macOS)"
+  desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  revision 4
-
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.3.1/wxWidgets-3.0.3.1.tar.bz2"
+  sha256 "3164ad6bc5f61c48d2185b39065ddbe44283eb834a5f62beb13f1d0923e366e4"
+  revision 1
   head "https://github.com/wxWidgets/wxWidgets.git"
-
-  stable do
-    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.2/wxWidgets-3.0.2.tar.bz2"
-    sha256 "346879dc554f3ab8d6da2704f651ecb504a22e9d31c17ef5449b129ed711585d"
-
-    # Patch for wxOSXPrintData, custom paper not applied
-    # http://trac.wxwidgets.org/ticket/16959
-    patch do
-      url "http://trac.wxwidgets.org/raw-attachment/ticket/16959/wxPaperCustomPatch.patch"
-      sha256 "391b5c05caa3843de1579294a62918d9e00b2311313ee2ce1c1943cd5a8494b3"
-    end
-
-    # Various fixes related to Yosemite. Revisit in next stable release.
-    # Please keep an eye on http://trac.wxwidgets.org/ticket/16329 as well
-    # Theoretically the above linked patch should still be needed, but it isn't.
-    # Try to find out why.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-yosemite.diff"
-      sha256 "02ab6d044ceab85127cad11f2eba2164e7f3fe5c95d6a863e8231a57d1f87d6f"
-    end
-
-    # Remove uncenessary <QuickTime/QuickTime.h> includes
-    # Fixes building against Xcode 8 with macOS 10.12 SDK
-    # http://trac.wxwidgets.org/changeset/f6a2d1caef5c6d412c84aa900cb0d3990b350938/git-wxWidgets
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bbf4995/wxmac/patch-quicktime-removal.diff"
-      sha256 "ebddf09877b053a6fafbf61ac52e4a7b511489dc8437110f80f00d5d2b5ff885"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "a5efe8ecbcfebf941096b9a5fdeb3321be2906bbe530d0a3af7ce7dacb20c0a7" => :sierra
-    sha256 "148b27f56a089b435842087450efa57a701851378648a32a8f1d3fbc988d9b9f" => :el_capitan
-    sha256 "b29cf28e87e89b86ad601efdbdb38840b4810b2bf6e49f6b4c42c4530da36100" => :yosemite
+    sha256 "fb15ea55d8393fafa1c286485fc8c1da91b3f41d76a234d9766689cfe4635e1e" => :sierra
+    sha256 "b26fa72e62558efa45fc89a4cc9cea74845369764e74fffa339b3f9eb6549827" => :el_capitan
+    sha256 "591bffb395156566ef3e55a9a8f2c193bdcde8b941d42cc6e6b41833ceeeaba2" => :yosemite
+  end
+
+  # Fix compilation on High Sierra
+  # https://trac.wxwidgets.org/ticket/17929#ticket
+  patch do
+    url "https://github.com/wxWidgets/wxWidgets/commit/9a610eadcfe.patch?full_index=1"
+    sha256 "b445ddf1331b8ec21790b7e3fe3ac6059a2548002e7cbb9bf22b597baf32e3bf"
   end
 
   devel do
     url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.tar.bz2"
     sha256 "e082460fb6bf14b7dd6e8ac142598d1d3d0b08a7b5ba402fdbf8711da7e66da8"
 
-    # Fix Issue: Creating wxComboCtrl without wxTE_PROCESS_ENTER style results in an assert.
+    # Creating wxComboCtrl without wxTE_PROCESS_ENTER style results in an assert
     patch do
-      url "https://github.com/wxWidgets/wxWidgets/commit/cee3188c1abaa5b222c57b87cc94064e56921db8.patch"
-      sha256 "c6503ba36a166c031426be4554b033bae5b0d9da6fabd33c10ffbcb8672a0c2d"
+      url "https://github.com/wxWidgets/wxWidgets/commit/cee3188c1abaa5b222c57b87cc94064e56921db8.patch?full_index=1"
+      sha256 "c2389fcb565ec4d488aed2586da15ec72d7fdb8c614f266f8f936d6e4ea10210"
     end
 
-    # Fix Issue: Building under macOS in C++11 mode for i386 architecture (but not amd64) results in an error about narrowing conversion.
+    # Building under macOS in C++11 mode for i386 architecture (but not amd64) results in an error about narrowing conversion
     patch do
-      url "https://github.com/wxWidgets/wxWidgets/commit/ee486dba32d02c744ae4007940f41a5b24b8c574.patch"
-      sha256 "88ef4c5ec0422d00ae01aff18143216d1e20608f37090be7f18e924c631ab678"
+      url "https://github.com/wxWidgets/wxWidgets/commit/ee486dba32d02c744ae4007940f41a5b24b8c574.patch?full_index=1"
+      sha256 "dd73556b7a91cbfa63e2eafa8bab48ce5308b382d8e26e60b79f61d0520871e3"
     end
 
-    # Fix Issue: Building under macOS in C++11 results in several -Winconsistent-missing-override warnings.
+    # Building under macOS in C++11 results in several -Winconsistent-missing-override warnings
     patch do
-      url "https://github.com/wxWidgets/wxWidgets/commit/173ecd77c4280e48541c33bdfe499985852935ba.patch"
-      sha256 "018fdb6abda38f5d017cffae5925fa4ae8afa9c84912c61e0afd26cd4f7b5473"
+      url "https://github.com/wxWidgets/wxWidgets/commit/173ecd77c4280e48541c33bdfe499985852935ba.patch?full_index=1"
+      sha256 "200c4fc3e103c7c9aa36ff35335af1a05494bf00a7181b6d6a11f0ffb2e4dc5d"
     end
   end
 
-  option :universal
   option "with-stl", "use standard C++ classes for everything"
   option "with-static", "build static libraries"
 
@@ -75,50 +53,35 @@ class Wxmac < Formula
   def install
     args = [
       "--prefix=#{prefix}",
-      "--enable-unicode",
-      "--enable-std_string",
-      "--enable-display",
-      "--with-opengl",
-      "--with-osx_cocoa",
-      "--with-libjpeg",
-      "--with-libtiff",
-      # Otherwise, even in superenv, the internal libtiff can pick
-      # up on a nonuniversal xz and fail
-      # https://github.com/Homebrew/legacy-homebrew/issues/22732
-      "--without-liblzma",
-      "--with-libpng",
-      "--with-zlib",
-      "--enable-dnd",
       "--enable-clipboard",
-      "--enable-webkit",
-      "--enable-svg",
-      # On 64-bit, enabling mediactrl leads to wxconfig trying to pull
-      # in a non-existent 64 bit QuickTime framework. This is submitted
-      # upstream and will eventually be fixed, but for now...
-      MacOS.prefer_64_bit? ? "--disable-mediactrl" : "--enable-mediactrl",
-      "--enable-graphics_ctx",
       "--enable-controls",
       "--enable-dataviewctrl",
+      "--enable-display",
+      "--enable-dnd",
+      "--enable-graphics_ctx",
+      "--enable-std_string",
+      "--enable-svg",
+      "--enable-unicode",
+      "--enable-webkit",
       "--with-expat",
+      "--with-libjpeg",
+      "--with-libpng",
+      "--with-libtiff",
+      "--with-opengl",
+      "--with-osx_cocoa",
+      "--with-zlib",
       "--disable-precomp-headers",
-      # need to set with-macosx-version-min to avoid configure defaulting to 10.5
-      "--with-macosx-version-min=#{MacOS.version}",
       # This is the default option, but be explicit
       "--disable-monolithic",
+      # Enabling mediactrl leads to wxconfig trying to pull in a non-existent
+      # 64-bit QuickTime framework: https://trac.wxwidgets.org/ticket/17639
+      "--disable-mediactrl",
+      # Set with-macosx-version-min to avoid configure defaulting to 10.5
+      "--with-macosx-version-min=#{MacOS.version}",
     ]
 
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universal_binary=#{Hardware::CPU.universal_archs.join(",")}"
-    end
-
     args << "--enable-stl" if build.with? "stl"
-
-    if build.with? "static"
-      args << "--disable-shared"
-    else
-      args << "--enable-shared"
-    end
+    args << (build.with?("static") ? "--disable-shared" : "--enable-shared")
 
     system "./configure", *args
     system "make", "install"

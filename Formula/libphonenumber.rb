@@ -1,14 +1,14 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/v8.3.0.tar.gz"
-  sha256 "3114faa60973c817253194a56119c5795063ccd2f336d945c774f8e4f99b70a4"
+  url "https://github.com/googlei18n/libphonenumber/archive/v8.8.1.tar.gz"
+  sha256 "31393c8ab63b611f08bdfce67bbbce31ccbe1f5e765e4d379da9337b03885bff"
 
   bottle do
     cellar :any
-    sha256 "f881f5ee7f01c132cdc5033bb11e43a6b6d7b3f8babcc785596ee69da343d515" => :sierra
-    sha256 "f655f3700ea2294ee8d1a62688e840d49b92bb59b7b906453c2504f885a2a9dc" => :el_capitan
-    sha256 "85da4aa7ee587122ae86b2e56528309044447bdb4630880aecdefc5fe38ab1dd" => :yosemite
+    sha256 "3ab2b0a86e76b06f2d04534024a887f31ea3974e7af801745f14a5b43c3b0e18" => :sierra
+    sha256 "b28f0a104142214c71c0d4c1af0e56da8f79e4deb3bd36c6e7d1783c340ec05c" => :el_capitan
+    sha256 "dd7cc9818944ed7bc05b10e0ffea32f091117b038415b73169b25389a4119f42" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -19,25 +19,18 @@ class Libphonenumber < Formula
   depends_on "re2"
 
   resource "gtest" do
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
-    sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
+    url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
+    sha256 "58a6f4277ca2bc8565222b3bbd58a177609e9c488e8a72649359ba51450db7d8"
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     (buildpath/"gtest").install resource("gtest")
-
-    cd "gtest" do
-      system "cmake", ".", *std_cmake_args
-      system "make"
-    end
-
-    args = std_cmake_args + %W[
-      -DGTEST_INCLUDE_DIR:PATH=#{buildpath}/gtest/include
-      -DGTEST_LIB:PATH=#{buildpath}/gtest/libgtest.a
-      -DGTEST_SOURCE_DIR:PATH=#{buildpath}/gtest/src
-    ]
-
-    system "cmake", "cpp", *args
+    system "cmake", "cpp", "-DGTEST_SOURCE_DIR=gtest/googletest",
+                           "-DGTEST_INCLUDE_DIR=gtest/googletest/include",
+                           *std_cmake_args
     system "make", "install"
   end
 

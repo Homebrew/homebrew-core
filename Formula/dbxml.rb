@@ -1,15 +1,14 @@
 class Dbxml < Formula
   desc "Embeddable XML database with XQuery support and other advanced features"
   homepage "https://www.oracle.com/us/products/database/berkeley-db/xml/overview/index.html"
-  url "http://download.oracle.com/berkeley-db/dbxml-6.0.18.tar.gz"
-  sha256 "5851f60a47920718b701752528a449f30b16ddbf5402a2a5e8cde8b4aecfabc8"
-  revision 2
+  url "http://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
+  sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
 
   bottle do
-    cellar :any
-    sha256 "f12996781a7a784ff65b5fbb33b5285f996fda729e7fcd4104890ea55010c549" => :sierra
-    sha256 "babca444db17952084979d91bb17680f3a8a3d009f03cef87686bb7bd4ae6054" => :el_capitan
-    sha256 "3a64c61d48a1f0c864d6f780c0b73ccd82a26f24958d64c1ddff6c5f35ea9b2f" => :yosemite
+    rebuild 1
+    sha256 "669e6aadc43f46b060eb2acadd214dae28b5b6727d46e18c4e302d81665f2170" => :sierra
+    sha256 "402542ead71ef0b095bca06052270709a1302dca5ae4d2202c23e6457e83fd77" => :el_capitan
+    sha256 "a055bb860d3059aebe23029e14a4fe58fb6ad1a586864f1c74dc51970cfdc432" => :yosemite
   end
 
   depends_on "xerces-c"
@@ -18,16 +17,18 @@ class Dbxml < Formula
 
   def install
     inreplace "dbxml/configure" do |s|
-      s.gsub! "lib/libdb-*.la | sed 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed 's/.*db-\\(.*\\).a"
+      s.gsub! "lib/libdb-*.la | sed -e 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed -e 's/.*db-\\(.*\\).a"
       s.gsub! "lib/libdb-*.la", "lib/libdb-*.a"
+      s.gsub! "libz.a", "libz.dylib"
     end
 
     cd "dbxml" do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
-                            "--with-xqilla=#{HOMEBREW_PREFIX}",
-                            "--with-xerces=#{HOMEBREW_PREFIX}",
-                            "--with-berkeleydb=#{HOMEBREW_PREFIX}"
+                            "--with-xqilla=#{Formula["xqilla"].opt_prefix}",
+                            "--with-xerces=#{Formula["xerces-c"].opt_prefix}",
+                            "--with-berkeleydb=#{Formula["berkeley-db"].opt_prefix}"
       system "make", "install"
     end
   end

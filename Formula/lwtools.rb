@@ -29,13 +29,13 @@ class Lwtools < Formula
 
     # lwobjdump
     dump = `#{bin}/lwobjdump foo.obj`
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
     assert dump.start_with?("SECTION foo")
 
     # lwar
     system "#{bin}/lwar", "--create", "foo.lwa", "foo.obj"
     list = `#{bin}/lwar --list foo.lwa`
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
     assert list.start_with?("foo.obj")
   end
 end

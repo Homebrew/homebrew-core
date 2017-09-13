@@ -1,32 +1,24 @@
 class Dvm < Formula
   desc "Docker Version Manager"
-  homepage "https://github.com/getcarina/dvm"
-  url "https://github.com/getcarina/dvm/archive/0.6.4.tar.gz"
-  sha256 "7ff3bc5271432b7f5da535cd04228bf212dd2965ed15998837d660452094ff0e"
+  homepage "https://github.com/howtowhale/dvm"
+  url "https://github.com/howtowhale/dvm/archive/0.9.0.tar.gz"
+  sha256 "ee54c4aa104cd49aaec3eb65078d9d01d18b1d1eb73a32dba3f7b645df5d74c4"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "29c0477105dffacb2826895fc543d396efbc1563512939f38658b774753f7b80" => :sierra
-    sha256 "fe17b992aa8506e903642162d03addd1b106debff425e75a447f4293ccfdefbc" => :el_capitan
-    sha256 "8c504a35ceb86496fc9d582e9642d4746b525e97c24008fb47957371e642ddfb" => :yosemite
+    sha256 "9ff72c71d4fc692b0b573ab35f7cb834d5322341b03cf36230a2e69734f04422" => :sierra
+    sha256 "e1a7194b63b1802e241e2ac8938dd9ecd78b7fa07bc594ae3944a29985816a57" => :el_capitan
+    sha256 "b60ca73992ddeca444863ec05ae5ace4d82b9e38f7314027610d809c71a6426a" => :yosemite
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV.append_path "PATH", buildpath/"bin"
 
-    dir = buildpath/"src/github.com/getcarina/dvm"
-    dir.install buildpath.children
+    (buildpath/"src/github.com/howtowhale/dvm").install buildpath.children
 
-    cd dir do
-      # `depends_on "glide"` already has this covered
-      inreplace "Makefile", %r{^.*go get github.com/Masterminds/glide.*$\n}, ""
-
+    cd "src/github.com/howtowhale/dvm" do
       system "make", "VERSION=#{version}", "UPGRADE_DISABLED=true"
       prefix.install "dvm.sh"
       bash_completion.install "bash_completion" => "dvm"

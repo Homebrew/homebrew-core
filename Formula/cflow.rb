@@ -1,8 +1,8 @@
 class Cflow < Formula
   desc "Generate call graphs from C code"
   homepage "https://www.gnu.org/software/cflow/"
-  url "https://ftpmirror.gnu.org/cflow/cflow-1.5.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/cflow/cflow-1.5.tar.bz2"
+  url "https://ftp.gnu.org/gnu/cflow/cflow-1.5.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/cflow/cflow-1.5.tar.bz2"
   sha256 "6fe40a106a9ffd6a5489938b939d4301c04fa28a09596294b4f787abca1c037b"
 
   bottle do

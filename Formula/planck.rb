@@ -1,23 +1,23 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/2.1.0.tar.gz"
-  sha256 "cfd9906c47ae2764aface3e70d06e2db14d67f7caaf4571f24e389b5618c1633"
+  url "https://github.com/mfikes/planck/archive/2.7.3.tar.gz"
+  sha256 "16a620c33bc15c2f74ce1e80726c55c85f634443c9675c0c08292a964eb01780"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
     cellar :any
-    sha256 "34fe06592f3e2ae03167f3b77ef4be5b347bb26b530c1ed21cfd0e6339e66539" => :sierra
-    sha256 "5eed6ce3382c07d8681177ae97cc09f250c8064c210bbe267faf7f7121cba816" => :el_capitan
-    sha256 "51596af253024076c248618ab80e975150fbff812ce67fc425832ffc2622c57a" => :yosemite
+    sha256 "19a7cc443730c7d944a93d648cfe9b51f39217a74a7ab0fb93243f9a0d0c88ae" => :sierra
+    sha256 "947c188b94b40e0cc23cc07066bc4c9cd4b69894f89312c3770baf2df79b0206" => :el_capitan
+    sha256 "d2e1b047ef7a0de1f4763a8a18d11882be72cd56f5f3e75133d7b000acbfa3c9" => :yosemite
   end
 
-  depends_on "libzip"
-  depends_on "icu4c"
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "leiningen" => :build
   depends_on :xcode => :build
+  depends_on "libzip"
+  depends_on "icu4c"
   depends_on :macos => :mavericks
 
   def install

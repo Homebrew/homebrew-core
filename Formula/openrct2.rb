@@ -1,15 +1,15 @@
 class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.website"
-  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.0.6.tar.gz"
-  sha256 "c4e04359ef91bedf58fbd9da57c39ba59066840a467aa0346c4a6353b0ae33f5"
+  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.1.tar.gz"
+  sha256 "5d7a6c7f3c770e7de506958f86789c438c543c27d312fd096322cde4e89f50ad"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "032c1b75b68b5651e6aea5a49ae18c37a1d63ffda4a850333a551acd1fd69587" => :sierra
-    sha256 "b06b28693bfca1419517e0ba08ff33823dd07fbbc5578c07b359328793120882" => :el_capitan
-    sha256 "bc4e64492d425929e3062d88a69392138d9717423f75aae29f17c0252a8dbb0f" => :yosemite
+    sha256 "735164169c25a89a67376f6f3214d8965f2f0bff76a7ae613aa62f81f89a9d75" => :sierra
+    sha256 "8afca34c5907d09bbcae02a595fc4569c3176e666278c308ef99d01eeb07c64d" => :el_capitan
+    sha256 "632e19d91eb45d75bfae015b1307adfb0173112652639d188c2b461acd61e9f5" => :yosemite
   end
 
   depends_on "cmake" => :build

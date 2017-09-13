@@ -33,7 +33,7 @@ class Simh < Formula
     Dir["**/*.txt"].each do |f|
       (doc/File.dirname(f)).install f
     end
-    (share/"simh/vax").install Dir["VAX/*.{bin,exe}"]
+    (pkgshare/"vax").install Dir["VAX/*.{bin,exe}"]
   end
 
   test do

@@ -1,32 +1,24 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python interoperability"
   homepage "https://www.boost.org/"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.bz2"
-  sha256 "beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0"
+  url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
+  sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "3b47066b435fc7b9acb677969bf2fa54e634a45ee91d089f222169d012ab487a" => :sierra
-    sha256 "0958d5f3c4de00cc9b391c5ba4225c798056941be69cda4c6df913bf81f57c33" => :el_capitan
-    sha256 "14b55a75a1328adfe89f9234c72ed769d159f93fc0a7e140c956de2c3c5d54c9" => :yosemite
+    sha256 "d811c19f1eef548746972475d98f68f431f62af075a9c9e984911f6cb45ebb75" => :sierra
+    sha256 "37b52bcae4be5fb7db46487e494bc8c3da0ddbe2dab2e7f20ffba4e7eb3827e4" => :el_capitan
+    sha256 "28e1853e51af2f853dfd84135a62215c3d3142126742648f1e76434f218756dc" => :yosemite
   end
 
-  option :universal
   option :cxx11
-
   option "without-python", "Build without python 2 support"
-  depends_on :python3 => :optional
 
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
+  depends_on :python3 => :optional
+  depends_on "boost"
 
   def install
-    ENV.universal_binary if build.universal?
-
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",
@@ -36,8 +28,6 @@ class BoostPython < Formula
             "--user-config=user-config.jam",
             "threading=multi,single",
             "link=shared,static"]
-
-    args << "address-model=32_64" << "architecture=x86" << "pch=off" if build.universal?
 
     # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11

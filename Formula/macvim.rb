@@ -2,15 +2,14 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-127.tar.gz"
-  version "8.0-127"
-  sha256 "51d68454a5b430c2ef679c042be90c11008c1c099f80d4f32258449c0b872eac"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-137.tar.gz"
+  version "8.0-137"
+  sha256 "2f2b20c80f887c5f26dad42540f047e43928f8c1cb217b6874c8d5602eceb620"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "93e71c4decbce910a73ab9bed5c460f334dd8f67aa7218f52a62f05259217a29" => :sierra
-    sha256 "2edd4c34120636236fbe2a687b3202ab54c41d3df641c4454304a4f2d9c22b4a" => :el_capitan
-    sha256 "fc8850dc459ce7d6f90d62bc7c0ac0400b0340048fe6b7b849e46bfd5b9620bd" => :yosemite
+    sha256 "ef8f84fd43ceda70e8b4a408c81479c11edb30f51f064a5659be0241d49abf10" => :sierra
+    sha256 "6f71a756f9d938022226fd947fd1e80c8dbb9c0ab2bab048dd76ac4179b366a9" => :el_capitan
   end
 
   option "with-override-system-vim", "Override system vim"
@@ -46,6 +45,7 @@ class Macvim < Formula
       --enable-perlinterp
       --enable-rubyinterp
       --enable-tclinterp
+      --enable-terminal
       --with-tlib=ncurses
       --with-compiledby=Homebrew
       --with-local-dir=#{HOMEBREW_PREFIX}
@@ -91,9 +91,7 @@ class Macvim < Formula
     system "make"
 
     prefix.install "src/MacVim/build/Release/MacVim.app"
-    inreplace "src/MacVim/mvim", %r{^# VIM_APP_DIR=\/Applications$},
-                                 "VIM_APP_DIR=#{prefix}"
-    bin.install "src/MacVim/mvim"
+    bin.install_symlink prefix/"MacVim.app/Contents/bin/mvim"
 
     # Create MacVim vimdiff, view, ex equivalents
     executables = %w[mvimdiff mview mvimex gvim gvimdiff gview gvimex]
@@ -111,6 +109,7 @@ class Macvim < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
     # Simple test to check if MacVim was linked to Python version in $PATH
     if build.with? "python"
       system_framework_path = `python-config --exec-prefix`.chomp

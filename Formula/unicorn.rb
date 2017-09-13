@@ -1,24 +1,24 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "http://www.unicorn-engine.org"
-  url "https://github.com/unicorn-engine/unicorn/archive/0.9.tar.gz"
-  sha256 "1ca03b1c8f6360335567b528210713461e839d47c4eb7c676ba3aa4f72b8cf10"
+  url "https://github.com/unicorn-engine/unicorn/archive/1.0.1.tar.gz"
+  sha256 "3a6a4f2b8c405ab009040ca43af8e4aa10ebe44d9c8b336aa36dc35df955017c"
   head "https://github.com/unicorn-engine/unicorn.git"
 
   bottle do
     cellar :any
-    sha256 "89276f96bb7adb28e42b2db6c4334dbeea41f0d46e69c9768e28212bf667c617" => :sierra
-    sha256 "760cd9e01aef293fa1046ba71e608fc66c9689759061d5aef8f6a9f45e69a5cb" => :el_capitan
-    sha256 "c908ef47188f1a21412e6dd808aab7f7d234e7374b37393d4601efbfd7ded8fb" => :yosemite
-    sha256 "8f5ff05290b73e5ceee5af78ea8f46a7167a64e71282f1c5917bbf2612d7e8ee" => :mavericks
+    sha256 "81d29e7f28335317dd40976d904636ccd7d0679b71747ad13530dc991f327122" => :sierra
+    sha256 "3519d8189333c5ae43eb618e18db7b6be4cf9cc288c6a45ca3b618964d62395c" => :el_capitan
+    sha256 "f8c7cb546985c5e34dddb2c2e338314d024e266085fcbdc3f7e52e0f426e4e29" => :yosemite
   end
 
   option "with-all", "Build with support for ARM64, Motorola 64k, PowerPC and "\
     "SPARC"
   option "with-debug", "Create a debug build"
+  option "with-test", "Test build"
 
-  depends_on "glib"
   depends_on "pkg-config" => :build
+  depends_on "cmocka" => :build if build.with? "test"
 
   def install
     archs  = %w[x86 x86_64 arm mips]
@@ -31,6 +31,8 @@ class Unicorn < Formula
     else
       ENV["UNICORN_DEBUG"] = "no"
     end
+    system "make"
+    system "make", "test" if build.with?("test")
     system "make", "install"
   end
 
@@ -78,8 +80,8 @@ class Unicorn < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-o", testpath/"test1", testpath/"test1.c", "-lglib-2.0",
-      "-lpthread", "-lm", "-lunicorn"
+    system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
+      "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
   end
 end

@@ -1,17 +1,10 @@
 class Ack < Formula
   desc "Search tool like grep, but optimized for programmers"
-  homepage "http://beyondgrep.com/"
-  url "http://beyondgrep.com/ack-2.14-single-file"
-  version "2.14"
-  sha256 "1d203cfbc52ce8f49e3992be1cd3e4d7d5dfb7daa3739e8628aa9858ccc5b9df"
-
+  homepage "https://beyondgrep.com/"
+  url "https://beyondgrep.com/ack-2.18-single-file"
+  version "2.18"
+  sha256 "6e41057c8f50f661d800099471f769209480efa53b8a886969d7ec6db60a2208"
   head "https://github.com/petdance/ack2.git", :branch => "dev"
-
-  devel do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/ack-2.15_02.tar.gz"
-    sha256 "893e46a9263b446d9bd7efeae52c12fbee6092a3a5b9f816d8f84c1644ad7199"
-    version "2.15-02"
-  end
 
   bottle :unneeded
 

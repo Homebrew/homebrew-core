@@ -1,16 +1,14 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
-  homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.8.tar.xz"
-  sha256 "c7254a88df5c17e9609cee9e848c3d0104512707edad4c3b4f256b131f8d3af1"
+  homepage "https://gtk.org/"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.21.tar.xz"
+  sha256 "1bd3c1a85cfb4db112cabb5379abb05a1a94fe43052d309d573493fca00e6b87"
 
   bottle do
-    sha256 "4a9acd9ab1746ea1647240ddb328a1f868191635af3d4d3863b05174e46915b0" => :sierra
-    sha256 "395896a9e5355cbf12624a561afc66bfdf10cb241e1fe696b7e13aac4f3cda15" => :el_capitan
-    sha256 "d5686fe43e5f51a2cc42ee787abcc02b2e6e3087a0e564910cf677bb7721ad4e" => :yosemite
+    sha256 "b1cb343b75a4f97c63187f9a1645cb0a52d28c43ca82e8bc3151eb3539535dd3" => :sierra
+    sha256 "0cc81331e661d0b9f7784a3f8853cdbe17e0dcc47f0530545986a2b2d2f19795" => :el_capitan
   end
 
-  option :universal
   option "with-quartz-relocation", "Build with quartz relocation support"
 
   depends_on "pkg-config" => :build
@@ -25,8 +23,6 @@ class Gtkx3 < Formula
   depends_on "jasper" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --enable-debug=minimal
       --disable-dependency-tracking

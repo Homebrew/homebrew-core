@@ -1,8 +1,8 @@
 class GnuSmalltalk < Formula
   desc "GNU Smalltalk interpreter and image"
   homepage "http://smalltalk.gnu.org/"
-  url "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
+  url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
+  mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
   revision 5
 
@@ -15,7 +15,7 @@ class GnuSmalltalk < Formula
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    url "https://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
     mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
     sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
   end

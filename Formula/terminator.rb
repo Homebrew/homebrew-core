@@ -1,6 +1,6 @@
 class Terminator < Formula
   desc "Multiple terminals in one window"
-  homepage "http://gnometerminator.blogspot.com/p/introduction.html"
+  homepage "https://gnometerminator.blogspot.com/p/introduction.html"
   head "lp:terminator", :using => :bzr
 
   stable do
@@ -39,6 +39,8 @@ class Terminator < Formula
   end
 
   test do
+    ENV.prepend_path "PYTHONPATH", Formula["pygtk"].opt_lib/"python2.7/site-packages/gtk-2.0"
+    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
     system "#{bin}/terminator", "--version"
   end
 end

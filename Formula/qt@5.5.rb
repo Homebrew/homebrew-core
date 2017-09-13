@@ -76,6 +76,22 @@ class QtAT55 < Formula
     sha256 "d6d6b41aab16d8fbb1bdd1a9c05c519064258c4d5612d281e7f8661ec8990eaf"
   end
 
+  # Fix QTBUG-62266 and deprecated Bluetooth API
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3ad1b0e172/qt%405.5/high_sierra.patch"
+      sha256 "0959c86ac37c65a7ce4b813ee1e4942425117f76c981d64ff41da782ba7b2efc"
+    end
+  end
+
+  # Fix Xcode 9 build errors
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6152bded7d/qt%405.5/xcode9.patch"
+      sha256 "757f377f3fcf753ef6d5b543e6291928d07591c3e3ee8a536a88433aa49d4fbb"
+    end
+  end
+
   def install
     args = %W[
       -prefix #{prefix}

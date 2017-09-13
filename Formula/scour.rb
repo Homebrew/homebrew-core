@@ -3,16 +3,15 @@ class Scour < Formula
 
   desc "SVG file scrubber"
   homepage "https://www.codedread.com/scour/"
-  url "https://files.pythonhosted.org/packages/cd/3e/b914c3264766621992b0a381ccd3e7342d64640dc560f6aa411cc9594265/scour-0.35.tar.gz"
-  sha256 "7b33a0fc7ed578e7d1fcf4f68eb4c38cd080c243ea57537840062d37cd0d3c8e"
+  url "https://github.com/scour-project/scour/archive/v0.36.tar.gz"
+  sha256 "1b6820430c671c71406bf79afced676699d03bd3fcc65f01a651da5dcbcf3d3b"
   head "https://github.com/scour-project/scour.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e57966bafb1b3cf28e65271b41611feff351b43f5d98d886fc60d32c20ef2d51" => :sierra
-    sha256 "5356058903cf2bf00d40faed108eeda659e15e650299c7b66061d6d96d401563" => :el_capitan
-    sha256 "67139e0349e79d1627362c91f7e993bf966565ee20babae4964d4cb1db8a485d" => :yosemite
-    sha256 "842f1b4f78abb257bb70a08245a60628da52bf18c656e98151ed56db2291eda6" => :mavericks
+    sha256 "6f38d0966f43d293688b66ea4fd518e0c03f8aa2f9aef66940f86b319aa3fbc5" => :sierra
+    sha256 "26b5885d3e21030da63a640e044ef553d0ec8828a15cbeac9a19eaaab00be637" => :el_capitan
+    sha256 "cf80be6ef39cbcdb2e4944799442f0d5fa2a76295fb54eae8677de6b72c8626d" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

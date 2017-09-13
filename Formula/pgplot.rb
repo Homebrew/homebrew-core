@@ -6,16 +6,17 @@ class Pgplot < Formula
   mirror "ftp://ftp.us.horde.org/pub/linux/gentoo/distro/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 1
+  revision 4
 
   bottle do
-    sha256 "ed65038009e3d1a2edd08545dc6aef7512656bc15324e8aa8f9a6f4207c4cb66" => :sierra
-    sha256 "c8195def30dd170cb7a6ccea573dd49dfd903ef2b417781704d5a8d39192ba46" => :el_capitan
-    sha256 "a77cce2000c3b0c3c09132ac771f7f973aaa9baa6c7c010c78423a3d4d176771" => :yosemite
+    sha256 "06c11d0278bfcdbd7300ebcd71b71cee4d73ffab5c894b6c140e6ac7aa64758d" => :sierra
+    sha256 "ef4a6c5d3d9cd5883c94245b1c2158058aaba6df1bda14b0cf60b45b6585bc8b" => :el_capitan
+    sha256 "74aeb46030d7c3c6c6e3bdbae94bf6525c8c5adfa8d41474f2764fc83e0a3ab2" => :yosemite
   end
 
   depends_on :x11
   depends_on :fortran
+  depends_on "libpng"
 
   # from MacPorts: https://trac.macports.org/browser/trunk/dports/graphics/pgplot/files
   patch :p0 do
@@ -73,8 +74,8 @@ class Pgplot < Formula
     mkdir "build" do
       # activate drivers
       cp "../drivers.list", "."
-      ["GIF", "VGIF", "LATEX", "PNG", "TPNG", "PS",
-       "VPS", "CPS", "VCPS", "XWINDOW", "XSERVE"].each do |drv|
+      %w[GIF VGIF LATEX PNG TPNG PS
+         VPS CPS VCPS XWINDOW XSERVE].each do |drv|
         inreplace "drivers.list", %r{^! (.*\/#{drv} .*)}, '  \1'
       end
 
@@ -89,5 +90,29 @@ class Pgplot < Formula
       doc.install Dir["*.doc", "*.html"]
       (share/"examples").install Dir["*demo*", "../examples/pgdemo*.f", "../cpg/cpgdemo*.c", "../drivers/*/pg*demo.*"]
     end
+  end
+
+  test do
+    (testpath/"test.f90").write <<-EOS.undent
+      PROGRAM SIMPLE
+      INTEGER I, IER, PGBEG
+      REAL XR(100), YR(100)
+      REAL XS(5), YS(5)
+      data XS/1.,2.,3.,4.,5./
+      data YS/1.,4.,9.,16.,25./
+      IER = PGBEG(0,'?',1,1)
+      IF (IER.NE.1) STOP
+      CALL PGENV(0.,10.,0.,20.,0,1)
+      CALL PGLAB('(x)', '(y)', 'A Simple Graph')
+      CALL PGPT(5,XS,YS,9)
+      DO 10 I=1,60
+          XR(I) = 0.1*I
+          YR(I) = XR(I)**2
+   10 CONTINUE
+      CALL PGLINE(60,XR,YR)
+      CALL PGEND
+      END
+    EOS
+    system "gfortran", "-o", "test", "test.f90", "-L#{lib}", "-lpgplot", "-lX11", "-L/usr/X11/lib", "-I/usr/X11/include"
   end
 end

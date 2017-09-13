@@ -1,23 +1,19 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.22/atk-2.22.0.tar.xz"
-  sha256 "d349f5ca4974c9c76a4963e5b254720523b0c78672cbc0e1a3475dbd9b3d44b6"
+  url "https://download.gnome.org/sources/atk/2.26/atk-2.26.0.tar.xz"
+  sha256 "eafe49d5c4546cb723ec98053290d7e0b8d85b3fdb123938213acb7bb4178827"
 
   bottle do
-    sha256 "0223438a41f539e2c9a9d1b8b8f68d8a67c5ac9dbaae32b7a117da68f8947828" => :sierra
-    sha256 "a065750a4ea385f6504b111f6f538b9bd64b3526bb65a72f705276ebecefbb7d" => :el_capitan
-    sha256 "5f9a612ac3616d720a14f148f19e0a4d3a2259d58fc18edc548443635bc28f48" => :yosemite
+    sha256 "75d877312be453f0bd061c95ec1d1bd46723aac2e3faa6639ae82410a2191c7d" => :sierra
+    sha256 "985f4a5bea1cf987504fe997cc2bcd51d1ec71ddac2b8744c074d6b3a706466f" => :el_capitan
   end
-
-  option :universal
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-introspection=yes"

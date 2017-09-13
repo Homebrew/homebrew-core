@@ -19,23 +19,27 @@ end
 
 class Radare2 < Formula
   desc "Reverse engineering framework"
-  homepage "http://radare.org"
-  revision 1
+  homepage "https://radare.org"
 
   stable do
-    url "http://cloud.radare.org/get/1.1.0/radare2-1.1.0.tar.gz"
-    sha256 "7bc1e206a2b4def6bdb8684c2af0281b007986a0b5b5da652bd03be264ca0fa5"
+    url "https://radare.mikelloc.com/get/1.6.0/radare2-1.6.0.tar.gz"
+    sha256 "959dcac19020932983cff79a069c4467410217c941e24dd9f6d0fc0fc8d4ef99"
 
     resource "bindings" do
-      url "http://cloud.radare.org/get/1.1.0/radare2-bindings-1.0.1.tar.gz"
-      sha256 "ab0b3ca4ca5e9ca6b11211408dada85bb18014a793628ef32167dc89575fd2e0"
+      url "https://radare.mikelloc.com/get/1.6.0/radare2-bindings-1.6.0.tar.gz"
+      sha256 "abc320c4f5353f15d96a40329349253f140f0921074f0d0dbee6b3cb9f0067b8"
+    end
+
+    resource "extras" do
+      url "https://radare.mikelloc.com/get/1.6.0/radare2-extras-1.6.0.tar.gz"
+      sha256 "305b55d8ab85dcf5a2abe3d624e38169cd6e82c07896e85aa153ca4413a63cd2"
     end
   end
 
   bottle do
-    sha256 "1375576749f424a8dc5bdc7fb6ee33bb69e6aa3616a19485ca8bdddcbfb31f4e" => :sierra
-    sha256 "4e4d174472f126e9914dce0ca3848ce2b3448cde908bb02c0dfef65465cd9431" => :el_capitan
-    sha256 "1ee3c65d01c5d2496cd6b2354675fae11bf9a9f093538663f51ed21497db8eb3" => :yosemite
+    sha256 "54786dea33f49eeb35ee88cdaa136a67300533379d1ac54dbec57d9047722b7e" => :sierra
+    sha256 "20876f7105f46d3657eeda20ab961f9e39eb6692c5af0d1c8b4bd4e4cd0f8c37" => :el_capitan
+    sha256 "66dbf9f73295bbd3418cdbba415b59567c8a402a96e44291a99a372b79b0868e" => :yosemite
   end
 
   head do
@@ -43,6 +47,10 @@ class Radare2 < Formula
 
     resource "bindings" do
       url "https://github.com/radare/radare2-bindings.git"
+    end
+
+    resource "extras" do
+      url "https://github.com/radare/radare2-extras.git"
     end
   end
 
@@ -55,7 +63,7 @@ class Radare2 < Formula
   depends_on "gmp"
   depends_on "libewf"
   depends_on "libmagic"
-  depends_on "lua@5.1" # It seems to latch onto Lua@5.1 rather than Lua. Enquire this upstream.
+  depends_on "lua"
   depends_on "openssl"
   depends_on "yara"
 
@@ -73,13 +81,22 @@ class Radare2 < Formula
     end
     system "make", "install"
 
+    resource("extras").stage do
+      ENV.append_path "PATH", bin
+      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+
+      system "./configure", "--prefix=#{prefix}"
+      system "make", "all"
+      system "make", "install"
+    end
+
     resource("bindings").stage do
       ENV.append_path "PATH", bin
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       # Language versions.
       perl_version = `/usr/bin/perl -e 'printf "%vd", $^V;'`
-      lua_version = "5.1"
+      lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
 
       # Lazily bind to Python.
       inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
@@ -88,6 +105,10 @@ class Radare2 < Formula
       # Ensure that plugins and bindings are installed in the correct Cellar
       # paths.
       inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
+      # fix build, https://github.com/radare/radare2-bindings/pull/168
+      inreplace "libr/lang/p/Makefile",
+      "CFLAGS+=$(shell pkg-config --cflags r_core)",
+      "CFLAGS+=$(shell pkg-config --cflags r_core) -DPREFIX=\\\"${PREFIX}\\\""
       inreplace "Makefile", "LUAPKG=", "#LUAPKG="
       inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
       make_install_args = %W[

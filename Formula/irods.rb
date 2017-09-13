@@ -1,6 +1,6 @@
 class Irods < Formula
   desc "Integrated data grid software solution"
-  homepage "https://www.irods.org"
+  homepage "https://irods.org/"
   url "https://github.com/irods/irods-legacy/archive/3.3.1.tar.gz"
   sha256 "e34e7be8646317d5be1c84e680d8f59d50a223ea25a3c9717b6bf7b57df5b9f6"
   revision 1
@@ -14,13 +14,12 @@ class Irods < Formula
     sha256 "6b0aa76607c2fec9b0007a6ad4fdca8ab53e7615edc01e3dccd35facbea9bb39" => :mountain_lion
   end
 
-  conflicts_with "sleuthkit", :because => "both install `ils`"
-
   option "with-osxfuse", "Install iRODS FUSE client"
 
   depends_on :osxfuse => :optional
   depends_on "openssl"
 
+  conflicts_with "sleuthkit", :because => "both install `ils`"
   conflicts_with "renameutils",
     :because => "both install `icp` and `imv` binaries"
 

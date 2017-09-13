@@ -1,14 +1,13 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.3.tar.bz2"
-  sha256 "60fa21550b278b41f58701af31c9f2b121badf271fb9d7642f6d35bfbea8e282"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.4.tar.bz2"
+  sha256 "d974ab89de69477c7f581a3233bc731eacbb43d479291e472b2c531c83b6d763"
 
   bottle do
-    rebuild 1
-    sha256 "1cbf7b9fee0547821a2e1272024a8f422f3a7d29352189fd31350058a48a9fa1" => :sierra
-    sha256 "21d3740b76c2db623bd0af082b19428491a8015ceb66a43b63ddc2bb0e582442" => :el_capitan
-    sha256 "b16f12210c373ed1c75b620617a59c74b5b458f7e151fe1ac5483e33586b42ed" => :yosemite
+    sha256 "e30011fbb145b6f218f162446110bdc9fc2e97042ee9e3579d1a76042f49c2f2" => :sierra
+    sha256 "ed5aa3cc7ad6be4eaf2014e55a2710421f26a810538205a7b66b146e7f36649b" => :el_capitan
+    sha256 "f0129da95db9a27333c4c047ecaa0407a60c83a755a71137d54328f564c204b6" => :yosemite
   end
 
   head do
@@ -21,6 +20,7 @@ class Pdns < Formula
   end
 
   option "with-postgresql", "Enable the PostgreSQL backend"
+  option "with-remote", "enable the Remote backend"
 
   deprecated_option "pgsql" => "with-postgresql"
   deprecated_option "with-pgsql" => "with-postgresql"
@@ -43,6 +43,8 @@ class Pdns < Formula
     # Include the PostgreSQL backend if requested
     if build.with? "postgresql"
       args << "--with-modules=gsqlite3 gpgsql"
+    elsif build.with? "remote"
+      args << "--with-modules=gsqlite3 remote"
     else
       # SQLite3 backend only is the default
       args << "--with-modules=gsqlite3"

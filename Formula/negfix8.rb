@@ -6,7 +6,7 @@ class Negfix8 < Formula
 
   bottle :unneeded
 
-  depends_on "imagemagick" => "with-quantum-depth-16"
+  depends_on "imagemagick"
 
   def install
     bin.install "negfix8"

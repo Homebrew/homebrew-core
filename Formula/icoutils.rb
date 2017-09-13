@@ -1,14 +1,14 @@
 class Icoutils < Formula
   desc "Create and extract MS Windows icons and cursors"
   homepage "http://www.nongnu.org/icoutils/"
-  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.31.1.tar.bz2"
-  sha256 "26e29d3c78f25d4cdf402501ac0414c51a9a092daebf6c9dee3b837dee693093"
+  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.0.tar.bz2"
+  sha256 "17234d6e922f5dcd2dc8351a4b3535a2f348bb9b92c17ca3e438132147019ca6"
 
   bottle do
     cellar :any
-    sha256 "8105abde4120c99f387bb64ea1b2f9e85e88bf6c3338b2a0b44455fc023325a3" => :sierra
-    sha256 "132017221967f98d1d7ec8f69bdbb0642c0df6fcb89d4f27f76c5573139a18ab" => :el_capitan
-    sha256 "c4f42688697ab82d47526c1ff5479d0b912c191426ec74c3b0de934da93b29ae" => :yosemite
+    sha256 "e610d5929aebf62ea55523c0b78086421ee1d986629f5e3d17da3db256dccff1" => :sierra
+    sha256 "1c90d46e62314b26aa041cac0c1fc8ac118a8cb99ccfd13c0480490409c19f12" => :el_capitan
+    sha256 "99093a0aa622a30d769ed6ac558e35e7621658c4210266f56a00bf9a4b36efb4" => :yosemite
   end
 
   depends_on "libpng"
@@ -21,6 +21,6 @@ class Icoutils < Formula
   end
 
   test do
-    system "#{bin}/icotool", "-l", test_fixtures("test.ico")
+    system bin/"icotool", "-l", test_fixtures("test.ico")
   end
 end

@@ -1,15 +1,15 @@
 class LastpassCli < Formula
   desc "LastPass command-line interface tool"
   homepage "https://github.com/lastpass/lastpass-cli"
-  url "https://github.com/lastpass/lastpass-cli/archive/v1.1.2.tar.gz"
-  sha256 "bc737d8e6d713c8aecdfb7f34b29aa9a8ae9b1e9ba80b31059686b18591a8c39"
+  url "https://github.com/lastpass/lastpass-cli/archive/v1.2.1.tar.gz"
+  sha256 "1a49a37a67a973296e218306e6d36c9383347b1833e5a878ebc08355b1c77456"
   head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
     cellar :any
-    sha256 "6632f4ddb5d99984f76bc7f50d4adf99002efbc0a5cc89c06224805af2b05b11" => :sierra
-    sha256 "8921710f235709e42360ccb48d66636d24917e8084e79f0c828dc9796c4503b2" => :el_capitan
-    sha256 "2f0184ca15f14a9aa1444a9748e1ecbca75f71383af272eb86da587dff0c8a9d" => :yosemite
+    sha256 "977ecddba6a0f822242e0a96add0639f5ea0a1467a0618025771b66684a823fb" => :sierra
+    sha256 "2082cc3a425a5f9bd4f8338b1e891160e25a7d1df51f0de0488aab292c72f1a5" => :el_capitan
+    sha256 "710ae68c279e7fa9f63a4c79c4137448e1d00b14f5cb5885cc09da41e6fee22e" => :yosemite
   end
 
   depends_on "asciidoc" => :build

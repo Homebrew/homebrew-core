@@ -11,7 +11,7 @@ class Nsuds < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/nsuds/code"
+    url "https://git.code.sf.net/p/nsuds/code.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

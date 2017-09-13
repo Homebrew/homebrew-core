@@ -1,6 +1,6 @@
 class UBootTools < Formula
   desc "Universal boot loader"
-  homepage "http://www.denx.de/wiki/U-Boot/"
+  homepage "https://www.denx.de/wiki/U-Boot/"
   url "ftp://ftp.denx.de/pub/u-boot/u-boot-2017.01.tar.bz2"
   sha256 "6c425175f93a4bcf2ec9faf5658ef279633dbd7856a293d95bd1ff516528ecf2"
 

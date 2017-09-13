@@ -1,26 +1,17 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/3.04.01.tar.gz"
-  sha256 "57f63e1b14ae04c3932a2683e4be4954a2849e17edd638ffe91bc5a2156adc6a"
-  revision 2
+  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.01.tar.gz"
+  sha256 "05898f93c5d057fada49b9a116fc86ad9310ff1726a0f499c3e5211b3af47ec1"
 
   bottle do
-    sha256 "cf3f65725fee58769174390c9679fb50d91c31f050f78c168562e8201a9d4947" => :sierra
-    sha256 "61fe45974f9c0d9ea56d7c0c8adff0f62bef5892623403fb6a7c9bc85bbe7040" => :el_capitan
-    sha256 "f8e99bc1013c533d78cfce0a049840e693a75a83ac465f3f4bce9a2ec6049809" => :yosemite
-    sha256 "7f18bf4f30a861e949f453aea13debe638c052b8e6b4dda56f5329357ed23709" => :mavericks
+    sha256 "6b3a0e12659b57344a67bfde229353593ba06b4fe26b7eb1eb9e585f8906a032" => :sierra
+    sha256 "788a83d200ba3aa34140fa0d2dbc2ecbf6cfb2a3eeb412417cbbf68dfc4678b4" => :el_capitan
+    sha256 "8798858e2d3846eb7b10335cb08c349fd18bb040a2e8b5e9bb3737d1bf2071d5" => :yosemite
   end
 
   head do
     url "https://github.com/tesseract-ocr/tesseract.git"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-
     resource "tessdata-head" do
       url "https://github.com/tesseract-ocr/tessdata.git"
     end
@@ -33,8 +24,14 @@ class Tesseract < Formula
 
   deprecated_option "all-languages" => "with-all-languages"
 
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+
   depends_on "leptonica"
-  depends_on "libtiff" => :recommended
+  depends_on "libtiff"
 
   if build.with? "training-tools"
     depends_on "libtool" => :build
@@ -68,14 +65,6 @@ class Tesseract < Formula
   end
 
   def install
-    if build.head?
-      # ld: symbol(s) not found for _clSetKernelArg and other symbols
-      # Regression caused by https://github.com/tesseract-ocr/tesseract/commit/b1c921b
-      # Reported 13 Sep 2016 https://github.com/tesseract-ocr/tesseract/issues/426
-      inreplace "api/Makefile.am", "$(GENERIC_LIBRARY_VERSION) -no-undefined",
-                                   "$(GENERIC_LIBRARY_VERSION)"
-    end
-
     if build.with? "training-tools"
       icu4c = Formula["icu4c"]
       ENV.append "CFLAGS", "-I#{icu4c.opt_include}"
@@ -88,12 +77,7 @@ class Tesseract < Formula
 
     ENV.cxx11
 
-    # Fix broken pkg-config file
-    # Can be removed with next version bump
-    # https://github.com/tesseract-ocr/tesseract/issues/241
-    inreplace "tesseract.pc.in", "@OPENCL_LIB@", "@OPENCL_LDFLAGS@" if build.stable?
-
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
 
     args = %W[
       --disable-dependency-tracking

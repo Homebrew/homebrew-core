@@ -1,20 +1,18 @@
 class Casperjs < Formula
   desc "Navigation scripting and testing tool for PhantomJS"
   homepage "http://www.casperjs.org/"
-  url "https://github.com/casperjs/casperjs/archive/1.1.3.tar.gz"
-  sha256 "3e9c385a2e3124a44728b24d3b4cad05a48e2b3827e9350bdfe11c9a6d4a4298"
+  url "https://github.com/casperjs/casperjs/archive/1.1.4-1.tar.gz"
+  version "1.1.4-1"
+  sha256 "c95dd17ac58872e9b74dcfd0d55ce22a5545abdae237cc2b9b945fe14c9a2d31"
   head "https://github.com/casperjs/casperjs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a4260a5ae64d88e5a15ccba7bf297a7a794b3822838bb8280d6a8c954d45685" => :sierra
-    sha256 "b71c26fc5d2d6da94cc95554defbe5db1c6e0213d64ec09fea99755ffd529df4" => :el_capitan
-    sha256 "3ca3351236ac827a5cd745087e7763dbd7445e05e4ce05aa11c5bbc7d62d75a6" => :yosemite
-    sha256 "082b442968052c819463dacd01b99954f9e2e9e0a5d318c9b7a69e9f31e660f2" => :mavericks
+    sha256 "885f4f9d0b7e6ceabcde8c5542d14766212e7d189ae426c4bbe6ecd99eb25148" => :sierra
+    sha256 "8f0ae4b24ce77c1fa4b93f480dcaa24b64dd0b0b8ac10ea695b91c18d1908568" => :el_capitan
+    sha256 "8f0ae4b24ce77c1fa4b93f480dcaa24b64dd0b0b8ac10ea695b91c18d1908568" => :yosemite
   end
 
-  # For embedded Phantomjs
-  depends_on :macos => :snow_leopard
   depends_on "phantomjs"
 
   def install

@@ -4,8 +4,8 @@ class GitExtras < Formula
   head "https://github.com/tj/git-extras.git"
 
   stable do
-    url "https://github.com/tj/git-extras/archive/4.2.0.tar.gz"
-    sha256 "53668af26c58e7866addbd2b14b29f63ee39029bdcee5f48957c4a958bdb225f"
+    url "https://github.com/tj/git-extras/archive/4.4.0.tar.gz"
+    sha256 "16c2184f13272dd032717ebd22a88762759cd10d2b9357e4ac7bd992bdd7686d"
     # Disable "git extras update", which will produce a broken install under Homebrew
     # https://github.com/Homebrew/homebrew/issues/44520
     # https://github.com/tj/git-extras/pull/491
@@ -14,13 +14,11 @@ class GitExtras < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eff9e393ac4b8e59a40ecb75152cf2bcfed171b7cb296d80606b99ad5ca81ec0" => :sierra
-    sha256 "eff9e393ac4b8e59a40ecb75152cf2bcfed171b7cb296d80606b99ad5ca81ec0" => :el_capitan
-    sha256 "eff9e393ac4b8e59a40ecb75152cf2bcfed171b7cb296d80606b99ad5ca81ec0" => :yosemite
+    sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :sierra
+    sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :el_capitan
+    sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :yosemite
   end
 
-  conflicts_with "git-town",
-    :because => "git-extras also ships a git-sync binary"
   conflicts_with "git-utils",
     :because => "both install a `git-pull-request` script"
 
@@ -36,14 +34,14 @@ end
 
 __END__
 diff --git a/bin/git-extras b/bin/git-extras
-index 3856179..e2ac72c 100755
+index e49cd24..4ae28b5 100755
 --- a/bin/git-extras
 +++ b/bin/git-extras
-@@ -4,13 +4,12 @@ VERSION="4.0.0"
+@@ -4,13 +4,12 @@ VERSION="4.3.0"
  INSTALL_SCRIPT="https://raw.githubusercontent.com/tj/git-extras/master/install.sh"
 
  update() {
--  local bin=$(which git-extras)
+-  local bin="$(which git-extras)"
 -  local prefix=${bin%/*/*}
 -  local orig=$PWD
 -

@@ -1,8 +1,8 @@
 class RbenvCtags < Formula
   desc "Automatically generate ctags for rbenv Ruby stdlibs"
   homepage "https://github.com/tpope/rbenv-ctags"
-  url "https://github.com/tpope/rbenv-ctags/archive/v1.0.1.tar.gz"
-  sha256 "d3bf7168da9472e361512f72add7962af0f89b9c264721d0ac0597ab5b1b98af"
+  url "https://github.com/tpope/rbenv-ctags/archive/v1.0.2.tar.gz"
+  sha256 "94b38c277a5de3f53aac0e7f4ffacf30fb6ddeb31c0597c1bcd78b0175c86cbe"
   head "https://github.com/tpope/rbenv-ctags.git"
 
   bottle :unneeded

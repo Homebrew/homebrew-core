@@ -3,7 +3,7 @@ class Teem < Formula
   homepage "https://teem.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/teem/teem/1.11.0/teem-1.11.0-src.tar.gz"
   sha256 "a01386021dfa802b3e7b4defced2f3c8235860d500c1fa2f347483775d4c8def"
-  head "https://teem.svn.sourceforge.net/svnroot/teem/teem/trunk"
+  head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
   bottle do
     sha256 "31d19cd9e0e4c064fb743c41a286736503e61b1d5e4b81f29140fcebf2cde2c8" => :sierra

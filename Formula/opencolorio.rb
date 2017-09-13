@@ -27,8 +27,8 @@ class Opencolorio < Formula
 
   # Fix build with libc++
   patch do
-    url "https://github.com/imageworks/OpenColorIO/commit/ebd6efc036b6d0b17c869e3342f17f9c5ef8bbfc.diff"
-    sha256 "eab670cdd0278c610ecd6c059cb12f3042395d474259ddd18b7b8e242ad82810"
+    url "https://github.com/imageworks/OpenColorIO/commit/ebd6efc036b6d0b17c869e3342f17f9c5ef8bbfc.diff?full_index=1"
+    sha256 "156de7dfd84e7dbe89ccb21d5594736bd3d77d71f482f10ce759c4ac637adb15"
   end
 
   # Fix includes on recent Clang; reported upstream:

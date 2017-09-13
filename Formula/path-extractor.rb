@@ -1,5 +1,5 @@
 class PathExtractor < Formula
-  desc "unix filter which outputs the filepaths found in stdin"
+  desc "UNIX filter which outputs the filepaths found in stdin"
   homepage "https://github.com/edi9999/path-extractor"
   url "https://github.com/edi9999/path-extractor/archive/v0.2.0.tar.gz"
   sha256 "7d6c7463e833305e6d27c63727fec1029651bfe8bca5e8d23ac7db920c2066e7"

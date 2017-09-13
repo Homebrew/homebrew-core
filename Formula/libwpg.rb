@@ -1,7 +1,7 @@
 class Libwpg < Formula
   desc "Library for reading and parsing Word Perfect Graphics format"
   homepage "https://libwpg.sourceforge.io/"
-  url "http://dev-www.libreoffice.org/src/libwpg-0.3.1.tar.bz2"
+  url "https://dev-www.libreoffice.org/src/libwpg-0.3.1.tar.bz2"
   sha256 "29049b95895914e680390717a243b291448e76e0f82fb4d2479adee5330fbb59"
 
   bottle do

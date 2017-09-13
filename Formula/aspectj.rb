@@ -1,8 +1,8 @@
 class Aspectj < Formula
-  desc "AspectJ: aspect-oriented programming for Java"
+  desc "Aspect-oriented programming for Java"
   homepage "https://eclipse.org/aspectj/"
-  url "https://www.eclipse.org/downloads/download.php?file=/tools/aspectj/aspectj-1.8.9.jar"
-  sha256 "bab38539cbe6e932410a104c21e18f05b773c78001f8800993da29d718d31a1b"
+  url "https://www.eclipse.org/downloads/download.php?r=1&file=/tools/aspectj/aspectj-1.8.10.jar"
+  sha256 "3b1d52b65f26122319bfc71bbd6527d47b978955204e6e7626e6cb9736c3e99e"
 
   bottle :unneeded
 

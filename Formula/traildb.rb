@@ -1,15 +1,14 @@
 class Traildb < Formula
   desc "Blazingly-fast database for log-structured data"
-  homepage "http://traildb.io"
-  url "https://github.com/traildb/traildb/archive/0.5.tar.gz"
-  sha256 "4d1b61cc7068ec3313fe6322fc366a996c9d357dd3edf667dd33f0ab2c103271"
+  homepage "http://traildb.io/"
+  url "https://github.com/traildb/traildb/archive/0.6.tar.gz"
+  sha256 "f73515fe56c547f861296cf8eecc98b8e8bf00d175ad9fb7f4b981ad7cf8b67c"
 
   bottle do
     cellar :any
-    sha256 "858fa4e403f8dcc0590a57f28c28159c4e6276ea8bedde1a16c22fa9d4e9ccd5" => :sierra
-    sha256 "2bf6394a161fbc940ca87ede8f68671f1ef8bfc68d4c0d2b0ba1d3de4787e537" => :el_capitan
-    sha256 "a9dc4f3be52f86edf47b612a095706ab54b79f24c0606b3839cf5f45f481a851" => :yosemite
-    sha256 "68268c2c25c8300b8233d2a652745bbcd2d5d15f5bc54fd49530ba2247591877" => :mavericks
+    sha256 "e84323b169f8a2d3ccadadb65d968c99265f37f581d9fe002c259b76b180776e" => :sierra
+    sha256 "901e2214b9ddcd214b857db69569c12f85041e6cd087df00ef1c0d624605effe" => :el_capitan
+    sha256 "381ac2503006105329e6b915501cf8bfdd787121df79c23da4721e04a8b838a9" => :yosemite
   end
 
   depends_on "libarchive"
@@ -28,8 +27,11 @@ class Traildb < Formula
     resource("judy").stage do
       system "./configure", "--disable-debug", "--disable-dependency-tracking",
           "--disable-shared", "--prefix=#{judyprefix}"
-      # Build with -j1 because parallel builds are broken
-      system "make", "-j1", "install"
+
+      # Parallel build is broken
+      ENV.deparallelize do
+        system "make", "-j1", "install"
+      end
     end
 
     ENV["PREFIX"] = prefix

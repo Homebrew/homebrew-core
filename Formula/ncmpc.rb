@@ -1,14 +1,14 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
-  homepage "https://mpd.wikia.com/wiki/Client:Ncmpc"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.25.tar.gz"
-  sha256 "5b00237be90367aff98b2b70df88b6d6d4b566291d870053be106b137dcc0fd9"
+  homepage "https://www.musicpd.org/clients/ncmpc/"
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.27.tar.xz"
+  sha256 "f9a26a3fc869cfdf0a16b0ea3e6512c2fe28a031bbc71b1d24a2bf0bbd3e15d9"
+  revision 1
 
   bottle do
-    sha256 "2b0fe50a50ed2b67a05f58a0da2ab551a434621f5ecd449993a3898aea7aee51" => :sierra
-    sha256 "2e02f6c2a5adbb5bf27f3b1c9dd33d1e77fed67d8599f83f2c3b65921c4731dd" => :el_capitan
-    sha256 "a5ee00bd5006e9156199cd263cbd8ee6a5027b60f211017df0da14bb184b2cbb" => :yosemite
-    sha256 "570fe6aba12ceeea5aea099879915a00a6459cd2f7c58e15248f4cc88c374b5a" => :mavericks
+    sha256 "31af467381a348580ef78519ec1eb63fd2c862b8964562a4a623af27319dc7a8" => :sierra
+    sha256 "9849997446693fcfe6a9cdfc9c569e4fde7db6376b8ff159024c9b1b0bdd9a30" => :el_capitan
+    sha256 "63e019d248f1060ac1f346ce2b32813420bdb1b343edaf85499f1453a8fb8c36" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,5 +19,9 @@ class Ncmpc < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
+  end
+
+  test do
+    system bin/"ncmpc", "--help"
   end
 end

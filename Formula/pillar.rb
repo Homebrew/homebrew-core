@@ -16,8 +16,6 @@ class Pillar < Formula
   depends_on "sbt" => :build
 
   def install
-    ENV.java_cache
-
     inreplace "src/main/bash/pillar" do |s|
       s.gsub! "$JAVA ", "`/usr/libexec/java_home`/bin/java "
       s.gsub! "${PILLAR_ROOT}/lib/pillar.jar", "#{libexec}/pillar-assembly-#{version}.jar"

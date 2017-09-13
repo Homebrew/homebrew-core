@@ -36,6 +36,6 @@ class Spdylay < Formula
   end
 
   test do
-    system "#{bin}/spdycat", "-ns", "https://nghttp2.org"
+    system "#{bin}/spdycat", "-ns", "https://cloudflare.com/"
   end
 end

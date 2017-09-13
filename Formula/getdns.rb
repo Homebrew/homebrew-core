@@ -1,34 +1,62 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/dist/getdns-0.9.0.tar.gz"
-  sha256 "b6b73a501ee79c0fafb0721023eb3a5d0e1bfa047fbe65302db278cb956bd1fe"
+  revision 2
 
-  head "https://github.com/getdnsapi/getdns.git"
+  stable do
+    url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
+    sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
+
+    # Remove for > 1.1.2
+    # Upstream PR from 18 Aug 2017 "Fix issue on OS X 10.10 where TCP fast open
+    # is detected but not implemented causing TCP to fail"
+    patch do
+      url "https://github.com/getdnsapi/getdns/pull/328.patch?full_index=1"
+      sha256 "8528bc22d705502f238db7a73e9f1ddbafca398d4b133056b6b4b161adbc3929"
+    end
+  end
 
   bottle do
-    cellar :any
-    sha256 "12ff9ab93eb1fe2727155383a643c5a2d40b2f48e9353e6a385baa5155d89c2f" => :sierra
-    sha256 "1ae532218ee2efd6c557a876d062a220ec4d604e24eca19160b394bea813a718" => :el_capitan
-    sha256 "4e2eff05d371aedbd66bb428d8f01350134900ed4f4b647897d9c25b8492a45a" => :yosemite
-    sha256 "18dcbddc502946fc6a146a52f255a4de75df80235b9b2dfcbaeee054fac355b2" => :mavericks
+    sha256 "38f785b5316068f359f5b5167f2cdabf4c33add3c5a81b7f138efa44a1bfd688" => :sierra
+    sha256 "d72f1b67dc14a963f08b0337e030f19e2bfbe4cb9b7d1523587f491f73f0b691" => :el_capitan
+    sha256 "174bb8420ba3dca17a9d646ba06ff720332f1991406932327e0cdf34392f00cf" => :yosemite
+  end
+
+  head do
+    url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "openssl"
-  depends_on "unbound"
-  depends_on "libidn"
-  depends_on "libevent" => :optional
+  depends_on "unbound" => :recommended
+  depends_on "libidn" => :recommended
+  depends_on "libevent" => :recommended
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
 
   def install
+    if build.head?
+      system "glibtoolize", "-ci"
+      system "autoreconf", "-fi"
+    end
+
     args = [
       "--with-ssl=#{Formula["openssl"].opt_prefix}",
       "--with-trust-anchor=#{etc}/getdns-root.key",
+      "--without-stubby",
     ]
+    args << "--enable-stub-only" if build.without? "unbound"
+    args << "--without-libidn" if build.without? "libidn"
     args << "--with-libevent" if build.with? "libevent"
-    args << "--with-libev" if build.with? "libev"
     args << "--with-libuv" if build.with? "libuv"
+    args << "--with-libev" if build.with? "libev"
+
+    # Current Makefile layout prevents simultaneous job execution
+    # https://github.com/getdnsapi/getdns/issues/166
+    ENV.deparallelize
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make", "install"

@@ -3,15 +3,15 @@ class Pius < Formula
 
   desc "PGP individual UID signer"
   homepage "https://www.phildev.net/pius/"
-  url "https://github.com/jaymzh/pius/archive/v2.2.3.tar.gz"
-  sha256 "fef64e5b2d239770a7dd1a42c600b319da77087e549f3e8ade0f95a4ee11dab0"
+  url "https://github.com/jaymzh/pius/archive/v2.2.4.tar.gz"
+  sha256 "876763c351ba8538d0c614c31f1873b5e821425927631139c83378532215516c"
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2778646308e77a969894ca4f5d0e0d89ebae865b81c6a2f2dec63e4633d7d6b5" => :sierra
-    sha256 "7cc107c732cef3855444ac1e60e435538a45ceeebc657b0bb74af4c6ee173534" => :el_capitan
-    sha256 "2d428378ed6f08f04715b24c9145a1cf68fa49e8f8492fdff0bb532718c5310c" => :yosemite
+    sha256 "248f6562eaa6abca6500f5ec93488b0f983b7839c8d2060c4a208432783e5d66" => :sierra
+    sha256 "a55f1aa243dd35d5332fae94fc9604bb2306e534b00b1f11362b2fdd1188df0d" => :el_capitan
+    sha256 "15444762e1364bdbfc4fce49279c8c016f4a6060e4a7efb38fb5e8e26d56e69b" => :yosemite
   end
 
   depends_on :gpg => :run

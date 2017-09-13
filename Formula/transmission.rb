@@ -14,7 +14,6 @@ class Transmission < Formula
   option "with-nls", "Build with native language support"
 
   depends_on "pkg-config" => :build
-  depends_on "curl" if MacOS.version <= :leopard
   depends_on "libevent"
 
   if build.with? "nls"

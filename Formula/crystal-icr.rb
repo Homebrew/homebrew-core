@@ -1,14 +1,14 @@
 class CrystalIcr < Formula
   desc "Interactive console for Crystal programming language"
-  homepage "https://github.com/greyblake/crystal-icr"
-  url "https://github.com/greyblake/crystal-icr/archive/v0.2.13.tar.gz"
-  sha256 "33763fa190baad390df7143b437b1ddda3867a12ccf6e11c3278e53ecb94e40a"
-  revision 1
+  homepage "https://github.com/crystal-community/icr"
+  url "https://github.com/crystal-community/icr/archive/v0.2.14.tar.gz"
+  sha256 "0f8cb18d04cc1e0247586d66fad904d56c29658edfb04b0091c464864f2cdbdf"
+  revision 2
 
   bottle do
-    sha256 "41c369d2c4dc7b4572711cc24a0e04e1818452b4c744d6370456d1b89302c6b5" => :sierra
-    sha256 "cc33f3a028bba2e5cd06fc1b0d37823b94c7a51bbcb3a5fa948cb0f90dbb4b4b" => :el_capitan
-    sha256 "49968631daf1beff83c754af3c29e7b9941a2c18eaf24798317be7de69c4c92d" => :yosemite
+    sha256 "951ce7170516e7b5b5adc4b64f52b4053ad36ce581e2dbc43843f0e07ea2eedf" => :sierra
+    sha256 "b6677ec4428770723ebee3a5059eee7a5a9a37b01943e09cce0654f7f6c58bac" => :el_capitan
+    sha256 "bc7b3b94b127632b60dd14127749d16ef92ba97520163226e1a0ccf0910a5579" => :yosemite
   end
 
   depends_on "crystal-lang"

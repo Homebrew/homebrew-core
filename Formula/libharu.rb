@@ -56,7 +56,7 @@ class Libharu < Formula
         return result;
       }
     EOS
-    system ENV.cc, "test.c", "-lhpdf", "-lz", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lhpdf", "-lz", "-o", "test"
     system "./test"
   end
 end

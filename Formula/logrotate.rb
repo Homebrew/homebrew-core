@@ -1,40 +1,30 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
-  homepage "https://fedorahosted.org/logrotate/"
-  url "https://fedorahosted.org/releases/l/o/logrotate/logrotate-3.9.1.tar.gz"
-  sha256 "022769e3288c80981559a8421703c88e8438b447235e36dd3c8e97cd94c52545"
+  homepage "https://github.com/logrotate/logrotate"
+  url "https://github.com/logrotate/logrotate/releases/download/3.12.3/logrotate-3.12.3.tar.gz"
+  sha256 "435a3f9a534a37e11657532a090f6bf521d8696bdf9cb799a360c1750ba3aea9"
 
   bottle do
-    cellar :any
-    sha256 "39d4738be1781272c9819d230f3985dc5df892382594f1da725fd440230b5994" => :sierra
-    sha256 "2625381c3aa8e4b4c80ed6a28c0533a4341c8e63e50acd69b4e88970d5b6b5a3" => :el_capitan
-    sha256 "54e30ff0979a6840433942dca543ae3369f7850db3ebf309aa4e1ef47d7fe744" => :yosemite
-    sha256 "bd8a9901a24bb1a72e05a6e5dd5359d0ab609cc7fd6b48654ba5dfca0d7ada42" => :mavericks
-    sha256 "ab15e12cf49a7bb508227685c404c586705497bf3fbf2a7d37f18e3476121d2b" => :mountain_lion
+    sha256 "c71cc8692bdd28fcf4ba25002d1177a9f60e3c68cbe1fecc46d16a1cb56ec58f" => :sierra
+    sha256 "809a917ade7e1e83bfd871f87be42a9001d0b082190e2ea5ca77c8b840598c0c" => :el_capitan
+    sha256 "d7bbd4bdbe2de2730ee27c92fc215e7d6fecb0c1ff0daa3baecb46f904b8a10d" => :yosemite
   end
 
   depends_on "popt"
 
-  # Per MacPorts, let these variables be overridden by ENV vars.
-  # Also, use HOMEBREW suggested locations for run and log files.
+  # Adapt the default config for Homebrew
   patch :DATA
 
   def install
-    # Otherwise defaults to /bin/gz
-    ENV["COMPRESS_COMMAND"] = "/usr/bin/gzip"
-    ENV["COMPRESS_EXT"] = ".gz"
-    ENV["UNCOMPRESS_COMMAND"] = "/usr/bin/gunzip"
-    ENV["STATEFILE"] = "#{var}/lib/logrotate.status"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-compress-command=/usr/bin/gzip",
+                          "--with-uncompress-command=/usr/bin/gunzip",
+                          "--with-state-file-path=#{var}/lib/logrotate.status"
+    system "make", "install"
 
-    system "make"
-    sbin.install "logrotate"
-    man8.install "logrotate.8"
-    man5.install "logrotate.conf.5"
-
-    mv "examples/logrotate-default", "logrotate.conf"
-    inreplace "logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
-
-    etc.install "logrotate.conf"
+    inreplace "examples/logrotate-default", "/etc/logrotate.d", "#{etc}/logrotate.d"
+    etc.install "examples/logrotate-default" => "logrotate.conf"
     (etc/"logrotate.d").mkpath
   end
 
@@ -80,38 +70,11 @@ class Logrotate < Formula
 end
 
 __END__
-diff --git i/Makefile w/Makefile
-index 5a42fb6..e53f4f7 100644
---- i/Makefile
-+++ w/Makefile
-@@ -86,6 +86,22 @@ ifneq ($(POPT_DIR),)
-     LOADLIBES += -L$(POPT_DIR)
- endif
- 
-+ifneq ($(COMPRESS_COMMAND),)
-+    CFLAGS += -DCOMPRESS_COMMAND=\"$(COMPRESS_COMMAND)\"
-+endif
-+
-+ifneq ($(COMPRESS_EXT),)
-+    CFLAGS += -DCOMPRESS_EXT=\"$(COMPRESS_EXT)\"
-+endif
-+
-+ifneq ($(UNCOMPRESS_COMMAND),)
-+    CFLAGS += -DUNCOMPRESS_COMMAND=\"$(UNCOMPRESS_COMMAND)\"
-+endif
-+
-+ifneq ($(DEFAULT_MAIL_COMMAND),)
-+    CFLAGS += -DDEFAULT_MAIL_COMMAND=\"$(DEFAULT_MAIL_COMMAND)\"
-+endif
-+
- ifneq ($(STATEFILE),)
-     CFLAGS += -DSTATEFILE=\"$(STATEFILE)\"
- endif
 diff --git i/examples/logrotate-default w/examples/logrotate-default
 index 56e9103..c61a33a 100644
 --- i/examples/logrotate-default
 +++ w/examples/logrotate-default
-@@ -14,22 +14,7 @@ dateext
+@@ -14,23 +14,7 @@ dateext
  # uncomment this if you want your log files compressed
  #compress
  
@@ -121,6 +84,7 @@ index 56e9103..c61a33a 100644
  
 -# no packages own wtmp and btmp -- we'll rotate them here
 -/var/log/wtmp {
+-    missingok
 -    monthly
 -    create 0664 root utmp
 -    minsize 1M

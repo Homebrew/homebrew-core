@@ -9,14 +9,14 @@ class Parrot < Formula
 
     # remove at 8.2.0, already in HEAD
     patch do
-      url "https://github.com/parrot/parrot/commit/7524bf5384ddebbb3ba06a040f8acf972aa0a3ba.diff"
-      sha256 "170f63df33fa2dc870902bd703c371bb6d601b515618f5830ab921bffa22e87b"
+      url "https://github.com/parrot/parrot/commit/7524bf5384ddebbb3ba06a040f8acf972aa0a3ba.diff?full_index=1"
+      sha256 "55b6cae8b48e1f942c7be83955250b0a6d3b1132539b42cee532c9b2b6952b0a"
     end
 
     # remove at 8.2.0, already in HEAD
     patch do
-      url "https://github.com/parrot/parrot/commit/854aec65d6de8eaf5282995ab92100a2446f0cde.diff"
-      sha256 "dfe8b5e26b104f8fb2c1efe0a8316ffcba399463bd164c22e7cf2327fac2540e"
+      url "https://github.com/parrot/parrot/commit/854aec65d6de8eaf5282995ab92100a2446f0cde.diff?full_index=1"
+      sha256 "3452227cfdf4827ef26d0d9d09db5528c20fbbc19a95f76fb4356b19cfb88e88"
     end
   end
 
@@ -62,6 +62,6 @@ class Parrot < Formula
 
     out = `#{bin}/parrot #{path}`
     assert_equal "0123456789", out
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

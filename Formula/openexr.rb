@@ -13,8 +13,6 @@ class Openexr < Formula
     sha256 "9c21b70caff58d8d699a58a50249f220b03c23f450a219276782827e6c03ff33" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "ilmbase"
 
@@ -31,7 +29,6 @@ class Openexr < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

@@ -21,9 +21,7 @@ class Libchewing < Formula
   depends_on "texinfo" => :build
 
   def install
-    if build.head?
-      system "./autogen.sh"
-    end
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -50,7 +48,7 @@ class Libchewing < Formula
         return 0;
     }
     EOS
-    system ENV.cc, "test.cpp", "-lchewing", "-o", "test"
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lchewing", "-o", "test"
     system "./test"
   end
 end

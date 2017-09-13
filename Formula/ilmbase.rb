@@ -12,18 +12,15 @@ class Ilmbase < Formula
     sha256 "2bfd8bef08f89e6c84d6f9da5f5b3db38b787d33a3c6e6bb9751a9c43bbea2de" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-    (share/"ilmbase").install %w[Half HalfTest Iex IexMath IexTest IlmThread Imath ImathTest]
+    pkgshare.install %w[Half HalfTest Iex IexMath IexTest IlmThread Imath ImathTest]
   end
 
   test do
-    cd share/"ilmbase/IexTest" do
+    cd pkgshare/"IexTest" do
       system ENV.cxx, "-I#{include}/OpenEXR", "-I./", "-c",
              "testBaseExc.cpp", "-o", testpath/"test"
     end

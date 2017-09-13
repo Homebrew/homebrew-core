@@ -1,6 +1,6 @@
 class Scale2x < Formula
   desc "Real-time graphics effect"
-  homepage "http://scale2x.sourceforge.net"
+  homepage "https://scale2x.sourceforge.io"
   url "https://downloads.sourceforge.net/project/scale2x/scale2x/3.1/scale2x-3.1.tar.gz"
   sha256 "afdd88b90811b00ae884eb8a97355991f39d8028dbd5c6b1d95fdccf0fc56574"
 

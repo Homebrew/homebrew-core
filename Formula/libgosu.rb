@@ -1,16 +1,16 @@
 class Libgosu < Formula
   desc "2D game development library"
   homepage "https://libgosu.org"
-  url "https://github.com/gosu/gosu/archive/v0.11.1.tar.gz"
-  sha256 "950628903f4c0c5e7c875b5c22fd33efdf93593176c067d17fbc0591b3e1f699"
+  url "https://github.com/gosu/gosu/archive/v0.12.1.tar.gz"
+  sha256 "69df78819e6e901c405b46b8fff374005f70557e558c84b1cb55e19d1c51c790"
 
   head "https://github.com/gosu/gosu.git"
 
   bottle do
     cellar :any
-    sha256 "ffb5a6cb87b091b79a93485c2babd696de3ac6e6b5f34ba79a9b3652a61c3680" => :sierra
-    sha256 "ec47ed58705eda7bbdbcd3d12574d83e13db405fb29b0aa8c854b7a5725791d1" => :el_capitan
-    sha256 "d50aef1a5ef730e75ffc1fba481723de484234461eaf0d271a610cfbd0a7827c" => :yosemite
+    sha256 "ba99f69d80a093fbf21993dcd4abb02889ff2ad264d43565f408381d308c1b35" => :sierra
+    sha256 "16a420796d64dff75ca8aa98cd4e7cb629d34a0c46bf814b23af049c10d6d691" => :el_capitan
+    sha256 "fd79a4bdb960d0d08fe812763172f32f3e48e08c5d888d7479dbd8170425cf77" => :yosemite
   end
 
   depends_on "cmake" => :build

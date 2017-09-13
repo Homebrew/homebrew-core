@@ -1,6 +1,6 @@
 class Guichan < Formula
-  desc "small, efficient C++ GUI library designed for games"
-  homepage "http://guichan.sourceforge.net/oldsite/about.shtml"
+  desc "Small, efficient C++ GUI library designed for games"
+  homepage "https://guichan.sourceforge.io/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/guichan/guichan-0.8.2.tar.gz"
   sha256 "eedf206eae5201eaae027b133226d0793ab9a287bfd74c5f82c7681e3684eeab"
 
@@ -15,7 +15,7 @@ class Guichan < Formula
   # "with-allegro" requires allegero-config. But that is no longer supplied from ver. 4.9.
 
   resource "fixedfont.bmp" do
-    url "http://guichan.sourceforge.net/oldsite/images/fixedfont.bmp"
+    url "https://guichan.sourceforge.io/oldsite/images/fixedfont.bmp"
     sha256 "fc6144c8fefa27c207560820450abb41378c705a0655f536ce33e44a5332c5cc"
   end
 
@@ -158,7 +158,7 @@ class Guichan < Formula
     EOS
     system ENV.cc, "helloworld.cpp", ENV.cppflags, "-I#{HOMEBREW_PREFIX}/include/SDL",
         "-L#{Formula["SDL"].opt_lib}", "-framework", "Foundation", "-framework", "CoreGraphics", "-framework", "Cocoa",
-        "-lSDL", "-lSDLmain", "-lSDL_image", "-lguichan", "-lguichan_sdl", "-lobjc", "-lc++", "-o", "helloworld"
+        "-lSDL", "-lSDLmain", "-lSDL_image", "-L#{lib}", "-lguichan", "-lguichan_sdl", "-lobjc", "-lc++", "-o", "helloworld"
     helloworld = fork do
       system testpath/"helloworld"
     end

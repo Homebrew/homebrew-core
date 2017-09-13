@@ -1,14 +1,14 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "http://www.metabase.com/"
-  url "http://downloads.metabase.com/v0.21.0/metabase.jar"
-  version "0.21.0"
-  sha256 "c018167f79df6f6b0f0489a44140568f9fa0bef2056791b731d75690ab8d7b48"
+  url "http://downloads.metabase.com/v0.25.2/metabase.jar"
+  sha256 "3264ee567d3fc48afe6f823382f33527543f17353be803cc3496cc494f63c4f8"
 
   head do
     url "https://github.com/metabase/metabase.git"
 
     depends_on "node" => :build
+    depends_on "yarn" => :build
     depends_on "leiningen" => :build
   end
 
@@ -18,7 +18,6 @@ class Metabase < Formula
 
   def install
     if build.head?
-      ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
       system "./bin/build"
       libexec.install "target/uberjar/metabase.jar"
     else

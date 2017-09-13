@@ -18,9 +18,7 @@ class UserspaceRcu < Formula
             "--prefix=#{prefix}"]
     # workaround broken upstream detection of build platform
     # marked as wontfix: https://bugs.lttng.org/issues/578#note-1
-    if MacOS.prefer_64_bit?
-      args << "--build=#{Hardware::CPU.arch_64_bit}"
-    end
+    args << "--build=#{Hardware::CPU.arch_64_bit}" if MacOS.prefer_64_bit?
 
     # workaround broken syscall.h detection
     inreplace "urcu/syscall-compat.h", "defined(__sun__)", "defined(__APPLE__)"

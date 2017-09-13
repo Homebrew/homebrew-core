@@ -1,15 +1,14 @@
 class Lzlib < Formula
   desc "Data compression library"
   homepage "http://www.nongnu.org/lzip/lzlib.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.8.tar.gz"
-  sha256 "41bfa82c6ee184ed0884437dc4074ad505e64cb747432cefa97976b89045cbad"
+  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.9.tar.gz"
+  sha256 "2472f8d93830d0952b0c75f67e372d38c8f7c174dde2252369d5b20c87d3ba8e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "026dbd89a759e89bb934b17e935bc75dc32516d1c8722ec52f2b8dbf3d3b4678" => :sierra
-    sha256 "4c90f6b740eb6fea8fef693744a071c268ab1655a1b077ae6ddc582e8fe2fc6f" => :el_capitan
-    sha256 "5964828d701a9f8f16d3d72f2725b08bfbf34816885f8dcede60a02f3bbc188c" => :yosemite
-    sha256 "27ff9c5ce28a58317f5a77cff0b23ceef648774d984b89cf0b1f96066149036b" => :mavericks
+    sha256 "730b7d59b3c8c3f8ca12053b2be57c36effa89f036a0a5c78395455fc3619477" => :sierra
+    sha256 "116cf311291d7aaf0c13c5ac9e456a40261d036f75d21c6026e0b1c623bca2f4" => :el_capitan
+    sha256 "f7be3aeb9e6142bbf3b35ff6212c81615a2ac02f0a65ad77216bcd15051bf147" => :yosemite
   end
 
   def install
@@ -19,5 +18,19 @@ class Lzlib < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOF.undent
+      #include <stdio.h>
+      #include <stdint.h>
+      #include "lzlib.h"
+      int main (void) {
+        printf ("%s", LZ_version());
+      }
+    EOF
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-llz",
+                   "-o", "test"
+    assert_equal version.to_s, shell_output("./test")
   end
 end

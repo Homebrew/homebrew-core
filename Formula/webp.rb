@@ -3,12 +3,13 @@ class Webp < Formula
   homepage "https://developers.google.com/speed/webp/"
   url "http://downloads.webmproject.org/releases/webp/libwebp-0.6.0.tar.gz"
   sha256 "c928119229d4f8f35e20113ffb61f281eda267634a8dc2285af4b0ee27cf2b40"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4ccfbbb42e4b718ab6eec838b50be3ae36da1ecc6f00d3a438d80c9220936247" => :sierra
-    sha256 "cd0d20f0410b96f7564a0ccae776fcb2246030a8052a709ae3e5a3dd200fe6f3" => :el_capitan
-    sha256 "a3db82a59e4726452ff8b5c9352e016571e6fb1b0713180d7b6ccc7c5b64541d" => :yosemite
+    sha256 "f8cadfa3f0ee1b8c95d6a31c85e6ebf8de7fe973788a97aab07172d566183a57" => :sierra
+    sha256 "55497d556d3df56d05c37c4459734c5708dead14a62569f4efc5e31307e2f4e7" => :el_capitan
+    sha256 "c812d355a21c4bc42a4ecd56781eff5ce5d2ca6d48089b8bbcb83f67814339e0" => :yosemite
   end
 
   head do
@@ -24,14 +25,17 @@ class Webp < Formula
   depends_on "giflib" => :optional
 
   def install
+    args = [
+      "--disable-dependency-tracking",
+      "--disable-gl",
+      "--enable-libwebpmux",
+      "--enable-libwebpdemux",
+      "--enable-libwebpdecoder",
+      "--prefix=#{prefix}",
+    ]
+    args << "--disable-gif" if build.without? "giflib"
     system "./autogen.sh" if build.head?
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-gl",
-                          "--enable-libwebpmux",
-                          "--enable-libwebpdemux",
-                          "--enable-libwebpdecoder",
-                          "--prefix=#{prefix}"
+    system "./configure", *args
     system "make", "install"
   end
 

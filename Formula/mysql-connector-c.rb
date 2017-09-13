@@ -1,30 +1,27 @@
 class MysqlConnectorC < Formula
   desc "MySQL database connector for C applications"
   homepage "https://dev.mysql.com/downloads/connector/c/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C/mysql-connector-c-6.1.6-src.tar.gz"
-  sha256 "2222433012c415871958b61bc4f3683e1ebe77e3389f698b267058c12533ea78"
+  url "https://dev.mysql.com/get/Downloads/Connector-C/mysql-connector-c-6.1.11-src.tar.gz"
+  sha256 "c8664851487200162b38b6f3c8db69850bd4f0e4c5ff5a6d161dbfb5cb76b6c4"
 
   bottle do
-    sha256 "14f816bf3aeea9c0cf7b680112f3ca30b2e6f13b45da176a0f1cf888b3e7bc8b" => :sierra
-    sha256 "ebfb58b01b144d79fc23f3a0e7abc8b59e7a59379519f7973aa66603a7033db6" => :el_capitan
-    sha256 "b7cc223beca61228800d26878f7882b23afeb3a8a4297c1b2b84a9faa604a7e4" => :yosemite
-    sha256 "c9a3c310c3eb3f9a0284b6b337bc531e0bb1e5351134fa7d8b26d331aaaebd7b" => :mavericks
-    sha256 "5928f92ae51c122d69863ecfdda5f055bc0f6e8aea02c8ae484f3148747f5984" => :mountain_lion
+    sha256 "bb5c0c5854d6af0299c18d14a48dcb6dc5fdca98b2bde9b4c654c5584c3670b1" => :sierra
+    sha256 "e2035138e14b87fb0ff971ab9bc34631140ac0478e250866d9ce236de952c66e" => :el_capitan
+    sha256 "d6aaf4eca97640dc5f5785a2bf8cc45cf7d829d50798ee0f6551b473c621b792" => :yosemite
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl"
 
   conflicts_with "mysql", "mariadb", "percona-server",
     :because => "both install MySQL client libraries"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DWITH_SSL=system", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mysql_config", "--cflags"
-    system "#{bin}/mysql_config", "--include"
-    system "#{bin}/mysql_config", "--libs"
+    assert_match include.to_s, shell_output("#{bin}/mysql_config --cflags")
   end
 end

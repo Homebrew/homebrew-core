@@ -1,15 +1,15 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v18.tar.gz"
-  sha256 "57e5fe05b9775daf16f23c16c24035a4e380a3c9461faa2e1bc9de0bc6b147ab"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v20.tar.gz"
+  sha256 "08a1029d47f3b666eec9d901b2e2fe6e8f971348c10465427db95e4153ecd8b7"
   head "https://github.com/cjdelisle/cjdns.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "519c9a9c5a6879a05b47e85f70ee6bccefb878dc605b209504273de88d5fefa6" => :sierra
-    sha256 "36fad567a8247329814508b2dfa7b2d343e70e594399ef95e14e3107d0fbb799" => :el_capitan
-    sha256 "23eb33042c33c32d9d319aa59a9093f0a0fefaad7d7b28cef390b4186f98037a" => :yosemite
+    sha256 "9126208cc88fdc96ebf63ac4eec3b872127a81fee599e5c258cd48dc8ebb5a85" => :sierra
+    sha256 "ad1a0398f7f4c9336ae2bd87d61ce4ab25bce3f670452c6c55a01c5b9cbdb250" => :el_capitan
+    sha256 "5a04a85d79d80a1238b5d2afeb5fb18a114555b0cd156c09bbd3f13c8af07a91" => :yosemite
   end
 
   depends_on "node" => :build

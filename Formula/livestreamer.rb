@@ -1,5 +1,5 @@
 class Livestreamer < Formula
-  desc "pipes video from streaming services into a player such as VLC"
+  desc "Pipes video from streaming services into a player such as VLC"
   homepage "http://livestreamer.io/"
   url "https://files.pythonhosted.org/packages/ee/d6/efbe3456160a2c62e3dd841c5d9504d071c94449a819148bb038b50d862a/livestreamer-1.12.2.tar.gz"
   sha256 "ef3e743d0cabc27d8ad906c356e74370799e25ba46c94d3b8d585af77a258de0"

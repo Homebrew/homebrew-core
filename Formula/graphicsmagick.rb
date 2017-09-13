@@ -1,21 +1,18 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.xz"
-  sha256 "d64bfa52d2e0730eff9ce3ed51d4fc78dbb68e2adaa317b2bb3c56e6ee61ac9f"
-
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.26/GraphicsMagick-1.3.26.tar.xz"
+  sha256 "fba015f3d5e5d5f17e57db663f1aa9d338e7b62f1d415b85d13ee366927e5f88"
+  revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
-    sha256 "aadcff3e84a492354073cb59d107b6371c01c0863ce947d03b48a5960914286b" => :sierra
-    sha256 "e0e72ba85c6cc4d5acb13d093f2b3c59f02f0d81414bb797775d161e17ae2ed1" => :el_capitan
-    sha256 "36c0f4a292253bfeb4184b8b8033c98a767891fd97d3cd53060a8be3432f71bb" => :yosemite
-    sha256 "6846286eb57e624fab71cc5d5b1066c16636dae781d821caf55c9f181f73c425" => :mavericks
+    rebuild 1
+    sha256 "305487a0487ffb2ca372dd3d2253726c76dec215c9641ea7d7b7c86667d254e8" => :sierra
+    sha256 "fc7b895a02b341de4d851601ffb03fb5e9ef72ee8ec7e701165008d0eb5fef93" => :el_capitan
+    sha256 "32b76cdef89bd1d027886dcd52866ce8714dc84443b1a360416fcab5f46f8ed3" => :yosemite
   end
 
-  option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
-  option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit (default)"
-  option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
@@ -40,12 +37,6 @@ class Graphicsmagick < Formula
   end
 
   def install
-    quantum_depth = [8, 16, 32].select { |n| build.with? "quantum-depth-#{n}" }
-    if quantum_depth.length > 1
-      odie "graphicsmagick: --with-quantum-depth-N options are mutually exclusive"
-    end
-    quantum_depth = quantum_depth.first || 16 # user choice or default
-
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
@@ -54,7 +45,7 @@ class Graphicsmagick < Formula
       --with-modules
       --without-lzma
       --disable-openmp
-      --with-quantum-depth=#{quantum_depth}
+      --with-quantum-depth=16
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"

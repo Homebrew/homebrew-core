@@ -1,13 +1,13 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
-  homepage "http://www.abisource.com/projects/link-grammar/"
-  url "http://www.abisource.com/downloads/link-grammar/5.3.14/link-grammar-5.3.14.tar.gz"
-  sha256 "4161ff7af5d6297cc97758ed5062fc48cb3e87749f3b8dcd5b2c8ceae216f267"
+  homepage "https://www.abisource.com/projects/link-grammar/"
+  url "https://www.abisource.com/downloads/link-grammar/5.3.15/link-grammar-5.3.15.tar.gz"
+  sha256 "ef3caf0e5d19556de7d51bf3af44e2e374f2835d85fe4ab6b7637b0bb0bae0a5"
 
   bottle do
-    sha256 "66101790b948b5263e51db66687cda46c28da529be606e5034a5727a6fd36afd" => :sierra
-    sha256 "3bdd18c86f8a755fb4d40402a8e1ffbec0ee6a629eb350275658cb43b579e8fc" => :el_capitan
-    sha256 "fcd29aef31a1b7e36a460b4090ad4381b4dfc51dfc0e11dff5b8d4322471a023" => :yosemite
+    sha256 "f679fa0a6c733f31018f10b495c3207c5cc334853a2f06fd9d464473d2293112" => :sierra
+    sha256 "42a771ed7351109fc849de6d6fe4c565bf7889f6c8b67a52c43ead6083d39be5" => :el_capitan
+    sha256 "d0eb0b1d6f6f28ba6ac966b7b53a9fbaef0cdc2879400c4b4798300b9cd36ca9" => :yosemite
   end
 
   depends_on "pkg-config" => :build

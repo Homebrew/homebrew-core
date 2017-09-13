@@ -29,4 +29,12 @@ class Sox < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    input = testpath/"test.wav"
+    output = testpath/"concatenated.wav"
+    cp test_fixtures("test.wav"), input
+    system "#{bin}/sox #{input} #{input} #{output}"
+    assert_predicate output, :exist?
+  end
 end

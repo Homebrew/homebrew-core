@@ -1,15 +1,14 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.1/c/avro-c-1.8.1.tar.gz"
-  sha256 "e5042088fa47e1aa2860c5cfed0bd061d81f9e96628f8b4d87a24d9b8c5e4ecc"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.2/c/avro-c-1.8.2.tar.gz"
+  sha256 "4639982b2b8fbd91fc7128fef672207129c959bb7900dd64b077ce4206edf10e"
 
   bottle do
     cellar :any
-    sha256 "2ac1ff52207a67f9efd9b62c616122472897183fd0823950e3b67e2ba72da6c6" => :sierra
-    sha256 "e4a3fac26f221aba730618345e9f024bce23b852d8318d59f95feff1adc5d20f" => :el_capitan
-    sha256 "3a486446c6a1b9ae93b0501214a42f54d14b9753646fbe3a8ec2b03025b476cc" => :yosemite
+    sha256 "babc65c0442620b00470abdda6d86d7035390b75b6ae113319c69df1fc24dc8b" => :sierra
+    sha256 "52ba34bf67cee89d559bd075baff35e7be512b5f53419783a82c1f0cf2ca3f8a" => :el_capitan
+    sha256 "f77867d708068930b40fb0e3e4e5bd5146487699599e87d4987c205fb6a3275d" => :yosemite
   end
 
   option "with-snappy", "Build with Snappy codec support"

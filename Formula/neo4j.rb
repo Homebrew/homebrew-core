@@ -1,9 +1,8 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-3.1.1-unix.tar.gz"
-  version "3.1.1"
-  sha256 "7d66389ad683f66664f11a79314ce4d434ab70ade9c02601ee74e59cd729e2cb"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-3.2.2-unix.tar.gz"
+  sha256 "de607436b9708ee708447be367439a4c8c30bd97ca77e84e3a081b8b6d378d95"
 
   bottle :unneeded
 
@@ -18,7 +17,7 @@ class Neo4j < Formula
     libexec.install Dir["*"]
 
     # Symlink binaries
-    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}"]
+    bin.install Dir["#{libexec}/bin/neo4j{,-shell,-import,-shared.sh,-admin}", "#{libexec}/bin/cypher-shell"]
     bin.env_script_all_files(libexec/"bin", :NEO4J_HOME => ENV["NEO4J_HOME"])
 
     # Adjust UDC props
@@ -64,7 +63,6 @@ class Neo4j < Formula
 
   test do
     ENV["NEO4J_HOME"] = libexec
-    ENV.java_cache
     ENV["NEO4J_LOG"] = testpath/"libexec/data/log/neo4j.log"
     ENV["NEO4J_PIDFILE"] = testpath/"libexec/data/neo4j-service.pid"
     mkpath testpath/"libexec/data/log"

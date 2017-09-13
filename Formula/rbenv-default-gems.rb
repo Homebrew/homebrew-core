@@ -11,8 +11,8 @@ class RbenvDefaultGems < Formula
 
   # Upstream patch: https://github.com/sstephenson/rbenv-default-gems/pull/3
   patch do
-    url "https://github.com/sstephenson/rbenv-default-gems/commit/ead67889c91c53ad967f85f5a89d986fdb98f6fb.diff"
-    sha256 "14cab3c3a0baa8b138bdb4d898f6a1cf3b42c70927cd2e8139005e401a17d807"
+    url "https://github.com/sstephenson/rbenv-default-gems/commit/ead67889c91c53ad967f85f5a89d986fdb98f6fb.diff?full_index=1"
+    sha256 "eb334375bf0adbeaacdce58ba8b5fd3021258ff7dfdde3dd6683ccd731603ba0"
   end
 
   def install

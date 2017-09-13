@@ -13,13 +13,13 @@ class Mediatomb < Formula
     sha256 "7022f700071652e20eb3d93b3d0b0a9d5f4cf1485cd350d85116fcbdea1ac104" => :mavericks
   end
 
-  depends_on "libexif" => :recommended
-  depends_on "libmagic" => :recommended
-  depends_on "lzlib" => :recommended
-  depends_on "mp4v2" => :recommended
-  depends_on "spidermonkey" => :recommended
-  depends_on "sqlite" => :recommended
-  depends_on "taglib" => :recommended
+  depends_on "libexif"
+  depends_on "libmagic"
+  depends_on "lzlib"
+  depends_on "mp4v2"
+  depends_on "spidermonkey"
+  depends_on "sqlite"
+  depends_on "taglib"
   depends_on "ffmpeg" => :optional
   depends_on "ffmpegthumbnailer" => :optional
   depends_on "id3lib" => :optional
@@ -74,14 +74,7 @@ class Mediatomb < Formula
   end
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--disable-libmp4v2" if build.without? "mp4v2"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
 

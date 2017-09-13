@@ -24,7 +24,7 @@ class CdogsSdl < Formula
     system "make"
     prefix.install "src/cdogs-sdl.app"
     bin.write_exec_script "#{prefix}/cdogs-sdl.app/Contents/MacOS/cdogs-sdl"
-    pkgshare.install ["data", "dogfights", "graphics", "missions", "music", "sounds"]
+    pkgshare.install %w[data dogfights graphics missions music sounds]
     doc.install Dir["doc/*"]
   end
 

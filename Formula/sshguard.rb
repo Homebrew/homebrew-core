@@ -1,35 +1,52 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
-  homepage "http://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/1.7.1/sshguard-1.7.1.tar.gz"
-  sha256 "2e527589c9b33219222d827dff63974229d044de945729aa47271c4a29aaa195"
+  homepage "https://www.sshguard.net/"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.0.0/sshguard-2.0.0.tar.gz"
+  sha256 "e87c6c4a6dddf06f440ea76464eb6197869c0293f0a60ffa51f8a6a0d7b0cb06"
+  revision 1
   version_scheme 1
 
   bottle do
-    rebuild 2
-    sha256 "53632d2d0342927a1a7f03333db69ba4c48959d06397588485c170839530711f" => :sierra
-    sha256 "66170f748cb7f94d4d6f85b6e9a5caca4dfba074641587614c948f1feccf4031" => :el_capitan
-    sha256 "ac7d61e2bf2adb13185b55c5afdc8647c3842328b8ec379995acdfa99105f46c" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "87d6c9a576f06394b76c57837e1fdd700a48a58a720a546acc013818eb341e79" => :sierra
+    sha256 "dc712e331dd208b919076b5c4317809f081a274460dde1c3fd3d0226463fe32f" => :el_capitan
+    sha256 "dd5cfdc92ff81e8dc725ed3e263e0e1358149a3298bb9803c39a50d045e17421" => :yosemite
   end
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
+  head do
+    url "https://bitbucket.org/sshguard/sshguard.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docutils" => :build
+  end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "autoreconf", "-fiv" if build.head?
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-firewall=#{firewall}"
+                          "--sysconfdir=#{etc}"
     system "make", "install"
+    cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
+    inreplace "examples/sshguard.conf" do |s|
+      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
+      if MacOS.version >= :sierra
+        s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
+      else
+        s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
+      end
+    end
+    etc.install "examples/sshguard.conf"
   end
 
   def firewall
-    MacOS.version >= :lion ? "pf" : "ipfw"
+    (MacOS.version >= :lion) ? "pf" : "ipfw"
   end
 
   def log_path
-    MacOS.version >= :lion ? "/var/log/system.log" : "/var/log/secure.log"
+    (MacOS.version >= :lion) ? "/var/log/system.log" : "/var/log/secure.log"
   end
 
   def caveats
@@ -59,8 +76,6 @@ class Sshguard < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_sbin}/sshguard</string>
-        <string>-l</string>
-        <string>#{log_path}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -70,6 +85,6 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{sbin}/sshguard -v 2>&1", 64)
+    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
   end
 end

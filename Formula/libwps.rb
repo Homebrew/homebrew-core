@@ -1,15 +1,14 @@
 class Libwps < Formula
   desc "Library to import files in MS Works format"
-  homepage "http://libwps.sourceforge.net"
-  url "http://dev-www.libreoffice.org/src/libwps-0.4.2.tar.bz2"
-  sha256 "254b8aeb36a3b58eabf682b04a5a6cf9b01267e762c7dc57d4533b95f30dc587"
+  homepage "https://libwps.sourceforge.io"
+  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.7/libwps-0.4.7.tar.xz"
+  sha256 "2f2cab630bceace24f9dbb7d187cd6cd1f4c9f8a7b682c5f7e49c1e2cb58b217"
 
   bottle do
     cellar :any
-    sha256 "bc2f7b7cd3b38e38c6f6ed0423406340f33c4719e4c4833a0f2af8e0df0d58a2" => :sierra
-    sha256 "955cec0a064444c0c6db350b7c3a55b72b9382a98dae5060e25d78b928267fbb" => :el_capitan
-    sha256 "b747ff7cf50572bfe44fa363f8e9a987d8a5c27f07315a6ca15c0e6903e75d82" => :yosemite
-    sha256 "f41d5d0f77a02ed7f903a1761a5aabe7847f8dd4e6bf19c9aacd54924d7abcc6" => :mavericks
+    sha256 "85c11a7406bd2a53e63239f3455c5f205d780d1c487c52779e89507de4c86c72" => :sierra
+    sha256 "d9e3474b8f97fb56a76fe0068a075dad95f0905636ff18aa37e4dc77a1019687" => :el_capitan
+    sha256 "57cc0b3b1205f97f2af3f38799e160d5eae6bab3dac8bd528f7ebfd4e0a8723c" => :yosemite
   end
 
   depends_on "pkg-config" => :build

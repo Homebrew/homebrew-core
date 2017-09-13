@@ -1,15 +1,14 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-09.06.0100.tar.gz"
-  sha256 "050c80b25eb6553a718b9ab4ac00dcbadf7a13ee5ae637c30f7dcde8f4a6c962"
-  revision 1
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-09.06.0500.tar.gz"
+  sha256 "c784db84f3f9792c060d4c598835588c992f97cb4144d532b0cd1af9908bd401"
 
   bottle do
     cellar :any
-    sha256 "3656da26aa2865d7f5fde96a03237ea0cc794f0a55944075e771348cd2152367" => :sierra
-    sha256 "ab2548d3c6feabcbdfe1f38a4b436860690cc6ac76b43eadfa58a96e0e0a7e9a" => :el_capitan
-    sha256 "17995183d877770a12768636e592e59fde4f2c79f8b3cb6d73a276397b152d9f" => :yosemite
+    sha256 "a17ad86afd1f5f167252d7c2cb56c930b0bff58cd523093741356ed952ac6f1e" => :sierra
+    sha256 "82683ef581a38640fff97282ae3ccbbf3206490bfdfe8e7c48c4686f794a8550" => :el_capitan
+    sha256 "5738e63ed41a5fdbc0128ad1e42dd637248f9f49ebba2f83d96ec5e3126352f7" => :yosemite
   end
 
   head do

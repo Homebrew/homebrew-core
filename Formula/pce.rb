@@ -15,9 +15,9 @@ class Pce < Formula
   end
 
   devel do
-    url "http://www.hampa.ch/pub/pce/pre/pce-20160308-72f1e10.tar.gz"
-    version "20160308"
-    sha256 "102d41f9e7e56058580215deaf99a068ed00da45fad82d1a2c6cf74abb241b99"
+    url "http://www.hampa.ch/pub/pce/pre/pce-20170208-df19414/pce-20170208-df19414.tgz"
+    version "20170208"
+    sha256 "aaad3db24b5fabbd308afbb8d2f242236b8abf7d48b010f726a4367f16ec2681"
   end
 
   depends_on "sdl"

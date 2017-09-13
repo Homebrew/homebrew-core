@@ -1,20 +1,18 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/isync/isync/1.2.1/isync-1.2.1.tar.gz"
-  sha256 "e716de28c9a08e624a035caae3902fcf3b511553be5d61517a133e03aa3532ae"
+  url "https://downloads.sourceforge.net/project/isync/isync/1.2.2/isync-1.2.2.tar.gz"
+  sha256 "d9197e27bfe77e3d8971f4fcb25ec37b2506827c4bc9439b72376caa091ce877"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "76ed1f0a0d407d27870f7beb51c38275e6034b1c3c74ee0f3628e08fdadf6607" => :sierra
-    sha256 "38fb0d21a245178886acb1262f57ddde284adbf889039baf3401bf2028d7cba7" => :el_capitan
-    sha256 "074b9295e7ac9773eafac5bdc20e32d42d8023ffccd275235d0cb72ff09574cf" => :yosemite
-    sha256 "147097d617448be4d6796bf189a05200c1afd738ad64fe05aa40c61db10b5194" => :mavericks
+    sha256 "ae610fd466221c43e21699d087cd1b63808845782c0420b53d56bf895b6a4b53" => :sierra
+    sha256 "c7fb30472091072e7e461913ed0aacf2b5653c60c4daae86db5ca13614bae4f5" => :el_capitan
+    sha256 "264399ce5b39f9b5f67d5d528e509c870dd0588569d5f2f0964f401c9813969f" => :yosemite
   end
 
   head do
-    url "git://git.code.sf.net/p/isync/isync"
+    url "https://git.code.sf.net/p/isync/isync.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -35,6 +33,40 @@ class Isync < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  plist_options :manual => "isync"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+        </dict>
+        <key>KeepAlive</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mbsync</string>
+          <string>Periodic</string>
+        </array>
+        <key>StartInterval</key>
+        <integer>300</integer>
+        <key>RunAtLoad</key>
+        <true />
+        <key>StandardErrorPath</key>
+        <string>/dev/null</string>
+        <key>StandardOutPath</key>
+        <string>/dev/null</string>
+      </dict>
+    </plist>
+    EOS
   end
 
   test do

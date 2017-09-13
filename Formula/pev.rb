@@ -1,6 +1,6 @@
 class Pev < Formula
   desc "PE analysis toolkit"
-  homepage "http://pev.sf.net/"
+  homepage "https://pev.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pev/pev-0.80/pev-0.80.tar.gz"
   sha256 "f68c8596f16d221d9a742812f6f728bcc739be90957bc1b00fbaa5943ffc5cfa"
   head "https://github.com/merces/pev.git"

@@ -93,6 +93,6 @@ class Ddclient < Formula
       Process.kill "TERM", pid
       Process.wait
     end
-    $?.success?
+    $CHILD_STATUS.success?
   end
 end

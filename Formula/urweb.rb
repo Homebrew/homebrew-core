@@ -1,13 +1,13 @@
 class Urweb < Formula
   desc "Ur/Web programming language"
   homepage "http://www.impredicative.com/ur/"
-  url "http://www.impredicative.com/ur/urweb-20161022.tgz"
-  sha256 "7a021313b938a033aa13a33d340d3cdf0a867ee1919e9f62b34a38d294400618"
+  url "http://www.impredicative.com/ur/urweb-20170720.tgz"
+  sha256 "8b978b9c26b02d6bff358e26c04e37fdc83363a248462f4a367b415a594d109f"
 
   bottle do
-    sha256 "01d9057bc11646f5395d8e821a04f0ab01cea626fb449a2beabf692c7acb419a" => :sierra
-    sha256 "53c8b4cb36927ed7cbaac13510a1d2c466ec8d81256d166a8c04a61d1ae6c7f0" => :el_capitan
-    sha256 "3621c22bdf581c6c1bc6d89d7b85ac11917f9b8106a0c1874cc1c19519c8f930" => :yosemite
+    sha256 "dd118040a6ceabe95278dd24b5f5a40b6ccd397d5e939431ef84d89fcd7e592c" => :sierra
+    sha256 "0f0509d8d889c80afa2dcbcac7b769f88cb093861520782acc42f608fdd5e830" => :el_capitan
+    sha256 "f79d529de35aadf39e6568d257be44688f983cfa0074b71e62015305fe787fd9" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -34,6 +34,19 @@ class Urweb < Formula
   end
 
   test do
-    system "#{bin}/urweb"
+    (testpath/"hello.ur").write <<-EOS.undent
+      fun target () = return <xml><body>
+        Welcome!
+      </body></xml>
+      fun main () = return <xml><body>
+        <a link={target ()}>Go there</a>
+      </body></xml>
+    EOS
+    (testpath/"hello.urs").write <<-EOS.undent
+      val main : unit -> transaction page
+    EOS
+    (testpath/"hello.urp").write "hello"
+    system "#{bin}/urweb", "hello"
+    system "./hello.exe", "-h"
   end
 end

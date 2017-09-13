@@ -1,5 +1,5 @@
 class FcitxRemoteForOsx < Formula
-  desc "handle input method in command-line"
+  desc "Handle input method in command-line"
   homepage "https://github.com/CodeFalling/fcitx-remote-for-osx"
   url "https://github.com/CodeFalling/fcitx-remote-for-osx/archive/0.2.0.tar.gz"
   sha256 "6b641f692e96d1da741780d46941e8ab1d59ca7ea8909458888f20dea628b481"

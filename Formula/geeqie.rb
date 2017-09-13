@@ -3,11 +3,12 @@ class Geeqie < Formula
   homepage "http://www.geeqie.org/"
   url "http://www.geeqie.org/geeqie-1.3.tar.xz"
   sha256 "4b6f566dd1a8badac68c4353c7dd0f4de17f8627b85a7a70d5eb1ae3b540ec3f"
+  revision 2
 
   bottle do
-    sha256 "81d37ee2270c7c7f0b0c38042ee06bdbf3ec1ca4465b75e9687b033a77a8aa94" => :sierra
-    sha256 "1eaf69673392f31b14190f6c8430e75a6621e0cad74ad79d3df130da1586e27b" => :el_capitan
-    sha256 "b0855a3824ee1d7606c7c7a79b879360536ade7b355b76da57ff3d2a81271d6a" => :yosemite
+    sha256 "7ea4a718e16b30c9d31e20e3e388f6f36147adeedc55163d891ae96219343f68" => :sierra
+    sha256 "fa3bf94ddf58ad35ba070e76171cc1f6e75856433e398e9efe083532d6ee7dfd" => :el_capitan
+    sha256 "78e9314fd3aeb8a2340b70c8883af54cde29c5c3805c8ead86d44defcfce1774" => :yosemite
   end
 
   depends_on "pkg-config" => :build

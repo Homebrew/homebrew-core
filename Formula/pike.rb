@@ -1,15 +1,14 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se"
-  url "https://pike.lysator.liu.se/pub/pike/all/7.8.866/Pike-v7.8.866.tar.gz"
-  sha256 "0b12e1a99bd8bdd9c8a2daa46e623ac718bc0737290236a0c8474091359b594e"
-  revision 3
+  url "https://pike.lysator.liu.se/pub/pike/all/8.0.438/Pike-v8.0.438.tar.gz"
+  sha256 "3865f8a4c9ba95c006602f24cc6ad0c07e9f936135d2346e21da627807a90ca0"
+  revision 1
 
   bottle do
-    sha256 "0f2a49f68021e5076182f457faaa042ce70214fb03157f60f807fb5307c13114" => :sierra
-    sha256 "f39667a578587d3274fce318e92430c37755f5b42c4f608c80332d96ff630803" => :el_capitan
-    sha256 "740fa259972600b23f8c7437d59c89f471f0c0a8fc0a2af2738be5f47fdb5069" => :yosemite
-    sha256 "3dab476ddc379606639b5b44cddc19ec1764ac5227924a1e6b591f0961ba33b5" => :mavericks
+    sha256 "0251c2e968307aec3ce415c257e897e76b2968055334764407711dcf191c78ff" => :sierra
+    sha256 "d631d66fbaa6053e9cf6fe9ecab1af00db0dc504c3cd4b86962e54ab7269f9d9" => :el_capitan
+    sha256 "44fc539a915050d3521b91f87f387937f3727179a89f4a51bec9973ac98f1bf5" => :yosemite
   end
 
   option "with-gettext", "Include Gettext support"
@@ -22,7 +21,6 @@ class Pike < Formula
   option "with-pdf", "Include PDF support"
   option "with-gl", "Include GL support"
   option "with-all", "Include all features"
-  option "with-machine-code", "Enables machine code"
 
   depends_on "nettle"
   depends_on "gmp"
@@ -49,10 +47,6 @@ class Pike < Formula
     else
       ENV.append "CFLAGS", "-m32"
       args << "--with-abi=32"
-    end
-
-    if build.without? "machine-code"
-      args << "--without-machine-code"
     end
 
     ENV.deparallelize

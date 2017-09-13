@@ -1,15 +1,15 @@
 class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "http://www.solarus-games.org/"
-  url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.1-src.tar.gz"
-  sha256 "6cd3928a024f7c18a163a1679a92dfff3c37139c5c49fa5348704df5357e8da3"
+  url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.3-src.tar.gz"
+  sha256 "7608f3bdc7baef36e95db5e4fa4c8c5be0a3f436c50c53ab72d70a92aa44cc1c"
   head "https://github.com/christopho/solarus.git"
 
   bottle do
     cellar :any
-    sha256 "fb865993c9c9a5e47bfb78dbe68e1995eee00a4aaf0a676bddb724515c5bee9b" => :sierra
-    sha256 "f2cec4df4a1ed4ca192a54bfa0edcea353cdb780dbeb2a3f7b86ccd0d83f8820" => :el_capitan
-    sha256 "05ba9e7ff66a89969b033315b9605f812faf42def007d14a65f618e4c9c62f51" => :yosemite
+    sha256 "6afb8d4b5e69f2f44f9ad5df66439b98341ae9e456d081b86f8709b734b35c37" => :sierra
+    sha256 "ee7d849e34c9487a3b9d4499826aeb20339801978c7120f8a7919078dde93f60" => :el_capitan
+    sha256 "11db19b89a9f63fcc598949ee6e117d64a7b846bfe08a85d3b7a987b61b709f9" => :yosemite
   end
 
   depends_on "cmake" => :build

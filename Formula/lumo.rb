@@ -1,15 +1,15 @@
 class Lumo < Formula
-  desc "Fast, cross-platform, standalone ClojureScript REPL"
+  desc "Fast, cross-platform, standalone ClojureScript environment"
   homepage "https://github.com/anmonteiro/lumo"
-  url "https://github.com/anmonteiro/lumo/archive/1.1.0.tar.gz"
-  sha256 "03bf4b80ea2163c26c584fc80fe28de250e553c4443b58ddf489749fa8da0249"
+  url "https://github.com/anmonteiro/lumo/archive/1.7.0.tar.gz"
+  sha256 "c5b37815d41581974dd026f2f02389102c4af4934c87e15d4c3c1d85f3211e1e"
   head "https://github.com/anmonteiro/lumo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3e7944aeb12061c523bdb16761c4e3155fc9ba461e14c5bdd36021646e4e979" => :sierra
-    sha256 "76d01172eabd9b00a2a556dcc5a272ea70f945590c3e179cd0ae68d0d1455621" => :el_capitan
-    sha256 "d398aaf771ef1b5676f84b729ca3d511d6265648b62eaf99b454425a2b0c7dbb" => :yosemite
+    sha256 "f99d3b8cbd2fe4bd10f691477b353c5fc4acd430f441c086b46d1559969668c9" => :sierra
+    sha256 "27e79277bf35a0cfc401f2ba925f6ae914157522e6315a2cf4bae1af6244c4b2" => :el_capitan
+    sha256 "72dc7ea30baecd347ee8ebaa3cb822a4337088e02efd2dd5b4e6e62b38bf0dca" => :yosemite
   end
 
   depends_on "boot-clj" => :build
@@ -19,7 +19,7 @@ class Lumo < Formula
   def install
     ENV["BOOT_HOME"] = "#{buildpath}/.boot"
     ENV["BOOT_LOCAL_REPO"] = "#{buildpath}/.m2/repository"
-    system "boot", "release"
+    system "boot", "release-ci"
     bin.install "build/lumo"
   end
 

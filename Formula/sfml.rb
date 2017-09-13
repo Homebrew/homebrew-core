@@ -1,16 +1,18 @@
 class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
-  homepage "http://www.sfml-dev.org/"
-  url "http://www.sfml-dev.org/files/SFML-2.4.2-sources.zip"
+  homepage "https://www.sfml-dev.org/"
+  url "https://www.sfml-dev.org/files/SFML-2.4.2-sources.zip"
   sha256 "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
+  revision 1
   head "https://github.com/SFML/SFML.git"
 
   bottle do
     cellar :any
-    sha256 "054c35f4e582cc360aa216e453b983db523a76c42ea007755d60f76b47a84048" => :sierra
-    sha256 "e0bf245151452a3f7bc09205fd831c7fcfd936fff4ac366dc7a15f1f09b32b21" => :el_capitan
-    sha256 "e1febe460b334ce2dca457a030a350380679ce1e4ca7e4025bba5cb775c829a8" => :yosemite
+    rebuild 1
+    sha256 "76c3949dad4b907b87d219f10eb2dae44d43cb76963a083f70935f138832d13c" => :sierra
+    sha256 "976560145b126bd482696148767f333ceda470d847064a5682abcd5c329937bd" => :el_capitan
+    sha256 "43dbf56a522f7bce55db7e5354ee0810b7abad63b97178a1ed7a73356c52577c" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -26,7 +28,15 @@ class Sfml < Formula
   depends_on :macos => :lion
 
   def install
-    args = std_cmake_args
+    # Install pkg-config files, adding the CMake flag below isn't enough, as
+    # the CMakeLists.txt file currently doesn't consider MacOS X.
+    # This was fixed upstream for the future 2.5.0 release on 2016-12-19 in:
+    # https://github.com/SFML/SFML/commit/5fe5e5d6d7792e37685a437551ffa8ed5161fcc1
+    inreplace "CMakeLists.txt",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
+
+    args = std_cmake_args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
     args << "-DSFML_BUILD_DOC=TRUE" if build.with? "doxygen"
 
     # Always remove the "extlibs" to avoid install_name_tool failure

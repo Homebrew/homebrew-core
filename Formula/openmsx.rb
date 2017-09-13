@@ -1,15 +1,15 @@
 class Openmsx < Formula
   desc "MSX emulator"
-  homepage "http://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_13_0/openmsx-0.13.0.tar.gz"
-  sha256 "41e37c938be6fc9f90659f8808418133601a85475058725d3e0dccf2902e62cb"
+  homepage "https://openmsx.org/"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_14_0/openmsx-0.14.0.tar.gz"
+  sha256 "eb9ae4c8420c30b69e9a05edfa8c606762b7a6bf3e55d36bfb457c2400f6a7b9"
   head "https://github.com/openMSX/openMSX.git"
 
   bottle do
     cellar :any
-    sha256 "587193c0792a28ff7d94f0fe2cdc3e724991bb07f871a3337c268efc0482cae0" => :sierra
-    sha256 "d72bf6eb5aa50f118374e27a698a7481437e2ac8df368844976c7317214aba66" => :el_capitan
-    sha256 "340fe139996bbd87274788932db4d3e64dcdc4f2f969fc405b58c6e16f7fe120" => :yosemite
+    sha256 "beb72a7af18689727fd44a726bc8cbc6ca021ce1b844960d537588a65e818407" => :sierra
+    sha256 "f8aedb3421144750a2a0e81f1a417b74313611d5b5dd142fbc859518ca7cef51" => :el_capitan
+    sha256 "6a650da914f1fa3034f85c7e804856b39d40a7b2aa7d02ec412579e5a8a4b30e" => :yosemite
   end
 
   deprecated_option "without-opengl" => "without-glew"

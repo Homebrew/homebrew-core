@@ -12,8 +12,8 @@ class Hidapi < Formula
   # with HidApi were not behaving correctly on OSX.
   # pull request on Hidapi's repo: https://github.com/signal11/hidapi/pull/219
   patch do
-    url "https://github.com/signal11/hidapi/pull/219.patch"
-    sha256 "d0a21a150425629a8388320df86818109e33d3230f6b0780c60524c9d15030ee"
+    url "https://github.com/signal11/hidapi/pull/219.patch?full_index=1"
+    sha256 "c0ff6eb370d6b875c06d72724a1a12fa0bafcbd64b2610014abc50a516760240"
   end
 
   bottle do

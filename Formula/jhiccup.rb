@@ -1,7 +1,7 @@
 class Jhiccup < Formula
   desc "Measure pauses and stalls of an app's Java runtime platform"
-  homepage "http://www.jhiccup.com"
-  url "http://www.azulsystems.com/sites/default/files/images/jHiccup.1.3.7.zip"
+  homepage "https://www.azul.com/products/open-source-tools/jhiccup-performance-measurement-tool/"
+  url "https://www.azulsystems.com/sites/default/files/images/jHiccup.1.3.7.zip"
   sha256 "abc029bfb55bbe59824d0b6db6845bd0f08befba3b860747ed601a6c27573f24"
 
   bottle :unneeded

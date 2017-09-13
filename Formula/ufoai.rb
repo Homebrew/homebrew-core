@@ -1,19 +1,20 @@
 class Ufoai < Formula
   desc "UFO: Alien Invasion"
-  homepage "http://ufoai.org/"
-  url "git://git.code.sf.net/p/ufoai/code", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
+  homepage "https://ufoai.org/"
+  url "https://git.code.sf.net/p/ufoai/code.git", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
   version "2.5.0+20150216"
+  revision 2
 
   bottle do
-    sha256 "300bb5018f23a611b94b7a24803488a1bab5016374f10b40acd211192fef3383" => :sierra
-    sha256 "b44b1699fe48d50f9e46c50cbe4beeeacca20cea57e4a0ddd2807161e1b60b7d" => :el_capitan
-    sha256 "6132d7c71ba7a523873a0325ac3368cbd35e739a23427aebe318c307657955ba" => :yosemite
+    sha256 "eda8d6568f66feb8939d78563a987b28725a5259c8ee84f413916f502449bb44" => :sierra
+    sha256 "1c05592d1988fb2a06821dc59c21e9e0926cd6402fb46d4185e73b0332edfc2b" => :el_capitan
+    sha256 "34eab6d59a70dd2ae0a9520fcd7b57ad94e14804894e6bdc9741a3ad44cedf46" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "sdl2_ttf"
-  depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "sdl2_mixer"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "xvid"

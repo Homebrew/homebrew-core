@@ -1,8 +1,8 @@
 class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
-  url "https://ftpmirror.gnu.org/bison/bison-3.0.4.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.0.4.tar.gz"
   sha256 "b67fd2daae7a64b5ba862c66c07c1addb9e6b1b05c5f2049392cfd8a2172952e"
 
   bottle do
@@ -13,7 +13,16 @@ class Bison < Formula
     sha256 "1ac1b43ae92fea5b04f663197309ce8b788061d31f09ba14e97dd4d5d1183d62" => :mountain_lion
   end
 
-  keg_only :provided_by_osx, "Some formulae require a newer version of bison."
+  keg_only :provided_by_osx, "some formulae require a newer version of bison"
+
+  # Fix crash from usage of %n in dynamic format strings on High Sierra
+  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/14451f57e89/devel/bison/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

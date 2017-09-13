@@ -22,4 +22,8 @@ class Utimer < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    assert_match "Elapsed Time:", shell_output("#{bin}/utimer -t 0ms")
+  end
 end

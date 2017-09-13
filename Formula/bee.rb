@@ -1,8 +1,8 @@
 class Bee < Formula
   desc "Tool for managing database changes."
   homepage "https://github.com/bluesoft/bee"
-  url "https://github.com/bluesoft/bee/releases/download/1.60/bee-1.60.zip"
-  sha256 "1a13d884dece7cb53c8331ba66357b36335fe127caafe81698dd450c0b413348"
+  url "https://github.com/bluesoft/bee/releases/download/1.62/bee-1.62.zip"
+  sha256 "efc008e39b258749de837f820f308d86b7dc7f040be5e8cd0a045dcb7a728d89"
 
   bottle :unneeded
 

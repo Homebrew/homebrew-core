@@ -3,15 +3,15 @@ class Supertux < Formula
   homepage "https://supertuxproject.org/"
   url "https://github.com/SuperTux/supertux/releases/download/v0.5.1/SuperTux-v0.5.1-Source.tar.gz"
   sha256 "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
-  revision 1
+  revision 3
 
   head "https://github.com/SuperTux/supertux.git"
 
   bottle do
     cellar :any
-    sha256 "cbdfb8a82436041f076f60d487646ad43736da9efe89479d4af59924cab1802a" => :sierra
-    sha256 "28b5385dad4ace16ff7f9602124f30ee87e8c031e195fae3b194350b3ed007f8" => :el_capitan
-    sha256 "7353d764c9113a335235da1499194aa54da66b8538caa9432e4a2624b2b6aa3e" => :yosemite
+    sha256 "b2adbb17603f0027eff4e33a21d587d92190817d3a4ba8c85b408edd783edf39" => :sierra
+    sha256 "eda941a8dfa53421cab3e1760cccd11915897c42dc0a0ad5ad59aeadb8b6d0fc" => :el_capitan
+    sha256 "6a3a313ad4592b866dab92d916705c7ba7fbff224f9fb269a221293b89f9d3f0" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -19,7 +19,7 @@ class Supertux < Formula
   depends_on "boost" => :build
   depends_on "sdl2"
   depends_on "sdl2_image"
-  depends_on "sdl2_mixer" => "with-libvorbis"
+  depends_on "sdl2_mixer"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "glew"
@@ -27,8 +27,8 @@ class Supertux < Formula
   # Fix symlink passing to physfs
   # https://github.com/SuperTux/supertux/issues/614
   patch do
-    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff"
-    sha256 "bb88211eacf76698521b5b85972e2facd93bceab92fa37529ec3ff5482d82956"
+    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff?full_index=1"
+    sha256 "2b12aeead4f425a0626051e246a9f6d527669624803d53d6d0b5758e51099059"
   end
 
   needs :cxx11

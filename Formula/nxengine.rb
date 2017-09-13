@@ -1,7 +1,7 @@
 class Nxengine < Formula
   desc "Rewrite of Cave Story (Doukutsu Monogatari)"
   homepage "https://nxengine.sourceforge.io/"
-  url "http://nxengine.sourceforge.net/dl/nx-src-1006.tar.bz2"
+  url "https://nxengine.sourceforge.io/dl/nx-src-1006.tar.bz2"
   version "1.0.0.6"
   sha256 "cf9cbf15dfdfdc9936720a714876bb1524afbd2931e3eaa4c89984a40b21ad68"
 
@@ -16,7 +16,7 @@ class Nxengine < Formula
 
   # Freeware Cave Story 1.0.0.6 pre-patched with Aeon Genesis English translation
   resource "game" do
-    url "http://www.cavestory.org/downloads/cavestoryen.zip"
+    url "https://www.cavestory.org/downloads/cavestoryen.zip"
     sha256 "aa87fa30bee9b4980640c7e104791354e0f1f6411ee0d45a70af70046aa0685f"
   end
 

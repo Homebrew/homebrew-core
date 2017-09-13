@@ -12,7 +12,7 @@ class Glkterm < Formula
     sha256 "61b75bf1232fb3aacc5966ea13e88fe339da7ffd7c9882bab549456dd816a30a" => :yosemite
   end
 
-  keg_only "Conflicts with other Glk libraries"
+  keg_only "conflicts with other Glk libraries"
 
   def install
     system "make"

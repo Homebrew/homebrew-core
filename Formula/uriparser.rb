@@ -14,7 +14,7 @@ class Uriparser < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/uriparser/git"
+    url "https://git.code.sf.net/p/uriparser/git.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
@@ -36,11 +36,11 @@ class Uriparser < Formula
 
   test do
     expected = <<-EOS.undent
-      uri:          http://brew.sh
-      scheme:       http
+      uri:          https://brew.sh
+      scheme:       https
       hostText:     brew.sh
       absolutePath: false
     EOS
-    assert_equal expected, shell_output("#{bin}/uriparse http://brew.sh").chomp
+    assert_equal expected, shell_output("#{bin}/uriparse https://brew.sh").chomp
   end
 end

@@ -1,23 +1,21 @@
 class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
-  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-263.tar.gz"
-  version "20161222-263"
-  sha256 "e792d1986ed6e7e871f136d67bde3d2043c0a514b49ae46a8ef583fb54e65808"
+  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-267.tar.gz"
+  sha256 "5898bcc02e45a5fbc7b38af7ba6788d8a85f55e54285a668848c2064138aa9ea"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "817bf2d67ecdcb90b51e93c3b2745c6b8ac58b93a6a62dfb16de5ec934e27b6e" => :sierra
-    sha256 "2589a9e18a647b5c997d01a3d4ffbd9fc96e3f2550d8bb1ceb9e42ea2ed1e8e7" => :el_capitan
-    sha256 "cdf54fa018d319a0db40b8439722bd62b70d6f7c0ab38a327715918935278ff7" => :yosemite
+    sha256 "d18b73d89cb462d4343289fd57ac22c0aff14ee08e15d16728b868f9200917e5" => :sierra
+    sha256 "0a1fec59601c7e7c9e4ced90193c1dcccee4c7a7e10ed7c647d3115f0afd54a2" => :el_capitan
+    sha256 "9f3aa7d2469df6cfb27e52d66052693fd1b0a73732d3b10b16c08b788109dcb3" => :yosemite
   end
 
   depends_on :java => "1.6+"
   depends_on "maven" => :build
 
   def install
-    ENV.java_cache
-
     system "mvn", "package", "-DskipTests=true",
                              "-Dmaven.javadoc.skip=true",
                              "-Dcobertura.skip=true"

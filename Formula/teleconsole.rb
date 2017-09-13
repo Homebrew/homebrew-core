@@ -1,7 +1,7 @@
 require "language/go"
 
 class Teleconsole < Formula
-  desc "free service to share your terminal session with people you trust"
+  desc "Free service to share your terminal session with people you trust"
   homepage "https://www.teleconsole.com"
   url "https://github.com/gravitational/teleconsole/archive/0.3.1.tar.gz"
   sha256 "663307a1dfe4baadf7e1ed9f5b66b1d203bf9696068e9bcd86e535f286e64d59"
@@ -61,8 +61,8 @@ class Teleconsole < Formula
   end
 
   patch do
-    url "https://github.com/gravitational/teleconsole/pull/8.patch"
-    sha256 "0f29dd545733dcc092ebaa88424c6879a26e63113c2c8e0f10036537771afb7c"
+    url "https://github.com/gravitational/teleconsole/pull/8.patch?full_index=1"
+    sha256 "54f551f939c82c482a4aa6df5dbf5077943cf39f2b1d5265a0747c9cc5606e24"
   end
 
   def install

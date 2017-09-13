@@ -1,10 +1,11 @@
 class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
-  url "https://languagetool.org/download/LanguageTool-3.6.zip"
-  sha256 "fc66aa5515f93c16f9195bf57e84b117929574ea9b8a335d0a38f4c66d132353"
+  url "https://languagetool.org/download/LanguageTool-3.8.zip"
+  sha256 "e910a4ea0f0000409ba91220cbf56ae0f23c814efab5d2845f8059cbb918453c"
 
   bottle :unneeded
+  depends_on :java => "1.8+"
 
   def server_script(server_jar); <<-EOS.undent
     #!/bin/bash

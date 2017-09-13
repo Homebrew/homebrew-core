@@ -3,14 +3,13 @@ class Libimobiledevice < Formula
   homepage "http://www.libimobiledevice.org/"
   url "http://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2"
   sha256 "786b0de0875053bf61b5531a86ae8119e320edab724fc62fe2150cc931f11037"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "e0b677daf75707d838d7d49ecec7e1cdfd8c01d55651cc719d26a1538bf0dcc7" => :sierra
-    sha256 "db353988bbd70c57409338bba501a618e1d92e920e409ef587a870618878c18c" => :el_capitan
-    sha256 "b13e2074ea7c8bb541b9604c6f2cdcdf8b55ee53ddbb541c1b9905ec09bd0c1c" => :yosemite
-    sha256 "1ef2fe290630098b2c868d10625af7bd66a244c21b0290ae611072ab3fdedb01" => :mavericks
-    sha256 "9b1c6444d223a9eb99dcade6ee8382a062701293b5e6ddaa11e23405e4d92977" => :mountain_lion
+    sha256 "7440711e4b0b3c52a1b543b770b18de751a362086419ded9310f55fe104f546f" => :sierra
+    sha256 "03715926236f2e946de067f87bde7876335b1ffe8267747b54e60e729dcd3548" => :el_capitan
+    sha256 "5b97af6571b290a889d4627fdc6eb63a6eaf83adeda40f4e9aaca765010bd017" => :yosemite
   end
 
   head do

@@ -1,29 +1,36 @@
 class Vc4asm < Formula
   desc "Macro assembler for Broadcom VideoCore IV aka Raspberry Pi GPU"
   homepage "http://maazl.de/project/vc4asm/doc/index.html"
-  url "https://github.com/maazl/vc4asm/archive/V0.2.2.tar.gz"
-  sha256 "6f3da580aacecfd68219771d28ceddab987d26ca38eb4e38d8a93423e30eacb2"
+  url "https://github.com/maazl/vc4asm/archive/V0.2.3.tar.gz"
+  sha256 "8d5f49f7573d1cc6a7baf7cee5e1833af2a87427ad8176989083c6ba7d034c8c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b01a50db0867a9f940911026f4c18a2e91afd855cdef77e3835956cdf514cc6c" => :sierra
-    sha256 "7dec394e660a8e8cb34f5e42b2e438c02bdf0cde94258f6acbd8d7d780af11a6" => :el_capitan
-    sha256 "acd4fd9c7b398384be284256d6c7615687518b08c0a964146bbc4aefed27c794" => :yosemite
+    sha256 "2547c982e3fde40316d01d802bd01bf49af208e6737ecafeaeb8ad988ea3255d" => :sierra
+    sha256 "72d54a4237c4e0f952fd1a3d913725d84814ed5b657affa1d6dcafa19e1cdc44" => :el_capitan
+    sha256 "871b3b109ac49b09056f83e4488105196060d2388dc5052c679776b43fab5927" => :yosemite
   end
 
   needs :cxx11
 
+  # Fixes "ar: illegal option combination for -r"
+  # Reported 13 Apr 2017 https://github.com/maazl/vc4asm/issues/18
+  resource "old_makefile" do
+    url "https://raw.githubusercontent.com/maazl/vc4asm/c6991f0/src/Makefile"
+    sha256 "2ea9a9e660e85dace2e9b1c9be17a57c8a91e89259d477f9f63820aee102a2d3"
+  end
+
   def install
     ENV.cxx11
 
-    # Fixes "use of undeclared identifier 'fabs'" and similar errors
-    inreplace "src/AssembleInst.cpp", "#include <cstdlib>",
-                                      "#include <cstdlib>\n#include <cmath>"
+    # Fixes "error: use of undeclared identifier 'errno'"
+    # Reported 13 Apr 2017 https://github.com/maazl/vc4asm/issues/19
+    inreplace "src/utils.cpp", "#include <unistd.h>",
+                               "#include <unistd.h>\n#include <errno.h>"
 
-    cd "src" do
-      system "make"
-    end
-    bin.install %w[bin/vc4asm bin/vc4dis]
+    (buildpath/"src").install resource("old_makefile")
+    system "make", "-C", "src"
+    bin.install "bin/vc4asm", "bin/vc4dis"
     share.install "share/vc4.qinc"
   end
 

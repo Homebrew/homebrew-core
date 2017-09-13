@@ -1,45 +1,58 @@
 class Openvpn < Formula
-  desc "SSL VPN implementing OSI layer 2 or 3 secure network extension"
+  desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.0.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.0.tar.xz"
-  sha256 "6f23ba49a1dbeb658f49c7ae17d9ea979de6d92c7357de3d55cd4525e1b2f87e"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.3.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.3.tar.xz"
+  sha256 "15e15fc97f189b52aee7c90ec8355aa77469c773125110b4c2f089abecde36fb"
 
   bottle do
-    cellar :any
-    sha256 "a410e3af369a2654cda6b1f05db43282656d3907ea9efca32561aaeccf88d291" => :sierra
-    sha256 "52815c93bf913bc99f2ee4546f3d992e296eaab7d5da9b269b02cceb69c71434" => :el_capitan
-    sha256 "067fcd6d7917ea37434d901e54dd9edaf9beb41a97444d9dd5d80ddd9eb161ac" => :yosemite
+    sha256 "1fd1b64c45e92591247c3cb073577d6a161c9e19118c067a2b965833c4b5b448" => :sierra
+    sha256 "ab58d314e44570b921e95141cf37e7d95deae15e4d026b2212d1f85acac1d32b" => :el_capitan
+    sha256 "c3c014805479617d3c0cb4ab80c875929b27fee96501ad323031a0f2d344ec0d" => :yosemite
   end
 
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
+  depends_on "pkg-config" => :build
   depends_on "lzo"
   depends_on "openssl"
-  depends_on "pkcs11-helper" => [:optional, "without-threading", "without-slotevent"]
 
-  if build.with? "pkcs11-helper"
-    depends_on "pkg-config" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+  resource "pkcs11-helper" do
+    url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.22/pkcs11-helper-1.22.tar.bz2"
+    sha256 "fbc15f5ffd5af0200ff2f756cb4388494e0fb00b4f2b186712dce6c48484a942"
   end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-crypto-library=openssl
-      --prefix=#{prefix}
-      --enable-password-save
-    ]
+    vendor = buildpath/"brew_vendor"
 
-    args << "--enable-pkcs11" if build.with? "pkcs11-helper"
+    resource("pkcs11-helper").stage do
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{vendor}/pkcs11-helper",
+                            "--disable-threading",
+                            "--disable-slotevent",
+                            "--disable-shared"
+      system "make", "install"
+    end
 
-    system "./configure", *args
+    ENV.prepend_path "PKG_CONFIG_PATH", vendor/"pkcs11-helper/lib/pkgconfig"
+
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-crypto-library=openssl",
+                          "--enable-pkcs11",
+                          "--prefix=#{prefix}"
     system "make", "install"
+
+    # Install OpenVPN's new contrib helper allowing the use of
+    # macOS keychain certificates with OpenVPN.
+    cd "contrib/keychain-mcd" do
+      system "make"
+      sbin.install "keychain-mcd"
+      man8.install "keychain-mcd.8"
+    end
 
     inreplace "sample/sample-config-files/openvpn-startup.sh",
               "/etc/openvpn", "#{etc}/openvpn"

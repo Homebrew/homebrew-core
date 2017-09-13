@@ -1,38 +1,26 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  revision 1
-
-  stable do
-    url "https://secure.nic.cz/files/knot-dns/knot-2.4.1.tar.xz"
-    sha256 "c064ddf99bf5fc24dd3c6a3a523394760357e204c8b69f0e691e49bc0d9b704c"
-
-    resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm/archive/v0.3.0.tar.gz"
-      sha256 "531ef29ed2a15dfe4993448eb4e8463c5ed8eebf1472a5608c6ac0a6f62b3a12"
-    end
-  end
+  url "https://secure.nic.cz/files/knot-dns/knot-2.5.4.tar.xz"
+  sha256 "3fde76e9084b75df374709cb73a8289f77c6a95b7ccff8584d7423566faa24f0"
 
   bottle do
-    sha256 "d5d3051cbf98d10d1a8f95ba998fc3b1ddda3f1e4a6e70877ecd10b2d0abfefc" => :sierra
-    sha256 "8334092eefbe05ea9b3fcd534a096de9ee452e0787c76f89c279a0f6a6b2aa24" => :el_capitan
-    sha256 "bde99d16719194630b6f273569b50eb14800387b84fe2d50d24ac8f9706a9ecc" => :yosemite
+    sha256 "0ea96d7cab1d6fc5a5a27b7c8bd09eb06d57bb4410fb927ab59b6c669d16bf22" => :sierra
+    sha256 "7778870c9a846abc9aa4241949c064e2debb93d70f8991e9b656a966a479de5b" => :el_capitan
+    sha256 "406164093d4b32a939c4a42f17f8966c4535b6a2c82531792538ad58259fa8cc" => :yosemite
   end
 
   head do
-    url "https://gitlab.labs.nic.cz/labs/knot.git"
+    url "https://gitlab.labs.nic.cz/knot/knot-dns.git"
 
-    resource "fstrm" do
-      url "https://github.com/farsightsec/fstrm.git"
-    end
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "libtool" => :build
   end
 
   # due to AT_REMOVEDIR
   depends_on :macos => :yosemite
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gnutls"
@@ -42,19 +30,9 @@ class Knot < Formula
   depends_on "openssl"
   depends_on "userspace-rcu"
   depends_on "protobuf-c"
-  depends_on "libevent"
+  depends_on "fstrm"
 
   def install
-    resource("fstrm").stage do
-      system "autoreconf", "-fvi"
-      system "./configure", "--prefix=#{libexec}/fstrm"
-      system "make", "install"
-    end
-
-    ENV.append "CFLAGS", "-I#{libexec}/fstrm/include"
-    ENV.append "LDFLAGS", "-L#{libexec}/fstrm/lib"
-    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/fstrm/lib/pkgconfig"
-
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

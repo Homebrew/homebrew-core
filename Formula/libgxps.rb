@@ -1,15 +1,15 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://live.gnome.org/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.4.tar.xz"
-  sha256 "e9d6aa02836d9d4823a51705d3e1dee6fc4bce11d72566024042cfaac56ec7a4"
+  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
+  sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "397d216ded808b2898fc13409a2d1f5bbcc51fd40fa2fb94b910f6044d6f813c" => :sierra
-    sha256 "b1cbf046b303545753c6a043ae16282a7e28056fb943af11a15c512e2e7c93dc" => :el_capitan
-    sha256 "11da801820de7108aff7df91a1e51582a846bceca579cbce505022938b4f852e" => :yosemite
-    sha256 "23be9dbe9666fd0fd87b6d055d27c1eb16017b3bb8cf84f8eccddccae532d059" => :mavericks
+    sha256 "4cfffe7346052e0b1e58d90c121a3f5019a5dbc84ba615f2b61d12489b6f83a6" => :sierra
+    sha256 "98487c22daa05bf49ae4975759c71f568b574a55f96cdbdd9834c4d05293155c" => :el_capitan
+    sha256 "234ce5d81d10db1eac54601306fb9889a549559c4e2a87e972782971103ae399" => :yosemite
   end
 
   head do
@@ -41,7 +41,7 @@ class Libgxps < Formula
       "--prefix=#{prefix}",
     ]
 
-    args << "--without-libjpeg" if build.without? "libjpeg"
+    args << "--without-libjpeg" if build.without? "jpeg"
     args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-liblcms2" if build.without? "lcms2"
 

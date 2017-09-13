@@ -1,42 +1,26 @@
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
-  url "https://pngquant.org/pngquant-2.8.2-src.tar.gz"
-  sha256 "e93a400df7514880135171ae105a412e76d76745ce9648647dfeea66c890b9c3"
+  url "https://github.com/pornel/pngquant.git",
+      :tag => "2.10.2",
+      :revision => "f10f5d217c170d7aff4d80b88bdc563bd56babef"
   head "https://github.com/pornel/pngquant.git"
 
   bottle do
-    cellar :any
-    sha256 "88a6a0062aa21324c449840d5304789a1feed2309bd9817d83114a0e54a22402" => :sierra
-    sha256 "4a7393976890e0d00d1335410aff6c7dde6b820894262da2b7c27508c2287ee8" => :el_capitan
-    sha256 "1530412b698806c01980dd29917aafcc14cb8dd223725d35e7d45672cbceabe6" => :yosemite
+    sha256 "b0f4b97ed674cb11b17800d1e4ec1f313a17075710781d285efa27c37043e7a9" => :sierra
+    sha256 "d11640da698b0bc298dbcf57e2153e9e0db0beadf8414dd4b326388b92ee909f" => :el_capitan
+    sha256 "dd5333cb7c02d99eee6371f542ca14255e9b5c44f2191694e7bf60d4b0f6240a" => :yosemite
   end
 
-  option "with-openmp", "Enable OpenMP"
-
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libpng"
-  depends_on "little-cms2" => :optional
-
-  needs :openmp if build.with? "openmp"
+  depends_on "little-cms2"
 
   def install
-    ENV.append_to_cflags "-DNDEBUG" # Turn off debug
-
-    args = ["--prefix=#{prefix}"]
-    args << "--with-lcms2" if build.with? "little-cms2"
-
-    if build.with? "openmp"
-      args << "--with-openmp"
-      args << "--without-cocoa"
-    end
-
-    system "./configure", *args
-    system "make", "install", "CC=#{ENV.cc}"
-
+    system "cargo", "build", "--release"
+    bin.install "target/release/pngquant"
     man1.install "pngquant.1"
-    lib.install "lib/libimagequant.a"
-    include.install "lib/libimagequant.h"
   end
 
   test do

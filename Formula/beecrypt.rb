@@ -1,19 +1,18 @@
 class Beecrypt < Formula
   desc "C/C++ cryptography library"
-  homepage "http://beecrypt.sourceforge.net"
+  homepage "https://beecrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/beecrypt/beecrypt/4.2.1/beecrypt-4.2.1.tar.gz"
   sha256 "286f1f56080d1a6b1d024003a5fa2158f4ff82cae0c6829d3c476a4b5898c55d"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "45c68cd3ba2c04838c463abeb94e6ebec70d48edbcbdbc0fbec9a16ebb203d66" => :sierra
-    sha256 "cfb11a2e9a6d42635b3534437cdb72f854e1c6cf68bc5398bdeacf19474078cb" => :el_capitan
-    sha256 "ec32147dc97502c42673b24b15ce98c769310ced85c8096c91ce6d768fb00c76" => :yosemite
+    sha256 "9bb192a3b891680eedbacb38cd9a2daa694cbef4d1db7b844d1809fb5504d660" => :sierra
+    sha256 "aafed63c6eb816d71151cf20830d76375ef872d2502babfe20f94683b3fcbf33" => :el_capitan
+    sha256 "c321c1ab92e2f644460e3f2cba59495962735a3b046744692a171deebffba29b" => :yosemite
   end
 
   depends_on "libtool" => :build
-  depends_on "icu4c"
 
   # fix build with newer clang, gcc 4.7 (https://bugs.gentoo.org/show_bug.cgi?id=413951)
   patch :p0, :DATA
@@ -56,7 +55,7 @@ class Beecrypt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lbeecrypt", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lbeecrypt", "-o", "test"
     assert_match /ZF8D/, shell_output("./test")
   end
 end

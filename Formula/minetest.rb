@@ -1,21 +1,22 @@
 class Minetest < Formula
   desc "Free, open source voxel game engine and game"
-  homepage "http://www.minetest.net/"
+  homepage "https://www.minetest.net/"
+  revision 1
 
   stable do
-    url "https://github.com/minetest/minetest/archive/0.4.15.tar.gz"
-    sha256 "5684e6118e3484f8901323f1ca4179202659010b33c72f02bc03df792493e3a9"
+    url "https://github.com/minetest/minetest/archive/0.4.16.tar.gz"
+    sha256 "0ef3793de9f569746ea78af7a66fe96ef65400019e5e64a04a5c3fa26a707655"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/0.4.15.tar.gz"
-      sha256 "f583ea55f511bbcc106c60f7d488ec3fe6b961efc3fd648603b6acd0189d7d8a"
+      url "https://github.com/minetest/minetest_game/archive/0.4.16.tar.gz"
+      sha256 "ea914555949b4faccda5e13143cb021d2f9a5fa19abd1f5e4b7b65004cbd2b5a"
     end
   end
 
   bottle do
-    sha256 "4caf1cf31fa718bfaa615fc59399e353ea764c62d715314339e12fef8d1f0670" => :sierra
-    sha256 "5b9b4dcba795ebfef089e462977209560eb700432a3db5eaf6caddd9bc3cb882" => :el_capitan
-    sha256 "3d68f0d9b6343e7271ae56ef85b49dcb5a4966cc1c6004a9c54a7c81f05d48fb" => :yosemite
+    sha256 "bd1bb5708000861f5406b4e95355f4474b372136e96db374076c29dc9464fa74" => :sierra
+    sha256 "8ba27901ec54f9f141c3afb94406d22ec49f907f4e1c873375b5338703e1d3e2" => :el_capitan
+    sha256 "a56489395aa0d13f322ced52167d8e46974bfd6e8302a0e6b0335df3082eed4e" => :yosemite
   end
 
   head do

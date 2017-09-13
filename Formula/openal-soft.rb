@@ -1,21 +1,19 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "http://kcat.strangesoft.net/openal.html"
-  url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.17.2.tar.bz2"
-  sha256 "a341f8542f1f0b8c65241a17da13d073f18ec06658e1a1606a8ecc8bbc2b3314"
+  url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.18.1.tar.bz2"
+  sha256 "2d51a6529526ef22484f51567e31a5c346a599767991a3dc9d4dcd9d9cec71dd"
   head "http://repo.or.cz/openal-soft.git"
 
   bottle do
     cellar :any
-    sha256 "7c0761d8e3bf7dab54956908b2d08a2781ef418e77db499f6b57f8193530734b" => :sierra
-    sha256 "915bd92597553f3f005071fa85e08e2947fd545a4af4b5dcf514ea79320d7a99" => :el_capitan
-    sha256 "643cd46bc9aa8fdf9c85aaa374d71d2dd6d18abeb674445f49d829f61dc82c4e" => :yosemite
-    sha256 "819886eab2909ebcff2edb16c39ede1800ec987e193b0fdfce8d4047636fff17" => :mavericks
+    rebuild 1
+    sha256 "1723d1c797edf96136f98ff5ab239f1df2ead4b741c3fb46ba1f43875f31432f" => :sierra
+    sha256 "f7c8d730653ed7d3d3d3c6b959c74e43133b15dfb7a43fca16c706da41a78c94" => :el_capitan
+    sha256 "26620c32955ff95382094788d7c91165ff9ee2a10b1b0286d38cc5bec55f5d5b" => :yosemite
   end
 
-  keg_only :provided_by_osx, "macOS provides OpenAL.framework."
-
-  option :universal
+  keg_only :provided_by_osx, "macOS provides OpenAL.framework"
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
@@ -27,8 +25,6 @@ class OpenalSoft < Formula
   fails_with(:clang) { build 425 }
 
   def install
-    ENV.universal_binary if build.universal?
-
     # Please don't reenable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args

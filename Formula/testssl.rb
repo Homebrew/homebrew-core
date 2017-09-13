@@ -1,9 +1,9 @@
 class Testssl < Formula
   desc "Tool which checks for the support of TLS/SSL ciphers and flaws"
   homepage "https://testssl.sh/"
-  url "https://github.com/drwetter/testssl.sh/archive/v2.8rc3.tar.gz"
-  version "2.8rc3"
-  sha256 "e36a60acc0aa09191ff2f86762cd07925630df82498d48d81d86e3b7402a3312"
+  url "https://github.com/drwetter/testssl.sh/archive/v2.8.tar.gz"
+  sha256 "76c1b21fcbaa4e625b77c9a9c7a137a2272cd84d07911fb213101aa6b9ce8cfa"
+  revision 1
 
   head "https://github.com/drwetter/testssl.sh.git"
 

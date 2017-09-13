@@ -1,14 +1,14 @@
 class Swiftplate < Formula
   desc "Cross-platform Swift framework templates from the command-line"
   homepage "https://github.com/JohnSundell/SwiftPlate"
-  url "https://github.com/JohnSundell/SwiftPlate/archive/1.2.1.tar.gz"
-  sha256 "c4a47411340c88dbacc87d63daf69eed12c80cbc2e1fc8c02cc8d6b2966c04b9"
+  url "https://github.com/JohnSundell/SwiftPlate/archive/1.4.0.tar.gz"
+  sha256 "13c6e9d2204c24ed95ad26f3e8266b8c62e709db626acf5e511ced23de9b9143"
   head "https://github.com/JohnSundell/SwiftPlate.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f2f6159e6de0243545bc2f18eca9618a33ecc56995dcd92db46b4298c6eb372" => :sierra
-    sha256 "80484682a0aff82ec7b34d4b4beeecbf1cfed673ab5b3cd1ad2af2d3fcbbc020" => :el_capitan
+    sha256 "977e9d6b8e3579566cd5392ba17e34896d0f2c9445ae2061c5eae508ede04dee" => :sierra
+    sha256 "73c1b35ad98f1d4872bc467b1a027dad41815e336c0c86aebb0d09d9562ddde5" => :el_capitan
   end
 
   depends_on :xcode => "8.2"

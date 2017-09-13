@@ -2,31 +2,29 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-4.7.3.18396.tar.gz"
-  sha256 "47e25f0a28393c388f37d319c9d51dd51eebdf15198ee48df3995af8a60bcc16"
+  url "https://dist.duck.sh/duck-src-6.2.6.26405.tar.gz"
+  sha256 "5dded926e589867562b37ac7d5c4fc2bedb6631c619d1b3d9fb4764ea44c1122"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
-    cellar :any
-    sha256 "9c26f43d53d498873e07b076e4e2d1582a7d7fb7aebecd4277c48f877ad3f2ae" => :sierra
-    sha256 "357282a2d6092927a8dd133e9868646dffab55b339376280b8476d19cf7db6b8" => :el_capitan
-    sha256 "fb45a7ae70bbf69a247563591deb6b5f8a305f4a2bf073bd216c4567cd6e3864" => :yosemite
-    sha256 "6aaab98af32f261163510703ea45f15aeedc38fb81af648952a294ddf96c438a" => :mavericks
+    sha256 "308ace43350b6551b04a66d28cc31004571ef1d38dfecdbacb587a14ba5690ca" => :sierra
+    sha256 "2d1d22eabaaf586010d2c9e0bc0b9521e04029384eefd4b210ce7fc43b0c598e" => :el_capitan
   end
 
   depends_on :java => ["1.8+", :build]
   depends_on :xcode => :build
   depends_on "ant" => :build
+  depends_on "maven" => :build
 
   def install
     revision = version.to_s.rpartition(".").last
-    system "ant", "-Dbuild.compile.target=1.8", "-Drevision=#{revision}", "cli"
-    libexec.install Dir["build/duck.bundle/*"]
+    system "mvn", "-DskipTests", "-Dgit.commitsCount=#{revision}", "--projects", "cli/osx", "--also-make", "verify"
+    libexec.install Dir["cli/osx/target/duck.bundle/*"]
     bin.install_symlink "#{libexec}/Contents/MacOS/duck" => "duck"
   end
 
   test do
-    system "#{bin}/duck", "--download", Formula["wget"].stable.url, testpath/"test"
-    (testpath/"test").verify_checksum Formula["wget"].stable.checksum
+    system "#{bin}/duck", "--download", Formula["libmagic"].stable.url, testpath/"test"
+    (testpath/"test").verify_checksum Formula["libmagic"].stable.checksum
   end
 end

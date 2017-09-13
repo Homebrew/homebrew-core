@@ -1,16 +1,15 @@
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
   homepage "http://www.exiv2.org"
-  url "http://www.exiv2.org/exiv2-0.25.tar.gz"
-  sha256 "c80bfc778a15fdb06f71265db2c3d49d8493c382e516cb99b8c9f9cbde36efa4"
+  url "http://www.exiv2.org/builds/exiv2-0.26-trunk.tar.gz"
+  sha256 "c75e3c4a0811bf700d92c82319373b7a825a2331c12b8b37d41eb58e4f18eafb"
 
   bottle do
     cellar :any
-    sha256 "5b45e827d9f523c32a3fa9f59bc8af361011d4a230662da9c5713cfc23089889" => :sierra
-    sha256 "530145c8ab5017152cc084cec8f0b596ef9a19e27306795098a40111d69ffa65" => :el_capitan
-    sha256 "8bb79b4e856fb907449e2f874174654d1d116e3db19356864ce864381dc58788" => :yosemite
-    sha256 "b9e07c6c8b896698df0b52442894af8314f52878d468d1a348cd359c1afcb50f" => :mavericks
-    sha256 "11669d8a844d23c5a99c0e0ff924347681b1c81b2c672ffa316654a7dd31d4e2" => :mountain_lion
+    rebuild 1
+    sha256 "c651fe47fec9f541d47d2dd769cf94d4063baeff2b08be2b8c1056d6609499fc" => :sierra
+    sha256 "9f5f339b761aca8910ee859e6630e9eb3f84a7298c029b98baf801f36075ab51" => :el_capitan
+    sha256 "1d14797afa32ff75b50ff2737baa8ac27ab7bf90da38359a9721f7e15c398481" => :yosemite
   end
 
   head do
@@ -20,10 +19,7 @@ class Exiv2 < Formula
     depends_on "libssh"
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     if build.head?
       args = std_cmake_args
       args += %W[

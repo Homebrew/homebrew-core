@@ -3,19 +3,25 @@ class Sops < Formula
 
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/2.0.7.tar.gz"
-  sha256 "d916714370bfc5d118607e6a48e54844d1caa93a4a4ff89d884a788651cbb9a3"
+  url "https://github.com/mozilla/sops/archive/2.0.10.tar.gz"
+  sha256 "24d661be7ba6fb80f4c501428ba81927f83a776af4ce1ecbdaf71cdd00d7a25d"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
-    sha256 "3bba826e5df2d67210c94b0e411afec3ee5786e95a55b6e2a2637f9677e28a01" => :sierra
-    sha256 "ce276dd1fd34cf5addceab033810852287b20f6644a36d58e1b17dc32fbfe90f" => :el_capitan
-    sha256 "0a6e44204f38a8597111f91827d1144d1d3dbb94828464eb00f47569d5292570" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "cd104ce879955051885a858826c2e4be8bc4648c86c065a6ba159c7cc34f81cc" => :sierra
+    sha256 "c3dd0cd6a5d754d4eb606cf4a45fa2a97bc6774a3902fc908f0a391bf015af10" => :el_capitan
+    sha256 "386187edb6b52600f0ba08a46b0838090cb76efdd3933c07e7984afef0b35214" => :yosemite
   end
 
   depends_on "go" => :build
 
   def install
+    # Reported 25 Aug 2017 https://github.com/mozilla/sops/issues/237
+    if build.stable?
+      inreplace "cmd/sops/version.go", 'version = "2.0.9"', 'version = "2.0.10"'
+    end
+
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
     (buildpath/"src/go.mozilla.org").mkpath

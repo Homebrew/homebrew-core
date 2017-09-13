@@ -1,16 +1,16 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/1.7.1.tar.gz"
-  sha256 "56416febf6535b22f2552db7489ce90517f9a642732e1c1e6722377bf13c6f6a"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.tar.gz"
+  sha256 "5a5ba157e76d984978f3f3aa22617b0c3c730d15e1a4d23a77c12e4a581189af"
 
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
   bottle do
     cellar :any
-    sha256 "d62c288078faece5ce96abccb6b83e39ee264bdb562bf08fca7ecf6f6ab36836" => :sierra
-    sha256 "70049a0d07821e40fdc80d1274180dbfef1569a7bda8a0f4ff7c75a094aedd0a" => :el_capitan
-    sha256 "46803211b51643b21a33e8dd1f362ac9450c5bae7c9d6ad1976decc66584d180" => :yosemite
+    sha256 "4bcf8b1cf86f78454c9df257fa2a617636743f0863061c22585196e26b9d45ee" => :sierra
+    sha256 "25f05f5d10255ea544e74172646edeeaeb524b305d1db7a63bdb8352eb5fe375" => :el_capitan
+    sha256 "898cb683c00405fca5cbdf02b1af1bd9bb34badcfe19329eebd7d29d52e54e88" => :yosemite
   end
 
   depends_on :macos => :lion
@@ -18,9 +18,9 @@ class IosWebkitDebugProxy < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libimobiledevice"
   depends_on "libplist"
   depends_on "usbmuxd"
-  depends_on "libimobiledevice"
 
   def install
     system "./autogen.sh"

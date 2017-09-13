@@ -3,21 +3,20 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/3.3.1.tar.gz"
-  sha256 "454f532fae5a54363838fba42bc568f7b2fd0fd71d946b8c39d848a225d0da0f"
+  url "https://github.com/Supervisor/supervisor/archive/3.3.3.tar.gz"
+  sha256 "cb835ee21a755d32396f5ccb40daa4ce8bb4a24d92f8bf3f25d3a76ba2fb0bc3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f5dfbd7f65cc792d05dbe7f4ae4d4eb2378c3572ee88434990c6d88eaaf96c20" => :sierra
-    sha256 "920599306afc192e6c0dd6a2b5357ad04adf141d617b7279e1aa70497e79a6c9" => :el_capitan
-    sha256 "3de17d476d3b0eb0ccefb3b6ead1ed12a973e0b98dd489f6250f06d5f0552cb2" => :yosemite
-    sha256 "128cffecdcff84b578905be655dbbeeb82f1b0e3a49fafeab833b97b8fb58f83" => :mavericks
+    sha256 "ca6e0a9584230313a3e9080600b3dcb60b669a1122619c14096dd65308b5fec4" => :sierra
+    sha256 "67c6110abfcc4b9a53a4143bad1fe12259a41c7fee96400e15e231c4cfd21aa3" => :el_capitan
+    sha256 "4070b89b70cbdb2c9a68214fb4bc03f8b8363e33c9f7fde8b782f6f057d87e57" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "meld3" do
-    url "https://pypi.python.org/packages/source/m/meld3/meld3-1.0.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/45/a0/317c6422b26c12fe0161e936fc35f36552069ba8e6f7ecbd99bbffe32a5f/meld3-1.0.2.tar.gz"
     sha256 "f7b754a0fde7a4429b2ebe49409db240b5699385a572501bb0d5627d299f9558"
   end
 

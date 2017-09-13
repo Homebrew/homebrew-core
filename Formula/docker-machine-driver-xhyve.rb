@@ -2,16 +2,17 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.3.1",
-    :revision => "ab0aebaeba32c3a3ca3c201c1e02dc35dd862c99"
+    :tag => "v0.3.3",
+    :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
 
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
-    rebuild 2
-    sha256 "2e654baa07d35b1058324e4f9f3826fa4ced2a0d354741c3000b654137f44819" => :sierra
-    sha256 "3a6a8810cd7600ab4f00f185f6e379c8e741a57d71159d0edf1c9a316a861c42" => :el_capitan
-    sha256 "66a1fd8dde1dac18630b7c808b0babfc13f4735a0e208dde8ab4ea12ceab29a6" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "407e1ed8a553f39fab89269acf1d94c28f6496e1314d7166d35463178c170640" => :sierra
+    sha256 "1cef89278cc1df107d71187bdc0f24d941d4d92d4d773fe0ffe50033a16118f5" => :el_capitan
+    sha256 "10bc22b8ece5f7ae8fa190d3c95b6f0f4825a5d1adcb941500c993f4b9ddf2a9" => :yosemite
   end
 
   option "without-qcow2", "Do not support qcow2 disk image format"
@@ -20,7 +21,8 @@ class DockerMachineDriverXhyve < Formula
   depends_on "go" => :build
   depends_on "docker-machine" => :recommended
   if build.with? "qcow2"
-    depends_on "opam"
+    depends_on "ocaml" => :build
+    depends_on "opam" => :build
     depends_on "libev"
   end
 
@@ -33,9 +35,7 @@ class DockerMachineDriverXhyve < Formula
 
     cd build_root do
       git_hash = `git rev-parse --short HEAD --quiet`.chomp
-      if build.head?
-        git_hash = "HEAD-#{git_hash}"
-      end
+      git_hash = "HEAD-#{git_hash}" if build.head?
 
       if build.with? "qcow2"
         build_tags << " qcow2"
@@ -46,7 +46,8 @@ class DockerMachineDriverXhyve < Formula
         ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
         ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
         ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
-        system "opam", "install", "-y", "uri", "qcow-format", "conf-libev"
+        system "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1",
+               "conf-libev", "mirage-block-unix>2.3.0", "lwt<3.1.0"
       end
 
       go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"

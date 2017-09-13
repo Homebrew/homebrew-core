@@ -33,9 +33,7 @@ class GitIntegration < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     (buildpath/"config.mak").write "prefix = #{prefix}"
     system "make", "install"
-    if build.with? "asciidoc"
-      system "make", "install-doc"
-    end
+    system "make", "install-doc" if build.with? "asciidoc"
     system "make", "install-completion"
   end
 

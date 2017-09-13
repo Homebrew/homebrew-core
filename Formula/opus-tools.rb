@@ -30,4 +30,12 @@ class OpusTools < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    cp test_fixtures("test.wav"), "test.wav"
+    assert_match "Encoding complete", shell_output("#{bin}/opusenc test.wav enc.opus 2>&1")
+    assert_predicate testpath/"enc.opus", :exist?, "Failed to encode to enc.opus"
+    assert_match "Decoding complete", shell_output("#{bin}/opusdec enc.opus dec.wav 2>&1")
+    assert_predicate testpath/"dec.wav", :exist?, "Failed to decode to dec.wav"
+  end
 end

@@ -1,20 +1,18 @@
-# This formula tracks GnuPG stable. You can find GnuPG Modern via:
-# brew install homebrew/versions/gnupg21
-# At the moment GnuPG Modern causes too many incompatibilities to be in core.
 class GpgAgent < Formula
   desc "GPG key agent"
   homepage "https://www.gnupg.org/"
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
   sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "e6f23c208f3e2776d3df42389c14d46bb2d9114441c5c2eb8e4224a96e0f225d" => :sierra
-    sha256 "d13f81eed299b09bb12bc3d9cb3a85af17e28662c9353c6928d90efbd01556d5" => :el_capitan
-    sha256 "d495205bb284b493fcc5cdbcbda32d9d9c0408532e99ce9d4f13ed6e3f74d969" => :yosemite
-    sha256 "cbcab34d6357423d93904bc3f80b552519291852e1bc87e3fbfb70628237f094" => :mavericks
+    sha256 "a59b4f9f60137448d591e1c702dd5e1548e424058af87a4da318a7ef8cffb23f" => :sierra
+    sha256 "edf496c4ea0cce7b46a1ef1d39f6b0feae02b8479f2772bc3dc448a4d5f7cdc8" => :el_capitan
+    sha256 "b5cb2ff4333b5e7416d876daedc1170a98217c12789a4dae48c9794457822059" => :yosemite
   end
+
+  keg_only "GPG 2.1.x ships an internal gpg-agent which it must use"
 
   depends_on "libgpg-error"
   depends_on "libgcrypt"
@@ -38,7 +36,7 @@ class GpgAgent < Formula
                           "--prefix=#{prefix}",
                           "--enable-agent-only",
                           "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry",
-                          "--with-scdaemon-pgm=#{Formula["gnupg2"].opt_libexec}/scdaemon"
+                          "--with-scdaemon-pgm=#{Formula["gnupg@2.0"].opt_libexec}/scdaemon"
     system "make", "install"
   end
 

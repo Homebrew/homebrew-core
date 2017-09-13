@@ -1,10 +1,12 @@
 class TeeClc < Formula
-  desc "Microsoft Team Explorer Everywhere 2015 Command Line Client"
-  homepage "https://www.visualstudio.com/en-us/products/team-explorer-everywhere-vs.aspx"
-  url "https://download.microsoft.com/download/8/F/6/8F68DDC8-4E75-4BEA-951E-C14BFF336E81/TEE-CLC-14.0.3.zip"
-  sha256 "615125b71305f2f8d03178d6850ea5088b52b1998bd99ff07eed5c22e29af5eb"
+  desc "Microsoft Team Explorer Everywhere command-line Client"
+  homepage "https://java.visualstudio.com/Docs/tools/eclipse"
+  url "https://github.com/Microsoft/team-explorer-everywhere/releases/download/14.123.1/TEE-CLC-14.123.1.zip"
+  sha256 "868416c59cffd5d84118ad35b164c09c1a8980737de8de2f64dd727c7a11ad0a"
 
   bottle :unneeded
+
+  depends_on :java => "1.6+"
 
   conflicts_with "tiny-fugue", :because => "both install a `tf` binary"
 
@@ -12,10 +14,26 @@ class TeeClc < Formula
     libexec.install "tf", "lib"
     (libexec/"native").install "native/macosx"
     bin.write_exec_script libexec/"tf"
+
+    prefix.install "ThirdPartyNotices.html"
     share.install "help"
   end
 
   test do
-    system "#{bin}/tf"
+    (testpath/"test.exp").write <<-EOS.undent
+      spawn #{bin}/tf workspace
+      set timeout 5
+      expect {
+        timeout { exit 1 }
+        "workspace could not be determined"
+      }
+
+      spawn #{bin}/tf eula
+      expect {
+        "MICROSOFT TEAM EXPLORER EVERYWHERE" { exit 0 }
+        timeout { exit 1 }
+      }
+    EOS
+    system "expect", "-f", "test.exp"
   end
 end

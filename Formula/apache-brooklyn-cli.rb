@@ -1,13 +1,14 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.10.0.tar.gz"
-  sha256 "9273a30e8fea9b5ebdd11ea64ff9164e03500660d4be26e2bc13e4e09c1c9ecc"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.11.0.tar.gz"
+  sha256 "bc5bcabcf9d03d93d86d9f2599aef8adca8922c76ea2d01cc4ad9a70d466ca36"
 
   bottle do
-    sha256 "0f4d805b9d8a7086c481310d13e5807e90561e0eadaa1597135700c8e7bf1327" => :sierra
-    sha256 "c8bf103b0bd822b5a3caf6200b28405c5de29f93998c69148b0a4edd2dc72035" => :el_capitan
-    sha256 "2f9ee7ed7223009df9a7ea14cfb56091acbf2d3d2b2e880504b917574d4044f4" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "5ac3a2f8d7e4b693d5b14518a62babb75e45030b20146bcb943e5c24fbec7b54" => :sierra
+    sha256 "c89f61f319611fba0ea65481fdd4ef794df26f86f1f14fd4cd954c3ee2f5182e" => :el_capitan
+    sha256 "0466414150ef5273aaf937bebbca7a6890b485d2d59b31e823e3801d73c0c546" => :yosemite
   end
 
   depends_on "glide" => :build

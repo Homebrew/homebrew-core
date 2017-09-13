@@ -1,26 +1,14 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
-
-  stable do
-    url "http://valgrind.org/downloads/valgrind-3.12.0.tar.bz2"
-    sha256 "67ca4395b2527247780f36148b084f5743a68ab0c850cb43e4a5b4b012cf76a1"
-
-    # SVN r16103:
-    # "bzero is non-POSIX (deprecated), accordingly __bzero template required
-    # for all macOS versions. n-i-bz."
-    #
-    # Fixes build on macOS 10.12 (at least). Otherwise we would get undefined
-    # symbols error for __bzero.
-    patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/54d59bf/valgrind/bzero.diff"
-      sha256 "48de4054dba20c27ef6089d3ea7832e48dcbbb5368ac4316394b8be55ffe93a2"
-    end
-  end
+  url "ftp://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.13.0.tar.bz2"
+  sha256 "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
 
   bottle do
-    sha256 "ab3ef2be621bc6b0619d2a87a263d8d7a99056101305b3f4116d4c98049bd782" => :el_capitan
-    sha256 "641cd92b8fa21863db3fadc5be6054477933eba9d2fcee6b54ed797ae5b01f63" => :yosemite
+    sha256 "1ae24d4988d010b407bb344c953dd8a7696876a3c2793f2548648be4cfc61db2" => :sierra
+    sha256 "8dcc652676c3ec2f1fd3dfc710298b4da0985b1a056f86c429e68b5b8bcf74a6" => :el_capitan
+    sha256 "02f118896232618cb6319e22f21cea21d29f8985be4807547bb49bc397307730" => :yosemite
   end
 
   head do
@@ -31,10 +19,9 @@ class Valgrind < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :macos => :snow_leopard
-  # https://bugs.kde.org/show_bug.cgi?id=365327#c2
-  # https://github.com/Homebrew/homebrew-core/pull/6231#issuecomment-255779374
-  depends_on MaximumMacOSRequirement => :el_capitan
+  # valgrind does not yet support High Sierra
+  # https://bugs.kde.org/show_bug.cgi?id=383811
+  depends_on MaximumMacOSRequirement => :sierra
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.

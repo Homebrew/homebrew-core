@@ -1,19 +1,13 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-3.1.2.tar.gz"
-  sha256 "f9e7742580849f202254e75d9fc245ba53f4d7490f47a6d30f02a7b10aacc512"
+  url "https://www.openinfosecfoundation.org/download/suricata-4.0.0.tar.gz"
+  sha256 "6b8b183a8409829ca92c71854cc1abed45f04ccfb7f14c08211f4edf571fa577"
 
   bottle do
-    sha256 "e7caa7b66b88b8686f820d9d064369dab84d9b9a3335659212c05faba1d49d1b" => :sierra
-    sha256 "8e1c0ad4551fd1e4155af648ec6b7c574605d61a1c55a2e8e5033938816e8dae" => :el_capitan
-    sha256 "c7230f6f72d2da676873b437d1d9b88b7e8b137800f8e7787f26f207e472164b" => :yosemite
-  end
-
-  devel do
-    url "https://www.openinfosecfoundation.org/download/suricata-3.2beta1.tar.gz"
-    sha256 "fa17c3191910282bb72f8e406328083ee7727cab06cf04ecbc47a911e013f96e"
-    version "3.2beta1"
+    sha256 "79a7a7846db0c3aec47923b9aec4748b4e4141a1b0cdb5f253958334c967d54b" => :sierra
+    sha256 "7cde635c3f02771ba54bbb84b159241b6b943bbca067089612e1f6fac113ccc4" => :el_capitan
+    sha256 "ea417dd96e5afb175768483229eb101800b67e0825ea899b9e0b66a0c32d4368" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -31,19 +25,16 @@ class Suricata < Formula
   depends_on "hiredis" => :optional
 
   resource "argparse" do
-    url "https://pypi.python.org/packages/source/a/argparse/argparse-1.3.0.tar.gz"
-    sha256 "b3a79a23d37b5a02faa550b92cbbbebeb4aa1d77e649c3eb39c19abf5262da04"
+    url "https://files.pythonhosted.org/packages/source/a/argparse/argparse-1.4.0.tar.gz"
+    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
   end
 
   resource "simplejson" do
-    url "https://pypi.python.org/packages/source/s/simplejson/simplejson-3.6.5.tar.gz"
-    sha256 "2a3189f79d1c7b8a2149a0e783c0b4217fad9b30a6e7d60450f2553dc2c0e57e"
+    url "https://files.pythonhosted.org/packages/source/s/simplejson/simplejson-3.11.1.tar.gz"
+    sha256 "01a22d49ddd9a168b136f26cac87d9a335660ce07aa5c630b8e3607d6f4325e7"
   end
 
   def install
-    # bug raised https://redmine.openinfosecfoundation.org/issues/1470
-    ENV.deparallelize
-
     libnet = Formula["libnet"]
     libmagic = Formula["libmagic"]
 

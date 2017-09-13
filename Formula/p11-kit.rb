@@ -1,13 +1,24 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.3/p11-kit-0.23.3.tar.gz"
-  sha256 "d487f04dba3f9e8256f53034c59c944ca45fd7b8434c095da6a74079644dcd82"
+
+  stable do
+    url "https://github.com/p11-glue/p11-kit/releases/download/0.23.8/p11-kit-0.23.8.tar.gz"
+    sha256 "4ba134e5fe4b62bcaf7a2d66841767d9d23e875b977bba6939367a9f400b133f"
+
+    # Remove for > 0.23.8
+    # Fix "error: use of undeclared identifier 'SIZE_MAX'"
+    # Upstream commit from 16 Aug 2017 "build: Include <stdint.h> for SIZE_MAX"
+    patch do
+      url "https://github.com/p11-glue/p11-kit/commit/61acf20.patch?full_index=1"
+      sha256 "2d5e1c4bf8bf859aaf14ff14553cf1aad86090aa71e4f459439003328baa032e"
+    end
+  end
 
   bottle do
-    sha256 "5aa16ddaa7bb0c6fcf66122685337e9d98e421c9389fdff2250e6fd7cf4ef352" => :sierra
-    sha256 "ea3948d2d030a226143afb6f0cf63ea7c7ed936078b7984c492e53e4dc05c8ff" => :el_capitan
-    sha256 "122fa200388458776d870d483680f21d8bc755f62db1a87cab30338ab0ab445d" => :yosemite
+    sha256 "7ec97bd7114e80433e5a1d273606d7478ae8e7e158bb984f49c513df56eae446" => :sierra
+    sha256 "da47a03cf395714dd86181a64d6188d048c81f330815bf171d8cff95de6f7a41" => :el_capitan
+    sha256 "bcbffb5dcddd7cfec4f4fb26ab1dd3c4baa259f450e25b13975f88c94699ab7b" => :yosemite
   end
 
   head do

@@ -1,7 +1,7 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  revision 1
+  revision 4
   head "https://github.com/mgba-emu/mgba.git"
 
   stable do
@@ -17,19 +17,19 @@ class Mgba < Formula
 
   bottle do
     cellar :any
-    sha256 "2dd5217c3983abd7a89908647251ab1dd9784e385b481325ebffdb559f01e344" => :sierra
-    sha256 "e40931849cc341855777add7e5b4b5fae4ae33bb5db044f52d90b6b423824429" => :el_capitan
-    sha256 "a57adec40fb57cd57d37eb540fb930e097cd4b9286209addf45167e5d7fa7e69" => :yosemite
+    sha256 "913b8ea3f4268206dc3a633189c61301d5aa69677e616d7ab331a22f2abfdb87" => :sierra
+    sha256 "bc9f25939e113ff965b5ac747dd04ef9145679ddba246814215662bbcac7a50c" => :el_capitan
+    sha256 "d8feb2b07ced1d12548512c02bb9b53b765a04557819b390c6e9578527460ae9" => :yosemite
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg" => :recommended
-  depends_on "imagemagick" => :recommended
-  depends_on "libepoxy" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libzip" => :recommended
-  depends_on "qt5" => :recommended
+  depends_on "ffmpeg"
+  depends_on "imagemagick"
+  depends_on "libepoxy"
+  depends_on "libpng"
+  depends_on "libzip"
+  depends_on "qt"
   depends_on "sdl2"
 
   def install
@@ -40,22 +40,13 @@ class Mgba < Formula
       s.gsub! "Applications", "."
     end
 
-    cmake_args = []
-    cmake_args << "-DUSE_EPOXY=OFF"  if build.without? "libepoxy"
-    cmake_args << "-DUSE_MAGICK=OFF" if build.without? "imagemagick"
-    cmake_args << "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
-    cmake_args << "-DUSE_PNG=OFF"    if build.without? "libpng"
-    cmake_args << "-DUSE_LIBZIP=OFF" if build.without? "libzip"
-    cmake_args << "-DBUILD_QT=OFF"   if build.without? "qt5"
-
-    system "cmake", ".", *cmake_args, *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
-    if build.with? "qt5"
-      # Replace SDL frontend binary with a script for running Qt frontend
-      # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
-      rm "#{bin}/mgba"
-      bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
-    end
+
+    # Replace SDL frontend binary with a script for running Qt frontend
+    # -DBUILD_SDL=OFF would be easier, but disable joystick support in Qt frontend
+    rm bin/"mgba"
+    bin.write_exec_script "#{prefix}/mGBA.app/Contents/MacOS/mGBA"
   end
 
   test do

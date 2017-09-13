@@ -21,18 +21,18 @@ class GccAT47 < Formula
     `uname -r`.chomp
   end
 
-  homepage "https://gcc.gnu.org"
-  url "https://ftpmirror.gnu.org/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
+  homepage "https://gcc.gnu.org/"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
   sha256 "92e61c6dc3a0a449e62d72a38185fda550168a86702dea07125ebd3ec3996282"
-  revision 1
+  revision 2
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_7-branch"
 
   bottle do
-    sha256 "126b6a0f98a16e0f8a18f27959c5f71c81bfce1a6a3b48d66a1832bff6d70be5" => :sierra
-    sha256 "573c838469a18befb8ed090109cc493a1466bc5131bd4af52e9f611c34ef3664" => :el_capitan
-    sha256 "6809b42a3eaa097a903b7ad58f0d1169c1c35b8b683b0aab16cbaa3daafb3059" => :yosemite
+    sha256 "ae12d27145ab23128be647f41dedebb65fadd504e51ee2a40ed8555044b53577" => :sierra
+    sha256 "d00547a951f6b099fbd5fd70c8d6a587e5afe5d0073616c5287a0cc1b8ba920a" => :el_capitan
+    sha256 "06282c947df0b7ef88248ce4773a5d196487b14dd89ab59179f61433c725bae0" => :yosemite
   end
 
   # Fixes build with Xcode 7.
@@ -47,15 +47,12 @@ class GccAT47 < Formula
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
-  # enabling multilib on a host that can't run 64-bit results in build failures
-  option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
 
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-java" => "with-java"
   deprecated_option "enable-all-languages" => "with-all-languages"
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
-  deprecated_option "disable-multilib" => "without-multilib"
 
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
@@ -73,10 +70,25 @@ class GccAT47 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Fix 10.10 issues: https://gcc.gnu.org/viewcvs/gcc?view=revision&revision=215251
+  # Don't check Darwin kernel version (GCC PR target/61407
+  # <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61407>).
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7293b7d3/gcc47/patch-10.10.diff"
-    sha256 "61e5d0f18db59220cbd99717e9b644c1d0f3502b09ada746b60850cacda07328"
+    url "https://raw.githubusercontent.com/macports/macports-ports/e94d7cc6e7ffdc314aeea0970d34428796583c6d/lang/gcc47/files/remove-kernel-version-check.patch"
+    sha256 "d03b0ce9c230bcd0cfc10e3eb8633c11f6fcfe1804d40f0c3713543090e48db7"
+  end
+
+  # Handle OS X deployment targets correctly (GCC PR target/63810
+  # <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63810>).
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/e94d7cc6e7ffdc314aeea0970d34428796583c6d/lang/gcc47/files/macosx-version-min.patch"
+    sha256 "f3e46a2ec8c6c2e090b56f08e122543009c60944f39f2b90e64de642a4c0b0f3"
+  end
+
+  # Don't link with "-flat_namespace -undefined suppress" on Yosemite and
+  # later (#45483).
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/77a7df3e41b6fac5c94934329cedb2fee8830344/lang/gcc47/files/yosemite-libtool.patch"
+    sha256 "ff3614851ad7b4d2b4915e7c7b0249a45ae33391a5b17b9a870edad8ef62181c"
   end
 
   def install
@@ -118,6 +130,7 @@ class GccAT47 < Formula
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
+      "--enable-plugin",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
@@ -128,20 +141,16 @@ class GccAT47 < Formula
       "MAKEINFO=missing",
     ]
 
-    # "Building GCC with plugin support requires a host that supports
-    # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
-
     args << "--disable-nls" if build.without? "nls"
 
     if build.with?("java") || build.with?("all-languages")
       args << "--with-ecj-jar=#{Formula["ecj"].opt_prefix}/share/java/ecj.jar"
     end
 
-    if !MacOS.prefer_64_bit? || build.without?("multilib")
-      args << "--disable-multilib"
-    else
+    if MacOS.prefer_64_bit?
       args << "--enable-multilib"
+    else
+      args << "--disable-multilib"
     end
 
     mkdir "build" do

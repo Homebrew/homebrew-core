@@ -1,14 +1,15 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org"
-  url "http://mirror.nbtelecom.com.br/apache/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz"
-  mirror "https://archive.apache.org/dist/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz"
-  sha256 "1540800779429d8f0a08be7b300e4cb6500056961440a01c8dbb281db76f0929"
+  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/0.11.0.0/kafka_2.12-0.11.0.0.tgz"
+  mirror "http://mirror.nbtelecom.com.br/apache/kafka/0.11.0.0/kafka_2.12-0.11.0.0.tgz"
+  sha256 "ab6310dd0d9fce1e6e8045b51b471fb35c3e197714e6e6b03bc5864898785f2d"
 
   bottle do
-    sha256 "ae8b72f462dd88d7becc5d7e25d5cdbed342aa61aaeb6ba4be74c9662f434579" => :sierra
-    sha256 "da9c80fd6936342e9bb1f47a7f83c922c8babb64be5fcfb531b06d5f9dbf1776" => :el_capitan
-    sha256 "da9c80fd6936342e9bb1f47a7f83c922c8babb64be5fcfb531b06d5f9dbf1776" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "05ea7cc4ef87cae1720d83aeb9fe01efea82d22b36a2af2aecac3f848792bc6c" => :sierra
+    sha256 "18286d88acbaef11b66cec0f73efddf2ea614f298e31bfa717c8fae880898887" => :el_capitan
+    sha256 "18286d88acbaef11b66cec0f73efddf2ea614f298e31bfa717c8fae880898887" => :yosemite
   end
 
   depends_on "zookeeper"
@@ -23,8 +24,6 @@ class Kafka < Formula
   end
 
   def install
-    ENV.java_cache
-
     data = var/"lib"
     inreplace "config/server.properties",
       "log.dirs=/tmp/kafka-logs", "log.dirs=#{data}/kafka-logs"
@@ -89,13 +88,13 @@ class Kafka < Formula
 
     begin
       fork do
-        exec "#{bin}/zookeeper-server-start #{testpath}/kafka/zookeeper.properties > #{logs}/test.zookeeper-server-start.log 2>&1"
+        exec "#{bin}/zookeeper-server-start #{testpath}/kafka/zookeeper.properties > #{testpath}/test.zookeeper-server-start.log 2>&1"
       end
 
       sleep 15
 
       fork do
-        exec "#{bin}/kafka-server-start #{testpath}/kafka/server.properties > #{logs}/test.kafka-server-start.log 2>&1"
+        exec "#{bin}/kafka-server-start #{testpath}/kafka/server.properties > #{testpath}/test.kafka-server-start.log 2>&1"
       end
 
       sleep 30

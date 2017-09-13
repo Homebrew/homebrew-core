@@ -1,48 +1,25 @@
 class Libbtbb < Formula
   desc "Bluetooth baseband decoding library"
   homepage "https://github.com/greatscottgadgets/libbtbb"
-  url "https://github.com/greatscottgadgets/libbtbb/archive/2015-10-R1.tar.gz"
-  version "2015-10-R1"
-  sha256 "95f493d379a53ec1134cfb36349cc9aac95d77260db4fdb557313b0dbb5c1d5a"
-  revision 1
-
+  url "https://github.com/greatscottgadgets/libbtbb/archive/2017-03-R2.tar.gz"
+  version "2017-03-R2"
+  sha256 "2b3ea5f07b7022e862f367e8a9a217e1d10920aecdc4eba7b7309724fb229cfd"
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do
     cellar :any
-    sha256 "ca2e1d20b1861ab016128590c98a8195a9d6acb581f997135fe174cd87d6cf33" => :sierra
-    sha256 "0775b81b4e7620a5030090a0a449d5be11fdb0bd02d37c4ee5fff87670c44ec3" => :el_capitan
-    sha256 "0ccf46429a2bddd4a71aeaaf24df9dc85c34f1c64062059ed0e630b551fcddd2" => :yosemite
+    rebuild 1
+    sha256 "b7dc719910c8c6fe4a14bf016dd98a6e9aeff4163bcc2763ba79c1030cf60432" => :sierra
+    sha256 "904bceae63d8ad367c07e90ffc095d0e3163bb45116b90bf1986791b030beb32" => :el_capitan
+    sha256 "72fa7e942ce1fe4d7a2cc983bc79893b56924ebdd9076917db47c5b73408bb79" => :yosemite
   end
-
-  option :universal
 
   depends_on "cmake" => :build
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # Requires headers macOS doesn't supply.
-  resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
-    sha256 "7ad3112187e88328b85e46dce7a9b949632af18ee74d97ffc3f2b41fe7f448b0"
-  end
-
   def install
-    args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
-    resource("libpcap").stage do
-      system "./configure", "--prefix=#{libexec}/vendor", "--enable-ipv6"
-      system "make", "install"
-    end
-
-    ENV.prepend_path "PATH", libexec/"vendor/bin"
-    ENV.append_to_cflags "-I#{libexec}/vendor/include"
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end

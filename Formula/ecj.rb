@@ -12,4 +12,19 @@ class Ecj < Formula
   def install
     (share/"java").install "ecj-#{version}.jar" => "ecj.jar"
   end
+
+  test do
+    (testpath/"Hello.java").write <<-EOS.undent
+      class Hello
+      {
+        public static void main(String[] args)
+        {
+          System.out.println("Hello Homebrew");
+        }
+      }
+    EOS
+    system "java", "-cp", share/"java/ecj.jar", "org.eclipse.jdt.internal.compiler.batch.Main", "Hello.java"
+    assert_predicate testpath/"Hello.class", :exist?, "Failed to compile Java program!"
+    assert_equal "Hello Homebrew\n", shell_output("java Hello")
+  end
 end

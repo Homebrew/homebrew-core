@@ -1,16 +1,14 @@
 class Di < Formula
   desc "Advanced df-like disk information utility"
   homepage "https://gentoo.com/di/"
-  url "https://gentoo.com/di/di-4.36.tar.gz"
-  sha256 "eb03d2ac0a3df531cdcb64b3667dbaebede60a4d3a4626393639cecb954c6d86"
+  url "https://gentoo.com/di/di-4.44.tar.gz"
+  sha256 "963d00cadbf5a115ff31b31b0d6141be751c7b0a209e50990cb78e36d1a50320"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a22dd16eecb5d3439ef11c239adf497073e4d7fcf1c81938205004b4db99a98f" => :sierra
-    sha256 "088b843fb5b82aa978f8cfe3ae0d90dbac7811b326a6dd9be027e3bbc740b706" => :el_capitan
-    sha256 "aec4d32a7d6930610423b7a9d72033e996a2f50bfe54d1cb778ca55dca5d243d" => :yosemite
-    sha256 "00958ab5af10860c7d7283d7e240f03a56d27f85d36a89872740e7391609e203" => :mavericks
-    sha256 "ad54d80a30189a79074d05e4e79ac7ef5fa4436c217866dea2382b351ec44127" => :mountain_lion
+    sha256 "bdf922a2d6b32c5c3bb7cacb3efac022eeec7fc2b923904cee17d0c0aded6550" => :sierra
+    sha256 "a8449b5fc5e3e28570f2311a3aa9a7a95beff6373b5e207ae64688773cc3e667" => :el_capitan
+    sha256 "cb9cd891f6d513bb6f4f064622a36a2a69ea3b945b023ea683411d53c8273233" => :yosemite
   end
 
   def install

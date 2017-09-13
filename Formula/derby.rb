@@ -1,9 +1,9 @@
 class Derby < Formula
   desc "Apache Derby is an embedded relational database running on JVM"
   homepage "https://db.apache.org/derby/"
-  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.12.1.1/db-derby-10.12.1.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/db/derby/db-derby-10.12.1.1/db-derby-10.12.1.1-bin.tar.gz"
-  sha256 "d233b3f26f652226429c3d2f094f129afc3c3bd6435543e5aeb4a256f95085a8"
+  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.13.1.1/db-derby-10.13.1.1-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/db/derby/db-derby-10.13.1.1/db-derby-10.13.1.1-bin.tar.gz"
+  sha256 "74c35d7ec859b8438e69fd0d1b415dd4f4572f71d2f35fc612f2f21848eef3b3"
 
   bottle :unneeded
 

@@ -1,39 +1,21 @@
 class Clasp < Formula
   desc "Answer set solver for (extended) normal logic programs"
-  homepage "https://potassco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/potassco/clasp/3.2.0/clasp-3.2.0-source.tar.gz"
-  sha256 "eafb050408b586d561cd828aec331b4d3b92ea7a26d249a02c4f39b1675f4e68"
+  homepage "https://potassco.org/clasp/"
+  url "https://github.com/potassco/clasp/archive/v3.3.2.tar.gz"
+  sha256 "367f9f3f035308bd32d5177391a470d9805efc85a737c4f4d6d7b23ea241dfdf"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd9ad8525cfbb0692dd94cedbd76849edbc222fae644b27fe1e106679e39c64d" => :sierra
-    sha256 "66882d87c5b4aead5af374d54438cbac8877c493e0aaf56798e8c629581d7186" => :el_capitan
-    sha256 "a7770d88cfb59b6678f297ceaa8a38e305eb11a28df6a887205a36c90728c973" => :yosemite
+    sha256 "02cafaad412b7b4bc1c78bbd81f153345eb1eaf22050d55c2daba069a73ffa90" => :sierra
+    sha256 "09acf6c42509c7cc80311c181685ebb39c319a80668ab3e7a452586a72961f7b" => :el_capitan
+    sha256 "fb6c23036a3735c43cabbe38c324cd16cf07ed4c7463396d3c559bec6c4038be" => :yosemite
   end
 
-  option "with-tbb", "Enable multi-thread support"
-
-  deprecated_option "with-mt" => "with-tbb"
-
-  depends_on "tbb" => :optional
+  depends_on "cmake" => :build
 
   def install
-    if build.with? "tbb"
-      ENV["TBB30_INSTALL_DIR"] = Formula["tbb"].opt_prefix
-      build_dir = "build/release_mt"
-    else
-      build_dir = "build/release"
-    end
-
-    args = %W[
-      --config=release
-      --prefix=#{prefix}
-    ]
-    args << "--with-mt=tbb" if build.with? "tbb"
-
-    bin.mkpath
-    system "./configure.sh", *args
-    system "make", "-C", build_dir, "install"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do

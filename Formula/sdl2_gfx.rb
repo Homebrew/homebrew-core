@@ -12,12 +12,9 @@ class Sdl2Gfx < Formula
     sha256 "e7888e8bbdbda56ec2941b53a74482d1d74c3e321b632af1099d909d209497cd" => :mavericks
   end
 
-  option :universal
-
   depends_on "sdl2"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-sdltest"

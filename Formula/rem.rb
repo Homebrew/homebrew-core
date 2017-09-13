@@ -18,7 +18,7 @@ class Rem < Formula
   conflicts_with "remind", :because => "both install `rem` binaries"
 
   def install
-    xcodebuild
+    xcodebuild "SYMROOT=build"
     bin.install "build/Release/rem"
   end
 

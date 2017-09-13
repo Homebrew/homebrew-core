@@ -1,19 +1,18 @@
 class Potrace < Formula
   desc "Convert bitmaps to vector graphics"
-  homepage "http://potrace.sourceforge.net"
-  url "http://potrace.sourceforge.net/download/1.13/potrace-1.13.tar.gz"
-  sha256 "6252438b6b6644b9b6298056b4c5de3690a1d4e862b66889abe21eecdf16b784"
+  homepage "https://potrace.sourceforge.io/"
+  url "https://potrace.sourceforge.io/download/1.15/potrace-1.15.tar.gz"
+  sha256 "a9b33904ace328340c850a01458199e0064e03ccaaa731bc869a842b1b8d529d"
 
   bottle do
     cellar :any
-    sha256 "92bd882f0e2677dea634b63120e863b13d7681b9a2c184a8c978dd0a2e5b7e20" => :sierra
-    sha256 "f6f72b759dfb5ee3b82aa5a7e384dff6878be5149bb29947b5795c7e3ab24323" => :el_capitan
-    sha256 "3df21502abc9a5b5f77252c5db4b9aa3cd437bd9643a7674c3373794de723dfb" => :yosemite
-    sha256 "52944612cbb69793f5e17bc4e6608b37206e7dcb8e671c4970f2146fd1db26fe" => :mavericks
+    sha256 "b71fa6c507b43df9e48dc0259e5dfb803a13c9728ffd6978b9798d03da363e0d" => :sierra
+    sha256 "318e2448e2596b9629537edc4e5c408ea4e1f538ec6f1d90b17589aced9836ff" => :el_capitan
+    sha256 "dad163b773ea01123ccefc6a9ddba7d02c234fe384a9a41e6029887c319ececc" => :yosemite
   end
 
   resource "head.pbm" do
-    url "http://potrace.sourceforge.net/img/head.pbm"
+    url "https://potrace.sourceforge.io/img/head.pbm"
     sha256 "3c8dd6643b43cf006b30a7a5ee9604efab82faa40ac7fbf31d8b907b8814814f"
   end
 

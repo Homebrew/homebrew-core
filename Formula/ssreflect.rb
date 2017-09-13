@@ -12,15 +12,15 @@ end
 
 class Ssreflect < Formula
   desc "Virtual package provided by libssreflect-coq"
-  homepage "https://www.msr-inria.fr/projects/mathematical-components-2/"
+  homepage "https://math-comp.github.io/math-comp/"
   url "http://ssr.msr-inria.inria.fr/FTP/ssreflect-1.5.tar.gz"
   sha256 "bad978693d1bfd0a89586a34678bcc244e3b7efba6431e0f83d8e1ae8f82a142"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "654fb1c617736a464bf6590ec9d178dd253f69f0866c703bfa50818bac43cd5b" => :sierra
-    sha256 "93e5f52b8f1579728037b2cf69f553e8b271401778623df5aaf43170730f7b0c" => :el_capitan
-    sha256 "d94eae64893a5977d15aef7cbf80e548a6001aebd8b144306a965c85c46327c3" => :yosemite
+    sha256 "d2bb5472dc0339957be0f11efe89fdc9c367a0ab0d4458cb80c7829eec31fd7d" => :sierra
+    sha256 "8bb36558561b6e9f95f65f13278add1cb5aaec4596b7b9010fc1abbaa4fc049d" => :el_capitan
+    sha256 "4e818fc061186ff528dea4aae58db36fb8358152527185f6150b71cdf2b4c598" => :yosemite
   end
 
   option "with-doc", "Install HTML documents"

@@ -1,15 +1,14 @@
 class Log4cpp < Formula
   desc "Configurable logging for C++"
   homepage "https://log4cpp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/log4cpp/log4cpp-1.1.x%20%28new%29/log4cpp-1.1/log4cpp-1.1.1.tar.gz"
-  sha256 "35abf332630a6809c969276b1d60b90c81a95daf24c86cfd7866ffef72f9bed0"
+  url "https://downloads.sourceforge.net/project/log4cpp/log4cpp-1.1.x%20%28new%29/log4cpp-1.1/log4cpp-1.1.3.tar.gz"
+  sha256 "2cbbea55a5d6895c9f0116a9a9ce3afb86df383cd05c9d6c1a4238e5e5c8f51d"
 
   bottle do
     cellar :any
-    sha256 "d375586cef8f94bf153f26b32a7db92142619eb390fb6b7e015c2b62c6ea7ed7" => :sierra
-    sha256 "2a54503862126d4d4ac872983286eb77356691bb1df4bc2002b6b9000f12a059" => :el_capitan
-    sha256 "c5792136bff0c40ad7baa89974c5335aa3ff0f414d5db86b46d90c2f8cf28210" => :yosemite
-    sha256 "03fde62de11b82029b872296e675d123dba1895b7a7b0e5431664edcb9815ab5" => :mavericks
+    sha256 "db55c3b9dff2f2248d96c71672cb6032efc16a4803ce12dd52c278bd14b9abc8" => :sierra
+    sha256 "dee0bf8b96b1d0de3beb5f2d23cf1e868e6dfd3ec9814e2c4c5eab21432d73e3" => :el_capitan
+    sha256 "19e858f7cf8e47d1c10be1c379feb9faae36d78274a53a4240dcab813a3e382c" => :yosemite
   end
 
   def install

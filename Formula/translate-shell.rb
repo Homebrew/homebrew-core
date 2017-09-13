@@ -1,15 +1,15 @@
 class TranslateShell < Formula
   desc "Command-line translator using Google Translate and more"
   homepage "https://www.soimort.org/translate-shell"
-  url "https://github.com/soimort/translate-shell/archive/v0.9.5.tar.gz"
-  sha256 "74bd84f48b0b2887949d954be4530c34faddf8605f936668f8e904bb3ab5712a"
+  url "https://github.com/soimort/translate-shell/archive/v0.9.6.4.tar.gz"
+  sha256 "5ac8fd1a6b772750942f92665966ddf2b825594eb969770aabf16d7a83b3e6b9"
   head "https://github.com/soimort/translate-shell.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "240b83d8a753fa0ad40afb0e9f20b5adcfa4eed3509fd978d092d1a8f9ad1892" => :sierra
-    sha256 "240b83d8a753fa0ad40afb0e9f20b5adcfa4eed3509fd978d092d1a8f9ad1892" => :el_capitan
-    sha256 "240b83d8a753fa0ad40afb0e9f20b5adcfa4eed3509fd978d092d1a8f9ad1892" => :yosemite
+    sha256 "1a717f10cb42e97e8cdb7b9725fb376d2bec1f57dcc2c14ddfb52b07d93eebb2" => :sierra
+    sha256 "88a2ed1d6e5a8728c332c5da83da61692058c5664dcc88f7f28806d23c43b6ee" => :el_capitan
+    sha256 "88a2ed1d6e5a8728c332c5da83da61692058c5664dcc88f7f28806d23c43b6ee" => :yosemite
   end
 
   depends_on "fribidi"

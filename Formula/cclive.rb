@@ -3,13 +3,13 @@ class Cclive < Formula
   homepage "https://cclive.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cclive/0.7/cclive-0.7.16.tar.xz"
   sha256 "586a120faddcfa16f5bb058b5c901f1659336c6fc85a0d3f1538882a44ee10e1"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "86960a17d3c2ccb689895407af5801d814fcf7ab7eef71139e28d06ac240a12e" => :sierra
-    sha256 "ee97b1e9aed8607c31dc6e9689bb5230e0d114d993ff06cbfca55b3c5c3ea448" => :el_capitan
-    sha256 "118ddf82fb54c2dc14e664328499faea71d5b516166244a6a179037cce16b8bc" => :yosemite
-    sha256 "74168fac20d931d1b6e2c702ac5818188288271100c9e3f15245b63a1e27d9bc" => :mavericks
+    sha256 "a589260223c5b92d0b29551e98e068814311de8ddde82e158063bec6f834aa2d" => :sierra
+    sha256 "e77474769e3fa5b12b81fba7d476a9feeb237a9b6ba9bf9cf275e4783203c67d" => :el_capitan
+    sha256 "933a9b935bb868923702489a97780998c450c2c220a63786542bf65bfb2db155" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -23,5 +23,11 @@ class Cclive < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    url = "https://youtu.be/VaVZL7F6vqU"
+    output = shell_output("#{bin}/cclive --no-download #{url} 2>&1")
+    assert_match "Martin Luther King Jr Day", output
   end
 end

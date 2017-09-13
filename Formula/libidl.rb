@@ -14,14 +14,11 @@ class Libidl < Formula
     sha256 "7aee2ea7f3760687e9acd4a35c393e240f8f59e94a36c2a31812d15a41cfcac8" => :mountain_lion
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

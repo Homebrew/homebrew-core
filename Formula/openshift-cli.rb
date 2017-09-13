@@ -2,23 +2,16 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v1.4.1",
-    :revision => "3f9807ab8282e1af64128834b246c41ce50172d4"
+    :tag => "v3.6.0",
+    :revision => "c4dd4cf368b6204571faacde702e624b930a5214"
 
   head "https://github.com/openshift/origin.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f5db02df96decff2ff51a2debfc303694a2b3c5ea85af9b3fe75d57146e0bf6" => :sierra
-    sha256 "93d16838b365823d84030517ed3a42471a76a3f1449396ed8f3c40eaefeafa1e" => :el_capitan
-    sha256 "934957e2e652b4f21206a037bbf6c5f03a53e67326475884760590d9f2a1916a" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/openshift/origin.git",
-      :tag => "v1.5.0-alpha.2",
-      :revision => "e4b43ee6f35d3dd8b2cbd7e92bc8a9225fa94653"
-    version "1.5.0-alpha.2"
+    sha256 "2e499d511419ef45620c068ee30b5f5eec3223e063a76ce164a952492c4143ff" => :sierra
+    sha256 "194662f118199fec2199fbe9b9373fc9e9a34ab4cac71cbe81b36959bfca0640" => :el_capitan
+    sha256 "8cfbfcbf88a60beaa006736868e96d80f46b864db03a4d6fe90909109a021d9c" => :yosemite
   end
 
   depends_on "go" => :build
@@ -30,8 +23,7 @@ class OpenshiftCli < Formula
 
     system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
 
-    arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    bin.install "_output/local/bin/darwin/#{arch}/oc"
+    bin.install "_output/local/bin/darwin/amd64/oc"
     bin.install_symlink "oc" => "oadm"
 
     bash_completion.install Dir["contrib/completions/bash/*"]
@@ -39,6 +31,6 @@ class OpenshiftCli < Formula
 
   test do
     assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
-    assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
+    assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
   end
 end

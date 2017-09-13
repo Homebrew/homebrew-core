@@ -29,11 +29,11 @@ class John < Formula
     doc.install Dir["doc/*"]
 
     # Only symlink the binary into bin
-    (share/"john").install Dir["run/*"]
-    bin.install_symlink share/"john/john"
+    libexec.install Dir["run/*"]
+    bin.install_symlink libexec/"john"
 
     # Source code defaults to 'john.ini', so rename
-    mv share/"john/john.conf", share/"john/john.ini"
+    mv libexec/"john.conf", libexec/"john.ini"
   end
 end
 

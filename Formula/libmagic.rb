@@ -1,23 +1,19 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.30.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.30.tar.gz"
-  sha256 "694c2432e5240187524c9e7cf1ec6acc77b47a0e19554d34c14773e43dbbf214"
+  url "ftp://ftp.astron.com/pub/file/file-5.32.tar.gz"
+  mirror "https://fossies.org/linux/misc/file-5.32.tar.gz"
+  sha256 "8639dc4d1b21e232285cd483604afc4a6ee810710e00e579dbe9591681722b50"
 
   bottle do
-    sha256 "7b8f1701d7565c1d89de611d2633962d58411fff01027b47327934932bfa2f66" => :sierra
-    sha256 "d8481b614f8583f862b18b27dcff69c046e3c6f20d4eddde8d777a3e4be95688" => :el_capitan
-    sha256 "2ca4f55351b129933f8625b19958ecc21ce9d301ef18f771572f0bcba484f1e5" => :yosemite
+    sha256 "ba06b4094577d77c2d515932e0bf0f3e1481f26dd307e655d28f8fba13fa8791" => :sierra
+    sha256 "05d95e47cfa533c37fcbd4f4b54b9c9957d985d49852f397c6d78387fbe2c254" => :el_capitan
+    sha256 "d11466ebdc722d370346cecf135a925e1f482f0d0bbbb424f821347134f52e64" => :yosemite
   end
-
-  option :universal
 
   depends_on :python => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -35,5 +31,25 @@ class Libmagic < Formula
     # Don't dupe this system utility
     rm bin/"file"
     rm man1/"file.1"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <assert.h>
+      #include <stdio.h>
+
+      #include <magic.h>
+
+      int main(int argc, char **argv) {
+          magic_t cookie = magic_open(MAGIC_MIME_TYPE);
+          assert(cookie != NULL);
+          assert(magic_load(cookie, NULL) == 0);
+          // Prints the MIME type of the file referenced by the first argument.
+          puts(magic_file(cookie, argv[1]));
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmagic", "test.c", "-o", "test"
+    cp test_fixtures("test.png"), "test.png"
+    assert_equal "image/png", shell_output("./test test.png").chomp
   end
 end

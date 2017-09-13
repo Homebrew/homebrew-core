@@ -1,14 +1,14 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://github.com/esnet/iperf/archive/3.1.6.tar.gz"
-  sha256 "18326abe2cc4adafceb40ddbd0243a18624facbfbabdc83b4281893032f05073"
+  url "https://github.com/esnet/iperf/archive/3.2.tar.gz"
+  sha256 "cb20d3a33e07a3b45a49a358b044f4998f452ef9d1a8a5cbde476b6ab9e9b526"
 
   bottle do
     cellar :any
-    sha256 "f4f004d0e0cc2ac9b75eb713fa97d46b75ec4f307be2ffb967f8af6301286079" => :sierra
-    sha256 "3cef9babea714c7a533dd5b3e8735268a774ffb2117e0b8040828bb3624c13a5" => :el_capitan
-    sha256 "e5f08f29d81dcc7c14641de313ccf8c7f37c7ba1f3b5a77bc4643f42c694b07d" => :yosemite
+    sha256 "82230c9cf186de71172461122b101fa622cef3457cb0d5283a71c46f2cc80f9f" => :sierra
+    sha256 "a16d98e79ce27913beeba19eefde5db570f826f17fbc9ad73350e7ac100efba2" => :el_capitan
+    sha256 "7d9c893cd29d3927200332817c6e7b99b0b263ba8f8066b7f2f4c2828c4b278e" => :yosemite
   end
 
   head do
@@ -19,14 +19,24 @@ class Iperf3 < Formula
     depends_on "autoconf" => :build
   end
 
+  depends_on "openssl"
+
   def install
     system "./bootstrap.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
   end
 
   test do
-    system bin/"iperf3", "--version"
+    begin
+      server = IO.popen("#{bin}/iperf3 --server")
+      sleep 1
+      assert_match "Bitrate", pipe_output("#{bin}/iperf3 --client 127.0.0.1 --time 1")
+    ensure
+      Process.kill("SIGINT", server.pid)
+      Process.wait(server.pid)
+    end
   end
 end

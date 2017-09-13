@@ -1,22 +1,24 @@
 class Netpbm < Formula
   desc "Image manipulation"
-  homepage "http://netpbm.sourceforge.net"
+  homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 2885
-  version "10.73.07"
+  if MacOS.version >= :sierra
+    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3044
+  else
+    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 3044
+  end
+  version "10.73.14"
   version_scheme 1
 
-  head "http://svn.code.sf.net/p/netpbm/code/trunk"
+  head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    sha256 "6fbf190d0c7876dd811872d273d780fe1404672abb85aec666f44bcf3f643581" => :sierra
-    sha256 "e3551086519cfe08637b239c3e3939f3a9cfb416c7795f8d08ef1357551f922b" => :el_capitan
-    sha256 "fb5df9f31a1202bf9a25cabb48a3d67a35dabbaa645875e558c4a359da784fa9" => :yosemite
+    sha256 "0ca108d31bfc6e1a8589ec437772d08dd9c29cd090b640c0fae7e3deb5c550c6" => :sierra
+    sha256 "2413a8d4e01fe8df09467ccf11001bc143312ed347f6b0bdc95c3841e0490e3f" => :el_capitan
+    sha256 "cf7a8c90735bdb22001b4f8b1fddf0a7f532f7209d390c4b88a5f29140f48344" => :yosemite
   end
-
-  option :universal
 
   depends_on "libtiff"
   depends_on "jasper"
@@ -24,8 +26,6 @@ class Netpbm < Formula
   depends_on "libpng"
 
   def install
-    ENV.universal_binary if build.universal?
-
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|

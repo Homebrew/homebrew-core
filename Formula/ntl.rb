@@ -1,15 +1,14 @@
 class Ntl < Formula
   desc "C++ number theory library"
   homepage "http://www.shoup.net/ntl"
-  url "http://www.shoup.net/ntl/ntl-9.11.0.tar.gz"
-  sha256 "379901709e6abfeaa1ca41fc36e0a746604cc608237c6629058505bfd8ed9cf1"
+  url "http://www.shoup.net/ntl/ntl-10.4.0.tar.gz"
+  sha256 "ed72cbfd8318d149ea9ec3a841fc5686f68d0f72e70602d59dd034cde43fab6f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "caf7d8c05b1fc05f81720d7bb15dc6a6f35400f864e7127b1518375f1d4f6961" => :sierra
-    sha256 "a5c752d7d68c7deb5579c65ab2c8e6d86cdd0f42a079b3b8dd18f543c2afe173" => :el_capitan
-    sha256 "7e18d270ed1cd7e82b41e8b15a38c32feed36cf29d890fc1e18c836905dbfbd3" => :yosemite
-    sha256 "e406e9a91f24abb86252fd652780c316f87e44fa13fb171e090a401a357b02a0" => :mavericks
+    sha256 "72c79a85c49ce2f21d8c051cf8fa89e51fbe5a433192ed0d1fcb3a351070a3cb" => :sierra
+    sha256 "90ad337da72230a12d67e963656e28dd42af80d0410a0d1fb62c81db7ef9372d" => :el_capitan
+    sha256 "a4688eec8932344ed3b399239271a1dbc0a4ee9df0ebec5413dded452e90a9ad" => :yosemite
   end
 
   depends_on "gmp"
@@ -43,8 +42,8 @@ class Ntl < Formula
       -I#{include}
       -L#{gmp.opt_lib}
       -L#{lib}
-      -lgmp
       -lntl
+      -lgmp
     ]
     system ENV.cxx, "square.cc", "-o", "square", *flags
     assert_equal "4611686018427387904", pipe_output("./square", "2147483648")

@@ -1,25 +1,20 @@
 class Expat < Formula
   desc "XML 1.0 parser"
-  homepage "http://expat.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/expat/expat/2.2.0/expat-2.2.0.tar.bz2"
-  mirror "https://fossies.org/linux/www/expat-2.2.0.tar.bz2"
-  sha256 "d9e50ff2d19b3538bd2127902a89987474e1a4db8e43a66a4d1a712ab9a504ff"
-  head ":pserver:anonymous:@expat.cvs.sourceforge.net:/cvsroot/expat", :using => :cvs
+  homepage "https://libexpat.github.io/"
+  url "https://downloads.sourceforge.net/project/expat/expat/2.2.4/expat-2.2.4.tar.bz2"
+  sha256 "03ad85db965f8ab2d27328abcf0bc5571af6ec0a414874b2066ee3fdd372019e"
+  head "https://github.com/libexpat/libexpat.git"
 
   bottle do
     cellar :any
-    sha256 "5e88f87911f6bc4da80d7c184bdda34e6c8de41740f6536602517a933e9ea9bb" => :sierra
-    sha256 "b12ee86df3f1faa5eb07e2624ab464428d9b96fb09cadc25a20fe7a065459f54" => :el_capitan
-    sha256 "228e8d539fc0447150a0f1508cad4ab33347e45178964966df0802389b0c5a3d" => :yosemite
-    sha256 "48dcc5c1d0dedd3ebac9e238ff5e5cf1d725577062f5902cb58cfcb9f105d5f2" => :mavericks
+    sha256 "cf560bf57e8ba9ee38b9e114b1a3edbbad2ddec86c07b8641073ce93094f2080" => :sierra
+    sha256 "c7f3b94d633261b1c653b78ab661815a8bf8391a8680d6d0f483f44ba4c22086" => :el_capitan
+    sha256 "7ca48b81e9a6a8717647ea2a30042e046260a514bccc80d8918908c2dd32c576" => :yosemite
   end
 
-  keg_only :provided_by_osx, "macOS includes Expat 1.5."
-
-  option :universal
+  keg_only :provided_by_osx, "macOS includes Expat 1.5"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"

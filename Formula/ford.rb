@@ -72,7 +72,7 @@ class Ford < Formula
 
   def install
     venv = virtualenv_create(libexec)
-    deps = (build.with? "lxml") ? resources : resources - [resource("lxml")]
+    deps = build.with?("lxml") ? resources : resources - [resource("lxml")]
     venv.pip_install deps
     venv.pip_install_and_link buildpath
     doc.install "2008standard.pdf", "2003standard.pdf"

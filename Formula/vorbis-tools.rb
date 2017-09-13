@@ -1,15 +1,15 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
-  homepage "http://vorbis.com"
-  url "http://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
+  homepage "http://vorbis.com/"
+  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
   sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
   revision 1
 
   bottle do
-    sha256 "d98cd4b862786d666f031829fa72a367734ac0ec63c6477e80e16b575ead3b51" => :sierra
-    sha256 "b95e6fb92f692cd321bc09952fc9d369533d847c320eac9f0172f0fce3f4beff" => :el_capitan
-    sha256 "0619896b3b6b268bc1f8ac81b52b77011196a019134473f2b680e9c941214590" => :yosemite
-    sha256 "4f4355cd1413f3aec51d51287fe4bedebd4571e1222f611421f5557edc411cab" => :mavericks
+    rebuild 1
+    sha256 "a062b8dbfe05458dc18c311b16260da2ae12b00b3537643b4336094d731f8808" => :sierra
+    sha256 "5ec349e8c68d23599b9e3185c6b8b1a6a3294d3f0056b740e7b29f141a4c70b3" => :el_capitan
+    sha256 "643822a271f6748dc635cede3cdf7b53558cc25f4663014006d46cda817a7c8c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -19,6 +19,10 @@ class VorbisTools < Formula
   depends_on "flac" => :optional
 
   def install
+    # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
+    # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK
+    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking

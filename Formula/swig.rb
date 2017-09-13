@@ -10,12 +10,9 @@ class Swig < Formula
     sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
   end
 
-  option :universal
-
   depends_on "pcre"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
@@ -43,6 +40,6 @@ class Swig < Formula
     system ENV.cc, "-c", "test.c"
     system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
     system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o", "test_wrap.o", "-o", "test.bundle"
-    assert_equal "2", shell_output("ruby run.rb").strip
+    assert_equal "2", shell_output("/usr/bin/ruby run.rb").strip
   end
 end

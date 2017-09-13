@@ -5,14 +5,14 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.17.tar.gz"
-  sha256 "2508563701365d9b49c9a5610a4ff7ea3905b2d9cd77ac332f485322d93bcd07"
+  url "https://github.com/awgn/cgrep/archive/v6.6.18.tar.gz"
+  sha256 "e753a4b49eb5895f86798fbcc1b13f4d9dd6b3803bf43ea0274c6be7447f7347"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
-    sha256 "8f3fcc507950c77381ec98e28806cc23851559975de8d71404697685a9e93fb6" => :sierra
-    sha256 "3576ca83c22cb12ad59b3c4821e7b474675a0167c711859ad4cf5c8774456d0f" => :el_capitan
-    sha256 "015553f35840cd8e3f88b231a90cee8ad96b90772356f411d87f40b50fc36863" => :yosemite
+    cellar :any
+    sha256 "ba15c5f7e86bbb71aac18461e2865413cfd90d3794f7f3e53ab241eacb2ddcbb" => :sierra
+    sha256 "3427acebbfe2e88072d227cc565b4d577c6900b2694bf39b01a985dbd15f41db" => :el_capitan
   end
 
   depends_on "ghc" => :build

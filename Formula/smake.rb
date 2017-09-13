@@ -13,7 +13,11 @@ class Smake < Formula
   end
 
   def install
-    ENV.deparallelize # the bootstrap smake does not like -j
+    # The bootstrap smake does not like -j
+    ENV.deparallelize
+    # Xcode 9 miscompiles smake if optimization is enabled
+    # https://sourceforge.net/p/schilytools/tickets/2/
+    ENV.O1 if DevelopmentTools.clang_build_version >= 900
 
     system "make", "GMAKE_NOWARN=true", "INS_BASE=#{libexec}", "INS_RBASE=#{libexec}", "install"
     bin.install_symlink libexec/"bin/smake"

@@ -1,32 +1,26 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://sourceforge.net/projects/zziplib/"
-  url "https://downloads.sourceforge.net/project/zziplib/zziplib13/0.13.62/zziplib-0.13.62.tar.bz2"
-  sha256 "a1b8033f1a1fd6385f4820b01ee32d8eca818409235d22caf5119e0078c7525b"
+  url "https://github.com/gdraheim/zziplib/archive/v0.13.67.tar.gz"
+  sha256 "1278178bdabac832da6bbf161033d890d335a2e38493c5af553ff5ce7b9b0220"
 
   bottle do
     cellar :any
-    rebuild 3
-    sha256 "301d6dd1b0d24f8aaccfbd3737bbf51d6c477af59c2d06838acfe6faa1921189" => :sierra
-    sha256 "661b7f130316bfd82f6781652820198afecc0b92b5f9d92d6028ea866252e761" => :el_capitan
-    sha256 "648e60acdbbe15d1abfccbdb8e34656cea044036eddbcc61e081eee9ccac245b" => :yosemite
-    sha256 "6356e30f6be759bdb0234b811ef83069d36fdef29f5f3cf618a9547773672918" => :mavericks
+    sha256 "e041856e291f2b6731d586ef8deb08593f65fc2f859019ff54c248e6c960c608" => :sierra
+    sha256 "08baf77479ed193c4d80d3f0b6ce1d2625987d31b72ce26faed321ac21f55740" => :el_capitan
+    sha256 "58fd8baaaadd33339ece54c63dde70fd4147c6f0302e28b953c10e85700fbb47" => :yosemite
   end
 
   option "with-sdl", "Enable SDL usage and create SDL_rwops_zzip.pc"
-  option :universal
 
   deprecated_option "sdl" => "with-sdl"
 
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "sdl" => :optional
 
   def install
-    if build.universal?
-      ENV.universal_binary
-      # See: https://sourceforge.net/p/zziplib/feature-requests/5/
-      ENV["ac_cv_sizeof_long"] = "(LONG_BIT/8)"
-    end
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = %W[
       --without-debug
@@ -36,9 +30,6 @@ class Libzzip < Formula
     args << "--enable-sdl" if build.with? "sdl"
     system "./configure", *args
     system "make", "install"
-
-    ENV.deparallelize # fails without this when a compressed file isn't ready
-    system "make", "check" # runing this after install bypasses DYLD issues
   end
 
   test do

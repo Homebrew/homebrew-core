@@ -1,15 +1,20 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.8.tar.xz"
-  sha256 "0e97f243ae72b70307d684b84c7fe679385aa7a7a0e37e5be810193dcc17d4ff"
+  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.15.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.15.tar.xz"
+  sha256 "046081108b8b1fe455a13a4c5a4eaa0368e185b678f1670fe09a11a2d7ecfad5"
 
   bottle do
-    sha256 "88fd05b558364ccae0227139d162a72005329408b5a22801aaa94daca3243a13" => :sierra
-    sha256 "b15373a79002c0690c8096503510f3c085c0362e2c811506e40692ae70023898" => :el_capitan
-    sha256 "8d590747e00a73314ea2795296d7f6c31e826dc190e317b2ffc42f3cdf1110e8" => :yosemite
+    sha256 "80b734325c3829c83067eee6d97adefb06480588be402e4e9f73109ea66f9d2e" => :sierra
+    sha256 "6a700e60e886a36fd4f1a10dab6dd0a400677a7ff2f42b967974cf262e28d0a7" => :el_capitan
+    sha256 "4a1b43d75b7a0d13ad5ab35429453bd31585170de79f9d9c945841382506d6d7" => :yosemite
+  end
+
+  devel do
+    url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.0.tar.xz"
+    mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.0.tar.xz"
+    sha256 "2ab9e3c0131fcd9142382f37ba9c6d20022b76cba83560cbcaa8e4002d71fb72"
   end
 
   depends_on "pkg-config" => :build
@@ -64,9 +69,7 @@ class Gnutls < Formula
     ]
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
-    )
+    certs = certs_list.scan(/-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m)
 
     valid_certs = certs.select do |cert|
       IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
@@ -74,7 +77,7 @@ class Gnutls < Formula
         openssl_io.close_write
       end
 
-      $?.success?
+      $CHILD_STATUS.success?
     end
 
     openssldir = etc/"openssl"

@@ -1,16 +1,14 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.10.tgz"
-  sha256 "153da7971cc3084610943dba44e0284848af72c06d019a3c913656f8c0ad48f1"
+  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.13.tgz"
+  sha256 "87cd6f6e15828a93637aa44f6ee4f01bea372ccd02ecf1702903f655fbd139a8"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0594c56dba96d29e03bf1e1455be6bfe04f01fefd41abde0cc4442e3fee27eec" => :sierra
-    sha256 "05a0796ee03ed56290803d95fb9454f684135e0131f1bbe88fc598d0475c4fee" => :el_capitan
-    sha256 "8b0d92ccb6e13b80fda4ebdde82fd92bb7cdf9d2b1b990e0b39fe072fbe83d62" => :yosemite
-    sha256 "c6beb469c3cc5b9b6ce40036430a4e41538409457483d86f3dd3b8ce1e5032b9" => :mavericks
+    sha256 "c4505a05fa4145375adf5d5494a125e72efb090546ee967007a24a71a19fa3ea" => :sierra
+    sha256 "56a0020ab5bfb1a14ce0d941f217293a34ca8afbd3f8f83fe5f2aebfa21f5a21" => :el_capitan
+    sha256 "a04970668eed3e282d3d37a9b1fe4c4f73f3eb72732092f93a4897ed7dbe7336" => :yosemite
   end
 
   head do

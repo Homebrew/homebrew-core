@@ -2,28 +2,23 @@ class Cockatrice < Formula
   desc "Virtual tabletop for multiplayer card games"
   homepage "https://github.com/Cockatrice/Cockatrice"
   url "https://github.com/Cockatrice/Cockatrice.git",
-      :tag => "2017-01-20-Release",
-      :revision => "dab731656dd5856ca293e2660e142cc215acc66e"
-  version "2017-01-20"
+      :tag => "2017-05-05-Release-2.3.17",
+      :revision => "c96f234b6d398cde949a1226fe17014dcc538c93"
+  version "2.3.17"
+  revision 1
+  version_scheme 1
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
-    sha256 "2af03423fcf74a3f52b64acf9d0658efbb5b3ebd4a7cab80f92dbadb5ad0d6ef" => :sierra
-    sha256 "842d28f0b947e2d502b5c87d89dcf488a2f9a31d3cfe86a928a48b93a9cf8559" => :el_capitan
-    sha256 "4623ff8fd4c772a8c653c2b7dfa7be932621b659bbe2893b776c78b5389f95e2" => :yosemite
+    sha256 "714abed702cc11fe15727278f9feca8d3c231444c8894c5234678b95bd793d85" => :sierra
+    sha256 "f72457bf545e44d9b8b9252d8459bfc16f1eb00d3242b6649508053f158b4dc6" => :el_capitan
+    sha256 "a56d73a6cf4bf1ad4dd39747fdc2afc757be2fcd6f86997a4b4f8a752a47f8cf" => :yosemite
   end
-
-  option "with-server", "Build `servatrice` for running game servers"
 
   depends_on :macos => :mavericks
   depends_on "cmake" => :build
   depends_on "protobuf"
-
-  if build.with? "server"
-    depends_on "qt5" => "with-mysql"
-  else
-    depends_on "qt5"
-  end
+  depends_on "qt"
 
   fails_with :clang do
     build 503
@@ -32,9 +27,7 @@ class Cockatrice < Formula
 
   def install
     mkdir "build" do
-      args = std_cmake_args
-      args << "-DWITH_SERVER=ON" if build.with? "server"
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
       prefix.install Dir["release/*.app"]
     end

@@ -1,6 +1,6 @@
 class Gtkx < Formula
   desc "GUI toolkit"
-  homepage "http://gtk.org/"
+  homepage "https://gtk.org/"
   revision 1
 
   stable do

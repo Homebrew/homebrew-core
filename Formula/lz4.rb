@@ -1,15 +1,15 @@
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
   homepage "http://www.lz4.org/"
-  url "https://github.com/lz4/lz4/archive/v1.7.5.tar.gz"
-  sha256 "0190cacd63022ccb86f44fa5041dc6c3804407ad61550ca21c382827319e7e7e"
+  url "https://github.com/lz4/lz4/archive/v1.8.0.tar.gz"
+  sha256 "2ca482ea7a9bb103603108b5a7510b7592b90158c151ff50a28f1ca8389fccf6"
   head "https://github.com/lz4/lz4.git"
 
   bottle do
     cellar :any
-    sha256 "88b2529f3abbe23e0f8421811a9621435bc7f817819385e947d4519964b38585" => :sierra
-    sha256 "0980c7ab151e31e7b16f2bfb8a9d54ebbdcb99327d9906190d624eca4dbe47ab" => :el_capitan
-    sha256 "de3dfd98edc6c0613c4842b1121551535a3672ab4737128ea2e7a6f73e188b9e" => :yosemite
+    sha256 "1168e44a252b92853ce8fe24976c0198bc2a252678d36c4d5fd999e6e95bc417" => :sierra
+    sha256 "42f1aa22230648e0fe1dc738d6cf6649b35a9f5b5255322418de601347c7848c" => :el_capitan
+    sha256 "5abd84100b170b6b8650f46639edb181fefda11ffd582c46dcdc72580ac1913b" => :yosemite
   end
 
   def install

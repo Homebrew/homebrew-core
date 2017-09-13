@@ -2,14 +2,14 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
-      :tag => "v1.6.14",
-      :revision => "e460bf85396a57a36b47752cb5997dd60ed373ef"
+      :tag => "v1.6.19",
+      :revision => "7a77e0bb2ca875cb977b1e698a1783e575d96563"
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
-    sha256 "1d28f53c70794ed1e1aa76104aeda61afc603f4abcc48b604db8d9f124431b2d" => :sierra
-    sha256 "b84bf953c173272be24df2d9b5719fc9610e841957d24aed9899bc77404e1caa" => :el_capitan
-    sha256 "421054173240030160fd71484ec841b4ae9b662d6519f04ac94cf700379d0f2c" => :yosemite
+    sha256 "d1086826c4aac6ba2fe94d01c0e318154ecc206a94dd214cc4fb23b755803fe2" => :sierra
+    sha256 "33098470d1a183e818aee08cd3686a11d6a20cb77f661c9b153c3cd86c2bdda4" => :el_capitan
+    sha256 "34a4df18d070a69f355df949f6a64f9e0f9cfeb45fbc7ef1eb14ebfd6016f931" => :yosemite
   end
 
   option "without-moh", "Do not install music-on-hold"

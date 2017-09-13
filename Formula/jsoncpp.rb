@@ -1,18 +1,16 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.8.0.tar.gz"
-  sha256 "5deb2462cbf0c0121c9d6c9823ec72fe71417e34242e3509bc7c003d526465bc"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.8.3.tar.gz"
+  sha256 "3671ba6051e0f30849942cc66d1798fdf0362d089343a83f704c09ee7156604f"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   bottle do
     cellar :any
-    sha256 "979f26dae212b696ea1f0fe37e022e07ef1d9c6e5a300abe66e79ded804eb6bf" => :sierra
-    sha256 "b418b5afee4f4decd68291e2a17b5a6a3583c9c97fb66c57bb5b4fb3c573c802" => :el_capitan
-    sha256 "9f33d38dc6d459622705c4982204e0eea49a5d9a14440a032695dd1b72214cad" => :yosemite
+    sha256 "c83393c07b4a1d3a34b73549d53885baf000724055959c6e1ed3d3843d404f5a" => :sierra
+    sha256 "5ce443c585742b356a818f408a5ca2cddb309d1fa0beaedcc4c4f3259016c39e" => :el_capitan
+    sha256 "be145cf78eb4baff4cb2aa29963ec1c955202cb936d736db2536ec0b06a48e23" => :yosemite
   end
-
-  option :universal
 
   needs :cxx11
 
@@ -21,18 +19,13 @@ class Jsoncpp < Formula
   def install
     ENV.cxx11
 
-    cmake_args = std_cmake_args + %w[
-      -DBUILD_STATIC_LIBS=ON
-      -DBUILD_SHARED_LIBS=ON
-      -DJSONCPP_WITH_CMAKE_PACKAGE=ON
-      -DJSONCPP_WITH_TESTS=OFF
-      -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF
-    ]
-    if build.universal?
-      ENV.universal_binary
-      cmake_args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-    system "cmake", ".", *cmake_args
+    system "cmake", ".", *std_cmake_args,
+                         "-DBUILD_STATIC_LIBS=ON",
+                         "-DBUILD_SHARED_LIBS=ON",
+                         "-DJSONCPP_WITH_CMAKE_PACKAGE=ON",
+                         "-DJSONCPP_WITH_TESTS=OFF",
+                         "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF",
+                         "-DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND"
     system "make", "install"
   end
 

@@ -1,16 +1,15 @@
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
-  homepage "http://www.colordiff.org/"
-  url "http://www.colordiff.org/colordiff-1.0.16.tar.gz"
-  sha256 "eaf1cfe17dd0e820d38a0b24b0a402eba68b32e9bf9e7791ca2d1831029f138b"
+  homepage "https://www.colordiff.org/"
+  url "https://www.colordiff.org/colordiff-1.0.18.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/colordiff-1.0.18.tar.gz"
+  sha256 "29cfecd8854d6e19c96182ee13706b84622d7b256077df19fbd6a5452c30d6e0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c13ee346954c7819b4c798a5c8855516ff151841d14c51c63a8f14b39ef97545" => :sierra
-    sha256 "745965f6a9e37d91242b421a17697ce67328d390d2d94dd5b449d5c0dbae9e65" => :el_capitan
-    sha256 "e0e8a697a98972c3f336a867d4da2124b5b997bfd9c77a2fdca84d0cd1de541f" => :yosemite
-    sha256 "add0c4af1ad602b31f674b921435aa826951e125480220b6f66b8de406123345" => :mavericks
+    sha256 "c4d57d0ae142725bd320600864843ce040457c7652a3e403e1c65a6e53b42afd" => :sierra
+    sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :el_capitan
+    sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :yosemite
   end
 
   conflicts_with "cdiff", :because => "both install `cdiff` binaries"

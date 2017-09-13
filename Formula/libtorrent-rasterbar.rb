@@ -1,14 +1,15 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "http://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_1/libtorrent-rasterbar-1.1.1.tar.gz"
-  sha256 "f70c82367b0980460ef95aff3e117fd4a174477892d529beec434f74d615b31f"
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_4/libtorrent-rasterbar-1.1.4.tar.gz"
+  sha256 "ccf42367803a6df7edcf4756d1f7d0a9ce6158ec33b851b3b58fd470ac4eeba6"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4b0ed398e532a66a245996dbac804d031b7234dd189cd774ae2469c0893e9d16" => :sierra
-    sha256 "4c2088489e205c1a818584bd5dd325a2b0e3dd54d4aa2ced94263e92d93f063c" => :el_capitan
-    sha256 "b3a8972d68c533a218e622169e67a5d4dd27d30c0bccf0d303805f8e09b8ab3b" => :yosemite
+    sha256 "c8639c456cfd78ead45d2d54cc45ba19402dcb205703ab7f6258761cbc090f59" => :sierra
+    sha256 "a9bb6dd209b3e63dd112bbd7427139058a70f51fd030d39127a5f4950c6af9fe" => :el_capitan
+    sha256 "d4d9142a3fa3ffb55717466f9e62d46ca0436b4d2ee94e8c8825660e095e7c8a" => :yosemite
   end
 
   head do
@@ -26,6 +27,7 @@ class LibtorrentRasterbar < Formula
   depends_on "boost-python" if build.with? "python"
 
   def install
+    ENV.cxx11
     args = ["--disable-debug",
             "--disable-dependency-tracking",
             "--disable-silent-rules",

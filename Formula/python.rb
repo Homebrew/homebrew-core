@@ -1,20 +1,24 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
-  homepage "https://www.python.org"
+  homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz"
   sha256 "35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731"
-
-  head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
+  revision 1
+  head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "c125108285f306af28bb46522ca5a332d9326eddea3cd2015817acd044a3bfb1" => :sierra
-    sha256 "e9cf38579d340f64197808bb607c9a15f020943083d48324fd551316750fcd12" => :el_capitan
-    sha256 "0a0cb3a0f2880f64055eecc74c952c959795b02bcd9f8c1a32cbda3000b147af" => :yosemite
+    sha256 "8a58d3c4b797a08aba0e5bcac22f6987d32d95078ad43843fc1bcadb169f4ac1" => :sierra
+    sha256 "0d2238ff1c7e21ebf87c201655d0b85b34473a78d56188b014f0bc43fd617efa" => :el_capitan
+    sha256 "dfc9bb395cb6d25f1fb214f4915185d8bcd853e1142b371f859a54137fad57fb" => :yosemite
+  end
+
+  devel do
+    url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14rc1.tar.xz"
+    sha256 "9d62a5d8b56a897f94ce43489ed971f5a211459727048d73c807f04f318a0fb7"
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
-  option :universal
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
@@ -34,12 +38,8 @@ class Python < Formula
   depends_on "sqlite" => :recommended
   depends_on "gdbm" => :recommended
   depends_on "openssl"
-  depends_on "homebrew/dupes/tcl-tk" => :optional
+  depends_on "tcl-tk" => :optional
   depends_on "berkeley-db@4" => :optional
-  depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
-
-  skip_clean "bin/pip", "bin/pip-2.7"
-  skip_clean "bin/easy_install", "bin/easy_install-2.7"
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/26/d1/dc7fe14ce4a3ff3faebf1ac11350de4104ea2d2a80c98393b55c84362b0c/setuptools-32.1.0.tar.gz"
@@ -140,11 +140,6 @@ class Python < Formula
       s.gsub! "/usr/include/db4", Formula["berkeley-db@4"].opt_include
     end
 
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
-    end
-
     if build.with? "sqlite"
       inreplace "setup.py" do |s|
         s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
@@ -159,14 +154,14 @@ class Python < Formula
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
-    # `brew install enchant && pip install pyenchant`
+    # `brew install enchant && pip2 install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
     if build.with? "tcl-tk"
-      tcl_tk = Formula["homebrew/dupes/tcl-tk"].opt_prefix
+      tcl_tk = Formula["tcl-tk"].opt_prefix
       cppflags << "-I#{tcl_tk}/include"
       ldflags  << "-L#{tcl_tk}/lib"
     end
@@ -225,6 +220,24 @@ class Python < Formula
         doc.install Dir["build/html/*"]
       end
     end
+
+    # Remove commands shadowing system python.
+    {
+      "2to3" => "2to3-2",
+      "easy_install" => "easy_install-2.7",
+      "idle" => "idle2",
+      "pip" => "pip2",
+      "pydoc" => "pydoc2",
+      "python" => "python2",
+      "python-config" => "python2-config",
+      "pythonw" => "pythonw2",
+      "smtpd.py" => "smtpd2.py",
+      "wheel" => nil,
+    }.each do |unversioned_name, versioned_name|
+      rm_f bin/unversioned_name
+      next unless versioned_name
+      (libexec/"bin").install_symlink bin/versioned_name => unversioned_name
+    end
   end
 
   def post_install
@@ -257,13 +270,13 @@ class Python < Formula
                   "--install-scripts=#{bin}",
                   "--install-lib=#{site_packages}"]
 
-    (libexec/"setuptools").cd { system "#{bin}/python", *setup_args }
-    (libexec/"pip").cd { system "#{bin}/python", *setup_args }
-    (libexec/"wheel").cd { system "#{bin}/python", *setup_args }
+    (libexec/"setuptools").cd { system "#{bin}/python2", *setup_args }
+    (libexec/"pip").cd { system "#{bin}/python2", *setup_args }
+    (libexec/"wheel").cd { system "#{bin}/python2", *setup_args }
 
     # When building from source, these symlinks will not exist, since
     # post_install happens after linking.
-    %w[pip pip2 pip2.7 easy_install easy_install-2.7 wheel].each do |e|
+    %w[pip2 pip2.7 easy_install-2.7].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
@@ -277,8 +290,8 @@ class Python < Formula
     end
 
     if build.with? "tcl-tk"
-      include_dirs << Formula["homebrew/dupes/tcl-tk"].opt_include
-      library_dirs << Formula["homebrew/dupes/tcl-tk"].opt_lib
+      include_dirs << Formula["tcl-tk"].opt_include
+      library_dirs << Formula["tcl-tk"].opt_lib
     end
 
     cfg = lib_cellar/"distutils/distutils.cfg"
@@ -296,7 +309,7 @@ class Python < Formula
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <http://docs.brew.sh/Homebrew-and-Python.html>
+      # <https://docs.brew.sh/Homebrew-and-Python.html>
       import re
       import os
       import sys
@@ -343,25 +356,30 @@ class Python < Formula
   end
 
   def caveats; <<-EOS.undent
+    This formula installs a python2 executable to #{HOMEBREW_PREFIX}/bin.
+    If you wish to have this formula's python executable in your PATH then add
+    the following to #{shell_profile}:
+      export PATH="#{opt_libexec}/bin:$PATH"
+
     Pip and setuptools have been installed. To update them
-      pip install --upgrade pip setuptools
+      pip2 install --upgrade pip setuptools
 
     You can install Python packages with
-      pip install <package>
+      pip2 install <package>
 
     They will install into the site-package directory
       #{site_packages}
 
-    See: http://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python.html
     EOS
   end
 
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system "#{bin}/python", "-c", "import sqlite3"
+    system "#{bin}/python2", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
-    system bin/"pip", "list"
+    system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()"
+    system bin/"pip2", "list"
   end
 end

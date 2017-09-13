@@ -3,15 +3,15 @@ class Mal4s < Formula
   homepage "https://github.com/secure411dotorg/mal4s/"
   url "https://service.dissectcyber.com/mal4s/mal4s-1.2.8.tar.gz"
   sha256 "1c40ca9d11d113278c4fbd5c7ec9ce0edc78d6c8bd1aa7d85fb6b9473e60f0f1"
-  revision 5
+  revision 6
 
   head "https://github.com/secure411dotorg/mal4s.git"
 
   bottle do
     rebuild 1
-    sha256 "5c426bbeed255731e25f1b1537adfc2b85f5cb7e3ff0a7be9571e48441f64c42" => :sierra
-    sha256 "5560115b97b1534f64bd3a91ff5b5306eafe1f2082f16ed8a68af98fc150416f" => :el_capitan
-    sha256 "4a52fb4aa8e7ceaae4e6235c528f0f1b28b80b438b4543745ec9e48f0009dc88" => :yosemite
+    sha256 "8a3fd76a8aed3f2ed825ee58c6e84df4b8d23c1365dec0de679d6e5de7811477" => :sierra
+    sha256 "95a5871af84d0ea208e478bebd7c29bad070ed916347cbdd853d911acaf69d1b" => :el_capitan
+    sha256 "4ce392506649494538c6765f10bf11f3a8cca6b3acfc64222cff5a84efa8c19c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +20,6 @@ class Mal4s < Formula
   depends_on "libtool" => :build
   depends_on "glm" => :build
   depends_on "glew"
-  depends_on "jpeg"
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"

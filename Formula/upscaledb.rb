@@ -2,14 +2,15 @@ class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
   url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
   sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
-  revision 4
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "72bff8f4ed0ab971455323df110b4c943f2df81f949786d35e45fa000a7f0af8" => :sierra
-    sha256 "06f4e20e40bb56130ff85e5939b0344d0673b09d955402cde39a98070cee82bc" => :el_capitan
-    sha256 "2e48d0b0bb6c9802a511c35abd1a7c0fb0782d73c554bc4ee2104a8b431ccf84" => :yosemite
+    sha256 "1f4ba3f80297f591f9b80df17c80b824c816126a0f8ad3879c1e765e391b492e" => :sierra
+    sha256 "e226e89e3eeb2eb382aa1f545832d5fa7e2be48131d1f6ba93d270edca0b610b" => :el_capitan
+    sha256 "42f5fe5f303ac51914c7f45e06ff1a0d8f36970020b4e9781a92093f542cdd2d" => :yosemite
   end
 
   head do
@@ -40,6 +41,7 @@ class Upscaledb < Formula
     build 503
     cause "error: member access into incomplete type 'const std::type_info"
   end
+
   def install
     # Fix collision with isset() in <sys/params.h>
     # See https://github.com/Homebrew/homebrew-core/pull/4145

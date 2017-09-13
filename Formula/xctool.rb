@@ -1,15 +1,15 @@
 class Xctool < Formula
   desc "Drop-in replacement for xcodebuild with a few extra features"
   homepage "https://github.com/facebook/xctool"
-  url "https://github.com/facebook/xctool/archive/0.3.1.tar.gz"
-  sha256 "9db246a95af6716cca93a57b45905c97b3228c1167b4ae7c9461715cfb3e9df0"
+  url "https://github.com/facebook/xctool/archive/0.3.3.tar.gz"
+  sha256 "eeb5ffda73e67273df3eddd7a00ab8fbd5ef1eace96405c5647b2a414d152783"
   head "https://github.com/facebook/xctool.git"
 
   bottle do
     cellar :any
-    sha256 "7df0210ebb932eba903a68aa3b7618d15e0152c554b1730186323d70f077c6b0" => :sierra
-    sha256 "7e773b2754bb89dc576dd292e9c478777bd97771f8d2d1827686b6674d5dc155" => :el_capitan
-    sha256 "7704c484b555e0f5143fc61b69cc2b03ff96942e7d0e4e374ac78065eca8f544" => :yosemite
+    sha256 "5a6447c459ca211b62e7ec67126bda75d37273df3d1a27580ed87ac4356a3115" => :sierra
+    sha256 "4153061a94797bcf84f0b2804373ae6067e1e977bb206a88031b80ac920debf5" => :el_capitan
+    sha256 "af90cb553fe0e51ac10eae06f5fac9ea922231948333c4372a419a08b66eace5" => :yosemite
   end
 
   depends_on :xcode => "7.0"

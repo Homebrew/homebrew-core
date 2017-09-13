@@ -13,19 +13,9 @@ class LibunwindHeaders < Formula
   end
 
   keg_only :provided_by_osx,
-    "This package includes official development headers not installed by Apple."
+    "this formula includes official development headers not installed by Apple"
 
   def install
-    inreplace "include/libunwind.h", "__MAC_10_6", "__MAC_NA" if MacOS.version < :snow_leopard
-
-    if MacOS.version < :leopard
-      inreplace "include/libunwind.h", /__OSX_AVAILABLE_STARTING\(__MAC_NA,.*\)/,
-        "__attribute__((unavailable))"
-
-      inreplace %w[include/libunwind.h include/unwind.h src/AddressSpace.hpp src/InternalMacros.h],
-        "Availability.h", "AvailabilityMacros.h"
-    end
-
     include.install Dir["include/*"]
     (include/"libunwind").install Dir["src/*.h*"]
     (include/"libunwind/libunwind_priv.h").unlink

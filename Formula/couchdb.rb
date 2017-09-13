@@ -1,7 +1,7 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  revision 9
+  revision 13
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
@@ -14,13 +14,13 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 "2a3dd04b37456370b311c30bfeb18bc233e9741fd7d87ae6ba356d2b650e9bfa" => :sierra
-    sha256 "4a5565cf75f12fea70823b9ec2bd6e8dccdfc7b0f96c31331380d6910abcd0d4" => :el_capitan
-    sha256 "06e0a67d125f908efa45426cd903ae2192f0742879a91390659254f2f1a27988" => :yosemite
+    sha256 "e762e24878c9354a8316c83cd9c0453d44c2ba2402cb1f79da76bf54f1dffb9a" => :sierra
+    sha256 "7561fda33e55d676787f456a83edf1322b506715171188dc478ff508f5dde19c" => :el_capitan
+    sha256 "1b828b7df1f1eb8feccc278e8eb1cf138784fdb77cd805eaf29a322e144bbb07" => :yosemite
   end
 
   head do
-    url "https://git-wip-us.apache.org/repos/asf/couchdb.git"
+    url "https://github.com/apache/couchdb.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -34,8 +34,10 @@ class Couchdb < Formula
 
   depends_on "spidermonkey"
   depends_on "icu4c"
-  depends_on "erlang"
-  depends_on "curl" if MacOS.version <= :leopard
+
+  # Incompatible with Erlang/OTP 20.0
+  # See upstream issue from 23 Jun 2017 https://github.com/apache/couchdb/issues/611
+  depends_on "erlang@19"
 
   resource "geocouch" do
     url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
@@ -61,7 +63,7 @@ class Couchdb < Formula
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
                           "--disable-init",
-                          "--with-erlang=#{HOMEBREW_PREFIX}/lib/erlang/usr/include",
+                          "--with-erlang=#{Formula["erlang@19"].opt_lib}/erlang/usr/include",
                           "--with-js-include=#{HOMEBREW_PREFIX}/include/js",
                           "--with-js-lib=#{HOMEBREW_PREFIX}/lib"
     system "make"

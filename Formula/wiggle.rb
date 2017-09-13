@@ -14,18 +14,18 @@ class Wiggle < Formula
 
   # All three patches are upstream commits
   patch do
-    url "https://github.com/neilbrown/wiggle/commit/16bb4be1c93be24917669d63ab68dd7d77597b63.diff"
-    sha256 "09c9e028c22ae9ee37c5f7636a79899862264bf45cae2ed3fb9c47535d092467"
+    url "https://github.com/neilbrown/wiggle/commit/16bb4be1c93be24917669d63ab68dd7d77597b63.diff?full_index=1"
+    sha256 "f563b5ea76aaa1a66b68466ee2c7bd0bc6f2b648514e790f61e975c52de5d139"
   end
 
   patch do
-    url "https://github.com/neilbrown/wiggle/commit/e010f2ffa78b0e50eff5a9e664f9de27bb790035.diff"
-    sha256 "33f9ef59e90000e2c10485ab358fee2014d8525428f77329399389f2acaa7290"
+    url "https://github.com/neilbrown/wiggle/commit/e010f2ffa78b0e50eff5a9e664f9de27bb790035.diff?full_index=1"
+    sha256 "211af1f0bde9729ddaeced23edafa5fc54d871afb243b8f3219a8a47d0f3358e"
   end
 
   patch do
-    url "https://github.com/neilbrown/wiggle/commit/351535d3489f4583a49891726616375e249ab1f3.diff"
-    sha256 "4ee9d9df6099be99ac6b4eee5f17d6ea5d885288400fb3a49835cf72aaf6bb18"
+    url "https://github.com/neilbrown/wiggle/commit/351535d3489f4583a49891726616375e249ab1f3.diff?full_index=1"
+    sha256 "c394bd7483205881bffe1b8f51c12fb20e339a615903857dbf5f19e26a250b3d"
   end
 
   def install

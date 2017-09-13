@@ -1,6 +1,6 @@
 class Lemon < Formula
   desc "LALR(1) parser generator like yacc or bison"
-  homepage "http://www.hwaci.com/sw/lemon/"
+  homepage "https://www.hwaci.com/sw/lemon/"
   url "https://tx97.net/pub/distfiles/lemon-1.69.tar.bz2"
   sha256 "bc7c1cae233b6af48f4b436ee900843106a15bdb1dc810bc463d8c6aad0dd916"
 
@@ -13,10 +13,10 @@ class Lemon < Formula
   end
 
   def install
-    (share/"lemon").install "lempar.c"
+    pkgshare.install "lempar.c"
 
     # patch the parser generator to look for the 'lempar.c' template file where we've installed it
-    inreplace "lemon.c", / = pathsearch\([^)]*\);/, " = \"#{share}/lemon/lempar.c\";"
+    inreplace "lemon.c", / = pathsearch\([^)]*\);/, " = \"#{pkgshare}/lempar.c\";"
 
     system ENV.cc, "-o", "lemon", "lemon.c"
     bin.install "lemon"

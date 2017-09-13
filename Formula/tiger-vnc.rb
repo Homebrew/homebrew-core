@@ -1,13 +1,13 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "http://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.7.1.tar.gz"
-  sha256 "3c021ec0bee4611020c0bcbab995b0ef2f6f1a46127a52b368827f3275527ccc"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.8.0.tar.gz"
+  sha256 "9951dab0e10f8de03996ec94bec0d938da9f36d48dca8c954e8bbc95c16338f8"
 
   bottle do
-    sha256 "da4b58cfb0117ac7f2c4a81cba70bb653f8404d6bc8ff02e5320e05f02904ebb" => :sierra
-    sha256 "ffeabdeebdeadb9837915070a9730a93fb5bfc8bd69dd8719e2c15d6eb103e64" => :el_capitan
-    sha256 "a719884736ffa0fa5ecf99bda2df2afde53897cb08115399a729fbe73a38513a" => :yosemite
+    sha256 "427af0dff8bae2e2720f0c6dea41d54de8eb8e5549ae77faab3110a9366858a5" => :sierra
+    sha256 "aba36a55571b32322bcd94cffce43eb5760bd54fa2000d68c3b968c2d9f0f161" => :el_capitan
+    sha256 "b7def4172a88768e2e84df9931138e13401a81913a644f25a72ab43f7ba1f6ae" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -17,10 +17,12 @@ class TigerVnc < Formula
   depends_on "fltk"
   depends_on :x11
 
-  # reduce thread stack size to avoid crash
+  # Remove for > 1.8.0
+  # Fix "redefinition of 'kVK_RightCommand' as different kind of symbol"
+  # Upstream commit from 24 May 2017 "Compatibility with macOS 10.12 SDK"
   patch do
-    url "https://github.com/TigerVNC/tigervnc/commit/1349e42e395a0a88b67447580d526daf31dba591.diff"
-    sha256 "e7321146c7ab752279423c9fc0ee1414eed8f1dc81afd2ea963a7f2d115a7a79"
+    url "https://github.com/TigerVNC/tigervnc/commit/2b0a0ef0.patch?full_index=1"
+    sha256 "ddf74e2ccf57ff20e595f272ac41498c2f698003a619f365670871d00797db2b"
   end
 
   def install

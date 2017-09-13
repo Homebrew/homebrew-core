@@ -33,7 +33,7 @@ class LibxdgBasedir < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-lxdg-basedir", "-o", "test"
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lxdg-basedir", "-o", "test"
     system "./test"
   end
 end

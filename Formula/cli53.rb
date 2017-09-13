@@ -1,14 +1,14 @@
 class Cli53 < Formula
-  desc "command-line tool for Amazon Route 53"
+  desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
-  url "https://github.com/barnybug/cli53/archive/0.8.7.tar.gz"
-  sha256 "c05918a1c1e5e660bda4b6ca080234a5ccc7c02d8c5b5f9f761faa57f53fb95c"
+  url "https://github.com/barnybug/cli53/archive/0.8.9.tar.gz"
+  sha256 "a6ab5c79b1eaae83dccb9c8892cf207dd7756bb0c0be6a3fce8b3efc92544768"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df1268d4c4416fa2f9837cbdfd2b06c49d679d95d027671426a4becc664fd643" => :sierra
-    sha256 "1ae8290fb59ba09f22a384487302e895c5f42cab117e32cc4fc9acc4d8e85636" => :el_capitan
-    sha256 "84ceef6568a1eabcbbcb08f5eb060c3dae4805f81fb9da6c088c31b61f42d7b4" => :yosemite
+    sha256 "b2f802184e6eee8afcfe0236ca1585696cbbfe3f0fe57b74f764259efa08a624" => :sierra
+    sha256 "b67c09375c0204a67491768cacb2737ca029acd0a1a036545e53ca862555fc9b" => :el_capitan
+    sha256 "8ac4114d56b3632543fd646d3dd4f3e5289e79a719c9e756ae9baaa8d2d94042" => :yosemite
   end
 
   depends_on "go" => :build

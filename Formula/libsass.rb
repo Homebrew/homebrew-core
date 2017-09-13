@@ -1,14 +1,14 @@
 class Libsass < Formula
   desc "C implementation of a Sass compiler"
   homepage "https://github.com/sass/libsass"
-  url "https://github.com/sass/libsass.git", :tag => "3.4.3", :revision => "b28de01270a663b3e89427a18816732c4d573c1d"
+  url "https://github.com/sass/libsass.git", :tag => "3.4.5", :revision => "31573210c0d120ae56aaea543a0dbab5255cdfb7"
   head "https://github.com/sass/libsass.git"
 
   bottle do
     cellar :any
-    sha256 "1bf8fdd91e81a6ae71c0b285bf9bda4892d2d5fa152ed9cd9eb99c8a0588bcf6" => :sierra
-    sha256 "d6818e9a5872d39f02be581e6d31cc8942c158abfc428d8e662454248ae97c87" => :el_capitan
-    sha256 "030c6b49661b482562fb1ce2d2e2ca383dada5124a78439a4b7afa2eb7e6312d" => :yosemite
+    sha256 "579f25eb99112b3e4bfbc69ce529a703fefa5e6607dab0b42d4888f848190ebb" => :sierra
+    sha256 "cfea481ac59c31b441bdb03db11afb5e2af55db6d3468d3aaf7b2d825fe6c1c1" => :el_capitan
+    sha256 "d9943c309ba1454a4275e262ea03d7c68e843d54eb89cbcbd9160b9e215c6ee8" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -48,7 +48,7 @@ class Libsass < Formula
         }
       }
     EOS
-    system ENV.cc, "-o", "test", "test.c", "-lsass"
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-lsass"
     system "./test"
   end
 end

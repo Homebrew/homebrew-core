@@ -1,26 +1,21 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "http://compcert.inria.fr/release/compcert-2.7.1.tgz"
-  sha256 "446199fb66c1e6e47eb464f2549d847298f3d7dcce9be6718da2a75c5dd00bee"
-  revision 1
+  url "https://github.com/AbsInt/CompCert/archive/v3.1.tar.gz"
+  sha256 "9d0dd07f05a9a59b865041417dc61f16a664d85415f0271eb854412638e52e47"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b250bb227cc2c4b186a13d0140ab2a9a56c640f714c8ab65ac74ae00bded3ddf" => :sierra
-    sha256 "05979ef2cd32f7dd1e860e32a7dbc4338f193a358326dbf0720c4fe992849ce1" => :el_capitan
-    sha256 "d1b1c7c3ea3edf4e9f40b9c30d3d3bc4786e927dd8659928c697c0eb673c33c7" => :yosemite
+    sha256 "02d892ec34b7c991629d747b822a0f75c5e9a790113886ac4925c2df67bbcce9" => :sierra
+    sha256 "ae065d7a0008a20c42277b33166e1197931d64af120ae2dc06ff96425bf96e30" => :el_capitan
+    sha256 "895f0814f70ddc41a07496f6f99c865d132bca38654d9c44581c2a89e828dc9b" => :yosemite
   end
 
+  option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
+
+  depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
-  depends_on "opam" => :build
-
-  # remove for > 2.7.1; allow Coq version 8.5pl3
-  patch do
-    url "https://github.com/AbsInt/CompCert/commit/a8f87aa.patch"
-    sha256 "fb1b35503ae106a28b276521579fcf862772615414dca3ae3fabc4ed736ab5de"
-  end
 
   def install
     ENV.permit_arch_flags
@@ -31,17 +26,11 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
-    ENV["OPAMYES"] = "1"
-    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
-    (Pathname.pwd/"opamroot").mkpath
-    system "opam", "init", "--no-setup"
-    system "opam", "install", "coq=8.5.3"
-    system "opam", "config", "exec", "--",
-           "./configure", "-prefix", prefix, "ia32-macosx"
-    system "opam", "config", "exec", "--",
-           "make", "all"
-    system "opam", "config", "exec", "--",
-           "make", "install"
+    args = ["-prefix", prefix]
+    args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
+    system "./configure", *args
+    system "make", "all"
+    system "make", "install"
   end
 
   test do

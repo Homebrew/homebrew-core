@@ -1,14 +1,15 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz"
-  sha256 "e7f340412a61c7934b5143faef8d13529b29242ebfba2eba48169f4a8392f535"
+  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
+  mirror "http://mirror.nbtelecom.com.br/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
+  sha256 "7f7f5414e044ac11fee2a1e0bc225469f51fb0cdf821e67df762a43098223f27"
 
   bottle do
     cellar :any
-    sha256 "bbc85efad319f22fb13a453cfece11636eaafb8cc4ff0fd18bb78178a154629e" => :sierra
-    sha256 "a48486dcbf0155d12340e8ca6beae48d096719a0a7864726f17aacb7adf0efce" => :el_capitan
-    sha256 "bba0b4ed698c79f2bedb0d26a161107570cbcca88a88599587880c543626d0f6" => :yosemite
+    sha256 "a28854138a8529d7b971550566576e9758bc27a65b1d5649a574f3181b49aeee" => :sierra
+    sha256 "a3231fd05efa548a5171e6ab2328cbb503646b952bce3b8cf1c1ce4a007f833f" => :el_capitan
+    sha256 "2004ccbabfd5645e95af658684c0a919c13a41b45127be77db289453facf1670" => :yosemite
   end
 
   head do
@@ -158,7 +159,5 @@ class Zookeeper < Formula
   test do
     output = shell_output("#{bin}/zkServer -h 2>&1")
     assert_match "Using config: #{etc}/zookeeper/zoo.cfg", output
-    output = shell_output("ZOOCFGDIR=/tmp #{bin}/zkServer -h 2>&1")
-    assert_match "Using config: /tmp/zoo.cfg", output
   end
 end

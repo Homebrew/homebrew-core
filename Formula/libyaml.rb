@@ -12,11 +12,7 @@ class Libyaml < Formula
     sha256 "3a7788655c3c8f3b7ad73521928277ca5433789e134f437534702145171b1104" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -33,7 +29,7 @@ class Libyaml < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lyaml", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lyaml", "-o", "test"
     system "./test"
   end
 end

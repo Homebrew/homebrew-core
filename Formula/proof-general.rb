@@ -3,13 +3,14 @@ class ProofGeneral < Formula
   homepage "https://proofgeneral.github.io"
   url "https://github.com/ProofGeneral/PG/archive/v4.4.tar.gz"
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
+  revision 1
   head "https://github.com/ProofGeneral/PG.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a4a747470f8d159bc0e9e266ae3dd84444862adae85e2a01e0228de7936c43b" => :sierra
-    sha256 "3a4a747470f8d159bc0e9e266ae3dd84444862adae85e2a01e0228de7936c43b" => :el_capitan
-    sha256 "3a4a747470f8d159bc0e9e266ae3dd84444862adae85e2a01e0228de7936c43b" => :yosemite
+    sha256 "3873ed2362ff17d7cc51fc5910bddb57f1fd23a294fe5747c4bc7b143c0b71d2" => :sierra
+    sha256 "2ceb9862d81f46f6ba815b58a1683ce8af5a95b6db0f4c1bfde488156c56ce62" => :el_capitan
+    sha256 "2ceb9862d81f46f6ba815b58a1683ce8af5a95b6db0f4c1bfde488156c56ce62" => :yosemite
   end
 
   depends_on "texi2html" => :build

@@ -3,13 +3,14 @@ class Openclonk < Formula
   homepage "http://www.openclonk.org"
   url "http://www.openclonk.org/builds/release/7.0/openclonk-7.0-src.tar.bz2"
   sha256 "bc1a231d72774a7aa8819e54e1f79be27a21b579fb057609398f2aa5700b0732"
+  revision 2
   head "https://github.com/openclonk/openclonk", :using => :git
 
   bottle do
     cellar :any
-    sha256 "481eec5556eaee344b87562f8744cef8eebab542fbd0111266d52e8ec3ec5542" => :sierra
-    sha256 "a643463cf54b88b32455e686b76f83f614d4f02da77c4158f751fa56e5b67822" => :el_capitan
-    sha256 "ea319199ef6666ce4661851d1baa4afb637c99ee42ff512eb9cb6fa0e1425312" => :yosemite
+    sha256 "101621b7af46c82184ad302b2246a6d76abfa3c14ad46a7c810dafaedea87051" => :sierra
+    sha256 "ce6e5259b6e04779c378221974cdfee36382976aa5ec266804e57f2bad1730f8" => :el_capitan
+    sha256 "e3ebb625a585702c150f2f74aa71fca61d6bf5d61085fe31e6b42ac42d68ede6" => :yosemite
   end
 
   # Requires some C++14 features missing in Mavericks

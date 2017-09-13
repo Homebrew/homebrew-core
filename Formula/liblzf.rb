@@ -42,7 +42,7 @@ class Liblzf < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-llzf", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-llzf", "-o", "test"
     system "./test"
   end
 end

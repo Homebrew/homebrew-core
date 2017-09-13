@@ -1,19 +1,20 @@
 class Ne < Formula
   desc "The nice editor"
   homepage "http://ne.di.unimi.it"
-  url "http://ne.di.unimi.it/ne-3.0.1.tar.gz"
-  sha256 "92b646dd2ba64052e62deaa4239373821050a03e1b7d09d203ce04f2adfbd0e4"
+  url "http://ne.di.unimi.it/ne-3.1.1.tar.gz"
+  sha256 "ec4f5d919c38b1a5938b609a722d0d88a68c404b4564e3bb654b96b30582add9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40cdbd64e9afa63534e2c4c9fcf768351eaf8aea1b1d9d301ec5b9188cac2ebd" => :sierra
-    sha256 "56d04a63498270ddfed02081ab5970bcc5751a45468ff08b205d639d2e8878ff" => :el_capitan
-    sha256 "78875d4f901208279d8d13da35d40d0fbe2278b549a0c33754280f77dcf864e1" => :yosemite
-    sha256 "8b7072ee6e35427d7343af22811fb9af854788a14725b4fc6516f6872b273157" => :mavericks
+    sha256 "1aee5fa253900a888bfa27d92a3b0e262a01acf03da2987285064c916105a388" => :sierra
+    sha256 "7bdd3016890a03f6bc006d924cf2373a97b3915bf8d7ddc1a6bb81741085ecff" => :el_capitan
+    sha256 "00d0ed886fa94db6b33f26dd304f468c79748379ac95c49a96141594fa0b333a" => :yosemite
   end
 
   def install
-    system "make"
+    cd "src" do
+      system "make"
+    end
     system "make", "PREFIX=#{prefix}", "install"
   end
 

@@ -31,7 +31,7 @@ class Pdsh < Formula
     ]
 
     args << "--with-genders" if build.with? "genders"
-    args << ((build.without? "dshgroups") ? "--without-dshgroups" : "--with-dshgroups")
+    args << (build.without?("dshgroups") ? "--without-dshgroups" : "--with-dshgroups")
 
     system "./configure", *args
     system "make", "install"

@@ -1,26 +1,28 @@
 class Libtommath < Formula
   desc "C library for number theoretic multiple-precision integers"
   homepage "http://www.libtom.net/LibTomMath/"
-  url "https://github.com/libtom/libtommath/releases/download/v0.42.0/ltm-0.42.0.tar.bz2"
-  mirror "https://distfiles.macports.org/libtommath/ltm-0.42.0.tar.bz2"
-  sha256 "7b5c258304c34ac5901cfddb9f809b9b3b8ac7d04f700cf006ac766a923eb217"
+  url "https://github.com/libtom/libtommath/releases/download/v1.0.1/ltm-1.0.1.tar.xz"
+  sha256 "47032fb39d698ce4cf9c9c462c198e6b08790ce8203ad1224086b9b978636c69"
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "ff8b8d215c445537602f1ce68ded380035a8445c407272dc713e480605f57a9a" => :sierra
-    sha256 "b0f4e06eaf98729a5a8657538f7b9b8cd6f11926f09c34489b3e0b5cfb9bb376" => :el_capitan
-    sha256 "e6ed2cbd074bb7b8c2287baac219bf5a928dd84c8fc4c69d178358f3810164fe" => :yosemite
-    sha256 "fbc9c911c91862cad93470cac7e03aba2183faeadb6d67d2a15a0e730efc8103" => :mavericks
-    sha256 "537f66d9668409f36ef2c2b99bbd02e1a103e86a2603a66dc66c280763ab9c4a" => :mountain_lion
+    sha256 "e8b549106cfaebb72663904b2597ab444c67104ca1824f2a96f2c013efc3fe64" => :sierra
+    sha256 "1b5e1b5d062dfb4945016516880ca227fe13b03cb214985d317f657f6a45a06e" => :el_capitan
+    sha256 "7d042e9ccfd1ba6a86c97f570960116524601b0586274132d3d66c7bb6a550c2" => :yosemite
   end
 
   def install
     ENV["DESTDIR"] = prefix
 
     system "make"
+    system "make", "test_standalone"
     include.install Dir["tommath*.h"]
     lib.install "libtommath.a"
+    pkgshare.install "test"
+  end
+
+  test do
+    system pkgshare/"test"
   end
 end

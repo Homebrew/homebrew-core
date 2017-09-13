@@ -13,7 +13,7 @@ class DfuUtil < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/dfu-util/dfu-util"
+    url "https://git.code.sf.net/p/dfu-util/dfu-util.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

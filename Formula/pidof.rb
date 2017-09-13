@@ -20,4 +20,29 @@ class Pidof < Formula
     man1.install gzip("pidof.1")
     bin.install "pidof"
   end
+
+  test do
+    (testpath/"homebrew_testing.c").write <<-EOS.undent
+      #include <unistd.h>
+      #include <stdio.h>
+
+      int main()
+      {
+        printf("Testing Pidof\\n");
+        sleep(10);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "homebrew_testing.c", "-o", "homebrew_testing"
+    (testpath/"homebrew_testing").chmod 0555
+
+    pid = fork { exec "./homebrew_testing" }
+    sleep 1
+    begin
+      assert_match(/\d+/, shell_output("#{bin}/pidof homebrew_testing"))
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
+  end
 end

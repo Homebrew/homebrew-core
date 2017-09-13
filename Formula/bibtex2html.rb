@@ -3,19 +3,17 @@ class Bibtex2html < Formula
   homepage "https://www.lri.fr/~filliatr/bibtex2html/"
   url "https://www.lri.fr/~filliatr/ftp/bibtex2html/bibtex2html-1.98.tar.gz"
   sha256 "e925a0b97bf87a14bcbda95cac269835cd5ae0173504261f2c60e3c46a8706d6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2b4fbcfb6e1c49eeb97bc6edca5e9b37d1817f1ee44ebb88bdd1114277ffdcf0" => :sierra
-    sha256 "47096fa76ad63ac58cd9afd80d2a5589b70d178080dd48ed9c51639f4ff19e52" => :el_capitan
-    sha256 "e3caa99e7bd5a6c00163642869e684680ee6e696b1ac3dc65425204c4b7be6b2" => :yosemite
-    sha256 "77ece7804ba79ff217244fc52bf5a91fe3fbb65972da4edbcb8a5c5ce2d13e0b" => :mavericks
+    sha256 "6a3e155794791b00aae19b7194da3aa39c8b4a6f5e7a19c78e9ca116dcdd2809" => :sierra
+    sha256 "30f1cc89cd5ae6889a67b6aed5131d638c1e3f4e4dc1eabd785d39dd0597f9bd" => :el_capitan
+    sha256 "ed271bcd54d5d71ea30c72d661445c4c32ca43fe7d5412c980bf7b6b43aa7bb2" => :yosemite
   end
 
   depends_on "ocaml"
   depends_on "hevea"
-  depends_on :tex => :optional
 
   def install
     # See: https://trac.macports.org/ticket/26724

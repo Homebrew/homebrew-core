@@ -2,15 +2,15 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      :tag => "v0.4.4",
-      :revision => "d905d485192616abaea25f7e721062a9e1093ab9"
+      :tag => "v0.4.10",
+      :revision => "4679f806bd00c0a5299c22c82d1fbfdbad928e6d"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77c22864edac09c9feac71e13a1b712cdb707bf1f5a93a03c8b3267836ff75a6" => :sierra
-    sha256 "26238cf78c5ff06914ef46b3836d9089261ca87e55636e4b50478bc7a76f6c2d" => :el_capitan
-    sha256 "ab771d7fafdc31f01105b00c3fb4b4eada6e1db875d5680a1e510e54690aeb20" => :yosemite
+    sha256 "8a961d3514db3754454fb470513e128fbfebf04a3e7b2503543a22463b9ec2da" => :sierra
+    sha256 "74875243422c9e8ce88d88a208c766ac8776f04d1564608d22decb750aeed009" => :el_capitan
+    sha256 "8829d6f75a787249791a1cf64f6f75d2b1d9ee27e60a530880954bef0bd196a5" => :yosemite
   end
 
   depends_on "go" => :build
@@ -23,6 +23,27 @@ class Ipfs < Formula
     (buildpath/"src/github.com/ipfs/go-ipfs").install buildpath.children
     cd("src/github.com/ipfs/go-ipfs") { system "make", "install" }
     bin.install "bin/ipfs"
+  end
+
+  plist_options :manual => "ipfs"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/ipfs</string>
+        <string>daemon</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+    </dict>
+    </plist>
+    EOS
   end
 
   test do

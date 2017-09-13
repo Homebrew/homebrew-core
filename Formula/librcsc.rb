@@ -30,7 +30,7 @@ class Librcsc < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test", "-lrcsc_rcg"
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lrcsc_rcg"
     system "./test"
   end
 end

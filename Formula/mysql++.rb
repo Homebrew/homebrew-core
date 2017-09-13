@@ -1,23 +1,21 @@
 class Mysqlxx < Formula
   desc "C++ wrapper for MySQL's C API"
   homepage "https://tangentsoft.net/mysql++/"
-  url "https://tangentsoft.net/mysql++/releases/mysql++-3.2.1.tar.gz"
-  sha256 "aee521873d4dbb816d15f22ee93b6aced789ce4e3ca59f7c114a79cb72f75d20"
+  url "https://tangentsoft.net/mysql++/releases/mysql++-3.2.3.tar.gz"
+  sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "50fb897ad1253fb2355ea2d42500e90f352f78d6df218db51c381a7ce8122cbf" => :sierra
-    sha256 "75fdc6bbf0aacac8b4014ea232588e2eb37c4f051573754ad45f0404cfdebc13" => :el_capitan
-    sha256 "5806dd86bc995dcfd76503453102bf0507194cfae0064837aa899ab2d00825a0" => :yosemite
+    sha256 "44549b6b92ecf8288923b6111a67c3dcf16f5ba0a0ca47f4fd38a31b99545452" => :sierra
+    sha256 "1f0e3bc7e6e25924bb95113ee0cbd7c99402dc51744682258b3548c756431239" => :el_capitan
+    sha256 "f9837534007c15fdf73e607ddc58c1d5c0d1d20ff2de7e2d1dea20716b823cc9" => :yosemite
   end
 
   depends_on :mysql
 
   def install
-    mysql_include_dir = `mysql_config --variable=pkgincludedir`
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    mysql_include_dir = Utils.popen_read("mysql_config --variable=pkgincludedir")
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-field-limit=40",
                           "--with-mysql-lib=#{HOMEBREW_PREFIX}/lib",
@@ -36,7 +34,8 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", `mysql_config --include`.chomp, "-L#{lib}", "-lmysqlpp", "-o", "test"
+    system ENV.cxx, "test.cpp", Utils.popen_read("mysql_config --include").chomp,
+                    "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end
 end

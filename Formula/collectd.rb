@@ -1,36 +1,34 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-
-  stable do
-    url "https://collectd.org/files/collectd-5.7.1.tar.bz2"
-    sha256 "7edd3643c0842215553b2421d5456f4e9a8a58b07e216b40a7e8e91026d8e501"
-  end
+  url "https://collectd.org/files/collectd-5.7.2.tar.bz2"
+  sha256 "9d20a0221569a8d6b80bbc52b86e5e84965f5bafdbf5dfc3790e0fed0763e592"
 
   bottle do
-    sha256 "f9adc84dbfdd0acfff4292077b58c9c496a38b4d31b83aa011caba556b2c6fd1" => :sierra
-    sha256 "8b089b6fa5bd2f6860b1fa9ec8136ab12e216d9537bf204311123fae0b04da63" => :el_capitan
-    sha256 "cf32fb80a6d26f60862fcf2fbba1eaf1c50d83d45cb6cce37178a48ec2b05e91" => :yosemite
+    rebuild 1
+    sha256 "4d84af67aa0759b1b6d17addfe1fc818fc80a8290f396ddafbd0c299631cc9c0" => :sierra
+    sha256 "d89fee7fc65332048b4a7ea872c73818e75e38861af8913b94c2e636dd3ab775" => :el_capitan
+    sha256 "668edf52a197a19b8df6141b7077ff67b279dff65b803c82aaf2ff9d17619ef7" => :yosemite
   end
 
   head do
     url "https://github.com/collectd/collectd.git"
 
-    depends_on "libtool" => :build
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end
 
   option "with-java", "Enable Java support"
   option "with-python", "Enable Python support"
-  option "with-protobuf-c", "Enable write_riemann via protobuf-c support"
+  option "with-riemann-client", "Enable write_riemann support"
   option "with-debug", "Enable debug support"
 
   deprecated_option "java" => "with-java"
   deprecated_option "debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "protobuf-c" => :optional
+  depends_on "libtool" => :run
+  depends_on "riemann-client" => :optional
   depends_on :java => :optional
   depends_on :python => :optional
   depends_on "net-snmp"
@@ -51,10 +49,9 @@ class Collectd < Formula
       --localstatedir=#{var}
     ]
 
-    args << "--disable-embedded-perl" if MacOS.version <= :leopard
     args << "--disable-java" if build.without? "java"
     args << "--enable-python" if build.with? "python"
-    args << "--enable-write_riemann" if build.with? "protobuf-c"
+    args << "--enable-write_riemann" if build.with? "riemann-client"
     args << "--enable-debug" if build.with? "debug"
 
     system "./build.sh" if build.head?
@@ -92,9 +89,19 @@ class Collectd < Formula
   end
 
   test do
+    log = testpath/"collectd.log"
+    (testpath/"collectd.conf").write <<-EOS.undent
+      LoadPlugin logfile
+      <Plugin logfile>
+        File "#{log}"
+      </Plugin>
+      LoadPlugin memory
+    EOS
     begin
-      pid = fork { exec sbin/"collectd", "-f" }
-      assert shell_output("nc -u -w 2 127.0.0.1 25826", 0)
+      pid = fork { exec sbin/"collectd", "-f", "-C", "collectd.conf" }
+      sleep 1
+      assert_predicate log, :exist?, "Failed to create log file"
+      assert_match "plugin \"memory\" successfully loaded.", log.read
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

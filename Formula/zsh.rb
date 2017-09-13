@@ -1,29 +1,19 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.3.1/zsh-5.3.1.tar.gz"
-    mirror "https://www.zsh.org/pub/zsh-5.3.1.tar.gz"
-    sha256 "3d94a590ff3c562ecf387da78ac356d6bea79b050a9ef81e3ecb9f8ee513040e"
-
-    # We cannot build HTML doc on HEAD, because yodl which is required for
-    # building zsh.texi is not available.
-    option "with-texi2html", "Build HTML documentation"
-    depends_on "texi2html" => [:build, :optional]
-  end
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.1/zsh-5.4.1.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.4.1.tar.xz"
+  sha256 "94cbd57508287e8faa081424509738d496f5f41e32ed890e3a5498ce05d3633b"
+  revision 1
 
   bottle do
-    sha256 "054988ed570c911f1758f08b71777707154101b180570577d1d4a4380043a041" => :sierra
-    sha256 "8fb846fbfb27744a50b4e5cff2767f6fca49016f356bd6273dedfc8e2abdd919" => :el_capitan
-    sha256 "4ca1f10d588cedb061826c6a6aa0bbde233627cf86188deed0bd07321f91d739" => :yosemite
+    sha256 "b791878b6d2251a51ac41513d3f575f40578af97ded3293dc0c71d4ba2b65dca" => :sierra
+    sha256 "37813f7b6bd05cda00710ce676206365c995a58735a9006ca41e35d613cf263b" => :el_capitan
   end
 
   head do
-    url "git://git.code.sf.net/p/zsh/code"
+    url "https://git.code.sf.net/p/zsh/code.git"
     depends_on "autoconf" => :build
-
-    option "with-unicode9", "Build with Unicode 9 character width support"
   end
 
   option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
@@ -33,6 +23,12 @@ class Zsh < Formula
 
   depends_on "gdbm"
   depends_on "pcre"
+
+  resource "htmldoc" do
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.1/zsh-5.4.1-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.4.1-doc.tar.xz"
+    sha256 "b8b1a40aeec852806ad2b74b0a0c534320bf517e2fe2a087c0c9d39e75dc29f1"
+  end
 
   def install
     system "Util/preconfig" if build.head?
@@ -73,18 +69,14 @@ class Zsh < Formula
     else
       system "make", "install"
       system "make", "install.info"
-      system "make", "install.html" if build.with? "texi2html"
+
+      resource("htmldoc").stage do
+        (pkgshare/"htmldoc").install Dir["Doc/*.html"]
+      end
     end
   end
 
-  def caveats; <<-EOS.undent
-    In order to use this build of zsh as your login shell,
-    it must be added to /etc/shells.
-    EOS
-  end
-
   test do
-    assert_equal "homebrew\n",
-      shell_output("#{bin}/zsh -c 'echo homebrew'")
+    assert_equal "homebrew", shell_output("#{bin}/zsh -c 'echo homebrew'").chomp
   end
 end

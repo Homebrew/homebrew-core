@@ -1,16 +1,15 @@
 class Pcre < Formula
   desc "Perl compatible regular expressions library"
   homepage "http://www.pcre.org/"
-  url "https://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/downloads.sourceforge.net/p/pc/pcre/pcre/8.39/pcre-8.39.tar.bz2"
-  sha256 "b858099f82483031ee02092711689e7245586ada49e534a06e678b8ea9549e8b"
+  url "https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.41.tar.bz2"
+  sha256 "e62c7eac5ae7c0e7286db61ff82912e1c0b7a0c13706616e94a7dd729321b530"
 
   bottle do
     cellar :any
-    sha256 "c1be1b0c15e9e8f9cd568724618952d136612baccc66901317e877277ebd7230" => :sierra
-    sha256 "a9333dda2e7b2f2a3f0de5e542d24f4cd0750edc53bfaa6bbf34f0d03db5fb3c" => :el_capitan
-    sha256 "202f05c7d2dc78c30ef7115395ec0bf7bc3f40bfb2dd1704ca1a01ff1661142c" => :yosemite
-    sha256 "d2bb8776d8dca524aa1cbbb4f18b156658d673fe5424daeb96100b01b55805dd" => :mavericks
+    sha256 "61893a4a65d393f1b4447b79550569b341ba61b49e36900a35f59207bba11923" => :sierra
+    sha256 "4a4490b3cab2c7eaf6a23a41a0060c2c6e9e818cfaaf51830f9b3a5ec525d1e6" => :el_capitan
+    sha256 "2d65bfe7d3ced1fc4e4d5649650a47b35c2b2e6b5eda8bf968b50e57ce4ee8f5" => :yosemite
   end
 
   head do
@@ -21,11 +20,7 @@ class Pcre < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

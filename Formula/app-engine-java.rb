@@ -1,8 +1,8 @@
 class AppEngineJava < Formula
   desc "Google App Engine for Java"
   homepage "https://cloud.google.com/appengine/docs/java/"
-  url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.48.zip"
-  sha256 "589f1d28e1133a861274f7936b82b4b0156f5001760b3d41884a73a4790de8be"
+  url "https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.56.zip"
+  sha256 "5886ea72b46e649fea7c9e3d8a32ef74bca9a21c741ccf74506ab48d9f37ec76"
 
   bottle :unneeded
 
@@ -19,10 +19,10 @@ class AppEngineJava < Formula
     (testpath/"WEB-INF/appengine-web.xml").write "<appengine-web-app><threadsafe>true</threadsafe></appengine-web-app>"
     Process.setsid
     IO.popen("#{bin}/dev_appserver.sh . 2>&1") do |io|
-      assert_not_nil(io.gets, "Dev App Server terminated prematurely") until $_ == "INFO: Dev App Server is now running\n"
+      assert_not_nil(io.gets, "Dev App Server terminated prematurely") until $LAST_READ_LINE == "INFO: Dev App Server is now running\n"
       Signal.trap "INT", "IGNORE"
       Process.kill "INT", 0
     end
-    assert_equal(130, $?.exitstatus, "Dev App Server exited with unexpected status code")
+    assert_equal(130, $CHILD_STATUS.exitstatus, "Dev App Server exited with unexpected status code")
   end
 end

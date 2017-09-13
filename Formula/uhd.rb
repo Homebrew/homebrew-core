@@ -1,18 +1,16 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices."
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/release_003_010_000_000.tar.gz"
-  sha256 "9e018c069851fd68ba63908a9f9944763832ce657f5b357d4e6c64293ad0d2cd"
-  revision 2
+  url "https://github.com/EttusResearch/uhd/archive/release_003_010_002_000.tar.gz"
+  sha256 "7f96d00ed8a1458b31add31291fae66afc1fed47e1dffd886dffa71a8281fabe"
+  revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "184d412fa23bc97b0bedfa15d323304c11e47e4a27e004956d9b9b1453a15c00" => :sierra
-    sha256 "9fcd8caf375223ca79d7361fd8142cdde289a830364dc37439f99b688f9e222b" => :el_capitan
-    sha256 "37a83dbf239ce5949230ab6ae1e6776bb927b5d26f566c74286c08cc5f73c7eb" => :yosemite
+    sha256 "eaa1134c0ec3f29780e8f391233dc6e147a5fc90848bce46b8f82326fc832728" => :sierra
+    sha256 "9896625583be332fe6ba6a8b898d027e8b42e533308eb88e1a361ed48c14120e" => :el_capitan
+    sha256 "362332407e28fef3bb1e53b358d1d011d1ef4e9ba81681dd70bef91bba7752b0" => :yosemite
   end
-
-  option :universal
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -22,18 +20,11 @@ class Uhd < Formula
   depends_on "gpsd" => :optional
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/7a/ae/925434246ee90b42e8ef57d3b30a0ab7caf9a2de3e449b876c56dcb48155/Mako-1.0.4.tar.gz"
-    sha256 "fed99dbe4d0ddb27a33ee4910d8708aca9ef1fe854e668387a9ab9a90cbf9059"
+    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
+    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
   end
 
   def install
-    args = std_cmake_args
-
-    if build.universal?
-      ENV.universal_binary
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
-    end
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     resource("Mako").stage do
@@ -41,7 +32,7 @@ class Uhd < Formula
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "test"
       system "make", "install"

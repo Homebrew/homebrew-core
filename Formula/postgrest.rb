@@ -6,20 +6,27 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
-  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
-  revision 1
+  url "https://github.com/begriffs/postgrest/archive/v0.4.3.0.tar.gz"
+  sha256 "64644b38295b46fa0b50172cfcf348fd88a567a24ac1d793f5257f1faa697570"
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
-    sha256 "bd954738a49778863f1be944532aabfd239f4d7fcfd7662b5ac5a17d0ec0a66a" => :sierra
-    sha256 "8c55e41a94e4653c6bdfffe74848768cb723d318df82c79a1374ff606e8fcd64" => :el_capitan
-    sha256 "20b20d5183a9ab6083926b62491276c1d6fd4df831e735a294a6f45f9cefc050" => :yosemite
+    cellar :any
+    sha256 "42fdf57147e9a959beaab758900462739e9470351b5a11055af00bbe18e03609" => :sierra
+    sha256 "d82e9e4ae9aeebfd7960596ad9ccd4bc3bc4547f57f0473aa3110f9dd52d2df0" => :el_capitan
+    sha256 "8a209377bc643030baded9368b7004238f5ce22fd4f75e69546ce611eb1c9873" => :yosemite
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
   depends_on "postgresql"
+
+  # Fix build failure "src/PostgREST/Auth.hs:54:9: error: Variable not in scope"
+  # Upstream PR from 7 Sep 2017 "Constrain jose to < 0.6"
+  patch do
+    url "https://github.com/begriffs/postgrest/pull/967.patch?full_index=1"
+    sha256 "ceac606dd91d91daabb53f76e33a147883e79efade9f76345bd96743a6d40877"
+  end
 
   def install
     install_cabal_package :using => ["happy"]

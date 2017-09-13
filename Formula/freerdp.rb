@@ -8,13 +8,13 @@ class Freerdp < Formula
     sha256 "c0f137df7ab6fb76d7e7d316ae4e0ca6caf356e5bc0b5dadbdfadea5db992df1"
 
     patch do
-      url "https://github.com/FreeRDP/FreeRDP/commit/1d3289.diff"
-      sha256 "90a4f288349dd13b658b3401762373f0dec8414233bf304df0715724c8352cec"
+      url "https://github.com/FreeRDP/FreeRDP/commit/1d3289.diff?full_index=1"
+      sha256 "09628c01238615c425e35f287b46f100fddcc2e5fea0adc41416fecee8129731"
     end
 
     patch do
-      url "https://github.com/FreeRDP/FreeRDP/commit/e32f9e.diff"
-      sha256 "1b8ec9d5e229b4ed50790042bee7ceb3e85bdd88c9bc2dcfdf2e9d97e921649d"
+      url "https://github.com/FreeRDP/FreeRDP/commit/e32f9e.diff?full_index=1"
+      sha256 "829ce02ff1e618a808d6d505b815168cdef9cf0012db25d5b8470657852be93b"
     end
 
     # https://github.com/FreeRDP/FreeRDP/pull/1682/files
@@ -36,7 +36,7 @@ class Freerdp < Formula
     depends_on :xcode => :build # for "ibtool"
 
     patch do
-      url "https://github.com/untoldone/FreeRDP/commit/65e53694eb5d6faa5d57a31a54defd1c5233ac09.diff"
+      url "https://github.com/untoldone/FreeRDP/commit/65e53694eb5d6faa5d57a31a54defd1c5233ac09.diff?full_index=1"
       sha256 "a017305311312006d253908615a7af29c5f71a0cf2dcea1de9e35616a9df3d00"
     end
   end
@@ -60,9 +60,9 @@ class Freerdp < Formula
 
   test do
     success = `#{bin}/xfreerdp --version` # not using system as expected non-zero exit code
-    details = $?
+    details = $CHILD_STATUS
     if !success && details.exitstatus != 128
-      raise "Unexpected exit code #{$?} while running xfreerdp"
+      raise "Unexpected exit code #{$CHILD_STATUS} while running xfreerdp"
     end
   end
 end

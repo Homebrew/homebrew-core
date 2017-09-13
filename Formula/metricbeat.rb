@@ -1,15 +1,14 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services."
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.1.2.tar.gz"
-  sha256 "7cd554f8be6b02290ebbc17c9820acde3dc59108672ced7a0cf5486faa3e23ce"
+  url "https://github.com/elastic/beats/archive/v5.6.0.tar.gz"
+  sha256 "7ec86da04b97fa7dcddc88250f0f7d2efd06f4ef058cc0097d1d439526b9ed44"
 
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 "2e56574ee5919a1cf41fe1a83b146a7fd0f718796016db98ed2fda9a9237fa3b" => :sierra
-    sha256 "e0b93ff591756f1981d5f0d8ad99a1bd32cd3a33b6979b1783366c7629f2ee4c" => :el_capitan
-    sha256 "76004dd496001ecf38a2be89dcfbdebbd3d137107addaa9f6fa7e9a47991204e" => :yosemite
+    sha256 "5903591429538a1681dcb31916ae1cb4465acd3bc0684b6a23ed80919a5c4db1" => :sierra
+    sha256 "400393001caf9278d0147d2319fe49619b2b9f23f3d14a48ba13fdc99e103112" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -24,9 +23,11 @@ class Metricbeat < Formula
       system "make"
       libexec.install "metricbeat"
 
+      (etc/"metricbeat").install "metricbeat.full.yml"
       (etc/"metricbeat").install "metricbeat.yml"
       (etc/"metricbeat").install "metricbeat.template.json"
       (etc/"metricbeat").install "metricbeat.template-es2x.json"
+      (etc/"metricbeat").install "metricbeat.template-es6x.json"
     end
 
     (bin/"metricbeat").write <<-EOS.undent

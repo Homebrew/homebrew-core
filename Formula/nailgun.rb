@@ -13,14 +13,14 @@ class Nailgun < Formula
 
     # This patch just prepares the way for the next one.
     patch do
-      url "https://github.com/martylamb/nailgun/commit/a789fa3f4eefcd24018d4fd89fc9037427533f52.diff"
-      sha256 "98ca6e740d0814aaf0d2d6594d4a75ca3277d2283eb2d272bae1ba84b3337e8c"
+      url "https://github.com/martylamb/nailgun/commit/a789fa3f4eefcd24018d4fd89fc9037427533f52.diff?full_index=1"
+      sha256 "7beb0f392ff498a28cfe11af4d6b0be2759c7e27262c944e385c7e9e52ae9db4"
     end
 
     # The makefile is not prefix aware
     patch do
-      url "https://github.com/martylamb/nailgun/pull/45.diff"
-      sha256 "8d6c0991d5fd557046a5462b0d59ca52933023082c5faff06ac901ba03e24db1"
+      url "https://github.com/martylamb/nailgun/pull/45.diff?full_index=1"
+      sha256 "59edcba5eb804ae0eec4520a1b4aa26eb595ebfd6f8adce663bfa0fa15a563e2"
     end
   end
 
@@ -40,8 +40,8 @@ class Nailgun < Formula
 
     # The -Xdoclint used in pom.xml causes a build error on Java 7
     patch do
-      url "https://github.com/martylamb/nailgun/pull/70.diff"
-      sha256 "b4bc4c33102c42ca5e37d22ad524085ccd33baafd225b9f0bc3b576aa6e8b983"
+      url "https://github.com/martylamb/nailgun/pull/70.diff?full_index=1"
+      sha256 "802fcb83cd93227dcfa8f988ec5665d980d04087813b776bf25aed15495bdc4f"
     end
   end
 

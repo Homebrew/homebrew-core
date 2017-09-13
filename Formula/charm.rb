@@ -3,15 +3,14 @@ require "language/go"
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/2.2.0.tar.gz"
-  sha256 "ce4c9dc8b03fbb6047d95217626c4218bba798083da16399691a32bba98647c2"
+  url "https://github.com/juju/charmstore-client/archive/2.2.2.tar.gz"
+  sha256 "9e603b7af4f6e136c3cdfbfff0ce0f8f986cae49c0c17fa1bee2a2e3f7f4b853"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d17b9463753cc790e7624fadaab788bed3b998b64f3e47df6867d2766ce28c5" => :sierra
-    sha256 "8aa5731bad2c9b2a915a709fc6ebeff388ed12f84a7c1cd1c4a28ec6d8949d3b" => :el_capitan
-    sha256 "0421d7e7e5addcba0f62298d664c19d14ae4ea1d4469a18e76a6ffe97b4236e3" => :yosemite
-    sha256 "8525b63c3eb14f480c65109f644fcfb278f0b29667e4644c69e11f80b5e334e4" => :mavericks
+    sha256 "ea04bd37b2df2ea2824d8d87a506929bbcb443a99f9c2c1a04a2888c1baca577" => :sierra
+    sha256 "20a11dc53ae3388fd819b7c8074eafab242eadeb79d4c3057eb5cb748205c8b7" => :el_capitan
+    sha256 "abf62af86d0061fab31f92aabc3d5a9d1ff2d9f18a524d16a49313a94774bb81" => :yosemite
   end
 
   depends_on "go" => :build
@@ -19,12 +18,12 @@ class Charm < Formula
 
   go_resource "github.com/kisielk/gotool" do
     url "https://github.com/kisielk/gotool.git",
-        :revision => "94d5dba705240ba73ce5d65d83ce44adc749b440"
+        :revision => "0de1eaf82fa3f583ce21fde859f1e7e0c5e9b220"
   end
 
   go_resource "github.com/rogpeppe/godeps" do
     url "https://github.com/rogpeppe/godeps.git",
-        :revision => "c00f01a737f4f06e397ca86f67341cc345507221"
+        :revision => "e0581207fc59197e6caa4dc03f425fdca872c4a7"
   end
 
   def install

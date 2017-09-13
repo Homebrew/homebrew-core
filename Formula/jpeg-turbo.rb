@@ -1,14 +1,13 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
-  homepage "http://www.libjpeg-turbo.org/"
-  url "https://downloads.sourceforge.net/project/libjpeg-turbo/1.5.1/libjpeg-turbo-1.5.1.tar.gz"
-  sha256 "41429d3d253017433f66e3d472b8c7d998491d2f41caa7306b8d9a6f2a2c666c"
+  homepage "https://www.libjpeg-turbo.org/"
+  url "https://downloads.sourceforge.net/project/libjpeg-turbo/1.5.2/libjpeg-turbo-1.5.2.tar.gz"
+  sha256 "9098943b270388727ae61de82adec73cf9f0dbb240b3bc8b172595ebf405b528"
 
   bottle do
     cellar :any
-    sha256 "ec7e1209ccd099e1ce0a68441c7ed0ef92daa0fcfc6cd7b558100548ff1b3e4a" => :sierra
-    sha256 "1e026d7d465357247205ea729eba197732f7331134c0ee90518b946cfd2824e7" => :el_capitan
-    sha256 "c308fdae60dee53418f95689b42ecf2d5517bdcf195a03f5db4f0d938c45e913" => :yosemite
+    sha256 "21f8159b00dadb55d54ac116fad05609c037232247de5a4a68cbecaf6370efa8" => :sierra
+    sha256 "467f1bf4bdc4b6cda9a9dde47eafe13270183c6c1d8dfa13d6149d1f1ae02ca8" => :el_capitan
   end
 
   head do
@@ -18,7 +17,7 @@ class JpegTurbo < Formula
     depends_on "autoconf" => :build
   end
 
-  keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg."
+  keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg"
 
   option "without-test", "Skip build-time checks (Not Recommended)"
 
@@ -27,7 +26,12 @@ class JpegTurbo < Formula
 
   def install
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
-    args = %W[--disable-dependency-tracking --prefix=#{prefix} --with-jpeg8 --mandir=#{man}]
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-jpeg8
+      --mandir=#{man}
+    ]
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args

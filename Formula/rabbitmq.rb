@@ -1,13 +1,14 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-generic-unix-3.6.6.tar.xz"
-  sha256 "781d17a6c8bbfbcd749d23913218de38e692a5e3093cf47eecf499532ac25d61"
+  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.12/rabbitmq-server-generic-unix-3.6.12.tar.xz"
+  sha256 "1c20bcfbcea922f1ceb14c95d2ad1211add4e1b03ba8491405640c384ea5a8df"
 
   bottle :unneeded
 
-  depends_on "erlang"
-  depends_on "simplejson" => :python if MacOS.version <= :leopard
+  # Incompatible with Erlang/OTP 20.0
+  # See upstream issue from 23 Jun 2017 https://github.com/rabbitmq/rabbitmq-server/issues/1272
+  depends_on "erlang@19"
 
   def install
     # Install the base files
@@ -20,7 +21,8 @@ class Rabbitmq < Formula
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      erlang = Formula["erlang"]
+      erlang = Formula["erlang@19"]
+      s.gsub! /^ERL_DIR=$/, "ERL_DIR=#{erlang.opt_bin}/"
       s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
       s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
     end

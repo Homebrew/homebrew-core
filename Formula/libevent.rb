@@ -45,7 +45,7 @@ class Libevent < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-levent", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-levent", "-o", "test"
     system "./test"
   end
 end

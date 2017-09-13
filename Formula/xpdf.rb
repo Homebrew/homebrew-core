@@ -1,7 +1,9 @@
 class Xpdf < Formula
   desc "PDF viewer"
   homepage "http://www.foolabs.com/xpdf/"
-  url "ftp://ftp.foolabs.com/pub/xpdf/xpdf-3.04.tar.gz"
+  url "https://www.xpdfreader.com/dl/old/xpdf-3.04.tar.gz"
+  mirror "https://src.fedoraproject.org/repo/pkgs/xpdf/xpdf-3.04.tar.gz/3bc86c69c8ff444db52461270bef3f44/xpdf-3.04.tar.gz"
+  mirror "https://fossies.org/linux/misc/legacy/xpdf-3.04.tar.gz"
   sha256 "11390c74733abcb262aaca4db68710f13ffffd42bfe2a0861a5dfc912b2977e5"
   revision 1
 
@@ -36,5 +38,10 @@ class Xpdf < Formula
                           "--with-Xt-includes=#{MacOS::X11.include}"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    cp test_fixtures("test.pdf"), testpath
+    assert_match "Pages:", shell_output("#{bin}/pdfinfo #{testpath}/test.pdf")
   end
 end

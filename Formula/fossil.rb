@@ -1,16 +1,16 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/download/fossil-src-1.37.tar.gz"
-  sha256 "81c19e81c4b2b60930bab3f2147b516525c855924ccc6d089748b0f5611be492"
+  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.3.tar.gz"
+  sha256 "f073abf455a38ea0a08c3926d7445ab8115b145457f36c763ad9b74cd6a64a5d"
 
   head "https://www.fossil-scm.org/", :using => :fossil
 
   bottle do
     cellar :any
-    sha256 "0cb54fdee7d629a121c9021aab29465b7b37dab0bcebec91d4c8707e06f6b740" => :sierra
-    sha256 "d705d293b601e3e20ec4d417252649f938ad7627913b9e2153004d3358742da0" => :el_capitan
-    sha256 "4a81061ba52bd477c0825a0e78091a436c4aedc1b9c062093c1fdc9659486e19" => :yosemite
+    sha256 "523704982ce10097cdf1a43d77a920c0776369a6e33757ec9ac94aa708e1b784" => :sierra
+    sha256 "28b64773ea5f1cd4ebaa51ce65961e205a5b919d521d1fe473c620fa96ce757b" => :el_capitan
+    sha256 "6d422e94e2ec8bf0ae41c387cf37377ca22d8523638b4613938403e912e7ea3e" => :yosemite
   end
 
   option "without-json", "Build without 'json' command support"

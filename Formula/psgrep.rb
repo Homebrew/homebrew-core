@@ -13,6 +13,6 @@ class Psgrep < Formula
   end
 
   test do
-    assert_match $0, shell_output("#{bin}/psgrep #{Process.pid}")
+    assert_match $PROGRAM_NAME, shell_output("#{bin}/psgrep #{Process.pid}")
   end
 end

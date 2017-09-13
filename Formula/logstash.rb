@@ -1,15 +1,9 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-
-  stable do
-    url "https://artifacts.elastic.co/downloads/logstash/logstash-5.2.1.tar.gz"
-    sha256 "c02e87ab7d410b4d42928e247e6e0714a38c4990c2768cbddde6008ba61b4a2e"
-  end
-
-  head do
-    url "https://github.com/elastic/logstash.git"
-  end
+  url "https://artifacts.elastic.co/downloads/logstash/logstash-5.6.0.tar.gz"
+  sha256 "c9848a12483508948d43c02fe0f3d316bd76545d6aec06b39aadd593c2de5d5d"
+  head "https://github.com/elastic/logstash.git"
 
   bottle :unneeded
 
@@ -36,6 +30,37 @@ class Logstash < Formula
   def caveats; <<-EOS.undent
     Please read the getting started guide located at:
       https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
+    EOS
+  end
+
+  plist_options :manual => "logstash"
+
+  def plist; <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/logstash</string>
+          </array>
+          <key>EnvironmentVariables</key>
+          <dict>
+          </dict>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/logstash.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/logstash.log</string>
+        </dict>
+      </plist>
     EOS
   end
 

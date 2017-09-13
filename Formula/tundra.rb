@@ -1,14 +1,14 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.0.tar.gz"
-  sha256 "0d9f2b756959db76619aab563b412fa9e8a8bbf6fe0fc44836a725febb2c7662"
+  url "https://github.com/deplinenoise/tundra/archive/v2.01.tar.gz"
+  sha256 "abfd932d4e11666044a63f1a88fc9ad9a57d271bcaa4d6d3f54a205f7f73c177"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bbd62530aa1dfac344a9a4d880eb9725ff20bf97e149e5f152ecbc583e41278" => :sierra
-    sha256 "51e111d89555e8eb2229eb9eb73b085a45c45fbddc10d0f6c179b199a907e19a" => :el_capitan
-    sha256 "b676cf79e11819ad9beebeae6cde5cad31cc7730e4c8dcafbacdbbd9e0affba7" => :yosemite
+    sha256 "089bf54b4fb9805b031609270fbec1bb70ad7497bc41aae11025dfd2432b88fe" => :sierra
+    sha256 "cebadaa42ebff3a3de3820b4d3de488a6fa9e8a5192c04f106a9a5fae360c252" => :el_capitan
+    sha256 "d25e7d649a74cce7ecf9646799e577ba8338c1306f2d2e0692a4fe38f26bc04f" => :yosemite
   end
 
   def install

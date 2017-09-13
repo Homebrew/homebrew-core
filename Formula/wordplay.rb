@@ -23,6 +23,10 @@ class Wordplay < Formula
     inreplace "wordplay.c", "@PREFIX@", prefix
     system "make", "CC=#{ENV.cc}"
     bin.install "wordplay"
-    (share/"wordplay").install "words721.txt"
+    pkgshare.install "words721.txt"
+  end
+
+  test do
+    assert_equal "BREW", shell_output("#{bin}/wordplay -s ERWB").strip
   end
 end

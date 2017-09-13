@@ -3,12 +3,13 @@ class Pcb2gcode < Formula
   homepage "https://github.com/pcb2gcode/pcb2gcode"
   url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.2/pcb2gcode-1.3.2.tar.gz"
   sha256 "c4135cd3981c4a5d6baffa81b7f8e890ae29776107b0d1938b744a8dfebdbc63"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "ccbf3239e0eb3a762870ad82b8fdd0ec56e43c2dc4028147aa479cde627f4141" => :sierra
-    sha256 "d78eb668171edf796f0d1576ce5f6b5359d4a2dcecba994c73ec7086167ac2fa" => :el_capitan
-    sha256 "fded3841b1955b89a42ca5412bd99f1bef4e17cfa0e2e4b6a56826445b509cda" => :yosemite
+    sha256 "1e5aa984afb12cebb770c670f29554e7f447804c1997babf225cbae55e86b8ab" => :sierra
+    sha256 "76e311cada9b598a7f47d88969a75995d18689f4b9f8066ea93153ba0a72cf51" => :el_capitan
+    sha256 "76b51585b0b780305de0060e7614c6c35f3e738682dafb4e10092624eb03ef89" => :yosemite
   end
 
   head do

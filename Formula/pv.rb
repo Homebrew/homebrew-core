@@ -1,17 +1,14 @@
 class Pv < Formula
   desc "Monitor data's progress through a pipe"
   homepage "https://www.ivarch.com/programs/pv.shtml"
-  url "https://www.ivarch.com/programs/sources/pv-1.6.0.tar.bz2"
-  sha256 "0ece824e0da27b384d11d1de371f20cafac465e038041adab57fcf4b5036ef8d"
+  url "https://www.ivarch.com/programs/sources/pv-1.6.6.tar.bz2"
+  sha256 "608ef935f7a377e1439c181c4fc188d247da10d51a19ef79bcdee5043b0973f1"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4a6460c23d536662790e1cea185c41b5b0b97137d035322caf63eba1eba36a87" => :sierra
-    sha256 "630d2923a804c7a442f6466adf5d6aa21f5f1602f6b005760199a85c14758adc" => :el_capitan
-    sha256 "82d8e9279d977a9591450142bf90015df62f800df026038a170d7db6d20a198a" => :yosemite
-    sha256 "48c70bdab7cffbc780d15c1d903ae1b7dd80552ed7762e8168629dc1df920fce" => :mavericks
-    sha256 "1b48570302d9357be80e10a3dfd0362863ced93c111cc827c7fab7b2e79dae9e" => :mountain_lion
+    sha256 "231a659ee3aca5a6f474bc058ed02a0a5f2c366d04c8c56043d310644c46e393" => :sierra
+    sha256 "d461d873a47091a52b6114ac0976f16b0ade9e13d02fa0609f574369b8cfc8f0" => :el_capitan
+    sha256 "0c4d4a90c188370ed312490b7ff76fdb8a31399170cdc0ad5dfc1542af4c4fc0" => :yosemite
   end
 
   option "with-gettext", "Build with Native Language Support"

@@ -26,8 +26,8 @@ class Dcadec < Formula
   end
 
   test do
-    resource("sample").stage do |r|
-      system "#{bin}/dcadec", r.cached_download
+    resource("sample").stage do
+      system "#{bin}/dcadec", resource("sample").cached_download
     end
   end
 end

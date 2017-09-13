@@ -1,14 +1,14 @@
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.0.tar.xz"
-  sha256 "05da4d4b628fb20c8384630ddf478a3b5562952b2d6181fe28d58f6cbc0514f5"
+  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.1.tar.xz"
+  sha256 "6a0c2cc0894a69b666e688e5e6e93621d7625db5e77fd37551310d75c00896b0"
 
   bottle do
     cellar :any
-    sha256 "f4b74a3653a650d6673252ec452828cc77c19b785eca7dbc1896d2f0d9d67750" => :sierra
-    sha256 "19c9ff80587d879c5971fe677170609d85066cb3a0fe66846af82d84a64f02f0" => :el_capitan
-    sha256 "08b2a592bb496de2d0b5e18cb260b4b214b8993ece9038340dc338bef0f2b488" => :yosemite
+    sha256 "7e1ae82e3383de14db18f97033a7a89de9d224a33b070c83494987a07b9011e4" => :sierra
+    sha256 "d1947cee0ea70a0ac9e8bd9af677a5b634d73cc9c803e0c2a4259131bb7bab61" => :el_capitan
+    sha256 "59e7d5b128bbeeb33306c624719f00b9cf8f78c0e2e79db7f5d4b199494ab578" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,13 +17,6 @@ class Gtkmm3 < Formula
   depends_on "atkmm"
 
   needs :cxx11
-
-  # circumvent a bug in gtk+3
-  # bug report opened at https://bugzilla.gnome.org/show_bug.cgi?id=772281
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/60d3df52/gtkmm3/gtk_clipboard_get_selection.patch"
-    sha256 "0849da0516850eeffdab22941aa5d30cca40d4a7775683665e044b84d5ca0d85"
-  end
 
   def install
     ENV.cxx11

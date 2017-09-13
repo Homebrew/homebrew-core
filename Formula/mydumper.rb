@@ -31,9 +31,7 @@ class Mydumper < Formula
   def install
     args = std_cmake_args
 
-    if build.without? "docs"
-      args << "-DBUILD_DOCS=OFF"
-    end
+    args << "-DBUILD_DOCS=OFF" if build.without? "docs"
 
     system "cmake", ".", *args
     system "make", "install"

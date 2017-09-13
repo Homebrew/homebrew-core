@@ -1,14 +1,13 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/tools/measurement/scamper/"
-  url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20161204.tar.gz"
-  sha256 "0c9d8a593765a6d1074690de987c6ffd5753406c9d1e527e20c0289bde0db764"
+  url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20170822.tar.gz"
+  sha256 "b239f3c302a4c39b329835794b31a9c80da2b2b43baa674ad881a78f4fc5892c"
 
   bottle do
     cellar :any
-    sha256 "58289c28ba4c48e998dbd34057d469316157c4048c3eb16b5491b560023d821f" => :sierra
-    sha256 "b8ef6c25ca731678e480863989a7a200eb0d9ce816ff8822336d431de0856767" => :el_capitan
-    sha256 "cc351ebebeba134b4adf93b45503628052e7aa9e8bcd6f4c9b45a5530379b2a1" => :yosemite
+    sha256 "4b4f1beef3c56eccf1bb14522110ef2758a4571c822b068831d9d0b2c6e12bda" => :sierra
+    sha256 "867532f48e92fc965bd073dff7783613e1556ab416004ace51c34e74bc11beff" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

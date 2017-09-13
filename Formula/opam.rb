@@ -3,15 +3,14 @@ class Opam < Formula
   homepage "https://opam.ocaml.org"
   url "https://github.com/ocaml/opam/archive/1.2.2.tar.gz"
   sha256 "3e4a05df6ff8deecba019d885ebe902eb933acb6e2fc7784ffee1ee14871e36a"
-  revision 2
+  revision 3
   head "https://github.com/ocaml/opam.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "812d37cab3248b2a0a3e32c214918ae28a1d389b6ec1032281fafa2466c6f27d" => :sierra
-    sha256 "833e78a6f35f9a3e9374d88b558f5137ba69d0661a15b1737ba103350330b1bb" => :el_capitan
-    sha256 "38d74f1eb643e7db9405a142b9067e5ae35e5b0394986abdd7b25c32fc6a9977" => :yosemite
-    sha256 "c5cb841262a592cf43f152dc664e5268ab3d24da9e0a18974b376e0348fbf460" => :mavericks
+    sha256 "d4cce013976caf4cdb9b3bc47dca19fd19ad3017e699ae6a5f9b536ff8a6338e" => :sierra
+    sha256 "965ed06d08827e12c4b9536fda6239c11633cc006cd917f04a1f406ec2edbc14" => :el_capitan
+    sha256 "63cc783df3e0b5bdd68e12bda518a3cf4cd4510780c855bbd634152801d58d1c" => :yosemite
   end
 
   depends_on "ocaml" => :recommended
@@ -90,8 +89,13 @@ class Opam < Formula
     system "make", "man"
     system "make", "install"
 
-    bash_completion.install "shell/opam_completion.sh"
-    zsh_completion.install "shell/opam_completion_zsh.sh" => "_opam"
+    if build.head?
+      bash_completion.install "src/state/complete.sh"
+      zsh_completion.install "src/state/complete.zsh" => "_opam"
+    else
+      bash_completion.install "shell/opam_completion.sh"
+      zsh_completion.install "shell/opam_completion_zsh.sh" => "_opam"
+    end
   end
 
   def caveats; <<-EOS.undent

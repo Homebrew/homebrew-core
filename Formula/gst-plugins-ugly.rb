@@ -1,13 +1,15 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.10.3.tar.xz"
-  sha256 "c91597d03abff9df435ad4892eae44df1ee14159c7cc7317ac9d2766ff446bd2"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.12.2.tar.xz"
+  sha256 "1cc3942bbf3ea87da3e35437d4e014e991b103db22a6174f62a98c89c3f5f466"
+  revision 1
 
   bottle do
-    sha256 "fa35c4c445bd6096937277c949cb7c52e16194a216eee6cd2f174f4c0b00d1e4" => :sierra
-    sha256 "861de30c10fd864cdaf908dd13c98008f28c9cb6b3128e5774ea8d6d4632a658" => :el_capitan
-    sha256 "c5c7ab3c6ef1802327817aa8b0bfea87653b29bd7d045ab600003f41aae8a639" => :yosemite
+    rebuild 1
+    sha256 "89a00f2fa1bb460ee3041ec3f196e57f5c5e3e80585034a50bdcb7e8bed38152" => :sierra
+    sha256 "0601d52ef36d2fbe3ad8769f42494d920c7afde898d57c8d540773522f847a9d" => :el_capitan
+    sha256 "adf4aae651764fad774a2804d1b1a9d56deea19fad20ae710ecc393729b3e511" => :yosemite
   end
 
   head do

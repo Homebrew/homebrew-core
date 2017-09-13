@@ -1,23 +1,26 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "http://tar.goaccess.io/goaccess-1.1.1.tar.gz"
-  sha256 "4c73147037b350081d66e912a07fb2f0a60484fad1090a76fb6fc24ee086b6d3"
+  url "https://tar.goaccess.io/goaccess-1.2.tar.gz"
+  sha256 "6ba9f66540ea58fc2c17f175265f9ed76d74a8432eeac1182b74ebf4f2cd3414"
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
-    sha256 "684f650435abfda6cb22c96f2dfbd704fb896824b0dc4ae9ac544832b3a76a80" => :sierra
-    sha256 "1ddaacdca6e12af6937ba7f0d58150453446d3ab460e132c0e4e677ebcacfdef" => :el_capitan
-    sha256 "07176fce595be6dab42c3adf7fbdaff1947e6d4d6a7c5b85444411d5c8a9df6d" => :yosemite
+    rebuild 1
+    sha256 "7b794bcc28f24f010682e2e18d0c480cdf9d75d07b50964944f3b3fd6428972a" => :sierra
+    sha256 "272e53e58e3fcd8c894285d1a90a3288edde0959a3f049bff24a6ed9180dbc3c" => :el_capitan
+    sha256 "af9801407d647456b2421673aeefdc5d1bd00446d912126c8bc662cfad437937" => :yosemite
   end
 
-  option "with-geoip", "Enable IP location information using GeoIP"
+  option "with-libmaxminddb", "Enable IP location information using enhanced GeoIP2 databases"
 
-  deprecated_option "enable-geoip" => "with-geoip"
+  deprecated_option "enable-geoip" => "with-libmaxminddb"
+  deprecated_option "with-geoip" => "with-libmaxminddb"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "geoip" => :optional
+  depends_on "libmaxminddb" => :optional
+  depends_on "tokyo-cabinet"
 
   def install
     system "autoreconf", "-vfi"
@@ -27,9 +30,10 @@ class Goaccess < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-utf8
+      --enable-tcb=btree
     ]
 
-    args << "--enable-geoip" if build.with? "geoip"
+    args << "--enable-geoip=mmdb" if build.with? "libmaxminddb"
 
     system "./configure", *args
     system "make", "install"

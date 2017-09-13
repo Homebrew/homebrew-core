@@ -1,21 +1,18 @@
 class Libtasn1 < Formula
   desc "ASN.1 structure parser library"
   homepage "https://www.gnu.org/software/libtasn1/"
-  url "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.10.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.10.tar.gz"
-  sha256 "681a4d9a0d259f2125713f2e5766c5809f151b3a1392fd91390f780b4b8f5a02"
+  url "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.12.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.12.tar.gz"
+  sha256 "6753da2e621257f33f5b051cc114d417e5206a0818fe0b1ecfd6153f70934753"
 
   bottle do
     cellar :any
-    sha256 "1e45fba493969f7aebeaffd3037873588efb3faff69b5d41c0e4fec658c0feaa" => :sierra
-    sha256 "5a0f0cfa1ec36351e833a2bd9ce5a8fb2575520334b30abb0da5dc43727415c1" => :el_capitan
-    sha256 "e506e5613818094ab8029cbf94b51068e7f1d1683bcc5bc6b06c84eb9be2576d" => :yosemite
+    sha256 "1ffba72aee8d79b0c97a2bb72f0dfab5b4d20052b01411be2b6815dbe485a375" => :sierra
+    sha256 "90338dad72d15a370b546d28e4df67cce93dee33c5a442dfbc48f29654460e65" => :el_capitan
+    sha256 "ddb2c3a87fad85b37b6a749d283d7f2adc8af9145c0a9d3c3c665624e6d95be5" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--disable-silent-rules"
     system "make", "install"

@@ -1,8 +1,8 @@
 class PyenvVirtualenv < Formula
   desc "Pyenv plugin to manage virtualenv"
   homepage "https://github.com/yyuu/pyenv-virtualenv"
-  url "https://github.com/yyuu/pyenv-virtualenv/archive/v1.0.0.tar.gz"
-  sha256 "3523129c24ca3ad2cf130885ef9801cb066b04eabc354ee2c38c486b8b726f15"
+  url "https://github.com/yyuu/pyenv-virtualenv/archive/v1.1.0.tar.gz"
+  sha256 "26c71a30cc876350c48d670a128bd49be662ffad87b00ac91f907afea3a21f9f"
   version_scheme 1
   head "https://github.com/yyuu/pyenv-virtualenv.git"
 

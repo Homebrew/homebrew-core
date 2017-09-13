@@ -1,22 +1,20 @@
 class Libmikmod < Formula
   desc "Portable sound library"
   homepage "http://mikmod.shlomifish.org"
-  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.10/libmikmod-3.3.10.tar.gz"
-  sha256 "00b3f5298431864ebd069de793ec969cfea3ae6f340f6dfae1ff7da1ae24ef48"
+  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.11.1/libmikmod-3.3.11.1.tar.gz"
+  sha256 "ad9d64dfc8f83684876419ea7cd4ff4a41d8bcd8c23ef37ecb3a200a16b46d19"
 
   bottle do
     cellar :any
-    sha256 "6920709cbb700e6d6aa429a0989c59e673ad0bcce48deb283eb67c12282d9882" => :sierra
-    sha256 "60813dba17815c4f66419754fd6c0897148dcf52ed7f44e1c9ff920631fe1657" => :el_capitan
-    sha256 "bd01580da3d41d8d8cebdb77f266508cf30d548d3e34205c99484b7f21749889" => :yosemite
+    sha256 "f7785b9a4f95ff28d55ffd022780ed1cd9bde139b3482cc4f52b862cd9abf247" => :sierra
+    sha256 "202b59906b8113d694f9c1e81df7a5f00f8afbc9e66a2b1188674058a64ae206" => :el_capitan
+    sha256 "8276808d976d108dd2768cacb5b54bf570ef6662b8855e7d3537e0ffaaeb1a19" => :yosemite
   end
 
   option "with-debug", "Enable debugging symbols"
-  option :universal
 
   def install
     ENV.O2 if build.with? "debug"
-    ENV.universal_binary if build.universal?
 
     # macOS has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
     args = %W[

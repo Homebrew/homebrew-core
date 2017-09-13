@@ -1,31 +1,28 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.23.5.tar.gz"
-  sha256 "c62694b3c5f04db48ed3bbf37a801ea2a03439826c6be318e23b34de749ac267"
+  url "https://notmuchmail.org/releases/notmuch-0.25.1.tar.gz"
+  sha256 "b4bf09ec9b7b64180704faa26d66cad5f911a5a00ef812da34cb02c3f8872831"
+  head "git://notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    sha256 "86e86206746b46e81832c9e5690cfe25c88b8c58305f443ac752a275f228eb48" => :sierra
-    sha256 "2ea1ca92250f5e7c659fb1f5e4dc376466d723cd9c98c65713d69b721602c4fe" => :el_capitan
-    sha256 "02a47efc1509cf68d3f95326dc635bbf30d160e167574890cf6e8d01846bdd90" => :yosemite
+    sha256 "49f4b5963ec9b90b2e042993d659571114dd9415628087f1defee16ea03aedd8" => :sierra
+    sha256 "3e3cc91824b79f977149beada05114f766a77e30c656bf9bb892c60e40b2b701" => :el_capitan
   end
 
   option "without-python", "Build without python support"
 
   depends_on "pkg-config" => :build
+  depends_on "libgpg-error" => :build
+  depends_on "glib"
   depends_on "gmime"
   depends_on "talloc"
   depends_on "xapian"
+  depends_on "zlib"
   depends_on :emacs => ["24.1", :optional]
   depends_on :python3 => :optional
   depends_on :ruby => ["1.9", :optional]
-
-  # Requires zlib >= 1.2.10
-  resource "zlib" do
-    url "http://zlib.net/zlib-1.2.10.tar.gz"
-    sha256 "8d7e9f698ce48787b6e1c67e6bff79e487303e66077e25cb9784ac8835978017"
-  end
 
   # Fix SIP issue with python bindings
   # A more comprehensive patch has been submitted upstream
@@ -33,12 +30,6 @@ class Notmuch < Formula
   patch :DATA
 
   def install
-    resource("zlib").stage do
-      system "./configure", "--prefix=#{buildpath}/zlib", "--static"
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{buildpath}/zlib/lib/pkgconfig"
-    end
-
     args = %W[--prefix=#{prefix}]
 
     if build.with? "emacs"

@@ -1,10 +1,10 @@
 class Synfig < Formula
   desc "Command-line renderer"
-  homepage "http://synfig.org"
+  homepage "https://synfig.org/"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
   sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
   revision 2
-  head "git://synfig.git.sourceforge.net/gitroot/synfig/synfig"
+  head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
     sha256 "ad4b23fe38d528dab8be2288ee45bdc42130c1e67f4f4de078f09a3b8e1f0aed" => :sierra
@@ -28,7 +28,7 @@ class Synfig < Formula
 
   needs :cxx11
 
-  # bug filed upstream as http://www.synfig.org/issues/thebuggenie/synfig/issues/904
+  # bug filed upstream as https://synfig.org/issues/thebuggenie/synfig/issues/904
   patch do
     url "https://gist.githubusercontent.com/tschoonj/06d5de3cdc5d063f8612/raw/26fe46b6eedeecdc686b9fd5aac01de9f2756424/synfig.diff"
     sha256 "0ac5b757ba3dda6a863a79e717fc239648c490eac1e643ff275b8ac232a466a3"

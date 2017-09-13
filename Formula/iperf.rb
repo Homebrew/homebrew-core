@@ -16,6 +16,24 @@ class Iperf < Formula
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
+
+    # Otherwise this definition confuses system headers on 10.13
+    # https://github.com/Homebrew/homebrew-core/issues/14418#issuecomment-324082915
+    if MacOS.version >= :high_sierra
+      inreplace "config.h", "#define bool int", ""
+    end
+
     system "make", "install"
+  end
+
+  test do
+    begin
+      server = IO.popen("#{bin}/iperf --server")
+      sleep 1
+      assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
+    ensure
+      Process.kill("SIGINT", server.pid)
+      Process.wait(server.pid)
+    end
   end
 end

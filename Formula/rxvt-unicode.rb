@@ -3,13 +3,12 @@ class RxvtUnicode < Formula
   homepage "http://software.schmorp.de/pkg/rxvt-unicode.html"
   url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.22.tar.bz2"
   sha256 "e94628e9bcfa0adb1115d83649f898d6edb4baced44f5d5b769c2eeb8b95addd"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "99a00bb5523cda0abb2a849e7af85cd8739526fea08231687b88724222b1aad7" => :sierra
-    sha256 "a2b8cc310fa04d1ce66ffc0de2ea6591503cede49135e4b854e6267c837b5010" => :el_capitan
-    sha256 "cdf8a97ab37a46eb605587b50eb7541be53866870241b85f202e92df2a67b8a8" => :yosemite
+    sha256 "2946f3abe2481ad6e4f52be7a9e51259bcd0846f38602e74384343946479eb4a" => :sierra
+    sha256 "5d6060cc30061763809d7255b8654309be0a709fccdcda1b799f0fac16fd085d" => :el_capitan
+    sha256 "9b674dd3738ab25fa6145680f92ca036df470ced089448abcb6647439320e075" => :yosemite
   end
 
   option "without-iso14755", "Disable ISO 14775 Shift+Ctrl hotkey"
@@ -33,7 +32,6 @@ class RxvtUnicode < Formula
       --enable-smart-resize
     ]
 
-    args << "--disable-perl" if ENV.compiler == :clang
     args << "--disable-iso14755" if build.without? "iso14755"
     args << "--enable-unicode3" if build.with? "unicode3"
 

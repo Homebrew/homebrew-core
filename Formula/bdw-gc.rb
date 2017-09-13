@@ -18,14 +18,10 @@ class BdwGc < Formula
     depends_on "libtool"  => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "libatomic_ops" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -34,5 +30,31 @@ class BdwGc < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <assert.h>
+      #include <stdio.h>
+      #include "gc.h"
+
+      int main(void)
+      {
+        int i;
+
+        GC_INIT();
+        for (i = 0; i < 10000000; ++i)
+        {
+          int **p = (int **) GC_MALLOC(sizeof(int *));
+          int *q = (int *) GC_MALLOC_ATOMIC(sizeof(int));
+          assert(*p == 0);
+          *p = (int *) GC_REALLOC(q, 2 * sizeof(int));
+        }
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lgc", "-o", "test", "test.c"
+    system "./test"
   end
 end

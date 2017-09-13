@@ -1,8 +1,8 @@
 class Digdag < Formula
   desc "Workload Automation System"
   homepage "https://www.digdag.io/"
-  url "https://dl.digdag.io/digdag-0.9.4.jar"
-  sha256 "fd628ae37adb08e87c1494ed0dffc24c9227a7bd3d0f9186de8211ef7a2f073c"
+  url "https://dl.digdag.io/digdag-0.9.16.jar"
+  sha256 "7656e1e3bf1637e082724b9b0bcdbe2ac7a446dd851e0104eca2461e879ccc4e"
 
   bottle :unneeded
 
@@ -19,7 +19,6 @@ class Digdag < Formula
   end
 
   test do
-    ENV.java_cache
     assert_match version.to_s, shell_output("#{bin}/digdag --version")
   end
 end

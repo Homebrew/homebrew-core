@@ -1,15 +1,14 @@
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://www.rethinkdb.com/"
-  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.5.tgz"
-  sha256 "dd8aeee169b177179bfe080725f0560443e0f26dae875b32ae25d90cf2f8ee10"
+  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.6.tgz"
+  sha256 "c42159666910ad01be295a57caf8839ec3a89227d8919be5418e3aa1f0a3dc28"
 
   bottle do
     cellar :any
-    sha256 "6e4e8e922e112854353932311d13218ff3c9cb6dc09f6ece87eb0e2b79a0d396" => :sierra
-    sha256 "b0d0fadb51e976b928aa7d24c8f94f30df1a4c9d6d9ae0102264b266524f9ae3" => :el_capitan
-    sha256 "672dfcd6bc467878aff6864bef96f420e3f25bb9ebda4161810a55b10d5d5b84" => :yosemite
-    sha256 "dfa15869b955c42614200ff00987f8a4e9a50e1aabf9ee9738f43a617bf6cdac" => :mavericks
+    sha256 "1f936e43b0cb7b321d9a14a2f2de994154162ca5bb656c8583506ca253eadf6b" => :sierra
+    sha256 "d090123ea89626f60caa5517b1416b669d3cacfd51fcedfdcd6f58020e941190" => :el_capitan
+    sha256 "a17c6864cef6dfc7f1e8ab7da2fcd640d85a504991c0d61175e2f6c78e1ba6ee" => :yosemite
   end
 
   depends_on :macos => :lion
@@ -21,11 +20,13 @@ class Rethinkdb < Formula
     cause "RethinkDB uses C++0x"
   end
 
-  # Fixes "'availability.h' file not found"
-  # Reported 1 Aug 2016: "Fix the build on case-sensitive macOS file systems"
-  patch do
-    url "https://github.com/rethinkdb/rethinkdb/pull/6024.patch"
-    sha256 "b9bdea085117368f69b34bd9076a303a0e4b3922149e9513691c887c23d12ee3"
+  # Fix error with Xcode 9, patch merged upstream:
+  # https://github.com/rethinkdb/rethinkdb/pull/6450
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fb00ee376a/rethinkdb/xcode9.patch"
+      sha256 "abd50d91a247ee7de988020dd9d405a3d4cd93edb2875b7d5822ba0f513f85a0"
+    end
   end
 
   def install

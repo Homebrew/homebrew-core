@@ -5,21 +5,38 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.7.tar.gz"
-  sha256 "059c016dc4af550f1f39db55095488653795025d72023fdcbab366d0c4af704e"
+  url "https://github.com/purescript/purescript/archive/v0.11.6.tar.gz"
+  sha256 "8bd2e4f844666a553d93c2e55c72c6361fbc08c706157d9d975dc7c1b730304e"
+  revision 1
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "1cfbe96996e3e66500df1ae97f5701d8e10eec7fb3c95f4706ac947dbedd1863" => :sierra
-    sha256 "dbe6d2bbc294b0177736f537547b22886491814c2eeb7f911ce8b3d883e7fad8" => :el_capitan
-    sha256 "10a9d1cb56b8db272d770c5def376c50fc3ddca69be52a9d31da5cacba390f8e" => :yosemite
+    rebuild 1
+    sha256 "c6719ba1cd153eeb9816ffc5ee3a10e5d7e25d618689ce2f416d43aeaf1a525e" => :sierra
+    sha256 "474ce08419ecaaa6456f828674adf095c4b07af557f7a15881071a52ec907e98" => :el_capitan
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package :using => ["alex", "happy"]
+    inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
+    bin.install (buildpath/"scripts").children
+
+    cabal_sandbox do
+      if build.head?
+        cabal_install "hpack"
+        system "./.cabal-sandbox/bin/hpack"
+      else
+        system "cabal", "get", "purescript-#{version}"
+        mv "purescript-#{version}/purescript.cabal", "."
+      end
+
+      # Upstream issue "Build failure with protolude 0.2"
+      # Reported 11 Sep 2017 https://github.com/purescript/purescript/issues/3065
+      install_cabal_package "--constraint", "protolude < 0.2",
+                            "-f release", :using => ["alex", "happy"]
+    end
   end
 
   test do

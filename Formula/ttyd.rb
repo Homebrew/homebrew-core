@@ -1,15 +1,15 @@
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://github.com/tsl0922/ttyd"
-  url "https://github.com/tsl0922/ttyd/archive/1.3.0.tar.gz"
-  sha256 "1b756ff3782f31ec4677cde4642bc3ef44d52d3b85625eed402405c689d877c0"
+  url "https://github.com/tsl0922/ttyd/archive/1.3.3.tar.gz"
+  sha256 "6eed82895da1359538471cbcc82576c4a21a4c6854e1f125fc55215f7c51da52"
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
     cellar :any
-    sha256 "3c0ab2471ea88a84a7a8a0de8d29ed508f3393cc7bffd39f8678851119649186" => :sierra
-    sha256 "1e7b7e7f0f47b7543647d3c2f26a17120cd203ad980ffc75045a5fc5aa8443d4" => :el_capitan
-    sha256 "f8acba8f4623abb75f2be9fdaf0fe4594b65460ada29826e271280cdef431c25" => :yosemite
+    sha256 "5f364fe5b7c1cc600ef3e6057a7e0f0def8c215c77813b85041437c7c68ed3e4" => :sierra
+    sha256 "d0deb06e23d1631b4108698d7a82cbc1e84ecd7b49bdb48f5a1465ae3c99a5d7" => :el_capitan
+    sha256 "1fc81d1d00261c259868b79161ec4cdca279522fbeae040ad9b572d88b2d71e1" => :yosemite
   end
 
   depends_on "cmake" => :build

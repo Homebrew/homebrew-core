@@ -3,18 +3,19 @@ class PonscripterSekai < Formula
   homepage "https://github.com/sekaiproject/ponscripter-fork"
   url "https://github.com/sekaiproject/ponscripter-fork/archive/v0.0.6.tar.gz"
   sha256 "888a417808fd48f8f55da42c113b04d61396a1237b2b0fed2458e804b8ddf426"
+  revision 2
   head "https://github.com/sekaiproject/ponscripter-fork.git"
 
   bottle do
     cellar :any
-    sha256 "26fd678d5457459aeca1ad7c20d4dabd6d80052c8ce0a70c60bf4c4d092b85eb" => :sierra
-    sha256 "68c5890468fcac629aeb412240627bb5a7981b533372be483b56587779ce80c8" => :el_capitan
-    sha256 "3ead145dede348a02cc915c1ff622705dff717a79f37439a0f4c7389c04e5ac8" => :yosemite
+    sha256 "e6cc3939e19ca41fbdd5d4385964beb6eca6a4efa7e92dd4095a06238f46fbf5" => :sierra
+    sha256 "8d29e912f4444fc4c7dc1bde505d0178dab297584e5b146692a23f8a0b16c4d5" => :el_capitan
+    sha256 "0621a360b7dfac4f685b8adc31ee23adfcaff330b45100516c26a2a79a884ff1" => :yosemite
   end
 
   depends_on "sdl2"
   depends_on "sdl2_image"
-  depends_on "sdl2_mixer" => ["with-libvorbis", "with-smpeg2"]
+  depends_on "sdl2_mixer" => "with-smpeg2"
   depends_on "libvorbis"
   depends_on "smpeg2"
   depends_on "freetype"

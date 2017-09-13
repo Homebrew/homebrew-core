@@ -1,18 +1,18 @@
 class GnuChess < Formula
   desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftpmirror.gnu.org/chess/gnuchess-6.2.4.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.4.tar.gz"
-  sha256 "3c425c0264f253fc5cc2ba969abe667d77703c728770bd4b23c456cbe5e082ef"
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.5.tar.gz"
+  sha256 "9a99e963355706cab32099d140b698eda9de164ebce40a5420b1b9772dd04802"
 
   bottle do
-    sha256 "986750bf4784a983b5b9cdb41ebaecea3df181755bdd3b9925a06521fd9ebc07" => :sierra
-    sha256 "8251ba46089e98ab4155c610e693026c7830312284cd30d6929acf1110b5cde9" => :el_capitan
-    sha256 "0b2a3d6580b8b96e2dbd3b34d499f0143622b8d1757e2a72b4c43617ccd2d321" => :yosemite
+    sha256 "1a741b2a6de01917968ed8074bd6f52153589d3269f833feebba819df80379ef" => :sierra
+    sha256 "f2e4587d4a42dbe78a4f7ec70fe5cfa54d46f93bad4a275c4759caa36cdc6688" => :el_capitan
+    sha256 "328ac0deafb88bcfaf23c8ef54d483f3f00ebd2f2e3dbe44f3205636a5f8db1e" => :yosemite
   end
 
   head do
-    url "svn://svn.savannah.gnu.org/chess/trunk"
+    url "https://svn.savannah.gnu.org/svn/chess/trunk"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "help2man" => :build
@@ -21,8 +21,10 @@ class GnuChess < Formula
 
   option "with-book", "Download the opening book (~25MB)"
 
+  depends_on "readline"
+
   resource "book" do
-    url "https://ftpmirror.gnu.org/chess/book_1.02.pgn.gz"
+    url "https://ftp.gnu.org/gnu/chess/book_1.02.pgn.gz"
     sha256 "deac77edb061a59249a19deb03da349cae051e52527a6cb5af808d9398d32d44"
   end
 

@@ -12,13 +12,10 @@ class SdlNet < Formula
     sha256 "99f9035f95e548ea81eb11ac9c06ae5eab8d2797ea9ca03ac074fe30bb357748" => :mavericks
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "sdl"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--disable-sdltest"
     system "make", "install"

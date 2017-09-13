@@ -21,4 +21,25 @@ class Docbook2x < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+    (testpath/"brew.1.xml").write <<-EOS.undent
+      <?xml version="1.0" encoding="ISO-8859-1"?>
+      <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+                         "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+      <refentry id='brew1'>
+      <refmeta>
+        <refentrytitle>brew</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </refmeta>
+      <refnamediv>
+        <refname>brew</refname>
+        <refpurpose>The missing package manager for macOS</refpurpose>
+      </refnamediv>
+      </refentry>
+    EOS
+    system bin/"docbook2man", testpath/"brew.1.xml"
+    assert_predicate testpath/"brew.1", :exist?, "Failed to create man page!"
+  end
 end

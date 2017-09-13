@@ -19,4 +19,17 @@ class BoostBuild < Formula
     system "./bootstrap.sh"
     system "./b2", "--prefix=#{prefix}", "install"
   end
+
+  test do
+    (testpath/"hello.cpp").write <<-EOF.undent
+      #include <iostream>
+      int main (void) { std::cout << "Hello world"; }
+    EOF
+    (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
+
+    system bin/"b2", "release"
+    out = Dir["bin/darwin-*/release/hello"]
+    assert (out.length == 1) && File.exist?(out[0])
+    assert_equal "Hello world", shell_output(out[0])
+  end
 end

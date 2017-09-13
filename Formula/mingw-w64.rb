@@ -1,13 +1,14 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://mingw-w64.org/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.1.tar.bz2"
-  sha256 "9bb5cd7df78817377841a63555e73596dc0af4acbb71b09bd48de7cf24aeadd2"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
+  sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
+  revision 3
 
   bottle do
-    sha256 "99d147a5ad2241d17eebf18ccc5a6614175d7b71f2046c091408d1b63578c261" => :sierra
-    sha256 "f060770a90c6e41d00a471f6ac3dfa6a5bb7429c988d2304c1c0c7634ebc4ec1" => :el_capitan
-    sha256 "16dbc5c0951a5a57f89554a7af90d1889d41bd92ea3c4d7ea1d9bb0d7550bf2c" => :yosemite
+    sha256 "59c6a9805b9465536ea75193729c709c23bc23748e7c7354c004eba76b1f26cf" => :sierra
+    sha256 "0b51651bf82d7fef7b0a2e90b7b4956babe907d8781a02b3b3e0a80e5597e71c" => :el_capitan
+    sha256 "a5adac170ecbfe2e24e68a43e3ae0f2974bc5f67443ddd15bbbf6c7d6a92d7a4" => :yosemite
   end
 
   depends_on "gmp"
@@ -19,13 +20,22 @@ class MingwW64 < Formula
   depends_on "texinfo" => :build
 
   resource "binutils" do
-    url "https://ftpmirror.gnu.org/binutils/binutils-2.27.tar.gz"
-    sha256 "26253bf0f360ceeba1d9ab6965c57c6a48a01a8343382130d1ed47c468a3094f"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.tar.gz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.29.tar.gz"
+    sha256 "172e8c89472cf52712fd23a9f14e9bca6182727fb45b0f8f482652a83d5a11b4"
   end
 
   resource "gcc" do
-    url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-    sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+    sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
+  end
+
+  # Patch for mingw-w64 5.0.2 with GCC 7
+  # https://sourceforge.net/p/mingw-w64/mingw-w64/ci/431ac2a912708546cd7271332e9331399e66bc62/
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/549c05c1f4/mingw-w64/divmoddi4.patch"
+    sha256 "a8323a12b25baec1335e617111effc9236b48ce1162a63c4898bf6be12680c42"
   end
 
   def target_archs
@@ -90,7 +100,6 @@ class MingwW64 < Formula
         CC=#{target}-gcc
         CXX=#{target}-g++
         CPP=#{target}-cpp
-        LD=#{target}-gcc
         --host=#{target}
         --prefix=#{arch_dir}/#{target}
       ]

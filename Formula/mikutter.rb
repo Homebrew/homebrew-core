@@ -1,14 +1,14 @@
 class Mikutter < Formula
-  desc "Extensible Twitter client."
-  homepage "http://mikutter.hachune.net"
-  url "http://mikutter.hachune.net/bin/mikutter.3.5.2.tar.gz"
-  sha256 "a5c6d88ff7062014339d1af1f44bcc3736dbbd25e503f1c83f0b4e6e3c72b61f"
+  desc "Extensible Twitter client"
+  homepage "https://mikutter.hachune.net/"
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.11.tar.gz"
+  sha256 "b90b09c400fe99092b1eaa4b4f39f78b90cff4335ed94d996cc2d4de08467550"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "3ef0b270a2dfa3f7fde00ba5bafadf40f470f0a5c83ca0a692e95c8e089fd7c6" => :sierra
-    sha256 "2f1be03dd220666f7fbdbcd46a63900dc1a8cbdd939abc752d202a41201cd3b0" => :el_capitan
-    sha256 "1d11645d59936dc23e4570dca1c09ffe8b5eb8be17afd76cb4c3b255d37c53f4" => :yosemite
+    sha256 "1529e8cc45cafc9a58ab181dff4fb3a0fb35a4756e2755cce5fdbf35970e7b2c" => :sierra
+    sha256 "670f953b07945d9e60a504ac36b02b8ce3d95247df093558e078f025af55fcda" => :el_capitan
+    sha256 "c52e9cbdb5d946f8b1478a37938b952e0ead6d70355bfcabc841615b3b551c0c" => :yosemite
   end
 
   depends_on "gtk+"
@@ -16,18 +16,23 @@ class Mikutter < Formula
   depends_on :ruby => "2.1"
 
   resource "addressable" do
-    url "https://rubygems.org/gems/addressable-2.5.0.gem"
-    sha256 "bc5bf921b39640675fbb3484cdb45e4241b4c88d8d5a7d85a3985424ad02b9c8"
+    url "https://rubygems.org/gems/addressable-2.5.2.gem"
+    sha256 "73771ea960b3900d96e6b3729bd203e66f387d0717df83304411bf37efd7386e"
   end
 
   resource "atk" do
-    url "https://rubygems.org/gems/atk-3.1.0.gem"
-    sha256 "6a6f7e68bc7c205abc4a35156d24eb4d248f4855d4775a5295e2a6bdd9f61c5f"
+    url "https://rubygems.org/gems/atk-3.1.8.gem"
+    sha256 "598a956506066e43037099899247031850e2ec764d3007f39d975fe01c5c367a"
   end
 
   resource "cairo" do
-    url "https://rubygems.org/gems/cairo-1.15.3.gem"
-    sha256 "16cf6fdce8671b90a22079cb5734f5c43f1f7e315a69fe276c7080ff41f64e5a"
+    url "https://rubygems.org/gems/cairo-1.15.9.gem"
+    sha256 "579727200f724a4da0c259e59bb79289de35ede0668dbe4b08883cc8e3b35325"
+  end
+
+  resource "cairo-gobject" do
+    url "https://rubygems.org/gems/cairo-gobject-3.1.8.gem"
+    sha256 "a27bd60e70b02b399db7f70a7d7ac6b171a4556ed46a3ff06ae8cef85262ab0d"
   end
 
   resource "crack" do
@@ -46,28 +51,38 @@ class Mikutter < Formula
   end
 
   resource "gdk_pixbuf2" do
-    url "https://rubygems.org/gems/gdk_pixbuf2-3.1.0.gem"
-    sha256 "6743e0ab8d50f74cff1f2f8098e4ae44ff78e2e560631fbad247d135e3e3fb21"
+    url "https://rubygems.org/gems/gdk_pixbuf2-3.1.8.gem"
+    sha256 "3e7f59479224b62ca27b6078aa527e285b6e81dbbe36b04f0f02047cb2d6e5de"
   end
 
   resource "gettext" do
-    url "https://rubygems.org/gems/gettext-3.2.2.gem"
-    sha256 "9d250bb79273efb4a268977f219d2daca05cdc7473eff40288b8ab8ddd0f51b4"
+    url "https://rubygems.org/gems/gettext-3.0.9.gem"
+    sha256 "390ee547437d62d00b859383d1af816cf06f0adee9ced1949f821b720d187c93"
+  end
+
+  resource "gio2" do
+    url "https://rubygems.org/gems/gio2-3.1.8.gem"
+    sha256 "97aa3245e39f2d94d569960fa780b6335c007f9039f720901f77619854242a8c"
   end
 
   resource "glib2" do
-    url "https://rubygems.org/gems/glib2-3.1.0.gem"
-    sha256 "0bad2e823df07fcc9f3f2490ad3f1b1c157852f48564742f3a758d50085009fd"
+    url "https://rubygems.org/gems/glib2-3.1.8.gem"
+    sha256 "fbb5ef561b82ff22280da9997927b71f6e7c872f0e1c36887c1ed760f07d72f5"
+  end
+
+  resource "gobject-introspection" do
+    url "https://rubygems.org/gems/gobject-introspection-3.1.8.gem"
+    sha256 "64397426f137e4b933b5a3d5d07915907e7b2705a72f7d3e0743609cf075e54e"
   end
 
   resource "gtk2" do
-    url "https://rubygems.org/gems/gtk2-3.1.0.gem"
-    sha256 "2b26efdf8d63b6dce85e5c11798c439a2e238f87bbc372a331bb0c879badc818"
+    url "https://rubygems.org/gems/gtk2-3.1.8.gem"
+    sha256 "f93dbd54cdddc21b0e837cc1c66ceb220ffaa59a45562d7a18ce985889de2174"
   end
 
   resource "hashdiff" do
-    url "https://rubygems.org/gems/hashdiff-0.3.2.gem"
-    sha256 "5682c6e510f224d3c42c885d80d15d3dc0effadde5ed4920cd727acf2cb939e0"
+    url "https://rubygems.org/gems/hashdiff-0.3.6.gem"
+    sha256 "816ce4c22faeb0df029170dd101e34d238b90b388556ecde77413c373d5e1870"
   end
 
   resource "httpclient" do
@@ -81,8 +96,8 @@ class Mikutter < Formula
   end
 
   resource "json_pure" do
-    url "https://rubygems.org/gems/json_pure-2.0.2.gem"
-    sha256 "def9c4d3da29b3d36033d4b019b045520b1ee4968161630f4b422c7e18b6c83b"
+    url "https://rubygems.org/gems/json_pure-1.8.6.gem"
+    sha256 "55d575c4aec98249473811a256b3f3a7c12a94ad008093032f5e5f28eacd94ee"
   end
 
   resource "locale" do
@@ -91,8 +106,8 @@ class Mikutter < Formula
   end
 
   resource "memoist" do
-    url "https://rubygems.org/gems/memoist-0.15.0.gem"
-    sha256 "b838329d7fe7e067e0d0717828db529126f44b8c0c527c884d162ebb4ecba379"
+    url "https://rubygems.org/gems/memoist-0.16.0.gem"
+    sha256 "70bd755b48477c9ef9601daa44d298e04a13c1727f8f9d38c34570043174085f"
   end
 
   resource "metaclass" do
@@ -101,38 +116,43 @@ class Mikutter < Formula
   end
 
   resource "mini_portile2" do
-    url "https://rubygems.org/gems/mini_portile2-2.1.0.gem"
-    sha256 "0b0e83fe0fc190640a93c48cef0c8e1f1f40f77840d82c160fefc1b07a5345f8"
+    url "https://rubygems.org/gems/mini_portile2-2.2.0.gem"
+    sha256 "f536d3307de76d8ec8cbcc9182a88d83bdc0f8f6e3e9681560166004fcbbab3c"
   end
 
   resource "mocha" do
-    url "https://rubygems.org/gems/mocha-1.2.1.gem"
-    sha256 "7de99b005aa41dc46841442afe468451a145f2c6d9b10fac0c23f0d911bef50d"
+    url "https://rubygems.org/gems/mocha-0.14.0.gem"
+    sha256 "4bb00fdc69d628b15ad2b89ca6f490aaf92486f640282b8943fe3b43dee9a145"
   end
 
   resource "moneta" do
-    url "https://rubygems.org/gems/moneta-0.8.1.gem"
-    sha256 "9367f8d07b550877c88d5b1560a3341543fd16ada4b60cedc892d564e0c2f52f"
+    url "https://rubygems.org/gems/moneta-1.0.0.gem"
+    sha256 "2224e5a68156e8eceb525fb0582c8c4e0f29f67cae86507cdcfb406abbb1fc5d"
+  end
+
+  resource "native-package-installer" do
+    url "https://rubygems.org/gems/native-package-installer-1.0.4.gem"
+    sha256 "4a20c4c74681d60075cad4b435f64278e6b09813edef8c41a23f1e7f9e16726b"
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.7.0.1.gem"
-    sha256 "63d702f4e6684523f08f7d0fd48d9e42c95693207ba1aaef11b079eec083aa83"
+    url "https://rubygems.org/gems/nokogiri-1.8.0.gem"
+    sha256 "d6e693278e3c26f828339705e14a149de5ac824771e59c6cd9e6c91ebad7ced9"
   end
 
   resource "oauth" do
-    url "https://rubygems.org/gems/oauth-0.5.1.gem"
-    sha256 "7e0a43c527af605dc1fc3ef8416d2641b400078d8a22e30981ac47d81af290ab"
+    url "https://rubygems.org/gems/oauth-0.5.3.gem"
+    sha256 "0b3412bf8114cc9c87abebae4b858216a9bf453192ea3069d5bd8e7ad373aca8"
   end
 
   resource "pango" do
-    url "https://rubygems.org/gems/pango-3.1.0.gem"
-    sha256 "27c362a7f257b244984e1083893f36e1e44c63f813597935265874e273010565"
+    url "https://rubygems.org/gems/pango-3.1.8.gem"
+    sha256 "329d9b28ba6b4d6775cdd1ab81df8a4e92c8d9d3a69b6de682c9f9ddbfde988a"
   end
 
   resource "pkg-config" do
-    url "https://rubygems.org/gems/pkg-config-1.1.7.gem"
-    sha256 "1f3cd171432f4634805ebf7cd187d1d728d732bfead3837c349f2c502d8e9252"
+    url "https://rubygems.org/gems/pkg-config-1.2.7.gem"
+    sha256 "fc8ab6f3200cddfeacb8a29168daa38d8f76c0e09af91a00a3d423bc472d70af"
   end
 
   resource "pluggaloid" do
@@ -141,18 +161,18 @@ class Mikutter < Formula
   end
 
   resource "power_assert" do
-    url "https://rubygems.org/gems/power_assert-1.0.1.gem"
-    sha256 "a51f4adaaf3d73dd87c12ab3f2d95b86f94ec1090af7970b63ba5281a0eda8ed"
+    url "https://rubygems.org/gems/power_assert-1.1.0.gem"
+    sha256 "e541ceb7b0cf03331c3ab146f022e4705cff0d7eea3c79017459130b31ced96b"
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/gems/public_suffix-2.0.5.gem"
-    sha256 "f8488b110921532ff291af74eef70fa4e3c036141c4ef80009dcdc2b51721210"
+    url "https://rubygems.org/gems/public_suffix-3.0.0.gem"
+    sha256 "ae48d8122866e342c09f1f643c2b88e3547562fd6df85d83926445d75f90ca6a"
   end
 
   resource "rake" do
-    url "https://rubygems.org/gems/rake-12.0.0.gem"
-    sha256 "f6b43059e2923ddd30128fbbf4eb2e610c020b888ad97b57d7d94abc12734806"
+    url "https://rubygems.org/gems/rake-10.5.0.gem"
+    sha256 "2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49"
   end
 
   resource "ruby-hmac" do
@@ -171,8 +191,8 @@ class Mikutter < Formula
   end
 
   resource "test-unit" do
-    url "https://rubygems.org/gems/test-unit-3.2.3.gem"
-    sha256 "fe125f1418b223b9d84ea12c2557d87ccc98d2c4ae5b7ef63c75611dc4edcfce"
+    url "https://rubygems.org/gems/test-unit-3.2.5.gem"
+    sha256 "a230fc4f832ca770bf0bdcd82dd6e83f48fb24cf4e6e883bf83806c09d197d15"
   end
 
   resource "text" do
@@ -186,8 +206,8 @@ class Mikutter < Formula
   end
 
   resource "twitter-text" do
-    url "https://rubygems.org/gems/twitter-text-1.14.2.gem"
-    sha256 "d71abba271418cbe79e28905678a6ec8ae72ccad478865f4cb3fc89f51338d52"
+    url "https://rubygems.org/gems/twitter-text-1.14.7.gem"
+    sha256 "6fbf511d449d61a2e2198dd758622193aa74d6e95a6ec7111725cce0e181629c"
   end
 
   resource "typed-array" do
@@ -201,8 +221,8 @@ class Mikutter < Formula
   end
 
   resource "unf_ext" do
-    url "https://rubygems.org/gems/unf_ext-0.0.7.2.gem"
-    sha256 "e8fa13d09880f8d06d30a86f929a38ba0af6abe61272927a49e6796aee1aa111"
+    url "https://rubygems.org/gems/unf_ext-0.0.7.4.gem"
+    sha256 "8b3e34ddcc5db65c6e0c9f34b5bd62720e770ba04843d601c3730c887f131992"
   end
 
   resource "watch" do
@@ -211,8 +231,8 @@ class Mikutter < Formula
   end
 
   resource "webmock" do
-    url "https://rubygems.org/gems/webmock-2.3.1.gem"
-    sha256 "de4c7b571a858110a47fb471dc3964af08ceb73c4303df83a1a51df3a72041a0"
+    url "https://rubygems.org/gems/webmock-1.24.6.gem"
+    sha256 "c516e1b309697af303e647dc2f3c7222b13ef70c1c4c5afb61e64bd595c9740f"
   end
 
   def install
@@ -229,27 +249,29 @@ class Mikutter < Formula
 
     (bin/"mikutter").write(exec_script)
     pkgshare.install_symlink libexec/"core/skin"
-    libexec.install_symlink HOMEBREW_PREFIX/"lib/mikutter/plugin"
+    libexec.install_symlink lib/"mikutter/plugin"
   end
 
   def exec_script
     <<-EOS.undent
     #!/bin/bash
-    export GEM_HOME="#{HOMEBREW_PREFIX}/lib/mikutter/vendor"
+    export GEM_HOME="#{opt_lib}/mikutter/vendor"
     export DISABLE_BUNDLER_SETUP=1
-    export GTK_PATH="#{HOMEBREW_PREFIX}/lib/gtk-2.0"
+    export GTK_PATH="#{Formula["gtk+"].opt_lib}/gtk-2.0"
     exec ruby "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 
   test do
-    test_plugin = <<-EOS.undent
+    (testpath/"test_plugin").write <<-EOS.undent
       # -*- coding: utf-8 -*-
       Plugin.create(:brew) do
         Delayer.new { Thread.exit }
       end
     EOS
-    (testpath/"plugin/brew.rb").write(test_plugin)
-    system bin/"mikutter", "--confroot=#{testpath}", "--plugin=brew", "--debug"
+    system bin/"mikutter", "generate", "test_plugin"
+    assert File.file?(testpath/".mikutter/plugin/test_plugin/test_plugin.rb")
+    system bin/"mikutter", "plugin_depends",
+           testpath/".mikutter/plugin/test_plugin/test_plugin.rb"
   end
 end

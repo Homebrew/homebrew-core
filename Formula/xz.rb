@@ -2,9 +2,9 @@
 # https://github.com/Homebrew/homebrew/pull/21419
 class Xz < Formula
   desc "General-purpose data compression with high compression ratio"
-  homepage "http://tukaani.org/xz/"
-  url "https://fossies.org/linux/misc/xz-5.2.3.tar.gz"
-  mirror "http://tukaani.org/xz/xz-5.2.3.tar.gz"
+  homepage "https://tukaani.org/xz/"
+  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz"
+  mirror "https://tukaani.org/xz/xz-5.2.3.tar.gz"
   sha256 "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb"
 
   bottle do
@@ -14,10 +14,7 @@ class Xz < Formula
     sha256 "82eef73a78db1c46ed8482c357f6ad1797a62f4c9124410b362efe885082892c" => :yosemite
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

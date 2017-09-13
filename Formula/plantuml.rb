@@ -1,12 +1,14 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
-  homepage "https://plantuml.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/plantuml/plantuml.8053.jar"
-  sha256 "9551a8d4a7cce5c7a2fb1124910ff7347aee9a3a90ff2e451d6629fe82f7a380"
+  homepage "https://plantuml.com/"
+  url "https://downloads.sourceforge.net/project/plantuml/1.2017.16/plantuml.1.2017.16.jar"
+  sha256 "a3d319ed54ed78ce3cf7bfcfe76ffc5aa6ed28a72b5aa575fe9125e0c6bd985c"
+  version_scheme 1
 
   bottle :unneeded
 
   depends_on "graphviz"
+  depends_on :java
 
   def install
     jar = "plantuml.jar"

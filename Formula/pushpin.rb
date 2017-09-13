@@ -1,19 +1,18 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.15.0.tar.bz2"
-  sha256 "6378bd617b997d15003188a2cc3e9f4c65b5340c1666215b678d402d3a0c549e"
-
+  url "https://dl.bintray.com/fanout/source/pushpin-1.16.0.tar.bz2"
+  sha256 "6f66603d0415697eaf94fa41fa68dbf8f19a28d101a9cf17a835c2b931bc5496"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "af11bcdf20da8f21817e10a05ced707a50d341b6052f2e5648607ab51fe82398" => :sierra
-    sha256 "eea4a2f4d37704d950d5748955189fb883342daf9abefa2eee92beb3abaa1663" => :el_capitan
-    sha256 "a2451f4a827e691333847acf501f6ecd443cf71f058f5892a490ea3bcdb591ff" => :yosemite
+    sha256 "eb1cbde67dac20d60b19d0df7e86c91294a5bc2548a8df826d4c40fb97995d56" => :sierra
+    sha256 "3bac87de514c9f806ce759c2ebc77ca87112b79c9ebe494d477429879b843845" => :el_capitan
+    sha256 "c188940d042aa529613c7340c265be2fe8fba9b6fc87c181b32d69b8cc316902" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "zeromq"
   depends_on "mongrel2"
   depends_on "zurl"

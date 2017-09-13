@@ -3,15 +3,17 @@ class Volatility < Formula
 
   desc "Advanced memory forensics framework"
   homepage "https://github.com/volatilityfoundation/volatility"
-  url "http://downloads.volatilityfoundation.org/releases/2.6/volatility-2.6.zip"
+  url "https://downloads.volatilityfoundation.org/releases/2.6/volatility-2.6.zip"
   sha256 "5b73050d72bf94870ffce22843f03d4b0b7764011dec29ef1a0a5b1b46cf9295"
+  revision 1
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
     cellar :any
-    sha256 "8b2b34e7dcee4f1a513b4aa715236dd8086b15185c402b2dadf1d9abd7d12965" => :sierra
-    sha256 "9a9e1153c25b5da2b30c6429ca9de10c54ca14b0068a3816b6487f095bbefcf3" => :el_capitan
-    sha256 "0fe1ef4796efba3c02e7ca6af26ecdda3058f1ec2ef42f334b4e507001e28bde" => :yosemite
+    rebuild 1
+    sha256 "c6a71814aa288cb111544a727f333b7f3f82c77a07c980f16038275f375835b6" => :sierra
+    sha256 "a0613ac4dd0a9b06ac6a9dabbc86c77faabe585af2e884d44d264cdaddac2308" => :el_capitan
+    sha256 "e14faea2003aada9ede7d52c09497ea8eb90b5153853ecfe86c3416a043dc70a" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -150,6 +152,7 @@ class Volatility < Formula
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
         sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
         s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
         s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
         s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"

@@ -1,57 +1,30 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  revision 2
-
-  stable do
-    url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
-    mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
-    sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
-
-    # All patches upstream already. Remove whenever 2.9.5 is released.
-    # Fixes CVE-2016-4658, CVE-2016-5131.
-    patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-2.2.debian.tar.xz"
-      sha256 "c038bba02a56164cef7728509ba3c8f1856018573769ee9ffcc48c565e90bdc9"
-      apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
-            "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
-            "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
-            "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
-            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch",
-            "patches/0008-Fix-attribute-decoding-during-XML-schema-validation.patch"
-    end
-  end
+  url "http://xmlsoft.org/sources/libxml2-2.9.5.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.5.tar.gz"
+  sha256 "4031c1ecee9ce7ba4f313e91ef6284164885cdb69937a123f6a83bb6a72dcd38"
+  head "https://git.gnome.org/browse/libxml2.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "08ae8ecc02d55f390122cb6a66e252720ff76ac003f3605a0ff1a700b8da32cd" => :sierra
-    sha256 "935c1dc0821ca6c4676357c4a6a4339946f8a5d699b6da95f74380f098e61db1" => :el_capitan
-    sha256 "eb7c876f407381400b8c64c9a3107aa50dc853823c4bbf2e856f32e93cb68bac" => :yosemite
+    sha256 "b1121510780bcd6ae1a464f22312bb425daff8735dd2c647b41484461f646a7a" => :sierra
+    sha256 "09b8d61b8ae67820a739c240f4114079911a019390a6ed2fee8541439dc53660" => :el_capitan
+    sha256 "1fd3f3ec30d85289019b6845d5b394f4ab38c7543ef0a7aa3948c76c7dd3ce93" => :yosemite
   end
 
-  head do
-    url "https://git.gnome.org/browse/libxml2.git"
+  keg_only :provided_by_macos
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on :python if MacOS.version <= :snow_leopard
 
-  keg_only :provided_by_osx
-
-  option :universal
-
-  depends_on :python => :optional
+  # These should return to being head-only whenever 2.9.5 is released.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-    if build.head?
-      inreplace "autogen.sh", "libtoolize", "glibtoolize"
-      system "./autogen.sh"
-    end
-
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",
@@ -60,12 +33,10 @@ class Libxml2 < Formula
     ENV.deparallelize
     system "make", "install"
 
-    if build.with? "python"
-      cd "python" do
-        # We need to insert our include dir first
-        inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-        system "python", "setup.py", "install", "--prefix=#{prefix}"
-      end
+    cd "python" do
+      # We need to insert our include dir first
+      inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+      system "python", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -86,5 +57,8 @@ class Libxml2 < Formula
     args += %w[test.c -o test]
     system ENV.cc, *args
     system "./test"
+
+    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
+    system "python", "-c", "import libxml2"
   end
 end

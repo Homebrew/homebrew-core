@@ -1,14 +1,14 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-1.7.tar.xz"
-  sha256 "599348337a4bff179bf50888dad135751fa401538ebaadc59831d2223be52db3"
+  url "https://weechat.org/files/src/weechat-1.9.tar.xz"
+  sha256 "cc85eb299a5a979bcfda390c20bcb9dd8fd7b25a32fb01e5f128e13c51fa7dff"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "c50aaff646370983bacf7892b68eed554fda6c31d56cb555611bb3eeb51df4b4" => :sierra
-    sha256 "e03fd5e2b7a2c6043bbbf7b5fe8bfdaab4a08e4359ecb1dbe01fc8ac48f22095" => :el_capitan
-    sha256 "fa2e68079dec50b17c31f9eaebc7aa784acce21c62e57acd4d422926d7f77da0" => :yosemite
+    sha256 "8f3e316f89797ecf3626453dd761d2e360c3ddfd3512358760f48020ef016911" => :sierra
+    sha256 "402cb6ba36f690673636df012e6530b3742f87637641780f49519ef1568f5c39" => :el_capitan
+    sha256 "8629922ac45893e9c4beec5af6642ec8db295a314021e7ad6756646298a5585e" => :yosemite
   end
 
   option "with-perl", "Build the perl module"
@@ -30,7 +30,11 @@ class Weechat < Formula
   depends_on "curl" => :optional
 
   def install
-    args = std_cmake_args << "-DENABLE_GUILE=OFF"
+    args = std_cmake_args + %W[
+      -DENABLE_GUILE=OFF
+      -DCA_FILE=#{etc}/openssl/cert.pem
+      -DENABLE_JAVASCRIPT=OFF
+    ]
     if build.with? "debug"
       args -= %w[-DCMAKE_BUILD_TYPE=Release]
       args << "-DCMAKE_BUILD_TYPE=Debug"
@@ -42,7 +46,6 @@ class Weechat < Formula
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python"
-    args << "-DENABLE_JAVASCRIPT=OFF"
 
     mkdir "build" do
       system "cmake", "..", *args

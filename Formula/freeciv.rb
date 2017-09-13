@@ -1,18 +1,18 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
-  homepage "http://freeciv.wikia.com"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.6/freeciv-2.5.6.tar.bz2"
-  mirror "http://download.gna.org/freeciv/stable/freeciv-2.5.6.tar.bz2"
-  sha256 "cfadc23eec11a5a8ae74a7d3719eb126026137f0700da065367fd55cbab6999b"
+  homepage "https://freeciv.wikia.com/"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.9/freeciv-2.5.9.tar.bz2"
+  sha256 "b83c73585ae80898b27379984f936591b51422c9caccb94880fa16030c975928"
 
   bottle do
-    sha256 "6d909e5737f001570a73aa2169b0e768e51f9c13bdaa14e684d08708bc67f00a" => :sierra
-    sha256 "9849bddd68dd60b9f63de188a0ffcf8f15f3da4031a0a0b7b64cebbed06a50ce" => :el_capitan
-    sha256 "dcdb4844dee4d4240f4785debdfdd6ad6cd3d0320b60bf56a9f01be11095cf05" => :yosemite
+    sha256 "be3dcbdc6072c9c5c374340c96b21659c012adaf85901096424889936c23e7fe" => :sierra
+    sha256 "c8a9e03991705f4edc0c8214cb2bcde05dbc1c5ca83b716db266e3a48c2f6e30" => :el_capitan
+    sha256 "1148d9d5c8893eda436a3fc619a355a89be56b885b0fb75e1ab59d3c250c5477" => :yosemite
   end
 
   head do
-    url "svn://svn.gna.org/svn/freeciv/trunk"
+    url "https://github.com/freeciv/freeciv.git"
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "gettext" => :build

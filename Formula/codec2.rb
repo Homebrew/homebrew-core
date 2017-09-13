@@ -1,15 +1,14 @@
 class Codec2 < Formula
   desc "Open source speech codec."
   homepage "http://www.rowetel.com/blog/?page_id=452"
-  url "https://files.freedv.org/codec2/codec2-0.5.tar.xz"
-  sha256 "1ffda04ec6629f5ad5a38349c6d9d38d29bfbc1c677c12014ff20d480a343f17"
+  url "https://files.freedv.org/codec2/codec2-0.7.tar.xz"
+  sha256 "0695bb93cd985dd39f02f0db35ebc28a98b9b88747318f90774aba5f374eadb2"
 
   bottle do
     cellar :any
-    sha256 "ebc1dfbe27cba68d3dc83ebcfcbe595f536075a1a0af9a43d0ffb6c99d8846a8" => :sierra
-    sha256 "0a385047266db01ce5ee29c112454efd18c5036f8bdca96ec018a5fb1c10064a" => :el_capitan
-    sha256 "9cfba02811b48abea043b61e8594e6bc810b6b378aceeb3ba6f51b9a0bb6e966" => :yosemite
-    sha256 "3763c18aa7cb38b36a9b8770acae0b222f114b7cabd7035736fefa833536f614" => :mavericks
+    sha256 "ecba1a173dbda214953179e8c7200637934b905ec3b2ec3dc9fd8785a20bdb1c" => :sierra
+    sha256 "6aeab3c08a575914a615f0051b73464ffe19a4bde2c7595d93db5698ff054fa0" => :el_capitan
+    sha256 "78ccb93fb8936706594ef14d7b37762498ea52c7f00b2c91804608172b890dc8" => :yosemite
   end
 
   depends_on "cmake" => :build

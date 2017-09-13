@@ -14,9 +14,8 @@ class Hub < Formula
   end
 
   devel do
-    url "https://github.com/github/hub/archive/v2.3.0-pre9.tar.gz"
-    version "2.3.0-pre9"
-    sha256 "3246a5e3a071a7ccb06c30230a720b6457837bd6b97b32ab248dfb2b2222dbfb"
+    url "https://github.com/github/hub/archive/v2.3.0-pre10.tar.gz"
+    sha256 "9b4764dc2647bc0c14de2bd386e6f428f002d93baf01059d994e1cfa928483fc"
   end
 
   option "without-completions", "Disable bash/zsh completions"
@@ -33,7 +32,7 @@ class Hub < Formula
       begin
         deleted = ENV.delete "SDKROOT"
         ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundle"
+        system "gem", "install", "bundler"
         ENV.prepend_path "PATH", buildpath/"gem_home/bin"
         system "make", "man-pages"
       ensure
@@ -48,6 +47,8 @@ class Hub < Formula
     if build.with? "completions"
       bash_completion.install "etc/hub.bash_completion.sh"
       zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+      # TODO: Remove the conditional when hub 2.3.0 is released.
+      fish_completion.install "etc/hub.fish_completion" => "hub.fish" unless build.stable?
     end
   end
 

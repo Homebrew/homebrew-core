@@ -1,62 +1,64 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.86.tar.gz"
-  sha256 "e6e8b755280ce2c1a8218529eae5dd78e184f7036854229cea611374ad5a671f"
+  url "https://github.com/bulletphysics/bullet3/archive/2.86.1.tar.gz"
+  sha256 "c058b2e4321ba6adaa656976c1a138c07b18fc03b29f5b82880d5d8228fbf059"
+  revision 1
+
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6541eb8fbc31e00e68596fcbe5cf9bb8df3bf19da7fd2fd86132fa86eadffe4c" => :sierra
-    sha256 "3c5f27941c7790c2dede6e35ff12c931567c1e6d4da106f1072f91caa85e8ce3" => :el_capitan
-    sha256 "ec901e1e204253445867e43828415be9beedc47be265f223572730c08b43210f" => :yosemite
+    cellar :any
+    sha256 "c43758c24e12037cca10a25731ee97321718fd4f4c31e9787afb0ea43f62d4b1" => :sierra
+    sha256 "7a3a5d87feea5382f69ede42ec7b7a0fedf5ffee89096c1c79ee1fb5e4096b51" => :el_capitan
+    sha256 "838c1417f24d5e565493f4517054cd68f02e2e8a8749c6f5fd73cd4862c06560" => :yosemite
   end
 
   option "with-framework", "Build frameworks"
-  option "with-shared", "Build shared libraries"
   option "with-demo", "Build demo applications"
   option "with-double-precision", "Use double precision"
 
   deprecated_option "framework" => "with-framework"
-  deprecated_option "shared" => "with-shared"
   deprecated_option "build-demo" => "with-demo"
   deprecated_option "double-precision" => "with-double-precision"
 
   depends_on "cmake" => :build
 
   def install
-    args = ["-DINSTALL_EXTRA_LIBS=ON", "-DBUILD_UNIT_TESTS=OFF"]
-
-    if build.with? "framework"
-      args << "-DBUILD_SHARED_LIBS=ON" << "-DFRAMEWORK=ON"
-      args << "-DCMAKE_INSTALL_PREFIX=#{frameworks}"
-      args << "-DCMAKE_INSTALL_NAME_DIR=#{frameworks}"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared"
-      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    end
-
+    args = std_cmake_args + %w[
+      -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF
+    ]
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
 
-    # Related to the following warnings when building --with-shared --with-demo
-    # https://gist.github.com/scpeters/6afc44f0cf916b11a226
-    if build.with?("demo") && (build.with?("shared") || build.with?("framework"))
-      raise "Demos cannot be installed with shared libraries or framework."
-    end
+    args_shared = args.dup + %w[
+      -DBUILD_BULLET2_DEMOS=OFF -DBUILD_SHARED_LIBS=ON
+    ]
 
-    args << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+    args_framework = %W[
+      -DFRAMEWORK=ON
+      -DCMAKE_INSTALL_PREFIX=#{frameworks}
+      -DCMAKE_INSTALL_NAME_DIR=#{frameworks}
+    ]
 
-    system "cmake", *args
-    system "make"
+    args_shared += args_framework if build.with? "framework"
+
+    args_static = args.dup << "-DBUILD_SHARED_LIBS=OFF"
+    args_static << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+
+    system "cmake", ".", *args_shared
+    system "make", "install"
+
+    system "make", "clean"
+
+    system "cmake", ".", *args_static
     system "make", "install"
 
     prefix.install "examples" if build.with? "demo"
-    prefix.install "Extras" if build.with? "extra"
   end
 
   test do
     (testpath/"test.cpp").write <<-EOS.undent
-      #include "bullet/LinearMath/btPolarDecomposition.h"
+      #include "LinearMath/btPolarDecomposition.h"
       int main() {
         btMatrix3x3 I = btMatrix3x3::getIdentity();
         btMatrix3x3 u, h;
@@ -64,7 +66,16 @@ class Bullet < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lLinearMath", "-lc++", "-o", "test"
+
+    if build.with? "framework"
+      system ENV.cc, "test.cpp", "-F#{frameworks}", "-framework", "LinearMath",
+                     "-I#{frameworks}/LinearMath.framework/Headers", "-lc++",
+                     "-o", "f_test"
+      system "./f_test"
+    end
+
+    system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",
+                   "-lLinearMath", "-lc++", "-o", "test"
     system "./test"
   end
 end

@@ -1,15 +1,14 @@
 class Libuninameslist < Formula
   desc "Library of Unicode names and annotation data"
   homepage "https://github.com/fontforge/libuninameslist"
-  url "https://github.com/fontforge/libuninameslist/releases/download/20160701/libuninameslist-20160701.tar.gz"
-  sha256 "1981701b4b44455a9cc5ab203172014137ec5b77e3ebc3cbf79294c8a26ee6f6"
+  url "https://github.com/fontforge/libuninameslist/releases/download/20170807/libuninameslist-dist-20170807.tar.gz"
+  sha256 "0afa78c09468738fe92b83bdfda3f1b4b773a57e67f676f6a5203e64de0d1aa4"
 
   bottle do
     cellar :any
-    sha256 "abe252a972b156dc8187e0ab89cdcb49c274bf6d79f4c3552b50f37f7b54eb31" => :sierra
-    sha256 "d5cacf981764a6d5ea93f0ae4ecbc05ca406b3226b53065d7dcecdfa1c2abdc0" => :el_capitan
-    sha256 "160cc64ecac03e2243b5c8943f7b67380d6595c84c7e4bd8d3d748abb6a6aa25" => :yosemite
-    sha256 "008830e4f830024cd9725a004963ca3d8bb87134cab7281b29d836988f981ba9" => :mavericks
+    sha256 "7acb853a3dfee07369af31362838b5197f3209ecbf8615bde22bbd101be23bc8" => :sierra
+    sha256 "4e6851ee1829cfddda282d2b818af28995555955db064f5cc5a90dabdde50ba7" => :el_capitan
+    sha256 "d23db374f7e2b07ac1996f461fcf900b48bfdfc79abd70e60f77f60a9ac0df49" => :yosemite
   end
 
   head do

@@ -1,16 +1,16 @@
 class Saldl < Formula
   desc "CLI downloader optimized for speed and early preview."
-  homepage "https://saldl.github.io"
-  url "https://github.com/saldl/saldl/archive/v35.tar.gz"
-  sha256 "6b5f45a8f7782bcad124df4a24876c8b3c47d45aa25d0b09b2030837c6ece82c"
+  homepage "https://saldl.github.io/"
+  url "https://github.com/saldl/saldl/archive/v36.tar.gz"
+  sha256 "922efd422f32b4b0cec350933257920b196780dfef1727a72e8a2933f8b7b444"
 
   head "https://github.com/saldl/saldl.git", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "723d7e0181ea35f4b6643682db7731434411454239ef7c61a9393cd8cf5c9a08" => :sierra
-    sha256 "f006aa31bd31f9410a5579a92354c3d4acba5a7ac2102564423120ba1b45ef06" => :el_capitan
-    sha256 "689d5ea91227117ad5c43d52925456a8e75b069e4900a15a5853a6de96b8ffd5" => :yosemite
+    sha256 "51f9b200ce0f93749b8e7fd66c7c8985f3b6fd14ca32bafc57b9c83a37ef4664" => :sierra
+    sha256 "93737eb942258a0b35944347ebc70d362dd2d8cdcb47e88fed89217df2cc7b4a" => :el_capitan
+    sha256 "ad37aabeb7277950a137f2482ddfbe424676c5513691c65bb569725b3e09a3f0" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -42,7 +42,7 @@ class Saldl < Formula
   end
 
   test do
-    system "#{bin}/saldl", "http://brew.sh/index.html"
+    system "#{bin}/saldl", "https://brew.sh/index.html"
     assert File.exist? "index.html"
   end
 end

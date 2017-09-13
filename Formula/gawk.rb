@@ -1,8 +1,8 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftpmirror.gnu.org/gawk/gawk-4.1.4.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gawk/gawk-4.1.4.tar.xz"
+  url "https://ftp.gnu.org/gnu/gawk/gawk-4.1.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.1.4.tar.xz"
   sha256 "53e184e2d0f90def9207860531802456322be091c7b48f23fdc79cda65adc266"
   revision 1
 

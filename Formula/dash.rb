@@ -1,7 +1,10 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
-  homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz"
+  # http://gondor.apana.org.au/~herbert/dash/ is offline
+  homepage "https://packages.debian.org/source/sid/shells/dash"
+  # http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz is offline
+  url "https://dl.bintray.com/homebrew/mirror/dash-0.5.9.1.tar.gz"
+  mirror "https://ftp.cc.uoc.gr/mirrors/linux/lfs/LFS/svn/d/dash-0.5.9.1.tar.gz"
   sha256 "5ecd5bea72a93ed10eb15a1be9951dd51b52e5da1d4a7ae020efd9826b49e659"
 
   bottle do

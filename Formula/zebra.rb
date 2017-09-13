@@ -1,14 +1,14 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/zebra"
-  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.0.62.tar.gz"
-  sha256 "f14e34509c0b7d6df98f83ff05cf81b8b82919a5a3cdcccf42125caf30f5a7f0"
-  revision 2
+  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.1.0.tar.gz"
+  sha256 "1544f7929d03153ba79ea171b2128f8cab463ae28407035ae5046f8c4a100ea6"
+  revision 1
 
   bottle do
-    sha256 "2272316dbbc77594631a29b6761743e05b6392b6b8740b36b4566c2830dc5da7" => :sierra
-    sha256 "1dadf5775202ed03816d2832c2eed6da9188dea493d44e0ec5b9d46bec2df196" => :el_capitan
-    sha256 "c90da9974618b7ee9b2ec7a7dcb9bd6646d2590a3bb9eda1e5bd0cede98c734f" => :yosemite
+    sha256 "c98b17f3012a43ec0d387ebc6e0db11dad92af2f2fe5c716f731d87a94b79737" => :sierra
+    sha256 "19ae1cd0294e94033228ff1d18e2402880b656945fa7396640bffc81d2f8c5b8" => :el_capitan
+    sha256 "367e0dad7fb9783b537e320f00e77dac008501ed3432e3e0654043f09a327b08" => :yosemite
   end
 
   depends_on "icu4c" => :recommended

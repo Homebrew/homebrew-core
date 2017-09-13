@@ -1,14 +1,14 @@
 class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
-  url "http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz"
-  sha256 "47612c8991aa9ac2f6be721267c8d3cdccf5ac83105df8e50809daea24e95dc7"
+  url "http://download.oracle.com/berkeley-db/db-6.2.32.tar.gz"
+  sha256 "a9c5e2b004a5777aa03510cfe5cd766a4a3b777713406b02809c17c8e0e7a8fb"
 
   bottle do
     cellar :any
-    sha256 "3c2ad512ec0ecb113c966f9a7cfb06e100cb36e9a9b1698808f31b6c43f37ab6" => :sierra
-    sha256 "bb75788493c5a0c8bdb5225b571864f82601d3d4974ae38e5ce7e239f9fb24e3" => :el_capitan
-    sha256 "f194651ba24b94d97ff43629b05d601892f1d7ab87a32184c0e848f1dffaacde" => :yosemite
+    sha256 "eb54f8ab1d0149e073f641ad066e6ffb179afdee83cd3211e90eeaaaa4a7bc9a" => :sierra
+    sha256 "c084857cfdd9bbc5eec028cc551d2323c050489e8a963ec40076270db8d14fb3" => :el_capitan
+    sha256 "1ed9a471cd8a38b58053a86e37b4ec83c09944781158fa20e2ba300f3b374f4f" => :yosemite
   end
 
   depends_on :java => [:optional, :build]

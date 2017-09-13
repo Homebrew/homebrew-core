@@ -1,15 +1,15 @@
 class Gdal < Formula
-  desc "GDAL: Geospatial Data Abstraction Library"
+  desc "Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
   url "http://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
   sha256 "49f99971182864abed9ac42de10545a92392d88f7dbcfdb11afe449a7eb754fe"
-  revision 1
+  revision 3
 
   bottle do
     rebuild 1
-    sha256 "0840b359f99a83c82b0d3bf71b03d806be220fd9be965af74211f867d1967fd2" => :sierra
-    sha256 "b608c991bc57c5c44e2c0fc81c09efc38b3cae2d95b335289d9074790a611e30" => :el_capitan
-    sha256 "5bd37c45673c46be62bc304dd6fcdd8138af762d0935f44113eb366538895457" => :yosemite
+    sha256 "69dcd735eb3543c602e65d2b35be1f09dd62724d8673571397f2802a38d5e3de" => :sierra
+    sha256 "4d960f47450a62f7b59fa3d83691c8379111f6d00ad7231774d21bdcc45ebcc2" => :el_capitan
+    sha256 "4107e0b06a0466f37f5ffe8dfddae8ccc8eafce8c187ccf4382a3986851115bb" => :yosemite
   end
 
   head do
@@ -24,6 +24,7 @@ class Gdal < Formula
   option "with-mdb", "Build with Access MDB driver (requires Java 1.6+ JDK/JRE, from Apple or Oracle)."
   option "with-libkml", "Build with Google's libkml driver (requires libkml --HEAD or >= 1.3)"
   option "with-swig-java", "Build the swig java bindings"
+  option "without-python", "Build without python2 support"
 
   deprecated_option "enable-opencl" => "with-opencl"
   deprecated_option "enable-armadillo" => "with-armadillo"
@@ -41,15 +42,13 @@ class Gdal < Formula
   depends_on "json-c"
   depends_on "libxml2"
   depends_on "pcre"
-
   depends_on "sqlite" # To ensure compatibility with SpatiaLite.
   depends_on "freexl"
   depends_on "libspatialite"
 
   depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
-
-  depends_on "homebrew/science/armadillo" if build.with? "armadillo"
+  depends_on "armadillo" => :optional
 
   if build.with? "libkml"
     depends_on "autoconf" => :build
@@ -59,10 +58,10 @@ class Gdal < Formula
 
   if build.with? "complete"
     # Raster libraries
-    depends_on "homebrew/science/netcdf" # Also brings in HDF5
+    depends_on "netcdf" # Also brings in HDF5
     depends_on "jasper"
     depends_on "webp"
-    depends_on "homebrew/science/cfitsio"
+    depends_on "cfitsio"
     depends_on "epsilon"
     depends_on "libdap"
     depends_on "libxml2"
@@ -85,7 +84,6 @@ class Gdal < Formula
     depends_on "swig" => :build
   end
 
-  option "without-python", "Build without python2 support"
   depends_on :python => :optional if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
   depends_on :fortran => :build if build.with?("python") || build.with?("python3")

@@ -12,7 +12,6 @@ class Log4cxx < Formula
     sha256 "b96afe3f4e4b63017d2061028ed8792c4190996b1e008d8c87c3f52dba660ec5" => :yosemite
   end
 
-  option :universal
   option :cxx11
 
   depends_on "autoconf" => :build
@@ -42,7 +41,6 @@ class Log4cxx < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.O2 # Using -Os causes build failures on Snow Leopard.
     ENV.cxx11 if build.cxx11?
 

@@ -1,30 +1,25 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  url "https://github.com/google/snappy/releases/download/1.1.4/snappy-1.1.4.tar.gz"
-  sha256 "134bfe122fd25599bb807bb8130e7ba6d9bdb851e0b16efcb83ac4f5d0b70057"
+  url "https://github.com/google/snappy/archive/1.1.7.tar.gz"
+  sha256 "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4"
+  head "https://github.com/google/snappy.git"
 
   bottle do
     cellar :any
-    sha256 "c0db3b0eb4ca734ce33c312e28a736d8a3ba642a022267060892141e3f6f2bcb" => :sierra
-    sha256 "171e6724d109bed4cc95b6a843c2637fa0f5ed301dda5063a89b1353c1282488" => :yosemite
+    sha256 "76e10c7f7dcb0aa2618ea961cc8201b5700e0ef6144139728586d9c2d45d91b7" => :sierra
+    sha256 "5ee06fbe8742f3bb428f2bf789b2645a1c727ca68e69a0647cb67d9d906b888e" => :el_capitan
+    sha256 "d8bd1af11a95ab58eacfc3c504ac623702b71d03317b300496fce6ecaee620c0" => :yosemite
   end
 
-  head do
-    url "https://github.com/google/snappy.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   def install
-    ENV.deparallelize if build.stable?
-
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "make", "install"
   end
 

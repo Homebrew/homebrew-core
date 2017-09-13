@@ -1,21 +1,15 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
-  homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.8.tar.gz"
-  sha256 "61b373c23d18e6cc752a69d5ab7f676c6216dc2853e46750a8c4ed791d68482c"
+  homepage "https://redis.io/"
+  url "http://download.redis.io/releases/redis-4.0.1.tar.gz"
+  sha256 "2049cd6ae9167f258705081a6ef23bb80b7eff9ff3d0d7481e89510f27457591"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d936f499fb528c4fbfe6c543f16c19d952b1ac043363234b29bd918d11896ab" => :sierra
-    sha256 "f60eebc6ffe63fe1c954d41046b546a3d6b258f149b823d3dbbef10f02a9ce43" => :el_capitan
-    sha256 "bb620833157655d9cc021174cceb21fc9e74966cd8f19e411df6832e89ebcba1" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/antirez/redis/archive/4.0-rc2.tar.gz"
-    sha256 "70941c192e6afe441cf2c8d659c39ab955e476030c492179a91dcf3f02f5db67"
-    version "4.0RC2"
+    sha256 "83ac38e25d80d6d50b0dd7bb29b3590567dd10bf009550d2245dad5f736c1f1d" => :sierra
+    sha256 "25c04df5a77e2f252e4870b45b9f7bdf0df2a974c59e5cfb7686d7618fb7443d" => :el_capitan
+    sha256 "5127ed80b788c322bf1a5d7c7261a136d114b2e7740e01b879426529b6320f47" => :yosemite
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
@@ -79,5 +73,6 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
+    %w[run db/redis log].each { |p| assert (var/p).exist?, "#{var/p} doesn't exist!" }
   end
 end

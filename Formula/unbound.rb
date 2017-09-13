@@ -1,14 +1,13 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.0.tar.gz"
-  sha256 "6b7db874e6debda742fee8869d722e5a17faf1086e93c911b8564532aeeffab7"
-  revision 1
+  url "https://www.unbound.net/downloads/unbound-1.6.5.tar.gz"
+  sha256 "e297aa1229015f25bf24e4923cb1dadf1f29b84f82a353205006421f82cc104e"
 
   bottle do
-    sha256 "1524bb0a7378a890adcf794bdde5a14b3c7184bab1bad6bdb962ca939d01fc26" => :sierra
-    sha256 "9e776be5da4e9058edaf99a81be1ec16fed7f613a014366eab3bcd6057adc778" => :el_capitan
-    sha256 "88f88dcf06ce464bec1926ed7ba2fda7849b3ff4116c89ac2b69066a0ebfb6d9" => :yosemite
+    sha256 "bcb47ed93aa45b653be0267250d7003ff4ecf047cebb1b9b5748c5937250bbee" => :sierra
+    sha256 "96fe5db92b3d4478af68f4e8c3b53a18e3726f28e3fc3bdddb5826ce372adaa4" => :el_capitan
+    sha256 "8447a8cec994a04866ec10432b807bfab7188a02d2439f7dc8ac4bf44d79de44" => :yosemite
   end
 
   depends_on "openssl"
@@ -27,6 +26,7 @@ class Unbound < Formula
 
     if build.with? "python"
       ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
+      ENV.prepend "PYTHON_VERSION", "2.7"
 
       args << "--with-pyunbound"
       args << "--with-pythonmodule"
@@ -43,9 +43,11 @@ class Unbound < Formula
   end
 
   def post_install
-    if File.read(etc/"unbound/unbound.conf").include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
-      inreplace etc/"unbound/unbound.conf", 'username: "@@HOMEBREW-UNBOUND-USER@@"', "username: \"#{ENV["USER"]}\""
-    end
+    conf = etc/"unbound/unbound.conf"
+    return unless conf.exist?
+    return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
+    inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
+                    "username: \"#{ENV["USER"]}\""
   end
 
   plist_options :startup => true

@@ -13,7 +13,7 @@ class Eject < Formula
   depends_on :xcode => ["8.0", :build]
 
   def install
-    xcodebuild
+    xcodebuild "SYMROOT=build"
     bin.install "build/Release/eject.app/Contents/MacOS/eject"
     frameworks_path = "build/Release/eject.app/Contents/Frameworks"
     mv frameworks_path, frameworks

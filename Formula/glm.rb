@@ -1,16 +1,16 @@
 class Glm < Formula
   desc "C++ mathematics library for graphics software"
   homepage "https://glm.g-truc.net/"
-  url "https://github.com/g-truc/glm/releases/download/0.9.8.3/glm-0.9.8.3.zip"
-  sha256 "e6da1b06702736f84cb5675b3342e6a10c721d46eb29f617d59036a5aadc6017"
+  url "https://github.com/g-truc/glm/releases/download/0.9.8.5/glm-0.9.8.5.zip"
+  sha256 "9f9f520ec7fb8c20c69d6b398ed928a2448c6a3245cbedb8631a56a987c38660"
 
   head "https://github.com/g-truc/glm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cff9b98a4cec203adc38cd1768179dc9068f89b6e743b40098108be5df86c0b5" => :sierra
-    sha256 "cff9b98a4cec203adc38cd1768179dc9068f89b6e743b40098108be5df86c0b5" => :el_capitan
-    sha256 "cff9b98a4cec203adc38cd1768179dc9068f89b6e743b40098108be5df86c0b5" => :yosemite
+    sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :sierra
+    sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :el_capitan
+    sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :yosemite
   end
 
   option "with-doxygen", "Build documentation"

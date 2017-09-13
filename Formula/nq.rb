@@ -1,16 +1,16 @@
 class Nq < Formula
   desc "Unix command-line queue utility"
   homepage "https://github.com/chneukirchen/nq"
-  url "https://github.com/chneukirchen/nq/archive/v0.1.tar.gz"
-  sha256 "e0962a5e6a2cbf799bba7a79af22c40d21e5a80605df42c8bba37d3d8efb1793"
+  url "https://github.com/chneukirchen/nq/archive/v0.2.1.tar.gz"
+  sha256 "1773290791cce646e5e54e935118498a95948ca39ff5d58ac6dc65135275d3fc"
 
   head "https://github.com/chneukirchen/nq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f321a091c031ca3870cfd10844835ddbef55bd82c8c6ecf5275ae3323b9b4897" => :sierra
-    sha256 "5ce475e389f345a2f1a0376a4253cf59672393f58b88e5a03b25f4c3c7d14ba6" => :el_capitan
-    sha256 "1d6d53c0c53a230a600ee3be346c07625d7deffd2c134c46eb61d429d4392722" => :yosemite
+    sha256 "628282013a47d803037a67425f45ffae15d981e970e1f460854359a9aa124f35" => :sierra
+    sha256 "338e55ded1d9d3ac8c2efdb97a8ccd0832ff5a84d1c90937a6c1f23ce6426518" => :el_capitan
+    sha256 "a85312b7a2ed7cfda110cb1b7c5e2cf5bd9a5eb87b2597a33e6b6a30f3c6c395" => :yosemite
   end
 
   depends_on :macos => :yosemite

@@ -20,16 +20,16 @@ class GccAT46 < Formula
   end
 
   desc "GNU compiler collection"
-  homepage "https://gcc.gnu.org"
-  url "https://ftpmirror.gnu.org/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
+  homepage "https://gcc.gnu.org/"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2"
   sha256 "35af16afa0b67af9b8eb15cafb76d2bc5f568540552522f5dc2c88dd45d977e8"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "61d78914d2f4bb499b075b5cbf70dd8a333ab5f29d4274c35054f4e9aa2a4260" => :sierra
-    sha256 "4db90407af9ee48b59295ac5f67d821b706e50414ab33ecb5cb974ab21b2855f" => :el_capitan
-    sha256 "376688c133561cae1ac5ddca171b4ba1df1dc68c5045b377d8cd926b15d6f7af" => :yosemite
+    sha256 "08fa2595627a85927e6cfd3eeb89af93e4f41598cda83ee28b5b213afa72b0c5" => :sierra
+    sha256 "f423fb652caf588aee4e9b4b9936cd7fa203d4cc3e61175a5b5e93163d0f80bc" => :el_capitan
+    sha256 "f60768524f18e5d070469a736ce439f965eebbf76089913fd6881b4c1d779e78" => :yosemite
   end
 
   # Fixes build with Xcode 7.
@@ -44,15 +44,12 @@ class GccAT46 < Formula
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
-  # enabling multilib on a host that can't run 64-bit results in build failures
-  option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
 
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-java" => "with-java"
   deprecated_option "enable-all-languages" => "with-all-languages"
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
-  deprecated_option "disable-multilib" => "without-multilib"
 
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
@@ -70,10 +67,35 @@ class GccAT46 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Fix 10.10 issues: https://gcc.gnu.org/viewcvs/gcc?view=revision&revision=215251
   patch :p0 do
-    url "https://trac.macports.org/export/126996/trunk/dports/lang/gcc48/files/patch-10.10.diff"
-    sha256 "61e5d0f18db59220cbd99717e9b644c1d0f3502b09ada746b60850cacda07328"
+    url "https://raw.githubusercontent.com/macports/macports-ports/05dab25ebcba1614370b589a8cdb7b7d0e341007/lang/gcc46/files/gcc-4.6-cloog_lang_c.patch"
+    sha256 "51e1c5981784b99ac65aed0fc2c50be5a3e023b45cea4e20b308a70f2a0661b4"
+  end
+
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/580a803587c463c9d5a68bcaa91fa75f384fa268/lang/gcc46/files/enable_libstdcxx_time_yes.patch"
+    sha256 "e9e34c10db7849cc2f72e8e8d4d5e9cd1b3a2fe92fe317183fc575286999179f"
+  end
+
+  # Don't check Darwin kernel version (GCC PR target/61407
+  # <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61407>).
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/70b8c296e68e90d13e589c9d1ffae73f52484a3a/lang/gcc46/files/remove-kernel-version-check.patch"
+    sha256 "7f23c4e98b3a673a9d0fbbe1636e72e210d4739f6f0df9ffe45f59df8ef578eb"
+  end
+
+  # Handle OS X deployment targets correctly (GCC PR target/63810
+  # <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63810>).
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/70b8c296e68e90d13e589c9d1ffae73f52484a3a/lang/gcc46/files/macosx-version-min.patch"
+    sha256 "d8ad7c90e9de6a6288310ffe12498747da8db4c703317362e06c8298af7066ef"
+  end
+
+  # Don't link with "-flat_namespace -undefined suppress" on Yosemite and
+  # later (#45483).
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/77a7df3e41b6fac5c94934329cedb2fee8830344/lang/gcc46/files/yosemite-libtool.patch"
+    sha256 "9fdcc58d6303e6c649e745f9dece182244874d40cbaf743cd8b5f8ecb0e72b5c"
   end
 
   def install
@@ -115,6 +137,7 @@ class GccAT46 < Formula
       "--enable-stage1-checking",
       "--enable-checking=release",
       "--enable-lto",
+      "--enable-plugin",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
@@ -125,24 +148,16 @@ class GccAT46 < Formula
       "MAKEINFO=missing",
     ]
 
-    # "Building GCC with plugin support requires a host that supports
-    # -fPIC, -shared, -ldl and -rdynamic."
-    args << "--enable-plugin" if MacOS.version > :tiger
-
-    # Otherwise make fails during comparison at stage 3
-    # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if MacOS.version < :leopard
-
     args << "--disable-nls" if build.without? "nls"
 
     if build.with?("java") || build.with?("all-languages")
       args << "--with-ecj-jar=#{Formula["ecj"].opt_prefix}/share/java/ecj.jar"
     end
 
-    if !MacOS.prefer_64_bit? || build.without?("multilib")
-      args << "--disable-multilib"
-    else
+    if MacOS.prefer_64_bit?
       args << "--enable-multilib"
+    else
+      args << "--disable-multilib"
     end
 
     mkdir "build" do

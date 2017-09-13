@@ -1,16 +1,12 @@
 class Orientdb < Formula
   desc "Graph database"
-  homepage "https://orientdb.com"
-  url "https://orientdb.com/download.php?file=orientdb-community-2.2.15.tar.gz"
-  sha256 "9a553c9d91eb03d954b085c6ecbe05c54526b166c8ca86f1fb27036b2f4dba03"
+  homepage "https://orientdb.com/"
+  url "https://orientdb.com/download.php?file=orientdb-community-importers-2.2.26.tar.gz"
+  sha256 "492027ceaf003baefe5a0cdd5557f5b32f3d268001e95d720df7f46623b8e6e4"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "359342720516992b900b46b28847870513e30223e45f09f8b2507eb5c5889ecb" => :sierra
-    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :el_capitan
-    sha256 "19ffbe060238c64b9077624a2ff95759767592aec181234a4a7d9f05707c0dbd" => :yosemite
-  end
+  bottle :unneeded
+
+  depends_on :java => "1.6+"
 
   def install
     rm_rf Dir["{bin,benchmarks}/*.{bat,exe}"]
@@ -48,14 +44,13 @@ class Orientdb < Formula
     sleep 3
     system "#{bin}/orientdb", "start"
     sleep 3
-
   ensure
     system "#{bin}/orientdb", "stop"
   end
 
   def caveats; <<-EOS.undent
     The OrientDB root password was set to 'orientdb'. To reset it:
-      http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+      https://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
     EOS
   end
 
@@ -99,7 +94,7 @@ class Orientdb < Formula
       "  <entry name=\"server.database.path\" value=\"#{testpath}\" />\n    </properties>"
 
     begin
-      assert_match /OrientDB console v.2.2.15/, pipe_output("#{bin}/orientdb-console \"exit;\"")
+      assert_match "OrientDB console v.#{version}", pipe_output("#{bin}/orientdb-console \"exit;\"")
     end
   end
 end

@@ -1,8 +1,8 @@
 class Diction < Formula
   desc "GNU diction and style"
   homepage "https://www.gnu.org/software/diction/"
-  url "https://ftpmirror.gnu.org/diction/diction-1.11.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/diction/diction-1.11.tar.gz"
+  url "https://ftp.gnu.org/gnu/diction/diction-1.11.tar.gz"
+  mirror "https://ftpmirror.gnu.org/diction/diction-1.11.tar.gz"
   sha256 "35c2f1bf8ddf0d5fa9f737ffc8e55230736e5d850ff40b57fdf5ef1d7aa024f6"
 
   bottle do

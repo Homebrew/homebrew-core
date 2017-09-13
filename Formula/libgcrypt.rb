@@ -1,26 +1,17 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.6.tar.bz2"
-  sha256 "626aafee84af9d2ce253d2c143dc1c0902dda045780cc241f39970fc60be05bc"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.1.tar.bz2"
+  sha256 "7a2875f8b1ae0301732e878c0cca2c9664ff09ef71408f085c50e332656a78b3"
 
   bottle do
     cellar :any
-    sha256 "80363bc060150813df38493638551e24b48e8c9bf106e06e22c98b51cad65687" => :sierra
-    sha256 "360f008a45b2c32de7963f307ff80da0b53cf2d257c87412dc2465984a3797ec" => :el_capitan
-    sha256 "461822c0429c16e33c2c5f8be173fedc3228cea786683e463ae628789ea6c1e1" => :yosemite
+    sha256 "e7528cc28b8287e0498a92b269b3148435dcb08b3012974a0ca3883b8e959a53" => :sierra
+    sha256 "8bfa6159d5615cfca50ca7a2ef1bb5990f79a91f230b853d861f6ed356e1ac63" => :el_capitan
+    sha256 "141c42f7f8e2298d504e6cc99d8b087ed698146fcb8be304a60b9f3d0409787a" => :yosemite
   end
-
-  option :universal
 
   depends_on "libgpg-error"
-
-  resource "config.h.ed" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/libgcrypt/config.h.ed"
-    version "113198"
-    sha256 "d02340651b18090f3df9eed47a4d84bed703103131378e1e493c26d7d0c7aab1"
-  end
 
   def install
     # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
@@ -28,21 +19,15 @@ class Libgcrypt < Formula
     # keep checking whether or not this is necessary.
     # Should be reported to GnuPG if still an issue when near stable.
     # https://github.com/Homebrew/homebrew-core/issues/1957
-    ENV.O1 if DevelopmentTools.clang_build_version >= 800
-
-    ENV.universal_binary if build.universal?
+    ENV.O1 if DevelopmentTools.clang_build_version == 800
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
-
-    if build.universal?
-      buildpath.install resource("config.h.ed")
-      system "ed -s - config.h <config.h.ed"
-    end
+                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
+                          "--disable-jent-support" # Requires ENV.O0, which is unpleasant.
 
     # Parallel builds work, but only when run as separate steps
     system "make"

@@ -16,7 +16,6 @@ class Liquigraph < Formula
   depends_on :java => "1.8+"
 
   def install
-    ENV.java_cache
     system "mvn", "-q", "clean", "package", "-DskipTests"
     (buildpath/"binaries").mkpath
     system "tar", "xzf", "liquigraph-cli/target/liquigraph-cli-bin.tar.gz", "-C", "binaries"

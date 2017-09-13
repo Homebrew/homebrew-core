@@ -9,8 +9,8 @@ class Lorem < Formula
     sha256 "bb103552d6532e4e0276a936b9cec02ceffd5dce56325f2bf53fed8203a26ae1"
     # Patch to fix broken -q option in latest numbered release
     patch do
-      url "https://github.com/per9000/lorem/commit/1e3167d15b1337665a236a1e65a582ad2e3dd994.diff"
-      sha256 "b0675f2d6d939ab2adf0334a2ec20684b66b415e7b231e13cdbfc2608501283f"
+      url "https://github.com/per9000/lorem/commit/1e3167d15b1337665a236a1e65a582ad2e3dd994.diff?full_index=1"
+      sha256 "151234f4d75d1533b98d1c0f4cb75ab5b2d51eef12586a1c83ad5376f3dadd60"
     end
   end
 

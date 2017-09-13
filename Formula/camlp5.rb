@@ -1,26 +1,21 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
-  homepage "http://camlp5.gforge.inria.fr/"
-  url "https://github.com/camlp5/camlp5/archive/rel617.tar.gz"
-  version "6.17"
-  sha256 "8fa2a46a7030b1194862650cbb71ab52a10a0174890560a8b6edf236f8937414"
+  homepage "https://camlp5.github.io/"
+  url "https://github.com/camlp5/camlp5/archive/rel701.tar.gz"
+  version "7.01"
+  sha256 "c83640ffabc5506d7b9c9fdcc342062dee1eabd90de547c0471faf5ef5560540"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "d91457bf0c22c9800157108f6bc2e4d7d0b3c13802b209798e2e927383fa776f" => :sierra
-    sha256 "9b0b537f3acd5be4f4cce7e1c94406cb164b2fb9cc4fad4d5c0dd1f3067692f8" => :el_capitan
-    sha256 "23def55a97deaac228590e894746a2384e0cb2a3704cc8aa83cb18c302127d62" => :yosemite
+    sha256 "3e09643461db1f8c260098232c16819d120f6f6808c50df1854d5143c54cbeb3" => :sierra
+    sha256 "8294ff79a57b8fa4394e3666f920b11a4732cc2d1af1081e1edb2b9c9b153122" => :el_capitan
+    sha256 "724d78905bd0c4ee316025f0bf255209ac3657c2e915cddf8c26bb1d1e88ae2c" => :yosemite
   end
 
   deprecated_option "strict" => "with-strict"
   option "with-strict", "Compile in strict mode (not recommended)"
-  option "with-tex", "Install the pdf, ps, and tex documentation"
-  option "with-doc", "Install the html and info documentation"
 
   depends_on "ocaml"
-  depends_on :tex => [:build, :optional]
-  depends_on "ghostscript" => :build if build.with?("tex")
-  depends_on "gnu-sed" => :build if build.with?("doc") || build.with?("tex")
 
   def install
     args = ["--prefix", prefix, "--mandir", man]
@@ -29,22 +24,6 @@ class Camlp5 < Formula
     system "./configure", *args
     system "make", "world.opt"
     system "make", "install"
-
-    if build.with?("doc") || build.with?("tex")
-      ENV.deparallelize
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
-      cd "doc/htmlp"
-      if build.with? "doc"
-        system "make" # outputs the html version of the docs in ../html
-        system "make", "info"
-        doc.install "../html", Dir["camlp5.info*"]
-      end
-      if build.with? "tex"
-        inreplace "Makefile", "ps2pdf", Formula["ghostscript"].opt_bin/"ps2pdf"
-        system "make", "tex", "ps", "pdf"
-        doc.install "camlp5.tex", "camlp5.ps", "camlp5.pdf"
-      end
-    end
   end
 
   test do

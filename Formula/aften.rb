@@ -15,7 +15,7 @@ class Aften < Formula
   depends_on "cmake" => :build
 
   resource "sample_wav" do
-    url "http://www.mediacollege.com/audio/tone/files/1kHz_44100Hz_16bit_05sec.wav"
+    url "https://www.mediacollege.com/audio/tone/files/1kHz_44100Hz_16bit_05sec.wav"
     sha256 "949dd8ef74db1793ac6174b8d38b1c8e4c4e10fb3ffe7a15b4941fa0f1fbdc20"
   end
 

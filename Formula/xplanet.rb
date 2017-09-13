@@ -3,12 +3,12 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "26b9ea053ce88f65e9ec0c2fe3497a54a76de71c05820cabef881644b457e89c" => :sierra
-    sha256 "7e949972c1819afa7904a32a036278d42df8db372cd1725e25a30552104e1c88" => :el_capitan
-    sha256 "6a6189f20e2bc255048feed40d60ceebf9b5fab3ff14816b9b242cc77bf6b57b" => :yosemite
+    sha256 "eedbdc803d69fa1635e763eafa90ffd071b537e994a5fbdbe9eb84e69c0fc645" => :sierra
+    sha256 "6d37f0965bc1b1f1aa438fec8ea9e57a096681336dba25dc880f25cb752f3910" => :el_capitan
+    sha256 "4c0e0c1b025079129f808e85d3d5e76280799929fa6e9d119000e94283769a8d" => :yosemite
   end
 
   option "with-x11", "Build for X11 instead of Aqua"
@@ -42,6 +42,13 @@ class Xplanet < Formula
   patch :p2 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/f952f1d/xplanet/xplanet-1.3.1-ntimes.patch"
     sha256 "3f95ba8d5886703afffdd61ac2a0cd147f8d659650e291979f26130d81b18433"
+  end
+
+  # Fix compilation with giflib 5
+  # https://xplanet.sourceforge.io/FUDforum2/index.php?t=msg&th=592
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xplanet/xplanet-1.3.1-giflib5.patch"
+    sha256 "0a88a9c984462659da37db58d003da18a4c21c0f4cd8c5c52f5da2b118576d6e"
   end
 
   def install

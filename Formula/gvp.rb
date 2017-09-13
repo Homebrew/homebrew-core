@@ -14,8 +14,8 @@ class Gvp < Formula
 
   # Upstream fix for "syntax error near unexpected token `;'"
   patch do
-    url "https://github.com/pote/gvp/commit/11c4cefd.patch"
-    sha256 "59379b52fc13d79ea03de453cd58df98ad5ddd49ba3ba5d784b8bee7649e9cd7"
+    url "https://github.com/pote/gvp/commit/11c4cefd.patch?full_index=1"
+    sha256 "19c59c5185d351e05d0b3fbe6a4dba3960c34a804d67fe320e3189271374c494"
   end
 
   def install

@@ -1,14 +1,14 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
-  homepage "http://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v18.0/nzbget-18.0-src.tar.gz"
-  sha256 "4bc6366286988647d42165b442a62b73a1328d7e5b5067bd0078650e1716f55b"
+  homepage "https://nzbget.net/"
+  url "https://github.com/nzbget/nzbget/releases/download/v19.1/nzbget-19.1-src.tar.gz"
+  sha256 "06df42356ac2d63bbc9f7861abe9c3216df56fa06802e09e8a50b05f4ad95ce6"
   head "https://github.com/nzbget/nzbget.git"
 
   bottle do
-    sha256 "4122f1e0e65146db39423ad467b15653aec13000f1e5cbbd226c6c6d5fc539f9" => :sierra
-    sha256 "2ba87471a8ba0b1da2493027bdbf6ced4be0e14e91e4b7e1a457d6f6c4b76565" => :el_capitan
-    sha256 "6044d03c4f60356e89ee108d9d30be764137adec5c300bca2a795d81130821c6" => :yosemite
+    sha256 "b2b460f1f4a850d282b3faa56a0cdc66d7d9f2072e34528fe1fc875f615e3705" => :sierra
+    sha256 "3aa8bd8510dbde22143fa6d9637d664951c4a48758c840548dcee0ce48f3b95f" => :el_capitan
+    sha256 "f9731421aa1289d62d9f30691c3e643e8548eb066d55c72511ad74d994e826e7" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -27,7 +27,7 @@ class Nzbget < Formula
     cause <<-EOS.undent
       Clang older than 5.1 requires flexible array members to be POD types.
       More recent versions require only that they be trivially destructible.
-      EOS
+    EOS
   end
 
   def install

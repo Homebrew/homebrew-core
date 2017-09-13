@@ -1,14 +1,13 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.2/hbase-1.2.2-bin.tar.gz"
-  sha256 "8c9cc9a19e3f4a3137509513b5c1b9e1b5a2283ed261d44af9af1c02c5453c20"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6/hbase-1.2.6-bin.tar.gz"
+  sha256 "a0fbc22373a7f2d66648c6d9fe13477e689df50c8ee533eda962d4e8fa2185ea"
 
   bottle do
-    sha256 "86649e9faaa2d32bdf1d3c79bb8264afde9f7cd6196800ea4c5eb1753df7bf9e" => :sierra
-    sha256 "8f1972d8b77e7f5d83cdca0fff543205cecf6f5034bfc7a5aeb32da9ef0215ae" => :el_capitan
-    sha256 "2aba5a41ee729ad6a0897e317a5ddcbae9b80fbc22c9b997e1b98dbdd37aef8c" => :yosemite
-    sha256 "f6f10e6ccd23fc9f9586f570aca9c27fbb6500ae9156d63ad905ecda0eb9073e" => :mavericks
+    sha256 "bb48048be73c3782d7d56725228998a0ee62673ba9d628ae9869e7e855109f5b" => :sierra
+    sha256 "546eba2acf3f87d88dc9208d687dfa02c88fcada2f3ede27d732b9415187b0f8" => :el_capitan
+    sha256 "49ca44b35f6d9239eb6f02ea504e2a83f78552faa85e30dd1b8f6b4664875494" => :yosemite
   end
 
   depends_on :java => "1.7+"
@@ -27,7 +26,6 @@ class Hbase < Formula
   end
 
   def install
-    ENV.java_cache if build.with? "lzo"
     rm_f Dir["bin/*.cmd", "conf/*.cmd"]
     libexec.install %w[bin conf docs lib hbase-webapps]
 
@@ -77,7 +75,7 @@ class Hbase < Formula
       <configuration>
         <property>
           <name>hbase.rootdir</name>
-          <value>#{(build.with? "hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
+          <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
         </property>
         <property>
           <name>hbase.zookeeper.property.clientPort</name>
@@ -115,7 +113,7 @@ class Hbase < Formula
     <plist version="1.0">
     <dict>
       <key>KeepAlive</key>
-      #{(build.without? "hadoop") ? "<true/>" : "<dict>\n        <key>OtherJobEnabled</key>\n        <string>"+Formula["hadoop"].plist_name+"</string>\n      </dict>"}
+      #{build.without?("hadoop") ? "<true/>" : "<dict>\n        <key>OtherJobEnabled</key>\n        <string>"+Formula["hadoop"].plist_name+"</string>\n      </dict>"}
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>EnvironmentVariables</key>
@@ -168,9 +166,9 @@ class Hbase < Formula
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
     system "#{bin}/start-hbase.sh"
-    sleep 2
+    sleep 10
     begin
-      assert_match /Zookeeper/, pipe_output("nc 127.0.0.1 2181 2>&1", "stats")
+      assert_match "Zookeeper", pipe_output("nc 127.0.0.1 2181 2>&1", "stats")
     ensure
       system "#{bin}/stop-hbase.sh"
     end

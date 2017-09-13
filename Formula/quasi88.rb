@@ -1,7 +1,7 @@
 class Quasi88 < Formula
   desc "PC-8801 emulator"
-  homepage "http://www.eonet.ne.jp/~showtime/quasi88/"
-  url "http://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.6.4.tgz"
+  homepage "https://www.eonet.ne.jp/~showtime/quasi88/"
+  url "https://www.eonet.ne.jp/~showtime/quasi88/release/quasi88-0.6.4.tgz"
   sha256 "2c4329f9f77e02a1e1f23c941be07fbe6e4a32353b5d012531f53b06996881ff"
 
   bottle do

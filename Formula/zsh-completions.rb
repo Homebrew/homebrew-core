@@ -1,8 +1,8 @@
 class ZshCompletions < Formula
   desc "Additional completion definitions for zsh"
   homepage "https://github.com/zsh-users/zsh-completions"
-  url "https://github.com/zsh-users/zsh-completions/archive/0.22.0.tar.gz"
-  sha256 "cfb8c4af39c3df4c2d087f5829dc6f0c1cfcc2b2110bcc7e47b59cff5615a79f"
+  url "https://github.com/zsh-users/zsh-completions/archive/0.26.0.tar.gz"
+  sha256 "783768c8308cc0ff37bce346c66386308550ede05121e352b1a284ff6bf88540"
 
   head "https://github.com/zsh-users/zsh-completions.git"
 
@@ -30,11 +30,11 @@ class ZshCompletions < Formula
   end
 
   test do
-    (testpath/".zshrc").write <<-EOS.undent
-      fpath=(#{HOMEBREW_PREFIX}/share/zsh-completions $fpath)
-      autoload -U compinit
-      compinit
+    (testpath/"test.zsh").write <<-EOS.undent
+      fpath=(#{pkgshare} $fpath)
+      autoload _ack
+      which _ack
     EOS
-    system "/bin/zsh", "--login", "-i", "-c", "which _ack"
+    assert_match /^_ack/, shell_output("/bin/zsh test.zsh")
   end
 end

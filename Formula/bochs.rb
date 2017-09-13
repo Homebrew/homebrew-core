@@ -1,24 +1,34 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.8/bochs-2.6.8.tar.gz"
-  sha256 "79700ef0914a0973f62d9908ff700ef7def62d4a28ed5de418ef61f3576585ce"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
+  sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
+  revision 1
 
   bottle do
-    sha256 "6797f2b0af54f4ab18d6e299c1a58b87058a6d4d40605479ff8e9084814cf08b" => :sierra
-    sha256 "ab55b5ad21ade857ea4d306dbf8b80a97144b47fb2cef18dc6e861833db84902" => :el_capitan
-    sha256 "09006b2fee12fc83ded1859991d40964d8710b712e207672dba0b5ef65bf931a" => :yosemite
+    sha256 "8dd191ff5085b435ff26cd53026d8afada7fa9e18d84a985da2a6a9d6b179a64" => :sierra
+    sha256 "395ce5d3047ee0b98c8eb2130a8661d319a0926c19e7ebf6b31fc01dee0e8edf" => :el_capitan
+    sha256 "b32844f457ead67e1a656a1a6d05c0a67d56cc1b68d0ffb60f86d3c8ec0f50cf" => :yosemite
   end
 
   option "with-gdb-stub", "Enable GDB Stub"
+  option "without-sdl2", "Disable graphical support"
 
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
+  depends_on "sdl2" => :recommended
+
+  # Fix pointer cast issue
+  # https://sourceforge.net/p/bochs/patches/537/
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9b520dd4c/bochs/xcode9.patch"
+      sha256 "373c670083a3e96f4012cfe7356d8b3584e2f0d10196b4294d56670124f5e5e7"
+    end
+  end
 
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-sdl2
       --with-nogui
       --enable-disasm
       --disable-docbook
@@ -34,15 +44,19 @@ class Bochs < Formula
       --enable-debugger-gui
       --enable-readline
       --enable-iodebug
-      --enable-xpm
       --enable-show-ips
       --enable-logging
       --enable-usb
-      --enable-ne2000
       --enable-cpu-level=6
       --enable-clgd54xx
+      --enable-avx
+      --enable-vmx=2
+      --enable-smp
+      --enable-long-phy-addres
       --with-term
     ]
+
+    args << "--with-sdl2" if build.with? "sdl2"
 
     if build.with? "gdb-stub"
       args << "--enable-gdb-stub"
@@ -64,6 +78,7 @@ class Bochs < Formula
         error: action=report
         info: action=ignore
         debug: action=ignore
+        display_library: nogui
       EOS
 
     expected = <<-ERR.undent

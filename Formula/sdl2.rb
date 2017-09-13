@@ -21,7 +21,6 @@ class Sdl2 < Formula
   end
 
   option "with-test", "Compile and install the tests"
-  option :universal
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
   if MacOS.version <= :snow_leopard
@@ -36,8 +35,6 @@ class Sdl2 < Formula
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl2.pc.in sdl2-config.in], "@prefix@", HOMEBREW_PREFIX
-
-    ENV.universal_binary if build.universal?
 
     system "./autogen.sh" if build.head? || build.devel?
 

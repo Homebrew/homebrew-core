@@ -1,15 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2016.12.19.00.tar.gz"
-  sha256 "471050ccd2a32f551eb11f43170d3f9cdd39d363ec026ca922b872d1c03831c1"
-  revision 3
+  url "https://github.com/facebook/folly/archive/v2017.09.11.00.tar.gz"
+  sha256 "926197dbf7930ccfe7ca3a515fc457ba812b99c8da6e486bd7c811d1fd5ff452"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "3244a681eba41c71c305c52917e10b01570b52a676c35170ce985de5372e7380" => :sierra
-    sha256 "54e2925474c7eae238431543e7f5039d24d0f06b54a96e96268cfcdc620a5c4e" => :el_capitan
+    sha256 "d7ed7d7defc5f5b4888733c77d2a7324f658418beaa5695fefab50a8eab8e29c" => :sierra
+    sha256 "abfd0aa06ddd2d766d0eb948dd590d3a5197161cc93544f296f90e882e1c54e0" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -39,26 +38,6 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
-      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-        # Workaround for "no matching function for call to 'clock_gettime'"
-        # See upstream PR from 2 Oct 2016 facebook/folly#488
-        inreplace ["Benchmark.cpp", "Benchmark.h"] do |s|
-          s.gsub! "clock_gettime(CLOCK_REALTIME",
-                  "clock_gettime((clockid_t)CLOCK_REALTIME"
-          s.gsub! "clock_getres(CLOCK_REALTIME",
-                  "clock_getres((clockid_t)CLOCK_REALTIME", false
-        end
-
-        # Fix "candidate function not viable: no known conversion from
-        # 'folly::detail::Clock' to 'clockid_t' for 1st argument"
-        # See upstream PR mentioned above
-        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
-      end
-
-      # Fixes the .pc file, which references the gflags .pc under the wrong name.
-      # Applied upstream: https://github.com/facebook/folly/pull/531
-      inreplace "configure.ac", "[libgflags]", "[gflags]"
-
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
                             "--disable-dependency-tracking"

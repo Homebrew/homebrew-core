@@ -1,17 +1,15 @@
 class Dfc < Formula
   desc "Display graphs and colors of file system space/usage"
   homepage "https://projects.gw-computing.net/projects/dfc"
-  url "https://projects.gw-computing.net/attachments/download/467/dfc-3.0.5.tar.gz"
-  sha256 "3c947a1d6bc53347b1643921dcbf4c6f8fe7eb6167fc1f4e9436366f036d857a"
+  url "https://projects.gw-computing.net/attachments/download/615/dfc-3.1.1.tar.gz"
+  sha256 "962466e77407dd5be715a41ffc50a54fce758a78831546f03a6bb282e8692e54"
 
   head "https://github.com/Rolinh/dfc.git"
 
   bottle do
-    rebuild 1
-    sha256 "84aa5e5c131bd298a8ddf951ede00a43b8ea91c317c8f103cb0e9ec13c07deba" => :sierra
-    sha256 "f0d98c80bb3ce8904059831e74ff0cbfede28f61ba50ecf9a4c12e3f1f8875eb" => :el_capitan
-    sha256 "1aadc4c37cfe8720c7dccd6e99f67793c1bff8dcea56397913f6c0ce2c5bc0ad" => :yosemite
-    sha256 "2f8b4a76d3d7d910229bd68fc30d68cf1289abf1e40fb8fd4c687ae365c6a25d" => :mavericks
+    sha256 "029104b15817e039032593cb9828b76f42f4362b63eeb7d582c7d0d90fc917b8" => :sierra
+    sha256 "bd407f57305b87838f0083c5a3d65493a76097fda65f4ffeebacfbcf33baeddf" => :el_capitan
+    sha256 "ba254d9a1213beb84728657e996c667eb9a87f61ea118d12cf022b389a2e35b0" => :yosemite
   end
 
   depends_on "cmake" => :build

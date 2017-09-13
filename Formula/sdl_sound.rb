@@ -4,14 +4,13 @@ class SdlSound < Formula
   url "https://icculus.org/SDL_sound/downloads/SDL_sound-1.0.3.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sdl-sound1.2/sdl-sound1.2_1.0.3.orig.tar.gz"
   sha256 "3999fd0bbb485289a52be14b2f68b571cb84e380cc43387eadf778f64c79e6df"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "28aed65a75d7b76f72b5e18db7fb77e0fd1662b8c9db2ad5d7089aabf9cc3176" => :sierra
-    sha256 "a0cf4506b9faf4729f74bf5fa0035a47d5fe68bec2d1fd8b52841d9f3f06c73c" => :el_capitan
-    sha256 "9b44c60636c37d24d3344283b79f8ce292efedb035d00269f8afc0b1ba65f7c3" => :yosemite
-    sha256 "e05e8e051e8dd043001714a4c95d2ef5ebbe1f0abe9d7a4e89ab9eb95ec475a9" => :mavericks
-    sha256 "ab8a1acb87b1b626ef287684b8e2a32d265ca9e70abb9443d3163cf865cdde0f" => :mountain_lion
+    sha256 "0e692b6c08600d6d7014fc582b5a351e8a4eea42ce95d231ef39a0c07c41c71b" => :sierra
+    sha256 "fd93d8be366bfe3f16839f50d11ab1149cc725c6bf6248befe90feae25c0e052" => :el_capitan
+    sha256 "8f06d7c6c18c8a5192aebf5672c20f9f3b27bbd3109459ef96110d935c00f87b" => :yosemite
   end
 
   head do
@@ -22,20 +21,16 @@ class SdlSound < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
+  depends_on "libogg"
+  depends_on "libvorbis"
   depends_on "sdl"
   depends_on "flac" => :optional
   depends_on "libmikmod" => :optional
-  depends_on "libogg" => :optional
-  depends_on "libvorbis" => :optional
   depends_on "speex" => :optional
   depends_on "physfs" => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     if build.head?
       inreplace "bootstrap", "/usr/bin/glibtoolize", "#{Formula["libtool"].opt_bin}/glibtoolize"
       system "./bootstrap"

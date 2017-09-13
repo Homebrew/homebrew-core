@@ -1,5 +1,5 @@
 class Abuse < Formula
-  desc "dark 2D side-scrolling platform game"
+  desc "Dark 2D side-scrolling platform game"
   homepage "http://abuse.zoy.org/"
   url "http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz"
   sha256 "0104db5fd2695c9518583783f7aaa7e5c0355e27c5a803840a05aef97f9d3488"

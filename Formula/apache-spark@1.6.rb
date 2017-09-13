@@ -1,7 +1,7 @@
 class ApacheSparkAT16 < Formula
   desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org"
-  url "http://d3kbcqa49mib13.cloudfront.net/spark-1.6.3-bin-hadoop2.6.tgz"
+  url "https://d3kbcqa49mib13.cloudfront.net/spark-1.6.3-bin-hadoop2.6.tgz"
   version "1.6.3"
   sha256 "389e79458ad1d8ad8044643d97304d09bf3ca31f804c386e560033c48123cd69"
   revision 1

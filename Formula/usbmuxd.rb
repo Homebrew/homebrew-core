@@ -1,6 +1,6 @@
 class Usbmuxd < Formula
   desc "USB multiplexor daemon for iPhone and iPod Touch devices"
-  homepage "http://www.libimobiledevice.org"
+  homepage "http://www.libimobiledevice.org/"
   revision 1
 
   stable do
@@ -9,8 +9,8 @@ class Usbmuxd < Formula
 
     # Backport of upstream security fix for CVE-2016-5104.
     patch do
-      url "https://github.com/libimobiledevice/libusbmuxd/commit/4397b3376dc4.patch"
-      sha256 "9f3a84c8d0a32df13985f6574f5f0e86af435a67606612c0811df631070a97e3"
+      url "https://github.com/libimobiledevice/libusbmuxd/commit/4397b3376dc4.patch?full_index=1"
+      sha256 "b28e17c82dc11320741d33cf68fd78e1baec9e4133f5265b944f167839cbe9bb"
     end
   end
 
@@ -23,7 +23,7 @@ class Usbmuxd < Formula
   end
 
   head do
-    url "http://git.sukimashita.com/libusbmuxd.git"
+    url "https://git.sukimashita.com/libusbmuxd.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build

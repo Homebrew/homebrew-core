@@ -1,24 +1,22 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
-  homepage "https://github.com/bentley/rgbds"
-  url "https://github.com/bentley/rgbds/releases/download/v0.2.4/rgbds-0.2.4.tar.gz"
-  sha256 "a7d32f369c6acf65fc0875c72873ef21f4d3a5813d3a2ab74ea604429f7f0435"
-
-  head "https://github.com/bentley/rgbds.git"
+  homepage "https://github.com/rednex/rgbds"
+  url "https://github.com/rednex/rgbds/archive/v0.3.2.tar.gz"
+  sha256 "82a96be0ab18d847f189f79e932b10d6fd47213868cd8c282e3523395c01999b"
+  head "https://github.com/rednex/rgbds.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ea6db1238c05eba1f3d37c06d55b73119f3dd8d7e8e748191b59fd24f91ad833" => :sierra
-    sha256 "46c4d64f4ac330933afec620fb70e469461157d28bd52ddc726ab25de412a3b4" => :el_capitan
-    sha256 "2cb8697c3899037e909218ad5b1786116ba1becbe735a68a0efc909e0c0a3478" => :yosemite
-    sha256 "c08b856ecf4cb57390ec99241d0bc87ba623536ab7e3e11d5cc23334230ff1cd" => :mavericks
+    cellar :any
+    sha256 "4d5fdff77d984a24a9d82931e590121bd09edd9767d75be65f8ae4c24341ed14" => :sierra
+    sha256 "d98f7943855a5fb1ee5a9e22412b4abcf2aed7b959fb13f9cc2fa56e20d2976c" => :el_capitan
+    sha256 "b90d75440a16f5f08b2922b53a1015b14fbcf09b416f83d9e0ce3bf32efce81f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpng" => :build
+  depends_on "libpng"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "PNGFLAGS=-I#{Formula["libpng"].opt_include}"
+    system "make", "install", "PREFIX=#{prefix}", "mandir=#{man}"
   end
 
   test do

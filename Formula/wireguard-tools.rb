@@ -3,15 +3,15 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.io/"
   # Please only update version when the tools have been modified/updated,
   # since the Linux module aspect isn't of utility for us.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20170213.tar.xz"
-  sha256 "256a7d41cf228f2a88e1b03b3911746dc827fe7be5b982c60080e7f81998cc6d"
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20170907.tar.xz"
+  sha256 "a1ee12d60662607e4c5a19f84b5115e56f083e2600053882e161537f12d963fd"
   head "https://git.zx2c4.com/WireGuard", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c20127d31741567b3ba4dc6114189a8f1c9bd1fed3fef0913a3ae213688ba7b" => :sierra
-    sha256 "477ad383bcfd9417df06d84903f84875ade9ea780769f3634a75214893dad5cc" => :el_capitan
-    sha256 "81908e68bed128b7e402a5439705e06a912ceee4cfe84268fe2959eb178769ae" => :yosemite
+    sha256 "c62f704503eeb0ffee55971430ed8ae51c32fc7b35dba150d71b3616dc546482" => :sierra
+    sha256 "ea59a55403e6ea5b1fef5e8c252977e787660f6fbc51ab48f14addf14a024431" => :el_capitan
+    sha256 "3be5b13e5b783628793d4970e393ca99dc3cd50fed5ecf2a49bd0250dbe0cbf9" => :yosemite
   end
 
   def install

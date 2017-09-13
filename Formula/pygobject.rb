@@ -3,17 +3,14 @@ class Pygobject < Formula
   homepage "https://live.gnome.org/PyGObject"
   url "https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.6.tar.bz2"
   sha256 "e4bfe017fa845940184c82a4d8949db3414cb29dfc84815fb763697dc85bdcee"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "9a10d979f637cfc9abc46839fa470672ee97a33be5f8ea9a8b725d44f60ed0ba" => :sierra
-    sha256 "6fc44a092ad3149c4510db7ed30015b970492974c2926a2ad204a27d3354bb15" => :el_capitan
-    sha256 "095cf1af847417ece614fc4b6e2b382a851a97a09b5a48370fdc2fd0bf08b311" => :yosemite
-    sha256 "7cc44858e152e843aa0709d5f6d60659f11ac7dbd505379a5f15056ba88d91ae" => :mavericks
+    sha256 "0ceec516a7b336fd0627028db8b09b02a430bc1d063c82c520f914be09af3f2b" => :sierra
+    sha256 "4cf2e5b65787d5ef3ddbd31799d6cb0fe8f6bc6366c57433e7e27b479793f6af" => :el_capitan
+    sha256 "94eef1d25e5b3cb68fda89d1ad07e2c74103290472d477d6f1943875fcf73df1" => :yosemite
   end
-
-  option :universal
 
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -26,7 +23,6 @@ class Pygobject < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-introspection"

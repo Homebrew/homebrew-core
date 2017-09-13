@@ -1,22 +1,19 @@
 class TeensyLoaderCli < Formula
   desc "Command-line integration for Teensy USB development boards"
   homepage "https://www.pjrc.com/teensy/loader_cli.html"
-  url "https://www.pjrc.com/teensy/teensy_loader_cli.2.1.zip"
-  sha256 "dafd040d6748b52e0d4a01846d4136f3354ca27ddc36a55ed00d0a0af0902d46"
+  url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/2.1.tar.gz"
+  sha256 "5c36fe45b9a3a71ac38848b076cd692bf7ca8826a69941c249daac3a1d95e388"
+  revision 1
+  head "https://github.com/PaulStoffregen/teensy_loader_cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bdbf31e0917a9dba051d14b5e06deb95ac95857e9a1b2a21118c051b8e402c4a" => :sierra
-    sha256 "6328eeb1ed51edb8527874bd7c0f1a45cdf4052f0c35863dd1a67b5e0644c57e" => :el_capitan
-    sha256 "90d5b5bf9adbece0001da72b1881617406bb9eeb76ff97ad5989e779179f5590" => :yosemite
-    sha256 "dcd10140babb4d2937ce376c89e9c24a2e8046d2cabdad2cfdbc2542afa14471" => :mavericks
+    sha256 "297e5ae2cebf5f5c52809e671ef5b9d224dd7c184695dde5cbb94c085f616669" => :sierra
+    sha256 "b422db39f01dfd49b77d9be2aade4d769b00c3068cce6da5250e9948a21cbf3b" => :el_capitan
+    sha256 "760b87b4455a716d5fd57a3a4d3e45ce7f4a67743a2364ecbd7ef791a456abcc" => :yosemite
   end
 
-  head do
-    url "https://github.com/PaulStoffregen/teensy_loader_cli.git"
-
-    depends_on "libusb-compat" => :optional
-  end
+  depends_on "libusb-compat" => :optional
 
   def install
     ENV["OS"] = "MACOSX"

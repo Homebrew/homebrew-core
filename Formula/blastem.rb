@@ -1,16 +1,17 @@
 class Blastem < Formula
   desc "Fast and accurate Genesis emulator"
-  homepage "http://rhope.retrodev.com/files/blastem.html"
-  url "http://rhope.retrodev.com/repos/blastem/archive/1ffa7891b4ec.tar.gz"
+  homepage "https://www.retrodev.com/blastem/"
+  url "https://www.retrodev.com/repos/blastem/archive/1ffa7891b4ec.tar.gz"
   version "0.4.1"
   sha256 "f9a15d2e381c7eb6f55f12b0d00f3d2779b0b29bea99b422484d6ada250655ba"
-  head "http://rhope.retrodev.com/repos/blastem", :using => :hg
+  revision 1
+  head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "4e932c882ff9e8557c329fa7a7f19cf7ecd44b1dbec21e7bcac86608043df585" => :sierra
-    sha256 "96f6745417f6715c7618eee8dbbe03b80c8c52bc50ccea10727a207ca1122863" => :el_capitan
-    sha256 "840d2190e1d79be0d7df3d8b54b39bddd5ee7391572af080dcf60e1c0287fee8" => :yosemite
+    sha256 "2e048cbac4f4acb8b98580376552778c3381b4b76244bffcd63f8d750433bfd1" => :sierra
+    sha256 "d3a42007ab6a2cf184c4b0f9309c352a828b0baee8394d92622121dcd9f663a6" => :el_capitan
+    sha256 "80fdc3f0a77c9f0e23c676f3ee42d632e81641649390604ae726b42c3d88b249" => :yosemite
   end
 
   depends_on "freetype" => :build
@@ -70,7 +71,7 @@ class Blastem < Formula
     # https://github.com/Homebrew/homebrew-core/pull/1216
     resource("xcftools").stage do
       # Apply patch to build with libpng-1.5 or above
-      # http://anonscm.debian.org/cgit/collab-maint/xcftools.git/commit/?id=c40088b82c6a788792aae4068ddc8458de313a9b
+      # https://anonscm.debian.org/cgit/collab-maint/xcftools.git/commit/?id=c40088b82c6a788792aae4068ddc8458de313a9b
       inreplace "xcf2png.c", /png_(voidp|error_ptr)_NULL/, "NULL"
 
       system "./configure"

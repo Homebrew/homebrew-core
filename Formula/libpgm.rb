@@ -15,11 +15,8 @@ class Libpgm < Formula
     sha256 "682fb0731817ab2f01c9247b1579dcd4a5ff8e28a938ddcd7045ee30acc81499" => :mountain_lion
   end
 
-  option :universal
-
   def install
     cd "openpgm/pgm" do
-      ENV.universal_binary if build.universal?
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}"
       system "make", "install"

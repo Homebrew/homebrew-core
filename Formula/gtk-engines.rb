@@ -33,7 +33,7 @@ class GtkEngines < Formula
   end
 
   test do
-    assert (share/"gtk-engines/clearlooks.xml").exist?
+    assert (pkgshare/"clearlooks.xml").exist?
     assert (lib/"gtk-2.0/2.10.0/engines/libhcengine.so").exist?
     assert (share/"themes/Industrial/gtk-2.0/gtkrc").exist?
   end

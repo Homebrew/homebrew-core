@@ -20,17 +20,17 @@ class Mmix < Formula
   end
 
   test do
-    (testpath/"hello.mms").write <<-EOS
-      LOC  Data_Segment
-      GREG @
-txt   BYTE "Hello world!",0
+    (testpath/"hello.mms").write <<-EOS.undent
+            LOC  Data_Segment
+            GREG @
+      txt   BYTE "Hello world!",0
 
-      LOC #100
+            LOC #100
 
-Main  LDA $255,txt
-      TRAP 0,Fputs,StdOut
-      TRAP 0,Fputs,StdErr
-      TRAP 0,Halt,0
+      Main  LDA $255,txt
+            TRAP 0,Fputs,StdOut
+            TRAP 0,Fputs,StdErr
+            TRAP 0,Halt,0
     EOS
     system bin/"mmixal", "hello.mms"
     assert_equal "Hello world!", shell_output("#{bin}/mmix hello.mmo")

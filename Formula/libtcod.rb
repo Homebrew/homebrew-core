@@ -14,6 +14,8 @@ class Libtcod < Formula
   depends_on "cmake" => :build
   depends_on "sdl"
 
+  conflicts_with "libzip", :because => "both install `zip.h` header"
+
   def install
     # Remove unnecessary X11 check - our SDL doesn't use X11
     inreplace "CMakelists.txt" do |s|

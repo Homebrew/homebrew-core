@@ -1,24 +1,41 @@
 class Valabind < Formula
   desc "Vala bindings for radare, reverse engineering framework"
-  homepage "http://radare.org/"
-  url "http://www.radare.org/get/valabind-0.10.0.tar.gz"
-  sha256 "35517455b4869138328513aa24518b46debca67cf969f227336af264b8811c19"
-  revision 2
-
+  homepage "https://radare.org/"
+  url "https://github.com/radare/valabind/archive/1.4.0.tar.gz"
+  sha256 "b2e4939912feada6138b8269d228ea82fb0f1391fd2e2e7003f404677b0cdbc9"
   head "https://github.com/radare/valabind.git"
 
   bottle do
-    cellar :any
-    sha256 "c0e12dc929404794cc14061bb410ed8f156607ec72722d0d1dc564b48d6e49db" => :sierra
-    sha256 "76dd86a5634171b12cb63802cc7d6d944cd5307982975744dfa96d7babe0fc32" => :el_capitan
-    sha256 "57c5f65f392082c54cfa7f3fee715a4bf767892d102ea2bf931d14eb11dc1dcf" => :yosemite
+    sha256 "05e13594c23aca12a1ea9c7ff4a5e3a17bbe1a68a65dea80d5a8aa89892d26cf" => :sierra
+    sha256 "bf466be7a14313608f3d68a86135b2b25094457c0fb89b7dd389f57fc4cd173c" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => :run # :run, not :build, for vala
   depends_on "swig" => :run
-  depends_on "vala"
+
+  # vala dependencies
+  depends_on "gettext"
+  depends_on "glib"
+
+  # Upstream issue "Build failure with vala 0.38.0"
+  # Reported 6 Sep 2017 https://github.com/radare/valabind/issues/43
+  resource "vala" do
+    url "https://download.gnome.org/sources/vala/0.36/vala-0.36.5.tar.xz"
+    sha256 "7ae7eb8a976005afecf4f647b9043f2bb11e8b263c7fe9e905ab740b3d8a9f40"
+  end
 
   def install
+    resource("vala").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}"
+      system "make"
+      system "make", "install"
+    end
+
+    ENV.prepend_path "PATH", libexec/"bin"
+    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end

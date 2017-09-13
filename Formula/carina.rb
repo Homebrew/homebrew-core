@@ -1,5 +1,5 @@
 class Carina < Formula
-  desc "command-line client for Carina"
+  desc "Command-line client for Carina"
   homepage "https://github.com/getcarina/carina"
   url "https://github.com/getcarina/carina.git",
         :tag => "v2.1.3",

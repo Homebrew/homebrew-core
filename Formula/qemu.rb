@@ -1,24 +1,36 @@
+# Fix extraction on case-insensitive file systems.
+# Reported 4 Sep 2017 https://bugs.launchpad.net/qemu/+bug/1714750
+# This is actually an issue with u-boot and may take some time to sort out.
+class QemuDownloadStrategy < CurlDownloadStrategy
+  def stage
+    exclude = "#{name}-#{version}/roms/u-boot/scripts/Kconfig"
+    safe_system "tar", "xjf", cached_location, "--exclude", exclude
+    chdir
+  end
+end
+
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
-  homepage "http://wiki.qemu.org"
-  url "http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2"
-  sha256 "dafd5d7f649907b6b617b822692f4c82e60cf29bc0fc58bc2036219b591e5e62"
-
-  head "git://git.qemu-project.org/qemu.git"
+  homepage "https://www.qemu.org/"
+  url "https://download.qemu.org/qemu-2.10.0.tar.bz2",
+      :using => QemuDownloadStrategy
+  sha256 "7e9f39e1306e6dcc595494e91c1464d4b03f55ddd2053183e0e1b69f7f776d48"
+  head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "9b14fea7d0151fd7a150678b4328d05fb74d75e66613733ba5dca6b1cbb2c1e3" => :sierra
-    sha256 "5d828daa16ec27a62509bae002f35ffd6135905dff5ade78de81479e6dada346" => :el_capitan
-    sha256 "d6229727ed1d48b67b8308d093c4238b3cd3e5e56e4e0994794be7b7168b0b62" => :yosemite
+    sha256 "638634a91a1aaafc5c0575a531686e35406188d374213940f99dfaeedcb8b611" => :sierra
+    sha256 "fc975e3d3797567c3fd7b4c0c8091025e560ea11a5c4f5ddfa1cde2a166d1e45" => :el_capitan
+    sha256 "754ba01f27583feba282efef4de01507ffa84564bd89ddc2c236b98074d7bb0f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
-  depends_on "libpng" => :recommended
   depends_on "gnutls"
   depends_on "glib"
+  depends_on "ncurses"
   depends_on "pixman"
+  depends_on "libpng" => :recommended
   depends_on "vde" => :optional
   depends_on "sdl2" => :optional
   depends_on "gtk+" => :optional
@@ -34,10 +46,10 @@ class Qemu < Formula
     cause "qemu requires a compiler with support for the __thread specifier"
   end
 
-  # 3.2MB working disc-image file hosted on upstream's servers for people to use to test qemu functionality.
-  resource "armtest" do
-    url "http://wiki.qemu.org/download/arm-test-0.2.tar.gz"
-    sha256 "4b4c2dce4c055f0a2adb93d571987a3d40c96c6cbfd9244d19b9708ce5aea454"
+  # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
+  resource "test-image" do
+    url "https://dl.bintray.com/homebrew/mirror/FD12FLOPPY.zip"
+    sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
 
   def install
@@ -57,6 +69,8 @@ class Qemu < Formula
       --host-cc=#{ENV.cc}
       --disable-bsd-user
       --disable-guest-agent
+      --enable-curses
+      --extra-cflags=-DNCURSES_WIDECHAR=1
     ]
 
     # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
@@ -77,7 +91,7 @@ class Qemu < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/qemu-system-i386 --version")
-    resource("armtest").stage testpath
-    assert_match "file format: raw", shell_output("#{bin}/qemu-img info arm_root.img")
+    resource("test-image").stage testpath
+    assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
 end

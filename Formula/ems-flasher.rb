@@ -3,7 +3,6 @@ class EmsFlasher < Formula
   homepage "https://lacklustre.net/projects/ems-flasher/"
   url "https://lacklustre.net/projects/ems-flasher/ems-flasher-0.03.tgz"
   sha256 "d77723a3956e00a9b8af9a3545ed2c55cd2653d65137e91b38523f7805316786"
-  head "git://lacklustre.net/ems-flasher"
 
   bottle do
     cellar :any
@@ -12,12 +11,24 @@ class EmsFlasher < Formula
     sha256 "3f978e8b96d4c1f0464ce2d4af86ff5bac6cb60810e1b8d81ce4fe55bb2abb63" => :yosemite
   end
 
+  head do
+    url "https://github.com/mikeryan/ems-flasher.git"
+    depends_on "gawk" => :build
+    depends_on "coreutils" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
   def install
-    system "make"
-    bin.install "ems-flasher"
+    if build.head?
+      system "./config.sh", "--prefix", prefix
+      man1.mkpath
+      system "make", "install"
+    else
+      system "make"
+      bin.install "ems-flasher"
+    end
   end
 
   test do

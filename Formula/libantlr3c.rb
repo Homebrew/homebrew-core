@@ -42,7 +42,7 @@ class Libantlr3c < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "hello.c", "-lantlr3c", "-o", "hello", "-O0"
+    system ENV.cc, "hello.c", "-L#{lib}", "-lantlr3c", "-o", "hello", "-O0"
     system testpath/"hello"
   end
 end

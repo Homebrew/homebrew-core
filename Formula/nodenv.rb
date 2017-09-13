@@ -1,17 +1,40 @@
 class Nodenv < Formula
   desc "Manage multiple NodeJS versions"
   homepage "https://github.com/nodenv/nodenv"
-  url "https://github.com/nodenv/nodenv/archive/v1.0.0.tar.gz"
-  sha256 "1b7d0a43f27d92d12af2658ac297b397b6b5b1e25af48e77de2e7e8675083586"
+  url "https://github.com/nodenv/nodenv/archive/v1.1.2.tar.gz"
+  sha256 "e8cfc0816f75b8c31dfd31089c442d7aafbffe26adb3078587c9ea2048df3519"
   head "https://github.com/nodenv/nodenv.git"
 
   bottle :unneeded
 
+  option "without-bash-extension", "Skip compilation of the dynamic bash extension to speed up nodenv."
+
   depends_on "node-build" => :recommended
 
   def install
-    inreplace "libexec/nodenv", "/usr/local", HOMEBREW_PREFIX
-    prefix.install "bin", "libexec", "completions"
+    inreplace "libexec/nodenv" do |s|
+      s.gsub! "/usr/local", HOMEBREW_PREFIX
+      s.gsub! '"${BASH_SOURCE%/*}"/../libexec', libexec
+    end
+
+    %w[--version hooks versions].each do |cmd|
+      inreplace "libexec/nodenv-#{cmd}", "${BASH_SOURCE%/*}", libexec
+    end
+
+    if build.with? "bash-extension"
+      # Compile optional bash extension.
+      system "src/configure"
+      system "make", "-C", "src"
+    end
+
+    if build.head?
+      # Record exact git revision for `nodenv --version` output
+      git_revision = `git rev-parse --short HEAD`.chomp
+      inreplace "libexec/nodenv---version", /^(version=.+)/,
+                                           "\\1--g#{git_revision}"
+    end
+
+    prefix.install "bin", "completions", "libexec"
   end
 
   test do

@@ -3,15 +3,16 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
   sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "075e67cb712c3d0ffd8b20bc2f510cc1a06a42cfabf1048f7ba21867320c8222" => :sierra
-    sha256 "075e67cb712c3d0ffd8b20bc2f510cc1a06a42cfabf1048f7ba21867320c8222" => :el_capitan
-    sha256 "d95e4f314bf0b2184d6b5133861d6ad85caf0285273ab1bd8b9e42fc01fbbce3" => :yosemite
+    sha256 "18ab9e25f6af26d9f20560d9038b06f18e483e60ff55fcb63acb15e57b51e2eb" => :sierra
+    sha256 "1f886dbe08d51e4319b4e2c8a110a0f298e9568c21c15891f2f001f12f8b3155" => :el_capitan
+    sha256 "e5487c53392c8d7df4952244ecef3c35ca5b87848af2d30bc8a334fb8e3e9f04" => :yosemite
   end
 
-  depends_on "qt5" => :build
+  depends_on "qt" => :build
   depends_on "glew"
 
   # This patch disabling building examples

@@ -9,8 +9,8 @@ require "etc"
 #
 # Nethack the way God intended it to be played: from a terminal.
 # This build script was created referencing:
-# * http://nethackwiki.com/wiki/Compiling#On_Mac_OS_X
-# * http://nethackwiki.com/wiki/Pkgsrc#patch-ac_.28system.h.29
+# * https://nethackwiki.com/wiki/Compiling#On_Mac_OS_X
+# * https://nethackwiki.com/wiki/Pkgsrc#patch-ac_.28system.h.29
 # and copious hacking until things compiled.
 #
 # The patch applied incorporates the patch-ac above, the OS X

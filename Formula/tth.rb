@@ -1,17 +1,14 @@
 class Tth < Formula
   desc "TeX/LaTeX to HTML converter"
   homepage "http://hutchinson.belmont.ma.us/tth/"
-  url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.06.tgz"
-  sha256 "8e750f7532d87d97d0df380c688214885925f5c2032dc0c9d555af7f816416d1"
-  revision 1
+  url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.10.tgz"
+  sha256 "dc873414d19dcc1a9d66323a76765bdc27b0055775d3dcf541de3fd38d5ef662"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aaa6ac8618c8e71bf7975e0f8c81f7c7c8c70888cb60753f23d563dac7465006" => :sierra
-    sha256 "7c8b17cd1cefc82928697908e773e4ad0f7179ba8b2b3adeef42b6a3e28eb21e" => :el_capitan
-    sha256 "d4f98342a0ad8edbbe8e740e2184626e32e88121ab68884c0e2902041257ce70" => :yosemite
-    sha256 "fc85ad1d9985b45fbfbae6d2016c985ac9531a7a88c41f199c8386be414d5519" => :mavericks
-    sha256 "81727008272c27d31ab334641f47049b07a9be6240efd9d5e02fa386e515008b" => :mountain_lion
+    sha256 "967f09662001e1fa07500bb5355ac807d059850057bf32fc38b8fd38e5e966d9" => :sierra
+    sha256 "64a85a3a261d1e31cf3d0f3289f9dbc8275cc78c43a0bd49e1c6995897a331b9" => :el_capitan
+    sha256 "7d36ab2640514fd21ae733c2c9f93ce94dad7e5523963f7c2318a4680cfb2fe2" => :yosemite
   end
 
   def install

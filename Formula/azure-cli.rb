@@ -3,16 +3,17 @@ require "language/node"
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.9-February2017.tar.gz"
-  version "0.10.9"
-  sha256 "95daf39462bf455c844d573f7b0a5ac97a19fa6e9f02cdbd57c7e15e6f817aba"
+  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.15-July2017.tar.gz"
+  version "0.10.15"
+  sha256 "e63b4586b7eae9065839adfee9a613d4a746ae26a78eb033ef69204026039360"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8647ed163eb8f00d4aa477f0420dcd4d57ae4043568bc067d27fba2293191051" => :sierra
-    sha256 "4c6e63e72da60b23f9612b8282b1173106082050b6e4f63f84a525c5cc236395" => :el_capitan
-    sha256 "b1b5921132f84ff3c144d56a80b6102a8564a0b64fa65ad383c592b51cee9b7e" => :yosemite
+    rebuild 1
+    sha256 "d2ccc6569274d56a5adb9d3748e15304b55f0c7c8dee5fabc864316bef1a35aa" => :sierra
+    sha256 "434133ceb68bdaf77b50966101e5b396c6fe5ec372a88074ea53f9efbbc2e825" => :el_capitan
+    sha256 "3fdff5d0b06bef174430471071ef03d5c253f279d33abc38678797a4b618b92f" => :yosemite
   end
 
   depends_on "node"
@@ -20,9 +21,13 @@ class AzureCli < Formula
 
   def install
     rm_rf "bin/windows"
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")
+
+    # fix cxxstdlib warnings caused by installed (but not used) prebuild binaries for fibers
+    rm_rf Dir[libexec/"lib/node_modules/azure-cli/node_modules/fibers/bin/*-{46,48}"]
   end
 
   test do

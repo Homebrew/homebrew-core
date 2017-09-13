@@ -44,6 +44,6 @@ class Html2text < Formula
 
     output = `#{bin}/html2text #{path}`.strip
     assert_equal "Hello World", output
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

@@ -1,14 +1,13 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
-  homepage "http://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.49.tar.gz"
-  sha256 "cd9ca49b01a76bca635f2888b9d4d30fa6583dd198994d407cdd0dd7170e9e1f"
+  homepage "https://dev.mysql.com/doc/refman/5.5/en/"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.57.tar.gz"
+  sha256 "c1c2bd321e524f92e43fe73d0d6745badd538c984c7561b273ae10e9aef57384"
 
   bottle do
-    rebuild 1
-    sha256 "f306cc087c078223c01634130c28e2f263b9315e475480157a9b41079e0bc4ea" => :sierra
-    sha256 "cbf833f345cf5e9e01fbaf907bbd71ed4064bea84fa21eced9df5846a0cd4666" => :el_capitan
-    sha256 "6af94793a7396ccc590e43251f3b131dfb43268a837fc2b2dee670d1c8f95334" => :yosemite
+    sha256 "8c13c6bb9bd38c31f952a6aa6d3ea5b9149d082c8e9b391252ccf8ee6fe61b45" => :sierra
+    sha256 "ba48fd0134b5c1e649816100fef0cb38f6c2c149a6ccd3aea4780293ebcb38ed" => :el_capitan
+    sha256 "e692fbcf59e594876348aacab6610512be4845308ed561bfed7f741c3a167519" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -36,7 +35,7 @@ class MysqlAT55 < Formula
 
   def install
     # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
+    # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
@@ -49,7 +48,6 @@ class MysqlAT55 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=yes
       -DWITH_SSL=system
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
@@ -101,16 +99,22 @@ class MysqlAT55 < Formula
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
-
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mysqlaccess"
     libexec.install bin/"mysqlaccess.conf"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<-EOS.undent
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+    EOS
+    etc.install "my.cnf"
   end
 
   def post_install
@@ -126,6 +130,8 @@ class MysqlAT55 < Formula
   def caveats; <<-EOS.undent
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
+
+    MySQL is configured to only allow connections from localhost by default
 
     To connect:
         #{opt_bin}/mysql -uroot
@@ -146,7 +152,6 @@ class MysqlAT55 < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/mysqld_safe</string>
-        <string>--bind-address=127.0.0.1</string>
         <string>--datadir=#{datadir}</string>
       </array>
       <key>RunAtLoad</key>
@@ -166,7 +171,7 @@ class MysqlAT55 < Formula
       "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
       pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+        exec bin/"mysqld", "--datadir=#{dir}"
       end
       sleep 2
 

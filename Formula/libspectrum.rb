@@ -1,18 +1,18 @@
 class Libspectrum < Formula
   desc "Support library for ZX Spectrum emulator"
-  homepage "http://fuse-emulator.sourceforge.net/libspectrum.php"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.3.2/libspectrum-1.3.2.tar.gz"
-  sha256 "c7d7580097116a7afd90f1e3d000e4b7a66b20178503f11e03b3a95180208c3f"
+  homepage "https://fuse-emulator.sourceforge.io/libspectrum.php"
+  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.4.0/libspectrum-1.4.0.tar.gz"
+  sha256 "6207d60e259fac2c2074b2149ff64914d656b658fb002d002a2be30bf0e6185f"
 
   bottle do
     cellar :any
-    sha256 "a953f5601490b156d17a325c5a9c802c920d0ec660e6f3a841e5c694e0fa9246" => :sierra
-    sha256 "29573007d0467e7f9219e6cca7e85746785fcd24e907340abaa2a4afa51b8fcc" => :el_capitan
-    sha256 "b1c1e2ffcccabd27c2a43fc8036952bcb5d46a915e64a6e8d1e0f86265455e20" => :yosemite
+    sha256 "c1c4b1f1f249be03a88fb2cfac572d282baa58f4f74481d98b386d0e2b07c783" => :sierra
+    sha256 "d05767dde2ea1f9f5b27b5f1944a57e479570dce88c0aadcf199844ec3a39455" => :el_capitan
+    sha256 "c462c89b551d7556d971ad4db886853ba6feb39dd2ee3f4e0234131345563f6a" => :yosemite
   end
 
   head do
-    url "http://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
+    url "https://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build

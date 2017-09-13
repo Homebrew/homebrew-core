@@ -3,22 +3,27 @@ class Jhead < Formula
   homepage "http://www.sentex.net/~mwandel/jhead/"
   url "http://www.sentex.net/~mwandel/jhead/jhead-3.00.tar.gz"
   sha256 "88cc01da018e242fe2e05db73f91b6288106858dd70f27506c4989a575d2895e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae19be761934828ce16b7e54e14f77dc0651a7b05787e08e66cc4f872f701402" => :sierra
-    sha256 "2df303bdee1a1ee76b6f8a450d762ee2e3ea5868198c2ed9991f5407c6a1267a" => :el_capitan
-    sha256 "94515e8c91489d9de1ac3fb5176e4b40d7010ec239407c996589d6c8d841d658" => :yosemite
-    sha256 "277c20e19ebc174dc46e65509de3bcecb4af986b217cf7fd27ac2b6fb909476e" => :mavericks
-    sha256 "cc28907085b95ff54384eefb5650e1a363128b74da950a3a30f3d10c7c093f66" => :mountain_lion
+    rebuild 1
+    sha256 "1adb1ef54417bdf4bd235ab907e4c198508bc2cebadcb8602cdec7809bb9e3a6" => :sierra
+    sha256 "6a15b6b97fae6971752afbd05aa07e94ccebf1b216c9e36a2ba7bbf6523482bc" => :el_capitan
+    sha256 "b1d517e2de29ae9a906636f4ed18c99aa459b221d1bff65fc497f6e86eae53ba" => :yosemite
   end
-
-  depends_on "jpeg"
 
   # Patch to provide a proper install target to the Makefile. The patch has
   # been submitted upstream through email. We need to carry this patch until
   # upstream decides to incorporate it.
   patch :DATA
+
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
+    sha256 "d2553bb7e7e47c33fa1136841e4b5bfbad6b92edce1dcad639ab5d74ace606aa"
+    apply "patches/31_CVE-2016-3822"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

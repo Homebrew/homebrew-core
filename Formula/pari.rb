@@ -1,14 +1,14 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.9.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/p/pari/pari_2.9.1.orig.tar.gz"
-  sha256 "dc510f96686463c1ade7c2a6e16fa9466fd4af6a65fddf9822ba07d7d2e70767"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.9.3.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/p/pari/pari_2.9.3.orig.tar.gz"
+  sha256 "e76a27779d2b1210ce1aba48363b98dd201a1bf876eb14f46ea6bd7769a00a63"
 
   bottle do
-    sha256 "e2708ec11078a54cad2991356a4fed959afb1fdb4b2a58bea5debcd1c729a93e" => :sierra
-    sha256 "d97c361da5c314a298eff855bd7a30d87cffa6b1ac222dc30200ef652aa3a183" => :el_capitan
-    sha256 "f660e2526e6a5103bcb5a3c5dc99ab6a8af51399a63285df9fe503cf82727076" => :yosemite
+    sha256 "277dfbdc1111f80998e37b26372cdc5f8492a76547651a8a1296b931ac23d915" => :sierra
+    sha256 "b4b85de28303d7c0dd6bfb4199d5dc11648a5f119d142b71437939cf3c95db89" => :el_capitan
+    sha256 "5eee87a9a209235e74a8c608e84228de425dc16c0a44bae6e22ab54e736bb752" => :yosemite
   end
 
   depends_on "gmp"

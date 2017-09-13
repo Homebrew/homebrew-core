@@ -1,6 +1,6 @@
 class Libsigcxx < Formula
   desc "Callback framework for C++"
-  homepage "http://libsigc.sourceforge.net"
+  homepage "https://libsigc.sourceforge.io"
   url "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.0.tar.xz"
   sha256 "f843d6346260bfcb4426259e314512b99e296e8ca241d771d21ac64f28298d81"
 

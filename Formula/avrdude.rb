@@ -20,7 +20,6 @@ class Avrdude < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :macos => :snow_leopard # needs GCD/libdispatch
   depends_on "libusb-compat"
   depends_on "libftdi0"
   depends_on "libelf"

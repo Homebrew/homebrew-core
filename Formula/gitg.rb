@@ -1,14 +1,13 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.22/gitg-3.22.0.tar.xz"
-  sha256 "ba6895f85c18748294075980a5e03e0936ad4e84534dbb0d8f9e29aa874ddeaf"
-  revision 1
+  url "https://download.gnome.org/sources/gitg/3.26/gitg-3.26.0.tar.xz"
+  sha256 "26730d437d6a30d6e341b9e8da99d2134dce4b96022c195609f45062f82b54d5"
 
   bottle do
-    sha256 "4132836f7275773fc4fc52017295455416e067d044b75e610070ddb6448d6903" => :sierra
-    sha256 "326c39b1aef24d993dbf6897ed2e0166a6e0e403fbae6c808e1eb90c4b1c613d" => :el_capitan
-    sha256 "36b4f56fb22dbb3375f926adc2eed61254070eb6793c4b8add14e9d0db4a5a9a" => :yosemite
+    sha256 "3ccdef237a8178515299467bf1164fb7520a8f664e4a8b6f40eb44051415c823" => :sierra
+    sha256 "3e60d26504345347fc26068a2d4009bb7929d88077fce81c11c2a533b011ddfb" => :el_capitan
+    sha256 "d96315ef9e638a290ec4546158dc7ae045ad3c99b6a0b93e76652f74276dee84" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -16,6 +15,7 @@ class Gitg < Formula
   depends_on "intltool" => :build
   depends_on "gtksourceview3"
   depends_on "gobject-introspection"
+  depends_on "libgit2"
   depends_on "libgit2-glib"
   depends_on "gsettings-desktop-schemas"
   depends_on "libgee"
@@ -26,17 +26,14 @@ class Gitg < Formula
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
   depends_on "gnome-icon-theme"
-  depends_on :python3 => :optional
-  depends_on "pygobject3" => "with-python3" if build.with?("python3")
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
+                          "--disable-schemas-compile",
+                          "--disable-python"
     system "make", "install"
   end
 
@@ -76,7 +73,6 @@ class Gitg < Formula
     libsoup = Formula["libsoup"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
-    webkitgtk = Formula["webkitgtk"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
@@ -100,7 +96,6 @@ class Gitg < Formula
       -I#{libsoup.opt_include}/libsoup-2.4
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
-      -I#{webkitgtk.opt_include}/webkitgtk-4.0
       -DGIT_SSH=1
       -D_REENTRANT
       -L#{atk.opt_lib}
@@ -116,7 +111,6 @@ class Gitg < Formula
       -L#{libsoup.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
-      -L#{webkitgtk.opt_lib}
       -latk-1.0
       -lcairo
       -lcairo-gobject

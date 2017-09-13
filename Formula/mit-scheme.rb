@@ -1,8 +1,8 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
   sha256 "4f6a16f9c7d4b4b7bb3aa53ef523cad39b54ae1eaa3ab3205930b6a87759b170"
   revision 1
 
@@ -104,11 +104,11 @@ class MitScheme < Formula
     EOS
 
     output = shell_output(
-      "#{bin}/mit-scheme --load primes.scm --eval '(primes<= 72)' < /dev/null"
+      "#{bin}/mit-scheme --load primes.scm --eval '(primes<= 72)' < /dev/null",
     )
     assert_match(
       /;Value 2: \(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71\)/,
-      output
+      output,
     )
   end
 end

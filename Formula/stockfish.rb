@@ -1,6 +1,6 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
-  homepage "http://stockfishchess.org/"
+  homepage "https://stockfishchess.org/"
   url "https://stockfish.s3.amazonaws.com/stockfish-8-src.zip"
   sha256 "7bad36f21f649ab24f6d7786bbb1b74b3e4037f165f32e3d42d1ae19c8874ce9"
   head "https://github.com/official-stockfish/Stockfish.git"

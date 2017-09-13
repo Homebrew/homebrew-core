@@ -1,14 +1,14 @@
 class Jmeter < Formula
   desc "Load testing and performance measurement application"
   homepage "https://jmeter.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-3.1.tgz"
-  sha256 "e697a17ef47f645c81f02c8f98f56400e2a182fa580904d329a0d277935edeec"
+  url "https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-3.2.tgz"
+  sha256 "98d424d909eb0d15df90e9afa24e0deeefbb9e19822b89875a2e4aecc98d4542"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f303c7f14b419c279199f4cc9fc5013f3fc76d257f6ac57ea2f7e26f0946c786" => :sierra
-    sha256 "f303c7f14b419c279199f4cc9fc5013f3fc76d257f6ac57ea2f7e26f0946c786" => :el_capitan
-    sha256 "f303c7f14b419c279199f4cc9fc5013f3fc76d257f6ac57ea2f7e26f0946c786" => :yosemite
+    sha256 "9970a97fb82437aacf8228951d6b4b38926b2a91a07f0d07ebb1f144779b53fc" => :sierra
+    sha256 "fca8c621d0490fa67901cad4ebf862ab342840a025aab6234d0bb338acbf9049" => :el_capitan
+    sha256 "fca8c621d0490fa67901cad4ebf862ab342840a025aab6234d0bb338acbf9049" => :yosemite
   end
 
   option "with-plugins", "add JMeterPlugins Standard, Extras, ExtrasLibs, WebDriver and Hadoop"

@@ -1,6 +1,6 @@
 class Lesstif < Formula
   desc "Open source implementation of OSF/Motif"
-  homepage "http://lesstif.sourceforge.net"
+  homepage "https://lesstif.sourceforge.io"
   url "https://downloads.sourceforge.net/project/lesstif/lesstif/0.95.2/lesstif-0.95.2.tar.bz2"
   sha256 "eb4aa38858c29a4a3bcf605cfe7d91ca41f4522d78d770f69721e6e3a4ecf7e3"
 
@@ -15,6 +15,9 @@ class Lesstif < Formula
 
   depends_on :x11
   depends_on "freetype"
+
+  conflicts_with "openmotif",
+    :because => "Lesstif and Openmotif are complete replacements for each other"
 
   def install
     # LessTif does naughty, naughty, things by assuming we want autoconf macros

@@ -12,7 +12,7 @@ class Ngspice < Formula
   end
 
   head do
-    url "git://ngspice.git.sourceforge.net/gitroot/ngspice/ngspice"
+    url "https://git.code.sf.net/p/ngspice/ngspice.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

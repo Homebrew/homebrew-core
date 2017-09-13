@@ -3,13 +3,13 @@ class Mscgen < Formula
   homepage "http://www.mcternan.me.uk/mscgen/"
   url "http://www.mcternan.me.uk/mscgen/software/mscgen-src-0.20.tar.gz"
   sha256 "3c3481ae0599e1c2d30b7ed54ab45249127533ab2f20e768a0ae58d8551ddc23"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "f844f3bf6338134126ba771a540313d8e946c5f4643180fd5a3d85bd4b763c64" => :sierra
-    sha256 "3c61423420768aede6fd8d39f42ced4ab57251cda5d76ed82a4fba08347e2663" => :el_capitan
-    sha256 "bb3a15650bf9ecf9dfaccf29bb5c492fd638020eed627d594c2550da5f4bd77f" => :yosemite
+    sha256 "e58e70827fcb36172f35a829427e1d6f6bdd571a54fd68880ea3322314827c83" => :sierra
+    sha256 "114a6b0dd6ee338029b012910fc1074ae2bb56fc0a2ff229e24d1bc1e56d126c" => :el_capitan
+    sha256 "af3dff86415fae2f80ff8f6c49a32b440e65a785db7573c74ef77487192e0811" => :yosemite
   end
 
   depends_on :x11

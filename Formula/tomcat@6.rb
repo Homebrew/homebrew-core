@@ -1,8 +1,8 @@
 class TomcatAT6 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.45/bin/apache-tomcat-6.0.45.tar.gz"
-  sha256 "8f9bd3e02f1e7798ca8f99f3254594688307ced3e7325dfb10f336750d82482d"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.53/bin/apache-tomcat-6.0.53.tar.gz"
+  sha256 "35249a4b40f41fb5f602f5602142d59faaa96dc1567df807d108d4d2b942e2f0"
 
   bottle :unneeded
 
@@ -13,9 +13,8 @@ class TomcatAT6 < Formula
   depends_on :java
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.45/bin/apache-tomcat-6.0.45-fulldocs.tar.gz"
-    version "6.0.45"
-    sha256 "aa1cbef0b73047425174731e1bea5567eacd6cbb7f9d7cd2c2495ba38fca2109"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.53/bin/apache-tomcat-6.0.53-fulldocs.tar.gz"
+    sha256 "3465db40f8b6f048e0733444668e4a40e9814855e5112762f3bb14e45eb9724a"
   end
 
   def install

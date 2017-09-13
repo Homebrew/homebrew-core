@@ -1,6 +1,6 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
-  homepage "http://www.chocolate-doom.org/"
+  homepage "https://www.chocolate-doom.org/"
   url "https://www.chocolate-doom.org/downloads/2.3.0/chocolate-doom-2.3.0.tar.gz"
   sha256 "3e6d1a82ac5c8b025a9695ce1e47d0dc6ed142ebb1129b1e4a70e2740f79150c"
 

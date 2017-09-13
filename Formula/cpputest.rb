@@ -30,7 +30,7 @@ class Cpputest < Formula
         return CommandLineTestRunner::RunAllTests(ac, av);
       }
     EOS
-    system ENV.cxx, "test.cpp", "-lCppUTest", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lCppUTest", "-o", "test"
     assert_match /OK \(0 tests/, shell_output("./test")
   end
 end

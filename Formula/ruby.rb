@@ -1,21 +1,35 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.bz2"
-  sha256 "440bbbdc49d08d3650f340dccb35986d9399177ad69a204def56e5d3954600cf"
+  revision 2
+
+  stable do
+    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
+    sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
+
+    # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
+    patch :p0 do
+      url "https://bugs.ruby-lang.org/attachments/download/6692/rubygems-2612-ruby24.patch"
+      sha256 "2512420ec6aad586c6fbe80dfc32e7ec571a0168c90e451ad022b443202ab4a9"
+    end
+
+    patch :p0 do
+      url "https://bugs.ruby-lang.org/attachments/download/6693/rubygems-2613-ruby24.patch"
+      sha256 "6677689d991e07adf26355e4045a3bd9eaeca07694928644c282bd05ec13060d"
+    end
+  end
 
   bottle do
-    sha256 "17915322edb90adc7f3bb31dd203fde924d735a32681dbe220b45e099162b35b" => :sierra
-    sha256 "a4326c66518777a710368335014c165b201f0805a4583aa7fc1db007ed811b5d" => :el_capitan
-    sha256 "950321028559e31539c93d937705346320c200f6edbfcb87311cf574974b3b51" => :yosemite
+    sha256 "d068a8d16f40ade0e770ed0e8670d02ae066494b2400ae614f9f84983011af1b" => :sierra
+    sha256 "fd4b77b9bfa6cae7a4dbb01d16f6f4c93f61a252e78ef4bfa6f0ac7198c9184e" => :el_capitan
+    sha256 "d45ccfe39c104f50d145027e8524deef936a4736c8bd9d71cda90ee58578805f" => :yosemite
   end
 
   head do
-    url "http://svn.ruby-lang.org/repos/ruby/trunk/"
+    url "https://svn.ruby-lang.org/repos/ruby/trunk/"
     depends_on "autoconf" => :build
   end
 
-  option :universal
   option "with-suffix", "Suffix commands with '24'"
   option "with-doc", "Install documentation"
 
@@ -40,11 +54,6 @@ class Ruby < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
-    end
 
     args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
     args << "--disable-install-doc" if build.without? "doc"
@@ -85,21 +94,19 @@ class Ruby < Formula
   end
 
   def post_install
+    ruby = "#{bin}/ruby#{program_suffix}"
+    abi_version = `#{ruby} -e 'print Gem.ruby_api_version'`
+
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
-    config_file.write rubygems_config
+    config_file.write rubygems_config(abi_version)
 
     # Create the sitedir and vendordir that were skipped during install
-    ruby="#{bin}/ruby#{program_suffix}"
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
-  end
-
-  def abi_version
-    "2.4.0"
   end
 
   def program_suffix
@@ -110,7 +117,7 @@ class Ruby < Formula
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config(abi_version); <<-EOS.undent
     module Gem
       class << self
         alias :old_default_dir :default_dir

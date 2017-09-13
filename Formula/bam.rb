@@ -15,8 +15,8 @@ class Bam < Formula
 
   # Fixes "[string "src/tools.lua"]:165: no driver set"; patch is from upstream
   patch do
-    url "https://github.com/matricks/bam/commit/27b28f09.patch"
-    sha256 "12488633b7feaf486c92427d64a0ebad41ddf5b3195a8d4708e51a8db8c7b7c0"
+    url "https://github.com/matricks/bam/commit/27b28f09.patch?full_index=1"
+    sha256 "9dabe77480156b49dda02378a936597e5f6b1aefaae2d88f2887c6161675d5ee"
   end
 
   def install

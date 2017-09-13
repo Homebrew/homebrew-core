@@ -3,6 +3,7 @@ class Trash < Formula
   homepage "http://hasseg.org/trash/"
   url "https://github.com/ali-rantakari/trash/archive/v0.8.5.tar.gz"
   sha256 "1e08fdcdeaa216be1aee7bf357295943388d81e62c2c68c30c830ce5c43aae99"
+  head "https://github.com/ali-rantakari/trash.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,8 @@ class Trash < Formula
     sha256 "f74b3d47c9208cb0ccee9d017b146052df8748f3bc4a2bb4525a1d6c5e55909a" => :mavericks
   end
 
-  conflicts_with "osxutils", :because => "both install a trash binary"
+  conflicts_with "osxutils", :because => "both install a `trash` binary"
+  conflicts_with "trash-cli", :because => "both install a `trash` binary"
 
   def install
     system "make"

@@ -1,14 +1,14 @@
 class Ivykis < Formula
   desc "Async I/O-assisting library"
   homepage "https://sourceforge.net/projects/libivykis"
-  url "https://downloads.sourceforge.net/project/libivykis/0.41/ivykis-0.41.tar.gz"
-  sha256 "2c934539a59029851b1332c8143ba9f21b79fb0185dd68d6eb259ae1b61ef3c5"
+  url "https://downloads.sourceforge.net/project/libivykis/0.42.1/ivykis-0.42.1.tar.gz"
+  sha256 "1872a42cc9f07e414ad3c81638c567fba1458fdf274b3522aa82dfd8af632031"
 
   bottle do
     cellar :any
-    sha256 "8aa737754faeda65a8f369f85d89822d78f5285e131eaba4d3fe57c578f57051" => :sierra
-    sha256 "1914551ff67e301b8700e51a6e93096de43c793c19603b09302fff5d4e74ef0b" => :el_capitan
-    sha256 "b5b60d80ac9f9c1891d3f965b4d963b427497e0127cb6ca7892bb71943f0709e" => :yosemite
+    sha256 "d00e2f4249be94f9cfd82aa1027dc1593f43f588daba8a6f94e7fd4a78cfff72" => :sierra
+    sha256 "1aeebe50e35b36b1e86d99eee2e5590b0a0a0819f602b2d81ca49b8869b697ab" => :el_capitan
+    sha256 "218ce5ca37379bd40f1ff45894c0f5cd32395833cc034b443c2ef1bea4e06802" => :yosemite
   end
 
   depends_on "automake" => :build
@@ -32,7 +32,7 @@ class Ivykis < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test_ivykis.c", "-livykis", "-o", "test_ivykis"
+    system ENV.cc, "test_ivykis.c", "-L#{lib}", "-livykis", "-o", "test_ivykis"
     system "./test_ivykis"
   end
 end

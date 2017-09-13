@@ -1,48 +1,28 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.9.4/QScintilla_gpl-2.9.4.tar.gz"
-  sha256 "8b3a23023e9f0573caed6f9cee86f898d87b768ee15b8c211a423783a4cfa4e6"
+  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.1/QScintilla_gpl-2.10.1.tar.gz"
+  sha256 "97f98a9d91f908db6ce37fecc6d241d955b388a1c487173b60726cba9a3dfa64"
   revision 1
 
   bottle do
-    sha256 "f741f29edab4493e2f3c716b2804252bc4d5b1258384ea5a81ed90c63f455824" => :sierra
-    sha256 "75b6da54da59c22a06051941d4f85a866355f0dabda0f0e25fe20de87d403217" => :el_capitan
-    sha256 "4761b0c353545ae85acecc80d0bdf209d439e3687b0fbbf0ab05014e501ac96f" => :yosemite
+    sha256 "2145a9138de0eb4dc7d1c2cb2741ad8d5e4bd43eafa27040d61b5be9c1898d28" => :sierra
+    sha256 "cb8eb0c2017e0868b5308fd8cfff8602f7bc6f3ae775fdebfa17c3f51b0b3268" => :el_capitan
+    sha256 "17974d5e54f96706a354d84ab684bede51c043834c970dfe67a673cb45840bdf" => :yosemite
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
-  option "with-python", "Build Python bindings"
+  option "without-python", "Do not build Python bindings"
   option "without-python3", "Do not build Python3 bindings"
 
-  depends_on "qt@5.7"
+  depends_on "pyqt"
+  depends_on "qt"
+  depends_on "sip"
+  depends_on :python => :recommended
   depends_on :python3 => :recommended
-  depends_on :python => :optional
-
-  if build.with?("python") && build.with?("python3")
-    depends_on "sip" => "with-python3"
-    depends_on "pyqt5" => "with-python"
-  elsif build.with?("python")
-    depends_on "sip"
-    depends_on "pyqt5" => "with-python"
-  elsif build.with?("python3")
-    depends_on "sip" => "with-python3"
-    depends_on "pyqt5"
-  end
-
-  # Fix build with Xcode 8 "error: implicit instantiation of undefined template"
-  # Originally reported 7 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001160.html
-  # Patch below posted 13 Oct 2016 https://www.riverbankcomputing.com/pipermail/qscintilla/2016-October/001167.html
-  # Same as Alan Garny's OpenCOR commit https://github.com/opencor/opencor/commit/70f3944e36b8b95b3ad92106aeae2f511b3f0e90
-  if DevelopmentTools.clang_build_version >= 800
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a651d71/qscintilla2/xcode-8.patch"
-      sha256 "1a88309fdfd421f4458550b710a562c622d72d6e6fdd697107e4a43161d69bc9"
-    end
-  end
 
   def install
-    spec = ENV.compiler == :clang && MacOS.version >= :mavericks ? "macx-clang" : "macx-g++"
+    spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
     args = %W[-config release -spec #{spec}]
 
     cd "Qt4Qt5" do
@@ -79,7 +59,7 @@ class Qscintilla2 < Formula
                            "--qsci-incdir=#{include}",
                            "--qsci-libdir=#{lib}",
                            "--pyqt=PyQt5",
-                           "--pyqt-sipdir=#{Formula["pyqt5"].opt_share}/sip/Qt5",
+                           "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
                            "--sip-incdir=#{Formula["sip"].opt_include}",
                            "--spec=#{spec}"
           system "make"
@@ -93,7 +73,7 @@ class Qscintilla2 < Formula
       mkpath prefix/"plugins/designer"
       cd "designer-Qt4Qt5" do
         inreplace "designer.pro" do |s|
-          s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt5/plugins"
+          s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt/plugins"
           s.sub! "$$[QT_INSTALL_LIBS]", lib
         end
         system "qmake", "designer.pro", *args

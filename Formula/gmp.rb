@@ -28,12 +28,15 @@ class Gmp < Formula
   test do
     (testpath/"test.c").write <<-EOS.undent
       #include <gmp.h>
+      #include <stdlib.h>
 
-      int main()
-      {
-        mpz_t integ;
-        mpz_init (integ);
-        mpz_clear (integ);
+      int main() {
+        mpz_t i, j, k;
+        mpz_init_set_str (i, "1a", 16);
+        mpz_init (j);
+        mpz_init (k);
+        mpz_sqrtrem (j, k, i);
+        if (mpz_get_si (j) != 5 || mpz_get_si (k) != 1) abort();
         return 0;
       }
     EOS

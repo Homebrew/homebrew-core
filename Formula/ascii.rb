@@ -1,16 +1,14 @@
 class Ascii < Formula
   desc "List ASCII idiomatic names and octal/decimal code-point forms"
   homepage "http://www.catb.org/~esr/ascii/"
-  url "http://www.catb.org/~esr/ascii/ascii-3.15.tar.gz"
-  sha256 "ace1db8b64371d53d9ad420d341f2b542324ae70437e37b4b75646f12475ff5f"
+  url "http://www.catb.org/~esr/ascii/ascii-3.18.tar.gz"
+  sha256 "728422d5f4da61a37a17b4364d06708e543297de0a5f70305243236d80df072d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "882dfd2de6a0fd60aa538118d9525b4277882a0dd28da5fb71e94968aa454441" => :sierra
-    sha256 "7d1316a48f1a0b3048706fb20a4efdd029c611843e8a156f073a3d227dc535d6" => :el_capitan
-    sha256 "b7b74752e577efa60d98732e688910980436e42fbbf1f77a041cb2af458789f5" => :yosemite
-    sha256 "56cec53206fc55f1fcd63b09b69c1afe858f4097ac6a460b7c9c07fbdfeaa0ed" => :mavericks
-    sha256 "1a25c357bde021b59904fc8184c45a5eb85ae6be507a1e100aa79d441ad07943" => :mountain_lion
+    sha256 "52fb2a78a1409f4f6db0b59589f773c4427c87a84a7fee1809e5f0a4d50e4d65" => :sierra
+    sha256 "bbb5f365f96e42dfaa8af31f21daa8809b0a628451599fab7bc7509ceeb0d14f" => :el_capitan
+    sha256 "ab520ebbe64a946a0ac0466537a0e207e49cd85979e41582ab542dcaef9db3ff" => :yosemite
   end
 
   head do

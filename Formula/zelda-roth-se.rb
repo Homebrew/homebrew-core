@@ -9,8 +9,8 @@ class ZeldaRothSe < Formula
 
     # Support SOLARUS_INSTALL_DATADIR variable for CMake
     patch do
-      url "https://github.com/christopho/zelda_roth_se/commit/e9b5bd907f5b50b17d65ebe2fa50760d322c537c.diff"
-      sha256 "e8713c2b83e86821d4ca683c2653c36d0756d97a0fd8c3529a503d44c10e9306"
+      url "https://github.com/christopho/zelda_roth_se/commit/e9b5bd907f5b50b17d65ebe2fa50760d322c537c.diff?full_index=1"
+      sha256 "061b93efdd16c450f7c3483e690099d96280250b159336439ab0da0ad5c2e13d"
     end
   end
 

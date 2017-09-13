@@ -1,0 +1,37 @@
+class Libtrng < Formula
+  desc "Tina's Random Number Generator Library"
+  homepage "https://www.numbercrunch.de/trng/"
+  url "https://www.numbercrunch.de/trng/trng-4.19.tar.gz"
+  sha256 "36b49961c631ae01d770ff481796c8b280e18c6b6e6b5ca00f2b868533b0492e"
+
+  bottle do
+    cellar :any
+    sha256 "ae717cd2fe16f077d13b6ea286d6ff5a4eaddc03829c88b2536e679a046302c3" => :sierra
+    sha256 "f74d4d146c484604d4f33e43068ba8629bbea8757b63456cc8405ded55993e85" => :el_capitan
+    sha256 "b34fb6439f66eec2f315d678208baf4444a1a89d82db2e485770ff3bea364895" => :yosemite
+  end
+
+  def install
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+    system "make"
+    system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <trng/yarn2.hpp>
+      #include <trng/normal_dist.hpp>
+      int main()
+      {
+        trng::yarn2 R;
+        trng::normal_dist<> normal(6.0, 2.0);
+        (void)normal(R);
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-ltrng4"
+    system "./test"
+  end
+end

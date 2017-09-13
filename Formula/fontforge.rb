@@ -1,15 +1,13 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/archive/20161012.tar.gz"
-  sha256 "a5f5c2974eb9109b607e24f06e57696d5861aaebb620fc2c132bdbac6e656351"
-  revision 1
-  head "https://github.com/fontforge/fontforge.git"
+  url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
+  sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
+  revision 2
 
   bottle do
-    sha256 "57809a9c61afc72a933fa905464d80de5b8fe59749cadb962e861749698e4453" => :sierra
-    sha256 "8d2501b45449f86695410f21da449aa5a7f80b15efb74fb975e0d40f6eeb8974" => :el_capitan
-    sha256 "77aacdcdc740df564b186c043890f433459122b34b3225bdbe3952172f466dd7" => :yosemite
+    sha256 "743eddfc980dac38a3879e471c61761d2f1e77e7bb3c7b9c0b0335979e01c0d5" => :sierra
+    sha256 "357ce3d76f1b77e7a427e97560c15e0df246d5fe68ade404ba1a9b7ababea9b0" => :el_capitan
   end
 
   option "with-giflib", "Build with GIF support"
@@ -17,9 +15,6 @@ class Fontforge < Formula
 
   deprecated_option "with-gif" => "with-giflib"
 
-  # Autotools are required to build from source in all releases.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
   depends_on "gettext"
@@ -33,11 +28,6 @@ class Fontforge < Formula
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "gnulib" do
-    url "git://git.savannah.gnu.org/gnulib.git",
-        :revision => "29ea6d6fe2a699a32edbe29f44fe72e0c253fcee"
-  end
 
   def install
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
@@ -56,13 +46,11 @@ class Fontforge < Formula
     args << "--without-libspiro" if build.without? "libspiro"
     args << "--without-libuninameslist" if build.without? "libuninameslist"
 
-    # Bootstrap in every build: https://github.com/fontforge/fontforge/issues/1806
-    resource("gnulib").fetch
-    system "./bootstrap",
-           "--gnulib-srcdir=#{resource("gnulib").cached_download}",
-           "--skip-git"
+    # Fix header includes to avoid crash at runtime:
+    # https://github.com/fontforge/fontforge/pull/3147
+    inreplace "fontforgeexe/startnoui.c", "#include \"fontforgevw.h\"", "#include \"fontforgevw.h\"\n#include \"encoding.h\""
+
     system "./configure", *args
-    system "make"
     system "make", "install"
 
     # The app here is not functional.
@@ -90,6 +78,8 @@ class Fontforge < Formula
 
   test do
     system bin/"fontforge", "-version"
-    system "python", "-c", "import fontforge"
+    system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
+    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
+    system "python", "-c", "import fontforge; fontforge.font()"
   end
 end

@@ -1,18 +1,15 @@
 class Sdcv < Formula
   desc "StarDict Console Version"
   homepage "https://dushistov.github.io/sdcv/"
-  # Requested a tag 16 Sep 2016 https://github.com/Dushistov/sdcv/issues/10
-  url "https://github.com/Dushistov/sdcv.git",
-      :revision => "c347ae7da9b7969e00696b18035d9a7d200e43e3"
-  version "0.5-2013-09-10"
-  revision 2
-
+  url "https://github.com/Dushistov/sdcv/archive/v0.5.2.tar.gz"
+  sha256 "ec08dc084a0748d5a89df01a20bbf294f09b0366295cd418000f15d2e043c4f7"
+  version_scheme 1
   head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
-    sha256 "09a194ebd5c0b549df0e5b23d42e39ecf9e4103acc94940a00cc5ca9a3e75cc7" => :sierra
-    sha256 "4e8d8fe4b13b92c82dc0047dcf8b0f1aaee482d355ec1a19ad49623675d4e371" => :el_capitan
-    sha256 "481df7fdcbacc61fdde3706b750c6e7e2c873f2134bbbac8044262a192af2e2f" => :yosemite
+    sha256 "e095b55dc837c81a8a5cd003579ed26cdfd20b2263b0ddca3adba1bdbf89390d" => :sierra
+    sha256 "43faef6640e9a8a01c78ea7816828966e42fd2aa6a110d947a72e0c930b0ee50" => :el_capitan
+    sha256 "f50d16cbcc92cc9bdfdea0aed25e10f8403f877f7a44830de420246eb2a4dfe7" => :yosemite
   end
 
   depends_on "pkg-config" => :build

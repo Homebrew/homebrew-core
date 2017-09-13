@@ -1,14 +1,13 @@
 class Latex2rtf < Formula
   desc "Translate LaTeX to RTF"
   homepage "https://latex2rtf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.8/latex2rtf-2.3.8.tar.gz"
-  sha256 "5484530de16e96ce76aedf969c464656a5f8834e748849d9009049e26f8c4143"
+  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.16/latex2rtf-2.3.16.tar.gz"
+  sha256 "e1538fe0dcadec28afae087cf8a6ee073e6368ca7a75728360068c6f3914b35b"
 
   bottle do
-    sha256 "364280e75787811b3769d454a9da4d25f6b79179c89cbfc93ea17518385060f3" => :sierra
-    sha256 "74de3e2c0efab26094f94cedaa085e158b702556301b04d4e664460b96b890c9" => :el_capitan
-    sha256 "22505c79e8806150f2f5ddfd492f648c3b25e7d753816ebd9f13e2d66b54c132" => :yosemite
-    sha256 "34a3fbac89383affaa05f3d3a7d9276dacdf55adc04a926fd7645ab9c983c631" => :mavericks
+    sha256 "f93ad353b24f12c312f2a325dfc1fc20d948a1a02e3fa928b7ec19c7fc216d22" => :sierra
+    sha256 "33d85c22d7076259782b67188a33feb4b1daa11dd0fcc15d06c934745115e32e" => :el_capitan
+    sha256 "801e93dac4cc038e07226c949ab72daa661211303d7a33b7b8c6a86d52501ca6" => :yosemite
   end
 
   def install
@@ -17,8 +16,8 @@ class Latex2rtf < Formula
                    "BINDIR=#{bin}",
                    "MANDIR=#{man1}",
                    "INFODIR=#{info}",
-                   "SUPPORTDIR=#{share}/latex2rtf",
-                   "CFGDIR=#{share}/latex2rtf/cfg",
+                   "SUPPORTDIR=#{pkgshare}",
+                   "CFGDIR=#{pkgshare}/cfg",
                    "install"
   end
 end

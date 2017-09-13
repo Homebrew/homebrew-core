@@ -3,7 +3,7 @@ class Mytop < Formula
   homepage "http://www.mysqlfanboy.com/mytop-3/"
   url "http://www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/mytop/mytop_1.9.1.orig.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
   revision 3
 

@@ -1,14 +1,14 @@
 class ProtobufC < Formula
   desc "Protocol buffers library"
   homepage "https://github.com/protobuf-c/protobuf-c"
-  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.2.1/protobuf-c-1.2.1.tar.gz"
-  sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
-  revision 3
+  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.3.0/protobuf-c-1.3.0.tar.gz"
+  sha256 "5dc9ad7a9b889cf7c8ff6bf72215f1874a90260f60ad4f88acf21bb15d2752a1"
+  revision 1
 
   bottle do
-    sha256 "d38d06b1bc9886aaa0a5c684d5225f45d2cc6e9f1fff293bbcc49138b153065e" => :sierra
-    sha256 "38460cedf85754bd7c8955fc773f55b60c497cbe190dd27930aafef676526118" => :el_capitan
-    sha256 "1cf4e7b63dfb94ec7afaa793120be76fb63e9856559b38d231db8ff6e52ab534" => :yosemite
+    sha256 "88fc4138caca5d7c56829b875ee6a16b1cb3d47249dbd197382542300d9146d8" => :sierra
+    sha256 "cb09232e07eb174c8e40bd4b823c6dffe41fff88eb9f3b9b649d130d16b94186" => :el_capitan
+    sha256 "b39956193b7c3cc9006370c9adba8b61b88980fcc8fffc705f6b8524e76b65cb" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,5 +17,20 @@ class ProtobufC < Formula
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    testdata = <<-EOS.undent
+      syntax = "proto3";
+      package test;
+      message TestCase {
+        string name = 4;
+      }
+      message Test {
+        repeated TestCase case = 1;
+      }
+    EOS
+    (testpath/"test.proto").write testdata
+    system Formula["protobuf"].opt_bin/"protoc", "test.proto", "--c_out=."
   end
 end

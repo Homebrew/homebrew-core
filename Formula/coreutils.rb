@@ -1,18 +1,18 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftpmirror.gnu.org/coreutils/coreutils-8.26.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-8.26.tar.xz"
-  sha256 "155e94d748f8e2bc327c66e0cbebdb8d6ab265d2f37c3c928f7bf6c3beba9a8e"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.28.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.28.tar.xz"
+  sha256 "1117b1a16039ddd84d51a9923948307cfa28c2cea03d1a2438742253df0a0c65"
 
   bottle do
-    sha256 "9409628a4780999323b47bbc5f7e3d622360766995e5b2d97fabbc9930b6d78d" => :sierra
-    sha256 "c37e171b4969db30c4ac11d6eda9297d0ad7253061569d8a8d849592664c8fd5" => :el_capitan
-    sha256 "fc6fc46b6c96c75424b4c0eeffaf3f493dfc605940960d4c35c17fdb2e598ed5" => :yosemite
+    sha256 "977e0b6ee439c9421ce97ce7fa48f664c1908497bf1a510ffbeecba881caf850" => :sierra
+    sha256 "52e2e39368fa5b4977bd6495ce133a535e4a06feafebd5ad2009f89d9ae4817d" => :el_capitan
+    sha256 "76e424055189d5fb2d13cfbd631a1de32dc7b1affb32b952cc3277a9af432191" => :yosemite
   end
 
   head do
-    url "git://git.sv.gnu.org/coreutils"
+    url "https://git.savannah.gnu.org/git/coreutils.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -26,6 +26,7 @@ class Coreutils < Formula
   depends_on "gmp" => :optional
 
   conflicts_with "ganglia", :because => "both install `gstat` binaries"
+  conflicts_with "gegl", :because => "both install `gcut` binaries"
   conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
   conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
@@ -36,11 +37,10 @@ class Coreutils < Formula
     # https://github.com/Homebrew/homebrew/issues/44993
     # This is thought to be an el_capitan bug:
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    if MacOS.version == :el_capitan
-      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
-    end
+    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
     system "./bootstrap" if build.head?
+
     args = %W[
       --prefix=#{prefix}
       --program-prefix=g

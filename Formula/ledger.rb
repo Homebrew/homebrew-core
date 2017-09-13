@@ -3,13 +3,13 @@ class Ledger < Formula
   homepage "http://ledger-cli.org"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 4
+  revision 7
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    sha256 "ba0194addf1b75eac37f26c00c0c329adee1449a1258775a72991e987bdba3e3" => :sierra
-    sha256 "adfd3cf69068a9721d9502faf92a74da97b204e8b5bb33b00fdf8e78c12a2377" => :el_capitan
-    sha256 "0660a1eaccbf086a72190529119468427a937d296557072599fde1b57a05faa4" => :yosemite
+    sha256 "a13883d9db70bc00888ffeb377a2cfd4122fd58210b1dcebb8359f00f76b207c" => :sierra
+    sha256 "3e06339a84140938d1c6467c86ed59199f25705d016476958426b4b060df1550" => :el_capitan
+    sha256 "a0f0af5f60daa27d7b19a547542c99a3448681feacbf56c075b8b274fc0c6b83" => :yosemite
   end
 
   deprecated_option "debug" => "with-debug"
@@ -33,7 +33,7 @@ class Ledger < Formula
   def install
     ENV.cxx11
 
-    flavor = (build.with? "debug") ? "debug" : "opt"
+    flavor = build.with?("debug") ? "debug" : "opt"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
@@ -62,7 +62,7 @@ class Ledger < Formula
       "--output", balance,
       "balance", "--collapse", "equity"
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
 
     system "python", pkgshare/"demo.py" if build.with? "python"
   end

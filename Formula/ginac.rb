@@ -1,7 +1,7 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
-  homepage "http://www.ginac.de/"
-  url "http://www.ginac.de/ginac-1.7.2.tar.bz2"
+  homepage "https://www.ginac.de/"
+  url "https://www.ginac.de/ginac-1.7.2.tar.bz2"
   sha256 "24b75b61c5cb272534e35b3f2cfd64f053b28aee7402af4b0e569ec4de21d8b7"
 
   bottle do

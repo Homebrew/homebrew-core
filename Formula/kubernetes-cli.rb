@@ -1,22 +1,16 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
-  homepage "http://kubernetes.io/"
+  homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.5.2",
-      :revision => "08e099554f3c31f6e6f07b448ab3ed78d0520507"
+      :tag => "v1.7.5",
+      :revision => "17d7182a7ccbb167074be7a87f0a68bd00d58d97"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    sha256 "61272b68222b5236facc5c3e0385e0a8d02302312aee33a72413257df94c1239" => :sierra
-    sha256 "a036fdd2bfd50f1a2e811273aa140ffb1c70fa51ef1725ee4388f18bf67f7e52" => :el_capitan
-    sha256 "acc5e4b83bc07df1b027737e6331f4532f7fb4e4f4714b7404525c6ee042b7c3" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.6.0-alpha.2",
-        :revision => "7738f41b958bd8a8018333b9c3eb86c563e1ee1a"
-    version "1.6.0-alpha.2"
+    cellar :any_skip_relocation
+    sha256 "e259370ab967a5df3842b582b03325764190165563e1dd2772483b3e80d020a7" => :sierra
+    sha256 "95537542596fe61f4f87b28b7c0fe28e7d695ef1bc57d9cb90b62b97fcec92f3" => :el_capitan
+    sha256 "1dd259ab2e8182c88c093f19f7581e0e4b1d2a9992f7f4e67e11276ba638db71" => :yosemite
   end
 
   depends_on "go" => :build
@@ -39,6 +33,22 @@ class KubernetesCli < Formula
       # Install bash completion
       output = Utils.popen_read("#{bin}/kubectl completion bash")
       (bash_completion/"kubectl").write output
+
+      # Install zsh completion
+      output = Utils.popen_read("#{bin}/kubectl completion zsh")
+      # Note: The explicit header to enable auto-loading by compinit
+      # can be removed after Kubernetes 1.8.0 when kubernetes/kubernetes#50561
+      # becomes available upstream.
+      (zsh_completion/"_kubectl").write <<-EOS.undent
+        #compdef kubectl
+        #{output}
+        _complete kubectl
+      EOS
+
+      # Install man pages
+      # Leave this step for the end as this dirties the git tree
+      system "hack/generate-docs.sh"
+      man1.install Dir["docs/man/man1/*.1"]
     end
   end
 
@@ -48,5 +58,6 @@ class KubernetesCli < Formula
 
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
+    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
   end
 end

@@ -3,12 +3,13 @@ class Snzip < Formula
   homepage "https://github.com/kubo/snzip"
   url "https://bintray.com/artifact/download/kubo/generic/snzip-1.0.4.tar.gz"
   sha256 "a45081354715d48ed31899508ebed04a41d4b4a91dca37b79fc3b8ee0c02e25e"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b15034887eb517ed04e4529a9781b6657ca4a9c184b8a72db70de62a42902661" => :sierra
-    sha256 "272aced692ec9214e2829e8898f6af3054c8889fe2eddc20f3cc248e1d7e038f" => :el_capitan
-    sha256 "3fca6b3f51e034880a90c3f218d9a39129a4acf3ebf0ed07f0127b9b7fd635bd" => :yosemite
+    sha256 "953a79f0aa028d4b5f13cc606ead6e225c290972db683947dabed58bb6748257" => :sierra
+    sha256 "fdc031ce925717ee49048f3ffab3015f1039a06299f5093f7949e9a41cab975e" => :el_capitan
+    sha256 "68247e4d0d0520d9a2615acd906d079951b84e4138b27a69c2aa7ce6a286dd9e" => :yosemite
   end
 
   depends_on "snappy"

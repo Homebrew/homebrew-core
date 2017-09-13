@@ -1,7 +1,7 @@
 class SoundTouch < Formula
   desc "Audio processing library"
-  homepage "http://www.surina.net/soundtouch/"
-  url "http://www.surina.net/soundtouch/soundtouch-1.9.2.tar.gz"
+  homepage "https://www.surina.net/soundtouch/"
+  url "https://www.surina.net/soundtouch/soundtouch-1.9.2.tar.gz"
   sha256 "caeb86511e81420eeb454cb5db53f56d96b8451d37d89af6e55b12eb4da1c513"
 
   bottle do
@@ -13,7 +13,6 @@ class SoundTouch < Formula
   end
 
   option "with-integer-samples", "Build using integer samples? (default is float)"
-  option :universal
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -27,8 +26,6 @@ class SoundTouch < Formula
       --prefix=#{prefix}
     ]
     args << "--enable-integer-samples" if build.with? "integer-samples"
-
-    ENV.universal_binary if build.universal?
 
     system "./configure", *args
     system "make", "install"

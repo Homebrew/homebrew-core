@@ -1,14 +1,14 @@
 class Opus < Formula
   desc "Audio codec"
-  homepage "https://www.opus-codec.org"
-  url "http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz"
-  sha256 "9122b6b380081dd2665189f97bfd777f04f92dc3ab6698eea1dbb27ad59d8692"
+  homepage "https://www.opus-codec.org/"
+  url "https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz"
+  sha256 "cfafd339ccd9c5ef8d6ab15d7e1a412c054bf4cb4ecbbbcc78c12ef2def70732"
 
   bottle do
     cellar :any
-    sha256 "fa157f731dac20c3da949a7e78756c6d274137d51161c41286f77d18fdf9846e" => :sierra
-    sha256 "e978cb0514e9985ed819c16ad9858f905e15624dbc8a86bdf42bb42108f6a4b7" => :el_capitan
-    sha256 "46c8d10883030bd6bf106277215535fa48e772d812b58dffafc7bafc43cd22b6" => :yosemite
+    sha256 "ff986676ae53fdfb7b2af18c896be5d284a3e7b51ad0a94b8fa5a651dcc74201" => :sierra
+    sha256 "9db3f7606381e0f60477f18c70cdf4bbf68c948ae9c6ead7a5bd6aa62aeab63b" => :el_capitan
+    sha256 "adf030f2d3fa1260acb54515ced82474a626d6d2ad015ea3ace404a79e09f1c4" => :yosemite
   end
 
   head do
@@ -28,5 +28,36 @@ class Opus < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <opus.h>
+
+      int main(int argc, char **argv)
+      {
+        int err = 0;
+        opus_int32 rate = 48000;
+        int channels = 2;
+        int app = OPUS_APPLICATION_AUDIO;
+        OpusEncoder *enc;
+        int ret;
+
+        enc = opus_encoder_create(rate, channels, app, &err);
+        if (!(err < 0))
+        {
+          err = opus_encoder_ctl(enc, OPUS_SET_BITRATE(OPUS_AUTO));
+          if (!(err < 0))
+          {
+             opus_encoder_destroy(enc);
+             return 0;
+          }
+        }
+        return err;
+      }
+    EOS
+    system ENV.cxx, "-I#{include}/opus", "-L#{lib}", "-lopus",
+           testpath/"test.cpp", "-o", "test"
+    system "./test"
   end
 end

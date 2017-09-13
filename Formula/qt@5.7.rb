@@ -14,7 +14,7 @@ class QtAT57 < Formula
     sha256 "a5fe56be34bf03a68d0c42aae04d381ce1254cd3e72959793af33f4800f602ec" => :yosemite
   end
 
-  keg_only "Older version of qt5"
+  keg_only :versioned_formula
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
@@ -51,6 +51,20 @@ class QtAT57 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+  end
+
+  if MacOS.version >= :high_sierra
+    # Fix QTBUG-62266
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0af7ca663c/qt%405.7/QTBUG-62266.patch"
+      sha256 "60471b893eb394db18dacae8bd38727a955742626da641dd980dbb87a8808e9e"
+    end
+
+    # Fix QTBUG-62658
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/48b7e84036/qt%405.7/QTBUG-62658.patch"
+      sha256 "1fe7fcbff566bcec3ef9c253f82a8474a0c08f4965565d5d1135df973cd75398"
+    end
   end
 
   def install

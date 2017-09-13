@@ -1,7 +1,7 @@
 class Pcrexx < Formula
   desc "C++ wrapper for the Perl Compatible Regular Expressions"
-  homepage "http://www.daemon.de/PCRE"
-  url "http://www.daemon.de/idisk/Apps/pcre++/pcre++-0.9.5.tar.gz"
+  homepage "https://www.daemon.de/PCRE"
+  url "https://www.daemon.de/idisk/Apps/pcre++/pcre++-0.9.5.tar.gz"
   sha256 "77ee9fc1afe142e4ba2726416239ced66c3add4295ab1e5ed37ca8a9e7bb638a"
 
   bottle do

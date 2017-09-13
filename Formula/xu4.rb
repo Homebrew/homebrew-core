@@ -1,9 +1,13 @@
 class Xu4 < Formula
   desc "Remake of Ultima IV"
   homepage "https://xu4.sourceforge.io/"
-  url "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4", :revision => "3088"
+  if MacOS.version >= :sierra
+    url "https://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
+  else
+    url "http://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
+  end
   version "1.0beta4+r3088"
-  head "http://xu4.svn.sourceforge.net/svnroot/xu4/trunk/u4"
+  head "https://svn.code.sf.net/p/xu4/code/trunk/u4"
 
   bottle do
     cellar :any
@@ -17,7 +21,7 @@ class Xu4 < Formula
   depends_on "libpng"
 
   resource "ultima4" do
-    url "http://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
+    url "https://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
     sha256 "94aa748cfa1d0e7aa2e518abebb994f3c18acf7edb78c3bd37cd0a4404e6ba74"
   end
 

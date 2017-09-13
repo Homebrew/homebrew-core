@@ -1,17 +1,17 @@
 class Scriptcs < Formula
   desc "Tools to write and execute C#"
   homepage "https://github.com/scriptcs/scriptcs"
-  url "https://github.com/scriptcs/scriptcs/archive/v0.17.0.tar.gz"
-  sha256 "3ddf5f782d2092b2c1dd8068b2fbd97dca653ca88ade2f3aa4d764e6f2f04318"
+  url "https://github.com/scriptcs/scriptcs/archive/v0.17.1.tar.gz"
+  sha256 "e876118d82f52cbdd9569783ec9278c4ac449055aa628cdcb2d785bf8098a434"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "559d4c5ea83c07a83792aae1886ce3b61d11254f5f94b5529456619439cd7d28" => :sierra
-    sha256 "daaf6c6c8bc41f2e70050e1ff58c101ee107419d0f4872e10365517ba204dead" => :el_capitan
-    sha256 "1d858aada8a8c6eb7a336a25eb75b4f6a3d49c2474d94388655696aa0941d6e8" => :yosemite
+    sha256 "9ccece2f779060ab23e699b07d6cc6ce0b2c2e0058cc995b1541e1170f69a6eb" => :sierra
+    sha256 "e3b6cb117d23ccf9a745e0ac5e61fcb531d7e8a08476699d2ece6c31e564450e" => :el_capitan
+    sha256 "21891cea519df48979320ba74660002d270fb414181e3f7087505169af15a471" => :yosemite
   end
 
-  depends_on "mono" => :recommended
+  depends_on "mono"
 
   def install
     script_file = "scriptcs.sh"

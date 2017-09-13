@@ -1,6 +1,6 @@
 class Serialosc < Formula
   desc "Opensound control server for monome devices"
-  homepage "http://monome.org/docs/osc/"
+  homepage "https://monome.org/docs/osc/"
   url "https://github.com/monome/serialosc.git",
     :tag => "v1.4",
     :revision => "c46a0fa5ded4ed9dff57a47d77ecb54281e2e2ea"
@@ -19,6 +19,13 @@ class Serialosc < Formula
   depends_on "libmonome"
 
   def install
+    # Upstream issue "clang 4.0.1 build failure on -Waddress-of-packed-member"
+    # Reported 24 Aug 2017 https://github.com/monome/serialosc/issues/28
+    if DevelopmentTools.clang_build_version >= 802
+      inreplace "wscript", '"-Werror"',
+                           '"-Werror", "-Wno-address-of-packed-member"'
+    end
+
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
     system "./waf", "install"

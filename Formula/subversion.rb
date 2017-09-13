@@ -1,25 +1,23 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
-  sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
+  sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
 
   bottle do
-    sha256 "a1eb24f126de1cbe776690c6d8320638c9c917d3d45aeb06f38530236272e6ce" => :sierra
-    sha256 "b63e9e5af0e18ae59e851795ca551e2b2161fcea99dc7d4b147ca44f572e0062" => :el_capitan
-    sha256 "5be40371113a10bfb441edeceea9df3705290df1db296adf4a2616ed81c73185" => :yosemite
+    sha256 "6a63bc7fd673f61826ccafdc6dd7d05b6da02436e71dc2a995d40800fff02329" => :sierra
+    sha256 "4d9bd04a4605877617e9158e270a011d0367c2c7e0571752cf5c821b15454a2a" => :el_capitan
+    sha256 "d1c71dbd4685cda7b3aaded3ce9ed8a224d14cca8fcb257b7e6e3eb11d706b44" => :yosemite
   end
 
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
 
-  option :universal
   option "with-java", "Build Java bindings"
-  option "with-perl", "Build Perl bindings"
-  option "with-ruby", "Build Ruby bindings"
+  option "without-ruby", "Build without Ruby bindings"
+  option "without-perl", "Build without Perl bindings"
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
@@ -29,9 +27,12 @@ class Subversion < Formula
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
   depends_on :python => :optional
+  depends_on :perl => ["5.6", :recommended]
 
   # Bindings require swig
-  depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
+  if build.with?("perl") || build.with?("python") || build.with?("ruby")
+    depends_on "swig" => :build
+  end
 
   # For Serf
   depends_on "scons" => :build
@@ -53,11 +54,6 @@ class Subversion < Formula
   patch :DATA
 
   if build.with?("perl") || build.with?("ruby")
-    # If building bindings, allow non-system interpreters
-    # Currently the serf -> scons dependency forces stdenv, so this isn't
-    # strictly necessary
-    env :userpaths
-
     # When building Perl or Ruby bindings, need to use a compiler that
     # recognizes GCC-style switches, since that's what the system languages
     # were compiled against.
@@ -71,14 +67,6 @@ class Subversion < Formula
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
-      # SConstruct merges in gssapi linkflags using scons's MergeFlags,
-      # but that discards duplicate values - including the duplicate
-      # values we want, like multiple -arch values for a universal build.
-      # Passing 0 as the `unique` kwarg turns this behaviour off.
-      inreplace "SConstruct", "unique=1", "unique=0"
-
-      ENV.universal_binary if build.universal?
-
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
@@ -95,17 +83,7 @@ class Subversion < Formula
       # Java support doesn't build correctly in parallel:
       # https://github.com/Homebrew/homebrew/issues/20415
       ENV.deparallelize
-
-      unless build.universal?
-        opoo "A non-Universal Java build was requested."
-        puts <<-EOS.undent
-        To use Java bindings with various Java IDEs, you might need a universal build:
-          `brew install subversion --universal --java`
-        EOS
-      end
     end
-
-    ENV.universal_binary if build.universal?
 
     # Use existing system zlib
     # Use dep-provided other libraries
@@ -135,13 +113,6 @@ class Subversion < Formula
       args << "RUBY=/usr/bin/ruby"
     end
 
-    # If Python is built universally, then extensions built with that Python
-    # are too. This default behaviour is not desired when building an extension
-    # for a single architecture.
-    if build.with?("python") && (which "python").universal? && !build.universal?
-      ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
-    end
-
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
     ENV["ac_cv_python_compile"] = ENV.cc
@@ -167,30 +138,23 @@ class Subversion < Formula
     if build.with? "perl"
       # In theory SWIG can be built in parallel, in practice...
       ENV.deparallelize
-      # Remove hard-coded ppc target, add appropriate ones
-      if build.universal?
-        arches = Hardware::CPU.universal_archs.as_arch_flags
-      elsif MacOS.version <= :leopard
-        arches = "-arch #{Hardware::CPU.arch_32_bit}"
-      else
-        arches = "-arch #{Hardware::CPU.arch_64_bit}"
-      end
 
-      perl_core = Pathname.new(`perl -MConfig -e 'print $Config{archlib}'`)+"CORE"
-      unless perl_core.exist?
-        onoe "perl CORE directory does not exist in '#{perl_core}'"
-      end
+      archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
+      perl_core = Pathname.new(archlib)/"CORE"
+      onoe "'#{perl_core}' does not exist" unless perl_core.exist?
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) #{arches} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl"
 
-      # Some of the libraries get installed into the wrong place, they end up having the
-      # prefix in the directory name twice.
-      lib.install Dir["#{prefix}/#{lib}/*"]
+      # This is only created when building against system Perl, but it isn't
+      # purged by Homebrew's post-install cleaner because that doesn't check
+      # "Library" directories. It is however pointless to keep around as it
+      # only contains the perllocal.pod installation file.
+      rm_rf prefix/"Library/Perl"
     end
 
     if build.with? "java"
@@ -215,15 +179,16 @@ class Subversion < Formula
       s += <<-EOS.undent
 
         The perl bindings are located in various subdirectories of:
-          #{prefix}/Library/Perl
+          #{opt_lib}/perl5
       EOS
     end
 
     if build.with? "ruby"
       s += <<-EOS.undent
 
-        You may need to add the Ruby bindings to your RUBYLIB from:
+        If you wish to use the Ruby bindings you may need to add:
           #{HOMEBREW_PREFIX}/lib/ruby
+        to your RUBYLIB.
       EOS
     end
 

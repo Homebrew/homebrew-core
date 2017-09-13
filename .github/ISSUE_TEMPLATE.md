@@ -1,21 +1,18 @@
-If Homebrew was updated on Aug 10-11th 2016 and `brew update` always says `Already up-to-date.` you need to run: `cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update`.
+**Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.**
 
-# Please follow the general troubleshooting steps first:
-
+# Please always follow these steps:
+- [ ] Confirmed this is a problem with `brew install`ing one, specific Homebrew/homebrew-core formula (not cask or tap) and not every time you run `brew`? If it's a general `brew` problem please file this issue at https://github.com/Homebrew/brew/issues/new. If it's a `brew cask` problem please file this issue at https://github.com/Homebrew/caskroom/homebrew-cask/new. If it's a tap (e.g. Homebrew/homebrew-php) problem please file this issue at the tap.
 - [ ] Ran `brew update` and retried your prior step?
-- [ ] Ran `brew doctor`, fixed as many issues as possible and retried your prior step?
-- [ ] Confirmed this is problem with specific formulae and not Homebrew/brew? If it's a general Homebrew/brew problem please file this issue at https://github.com/Homebrew/brew/issues/new
+- [ ] Ran `brew doctor`, fixed all issues and retried your prior step?
+- [ ] Ran `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed) and included the output link?
+- [ ] If `brew gist-logs` didn't work: ran `brew config` and `brew doctor` and included their output with your issue?
 
-_You can erase any parts of this template not applicable to your Issue._
+To help us debug your issue please explain:
+- What you were trying to do (and why)
+- What happened (include command output)
+- What you expected to happen
+- Step-by-step reproduction instructions (by running `brew install` commands)
 
-### Bug reports:
-
-Please replace this section with a brief summary of your issue **AND** the output of `brew config` and `brew doctor` or if reporting a formula issue include the link from:
-`brew gist-logs <formula>`
-(where `<formula>` is the name of the formula that failed to build). Please note we may immediately close your issue without comment if you do not fill out the issue template and provide the requested information.
-
-### Formula Requests:
-
-**Please note by far the quickest way to get a new formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md).**
-
-Please replace this section with the homepage and name of your requested formula (after using `brew search` to check it does not already exist). Please note we may close this issue or ask you to create a pull-request if it's something we're not actively planning to work on.
+# Formula additions or changes
+To get formulae added or changed in Homebrew please file a [Pull Request](https://github.com/Homebrew/homebrew-core/blob/master/CONTRIBUTING.md)
+We will close issues requesting formulae changes.

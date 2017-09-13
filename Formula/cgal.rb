@@ -1,29 +1,29 @@
 class Cgal < Formula
-  desc "CGAL: Computational Geometry Algorithm Library"
+  desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.9/CGAL-4.9.tar.xz"
-  sha256 "63ac5df71f912f34f2f0f2e54a303578df51f4ec2627db593a65407d791f9039"
+  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.10.1/CGAL-4.10.1.tar.xz"
+  sha256 "2baef1f4cca90dc82851267c36f8632bd6b39e8a5d15c23f1d78b4172d36d743"
 
   bottle do
     cellar :any
-    sha256 "bc2d75f374a2b7b801a243937553cdaf23c4ec1f3f3cbce0910f0c5357ed7820" => :sierra
-    sha256 "1347cfad615b487b11e083e7114ac2e3e0d2fb271cb7a9413ed1531d03c92f1b" => :el_capitan
-    sha256 "0014c368e53254801a2a1233424027156e2bdf0c09c12b17246119c8337fd02a" => :yosemite
+    sha256 "b44daae7e371390b932b531e0139de476162e6fdb37df92abca8e4d810beb183" => :sierra
+    sha256 "40e23078d1d95bc96deb33a87e29d84743652267b7016062d21ec68302f28fae" => :el_capitan
   end
 
   option :cxx11
-  option "with-qt5", "Build ImageIO and QT5 compoments of CGAL"
+  option "with-qt", "Build ImageIO and Qt components of CGAL"
   option "with-eigen", "Build with Eigen3 support"
   option "with-lapack", "Build with LAPACK support"
 
-  deprecated_option "imaging" => "with-qt5"
-  deprecated_option "with-imaging" => "with-qt5"
+  deprecated_option "imaging" => "with-qt"
+  deprecated_option "with-imaging" => "with-qt"
   deprecated_option "with-eigen3" => "with-eigen"
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "mpfr"
 
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "eigen" => :optional
 
   if build.cxx11?
@@ -42,7 +42,7 @@ class Cgal < Formula
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
     ]
 
-    if build.without? "qt5"
+    if build.without? "qt"
       args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
     else
       args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"

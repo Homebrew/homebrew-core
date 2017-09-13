@@ -19,8 +19,8 @@ class C10t < Formula
   # Can be removed for the next version of c10t after 1.7
   # See: https://github.com/udoprog/c10t/pull/153
   patch do
-    url "https://github.com/udoprog/c10t/commit/4a392b9f06d08c70290f4c7591e84ecdbc73d902.diff"
-    sha256 "f2d7b1772672f7769adab0eaf081887399de772e72ad1fa53caa0856d50b9a8a"
+    url "https://github.com/udoprog/c10t/commit/4a392b9f06d08c70290f4c7591e84ecdbc73d902.diff?full_index=1"
+    sha256 "5e1c6d9906c3cf2aaaceca2570236585d3404ab4107cfb9169697e9cab30072d"
   end
 
   # Fix freetype detection; adapted from this upstream commit:
@@ -32,8 +32,8 @@ class C10t < Formula
 
   # Ensure zlib header is included for libpng; fixed upstream
   patch do
-    url "https://github.com/udoprog/c10t/commit/800977bb23e6b4f9da3ac850ac15dd216ece0cda.diff"
-    sha256 "4c8953bdc46b1b2063abe0d1768e7116b9092d49f16161732e39e4abb5622ec1"
+    url "https://github.com/udoprog/c10t/commit/800977bb23e6b4f9da3ac850ac15dd216ece0cda.diff?full_index=1"
+    sha256 "5275cb43178b2f6915b14d214ec47c9182e63ff23771426b71f3c0a5450721bf"
   end
 
   def install

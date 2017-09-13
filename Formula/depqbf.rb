@@ -1,27 +1,31 @@
 class Depqbf < Formula
   desc "Solver for quantified boolean formulae (QBF)"
   homepage "https://lonsing.github.io/depqbf/"
-  url "https://github.com/lonsing/depqbf/archive/version-5.0.tar.gz"
-  sha256 "9a4c9a60246e1c00128ae687f201b6dd309ece1e7601a6aa042a6317206f5dc7"
+  url "https://github.com/lonsing/depqbf/archive/version-6.03.tar.gz"
+  sha256 "9684bb1562bfe14559007401f52975554373546d3290a19618ee71d709bce76e"
   head "https://github.com/lonsing/depqbf.git"
 
   bottle do
     cellar :any
-    sha256 "8d500845a553dafeffbc2ac3a34d15d05f84e39707141ad6eddf30dd68b80c8a" => :sierra
-    sha256 "7c0b8ef336f9d2bac14e11f0ca838620428376ba4b1f29b6ac3614d3a5f61774" => :el_capitan
-    sha256 "d10617714d882cce0a4a8754c03fe7f9df7adf01de8b0016cceafe092e98c163" => :yosemite
-    sha256 "92ef32e3fff775db370d3c83ee1b09c0d3c7debab448be37f30465094b17f028" => :mavericks
+    sha256 "fea1eb8ca62fccc5ce43b0a645fb67feffbf97c5a343d0ea6c9a015c37e24ccc" => :sierra
+    sha256 "3229005d870984af6beee544d5178094fc859525bd96552ac42301860c175f5b" => :el_capitan
+    sha256 "2e56b8bac22dbf77677e825ee6242fea35545c2714859c4f22872c1c0fb056e3" => :yosemite
+  end
+
+  resource "nenofex" do
+    url "https://github.com/lonsing/nenofex/archive/version-1.1.tar.gz"
+    sha256 "972755fd9833c9cd050bdbc5a9526e2b122a5550fda1fbb3ed3fc62912113f05"
+  end
+
+  resource "picosat" do
+    url "http://fmv.jku.at/picosat/picosat-960.tar.gz"
+    sha256 "edb3184a04766933b092713d0ae5782e4a3da31498629f8bb2b31234a563e817"
   end
 
   def install
-    # Fixes "ld: unknown option: -soname"
-    # Reported 5 Sep 2016 https://github.com/lonsing/depqbf/issues/8
-    inreplace "makefile" do |s|
-      s.gsub! "-Wl,-soname,libqdpll.so.$(MAJOR)", ""
-      s.gsub! ".so.$(VERSION)", ".$(VERSION).dylib"
-    end
-
-    system "make"
+    (buildpath/"nenofex").install resource("nenofex")
+    (buildpath/"picosat-960").install resource("picosat")
+    system "./compile.sh"
     bin.install "depqbf"
     lib.install "libqdpll.a", "libqdpll.1.0.dylib"
   end

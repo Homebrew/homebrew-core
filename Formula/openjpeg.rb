@@ -1,16 +1,15 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "http://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.1.2.tar.gz"
-  sha256 "4ce77b6ef538ef090d9bde1d5eeff8b3069ab56c4906f083475517c2c023dfa7"
-
+  url "https://github.com/uclouvain/openjpeg/archive/v2.2.0.tar.gz"
+  sha256 "6fddbce5a618e910e03ad00d66e7fcd09cc6ee307ce69932666d54c73b7c6e7b"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
     cellar :any
-    sha256 "4e27fbf3c861435a3413a9ce6a32dd2336b666fb046278eb72711176cb10ecad" => :sierra
-    sha256 "7d4ac6ba6dceae7f22d1f477abc8e4c3039324382d7029df71bd8f380f4e94d3" => :el_capitan
-    sha256 "6e5766dd0f55d5cee1406ad8919ffc89fe3a701a2a4dd2cdd836abb34d753ae6" => :yosemite
+    sha256 "437b7f58d8f2e8944adea7481a233bdf7f5c06609bfcf209169e677c93ab621c" => :sierra
+    sha256 "ceebb6f74ce06b2a9ea716cd6f72bdbe4590b23819e4d0a980a320ff150760bd" => :el_capitan
+    sha256 "bd0c66eb1f759d447a35203a0861698283ee148c97b96ed13922d83adaab4ab7" => :yosemite
   end
 
   option "without-doxygen", "Do not build HTML documentation."
@@ -45,7 +44,7 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/openjpeg-2.1", "-L#{lib}", "-lopenjp2",
+    system ENV.cc, "-I#{include}/openjpeg-2.2", "-L#{lib}", "-lopenjp2",
            testpath/"test.c", "-o", "test"
     system "./test"
   end

@@ -1,15 +1,15 @@
 class Sqldiff < Formula
   desc "Displays the differences between SQLite databases"
   homepage "https://www.sqlite.org/sqldiff.html"
-  url "https://www.sqlite.org/2017/sqlite-src-3160200.zip"
-  version "3.16.2"
-  sha256 "ee77c2cc5cc4a7b0a746a1d4496f7aee0d71c558a3bbfcf8e9e0b35416910337"
+  url "https://www.sqlite.org/2017/sqlite-src-3200100.zip"
+  version "3.20.1"
+  sha256 "665bcae19f313c974e3fc2e375b93521c3668d79bc7b66250c24a4a4aeaa2c2a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "52887455e4430fb5aba448495c5bb723ab634a3bc8a38ea41e21f132b63f0cfa" => :sierra
-    sha256 "22fad066939d9d482e8209a354ac7f0464cbd6557c5fb081e39601872944053d" => :el_capitan
-    sha256 "ad658e6db8b2e4e87a13244f4758ed1aa47e8151197e71b9207cd143fc0eaf20" => :yosemite
+    sha256 "67a4b6da7e64c1e74a42408d6d04b785d58daf45108c246082af51c66e22abd6" => :sierra
+    sha256 "4b12465f402ee73f9d907b48bd5ae0b7b601de5085118e614fb9cea8d1920dbb" => :el_capitan
+    sha256 "541a0ddf76800d895575c2c770a060435888b6dab863fcbbbcd255e8559c5d00" => :yosemite
   end
 
   def install

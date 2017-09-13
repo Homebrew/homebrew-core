@@ -1,7 +1,7 @@
 class Speex < Formula
   desc "Audio codec designed for speech"
-  homepage "http://speex.org"
-  url "http://downloads.us.xiph.org/releases/speex/speex-1.2.0.tar.gz"
+  homepage "https://speex.org/"
+  url "https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz"
   sha256 "eaae8af0ac742dc7d542c9439ac72f1f385ce838392dc849cae4536af9210094"
 
   bottle do
@@ -11,16 +11,21 @@ class Speex < Formula
     sha256 "a0b3c91782b8242508adac3ebc0cd86688e75b043ea0d84f4ef7ac9940f8a21b" => :yosemite
   end
 
-  option :universal
+  option "with-sse", "Build with SSE support"
 
   depends_on "pkg-config" => :build
   depends_on "libogg" => :recommended
+  depends_on "speexdsp" => :optional
 
   def install
     ENV.deparallelize
-    ENV.universal_binary if build.universal?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+    ]
+    args << "--enable-sse" if build.with? "sse"
+    system "./configure", *args
     system "make", "install"
   end
 end

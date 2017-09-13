@@ -1,16 +1,15 @@
 class FetchCrl < Formula
   desc "Retrieve certificate revocation lists (CRLs)"
   homepage "https://wiki.nikhef.nl/grid/FetchCRL3"
-  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.17.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fetch-crl/fetch-crl_3.0.17.orig.tar.gz"
-  sha256 "22f460388416bdabdb59d2f8fd423c5b097886649e4a2650867106a7e6c8cfe7"
+  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.19.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fetch-crl/fetch-crl_3.0.19.orig.tar.gz"
+  sha256 "64d8f573601568554415c9ad853864285313538a90de92b3dcf2d16b92b2bcde"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7ed398ad5ea34cb512017c110a07ee60b861a599c81a943e45ab844345f115bf" => :sierra
-    sha256 "1ad6f73ea90d63550a76a966db784dcfb5bfaf38af908d8faa8b1a6b1e0fb05f" => :el_capitan
-    sha256 "5484c79338f4d5132c26ea4ca10e43bdac7d4e900b448a39d3013590d9ada724" => :yosemite
-    sha256 "909169de64f2a03cb1fa0bc5a5ff4128e92dffba0d896c5897a13cb39b428307" => :mavericks
+    sha256 "d8907b1d805f5bf782f4b9fbccb225b66104631269f0d4b69488518b12c919f2" => :sierra
+    sha256 "66c8bbf8a0971d925e3b92b4f3dee740ebee385aa9f7b76974b62d1eaa9e7672" => :el_capitan
+    sha256 "66c8bbf8a0971d925e3b92b4f3dee740ebee385aa9f7b76974b62d1eaa9e7672" => :yosemite
   end
 
   def install

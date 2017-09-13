@@ -32,8 +32,8 @@ class Luabind < Formula
 
   # apply upstream commit to enable building with clang
   patch do
-    url "https://github.com/luabind/luabind/commit/3044a9053ac50977684a75c4af42b2bddb853fad.diff"
-    sha256 "00476ab7d918cc118e83ced427bac48de81ae8c2d3445d6f77e556b5d8bded5f"
+    url "https://github.com/luabind/luabind/commit/3044a9053ac50977684a75c4af42b2bddb853fad.diff?full_index=1"
+    sha256 "d04cbe7e5ed732943b1caf547321ac81b1db49271a5956a5f218905016c8900e"
   end
 
   # include C header that is not pulled in automatically on OS X 10.9 anymore
@@ -94,7 +94,7 @@ class Luabind < Formula
       }
     EOS
     system ENV.cxx, "-shared", "-o", "hello.dylib", "-I#{HOMEBREW_PREFIX}/include/lua-5.1",
-           testpath/"hello.cpp", "-lluabind", "-llua5.1"
+           testpath/"hello.cpp", "-L#{lib}", "-lluabind", "-llua5.1"
     assert_match /hello world!/, `lua5.1 -e "package.loadlib('#{testpath}/hello.dylib', 'init')(); greet()"`
   end
 end
