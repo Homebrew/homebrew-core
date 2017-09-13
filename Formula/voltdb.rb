@@ -2,7 +2,7 @@ class Voltdb < Formula
   desc "Horizontally-scalable, in-memory SQL RDBMS"
   homepage "https://github.com/VoltDB/voltdb"
   url "https://github.com/VoltDB/voltdb/archive/voltdb-6.9.tar.gz"
-  sha256 "46e4243ba4d12599cb99852ba0b57c693a6aca943270f41f50b70ac054cf05fc"
+  sha256 "e3e1167681a151178d39293961cbb2e7e17d2c756ca6c3568b1fd49585069bb0"
   head "https://github.com/VoltDB/voltdb.git"
 
   bottle do
