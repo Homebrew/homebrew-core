@@ -1,10 +1,8 @@
 class Py2cairo < Formula
   desc "Python 2 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
-  url "https://cairographics.org/releases/py2cairo-1.10.0.tar.bz2"
-  mirror "https://distfiles.macports.org/py-cairo/py2cairo-1.10.0.tar.bz2"
-  sha256 "d30439f06c2ec1a39e27464c6c828b6eface3b22ee17b2de05dc409e429a7431"
-  revision 1
+  url "https://github.com/pygobject/pycairo/releases/download/v1.15.2/pycairo-1.15.2.tar.gz"
+  sha256 "a66f30c457736f682162e7b3a33bc5e8915c0f3b31ef9bdb4edf43c81935c914"
 
   bottle do
     cellar :any
@@ -20,22 +18,7 @@ class Py2cairo < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
-    ENV.refurbish_args
-
-    # disable waf's python extension mode because it explicitly links libpython
-    # https://code.google.com/p/waf/issues/detail?id=1531
-    inreplace "src/wscript", "pyext", ""
-    ENV["LINKFLAGS"] = "-undefined dynamic_lookup"
-    ENV.append_to_cflags `python-config --includes`
-
-    # Python extensions default to universal but cairo is not universal
-    ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
-
-    system "./waf", "configure", "--prefix=#{prefix}", "--nopyc", "--nopyo"
-    system "./waf", "install"
-
-    module_dir = lib/"python2.7/site-packages/cairo"
-    mv module_dir/"lib_cairo.dylib", module_dir/"_cairo.so"
+    system "python", *Language::Python.setup_install_args(prefix)
   end
 
   test do
