@@ -3,7 +3,7 @@ class Mame < Formula
   homepage "http://mamedev.org/"
   url "https://github.com/mamedev/mame/archive/mame0189.tar.gz"
   version "0.189"
-  sha256 "0550d5a1403e4dc4ccab2054468ebe215fd85a43076e02b1aadcacfceb577ddf"
+  sha256 "bd1b1e152e4b17aab331c7c9709b7b39a289b63d189ecc32aaeb75ed6de2d2fb"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
