@@ -2,7 +2,7 @@ class Ssdb < Formula
   desc "NoSQL database supporting many data structures: Redis alternative"
   homepage "http://ssdb.io/"
   url "https://github.com/ideawu/ssdb/archive/1.9.4.tar.gz"
-  sha256 "f95005f5284c09b696ef4aee75088679969c9174a0f5506b742ca8ad6f6bb45e"
+  sha256 "6a24efcc906faf07c02c69975861368c1aa8e4adb3770f4bcd3dd610cdcce537"
   head "https://github.com/ideawu/ssdb.git"
 
   bottle do
