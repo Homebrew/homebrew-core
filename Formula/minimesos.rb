@@ -2,7 +2,7 @@ class Minimesos < Formula
   desc "Testing infrastructure for Mesos frameworks"
   homepage "https://minimesos.org/"
   url "https://github.com/ContainerSolutions/minimesos/archive/0.13.0.tar.gz"
-  sha256 "4e510b734d025a806bcbe2e613d4057e3456809473bd1bb665d5244f02b44dcc"
+  sha256 "806a2e7084d66431a706e365814fca8603ba64780ac6efc90e52cbf7ef592250"
 
   bottle :unneeded
 
