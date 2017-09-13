@@ -36,7 +36,9 @@ class Arpack < Formula
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
                      "TESTS/mmio.f", "TESTS/debug.h"
 
-    (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children if build.with? "mpi"
+    if build.with? "mpi"
+      (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
+    end
   end
 
   test do
