@@ -6,9 +6,8 @@ class Texinfo < Formula
   sha256 "77774b3f4a06c20705cc2ef1c804864422e3cf95235e965b1f00a46df7da5f62"
 
   bottle do
-    sha256 "bcd43bfb0b31234232ed4d4894a7ffb16b23384105bce519ee7e83a12b01ecb2" => :sierra
-    sha256 "f078d51fc568e628efb932f30451e4886b208d12c591aac03bafcc545d2c709a" => :el_capitan
-    sha256 "c85b9e3b8577e56160abca0b98c22e162e0f576ecc49253deca1363e6758a58d" => :yosemite
+    sha256 "ad81d72c79b14e1ed7beed59202514817fde7d12cc4e37657fdc689bb081a2e2" => :sierra
+    sha256 "e3099c5bc15295e7cadb2ce8b5f89d8983a8599b8d8602277aae23b9ff3482b1" => :el_capitan
   end
 
   keg_only :provided_by_osx, <<-EOS.undent
