@@ -1,8 +1,8 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.3.tar.gz"
-  sha256 "531894f85c67a29554cb3d16807cca55a3bb815e6a0014812967a176563e1ab3"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.4.tar.gz"
+  sha256 "408bb2f16eaad316be7ff6b4c867be04d8d57eb6e2642e168e992a51b82bb487"
 
   bottle do
     sha256 "ec2167c01b3944ee32302786a82dd692f01175b81cb0720877fef9190495ab0c" => :sierra
@@ -21,11 +21,11 @@ class Povray < Formula
 
   deprecated_option "use-openexr" => "with-openexr"
 
-  # Fixes compatibility with boost 1.65.0
-  # Adapted from https://github.com/POV-Ray/povray/pull/318
+  # Fix "error: use of undeclared identifier 'atof'"
+  # Reported 14 Sep 2017 https://github.com/POV-Ray/povray/issues/317
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8443970b254/povray/boost-1.65.0.diff"
-    sha256 "19f9826cb2287bb16e8d3d21da5ca73eb848ff9a9e719c110bae562b6fcc028e"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e5017df/povray/cstdlib.diff"
+    sha256 "bfd65f6634987f06d64a62fae71c1e72226a6242b7d7c8f7ef618d63e29b8553"
   end
 
   needs :cxx11
