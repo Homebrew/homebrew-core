@@ -5,7 +5,7 @@ class AzureCli < Formula
   homepage "https://github.com/azure/azure-xplat-cli"
   url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.15-July2017.tar.gz"
   version "0.10.15"
-  sha256 "e63b4586b7eae9065839adfee9a613d4a746ae26a78eb033ef69204026039360"
+  sha256 "b73cd02b386a84cbd378466ee574bb119dbfc35af0b521e64175a79754bd451b"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
