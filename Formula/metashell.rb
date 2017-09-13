@@ -2,7 +2,7 @@ class Metashell < Formula
   desc "Metaprogramming shell for C++ templates"
   homepage "http://metashell.org"
   url "https://github.com/metashell/metashell/archive/v3.0.0.tar.gz"
-  sha256 "1ed0ffe4ecd0d2c376b002bea6b4188bc24e1be0eb363cadf2e9fbcbe7100b24"
+  sha256 "012f48508bbf0dbecf7775b4cca399512c5bbd1604d78f2016fe23a6352af90b"
 
   bottle do
     sha256 "0146ffe29dcd9274d6a77cb984f27e30809554e21c808e7c80dd7330e4ccce2c" => :sierra
