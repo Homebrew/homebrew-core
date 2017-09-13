@@ -2,7 +2,7 @@ class C14Cli < Formula
   desc "Manage your Online C14 archives from the command-line"
   homepage "https://github.com/online-net/c14-cli"
   url "https://github.com/online-net/c14-cli/archive/0.1.tar.gz"
-  sha256 "cff3597273daff87e8d6e85cfef2b4d83400f0a0a905f39a4a67560b4966513c"
+  sha256 "27f02f3146c2d239c44fe0cf3eb1a161d8bdb420145f13b8485c85d3892fd8f9"
   head "https://github.com/online-net/c14-cli.git"
 
   bottle do
