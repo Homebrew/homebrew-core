@@ -2,7 +2,7 @@ class ErlangAT17 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   url "https://github.com/erlang/otp/archive/OTP-17.5.6.9.tar.gz"
-  sha256 "387c612d1bc5ffbc68db7d05c3655804b310facc8bad921a3e0f3391970bc522"
+  sha256 "70d9d0a08969f4c51c78088f8c6b7da22a4806b1fd258a9fff1408f56553f378"
   head "https://github.com/erlang/otp.git", :branch => "maint-17"
 
   bottle do
