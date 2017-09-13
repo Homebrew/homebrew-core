@@ -26,7 +26,7 @@ class Gnupg < Formula
   depends_on "libgcrypt"
   depends_on "libksba"
   depends_on "libassuan"
-  depends_on "pinentry"
+  depends_on "pinentry-mac"
   depends_on "gettext"
   depends_on "adns"
   depends_on "libusb" => :recommended
