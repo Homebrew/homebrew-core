@@ -3,7 +3,7 @@ class Logtalk < Formula
   homepage "http://logtalk.org"
   url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3112stable.tar.gz"
   version "3.11.2"
-  sha256 "01f040a7184e1985e5e1eecbc555c79261211db3dc14614f65712a40c818b769"
+  sha256 "ca9cbc5d5894743995a39d0b2a8e712c441895be7a4c53a47fd283164a655b59"
 
   bottle do
     cellar :any_skip_relocation
