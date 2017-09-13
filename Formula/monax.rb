@@ -2,7 +2,7 @@ class Monax < Formula
   desc "Blockchain application platform CLI"
   homepage "https://erisindustries.com"
   url "https://github.com/monax/monax/archive/v0.18.0.tar.gz"
-  sha256 "fa90621e8d518c10ea6c239fdd917196f5be5a523d257a4c1855e0bd3ca1e7bd"
+  sha256 "8ad3166e3ca76738c6542bd8b85dcef1643b68a3755abe3e0a7f3c9cdd027afb"
   version_scheme 1
 
   bottle do
