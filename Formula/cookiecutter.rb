@@ -4,7 +4,7 @@ class Cookiecutter < Formula
   desc "Utility that creates projects from templates"
   homepage "https://github.com/audreyr/cookiecutter"
   url "https://github.com/audreyr/cookiecutter/archive/1.5.1.tar.gz"
-  sha256 "eaf8c67c75335b899e58c608562536b4159284e8078cb59591505526aab7bbea"
+  sha256 "a01addd59d8a572f850cf8210f1e98e4dc924bec6210010d4e23277ec4fa094b"
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
