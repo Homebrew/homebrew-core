@@ -1,8 +1,8 @@
 class Sfcgal < Formula
   desc "C++ wrapper library around CGAL"
   homepage "http://sfcgal.org/"
-  url "https://github.com/Oslandia/SFCGAL/archive/v1.3.1.tar.gz"
-  sha256 "37671101381eb10e0896bba3543c0c6d94fbb80e2ef49497f37ec80aef12860b"
+  url "https://github.com/Oslandia/SFCGAL/archive/v1.3.2.tar.gz"
+  sha256 "1ae0ce1c38c728b5c98adcf490135b32ab646cf5c023653fb5394f43a34f808a"
 
   bottle do
     sha256 "ec17719a1cbbcca043f4093dc9b03635d3bc56b43ec3a9b7ab25f19706640ac1" => :sierra
