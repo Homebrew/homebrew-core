@@ -2,7 +2,7 @@ class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
   url "https://github.com/CocoaPods/CocoaPods/archive/1.3.1.tar.gz"
-  sha256 "6ca7d696462a9d7109fd47e4143f0bb78683ec00aeb3bc2e4d8b245c1d5e3c13"
+  sha256 "36be0eff3a57fcef1161cead6108353f3eecce60173f27f98f6aaeabbb6c9911"
 
   bottle do
     cellar :any_skip_relocation
