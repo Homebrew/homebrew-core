@@ -5,7 +5,7 @@ class Wrangler < Formula
 
   stable do
     url "https://github.com/RefactoringTools/wrangler/archive/wrangler1.2.tar.gz"
-    sha256 "7b8700a3f8c3ef6a91d4c6ddd71e8c6cfc0816ee799a1d860a9e2955456e66f3"
+    sha256 "a6a87ad0513b95bf208c660d112b77ae1951266b7b4b60d8a2a6da7159310b87"
 
     # upstream commit "Fix -spec's to compile in Erlang/OTP 19"
     patch do
