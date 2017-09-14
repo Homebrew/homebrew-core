@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com/"
-  url "https://orientdb.com/download.php?file=orientdb-community-importers-2.2.26.tar.gz"
-  sha256 "492027ceaf003baefe5a0cdd5557f5b32f3d268001e95d720df7f46623b8e6e4"
+  url "https://orientdb.com/download.php?file=orientdb-community-importers-2.2.27.tar.gz"
+  sha256 "948d36dd758a58473e36481e86836e4d3b7d1c5b520dc3f32840ffc4da2f425c"
 
   bottle :unneeded
 
