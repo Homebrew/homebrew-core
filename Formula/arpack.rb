@@ -24,9 +24,7 @@ class Arpack < Formula
                --prefix=#{libexec}
                --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort ]
 
-    if build.with? "mpi"
-      args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi"
-    end
+    args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi" if build.with? "mpi"
 
     system "./bootstrap"
     system "./configure", *args
