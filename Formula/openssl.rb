@@ -7,6 +7,7 @@ class Openssl < Formula
   url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2l.tar.gz"
+  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2l.tar.gz"
   sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
 
   bottle do
