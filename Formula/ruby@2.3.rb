@@ -1,20 +1,8 @@
 class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-
-  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.4.tar.xz"
-  sha256 "341cd9032e9fd17c452ed8562a8d43f7e45bfe05e411d0d7d627751dd82c578c"
-  revision 1
-
-  # Reverts an upstream commit which incorrectly tries to install headers
-  # into SDKROOT, if defined
-  # See https://bugs.ruby-lang.org/issues/11881
-  # The issue has been fixed on HEAD as of 1 Jan 2016, but has not been
-  # backported to the 2.3 branch yet and patch is still required.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ba8cc6b88e6b7153ac37739e5a1a6bbbd8f43817/ruby/mkconfig.patch"
-    sha256 "929c618f74e89a5e42d899a962d7d2e4af75716523193af42626884eaba1d765"
-  end
+  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.5.tar.xz"
+  sha256 "7d3a7dabb190c2da06c963063342ca9a214bcd26f2158e904f0ec059b065ffda"
 
   bottle do
     sha256 "7a60a8e3d435d2f39322323748f73068ca597b3b024e12f708f7add54bf6e4af" => :sierra
@@ -36,12 +24,6 @@ class RubyAT23 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
-  patch :p0 do
-    url "https://bugs.ruby-lang.org/attachments/download/6691/rubygems-2613-ruby23.patch"
-    sha256 "510567a43d57ea9c8c7436b14e78d0a4d33380f410443dcf350b9867c9745748"
-  end
 
   def install
     # otherwise `gem` command breaks
