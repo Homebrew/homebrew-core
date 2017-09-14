@@ -2,7 +2,7 @@ class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.3.tar.gz"
-  sha256 "baa4c7f04415fbc2a99cfab6da4d33a7ca018d985fc71701c603a67c6b0a9426"
+  sha256 "531894f85c67a29554cb3d16807cca55a3bb815e6a0014812967a176563e1ab3"
 
   bottle do
     sha256 "ec2167c01b3944ee32302786a82dd692f01175b81cb0720877fef9190495ab0c" => :sierra
