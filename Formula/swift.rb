@@ -11,7 +11,7 @@ class Swift < Formula
 
     resource "clang" do
       url "https://github.com/apple/swift-clang/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "ed41f1231bae030a412455491a5244ede53a4761617194b2dda573f5776361ad"
+      sha256 "bf9ec0c157501eea69ea1eb3c4b8bf56058110ec6c6a870d81d53868b67d1b96"
     end
 
     resource "cmark" do
@@ -26,17 +26,17 @@ class Swift < Formula
 
     resource "llbuild" do
       url "https://github.com/apple/swift-llbuild/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "ea59fd6603fe5d71598895832d6eef9314f1af99a72050536e473e9bb08a57df"
+      sha256 "a5b0a69e3785ce483053a7c1d2b2fe3c6ccc81832a930afee7969a9147316165"
     end
 
     resource "llvm" do
       url "https://github.com/apple/swift-llvm/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "fc6ac7c0c6afff344a8d4e5299b7417f414f1499cf374953e06c339d8177fc26"
+      sha256 "385b587b825adae9a9f7e5789e151ae0554e6e62f2f2f81ff3b623ef578b39bc"
     end
 
     resource "swiftpm" do
       url "https://github.com/apple/swift-package-manager/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "5f98dd6fd41170e2f51f85131ca50cba3d50a187ce94b7a1db7a776c2815c778"
+      sha256 "8ba05b5399b266615cf0d2055698dd3f23b57111120e98419f56139301981914"
     end
   end
 
