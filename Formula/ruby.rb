@@ -1,23 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  revision 2
-
-  stable do
-    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
-    sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
-
-    # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
-    patch :p0 do
-      url "https://bugs.ruby-lang.org/attachments/download/6692/rubygems-2612-ruby24.patch"
-      sha256 "2512420ec6aad586c6fbe80dfc32e7ec571a0168c90e451ad022b443202ab4a9"
-    end
-
-    patch :p0 do
-      url "https://bugs.ruby-lang.org/attachments/download/6693/rubygems-2613-ruby24.patch"
-      sha256 "6677689d991e07adf26355e4045a3bd9eaeca07694928644c282bd05ec13060d"
-    end
-  end
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.2.tar.xz"
+  sha256 "748a8980d30141bd1a4124e11745bb105b436fb1890826e0d2b9ea31af27f735"
 
   bottle do
     sha256 "d068a8d16f40ade0e770ed0e8670d02ae066494b2400ae614f9f84983011af1b" => :sierra
