@@ -2,6 +2,7 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.14.1.tar.xz"
+  mirror "http://tux.rainside.sk/pub/software/scm/git/git-2.14.1.tar.xz"
   sha256 "6f724c6d0e9e13114ab35db6f67e1b2c1934b641e89366e6a0e37618231f2cc6"
   head "https://github.com/git/git.git", :shallow => false
 
@@ -40,11 +41,13 @@ class Git < Formula
 
   resource "html" do
     url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.14.1.tar.xz"
+    mirror "http://tux.rainside.sk/pub/software/scm/git/git-htmldocs-2.14.1.tar.xz"
     sha256 "9c1970c7f87f37c8b3044e01e0500d84d8bc4eb4dfa5ca881c32c351f20769fb"
   end
 
   resource "man" do
     url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.14.1.tar.xz"
+    mirror "http://tux.rainside.sk/pub/software/scm/git/git-manpages-2.14.1.tar.xz"
     sha256 "7ebce1e0e862af1367e24f14765c7b67f08b63fb01b80949f55479c562d414f2"
   end
 
