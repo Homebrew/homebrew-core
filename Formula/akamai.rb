@@ -1,8 +1,8 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/0.3.2.tar.gz"
-  sha256 "0c1eb4ce261ca35a175d78725c415dce227885f4978e9aa4242102133cb7a5ca"
+  url "https://github.com/akamai/cli/archive/0.4.0.tar.gz"
+  sha256 "9364ccedd21dfe520d59a05ea1d0fbd83c1b4da8e2dbb6686c829a3583e626fc"
 
   bottle do
     cellar :any_skip_relocation
@@ -28,6 +28,6 @@ class Akamai < Formula
   end
 
   test do
-    assert_match "Purge", shell_output("yes y | #{bin}/akamai install purge")
+    assert_match "Purge", shell_output("#{bin}/akamai install --force purge")
   end
 end
