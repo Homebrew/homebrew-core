@@ -11,8 +11,8 @@ class Tmux < Formula
   end
 
   devel do
-    url "https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6-rc.tar.gz"
-    sha256 "96ddc4e5d8a4dbd5bd1eea841e0c9d7a0484ae01e7e0de6857c5dbc7e69aaada"
+    url "https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6-rc3.tar.gz"
+    sha256 "b4089e00b33685defec1ae6c46925323635920781c76c6018fd1b53afde88701"
   end
 
   head do
