@@ -6,6 +6,7 @@ class Libogg < Formula
 
   bottle do
     cellar :any
+    sha256 "cad96a945f371b76925092a518516db8c411c1ada9f402024fde4c2ffd2feaa2" => :high_sierra
     sha256 "652ed73b78106579014bfb727464094004da85ad15aa7655c3076a2d1e587916" => :sierra
     sha256 "dde4684a0247e6b6b27025ff66a35035a9c58492516b6d5c227e8be1eb880685" => :el_capitan
     sha256 "5d203c8e978aee2005f8ae4e85ba1e0451d4a29c8d6f878ada8da5d45f60fe84" => :yosemite
