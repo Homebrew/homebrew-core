@@ -3,8 +3,8 @@ class MagicWormhole < Formula
 
   desc "Securely transfers data between computers"
   homepage "https://github.com/warner/magic-wormhole"
-  url "https://files.pythonhosted.org/packages/78/60/716ca45f1d0a39079e2bf77f185dbe656744f0a4c4546b7a406bd5c9515e/magic-wormhole-0.10.2.tar.gz"
-  sha256 "55a423247faee7a0644d25f37760495978cd494ba0274fefd8cd1fad493954ee"
+  url "https://files.pythonhosted.org/packages/6c/9f/6383d6eec761ce97d8a80693871dd87edfd2d3e3a0c9439e2836a67a0ff5/magic-wormhole-0.10.3.tar.gz"
+  sha256 "48465d58f9c0d729dc586627cf280830e7ed59f9e7999946ae1d763c6b8db999"
 
   bottle do
     cellar :any
@@ -43,8 +43,8 @@ class MagicWormhole < Formula
   end
 
   resource "autobahn" do
-    url "https://files.pythonhosted.org/packages/02/77/8429ed2f7c9adc911e9f362f1c8058f87e209e5dc0273bac37d22fbe0b10/autobahn-17.6.2.tar.gz"
-    sha256 "1ff8e62752dc0433e3fa0d1e9735a22d2e6db9644db54332c75f7ab208255ab8"
+    url "https://files.pythonhosted.org/packages/17/71/898dbf715057e720b01e351f2b00d881cf1066c0d0dd719446e930de6818/autobahn-17.9.2.tar.gz"
+    sha256 "15758e1f507d191a0b56dca911eba780d12e603e0a4567bd2ec0ec08bf08cd4c"
   end
 
   resource "cffi" do
@@ -63,8 +63,8 @@ class MagicWormhole < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/2a/0c/31bd69469e90035381f0197b48bf71032991d9f07a7e444c311b4a23a3df/cryptography-1.9.tar.gz"
-    sha256 "5518337022718029e367d982642f3e3523541e098ad671672a90b82474c84882"
+    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
+    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
   end
 
   resource "enum34" do
@@ -83,13 +83,13 @@ class MagicWormhole < Formula
   end
 
   resource "hyperlink" do
-    url "https://files.pythonhosted.org/packages/a2/d9/56b6a007a643d6511e616a2be74f67c3703e2aea4e9eaa44bdf48bc78c82/hyperlink-17.2.1.tar.gz"
-    sha256 "2c74b35662416f44823d50e59305f761a933723ae6528cc5b0d711361453f28b"
+    url "https://files.pythonhosted.org/packages/83/df/3bdaf38f21f93429de02f04c6a967d2154955fc5b9a6a1a0b20a682edc13/hyperlink-17.3.1.tar.gz"
+    sha256 "bc4ffdbde9bdad204d507bd8f554f16bba82dd356f6130cb16f41422909c33bc"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "incremental" do
@@ -103,23 +103,23 @@ class MagicWormhole < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/9f/32/80fe4fddeb731b7766cd09fe0b2032a91b43dae655e216792af2a6ae3190/pyOpenSSL-17.0.0.tar.gz"
-    sha256 "48abfe9d2bb8eb8d8947c8452b0223b7b1be2383b332f3b4f248fe59ef0bafdd"
+    url "https://files.pythonhosted.org/packages/ee/6a/cd78737dd990297205943cc4dcad3d3c502807fd2c5b18c5f33dc90ca214/pyOpenSSL-17.3.0.tar.gz"
+    sha256 "29630b9064a82e04d8242ea01d7c93d70ec320f5e3ed48e95fcabc6b1d0f6c76"
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
-    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
+    url "https://files.pythonhosted.org/packages/1a/37/7ac6910d872fdac778ad58c82018dce4af59279a79b17403bbabbe2a866e/pyasn1-0.3.4.tar.gz"
+    sha256 "3946ff0ab406652240697013a89d76e388344866033864ef2b097228d1f0101a"
   end
 
   resource "pyasn1-modules" do
-    url "https://files.pythonhosted.org/packages/cf/57/d4097cea8caf360ffe0c5d6f25c2cb9317500cdc000fd02a741ba6e64c9e/pyasn1-modules-0.0.9.tar.gz"
-    sha256 "be0e4157e4a53551279d6c6e366b080527f5fd068616835b4abf32c14f657f5f"
+    url "https://files.pythonhosted.org/packages/66/6b/f5582cbf3b920896ce1b97bde3894599b3dec31301ef79ae7ea0022f5577/pyasn1-modules-0.1.4.tar.gz"
+    sha256 "b07c17bdb34d6f64aafea6269f2e8fb306a57473f0f38d9a6ca389d6ab30ac4a"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
-    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
+    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
   resource "service_identity" do
@@ -138,13 +138,13 @@ class MagicWormhole < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/67/7c/95e5425871bf314e484aea5f8ec65b49ab006944309b496cd53c47646155/tqdm-4.14.0.tar.gz"
-    sha256 "284b7cb57c135f41122580df8a818ffffd85449a61365dfb41907d2bf115e88e"
+    url "https://files.pythonhosted.org/packages/01/f7/2058bd94a903f445e8ff19c0af64b9456187acab41090ff2da21c7c7e193/tqdm-4.15.0.tar.gz"
+    sha256 "6ec1dc74efacf2cda936b4a6cf4082ce224c76763bdec9f17e437c8cfcaa9953"
   end
 
   resource "txaio" do
-    url "https://files.pythonhosted.org/packages/03/86/2cb7ae81209cc3fc64f68a31d70c20ab4771b520d7e13a5219b1f5e16ee1/txaio-2.8.0.tar.gz"
-    sha256 "8029d956591107ff9a2221d2a288fdd3718713a6991f59b97359d3d4f4b7b564"
+    url "https://files.pythonhosted.org/packages/d6/95/d0c67304515f352342bc8fd14e5a3e7ca924134608acb730916073b18464/txaio-2.8.2.tar.gz"
+    sha256 "484cd6c4cdd3f6081b87188f3b2b9a36e02fba6816e8256917c4f6571b567571"
   end
 
   resource "txtorcon" do
