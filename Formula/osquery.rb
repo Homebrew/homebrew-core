@@ -55,7 +55,7 @@ class Osquery < Formula
 
   resource "aws-sdk-cpp" do
     url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
-    sha256 "94d3bf8cbb1db18ebdb50fbf20aa48ad1838f1743bbd22ca04adbaad9bc284dc"
+    sha256 "d88e152ab5d9ad838166cb32a6152549ec16a51fb2fcc0802c704ea79c12edcb"
   end
 
   resource "cpp-netlib" do
