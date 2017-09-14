@@ -7,6 +7,7 @@ class Mad < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a053f1e30d1d04f8c1f472d9b0b243d9572c3e7ff2c3e46a665564021bf37432" => :high_sierra
     sha256 "1b48168bf5df9fc66703afc68ad3574b9ceb723fbcbf0f1e84c3c1c18fe6ff92" => :sierra
     sha256 "a8a162813aad00169410a8f14a39927028969c914929fafb0685f0eb80075546" => :el_capitan
     sha256 "863c71f31ecda8f97effc4dd148564e03219f8ddd162c89e054a7e57623c18c6" => :yosemite
