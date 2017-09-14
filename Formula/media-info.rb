@@ -3,7 +3,8 @@ class MediaInfo < Formula
   homepage "https://mediaarea.net/"
   url "https://mediaarea.net/download/binary/mediainfo/0.7.99/MediaInfo_CLI_0.7.99_GNU_FromSource.tar.bz2"
   version "0.7.99"
-  sha256 "099c06531bec1ecff18b2ac8626cdd2b64c4652b9aba5d0c869abafdd69e44d5"
+  sha256 "a365ea634b0188566eec25553a50483283a3a600cf69cd6d707e714ee329cb90"
+  revision 1
 
   bottle do
     cellar :any
