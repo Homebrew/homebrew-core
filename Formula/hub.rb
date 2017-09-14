@@ -15,7 +15,7 @@ class Hub < Formula
 
   devel do
     url "https://github.com/github/hub/archive/v2.3.0-pre10.tar.gz"
-    sha256 "9b4764dc2647bc0c14de2bd386e6f428f002d93baf01059d994e1cfa928483fc"
+    sha256 "4096b95aea46f674e91ff0d83f86d876958024a02c50ffb1e3a4aac3e0536fc5"
   end
 
   option "without-completions", "Disable bash/zsh completions"
