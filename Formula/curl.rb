@@ -15,7 +15,6 @@ class Curl < Formula
 
   head do
     url "https://github.com/curl/curl.git"
-    mirror "http://github.com/curl/curl.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
