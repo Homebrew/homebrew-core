@@ -99,7 +99,7 @@ class RubyAT23 < Formula
   end
 
   def rubygems_bindir
-    "#{HOMEBREW_PREFIX}/bin"
+    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{abi_version}/bin"
   end
 
   def rubygems_config; <<-EOS.undent
@@ -165,6 +165,14 @@ class RubyAT23 < Formula
       end
     end
     EOS
+  end
+
+  def caveats; <<-EOS.undent
+    By default, binaries installed by gem will be placed into:
+      #{rubygems_bindir}
+
+    You may want to add this to your PATH.
+  EOS
   end
 
   test do
