@@ -1,8 +1,8 @@
 class DockerMachineParallels < Formula
   desc "Docker Machine Parallels Driver"
   homepage "https://github.com/Parallels/docker-machine-parallels"
-  url "https://github.com/Parallels/docker-machine-parallels/archive/v1.2.3.tar.gz"
-  sha256 "2f66e17441d7802f625ec2fc967a00880e039353b8c0176174fc21d7f76e546d"
+  url "https://github.com/Parallels/docker-machine-parallels/archive/v1.3.0.tar.gz"
+  sha256 "dcfd9fefde15ba0e5d264b7f3efdb76cdd14e59fe722a28fff82f3a418f78d8b"
 
   head "https://github.com/Parallels/docker-machine-parallels.git"
 
