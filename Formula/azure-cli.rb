@@ -488,7 +488,7 @@ class AzureCli < Formula
 
   def caveats; <<-EOS.undent
     This formula is for Azure CLI 2.0 - https://docs.microsoft.com/cli/azure/overview.
-    The previous Azure CLI has moved to azure-cli@1.0.
+    The previous Azure CLI has moved to azure-cli@1
     ----
     Get started with:
       $ az
