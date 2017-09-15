@@ -6,6 +6,7 @@ class LibatomicOps < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aad885b46cdf75bf036ad4824bfad1e8d23be38bcee036bc5ce5dd291688efc9" => :high_sierra
     sha256 "fc80848a3579f5de3f041b1cfb59ac94844555367f6eaf17628d177bd587d780" => :sierra
     sha256 "912aa8d5209d8404722163995bc40b4d5ee14772f2bdd8f7da925cbd5958cbb1" => :el_capitan
     sha256 "319892011eb1e30819c7a0bfad69677f1b53c6522248350610bbff6b4063b2a6" => :yosemite
