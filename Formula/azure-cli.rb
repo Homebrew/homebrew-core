@@ -480,7 +480,11 @@ class AzureCli < Formula
     (bin/"az").write <<-EOS.undent
       #!/usr/bin/env bash
       export PYTHONPATH="#{ENV["PYTHONPATH"]}"
-      python#{xy} -m azure.cli \"$@\"
+      if command -v python#{xy} >/dev/null 2>&1; then
+        python#{xy} -m azure.cli \"$@\"
+      else
+        python3 -m azure.cli \"$@\"
+      fi
     EOS
 
     bash_completion.install "az.completion" => "az"
