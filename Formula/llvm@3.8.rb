@@ -3,42 +3,42 @@ class LlvmAT38 < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://llvm.org/releases/3.8.1/llvm-3.8.1.src.tar.xz"
+    url "https://releases.llvm.org/3.8.1/llvm-3.8.1.src.tar.xz"
     sha256 "6e82ce4adb54ff3afc18053d6981b6aed1406751b8742582ed50f04b5ab475f9"
 
     resource "clang" do
-      url "https://llvm.org/releases/3.8.1/cfe-3.8.1.src.tar.xz"
+      url "https://releases.llvm.org/3.8.1/cfe-3.8.1.src.tar.xz"
       sha256 "4cd3836dfb4b88b597e075341cae86d61c63ce3963e45c7fe6a8bf59bb382cdf"
     end
 
     resource "clang-tools-extra" do
-      url "https://llvm.org/releases/3.8.1/clang-tools-extra-3.8.1.src.tar.xz"
+      url "https://releases.llvm.org/3.8.1/clang-tools-extra-3.8.1.src.tar.xz"
       sha256 "664a5c60220de9c290bf2a5b03d902ab731a4f95fe73a00856175ead494ec396"
     end
 
     resource "polly" do
-      url "https://llvm.org/releases/3.8.1/polly-3.8.1.src.tar.xz"
+      url "https://releases.llvm.org/3.8.1/polly-3.8.1.src.tar.xz"
       sha256 "453c27e1581614bb3b6351bf5a2da2939563ea9d1de99c420f85ca8d87b928a2"
     end
 
     resource "lld" do
-      url "https://llvm.org/releases/3.8.1/lld-3.8.1.src.tar.xz"
+      url "https://releases.llvm.org/3.8.1/lld-3.8.1.src.tar.xz"
       sha256 "2bd9be8bb18d82f7f59e31ea33b4e58387dbdef0bc11d5c9fcd5ce9a4b16dc00"
     end
 
     resource "openmp" do
-      url "https://llvm.org/releases/3.8.1/openmp-3.8.1.src.tar.xz"
+      url "https://releases.llvm.org/3.8.1/openmp-3.8.1.src.tar.xz"
       sha256 "68fcde6ef34e0275884a2de3450a31e931caf1d6fda8606ef14f89c4123617dc"
     end
 
     resource "libcxx" do
-      url "https://llvm.org/releases/3.8.1/libcxx-3.8.1.src.tar.xz"
+      url "https://releases.llvm.org/3.8.1/libcxx-3.8.1.src.tar.xz"
       sha256 "77d7f3784c88096d785bd705fa1bab7031ce184cd91ba8a7008abf55264eeecc"
     end
 
     if MacOS.version <= :snow_leopard
       resource "libcxxabi" do
-        url "https://llvm.org/releases/3.8.1/libcxxabi-3.8.1.src.tar.xz"
+        url "https://releases.llvm.org/3.8.1/libcxxabi-3.8.1.src.tar.xz"
         sha256 "e1b55f7be3fad746bdd3025f43e42d429fb6194aac5919c2be17c4a06314dae1"
       end
     end
