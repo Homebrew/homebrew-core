@@ -6,6 +6,7 @@ class Libvterm < Formula
 
   bottle do
     cellar :any
+    sha256 "d9890959bfaffea27748b69bdcd8f84b1ccc104829db37480dcfdd86701fa315" => :high_sierra
     sha256 "1b0e1cd45ec1aa67280fa555c47139d2d0b36d7c28313148bd7d23d85a31178c" => :sierra
     sha256 "fdab6481377220ea48474d7af256df3b82ee202d28ba010d644aa5ff200c2fbd" => :el_capitan
     sha256 "e74dceb0e58c42be4c8e1ab96867ad71931b9412b7c692cfc40dc5bc924d0daa" => :yosemite
