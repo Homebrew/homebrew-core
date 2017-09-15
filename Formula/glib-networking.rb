@@ -5,6 +5,7 @@ class GlibNetworking < Formula
   sha256 "5961b3779080b72314b373ff5d4790eb7e41b75ca91816ad7a81ef32922f7096"
 
   bottle do
+    sha256 "05bbc29889c28eafe72812cc5bb29c67d2eb06b73259676ae26821920be5ef54" => :high_sierra
     sha256 "6551b115dc75768d40111207fba1a1bfd2c2994469ce380e4e21798667b925b4" => :sierra
     sha256 "bee5da78fd8cc668ed831587fea46ea9485d842d5d88cc6e839cc6a6fa99e709" => :el_capitan
   end
