@@ -8,6 +8,7 @@ class Libassuan < Formula
 
   bottle do
     cellar :any
+    sha256 "eb6290ba48859a28998f11b90a1aff14431fa25c02bf8dbdeb0595ea263e5cda" => :high_sierra
     sha256 "807776139dc1196a6107d83cd69d3e81ae9530554933a07cb7c3db7591e795a9" => :sierra
     sha256 "4c657d8c083e8f5835b98eb850a520d2bb9b597afda9229c501fe7cf4e2a1f58" => :el_capitan
     sha256 "9fa0afe044cd12b0cf6509db7c25e90f222e1c41297da41da89524ba0440f1cd" => :yosemite
