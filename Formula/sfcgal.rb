@@ -5,6 +5,7 @@ class Sfcgal < Formula
   sha256 "1ae0ce1c38c728b5c98adcf490135b32ab646cf5c023653fb5394f43a34f808a"
 
   bottle do
+    sha256 "f768925d0f01d8c8ea0c131a886d9ffb10677d90e86591f6d3a71adfc136975e" => :high_sierra
     sha256 "ab1b173aa969908975b426e0e1b6e743c18f3e9da19007b0b7e1833b92969bd7" => :sierra
     sha256 "0348fd098cfb8a0d2ce913fa256178c63c47216415507a962c5999a5c62853ac" => :el_capitan
   end
