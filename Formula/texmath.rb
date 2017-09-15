@@ -9,9 +9,9 @@ class Texmath < Formula
   sha256 "bb825ee8055cc7bcaa7bba5dd1497d05ca0a660799ac17e2425a6650cbf5a3f7"
 
   bottle do
-    sha256 "64cc76e382d392a69864d1d5da95a1c1b862fdd9a547d2553f08f054d42ef15f" => :sierra
-    sha256 "cb3f8ea701cbb7e19a9d2d0484795c2a9bc4ac431e89bbc18954907bbb6b3e43" => :el_capitan
-    sha256 "94138d1753ba7b996faa23e437ab594d5908f32e221360dbb8b3e9a65001a6b7" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "b7974f892e6967175bf00f7d50ab64b9f8a5664e27953054170e555d0c67cf2d" => :sierra
+    sha256 "bf6762b6590315997c4dcb8eebdeef965bd7129f20e3d11deb97a047c4dff5f2" => :el_capitan
   end
 
   depends_on "ghc" => :build
