@@ -1,8 +1,8 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/v2.2.0.tar.gz"
-  sha256 "1b0fda17c650c493f5862902e90f426df6751da8c0b58c05983ab009951ed769"
+  url "https://github.com/pybind/pybind11/archive/v2.2.1.tar.gz"
+  sha256 "f8bd1509578b2a1e7407d52e6ee8afe64268909a1bbda620ca407318598927e7"
 
   bottle do
     cellar :any_skip_relocation
