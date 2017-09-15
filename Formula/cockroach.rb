@@ -18,6 +18,11 @@ class Cockroach < Formula
   depends_on "xz" => :build
 
   def install
+    # unpin the Go version
+    go_version = Formula["go"].installed_version.to_s.split(".")[0, 2].join(".")
+    inreplace "src/github.com/cockroachdb/cockroach/.go-version",
+              /^GOVERS = go.*/, "GOVERS = go#{go_version.gsub(".", "\\.")}.*"
+
     system "make", "install", "prefix=#{prefix}"
   end
 
