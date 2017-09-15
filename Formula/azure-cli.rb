@@ -6,11 +6,10 @@ class AzureCli < Formula
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d2ccc6569274d56a5adb9d3748e15304b55f0c7c8dee5fabc864316bef1a35aa" => :sierra
-    sha256 "434133ceb68bdaf77b50966101e5b396c6fe5ec372a88074ea53f9efbbc2e825" => :el_capitan
-    sha256 "3fdff5d0b06bef174430471071ef03d5c253f279d33abc38678797a4b618b92f" => :yosemite
+    cellar :any
+    sha256 "a5a87109091d6824d28f49172e65016395900886483bc11706bbf3b2573ae779" => :high_sierra
+    sha256 "ff7abc3580cf6322e72b4c624014a7798dd20e30c65bce3984cad8282669362a" => :sierra
+    sha256 "1d01474dfdced0109de89acc259afa26aa92b6e6a9080c0fad8c266b936aa248" => :el_capitan
   end
 
   depends_on "openssl"
