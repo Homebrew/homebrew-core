@@ -10,13 +10,8 @@ class Cvs < Formula
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "48e3daba0b967f76f790792c5882002b82b5867a18fe4b9aa4ee13b0044277cf" => :sierra
-    sha256 "c454f576c58dbabc3d3ce4af4974dfdcf47c4232af3de9275f171a93dbdf264a" => :el_capitan
-    sha256 "3b6a02a69d14c6a6476727ade22b47a542dae280df6375a9bce9374a21176f86" => :yosemite
-    sha256 "ff6b161b7379b44bf42635828f45e7f43c932d2be9fbf9691714f2f4a356ec7f" => :mavericks
-    sha256 "cbabf7f11bb08b7018117f5b45dda26d55a0584f9ef7e00c0a134bbbe1284655" => :mountain_lion
+    sha256 "fd41f323c862928ecdd5830f9174b860d5aeb3f454047e62ecefa0436a564161" => :sierra
+    sha256 "d81b370b83adb2b33a2d6c8b377fc8ca98225768b3c67abdd9e3beaf1d0e9808" => :el_capitan
   end
 
   keg_only :provided_until_xcode5
