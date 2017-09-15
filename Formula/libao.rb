@@ -6,6 +6,7 @@ class Libao < Formula
   head "https://git.xiph.org/libao.git"
 
   bottle do
+    sha256 "8d823e6f7d3bf6ae310d84f6509d25370592a1b940a121a83918d1659439e008" => :high_sierra
     sha256 "91469bf8242cf3115d65f6bf39caa77226fc21840309ee5f3fad009379a6fbec" => :sierra
     sha256 "d1e17337705d098d76e4bfd4b71f2bb01278a85a87d58ad0711636a2050c9049" => :el_capitan
     sha256 "a44490fce22700be3b09bc6c75de39d90f7860e2486723bb1fa655e22c0a2771" => :yosemite
