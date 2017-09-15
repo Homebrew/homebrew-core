@@ -47,7 +47,7 @@ class ClangFormat < Formula
   depends_on "subversion" => :build
 
   resource "libcxx" do
-    url "https://llvm.org/releases/4.0.0/libcxx-4.0.0.src.tar.xz"
+    url "https://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
     sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
   end
 
