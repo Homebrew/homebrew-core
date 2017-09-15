@@ -3,7 +3,6 @@ class AzureCli < Formula
   homepage "https://docs.microsoft.com/cli/azure/overview"
   url "https://azurecliprod.blob.core.windows.net/releases/azure-cli_packaged_2.0.17.tar.gz"
   sha256 "e0bb182cb53bdef8042cda1dd0e0e893b63aca5e415b053af2962e7a416eb072"
-
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
