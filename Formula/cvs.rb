@@ -10,6 +10,7 @@ class Cvs < Formula
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
 
   bottle do
+    sha256 "b8604bdb205a892e4cab5ea86b825080aa22ea5c5bb6e9df9b2b65a67555a105" => :high_sierra
     sha256 "fd41f323c862928ecdd5830f9174b860d5aeb3f454047e62ecefa0436a564161" => :sierra
     sha256 "d81b370b83adb2b33a2d6c8b377fc8ca98225768b3c67abdd9e3beaf1d0e9808" => :el_capitan
   end
