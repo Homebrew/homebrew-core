@@ -1,8 +1,8 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.0.8/shadowsocks-libev-3.0.8.tar.gz"
-  sha256 "3bdf7f8f89050aee896496fd86b6b7ef694754f0b8cd97c4b5a04d1d3e5c2e5b"
+  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.1.0/shadowsocks-libev-3.1.0.tar.gz"
+  sha256 "3b6493ebdcfff1eb31faf34d164d57049f7253ff5bffafa6ce2263c9ac123f31"
 
   bottle do
     cellar :any
@@ -13,6 +13,7 @@ class ShadowsocksLibev < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
+  depends_on "c-ares"
   depends_on "libev"
   depends_on "libsodium"
   depends_on "mbedtls"
