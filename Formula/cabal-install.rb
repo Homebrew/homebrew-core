@@ -7,6 +7,7 @@ class CabalInstall < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b254ac6813d22df46f50e5078273dcc259f727d7855cc749f37017ce8e645e98" => :high_sierra
     sha256 "bd4ead434980525b7a21cebb7f73da9a8c68e6a226bfd85b01abea55f814af96" => :sierra
     sha256 "a093efe37db90411dc87eccaaca4e8245dbd9c46197f44f4d4dd484b1055ec03" => :el_capitan
     sha256 "ce0e79606ebc753b213e8e2a46506bd27e82dacef493452dc31cb445ee4e4e1d" => :yosemite
