@@ -22,43 +22,43 @@ class Llvm < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://llvm.org/releases/5.0.0/llvm-5.0.0.src.tar.xz"
+    url "https://releases.llvm.org/5.0.0/llvm-5.0.0.src.tar.xz"
     sha256 "e35dcbae6084adcf4abb32514127c5eabd7d63b733852ccdb31e06f1373136da"
 
     resource "clang" do
-      url "https://llvm.org/releases/5.0.0/cfe-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/cfe-5.0.0.src.tar.xz"
       sha256 "019f23c2192df793ac746595e94a403908749f8e0c484b403476d2611dd20970"
     end
 
     resource "clang-extra-tools" do
-      url "https://llvm.org/releases/5.0.0/clang-tools-extra-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/clang-tools-extra-5.0.0.src.tar.xz"
       sha256 "87d078b959c4a6e5ff9fd137c2f477cadb1245f93812512996f73986a6d973c6"
     end
 
     resource "compiler-rt" do
-      url "https://llvm.org/releases/5.0.0/compiler-rt-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/compiler-rt-5.0.0.src.tar.xz"
       sha256 "d5ad5266462134a482b381f1f8115b6cad3473741b3bb7d1acc7f69fd0f0c0b3"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "https://llvm.org/releases/5.0.0/libcxx-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/libcxx-5.0.0.src.tar.xz"
       sha256 "eae5981e9a21ef0decfcac80a1af584ddb064a32805f95a57c7c83a5eb28c9b1"
     end
 
     resource "libunwind" do
-      url "https://llvm.org/releases/5.0.0/libunwind-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/libunwind-5.0.0.src.tar.xz"
       sha256 "9a70e2333d54f97760623d89512c4831d6af29e78b77a33d824413ce98587f6f"
     end
 
     resource "lld" do
-      url "https://llvm.org/releases/5.0.0/lld-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/lld-5.0.0.src.tar.xz"
       sha256 "399a7920a5278d42c46a7bf7e4191820ec2301457a7d0d4fcc9a4ac05dd53897"
     end
 
     resource "lldb" do
-      url "https://llvm.org/releases/5.0.0/lldb-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/lldb-5.0.0.src.tar.xz"
       sha256 "c0a0ca32105e9881d86b7ca886220147e686edc97fdb9f3657c6659dc6568b7d"
     end
 
@@ -71,12 +71,12 @@ class Llvm < Formula
     end
 
     resource "openmp" do
-      url "https://llvm.org/releases/5.0.0/openmp-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/openmp-5.0.0.src.tar.xz"
       sha256 "c0ef081b05e0725a04e8711d9ecea2e90d6c3fbb1622845336d3d095d0a3f7c5"
     end
 
     resource "polly" do
-      url "https://llvm.org/releases/5.0.0/polly-5.0.0.src.tar.xz"
+      url "https://releases.llvm.org/5.0.0/polly-5.0.0.src.tar.xz"
       sha256 "44694254a2b105cec13ce0560f207e8552e6116c181b8d21bda728559cf67042"
     end
   end
