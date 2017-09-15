@@ -7,6 +7,7 @@ class Libdvdcss < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a12b8c3d6f8e88394b86b711bfda78a465ba8a0fdf028e80f7676a5a1afaf76c" => :high_sierra
     sha256 "bab4dbb3fbda6bdb3c21ebb1c925c242e0cc14a247fcaca552ab609710677b23" => :sierra
     sha256 "c15f5de6e9bb695e3d5325c4732e83c12ac5142a5ae1ba1facc098560822b8a1" => :el_capitan
     sha256 "c93bcd80c6ecdc46f9b74eeb82c5834d42c1380bd4b8070dbd9a80354d1726d7" => :yosemite
