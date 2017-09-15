@@ -7,6 +7,7 @@ class Gringo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e0faf8806b7ffbab272bdaead795e4d87a01bea99b709bd49aa56ff9dd33e11b" => :high_sierra
     sha256 "10fdd80c67761f30f49f95ec2e79f0f8cea9c8109053a07853491846af30fc6a" => :sierra
     sha256 "441c81748e551106a923ccd61298f98c8b5e46cba684fc2e0031a4fe11f1d0ae" => :el_capitan
     sha256 "e9b5ee97a0a0b8c14a66d6359936259b7edc96c2013531c250903a03df65bfb0" => :yosemite
