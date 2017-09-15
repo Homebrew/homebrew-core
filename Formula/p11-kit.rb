@@ -16,6 +16,7 @@ class P11Kit < Formula
   end
 
   bottle do
+    sha256 "20df13634ab4690134d9fa3bfd662dff9cbdc5478a0906a3cc10e7c2ab5439ac" => :high_sierra
     sha256 "7ec97bd7114e80433e5a1d273606d7478ae8e7e158bb984f49c513df56eae446" => :sierra
     sha256 "da47a03cf395714dd86181a64d6188d048c81f330815bf171d8cff95de6f7a41" => :el_capitan
     sha256 "bcbffb5dcddd7cfec4f4fb26ab1dd3c4baa259f450e25b13975f88c94699ab7b" => :yosemite
