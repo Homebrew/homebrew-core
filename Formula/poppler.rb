@@ -6,6 +6,7 @@ class Poppler < Formula
   revision 1
 
   bottle do
+    sha256 "98f5c927af0ae3037bd1281e81e239e2d8551ec7ba407bc11eafe7b2a23c2763" => :high_sierra
     sha256 "45c498c850b6e0dd469ad01a9934e8a04c382a0765c43ffd558f36ba914e53d3" => :sierra
     sha256 "6414db0c4132faa741c0103f404c7e5620caf11484bbf4455c29f87e5184a21f" => :el_capitan
     sha256 "dc7456a1f84d9125b08484bfdfa28950331656b8183368e245c66b30967f2cff" => :yosemite
