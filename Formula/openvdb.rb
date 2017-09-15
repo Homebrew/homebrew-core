@@ -7,9 +7,8 @@ class Openvdb < Formula
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "3a4603a2de3762370243be58876acd8cb38be2cdbb7513df17d5e6f5e8f706e2" => :sierra
-    sha256 "dae2fc5e374ce071db7f0a78c327764edb924e29eb9b077343673b9e20a7dfcc" => :el_capitan
-    sha256 "1163d8354ff5ee3494155d54ba07fc070b1ca58b4894543394f20ee4145c54ea" => :yosemite
+    sha256 "0d1fef9c5b48d93c515b1f3a0088042f2c62e8d2b2d920b9b524d50e7500a162" => :sierra
+    sha256 "96e764b3a8cb53e0efe4b28d7febc03f11be5c0e71e7e8eeb7c202b3f81da9fc" => :el_capitan
   end
 
   option "with-glfw", "Installs the command-line tool to view OpenVDB files"
