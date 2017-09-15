@@ -1,9 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://github.com/bitcoin/bitcoin/archive/v0.14.2.tar.gz"
-  sha256 "e0ac23f01a953fcc6290c96799deeffb32aa76ca8e216c564d20c18e75a25219"
-  revision 2
+  url "https://github.com/bitcoin/bitcoin/archive/v0.15.0.1.tar.gz"
+  sha256 "a2d28632be6918ce23d2fd589f0aecbb2a90579c9345f47fdfe1e77ec31f023e"
   head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
@@ -27,6 +26,11 @@ class Bitcoin < Formula
   needs :cxx11
 
   def install
+    if MacOS.version == :el_capitan && MacOS::Xcode.installed? &&
+       MacOS::Xcode.version >= "8.0"
+      ENV.delete("SDKROOT")
+    end
+
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
