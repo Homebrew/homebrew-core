@@ -5,6 +5,7 @@ class Gtkx3 < Formula
   sha256 "1bd3c1a85cfb4db112cabb5379abb05a1a94fe43052d309d573493fca00e6b87"
 
   bottle do
+    sha256 "1976fd4b2887207e3ecc8b4b9838019482be4ff619365a1586a827a5247ef729" => :high_sierra
     sha256 "b1cb343b75a4f97c63187f9a1645cb0a52d28c43ca82e8bc3151eb3539535dd3" => :sierra
     sha256 "0cc81331e661d0b9f7784a3f8853cdbe17e0dcc47f0530545986a2b2d2f19795" => :el_capitan
   end
