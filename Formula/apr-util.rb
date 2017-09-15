@@ -6,6 +6,7 @@ class AprUtil < Formula
   revision 1
 
   bottle do
+    sha256 "b1c1fbfaf17d23b788ac43b8c37694e48b1417326918af000e19c6b329d78410" => :high_sierra
     sha256 "3b72b3d5133fbc44a9b731c7839502b8dead4cc7d269f3bcd555bb8df15fcf5e" => :sierra
     sha256 "4b5777d34c8bbbc00a193c3b292d175ead8bdc0a3de0ea520f6630877dc6f60c" => :el_capitan
     sha256 "f18a9ee269a86582d0c51f3ff825031abc65854bcaf15a1b5713a02df2aad637" => :yosemite
