@@ -7,6 +7,7 @@ class Libmpeg2 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "bdd9339459f1a039f480f3c31730265457bf6736ab625359482eb4e3796e455c" => :high_sierra
     sha256 "4454cdb2561326d53d7680fb004a13a54674b9cabd619cc9a5fede2742c9da9e" => :sierra
     sha256 "841e93dd99b97b96b475aedff29b58f5be5c4156869b1c0212e5d7ed8dd7f481" => :el_capitan
     sha256 "3d07c45554ff34036b9eae5a31dc5417c15109ba134d414035b1bf6f9dda7c79" => :yosemite
