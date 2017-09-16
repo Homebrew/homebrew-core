@@ -7,6 +7,7 @@ class Libhid < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b2949cef974f368856304506aecea44d3daca81b2d8c798bc141ef376723eded" => :high_sierra
     sha256 "b92f274a981788b3092927223099f4f3220877417c766ec8e8bd63171e9a9849" => :sierra
     sha256 "a22388fc2ac89d99ed04449c590b035308a81c8f1a2e80ee68ca64a7e10ced7e" => :el_capitan
     sha256 "4920ff4278cbc288fc8c84ef9b3137d99010ba047d6f072b9a6eccf07588721a" => :yosemite
