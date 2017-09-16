@@ -6,6 +6,7 @@ class GtkMacIntegration < Formula
   revision 1
 
   bottle do
+    sha256 "386b6c17f5130f9b1b5c3e1d8735c203fe4631b33897acf056ff29dc3af686ab" => :high_sierra
     sha256 "f955fce167b47c28be3280a669c8748efdc1190c50e3df05f3118bf9c42e85ae" => :sierra
     sha256 "070978d2d305868a4550f204f2b00950fac7e4d3e98033f2ed3c64998d4c4f38" => :el_capitan
     sha256 "f5930dd44baf83b11de0e0cfe2f9e3be5491622cd32984398554d1760fe86e4e" => :yosemite
