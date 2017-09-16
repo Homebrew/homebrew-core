@@ -6,6 +6,7 @@ class Bochs < Formula
   revision 1
 
   bottle do
+    sha256 "1acbd357ca0d7394d2ca6ac261a7cbecf4d42d73fac2f5a6e237e7b33a01e51d" => :high_sierra
     sha256 "8dd191ff5085b435ff26cd53026d8afada7fa9e18d84a985da2a6a9d6b179a64" => :sierra
     sha256 "395ce5d3047ee0b98c8eb2130a8661d319a0926c19e7ebf6b31fc01dee0e8edf" => :el_capitan
     sha256 "b32844f457ead67e1a656a1a6d05c0a67d56cc1b68d0ffb60f86d3c8ec0f50cf" => :yosemite
