@@ -6,6 +6,7 @@ class Texi2html < Formula
 
   bottle do
     rebuild 1
+    sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :high_sierra
     sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :sierra
     sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :el_capitan
   end
