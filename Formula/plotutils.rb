@@ -9,6 +9,7 @@ class Plotutils < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "00796c7f6aa36203eb0fd919ef4f096c6016d3c5973b2032328c95c87b354d92" => :high_sierra
     sha256 "b63f4f051452f8fd9b5ddb50f9d574122c2277c9778e1a56c3f2d59e55c3da73" => :sierra
     sha256 "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9" => :el_capitan
     sha256 "fae89f252628820ac83a0896fa022b1c08cacca6e6234b2fb23c10554f424fd3" => :yosemite
