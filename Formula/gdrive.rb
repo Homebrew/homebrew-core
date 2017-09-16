@@ -6,11 +6,9 @@ class Gdrive < Formula
   head "https://github.com/prasmussen/gdrive.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "739ce50308d1f159b009ab60251c137f56aeccb1620a89972ef9b995daf1a757" => :sierra
-    sha256 "4cb0399839f4d61561537a5e3e824fd4b158de9976fec00a3eaf5af2d75263a0" => :el_capitan
-    sha256 "a735d01325571d987ef32720a536928faad92a692b2f9008a769b07c6dac5931" => :yosemite
-    sha256 "cac347dada281fd7e1b31bd08b0fcf05f0cadfd2e16f603590505bd0f6592064" => :mavericks
+    rebuild 1
+    sha256 "63c7bdfe51154a2b4748f8b157a709a7f2e1eea8b04623b9210ea5b2e0765e2b" => :sierra
+    sha256 "87c24360f961397b3e839d1fd8c63b6b48af69b3284aab1781f374ac7cfeefa7" => :el_capitan
   end
 
   depends_on "go" => :build
