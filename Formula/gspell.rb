@@ -5,6 +5,7 @@ class Gspell < Formula
   sha256 "b5d73dab4bda45cde4bdeed04e472dca8a3e16ea19739cfb66237553e91f872d"
 
   bottle do
+    sha256 "eb042c618b2e42d20c2482cc6aeb63be0eb05ec8ccb80e8e1d9e666b6b573de9" => :high_sierra
     sha256 "d1cbb52f50dda1cbe670422704cf2177b4e0039f13277e021bf1fd296619d09e" => :sierra
     sha256 "29308ad85815a65c342422ad498ed02d34ed70b4af989234373a84b1c462db2a" => :el_capitan
   end
