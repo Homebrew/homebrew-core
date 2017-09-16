@@ -6,6 +6,7 @@ class Gl2ps < Formula
 
   bottle do
     cellar :any
+    sha256 "58ccd9856c162d924115146e1ff050d364e6302d20cb7003645724e9418bedb5" => :high_sierra
     sha256 "4481d5e37838c2189005dd2eadbc37f45e0a1189ea9565ab8dee60d010b96036" => :sierra
     sha256 "e3a68d4e95ce16e3e144e42bc7c81282e7e495971cea02b0c8f39663425d2017" => :el_capitan
     sha256 "c1131b4a3053bff982689fa05c75b97e612f4b1501900187c60481a5e51a382d" => :yosemite
