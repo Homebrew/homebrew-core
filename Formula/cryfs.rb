@@ -7,6 +7,7 @@ class Cryfs < Formula
 
   bottle do
     cellar :any
+    sha256 "c6d716d9604086faa8aa64d64836d3c1c20674d94e203d98ea643202a5afd547" => :high_sierra
     sha256 "ed69c7628756a2db65cdd0720c97f329de632dc8fb295615b22b351fe774623a" => :sierra
     sha256 "8e3be5b7d701349d3d4e2ebb072320abd3d09f4b7a42a68e292878279a83c20b" => :el_capitan
   end
