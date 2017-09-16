@@ -5,6 +5,12 @@ class Basex < Formula
   version "8.6.6"
   sha256 "a41a6cc365741b8ee796ad22ce4acbe9f319059c5bca08fd094a351db9369acf"
 
+  devel do
+    url "http://files.basex.org/releases/latest/BaseX867-20170824.195627.zip"
+    sha256 "290dd9d0917318e4971b5d412986b7272b042bc7ab4cc249964baaabf788cb65"
+    version "8.6.7-rc20170824.195627"
+  end
+
   bottle :unneeded
 
   def install
