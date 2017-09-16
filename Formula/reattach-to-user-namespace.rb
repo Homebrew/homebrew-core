@@ -8,6 +8,7 @@ class ReattachToUserNamespace < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ced8c1497d56fc6b4c4d85d55ed38cd5c9785ca304083c4c72271776a9c8cba" => :high_sierra
     sha256 "e03dead8ceeaead3e996b30275f9b76ee912f47110037405a3504d94352eeca1" => :sierra
     sha256 "32e211dc568925e01d410ba4bef4a508d529ee553e9bf2f4d10564d11fb9e550" => :el_capitan
     sha256 "7e2cfb5efe7a03dd9cbf230034996caaf2206da05f2e5f771b9f289416907e45" => :yosemite
