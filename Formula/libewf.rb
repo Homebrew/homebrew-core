@@ -10,6 +10,7 @@ class Libewf < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "c362a1ee13cd7a9208d6d742acf4136a61e71d9de1451140ffae4b82ca108ab4" => :high_sierra
     sha256 "5abcb4aaa80ac85b86b3b5d3bc4dce613fe4692d29edff5e48a8e871d2e89225" => :sierra
     sha256 "4d0d3cb0aa198dc0ca569b04d748b3d4f92cdb9e0580c70b9ab6a25dc44ca2f9" => :el_capitan
     sha256 "71af7ed8bbc39e690ef8b22adf5a8e0399fec4d6661323dfdda4581f55ca7dbd" => :yosemite
