@@ -8,6 +8,7 @@ class Physfs < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "2158cdbcb7cc8df12d98299500a24d1dbc5a39da58ff1175d24b40c1f3ca958a" => :high_sierra
     sha256 "c06c09374e9691665cd54947ba44b4d1f69be852c03f55148310db882912a3ff" => :sierra
     sha256 "d501cbfdfea7df8ae807f158ad428c02354366a546925a4d042ccb2f9eb30267" => :el_capitan
     sha256 "c53001feb6316238029050dd5f07cdb6a1f17a3c96df9a09b43f709a99b7504e" => :yosemite
