@@ -7,6 +7,7 @@ class FluidSynth < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3607f9132dbe22612d469af58f3b97aaa3225c8f93d919abf367511ceb5c79d5" => :high_sierra
     sha256 "ee86f0e263db0610a340592d725bd2c05bc5ed1bfa6eb496ae304297de261ae0" => :sierra
     sha256 "dfe31491d27c3c29ff4686900984e5884f89cd249d82b3dba4ad077f7bbe9057" => :el_capitan
     sha256 "6938c03a61b696870de92435dc0a6e6118fbb0d68adcd0d17ec8d30c2f7eee20" => :yosemite
