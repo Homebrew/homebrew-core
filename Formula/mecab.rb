@@ -6,13 +6,9 @@ class Mecab < Formula
   sha256 "e073325783135b72e666145c781bb48fada583d5224fb2490fb6c1403ba69c59"
 
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "beb5af78900c43158f07c95736bc8a6f5b1a0949e99a6ddf672f5e9d00aeca0e" => :sierra
-    sha256 "2956dbd7e2f18374621a8744acfdd296da3c5deec3e34ac070efb93602fad3de" => :el_capitan
-    sha256 "bdcd047c09a9c864addcb3e4053584ad35fb5b22044a6535d818a59260575f94" => :yosemite
-    sha256 "ac140494a5f9514c968e25163384011ef08ba21e525fcbe48b68517f07177734" => :mavericks
-    sha256 "5cbe634aaf3101f1889ff6b21a00359940bca964f770b51ab143e06357d3af16" => :mountain_lion
+    rebuild 3
+    sha256 "d98686ec62189de50f6ed5b7e682d59b90239c8dfd08cf32fd23543466586232" => :sierra
+    sha256 "03df92bdd092065a7cbca5953a0e352c16cadfff5c9f186bbe1ee882258e56d3" => :el_capitan
   end
 
   conflicts_with "mecab-ko", :because => "both install mecab binaries"
