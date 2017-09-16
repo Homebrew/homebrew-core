@@ -6,6 +6,7 @@ class Wavpack < Formula
 
   bottle do
     cellar :any
+    sha256 "3c474a8b2b524f596888089a374aa733c09615e4a861a11b7317204ef42c8c25" => :high_sierra
     sha256 "caaf7a9f778270e2f445c4a4f864afbdbc5c410531866c06a5bfe9d0b10dbc36" => :sierra
     sha256 "5ad0e936fa7f53926838964c434e34c303bb540f676fb42b03d37845ace86940" => :el_capitan
     sha256 "14d36c9f2f704d8d1181f63ad965690a4594444394ce42d2cfaf63cbfc981051" => :yosemite
