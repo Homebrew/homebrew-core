@@ -6,6 +6,7 @@ class Bsdmake < Formula
 
   bottle do
     rebuild 1
+    sha256 "fa009c31c9fa5fc71f774cfe146f1338ca856158a606b796c3a1e7dbd64f3895" => :high_sierra
     sha256 "3d5b8c21cf86cd6bb9eb28d1e8cbec434b370aa15e19540e366d045ea807c8c8" => :sierra
     sha256 "b4052277ac6cf79ed579107fb73da96954c350d7bf29a124c55d87a0df8940b0" => :el_capitan
     sha256 "18d7cb56f14eb2e404cf3abb163a354f57c5e45b72991efdd6566a15fcffe90f" => :yosemite
