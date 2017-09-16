@@ -8,6 +8,7 @@ class Tree < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "1a9ac89dc194918786c3175bdf439e74d16f7d27bd5fa4be7b006e5d0b077a1e" => :high_sierra
     sha256 "f7c8a080435445e17c254ca53b016d9012bf768851df67c3d892ba71fe98e924" => :sierra
     sha256 "2721bafcbe1db12e444f5025bdae81aa3c7cff6572aa7423e401baeb10a43157" => :el_capitan
     sha256 "c1ad4f32c4922cbd1e37aa55b8fa6e0cc8a04c96a24f0d9e7957b50b311d854d" => :yosemite
