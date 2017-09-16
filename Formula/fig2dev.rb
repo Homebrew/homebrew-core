@@ -6,6 +6,7 @@ class Fig2dev < Formula
   revision 1
 
   bottle do
+    sha256 "b1f95cc8188a385a88c14afc52eebdda27ee5a8e1d7cb5140c856a5ed2ca54ca" => :high_sierra
     sha256 "faf054ca4097373006a95bde74efc792a663bc19f34f2f9cb59eac67c9f96740" => :sierra
     sha256 "703e5bba6e0a413f865e6f34fb8ecc92ff64dd9469ae761947a1b0b707c4a4a9" => :el_capitan
     sha256 "6994cc58bcf98e205b0d3d6ebbefbe2d7bcc02db84c10440a0e1c421fc08a79f" => :yosemite
