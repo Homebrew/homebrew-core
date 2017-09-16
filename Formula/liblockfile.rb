@@ -1,9 +1,9 @@
 class Liblockfile < Formula
   desc "Library providing functions to lock standard mailboxes"
   homepage "https://tracker.debian.org/pkg/liblockfile"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libl/liblockfile/liblockfile_1.09.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.09.orig.tar.gz"
-  sha256 "16979eba05396365e1d6af7100431ae9d32f9bc063930d1de66298a0695f1b7f"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libl/liblockfile/liblockfile_1.14.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.14.orig.tar.gz"
+  sha256 "ab40d4a3e8cbc204f7e87fea637a4e4ddf9a1149aaa0a723a4267febd0b1d060"
 
   bottle do
     rebuild 2
@@ -14,6 +14,9 @@ class Liblockfile < Formula
   end
 
   def install
+    # brew runs without root privileges (and the group is named "wheel" anyway)
+    inreplace "Makefile.in", " -g root ", " "
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--with-mailgroup=staff",
