@@ -16,12 +16,9 @@ class Ctags < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "282071fe9d3d877b5c72a9477c5c3f6bae6d04d0d1d5f8acc23dac83f0c91292" => :sierra
-    sha256 "e1582f148434de71bfa2516f6fad0598b41115f21164ad59c847e3282d550586" => :el_capitan
-    sha256 "1ba38746fe55be78781dcf313977b60f242ed42d412bbaf96627daf24d9fd168" => :yosemite
-    sha256 "9904dcc6f32a8f52d900339ff11ba4c9cb3e67374e558bb2abcc777fe56d49b5" => :mavericks
-    sha256 "b3619b0231eb952ee7c768dbb82e2301ece1060f8c713e781767cc700f02b2f2" => :mountain_lion
+    rebuild 1
+    sha256 "56bc233d09bc3591ad1f3a9c5282f9f9cf0729b0d5a0ee001d4ea6f68f2b0ab7" => :sierra
+    sha256 "a17ee0cd08909484aeeca9177b356e14655d5f75ecaa4b36a3bd2e2248d8ac91" => :el_capitan
   end
 
   head do
