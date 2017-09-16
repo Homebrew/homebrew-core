@@ -7,6 +7,7 @@ class Libspectre < Formula
 
   bottle do
     cellar :any
+    sha256 "26f230ee7423e3c202f1ea9c3652752d4dadff3d4b5799fe9719dc9e3eb3c8b8" => :high_sierra
     sha256 "54335fe8a5ecb8a3ecc4ae73b3b221daee1a51940a0970fa6b21a212e92a0df3" => :sierra
     sha256 "6c687edee091a796875e8392b4ad3be284f17addfc0f4944a58eddd7579c3c9e" => :el_capitan
     sha256 "e825e6b0965d5b592ae1b6f2097300e3082814f711ecb95186f527eb3fa2adfc" => :yosemite
