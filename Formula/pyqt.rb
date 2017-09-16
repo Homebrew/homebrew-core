@@ -6,6 +6,7 @@ class Pyqt < Formula
   revision 1
 
   bottle do
+    sha256 "7d81dad032356e2a6216ccafac2bdcab44316e5b0a554f138027354564e37124" => :high_sierra
     sha256 "188c589ce78ba9d7f0f21ed9f9c8f5e24756f5a940000cd8eb154dc2e5924bfd" => :sierra
     sha256 "6d8ebe1577d3a2305359a04825894447ec97804025ed348ae69f1f218a157bf5" => :el_capitan
     sha256 "cf3a5cc5dcd8c5f1c04abe798be9c3c5e12c4cfe234335f79fa89647328dfa32" => :yosemite
