@@ -6,6 +6,7 @@ class R < Formula
   revision 2
 
   bottle do
+    sha256 "54ab8b6cb2d680e93d4a4e21f4477366073f4a8b693017dfe69d7084993ad622" => :high_sierra
     sha256 "9e142bd997897eae4cf785a2ffc712557237c10f191369f338b1b23f02c78954" => :sierra
     sha256 "8b2cd74e219afb9477a4459aa7096190e0d19ac7f8ff02410026febcc897d749" => :el_capitan
     sha256 "123be38bdb449655f0b66043af5c1b756f752004117b0cc31385b667600f4f38" => :yosemite
