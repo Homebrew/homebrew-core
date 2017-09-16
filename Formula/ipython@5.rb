@@ -1,9 +1,8 @@
 class IpythonAT5 < Formula
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/21/86/58d06db0c82af66c2d47faead027c3ce775cfbf9bc9d2f13f85d95f0a162/ipython-5.4.1.tar.gz"
-  sha256 "afaa92343c20cf4296728161521d84f606d8817f963beaf7198e63dfede897fb"
-  revision 1
+  url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
+  sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
@@ -33,8 +32,8 @@ class IpythonAT5 < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/dd/0e/1e3b58c861d40a9ca2d7ea4ccf47271d4456ae4294c5998ad817bd1b4396/certifi-2017.4.17.tar.gz"
-    sha256 "f7527ebf7461582ce95f7a9e03dd141ce810d40590834f4ec20cddd54234c10a"
+    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
+    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
   end
 
   resource "decorator" do
@@ -83,8 +82,8 @@ class IpythonAT5 < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/55/56/8c39509b614bda53e638b7500f12577d663ac1b868aef53426fc6a26c3f5/prompt_toolkit-1.0.14.tar.gz"
-    sha256 "cc66413b1b4b17021675d9f2d15d57e640b06ddfd99bb724c73484126d22622f"
+    url "https://files.pythonhosted.org/packages/8a/ad/cf6b128866e78ad6d7f1dc5b7f99885fb813393d9860778b2984582e81b5/prompt_toolkit-1.0.15.tar.gz"
+    sha256 "858588f1983ca497f1cf4ffde01d978a3ea02b01c8a26a8bbc5cd2e66d816917"
   end
 
   resource "ptyprocess" do
@@ -128,8 +127,8 @@ class IpythonAT5 < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/df/42/a180ee540e12e2ec1007ac82a42b09dd92e5461e09c98bf465e98646d187/tornado-4.5.1.tar.gz"
-    sha256 "db0904a28253cfe53e7dedc765c71596f3c53bb8a866ae50123320ec1a7b73fd"
+    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
+    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
   end
 
   resource "traitlets" do
