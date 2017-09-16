@@ -6,11 +6,9 @@ class Liblockfile < Formula
   sha256 "ab40d4a3e8cbc204f7e87fea637a4e4ddf9a1149aaa0a723a4267febd0b1d060"
 
   bottle do
-    rebuild 2
-    sha256 "ab9fc63a064b56bc38c6cfaed2f5dfe8f91b7c4b743a57167895d31ffc6c01d8" => :sierra
-    sha256 "e4d6ff7643eebb7fd6726176db9938b0e68526d53909a5cf3a2dd6aff1c1a378" => :el_capitan
-    sha256 "1db90af0082d415223b928d477b6abe2047d9bad9b2f07991ad4eee3e5c0cde6" => :yosemite
-    sha256 "279009f21a530b2350ddc0321e649fe90ff443480522b078e0f082398d740f24" => :mavericks
+    sha256 "49db28fa47ee7012be39fbb8ab03948c050a95525808aa27ad2f8521ff8fadc6" => :high_sierra
+    sha256 "45b9f5fee9e1a0efa2439027cd72d5bc6fede1ec9391a46d0a9eb024e675b31c" => :sierra
+    sha256 "f6ca20b97a651114986b485e950859e733a08384bd9ea08ef12eb8cd29f2e697" => :el_capitan
   end
 
   def install
