@@ -7,6 +7,7 @@ class TheSilverSearcher < Formula
 
   bottle do
     cellar :any
+    sha256 "5d2380526afe423df25d9bd4eea9ea177023918ee3b534d93a72bd6c7c9bd333" => :high_sierra
     sha256 "252dabfa42a9a4769ddd62cf2265566d57eb1af1e39b8dcd75b6684402becd35" => :sierra
     sha256 "e731e1c3b4f85267dd4dea5c42ad1ff35c2def78b2c9f83ff8988bf0266f34ae" => :el_capitan
     sha256 "5e4ba79f17f087e697afb62cf738e321ebd4d6f2b001a4caaaed525a1ce75166" => :yosemite
