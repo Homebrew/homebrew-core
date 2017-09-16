@@ -6,6 +6,7 @@ class Binutils < Formula
   sha256 "172e8c89472cf52712fd23a9f14e9bca6182727fb45b0f8f482652a83d5a11b4"
 
   bottle do
+    sha256 "60176e91f89830a4e038a6ea9a58b3d80ef39dc6f22d29c1daf76462eecda158" => :high_sierra
     sha256 "a86ec8b9b8628f5dd5e237470e0faf5d9e3d3ebbb9fede28d0eb99f4955a44bb" => :sierra
     sha256 "bff7053d7a7730222d80939bfd56cabcb9e97c80e07cfa5adb82d940aa2ace9e" => :el_capitan
     sha256 "f220539e4ad8d0139f8dc302675cb9e8fba139e2272646e65eddb8c106cdde2d" => :yosemite
