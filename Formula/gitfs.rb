@@ -10,6 +10,7 @@ class Gitfs < Formula
 
   bottle do
     cellar :any
+    sha256 "29951f6b6a8d983fdc70dcdb521d0f1cb5bb6e2f01c8b5c7e6c76cc8733507c7" => :high_sierra
     sha256 "7c2ccf5484a84e8beb07e0aac7b9b61178da275deba85ad199924d452b536aef" => :sierra
     sha256 "924e0207bf6dddd61455a78b92f7bbfa940607834b5a0d1e5f2d60e16b13a9e2" => :el_capitan
     sha256 "20a796f7b30c7f3fbb2273ed7d5823fb4a53bd708e0854add3d536aa09619f3a" => :yosemite
