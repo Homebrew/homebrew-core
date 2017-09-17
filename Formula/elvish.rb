@@ -1,8 +1,8 @@
 class Elvish < Formula
   desc "Novel UNIX shell written in Go"
   homepage "https://github.com/elves/elvish"
-  url "https://github.com/elves/elvish/archive/0.9.tar.gz"
-  sha256 "41aed14f500813c884a0a8b6c4ebbcdf233b2d139f1d10cea697d597007f1698"
+  url "https://github.com/elves/elvish/archive/0.10.tar.gz"
+  sha256 "1b053abd3f8c3b436712597e5dc7ce44c71737bdc0016cbf773a4e74c712851a"
   head "https://github.com/elves/elvish.git"
 
   bottle do
