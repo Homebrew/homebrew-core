@@ -6,6 +6,7 @@ class Gperftools < Formula
 
   bottle do
     cellar :any
+    sha256 "1e6f41b6d61d05c1b48170218c90eda9822dc46cb3d69b6e7fb86bfd9613f4e1" => :high_sierra
     sha256 "fffac00b0bbf99aaa18fa437acb9204740ba8ab7cfdc1783a57d4d3d1af49ed3" => :sierra
     sha256 "eb634b147019b9b57fbe8b1daa709a74b95f2693b299b5bfd141cf63f01c18e4" => :el_capitan
     sha256 "74c85f5058535c1fd211e71ffe664f99d64aa392b4e56d4fa06c172900b2d9c2" => :yosemite
