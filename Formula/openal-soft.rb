@@ -8,6 +8,7 @@ class OpenalSoft < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "c667822df0be05e74b199bbc09afc6bb6e27529db6fd24656b02d6d34d58441b" => :high_sierra
     sha256 "1723d1c797edf96136f98ff5ab239f1df2ead4b741c3fb46ba1f43875f31432f" => :sierra
     sha256 "f7c8d730653ed7d3d3d3c6b959c74e43133b15dfb7a43fca16c706da41a78c94" => :el_capitan
     sha256 "26620c32955ff95382094788d7c91165ff9ee2a10b1b0286d38cc5bec55f5d5b" => :yosemite
