@@ -17,8 +17,6 @@ class Es < Formula
 
   depends_on "readline" => :optional
 
-  conflicts_with "kes", :because => "both install 'es' binary"
-
   def install
     args = %W[--prefix=#{prefix}]
 
