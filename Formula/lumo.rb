@@ -12,6 +12,11 @@ class Lumo < Formula
     sha256 "72dc7ea30baecd347ee8ebaa3cb822a4337088e02efd2dd5b4e6e62b38bf0dca" => :yosemite
   end
 
+  devel do
+    url "https://github.com/anmonteiro/lumo/archive/1.8.0-beta.tar.gz"
+    sha256 "be267bd26f98a0963260af6848598786dcdf1576353f4dc9f40e13166ced2491"
+  end
+
   depends_on "boot-clj" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
