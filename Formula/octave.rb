@@ -8,6 +8,7 @@ class Octave < Formula
 
   bottle do
     rebuild 1
+    sha256 "e4875e85815642672a9c7715283ea9d4c5fbc6d61c63eeb842780a86df38b52b" => :high_sierra
     sha256 "4adc5c84a3eada5c44a65daabb7fdfefae6a3e492f3ba02b17a9205f942063f8" => :sierra
     sha256 "06d173b089910c87709f1783b9d8fad8f624e4cbd2bd8cf93d39debd65ca1299" => :el_capitan
     sha256 "ba00325662c815e50d533ba964051dc17441915f2c4c74944f95e410d0b6099a" => :yosemite
