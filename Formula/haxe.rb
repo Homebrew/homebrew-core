@@ -31,7 +31,6 @@ class Haxe < Formula
       ENV["OPAMROOT"] = buildpath/"opamroot"
       ENV["OPAMYES"] = "1"
       system "opam", "init", "--no-setup"
-      system "opam", "update"
       system "opam", "config", "exec", "--", "opam", "install", "ocamlfind",
              "sedlex", "xml-light", "extlib", "rope", "ptmap>2.0.1"
       system "opam", "config", "exec", "--", "make", "ADD_REVISION=1"
