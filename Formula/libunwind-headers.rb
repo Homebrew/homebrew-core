@@ -6,6 +6,7 @@ class LibunwindHeaders < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9ec7987285d9e911e70cc55d124d8462ab2987d0fe84ea4638188a7b14fea328" => :high_sierra
     sha256 "3dd8d375d7612f42e190cea3f67f6aab1f8d4fe03173ac6c49d8b1c9edb8bfc1" => :sierra
     sha256 "308e12c8084e3dd179e322320d45b7ebf3393b284cbb6a5754ccde9e577ad90e" => :el_capitan
     sha256 "0a920420880c1222c365fb886eaf0cbc215529e7a7be39280520dc770386fe75" => :yosemite
