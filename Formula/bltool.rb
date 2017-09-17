@@ -1,8 +1,8 @@
 class Bltool < Formula
   desc "Tool for command-line interaction with backloggery.com"
   homepage "https://github.com/ToxicFrog/bltool"
-  url "https://github.com/ToxicFrog/bltool/releases/download/v0.2.2/bltool-0.2.2.zip"
-  sha256 "613151a5d86a80f8b2f4a71da3aa93f56649ab19ff1597eed2a96fb43e3cdcd4"
+  url "https://github.com/ToxicFrog/bltool/releases/download/v0.2.3/bltool-0.2.3.zip"
+  sha256 "34f5250ae68a7cec2962d5b6bfc564331d938ecc195bcb690e4e112fefb21510"
 
   head do
     url "https://github.com/ToxicFrog/bltool.git"
