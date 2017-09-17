@@ -7,6 +7,7 @@ class Gdrive < Formula
 
   bottle do
     rebuild 1
+    sha256 "24ab9149faad65e16cbaee41dd99e8b7a5928135dedd43b52c92ee080709877e" => :high_sierra
     sha256 "63c7bdfe51154a2b4748f8b157a709a7f2e1eea8b04623b9210ea5b2e0765e2b" => :sierra
     sha256 "87c24360f961397b3e839d1fd8c63b6b48af69b3284aab1781f374ac7cfeefa7" => :el_capitan
   end
