@@ -5,6 +5,12 @@ class JsonTable < Formula
   sha256 "0ab7bb2a705ad3399132060b30b32903762473ff79b5a6e6f52f086e507b0911"
   head "https://github.com/micha/json-table.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e5ed8ece1e10ede4417f347703f1e62bb417c65a11f6cac5f10915d44359eb5b" => :sierra
+    sha256 "3240813838be9e797fd443e5f51d6bb53fc56a8d958dd361cbc865de003619bd" => :el_capitan
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
