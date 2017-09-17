@@ -9,6 +9,7 @@ class PplAT011 < Formula
 
   bottle do
     rebuild 1
+    sha256 "f3b8f5e6c5fa4ad3479b19ec4a661ec2f73fd8dfb1a18aa45f6d1feea8af64d5" => :high_sierra
     sha256 "28b29ead285c5cab1a31957c685f81fd5d429fdd2d9f1c4209404f5c3dd34ce0" => :sierra
     sha256 "bd04cf76f1bf509a58ecc7f23032e75a943047889094363dab4a957dd8314281" => :el_capitan
     sha256 "1ce289ae5568772a3f3153e2bc74dc29ab2e8f810ecca5c60813df45c66ed81e" => :yosemite
