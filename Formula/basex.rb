@@ -13,6 +13,8 @@ class Basex < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.7+"
+
   def install
     rm Dir["bin/*.bat"]
     rm_rf "repo"
