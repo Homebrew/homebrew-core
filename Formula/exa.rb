@@ -7,6 +7,7 @@ class Exa < Formula
 
   bottle do
     rebuild 1
+    sha256 "db4b31c636e12fc7ec144a78e75982cbf7bd1055421e780478b614138e6b07d4" => :high_sierra
     sha256 "38df071abb28b604ccfac40d7252828c410bacd256e95d7f853940333d603b83" => :sierra
     sha256 "d2e08a87b7a7b81ab1f4a03f3d89381beea29c2dcc2ebbee3060336fe2863df5" => :el_capitan
   end
