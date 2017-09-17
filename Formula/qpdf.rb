@@ -1,8 +1,8 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://qpdf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qpdf/qpdf/6.0.0/qpdf-6.0.0.tar.gz"
-  sha256 "a9fdc7e94d38fcd3831f37b6e0fe36492bf79aa6d54f8f66062cf7f9c4155233"
+  url "https://downloads.sourceforge.net/project/qpdf/qpdf/7.0.0/qpdf-7.0.0.tar.gz"
+  sha256 "fed08de14caad0fe5efd148d9eca886d812588b2cbb35d13e61993ee8eb8c65f"
 
   bottle do
     cellar :any
@@ -12,12 +12,9 @@ class Qpdf < Formula
     sha256 "f7059fb9d944230b06ad8ddb34528e4090161ee0a3ddee7068a86046c61d4b04" => :mavericks
   end
 
-  depends_on "pcre"
+  depends_on "jpeg"
 
   def install
-    # find Homebrew's libpcre
-    ENV.append "LDFLAGS", "-L#{Formula["pcre"].opt_lib}"
-
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
