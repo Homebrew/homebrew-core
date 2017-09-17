@@ -6,6 +6,7 @@ class Mdds < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e5df2f3ea7306b6b473fbf378feb8ce21ab7f9c4868f050e2a4b68b31b65ac11" => :high_sierra
     sha256 "f91e37bf2763a0290807e0e8034db690695b0a60611665dc844bf2a1352de73e" => :sierra
     sha256 "f91e37bf2763a0290807e0e8034db690695b0a60611665dc844bf2a1352de73e" => :el_capitan
     sha256 "f91e37bf2763a0290807e0e8034db690695b0a60611665dc844bf2a1352de73e" => :yosemite
