@@ -1,8 +1,8 @@
 class PonyStable < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/pony-stable"
-  url "https://github.com/ponylang/pony-stable/archive/0.0.1.tar.gz"
-  sha256 "b175d5a235676eaf48b62cf28d5c44f6c13b9986d5dc97f75b477285fe9ec8fb"
+  url "https://github.com/ponylang/pony-stable/archive/0.1.0.tar.gz"
+  sha256 "131da5897359b68c28a0ff82637f1d668bd34fc2dafead3e8b505fe2611ff003"
 
   bottle do
     cellar :any_skip_relocation
