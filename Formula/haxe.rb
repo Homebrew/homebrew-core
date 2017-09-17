@@ -15,13 +15,6 @@ class Haxe < Formula
   head do
     url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
     depends_on "opam" => :build
-
-    # ptmap 2.0.2 is needed for OCaml 4.05.0 compatibility
-    # See https://github.com/backtracking/ptmap/pull/4
-    resource "ptmap" do
-      url "https://github.com/ocaml/opam-repository/pull/10170.diff?full_index=1"
-      sha256 "8b4938166ef02e3546898fb9d5742e466e7cb75f0a9a5548a999fbe38f504628"
-    end
   end
 
   depends_on "ocaml" => :build
@@ -38,9 +31,6 @@ class Haxe < Formula
       ENV["OPAMROOT"] = buildpath/"opamroot"
       ENV["OPAMYES"] = "1"
       system "opam", "init", "--no-setup"
-      buildpath.install resource("ptmap")
-      system "patch", "-p1", "-i", buildpath/"10170.diff", "-d",
-                      "opamroot/repo/default"
       system "opam", "update"
       system "opam", "config", "exec", "--", "opam", "install", "ocamlfind",
              "sedlex", "xml-light", "extlib", "rope", "ptmap>2.0.1"
