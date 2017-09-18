@@ -6,10 +6,9 @@ class OathToolkit < Formula
   sha256 "b03446fa4b549af5ebe4d35d7aba51163442d255660558cd861ebce536824aa0"
 
   bottle do
-    cellar :any
-    sha256 "24304b5b3ec6fd838ab3fd42013e3934e247d3f7bdb6cb7fe992b89fe7dbff29" => :sierra
-    sha256 "de07bd83252dce6769862320365f0bf340807a67ab27a0bb7fb8db8f9aafc04a" => :el_capitan
-    sha256 "c30dabd27de1b1cf4a83f2b24d9929075662e7d18ab69fb7241bfbeaddae9723" => :yosemite
+    rebuild 1
+    sha256 "af3c35a9cd1139b813bf5bbea9b9c0eff5890fc9beff8096d4405218d6398a42" => :sierra
+    sha256 "e72016ad2981cdfd75cc76aa8913ad8b41eca71eec82a769addb14cd94fc162e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
