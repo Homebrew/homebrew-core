@@ -5,6 +5,7 @@ class GstPluginsGoodAT010 < Formula
   sha256 "7e27840e40a7932ef2dc032d7201f9f41afcaf0b437daf5d1d44dc96d9e35ac6"
 
   bottle do
+    sha256 "9ae6494ca95ab07281ad65af34122d8b34518c3b00b0f4a58c412ae1ed8d6838" => :high_sierra
     sha256 "34901e80453e914f5b9d0c177676bad5eed5df7f516fbfa4644661937c9dcca1" => :sierra
     sha256 "c83939d0c7e928717ced578b1d406790e3c5d594a727cf8ad16f18fb2ce808a4" => :el_capitan
     sha256 "b62bc4ff67d0f82fc3a6d35b8b525a26d77dd5ccdf8640ac1b1516b64c146bde" => :yosemite
