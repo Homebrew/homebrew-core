@@ -7,6 +7,7 @@ class Clisp < Formula
   revision 1
 
   bottle do
+    sha256 "8c545b817e493f5edfb1928ac8fa1d06571cfb3da135094bd701b22e99c6e423" => :high_sierra
     sha256 "dd77ffe7a77e9bdb8cc57a11d923108c4967229feb214e511a5a1866a1f7ec50" => :sierra
     sha256 "c4503ba2f9fcc24cb8415179db6a7437bfa8e1cab25b619fcb7be8e2770e9fe6" => :el_capitan
     sha256 "7335dec5039d4bf0f56cf75521834d93caca2f36fcf45e42fe489964fa7d0c49" => :yosemite
