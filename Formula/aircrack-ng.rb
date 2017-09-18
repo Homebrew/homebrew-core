@@ -10,6 +10,7 @@ class AircrackNg < Formula
 
   bottle do
     rebuild 1
+    sha256 "1330c445bb9560fccc182c8a129cc3999830d5ce9e988bad60b45b43f869be61" => :high_sierra
     sha256 "07d79311d1480e5fb22c9fc17dbbf9758f02871a518bb3bbc3158a712f2abe9f" => :sierra
     sha256 "bc1052e5690192346ffe097cf08292dec9f61293e1e928bfcdb485ca71c130d6" => :el_capitan
   end
