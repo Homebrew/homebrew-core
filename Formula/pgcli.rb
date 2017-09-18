@@ -21,8 +21,8 @@ class Pgcli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/2b/7e/307131c2c3f3abef2d1e68b7088882c078da6ce5bb57cbe79bac12718c72/cli_helpers-0.2.1.tar.gz"
-    sha256 "a868e69e780c1fd5091c83e784e8b18e2005cab921f1dfda4ffd376271ee85ac"
+    url "https://files.pythonhosted.org/packages/03/65/9a5b81f879131076e47fa7f0e633a2e6524cdae7d14ef66a58bb810c100e/cli_helpers-0.2.3.tar.gz"
+    sha256 "eaa887b46ef448c8864ba460cce4fa26866e45e337dc32a2b4741ccb033c42f1"
   end
 
   resource "click" do
