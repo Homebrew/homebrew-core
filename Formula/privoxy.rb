@@ -7,6 +7,7 @@ class Privoxy < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "6d73d0568bf02dc31bce3e87a92ed8a90c67d19340ecbc2d22102522dc12a74b" => :high_sierra
     sha256 "bd606ba22bca049b7f0457cdfa846aefa09eaf2c9d1e18ff3584254e1fc05048" => :sierra
     sha256 "4aa50d19fa164c7bb5b6a14f5ef562fb9b40acebe8575cd5af4dffac78fa3400" => :el_capitan
     sha256 "8a0e661df5d221ae65b6367791a923d1f2b769b0206b3fb50c1e6a84f2830d7b" => :yosemite
