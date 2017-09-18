@@ -6,6 +6,12 @@ class Configen < Formula
 
   head "https://github.com/theappbusiness/ConfigGenerator.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "845540be7277a39c5db5d8a26d800c3009bae1d05fd5528dc55d8893efb1274c" => :sierra
+    sha256 "f7ff48ab3a47cffc90001fa888e53a0d520327bb68285ee9d8dbe9a3355c1118" => :el_capitan
+  end
+
   depends_on :xcode => :build
 
   def install
