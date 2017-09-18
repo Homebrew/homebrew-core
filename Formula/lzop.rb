@@ -7,6 +7,7 @@ class Lzop < Formula
 
   bottle do
     cellar :any
+    sha256 "d42fafd3f1f39d9ab512f755bd216edd24002caf8a4da82f80818fe2c29f0556" => :high_sierra
     sha256 "73c2ce334be9317ca79509aec3acef2fa1eff0ffb69fdc10b3850b7f51101f72" => :sierra
     sha256 "26e49bf0d06fb60d7cd5c431634966f28993edc250c4d06b0db26b28aae3cd0d" => :el_capitan
     sha256 "d9e12c4bb51c43dd306d5283fde5c3350e3e1f7f1d48c05c831a57b058db1354" => :yosemite
