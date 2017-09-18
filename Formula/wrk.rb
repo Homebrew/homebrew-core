@@ -7,6 +7,7 @@ class Wrk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bfdacb9166139fd8338afd4c3c0e3c6f2023e9be9e49391b363f6d87144844ca" => :high_sierra
     sha256 "a72ee4121793cf744582d5adcbe3911013606ce6d9fb9b4686d363f96147d616" => :sierra
     sha256 "9dffba88a5ca3dfb25ea4be55bd45c9c4e3964543d4ea4485cb21fdba7f3c18c" => :el_capitan
     sha256 "0d8d195984217da0cc6e734e2f2c876cacbad02b18fe2b3b22a77d3e356104f0" => :yosemite
