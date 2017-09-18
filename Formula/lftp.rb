@@ -6,6 +6,7 @@ class Lftp < Formula
   sha256 "e770daa5592ad21bd0b8a8915a0f4fdc2e15dec6c69e754a870ad9c18be57b27"
 
   bottle do
+    sha256 "96fe7939ff0bca47146f33368c6ba5470670e9a524ffbc249ddf2307a95ffe4d" => :high_sierra
     sha256 "e56859fb14981cf68ff97d007deb894d05cd1c268c2aca94fded1baac084ed4d" => :sierra
     sha256 "ba0ca7d2a9f6db308701a08f8d39a6a741301f69adc4063d950e7cb66aceeb18" => :el_capitan
   end
