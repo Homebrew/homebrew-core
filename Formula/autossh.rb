@@ -8,6 +8,7 @@ class Autossh < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4840d0f94cc2f432c5aa1460b7e4d4773c704b9692753f1882f8b25c4db853e5" => :high_sierra
     sha256 "aa82735df29eb9635d27b75e1b6aef72ca2014cea20370f2640f13257ce2069e" => :sierra
     sha256 "9eb45f4246ed8db8cf639772bb252cedca944b480e7b8bedeeff4e96635a7a97" => :el_capitan
     sha256 "5926ad9cc35738f1fc5eebc8dd68770a0cc62f8a1c5344cc01547c246821e7c1" => :yosemite
