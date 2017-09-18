@@ -5,6 +5,7 @@ class MysqlConnectorC < Formula
   sha256 "c8664851487200162b38b6f3c8db69850bd4f0e4c5ff5a6d161dbfb5cb76b6c4"
 
   bottle do
+    sha256 "3b84a7deb748b5e7c7674f449e7a2ae451bb1b8838d8841ddf7001ef32673364" => :high_sierra
     sha256 "bb5c0c5854d6af0299c18d14a48dcb6dc5fdca98b2bde9b4c654c5584c3670b1" => :sierra
     sha256 "e2035138e14b87fb0ff971ab9bc34631140ac0478e250866d9ce236de952c66e" => :el_capitan
     sha256 "d6aaf4eca97640dc5f5785a2bf8cc45cf7d829d50798ee0f6551b473c621b792" => :yosemite
