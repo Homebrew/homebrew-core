@@ -7,6 +7,7 @@ class Screenresolution < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b2f7b0933c734d5ecd8bfafae8d384f20821c45ca38fc81308035d3ca79f3535" => :high_sierra
     sha256 "ef630f5af67d6bcdde3fd580917ad05d871274f0d62b2a76705ab2b9683f334f" => :sierra
     sha256 "63cfb53fe13d5f5b2c72e8a644b312f8a144b12e2b3f284de5adfc5010e1570d" => :el_capitan
     sha256 "3b3f5d4c414aa36ee1ce963d47a82a50e06f1ffc7a36759bf13ee12c43845c73" => :yosemite
