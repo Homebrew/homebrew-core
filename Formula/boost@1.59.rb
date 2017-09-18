@@ -6,6 +6,7 @@ class BoostAT159 < Formula
 
   bottle do
     cellar :any
+    sha256 "6566d6a5c983add1b25e56b95ef540ce32b6fff5625aebbda81efbaf1618c9aa" => :high_sierra
     sha256 "8d21c9071cb5229469bef25efd3c598dc8d821c57581f4aa08fdfd265a88a9d9" => :sierra
     sha256 "1e061c511462de8c8ab16004d34691b70c2ef65ea0e4ca85f099b8960cd99421" => :el_capitan
     sha256 "62161b5048eb58ab7df1a3f7adccd51e4ae5f10a82a01af2afd26186231f6936" => :yosemite
