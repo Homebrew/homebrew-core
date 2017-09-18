@@ -7,6 +7,7 @@ class Metricbeat < Formula
   head "https://github.com/elastic/beats.git"
 
   bottle do
+    sha256 "c98c75722f3c549da246dde9f83cefe03af9ca95ac4227a464514790c8d77d8d" => :high_sierra
     sha256 "21886e9519ed8ae453795d2a9c80afada7f1eca1701771833eba338368865c42" => :sierra
     sha256 "b7359323c3c70e01996f26ef05dd2e1e8612264431a2b71d652fdc92cac4ef58" => :el_capitan
   end
