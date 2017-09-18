@@ -7,6 +7,7 @@ class Nomad < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8f9f8533e39e18d5e0f641e691293feed8e173e42628123df923389ad2c88b24" => :high_sierra
     sha256 "6cba1421c26d925c54a466903f8a39643dfd36236b9d12d8fde7bc9916431c16" => :sierra
     sha256 "d30034b50380089d8332199e9fbf512a99d7f95f29b613f876d6f034f75f70b0" => :el_capitan
   end
