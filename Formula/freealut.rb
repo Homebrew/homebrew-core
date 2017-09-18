@@ -7,6 +7,7 @@ class Freealut < Formula
 
   bottle do
     cellar :any
+    sha256 "90bb9d9a0c0eb6ded2dd5f5c6fb566a2fd3835c32cab71d3c53efcfd82b7059e" => :high_sierra
     sha256 "5b592930278516c32e0ecdbf5e244abc4f18b2f766242af145ea0def25df3c99" => :sierra
     sha256 "301e3825367cee8b41747fae0b3495e94b09668d93980032f5fdb92d1c597b62" => :el_capitan
     sha256 "491e2736570843c5d42576563f7797f2f5c13fb3bb97ece3c9396e1fdb7e054a" => :yosemite
