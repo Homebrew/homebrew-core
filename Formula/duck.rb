@@ -7,6 +7,7 @@ class Duck < Formula
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
+    sha256 "490e8dbdbb152c9088136c916a954bf41c7371a3c09898b8093c5530bf73928a" => :high_sierra
     sha256 "308ace43350b6551b04a66d28cc31004571ef1d38dfecdbacb587a14ba5690ca" => :sierra
     sha256 "2d1d22eabaaf586010d2c9e0bc0b9521e04029384eefd4b210ce7fc43b0c598e" => :el_capitan
   end
