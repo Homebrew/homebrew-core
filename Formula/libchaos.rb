@@ -6,6 +6,7 @@ class Libchaos < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fe7a54d3b9f42525436524b6449a78fc412589787ab539738349aad199371ed9" => :high_sierra
     sha256 "476414dff3721c654468f3022b4a53506e3bbfad31314714025b3226fdd254d2" => :sierra
     sha256 "40534621ddbbf1e05aada56c23034a99373e00c9c00140c0a0b5c687e1379e14" => :el_capitan
     sha256 "8aeaf844fa6f07faecb2efe9a91d4ca1dfcedd31b8f9c4bfc4e2c2a388d80b27" => :yosemite
