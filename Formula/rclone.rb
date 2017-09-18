@@ -7,6 +7,7 @@ class Rclone < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9a56229973977da37d6f76889f40b5358fde722b202d756d3d82c4071a0c0046" => :high_sierra
     sha256 "574ca164ba465c4fda3b122df986be6a6d2ffcbb6f4d538c9dbd7b0bd58cd49e" => :sierra
     sha256 "2e2cfcd9373d8a42b37d26fac848e27dc0b66b36ee2fc020e05a88e628676cdd" => :el_capitan
     sha256 "8188a572f3c70bf9f277e77c2d2ee9fca2b70e55f3c4b19fdeed231bbedaf8a3" => :yosemite
