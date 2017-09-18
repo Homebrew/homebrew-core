@@ -6,6 +6,7 @@ class Transmission < Formula
   revision 1
 
   bottle do
+    sha256 "2356b8b147dc62712530e34494cc16974c15552aea527d8f5fb69d45e50c7336" => :high_sierra
     sha256 "28ee6ef92d3c75e664eff438e08c66a26645fd27f308ef58839eae676d0e8f06" => :sierra
     sha256 "f82fb7296f36573dd7730b602edcf27421d880cd8e3c16a56a69c1503d26a5e0" => :el_capitan
     sha256 "e1b7d0f5ed6928752c71898e92364209e28a3c6d6e4be01572f818b852f57e37" => :yosemite
