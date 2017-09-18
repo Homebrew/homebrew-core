@@ -3,7 +3,7 @@ class Exim < Formula
   homepage "https://exim.org"
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
   sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "03b86a073f5b4448481571528d0e1835f6a8059757f9725b0056725bba69b847" => :sierra
@@ -21,10 +21,20 @@ class Exim < Formula
   # Patch applied upstream but doesn't apply cleanly from git.
   # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
-    sha256 "6440231912f6ead8097c94deb90524f9a0d1413447ba9ff3a734c4359e2aff3c"
-    apply "patches/79_CVE-2017-1000369.patch"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-6.debian.tar.xz"
+    sha256 "a37923ea58656a16a74c7ce3b7e6b228a574067ce457eacb8813b326848c04b9"
+    apply "patches/75_fixes_01-Start-exim-4_89-fixes-to-cherry-pick-some-commits-fr.patch"
+    apply "patches/75_fixes_02-Cleanup-prevent-repeated-use-of-p-oMr-to-avoid-mem-l.patch"
+    apply "patches/75_fixes_03-Fix-log-line-corruption-for-DKIM-status.patch"
+    apply "patches/75_fixes_04-Openssl-disable-session-tickets-by-default-and-sessi.patch"
+    apply "patches/75_fixes_05-Transport-fix-smtp-under-combo-of-mua_wrapper-and-li.patch"
+    apply "patches/75_fixes_07-Openssl-disable-session-tickets-by-default-and-sessi.patch"
+    apply "patches/75_fixes_08-Transport-fix-smtp-under-combo-of-mua_wrapper-and-li.patch"
+    apply "patches/75_fixes_09-Use-the-BDB-environment-so-that-a-database-config-fi.patch"
+    apply "patches/75_fixes_10-Fix-cache-cold-random-callout-verify.-Bug-2147.patch"
+    apply "patches/75_fixes_11-On-callout-avoid-SIZE-every-time-but-noncacheable-rc.patch"
+    apply "patches/75_fixes_12-Fix-build-for-earlier-version-Berkeley-DB.patch"
   end
 
   def install
