@@ -7,6 +7,7 @@ class Dlib < Formula
 
   bottle do
     cellar :any
+    sha256 "49af9f842109f2d9c064a492afa6b98861cf28b22e75a63dc4e62c71661369af" => :high_sierra
     sha256 "74a4d04a7b1fd715d15b7a6dfa2a9372c864f1d840f01cfbb56e7c0297cc6d04" => :sierra
     sha256 "89626ef8537bb2a52362531dbe1478c826004918253bace1216ab2c4b54a5c8c" => :el_capitan
   end
