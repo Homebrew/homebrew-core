@@ -5,6 +5,7 @@ class ProtobufAT31 < Formula
   sha256 "fb2a314f4be897491bb2446697be693d489af645cb0e165a85e7e64e07eb134d"
 
   bottle do
+    sha256 "8648436399064763689f1e39b6c2e7a0ce8d6682064197adb467d7ccc803aa9e" => :high_sierra
     sha256 "941385129ac0e5a34923a373cb57daccfecbaaa25b429624c741873e144ba581" => :sierra
     sha256 "b7d053c5f1dfef00da3c05fd9ad3db7317a8d0abb983290869844d1ef28a799e" => :el_capitan
     sha256 "813126845f50a0d885b9fedb213e566fc5e3d5959f1f69733d8c2d04fa530c67" => :yosemite
