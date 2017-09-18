@@ -7,6 +7,7 @@ class Mercurial < Formula
   sha256 "0f5bf688ba2add6f5db98a633edef43411ecf2c7ada5f2e14b9265820a96cd48"
 
   bottle do
+    sha256 "126fc6bfc8de82ebf44872e5220b1b244beb0fe73547d20779e39aa6a6716a16" => :high_sierra
     sha256 "07703e58de79bc1de1a37fd2c304f1e759894dbb0db427bb6f83549f361dfadc" => :sierra
     sha256 "d1a3953d077ee4a72598b020189cb8cc4bd40feb897f1c01b2d255843310a3b4" => :el_capitan
   end
