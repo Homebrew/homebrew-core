@@ -5,6 +5,7 @@ class Hevea < Formula
   sha256 "9e93deac8d2cc62a8d9eae2817094cdba81cabef264d009f3d434d85ab9a249c"
 
   bottle do
+    sha256 "a431a61f899ba34d9d233f9c0ebaf54dbaf2c5a4967fc9f7fc90f0a673eeebd2" => :high_sierra
     sha256 "b22f4a1e66c2eea6faecf98834a0897334e77684312653885049835c593ad431" => :sierra
     sha256 "079afe1b83d43ea8c3e5537d199ba20ee05a6460db653df0675948390b328b94" => :el_capitan
     sha256 "4b6005785553fdd3185d7b15c74f9e8ab0632994bc6cd714ece9148203589609" => :yosemite
