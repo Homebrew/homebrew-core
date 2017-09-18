@@ -7,6 +7,7 @@ class Gmsh < Formula
 
   bottle do
     cellar :any
+    sha256 "1bb283c6de676400ccfbec34cdd2efbc9dde242ba802fbd24e37488f178938f1" => :high_sierra
     sha256 "c2343c7543ed2212372847968995e0f075d566e3bb8479c1b262b626dfbe2aef" => :sierra
     sha256 "be9749051f061b81c318da178af58e48c6db0f40636c56590d10f4a17f1d88d8" => :el_capitan
     sha256 "e821d285cae69a6772e927cb5148eb2dc2327523bd2e43289f446daf62ce52b3" => :yosemite
