@@ -8,6 +8,7 @@ class Rtags < Formula
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
+    sha256 "e209f12dad8a38835ab21faa90b077b2df5a0fdd84ae2986ef840ad6b5fe1465" => :high_sierra
     sha256 "ba02801b679d09bea8ffcd78600283c76027fef1b6dada91f4bb8d9858ccc7e6" => :sierra
     sha256 "f3e566c9093c99b9edf5ce4037f0d288637c4c3823292c3736deade9e20941ab" => :el_capitan
     sha256 "55e08fa2512062a942ed61feb6e89466cb759b5214d7d4d7fb60d468903c3297" => :yosemite
