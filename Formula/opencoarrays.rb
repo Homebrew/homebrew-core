@@ -8,6 +8,7 @@ class Opencoarrays < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dea069b77ad66ca284a0ca418a3e713894a77045eee8a67fad37d2fb8a574c1b" => :high_sierra
     sha256 "714231165b8ff2f8b3b1f81b50baf7b451ea7e9eacb5d28fd74c65dd42b0ca86" => :sierra
     sha256 "0fed3f6f9dfb12490ae39a81436763b428f7a0fc4b3d1289f640699b04722324" => :el_capitan
     sha256 "e8d6a00623b6016b1536140f1225d2791c9697c3cc054e5a12150f01fa59b2a8" => :yosemite
