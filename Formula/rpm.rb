@@ -21,6 +21,7 @@ class Rpm < Formula
   revision 3
 
   bottle do
+    sha256 "8b97b8f0d4b260884b7e51fd0e0afcd2bb8312877bb21e488ad4f21d85500c25" => :high_sierra
     sha256 "3e4d2a304cf1cc10cb12a1c57474850c2715c279522e62ea3310c66ba510ad1e" => :sierra
     sha256 "e597c4a7937e92473250f931e70adc682214190848bd29ed99505154e98c0903" => :el_capitan
     sha256 "3a276b6a3f7273f8f88effbb057e8d65fc53fa9e812054951bfdd5ce618f54ac" => :yosemite
