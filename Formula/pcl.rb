@@ -6,6 +6,7 @@ class Pcl < Formula
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
+    sha256 "18efc3f7b897d0f646d8d1dd6512f41cc6abfba296b1dfed2927823e78b60b81" => :high_sierra
     sha256 "46229b4eb3d168ecaff4f83dcfff95642a05d0ff989ab89adb63ba0397c4a909" => :sierra
     sha256 "176fb1d15c2dfbb323eb29d28929624bcf342a09dcb848f610af652e89ba5ec2" => :el_capitan
     sha256 "bd0b24e10b74ba20d63c09af7a1292d70d8c9ff8f7ffae98fabf4591993c09d4" => :yosemite
