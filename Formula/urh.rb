@@ -1,8 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/09/84/0e597e6e17ac6cf11e72ebdbb574857f12f8ae7799a193cc4955105a0a77/urh-1.8.6.tar.gz"
-  sha256 "4afed92ee116333277f1a6e0e5b99c9bcb0c7ef03d34edd405f640047c6f4720"
+  url "https://files.pythonhosted.org/packages/a0/74/70794cf863e95c0b8b1a63fade93594b3d23a2aa6be2b4975a2d89846504/urh-1.8.7.tar.gz"
+  sha256 "63d18615557e7c7a2c232f14ea99e25c23929038ed455ba91c6931747db40df7"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -26,8 +26,8 @@ class Urh < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/1c/da/555e3ad3cad30f30bcf0d539cdeae5c8e7ef9e2a6078af645c70aa81e418/psutil-5.3.0.tar.gz"
-    sha256 "a3940e06e92c84ab6e82b95dad056241beea93c3c9b1d07ddf96485079855185"
+    url "https://files.pythonhosted.org/packages/d3/0a/74dcbb162554909b208e5dbe9f4e7278d78cc27470993e05177005e627d0/psutil-5.3.1.tar.gz"
+    sha256 "12dd9c8abbad15f055e9579130035b38617020ce176f4a498b7870e6321ffa67"
   end
 
   resource "pyzmq" do
