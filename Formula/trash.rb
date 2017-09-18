@@ -7,6 +7,7 @@ class Trash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "512e218c2caa1356aca1d974075aa61a4e69588949503eee7593feccc7f7aed2" => :high_sierra
     sha256 "a00374dc159ab870e2c1267280d63e3ac5f7e7256e300fcb282ad6638abd02f0" => :sierra
     sha256 "4a890c2c7e5fe136eff1df5552fc94e1f56c46f41ccfa43bc5892de08329a3f4" => :el_capitan
     sha256 "05ae485401cd5becced038755656b120b74e9cffd15358724ea5f7eea2411972" => :yosemite
