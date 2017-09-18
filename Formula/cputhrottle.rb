@@ -1,7 +1,10 @@
 class Cputhrottle < Formula
   desc "Limit the CPU usage of a process"
   homepage "http://www.willnolan.com/cputhrottle/cputhrottle.html"
-  url "http://www.willnolan.com/cputhrottle/cputhrottle.tar.gz"
+  # http://www.willnolan.com/cputhrottle/cputhrottle.tar.gz has a different
+  # checksum; contacted the author 18 Sep 2017 requesting versioned tarballs.
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/cputhrottle/20100515/cputhrottle.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/cputhrottle-20100515.tar.gz"
   version "20100515"
   sha256 "fdf284e1c278e4a98417bbd3eeeacf40db684f4e79a9d4ae030632957491163b"
   revision 1
