@@ -8,6 +8,7 @@ class Wpscan < Formula
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
+    sha256 "668b13f2a60e4882aa17479309551a934fae6f71178b05b1293b3ab7fe0cfb5f" => :high_sierra
     sha256 "6dd163f2679959fc2ee5e340d61ab0e500efb350e395a26063d535ae09b18592" => :sierra
     sha256 "54522adbec639a9a4e743730b39e97199f45b2f21d4a23533e7f3cd5afb0d6ae" => :el_capitan
   end
