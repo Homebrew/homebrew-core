@@ -6,6 +6,7 @@ class GnuUnits < Formula
   sha256 "9d33893d82f3ddd831d5822992007c40bcd0826ae67d3cbc96539951fb0a82e8"
 
   bottle do
+    sha256 "a62ddb8f8bbb8f7ef44bfdaaa81e3e0607a3a4c7298997f01caefb25100f56ee" => :high_sierra
     sha256 "2af636ef04bbd4c2846561cb2c7112f616bc80a88caf25ddc72614029241fe46" => :sierra
     sha256 "38e5baed18c905ab510f459f8eba0e8e4f30ec8a0b107e9e6063ade8241cb1da" => :el_capitan
     sha256 "82dbdef4dd830d9c895e3c2f4065a837e979583ef01480ae217982a48e249829" => :yosemite
