@@ -6,6 +6,7 @@ class HtopOsx < Formula
 
   bottle do
     rebuild 1
+    sha256 "d773bb9ba1fb90b8d0e908a7e962df5936e2a74fe116e2d65bda7070c3ac7e9c" => :high_sierra
     sha256 "53811a029ba083125086a88e75e1b50d1df13fccd7f96a53b639b7eed826c229" => :sierra
     sha256 "9eea952eb4849a3c7e60772df5701b826e9b7cb2751dfe5d434baf83bad56b0d" => :el_capitan
     sha256 "d0e2cc8d452bde53d949a6d498346678b7b00c6d9c61471cd0a33e6dcbbe5399" => :yosemite
