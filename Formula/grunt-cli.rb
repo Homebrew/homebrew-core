@@ -8,6 +8,7 @@ class GruntCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9dc85aa193bf41fb6e8b4857264692824643fc248790337523c92e2e736e12ec" => :high_sierra
     sha256 "418c56ce7e11dde5606e3e0d01ff93051af7d9391940dddb75cbb480cd9f3837" => :sierra
     sha256 "b2d83d0d16fc8e9545d34bf57f3f21902639693df09a4d1ad0ecdc911c29d9a5" => :el_capitan
     sha256 "8e1da144c2febcbde826b802f1110c25e27dd1d8a534f19a7171fcf88227a7e0" => :yosemite
