@@ -10,6 +10,7 @@ class PandocCiteproc < Formula
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
+    sha256 "394ffe844d4a0b91ef312e29053c267ae4088745c8add17de8a052d546c8bce5" => :high_sierra
     sha256 "13e19818179d37777015359c88586f7fa5bdd852347362a04f872c0298a9fab6" => :sierra
     sha256 "1ca09cfefa7b23bad3bb181fb747e6ae7edf214992ba45b78aeb02df5dba9844" => :el_capitan
   end
