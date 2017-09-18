@@ -26,6 +26,7 @@ class Pdfsandwich < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+    bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["poppler"].opt_bin}:$PATH")
   end
 
   test do
