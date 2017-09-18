@@ -15,6 +15,7 @@ class Boot2docker < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "16ffa6973df56dafed83d373d88c94dd422330462909dc44a17580d0bd61760b" => :high_sierra
     sha256 "dfb9853a87594fde5243295f959f70625db43b0fa4ebd95f1d43e8e8981488ce" => :sierra
     sha256 "557a4c650af0733d298eb68cdd10d192944841e1cea57a9ac2abb1346b79c88f" => :el_capitan
     sha256 "d994acb53e60099a0cfab0f3261adbda070add67eff32ea05754d3975c14891d" => :yosemite
