@@ -1,8 +1,8 @@
 class DockerCloud < Formula
   desc "SaaS to build, deploy and manage Docker-based applications"
   homepage "https://cloud.docker.com/"
-  url "https://files.pythonhosted.org/packages/28/32/19981b368bd9c64f45217e007dbd42990b1cf108ade46cd68e3687c07d41/docker-cloud-1.0.8.tar.gz"
-  sha256 "f999de30510fee95f89f6c6096e42219f1cf604e2febf32bfa55bea188dc7d62"
+  url "https://files.pythonhosted.org/packages/78/75/511a967ccabff691b57f97bde04cff29af2f493c6ec91a5f57c42badc3b0/docker-cloud-1.0.9.tar.gz"
+  sha256 "dcddda43b2e9acbadcc3b658a61a35a413a5e623513c72c35c990e6ed15b4f8e"
 
   bottle do
     cellar :any
@@ -35,8 +35,8 @@ class DockerCloud < Formula
   end
 
   resource "python-dockercloud" do
-    url "https://files.pythonhosted.org/packages/30/20/2be83cb1291102e182052143a1c2461e36b683a03228a55a150265162f88/python-dockercloud-1.0.11.tar.gz"
-    sha256 "e7752ea88ce5906e70acb22bc0884acf50a6fa0ac148a2bc4fce2bb788830f4b"
+    url "https://files.pythonhosted.org/packages/97/66/776e420e7db5d3c20921e88f1cb333737ace862c8d02234367b32d969525/python-dockercloud-1.0.12.tar.gz"
+    sha256 "83f4c9d8b2a9dc5abb1404d1bf673d6562866db2dad7765d0deffd8622f924a0"
   end
 
   resource "PyYAML" do
