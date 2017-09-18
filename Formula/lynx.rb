@@ -9,6 +9,7 @@ class Lynx < Formula
 
   bottle do
     rebuild 1
+    sha256 "979236f9bc2b53908e398e1faa452da5cfad2677b99e64d8bd5a5de7d5d1c86a" => :high_sierra
     sha256 "bea7cf10aa6df403d9c421ef1e91d7af9b07bb2c2c41b71a36e975ca6d4b9bc2" => :sierra
     sha256 "1b0f14f892c930a2140a853edd308edc7545b0e2baa1637e77b925209476fe96" => :el_capitan
     sha256 "41ddd45e917af411f20cebf679459490cb412a1f94b662a7f1e9f8cc9f9f394f" => :mavericks
