@@ -6,6 +6,7 @@ class XmlToolingC < Formula
 
   bottle do
     cellar :any
+    sha256 "67b765f9321a39069970c93692c79f85941c60045a9c2de400ec052e49c77fb9" => :high_sierra
     sha256 "8b75e123e8c12ff205f5a953aec23ceda024da6a40ee9b1e996f1046eb3ecdba" => :sierra
     sha256 "bd3982c79a8c6f321d6da685ab1c512143c6c0831a1dd3c126e61ebb7f8f0081" => :el_capitan
     sha256 "577dd0d2bcc8a21c64d8382050d7336d8bd3d4f92c47359825a39e752aead6c1" => :yosemite
