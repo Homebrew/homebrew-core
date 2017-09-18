@@ -3,6 +3,7 @@ class Pgloader < Formula
   homepage "https://github.com/dimitri/pgloader"
   url "https://github.com/dimitri/pgloader/archive/v3.4.1.tar.gz"
   sha256 "3ac4d03706057a35e1d4d0e63571b84be7d0d07ea09e015d90e242200488fe82"
+  revision 1
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
@@ -227,11 +228,6 @@ class Pgloader < Formula
   resource "parse-number" do
     url "https://beta.quicklisp.org/archive/parse-number/2014-08-26/parse-number-1.4.tgz"
     sha256 "90ae04cd1a43fe186d07e5f805faa6cc8a00d1134dd9d99b56e31fa2f5811279"
-  end
-
-  resource "pgloader" do
-    url "https://beta.quicklisp.org/archive/pgloader/2016-12-04/pgloader-3.3.2.tgz"
-    sha256 "1b0fd097932f980942c46ac7ec4211e2c4646577bc598a088b5f53b9a5393fe6"
   end
 
   resource "postmodern" do
