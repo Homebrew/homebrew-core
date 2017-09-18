@@ -6,6 +6,7 @@ class ArpScan < Formula
 
   bottle do
     rebuild 1
+    sha256 "4e50c7a232cda92445d0c030072e71af84271322edb03d0718d89e92eb76e577" => :high_sierra
     sha256 "70a15f93ba09a4201352165594b2d69d3537fb55ba7c0180619470c2235bb851" => :sierra
     sha256 "f0fdab57a9d16dc270b9bedba6c5cca5e99e2b5319268261a320dda86fa5da54" => :el_capitan
     sha256 "4a26a7bb3c586122b4aad81c17bf8427bc820ec4a4353573ffedf79087000232" => :yosemite
