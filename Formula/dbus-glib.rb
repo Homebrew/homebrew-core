@@ -6,6 +6,7 @@ class DbusGlib < Formula
 
   bottle do
     cellar :any
+    sha256 "3557c1341a5e5ba8edd314a0d0fd6b5b88577ce8228363fc341d872e68aa6a32" => :high_sierra
     sha256 "75b313131b5b37dbb8899901239183b1bdce3dcad0a42fae82c0681b7ae233c9" => :sierra
     sha256 "397f602c5f4a7dcb69c12c1c33be603f4c6640244ff70732f06fa6d86a8654a3" => :el_capitan
     sha256 "815d7200c61d67960fb60ba4bc42a10f8c822b2ab58d63fb967122cd14444d9c" => :yosemite
