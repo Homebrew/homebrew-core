@@ -7,6 +7,7 @@ class GnuTypist < Formula
   revision 1
 
   bottle do
+    sha256 "79367e864781c4a9fe5b25e737e99bdcae8c7b11a2198459d72775120495c2c3" => :high_sierra
     sha256 "014e293ce1ed514fe95e6fce4cbedefdc876a51b6d38a740183b8ce959899e5a" => :sierra
     sha256 "75fcb398d3997d6d9357bb6cf5638d2e10e469ce114b344865d37112754cc7af" => :el_capitan
     sha256 "285c918d6b2240e294e6b192aff25de0f0383f9ac645d8883e04e3443e52b674" => :yosemite
