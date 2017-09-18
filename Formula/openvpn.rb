@@ -6,6 +6,7 @@ class Openvpn < Formula
   sha256 "15e15fc97f189b52aee7c90ec8355aa77469c773125110b4c2f089abecde36fb"
 
   bottle do
+    sha256 "a478c5ce934a56cbb39869c4b2c5c007e4b3b62a1e5731adb20ddb84347bddd7" => :high_sierra
     sha256 "1fd1b64c45e92591247c3cb073577d6a161c9e19118c067a2b965833c4b5b448" => :sierra
     sha256 "ab58d314e44570b921e95141cf37e7d95deae15e4d026b2212d1f85acac1d32b" => :el_capitan
     sha256 "c3c014805479617d3c0cb4ab80c875929b27fee96501ad323031a0f2d344ec0d" => :yosemite
