@@ -5,6 +5,7 @@ class Menhir < Formula
   sha256 "ca482d690052343d6cb9452433248a0a92cc8bfc8fa529dc313220c9d7c0d000"
 
   bottle do
+    sha256 "593281dfdb0a92ac867835839697e4d69545044aeb2cddd37b2aa748cfd898a6" => :high_sierra
     sha256 "57489d76a5f717fda9b2d78f6c049ad924f823f8536b11eb3e3aee2449207a3d" => :sierra
     sha256 "9d17da07dfecdbfc7bc3d26c74d1c92f6d5a0e546e6e9a2e4db1288ce5cdcbbc" => :el_capitan
     sha256 "fab74e052f76b06d9511e3cd3d68caed29027f0994016791441b009e09f7798c" => :yosemite
