@@ -18,9 +18,9 @@ class Ncurses < Formula
   depends_on "pkg-config" => :build
 
   # stable rollup patch created by upstream see
-  # http://invisible-mirror.net/archives/ncurses/6.0/README
+  # https://invisible-mirror.net/archives/ncurses/6.0/README
   resource "ncurses-6.0-20160910-patch.sh" do
-    url "http://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
+    url "https://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
     mirror "https://www.mirrorservice.org/sites/lynx.invisible-island.net/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
     sha256 "f570bcfe3852567f877ee6f16a616ffc7faa56d21549ad37f6649022f8662538"
   end
