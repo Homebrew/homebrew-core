@@ -6,6 +6,7 @@ class Bigloo < Formula
   sha256 "3ca5c28d6eab6132b981eb6a8cc921d73b5cbcc22d3a32312d52f83d8dc62c0f"
 
   bottle do
+    sha256 "d8cc153227a4cf654d69e617754351d01b1e8a7648e0566f1f09d590e29a6077" => :high_sierra
     sha256 "b6e3d1c848387656e4ac1fd29e3253a33027d0016fb59f698c9c0ceee7d6eeca" => :sierra
     sha256 "c1d07d96de7ec2377b02b9103d5d64cbaa80f2a19605e6da9cc99115e0757976" => :el_capitan
     sha256 "4df885d857ae5a8bec050edb9e010b61cdcdcfefee21f48209df9f8b7a1dd60c" => :yosemite
