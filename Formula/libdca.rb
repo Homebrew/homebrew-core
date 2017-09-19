@@ -7,6 +7,7 @@ class Libdca < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b0e41bf419ab313a0c50b12025f2c08fa431f46d471d05f092997a214681dfd6" => :high_sierra
     sha256 "5402d2163d46f12bca79ec04ee627cb26f15a5e78299447efbf8a908e714d081" => :sierra
     sha256 "e148c79b756b8684a8a906e493bb4ce3007db3682c0ac8a1b194c76ebb1097a7" => :el_capitan
     sha256 "893590746bb58d06c659af40adce735abcd661691a75ba8b000024aab359e1ca" => :yosemite
