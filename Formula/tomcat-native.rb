@@ -1,9 +1,9 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.12/source/tomcat-native-1.2.12-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.12/source/tomcat-native-1.2.12-src.tar.gz"
-  sha256 "e7add177c98a7f07220c306d65e182c45dbcd7501115e9ed56f1690c5472ded9"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.14/source/tomcat-native-1.2.14-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.14/source/tomcat-native-1.2.14-src.tar.gz"
+  sha256 "a7f1649f7c384b2d4e6c4c96f20aea980efeba327dba874d4bc7c765b6229f5e"
 
   bottle do
     cellar :any
@@ -40,7 +40,7 @@ class TomcatNative < Formula
     need to add it to java.library.path. This can be done by adding this line
     to $CATALINA_HOME/bin/setenv.sh
 
-      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{lib}\"
+      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
 
     If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
     EOS
