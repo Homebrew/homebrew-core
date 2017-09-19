@@ -8,6 +8,7 @@ class Libcuefile < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a0b9b31c26ac9dc2704e71834259c0f9d0a12dce4ad4bbcdaae64fea5004ceae" => :high_sierra
     sha256 "66ec2d9281a5459326a1b2d220b9f68fa241a6b9f8370324377af6751d60b7fd" => :sierra
     sha256 "fc48e0953e3df489f37ee30214bd50b07020955b02f957a90c699474f09ef974" => :el_capitan
     sha256 "427a043ee4dc777743c80a836c5fa69c4de91ea2510f740db099224f95ed38b4" => :yosemite
