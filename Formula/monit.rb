@@ -6,6 +6,7 @@ class Monit < Formula
   sha256 "dd39fe3a379c02402ba9c44c201b3ba925ebdc8f04225918820607b6c5d56713"
 
   bottle do
+    sha256 "a47f0d5849393a5ed8b07e18e8902655db30f9560947f168ef00f4c15812c475" => :high_sierra
     sha256 "d68ced7b1d9107185c9cf2bc70ada98af5e6c7dcb3a4b4da6d82fda6659cb34a" => :sierra
     sha256 "5cedb7d2decc2d9eaf16868075a4f47f09f4dfaea8a6ac3f8b80d49865aaf6ec" => :el_capitan
     sha256 "7dec7fe801ad4afcf615dfd55e3025a01cf1511c0b70a096d1b98e087274ac7f" => :yosemite
