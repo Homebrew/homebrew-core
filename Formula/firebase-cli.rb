@@ -8,9 +8,8 @@ class FirebaseCli < Formula
   head "https://github.com/firebase/firebase-tools.git"
 
   bottle do
-    sha256 "76b6cb73c565afc2ff53895c615568e9f776a1ccc6e20867c9e3d7040b509067" => :high_sierra
-    sha256 "ab3526fa51b0ce5da0637a55e92d8ae0262d7fac1aed724dcf280047cf4591ed" => :sierra
-    sha256 "381637cdd9c825f81f06e7cc0cb8fac33d7c1be0a690d357512446aa6d1a52d5" => :el_capitan
+    sha256 "582bb25ea4d7fbbde42ffb0282dd40ade2157c23de612546f049071bd0be7277" => :sierra
+    sha256 "6c25c041eccffb7459fe141c354574a9d11993b007aa528a384fa055c70e03d7" => :el_capitan
   end
 
   depends_on "node"
