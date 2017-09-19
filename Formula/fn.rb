@@ -4,6 +4,12 @@ class Fn < Formula
   url "https://github.com/fnproject/cli/archive/0.3.84.tar.gz"
   sha256 "495c93a955b2a4cfb0a2ea4a32cd150fc2a98192051d99a51a1f63bddfe178fc"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "00f0c8f87d8c17c39af8128f682da627747a43b1743f0a5554567688c5b557de" => :sierra
+    sha256 "3c6be9d67ca670a02e797e1c33f964844a2872b09a34e8ee79c02f323c5a7801" => :el_capitan
+  end
+
   depends_on "go" => :build
   depends_on "glide" => :build
 
