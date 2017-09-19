@@ -6,6 +6,7 @@ class MacRobber < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "20c99447899b82d2da937aa81a0b3afd2c865f67a97d2ca1183e01151fef9de0" => :high_sierra
     sha256 "160983c4988cb22bd68a0beeb48de91a8af3461722a42e65e523c4a6af08f444" => :sierra
     sha256 "0647670a38eb3ae5d8085ad1126f8d70b6e9ac99b086c0ec2f3301ac51ecdb3f" => :el_capitan
     sha256 "5e8b7656cafbab151ed82702cbd7e712ee30af62b6a6c031f9f440e95c174ed0" => :yosemite
