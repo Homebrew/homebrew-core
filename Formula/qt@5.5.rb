@@ -131,7 +131,7 @@ class QtAT55 < Formula
     # error "Project ERROR: Xcode not set up properly. You may need to confirm
     # the license agreement by running /usr/bin/xcodebuild."
     # See https://github.com/Homebrew/homebrew-core/issues/8777.
-    # Fixed upstream 7 Jul 2016 in http://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9.
+    # Fixed upstream 7 Jul 2016 in https://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9.
     if MacOS::Xcode.version >= "8.0"
       inreplace prefix/"mkspecs/features/mac/default_pre.prf",
                 /xcrun -find xcrun/, "xcrun -find xcodebuild"
