@@ -6,6 +6,7 @@ class Mfcuk < Formula
 
   bottle do
     cellar :any
+    sha256 "1dddb64e65b9fb1e387f2bd18ed2ae0f600aa868fa92a0141f66fb835a1e8dac" => :high_sierra
     sha256 "a4ae4d6f6cdec9dd28c52ff04da99b9de86c79a19c6e182ef3a557f48dde0741" => :sierra
     sha256 "8b329dbd3feb25bc4f04f40451cf25e832395721a5184eb4ee287366aaa06334" => :el_capitan
     sha256 "bdf696192e1a660b2fa1ad58498bdce941b1d45c4b51847b95427f41debd4c2d" => :yosemite
