@@ -19,15 +19,15 @@ class Zim < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec / "lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     resource("pyxdg").stage do
       system "python", *Language::Python.setup_install_args(libexec/"vendor")
     end
     ENV["XDG_DATA_DIRS"] = libexec/"share"
-    ENV.prepend_create_path "PYTHONPATH", libexec / "lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", "./setup.py", "install", "--prefix=#{libexec}", "--skip-xdg-cmd"
-    bin.install Dir[libexec / "bin/*"]
-    bin.env_script_all_files libexec / "bin", :PYTHONPATH => ENV["PYTHONPATH"], :XDG_DATA_DIRS => libexec/"share"
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"], :XDG_DATA_DIRS => libexec/"share"
     pkgshare.install "zim"
   end
 
