@@ -6,6 +6,7 @@ class Libgsm < Formula
 
   bottle do
     cellar :any
+    sha256 "a09c56c1092d573d0f0e2eac64cc0b24c052d644e882c83f7fa1479809490d99" => :high_sierra
     sha256 "81adb1475c78284f6794e172a8259c3a16bd60a6cb322e015443bedd24238597" => :sierra
     sha256 "0aaa622ead97802072f54ebb8e33e4aeac94607fa66a38c36ff9b4b96aac8518" => :el_capitan
   end
