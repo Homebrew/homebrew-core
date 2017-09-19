@@ -9,6 +9,7 @@ class GitCal < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "286c10cc47b2b26de4511fac0518d6edef3e05c676a45c14b32d8342891ecf2f" => :high_sierra
     sha256 "82847887556bd0334e65c1c7a3a063c2d62e5f71e81e89c53aa8e0df1cc41e31" => :sierra
     sha256 "8f928d65dc3414900ace5751d9e93bc712f03ffcabfefeb0d659e18db3998622" => :el_capitan
     sha256 "d61d27644f236dd221d2ea15aea7ee088afaf08c305217084b63fb85cb0d7dba" => :yosemite
