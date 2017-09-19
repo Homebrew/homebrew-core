@@ -8,6 +8,7 @@ class GitFixup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ea6a6ead131ad504711f0905aa3899c60412f8a287ee1308aeb2824a10f17ba3" => :high_sierra
     sha256 "478f6c76e15aa1fe183711e609fdc492bb9be5970a555b2b6a1ccfbbd3b96be0" => :sierra
     sha256 "0145c568d255c20a0f728d14152aad8a83a0ceb25e9f833d016efc57d19191c8" => :el_capitan
     sha256 "077bcf80be63e6da3bdd7699f6b82549d99014210ff8e015e5319234d8a9e75a" => :yosemite
