@@ -33,6 +33,11 @@ class MongodbAT30 < Formula
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
+    system "2to3", "--write", "--fix=print", "SConstruct",
+           "src/mongo/SConscript", "src/mongo/installer/msi/SConscript",
+           "src/third_party/wiredtiger/SConscript",
+           "src/third_party/wiredtiger/SConstruct"
+
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
     Language::Go.stage_deps resources, buildpath/"src"
