@@ -6,6 +6,7 @@ class Libquicktime < Formula
   revision 4
 
   bottle do
+    sha256 "f507d898a0237474e45a9780d08113887e00ddd6ae35934bbac4ef4e65d58dca" => :high_sierra
     sha256 "9256a6709e81af34e6ad4655436fc533a30471c0ea06a18805c38ab2e086e510" => :sierra
     sha256 "9a98dacafd9b7be723a9549d4b51709495ab1d3cbf4b1b1c8837045a99735d31" => :el_capitan
   end
