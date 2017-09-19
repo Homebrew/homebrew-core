@@ -7,6 +7,7 @@ class GitFtp < Formula
 
   bottle do
     cellar :any
+    sha256 "b81a38b356251b818ded806ea00d48ddf1686a4c6a2b907e1f3cc54dbfa233e3" => :high_sierra
     sha256 "7a4df7d587138c9513a3fe5058e0532ae91e84ddcb5182da214dcb911a5b9a31" => :sierra
     sha256 "a34ce84325e2d130058fbca3575422a4aceb48540664c2de2296c1d6308c6295" => :el_capitan
     sha256 "4fd1fc02d184902114cc01a38db5c206f859127a0d624def0456f8034a90495c" => :yosemite
