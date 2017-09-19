@@ -13,7 +13,6 @@ class Libre < Formula
   end
 
   depends_on "openssl"
-  depends_on "lzlib"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
