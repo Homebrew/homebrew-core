@@ -21,7 +21,7 @@ class Gnumeric < Formula
   depends_on "gettext"
   depends_on "goffice"
   depends_on "rarian"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "pygobject" if build.with? "python-scripting"
 
   def install
