@@ -7,6 +7,7 @@ class Libiscsi < Formula
 
   bottle do
     cellar :any
+    sha256 "319702bf0cb05a72681ac15f18534515e27b6618909a09659a8d718ad1663614" => :high_sierra
     sha256 "5ca0c39a5aba32abddd1fdd4ffad754baa0d61380579fa1cd03c511e331a24a9" => :sierra
     sha256 "fb4e0bf29a4500377478c42476b9cf1c20f96fd1891397ed0fad499fe5555117" => :el_capitan
     sha256 "c89e40197b9aebd712c67d43fbe7a4e085ddb7a1b58861c6e98444271fd9e383" => :yosemite
