@@ -14,12 +14,15 @@ class Ori < Formula
 
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
-  depends_on "boost"
+  depends_on "boost@1.60"
   depends_on "libevent"
   depends_on "openssl"
   depends_on :osxfuse
 
   def install
+    system "2to3", "--write", "--fix=print", "SConstruct",
+           "liboriutil/SConscript"
+
     scons "BUILDTYPE=RELEASE"
     scons "install", "PREFIX=#{prefix}"
   end
