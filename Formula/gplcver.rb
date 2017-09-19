@@ -6,6 +6,7 @@ class Gplcver < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2460dcc2da525280cd5b7d2452abe922874291b92f0ba3abd1316da2e5ff40f7" => :high_sierra
     sha256 "a0f14e7d01b7098ed6e770b21df05f03d7506ca0bab3d1f84845ca9ca7d1eb5b" => :sierra
     sha256 "a094d355a75148ed611e9668841a33810a1a1226bc6651b8d0c5e4868867e7fd" => :el_capitan
     sha256 "fc4f5fc0f1bb13139740ae6f2966bd4e3adb57c7a9803b84f946d95fcb40dd2a" => :yosemite
