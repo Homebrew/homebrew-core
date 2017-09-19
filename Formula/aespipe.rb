@@ -1,8 +1,8 @@
 class Aespipe < Formula
   desc "AES encryption or decryption for pipes"
   homepage "https://loop-aes.sourceforge.io/"
-  url "https://loop-aes.sourceforge.io/aespipe/aespipe-v2.4d.tar.bz2"
-  sha256 "c5ce656e0ade49b93e1163ec7b35450721d5743d8d804ad3a9e39add0389e50f"
+  url "https://loop-aes.sourceforge.io/aespipe/aespipe-v2.4e.tar.bz2"
+  sha256 "bad5abb8678c2a6062d22b893171623e0c8e6163b5c1e6e5086e2140e606b93a"
 
   bottle do
     cellar :any_skip_relocation
