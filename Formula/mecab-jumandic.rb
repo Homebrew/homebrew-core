@@ -7,6 +7,7 @@ class MecabJumandic < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "eefafd1bf8ea2aa43a50542328ee97492beab4730e52c4ec8ce6ed06844e8382" => :high_sierra
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :sierra
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :el_capitan
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :yosemite
