@@ -8,6 +8,7 @@ class GitTracker < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b99c9fa3e5e35a59659091162620299a1f39f6e36b25e05e71cdc2989157d66d" => :high_sierra
     sha256 "38f5240121fa53c038034ea9d0ce639f49c6df241727cbc5fbbd6acb48c60ea7" => :sierra
     sha256 "beba888de6c1dad6b4069be93ad1029ce70c24cc241c5b930c6aaf541fd11c4d" => :el_capitan
     sha256 "beba888de6c1dad6b4069be93ad1029ce70c24cc241c5b930c6aaf541fd11c4d" => :yosemite
