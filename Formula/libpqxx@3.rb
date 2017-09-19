@@ -6,6 +6,7 @@ class LibpqxxAT3 < Formula
 
   bottle do
     cellar :any
+    sha256 "041649c3f40abd8ada91d86bf2b102d99162ea8d20aa381b2b4a9af62d0bc9fb" => :high_sierra
     sha256 "4623a2180c2549b24afafdad9ba9f955dea86622a86a55f6fb5a2a8f51f0b940" => :sierra
     sha256 "ebcbc05990beae2947235e4f6cdb1b79482e60c5cff45fb2fced7d61c8fd5fa8" => :el_capitan
     sha256 "f94adb2b8bd5ad25bb7db51a79bdde7c167912bc4d2134822d70f1a45827d3bc" => :yosemite
