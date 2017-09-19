@@ -8,6 +8,7 @@ class GitUrlSub < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4eca101481773e802431bc9fc264f5f2db309595d0faf0c02886a559c31baa91" => :high_sierra
     sha256 "2fcf47332e070caed126fef2be0a1108a23e18a9d1ba80b6059b45a417af1b31" => :sierra
     sha256 "cf954ff293abbcaf8816c8142b5762ebe7601107f76530f6bab0edea71e2d609" => :el_capitan
     sha256 "2edfbc5f15001b1c4c08b26251a845533473a79bc2f387d3fd1d74751080cd1b" => :yosemite
