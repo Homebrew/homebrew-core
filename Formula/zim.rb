@@ -5,6 +5,12 @@ class Zim < Formula
   sha256 "6817a4eb7be2326870810e4f4bc57c88128b2087752a8bd54953c95357b919fa"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9f1b73f91e1c0f397ded0c88ec443074b1b2060ddacafa0526f63b908c0eb7da" => :sierra
+    sha256 "9f1b73f91e1c0f397ded0c88ec443074b1b2060ddacafa0526f63b908c0eb7da" => :el_capitan
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gtk+"
   depends_on "python"
