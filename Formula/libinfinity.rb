@@ -5,6 +5,7 @@ class Libinfinity < Formula
   sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
 
   bottle do
+    sha256 "1faad7e989ee0b318a6bc083d6dabc09b1bff20f29e85fb2eeaf0e204db77ed2" => :high_sierra
     sha256 "a57e350ab3149f0992f1ae56953eb951dea73601c0837d8268679395f247f8ec" => :sierra
     sha256 "b4d21db6a91949753057955b38fd47b8d289a2e5961ba6fc5e1fdc06c6f0d7a1" => :el_capitan
   end
