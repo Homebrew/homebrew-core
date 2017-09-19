@@ -6,6 +6,7 @@ class Beanstalkd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "53ea84c7a2dc35bd061a6aebddd0285a57b72cf300846caeacd243a0bf2f07d3" => :high_sierra
     sha256 "95a75ad2e7f06dfff9881762bddeb1fb06319a411165cba0114e4b7c9b1a4103" => :sierra
     sha256 "6665ec5a9a493341134eca920517547340b672513f96317620c5095db3db9499" => :el_capitan
     sha256 "1772e0af60fe42a471437285f29a9c03b52cd8ddd805eaf3339a9d644c4d1bb5" => :yosemite
