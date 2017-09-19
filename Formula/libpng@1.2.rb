@@ -7,6 +7,7 @@ class LibpngAT12 < Formula
 
   bottle do
     cellar :any
+    sha256 "2e896eb5f32858eb578e89dd688260bb63da45760581acc01d342876eaced246" => :high_sierra
     sha256 "0f85343171350540afdbea7912b1c3873be2674c20939cb9586f549df0b0ac7b" => :sierra
     sha256 "3a77919fd1e4776d87df3838dfffb1e6588cd71798424cf809ccebd284bc2f08" => :el_capitan
     sha256 "65c40b981d5fb639087ebabca450d1a70596049bc45dbfbbec3e7e93a31454c4" => :yosemite
