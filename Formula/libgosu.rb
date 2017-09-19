@@ -8,6 +8,7 @@ class Libgosu < Formula
 
   bottle do
     cellar :any
+    sha256 "2f1e2b6af5713deb94df795fd7bb8654b779df2fbefba28e7794911fcbe6831e" => :high_sierra
     sha256 "ba99f69d80a093fbf21993dcd4abb02889ff2ad264d43565f408381d308c1b35" => :sierra
     sha256 "16a420796d64dff75ca8aa98cd4e7cb629d34a0c46bf814b23af049c10d6d691" => :el_capitan
     sha256 "fd79a4bdb960d0d08fe812763172f32f3e48e08c5d888d7479dbd8170425cf77" => :yosemite
