@@ -5,6 +5,7 @@ class Graphene < Formula
   sha256 "c3a9910f8dd298c1459d1f3c699ddf2e7440f9e561bfcbef59ae784400e27b5d"
 
   bottle do
+    sha256 "8bd3cbebbd244603447606001998454111ba5592686329550b109bb08c055eb6" => :high_sierra
     sha256 "26643b04ec0aa93a3fbc0560f0cc99a24a1894ed94a2d1b48a8a70612ef5f891" => :sierra
     sha256 "ef1e66271b468a48bc6fc18de2bdbdc40c87bdbc51d319f8af0509b107af537c" => :el_capitan
     sha256 "437949adfe70b32ae7145f853b3b133b21aa3df25f5cd5fc52c8f13ef931d094" => :yosemite
