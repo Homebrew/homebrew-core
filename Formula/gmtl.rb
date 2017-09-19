@@ -32,6 +32,7 @@ class Gmtl < Formula
   end
 
   def install
+    system "2to3", "--write", "--fix=print", "SConstruct"
     scons "install", "prefix=#{prefix}"
   end
 end
