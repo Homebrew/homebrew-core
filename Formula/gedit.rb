@@ -29,7 +29,7 @@ class Gedit < Formula
   depends_on "libpeas"
   depends_on "gtksourceview3"
   depends_on "gsettings-desktop-schemas"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
 
   def install
     system "./configure", "--disable-dependency-tracking",
