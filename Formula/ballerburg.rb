@@ -7,6 +7,7 @@ class Ballerburg < Formula
 
   bottle do
     cellar :any
+    sha256 "23ecdb1ee06b96cff2e51117b3ff0bf8f0b6f29195e3d2d6323ca8dd72c79074" => :high_sierra
     sha256 "fa38cec8799ff4dcd33735146d4d93c986eb42c72bf6a9f1b3bd997acb5613c1" => :sierra
     sha256 "314236d328ffdbaa4ddbcfbe38566ab0669df3935a9a051d3366a8d0e87d3de9" => :el_capitan
     sha256 "46502878f24bf976bc5798ff74c145059f642ca2e9cb9d8467e296ad5b582f00" => :yosemite
