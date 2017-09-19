@@ -6,6 +6,7 @@ class GitCrypt < Formula
 
   bottle do
     cellar :any
+    sha256 "f9c8fe4eb10891bb2afcda6e6f1639cd59c3579c2a52e0c5127e1dd649c3954e" => :high_sierra
     sha256 "8d7f6640e34881ae40a2e949b7755eb9faa711399c37b86892df359b1a368bb2" => :sierra
     sha256 "ed93687aa2996d6171f9090062f24453028c7d9d97e9842a0fee7aee57648979" => :el_capitan
     sha256 "ce33f2d01af41259b6ea9be1e849000bdd08413b1f109268ea65709644d455eb" => :yosemite
