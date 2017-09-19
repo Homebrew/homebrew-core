@@ -10,6 +10,7 @@ class Modd < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "e79579ee2830efcabf6c7596ade56c48f785374e25d03a7bced28ee392806727" => :high_sierra
     sha256 "bf049b16314506c209750c12622444fe5a964488f8b018120d64b079de8c56a9" => :sierra
     sha256 "59b8cb783b8b2c53c7e5a75a4707a9af60cb86949b9f994f444bdec9612b398a" => :el_capitan
     sha256 "316eac1b123791f6c736f541ae808847c2dfe854bddf0d660108356551690a08" => :yosemite
