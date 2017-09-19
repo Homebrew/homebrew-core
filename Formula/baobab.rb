@@ -18,7 +18,7 @@ class Baobab < Formula
   depends_on "vala" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
 
   def install
     system "./configure", "--disable-dependency-tracking",
