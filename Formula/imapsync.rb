@@ -1,8 +1,10 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "http://ks.lamiral.info/imapsync/"
-  url "https://imapsync.lamiral.info/dist/imapsync-1.727.tgz"
-  sha256 "72dfccb3c778dcb55460da93b00c092d38271d4a7960c221e223649ef5a143f8"
+  url "https://imapsync.lamiral.info/dist/imapsync-1.836.tgz"
+  # Note the mirror will return 404 until the version becomes outdated.
+  mirror "https://imapsync.lamiral.info/dist/old_releases/1.836/imapsync-1.836.tgz"
+  sha256 "f1736582ea246776193d8695695c434520498c3c98fc9ba25fbc4e84fd112e7c"
   head "https://pagure.io/imapsync.git"
 
   bottle do
@@ -31,15 +33,15 @@ class Imapsync < Formula
   end
 
   resource "Mail::IMAPClient" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.38.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.38.tar.gz"
-    sha256 "d0f346d111dba93548ceac1192a993210ffcd5f81f83638ee277607bfacc1a4d"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.39.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/P/PL/PLOBBES/Mail-IMAPClient-3.39.tar.gz"
+    sha256 "b541fdb47d5bca93048bcee69f42ad2cc96af635557ba6a9db1d8f049a434ea3"
   end
 
   resource "IO::Tee" do
-    url "https://cpan.metacpan.org/authors/id/K/KE/KENSHAN/IO-Tee-0.64.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/K/KE/KENSHAN/IO-Tee-0.64.tar.gz"
-    sha256 "3ed276b1c2d3511338653c2532e73753d284943c1a8f5159ff37fecc2b345ed6"
+    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/IO-Tee-0.65.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/IO-Tee-0.65.tar.gz"
+    sha256 "c63dcd109b268962f867407da2654282e3c85113dc7e9655fe8a62331d490c12"
   end
 
   resource "Data::Uniqid" do
@@ -49,15 +51,15 @@ class Imapsync < Formula
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MAKAMAKA/JSON-2.90.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-2.90.tar.gz"
-    sha256 "4ddbb3cb985a79f69a34e7c26cde1c81120d03487e87366f9a119f90f7bdfe88"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
+    sha256 "12271b5cee49943bbdde430eef58f1fe64ba6561980b22c69585e08fc977dc6d"
   end
 
   resource "Test::MockObject" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/Test-MockObject-1.20150527.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/C/CH/CHROMATIC/Test-MockObject-1.20150527.tar.gz"
-    sha256 "adf1357a9014b3a397ff7ecbf1835dec376a67a37bb2e788734a627e17dc1d98"
+    url "https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/Test-MockObject-1.20161202.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/C/CH/CHROMATIC/Test-MockObject-1.20161202.tar.gz"
+    sha256 "14b225fff3645338697976dbbe2c39e44c1c93536855b78b3bbc6e9bfe94a0a2"
   end
 
   resource "JSON::WebToken" do
@@ -76,6 +78,12 @@ class Imapsync < Formula
     url "https://cpan.metacpan.org/authors/id/S/SA/SANKO/Readonly-2.05.tar.gz"
     mirror "http://search.cpan.org/CPAN/authors/id/S/SA/SANKO/Readonly-2.05.tar.gz"
     sha256 "4b23542491af010d44a5c7c861244738acc74ababae6b8838d354dfb19462b5e"
+  end
+
+  resource "Sys::MemInfo" do
+    url "https://cpan.metacpan.org/authors/id/S/SC/SCRESTO/Sys-MemInfo-0.99.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/S/SC/SCRESTO/Sys-MemInfo-0.99.tar.gz"
+    sha256 "0786319d3a3a8bae5d727939244bf17e140b714f52734d5e9f627203e4cf3e3b"
   end
 
   def install
@@ -111,7 +119,7 @@ class Imapsync < Formula
     output = shell_output("#{bin}/imapsync --dry", 255)
     assert_match version.to_s, output
     resources.each do |r|
-      next if ["Module::Build::Tiny", "Readonly"].include? r.name
+      next if ["Module::Build::Tiny", "Readonly", "Sys::MemInfo"].include? r.name
       assert_match /#{r.name}\s+#{r.version}/, output
     end
   end
