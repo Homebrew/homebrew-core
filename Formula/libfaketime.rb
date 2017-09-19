@@ -7,11 +7,8 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
-    rebuild 1
-    sha256 "1fc4204b9cf216dffc0c614e679c37682a7702b058ca00d3aed6226220997b53" => :el_capitan
-    sha256 "5148ca77b62f044e604d80cd18f2a7c46c2bd44ffff2b828eea05b98154f2b17" => :yosemite
-    sha256 "9beebb4e5b6fa274f6114a141d7c20f726532e851496733b60825e9c75926480" => :mavericks
-    sha256 "4b7477042b15dd475fc16de06df07e9cc3a983033d6d21ac6029dfc1ddfb1925" => :mountain_lion
+    sha256 "14232fbbb6c53452c81f4fb0b1cfb90930b92f643f9969a7fea9b513beb5bf54" => :sierra
+    sha256 "f2cb815d9c1d79592764ad6f2a3061205679b14e056f2f8ece3451c9fe0ba1b4" => :el_capitan
   end
 
   depends_on :macos => :lion
