@@ -7,6 +7,7 @@ class Brotli < Formula
 
   bottle do
     cellar :any
+    sha256 "4c66b87fea8c54419bb55f9f93bed226ca6510af736cebd316efbe8ecc278378" => :high_sierra
     sha256 "4732a890dbab83f0c66e8575a8bc0b558cd8ab541f9d2684b68e5dc2c0341324" => :sierra
     sha256 "55d2f115d9b29bac587122dbf23ae748305406c5d3e8255fcdafc78077c86f24" => :el_capitan
     sha256 "1e11a1590cc842b79812a9cec13813802aaacc20d75269caae23b566b9b0e3a2" => :yosemite
