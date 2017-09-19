@@ -6,10 +6,9 @@ class Cputhrottle < Formula
   version_scheme 1
 
   bottle do
-    sha256 "32da8a76bd7589b850afe95fce181cfa7d2efd68724bea9e81f57609edbce854" => :sierra
-    sha256 "4f80fe27e2a64468ab6613f526552003adb11125db9ac3aa7aee1c5d70d86653" => :el_capitan
-    sha256 "5196a098d92dbf7c9f1ed5c5a7350bbcdbdc07e0292565cf7729a3bb7de5f972" => :yosemite
-    sha256 "6df740581ec759d149a2f456da278361fcff522718799b5a24ca03762f8908b2" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "e7b1f37f5624959be9ebd8b7ddb44eb90907e2d08f1a1755ed818e38370a30c9" => :sierra
+    sha256 "44fe4915b0be45c45c9ce09036869b54c2172742d787c3888b3cb5a7f0a30330" => :el_capitan
   end
 
   def install
