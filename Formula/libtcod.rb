@@ -6,6 +6,7 @@ class Libtcod < Formula
 
   bottle do
     cellar :any
+    sha256 "1c87548bf17dfd58392f7da311b312c7f081239457aaff986bfefb4086847855" => :high_sierra
     sha256 "ccad47287c9a34afcffa48d6b8f469cb729a1133f95f44be0fe7a1506723980f" => :sierra
     sha256 "65cf5860b8325fe352f497ad287303c4a725e623d1a64c45c879463a36603f51" => :el_capitan
     sha256 "de169860f67c2be9d4ed7770f682700b31642030da1b50583b26b53e5e514bfe" => :yosemite
