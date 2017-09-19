@@ -6,6 +6,7 @@ class LibicalGlib < Formula
   revision 1
 
   bottle do
+    sha256 "f0276d45417caf684ffe27f510f0b5004aeadd48b774d1590a6be597160470e3" => :high_sierra
     sha256 "69ac0d22224466d8fd02e65fafe758da6b3d06724accbea82d8b2dcad81f659a" => :sierra
     sha256 "8e4a96b46dc44aa61f0247b4d5d7afdd6c55bd457b693e599c4da5d74e8e8f49" => :el_capitan
     sha256 "485062bfe30e8dc477adaf4e25d1a2d91c53f8be33993901a078bec1ae09b4ef" => :yosemite
