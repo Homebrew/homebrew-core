@@ -1,8 +1,8 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-11.0.tar.xz"
-  sha256 "072305d4018fc5e75bb1b45ee6b938fa52fc9fd27493bf327415ef89ed14c969"
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-11.1.tar.xz"
+  sha256 "f2521c525a77166189e3cb9169f75c2ee2b82fa3fcf9476024fbc2c3a6c9cd9e"
 
   bottle do
     sha256 "be66730589463eb2c36fd3be634ad311c89a576409e6005e4640bed2253fa268" => :high_sierra
