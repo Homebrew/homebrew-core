@@ -3,6 +3,7 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.3.0.tar.gz"
   sha256 "029dc350497bdaad4d8559f7954405011b9e1b996aa4d4cc124f650e2eca00a6"
+  revision 1
 
   bottle do
     sha256 "155216851b832da347cbae3f8b90849830f236cf357504e5063fb2a925b284b2" => :high_sierra
@@ -17,11 +18,6 @@ class LibbitcoinExplorer < Formula
   depends_on "pkg-config" => :build
   depends_on "libbitcoin"
   depends_on "zeromq"
-
-  resource "secp256k1" do
-    url "https://github.com/libbitcoin/secp256k1/archive/v0.1.0.13.tar.gz"
-    sha256 "9e48dbc88d0fb5646d40ea12df9375c577f0e77525e49833fb744d3c2a69e727"
-  end
 
   resource "libbitcoin-network" do
     url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.3.0.tar.gz"
@@ -39,17 +35,8 @@ class LibbitcoinExplorer < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("secp256k1").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}",
-                            "--enable-module-recovery",
-                            "--with-bignum=no"
-      system "make", "install"
-    end
 
     resource("libbitcoin-network").stage do
       system "./autogen.sh"
