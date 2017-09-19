@@ -24,6 +24,15 @@ class Ntfs3g < Formula
   depends_on "gettext"
   depends_on :osxfuse
 
+  # Detection of struct stat members fails Xcode 9
+  # Reported by email on 2017-09-19
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e0b6faaa0d/ntfs-3g/10.13.patch"
+      sha256 "7550061c6ad7fd99e7c004d437a66af54af983acb9839e098156480106cd7a92"
+    end
+  end
+
   def install
     ENV.append "LDFLAGS", "-lintl"
 
