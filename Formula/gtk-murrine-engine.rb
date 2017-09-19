@@ -7,6 +7,7 @@ class GtkMurrineEngine < Formula
 
   bottle do
     cellar :any
+    sha256 "8c4e157e1a7b54e8f3840f57c1e1f23ab05105f63749285bd2571c2eea6f20e4" => :high_sierra
     sha256 "34cb6d93aa8c8b465a68c54579afac3b9260af5f251fd7f1e125930bab2edf9b" => :sierra
     sha256 "552525ea70d460775ffd1c73d34f6b7606b2ef6b34f58ef23b12d90659bbee8e" => :el_capitan
     sha256 "8f4b630aac7727177cb36f323348dfe1a77c6cff64367ba881b94e05403b0bda" => :yosemite
