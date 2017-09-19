@@ -8,6 +8,7 @@ class Gpsim < Formula
 
   bottle do
     cellar :any
+    sha256 "8aab95ce27710fb23c55f3a772ca389e47cbcbb011954532223a9e4519f0c538" => :high_sierra
     sha256 "734a058b83a8636d7cac14f03f141ab949e7bc17abb5685747b188e27f1f3e2a" => :sierra
     sha256 "9b669b415d26e4efe157ed3d2f5f34ff8af6ce2811bbb732aeea46af7f290e94" => :el_capitan
     sha256 "4049efd02de96753275cfb5119efc843d1da0eba30f314b7b2b3e4776b5cd430" => :yosemite
