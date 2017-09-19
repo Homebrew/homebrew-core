@@ -3,7 +3,7 @@ class Libbitcoin < Formula
   homepage "https://libbitcoin.org/"
   url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
   sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -18,6 +18,8 @@ class Libbitcoin < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "libpng"
+  depends_on "qrencode"
 
   resource "secp256k1" do
     url "https://github.com/libbitcoin/secp256k1/archive/v0.1.0.13.tar.gz"
@@ -40,7 +42,9 @@ class Libbitcoin < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-png",
+                          "--with-qrencode"
     system "make", "install"
   end
 
