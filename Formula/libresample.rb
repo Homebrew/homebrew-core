@@ -7,6 +7,7 @@ class Libresample < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "42b971ed75ad6ba1bd6879c2b7cb5fb416706ed184291d12983e46ab6c90a20c" => :high_sierra
     sha256 "b94dc206fa507bcdceb49534740c5c0dff0868a9d9333e4acd8922f22b10c912" => :sierra
     sha256 "ba2446005f2417fa81e5a5963d2273494396f8821ee95fd84ed9825342564598" => :el_capitan
     sha256 "2f58f8b45cd7b6f89f645cb90d3b4f63dd0a28e927713f3a4664c348e3a15a21" => :yosemite
