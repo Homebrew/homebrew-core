@@ -6,6 +6,7 @@ class Libiptcdata < Formula
 
   bottle do
     rebuild 1
+    sha256 "711d2412e24e7cfa0e519e60c7205e46d544d480892988dbb6e2c6039dc653f1" => :high_sierra
     sha256 "d87011cbe7d98af0df3210ee1a01aaf35da267d9894b095ba031911a980d8c4e" => :sierra
     sha256 "37747abe5597a40dec5a741919eaa46bedc42472bb909b9a09c4a200e5d592d4" => :el_capitan
     sha256 "14f6b3a649e0d944768e5e3a1e4d44e1efd0389fdeaa5740993b10ee7a42c718" => :yosemite
