@@ -7,6 +7,7 @@ class Marst < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "69eceb01e8925d4b0eecbf40fd9b24504864c7f84f1a40b596f28f8903b0e6ca" => :high_sierra
     sha256 "23fecf40d2b6ac2c986d61789bcb9dcf9b0e4926521294ea23dc7703f042bcb2" => :sierra
     sha256 "c1a70d467ff3117c2a31bd52a659fbff2293f6f17b11cd4b370e9e8220a483c8" => :el_capitan
     sha256 "6d8834fc64e1da37fce2ed9cae3c9f0e0dbfcb41f213c55c8413c2a522ed8811" => :yosemite
