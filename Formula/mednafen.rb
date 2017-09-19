@@ -1,8 +1,8 @@
 class Mednafen < Formula
   desc "Multi-system emulator"
   homepage "http://mednafen.fobby.net/"
-  url "https://mednafen.github.io/releases/files/mednafen-0.9.47.tar.xz"
-  sha256 "51137e60aeab070af8aba8ddc305834d2cf233be8ce82112cf38e93fe5329f3a"
+  url "https://mednafen.github.io/releases/files/mednafen-0.9.48.tar.xz"
+  sha256 "d3cc0c838f496511946d6ea18fda5965d2b71577c610acc811835cc87d152102"
 
   bottle do
     sha256 "4c4319c8991ef686a9d4145a79b9b772c3fb42d8e9b17733c03f0f3047bfb003" => :sierra
