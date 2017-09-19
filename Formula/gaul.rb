@@ -6,6 +6,7 @@ class Gaul < Formula
 
   bottle do
     cellar :any
+    sha256 "f1b6b4fedb8820b14b6384d612b16a1acca71efa26a0d81881c1730720518765" => :high_sierra
     sha256 "5dcd424881f8395070bf534b8bd480279a17cbf8a5784ba2be7dffdbfbc85f51" => :sierra
     sha256 "0a6fb9c8ae17bb0785cc9c9da0fa0b3bf5fd6ca69b1ef8516b800d0d28d77360" => :el_capitan
     sha256 "8b0cb8b79f456faf4b7a8f9af2c788290b3e2eb1785f120875f2b72b4159fbf5" => :yosemite
