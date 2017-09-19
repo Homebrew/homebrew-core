@@ -7,6 +7,7 @@ class Libfreehand < Formula
 
   bottle do
     cellar :any
+    sha256 "5237d03174963f63331285a957bbadaa90674e858ddf67fc1853d961d59721e3" => :high_sierra
     sha256 "300538e3ac9ea51df7e2ecf0197254b2143a9efd1440c3fb753684241db3bcd0" => :sierra
     sha256 "1d223998ddc8b0b43a1046bd68a1ffa5a803e8915de39936a9fdf88892e5f14d" => :el_capitan
     sha256 "4fb596bf8a90d9bc7d807cef66017bebdd43f7018c2e821dcdd18aad5e9f9082" => :yosemite
