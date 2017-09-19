@@ -7,6 +7,7 @@ class Libp11 < Formula
 
   bottle do
     cellar :any
+    sha256 "9141155e8e615576c62fb4e8b3bb0f7f75d0954104a198423bbbb2a1b741f53e" => :high_sierra
     sha256 "6be0e0dc2f7dc8dee695cce025a0f55aba0b4f0f13a812ecc3b55047b9966cd8" => :sierra
     sha256 "9603d653971da9473b55452107f791466b3a66a02c9b6ef29dd78d87ca749331" => :el_capitan
     sha256 "1daf29346c2b73f53d9df61e42876f7d4c813389c0340e7b9385fb97b3e16a94" => :yosemite
