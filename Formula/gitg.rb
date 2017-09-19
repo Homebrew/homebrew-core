@@ -26,7 +26,7 @@ class Gitg < Formula
   depends_on "libsoup"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
 
   def install
     system "./configure", "--disable-debug",
