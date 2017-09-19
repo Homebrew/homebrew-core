@@ -6,6 +6,7 @@ class Libsoundio < Formula
 
   bottle do
     cellar :any
+    sha256 "5bc5fcbcb3e6475d59f7a3b95c494f6e776a6e8b5b903217267195dfd8ed761a" => :high_sierra
     sha256 "1aa2aab043cb9358898b7c9f3c33c727e72342b414048620be561cfca8bc839a" => :sierra
     sha256 "33e6599cba76ac835cb2ffc597f8358a8b13c7cd19c7ce9b85a3d3ff60ec4327" => :el_capitan
     sha256 "594c0042c86a0a6aeca3b7286435b3cc9593ffa158f921092df90f0aef3a865e" => :yosemite
