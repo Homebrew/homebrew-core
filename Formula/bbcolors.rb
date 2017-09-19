@@ -6,6 +6,7 @@ class Bbcolors < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b54a89cbcfcb6a0fb0b3c1279884f1fa54196e2c22a19424ea95827f419030d9" => :high_sierra
     sha256 "cdc81c86b829ba9e051d693bccdb821ed78a8dc3a5df644fc156bfcd700d5686" => :sierra
     sha256 "2a713dae009e44685d1ef02b01d5202a24087129dab70366d2e30800b7dfb9cb" => :el_capitan
     sha256 "506d7f82fa38e1f694550be30a29554b8ecc8b303d47e9bb4fcadfc534ac55c7" => :yosemite
