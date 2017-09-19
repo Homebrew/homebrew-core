@@ -2,7 +2,7 @@
 
 class Nethack < Formula
   desc "Single-player roguelike video game"
-  homepage "http://www.nethack.org/"
+  homepage "https://www.nethack.org/"
   url "https://downloads.sourceforge.net/project/nethack/nethack/3.6.0/nethack-360-src.tgz"
   version "3.6.0"
   sha256 "1ade698d8458b8d87a4721444cb73f178c74ed1b6fde537c12000f8edf2cb18a"
