@@ -7,6 +7,7 @@ class DejaGnu < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "60d8970e0636c67765c4a4a6fdd41d02faa39ee9e95c3ac6a3f4a98940536da0" => :high_sierra
     sha256 "3f6f667f06ed0a74f993668847f437e60f90397b0b1615ebbf0f930f7d2836d2" => :sierra
     sha256 "099657338971c6b84bf135f2935559a4753b2137edd807d777c999edaf0fb8d6" => :el_capitan
     sha256 "0d589e4ec11e3d8de7f00abcbb4a62b50e578e15e6d8fafd42371ca9550b04c8" => :yosemite
