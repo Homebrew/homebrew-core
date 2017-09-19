@@ -6,6 +6,7 @@ class Gitslave < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "53cbfbd7d9f86fa6ee98b46356d76db4c952adbf9e3cf913f0a3136da56bcb69" => :high_sierra
     sha256 "3ccd021a4393d137eed5c0dfdfe94b325b6142258a7090ad04f9166039efa52d" => :sierra
     sha256 "e556bf6f7ddfa3e9f6a9b726d80a35404270c96e36ada122fd16d8946394aaa6" => :el_capitan
     sha256 "395794a75f26acdf034f4ab1541cd9af327d13309517e2553bbcb1fdb4bb0f85" => :yosemite
