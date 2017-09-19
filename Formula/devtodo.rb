@@ -13,8 +13,7 @@ class Devtodo < Formula
 
   depends_on "readline"
 
-  # Fix invalid regex. See http://swapoff.org/ticket/54
-  # @adamv - this url not responding 3/17/2012
+  # Fix invalid regex. See https://web.archive.org/web/20090205000308/swapoff.org/ticket/54
   patch :DATA
 
   def install
