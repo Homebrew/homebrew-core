@@ -5,6 +5,7 @@ class Gjs < Formula
   sha256 "2d529d315fc926995c5174d0ac45dacd604e52b9213ba3c4cd77f30bc4aec945"
 
   bottle do
+    sha256 "1ab08b97047374ca0f3998802210b243758c9dd25bed41d98bc6983ab57a2508" => :high_sierra
     sha256 "dbadc66c92b7c09c95d84a3a2e73e8e4de9daafd673c7721cabff7eb8269c28c" => :sierra
     sha256 "5287100b8bd6383779b455d80fbb5a488060012437f3213af3f871d47a5da13e" => :el_capitan
   end
