@@ -8,6 +8,7 @@ class MitScheme < Formula
 
   bottle do
     rebuild 2
+    sha256 "715a8d56b6b6b0debe6aac7e968c369555b210863da6f7514999307c9df348a8" => :high_sierra
     sha256 "6b7a6ecec12a5a856b795ce634c0ceb8e87714f9cdd272a912e312c3bc5cb9d4" => :sierra
     sha256 "23df7103a75311ba33fed035413892b73f1e724e1df5b63bd677709d29bfdb92" => :el_capitan
     sha256 "be2b340bb25c87141bae94010e4f6ec0234ac3c237e66ffbdb5ae98e2cb7462f" => :yosemite
