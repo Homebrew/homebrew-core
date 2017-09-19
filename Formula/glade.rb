@@ -33,7 +33,7 @@ class Glade < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
   depends_on "libxml2"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "hicolor-icon-theme"
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
