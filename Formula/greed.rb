@@ -6,6 +6,7 @@ class Greed < Formula
   head "https://gitlab.com/esr/greed.git"
 
   bottle do
+    sha256 "48e748cf4efb284edd099918a7d3015b4d01e50e868ac47ea2d0978cb3255773" => :high_sierra
     sha256 "9778c36a897958eac89c32b7c4ef3fa790a2800e22c03262442530e09474da77" => :sierra
     sha256 "99eef3acefdd2f116d3d3052f11efa9baf848aa4ba6452f07741a922d18779f5" => :el_capitan
     sha256 "2a503ee5dbbf11e7d7627e6535cc4691bd5606d981b0bfc416c20bfe9f393013" => :yosemite
