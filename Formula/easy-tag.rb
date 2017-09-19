@@ -16,7 +16,7 @@ class EasyTag < Formula
   depends_on "itstool" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "id3lib"
   depends_on "libid3tag"
   depends_on "taglib"
