@@ -8,6 +8,7 @@ class Globjects < Formula
 
   bottle do
     cellar :any
+    sha256 "2221e3ce78a91c1b24babb6bd228a223232009d337796589dcc6438bff8d1151" => :high_sierra
     sha256 "120730ab24fd8acf2caa89eb48564e1cdee2c5773cacca04fa633b9cfa4a46a1" => :sierra
     sha256 "5896b4d2ea3dea176c8291a39db31762b89256478f9bf14374d55e20b017c4fc" => :el_capitan
     sha256 "813da817fbf45546bbe0cfe9d3beb2e0d4138bf9e5d09a7114e3a825db916d40" => :yosemite
