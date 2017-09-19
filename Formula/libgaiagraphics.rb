@@ -7,6 +7,7 @@ class Libgaiagraphics < Formula
 
   bottle do
     cellar :any
+    sha256 "54d4abddd98509e1e089e72a9dbd408166cad70116ec1d9e19ce87dcf7c56b9f" => :high_sierra
     sha256 "ccaa04675ff26b09b702e04f3141a7d151324afc1cdbe93722d47dfcdfc90672" => :sierra
     sha256 "97c8c5d1b5dc8b054345b166eec48986cbf8bd11c0b7fd0554269a5e8cac4cfa" => :el_capitan
     sha256 "76166f59036fa616a8273bc0e82b928356f4991c81f9aec6cb064dd135e6da91" => :yosemite
