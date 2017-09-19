@@ -24,6 +24,8 @@ class Gringo < Formula
     # Allow pre-10.9 clangs to build in C++11 mode
     ENV.libcxx
 
+    system "2to3", "--write", "--fix=print", "SConscript", "SConstruct"
+
     inreplace "SConstruct",
               "env['CXX']            = 'g++'",
               "env['CXX']            = '#{ENV.cxx}'"
