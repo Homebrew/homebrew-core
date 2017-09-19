@@ -7,6 +7,7 @@ class Braid < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "07319212d43a5d37b0823b3a1e9a55bf722a49eacd1d93b73e04ec0965311f24" => :high_sierra
     sha256 "f012bdbb9b0fdcc93ba7d985178e9ca1df05e96eebb873c98435c37ad7b27fae" => :sierra
     sha256 "8fa89a95797a0e4f360c548716526e2bece4be8fcd394c109bfb3e82883cdb79" => :el_capitan
   end
