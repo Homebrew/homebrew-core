@@ -6,6 +6,7 @@ class Bgpstream < Formula
 
   bottle do
     cellar :any
+    sha256 "f6da890ff38f26be2528dce9a095a30864a9e0741b0350ac415472751479d8e0" => :high_sierra
     sha256 "02ddb40b74b138a5838d5bdcdb44caa37d1974abffe129ad37957c1bd8dd4152" => :sierra
     sha256 "5a94e3a2f3e36a0aa93c9c06e33d126079307080a7a8237cf719c9eb20c23272" => :el_capitan
     sha256 "c7fa0c3adcebc76cafb1cdb56116e8fcd111a62d144c82a00226676e5f6a1950" => :yosemite
