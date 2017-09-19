@@ -7,6 +7,7 @@ class Libforensic1394 < Formula
 
   bottle do
     cellar :any
+    sha256 "5e919cf8bce0747630324f0c203bbd1aef4d7e17d278f42bcbece48da2229c8f" => :high_sierra
     sha256 "e747c5c6797d48070c4a4199fe38021cd0164a052e14b21005b9caf4a47a6e3c" => :sierra
     sha256 "d850e7c3a04b206c6219c75ba0a00723e9a25d0c97831de289320ef0cc076aae" => :el_capitan
     sha256 "b64837090b557e25444999bfc41e2023f8fc2ced465ef7ccc067938fe0ec2f2c" => :yosemite
