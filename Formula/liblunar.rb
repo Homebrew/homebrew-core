@@ -6,6 +6,7 @@ class Liblunar < Formula
 
   bottle do
     rebuild 1
+    sha256 "e564dbc819eff0246e3594ec3b4434e5ba1b4790bfa3f5d13c326eff019cc136" => :high_sierra
     sha256 "79b9281fa40694eeac3076ef886c8c6c8c3d2a118c538a59b9cb925cbd5775c6" => :sierra
     sha256 "df420ea75e5e22b18dcd1fd49eac3478cd8bae3ec6e3b40d02afe7e253e0354b" => :el_capitan
     sha256 "0964777ae7bbc24c64cab3a1197b5dfa123a08d7e320b4829b9f0a3d1a3cb6be" => :yosemite
