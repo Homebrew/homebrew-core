@@ -6,6 +6,7 @@ class Gloox < Formula
 
   bottle do
     cellar :any
+    sha256 "d6acd544200f6524e6c6c4b4c12747e855abb0fb6129628e86166b921035dc39" => :high_sierra
     sha256 "8268b106a2de45233f339630793ebdb46c501925faa758f0d61eb7485ced1c87" => :sierra
     sha256 "7b0dafa8d25adac387410d0bd064c2645d4fb8826c0b24b840c71e3e783eaa3b" => :el_capitan
     sha256 "12fa240ab11bad334840099b0a8574b6cce0064647b06bb433f3600669bd6cda" => :yosemite
