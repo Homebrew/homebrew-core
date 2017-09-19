@@ -5,6 +5,7 @@ class Gssdp < Formula
   sha256 "a1e17c09c7e1a185b0bd84fd6ff3794045a3cd729b707c23e422ff66471535dc"
 
   bottle do
+    sha256 "17909e65f4cd4a34f89998e82f038b4a1167d5b3b81adc3b544d3190dfe5d7a4" => :high_sierra
     sha256 "d29d7e15bd8ceae958e69a08b058ae9a9ccac273dee2182545d4371048efbb6e" => :sierra
     sha256 "32cb5ef5c518bc5d1812a34ebade6a82cc43f036f4a40fc77719dfcafe6dad02" => :el_capitan
     sha256 "540ceba3f55e06e642ab67d53dc84f94a4a55b4e0381f4d015f15991e102b255" => :yosemite
