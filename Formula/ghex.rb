@@ -6,6 +6,7 @@ class Ghex < Formula
 
   bottle do
     rebuild 1
+    sha256 "18abbf00cd515f2346c10393ff9e5adef3d477c7478578489398efd1fa3337fd" => :high_sierra
     sha256 "02c744417d58dc442de342f0277ca4d320dde285365d5c88d002932cad2538de" => :sierra
     sha256 "8123441a65bd5d45a1baf9a227911a1edeb514240d8c81fa563de5cc756b3fc8" => :el_capitan
     sha256 "378e85b6e1f712c2415430f426a6381e03c692f8e8f72b93a77f94c2e205fe5a" => :yosemite
