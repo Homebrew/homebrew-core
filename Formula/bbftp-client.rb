@@ -1,11 +1,8 @@
 class BbftpClient < Formula
   desc "Secure file transfer software, optimized for large files"
-  # http://doc.in2p3.fr/bbftp/ is 404
-  # Contacted bbftp AT in2p3 DOT fr and mirror AT cc.in2p3 DOT fr 18 Sep 2017
-  homepage "https://web.archive.org/web/20170722062740/http://doc.in2p3.fr/bbftp/"
-  # http://doc.in2p3.fr/bbftp/dist/bbftp-client-3.2.1.tar.gz is 404
-  url "http://ftp.riken.jp/net/bbftp/bbftp-client-3.2.1.tar.gz"
-  mirror "ftp://ccpntc11.in2p3.fr/pub/bbftp/bbftp-client-3.2.1.tar.gz"
+  homepage "http://doc.in2p3.fr/bbftp/"
+  url "http://doc.in2p3.fr/bbftp/dist/bbftp-client-3.2.1.tar.gz"
+  mirror "http://ftp.riken.jp/net/bbftp/bbftp-client-3.2.1.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/bbftp-client-3.2.1.tar.gz"
   sha256 "4000009804d90926ad3c0e770099874084fb49013e8b0770b82678462304456d"
   revision 1
