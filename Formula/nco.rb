@@ -1,8 +1,8 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nco/nco-4.6.8.tar.gz"
-  sha256 "d818a9e4026d5cc5b4372a212ef3385449a757ee00b807ae9b91741bc79a545b"
+  url "https://downloads.sourceforge.net/project/nco/nco-4.6.9.tar.gz"
+  sha256 "efdc0d65d3cc67d0d5dc521709dd0e60b24839e0ae7ded92aaec656890f6f416"
 
   bottle do
     cellar :any
@@ -45,7 +45,7 @@ class Nco < Formula
 
   test do
     testpath.install resource("example_nc")
-    assert_match "Root record dimension 0: name = time, size = 180",
-                 shell_output("#{bin}/ncks -M WMI_Lear.nc")
+    output = shell_output("#{bin}/ncks --json -M WMI_Lear.nc")
+    assert_match "\"time\": 180", output
   end
 end
