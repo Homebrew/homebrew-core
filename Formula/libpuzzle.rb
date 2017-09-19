@@ -7,6 +7,7 @@ class Libpuzzle < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "017b32e2b389f87bc7445476d67543dd711cdac34374da0958d70a4682a706a7" => :high_sierra
     sha256 "62452be0513886b00ad766fc6c444f69af8a70d89948a65b3fe201c12383f536" => :sierra
     sha256 "0768fc24347a5e5e061722175cae535b6e295c28302d98ad3e03dc9f79a32bf0" => :el_capitan
     sha256 "d8f7de77378d0fa29e34876ccc8def7f8e60e6564a1c17dae77f4c32ebd8ae5a" => :yosemite
