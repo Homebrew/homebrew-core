@@ -1,9 +1,9 @@
 class Xhyve < Formula
   desc "xhyve, lightweight macOS virtualization solution based on FreeBSD's bhyve"
-  homepage "https://github.com/mist64/xhyve"
-  url "https://github.com/mist64/xhyve/archive/v0.2.0.tar.gz"
+  homepage "https://github.com/dwoz/xhyve"
+  url "https://github.com/dwoz/xhyve/archive/v0.2.0.tar.gz"
   sha256 "32c390529a73c8eb33dbc1aede7baab5100c314f726cac14627d2204ad9d3b3c"
-  head "https://github.com/mist64/xhyve.git"
+  head "https://github.com/dwoz/xhyve.git"
 
   bottle do
     cellar :any
