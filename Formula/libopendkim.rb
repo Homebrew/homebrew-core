@@ -6,6 +6,7 @@ class Libopendkim < Formula
 
   bottle do
     rebuild 1
+    sha256 "8b274bc67f331b0407b8eed78d63f39233676abb22f95429f33c9c1342e092eb" => :high_sierra
     sha256 "1c97cec7533c8974c4699854f8463ee309277e246b8bf8e9b66e490f54013007" => :sierra
     sha256 "6b5052b456871186bc251a2e9551c87ca53c501bf162f104c4841fa07b4f2458" => :el_capitan
     sha256 "cf601de122898a144b1c42c72980f1a19688c718638df2ab49735c65a9beb1ce" => :yosemite
