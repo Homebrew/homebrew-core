@@ -7,6 +7,7 @@ class GitVendor < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "468cfcc770bb7a88baf9961d665262be06de01bc85cfce19385e03d6e381521c" => :high_sierra
     sha256 "24e13e681254ae28aae5d51dffda26d70c0cbfbca7c52b61f16f7496822c7d1f" => :sierra
     sha256 "9461c5ce8f0b418d4ab1180c1fff22ef847b0d0af740489b3553d1715a8dc8c0" => :el_capitan
     sha256 "62a8d29afff9e7e99c93917cfee92a68495443234346a72f16c8167d6310126a" => :yosemite
