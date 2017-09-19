@@ -6,6 +6,7 @@ class Libdvbpsi < Formula
 
   bottle do
     cellar :any
+    sha256 "5085552c11f779dc082d115533d98dd9f3df32c758f30197c9aeaf14fa1269de" => :high_sierra
     sha256 "8f59f8abb62f324c1898be55e219192245eaab01fca96bd1f5e4e5d650d23862" => :sierra
     sha256 "dd6206de7987a2dcc315e36725bf82565e36651c6004d9ede3efbcc3614323b2" => :el_capitan
     sha256 "c85ff88dc9ccb4d9474d78c8b0dce4ee4926d5129bc7bf2b35dac3cbb47dbe06" => :yosemite
