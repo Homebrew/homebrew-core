@@ -8,6 +8,7 @@ class Befunge93 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "90ce43353a46615332cf3a4228786f986ea93cac15dba1aeb79684e4f084afe4" => :high_sierra
     sha256 "0b2b344570f71b3fa702675b2305b96632fde0a8da44085a15b15fe72863f66a" => :sierra
     sha256 "fcebeb62391bd6e3eef571123af573766666ce9c40f139c889cc350bf6410d8b" => :el_capitan
     sha256 "825c5d86e93d7cf0ecc2f3f16f626c27e658f1d4792bd6e74092b11f815097d7" => :yosemite
