@@ -6,6 +6,7 @@ class Bitrise < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5f950f212d246a57d79369f133ac44787fdfeb45a9ab3cd8bd446cffe2766ccf" => :high_sierra
     sha256 "e033f676bba24ce6201830898d1f3cdc899f2251b229b794910de64dcf0841e5" => :sierra
     sha256 "20357c7374dc77b25be005ffcc8addc0c9cbf9529b60c7cb9392ed34915d5150" => :el_capitan
   end
