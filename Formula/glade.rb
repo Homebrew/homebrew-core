@@ -3,7 +3,7 @@ class Glade < Formula
   homepage "https://glade.gnome.org/"
   url "https://download.gnome.org/sources/glade/3.20/glade-3.20.0.tar.xz"
   sha256 "82d96dca5dec40ee34e2f41d49c13b4ea50da8f32a3a49ca2da802ff14dc18fe"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -11,6 +11,21 @@ class Glade < Formula
     sha256 "420cee7949561ae0c5ed7d5c7472a83b655d8dc427bdf965b49d7e989c71fe4e" => :el_capitan
     sha256 "8c9c09600f97e65562ac8afc4eebe3a66a8122db850f86aacc65195e4f97ccfd" => :yosemite
   end
+
+  # fixes build error against glib 2.54.x
+  # bugzilla ticket: https://bugzilla.gnome.org/show_bug.cgi?id=782161
+  # patch committed into master on May 4, 2017
+  patch do
+    url "https://github.com/GNOME/glade/commit/8a73d114ca5b4d37a770d0b6b69dd17a366dbcf4.diff?full_index=1"
+    sha256 "4bf7c21985b27fb1198fc5ef19a8447805783f394bcb699200ef2e7e99cc81f2"
+  end
+
+  # remove next five lines when new release is available
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "yelp-tools" => :build
+  depends_on "gnome-common" => :build
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
@@ -27,6 +42,8 @@ class Glade < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
+    # remove next line when new release is available
+    system "autoreconf", "-fi"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
