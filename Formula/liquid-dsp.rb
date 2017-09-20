@@ -16,7 +16,7 @@ class LiquidDsp < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-      #include "liquid.h"
+      #include <liquid/liquid.h>
       int main() {
         if (!liquid_is_prime(3))
           return 1;
