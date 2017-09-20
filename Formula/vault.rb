@@ -13,8 +13,6 @@ class Vault < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f8d0503c933405376034c9315269de2d7b6e0d1248a88e4e4a4db7c71cc29ecb" => :high_sierra
     sha256 "47792e638228a4263b1538aaa666713883dc284c707d01f4837f93170d9e8d78" => :sierra
     sha256 "30f74f6e235c80aa30da4b4f746c187ef7ba73feae0b2ef3b8a40b8ba8bce6a4" => :el_capitan
   end
