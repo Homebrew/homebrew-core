@@ -1,8 +1,8 @@
 class Osxutils < Formula
-  desc "Suite of Mac OS command-line utilities"
+  desc "Collection of macOS command-line utilities"
   homepage "https://github.com/specious/osxutils"
-  url "https://github.com/specious/osxutils/archive/v1.8.2.tar.gz"
-  sha256 "83714582cce83faceee6d539cf962e587557236d0f9b5963bd70e3bc7fbceceb"
+  url "https://github.com/specious/osxutils/archive/v1.9.0.tar.gz"
+  sha256 "9c11d989358ed5895d9af7644b9295a17128b37f41619453026f67e99cb7ecab"
   head "https://github.com/specious/osxutils.git"
 
   bottle do
@@ -13,18 +13,12 @@ class Osxutils < Formula
     sha256 "91808d79c75537c563ee9a36b45e21703fcc4377d6c6ea7e7215f5ad9b0aa605" => :mavericks
   end
 
-  conflicts_with "trash", :because => "both install a `trash` binary"
-  conflicts_with "trash-cli", :because => "both install a `trash` binary"
-  conflicts_with "leptonica",
-    :because => "both leptonica and osxutils ship a `fileinfo` executable."
-  conflicts_with "wiki", :because => "both install `wiki` binaries"
-
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    system "#{bin}/trash"
+    assert_match "osxutils", shell_output("#{bin}/osxutils")
   end
 end
