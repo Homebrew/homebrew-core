@@ -1,14 +1,10 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.12/rabbitmq-server-generic-unix-3.6.12.tar.xz"
+  url "https://dl.bintray.com/rabbitmq/binaries/rabbitmq-server-generic-unix-3.6.12.tar.xz"
   sha256 "1c20bcfbcea922f1ceb14c95d2ad1211add4e1b03ba8491405640c384ea5a8df"
 
   bottle :unneeded
-
-  # Incompatible with Erlang/OTP 20.0
-  # See upstream issue from 23 Jun 2017 https://github.com/rabbitmq/rabbitmq-server/issues/1272
-  depends_on "erlang@19"
 
   def install
     # Install the base files
