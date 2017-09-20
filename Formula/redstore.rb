@@ -6,6 +6,7 @@ class Redstore < Formula
 
   bottle do
     cellar :any
+    sha256 "fbd9814ed5e35fb1c964d6f581edebfc35e7d35cba0b89ea735247131c5559ac" => :high_sierra
     sha256 "e507eab072e33f0cee1ca08efb51ab06d65cee3a64248ec6badbd4f601f5c674" => :sierra
     sha256 "5ae64e4a536011ef3f68d2e8b4253624f60995025064de38f3a38308dd005421" => :el_capitan
     sha256 "1c891f4297c26269136c5caa5be3ab721cbb8e5b53c83daf3440082df4edf6a2" => :yosemite
