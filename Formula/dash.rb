@@ -9,6 +9,7 @@ class Dash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6bbb2ddfda0414be7bc04f4128e24c616321f50a24bb5474a8823ec334b104d3" => :high_sierra
     sha256 "a5706775cbe31c1571a6634d36b3ac6383ed4a4e7334772bae9c49f375ed678c" => :sierra
     sha256 "807944242d102a2ab60498cd18377092e4055bbc6a68b950a76b11f013431aa4" => :el_capitan
     sha256 "dd1cccafe8f7a004d396bccf8382e0049aa472be062281cbf75902e2258a91c4" => :yosemite
