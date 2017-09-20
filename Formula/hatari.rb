@@ -7,6 +7,7 @@ class Hatari < Formula
 
   bottle do
     cellar :any
+    sha256 "b865990d4e0da26e1e72040392f3d7808b3798682caedb4dd596c768c66436b3" => :high_sierra
     sha256 "1a0dfc82688af52fb70c34a7b9f2b9cf81cbd5ca7c085f9130843b2af252c5af" => :sierra
     sha256 "1fbd64ae48dfb33320c46ddb3d245aa5f1da00338cc5c08d4eefe7dacd649265" => :el_capitan
     sha256 "5a46ec43c7564381a9716c58d5be431c897efc1a2b36a8b2797ee7db9b572061" => :yosemite
