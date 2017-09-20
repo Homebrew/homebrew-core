@@ -7,6 +7,7 @@ class Headphones < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6038f613b50ab4d7c3f67a1a45547ba2349d96fc158fd99d4e1a46357e5d7992" => :high_sierra
     sha256 "913f1f0ea6600b6aa4bb6f4f9fcfd6c5447f072334b024faf40da2d7ed6b0600" => :sierra
     sha256 "fb9288d3885ac6ee18b6ee3292d7fe886f8b5d538b4876f3bdd32309e3643431" => :el_capitan
     sha256 "be688187ebdfd25f221b227a9aa6df3e8015788f564bdfdc524cd99834540d80" => :yosemite
