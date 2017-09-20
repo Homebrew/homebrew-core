@@ -7,6 +7,7 @@ class Ffmbc < Formula
   revision 3
 
   bottle do
+    sha256 "ef47a0b90417c9464ca3ffc59aaecac8eb84f34c33d665d7a41c6f16bd93b617" => :high_sierra
     sha256 "a8fbeffc4fd920bd4ec76de3633f598c0f8a3019dbbe7af843e59d407a294b93" => :sierra
     sha256 "541f19e04edf29bba1381677ed35acc8bdd048cb55497801261ea128df706a6a" => :el_capitan
     sha256 "fa213ac76b9c9a7fc9e733c5ccb00d81d741ce4dfdda50c2bcf519151fffc598" => :yosemite
