@@ -7,6 +7,7 @@ class Flasm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5461503d625b8b25339ac3a518c9079bfc92d4121760c61ef73f69020e2669b2" => :high_sierra
     sha256 "423b77912442f613cec430a8eee149783047f6b1a32d82d4b2920969fb6ca77e" => :sierra
     sha256 "44aa3b83ee62932fea2f1b3139b2fe391c59bba92f890121eca35e2736214b52" => :el_capitan
     sha256 "b2ae27971e7fa4a731000eeda0cd7a8fb75cbe55d013af3c2d9d0cc3b2bc405f" => :yosemite
