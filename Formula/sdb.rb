@@ -18,6 +18,7 @@ class Sdb < Formula
 
   bottle do
     cellar :any
+    sha256 "f089288c26450fa019be9d1abb789df85751f21b3cbb00cb22dcba640b48d563" => :high_sierra
     sha256 "9e92bfac5dbcf84fe5e8b3067f3b3e04fd5f0a1d5639cd1bf676425132c45152" => :sierra
     sha256 "b135f21561fedbcf92734ec7776ff5db0b00f0fd84cb7a9bcb3b9b823f6e767e" => :el_capitan
   end
