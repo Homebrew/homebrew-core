@@ -4,6 +4,12 @@ class Bettercap < Formula
   url "https://github.com/evilsocket/bettercap/archive/v1.6.2.tar.gz"
   sha256 "1b364d7e31be5fa7b5f93eefe76763ad7bd4ac0b7b6bb4af05483157580a9cb9"
 
+  bottle do
+    cellar :any
+    sha256 "2b0b7417edb99220876a1f17bda0612cda33ffb835c955ce9d17153125e250fa" => :sierra
+    sha256 "e846eee96fdad9755d4746d4996b913b625c40e8a8a8969fbaa47db9579ac82a" => :el_capitan
+  end
+
   depends_on "openssl"
   depends_on :ruby => "2.2.2"
 
