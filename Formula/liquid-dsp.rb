@@ -1,0 +1,39 @@
+class LiquidDsp < Formula
+  desc "Digital signal processing library for software-defined radios."
+  homepage "http://liquidsdr.org"
+  url "https://github.com/jgaeddert/liquid-dsp/archive/v1.3.0.tar.gz"
+  sha256 "b136343d644bc1441f7854f2d292bfa054e8d040c0b745879b205f6836dca0f0"
+
+  depends_on "fftw"
+  depends_on "autoconf" => :build
+
+  def install
+    system "./bootstrap.sh"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+    system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+
+    #include "liquid.h"
+
+    int main() {
+        return 0;
+    }
+
+    EOS
+
+    flags = %W[
+      -I#{include}/liquid
+      -L#{lib}
+      -lliquid
+    ]
+
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
+  end
+end
