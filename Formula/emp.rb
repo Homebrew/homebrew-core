@@ -1,8 +1,8 @@
 class Emp < Formula
   desc "CLI for Empire."
   homepage "https://github.com/remind101/empire"
-  url "https://github.com/remind101/empire/archive/v0.12.0.tar.gz"
-  sha256 "fffffb10966b2eedcc5518c69c765b459d9a9f55d41d9c7735e744eff3960b61"
+  url "https://github.com/remind101/empire/archive/v0.13.0.tar.gz"
+  sha256 "1294de5b02eaec211549199c5595ab0dbbcfdeb99f670b66e7890c8ba11db22b"
 
   bottle do
     cellar :any_skip_relocation
