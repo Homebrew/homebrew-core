@@ -7,6 +7,7 @@ class FaasCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d4e7a600c23a5e419fcc18785358de34b1bcd3e4e55d9e2dc00ae10c139f7ce4" => :high_sierra
     sha256 "ba4a2401c54137c90caf7b171ba0e62be3c80d5032c64c20828d90f2a3b57126" => :sierra
     sha256 "cdf45455053ae82473ff32a3bedc2c737cc0a43cd993be0ee8afb55fc366d091" => :el_capitan
   end
