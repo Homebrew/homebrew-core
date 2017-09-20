@@ -1,8 +1,8 @@
 class Osxutils < Formula
   desc "Suite of Mac OS command-line utilities"
   homepage "https://github.com/specious/osxutils"
-  url "https://github.com/specious/osxutils/archive/v1.8.2.tar.gz"
-  sha256 "83714582cce83faceee6d539cf962e587557236d0f9b5963bd70e3bc7fbceceb"
+  url "https://github.com/specious/osxutils/archive/v1.9.0.tar.gz"
+  sha256 "9c11d989358ed5895d9af7644b9295a17128b37f41619453026f67e99cb7ecab"
   head "https://github.com/specious/osxutils.git"
 
   bottle do
