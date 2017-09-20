@@ -6,9 +6,8 @@ class Gofabric8 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd1f99d9c680cb1b0c3a3699ac9ca3d62cafe2bf1d8ff4dbb301ab890d89355d" => :high_sierra
-    sha256 "71690ec340545327d445bfecf64d397616be5134269953a97856c69b882808e0" => :sierra
-    sha256 "c00c0d46784088523b77eb7558863483b80ecbb1e58463f6059bd3ccdfb4d322" => :el_capitan
+    sha256 "862b99895633639e0a13e29a4a61130f6be63a7d4daa3b065ba28f8f853169a2" => :sierra
+    sha256 "59ef19ca74488daf6f22aad80cb6a7309a054c7e9add083673012b4f7e95d69a" => :el_capitan
   end
 
   depends_on "go" => :build
