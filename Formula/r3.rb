@@ -7,6 +7,7 @@ class R3 < Formula
 
   bottle do
     cellar :any
+    sha256 "5239e5302b1952367f6cdc066e43483de6b0d30fa70f1dcf2e9f03b10983890f" => :high_sierra
     sha256 "d39c22ae9e69454cc7c205ff0cecc3dd6084a38a1e1742091f55df389e5a8f4a" => :sierra
     sha256 "6122bbc3566581f130e54cd563ed69f169598f5ce62d6319e7b5a95b10b802ef" => :el_capitan
     sha256 "56a37f8cab8af3833eb52c6fc739027ffd755fb0e60530bd96dc643bdb8e18ed" => :yosemite
