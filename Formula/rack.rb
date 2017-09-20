@@ -9,6 +9,7 @@ class Rack < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "f5b447e509b01c080e73d8a275a60591e0a9b91d09d9aeff9aafe91b67538486" => :high_sierra
     sha256 "9e77b25dce5ebddece476a84fa04b32d3c904f4a825db343b128a8b3b4a4f4fd" => :sierra
     sha256 "7a17ae415465e10b0b5674218d5fb127c03782b5f49e741d8a84f94cde7c658a" => :el_capitan
     sha256 "d49a8f87439a1584e1662a570c7a40611d6cf13064e37f3a66cb7e1feaaa5719" => :yosemite
