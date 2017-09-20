@@ -9,9 +9,8 @@ class Jvgrep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "66b5289da092c27610df5c71e5aeb10de7582b079c543f4f807699ee5b9d1ac4" => :sierra
-    sha256 "6383e6fd89bf87caaf1916d8389da43eead6cbb272f7e195de5bf6dd84db30db" => :el_capitan
-    sha256 "3f12372641d47c4bf8239b69dd73bb9137101a68603551b2290a709ce86014a0" => :yosemite
+    sha256 "542343fb7812777bfe00c0199bf6c7810276d6826e4b2bb7ebf0adcf85d01400" => :sierra
+    sha256 "c1f8cac9998ec76a48434cabc029f413145c5b97669bbea8a344f52d27388f6a" => :el_capitan
   end
 
   depends_on "go" => :build
