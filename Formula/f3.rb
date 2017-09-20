@@ -8,6 +8,7 @@ class F3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "43e671cd918bb967db742930a092fe814b366a2293613797b13c376c190d7dd9" => :high_sierra
     sha256 "e10885461941cca0ed989763d1677e0322c2b7e542710dd7104ee34c0508710b" => :sierra
     sha256 "1b3eb529dd5ed455ecc8c1420c9fa1011ca84fc841fdb1570b5651ce171b988f" => :el_capitan
     sha256 "ea3c848931257bbeb60e85a672d7132556528646bd2b1f5e35ace60461b80a34" => :yosemite
