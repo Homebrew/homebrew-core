@@ -25,7 +25,6 @@ class Gnuplot < Formula
   option "with-aquaterm", "Build with AquaTerm support"
 
   deprecated_option "with-x" => "with-x11"
-  deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
   deprecated_option "qt" => "with-qt"
   deprecated_option "with-qt5" => "with-qt"
@@ -37,7 +36,6 @@ class Gnuplot < Formula
   depends_on "readline"
   depends_on "lua" => :recommended
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
-  depends_on "pdflib-lite" => :optional
   depends_on "qt" => :optional
   depends_on "wxmac" => :optional
   depends_on :x11 => :optional
@@ -76,10 +74,6 @@ class Gnuplot < Formula
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-tutorial
     ]
-
-    if build.with? "pdflib-lite"
-      args << "--with-pdf=#{Formula["pdflib-lite"].opt_prefix}"
-    end
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
