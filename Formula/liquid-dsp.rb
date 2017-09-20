@@ -4,15 +4,13 @@ class LiquidDsp < Formula
   url "https://github.com/jgaeddert/liquid-dsp/archive/v1.3.0.tar.gz"
   sha256 "b136343d644bc1441f7854f2d292bfa054e8d040c0b745879b205f6836dca0f0"
 
-  depends_on "fftw"
+  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "fftw" => :recommended
 
   def install
     system "./bootstrap.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
@@ -22,6 +20,9 @@ class LiquidDsp < Formula
     #include "liquid.h"
 
     int main() {
+        if (!liquid_is_prime(3))
+            return 1;
+
         return 0;
     }
 
