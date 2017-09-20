@@ -7,6 +7,7 @@ class HachoirMetadata < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "bdf181593e61e9a545f79f77b10674804f8fb63c14967af927a9211a0c98f422" => :high_sierra
     sha256 "cbc769eacb82b386dd720090cee95538ec14f6c2bc947a248099a66ef6e123e4" => :sierra
     sha256 "b2a11194217ff9b97338b9c10147fd25f3e83213d0579bc88cef9689895025a3" => :el_capitan
     sha256 "316c9a2496302aef88844f80b8c7f63f69dd991c1f183b46228636b4780c7d7a" => :yosemite
