@@ -6,6 +6,7 @@ class Yafc < Formula
   revision 1
 
   bottle do
+    sha256 "40c44b84a96b4cf65ee0c1d09a2770ede71e5cfd7fdf9c24504723a8b1eaef3f" => :high_sierra
     sha256 "05ea440c672b5283feaf2597a8c0525d3ff4228cd2347aabd3a69d282d245dd2" => :sierra
     sha256 "9cbbd25ce9019d92e6ed3c8ce5af9533b0d79d79f96b01fc8741016a3bd4eb39" => :el_capitan
     sha256 "3ac839135bac59b4d1d98cb662adc558109167fd21e69976dd39e1e3602de25b" => :yosemite
