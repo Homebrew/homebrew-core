@@ -23,9 +23,7 @@ class Libcouchbase < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DLCB_NO_TESTS=1"
-    args << "-DLCB_BUILD_LIBEVENT=ON")
+    args = std_cmake_args << "-DLCB_NO_TESTS=1" << "-DLCB_BUILD_LIBEVENT=ON"
 
     ["libev", "libuv"].each do |dep|
       args << "-DLCB_BUILD_#{dep.upcase}=" + (build.with?(dep) ? "ON" : "OFF")
