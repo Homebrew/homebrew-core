@@ -8,6 +8,7 @@ class Rsnapshot < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "27e99660b73118874b5ba4ba355a0bf9b5db71933138a6b719869da01164a12a" => :high_sierra
     sha256 "998faa778dcfdef5b362b10aeaffadc97e40f63ec6df72d9bd25029ab82f2550" => :sierra
     sha256 "21823489c045150e8d8e51addba52b6cd75eedaec93357732db859ba738f59d5" => :el_capitan
     sha256 "d6374fba65d24f7067197c9a7732f6f629dcb537f0687ab91f4f15d5c55d6cc6" => :yosemite
