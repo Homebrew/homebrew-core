@@ -13,6 +13,8 @@ class PkgConfig < Formula
     sha256 "d9ccc19f1a55919408a1b27260b0404aa36dc6782a4a5964e6fd8409abf3b830" => :yosemite
   end
 
+  option "with-xquartz", "Build against XQuarts libraries"
+
   def install
     pc_path = %W[
       #{HOMEBREW_PREFIX}/lib/pkgconfig
@@ -21,6 +23,8 @@ class PkgConfig < Formula
       /usr/lib/pkgconfig
       #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}
     ].uniq.join(File::PATH_SEPARATOR)
+
+    pc_path << File::PATH_SEPARATOR + "/opt/X11/lib/pkgconfig" if build.with? "xquartz"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
