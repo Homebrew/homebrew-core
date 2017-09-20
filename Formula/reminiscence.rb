@@ -6,6 +6,7 @@ class Reminiscence < Formula
 
   bottle do
     cellar :any
+    sha256 "7eef70a73cb617c1ce9cd25b498634633025e9b5f653c4759993b00ea57afa31" => :high_sierra
     sha256 "062ba9c02ce35d463119df045dda6484dbfb09f853dcebef6cc5bed42991f1d2" => :sierra
     sha256 "83ceaab9230a493bd1c86d1db0c9b4fa77070c0cc495339006852781d69aac9d" => :el_capitan
     sha256 "ca207b017eebbf2b7e9aca765f2c73aadef3a1f66b602e67189f1b8534e91c11" => :yosemite
