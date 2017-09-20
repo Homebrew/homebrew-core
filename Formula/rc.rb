@@ -6,6 +6,7 @@ class Rc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0ad08319f2f791cbb7fe5a15bc13cea4fe3a30871f682a6562e0e38c499443dd" => :high_sierra
     sha256 "0dd69cd7b8cf4e9c7f0baaeeaa7d64393e192a2e38d798de7869b6f8efcca446" => :sierra
     sha256 "34b3426f92ff6b50490a479cb55473e227b67351a853e8627c8e487b4fe21989" => :el_capitan
     sha256 "1628bbad2fa8417318ee488a748a1ae769606baf950300c895e4592cbe013edf" => :yosemite
