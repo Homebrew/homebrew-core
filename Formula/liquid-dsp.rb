@@ -4,6 +4,12 @@ class LiquidDsp < Formula
   url "https://github.com/jgaeddert/liquid-dsp/archive/v1.3.0.tar.gz"
   sha256 "b136343d644bc1441f7854f2d292bfa054e8d040c0b745879b205f6836dca0f0"
 
+  bottle do
+    cellar :any
+    sha256 "6eb6aa0308c4a5dfc973050c40ff9883973ee95e3c888940e085268c99d75ad2" => :sierra
+    sha256 "abe5249107bf62da919048602306d41890417ae1153614e6ea2705fff85fefec" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "fftw"
