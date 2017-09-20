@@ -8,6 +8,7 @@ class FonFlashCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4bddf759149cecc916ba39e7d6efdf595b567322e13e98b88a3ab6ac4ccc048f" => :high_sierra
     sha256 "138e6500d0bf07eeb85884c0262fd7186a129860f7c07e4094bacf7fdc4aa520" => :sierra
     sha256 "f649d0082338f4d47d88bf75c9d5204b715333a1752aef2856863eb0e47bd263" => :el_capitan
     sha256 "03376ba51c845363e3900851fe5485bb6ba184b127bc619a0d70b7401b112df6" => :yosemite
