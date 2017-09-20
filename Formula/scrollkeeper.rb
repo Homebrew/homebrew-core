@@ -6,6 +6,7 @@ class Scrollkeeper < Formula
   revision 1
 
   bottle do
+    sha256 "1b52ea53b42082614d8663a847db551dd0a793ea4e8b22b2c89f35c020d5c932" => :high_sierra
     sha256 "d1722082c68c3a2910fafd049b8f469a91e29586798b1b7ffc6cdb5b4e1b8f2d" => :sierra
     sha256 "fe0171c12bd61b59032a0914fd2279ca91132a714993d2dddd0f2641d8cb8142" => :el_capitan
     sha256 "ca1090d4daf705fc9bddc18b303ed1bf511ebd1173bcb48b17f5e47daab74351" => :yosemite
