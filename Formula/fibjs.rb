@@ -8,6 +8,7 @@ class Fibjs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "43cf28075437aedecfd17e3c3a9dc7e34a6bb098692d4a788970d3ca4a4835b9" => :high_sierra
     sha256 "eeac2ef8b9e03a21ce1c048a33d8479ce950e047760aa2f7034b59e11c301f31" => :sierra
   end
 
