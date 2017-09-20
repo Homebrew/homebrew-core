@@ -7,6 +7,7 @@ class Fatsort < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "83d3f92d45b4ed4cf71453c07a6728841d5329957ff681ef29419067397d7e83" => :high_sierra
     sha256 "d4742a8453bf67a815b862328b3714b1b30d7633688496b18350114e7c2acdd4" => :sierra
     sha256 "96cc7c6ad5e64d86121b27e9d86ef33e1d2a6e9abde741253c0f06cf76249c8f" => :el_capitan
     sha256 "717b1b1c912dd49ee1d034e640f9fcdd556634e2a29fd01da195e5e6a1e9f48b" => :yosemite
