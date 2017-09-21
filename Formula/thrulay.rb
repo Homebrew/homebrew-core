@@ -6,6 +6,7 @@ class Thrulay < Formula
 
   bottle do
     cellar :any
+    sha256 "e0d81a536ac3dce349b093394af8d7b89f531deb1854aa44a5b46068c1e02162" => :high_sierra
     sha256 "00938642d65ba687a0ef83e85f682d6bdb1df02a7807fc3d337e3ca473af1cf9" => :sierra
     sha256 "74f52b9eaa39092931b68630eef408db6b53e1b0c538ec52950b89d0a4ea5563" => :el_capitan
     sha256 "f0a9bb5aa42ee3ce25965c50163e190ba13c220d91d4855fd38655cb91aae138" => :yosemite
