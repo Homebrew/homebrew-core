@@ -6,6 +6,7 @@ class Sdlpop < Formula
 
   bottle do
     cellar :any
+    sha256 "9f0bab699f6023d896e5b10cd9dde5e532c22800bc3f2000a0dbd6023fee66ae" => :high_sierra
     sha256 "a3ccd5802afa6e011c1fee322cdf0eee972124d2e33b3cf92fca9f62b4b74644" => :sierra
     sha256 "8b3ae1c63ef4f92291e251ed1aeb2fd528a4189f4f282cfa1121bfef3353dca0" => :el_capitan
     sha256 "72d5e075f07ce5c4dd3b6789412efa5355f0f54f6cc414abb0799550898b12de" => :yosemite
