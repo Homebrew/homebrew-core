@@ -9,6 +9,7 @@ class Sqlcipher < Formula
 
   bottle do
     cellar :any
+    sha256 "0179493d2ae3349781310155fe73cf5c9a971e85a5b8e4551a6b366ad3003048" => :high_sierra
     sha256 "c4dfe2030b5524da4908575dbe7da65fa5401bbd8eebfec17b59429974782e69" => :sierra
     sha256 "8d56730a47c29d85dcb982ab24211dbf368b3832bd496263d5c2dc82d9f2ef7a" => :el_capitan
     sha256 "e59688acf58ae684192badd200a355ad70621641d3342c96a9af3518c15c1317" => :yosemite
