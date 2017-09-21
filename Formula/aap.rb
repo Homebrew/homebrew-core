@@ -7,6 +7,7 @@ class Aap < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4fa43a4a0294b7e9040e13bf843e70fbeb189c2e505315dd574fbc9ed43bd060" => :high_sierra
     sha256 "6e42400eb31e15dae56452b347925eb20faae1b996d94173b8711bd080e4a182" => :sierra
     sha256 "32c30b38a37147754c5abfe9a801777b4a798af6dbcce2f15e1693c6027f0fbe" => :el_capitan
     sha256 "15472b5a56a90d2d83c3ab24eba09e3644867857d8a7c547c82e6937beff3344" => :yosemite
