@@ -6,6 +6,7 @@ class Sslmate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bd6db21a26f2737e4fbe4d63b99672094555889c9ee84061ea526f77c4f8aff7" => :high_sierra
     sha256 "3cd6d3bac1fca9ef4a59386e9d99b29feb1db59ef3bba66fcbcffb731d32961d" => :sierra
     sha256 "1a6eee4531f266aee87c4aefb08fb3502a34b0d456e10321cff709e63f418f43" => :el_capitan
     sha256 "96bb8413c6470f541f915990db5fe2f0af4aa090e222f72f7fc742cced366379" => :yosemite
