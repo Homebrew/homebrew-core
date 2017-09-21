@@ -6,6 +6,7 @@ class ActivemqCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "2a78638d0af4698578ef71cf738571ad6cacaef9b8ed2324148eb1df19816885" => :high_sierra
     sha256 "eda1e1feb50e5ffdceb93e3161eab96b389aaa65d64961c6803406176c89f198" => :sierra
     sha256 "799696b515fbff76de2277327d074dc96b74e676df72aa347b23eee12ffbc03b" => :el_capitan
   end
