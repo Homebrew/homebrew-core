@@ -6,6 +6,7 @@ class Paps < Formula
 
   bottle do
     cellar :any
+    sha256 "a96ea40f71d88a120c46f1f08b3d42dca390d55a189b51fd4efd870752f54f17" => :high_sierra
     sha256 "9b8374465264e2d04873a198109bb802c76e2d5ddc9a21ae54c87c326977c9aa" => :sierra
     sha256 "eed9fb9ffec9f551d0d7fcb7692c2de9192d9eb0a34908559cae41d73fa30c25" => :el_capitan
     sha256 "c173071e5f66f0d911b8e8900ce9d6941cb0cbfed7fe5e1ffe623ec7c8c64e0c" => :yosemite
