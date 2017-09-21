@@ -4,6 +4,7 @@ class Launchdns < Formula
   url "https://github.com/josh/launchdns/archive/v1.0.3.tar.gz"
   sha256 "c34bab9b4f5c0441d76fefb1ee16cb0279ab435e92986021c7d1d18ee408a5dd"
   head "https://github.com/josh/launchdns.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,11 +22,11 @@ class Launchdns < Formula
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"
     system "make", "install"
 
-    (prefix/"etc/resolver/dev").write("nameserver 127.0.0.1\nport 55353\n")
+    (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
   def caveats; <<-EOS.undent
-    To have *.dev resolved to 127.0.0.1:
+    To have *.localhost resolved to 127.0.0.1:
       sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
     EOS
   end
