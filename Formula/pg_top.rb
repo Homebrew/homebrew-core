@@ -8,6 +8,7 @@ class PgTop < Formula
 
   bottle do
     cellar :any
+    sha256 "6da4637b35a5e5e6f7c58971d133a51800f38f4ca7e6295bbb8ac87009f9dd81" => :high_sierra
     sha256 "07dbd4e11e14f831ffaec7a7194603f4614400739c8aa7dfe228ebe274013622" => :sierra
     sha256 "e5ede71b29f9dd48ba48b29573583e641bc74f4c4646c9376487977d08ee5eaa" => :el_capitan
     sha256 "67d208940d439990fc04c04512f3ca42efc518c118ebaf8969fd396fca37ecad" => :yosemite
