@@ -6,6 +6,7 @@ class JpegAT6 < Formula
 
   bottle do
     cellar :any
+    sha256 "bd584545e734b20c90dc293631fca21abd312932153ab956fc08d182ee3fc477" => :high_sierra
     sha256 "db6b954915dc25cd03ee951bf628b683221393d486f5d0c83fc3b62e7a5871bf" => :sierra
     sha256 "aa8c01f40b317e3f1430035903cd6204068b1e296768be7e67e9b2d0b3458aa6" => :el_capitan
     sha256 "abbe4355a48e6d8fd54fa5b35704867e44374fed74a0d76efe303c48f8b8f2af" => :yosemite
