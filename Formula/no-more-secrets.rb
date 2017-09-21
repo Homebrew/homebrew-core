@@ -1,8 +1,8 @@
 class NoMoreSecrets < Formula
   desc "Recreates the SETEC ASTRONOMY effect from 'Sneakers'"
   homepage "https://github.com/bartobri/no-more-secrets"
-  url "https://github.com/bartobri/no-more-secrets/archive/v0.3.2.tar.gz"
-  sha256 "8afe8e78869df399e9597e549a49b6e11ec010742ebf186c3975a7825c6cbf02"
+  url "https://github.com/bartobri/no-more-secrets/archive/v0.3.3.tar.gz"
+  sha256 "cfcf408768c6b335780e46a84fbc121a649c4b87e0564fc972270e96630efdce"
 
   bottle do
     cellar :any_skip_relocation
