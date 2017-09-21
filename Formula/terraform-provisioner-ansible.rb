@@ -9,6 +9,7 @@ class TerraformProvisionerAnsible < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9c5773e4d576ae2f7e28438587b42170a33a6767c13805ed7ef372ad102bc139" => :high_sierra
     sha256 "a56474f71703f7d660a17ed6faf039e98ccf50d32ce82b2c92fcc907f012ad78" => :sierra
     sha256 "2b96de2a84016f1637fd428d40fcdcf16c960e795ce9307c2fb58672be2d21c0" => :el_capitan
     sha256 "2b9f182b17571e29b4b6767db5974e39d3b5e2e5e1bb87b83b6cf1f28f855a10" => :yosemite
