@@ -16,7 +16,7 @@ class Evince < Formula
   depends_on "libxml2"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "gobject-introspection"

@@ -35,7 +35,7 @@ class Wireshark < Formula
   depends_on "qt" => :optional
   depends_on "gtk+3" => :optional
   depends_on "gtk+" => :optional
-  depends_on "gnome-icon-theme" if build.with? "gtk+3"
+  depends_on "adwaita-icon-theme" if build.with? "gtk+3"
 
   def install
     args = std_cmake_args + %w[

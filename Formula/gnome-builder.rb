@@ -22,7 +22,7 @@ class GnomeBuilder < Formula
   depends_on "libpeas"
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "json-glib"

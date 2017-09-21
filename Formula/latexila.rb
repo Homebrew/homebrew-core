@@ -18,7 +18,7 @@ class Latexila < Formula
   depends_on "tepl"
   depends_on "libgee"
   depends_on "gobject-introspection"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "gnome-themes-standard" => :optional
   depends_on "libxml2"
   depends_on :python if MacOS.version <= :snow_leopard

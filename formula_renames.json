@@ -54,6 +54,7 @@
   "glfw3": "glfw",
   "gmp4": "gmp@4",
   "gmt4": "gmt@4",
+  "gnome-icon-theme": "adwaita-icon-theme",
   "gnupg2": "gnupg",
   "gnuplot4": "gnuplot@4",
   "go-app-engine-32": "app-engine-go-32",

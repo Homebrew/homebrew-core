@@ -19,7 +19,7 @@ class FileRoller < Formula
   depends_on "libmagic"
   depends_on "libarchive"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
 
   # Add linked-library dependencies
   depends_on "atk"

@@ -19,7 +19,7 @@ class Anjuta < Formula
   depends_on "gdl"
   depends_on "vte3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "gnutls"
   depends_on "shared-mime-info"
   depends_on "vala" => :recommended
