@@ -1,8 +1,8 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/ee/d3/653864b55a857aa6c8c7741dd0ff7bd11423b379e3c84f5152641285cc39/pgcli-1.8.0.tar.gz"
-  sha256 "9cea027fed2e86d2a6552a962f6817a391560c080f98e5f2977b9385b3315664"
+  url "https://files.pythonhosted.org/packages/d6/22/b31b930ab33ed23db9443f082f4aced2c81be97bcf3a2e1b2ec2e091cb09/pgcli-1.8.1.tar.gz"
+  sha256 "9a29b4082987760ea336697d3d4a4ecf9c126d7d6b56001d6d897d438bd91ce7"
 
   bottle do
     cellar :any
@@ -47,13 +47,13 @@ class Pgcli < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/55/56/8c39509b614bda53e638b7500f12577d663ac1b868aef53426fc6a26c3f5/prompt_toolkit-1.0.14.tar.gz"
-    sha256 "cc66413b1b4b17021675d9f2d15d57e640b06ddfd99bb724c73484126d22622f"
+    url "https://files.pythonhosted.org/packages/8a/ad/cf6b128866e78ad6d7f1dc5b7f99885fb813393d9860778b2984582e81b5/prompt_toolkit-1.0.15.tar.gz"
+    sha256 "858588f1983ca497f1cf4ffde01d978a3ea02b01c8a26a8bbc5cd2e66d816917"
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/f8/e9/5793369ce8a41bf5467623ded8d59a434dfef9c136351aca4e70c2657ba0/psycopg2-2.7.1.tar.gz"
-    sha256 "86c9355f5374b008c8479bc00023b295c07d508f7c3b91dbd2e74f8925b1d9c6"
+    url "https://files.pythonhosted.org/packages/6b/fb/15c687eda2f925f0ff59373063fdb408471b4284714a7761daaa65c01f15/psycopg2-2.7.3.1.tar.gz"
+    sha256 "9b7b16e26448b43cf167f785d8b5345007731ebf153a510e12dae826800caa65"
   end
 
   resource "Pygments" do
@@ -67,8 +67,8 @@ class Pgcli < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "sqlparse" do
