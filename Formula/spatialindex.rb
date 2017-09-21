@@ -6,6 +6,7 @@ class Spatialindex < Formula
 
   bottle do
     cellar :any
+    sha256 "76e41dc6e6ccb457cb2db3d6806461e065784bf161864ed4276c8041724ce995" => :high_sierra
     sha256 "6c60b7939a2220b10e04cc5e47a6672935697a13accc1284bb90b401b866044c" => :sierra
     sha256 "34d1e02dd4133ed67a8a4c299044e277e1e9cfc982962c50c44c751723eb85cb" => :el_capitan
     sha256 "907f40e614218622fd9fecc0a542adcdf768446a198ef4cc972b30a7eb5e6cd3" => :yosemite
