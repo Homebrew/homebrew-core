@@ -7,6 +7,7 @@ class Sparse < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "679d2e51c1f0ee786339d2715bfe85b24f563318b4b2c1a5873606b0aeb12217" => :high_sierra
     sha256 "bf8ccfa445389a6f69dbb6a58660b2228b58560e8ecc7a8045a07538c3702a88" => :sierra
     sha256 "78bc3435fd4818f38848fb1b6c57bfb70f540adf527f71390274d0d2a31efbac" => :el_capitan
     sha256 "be1693a0ec2050625898d960ffd99468d4ce7471785fe1ae6d6f373da2416b11" => :yosemite
