@@ -10,6 +10,7 @@ class Aacgain < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "eda9c36cf9517c9f342031632b9fb38f77d8150cc2a7cf88b57e46f77395c96e" => :high_sierra
     sha256 "2d7ea587b06feb7ccb4f6dfaee3a6d7b329e041cc80af969afb8b5d1631997e8" => :sierra
     sha256 "b97aaaf19fee69734b4a29e22c498becaa94b3025a192a7ef8f1ecfb0a2ce87c" => :el_capitan
     sha256 "5c01278c495e8a67b7af02f6355ac6a79ce6b4caa5148503346eb33e7d26b70a" => :yosemite
