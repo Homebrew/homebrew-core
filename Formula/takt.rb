@@ -6,6 +6,7 @@ class Takt < Formula
   revision 1
 
   bottle do
+    sha256 "09ab01c470d00703ee02751fb70ddc91e3a625466e98fde9aaaf041654287574" => :high_sierra
     sha256 "d69f489e47d47dba63edc7defeb8829272093e47fea263ba54054f21557131e4" => :sierra
     sha256 "7862cdfe9f54eba4d4263558669d852a6a87d01be3d1f5ad56439e5bfc893b64" => :el_capitan
     sha256 "46f0c0e3b50840d54601615db699ff0e77a3a891e3928a013939f94ecf66b78b" => :yosemite
