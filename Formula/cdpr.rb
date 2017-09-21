@@ -6,6 +6,7 @@ class Cdpr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ce836a4189c94a1441cb417f36699fca01e3cf30b69bcc5a3ec8307c51d0f66e" => :high_sierra
     sha256 "c6603372329fd2dc0c60266b3f3eb6c9f7cc5c0ce7f351b05977ab39a18cde7c" => :sierra
     sha256 "0bdc868c9b11510e2d9e6551dee970c20406215153906d8bc42790d8510ac429" => :el_capitan
     sha256 "3f0fbd6fe9862b367f64354ad6ce3b2deacd35ae627f8d73d5095739325be378" => :yosemite
