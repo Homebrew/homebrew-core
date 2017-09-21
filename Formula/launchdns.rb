@@ -21,11 +21,11 @@ class Launchdns < Formula
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"
     system "make", "install"
 
-    (prefix/"etc/resolver/dev").write("nameserver 127.0.0.1\nport 55353\n")
+    (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
   def caveats; <<-EOS.undent
-    To have *.dev resolved to 127.0.0.1:
+    To have *.localhost resolved to 127.0.0.1:
       sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
     EOS
   end
