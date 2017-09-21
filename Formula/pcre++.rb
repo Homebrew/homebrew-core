@@ -6,6 +6,7 @@ class Pcrexx < Formula
 
   bottle do
     cellar :any
+    sha256 "65018b1dd42de0fc89e533f5343754cf8b07e0b989d0fc1820483fd76a36caab" => :high_sierra
     sha256 "04da88d9c66600d7f636106f00b496e90fbd213431b7c4a2c20cc43f7e206a21" => :sierra
     sha256 "5c30b4cbf987ad3b9a05521f83c672419b636277714838b6f7dee5a656c9868b" => :el_capitan
     sha256 "c883ed380b38f020e7383643fedf80f4bad9ed1205592fe8127423e340c02c05" => :yosemite
