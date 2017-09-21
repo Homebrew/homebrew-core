@@ -7,6 +7,7 @@ class Chuck < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "927a15abf98d767576584c0656688196e643ca9a15969b0e54e58bccc42f37f6" => :high_sierra
     sha256 "4322101b14bb7c235ddd6fb2f102a8f182acb0106ece63bc53d64f3a77224998" => :sierra
     sha256 "4322101b14bb7c235ddd6fb2f102a8f182acb0106ece63bc53d64f3a77224998" => :el_capitan
     sha256 "c34fd149bd7c3a419087f963ecea469b953b5eebd8099457fbf5ed2bb0876357" => :yosemite
