@@ -9,6 +9,7 @@ class TwinePypi < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "37cd3858e20cb8456053789c75d66767d40d3898dd4ec6725a99ea39220de0a4" => :high_sierra
     sha256 "4d48e4d27b3933ea505f219d84be07f734dbff3e5e7a133ed23a0bcb5288998c" => :sierra
     sha256 "be0b38d0ca616f4c65ca220d238b0e1f64cc8b822350ce0ec804a0e85e57ac16" => :el_capitan
     sha256 "c88b0ffc33039b8cf6027e2dbb803b9943d0f8b62519f1b79c2484afb5436a24" => :yosemite
