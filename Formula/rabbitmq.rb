@@ -6,6 +6,8 @@ class Rabbitmq < Formula
 
   bottle :unneeded
 
+  depends_on "erlang"
+
   def install
     # Install the base files
     prefix.install Dir["*"]
@@ -15,9 +17,9 @@ class Rabbitmq < Formula
     (var/"log/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
+    erlang = Formula["erlang"]
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      erlang = Formula["erlang@19"]
       s.gsub! /^ERL_DIR=$/, "ERL_DIR=#{erlang.opt_bin}/"
       s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
       s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
