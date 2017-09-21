@@ -7,6 +7,7 @@ class JbossAsAT5 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d3d6217608e9304397ac87b1343cadd4b6e40ef5e8d21cc93be5a221e67a86ed" => :high_sierra
     sha256 "ce777eb70f57573fbfb831feeff704791ef0cc9fa56ad8532499701d1457ea0f" => :sierra
     sha256 "ce777eb70f57573fbfb831feeff704791ef0cc9fa56ad8532499701d1457ea0f" => :el_capitan
     sha256 "ce777eb70f57573fbfb831feeff704791ef0cc9fa56ad8532499701d1457ea0f" => :yosemite
