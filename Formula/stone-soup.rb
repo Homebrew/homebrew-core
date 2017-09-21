@@ -7,6 +7,7 @@ class StoneSoup < Formula
   sha256 "3c34787cf752d48789102e170ff7360ddcdd79bd55a4e0feb9894e517b274069"
 
   bottle do
+    sha256 "d4f430a646dd6f09bdc6d5c267817793da1d74019978d274fec7b5a10b73627e" => :high_sierra
     sha256 "4f89fb7977808eae1f0d2e6e4314a732ad2087426ed9997a68959a3f15be2604" => :sierra
     sha256 "eed4194a19fbb4d3652ece83aac7c161ae8fa58c4db90fb886fce53a39bccafe" => :el_capitan
     sha256 "dd817ca11daadcef30e964a6d80dc8f150cfb32837cdba605def22fb38121265" => :yosemite
