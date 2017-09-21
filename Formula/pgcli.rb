@@ -7,6 +7,7 @@ class Pgcli < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "da4f10b245a826c9226f20dba9f6f02bb30a725ceedc624e40dc43f05f7f14dd" => :high_sierra
     sha256 "0c1113e26e84b844905197005b1731a4211d393d1fed2077e40223f6dc2a5082" => :sierra
     sha256 "678d9fdc717c0198804bb497fe042ccf685237385bc00eb3e410add8c7fa2d58" => :el_capitan
   end
