@@ -6,6 +6,7 @@ class JpegArchive < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6ed7044f3a66b2b5cfbb836105151f4fb191b3b2282d8dc8113c0381976d4545" => :high_sierra
     sha256 "4b120d35b36e93a25730a5b5a074ecf0b0c8b10776c248bae55d91f924e320bf" => :sierra
     sha256 "92d2c0b15ef19ef8f5a56cb0360f1ebaf897e5abf0040df6d8d49209dad5ae4d" => :el_capitan
     sha256 "09a1ace83762b6f6f03eef2d86508d2c318f92657ec4ee6b763f2112003f02c2" => :yosemite
