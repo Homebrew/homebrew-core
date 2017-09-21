@@ -7,6 +7,7 @@ class PcapDnsproxy < Formula
 
   bottle do
     rebuild 1
+    sha256 "dece914ff9c114edff0392682722f0e88776c80f653ebe0365e37ccda289e2b7" => :high_sierra
     sha256 "0862220302a6c7500de591113cc52ba6a9fe958726147c1a515aba3ecdefbbda" => :sierra
     sha256 "956bd0e1faba69ed5b212f037c453b5648b39d16bd6ee81c5e79da821f613b8e" => :el_capitan
   end
