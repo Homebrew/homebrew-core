@@ -5,6 +5,7 @@ class Stklos < Formula
   sha256 "215e6e6ffcf7751be5f0c114f83286f99e556e089ca1b0ee66f54dd1be080de4"
 
   bottle do
+    sha256 "87ff295136aef704c27749a5b20f3c478fe8f9d1e3ef504c605455fa3a5193f3" => :high_sierra
     sha256 "4d97cc4abd2792a8d07bb092359c35e168619bc446d289faafc37e74de9af8e4" => :sierra
     sha256 "4cded14db644fa6b3efa95af862bcb10a928d16168afb85fc592209bfcd1ba9c" => :el_capitan
     sha256 "a47d7c08a0f93c492e836dbcb825b699d7e725bf98bb49c28f88a8a80b432b37" => :yosemite
