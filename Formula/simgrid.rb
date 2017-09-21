@@ -7,6 +7,7 @@ class Simgrid < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "5854edfa8e3b5b75dffe0f7a800fab040a232b1657043b921edaf97d0cd6e740" => :high_sierra
     sha256 "805c0f23b83c5f0808fe810e91d98e8c88a55acc1292481dc4aaa003b43aceb5" => :sierra
     sha256 "37282c46131c5cfed6c3a12be3cb05487b800904a38c46cf3133a5b9a335d2fa" => :el_capitan
     sha256 "ade94652c0b0157914e4a6e1e637cae0fedf57e036245680595d0913e7df815a" => :yosemite
