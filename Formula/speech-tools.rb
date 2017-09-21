@@ -6,6 +6,7 @@ class SpeechTools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9df2392e021ab65fdcdc691fe3b2fbfc8037472a4bd40b0678cba885984c6c8c" => :high_sierra
     sha256 "fdd91c9e012e6e6849c202dbeaa5fcec9ae740e915f350e5881f3ee0aafcea60" => :sierra
     sha256 "f61c67afcd6c5f54b402183cb5148cf51cad67c95ce01bb3db0df57d384cc7e3" => :el_capitan
     sha256 "48091e873f0d038ebc6e46ab3ca7c1e494d061afab3dae64e1dbd594e4afccbe" => :yosemite
