@@ -6,6 +6,7 @@ class Clfft < Formula
 
   bottle do
     cellar :any
+    sha256 "1e3aca16a694b761c0267c0dfdd9933d43cddd3ed0ea9d20fd4016222a7748f9" => :high_sierra
     sha256 "009c0a8a81d783393abc8ca6307631c50e50ba72dc09e3f2cda5f2e2d8aa617c" => :sierra
     sha256 "369c0df6b06b7ea116120e177a44a54760cc4d7132a1fb59a83ef52a99a6b5f4" => :el_capitan
     sha256 "3c91564548f9b7844de09de3d54b77b43e7855c17def6d3efac5866e357635f0" => :yosemite
