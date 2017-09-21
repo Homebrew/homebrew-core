@@ -7,6 +7,7 @@ class Cayley < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d5e1a5819797c35d96fc81844ffda26af2114f6340872e282946db0e480c78af" => :high_sierra
     sha256 "742760d4a2fb4275a0d719df7a700e7ad4b826165a29dfb201ff09a8bfeba0fb" => :sierra
     sha256 "4fd6749b962972990f870fc88556c48a21eb27dcc176149c0c8e0f2cf796c61e" => :el_capitan
     sha256 "0094bc69ee5b69af082b1c73269df76956535b45fcd4984cc1bf0c90c69a3420" => :yosemite
