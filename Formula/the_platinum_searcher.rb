@@ -6,9 +6,10 @@ class ThePlatinumSearcher < Formula
   head "https://github.com/monochromegane/the_platinum_searcher.git"
 
   bottle do
-    sha256 "081c4a087043d368597933f4ccea9e85d8302a3961940527780138e19ea1648a" => :sierra
-    sha256 "087aaf0fc00872ca2f764fcc44d474f4dd03b3f78eace1b60fa269761ccfb7da" => :el_capitan
-    sha256 "3421b685e500033f24120ae6b80ca7f932eb476b4a85cfb4813447f36ec6bcb6" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "bbba09f3a7c2c6af71c778d64a363297c3d4f3f01d99a076d6cf709fc65ac85d" => :sierra
+    sha256 "f3eb248d0506445f80e1ed80ea52e255551612dbcf8e425024ad4dd4b94b849f" => :el_capitan
   end
 
   depends_on "go" => :build
