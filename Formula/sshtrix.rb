@@ -6,6 +6,7 @@ class Sshtrix < Formula
 
   bottle do
     cellar :any
+    sha256 "8755bd6e5e55baf13212c26b752aa7477e19ca7925b7951f08b7bd7609bbea94" => :high_sierra
     sha256 "406825d6203b5d5c2dc6652617a37373d99d15be4c47aa7474414eb2c226c191" => :sierra
     sha256 "7e1510ecc837aaf0d2ec15af981fdd101bdd71812c0b298645b31a6a97e80b4a" => :el_capitan
     sha256 "2fd9c4a2d64419d0e3599b17ea244911420276ecd8c0f4ded909730413121ec0" => :yosemite
