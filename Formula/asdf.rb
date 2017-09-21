@@ -9,7 +9,6 @@ class Asdf < Formula
   depends_on "autoconf" => :run
   depends_on "automake" => :run
   depends_on "libtool" => :run
-
   depends_on "coreutils"
   depends_on "libyaml"
   depends_on "openssl"
@@ -22,15 +21,17 @@ class Asdf < Formula
     libexec.install "bin/private"
     prefix.install Dir["*"]
 
-    inreplace "#{lib}/commands/reshim.sh", "exec $(asdf_dir)/bin/private/asdf-exec ", "exec $(asdf_dir)/libexec/private/asdf-exec "
+    inreplace "#{lib}/commands/reshim.sh",
+              "exec $(asdf_dir)/bin/private/asdf-exec ",
+              "exec $(asdf_dir)/libexec/private/asdf-exec "
   end
 
   def caveats; <<-EOS.undent
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-         source #{prefix}/asdf.sh
+         source #{opt_prefix}/asdf.sh
 
     If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
-         source #{prefix}/asdf.fish
+         source #{opt_prefix}/asdf.fish
     EOS
   end
 
