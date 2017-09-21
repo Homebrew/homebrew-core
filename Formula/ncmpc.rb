@@ -5,9 +5,8 @@ class Ncmpc < Formula
   sha256 "f66e5b6fef83bdfda3b3efaf3fbad6a4d8c47bb1b3b6810bed44d3e35b007804"
 
   bottle do
-    sha256 "31af467381a348580ef78519ec1eb63fd2c862b8964562a4a623af27319dc7a8" => :sierra
-    sha256 "9849997446693fcfe6a9cdfc9c569e4fde7db6376b8ff159024c9b1b0bdd9a30" => :el_capitan
-    sha256 "63e019d248f1060ac1f346ce2b32813420bdb1b343edaf85499f1453a8fb8c36" => :yosemite
+    sha256 "6b56075edd90d0e6b7b9e30a5606633c994091bdb22839bbf0626c405ebbe06c" => :sierra
+    sha256 "c853f8a4110be0dbc3a4bdc82af29c1e85d64a5b6b05adce5cfe0734d1972f63" => :el_capitan
   end
 
   depends_on "meson" => :build
