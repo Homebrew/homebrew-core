@@ -6,6 +6,7 @@ class Ace < Formula
 
   bottle do
     cellar :any
+    sha256 "8e546261101509e7b600f2cdf73451b606cc32bfecfe64d661f893bae6c1d756" => :high_sierra
     sha256 "a3ec66c4a8f0aa33bf8079240a0eecf510455fece517bf6f4f2f07f2c1f8d1f1" => :sierra
     sha256 "aa558003a97c0909a44adda0a0563a22e1a6bb6c560c15a656c545c19deb6701" => :el_capitan
     sha256 "6fd93f3a1aecfa2861526ba41ff2998ca791e2668decffae36c2fa01db61b032" => :yosemite
