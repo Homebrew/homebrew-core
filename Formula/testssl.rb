@@ -1,8 +1,9 @@
 class Testssl < Formula
   desc "Tool which checks for the support of TLS/SSL ciphers and flaws"
   homepage "https://testssl.sh/"
-  url "https://github.com/drwetter/testssl.sh/archive/v2.9.5.tar.gz"
-  sha256 "3cd2d14b9b324545ff91d63e4261113f6ff0c6e32232cf49438b9fd2f3c8de3e"
+  url "https://github.com/drwetter/testssl.sh/archive/v2.9.5-1.tar.gz"
+  version "2.9.5-1"
+  sha256 "505ba9400e1a49759ba84d0cf6ae79f3787f111c64a319094de69635b786c72a"
   head "https://github.com/drwetter/testssl.sh.git"
 
   bottle :unneeded
