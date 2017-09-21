@@ -54,7 +54,7 @@ class Mcabber < Formula
 
   def caveats; <<-EOS.undent
     A configuration file is necessary to start mcabber.  The template is here:
-      #{pkgshare}/mcabber/mcabberrc.example
+      #{opt_pkgshare}/mcabberrc.example
     And there is a Getting Started Guide you will need to setup Mcabber:
       http://wiki.mcabber.com/index.php/Getting_started
     EOS
