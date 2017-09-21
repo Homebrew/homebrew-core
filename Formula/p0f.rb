@@ -5,11 +5,9 @@ class P0f < Formula
   sha256 "543b68638e739be5c3e818c3958c3b124ac0ccb8be62ba274b4241dbdec00e7f"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fa7fc641ee01c5a805c43641ca0b7679c49fa83efd9ce5850b4b010a532dcddd" => :sierra
-    sha256 "50c2e5d187d3757b325f4df21e5286412a4d5a548d697b4594cc771787223f8f" => :el_capitan
-    sha256 "a67b2bdd45cd05e20990af97876ad793fea64b24c1ecb5fa51d7a717adbd0715" => :yosemite
-    sha256 "646c5afbe2b880d8e882533f19629d0bae3f3a58efc1fde3850345dccf145f39" => :mavericks
+    rebuild 1
+    sha256 "bd25792c98fd8c88599ab373ed8b9265fe4b69c47b6b3ebc84911750f48f190d" => :sierra
+    sha256 "37aea629cea6430b8516ea80eaaf687844a2a1656eebe7744ba6f3746381ce48" => :el_capitan
   end
 
   def install
