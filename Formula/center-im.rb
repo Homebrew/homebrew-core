@@ -7,6 +7,7 @@ class CenterIm < Formula
 
   bottle do
     rebuild 1
+    sha256 "800a4ecf2a11219b619134a85ba492b8256a48d3363135f711da9ca8aab34139" => :high_sierra
     sha256 "5f7c56eb5b9cc982df5a17c5cd043ac4968de36e396c219e0f544e9e34e46669" => :sierra
     sha256 "315556554c3e5b972b0d99145fd6d0971837c2bbd981b849ca89e7a9c069335b" => :el_capitan
     sha256 "5a51f0130fcd601aeed50ae6f66008aaa0ec96f6ac3e7bc828b627f04b46b9f2" => :yosemite
