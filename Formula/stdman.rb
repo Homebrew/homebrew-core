@@ -8,6 +8,7 @@ class Stdman < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b396f3795d2a23c268b96be6b54d96b3ebbcd31724fc9290cf4d207342ae3b3d" => :high_sierra
     sha256 "e331f279e0e88fc136531b0a0bdece2dfee271c6ab96f2047e51a34651f37ac1" => :sierra
     sha256 "8f40d671b1f63facc15c957ddb6eb1a58332bf13e68eef888175948017e79386" => :el_capitan
     sha256 "2b137b92e15bf5941697df2f6fab98a8e030024bbbb0ddc5864f2bbb076f6223" => :yosemite
