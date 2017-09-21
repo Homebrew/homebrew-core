@@ -56,4 +56,19 @@ class Je < Formula
     bin.install "je"
   end
 
+  test do
+    (testpath/"in.jsonl").write <<-EOS.undent
+      {"a":{"b":"\n"}, "d":2}
+      {"a":{"b":0}, "d":1}
+      {"a":{"b":2}}
+    EOS
+    (testpath/"check.jsonl").write <<-EOS.undent
+      {"a":"\n","t":2}
+      {"a":0,"t":1}
+      {"a":2,"t":null}
+    EOS
+    system "#{bin}/je" "-c" "a.b,d" "--out=$'{\"a\":%s,\"t\":%s}\n'"  "-i" "in.jsonl" "-o" "out.jsonl"
+    assert_equal (testpath/"check.jsonl").read, (testpath/"out.jsonl").read
+  end
+
 end
