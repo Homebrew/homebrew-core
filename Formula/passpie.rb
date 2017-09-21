@@ -9,6 +9,7 @@ class Passpie < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "089cfe7bd2908d169253c19fce56f306d3505faf601b9c93e01fe28094de9fd6" => :high_sierra
     sha256 "50f942dcce1aa20d7a5167c454cb903050f2fa01442426564ff7e532c658d91a" => :sierra
     sha256 "fc100e320f2714dc99e95a694250eb5d6a66fa87b8ab77e7cde1a20de25b03b2" => :el_capitan
     sha256 "e4e295b7e25bf48f1664bd0e1023c1e5fda8e2b2044b4e742f2f54730c8e267b" => :yosemite
