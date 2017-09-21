@@ -6,9 +6,8 @@ class Zsh < Formula
   sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
 
   bottle do
-    sha256 "825bbbfdddd3908544bd9bbca9054c7316869cd3fa4c31f9c0d2f4d732bb1d84" => :high_sierra
-    sha256 "b791878b6d2251a51ac41513d3f575f40578af97ded3293dc0c71d4ba2b65dca" => :sierra
-    sha256 "37813f7b6bd05cda00710ce676206365c995a58735a9006ca41e35d613cf263b" => :el_capitan
+    sha256 "55f2ed8a6382432292fb285593aab95463ad51b5693577ff605b3227cda0b30c" => :sierra
+    sha256 "bcb56501b11941b5776dc4f8f3e0714fef69c0232ce764c4c413cf6a91f493c7" => :el_capitan
   end
 
   head do
