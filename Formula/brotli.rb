@@ -1,8 +1,8 @@
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google."
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/archive/v0.6.0.tar.gz"
-  sha256 "69cdbdf5709051dd086a2f020f5abf9e32519eafe0ad6be820c667c3a9c9ee0f"
+  url "https://github.com/google/brotli/archive/v1.0.0.tar.gz"
+  sha256 "910c1451e93a26d5825ad46ffa2510788b41db94b93593224ab7188b7abe82f1"
   head "https://github.com/google/brotli.git"
 
   bottle do
@@ -15,8 +15,6 @@ class Brotli < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "bro", :because => "Both install a `bro` binary"
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "VERBOSE=1"
@@ -26,8 +24,8 @@ class Brotli < Formula
 
   test do
     (testpath/"file.txt").write("Hello, World!")
-    system "#{bin}/bro", "--input", "file.txt", "--output", "file.txt.br"
-    system "#{bin}/bro", "--input", "file.txt.br", "--output", "out.txt", "--decompress"
+    system "#{bin}/brotli", "file.txt", "file.txt.br"
+    system "#{bin}/brotli", "file.txt.br", "--output=out.txt", "--decompress"
     assert_equal (testpath/"file.txt").read, (testpath/"out.txt").read
   end
 end
