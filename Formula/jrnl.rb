@@ -7,6 +7,7 @@ class Jrnl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fae247f2ebb1f66243fcbb4c8912075adc019928f6cb45651abf5fe3b159d877" => :high_sierra
     sha256 "ecd709c46c9bb70293fdec35d5024eb018682293dad29fc66a604cc649d5c0bf" => :sierra
     sha256 "f29a67273bdd14e87e93ff3062a81e8e946aada52acbb61f9e1b75e372fabc00" => :el_capitan
     sha256 "9e44aeb99a2923c3c7b00619f85c30d6d160289dfe43901c2e4df46d914009db" => :yosemite
