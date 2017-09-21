@@ -1,8 +1,8 @@
 class Libuvc < Formula
   desc "Cross-platform library for USB video devices"
   homepage "https://github.com/ktossell/libuvc"
-  url "https://github.com/ktossell/libuvc/archive/v0.0.5.tar.gz"
-  sha256 "62652a4dd024e366f41042c281e5a3359a09f33760eb1af660f950ab9e70f1f7"
+  url "https://github.com/ktossell/libuvc/archive/v0.0.6.tar.gz"
+  sha256 "42175a53c1c704365fdc782b44233925e40c9344fbb7f942181c1090f06e2873"
 
   head "https://github.com/ktossell/libuvc.git"
 
