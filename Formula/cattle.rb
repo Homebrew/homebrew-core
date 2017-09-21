@@ -5,6 +5,7 @@ class Cattle < Formula
   sha256 "e8e9baba41c4b25a1fdac552c5b03ad62a4dbb782e9866df3c3463baf6411826"
 
   bottle do
+    sha256 "bf68a1bc30056789724407aff1a9edbea6671494fd766277ecea8fa14aa8f628" => :high_sierra
     sha256 "9155787316cc502e87a4f2f9fc96d0e68da0de47a125af4dd47dff0e409c9737" => :sierra
     sha256 "4db6aba09bf4b3fa6f59423b8d34f108e6a5d63d0338672e1bdcc305b8fdac67" => :el_capitan
     sha256 "0cd99db357d824c250d115146959c710ddd52a6fbb165308867d2b29c65c5c42" => :yosemite
