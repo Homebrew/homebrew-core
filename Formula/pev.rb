@@ -6,6 +6,7 @@ class Pev < Formula
   head "https://github.com/merces/pev.git"
 
   bottle do
+    sha256 "9f7b8ec7a8796b91524d7fdb5e9913db5afdd220f1fadbbc5a2e32ab7a994e8c" => :high_sierra
     sha256 "c995e2ccdc4fde4e2e1beaa3039421ef8e77cdbe0ec00f1af50d7ba551d2c695" => :sierra
     sha256 "ec81bb70fec6dd27f249a575194c62db766b2e31349224d503ecb1cbf2603c37" => :el_capitan
     sha256 "1013086fe324f7b6147181762541d89dcf4837bd29bd89756d7df23c26fad1f2" => :yosemite
