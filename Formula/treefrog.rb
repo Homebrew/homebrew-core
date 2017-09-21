@@ -6,6 +6,7 @@ class Treefrog < Formula
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
+    sha256 "ec2359159e02bf595d0cbf91a23e3975b9cd59e5655fe8d157b95ffb8e8d62a2" => :high_sierra
     sha256 "a808d24e338c2e8c0b80e34ca00aa539b8b0a26912c493cdfabf7f4c33d1a619" => :sierra
     sha256 "7b015baad146c53ab210c931c99710b41b5a9c62b2c09a0d5eb7a4ed832f6427" => :el_capitan
   end
