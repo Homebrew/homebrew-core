@@ -6,6 +6,7 @@ class Pbzip2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d72e618d7301937ab6a392e1ef3d9ed1f8d5380cd6516ea17b4e4bde11eea9a7" => :high_sierra
     sha256 "c15b9c38b5302286033e54ff4be006c3b31ccb179f96641e44f1126958527d7e" => :sierra
     sha256 "be653d724b6f061cb9939dbdbf457aebc275e16dbf599f598b9ff3999fdd5db3" => :el_capitan
     sha256 "ad103aef3e2d72293cfed3fcc42999afee9b4fc332f8319e3c079758215411c9" => :yosemite
