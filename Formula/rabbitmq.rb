@@ -36,7 +36,7 @@ class Rabbitmq < Formula
 
     # Enable plugins - management web UI and visualiser; STOMP, MQTT, AMQP 1.0 protocols
     enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
-    enabled_plugins_path.write "[rabbitmq_management,rabbitmq_management_visualiser,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]." unless enabled_plugins_path.exist?
+    enabled_plugins_path.write "[rabbitmq_management,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]." unless enabled_plugins_path.exist?
 
     # Extract rabbitmqadmin and install to sbin
     # use it to generate, then install the bash completion file
