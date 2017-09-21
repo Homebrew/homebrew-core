@@ -6,6 +6,7 @@ class John < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "92504df8f94b8f7c8c9bd47ce8ef7c489ac78c62cf7b6e9797f1086d0a4b6f60" => :high_sierra
     sha256 "2574e6b0ae4e5906b1cb546b23dc74b06c0c3494d477b8ce0c1d743d1515bfee" => :sierra
     sha256 "729c644b587941668f0412de6a1d7aafc078b375f96421b278daecba51469ed8" => :el_capitan
     sha256 "1576ba09d791c923265c5668aa0a0d5e7d806848d45e06210c0e3a5449bf1403" => :yosemite
