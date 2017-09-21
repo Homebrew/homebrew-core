@@ -7,6 +7,7 @@ class Editorconfig < Formula
 
   bottle do
     cellar :any
+    sha256 "a6e36c628eaf08d88b65d911c25631e977431ee3b96cb6c4a1d41f95e89a584f" => :high_sierra
     sha256 "899680660a3fdf000c8356e1b9d6a161ce2cbd5fabcabc430f7272919929d935" => :sierra
     sha256 "654a00e1df65376e6aa1374f57fceb651757f00ab08aacb8d077e7343230bffa" => :el_capitan
     sha256 "0a9021863dabaf24a464bc98d1cee290f7324a175b0bd98138d364251b78f887" => :yosemite
