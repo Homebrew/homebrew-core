@@ -7,6 +7,7 @@ class Testdisk < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "e2643fdb09f3d33b18fb181590fe5fc58f9117a8a02791eb55ba5cce998b6cb0" => :high_sierra
     sha256 "30784b33a74eaa138c16ddc7cbe56bc542f19759a87cfdea37084691ba5788b4" => :sierra
     sha256 "979d1f6ba12aeee68300a657a78a234874707068232934d7f91597621a60253e" => :el_capitan
     sha256 "13f6481decb5ad3f40f0617351dd9c78a02c3c0694a82cb048adde6ba897703f" => :yosemite
