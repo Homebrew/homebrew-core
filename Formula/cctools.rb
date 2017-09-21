@@ -13,6 +13,7 @@ class Cctools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "884da525162c316ea2375417148d696f3db9c0995d54b9caf089c634f46c8424" => :high_sierra
     sha256 "d1cdbb626ef536c6e25884eafe2bdfb8e2c4d4011e4e37eea9c69b834c55cfe4" => :sierra
     sha256 "398333f85c3944de889172ca9d3aa5ffd709403ca2225316f130be817f09873a" => :el_capitan
     sha256 "a76a710f5f164feace5ad107eb40bf5e6a25e916f7334e69ee197a8e3d02b90c" => :yosemite
