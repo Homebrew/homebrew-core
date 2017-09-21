@@ -10,11 +10,10 @@ class Cless < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "13a58ff321351e824e1972af009610772fba593cebcb49449eef10ad43413ed5" => :sierra
-    sha256 "4d6c49c06cf947e75aaaef79f45b13d25c343641312639ad16b9745615169dff" => :el_capitan
-    sha256 "ef83bdacb690d95de845c03b12b8c18819ac7a1733cc97e46755be79ac17fdf3" => :yosemite
-    sha256 "7e5f360fccaee62ea35aaba208d88a20e64fabf4a512da71323191cd582fb35d" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "3585e128d1f855aede1e5bb6adec957c64e6777b126cc93a4165d68ccc304038" => :sierra
+    sha256 "660d59f6fe5f0b319091559c727a8b1b241f62244b877fc35ecdf34d69bf7713" => :el_capitan
   end
 
   depends_on "ghc" => :build
