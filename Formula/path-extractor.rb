@@ -8,6 +8,7 @@ class PathExtractor < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "38faa134c10a82b9ac28077d6df73da8b1ce2fed2fb8fe4f24ddebb08c18b623" => :high_sierra
     sha256 "bf30c2d715d52035b57b640d849c21e1508fb189259b5e02343f8104f50d6624" => :sierra
     sha256 "90521da4fd1834db41fbf19b7b6ce9f82a943ab2412acd41b6c5d749146770e7" => :el_capitan
     sha256 "718512fe3585d82dee8d655c2ab534dac70d0b24a8164bcc012f0f2a65a55e5b" => :yosemite
