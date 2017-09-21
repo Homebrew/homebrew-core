@@ -7,6 +7,7 @@ class JsonTable < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2afef9b965070bcde986759dbd03cfd8fe3e77aec5a12158fb4aa189626ab977" => :high_sierra
     sha256 "e5ed8ece1e10ede4417f347703f1e62bb417c65a11f6cac5f10915d44359eb5b" => :sierra
     sha256 "3240813838be9e797fd443e5f51d6bb53fc56a8d958dd361cbc865de003619bd" => :el_capitan
   end
