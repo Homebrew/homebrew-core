@@ -6,10 +6,8 @@ class Glade < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "01d2d5d6277b331485281d6668d5a2494367813a7cf09e4eb3670955ace238aa" => :sierra
-    sha256 "420cee7949561ae0c5ed7d5c7472a83b655d8dc427bdf965b49d7e989c71fe4e" => :el_capitan
-    sha256 "8c9c09600f97e65562ac8afc4eebe3a66a8122db850f86aacc65195e4f97ccfd" => :yosemite
+    sha256 "b4790dc430258b21b802773032e0c63104d21c2a490b9066f3e7d31bddfb5b8a" => :sierra
+    sha256 "5d1ad60bdfe6dd1a2495fac84443262e529b0fc0fb7390ca8096e8535e15ed33" => :el_capitan
   end
 
   # fixes build error against glib 2.54.x
