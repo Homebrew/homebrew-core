@@ -6,6 +6,7 @@ class St < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "24ec6966ca1cc95f214570c0063deb7b87e3d662449618e0db62e1867f3135d1" => :high_sierra
     sha256 "55e719bafc7c95b7a52111c55d1df8845237a723370bc69ab099321cc555ec0d" => :sierra
     sha256 "4c8d388a914a238851b44beff95a1e75523c406e5731d3e894dcda324c260a82" => :el_capitan
     sha256 "05b683f39a6b30d377d4217e5145369053014f8f66b6dd103fb2ee2219aa4225" => :yosemite
