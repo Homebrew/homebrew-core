@@ -7,6 +7,7 @@ class Taylor < Formula
 
   bottle do
     cellar :any
+    sha256 "e965985520ce326c12d7d07da359b075018d48b79d1d2b044db68586bafee551" => :high_sierra
     sha256 "fda9d12ec890daca148dd5819dfe5e61750b30b677031d035129dcf226a8fe84" => :sierra
   end
 
