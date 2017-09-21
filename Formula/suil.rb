@@ -6,6 +6,7 @@ class Suil < Formula
 
   bottle do
     rebuild 1
+    sha256 "1fdfdf3ad22d6898fbc25ac62aed61fdadff229dfa8ae80ecb351b756cd85e4c" => :high_sierra
     sha256 "3b7b1944db83edb792e26ebbd610cb5310357e2f24983ab7dd8be0c0c7dd4aeb" => :sierra
     sha256 "30069bffb5c8f3903f4888135c3d1939f1329a19fda93b3bc8bf244827413995" => :el_capitan
     sha256 "30c20891f724dfe103704e1b3c4e17b068a152fb3098560462a156fba29474c7" => :yosemite
