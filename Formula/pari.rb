@@ -6,6 +6,7 @@ class Pari < Formula
   sha256 "e76a27779d2b1210ce1aba48363b98dd201a1bf876eb14f46ea6bd7769a00a63"
 
   bottle do
+    sha256 "8d35c379a0b659ad24443156bf15f8ac7568a8bfa138a43a0a57f87d3bda4b87" => :high_sierra
     sha256 "277dfbdc1111f80998e37b26372cdc5f8492a76547651a8a1296b931ac23d915" => :sierra
     sha256 "b4b85de28303d7c0dd6bfb4199d5dc11648a5f119d142b71437939cf3c95db89" => :el_capitan
     sha256 "5eee87a9a209235e74a8c608e84228de425dc16c0a44bae6e22ab54e736bb752" => :yosemite
