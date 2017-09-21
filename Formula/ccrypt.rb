@@ -7,6 +7,7 @@ class Ccrypt < Formula
 
   bottle do
     rebuild 1
+    sha256 "a1f0fa02b623955333f98118473c16a7af7e740c18455d48866133ce7dd9a97b" => :high_sierra
     sha256 "41561da9ecb852e0e704b6c9d6693f1eac65a02d0ff1419eb55b4221550d6aa7" => :sierra
     sha256 "006c8e5eb58e88305dec70559d6d64fd0203881dcaca36db50cbb44d3aaae61b" => :el_capitan
     sha256 "44efc492cc7cf2d4f1061f14fd5aa213517406434c41c96e297d9b4f06d7e1a7" => :yosemite
