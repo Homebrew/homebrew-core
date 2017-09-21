@@ -6,6 +6,7 @@ class SoundTouch < Formula
 
   bottle do
     cellar :any
+    sha256 "fa2d750f0a133b42080ff0bb2c35a82612d99f0b6b0833c638ed6cc184c095c7" => :high_sierra
     sha256 "b27295c5cfbc535639566fe162cf4ea386b9c2ee0f9a8016ad34c165b5f5faa8" => :sierra
     sha256 "71d50484d79decdb52b05893e28d86a5996b73c9174cc9e266647f04d1afccca" => :el_capitan
     sha256 "fdd99f6a7879b3b65ad8283f3072afccedf7cb9c82b126a1a96a242a6b20cc07" => :yosemite
