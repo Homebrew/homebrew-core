@@ -7,6 +7,7 @@ class C14Cli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2da7668ade8257bf730b6d0a8c1da37469694779651289c198e8eac913cfebcf" => :high_sierra
     sha256 "5f933f312db20563688f11a278981c87e6771f16f7c3f3bccb29301b12e46bb6" => :sierra
     sha256 "94aa82618c853ee2f011e265e2131bce73e3cda2fcc2abacb4c64e2ebb325996" => :el_capitan
     sha256 "010ccda715de1b29406ee14d7439c33b17fc5741aa5c96439d01f2ce30f2431a" => :yosemite
