@@ -6,9 +6,8 @@ class NoMoreSecrets < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "307c1dc639091d2ceced5aae6aff14ce504bbbd656cdf10a0945eb20e4848917" => :sierra
-    sha256 "862d03ffdb5b87f42513c2453d3e33fb949d52140828510f38038fed89c34fec" => :el_capitan
-    sha256 "89f48062d7f752f92df4880397e7f78d0eb11d8f1394560a2131d8892fcabcf2" => :yosemite
+    sha256 "97ff320dd7639a7a71fbfa4f7e72fb7c66e4b60ea0f6a6adc4583c63cbda05ac" => :sierra
+    sha256 "78c52bd9f179967cb240c8f49763e03e512092ee476b73e38166bfa79757664f" => :el_capitan
   end
 
   def install
