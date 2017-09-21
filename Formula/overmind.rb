@@ -1,8 +1,9 @@
 class Overmind < Formula
   desc "Process manager for Procfile-based applications and tmux"
   homepage "https://github.com/DarthSim/overmind"
-  url "https://github.com/DarthSim/overmind/archive/v1.0.7.tar.gz"
-  sha256 "9ef5512b2b72db0110eafff8864357954b2516f79ecf0b3c040327512722539e"
+  url "https://github.com/DarthSim/overmind/archive/v1.0.8.tar.gz"
+  version "1.0.8"
+  sha256 "02b7c9b135e4fe033cedf59a4c465c0135b557d3d11b5248d02e5755247f0e08"
   head "https://github.com/DarthSim/overmind.git"
 
   bottle do
