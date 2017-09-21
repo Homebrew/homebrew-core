@@ -15,7 +15,7 @@ class Vf < Formula
 
   def caveats; <<-EOS.undent
     To complete installation, add the following line to your shell's rc file:
-      source #{prefix}/vf.sh
+      source #{opt_prefix}/vf.sh
     EOS
   end
 
