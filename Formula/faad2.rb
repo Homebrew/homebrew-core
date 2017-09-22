@@ -1,8 +1,8 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "http://www.audiocoding.com/faad2.html"
-  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.7/faad2-2.7.tar.bz2"
-  sha256 "14561b5d6bc457e825bfd3921ae50a6648f377a9396eaf16d4b057b39a3f63b5"
+  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.2.tar.gz"
+  sha256 "ec836434523ccabaf2acdef0309263f4f98fb1d7c6f7fc5ec87720889557771b"
 
   bottle do
     cellar :any
@@ -15,10 +15,26 @@ class Faad2 < Formula
     sha256 "cc0b789cd93b14247f679211b2f4a592e88395304cb6cc1df91514ed9d6a9720" => :mountain_lion
   end
 
+  # Autotools shouldn't be required since it's a release tarball
+  # Reported 22 Sep 2017 https://sourceforge.net/p/faac/bugs/224/
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "gcc"
+
+  # mp4read.c:253:5: error: function definition is not allowed here
+  # Reported 22 Sep 2017 https://sourceforge.net/p/faac/bugs/223/
+  fails_with :clang
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "autoreconf", "-fiv"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
-    man1.install man+"manm/faad.man" => "faad.1"
+  end
+
+  test do
+    assert_match "infile.mp4", shell_output("#{bin}/faad -h", 1)
   end
 end
