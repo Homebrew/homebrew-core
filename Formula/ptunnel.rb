@@ -7,6 +7,7 @@ class Ptunnel < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "67bd833b70dc704ab565d526fd99044e122a4e2fcd583b083db0a5f642d46041" => :high_sierra
     sha256 "048404c7b3fe3365abfc24fb623bf9548ed7e61458a00148348bbdc2f5f12f33" => :sierra
     sha256 "516181dbd16539c1f8817d65637bd42cc951d551e1a3b61a4d83dc6c71dc6397" => :el_capitan
     sha256 "72db3faba8fbd7c268acf22d02ae0df4dbb5dde2db8a17ca4d62b2293d0763e0" => :yosemite
