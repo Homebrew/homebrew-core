@@ -6,6 +6,7 @@ class Pla < Formula
 
   bottle do
     cellar :any
+    sha256 "af3163cf8322d872694753f3d3352384fb9c8ce923c66f7be82f50bdbbe734bc" => :high_sierra
     sha256 "c6edebbefcf192ea4bcad704ca5b4c27157f77b4a47e3a993ac2a61e7165c13c" => :sierra
     sha256 "3fd0d11d1bdfa24e93bf94cb854e28382307c291b25994c82a2a8c1a64ce5072" => :el_capitan
     sha256 "308920e8bf8642826cd973eaa63e22f0fc3dec43a0152485d358ba575638291f" => :yosemite
