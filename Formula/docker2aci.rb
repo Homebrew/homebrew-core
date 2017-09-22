@@ -1,8 +1,8 @@
 class Docker2aci < Formula
   desc "Library and CLI tool to convert Docker images to ACIs"
   homepage "https://github.com/appc/docker2aci"
-  url "https://github.com/appc/docker2aci/archive/v0.16.0.tar.gz"
-  sha256 "7a8abe8b809a0dcf7a583c6a8ba8232eedb97d30750fa4b4f0620e9db6e504fb"
+  url "https://github.com/appc/docker2aci/archive/v0.17.0.tar.gz"
+  sha256 "31c0c59f9b98d7ae5e643f060d914ef1e27dc8e2c17708593d24a4af7d9fcc01"
 
   bottle do
     cellar :any_skip_relocation
