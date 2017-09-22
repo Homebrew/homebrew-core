@@ -31,13 +31,13 @@ class Je < Formula
   def install
     selection = {
       "fileVersion" => 1,
-      "versions" => {}
+      "versions" => {},
     }
     ["asdf", "hll-d", "mir-algorithm", "mir-random"].each do |dependency|
       resource(dependency).stage(File.join(Dir.pwd, dependency))
-      selection["versions"][dependency] = {"path" => dependency}
+      selection["versions"][dependency] = { "path" => dependency }
     end
-    File.open("dub.selections.json", 'w') do |f|
+    File.open("dub.selections.json", "w") do |f|
       f.write(selection.to_json)
     end
     compiler = "ldmd2"
@@ -56,7 +56,7 @@ class Je < Formula
       {"a":0,"t":1}
       {"a":2,"t":null}
     EOS
-    system "#{bin}/je", "-c", "a.b,d", "--out={\"a\":%s,\"t\":%s}\n",  "-i", "in.jsonl", "-o", "out.jsonl"
+    system "#{bin}/je", "-c", "a.b,d", "--out={\"a\":%s,\"t\":%s}\n", "-i", "in.jsonl", "-o", "out.jsonl"
     assert_equal (testpath/"check.jsonl").read, (testpath/"out.jsonl").read
   end
 end
