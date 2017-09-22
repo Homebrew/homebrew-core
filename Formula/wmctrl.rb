@@ -6,6 +6,7 @@ class Wmctrl < Formula
 
   bottle do
     cellar :any
+    sha256 "b799fe4295b063ef09600bd8dbd8a8da4b7a5b047221d1c3ba67da672bff8f12" => :high_sierra
     sha256 "968c76a341ff4ef21ebe8f850e4de4301adaefd8ff8402b3373c80255adecbc7" => :sierra
     sha256 "bc752b0214893066214d649b108d69b08b50729f029581b332e93780525ee204" => :el_capitan
     sha256 "0bc70cf2f7d8c90401364d8c1f9533423034941bfc375f60991c0940ae562e5b" => :yosemite
