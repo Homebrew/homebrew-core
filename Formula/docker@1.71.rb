@@ -7,6 +7,7 @@ class DockerAT171 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "08de6ac52f2ec8776b718dcbeeea028bc005fbfe68ca0f250b6822c6cbbe25d9" => :high_sierra
     sha256 "1b0c6d26c4242e328f82dfb00d3cd788fbcf58986d71ff62647f1459e9136dbd" => :sierra
     sha256 "c826383171425a87bb42fa0a83f590465a79f76fb8992b970efafb04cc0565a2" => :el_capitan
     sha256 "e84c670e21f03563bbff047bff3a6925933f094015cb51ad2c461183c32f19d3" => :yosemite
