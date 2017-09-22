@@ -7,6 +7,7 @@ class Ncp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dfadd4e6598c258a8db3eff60aed1e00dee51e21d3e194224c47805817087077" => :high_sierra
     sha256 "29980e597d19c6dc4f9f700334a0b5f8874a2e2f3b65d5c934994c15c6e92a27" => :sierra
     sha256 "edc952c838f359516da24ae55930d1461f057703dcacbe14ce44bde3300b24e2" => :el_capitan
     sha256 "6b6bcdcb90f1ca2b9c06d928d71900ef7b88a2bbc6e0f522be2af863bf99c542" => :yosemite
