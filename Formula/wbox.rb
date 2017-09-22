@@ -6,6 +6,7 @@ class Wbox < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6e8b41d8caf8ae84cf5ff0d7fe9bdb7d83b9c7afae9a746fe319e67fe145cf2c" => :high_sierra
     sha256 "241edb51af197d72022a48cb8444506188269b335b057ceaa7bf952db86777d8" => :sierra
     sha256 "0e813a0982d6b9228217f14352812d9e6880cce44757f8af9a0447bf5e4a1e63" => :el_capitan
     sha256 "ee2bd7599a73c3a9f3fe9f8c2d441d753914981b2420e591050780d436bbf011" => :yosemite
