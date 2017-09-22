@@ -8,6 +8,7 @@ class Pixz < Formula
 
   bottle do
     cellar :any
+    sha256 "1a568e90c1299d85a31b89227c2d54b9de28b791e0365ab2a15d55c30ca47de6" => :high_sierra
     sha256 "10381873315179d3bf741657a09589b8fec8347d948e604b64e1cac430ad86d1" => :sierra
     sha256 "5e9e759698f203e6cc9cc369014bb86236ae83135f66659faaf8e024c727a5b4" => :el_capitan
     sha256 "f3409a92f9943e02c500d52b552810b6c75132288c969f2aff58d0c93dd4ceca" => :yosemite
