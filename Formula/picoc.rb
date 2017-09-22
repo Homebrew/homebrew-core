@@ -20,6 +20,7 @@ class Picoc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f321e8e5bb302b30c946fa239709afaf7609f4151803ca3e722eeb26872e119b" => :high_sierra
     sha256 "456707c08da75cf7ad3f98898dda357617b5295c4a09631366e06f9bdb1e09f4" => :sierra
     sha256 "abd8328d9db2961516c421b09d0da77f7df9c09314d2d09530af27a0fe2d55d7" => :el_capitan
     sha256 "5d732cb34ea6a0349f82bf39f948ab9b49be72273a264c52d0a0773ade2acba1" => :yosemite
