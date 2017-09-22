@@ -1,8 +1,8 @@
 class Elvish < Formula
   desc "Novel UNIX shell written in Go"
   homepage "https://github.com/elves/elvish"
-  url "https://github.com/elves/elvish/archive/0.10.tar.gz"
-  sha256 "1b053abd3f8c3b436712597e5dc7ce44c71737bdc0016cbf773a4e74c712851a"
+  url "https://github.com/elves/elvish/archive/0.10.1.tar.gz"
+  sha256 "a1ba39076cc45b24a8763174978805fa93c8713641d0e1715e9ada7d1122ab49"
   head "https://github.com/elves/elvish.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Elvish < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elves/elvish").install buildpath.children
     cd "src/github.com/elves/elvish" do
-      system "go", "build", "-o", bin/"elvish"
+      system "go", "build", "-ldflags", "-X main.Version=#{version}", "-o", bin/"elvish"
       prefix.install_metafiles
     end
   end
