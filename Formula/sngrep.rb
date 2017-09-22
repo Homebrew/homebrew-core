@@ -1,8 +1,8 @@
 class Sngrep < Formula
   desc "Command-line tool for displaying SIP calls message flows"
   homepage "https://github.com/irontec/sngrep"
-  url "https://github.com/irontec/sngrep/archive/v1.4.3.tar.gz"
-  sha256 "7385ac202de6d6a1feffb2fd514600563133d9dfa7fb47be052de839abcc1d52"
+  url "https://github.com/irontec/sngrep/archive/v1.4.4.tar.gz"
+  sha256 "2379b8b3e9498d426a0bc03b90d74170a80f98f167f89c126d53dcc66bc5f60b"
 
   bottle do
     sha256 "f90b4972aa9b5c1b3700ebdd07202dc30b678c826a159c12b23bc0d7180a92c9" => :high_sierra
@@ -26,6 +26,6 @@ class Sngrep < Formula
   end
 
   test do
-    pipe_output("#{bin}/sngrep -I #{test_fixtures("test.pcap")}", "Q\n", 0)
+    system bin/"sngrep", "-NI", test_fixtures("test.pcap")
   end
 end
