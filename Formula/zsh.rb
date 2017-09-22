@@ -4,6 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
   mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
   sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
+  revision 1
 
   bottle do
     sha256 "60029d51b0654962bf478bc0779c413bee76251ffcffde42a9f0db0654917ff8" => :high_sierra
@@ -31,6 +32,12 @@ class Zsh < Formula
   end
 
   def install
+    # Fix dyld: Symbol not found: _open_memstream
+    if MacOS.version == :sierra && MacOS::Xcode.installed? &&
+       MacOS::Xcode.version >= "9.0"
+      ENV["ac_cv_func_open_memstream"] = "no"
+    end
+
     system "Util/preconfig" if build.head?
 
     args = %W[
@@ -78,5 +85,6 @@ class Zsh < Formula
 
   test do
     assert_equal "homebrew", shell_output("#{bin}/zsh -c 'echo homebrew'").chomp
+    system bin/"zsh", "-c", "printf -v hello -- '%s'"
   end
 end
