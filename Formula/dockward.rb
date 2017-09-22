@@ -8,9 +8,10 @@ class Dockward < Formula
   head "https://github.com/abiosoft/dockward.git"
 
   bottle do
-    sha256 "e77f0df02e1274ac0d0582fd34bfe3e99af51a2118a6784cbaec184845d79318" => :sierra
-    sha256 "773227e5fd26363c4eebb218a93eb1369aaaee1c034d5d771fd32d1d06b86b3d" => :el_capitan
-    sha256 "6a60b36dc4b343c62f37968b52ff1287eeff7168a6f651736bfa61ced0824587" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "3dcac3afd57773d1c4b07b72f7f1bc9d66953dccccb0b3eadf7f40e43175d89b" => :sierra
+    sha256 "b1b33f2b4db8242f9b422232d49bfde4c9b8fa0fa5053437366a9bc16795d9b5" => :el_capitan
   end
 
   depends_on "go" => :build
