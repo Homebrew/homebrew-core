@@ -12,6 +12,7 @@ class Purescript < Formula
 
   bottle do
     rebuild 1
+    sha256 "6e3c8f33ac8e6b8af9e4d7b7da7d6116129048e1e553337e7d887aa5996cbb59" => :high_sierra
     sha256 "c6719ba1cd153eeb9816ffc5ee3a10e5d7e25d618689ce2f416d43aeaf1a525e" => :sierra
     sha256 "474ce08419ecaaa6456f828674adf095c4b07af557f7a15881071a52ec907e98" => :el_capitan
   end
