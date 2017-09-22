@@ -6,6 +6,7 @@ class Dterm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "85085f6142348852c9a5efee30a697fa6b31d9162807a256aee5100e50ff99ea" => :high_sierra
     sha256 "a0f9f7bfcadc790624975724244e30d4459e0eb3172dc2646db2b58f7643589c" => :sierra
     sha256 "6e18a2f46faa55e99fe070c7fd5e95940d66a5295f694605c9e90b416b577d37" => :el_capitan
     sha256 "353231f24cda3e48779652002067ac2650b0182f4e7f69fc86b059139daf4511" => :yosemite
