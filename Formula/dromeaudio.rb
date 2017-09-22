@@ -9,6 +9,7 @@ class Dromeaudio < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "17e070192156e0e50f983a857110b1b9efcb5476dca7047adcdd151f9b14b81e" => :high_sierra
     sha256 "6a8617ee09ea859c079db275005a89d38738e497f07383ec2ba96b8df5c657f7" => :sierra
     sha256 "48f99a1a83ddf9d7ab3a3e6823a5bb715c8f781ad014727995ad8b8a8fc212bc" => :el_capitan
     sha256 "2d8165381db24b35e50cf29e6c745e05149dd2e00e8f1d0c61133a45355c3dc6" => :yosemite
