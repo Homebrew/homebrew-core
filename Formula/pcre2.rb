@@ -1,6 +1,6 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
-  homepage "http://www.pcre.org/"
+  homepage "https://www.pcre.org/"
   url "https://ftp.pcre.org/pub/pcre/pcre2-10.30.tar.bz2"
   sha256 "90bd41c605d30e3745771eb81928d779f158081a51b2f314bbcc1f73de5773db"
 
