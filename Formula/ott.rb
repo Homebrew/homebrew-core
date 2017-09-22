@@ -1,8 +1,8 @@
 class Ott < Formula
   desc "Tool for writing definitions of programming languages and calculi"
   homepage "https://www.cl.cam.ac.uk/~pes20/ott/"
-  url "https://github.com/ott-lang/ott/archive/0.25.tar.gz"
-  sha256 "c6abbbeb8cd44dc973d45d30bc5a7e42e212f2feba45c8e0489fab3c3cbf0d78"
+  url "https://github.com/ott-lang/ott/archive/0.26.tar.gz"
+  sha256 "fda1380c33a661290b13241c56dd29c4e09667db738dcd68bc9b388e93137e2c"
   head "https://github.com/ott-lang/ott.git"
 
   bottle do
@@ -18,13 +18,7 @@ class Ott < Formula
     system "make", "world"
     bin.install "bin/ott"
     pkgshare.install "examples"
-
-    site_lisp = pkgshare/"emacs/site-lisp/ott"
-    if build.stable?
-      site_lisp.install "emacs/ottmode.el"
-    else
-      site_lisp.install "emacs/ott-mode.el"
-    end
+    (pkgshare/"emacs/site-lisp/ott").install "emacs/ott-mode.el"
   end
 
   test do
