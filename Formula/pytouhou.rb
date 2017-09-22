@@ -7,6 +7,7 @@ class Pytouhou < Formula
 
   bottle do
     cellar :any
+    sha256 "9218e33b590a64c35bf1f68226fb74f526163d88ac32bb4488d9db32e82bf57d" => :high_sierra
     sha256 "fd255fcb879ea6dfcf7cd7d4c5b379b42fdf3612caa48e33ee724df9211ce0eb" => :sierra
     sha256 "0b14b271443ce5833a8377c00cca5a697d49696cb030faf8eb868bb6543281b1" => :el_capitan
     sha256 "89644eff0f65c4200f563324a6d0a8b9531889ff302b1020cbe9e75147e02df1" => :yosemite
