@@ -8,6 +8,7 @@ class PonscripterSekai < Formula
 
   bottle do
     cellar :any
+    sha256 "c7156bb0456f0103a990ee4ac311ee14a7067224d20d617bfdb76adf62cf314e" => :high_sierra
     sha256 "e6cc3939e19ca41fbdd5d4385964beb6eca6a4efa7e92dd4095a06238f46fbf5" => :sierra
     sha256 "8d29e912f4444fc4c7dc1bde505d0178dab297584e5b146692a23f8a0b16c4d5" => :el_capitan
     sha256 "0621a360b7dfac4f685b8adc31ee23adfcaff330b45100516c26a2a79a884ff1" => :yosemite
