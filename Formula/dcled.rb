@@ -6,6 +6,7 @@ class Dcled < Formula
 
   bottle do
     cellar :any
+    sha256 "91cf7fa30d905efaf7499f0667c65e25ddb69d82be3f52b93d1df6a400fd7141" => :high_sierra
     sha256 "bfc1532d76b4d37c706d065bc98feb5a3aeff20751a713d7b7efb08c0976fe9e" => :sierra
     sha256 "53d07c9548eaeba12645e944ce92c27a02667758176815220dc4ee2a8945c661" => :el_capitan
     sha256 "2ead7c4eb3c170690890c294936a2d3fc39def2fc332ce4c1da6d17cc8f91b50" => :yosemite
