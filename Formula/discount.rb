@@ -6,6 +6,7 @@ class Discount < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f4eee2ff259e99506e5498f389b0149418c58cf07e82567364164eef37c93e0d" => :high_sierra
     sha256 "76eb602335c8e25e5cac3e5ba71427adfd77e4668cded01e9293bff24f959e0a" => :sierra
     sha256 "a8487f5efbecb0cc21542be3e923a1bd2553bdae3cda589a60f9e59e46e64e73" => :el_capitan
     sha256 "bb20915dd830cdf2c6b996af682227d7c5529d99e31fef8048e7fff513dea257" => :yosemite
