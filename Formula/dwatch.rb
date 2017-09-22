@@ -5,11 +5,9 @@ class Dwatch < Formula
   sha256 "ba093d11414e629b4d4c18c84cc90e4eb079a3ba4cfba8afe5026b96bf25d007"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ba53e818fa75c684a88f3ce402266d44199ac4e3a67274b4bc788c1cdaca9c09" => :sierra
-    sha256 "333be69806f30f6d169e79a7b59ff773d7c0b2e0d285e901a3fdb7c5c5e97ae7" => :el_capitan
-    sha256 "fc0e151b4bf12ed2c1cfe714a09522965aa8f78e7a45d2f773e97b47d8c653f6" => :yosemite
-    sha256 "f7fff9f814307bda8b0c6995c82a1114f0c62de23da90d754ef23edd5233d7f8" => :mavericks
+    rebuild 1
+    sha256 "4778a3087b6ff2097975a9b552a2996c12b351ff8479d766b3a9ffca0b1075e1" => :sierra
+    sha256 "937b2bdf39471f35f37fadccec316a1f719f51e9f47c6b2240cde6f5e3b948f3" => :el_capitan
   end
 
   def install
