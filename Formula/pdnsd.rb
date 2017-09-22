@@ -6,12 +6,9 @@ class Pdnsd < Formula
   sha256 "bb5835d0caa8c4b31679d6fd6a1a090b71bdf70950db3b1d0cea9cf9cb7e2a7b"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a1dd9461855d3856adf5e16b17dca7703d41f14c8cd91b1e4c664a7366373213" => :sierra
-    sha256 "2bfe96e4ac7eddad0250bc74907d3c11b94e1f3b62f7aaa7e9f4efc0e4d945a7" => :el_capitan
-    sha256 "38ee1685f816a7b6d4355450b9d7936f5bb413f9ab9ad43c6f802b678578a869" => :yosemite
-    sha256 "f5403ea586fe8b10534fc367e63601f5a8f7e37b464eb43b9a27ffb2bc8ca8b0" => :mavericks
+    rebuild 2
+    sha256 "81c4852b1093820909afc140f052f732cbd94e428d9aff261b90d74cb4935b09" => :sierra
+    sha256 "1fa2f1f6ba9fc4fe710c1dc1d5bfb2b9663c557f5cdddf3a2fff8394f138a08f" => :el_capitan
   end
 
   def install
