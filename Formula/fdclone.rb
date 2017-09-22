@@ -1,7 +1,7 @@
 class Fdclone < Formula
   desc "Console-based file manager"
-  homepage "http://hp.vector.co.jp/authors/VA012337/soft/fd/"
-  url "http://hp.vector.co.jp/authors/VA012337/soft/fd/FD-3.01b.tar.gz"
+  homepage "https://hp.vector.co.jp/authors/VA012337/soft/fd/"
+  url "https://hp.vector.co.jp/authors/VA012337/soft/fd/FD-3.01b.tar.gz"
   sha256 "d66d902cac9d4f64a91d42ceb487a138d544c9fd9cb2961730889cc8830303d4"
 
   bottle do
