@@ -7,6 +7,7 @@ class Certstrap < Formula
 
   bottle do
     rebuild 1
+    sha256 "168d381366cc94bd625de836d50064320130a09a3da9c6c2f973aebceb80482a" => :high_sierra
     sha256 "b6ae41f23e2e588ec637558a68ab4d0d279326713bbf443fc8a26c7f9340498f" => :sierra
     sha256 "a6468f4513ef3490f786a1079701d3b22d44a59dc2b1ddf70b1e43b726365e70" => :el_capitan
   end
