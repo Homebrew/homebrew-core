@@ -1,8 +1,8 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.3.3.tar.xz"
-  sha256 "c679238bea5744de8a99f4402a61e9e58502bc42b40ecfa370e53679ed5d5b80"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.4.0.tar.xz"
+  sha256 "ac19c121fd687c7e4f5f907b46932d26f8f9d9e01626c4dadb3847e25ea31ceb"
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
