@@ -4,6 +4,7 @@ class Gdb < Formula
   url "https://ftp.gnu.org/gnu/gdb/gdb-8.0.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gdb/gdb-8.0.1.tar.xz"
   sha256 "3dbd5f93e36ba2815ad0efab030dcd0c7b211d7b353a40a53f4c02d7d56295e3"
+  revision 1
 
   bottle do
     sha256 "e98ad847402592bd48a9b1468fefb2fac32aff1fa19c2681c3cea7fb457baaa0" => :high_sierra
@@ -22,6 +23,7 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile@2.0" => :optional
+  depends_on "expat" => :optional
 
   def install
     args = [
@@ -32,6 +34,10 @@ class Gdb < Formula
 
     args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
+
+    # uses homewbrew expat
+    args << "--with-expat" if build.with? "expat"
+    args << "--with-libexpat-prefix=/usr/local/opt/expat" if build.with? "expat"
 
     if build.with? "python"
       args << "--with-python=#{HOMEBREW_PREFIX}"
