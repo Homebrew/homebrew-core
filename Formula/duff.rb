@@ -6,6 +6,7 @@ class Duff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a30c57c79b3cef30518fccc5227e954dd9a2383e15458f85706733dcc1fe188a" => :high_sierra
     sha256 "2af1262a9b02e687c0efc14eed3d837920ab746fe8fca9b12b9361c4729f06ef" => :sierra
     sha256 "8a469e92a6303d80752ebc80ade382261d263b9c7226ca6652eddc8954e5ff2f" => :el_capitan
     sha256 "927ba61ce39cf9be33f796197063b1a6865bbc2db2f4b1340ad6786acf0494df" => :yosemite
