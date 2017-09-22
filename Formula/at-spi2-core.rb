@@ -5,6 +5,7 @@ class AtSpi2Core < Formula
   sha256 "511568a65fda11fdd5ba5d4adfd48d5d76810d0e6ba4f7460f1b2ec0dbbbc337"
 
   bottle do
+    sha256 "6486aec624fcff7f3b97dcf3374b9223ba1c5dbee1d9cf414b8490fe63832d34" => :high_sierra
     sha256 "ebba4778d9ed5cba76f02841670195ddd5abd81e844c44262440a7c279170577" => :sierra
     sha256 "5caf61f65d7c94d2e197135fc751568362b6d7f8f2ef2b62259c5270c3870628" => :el_capitan
   end
