@@ -5,9 +5,10 @@ class Deisctl < Formula
   sha256 "7f1b378d884d5b42d0b03df7c79aa31cc6081bcc4c23d880101e98fdfe7cb89a"
 
   bottle do
-    sha256 "39a9a5939d7a3442fa9a69e6b1c9982d9cadbf97e78ab779e9a9b42d269c8596" => :sierra
-    sha256 "061764d9b8f99601aa089c52d897b142b5964ed89d52fa9e9ab53d3b20f332f4" => :el_capitan
-    sha256 "93e2c308bb2005ca7709b52f50c3c7f092cb83046417b4ecf88cef02dea2ea72" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "8661535566fe1d2484f5a0a2a4e6450ee026fe5c56490b335db9a5b34beb6984" => :sierra
+    sha256 "2294410457372fb3f076532923179782e94bcf675e8b0ccf9c65d4a691c1d382" => :el_capitan
   end
 
   depends_on "go" => :build
