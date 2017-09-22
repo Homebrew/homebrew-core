@@ -3,9 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.3.2.0.tar.gz"
-  sha256 "0563b425279422487f12616ef719f6e558373b258dcf47e548d119be8d3168eb"
-  revision 1
+  url "http://releases.ansible.com/ansible/ansible-2.4.0.0.tar.gz"
+  sha256 "1a276fee7f72d4e6601a7994879e8467edb763dacc3e215258cfe71350b77c76"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -545,11 +544,6 @@ class Ansible < Formula
   def install
     # https://github.com/Homebrew/homebrew-core/issues/7197
     ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
-
-    inreplace "lib/ansible/constants.py" do |s|
-      s.gsub! "/usr/share/ansible", pkgshare
-      s.gsub! "/etc/ansible", etc/"ansible"
-    end
 
     virtualenv_install_with_resources
 
