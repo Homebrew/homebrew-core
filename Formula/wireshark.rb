@@ -8,6 +8,7 @@ class Wireshark < Formula
 
   bottle do
     rebuild 1
+    sha256 "7661156d22495b9f0162007b071b33d6ba49feee388185762d5a0fdf85cbbb45" => :high_sierra
     sha256 "4e0227dfb8fc1fe6718134db8f808bd102e635167c512e0a40ee5dbab572103d" => :sierra
     sha256 "5dde96577da3591c3338658ce15f3d8ac4ad1e943bf1c10cef602ad10ac65d53" => :el_capitan
   end
