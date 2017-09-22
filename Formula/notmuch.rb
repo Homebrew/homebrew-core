@@ -7,6 +7,7 @@ class Notmuch < Formula
 
   bottle do
     cellar :any
+    sha256 "1a8b0e9ca796c879ec5e1c82e0603324d5ece1cdfdb93580d0d63d3ca49d51a0" => :high_sierra
     sha256 "49f4b5963ec9b90b2e042993d659571114dd9415628087f1defee16ea03aedd8" => :sierra
     sha256 "3e3cc91824b79f977149beada05114f766a77e30c656bf9bb892c60e40b2b701" => :el_capitan
   end
