@@ -10,6 +10,7 @@ class Dbt < Formula
 
   bottle do
     cellar :any
+    sha256 "29746633c250f8ebad50c0f26dfe98b864f899c9e15c84be9da30ccf8cf4159a" => :high_sierra
     sha256 "ee921769dc8a305b00c1d649003194bedf7c77e8275207c9366a6e3ac90f95fe" => :sierra
     sha256 "c8edbcf5e25875505b2cb009db44f7dd67fb2b6d95bfc2bd063b200c6ce7646e" => :el_capitan
     sha256 "a6167c7ad0965d919337dc61242f0f27e038f0e72aaec5ad639637fbf73dc4a1" => :yosemite
