@@ -17,6 +17,12 @@ class Msmtp < Formula
   depends_on "gsasl" => :optional
 
   def install
+    # Fix dyld: lazy symbol binding failed: Symbol not found: _fmemopen
+    if MacOS.version == :sierra && MacOS::Xcode.installed? &&
+       MacOS::Xcode.version >= "9.0"
+      ENV["ac_cv_func_fmemopen"] = "no"
+    end
+
     args = %W[
       --disable-dependency-tracking
       --with-macosx-keyring
@@ -29,5 +35,9 @@ class Msmtp < Formula
     system "./configure", *args
     system "make", "install"
     (pkgshare/"scripts").install "scripts/msmtpq"
+  end
+
+  test do
+    system bin/"msmtp", "--help"
   end
 end
