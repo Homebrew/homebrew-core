@@ -1,8 +1,8 @@
 class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=geode/1.2.0/apache-geode-1.2.0.tar.gz"
-  sha256 "9cb67d62d60d015463a8b1055921a033f91d2a142d63b2c52444dfc79926f09f"
+  url "https://www.apache.org/dyn/closer.cgi?path=geode/1.2.1/apache-geode-1.2.1.tar.gz"
+  sha256 "c5d268e286ca450ef0640b77429f7e65e100ffe1d3e882d2c9401a4f4d3a8a54"
 
   bottle :unneeded
 
