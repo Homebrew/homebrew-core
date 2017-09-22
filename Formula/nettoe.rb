@@ -6,6 +6,7 @@ class Nettoe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0349c1335e428d5f0b620043259908b5af60feed84d9dea911033e0d65704488" => :high_sierra
     sha256 "49ad705043bdd9f1ab860d877d3ffba584bef5ddbd4c03f6fe43adc49b9c1e5d" => :sierra
     sha256 "c8208683e4730233147e6c7153a469cdc1f477aacde0559937f0da93c8ad0345" => :el_capitan
     sha256 "78038d253cd382f5f3a6b3b12c7776828c44c1572f0569bec862763aa5141c2a" => :yosemite
