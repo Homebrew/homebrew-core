@@ -12,6 +12,7 @@ class Cless < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "b0f4cd35cfb88bae1816f87df9a6eac25ffc5b68bc03ed7d92c8bba493add8c1" => :high_sierra
     sha256 "3585e128d1f855aede1e5bb6adec957c64e6777b126cc93a4165d68ccc304038" => :sierra
     sha256 "660d59f6fe5f0b319091559c727a8b1b241f62244b877fc35ecdf34d69bf7713" => :el_capitan
   end
