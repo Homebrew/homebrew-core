@@ -6,6 +6,7 @@ class Dbxml < Formula
 
   bottle do
     rebuild 1
+    sha256 "df72dad91367d792eeb58981c418c1d5046aafb054e6ec82d4107add49dc08b0" => :high_sierra
     sha256 "669e6aadc43f46b060eb2acadd214dae28b5b6727d46e18c4e302d81665f2170" => :sierra
     sha256 "402542ead71ef0b095bca06052270709a1302dca5ae4d2202c23e6457e83fd77" => :el_capitan
     sha256 "a055bb860d3059aebe23029e14a4fe58fb6ad1a586864f1c74dc51970cfdc432" => :yosemite
