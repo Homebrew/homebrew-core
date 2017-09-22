@@ -6,6 +6,7 @@ class Nbimg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "20d4ae1588773f9ccd4ff2181def08297ea1119ca70f39392ef11648cb72270f" => :high_sierra
     sha256 "75fd1505a68d1c499ddcf73e912947910659d9bd127c208cafeb3e8899664fbd" => :sierra
     sha256 "402904e3588fe5a8ae00d7131fe29821880f31a8ec19fb89e70a79f76e067452" => :el_capitan
     sha256 "7e5f47c47238a5e6b0abca121880c72e78e29d0638924afa75ed999286dc934b" => :yosemite
