@@ -6,6 +6,7 @@ class Pk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "12cc1f5a82f305734355bc527d6dc936039a86f0b8888d226d0b36a9400d234f" => :high_sierra
     sha256 "790f7e9670dcda15b7472264eea54666e7e34e8adb4343b3699ab87a60c9f3b1" => :sierra
     sha256 "74c7822b2e3a74bc657d5e8490f184af120eddf9230695fe26dbb075391e10e6" => :el_capitan
     sha256 "2e86bd1b33521a5856308b58ab35f7384988e9cb6506a4f3d9191ea38361235d" => :yosemite
