@@ -7,9 +7,11 @@ class Khard < Formula
   sha256 "81776d05e8f121f8969daf561f5c774c665378255ba0064b02a82d490da610ea"
 
   bottle do
-    sha256 "12ea3f83d1a2318857d4b7b51b5b30b48d73ba1ef3787296764d133522d6e816" => :sierra
-    sha256 "39c86737bcadf3a4e47498629c91ce8b917aab35379c04a909d80a7d33305e9c" => :el_capitan
-    sha256 "39e879aeb5efd2b7e60f734f18ffaa3ab4f57f445cd1a0f06aa55438f017b82d" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "05f16a678da1dfbd473c2e479e72ea5da37be3e89813750f0ca59990b0863fd5" => :high_sierra
+    sha256 "1e2a16805c8ee1df9909531fab4e81985b79ed750a38d3db64dac93327f0bac4" => :sierra
+    sha256 "e1034fc87b17b6e8a27465a92e1fcaaf745c36cb5725ba87827938ea2a84663a" => :el_capitan
   end
 
   depends_on :python3
