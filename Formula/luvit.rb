@@ -7,6 +7,7 @@ class Luvit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "78ba2892f8183b7e83eefb4ddf3ac025e2b032078d214d57c54250bf0148ef40" => :high_sierra
     sha256 "8c755b81462d5a91456cc3b27aad71a77c5c9c51693f2e7998df2cceaaafcdec" => :sierra
     sha256 "3876f660f6ada25b6d0eb8d7a65e2d771a50f6f90b2c92f583ecb398680d5421" => :el_capitan
     sha256 "3876f660f6ada25b6d0eb8d7a65e2d771a50f6f90b2c92f583ecb398680d5421" => :yosemite
