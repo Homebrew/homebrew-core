@@ -1,8 +1,8 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code."
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/0.8.0.tar.gz"
-  sha256 "00efd7cc7822a77dd7d103ff15d0b9d976b75dce0b41fa2ece813dd9ce6fa033"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/0.9.0.tar.gz"
+  sha256 "02f8c0fda5adfdc33938e00db0f90410079eb79cb9c7f2895742184911c8f338"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
@@ -14,9 +14,8 @@ class Sourcery < Formula
   depends_on :xcode => ["8.3", :build]
 
   def install
-    ENV.delete("CC")
-    ENV["SDKROOT"] = MacOS.sdk_path
-    system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
+    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
+           "-static-stdlib"
     bin.install ".build/release/sourcery"
     lib.install Dir[".build/release/*.dylib"]
   end
