@@ -7,11 +7,9 @@ class Opencoarrays < Formula
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dea069b77ad66ca284a0ca418a3e713894a77045eee8a67fad37d2fb8a574c1b" => :high_sierra
-    sha256 "714231165b8ff2f8b3b1f81b50baf7b451ea7e9eacb5d28fd74c65dd42b0ca86" => :sierra
-    sha256 "0fed3f6f9dfb12490ae39a81436763b428f7a0fc4b3d1289f640699b04722324" => :el_capitan
-    sha256 "e8d6a00623b6016b1536140f1225d2791c9697c3cc054e5a12150f01fa59b2a8" => :yosemite
+    cellar :any
+    sha256 "415a6396888e62fc959a5f1a1986c7c28db4a6f4ec7f5b94bf44539dca17410b" => :sierra
+    sha256 "fd02729b820868e9757c7a4b10bc529e820edc5a2f44d7d8a912646b77da7c01" => :el_capitan
   end
 
   option "without-test", "Skip build time tests (not recommended)"
