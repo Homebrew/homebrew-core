@@ -6,6 +6,7 @@ class Vmdktool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "276a35d178515782c7a741a2ebd45c6b47aee0d7ecfd725c386f589e69336fdc" => :high_sierra
     sha256 "3fa294be9d6e9e6b56435526520262aaa86f5909cc10b9ccf9d9670ae3ac0e3c" => :sierra
     sha256 "8604a90f9ad0f3b04767c021a4d24dacdcabd788767df56a45e3913231d4336e" => :el_capitan
     sha256 "f19ae3ac92ae4400c7139771f3a5ec07d32bf2e3ed49bfa7add445f8a680ef0c" => :yosemite
