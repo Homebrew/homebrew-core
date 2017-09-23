@@ -30,8 +30,8 @@ class Wordnet < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-tcl=#{MacOS.sdk_path}/usr/lib",
-                          "--with-tk=#{MacOS.sdk_path}/usr/lib"
+                          "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework",
+                          "--with-tk=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework"
     ENV.deparallelize
     system "make", "install"
   end
