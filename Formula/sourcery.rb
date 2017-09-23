@@ -6,8 +6,8 @@ class Sourcery < Formula
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
-    cellar :any
-    sha256 "d0b225be784973f10f898acc4180ed880b78d3908d6b917d9a2c9c3fe2c198f4" => :sierra
+    cellar :any_skip_relocation
+    sha256 "65ef899d25716768b5be04bcaf2c0d0761f8d6a17225069c8521a1cfe6450d1a" => :sierra
   end
 
   depends_on :xcode => ["6.0", :run]
