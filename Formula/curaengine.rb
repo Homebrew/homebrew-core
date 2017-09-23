@@ -9,6 +9,7 @@ class Curaengine < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "750b6ca6224c47f14cafa72bdca8f204348fdffda46289234b6f1e3c7f8b53ce" => :high_sierra
     sha256 "6319dc4f7e2648f801728e4aaf0aff747ae305ca9f6130181d164f222f40d160" => :sierra
     sha256 "73def7a0bbe0e297fd6490c0b0fd481265814918ffa42bf83febd5f1e68d7149" => :el_capitan
     sha256 "4252263a845ca5fc5631c4211eac9a95ad53e20cc07dfa0ea6422ea83ca178e7" => :yosemite
