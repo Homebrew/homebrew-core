@@ -7,6 +7,7 @@ class Lysp < Formula
 
   bottle do
     cellar :any
+    sha256 "a77bc33a80d02bd6c65e79e309c30e919f38ab4325f12a24c8ef6ac9e84f527e" => :high_sierra
     sha256 "2df5511a5b16985ed83a970676d5b036b3d0da71ea10111efa062ee25fe645c3" => :sierra
     sha256 "b2f49069f38198ed4310157fcc1b29c04d3a84e6580ac3d27592aea2f8414f70" => :el_capitan
     sha256 "7115864fbe2c8578657afc60736ee1c0de91712524c874bccece4f18eae1c06a" => :yosemite
