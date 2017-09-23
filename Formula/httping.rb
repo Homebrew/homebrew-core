@@ -7,6 +7,7 @@ class Httping < Formula
 
   bottle do
     cellar :any
+    sha256 "99b687e9e7cbadbb3e1774e89538395e7630152631fa90471d6f784927759c4c" => :high_sierra
     sha256 "b209aa24927ed620ce6a7e676c7358ca94d17ec456c8b7b49b72b1aec57c44ed" => :sierra
     sha256 "f283d8cde06988fa6117d7cb1e008ae480851e8f4e9ba60fd8f429864499f983" => :el_capitan
     sha256 "c4784fc08f239a6fd0f778657fe11509f445ee889f6d6b305c30c533be25f35c" => :yosemite
