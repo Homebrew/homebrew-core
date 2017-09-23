@@ -8,6 +8,7 @@ class Compose2kube < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f657b3850b4f6fa2f941ed7de472ca0908f9ac3aefe3ab8502aac14753369135" => :high_sierra
     sha256 "1d2cb6b785c7cc7b06a5bcaf0a39fda3ad66548b2ff09fbd23bdf293f1c1ebf0" => :sierra
     sha256 "90b2466bb93be95570354475aa1cadf5b35af8944f84abfa612cea4d210d6b67" => :el_capitan
     sha256 "210e6242a05505b20208e03d278c272c1d90e54b747908119400ed018636d2a6" => :yosemite
