@@ -8,6 +8,7 @@ class Ldapvi < Formula
 
   bottle do
     cellar :any
+    sha256 "266886333e3e96868249fb5ea6117f95e262884b12c87999ce10839e7b54840a" => :high_sierra
     sha256 "715fa62d9a31e3d64eb7be63847bfcb6430baf14513374afeb3861a9c736c27e" => :sierra
     sha256 "bc0b47872ac179d5797a0431e268708b0fa5e6a444cfbcbefb9c5b565d44c6a6" => :el_capitan
     sha256 "0226ff922a186c3ea5b7342b0caad554316332006db0b797f2ac0eb3cda2c5e8" => :yosemite
