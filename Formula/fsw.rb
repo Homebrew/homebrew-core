@@ -7,6 +7,7 @@ class Fsw < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "d16086899f7ae88e0fd4eeaac5ede4e5749d688e9bb2385686f824f0a0e24677" => :high_sierra
     sha256 "71b5da385bf9d59d33e6c331f23cab5676284d627129ee4f0352976b8ce13fe8" => :sierra
     sha256 "3d02fa0e6e8a6f9518341fc3934e7b53e13ac42304b07b7088ce54384ed64371" => :el_capitan
     sha256 "2a439435d39ddd9a8c1bb978ae7ebb25415fd7a3d0c7079e6a731ecbbf035f68" => :yosemite
