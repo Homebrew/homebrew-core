@@ -5,6 +5,7 @@ class Vifm < Formula
   sha256 "ab10c99d1e4c24ff8a03c20be1c202cc15874750cc47a1614e6fe4f8d816a7fd"
 
   bottle do
+    sha256 "351bfdaa028f9ffd3265391ac9dcd27e5f9818a18fe40dcabfe5adfa84ff920d" => :high_sierra
     sha256 "43c49f57d80cae5391aa31e7f344b2082e163bf9ff0003988c5fa4f419d46566" => :sierra
     sha256 "427c8115c17a6a7143a2ce8b9a00d1f0639a15d2f61f7492623d6f958351cd35" => :el_capitan
     sha256 "d9eb249223e2cc06049f21e9e14c544d640858d10faafeca395c99005c7c0125" => :yosemite
