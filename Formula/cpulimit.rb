@@ -8,6 +8,7 @@ class Cpulimit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "077ab8835a3b44ce77e3b8bf867633115b1d056046b232e49aeac96ac30e731c" => :high_sierra
     sha256 "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655" => :sierra
     sha256 "9d7320465152a12ba75ce924beada5a3ce365b14becaa75e08ee8334c2cb2f6a" => :el_capitan
     sha256 "7ff9d929c5a1178b250b756cefcbecc4b202c72f03073e9eb43f4a47420930a8" => :yosemite
