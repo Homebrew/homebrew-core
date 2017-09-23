@@ -7,6 +7,7 @@ class Ezstream < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8dda7ec4014a1c4f13a3a17f7e243b9e7153c069f5c8cff1a20c7b2518d78be6" => :high_sierra
     sha256 "eee3cc2ed988d5c0e131d9ba8f0aef0e7bb520311096a9719b914c0a1ca6ffe4" => :sierra
     sha256 "365c26a87addf50359e65ccd98ce4244b61f7e9015a335ff47bf55a90b35ad19" => :el_capitan
     sha256 "dfa4b2537b1ce6b0da0c4214ccedca664bdd2e69962fa6579d9c437b1ff94e92" => :yosemite
