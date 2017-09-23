@@ -6,6 +6,7 @@ class Enet < Formula
 
   bottle do
     cellar :any
+    sha256 "e7a004695c99ab8564886887536ec2536fc4375f053f26db6f6253d866c876b3" => :high_sierra
     sha256 "0f17698e0206e19f1ab693131f91f8f3267366a9ca9646463323880d459cf7a1" => :sierra
     sha256 "4efff251b59d56ebc5368cf8cbdc6e59f48a52d97e8fd73e1900869cb3a634bb" => :el_capitan
     sha256 "14a3e5aebe4adb9a76c643a85a91e15c4815fec76697709a3d56f68c3921666e" => :yosemite
