@@ -16,7 +16,6 @@ class TrashCli < Formula
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  conflicts_with "osxutils", :because => "both install a `trash` binary"
   conflicts_with "trash", :because => "both install a `trash` binary"
 
   def install
