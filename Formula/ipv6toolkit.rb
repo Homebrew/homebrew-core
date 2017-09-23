@@ -7,6 +7,7 @@ class Ipv6toolkit < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "1d1069f07134e882a0d670210ea607f209007f89325e0d414a45c4423c7eaebf" => :high_sierra
     sha256 "347e2904a6adc26c82a9a123636234cbc95694f4d94b948b922e137073c7081d" => :sierra
     sha256 "1d7d0b6b4d248ccff98362f4d7707821ae2109591717d56d3b49f0c1d6b83b16" => :el_capitan
     sha256 "d337148bcff3080cd4e94fee0adb1b5226421020bcc6296f97bcf1986dcbea6a" => :yosemite
