@@ -7,6 +7,7 @@ class Synfig < Formula
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
+    sha256 "03c6f317fc50d80230efcc95dbceffa30da38e613be98d924befd758ca24c09a" => :high_sierra
     sha256 "ad4b23fe38d528dab8be2288ee45bdc42130c1e67f4f4de078f09a3b8e1f0aed" => :sierra
     sha256 "bb42b47c6c04c7c6ec01509b0fcc0b5385b9fdfc1d813a0b9e507351f25a79ac" => :el_capitan
     sha256 "a46081768934b324778fc279bdba25eb948b2508f837dff5f83093d47e657658" => :yosemite
