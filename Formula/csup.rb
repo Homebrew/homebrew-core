@@ -7,12 +7,9 @@ class Csup < Formula
   head "https://bitbucket.org/mux/csup", :using => :hg
 
   bottle do
-    cellar :any
-    sha256 "695f24c6ae4740dcd110a6e7eb54fbd41077e18cd6dce610d34f151612bee9cb" => :sierra
-    sha256 "3312ec353eb1f70aa35bac6454aee272940f192b25ab324c7317ed41483226f1" => :el_capitan
-    sha256 "b034200ed85ed697a5989ab8aef518fb78024b57ef0cd1ecf7e21a9a3425f652" => :yosemite
-    sha256 "ffa3d1bbc8fa67cf894b80094f2fa726772ddd602a77e32b403f0ceb8fb43c08" => :mavericks
-    sha256 "83f4c2dda45961e164a267b9a20f64a2d5d60ddbf1f52305a6af6da1e49798fb" => :mountain_lion
+    rebuild 1
+    sha256 "48e552e85834b44fbaf0c09fef9e0f6e4b8768684973dd8ad632e778d228aa75" => :sierra
+    sha256 "e5fc8b0e31fa2f93dccde05ad0b431150c8fb925ee2ab357878f01f1ba5264c2" => :el_capitan
   end
 
   depends_on "openssl"
