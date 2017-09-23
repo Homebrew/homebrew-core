@@ -6,6 +6,7 @@ class Movgrab < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "32d047668237fab4e3dea9987bce5d568a86b7846d671dffabcecd5aaf42ddfe" => :high_sierra
     sha256 "aa40b9cb2e4c947ced14535bcb0e4bf189cf90ca786a7386b372abc6e92ed90a" => :sierra
     sha256 "82cb6ea3423aabf6ae277fcdb2d6ae497021ba5ea7b9c58d6f3553ecebe1bb17" => :el_capitan
     sha256 "aac759c0e0b95b7ccf0e9a446d78e360be70aacf43f341eb1f785e8c7396b8cc" => :yosemite
