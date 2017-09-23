@@ -6,6 +6,7 @@ class Mp3check < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "99c5e5b8458a0cda5f50d92d858ccbd968f059a3b639130a3378c499331e427e" => :high_sierra
     sha256 "2846b7bd6201b58c40ce9b6193a929c5404fcbe77e97854876e53bba5c9d0d82" => :sierra
     sha256 "d63ba27cfd87cf1f8b1871fe8b0531882c037f116933cbc59caf429dfeaab735" => :el_capitan
     sha256 "5fd629e626c6227789c894f1fcf32e076118fd4fe9136e974610ef42135a4ddf" => :yosemite
