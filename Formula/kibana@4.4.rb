@@ -8,6 +8,7 @@ class KibanaAT44 < Formula
 
   bottle do
     rebuild 1
+    sha256 "3b7011fe62be21827a90c03a061d1bd84ba706440c65055c3b6ea89109d7d05b" => :high_sierra
     sha256 "005ac0dd625197ccb1dce23a6c3a1b13f71334c36e0143dde31e257ef95c2503" => :sierra
     sha256 "35a3786e62e9b87b20167b8fb4b39db3db518f090b40e8799297aa4725b7f32e" => :el_capitan
     sha256 "9a76e851c990d0466c00b2e7a78b5f0850f35bb47b5390e8b2254c2de031b900" => :yosemite
