@@ -16,8 +16,6 @@ class Wiki < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "osxutils", :because => "both install `wiki` binaries"
-
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
         :revision => "40e4aedc8fabf8c23e040057540867186712faa5"
