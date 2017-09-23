@@ -6,9 +6,9 @@ class GoAT14 < Formula
   version "1.4.3-20170922"
 
   bottle do
-    sha256 "310b4c2b5d3a63e7d16dbac1f3d1283600171db07ec469a4b2521a313a4a8040" => :sierra
-    sha256 "79e55be417a0b861ca8a72dfa368b467f64f677e399f0b57dce6f0f898dfcd12" => :el_capitan
-    sha256 "1a213e281e70b4526f4d57e7aca3ef57e9a132e63ac8c713e24735720915dc59" => :yosemite
+    sha256 "af2c899f899666f852bd9a99ba7b0e2159cdc366888b6068fa5fe5b0c5d4b2ea" => :high_sierra
+    sha256 "eae6cbf2799ae38c2a909d97ab904d1962df7e7f2a3a62d106ada55ca06754c0" => :sierra
+    sha256 "4322879a2d4024591b1c1cd33886184fa1838d33a6c64e5f14105cfef75a631f" => :el_capitan
   end
 
   keg_only :versioned_formula
