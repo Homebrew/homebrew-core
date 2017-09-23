@@ -6,6 +6,7 @@ class X3270 < Formula
 
   bottle do
     rebuild 1
+    sha256 "fcb185056300588a933723599dd3142f20829eee764b5c61264451cacfa04586" => :high_sierra
     sha256 "a02bd6ef6daa2fc941c2db69ae51dd5849593df4186b8a8fd0de58527faedcdd" => :sierra
     sha256 "ebd2763771ac4dd5e0675bd70d7877d258f09775721f6c2dfbec6beb07280bb5" => :el_capitan
     sha256 "345e32a6ff0343ff370d7562138da8a3dba3a248e601a5a23ca6a1c7588f76b8" => :yosemite
