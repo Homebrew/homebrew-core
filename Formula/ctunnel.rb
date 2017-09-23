@@ -7,6 +7,7 @@ class Ctunnel < Formula
 
   bottle do
     cellar :any
+    sha256 "9a2394bdea7bf5ca99f5e92f6d99e8729fc6e81da0d6353f22cefe3e8df4baa4" => :high_sierra
     sha256 "dfcf3349529b7b2ab47298a9090d916be9eb3b9c0d72cd644f0e4b1de09796be" => :sierra
     sha256 "6a5de1059ec2e138e68530fd62f51b102e29d6ecfb83eaa22e3f79bc0d9acf4c" => :el_capitan
     sha256 "70736b739ab67933916bff1ce0d4ea9105c0faef9576646a5f7abf5e80f2b9b3" => :yosemite
