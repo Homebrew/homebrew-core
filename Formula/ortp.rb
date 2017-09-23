@@ -6,6 +6,7 @@ class Ortp < Formula
 
   bottle do
     cellar :any
+    sha256 "815198568711eef54dee0d427306d797c6c91597b620c2f47dcf74032ba1b37f" => :high_sierra
     sha256 "e635cdc42658919c76a04f89493eda811d3db50f2ca6c062d0fe76967caf1120" => :sierra
     sha256 "8c018f1fd1a4312a55b2d0225133956afdee4bd9a8648b84ca400d033f847ad5" => :el_capitan
     sha256 "38b9d28c30675e6cba3889386982153baf96e2375d97bcea9de10b39ff88149a" => :yosemite
