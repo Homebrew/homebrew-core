@@ -1,7 +1,8 @@
 class WirouterKeyrec < Formula
   desc "Recover the default WPA passphrases from supported routers"
   homepage "http://www.salvatorefresta.net/tools/"
-  url "http://tools.salvatorefresta.net/WiRouter_KeyRec_1.1.2.zip"
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/wirouterkeyrec/WiRouter_KeyRec_1.1.2.zip"
+  mirror "https://distfiles.macports.org/wirouterkeyrec/WiRouter_KeyRec_1.1.2.zip"
   sha256 "3e59138f35502b32b47bd91fe18c0c232921c08d32525a2ae3c14daec09058d4"
 
   bottle do
