@@ -3,8 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://files.pythonhosted.org/packages/d5/7e/760d88e6a3acadb90fe4ce74c058795e1438d2d47d8558699f7e67201fce/mycli-1.12.1.tar.gz"
-  sha256 "391dee20c88ecfc83a4b0def1b1839b0bd3ba0d3cd4922085490456137d3876a"
+  url "https://files.pythonhosted.org/packages/a1/a4/45c60d4b1f162e4bb8103358d50c9d138237a1c0cea64ec3294e07049dec/mycli-1.13.0.tar.gz"
+  sha256 "14c822da06a4d9d7aebddf1e509b75abbbc65d407abb9af139cf2b45cbd8e55b"
 
   bottle do
     cellar :any
@@ -17,8 +17,8 @@ class Mycli < Formula
   depends_on "openssl"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
-    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
+    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
   end
 
   resource "backports.csv" do
