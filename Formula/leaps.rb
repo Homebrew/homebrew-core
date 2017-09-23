@@ -7,6 +7,7 @@ class Leaps < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "09cc7b0c3ade3e507c8da0a343b38dda55d33ef1f1abfaee715e00e40049c71a" => :high_sierra
     sha256 "b1e55d4d73f30e55412ce05d3159b913e69e8e3ff47a9bb1cc6c97e6344cbed8" => :sierra
     sha256 "2c3b8c7583ffe70cfc9ce051c365accf8d9796ea248411258cb72ecce1d3dda4" => :el_capitan
     sha256 "67bb53709d2de532f4b6701261e9e5f65b6ea33ad302684c6ca8db0eed8c55b9" => :yosemite
