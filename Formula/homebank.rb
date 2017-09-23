@@ -6,6 +6,7 @@ class Homebank < Formula
 
   bottle do
     rebuild 1
+    sha256 "f80774c00fb67105c433725215f6d3747be822a2a6f700291fc4fdb36867a4b3" => :high_sierra
     sha256 "525a76bfbc463b3e82ec304a0052836cd726778b5445e4e95de82149b9c2ba50" => :sierra
     sha256 "7c81a61b0d1e787070ebacbc1d047b3779674d628661ba1d4a3bfb417e1a161c" => :el_capitan
   end
