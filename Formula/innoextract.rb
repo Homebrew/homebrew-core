@@ -8,6 +8,7 @@ class Innoextract < Formula
 
   bottle do
     cellar :any
+    sha256 "3ef597b97eebaa9336c73597b7f4dbcec5bfff6fe112524fde4421b34b823060" => :high_sierra
     sha256 "87e0929063d004f693b5c7dad597334fdb6282fc2b244c2b859f42e62ef3f613" => :sierra
     sha256 "bc8067405c9d0ce50abcc398dffa9f70bac62e48025cecace2bf3cff44f58974" => :el_capitan
     sha256 "0581a58c46ee032306d8e73c1ed6429b42f0e01d9fc4765ca455b836aae22931" => :yosemite
