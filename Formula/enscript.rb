@@ -9,6 +9,7 @@ class Enscript < Formula
 
   bottle do
     rebuild 1
+    sha256 "4b9fefd4bafc5f190272b8ed5bc4c0fbdaf4e1cdfa03aee7b7ef2f829500bc0b" => :high_sierra
     sha256 "dea5f069c92bd1b5d2e3c1f0440d8ed5281d9ee44225e28295a1f682ff43a934" => :sierra
     sha256 "e55d3f93f7a4eb89d8007d9c0c49d6b7f52778191f2601da648afff0098a6663" => :el_capitan
     sha256 "d1c1bfc90a9e140a3d257d976729fc9b6e55118a10364ce1e3dc3dd26388edc9" => :yosemite
