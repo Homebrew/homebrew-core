@@ -6,6 +6,7 @@ class Knock < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "06b02ba999daee09e6588a8edb4af78a41b8ab135ac1b618b4ab2b02b7646acf" => :high_sierra
     sha256 "5f29acd295f83fadd436423f61c58ad8a2682dd9f9a3f89740eeee1eb55c6373" => :sierra
     sha256 "030dc0a7c3ea623eb3d8e11374f744ad79f8aee8b7b75210f1a183b4d6d978de" => :el_capitan
     sha256 "aac645d3c392386d99cb19200465a439639c8d3e7f8eac7021dbb677939cf155" => :yosemite
