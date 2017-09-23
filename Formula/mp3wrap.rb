@@ -7,6 +7,7 @@ class Mp3wrap < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3c85e837e2dbcfcbbccb0b074ebfa9283c13d2453b206c246bc4d77600328dfb" => :high_sierra
     sha256 "0471701ab4f6b59423503b7c250376ba597a9f28d9962f6f9b35a107d58411ab" => :sierra
     sha256 "c65886799c1397eec33f48ef73774ad6a509fec44a18dec4a50c8755736f040a" => :el_capitan
     sha256 "50e1b97fa8423acc0c3980c7171544cf248b049d31cb1c6d3ba1214c293bc2eb" => :mavericks
