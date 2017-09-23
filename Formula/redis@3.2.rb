@@ -7,10 +7,8 @@ class RedisAT32 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d6ff7ebccb32ce5bf8168538d4aa0fc15bc27dc018894b497e3db9f450ea567" => :high_sierra
-    sha256 "6e8cac0c17db56cc64eaa4486bcde4eba2996a2ba4c12044950616ff474c0e5b" => :sierra
-    sha256 "686235188b28228b507dd7d9f752845f14b70d37c7ed5e1e6b3d5b33707b3f8d" => :el_capitan
-    sha256 "11ec6661a4c4fc8bb0e696f94d2b63d9f11be765b30e08e41400970d4e1e0ec0" => :yosemite
+    sha256 "78f7a36a2e4ac2bf8d5efdb70e9ac84eb50d9e6ce815d8c4d25e1268ce67aa5a" => :sierra
+    sha256 "a73d084f4aef70d0f7c614317c66cb9ca55614ccb2363f62af59276d431ee3e0" => :el_capitan
   end
 
   keg_only :versioned_formula
