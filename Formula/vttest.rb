@@ -6,6 +6,7 @@ class Vttest < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6a3972df6f5ab23fb7480ffda28b8b1e8059854b837f1c947744e5dfb542c6bb" => :high_sierra
     sha256 "360d6eaa04e1a147eee360fed7d66ab779acc0a0ab3b51b1916cdf4d4a7f11f1" => :sierra
     sha256 "e758b4d59d1322b736f247c9ebbabe3c73ad06b324120997c6af784b8a3ab3f7" => :el_capitan
     sha256 "2584fb77678acad877286416b79db38673320ec028e6a6add37b987b150af648" => :yosemite
