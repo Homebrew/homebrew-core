@@ -1,8 +1,8 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.4/libhttpseverywhere-0.4.8.tar.xz"
-  sha256 "bc28ecceb84457c15bdb6a9cf6db74ad65d21363ce4893c22fee4dfec6e80f49"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.6/libhttpseverywhere-0.6.0.tar.xz"
+  sha256 "7161da8f52781c13e469b3316e20e7989443a02bcdb2e657a93c1c4155683bb3"
 
   bottle do
     cellar :any
@@ -53,7 +53,7 @@ class Libhttpseverywhere < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/httpseverywhere-0.4
+      -I#{include}/httpseverywhere-0.6
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libarchive.opt_include}
       -I#{libgee.opt_include}/gee-0.8
@@ -72,7 +72,7 @@ class Libhttpseverywhere < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lhttpseverywhere-0.4
+      -lhttpseverywhere-0.6
       -lintl
       -ljson-glib-1.0
       -lsoup-2.4
