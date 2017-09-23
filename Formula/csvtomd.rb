@@ -7,9 +7,11 @@ class Csvtomd < Formula
   sha256 "d9fdf166c3c299ad5800b3cb1661f223b98237f38f22e9d253d45d321f70ec72"
 
   bottle do
-    sha256 "1ef512bf336e6c7b28daa12940fdcdd3c04961d91b5a1545202d71211dce79b0" => :sierra
-    sha256 "3405adf42dc819b85088379ff63a55d8247895c3d9ac2d9e227b3d23e375f349" => :el_capitan
-    sha256 "fdadfc84d81fc3a934ee2d9ecf2bd0fecc35a88cc0051ffbd60437a37f652b86" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "f53846339d36bb6381c64cf3ddbb8a9f35e18776d9d72470a42c56975694c01e" => :high_sierra
+    sha256 "34a901b114a823529e064907bed930ec73f0d99c61e4095891ac4ca78dfb6345" => :sierra
+    sha256 "9a44ba7a6997455ee808f504586b926b1a5b0f8fc26775ca5d6d75172cd64960" => :el_capitan
   end
 
   depends_on :python3
