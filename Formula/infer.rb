@@ -6,7 +6,7 @@ class Infer < Formula
 
   bottle do
     cellar :any
-    sha256 "57643d1549a778596cce9a4926298dd4adafea4c12995a14564a8fd4dc07a563" => :sierra
+    sha256 "57643d1549a778596cce9a4926298dd4adafea4c12995a14564a8fd4dc07a563" => :sierra_or_later
     sha256 "667715c360743f6f3d865043da3ce423baf123f3a5e6e775ac16fb9d5e839333" => :el_capitan
     sha256 "607cc291dbc3aa11836b975d2bcc47b7f700c9fbcf4ae83910312baed9ef0843" => :yosemite
   end
