@@ -7,6 +7,7 @@ class Itpp < Formula
 
   bottle do
     cellar :any
+    sha256 "357a4ee1ed9d2c7509a8ae7a22bda393942c6c40d56dc60468fdeec39b675ad5" => :high_sierra
     sha256 "168b61ba02bd54e625ccbcac998595dc2e96a4210a0709a7b7296a8ed9b985b5" => :sierra
     sha256 "c9f2f041dbdbea87029180a253fa0cd470aee6a2144a848b10f9fb5c40f01b8e" => :el_capitan
     sha256 "6e772c61104760fcf2c9500fa06fb2d032d4db1f53ef44d090e18aca54ee75f0" => :yosemite
