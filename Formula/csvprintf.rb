@@ -6,6 +6,7 @@ class Csvprintf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "71ef91eb05b9478dc8b86974ca260bd3f17e842f61a0ef5121b7d831fdcbad94" => :high_sierra
     sha256 "93a0c9b38609eda338ac1bd7126a7b3974b9c8485b2cde88ae1070ac5a46872f" => :sierra
     sha256 "6ad1c8501cb1f51bd6910edb2a9da1c55507186020d7340e83a178a4a036df4d" => :el_capitan
     sha256 "58691d8d4819618731ebdd034ae390ae8668b7e26017ef74d5edfe2c6daa4eb1" => :yosemite
