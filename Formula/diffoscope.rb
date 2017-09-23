@@ -26,6 +26,8 @@ class Diffoscope < Formula
   end
 
   def install
+    ENV.delete("PYTHONPATH") # play nice with libmagic --with-python
+
     pyver = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
 
