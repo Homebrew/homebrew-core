@@ -6,6 +6,7 @@ class Cpmtools < Formula
 
   bottle do
     rebuild 1
+    sha256 "183df2503351339576b3b8d72d9ed0e9a6e14db55a41fc7fbb660a8d060b12e2" => :high_sierra
     sha256 "b9074a4680a3fedd140d31d6597f286a8b49fd47cdedae36b45356ec2f60b18f" => :sierra
     sha256 "a659a233dc338bb7ec669185e22f0c19d03d9697bbe3521473cb7ff791fd010a" => :el_capitan
     sha256 "a127034e7197c21acbcc172b86d476988754ed56bb44b0d9b447f362017fc8bd" => :yosemite
