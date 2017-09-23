@@ -8,6 +8,7 @@ class Csfml < Formula
 
   bottle do
     cellar :any
+    sha256 "f6507fafb4cbb87b11f6763c5683926b618e0f3795567329669efcff80264ae3" => :high_sierra
     sha256 "9ad1dd48f601df0772a86cbb1101d75b29a89c8ef6269974187cbb4202f21e6a" => :sierra
     sha256 "041543d0017f035714db20025d1b115227780ae5ac10de4ae9a56ad39fade888" => :el_capitan
     sha256 "94edea36f26da5c9e87e2bfb114faa9dd479eb4f2dd7beeab5c00969708954a8" => :yosemite
