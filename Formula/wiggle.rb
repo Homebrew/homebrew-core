@@ -1,7 +1,7 @@
 class Wiggle < Formula
   desc "Program for applying patches with conflicting changes"
   homepage "http://neil.brown.name/blog/20100324064620"
-  url "http://neil.brown.name/wiggle/wiggle-1.0.tar.gz"
+  url "https://src.fedoraproject.org/repo/pkgs/wiggle/wiggle-1.0.tar.gz/777d8d4c718220063511e82e16275d1b/wiggle-1.0.tar.gz"
   sha256 "44c97b2d47a109c709cdd4181d9ba941fee50dbb64448018b91d4a2fffe69cf2"
 
   bottle do
