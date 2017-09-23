@@ -7,6 +7,7 @@ class Ctemplate < Formula
 
   bottle do
     cellar :any
+    sha256 "6cddb070bbc9b662305513c142119cb83fac09d1c1579b925f6f2bbddb0773fe" => :high_sierra
     sha256 "f2bbb674557034e487ad218f871145c9f27b02b908e10b2fd15f457c960191e0" => :sierra
     sha256 "3cb0314574a76b022e365c293f50eff604def9a9171b45c4e3af1c56f5310927" => :el_capitan
     sha256 "f405ef2681e4e0aff1a034226733e4466d6f916ae540fa7a3a52e3d94f529f26" => :yosemite
