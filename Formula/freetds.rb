@@ -1,9 +1,9 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.60.tar.bz2"
-  mirror "https://fossies.org/linux/privat/freetds-1.00.60.tar.bz2"
-  sha256 "6ea1adbac6617db624c3561493c54c3a08764d1617e68c006ce3837e83da7a42"
+  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.62.tar.bz2"
+  mirror "https://fossies.org/linux/privat/freetds-1.00.62.tar.bz2"
+  sha256 "3a369aa00078f87dd3765006f772bfcf813bc46462d35fe6abf38d4b9dcca181"
 
   bottle do
     sha256 "c3e2746fada7ff6abc1604d5fb568ac532127519d0e4fbba9dd7b8530dbed454" => :high_sierra
