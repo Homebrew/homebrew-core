@@ -6,6 +6,7 @@ class Xclip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7cc3772662fab42f5a399bad01bfa9b4b852cdeb56898d3b624ab17aad7dae3e" => :high_sierra
     sha256 "d2b9571202947dbcb572e6a30c7083a67f95d1a2df67cbf4e416a386ac3b8f5b" => :sierra
     sha256 "4e5bfbd56dbb84b22542d930e261c0a45e23e287064e19b3932926af6c214466" => :el_capitan
     sha256 "6870e6606bfbbb10f29d212beae6aa9cdb1fed938a2fe9e54b0acf15ae09de0e" => :yosemite
