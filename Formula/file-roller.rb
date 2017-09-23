@@ -6,6 +6,7 @@ class FileRoller < Formula
 
   bottle do
     rebuild 1
+    sha256 "051a7c8b8e5ce48383f08909e894a332191009ef43a882595d15ec54e421eb23" => :high_sierra
     sha256 "05c4548d387d5f7059b630f049c7739e6b9fb0d53a985e057bb0f1eaa4454de2" => :sierra
     sha256 "025c624d012e4238e131215bdfb299a2ac97d7f5b2ba6be5e2bd1ade4d430667" => :el_capitan
   end
