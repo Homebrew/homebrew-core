@@ -22,9 +22,6 @@ class Leptonica < Formula
   depends_on "webp" => :optional
   depends_on "pkg-config" => :build
 
-  conflicts_with "osxutils",
-    :because => "both leptonica and osxutils ship a `fileinfo` executable."
-
   def install
     args = %W[
       --disable-dependency-tracking
