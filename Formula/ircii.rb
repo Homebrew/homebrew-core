@@ -6,6 +6,7 @@ class Ircii < Formula
   sha256 "4e5a70fc4577de06fd5855ab7ca0a501fd16e02d5fd34e434a2b5abac80a2eda"
 
   bottle do
+    sha256 "d459c638c8c9d2e0f88b4382f592b4cd28d815b0455c799a9f89fba6c6b95496" => :high_sierra
     sha256 "e8168dd5f7bb02880b0f8d199326fb81d7cf068cd2960d10aadd698d645bfa5a" => :sierra
     sha256 "bd98e7588df62ead1c94d09b2fb200475f4c09a0950a572ae527f13f6443107e" => :el_capitan
     sha256 "2bc24641161180093f7ea30ddbe7692afda55f1bbf9d46ed59b7773acf8137de" => :yosemite
