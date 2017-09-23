@@ -1,8 +1,8 @@
 class GstRtspServer < Formula
   desc "RTSP server library based on GStreamer"
   homepage "https://gstreamer.freedesktop.org/modules/gst-rtsp-server.html"
-  url "https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.12.2.tar.xz"
-  sha256 "d8ba9264e8ae6e440293328e759e40456f161aa66077b3143dd07581136190b3"
+  url "https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.12.3.tar.xz"
+  sha256 "67255971bb16029a01de66b9f9687f20d8dbf3d3bd75feb48605d0723a7c74ec"
 
   bottle do
     sha256 "957ed155dbbc66cda1c22fd6ad520b74fb6bc810c4dfa8ac246df8699539672c" => :high_sierra
