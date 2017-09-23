@@ -7,6 +7,7 @@ class Nudoku < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "28ef5a1b2afb61c7a05566ee16cdae9c818ede41745e267b0624e51bd08ebfef" => :high_sierra
     sha256 "870aa64540cf2bae6d49d983615c562618f141c3c4a807abf98eda7715df43b8" => :sierra
     sha256 "ea861756fb383524cdbf08ea0b7a432b6d0d85be5254bbd4b986126e49821276" => :el_capitan
     sha256 "74de3c6c3589cc42e9f74bad4610d7a055245465ad6ff45401052052a8c67917" => :yosemite
