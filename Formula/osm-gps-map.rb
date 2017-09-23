@@ -6,6 +6,7 @@ class OsmGpsMap < Formula
 
   bottle do
     rebuild 1
+    sha256 "9b59eb8f7d3143f88a068684a7f5485bde724fb10819e778a6a84b00a8d2c150" => :high_sierra
     sha256 "39d671106b914b85fb0730b3d35f96c501d287cedae1c8ad71683ec4c540a0ee" => :sierra
     sha256 "8bb0e6b77b1eb48fb6ea0700828a9b7cb15967ba09b21f35dbdf0f3f1451e585" => :el_capitan
     sha256 "30748d2eed1125991271b993672bfb7d90385802e1c2feba5f6f2dd22340fc95" => :yosemite
