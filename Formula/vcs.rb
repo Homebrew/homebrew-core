@@ -7,6 +7,7 @@ class Vcs < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "b50a29774c1653b6f0cf23cf70b425212062138db17634916a46f9e5269fe5d6" => :high_sierra
     sha256 "d9b65057f5f6746e32f075af250611956e3fecf6aae5300ce517fe0edfb155cc" => :sierra
     sha256 "93bf052fe5378df11b4dfa929d6c2aea6a5a623a198a8a765374332ca662dfaf" => :el_capitan
     sha256 "93bf052fe5378df11b4dfa929d6c2aea6a5a623a198a8a765374332ca662dfaf" => :yosemite
