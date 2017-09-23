@@ -6,6 +6,7 @@ class Mrtg < Formula
 
   bottle do
     cellar :any
+    sha256 "31b4ac53af7cc4837fe3d6ff5371d84c809a9b82a88ffe0223c58e1cc7067223" => :high_sierra
     sha256 "29cabfb55377881ed481039099a9fdbe172034d50fbcb94be21b161a7581d7b3" => :sierra
     sha256 "2b11f3d52ea65403831ae316e27faf4790272f19cc35a41175f04405174ac370" => :el_capitan
     sha256 "8adea0c04d0319c2bc9a68455cb77c83286a0a0ad0eae32ef386966ec6165abb" => :yosemite
