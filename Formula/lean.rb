@@ -7,6 +7,7 @@ class Lean < Formula
 
   bottle do
     cellar :any
+    sha256 "6bb7a327d8affe2685a07cb339abf8f49dbf9984b67ce28987d6ae37975470c4" => :high_sierra
     sha256 "8a1979e0ce82b2672100412c3e9a81e89f281128eb820570a429bcada4664db0" => :sierra
     sha256 "866478c27b8a39507fc9afa8aa4793e58e071f81acd45e3e90628a2f95d08e4b" => :el_capitan
   end
