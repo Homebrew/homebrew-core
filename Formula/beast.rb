@@ -5,6 +5,12 @@ class Beast < Formula
   sha256 "de8e7dd82eb9017b3028f3b06fd588e5ace57c2b7466ba2e585f9bd8381407af"
   head "https://github.com/beast-dev/beast-mcmc.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fd0b8225774ad857e296ca5fe8540ab21de86a5e951d963e2af5473f6e85a5e2" => :sierra
+    sha256 "30fa27c365bed00f62c399e7724044bfc2eef0e211ca7ca41211d01446c7a27d" => :el_capitan
+  end
+
   depends_on :ant => :build
   depends_on :java => "1.7+"
 
