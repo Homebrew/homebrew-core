@@ -6,6 +6,7 @@ class Skipfish < Formula
   revision 1
 
   bottle do
+    sha256 "cc7acd7bc34e098a19bb6f86744f87f3a7642a7947ba12246fb61ae6f1e6df84" => :high_sierra
     sha256 "4ce996b74258ec1ccbf1805f61c4d5e58ffc3f2c1cf208e8bacaf6693f5f2a5f" => :sierra
     sha256 "b897550f5399004d0082a8a5acb0aa7c4f20c92a9033d486c6172da30bd260d3" => :el_capitan
     sha256 "a055fdc76fae7fc46cf6c2098ac21b7e88bfcc63c29c88e9727f0ecb83a4e99d" => :yosemite
