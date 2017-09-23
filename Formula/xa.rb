@@ -6,11 +6,9 @@ class Xa < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ce34c302b13f53cf12ae5b5b86c96ce410fccc4b4cefd84e7d94ef42b58f2e1" => :sierra
-    sha256 "078254b88c6c70bed9212dad2767e1b6cb03976426e2ae8c58564a4eb22a5a3f" => :el_capitan
-    sha256 "7e6d166991991c31e57269bdd84ec77ac5b4df241361b999ec8d04e977d47e66" => :yosemite
-    sha256 "dc934d679ade0e6180334b746c2bff510b0388ed9908d5388bb9bdd4f61e69c5" => :mavericks
-    sha256 "4c529953faecfdd9386f2065b5b189388b5710d1b99f995b72003d4bed0502c6" => :mountain_lion
+    sha256 "8b72ad60db64443a0f7a821059221573e258e4a3e99621e5defebe71bda1d322" => :high_sierra
+    sha256 "c3148f1d7318b3e1757bdae5c7cca5d0f5cd15d1dbb3fbf33880c0b22ee525f1" => :sierra
+    sha256 "937cdf0951ddd716ff654d3d959f862bb838c830a5194de220c3c60c118895c5" => :el_capitan
   end
 
   def install
