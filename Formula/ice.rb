@@ -6,6 +6,7 @@ class Ice < Formula
 
   bottle do
     cellar :any
+    sha256 "d458dacba532a611e88672698d3839a6be2b6f9905e11f2506d08c7c620fbd2d" => :high_sierra
     sha256 "4021c2f953aee4b244355df6b9313fbbf9507f298c61e60cb6e981103a35ba08" => :sierra
     sha256 "81f4423f5b0683f6cd75df4ab26333e336ff42c81276025c5c1b684a50a6c2e8" => :el_capitan
     sha256 "dffea0545e1f0482b1a923f36b5531b28d604076d4314fd86bf82c6180376c2e" => :yosemite
