@@ -6,6 +6,7 @@ class Foremost < Formula
 
   bottle do
     rebuild 1
+    sha256 "77429923aeac124b53330a69e09c03fcbe75d56f1ed9668db39ddc2e0ddace7a" => :high_sierra
     sha256 "1fec9cd62de192dcbd5217cfa2c6c1c1ca056afa85a434114748171bf740ed96" => :sierra
     sha256 "73f4f781edd9621d498238d77536dda5fbfa60dbb613bd7f15bb31d72699c986" => :el_capitan
   end
