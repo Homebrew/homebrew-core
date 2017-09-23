@@ -6,6 +6,7 @@ class Evince < Formula
 
   bottle do
     rebuild 1
+    sha256 "c9ac9f8fad22885258f3c94a14680c6b69201f1400e7d3462c619482408df6b6" => :high_sierra
     sha256 "0854d73415e9bd442fcda1d63f6e29ca7656ae308322ecb966aec90d1d76aee8" => :sierra
     sha256 "f336abb515cf3537eb6a486f02c7386261c40a323359c9634b4abf09bb995032" => :el_capitan
   end
