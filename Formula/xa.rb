@@ -1,8 +1,8 @@
 class Xa < Formula
   desc "6502 cross assembler"
   homepage "http://www.floodgap.com/retrotech/xa/"
-  url "http://www.floodgap.com/retrotech/xa/dists/xa-2.3.7.tar.gz"
-  sha256 "34e792c159584153f5b5a246ae5d2142dfc92a20b673ea8c9e04584bde594442"
+  url "http://www.floodgap.com/retrotech/xa/dists/xa-2.3.8.tar.gz"
+  sha256 "3b97d2fe8891336676ca28ff127b69e997f0b5accf2c7009b4517496929b462a"
 
   bottle do
     cellar :any_skip_relocation
