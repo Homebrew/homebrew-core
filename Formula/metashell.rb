@@ -5,9 +5,11 @@ class Metashell < Formula
   sha256 "012f48508bbf0dbecf7775b4cca399512c5bbd1604d78f2016fe23a6352af90b"
 
   bottle do
-    sha256 "0146ffe29dcd9274d6a77cb984f27e30809554e21c808e7c80dd7330e4ccce2c" => :sierra
-    sha256 "8bac4ef92f0b661fb5d4edbc5447d870f5929186d794092f0c3cc0df822e3066" => :el_capitan
-    sha256 "7d51a3a2c4a28b7956444fcecfd984dbba965630e2d0fcb60361313ed4d24dc5" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "ea62126c211e42451b2272b250b877c2714c470a654d4d81dbf40a26c79fd4f0" => :high_sierra
+    sha256 "b2ed4c805b490c689c9d2f8f8407b19a936a9d8bcc26b167d3a7727b1d503a5b" => :sierra
+    sha256 "4d55dfb291e53beb8397f88d49121f8fb403c451a5f0eea05b819240449d740e" => :el_capitan
   end
 
   depends_on "cmake" => :build
