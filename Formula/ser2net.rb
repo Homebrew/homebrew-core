@@ -6,6 +6,7 @@ class Ser2net < Formula
 
   bottle do
     rebuild 1
+    sha256 "6cfa743d0e2090bed8f8c2e0495a840dfe77b1f3544582f60a0483315dcfe5ba" => :high_sierra
     sha256 "63b36a1ef39e534d2a8ae91caede4abea2dcfc4ed9ba1ef69f2da6a30baf7b31" => :sierra
     sha256 "5b94f195c765af83306e29f0d8e2556751cbdad1669866761faaeaf199023805" => :el_capitan
   end
