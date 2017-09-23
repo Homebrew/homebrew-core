@@ -9,6 +9,7 @@ class Onepass < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "fe29b54dd8b047eb73dc9d00ec65ad823870733e0948e02d2303b0af8ce4a664" => :high_sierra
     sha256 "6f67d2c8a4bc28317c517bd407df63a5fb849dc001fdcd02bc5fdbe15d8d27af" => :sierra
     sha256 "8410258ade7f471629235368ba63f11d124335a8af394a6b16493622b3aac825" => :el_capitan
     sha256 "2172e0aee7c33b6b2f5b2ff8fd7e92064d5bfc3fe03dfcbce6aac9881f08e263" => :yosemite
