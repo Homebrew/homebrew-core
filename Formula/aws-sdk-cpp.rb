@@ -7,6 +7,7 @@ class AwsSdkCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "f9271425f9331001489cc4f5d4483a73af054f7e8bd5194a2ae67f13a46c6a74" => :high_sierra
     sha256 "dbb0e48df8edecef684e5e44df7086f27e9d6fd3f60b99c91a10e7b1bf368863" => :sierra
     sha256 "dd202ee50e94bc4df20f609722e7609eb25aca15fbfff398b486ffd4e4fc7257" => :el_capitan
   end
