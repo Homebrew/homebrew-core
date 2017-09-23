@@ -6,6 +6,7 @@ class Icoutils < Formula
 
   bottle do
     cellar :any
+    sha256 "556da22536c6be8a8e3b5602d47e5ef47dcbcec5394b9ff4b7517dea19f4cb6c" => :high_sierra
     sha256 "e610d5929aebf62ea55523c0b78086421ee1d986629f5e3d17da3db256dccff1" => :sierra
     sha256 "1c90d46e62314b26aa041cac0c1fc8ac118a8cb99ccfd13c0480490409c19f12" => :el_capitan
     sha256 "99093a0aa622a30d769ed6ac558e35e7621658c4210266f56a00bf9a4b36efb4" => :yosemite
