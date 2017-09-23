@@ -6,6 +6,7 @@ class Kakasi < Formula
 
   bottle do
     rebuild 1
+    sha256 "4ac657051323e642a248aaa4cdf7bc464374e0901bf0b87f458e89b0c3233f76" => :high_sierra
     sha256 "a50761a65d9b64f65d81b6045e992dbfb99746815433f7fc187b43bb0aa36f85" => :sierra
     sha256 "7fca04e65ce14fa8d18d19e197525063274057a2760e4841d4e8a9b06f4b0fa3" => :el_capitan
     sha256 "da407c10d807cf72679df6555d29b53f388dd32abf674f1ae0ecbace44fc3372" => :yosemite
