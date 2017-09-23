@@ -5,6 +5,7 @@ class Sysdig < Formula
   sha256 "9caab6b4ef4a6d9f9ded8f79b1fcbe34a918c61b6f3b5a15d803f0f25e73497a"
 
   bottle do
+    sha256 "2562686c9fbf72e30bd5997f6f8ac1185f775db3fd848ce1df58dedb1b163787" => :high_sierra
     sha256 "de446ec074d4803b9a35585ca67ab43d588155ad3697f704279c2364c1891b35" => :sierra
     sha256 "7d81bf6b318e79cd620c644d0eaaf150f8c8ac5eb8120ea7df4d2a671f8d2838" => :el_capitan
   end
