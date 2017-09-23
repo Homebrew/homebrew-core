@@ -6,6 +6,7 @@ class Vilistextum < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6005ce3b4c593707dfe7ffbc10ea64f26ce6e441803a9133ab46ba0fbaee422f" => :high_sierra
     sha256 "b8fa6ddde71b9b86128e12bbc343935ca5ec58e15d28da2a1a9972a23df9becd" => :sierra
     sha256 "d46bae51c7e9a7193a735660af8583960c98e50f03aa33c8a9d81c22b2d9bf61" => :el_capitan
     sha256 "77ab66b58db8649e9444584b5ee85e6c6c7badeb665425263c50282367eea003" => :yosemite
