@@ -6,6 +6,7 @@ class KubernetesCliAT13 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9209c4fbbadf688a69268b0b698e0375ff913d394b066e1ab9544c5ef92911ac" => :high_sierra
     sha256 "90f6531017970c3adc25a33412ff5e6189b7e5c4fd7ed755ff254357984afee5" => :sierra
     sha256 "e12f80dd4ec73d313f474fc4f79a9619209e5d40656a7808c50846c1d169f564" => :el_capitan
     sha256 "490566a4266fb26ca84175197db2ec55fe3aac0e70e7334fccc9343d3d1556c5" => :yosemite
