@@ -6,6 +6,7 @@ class Xaric < Formula
 
   bottle do
     rebuild 1
+    sha256 "c9071a891ade585a6ce04f759ba8fa95ef786126071f1cd9f80863f1c295aed6" => :high_sierra
     sha256 "e3d4b5dd228aee7f9f81801e7696543983efb5df0239048adb035d984046f95d" => :sierra
     sha256 "9ddfb8878904f92a7281f5611a11b72b81ebed0ef6ac7af9c10588cb717b9317" => :el_capitan
     sha256 "f29d234ec8065f976ce8f14e21374871e5b8b2d092a26ad163d9cac32988bb9b" => :yosemite
