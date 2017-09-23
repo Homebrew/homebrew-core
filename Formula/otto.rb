@@ -13,6 +13,7 @@ class Otto < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "db119a1ecc59b9e6404c44a4fdf19231ce53244afe988f06e5b04bd221aee9d6" => :high_sierra
     sha256 "497e2f6b604d944742e4e229a72ec2dcf2a40af4592b8918e8dbf9cc1d2c2428" => :sierra
     sha256 "8f0b3a1d4cf24ece5e56141ac199a114fe466024f427f128307e07991bac04bd" => :el_capitan
     sha256 "bdac5342a97bc91c5c21fe77318642c03a3171407d1c65dfeff9ae982683e081" => :yosemite
