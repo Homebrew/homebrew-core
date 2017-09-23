@@ -6,6 +6,7 @@ class EasyTag < Formula
 
   bottle do
     rebuild 1
+    sha256 "bbb4d7b86a05ac2e2d0a1ba275e2fbf828a5a6943203c2dbb077d29675f49268" => :high_sierra
     sha256 "b479d94cdf71aec5b56376397509f3438180d8ac4ba479788b64e3f97b8eda6f" => :sierra
     sha256 "fc36c67da169f09015acc7e91fc2256cc5abaf1ec5539bc382d30fc76f423045" => :el_capitan
   end
