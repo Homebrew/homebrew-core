@@ -7,6 +7,7 @@ class GnomeBuilder < Formula
 
   bottle do
     rebuild 1
+    sha256 "f9c3e3649d49844ae48d8d5da563ddd9cc2f3fa156defad956aadb7f7a367679" => :high_sierra
     sha256 "809503f452ccf7b23b2dbd6426608beee8f6d03053b1ca68b0bea443cab84d95" => :sierra
     sha256 "13a808b79271fa682f6d07aa59034afca0636fce78611c0396687cb67c5583c3" => :el_capitan
   end
