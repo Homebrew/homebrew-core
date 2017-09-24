@@ -7,6 +7,7 @@ class Qdbm < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "4ec4e60b16efb21fd7835c182fcf5d8f43c4af4329dd8afb07b4900bc1b17f60" => :high_sierra
     sha256 "547ecf82252706d276c8359448b7f4e738264999028b06cd3738af34ba58276c" => :sierra
     sha256 "6fd80b953a53cdf048bf686d2ac3620deda19a022a10a1e7cbd7aea073bf9b6a" => :el_capitan
     sha256 "4784d30c880c089dcef588c7d91d537269404a4917c9b2b1ef8b5123a727cee1" => :yosemite
