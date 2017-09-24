@@ -16,7 +16,7 @@ class Bsponmpi < Formula
   depends_on :mpi => [:cc, :cxx]
 
   def install
-    system "2to3", "--write", "--fix=print", "SConstruct"
+    system "2to3-", "--write", "--fix=print", "SConstruct"
 
     # Don't install 'CVS' folders from tarball
     rm_rf "include/CVS"
