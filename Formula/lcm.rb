@@ -7,6 +7,7 @@ class Lcm < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "50c9a39de7592b1685e4072b0f53880751a5af7ccc5667d1b8c633e15ee474ff" => :high_sierra
     sha256 "9dcbc09da69140c343224fa1851d4c03c90908254d882aad467e189e95cbd610" => :sierra
     sha256 "58d75c428869f70200220e5948468805f61a4190ca775e1f693c42cce72edc9f" => :el_capitan
     sha256 "41819c23b58c30b04c44864f2b820f0aa47b8805d78b39b5c6a023588c0cb1fb" => :yosemite
