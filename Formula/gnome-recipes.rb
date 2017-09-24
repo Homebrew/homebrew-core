@@ -6,6 +6,7 @@ class GnomeRecipes < Formula
 
   bottle do
     rebuild 1
+    sha256 "cf42a7711b8baaa341b2aa1e1bafa7ac0ca8b58f02cdfc221556dc23f869b896" => :high_sierra
     sha256 "a643b6dd52e83abdc01ef3c0e5d08a05c78ad20179d3b5190fadccab85dda0e2" => :sierra
     sha256 "d81b4cac80b65e170ba85e5b31fd3bf7d2ec6891fd7dc44d0312829a4cf98992" => :el_capitan
   end
