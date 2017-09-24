@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "http://chapel.cray.com/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.15.0/chapel-1.15.0.tar.gz"
-  sha256 "c7549124d90504027212a99176635b215ab11c12eadc995e89e7d019529d796f"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.16.0/chapel-1.16.0.tar.gz"
+  sha256 "5748431119d17c8a864162194797679ca3772eb2ee251eee4369afc2ed024b95"
   head "https://github.com/chapel-lang/chapel.git"
 
   bottle do
