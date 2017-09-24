@@ -68,7 +68,7 @@ class Subversion < Formula
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
-      system "2to3", "--write", "--fix=print", "SConstruct"
+      system "2to3-", "--write", "--fix=print", "SConstruct"
 
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
