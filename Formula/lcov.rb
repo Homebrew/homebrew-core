@@ -7,6 +7,7 @@ class Lcov < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ecd3e27cbeedb34321d9ce5decd4310e3ea0c73956a20317fec3ac14dc71364c" => :high_sierra
     sha256 "b37e8592f6cedb734dea0c35daec9b4d701b5739dbe316b094c090179ff96dd3" => :sierra
     sha256 "5b54e7b2f4361673debf9905109c302bed2bb5b542ca093598053357bbcd9065" => :el_capitan
     sha256 "5b54e7b2f4361673debf9905109c302bed2bb5b542ca093598053357bbcd9065" => :yosemite
