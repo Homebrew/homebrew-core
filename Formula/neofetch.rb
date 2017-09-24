@@ -16,7 +16,6 @@ class Neofetch < Formula
   depends_on "imagemagick" => :recommended
 
   def install
-    inreplace "Makefile", "$(DESTDIR)/etc", "$(DESTDIR)$(SYSCONFDIR)"
     system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
   end
 
