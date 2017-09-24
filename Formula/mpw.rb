@@ -1,9 +1,9 @@
 class Mpw < Formula
   desc "Stateless/deterministic password and identity manager"
   homepage "https://ssl.masterpasswordapp.com/"
-  url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-2-0-g30fdb54e.tar.gz"
-  version "2.6-cli-2"
-  sha256 "c206e512d193a154814a7c5d1faa8dc89e3fa0817b059bd6d957a61dc8ee1e68"
+  url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-3-0-ga85eff42.tar.gz"
+  version "2.6-cli-3"
+  sha256 "b22290113b5509f9c44dfe8d3604e5a23e3fc840aaf73e053a7bcae734698894"
   head "https://github.com/Lyndir/MasterPassword.git"
 
   bottle do
