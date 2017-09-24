@@ -6,6 +6,7 @@ class Latexila < Formula
 
   bottle do
     rebuild 1
+    sha256 "fe058afbd30e1e8bf1026c6f8e75e56c451937c47e30b0b73d98c7677aca961b" => :high_sierra
     sha256 "42669fd8b855cbfb0e71aff6117c84eb2c6ff30760590ffbcf946c15fd87e7b3" => :sierra
     sha256 "23661b90c23f835d7df2d9c4661effd1a58fe93a6c8cc51bf14146e674dd1df5" => :el_capitan
   end
