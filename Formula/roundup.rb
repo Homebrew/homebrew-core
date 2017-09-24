@@ -7,6 +7,7 @@ class Roundup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5b8f8ba32ea5e4cf6d52e11f6b121f6ec0da11b1a0a281bf2de46431a1682f68" => :high_sierra
     sha256 "255515246130477d53aa39d0289b2840af33a937d7169a1dba297380d1eb02da" => :sierra
     sha256 "77ff95001e3a2de6eedd4d5702e5e418b7c4ecfa6855af7b479e1e978249882f" => :el_capitan
     sha256 "5dd0f6d1e64f54b3bb389411f95cd823b75e31f073e739d78793fca4b21e8e59" => :yosemite
