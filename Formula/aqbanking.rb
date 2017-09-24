@@ -1,6 +1,6 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
-  homepage "https://www.aquamaniac.de/sites/home/"
+  homepage "https://www.aquamaniac.de/sites/aqbanking/"
   url "https://www.aquamaniac.de/sites/download/download.php?package=03&release=208&file=01&dummy=aqbanking-5.6.12.tar.gz"
   sha256 "0652706a487d594640a7d544271976261165bf269d90dc70447b38b363e54b22"
 
@@ -11,7 +11,7 @@ class Aqbanking < Formula
   end
 
   head do
-    url "https://git.aqbanking.de/git/aqbanking.git"
+    url "https://git.aquamaniac.de/git/aqbanking.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
