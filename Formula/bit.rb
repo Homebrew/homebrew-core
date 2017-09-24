@@ -5,7 +5,7 @@ class Bit < Formula
   homepage "https://www.bitsrc.io"
   url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.10.7.tgz"
   sha256 "d033b76974be7103933abe1fc937297d29c19aa1cdabbba8d5032ebd9d4f72f0"
-  head "https://github.com/teambit/bit"
+  head "https://github.com/teambit/bit.git"
 
   bottle do
     cellar :any_skip_relocation
