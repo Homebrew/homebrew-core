@@ -24,7 +24,12 @@ class UcspiTcp < Formula
     (buildpath/"conf-home").write prefix
 
     system "make"
+
+    # Build system needs these directories to exist
     bin.mkpath
+    man1.mkpath
+    man5.mkpath
+
     system "make", "setup", "check"
     share.install prefix/"man"
   end
