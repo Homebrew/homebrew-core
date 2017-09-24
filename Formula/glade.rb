@@ -6,6 +6,7 @@ class Glade < Formula
   revision 2
 
   bottle do
+    sha256 "98ad635f5de29339d1be79dc526271c718ad0d6faf144f953c8709b89210084f" => :high_sierra
     sha256 "b4790dc430258b21b802773032e0c63104d21c2a490b9066f3e7d31bddfb5b8a" => :sierra
     sha256 "5d1ad60bdfe6dd1a2495fac84443262e529b0fc0fb7390ca8096e8535e15ed33" => :el_capitan
   end
