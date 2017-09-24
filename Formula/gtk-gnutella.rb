@@ -5,6 +5,7 @@ class GtkGnutella < Formula
   sha256 "ca65f9c56a5e17e6cb84246d5e2db453f1c73863ef937b8a1772ff4572d562ff"
 
   bottle do
+    sha256 "1bbba4fa35a115dc97a8093abfeff1a825438dc5e255da0f4c2427348bb0b9df" => :high_sierra
     sha256 "3e0ef564ff86940fd0b49d9845671a61fa9d8127e698af29308868ae4fa3500c" => :sierra
     sha256 "056dba8d778c10fd91b1ecb1695235ec6f7303f34e970e1035e304ddcfc0e561" => :el_capitan
   end
