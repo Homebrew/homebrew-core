@@ -2,8 +2,10 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.10.3/bit-0.10.3-brew.tar.gz"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.10.7.tgz"
   sha256 "e843e29b34ba8c93c68503f288be28c841c159b67a54bcc88063328167a32785"
+  head "https://github.com/teambit/bit"
+
 
   bottle do
     cellar :any_skip_relocation
