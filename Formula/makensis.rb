@@ -41,7 +41,7 @@ class Makensis < Formula
   patch :DATA
 
   def install
-    system "2to3", "--write", "--fix=print", "Contrib/NSIS Menu/SConscript",
+    system "2to3-", "--write", "--fix=print", "Contrib/NSIS Menu/SConscript",
            "Contrib/System/SConscript", "SCons/Config/gnu", "SCons/utils.py",
            "Source/Tests/SConscript"
 
