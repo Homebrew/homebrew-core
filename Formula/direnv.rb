@@ -1,9 +1,8 @@
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
-  url "https://github.com/direnv/direnv/archive/v2.12.2.tar.gz"
-  sha256 "108adad7859935404c9fbb66398bee768a5eb9bb95bfe4048b5e6cb03f7b790e"
-
+  url "https://github.com/direnv/direnv/archive/2.13.0.tar.gz"
+  sha256 "e95452b93b94f7f39b82064dcf21c77ceecd6ccc1e18d282eb43bb2b188f0943"
   head "https://github.com/direnv/direnv.git"
 
   bottle do
@@ -18,9 +17,11 @@ class Direnv < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/direnv").mkpath
-    ln_s buildpath, buildpath/"src/github.com/direnv/direnv"
-    system "make", "install", "DESTDIR=#{prefix}"
+    (buildpath/"src/github.com/direnv/direnv").install buildpath.children
+    cd "src/github.com/direnv/direnv" do
+      system "make", "install", "DESTDIR=#{prefix}"
+      prefix.install_metafiles
+    end
   end
 
   test do
