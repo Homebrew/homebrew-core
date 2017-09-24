@@ -7,6 +7,7 @@ class Httpflow < Formula
 
   bottle do
     cellar :any
+    sha256 "81bacec65a65a4f97be8035f1d21407ddada8bf3e8ab2dea8163f42162af6d65" => :high_sierra
     sha256 "02f297152a11c184e4b16e3881d416f9cd388ecab8a4979a02bf0bbf6f2c4f56" => :sierra
     sha256 "aae82cdbdfbda4766e7ac39ac7cf0d588ae05379b6de60fe9a62521eaf097f61" => :el_capitan
     sha256 "f1f6b80b4d0ae25da4bc0b626ce3da653ad48f55c4d9e82c3e60ec51ff6ddea4" => :yosemite

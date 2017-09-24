@@ -6,6 +6,7 @@ class Qscintilla2 < Formula
   revision 1
 
   bottle do
+    sha256 "f22239207011ada7af69ef94115390122fd2e709155c3cc75467c198a1785190" => :high_sierra
     sha256 "2145a9138de0eb4dc7d1c2cb2741ad8d5e4bd43eafa27040d61b5be9c1898d28" => :sierra
     sha256 "cb8eb0c2017e0868b5308fd8cfff8602f7bc6f3ae775fdebfa17c3f51b0b3268" => :el_capitan
     sha256 "17974d5e54f96706a354d84ab684bede51c043834c970dfe67a673cb45840bdf" => :yosemite

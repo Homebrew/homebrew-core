@@ -5,6 +5,7 @@ class Mosquitto < Formula
   sha256 "156b1fa731d12baad4b8b22f7b6a8af50ba881fc711b81e9919ec103cf2942d1"
 
   bottle do
+    sha256 "7ea0a7982a2d47760203fe11841f3ba4a66bc0f8521836d24de79dbf6aeb21c9" => :high_sierra
     sha256 "01ff6c3a66361786dc44681b57dcc7990298a9b316768025fa131398a8eca51c" => :sierra
     sha256 "4533adf7814abcccdf7cb7a0833f1c0b6208d0eb5137ed71fe9c7a18a8803857" => :el_capitan
     sha256 "747266868ed02a667fe56f04ed6df028eb893e8dc5227b4e859a6c50ff6188e6" => :yosemite

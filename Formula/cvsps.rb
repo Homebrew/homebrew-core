@@ -6,6 +6,7 @@ class Cvsps < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "964d2f695e15f6377f18482820f69f1efcaf305e9ea45b4bd3b6da1ad55238b8" => :high_sierra
     sha256 "fafd244bbd5ea71ef8940ec6d1d4319b6d2036c68dbafd923ed3aa1126e92c0a" => :sierra
     sha256 "166312c7b7c2aacd431120ddee3f8ca798809ee955c626cd545688c8fec5e460" => :el_capitan
     sha256 "fb968620dcdb28706f395b439fa5b2de09a5de2fec23fbb20a929234872d3978" => :yosemite

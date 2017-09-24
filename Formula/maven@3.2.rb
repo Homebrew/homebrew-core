@@ -7,6 +7,7 @@ class MavenAT32 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1168aa8865a130bd89fa502a88397aee160cf864c526ab86d089e8676edc387a" => :high_sierra
     sha256 "a29e76e46f1ba51fca6a76e3895ac347824a0c37fca5854d9a1aa2831f0e0510" => :sierra
     sha256 "963e0b933d75dfb2fb4189da9ff20796bbab4dc8f1318ecc7964dc99fab9e9df" => :el_capitan
     sha256 "963e0b933d75dfb2fb4189da9ff20796bbab4dc8f1318ecc7964dc99fab9e9df" => :yosemite

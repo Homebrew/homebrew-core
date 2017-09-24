@@ -5,11 +5,10 @@ class Cntlm < Formula
   sha256 "7b603d6200ab0b26034e9e200fab949cc0a8e5fdd4df2c80b8fc5b1c37e7b930"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fcf5fe29a8a0853aa34f48f88c16666d163ace489623b2cf04cace23d993d392" => :sierra
-    sha256 "9e53cf019ca2408b0d5e1a688bdd78ee785ec36501488ecb63caca9bfc53dd70" => :el_capitan
-    sha256 "b36b8286f391a05a3a3dc2b450f5157d1c5c69b01683a0133a566c77eaa87e39" => :yosemite
-    sha256 "6e20a8381c8411c02a39c8e880660040f71d55acc795c71802ef3afcccbdfaf1" => :mavericks
+    rebuild 1
+    sha256 "97bf4da991ae873495d574675c4bca87dd184322ff6855818d19d6ef4eb28a0d" => :high_sierra
+    sha256 "aee92f33d388d2c759c9ff881ebc1c9da35b2295d4050e489ebd72f48401a163" => :sierra
+    sha256 "e41938ee125ee2ac25f72833b79f2c6326f421ac54f2bcf1ec46de6ebf59fa44" => :el_capitan
   end
 
   def install

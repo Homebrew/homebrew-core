@@ -6,6 +6,7 @@ class Skktools < Formula
 
   bottle do
     cellar :any
+    sha256 "51e0f032378aa99d1c3d40cc20f4b0e44d917227202135ce4d3b660f86c4c407" => :high_sierra
     sha256 "0347744e8fb81108a0eb7a3bb99f6fd4debef7d34ac499e5312d458bde3b6134" => :sierra
     sha256 "1c7483904de37931199198fafd82bc3aee7ae3f9e89bf3c971aa13711579699f" => :el_capitan
     sha256 "eb770b46337d432b64c8dfd3e20d42212a32cdd00a8cffd92bb8e0ba32e46d6b" => :yosemite

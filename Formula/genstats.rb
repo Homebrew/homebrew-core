@@ -6,6 +6,7 @@ class Genstats < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7bea82f0ca1047f295bfd0f6ca348f0c07cd33b165bb5a9042c77f9cdc97907f" => :high_sierra
     sha256 "051dbb7c4f653b615b606d1fce15df9336a086e38428fcfdb2aee9f0057d8990" => :sierra
     sha256 "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f" => :el_capitan
     sha256 "91737ec825ed346716fddcedc4e075b195f214dfb22586a33d46f7ec5ea3a17e" => :yosemite

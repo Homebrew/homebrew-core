@@ -6,6 +6,7 @@ class WCalc < Formula
 
   bottle do
     cellar :any
+    sha256 "53a5f916c3840f5f3742c5a4e2b9e30f6e4d1befa335a38e29e5e29619c1a0d7" => :high_sierra
     sha256 "c7de145bfc785fe7c5ab006a6d64f19bd11d199e5bf0d0c0973d598717d6c8b3" => :sierra
     sha256 "67160a91e50ae33f723ead45c4150750b62b3bd45ec009eb4b493e138d2a908d" => :el_capitan
     sha256 "1737fad1cd9e5beac6f3a06057bd594b4de2c6b9f709544acd4825fae9160632" => :yosemite

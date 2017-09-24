@@ -8,6 +8,7 @@ class FbClient < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4a70bc13d8f93956c3432281f53fd09c4fe8e0d77d2088f8251e1792974151ad" => :high_sierra
     sha256 "9e49650c2e2c1d5294ba22c821218c7b48ec97647f627fdd67e2ab45d2c7f499" => :sierra
     sha256 "ed82a23cee56924581955e38a0e75e457eeeefb044e3213de7fd17c74f437978" => :el_capitan
     sha256 "70fc5a9498e3d66788f57299c21586fa866587c0c1010ae04f67feecc2ee39d8" => :yosemite

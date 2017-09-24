@@ -5,6 +5,7 @@ class Openmotif < Formula
   sha256 "8f7aadbb0f42df2093d4690735a2b9a02ea2bf69dfb15ae0a39cae28f1580d14"
 
   bottle do
+    sha256 "e90188438ef546f721a8818af80970ae9a7939b3d1a926d1805a266f4e4911e4" => :high_sierra
     sha256 "efdbcaaf32496ce3a728c75c2349e28ca8a4b53463b24f3907d55ede3a7a5988" => :sierra
     sha256 "73b9b20a5b215fa6f60facf5f431e29fd86110103f533adf6e340b4090c8ff7c" => :el_capitan
     sha256 "3184a926a49f650bf07e100454401a777233986ea2c69eb1fef0e2e7922ebcab" => :yosemite

@@ -6,6 +6,7 @@ class Locateme < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e5be4f7b94d001483320c2445739e26deb3007f8fb54185eac4c1cdf941114a3" => :high_sierra
     sha256 "cb5fe0b740f04c036726e546481f0eed603873ce57b063e0621ae8f73f66645d" => :sierra
     sha256 "5f8e1febc1886565bfa9691cb3ffc0486999f8b682a52276c1d9ea6e0f1f4470" => :el_capitan
     sha256 "a7876905a4c06452431e506523c5fdf142e2de364427600122fbb9b4928bc6d1" => :yosemite

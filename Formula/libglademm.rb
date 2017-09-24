@@ -7,6 +7,7 @@ class Libglademm < Formula
 
   bottle do
     cellar :any
+    sha256 "c5c4576d3feff0e3c3013f59e30b4a00f154565b41f2f1dc63650c5d250d391a" => :high_sierra
     sha256 "9795cfd20206a8ddf58197587e346cd634a2998f02c2bbe7c8508d7796a46432" => :sierra
     sha256 "0f032c04b8d4de0f67c76456a9533114bd5bc032503eb2b03f990c9a6227138b" => :el_capitan
     sha256 "f53f8356f4d58604c5dd1153058dfa0b4b9aea04f18f823fb4ab29d2ccaa50f5" => :yosemite

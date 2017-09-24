@@ -6,6 +6,7 @@ class Xplanet < Formula
   revision 2
 
   bottle do
+    sha256 "bd4d0b8ed3bf33f6c6da0b43574fb08d054603d0b36b228a87d1ae070274ac7c" => :high_sierra
     sha256 "eedbdc803d69fa1635e763eafa90ffd071b537e994a5fbdbe9eb84e69c0fc645" => :sierra
     sha256 "6d37f0965bc1b1f1aa438fec8ea9e57a096681336dba25dc880f25cb752f3910" => :el_capitan
     sha256 "4c0e0c1b025079129f808e85d3d5e76280799929fa6e9d119000e94283769a8d" => :yosemite

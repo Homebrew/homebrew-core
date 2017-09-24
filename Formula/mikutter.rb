@@ -3,12 +3,14 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.5.11.tar.gz"
   sha256 "b90b09c400fe99092b1eaa4b4f39f78b90cff4335ed94d996cc2d4de08467550"
+  revision 1
+
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "1529e8cc45cafc9a58ab181dff4fb3a0fb35a4756e2755cce5fdbf35970e7b2c" => :sierra
-    sha256 "670f953b07945d9e60a504ac36b02b8ce3d95247df093558e078f025af55fcda" => :el_capitan
-    sha256 "c52e9cbdb5d946f8b1478a37938b952e0ead6d70355bfcabc841615b3b551c0c" => :yosemite
+    sha256 "bb4200a6988a54018294510c596e6f52a52669973cfc7e09d4c2b676b9954890" => :high_sierra
+    sha256 "3f463fde07576593a53b03dd3ec2e02b2ac2d253582a4ec53dc10719154bc2a2" => :sierra
+    sha256 "5bbf0a7bd5646ef9388a87cdde0a71abeccc94b48d1ffcca671915ad84ce49af" => :el_capitan
   end
 
   depends_on "gtk+"

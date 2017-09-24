@@ -6,6 +6,7 @@ class GnomeCommon < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1a24d488923e1d73f30e541bf1fcd4956d73e4d0f11c32e5133946cb6a1c546b" => :high_sierra
     sha256 "6aae778f648ed18eb63e49a5764fa98431683dcaff1d42280d9cdd464b727312" => :sierra
     sha256 "a5ad22711bdc05e9dbe4c4891ad06f146bc81b4d0d7d737d582f32e36f4e6fc7" => :el_capitan
     sha256 "7e3512e3a7c39f759ab9f3642831961b355f3f83ae6e19a26fdaf91739870e23" => :yosemite

@@ -1,13 +1,14 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.46/gource-0.46.tar.gz"
-  sha256 "9aafdc072e4508990965da246ca17ab94c6937649030bf49de371126fc8479dd"
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.47/gource-0.47.tar.gz"
+  sha256 "f2b16083a01b897b6c062b363793028fb9e01cd6f888d91772ee06e56ce398d2"
 
   bottle do
-    sha256 "315049c4c3c32f00ae3f334ee67ff0621c9b68f748fc73e63eea49f8e28c853c" => :sierra
-    sha256 "0407757d9bc3fc79a61356421338954b1c2a2661f5f0e0c5572da164f9a024df" => :el_capitan
-    sha256 "b0db447b92392ef7be2a54ca1697e5aea728b7865d15b37c04ff2c481b208b45" => :yosemite
+    sha256 "d42a81092141197cd74f4bbec4e0265c1cbb81a7d00f150dc6cea18319e5b6d2" => :high_sierra
+    sha256 "4620f83a4698992da638c4c0b1b02c81ee1e5aecf1e6280a1568043d4af12a2e" => :sierra
+    sha256 "bca74b4a29161250c85c39edcb41930fc284abc06024955c759b9c74932a8990" => :el_capitan
+    sha256 "8fd44f73f13254c88e52da1c891ebe7d425d426b056764a3142d628519ecff2e" => :yosemite
   end
 
   head do

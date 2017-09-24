@@ -7,6 +7,7 @@ class Ccextractor < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "35b445f24dd0be2979fb9cdb47eda8c45489aaa746d6efeb866a1e8d2329a272" => :high_sierra
     sha256 "708daa50fd6cd54bac11b8bb8f55b54b0999b180313538fa7bc3c346b4240c2e" => :sierra
     sha256 "c9b725b4f4680f534e6924fe0b2b68aa77b25ff14a4118d49bc60bdfaa286287" => :el_capitan
     sha256 "03f774c0122cad214d35afe8fbfdb450ca1713601858b07d783c8ade9757c44e" => :yosemite

@@ -6,6 +6,7 @@ class Arss < Formula
 
   bottle do
     cellar :any
+    sha256 "b848efa3abde7c5fffd18289c1ab51a842cd93e0e97d6af32329acf869909d38" => :high_sierra
     sha256 "2311c31ae2e80905dfc41c8adb9639314664103352540b198f24c54e0c102550" => :sierra
     sha256 "5da45934b19d0cab02c809932fb8c5da3fd76d2f781bc9e2e7a98fa1825989eb" => :el_capitan
     sha256 "268225389842f4952424b17c7b94759b7a3d3009053b50718f1e4155b7eace86" => :yosemite

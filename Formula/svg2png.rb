@@ -7,6 +7,7 @@ class Svg2png < Formula
 
   bottle do
     cellar :any
+    sha256 "c0495d355b1ca05b777814eb2bed14fbae20075a9aa1dd72bfdcdd2efd117587" => :high_sierra
     sha256 "d3d9556295a1bed19da91bbe741d3980638bade739e37bbb19d01f517a5e442c" => :sierra
     sha256 "327bbf146aedf651d8af446ae94a736fb89652cd8a4a7d8d0b00b1f6ca3f7693" => :el_capitan
     sha256 "8d6abbad01e2b307369b7feadf2b79232b9b1f248bf5f789aa8a3231caffedff" => :yosemite

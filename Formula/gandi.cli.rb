@@ -3,14 +3,14 @@ class GandiCli < Formula
 
   desc "Command-line interface to Gandi.net products using the public API"
   homepage "http://cli.gandi.net"
-  url "https://files.pythonhosted.org/packages/a7/97/186827e26434d453736493861e4af0ff740c8b08abe681dc471733dfe48d/gandi.cli-0.20.tar.gz"
-  sha256 "77e335cd4083b5c5ef0d28b2e23ff8e8ca7d4194e2decbce3e18f28f6c53a66a"
+  url "https://pypi.python.org/packages/4c/8f/98d894cf7e941b877780746348eab58a694f01c0903c1928e0de59c7d1a9/gandi.cli-0.22.tar.gz"
+  sha256 "5666b544e313132cf9cfe82fb3a163ce140df0e1b91d5452d54dd50a49b0b8e6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1103cca488925641f4a5179baa121faed35ec3f6f14ee245d49a9c6d05986c07" => :sierra
-    sha256 "5a58f720fea012014eebf5d37a70fabf8f7bc2ffb4abbb08ef2db97c045dffc7" => :el_capitan
-    sha256 "cc7b4681f68afb709c9b1b2530c5971e2faddcf0d8c5d023b65742e70b1a9666" => :yosemite
+    sha256 "13673131ff8abbceaec47dae928a687aacc92f2b85b053164b5f8ec3c27f3fd6" => :high_sierra
+    sha256 "7fb9cbebf67957d8c7a9d472e2ddef71f0e5f06a6c2b8ce708982ea9c01b7f91" => :sierra
+    sha256 "60e6dba84c5da6d71eba92776d8cb5e1b543397351a65a29aaeb9570a061747e" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

@@ -6,6 +6,7 @@ class Nmap < Formula
   head "https://svn.nmap.org/nmap/"
 
   bottle do
+    sha256 "0a41a035f709d509ba3f83ebaa1daa3f98742e89ef10e3d584e4403fdfaef202" => :high_sierra
     sha256 "46496cbfdeaedd22ca3afba6bd2b7dafe3bd79a89b8511bc6c246a6e2cd97cc9" => :sierra
     sha256 "92863122b5f00404f3c19ff0ce1ee2c787d3f9c022adff8f772c30c3f0601f2c" => :el_capitan
     sha256 "4b27984c8b92207b1d3e283a1a423a27d63401a809de5e43083722f62be75e35" => :yosemite

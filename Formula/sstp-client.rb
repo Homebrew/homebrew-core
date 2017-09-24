@@ -6,6 +6,7 @@ class SstpClient < Formula
   revision 1
 
   bottle do
+    sha256 "c9e1c4a81489bff6db3bfab2bb94bd5d5effd520794d1e034badebabe52b708d" => :high_sierra
     sha256 "1e635598256413113dabafeb7c29670c15ddef72ec7f838045c701beb360d12e" => :sierra
     sha256 "f26f09f558a834f4f63ccc8dafc551aca7776c64aefb166995dd24e37a14f325" => :el_capitan
     sha256 "696a8f7752dd97d1118b878710fc27c59a95fdc84bbc1f444dc91b9709d51351" => :yosemite

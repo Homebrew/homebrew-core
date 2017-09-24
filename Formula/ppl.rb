@@ -5,6 +5,7 @@ class Ppl < Formula
   sha256 "691f0d5a4fb0e206f4e132fc9132c71d6e33cdda168470d40ac3cf62340e9a60"
 
   bottle do
+    sha256 "e7f36d463f0324f5a7f951b09ba0a0916b65a16d5155ced9bcccbf3349536754" => :high_sierra
     sha256 "925201fe3772b8dc994c8edc742fe6925426a534a62f8d706c94ba8a859eacf7" => :sierra
     sha256 "34a1396fefc946754958e92d7ecffde0175b33f16f4545f46a00d4f63408cfd8" => :el_capitan
     sha256 "83c3f03aa0766155e98e322409f6d4389bfee3ec510848c7eab1c91329d5fa82" => :yosemite

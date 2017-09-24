@@ -1,14 +1,14 @@
 class Freexl < Formula
   desc "Library to extract data from Excel .xls files"
   homepage "https://www.gaia-gis.it/fossil/freexl/index"
-  url "https://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.3.tar.gz"
-  sha256 "f8ed29e03a6155454e538fce621e53991a270fcee31120ded339cff2523650a8"
+  url "https://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.4.tar.gz"
+  sha256 "500ff1010bbceee26d4ce1b991515736bd8c0ae6894f8c38468c05c224fe7c25"
 
   bottle do
     cellar :any
-    sha256 "230274403aefedd59f70c0af9b162a88c40a51052d1d810b9e55fa56afbfaccb" => :sierra
-    sha256 "1da66894b7596c4e51c9515f493b1615dd6d69cd8c0c01587d7bc0aaf6545e95" => :el_capitan
-    sha256 "fa5bc38a5573eb9dfbde7210ad850ff49e5a2dd78d1c128c8831ccbb55951c1a" => :yosemite
+    sha256 "7ca25e585235a32101d4609650add1b1958f802abb4ed27344070f22b30aef3b" => :high_sierra
+    sha256 "0acd882858992391ab7538d5ba0b7759e6ac74a66cbc2d3ab7687e21359153be" => :sierra
+    sha256 "3fe58df5c022ebb71b420fa3ce3cd6d672bea6f51b4fcb7231716305add6d768" => :el_capitan
   end
 
   option "without-test", "Skip compile-time make checks"

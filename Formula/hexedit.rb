@@ -1,22 +1,23 @@
 class Hexedit < Formula
   desc "View and edit files in hexadecimal or ASCII"
-  # Homepage/URL down since at least Jan 2016.
   homepage "http://rigaux.org/hexedit.html"
-  url "http://rigaux.org/hexedit-1.2.13.src.tgz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/hexedit/hexedit_1.2.13.orig.tar.gz"
-  sha256 "6a126da30a77f5c0b08038aa7a881d910e3b65d13767fb54c58c983963b88dd7"
+  url "https://github.com/pixel/hexedit/archive/1.4.2.tar.gz"
+  sha256 "c81ffb36af9243aefc0887e33dd8e41c4b22d091f1f27d413cbda443b0440d66"
+  head "https://github.com/pixel/hexedit.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a876b73ca63a0da195ddee709716ca973d579b85062a93f85261500f8ffeb612" => :sierra
-    sha256 "078d2bd1b7fd56db28b0b4d972826aedd117e810d9a885b5b2545cd8e5e5ccd5" => :el_capitan
-    sha256 "4f06836e7a2f4a280084fe8f9f5ff3903272a6e9995f24bf93156afc56d7b996" => :yosemite
-    sha256 "1931661462fffa57fb8b0b6b7cb3c4439ed72b93f5a0a6db94e9bb2f5fa1cd4d" => :mavericks
+    sha256 "9a6c6e290d26d793c2e2b85a1cc1ef0147ea70d957859228d5a363c8ebb3fb4f" => :high_sierra
+    sha256 "c93767f4bec81f4d372d4af42a7505131f61ce4992b2549210aa464ee5b309ce" => :sierra
+    sha256 "8939412f612cb0b5a8fd49fc1045bdd9dee9f729cf741fba2421ed28deeadc82" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./autogen.sh"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 

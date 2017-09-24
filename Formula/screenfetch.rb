@@ -7,6 +7,7 @@ class Screenfetch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8e0571c592a9ae4b20d7e88e12dcbde9b722856721c3227d3334800cfd8445f5" => :high_sierra
     sha256 "62441999c591325de600f4cbd5d46e4157c443cfb514a3b1dfce8764c911785d" => :sierra
     sha256 "62441999c591325de600f4cbd5d46e4157c443cfb514a3b1dfce8764c911785d" => :el_capitan
     sha256 "62441999c591325de600f4cbd5d46e4157c443cfb514a3b1dfce8764c911785d" => :yosemite

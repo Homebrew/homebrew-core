@@ -9,6 +9,7 @@ class Pldebugger < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "31c78de62ec15c0010d5e341b2fc4c947f337379fbc03e160773f2703fb66f31" => :high_sierra
     sha256 "c672b8a6594087205bdf0e700a2563b34be401d1553172386296f558f6848e9e" => :sierra
     sha256 "62e41779ae932b596865c17343ed72bc6fb2ced041360c4df95b5ec2e5555be0" => :el_capitan
     sha256 "322f10ac752eafba3f029c2edb59a9cb63fcc09c76f8751619cd835df46c8122" => :yosemite

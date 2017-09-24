@@ -6,6 +6,7 @@ class Camellia < Formula
 
   bottle do
     cellar :any
+    sha256 "fc8cb8a0f24226fd1f93b32192f290107d44283196e1edb48458b184597aa729" => :high_sierra
     sha256 "b4783ca8cf782a63d09daa1ff363c2fb4c4ea6dd4e75b8beb29167f536227730" => :sierra
     sha256 "a80b2f52fd6811c5c4017bceac418d241c30342c93c1e9ae8911ed5274630e9c" => :el_capitan
     sha256 "94196d40772f262cedb88f3dcf8b66c84fcc78cd419b439bd9619c25d602c8b1" => :yosemite

@@ -6,6 +6,7 @@ class Xsane < Formula
   revision 2
 
   bottle do
+    sha256 "d3c47e5c3dcd90837128d8f9651f16a8961a5717ef9de3b8c541d19cd491febf" => :high_sierra
     sha256 "c1a94d6bdeaf042c47843ec56572e66770de3b20e67ea6dfa7860de3852f9693" => :sierra
     sha256 "e0bc65a90a76de12679aa853be48f2b3b4a5a9ddae3070a8409c84ec093642aa" => :el_capitan
     sha256 "bcd6cdaf240371d79ed0385a41e2e3eaec76616d2086be93fdd3b673c2aa9187" => :yosemite

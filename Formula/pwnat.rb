@@ -8,6 +8,7 @@ class Pwnat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3a4bf09acd5eda4e54fbe21d0028948613fa398a3a1272722957079a9f18c836" => :high_sierra
     sha256 "f8319cece67a334c14129e706f9d1b249d7905cf1ad62df9b5ee9553dbb8d001" => :sierra
     sha256 "0149fc977622f2fd55db5845a377437028df31bb847230d3fd73d548e481e289" => :el_capitan
     sha256 "cf17568c4053240ffe61594bcc618577c0d0c569abda8b3b956a4e4b441a755e" => :yosemite

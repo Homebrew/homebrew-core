@@ -7,6 +7,7 @@ class Cbmbasic < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "99490e603e86319b7c4307657bf58511dacb801dddb30ed7c4269feaa19eb6bc" => :high_sierra
     sha256 "018c1d1fa3050bdbd88c092f19c1ca787098ea1183e1227671507af3fca07b52" => :sierra
     sha256 "92762d9b7f5f21190b98d23e7fedf787cccc14e1c82699b60036948beaf1e7d1" => :el_capitan
     sha256 "d7285a8376e20ac008e51814a97f155f8ac80ce94a809c953ee63932a1d2c1d7" => :yosemite

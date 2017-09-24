@@ -6,6 +6,7 @@ class Libzzip < Formula
 
   bottle do
     cellar :any
+    sha256 "ccdbd2db5fc153ad6b0990539b5b6702c65f964971f9256887e508c0c291d86f" => :high_sierra
     sha256 "e041856e291f2b6731d586ef8deb08593f65fc2f859019ff54c248e6c960c608" => :sierra
     sha256 "08baf77479ed193c4d80d3f0b6ce1d2625987d31b72ce26faed321ac21f55740" => :el_capitan
     sha256 "58fd8baaaadd33339ece54c63dde70fd4147c6f0302e28b953c10e85700fbb47" => :yosemite

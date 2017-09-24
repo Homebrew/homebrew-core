@@ -8,6 +8,7 @@ class Osmfilter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1c04b6263529f834c06c0c10585e113b0b1bb79892bfa026f2d0434ed429b5ec" => :high_sierra
     sha256 "695df679621b40bb041d44ed7ee03cb93a4fc65157305be6bb435817605efde8" => :sierra
     sha256 "d97cc8f31c6ebaca1d0c861e847fc75ed8085d24685a1595390a8a9f4e6e6b60" => :el_capitan
     sha256 "c86fe580be660e9de835cb4975413d8fdaa99b17834b5f0c8944b1815f9033d7" => :yosemite

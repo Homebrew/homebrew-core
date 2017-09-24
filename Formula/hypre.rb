@@ -7,6 +7,7 @@ class Hypre < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bbe0dffe2a16ec82f2388d584cee7bbf27773ed9d6092a8424eb3184aa3b42eb" => :high_sierra
     sha256 "541fcb1adc778e587e3f8993bdf7d6c7fabf026ed2256af0e8a4fc64d831f9ec" => :sierra
     sha256 "a610e8ee47f8962ff959e8223d44f87320303144690458550264bceb016464cc" => :el_capitan
     sha256 "e228abcdbeeed01a30b13f1471cb848d309fc306a861d745338b71451374e032" => :yosemite

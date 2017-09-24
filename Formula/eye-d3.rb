@@ -1,14 +1,14 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "http://eyed3.nicfit.net/"
-  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.1.tar.gz"
-  sha256 "a982eccb220c54e9ca5eb2467a3eb11082b6fb962f0fec58fd9b555397208998"
+  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.2.tar.gz"
+  sha256 "ca6d094c256270a1a64e3d60d114a7a6e4b2c5777201ed8f4670f573af18ac56"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e7114758a6cff274cb7a0a848f32fe38f7039b2851143216692588349c1bf866" => :sierra
-    sha256 "a75a8692dfe804c3303bc778bea15cb94370b5a1de8f0182be2b1bebe592a0a6" => :el_capitan
-    sha256 "a75a8692dfe804c3303bc778bea15cb94370b5a1de8f0182be2b1bebe592a0a6" => :yosemite
+    sha256 "678c663366717665bfe79d307b3d93ce2a594e27a680f19e0d84a6b1e84a1594" => :high_sierra
+    sha256 "b36cabe996a48a9dd14e177e9cab30545e1a6b0d1c614025341cda9f69a73903" => :sierra
+    sha256 "2dfd39304a741c18c5816d481c9b0ef80eee367f2039f9b4f906660f0d6cb2f3" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

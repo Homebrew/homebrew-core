@@ -5,11 +5,12 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.7.0",
       :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "9249e8eee21107d6269bbf14e1205864501551c7be17111245e1e15739228d45" => :sierra
+    sha256 "60c2a67a6cb9833777c45d2d28f1b792f33db468ad40849f33b4ea3a0995575a" => :high_sierra
+    sha256 "05ff0b2bf5892901e665c9c4458f9798938b27414314c51ea1ba05e35c91c090" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -55,7 +56,7 @@ class Osquery < Formula
 
   resource "aws-sdk-cpp" do
     url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
-    sha256 "94d3bf8cbb1db18ebdb50fbf20aa48ad1838f1743bbd22ca04adbaad9bc284dc"
+    sha256 "d88e152ab5d9ad838166cb32a6152549ec16a51fb2fcc0802c704ea79c12edcb"
   end
 
   resource "cpp-netlib" do

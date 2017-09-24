@@ -8,6 +8,7 @@ class Ubertooth < Formula
 
   bottle do
     cellar :any
+    sha256 "a54024bcd4be30d09776fc854c16d99efbc32866f54f613dbaf70db382f65b4c" => :high_sierra
     sha256 "fac20ea8ff4542694b9981becf324613ffcf18017b0d9336543a17e218c2970a" => :sierra
     sha256 "48273e1db5b00160de2e06c4bf91316fd6e100547a2ef44b2e654c7f3b672422" => :el_capitan
     sha256 "5b88c567e8fd85a7bed6a064836a9ce09190c0df0f728c2577d5025d6b3ed1ee" => :yosemite

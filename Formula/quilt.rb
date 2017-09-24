@@ -8,6 +8,7 @@ class Quilt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6905212919229016ef984a2aca56b424da0057ad3404a9cab0290997838bb785" => :high_sierra
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :sierra
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :el_capitan
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :yosemite

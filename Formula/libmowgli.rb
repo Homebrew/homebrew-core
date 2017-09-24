@@ -1,15 +1,15 @@
 class Libmowgli < Formula
   desc "Core framework for Atheme applications"
   homepage "https://github.com/atheme/libmowgli-2"
-  url "https://github.com/atheme/libmowgli-2/archive/v2.1.1.tar.gz"
-  sha256 "98d6cf3faba0a6f3e919598cbb21e069f4ba77af09ec968f377ac1b5d3f507d2"
+  url "https://github.com/atheme/libmowgli-2/archive/v2.1.3.tar.gz"
+  sha256 "b7faab2fb9f46366a52b51443054a2ed4ecdd04774c65754bf807c5e9bdda477"
   head "https://github.com/atheme/libmowgli-2.git"
 
   bottle do
     cellar :any
-    sha256 "3fbca1fc1204f1cf8c763e1ebd01f612f60bd1f70b8ac0f2b6a6242e29bfad72" => :sierra
-    sha256 "03bf7b7d0f8d96b54ecdd3af714fb74a8e9ca7c8cd320189d29b1db4cd3ed2ff" => :el_capitan
-    sha256 "cf0d2986d1afd149fb4ffd4f39cf7b2e2e8dec3f52a0961a7185dda96d05c932" => :yosemite
+    sha256 "1fcb475b2d5fbf9bbd86efcfd324a91eb45f81929d9ede4acedbb92bef720f49" => :high_sierra
+    sha256 "d656a2546b58d5549621770dec4a02132e4d2b1d28a879f653129c5db6f8749a" => :sierra
+    sha256 "12835d9124733d3308ef989381a22fcc36b19862fccda3433877d96b3d9ff087" => :el_capitan
   end
 
   depends_on "openssl"

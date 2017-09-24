@@ -11,6 +11,7 @@ class Dcmtk < Formula
   head "git://git.dcmtk.org/dcmtk.git"
 
   bottle do
+    sha256 "b900c5ddef45596eb7d51b5bc4c504595c25acd011b7627b9c54282187c3130b" => :high_sierra
     sha256 "c16eed98ab93d05889a73c2f8ced0528f79e18bd2b2f6ffd614b3783c2799559" => :sierra
     sha256 "4f108d543ab8301041dbb39f1cae4db40d794acf52dc682d1c090ee98b9bec45" => :el_capitan
     sha256 "bd2ccb04c0f419299ecece817e4d46da7b8cbe5b1636ee25c460fc628d55ea13" => :yosemite

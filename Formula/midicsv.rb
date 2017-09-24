@@ -6,6 +6,7 @@ class Midicsv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "737ea2eda70a778d076568af902f16d609aaae4baeb7ada7795c32d4de886f81" => :high_sierra
     sha256 "314a21ac6aaad39594a54bae4bf3ecc64e3ef0cd655e7c18c6ff05ebd72c9b86" => :sierra
     sha256 "230ba9ec9cbb40c2c128c1a063152fd07888210f59bf37f1f68bcd2f33d4d863" => :el_capitan
     sha256 "f649e02908dee31c35e9b73954b8faad2da70e1c7e621fddb64f18dbad897036" => :yosemite

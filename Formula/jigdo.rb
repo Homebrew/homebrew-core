@@ -10,6 +10,7 @@ class Jigdo < Formula
 
   bottle do
     cellar :any
+    sha256 "3ad66af05caff82cc3c21e21591275215bebf61c482a38111dfe8711e1b2a07e" => :high_sierra
     sha256 "2f3d7e4982c237ca7f1f6974affd0a9ead3968cce95b2ddfa8e524d8f3f2a148" => :sierra
     sha256 "c358bb19d92627d98ae5343eb2ba9254403dfa6d8a27ba4c0c63bb48944f8328" => :el_capitan
     sha256 "5f7e5d7e53d3c3c3db5ebd6c14fb6c13e1392aaf1d24259a4937640bc291be85" => :yosemite

@@ -1,15 +1,15 @@
 class Overmind < Formula
   desc "Process manager for Procfile-based applications and tmux"
   homepage "https://github.com/DarthSim/overmind"
-  url "https://github.com/DarthSim/overmind/archive/v1.0.7.tar.gz"
-  sha256 "9ef5512b2b72db0110eafff8864357954b2516f79ecf0b3c040327512722539e"
+  url "https://github.com/DarthSim/overmind/archive/v1.0.8.1.tar.gz"
+  sha256 "f3739b1f9e1a3b94f893a6849ad521d94cef9f149959edf2cb643b555977f7a2"
   head "https://github.com/DarthSim/overmind.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fce6ae006af7eacc09ac98bed3f404ab7090b2fda7b146738efd0ff5f3ba7569" => :sierra
-    sha256 "52bb1e0d12053924a9c13a51763f6ded256d4b51e5daa65199e270c917f382b6" => :el_capitan
-    sha256 "487101326fc525458c3aa3de01b37170dfdbb4a5e76a8f8efb34e799043a951f" => :yosemite
+    sha256 "55526aeb2004cb83613fd48425c9ee1d404f2252fe72300ccc19c96bd11a44b4" => :high_sierra
+    sha256 "732996322d3bb15e40fa7770201e322eddab0afd2568afafb1fe6586f883e84c" => :sierra
+    sha256 "9772fb4a878e894bbae218d62585745f531368f08646fbd5c83b918e0c668829" => :el_capitan
   end
 
   depends_on "go" => :build

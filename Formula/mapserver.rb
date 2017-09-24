@@ -7,6 +7,7 @@ class Mapserver < Formula
 
   bottle do
     cellar :any
+    sha256 "ae6ae9ba705120b2df9483a7a7caac0da5c57f70cf5f8c4576eb0b76a43416ca" => :high_sierra
     sha256 "ef3e7ddb2203276facc294f9c5e5606bbf79058c761a901947198922c87904e0" => :sierra
     sha256 "371998c9f382661c76cdb34420433eec1e0d7585482b87f2c4679a4033fb2774" => :el_capitan
     sha256 "a147d986ee889d28969c97363446cc81206a3c8b9372108d7df4941382387320" => :yosemite

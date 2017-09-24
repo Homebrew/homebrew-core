@@ -5,6 +5,7 @@ class Tgif < Formula
   sha256 "2f24e9fecafae6e671739bd80691a06c9d032bdd1973ca164823e72ab1c567ba"
 
   bottle do
+    sha256 "4023a1df9a1b9ee248891d2d54ce00127407ce80f89d2b1edef05fe2e4c8cf1f" => :high_sierra
     sha256 "d96d0bafe9c364642e354a6d80ffce48d532a8ed161372cf549c213b9a0a8a30" => :sierra
     sha256 "9912995702f73e3add877e329b9bd894e9a7f5fe2024161b27b6d81462aeda9d" => :el_capitan
     sha256 "df95673872cdb34ca9cccfaa456bdc4a35e29d720b8ffa4875501cf864d399bd" => :yosemite

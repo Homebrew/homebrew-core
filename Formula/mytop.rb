@@ -9,6 +9,7 @@ class Mytop < Formula
 
   bottle do
     cellar :any
+    sha256 "5921bbce36cc99fba2b22daa784a3dbff556a1fd57d2f9f54e46e6650d32d8cc" => :high_sierra
     sha256 "e49071ca46a5f8203d24ea318afab37b6a387f5669b69cca670a0b053e1c7611" => :sierra
     sha256 "4fca8e6d7cf86993af8dcded0b4ce5bc0b4a3fb63ec2359c42d0513019ec03e0" => :el_capitan
     sha256 "869b2a25dd9cd7fdeadce32336e8c8ff0d90545a78fedbd6c9a870c0910b2521" => :yosemite

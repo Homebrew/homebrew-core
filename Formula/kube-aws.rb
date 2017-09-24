@@ -2,11 +2,12 @@ class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
   url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.8.tar.gz"
-  sha256 "38b6bd0adbab695e5c009ad4f377e3ac21b8d4c001bc5a8a5f5cf845d2149b80"
+  sha256 "d4954b8d42dee8459329a799088267632e368e0b60652bfecab4a16d59a2f50a"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9552e54a302fb9514e05e2332e652ac4840a5175c583ca397cd655d6ada29f91" => :high_sierra
     sha256 "43b4567874d330c91191d155c699c9a7b5522246bc5fd204954182a5f9a04b50" => :sierra
     sha256 "c27239463b5d9d28c3adaa0bf5e112637b3a266bf28bfb97b076d952c9d24e53" => :el_capitan
     sha256 "4bde1b4c7934815860f2e94731b9e70843f6d2bcf79a886f96dcb9f47be1d057" => :yosemite

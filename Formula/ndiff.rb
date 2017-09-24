@@ -6,6 +6,7 @@ class Ndiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e07f1749ab348c33f3918e0278ac4dacbb6aee0553dbb62434a8b59174d20746" => :high_sierra
     sha256 "ed6f753f9fe240486de3b6589350fcc0e7afbe345ae2e01bf6b47e132de9be4e" => :sierra
     sha256 "6faf20ce4c88110019c76cc4253cd65e5743fab7cff109fc8a7d41c8f411012e" => :el_capitan
     sha256 "80adff8ec563059b7f49005c7e567b950ca58b392a4a5db18ae4957fe18b296d" => :yosemite

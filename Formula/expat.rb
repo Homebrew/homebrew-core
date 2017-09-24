@@ -7,6 +7,7 @@ class Expat < Formula
 
   bottle do
     cellar :any
+    sha256 "e7691f8d7ff015e0d17c2e2fd56967ff6bcea49dd60becfd3eb8e03793588262" => :high_sierra
     sha256 "cf560bf57e8ba9ee38b9e114b1a3edbbad2ddec86c07b8641073ce93094f2080" => :sierra
     sha256 "c7f3b94d633261b1c653b78ab661815a8bf8391a8680d6d0f483f44ba4c22086" => :el_capitan
     sha256 "7ca48b81e9a6a8717647ea2a30042e046260a514bccc80d8918908c2dd32c576" => :yosemite

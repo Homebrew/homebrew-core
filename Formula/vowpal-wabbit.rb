@@ -3,13 +3,14 @@ class VowpalWabbit < Formula
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
   url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.4.0.tar.gz"
   sha256 "8624c33fd516e8b738fbbc6fc49f62ac03f97af183dbecff298162b4bf5736d5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "ea123697cb6966ad940d0c80fb9bfe2d70a1771718e53b114dcd8b0c5c8c0d33" => :sierra
-    sha256 "7608c2d50b1873c2169b4761ce6520d28c09f687a604848318eca557bc6283a9" => :el_capitan
-    sha256 "03f789ab69a1cfd7526f74530ac9a2f552df190357e4e6a0133f57f2371c0c71" => :yosemite
+    sha256 "1c75a20fd7b7c0ce685f1a56e4c9c79349bc26943b3cd4bcd906764b757017be" => :high_sierra
+    sha256 "7ef502ea64c6c0eaafe328037354ff317cd4432dff8b68d2669c85688b2dd145" => :sierra
+    sha256 "689048beda8fffbe1a7bb888bfef4cdccaf36e5f03eb6bed172efe82ebbc58e8" => :el_capitan
+    sha256 "2e7c5709faf8fe35f65c676cf994e9d6e3928b9f609d6820f78224b0276278d0" => :yosemite
   end
 
   if MacOS.version < :mavericks

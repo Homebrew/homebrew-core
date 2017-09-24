@@ -6,6 +6,7 @@ class Daemon < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ca2b1016c1bbe48002f70b7beb86063943dadabcb670db9f90f1c259cb34d623" => :high_sierra
     sha256 "bfc116e8f0853cdf5b4abc38b1f000c90708823bf49c5237f8ec453400a5d606" => :sierra
     sha256 "ad4f8ad9e7deeb0039c6c603b0108fb6733abe425c49fa6344f762e26b49cf2d" => :el_capitan
     sha256 "f48000af3631f28d47d01d3d89a1f03e7c4f7eac4a81ab7db9c38a1ce9ff66cd" => :yosemite

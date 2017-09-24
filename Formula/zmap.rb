@@ -8,6 +8,7 @@ class Zmap < Formula
 
   bottle do
     rebuild 1
+    sha256 "22797a2a2959ec957c10567d97d35b9bcb6d02d8fbd4e72666ac6e8d29064725" => :high_sierra
     sha256 "659f3518abb4023324778a16fa306abc8d8c43b34c9bd16e6bc7e412f1a511d6" => :sierra
     sha256 "d8c0781ebec0087401d6fe6c272b0ae83620590db314fc6cea5c5d33aea46725" => :el_capitan
     sha256 "15c8181a1e086b39d88223f3a01bb29d868d9d7d6c3118973250833da96f38cb" => :yosemite

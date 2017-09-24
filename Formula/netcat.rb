@@ -6,6 +6,7 @@ class Netcat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "002f66c9cae7c890fef27e7090c5815e0267a3a678c746702abe8578080b6d38" => :high_sierra
     sha256 "5a8c59723d1f2a1f0ecf4772064469dd01dacf9ff40db0be7eaa1c4ef25dc910" => :sierra
     sha256 "a600542d98c534b9790961b1f25c3e23276d1f7483c51efd06523129070a3f0e" => :el_capitan
     sha256 "7ae495a909a2a25f6d8314857009a475034994234186682cc8dace4ea3c40b0c" => :yosemite

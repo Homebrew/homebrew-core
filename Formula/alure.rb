@@ -6,6 +6,7 @@ class Alure < Formula
 
   bottle do
     cellar :any
+    sha256 "5baea30dcf15d45e2ea3111c3ed52fd30e6d0c38c7ca5b38b0a8c22ec1861f80" => :high_sierra
     sha256 "2f13ff3eac6fa8d84047502e9cfc1659740c0c72fe2c529cfcfd7610d9b6ddfa" => :sierra
     sha256 "271fbc61bdd430e8bc5f6624a2944bd3d0e2ffa8787f1899c3ae98b768fd229d" => :el_capitan
     sha256 "79205290fb22706d0b5d855ad4067f08dbdaf3f93274eef7e900cbe7d4fd841f" => :yosemite

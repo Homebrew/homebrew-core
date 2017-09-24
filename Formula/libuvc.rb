@@ -1,18 +1,16 @@
 class Libuvc < Formula
   desc "Cross-platform library for USB video devices"
   homepage "https://github.com/ktossell/libuvc"
-  url "https://github.com/ktossell/libuvc/archive/v0.0.5.tar.gz"
-  sha256 "62652a4dd024e366f41042c281e5a3359a09f33760eb1af660f950ab9e70f1f7"
+  url "https://github.com/ktossell/libuvc/archive/v0.0.6.tar.gz"
+  sha256 "42175a53c1c704365fdc782b44233925e40c9344fbb7f942181c1090f06e2873"
 
   head "https://github.com/ktossell/libuvc.git"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "87fe5bb38f766397c7dfd1a22529f781679dbf32f0bc2c1d2e1f5c53c1b124dd" => :sierra
-    sha256 "6893748683e4eef0e0bd595acc9d7dce1e70d06778e264514ffd0fd26f3cf22d" => :el_capitan
-    sha256 "5a20089a01f4c7f1d85bc91f6f2369ce5b1f1c4faf8c9beed2a764f80609ab41" => :yosemite
-    sha256 "c2b007f5dad961d8767cc129d69ba352e0c8d6dff9746ee45697ceff6208ed8a" => :mavericks
+    sha256 "7aad3af5a7a5f2936d2fde1a208a6efcc6dbf7e80a2b61202b0a208c45abb7df" => :high_sierra
+    sha256 "0e2f8e177ecefcf0cd2a2c2be399d3e45fe18956642363b6f0e9b6632a7019da" => :sierra
+    sha256 "2223e66660b7c600b71cb13cc9921c687bcc33e9e85fee7ab351c383e1533657" => :el_capitan
   end
 
   depends_on "cmake" => :build

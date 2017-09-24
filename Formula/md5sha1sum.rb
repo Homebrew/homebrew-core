@@ -8,6 +8,7 @@ class Md5sha1sum < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "7bf0df78b9d06ef9cee025b92432217eee87eb337e51c1315862922438e65246" => :high_sierra
     sha256 "6407844631c35a9dd03f7de29b811710af572cb0cd61afe6a184ec37ce7b8289" => :sierra
     sha256 "f2f58d429e422e58a4bc58ab872de048bd873c1cdee017ebc0e133440a223745" => :el_capitan
     sha256 "5ff64041e3ce1028522dabfa6e6260d1502033e207434e9d41598259f426af56" => :yosemite

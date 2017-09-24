@@ -9,6 +9,7 @@ class Fabric < Formula
 
   bottle do
     cellar :any
+    sha256 "9e1e596f30150a3535edc5e6b01cbeea84126f9226e20d4a3b40ecc1292ed942" => :high_sierra
     sha256 "d6a21bf4a5fb9e870d7314439a810cab366d754a7372431599a6cc43f72e79f3" => :sierra
     sha256 "36f87be9b6f9bebbbdbd5006bb53453c7b78e5d7172f33b3a11798a66308a777" => :el_capitan
     sha256 "99acff28ede8c20b6d9d927341740e8f37f4e976ca3895cc4a2356f378e20cfb" => :yosemite

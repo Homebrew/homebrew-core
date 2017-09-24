@@ -3,15 +3,15 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://github.com/pimutils/todoman/releases/download/v3.2.2/todoman-3.2.2.tar.gz"
-  sha256 "132a92c61a9af454a6f52d1e0ee1e7b215e15d225dd2b7eff35786b0d57738d4"
+  url "https://github.com/pimutils/todoman/releases/download/v3.2.4/todoman-3.2.4.tar.gz"
+  sha256 "05264d7702b31f3f3e1b73e679d0cc0af563a34385e15b376a924891d56cf370"
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dbe4bcfa83928edbd421a9fb1419c4420be7ac41cc5e58f10c9b186ebc6ab919" => :sierra
-    sha256 "d10873c32180560bbde28f9b92d34bc1ea94a058ac20192ff637604cf3c07088" => :el_capitan
-    sha256 "ad272f65591711a2427e9f10dbd1a8df92b6668ecae1da4dcbfbe0584f4c4794" => :yosemite
+    sha256 "cd6061a3790836cd3dbe364267461cf2b9984989587148c6553d59e3cf10a88f" => :high_sierra
+    sha256 "d0f6294e4e4a7dbb43c221458d1a91ef77abe9fca2177a7fc0b3667871d5d106" => :sierra
+    sha256 "5e9bd936abe30ba8fae7d720dda8dfbcbdc71ebf967d761fc4e3f82e9bb0b29a" => :el_capitan
   end
 
   depends_on :python3
@@ -42,8 +42,8 @@ class Todoman < Formula
   end
 
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/d8/9a/63bb4eedb0f4110e3bee1ac4c9ae838a8191a1da4fa0e7f4dd2ff8f7e4b0/icalendar-3.11.6.tar.gz"
-    sha256 "c4c4f11fa655f677c070a71944e89be32f51ae228ca32582a1f0bd9feaaac9db"
+    url "https://files.pythonhosted.org/packages/70/ef/9ccc21d19376ff785d83f72f51203cb646546c994a79c60ad8cba9bd7ce5/icalendar-3.11.7.tar.gz"
+    sha256 "ecadaec5b5ebbae19640dac65a11e0adeabfeb16fb342c1a853f4a8e520c0e2a"
   end
 
   resource "parsedatetime" do

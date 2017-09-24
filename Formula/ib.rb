@@ -5,6 +5,7 @@ class Ib < Formula
   sha256 "a5295f76ed887291b6bf09b6ad6e3832a39e28d17c13566889d5fcae8708d2ec"
   bottle do
     cellar :any_skip_relocation
+    sha256 "e74609f716997f8ce4d22a3551294a518192749cddff5728b4e536c166974a61" => :high_sierra
     sha256 "7f58efad0d2261f73025fddedbad2d99762660bd4f1786795a79f1422d6ef1b6" => :sierra
     sha256 "7f58efad0d2261f73025fddedbad2d99762660bd4f1786795a79f1422d6ef1b6" => :el_capitan
     sha256 "7f58efad0d2261f73025fddedbad2d99762660bd4f1786795a79f1422d6ef1b6" => :yosemite

@@ -7,6 +7,7 @@ class Zopfli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "52a345f7dc7df34ea5f13c0e91bfd4252964fe9f774b17a37c9ec33b94c1bcd1" => :high_sierra
     sha256 "5f99599ab4ec444d4eab8fda1dc408dbf66b7b2755500e2f77367690d25566db" => :sierra
     sha256 "c79a06778c3f97ea3480bba4f16ce15748d258674be2170423205163a56efed3" => :el_capitan
     sha256 "a1eee001d7ade7d9a6920b05e8a9f1ae834c32ef8b9ccd5b1e02e7b9e09fd5e5" => :yosemite

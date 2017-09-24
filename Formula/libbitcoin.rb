@@ -3,13 +3,13 @@ class Libbitcoin < Formula
   homepage "https://libbitcoin.org/"
   url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
   sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "264a49123f73f5195f5f6c165b74171f3fba8bb7c1538c028edfdd435a483bf6" => :sierra
-    sha256 "c6ea73cae6050d5d2224ef800fd6b9761a78934e3ae7b1230142c3c9a22b9952" => :el_capitan
-    sha256 "8287ef9f4ea6a8e49626e59bd8588a3cfc929c5ecda63188c66054b6383bacf6" => :yosemite
+    sha256 "c824bd50f96cf55e751f9f0735b35509b0c37167277df22f8d98b246c38124c4" => :high_sierra
+    sha256 "889c3811c26837bd2c90585d93a4a5050926f017641b43710c675899f1ebaa16" => :sierra
+    sha256 "fd225da66b5908773a0f715f3aa35c838e807795ca2bdde5e0e53d9e99c3ab58" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -17,6 +17,8 @@ class Libbitcoin < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "libpng"
+  depends_on "qrencode"
 
   resource "secp256k1" do
     url "https://github.com/libbitcoin/secp256k1/archive/v0.1.0.13.tar.gz"
@@ -39,7 +41,9 @@ class Libbitcoin < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-png",
+                          "--with-qrencode"
     system "make", "install"
   end
 

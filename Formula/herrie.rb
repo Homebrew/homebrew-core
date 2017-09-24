@@ -5,6 +5,7 @@ class Herrie < Formula
   sha256 "142341072920f86b6eb570b8f13bf5fd87c06cf801543dc7d1a819e39eb9fb2b"
 
   bottle do
+    sha256 "f837acb9b4c073ab4586f6d5a9bcfccd9d99e30391b04227fe6988835a9714b0" => :high_sierra
     sha256 "5d6d73767063b7f2be104fd2dbb00d8bf3b561a06e9720a822f60972bfb70d79" => :sierra
     sha256 "40c55a6d0c734674b4b464a96f7c52cd71e9490fb91ea8e8259fe7915f908b2f" => :el_capitan
     sha256 "01c14479efa7e6c3e7a3eee14a6af6e9934d93ff2b1449a26a7d38ce730edf35" => :yosemite

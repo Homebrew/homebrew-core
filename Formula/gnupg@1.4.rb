@@ -6,6 +6,7 @@ class GnupgAT14 < Formula
   sha256 "9594a24bec63a21568424242e3f198b9d9828dea5ff0c335e47b06f835f930b4"
 
   bottle do
+    sha256 "a2a568ff85ea47d7486fcc0403332004af5230132fb5f9c17afbfa9279299eee" => :high_sierra
     sha256 "b34d26fe050fbb87ee0e5e002b1b1d1e5738dd695dc0a02c1b57bb3503ce092b" => :sierra
     sha256 "4ee6d442e1cb7636c0669cd4a9e83af555c1c5a9cb502405c54a575195884979" => :el_capitan
     sha256 "68e1c879a85d9e9ce68dc0b1bfa338a04cec76f8293911d335e1c1ae059bdd65" => :yosemite

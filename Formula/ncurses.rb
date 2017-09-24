@@ -7,6 +7,7 @@ class Ncurses < Formula
   revision 3
 
   bottle do
+    sha256 "8a89b242114626454cc04a7213b1048a5d30c06fb414cd59d909c483f51c4e53" => :high_sierra
     sha256 "551937b3b407581f6cd20914d643600fd746333313a683c7b0dec841bfbb66df" => :sierra
     sha256 "70443e997a0964193949192a4d7643f220c48ef34be9fa8341925e3c1cc11814" => :el_capitan
     sha256 "f7e386ccd8420ddd2d60047c2781f80f7be74588d64d236d61b63fd452bd65d1" => :yosemite
@@ -17,9 +18,9 @@ class Ncurses < Formula
   depends_on "pkg-config" => :build
 
   # stable rollup patch created by upstream see
-  # http://invisible-mirror.net/archives/ncurses/6.0/README
+  # https://invisible-mirror.net/archives/ncurses/6.0/README
   resource "ncurses-6.0-20160910-patch.sh" do
-    url "http://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
+    url "https://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
     mirror "https://www.mirrorservice.org/sites/lynx.invisible-island.net/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
     sha256 "f570bcfe3852567f877ee6f16a616ffc7faa56d21549ad37f6649022f8662538"
   end

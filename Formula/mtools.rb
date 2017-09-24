@@ -6,11 +6,10 @@ class Mtools < Formula
   sha256 "30d408d039b4cedcd04fbf824c89b0ff85dcbb6f71f13d2d8d65abb3f58cacc3"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "de7062ca18e6d30d03576b3f62d0ab03b2198ae743f8edb3c38ace82934b61ed" => :sierra
-    sha256 "5d0f845ba2f37a4f3a6c30522889d5ad574e1cede8884d1d38757fb9993a8c58" => :el_capitan
-    sha256 "fab1e3ca4c7446687ab6001bfee835f15c452bc2fe6278581ba6491f05b72ff5" => :yosemite
-    sha256 "2415b06b3cc473180cf59e0bd13a4b373ea38996afea75fc24a3f6d71f8bea38" => :mavericks
+    rebuild 1
+    sha256 "6f51a942eb679aabcad3e9a14ee2afe687421d7837aba20f4f69ca3a296acedb" => :high_sierra
+    sha256 "9038497db92b296b077c375fb23c56faccd1879877c13088cd5e4c9f17ceaeab" => :sierra
+    sha256 "29b49f7ac62634261b8e9de9ecd1459d0a9d298a525dbe09091aa8e015b72e7a" => :el_capitan
   end
 
   depends_on :x11 => :optional

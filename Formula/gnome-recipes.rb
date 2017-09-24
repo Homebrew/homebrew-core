@@ -5,9 +5,10 @@ class GnomeRecipes < Formula
   sha256 "8a11ed483b422dbbedb10237dac8b47fe94d76d40cac87ae6d19292942c94f9c"
 
   bottle do
-    sha256 "7c728c1576db3adfbf2e1f4e3055cbc3e21b6f692cf6a8c575ebac09abc0c4c9" => :sierra
-    sha256 "aefaf33fcd61848e9520bc82f6bcb34123688e114781c7ffcad4a009123535cc" => :el_capitan
-    sha256 "437277c49b5dd39e73611fdf4843e1dad08641c5dc91b3756a94a34dc05a38cc" => :yosemite
+    rebuild 1
+    sha256 "cf42a7711b8baaa341b2aa1e1bafa7ac0ca8b58f02cdfc221556dc23f869b896" => :high_sierra
+    sha256 "a643b6dd52e83abdc01ef3c0e5d08a05c78ad20179d3b5190fadccab85dda0e2" => :sierra
+    sha256 "d81b4cac80b65e170ba85e5b31fd3bf7d2ec6891fd7dc44d0312829a4cf98992" => :el_capitan
   end
 
   depends_on "meson" => :build
@@ -16,7 +17,7 @@ class GnomeRecipes < Formula
   depends_on "itstool" => :build
   depends_on :python3 => :build
   depends_on "gtk+3"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "libcanberra"
   depends_on "gnome-autoar"
   depends_on "gspell"

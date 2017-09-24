@@ -6,6 +6,7 @@ class RubyAT18 < Formula
   revision 2
 
   bottle do
+    sha256 "58f052716980ff42bfce45fec6e82c81912ca186624ea4c3cd0b9d797e8f661a" => :high_sierra
     sha256 "b7b546e51dd2db5c2cd656998041af71fb45bbb766d0806b80307c0af0beeb7c" => :sierra
     sha256 "4ace3a1054114b29c38852966aac76140570981958cf44e74267fc92f30ad13e" => :el_capitan
     sha256 "9940035c29b4c2949d60e277bd0cadd8f52d074e4a1259435f95e8e1174283d4" => :yosemite

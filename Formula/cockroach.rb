@@ -1,16 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.0.5.src.tgz"
-  version "1.0.5"
-  sha256 "8a23d992c76c4f19fbb00622c56854f90491db46090201e2d0bcfb8bd637544a"
+  url "https://binaries.cockroachdb.com/cockroach-v1.0.6.src.tgz"
+  version "1.0.6"
+  sha256 "1f9b867385f6d99e8ff0f15b66e6bf7205b14617030db7482641627472eae0c8"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3740e0a76c14e4f3e225d65208d501b13cbd050c30e600f30c2ad240e58a7b67" => :sierra
-    sha256 "c93afad4c3b81c736db14bf72b81e66d70b01211ec3fed925185a22dd7e1a41e" => :el_capitan
-    sha256 "e9d80efb3a6c149ff8ef514a4d20fff62683d8c2c963d02f5f6c300052e426b2" => :yosemite
+    sha256 "dc7b77d7f33a5e545fac6d5bf725b135466f5d482c8d0c4c19e484b470710b69" => :high_sierra
+    sha256 "9d6e1e5e3e6596019aec5e9658a15aea60f53894e9344f3f2f13d63aacd4cda3" => :sierra
+    sha256 "104c97aace081d38ec050fe2de8b23bdc99986aafb123943d29ea8d1e3794de5" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -18,6 +18,11 @@ class Cockroach < Formula
   depends_on "xz" => :build
 
   def install
+    # unpin the Go version
+    go_version = Formula["go"].installed_version.to_s.split(".")[0, 2].join(".")
+    inreplace "src/github.com/cockroachdb/cockroach/.go-version",
+              /^GOVERS = go.*/, "GOVERS = go#{go_version.gsub(".", "\\.")}.*"
+
     system "make", "install", "prefix=#{prefix}"
   end
 

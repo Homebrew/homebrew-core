@@ -5,6 +5,7 @@ class Lldpd < Formula
   sha256 "9ee494e91bc33938575b2c09b26188c486ef8eac6e2155d250c189cc4e988c4f"
 
   bottle do
+    sha256 "4ea624e978989e86a13d499aa04be2ff35f684f8707491c281510026cb262a98" => :high_sierra
     sha256 "aabfb8c26c40e7ee1f2b23995dbf97cd0ee62112f9d027f627f4f6dde2cc4295" => :sierra
     sha256 "ee9c6bbed49faa610ec015adbcb82c88032fdce218162bfde615589533724b7e" => :el_capitan
     sha256 "583017bc3ecbc6abc45d65cc854faff386cc7f839a18c600304497c9ae11505a" => :yosemite

@@ -6,6 +6,7 @@ class Gptsync < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8d21fa7f491b5cfe7a2c809a99d753ff4511c5354c4761751ab9c5abebd585c6" => :high_sierra
     sha256 "e822ef6c99aeaf6eee5812cd83ede2bc9a045dd556105150293bcf486898a59d" => :sierra
     sha256 "d355de7bea36e310d22ed1109a34574ab93859bfe9e44b9493ebe75cfe429c33" => :el_capitan
     sha256 "34756250a7bbd8470dd98401c86c65d9886cfac802adb2371bf0a23fa9351f7f" => :yosemite

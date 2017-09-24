@@ -7,6 +7,7 @@ class Cppcheck < Formula
 
   bottle do
     rebuild 1
+    sha256 "49540982e80ff4eed01a02f1e6b623e449fe16c7e587ab80f361fbc247375834" => :high_sierra
     sha256 "53738447b9ea8ffac2f20e7c7f70d307476d0bb40a2180777980cb3e530c5a41" => :sierra
     sha256 "8acde65a4d657e14bdfc41337d2492cc948809f8ad42d7100524fba590635999" => :el_capitan
     sha256 "6658c569c7db35bf75bda4987f71dec24011b6f7d7b8ec1f073a17b9e9309306" => :yosemite

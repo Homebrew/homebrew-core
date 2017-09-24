@@ -8,6 +8,7 @@ class Dirmngr < Formula
 
   bottle do
     rebuild 1
+    sha256 "3dc85c23309e279305b30f5599cd3078081c4a38cb20fa667fbf8410bae87a29" => :high_sierra
     sha256 "b7bd8f432922e4b5dba79719692494b57b4dfff1da975053075bb5bcc6c569fe" => :sierra
     sha256 "f48ac053a17ce7a6c4002a5b7fa0a3c480ddfc74086595a4267887d8d3e94dfd" => :el_capitan
     sha256 "42803096ab9d5c97c43cb06a72096fb03664b10b4e0ba014a42af657a9648ec7" => :yosemite

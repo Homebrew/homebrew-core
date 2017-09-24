@@ -7,6 +7,7 @@ class Inetutils < Formula
 
   bottle do
     rebuild 1
+    sha256 "f57b7d080b62fc569e9f1085a2edda0f6c5bdf0ff93d76ee9df009983ae14c99" => :high_sierra
     sha256 "e138ac43402b4a19991ad5fcbcdb7e1e5e2a4e13f71b4423db5102aef9da0db0" => :sierra
     sha256 "5fdac142afc7e9a376534e825d90c91b89e7fcae4f9ccebaadf568017ee6de78" => :el_capitan
     sha256 "1c9d32aa9b97b6119cad466b9a5efeef6bf74f54dbeccd096860e1500658d866" => :yosemite

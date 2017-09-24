@@ -6,6 +6,7 @@ class JujuAT125 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9c225d8c2b9cd466d5b35f20258b74ebca69052fe2059c8809174acbc2031083" => :high_sierra
     sha256 "49a435ad1108af78c1345a3dd745889b2e89a7069880d2cca63c8feafce6df70" => :sierra
     sha256 "64b846038d5e0991454553b387edfb3424347e082597e39b8a0374d5b255f728" => :el_capitan
     sha256 "95713c59b55548e2093849d566c3405edab780b00934b6a2bf056a9c4515cbba" => :yosemite

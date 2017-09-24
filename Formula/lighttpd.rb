@@ -6,6 +6,7 @@ class Lighttpd < Formula
   revision 1
 
   bottle do
+    sha256 "344aa5e4f687ab7884eb58f0171111c26f6ff11184a932ee5be1e064aa341965" => :high_sierra
     sha256 "ea21913a3c06916cdc9aafe058e3754ae1128aabf9ff09d620f5e75b9c3e94da" => :sierra
     sha256 "924b93d54e2af41890713acc60414dbaa1ebcc253e76d3cc3f618600a2677a80" => :el_capitan
     sha256 "5b00eee8f99959025097240e211f5440ed83fc27ae18d8f05c8ebef84e38a0e9" => :yosemite

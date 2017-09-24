@@ -7,6 +7,7 @@ class Cpputest < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "35e26ea6ad2e7f6a86646a73b24aced18f79791792052cf41fab20ab07c8c117" => :high_sierra
     sha256 "47343762cc3b1b76538115940177a710897254ddf3e968c6a7161c0dd4dc505c" => :sierra
     sha256 "8c0b631188acc7fc0e6e5a8a2502871e4856990786fcb1268b32da7058304297" => :el_capitan
     sha256 "415557e97a8e876764595006b205bd9c61fce448558d22863306ca6b22a30e12" => :yosemite

@@ -29,15 +29,16 @@ class Wine < Formula
   end
 
   bottle do
+    sha256 "b3ea4bf10ef9e1ecd2d41719b71aff20992c893c2f258b54ee70df5729313fef" => :high_sierra
     sha256 "63366bc4edfc655d5684b90b7de3eea48942ba19f96dd38b953a72685d1cb2ef" => :sierra
     sha256 "938763b483907313d93b37f7dda6d8eb332c0d27ce94c14d62f9af3084a04ce6" => :el_capitan
     sha256 "20ebde20c833412af76f424496f1a2eb0a29227069a3a240450f2caa7fe47c21" => :yosemite
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.16.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.16.tar.xz"
-    sha256 "a561edcabecd6c44948e5b2ef11941b2ba047275240418fa2c98c1fdceda2c21"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.17.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.17.tar.xz"
+    sha256 "7edc95739043ccc55957af663fb910318283dc5d1db42cd7f0224e30acfcea69"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.14.
     # https://bugs.winehq.org/show_bug.cgi?id=34166

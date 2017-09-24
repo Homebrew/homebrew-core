@@ -16,7 +16,7 @@ class Liquibase < Formula
 
   def caveats; <<-EOS.undent
     You should set the environment variable LIQUIBASE_HOME to
-      #{libexec}
+      #{opt_libexec}
     EOS
   end
 

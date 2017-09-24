@@ -1,15 +1,15 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.12/source/tomcat-native-1.2.12-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.12/source/tomcat-native-1.2.12-src.tar.gz"
-  sha256 "e7add177c98a7f07220c306d65e182c45dbcd7501115e9ed56f1690c5472ded9"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.14/source/tomcat-native-1.2.14-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.14/source/tomcat-native-1.2.14-src.tar.gz"
+  sha256 "a7f1649f7c384b2d4e6c4c96f20aea980efeba327dba874d4bc7c765b6229f5e"
 
   bottle do
     cellar :any
-    sha256 "f70f31c3406a7b9e420869d4d6003fb967b85c2ea1a976a9738be35143ed4038" => :sierra
-    sha256 "e1ebaa1c597c315e1426f4e540445eb1404681e130fab1fd2195173753278fa7" => :el_capitan
-    sha256 "308e4924da12adefa37dfcd599330111c3571d6f3203bcfe77c3139a7a6d7458" => :yosemite
+    sha256 "2b4ef7c6dbf9987b30420434639b223305e8e97c5bcc6e16091701b859cc6861" => :high_sierra
+    sha256 "9bf5b77f19ecd28500f049c26cb63398a194f8c1e15f16d35ee08d01262b177b" => :sierra
+    sha256 "ac12f1007cfc095fae9daeab99fc726ee46568748ed00f5b4090e4d6146639f8" => :el_capitan
   end
 
   depends_on "libtool" => :build
@@ -40,7 +40,7 @@ class TomcatNative < Formula
     need to add it to java.library.path. This can be done by adding this line
     to $CATALINA_HOME/bin/setenv.sh
 
-      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{lib}\"
+      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
 
     If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
     EOS

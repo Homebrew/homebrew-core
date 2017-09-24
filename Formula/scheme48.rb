@@ -6,6 +6,7 @@ class Scheme48 < Formula
 
   bottle do
     rebuild 1
+    sha256 "590f06c7c31910eed48da06080959628982226e7b09e2aedd352fa6e4a6c2007" => :high_sierra
     sha256 "e9751df2e3cfd1a007d74d541ca494a439645e3006ad354ddf65b0abfb370864" => :sierra
     sha256 "af2ced8a13fdad5478f745c698b09071e71d84daca01c6e3e3c35961b06cbea4" => :el_capitan
     sha256 "475d12c64562fc2498fcd8d9a8bab76d4f290444e43fcf04c40c745a7f6c6923" => :yosemite

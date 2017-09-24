@@ -7,6 +7,7 @@ class Pincaster < Formula
 
   bottle do
     cellar :any
+    sha256 "76bcd0b20a49e9c0cc661bf621135f77e2c2092ef8bdc25922f41230aa4d3127" => :high_sierra
     sha256 "766cae950a3970454d78e3614ea1dd918c8081af676faed94027c8c58921de55" => :sierra
     sha256 "7dc56017217e1080245e800b022a341dec65b4653fe6399dd97b1f3a9c7ba778" => :el_capitan
     sha256 "eacb8d4301eb15b9683f407f88aee5aea363a8b3b290c1cafd015a60cd202f73" => :yosemite

@@ -6,6 +6,7 @@ class Grepcidr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7266be7b9262d50ab08d63529cf9858764573784ab63918010454ec2d76363b6" => :high_sierra
     sha256 "12dfa49026bffb77ed1c4a08e9b60b56859eb183bbf791754d0b1d476ba6d795" => :sierra
     sha256 "31ccf6792cab3c5022530ef4576ea53e6dedd4855b939d11212fea0d7fa294dc" => :el_capitan
     sha256 "d0024b81610b4a698de415aef87958e2a61f74a9f1f2b7acf875f2f3d50ecc05" => :yosemite

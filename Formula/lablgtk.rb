@@ -6,6 +6,7 @@ class Lablgtk < Formula
   revision 3
 
   bottle do
+    sha256 "b68b31925014914d1ce21cd8dbf2aed4e6b0cd29d6dcdd2e9b1f5470e7c13660" => :high_sierra
     sha256 "77428605ba03b69017780746d0ea7f9f4c79a3ef9879bdcf94d2be4fb426fe93" => :sierra
     sha256 "f11a0ca14c62048709b44a00f49a174c0b00b35119fe39b5a4776fce6b186153" => :el_capitan
     sha256 "4aa4b81d7a0c102be6940560ca49511e4c2d140442a3b39ba1b46326b0801762" => :yosemite

@@ -27,6 +27,7 @@ class GccAT49 < Formula
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
   bottle do
+    sha256 "2f1986799871c617b028645427210d57ad82d9428402c9b090c462e85fe4fb28" => :high_sierra
     sha256 "ad74e12473b9d5e20275a47028b63f94aedde641d035b8d101a1860e2bf19b76" => :sierra
     sha256 "3283035aaaf32998cccdec8ada8ae5d32ef49fdab14461d0473d6862800ae16e" => :el_capitan
     sha256 "dfd72720aef0ef7a2f924b9aa79a0ab5f6b1cd55e81ff592a79b52a59282c8eb" => :yosemite
@@ -58,6 +59,23 @@ class GccAT49 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Fix build with Xcode 9
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/c2dae73416/gcc%404.9/xcode9.patch"
+      sha256 "92c13867afe18ccb813526c3b3c19d95a2dd00973f9939cf56ab7698bdd38108"
+    end
+  end
+
+  # Fix issues with macOS 10.13 headers and parallel build on APFS
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/19d56dcb8c/gcc%404.9/high_sierra.patch"
+      sha256 "360ba78af8b13cda0503eef2c809b98404613a7cda9798e53c8b65a9b61b37b5"
+    end
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.

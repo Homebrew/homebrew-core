@@ -6,6 +6,7 @@ class Vpcs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "99433e0f18aa11f637b9cfa854bdf38a5754292477db27847419b1c6fcd9c6cc" => :high_sierra
     sha256 "c98123da9a4158f1b9c2cb7757f553e172adf64f106028af07aee50e9d4e9111" => :sierra
     sha256 "b0f62e8959cb98038b817174eec35dd657a8107241f58fc1421a57adcb1eedea" => :el_capitan
     sha256 "d905fc7dd6ca0dd07a0bafb6d8e71bebd0d2c3c516c0c00f6adb87aebf6d7057" => :yosemite

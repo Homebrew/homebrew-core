@@ -6,6 +6,7 @@ class Todolist < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "22269a2051b13030b25761b5598d66f18746df836b3096929e5ccf3cba79d6be" => :high_sierra
     sha256 "ce52f46de9c0a6199b8e249b81a2b7e4c721af584b6c3b9da940752d3dc6a0b2" => :sierra
     sha256 "ad92cc8acf856f2a608f2d34e93987a6dd56d7cf8b670687a327d385a3f5fcb5" => :el_capitan
     sha256 "5feccfa0c2443dba0c8cbbd42bf8cec23211e77a7661dccf663d00b92399ebe3" => :yosemite

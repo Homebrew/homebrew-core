@@ -7,6 +7,7 @@ class Digitemp < Formula
 
   bottle do
     cellar :any
+    sha256 "610dce70e1c158a9d96264574254ccf40551e339c1660ff057cec039628431bc" => :high_sierra
     sha256 "8708e25fff14744c2fd2a6092a60dd1c9dbc9ad1f1885329fa22a7ca57046552" => :sierra
     sha256 "b29a65bbf11f11ff637ce398461cd84750b5f66dabef902878af443033c751fa" => :el_capitan
     sha256 "7b1e87bb23751f09debbe4f2062f2329a8fd7451d01e872a84983709ca4fe351" => :yosemite

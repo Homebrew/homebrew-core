@@ -6,6 +6,7 @@ class Loudmouth < Formula
 
   bottle do
     cellar :any
+    sha256 "de1687c8bd82b179438305fc27af9b1d15e7a5ed88b4aa4275a78251c5589687" => :high_sierra
     sha256 "7496e86f5ebae132e5e3a8ff93edff5286c571325f17be7d3cac89e4215df1fb" => :sierra
     sha256 "53889a88701be6fe002a01116ec82318bef831da9612b9d18c80415a6ae04838" => :el_capitan
     sha256 "cbb202d52194ab9e27a7879fe82c0eec3704e27906b7765103370ae710bdbc88" => :yosemite

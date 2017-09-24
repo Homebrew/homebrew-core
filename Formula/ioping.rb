@@ -8,6 +8,7 @@ class Ioping < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f08f3749c114d01348117df60ec07da9341f8834640cf5f1fbcdaaf944218065" => :high_sierra
     sha256 "aaee4af9debb8152ff634033e61e6abd8e053295620dfae725827cdece5a670b" => :sierra
     sha256 "95316d10ae971b67aa383d785e3c26b07172446fe353d3952dc872c693e57ee5" => :el_capitan
     sha256 "ed5b9ea5dcf6ff4af74d71af575f2c1bf12ae94b7b2a40c32105d027e1ff9333" => :yosemite

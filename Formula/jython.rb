@@ -6,6 +6,7 @@ class Jython < Formula
 
   # This isn't accidental; there is actually a compile process here.
   bottle do
+    sha256 "71b9c25bb4ef023ad684f4c1f062eafe678d388a11cf20ce1a1e69732ef557f5" => :high_sierra
     sha256 "98bd9e1dcd92f8a0e281db6430985a2b67b2db36143d04a286502128fa9598af" => :sierra
     sha256 "865533fa4016f5d378badbd0fce6e9bad6b373a65b6feab152a27dffdd12603b" => :el_capitan
     sha256 "39b916844c6df58ca9e20f8125df6d4166fbcb18d732069a92a5b71edab13093" => :yosemite

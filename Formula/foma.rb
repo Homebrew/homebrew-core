@@ -6,6 +6,7 @@ class Foma < Formula
 
   bottle do
     cellar :any
+    sha256 "852b24482bd36775a871647d905411d0a4d69d5dead9d116890be4118f6388e1" => :high_sierra
     sha256 "b47b293d11dafa179d2c7a384336d2affc19e574aaecfe206026fa17de112328" => :sierra
     sha256 "d50dfd48bb3418d809c7c95d6046a59f550e2089d7e6dbb80327015894f073e1" => :el_capitan
     sha256 "2113796151927413c1bc640f19d8a62083628a1a124657d5d6ca5c9e087b19dd" => :yosemite

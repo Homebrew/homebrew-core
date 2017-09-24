@@ -8,6 +8,7 @@ class Clucene < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3986feb447660b2732e2983f54d22086b10da442cb2d7b6ceac45a91ad58f09b" => :high_sierra
     sha256 "5d25768dc355533553e6c1605a1dc89985ddd26b4d17d10078c39d6b085c03fb" => :sierra
     sha256 "5ee0c98072c18c75dd8c25fd309ccb49f033300d474367a8e325ec601c427f66" => :el_capitan
     sha256 "182db4f73e058e9d28b77cbbd642c40ecc403fbf1d9dc8357387b2c54dba8d1e" => :yosemite

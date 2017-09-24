@@ -7,6 +7,7 @@ class UnisonAT240 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "918042b6dbc2fef9966e031af831b8c58b79ca3efe9056c211dfd0bed1d7ef0e" => :high_sierra
     sha256 "d576e0581b5117b374127c0f6af6e402a4f3ebc7dcdf413c4352ed8695b78a11" => :sierra
     sha256 "a94cfdeb1b501a8b85a72fe1790edd339d3f65c86898a5d8729f596af87a66b7" => :el_capitan
   end

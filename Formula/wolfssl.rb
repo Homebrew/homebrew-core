@@ -3,11 +3,12 @@ class Wolfssl < Formula
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
   url "https://github.com/wolfSSL/wolfssl/archive/v3.12.0-stable.tar.gz"
   version "3.12.0"
-  sha256 "5045f6dc4221a8cf4fa993d020dda0886be4028d0e2cefbf9713b58f6eb0e635"
+  sha256 "2ca3ad32d6d2311a614be7384a4d08d63e03116a251030738e5c003a3bf7fa8c"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
     cellar :any
+    sha256 "c24e235a2e609d5a3ccb47f4917c8b763d5823b0436eda8fc11cd760b033156b" => :high_sierra
     sha256 "9957c537991e8773b169f5296944c2d479aa2fe3813072bcf63e8908a43d45a4" => :sierra
     sha256 "e33a4184197241fc6679ced004d83ad3ff1c1702f4f12b688cf53930e68b1770" => :el_capitan
     sha256 "34edbb8c861280155a26142cebc2f2d1a36bd38322564e5a997386ac27e550a0" => :yosemite

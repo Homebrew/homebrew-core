@@ -6,6 +6,7 @@ class GitReview < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c85cbc3a6edfb26d9444b62316c51e8a282f6e53b009ce74d029a32d5285b10a" => :high_sierra
     sha256 "010b350002428223dc5a2c0d3639a3e2c5d889a1369d1d3a39ae77a7f2075a90" => :sierra
     sha256 "61b0cc402cb811d105da4f8a97472fe20818266e9b8e7275602ed378c8ce2e75" => :el_capitan
     sha256 "494c845139d081b189fcb98e708a0ae8ffddfea4b5c80c4e916abb30dc07450c" => :yosemite

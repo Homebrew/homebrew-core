@@ -5,6 +5,7 @@ class ClutterGtk < Formula
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
 
   bottle do
+    sha256 "8d8a3b7e7937a1bdcb461ed3cd2874f226585f6422fe18536347128c7d8d591f" => :high_sierra
     sha256 "357d29890f4b188e6175e401a5c9b7de2dac85cd8b8f623ee649a19c3bdcd026" => :sierra
     sha256 "6fad5ba6272b5cceda263f1e48923db56567e7ae730aae9b78d59022ba5e33c8" => :el_capitan
     sha256 "5656d4eff289206a81b7a401f2d55912fac61990fa1f7c141336c0042240f74b" => :yosemite

@@ -8,6 +8,7 @@ class Upscaledb < Formula
 
   bottle do
     cellar :any
+    sha256 "1963a09e82431517c62d194277c92c9be07450d890ab4afbbd41f2f48e3c49a2" => :high_sierra
     sha256 "1f4ba3f80297f591f9b80df17c80b824c816126a0f8ad3879c1e765e391b492e" => :sierra
     sha256 "e226e89e3eeb2eb382aa1f545832d5fa7e2be48131d1f6ba93d270edca0b610b" => :el_capitan
     sha256 "42f5fe5f303ac51914c7f45e06ff1a0d8f36970020b4e9781a92093f542cdd2d" => :yosemite

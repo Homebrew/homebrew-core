@@ -31,6 +31,7 @@ class Qca < Formula
   end
 
   bottle do
+    sha256 "ed324934d67ea40f70c3d17e1fda7e3b7cedca31a04cada753142cecafc126bc" => :high_sierra
     sha256 "d906fecec28f2af312e2309398c43c9d5208ace0a24f65462d5c0ee6999acaa6" => :sierra
     sha256 "7ef949fefdbddb7309cd3f687fa2ad2a4c02622b7ca92d7416494bd13d40eb4c" => :el_capitan
     sha256 "d3a865bed9af87d7d54b87080cc973341385ced03dd5d257a9bc590e4d656c80" => :yosemite

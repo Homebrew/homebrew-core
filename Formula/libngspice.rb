@@ -1,14 +1,13 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/26/ngspice-26.tar.gz"
-  sha256 "51e230c8b720802d93747bc580c0a29d1fb530f3dd06f213b6a700ca9a4d0108"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/27/ngspice-27.tar.gz"
+  sha256 "0c08c7d57a2e21cf164496f3237f66f139e0c78e38345fbe295217afaf150695"
 
   bottle do
-    sha256 "08f1356662aa3107b7deb6022242988f20ea14c6784523e2121c799586da6f25" => :sierra
-    sha256 "bd587b5908accbd8ba59c679ddcc16486d26ffa93370ce8b4864ef8a695b9cf7" => :el_capitan
-    sha256 "5a8245fec0555efb0c569e4072faa5cbd77d138644f293090ecad8a2dd64ac7c" => :yosemite
-    sha256 "95eea6b09659ea2098c05ad12dbce4df3bc7cabde606cafbc893758f1ff13b8b" => :mavericks
+    sha256 "f1470393444748a5fb604cdadc7974402753827cca715f1588508fd7305c8d30" => :high_sierra
+    sha256 "841be3e66bf1f3dd18a74f2dfd201b95acebfd32e1bd180d99037193e3437bf3" => :sierra
+    sha256 "ef9fab04fd5b79cc361fa14642b59d762c7f589ea37c22e41273e97841712537" => :el_capitan
   end
 
   head do

@@ -6,6 +6,7 @@ class NetSnmp < Formula
 
   bottle do
     rebuild 3
+    sha256 "810f52fc141c942236b6cc2439f577528d406c337c0dd3f331e02396078ff529" => :high_sierra
     sha256 "02542e6f3fd23d1833059c86563c961fc24a230a013e0887d3a2d50b42eb2887" => :sierra
     sha256 "e3209635fdbb10b65e4c405c94e0ac05010be95bde728875fca399209ddee114" => :el_capitan
     sha256 "1c11e18b727f83f3a736df297d492952867d7de129608b584555edf7c0d7aec6" => :yosemite

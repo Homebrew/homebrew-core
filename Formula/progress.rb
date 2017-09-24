@@ -7,6 +7,7 @@ class Progress < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2efd9539e80fa903348eb1c6c7448351e1447c195b430fa7054e5f2a07c96e3f" => :high_sierra
     sha256 "c04bdc66a7781fea19a127c30ad986de002bad27f7a198bdc892871a0fed78dc" => :sierra
     sha256 "25a02d55c08c5bc17fa3830f577bbdc7320db434a499c95e5d6822cddccafdda" => :el_capitan
     sha256 "0227e47f3d9614b1d67422d22f15321e5dfb2a078feee89dcff30ec0bffd2adc" => :yosemite

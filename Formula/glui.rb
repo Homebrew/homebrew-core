@@ -6,6 +6,7 @@ class Glui < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c6968d950e93bb81b88c656ecaddd5400a924386fcdeecb6d185cf4ec4d8d7cf" => :high_sierra
     sha256 "36971571cceb35b758732131c7c9495d01b95fb2d4130000039c1b9d9a3922d8" => :sierra
     sha256 "eae0f5aab2883fa397f09bb314a90672e41c39c24e0c43e49259c8016b1c50db" => :el_capitan
     sha256 "617c71a79c2ce69ff31e7bd84e9e4f41b09e8cf3d039190bef92ad6bf1ae416c" => :yosemite

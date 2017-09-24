@@ -6,6 +6,7 @@ class Silk < Formula
 
   bottle do
     rebuild 1
+    sha256 "35f8705910a922f08e960cd9715a7ee3f27dc1dfbb8ff1be603c3186a3bcc82e" => :high_sierra
     sha256 "77aa6b92f8f1d86d2159f4a1cd6e68748d326a0f7982f8cdf235d817f08e116f" => :sierra
     sha256 "0bfae0e3ca1afd61819501ee8f2f43ae9e945cc3cc903bcc9682deaab4e94357" => :el_capitan
     sha256 "3654785d4b84d693e808af69c4d9945cbd68a7bfb0ff6f1028ea405ec25ce74c" => :yosemite

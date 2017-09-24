@@ -6,6 +6,7 @@ class Cidrmerge < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "61d2b647e77f706f53ef22dcb1ad362d39bed01f2bed08270bc6110824233146" => :high_sierra
     sha256 "8f2cf233141b0ea465c05d3487718176bb40023a05ecf7c275fdae9c36a5eef1" => :sierra
     sha256 "7e607252679cd1648e6c9f48ebbeaa2379ce089ad87815bd6636e65dcedebc7b" => :el_capitan
     sha256 "20c6f57fc6081c8d27d2e68b81e3d4c5cd68e7c799dc30e076f45ee71b42e69d" => :yosemite

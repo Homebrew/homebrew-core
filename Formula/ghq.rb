@@ -8,6 +8,7 @@ class Ghq < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "84dc071749a4a22165a58a48de193b9165cc08c02a0e817e097b662cb4ad5d41" => :high_sierra
     sha256 "ad05a023f52f11867a400d0109c98258ddce536728d4218e3694c836033a0c7b" => :sierra
     sha256 "fab4b2d64cd2b40e3b6045b145525e2a23fdfbad5b22ba37a28a85c909ee625d" => :el_capitan
     sha256 "d8281b077e388d55fdb8a2012c884b5195fe42be4bb67c14e0ea2a1c481f288f" => :yosemite

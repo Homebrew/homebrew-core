@@ -17,6 +17,7 @@ class Ettercap < Formula
   end
 
   bottle do
+    sha256 "798d0963ad9188e73850d3a4d88fa67ec597a6b0ba9fc6fc70436918cb16c6d3" => :high_sierra
     sha256 "f85423bcf1ce3e7ce82ad5e715b41ea3caeee57a3d09831bf571c9b962e2c5a0" => :sierra
     sha256 "098a75f317b974e46155b1c03661478606a9e83ea95aba948063eb0987fab703" => :el_capitan
     sha256 "5d9ce456cf6d6cab416fdae7c935501ab607020a94bd73cdfa41536f6751dbf1" => :yosemite

@@ -1,14 +1,14 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/eribertomota/axel/archive/2.13.1.tar.gz"
-  sha256 "e19253223fc0a6d6142190661f9fcbd5809dc5acc5b7013c98c979673a2f7195"
+  url "https://github.com/axel-download-accelerator/axel/archive/v2.14.1.tar.gz"
+  sha256 "acf6820d98a792faf309fc9acf22f7caf4b8a4b7001072c8f546b3c4fc755e39"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
-    sha256 "fb06640f70ea6f9dfc3d5935596126f6d3031e25a90afcb246af0665bff0ad54" => :sierra
-    sha256 "11c8764fddbb32606433c89962526093f8190a7c164f8400a019e62b88e32d58" => :el_capitan
-    sha256 "171fa4afa09b33cce375c8bdcd45e929be1aff234ec15e48ba2dcfad314f9a43" => :yosemite
+    sha256 "c9bf0b0f9a069772f8f7236bb5b418f9ce643190aa37b130122be99c6640f87f" => :high_sierra
+    sha256 "b7fd863913d2f6aa3f3e47d7a78b24fce8e7076aeda94ddcf21e80f4695492da" => :sierra
+    sha256 "77954a137d7c9cdf6a87fdc8df6f9326b11d229d2e02c69f3caf4871734b0467" => :el_capitan
   end
 
   depends_on "autoconf" => :build

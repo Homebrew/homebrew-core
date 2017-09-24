@@ -1,7 +1,7 @@
 class TalkFilters < Formula
   desc "Convert English text to stereotyped or humorous dialects"
-  homepage "http://www.hyperrealm.com/main.php?s=talkfilters"
-  url "http://www.hyperrealm.com/talkfilters/talkfilters-2.3.8.tar.gz"
+  homepage "https://www.hyperrealm.com/oss_talkfilters.shtml"
+  url "https://www.hyperrealm.com/packages/talkfilters-2.3.8.tar.gz"
   sha256 "4681e71170af06c6bffcd4e454eff67224cde06f0d678d26dc72da45f02ecca6"
 
   bottle do

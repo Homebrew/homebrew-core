@@ -8,6 +8,7 @@ class GitSh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "69491a98476b0e745107e6be3623d678e0dcdf33dda7f76d541ba773881e74cd" => :high_sierra
     sha256 "d371fba61367507f5e88818eb1f0630e388d198c37faa957ce410d97675a7f5d" => :sierra
     sha256 "e30e7836919a5d79712e3fd51a118279b412c44da909053b9b185eb48963323f" => :el_capitan
     sha256 "cdbc6fc62300722f613f314e2859422edcf938c6807a3039bcf476e02fbe222c" => :yosemite

@@ -1,14 +1,14 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/0.7.4.tar.gz"
-  sha256 "0f3710743c684e249cd147989d43efab80aae409879c21a738d9454995db8f61"
+  url "https://github.com/texus/TGUI/archive/0.7.5.tar.gz"
+  sha256 "3e2bc3d872515e8b32107f73460d0886fd9f12a4290a085ff30aa76885473453"
 
   bottle do
     cellar :any
-    sha256 "ef8653f1d88eec97730b09eb0361829fd54e646d4bc8e6a0c82a7890a67504fd" => :sierra
-    sha256 "22dbb10255cfed794b5b2ead488df87603f0f9853b593b21757022c6a9a447c7" => :el_capitan
-    sha256 "4c4eeec50f48d7178ea68de0769e114ca316cea27704ca68d1975319412c8689" => :yosemite
+    sha256 "274c934e35a52d4e8b5e3e33aceb41f4dd9069c16d208f746fc3785578c6962b" => :high_sierra
+    sha256 "f9191f8d70ca5af003127115d863cc3e33493e16e911e2de4e4d65b8b0c1fa81" => :sierra
+    sha256 "a0d4bdcca9e99fa2671356a3feacd666baee8bdf453cf20b5575cc88041949eb" => :el_capitan
   end
 
   depends_on "cmake" => :build

@@ -7,6 +7,7 @@ class Goaccess < Formula
 
   bottle do
     rebuild 1
+    sha256 "33833da9143c81fab96a7bf19452f54e94d32952f86d4a5e110c77e9854deaf9" => :high_sierra
     sha256 "7b794bcc28f24f010682e2e18d0c480cdf9d75d07b50964944f3b3fd6428972a" => :sierra
     sha256 "272e53e58e3fcd8c894285d1a90a3288edde0959a3f049bff24a6ed9180dbc3c" => :el_capitan
     sha256 "af9801407d647456b2421673aeefdc5d1bd00446d912126c8bc662cfad437937" => :yosemite

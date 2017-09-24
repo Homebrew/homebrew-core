@@ -7,6 +7,7 @@ class GstPluginsUgly < Formula
 
   bottle do
     rebuild 1
+    sha256 "b2e4068b9857aa17aee49cb042ffdb04a107f47c4e9de43ac670a51315e2c35b" => :high_sierra
     sha256 "89a00f2fa1bb460ee3041ec3f196e57f5c5e3e80585034a50bdcb7e8bed38152" => :sierra
     sha256 "0601d52ef36d2fbe3ad8769f42494d920c7afde898d57c8d540773522f847a9d" => :el_capitan
     sha256 "adf4aae651764fad774a2804d1b1a9d56deea19fad20ae710ecc393729b3e511" => :yosemite

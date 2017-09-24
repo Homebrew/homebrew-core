@@ -8,6 +8,7 @@ class PegMarkdown < Formula
 
   bottle do
     cellar :any
+    sha256 "de2ac88d9fbcb0ffc76c35be5e1f6ffbcf359f823a64d497992d6fe54fb68120" => :high_sierra
     sha256 "fe01189854debd593f6106fea4c79cb1f524d377f20d0e23f526e598461fc276" => :sierra
     sha256 "75fc993aa8e861092785f6e235adf55eaf49af419f721ed983e633b9afb96bba" => :el_capitan
     sha256 "8b73ccf611b6639935b1fe7b42d5bab2518703f81b182769c537f7224ac1e803" => :yosemite

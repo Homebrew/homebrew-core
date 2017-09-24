@@ -1,13 +1,13 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.9.tar.xz"
-  sha256 "8013b271ff1a691514b5bbc9b99f6ed456422d4da4a721a9db0b783abe8e740a"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.10.tar.xz"
+  sha256 "f8f6fa896b89475c73b6e9e8d2a2b062fc359c4b4ccb8e96470d6ab5da949ace"
 
   bottle do
-    sha256 "27ad3f986414d82a46c709ef9013a74ed2a1902fb6c2a2509cc70dbfdb5b0097" => :sierra
-    sha256 "c5b3cce0419befa0ec6cd30119bb7184e93b437d0dd83d47c72f2ccaeb3b2f42" => :el_capitan
-    sha256 "28294b78fbd86f9ea921da2b3ee8530161c1d14f0115599e434863af61aa7207" => :yosemite
+    sha256 "369f233ba33e72d576ccaf3f07c41fafa09a6e566301e32d40d05de6419c0dc6" => :high_sierra
+    sha256 "5882b150615752aac43fced2d18d926c41a397db561309b16f17d5f8db12c1f5" => :sierra
+    sha256 "672c4160b6f3d92fd5b10685969723f8d6f102d26ee8d0af4ebe7b3390029cd3" => :el_capitan
   end
 
   option "with-relocations", "Build with relocation support for bundles"

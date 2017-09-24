@@ -4,12 +4,14 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag => "v2.14",
       :revision => "15ef9a8bab847773d6e247005be929422fc9c285"
+  revision 1
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "d5ff82f4cd48950e4e85168d19f0d02e72526d1e5d735c3dd093821e5dd3e552" => :sierra
-    sha256 "4517c25713a75f397dcb098a5b557c60bc4808244d9e99481ddcc0c836e6adff" => :el_capitan
-    sha256 "344115c0e111c629cda013c4af6de3a1e06b45b72f368957f5ba4f6462cccea2" => :yosemite
+    sha256 "e209f12dad8a38835ab21faa90b077b2df5a0fdd84ae2986ef840ad6b5fe1465" => :high_sierra
+    sha256 "ba02801b679d09bea8ffcd78600283c76027fef1b6dada91f4bb8d9858ccc7e6" => :sierra
+    sha256 "f3e566c9093c99b9edf5ce4037f0d288637c4c3823292c3736deade9e20941ab" => :el_capitan
+    sha256 "55e08fa2512062a942ed61feb6e89466cb759b5214d7d4d7fb60d468903c3297" => :yosemite
   end
 
   depends_on "cmake" => :build

@@ -6,6 +6,7 @@ class Bsdsfv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "28bee35fbc8c0be9e1182287c58340898d29d9ba0f910109974af6efcb5cd61f" => :high_sierra
     sha256 "38b9d278b430e250b384c5ba2baf3e74dfe0771c5ceea45686022ecb01616ee2" => :sierra
     sha256 "404ec03e044a019a487adfab90012a29a6655fe67b907d9b4e9a46d4f6c57a9b" => :el_capitan
     sha256 "fd15cb46a9499bcd1182e8fe4a6ae1de9fb77ced85186601ef6c6579a22d9c51" => :yosemite

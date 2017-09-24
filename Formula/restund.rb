@@ -1,26 +1,17 @@
 class Restund < Formula
   desc "Modular STUN/TURN server"
   homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/restund-0.4.11.tar.gz"
-  sha256 "d4630dfb8777f12cc48ed118da0ea6445bc60e94ff916ab0ca5d436c74bdc2d7"
+  url "http://www.creytiv.com/pub/restund-0.4.12.tar.gz"
+  sha256 "3170441dc882352ab0275556b6fc889b38b14203d936071b5fa12f39a5c86d47"
 
   bottle do
     cellar :any
-    sha256 "17efaad7de4d9fedca7f71b2381d27d0520aaa4bb06f232ac1f42cc815d70110" => :sierra
-    sha256 "215521ec7fea46b6060e35b674d905ebafe0bf2aa5135793e1e1698db5680c07" => :el_capitan
-    sha256 "39260c5e38d471692edc0b140ea1d684bb1b86549a4299d1606256d9165df706" => :yosemite
-    sha256 "6ac6767f9ce4917b089be8545532768fc5318e40feed05c34ca0ea0580c4c749" => :mavericks
-    sha256 "08ec540956dd4491876f7edd6c00bcab38b019579c92de565390efedeac50822" => :mountain_lion
+    sha256 "05a527dfb0207ebd9b8a94ce4307ec0f106fa3c085851476eb36c27515d9b9fb" => :high_sierra
+    sha256 "b54c91bb6457a8af37e55064d9f5093212ae7dc7c53863f4344f0862a0e6706e" => :sierra
+    sha256 "520b20cfdfb1cb5da1ee3a147a707802f6cc77a289c80e2b04a4299446e67408" => :el_capitan
   end
 
   depends_on "libre"
-
-  # this patch is needed for restund to work on OSX, because it is
-  # using select() for polling with max 1024 file descriptors.
-  patch :p0 do
-    url "http://www.creytiv.com/tmp/restund-homebrew.patch"
-    sha256 "5890036319dd55e6522762a28022554024c849ce25e5c690364686e6a5571c93"
-  end
 
   def install
     libre = Formula["libre"]
@@ -36,6 +27,6 @@ class Restund < Formula
   end
 
   test do
-    system "#{sbin}/restund", "-tdnf", "#{etc}/restund.conf"
+    system "#{sbin}/restund", "-h"
   end
 end

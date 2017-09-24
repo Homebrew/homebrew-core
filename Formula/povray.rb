@@ -1,13 +1,13 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.3.tar.gz"
-  sha256 "baa4c7f04415fbc2a99cfab6da4d33a7ca018d985fc71701c603a67c6b0a9426"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.4.tar.gz"
+  sha256 "408bb2f16eaad316be7ff6b4c867be04d8d57eb6e2642e168e992a51b82bb487"
 
   bottle do
-    sha256 "ec2167c01b3944ee32302786a82dd692f01175b81cb0720877fef9190495ab0c" => :sierra
-    sha256 "941f6c4a5d9c5a653dd301338b0c70bdbd4995e820e252ea4e69352e58f8da3c" => :el_capitan
-    sha256 "a32612204fc2399075446408c3efb7a442d7ea1097dd866500959052d1e22c9a" => :yosemite
+    sha256 "7f06479f738e72a41b0c0c802cd236f64d3e45dd0541fcc2420b74c6e8908119" => :high_sierra
+    sha256 "d907376ebb93b532858e76908a7ed2edc5ff50efa6c2692e9f688f1cf761122f" => :sierra
+    sha256 "c5537b2271427fd448bd473d109f5a6cc0f7eab64c111ecac73cc02c3b368129" => :el_capitan
   end
 
   depends_on :macos => :lion
@@ -21,11 +21,11 @@ class Povray < Formula
 
   deprecated_option "use-openexr" => "with-openexr"
 
-  # Fixes compatibility with boost 1.65.0
-  # Adapted from https://github.com/POV-Ray/povray/pull/318
+  # Fix "error: use of undeclared identifier 'atof'"
+  # Reported 14 Sep 2017 https://github.com/POV-Ray/povray/issues/317
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8443970b254/povray/boost-1.65.0.diff"
-    sha256 "19f9826cb2287bb16e8d3d21da5ca73eb848ff9a9e719c110bae562b6fcc028e"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e5017df/povray/cstdlib.diff"
+    sha256 "bfd65f6634987f06d64a62fae71c1e72226a6242b7d7c8f7ef618d63e29b8553"
   end
 
   needs :cxx11
@@ -39,11 +39,12 @@ class Povray < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
+      --with-boost=#{Formula["boost"].opt_prefix}
       --without-libsdl
       --without-x
     ]
 
-    args << "--with-openexr=#{HOMEBREW_PREFIX}" if build.with? "openexr"
+    args << "--with-openexr=#{Formula["openexr"].opt_prefix}" if build.with? "openexr"
 
     # Adjust some scripts to search for `etc` in HOMEBREW_PREFIX.
     %w[allanim allscene portfolio].each do |script|

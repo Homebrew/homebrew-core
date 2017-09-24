@@ -6,6 +6,7 @@ class Bogofilter < Formula
   revision 1
 
   bottle do
+    sha256 "965078b01f63f0d5d2e8de0ad2ccf6b0d54decaa0a18bd727b4fb72ed72a6b30" => :high_sierra
     sha256 "142f1cd3661c3cfd50699257c8580a7d286d9b7a4aef87e19a3bb1e00bd67061" => :sierra
     sha256 "441093a1b7bd8c0336df2ac989b436c8c3c22daa590d8214d80749ded9800fad" => :el_capitan
     sha256 "b9ae4090aa642c40ff86d286b2245030b9de1b17b9fc09e51791474ff16d6efb" => :yosemite

@@ -8,6 +8,7 @@ class Cocot < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2631b1aa093e76762204fb074f9999a80c6416d1ffec39a0b465356fed4e908f" => :high_sierra
     sha256 "07cb7945722ff5a3e877f4e992d9ffaf56ed6147422ee2efab58b9cef6416b35" => :sierra
     sha256 "11efeaa69619030b19cbed51861d2af97d0e359bf3cd7d82b58af56e081911ae" => :el_capitan
     sha256 "13cef35dc54d9715956e142ee7a4cc2dfae1a50276f111d595057654099db80b" => :yosemite

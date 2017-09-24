@@ -5,6 +5,7 @@ class Dar < Formula
   sha256 "19bd60000a681a20386ee079b9a6ea05028020053eaeddbff175a8d22563fba2"
 
   bottle do
+    sha256 "b6b2929c2e6e3c9f87b92d8ba3f26723f70b1b9b67f7a78c2af80781d0609b7f" => :high_sierra
     sha256 "1a6daa86d3cdc0250ddb5cb4a5146f1da10f5ae4bb174bf6297a60f49d04f5c5" => :sierra
     sha256 "6fddbae4c61b7c31719dd563cb74b7169aad8fe657bf440831e231e1a3ffab33" => :el_capitan
   end

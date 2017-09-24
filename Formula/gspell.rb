@@ -1,13 +1,13 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.4/gspell-1.4.2.tar.xz"
-  sha256 "a59ba7e747bfbe93f6e511d7df3169d1530b518b46ca620cbc000fecbcdf0399"
+  url "https://download.gnome.org/sources/gspell/1.6/gspell-1.6.0.tar.xz"
+  sha256 "b5d73dab4bda45cde4bdeed04e472dca8a3e16ea19739cfb66237553e91f872d"
 
   bottle do
-    sha256 "21a9151d10aa3e31d34d3b7ff8bda60430dfade9643b0f63e52bceaf9877f875" => :sierra
-    sha256 "3d9ad0c9fb1aa88e79f832e25ac1eeec893f1e7cb12969d1435b3230acde632b" => :el_capitan
-    sha256 "e334679062a6636fa756155721ce0a5424f0d971bb692d58de3dfe8f848a270a" => :yosemite
+    sha256 "eb042c618b2e42d20c2482cc6aeb63be0eb05ec8ccb80e8e1d9e666b6b573de9" => :high_sierra
+    sha256 "d1cbb52f50dda1cbe670422704cf2177b4e0039f13277e021bf1fd296619d09e" => :sierra
+    sha256 "29308ad85815a65c342422ad498ed02d34ed70b4af989234373a84b1c462db2a" => :el_capitan
   end
 
   depends_on "autoconf" => :build

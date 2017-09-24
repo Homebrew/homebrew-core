@@ -7,6 +7,7 @@ class Fzy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "43f5d1a33e63cc16f8a922d3760424f4b2445643ba8260dc31c8cc1f67ad271c" => :high_sierra
     sha256 "c1831deb1a5de5c25a48d304dcecd34b87bd9dee67980ea7cbc343289d82a77f" => :sierra
     sha256 "88b4a4dd16289fc68a4205911e2a7a1d82ca25aafe1beef9a249c02787c28a98" => :el_capitan
     sha256 "a72164d23f90277c08c19617c57ddacf7c30dfc9751cc9428d2b1ffd8bd513df" => :yosemite

@@ -7,6 +7,7 @@ class Xsd < Formula
 
   bottle do
     cellar :any
+    sha256 "f7ce690998c7d2ae548bb24dc046fdaf5d94eb73e575fb071ce2a7d74c31e85d" => :high_sierra
     sha256 "693b8c98e0432ab90465f13cff95ebce95e5886d978de800ed5b3e1540c4588d" => :sierra
     sha256 "8824a33e46d207c685620f71906d37d36a0a63953df81939ac36919d075729a4" => :el_capitan
     sha256 "1224c29a5fb429c32bf9e0267320492a85c7b3fac8d58d07d0c2b247f3af1362" => :yosemite

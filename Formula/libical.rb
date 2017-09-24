@@ -5,6 +5,7 @@ class Libical < Formula
   sha256 "654c11f759c19237be39f6ad401d917e5a05f36f1736385ed958e60cf21456da"
 
   bottle do
+    sha256 "8228ffa72b7f26c8640eb25dd5d6cd08f84d9736304ebfacb2f5a22a029cc338" => :high_sierra
     sha256 "4b8b3165661fca6ae137559f3b9d0436bee37284ce84c75e9e81677512bacd43" => :sierra
     sha256 "80cd45eebc20492169a98e26c2ac384d9e7d42c60c97dfb31cf15fa3c978ea27" => :el_capitan
     sha256 "f4cbcfb04208a01f1589f119e785c656b74713d033949e8a6a367a759ea142eb" => :yosemite

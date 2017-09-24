@@ -7,6 +7,7 @@ class Cgvg < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "05dcddf73d630ab2f67e00ea63af02f6b29b503c2e938829daa67d7f619fb556" => :high_sierra
     sha256 "12b8a6abb31e2e8d7ba044663b33990884ec24d1b0c0776901480cbecd47113f" => :sierra
     sha256 "a8232322755cb4c369193dca37fecb968ff689c6463611680e12f216f46507c4" => :el_capitan
     sha256 "de0c8b890aa68670097790093fdceccfe1d69598c18ea5385069efc2f73a3c5d" => :yosemite

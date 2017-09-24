@@ -7,6 +7,7 @@ class AmqpCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "44278c917e59878edd3cff2a79ed6a94cc79fe778ac32f20d20f7b015526e05c" => :high_sierra
     sha256 "b1d85c9445970422250b5b91b70410f1ecc2b9c3951ea5cc5b323cd7a1eae96e" => :sierra
     sha256 "318296f5c2379e06200f55c3c4a30b222ba03aa0e5be25b900e5c306cb7785b7" => :el_capitan
     sha256 "19332e146a7c45fc9129661d42ccaa4007d56e2fe56a4638b5e0dbab094bbe3c" => :yosemite

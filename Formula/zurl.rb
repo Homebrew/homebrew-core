@@ -6,6 +6,7 @@ class Zurl < Formula
 
   bottle do
     cellar :any
+    sha256 "f34dc7c4cc51893a984e8fe6c599d43ba3948a147d9c238347d187d4a75a3e46" => :high_sierra
     sha256 "d81b633d8ed7ae9afbf5da1bc9cfb868fa4266d000c238df5cfb4f3d7f8437c6" => :sierra
     sha256 "f703c7cb2b5d865bbce21aa17b2a99068e7feb76f3758602078381d1571c0d0c" => :el_capitan
     sha256 "548a4017de9a6632a360400720da0ede67937b608813b998f625bd881e1c22e2" => :yosemite

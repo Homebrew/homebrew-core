@@ -3,15 +3,15 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack."
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.3.7.0.tar.gz"
-  sha256 "a99d5dd1bf721d389975fa0bdcb3b740568195cfad5181757d5d3ace1c57cada"
+  url "https://github.com/influxdata/chronograf/archive/1.3.8.2.tar.gz"
+  sha256 "67df47af1a8a3d28342f7083eed0e738d0ea451f7dbd6b31676d685adfadd732"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3be5f5c156419fab685fd33c3bee3e7e6921c4928049ddeeff692cbdb9dfa499" => :sierra
-    sha256 "b62566947aa3be4a26de1188cc5a5635fac4a6090128c43589b35524e9579b3e" => :el_capitan
-    sha256 "4becd8b36bbd46f9b0b14024c3ae478d2dce00eedda7823a749404d38b459597" => :yosemite
+    sha256 "6c97463f9e52219759b7942cb75f3e8b4beba3c88e335b816e6e84ab614945ba" => :high_sierra
+    sha256 "ee07c0412d1d29cdbebfe7c9ed6ecf41e39f53d2911a53a0fdc4cea2a245be2d" => :sierra
+    sha256 "ff595f62c504de3652d81adc396a8b1a282152054da71c00ea469f0d4412feab" => :el_capitan
   end
 
   depends_on "go" => :build

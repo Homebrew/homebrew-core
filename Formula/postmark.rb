@@ -7,6 +7,7 @@ class Postmark < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0e7f59c257967fd72381d86fca353c88f4af9d4843c0aa9e3eb4f606a6619fc4" => :high_sierra
     sha256 "9d702b7bc49f646fd1623b316fd62c84ee6413e035a81e95866b0ca7240f100e" => :sierra
     sha256 "784b46fe9883d27d347a44da73413ccf5c589088c0b57da577ebc1c79e64e1e6" => :el_capitan
     sha256 "7fb38c3960e124a836cdc48650fd5f4d1fc446897b590e0dd6b6b6b5cbdec522" => :yosemite

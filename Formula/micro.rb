@@ -1,15 +1,15 @@
 class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
-  url "https://github.com/zyedidia/micro/releases/download/v1.3.1/micro-1.3.1-src.tar.gz"
-  sha256 "fdede583ea2f67588c42be30a820699acc376d59f0652ca0b50c9120511f2caf"
+  url "https://github.com/zyedidia/micro/releases/download/v1.3.2/micro-1.3.2-src.tar.gz"
+  sha256 "1a08301e39353914d7e699e36455bac1fee7d6d5ff1e211499bc10b46d8b35f5"
   head "https://github.com/zyedidia/micro.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe79b374ccad5456e935b3a1d25cd57219fd9cc1da5214e1069290b944295321" => :sierra
-    sha256 "578c23f1289f0900910004d101e14282d72569d9be5187c9cd5ae04b167e6f10" => :el_capitan
-    sha256 "3360298e55ab032a51e085fa4629867a0b008eb84f9369978f483e916802fe14" => :yosemite
+    sha256 "4ae12596d98d78dc8e4dea32b6d70ebbf3d38d256279cc2adf787c1663166d69" => :high_sierra
+    sha256 "c0e761c64b14fa778327f3c637e78a8b7bccfadd0373ca837a3d389366b10672" => :sierra
+    sha256 "4b5eafa110e762c35cc07d9892801af9dd192b9f549267b7157940df668930de" => :el_capitan
   end
 
   depends_on "go" => :build

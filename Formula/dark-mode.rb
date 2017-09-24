@@ -7,6 +7,7 @@ class DarkMode < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fed4e173519d0fdb46694322689ea170c8478b721c045a8f706876d8805aad41" => :high_sierra
     sha256 "ffc564c30ebfa6b2f90600524beacaf3741147407a9c8167c0f5c7b324e05036" => :sierra
     sha256 "7557075bff978e306c392f81e713d987147ef8433da753656c8569de17611879" => :el_capitan
   end

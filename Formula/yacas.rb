@@ -6,6 +6,7 @@ class Yacas < Formula
 
   bottle do
     cellar :any
+    sha256 "33d32dbda388df190fa352f24cd6792f8d98a8af0a36fdd2f9d8951ae9c4e03a" => :high_sierra
     sha256 "6aef11d42795146a35f9f3b374dfdfbe79b89b5a57c15a7fb3510d27b522c251" => :sierra
     sha256 "807fafec64ac4c3589f5b760299d3b8fd42b29a66a914a5e6c119337a63bb6ab" => :el_capitan
     sha256 "c7fb1eb19bdb219645ed2bc94cfed491de1c2eb1f770dfd7a7b4cc63871f0dab" => :yosemite

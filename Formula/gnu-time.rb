@@ -8,6 +8,7 @@ class GnuTime < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3acb09ca081fcdef3c31a41b50a8d7e3d38bc68c7cb1f87128a85c394741c661" => :high_sierra
     sha256 "c3ccf53f79c148c915bf83ce2b128195fff1f614523a4db5d247df2907f37c6b" => :sierra
     sha256 "3c998fed1b824483f0fd140a0b12164ebc6bd100371dca11291d3406a26ecc47" => :el_capitan
     sha256 "d0b40a36430314f548ab3e5d362c3695b9ab38e83933a7a459deaccfa705232f" => :yosemite

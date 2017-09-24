@@ -1,13 +1,13 @@
 class Fizmo < Formula
   desc "Z-Machine interpreter"
   homepage "https://fizmo.spellbreaker.org"
-  url "https://fizmo.spellbreaker.org/source/fizmo-0.8.4.tar.gz"
-  sha256 "de7396ea3dabe30cd6a596da0d0d1b6432f4ea82cf31b7d8c9020cb11a42a9e9"
+  url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
+  sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
 
   bottle do
-    sha256 "1d7086e1db185650e7fa5a7bd77719e21e7acf71d99d05e3e91d1ab0e8485d6a" => :sierra
-    sha256 "496cb25c39256ad1cf54453cea1f66fcbbd3f1f4f1f8a569adb8d1e2e1849a53" => :el_capitan
-    sha256 "0280ceb9ab03a7ffbe150b5fa398f0c649fde1c4af2183938cb6d6420005c3de" => :yosemite
+    sha256 "8f712f9199f9b0dd2ff31e09f8cd48c6796592b7f06f14d78fd3a5c56a661ea8" => :high_sierra
+    sha256 "fcde25bc1e4eb7f481d132e8da671c7eb445fe3139a1f1784aff830e353332a6" => :sierra
+    sha256 "49943781111aafa7f1a1094bd79f6faea13e168d51119ae2d84a9f74ad9e4008" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

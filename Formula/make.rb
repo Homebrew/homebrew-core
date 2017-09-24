@@ -7,6 +7,7 @@ class Make < Formula
   revision 1
 
   bottle do
+    sha256 "8b4c8c8b98b7480237a841539372c30c96f3bbfdcacc0e933e4fa83910fd7e46" => :high_sierra
     sha256 "c369d10d81412b5402be1e14be57a4074278b59dfe0a1c9e348e0cd46a533878" => :sierra
     sha256 "969c45027b8e0aa4a4a2fea0ad6e2d3ff311b55080d017b93239f2611e131ef2" => :el_capitan
     sha256 "c094c8b7e6cb3438d16378a4748f4c8930be5c82fc99408fb40ee27556d9a84a" => :yosemite

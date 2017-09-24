@@ -5,22 +5,21 @@ class Mongodb < Formula
   homepage "https://www.mongodb.org/"
 
   stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.7.tar.gz"
-    sha256 "9272e7663c7915e09ad2609e28c58437d760d54a9552c711ea735cd8e1784ec0"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.9.tar.gz"
+    sha256 "2fd0f47a5f9175e71d3d381e81a1b6a2500c9c414dd6ae0940ad6194a0e85549"
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.4.7",
+          :tag => "r3.4.9",
           :revision => "4f093ae71cdb4c6a6e9de7cd1dc67ea4405f0013",
           :shallow => false
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 "cc25b7b7318e8cb46b3c12b336437b1fdef23a82cb2c56603221bff22ba0e7f9" => :sierra
-    sha256 "dab827ceaa5c0fa21a1059781873898e3b36c15d4fdf954c72b70eb7dee3a954" => :el_capitan
-    sha256 "f0c9c807f836f7b07ebf40898da4a70a6d6434b21b0c78732c97ca0ce268e081" => :yosemite
+    sha256 "fa1c636ad710cb8d9a28c3a26c3fe8134b22cf0cf5f2bf630cc68965d26f2784" => :high_sierra
+    sha256 "abba5a957f15d3a1d46762e9834caddfeca58e6ba47cb71d4351e8f50e3a8053" => :sierra
+    sha256 "aaef1e983776ffbc34c051401172d847f43961fc2f1359c2f281d9f3efc8300e" => :el_capitan
   end
 
   devel do
@@ -44,6 +43,12 @@ class Mongodb < Formula
         :tag => "r3.5.11",
         :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
     end
+
+    # Upstream commit from 24 Jul 2017 "Changes to allow build to work with SCons 3.0"
+    patch do
+      url "https://github.com/mongodb/mongo/commit/e9570ae0bc9.patch?full_index=1"
+      sha256 "62514846120eab72aa71d1da758a62bfb8479f182de7d059fa29a3b62c779290"
+    end
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -59,6 +64,12 @@ class Mongodb < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
+
+    if build.stable?
+      system "2to3", "--write", "--fix=print", "SConstruct",
+             "src/mongo/installer/msi/SConscript",
+             "src/third_party/wiredtiger/SConscript"
+    end
 
     if build.devel?
       ENV.libcxx

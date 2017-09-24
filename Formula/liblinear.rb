@@ -8,6 +8,7 @@ class Liblinear < Formula
 
   bottle do
     cellar :any
+    sha256 "efb583e36ef63e166b5b7f535347daf93ac5aa7eab3c4c69da3cec756081a61c" => :high_sierra
     sha256 "c84311ed57023b4f3e8f50a08c2057e77d5334e4d48544235ea9f6d99e8d3b5c" => :sierra
     sha256 "dab9f6a7708156bf6f28f61bb98b4f25bba7e24a712a1d1e982540594bf7bf37" => :el_capitan
     sha256 "573b3d217a292c5f180c9be565f03f13d279400d48a22dc817e05fb069e1c59b" => :yosemite

@@ -6,6 +6,7 @@ class Chezscheme < Formula
 
   bottle do
     rebuild 1
+    sha256 "7955554f3aa8885b73c13649cddf5fb2ece85b00167c4729b81c81506a93da19" => :high_sierra
     sha256 "96ced10b5fdddf2c8489cf9eaf1f20a85ebee73561340c34fcdf8ede5c859ec9" => :sierra
     sha256 "0bd0cb29369b4b029351095fad544573241c791d700424cc937f33cabd034d32" => :el_capitan
     sha256 "3a4f0f3c1a15208a03e6518b6a3e483f9340801a8121fcb637c458992d422d9b" => :yosemite

@@ -6,6 +6,7 @@ class Dvdbackup < Formula
 
   bottle do
     cellar :any
+    sha256 "c1451c94d778d2096df258679da916279cc117642128196cb487ac67c4c58f01" => :high_sierra
     sha256 "b47019e2fbfd855f1658b3edef96bf5a6794e6d8d6a863278b4512e4490e7e51" => :sierra
     sha256 "5f2f6cffd99459f429f53731c03528972648816997818bb4b8ec9df0a96c4d01" => :el_capitan
     sha256 "ac8d01872e80f83bb7fa14134391da4ec688a6e54d8f57ad58d970c38284e983" => :yosemite

@@ -9,6 +9,7 @@ class Jnettop < Formula
 
   bottle do
     cellar :any
+    sha256 "5916a94915266f06d9f375bd0adc8566fce9fb5f521e8a3649927ec57c920209" => :high_sierra
     sha256 "1f1b2d92a71bef0abeffc34c88907cdd45ad778951868a4c1567ba4c01c94ea1" => :sierra
     sha256 "f1c0898a53c14790da39524c03e17c666604076e0cfcb66bcd9a8f40f8d960bc" => :el_capitan
     sha256 "871294088a51e4726a38b1fb3fc631d88176dbd7fbfd9e42adb2626f24c7499a" => :yosemite

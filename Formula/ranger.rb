@@ -7,6 +7,7 @@ class Ranger < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ddfa5373f14c26414497b6135735e7ca872ac5da39cc995d07832cf26f3bdcc2" => :high_sierra
     sha256 "53183d431e6bcf9cf49a462130fb5e0929a4bf557a2d109c354e3194bfd36cc0" => :sierra
     sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :el_capitan
     sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite

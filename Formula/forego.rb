@@ -7,6 +7,7 @@ class Forego < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "16941f70aab7b9ff0fce10386a47a07893728397319f9cf8027e5c1b052319f9" => :high_sierra
     sha256 "5b7d4ce276f2e072caec1a5ca33b75d73623893ee1ded78f5853eee3c6ebccb4" => :sierra
     sha256 "122b23bc8bba14c4376f14e7094d9c1e0c8cbe1da2bfcfd9ca93abb8cc038666" => :el_capitan
     sha256 "0eb5516da23538f663c29fc3c0c487d85efc19a556c5d81eff4038723dc1019f" => :yosemite

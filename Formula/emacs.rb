@@ -1,14 +1,13 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-25.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-25.2.tar.xz"
-  sha256 "59b55194c9979987c5e9f1a1a4ab5406714e80ffcfd415cc6b9222413bc073fa"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
+  sha256 "253ac5e7075e594549b83fd9ec116a9dc37294d415e2f21f8ee109829307c00b"
 
   bottle do
-    sha256 "b759bd107cb9b227349cb82ddbc3924ffbe8767429db426b980247fd7958b3a5" => :sierra
-    sha256 "5456aa6ba7e2e9391abca982b1647b0ba97dd6c77378decb123f8e825620c03a" => :el_capitan
-    sha256 "cffac5cdce7aa321adb820300f54e747f7beae99f030d419c825427770c10888" => :yosemite
+    sha256 "d5ce62eb55d64830264873a363a99f3de58c35c0bd1602cb7fd0bc37137b0c9d" => :high_sierra
+    sha256 "4d7ff7f96c9812a9f58cd45796aef789a1b5d26c58e3e68ecf520fab34af524d" => :sierra
+    sha256 "7bf6dfba77259ef5454696834c14fcab3643197ba70eef1e608476167c3d387b" => :el_capitan
   end
 
   head do

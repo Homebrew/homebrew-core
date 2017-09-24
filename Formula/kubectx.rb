@@ -9,7 +9,7 @@ class Kubectx < Formula
 
   option "with-short-names", "link as \"kctx\" and \"kns\" instead"
 
-  depends_on "kubernetes-cli" => :run
+  depends_on "kubernetes-cli" => [:run, :recommended]
 
   def install
     bin.install "kubectx" => build.with?("short-names") ? "kctx" : "kubectx"

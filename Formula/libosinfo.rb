@@ -5,6 +5,7 @@ class Libosinfo < Formula
   sha256 "600f43a4a8dae5086a01a3d44bcac2092b5fa1695121289806d544fb287d3136"
 
   bottle do
+    sha256 "02f47ab456f024842fc123d75733b3dbe11a57d4a4a306c21da83dbcb2ca0c86" => :high_sierra
     sha256 "764ecf89e19d39bf7e6d15d41d22d466893afa462f475582a445ac622aa024f1" => :sierra
     sha256 "d42abc1c79c3bf147bddcada54f1720bca29b18fa573f1d0dbf250ee894bcd97" => :el_capitan
     sha256 "6f2ce2d0cb0725f846644a95bc4701330c1f920d4e1eb3c0683829c2baf5a937" => :yosemite

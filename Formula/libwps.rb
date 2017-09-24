@@ -6,6 +6,7 @@ class Libwps < Formula
 
   bottle do
     cellar :any
+    sha256 "af5523256d90cdb6df16716899309e4733d9b21973d50b224d1f4503bc8cbc4a" => :high_sierra
     sha256 "85c11a7406bd2a53e63239f3455c5f205d780d1c487c52779e89507de4c86c72" => :sierra
     sha256 "d9e3474b8f97fb56a76fe0068a075dad95f0905636ff18aa37e4dc77a1019687" => :el_capitan
     sha256 "57cc0b3b1205f97f2af3f38799e160d5eae6bab3dac8bd528f7ebfd4e0a8723c" => :yosemite

@@ -6,9 +6,10 @@ class GnomeBuilder < Formula
   revision 3
 
   bottle do
-    sha256 "98ed4984a3e82d9a08470f25e8be94e3c811eb2ce6c6831d03acebbb23294086" => :sierra
-    sha256 "e13c5c89e3a66e54dff4c1db6579fe277359cc0cda8499847c319fd71ae65da2" => :el_capitan
-    sha256 "3dc00bf7eae979cd2e67b254af91eebaa4d6f9b59c4231c6cf4088fc502403d1" => :yosemite
+    rebuild 1
+    sha256 "f9c3e3649d49844ae48d8d5da563ddd9cc2f3fa156defad956aadb7f7a367679" => :high_sierra
+    sha256 "809503f452ccf7b23b2dbd6426608beee8f6d03053b1ca68b0bea443cab84d95" => :sierra
+    sha256 "13a808b79271fa682f6d07aa59034afca0636fce78611c0396687cb67c5583c3" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -21,7 +22,7 @@ class GnomeBuilder < Formula
   depends_on "libpeas"
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "json-glib"

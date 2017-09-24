@@ -7,6 +7,7 @@ class Plan9port < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5c2efeb97b9d5a9171fc41e862223682a5b86a9af064a13381d10624bdf32d04" => :high_sierra
     sha256 "5f2d48d2f3a732795c8ab050bb705caf59a18ee86d3d89c143b22533a46bd71c" => :sierra
     sha256 "eb56faa4c63a522e34ba609fc0d4eb5af9b22715c0915629776129eb64d8625f" => :el_capitan
     sha256 "86fd2ed15a0fe79927c04a064222f88455bfc0e72bc1f97576e2962b11a70cc8" => :yosemite

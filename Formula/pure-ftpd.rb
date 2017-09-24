@@ -7,6 +7,7 @@ class PureFtpd < Formula
   sha256 "0609807335aade4d7145abdbb5cb05c9856a3e626babe90658cb0df315cb0a5c"
 
   bottle do
+    sha256 "25c3e2173e9c9a41bcdd1b256193a7b4fafd770e815ba1f9a2df4be69c4006af" => :high_sierra
     sha256 "cb6e0e3bf30f7adbed8b2a39c95e8656eaa1b2d81672aca1c200b8c37e399f48" => :sierra
     sha256 "50c1b92540ecb9b99a34c57b03fdab13d581c4b05d31f405d67ac2a9e5f45528" => :el_capitan
     sha256 "108a3d878df5f0258a7ecbfd63004c844b4d621c4cbf2e4bcd5eb5ffd4a5ff7d" => :yosemite

@@ -3,13 +3,14 @@ class Mapcrafter < Formula
   homepage "https://mapcrafter.org"
   url "https://github.com/mapcrafter/mapcrafter/archive/v.2.4.tar.gz"
   sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "dda2be9eff21f02193d886a797a4997d0017d5c6c66173f28c2f8da46bd11f20" => :sierra
-    sha256 "8f8e91a44d4fcb2424fa0f16036683f2b5c80cdfd5918e668b0f61560ad30a50" => :el_capitan
-    sha256 "fe3f7f1633b833731a96933470ddec7ac8a928a11c6b6f6f38befed5ff503c59" => :yosemite
+    sha256 "1e4f143eb5fcbbcb3ef602db9f1747e260fce6eafcc13eb22cac0610508b2b51" => :high_sierra
+    sha256 "dfcfc211eaddb20b77cf4de1896c052952299c7a3d2374a6f907835cbb0f7672" => :sierra
+    sha256 "9de1741c37d42eadc42a3dd6990c667f5ddf75a54ade98d497cfb4b44aff77d9" => :el_capitan
+    sha256 "754a2b714768295a5230f65db0d3b6d606817a757c58c71e1c0332feb8e81621" => :yosemite
   end
 
   needs :cxx11

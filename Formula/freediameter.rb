@@ -8,6 +8,7 @@ class Freediameter < Formula
   head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
+    sha256 "2217625f090f66370018131ceefb9ccdfd9f8fd64b73bf08a63a9d9a0166da8a" => :high_sierra
     sha256 "20927075755cc1df49f15c87defd3aa10154c94e4a249e895cb7f65be8e6db78" => :sierra
     sha256 "aa6f29018beafbe23e475334ed5be3718ba428e88b0741ef199d66cdaa988d08" => :el_capitan
     sha256 "786f9873dbf0e85e8a54272697404d99fa60f6872fc8fdad54d66e8184c4dc28" => :yosemite

@@ -4,11 +4,12 @@ class Cookiecutter < Formula
   desc "Utility that creates projects from templates"
   homepage "https://github.com/audreyr/cookiecutter"
   url "https://github.com/audreyr/cookiecutter/archive/1.5.1.tar.gz"
-  sha256 "eaf8c67c75335b899e58c608562536b4159284e8078cb59591505526aab7bbea"
+  sha256 "a01addd59d8a572f850cf8210f1e98e4dc924bec6210010d4e23277ec4fa094b"
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f46a25752dfec4512309109b064b75961b4185469ce1fc9a83af42ab020fea24" => :high_sierra
     sha256 "9c4c18b9f4f389903998af689dba4ba58a60613da60fff825edc3dfcc7c80cf5" => :sierra
     sha256 "5497ae2200f26c0474079aa17aea4a36ef8f4dbccbe1d76c5a99d1b31fc731d1" => :el_capitan
     sha256 "f2aca9bcfdca4486607257193c112dd3ec5d0ebf5c281b5791ad4b40f6e447c9" => :yosemite

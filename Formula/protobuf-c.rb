@@ -6,6 +6,7 @@ class ProtobufC < Formula
   revision 1
 
   bottle do
+    sha256 "7d29f8bca03fd6d9ff9b54a486a64b8799115be31320b1f1619b5c8a15ceed3d" => :high_sierra
     sha256 "88fc4138caca5d7c56829b875ee6a16b1cb3d47249dbd197382542300d9146d8" => :sierra
     sha256 "cb09232e07eb174c8e40bd4b823c6dffe41fff88eb9f3b9b649d130d16b94186" => :el_capitan
     sha256 "b39956193b7c3cc9006370c9adba8b61b88980fcc8fffc705f6b8524e76b65cb" => :yosemite

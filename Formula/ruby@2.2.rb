@@ -1,14 +1,13 @@
 class RubyAT22 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.7.tar.bz2"
-  sha256 "80486c5991783185afeceeb315060a3dafc3889a2912e145b1a8457d7b005c5b"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.8.tar.xz"
+  sha256 "37eafc15037396c26870f6a6c5bcd0658d14b46cd5e191a3b56d89dd22d561b0"
 
   bottle do
-    sha256 "880898c2b0fdd2f8bd8f9845510f186ea9414557af122334c408bc3583b910d7" => :sierra
-    sha256 "81bfe398c23b97dca5b7531789b476c88f275165bd3d473d45e3b9c63636fe7e" => :el_capitan
-    sha256 "bc20670dd020a6e7e188b669a5fe4257dea19a3ec5e362fd5a9b45278075eea6" => :yosemite
+    sha256 "39af46430dae6262e5cff3d712de650ba4beec4f8f8947469dc9987e280f2dae" => :high_sierra
+    sha256 "c6743542f223aac05752a03e0f1d489885080cc7a175ae3c49afe2af0dcc0b8f" => :sierra
+    sha256 "4d70d40e00c7ac28adf03c68747c28665704dfab75f121da786528387f2894eb" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -25,12 +24,6 @@ class RubyAT22 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
-  patch :p0 do
-    url "https://bugs.ruby-lang.org/attachments/download/6690/rubygems-2613-ruby22.patch"
-    sha256 "d0a8c5552ac44d8bc985befaf12288263fa248516b41bede9beb65b48334e6e3"
-  end
 
   def install
     args = %W[

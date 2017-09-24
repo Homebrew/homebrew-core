@@ -11,6 +11,7 @@ class Ksh < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 3
+    sha256 "5ca742b83c55b817a0fa09f737d73530c0f73d89618c60a19ec2ea5251ef8cd4" => :high_sierra
     sha256 "37a9f6c57702896fabe762fe90ebe454f04f3523aea311a28d34dc884d53736e" => :sierra
     sha256 "5148e18444c7f1a4e7b71f72982362491aa5581101296acaa6d9c2a782d620b1" => :el_capitan
     sha256 "13f85c7df7f44b68f1e5560c05b61eff8145230d94986537bdee5702c1e72e68" => :yosemite

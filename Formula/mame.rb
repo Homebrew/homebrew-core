@@ -3,11 +3,12 @@ class Mame < Formula
   homepage "http://mamedev.org/"
   url "https://github.com/mamedev/mame/archive/mame0189.tar.gz"
   version "0.189"
-  sha256 "0550d5a1403e4dc4ccab2054468ebe215fd85a43076e02b1aadcacfceb577ddf"
+  sha256 "bd1b1e152e4b17aab331c7c9709b7b39a289b63d189ecc32aaeb75ed6de2d2fb"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
+    sha256 "433a5280533c5b93f3b807c4d6e39351c9d0d562ef11220141a99ade5d35df80" => :high_sierra
     sha256 "059e81a3331188c64173136f2b1080cb429c87e5f7d711fbcdb335792c5c2f58" => :sierra
     sha256 "b067e5a453bde59c4fb65444dad06946d096fa39ed7ee20de82450e541c1db38" => :el_capitan
     sha256 "6c80fcef18c2228972615510a51f5fce99d3825b206e304437fc53a1e20dc351" => :yosemite

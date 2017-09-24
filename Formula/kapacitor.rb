@@ -7,9 +7,11 @@ class Kapacitor < Formula
   head "https://github.com/influxdata/kapacitor.git"
 
   bottle do
-    sha256 "32b44338688f2822b6081215881be5c915e80099b5fdb09255f64145b650ccc8" => :sierra
-    sha256 "d846d15aa133b17fcf0147d8f8d30eab902e04924b4c4bc139544f65600853e7" => :el_capitan
-    sha256 "23725f1155c3183ba7c4715b06ea220cf91df62525a51facd2b32889d053703e" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "ef5b9fca23bec2457e0ca83c50ff6ee6e3d123cba42a3c159f53448db5ba6e7d" => :high_sierra
+    sha256 "a2714ef4df092c66ebc7aec7fbead28ad86dbccdb8c4af1fb7027d0c26d8a348" => :sierra
+    sha256 "8666187b386a0fbc88724ca02a7bde971e5a4659c041d7d25426a7bd7b0fbe97" => :el_capitan
   end
 
   depends_on "go" => :build

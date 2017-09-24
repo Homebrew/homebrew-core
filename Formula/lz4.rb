@@ -7,6 +7,7 @@ class Lz4 < Formula
 
   bottle do
     cellar :any
+    sha256 "f2fb292bafe98e31654fc85c7a032529c12a4d2139cf96d1211411106618a025" => :high_sierra
     sha256 "1168e44a252b92853ce8fe24976c0198bc2a252678d36c4d5fd999e6e95bc417" => :sierra
     sha256 "42f1aa22230648e0fe1dc738d6cf6649b35a9f5b5255322418de601347c7848c" => :el_capitan
     sha256 "5abd84100b170b6b8650f46639edb181fefda11ffd582c46dcdc72580ac1913b" => :yosemite

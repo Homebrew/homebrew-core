@@ -6,6 +6,7 @@ class Rkhunter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4784b2369cbe305902a239a16695c5ecafca733ad1497a9d043cdea62f5f1771" => :high_sierra
     sha256 "d0f86dcf70bb5a827317f2c487d4238b61b03edc87cd7a0d1d0dcba1ea87d774" => :sierra
     sha256 "dddb86855d2ab0bb0a82c5861eea40b5efddaa8feff85744bebcd213aeea2bdd" => :el_capitan
     sha256 "5019567a795b47aa07bb27c897dd1971795d220747c38968e6834ff5edf430cc" => :yosemite

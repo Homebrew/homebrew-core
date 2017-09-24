@@ -8,6 +8,7 @@ class Openssh < Formula
   revision 1
 
   bottle do
+    sha256 "a7998e2c51b48845f74bfc925cb00b54778a0ccaa9d02ae40dbc98e4ba1f7963" => :high_sierra
     sha256 "87916642682b44296aa06297aaeeb2ef10519c6d0363d5286be74657e8758167" => :sierra
     sha256 "d3573d5402f065728fed6bd00085d6d4599b7151f14ac1cdf000a3140a9526a6" => :el_capitan
     sha256 "36eab43111afa57e0a3c112b09e85453613196e85922ae546a599d54b555556b" => :yosemite

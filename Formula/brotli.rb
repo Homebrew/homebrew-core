@@ -1,20 +1,18 @@
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google."
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/archive/v0.6.0.tar.gz"
-  sha256 "69cdbdf5709051dd086a2f020f5abf9e32519eafe0ad6be820c667c3a9c9ee0f"
+  url "https://github.com/google/brotli/archive/v1.0.1.tar.gz"
+  sha256 "6870f9c2c63ef58d7da36e5212a3e1358427572f6ac5a8b5a73a815cf3e0c4a6"
   head "https://github.com/google/brotli.git"
 
   bottle do
     cellar :any
-    sha256 "4732a890dbab83f0c66e8575a8bc0b558cd8ab541f9d2684b68e5dc2c0341324" => :sierra
-    sha256 "55d2f115d9b29bac587122dbf23ae748305406c5d3e8255fcdafc78077c86f24" => :el_capitan
-    sha256 "1e11a1590cc842b79812a9cec13813802aaacc20d75269caae23b566b9b0e3a2" => :yosemite
+    sha256 "6144a0ca96854448af4ff96c06a0e4aba23266f9283851e787cfa0b2a3cb2c49" => :high_sierra
+    sha256 "5d2597581c6af21f4bb53f2966c3cbd7a203305a66b6697b44664326f625e0e2" => :sierra
+    sha256 "d559e3e3c1b2efab8727b04d51805eccdbf5215353b5a2d0603a3d1f878854d7" => :el_capitan
   end
 
   depends_on "cmake" => :build
-
-  conflicts_with "bro", :because => "Both install a `bro` binary"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -25,8 +23,8 @@ class Brotli < Formula
 
   test do
     (testpath/"file.txt").write("Hello, World!")
-    system "#{bin}/bro", "--input", "file.txt", "--output", "file.txt.br"
-    system "#{bin}/bro", "--input", "file.txt.br", "--output", "out.txt", "--decompress"
+    system "#{bin}/brotli", "file.txt", "file.txt.br"
+    system "#{bin}/brotli", "file.txt.br", "--output=out.txt", "--decompress"
     assert_equal (testpath/"file.txt").read, (testpath/"out.txt").read
   end
 end

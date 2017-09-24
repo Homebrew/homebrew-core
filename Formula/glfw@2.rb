@@ -6,6 +6,7 @@ class GlfwAT2 < Formula
 
   bottle do
     cellar :any
+    sha256 "9260688ef4a884604999120fb68b77b4c00c74f91c30adffff30012ad097e01b" => :high_sierra
     sha256 "2ff2da070cde54e70c7bfce95ab2bba75b5c096bcf6e77f7148921b3e7ea0341" => :sierra
     sha256 "f31d46ba9f93f445f1d780d0523ef2c3499bda05dae1cd06c58da90c829ac8cd" => :el_capitan
     sha256 "e4bc5f41b85d95c41b0582fdcfa538f4183b86cbdfe4399237b8f2580c01eb32" => :yosemite

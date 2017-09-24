@@ -6,6 +6,7 @@ class Gconf < Formula
   revision 1
 
   bottle do
+    sha256 "e8a40df67c6816854cdfa9530e4c3b437907f5f92c32e8292f239d957dc1c0c8" => :high_sierra
     sha256 "46a60790c5f50f74833167d63e6a4772cd7b3de5672a54dd9a26ff7d82df1cb7" => :sierra
     sha256 "e810083f15d5ebb027c92071ea67c5960abf4d0b19c5e7809a71d026a78ae34a" => :el_capitan
     sha256 "85f809fb483b3c78b283d3e7b681b133d106d991717d361c0bdd9596a81178ea" => :yosemite

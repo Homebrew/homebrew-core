@@ -9,6 +9,7 @@ class IslAT014 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "2ccc931be418c1af79585b9a5053b8e2ac1ee76f67d147da46667de32595003d" => :high_sierra
     sha256 "24a03da7808be89c8b3872bf44f4cf084c6f55602de47a7fa24b11cdcd70dc59" => :sierra
     sha256 "9607fffe97f967e33867fa9b9aa27818cd535774ce5b4dc9702d372a6e037b69" => :el_capitan
     sha256 "bce9482d827461585725d445416b26f89b523cb9dfa6acb3580999e0f7d5c1ee" => :yosemite

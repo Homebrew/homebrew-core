@@ -7,6 +7,7 @@ class Aha < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f87de808467a91c6dcaba9b600cadbcd03e309c1b4541278ae11f73c0b402a16" => :high_sierra
     sha256 "9bae4d54f930969df6a87f101d40c061523ee72c6d47b649cb47388c3f3abd5b" => :sierra
     sha256 "9b80c3841426b29cba608e2ee68ed8949920f6af191cd4a0dd6e7a3d356ad310" => :el_capitan
     sha256 "5adf1e9f8d20ffe6f646748f63dca21dcc150d3df2bdff60b97bfb1c4c68bdb4" => :yosemite

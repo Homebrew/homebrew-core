@@ -6,6 +6,7 @@ class Compcert < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9a5256529b943edaa4d0d613d0dfed827df8ebb1f4de9fbd67e1cceb2d7d218f" => :high_sierra
     sha256 "02d892ec34b7c991629d747b822a0f75c5e9a790113886ac4925c2df67bbcce9" => :sierra
     sha256 "ae065d7a0008a20c42277b33166e1197931d64af120ae2dc06ff96425bf96e30" => :el_capitan
     sha256 "895f0814f70ddc41a07496f6f99c865d132bca38654d9c44581c2a89e828dc9b" => :yosemite

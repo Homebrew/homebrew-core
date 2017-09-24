@@ -8,6 +8,7 @@ class Binaryen < Formula
 
   bottle do
     cellar :any
+    sha256 "a43fc8909ba5c06fab809854967c6e33a8d76c103598e64789cd7cc18612683d" => :high_sierra
     sha256 "fd7212169cd1040caa712edd1ca6512503bf2696e40ca67f7ac84849b918e4eb" => :sierra
     sha256 "67f6c59129860bfd01f517e55e6e9945b2445cbce0036addea9373f411966963" => :el_capitan
   end

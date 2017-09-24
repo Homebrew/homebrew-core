@@ -2,13 +2,14 @@
 
 class Nethack < Formula
   desc "Single-player roguelike video game"
-  homepage "http://www.nethack.org/"
+  homepage "https://www.nethack.org/"
   url "https://downloads.sourceforge.net/project/nethack/nethack/3.6.0/nethack-360-src.tgz"
   version "3.6.0"
   sha256 "1ade698d8458b8d87a4721444cb73f178c74ed1b6fde537c12000f8edf2cb18a"
   head "https://git.code.sf.net/p/nethack/NetHack.git", :branch => "NetHack-3.6.0"
 
   bottle do
+    sha256 "3a87d95f55694f603ef141893be865db0762c2244a40072034314b0aa6bc6ebb" => :high_sierra
     sha256 "31ba131716f9e1deb6d4facca23855823ea916dc8d0edc6c4a50bcc744684936" => :sierra
     sha256 "1fc48d05f9ca71d73292c03b8860a22ca6c8a35f09b92f700918ae4290a73ecf" => :el_capitan
     sha256 "c15f61fb6867b3a68dbb4f68d09e787afda6e6f2498123bb9972547803a0a19e" => :yosemite

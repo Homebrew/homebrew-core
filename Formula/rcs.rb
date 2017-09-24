@@ -8,6 +8,7 @@ class Rcs < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4a0bfe31593e4dd12b9e7d519ddd1610ed845138860860812b070af12704b25d" => :high_sierra
     sha256 "ab6a22a53f0dba4b112dcd1968ec10675eeb7768653c8ec31a77956bda1bb347" => :sierra
     sha256 "78f1d531b800653dde89794a55e92ba4cf367084c9ce5dd31da7aaf4b7785dac" => :el_capitan
     sha256 "81c6feabf9806d1912e553809a73e9c531607e0281613f940fbc6dc8e47a5ede" => :yosemite

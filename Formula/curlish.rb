@@ -8,6 +8,7 @@ class Curlish < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "913484a16fdeb402a8f1d0834401f9d9eeaf2d3fd38bfc9c96f4a3978050d9f0" => :high_sierra
     sha256 "ce2ef65c8c9f59f11b4edf7906af5504df8573e01ee7d6f6f996fc0647285433" => :sierra
     sha256 "5d97c4e9f5c4cd9246bc3be9e785fed094cb522c3110f1ca41408415875b08cc" => :el_capitan
     sha256 "6cd32ca680c05b00761eb422a067316d4bb172c171f3e4015da66ed319cec3d2" => :yosemite

@@ -7,6 +7,7 @@ class Flatbuffers < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ea96a72c88b9a1ba2f7725fe3ff7884e4b5a5c4415126f468c586a2535cafd37" => :high_sierra
     sha256 "4bc2305d3d22aa17889d7b41fe1a3495590931492876afb2098371c8a9d7d70c" => :sierra
     sha256 "4d5144e5c88a4d2fefde69bfcdf013f9ee3894a7dbb8805bdf20f491dac76c5d" => :el_capitan
     sha256 "0f2b611a3a061dd955f7d842ad4a8c72b13e44664c7afc19b82c76ddcbb0d0be" => :yosemite

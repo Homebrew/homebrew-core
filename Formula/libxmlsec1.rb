@@ -7,6 +7,7 @@ class Libxmlsec1 < Formula
 
   bottle do
     cellar :any
+    sha256 "1240ae0b3a03511cd2740eb49d56ce6ea080a5cbf2fd62201dc6a19fcda173ee" => :high_sierra
     sha256 "98e3453026441a3884271088f581bef19a770fa6401720a4366a4e38335f2745" => :sierra
     sha256 "e16e54d26f7ce2a7ae5fd7025cb421bba71252a9e9c47df251593fdb3d8400a6" => :el_capitan
     sha256 "49cb24946eac37fc2e0f39f55376463b52ae0b702cdd06877ba3bb4e95476f15" => :yosemite

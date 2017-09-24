@@ -5,6 +5,7 @@ class Libofx < Formula
   sha256 "54e26a4944ef2785087cfd8ed8f187ab9d397d9b92b5acc199dd7d5d095cf695"
 
   bottle do
+    sha256 "81b676fdb2d88fb270bc189af82631dcdf4387ab296472ceea518b48bd307d1b" => :high_sierra
     sha256 "f43a3d30d5490038591245675c739613720c50502630cf21574e2de401b5ad8f" => :sierra
     sha256 "51e0d70b279d22394058c04cc4509788047d9d6cdb0ac7ed7a121f2863bddb7b" => :el_capitan
     sha256 "f569247d3c0849ed8ebe0d639fb281f64ce175c6db38241f1c60e5d46dc0cff6" => :yosemite

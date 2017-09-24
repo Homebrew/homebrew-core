@@ -54,6 +54,7 @@ class GccAT47 < Formula
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
 
+  depends_on MaximumMacOSRequirement => :sierra
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
   depends_on "mpfr@2"

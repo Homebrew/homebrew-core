@@ -6,6 +6,7 @@ class Mg3a < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5b21356ba4ce19ab0a37e23de2ab700df0ddf5929422fe5bc1b4dc69e4ae0050" => :high_sierra
     sha256 "fa6df4b7b8598b0a81499fb3ebfeb09233bdeac2c7150292dd6acaa9ecb787bc" => :sierra
     sha256 "4330835634faef0f93eb7340d1b6ad992669422d93210b209df28007f80658f6" => :el_capitan
     sha256 "4017a82bff19eb00a699206494bcaa456dbe70a529edd75fd80044064de26965" => :yosemite

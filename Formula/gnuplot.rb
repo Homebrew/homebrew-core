@@ -5,6 +5,7 @@ class Gnuplot < Formula
   sha256 "7dfe6425a1a6b9349b1fb42dae46b2e52833b13e807a78a613024d6a99541e43"
 
   bottle do
+    sha256 "bfd640f5695bacc875b063b4a2290b319d0da85372c4d1c10ffba4794a2d2210" => :high_sierra
     sha256 "8c43e0b7e86325aee11a7bd6d49fbc7ca18480d592b806061a45a6a5d9c30545" => :sierra
     sha256 "d070515c0ef22f4a74f93854ba4ad62c142d2c2d1e0088d9186356853e32ebf5" => :el_capitan
     sha256 "cbc87c7746aeb65acf5231d3114672bf003c1a4583b12be229de586310a83ab1" => :yosemite
@@ -24,7 +25,6 @@ class Gnuplot < Formula
   option "with-aquaterm", "Build with AquaTerm support"
 
   deprecated_option "with-x" => "with-x11"
-  deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
   deprecated_option "qt" => "with-qt"
   deprecated_option "with-qt5" => "with-qt"
@@ -36,7 +36,6 @@ class Gnuplot < Formula
   depends_on "readline"
   depends_on "lua" => :recommended
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
-  depends_on "pdflib-lite" => :optional
   depends_on "qt" => :optional
   depends_on "wxmac" => :optional
   depends_on :x11 => :optional
@@ -75,10 +74,6 @@ class Gnuplot < Formula
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-tutorial
     ]
-
-    if build.with? "pdflib-lite"
-      args << "--with-pdf=#{Formula["pdflib-lite"].opt_prefix}"
-    end
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"

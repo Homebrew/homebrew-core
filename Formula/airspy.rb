@@ -2,10 +2,11 @@ class Airspy < Formula
   desc "The usemode driver and associated tools for airspy"
   homepage "http://www.airspy.com"
   url "https://github.com/airspy/host/archive/v1.0.9.tar.gz"
-  sha256 "358fea19f90bde13babc57ee7fdefeff3d8d8f5d629b0891734c5d4e811e8e6b"
+  sha256 "967ef256596d4527b81f007f77b91caec3e9f5ab148a8fec436a703db85234cc"
   head "https://github.com/airspy/host.git"
 
   bottle do
+    sha256 "44736e1193e3f63fca0c984ac4f594d1ad11a83a810898103652f69af2bce63f" => :high_sierra
     sha256 "bfc1393f3efe5b58016fbee40a4048e7c7246203cb72b02261da1045941bcd4f" => :sierra
     sha256 "c86b265ed42d8a976ff4bfc6116e5945d103f22af8ced4b9a9a18827ecf4af06" => :el_capitan
     sha256 "1d6af7e52534bc50625eabcaa2b586e5824a3abbb4c3b42e032e5b4de41c6bfb" => :yosemite

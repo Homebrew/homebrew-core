@@ -7,9 +7,10 @@ class Wireshark < Formula
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "6c9587aef3929b06d5debbf55faeb69dea1c03f6dfc75ed072b8597f09da1122" => :sierra
-    sha256 "74c90f4c82f6f6aafe771683475c6b35655816ef7a5266c2a510de83399bbd8e" => :el_capitan
-    sha256 "1e3cc7c34317c2faf3b4d8b0d08d1a31b32f4e9e3bc4a10e65f694ff9c463925" => :yosemite
+    rebuild 1
+    sha256 "7661156d22495b9f0162007b071b33d6ba49feee388185762d5a0fdf85cbbb45" => :high_sierra
+    sha256 "4e0227dfb8fc1fe6718134db8f808bd102e635167c512e0a40ee5dbab572103d" => :sierra
+    sha256 "5dde96577da3591c3338658ce15f3d8ac4ad1e943bf1c10cef602ad10ac65d53" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"
@@ -34,7 +35,7 @@ class Wireshark < Formula
   depends_on "qt" => :optional
   depends_on "gtk+3" => :optional
   depends_on "gtk+" => :optional
-  depends_on "gnome-icon-theme" if build.with? "gtk+3"
+  depends_on "adwaita-icon-theme" if build.with? "gtk+3"
 
   def install
     args = std_cmake_args + %w[

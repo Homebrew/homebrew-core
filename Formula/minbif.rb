@@ -9,6 +9,7 @@ class Minbif < Formula
 
   bottle do
     cellar :any
+    sha256 "645208299622c8d182d71635448c3c7370c232cd9c3ecaf77a633d6eb8b7a42f" => :high_sierra
     sha256 "a7e4aa9c3213c3740bbc7c9f6e9d02f6a7905e038bb147127f1c99c87830ed36" => :sierra
     sha256 "a2975f09ebf6254df989164f832f80e7bf9e7d65a6c160375ffff6512c2b10bd" => :el_capitan
     sha256 "78a992db3b47f3ecaf331d3f81d5920f99b611f2dec1f8cafa5b1d318bb87abc" => :yosemite

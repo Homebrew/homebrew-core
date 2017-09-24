@@ -7,6 +7,7 @@ class Mediatomb < Formula
 
   bottle do
     rebuild 1
+    sha256 "d4dee77311dda28a732947640b2adf9387f477ed9b66bc0640c30feba34b6a1d" => :high_sierra
     sha256 "8eb40e0276320c6765b7dbc208afe1c53a06ed13ff5e410e16aee57c366bede7" => :sierra
     sha256 "06cb4aaff088fc91d9500b10640d2b1632f8c88c95277f9cface991a06801ad6" => :el_capitan
     sha256 "089217abe05ea91a8dc1df796974495f87b8bcde7b4d80a93b1129e12cfc344d" => :yosemite

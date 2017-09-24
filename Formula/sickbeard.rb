@@ -8,6 +8,7 @@ class Sickbeard < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "d9db0e5fd4383ca3c388e597dd09f0240be542e54eab6e70265dca613c62f78e" => :high_sierra
     sha256 "6138d1320eeaa59271e29ac77f922054368ce833b1bb913e44c9931b2b112961" => :sierra
     sha256 "2954e69685502cf87b91ace26ed1d8ac5f7286368bacb38c786cb0f23f3b36dc" => :el_capitan
     sha256 "e6948de6d4e6a4511f16b83d06e6d5c65adfb422a371620ddc90354a270b151f" => :yosemite

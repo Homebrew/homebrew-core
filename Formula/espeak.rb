@@ -7,6 +7,7 @@ class Espeak < Formula
 
   bottle do
     rebuild 1
+    sha256 "ff4334be449510bdea51a7d853890fec167914658eb4c5167c5a6b40c6621ee2" => :high_sierra
     sha256 "ad40b912f2b0cf1b72ab89d53729cd61717a9d9b5bc588950cd6318b63c9e133" => :sierra
     sha256 "5e2829905c793de0ccf38ccca04e03bc504f7f70137952d44177461c16cbf174" => :el_capitan
     sha256 "7fed44fd08e3fbbc193e679d97141cf43facbd9a0661fb6a2991bebb5272864a" => :yosemite

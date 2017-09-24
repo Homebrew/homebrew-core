@@ -3,11 +3,12 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.3.0.tar.gz"
   sha256 "029dc350497bdaad4d8559f7954405011b9e1b996aa4d4cc124f650e2eca00a6"
+  revision 1
 
   bottle do
-    sha256 "b58d626cf27717e029ed02048156faccc1a326c2da9908e9ab131e3927e7b900" => :sierra
-    sha256 "4f2ffa8d3b0b443e338e57a629ebd2e2e4188bb89d852e9c6ad8541baa47adea" => :el_capitan
-    sha256 "e60dd458a7ec131ce8b3e86a5c871d03c8f90fac245c68958c79c10f913f8856" => :yosemite
+    sha256 "ca6920514bcafa96a00c92807fe87d3474ae1f3d8c76910f834550ce27fe91cd" => :high_sierra
+    sha256 "91845eda68475507c89b50ba45dceffc100c6720b2b829779c397da7acbc5523" => :sierra
+    sha256 "fc9cc0234615c8dfe49ee3da0be3e281440787c6c7f8938c67e756a59c704f08" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -16,11 +17,6 @@ class LibbitcoinExplorer < Formula
   depends_on "pkg-config" => :build
   depends_on "libbitcoin"
   depends_on "zeromq"
-
-  resource "secp256k1" do
-    url "https://github.com/libbitcoin/secp256k1/archive/v0.1.0.13.tar.gz"
-    sha256 "9e48dbc88d0fb5646d40ea12df9375c577f0e77525e49833fb744d3c2a69e727"
-  end
 
   resource "libbitcoin-network" do
     url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.3.0.tar.gz"
@@ -38,17 +34,8 @@ class LibbitcoinExplorer < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("secp256k1").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}",
-                            "--enable-module-recovery",
-                            "--with-bignum=no"
-      system "make", "install"
-    end
 
     resource("libbitcoin-network").stage do
       system "./autogen.sh"

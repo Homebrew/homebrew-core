@@ -8,9 +8,11 @@ class GxGo < Formula
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
-    sha256 "667583c22ef3490e5ad925324dd49acedf2bcecf3106ebe1fd76fa5060dba572" => :sierra
-    sha256 "db577c33c701378da9590de1988785908f46441769f4e45764643572d5b11bc5" => :el_capitan
-    sha256 "def53ca427f39df71c9fa20dd1522847fbc14d798747f6e597de8663471e475a" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "b8f5035a637dd15236c01c7edd193b6e786c61a67ec404e2caf4a987cbe3b4a7" => :high_sierra
+    sha256 "6241d5081be9d8a376f4fa64edc16350242466a0f7716f82946689145b699102" => :sierra
+    sha256 "938b5b269b22301e95d10a6c81c2c151a245a34de358cf90ddf97fb3b35037bf" => :el_capitan
   end
 
   depends_on "go" => :build

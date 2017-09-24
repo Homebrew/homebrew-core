@@ -7,6 +7,7 @@ class Lib3ds < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "1c6d7e3a2e800cf8fc9f6050032f28eec15bcc7c617622d58ba502c9c1afa740" => :high_sierra
     sha256 "4338a4f81ccc33ad78b30f051085594606b74fe5f7773e197a36f08e0b8967ba" => :sierra
     sha256 "e5810afd47dd88fb769e6ef62ef558b4ee4e643d4f5ae3fddb019257642b3375" => :el_capitan
     sha256 "33f5b51953a8d4a583c7d5d6a7796ffaaccf8bf6a303fac300bfdb76dcd0ad60" => :yosemite

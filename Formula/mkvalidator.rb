@@ -7,6 +7,7 @@ class Mkvalidator < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "5722cbd433c58814fc7508ca19161c0de3f5fd8102e94cded96d09e9cfc771bc" => :high_sierra
     sha256 "49fa0aa455c2787b47cdad885529291a1471e733e49918b2f8f27359022f5a80" => :sierra
     sha256 "fe23d687f75ca9d28b75c9886b0eca1830861f2d47d5e03eea8d9cae0f2f0441" => :el_capitan
     sha256 "e10253ba9942b7d4d92a66efd55fb04671af4edd73bddeed302f5373591d244f" => :yosemite

@@ -7,6 +7,7 @@ class Astyle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5f3094d0603e5459d268c49385f2a9204d01d508aa101d023ad3b8229f17d902" => :high_sierra
     sha256 "49ed8641bb284828c0e753b6d2570c317f4275a9ee5845c33ac90835dd319258" => :sierra
     sha256 "b5da4fab0010f84a6623585c99e5468492e0a2c8dd1a77680bd4c51b900c0272" => :el_capitan
     sha256 "69819972ffefb908f5186f01b688d32c28e9ea2ca2a0d62c5b2850e686e1aefa" => :yosemite

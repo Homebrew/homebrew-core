@@ -1,17 +1,17 @@
 class Taylor < Formula
   desc "Measure Swift code metrics and get reports in Xcode and Jenkins."
   homepage "https://github.com/yopeso/Taylor/"
-  url "https://github.com/yopeso/Taylor/archive/0.2.2.tar.gz"
-  sha256 "991657866ab39357321f198864dbd1acfc871e9d1b80543a27b78e84a5958e5d"
+  url "https://github.com/yopeso/Taylor/archive/0.2.3.tar.gz"
+  sha256 "027c7e98d752ad57d2714a1c148d2b044d91a33ced18cd1bf2d82a020788bdd2"
   head "https://github.com/yopeso/Taylor.git"
 
   bottle do
     cellar :any
-    sha256 "25b1ead494bd427079b9ab833915b254703ca06ac1f477cf77dea9c1c1652731" => :sierra
-    sha256 "6cb392931254429bce282878c43f7441e5aa03f8312afb3b48e19e77b63b2948" => :el_capitan
+    sha256 "e965985520ce326c12d7d07da359b075018d48b79d1d2b044db68586bafee551" => :high_sierra
+    sha256 "fda9d12ec890daca148dd5819dfe5e61750b30b677031d035129dcf226a8fe84" => :sierra
   end
 
-  depends_on :xcode => ["8.1"]
+  depends_on :xcode => ["9.0"]
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "MAKE_SYMLINKS=no"

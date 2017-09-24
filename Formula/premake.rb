@@ -8,14 +8,15 @@ class Premake < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b2ad51fca2552a674929ec4d048fc05a88d24373673a701705e3b35c50a8611e" => :high_sierra
     sha256 "9e5d1dd706b3b3af1c8fc5cfe42141cf2a023185f9d19bb25dc58f8aced440e2" => :sierra
     sha256 "9e5d1dd706b3b3af1c8fc5cfe42141cf2a023185f9d19bb25dc58f8aced440e2" => :el_capitan
     sha256 "4b1ce1c63cc3ecca7e195d4c0350fb6f823f659c36ff6c1193fd99023ed25b12" => :yosemite
   end
 
   devel do
-    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha10/premake-5.0.0-alpha10-src.zip"
-    sha256 "15a955bf469857c9b8f81b428debf833c47ca98887477164e21568100875045f"
+    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha12/premake-5.0.0-alpha12-src.zip"
+    sha256 "5fa4a9f5b100024e23e2b9117ffa4935a6ac3c0a61aa027c3211388d53536751"
   end
 
   def install

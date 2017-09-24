@@ -5,6 +5,7 @@ class Maxima < Formula
   sha256 "0e866536ab5847ec045ba013570f80f36206ca6ce07a5d13987010bcb321c6dc"
 
   bottle do
+    sha256 "26087570ccabe210be2df29b21a60a6c3cb9d0efd61ef6ff314d4844c8cf237c" => :high_sierra
     sha256 "0a1c186375b35420a55590187655ac4a0160c8faf76750f4b156febf25665c4e" => :sierra
     sha256 "5c9f091e0d6993bffb750378076d5d05fe525fe2dafd7af85652c421e840f814" => :el_capitan
     sha256 "96e042b2ff652ffdbc1b10236a119240bdf6ae5c29389c7d3e9f01ee3721aa7e" => :yosemite

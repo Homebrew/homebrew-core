@@ -5,6 +5,7 @@ class IcarusVerilog < Formula
   sha256 "fdaa75dfe7c58cbc471fc12710ee49b3f32fd6cc055d9181b5190cbcbbd6cada"
 
   bottle do
+    sha256 "496c7af8c0d99efd7b0c0a8c5876eb9dae4cc55026793e0a55510225e73a1d71" => :high_sierra
     sha256 "407f39365da527c4bfe390ea77756f8e1711bc5f97bb62c39c43a70ec1ea0409" => :sierra
     sha256 "765e2758490a45edc6b4145e2e22eb0e82c6cb43b877bcf439a2da13f9f55bcb" => :el_capitan
     sha256 "80af17509dd602b4f9e5c6c05add05b5a84337b20e231a05889c96776386ccdb" => :yosemite

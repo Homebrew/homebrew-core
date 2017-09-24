@@ -6,6 +6,7 @@ class Pdfcrack < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5f10b2bac73944825e65046a4e2463f4aa432264d5e948e6ca0e75e6e72635f4" => :high_sierra
     sha256 "29d9fae755ec6f86bd6ef162a100708a4b70ca8df16dfab56c6bd9716e804cdb" => :sierra
     sha256 "95bdf77c94c37277e1539d9db15e843a3787d9554c7715bfef839db5535adaca" => :el_capitan
     sha256 "77c9f14f30a06181c2d4777f8a3ec7dda02d45bf7a502ef6c03c5cf7fbbada4e" => :yosemite

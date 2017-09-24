@@ -6,6 +6,7 @@ class Aubio < Formula
 
   bottle do
     cellar :any
+    sha256 "a9b2b26c09a18a1313558d6ec829a5e78cab46762472156e86ebabe548645716" => :high_sierra
     sha256 "a118cd7a1446f2f8dc57558e2e3e8ec151030976a04467cd2b3a32bc84903dd3" => :sierra
     sha256 "bef9b466b761bccebf7cb440ffec7d35d64bd1b579a64018924ebd80fab37a6f" => :el_capitan
     sha256 "d5ade46b9f42376b59cdbd7a44c00ab41e28218b5568f9e9caf6ab2fd4688c76" => :yosemite

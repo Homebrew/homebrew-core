@@ -1,22 +1,21 @@
-class Gtef < Formula
-  desc "GNOME Text Editor Framework"
-  homepage "https://wiki.gnome.org/Projects/Gtef"
-  url "https://download.gnome.org/sources/gtef/2.0/gtef-2.0.1.tar.xz"
-  sha256 "8432f0f404b93e5a2702978b5f121b8f9ae2167c906e9f2ed7b5165142e27a4f"
+class Tepl < Formula
+  desc "GNOME Text Editor Product Line"
+  homepage "https://wiki.gnome.org/Projects/Tepl"
+  url "https://download.gnome.org/sources/tepl/3.0/tepl-3.0.0.tar.xz"
+  sha256 "9eb6fceb0b521de7bf684508138a5b8428d9f575c395ba54f9e31597980fd0ef"
 
   bottle do
-    sha256 "e9029727148e5970ee01ceb8cc4e3cc3b226aaa1c6d4a87b97ecb515cefd8ae4" => :sierra
-    sha256 "35aa0e7a2d72109c47ccf2b8a438d10bd299c3d77f6bdce64cd4795c0e74e872" => :el_capitan
-    sha256 "76e0fcbdc905feb1a1bfb2ce7854a3e7707d3959588fc6aab7624911b8f792df" => :yosemite
+    sha256 "bb36835284be2fc7e44840e193f6b17bd71afd09c61781c00e5648d6db16bbb4" => :high_sierra
+    sha256 "35590abff6dc1a110a170382e584ab706f1cc552210aaa5cb2d5d546fb925a16" => :sierra
+    sha256 "d9043558401a3a9cf2188ffa7396b05c7c38cfa00ad1be4400cdb0de69dc633a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on "vala" => :recommended
+  depends_on "gobject-introspection"
   depends_on "gtksourceview3"
   depends_on "uchardet"
 
   def install
-    ENV.delete "SDKROOT"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -25,10 +24,10 @@ class Gtef < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-      #include <gtef/gtef.h>
+      #include <tepl/tepl.h>
 
       int main(int argc, char *argv[]) {
-        GType type = gtef_file_get_type();
+        GType type = tepl_file_get_type();
         return 0;
       }
     EOS
@@ -63,7 +62,8 @@ class Gtef < Formula
       -I#{gtksourceview3.opt_include}/gtksourceview-3.0
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gtef-2
+      -I#{include}/tepl-3
+      -I#{include}/amtk-3
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -88,7 +88,8 @@ class Gtef < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtef-2
+      -ltepl-3
+      -lamtk-3
       -lgtk-3
       -lgtksourceview-3.0
       -lintl

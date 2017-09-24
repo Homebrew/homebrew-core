@@ -3,13 +3,14 @@ class Ncmpcpp < Formula
   homepage "https://rybczak.net/ncmpcpp/"
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.8.tar.bz2"
   sha256 "2f0f2a1c0816119430880be6932e5eb356b7875dfa140e2453a5a802909f465a"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "c263943f750b841a1d2dd3867143ce923e49c0c87d29a7732f125134d3f1ac59" => :sierra
-    sha256 "358da9e220c29a152a74d7c3bb78448aefdf1313cf44a7f7048c5b7cac521d38" => :el_capitan
-    sha256 "b6e69bf58beff3adfc99fd868ec57f44d47780ca61138afd4ade38338a3153c3" => :yosemite
+    sha256 "4a186ba3b4d909fffa1215282d0d2e14d95c2397cb26315ab80bca80575fe9bc" => :high_sierra
+    sha256 "1eb97ff9e00df44f9b253b943dbc4af34f183e9690c95e230bdbb5dcf19d614b" => :sierra
+    sha256 "54fa45a5986015cd71eaa158605bc46c6dd0e1e74365821c3cf8709c254c54f2" => :el_capitan
+    sha256 "91af848fb4b9831e9298efcc8d8eb3ad3efec1e47e5d7bbcd96729da262258c4" => :yosemite
   end
 
   head do

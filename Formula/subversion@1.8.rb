@@ -70,6 +70,8 @@ class SubversionAT18 < Formula
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
+      system "2to3", "--write", "--fix=print", "SConstruct"
+
       # SConstruct merges in gssapi linkflags using scons's MergeFlags,
       # but that discards duplicate values - including the duplicate
       # values we want, like multiple -arch values for a universal build.

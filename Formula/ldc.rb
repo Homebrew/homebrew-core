@@ -1,6 +1,7 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
+  revision 1
 
   stable do
     url "https://github.com/ldc-developers/ldc/releases/download/v1.3.0/ldc-1.3.0-src.tar.gz"
@@ -15,9 +16,10 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 "67455f9aa1fda1e83eab9ca8e0a859b0529d3dd38fa388024ab065e7fb87dbbb" => :sierra
-    sha256 "013e1eb1dd837f938f9a70d859dc3ed583d87eb40b8817b06dae2852237149ef" => :el_capitan
-    sha256 "f9c8ef995bfcff7a3a26ab889d069c5ffbd0e6b38014b5666ecdaddc5d44b72f" => :yosemite
+    sha256 "eb341763a87de8859aa7723d743233af44ac270267228d8b86e04526c23d9dcc" => :high_sierra
+    sha256 "0a3d8bd18fbfd865e116e4090650bb6b1e8d89daa9098621986fb9b5130c04ef" => :sierra
+    sha256 "5786ac60b7433bc8bcc665199e4e4d5d2be0141867581085c74314c240eae3a4" => :el_capitan
+    sha256 "74f8b7e12efd094cc936db11f948629708775d2f8369957fe2d5a67221a92ea2" => :yosemite
   end
 
   head do
@@ -31,7 +33,7 @@ class Ldc < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@4"
 
   def install
     ENV.cxx11
@@ -40,7 +42,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm@4"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -48,7 +50,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm@4"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
       ]

@@ -5,9 +5,10 @@ class Gedit < Formula
   sha256 "aa7bc3618fffa92fdb7daf2f57152e1eb7962e68561a9c92813d7bbb7fc9492b"
 
   bottle do
-    sha256 "69cd37a74078d26487c5da262e25ebf4061e5b39269a267241ebf0a0f671a884" => :sierra
-    sha256 "7b1c38d6120f65a9c2a247c45a5d871eff551e534973f1cbff9c8a80528ff177" => :el_capitan
-    sha256 "39e9259fd08f5dd94573fcee5c7956b0a6922b14fa7e1dee167ded4a26827ecf" => :yosemite
+    rebuild 1
+    sha256 "20a1c65040063c87ce7543c91bc5bf567c775b81f1895949f4a42d003a6f2c12" => :high_sierra
+    sha256 "5909c7a8820499ab0d76d2946fa2d91f4e81b7a385acfdbb7b987c3f974e4c7e" => :sierra
+    sha256 "1a333dc7184f3d57b609d561895a07f7c3fb4f442dc6b3bdcaaec472310f9f61" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -28,7 +29,7 @@ class Gedit < Formula
   depends_on "libpeas"
   depends_on "gtksourceview3"
   depends_on "gsettings-desktop-schemas"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
 
   def install
     system "./configure", "--disable-dependency-tracking",

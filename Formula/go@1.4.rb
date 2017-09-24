@@ -1,37 +1,24 @@
 class GoAT14 < Formula
   desc "Go programming environment (1.4)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.4.3.src.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/go-1.4/go1.4.3.src.tar.gz"
-  version "1.4.3"
-  sha256 "9947fc705b0b841b5938c48b22dc33e9647ec0752bae66e50278df4f23f64959"
+  url "https://github.com/golang/go.git",
+      :revision => "d76c7d5a31ffaba3134f16981abd5f891fa2d805"
+  version "1.4.3-20170922"
 
   bottle do
-    sha256 "310b4c2b5d3a63e7d16dbac1f3d1283600171db07ec469a4b2521a313a4a8040" => :sierra
-    sha256 "79e55be417a0b861ca8a72dfa368b467f64f677e399f0b57dce6f0f898dfcd12" => :el_capitan
-    sha256 "1a213e281e70b4526f4d57e7aca3ef57e9a132e63ac8c713e24735720915dc59" => :yosemite
+    sha256 "af2c899f899666f852bd9a99ba7b0e2159cdc366888b6068fa5fe5b0c5d4b2ea" => :high_sierra
+    sha256 "eae6cbf2799ae38c2a909d97ab904d1962df7e7f2a3a62d106ada55ca06754c0" => :sierra
+    sha256 "4322879a2d4024591b1c1cd33886184fa1838d33a6c64e5f14105cfef75a631f" => :el_capitan
   end
 
   keg_only :versioned_formula
 
   option "with-cc-all", "Build with cross-compilers and runtime support for all supported platforms"
   option "with-cc-common", "Build with cross-compilers and runtime support for darwin, linux and windows"
-  option "without-cgo", "Build without cgo"
-  option "without-godoc", "godoc will not be installed for you"
-  option "without-vet", "vet will not be installed for you"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.4"
-  end
-
-  # fix build on macOS Sierra by adding compatibility for new gettimeofday behavior
-  # patch derived from backported fixes to the go 1.4 release branch
-  if MacOS.version == "10.12"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/29ef8e9/go%401.4/go%401.4-Sierra-build.patch"
-      sha256 "49c3f57432b2b3037af737c900a01822cff0a1cb440947db8507e636f6430a33"
-    end
   end
 
   def install
@@ -66,7 +53,7 @@ class GoAT14 < Formula
           ENV["GOROOT_FINAL"] = libexec
           ENV["GOOS"]         = os
           ENV["GOARCH"]       = arch
-          ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
+          ENV["CGO_ENABLED"]  = "0"
           ohai "Building go for #{arch}-#{os}"
           system "./make.bash", "--no-clean"
         end
@@ -78,26 +65,20 @@ class GoAT14 < Formula
     (bin/"go").write_env_script(libexec/"bin/go", :PATH => "#{libexec}/bin:$PATH")
     bin.install_symlink libexec/"bin/gofmt"
 
-    if build.with?("godoc") || build.with?("vet")
-      ENV.prepend_path "PATH", libexec/"bin"
-      ENV["GOPATH"] = buildpath
-      (buildpath/"src/golang.org/x/tools").install resource("gotools")
+    ENV.prepend_path "PATH", libexec/"bin"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/golang.org/x/tools").install resource("gotools")
 
-      if build.with? "godoc"
-        cd "src/golang.org/x/tools/cmd/godoc/" do
-          system "go", "build"
-          (libexec/"bin").install "godoc"
-        end
-        bin.install_symlink libexec/"bin/godoc"
-      end
+    cd "src/golang.org/x/tools/cmd/godoc/" do
+      system "go", "build"
+      (libexec/"bin").install "godoc"
+    end
+    bin.install_symlink libexec/"bin/godoc"
 
-      if build.with? "vet"
-        cd "src/golang.org/x/tools/cmd/vet/" do
-          system "go", "build"
-          # This is where Go puts vet natively; not in the bin.
-          (libexec/"pkg/tool/darwin_amd64/").install "vet"
-        end
-      end
+    cd "src/golang.org/x/tools/cmd/vet/" do
+      system "go", "build"
+      # This is where Go puts vet natively; not in the bin.
+      (libexec/"pkg/tool/darwin_amd64/").install "vet"
     end
   end
 
@@ -123,14 +104,9 @@ class GoAT14 < Formula
     system "#{bin}/go", "fmt", "hello.go"
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
-    if build.with? "godoc"
-      assert File.exist?(libexec/"bin/godoc")
-      assert File.executable?(libexec/"bin/godoc")
-    end
-
-    if build.with? "vet"
-      assert File.exist?(libexec/"pkg/tool/darwin_amd64/vet")
-      assert File.executable?(libexec/"pkg/tool/darwin_amd64/vet")
-    end
+    assert_predicate libexec/"bin/godoc", :exist?, "godoc does not exist!"
+    assert_predicate libexec/"bin/godoc", :executable?, "godoc is not executable!"
+    assert_predicate libexec/"pkg/tool/darwin_amd64/vet", :exist?, "vet does not exist!"
+    assert_predicate libexec/"pkg/tool/darwin_amd64/vet", :executable?, "vet is not executable!"
   end
 end

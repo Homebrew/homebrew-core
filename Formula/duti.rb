@@ -8,6 +8,7 @@ class Duti < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "7d2f8e2a40a50e580c10af176ce1f3aacab03059e671705d02309ac46382b993" => :high_sierra
     sha256 "8f34c5664b0a9c05274fd67102fca6c969f7dc966279b2ca0f11906df3d2d03a" => :sierra
     sha256 "53748f3ad97a48b468326e66d869e20c05fc1f67219ac3ea8a147b558717ee45" => :el_capitan
     sha256 "c2661fc4e59d5cc941a416bf7abad035af3d15f75e7bca73d2bc29706d89f560" => :yosemite

@@ -14,6 +14,7 @@ class GitExtras < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9ef2f0f78212b9cbd8cd0e9d6e509961fd7dfc87c191cca27852b99e448176aa" => :high_sierra
     sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :sierra
     sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :el_capitan
     sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :yosemite

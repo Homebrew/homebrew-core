@@ -2,12 +2,14 @@ class Udpxy < Formula
   desc "UDP-to-HTTP multicast traffic relay daemon"
   homepage "http://www.udpxy.com/"
   url "http://www.udpxy.com/download/1_23/udpxy.1.0.23-9-prod.tar.gz"
+  mirror "https://fossies.org/linux/www/udpxy.1.0.23-9-prod.tar.gz"
   version "1.0.23-9"
   sha256 "6ce33b1d14a1aeab4bd2566aca112e41943df4d002a7678d9a715108e6b714bd"
 
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "485d6e3879f7c6c6b7f044993ea141cde309f5f3283688b795a21276d5daf754" => :high_sierra
     sha256 "856dd5abfc350e8ce06e361664c21732e0b11dfd84aca7f9bd1e0e40704ccb67" => :sierra
     sha256 "6f2fb0a9baf932d599fca41b8ec80cd35491332ab89464bdda6d7ac8e5b5e01d" => :el_capitan
     sha256 "7624631dffaa797191689b05fcb5d7c87c0ad233e49c308b10462c08c8a955e4" => :yosemite

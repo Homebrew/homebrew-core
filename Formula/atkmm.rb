@@ -6,6 +6,7 @@ class Atkmm < Formula
 
   bottle do
     cellar :any
+    sha256 "a5207112418684edbb8fa1b355e85137a1cf1615343e14c04f70212c6c3a3c54" => :high_sierra
     sha256 "99c33466b55c8f1b850dc129bd737f15c243b7e79782c5927fdc55d59d4df551" => :sierra
     sha256 "70c5c9652b337efe41f26d61480dad331095a6ded8cae26bc8dc0066c06adfb5" => :el_capitan
     sha256 "a7ddfcacea2a645a939c0eb7b5d2c026d9f9af9ba3e579ee66df28fbe6339879" => :yosemite

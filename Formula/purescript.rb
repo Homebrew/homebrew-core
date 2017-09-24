@@ -11,9 +11,10 @@ class Purescript < Formula
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "bbf10500d5f5854eb88270adb100df01a42e906a8f01cde8a4b0da9231d6a679" => :sierra
-    sha256 "e56ea05f1c2756191a652ff41ea48723dac38aa96a929f5225d126f54da593d3" => :el_capitan
-    sha256 "c642ca03b506c0d38db02b713d5f50b2157e215dafc6e8beb24659e9b7f027ec" => :yosemite
+    rebuild 1
+    sha256 "6e3c8f33ac8e6b8af9e4d7b7da7d6116129048e1e553337e7d887aa5996cbb59" => :high_sierra
+    sha256 "c6719ba1cd153eeb9816ffc5ee3a10e5d7e25d618689ce2f416d43aeaf1a525e" => :sierra
+    sha256 "474ce08419ecaaa6456f828674adf095c4b07af557f7a15881071a52ec907e98" => :el_capitan
   end
 
   depends_on "ghc@8.0" => :build
@@ -31,7 +32,11 @@ class Purescript < Formula
         system "cabal", "get", "purescript-#{version}"
         mv "purescript-#{version}/purescript.cabal", "."
       end
-      install_cabal_package "-f release", :using => ["alex", "happy"]
+
+      # Upstream issue "Build failure with protolude 0.2"
+      # Reported 11 Sep 2017 https://github.com/purescript/purescript/issues/3065
+      install_cabal_package "--constraint", "protolude < 0.2",
+                            "-f release", :using => ["alex", "happy"]
     end
   end
 

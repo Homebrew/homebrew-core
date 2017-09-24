@@ -7,6 +7,7 @@ class Csmith < Formula
 
   bottle do
     cellar :any
+    sha256 "e8e818a9898b4145c5622810958fa8616f8b57156f09aeaf3045873210f0856a" => :high_sierra
     sha256 "2e78da57153124cb3feca12955d0bbadbc4e90dbff6c34a08532aea55c75ba8e" => :sierra
     sha256 "472992fd577ec20b025397c840823abf8f88d719e7d86bba427446a38cc5584d" => :el_capitan
     sha256 "277a9e03f3bfdd03f1e3136ef867604c7f6c4f9763346223bb41b47f0fa72f0d" => :yosemite

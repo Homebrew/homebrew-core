@@ -6,14 +6,15 @@ class Stoken < Formula
 
   bottle do
     cellar :any
-    sha256 "e15fc74c664a18b8efc3d250c62e354b4dfc866878ee0605537de8e4fd228442" => :sierra
-    sha256 "35e25f3a37d3578c14001a583ed584d95a08c3168edaddd1ee6f548a61ccd231" => :el_capitan
-    sha256 "295ebb2ee6df4fa9f6aeaece981f90774746c2e30a564c8ce44471e15480a79d" => :yosemite
+    rebuild 1
+    sha256 "ee631ed7b16976bdb280c5538f9ff73de447cf98f88793284f4cf3952c634cc0" => :high_sierra
+    sha256 "b818f8cfd4afba73a8a123dfa2dc7dc7b2c066c9dce164ab853a5a5a8b5b31de" => :sierra
+    sha256 "a14908e16d1d104e46f9f606fd5a79514b08ad982a7cec5370ebad5072309b4a" => :el_capitan
   end
 
   depends_on "gtk+3" => :optional
   if build.with? "gtk+3"
-    depends_on "gnome-icon-theme"
+    depends_on "adwaita-icon-theme"
     depends_on "hicolor-icon-theme"
   end
   depends_on "pkg-config" => :build

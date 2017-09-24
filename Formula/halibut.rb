@@ -8,6 +8,7 @@ class Halibut < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "34dd7c9fb1fe023d33b61be5bc56c0497a1854b9bbf68cc80facf61ecee68190" => :high_sierra
     sha256 "68325d87dfa9989331273f70ab5edb19c9ca825316df64cc860edaa43a5d9ce5" => :sierra
     sha256 "7f10669422a452000a9150206e8e675dc5b0b180d0cc95d02436dd566a6974f1" => :el_capitan
     sha256 "6aad05089e904d5695aac53b6eac97e08b0e28b0e1b5d0dc70ea91864543558f" => :yosemite

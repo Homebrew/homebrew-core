@@ -1,14 +1,13 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://github.com/mdadams/jasper/archive/version-2.0.13.tar.gz"
-  sha256 "b50413b41bfc82ae419298b41eadcde1aa31f362fb9dc2ac089e5cbc19f60c24"
-  revision 1
+  url "https://github.com/mdadams/jasper/archive/version-2.0.14.tar.gz"
+  sha256 "85266eea728f8b14365db9eaf1edc7be4c348704e562bb05095b9a077cf1a97b"
 
   bottle do
-    sha256 "8c746481671658374fb0efeba172a138016e36ae67cd26665a8979babc6d0a6c" => :sierra
-    sha256 "0d1b7ce6f6c98962a832fc492c4603ab46e15db33bfd6211df5ee1e6d457e413" => :el_capitan
-    sha256 "e8c2d8f19672658b0717df280f03132b57c588b7aacf14c44651334be81b09ea" => :yosemite
+    sha256 "086de22e8e8a01299962f3bea5374c90490b66e84b7e10a4078f172e64b0079f" => :high_sierra
+    sha256 "86058296fb5efea3ca509bd335bf7da48a83078fc237c1ccb1bb2d428ef2343b" => :sierra
+    sha256 "c481b8887b8d29e3c63735dd2151c9246e08f21bf50334033de4a054f700a6db" => :el_capitan
   end
 
   depends_on "cmake" => :build

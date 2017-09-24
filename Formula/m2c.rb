@@ -6,6 +6,7 @@ class M2c < Formula
   head "https://git.savannah.nongnu.org/git/m2c.git"
 
   bottle do
+    sha256 "86e4297b644fed6095a29cd67885e8c72d3abfcc259e3d19f2692e01b39f44a0" => :high_sierra
     sha256 "e98a99fb06c6b72bd0cf11d8369df21e1e9e57253e0a9d63ae8641444079df93" => :sierra
     sha256 "4aa6ac4f5fd855f4f84d5577ff6f79495fda9edc2ce5335c64bd96a881975eb0" => :el_capitan
     sha256 "67659bd6a5fe922c1b34d5068a5cecbfee1f804e5ff432e32c8682a04029ccac" => :yosemite

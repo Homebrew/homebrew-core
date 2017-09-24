@@ -6,6 +6,7 @@ class FsUae < Formula
 
   bottle do
     cellar :any
+    sha256 "c3248540860a5d3829087227e5e1145bf37727339c6b697441e35748253b2232" => :high_sierra
     sha256 "1bbdae6cb275764ebddbbb535095ec51677ce6566877961a60ed2e1b1d2f6471" => :sierra
     sha256 "7437962981be6a10ba6952a07746f0c9e8e165e1e6e647b2cf5fd9042ee89669" => :el_capitan
     sha256 "c0a2ef6dc723d726e70df915d5a0a8db200743290715acf80ea8fe0d3a344c65" => :yosemite

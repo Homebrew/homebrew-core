@@ -6,6 +6,7 @@ class Eprover < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "695d0b85e575af8af73481ee2678cbfa7687b140a75d402234a2ddce6425bc9d" => :high_sierra
     sha256 "fffcc75e400937600fd2c059ecb5427476b216af5c56249c756400de4906885b" => :sierra
     sha256 "8d3dd0289c6f77d68dc2e1c9f06c039e106f2b6e324788315815a8c37b433e9c" => :el_capitan
     sha256 "6d13db7618b7a1d3e567165000a81d34384941c0f3de51177cf7b2a9b8f39ce7" => :yosemite

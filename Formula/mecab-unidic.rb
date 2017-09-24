@@ -7,6 +7,7 @@ class MecabUnidic < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "9062af2305cf97efe00b42bda1b89253b487cea1ef3675e6f4c187dea1e37033" => :high_sierra
     sha256 "083c740c7c309410266eb793755477b6d37da6f6c85dddbb62e31b27dcbae135" => :sierra
     sha256 "9ece990d89f8949c82003296bd256ebafddaf5d9caf03a63ea692f2009d52783" => :el_capitan
     sha256 "f81fd4ff64eb6b7731fd4b818b17398b1eaea3d12d533a7340b9b12aa2331c0d" => :yosemite

@@ -3,13 +3,14 @@ class Points2grid < Formula
   homepage "https://github.com/CRREL/points2grid"
   url "https://github.com/CRREL/points2grid/archive/1.3.1.tar.gz"
   sha256 "6e2f2d3bbfd6f0f5c2d0c7d263cbd5453745a6fbe3113a3a2a630a997f4a1807"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "55975d6c5872fb54dfbdda2871bb12ffd23d4135852fa052250d514d6bd542c5" => :sierra
-    sha256 "232680ccc1f7173349daecda3009b50b7cad3ddab0489b0427c968cb553aa2bc" => :el_capitan
-    sha256 "39f3d174fd8e893c7ce071872d306659e83725145e5edecf94bd0308fb44c2fe" => :yosemite
+    sha256 "91c94f7a5d5d6241050f26821c796e394cb79c067c474fc27fdfaf88f6e210b6" => :high_sierra
+    sha256 "e26dd69fd1d5eab83fcc55ecd0ff5d2a12f32fcf95d31c018339089c92028008" => :sierra
+    sha256 "e24498aa357986661c7bc650852876d0d7be0e3767a698d3d45e40b6693893ea" => :el_capitan
+    sha256 "f68bd09644b1d6a19dc35b7ae681f80c23dc6d4a8d63936ad9e0530f203c2eaf" => :yosemite
   end
 
   depends_on :macos => :mavericks

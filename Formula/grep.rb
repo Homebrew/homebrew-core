@@ -7,6 +7,7 @@ class Grep < Formula
 
   bottle do
     cellar :any
+    sha256 "8dadfa6959ee17790ef8cc578981ede226b29339549c72d26eaaa1c1dab5e0e8" => :high_sierra
     sha256 "75fd5efc0986b1771c3082e08b9dc2d8495546f81ad1a38a9a05f506c8046687" => :sierra
     sha256 "867dffadb33d24d4a743df13c95ec08ff526f3be96b4965ae5e97ec08d46192d" => :el_capitan
     sha256 "72ea449768eb5745712b40464b8eb1e7b9dc908ce26c8353e453681ee824ec89" => :yosemite

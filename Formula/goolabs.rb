@@ -6,6 +6,7 @@ class Goolabs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2fc44ab27460523442fd6433e5e79e4126004f73415f45d099519c6dc3d366a1" => :high_sierra
     sha256 "9f542e33d1641a50c0faa25c193982a7498c1511a0b89e30ef72c021a31bdb71" => :sierra
     sha256 "e6dbce36a389b7f1197634034f5c547060e5c6491f799aa78a68719234a36507" => :el_capitan
     sha256 "dc27e5bf44ae61cdfca02fe3529f3a7d1572a76441571794ad698c54096e1419" => :yosemite

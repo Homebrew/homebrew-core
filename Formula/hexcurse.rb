@@ -6,6 +6,7 @@ class Hexcurse < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "071ab88d401cc9ff24c6d466f291217d57082d07649ddb39f7d6aa28dd9ed7e6" => :high_sierra
     sha256 "580efaffc5d8dccb0f4f6532ad5be35e372c6b8d91dfb6d3930aa773c9bf7ea1" => :sierra
     sha256 "ffe690a87522627dc0088c391f7237fc6a3f2aa12fc5a3487c0aa6694905dc4d" => :el_capitan
     sha256 "ef5644e4e96604f6f3bbe802e7824a7fd82e01163d532d0e2be6a93cc6595eab" => :yosemite

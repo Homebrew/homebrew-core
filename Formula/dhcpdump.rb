@@ -7,6 +7,7 @@ class Dhcpdump < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d49aaa82bf92fd7adeb0edb91812d4c48aa20fb0af2f30f9b4238d032dbb99ce" => :high_sierra
     sha256 "10e6565cdd5717666822ce9a0f77747d44969b5cbc7c3ccf1505aaa6ba95af85" => :sierra
     sha256 "1f30cb4146a741b3523d674336854c665546e939af04f619e38623d9298cd4ef" => :el_capitan
     sha256 "6df64653cfd4b118db43e2acb2f08a565ac3cba9e1b739a258eeb7655c1a6103" => :yosemite

@@ -7,6 +7,7 @@ class Idutils < Formula
 
   bottle do
     rebuild 1
+    sha256 "ec8f7cab5aba0f014542b184aca61b832917412d22e325096fabd1f4af9e1ed8" => :high_sierra
     sha256 "12880410526d1e4eff9530acdd23db8a3f1fc4095352e8688fe99ef445c59c2c" => :sierra
     sha256 "5b148e92b0febab9a96211449f464385be7b2b6572d79001c87acb274095a6dc" => :el_capitan
     sha256 "b965eb4579741ab5721cb99f706b0601056055b8b9aa9178695e548cb3b9bf0c" => :yosemite

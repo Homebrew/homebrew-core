@@ -7,6 +7,7 @@ class Sdf < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "7bb04c7929c2a4ba22edb621f57f5d3ae9dd27713978ed7ae3efe7cfe295503d" => :high_sierra
     sha256 "e30e7e02213cfabc3cf5a6499905eed7657ccaf84e4612a8b9ef1bba1b4b308b" => :sierra
     sha256 "7b99bc3c67466c7bde1e59908b82f023962e14df0e0ae83bfcebcd2e11ca5f29" => :el_capitan
     sha256 "abadd2d273826b42b95fd342bf3a7c8a523d0126b8d9aedfcec67b21bcbc6d6f" => :yosemite

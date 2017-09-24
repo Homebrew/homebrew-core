@@ -2,7 +2,7 @@ class EchoprintCodegen < Formula
   desc "Codegen for Echoprint"
   homepage "https://github.com/spotify/echoprint-codegen"
   url "https://github.com/echonest/echoprint-codegen/archive/v4.12.tar.gz"
-  sha256 "c40eb79af3abdb1e785b6a48a874ccfb0e9721d7d180626fe29c72a29acd3845"
+  sha256 "dc80133839195838975757c5f6cada01d8e09d0aac622a8a4aa23755a5a9ae6d"
   revision 2
   head "https://github.com/echonest/echoprint-codegen.git"
 

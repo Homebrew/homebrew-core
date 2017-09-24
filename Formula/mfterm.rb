@@ -6,6 +6,7 @@ class Mfterm < Formula
 
   bottle do
     cellar :any
+    sha256 "009cdef40e9c20337824dae0e0dba9391fe003d47ad29e249959f5ef00294888" => :high_sierra
     sha256 "be663a931f9c81a3671c5dcb492b81a9d2f2bde40ef37bc1034f2ab6c0683cce" => :sierra
     sha256 "8d6a975a204105fea549d800093ee986c3f585d275ad75720746482e61d80053" => :el_capitan
     sha256 "da282f04765376dd1151dd4ae19394fe7504f5143bb5241cd538205c57d2ab3e" => :yosemite

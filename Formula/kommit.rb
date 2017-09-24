@@ -6,6 +6,7 @@ class Kommit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e56a06121acc174613b183d6d22ffe7c5d8b7af07dd8070324344753a5806111" => :high_sierra
     sha256 "4c0ba086a72c5e3af247e6926d5374a193d64bfd3e7d8bc939f02ad965e16fe7" => :sierra
     sha256 "2797509de1497eeae3a3cac0381822019e471e878f5082b1a79fa40bc2f6f768" => :el_capitan
     sha256 "b15cf7fe56aceade3a06d52e467cdb08640f4d907d1a29dcef0e374815dee203" => :yosemite

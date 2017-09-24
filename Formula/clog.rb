@@ -7,6 +7,7 @@ class Clog < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b5309f9e692f111a0b68599ff465da02783d2f28a4b10d958c19e616177eb37a" => :high_sierra
     sha256 "97e07b94ea058c766f4d036cc503fc6ec08ca64cddced33d63723e4611534595" => :sierra
     sha256 "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5" => :el_capitan
     sha256 "a6c42c7d0795252434a3e1fc0307fc40490a4f29a9186408fa3ed7d82ba5f02e" => :yosemite

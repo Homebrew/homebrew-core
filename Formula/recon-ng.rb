@@ -8,6 +8,7 @@ class ReconNg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "66bb7b2a43e1546a53c7504ec2bd854abe8466e79a2f4fc092b826c13dc7e1f0" => :high_sierra
     sha256 "e4764cefc113d0ba91a0f07430bcfa58e5cdcf16a6c44ecd61f402d25d93d289" => :sierra
     sha256 "3904633fd2cc25d089c56a887bc1249461a90b3c74556c6287d1d0a610bb743b" => :el_capitan
     sha256 "86792cac092b8eb68a2585de3ed515027dde139b1565f0336824983789279ebd" => :yosemite

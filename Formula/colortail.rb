@@ -7,6 +7,7 @@ class Colortail < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a7974ddb2f0bd3a7946bb5d06fe637f94c7a8776f9cd811bf8fbd530caa92816" => :high_sierra
     sha256 "44e09610d285f503fbae67f930ae7bea894c737d1e2c9c634332188340a70e3e" => :sierra
     sha256 "e0c8c9af739ce911c0d09eaee26b615444c17f48de27c680cbaf27739e45d8f5" => :el_capitan
     sha256 "1be1c0067a5621f5edcabf64ec06a775d334924e4ea01bccd1c42830f6c9d0c6" => :yosemite

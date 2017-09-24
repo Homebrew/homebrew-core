@@ -4,14 +4,14 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.5.2",
-      :revision => "3352f60107f55921ad4761fa1f77d67a0315e6ad"
+      :tag => "v5.6.1",
+      :revision => "d1e7b4cfb06c4d9156fb1e691853b36ff5801d57"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "fd335001c00c1d0848acbe1f827a0bd03fc34a572bbb73f6275f9e12bfb523ea" => :sierra
-    sha256 "ea13fe112907b5aec74421e3d37087857ddf298c774a4e96fe5d72337b787f32" => :el_capitan
-    sha256 "938cd703e60029c11963413f6b539a22fb636c5f2f21a5c88a345761bd99b92b" => :yosemite
+    sha256 "502ef5adae7d8aa455eb51a26c7911778f1086de855fc14a3e0c39744cc9721f" => :high_sierra
+    sha256 "dc1c7cbf5b8a5b0c653e5fdd07603d4723b8cdeaf2ae525b013e43b74d8ee77e" => :sierra
+    sha256 "eee133fe2b4e83897c31befdd3e5010e7bfcdd1b06e05dbc8f4adbb0318ee406" => :el_capitan
   end
 
   resource "node" do
@@ -27,25 +27,17 @@ class Kibana < Formula
     end
 
     # do not build packages for other platforms
-    platforms = Set.new(["darwin-x64", "linux-x64", "windows-x64"])
-    if MacOS.prefer_64_bit?
-      platform = "darwin-x64"
-    else
-      raise "Installing Kibana via Homebrew is only supported on macOS x86_64"
-    end
-    platforms.delete(platform)
-    sub = platforms.to_a.join("|")
-    inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
+    inreplace buildpath/"tasks/config/platforms.js", /('(linux-x64|windows-x64)',?(?!;))/, "// \\1"
 
     # trick the build into thinking we've already downloaded the Node.js binary
-    mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"
+    mkdir_p buildpath/".node_binaries/#{resource("node").version}/darwin-x64"
 
     # set npm env and fix cache edge case (https://github.com/Homebrew/brew/pull/37#issuecomment-208840366)
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
     system "npm", "install", "-ddd", "--build-from-source", "--#{Language::Node.npm_cache_config}"
     system "npm", "run", "build", "--", "--release", "--skip-os-packages", "--skip-archives"
 
-    prefix.install Dir["build/kibana-#{version}-#{platform.sub("x64", "x86_64")}/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
+    prefix.install Dir["build/kibana-#{version}-darwin-x86_64/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
     inreplace "#{bin}/kibana-plugin", %r{/node/bin/node}, "/libexec/node/bin/node"

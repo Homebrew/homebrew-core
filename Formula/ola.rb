@@ -5,6 +5,7 @@ class Ola < Formula
   sha256 "e9dfdcf4d0cd270e4cfcb2dbe661d610a521386bfa49b18243c25462692d0283"
 
   bottle do
+    sha256 "9144c2e40e6ae25bcee43ba61a2097158a805a78e4ea24cdef3657bf4a7d4b34" => :high_sierra
     sha256 "73750ce1129ba0be3c94fd0e98834b1166fe746d3de7c3ae21a548e99659c50d" => :sierra
     sha256 "2e1711ae0bcd168816015439de578751a1edfdf032df1be17dfc170f0364bdf5" => :el_capitan
     sha256 "3ac33da0156083da563b70ce0157ff456ec557ace574ed45f7c5c06c1757eb7f" => :yosemite

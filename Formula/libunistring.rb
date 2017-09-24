@@ -7,6 +7,7 @@ class Libunistring < Formula
 
   bottle do
     cellar :any
+    sha256 "ab87b179bc5ac0d54cbf003d62fdae4e0924e7cf5e1dba67af70fdd65668f5cd" => :high_sierra
     sha256 "d82c6b7c72707aa04eb00bd3e6a4a995ef830b41b02271111ee6006585eaca80" => :sierra
     sha256 "c80c64fdd7d05bf0e387b3286238e1740e7989098ba6bde403151a1c14d57812" => :el_capitan
     sha256 "e2143b25bf7bdc85ddb00b065cf1f72c665d77a6737563cd81a88420bc72e51f" => :yosemite

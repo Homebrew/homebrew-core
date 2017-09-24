@@ -7,6 +7,7 @@ class Apr < Formula
 
   bottle do
     cellar :any
+    sha256 "64527b35f69f53202253676c3727411fa3fb3a0ae1b71ca266c62d2a87faf3bd" => :high_sierra
     sha256 "5a0ef0c7992eaa6fc1ac332f72cdaebfb5fc0e9fd70a00606fc72e3a5c9d0afb" => :sierra
     sha256 "b5b9ef99e199a850bc0485fec5968ada7dece9d107df3af0014ecb7245cf5f68" => :el_capitan
     sha256 "cca4cfe47cf5e2f504c2bba59ddb991211b4ed778b2cadda74ea418305a5d942" => :yosemite

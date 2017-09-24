@@ -1,14 +1,14 @@
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.1.tar.xz"
-  sha256 "6a0c2cc0894a69b666e688e5e6e93621d7625db5e77fd37551310d75c00896b0"
+  url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.2.tar.xz"
+  sha256 "91afd98a31519536f5f397c2d79696e3d53143b80b75778521ca7b48cb280090"
 
   bottle do
     cellar :any
-    sha256 "7e1ae82e3383de14db18f97033a7a89de9d224a33b070c83494987a07b9011e4" => :sierra
-    sha256 "d1947cee0ea70a0ac9e8bd9af677a5b634d73cc9c803e0c2a4259131bb7bab61" => :el_capitan
-    sha256 "59e7d5b128bbeeb33306c624719f00b9cf8f78c0e2e79db7f5d4b199494ab578" => :yosemite
+    sha256 "43cbd07d4b5542b4cf6a7eff1c79d8ea7cfaa6009100ad34ebc56ab09b8e1d43" => :high_sierra
+    sha256 "c5fa401269d11e40c8366e6bff718e0d884d1da5574ec2c7cdfbe341e33239ec" => :sierra
+    sha256 "42f8b253f964dba53b907b83988c2b70eae9c97923b290958f33fc21ffdfa3e9" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

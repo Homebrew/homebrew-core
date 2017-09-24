@@ -2,17 +2,18 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v0.9.2",
-      :revision => "75ca2cace08e38de8af1731ee8614d0533d5a4d4"
+      :tag => "v0.9.3",
+      :revision => "112c0603d3d6fb23ab5f15e8fdb1a761da8eaf9a"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d0c984e1fdc1e3eae5b2aad8eaec8dd16798a27db599890ae8d6c10236ec91b" => :sierra
-    sha256 "3bbc763163b90a23888c0dbdc76936f481dd8718ee5847a098b8feceff3aa16d" => :el_capitan
-    sha256 "fac205fe109682706656469c25fffb5170530a32bcfb3161eef6e6c1cde9be4d" => :yosemite
+    sha256 "50cf2c2e86fcc50e250bfb2bc10777525ba9a7e9f234fcb53998599eba5f48d6" => :high_sierra
+    sha256 "116c2a66ce62414ce9829c1e8ec93db61c8eb071dfb5832470f542b727a72b77" => :sierra
+    sha256 "8598f078a558ecc6d2f23804280b8f8d692b40f340a387730497e2e5fc6877b0" => :el_capitan
+    sha256 "8a3aa00a1e75e2524af83d1d2ff2cc71c5fc7e2ce0f0785ce1065acf85d4080b" => :yosemite
   end
 
   depends_on "go" => :build

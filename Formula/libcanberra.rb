@@ -10,6 +10,7 @@ class Libcanberra < Formula
   end
 
   bottle do
+    sha256 "c30a642b46b4da40690fd0c49b77d9ca2cea2c95d8e1f2e39f92d655b9b324c6" => :high_sierra
     sha256 "066b33288fa7e3741ef45fc2d59578b4f1cf8141b5e6f9847635555a3436ef00" => :sierra
     sha256 "dc9f8e76c81bb21afedd4deb9b9d9bbf3382f012192e5796658845e2083ca018" => :el_capitan
     sha256 "3d820f8c9747e8658c226483267536c76b3dfdf44a9e14ea1327cb5cf0385ba8" => :yosemite

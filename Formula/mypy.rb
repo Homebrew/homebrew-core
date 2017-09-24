@@ -8,6 +8,7 @@ class Mypy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8207479495483c64cc8afba5601e2fa39387addac40543d3d8ca44931928c6a8" => :high_sierra
     sha256 "7952339760f6b000890303e5b406550ff0ceeb939dcaf2729aa80cad4263880a" => :sierra
     sha256 "453f964e8baec4161eeaec56d23cc926b561deedd07c8a32d5fba88e018e770b" => :el_capitan
     sha256 "0dd45349792469d6544f4ac2ef41c6d1a6d2fc984dbb8ef0ed2782e8a6caa269" => :yosemite

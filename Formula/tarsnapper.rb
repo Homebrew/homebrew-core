@@ -8,6 +8,7 @@ class Tarsnapper < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1d0bcdf7f096f3eb500f6cc568ead2b1958b9e2b5334e5defc16c6fb5c6fb955" => :high_sierra
     sha256 "9b1053c30ac6cc1d1f81f287cb84deba9a8df6c353fa90d969a8e104301b7112" => :sierra
     sha256 "dc172bc2eb7b5f4dc6adf477828e1f2523932e16e2997b4e4c8633b31d3a28a0" => :el_capitan
     sha256 "47e026fb50a96660899d9128c8c74e0191a3c414d363cecb3078c9a6eae12241" => :yosemite

@@ -6,6 +6,7 @@ class GnomeThemesStandard < Formula
 
   bottle do
     cellar :any
+    sha256 "589376bcde7566b5afaa542c51fd99f20ea417f53ac37de25ca99a131b79977b" => :high_sierra
     sha256 "628cb3dafd7c2577efe0541a200c190d4a8b7653e5e806f38f6aa4d79f4d872b" => :sierra
     sha256 "92177002751416a5c288faa4a22343dd6b40d0bf056cce53108aa371d9dce0bb" => :el_capitan
     sha256 "13d5ff2e6d7497d5eb32d2dcf1794c4541d0d38a00e02f00a42ad83457b507a9" => :yosemite

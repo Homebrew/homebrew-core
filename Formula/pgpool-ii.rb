@@ -5,6 +5,7 @@ class PgpoolIi < Formula
   sha256 "f90de6dbe3b2fd7adac7521fc285a1addf1585102c7f7eddb48147a0801d1158"
 
   bottle do
+    sha256 "d3d150df92b7ff7d7956ac0f351a00284921c41e26d93ae14fe6d841b357b449" => :high_sierra
     sha256 "87b327d37b58c8ac1c65351ee16b8a541525481d3d02701c2cc12eb6caeb100b" => :sierra
     sha256 "24fddb94c6b055d242039bdeb9c3b36f8d3afd602fb2f7b41f0654d72edb7a39" => :el_capitan
     sha256 "b4ef5cc69fdca07dd243a5654a2192a26039591bcb3a11a87bac559aa23dedfb" => :yosemite

@@ -8,6 +8,7 @@ class Textql < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ca2c7ba2e7d3b423cef6af90f705588346a365b226c6763fbd2041204426d645" => :high_sierra
     sha256 "c64e983a2230ae263258bb4bea4d9382efed77fa6934d1c32ae41304193b7b85" => :sierra
     sha256 "f958e30ce6df17f9dabddbb5a6a4af0d9d7690844983cfae8eb864ec2bdf0913" => :el_capitan
     sha256 "aed185329089c37638d1cf3aec6dbcf51180772f6f62d6b8fc74de733e664d6c" => :yosemite

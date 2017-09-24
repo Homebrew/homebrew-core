@@ -6,6 +6,7 @@ class Ttygif < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c8dbee8441c56e4ade77fc6990a1336e6017519760e2719813bc92f8e10eaf69" => :high_sierra
     sha256 "f64ad6118dc421166dca05ac1ef2d146d545caddc49dcf1a17e06d3c9deee6fd" => :sierra
     sha256 "c32e7ce8c456e02c9b945e9cca6252a071b68b9cda84651877481b54a76f6c1c" => :el_capitan
     sha256 "6459139f3d5eb5a52aacf11d1774c0404a7947d0e87e674c2bba54724bc06bbf" => :yosemite

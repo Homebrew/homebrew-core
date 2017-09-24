@@ -6,6 +6,7 @@ class Eiffelstudio < Formula
 
   bottle do
     cellar :any
+    sha256 "3b8a13f25ff2282dcb269cd0dd723fc0ee97be42f85f02d72e4d4fcedd525a19" => :high_sierra
     sha256 "7946945393c414071a069c74adc5baeed9f93ab8be40d5f3bd6dbac77c7a8fd2" => :sierra
     sha256 "d6c4d4709cdde7bb552e8a72e3af85dfdff5fb25ac776d370cfd5da34e23dd9b" => :el_capitan
     sha256 "be7febcd611d5eb9282fa3480d00764cee7b4c91cf1dfd0cceb2d0618ba5a9f7" => :yosemite

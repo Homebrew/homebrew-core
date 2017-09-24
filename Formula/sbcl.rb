@@ -6,6 +6,7 @@ class Sbcl < Formula
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
   bottle do
+    sha256 "96d019fbad098c82dcc4ad8cc6527a6aafa671c57e6bb6bcd11d8105865cccc4" => :high_sierra
     sha256 "1a4613fb4d87080f3d08d5581430be3435aa832e0b99a25b874023f180249131" => :sierra
     sha256 "7eca22ba91f59044ceb7f1a5dae9c20c5714ef9e1303c85c6a0b9512bd1bd1fb" => :el_capitan
     sha256 "d7119f82859d9453ac8a6ee50036786b932571382e0e0db2679daaac3bdf933b" => :yosemite

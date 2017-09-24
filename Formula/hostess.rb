@@ -7,6 +7,7 @@ class Hostess < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "776b0799670bf70dbd248fe79fc696041cb966bac688c9e35503b8fa5fa6c18f" => :high_sierra
     sha256 "e9ffe341e6687727515fb5c0375c0998304d048b9cb96295965f43fa02610b53" => :sierra
     sha256 "ff21d6521c49265d610da56697a549082a31839cf9561dd3c7c4a110ef4bffce" => :el_capitan
     sha256 "7fd25d03ed51a7d0b4e62255ea589398a356464e6d62a8093785c4fca3c2769d" => :yosemite

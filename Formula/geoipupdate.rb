@@ -6,6 +6,7 @@ class Geoipupdate < Formula
   revision 1
 
   bottle do
+    sha256 "323ae245cabc43f6dfc5dd95625eb4aa8fd87cf33dfc3c0ad75f043f48ffff88" => :high_sierra
     sha256 "ecc561b023e6ae9c57c4dcbe248407bfbf8b6f73e28da9e9a0395759b1fdb931" => :sierra
     sha256 "5a56005484abf3771b79707fc79a669803e683f1573c12a854c23f4b92d78ee0" => :el_capitan
     sha256 "e984990bc05d7f13585e6b19f309dbd56c181f15f09faa08333ba8020fb1876a" => :yosemite

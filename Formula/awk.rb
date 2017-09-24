@@ -7,6 +7,7 @@ class Awk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "da4358a83f3e939323eea96b4dc4db74a71157bd7d702b9599811a54a393e26c" => :high_sierra
     sha256 "40dbcdf8549b662e7775074fe8c172f364862705b0c0ba00495c2da6e1440a70" => :sierra
     sha256 "593cdb489ae25ec556af3a02e26b957efc3a67731f8edf48335a994fa58d533e" => :el_capitan
     sha256 "d74b6dc04cd9dac3791216744a56813b8396c419f325244526c79c433ca95b3d" => :yosemite

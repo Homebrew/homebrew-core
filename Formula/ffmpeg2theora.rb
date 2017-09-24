@@ -32,6 +32,8 @@ class Ffmpeg2theora < Formula
   depends_on "theora"
 
   def install
+    system "2to3", "--write", "--fix=print", "SConstruct"
+
     args = [
       "prefix=#{prefix}",
       "mandir=PREFIX/share/man",

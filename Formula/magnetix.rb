@@ -7,6 +7,7 @@ class Magnetix < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7ecfb0a04399be3be1e38f8f623337051c8c03766d3b3a94772cca8e51284463" => :high_sierra
     sha256 "92a54f8752b83ef2e179acc52aac4b79855fcf5e365586cc1cdd5e6e95ce6ac9" => :sierra
     sha256 "b3a243cbb1f7c97d92ea1cb82db31f5c2cdc9c2d43e0221e55f1ef6819d1af33" => :el_capitan
     sha256 "ed629c950ac52c6efee73a2e77e7004e0e33a85fe920d793a2e8621a484d7cdc" => :yosemite

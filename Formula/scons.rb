@@ -1,14 +1,14 @@
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "http://www.scons.org"
-  url "https://downloads.sourceforge.net/project/scons/scons/2.5.1/scons-2.5.1.tar.gz"
-  sha256 "0b25218ae7b46a967db42f2a53721645b3d42874a65f9552ad16ce26d30f51f2"
+  url "https://downloads.sourceforge.net/project/scons/scons/3.0.0/scons-3.0.0.tar.gz"
+  sha256 "0f532f405b98c60b731d231b3c503ab5bf47d89a6f66f70cb62c9249e9f45216"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c74c517cbd71ac009888a308226f60a89b55cfa911c667d3e1f773cb5cac2bd1" => :sierra
-    sha256 "c74c517cbd71ac009888a308226f60a89b55cfa911c667d3e1f773cb5cac2bd1" => :el_capitan
-    sha256 "c74c517cbd71ac009888a308226f60a89b55cfa911c667d3e1f773cb5cac2bd1" => :yosemite
+    sha256 "7d4495f68be68e5a6756a326914c0b1046921e95cbea330b604319f27bb4fc1f" => :high_sierra
+    sha256 "962065c07692369e009d8377f9ee19f2043d07d631093eb7f8aba6f55bccd5bd" => :sierra
+    sha256 "962065c07692369e009d8377f9ee19f2043d07d631093eb7f8aba6f55bccd5bd" => :el_capitan
   end
 
   def install

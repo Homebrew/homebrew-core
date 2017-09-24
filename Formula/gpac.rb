@@ -14,6 +14,7 @@ class Gpac < Formula
   head "https://github.com/gpac/gpac.git"
 
   bottle do
+    sha256 "f804e53b18a3ce388ebd48b0e14ee159835b38bc0c917b7f8ee09858f809b40a" => :high_sierra
     sha256 "d685f84d817cfc62818f37d0eac9d743458973d7ec261a90fc9e8d1524f9f8bd" => :sierra
     sha256 "fa0031a62d043da3a90d3d63113bcc8206313cf0ce649d6e8ca5b5edfb23818c" => :el_capitan
     sha256 "d0ae48d8fd147077cf818df012921e7ae7e39a1768d61d9f82a9f361c1fff067" => :yosemite

@@ -9,6 +9,7 @@ class Pdsh < Formula
   head "https://github.com/grondo/pdsh.git"
 
   bottle do
+    sha256 "bc5daaa5e0e9109fc1e293590e6e61265ef8399ee0200e78c70a6054456ab5c5" => :high_sierra
     sha256 "0ae68818c7d5215a7a037c44681c514bd676d3db5d47fa5ea909321afb0c2d6a" => :sierra
     sha256 "3cc2ef3a642a9a8edb6a859aa55f7f767a6a1d3e6f6fd16fb79f0f597ae78c18" => :el_capitan
     sha256 "141ace11fbd043f0e29e53362d0bcb37647342795d1d88f631a5822f035f3d43" => :yosemite

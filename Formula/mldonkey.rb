@@ -8,6 +8,7 @@ class Mldonkey < Formula
 
   bottle do
     rebuild 1
+    sha256 "56f05e054be09a999aa33fda58ec072a2eace34976239b1dca387e079a5eff6d" => :high_sierra
     sha256 "4b69f4572789c1e8ea5ddb273b0dc816224b192ca6e486353224ce7878c10c1c" => :sierra
     sha256 "caead710b3c7d058f09ca482d296d50b58b3e1419e5a7330f9227970ae34b58b" => :el_capitan
     sha256 "174930623fa07bdfa5ac8e1281d48f01e90e8bdc2acb54e1fd768d7356aaec9e" => :yosemite

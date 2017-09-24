@@ -17,6 +17,7 @@ class Watch < Formula
   end
 
   bottle do
+    sha256 "289a466b89e14630d18b963265976835f3f505630f72cd824a1d267a6acf9522" => :high_sierra
     sha256 "98cf549c8b1c06199e9f8baccdc1dcc3fc3c1f9a5195a1869de991598774d806" => :sierra
     sha256 "926d0be8053cf015dc06cf8fb4e6107902c2015acc8b69f1a77100034e078cfd" => :el_capitan
     sha256 "31b517c67875cbb8ca8bd8126af66561a8df0f61bee955ffdeac3eeb6021ec12" => :yosemite

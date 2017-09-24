@@ -7,6 +7,7 @@ class Log4c < Formula
   head "https://git.code.sf.net/p/log4c/log4c.git"
 
   bottle do
+    sha256 "4019efd84d56e2390feff696e1fa3305b788fdcb3105c5b6117913e81a16a7f2" => :high_sierra
     sha256 "171a6c3f12f957d5442998f0f02df959aa4376ef543338765930ed4e062ef0ea" => :sierra
     sha256 "2334e58e3ae201b28362707d2b64701e2e1378695e915baad886956e4edea50a" => :el_capitan
     sha256 "d345d0ab182855859fb21148c708893a395ecd416ba3f05d5e2a5a3111f2bc61" => :yosemite

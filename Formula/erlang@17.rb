@@ -2,11 +2,12 @@ class ErlangAT17 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   url "https://github.com/erlang/otp/archive/OTP-17.5.6.9.tar.gz"
-  sha256 "387c612d1bc5ffbc68db7d05c3655804b310facc8bad921a3e0f3391970bc522"
+  sha256 "70d9d0a08969f4c51c78088f8c6b7da22a4806b1fd258a9fff1408f56553f378"
   head "https://github.com/erlang/otp.git", :branch => "maint-17"
 
   bottle do
     cellar :any
+    sha256 "de3143035b8e4861f90f3cdd2e6a518d97bc17f7b1087948026b99bc36b781fe" => :high_sierra
     sha256 "819a566e39049cb521e3a26f39746258d333acd4ce9bc91eff2dc8969905f2fc" => :sierra
     sha256 "e4faf6f98903c5dd7fa4894f7a61f722101119572f6d32ab9000fa47332f148d" => :el_capitan
     sha256 "ab5c9f75b67c92c103a7712104edf8dd4f6edb52eda6d0312b50bde0e1f83780" => :yosemite
@@ -34,6 +35,14 @@ class ErlangAT17 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/8cf3045/erlang%4017/boring-ssl-high-sierra.patch"
     sha256 "ec4bbdabdfece3a273210727bc150e0e588479885a141382b4d54221bbec5fc3"
+  end
+
+  # Pointer comparison triggers error with Xcode 9
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://github.com/erlang/otp/commit/a64c4d806fa54848c35632114585ad82b98712e8.diff?full_index=1"
+      sha256 "3261400f8d7f0dcff3a52821daea3391ebfa01fd859f9f2d9cc5142138e26e15"
+    end
   end
 
   resource "man" do

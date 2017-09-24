@@ -5,6 +5,7 @@ class Libchamplain < Formula
   sha256 "4a7e31cf7889669aebf04631543af64435edd989685159b804911c6005db908d"
 
   bottle do
+    sha256 "3fdca7a3411ade348bb54a6d9fb3a6177a3ffba033cc45b85029099c7ec5d08d" => :high_sierra
     sha256 "c785f2ac2ed8a6eac8ca478ae61c6767e3aff2da7cc7d6102489435753f166da" => :sierra
     sha256 "fea64a6e4451f63b95a30a2cc75d62d1294afbbee26334b0df1e3105a6a98056" => :el_capitan
     sha256 "796fbd6873a23d586343d499f069d1af6d4c859a0b9ca0ed8defbd7a91cca673" => :yosemite

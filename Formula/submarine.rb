@@ -7,6 +7,7 @@ class Submarine < Formula
 
   bottle do
     cellar :any
+    sha256 "7c557af8e176bc5d6d437d900a280ebb9d4cbd867408ffdcd29dd9e44a9978a7" => :high_sierra
     sha256 "4c57d03fde5cb8ee472f9570d88cc8e8987fbf9280b95ebfe78427fde913e72f" => :sierra
     sha256 "36f4b8efc06f041c77315cffc8739bbead67cd501208c93f168893f295a70f94" => :el_capitan
     sha256 "98e2e4d767aacfb27e6989d1205cb2489b52222ea4f5586e89c0366e4721278b" => :yosemite

@@ -16,6 +16,7 @@ class Gpsd < Formula
   depends_on "libusb" => :optional
 
   def install
+    system "2to3", "--write", "--fix=print", "SConstruct"
     scons "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
     scons "install"
   end

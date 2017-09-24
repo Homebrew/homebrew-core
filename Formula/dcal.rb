@@ -7,6 +7,7 @@ class Dcal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "74f5e51d4dca180bf93dc6d6cd1a147245db0b03a49992b4e0850e0af991020e" => :high_sierra
     sha256 "e36329914f9b602d565480fbe28e4da3e581fc2d0623465666cb430590cc2519" => :sierra
     sha256 "4135558d3a30c78364170daf22dc36f3c22a14b2574754edc27d2483e711b948" => :el_capitan
     sha256 "f91b680d549342c293d0decae1fcd17d872951cedc20c329dcdd13a7478ed5fa" => :yosemite

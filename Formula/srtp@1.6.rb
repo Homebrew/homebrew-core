@@ -6,6 +6,7 @@ class SrtpAT16 < Formula
 
   bottle do
     cellar :any
+    sha256 "18278298c00fe3fb462bcc07940c22330491010c576f1b000b813e9034f8cf5b" => :high_sierra
     sha256 "2efbca3a66bc62275a59f59d928a47704c6c13094de29ff36a2ebaa674c12104" => :sierra
     sha256 "f13b678175596b07b20d6b04571111548c84572455e01d4ae1bd1a102deb016e" => :el_capitan
     sha256 "2509b155840b3c95e97fb24d0bad341e1cce9c4b899c5f9b6fcecd36e6c1e8a0" => :yosemite

@@ -7,6 +7,7 @@ class Termrec < Formula
 
   bottle do
     cellar :any
+    sha256 "982701325a6da9d921d4a092269ec22c28363898e068ff6aa59df74d7b49198e" => :high_sierra
     sha256 "945043d319c728bfb239514c13407816dce87c1ad2f6b2b4cd8590d9d5c7dc86" => :sierra
     sha256 "787ed19e10d093b52b4aab2e6962480ea26b02ebda78bffb54258ce585c31ce1" => :el_capitan
     sha256 "53f6c1350027212566b1bcd5bb632a5cc5a9fbd56954b619a9bc0a96dd587bb4" => :yosemite

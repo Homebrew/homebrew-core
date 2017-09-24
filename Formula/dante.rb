@@ -6,6 +6,7 @@ class Dante < Formula
 
   bottle do
     cellar :any
+    sha256 "a34bdf64962d79c16db11fa8c30254c1639258771278d665efdb11dc6cce9e5d" => :high_sierra
     sha256 "036442d258ec7128e6ac6a31f6862afe0aebf16fec6f268a96a32c438e706086" => :sierra
     sha256 "78d19f01354b73e82ccc3a3eb59c45fddf65969b6bf36e307bb7813eeef7c8f1" => :el_capitan
     sha256 "6bb94dda6feae85c407e7779c34f20dc10bd9b2fd377660af7d1c6467735053d" => :yosemite

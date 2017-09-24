@@ -6,6 +6,7 @@ class Voms < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "50f51cebb89971280072db95e7674a2ace3363ad11e7fb39654411d240f9067c" => :high_sierra
     sha256 "247e6715cfaa6511762096465e7d32c1b3cc729a78833c7a033d6df62a952789" => :sierra
     sha256 "2c714e700a020e728425fcacfb2d4217bbbfcbf2ccb5e62fa2d723dd4d4c4fd2" => :el_capitan
     sha256 "9afed6217d4abdaf71419b4cdab29599244962891ccdd600e53ad2454f6b3191" => :yosemite

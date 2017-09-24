@@ -3,12 +3,14 @@ class CrystalLang < Formula
   homepage "https://crystal-lang.org/"
   url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
   sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
+  revision 1
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "4c420da294aeb60d99852c98643f9b788c2ca6e454c3b2e1068f8f1b4665bf27" => :sierra
-    sha256 "2398fa8024789551a2cb43df17727c0696a4e612d7f83d77fd92fbdbc3fc655a" => :el_capitan
-    sha256 "d6b5468a9c05c698b1472884454aed52c4b4ae40400742f34f6bd08196770ee5" => :yosemite
+    sha256 "58e75099554b6862dba0d33f3cdecf9e5410ee37d00dcd6f3839d55b884abb7b" => :high_sierra
+    sha256 "1bfb73971b5b19560264c5bf35faa43f5ff5ac4928776f2d7d21d23b1f649fac" => :sierra
+    sha256 "78391956a8800ce2c2cac06bc88d3e0b64a9ec60ab822de67bd8765bade48b8a" => :el_capitan
+    sha256 "95de886631dd75cffdde78319c37aa26eaafd6bd8f39dfb4e3744c3c3d321bb8" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -18,7 +20,7 @@ class CrystalLang < Formula
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
-  depends_on "llvm"
+  depends_on "llvm@4"
   depends_on "pcre"
   depends_on "gmp"
   depends_on "libyaml" if build.with? "shards"

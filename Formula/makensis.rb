@@ -41,6 +41,10 @@ class Makensis < Formula
   patch :DATA
 
   def install
+    system "2to3", "--write", "--fix=print", "Contrib/NSIS Menu/SConscript",
+           "Contrib/System/SConscript", "SCons/Config/gnu", "SCons/utils.py",
+           "Source/Tests/SConscript"
+
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
       @zlib_path = Dir.pwd

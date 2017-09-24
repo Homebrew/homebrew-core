@@ -8,6 +8,7 @@ class Cfitsio < Formula
 
   bottle do
     cellar :any
+    sha256 "747fb428a1dddfe61be0c3ded3d7210ee8000add63899c4a0821c79981743d68" => :high_sierra
     sha256 "a72624afaa8ea443c369bb0488fc1c9777c0eb69406366abe5fb8baa9535cc1c" => :sierra
     sha256 "3fed2108f06719ca7661466ae8cdaf9a8a1c36fd45e44472377e66ff483b62f6" => :el_capitan
     sha256 "113ce9d721d80abc9d09aa5e4e947ee62a618c16e47510a3c2e58ae97211d5ac" => :yosemite

@@ -5,6 +5,7 @@ class Wy60 < Formula
   sha256 "f7379404f0baf38faba48af7b05f9e0df65266ab75071b2ca56195b63fc05ed0"
 
   bottle do
+    sha256 "77fb48cc35956863e1f685b41c885337ca770185edffb250cbed8bd8c5a3070b" => :high_sierra
     sha256 "f03706d166cfcc0679e696493bd13df30ad0617a92b602b79e3494ba3b1f46fb" => :sierra
     sha256 "84d3bfa45582f2816808006f192c7580cedad24de3941a0786b5b36ce29e469c" => :el_capitan
     sha256 "80508e33f12142eec20ff0e8866ed191b03facea5b6653a6f5331cb017ff78af" => :yosemite

@@ -9,6 +9,7 @@ class Bokken < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "69efbee1a7cee229f562f21f57bc5a1cc1a8df354a2fe951b0bc462727662610" => :high_sierra
     sha256 "ab4748b33f0cf6662484a6bb9164e83375574d7a9f7a65df396b02d69a4536bb" => :sierra
     sha256 "b1af4c645b8f74359fa1d3f72e8d01148be47cb94fe3cb5fe2743e0f0f11fb25" => :el_capitan
     sha256 "12499141d1e78fee72d12550ea95b07f5d8e96c5dc9f7426b4329f8d7f309821" => :yosemite

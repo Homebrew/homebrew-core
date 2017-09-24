@@ -7,6 +7,7 @@ class GpgAgent < Formula
   revision 3
 
   bottle do
+    sha256 "c555d26b1e5e2e22f3aa005c5418673e1df7db02e815c650847aaf5e18b11cf0" => :high_sierra
     sha256 "a59b4f9f60137448d591e1c702dd5e1548e424058af87a4da318a7ef8cffb23f" => :sierra
     sha256 "edf496c4ea0cce7b46a1ef1d39f6b0feae02b8479f2772bc3dc448a4d5f7cdc8" => :el_capitan
     sha256 "b5cb2ff4333b5e7416d876daedc1170a98217c12789a4dae48c9794457822059" => :yosemite

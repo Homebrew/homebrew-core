@@ -7,6 +7,7 @@ class Nethack4 < Formula
   head "http://nethack4.org/media/nethack4.git"
 
   bottle do
+    sha256 "69c0856eac6d8e9b61f3caa0ac1cef42cf6b2d16eaee75eca9734b0f4418a544" => :high_sierra
     sha256 "e839c203fb39fe659b358ca339563f7c8f00095a9830262cd2295e851d242841" => :sierra
     sha256 "42a56f8970103a2be4214437596155fc4f103c7b93fb47580f2eb00b9b4c6e31" => :el_capitan
     sha256 "2dcacbd514524bcac4c52df5c334f5b23e065f01371f6777b001ce8a1826df17" => :yosemite

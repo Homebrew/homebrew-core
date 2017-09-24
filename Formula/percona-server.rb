@@ -6,6 +6,7 @@ class PerconaServer < Formula
 
   bottle do
     rebuild 1
+    sha256 "2097446d4eca29f7dc394ecf7901ec8f9b4718befad3fa6ea1b53087fe3e4828" => :high_sierra
     sha256 "55aa5b068374099a81d9084336c8cf6700005f7372a2a8c7d822a25b4e92b486" => :sierra
     sha256 "5e66b8808a6f611813fdb9e3b02e79855ff0445630853501647220beac5cb4ab" => :el_capitan
     sha256 "988440a2b796abff37d0fbb69dd03a537e6be9ebce83da5adb4131794ea7f242" => :yosemite
@@ -47,6 +48,14 @@ class PerconaServer < Formula
   pour_bottle? do
     reason "The bottle needs a var/mysql datadir (yours is var/percona)."
     satisfy { datadir == var/"mysql" }
+  end
+
+  # Fix C++ build failure due to Xcode 9 being very strict
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://github.com/percona/percona-server/pull/1925.patch?full_index=1"
+      sha256 "126ed7762ab94a4b2afdaa8a09d35d5e25dfd7cd5452cf51b4db90144e737e6e"
+    end
   end
 
   def install

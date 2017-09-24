@@ -24,6 +24,7 @@ class Phantomjs < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "0634bc067a6e257d15e57bc65d0c1660fce797c005ab83990300d4b177583ae6" => :high_sierra
     sha256 "7833bb1de72bd88057d2260a9021ce4ec0d5f2925273d537c69549d8e30ebc6d" => :sierra
     sha256 "370e6f729ac20091c408dc5a1be14361b861bef78f1a52efb201e27e7440cfa4" => :el_capitan
     sha256 "ec65660b5c4097886d52fe0b4928aaefd6d09fb0e6ab707b1fa4d762acf873e1" => :yosemite

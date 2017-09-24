@@ -6,6 +6,7 @@ class Quasi88 < Formula
 
   bottle do
     cellar :any
+    sha256 "8199a69a8ecad4247752091f3eeaf5181eaa1dd0e4b2670059e21df807c646c6" => :high_sierra
     sha256 "d9ff4c5657c4179371d60317e0455cbadd59d45d81d0cc71d62d14d681619e95" => :sierra
     sha256 "4bef6f92d4fcdf3547e0e7b9d699f392de0ff4764bbed0d8b23ea37e22e33f78" => :el_capitan
     sha256 "f9b4ef36396de67507df8148ad22ecca3940505c40468656df03ac685930b2d9" => :yosemite

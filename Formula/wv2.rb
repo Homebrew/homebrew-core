@@ -6,6 +6,7 @@ class Wv2 < Formula
 
   bottle do
     cellar :any
+    sha256 "35120de253c5dcfd6da711f7529bd8e4a0ffd45eed540057ef57d1a9d2ab0091" => :high_sierra
     sha256 "cd0856f53f0a143f5b0ea7dd61a0d23613db6de84538fa222e2819217a3ed3af" => :sierra
     sha256 "b3a07e873f69b90ed83d47ccedb6bc5fefcb5dc5c9ffd1ecfd38c03dd094afea" => :el_capitan
     sha256 "51ea82d6630ceee1739d0f252462ef8c4394ffaf0fb81b0a5141990f865f1427" => :yosemite

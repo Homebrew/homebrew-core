@@ -2,12 +2,13 @@ class Gearboy < Formula
   desc "Nintendo Game Boy (Color) emulator"
   homepage "https://github.com/drhelius/Gearboy"
   url "https://github.com/drhelius/Gearboy/archive/gearboy-2.3.1.tar.gz"
-  sha256 "5182f74b7d4a76ee3a995968149e8f2b07841225b30193537ffda17dfd6feb01"
+  sha256 "a1976a82f57d14e625339b50f11cd53da7c6ac1d92ececc4d2b5d163fba4a0ec"
   revision 1
   head "https://github.com/drhelius/Gearboy.git"
 
   bottle do
     cellar :any
+    sha256 "1d670f7aa0fabb668cdd96c5f3ef369f96f791e70586191e23ee244ffc024bfb" => :high_sierra
     sha256 "91bfab6b8f83e80620d72c40cc1ca4256d7f15910d48d2919a6ba9c152939425" => :sierra
     sha256 "35e8aeca3e1204cfa1fd105634994d94e4c69f86bca4bf791fcd937c9da2ab29" => :el_capitan
     sha256 "2572d0286af3eefda16352a9c74050bc62b76bf91b64be9d74af0c82230df9da" => :yosemite

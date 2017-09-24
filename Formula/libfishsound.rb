@@ -7,6 +7,7 @@ class Libfishsound < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "726c79b6e3ce5d71e9cf1d6b556a6daed33b5e8bd7269e2219b1474549dac17d" => :high_sierra
     sha256 "50187bc6adea9322f20e1706d66859c941d6d2e8d1d8bfab091f088b20061760" => :sierra
     sha256 "9cf94c3c6963895940e8720aef21c29b001257c918fce6b65685c33f8430f0e4" => :el_capitan
     sha256 "4fcfc4270d73ac2b0e8d8a4d1fe6b94a1093502b802ed327febb5286ad5140b9" => :yosemite

@@ -1,13 +1,14 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.24/evince-3.24.1.tar.xz"
-  sha256 "9ca0c5213407b37be55fddb04a85d9301b692c4412c5920319d975403bff0f37"
+  url "https://download.gnome.org/sources/evince/3.26/evince-3.26.0.tar.xz"
+  sha256 "79567bdb743cf0c3ed7b638da32afc9b850298f9b4edd532455df4a7e2a4c9d8"
 
   bottle do
-    sha256 "4cbb7f508c87d1ef3ba4b27baca1b4353b1ae74ae2ca582522328b0e84583fc1" => :sierra
-    sha256 "c32de417ba33dd67c695a9f264f8ea8611f4afe7ebcda603b2f93b3b8eb8882f" => :el_capitan
-    sha256 "b9c3d3453757830baaff3e0f77045527ca9e6c80e4f76d20ce1c1d3adc417119" => :yosemite
+    rebuild 1
+    sha256 "c9ac9f8fad22885258f3c94a14680c6b69201f1400e7d3462c619482408df6b6" => :high_sierra
+    sha256 "0854d73415e9bd442fcda1d63f6e29ca7656ae308322ecb966aec90d1d76aee8" => :sierra
+    sha256 "f336abb515cf3537eb6a486f02c7386261c40a323359c9634b4abf09bb995032" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -17,7 +18,7 @@ class Evince < Formula
   depends_on "libxml2"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "gobject-introspection"
@@ -26,6 +27,10 @@ class Evince < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
+    # Fix build failure "ar: illegal option -- D"
+    # Reported 15 Sep 2017 https://bugzilla.gnome.org/show_bug.cgi?id=787709
+    inreplace "configure", "AR_FLAGS=crD", "AR_FLAGS=r"
+
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.

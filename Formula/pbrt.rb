@@ -6,6 +6,7 @@ class Pbrt < Formula
 
   bottle do
     cellar :any
+    sha256 "f9c266a03e8c47a0d18ad3a0cc5633c54fec804f7ac943d933f41cf31d32ddfa" => :high_sierra
     sha256 "7dfc107dbc633a3273433e7f763ffaf743660281c223e8ef27816836bd6dfa79" => :sierra
     sha256 "77510b79395468971a567029052265fd03e9c9eeaf4e6056d1a225d7ade5d718" => :el_capitan
     sha256 "ddfc01d16de04891db883377f509768768e374f2a8fab1536f5487fe559d707b" => :yosemite

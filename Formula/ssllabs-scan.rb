@@ -7,6 +7,7 @@ class SsllabsScan < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "bee10085983dac1bcd9d46773ea7e2fc50ec3c8c54442d8ef50cb1683ab9175c" => :high_sierra
     sha256 "e527081f119ba004e06bba763d780d676df38bacd28b482bbeae64cbf43e4aea" => :sierra
     sha256 "f541615737e69900d1a141af1872bc983cdeb94cd28016dfa8c3f5ba0f11d8c0" => :el_capitan
     sha256 "18b509cec2507dd9a50aedcb618a8069ecbecc765cd31791381765c596702932" => :yosemite

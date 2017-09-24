@@ -6,6 +6,7 @@ class Epsilon < Formula
 
   bottle do
     cellar :any
+    sha256 "87935305d8659e6cdcde272d469768c48dd870f227ab894aa71a6b206be5fa1f" => :high_sierra
     sha256 "a8aee2fb802a82cdbf701003195285f20f1b067ceec72d6e3170e3a69032a0e8" => :sierra
     sha256 "10da057d558d4d9df8c503135b53f7c23778258f7c66d3b39229bf70d9a887f1" => :el_capitan
     sha256 "2811209670e68ab4316e6d177bc1376cb28462cad9b696b4a782deff4074a9ce" => :yosemite

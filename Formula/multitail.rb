@@ -5,11 +5,10 @@ class Multitail < Formula
   sha256 "af1d5458a78ad3b747c5eeb135b19bdca281ce414cefdc6ea0cff6d913caa1fd"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "967b77c466bb79a341ecbca261d4f263859d008e25746405f3444cb7de482ad4" => :sierra
-    sha256 "01ac7f53386a8099b4dd9e80bcc14dcb8097676199819ed8e2dc2a0893aba930" => :el_capitan
-    sha256 "60c748bbcac5188c00b1f0033bb46491623061cf08dfc5e6f5514d9b6042b5f4" => :yosemite
-    sha256 "5d2219191236e2209bb4642ecb865716390e9984b27ce145f391fb2280e9f906" => :mavericks
+    rebuild 1
+    sha256 "b8d2ab93cd8bf7954ffc49ed929aa0cf2c60a2ebeb872e9d3686d314af043be2" => :high_sierra
+    sha256 "ec1007a1ab7ffc9394f25d1a838d54051c04c14667721e8db9f49803084f6dcc" => :sierra
+    sha256 "b9c5e200dab1bf30ef4bd9bb257d5728c6779552aab97a1ddc65d02ad697cd8f" => :el_capitan
   end
 
   def install

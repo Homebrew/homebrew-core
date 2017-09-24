@@ -1,15 +1,13 @@
 class Anjuta < Formula
   desc "GNOME Integrated Development Environment"
   homepage "http://anjuta.org"
-  url "https://download.gnome.org/sources/anjuta/3.22/anjuta-3.22.0.tar.xz"
-  sha256 "4face1c063a5a6687a6cfc6f1f700ba15f13664633c05caa2fbf50317608dd03"
-  revision 1
+  url "https://download.gnome.org/sources/anjuta/3.26/anjuta-3.26.0.tar.xz"
+  sha256 "fb895464c1a3c915bb2bb3ea5d236fd17202caa7205f6792f70a75affc343d70"
 
   bottle do
     rebuild 1
-    sha256 "7d412d9cdc31ddfb36d5bf3d9b697f9b3736791437177f404f7c72752e6fb23b" => :sierra
-    sha256 "b4c5b15d38d4206c30f099427d9453e103280484f8f9f9ad8a36c3e768746ced" => :el_capitan
-    sha256 "5f2462c47ad4fb52d7d296d1a0086eb0a1cdf22d8890e4f7caec2b2a5456e987" => :yosemite
+    sha256 "0009f1b0b9763fdb4e6ff61f206da5ac9a4753274748aaeac6d7da996d557fd9" => :sierra
+    sha256 "5bfc68a277e16071af323fed4cf3d249adec2015cd97e6ac27e8d179248cb575" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -22,7 +20,7 @@ class Anjuta < Formula
   depends_on "gdl"
   depends_on "vte3"
   depends_on "hicolor-icon-theme"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "gnutls"
   depends_on "shared-mime-info"
   depends_on "vala" => :recommended

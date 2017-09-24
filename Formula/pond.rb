@@ -11,6 +11,7 @@ class Pond < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "34b97915fcd76ce703b553c8d9d9b4f49496d92d1521d63fbce60727d7549e3d" => :high_sierra
     sha256 "c3a9d860ba4b3f50e9cd4443fe2c2a771e8cfdd8229ff4c6f458275a814586e1" => :sierra
     sha256 "cd448860e0b4f71aa4aa2cbc22dadae2316586cbf1b5fb244e0bdae3ae23466b" => :el_capitan
     sha256 "b4d45b73fb1907ed48b18e8411aed6c743dfe44dbdcb6a2b53d177da7d7950a2" => :yosemite

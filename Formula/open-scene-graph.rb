@@ -8,6 +8,7 @@ class OpenSceneGraph < Formula
 
   bottle do
     rebuild 1
+    sha256 "04246e8fb2af25014e6620645fd3fd600b8ff97d872d8d50fea0719ae19c7c4c" => :high_sierra
     sha256 "9a5b050af3debc7b0860349a095c02b8935bf3ef494036e22da61a97ca85d01c" => :sierra
     sha256 "14b40a23917655700302c751e8a6d785a94c94d5311e82efa1ff403a6a5dbf56" => :el_capitan
     sha256 "b2f7c7f7f5d36a0a966d03de9b44146a0c5e7313acaac93a5d41c2250ee4a952" => :yosemite

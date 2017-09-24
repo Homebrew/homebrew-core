@@ -7,6 +7,7 @@ class Libav < Formula
   head "https://git.libav.org/libav.git"
 
   bottle do
+    sha256 "464e5497edf4bdb3089a270fd141a21b9ef742ad81c4b75c66d0cabd1b8aa5a3" => :high_sierra
     sha256 "83454e0551667ff35b7ed5d70b9fbe414c173e65ee9f4a60837c3cb4f308d7e6" => :sierra
     sha256 "2ba607e18aeeb9b69e2903b14b04ecdd822bd460aecefeac92e4f02c85862226" => :el_capitan
     sha256 "41fcc69856efd258965104e42e6197ff67afa3f239604e45cbefe1bc47c62e77" => :yosemite

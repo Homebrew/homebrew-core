@@ -6,6 +6,7 @@ class Moodbar < Formula
 
   bottle do
     cellar :any
+    sha256 "a452faf49574e10e5794c2a298aca8ee0f8e32846680b28516ec33c0015230b0" => :high_sierra
     sha256 "b21580cc4ef0328d05ca813d6696e48d4614f8cdd767c578d5eef8c0959d9c76" => :sierra
     sha256 "8f29fc2f20c66f5a3dd2bb790c6e2a2b3cb7d08e3c1d36e7bac0f715aabbe28f" => :el_capitan
     sha256 "bfbf6b1218c42e7c159ad894c6bf1756f8022cf3b46ca8584da7c0da69552a5f" => :yosemite

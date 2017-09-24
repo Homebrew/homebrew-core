@@ -6,6 +6,7 @@ class Shellinabox < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4a7624626d440f813a04b80d11d04f5529ebab4c2e2079587505abc1df01ad83" => :high_sierra
     sha256 "ad56ade520d138d05387117756a57cb9cc4c4ba1b3ca1c2adc7dec5c8d8b1cb8" => :sierra
     sha256 "9ea1e1799cc9496ee7e391e65b1c69e693ff95bb5479c6be28138fc0f9fb9d7c" => :el_capitan
     sha256 "2cfd35e4f9b2d28d9ba72a318d7ca48f5b6bed7c7a655a6b0437254bab268186" => :yosemite

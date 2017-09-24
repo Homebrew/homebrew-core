@@ -2,12 +2,13 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "http://fbredex.com"
   url "https://github.com/facebook/redex/archive/v1.1.0.tar.gz"
-  sha256 "af2c81db4e0346e1aeef570e105c60ebfea730d62fd928d996f884abda955990"
+  sha256 "31c41ec774577875782ac83bfd9a03520c7bfcb1a04026fb35417803a319d749"
   revision 1
   head "https://github.com/facebook/redex.git"
 
   bottle do
     cellar :any
+    sha256 "c66e4160ebdcad99f1854a99fa6fefc8a8da2f1bc62d808cc1aa79cd9e2c2bed" => :high_sierra
     sha256 "0486e6105e25f310e802b4adc0f6e50ad2fcb02c4b1d4edc1f85d16963892b86" => :sierra
     sha256 "af389493d114dac27c04ec780d16c4865591c1fa5e611e9b84f94f0562b22078" => :el_capitan
     sha256 "3c8b98773de86c4025b3f2be18a3666987b5e06b958f1bf03c64ab2e3193c8e7" => :yosemite

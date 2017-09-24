@@ -6,6 +6,7 @@ class Pcal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "25a667f9b166482637d890497e6fc9465ff8e28a4315a25ba5413fef9c68d79c" => :high_sierra
     sha256 "134df5abc458995e6092041db145e9bca45e2ff71eeeec9de410d497afbe7177" => :sierra
     sha256 "271667aef1031a0007e042fb3f933708aa33398d6bf9982a7353e6023d0d955c" => :el_capitan
     sha256 "f88d2fc2ede97fd94333dea90617d02405b008ef359edb694926f4e476c6ae53" => :yosemite

@@ -7,6 +7,7 @@ class Swiftplate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ac5b3589174f354537f3a13d3cac8ca09323c3302e67e7442cadbff6a09ae101" => :high_sierra
     sha256 "977e9d6b8e3579566cd5392ba17e34896d0f2c9445ae2061c5eae508ede04dee" => :sierra
     sha256 "73c1b35ad98f1d4872bc467b1a027dad41815e336c0c86aebb0d09d9562ddde5" => :el_capitan
   end

@@ -1,15 +1,14 @@
 class ActivemqCpp < Formula
   desc "C++ API for message brokers such as Apache ActiveMQ"
   homepage "https://activemq.apache.org/cms/index.html"
-  url "https://www.apache.org/dyn/closer.cgi?path=activemq/activemq-cpp/3.9.3/activemq-cpp-library-3.9.3-src.tar.bz2"
-  sha256 "d7554c6245f7a5f96e8b9751a562f841ee285777487ccfbca1bfd74db024b50e"
+  url "https://www.apache.org/dyn/closer.cgi?path=activemq/activemq-cpp/3.9.4/activemq-cpp-library-3.9.4-src.tar.bz2"
+  sha256 "6505137fd4835a388b5ddecf6a96a62abd01b6d80f124e95dc2076127f4a84d3"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "6f9c2de75613e349422af1300c8d023603e501947d3631dc027654f3b09281ea" => :sierra
-    sha256 "b54be46ced741f2722145bf28889c5837b44bdf0ca7161225935be18ae41cc67" => :el_capitan
-    sha256 "bda92f40d2e5a608e5cb15c4330731202033e310f3cee686652ded0a56d21823" => :yosemite
+    sha256 "2a78638d0af4698578ef71cf738571ad6cacaef9b8ed2324148eb1df19816885" => :high_sierra
+    sha256 "eda1e1feb50e5ffdceb93e3161eab96b389aaa65d64961c6803406176c89f198" => :sierra
+    sha256 "799696b515fbff76de2277327d074dc96b74e676df72aa347b23eee12ffbc03b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

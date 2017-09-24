@@ -8,6 +8,7 @@ class Iftop < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c582f943657323d52493e9b85d05a9ac5b079dd1bb74075fbcd5952f2758fbd7" => :high_sierra
     sha256 "3a75c5edf29f6cbac19641910661423ed2f0b83f3e0de28c8417be76f4ce5c38" => :sierra
     sha256 "e7b9ed6bef435d7de8e986cedfc76779f2655bfac7ed780afb33a42e92b8d01d" => :el_capitan
     sha256 "5ac910598f86716e0dc676f0fd44af51da141ad84dfbaf5535a31f11ab91ffd7" => :yosemite

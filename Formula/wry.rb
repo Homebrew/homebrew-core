@@ -8,6 +8,7 @@ class Wry < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "143052ce51e3fef39664e30c56664e651312f670cd056559c9c6b026b5c7052e" => :high_sierra
     sha256 "b52bf3f1efeb98febdfdac49c6d0467cf40e76a889274ec800f0941b05b4f55d" => :sierra
     sha256 "8274aae5fc7f8ed914f2fd1c99c505f53532709831a41412949d1a133ddcce1f" => :el_capitan
     sha256 "bb692f4c4690c6a312abec61abf69c279880fbdf620c01f2f61d686a9e04a080" => :mavericks

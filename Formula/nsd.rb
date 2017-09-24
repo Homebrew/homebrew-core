@@ -5,6 +5,7 @@ class Nsd < Formula
   sha256 "107fa506d18ed6fd0a922d1b96774afd9270ec38ec6b17cd7c46fb9433a03a6c"
 
   bottle do
+    sha256 "96cfb945be50d809494e46ad413fde9eed35ad57d837611d047ff9a2e09bf290" => :high_sierra
     sha256 "abf50b3b34010f65790fe3506d44428d9cfadb9fbe2694b743a877f373fcaa64" => :sierra
     sha256 "6476acc0565439cb72bf274a8c9adf1d73289e9617e5734b73c1601d2c15c27f" => :el_capitan
     sha256 "a587267cbf3d022e9996b26b0a540873cda9510be52b0d74a94ecf0f1e8a40ea" => :yosemite

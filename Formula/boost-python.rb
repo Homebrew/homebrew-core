@@ -1,15 +1,16 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.tar.bz2"
-  sha256 "ea26712742e2fb079c2a566a31f3266973b76e38222b9f88b387e3c8b2f9902c"
+  url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
+  sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "3afa6f99271e3464e93f19f3b580d212b9adec2b0a96bb16b334d073a6eccd80" => :sierra
-    sha256 "c865fdca752e3f9ec7db7de3b3df9304bf8a94a0c447191771b6117938588c29" => :el_capitan
-    sha256 "1c7ed19d481568b5fb8aacff6541ba31d0a6d96bbfe0b1ca828a8a8bf129411d" => :yosemite
+    sha256 "8377ee93d0bb678b2c69e9f2956607b4c04e4c226a780be60b452ac2d7e02de7" => :high_sierra
+    sha256 "d811c19f1eef548746972475d98f68f431f62af075a9c9e984911f6cb45ebb75" => :sierra
+    sha256 "37b52bcae4be5fb7db46487e494bc8c3da0ddbe2dab2e7f20ffba4e7eb3827e4" => :el_capitan
+    sha256 "28e1853e51af2f853dfd84135a62215c3d3142126742648f1e76434f218756dc" => :yosemite
   end
 
   option :cxx11

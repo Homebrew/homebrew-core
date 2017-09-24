@@ -6,6 +6,7 @@ class DvdxrwTools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "acf8d9a92ff74fdbfc409dc42980be607c4dd263aca89444713972a055d5967a" => :high_sierra
     sha256 "932e3879247dd1587f35d99c7132c302ddeaf3b5efad9effb05f5b086a55541a" => :sierra
     sha256 "01bae78a5187a47ea770a9cb9c0cabdbafb60485e333a563240a6ea74d6718b0" => :el_capitan
     sha256 "13fa5b14889c82bd2ff44d4da2ba8049603bdfc6026196440fe33102939faa06" => :yosemite

@@ -3,13 +3,14 @@ class Cclive < Formula
   homepage "https://cclive.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cclive/0.7/cclive-0.7.16.tar.xz"
   sha256 "586a120faddcfa16f5bb058b5c901f1659336c6fc85a0d3f1538882a44ee10e1"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "d4095cb6cf397b7e2e99e29d9364fcd5dc6cc9df58d5e5da0ce4b51e773d1978" => :sierra
-    sha256 "c712f413a8720abfbba83c4c385ac4d2664a2736b4c0ee0dbde77a722f9310db" => :el_capitan
-    sha256 "a5d34ca6db2e83f4a2aff10870cb6fb9ed87782bb71058b2b978752b89bd97b7" => :yosemite
+    sha256 "65a00aa88ea96cff176c5bdfd29d97686548cfaa362aaa99ff2ed9fe10d9c624" => :high_sierra
+    sha256 "a589260223c5b92d0b29551e98e068814311de8ddde82e158063bec6f834aa2d" => :sierra
+    sha256 "e77474769e3fa5b12b81fba7d476a9feeb237a9b6ba9bf9cf275e4783203c67d" => :el_capitan
+    sha256 "933a9b935bb868923702489a97780998c450c2c220a63786542bf65bfb2db155" => :yosemite
   end
 
   depends_on "pkg-config" => :build

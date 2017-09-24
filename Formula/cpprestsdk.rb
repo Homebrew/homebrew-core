@@ -2,12 +2,13 @@ class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/Microsoft/cpprestsdk"
   url "https://github.com/Microsoft/cpprestsdk/archive/v2.9.1.tar.gz"
-  sha256 "7097889965df48ec5799d6ed3b4f95f16ca82ee3512eb31db844d9df600bc899"
+  sha256 "537358760acd782f4d2ed3a85d92247b4fc423aff9c85347dc31dbb0ab9bab16"
 
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
+    sha256 "3a528882d8a502bbe86cdef438616391dd536b1f417f09ea47163e04727e7569" => :high_sierra
     sha256 "35da0bc8f94e1faca8c2d0972d354f2fe15141383157cd5c63205a1d74928c74" => :sierra
     sha256 "fd091b4222e5c2e512d23c2c86b8f6a3b5064b4bd024b2a154a28e53b11dd1b6" => :el_capitan
     sha256 "cd0b08daf4d0e02334d57d38e62254a95c82f554011a52ab914da953e5a226e9" => :yosemite

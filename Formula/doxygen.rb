@@ -21,6 +21,7 @@ class Doxygen < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "c5173aa74ee4c609a11ce80ecf26588dc5f682356c382fe833960f91e386476e" => :high_sierra
     sha256 "a5e7436a64a38db42f85d8f48c683423288933d61e7607b82883388c73a8a724" => :sierra
     sha256 "d42d176ead71b9276a1f55d13936132fd51627ceec4ab309de3abb79def891a1" => :el_capitan
     sha256 "215437e6278729e060526ada23b9e2c75eb93028269c4613610b9391b8976c81" => :yosemite

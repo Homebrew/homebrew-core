@@ -5,6 +5,7 @@ class Xmlcatmgr < Formula
   sha256 "ea1142b6aef40fbd624fc3e2130cf10cf081b5fa88e5229c92b8f515779d6fdc"
 
   bottle do
+    sha256 "c21d6a7e434563de3235dd7045e51933568428eefc2fa6d959e8040413c5bab0" => :high_sierra
     sha256 "ed6376a26e59f66eccad7e0db6e0d111c8d93697fbee1e748e8c18e53035b4f2" => :sierra
     sha256 "b55ae55a25d8ddc6ed88b2c7cb0c5aa77588ecd668684a592632a1addd5de22e" => :el_capitan
     sha256 "4515f7fa360ed92348a6325f26645609110f18eb74111b1bd9d2717ee7600f2f" => :yosemite
