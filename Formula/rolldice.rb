@@ -6,6 +6,7 @@ class Rolldice < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "74364058c7f8859e71b5b43b80b40c01dd99ce6b80724ef4e97f9a9ea0587775" => :high_sierra
     sha256 "a7019dfc0a37c4cb814f8d116140b9fac999d6d97e6650e0806c02cb633087fb" => :sierra
     sha256 "3ee6afe89723d119075feffe735f4b4d4552d51bab5d79df6b8e100f90d21109" => :el_capitan
     sha256 "9525132a3c9a1b1ac679102a2a2f39e51dcd1f2ae299a1038701bdf4f945bd4c" => :yosemite
