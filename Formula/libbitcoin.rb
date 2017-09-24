@@ -7,10 +7,9 @@ class Libbitcoin < Formula
 
   bottle do
     cellar :any
-    sha256 "28457af1a55c8bb0d18c8cfb3d751c2198e33ba736461ecd165883c001bb9e22" => :high_sierra
-    sha256 "17cc254da7c4195c27709be8463a05e7b68355183ce8b23253fd6dc236949aad" => :sierra
-    sha256 "7d9561959141fa74a4d96f4061972b74d0d0d6f5c434e9e37daef61763caf37a" => :el_capitan
-    sha256 "9c03f8070713b48ab83ed3acfe0474ee7caaf06df335de15c45201fc0b0c55a5" => :yosemite
+    sha256 "c824bd50f96cf55e751f9f0735b35509b0c37167277df22f8d98b246c38124c4" => :high_sierra
+    sha256 "889c3811c26837bd2c90585d93a4a5050926f017641b43710c675899f1ebaa16" => :sierra
+    sha256 "fd225da66b5908773a0f715f3aa35c838e807795ca2bdde5e0e53d9e99c3ab58" => :el_capitan
   end
 
   depends_on "autoconf" => :build
