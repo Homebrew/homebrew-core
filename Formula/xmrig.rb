@@ -4,6 +4,13 @@ class Xmrig < Formula
   url "https://github.com/xmrig/xmrig/archive/v2.3.1.tar.gz"
   sha256 "99be5e69732bf2720f3f34a1beb14ba06d440431bc55d308307fdbd1f877f6e5"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "81eea7be289bbf25c539eca92d4ad76b6f4799001ccf7e64b60ac347e71b0ab1" => :high_sierra
+    sha256 "63a9649a47038d8f1c057cbfdf777b19f4196f5e296a7c75706b7776ca423bae" => :sierra
+    sha256 "a671b34185128ce84b902225f65c624811f334075d15fd78e56e7c909e6232c9" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "libuv"
 
