@@ -7,6 +7,7 @@ class Qcli < Formula
 
   bottle do
     cellar :any
+    sha256 "c751d4e549a7fe6d425b5ecb319d62cf33e126af49664a35884d71aae8f5b816" => :high_sierra
     sha256 "6200911ae64e941a8a7dcc8ea37477a96acfb7814a5386c9dea3e8f97dc0c53b" => :sierra
     sha256 "b5b4eae345ae1a8a51bd61d042b91ccfb5c3d692990744e714385ff9421506a3" => :el_capitan
     sha256 "5c793f95aaefa2e388bbab254ee25abfc62d9c168826afa3391ad0214ce12df1" => :yosemite
