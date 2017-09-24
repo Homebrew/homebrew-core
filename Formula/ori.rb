@@ -20,7 +20,7 @@ class Ori < Formula
   depends_on :osxfuse
 
   def install
-    system "2to3", "--write", "--fix=print", "SConstruct",
+    system "2to3-", "--write", "--fix=print", "SConstruct",
            "liboriutil/SConscript"
 
     scons "BUILDTYPE=RELEASE"
