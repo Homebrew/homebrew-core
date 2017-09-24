@@ -3,7 +3,7 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.3/sip-4.19.3.tar.gz"
   sha256 "740df844f80cc45dcc9b23294a92492923bc403ce88e68c35783f27c177c4b74"
-  revision 2
+  revision 3
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
@@ -30,7 +30,7 @@ class Sip < Formula
     end
 
     Language::Python.each_python(build) do |python, version|
-      # Note the binary `sip` is the same for python 2.x and 3.x
+      ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
       system python, "configure.py",
                      "--deployment-target=#{MacOS.version}",
                      "--destdir=#{lib}/python#{version}/site-packages",
