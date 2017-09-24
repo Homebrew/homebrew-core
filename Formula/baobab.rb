@@ -6,6 +6,7 @@ class Baobab < Formula
 
   bottle do
     rebuild 1
+    sha256 "8872a4c6700fd712af0f376e2be4cb8daa87629e3c8848a645a6447a3469010c" => :high_sierra
     sha256 "b66a35615da0b1b04463df2e63ffe2a9256cff1bf63a00c8f1e71ab8ac7c5428" => :sierra
     sha256 "675f9a11696972a6cc4e6f918830995fc884d50cfd4a1f032787e19e1bf508bb" => :el_capitan
   end
