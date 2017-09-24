@@ -7,10 +7,11 @@ class Qpm < Formula
   sha256 "2c56aa81e46fb144ff25b14a26476862462510e38cf1265b24c38e3ac4636ee5"
 
   bottle do
-    rebuild 1
-    sha256 "688340ba4e5090f53314dc899ea72be1411c47e70cbc7c304ef7f086104f5441" => :sierra
-    sha256 "1ffb2fbc1859ead75a7e128540f0ba049d712bc1012fdee153cd44a250411433" => :el_capitan
-    sha256 "2504007ec81ac8e1db4c473a3cdbadf677ff921f46b38ae3bd35e781ddd7c341" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "e10b8209ffb5e0d36025c9aea3c53379628d4631d6bdaa46d0566625f8dede6d" => :high_sierra
+    sha256 "6dab4a36e19b1cd7a6a898d516b0fc59289798213b97a2c06130b63f69243eaa" => :sierra
+    sha256 "f2a77569109ea443de6fc94788906b1862ee183f3ecd6c065f7b05351f777eb6" => :el_capitan
   end
 
   depends_on "go" => :build
