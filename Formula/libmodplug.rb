@@ -1,8 +1,8 @@
 class Libmodplug < Formula
   desc "Library from the Modplug-XMMS project"
   homepage "https://modplug-xmms.sourceforge.io/"
-  url "https://downloads.sourceforge.net/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
-  sha256 "77462d12ee99476c8645cb5511363e3906b88b33a6b54362b4dbc0f39aa2daad"
+  url "https://downloads.sourceforge.net/modplug-xmms/libmodplug/0.8.9.0/libmodplug-0.8.9.0.tar.gz"
+  sha256 "457ca5a6c179656d66c01505c0d95fafaead4329b9dbaa0f997d00a3508ad9de"
 
   bottle do
     cellar :any
