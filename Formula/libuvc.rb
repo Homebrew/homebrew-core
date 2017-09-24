@@ -8,6 +8,7 @@ class Libuvc < Formula
 
   bottle do
     cellar :any
+    sha256 "7aad3af5a7a5f2936d2fde1a208a6efcc6dbf7e80a2b61202b0a208c45abb7df" => :high_sierra
     sha256 "0e2f8e177ecefcf0cd2a2c2be399d3e45fe18956642363b6f0e9b6632a7019da" => :sierra
     sha256 "2223e66660b7c600b71cb13cc9921c687bcc33e9e85fee7ab351c383e1533657" => :el_capitan
   end
