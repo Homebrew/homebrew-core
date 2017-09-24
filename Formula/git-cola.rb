@@ -19,6 +19,7 @@ class GitCola < Formula
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   def install
+    ENV.delete("PYTHONPATH")
     system "make", "PYTHON=python3", "prefix=#{prefix}", "install"
 
     if build.with? "docs"
