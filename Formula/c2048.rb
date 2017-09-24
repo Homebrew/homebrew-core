@@ -7,6 +7,7 @@ class C2048 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e5f553baf87fc7ac9f0fa4471d3e9be29328df167700181d9663f61293436888" => :high_sierra
     sha256 "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623" => :sierra
     sha256 "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d" => :el_capitan
     sha256 "c06bde9e58788a1a4f16b6d0ace89be02cf07f86211e0c78af5fdaa7d70a3614" => :yosemite
