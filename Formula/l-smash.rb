@@ -9,6 +9,7 @@ class LSmash < Formula
 
   bottle do
     cellar :any
+    sha256 "eae1dfce4f50c3b48d2a3fabf415ad7ec98de0937d610fec98d700e517e18934" => :high_sierra
     sha256 "57802892865529a99658bd4da1b29eb5287259183658131cc215ef80fcd0cfbe" => :sierra
     sha256 "5751796e42e7d544f4976bc304a0ae7407dc5217b2b4218b0a6afdc18ea3eeaf" => :el_capitan
     sha256 "3703bdeb1dfe66aef898e60a990f4e64f0ab3c1fe26a49cf824b3c6998acaacc" => :yosemite
