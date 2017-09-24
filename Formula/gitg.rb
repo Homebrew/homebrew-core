@@ -6,6 +6,7 @@ class Gitg < Formula
 
   bottle do
     rebuild 1
+    sha256 "6008b01e3422683cef31cdd74c9899bc789ca27e61644fbc1f0ac8cc42221d1c" => :high_sierra
     sha256 "c1092dcb629bed409b7947ff10cbb62d65896c05b9e8ff23d21e0e88d22f053b" => :sierra
     sha256 "e172c547253eeba68f651f7ea81779d79c233e6bdb8a0c38b0612a9f96e9ba9b" => :el_capitan
   end
