@@ -8,6 +8,7 @@ class Lasi < Formula
 
   bottle do
     cellar :any
+    sha256 "83a968297bd38cd5ab4f5198f1b8723286c0503486f682844f5576db75a176e6" => :high_sierra
     sha256 "777226a80b3fad497241ea6810d16d39846a4ff2d51acea4d4924cb44751419b" => :sierra
     sha256 "35a95d3bf2ad71999df616c06417883d25d22f343a40ce3a27b6a3fb11c1e689" => :el_capitan
     sha256 "4e1c3dc744e265709bc196acc936d8bf4307196972a772130a812c8c7bb1a80b" => :yosemite
