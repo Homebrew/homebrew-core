@@ -7,9 +7,11 @@ class MongodbAT30 < Formula
   sha256 "b9bea5e3d59b93775d5d55fb1dd161272aeefa193c2311a8f6722ad46d7a21ab"
 
   bottle do
-    sha256 "565c1889532eaf3848a9ee5799dc82a469a53b5f829296d8e4a910d9972288cb" => :sierra
-    sha256 "488cb8a0bcc8d5ee3f1a951fc28750bd5f079260d9a86641013287d1c7fb95cf" => :el_capitan
-    sha256 "55947a755d9c1efa9f8dc0e1419596574fc5a192adeaa2ccafc8732084782ac2" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "6805bd1eb565e8b5b48810348a7ed4c410009de7bc5e062470482a749c47a30c" => :high_sierra
+    sha256 "482b9f03fea1569cb7dd0c878cb7c1417f64b35974cd12c37c0e7d8fe572149d" => :sierra
+    sha256 "090305029d61bc61eae930cb293b670078cd337ac937ac6b7eb92ead1eb0782b" => :el_capitan
   end
 
   keg_only :versioned_formula
