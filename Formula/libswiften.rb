@@ -33,7 +33,7 @@ class Libswiften < Formula
               /(\["BOOST_SIGNALS_NO_DEPRECATION_WARNING")\]/,
               "\\1, \"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0\"]"
 
-    system "2to3", "--write", "--fix=print", "SConstruct",
+    system "2to3-", "--write", "--fix=print", "SConstruct",
            "BuildTools/SCons/SConstruct", "3rdParty/LibIDN/SConscript",
            "Slimber/SConscript", "Sluift/SConscript", "Swift/SConscript"
 
