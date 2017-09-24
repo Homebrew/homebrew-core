@@ -6,6 +6,7 @@ class Gnumeric < Formula
 
   bottle do
     rebuild 1
+    sha256 "eee1f26786c0c4773616dc6e1a2bd1e60f1697321310e99f0e875e45300f59f8" => :high_sierra
     sha256 "606c2d0fc786ee45c0a7e3349def6e596ce666518d53dc2ef583a309da5a9b8e" => :sierra
     sha256 "1955c0ae14d94c849b399c19485bc16f7bb981ee84ecc926d8cefd1494a67b39" => :el_capitan
   end
