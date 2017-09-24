@@ -6,6 +6,7 @@ class Rpl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "70b23d5ce18f2dfe58e8c782a00e4ab56d88c1e43b135c9e9ba0c8c387bef470" => :high_sierra
     sha256 "2c9e55b51762d835db949c20f9eba36e83213082db82c69602658e2f28003b80" => :sierra
     sha256 "175e1f127c8c707b0d90c3c7e4399cc5c1e18410bf8b7f6ec9340dbca4c16e4b" => :el_capitan
     sha256 "d718355e56dd13c690f1d5a0541b5f051518f65b953aade9c525853a19266a61" => :yosemite
