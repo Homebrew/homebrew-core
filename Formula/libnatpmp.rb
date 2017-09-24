@@ -6,13 +6,9 @@ class Libnatpmp < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3bb5c6f8cae1c36049acb0192137ceeb4a65cee344a4f9feb0e790086faf556e" => :high_sierra
-    sha256 "b5311d3a609970d008815a58454500dd753e0900f6dc9e1e57b387aa5f452626" => :sierra
-    sha256 "66c86d92e33fe778c8383066070983d44c5d6d8f479d57a6e1e391a52ae21632" => :el_capitan
-    sha256 "56614258c625a9f98733b0fe0c451cf62725fd874b413f08e45ed93a8fdaa991" => :yosemite
-    sha256 "66441cfb63476b8d74f5b90dccd434b081201cc7e900f7b2da4cba949cf40ef8" => :mavericks
-    sha256 "e653484cb16a9732132635cf784bd7096d647277c017318316d8a442b559ca2a" => :mountain_lion
+    sha256 "04c286ebb17bf08728749e390dd9ccabf3fcc4b660ffe4b6f315dcf89012f15a" => :high_sierra
+    sha256 "d1aaa97c827918f7d35d121399cb8f59b4442b94c3283a51b7931f0e008ff934" => :sierra
+    sha256 "667fe1a26fdd6e1a36f6e7b263f2f8e3d01f884da9d9edeb182dbb40b08475ab" => :el_capitan
   end
 
   def install
