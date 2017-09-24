@@ -6,6 +6,7 @@ class Qwtpolar < Formula
   revision 3
 
   bottle do
+    sha256 "41e46c5c73df6518ec55cd0c7fba26d98f6b9bce72da7e40a1dba12e6e3f88a5" => :high_sierra
     sha256 "b558ba6e4b4b269cd8ff207eccf1882073103aa702e2848a7a0f0cce711aff73" => :sierra
     sha256 "8d9e370d42d980081cf7626fc9a0ff7315e05fe1c41dc48c9de21edf353aab5d" => :el_capitan
     sha256 "e9ac24fce3339281d5b17f38a6c0fc1ff11b2d1afa3f7f727b620992348bf4c4" => :yosemite
