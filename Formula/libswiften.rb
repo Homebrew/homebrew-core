@@ -14,6 +14,7 @@ class Libswiften < Formula
   end
 
   bottle do
+    sha256 "c26c563a3c1423cbe9a1d5c0432ecb9aea4b588fb4fc08f9adf92572eba2c8ad" => :high_sierra
     sha256 "d7a96ec5a0f396486acf810c88efec48beff0778e770084a980d09773029ffd7" => :sierra
     sha256 "e9bf41171f626c71350d0db7f13857b56c57f63248a229fe0ac4ed09c42dcfcf" => :el_capitan
     sha256 "162f1c07d37888abd2c2f616f3bc512209ed5575444f5f17b555b974e0461939" => :yosemite
