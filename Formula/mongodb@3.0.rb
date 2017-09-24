@@ -33,7 +33,7 @@ class MongodbAT30 < Formula
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
-    system "2to3", "--write", "--fix=print", "SConstruct",
+    system "2to3-", "--write", "--fix=print", "SConstruct",
            "src/mongo/SConscript", "src/mongo/installer/msi/SConscript",
            "src/third_party/wiredtiger/SConscript",
            "src/third_party/wiredtiger/SConstruct"
