@@ -4,6 +4,13 @@ class Abyss < Formula
   url "https://github.com/bcgsc/abyss/releases/download/2.0.2/abyss-2.0.2.tar.gz"
   sha256 "d87b76edeac3a6fb48f24a1d63f243d8278a324c9a5eb29027b640f7089422df"
 
+  bottle do
+    cellar :any
+    sha256 "109472dfa59150418995609a8d6be995ca55b5bb64e89b104de3e15b2c5b7eca" => :high_sierra
+    sha256 "b2a8142f2baf9cfebf9974a5aca1288ed4e20b923b7f48751dde8d34af0df9f6" => :sierra
+    sha256 "0fdfb8e5e520247c515bcb5c283c019c71d3cf34c9a0318008b9048e2ae8b599" => :el_capitan
+  end
+
   head do
     url "https://github.com/bcgsc/abyss.git"
 
