@@ -3,6 +3,7 @@ class XmlSecurityC < Formula
   homepage "https://santuario.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/santuario/c-library/xml-security-c-1.7.3.tar.gz"
   sha256 "e5226e7319d44f6fd9147a13fb853f5c711b9e75bf60ec273a0ef8a190592583"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,17 @@ class XmlSecurityC < Formula
   depends_on "xerces-c"
   depends_on "openssl"
 
+  needs :cxx11
+
+  # See https://issues.apache.org/jira/browse/SANTUARIO-471
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xml-security-c/c%2B%2B11.patch"
+    sha256 "b8ced4b8b7977d7af0d13972e1a0c6623cbc29804ec9fea1eb588f0869503b1c"
+  end
+
   def install
+    ENV.cxx11
+
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
