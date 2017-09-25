@@ -1,8 +1,8 @@
 class XercesC < Formula
   desc "Validating XML parser"
   homepage "https://xerces.apache.org/xerces-c/"
-  url "https://www.apache.org/dyn/closer.cgi?path=xerces/c/3/sources/xerces-c-3.1.4.tar.gz"
-  sha256 "c98eedac4cf8a73b09366ad349cb3ef30640e7a3089d360d40a3dde93f66ecf6"
+  url "https://www.apache.org/dyn/closer.cgi?path=xerces/c/3/sources/xerces-c-3.2.0.tar.gz"
+  sha256 "d3162910ada85612f5b8cc89cdab84d0ad9a852a49577691e54bc7e9fc304e15"
 
   bottle do
     cellar :any
@@ -13,10 +13,19 @@ class XercesC < Formula
     sha256 "c7d461ebe0429d9a19e7e017af14a11435fc4f93ed83d2515b161e0f40c058b0" => :mavericks
   end
 
+  depends_on "cmake" => :build
+
+  needs :cxx11
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    ENV.cxx11
+
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "ctest", "-V"
+      system "make", "install"
+    end
     # Remove a sample program that conflicts with libmemcached
     # on case-insensitive file systems
     (bin/"MemParse").unlink
