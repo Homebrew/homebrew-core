@@ -4,6 +4,7 @@ class Xsd < Formula
   url "http://www.codesynthesis.com/download/xsd/4.0/xsd-4.0.0+dep.tar.bz2"
   version "4.0.0"
   sha256 "eca52a9c8f52cdbe2ae4e364e4a909503493a0d51ea388fc6c9734565a859817"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,8 @@ class Xsd < Formula
 
   depends_on "pkg-config" => :build
   depends_on "xerces-c"
+
+  needs :cxx11
 
   # Patches:
   # 1. As of version 4.0.0, Clang fails to compile if the <iostream> header is
@@ -33,6 +36,7 @@ class Xsd < Formula
 
   def install
     ENV.append "LDFLAGS", `pkg-config --libs --static xerces-c`.chomp
+    ENV.cxx11
     system "make", "install", "install_prefix=#{prefix}"
   end
 
