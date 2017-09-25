@@ -1,8 +1,8 @@
 class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
   homepage "http://www.icecast.org/"
-  url "https://downloads.xiph.org/releases/libshout/libshout-2.3.1.tar.gz"
-  sha256 "cf3c5f6b4a5e3fcfbe09fb7024aa88ad4099a9945f7cb037ec06bcee7a23926e"
+  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.1.tar.gz"
+  sha256 "f3acb8dec26f2dbf6df778888e0e429a4ce9378a9d461b02a7ccbf2991bbf24d"
 
   bottle do
     cellar :any
