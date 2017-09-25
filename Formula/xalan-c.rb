@@ -3,6 +3,7 @@ class XalanC < Formula
   homepage "https://xalan.apache.org/xalan-c/"
   url "https://www.apache.org/dyn/closer.cgi?path=xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
   sha256 "4f5e7f75733d72e30a2165f9fdb9371831cf6ff0d1997b1fb64cdd5dc2126a28"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,10 +22,22 @@ class XalanC < Formula
   end
   depends_on "xerces-c"
 
+  needs :cxx11
+
   # Fix segfault. See https://issues.apache.org/jira/browse/XALANC-751
-  patch :DATA
+  # Build with char16_t casts.  See https://issues.apache.org/jira/browse/XALANC-773
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/xerces-char16.patch"
+    sha256 "ebd4ded1f6ee002351e082dee1dcd5887809b94c6263bbe4e8e5599f56774ebf"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/locator-system-id.patch"
+    sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
+  end
 
   def install
+    ENV.cxx11
     ENV.deparallelize # See https://issues.apache.org/jira/browse/XALANC-696
     ENV["XALANCROOT"] = "#{buildpath}/c"
     ENV["XALAN_LOCALE_SYSTEM"] = "inmem"
@@ -82,16 +95,3 @@ class XalanC < Formula
     assert_match "Article: An XSLT test-case\nAuthors: \n* Roger Leigh\n* Open Microscopy Environment", shell_output("#{bin}/Xalan #{testpath}/input.xml #{testpath}/transform.xsl")
   end
 end
-
-__END__
---- a/c/src/xalanc/PlatformSupport/XalanLocator.hpp
-+++ b/c/src/xalanc/PlatformSupport/XalanLocator.hpp
-@@ -91,7 +91,7 @@ public:
-             const XalanDOMChar*     theAlternateId = getEmptyPtr())
-     {
-         return theLocator == 0 ? theAlternateId : (theLocator->getSystemId() ?
--            theLocator->getPublicId() : theAlternateId);
-+            theLocator->getSystemId() : theAlternateId);
-     }
-
-     /**
