@@ -3,7 +3,7 @@ class Enigma < Formula
   homepage "http://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5a788728bde916cc18f8a4c1cfe9323d2aacdfac416096ac082fb37d0c2ee93a" => :high_sierra
@@ -31,7 +31,17 @@ class Enigma < Formula
   depends_on "gettext"
   depends_on "enet"
 
+  needs :cxx11
+
+  # See https://github.com/Enigma-Game/Enigma/pull/8
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/enigma/c%2B%2B11.patch"
+    sha256 "5870bb761dbba508e998fc653b7b05a130f9afe84180fa21667e7c2271ccb677"
+  end
+
   def install
+    ENV.cxx11
+
     system "./autogen.sh" if build.head?
 
     inreplace "configure" do |s|
