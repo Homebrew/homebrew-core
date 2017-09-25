@@ -3,6 +3,7 @@ class XmlToolingC < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
   url "https://shibboleth.net/downloads/c++-opensaml/2.6.0/xmltooling-1.6.0.tar.gz"
   sha256 "25814c49e27cdc97e17d42ca503e325f7e474ca3558a5a6b476e57a8a3c1a20e"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,8 +22,12 @@ class XmlToolingC < Formula
   depends_on "openssl"
   depends_on "curl" => "with-openssl"
 
+  needs :cxx11
+
   def install
     ENV.O2 # Os breaks the build
+    ENV.cxx11
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
