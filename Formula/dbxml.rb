@@ -3,6 +3,7 @@ class Dbxml < Formula
   homepage "https://www.oracle.com/us/products/database/berkeley-db/xml/overview/index.html"
   url "http://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
+  revision 1
 
   bottle do
     rebuild 1
@@ -16,7 +17,17 @@ class Dbxml < Formula
   depends_on "xqilla"
   depends_on "berkeley-db"
 
+  needs :cxx11
+
+  # No public bug tracker or mailing list to submit this to, unfortunately.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/dbxml/c%2B%2B11.patch"
+    sha256 "98d518934072d86c15780f10ceee493ca34bba5bc788fd9db1981a78234b0dc4"
+  end
+
   def install
+    ENV.cxx11
+
     inreplace "dbxml/configure" do |s|
       s.gsub! "lib/libdb-*.la | sed -e 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed -e 's/.*db-\\(.*\\).a"
       s.gsub! "lib/libdb-*.la", "lib/libdb-*.a"
