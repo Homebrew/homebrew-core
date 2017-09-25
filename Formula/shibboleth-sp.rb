@@ -26,8 +26,11 @@ class ShibbolethSp < Formula
   depends_on "apr-util" => :build
   depends_on "apr" => :build
 
+  needs :cxx11
+
   def install
     ENV.O2 # Os breaks the build
+    ENV.cxx11
     args = %W[
       --disable-debug
       --disable-dependency-tracking
