@@ -3,6 +3,7 @@ class Blahtexml < Formula
   homepage "http://gva.noekeon.org/blahtexml/"
   url "http://gva.noekeon.org/blahtexml/blahtexml-0.9-src.tar.gz"
   sha256 "c5145b02bdf03cd95b7b136de63286819e696639824961d7408bec4591bc3737"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,7 @@ class Blahtexml < Formula
   option "without-blahtexml", "Build only blahtex, not blahtexml"
 
   depends_on "xerces-c" if build.with? "blahtexml"
+  needs :cxx11 if build.with? "blahtexml"
 
   # Add missing unistd.h includes, taken from MacPorts
   patch :p0 do
@@ -30,6 +32,8 @@ class Blahtexml < Formula
   end
 
   def install
+    ENV.cxx11 if build.with? "blahtexml"
+
     system "make", "blahtex-mac"
     bin.install "blahtex"
     if build.with? "blahtexml"
