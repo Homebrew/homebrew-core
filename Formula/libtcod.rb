@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developpers"
   homepage "http://roguecentral.org/doryen/libtcod/"
-  url "https://bitbucket.org/libtcod/libtcod/get/1.5.1.tar.bz2"
-  sha256 "290145f760371881bcc6aa3fda256a2927f9210acc3f0a7230c5dfd57d9052d0"
+  url "https://bitbucket.org/libtcod/libtcod/get/1.6.3.tar.bz2"
+  sha256 "7bd3142bba45601f1159c6a092cbe9efefa3fe450418c0855d8edc4429d515b7"
 
   bottle do
     cellar :any
@@ -12,24 +12,21 @@ class Libtcod < Formula
     sha256 "de169860f67c2be9d4ed7770f682700b31642030da1b50583b26b53e5e514bfe" => :yosemite
   end
 
-  depends_on "cmake" => :build
-  depends_on "sdl"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "sdl2"
 
   conflicts_with "libzip", :because => "both install `zip.h` header"
 
   def install
-    # Remove unnecessary X11 check - our SDL doesn't use X11
-    inreplace "CMakelists.txt" do |s|
-      s.gsub! "find_package(X11 REQUIRED)", ""
-      s.gsub! "${X11_INCLUDE_DIRS}", ""
+    cd "build/autotools" do
+      system "autoreconf", "-fiv"
+      system "./configure"
+      system "make"
+      lib.install Dir[".libs/*{.a,.dylib}"]
     end
-
-    system "cmake", ".", *std_cmake_args
-    system "make"
-
-    # cmake produces an install target, but it installs nothing
-    lib.install "src/libtcod.dylib"
-    lib.install "src/libtcod-gui.dylib"
     include.install Dir["include/*"]
     # don't yet know what this is for
     libexec.install "data"
