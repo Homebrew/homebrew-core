@@ -1,8 +1,8 @@
 class Libowfat < Formula
   desc "Reimplements libdjb"
   homepage "https://www.fefe.de/libowfat/"
-  url "https://dl.fefe.de/libowfat-0.29.tar.bz2"
-  sha256 "4badbdeed6bef4337f1edd6b86fb7154c5592509c272dcdc09c693161cbc6427"
+  url "https://www.fefe.de/libowfat/libowfat-0.31.tar.xz"
+  sha256 "d1e4ac1cfccbb7dc51d77d96398e6302d229ba7538158826c84cb4254c7e8a12"
   head ":pserver:cvs:@cvs.fefe.de:/cvs", :using => :cvs
 
   bottle do
