@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server."
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.4.18.tar.gz"
-  sha256 "5a1703190a42bac570cc1cbf9a76b62a488723db1a671db39071ed5a5a36d344"
+  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.5.126.tar.gz"
+  sha256 "3e2a528a7693680fcf4844e10216aae38419fcd1617119ad712fc30dbad5df5a"
 
   head "https://github.com/tarantool/tarantool.git", :branch => "1.8", :shallow => false
 
@@ -26,6 +26,8 @@ class Tarantool < Formula
     args << "-DENABLE_DIST=ON"
     args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
+    args << "-DCURL_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include"
+    args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"
 
     system "cmake", ".", *args
     system "make"
