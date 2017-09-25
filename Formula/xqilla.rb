@@ -3,6 +3,7 @@ class Xqilla < Formula
   homepage "https://xqilla.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.3.tar.gz"
   sha256 "8f76b9b4f966f315acc2a8e104e426d8a76ba4ea3441b0ecfdd1e39195674fd6"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,17 @@ class Xqilla < Formula
 
   conflicts_with "zorba", :because => "Both supply xqc.h"
 
+  needs :cxx11
+
+  # See https://sourceforge.net/p/xqilla/bugs/48/
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xqilla/xerces-containing-node.patch"
+    sha256 "36ffb2dff579e5610ca3be2a962942433127b24a78ca454647059d6d54b8e014"
+  end
+
   def install
+    ENV.cxx11
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--with-xerces=#{HOMEBREW_PREFIX}",
                           "--prefix=#{prefix}"
