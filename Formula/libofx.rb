@@ -1,8 +1,8 @@
 class Libofx < Formula
   desc "Library to support OFX command responses"
   homepage "https://libofx.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/libofx/libofx/0.9.10/libofx-0.9.10.tar.gz"
-  sha256 "54e26a4944ef2785087cfd8ed8f187ab9d397d9b92b5acc199dd7d5d095cf695"
+  url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.9.12.tar.gz"
+  sha256 "c15fa062fa11e759eb6d8c7842191db2185ee1b221a3f75e9650e2849d7b7373"
 
   bottle do
     sha256 "81b676fdb2d88fb270bc189af82631dcdf4387ab296472ceea518b48bd307d1b" => :high_sierra
@@ -21,6 +21,6 @@ class Libofx < Formula
   end
 
   test do
-    assert_equal "ofxdump #{version}", shell_output("ofxdump -V").chomp
+    assert_equal "ofxdump #{version}", shell_output("#{bin}/ofxdump -V").chomp
   end
 end
