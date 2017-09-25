@@ -3,6 +3,7 @@ class Opensaml < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
   url "https://shibboleth.net/downloads/c++-opensaml/2.6.0/opensaml-2.6.0.tar.gz"
   sha256 "8c8e7d1d7b045cda330dd49ea1972a3306ebefbf42cc65b8f612d66828352179"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,7 +21,11 @@ class Opensaml < Formula
   depends_on "xml-tooling-c"
   depends_on "openssl"
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
   end
