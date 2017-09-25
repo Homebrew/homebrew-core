@@ -4,6 +4,12 @@ class Bowtie2 < Formula
   url "https://github.com/BenLangmead/bowtie2/archive/v2.3.3.tar.gz"
   sha256 "7d4d455a4af70d02a1ae4ce1a0b21b7d3018737dd197579e1a5612a5c01887c8"
 
+  bottle do
+    sha256 "3fe6f32e4b86211b5f2ba0f75a1f3865501b70ed2d474c54b335b24ab93313f3" => :high_sierra
+    sha256 "3439ab26ff7b2952b7b39045d24988278d867d6f5ee2f3f61a4bbf787724a9c9" => :sierra
+    sha256 "2ff5ef492d7df5d5de27751ff878937edc80d5e495213a868d48d994877a6151" => :el_capitan
+  end
+
   depends_on "tbb"
 
   def install
