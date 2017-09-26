@@ -8,10 +8,10 @@ class Awscli < Formula
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "75886e5c4587c7ecfff03c5c96cb1c65e253a869db1092f18f7ea18ef21d2c82" => :high_sierra
-    sha256 "e78c517114b904a45e494935dc29b6c413503bda9a2f45a318c6620307b0f289" => :sierra
-    sha256 "e5c102cbcabf0cd6dcd56f383073a7cf85ad283013678d97930cf7137a790c9f" => :el_capitan
+    cellar :any
+    sha256 "cb8627e7ce3c07a81066a335d1b4692df10545c62dcb911ef2316ddf5e80b8f9" => :high_sierra
+    sha256 "571639b68c35bfdaf327766a0709133d7123efb62ea289ccd768aeb06f255126" => :sierra
+    sha256 "2d8fa8ab3b910cffe411f7f8f4cb6d3c7bc9616c0762a8bb0d322403ae44fb2f" => :el_capitan
   end
 
   # Use :python on Lion to avoid urllib3 warning
