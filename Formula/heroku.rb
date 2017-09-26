@@ -8,10 +8,10 @@ class Heroku < Formula
   head "https://github.com/heroku/cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "519ae59fcf9bc94f624cd442df37cad26694008878b54216188cd5a2e38f4e66" => :high_sierra
-    sha256 "fc29fb86cf149f162a2045285f95954b032de77edeeeb46f942e73faf21c22df" => :sierra
-    sha256 "b38a4a11fb9bbf28015bce2ff820cf20e8cfca884961d11b5fb9859e385e165a" => :el_capitan
+    cellar :any
+    sha256 "d9edf7d6335f05b5638613e9edf402a0c534fecf5be60ffe2d2d9fb7a6c270a4" => :high_sierra
+    sha256 "0211d6b6dcc37fdd9c6835d97db2ea76240b13f057b86128bd2882fac1648985" => :sierra
+    sha256 "bce50b4b5fd8bc94db22fb00d9fc9176ff5db9f7b4517e247c5491fc6c95d2fd" => :el_capitan
   end
 
   depends_on "node"
