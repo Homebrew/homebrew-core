@@ -6,9 +6,9 @@ class Bluepill < Formula
   head "https://github.com/linkedin/bluepill.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e6e37900e460cd9f592bd264ce2134c55408c66c011b4973650f54ab752c3405" => :sierra
-    sha256 "3978c64e6553e9185fb2a0d27629736fcfbfd4c34efa3092a5a0e8e9e2affa66" => :el_capitan
+    cellar :any
+    sha256 "5d4b18deb04e6580e07deafa649e6e10258aa753b0e904c8a7fd6aeb56f8cc7d" => :high_sierra
+    sha256 "5aa90a8f0a5f960fbf848fb35b93f6540906e9e202fe6f59249e223e92a742d8" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]
