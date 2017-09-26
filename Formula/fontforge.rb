@@ -30,6 +30,14 @@ class Fontforge < Formula
   depends_on "libuninameslist" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
+  # Remove for > 20170731
+  # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
+  # Upstream PR from 22 Sep 2017 https://github.com/fontforge/fontforge/pull/3156
+  patch do
+    url "https://github.com/fontforge/fontforge/commit/9f69bd0f9.patch?full_index=1"
+    sha256 "f8afa9a6ab7a71650a3f013d9872881754e1ba4a265f693edd7ba70f2ec1d525"
+  end
+
   def install
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
     ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
