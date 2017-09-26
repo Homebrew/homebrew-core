@@ -12,7 +12,7 @@ class Valgrind < Formula
   end
 
   head do
-    url "svn://svn.valgrind.org/valgrind/trunk"
+    url "https://sourceware.org/git/valgrind.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
