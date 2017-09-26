@@ -1,9 +1,9 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.yar.ru/"
-  url "https://lftp.yar.ru/ftp/lftp-4.8.1.tar.xz"
-  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.8.1.tar.xz"
-  sha256 "e770daa5592ad21bd0b8a8915a0f4fdc2e15dec6c69e754a870ad9c18be57b27"
+  url "https://lftp.yar.ru/ftp/lftp-4.8.2.tar.xz"
+  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.8.2.tar.xz"
+  sha256 "5c875b8476e05e856ebc8eec458e43317b2bebd6ed5f7725a733d4591548cd9c"
 
   bottle do
     sha256 "96fe7939ff0bca47146f33368c6ba5470670e9a524ffbc249ddf2307a95ffe4d" => :high_sierra
@@ -14,14 +14,6 @@ class Lftp < Formula
   depends_on "readline"
   depends_on "openssl"
   depends_on "libidn"
-
-  # Remove for > 4.8.1
-  # Fix "error: non-constant-expression cannot be narrowed"
-  # Upstream commit from 17 Sep 2017 "Fix build on FreeBSD-i386 [1] (#391)"
-  patch do
-    url "https://github.com/lavv17/lftp/commit/ee60a0f7.patch?full_index=1"
-    sha256 "a45f4ac27f9957839b99742e7d097c632fb4c44cf935ca514410284861d4ac09"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
