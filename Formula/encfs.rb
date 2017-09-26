@@ -23,9 +23,13 @@ class Encfs < Formula
 
   def install
     ENV.cxx11
+    ENV.append "CMAKE_LIBRARY_PATH", "/usr/local/lib", ":"
+
+    args = std_cmake_args
+    args << "-DFUSE_INCLUDE_DIR=/usr/local"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
