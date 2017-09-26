@@ -1,10 +1,8 @@
-require "language/go"
-
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.9.1.tar.gz"
-  sha256 "659cd9679fa258ec142cf80ed92282c41aac44152f1193fa804bf00550e64e3a"
+  url "https://github.com/getgauge/gauge/archive/v0.9.3.tar.gz"
+  sha256 "3bb9e13da409b40e7982199418e7449560ee6c14d7e99581dd30c94c4c6f88de"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
@@ -17,25 +15,12 @@ class Gauge < Formula
   depends_on "go" => :build
   depends_on "godep" => :build
 
-  go_resource "github.com/getgauge/gauge_screenshot" do
-    url "https://github.com/getgauge/gauge_screenshot.git",
-        :revision => "f16bcf089e263db525a255c9f9621ca0270ff1d3"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOROOT"] = Formula["go"].opt_libexec
-
-    # Avoid executing `go get`
-    inreplace "build/make.go", /\tgetGaugeScreenshot\(\)\n/, ""
-
     dir = buildpath/"src/github.com/getgauge/gauge"
     dir.install buildpath.children
     ln_s buildpath/"src", dir
-
-    Language::Go.stage_deps resources, buildpath/"src"
-    ln_s "gauge_screenshot", "src/github.com/getgauge/screenshot"
-
     cd dir do
       system "godep", "restore"
       system "go", "run", "build/make.go"
