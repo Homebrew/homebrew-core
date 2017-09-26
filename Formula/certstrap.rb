@@ -1,9 +1,8 @@
 class Certstrap < Formula
   desc "Tools to bootstrap CAs, certificate requests, and signed certificates"
   homepage "https://github.com/square/certstrap"
-  url "https://github.com/square/certstrap.git",
-      :tag => "v1.1.0",
-      :revision => "25e0caa16bbb614597a4de836537084a16b28ca0"
+  url "https://github.com/square/certstrap/archive/v1.1.1.tar.gz"
+  sha256 "412ba90a4a48d535682f3c7529191cd30cd7a731e57065dcf4242155cec49d5e"
 
   bottle do
     rebuild 1
@@ -13,11 +12,12 @@ class Certstrap < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
 
   def install
-    system "./build"
-    bin.install "bin/certstrap"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/square").mkpath
+    ln_s buildpath, "src/github.com/square/certstrap"
+    system "go", "build", "-o", bin/"certstrap"
   end
 
   test do
