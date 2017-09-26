@@ -6,10 +6,10 @@ class Filebeat < Formula
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1bd9fbd1318bee3de9e0a1dcb9cc1b693c23d3d1c766b010d7c926879c8c6af2" => :high_sierra
-    sha256 "a85fd00a851b12b450c8e65e25c245432ef8ffc1dac328a6ea3f3623b1642dfd" => :sierra
-    sha256 "9087f94c26d0b3e85d2bdaea2608613bd496530eaddc1b3dcb70deb782768617" => :el_capitan
+    cellar :any
+    sha256 "b33f93f16fb8bccc5029c32d79f138d0c3f5b95cd92f2ccc1cad434d56c176d2" => :high_sierra
+    sha256 "bc915f6d5fe1c32ea0414a69abe4115f22a9a3cdb0affd6cb55e9581102ac045" => :sierra
+    sha256 "8d9c6e4fac85db2fbc3f40231c16e9af6359ff2f437a471ab048f6857ecbb8d1" => :el_capitan
   end
 
   depends_on "go" => :build
