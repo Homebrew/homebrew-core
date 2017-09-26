@@ -13,7 +13,7 @@ class Kafka < Formula
   end
 
   depends_on "zookeeper"
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
   # Since Kafka does not currently set the source or target compability version inside build.gradle
@@ -37,7 +37,7 @@ class Kafka < Formula
     libexec.install "libs"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8+"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
     Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
 
     mv "config", "kafka"
