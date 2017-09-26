@@ -4,6 +4,7 @@ class Bison < Formula
   url "https://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz"
   mirror "https://ftpmirror.gnu.org/bison/bison-3.0.4.tar.gz"
   sha256 "b67fd2daae7a64b5ba862c66c07c1addb9e6b1b05c5f2049392cfd8a2172952e"
+  revision 1
 
   bottle do
     sha256 "53d780da5de0637e20120532a475200f9176b9d0782e95391d07370372a0aed2" => :high_sierra
