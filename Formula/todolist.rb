@@ -5,11 +5,10 @@ class Todolist < Formula
   sha256 "3c70dfb5e331cc636bd22fc686223faa34459a1b5e18d6b53557a14dff7a2b23"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "22269a2051b13030b25761b5598d66f18746df836b3096929e5ccf3cba79d6be" => :high_sierra
-    sha256 "ce52f46de9c0a6199b8e249b81a2b7e4c721af584b6c3b9da940752d3dc6a0b2" => :sierra
-    sha256 "ad92cc8acf856f2a608f2d34e93987a6dd56d7cf8b670687a327d385a3f5fcb5" => :el_capitan
-    sha256 "5feccfa0c2443dba0c8cbbd42bf8cec23211e77a7661dccf663d00b92399ebe3" => :yosemite
+    cellar :any
+    sha256 "0e34e278656d5ac75827b04208bd0ec062ee43210bef7bb410bf7e8842627f5c" => :high_sierra
+    sha256 "78e2fa559f361af84f01d9c62fe4ea36b88295434eceacada998682715d16364" => :sierra
+    sha256 "ec0c30b9ec9df525fe5026e0724e6c1164231046f4a5d0c0ffb5361cceed323f" => :el_capitan
   end
 
   depends_on "go" => :build
