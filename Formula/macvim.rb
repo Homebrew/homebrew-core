@@ -5,7 +5,7 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-137.tar.gz"
   version "8.0-137"
   sha256 "2f2b20c80f887c5f26dad42540f047e43928f8c1cb217b6874c8d5602eceb620"
-  revision 1
+  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -31,8 +31,10 @@ class Macvim < Formula
   depends_on :python3 => :optional
 
   def install
-    # Avoid "fatal error: 'ruby/config.h' file not found"
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+    # Avoid issues finding Ruby headers
+    if MacOS.version == :sierra || MacOS.version == :yosemite
+      ENV.delete("SDKROOT")
+    end
 
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
@@ -117,5 +119,6 @@ class Macvim < Formula
       system_framework_path = `python-config --exec-prefix`.chomp
       assert_match system_framework_path, `mvim --version`
     end
+    assert_match "+ruby", shell_output("#{bin}/mvim --version")
   end
 end
