@@ -7,11 +7,10 @@ class Lego < Formula
   sha256 "365802c02a7f7106370525444c18af53f010153631f27b7cbeb1b4574631f3e7"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d5f056de2a87fbf77e3b003c95843d6fa67c7e782d2790ba6392576057b9838c" => :high_sierra
-    sha256 "f9348f9407c17a0bf50fdad5bcffe9b5d03080941a8cb41dc1a08db2ba6ba909" => :sierra
-    sha256 "22243249747c1fa0e179b6de70827c5ca0bc020c5e712585153a845c59569d10" => :el_capitan
-    sha256 "2f227bd2838da0b180fe20be6b1bc6f1705c29af297a34d6537dae6efbec6268" => :yosemite
+    cellar :any
+    sha256 "6f22d329e5c9467b09db096e7915091fedebe1e28c1b83d97724c91030c4de9c" => :high_sierra
+    sha256 "df38c189dfb4a390c283faa0508ca813180a74ccbb6c53314a6c215f519e6271" => :sierra
+    sha256 "4970add0313ecf427fbf6ad61883967df408df20e80dac67345d90c5a651d6e1" => :el_capitan
   end
 
   depends_on "go" => :build
