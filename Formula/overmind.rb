@@ -6,10 +6,11 @@ class Overmind < Formula
   head "https://github.com/DarthSim/overmind.git"
 
   bottle do
-    cellar :any
-    sha256 "ace11123fd89da9931785431f48e9f4af6d4d99459a259a2b5c7e70601f36304" => :high_sierra
-    sha256 "9f4b9fb0ef5a4f815c71294cbedf4306d52acaec9cd3782a396e5afaf36c34f1" => :sierra
-    sha256 "900c4ab265035ab1462885526145f57a0c13f982b05a40946a9174fdb6958fe4" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "7e4ff21eb3a5a4d8f498870f27af669765fc9ba92cd1862382086affe81a6036" => :high_sierra
+    sha256 "c7df671d29033a384d7987c7ed01dc3a5d4905280bd2f0fc22d2d9bee71f7072" => :sierra
+    sha256 "91f58927b9a81b703d1eeb2d6dd4db3802dfc7c8790f567e216db68aba2c0f12" => :el_capitan
   end
 
   depends_on "go" => :build
