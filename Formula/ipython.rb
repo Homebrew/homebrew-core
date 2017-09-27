@@ -9,10 +9,10 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "34bf30f3e8ab4cfcf5c551b885b2f2eddd02feaf3240930655f0a3506a205df3" => :high_sierra
-    sha256 "24b9ec7c8dbc14aad48ba5b72f222f8e3f518014c2fc2f5d5e1a7a64fa5fcecb" => :sierra
-    sha256 "c648cb3cf445db02a0d1508a099abfd31531a41ee558f6b85d2c9ac812d78110" => :el_capitan
+    cellar :any
+    sha256 "3652b8ea3a4452768ad0bd8cc98d60cdbe5913f3ed6b5e3c799b74ad3ce8bed4" => :high_sierra
+    sha256 "11b9cde05ef88c70ebd6a5693217d8ba305061c91aea6549784758196f47e504" => :sierra
+    sha256 "b5242b20b8ce8e81a8758aa2825c66f72386bcbb32cb61173276e5c80176fb47" => :el_capitan
   end
 
   depends_on :python3
