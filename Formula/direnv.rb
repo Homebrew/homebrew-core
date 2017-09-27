@@ -6,10 +6,10 @@ class Direnv < Formula
   head "https://github.com/direnv/direnv.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "57dd8105b64321a4470e15facc4aeed27386756bd1193cd050a79dbd6fc148a1" => :high_sierra
-    sha256 "9937102428c968d1faad5863a0f9236e338e39407ebefce2b99234cdfce1edf4" => :sierra
-    sha256 "ca47a20f518f7029dc3222440ab7096a1fbbffb6fa2c19d38447c44780386386" => :el_capitan
+    cellar :any
+    sha256 "ba6b8589e47a6b1c2d61f2c8cd7cfa1aaacb8876e6c0f8b38e5cc0628d8a0a49" => :high_sierra
+    sha256 "33148330cfc534aae85ad52c94126e00488eb8fef433832bc770f20db7318d1a" => :sierra
+    sha256 "859190f1008fc41df4c07bb7925c9dbbbab1cf7ef24248b613f941b23a4b7e02" => :el_capitan
   end
 
   depends_on "go" => :build
