@@ -1,8 +1,8 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "http://download.osgeo.org/postgis/source/postgis-2.3.2.tar.gz"
-  sha256 "e92e34c18f078a3d1a2503cd870efdc4fa9e134f0bcedbbbdb8b46b0e6af09e4"
+  url "http://download.osgeo.org/postgis/source/postgis-2.4.0rc3.tar.gz"
+  sha256 "5ef68d413b5954d33edd217bfb87438a8b197a18bfaf2f7b8a27272dbe96f888"
 
   bottle do
     cellar :any
@@ -35,8 +35,8 @@ class Postgis < Formula
 
   # For GeoJSON and raster handling
   depends_on "json-c"
-  depends_on "gdal" => :recommended
-  depends_on "pcre" if build.with? "gdal"
+  depends_on "gdal2" => :recommended
+  depends_on "pcre" if build.with? "gdal2"
 
   # For advanced 2D/3D functions
   depends_on "sfcgal" => :recommended
@@ -58,6 +58,7 @@ class Postgis < Formula
       "--with-projdir=#{Formula["proj"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
       "--with-pgconfig=#{Formula["postgresql"].opt_bin}/pg_config",
+      "--with-gdalconfig=#{Formula["gdal2"].opt_bin}/gdal-config",
       # Unfortunately, NLS support causes all kinds of headaches because
       # PostGIS gets all of its compiler flags from the PGXS makefiles. This
       # makes it nigh impossible to tell the buildsystem where our keg-only
@@ -66,7 +67,7 @@ class Postgis < Formula
     ]
 
     args << "--with-gui" if build.with? "gui"
-    args << "--without-raster" if build.without? "gdal"
+    args << "--without-raster" if build.without? "gdal2"
     args << "--with-xsldir=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl" if build.with? "html-docs"
 
     system "./autogen.sh" if build.head?
