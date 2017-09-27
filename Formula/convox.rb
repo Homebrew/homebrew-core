@@ -5,10 +5,11 @@ class Convox < Formula
   sha256 "557d700c34dce238eb263fe0ea1970cc9a639d0146a092a4dfa2bcf2f8b56304"
 
   bottle do
-    cellar :any
-    sha256 "b8fbedac564c4468a3bcc7099b72032250470f900e09cc17eea4b109482b2c3b" => :high_sierra
-    sha256 "f7ac6969159e84cffdcfce7a5ca149161560b149b5eb5f00aae5c9e1c04bad35" => :sierra
-    sha256 "ce2348474088561fccba5d5f79216d208b4aca578b92d732b123cf4940e3cfa2" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "aec53819727cdf8319bf7d3a8ac1e905b4c55198907d9196a0b7530a4746e5dd" => :high_sierra
+    sha256 "7cb97c64fbba7718e1f76e20b7b1345dd8eda1c036061c89fdaa855f5808070b" => :sierra
+    sha256 "e8d9e4945406ab1db48fe0048f18d7aaa0c3a80db972a345b38fdf5d0f1bdc57" => :el_capitan
   end
 
   depends_on "go" => :build
