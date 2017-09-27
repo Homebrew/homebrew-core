@@ -1,12 +1,12 @@
 require "language/go"
 
-class GitlabCiMultiRunner < Formula
+class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
-  homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
-  url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
+  homepage "https://gitlab.com/gitlab-org/gitlab-runner"
+  url "https://gitlab.com/gitlab-org/gitlab-runner.git",
       :tag => "v9.5.0",
       :revision => "413da38a72634601bf435f6215d6669cd5a4e40e"
-  head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
+  head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -40,7 +40,7 @@ class GitlabCiMultiRunner < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
     ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Go.stage_deps resources, buildpath/"src"
@@ -58,25 +58,24 @@ class GitlabCiMultiRunner < Formula
                            "prebuilt-x86_64.tar.xz",
                            "prebuilt-arm.tar.xz"
 
-      proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+      proj = "gitlab.com/gitlab-org/gitlab-runner"
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<-EOS.undent
-             -X #{proj}/common.NAME=gitlab-ci-multi-runner
+             -X #{proj}/common.NAME=gitlab-runner
              -X #{proj}/common.VERSION=#{version}
              -X #{proj}/common.REVISION=#{commit}
              -X #{proj}/common.BRANCH=#{branch}
              -X #{proj}/common.BUILT=#{built}
       EOS
 
-      bin.install "gitlab-ci-multi-runner"
-      bin.install_symlink bin/"gitlab-ci-multi-runner" => "gitlab-runner"
+      bin.install "gitlab-runner"
       prefix.install_metafiles
     end
   end
 
-  plist_options :manual => "gitlab-ci-multi-runner start"
+  plist_options :manual => "gitlab-runner start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -91,7 +90,7 @@ class GitlabCiMultiRunner < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/gitlab-ci-multi-runner</string>
+          <string>#{opt_bin}/gitlab-runner</string>
           <string>run</string>
           <string>--working-directory</string>
           <string>#{ENV["HOME"]}</string>
