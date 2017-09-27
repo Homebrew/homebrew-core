@@ -1,4 +1,4 @@
-class MobileShell < Formula
+class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
