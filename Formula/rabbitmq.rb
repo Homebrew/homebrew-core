@@ -79,7 +79,7 @@ class Rabbitmq < Formula
         <dict>
           <!-- need erl in the path -->
           <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
+          <string>#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
           <!-- specify the path to the rabbitmq-env.conf file -->
           <key>CONF_ENV_FILE</key>
           <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>
