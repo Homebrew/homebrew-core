@@ -7,10 +7,11 @@ class Rcs < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "4db2b0c7c6e847a60a17bf7dd3c13b68e4c390bb93f51de7cc09afa5242ad4f1" => :high_sierra
-    sha256 "a4da901d15710afc151c6bdf1fe0257ca7d0e7ecf9a0586ccee95127e87748e9" => :sierra
-    sha256 "67cea3736a9840099458ab2a7572fe9b8eb8cfcaa73c15805cbefd13e8be3ea3" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "f43c9160cbc605578af4473892f71f733dc05a9ab836d280400acece9cb75708" => :high_sierra
+    sha256 "f082af49e1b1570892fa76b91bed0246e9ad63e59f953e0388b20dbf55edc485" => :sierra
+    sha256 "4681c5fae05b4f4b267a9bccc9032de2b216437105d591ec5de7a10ca31e0441" => :el_capitan
   end
 
   # Fixes use of _Noreturn attribute
