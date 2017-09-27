@@ -6,6 +6,13 @@ class Ykman < Formula
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.4.5.tar.gz"
   sha256 "d91f5b549b23bfc6c04d9446b9ced6c6f80aac702b26a1fa4d1b8df5eb9a36d8"
 
+  bottle do
+    cellar :any
+    sha256 "a0bb5c97a42c384d4d838cd34f7996f5a4d44a542a2fb1833538cf39ea9bdcea" => :high_sierra
+    sha256 "b36a3d075b695773d351118fe10443208936aeb2e648a60cd847182a9a876977" => :sierra
+    sha256 "3d345880c5a2f005d968460c9e03b9724be65996ddf933eabe2d875c3172c11e" => :el_capitan
+  end
+
   head do
     url "https://github.com/Yubico/yubikey-manager.git"
   end
