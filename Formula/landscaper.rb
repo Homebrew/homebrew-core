@@ -7,10 +7,11 @@ class Landscaper < Formula
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
-    cellar :any
-    sha256 "6bbefd914dca42b8e3024e910461b43b8d173d5c9eb91a99fca205414bd2ce95" => :high_sierra
-    sha256 "1c3f8a04554b7f3d71fd394ad8cffb8bc847be084477d52d55627e8e0e334a21" => :sierra
-    sha256 "9939bfe87fb3b24290410d0fdae6dd34bce440ee2c78d2e65aef215fcec93782" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "e228fa1fec10787234271815a0f35a2717f5c3116ca86a9e06da14bc21d484a6" => :high_sierra
+    sha256 "73a870fc93d923eab2ee1f26f76bf350acf5de4e402f8447bf4ad9bcc4e01de8" => :sierra
+    sha256 "6c50395eac33ac374a922ee454e41b96772c742cb4bb428c38b2a412f6e8e5b4" => :el_capitan
   end
 
   depends_on "go" => :build
