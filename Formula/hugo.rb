@@ -6,10 +6,11 @@ class Hugo < Formula
   head "https://github.com/gohugoio/hugo.git"
 
   bottle do
-    cellar :any
-    sha256 "979dfbe8e7fba439d883e2cfbb806d98c9e1a1fcf9def579a67798cbb1a0556f" => :high_sierra
-    sha256 "c7beafd8a0feda1cc6e13ce85a3f13dbb3cd88f44a75ed19e3f0693b19e49720" => :sierra
-    sha256 "3502c90885eb6c8fb0254a7cc717f4e33e40e36cb3fa483b62f034d899a0c2d9" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "63cba968a9a1419c2d43a0db0990515c88e08309272fb8993440473d92569627" => :high_sierra
+    sha256 "561b4fb351c31f231daa4a1f1f0b8d6b6f698cc16ea00ced60be38ef5466a3d1" => :sierra
+    sha256 "8dafb4055c0dbc8b76e92ed3c57c98c9e138d08160f7ff281375aea6cc40699d" => :el_capitan
   end
 
   depends_on "go" => :build
