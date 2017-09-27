@@ -7,10 +7,11 @@ class Sip < Formula
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
-    cellar :any
-    sha256 "141af12ca43225941e7682a60899da8144e043074085296155a1933e7a1419d1" => :high_sierra
-    sha256 "e166999ef5f7fdd13f58c73ee04cb256747d429cab28ca5e4e70cd00a7d427a7" => :sierra
-    sha256 "eb2d545c43da3dffd20d14c6847c63be8104b17cd43c32f079e54fcc9f69b850" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "c4d6314ca12004c84f71bfc40a819f3165bed21ad40093dd731b2726adb93715" => :high_sierra
+    sha256 "cba83d5c6cc562ddf8d5785ef46706e15b4a3d45b3cb98f97904259e96ade675" => :sierra
+    sha256 "7a95afc0a4ceb321e8d16f45ebf48bb7ad2f7e66c5d19b1b66efff36007ee28d" => :el_capitan
   end
 
   depends_on :python => :recommended
