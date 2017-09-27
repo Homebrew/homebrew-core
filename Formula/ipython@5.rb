@@ -3,6 +3,7 @@ class IpythonAT5 < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
   sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
+  revision 1
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
@@ -168,8 +169,10 @@ class IpythonAT5 < Formula
     end
 
     # install kernel
-    system libexec/"bin/ipython", "kernel", "install", "--prefix", share
-    inreplace share/"share/jupyter/kernels/python2/kernel.json", "]", <<-EOS.undent
+    kernel_dir = Dir.mktmpdir
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
+    (share/"jupyter/kernels/python2").install Dir["#{kernel_dir}/share/jupyter/kernels/python2/*"]
+    inreplace share/"jupyter/kernels/python2/kernel.json", "]", <<-EOS.undent
       ],
       "env": {
         "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
@@ -178,7 +181,8 @@ class IpythonAT5 < Formula
   end
 
   def post_install
-    (etc/"jupyter/kernels/python2").install Dir[share/"share/jupyter/kernels/python2/*"]
+    rm_rf etc/"jupyter/kernels/python2"
+    (etc/"jupyter/kernels/python2").install Dir[share/"jupyter/kernels/python2/*"]
   end
 
   test do
