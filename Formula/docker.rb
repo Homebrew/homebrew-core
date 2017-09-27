@@ -6,10 +6,11 @@ class Docker < Formula
       :revision => "afdb6d44a80f777069885a9ee0e0f86cf841b1bb"
 
   bottle do
-    cellar :any
-    sha256 "e261dd5b2ed70997426a11aea49cba20a8fa0fa9732c5d2c61eeec047d2e7b6b" => :high_sierra
-    sha256 "36a748a23e3a0fa6ae083de651689b69fd9527a523f28f978ff10e6afd1a9d18" => :sierra
-    sha256 "384d9daf7d25f6537f2dbc8373ded5b229999282fd710ec63a76af1854732e8b" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "13dde6921824dd2b3c5a1092597e4373ed7ba9a7c729ed4e303426564c136262" => :high_sierra
+    sha256 "3360d8313e135bf42aaa4a561117f8725d3a6920ad6c0a0a1340b3652da58c6d" => :sierra
+    sha256 "01b71ab9bfce60c8541b679320da91cc268ce9407f5d1e416f965c83f4b4b74b" => :el_capitan
   end
 
   option "with-experimental", "Enable experimental features"
