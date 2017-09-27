@@ -2,7 +2,7 @@ class Nedit < Formula
   desc "Fast, compact Motif/X11 plain text editor"
   homepage "https://sourceforge.net/projects/nedit/"
   url "https://downloads.sourceforge.net/project/nedit/nedit-source/nedit-5.7-src.tar.gz"
-  sha256 "7a07d3f7cca5c0b38ca811984ef8da536da32932d68c1a6cce33ec2462b930bf"
+  sha256 "add9ac79ff973528ad36c86858238bac4f59896c27dbf285cbe6a4d425fca17a"
 
   bottle do
     sha256 "8629a2b766e407e590835d9001830a7e7c0ac46084e152588906bdeefb2e10ae" => :sierra
