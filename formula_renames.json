@@ -48,6 +48,7 @@
   "gcc5": "gcc@5",
   "gcc6": "gcc@6",
   "geode": "apache-geode",
+  "gitlab-ci-multi-runner": "gitlab-runner",
   "giflib5": "giflib@5",
   "giflib@5": "giflib",
   "glfw2": "glfw@2",
