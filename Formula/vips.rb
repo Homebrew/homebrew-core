@@ -29,7 +29,6 @@ class Vips < Formula
   depends_on "pygobject3"
   depends_on "fftw" => :recommended
   depends_on "poppler" => :recommended
-
   depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
   depends_on "jpeg-turbo" => :optional
