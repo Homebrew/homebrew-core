@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v1.7.1.tar.gz"
-  sha256 "35ea7ad02fdab688066c7e7fa67d5e5ee50ed7d2a68f3cc62988a03a154078e0"
+  url "https://github.com/prometheus/prometheus/archive/v1.7.2.tar.gz"
+  sha256 "84ac61c522b3a491556b50bf262da88ccfd0a37d4f710a6b6a5707737acbdba8"
 
   bottle do
     cellar :any_skip_relocation
