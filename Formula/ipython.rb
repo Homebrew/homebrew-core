@@ -5,6 +5,7 @@ class Ipython < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/9e/3f/28518ed1f5701ba42299c7243caacfa188dac495278de54592069ac43c10/ipython-6.2.0.tar.gz"
   sha256 "81b0d6936f87002e6972eccc7e4085f5c2d0673decff22724b53cf34809ffacf"
+  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -138,8 +139,10 @@ class Ipython < Formula
     end
 
     # install kernel
-    system libexec/"bin/ipython", "kernel", "install", "--prefix", share
-    inreplace share/"share/jupyter/kernels/python3/kernel.json", "]", <<-EOS.undent
+    kernel_dir = Dir.mktmpdir
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
+    (share/"jupyter/kernels/python3").install Dir["#{kernel_dir}/share/jupyter/kernels/python3/*"]
+    inreplace share/"jupyter/kernels/python3/kernel.json", "]", <<-EOS.undent
       ],
       "env": {
         "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
@@ -148,7 +151,8 @@ class Ipython < Formula
   end
 
   def post_install
-    (etc/"jupyter/kernels/python3").install Dir[share/"share/jupyter/kernels/python3/*"]
+    rm_rf etc/"jupyter/kernels/python3"
+    (etc/"jupyter/kernels/python3").install Dir[share/"jupyter/kernels/python3/*"]
   end
 
   test do
