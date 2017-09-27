@@ -27,7 +27,6 @@ class Vips < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
-
   depends_on "fftw" => :recommended
   depends_on "poppler" => :recommended
 
