@@ -7,10 +7,11 @@ class IpythonAT5 < Formula
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
-    cellar :any
-    sha256 "1bed76f55ac3c9505c99eb3c142e776e0e98615b5ee51c2e9de0d64df48627ca" => :high_sierra
-    sha256 "46410fa370fade3567c520bb3caea41bfcf0ca881a2d695df248707e305c7a65" => :sierra
-    sha256 "b697892b819afc7e922fb78610ab41961785eb749ef7930104d0c4872c5a72c8" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "d654e6ad4dd4a60d2a04dcfdf70748f9d0c671c7de2f204620ea3a4fde90c064" => :high_sierra
+    sha256 "4ed9d94f909688f92e3d510c554b86d91a55ed68c371aa831979bb9ca86f0521" => :sierra
+    sha256 "2dfb4c4fa2fd2fc9b070deaf76f66a749511d645ba5113c9d35378b1c4268fde" => :el_capitan
   end
 
   keg_only :versioned_formula
