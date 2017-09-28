@@ -5,9 +5,9 @@ class Nedit < Formula
   sha256 "add9ac79ff973528ad36c86858238bac4f59896c27dbf285cbe6a4d425fca17a"
 
   bottle do
-    sha256 "8629a2b766e407e590835d9001830a7e7c0ac46084e152588906bdeefb2e10ae" => :sierra
-    sha256 "d79bd52f941bd568ffbaac5bbb3827b759622c6a3a678baffb22ca876987d560" => :el_capitan
-    sha256 "c8fbc8396996701b2b2dea73a3b246105f876341e8a0e1fe6991d43791dffe4d" => :yosemite
+    sha256 "e0b25b1e4de1406581d398d1159f19b806328f1dc82b90874eab044dd8369162" => :high_sierra
+    sha256 "0150b964f9436f9e97e8a969379240ba50612354e36883bb851cc66f4fea6f74" => :sierra
+    sha256 "eecf056af8aa2b0062a5c6568a30c6f8e0120fbe5bdef718d5b30f76894e3f36" => :el_capitan
   end
 
   depends_on "openmotif"
