@@ -6,10 +6,9 @@ class Gtkextra < Formula
 
   bottle do
     cellar :any
-    sha256 "58d5fdfd71909937ad1699d77a21b8fbc82f5b856edb3ebacf6245e8b6b13bcc" => :high_sierra
-    sha256 "e1c1be18254cb2598000bec74511879089a7431ae338fdd4e5ddb05769355fcb" => :sierra
-    sha256 "7b32a82119aa9de2c9f8998db3db68a1700a73bfda917b6047ccc09c5c95e1a5" => :el_capitan
-    sha256 "7ee8be67c7fb4c9c1cb16248055aeecdc6a6f936e80fe767bfdbe4b98975baf3" => :yosemite
+    sha256 "c83e9020038de86c26e74e2a87bdb8e382d668cfa7ee0c7560c3e653e776e52e" => :high_sierra
+    sha256 "19204f24b8d8bca289b41e662b8acb46a9522a9aecc70f3a13666b7d14290606" => :sierra
+    sha256 "6d9cadd386a89aee512dcf591efa08485341c2a36cde58091d2f1d51f74ce7ba" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
