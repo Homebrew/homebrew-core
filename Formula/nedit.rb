@@ -13,13 +13,6 @@ class Nedit < Formula
   depends_on "openmotif"
   depends_on :x11
 
-  # Nedit specifically checks the version of openmotif that is running against.
-  # Unfortunately this check leaves out the latest versions of openmotif 2.3.4+ (
-  # which is what homebrew currently has)
-  # see https://sourceforge.net/p/nedit/patches/177/ for the upstream bug report,
-  # and patch.
-  patch :DATA
-
   def install
     system "make", "macosx", "MOTIFLINK='-lXm'"
     system "make", "-C", "doc", "man", "doc"
@@ -38,17 +31,3 @@ class Nedit < Formula
     system bin/"ncl", "-version"
   end
 end
-__END__
-diff --git a/util/motif.c.old b/util/motif.c
-index 1ab3ef8..8d11abc 100644
---- a/util/motif.c.old
-+++ b/util/motif.c
-@@ -151,7 +151,7 @@ static enum MotifStability GetOpenMotifStability(void)
-     {
-         result = MotifKnownBad;
-     }
--    else if (XmFullVersion >= 200203 && XmFullVersion <= 200303) /* 2.2.3 - 2.3 is good */
-+    else if (XmFullVersion >= 200203 && XmFullVersion <= 200306) /* 2.2.3 - 2.3.6 is good */
-     {
-         result = MotifKnownGood;
-     }
