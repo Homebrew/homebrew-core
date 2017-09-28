@@ -11,6 +11,14 @@ class Libgda < Formula
     sha256 "01e46f8673fcf3fad0bccdd70e9bd6fac08f0f5b7035e85318a3add4db329a9b" => :yosemite
   end
 
+  # Fix incorrect encoding of headers
+  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741
+  # https://bugzilla.gnome.org/show_bug.cgi?id=788283
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bf4e8e3395/libgda/encoding.patch"
+    sha256 "db6c7f10a9ed832585aae65eb135b718a69c5151375aa21e475ba3031beb0068"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
