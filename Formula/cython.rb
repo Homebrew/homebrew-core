@@ -1,8 +1,8 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "http://cython.org"
-  url "https://files.pythonhosted.org/packages/68/41/2f259b62306268d9cf0d6434b4e83a2fb1785b34cfce27fdeeca3adffd0e/Cython-0.26.1.tar.gz"
-  sha256 "c2e63c4794161135adafa8aa4a855d6068073f421c83ffacc39369497a189dd5"
+  url "https://files.pythonhosted.org/packages/94/63/f54920c2ddbe3e1341a4c268f7091bf1bf53c3d84f4b115aa5beea64aef9/Cython-0.27.tar.gz"
+  sha256 "b932b5194e87a8b853d493dc1b46e38632d6846a86f55b8346eb9c6ec3bdc00b"
 
   bottle do
     cellar :any_skip_relocation
