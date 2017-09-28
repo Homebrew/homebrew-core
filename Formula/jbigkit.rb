@@ -22,6 +22,8 @@ class Jbigkit < Formula
 
   deprecated_option "with-check" => "with-test"
 
+  conflicts_with "netpbm", :because => "both install `pbm.5` and `pgm.5` files"
+
   def install
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"
 
