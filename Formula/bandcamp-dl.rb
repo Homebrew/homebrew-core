@@ -3,9 +3,9 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-07.tar.gz"
-  version "0.0.8-07"
-  sha256 "aba7811c449cd93985838d78e05822086b575420366e40be104a12dd030f866f"
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-08.tar.gz"
+  version "0.0.8-08"
+  sha256 "37b0a6e3714de74c6542e1ef1de7c6801b87bfa8022504600706702f87e2118d"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
@@ -73,8 +73,8 @@ class BandcampDl < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "unicode-slugify" do
