@@ -4,6 +4,7 @@ class Idutils < Formula
   url "https://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/idutils/idutils-4.6.tar.xz"
   sha256 "8181f43a4fb62f6f0ccf3b84dbe9bec71ecabd6dfdcf49c6b5584521c888aac2"
+  revision 1
 
   bottle do
     rebuild 1
@@ -15,6 +16,13 @@ class Idutils < Formula
   end
 
   conflicts_with "coreutils", :because => "both install `gid` and `gid.1`"
+
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of
