@@ -3,8 +3,8 @@ require "language/node"
 class Bower < Formula
   desc "Package manager for the web"
   homepage "https://bower.io/"
-  url "https://registry.npmjs.org/bower/-/bower-1.8.0.tgz"
-  sha256 "df634fcbb57f8877914ceeff794c88bca0c8a262d9c9f12f08c37ab13599aaa6"
+  url "https://registry.npmjs.org/bower/-/bower-1.8.2.tgz"
+  sha256 "6bcf10e9c192fdbd6e89f98e431e095764c8571f66bcd6dd08fbcbd52e8dd722"
 
   bottle do
     cellar :any_skip_relocation
