@@ -1,8 +1,8 @@
 class Gtkextra < Formula
   desc "Widgets for creating GUIs for GTK+"
   homepage "https://gtkextra.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.3.tar.gz"
-  sha256 "7889f958ee9fb6bd564aa941891909c3af7a03b92e232c5a90bab0289407d884"
+  url "https://downloads.sourceforge.net/project/gtkextra/3.3/gtkextra-3.3.4.tar.gz"
+  sha256 "651b738a78edbd5d6ccb64f5a256c39ec35fbbed898e54a3ab7e6cf8fd82f1d6"
 
   bottle do
     cellar :any
@@ -13,13 +13,9 @@ class Gtkextra < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "gtk+"
 
   def install
-    system "autoreconf", "-i"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
