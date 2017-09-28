@@ -6,11 +6,10 @@ class Unixodbc < Formula
   sha256 "2e1509a96bb18d248bf08ead0d74804957304ff7c6f8b2e5965309c632421e39"
 
   bottle do
-    rebuild 1
-    sha256 "67d8a07e5abf3f964101d94911321271ebd755076f4a39f73657b826619b88df" => :high_sierra
-    sha256 "b3117348129272e966e9fd3e37f29ccdffbf9a0dde9d8e2691a3185feaae92ff" => :sierra
-    sha256 "78bb1bb4468cb34d0acf6566ecaad6535a9b77ff7a740bafd2ed91e1d7812c70" => :el_capitan
-    sha256 "82f217f67f78a6dab125b77558e99f9ee18227f991ab8d842e881e83d0c7d917" => :yosemite
+    rebuild 2
+    sha256 "ee4a4a339f04afbcea6f2d3d4d30e82c5d1a25a29bfbdcfcecfea865dd6ca2e8" => :high_sierra
+    sha256 "f8e46488ccc480251051490a55bebb44cf95c90c0ee334857c81440c912ba25e" => :sierra
+    sha256 "6adc0803981df524dc7a06618920e9d4972ebb077bda3f14c20f50705e63824a" => :el_capitan
   end
 
   depends_on "libtool" => :run
