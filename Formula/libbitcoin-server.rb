@@ -48,8 +48,8 @@ class LibbitcoinServer < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp",
                     "-I#{libexec}/include",
-                    "-I" + Formula["libbitcoin-blockchain"].opt_libexec/"include",
-                    "-I" + Formula["libbitcoin-node"].opt_libexec/"include",
+                    "-I#{Formula["libbitcoin-blockchain"].opt_libexec}/include",
+                    "-I#{Formula["libbitcoin-node"].opt_libexec}/include",
                     "-lbitcoin", "-lbitcoin-server", "-lboost_system",
                     "-o", "test"
     system "./test"
