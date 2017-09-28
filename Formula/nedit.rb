@@ -1,8 +1,8 @@
 class Nedit < Formula
   desc "Fast, compact Motif/X11 plain text editor"
   homepage "https://sourceforge.net/projects/nedit/"
-  url "https://downloads.sourceforge.net/project/nedit/nedit-source/nedit-5.6a-src.tar.gz"
-  sha256 "53677983cb6c91c5da1fcdcac90f7f9a193f08fa13b7a6330bc9ce21f9461eed"
+  url "https://downloads.sourceforge.net/project/nedit/nedit-source/nedit-5.7-src.tar.gz"
+  sha256 "add9ac79ff973528ad36c86858238bac4f59896c27dbf285cbe6a4d425fca17a"
 
   bottle do
     sha256 "8629a2b766e407e590835d9001830a7e7c0ac46084e152588906bdeefb2e10ae" => :sierra
@@ -12,13 +12,6 @@ class Nedit < Formula
 
   depends_on "openmotif"
   depends_on :x11
-
-  # Nedit specifically checks the version of openmotif that is running against.
-  # Unfortunately this check leaves out the latest versions of openmotif 2.3.4+ (
-  # which is what homebrew currently has)
-  # see https://sourceforge.net/p/nedit/patches/177/ for the upstream bug report,
-  # and patch.
-  patch :DATA
 
   def install
     system "make", "macosx", "MOTIFLINK='-lXm'"
@@ -38,17 +31,3 @@ class Nedit < Formula
     system bin/"ncl", "-version"
   end
 end
-__END__
-diff --git a/util/motif.c.old b/util/motif.c
-index 1ab3ef8..8d11abc 100644
---- a/util/motif.c.old
-+++ b/util/motif.c
-@@ -151,7 +151,7 @@ static enum MotifStability GetOpenMotifStability(void)
-     {
-         result = MotifKnownBad;
-     }
--    else if (XmFullVersion >= 200203 && XmFullVersion <= 200303) /* 2.2.3 - 2.3 is good */
-+    else if (XmFullVersion >= 200203 && XmFullVersion <= 200306) /* 2.2.3 - 2.3.6 is good */
-     {
-         result = MotifKnownGood;
-     }
