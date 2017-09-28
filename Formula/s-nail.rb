@@ -1,8 +1,8 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.3.tar.gz"
-  sha256 "9048abe94c8b732ddefcd70b9f6052da16977de76b07598790e4c763e97f911d"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.4.tar.gz"
+  sha256 "d5eee1875fe065739c16f9f8aab28cb08f3c349c579016a238e8a9e4f237739d"
 
   bottle do
     sha256 "bab3491cd174beab7597ac7009237def73badd8e0b403712d1970f1c7c6a2978" => :high_sierra
@@ -15,7 +15,6 @@ class SNail < Formula
   depends_on "openssl"
 
   def install
-    mv "INSTALL", "INSTALL.txt" # remove for > 14.9.3
     system "make", "OPT_AUTOCC=no",
                    "CC=#{ENV.cc}",
                    "cc_maxtopt=1",
