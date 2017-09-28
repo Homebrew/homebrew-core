@@ -16,13 +16,18 @@ class Bc < Formula
   keg_only :provided_by_osx
 
   def install
+    # prevent user BC_ENV_ARGS from interfering with or influencing the
+    # bootstrap phase of the build, particularly
+    # BC_ENV_ARGS="--mathlib=./my_custom_stuff.b"
+    ENV.delete("BC_ENV_ARGS")
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
       "--infodir=#{info}",
-      "--mandir=#{man}"
+      "--mandir=#{man}",
+      "--with-libedit"
     system "make", "install"
   end
 
