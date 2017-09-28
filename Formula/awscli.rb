@@ -24,11 +24,10 @@ class Awscli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
-    # Remove Windows file
-    inreplace buildpath/"setup.py", "'bin/aws.cmd',", ""
     venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"
 
+    rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
     bash_completion.install "bin/aws_bash_completer"
     zsh_completion.install "bin/aws_zsh_completer.sh"
     (zsh_completion/"_aws").write <<-EOS.undent
