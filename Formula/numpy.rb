@@ -1,9 +1,8 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "http://www.numpy.org"
-  url "https://files.pythonhosted.org/packages/c0/3a/40967d9f5675fbb097ffec170f59c2ba19fc96373e73ad47c2cae9a30aed/numpy-1.13.1.zip"
-  sha256 "c9b0283776085cb2804efff73e9955ca279ba4edafd58d3ead70b61d209c4fbb"
-  revision 1
+  url "https://files.pythonhosted.org/packages/b9/33/c64cb1d2f447727cb687f0a4ac12cdcd7dd5cae8db73a548b41b2284b08a/numpy-1.13.2.zip"
+  sha256 "90ceeb683d69ef86cb424818d0bff7597b2a8d05f459679cf43d243c4442b8ba"
 
   bottle do
     sha256 "999689e3fe0f63cd4c4142fcf58e722b8abd544e80d40796be7e826dc5cfb976" => :high_sierra
@@ -16,8 +15,8 @@ class Numpy < Formula
     url "https://github.com/numpy/numpy.git"
 
     resource "Cython" do
-      url "https://files.pythonhosted.org/packages/10/d5/753d2cb5073a9f4329d1ffed1de30b0458821780af8fdd8ba1ad5adb6f62/Cython-0.26.tar.gz"
-      sha256 "4c24e2c22ddaed624d35229dc5db25049e9e225c6f64f3364326836cad8f2c66"
+      url "https://files.pythonhosted.org/packages/94/63/f54920c2ddbe3e1341a4c268f7091bf1bf53c3d84f4b115aa5beea64aef9/Cython-0.27.tar.gz"
+      sha256 "b932b5194e87a8b853d493dc1b46e38632d6846a86f55b8346eb9c6ec3bdc00b"
     end
   end
 
