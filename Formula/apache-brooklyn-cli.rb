@@ -1,8 +1,8 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.11.0.tar.gz"
-  sha256 "6bcbbc5827bdccd997cd85fd977f5930051ef4df03fe5bcc6ba5b7db121d5a0c"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.12.0.tar.gz"
+  sha256 "1d0975252a41f1fd65268b915778d4974a0eff2a8a315280e3dedc0e39ef486f"
 
   bottle do
     cellar :any_skip_relocation
@@ -49,7 +49,7 @@ class ApacheBrooklynCli < Formula
 
     begin
       mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
-      assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n", shell_output("#{bin}/br login #{mock_brooklyn_url}")
+      assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n", shell_output("#{bin}/br login #{mock_brooklyn_url} username password")
     ensure
       Process.kill("KILL", pid_mock_brooklyn)
     end
