@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.7.6",
-      :revision => "4bc5e7f9a6c25dc4c03d4d656f2cefd21540e28c"
+      :tag => "v1.8.0",
+      :revision => "0b9efaeb34a2fc51ff8e4d34ad9bc6375459c4a4"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -36,14 +36,7 @@ class KubernetesCli < Formula
 
       # Install zsh completion
       output = Utils.popen_read("#{bin}/kubectl completion zsh")
-      # Note: The explicit header to enable auto-loading by compinit
-      # can be removed after Kubernetes 1.8.0 when kubernetes/kubernetes#50561
-      # becomes available upstream.
-      (zsh_completion/"_kubectl").write <<-EOS.undent
-        #compdef kubectl
-        #{output}
-        _complete kubectl
-      EOS
+      (zsh_completion/"_kubectl").write output
 
       # Install man pages
       # Leave this step for the end as this dirties the git tree
