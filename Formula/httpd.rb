@@ -6,9 +6,9 @@ class Httpd < Formula
   revision 2
 
   bottle do
-    sha256 "3dd99ca5888cb88457445747ac100d57141ae64aec92b8c0253eaa7407be08ad" => :high_sierra
-    sha256 "0883431c30467c3a11e98ec490baa4f173eb21a7cc38825e0eefa44420ec8c09" => :sierra
-    sha256 "1cc36b165c6e386761c1c24e806f3e54707eb3534f83e3fae1091778f0d01737" => :el_capitan
+    sha256 "dbea8d85bc9b41d24eb9e88ee2ef2bdf3ebfb360a8ef62218c30bdbcf07b3748" => :high_sierra
+    sha256 "19bf2114d17e94601fa6eed220a0f82b6e028eb0a23d42bcbe30c1c6b61a80b6" => :sierra
+    sha256 "892b002db04a5ccea06840cf60403e08ef9a3f99f6fc65c98e8c1e8de95d7ef4" => :el_capitan
   end
 
   depends_on "apr"
