@@ -3,7 +3,7 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.27.tar.bz2"
   sha256 "71fcc128238a690515bd8174d5330a5309161ef314a326ae45c7c15ed139c13a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3dd99ca5888cb88457445747ac100d57141ae64aec92b8c0253eaa7407be08ad" => :high_sierra
@@ -34,6 +34,7 @@ class Httpd < Formula
                           "--sysconfdir=#{etc}/httpd",
                           "--datadir=#{var}/www",
                           "--localstatedir=#{var}",
+                          "--enable-mpms-shared=all",
                           "--enable-mods-shared=all",
                           "--enable-pie",
                           "--with-port=8080",
@@ -103,6 +104,7 @@ class Httpd < Formula
         LoadModule authz_core_module #{lib}/httpd/modules/mod_authz_core.so
         LoadModule unixd_module #{lib}/httpd/modules/mod_unixd.so
         LoadModule dir_module #{lib}/httpd/modules/mod_dir.so
+        LoadModule mpm_event_module #{lib}/httpd/modules/mod_mpm_event.so
       EOS
 
       pid = fork do
