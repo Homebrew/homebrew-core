@@ -6,6 +6,7 @@ class Ext2fuse < Formula
 
   bottle do
     cellar :any
+    sha256 "db5601be89a17e1d0496cf698c6a61adeb6aad617b47d2f93fe35b6176d735a2" => :high_sierra
     sha256 "22f2c626da7fbf83036debd9d3a564334c7d12919828c90cdb820c69c7911e3f" => :sierra
     sha256 "fcf23e3ef7bf5afed5f3a009c4e41e4fbe6852faac0dff0cc5c8f35b3b491571" => :el_capitan
     sha256 "01064d0a21a3a1d60686657df9146194700c879e5b43447c4a6cbc80cc62705b" => :yosemite
