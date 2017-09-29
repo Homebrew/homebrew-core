@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.7.0",
-      :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
-  revision 2
+      :tag => "2.8.0",
+      :revision => "168cb327f245bd520d326fcbf612678059547a0d"
 
   bottle do
     cellar :any
@@ -23,18 +22,16 @@ class Osquery < Formula
   depends_on "asio"
   depends_on "augeas"
   depends_on "boost"
-  depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lldpd"
-  depends_on "lz4"
+  depends_on "librdkafka"
   depends_on "openssl"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
-  depends_on "snappy"
   depends_on "yara"
   depends_on "xz"
   depends_on "zstd"
@@ -77,14 +74,6 @@ class Osquery < Formula
   resource "thrift-0.10-patch" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
     sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
-  end
-
-  # remove for > 2.7.0
-  # upstream: 'Boost version 1.65 macOS fix'
-  # https://github.com/facebook/osquery/pull/3613
-  patch do
-    url "https://github.com/facebook/osquery/commit/c50a9b1e82f.patch?full_index=1"
-    sha256 "c0ce11887ac277774c622fd91824cfc583416f57e1e9130da5f0c0df68a571cd"
   end
 
   def install
