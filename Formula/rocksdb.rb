@@ -1,8 +1,8 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v5.7.3.tar.gz"
-  sha256 "4868cc95ab9b5dafd7c25f7ffb9fc1c70090fad688e339bfd9180ebb0734ea48"
+  url "https://github.com/facebook/rocksdb/archive/v5.8.tar.gz"
+  sha256 "d8361d19b3d3e5d7a97c6427b7e39d136541dd88ee58b239ee730bb506a6c9f2"
 
   bottle do
     cellar :any
@@ -21,6 +21,8 @@ class Rocksdb < Formula
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?
+    ENV["DEBUG_LEVEL"] = "0"
+    ENV["USE_RTTI"] = "1"
 
     # build regular rocksdb
     system "make", "clean"
