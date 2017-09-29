@@ -1,9 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz"
-  sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
-  revision 2
+  url "https://cran.rstudio.com/src/base/R-3/R-3.4.2.tar.gz"
+  sha256 "971e30c2436cf645f58552905105d75788bd9733bddbcb7c4fbff4c1a6d80c64"
 
   bottle do
     sha256 "54ab8b6cb2d680e93d4a4e21f4477366073f4a8b693017dfe69d7084993ad622" => :high_sierra
