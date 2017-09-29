@@ -7,10 +7,9 @@ class AutoconfArchive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6eef89ce7f0a619229246f49343a7616591dc93a55acbaebad802c8d6bcfd522" => :high_sierra
-    sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :sierra
-    sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :el_capitan
-    sha256 "18a7ad691fb79f0e2494045c931d9f9e6cfa23f5778dbf5ee68476d36bac80aa" => :yosemite
+    sha256 "296fc393577638f777d8b9eb49660964e0e6a1134cb070c402de0f085c0fb8f4" => :high_sierra
+    sha256 "296fc393577638f777d8b9eb49660964e0e6a1134cb070c402de0f085c0fb8f4" => :sierra
+    sha256 "296fc393577638f777d8b9eb49660964e0e6a1134cb070c402de0f085c0fb8f4" => :el_capitan
   end
 
   # autoconf-archive is useless without autoconf
