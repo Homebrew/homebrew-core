@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.3.5",
-      :revision => "9d9001036d3585cf21925c13a57881bc6c8dcc7e"
+      :tag => "v1.3.6",
+      :revision => "a7c3d3c0f7b74f71919047adbc4933460967a576"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
