@@ -1,9 +1,18 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "http://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_4/libtorrent-rasterbar-1.1.4.tar.gz"
-  sha256 "ccf42367803a6df7edcf4756d1f7d0a9ce6158ec33b851b3b58fd470ac4eeba6"
   revision 1
+
+  stable do
+    url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_4/libtorrent-rasterbar-1.1.4.tar.gz"
+    sha256 "ccf42367803a6df7edcf4756d1f7d0a9ce6158ec33b851b3b58fd470ac4eeba6"
+
+    # Fix compilation with Boost >= 1.65, remove in next release
+    patch do
+      url "https://patch-diff.githubusercontent.com/raw/arvidn/libtorrent/pull/2146.patch?full_index=1"
+      sha256 "be5c98a435a047027d1bad667876322b0d8fc55c8265131368072e93b6729a18"
+    end
+  end
 
   bottle do
     cellar :any
