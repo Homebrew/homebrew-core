@@ -6,10 +6,9 @@ class Nss < Formula
 
   bottle do
     cellar :any
-    sha256 "1aaac4d96cbb161f6595e14fef644d2b4a8752084bc6ca29f18b0143dbb42f27" => :high_sierra
-    sha256 "a6b18dd3227b38627869b9326049f5d3266dc04e00ace042f8e89812e0aa3b67" => :sierra
-    sha256 "1c3c2cb0a12e90e531848c2d275acd23c5f6817ba740f896fd092a6c1a5bf751" => :el_capitan
-    sha256 "be89a037a7facd1d9e9791a91d8a51e0f4e5dcdb2ad1aa418b379ed1abf9bf81" => :yosemite
+    sha256 "5370542a68a7bf4226cfb960ffcec3b9f5119d0ab99f87b40103566c0ebf7419" => :high_sierra
+    sha256 "492cae9064df1b7c480163e326b001d08e00ccf246ab5c838396e5d581227bf9" => :sierra
+    sha256 "629820273540d23034085ffbe72ea24400a63cafb9e1ac077e707fe39b369ddd" => :el_capitan
   end
 
   keg_only <<-EOS.undent
