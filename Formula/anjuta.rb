@@ -6,6 +6,7 @@ class Anjuta < Formula
 
   bottle do
     rebuild 1
+    sha256 "c48265e53ba6adb14f25baf2a1a9a0d341cf7b5910c998ea4ad6c957cc607932" => :high_sierra
     sha256 "0009f1b0b9763fdb4e6ff61f206da5ac9a4753274748aaeac6d7da996d557fd9" => :sierra
     sha256 "5bfc68a277e16071af323fed4cf3d249adec2015cd97e6ac27e8d179248cb575" => :el_capitan
   end
