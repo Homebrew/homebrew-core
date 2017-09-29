@@ -5,10 +5,9 @@ class Mpage < Formula
   sha256 "51ab9c4e5fdd37e03c90df6756f30c0b61a34f066cb625f8924feedc4b3ec3fe"
 
   bottle do
-    sha256 "ba7d78cb7b683a88c1ee418d62e19669d52caec81bd338f5b8b42f5b9d8a4f98" => :sierra
-    sha256 "48a2c82f44b9e241edc1ed4727e4b788da8f7dc48a28d0cc8f9344bec63ae757" => :el_capitan
-    sha256 "66815ec14edcec106911ae720b21bd5220b8791592a578c26fe4a23a74fd38ea" => :yosemite
-    sha256 "9016175184826209a098bc8a2e5c73949879bc68abd67497151f714e6922e0b6" => :mavericks
+    sha256 "fb22af4c695ec3b6e27980a8b180bf4a7904b81ce5ff51f46f0d5ccdc5da8d07" => :high_sierra
+    sha256 "2d020c69ee688a3a2d82f5f2c531a9f7abaf3923f0024e3b5eb2f1466992d7c1" => :sierra
+    sha256 "4b899cd8a7280c7317513a51f6b3227f88c6324c39712530341b9d108d829ee5" => :el_capitan
   end
 
   def install
