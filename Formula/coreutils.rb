@@ -4,6 +4,7 @@ class Coreutils < Formula
   url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.28.tar.xz"
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.28.tar.xz"
   sha256 "1117b1a16039ddd84d51a9923948307cfa28c2cea03d1a2438742253df0a0c65"
+  revision 1
 
   bottle do
     sha256 "30e33058ffea2f8556f7805899bd1a795f3c61f61fe65ab43ce57e41e344056b" => :high_sierra
@@ -32,13 +33,19 @@ class Coreutils < Formula
   conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
   def install
-    # Work around unremovable, nested dirs bug that affects lots of
-    # GNU projects. See:
-    # https://github.com/Homebrew/homebrew/issues/45273
-    # https://github.com/Homebrew/homebrew/issues/44993
-    # This is thought to be an el_capitan bug:
-    # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
+    if MacOS.version == :el_capitan
+      # Work around unremovable, nested dirs bug that affects lots of
+      # GNU projects. See:
+      # https://github.com/Homebrew/homebrew/issues/45273
+      # https://github.com/Homebrew/homebrew/issues/44993
+      # This is thought to be an el_capitan bug:
+      # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
+      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
+
+      # renameatx_np and RENAME_EXCL are available at compile time from Xcode 8
+      # (10.12 SDK), but the former is not available at runtime.
+      inreplace "lib/renameat2.c", "defined RENAME_EXCL", "defined UNDEFINED_GIBBERISH"
+    end
 
     system "./bootstrap" if build.head?
 
@@ -92,6 +99,7 @@ class Coreutils < Formula
   test do
     (testpath/"test").write("test")
     (testpath/"test.sha1").write("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3 test")
-    system "#{bin}/gsha1sum", "-c", "test.sha1"
+    system bin/"gsha1sum", "-c", "test.sha1"
+    system bin/"gln", "-f", "test", "test.sha1"
   end
 end
