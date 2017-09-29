@@ -6,6 +6,7 @@ class Bindfs < Formula
 
   bottle do
     cellar :any
+    sha256 "7f6b1875d7f7216606d3ceaa707c4bc42a5c96885617fe354441b294de1028cb" => :high_sierra
     sha256 "5a02df3aa055b955433ede6396dd0cd94308efebdc067e76d2295e89b295c600" => :sierra
     sha256 "9b59fb96e86437065a43c58928403851aee9824a1bfaa67a493e30a21b607f8f" => :el_capitan
     sha256 "6854d875a56bfb0a5b95f4a009992199e6a6b53980f6543031903056f4deff93" => :yosemite
