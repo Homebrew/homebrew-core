@@ -6,9 +6,10 @@ class Bdsup2sub < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aecc7041ecd1c62b9c0137307900322626d14df9ed68a08c751c683852c84d22" => :sierra
-    sha256 "f968df4ee2bc466db807253162b7355fc24ef58b2980c8f7a97f9adb88d8919a" => :el_capitan
-    sha256 "3a18dd1e06ad18f5116e36677cf0644908295a637b9af8fc26e16ac28b2004a7" => :yosemite
+    rebuild 1
+    sha256 "178ef2ffa1129b31b099c923f6842302efc2b34bcbdd0e89782bf4ffc82c3c71" => :high_sierra
+    sha256 "36971d050455a728d555831b7b1c554ae658bbceb6a7a26687435e04861c2bb1" => :sierra
+    sha256 "59b0eccde943ecb9e614dc409ab7ddf7064479b75310c8a782bd7b777d7e25f2" => :el_capitan
   end
 
   depends_on "maven" => :build
