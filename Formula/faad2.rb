@@ -1,8 +1,8 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "http://www.audiocoding.com/faad2.html"
-  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.3.tar.gz"
-  sha256 "9e4fd094080c27f6f419f3fe1fce369621b9469de396e126405153784134da00"
+  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.4.tar.gz"
+  sha256 "51145c9a6d412242597ba7dda14f9b0033f447b7241214c1c7ba0e62d3839e7f"
 
   bottle do
     cellar :any
