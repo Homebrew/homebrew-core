@@ -107,6 +107,7 @@
   "mariadb100": "mariadb@10.0",
   "maven31": "maven@3.1",
   "maven32": "maven@3.2",
+  "mobile-shell": "mosh",
   "mongo-c": "mongo-c-driver",
   "mongodb26": "mongodb@2.6",
   "mongodb30": "mongodb@3.0",
