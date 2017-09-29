@@ -1,8 +1,8 @@
 class Mpage < Formula
   desc "Many to one page printing utility"
   homepage "http://www.mesa.nl/pub/mpage/README"
-  url "http://www.mesa.nl/pub/mpage/mpage-2.5.6.tgz"
-  sha256 "4fe66dfc27f7c4bfbca60ef617f968aa2e6ee877e8921aa968c16a03aa4edc04"
+  url "http://www.mesa.nl/pub/mpage/mpage-2.5.7.tgz"
+  sha256 "51ab9c4e5fdd37e03c90df6756f30c0b61a34f066cb625f8924feedc4b3ec3fe"
 
   bottle do
     sha256 "ba7d78cb7b683a88c1ee418d62e19669d52caec81bd338f5b8b42f5b9d8a4f98" => :sierra
