@@ -2,7 +2,7 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro/releases/download/v1.3.3/micro-1.3.3-src.tar.gz"
-  sha256 "be5a09f00d91bf5203599a4285b0cf709dd61c32e4d2e28e473932ab28664fab"
+  sha256 "142f1fcddb4fa5851a9144fb8d0fc3b53545a33b9710ed160c1dbd65c82e8f59"
   head "https://github.com/zyedidia/micro.git", :shallow => false
 
   bottle do
