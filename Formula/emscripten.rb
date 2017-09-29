@@ -9,12 +9,12 @@ class Emscripten < Formula
     emscripten_tag = version.to_s
     resource "fastcomp" do
       url "https://github.com/kripken/emscripten-fastcomp/archive/#{emscripten_tag}.tar.gz"
-      sha256 "cd310b0c75ed79e3b5a426cc6c0470f658a29d45ce5d059cdba8fc2a2b3a7206"
+      sha256 "8dc1c5e100942f80c61abbd1aa85178bd17d7c22d04ed16200552c8ccce97962"
     end
 
     resource "fastcomp-clang" do
       url "https://github.com/kripken/emscripten-fastcomp-clang/archive/#{emscripten_tag}.tar.gz"
-      sha256 "4653e5e5628a7f6731d7a30e0f462cd38e423741b57c360ab40423b5d44b603b"
+      sha256 "594be8bfdfd121534b35645b1e05cd4028226c9304ee054a34f422cf89a816af"
     end
 
     # Fix for when /usr/bin/env python resolves to python 3.x.
