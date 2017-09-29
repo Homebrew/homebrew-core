@@ -1,10 +1,9 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/stone_soup-0.19.5.tar.xz"
-  # Note the mirror will return 404 until the version becomes outdated.
-  mirror "https://crawl.develz.org/release/0.19/stone_soup-0.19.5.tar.xz"
-  sha256 "3c34787cf752d48789102e170ff7360ddcdd79bd55a4e0feb9894e517b274069"
+  url "https://crawl.develz.org/release/current/stone_soup-0.20.1.tar.xz"
+  mirror "https://crawl.develz.org/release/0.20/stone_soup-0.20.1.tar.xz"
+  sha256 "77d238bd859166e09bbf56127997f810d1c9794e1cf4a0d1edc0687b6f194dee"
 
   bottle do
     sha256 "d4f430a646dd6f09bdc6d5c267817793da1d74019978d274fec7b5a10b73627e" => :high_sierra
