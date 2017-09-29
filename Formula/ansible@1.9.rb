@@ -71,13 +71,13 @@ class AnsibleAT19 < Formula
   # Install requests with [security]
   #
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    url "https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://files.pythonhosted.org/packages/source/c/cryptography/cryptography-1.3.1.tar.gz"
+    sha256 "b4b36175e0f95ddc88435c26dbe3397edce48e2ff5fe41d504cdb3beddcd53e2"
   end
 
   resource "enum34" do
