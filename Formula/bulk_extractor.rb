@@ -3,7 +3,7 @@ class BulkExtractor < Formula
   homepage "https://github.com/simsong/bulk_extractor/wiki"
   url "https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
   sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,11 +14,11 @@ class BulkExtractor < Formula
     sha256 "b4928062ab8c39d082a9dbba713f4e0e3e460d2c111af0c39981eeba3d1d7638" => :mavericks
   end
 
-  depends_on "afflib" => :optional
   depends_on "boost"
+  depends_on "openssl"
+  depends_on "afflib" => :optional
   depends_on "exiv2" => :optional
   depends_on "libewf" => :optional
-  depends_on "openssl"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -30,12 +30,6 @@ class BulkExtractor < Formula
     (pkgshare/"doc").install Dir["doc/*.{html,txt,pdf}"]
 
     (lib/"python2.7/site-packages").install Dir["python/*.py"]
-
-    # Install the GUI the Homebrew way
-    # .jar gets installed into bin by default
-    libexec.install bin/"BEViewer.jar"
-    (bin/"BEViewer").unlink
-    bin.write_jar_script libexec/"BEViewer.jar", "BEViewer", "-Xmx1g"
   end
 
   test do
