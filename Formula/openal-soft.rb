@@ -27,7 +27,7 @@ class OpenalSoft < Formula
     # Please don't reenable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args
-    args << "-DALSOFT_EXAMPLES=OFF"
+    args << "-DALSOFT_EXAMPLES=OFF" << "-DALSOFT_UTILS=OFF"
 
     args << "-DALSOFT_BACKEND_PORTAUDIO=OFF" if build.without? "portaudio"
     args << "-DALSOFT_BACKEND_PULSEAUDIO=OFF" if build.without? "pulseaudio"
