@@ -25,6 +25,10 @@ class Bullet < Formula
   depends_on "cmake" => :build
 
   def install
+    # Work around clang bug in Xcode 9, where clang hangs when called
+    # with -march=core2 (which we do when building bottles)
+    ENV.O1 if build.bottle? && DevelopmentTools.clang_build_version >= 900
+
     args = std_cmake_args + %w[
       -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF
     ]
