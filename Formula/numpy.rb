@@ -1,8 +1,8 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "http://www.numpy.org"
-  url "https://files.pythonhosted.org/packages/b9/33/c64cb1d2f447727cb687f0a4ac12cdcd7dd5cae8db73a548b41b2284b08a/numpy-1.13.2.zip"
-  sha256 "90ceeb683d69ef86cb424818d0bff7597b2a8d05f459679cf43d243c4442b8ba"
+  url "https://files.pythonhosted.org/packages/bf/2d/005e45738ab07a26e621c9c12dc97381f372e06678adf7dc3356a69b5960/numpy-1.13.3.zip"
+  sha256 "36ee86d5adbabc4fa2643a073f93d5504bdfed37a149a3a49f4dde259f35a750"
 
   bottle do
     sha256 "44b42ff9b9adcb0b1529568174fdb943737403df45ad0f743d6a74757caad183" => :high_sierra
