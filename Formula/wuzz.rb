@@ -1,13 +1,12 @@
 require "language/go"
 
 class Wuzz < Formula
-  desc "Interactive cli tool for HTTP inspection"
+  desc "Interactive CLI tool for HTTP inspection"
   homepage "https://github.com/asciimoo/wuzz"
   url "https://github.com/asciimoo/wuzz.git",
       :tag => "v0.4.0",
       :revision => "ef041bc912ea39081ddc5f8b3896ded90e8b053b"
-  head "https://github.com/asciimoo/wuzz.git",
-       :shallow => false
+  head "https://github.com/asciimoo/wuzz.git"
 
   depends_on "go" => :build
 
