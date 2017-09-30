@@ -14,6 +14,12 @@ class Gpsbabel < Formula
   depends_on "libusb" => :optional
   depends_on "qt@5.7"
 
+  # Fix build with Xcode 9, remove for next version
+  patch do
+    url "https://github.com/gpsbabel/gpsbabel/commit/b7365b93.patch?full_index=1"
+    sha256 "e949182def36fef99889e43ba4bc4d61e36d6b95badc74188a8cd3da5156d341"
+  end
+
   def install
     ENV.cxx11
     args = ["--disable-debug", "--disable-dependency-tracking",
