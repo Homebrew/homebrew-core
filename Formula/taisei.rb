@@ -7,9 +7,10 @@ class Taisei < Formula
 
   bottle do
     cellar :any
-    sha256 "79524e3b041c255be58be39a9bd932d0dbfab6599566c53f35ba30b415a411e5" => :high_sierra
-    sha256 "64cef000c13d13137fe29b27cb09afccfd2798a8248e97bb8a040b5646011efc" => :sierra
-    sha256 "cdc26356ffe5fa82ff101107bd18f2b3bce337c70d1cb4965feba039916ba276" => :el_capitan
+    rebuild 1
+    sha256 "cfd21592a3c32d5284b0a3fda66ed642d86eaea0654cb060ed4c043a95f4733f" => :high_sierra
+    sha256 "89672790c0942e9850feae93fab843dd2ae8ff4ee160ec98e1c4196b29b5f527" => :sierra
+    sha256 "0ee3f696d8811038227259846902db529de833195eb0aea1842b1b1069611289" => :el_capitan
   end
 
   depends_on "bash" => :build
