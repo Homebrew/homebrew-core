@@ -1,8 +1,8 @@
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
-  url "https://github.com/ncw/rclone/archive/v1.37.tar.gz"
-  sha256 "5666888428ad0194e2d4d4af4dab0d34955dc752682af8e3779112ec7cfd47fd"
+  url "https://github.com/ncw/rclone/archive/v1.38.tar.gz"
+  sha256 "d4806a55b64ab54923b55b230f2b2679406d5de995884433d3d60516bb8ebcc0"
   head "https://github.com/ncw/rclone.git"
 
   bottle do
@@ -21,8 +21,10 @@ class Rclone < Formula
     ln_s buildpath, buildpath/"src/github.com/ncw/rclone"
     system "go", "build", "-o", bin/"rclone"
     man1.install "rclone.1"
-    system bin/"rclone", "genautocomplete", "bash_completion"
-    bash_completion.install "bash_completion" => "rclone"
+    system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
+    system bin/"rclone", "genautocomplete", "zsh", "_rclone"
+    bash_completion.install "rclone.bash" => "rclone"
+    zsh_completion.install "_rclone"
   end
 
   test do
