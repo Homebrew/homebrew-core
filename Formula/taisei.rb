@@ -15,7 +15,6 @@ class Taisei < Formula
   depends_on "bash" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "freealut"
   depends_on "freetype"
   depends_on "libpng"
   depends_on "libzip"
