@@ -8,8 +8,8 @@ class Osquery < Formula
 
   bottle do
     cellar :any
-    sha256 "60c2a67a6cb9833777c45d2d28f1b792f33db468ad40849f33b4ea3a0995575a" => :high_sierra
-    sha256 "05ff0b2bf5892901e665c9c4458f9798938b27414314c51ea1ba05e35c91c090" => :sierra
+    sha256 "259e62e01ef994e3e9bb48fd4ea01ff28d4a3e04137af1044415462329649fc2" => :high_sierra
+    sha256 "1e668477bf5dcc83903ca91724f5e6d7dd3174f8901f9de8b0e2eab56a8a11e3" => :sierra
   end
 
   fails_with :gcc => "6"
