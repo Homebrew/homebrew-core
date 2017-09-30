@@ -8,10 +8,10 @@ class Molecule < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "abbcd44fb7c2ce7258a0622c9f33bf0a235b2f60a39ffd3399b4e1c48f90773f" => :sierra
-    sha256 "8158a0e0b04210df50374c6bc8ecdb9eb6dfdf21ed366b07f5189cc6b86cca39" => :el_capitan
-    sha256 "97e8946334422df187c1fa5965184e856ce6f129028bbef2f2b6d22144977929" => :yosemite
+    rebuild 2
+    sha256 "bb2c94a0b78cadbf9ddd9ace48f479a7fb9ab69fe2300ecd730c620dfc111165" => :high_sierra
+    sha256 "23e417ecf65861515498f99ce76b31f474b8e3f089c7dcc4e0643d1bc94b96e0" => :sierra
+    sha256 "1b1e618a6f47580ab6badf747ffd8bb7dd68d9f4c4fe2a2b5e6e60f4ff93e35c" => :el_capitan
   end
 
   depends_on :python
