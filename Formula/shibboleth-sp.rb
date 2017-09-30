@@ -11,10 +11,9 @@ class ShibbolethSp < Formula
     sha256 "98001f2f772472263a686e38253ed68ad0bad277855c7c9a97943085e7f70f75" => :yosemite
   end
 
-  option "with-apache-22", "Build mod_shib_22.so instead of mod_shib_24.so"
-
   depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
+  depends_on "httpd" if MacOS.version >= :high_sierra
   depends_on "opensaml"
   depends_on "xml-tooling-c"
   depends_on "xerces-c"
@@ -37,13 +36,14 @@ class ShibbolethSp < Formula
       --sysconfdir=#{etc}
       --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
       --with-saml=#{Formula["opensaml"].opt_prefix}
+      --enable-apache-24
       DYLD_LIBRARY_PATH=#{lib}
     ]
-    if build.with? "apache-22"
-      args << "--enable-apache-22"
-    else
-      args << "--enable-apache-24"
+
+    if MacOS.version >= :high_sierra
+      args << "--with-apxs24=#{Formula["httpd"].opt_bin}/apxs"
     end
+
     system "./configure", *args
     system "make", "install"
   end
