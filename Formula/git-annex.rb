@@ -28,9 +28,9 @@ class GitAnnex < Formula
   end
 
   bottle do
-    sha256 "2c08f39c961a98fd3a98401bdf892018d70b2aba481e3a81affbe1233050fe75" => :high_sierra
-    sha256 "601eb19f3c75f3ff66c45a45cb27cbf923569762b4f625692d013ae1a3b15bd1" => :sierra
-    sha256 "a1d5dee4627e5f865544038058d14d0a7bf1b36a378dca521d9b27f2ed489435" => :el_capitan
+    sha256 "9966e52d74a73990d171d2f7076ce5930e7157bf40651a9d55ca6c973c710187" => :high_sierra
+    sha256 "6cc64794d694cfe863067c8474d87622dbbb60bc98c008cc7ac60a9afa3fa6c8" => :sierra
+    sha256 "fb6e67c49ec2572d44d59e7993a7d394d028321770ecaccbbc89a42f6e34268d" => :el_capitan
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
