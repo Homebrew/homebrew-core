@@ -8,12 +8,9 @@ class Libuecc < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a0c1d14eea13345e2b801843b88c343812b9a8ad277538b103e9c52970c06461" => :high_sierra
-    sha256 "d6108e008f03c69ef2f76443a7bfecd9262bd3ba03613f24c56d4fd921c73c85" => :sierra
-    sha256 "ed13876ca85617cfe1f6fd174ebd4502d29096d2b8c4bcaf3facc9749f28ae34" => :el_capitan
-    sha256 "eb7bcbd632f8f5f1faedbbe49529a9b1820d31530b5a256558d4e99edc2953e1" => :yosemite
-    sha256 "dfdb783678a0aa3a8edd745d890921b8213f3e1075d152a13a207053e178e270" => :mavericks
+    sha256 "95646c23acf19c1f07032c6f311f446e7a32b1a9d0c1dd385ec3c41811036572" => :high_sierra
+    sha256 "4722877fdc4538c814a10e6d0dc2f1a4d2a3571ce4ca1c8b37279c88cd83883f" => :sierra
+    sha256 "d9e52027a6535fb74e44026d23ef13a2417a1f22402173dc90d136071ea5290d" => :el_capitan
   end
 
   depends_on "cmake" => :build
