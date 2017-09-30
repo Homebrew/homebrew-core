@@ -15,9 +15,9 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 "fb072f124aaa66c50c552df8fab88d58694c6e802cb15531eaf6606b61c92efd" => :high_sierra
-    sha256 "b201a1d1e00da7dd131d3e13f45e49bcdfd3bee096b821208ca2cae16785455b" => :sierra
-    sha256 "1acd3ec0d7340640a4e1429b7b1177887ac863d1f59b953f7c1ab7470a9c1a06" => :el_capitan
+    sha256 "64a4a438402eeef8d2a59a4b786badd810428df9e19c734a4512f87e65ec3886" => :high_sierra
+    sha256 "4288eadcf123debef357df3e31caf4f2fa1b9e492e76331095ff327bbdd550b9" => :sierra
+    sha256 "d9ca2c9605ffb9de25abe4ab0b39ba6ba73edc7e7dc7bf3cb3284e551512f2b9" => :el_capitan
   end
 
   option "without-nettle", "Compile without DNS cookies support"
