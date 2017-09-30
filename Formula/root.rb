@@ -45,6 +45,9 @@ class Root < Formula
   end
 
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
@@ -89,7 +92,16 @@ class Root < Formula
 
     mkdir "builddir" do
       system "cmake", "..", *args
-      system "make", "install"
+
+      # Work around superenv stripping out isysroot leading to errors with
+      # libsystem_symptoms.dylib (only available on >= 10.12) and
+      # libsystem_darwin.dylib (only available on >= 10.13)
+      if MacOS.version < :high_sierra
+        system "xcrun", "make", "install"
+      else
+        system "make", "install"
+      end
+
       chmod 0755, Dir[bin/"*.*sh"]
     end
   end
