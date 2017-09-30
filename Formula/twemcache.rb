@@ -1,10 +1,8 @@
 class Twemcache < Formula
   desc "Twitter fork of memcached"
   homepage "https://github.com/twitter/twemcache"
-  url "https://github.com/twitter/twemcache/archive/v2.6.2.tar.gz"
-  sha256 "49905ceb89bf5d0fde25fa4b8843b2fe553915c0dc75c813de827bd9c0c85e26"
-  revision 1
-
+  url "https://github.com/twitter/twemcache/archive/v2.6.3.tar.gz"
+  sha256 "ab05927f7d930b7935790450172187afedca742ee7963d5db1e62164e7f4c92b"
   head "https://github.com/twitter/twemcache.git"
 
   bottle do
