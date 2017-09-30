@@ -43,8 +43,8 @@ class Ghostscript < Formula
   end
 
   devel do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922rc1/ghostscript-9.22rc1.tar.gz"
-    sha256 "d307041c35141999f38a4da6a1e86b8bdf2ad237b2bf973c551851940ed5b09b"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922rc2/ghostscript-9.22rc2.tar.gz"
+    sha256 "1861c0cee1e005bd2712873e3058ee1c131c79819625fe479ebcef68e055648e"
   end
 
   head do
