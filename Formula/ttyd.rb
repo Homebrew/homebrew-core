@@ -3,6 +3,7 @@ class Ttyd < Formula
   homepage "https://github.com/tsl0922/ttyd"
   url "https://github.com/tsl0922/ttyd/archive/1.3.3.tar.gz"
   sha256 "6eed82895da1359538471cbcc82576c4a21a4c6854e1f125fc55215f7c51da52"
+  revision 1
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
