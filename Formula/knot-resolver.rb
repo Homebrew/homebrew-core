@@ -1,10 +1,17 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.4.0.tar.xz"
-  sha256 "ac19c121fd687c7e4f5f907b46932d26f8f9d9e01626c4dadb3847e25ea31ceb"
-  revision 1
+  revision 2
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
+
+  stable do
+    url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.4.0.tar.xz"
+    sha256 "ac19c121fd687c7e4f5f907b46932d26f8f9d9e01626c4dadb3847e25ea31ceb"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/62168c0/knot-resolver/fix-loading-modules-on-Darwin.diff"
+      sha256 "326a720d6ca0bb7455ce1833b9e93d4054b002f32de7676773f28b4023bcf52f"
+    end
+  end
 
   bottle do
     sha256 "fb072f124aaa66c50c552df8fab88d58694c6e802cb15531eaf6606b61c92efd" => :high_sierra
@@ -29,12 +36,14 @@ class KnotResolver < Formula
 
   def install
     %w[all check lib-install daemon-install modules-install].each do |target|
-      system "make", target, "PREFIX=#{prefix}"
+      system "make", target, "PREFIX=#{prefix}", "ETCDIR=#{etc}/kresd"
     end
 
     cp "etc/config.personal", "config"
     inreplace "config", /^\s*user\(/, "-- user("
     (etc/"kresd").install "config"
+
+    (etc/"kresd").install "etc/root.hints"
 
     (buildpath/"root.keys").write(root_keys)
     (var/"kresd").install "root.keys"
