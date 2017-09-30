@@ -47,27 +47,27 @@ class Openvdb < Formula
     # Adjust hard coded paths in Makefile
     args = [
       "DESTDIR=#{prefix}",
-      "BOOST_INCL_DIR=#{Formula["boost"].opt_lib}/include",
+      "BOOST_INCL_DIR=#{Formula["boost"].opt_include}",
       "BOOST_LIB_DIR=#{Formula["boost"].opt_lib}",
       "BOOST_THREAD_LIB=-lboost_thread-mt",
-      "TBB_INCL_DIR=#{Formula["tbb"].opt_lib}/include",
-      "TBB_LIB_DIR=#{Formula["tbb"].opt_lib}/lib",
-      "EXR_INCL_DIR=#{Formula["openexr"].opt_lib}/include",
-      "EXR_LIB_DIR=#{Formula["openexr"].opt_lib}/lib",
+      "TBB_INCL_DIR=#{Formula["tbb"].opt_include}",
+      "TBB_LIB_DIR=#{Formula["tbb"].opt_lib}",
+      "EXR_INCL_DIR=#{Formula["openexr"].opt_include}/OpenEXR",
+      "EXR_LIB_DIR=#{Formula["openexr"].opt_lib}",
       "BLOSC_INCL_DIR=", # Blosc is not yet supported.
       "PYTHON_VERSION=",
       "NUMPY_INCL_DIR=",
     ]
 
     if build.with? "jemalloc"
-      args << "CONCURRENT_MALLOC_LIB_DIR=#{Formula["jemalloc"].opt_lib}/lib"
+      args << "CONCURRENT_MALLOC_LIB_DIR=#{Formula["jemalloc"].opt_lib}"
     else
       args << "CONCURRENT_MALLOC_LIB="
     end
 
     if build.with? "glfw"
-      args << "GLFW_INCL_DIR=#{Formula["glfw"].opt_lib}/include"
-      args << "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}/lib"
+      args << "GLFW_INCL_DIR=#{Formula["glfw"].opt_include}"
+      args << "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}"
       args << "GLFW_LIB=-lglfw"
     else
       args << "GLFW_INCL_DIR="
@@ -82,15 +82,15 @@ class Openvdb < Formula
     end
 
     if build.with? "test"
-      args << "CPPUNIT_INCL_DIR=#{Formula["cppunit"].opt_lib}/include"
-      args << "CPPUNIT_LIB_DIR=#{Formula["cppunit"].opt_lib}/lib"
+      args << "CPPUNIT_INCL_DIR=#{Formula["cppunit"].opt_include}"
+      args << "CPPUNIT_LIB_DIR=#{Formula["cppunit"].opt_lib}"
     else
       args << "CPPUNIT_INCL_DIR=" << "CPPUNIT_LIB_DIR="
     end
 
     if build.with? "logging"
-      args << "LOG4CPLUS_INCL_DIR=#{Formula["log4cplus"].opt_lib}/include"
-      args << "LOG4CPLUS_LIB_DIR=#{Formula["log4cplus"].opt_lib}/lib"
+      args << "LOG4CPLUS_INCL_DIR=#{Formula["log4cplus"].opt_include}"
+      args << "LOG4CPLUS_LIB_DIR=#{Formula["log4cplus"].opt_lib}"
     else
       args << "LOG4CPLUS_INCL_DIR=" << "LOG4CPLUS_LIB_DIR="
     end
