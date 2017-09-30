@@ -6,10 +6,9 @@ class Exa < Formula
   head "https://github.com/ogham/exa.git"
 
   bottle do
-    rebuild 1
-    sha256 "db4b31c636e12fc7ec144a78e75982cbf7bd1055421e780478b614138e6b07d4" => :high_sierra
-    sha256 "38df071abb28b604ccfac40d7252828c410bacd256e95d7f853940333d603b83" => :sierra
-    sha256 "d2e08a87b7a7b81ab1f4a03f3d89381beea29c2dcc2ebbee3060336fe2863df5" => :el_capitan
+    sha256 "e10e5f5d86fbab6f6d558c620a73f1caf157d42c5a01c54636f2de08f4aaee4b" => :high_sierra
+    sha256 "beb45a502b3e7a61689f14e298b310d83765c5242181ef0c7e12f72c8b7c7736" => :sierra
+    sha256 "bf8070b4da1dbf25d8f7f12b324e845de5282dc5c028045af298cb41d2c30831" => :el_capitan
   end
 
   option "without-git", "Build without Git support"
