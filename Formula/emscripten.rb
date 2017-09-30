@@ -3,26 +3,18 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.37.18.tar.gz"
-    sha256 "884639710a18f085a6257ffda33aa6df7ea358378a92e7f02499883b32f548cc"
+    url "https://github.com/kripken/emscripten/archive/1.37.21.tar.gz"
+    sha256 "947035529633de60fedc5997c58acf3f87b1edafc583df3920f5028068fa7971"
 
     emscripten_tag = version.to_s
     resource "fastcomp" do
       url "https://github.com/kripken/emscripten-fastcomp/archive/#{emscripten_tag}.tar.gz"
-      sha256 "cd310b0c75ed79e3b5a426cc6c0470f658a29d45ce5d059cdba8fc2a2b3a7206"
+      sha256 "c575314d426080449c349b1c02b21cc1428b2391313af603fc7d1d167c654c81"
     end
 
     resource "fastcomp-clang" do
       url "https://github.com/kripken/emscripten-fastcomp-clang/archive/#{emscripten_tag}.tar.gz"
-      sha256 "4653e5e5628a7f6731d7a30e0f462cd38e423741b57c360ab40423b5d44b603b"
-    end
-
-    # Fix for when /usr/bin/env python resolves to python 3.x.
-    # Submitted upstream on 2017-08-27:
-    # https://github.com/kripken/emscripten/pull/5534
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/8de3e51/emscripten/emscripten-resolve-symlinks.patch"
-      sha256 "d34cec4c1a33e67465b94993ae836ded727cbe0bb9e2c31e73b4cd22d6995234"
+      sha256 "93cefc9e968c6a2fa45da2618a3c3de3303dfe3001fb36afa67d5fae968f3081"
     end
   end
 
