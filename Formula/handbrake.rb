@@ -19,6 +19,11 @@ class Handbrake < Formula
   depends_on "yasm" => :build
 
   def install
+    if MacOS.version >= :high_sierra
+      ENV.deparallelize
+      ENV.delete("SDKROOT")
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",
                           "--disable-gtk"
