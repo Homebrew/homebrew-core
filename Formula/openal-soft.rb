@@ -28,7 +28,10 @@ class OpenalSoft < Formula
     #  See: https://github.com/kcat/openal-soft/issues/153
     ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}"
 
+    # Please don't reenable example building. See:
+    # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args
+    args << "-DALSOFT_EXAMPLES=OFF"
 
     args << "-DALSOFT_BACKEND_PORTAUDIO=OFF" if build.without? "portaudio"
     args << "-DALSOFT_BACKEND_PULSEAUDIO=OFF" if build.without? "pulseaudio"
