@@ -5,7 +5,7 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/bb/9c/a4361b89e478e5459678908692251636d43d14d88c56b8ff53dd239cadec/snapcraft-2.33.tar.gz"
   sha256 "269ed290dc7853e812852b24a5ffb7cdae5f8351afee17769f0c849043c70ac9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
