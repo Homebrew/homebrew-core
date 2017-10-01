@@ -3,6 +3,8 @@ class DnscryptProxy < Formula
   homepage "https://dnscrypt.org"
   url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
   sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
+  revision 1
+
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
