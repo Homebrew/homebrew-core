@@ -18,11 +18,6 @@ class Bzt < Formula
     sha256 "55df3c2a659d6cb6a9a9041c750a8232a9925523405a8dfeb891b92d45a589cd"
   end
 
-  resource "bzt" do
-    url "https://files.pythonhosted.org/packages/76/3f/b2005924277461ac74c83a6ae6ec9235dcf2374c551d3494a6866139dfb8/bzt-1.9.6.tar.gz"
-    sha256 "85f0394f53dda6a6c1bad1786fa59f9a4642b68f33b42a3521be00ec0eaf4e92"
-  end
-
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
     sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
@@ -150,9 +145,6 @@ class Bzt < Formula
 
   def install
     virtualenv_install_with_resources
-    bin.install_symlink "#{libexec}/bin/bzt" => "bzt"
-    bin.install_symlink "#{libexec}/bin/jmx2yaml" => "jmx2yaml"
-    bin.install_symlink "#{libexec}/bin/soapui2yaml" => "soapui2yaml"
   end
 
   test do
