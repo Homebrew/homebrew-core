@@ -1,6 +1,6 @@
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
-  homepage "http://ci.openstack.org/jjb.html"
+  homepage "https://docs.openstack.org/infra/system-config/jjb.html"
 
   stable do
     url "https://files.pythonhosted.org/packages/c9/2f/1b4ccfbea99b4abada5a852f7704a83cc0f93c707d8b12da6de78366aa68/jenkins-job-builder-1.6.2.tar.gz"
@@ -38,7 +38,7 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "pyyaml" do
-    url "http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz"
+    url "https://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
