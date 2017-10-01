@@ -30,10 +30,6 @@ class Pioneer < Formula
     ENV.cxx11
     ENV["PIONEER_DATA_DIR"] = "#{pkgshare}/data"
 
-    # Remove as soon as possible
-    # https://github.com/pioneerspacesim/pioneer/issues/3839
-    ENV["ARFLAGS"] = "cru"
-
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
