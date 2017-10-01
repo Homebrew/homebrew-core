@@ -4,6 +4,7 @@ class SimpleObfs < Formula
   url "https://github.com/shadowsocks/simple-obfs.git",
       :tag => "v0.0.3",
       :revision => "1f5dcace9ee50da6144824b9db9e89be889a9033"
+  revision 1
 
   bottle do
     cellar :any
