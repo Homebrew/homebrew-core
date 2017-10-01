@@ -5,6 +5,7 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.9.6.tar.gz"
   sha256 "85f0394f53dda6a6c1bad1786fa59f9a4642b68f33b42a3521be00ec0eaf4e92"
   head "https://github.com/greyfenrir/taurus.git"
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "apiritif" do
@@ -155,6 +156,8 @@ class Bzt < Formula
   end
 
   test do
-    system "#{bin}/bzt", "--help"
+    test_cmd = "#{bin}/bzt -o execution.0.executor=nose -o execution.0.scenario.requests.0=http://blazedemo.com"
+    output_text = pipe_output(test_cmd)
+    assert_match "INFO: Samples count: 1, 0.00% failures", output_text
   end
 end
