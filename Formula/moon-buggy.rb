@@ -1,9 +1,9 @@
 class MoonBuggy < Formula
   desc "Drive some car across the moon"
-  homepage "http://www.seehuhn.de/pages/moon-buggy"
+  homepage "https://www.seehuhn.de/pages/moon-buggy.html"
 
   stable do
-    url "http://m.seehuhn.de/programs/moon-buggy-1.0.tar.gz"
+    url "https://m.seehuhn.de/programs/moon-buggy-1.0.tar.gz"
     sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
   end
   bottle do
@@ -14,7 +14,7 @@ class MoonBuggy < Formula
   end
 
   devel do
-    url "http://m.seehuhn.de/programs/moon-buggy-1.0.51.tar.gz"
+    url "https://m.seehuhn.de/programs/moon-buggy-1.0.51.tar.gz"
     sha256 "352dc16ccae4c66f1e87ab071e6a4ebeb94ff4e4f744ce1b12a769d02fe5d23f"
   end
 
