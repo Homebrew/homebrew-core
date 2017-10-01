@@ -1,8 +1,8 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://github.com/Parchive/par2cmdline"
-  url "https://github.com/Parchive/par2cmdline/releases/download/v0.7.1/par2cmdline-0.7.1.tar.bz2"
-  sha256 "65bd96b96aece0c280025c2d4345a68e4d63f25fd408b4f617c033a2ff6196cd"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v0.7.4/par2cmdline-0.7.4.tar.bz2"
+  sha256 "e602db3d8bdc49e2cb9e0e089ec31cd262e661ef7450f5d556e43a97a299e71d"
 
   bottle do
     cellar :any_skip_relocation
