@@ -1,9 +1,9 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.3.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.3.tar.xz"
-  sha256 "15e15fc97f189b52aee7c90ec8355aa77469c773125110b4c2f089abecde36fb"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.4.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.4.tar.xz"
+  sha256 "96cd1b8fe1e8cb2920f07c3fd3985faea756e16fdeebd11d3e146d5bd2b04a80"
 
   bottle do
     sha256 "a478c5ce934a56cbb39869c4b2c5c007e4b3b62a1e5731adb20ddb84347bddd7" => :high_sierra
@@ -47,14 +47,6 @@ class Openvpn < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    # Install OpenVPN's new contrib helper allowing the use of
-    # macOS keychain certificates with OpenVPN.
-    cd "contrib/keychain-mcd" do
-      system "make"
-      sbin.install "keychain-mcd"
-      man8.install "keychain-mcd.8"
-    end
-
     inreplace "sample/sample-config-files/openvpn-startup.sh",
               "/etc/openvpn", "#{etc}/openvpn"
 
@@ -62,8 +54,8 @@ class Openvpn < Formula
     (etc/"openvpn").install doc/"samples/sample-config-files/client.conf"
     (etc/"openvpn").install doc/"samples/sample-config-files/server.conf"
 
-    # We don't use PolarSSL, so this file is unnecessary & somewhat confusing.
-    rm doc/"README.polarssl"
+    # We don't use mbedtls, so this file is unnecessary & somewhat confusing.
+    rm doc/"README.mbedtls"
   end
 
   def post_install
