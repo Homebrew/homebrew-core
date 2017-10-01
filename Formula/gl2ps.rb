@@ -1,7 +1,7 @@
 class Gl2ps < Formula
   desc "OpenGL to PostScript printing library"
-  homepage "http://www.geuz.org/gl2ps/"
-  url "http://geuz.org/gl2ps/src/gl2ps-1.4.0.tgz"
+  homepage "https://www.geuz.org/gl2ps/"
+  url "https://geuz.org/gl2ps/src/gl2ps-1.4.0.tgz"
   sha256 "03cb5e6dfcd87183f3b9ba3b22f04cd155096af81e52988cc37d8d8efe6cf1e2"
 
   bottle do
@@ -18,7 +18,7 @@ class Gl2ps < Formula
   def install
     # Prevent linking against X11's libglut.dylib when it's present
     # Reported to upstream's mailing list gl2ps@geuz.org (1st April 2016)
-    # http://www.geuz.org/pipermail/gl2ps/2016/000433.html
+    # https://www.geuz.org/pipermail/gl2ps/2016/000433.html
     # Reported to cmake's bug tracker, as well (1st April 2016)
     # https://public.kitware.com/Bug/view.php?id=16045
     system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework", *std_cmake_args
