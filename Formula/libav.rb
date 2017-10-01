@@ -1,8 +1,8 @@
 class Libav < Formula
   desc "Audio and video processing tools"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-12.1.tar.xz"
-  sha256 "fad96aa265d3d64b9e53c159559621ec888effa022908da8372164fa4cbe5d2d"
+  url "https://libav.org/releases/libav-12.2.tar.xz"
+  sha256 "7b5620261fb3e372bf3992736862f598967988502f7804c39c5246b62348c53b"
 
   head "https://git.libav.org/libav.git"
 
