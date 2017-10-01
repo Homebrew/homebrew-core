@@ -14,20 +14,59 @@ class X265 < Formula
     sha256 "a715de311bbcfbcc65353681a5665d395230b2f70e27621c088456f5490f4328" => :yosemite
   end
 
-  option "with-16-bit", "Build a 16-bit x265 (default: 8-bit)"
+  option "with-10-bit", "Include 10-bit support (default: off)"
+  option "with-12-bit", "Include 12-bit support (default: off)"
 
-  deprecated_option "16-bit" => "with-16-bit"
+  deprecated_option "16-bit" => "with-10-bit"
+  deprecated_option "with-16-bit" => "with-10-bit"
 
   depends_on "yasm" => :build
   depends_on "cmake" => :build
   depends_on :macos => :lion
 
   def install
+    # Build based off script at build/linux/multilib.sh
     args = std_cmake_args
-    args << "-DHIGH_BIT_DEPTH=ON" if build.with? "16-bit"
+    eight_bit_args = Array.new(args)
+    extra_libs = []
+    mkdir "8bit"
 
-    system "cmake", "source", *args
-    system "make", "install"
+    if build.with? "10-bit"
+      mkdir "10bit"
+      Dir.chdir "10bit" do
+        system "cmake", "../source", "-DHIGH_BIT_DEPTH=ON", "-DEXPORT_C_API=OFF", "-DENABLE_SHARED=OFF", "-DENABLE_CLI=OFF", *args
+        system "make"
+        mv "libx265.a", "../8bit/libx265_main10.a"
+      end
+      extra_libs << "x265_main10.a"
+      eight_bit_args << "-DLINKED_10BIT=ON"
+    end
+
+    if build.with? "12-bit"
+      mkdir "12bit"
+      Dir.chdir "12bit" do
+        system "cmake", "../source", "-DHIGH_BIT_DEPTH=ON", "-DEXPORT_C_API=OFF", "-DENABLE_SHARED=OFF", "-DENABLE_CLI=OFF", "-DMAIN12=ON", *args
+        system "make"
+        mv "libx265.a", "../8bit/libx265_main12.a"
+      end
+      extra_libs << "x265_main12.a"
+      eight_bit_args << "-DLINKED_12BIT=ON"
+    end
+
+    if extra_libs.count.positive?
+      eight_bit_args << "-DEXTRA_LIB=#{extra_libs.join(";")}"
+      eight_bit_args << "-DEXTRA_LINK_FLAGS=-L."
+    end
+
+    Dir.chdir "8bit" do
+      system "cmake", "../source", *eight_bit_args
+      if extra_libs.count.positive?
+        system "make"
+        mv "libx265.a", "libx265_main.a"
+        system "libtool", "-static", "-o", "libx265.a", "libx265_main.a", *(extra_libs.map { |lib| "lib#{lib}" })
+      end
+      system "make", "install"
+    end
   end
 
   test do
