@@ -1,8 +1,8 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20170827.tar.gz"
-  sha256 "e9dc65a0d21c8b4417b47054ebbd5661a5db43790d7868c66bbcd63b30cb8bd1"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20171001.tar.gz"
+  sha256 "154118bd3dac2f9b8ea43a837bcb967abcc8c3a8ee5ab61d35183bae85e8b0db"
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
