@@ -4,6 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
+  revision 1
 
   bottle do
     sha256 "4ed8c27e584467787eb76ae2b0d455d5cde1d40ce9b28bfe83d954508cce8b79" => :high_sierra
