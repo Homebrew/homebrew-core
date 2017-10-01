@@ -17,6 +17,11 @@ class Python3 < Formula
     sha256 "aab053dc3c23b829c60e973ce5972c4e58ffb5e26210acc26611e0d766a06eea"
   end
 
+  devel do
+    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0a1.tar.xz"
+    sha256 "aab053dc3c23b829c60e973ce5972c4e58ffb5e26210acc26611e0d766a06eea"
+  end
+
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
