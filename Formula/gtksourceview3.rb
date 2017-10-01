@@ -5,10 +5,9 @@ class Gtksourceview3 < Formula
   sha256 "0246185fcc20c4734d01419a83f58f251a82e2a902fe60bb0335187fcf658181"
 
   bottle do
-    sha256 "7f4b1d3546e0733ae078f21a930ba9e4066053b09004bfbf3206a451e7e95676" => :high_sierra
-    sha256 "5454e5a08b99cb8c85c66d1f7e09286517f5c53253bdba12cfca4a06a279d5cb" => :sierra
-    sha256 "fe523a90edd6191133aee7734ff4d7a15e5314b2532b49c2fb1684a4f3729956" => :el_capitan
-    sha256 "dcb248777e32332d019006e95c7b921ecf479a5faa432dac1f5b932aa24157c3" => :yosemite
+    sha256 "09c930da2b0d2d1e4a844eb520e613343a60a9b6b8017ccab2732dc6c498578b" => :high_sierra
+    sha256 "e8f01b660c11773df3468db3005f5ff3c95be7e9697a83783a6551cee2e9dd86" => :sierra
+    sha256 "11aa50e21f27d6bc0c9abf17f73f0e4459a7afbd9a1ce0d16443ed2a69804a9a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
