@@ -39,8 +39,8 @@ class Pacparser < Formula
             !localHostOrDomainIs(host, "www.manugarg.com"))
           return "plainhost/.manugarg.com";
 
-        // Return externaldomain if host matches .*\.externaldomain\.com
-        if (/.*\.externaldomain\.com/.test(host))
+        // Return externaldomain if host matches .*\.externaldomain\.example
+        if (/.*\.externaldomain\.example/.test(host))
           return "externaldomain";
 
         // Test if DNS resolving is working as intended
@@ -49,7 +49,7 @@ class Pacparser < Formula
           return "isResolvable";
 
         // Test if DNS resolving is working as intended
-        if (dnsDomainIs(host, ".notresolvabledomainXXX.com") &&
+        if (dnsDomainIs(host, ".notresolvabledomain.invalid") &&
             !isResolvable(host))
           return "isNotResolvable";
 
@@ -70,11 +70,11 @@ class Pacparser < Formula
     # Functional tests from upstream sources
     test_sets = [
       {
-        "cmd" => "-c 3ffe:8311:ffff:1:0:0:0:0 -u http://www.somehost.com",
+        "cmd" => "-c 3ffe:8311:ffff:1:0:0:0:0 -u http://www.example.com",
         "res" => "3ffe:8311:ffff",
       },
       {
-        "cmd" => "-c 0.0.0.0 -u http://www.google.co.in",
+        "cmd" => "-c 0.0.0.0 -u http://www.example.com",
         "res" => "END-OF-SCRIPT",
       },
       {
@@ -86,23 +86,23 @@ class Pacparser < Formula
         "res" => "plainhost/.manugarg.com",
       },
       {
-        "cmd" => "-u http://manugarg.externaldomain.com",
+        "cmd" => "-u http://manugarg.externaldomain.example",
         "res" => "externaldomain",
       },
       {
-        "cmd" => "-u http://www.google.com",  ## internet
-        "res" => "isResolvable",              ## required
+        "cmd" => "-u https://www.google.com",  ## internet
+        "res" => "isResolvable",               ## required
       },
       {
-        "cmd" => "-u http://www.notresolvabledomainXXX.com",
+        "cmd" => "-u https://www.notresolvabledomain.invalid",
         "res" => "isNotResolvable",
       },
       {
-        "cmd" => "-u https://www.somehost.com",
+        "cmd" => "-u https://www.example.com",
         "res" => "secureUrl",
       },
       {
-        "cmd" => "-c 10.10.100.112 -u http://www.somehost.com",
+        "cmd" => "-c 10.10.100.112 -u http://www.example.com",
         "res" => "10.10.0.0",
       },
     ]
