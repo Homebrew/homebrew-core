@@ -7,10 +7,9 @@ class Geth < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "482c28166ec0f0a3c30bf0e4a46c35229f6a5db4332b6f52ae00699756a8c110" => :high_sierra
-    sha256 "31dd16120f0f1bac73c78290269dd368c407f832bfbc72f297fd951647793f39" => :sierra
-    sha256 "4c7422b68122e556784543239933e9562a0a465aaac2b32ab3da63495aea6a85" => :el_capitan
-    sha256 "cd1e48eda14f089b9360d391e24f0224f289f212150ae4e9bc5698bfe01e6a8b" => :yosemite
+    sha256 "798f4aeb018d24a6eb3e3e84b6aa3ea816d72f5a0fda97b025849138cfb19408" => :high_sierra
+    sha256 "7471c13ca4a5df636b74bef9608a104e8358e44aa0ca934ea2e77b0108b2a7a8" => :sierra
+    sha256 "dadcadcc18155e407a5f9adb4ea728568bd92f8e30da997e25c9f404d02e14f3" => :el_capitan
   end
 
   depends_on "go" => :build
