@@ -16,8 +16,16 @@ class Imagesnap < Formula
 
   depends_on :xcode => :build
 
+  # Upstream PR from 19 Dec 2015 "Replace QTKit"
+  if MacOS::Xcode.version >= "8.0"
+    patch do
+      url "https://github.com/rharder/imagesnap/pull/13.patch?full_index=1"
+      sha256 "3bef0164843bc229cacdfe04e819515d30b78ee402d76fd2197a8b5d9e5159e9"
+    end
+  end
+
   def install
-    xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", "macosx#{MacOS.version}"
+    xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", MacOS.sdk_path
     bin.install "build/Release/imagesnap"
   end
 
