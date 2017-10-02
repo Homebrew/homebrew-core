@@ -1,30 +1,14 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.20/glade-3.20.0.tar.xz"
-  sha256 "82d96dca5dec40ee34e2f41d49c13b4ea50da8f32a3a49ca2da802ff14dc18fe"
-  revision 2
+  url "https://download.gnome.org/sources/glade/3.20/glade-3.20.1.tar.xz"
+  sha256 "8064676dd46baa7e00c38ec1cc3ddc75c4ef5e714cd9d1491309b4df3e9cb1df"
 
   bottle do
     sha256 "98ad635f5de29339d1be79dc526271c718ad0d6faf144f953c8709b89210084f" => :high_sierra
     sha256 "b4790dc430258b21b802773032e0c63104d21c2a490b9066f3e7d31bddfb5b8a" => :sierra
     sha256 "5d1ad60bdfe6dd1a2495fac84443262e529b0fc0fb7390ca8096e8535e15ed33" => :el_capitan
   end
-
-  # fixes build error against glib 2.54.x
-  # bugzilla ticket: https://bugzilla.gnome.org/show_bug.cgi?id=782161
-  # patch committed into master on May 4, 2017
-  patch do
-    url "https://github.com/GNOME/glade/commit/8a73d114ca5b4d37a770d0b6b69dd17a366dbcf4.diff?full_index=1"
-    sha256 "4bf7c21985b27fb1198fc5ef19a8447805783f394bcb699200ef2e7e99cc81f2"
-  end
-
-  # remove next five lines when new release is available
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "yelp-tools" => :build
-  depends_on "gnome-common" => :build
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
@@ -41,8 +25,6 @@ class Glade < Formula
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    # remove next line when new release is available
-    system "autoreconf", "-fi"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
