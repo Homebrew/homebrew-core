@@ -1,8 +1,8 @@
 class Submarine < Formula
   desc "Search and download subtitles"
   homepage "https://github.com/rastersoft/submarine"
-  url "https://github.com/rastersoft/submarine/archive/0.1.4.tar.gz"
-  sha256 "c4fbe0786be9aeab95d4df4858f890fae3ca3c06bb28993ae1cd38aa20d1a801"
+  url "https://github.com/rastersoft/submarine/archive/0.1.7.tar.gz"
+  sha256 "c8f34bd3f0785abc2e89bc05d9cba8b5756ec12f989b55d207bbf3d021b66bbf"
   head "https://github.com/rastersoft/submarine.git"
 
   bottle do
@@ -14,10 +14,8 @@ class Submarine < Formula
     sha256 "317136a44b158c1881eef04c5942c4868575a0fc46095955beedda56d3e7527e" => :mavericks
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libgee"
@@ -25,15 +23,13 @@ class Submarine < Formula
   depends_on "libarchive"
 
   def install
-    # Because configure is looking for libgee-0.6 which provided
-    # pkg-config viled numbered 1.0.
-    #
-    # See https://github.com/rastersoft/submarine/pull/1
-    inreplace "configure.ac", "gee-1.0", "gee-0.8"
-    system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    # Parallelization and CMake build failures reported 2 Oct 2017 to
+    # rastersoft AT gmail DOT com
+    ENV.deparallelize
+    cp "src/Config.vala.cmake", "src/Config.vala.base"
+    cp "src/lib/Config.vala.cmake", "src/lib/Config.vala.base"
+
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
