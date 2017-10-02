@@ -1,8 +1,8 @@
 class Vbindiff < Formula
   desc "Visual Binary Diff"
   homepage "https://www.cjmweb.net/vbindiff/"
-  url "https://www.cjmweb.net/vbindiff/vbindiff-3.0_beta4.tar.gz"
-  sha256 "7d5d5a87fde953dc2089746f6f6ab811d60e127b01074c97611898fb1ef1983d"
+  url "https://www.cjmweb.net/vbindiff/vbindiff-3.0_beta5.tar.gz"
+  sha256 "f04da97de993caf8b068dcb57f9de5a4e7e9641dc6c47f79b60b8138259133b8"
 
   bottle do
     cellar :any_skip_relocation
