@@ -1,8 +1,8 @@
 class Stubby < Formula
   desc "DNS privacy enabled stub resolver service based on getdns"
   homepage "https://getdnsapi.net/blog/dns-privacy-daemon-stubby/"
-  url "https://github.com/getdnsapi/stubby/archive/v0.1.2.tar.gz"
-  sha256 "bdac5dac5873f34a34db8da2538ab7d4f2bd7ff0315eb53db3d5cca5adedabfc"
+  url "https://github.com/getdnsapi/stubby/archive/v0.1.3.tar.gz"
+  sha256 "5f20659945696647f7c3f4a090ffc8bf1d96e69a751bbf36e3cddb584846602e"
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
 
   bottle do
@@ -16,6 +16,7 @@ class Stubby < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "getdns"
+  depends_on "libyaml"
 
   def install
     system "autoreconf", "-fiv"
