@@ -10,6 +10,7 @@ class Gxml < Formula
     sha256 "c515994080f2dab325b5777142a785bb6ba8c42a0c0a5bf89f5a6d25e1fd8bd1" => :yosemite
   end
 
+  depends_on "gtk-doc" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "vala" => :build
