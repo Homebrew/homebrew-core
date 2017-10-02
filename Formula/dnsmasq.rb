@@ -1,9 +1,8 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
-  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
-  sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
-  revision 3
+  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.78.tar.gz"
+  sha256 "c92e5d78aa6353354d02aabf74590d08980bb1385d8a00b80ef9bc80430aa1dc"
 
   bottle do
     sha256 "d29dd993abb69147e9e98d28bbfc45b5dbcde8aba020de0286bc053399460f5c" => :high_sierra
