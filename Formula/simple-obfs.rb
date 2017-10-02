@@ -8,10 +8,9 @@ class SimpleObfs < Formula
 
   bottle do
     cellar :any
-    sha256 "8e68cbb6bbee21cc97d4ac61fdc06f12ac2c019f7a88f8e6fbf074f1f7fb9dd5" => :high_sierra
-    sha256 "bd8a043875d1e1f36105af0395a938c16fc92dfc494c1ec13f20847737ddae39" => :sierra
-    sha256 "dd9f3e70aa648d9e7dd625dc56b5f07e593c7d47d48fa73095db7651d8e5a85a" => :el_capitan
-    sha256 "d4c927a5c809c907d7b8641a0e13d3ec23745a143fc9da496d96b8a2352c7782" => :yosemite
+    sha256 "9ea5d15e2212cf770cd84835f1120bdb1d50356647d3dce08ceefbd253f9e9a0" => :high_sierra
+    sha256 "607e8f54808f464b6c5ec740c95889516cbd67fdd93a459479a9f9a57c6ef65e" => :sierra
+    sha256 "0cc5634c25b3cea1801b1896c265e1bd9acb932d3c1081a9d930430c076f378d" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
