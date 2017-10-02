@@ -1,8 +1,9 @@
 class Submarine < Formula
   desc "Search and download subtitles"
   homepage "https://github.com/rastersoft/submarine"
-  url "https://github.com/rastersoft/submarine/archive/0.1.7.tar.gz"
-  sha256 "c8f34bd3f0785abc2e89bc05d9cba8b5756ec12f989b55d207bbf3d021b66bbf"
+  url "https://github.com/rastersoft/submarine/archive/0.1.7b.tar.gz"
+  version "0.1.7b"
+  sha256 "4569710a1aaf6709269068b6b1b2ef381416b81fa947c46583617343b1d3c799"
   head "https://github.com/rastersoft/submarine.git"
 
   bottle do
@@ -21,12 +22,8 @@ class Submarine < Formula
   depends_on "libarchive"
 
   def install
-    # Parallelization and CMake build failures reported 2 Oct 2017 to
-    # rastersoft AT gmail DOT com
+    # Parallelization build failure reported 2 Oct 2017 to rastersoft AT gmail
     ENV.deparallelize
-    cp "src/Config.vala.cmake", "src/Config.vala.base"
-    cp "src/lib/Config.vala.cmake", "src/lib/Config.vala.base"
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
