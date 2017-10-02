@@ -30,6 +30,10 @@ class Gearman < Formula
   depends_on "tokyo-cabinet" => :optional
 
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    # encountered when trying to detect boost regex in configure
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     # https://bugs.launchpad.net/gearmand/+bug/1368926
     Dir["tests/**/*.cc", "libtest/main.cc"].each do |test_file|
       next unless /std::unique_ptr/ =~ File.read(test_file)
