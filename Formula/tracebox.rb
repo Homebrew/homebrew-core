@@ -19,12 +19,9 @@ class Tracebox < Formula
 
   bottle do
     cellar :any
-    sha256 "86e2c6f4f0ac81f42ea0eeea2545e0e994090b91bcc3a29df9ead84981ec369b" => :high_sierra
-    sha256 "48b7de6c88b5c79ea9c6b18d637a12633bb08db31d80cf6877b9a698c4c1c953" => :sierra
-    sha256 "e516720d9bd9e928f8f876b4520aac901449ece1bead0b8af561c3ab22a2d584" => :el_capitan
-    sha256 "4a8348264f1b28160c41f8d2f723c3a866ba2d430d9ee0388e61d6b15599ce64" => :yosemite
-    sha256 "3cf26c9f63b463048eea103b7eac1faeea873dd85391673f590161f4dc0e9416" => :mavericks
-    sha256 "03ce10b37ac2bcb7cad32594899fe650fc49cf47ed2f4336e300a18e6f30f12d" => :mountain_lion
+    sha256 "0ec57d1c7ba9701a394fda6f9e87c328673833fab0f72060e297716f55c7c67e" => :high_sierra
+    sha256 "9b42586adbd0b639e3722c9dd43f67d350b36cbab148aca454dfd57bc01c457f" => :sierra
+    sha256 "dfc1dd387e7b947007439897e55b2ab2c77270be143894dd90d8fb6d540019d2" => :el_capitan
   end
 
   needs :cxx11
