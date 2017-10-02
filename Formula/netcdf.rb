@@ -37,8 +37,7 @@ class Netcdf < Formula
   def install
     ENV.deparallelize
 
-    common_args = std_cmake_args << "-DBUILD_SHARED_LIBS=ON"
-    common_args << "-DBUILD_TESTING=OFF"
+    common_args = std_cmake_args << "-DBUILD_TESTING=OFF"
 
     mkdir "build" do
       args = common_args.dup
@@ -46,9 +45,12 @@ class Netcdf < Formula
       args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_DAP_AUTH_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
 
-      system "cmake", "..", *args
-      system "make"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *args
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      system "make"
+      lib.install "liblib/libnetcdf.a"
     end
 
     # Add newly created installation to paths so that binding libraries can
@@ -59,9 +61,12 @@ class Netcdf < Formula
     cxx_args << "-DNCXX_ENABLE_TESTS=OFF"
     resource("cxx").stage do
       mkdir "build-cxx" do
-        system "cmake", "..", *cxx_args
-        system "make"
+        system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *cxx_args
         system "make", "install"
+        system "make", "clean"
+        system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *cxx_args
+        system "make"
+        lib.install "cxx4/libnetcdf-cxx4.a"
       end
     end
 
@@ -69,9 +74,12 @@ class Netcdf < Formula
     fortran_args << "-DENABLE_TESTS=OFF"
     resource("fortran").stage do
       mkdir "build-fortran" do
-        system "cmake", "..", *fortran_args
-        system "make"
+        system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *fortran_args
         system "make", "install"
+        system "make", "clean"
+        system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *fortran_args
+        system "make"
+        lib.install "fortran/libnetcdff.a"
       end
     end
 
@@ -79,6 +87,8 @@ class Netcdf < Formula
     ENV.prepend "LDFLAGS", "-L#{lib}"
     resource("cxx-compat").stage do
       system "./configure", "--disable-dependency-tracking",
+                            "--enable-shared",
+                            "--enable-static",
                             "--prefix=#{prefix}"
       system "make"
       system "make", "install"
