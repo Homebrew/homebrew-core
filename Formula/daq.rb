@@ -13,6 +13,9 @@ class Daq < Formula
     sha256 "bced15005e13eaa11ec6d47afbb1137f61231a191fb05a295e2762cc6cc8ef29" => :mountain_lion
   end
 
+  # Apple's libpcap is not recognized, because it does not have pcap_version
+  depends_on "libpcap" if MacOS.version >= :sierra
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
