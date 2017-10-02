@@ -1,10 +1,9 @@
 class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
-  homepage "https://github.com/bazelbuild/buildifier"
-  url "https://github.com/bazelbuild/buildifier.git",
-      :tag => "0.4.5",
-      :revision => "45633988bb2b956f77c1075c4bc551ea3d7798b3"
-  revision 1
+  homepage "https://github.com/bazelbuild/buildtools"
+  url "https://github.com/bazelbuild/buildtools.git",
+      :tag => "0.6.0",
+      :revision => "a05406a1a855c6d8ebfc368555ace7638d83c0d9"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +18,7 @@ class Buildifier < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/bazelbuild").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/bazelbuild/buildifier"
+    ln_sf buildpath, buildpath/"src/github.com/bazelbuild/buildtools"
 
     commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
     inreplace "buildifier/buildifier.go" do |s|
