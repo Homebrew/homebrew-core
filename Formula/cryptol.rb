@@ -20,7 +20,13 @@ class Cryptol < Formula
   depends_on "z3" => :run
 
   def install
-    install_cabal_package :using => ["alex", "happy"]
+    # Remove the "happy<1.19.6" for cryptol > 2.5.0
+    # See revision 1 of http://hackage.haskell.org/package/cryptol-2.5.0/revisions/
+    if build.stable?
+      install_cabal_package :using => ["alex", "happy<1.19.6"]
+    else
+      install_cabal_package :using => ["alex", "happy"]
+    end
   end
 
   test do
