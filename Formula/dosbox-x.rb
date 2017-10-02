@@ -31,6 +31,12 @@ class DosboxX < Formula
     # https://github.com/joncampbell123/dosbox-x/issues/275
     inreplace "src/hardware/ne2000.cpp", "#define HAVE_REMOTE\n", ""
 
+    # Fix compilation issue: https://github.com/joncampbell123/dosbox-x/pull/308
+    if DevelopmentTools.clang_build_version >= 900
+      inreplace "src/hardware/serialport/nullmodem.cpp",
+                "setCD(clientsocket > 0)", "setCD(clientsocket != 0)"
+    end
+
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
