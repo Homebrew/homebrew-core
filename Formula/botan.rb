@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.2.0.tgz"
-  sha256 "c794db2ec46f6ff88f37ae76825f0c258f07880b865b6707b26acfcc4567b824"
+  url "https://botan.randombit.net/releases/Botan-2.3.0.tgz"
+  sha256 "39f970fee5986a4c3e425030aef50ac284da18596c004d1a9cce7688c4e6d47c"
   head "https://github.com/randombit/botan.git"
 
   bottle do
@@ -20,6 +20,15 @@ class Botan < Formula
   depends_on "openssl"
 
   needs :cxx11
+
+  # Fix build failure "error: no type named 'free' in namespace 'std'"
+  # Upstream PR from 3 Oct 2017 "Add missing cstdlib include to openssl_rsa.cpp"
+  if DevelopmentTools.clang_build_version < 900
+    patch do
+      url "https://github.com/randombit/botan/pull/1233.patch?full_index=1"
+      sha256 "5ac83570d650d06cedb75e85a08287e5c62055dd1f159cede8a9b4b34b280600"
+    end
+  end
 
   def install
     ENV.cxx11
