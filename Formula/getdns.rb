@@ -1,20 +1,8 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  revision 2
-
-  stable do
-    url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
-    sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
-
-    # Remove for > 1.1.2
-    # Upstream PR from 18 Aug 2017 "Fix issue on OS X 10.10 where TCP fast open
-    # is detected but not implemented causing TCP to fail"
-    patch do
-      url "https://github.com/getdnsapi/getdns/pull/328.patch?full_index=1"
-      sha256 "8528bc22d705502f238db7a73e9f1ddbafca398d4b133056b6b4b161adbc3929"
-    end
-  end
+  url "https://getdnsapi.net/releases/getdns-1-2-0/getdns-1.2.0.tar.gz"
+  sha256 "06e6494b5d8b9404f439d5a98a3ab8f1f4b3557fb7aa3db005b021a6289b4229"
 
   bottle do
     sha256 "d7200271289269eec4cec2bfd9f766d7dc741bb1f4057c55539315094fce222a" => :high_sierra
@@ -55,17 +43,15 @@ class Getdns < Formula
     args << "--with-libuv" if build.with? "libuv"
     args << "--with-libev" if build.with? "libev"
 
-    # Current Makefile layout prevents simultaneous job execution
-    # https://github.com/getdnsapi/getdns/issues/166
-    ENV.deparallelize
-
     system "./configure", "--prefix=#{prefix}", *args
+    system "make"
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<-EOS.undent
       #include <getdns/getdns.h>
+      #include <stdio.h>
 
       int main(int argc, char *argv[]) {
         getdns_context *context;
