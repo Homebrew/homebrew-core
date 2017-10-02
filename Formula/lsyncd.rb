@@ -6,6 +6,7 @@ class Lsyncd < Formula
 
   bottle do
     cellar :any
+    sha256 "171218fccfd851452e73ce40d30b083c14e9871f61b6c6d6b5617f7ef152abcb" => :high_sierra
     sha256 "f184d56f63a9d9c4e2febbb58bbea881b7db0f69c48126020232622b0a26e7e3" => :sierra
     sha256 "51c1ff811269ae2d011331e36a2bf46aee3dfb1c9a7f7352db78600524815529" => :el_capitan
     sha256 "23d5c2c310e0a0dca15d34105b54dec928ccf95bc2ab7607068eb5d3a309c067" => :yosemite
