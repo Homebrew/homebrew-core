@@ -6,11 +6,10 @@ class Daq < Formula
 
   bottle do
     cellar :any
-    sha256 "f0be58035bc6f4764567cf186673035818e6025d027695795f959fdfc88c7806" => :sierra
-    sha256 "9c2720bd46954e9f2631801d8f8283974436a82827f01c9e954e319f0b9f7e88" => :el_capitan
-    sha256 "02d198f42f56471feaf127824230d7ea752490b3c7f5a34f8b50ff0a85062f01" => :yosemite
-    sha256 "8ce4fbbbb9f6189f6ee51d3223a81ebc7ea76069353bd284822989d6ccc364a5" => :mavericks
-    sha256 "bced15005e13eaa11ec6d47afbb1137f61231a191fb05a295e2762cc6cc8ef29" => :mountain_lion
+    rebuild 1
+    sha256 "040309732838ebc8b5ec4084e3305d26b3037a7e74a330a77590697c40f327b9" => :high_sierra
+    sha256 "70f488ec88589249e94c974a688947a862a74bf7fe1198ecad5c522cecad05f9" => :sierra
+    sha256 "64ec56297af8d982b5575d8bf63f00af80d3f5639d12627416fa02d9cc77a8c2" => :el_capitan
   end
 
   # Apple's libpcap is not recognized, because it does not have pcap_version
