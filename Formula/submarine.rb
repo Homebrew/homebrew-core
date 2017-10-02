@@ -8,9 +8,9 @@ class Submarine < Formula
 
   bottle do
     cellar :any
-    sha256 "d49929f380ae727fc8b2b6224517f6b34da60de4addb4c2cff7bffa9a00c5f63" => :high_sierra
-    sha256 "f81c66ff58be9ed32491ea2044593f29fae46a038f4ab03808ee1e971f624174" => :sierra
-    sha256 "1789cc77bd636d2e09c9cafdd9377ad5115be3338f434e1d93b794dae2616eac" => :el_capitan
+    sha256 "0f69e16c6289fe9f529d2d972b91f86f5b950f31f0d9b7d2af3d80f4cc344de3" => :high_sierra
+    sha256 "05cb83f2ed8dd62e4417bc4f9e65c6a4ad5127b0012296676033ee92346d3789" => :sierra
+    sha256 "71ed7dcec2639d658412e8c099c4440bbb6f00d32cf80b9be8954abef07d0c21" => :el_capitan
   end
 
   depends_on "cmake" => :build
