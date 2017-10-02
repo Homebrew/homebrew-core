@@ -1,8 +1,8 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/isync/isync/1.2.2/isync-1.2.2.tar.gz"
-  sha256 "d9197e27bfe77e3d8971f4fcb25ec37b2506827c4bc9439b72376caa091ce877"
+  url "https://downloads.sourceforge.net/project/isync/isync/1.3.0/isync-1.3.0.tar.gz"
+  sha256 "8d5f583976e3119705bdba27fa4fc962e807ff5996f24f354957178ffa697c9c"
 
   bottle do
     cellar :any
@@ -71,6 +71,6 @@ class Isync < Formula
   end
 
   test do
-    system bin/"get-cert", "duckduckgo.com:443"
+    system bin/"mbsync-get-cert", "duckduckgo.com:443"
   end
 end
