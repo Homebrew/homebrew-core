@@ -1,8 +1,8 @@
 class Virtualpg < Formula
   desc "Loadable dynamic extension for SQLite and SpatiaLite"
   homepage "https://www.gaia-gis.it/fossil/virtualpg/index"
-  url "https://www.gaia-gis.it/gaia-sins/virtualpg-1.0.1.tar.gz"
-  sha256 "9e6c4c6c1556b2ea2a1e4deda28909626c3a8b047c81d6b82c042abdb9a99ec8"
+  url "http://www.gaia-gis.it/gaia-sins/virtualpg-1.0.2.tar.gz"
+  sha256 "37abd56b2899c90b355e50d843ba019af540b83e7af1da110a766f041abb514e"
 
   bottle do
     cellar :any
