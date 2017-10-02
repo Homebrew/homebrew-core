@@ -43,6 +43,11 @@ class Mapnik < Formula
 
   def install
     ENV.cxx11
+
+    # Work around "error: no member named 'signbit' in the global namespace"
+    # encountered when trying to detect boost regex in configure
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     icu = Formula["icu4c"].opt_prefix
     boost = Formula["boost"].opt_prefix
     proj = Formula["proj"].opt_prefix
