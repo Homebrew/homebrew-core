@@ -11,13 +11,13 @@ class Gxml < Formula
   end
 
   depends_on "gtk-doc" => :build
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "intltool" => :build
   depends_on "vala" => :build
-  depends_on "glib"
-  depends_on "gobject-introspection"
-  depends_on "libgee"
   depends_on "libxml2"
+  depends_on "glib"
+  depends_on "libgee"
+  depends_on "gobject-introspection"
 
   def install
     # ensures that the gobject-introspection files remain within the keg
