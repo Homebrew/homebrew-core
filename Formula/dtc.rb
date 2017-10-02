@@ -7,9 +7,9 @@ class Dtc < Formula
 
   bottle do
     cellar :any
-    sha256 "51efc9ca593a11cc377963826d957b1bbca72b77b15af07dd66ad5487abaca73" => :high_sierra
-    sha256 "35defd469fb53a863b8983ed78f988780c11ff96de7724190c4947a75750efab" => :sierra
-    sha256 "36b814cb280fd1aecee057187f07f307fc80a643c71b1f8d61339375f1dbeea0" => :el_capitan
+    sha256 "85ede678c4e04e074e8aaf9e1331d2fd4235297cc92747be2362f7fe5604987b" => :high_sierra
+    sha256 "71aaae19cc7f53e650bc807844135b8a2527084dc153fcaaaab0d7a552e6caa4" => :sierra
+    sha256 "5affa8e37eff06e88eb1f571fbfb0dcef60cf7b1efebdc72b511c435c1509b8f" => :el_capitan
   end
 
   def install
