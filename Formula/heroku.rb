@@ -18,6 +18,7 @@ class Heroku < Formula
 
   def install
     inreplace "bin/run" do |s|
+      s.gsub! "npm update -g heroku-cli", "brew upgrade heroku"
       s.gsub! "#!/usr/bin/env node", "#!#{Formula["node"].opt_bin}/node"
     end
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
