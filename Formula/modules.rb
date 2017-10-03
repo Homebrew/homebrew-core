@@ -17,10 +17,9 @@ class Modules < Formula
     # -DUSE_INTERP_ERRORLINE fixes
     # error: no member named 'errorLine' in 'struct Tcl_Interp'
     args = %W[
-      --disable-debug
       --disable-dependency-tracking
-      --disable-silent-rules
       --prefix=#{prefix}
+      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --datarootdir=#{share}
       --disable-versioning
       CPPFLAGS=-DUSE_INTERP_ERRORLINE
