@@ -1,8 +1,8 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz"
-  sha256 "9229773be41ed144370f47f0f626a1579931f5a390f1e8e3853174d52edd64a9"
+  url "https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz"
+  sha256 "cda7d967c9a4bfa52337cdf551bcc5cff026b6ac50a8834e568ce4a794ca81da"
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
