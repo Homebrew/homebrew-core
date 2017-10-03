@@ -5,26 +5,9 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
+  url "https://hackage.haskell.org/package/git-annex-6.20171003/git-annex-6.20171003.tar.gz"
+  sha256 "51edd74b98cbf5baa38e2197fb60b8b04d8cc375a686859ee74cb5e54a53de3b"
   head "git://git-annex.branchable.com/"
-
-  stable do
-    url "https://hackage.haskell.org/package/git-annex-6.20171003/git-annex-6.20171003.tar.gz"
-    sha256 "51edd74b98cbf5baa38e2197fb60b8b04d8cc375a686859ee74cb5e54a53de3b"
-
-    # Upstream commit from 29 Sep 2017 "Fix reversion that made it only run
-    # inside a git repository."
-    resource "patch-git-annex-test" do
-      url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=f84e34883cfb5b45a86f6c69961886c0ec8843c1"
-      sha256 "8291d269e44fce7437016db8e6cf2d27d710aae9b6bcdec28dc11600655f6359"
-    end
-
-    # Upstream commit from 29 Sep 2017 "fix process and FD leak" when building
-    # with GHC 8.2.1
-    resource "patch-fd-leak" do
-      url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=5c32196a376cdaf231a9ccde9bb97297f651a132"
-      sha256 "57f26b21efac6d07fa5af96333acfa5a1cdf18cc316c97c0567cacb7d7e0e473"
-    end
-  end
 
   bottle do
     sha256 "9966e52d74a73990d171d2f7076ce5930e7157bf40651a9d55ca6c973c710187" => :high_sierra
@@ -43,20 +26,7 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
-    if build.stable?
-      buildpath.install resource("patch-git-annex-test")
-      puts Utils.popen_read("patch", "-f", "-p1", "-i",
-           "p=source.git;a=patch;h=f84e34883cfb5b45a86f6c69961886c0ec8843c1")
-
-      buildpath.install resource("patch-fd-leak")
-      puts Utils.popen_read("patch", "-f", "-p1", "-i",
-           "p=source.git;a=patch;h=5c32196a376cdaf231a9ccde9bb97297f651a132")
-    end
-
-    # Upstream issue from 7 Sep 2017 "Please support ghc-8.2.1 (by allowing
-    # time-1.8.*)" https://github.com/aristidb/aws/issues/238
-    install_cabal_package "--allow-newer=aws:time",
-                          :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
+    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
         system "make", "git-union-merge", "PREFIX=#{prefix}"
