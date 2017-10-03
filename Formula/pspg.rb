@@ -1,8 +1,8 @@
 class Pspg < Formula
   desc "Postgres Pager"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/v0.2.tar.gz"
-  sha256 "9688a570db525194aeef1a1d859dbfdc947682aa94301f0f58c37aca940cfa56"
+  url "https://github.com/okbob/pspg/archive/v0.3.tar.gz"
+  sha256 "a1559a86c8d6a7c8b9548073c5b8572e8b5aa37e931261202084fd7c6906a7be"
 
   def install
     system "./configure", "--disable-debug",
