@@ -12,9 +12,9 @@ end
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.10.0.tar.bz2",
+  url "https://download.qemu.org/qemu-2.10.1.tar.bz2",
       :using => QemuDownloadStrategy
-  sha256 "7e9f39e1306e6dcc595494e91c1464d4b03f55ddd2053183e0e1b69f7f776d48"
+  sha256 "8e040bc7556401ebb3a347a8f7878e9d4028cf71b2744b1a1699f4e741966ba8"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
