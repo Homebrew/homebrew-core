@@ -16,10 +16,10 @@ class Zshdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3b1a4a420b1e74938b673bf38e20b471417f035407bf019fa6c89e41da108359" => :sierra
-    sha256 "3be3a69734982ccbed4285dc8821483c8ababe00bba9f0bd1cb54252ba772107" => :el_capitan
-    sha256 "aacaceab10fb77097c1c25ae87c68f422ead071b333242b085126aaa6560638f" => :yosemite
-    sha256 "0b41e171d32a9cfe1d3293fe18263f30af64cfaabfe551c09fa46d1c55cd1c0c" => :mavericks
+    rebuild 1
+    sha256 "1cb2482a1e326d2849d1692a871704aafdf2fec05cffd0d22d2193cc1da07caf" => :high_sierra
+    sha256 "1cb2482a1e326d2849d1692a871704aafdf2fec05cffd0d22d2193cc1da07caf" => :sierra
+    sha256 "1cb2482a1e326d2849d1692a871704aafdf2fec05cffd0d22d2193cc1da07caf" => :el_capitan
   end
 
   head do
