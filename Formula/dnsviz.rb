@@ -3,8 +3,8 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://github.com/dnsviz/dnsviz/releases/download/v0.6.6/dnsviz-0.6.6.tar.gz"
-  sha256 "b89076aabc79744556f284e4c9b757a19ea5043c2cd61d957fb8995c713b5a37"
+  url "https://github.com/dnsviz/dnsviz/releases/download/v0.6.7/dnsviz-0.6.7.tar.gz"
+  sha256 "b94f06afb78754ef70597b214a3bd29c0d2f1fd1478ddc8bdd35edc372703ce2"
 
   bottle do
     cellar :any
