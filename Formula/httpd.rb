@@ -3,7 +3,7 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.27.tar.bz2"
   sha256 "71fcc128238a690515bd8174d5330a5309161ef314a326ae45c7c15ed139c13a"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "dbea8d85bc9b41d24eb9e88ee2ef2bdf3ebfb360a8ef62218c30bdbcf07b3748" => :high_sierra
@@ -18,12 +18,20 @@ class Httpd < Formula
   depends_on "pcre"
 
   def install
+    # fixup prefix references in favour of opt_prefix references
+    inreplace "Makefile.in",
+      '#@@ServerRoot@@#$(prefix)#', '#@@ServerRoot@@'"##{opt_prefix}#"
+    inreplace "docs/conf/extra/httpd-autoindex.conf.in",
+      "@exp_iconsdir@", "#{opt_pkgshare}/icons"
+    inreplace "docs/conf/extra/httpd-multilang-errordoc.conf.in",
+      "@exp_errordir@", "#{opt_pkgshare}/error"
+
     # use Slackware-FHS layout as it's closest to what we want.
     # these values cannot be passed directly to configure, unfortunately.
     inreplace "config.layout" do |s|
-      s.gsub! "${datadir}/cgi-bin", "#{pkgshare}/cgi-bin"
+      s.gsub! "${datadir}/htdocs", "${datadir}"
+      s.gsub! "${htdocsdir}/manual", "#{pkgshare}/manual"
       s.gsub! "${datadir}/error",   "#{pkgshare}/error"
-      s.gsub! "${datadir}/htdocs",  "#{pkgshare}/htdocs"
       s.gsub! "${datadir}/icons",   "#{pkgshare}/icons"
     end
 
@@ -52,12 +60,23 @@ class Httpd < Formula
 
     # avoid using Cellar paths
     inreplace %W[
-      #{lib}/httpd/build/config_vars.mk
       #{include}/httpd/ap_config_layout.h
+      #{lib}/httpd/build/config_vars.mk
     ] do |s|
       s.gsub! "#{lib}/httpd/modules", "#{HOMEBREW_PREFIX}/lib/httpd/modules"
+    end
+
+    inreplace %W[
+      #{bin}/apachectl
+      #{bin}/apxs
+      #{include}/httpd/ap_config_auto.h
+      #{include}/httpd/ap_config_layout.h
+      #{lib}/httpd/build/config_vars.mk
+      #{lib}/httpd/build/config.nice
+    ] do |s|
       s.gsub! prefix, opt_prefix
     end
+
     inreplace "#{lib}/httpd/build/config_vars.mk" do |s|
       pcre = Formula["pcre"]
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
