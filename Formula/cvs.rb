@@ -11,9 +11,9 @@ class Cvs < Formula
   revision 1
 
   bottle do
-    sha256 "b8604bdb205a892e4cab5ea86b825080aa22ea5c5bb6e9df9b2b65a67555a105" => :high_sierra
-    sha256 "fd41f323c862928ecdd5830f9174b860d5aeb3f454047e62ecefa0436a564161" => :sierra
-    sha256 "d81b370b83adb2b33a2d6c8b377fc8ca98225768b3c67abdd9e3beaf1d0e9808" => :el_capitan
+    sha256 "11b8be2fda1de3c8b77b20bdc283ceb12ba511826a0d3b79147dbfaeb83420db" => :high_sierra
+    sha256 "01f9517d330037a248bc6d36c8127a4f99eb364a8a0d1cc5f8520cca261b7163" => :sierra
+    sha256 "32dcf27cf028e270e826ba9850bde2f403f77c2c16a4b534d59cf68c0446e1fb" => :el_capitan
   end
 
   keg_only :provided_until_xcode5
