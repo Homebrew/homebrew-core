@@ -17,8 +17,9 @@ class Heroku < Formula
   depends_on "node"
 
   def install
-    inreplace "bin/run", "#!/usr/bin/env node",
-                         "#!#{Formula["node"].opt_bin} node"
+    inreplace "bin/run" do |s|
+      s.gsub! "#!/usr/bin/env node", "#!#{Formula["node"].opt_bin}/node"
+    end
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
