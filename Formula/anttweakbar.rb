@@ -23,6 +23,9 @@ class Anttweakbar < Formula
   end
 
   def install
+    # Work around Xcode 9 error "no member named 'signbit' in the global namespace"
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     system "make", "-C", "src", "-f", "Makefile.osx"
     lib.install "lib/libAntTweakBar.dylib", "lib/libAntTweakBar.a"
     include.install "include/AntTweakBar.h"
