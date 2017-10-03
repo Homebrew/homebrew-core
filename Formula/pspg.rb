@@ -13,6 +13,16 @@ class Pspg < Formula
   end
 
   test do
-    system "false"
+    require "open3"
+
+    expected = <<-ERR.undent
+    pspg-0.3-devel
+    ERR
+
+    command = "#{bin}/pspg -V"
+
+    stdout_str, stderr_str, status = Open3.capture3(command)
+
+    assert_equal(expected, stdout_str)
   end
 end
