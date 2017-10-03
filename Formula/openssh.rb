@@ -5,7 +5,6 @@ class Openssh < Formula
   mirror "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.6p1.tar.gz"
   version "7.6p1"
   sha256 "a323caeeddfe145baaa0db16e98d784b1fbc7dd436a6bf1f479dfd5cd1d21723"
-  revision 1
 
   bottle do
     sha256 "a7998e2c51b48845f74bfc925cb00b54778a0ccaa9d02ae40dbc98e4ba1f7963" => :high_sierra
