@@ -48,6 +48,7 @@ class Openssh < Formula
                           "--with-pam",
                           "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
     system "make"
+    ENV.deparallelize
     system "make", "install"
 
     # This was removed by upstream with very little announcement and has
