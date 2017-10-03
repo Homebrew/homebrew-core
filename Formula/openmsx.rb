@@ -35,9 +35,15 @@ class Openmsx < Formula
     # Filed with Apple: rdar://30475877
     ENV.O0
 
+    # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
-    # Help finding Tcl
-    inreplace "build/libraries.py", /\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/usr')"
+
+    # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
+    inreplace "build/libraries.py" do |s|
+      s.gsub! /\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework')"
+      s.gsub! "lib/tcl", "."
+    end
+
     system "./configure"
     system "make"
     prefix.install Dir["derived/**/openMSX.app"]
