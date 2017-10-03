@@ -120,7 +120,7 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
     ]
     
-    args << "--enable-gpl" if not build.without? "gpl"
+    args << "--enable-gpl" if build.with? "gpl"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
     args << "--enable-chromaprint" if build.with? "chromaprint"
