@@ -36,6 +36,7 @@ class OpenalSoft < Formula
     args << "-DALSOFT_BACKEND_PORTAUDIO=OFF" if build.without? "portaudio"
     args << "-DALSOFT_BACKEND_PULSEAUDIO=OFF" if build.without? "pulseaudio"
     args << "-DALSOFT_MIDI_FLUIDSYNTH=OFF" if build.without? "fluid-synth"
+    args << "-DALSOFT_BACKEND_JACK=OFF" if build.without? "jack"
 
     system "cmake", ".", *args
     system "make", "install"
