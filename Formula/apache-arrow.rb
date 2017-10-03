@@ -1,22 +1,9 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.7.1/apache-arrow-0.7.1.tar.gz"
+  sha256 "f8f114d427a8702791c18a26bdcc9df2a274b8388e08d2d8c73dd09dc08e888e"
   head "https://github.com/apache/arrow.git"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.7.0/apache-arrow-0.7.0.tar.gz"
-    sha256 "5d8e976e0c8a5f39087e3cd4c39efd45ad8960ffc5207ed02e999d36dc5b0e79"
-
-    # Remove for > 0.7.0
-    # Upstream commit from 21 Sep 2017 "ARROW-1591: C++: Xcode 9 is not
-    # correctly detected"
-    if DevelopmentTools.clang_build_version >= 900
-      patch do
-        url "https://github.com/apache/arrow/commit/c470c9c2d.patch?full_index=1"
-        sha256 "762265b5903fba98ab5b92e7c3d1632bd0ca3f5fdcf395d67047698e9b74bfcc"
-      end
-    end
-  end
 
   bottle do
     cellar :any
