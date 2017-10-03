@@ -7,9 +7,9 @@ class Launch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d0ed8234a311087444d64a43fcc0bf1db1457a7ffe0668742988e8bcbdccfe1" => :sierra
-    sha256 "37aa828b39694007f7a75b86b2b1cb184513c4a150bb2aae5ddced1fb0c21444" => :el_capitan
-    sha256 "2d5b91633648f62313ae9aa36b3d30ec3b057ec4c5a9eb63d43f2a63c49d825f" => :yosemite
+    sha256 "c2228493f7a13892ca91063711ab3b471f7be882f0252d22717ee5e614caec44" => :high_sierra
+    sha256 "fda28496bffe1ef0e34ef99b0a553f767869a637b71a69700f11f96411849cbe" => :sierra
+    sha256 "f6219951bf7d3a4360e6f0246c2a54f2e894bda93a6c4ed5e147047f661af567" => :el_capitan
   end
 
   depends_on :xcode => :build
