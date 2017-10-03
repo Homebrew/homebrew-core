@@ -5,10 +5,10 @@ class Modules < Formula
   sha256 "e8403492a8d57ace6485813ad6cdaafe0a735b7d93b9435553a8d11d3fdd29a2"
 
   bottle do
-    sha256 "828fb83b2dd8da143e64c87e7c93455c93a8cdc5ee8357b442cb20ab64ac6951" => :sierra
-    sha256 "a33a62060774cb6bf433653771cd5069a308ba6fe86daceeee044f4e5dd6a745" => :el_capitan
-    sha256 "62203b2abd9c20f31dd3e29da16bc0c27bc404b68beaa8f0bdce491c6f261e89" => :yosemite
-    sha256 "d46c87889814f42b07e22b634061a899baac9a49191cb049c8eb3c91ad3650bc" => :mavericks
+    rebuild 1
+    sha256 "afe435544abcc2afeb11daadf8bf0c6aaa0e02c8c4d9c5e551492162815f1530" => :high_sierra
+    sha256 "ffadd406acde1d6504f0ce6c88cf126018949981f9848a2ce64fb9d5f1461b44" => :sierra
+    sha256 "bc0333898b9c4a145bb648ec7759cc2f4082d37543b8a64abbea735cfe8fb393" => :el_capitan
   end
 
   depends_on :x11 => :optional
