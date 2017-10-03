@@ -1,8 +1,8 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/17.08/ejabberd-17.08.tgz"
-  sha256 "80d9e7dc9da99444d0affade3897053f6035cf26fffdc8018844a20f35431ef2"
+  url "https://www.process-one.net/downloads/ejabberd/17.09/ejabberd-17.09.tgz"
+  sha256 "6caf64cb472f8ab0f40429e967450555b7e1fec11d84fc5ea5d466381329cf03"
 
   bottle do
     sha256 "cc0327db3b143cc0aebe64bb0fe99b4118b2b7a65d0f5a67c1c515e57bc76469" => :high_sierra
@@ -20,6 +20,7 @@ class Ejabberd < Formula
 
   depends_on "openssl"
   depends_on "erlang"
+  depends_on "gd"
   depends_on "libyaml"
   # for CAPTCHA challenges
   depends_on "imagemagick" => :optional
