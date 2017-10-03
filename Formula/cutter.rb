@@ -6,12 +6,9 @@ class Cutter < Formula
   head "https://github.com/clear-code/cutter.git"
 
   bottle do
-    sha256 "785476f3c896227c489ec1fad05a38cdb61e6c768ec03c85c4eaf9b8b04f38af" => :high_sierra
-    sha256 "86340637b5be8322183c8134175d90e364859265c6e23cb2ae764682ec435bbb" => :sierra
-    sha256 "8c1680aeae7279a5ea6baa71299f25cff015ccc7085bbdf468962f505cb79ca6" => :el_capitan
-    sha256 "94d199ff3bd76e593e6f14953c62a1ff9bc11d012a52d825dbfee52813d6be54" => :yosemite
-    sha256 "f4a22bcd3bed4ab5b4d536bd61613a0b526f390376fa614ed67f682f71339def" => :mavericks
-    sha256 "ce4d7aed7be9b99111e4515c617bd3c2e6a2bdcae8bca9c1a52f9d463747fa2a" => :mountain_lion
+    sha256 "565dd12a8b27f69e53a556ad02a448bb18648990a481e004920710a439a892c7" => :high_sierra
+    sha256 "ac8c646277a7b623f23ed44aba41c75d52c22d26ed7e0f01759baf9026a9e323" => :sierra
+    sha256 "10fdffef5ec4b8983db6547225491720d17cfbcdcbd34b9524facd9f48da04b6" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
