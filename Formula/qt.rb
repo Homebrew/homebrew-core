@@ -61,7 +61,7 @@ class Qt < Formula
 
   # Patch fixing bugs QTBUG-62266 and QTBUG-62658 on macOS 10.13 High Sierra
   # https://github.com/Homebrew/homebrew-core/issues/17075
-  if MacOS.version >= :high_sierra
+  if MacOS.version >= :sierra
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/45282b5b48/qt/high-sierra.diff"
       sha256 "d8589d747a9ce0b7b7ddf1b59c4d999bbf8a02261e047a602cff39bea151eb42"
