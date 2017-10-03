@@ -40,7 +40,6 @@ class Openmsx < Formula
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
     inreplace "build/libraries.py" do |s|
-      sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
       s.gsub! /\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework')"
       s.gsub! "lib/tcl", "."
     end
