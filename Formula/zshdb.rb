@@ -1,8 +1,18 @@
 class Zshdb < Formula
   desc "Debugger for zsh"
   homepage "https://github.com/rocky/zshdb"
-  url "https://downloads.sourceforge.net/project/bashdb/zshdb/0.92/zshdb-0.92.tar.bz2"
-  sha256 "faeb75dc12f4eafff195af103fde4fc5aabc258b7ed902b1aad6d4659f3ae744"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/bashdb/zshdb/0.92/zshdb-0.92.tar.bz2"
+    sha256 "faeb75dc12f4eafff195af103fde4fc5aabc258b7ed902b1aad6d4659f3ae744"
+
+    # Fix compilation with zsh >= 5.3
+    # Remove in next release
+    patch do
+      url "https://github.com/rocky/zshdb/commit/94b389a3.patch?full_index=1"
+      sha256 "be5d4184dbc51570208fa169d6098e378b513cc699d3e2aa3f2d3bb422216995"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
