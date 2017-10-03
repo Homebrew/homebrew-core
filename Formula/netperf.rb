@@ -1,9 +1,9 @@
 class Netperf < Formula
   desc "Benchmarks performance of many different types of networking"
-  homepage "http://netperf.org"
-  url "ftp://ftp.netperf.org/netperf/netperf-2.7.0.tar.bz2"
-  sha256 "842af17655835c8be7203808c3393e6cb327a8067f3ed1f1053eb78b4e40375a"
-  head "http://www.netperf.org/svn/netperf2/trunk", :using => :svn
+  homepage "https://hewlettpackard.github.io/netperf/"
+  url "https://github.com/HewlettPackard/netperf/archive/netperf-2.7.0.tar.gz"
+  sha256 "4569bafa4cca3d548eb96a486755af40bd9ceb6ab7c6abd81cc6aa4875007c4e"
+  head "https://github.com/HewlettPackard/netperf.git"
 
   bottle do
     cellar :any_skip_relocation
