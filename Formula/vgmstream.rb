@@ -18,6 +18,7 @@ class Vgmstream < Formula
   depends_on "libvorbis"
 
   def install
+    ENV.deparallelize
     cd "test" do
       system "make"
       bin.install "test" => "vgmstream"
