@@ -5,12 +5,11 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  revision 1
   head "git://git-annex.branchable.com/"
 
   stable do
-    url "https://hackage.haskell.org/package/git-annex-6.20170925/git-annex-6.20170925.tar.gz"
-    sha256 "c0b14db55a215fdc19f129646ad6a014da99cda5a77af5ce3915e2af6cb3f84f"
+    url "https://hackage.haskell.org/package/git-annex-6.20171003/git-annex-6.20171003.tar.gz"
+    sha256 "51edd74b98cbf5baa38e2197fb60b8b04d8cc375a686859ee74cb5e54a53de3b"
 
     # Upstream commit from 29 Sep 2017 "Fix reversion that made it only run
     # inside a git repository."
