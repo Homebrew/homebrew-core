@@ -1,8 +1,8 @@
 class ApibuilderCli < Formula
   desc "Command-line interface to generate clients for api builder"
   homepage "https://www.apibuilder.io"
-  url "https://github.com/apicollective/apibuilder-cli/archive/0.1.8.tar.gz"
-  sha256 "a91faa41c6e648785fec83deab54a45e61273edffd21ea2fcf76d31162bb5492"
+  url "https://github.com/apicollective/apibuilder-cli/archive/0.1.9.tar.gz"
+  sha256 "96bdf91686eb2686326155a5af74540299a68352418d81ae6c8aaeca699c27b4"
 
   bottle :unneeded
 
