@@ -1,50 +1,14 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 4
-
-  stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
-    sha256 "2be1d014888a34187ad4bbec19ab5692cc943bd1cb14886065aeb43a3393d053"
-
-    # Remove for > 9.21
-    # First part of fix for CVE-2017-8291
-    # https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-8291
-    # https://bugs.ghostscript.com/show_bug.cgi?id=697799
-    # Upstream commit from 27 Apr 2017 "Bug 697799: have .eqproc check its parameters"
-    patch do
-      url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=4f83478c88"
-      sha256 "81f087fa6f3de81a83a4830a7b243b6da5506d783cf37ef1259cd600b1322e47"
-    end
-
-    # Remove for > 9.21
-    # Second part of fix for CVE-2017-8291
-    # Upstream commit from 27 Apr 2017 "Bug 697799: have .rsdparams check its parameters"
-    patch do
-      url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=04b37bbce1"
-      sha256 "366bf4ded600fc7b0a8e2b0d4c877cc3ad5a0ccc192cb660d81f729575a47259"
-    end
-
-    # Remove for > 9.21
-    # Fixes regression caused by the first part of the CVE-2017-8291 fix above
-    # https://bugs.ghostscript.com/show_bug.cgi?id=697846
-    # Upstream commit from 3 May 2017 "Bug 697846: revision to commit 4f83478c88 (.eqproc)"
-    patch do
-      url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=57f20719e1"
-      sha256 "0b2f6008542c6f01caf20f56aa084cd906b96e0974820f2b613b1ae12618b233"
-    end
-  end
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922/ghostscript-9.22.tar.xz"
+  sha256 "c1f862e6f40f997dbe3feba89355e8cb05d55818994e10f4932b0dd9b627d1bb"
 
   bottle do
     sha256 "fb1d0eb187792f87be4211a91bfbf1cf134386684fc7cb366172c17a343c81d3" => :high_sierra
     sha256 "9260610aa9daaee499420b73b31dea4385b84572ce45e643493d341f6a24de40" => :sierra
     sha256 "e4607b6721fcbf05ef11b7dedebee8870fcea1eee8bdbb2bfb0a6e15cbcaf17c" => :el_capitan
     sha256 "1ae88c8587a922be03eed483f951c3a88809714cdeadce90c2fc6dbaeceba8ef" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922rc2/ghostscript-9.22rc2.tar.gz"
-    sha256 "1861c0cee1e005bd2712873e3058ee1c131c79819625fe479ebcef68e055648e"
   end
 
   head do
