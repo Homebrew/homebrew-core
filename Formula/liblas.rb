@@ -19,6 +19,13 @@ class Liblas < Formula
   depends_on "boost"
   depends_on "laszip" => :optional
 
+  # Fix build for Xcode 9 with upstream commit
+  # Remove in next version
+  patch do
+    url "https://github.com/libLAS/libLAS/commit/49606470.patch?full_index=1"
+    sha256 "5590aef61a58768160051997ae9753c2ae6fc5b7da8549707dfd9a682ce439c8"
+  end
+
   def install
     mkdir "macbuild" do
       # CMake finds boost, but variables like this were set in the last
