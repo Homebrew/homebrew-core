@@ -1,10 +1,10 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
-  url "https://gitlab.kode54.net/kode54/vgmstream/repository/archive.zip?ref=r1040"
+  url "https://github.com/kode54/vgmstream/archive/r1040.tar.gz"
   version "r1040"
-  sha256 "1f1ffb295138d02f01503b5eddd5c836811b7b02dca8a8cecc6a04b02ce9584a"
-  head "https://gitlab.kode54.net/kode54/vgmstream.git"
+  sha256 "0ff6534a4049b27b01caf209811b87b1bfe445f94e141a5fe601f2dae9d03c89"
+  head "https://github.com/kode54/vgmstream.git"
 
   bottle do
     cellar :any
@@ -23,5 +23,9 @@ class Vgmstream < Formula
       bin.install "test" => "vgmstream"
       lib.install "../src/libvgmstream.a"
     end
+  end
+
+  test do
+    assert_match "decode", shell_output("#{bin}/vgmstream 2>&1", 1)
   end
 end
