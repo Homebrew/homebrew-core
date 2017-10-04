@@ -1,7 +1,7 @@
 class Mysqlxx < Formula
   desc "C++ wrapper for MySQL's C API"
-  homepage "https://tangentsoft.net/mysql++/"
-  url "https://tangentsoft.net/mysql++/releases/mysql++-3.2.3.tar.gz"
+  homepage "https://tangentsoft.com/mysqlpp/home"
+  url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.3.tar.gz"
   sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
 
   bottle do
