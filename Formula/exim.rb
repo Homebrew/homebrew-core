@@ -21,9 +21,9 @@ class Exim < Formula
   # Patch applied upstream but doesn't apply cleanly from git.
   # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-6.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-6.debian.tar.xz"
-    sha256 "a37923ea58656a16a74c7ce3b7e6b228a574067ce457eacb8813b326848c04b9"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-7.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-7.debian.tar.xz"
+    sha256 "e24464a5a803e4063b32e42543f9a9352ed2fa6bfde7b0f608e59582a23a853f"
     apply "patches/75_fixes_01-Start-exim-4_89-fixes-to-cherry-pick-some-commits-fr.patch"
     apply "patches/75_fixes_02-Cleanup-prevent-repeated-use-of-p-oMr-to-avoid-mem-l.patch"
     apply "patches/75_fixes_03-Fix-log-line-corruption-for-DKIM-status.patch"
