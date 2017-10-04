@@ -31,6 +31,13 @@ class Openttd < Formula
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
   end
 
+  # Fix pre-existing bug triggering Xcode 9 build error
+  # Upstream commit, remove when 1.8 is released
+  patch do
+    url "http://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
+    sha256 "a2681e6ac7ccb2be2d591090198f343d1744484d7093e1e9866325cceecc8748"
+  end
+
   def install
     system "./configure", "--prefix-dir=#{prefix}"
     system "make", "bundle"
