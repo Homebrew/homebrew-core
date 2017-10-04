@@ -17,6 +17,7 @@ class Dehydrated < Formula
     (buildpath/"src/github.com/lukas2511/dehydrated").install buildpath.children
     cd "src/github.com/lukas2511/dehydrated" do
       bin.install "dehydrated"
+      prefix.install_metafiles
     end
   end
 
