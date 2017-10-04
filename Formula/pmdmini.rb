@@ -1,8 +1,8 @@
 class Pmdmini < Formula
   desc "Plays music in PC-88/98 PMD chiptune format"
   homepage "https://github.com/mistydemeo/pmdmini"
-  url "https://github.com/mistydemeo/pmdmini/archive/v1.0.0.tar.gz"
-  sha256 "526cb2be1a7e32be9782908cbaeae89b3aca20cad8e42f238916ce9b6d17679c"
+  url "https://github.com/mistydemeo/pmdmini/archive/v1.0.1.tar.gz"
+  sha256 "5c866121d58fbea55d9ffc28ec7d48dba916c8e1bed1574453656ef92ee5cea9"
 
   bottle do
     cellar :any
