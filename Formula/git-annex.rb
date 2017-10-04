@@ -26,7 +26,13 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
-    install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
+    # The fingertree constraint can be removed after the next release of reducers (>v3.12.1)
+    # https://git-annex.branchable.com/bugs/fingertree___62____61___0.1.2_causes_build_to_fail_on_reducers/
+    # git-annex is broken with aws 0.17, error: "Couldn't match expected type 'AWS.Configuration'"
+    # https://git-annex.branchable.com/bugs/Cannot_build_with_aws_0.17.1/
+    install_cabal_package "--constraint", "fingertree<0.1.2.0", "--constraint", "aws<0.17",
+                          "--allow-newer=aws:time", :using => ["alex", "happy", "c2hs"],
+                                                    :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
         system "make", "git-union-merge", "PREFIX=#{prefix}"
