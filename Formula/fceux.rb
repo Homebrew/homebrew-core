@@ -18,7 +18,17 @@ class Fceux < Formula
   depends_on "sdl"
   depends_on "gtk+3" => :recommended
 
+  # Fix "error: ordered comparison between pointer and zero"
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/c126b2c/fceux/xcode9.patch"
+      sha256 "3fdea3b81180d1720073c943ce9f3e2630d200252d33c1e2efc1cd8c1e3f8148"
+    end
+  end
+
   def install
+    system "2to3", "--write", "--fix=print", "SConstruct", "src/SConscript"
+
     # Bypass X11 dependency injection
     # https://sourceforge.net/p/fceultra/bugs/755/
     inreplace "src/drivers/sdl/SConscript", "env.ParseConfig(config_string)", ""
