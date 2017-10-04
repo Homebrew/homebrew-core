@@ -40,6 +40,13 @@ class Elm < Formula
   depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
 
+  # Fix two "Not in scope" errors
+  # Upstream PR from 3 Oct 2017 "Paths.hs: fix build failure"
+  resource "elm-package-patch" do
+    url "https://github.com/elm-lang/elm-package/pull/287.patch?full_index=1"
+    sha256 "3f922d7962a41217e760361ad444d00676aff0e40c3741fd536b39d2961165d3"
+  end
+
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
@@ -60,6 +67,11 @@ class Elm < Formula
               "optparse-applicative >= 0.11 && < 0.14," # 0.13.0.0 is current
       s.gsub! "HTTP >= 4000.2.5 && < 4000.3,",
               "HTTP >= 4000.2.5 && < 4000.4," # 4000.3.3 is current
+    end
+
+    resource("elm-package-patch").stage do
+      system "patch", "-p1", "-i", Pathname.pwd/"287.patch", "-d",
+             buildpath/"elm-package"
     end
 
     cabal_sandbox do
