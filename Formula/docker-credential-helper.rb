@@ -24,6 +24,7 @@ class DockerCredentialHelper < Formula
       system "make", "vet_osx"
       system "make", "osxkeychain"
       bin.install "bin/docker-credential-osxkeychain"
+      prefix.install_metafiles
     end
   end
 
