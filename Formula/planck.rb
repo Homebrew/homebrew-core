@@ -1,8 +1,8 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/2.8.0.tar.gz"
-  sha256 "ccafb58d745a67509e3edfce050535177d736fa27241c3202369a6bb34fc97ad"
+  url "https://github.com/mfikes/planck/archive/2.8.1.tar.gz"
+  sha256 "70dcc04d1f97b90e5830a4c6f92e4a9b8bb1ecca15f33e6656f5c71f254cc729"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
