@@ -4,7 +4,7 @@ class Nvi < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -57,5 +57,11 @@ class Nvi < Formula
       ENV.deparallelize
       system "make", "install"
     end
+  end
+
+  test do
+    (testpath/"test").write("This is toto!\n")
+    pipe_output("#{bin}/nvi -e test", "%s/toto/tutu/g\nwq\n")
+    assert_equal "This is tutu!\n", File.read("test")
   end
 end
