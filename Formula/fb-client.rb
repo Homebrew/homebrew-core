@@ -7,11 +7,10 @@ class FbClient < Formula
   head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4a70bc13d8f93956c3432281f53fd09c4fe8e0d77d2088f8251e1792974151ad" => :high_sierra
-    sha256 "9e49650c2e2c1d5294ba22c821218c7b48ec97647f627fdd67e2ab45d2c7f499" => :sierra
-    sha256 "ed82a23cee56924581955e38a0e75e457eeeefb044e3213de7fd17c74f437978" => :el_capitan
-    sha256 "70fc5a9498e3d66788f57299c21586fa866587c0c1010ae04f67feecc2ee39d8" => :yosemite
+    cellar :any
+    sha256 "4836cf3cbef706e7fdcca5073942d5540b80103d4d8702f9965db1355eabda08" => :high_sierra
+    sha256 "1e5c4ce1a734f202e6ae9f2b46ebd3bfa08384d1cfb42ebea5435b166fb571c7" => :sierra
+    sha256 "e4155606ea0d15c8b263aae60838796048b428c04d33510b37e7ea6ae427b4d5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
