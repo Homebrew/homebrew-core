@@ -5,9 +5,9 @@ class Gtkx3 < Formula
   sha256 "cdaf2b014fc59caa1882450860a36387d5cbe4c160fe6a0017b4ebb9cf2ce3bc"
 
   bottle do
-    sha256 "1fd960c90848f5c33972c233321a81fedee6284990b935ea1906c7d70e3e2a31" => :high_sierra
-    sha256 "46a4f9a050c0ae969b0cc12b1afac2642be84972edf3ee6e5306ae950e47b06d" => :sierra
-    sha256 "0a9440ea74a4d4f1e1c96a427d32e8cbf110f456afdca52b21fc70c7665ac9af" => :el_capitan
+    sha256 "f992fd37941aee13c62aaef421fcef2830865064634fda4e96933deb43e18e7a" => :high_sierra
+    sha256 "907b7d9c7d13fdc1b28c0aa689e2abaac5d89392140121468bb8dfba0c2a1777" => :sierra
+    sha256 "01c716c48dd40799682052e63b1c7257335d9fb0f1d40a3f4c6520b87b2c6854" => :el_capitan
   end
 
   option "with-quartz-relocation", "Build with quartz relocation support"
