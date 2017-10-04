@@ -3,6 +3,7 @@ class GitFtp < Formula
   homepage "https://git-ftp.github.io/git-ftp"
   url "https://github.com/git-ftp/git-ftp/archive/1.4.0.tar.gz"
   sha256 "080e9385a9470d70a5a2a569c6e7db814902ffed873a77bec9d0084bcbc3e054"
+  revision 1
   head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
 
   bottle do
@@ -17,9 +18,9 @@ class GitFtp < Formula
   depends_on "libssh2"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.54.1.tar.bz2"
-    mirror "http://curl.askapache.com/download/curl-7.54.1.tar.bz2"
-    sha256 "fdfc4df2d001ee0c44ec071186e770046249263c491fcae48df0e1a3ca8f25a0"
+    url "https://curl.haxx.se/download/curl-7.56.0.tar.bz2"
+    mirror "http://curl.askapache.com/download/curl-7.56.0.tar.bz2"
+    sha256 "de60a4725a3d461c70aa571d7d69c788f1816d9d1a8a2ef05f864ce8f01279df"
   end
 
   def install
