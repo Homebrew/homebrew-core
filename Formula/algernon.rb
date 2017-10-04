@@ -1,8 +1,10 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "http://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon/archive/1.5.1.tar.gz"
-  sha256 "7615cc4de4646c92130ee0d0ded8b43f04cf27146f61c7e29407821ee4f1e845"
+  url "https://github.com/xyproto/algernon.git",
+      :tag => "1.6",
+      :revision => "9281665f4106b6c8938904f7ea1ff5386116ca22"
+  sha256 "f1627ed11e84890befbf244828aff7a56a17157f721b445804e18b5461e3b8f3"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
@@ -14,15 +16,12 @@ class Algernon < Formula
     sha256 "bafaf993037f0ee03179f9cc7c0d1829a8a64b755ef16429f1bb668ce228c333" => :yosemite
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GLIDE_HOME"] = buildpath/"glide_home"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/xyproto/algernon").install buildpath.children
     cd "src/github.com/xyproto/algernon" do
-      system "glide", "install"
       system "go", "build", "-o", "algernon"
 
       bin.install "desktop/mdview"
