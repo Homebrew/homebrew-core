@@ -36,6 +36,12 @@ class Mupen64plus < Formula
     # Prevent different C++ standard library warning
     inreplace Dir["source/mupen64plus-**/projects/unix/Makefile"], /(-mmacosx-version-min)=\d+\.\d+/, "\\1=#{MacOS.version}"
 
+    # Fix build with Xcode 9 using upstream commit:
+    # https://github.com/mupen64plus/mupen64plus-video-glide64mk2/commit/5ac11270
+    # Remove in next version
+    inreplace "source/mupen64plus-video-glide64mk2/src/Glide64/3dmath.cpp",
+              "__builtin_ia32_storeups", "_mm_storeu_ps"
+
     common_args = ["install", "PREFIX=#{prefix}", "INSTALL_STRIP_FLAG=-S"]
 
     cd "source/mupen64plus-core/projects/unix" do
