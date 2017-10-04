@@ -6,10 +6,9 @@ class Python3 < Formula
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
-    rebuild 1
-    sha256 "cfcb5a2094e0318bc6b0585658250dc26b37260c5b3c9225578f7bfd1dbac8fc" => :high_sierra
-    sha256 "a2bf378319e452223331b951b14d209f3798db227415c92fb0f89865e48e1a21" => :sierra
-    sha256 "ddf221e8fe138eaaab3a78cff4f72606c73c29d7e30f0047d49c4684da047a77" => :el_capitan
+    sha256 "4790e06c30036c19b62f7a3a188363f776ad58bdb8f58185b8b14f4f3e936718" => :high_sierra
+    sha256 "057f4c743c787a77e10c81b446a9251c5cdfefd799a110a75c2b68ea0c87cf4b" => :sierra
+    sha256 "c3bc7112f01d803c6e5db81d22f7e580594f7efc9e7bd5c5b703a8142ec8a6fb" => :el_capitan
   end
 
   devel do
