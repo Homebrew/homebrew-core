@@ -8,10 +8,10 @@ class Vgmstream < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "384e5c9dc2c362457c994225a68a2a4a77e3359d6ef075772ad85f284c2e1035" => :sierra
-    sha256 "af90cbf62ba45286723f002d65f5c04f2c3abbd31abf9f9bc5313aa6e2ee9ba6" => :el_capitan
-    sha256 "944871f693a695c31b2c07569a9bb8314b0a95ae451b68cb172ecd473d73f5a5" => :yosemite
+    rebuild 2
+    sha256 "970428e954d82c2aaef2da083320fabd21ae7ba866fd2055d5fdcdd21f2989b0" => :high_sierra
+    sha256 "b85d6942270fc9024de56e4fe08618f7ffce1499f4c9faf3f31b246310a17511" => :sierra
+    sha256 "980226be71f7ba16f71e7cd4ba53a4160c03cf9308036d014538b1feb8285d08" => :el_capitan
   end
 
   depends_on "mpg123"
