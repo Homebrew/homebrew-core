@@ -4,8 +4,8 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.0.1",
-      :revision => "e991d1b4262d4f0ec1cfe3d7f5b7de2e91aa4ddc"
+      :tag => "v10.0.2",
+      :revision => "a9a76a502bf69371d9c610d0b2814b4e0f3ae762"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
@@ -24,17 +24,17 @@ class GitlabRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.2/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.0.1"
-    sha256 "7e087f61ead5f2d8ffd9344816effb081a86e7c1ca7328c13ffda922b59ad171"
+    version "10.0.2"
+    sha256 "58c95075273f44ff926823aa9b5bf9fd4cb82c87adc27bef48d5bf985d629992"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.2/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.0.1"
-    sha256 "21d3f2704d876d25c896ac51a7da0b1a9b1ed8aea4a59a342d9a5937be10f4cf"
+    version "10.0.2"
+    sha256 "b73a0690eef09c4f366342f98bec301020d47c16f98ac8a770f373dd81a76b04"
   end
 
   def install
