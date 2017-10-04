@@ -29,12 +29,10 @@ class Landscaper < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Bootstap build
       system "make", "bootstrap"
-
-      # Make binary
       system "make", "build"
       bin.install "build/landscaper"
+      prefix.install_metafiles
     end
   end
 
