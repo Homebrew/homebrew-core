@@ -52,12 +52,14 @@ class Ffmpeg < Formula
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
+  option "with-static", "Enable building static libraries"
   option "without-lame", "Disable MP3 encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
   option "without-securetransport", "Disable use of SecureTransport"
   option "without-x264", "Disable H.264 encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
   option "without-gpl", "Disable building GPL licensed parts of FFmpeg"
+  option "without-shared", "Disable building shared libraries"
 
   deprecated_option "with-ffplay" => "with-sdl2"
   deprecated_option "with-sdl" => "with-sdl2"
@@ -110,7 +112,6 @@ class Ffmpeg < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-shared
       --enable-pthreads
       --enable-version3
       --enable-hardcoded-tables
@@ -120,6 +121,8 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
     ]
 
+    args << "--enable-shared" if build.with? "shared"
+    args << "--enable-static" if build.with? "static"
     args << "--enable-gpl" if build.with? "gpl"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
