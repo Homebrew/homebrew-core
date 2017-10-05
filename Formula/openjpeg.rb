@@ -1,8 +1,8 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "http://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.2.0.tar.gz"
-  sha256 "6fddbce5a618e910e03ad00d66e7fcd09cc6ee307ce69932666d54c73b7c6e7b"
+  url "https://github.com/uclouvain/openjpeg/archive/v2.3.0.tar.gz"
+  sha256 "3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
@@ -45,7 +45,7 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/openjpeg-2.2", "-L#{lib}", "-lopenjp2",
+    system ENV.cc, "-I#{include.children.first}", "-L#{lib}", "-lopenjp2",
            testpath/"test.c", "-o", "test"
     system "./test"
   end
