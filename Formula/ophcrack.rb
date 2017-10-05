@@ -3,7 +3,7 @@ class Ophcrack < Formula
   homepage "https://ophcrack.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.7.0/ophcrack-3.7.0.tar.bz2"
   mirror "https://mirrors.kernel.org/debian/pool/main/o/ophcrack/ophcrack_3.7.0.orig.tar.bz2"
-  sha256 "9d5615dd8e42a395898423f84e29d94ad0b1d4a28fcb14c89a1e2bb1a0374409"
+  sha256 "7c28fd7dbb9c9e176ea51b48f826abe122022bbf5568d8ab3a2066fc2876b9b4"
 
   bottle do
     cellar :any
