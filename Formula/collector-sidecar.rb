@@ -20,11 +20,16 @@ class CollectorSidecar < Formula
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/Graylog2/collector-sidecar").install buildpath.children
+
     cd "src/github.com/Graylog2/collector-sidecar" do
       inreplace "main.go", "/etc", etc
-      inreplace "collector_sidecar.yml", "/usr", HOMEBREW_PREFIX
-      inreplace "collector_sidecar.yml", "/etc", etc
-      inreplace "collector_sidecar.yml", "/var", var
+
+      inreplace "collector_sidecar.yml" do |s|
+        s.gsub! "/usr", HOMEBREW_PREFIX
+        s.gsub! "/etc", etc
+        s.gsub! "/var", var
+      end
+
       system "glide", "install"
       system "make", "build"
       (etc/"graylog/collector-sidecar").install "collector_sidecar.yml"
