@@ -5,10 +5,9 @@ class Ucommon < Formula
   sha256 "6ac9f76c2af010f97e916e4bae1cece341dc64ca28e3881ff4ddc3bc334060d7"
 
   bottle do
-    sha256 "dc45edfafc90739e0bdbb5f44ac45151e2721737e5ea5fd8425d6f5398ef9889" => :sierra
-    sha256 "eea46c279fd145ec3d8a7a3d9b751465341e8f69aa507bd6f7025d9437019b0c" => :el_capitan
-    sha256 "6237fa697417c4defdfc513c7b56e93ce7156b5b38a4164e7a27c9e285688c0a" => :yosemite
-    sha256 "6fe4b60fa239460cf900a9660ab08275865d167c0811e3f8069307c19b2b8060" => :mavericks
+    sha256 "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c" => :high_sierra
+    sha256 "0546fbc44ac1e17d8757b41a67b2d68b15bc872b4b19fea649e5d7fe54a4d2d4" => :sierra
+    sha256 "57756d7809936ed885ef8fc7a284498ab12a5be6cc1ad41ad148dd45074fc322" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
