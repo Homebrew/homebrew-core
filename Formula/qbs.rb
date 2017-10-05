@@ -1,8 +1,8 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms."
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/1.9.0/qbs-src-1.9.0.tar.gz"
-  sha256 "eb1bdedd274ad349442cb6b3938b4b904e7f738881c0689c2b71b620ec714793"
+  url "https://download.qt.io/official_releases/qbs/1.9.1/qbs-src-1.9.1.tar.gz"
+  sha256 "970048842581bc004eec9ac9777a49380c03f4e01ef7ad309813aa1054870073"
   head "https://code.qt.io/qt-labs/qbs.git"
 
   bottle do
@@ -16,11 +16,8 @@ class Qbs < Formula
   depends_on "qt"
 
   def install
-    cd "qbs-src-1.9.0" do
-      system "qmake", "qbs.pro", "-r", "QBS_INSTALL_PREFIX=/"
-      system "make", "install", "INSTALL_ROOT=#{prefix}"
-      prefix.install_metafiles
-    end
+    system "qmake", "qbs.pro", "-r", "QBS_INSTALL_PREFIX=/"
+    system "make", "install", "INSTALL_ROOT=#{prefix}"
   end
 
   test do
