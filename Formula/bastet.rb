@@ -12,6 +12,12 @@ class Bastet < Formula
 
   depends_on "boost"
 
+  # Fix compilation with Boost >= 1.65, remove for next release
+  patch do
+    url "https://github.com/fph/bastet/commit/0e03f8d4.patch?full_index=1"
+    sha256 "9b937d070a4faf150f60f82ace790c7a1119cff0685b52edf579740d2c415d7b"
+  end
+
   def install
     inreplace %w[Config.cpp bastet.6], "/var", var
 
