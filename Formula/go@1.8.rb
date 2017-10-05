@@ -1,11 +1,9 @@
 class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.8.3.src.tar.gz"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.8.3.src.tar.gz/sha512/c6e67dd9e3acdf2aa776d920f91f3fb1802d624ba5d51e06b2c7c6b71bcfaf91f4024f7a442cecde69175c589f7f1163f0ae86d887e15ddde710e53ce0961284/go1.8.3.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.8.3.src.tar.gz"
-  version "1.8.3"
-  sha256 "5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6"
+  url "https://storage.googleapis.com/golang/go1.8.4.src.tar.gz"
+  version "1.8.4"
+  sha256 "abf1b2e5ae2a4845f3d2eac00c7382ff209e2c132dc35b7ce753da9b4f52e59f"
 
   bottle do
     sha256 "8ec868f2c7427129766c749925000f7aa826f32538180b8df8ce3eda4d3f96bf" => :high_sierra
