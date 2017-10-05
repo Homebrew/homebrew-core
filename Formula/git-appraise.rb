@@ -10,12 +10,12 @@ class GitAppraise < Formula
   depends_on "go" => :build
 
   def install
-	  ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = buildpath
 
-	  (buildpath/"src/github.com/google").mkpath
-	  ln_s buildpath, buildpath/"src/github.com/google/git-appraise"
+    (buildpath/"src/github.com/google").mkpath
+    ln_s buildpath, buildpath/"src/github.com/google/git-appraise"
 
-	  system "go", "build", "-o", bin/"git-appraise", "./src/github.com/google/git-appraise/git-appraise"
+    system "go", "build", "-o", bin/"git-appraise", "./src/github.com/google/git-appraise/git-appraise"
   end
 
   test do
