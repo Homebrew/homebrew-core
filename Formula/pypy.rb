@@ -4,8 +4,8 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.8.0-src.tar.bz2"
-    sha256 "504c2d522595baf8775ae1045a217a2b120732537861d31b889d47c340b58bd5"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-src.tar.bz2"
+    sha256 "de4bf05df47f1349dbac97233d9277bbaf1ef3331663ea2557fd5da3dbcfd0a7"
   end
 
   bottle do
@@ -33,8 +33,8 @@ class Pypy < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/25/4e/1b16cfe90856235a13872a6641278c862e4143887d11a12ac4905081197f/setuptools-28.8.0.tar.gz"
-    sha256 "432a1ad4044338c34c2d09b0ff75d509b9849df8cf329f4c1c7706d9c2ba3c61"
+    url "https://files.pythonhosted.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip"
+    sha256 "ce2007c1cea3359870b80657d634253a0765b0c7dc5a988d77ba803fc86f2c64"
   end
 
   resource "pip" do
