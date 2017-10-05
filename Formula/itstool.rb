@@ -1,9 +1,8 @@
 class Itstool < Formula
   desc "Make XML documents translatable through PO files"
   homepage "http://itstool.org/"
-  url "http://files.itstool.org/itstool/itstool-2.0.2.tar.bz2"
-  sha256 "bf909fb59b11a646681a8534d5700fec99be83bb2c57badf8c1844512227033a"
-  revision 2
+  url "http://files.itstool.org/itstool/itstool-2.0.3.tar.bz2"
+  sha256 "8c7a5c639eb4714a91ad829910fd06c1c677abcbbb60aee9211141faa7fb02c7"
 
   bottle do
     cellar :any_skip_relocation
