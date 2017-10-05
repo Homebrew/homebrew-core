@@ -34,6 +34,7 @@ class CollectorSidecar < Formula
       system "make", "build"
       (etc/"graylog/collector-sidecar").install "collector_sidecar.yml"
       bin.install "graylog-collector-sidecar"
+      prefix.install_metafiles
     end
   end
 
