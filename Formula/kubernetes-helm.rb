@@ -27,19 +27,14 @@ class KubernetesHelm < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Bootstap build
       system "make", "bootstrap"
-
-      # Make binary
       system "make", "build"
+
       bin.install "bin/helm"
       bin.install "bin/tiller"
-
-      # Install man pages
       man1.install Dir["docs/man/man1/*"]
-
-      # Install bash completion
       bash_completion.install "scripts/completions.bash" => "helm"
+      prefix.install_metafiles
     end
   end
 
