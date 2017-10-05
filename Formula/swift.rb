@@ -6,37 +6,37 @@ class Swift < Formula
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.
   stable do
-    url "https://github.com/apple/swift/archive/swift-3.1.1-RELEASE.tar.gz"
-    sha256 "fe4dcb9ee1247acd6653fe193684e9cb212c6551e0b0b44849899bec99df3297"
+    url "https://github.com/apple/swift/archive/swift-4.0-RELEASE.tar.gz"
+    sha256 "9ebd6b634baf82e69ac9f6fae5c9c979db7c7e4bc9db149b30b575e57da99b94"
 
     resource "clang" do
-      url "https://github.com/apple/swift-clang/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "bf9ec0c157501eea69ea1eb3c4b8bf56058110ec6c6a870d81d53868b67d1b96"
+      url "https://github.com/apple/swift-clang/archive/swift-4.0-RELEASE.tar.gz"
+      sha256 "d0f9a5a06074318fa237bc4847fc4a746918ab1d016e14baafc6bf17b24083d9"
     end
 
     resource "cmark" do
-      url "https://github.com/apple/swift-cmark/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "51db8067f11976a7ca38a6ff9f173d3d9e3df290991be87835cdc003e0b62e4e"
+      url "https://github.com/apple/swift-cmark/archive/swift-4.0-RELEASE.tar.gz"
+      sha256 "71aea066925abb92738549051cc5e91f78b588fe0f1102c64c35d7f9078f1cef"
     end
 
     resource "compiler-rt" do
-      url "https://github.com/apple/swift-compiler-rt/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "569568141b1f9ff0f433eaf815a0c19592bf43407bb4150d647aa9c7bc2a7c7b"
+      url "https://github.com/apple/swift-compiler-rt/archive/swift-4.0-RELEASE.tar.gz"
+      sha256 "189baa8e00dca394afa8c58104c9a293ce37aebf38343c250bea36054f6f006d"
     end
 
     resource "llbuild" do
-      url "https://github.com/apple/swift-llbuild/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "a5b0a69e3785ce483053a7c1d2b2fe3c6ccc81832a930afee7969a9147316165"
+      url "https://github.com/apple/swift-llbuild/archive/swift-4.0-RELEASE.tar.gz"
+      sha256 "2e9fe830e25c74d9597a4189132b09348fc995b2de831814a55c426198c941f4"
     end
 
     resource "llvm" do
-      url "https://github.com/apple/swift-llvm/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "385b587b825adae9a9f7e5789e151ae0554e6e62f2f2f81ff3b623ef578b39bc"
+      url "https://github.com/apple/swift-llvm/archive/swift-4.0-RELEASE.tar.gz"
+      sha256 "6c30d7f3190b9f76fd646f2c03a093cf768c1aa7e10898ee8281bfe88ba0feeb"
     end
 
     resource "swiftpm" do
-      url "https://github.com/apple/swift-package-manager/archive/swift-3.1.1-RELEASE.tar.gz"
-      sha256 "8ba05b5399b266615cf0d2055698dd3f23b57111120e98419f56139301981914"
+      url "https://github.com/apple/swift-package-manager/archive/swift-4.0-RELEASE.tar.gz"
+      sha256 "fe19d370cb5fea32246bac1fd81a4c0e6932518e6e3b7fcc1913adc3b01b91e7"
     end
   end
 
@@ -52,7 +52,7 @@ class Swift < Formula
 
   # Depends on latest version of Xcode
   # https://github.com/apple/swift#system-requirements
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.0", :build]
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
