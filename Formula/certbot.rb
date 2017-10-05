@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.18.2.tar.gz"
-  sha256 "c8a94e3e2dfa8efa379912a8dc67f561cf6daf7d8e13dbb76b40a38cfb40c08d"
+  url "https://github.com/certbot/certbot/archive/v0.19.0.tar.gz"
+  sha256 "164b496cc111f19619da1eac9e3fe03baac5ad5a97c2fa19eeffe07273c4b723"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -20,8 +20,8 @@ class Certbot < Formula
   depends_on :python
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
-    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
+    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
   end
 
   resource "certifi" do
@@ -30,8 +30,8 @@ class Certbot < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
-    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
+    url "https://files.pythonhosted.org/packages/70/72/c825b14b212fe61791c88e09cca65b26ea0b5e7ef6a4a2f979d338fbe38d/cffi-1.11.1.tar.gz"
+    sha256 "4c40817cc0f71b5351eb0bdd0b585db4a285c2bcc03fbcb961b79bb8086b7576"
   end
 
   resource "chardet" do
@@ -135,8 +135,8 @@ class Certbot < Formula
   end
 
   resource "zope.component" do
-    url "https://files.pythonhosted.org/packages/5c/1e/5cb27047f5817aa5e413efcea8ca701265644623dd9dddb4ca92ef150138/zope.component-4.4.0.tar.gz"
-    sha256 "2a53e184026d63ef4073dd3722b34f104fbc702329b61182bf65e1152ef5038a"
+    url "https://files.pythonhosted.org/packages/45/3c/bd34f228e2ff303071b5ff68657abf6d11af2151056acd449796eff694e0/zope.component-4.4.1.tar.gz"
+    sha256 "1b29aa65413f6dda29e64e2352a6aa13d9ba70078f6b91f328573488788d531c"
   end
 
   resource "zope.event" do
@@ -145,8 +145,8 @@ class Certbot < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/c5/88/93373971f893714f0dc15e09696ec4886ee8b4e561ce5ae45612c2c516c4/zope.interface-4.4.2.tar.gz"
-    sha256 "4e59e427200201f69ef82956ddf9e527891becf5b7cde8ec3ce39e1d0e262eb0"
+    url "https://files.pythonhosted.org/packages/bd/d2/25349ed41f9dcff7b3baf87bd88a4c82396cf6e02f1f42bb68657a3132af/zope.interface-4.4.3.tar.gz"
+    sha256 "d6d26d5dfbfd60c65152938fcb82f949e8dada37c041f72916fef6621ba5c5ce"
   end
 
   resource "python-augeas" do
