@@ -6,9 +6,10 @@ class GnuApl < Formula
   sha256 "8ff6e28256d7a3cdfa9dc6025e3905312310b27a43645ef5d617fd4a5b43b81f"
 
   bottle do
-    sha256 "ba1839e1a64c434180af2b8ba81c43e35cacd685eed11fcbeaeced5c5e58b87f" => :sierra
-    sha256 "1077298d934bc67c86d8196405f7ff312e52631ed3489bb868cf7d23196a6bf9" => :el_capitan
-    sha256 "235adcfc3ec604544b0c18cd61b6b4f1b9bbe47f1415e6b94e13f9a7d9264115" => :yosemite
+    rebuild 1
+    sha256 "33e8f7db591cfbd0fda5b244acbf13f21e9507a6b534b9cd2735c2dc37f16424" => :high_sierra
+    sha256 "1b7b6f3d268ac7f32f1d23e64be979cbf382b728c92c6e852f75b09eb19fddfb" => :sierra
+    sha256 "797a920a7f564443b7a7b5c5ee065e6d6da25e2395c87dc6f1846adc3dedd109" => :el_capitan
   end
 
   head do
