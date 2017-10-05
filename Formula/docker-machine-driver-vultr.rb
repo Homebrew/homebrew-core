@@ -25,6 +25,7 @@ class DockerMachineDriverVultr < Formula
     cd "src/github.com/janeczku/docker-machine-vultr" do
       system "make"
       bin.install "build/docker-machine-driver-vultr-v#{version}" => "docker-machine-driver-vultr"
+      prefix.install_metafiles
     end
   end
 
