@@ -22,6 +22,7 @@ class Goose < Formula
     cd "src/github.com/pressly/goose" do
       system "dep", "ensure"
       system "go", "build", "-o", bin/"goose", ".../cmd/goose"
+      prefix.install_metafiles
     end
   end
 
