@@ -42,7 +42,8 @@ class Swift < Formula
 
   bottle do
     cellar :any
-    sha256 "3f856e641147d9a743dc7e978e0dab93652ad43b59a0c064af35ab679412c5ad" => :sierra
+    sha256 "12d9b5326506e94d8d3aa49b6046c081924dd930dbb78bb22a404587788e34c6" => :high_sierra
+    sha256 "db483790a2a844d2795e17567b2abfc9af3924736c3a07d4b2bba084c1120610" => :sierra
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains Swift"
