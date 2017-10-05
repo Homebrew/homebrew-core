@@ -1,7 +1,7 @@
 class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
   homepage "https://projects.universe-factory.net/projects/fastd"
-  revision 2
+  revision 3
 
   head "https://git.universe-factory.net/fastd/", :using => :git
 
@@ -38,9 +38,12 @@ class Fastd < Formula
     args = std_cmake_args
     args << "-DENABLE_LTO=ON"
     args << "-DENABLE_OPENSSL=ON" if build.with? "openssl"
-    args << buildpath
+
+    # https://projects.universe-factory.net/issues/251
+    args << "-DWITH_CIPHER_AES128_CTR_NACL=OFF"
+
     mkdir "fastd-build" do
-      system "cmake", *args
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
