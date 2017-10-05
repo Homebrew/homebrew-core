@@ -4,8 +4,8 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.8.0-src.tar.bz2"
-    sha256 "504c2d522595baf8775ae1045a217a2b120732537861d31b889d47c340b58bd5"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-src.tar.bz2"
+    sha256 "de4bf05df47f1349dbac97233d9277bbaf1ef3331663ea2557fd5da3dbcfd0a7"
   end
 
   bottle do
