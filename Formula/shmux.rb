@@ -6,11 +6,10 @@ class Shmux < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4567e06552f5e4f489f7d5de2814c83ba4a82b8d9bbbcba266fab5bd1f1ded71" => :sierra
-    sha256 "87424e1fd8b33691a0b87b35deb8c74a09308264bf8da87a933880491a62cd78" => :el_capitan
-    sha256 "c12d7d72b94ac69fe7fa5db7247228a555c2071cce5ebb84c7bc9046fef55bb4" => :yosemite
-    sha256 "88a7a017cc820f2508bb12796dbfd84f35f3c1b6a64a1867e7e89861b2420418" => :mavericks
-    sha256 "27099056d50aa5f23d9e4dbb1307abf2dbecea031c2af5b085229e3d063dff4c" => :mountain_lion
+    rebuild 1
+    sha256 "b9c8b089571c7ab0147c5f952822764e0671d9b142672fb1f59811ee8e8081e4" => :high_sierra
+    sha256 "29fc7ae776f44efe3b1184bf32b60145e6369d63162183bd042e1bd65bc2b853" => :sierra
+    sha256 "8686fcd4954ab4cd7cacbbf80306b355c0f0562d0b9917345e4e91396c891ee0" => :el_capitan
   end
 
   def install
