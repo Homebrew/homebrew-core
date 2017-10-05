@@ -53,6 +53,7 @@ class Ledger < Formula
     pkgshare.install "contrib"
     pkgshare.install "python/demo.py" if build.with? "python"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
+    bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
 
   test do
