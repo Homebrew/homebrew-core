@@ -7,11 +7,9 @@ class Vrpn < Formula
 
   bottle do
     cellar :any
-    rebuild 3
-    sha256 "489b682ce46a75081ef4aeec26943f118027e612af9cc882a380f7463fd2ea48" => :sierra
-    sha256 "ea131270a6b130a525cf7c1be5fede216d00b97c11877d6223133e8f856590b5" => :el_capitan
-    sha256 "23ac5436fdd15dccb7e661d0f50bdfe64b5765fdb3d636830dbc27e7af59c056" => :yosemite
-    sha256 "d0f42ffa2bf57e011d59cf5fff15ab1a0ff9f1fe7a8183f06aa358c1dc173abb" => :mavericks
+    sha256 "a254843eaac154ae39da044efacb4725c8028e42914c4fb10cc7d524b6ecd7d0" => :high_sierra
+    sha256 "3f392e7ab5c352a3da3e60795a4255280cd8a53e2110e588eac2fb9c910685e0" => :sierra
+    sha256 "b9a6caa7c8ac287479ef8a09bd54362a56b73fe80b8aac1a233864be97fc1567" => :el_capitan
   end
 
   option "with-clients", "Build client apps and tests"
