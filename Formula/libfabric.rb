@@ -6,10 +6,9 @@ class Libfabric < Formula
   head "https://github.com/ofiwg/libfabric.git"
 
   bottle do
-    sha256 "6f3d88a5b1897005827e14510daf10dcc2be59bc8c702a4192d59a612b3ad1bd" => :high_sierra
-    sha256 "636003a9f03bd507340c0583f5798a8382d37357d4725b494df1e1d37010570f" => :sierra
-    sha256 "0268dd158761aa12c821c3553e3d90469e6102d410e00c94fb52063af4c1af1b" => :el_capitan
-    sha256 "aa9e0ca7778056e27fc156a2c427ea9c3284d853486fc767974e6fd449bf8d01" => :yosemite
+    sha256 "37989e2350c12f3cf3e35af87ed5b5dfece4bfd6315174ad4786667c4ca9b5c8" => :high_sierra
+    sha256 "03421a38193b23b3fa34f28afcdcad6cc629853658230ed80a4385285583d45a" => :sierra
+    sha256 "d714043c9cb25350bc61530f5fddf7a398da353158814f19a9d9377627e1302c" => :el_capitan
   end
 
   depends_on "autoconf" => :build
