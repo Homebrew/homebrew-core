@@ -6,8 +6,9 @@ class Macosvpn < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b29fedddab5f6768c12316f16daaf46f927c17c944be2280318bf209af04ebe1" => :sierra
-    sha256 "4e4d21b1daa189ddfe03c94a2dce0a54f46ed524c706bc1f376921ee5707f9cf" => :el_capitan
+    sha256 "f6760ee774acb972c84ffa2205d4c66528e2569c8310b05a45b34038f8ad49d7" => :high_sierra
+    sha256 "adabba70188d09e44f73a7e56e084a1b6d7bb57d4c1fea1e2637fe944f4c88b6" => :sierra
+    sha256 "6bcc76fbd5c18c794822c4b154d17fdf6ef8e916a03325d3dbc1ff8d03078532" => :el_capitan
   end
 
   depends_on :xcode => ["7.3", :build]
