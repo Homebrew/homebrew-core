@@ -1,8 +1,8 @@
 class Geographiclib < Formula
   desc "C++ geography library"
   homepage "https://geographiclib.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.48.tar.gz"
-  sha256 "7203d56123b6f6fb31842295d57b2418f79fb0db9a06f2f65ee9e415c6f0cb70"
+  url "https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.49.tar.gz"
+  sha256 "aec0ab52b6b9c9445d9d0a77e3af52257e21d6e74e94d8c2cb8fa6f11815ee2b"
 
   bottle do
     cellar :any
