@@ -24,6 +24,13 @@ class Vrpn < Formula
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "libusb" # for HID support
 
+  # Upstream commit fixes Xcode 9 build failure, remove in next version
+  # https://github.com/vrpn/vrpn/issues/187
+  patch do
+    url "https://github.com/vrpn/vrpn/commit/855af40d.patch?full_index=1"
+    sha256 "601335e211cee722814650a6a31cfc6a4278ae52d5e9527a2799df3dd47758b9"
+  end
+
   def install
     ENV.libstdcxx
 
