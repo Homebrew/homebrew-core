@@ -1,8 +1,8 @@
 class ExactImage < Formula
   desc "Image processing library"
   homepage "https://exactcode.com/opensource/exactimage/"
-  url "https://dl.exactcode.de/oss/exact-image/exact-image-0.9.2.tar.bz2"
-  sha256 "665b205740b17b4162fae73aa36eb7046f28bb216d612461ca0499ff47a566ba"
+  url "https://dl.exactcode.de/oss/exact-image/exact-image-1.0.0.tar.bz2"
+  sha256 "2cd14750856a86bff3bf4c55a45071e891662f004b0b0d45668ca24780ee1681"
 
   bottle do
     sha256 "ad9a08346cef8389013aaba11d374b70e4eee239e9d57b7c71485eed1cda838f" => :high_sierra
