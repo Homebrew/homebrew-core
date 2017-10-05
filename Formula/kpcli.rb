@@ -3,7 +3,7 @@ class Kpcli < Formula
   homepage "https://kpcli.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.1.pl"
   sha256 "f1f07704a30d0eae126717d5dae0d24ccced43c316454e4a7b868fe0a239a21a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -35,8 +35,8 @@ class Kpcli < Formula
   end
 
   resource "Term::Readline::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.34.tar.gz"
-    sha256 "a965fd0601bea84cb65e0c5e6a1eb3469fe2d99772be235faccbc49c57edf6cd"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.35.tar.gz"
+    sha256 "575d32d4ab67cd656f314e8d0ee3d45d2491078f3b2421e520c4273e92eb9125"
   end
 
   resource "Data::Password" do
@@ -81,12 +81,12 @@ class Kpcli < Formula
     end
 
     resource("Term::Readline::Gnu").stage do
-      args = %W[
-        INSTALL_BASE=#{libexec}
-        --includedir=#{Formula["readline"].opt_include}
-        --libdir=#{Formula["readline"].opt_lib}
-      ]
-      system "perl", "Makefile.PL", *args
+      # Prevent the Makefile to try and build universal binaries
+      ENV.refurbish_args
+
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
+                     "--includedir=#{Formula["readline"].opt_include}",
+                     "--libdir=#{Formula["readline"].opt_lib}"
       system "make", "install"
     end
 
