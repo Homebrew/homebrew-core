@@ -1,8 +1,8 @@
 class Fastbit < Formula
   desc "Open-source data processing library in NoSQL spirit"
   homepage "https://sdm.lbl.gov/fastbit/"
-  url "https://codeforge.lbl.gov/frs/download.php/416/fastbit-2.0.2.tar.gz"
-  sha256 "a9d6254fcc32da6b91bf00285c7820869950bed25d74c993da49e1336fd381b4"
+  url "https://code.lbl.gov/frs/download.php/file/426/fastbit-2.0.3.tar.gz"
+  sha256 "1ddb16d33d869894f8d8cd745cd3198974aabebca68fa2b83eb44d22339466ec"
   head "https://codeforge.lbl.gov/anonscm/fastbit/trunk",
        :using => :svn
 
