@@ -32,6 +32,13 @@ class Pdns < Formula
   depends_on "sqlite"
   depends_on :postgresql => :optional
 
+  # Use upstream commit that fixes build with Xcode 9
+  # https://github.com/PowerDNS/pdns/pull/4940
+  patch do
+    url "https://github.com/PowerDNS/pdns/commit/885bddbd.patch?full_index=1"
+    sha256 "a6c08599f8b6e368eaec99614e09da49be213666850c44101673fe2b3b4c2558"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
