@@ -17,6 +17,6 @@ class Trace2html < Formula
   test do
     touch "test.json"
     system "#{bin}/trace2html", "test.json"
-    assert File.exist?("test.html")
+    assert_predicate testpath/"test.html", :exist?
   end
 end
