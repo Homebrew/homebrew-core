@@ -28,6 +28,6 @@ class Axel < Formula
     filename = (testpath/"axel.tar.gz")
     system bin/"axel", "-o", "axel.tar.gz", stable.url
     filename.verify_checksum stable.checksum
-    assert File.exist?("axel.tar.gz")
+    assert_predicate testpath/"axel.tar.gz", :exist?
   end
 end
