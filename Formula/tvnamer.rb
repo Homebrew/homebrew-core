@@ -35,10 +35,10 @@ class Tvnamer < Formula
   end
 
   test do
-    raw_file = "brass.eye.s01e01.avi"
-    expected_file = "Brass Eye - [01x01] - Animals.avi"
-    touch testpath/raw_file
-    system bin/"tvnamer", "-b", testpath/raw_file
-    File.exist? testpath/expected_file
+    raw_file = testpath/"brass.eye.s01e01.avi"
+    expected_file = testpath/"Brass Eye - [01x01] - Animals.avi"
+    touch raw_file
+    system bin/"tvnamer", "-b", raw_file
+    assert_predicate expected_file, :exist?
   end
 end
