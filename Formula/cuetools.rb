@@ -36,7 +36,7 @@ class Cuetools < Formula
           INDEX 01 00:00:00
     EOS
     system "cueconvert", testpath/"test.cue", testpath/"test.toc"
-    File.exist? "test.toc"
+    assert_predicate testpath/"test.toc", :exist?
   end
 end
 
