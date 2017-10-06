@@ -22,6 +22,6 @@ class Tippecanoe < Formula
       {"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[0,0]}}
     EOS
     safe_system "#{bin}/tippecanoe", "-o", "test.mbtiles", "test.json"
-    assert File.exist?("#{testpath}/test.mbtiles"), "tippecanoe generated no output!"
+    assert_predicate testpath/"test.mbtiles", :exist?, "tippecanoe generated no output!"
   end
 end
