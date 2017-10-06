@@ -41,6 +41,6 @@ class Aria2 < Formula
 
   test do
     system "#{bin}/aria2c", "https://brew.sh/"
-    assert File.exist?("index.html"), "Failed to create index.html!"
+    assert_predicate testpath/"index.html", :exist?, "Failed to create index.html!"
   end
 end
