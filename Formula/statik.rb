@@ -58,8 +58,8 @@ class Statik < Formula
     EOS
     system bin/"statik"
 
-    assert(File.exist?(testpath/"public/index.html"), "home view was not correctly generated!")
-    assert(File.exist?(testpath/"public/test-post1/index.html"), "test-post1 was not correctly generated!")
-    assert(File.exist?(testpath/"public/test-post2/index.html"), "test-post2 was not correctly generated!")
+    assert_predicate testpath/"public/index.html", :exist?, "home view was not correctly generated!"
+    assert_predicate testpath/"public/test-post1/index.html", :exist?, "test-post1 was not correctly generated!"
+    assert_predicate testpath/"public/test-post2/index.html", :exist?, "test-post2 was not correctly generated!"
   end
 end
