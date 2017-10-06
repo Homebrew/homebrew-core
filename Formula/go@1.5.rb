@@ -99,7 +99,7 @@ class GoAT15 < Formula
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     if build.with? "godoc"
-      assert File.exist?(libexec/"bin/godoc")
+      assert_predicate libexec/"bin/godoc", :exist?
       assert File.executable?(libexec/"bin/godoc")
     end
   end
