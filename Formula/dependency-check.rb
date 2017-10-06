@@ -37,6 +37,6 @@ class DependencyCheck < Formula
     EOS
     system bin/"dependency-check", "-P", "temp-props.properties", "-f", "XML",
                "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath
-    assert File.exist?(testpath/"dependency-check-report.xml")
+    assert_predicate testpath/"dependency-check-report.xml", :exist?
   end
 end
