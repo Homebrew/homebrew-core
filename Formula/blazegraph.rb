@@ -28,7 +28,7 @@ class Blazegraph < Formula
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{prefix}</string>
+        <string>#{opt_prefix}</string>
       </dict>
     </plist>
     EOS
