@@ -45,6 +45,6 @@ class Unpaper < Formula
       0 0 0 0 0 0
     EOS
     system bin/"unpaper", testpath/"test.pbm", testpath/"out.pbm"
-    File.exist? testpath/"out.pbm"
+    assert_predicate testpath/"out.pbm", :exist?
   end
 end
