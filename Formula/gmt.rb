@@ -66,6 +66,6 @@ class Gmt < Formula
 
   test do
     system "#{bin}/pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
-    assert File.exist? "test.ps"
+    assert_predicate testpath/"test.ps", :exist?
   end
 end
