@@ -147,7 +147,7 @@ class Lua < Formula
     if File.exist?(bin/"luarocks-5.2")
       mkdir testpath/"luarocks"
       system bin/"luarocks-5.2", "install", "moonscript", "--tree=#{testpath}/luarocks"
-      assert File.exist? testpath/"luarocks/bin/moon"
+      assert_predicate testpath/"luarocks/bin/moon", :exist?
     end
   end
 end
