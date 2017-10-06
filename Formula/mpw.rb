@@ -8,9 +8,9 @@ class Mpw < Formula
 
   bottle do
     cellar :any
-    sha256 "2362b64cc103b6773e0f324fccce8060e8e616346da2bd1860ed6550493c6e31" => :high_sierra
-    sha256 "0b309a132855ca40b5ecd429c8495498528e19f12a47b45398ed5375e01d1329" => :sierra
-    sha256 "d5a6c9f23018a3620fc4e0e8306c5eb5f700510ac048f55fe59a59c15f377f2f" => :el_capitan
+    sha256 "dae1000a0cf67648b022a23f07b9696c45040946118195874aafee9c752a83ec" => :high_sierra
+    sha256 "b58efb809596866dba6265a55bcd1be7d59ffa95cd74d3297ea0019badcb911a" => :sierra
+    sha256 "b9a997a1c4ba244b904b430e545da399f633bce79464bee3b0153c7707b484cf" => :el_capitan
   end
 
   option "without-json-c", "Disable JSON configuration support"
