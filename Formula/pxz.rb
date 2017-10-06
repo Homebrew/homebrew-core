@@ -39,7 +39,7 @@ class Pxz < Formula
   test do
     (testpath/"test").write "foo bar"
     system "#{bin}/pxz", "test"
-    assert File.exist? "test.xz"
+    assert_predicate testpath/"test.xz", :exist?
   end
 end
 
