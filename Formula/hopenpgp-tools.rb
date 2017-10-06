@@ -26,6 +26,9 @@ class HopenpgpTools < Formula
   end
 
   def install
+    # Reported 7 Oct 2017 to clint AT debian DOT org
+    (buildpath/"cabal.config").write("constraints: happy<1.19.6\n")
+
     install_cabal_package :using => ["alex", "happy"]
   end
 
