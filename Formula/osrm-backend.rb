@@ -58,6 +58,6 @@ class OsrmBackend < Formula
     EOS
     safe_system "#{bin}/osrm-extract", "test.osm", "--profile", "tiny-profile.lua"
     safe_system "#{bin}/osrm-contract", "test.osrm"
-    assert File.exist?("#{testpath}/test.osrm"), "osrm-extract generated no output!"
+    assert_predicate testpath/"test.osrm", :exist?, "osrm-extract generated no output!"
   end
 end
