@@ -59,7 +59,7 @@ class Msitools < Formula
         </Wix>
       EOS
       system "#{bin}/wixl", "-o", "installer#{i}.msi", "installer#{i}.wxs"
-      assert File.exist?("installer#{i}.msi")
+      assert_predicate testpath/"installer#{i}.msi", :exist?
     end
 
     # msidiff: diff two installers
@@ -82,7 +82,7 @@ class Msitools < Formula
     # msidump: dump tables from an installer
     mkdir "idt"
     system "#{bin}/msidump", "--directory", "idt", "installer1.msi"
-    assert File.exist?("idt/File.idt")
+    assert_predicate testpath/"idt/File.idt", :exist?
 
     # msibuild: replace a table in an installer
     system "#{bin}/msibuild", "installer1.msi", "-i", "idt/File.idt"
