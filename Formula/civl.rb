@@ -22,6 +22,6 @@ class Civl < Formula
     example = pkgshare/"examples/concurrency/locksBad.cvl"
     assert_match "The program MAY NOT be correct.",
                  shell_output("#{bin}/civl verify #{example}")
-    assert File.exist?("CIVLREP/locksBad_log.txt")
+    assert_predicate testpath/"CIVLREP/locksBad_log.txt", :exist?
   end
 end
