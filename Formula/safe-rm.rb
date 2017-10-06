@@ -21,6 +21,6 @@ class SafeRm < Formula
     system "#{bin}/safe-rm", foo
     assert !File.exist?(foo)
     shell_output("#{bin}/safe-rm #{bar} 2>&1", 64)
-    assert File.exist?(bar)
+    assert_predicate bar, :exist?
   end
 end
