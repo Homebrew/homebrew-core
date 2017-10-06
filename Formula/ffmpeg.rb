@@ -13,9 +13,10 @@ class Ffmpeg < Formula
 
     # Upstream commit from 23 Jun 2017 "Add support for LibOpenJPEG v2.2/git"
     # See https://github.com/FFmpeg/FFmpeg/commit/078322f33ced4b2db6ac3e5002f98233d6fbf643
+    # Also, add openjpeg 2.3 compatibility
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/dfe0fd6/ffmpeg/openjpeg-2.2.patch"
-      sha256 "77fbc0f61f2e5742f33116e0da3d246882717affeee2f25112a8a8a69dc17815"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ad15f83/ffmpeg/openjpeg-2.3.patch"
+      sha256 "af5bbbc2c05ec5bb7e639f316531b6a2c08370a9ab7ecab465ffa3e7b1467427"
     end
   end
 
@@ -29,6 +30,12 @@ class Ffmpeg < Formula
     url "https://github.com/FFmpeg/FFmpeg.git"
 
     depends_on "nasm" => :build
+
+    # openjpeg 2.3 compatibility
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4af1f7d/ffmpeg/openjpeg-2.3-head.patch"
+      sha256 "93e5db7697fea9a57ca0a55c832a9ff00eb3eae89c4b2b0d9a0ce542e6d8b9c1"
+    end
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
