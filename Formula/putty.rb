@@ -74,6 +74,6 @@ class Putty < Formula
     chmod 0755, testpath/"command.sh"
 
     system "./command.sh"
-    assert File.exist?("test.key")
+    assert_predicate testpath/"test.key", :exist?
   end
 end
