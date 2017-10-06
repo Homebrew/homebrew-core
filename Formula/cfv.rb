@@ -23,7 +23,7 @@ class Cfv < Formula
     (testpath/"test/test.txt").write "Homebrew!"
     cd "test" do
       system bin/"cfv", "-t", "sha1", "-C", "test.txt"
-      assert File.exist?("test.sha1")
+      assert_predicate testpath/"test.sha1", :exist?
       assert_match /9afe8b4d99fb2dd5f6b7b3e548b43a038dc3dc38/, File.read("test.sha1")
     end
   end
