@@ -48,6 +48,6 @@ class Pgbadger < Formula
       LOG:  database system is ready to accept connections
     EOS
     system bin/"pgbadger", "-f", "syslog", "server.log"
-    assert File.exist? "out.html"
+    assert_predicate testpath/"out.html", :exist?
   end
 end
