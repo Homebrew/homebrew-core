@@ -3,7 +3,7 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.5.8/vips-8.5.8.tar.gz"
   sha256 "07a3b8966a816a834dd60dc1745ae1930f3bbe604e826986a5a2bbd7f45c5426"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "16e5dffcc348cd5de86f7405dfefcc7ad7c2347a66d567bbd0307193ef458246" => :high_sierra
