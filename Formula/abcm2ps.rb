@@ -42,6 +42,6 @@ class Abcm2ps < Formula
     EOF
 
     system "#{bin}/abcm2ps", testpath/"voices"
-    assert File.exist?("Out.ps")
+    assert_predicate testpath/"Out.ps", :exist?
   end
 end
