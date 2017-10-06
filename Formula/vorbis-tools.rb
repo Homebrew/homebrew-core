@@ -39,7 +39,7 @@ class VorbisTools < Formula
 
   test do
     system bin/"oggenc", test_fixtures("test.wav"), "-o", "test.ogg"
-    assert File.exist?("test.ogg")
+    assert_predicate testpath/"test.ogg", :exist?
     output = shell_output("#{bin}/ogginfo test.ogg")
     assert_match "20.625000 kb/s", output
   end
