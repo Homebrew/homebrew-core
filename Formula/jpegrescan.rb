@@ -15,6 +15,6 @@ class Jpegrescan < Formula
 
   test do
     system bin/"jpegrescan", "-v", test_fixtures("test.jpg"), testpath/"out.jpg"
-    File.exist? testpath/"out.jpg"
+    assert_predicate testpath/"out.jpg", :exist?
   end
 end
