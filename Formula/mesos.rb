@@ -197,7 +197,7 @@ class Mesos < Formula
     end
     Process.kill("TERM", master)
     Process.kill("TERM", agent)
-    assert File.exist?("#{testpath}/executed")
+    assert_predicate testpath/"executed", :exist?
     system "python", "-c", "import mesos.native"
   end
 end
