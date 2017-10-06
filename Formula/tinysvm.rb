@@ -53,6 +53,6 @@ class Tinysvm < Formula
     system "#{bin}/svm_classify", "-V", "train.svmdata", "test"
     system "#{bin}/svm_model", "test"
 
-    assert File.exist? "test"
+    assert_predicate testpath/"test", :exist?
   end
 end
