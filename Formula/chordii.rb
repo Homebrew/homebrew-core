@@ -28,6 +28,6 @@ class Chordii < Formula
     EOS
 
     system bin/"chordii", "--output=#{testpath}/homebrew.ps", "homebrew.cho"
-    assert File.exist?("homebrew.ps")
+    assert_predicate testpath/"homebrew.ps", :exist?
   end
 end
