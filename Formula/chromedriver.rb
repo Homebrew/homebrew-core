@@ -45,6 +45,6 @@ class Chromedriver < Formula
     end
     sleep 5
     Process.kill("TERM", driver)
-    File.exist? testpath/"cd.log"
+    assert_predicate testpath/"cd.log", :exist?
   end
 end
