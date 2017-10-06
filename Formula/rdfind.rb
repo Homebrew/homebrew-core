@@ -29,6 +29,6 @@ class Rdfind < Formula
     touch "folder/file2"
     system "#{bin}/rdfind", "-deleteduplicates", "true", "-ignoreempty", "false", "folder"
     assert_predicate testpath/"folder/file1", :exist?
-    assert !File.exist?("folder/file2")
+    refute_predicate testpath/"folder/file2", :exist?
   end
 end
