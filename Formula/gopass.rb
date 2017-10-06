@@ -48,7 +48,7 @@ class Gopass < Formula
 
       system bin/"gopass", "init", "--nogit", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
-      assert File.exist?(".password-store/Email/other@foo.bar.gpg")
+      assert_predicate testpath/".password-store/Email/other@foo.bar.gpg", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
       system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
