@@ -26,6 +26,6 @@ class Epstool < Formula
 
   test do
     system bin/"epstool", "--add-tiff-preview", "--device", "tiffg3", test_fixtures("test.eps"), "test2.eps"
-    assert File.exist?("test2.eps")
+    assert_predicate testpath/"test2.eps", :exist?
   end
 end
