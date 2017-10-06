@@ -58,6 +58,6 @@ class Gl2ps < Formula
     EOS
     system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
     system "./test"
-    assert File.exist?("test.eps") && File.size("test.eps") > 0
+    assert_predicate testpath/"test.eps", :exist? && File.size("test.eps") > 0
   end
 end
