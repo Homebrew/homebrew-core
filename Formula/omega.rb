@@ -26,6 +26,6 @@ class Omega < Formula
 
   test do
     system "#{bin}/omindex", "--db", "./test", "--url", "/", "#{share}/doc/xapian-omega"
-    assert File.exist?("./test/flintlock")
+    assert_predicate testpath/"./test/flintlock", :exist?
   end
 end
