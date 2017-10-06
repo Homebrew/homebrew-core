@@ -40,6 +40,6 @@ class Ry < Formula
     ENV["RY_RUBIES"] = testpath/"rubies"
 
     system bin/"ry", "ls"
-    assert File.exist?(testpath/"rubies")
+    assert_predicate testpath/"rubies", :exist?
   end
 end
