@@ -31,7 +31,7 @@ class Lesspipe < Formula
     touch "file2.txt"
     system "tar", "-cvzf", "homebrew.tar.gz", "file1.txt", "file2.txt"
 
-    assert File.exist?("homebrew.tar.gz")
+    assert_predicate testpath/"homebrew.tar.gz", :exist?
     assert_match /file2.txt/, shell_output("tar tvzf homebrew.tar.gz | #{bin}/tarcolor")
   end
 
