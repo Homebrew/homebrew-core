@@ -228,11 +228,11 @@ class Fdroidserver < Formula
       # ENV["ANDROID_HOME"] = Formula["android-sdk"].opt_prefix
       # system "#{bin}/fdroid", "readmeta", "--verbose"
       # system "#{bin}/fdroid", "init", "--verbose"
-      # assert File.exist?("config.py")
-      # assert File.exist?("keystore.jks")
+      # assert_predicate testpath/"config.py", :exist?
+      # assert_predicate testpath/"keystore.jks", :exist?
       # system "#{bin}/fdroid", "update", "--create-metadata", "--verbose"
-      # assert File.exist?("metadata")
-      # assert File.exist?("repo/index.jar")
+      # assert_predicate testpath/"metadata", :exist?
+      # assert_predicate testpath/"repo/index.jar", :exist?
     end
   end
 end
