@@ -116,6 +116,6 @@ class Subliminal < Formula
     (testpath/".config").mkpath
     system bin/"subliminal", "download", "-l", "en",
                "The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.mp4"
-    assert File.exist?("The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.en.srt")
+    assert_predicate testpath/"The.Big.Bang.Theory.S05E18.HDTV.x264-LOL.en.srt", :exist?
   end
 end
