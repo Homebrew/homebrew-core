@@ -36,7 +36,7 @@ class Pyinvoke < Formula
     (testpath/"baz").mkpath
     system bin/"invoke", "clean"
     assert !File.exist?(testpath/"foo"), "\"pyinvoke clean\" should have deleted \"foo\""
-    assert File.exist?(testpath/"baz"), "pyinvoke should have left \"baz\""
+    assert_predicate testpath/"baz", :exist?, "pyinvoke should have left \"baz\""
     system bin/"invoke", "clean", "--extra=baz"
     assert !File.exist?(testpath/"foo"), "\"pyinvoke clean-extra\" should have still deleted \"foo\""
     assert !File.exist?(testpath/"baz"), "pyinvoke clean-extra should have deleted \"baz\""
