@@ -68,7 +68,7 @@ class Gitfs < Formula
     EOS
 
     system "python", "test.py"
-    assert File.exist?("testing/.git/config")
+    assert_predicate testpath/"testing/.git/config", :exist?
     cd "testing" do
       system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew.git"
       assert_match "homebrew", shell_output("git remote")
