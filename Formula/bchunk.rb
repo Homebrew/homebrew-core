@@ -29,6 +29,6 @@ class Bchunk < Formula
     touch testpath/"foo.bin"
 
     system "#{bin}/bchunk", "foo.bin", "foo.cue", "foo"
-    assert File.exist? testpath/"foo01.iso"
+    assert_predicate testpath/"foo01.iso", :exist?
   end
 end
