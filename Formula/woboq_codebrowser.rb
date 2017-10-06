@@ -31,10 +31,10 @@ class WoboqCodebrowser < Formula
       }
     EOS
     system "#{bin}/codebrowser_generator", "-o=#{Dir.pwd}", "-p", "test:#{Dir.pwd}", "#{Dir.pwd}/test.c", "--", "clang", "#{Dir.pwd}/test.c"
-    assert File.exist? "./test/test.c.html"
-    assert File.exist? "./refs/printf"
-    assert File.exist? "./include/sys/stdio.h.html"
-    assert File.exist? "./fnSearch"
-    assert File.exist? "./fileIndex"
+    assert_predicate testpath/"test/test.c.html", :exist?
+    assert_predicate testpath/"refs/printf", :exist?
+    assert_predicate testpath/"include/sys/stdio.h.html", :exist?
+    assert_predicate testpath/"fnSearch", :exist?
+    assert_predicate testpath/"fileIndex", :exist?
   end
 end
