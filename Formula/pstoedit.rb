@@ -48,6 +48,6 @@ class Pstoedit < Formula
 
   test do
     system bin/"pstoedit", "-f", "gs:pdfwrite", test_fixtures("test.ps"), "test.pdf"
-    assert File.exist?("test.pdf")
+    assert_predicate testpath/"test.pdf", :exist?
   end
 end
