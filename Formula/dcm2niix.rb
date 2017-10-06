@@ -32,7 +32,7 @@ class Dcm2niix < Formula
   test do
     resource("sample.dcm").stage testpath
     system "#{bin}/dcm2niix", "-f", "%d_%e", "-z", "n", "-b", "y", testpath
-    assert File.exist? "localizer_1.nii"
-    assert File.exist? "localizer_1.json"
+    assert_predicate testpath/"localizer_1.nii", :exist?
+    assert_predicate testpath/"localizer_1.json", :exist?
   end
 end
