@@ -39,8 +39,8 @@ class Minisign < Formula
     chmod 0755, testpath/"keygen.sh"
 
     system "./keygen.sh"
-    assert File.exist?("minisign.pub")
-    assert File.exist?(".minisign/minisign.key")
+    assert_predicate testpath/"minisign.pub", :exist?
+    assert_predicate testpath/".minisign/minisign.key", :exist?
 
     (testpath/"signing.sh").write <<-EOS.undent
       #!/usr/bin/expect -f
@@ -53,6 +53,6 @@ class Minisign < Formula
     chmod 0755, testpath/"signing.sh"
 
     system "./signing.sh"
-    assert File.exist?("homebrew.txt.minisig")
+    assert_predicate testpath/"homebrew.txt.minisig", :exist?
   end
 end
