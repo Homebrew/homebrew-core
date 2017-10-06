@@ -30,6 +30,6 @@ class Glide < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/glide --version")
     system bin/"glide", "create", "--non-interactive", "--skip-import"
-    assert File.exist?("glide.yaml")
+    assert_predicate testpath/"glide.yaml", :exist?
   end
 end
