@@ -82,7 +82,7 @@ class Jrnl < Formula
     chmod 0755, testpath/"write_journal.sh"
 
     system "./write_journal.sh"
-    assert File.exist?("journal")
-    assert File.exist?(".jrnl_config")
+    assert_predicate testpath/"journal", :exist?
+    assert_predicate testpath/".jrnl_config", :exist?
   end
 end
