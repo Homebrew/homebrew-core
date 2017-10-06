@@ -75,6 +75,6 @@ class Bsdmake < Formula
     EOS
 
     system "#{bin}/bsdmake"
-    assert File.exist? "#{testpath}/foo"
+    assert_predicate testpath/"foo", :exist?
   end
 end
