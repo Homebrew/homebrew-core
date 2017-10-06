@@ -301,7 +301,7 @@ class PostgresXc < Formula
 
   test do
     system "#{bin}/initdb", "--nodename=brew", testpath/"test"
-    assert File.exist?("test")
+    assert_predicate testpath/"test", :exist?
   end
 end
 
