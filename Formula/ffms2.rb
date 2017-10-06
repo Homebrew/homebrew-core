@@ -52,7 +52,7 @@ class Ffms2 < Formula
     # download small sample and check that the index was created
     resource("videosample").stage do
       system bin/"ffmsindex", "lm20.avi"
-      assert File.exist? "lm20.avi.ffindex"
+      assert_predicate Pathname.pwd/"lm20.avi.ffindex", :exist?
     end
   end
 end
