@@ -65,10 +65,10 @@ class Xsd < Formula
     }
     EOS
     system "#{bin}/xsd", "cxx-tree", schema
-    assert File.exist? testpath/"meaningoflife.hxx"
-    assert File.exist? testpath/"meaningoflife.cxx"
+    assert_predicate testpath/"meaningoflife.hxx", :exist?
+    assert_predicate testpath/"meaningoflife.cxx", :exist?
     system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx", "-lxerces-c"
-    assert File.exist? testpath/"xsdtest"
+    assert_predicate testpath/"xsdtest", :exist?
     system testpath/"xsdtest", instance
   end
 end
