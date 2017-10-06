@@ -27,6 +27,6 @@ class Tmpreaper < Formula
     touch "not-removed"
     system "#{sbin}/tmpreaper", "2s", "."
     assert !File.exist?("removed")
-    assert File.exist?("not-removed")
+    assert_predicate testpath/"not-removed", :exist?
   end
 end
