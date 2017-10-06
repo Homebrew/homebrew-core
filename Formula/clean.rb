@@ -25,6 +25,6 @@ class Clean < Formula
 
     system bin/"clean", "-f", "-l", "-e", "*.testing-rm"
     assert_predicate testpath/"backup1234", :exist?
-    assert !File.exist?("backup1234.testing-rm")
+    refute_predicate testpath/"backup1234.testing-rm", :exist?
   end
 end
