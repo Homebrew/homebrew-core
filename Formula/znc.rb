@@ -79,6 +79,6 @@ class Znc < Formula
   test do
     mkdir ".znc"
     system bin/"znc", "--makepem"
-    assert File.exist?(".znc/znc.pem")
+    assert_predicate testpath/".znc/znc.pem", :exist?
   end
 end
