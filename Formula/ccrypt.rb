@@ -33,10 +33,10 @@ class Ccrypt < Formula
     touch "homebrew.txt"
     system bin/"ccrypt", "-e", testpath/"homebrew.txt", "-K", "secret"
     assert_predicate testpath/"homebrew.txt.cpt", :exist?
-    assert !File.exist?("homebrew.txt")
+    refute_predicate testpath/"homebrew.txt", :exist?
 
     system bin/"ccrypt", "-d", testpath/"homebrew.txt.cpt", "-K", "secret"
     assert_predicate testpath/"homebrew.txt", :exist?
-    assert !File.exist?("homebrew.txt.cpt")
+    refute_predicate testpath/"homebrew.txt.cpt", :exist?
   end
 end
