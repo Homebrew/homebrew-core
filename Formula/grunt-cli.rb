@@ -42,6 +42,6 @@ class GruntCli < Formula
 
     system "npm", "install", *Language::Node.local_npm_install_args
     system bin/"grunt"
-    assert File.exist?("output.txt"), "output.txt was not generated"
+    assert_predicate testpath/"output.txt", :exist?, "output.txt was not generated"
   end
 end
