@@ -40,6 +40,6 @@ class Lemon < Formula
     EOS
 
     system "#{bin}/lemon", "gram.y"
-    assert File.exist? "gram.c"
+    assert_predicate testpath/"gram.c", :exist?
   end
 end
