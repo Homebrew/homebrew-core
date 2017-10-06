@@ -48,6 +48,10 @@ class Graphviz < Formula
   end
 
   def install
+    # The following setting makes to prohibit using Homebrew's Python. See :
+    # https://github.com/Homebrew/homebrew-core/issues/19110
+    ENV["PYTHON"]="/usr/bin/python"
+
     # Only needed when using superenv, which causes qfrexp and qldexp to be
     # falsely detected as available. The problem is triggered by
     #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
@@ -71,6 +75,7 @@ class Graphviz < Formula
       --prefix=#{prefix}
       --without-qt
       --with-quartz
+      --enable-php=no
     ]
     args << "--with-gts" if build.with? "gts"
     args << "--disable-swig" if build.without? "bindings"
