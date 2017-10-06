@@ -1,19 +1,14 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz"
-  sha256 "ae135ec37c1bf6b7750a84e3a35e93d91033a806943e034521c8af51b12d95df"
+  url "https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6.tar.gz"
+  sha256 "b17cd170a94d7b58c0698752e1f4f263ab6dc47425230df7e53a6435cc7cd7e8"
 
   bottle do
     sha256 "e990a788c7f0c17d619e943b1b6a853d7c87e5c76018213cd81cbc6db113fd3e" => :high_sierra
     sha256 "232d1d04e4b6fb4c860d0d72a6e98dc000d33028b2d6cea87f476d2502fc7bac" => :sierra
     sha256 "3bcc934afd1b4067dcd57400d5296c38d37f9e671b716578eae3ad150a64b3b3" => :el_capitan
     sha256 "d137eb4f725cd7784162c01b1e6053c88059079aed639b685f3a3eba82efe31f" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6-rc3.tar.gz"
-    sha256 "b4089e00b33685defec1ae6c46925323635920781c76c6018fd1b53afde88701"
   end
 
   head do
