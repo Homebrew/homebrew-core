@@ -50,6 +50,6 @@ class Purescript < Formula
       main = 1
     EOS
     system bin/"psc", test_module_path, "-o", test_target_path
-    assert File.exist?(test_target_path)
+    assert_predicate test_target_path, :exist?
   end
 end
