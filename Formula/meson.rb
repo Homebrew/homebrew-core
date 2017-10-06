@@ -38,7 +38,7 @@ class Meson < Formula
 
     mkdir testpath/"build" do
       system "#{bin}/meson", ".."
-      assert File.exist?(testpath/"build/build.ninja")
+      assert_predicate testpath/"build/build.ninja", :exist?
     end
   end
 end
