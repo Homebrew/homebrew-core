@@ -167,8 +167,8 @@ class Qt < Formula
 
     system bin/"qmake", testpath/"hello.pro"
     system "make"
-    assert File.exist?("hello")
-    assert File.exist?("main.o")
+    assert_predicate testpath/"hello", :exist?
+    assert_predicate testpath/"main.o", :exist?
     system "./hello"
   end
 end
