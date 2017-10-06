@@ -23,6 +23,6 @@ class Bear < Formula
 
   test do
     system "#{bin}/bear", "true"
-    assert File.exist? "compile_commands.json"
+    assert_predicate testpath/"compile_commands.json", :exist?
   end
 end
