@@ -30,10 +30,10 @@ class PdfRedactTools < Formula
     # Modifies the file in the directory the file is placed in.
     cp test_fixtures("test.pdf"), "test.pdf"
     system bin/"pdf-redact-tools", "-e", "test.pdf"
-    assert File.exist?("test_pages/page-0.png")
+    assert_predicate testpath/"test_pages/page-0.png", :exist?
     rm_rf "test_pages"
 
     system bin/"pdf-redact-tools", "-s", "test.pdf"
-    assert File.exist?("test-final.pdf")
+    assert_predicate testpath/"test-final.pdf", :exist?
   end
 end
