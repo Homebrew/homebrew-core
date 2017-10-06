@@ -21,6 +21,6 @@ class Vttest < Formula
   end
 
   test do
-    assert File.exist? bin/"vttest"
+    assert_predicate bin/"vttest", :exist?
   end
 end
