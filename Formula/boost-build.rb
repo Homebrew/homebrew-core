@@ -30,7 +30,8 @@ class BoostBuild < Formula
 
     system bin/"b2", "release"
     out = Dir["bin/darwin-*/release/hello"]
-    assert (out.length == 1) && File.exist?(out[0])
+    assert out.length == 1
+    assert_predicate testpath/out[0], :exist?
     assert_equal "Hello world", shell_output(out[0])
   end
 end
