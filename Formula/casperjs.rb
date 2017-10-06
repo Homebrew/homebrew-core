@@ -31,6 +31,6 @@ class Casperjs < Formula
     EOS
 
     system bin/"casperjs", testpath/"fetch.js"
-    assert File.exist?("dax-alt.svg")
+    assert_predicate testpath/"dax-alt.svg", :exist?
   end
 end
