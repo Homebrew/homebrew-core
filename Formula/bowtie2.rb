@@ -5,9 +5,9 @@ class Bowtie2 < Formula
   sha256 "8b9c0b9c595ebcddcac5feaf6acb44b2294d6deb91de107596ecad242a1a58e9"
 
   bottle do
-    sha256 "3fe6f32e4b86211b5f2ba0f75a1f3865501b70ed2d474c54b335b24ab93313f3" => :high_sierra
-    sha256 "3439ab26ff7b2952b7b39045d24988278d867d6f5ee2f3f61a4bbf787724a9c9" => :sierra
-    sha256 "2ff5ef492d7df5d5de27751ff878937edc80d5e495213a868d48d994877a6151" => :el_capitan
+    sha256 "fa4f67c2361205d54698e9a87f2a586d95ae8c34aa50c98bb72c3d522903333f" => :high_sierra
+    sha256 "b57f2ec643d75111a7f1078d656e376e24bd871fe04ca32fa63cfb2b292bdacd" => :sierra
+    sha256 "8455b5498446476972e353ca55b31e8acbd141c696cc8562edcc16a0d4235584" => :el_capitan
   end
 
   depends_on "tbb"
