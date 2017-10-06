@@ -43,6 +43,6 @@ class Scrypt < Formula
     touch "homebrew.txt"
 
     system "./test.sh"
-    assert File.exist?("homebrew.txt.enc")
+    assert_predicate testpath/"homebrew.txt.enc", :exist?
   end
 end
