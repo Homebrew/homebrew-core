@@ -37,6 +37,6 @@ class Kobalt < Formula
 
     system "#{bin}/kobaltw", "assemble"
     output = "kobaltBuild/libs/test-1.0.jar"
-    assert File.exist?(output), "Couldn't find #{output}"
+    assert_predicate testpath/output, :exist?, "Couldn't find #{output}"
   end
 end
