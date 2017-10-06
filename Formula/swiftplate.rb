@@ -29,6 +29,6 @@ class Swiftplate < Formula
       "--project", "test", "--name", "testUser",
       "--email", "test@example.com", "--url", "https://github.com/johnsundell/swiftplate",
       "--organization", "exampleOrg", "--force"
-    assert File.exist?("test.xcodeproj"), "Failed to generate test.xcodeproj"
+    assert_predicate testpath/"test.xcodeproj", :exist?, "Failed to generate test.xcodeproj"
   end
 end
