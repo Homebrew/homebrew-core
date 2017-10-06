@@ -3,7 +3,7 @@ class Pdfgrep < Formula
   homepage "https://pdfgrep.org/"
   url "https://pdfgrep.org/download/pdfgrep-2.0.1.tar.gz"
   sha256 "0370d744b3072d47383dbed2cb9c8b0b64b83c084da5a8961f8d4bc7669e941e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
