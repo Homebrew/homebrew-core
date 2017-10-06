@@ -14,6 +14,6 @@ class Gcviewer < Formula
   end
 
   test do
-    assert(File.exist?(libexec/"gcviewer-#{version}.jar"))
+    assert_predicate libexec/"gcviewer-#{version}.jar", :exist?
   end
 end
