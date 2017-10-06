@@ -31,6 +31,6 @@ class Babel < Formula
     EOS
 
     system bin/"babel", "script.js", "--out-file", "script-compiled.js"
-    assert File.exist?("script-compiled.js"), "script-compiled.js was not generated"
+    assert_predicate testpath/"script-compiled.js", :exist?, "script-compiled.js was not generated"
   end
 end
