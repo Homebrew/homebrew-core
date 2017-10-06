@@ -41,6 +41,6 @@ class Gpsbabel < Formula
       </loc>
     EOS
     system bin/"gpsbabel", "-i", "geo", "-f", "test.loc", "-o", "gpx", "-F", "test.gpx"
-    assert File.exist? "test.gpx"
+    assert_predicate testpath/"test.gpx", :exist?
   end
 end
