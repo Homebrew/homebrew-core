@@ -148,6 +148,6 @@ class Ford < Formula
       EOS
     end
     system "#{bin}/ford", testpath/"test-project.md"
-    assert File.exist?(testpath/"doc"/"index.html")
+    assert_predicate testpath/"doc"/"index.html", :exist?
   end
 end
