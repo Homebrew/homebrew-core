@@ -6,9 +6,9 @@ class ThriftAT09 < Formula
 
   bottle do
     cellar :any
-    sha256 "826d38fd6b828df82627262cf539e6fc5c96c8b8034b11bfc2f13d87f3115aa8" => :sierra
-    sha256 "0c93627496d65905caf00eadd37a7781a5174b29be9408c795bfb5ffb60a81fb" => :el_capitan
-    sha256 "fb14b67511c90df0e2b9c379d13d8436f2d81670707938eb2cb83b7276663d11" => :yosemite
+    sha256 "9bf6dbb1699dd2e47ec08c0a6c45d922bfe44e39541cfa824c6d3fa0e612cbee" => :high_sierra
+    sha256 "52d2ce63e41f13d81c4df4cff528d5bd25b75b09316a59e0cd7060bbb313a831" => :sierra
+    sha256 "167da043b6111631373371b51e2b6678d84602179d034827dd221e88f6211027" => :el_capitan
   end
 
   keg_only :versioned_formula
