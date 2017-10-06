@@ -3,7 +3,6 @@ class Quex < Formula
   homepage "http://quex.org/"
   url "https://downloads.sourceforge.net/project/quex/DOWNLOAD/quex-0.67.5.tar.gz"
   sha256 "f7fff3db5967fc2a5e0673aa5fa6f4f9388a53b89932d76499deb52ef26be1b9"
-
   head "https://svn.code.sf.net/p/quex/code/trunk"
 
   bottle do
@@ -16,8 +15,9 @@ class Quex < Formula
   def install
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"
+
     # Use a shim script to set QUEX_PATH on the user's behalf
-    (bin+"quex").write <<-EOS.undent
+    (bin/"quex").write <<-EOS.undent
       #!/bin/bash
       QUEX_PATH="#{libexec}" "#{libexec}/quex-exe.py" "$@"
     EOS
@@ -31,6 +31,6 @@ class Quex < Formula
 
   test do
     system bin/"quex", "-i", doc/"demo/C/000/simple.qx", "-o", "tiny_lexer"
-    File.exist? "tiny_lexer"
+    assert_predicate testpath/"tiny_lexer", :exist?
   end
 end
