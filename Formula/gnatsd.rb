@@ -52,7 +52,7 @@ class Gnatsd < Formula
 
     begin
       assert_match version.to_s, shell_output("curl localhost:8085")
-      assert File.exist?(testpath/"log")
+      assert_predicate testpath/"log", :exist?
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid
