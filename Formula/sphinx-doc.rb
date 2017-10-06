@@ -133,6 +133,6 @@ class SphinxDoc < Formula
   test do
     system bin/"sphinx-quickstart", "-pPorject", "-aAuthor", "-v1.0", "-q"
     system bin/"sphinx-build", testpath, testpath/"build"
-    assert File.exist?("build/index.html")
+    assert_predicate testpath/"build/index.html", :exist?
   end
 end
