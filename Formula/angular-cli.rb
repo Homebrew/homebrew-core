@@ -21,6 +21,6 @@ class AngularCli < Formula
 
   test do
     system bin/"ng", "new", "--skip-install", "angular-homebrew-test"
-    assert File.exist?("angular-homebrew-test/package.json"), "Project was not created"
+    assert_predicate testpath/"angular-homebrew-test/package.json", :exist?, "Project was not created"
   end
 end
