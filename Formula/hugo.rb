@@ -39,6 +39,6 @@ class Hugo < Formula
   test do
     site = testpath/"hops-yeast-malt-water"
     system "#{bin}/hugo", "new", "site", site
-    assert File.exist?("#{site}/config.toml")
+    assert_predicate testpath/"#{site}/config.toml", :exist?
   end
 end
