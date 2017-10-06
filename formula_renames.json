@@ -168,6 +168,7 @@
   "swig304": "swig@3.04",
   "team-explorer-everywhere": "tee-clc",
   "tensorflow": "libtensorflow",
+  "thrift@0.90": "thrift@0.9",
   "thrift090": "thrift@0.90",
   "tomcat6": "tomcat@6",
   "tomcat7": "tomcat@7",
