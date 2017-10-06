@@ -31,6 +31,6 @@ class Jsonschema2pojo < Formula
     }
     EOS
     system bin/"jsonschema2pojo", "-s", "src", "-t", testpath
-    assert File.exist?("Jsonschema.java"), "Failed to generate Jsonschema.java"
+    assert_predicate testpath/"Jsonschema.java", :exist?, "Failed to generate Jsonschema.java"
   end
 end
