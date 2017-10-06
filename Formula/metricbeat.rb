@@ -78,7 +78,7 @@ class Metricbeat < Formula
 
     begin
       sleep 2
-      assert File.exist? testpath/"data/metricbeat"
+      assert_predicate testpath/"data/metricbeat", :exist?
     ensure
       Process.kill("TERM", metricbeat_pid)
     end
