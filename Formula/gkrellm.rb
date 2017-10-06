@@ -37,7 +37,7 @@ class Gkrellm < Formula
     sleep 2
 
     begin
-      assert File.exist?("test.pid")
+      assert_predicate testpath/"test.pid", :exist?
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid
