@@ -118,6 +118,15 @@ class Raine < Formula
     sha256 "0666ef55da72c3e356ca85b6a0084d56b05dd740c3c21d26d372085aa2c6e708"
   end
 
+  # Fix build for Xcode 9 with upstream commit
+  # https://github.com/zelurker/raine/pull/13
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://github.com/zelurker/raine/commit/662cad1b.patch?full_index=1"
+      sha256 "08ec83482318d9e58713f272ca882b5d658c03fd8df24bdb0008a56fa3310dd2"
+    end
+  end
+
   def install
     ENV.m32
 
