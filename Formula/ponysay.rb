@@ -1,9 +1,8 @@
 class Ponysay < Formula
   desc "Cowsay but with ponies"
   homepage "http://erkin.co/ponysay/"
-  url "https://github.com/erkin/ponysay/archive/3.0.2.tar.gz"
-  sha256 "69e98a7966353de2f232cbdaccd8ef7dbc5d0bcede9bf7280a676793e8625b0d"
-  revision 1
+  url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"
+  sha256 "c382d7f299fa63667d1a4469e1ffbf10b6813dcd29e861de6be55e56dc52b28a"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,13 +16,6 @@ class Ponysay < Formula
 
   depends_on :python3
   depends_on "coreutils"
-
-  # fix shell completion install paths
-  # https://github.com/erkin/ponysay/pull/225
-  patch do
-    url "https://github.com/tdsmith/ponysay/commit/44fb0f85821eb34a811abb27d2c601a5d30af1f1.diff?full_index=1"
-    sha256 "16f8eb70387bb67fbe7329fad01d5514e6ba5f8ed128af11a9152ab7aa8bf570"
-  end
 
   def install
     system "./setup.py",
