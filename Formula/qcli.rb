@@ -39,6 +39,6 @@ class Qcli < Formula
     # Create a qcli report from the mp4
     qcliout = testpath/"video.mp4.qctools.xml.gz"
     system bin/"qcli", "-i", mp4out, "-o", qcliout
-    assert qcliout.exist?
+    assert_predicate qcliout, :exist?
   end
 end
