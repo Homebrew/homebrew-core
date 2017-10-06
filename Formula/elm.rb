@@ -98,6 +98,6 @@ class Elm < Formula
 
     out_path = testpath/"index.html"
     system bin/"elm", "make", src_path, "--output=#{out_path}"
-    assert File.exist?(out_path)
+    assert_predicate out_path, :exist?
   end
 end
