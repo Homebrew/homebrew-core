@@ -44,11 +44,11 @@ class Treefrog < Formula
 
   test do
     system bin/"tspawn", "new", "hello"
-    assert File.exist?("hello")
+    assert_predicate testpath/"hello", :exist?
     cd "hello" do
-      assert File.exist?("hello.pro")
+      assert_predicate testpath/"hello.pro", :exist?
       system HOMEBREW_PREFIX/"opt/qt/bin/qmake"
-      assert File.exist?("Makefile")
+      assert_predicate testpath/"Makefile", :exist?
       system "make"
       system bin/"treefrog", "-v"
     end
