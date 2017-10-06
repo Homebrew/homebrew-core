@@ -35,7 +35,7 @@ class Govendor < Formula
 
     cd "src/github.com/project/testing" do
       system bin/"govendor", "init"
-      assert File.exist?("vendor"), "Failed to init!"
+      assert_predicate testpath/"vendor", :exist?, "Failed to init!"
       system bin/"govendor", "fetch", "-tree", "golang.org/x/crypto@#{commit}"
       assert_match commit, File.read("vendor/vendor.json")
       assert_match "golang.org/x/crypto/blowfish", shell_output("#{bin}/govendor list")
