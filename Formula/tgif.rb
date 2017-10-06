@@ -52,6 +52,6 @@ class Tgif < Formula
 
     EOS
     system "#{bin}/tgif", "-print", "-text", "-quiet", "test.obj"
-    assert File.exist?("test.txt")
+    assert_predicate testpath/"test.txt", :exist?
   end
 end
