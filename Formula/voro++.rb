@@ -33,6 +33,6 @@ class Voroxx < Formula
     system ENV.cxx, "test.cpp", "-I#{include}/voro++", "-L#{lib}",
                     "-lvoro++"
     system "./a.out"
-    assert File.exist?("test.gnu")
+    assert_predicate testpath/"test.gnu", :exist?
   end
 end
