@@ -51,7 +51,7 @@ class NatsStreamingServer < Formula
 
     begin
       assert_match "INFO", shell_output("curl localhost:8085")
-      assert File.exist?(testpath/"log")
+      assert_predicate testpath/"log", :exist?
       assert_match version.to_s, File.read(testpath/"log")
     ensure
       Process.kill "SIGINT", pid
