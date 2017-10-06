@@ -32,6 +32,6 @@ class Webpack < Formula
     EOS
 
     system bin/"webpack", "index.js", "bundle.js"
-    assert File.exist?("bundle.js"), "bundle.js was not generated"
+    assert_predicate testpath/"bundle.js", :exist?, "bundle.js was not generated"
   end
 end
