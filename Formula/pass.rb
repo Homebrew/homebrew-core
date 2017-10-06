@@ -42,7 +42,7 @@ class Pass < Formula
       system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
       system bin/"pass", "init", "Testing"
       system bin/"pass", "generate", "Email/testing@foo.bar", "15"
-      assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
+      assert_predicate testpath/".password-store/Email/testing@foo.bar.gpg", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
     end
