@@ -42,7 +42,7 @@ class Vala < Formula
       path.to_s,
     ]
     system "#{bin}/valac", *valac_args
-    assert File.exist?(testpath/"hello.c")
+    assert_predicate testpath/"hello.c", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello")
   end
