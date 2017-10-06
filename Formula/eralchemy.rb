@@ -58,7 +58,7 @@ class Eralchemy < Formula
     system "#{bin}/eralchemy", "-v"
     resource("er_example").stage do
       system "#{bin}/eralchemy", "-i", "newsmeme.er", "-o", "test_eralchemy.pdf"
-      assert File.exist?("test_eralchemy.pdf")
+      assert_predicate testpath/"test_eralchemy.pdf", :exist?
     end
   end
 end
