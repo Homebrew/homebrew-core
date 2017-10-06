@@ -43,7 +43,7 @@ class GitSecret < Formula
       (testpath/".gitignore").write "shh.txt"
       system "git", "secret", "add", "shh.txt"
       system "git", "secret", "hide"
-      assert File.exist?("shh.txt.secret")
+      assert_predicate testpath/"shh.txt.secret", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
     end
