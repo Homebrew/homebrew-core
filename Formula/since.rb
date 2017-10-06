@@ -26,6 +26,6 @@ class Since < Formula
       bar
     EOS
     system "#{bin}/since", "-z", "test"
-    assert File.exist? ".since"
+    assert_predicate testpath/".since", :exist?
   end
 end
