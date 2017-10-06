@@ -68,7 +68,7 @@ class RedisAT28 < Formula
 
   test do
     # This previously wasn't bottled. Make sure it is.
-    assert File.exist?(HOMEBREW_PREFIX/"etc/redis28.conf")
+    assert_predicate HOMEBREW_PREFIX/"etc/redis28.conf", :exist?
 
     system "#{bin}/redis28-server", "--version"
   end
