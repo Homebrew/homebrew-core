@@ -67,7 +67,7 @@ class Ganglia < Formula
         exec bin/"gmetad", "--pid-file=#{testpath}/pid"
       end
       sleep 2
-      File.exist? testpath/"pid"
+      assert_predicate testpath/"pid", :exist?
     ensure
       Process.kill "TERM", pid
       Process.wait pid
