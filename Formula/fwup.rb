@@ -23,7 +23,7 @@ class Fwup < Formula
 
   test do
     system bin/"fwup", "-g"
-    assert File.exist?("fwup-key.priv"), "Failed to create fwup-key.priv!"
-    assert File.exist?("fwup-key.pub"), "Failed to create fwup-key.pub!"
+    assert_predicate testpath/"fwup-key.priv", :exist?, "Failed to create fwup-key.priv!"
+    assert_predicate testpath/"fwup-key.pub", :exist?, "Failed to create fwup-key.pub!"
   end
 end
