@@ -31,7 +31,7 @@ class Rzip < Formula
 
     # compress: data.txt -> data.txt.rz
     system bin/"rzip", path
-    assert !path.exist?
+    refute_predicate path, :exist?
 
     # decompress: data.txt.rz -> data.txt
     system bin/"rzip", "-d", "#{path}.rz"
