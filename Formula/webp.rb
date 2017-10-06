@@ -43,6 +43,6 @@ class Webp < Formula
   test do
     system bin/"cwebp", test_fixtures("test.png"), "-o", "webp_test.png"
     system bin/"dwebp", "webp_test.png", "-o", "webp_test.webp"
-    assert File.exist?("webp_test.webp")
+    assert_predicate testpath/"webp_test.webp", :exist?
   end
 end
