@@ -185,6 +185,6 @@ class Smlnj < Formula
 
   test do
     system bin/"ml-nlffigen"
-    assert File.exist?("NLFFI-Generated/nlffi-generated.cm")
+    assert_predicate testpath/"NLFFI-Generated/nlffi-generated.cm", :exist?
   end
 end
