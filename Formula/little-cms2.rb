@@ -27,6 +27,6 @@ class LittleCms2 < Formula
 
   test do
     system "#{bin}/jpgicc", test_fixtures("test.jpg"), "out.jpg"
-    assert File.exist?("out.jpg")
+    assert_predicate testpath/"out.jpg", :exist?
   end
 end
