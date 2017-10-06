@@ -41,10 +41,10 @@ class Schismtracker < Formula
 
   test do
     testpath.install resource("demo_mods")
-    test_wav = "#{testpath}/test.wav"
+    test_wav = testpath/"test.wav"
     system "#{bin}/schismtracker", "-p", "#{testpath}/give-me-an-om.mod",
            "--diskwrite=#{test_wav}"
-    assert File.exist? test_wav
+    assert_predicate test_wav, :exist?
     assert_match /RIFF \(little-endian\) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz/,
                  shell_output("/usr/bin/file '#{test_wav}'")
   end
