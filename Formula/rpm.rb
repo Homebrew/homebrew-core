@@ -114,14 +114,14 @@ class Rpm < Formula
     EOS
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
-    assert File.exist?(testpath/"var/lib/rpm/sqldb"), "Failed to create 'sqldb' file!"
+    assert_predicate testpath/"var/lib/rpm/sqldb", :exist?, "Failed to create 'sqldb' file!"
     assert_match "Packages", shell_output("sqlite3 #{testpath}/var/lib/rpm/sqldb <<< .tables")
     rpmdir("%_builddir").mkpath
     specfile = rpmdir("%_specdir")+"test.spec"
     specfile.write(test_spec)
     system "#{bin}/rpmbuild", "-ba", specfile
-    assert File.exist?(rpmdir("%_srcrpmdir")/"test-1.0-1.src.rpm")
-    assert File.exist?(rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm")
+    assert_predicate rpmdir("%_srcrpmdir")/"test-1.0-1.src.rpm", :exist?
+    assert_predicate rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm", :exist?
     system "#{bin}/rpm", "-qpi", "--dbpath=#{testpath}/var/lib/rpm",
                          rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm"
   end
