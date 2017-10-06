@@ -81,6 +81,6 @@ class Bup < Formula
 
   test do
     system bin/"bup", "init"
-    assert File.exist?("#{testpath}/.bup")
+    assert_predicate testpath/".bup", :exist?
   end
 end
