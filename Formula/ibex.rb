@@ -7,9 +7,9 @@ class Ibex < Formula
 
   bottle do
     cellar :any
-    sha256 "6b23c61b11e42afa080927febf25c6bde7dbb7f401ccffc66da3f3e5b195e702" => :high_sierra
-    sha256 "c0554d687b9f2f0bb9a5bed47fa3e0e72ba269643875351bd46ba292fb125574" => :sierra
-    sha256 "9f20ec5533a0a27acff5b9126e2a33492e39f476d37a1e063f9d9bfd02f3ba52" => :el_capitan
+    sha256 "c38ad8be624e34076dc3c5758a968932b777db0bd304135e77ccc3f8896c71f7" => :high_sierra
+    sha256 "dc78f48056adc99205820e93f44f515be9a654e154bb5da02b70044a965d25de" => :sierra
+    sha256 "3f0f1711cd85b1c9ef4a8acd94a8ff4fae566e22478bc716405b9751c7562ab8" => :el_capitan
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
