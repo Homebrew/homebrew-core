@@ -15,6 +15,7 @@ class Fastbit < Formula
     sha256 "d62226b902928b479e2835848a8eafdcd52557cb4249c59bd15cc1bd23d1e67e" => :mountain_lion
   end
 
+  depends_on "flex" => :build
   depends_on :java
   needs :cxx11
 
