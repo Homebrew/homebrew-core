@@ -7,9 +7,10 @@ class Kafka < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c90dddf70d5c4ab6a3ca02e972b9bd3537b1aa8b079372e1d30dc89581e4abe4" => :high_sierra
-    sha256 "4d1ed2948bf9cdee56aca759191f268dccbf8c0aeac983e856fa339d0a21cffd" => :sierra
-    sha256 "4d1ed2948bf9cdee56aca759191f268dccbf8c0aeac983e856fa339d0a21cffd" => :el_capitan
+    rebuild 1
+    sha256 "0ede0df6100d654842a0c90734c5a5c403a0e45da23118bdd468b312bfd1dcfa" => :high_sierra
+    sha256 "0ede0df6100d654842a0c90734c5a5c403a0e45da23118bdd468b312bfd1dcfa" => :sierra
+    sha256 "0ede0df6100d654842a0c90734c5a5c403a0e45da23118bdd468b312bfd1dcfa" => :el_capitan
   end
 
   depends_on "zookeeper"
