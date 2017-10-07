@@ -3,6 +3,7 @@ class Links < Formula
   homepage "http://links.twibright.com/"
   url "http://links.twibright.com/download/links-2.14.tar.bz2"
   sha256 "f70d0678ef1c5550953bdc27b12e72d5de86e53b05dd59b0fc7f07c507f244b8"
+  revision 1
 
   bottle do
     cellar :any
@@ -26,6 +27,7 @@ class Links < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --with-ssl=#{Formula["openssl"].opt_prefix}
+      --without-lzma
     ]
 
     args << "--enable-graphics" if build.with? "x11"
