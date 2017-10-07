@@ -25,8 +25,8 @@ class Pypy3 < Formula
   depends_on "xz" => :recommended
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.8.0-osx64.tar.bz2"
-    sha256 "04b61d1cf13aaca6d0420e854c820b8bd049dc88be16c02542abe8ca26eb075c"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-osx64.tar.bz2"
+    sha256 "94de50ed80c7f6392ed356c03fd54cdc84858df43ad21e9e971d1b6da0f6b867"
   end
 
   # packaging depends on pyparsing
@@ -37,8 +37,8 @@ class Pypy3 < Formula
 
   # packaging and setuptools depend on six
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   # setuptools depends on packaging
@@ -64,8 +64,8 @@ class Pypy3 < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
-    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
+    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
