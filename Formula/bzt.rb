@@ -6,6 +6,13 @@ class Bzt < Formula
   sha256 "85f0394f53dda6a6c1bad1786fa59f9a4642b68f33b42a3521be00ec0eaf4e92"
   head "https://github.com/greyfenrir/taurus.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2ef668699b35aecb33c63650569bfbb5c6f161fe02d278386ec2e0ff124324ea" => :high_sierra
+    sha256 "80cd90d268f6f6c928328d1a58cb9c9e9e46f6f3dc5af6181b6d29725726625b" => :sierra
+    sha256 "d323e8587e86e325309895c957a176292b5089250b81d368782f1f13cb96ec84" => :el_capitan
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "apiritif" do
