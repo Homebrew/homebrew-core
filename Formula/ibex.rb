@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.5.2.tar.gz"
-  sha256 "ef8a0988002b9d5f0897696ce434f0eb6170d335f58c0961ccd578eb7f3fc3d3"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.5.3.tar.gz"
+  sha256 "f5ae337c75f7d3c6a6eab5c97b772b59daebd89095628f6b1ee31c8f4a82139d"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -60,14 +60,13 @@ class Ibex < Formula
     inreplace %w[makefile slam/makefile] do |s|
       s.gsub! /CXXFLAGS.*pkg-config --cflags ibex./,
               "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd/coin -I#{include}/ibex/3rd"
+                          "-I#{include}/ibex/3rd"
       s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
-    system "make", "ctc01", "ctc02", "symb01", "solver01", "solver02"
+    system "make", "ctc01", "ctc02", "symb01"
     system "make", "-C", "slam", "slam1", "slam2", "slam3"
     %w[ctc01 ctc02 symb01].each { |a| system "./#{a}" }
-    %w[solver01 solver02].each { |a| system "./#{a}", "c3D.bch", "1e-05", "10" }
     %w[slam1 slam2 slam3].each { |a| system "./slam/#{a}" }
   end
 end
