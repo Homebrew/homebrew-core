@@ -72,6 +72,11 @@ class Pypy3 < Formula
   fails_with :gcc
 
   def install
+    # Work around "dyld: Symbol not found: _utimensat"
+    if MacOS.version == :sierra && MacOS::Xcode.installed? && MacOS::Xcode.version >= "9.0"
+      ENV.delete("SDKROOT")
+    end
+
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
