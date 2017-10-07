@@ -1,9 +1,9 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.5.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.5.tar.gz"
-  sha256 "4031c1ecee9ce7ba4f313e91ef6284164885cdb69937a123f6a83bb6a72dcd38"
+  url "http://xmlsoft.org/sources/libxml2-2.9.6.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.6.tar.gz"
+  sha256 "8b9038cca7240e881d462ea391882092dfdc6d4f483f72683e817be08df5ebbc"
   head "https://git.gnome.org/browse/libxml2.git"
 
   bottle do
