@@ -6,11 +6,9 @@ class Dbxml < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "df72dad91367d792eeb58981c418c1d5046aafb054e6ec82d4107add49dc08b0" => :high_sierra
-    sha256 "669e6aadc43f46b060eb2acadd214dae28b5b6727d46e18c4e302d81665f2170" => :sierra
-    sha256 "402542ead71ef0b095bca06052270709a1302dca5ae4d2202c23e6457e83fd77" => :el_capitan
-    sha256 "a055bb860d3059aebe23029e14a4fe58fb6ad1a586864f1c74dc51970cfdc432" => :yosemite
+    sha256 "e1564424c73549fb4f4bc894343ec49d28ed0530f719472f3adf7495b73bd884" => :high_sierra
+    sha256 "eafcf704fb5fe6bfb10b6fbc9f2a117da2eaa4d7577e7ba715d64872b5dd26c5" => :sierra
+    sha256 "cfe1a3628daa3194ce60d109501c6c8694d7e0ff9fab11a1b64da423b00d518f" => :el_capitan
   end
 
   depends_on "xerces-c"
