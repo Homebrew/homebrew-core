@@ -26,6 +26,7 @@ class HopenpgpTools < Formula
   end
 
   def install
+    (buildpath/"cabal.config").write("constraints: happy<1.19.6\n")
     install_cabal_package :using => ["alex", "happy"]
   end
 
