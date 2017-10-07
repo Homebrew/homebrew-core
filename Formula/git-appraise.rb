@@ -15,7 +15,7 @@ class GitAppraise < Formula
     (buildpath/"src/github.com/google").mkpath
     ln_s buildpath, buildpath/"src/github.com/google/git-appraise"
 
-    system "go", "build", "-o", bin/"git-appraise", "./src/github.com/google/git-appraise/git-appraise"
+    system "go", "build", "-o", bin/"git-appraise", "github.com/google/git-appraise/git-appraise"
   end
 
   test do
