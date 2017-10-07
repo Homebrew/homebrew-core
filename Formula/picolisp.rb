@@ -13,6 +13,7 @@ class Picolisp < Formula
   end
 
   def install
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
     src_dir = MacOS.prefer_64_bit? ? "src64" : "src"
     system "make", "-C", src_dir
     bin.install "bin/picolisp"
