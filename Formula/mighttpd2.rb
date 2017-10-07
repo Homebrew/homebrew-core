@@ -17,6 +17,13 @@ class Mighttpd2 < Formula
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
+  # Fix "src/Mighty.hs:3:8: error:File name does not match module name"
+  # Upstream PR from 7 Oct 2017 "mighttpd2.cabal: remove non-existent module"
+  patch do
+    url "https://github.com/kazu-yamamoto/mighttpd2/pull/16.patch?full_index=1"
+    sha256 "372b653d14218016abfee11c170e1e4dd3641a984f8296a802b84c9543629f36"
+  end
+
   def install
     install_cabal_package
   end
