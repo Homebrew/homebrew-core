@@ -18,6 +18,12 @@ class GitAppraise < Formula
     system "go", "build", "-o", bin/"git-appraise", "github.com/google/git-appraise/git-appraise"
   end
 
+  def caveats; <<-EOS.undent
+    Add the "appraise" git alias by running the following command:
+      # git config --global alias.appraise '!'"/usr/local/bin/git-appraise"
+    EOS
+  end
+
   test do
     system bin/"git-appraise", "help"
   end
