@@ -6,10 +6,9 @@ class Enigma < Formula
   revision 2
 
   bottle do
-    sha256 "5a788728bde916cc18f8a4c1cfe9323d2aacdfac416096ac082fb37d0c2ee93a" => :high_sierra
-    sha256 "5ba45be931b9299227ad05850080a1409e5695655958b77aaf379d32e789fef2" => :sierra
-    sha256 "32ee5ea2d062e859e76924184e10b43dc8530023884c517186a2572419ca844f" => :el_capitan
-    sha256 "d71f474a79bc613cf655a07433d0c559607037a2f872caf31960d2aa714d618a" => :yosemite
+    sha256 "fe7c8716e916535682f46b41905aa139da60a5505302b9001a02f14e804264d1" => :high_sierra
+    sha256 "81fc41187a6160df18f1b73c0ddaea5f263723764cf16821fffc83c3163e105a" => :sierra
+    sha256 "75cdd9b0325226c732ce8d6989234abb05d8af4591e2369f78b48df0802f67d5" => :el_capitan
   end
 
   head do
