@@ -72,6 +72,8 @@ class Pypy3 < Formula
   fails_with :gcc
 
   def install
+    ENV.delete("SDKROOT") if MacOS.version == :sierra
+
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
