@@ -148,8 +148,7 @@ class Bzt < Formula
   end
 
   test do
-    test_cmd = "#{bin}/bzt -o execution.0.executor=nose -o execution.0.scenario.requests.0=http://gettaurus.org"
-    output_text = pipe_output(test_cmd)
-    assert_match "INFO: Samples count: 1, 0.00% failures", output_text
+    cmd = "#{bin}/bzt -o execution.0.executor=nose -o execution.0.scenario.requests.0=http://gettaurus.org"
+    assert_match "INFO: Samples count: 1, 0.00% failures", shell_output(cmd)
   end
 end
