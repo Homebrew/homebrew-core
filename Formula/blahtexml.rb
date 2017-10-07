@@ -7,11 +7,9 @@ class Blahtexml < Formula
 
   bottle do
     cellar :any
-    sha256 "5865796763721f8e0fb50dc9d601a3dfd90912fae4ac446827b240b5ae0f31e3" => :high_sierra
-    sha256 "be03733973aab454e1dc7cb52598d616778224c8e06e2a015ac1fb58ef8a8808" => :sierra
-    sha256 "472b13bf5f305d0bdb3d822a81a21feee97315dbf90a27ed33853b237defd359" => :el_capitan
-    sha256 "35e3afbd8968550c0f9446b2537163187fe0e7f79574bb88de097972506f42f1" => :yosemite
-    sha256 "567c1b3872dc4d5e3b69b7c490ec4e5cd56669cf6d848cf6b451ae48a64f1661" => :mavericks
+    sha256 "c2696cdaa1724541f0d07900219247365e30061a471df0b80f6469b3bc2b4a14" => :high_sierra
+    sha256 "bcd628072b5b7d6625e2b2caad1c6f64483807facda1b2eff32795de1b25070f" => :sierra
+    sha256 "b1788b8622b704c67b11295f6bf84ab881298980f8101b5fed6cb7441b4edc82" => :el_capitan
   end
 
   deprecated_option "blahtex-only" => "without-blahtexml"
