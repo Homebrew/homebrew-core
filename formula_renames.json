@@ -138,6 +138,7 @@
   "ppl011": "ppl@0.11",
   "protobuf250": "protobuf@2.5",
   "protobuf260": "protobuf@2.6",
+  "pygobject3": "py2gobject3",
   "pyqt5": "pyqt",
   "qt5": "qt",
   "qt55": "qt@5.5",

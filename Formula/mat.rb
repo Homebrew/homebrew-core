@@ -16,7 +16,7 @@ class Mat < Formula
   depends_on :python => :optional
   depends_on "coreutils"
   depends_on "poppler"
-  depends_on "pygobject3"
+  depends_on "py2gobject3"
   depends_on "exiftool" => :optional
   depends_on "gettext" => :build
   depends_on "intltool" => :build
@@ -47,9 +47,9 @@ class Mat < Formula
   end
 
   def install
-    pygobject3 = Formula["pygobject3"]
+    py2gobject3 = Formula["py2gobject3"]
     ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
-    ENV.append_path "PYTHONPATH", pygobject3.opt_lib+"python2.7/site-packages"
+    ENV.append_path "PYTHONPATH", py2gobject3.opt_lib+"python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
 
     %w[hachoir-core hachoir-parser pdfrw distutils-extra mutagen].each do |r|

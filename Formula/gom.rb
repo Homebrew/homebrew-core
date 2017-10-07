@@ -16,8 +16,7 @@ class Gom < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gobject-introspection"
-  depends_on "py3cairo"
-  depends_on "pygobject3" => "with-python3"
+  depends_on "py3gobject3"
   depends_on :python3
   depends_on "sqlite"
 

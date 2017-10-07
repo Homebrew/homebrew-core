@@ -19,7 +19,7 @@ class Libosinfo < Formula
   depends_on "glib"
   depends_on "libsoup"
   depends_on "libxml2"
-  depends_on "pygobject3"
+  depends_on "py2gobject3"
 
   depends_on "gobject-introspection" => :recommended
   depends_on "vala" => :optional
@@ -88,7 +88,7 @@ class Libosinfo < Formula
     ENV.append_path "GI_TYPELIB_PATH", lib+"girepository-1.0"
     ENV.append_path "GI_TYPELIB_PATH", Formula["gobject-introspection"].opt_lib+"girepository-1.0"
     ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    ENV.append_path "PYTHONPATH", Formula["pygobject3"].opt_lib+"python2.7/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["py2gobject3"].opt_lib+"python2.7/site-packages"
     system "python", "test.py"
   end
 end

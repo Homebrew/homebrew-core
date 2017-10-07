@@ -15,7 +15,7 @@ class Xdot < Formula
     sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :yosemite
   end
 
-  depends_on "pygobject3"
+  depends_on "py2gobject3"
   depends_on "pygtk"
   depends_on :python if MacOS.version <= :snow_leopard
 

@@ -15,8 +15,8 @@ class GstPython < Formula
   depends_on :python3 => :optional
   depends_on "gst-plugins-base"
 
-  depends_on "pygobject3" if build.with? "python"
-  depends_on "pygobject3" => "with-python3" if build.with? "python3"
+  depends_on "py2gobject3" if build.with? "python"
+  depends_on "py3gobject3" if build.with? "python3"
 
   link_overwrite "lib/python2.7/site-packages/gi/overrides"
 

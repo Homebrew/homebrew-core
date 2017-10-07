@@ -24,8 +24,7 @@ class Pytouhou < Formula
   depends_on "sdl2_ttf"
   depends_on "gtk+3" => :recommended
   if build.with? "gtk+3"
-    depends_on "py3cairo" # FIXME: didn't get picked up by pygobject3 below
-    depends_on "pygobject3" => "with-python3"
+    depends_on "py3gobject3"
   end
 
   resource "Cython" do

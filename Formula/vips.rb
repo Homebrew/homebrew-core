@@ -26,7 +26,7 @@ class Vips < Formula
   depends_on "little-cms2"
   depends_on "orc"
   depends_on "pango"
-  depends_on "pygobject3"
+  depends_on "py2gobject3"
   depends_on "fftw" => :recommended
   depends_on "poppler" => :recommended
   depends_on "graphicsmagick" => :optional
