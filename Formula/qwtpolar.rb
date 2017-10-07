@@ -65,8 +65,8 @@ class Qwtpolar < Formula
       system Formula["qt"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
-      assert_predicate testpath/"bin/polardemo.app/Contents/MacOS/polardemo", :exist?, "Failed to build polardemo"
-      assert_predicate testpath/"bin/spectrogram.app/Contents/MacOS/spectrogram", :exist?, "Failed to build spectrogram"
+      assert_predicate Pathname.pwd/"bin/polardemo.app/Contents/MacOS/polardemo", :exist?, "Failed to build polardemo"
+      assert_predicate Pathname.pwd/"bin/spectrogram.app/Contents/MacOS/spectrogram", :exist?, "Failed to build spectrogram"
     end
   end
 end
