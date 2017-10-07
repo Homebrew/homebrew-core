@@ -1,10 +1,9 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftp.gnu.org/gnu/zile/zile-2.4.13.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.13.tar.gz"
-  sha256 "c795f369ea432219c21bf59ffc9322fd5f221217021a8fbaa6f9fed91778ac0e"
-  revision 1
+  url "https://ftp.gnu.org/gnu/zile/zile-2.4.14.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.14.tar.gz"
+  sha256 "7a78742795ca32480f2bab697fd5e328618d9997d6f417cf1b14e9da9af26b74"
 
   bottle do
     sha256 "29bd460d08eeb0f7ad14372d47ad7c4d4fe6b8a79393eddbdcf1e60b69225a37" => :high_sierra
@@ -24,15 +23,6 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "help2man" => :build
   depends_on "bdw-gc"
-
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/14451f57e89/devel/bison/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
