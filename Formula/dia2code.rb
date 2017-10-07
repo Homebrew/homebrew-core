@@ -15,7 +15,6 @@ class Dia2code < Formula
   end
 
   test do
-  
     system "false"
   end
 end
