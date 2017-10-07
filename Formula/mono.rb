@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.0.1.1.tar.bz2"
-  sha256 "48d6ae71d593cd01bf0f499de569359d45856cda325575e1bacb5fabaa7e9718"
+  url "https://download.mono-project.com/sources/mono/mono-5.2.0.215.tar.bz2"
+  sha256 "8f0cebd3f7b03f68b9bd015706da9c713ed968004612f1ef8350993d8fe850ea"
 
   bottle do
     sha256 "ae35573df33c718c3d9999572392480d2426cc995cfc4b123f0a66f885ea8053" => :high_sierra
@@ -28,13 +28,18 @@ class Mono < Formula
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "openssl" => :build
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
 
+  resource "msbuild" do
+    url "https://github.com/mono/msbuild.git",
+        :branch => "d15.3"
+  end
+
   resource "fsharp" do
-    url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.18",
-        :revision => "3245fd24efcc7a54d4314a2897257f68cd194244"
+    url "https://github.com/fsharp/fsharp/archive/4.1.25.tar.gz"
+    sha256 "9c6f06ff77f7e2c3a764af8a85094c6b6c50a2088c5cc7ba52d3f87384a251f1"
   end
 
   def install
@@ -53,6 +58,26 @@ class Mono < Formula
     # mono-gdb.py and mono-sgen-gdb.py are meant to be loaded by gdb, not to be
     # run directly, so we move them out of bin
     libexec.install bin/"mono-gdb.py", bin/"mono-sgen-gdb.py"
+
+    resource("msbuild").stage do
+      patch_str = <<-EOM
+      tar -xf $__DOTNET_PATH/dotnet.tar
+
+      __SHARED_DIR="shared/Microsoft.NETCore.App/1.0.1"
+      __OPENSSL_PREFIX="/usr/local/opt/openssl/lib"
+      mkdir -p __SHARED_DIR
+      cp $__OPENSSL_PREFIX/libssl.1.0.0.dylib $__SHARED_DIR
+      cp $__OPENSSL_PREFIX/libcrypto.1.0.0.dylib $__SHARED_DIR
+      EOM
+      inreplace "init-tools.sh", "tar -xf $__DOTNET_PATH/dotnet.tar", patch_str
+      # inreplace "init-tools.sh" do |s|
+      #   s.gsub! "tar -xf $__DOTNET_PATH/dotnet.tar", patch_str
+      # end
+      ENV.prepend_path "PATH", bin
+      ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+      system "./cibuild.sh", "--scope", "Compile", "--target", "Mono", "--config", "Release"
+      system "./install-mono-prefix.sh", prefix.to_s
+    end
 
     # Now build and install fsharp as well
     if build.with? "fsharp"
