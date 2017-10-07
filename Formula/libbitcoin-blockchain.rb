@@ -3,6 +3,7 @@ class LibbitcoinBlockchain < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
   url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.3.0.tar.gz"
   sha256 "c97762f37e30b0d41b5f9d70499dbf9ca70096924410e98a15781e4cb5c39966"
+  revision 1
 
   bottle do
     sha256 "c437aa44016f52c37a7a0c19150f842cefa671dd1d3a3f0088f368255c4892f1" => :high_sierra
@@ -15,15 +16,11 @@ class LibbitcoinBlockchain < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libbitcoin"
+  depends_on "libbitcoin-database"
 
   resource "libbitcoin-consensus" do
     url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.3.0.tar.gz"
     sha256 "ae581f7c42a52fb6f4a233300f76f2a2d03a22eee6d4bfe22b233e9b52f029b4"
-  end
-
-  resource "libbitcoin-database" do
-    url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.3.0.tar.gz"
-    sha256 "b4d98199ac4629a9857c1eb8819fe8166525bf2dca9ed790a9bbe5dc9c9e9186"
   end
 
   def install
@@ -31,14 +28,6 @@ class LibbitcoinBlockchain < Formula
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     resource("libbitcoin-consensus").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
-
-    resource("libbitcoin-database").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
