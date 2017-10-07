@@ -1,10 +1,8 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/0.92.1.tar.gz"
-  sha256 "0912a344aaa38ed4b78f6dcab1a873975adb434dcc31cdd6fec3ec6a30025390"
-  revision 1
-
+  url "https://github.com/openstreetmap/osm2pgsql/archive/0.94.0.tar.gz"
+  sha256 "9e67e400deca48185313921431884171fb087dfe9e0d21e31857b8b06f20d317"
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
@@ -20,13 +18,6 @@ class Osm2pgsql < Formula
   depends_on "geos"
   depends_on "proj"
   depends_on "lua" => :recommended
-
-  # Compatibility with GEOS 3.6.1
-  # Upstream PR from 27 Oct 2016 "Geos36"
-  patch do
-    url "https://github.com/openstreetmap/osm2pgsql/pull/636.patch?full_index=1"
-    sha256 "4e060b20972b049e853b4582f8b3d41a2b98eeece7a5ee00ababdf14eb44154a"
-  end
 
   def install
     args = std_cmake_args
