@@ -46,9 +46,9 @@ class Treefrog < Formula
     system bin/"tspawn", "new", "hello"
     assert_predicate testpath/"hello", :exist?
     cd "hello" do
-      assert_predicate testpath/"hello.pro", :exist?
+      assert_predicate Pathname.pwd/"hello.pro", :exist?
       system HOMEBREW_PREFIX/"opt/qt/bin/qmake"
-      assert_predicate testpath/"Makefile", :exist?
+      assert_predicate Pathname.pwd/"Makefile", :exist?
       system "make"
       system bin/"treefrog", "-v"
     end
