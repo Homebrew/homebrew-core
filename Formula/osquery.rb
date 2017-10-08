@@ -3,9 +3,8 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.8.1",
-      :revision => "195690d6d1e79d7fa402073525f4f8849d61552f"
-  revision 1
+      :tag => "2.9.0",
+      :revision => "fc4ee471ff660632671ce537bd9a3336578afa24"
 
   bottle do
     cellar :any
@@ -53,8 +52,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
-    sha256 "d88e152ab5d9ad838166cb32a6152549ec16a51fb2fcc0802c704ea79c12edcb"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.2.7.tar.gz"
+    sha256 "1f65e63dbbceb1e8ffb19851a8e0ee153e05bf63bfa12b0e259d50021ac3ab6e"
   end
 
   resource "cpp-netlib" do
