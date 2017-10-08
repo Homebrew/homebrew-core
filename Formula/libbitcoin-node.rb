@@ -3,6 +3,7 @@ class LibbitcoinNode < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-node"
   url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.3.0.tar.gz"
   sha256 "51298e2346d629215171af14b01d61cfabe93ddaa8069595a80b8b9f88224f7b"
+  revision 1
 
   bottle do
     sha256 "45a2bfe30505ba6f371983e9a8e7b94b12ae9cd24e01c2f2c92b134ddf5f2f52" => :high_sierra
@@ -54,7 +55,6 @@ class LibbitcoinNode < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp",
                     "-I#{libexec}/include",
-                    "-I" + Formula["libbitcoin-blockchain"].opt_libexec/"include",
                     "-lbitcoin", "-lbitcoin-node", "-lboost_system",
                     "-o", "test"
     system "./test"
