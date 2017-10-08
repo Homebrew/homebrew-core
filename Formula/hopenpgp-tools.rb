@@ -10,10 +10,9 @@ class HopenpgpTools < Formula
   head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
-    rebuild 1
-    sha256 "6e699e81923fbe33e36db553be9870571db50872e0c11d7fc78de72b8f085481" => :high_sierra
-    sha256 "737bd1e9d2e19a802f45479c329ddea0d6ac5cbe3e6dc11d104839f265ab74b4" => :sierra
-    sha256 "a228013b2ba95ac2c3d54d84cf3fec0f40e22d18fc0509a855d2b8aa5b306a19" => :el_capitan
+    sha256 "4a6735e79e482ba28deaf8b579029761bfd332e5bc3656dd3391eb8c546f96d3" => :high_sierra
+    sha256 "1ee1f29b5af38aaff4ffc5288bb7a23d78be4bf560d7f6456b915c8218ad6b2a" => :sierra
+    sha256 "2fd337bf48fce294194500b584ffcb62fdf564661bb176a2508588a2adbba965" => :el_capitan
   end
 
   depends_on "ghc@8.0" => :build
