@@ -3,6 +3,7 @@ class Pygobject3 < Formula
   homepage "https://live.gnome.org/PyGObject"
   url "https://download.gnome.org/sources/pygobject/3.26/pygobject-3.26.0.tar.xz"
   sha256 "7411acd600c8cb6f00d2125afa23303f2104e59b83e0a4963288dbecc3b029fa"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,9 @@ class Pygobject3 < Formula
 
   def install
     Language::Python.each_python(build) do |python, _version|
-      system python, *Language::Python.setup_install_args(prefix)
+      system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=#{python}"
+      system "make", "install"
+      system "make", "clean"
     end
   end
 
