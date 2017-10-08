@@ -1,8 +1,8 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
   homepage "https://www.indexdata.com/pazpar2"
-  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.12.tar.gz"
-  sha256 "555ec4a5897f40e12cb785aedf1e41b111179396942bc1c21897a186962d96a6"
+  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.13.tar.gz"
+  sha256 "02a97773ba27a2481744fc2323a9488a64661f7d1da09e5e61443c9b6a10cbed"
 
   bottle do
     cellar :any
