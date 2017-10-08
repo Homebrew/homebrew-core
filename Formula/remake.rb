@@ -6,10 +6,9 @@ class Remake < Formula
   sha256 "26874693fb9408f19d56fa5c76ee420a603cbbd226ab46d314658b96f9770df0"
 
   bottle do
-    sha256 "1156ef1cdfbf32c8a2e2ddb842dd34ef7f4d88ad8d3d3865ded4de46a8a0123e" => :high_sierra
-    sha256 "50aca3e89fb405911a8cba1cef1cab204a5a93fd9b79df871a53119c7f04a785" => :sierra
-    sha256 "c7238548e920287581ca97dcd0464fc84e1456e8bf097e37cb37dde6b290eb52" => :el_capitan
-    sha256 "4dac4fdd06520c8426c227ed4bc1f7db5421e7cca8003190cbce0f6e32046fda" => :yosemite
+    sha256 "0833fb8f15c06fca9c97627ffdc9fc53e3a27feed22939ddf92b8aff84898cf3" => :high_sierra
+    sha256 "de499d499d391b95f1da22ea69e7c4f700b4adebb4c7054001f8fefad157cd06" => :sierra
+    sha256 "5409f2e163381938a90b049ef127e21250e05aefc00f1eff87e31e2921a29121" => :el_capitan
   end
 
   def install
