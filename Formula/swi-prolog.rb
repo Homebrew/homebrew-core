@@ -40,11 +40,8 @@ class SwiProlog < Formula
   end
 
   def install
-    # The archive package hard-codes a check for MacPort libarchive
-    # Replace this with a check for Homebrew's libarchive, or nowhere
     if build.with? "libarchive"
-      inreplace "packages/archive/configure.in", "/opt/local",
-                                                 Formula["libarchive"].opt_prefix
+      ENV["ARPREFIX"] = Formula["libarchive"].opt_prefix
     else
       ENV.append "DISABLE_PKGS", "archive"
     end
