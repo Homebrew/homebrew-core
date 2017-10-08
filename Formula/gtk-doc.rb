@@ -3,6 +3,7 @@ class GtkDoc < Formula
   homepage "https://www.gtk.org/gtk-doc/"
   url "https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz"
   sha256 "bff3f44467b1d39775e94fad545f050faa7e8d68dc6a31aef5024ba3c2d7f2b7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +19,7 @@ class GtkDoc < Formula
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "libxml2"
+  depends_on "source-highlight"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
@@ -35,6 +37,7 @@ class GtkDoc < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-highlight=source-highlight",
                           "--with-xml-catalog=#{etc}/xml/catalog"
     system "make"
     system "make", "install"
