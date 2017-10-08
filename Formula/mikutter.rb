@@ -1,10 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.5.11.tar.gz"
-  sha256 "b90b09c400fe99092b1eaa4b4f39f78b90cff4335ed94d996cc2d4de08467550"
-  revision 1
-
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.12.tar.gz"
+  sha256 "a953a9445d27d2ba869ccf0912489803033cc2b243d7d1c36aef44426ee5ad27"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -83,8 +81,8 @@ class Mikutter < Formula
   end
 
   resource "hashdiff" do
-    url "https://rubygems.org/gems/hashdiff-0.3.6.gem"
-    sha256 "816ce4c22faeb0df029170dd101e34d238b90b388556ecde77413c373d5e1870"
+    url "https://rubygems.org/gems/hashdiff-0.3.7.gem"
+    sha256 "e94a08689f724a571556b78d5ca35214033d3961972d58c4611245c4b3a0457a"
   end
 
   resource "httpclient" do
@@ -118,8 +116,8 @@ class Mikutter < Formula
   end
 
   resource "mini_portile2" do
-    url "https://rubygems.org/gems/mini_portile2-2.2.0.gem"
-    sha256 "f536d3307de76d8ec8cbcc9182a88d83bdc0f8f6e3e9681560166004fcbbab3c"
+    url "https://rubygems.org/gems/mini_portile2-2.3.0.gem"
+    sha256 "216417b241ff4e7b1c726f257241eaf223e3abbe6ec2c6453352dea6a414a38d"
   end
 
   resource "mocha" do
@@ -138,8 +136,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.8.0.gem"
-    sha256 "d6e693278e3c26f828339705e14a149de5ac824771e59c6cd9e6c91ebad7ced9"
+    url "https://rubygems.org/gems/nokogiri-1.8.1.gem"
+    sha256 "4180dd5dfe8ba5479db7c3030012cd79da9b958eea472195f3daa23cbf80bd80"
   end
 
   resource "oauth" do
@@ -193,8 +191,8 @@ class Mikutter < Formula
   end
 
   resource "test-unit" do
-    url "https://rubygems.org/gems/test-unit-3.2.5.gem"
-    sha256 "a230fc4f832ca770bf0bdcd82dd6e83f48fb24cf4e6e883bf83806c09d197d15"
+    url "https://rubygems.org/gems/test-unit-3.2.6.gem"
+    sha256 "db329c4721e02964d63f0c78a99f71c7341e8dc5a4f41f14a856fb659a5885be"
   end
 
   resource "text" do
