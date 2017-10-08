@@ -3,6 +3,7 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.3.0.tar.gz"
   sha256 "3066ff98af14574edae3e36b056b847558953e501c9b4f626c0428db9933a0ad"
+  revision 1
 
   bottle do
     sha256 "3dfbd35e18006ded74f9b991e22c4bf79680866291c0410305da015a04c7ccad" => :high_sierra
@@ -54,7 +55,6 @@ class LibbitcoinServer < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp",
                     "-I#{libexec}/include",
-                    "-I#{Formula["libbitcoin-blockchain"].opt_libexec}/include",
                     "-I#{Formula["libbitcoin-node"].opt_libexec}/include",
                     "-lbitcoin", "-lbitcoin-server", "-lboost_system",
                     "-o", "test"
