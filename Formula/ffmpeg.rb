@@ -30,13 +30,6 @@ class Ffmpeg < Formula
     url "https://github.com/FFmpeg/FFmpeg.git"
 
     depends_on "nasm" => :build
-
-    # Mailing list post from 5 Oct 2017 "lavc: add support for OpenJPEG 2.3.0"
-    # See https://ffmpeg.org/pipermail/ffmpeg-devel/2017-October/217389.html
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4af1f7d/ffmpeg/openjpeg-2.3-head.patch"
-      sha256 "93e5db7697fea9a57ca0a55c832a9ff00eb3eae89c4b2b0d9a0ce542e6d8b9c1"
-    end
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
