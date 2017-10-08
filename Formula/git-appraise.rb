@@ -1,5 +1,3 @@
-require "language/go"
-
 class GitAppraise < Formula
   desc "Distributed code review system for Git repos"
   homepage "https://github.com/google/git-appraise"
@@ -30,6 +28,6 @@ class GitAppraise < Formula
     system "git", "add", "README"
     system "git", "commit", "-m", "Update"
     system "git", "appraise", "request", "--allow-uncommitted"
-    assert (testpath/".git/refs/notes/devtools/reviews").exist?
+    assert_predicate (testpath/".git/refs/notes/devtools/reviews"), :exist?
   end
 end
