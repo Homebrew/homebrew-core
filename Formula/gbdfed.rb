@@ -29,8 +29,8 @@ class Gbdfed < Formula
   end
 
   test do
-    assert (bin/"gbdfed").exist?
-    assert (share/"man/man1/gbdfed.1").exist?
+    assert_predicate bin/"gbdfed", :exist?
+    assert_predicate share/"man/man1/gbdfed.1", :exist?
   end
 end
 
