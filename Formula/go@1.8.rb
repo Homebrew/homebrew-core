@@ -2,7 +2,6 @@ class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
   url "https://storage.googleapis.com/golang/go1.8.4.src.tar.gz"
-  version "1.8.4"
   sha256 "abf1b2e5ae2a4845f3d2eac00c7382ff209e2c132dc35b7ce753da9b4f52e59f"
 
   bottle do
