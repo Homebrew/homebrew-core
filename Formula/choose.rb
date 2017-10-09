@@ -39,6 +39,6 @@ class Choose < Formula
     # There isn't really a better test than that the executable exists
     # and is executable because you can't run it without producing an
     # interactive selection ui.
-    File.executable?("#{bin}/choose")
+    assert_predicate bin/"choose", :executable?
   end
 end
