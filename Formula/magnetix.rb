@@ -39,6 +39,6 @@ class Magnetix < Formula
   end
 
   test do
-    File.executable? "#{prefix}/magnetiX.app/Contents/MacOS/magnetiX"
+    assert_predicate prefix/"magnetiX.app/Contents/MacOS/magnetiX", :executable?
   end
 end
