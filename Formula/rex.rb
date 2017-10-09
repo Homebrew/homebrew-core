@@ -261,7 +261,7 @@ class Rex < Formula
   test do
     assert_match "\(R\)\?ex #{version}", shell_output("#{bin}/rex -v"), "rex -v is expected to print out Rex version"
     system bin/"rexify", "brewtest"
-    assert (testpath/"brewtest/Rexfile").exist?, "rexify is expected to create a new Rex project and pre-populate its Rexfile"
+    assert_predicate testpath/"brewtest/Rexfile", :exist?, "rexify is expected to create a new Rex project and pre-populate its Rexfile"
   end
 
   private
