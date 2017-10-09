@@ -103,6 +103,6 @@ class GnuplotAT4 < Formula
         set output "#{testpath}/image.png";
         plot sin(x);
     EOS
-    assert (testpath/"image.png").exist?
+    assert_predicate testpath/"image.png", :exist?
   end
 end
