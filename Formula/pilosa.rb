@@ -3,8 +3,8 @@ require "language/go"
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.7.0.tar.gz"
-  sha256 "124c411eb59451dc47ff61df5fbebfd6f8bff284d74f567edfb4817041844d3c"
+  url "https://github.com/pilosa/pilosa/archive/v0.7.1.tar.gz"
+  sha256 "c889b774b78c85fb1a23984e362e0201444b8b3d7baa38d3507dbd9ad675de04"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Pilosa < Formula
 
   go_resource "github.com/rakyll/statik" do
     url "https://github.com/rakyll/statik.git",
-        :revision => "25d6cab4d68d2a9b7c5965aa381726dd5dd6d7b8"
+        :tag => "v0.1.1"
   end
 
   def install
@@ -32,7 +32,7 @@ class Pilosa < Formula
       system "go", "install"
     end
     cd "src/github.com/pilosa/pilosa" do
-      system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=#{version}"
+      system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
     end
   end
 
