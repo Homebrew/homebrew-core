@@ -16,6 +16,9 @@ class ProtobufSwift < Formula
   depends_on "libtool" => :build
   depends_on "protobuf"
 
+  conflicts_with "swift-protobuf",
+    :because => "both install `protoc-gen-swift` binaries"
+
   def install
     system "protoc", "-Iplugin/compiler",
                      "plugin/compiler/google/protobuf/descriptor.proto",
