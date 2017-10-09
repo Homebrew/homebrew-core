@@ -39,7 +39,7 @@ class Sqlite < Formula
   resource "docs" do
     url "https://www.sqlite.org/2017/sqlite-doc-3200100.zip"
     version "3.20.1"
-    sha256 "0caf410e604411fd925c699d5fcb1d846f9297cdf2e18251eceb3e5708301e85"
+    sha256 "1c8924df0c562c85c37d33453b71837f911ed87cba8c2b7864fb721c56659283"
   end
 
   def install
