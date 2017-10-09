@@ -34,6 +34,6 @@ class Gabedit < Formula
   end
 
   test do
-    assert (bin/"gabedit").exist?
+    assert_predicate bin/"gabedit", :exist?
   end
 end
