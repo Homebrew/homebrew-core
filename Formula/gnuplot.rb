@@ -114,6 +114,6 @@ class Gnuplot < Formula
       set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"graph.txt"
+    assert_predicate testpath/"graph.txt", :exist?
   end
 end
