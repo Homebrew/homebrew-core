@@ -29,6 +29,6 @@ class Qdae < Formula
   end
 
   test do
-    File.executable? "#{bin}/qdae"
+    assert_predicate bin/"qdae", :executable?
   end
 end
