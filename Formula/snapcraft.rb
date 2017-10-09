@@ -156,6 +156,6 @@ class Snapcraft < Formula
     system "#{bin}/snapcraft", "--version"
     system "#{bin}/snapcraft", "--help"
     system "#{bin}/snapcraft", "init"
-    File.exist? "#{testpath}/snap/snapcraft.yaml"
+    assert_predicate testpath/"snap/snapcraft.yaml", :exist?
   end
 end
