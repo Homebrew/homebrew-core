@@ -6,20 +6,12 @@ class Envconsul < Formula
   depends_on "go" => :build
 
   def install
-    gopath = buildpath/"go"
-    to_move = (Dir.entries buildpath).reject { |entry| entry.start_with? "." }
-    mkdir_p gopath
-    envconsul_path = gopath/"src"/"github.com"/"hashicorp"/"envconsul"
-    mkdir_p envconsul_path
-    to_move.each do |item|
-      mv item, envconsul_path
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/hashicorp/envconsul").install buildpath.children
+    cd "src/github.com/hashicorp/envconsul" do
+      system "go", "build", "-o", bin/"envconsul"
+      prefix.install_metafiles
     end
-
-    ENV["GOPATH"] = gopath
-    cd envconsul_path do
-      system "go", "build"
-    end
-    bin.install envconsul_path/"envconsul"
   end
 
   test do
