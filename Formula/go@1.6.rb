@@ -3,7 +3,6 @@ class GoAT16 < Formula
   homepage "https://golang.org"
   url "https://storage.googleapis.com/golang/go1.6.4.src.tar.gz"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.6.4.src.tar.gz/b023240be707b34059d2c114d3465c92/go1.6.4.src.tar.gz"
-  version "1.6.4"
   sha256 "8796cc48217b59595832aa9de6db45f58706dae68c9c7fbbd78c9fdbe3cd9032"
 
   bottle do
