@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.5.3.tar.gz"
-  sha256 "f5ae337c75f7d3c6a6eab5c97b772b59daebd89095628f6b1ee31c8f4a82139d"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.0.tar.gz"
+  sha256 "fe480af2fcf14b484cf2137ffb414ab4ebb402cf445687a04e45202ba88d3a8f"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -26,6 +26,9 @@ class Ibex < Formula
   def install
     ENV.cxx11
 
+    # Reported 9 Oct 2017 https://github.com/ibex-team/ibex-lib/issues/286
+    ENV.deparallelize
+
     if build.with?("java") && build.with?("ampl")
       odie "Cannot set options --with-java and --with-ampl simultaneously for now."
     end
@@ -34,7 +37,7 @@ class Ibex < Formula
       --prefix=#{prefix}
       --enable-shared
       --with-optim
-      --optim-lib=soplex
+      --lp-lib=soplex
     ]
 
     args << "--with-jni" if build.with? "java"
@@ -44,7 +47,7 @@ class Ibex < Formula
     system "./waf", "configure", *args
     system "./waf", "install"
 
-    pkgshare.install %w[examples benchs-solver]
+    pkgshare.install %w[examples plugins/solver/benchs]
     (pkgshare/"examples/symb01.txt").write <<-EOS.undent
       function f(x)
         return ((2*x,-x);(-x,3*x));
@@ -54,7 +57,6 @@ class Ibex < Formula
 
   test do
     cp_r (pkgshare/"examples").children, testpath
-    cp pkgshare/"benchs-solver/others/cyclohexan3D.bch", testpath/"c3D.bch"
 
     # so that pkg-config can remain a build-time only dependency
     inreplace %w[makefile slam/makefile] do |s|
@@ -64,9 +66,9 @@ class Ibex < Formula
       s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
-    system "make", "ctc01", "ctc02", "symb01"
+    system "make", "lab1", "lab2", "lab3", "lab4"
     system "make", "-C", "slam", "slam1", "slam2", "slam3"
-    %w[ctc01 ctc02 symb01].each { |a| system "./#{a}" }
+    %w[lab1 lab2 lab3 lab4].each { |a| system "./#{a}" }
     %w[slam1 slam2 slam3].each { |a| system "./slam/#{a}" }
   end
 end
