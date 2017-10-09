@@ -31,6 +31,6 @@ class Greed < Formula
   end
 
   test do
-    File.executable? "#{bin}/greed"
+    assert_predicate bin/"greed", :executable?
   end
 end
