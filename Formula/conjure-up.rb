@@ -222,6 +222,6 @@ class ConjureUp < Formula
 
   test do
     assert_match "No spells found, syncing from registry, please wait", shell_output("#{bin}/conjure-up openstack-base metal --show-env")
-    File.exist? "#{testpath}/.cache/conjure-up-spells/spells-index.yaml"
+    assert_predicate testpath/".cache/conjure-up-spells/spells-index.yaml", :exist?
   end
 end
