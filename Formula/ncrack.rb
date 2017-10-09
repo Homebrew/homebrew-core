@@ -3,6 +3,7 @@ class Ncrack < Formula
   homepage "https://nmap.org/ncrack/"
   url "https://nmap.org/ncrack/dist/ncrack-0.5.tar.gz"
   sha256 "dbad9440c861831836d47ece95aeb2bd40374a3eb03a14dea0fe1bfa73ecd4bc"
+  head "https://github.com/nmap/ncrack.git"
 
   bottle do
     sha256 "3238195981e41fa370773424e84259ab50504d21974498c83be208f1c229532a" => :high_sierra
