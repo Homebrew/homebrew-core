@@ -5,7 +5,6 @@ class Go < Formula
   stable do
     url "https://storage.googleapis.com/golang/go1.9.1.src.tar.gz"
     mirror "https://fossies.org/linux/misc/go1.9.1.src.tar.gz"
-    version "1.9.1"
     sha256 "a84afc9dc7d64fe0fa84d4d735e2ece23831a22117b50dafc75c1484f1cb550e"
 
     go_version = version.to_s.split(".")[0..1].join(".")
