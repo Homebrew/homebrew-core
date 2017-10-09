@@ -62,8 +62,8 @@ class Tor < Formula
 
   test do
     pipe_output("script -q /dev/null #{bin}/tor-gencert --create-identity-key", "passwd\npasswd\n")
-    assert (testpath/"authority_certificate").exist?
-    assert (testpath/"authority_signing_key").exist?
-    assert (testpath/"authority_identity_key").exist?
+    assert_predicate testpath/"authority_certificate", :exist?
+    assert_predicate testpath/"authority_signing_key", :exist?
+    assert_predicate testpath/"authority_identity_key", :exist?
   end
 end
