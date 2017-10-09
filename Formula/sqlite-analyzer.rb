@@ -13,7 +13,7 @@ class SqliteAnalyzer < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    system "./configure", "--disable-debug", "--with-tcl=/System/Library/Frameworks/Tcl.framework/", "--prefix=#{prefix}"
     system "make", "sqlite3_analyzer"
     bin.install "sqlite3_analyzer"
   end
