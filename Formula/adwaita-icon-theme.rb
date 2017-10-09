@@ -29,7 +29,7 @@ class AdwaitaIconTheme < Formula
     # and that a file created late in the install process exists.
     # Someone who understands GTK+3 could probably write better tests that
     # check if GTK+3 can find the icons.
-    assert (share/"icons/Adwaita/96x96/status/weather-storm-symbolic.symbolic.png").exist?
-    assert (share/"icons/Adwaita/index.theme").exist?
+    assert_predicate share/"icons/Adwaita/96x96/status/weather-storm-symbolic.symbolic.png", :exist?
+    assert_predicate share/"icons/Adwaita/index.theme", :exist?
   end
 end
