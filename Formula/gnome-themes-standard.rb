@@ -27,7 +27,7 @@ class GnomeThemesStandard < Formula
   end
 
   test do
-    assert (share/"icons/HighContrast/scalable/actions/document-open-recent.svg").exist?
-    assert (lib/"gtk-2.0/2.10.0/engines/libadwaita.so").exist?
+    assert_predicate share/"icons/HighContrast/scalable/actions/document-open-recent.svg", :exist?
+    assert_predicate lib/"gtk-2.0/2.10.0/engines/libadwaita.so", :exist?
   end
 end
