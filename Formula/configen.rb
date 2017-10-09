@@ -13,7 +13,7 @@ class Configen < Formula
     sha256 "f7ff48ab3a47cffc90001fa888e53a0d520327bb68285ee9d8dbe9a3355c1118" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => ["9.0", :build]
 
   def install
     xcodebuild "SYMROOT=build"
