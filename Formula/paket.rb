@@ -24,7 +24,7 @@ class Paket < Formula
     touch testpath/"testfile.txt"
 
     system bin/"paket", "install"
-    assert (testpath/"paket.lock").exist?
+    assert_predicate testpath/"paket.lock", :exist?
 
     (testpath/"paket.template").write <<-EOS.undent
       type file
@@ -41,6 +41,6 @@ class Paket < Formula
     EOS
 
     system bin/"paket", "pack", "output", testpath
-    assert (testpath/"#{test_package_id}.#{test_package_version}.nupkg").exist?
+    assert_predicate testpath/"#{test_package_id}.#{test_package_version}.nupkg", :exist?
   end
 end
