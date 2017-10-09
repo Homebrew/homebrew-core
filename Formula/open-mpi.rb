@@ -1,8 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v2.1/downloads/openmpi-2.1.1.tar.bz2"
-  sha256 "bd7badd4ff3afa448c0d7f3ca0ee6ce003b957e9954aa87d8e4435759b5e4d16"
+  url "https://www.open-mpi.org/software/ompi/v2.1/downloads/openmpi-2.1.2.tar.bz2"
+  sha256 "3cc5804984c5329bdf88effc44f2971ed244a29b256e0011b8deda02178dd635"
 
   bottle do
     sha256 "f98fe9297af17ec9485f36009ec79319a6682b449eaead015103721cb76cf7b2" => :high_sierra
