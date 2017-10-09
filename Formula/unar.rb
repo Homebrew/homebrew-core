@@ -46,6 +46,6 @@ class Unar < Formula
     system "gzip", "README.md"
     assert_equal "README.md.gz: Gzip\nREADME.md\n", shell_output("#{bin}/lsar README.md.gz")
     system bin/"unar", "README.md.gz"
-    assert (testpath/"README.md").exist?
+    assert_predicate testpath/"README.md", :exist?
   end
 end
