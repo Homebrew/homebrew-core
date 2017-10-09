@@ -33,6 +33,6 @@ class Gammaray < Formula
   end
 
   test do
-    (prefix/"GammaRay.app/Contents/MacOS/gammaray").executable?
+    assert_predicate prefix/"GammaRay.app/Contents/MacOS/gammaray", :executable?
   end
 end
