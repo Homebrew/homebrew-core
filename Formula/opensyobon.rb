@@ -38,6 +38,6 @@ class Opensyobon < Formula
   end
 
   test do
-    File.executable? "#{pkgshare}/SyobonAction"
+    assert_predicate pkgshare/"SyobonAction", :executable?
   end
 end
