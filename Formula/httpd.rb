@@ -54,6 +54,7 @@ class Httpd < Formula
                           "--with-sslport=8443",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
+                          "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}"
@@ -140,11 +141,11 @@ class Httpd < Formula
         LoadModule authz_core_module #{lib}/httpd/modules/mod_authz_core.so
         LoadModule unixd_module #{lib}/httpd/modules/mod_unixd.so
         LoadModule dir_module #{lib}/httpd/modules/mod_dir.so
-        LoadModule mpm_event_module #{lib}/httpd/modules/mod_mpm_event.so
+        LoadModule mpm_prefork_module #{lib}/httpd/modules/mod_mpm_prefork.so
       EOS
 
       pid = fork do
-        exec bin/"httpd", "-DFOREGROUND", "-f", "#{testpath}/httpd.conf"
+        exec bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       end
       sleep 3
 
