@@ -100,7 +100,7 @@ class Go < Formula
 
     # godoc was installed
     assert_predicate libexec/"bin/godoc", :exist?
-    assert File.executable?(libexec/"bin/godoc")
+    assert_predicate libexec/"bin/godoc", :executable?
 
     if build.with? "cgo"
       ENV["GOOS"] = "freebsd"
