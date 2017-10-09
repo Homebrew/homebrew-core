@@ -14,7 +14,7 @@ class Heroku < Formula
     sha256 "bdf1edcb36c1998c53a0bf4b3e757f6ab432abcbdb2ffcc8a1abf3974f4afcff" => :el_capitan
   end
 
-  depends_on "node"
+  depends_on "node" => :recommended
 
   def install
     inreplace "bin/run" do |s|
