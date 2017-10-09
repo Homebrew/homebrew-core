@@ -71,6 +71,6 @@ class LibtorrentRasterbar < Formula
            "-I#{Formula["boost"].include}/boost", "-lboost_system",
            libexec/"examples/make_torrent.cpp", "-o", "test"
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
-    File.exist? testpath/"test.torrent"
+    assert_predicate testpath/"test.torrent", :exist?
   end
 end
