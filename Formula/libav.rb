@@ -115,6 +115,6 @@ class Libav < Formula
     # Create an example mp4 file
     system "#{bin}/avconv", "-y", "-filter_complex",
         "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert (testpath/"video.mp4").exist?
+    assert_predicate testpath/"video.mp4", :exist?
   end
 end
