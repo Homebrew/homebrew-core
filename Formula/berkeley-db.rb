@@ -72,6 +72,6 @@ class BerkeleyDb < Formula
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
-    assert (testpath/"test.db").exist?
+    assert_predicate testpath/"test.db", :exist?
   end
 end
