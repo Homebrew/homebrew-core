@@ -1,8 +1,8 @@
 class Libprotoident < Formula
   desc "Performs application layer protocol identification for flows"
   homepage "https://research.wand.net.nz/software/libprotoident.php"
-  url "https://research.wand.net.nz/software/libprotoident/libprotoident-2.0.11.tar.gz"
-  sha256 "796d59ec0a48ee88d386d4f0a393a80df01184a92bbbb8c2aa2e2fc10741840a"
+  url "https://research.wand.net.nz/software/libprotoident/libprotoident-2.0.12.tar.gz"
+  sha256 "c09aba4882837c7f9ebf4ad153b637a9a7cbd5a2b4b398e10ddb63e74f270fac"
 
   bottle do
     cellar :any
