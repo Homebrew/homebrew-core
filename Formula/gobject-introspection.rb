@@ -36,6 +36,6 @@ class GobjectIntrospection < Formula
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libffi"].opt_lib/"pkgconfig"
     resource("tutorial").stage testpath
     system "make"
-    assert (testpath/"Tut-0.1.typelib").exist?
+    assert_predicate testpath/"Tut-0.1.typelib", :exist?
   end
 end
