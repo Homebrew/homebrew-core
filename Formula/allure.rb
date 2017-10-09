@@ -1,12 +1,12 @@
 class Allure < Formula
   desc "Flexible lightweight test report tool"
   homepage "https://github.com/allure-framework/allure2"
-  url "https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/2.3.5/allure-2.3.5.zip"
-  sha256 "4dec89b03e502768ddd7829575b3b528854098a8c93c9d61b1da6e75da868539"
+  url "https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/2.4.0/allure-2.4.0.zip"
+  sha256 "879ecf7bce838c476d099f2caa69da347789448dd0305bff69417d00af30ca2d"
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     # Remove all windows files
