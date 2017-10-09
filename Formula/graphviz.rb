@@ -41,17 +41,18 @@ class Graphviz < Formula
   depends_on "libpng"
 
   if build.with? "bindings"
+    which_python = which("python").to_s
+    if which_python.start_with?("#{HOMEBREW_PREFIX}.to_s")
+      depends_on "python"
+    else
+      depends_on :python
+    end
     depends_on "swig" => :build
-    depends_on :python
     depends_on :java
     depends_on "ruby"
   end
 
   def install
-    # The following setting makes to prohibit using Homebrew's Python. See :
-    # https://github.com/Homebrew/homebrew-core/issues/19110
-    ENV["PYTHON"]="/usr/bin/python"
-
     # Only needed when using superenv, which causes qfrexp and qldexp to be
     # falsely detected as available. The problem is triggered by
     #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
