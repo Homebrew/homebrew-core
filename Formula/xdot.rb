@@ -1,10 +1,8 @@
 class Xdot < Formula
   desc "Interactive viewer for graphs written in Graphviz's dot language."
   homepage "https://github.com/jrfonseca/xdot.py"
-  url "https://files.pythonhosted.org/packages/f5/52/7cec1decf2b07c7749eb997fa5f365781a512722f48e6ad4294e31c94629/xdot-0.7.tar.gz"
-  sha256 "d2100c3201d974915d1b89220ce52f380334eb365ab48903573a8135f51d0ee0"
-  revision 1
-
+  url "https://pypi.python.org/packages/8e/d5/2fadb9ba06cd46728183d5c788557a6cb7f9a0686a9c1a953e31c9b7e745/xdot-0.8.tar.gz"
+  sha256 "7cafed00bae21ecda6acef9c598d8297d7d70b2f8d8050d45f6bd0e44c646933"
   head "https://github.com/jrfonseca/xdot.py.git"
 
   bottle do
