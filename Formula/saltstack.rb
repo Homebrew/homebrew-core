@@ -3,9 +3,8 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/d2/cd/348817b5b4d0ee160f72744bad39c8b6898df62e3287a4923b8a2cc07716/salt-2017.7.1.tar.gz"
-  sha256 "fe868415d0e1162157186f4c5263e9af902b0571870ad2da210e7edf5ff5331d"
-  revision 1
+  url "https://files.pythonhosted.org/packages/9e/0d/46336f0b60ba51bbecf91ad401b90f691683fd37b7a18e421198406a7c19/salt-2017.7.2.tar.gz"
+  sha256 "ff3bc7de5abf01b8acbd144db5811b00867179b2353f5c6f7f19241e2eff2840"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -31,8 +30,8 @@ class Saltstack < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/11/29/0b075f51c38df4649a24ecff9ead1ffc57b164710821048e3d997f1363b9/M2Crypto-0.26.0.tar.gz"
-    sha256 "05d94fd9b2dae2fb8e072819a795f0e05d3611b09ea185f68e1630530ec09ae8"
+    url "https://files.pythonhosted.org/packages/01/bd/a41491718f9e2bebab015c42b5be7071c6695acfa301e3fc0480bfd6a15b/M2Crypto-0.27.0.tar.gz"
+    sha256 "82317459d653322d6b37f122ce916dc91ddcd9d1b814847497ac796c4549dd68"
   end
 
   resource "MarkupSafe" do
@@ -101,13 +100,13 @@ class Saltstack < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/df/42/a180ee540e12e2ec1007ac82a42b09dd92e5461e09c98bf465e98646d187/tornado-4.5.1.tar.gz"
-    sha256 "db0904a28253cfe53e7dedc765c71596f3c53bb8a866ae50123320ec1a7b73fd"
+    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
+    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
   end
 
   resource "urllib3" do
@@ -125,8 +124,12 @@ class Saltstack < Formula
     end
 
     resource("M2Crypto").stage do
-      inreplace "setup.py", "self.openssl = '/usr'",
-                            "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+      inreplace "setup.py" do |s|
+        s.gsub! "self.openssl = '/usr'",
+                "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+        s.gsub! "platform.system() == \"Linux\"",
+                "platform.system() == \"Darwin\" or \\0"
+      end
       venv.pip_install Pathname.pwd
     end
 
