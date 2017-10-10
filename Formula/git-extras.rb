@@ -18,7 +18,6 @@ class GitExtras < Formula
     sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :sierra
     sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :el_capitan
     sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :yosemite
-    rebuild 1
   end
 
   conflicts_with "git-utils",
