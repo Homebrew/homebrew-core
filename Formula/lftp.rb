@@ -1,9 +1,8 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.yar.ru/"
-  url "https://lftp.yar.ru/ftp/lftp-4.8.2.tar.xz"
-  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.8.2.tar.xz"
-  sha256 "5c875b8476e05e856ebc8eec458e43317b2bebd6ed5f7725a733d4591548cd9c"
+  url "https://lftp.yar.ru/ftp/lftp-4.8.3.tar.xz"
+  sha256 "de7aee451afaa1aa391f7076b5f602922c2da0e05524a8d8fea413eda83cc78b"
 
   bottle do
     sha256 "e7d293c56895ce31f0494a5f1e71123bbf09b436af4411c65d905cf2d6bb28ac" => :high_sierra
