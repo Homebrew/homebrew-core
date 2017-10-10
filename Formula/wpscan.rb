@@ -50,6 +50,6 @@ class Wpscan < Formula
 
   test do
     assert_match "URL: https://wordpress.org/",
-                 shell_output("#{bin}/wpscan --url https://wordpress.org/")
+                 pipe_output("#{bin}/wpscan --url https://wordpress.org/")
   end
 end
