@@ -20,13 +20,13 @@ class GnuApl < Formula
     depends_on "libtool" => :build
   end
 
+  option "with-postgresql", "Build with Postgresql support"
+
   # GNU Readline is required; libedit won't work.
   depends_on "readline"
   depends_on :macos => :mavericks
 
   depends_on :postgresql => :optional
-
-  option "with-postgresql", "Build with Postgresql support"
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -34,13 +34,13 @@ class GnuApl < Formula
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
 
     args = %W[
-            --disable-debug
-            --disable-dependency-tracking
-            --disable-silent-rules
-            --prefix=#{prefix}
-          ]
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
 
-    if build.with? "postgresql" then
+    if build.with? "postgresql"
       ENV.prepend "LDFLAGS", "-L#{Formula["postgresql"].opt_lib}"
       ENV.prepend "CPPFLAGS", "-I#{Formula["postgresql"].opt_include}"
       args << "--with-postgresql"
