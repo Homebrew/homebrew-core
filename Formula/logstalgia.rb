@@ -1,8 +1,8 @@
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
   homepage "http://logstalgia.io/"
-  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.0.9/logstalgia-1.0.9.tar.gz"
-  sha256 "8b66ec1f98c2d6616846aaa693127f9478ddce19e779a224780b0eb1f19819aa"
+  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.0/logstalgia-1.1.0.tar.gz"
+  sha256 "680d47babea2665a674032abed7a60cbecf00378b5b9924d265b1c063a7110c3"
 
   bottle do
     sha256 "64904c202bf0bec255b91739f8c7be3e42a1d63b8fe05b57b51f91f8023b9d3c" => :high_sierra
