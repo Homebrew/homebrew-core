@@ -1,9 +1,9 @@
 class Libpng < Formula
   desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
-  url "https://download.sourceforge.net/libpng/libpng-1.6.32.tar.xz"
-  mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.32.tar.xz"
-  sha256 "c918c3113de74a692f0a1526ce881dc26067763eb3915c57ef3a0f7b6886f59b"
+  url "https://download.sourceforge.net/libpng/libpng-1.6.34.tar.xz"
+  mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.34.tar.xz"
+  sha256 "2f1e960d92ce3b3abd03d06dfec9637dfbd22febf107a536b44f7a47c60659f6"
 
   bottle do
     cellar :any
