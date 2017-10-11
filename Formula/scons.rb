@@ -19,6 +19,13 @@ class Scons < Formula
     sha256 "ca9348417478a729f6fdaae62cc25d73a30371c4d467415196246f1d0dcfd195"
   end
 
+  # Remove for > 3.0.0
+  # Upstream commit from 20 Sep 2017 "Support python 2 print statements in SConscripts"
+  patch :p2 do
+    url "https://github.com/SConsProject/scons/commit/2e0de3c5.patch?full_index=1"
+    sha256 "ca9348417478a729f6fdaae62cc25d73a30371c4d467415196246f1d0dcfd195"
+  end
+
   def install
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
     system "/usr/bin/python", "setup.py", "install",
