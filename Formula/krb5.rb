@@ -1,8 +1,8 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.1.tar.gz"
-  sha256 "437c8831ddd5fde2a993fef425dedb48468109bb3d3261ef838295045a89eb45"
+  url "https://web.mit.edu/kerberos/dist/krb5/1.15/krb5-1.15.2.tar.gz"
+  sha256 "1639e392edf25e3b6cfec2ae68f97eb53e07c2dbe74bfeede0108465d5d1c87e"
 
   bottle do
     sha256 "9b87403ac183433912e366149ec8ecaf3a440762e0354988d5e8682f30618b6d" => :high_sierra
