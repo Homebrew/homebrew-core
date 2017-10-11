@@ -35,9 +35,6 @@ class Wesnoth < Formula
   def install
     mv "scons/gettext.py", "scons/gettext_tool.py"
     inreplace "SConstruct", ", \"gettext\",", ", \"gettext_tool\","
-    system "2to3-", "--write", "--fix=print", "SConstruct", "po/SConscript",
-           "src/SConstruct", "src/ai/SConstruct",
-           "utils/umc_dev/build/SConstruct"
 
     args = %W[prefix=#{prefix} docdir=#{doc} mandir=#{man} fifodir=#{var}/run/wesnothd gettextdir=#{Formula["gettext"].opt_prefix}]
     args << "OS_ENV=true"
