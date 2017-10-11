@@ -15,10 +15,6 @@ class Bookkeeper < Formula
 
   plist_options :manual => "bookeeper localbookie 4"
 
-  test do
-    assert_match "Usage: bookkeeper", shell_output("#{bin}/bookkeeper help")
-  end
-
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -45,5 +41,9 @@ class Bookkeeper < Formula
       </dict>
     </plist>
     EOS
+  end
+
+  test do
+    assert_match "Usage: bookkeeper", shell_output("#{bin}/bookkeeper help")
   end
 end
