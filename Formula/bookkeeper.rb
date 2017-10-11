@@ -1,9 +1,8 @@
 class Bookkeeper < Formula
-  desc "BookKeeper is a replicated log service which can be used to build replicated state machines"
-  homepage "http://bookkeeper.apache.org/"
+  desc "A replicated log service to build replicated state machines"
+  homepage "https://bookkeeper.apache.org/"
   url "http://apache.claz.org/bookkeeper/bookkeeper-4.5.0/bookkeeper-server-4.5.0-bin.tar.gz"
   sha256 "757abd3083291cb28d6a40342ac6e34b3b802ecc36ba5487a08df92bccc9768e"
-  version "4.5.0"
 
   bottle :unneeded
 
@@ -13,6 +12,8 @@ class Bookkeeper < Formula
     libexec.install Dir["*"]
     bin.write_exec_script Dir["#{libexec}/bin/bookkeeper"]
   end
+
+  plist_options :manual => "bookeeper localbookie 4"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
