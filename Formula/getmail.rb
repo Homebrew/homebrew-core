@@ -1,8 +1,8 @@
 class Getmail < Formula
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "http://pyropus.ca/software/getmail/"
-  url "http://pyropus.ca/software/getmail/old-versions/getmail-5.1.tar.gz"
-  sha256 "3d6e20e5ea41c1ffb284a46de3d2a474bf2ebd9215441c4c379183d03710027e"
+  url "http://pyropus.ca/software/getmail/old-versions/getmail-5.4.tar.gz"
+  sha256 "ba896f7b3fbae4e9e79f7135e6c2b10b281170d2877b91fb2b265c927ed29ac7"
 
   bottle do
     cellar :any_skip_relocation
