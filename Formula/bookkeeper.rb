@@ -13,11 +13,11 @@ class Bookkeeper < Formula
     bin.write_exec_script Dir["#{libexec}/bin/bookkeeper"]
   end
 
-  test do
-    assert_match "Usage: bookkeeper", shell_output("#{bin}/bookkeeper")
-  end
-
   plist_options :manual => "bookeeper localbookie 4"
+
+  test do
+    assert_match "Usage: bookkeeper", shell_output("#{bin}/bookkeeper help")
+  end
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
