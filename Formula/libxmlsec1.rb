@@ -1,9 +1,8 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.20.tar.gz"
-  sha256 "3221593ca50f362b546a0888a1431ad24be1470f96b2469c0e0df5e1c55e7305"
-  revision 1
+  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.25.tar.gz"
+  sha256 "967ca83edf25ccb5b48a3c4a09ad3405a63365576503bf34290a42de1b92fcd2"
 
   bottle do
     cellar :any
