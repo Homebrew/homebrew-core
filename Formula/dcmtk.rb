@@ -1,13 +1,8 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "http://dicom.offis.de/dcmtk.php.en"
-
-  # Current snapshot used for stable now (using - instead of _ in the version field).
-  url "http://dicom.offis.de/download/dcmtk/snapshot/dcmtk-3.6.1_20170228.tar.gz"
-  mirror "http://dicom.offis.de/download/dcmtk/snapshot/old/dcmtk-3.6.1_20170228.tar.gz"
-  version "3.6.1-20170228"
-  sha256 "8de2f2ae70f71455288ec85c96a2579391300c7462f69a4a6398e9ec51779c11"
-  revision 1
+  url "http://dicom.offis.de/download/dcmtk/dcmtk362/dcmtk-3.6.2.tar.gz"
+  sha256 "1b5cf1dcb23cad401310c3afeb961c3613e3d20ab2d161dcc8bf0735b443218d"
   head "git://git.dcmtk.org/dcmtk.git"
 
   bottle do
