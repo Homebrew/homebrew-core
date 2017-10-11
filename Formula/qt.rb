@@ -3,9 +3,9 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
-  sha256 "7b41a37d4fe5e120cdb7114862c0153f86c07abbec8db71500443d2ce0c89795"
+  url "https://download.qt.io/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
+  sha256 "6c6171a4d1ea3fbd4212d6a04899650218583df3ec583a8a6a4a589fe18620ff"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
 
   bottle do
@@ -32,6 +32,7 @@ class Qt < Formula
   depends_on :postgresql => :optional
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
+  # Doesn't seem to be a 5.9.2 for this yet.
   resource "qt-webkit" do
     url "https://download.qt.io/official_releases/qt/5.9/5.9.1/submodules/qtwebkit-opensource-src-5.9.1.tar.xz"
     sha256 "28a560becd800a4229bfac317c2e5407cd3cc95308bc4c3ca90dba2577b052cf"
@@ -57,15 +58,6 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
     sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
-  end
-
-  # Patch fixing bugs QTBUG-62266 and QTBUG-62658 on macOS 10.13 High Sierra
-  # https://github.com/Homebrew/homebrew-core/issues/17075
-  if MacOS.version >= :sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/45282b5b48/qt/high-sierra.diff"
-      sha256 "d8589d747a9ce0b7b7ddf1b59c4d999bbf8a02261e047a602cff39bea151eb42"
-    end
   end
 
   def install
