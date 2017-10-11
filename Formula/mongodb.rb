@@ -65,12 +65,6 @@ class Mongodb < Formula
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
-    if build.stable?
-      system "2to3-", "--write", "--fix=print", "SConstruct",
-             "src/mongo/installer/msi/SConscript",
-             "src/third_party/wiredtiger/SConscript"
-    end
-
     if build.devel?
       ENV.libcxx
 
