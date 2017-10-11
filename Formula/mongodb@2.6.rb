@@ -15,6 +15,9 @@ class MongodbAT26 < Formula
   depends_on "openssl"
 
   def install
+    system "2to3-", "--write", "--fix=print", "SConstruct",
+           "src/SConscript.client", "src/mongo/SConscript"
+
     # This modifies the SConstruct file to include 10.10, 10.11, and 10.12 osx versions as accepted build options.
     inreplace "SConstruct", /osx_version_choices = \[.+?\]/, "osx_version_choices = ['10.6', '10.7', '10.8', '10.9', '10.10', '10.11', '10.12']"
 
