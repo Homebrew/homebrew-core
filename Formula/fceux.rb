@@ -28,8 +28,6 @@ class Fceux < Formula
   end
 
   def install
-    system "2to3", "--write", "--fix=print", "SConstruct", "src/SConscript"
-
     # Bypass X11 dependency injection
     # https://sourceforge.net/p/fceultra/bugs/755/
     inreplace "src/drivers/sdl/SConscript", "env.ParseConfig(config_string)", ""
