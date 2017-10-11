@@ -24,19 +24,14 @@ class Mpv < Formula
   depends_on "lua" => :recommended
   depends_on "youtube-dl" => :recommended
 
-  depends_on "jack" => :optional
   depends_on "libaacs" => :optional
   depends_on "libarchive" => :optional
   depends_on "libbluray" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdvdnav" => :optional
   depends_on "libdvdread" => :optional
-  depends_on "pulseaudio" => :optional
-  depends_on "rubberband" => :optional
   depends_on "uchardet" => :optional
   depends_on "vapoursynth" => :optional
-  depends_on "libcdio" => :optional
-  depends_on :x11 => :optional
 
   depends_on :macos => :mountain_lion
 
@@ -72,7 +67,6 @@ class Mpv < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-dvdnav" if build.with? "libdvdnav"
     args << "--enable-dvdread" if build.with? "libdvdread"
-    args << "--enable-cdda" if build.with? "libcdio"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"
