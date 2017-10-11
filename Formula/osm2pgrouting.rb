@@ -19,6 +19,7 @@ class Osm2pgrouting < Formula
   depends_on "pgrouting"
   depends_on "postgis"
   depends_on :postgresql
+  depends_on "libpqxx"
 
   def install
     inreplace "CMakeLists.txt" do |s|
