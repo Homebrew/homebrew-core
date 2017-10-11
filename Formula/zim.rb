@@ -7,6 +7,7 @@ class Zim < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5dc68b594b596da2cf0cf41b4d551dc47a576634ab0274840011ee003385a1c0" => :high_sierra
     sha256 "9f1b73f91e1c0f397ded0c88ec443074b1b2060ddacafa0526f63b908c0eb7da" => :sierra
     sha256 "9f1b73f91e1c0f397ded0c88ec443074b1b2060ddacafa0526f63b908c0eb7da" => :el_capitan
   end
