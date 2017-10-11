@@ -37,7 +37,12 @@ class Rlvm < Formula
     sha256 "4837f691a31d927cd2d6547d3c04c86de30cec0daacc38e3f6940bbdad954e98"
   end
 
+  patch :DATA if MacOS.version == :el_capitan
+
   def install
+    system "2to3", "--write", "--fix=print", "SConstruct", "SConscript.cocoa",
+           "SConscript.luarlvm", "SConstruct"
+
     inreplace "SConstruct" do |s|
       s.gsub! /("z")/, '\1, "bz2"'
       s.gsub! /(CheckForSystemLibrary\(config, library_dict), subcomponents/, '\1, []'
@@ -53,3 +58,19 @@ class Rlvm < Formula
     bin.write_exec_script "#{prefix}/rlvm.app/Contents/MacOS/rlvm"
   end
 end
+
+__END__
+diff --git a/SConstruct b/SConstruct
+index 7ad47f8..b435548 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -317,6 +317,10 @@ if GetOption('release'):
+       "-Os",
+       "-DNDEBUG",
+       "-DBOOST_DISABLE_ASSERTS"
++    ],
++
++    LINKFLAGS = [
++      "-Wl,-headerpad_max_install_names"
+     ]
+   )
