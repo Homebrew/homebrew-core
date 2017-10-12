@@ -1,9 +1,9 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.0.6.src.tgz"
-  version "1.0.6"
-  sha256 "1f9b867385f6d99e8ff0f15b66e6bf7205b14617030db7482641627472eae0c8"
+  url "https://binaries.cockroachdb.com/cockroach-v1.1.0.src.tgz"
+  version "1.1.0"
+  sha256 "666609a3cd34d0274ea4d59908e76902c8b907fb2f887293b1c21af4a7ec7b60"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
@@ -13,6 +13,7 @@ class Cockroach < Formula
     sha256 "104c97aace081d38ec050fe2de8b23bdc99986aafb123943d29ea8d1e3794de5" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "xz" => :build
@@ -82,9 +83,9 @@ class Cockroach < Formula
       output = pipe_output("#{bin}/cockroach sql --insecure --format=csv",
         "SELECT * FROM bank.accounts;")
       assert_equal <<-EOS.undent, output
-        1 row
         id,balance
         1,1000.50
+        # 1 row
       EOS
     ensure
       system "#{bin}/cockroach", "quit", "--insecure"
