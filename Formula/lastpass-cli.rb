@@ -15,11 +15,13 @@ class LastpassCli < Formula
 
   depends_on "asciidoc" => :build
   depends_on "cmake" => :build
+  depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "pinentry" => :optional
 
   def install
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "make", "PREFIX=#{prefix}", "install"
     system "make", "MANDIR=#{man}", "install-doc"
   end
