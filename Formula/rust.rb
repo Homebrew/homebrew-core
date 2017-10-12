@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.20.0-src.tar.gz"
-    sha256 "2aa4875ff4472c6e35262bbb9052cb2623da3dae6084a858cc59d36f33f18214"
+    url "https://static.rust-lang.org/dist/rustc-1.21.0-src.tar.gz"
+    sha256 "1707c142244b5bd909993559c6116c81987c1de21d6207c05d3ecbe5bba548fa"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.21.0",
-          :revision => "5b4b8b2ae3f6a884099544ce66dbb41626110ece"
+          :tag => "0.21.1",
+          :revision => "6084a2ba03aaa73794e6b86199e463ea6df290fe"
     end
 
     resource "racer" do
