@@ -7,6 +7,7 @@ class HdtCpp < Formula
   depends_on "kyoto-cabinet"
   depends_on "serd"
   depends_on "qt"
+  depends_on "raptor"
 
   def install
     inreplace "hdt-lib/qmake/hdt-lib.pro" do |s|
