@@ -1,7 +1,7 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
@@ -36,6 +36,7 @@ class CrystalLang < Formula
   depends_on "bdw-gc"
   depends_on "llvm@4"
   depends_on "pcre"
+  depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
