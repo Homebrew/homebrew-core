@@ -3,6 +3,7 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.7.0.tar.gz"
   sha256 "809fff14a88a7de1364c846cec771d0d12c72572914e6cc4fb0b2c1861c4a1ee"
+  revision 1
 
   bottle do
     cellar :any
@@ -10,6 +11,12 @@ class Ice < Formula
     sha256 "4021c2f953aee4b244355df6b9313fbbf9507f298c61e60cb6e981103a35ba08" => :sierra
     sha256 "81f4423f5b0683f6cd75df4ab26333e336ff42c81276025c5c1b684a50a6c2e8" => :el_capitan
     sha256 "dffea0545e1f0482b1a923f36b5531b28d604076d4314fd86bf82c6180376c2e" => :yosemite
+  end
+
+  # Xcode 9 support
+  patch do
+    url "https://github.com/zeroc-ice/ice/commit/3a55ebb51b8914b60d308a0535d9abf97567138d.patch?full_index=1"
+    sha256 "d95e76acebdae69edf3622f5141ea32bbbd5844be7c29d88e6e985d14a5d5dd4"
   end
 
   #
