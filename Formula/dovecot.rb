@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.33.tar.gz"
-  sha256 "e9483d68a7698d701bc06124fcf6e1b1f16380c2986c7ec0cf4e1475b9d0c218"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.33.1.tar.gz"
+  sha256 "e4d9a182408100dce70e05dad1f8a703252a497aeb25706642286d84a118890b"
 
   bottle do
     sha256 "6825427c7884d79f204c6860d93d6a9ea41ba1e698d4fb08c7edc9a544b6245f" => :high_sierra
