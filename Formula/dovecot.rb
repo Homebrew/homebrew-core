@@ -5,9 +5,9 @@ class Dovecot < Formula
   sha256 "e4d9a182408100dce70e05dad1f8a703252a497aeb25706642286d84a118890b"
 
   bottle do
-    sha256 "6825427c7884d79f204c6860d93d6a9ea41ba1e698d4fb08c7edc9a544b6245f" => :high_sierra
-    sha256 "97edefc95e4607899b9e41b3ecb9ef5c71c1999ec5a604f8c4aad7a8748dde03" => :sierra
-    sha256 "3d273de9c310349725c5514fea8304ed74c5aee9547c498d2c118be1ba0d6f84" => :el_capitan
+    sha256 "336d2e6206615adf865e2bfe50a70b24c66b8287ae7fcd0528a1b43d519313a9" => :high_sierra
+    sha256 "8bc87fc6d9ed594794d06dc2b575359783e21569afd21b56de8184fab8eb2d11" => :sierra
+    sha256 "ddfd2688d3b2dc1bf0a97a44a2a3cfdfb287c14f05be71ba75bb676fb2d43112" => :el_capitan
   end
 
   option "with-pam", "Build with PAM support"
