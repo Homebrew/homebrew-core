@@ -1,9 +1,24 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
-  sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
   head "https://cmake.org/cmake.git"
+
+  stable do
+    url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
+    sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
+
+    # The two patches below fix cmake for undefined symbols check on macOS 10.12
+    # They can be removed for cmake >= 3.10
+    patch do
+      url "https://gitlab.kitware.com/cmake/cmake/commit/96329d5dffdd5a22c5b4428119b5d3762a8857a7.diff"
+      sha256 "c394d1b6e59e9bcf8e5db8a0a1189203e056c230a22aa8d60079fea7be6026bd"
+    end
+
+    patch do
+      url "https://gitlab.kitware.com/cmake/cmake/commit/f1a4ecdc0c62b46c90df5e8d20e6f61d06063894.diff"
+      sha256 "d32fa9c342d88e53b009f1fbeecc5872a79eec4bf2c8399f0fc2eeda5b0a4f1e"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
