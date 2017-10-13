@@ -25,5 +25,11 @@ class Gptfdisk < Formula
   test do
     assert_match /GPT fdisk \(gdisk\) version #{Regexp.escape(version)}/,
                  pipe_output("#{sbin}/gdisk", "\n")
+
+    output = pipe_output(
+      "/usr/bin/hdiutil create -size 128k test.dmg " \
+      "&& #{sbin}/gdisk -l test.dmg", nil, 0
+    )
+    assert_match /^Found valid GPT with protective MBR/, output
   end
 end
