@@ -131,6 +131,8 @@ class Mpd < Formula
         <true/>
         <key>KeepAlive</key>
         <true/>
+        <key>ProcessType</key>
+        <string>Interactive</string>
     </dict>
     </plist>
     EOS
