@@ -72,17 +72,17 @@ end
 
 __END__
 diff --git i/examples/logrotate-default w/examples/logrotate-default
-index 56e9103..c61a33a 100644
+index 39a092d..c61a33a 100644
 --- i/examples/logrotate-default
 +++ w/examples/logrotate-default
 @@ -14,23 +14,7 @@ dateext
  # uncomment this if you want your log files compressed
  #compress
- 
+
 -# RPM packages drop log rotation information into this directory
 +# Homebrew packages drop log rotation information into this directory
  include /etc/logrotate.d
- 
+
 -# no packages own wtmp and btmp -- we'll rotate them here
 -/var/log/wtmp {
 -    missingok
