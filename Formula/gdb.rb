@@ -5,16 +5,14 @@ class CodesignRequirement < Requirement
   satisfy(:build_env => false) do
     mktemp do
       cp "/usr/bin/false", "gdb_check"
-      quiet_system "/usr/bin/codesign", "-f", "-s", "gdb-cert", "--dryrun", "gdb_check"
+      quiet_system "/usr/bin/codesign", "-f", "-s", "gdb_codesign", "--dryrun", "gdb_check"
     end
   end
 
   def message
     <<-EOS.undent
-    A gdb-cert certificate is needed to build with automated signing.
-    For instructions, see:
-
-        https://sourceware.org/gdb/wiki/BuildingOnDarwin
+    gdb_codesign identity is needed to build with automated signing.
+    See: https://sourceware.org/gdb/wiki/BuildingOnDarwin
     EOS
   end
 end
@@ -76,7 +74,7 @@ class Gdb < Formula
     system "make", "install"
 
     if build.with? "code-signing"
-      system "/usr/bin/codesign", "-f", "-s", "gdb-cert", bin/"gdb"
+      system "/usr/bin/codesign", "-f", "-s", "gdb_codesign", bin/"gdb"
     end
   end
 
