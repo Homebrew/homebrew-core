@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "http://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.2.0/allegro-5.2.2.tar.gz"
-  sha256 "e285b9e12a7b33488c0e7e139326903b9df10e8fa9adbfcfe2e1105b69ce94fc"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.3.0/allegro-5.2.3.0.tar.gz"
+  sha256 "5a4d40601899492b697ad5cfdf11d8265fe554036a2c912c86a6e6d23001f905"
 
   head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
@@ -22,6 +22,7 @@ class Allegro < Formula
   depends_on "opusfile"
   depends_on "physfs"
   depends_on "theora"
+  depends_on "webp"
   depends_on "dumb" => :optional
 
   def install
