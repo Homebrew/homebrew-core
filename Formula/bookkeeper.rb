@@ -55,7 +55,7 @@ class Bookkeeper < Formula
       Process.kill(9, pid)
       Process.wait(pid)
     end
-      dat = File.read(Dir["*.log"].first)
-      assert_match "Starting Bookie(s)", dat
+    dat = File.read(Dir["*.log"].first)
+    assert_match "Starting Bookie(s)", dat
   end
 end
