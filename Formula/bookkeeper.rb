@@ -44,15 +44,18 @@ class Bookkeeper < Formula
   end
 
   test do
-  	begin
-    	assert_match "Usage: bookkeeper", shell_output("#{bin}/bookkeeper help")
-    	pid = fork { exec "#{bin}/bookkeeper localbookie 1 &> test.log" }
-    	sleep 3
+    assert_match "Usage: bookkeeper", shell_output("#{bin}/bookkeeper help")
+    begin
+      pid = fork do
+        exec "#{bin}/bookkeeper localbookie 1 &> test.log"
+      end
+      sleep 5
     ensure
-     	Process.kill(9, pid)
-     	Process.wait(pid)
+      Process.kill(9, -Process.getpgid(pid))
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
-    	dat = File.read(Dir["*.log"].first)
-    	assert_match "Starting Bookie(s)", dat
+      dat = File.read(Dir["*.log"].first)
+      assert_match "Starting Bookie(s)", dat
   end
 end
