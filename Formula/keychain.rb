@@ -11,4 +11,13 @@ class Keychain < Formula
     bin.install "keychain"
     man1.install "keychain.1"
   end
+
+  test do
+    system bin/"keychain", "-V"
+    system "ssh-keygen", "-t", "rsa", "-b", "1024", "-N", "", "-f", testpath/"test"
+    system bin/"keychain", "test"
+    output = pipe_output("ssh-add -l")
+    assert_match "test (RSA)", output
+    system "ssh-add", "-d", "test"
+  end
 end
