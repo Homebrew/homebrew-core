@@ -3,8 +3,8 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/releases/download/v0.4.915/you-get-0.4.915.tar.gz"
-  sha256 "e0167a626f90b9b6f1a3934391e73f27adb908d3be95a053ba779924a7ef5b68"
+  url "https://github.com/soimort/you-get/releases/download/v0.4.939/you-get-0.4.939.tar.gz"
+  sha256 "1a8b924592f72c19219c9809a1954b2cc8a06eb10047548fee66042cae9cae55"
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
