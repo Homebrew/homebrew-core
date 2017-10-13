@@ -1,17 +1,8 @@
 class Gptfdisk < Formula
   desc "Text-mode partitioning tools"
   homepage "https://www.rodsbooks.com/gdisk"
-  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.0/gptfdisk-1.0.0.tar.gz"
-  sha256 "5b66956743a799fc0471cdb032665c1391e82f9c5b3f1d7d726d29fe2ba01d6c"
-  revision 1
-
-  bottle do
-    cellar :any
-    sha256 "5fac6a86a0775f5ee1b964c424943f89a80fcb381020e2b2b9150e2027aa4696" => :el_capitan
-    sha256 "5c8f8f714cd50ece24a4a126e2c28ca9d69874c04dd4dfc436f2d62a610c7dbc" => :yosemite
-    sha256 "7925fc5b193566014430e59c2a109b557e46750f80555cd4b045b1447be1a282" => :mavericks
-    sha256 "95593d9ce977a9529b11c9de8ee1089e56c67d76a642e13bdac31097aa5c7f69" => :mountain_lion
-  end
+  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.4/gptfdisk-1.0.4.tar.gz"
+  sha256 "b663391a6876f19a3cd901d862423a16e2b5ceaa2f4a3b9bb681e64b9c7ba78d"
 
   depends_on "icu4c"
   depends_on "popt"
