@@ -12,7 +12,7 @@ class CodesignRequirement < Requirement
   def message
     <<-EOS.undent
     gdb_codesign identity is needed to build with automated signing.
-    See: https://sourceware.org/gdb/wiki/BuildingOnDarwin
+      See: https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt
     EOS
   end
 end
@@ -74,6 +74,15 @@ class Gdb < Formula
     system "make", "install"
 
     if build.with? "code-signing"
+      # Building gdb requires a code signing certificate.
+      # The instructions provided by llvm creates this certificate in the
+      # user's login keychain. Unfortunately, the login keychain is not in
+      # the search path in a superenv build. The following three lines add
+      # the login keychain to ~/Library/Preferences/com.apple.security.plist,
+      # which adds it to the superenv keychain search path.
+      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
+      username = ENV["USER"]
+      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
       system "/usr/bin/codesign", "-f", "-s", "gdb_codesign", bin/"gdb"
     end
   end
