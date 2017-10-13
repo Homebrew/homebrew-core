@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.12.3/logrotate-3.12.3.tar.gz"
-  sha256 "435a3f9a534a37e11657532a090f6bf521d8696bdf9cb799a360c1750ba3aea9"
+  url "https://github.com/logrotate/logrotate/releases/download/3.13.0/logrotate-3.13.0.tar.gz"
+  sha256 "2ea33f69176dd2668fb85307210d7ed0411ff2a0429e4a0a2d881e740160e4b0"
 
   bottle do
     sha256 "b8f261bc65fc43cdffd6db04842e856089d1fac34e69a3d617ef750ea8d5e543" => :high_sierra
@@ -72,17 +72,17 @@ end
 
 __END__
 diff --git i/examples/logrotate-default w/examples/logrotate-default
-index 56e9103..c61a33a 100644
+index 39a092d..c61a33a 100644
 --- i/examples/logrotate-default
 +++ w/examples/logrotate-default
 @@ -14,23 +14,7 @@ dateext
  # uncomment this if you want your log files compressed
  #compress
- 
+
 -# RPM packages drop log rotation information into this directory
 +# Homebrew packages drop log rotation information into this directory
  include /etc/logrotate.d
- 
+
 -# no packages own wtmp and btmp -- we'll rotate them here
 -/var/log/wtmp {
 -    missingok
