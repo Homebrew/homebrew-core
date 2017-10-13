@@ -1,3 +1,22 @@
+class CodesignRequirement < Requirement
+  include FileUtils
+  fatal true
+
+  satisfy(:build_env => false) do
+    mktemp do
+      cp "/usr/bin/false", "gdb_check"
+      quiet_system "/usr/bin/codesign", "-f", "-s", "gdb_codesign", "--dryrun", "gdb_check"
+    end
+  end
+
+  def message
+    <<-EOS.undent
+    gdb_codesign identity is needed to build with automated signing.
+    See: https://sourceware.org/gdb/wiki/BuildingOnDarwin
+    EOS
+  end
+end
+
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
@@ -18,10 +37,13 @@ class Gdb < Formula
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
+  option "with-code-signing", "Codesign executable to provide unprivileged process attachment"
 
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile@2.0" => :optional
+
+  depends_on CodesignRequirement if build.with? "code-signing"
 
   def install
     args = [
@@ -50,18 +72,34 @@ class Gdb < Formula
     inreplace ["bfd/Makefile", "opcodes/Makefile"], /^install:/, "dontinstall:"
 
     system "make", "install"
+
+    if build.with? "code-signing"
+      system "/usr/bin/codesign", "-f", "-s", "gdb_codesign", bin/"gdb"
+    end
   end
 
-  def caveats; <<-EOS.undent
-    gdb requires special privileges to access Mach ports.
-    You will need to codesign the binary. For instructions, see:
+  if build.without? "code-signing"
+    def caveats; <<-EOS.undent
+      gdb requires special privileges to access Mach ports.
+      You will need to codesign the binary. For instructions, see:
 
-      https://sourceware.org/gdb/wiki/BuildingOnDarwin
+        https://sourceware.org/gdb/wiki/BuildingOnDarwin
 
-    On 10.12 (Sierra) or later with SIP, you need to run this:
+      Alternatively, build with the --with-code-siging option.
 
-      echo "set startup-with-shell off" >> ~/.gdbinit
-    EOS
+      On 10.12 (Sierra) or later with SIP, you need to run this:
+
+        echo "set startup-with-shell off" >> ~/.gdbinit
+      EOS
+    end
+  else
+    def caveats; <<-EOS.undent
+      gdb has been codesigned and is ready to use. Additionally, on 10.12 (Sierra)
+      or later with SIP, you need to run this:
+
+        echo "set startup-with-shell off" >> ~/.gdbinit
+      EOS
+    end
   end
 
   test do
