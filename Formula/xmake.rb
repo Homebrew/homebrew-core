@@ -1,8 +1,8 @@
 class Xmake < Formula
   desc "Make-like build utility based on Lua"
   homepage "http://xmake.io"
-  url "https://github.com/tboox/xmake/archive/v2.1.6.tar.gz"
-  sha256 "0f1d88ad7b5c82788fdecd6e77cc7620f8bf70006ca95228bef2cf3fa7616433"
+  url "https://github.com/tboox/xmake/archive/v2.1.7.tar.gz"
+  sha256 "6ea4fb5f9ff5b55b2da09c1efe0c66cc9a6f3146c4c3b3a7594dd9973c121b7d"
   head "https://github.com/waruqi/xmake.git"
 
   bottle do
@@ -22,6 +22,7 @@ class Xmake < Formula
 
   test do
     system bin/"xmake", "create", "-P", testpath
-    assert_match "build ok!", pipe_output(bin/"xmake")
+    system bin/"xmake"
+    assert_equal "hello world!", shell_output("#{bin}/xmake run").chomp
   end
 end
