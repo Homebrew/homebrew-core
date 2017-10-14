@@ -15,6 +15,12 @@ class Exiftool < Formula
     sha256 "a1d1ebd07661fe1d42ced9be65c0b75771948f292f1938379628f335b105409b" => :yosemite
   end
 
+  devel do
+    url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.63.tar.gz"
+    mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-10.63.tar.gz"
+    sha256 "84d63972e9172cd18fce54fef862f0d818c91c29a79c95689557be31747b9fde"
+  end
+
   def install
     # replace the hard-coded path to the lib directory
     inreplace "exiftool", "$exeDir/lib", libexec/"lib"
@@ -22,6 +28,7 @@ class Exiftool < Formula
     system "perl", "Makefile.PL"
     libexec.install "lib"
     bin.install "exiftool"
+    doc.install Dir["html/*"]
   end
 
   test do
