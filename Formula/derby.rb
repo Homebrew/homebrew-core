@@ -1,20 +1,22 @@
 class Derby < Formula
   desc "Apache Derby is an embedded relational database running on JVM"
   homepage "https://db.apache.org/derby/"
-  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.13.1.1/db-derby-10.13.1.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/db/derby/db-derby-10.13.1.1/db-derby-10.13.1.1-bin.tar.gz"
-  sha256 "74c35d7ec859b8438e69fd0d1b415dd4f4572f71d2f35fc612f2f21848eef3b3"
+  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.14.1.0/db-derby-10.14.1.0-bin.tar.gz"
+  mirror "https://www-us.apache.org/dist/db/derby/db-derby-10.14.1.0/db-derby-10.14.1.0-bin.tar.gz"
+  sha256 "3eee3d029fa97873119af019eac7253f4b95c86f5c5a1d5c09efcb798216e1c1"
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8+"
 
   def install
     rm_rf Dir["bin/*.bat"]
-    libexec.install %w[lib test index.html LICENSE NOTICE RELEASE-NOTES.html KEYS docs javadoc demo]
+    libexec.install %w[lib test index.html LICENSE NOTICE RELEASE-NOTES.html
+                       KEYS docs javadoc demo]
     bin.install Dir["bin/*"]
     bin.env_script_all_files(libexec/"bin",
-      Language::Java.overridable_java_home_env.merge(:DERBY_INSTALL => libexec.to_s, :DERBY_HOME => libexec.to_s))
+      Language::Java.overridable_java_home_env.merge(:DERBY_INSTALL => libexec.to_s,
+                                                     :DERBY_HOME => libexec.to_s))
   end
 
   def post_install
@@ -49,14 +51,15 @@ class Derby < Formula
   end
 
   test do
-    assert_match /OS name:         Mac OS X/, shell_output("#{bin}/sysinfo")
+    assert_match "libexec/lib/derby.jar] #{version}",
+                 shell_output("#{bin}/sysinfo")
 
     pid = fork do
       exec "#{bin}/startNetworkServer"
     end
 
     begin
-      sleep 4
+      sleep 12
       exec "#{bin}/stopNetworkServer"
     ensure
       Process.wait(pid)
