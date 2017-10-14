@@ -5,7 +5,7 @@ class Qtwebkit < Formula
   sha256 "28a560becd800a4229bfac317c2e5407cd3cc95308bc4c3ca90dba2577b052cf"
 
   keg_only <<-EOS.undent
-    WebKit Framework provided by osx.
+    "WebKit Framework" provided by osx.
     But system's one is built from WebKitGtk+
   EOS
 
