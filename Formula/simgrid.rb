@@ -16,7 +16,7 @@ class Simgrid < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python3" => :build
+  depends_on "python3"
   depends_on "boost"
   depends_on "pcre"
   depends_on "graphviz"
