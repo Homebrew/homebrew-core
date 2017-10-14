@@ -3,7 +3,6 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "https://computation.llnl.gov/projects/sundials/download/sundials-2.7.0.tar.gz"
   sha256 "d39fcac7175d701398e4eb209f7e92a5b30a78358d4a0c0fcc23db23c11ba104"
-  version "2.7.0"
   revision 2
 
   bottle do
