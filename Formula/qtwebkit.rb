@@ -4,31 +4,35 @@ class Qtwebkit < Formula
   url "https://download.qt.io/official_releases/qt/5.9/5.9.1/submodules/qtwebkit-opensource-src-5.9.1.tar.xz"
   sha256 "28a560becd800a4229bfac317c2e5407cd3cc95308bc4c3ca90dba2577b052cf"
 
-  keg_only <<-EOS.undent
-    "WebKit Framework" provided by osx.
-    But system's one is built from WebKitGtk+
-  EOS
+  keg_only :provided_by_macos
 
-  option "without-webkit2", "Don't build webkit2"
-
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "qt" => [:build, :run]
+  depends_on "pkg-config" => :build
+  depends_on "qt"
 
   def install
-    ENV["QTDIR"] = Formula["qt"].opt_prefix
     cd "Tools/Scripts" do
       system "./set-webkit-configuration", "--release"
-      args = %w[--release --qt]
-      args << "--no-webkit2" if build.without? "webkit2"
-      system "./build-webkit", *args
+      system "./build-webkit", "--release", "--qt"
     end
 
     cd buildpath/"WebKitBuild/Release" do
-      prefix.install "bin", "lib"
-      (prefix/"qml").install Dir["imports/*"]
+      qt_prefix = "#{HOMEBREW_PREFIX}/Cellar/qt/#{Formula["qt"].version}"
+      inreplace "lib/pkgconfig/Qt5WebKit.pc", qt_prefix, opt_prefix.to_s
+      inreplace "lib/pkgconfig/Qt5WebKitWidgets.pc", qt_prefix, opt_prefix.to_s
+      bad_prefix = "\$\(INSTALL_ROOT\)" << qt_prefix
+      inreplace "Source/Makefile.api", bad_prefix, prefix.to_s
+      inreplace "Source/Makefile.widgetsapi", bad_prefix, prefix.to_s
+      inreplace "Source/WebKit2/Makefile.WebProcess", bad_prefix, prefix.to_s
+      inreplace "Source/WebKit/qt/declarative/Makefile.declarative.public", bad_prefix, prefix.to_s
+      inreplace "Source/WebKit/qt/declarative/experimental/Makefile.declarative.experimental", bad_prefix, prefix.to_s
+      inreplace "Source/WebKit2/UIProcess/API/qt/tests/qmltests/Makefile.DesktopBehavior", bad_prefix, prefix.to_s
+      inreplace "Source/WebKit2/UIProcess/API/qt/tests/qmltests/Makefile.WebView", bad_prefix, prefix.to_s
+      system "make", "install"
     end
-    prefix.install "include"
+    rm_f "tests"
+    include.install_symlink lib/"QtWebKit.framework/Headers" => "QtWebKit"
+    include.install_symlink lib/"QtWebKitWidgets.framework/Headers" => "QtWebKitWidgets"
   end
 
   def caveats; <<-EOS.undent
@@ -39,7 +43,7 @@ class Qtwebkit < Formula
 
   test do
     TestBrowser = fork do
-      exec "#{bin}/QtTestBrowser"
+      exec "#{bin}/QtTestBrowser", "https://brew.sh"
     end
 
     sleep 5
