@@ -4,6 +4,7 @@ class Nsq < Formula
   url "https://github.com/nsqio/nsq/archive/v1.0.0-compat.tar.gz"
   version "1.0.0"
   sha256 "c279d339eceb84cad09e2c2bc21e069e37988d0f6b7343d77238374081c9fd29"
+  revision 1
   head "https://github.com/nsqio/nsq.git"
 
   bottle do
@@ -23,6 +24,40 @@ class Nsq < Formula
     ln_s buildpath, "src/github.com/nsqio/nsq"
     system "gpm", "install"
     system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+  end
+
+  def post_install
+    (var/"log").mkpath
+    (var/"nsq").mkpath
+  end
+
+  plist_options :manual => "nsqd -data-path=#{HOMEBREW_PREFIX}/var/nsq"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>KeepAlive</key>
+      <true/>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{bin}/nsqd</string>
+        <string>-data-path=#{var}/nsq</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>WorkingDirectory</key>
+      <string>#{var}/nsq</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/nsqd.error.log</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/nsqd.log</string>
+    </dict>
+    </plist>
+  EOS
   end
 
   test do
