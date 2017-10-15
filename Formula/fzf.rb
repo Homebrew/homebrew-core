@@ -1,9 +1,8 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.17.0-2.tar.gz"
-  version "0.17.0-2"
-  sha256 "a084415231b452b92a6b8aa87a69c0c02ee59bfe95774bf0d4fcc9a6251ece20"
+  url "https://github.com/junegunn/fzf/archive/0.17.1.tar.gz"
+  sha256 "9c881e55780c0f56b5a30b87df756634d853bfd3938e7e53cb2df6ed63aa84a7"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
