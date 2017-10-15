@@ -13,7 +13,7 @@ class Cfitsio < Formula
     sha256 "7681f60baee8d9a73639be3f54d7f4a1c71c9fc9f4ac7fd0e3ba20cb2a2c3c7b" => :el_capitan
   end
 
-  option "with-reentrant", "build with support for concurrency"
+  option "with-reentrant", "Build with support for concurrency"
 
   def install
     args = ["--prefix=#{prefix}"]
