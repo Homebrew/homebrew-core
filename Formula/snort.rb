@@ -1,8 +1,8 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.9.0.tar.gz"
-  sha256 "71b147125e96390a12f3d55796ed5073df77206bd3563d84d3e5a1f19e7d7a56"
+  url "https://www.snort.org/downloads/snort/snort-2.9.11.tar.gz"
+  sha256 "23a45e3ea1e155a3d871c691a10fe23f2bfcfe4d6abc0ebbcdc2ab1fccca14ee"
 
   bottle do
     cellar :any
