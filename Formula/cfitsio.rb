@@ -16,12 +16,8 @@ class Cfitsio < Formula
   option "with-reentrant", "build with support for concurrency"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-    ]
-
+    args = ["--prefix=#{prefix}"]
     args << "--enable-reentrant" if build.with? "reentrant"
-
     system "./configure", *args
     system "make", "shared"
     system "make", "install"
