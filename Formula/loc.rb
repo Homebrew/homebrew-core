@@ -1,8 +1,8 @@
 class Loc < Formula
   desc "Count lines of code quickly"
   homepage "https://github.com/cgag/loc"
-  url "https://github.com/cgag/loc/archive/v0.3.4.tar.gz"
-  sha256 "01fd16f0f82e016da95c5ad66a0390372ca1bf1ded9981a7a1f004e4a50bb804"
+  url "https://github.com/cgag/loc/archive/v0.4.1.tar.gz"
+  sha256 "1e8403fd9a3832007f28fb389593cd6a572f719cd95d85619e7bbcf3dbea18e5"
 
   bottle do
     rebuild 1
