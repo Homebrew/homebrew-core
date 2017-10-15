@@ -14,6 +14,7 @@ class Macvim < Formula
   end
 
   option "with-override-system-vim", "Override system vim"
+  option "with-true-color", "terminal true color (termguicolors)"
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
@@ -55,6 +56,8 @@ class Macvim < Formula
     ]
 
     args << "--enable-cscope" if build.with? "cscope"
+
+    args << "--enable-terminaltruecolor" if build.with? "true-color"
 
     if build.with? "lua"
       args << "--enable-luainterp"
@@ -107,6 +110,11 @@ class Macvim < Formula
       <<-EOS.undent
         MacVim can no longer be brewed with dynamic support for both Python versions.
         Only Python 3 support has been provided.
+      EOS
+    end
+    if build.with?("true-color")
+      <<-EOS.undent
+        Terminal True Color isn't supported in Apple Terminal.app
       EOS
     end
   end
