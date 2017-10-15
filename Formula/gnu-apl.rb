@@ -20,34 +20,21 @@ class GnuApl < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-postgresql", "Build with Postgresql support"
-
   # GNU Readline is required; libedit won't work.
   depends_on "readline"
   depends_on :macos => :mavericks
-
-  depends_on :postgresql => :optional
+  depends_on "libpq" => :optional
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-    ]
-
-    if build.with? "postgresql"
-      ENV.prepend "LDFLAGS", "-L#{Formula["postgresql"].opt_lib}"
-      ENV.prepend "CPPFLAGS", "-I#{Formula["postgresql"].opt_include}"
-      args << "--with-postgresql"
-    end
-
     system "autoreconf", "-fiv" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
