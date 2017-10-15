@@ -1,8 +1,8 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.5/postgresql-9.6.5.tar.bz2"
-  sha256 "06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c"
+  url "https://ftp.postgresql.org/pub/source/v10.0/postgresql-10.0.tar.bz2"
+  sha256 "712f5592e27b81c5b454df96b258c14d94b6b03836831e015c65d6deeae57fd1"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
@@ -104,11 +104,11 @@ class Postgresql < Formula
     you may need to remove the previous version first. See:
       https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-    To migrate existing data from a previous major version (pre-9.0) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.6/static/upgrading.html
+    To migrate existing data from a previous major version (pre-10.0) of PostgreSQL, see:
+      https://www.postgresql.org/docs/10.0/static/upgrading.html
 
-    To migrate existing data from a previous minor version (9.0-9.5) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.6/static/pgupgrade.html
+    To migrate existing data from a previous minor version (10.0-10.x) of PostgreSQL, see:
+      https://www.postgresql.org/docs/10.0/static/pgupgrade.html
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
       Do not run `brew cleanup postgresql` until you have performed the migration.
