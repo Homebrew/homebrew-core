@@ -18,6 +18,12 @@ class Ice < Formula
     sha256 "d95e76acebdae69edf3622f5141ea32bbbd5844be7c29d88e6e985d14a5d5dd4"
   end
 
+  # Xcode 9 support
+  patch do
+    url "https://github.com/zeroc-ice/ice/commit/3a55ebb51b8914b60d308a0535d9abf97567138d.patch?full_index=1"
+    sha256 "d95e76acebdae69edf3622f5141ea32bbbd5844be7c29d88e6e985d14a5d5dd4"
+  end
+
   #
   # NOTE: we don't build slice2py, slice2js, slice2rb by default to prevent clashes with
   # the translators installed by the PyPI/GEM/npm packages.
