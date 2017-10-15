@@ -3,7 +3,7 @@ class Ccache < Formula
   homepage "https://ccache.samba.org/"
   url "https://www.samba.org/ftp/ccache/ccache-3.3.4.tar.xz"
   sha256 "24f15bf389e38c41548c9c259532187774ec0cb9686c3497bbb75504c8dc404f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e3626c377f89870cccce127738340a1cc22d59506c2175319120112cdc25323a" => :high_sierra
@@ -18,7 +18,8 @@ class Ccache < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "asciidoc" => ["with-docbook-xsl", :build]
+    depends_on "asciidoc" => :build
+    depends_on "docbook-xsl" => :build
   end
 
   def install
