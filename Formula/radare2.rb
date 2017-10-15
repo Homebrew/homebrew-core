@@ -22,17 +22,24 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/1.6.0/radare2-1.6.0.tar.gz"
-    sha256 "959dcac19020932983cff79a069c4467410217c941e24dd9f6d0fc0fc8d4ef99"
+    url "https://radare.mikelloc.com/get/2.0.1/radare2-2.0.1.tar.gz"
+    sha256 "b31d5d044cc98ce48420029c939f704a8ca3f9e8be399684c7ee7485c24dbb02"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/1.6.0/radare2-bindings-1.6.0.tar.gz"
-      sha256 "abc320c4f5353f15d96a40329349253f140f0921074f0d0dbee6b3cb9f0067b8"
+      url "https://radare.mikelloc.com/get/2.0.0/radare2-bindings-2.0.0.tar.gz"
+      sha256 "d3a4d697de06d664649dd1fb3f090a079351b89c9112ba317d79187730cf9850"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/1.6.0/radare2-extras-1.6.0.tar.gz"
-      sha256 "305b55d8ab85dcf5a2abe3d624e38169cd6e82c07896e85aa153ca4413a63cd2"
+      url "https://radare.mikelloc.com/get/2.0.0/radare2-extras-2.0.0.tar.gz"
+      sha256 "6856b57b6c125be63c3e6da9455a5da44f48da30a476a1cfefb1a1163159bdba"
+    end
+
+    patch do
+      # upstream fix for build issue
+      # https://github.com/radare/radare2-bindings/issues/176
+      url "https://github.com/radare/radare2/commit/2334829ce64f76cb2a448c48782e8c479cd5664c.diff?full_index=1"
+      sha256 "6a4505010e2e7e279f7fda91cea677e25fdb497c2b75c0d9f7ffb360d92be203"
     end
   end
 
@@ -81,6 +88,11 @@ class Radare2 < Formula
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
     end
     system "make", "install"
+
+    # remove leftofer symlinks
+    # https://github.com/radare/radare2/issues/8688
+    rm bin/"r2-docker"
+    rm bin/"r2-indent"
 
     resource("extras").stage do
       ENV.append_path "PATH", bin
