@@ -12,7 +12,10 @@ class Picolisp < Formula
     sha256 "7b3121d448479a6d6f1d150da4cbe0c6558626edcb7a4cbdb9d6f02230d5bf9b" => :mavericks
   end
 
+  depends_on :java => :build
+
   def install
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
     src_dir = MacOS.prefer_64_bit? ? "src64" : "src"
     system "make", "-C", src_dir
     bin.install "bin/picolisp"
