@@ -25,7 +25,7 @@ class Ipfs < Formula
     bin.install "bin/ipfs"
   end
 
-  plist_options :manual => "ipfs"
+  plist_options :manual => "ipfs daemon"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
