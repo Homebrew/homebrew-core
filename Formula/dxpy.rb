@@ -3,9 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/04/16/1d1e1ff25d4f694f04f88417afbd72703d850aebe9f84fdbb8ed836089d7/dxpy-0.191.0.tar.gz"
-  sha256 "b98a55fc766a9e7044f6f299d148c5dde3967f22669add915a1a1921e4006820"
-  revision 1
+  url "https://files.pythonhosted.org/packages/97/8a/029caaa7b157ba3c1f736c1fc5e253d89e8617e8f3decd6a1fbd0588e1d3/dxpy-0.225.0.tar.gz"
+  sha256 "d0f2da3ed70a829a0725983983fe36ec351f6a0576eb1cc6dee4623f2c964478"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +15,7 @@ class Dxpy < Formula
     sha256 "91a3634cb4366db887baf1e250bce3c978f9283a2a37593e676440a3a4791adf" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/26/79/ef9a8bcbec5abc4c618a80737b44b56f1cb393b40238574078c5002b97ce/beautifulsoup4-4.4.1.tar.gz"
