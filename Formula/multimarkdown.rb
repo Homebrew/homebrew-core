@@ -2,11 +2,11 @@ class Multimarkdown < Formula
   desc "Turn marked-up plain text into well-formatted documents"
   homepage "http://fletcherpenney.net/multimarkdown/"
   # Use git tag instead of the tarball to get submodules
-  url "https://github.com/fletcher/MultiMarkdown-5.git",
-    :tag => "5.4.0",
-    :revision => "193c09a5362eb8a6c6433cd5d5f1d7db3efe986a"
+  url "https://github.com/fletcher/MultiMarkdown-6.git",
+    :tag => "6.2.2",
+    :revision => "97503e55cac9b67721eed0874b4d5135d7ac5b59"
 
-  head "https://github.com/fletcher/MultiMarkdown-5.git"
+  head "https://github.com/fletcher/MultiMarkdown-6.git"
 
   bottle do
     cellar :any_skip_relocation
