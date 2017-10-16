@@ -29,7 +29,7 @@ class Ponyc < Formula
   def install
     ENV.cxx11
     ENV["LLVM_CONFIG"] = "#{Formula["llvm@3.9"].opt_bin}/llvm-config"
-    system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
+    system "make", "config=release", "lto=no", "destdir=#{prefix}", "install", "verbose=1"
   end
 
   test do
