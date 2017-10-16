@@ -7,9 +7,9 @@ class Bento4 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "47f9acaeafb398c0ca8331417a5159d720fd6e8a58562135d6a15cdadb1ef5cb" => :high_sierra
-    sha256 "c5737a870830329c54b4f22c1ce7aeaa77a9d6b17f187dc941a5ab8a427a20e0" => :sierra
-    sha256 "7a3dbcda2e9dea4921567eac224358c56173a429a4dec13ced3eb07b1ab30871" => :el_capitan
+    sha256 "3e7a5cb02a3dc91637782ed79380b98d4db0780b17981c341d3f5abb24f9cff0" => :high_sierra
+    sha256 "32bc7e9d96a4d00277a4114f984125527ff44ae5094b33aa6c49948b4fbca3fd" => :sierra
+    sha256 "9a764950286b76d905c030f2c5b3e39a4bf763ece1f6b6aca0b357a414206636" => :el_capitan
   end
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
