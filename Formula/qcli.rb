@@ -3,6 +3,8 @@ class Qcli < Formula
   homepage "https://bavc.org/preserve-media/preservation-tools"
   url "https://github.com/bavc/qctools/archive/v0.9.tar.gz"
   sha256 "19ef4be054ebfca70a07043afea20bcca241ba08d70a47acda837ead849aff03"
+  revision 1
+
   head "https://github.com/bavc/qctools.git"
 
   bottle do
