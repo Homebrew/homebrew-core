@@ -3,6 +3,9 @@ class Stubby < Formula
   homepage "https://getdnsapi.net/blog/dns-privacy-daemon-stubby/"
   url "https://github.com/getdnsapi/stubby/archive/v0.1.3.tar.gz"
   sha256 "5f20659945696647f7c3f4a090ffc8bf1d96e69a751bbf36e3cddb584846602e"
+
+  revision 1
+
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
 
   bottle do
@@ -26,7 +29,7 @@ class Stubby < Formula
     system "make", "install"
   end
 
-  plist_options :startup => true, :manual => "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.conf"
+  plist_options :startup => true, :manual => "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -43,7 +46,7 @@ class Stubby < Formula
         <array>
           <string>#{opt_bin}/stubby</string>
           <string>-C</string>
-          <string>#{etc}/stubby/stubby.conf</string>
+          <string>#{etc}/stubby/stubby.yml</string>
           <string>-l</string>
         </array>
         <key>StandardErrorPath</key>
@@ -56,22 +59,26 @@ class Stubby < Formula
   end
 
   test do
-    (testpath/"stubby_test.conf").write <<-EOS.undent
-      { resolution_type: GETDNS_RESOLUTION_STUB
-      , dns_transport_list: [ GETDNS_TRANSPORT_TLS, GETDNS_TRANSPORT_UDP, GETDNS_TRANSPORT_TCP ]
-      , listen_addresses: [ 127.0.0.1@5553]
-      , idle_timeout: 0
-      , upstream_recursive_servers:
-        [ { address_data: 145.100.185.15},
-          { address_data: 145.100.185.16},
-          { address_data: 185.49.141.37}
-        ]
-      }
+    output = shell_output("ls #{etc}/stubby/")
+    assert_match "stubby.yml", output
+    (testpath/"stubby_test.yml").write <<-EOS.undent
+      resolution_type: GETDNS_RESOLUTION_STUB
+      dns_transport_list:
+        - GETDNS_TRANSPORT_TLS
+        - GETDNS_TRANSPORT_UDP
+        - GETDNS_TRANSPORT_TCP
+      listen_addresses:
+        - 127.0.0.1@5553
+      idle_timeout: 0
+      upstream_recursive_servers:
+        - address_data: 145.100.185.15
+        - address_data: 145.100.185.16
+        - address_data: 185.49.141.37
     EOS
-    output = shell_output("#{bin}/stubby -i -C stubby_test.conf")
+    output = shell_output("#{bin}/stubby -i -C stubby_test.yml")
     assert_match "bindata for 145.100.185.15", output
     pid = fork do
-      exec "#{bin}/stubby", "-C", testpath/"stubby_test.conf"
+      exec "#{bin}/stubby", "-C", testpath/"stubby_test.yml"
     end
     begin
       sleep 2
