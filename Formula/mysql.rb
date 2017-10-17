@@ -1,8 +1,8 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.19.tar.gz"
-  sha256 "22e5034e40e0731eff521b7aaf7584b76297a69875ee50026b12f2bfac3e1bca"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.20.tar.gz"
+  sha256 "260582844ac18222ce2826f48b6c7ca387990b19ddb88331af26738b394e42a4"
 
   bottle do
     sha256 "f596b35f86eb706c459416aec2afdbd0b2fc4ab1d66476a594684dc54482d88e" => :high_sierra
