@@ -20,10 +20,14 @@ class Gmp < Formula
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
     args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-    system "./configure", *args
+    system "./configure", "--disable-static", *args
     system "make"
     system "make", "check"
     system "make", "install"
+    system "make", "clean"
+    system "./configure", "--disable-shared", "--disable-assembly", *args
+    system "make"
+    lib.install Dir[".libs/*.a"]
   end
 
   test do
