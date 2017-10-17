@@ -14,6 +14,7 @@ class Jemalloc < Formula
 
   head do
     url "https://github.com/jemalloc/jemalloc.git"
+
     depends_on "autoconf" => :build
     depends_on "docbook-xsl" => :build
   end
@@ -32,6 +33,7 @@ class Jemalloc < Formula
     else
       system "./configure", *args
     end
+
     system "make"
     system "make", "check"
     system "make", "install"
