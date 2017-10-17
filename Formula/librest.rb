@@ -1,8 +1,8 @@
 class Librest < Formula
   desc "Library to access RESTful web services"
   homepage "https://wiki.gnome.org/Projects/Librest"
-  url "https://download.gnome.org/sources/rest/0.8/rest-0.8.0.tar.xz"
-  sha256 "e7b89b200c1417073aef739e8a27ff2ab578056c27796ec74f5886a5e0dff647"
+  url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
+  sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
 
   bottle do
     sha256 "31711f888b5991d97b80cb5b2a8d69cafc03f9d603a24a2ecedeff4ac3f868ef" => :high_sierra
