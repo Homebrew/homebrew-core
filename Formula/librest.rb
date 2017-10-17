@@ -5,11 +5,9 @@ class Librest < Formula
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
 
   bottle do
-    sha256 "31711f888b5991d97b80cb5b2a8d69cafc03f9d603a24a2ecedeff4ac3f868ef" => :high_sierra
-    sha256 "da794be6ebdfde460d0e447123c45672861198afa8d651dd77cebf3df20d0c4c" => :sierra
-    sha256 "493c2bf876de213bce3ec5aa739c437a0b0384ac8f8f722a23ba7987d2604879" => :el_capitan
-    sha256 "8b98b39acc982309f1d15c20466a6675185100fdf9a21da6ff30ed4cc32a9946" => :yosemite
-    sha256 "d2e3fbb297d83bcf4064539968f5c070443786c187c803d264ad4a30d8454a35" => :mavericks
+    sha256 "9051b6736cc74cc7cf4869d80be7573b13361f33464f89eb88bccae86d22c1e9" => :high_sierra
+    sha256 "a799cab80624c9a4ad497725f13889608fee9f22030a85add84bd246a79a1693" => :sierra
+    sha256 "a2499387aa86673e5c7a04c88df26ca47f7b3498687c40b32dbcf14619084899" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
