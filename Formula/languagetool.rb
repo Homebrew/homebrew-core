@@ -1,7 +1,7 @@
 class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
-  url "https://www.languagetool.org/download/LanguageTool-3.9.zip"
+  url "https://languagetool.org/download/LanguageTool-3.9.zip"
   sha256 "75f265e1e18b345505a9b002f77a4368c41d36b396c53b7ef2e078698feb63ea"
 
   bottle :unneeded
