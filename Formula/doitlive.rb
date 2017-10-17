@@ -1,7 +1,7 @@
 class Doitlive < Formula
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/49/71/6d566ac6b80402c81729f8347f643b01723e81f3dfc7fb94027231b9d292/doitlive-3.0.1.tar.gz#md5=47c690eb28b90fcf5ea0634fb9b12711"
+  url "https://files.pythonhosted.org/packages/49/71/6d566ac6b80402c81729f8347f643b01723e81f3dfc7fb94027231b9d292/doitlive-3.0.1.tar.gz"
   sha256 "b70411f7af1041fc58f25a881e44d66ed7c481a7a8ef6f2bb914d76b012c3046"
 
   bottle do
