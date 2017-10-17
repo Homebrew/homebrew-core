@@ -3,7 +3,6 @@ class Stubby < Formula
   homepage "https://getdnsapi.net/blog/dns-privacy-daemon-stubby/"
   url "https://github.com/getdnsapi/stubby/archive/v0.1.3.tar.gz"
   sha256 "5f20659945696647f7c3f4a090ffc8bf1d96e69a751bbf36e3cddb584846602e"
-
   revision 1
 
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
@@ -59,8 +58,7 @@ class Stubby < Formula
   end
 
   test do
-    output = shell_output("ls #{etc}/stubby/")
-    assert_match "stubby.yml", output
+    assert_predicate etc/"stubby/stubby.yml", :exist?
     (testpath/"stubby_test.yml").write <<-EOS.undent
       resolution_type: GETDNS_RESOLUTION_STUB
       dns_transport_list:
