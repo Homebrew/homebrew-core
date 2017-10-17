@@ -7,9 +7,8 @@ class Natalie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b6b0597c2bd6e6b1c5df362d846da233f91727f62914f703503dd8360ddea53e" => :sierra
-    sha256 "472b56132024812e48041b4ea4174e889f95eab70e8ff83d6182bde406865d88" => :el_capitan
+    sha256 "a74604b0bca4ca91805483617f07f6a326be85ac55dcb29e4934acfa4298d4e3" => :high_sierra
+    sha256 "eabc1b23bc1e9fc87eb5d37eeaa83731a6f0574b0c4506c6202af7550e8bacc5" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]
