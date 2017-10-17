@@ -4,6 +4,7 @@ class Gmp < Formula
   url "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
   sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,10 +21,14 @@ class Gmp < Formula
     ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
     args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-    system "./configure", *args
+    system "./configure", "--disable-static", *args
     system "make"
     system "make", "check"
     system "make", "install"
+    system "make", "clean"
+    system "./configure", "--disable-shared", "--disable-assembly", *args
+    system "make"
+    lib.install Dir[".libs/*.a"]
   end
 
   test do
