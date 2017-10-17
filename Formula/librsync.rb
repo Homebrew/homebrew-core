@@ -1,9 +1,8 @@
 class Librsync < Formula
   desc "Library that implements the rsync remote-delta algorithm"
   homepage "https://librsync.github.io/"
-  url "https://github.com/librsync/librsync/archive/v2.0.0.tar.gz"
-  sha256 "b5c4dd114289832039397789e42d4ff0d1108ada89ce74f1999398593fae2169"
-  revision 1
+  url "https://github.com/librsync/librsync/archive/v2.0.1.tar.gz"
+  sha256 "6fce69041aa4fc72a21f1ab280a7299b82df2b1fa0a25d8695fd527e6752625e"
 
   bottle do
     sha256 "de4c71e13829b6344a859c01145f2cd599b4e456e9c1dac6049f657b3b42dcfe" => :high_sierra
@@ -17,11 +16,6 @@ class Librsync < Formula
   depends_on "popt"
 
   def install
-    # https://github.com/librsync/librsync/commit/1765ad0d416
-    # https://github.com/librsync/librsync/issues/50
-    # Safe to remove when the next stable release is cut.
-    inreplace "src/search.c", "if (l == r) {", "if ((l == r) && (l <= bucket->r)) {"
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     man1.install "doc/rdiff.1"
