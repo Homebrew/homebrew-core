@@ -6,6 +6,7 @@ class Exiftool < Formula
   url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.55.tar.gz"
   mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-10.55.tar.gz"
   sha256 "029b81a43f423332c00b76b5402fd8f85dee975fad41a734b494faeda4e41f7d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -26,9 +27,12 @@ class Exiftool < Formula
     inreplace "exiftool", "$exeDir/lib", libexec/"lib"
 
     system "perl", "Makefile.PL"
+    system "make", "all"
     libexec.install "lib"
     bin.install "exiftool"
     doc.install Dir["html/*"]
+    man1.install "blib/man1/exiftool.1"
+    man3.install Dir["blib/man3/*"]
   end
 
   test do
