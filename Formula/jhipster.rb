@@ -23,6 +23,6 @@ class Jhipster < Formula
   end
 
   test do
-    assert_match "Execution complete", shell_output("#{bin}/jhipster info")
+    assert_match "execution is complete", shell_output("#{bin}/jhipster info")
   end
 end
