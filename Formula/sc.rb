@@ -1,5 +1,5 @@
 class Sc < Formula
-  desc "Sauce Connect(TM) is a proxy server that opens a secure connection between a Sauce Labs virtual machine running your browser tests, and an application or website you want to test that's on your local machine or behind a corporate firewall."
+  desc "Sauce Connect(TM) is a proxy server for Selenium automation."
   homepage "https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy"
   url "https://saucelabs.com/downloads/sc-4.4.9-osx.zip"
   sha256 "c88731ffe03c1f0c7ff98e0036a467ea5bce1ff757b27b31c85d6e6e219cdfc5"
