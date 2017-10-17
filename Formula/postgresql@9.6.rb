@@ -4,6 +4,12 @@ class PostgresqlAT96 < Formula
   url "https://ftp.postgresql.org/pub/source/v9.6.5/postgresql-9.6.5.tar.bz2"
   sha256 "06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c"
 
+  bottle do
+    sha256 "2a32a295a5e138a3a8cc4aa7de7c30d65d17bb0d5ebffeaf1a283f6153ce11b5" => :high_sierra
+    sha256 "fb96344d05cef94212dc5dfa5431f3eb46959464c125680e35613f6aaefe6899" => :sierra
+    sha256 "a4dc4a4baf221e969b237205966021df0cc71ba6abffb6540e103f42bd63a93c" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   option "without-perl", "Build without Perl support"
