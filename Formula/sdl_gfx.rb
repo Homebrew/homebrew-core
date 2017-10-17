@@ -1,8 +1,8 @@
 class SdlGfx < Formula
   desc "Graphics drawing primitives and other support functions"
   homepage "http://www.ferzkopp.net/joomla/content/view/19/14/"
-  url "http://www.ferzkopp.net/Software/SDL_gfx-2.0/SDL_gfx-2.0.25.tar.gz"
-  sha256 "556eedc06b6cf29eb495b6d27f2dcc51bf909ad82389ba2fa7bdc4dec89059c0"
+  url "http://www.ferzkopp.net/Software/SDL_gfx-2.0/SDL_gfx-2.0.26.tar.gz"
+  sha256 "7ceb4ffb6fc63ffba5f1290572db43d74386cd0781c123bc912da50d34945446"
 
   bottle do
     cellar :any
