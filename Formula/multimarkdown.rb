@@ -21,9 +21,7 @@ class Multimarkdown < Formula
   conflicts_with "discount", :because => "both install `markdown` binaries"
 
   def install
-    system "sh", "link_git_modules"
-    system "sh", "update_git_modules"
-    system "make"
+    system "make", "release"
 
     cd "build" do
       system "make"
