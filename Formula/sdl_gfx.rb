@@ -6,11 +6,9 @@ class SdlGfx < Formula
 
   bottle do
     cellar :any
-    sha256 "7602160fbf82f1572b598a73e9c2003bd5623c443ba150f59818013593833346" => :high_sierra
-    sha256 "52829744591992f7c81ae5beb04f8be1a33229615425e4356ee3af863b9d2598" => :sierra
-    sha256 "f14692eab7c7a7a60694ea6aca4094c6ceb869604f2c587dd044df880b3a747b" => :el_capitan
-    sha256 "756fe923ceccdb3e9c5c7865298344a3520efe0bd549e493b109bc1506e6de29" => :yosemite
-    sha256 "aa06ebfac9112febe86ec4a933d807ae88e87329498a71678bd52be51748d9dc" => :mavericks
+    sha256 "b1040e970fe68325a37c4a6af037206c28d12ae77f49851a0d28333e7c19a5e4" => :high_sierra
+    sha256 "643210ccd7a2d9f2fc92d519900bbeb51c1f168729e40860c40e67629ce2ef8a" => :sierra
+    sha256 "072983d26bc7e50acd12ef27adab047c3e14e45dff83e98be9ea005c7c107524" => :el_capitan
   end
 
   depends_on "sdl"
