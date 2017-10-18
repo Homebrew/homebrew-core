@@ -17,6 +17,7 @@ class Cockroach < Formula
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "xz" => :build
+  depends_on "autoconf" => :build
 
   def install
     # unpin the Go version
