@@ -41,6 +41,7 @@ class Trafficserver < Formula
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
       --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules
     ]
