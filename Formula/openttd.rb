@@ -35,7 +35,7 @@ class Openttd < Formula
   # Fix pre-existing bug triggering Xcode 9 build error
   # Upstream commit, remove when 1.8 is released
   patch do
-    url "http://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
+    url "https://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
     sha256 "a2681e6ac7ccb2be2d591090198f343d1744484d7093e1e9866325cceecc8748"
   end
 
