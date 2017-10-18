@@ -87,7 +87,7 @@ class Radare2 < Formula
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osxsign"
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
     end
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
 
     # remove leftofer symlinks
     # https://github.com/radare/radare2/issues/8688
