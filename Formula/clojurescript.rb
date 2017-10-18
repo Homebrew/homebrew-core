@@ -21,11 +21,11 @@ class Clojurescript < Formula
   end
 
   test do
-    (testpath/"t.cljs").write <<~EOF
+    (testpath/"t.cljs").write <<~EOS
     (ns hello)
     (defn ^:export greet [n]
       (str "Hello " n))
-    EOF
+    EOS
 
     system "#{bin}/cljsc", testpath/"t.cljs"
   end

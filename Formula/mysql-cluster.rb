@@ -172,7 +172,7 @@ class MysqlCluster < Formula
     EOS
   end
 
-  def my_cnf; <<~EOCNF
+  def my_cnf; <<~EOS
     [mysqld]
     ndbcluster
     datadir=#{var}/mysql-cluster/mysqld_data
@@ -180,10 +180,10 @@ class MysqlCluster < Formula
     port=5000
     # Only allow connections from localhost
     bind-address = 127.0.0.1
-    EOCNF
+    EOS
   end
 
-  def config_ini; <<~EOCNF
+  def config_ini; <<~EOS
     [ndb_mgmd]
     hostname=localhost
     datadir=#{var}/mysql-cluster/ndb_data
@@ -203,7 +203,7 @@ class MysqlCluster < Formula
 
     [mysqld]
     NodeId=50
-    EOCNF
+    EOS
   end
 
   # Override Formula#plist_name

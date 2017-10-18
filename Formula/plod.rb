@@ -25,7 +25,7 @@ class Plod < Formula
     bin.install "plod"
     prefix.install "plod.el.v1", "plod.el.v2"
 
-    (prefix/"plodrc").write <<~PLODRC
+    (prefix/"plodrc").write <<~EOS
       # Uncomment lines and change their values to override defaults.
       # man plod for further details.
       #
@@ -45,7 +45,7 @@ class Plod < Formula
       # $PREFIX = '';
       # $SUFFIX = '';
       # $SEPARATOR = '-----';
-    PLODRC
+    EOS
   end
 
   def caveats; <<~EOS

@@ -103,10 +103,10 @@ class Pypy < Formula
 
     # Tell distutils-based installers where to put scripts
     scripts_folder.mkpath
-    (distutils+"distutils.cfg").atomic_write <<~EOF
+    (distutils+"distutils.cfg").atomic_write <<~EOS
       [install]
       install-scripts=#{scripts_folder}
-    EOF
+    EOS
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do

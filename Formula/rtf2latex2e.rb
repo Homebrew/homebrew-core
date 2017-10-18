@@ -24,11 +24,11 @@ class Rtf2latex2e < Formula
   end
 
   test do
-    (testpath/"test.rtf").write <<~'EOF'
+    (testpath/"test.rtf").write <<~'EOS'
     {\rtf1\ansi
     {\b hello} world
     }
-    EOF
+    EOS
     system bin/"rtf2latex2e", "-n", "test.rtf"
     assert_match "textbf{hello} world", File.read("test.tex")
   end

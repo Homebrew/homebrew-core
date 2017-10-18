@@ -289,18 +289,18 @@ class Python < Formula
     end
 
     cfg = lib_cellar/"distutils/distutils.cfg"
-    cfg.atomic_write <<~EOF
+    cfg.atomic_write <<~EOS
       [install]
       prefix=#{HOMEBREW_PREFIX}
 
       [build_ext]
       include_dirs=#{include_dirs.join ":"}
       library_dirs=#{library_dirs.join ":"}
-    EOF
+    EOS
   end
 
   def sitecustomize
-    <<~EOF
+    <<~EOS
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
       # <https://docs.brew.sh/Homebrew-and-Python.html>
@@ -346,7 +346,7 @@ class Python < Formula
 
           # Set the sys.executable to use the opt_prefix
           sys.executable = '#{opt_bin}/python2.7'
-    EOF
+    EOS
   end
 
   def caveats; <<~EOS

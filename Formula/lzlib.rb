@@ -22,14 +22,14 @@ class Lzlib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOF
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <stdint.h>
       #include "lzlib.h"
       int main (void) {
         printf ("%s", LZ_version());
       }
-    EOF
+    EOS
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-llz",
                    "-o", "test"
     assert_equal version.to_s, shell_output("./test")

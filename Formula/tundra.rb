@@ -18,14 +18,14 @@ class Tundra < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~'EOS_SRC'
+    (testpath/"test.c").write <<~'EOS'
       #include <stdio.h>
       int main() {
         printf("Hello World\n");
         return 0;
       }
-    EOS_SRC
-    (testpath/"tundra.lua").write <<~'EOS_CONFIG'
+    EOS
+    (testpath/"tundra.lua").write <<~'EOS'
       Build {
         Units = function()
           local test = Program {
@@ -42,7 +42,7 @@ class Tundra < Formula
           },
         },
       }
-    EOS_CONFIG
+    EOS
     system bin/"tundra2"
     system "./t2-output/macosx-clang-debug-default/test"
   end

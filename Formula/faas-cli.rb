@@ -46,7 +46,7 @@ class FaasCli < Formula
       end
     end
 
-    (testpath/"test.yml").write <<~EOF
+    (testpath/"test.yml").write <<~EOS
       provider:
         name: faas
         gateway: http://localhost:#{port}
@@ -57,7 +57,7 @@ class FaasCli < Formula
           lang: python
           handler: ./dummy_function
           image: dummy_image
-    EOF
+    EOS
 
     expected = <<~EOS
       Deploying: dummy_function.

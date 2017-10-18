@@ -177,7 +177,7 @@ class PostgresXc < Formula
     extra ? super().dirname+(plist_name(extra)+".plist") : super()
   end
 
-  def gtm_startup_plist(name); <<~EOPLIST
+  def gtm_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -202,10 +202,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def gtm_proxy_startup_plist(name); <<~EOPLIST
+  def gtm_proxy_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -236,10 +236,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def coordinator_startup_plist(name); <<~EOPLIST
+  def coordinator_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -266,10 +266,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def datanode_startup_plist(name); <<~EOPLIST
+  def datanode_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -296,7 +296,7 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
   test do

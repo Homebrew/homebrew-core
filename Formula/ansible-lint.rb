@@ -109,14 +109,14 @@ class AnsibleLint < Formula
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
-    (testpath/"playbook.yml").write <<~EOF
+    (testpath/"playbook.yml").write <<~EOS
       ---
       - hosts: all
         gather_facts: False
         tasks:
         - name: ping
           ping:
-    EOF
+    EOS
     system bin/"ansible-lint", testpath/"playbook.yml"
   end
 end

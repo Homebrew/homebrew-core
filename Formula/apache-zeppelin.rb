@@ -20,12 +20,12 @@ class ApacheZeppelin < Formula
       ENV["ZEPPELIN_CONF_DIR"] = "#{testpath}/conf"
       conf = testpath/"conf"
       conf.mkdir
-      (conf/"zeppelin-env.sh").write <<~EOF
+      (conf/"zeppelin-env.sh").write <<~EOS
         export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
         export ZEPPELIN_PORT=9999
         export ZEPPELIN_NOTEBOOK_DIR="#{testpath}/notebooks"
         export ZEPPELIN_MEM="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
-      EOF
+      EOS
       ln_s "#{libexec}/conf/log4j.properties", conf
       ln_s "#{libexec}/conf/shiro.ini", conf
       system "#{bin}/zeppelin-daemon.sh", "start"

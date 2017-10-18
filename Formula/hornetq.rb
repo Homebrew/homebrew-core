@@ -21,12 +21,12 @@ class Hornetq < Formula
     (bin+"hornet-stop").write wrapper_script("stop.sh")
   end
 
-  def caveats; <<~EOF
+  def caveats; <<~EOS
     HornetQ has been installed to:
       #{libexec}
 
     `run.sh` and `stop.sh` have been wrapped as`hornet-start` and `hornet-stop`
     to avoid naming conflicts.
-    EOF
+    EOS
   end
 end

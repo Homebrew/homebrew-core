@@ -13,10 +13,10 @@ class Saxon < Formula
   end
 
   test do
-    (testpath/"test.xml").write <<~XML
+    (testpath/"test.xml").write <<~EOS
       <test>It works!</test>
-    XML
-    (testpath/"test.xsl").write <<~XSL
+    EOS
+    (testpath/"test.xsl").write <<~EOS
       <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
         <xsl:template match="/">
           <html>
@@ -26,13 +26,13 @@ class Saxon < Formula
           </html>
         </xsl:template>
       </xsl:stylesheet>
-    XSL
-    assert_equal <<~HTML.chop, shell_output("#{bin}/saxon test.xml test.xsl")
+    EOS
+    assert_equal <<~EOS.chop, shell_output("#{bin}/saxon test.xml test.xsl")
       <html>
          <body>
             <p>It works!</p>
          </body>
       </html>
-    HTML
+    EOS
   end
 end

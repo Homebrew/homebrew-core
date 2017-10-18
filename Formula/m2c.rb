@@ -33,7 +33,7 @@ class M2c < Formula
     hello_mod = "Hello.mod"
     hello_exe = testpath/"Hello"
 
-    (testpath/hello_mod).write <<~EOF
+    (testpath/hello_mod).write <<~EOS
       MODULE Hello;
 
       FROM InOut IMPORT
@@ -43,7 +43,7 @@ class M2c < Formula
         WriteString ("Hello world!");
         WriteLn;
       END Hello.
-    EOF
+    EOS
 
     system "#{bin}/m2c", "-make", hello_mod, "-o", hello_exe
 

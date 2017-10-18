@@ -25,7 +25,7 @@ class Abcmidi < Formula
   end
 
   test do
-    (testpath/"balk.abc").write <<~EOF
+    (testpath/"balk.abc").write <<~EOS
       X: 1
       T: Abdala
       F: https://www.youtube.com/watch?v=YMf8yXaQDiQ
@@ -42,7 +42,7 @@ class Abcmidi < Formula
       |:=B,CDE |D2C=B,|C2=B,2 |C2D2   |\
         =B,CDE |D2C=B,|C2=B,2 |A,2G,2 :|
       |:C2=B,2 |A,2G,2| C2=B,2|A,2G,2 :|
-    EOF
+    EOS
 
     system "#{bin}/abc2midi", (testpath/"balk.abc")
   end

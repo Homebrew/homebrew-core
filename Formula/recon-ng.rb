@@ -84,11 +84,11 @@ class ReconNg < Formula
   end
 
   test do
-    (testpath/"resource").write <<~EOF
+    (testpath/"resource").write <<~EOS
       load brute_hosts
       show info
       exit
-    EOF
+    EOS
     system "#{bin}/recon-ng", "-r", testpath/"resource"
   end
 end

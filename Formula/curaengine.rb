@@ -21,7 +21,7 @@ class Curaengine < Formula
   end
 
   test do
-    (testpath/"t.stl").write <<~EOF
+    (testpath/"t.stl").write <<~EOS
       solid t
         facet normal 0 -1 0
          outer loop
@@ -31,7 +31,7 @@ class Curaengine < Formula
          endloop
         endfacet
       endsolid Star
-    EOF
+    EOS
 
     system "#{bin}/CuraEngine", "#{testpath}/t.stl"
   end

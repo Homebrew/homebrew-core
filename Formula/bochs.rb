@@ -82,10 +82,10 @@ class Bochs < Formula
         display_library: nogui
       EOS
 
-    expected = <<~ERR
+    expected = <<~EOS
         Bochs is exiting with the following message:
         \[BIOS  \] No bootable device\.
-      ERR
+      EOS
 
     command = "#{bin}/bochs -qf bochsrc.txt"
     if build.without? "gdb-stub"

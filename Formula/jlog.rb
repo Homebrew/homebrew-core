@@ -23,7 +23,7 @@ class Jlog < Formula
   end
 
   test do
-    (testpath/"jlogtest.c").write <<~EOF
+    (testpath/"jlogtest.c").write <<~EOS
       #include <stdio.h>
       #include <jlog.h>
       int main() {
@@ -58,7 +58,7 @@ class Jlog < Formula
         }
         jlog_ctx_close(ctx);
       }
-    EOF
+    EOS
     system ENV.cc, "jlogtest.c", "-I#{include}", "-L#{lib}", "-ljlog", "-o", "jlogtest"
     system testpath/"jlogtest"
   end

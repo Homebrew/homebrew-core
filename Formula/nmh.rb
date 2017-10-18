@@ -25,14 +25,14 @@ class Nmh < Formula
 
   test do
     (testpath/".mh_profile").write "Path: Mail"
-    (testpath/"Mail/inbox/1").write <<~EOM
+    (testpath/"Mail/inbox/1").write <<~EOS
       From: Mister Test <test@example.com>
       To: Mister Nobody <nobody@example.com>
       Date: Tue, 5 May 2015 12:00:00 -0000
       Subject: Hello!
 
       How are you?
-    EOM
+    EOS
     ENV["TZ"] = "GMT"
     output = shell_output("#{bin}/scan -width 80")
     assert_equal("   1  05/05 Mister Test        Hello!<<How are you? >>\n", output)

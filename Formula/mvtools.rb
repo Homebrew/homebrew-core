@@ -37,11 +37,11 @@ class Mvtools < Formula
   end
 
   test do
-    script = <<~PYTHON.split("\n").join(";")
+    script = <<~EOS.split("\n").join(";")
       import vapoursynth as vs
       core = vs.get_core()
       core.std.LoadPlugin(path="#{lib}/libmvtools.dylib")
-    PYTHON
+    EOS
 
     system "python3", "-c", script
   end

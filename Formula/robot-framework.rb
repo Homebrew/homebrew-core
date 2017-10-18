@@ -151,19 +151,19 @@ class RobotFramework < Formula
   end
 
   test do
-    (testpath/"HelloWorld.txt").write <<~EOF
+    (testpath/"HelloWorld.txt").write <<~EOS
       *** Settings ***
       Library         HelloWorld.py
 
       *** Test Cases ***
       HelloWorld
           Hello World
-    EOF
+    EOS
 
-    (testpath/"HelloWorld.py").write <<~EOF
+    (testpath/"HelloWorld.py").write <<~EOS
       def hello_world():
           print "HELLO WORLD!"
-    EOF
+    EOS
     system bin/"pybot", testpath/"HelloWorld.txt"
   end
 end

@@ -264,20 +264,20 @@ class Python3 < Formula
 
     cfg = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
 
-    cfg.atomic_write <<~EOF
+    cfg.atomic_write <<~EOS
       [install]
       prefix=#{HOMEBREW_PREFIX}
 
       [build_ext]
       include_dirs=#{include_dirs.join ":"}
       library_dirs=#{library_dirs.join ":"}
-    EOF
+    EOS
   end
 
   def sitecustomize
     xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
 
-    <<~EOF
+    <<~EOS
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
       # <https://docs.brew.sh/Homebrew-and-Python.html>
@@ -311,7 +311,7 @@ class Python3 < Formula
 
           # Set the sys.executable to use the opt_prefix
           sys.executable = '#{opt_bin}/python#{xy}'
-    EOF
+    EOS
   end
 
   def caveats

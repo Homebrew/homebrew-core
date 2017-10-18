@@ -43,13 +43,13 @@ class NanopbGenerator < Formula
   end
 
   test do
-    (testpath/"test.proto").write <<~PROTO
+    (testpath/"test.proto").write <<~EOS
       syntax = "proto2";
 
       message Test {
         required string test_field = 1;
       }
-    PROTO
+    EOS
     system Formula["protobuf"].bin/"protoc",
       "--proto_path=#{testpath}", "--plugin=#{bin}/protoc-gen-nanopb",
       "--nanopb_out=#{testpath}", testpath/"test.proto"
