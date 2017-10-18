@@ -25,7 +25,7 @@ class Openjazz < Formula
   # services to distribute this game by modem as long as no files are altered
   # or removed."
   resource "shareware" do
-    url "http://image.dosgamesarchive.com/games/jazz.zip"
+    url "https://image.dosgamesarchive.com/games/jazz.zip"
     sha256 "ed025415c0bc5ebc3a41e7a070551bdfdfb0b65b5314241152d8bd31f87c22da"
   end
 
