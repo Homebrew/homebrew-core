@@ -12,11 +12,12 @@ class H2o < Formula
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
+  option "with-openssl", "Link against OpenSSL otherwise bundled LibreSSL will be used"
   option "without-mruby", "Don't build the bundled statically-linked mruby"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl" => :optional
   depends_on "libuv" => :optional
   depends_on "wslay" => :optional
 
@@ -26,7 +27,8 @@ class H2o < Formula
     ENV.delete("SDKROOT")
 
     args = std_cmake_args
-    args << "-DWITH_BUNDLED_SSL=OFF"
+    togglessl = build.with?("openssl") ? "OFF" : "ON"
+    args << "-DWITH_BUNDLED_SSL=#{togglessl}"
     args << "-DWITH_MRUBY=OFF" if build.without? "mruby"
 
     system "cmake", *args
