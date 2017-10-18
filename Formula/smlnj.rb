@@ -142,7 +142,7 @@ class Smlnj < Formula
     end
 
     # Make the configure program recognize macOS 10.13. Reported upstream:
-    # http://smlnj-gforge.cs.uchicago.edu/tracker/index.php?func=detail&aid=187&group_id=33&atid=215
+    # https://smlnj-gforge.cs.uchicago.edu/tracker/index.php?func=detail&aid=187&group_id=33&atid=215
     inreplace root/"config/_arch-n-opsys", "16*) OPSYS=darwin", "1*) OPSYS=darwin"
 
     cd root do
