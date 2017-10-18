@@ -6,12 +6,9 @@ class Nanomsg < Formula
   head "https://github.com/nanomsg/nanomsg.git"
 
   bottle do
-    cellar :any
-    sha256 "45c5998dec7d19819b77cdb74671b55eb5c3ebaf8e785ce7582baf90a0f44dc8" => :high_sierra
-    sha256 "6dc4ea79f3c05afd0e28c4323905ca3611e1cfd633de74d9e9d65f61bb3fd8d1" => :sierra
-    sha256 "fb85b321fc5d554c0bfd7b31c53dd7e6496ff5ad6dd94111298f23f45c6b5559" => :el_capitan
-    sha256 "255ec0f726980ca16320ec1795e81ce275d8da730c5034e16c1134981d044522" => :yosemite
-    sha256 "d3acb38b0fba0c1d78252471cb9ec63d6bbf82cdfbe0a3a125e3a6fc311ed57e" => :mavericks
+    sha256 "9d2f717a002b9525f7da3c501990132d649cc82e4010a0a1411a602802c10380" => :high_sierra
+    sha256 "aa36e77ee27a492b5d995fb83b0c9b0b505c4fa5d4849cff51fb704309d40fb3" => :sierra
+    sha256 "e64e92e97f269381d4b1b58e7f8e5be5718beab1823b08bc1f847e8188f9b42c" => :el_capitan
   end
 
   depends_on "cmake" => :build
