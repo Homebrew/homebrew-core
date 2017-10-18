@@ -3,6 +3,7 @@ class Nanomsgxx < Formula
   homepage "https://achille-roussel.github.io/nanomsgxx/doc/nanomsgxx.7.html"
   url "https://github.com/achille-roussel/nanomsgxx/archive/0.2.tar.gz"
   sha256 "116ad531b512d60ea75ef21f55fd9d31c00b172775548958e5e7d4edaeeedbaa"
+  revision 1
 
   bottle do
     cellar :any
