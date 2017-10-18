@@ -6,9 +6,9 @@ class Doitlive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "213b3e8ecdfb8d01f207268dd2f4fc762dd6d704e56f04584ba943b628c47fbc" => :high_sierra
-    sha256 "213b3e8ecdfb8d01f207268dd2f4fc762dd6d704e56f04584ba943b628c47fbc" => :sierra
-    sha256 "e863f6b672998081d3f4adb2e537d8e0ff081eeaa189efdbdf48996a8a8f237e" => :el_capitan
+    sha256 "64f444a22662a3155ba8f5a57dfc904459021fcbeab0d4aaa75a0403ad98d619" => :high_sierra
+    sha256 "64f444a22662a3155ba8f5a57dfc904459021fcbeab0d4aaa75a0403ad98d619" => :sierra
+    sha256 "d27c4d742b6a7b0556743eaa388446d660436bccc21bd143c3c1e6ef632338c3" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
