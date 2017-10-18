@@ -20,7 +20,7 @@ class Antlr4CppRuntime < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
         #include <antlr4-runtime.h>
         int main(int argc, const char* argv[]) {
             try {

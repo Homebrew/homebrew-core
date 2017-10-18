@@ -16,13 +16,13 @@ class Presto < Formula
   def install
     libexec.install Dir["*"]
 
-    (libexec/"etc/node.properties").write <<-EOS.undent
+    (libexec/"etc/node.properties").write <<~EOS
       node.environment=production
       node.id=ffffffff-ffff-ffff-ffff-ffffffffffff
       node.data-dir=#{var}/presto/data
     EOS
 
-    (libexec/"etc/jvm.config").write <<-EOS.undent
+    (libexec/"etc/jvm.config").write <<~EOS
       -server
       -Xmx16G
       -XX:+UseG1GC
@@ -33,7 +33,7 @@ class Presto < Formula
       -XX:+ExitOnOutOfMemoryError
     EOS
 
-    (libexec/"etc/config.properties").write <<-EOS.undent
+    (libexec/"etc/config.properties").write <<~EOS
       coordinator=true
       node-scheduler.include-coordinator=true
       http-server.http.port=8080
@@ -47,7 +47,7 @@ class Presto < Formula
 
     (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
-    (bin/"presto-server").write <<-EOS.undent
+    (bin/"presto-server").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/bin/launcher" "$@"
     EOS
@@ -61,7 +61,7 @@ class Presto < Formula
     (var/"presto/data").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add connectors to #{libexec}/etc/catalog/. See:
     https://prestodb.io/docs/current/connector.html
     EOS
@@ -69,7 +69,7 @@ class Presto < Formula
 
   plist_options :manual => "presto-server run"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

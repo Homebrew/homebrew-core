@@ -48,7 +48,7 @@ class Cherokee < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Cherokee is setup to run with your user permissions as part of the
       www group on port 80. This can be changed in the cherokee-admin
       but be aware the new user will need permissions to write to:

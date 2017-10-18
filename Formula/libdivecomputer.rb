@@ -27,7 +27,7 @@ class Libdivecomputer < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libdivecomputer/context.h>
       #include <libdivecomputer/descriptor.h>
       #include <libdivecomputer/iterator.h>

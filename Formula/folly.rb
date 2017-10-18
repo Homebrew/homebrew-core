@@ -48,7 +48,7 @@ class Folly < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include <folly/FBVector.h>
       int main() {
         folly::fbvector<int> numbers({0, 1, 2, 3});

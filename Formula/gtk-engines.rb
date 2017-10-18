@@ -26,7 +26,7 @@ class GtkEngines < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You will need to set:
       GTK_PATH=#{HOMEBREW_PREFIX}/lib/gtk-2.0
     as by default GTK looks for modules in Cellar.

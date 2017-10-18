@@ -25,7 +25,7 @@ class Abcmidi < Formula
   end
 
   test do
-    (testpath/"balk.abc").write <<-EOF.undent
+    (testpath/"balk.abc").write <<~EOF
       X: 1
       T: Abdala
       F: https://www.youtube.com/watch?v=YMf8yXaQDiQ

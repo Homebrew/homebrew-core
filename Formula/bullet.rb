@@ -55,7 +55,7 @@ class Bullet < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "LinearMath/btPolarDecomposition.h"
       int main() {
         btMatrix3x3 I = btMatrix3x3::getIdentity();

@@ -56,7 +56,7 @@ class Arangodb < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       An empty password has been set. Please change it by executing
         #{opt_sbin}/arango-secure-installation
     EOS
@@ -66,7 +66,7 @@ class Arangodb < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

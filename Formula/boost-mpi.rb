@@ -67,7 +67,7 @@ class BoostMpi < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <boost/mpi.hpp>
       #include <iostream>
       #include <boost/serialization/string.hpp>

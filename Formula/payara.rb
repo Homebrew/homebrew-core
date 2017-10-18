@@ -21,7 +21,7 @@ class Payara < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You may want to add the following to your .bash_profile:
       export GLASSFISH_HOME=#{opt_libexec}/glassfish
       export PATH=${PATH}:${GLASSFISH_HOME}/bin
@@ -30,7 +30,7 @@ class Payara < Formula
 
   plist_options :manual => "asadmin start-domain --verbose domain1"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -29,7 +29,7 @@ class Babl < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <babl/babl.h>
       int main() {
         babl_init();

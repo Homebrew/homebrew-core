@@ -19,7 +19,7 @@ class Automysqlbackup < Formula
     sbin.install "automysqlbackup"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You will have to edit
       #{etc}/automysqlbackup/automysqlbackup.conf
     to set AutoMySQLBackup up to find your database and backup directory.
@@ -30,7 +30,7 @@ class Automysqlbackup < Formula
 
   plist_options :manual => "automysqlbackup"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

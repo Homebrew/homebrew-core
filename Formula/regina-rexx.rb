@@ -21,7 +21,7 @@ class ReginaRexx < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       #!#{bin}/regina
       Parse Version ver
       Say ver

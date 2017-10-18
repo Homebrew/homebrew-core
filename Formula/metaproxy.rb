@@ -23,7 +23,7 @@ class Metaproxy < Formula
 
   # Test by making metaproxy test a trivial configuration file (etc/config0.xml).
   test do
-    (testpath/"test-config.xml").write <<-EOS.undent
+    (testpath/"test-config.xml").write <<~EOS
     <?xml version="1.0"?>
     <metaproxy xmlns="http://indexdata.com/metaproxy" version="1.0">
       <start route="start"/>

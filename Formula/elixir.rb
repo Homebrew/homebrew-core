@@ -10,7 +10,7 @@ class Erlang18Requirement < Requirement
     erl
   end
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     Erlang 18+ is required to install.
 
     You can install this with:

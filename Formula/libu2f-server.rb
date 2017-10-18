@@ -28,7 +28,7 @@ class Libu2fServer < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <u2f-server/u2f-server.h>
       int main()
       {

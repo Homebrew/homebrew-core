@@ -40,7 +40,7 @@ class Libslax < Formula
   end
 
   test do
-    (testpath/"hello.slax").write <<-EOS.undent
+    (testpath/"hello.slax").write <<~EOS
       version 1.0;
 
       match / {

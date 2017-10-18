@@ -60,7 +60,7 @@ class OpenMpi < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <mpi.h>
       #include <stdio.h>
 
@@ -80,7 +80,7 @@ class OpenMpi < Formula
     system bin/"mpicc", "hello.c", "-o", "hello"
     system "./hello"
     system bin/"mpirun", "-np", "4", "./hello"
-    (testpath/"hellof.f90").write <<-EOS.undent
+    (testpath/"hellof.f90").write <<~EOS
       program hello
       include 'mpif.h'
       integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)

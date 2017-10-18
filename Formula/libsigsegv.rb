@@ -24,7 +24,7 @@ class Libsigsegv < Formula
 
   test do
     # Sourced from tests/efault1.c in tarball.
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "sigsegv.h"
 
       #include <errno.h>

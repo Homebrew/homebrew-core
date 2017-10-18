@@ -23,7 +23,7 @@ class Libwpd < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <libwpd/libwpd.h>
       int main() {
         return libwpd::WPD_OK;

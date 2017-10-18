@@ -38,7 +38,7 @@ class Offlineimap < Formula
       :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To get started, copy one of these configurations to ~/.offlineimaprc:
     * minimal configuration:
         cp -n #{etc}/offlineimap.conf.minimal ~/.offlineimaprc
@@ -50,7 +50,7 @@ class Offlineimap < Formula
 
   plist_options :manual => "offlineimap"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

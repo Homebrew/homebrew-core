@@ -60,7 +60,7 @@ class Fftw < Formula
   test do
     # Adapted from the sample usage provided in the documentation:
     # http://www.fftw.org/fftw3_doc/Complex-One_002dDimensional-DFTs.html
-    (testpath/"fftw.c").write <<-TEST_SCRIPT.undent
+    (testpath/"fftw.c").write <<~TEST_SCRIPT
       #include <fftw3.h>
       int main(int argc, char* *argv)
       {

@@ -44,7 +44,7 @@ class Openjazz < Formula
     system "make", "install"
 
     # Default game lookup path is the OpenJazz binary's location
-    (bin/"OpenJazz").write <<-EOS.undent
+    (bin/"OpenJazz").write <<~EOS
     #!/bin/sh
 
     exec "#{pkgshare}/OpenJazz" "$@"
@@ -55,7 +55,7 @@ class Openjazz < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The shareware version of Jazz Jackrabbit has been installed.
     You can install the full version by copying the game files to:
       #{pkgshare}

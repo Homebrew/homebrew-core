@@ -71,7 +71,7 @@ class Gjs < Formula
   end
 
   test do
-    (testpath/"test.js").write <<-EOS.undent
+    (testpath/"test.js").write <<~EOS
       #!/usr/bin/env gjs
       const GLib = imports.gi.GLib;
     EOS

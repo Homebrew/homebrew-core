@@ -50,7 +50,7 @@ class Thefuck < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following to your .bash_profile, .bashrc or .zshrc:
 
       eval "$(thefuck --alias)"

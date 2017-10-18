@@ -127,7 +127,7 @@ class Nginx < Formula
     end
   end
 
-  def passenger_caveats; <<-EOS.undent
+  def passenger_caveats; <<~EOS
     To activate Phusion Passenger, add this to #{etc}/nginx/nginx.conf, inside the 'http' context:
       passenger_root #{Formula["passenger"].opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
@@ -135,7 +135,7 @@ class Nginx < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
     Docroot is: #{var}/www
 
     The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
@@ -149,7 +149,7 @@ class Nginx < Formula
 
   plist_options :manual => "nginx"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -13,10 +13,10 @@ class Saxon < Formula
   end
 
   test do
-    (testpath/"test.xml").write <<-XML.undent
+    (testpath/"test.xml").write <<~XML
       <test>It works!</test>
     XML
-    (testpath/"test.xsl").write <<-XSL.undent
+    (testpath/"test.xsl").write <<~XSL
       <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
         <xsl:template match="/">
           <html>
@@ -27,7 +27,7 @@ class Saxon < Formula
         </xsl:template>
       </xsl:stylesheet>
     XSL
-    assert_equal <<-HTML.undent.chop, shell_output("#{bin}/saxon test.xml test.xsl")
+    assert_equal <<~HTML.chop, shell_output("#{bin}/saxon test.xml test.xsl")
       <html>
          <body>
             <p>It works!</p>

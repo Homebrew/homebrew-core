@@ -14,7 +14,7 @@ class Jsonschema2pojo < Formula
   end
 
   test do
-    (testpath/"src/jsonschema.json").write <<-EOS.undent
+    (testpath/"src/jsonschema.json").write <<~EOS
     {
       "type":"object",
       "properties": {

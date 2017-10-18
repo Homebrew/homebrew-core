@@ -22,7 +22,7 @@ class Libsigcxx < Formula
     system "make", "install"
   end
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <sigc++/sigc++.h>
 
       void somefunction(int arg) {}

@@ -28,14 +28,14 @@ class PandocCrossref < Formula
   end
 
   test do
-    (testpath/"hello.md").write <<-EOS.undent
+    (testpath/"hello.md").write <<~EOS
       Demo for pandoc-crossref.
       See equation @eq:eqn1 for cross-referencing.
       Display equations are labelled and numbered
 
       $$ P_i(x) = \sum_i a_i x^i $$ {#eq:eqn1}
     EOS
-    (testpath/"expected.txt").write <<-EOS.undent
+    (testpath/"expected.txt").write <<~EOS
       <p>Demo for pandoc-crossref. See equation eq.M-BM- 1 for cross-referencing. Display equations are labelled and numbered</p>$
       <p><span id="eq:eqn1"><br /><span class="math display"><em>P</em><sub><em>i</em></sub>(<em>x</em>)=<em>u</em><em>m</em><sub><em>i</em></sub><em>a</em><sub><em>i</em></sub><em>x</em><sup><em>i</em></sup>M-bM-^@M-^AM-bM-^@M-^A(1)</span><br /></span></p>$
     EOS

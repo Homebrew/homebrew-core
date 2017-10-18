@@ -70,7 +70,7 @@ class Coreutils < Formula
     man1.install_symlink "grealpath.1" => "realpath.1"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     All commands have been installed with the prefix 'g'.
 
     If you really need to use these commands with their normal names, you

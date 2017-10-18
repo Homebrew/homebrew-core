@@ -96,7 +96,7 @@ class Erlang < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Man pages can be found in:
       #{opt_lib}/erlang/man
 

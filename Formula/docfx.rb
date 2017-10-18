@@ -11,7 +11,7 @@ class Docfx < Formula
   def install
     libexec.install Dir["*"]
 
-    (bin/"docfx").write <<-EOS.undent
+    (bin/"docfx").write <<~EOS
       #!/bin/bash
       mono #{libexec}/docfx.exe "$@"
     EOS

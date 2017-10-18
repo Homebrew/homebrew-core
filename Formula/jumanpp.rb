@@ -26,7 +26,7 @@ class Jumanpp < Formula
     ENV["LANG"] = "C.UTF-8" # prevent "invalid byte sequence in UTF-8" on sierra build
     system bin/"jumanpp", "--version"
 
-    output = <<-EOI.undent
+    output = <<~EOI
       こんにち こんにち こんにち 名詞 6 時相名詞 10 * 0 * 0 "代表表記:今日/こんにち カテゴリ:時間"
       は は は 助詞 9 副助詞 2 * 0 * 0 NIL
       EOS

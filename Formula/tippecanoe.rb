@@ -17,7 +17,7 @@ class Tippecanoe < Formula
   end
 
   test do
-    (testpath/"test.json").write <<-EOS.undent
+    (testpath/"test.json").write <<~EOS
       {"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[0,0]}}
     EOS
     safe_system "#{bin}/tippecanoe", "-o", "test.mbtiles", "test.json"

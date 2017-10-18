@@ -23,7 +23,7 @@ class Jlog < Formula
   end
 
   test do
-    (testpath/"jlogtest.c").write <<-EOF.undent
+    (testpath/"jlogtest.c").write <<~EOF
       #include <stdio.h>
       #include <jlog.h>
       int main() {

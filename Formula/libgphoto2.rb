@@ -33,7 +33,7 @@ class Libgphoto2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gphoto2/gphoto2-camera.h>
       int main(void) {
         Camera *camera;

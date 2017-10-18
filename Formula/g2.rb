@@ -19,7 +19,7 @@ class G2 < Formula
     system "make", "prefix=#{prefix}", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To complete the installation:
       . #{prefix}/g2-install.sh
 

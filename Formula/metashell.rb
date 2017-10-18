@@ -32,7 +32,7 @@ class Metashell < Formula
   end
 
   test do
-    (testpath/"test.hpp").write <<-EOS.undent
+    (testpath/"test.hpp").write <<~EOS
       template <class T> struct add_const { using type = const T; };
       add_const<int>::type
     EOS

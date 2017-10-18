@@ -49,7 +49,7 @@ class Dnsviz < Formula
   end
 
   test do
-    (testpath/"test.json").write <<-EOS.undent
+    (testpath/"test.json").write <<~EOS
       {
         ".": {
           "type": "recursive",

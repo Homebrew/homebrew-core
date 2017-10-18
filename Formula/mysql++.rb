@@ -25,7 +25,7 @@ class Mysqlxx < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <mysql++/cmdline.h>
       int main(int argc, char *argv[]) {
         mysqlpp::examples::CommandLine cmdline(argc, argv);

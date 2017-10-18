@@ -253,7 +253,7 @@ class Mikutter < Formula
   end
 
   def exec_script
-    <<-EOS.undent
+    <<~EOS
     #!/bin/bash
     export GEM_HOME="#{opt_lib}/mikutter/vendor"
     export DISABLE_BUNDLER_SETUP=1
@@ -263,7 +263,7 @@ class Mikutter < Formula
   end
 
   test do
-    (testpath/"test_plugin").write <<-EOS.undent
+    (testpath/"test_plugin").write <<~EOS
       # -*- coding: utf-8 -*-
       Plugin.create(:brew) do
         Delayer.new { Thread.exit }

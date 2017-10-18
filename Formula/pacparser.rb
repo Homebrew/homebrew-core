@@ -31,7 +31,7 @@ class Pacparser < Formula
 
   test do
     # example pacfile taken from upstream sources
-    (testpath/"test.pac").write <<-'EOS'.undent
+    (testpath/"test.pac").write <<~'EOS'
       function FindProxyForURL(url, host) {
 
         if ((isPlainHostName(host) ||

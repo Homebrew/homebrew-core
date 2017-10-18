@@ -53,7 +53,7 @@ class ShibbolethSp < Formula
 
   def caveats
     mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
-    <<-EOS.undent
+    <<~EOS
       You must manually edit httpd.conf to include
       LoadModule mod_shib #{lib}/shibboleth/#{mod}
       You must also manually configure
@@ -65,7 +65,7 @@ class ShibbolethSp < Formula
 
   plist_options :startup => true, :manual => "shibd"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

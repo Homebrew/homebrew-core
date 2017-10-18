@@ -19,7 +19,7 @@ class Sdf < Formula
 
   fails_with :clang do
     build 425
-    cause <<-EOS.undent
+    cause <<~EOS
       ParsedError.c:15434:611: fatal error: parser recursion
       limit reached, program too complex
     EOS

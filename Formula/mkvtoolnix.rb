@@ -84,7 +84,7 @@ class Mkvtoolnix < Formula
   test do
     mkv_path = testpath/"Great.Movie.mkv"
     sub_path = testpath/"subtitles.srt"
-    sub_path.write <<-EOS.undent
+    sub_path.write <<~EOS
       1
       00:00:10,500 --> 00:00:13,000
       Homebrew

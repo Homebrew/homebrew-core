@@ -22,7 +22,7 @@ class Lzlib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOF.undent
+    (testpath/"test.c").write <<~EOF
       #include <stdio.h>
       #include <stdint.h>
       #include "lzlib.h"

@@ -22,7 +22,7 @@ class GitSecret < Formula
   end
 
   test do
-    (testpath/"batch.gpg").write <<-EOS.undent
+    (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA

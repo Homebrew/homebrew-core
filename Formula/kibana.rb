@@ -55,7 +55,7 @@ class Kibana < Formula
     (prefix/"plugins").mkdir
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Config: #{etc}/kibana/
     If you wish to preserve your plugins upon upgrade, make a copy of
     #{opt_prefix}/plugins before upgrading, and copy it into the
@@ -65,7 +65,7 @@ class Kibana < Formula
 
   plist_options :manual => "kibana"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

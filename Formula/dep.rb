@@ -28,7 +28,7 @@ class Dep < Formula
     # `dep` bails without `.realpath` as it expects $GOPATH to be a "real" path.
     ENV["GOPATH"] = testpath.realpath
     project = testpath/"src/github.com/project/testing"
-    (project/"hello.go").write <<-EOS.undent
+    (project/"hello.go").write <<~EOS
       package main
 
       import "fmt"

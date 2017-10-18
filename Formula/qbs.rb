@@ -20,13 +20,13 @@ class Qbs < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int main() {
         return 0;
       }
     EOS
 
-    (testpath/"test.qbp").write <<-EOS.undent
+    (testpath/"test.qbp").write <<~EOS
       import qbs
 
       CppApplication {

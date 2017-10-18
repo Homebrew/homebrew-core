@@ -34,7 +34,7 @@ class Capstone < Formula
 
   test do
     # code comes from http://www.capstone-engine.org/lang_c.html
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <inttypes.h>
       #include <capstone/capstone.h>

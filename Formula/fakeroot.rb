@@ -43,7 +43,7 @@ class Fakeroot < Formula
     # Patch has been submitted with detailed explanation to
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=766649
     system "make", "wraptmpf.h"
-    (buildpath/"patch-for-wraptmpf-h").write <<-EOS.undent
+    (buildpath/"patch-for-wraptmpf-h").write <<~EOS
       diff --git a/wraptmpf.h b/wraptmpf.h
       index dbfccc9..0e04771 100644
       --- a/wraptmpf.h

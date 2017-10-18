@@ -157,7 +157,7 @@ class Smlnj < Formula
   end
 
   def targets
-    <<-EOS.undent
+    <<~EOS
       request ml-ulex
       request ml-ulex-mllex-tool
       request ml-lex

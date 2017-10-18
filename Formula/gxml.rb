@@ -42,7 +42,7 @@ class Gxml < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gxml/gxml.h>
 
       int main(int argc, char *argv[]) {

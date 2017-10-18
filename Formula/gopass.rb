@@ -32,7 +32,7 @@ class Gopass < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gopass version")
 
-    (testpath/"batch.gpg").write <<-EOS.undent
+    (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA

@@ -29,7 +29,7 @@ class Mosquitto < Formula
     (var/"mosquitto").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     mosquitto has been installed with a default configuration file.
     You can make changes to the configuration by editing:
         #{etc}/mosquitto/mosquitto.conf
@@ -38,7 +38,7 @@ class Mosquitto < Formula
 
   plist_options :manual => "mosquitto -c #{HOMEBREW_PREFIX}/etc/mosquitto/mosquitto.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

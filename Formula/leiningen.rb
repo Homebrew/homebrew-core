@@ -33,7 +33,7 @@ class Leiningen < Formula
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Dependencies will be installed to:
       $HOME/.m2/repository
     To play around with Clojure run `lein repl` or `lein help`.
@@ -41,18 +41,18 @@ class Leiningen < Formula
   end
 
   test do
-    (testpath/"project.clj").write <<-EOS.undent
+    (testpath/"project.clj").write <<~EOS
       (defproject brew-test "1.0"
         :dependencies [[org.clojure/clojure "1.5.1"]])
     EOS
-    (testpath/"src/brew_test/core.clj").write <<-EOS.undent
+    (testpath/"src/brew_test/core.clj").write <<~EOS
       (ns brew-test.core)
       (defn adds-two
         "I add two to a number"
         [x]
         (+ x 2))
     EOS
-    (testpath/"test/brew_test/core_test.clj").write <<-EOS.undent
+    (testpath/"test/brew_test/core_test.clj").write <<~EOS
       (ns brew-test.core-test
         (:require [clojure.test :refer :all]
                   [brew-test.core :as t]))

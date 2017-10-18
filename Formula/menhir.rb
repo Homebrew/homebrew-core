@@ -19,7 +19,7 @@ class Menhir < Formula
   end
 
   test do
-    (testpath/"test.mly").write <<-EOS.undent
+    (testpath/"test.mly").write <<~EOS
       %token PLUS TIMES EOF
       %left PLUS
       %left TIMES

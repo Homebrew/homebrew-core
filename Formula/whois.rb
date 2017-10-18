@@ -20,7 +20,7 @@ class Whois < Formula
     man1.install "whois.1"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Debian whois has been installed as `whois` and may shadow the
     system binary of the same name.
     EOS

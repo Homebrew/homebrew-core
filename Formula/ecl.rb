@@ -29,7 +29,7 @@ class Ecl < Formula
   end
 
   test do
-    (testpath/"simple.cl").write <<-EOS.undent
+    (testpath/"simple.cl").write <<~EOS
       (write-line (write-to-string (+ 2 2)))
     EOS
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp

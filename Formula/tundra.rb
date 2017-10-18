@@ -18,14 +18,14 @@ class Tundra < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-'EOS_SRC'.undent
+    (testpath/"test.c").write <<~'EOS_SRC'
       #include <stdio.h>
       int main() {
         printf("Hello World\n");
         return 0;
       }
     EOS_SRC
-    (testpath/"tundra.lua").write <<-'EOS_CONFIG'.undent
+    (testpath/"tundra.lua").write <<~'EOS_CONFIG'
       Build {
         Units = function()
           local test = Program {

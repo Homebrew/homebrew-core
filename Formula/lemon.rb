@@ -24,7 +24,7 @@ class Lemon < Formula
   end
 
   test do
-    (testpath/"gram.y").write <<-EOS.undent
+    (testpath/"gram.y").write <<~EOS
       %token_type {int}
       %left PLUS.
       %include {

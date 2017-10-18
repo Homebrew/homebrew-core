@@ -32,7 +32,7 @@ class Cryptol < Formula
   end
 
   test do
-    (testpath/"helloworld.icry").write <<-EOS.undent
+    (testpath/"helloworld.icry").write <<~EOS
       :prove \\(x : [8]) -> x == x
       :prove \\(x : [32]) -> x + zero == x
     EOS

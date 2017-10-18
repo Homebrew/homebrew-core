@@ -21,7 +21,7 @@ class Argtable < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOF.undent
+    (testpath/"test.c").write <<~EOF
       #include "argtable2.h"
       #include <assert.h>
       #include <stdio.h>

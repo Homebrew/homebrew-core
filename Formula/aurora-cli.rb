@@ -22,7 +22,7 @@ class AuroraCli < Formula
 
   test do
     ENV["AURORA_CONFIG_ROOT"] = "#{testpath}/"
-    (testpath/"clusters.json").write <<-EOS.undent
+    (testpath/"clusters.json").write <<~EOS
         [{
           "name": "devcluster",
           "slave_root": "/tmp/mesos/",

@@ -18,7 +18,7 @@ class Bnd < Formula
     test_version = "1.0.0"
     test_version_next = "1.0.1"
     test_file_name = "#{test_bsn}-#{test_version}.jar"
-    (testpath/"index.xml").write <<-EOS.undent
+    (testpath/"index.xml").write <<~EOS
       <?xml version="1.0" encoding="utf-8"?>
       <repository increment="0" name="Untitled" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
         <resource>
@@ -34,7 +34,7 @@ class Bnd < Formula
       </repository>
     EOS
 
-    (testpath/"launch.bndrun").write <<-EOS.undent
+    (testpath/"launch.bndrun").write <<~EOS
       -standalone: index.xml
       -runrequires: osgi.identity;filter:='(osgi.identity=#{test_bsn})'
     EOS

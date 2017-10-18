@@ -99,7 +99,7 @@ class Gnuplot < Formula
 
   def caveats
     if build.with? "aquaterm"
-      <<-EOS.undent
+      <<~EOS
         AquaTerm support will only be built into Gnuplot if the standard AquaTerm
         package from SourceForge has already been installed onto your system.
         If you subsequently remove AquaTerm, you will need to uninstall and then
@@ -109,7 +109,7 @@ class Gnuplot < Formula
   end
 
   test do
-    system "#{bin}/gnuplot", "-e", <<-EOS.undent
+    system "#{bin}/gnuplot", "-e", <<~EOS
       set terminal dumb;
       set output "#{testpath}/graph.txt";
       plot sin(x);

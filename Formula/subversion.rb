@@ -171,13 +171,13 @@ class Subversion < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
     EOS
 
     if build.with? "perl"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         The perl bindings are located in various subdirectories of:
           #{opt_lib}/perl5
@@ -185,7 +185,7 @@ class Subversion < Formula
     end
 
     if build.with? "ruby"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         If you wish to use the Ruby bindings you may need to add:
           #{HOMEBREW_PREFIX}/lib/ruby
@@ -194,7 +194,7 @@ class Subversion < Formula
     end
 
     if build.with? "java"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         You may need to link the Java bindings into the Java Extensions folder:
           sudo mkdir -p /Library/Java/Extensions

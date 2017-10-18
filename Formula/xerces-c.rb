@@ -30,7 +30,7 @@ class XercesC < Formula
   end
 
   test do
-    (testpath/"ducks.xml").write <<-EOS.undent
+    (testpath/"ducks.xml").write <<~EOS
       <?xml version="1.0" encoding="iso-8859-1"?>
 
       <ducks>

@@ -32,7 +32,7 @@ class Libopusenc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <opusenc.h>
       #include <assert.h>
       #include <stdint.h>

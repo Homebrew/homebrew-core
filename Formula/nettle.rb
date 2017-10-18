@@ -28,7 +28,7 @@ class Nettle < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <nettle/sha1.h>
       #include <stdio.h>
 

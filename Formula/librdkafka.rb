@@ -26,7 +26,7 @@ class Librdkafka < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <librdkafka/rdkafka.h>
 
       int main (int argc, char **argv)

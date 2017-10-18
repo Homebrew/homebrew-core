@@ -13,7 +13,7 @@ class Ringojs < Formula
   end
 
   test do
-    (testpath/"test.js").write <<-EOS.undent
+    (testpath/"test.js").write <<~EOS
         var x = 40 + 2;
         console.assert(x === 42);
     EOS

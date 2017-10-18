@@ -24,7 +24,7 @@ class Astyle < Formula
     (testpath/"test.c").write("int main(){return 0;}\n")
     system "#{bin}/astyle", "--style=gnu", "--indent=spaces=4",
            "--lineend=linux", "#{testpath}/test.c"
-    assert_equal File.read("test.c"), <<-EOS.undent
+    assert_equal File.read("test.c"), <<~EOS
       int main()
       {
           return 0;

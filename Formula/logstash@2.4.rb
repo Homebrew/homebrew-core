@@ -31,7 +31,7 @@ class LogstashAT24 < Formula
     bin.install_symlink libexec/"bin/logstash-plugin"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please read the getting started guide located at:
       https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
     The logstash `plugin` command is available as `logstash-plugin`.
@@ -39,7 +39,7 @@ class LogstashAT24 < Formula
   end
 
   test do
-    (testpath/"simple.conf").write <<-EOS.undent
+    (testpath/"simple.conf").write <<~EOS
       input { stdin { type => stdin } }
       output { stdout { codec => rubydebug } }
     EOS

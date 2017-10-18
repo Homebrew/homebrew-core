@@ -19,7 +19,7 @@ class Check < Formula
   end
 
   test do
-    (testpath/"test.tc").write <<-EOS.undent
+    (testpath/"test.tc").write <<~EOS
       #test test1
       ck_assert_msg(1, "This should always pass");
     EOS

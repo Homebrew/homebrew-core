@@ -28,7 +28,7 @@ class Scrypt < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<-EOS.undent
+    (testpath/"test.sh").write <<~EOS
       #!/usr/bin/expect -f
       set timeout -1
       spawn #{bin}/scrypt enc homebrew.txt homebrew.txt.enc

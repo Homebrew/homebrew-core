@@ -11,7 +11,7 @@ class Cython < Formula
     sha256 "4b1fcf174da9e6edb9e7930be4c2fa377ba3d1113295aaf3ef62e1c0d99886d6" => :el_capitan
   end
 
-  keg_only <<-EOS.undent
+  keg_only <<~EOS
     this formula is mainly used internally by other formulae.
     Users are advised to use `pip` to install cython
   EOS
@@ -31,7 +31,7 @@ class Cython < Formula
 
     phrase = "You are using Homebrew"
     (testpath/"package_manager.pyx").write "print '#{phrase}'"
-    (testpath/"setup.py").write <<-EOS.undent
+    (testpath/"setup.py").write <<~EOS
       from distutils.core import setup
       from Cython.Build import cythonize
 

@@ -21,7 +21,7 @@ class Ortp < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "ortp/logging.h"
       #include "ortp/rtpsession.h"
       #include "ortp/sessionset.h"

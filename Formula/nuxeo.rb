@@ -38,7 +38,7 @@ class Nuxeo < Formula
     libexec.install_symlink var/"cache/nuxeo/packages"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You need to edit #{etc}/nuxeo.conf file to configure manually the server.
     Also, in case of upgrade, run 'nuxeoctl mp-upgrade' to ensure all
     downloaded addons are up to date.

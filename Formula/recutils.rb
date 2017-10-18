@@ -22,7 +22,7 @@ class Recutils < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<-EOS.undent
+    (testpath/"test.csv").write <<~EOS
       a,b,c
       1,2,3
     EOS

@@ -38,7 +38,7 @@ class Rtags < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -68,7 +68,7 @@ class Rtags < Formula
 
   test do
     mkpath testpath/"src"
-    (testpath/"src/foo.c").write <<-EOS.undent
+    (testpath/"src/foo.c").write <<~EOS
         void zaphod() {
         }
 
@@ -76,7 +76,7 @@ class Rtags < Formula
           zaphod();
         }
     EOS
-    (testpath/"src/README").write <<-EOS.undent
+    (testpath/"src/README").write <<~EOS
         42
     EOS
 

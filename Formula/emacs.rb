@@ -103,7 +103,7 @@ class Emacs < Formula
 
       # Replace the symlink with one that avoids starting Cocoa.
       (bin/"emacs").unlink # Kill the existing symlink
-      (bin/"emacs").write <<-EOS.undent
+      (bin/"emacs").write <<~EOS
         #!/bin/bash
         exec #{prefix}/Emacs.app/Contents/MacOS/Emacs "$@"
       EOS
@@ -118,7 +118,7 @@ class Emacs < Formula
   end
 
   def caveats
-    if build.with? "cocoa" then <<-EOS.undent
+    if build.with? "cocoa" then <<~EOS
       Please try the Cask for a better-supported Cocoa version:
         brew cask install emacs
       EOS
@@ -127,7 +127,7 @@ class Emacs < Formula
 
   plist_options :manual => "emacs"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

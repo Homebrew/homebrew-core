@@ -45,7 +45,7 @@ class MinimalRacket < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This is a minimal Racket distribution.
     If you want to build the DrRacket IDE, you may run
       raco pkg install --auto drracket
@@ -62,7 +62,7 @@ class MinimalRacket < Formula
     # show that the config file isn't malformed
     output = shell_output("'#{bin}/raco' pkg config")
     assert $CHILD_STATUS.success?
-    assert_match Regexp.new(<<-EOS.undent), output
+    assert_match Regexp.new(<<~EOS), output
       ^name:
         #{version}
       catalogs:

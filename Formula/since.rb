@@ -21,7 +21,7 @@ class Since < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       foo
       bar
     EOS

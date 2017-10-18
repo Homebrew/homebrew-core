@@ -43,7 +43,7 @@ class GstPython < Formula
     system "#{Formula["gstreamer"].opt_bin}/gst-inspect-1.0", "python"
     Language::Python.each_python(build) do |python, _version|
       # Without gst-python raises "TypeError: object() takes no parameters"
-      system python, "-c", <<-EOS.undent
+      system python, "-c", <<~EOS
         import gi
         gi.require_version('Gst', '1.0')
         from gi.repository import Gst

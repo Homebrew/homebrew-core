@@ -63,7 +63,7 @@ class Ldc < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
+    (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main() {
         writeln("Hello, world!");

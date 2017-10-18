@@ -26,7 +26,7 @@ class Gl2ps < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <GLUT/glut.h>
       #include <gl2ps.h>
 

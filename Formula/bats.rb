@@ -12,7 +12,7 @@ class Bats < Formula
   end
 
   test do
-    (testpath/"testing.sh").write <<-EOS.undent
+    (testpath/"testing.sh").write <<~EOS
     #!/usr/bin/env bats
       @test "addition using bc" {
         result="$(echo 2+2 | bc)"

@@ -151,7 +151,7 @@ class RobotFramework < Formula
   end
 
   test do
-    (testpath/"HelloWorld.txt").write <<-EOF.undent
+    (testpath/"HelloWorld.txt").write <<~EOF
       *** Settings ***
       Library         HelloWorld.py
 
@@ -160,7 +160,7 @@ class RobotFramework < Formula
           Hello World
     EOF
 
-    (testpath/"HelloWorld.py").write <<-EOF.undent
+    (testpath/"HelloWorld.py").write <<~EOF
       def hello_world():
           print "HELLO WORLD!"
     EOF

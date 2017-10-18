@@ -15,7 +15,7 @@ class CfrDecompiler < Formula
   end
 
   test do
-    fixture = <<-EOS.undent
+    fixture = <<~EOS
     import java.io.PrintStream;
 
     class T {

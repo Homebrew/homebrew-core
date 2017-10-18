@@ -20,7 +20,7 @@ class Voroxx < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "voro++.hh"
       double rnd() { return double(rand())/RAND_MAX; }
       int main() {

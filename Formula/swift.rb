@@ -96,7 +96,7 @@ class Swift < Formula
   end
 
   test do
-    (testpath/"test.swift").write <<-EOS.undent
+    (testpath/"test.swift").write <<~EOS
     let base = 2
     let exponent_inner = 3
     let exponent_outer = 4

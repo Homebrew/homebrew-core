@@ -29,7 +29,7 @@ class Awscli < Formula
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
     bash_completion.install "bin/aws_bash_completer"
     zsh_completion.install "bin/aws_zsh_completer.sh"
-    (zsh_completion/"_aws").write <<-EOS.undent
+    (zsh_completion/"_aws").write <<~EOS
         #compdef aws
         _aws () {
           local e
@@ -39,7 +39,7 @@ class Awscli < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The "examples" directory has been installed to:
       #{HOMEBREW_PREFIX}/share/awscli/examples
     EOS

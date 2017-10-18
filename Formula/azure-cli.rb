@@ -496,7 +496,7 @@ class AzureCli < Formula
     File.open(site_packages/"azure/cli/command_modules/__init__.py", "w") {}
     File.open(site_packages/"azure/mgmt/__init__.py", "w") {}
 
-    (bin/"az").write <<-EOS.undent
+    (bin/"az").write <<~EOS
       #!/usr/bin/env bash
       export PYTHONPATH="#{ENV["PYTHONPATH"]}"
       if command -v python#{xy} >/dev/null 2>&1; then
@@ -509,7 +509,7 @@ class AzureCli < Formula
     bash_completion.install "az.completion" => "az"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula is for Azure CLI 2.0 - https://docs.microsoft.com/cli/azure/overview.
     The previous Azure CLI has moved to azure-cli@1
     ----

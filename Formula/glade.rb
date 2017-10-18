@@ -42,7 +42,7 @@ class Glade < Formula
     # executable test (GUI)
     system "#{bin}/glade", "--version"
     # API test
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gladeui/glade.h>
 
       int main(int argc, char *argv[]) {

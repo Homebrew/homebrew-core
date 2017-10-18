@@ -35,7 +35,7 @@ class TomcatNative < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order for tomcat's APR lifecycle listener to find this library, you'll
     need to add it to java.library.path. This can be done by adding this line
     to $CATALINA_HOME/bin/setenv.sh

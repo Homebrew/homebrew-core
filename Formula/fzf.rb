@@ -31,7 +31,7 @@ class Fzf < Formula
     bin.install "bin/fzf-tmux"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To install useful keybindings and fuzzy completion:
       #{opt_prefix}/install
 

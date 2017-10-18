@@ -52,7 +52,7 @@ class Gdb < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     gdb requires special privileges to access Mach ports.
     You will need to codesign the binary. For instructions, see:
 

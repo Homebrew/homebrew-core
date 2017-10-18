@@ -35,7 +35,7 @@ class Grpc < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <grpc/grpc.h>
       int main() {
         grpc_init();

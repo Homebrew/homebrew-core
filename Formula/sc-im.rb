@@ -21,7 +21,7 @@ class ScIm < Formula
   end
 
   test do
-    input = <<-EOS.undent
+    input = <<~EOS
       let A1=1+1
       getnum A1
     EOS

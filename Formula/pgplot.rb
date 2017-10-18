@@ -44,7 +44,7 @@ class Pgplot < Formula
     inreplace "drivers/pndriv.c", "setjmp(png_ptr->jmpbuf)", "setjmp(png_jmpbuf(png_ptr))"
 
     # configure options
-    (buildpath/"sys_darwin/homebrew.conf").write <<-EOS.undent
+    (buildpath/"sys_darwin/homebrew.conf").write <<~EOS
       XINCL="#{ENV.cppflags}"
       MOTIF_INCL=""
       ATHENA_INCL=""
@@ -94,7 +94,7 @@ class Pgplot < Formula
   end
 
   test do
-    (testpath/"test.f90").write <<-EOS.undent
+    (testpath/"test.f90").write <<~EOS
       PROGRAM SIMPLE
       INTEGER I, IER, PGBEG
       REAL XR(100), YR(100)

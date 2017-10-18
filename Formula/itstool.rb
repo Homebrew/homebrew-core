@@ -35,7 +35,7 @@ class Itstool < Formula
   end
 
   test do
-    (testpath/"test.xml").write <<-EOS.undent
+    (testpath/"test.xml").write <<~EOS
       <tag>Homebrew</tag>
     EOS
     system bin/"itstool", "-o", "test.pot", "test.xml"

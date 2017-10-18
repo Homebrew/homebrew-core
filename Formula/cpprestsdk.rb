@@ -24,7 +24,7 @@ class Cpprestsdk < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include <iostream>
       #include <cpprest/http_client.h>
       int main() {

@@ -23,7 +23,7 @@ class SwaggerCodegen < Formula
   end
 
   test do
-    (testpath/"minimal.yaml").write <<-EOS.undent
+    (testpath/"minimal.yaml").write <<~EOS
       ---
       swagger: '2.0'
       info:

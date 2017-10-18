@@ -31,7 +31,7 @@ class Libconfig < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libconfig.h>
       int main() {
         config_t cfg;

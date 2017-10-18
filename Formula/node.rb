@@ -111,7 +111,7 @@ class Node < Formula
 
   def caveats
     if build.without? "npm"
-      <<-EOS.undent
+      <<~EOS
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
           #{HOMEBREW_PREFIX}/lib/node_modules

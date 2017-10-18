@@ -28,7 +28,7 @@ class Yamcha < Formula
     libexecdir = shell_output("#{bin}/yamcha-config --libexecdir").chomp
     assert_equal libexecdir, "#{libexec}/yamcha"
 
-    (testpath/"train.data").write <<-EOS.undent
+    (testpath/"train.data").write <<~EOS
     He        PRP  B-NP
     reckons   VBZ  B-VP
     the       DT   B-NP

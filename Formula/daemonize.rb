@@ -24,7 +24,7 @@ class Daemonize < Formula
     dummy_script_file = testpath/"script.sh"
     output_file = testpath/"outputfile.txt"
     pid_file = testpath/"pidfile.txt"
-    dummy_script_file.write <<-EOS.undent
+    dummy_script_file.write <<~EOS
       #!/bin/sh
       echo "#{version}" >> "#{output_file}"
     EOS

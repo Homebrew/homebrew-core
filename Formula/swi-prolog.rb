@@ -71,7 +71,7 @@ class SwiProlog < Formula
   end
 
   test do
-    (testpath/"test.pl").write <<-EOS.undent
+    (testpath/"test.pl").write <<~EOS
       test :-
           write('Homebrew').
     EOS

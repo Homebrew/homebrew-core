@@ -20,7 +20,7 @@ class Msgpuck < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-'EOS'.undent
+    (testpath/"test.c").write <<~'EOS'
       /* Encode and decode an array */
       #include <assert.h>
       #include <msgpuck.h>

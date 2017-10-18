@@ -102,7 +102,7 @@ class Wireshark < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula only installs the command-line utilities by default.
 
     Wireshark.app can be downloaded directly from the website:

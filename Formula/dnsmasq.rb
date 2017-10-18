@@ -78,7 +78,7 @@ class Dnsmasq < Formula
     (etc/"dnsmasq.d/dhcpc").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To configure dnsmasq, take the default example configuration at
       #{etc}/dnsmasq.conf and edit to taste.
     EOS
@@ -86,7 +86,7 @@ class Dnsmasq < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

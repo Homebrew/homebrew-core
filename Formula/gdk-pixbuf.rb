@@ -84,7 +84,7 @@ class GdkPixbuf < Formula
 
   def caveats
     if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
-      <<-EOS.undent
+      <<~EOS
         Programs that require this module need to set the environment variable
           export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
         If you need to manually update the query loader cache, set these variables then run
@@ -94,7 +94,7 @@ class GdkPixbuf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gdk-pixbuf/gdk-pixbuf.h>
 
       int main(int argc, char *argv[]) {

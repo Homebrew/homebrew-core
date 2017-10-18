@@ -14,7 +14,7 @@ class VertX < Formula
   end
 
   test do
-    (testpath/"HelloWorld.java").write <<-EOS.undent
+    (testpath/"HelloWorld.java").write <<~EOS
       import io.vertx.core.AbstractVerticle;
       public class HelloWorld extends AbstractVerticle {
         public void start() {

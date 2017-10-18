@@ -99,7 +99,7 @@ class Opam < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     OPAM uses ~/.opam by default for its package database, so you need to
     initialize it first by running (as a normal user):
 

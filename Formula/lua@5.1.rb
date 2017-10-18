@@ -113,7 +113,7 @@ class LuaAT51 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please be aware due to the way Luarocks is designed any binaries installed
     via Luarocks-5.2 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
 

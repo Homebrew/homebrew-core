@@ -42,7 +42,7 @@ class Fceux < Formula
     scons *args
     libexec.install "src/fceux"
     pkgshare.install ["output/luaScripts", "output/palettes", "output/tools"]
-    (bin/"fceux").write <<-EOS.undent
+    (bin/"fceux").write <<~EOS
       #!/bin/bash
       LUA_PATH=#{pkgshare}/luaScripts/?.lua #{libexec}/fceux "$@"
       EOS

@@ -22,7 +22,7 @@ class SqliteAnalyzer < Formula
   test do
     dbpath = testpath/"school.sqlite"
     sqlpath = testpath/"school.sql"
-    sqlpath.write <<-EOS.undent
+    sqlpath.write <<~EOS
       create table students (name text, age integer);
       insert into students (name, age) values ('Bob', 14);
       insert into students (name, age) values ('Sue', 12);

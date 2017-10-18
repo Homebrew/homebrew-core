@@ -325,7 +325,7 @@ class Duplicity < Formula
   test do
     Gpg.test(testpath) do
       (testpath/"test/hello.txt").write "Hello!"
-      (testpath/"command.sh").write <<-EOS.undent
+      (testpath/"command.sh").write <<~EOS
         #!/usr/bin/expect -f
         set timeout -1
         spawn #{bin}/duplicity #{testpath} "file://test"

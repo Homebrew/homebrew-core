@@ -20,7 +20,7 @@ class Ps2eps < Formula
     system ENV.cc, "src/C/bbox.c", "-o", "bbox"
     bin.install "bbox"
     (libexec/"bin").install "bin/ps2eps"
-    (bin/"ps2eps").write <<-EOS.undent
+    (bin/"ps2eps").write <<~EOS
       #!/bin/sh
       perl -S #{libexec}/bin/ps2eps $*
     EOS

@@ -31,7 +31,7 @@ class Opencoarrays < Formula
 
   test do
     ENV.fortran
-    (testpath/"tally.f90").write <<-EOS.undent
+    (testpath/"tally.f90").write <<~EOS
       program main
         use iso_c_binding, only : c_int
         use iso_fortran_env, only : error_unit

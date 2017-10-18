@@ -39,7 +39,7 @@ class Gromacs < Formula
     zsh_completion.install "build/scripts/GMXRC.zsh" => "_gromacs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     GMXRC and other scripts installed to:
       #{HOMEBREW_PREFIX}/share/gromacs
     EOS

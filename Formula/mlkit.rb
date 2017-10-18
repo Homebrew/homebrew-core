@@ -38,7 +38,7 @@ class Mlkit < Formula
   end
 
   test do
-    (testpath/"test.sml").write <<-EOS.undent
+    (testpath/"test.sml").write <<~EOS
       fun f(x) = x + 2
       val a = [1,2,3,10]
       val b = List.foldl (op +) 0 (List.map f a)

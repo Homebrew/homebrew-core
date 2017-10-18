@@ -24,7 +24,7 @@ class Ejdb < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <ejdb/ejdb.h>
 
       static EJDB *jb;

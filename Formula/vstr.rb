@@ -25,7 +25,7 @@ class Vstr < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       // based on http://www.and.org/vstr/examples/ex_hello_world.c
       #define VSTR_COMPILE_INCLUDE 1
       #include <vstr.h>

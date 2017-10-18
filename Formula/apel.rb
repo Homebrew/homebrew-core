@@ -20,7 +20,7 @@ class Apel < Formula
 
   test do
     program = testpath/"test-apel.el"
-    program.write <<-EOS.undent
+    program.write <<~EOS
       (add-to-list 'load-path "#{elisp}/emu")
       (require 'poe)
       (print (minibuffer-prompt-width))

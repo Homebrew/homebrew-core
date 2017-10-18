@@ -15,7 +15,7 @@ class Vnu < Formula
   end
 
   test do
-    (testpath/"index.html").write <<-EOS.undent
+    (testpath/"index.html").write <<~EOS
       <!DOCTYPE html>
       <html>
       <head>

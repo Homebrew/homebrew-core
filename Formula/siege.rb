@@ -23,7 +23,7 @@ class Siege < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     macOS has only 16K ports available that won't be released until socket
     TIME_WAIT is passed. The default timeout for TIME_WAIT is 15 seconds.
     Consider reducing in case of available port bottleneck.

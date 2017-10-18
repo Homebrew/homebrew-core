@@ -35,7 +35,7 @@ class Aide < Formula
   end
 
   test do
-    (testpath/"aide.conf").write <<-EOS.undent
+    (testpath/"aide.conf").write <<~EOS
       database = file:/var/lib/aide/aide.db
       database_out = file:/var/lib/aide/aide.db.new
       database_new = file:/var/lib/aide/aide.db.new

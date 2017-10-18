@@ -37,7 +37,7 @@ class S3fs < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Be aware that s3fs has some caveats concerning S3 "directories"
     that have been created by other tools. See the following issue for
     details:

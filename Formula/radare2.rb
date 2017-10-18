@@ -10,7 +10,7 @@ class CodesignRequirement < Requirement
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       org.radare.radare2 identity must be available to build with automated signing.
       See: https://github.com/radare/radare2/blob/master/doc/osx.md
     EOS

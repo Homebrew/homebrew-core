@@ -21,7 +21,7 @@ class Tinyxml2 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <tinyxml2.h>
       int main() {
         tinyxml2::XMLDocument doc (false);

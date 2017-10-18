@@ -32,7 +32,7 @@ class Magnetix < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Install games in the following directory:
       ~/Library/Application Support/magnetiX/
     EOS

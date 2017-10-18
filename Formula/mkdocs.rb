@@ -77,14 +77,14 @@ class Mkdocs < Formula
 
   test do
     # build a very simple site that uses the "readthedocs" theme.
-    (testpath/"mkdocs.yml").write <<-EOS.undent
+    (testpath/"mkdocs.yml").write <<~EOS
       site_name: MkLorum
       pages:
         - Home: index.md
       theme: readthedocs
     EOS
     mkdir testpath/"docs"
-    (testpath/"docs/index.md").write <<-EOS.undent
+    (testpath/"docs/index.md").write <<~EOS
       # A heading
 
       And some deeply meaningful prose.

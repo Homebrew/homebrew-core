@@ -43,7 +43,7 @@ class Libxslt < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To allow the nokogiri gem to link against this libxslt run:
       gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
     EOS

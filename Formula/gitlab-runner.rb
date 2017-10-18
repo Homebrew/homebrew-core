@@ -61,7 +61,7 @@ class GitlabRunner < Formula
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
-      system "go", "build", "-ldflags", <<-EOS.undent
+      system "go", "build", "-ldflags", <<~EOS
              -X #{proj}/common.NAME=gitlab-runner
              -X #{proj}/common.VERSION=#{version}
              -X #{proj}/common.REVISION=#{commit}
@@ -76,7 +76,7 @@ class GitlabRunner < Formula
 
   plist_options :manual => "gitlab-runner start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -21,11 +21,11 @@ class Csvtomd < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<-EOS.undent
+    (testpath/"test.csv").write <<~EOS
       column 1,column 2
       hello,world
     EOS
-    markdown = <<-EOS.undent.strip
+    markdown = <<~EOS.strip
       column 1  |  column 2
       ----------|----------
       hello     |  world

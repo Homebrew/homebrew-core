@@ -81,7 +81,7 @@ class Fail2ban < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Before using Fail2Ban for the first time you should edit the jail
       configuration and enable the jails that you want to use, for instance
       ssh-ipfw. Also, make sure that they point to the correct configuration
@@ -104,7 +104,7 @@ class Fail2ban < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">

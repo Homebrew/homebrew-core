@@ -33,7 +33,7 @@ class Pygobject3 < Formula
   end
 
   test do
-    Pathname("test.py").write <<-EOS.undent
+    Pathname("test.py").write <<~EOS
     import gi
     assert("__init__" in gi.__file__)
     EOS

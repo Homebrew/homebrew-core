@@ -35,7 +35,7 @@ class Ant < Formula
     libexec.install Dir["*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
     rm bin/"ant"
-    (bin/"ant").write <<-EOS.undent
+    (bin/"ant").write <<~EOS
       #!/bin/sh
       #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
@@ -52,7 +52,7 @@ class Ant < Formula
   end
 
   test do
-    (testpath/"build.xml").write <<-EOS.undent
+    (testpath/"build.xml").write <<~EOS
       <project name="HomebrewTest" basedir=".">
         <property name="src" location="src"/>
         <property name="build" location="build"/>
@@ -64,7 +64,7 @@ class Ant < Formula
         </target>
       </project>
     EOS
-    (testpath/"src/main/java/org/homebrew/AntTest.java").write <<-EOS.undent
+    (testpath/"src/main/java/org/homebrew/AntTest.java").write <<~EOS
       package org.homebrew;
       public class AntTest {
         public static void main(String[] args) {

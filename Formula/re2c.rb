@@ -19,7 +19,7 @@ class Re2c < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       unsigned int stou (const char * s)
       {
       #   define YYCTYPE char

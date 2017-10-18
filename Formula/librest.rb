@@ -26,7 +26,7 @@ class Librest < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdlib.h>
       #include <rest/rest-proxy.h>
 

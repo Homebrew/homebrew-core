@@ -70,7 +70,7 @@ class Zpython < Formula
     (lib/"zpython/zsh").install "Src/Modules/zpython.so"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use the zpython module in zsh you need to
     add the following line to your .zshrc:
 

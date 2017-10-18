@@ -20,7 +20,7 @@ class Libsquish < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include <stdio.h>
       #include <squish.h>
       int main(void) {

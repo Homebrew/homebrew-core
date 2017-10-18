@@ -30,7 +30,7 @@ class Xtensor < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include <iostream>
       #include "xtensor/xarray.hpp"
       #include "xtensor/xio.hpp"

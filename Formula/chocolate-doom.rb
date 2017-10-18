@@ -36,7 +36,7 @@ class ChocolateDoom < Formula
     (share/"icons").rmtree
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Note that this formula only installs a Doom game engine, and no
     actual levels. The original Doom levels are still under copyright,
     so you can copy them over and play them if you already own them.

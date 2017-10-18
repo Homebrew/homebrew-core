@@ -46,7 +46,7 @@ class FaasCli < Formula
       end
     end
 
-    (testpath/"test.yml").write <<-EOF.undent
+    (testpath/"test.yml").write <<~EOF
       provider:
         name: faas
         gateway: http://localhost:#{port}
@@ -59,7 +59,7 @@ class FaasCli < Formula
           image: dummy_image
     EOF
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Deploying: dummy_function.
       Removing old service.
       Deployed.

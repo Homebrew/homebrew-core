@@ -33,7 +33,7 @@ class MonitoringPlugins < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     All plugins have been installed in:
       #{HOMEBREW_PREFIX}/sbin
     EOS

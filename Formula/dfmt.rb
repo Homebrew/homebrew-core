@@ -29,11 +29,11 @@ class Dfmt < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
+    (testpath/"test.d").write <<~EOS
     import std.stdio; void main() { writeln("Hello, world without explicit compilations!"); }
     EOS
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
     import std.stdio;
 
     void main()

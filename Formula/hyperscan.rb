@@ -41,7 +41,7 @@ class Hyperscan < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <hs/hs.h>
       int main()

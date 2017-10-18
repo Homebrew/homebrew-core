@@ -27,7 +27,7 @@ class Globjects < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <globjects/globjects.h>
       int main(void)
       {

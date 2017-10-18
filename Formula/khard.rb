@@ -55,7 +55,7 @@ class Khard < Formula
   end
 
   test do
-    (testpath/".config/khard/khard.conf").write <<-EOS.undent
+    (testpath/".config/khard/khard.conf").write <<~EOS
       [addressbooks]
       [[default]]
       path = ~/.contacts/
@@ -66,7 +66,7 @@ class Khard < Formula
       default_action = list
       show_nicknames = yes
     EOS
-    (testpath/".contacts/dummy.vcf").write <<-EOS.undent
+    (testpath/".contacts/dummy.vcf").write <<~EOS
       BEGIN:VCARD
       VERSION:3.0
       EMAIL;TYPE=work:username@example.org

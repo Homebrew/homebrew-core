@@ -11,7 +11,7 @@ class Antigen < Formula
     pkgshare.install "bin/antigen.zsh"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To activate antigen, add the following to your ~/.zshrc:
       source #{HOMEBREW_PREFIX}/share/antigen/antigen.zsh
     EOS

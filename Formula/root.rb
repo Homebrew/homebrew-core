@@ -88,7 +88,7 @@ class Root < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Because ROOT depends on several installation-dependent
     environment variables to function properly, you should
     add the following commands to your shell initialization
@@ -105,13 +105,13 @@ class Root < Formula
   end
 
   test do
-    (testpath/"test.C").write <<-EOS.undent
+    (testpath/"test.C").write <<~EOS
       #include <iostream>
       void test() {
         std::cout << "Hello, world!" << std::endl;
       }
     EOS
-    (testpath/"test.bash").write <<-EOS.undent
+    (testpath/"test.bash").write <<~EOS
       . #{bin}/thisroot.sh
       root -l -b -n -q test.C
     EOS

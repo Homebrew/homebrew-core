@@ -31,7 +31,7 @@ class Libffi < Formula
   end
 
   test do
-    (testpath/"closure.c").write <<-TEST_SCRIPT.undent
+    (testpath/"closure.c").write <<~TEST_SCRIPT
      #include <stdio.h>
      #include <ffi.h>
 

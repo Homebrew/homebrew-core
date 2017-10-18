@@ -41,7 +41,7 @@ class Mdv < Formula
   end
 
   test do
-    (testpath/"test.md").write <<-EOF.undent
+    (testpath/"test.md").write <<~EOF
     # Header 1
     ## Header 2
     ### Header 3

@@ -31,7 +31,7 @@ class Lgogdownloader < Formula
 
     ENV["XDG_CONFIG_HOME"] = testpath
     reader, writer = PTY.spawn(bin/"lgogdownloader", "--list", "--retries", "1")
-    writer.write <<-EOS.undent
+    writer.write <<~EOS
       test@example.com
       secret
     EOS

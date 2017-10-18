@@ -109,7 +109,7 @@ class AnsibleLint < Formula
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
-    (testpath/"playbook.yml").write <<-EOF.undent
+    (testpath/"playbook.yml").write <<~EOF
       ---
       - hosts: all
         gather_facts: False

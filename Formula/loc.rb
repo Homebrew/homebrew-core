@@ -18,7 +18,7 @@ class Loc < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <stdio.h>
       int main() {
         println("Hello World");

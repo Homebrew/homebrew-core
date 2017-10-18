@@ -44,7 +44,7 @@ class Tarantool < Formula
   end
 
   test do
-    (testpath/"test.lua").write <<-EOS.undent
+    (testpath/"test.lua").write <<~EOS
         box.cfg{}
         local s = box.schema.create_space("test")
         s:create_index("primary")

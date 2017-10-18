@@ -26,7 +26,7 @@ class Libnice < Formula
 
   test do
     # Based on https://github.com/libnice/libnice/blob/master/examples/simple-example.c
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <agent.h>
       int main(int argc, char *argv[]) {
         NiceAgent *agent;

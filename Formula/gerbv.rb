@@ -30,7 +30,7 @@ class Gerbv < Formula
     # executable (GUI) test
     system "#{bin}/gerbv", "--version"
     # API test
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gerbv.h>
 
       int main(int argc, char *argv[]) {

@@ -20,7 +20,7 @@ class ApacheZeppelin < Formula
       ENV["ZEPPELIN_CONF_DIR"] = "#{testpath}/conf"
       conf = testpath/"conf"
       conf.mkdir
-      (conf/"zeppelin-env.sh").write <<-EOF.undent
+      (conf/"zeppelin-env.sh").write <<~EOF
         export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
         export ZEPPELIN_PORT=9999
         export ZEPPELIN_NOTEBOOK_DIR="#{testpath}/notebooks"

@@ -31,7 +31,7 @@ class DependencyCheck < Formula
     output = shell_output("#{libexec}/bin/dependency-check --version").strip
     assert_match "Dependency-Check Core version #{version}", output
 
-    (testpath/"temp-props.properties").write <<-EOS.undent
+    (testpath/"temp-props.properties").write <<~EOS
       cve.startyear=2017
       analyzer.assembly.enabled=false
     EOS

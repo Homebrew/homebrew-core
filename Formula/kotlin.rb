@@ -13,7 +13,7 @@ class Kotlin < Formula
   end
 
   test do
-    (testpath/"test.kt").write <<-EOS.undent
+    (testpath/"test.kt").write <<~EOS
       fun main(args: Array<String>) {
         println("Hello World!")
       }

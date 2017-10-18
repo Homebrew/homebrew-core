@@ -24,7 +24,7 @@ class Bartycrouch < Formula
   end
 
   test do
-    (testpath/"Test.swift").write <<-EOS.undent
+    (testpath/"Test.swift").write <<~EOS
     import Foundation
 
     class Test {
@@ -34,7 +34,7 @@ class Bartycrouch < Formula
     }
     EOS
 
-    (testpath/"en.lproj/Localizable.strings").write <<-EOS.undent
+    (testpath/"en.lproj/Localizable.strings").write <<~EOS
     /* No comment provided by engineer. */
     "oldKey" = "Some translation";
     EOS

@@ -17,7 +17,7 @@ class Quex < Formula
     doc.install "README", "demo"
 
     # Use a shim script to set QUEX_PATH on the user's behalf
-    (bin/"quex").write <<-EOS.undent
+    (bin/"quex").write <<~EOS
       #!/bin/bash
       QUEX_PATH="#{libexec}" "#{libexec}/quex-exe.py" "$@"
     EOS

@@ -16,14 +16,14 @@ class Cake < Formula
     libexec.install Dir["*.xml"]
 
     bin.mkpath
-    (bin/"cake").write <<-EOS.undent
+    (bin/"cake").write <<~EOS
       #!/bin/bash
       mono #{libexec}/Cake.exe "$@"
     EOS
   end
 
   test do
-    (testpath/"build.cake").write <<-EOS.undent
+    (testpath/"build.cake").write <<~EOS
       var target = Argument ("target", "info");
 
       Task("info").Does(() =>

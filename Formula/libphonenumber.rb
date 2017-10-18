@@ -35,7 +35,7 @@ class Libphonenumber < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <phonenumbers/phonenumberutil.h>
       #include <phonenumbers/phonenumber.pb.h>
       #include <iostream>

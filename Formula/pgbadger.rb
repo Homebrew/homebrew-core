@@ -23,7 +23,7 @@ class Pgbadger < Formula
     man1.install "usr/local/share/man/man1/pgbadger.1p"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You must configure your PostgreSQL server before using pgBadger.
     Edit postgresql.conf (in #{var}/postgres if you use Homebrew's
     PostgreSQL), set the following parameters, and restart PostgreSQL:
@@ -43,7 +43,7 @@ class Pgbadger < Formula
   end
 
   test do
-    (testpath/"server.log").write <<-EOS.undent
+    (testpath/"server.log").write <<~EOS
       LOG:  autovacuum launcher started
       LOG:  database system is ready to accept connections
     EOS

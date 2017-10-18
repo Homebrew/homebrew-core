@@ -44,7 +44,7 @@ class Exult < Formula
     bin.write_exec_script "#{prefix}/Exult.app/Contents/MacOS/exult"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Note that this includes only the game engine; you will need to supply your own
     own legal copy of the Ultima 7 game files. Try here (amazon.com):
       https://bit.ly/8JzovU

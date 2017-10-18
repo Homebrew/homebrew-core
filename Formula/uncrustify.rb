@@ -24,11 +24,11 @@ class Uncrustify < Formula
   end
 
   test do
-    (testpath/"t.c").write <<-EOS.undent
+    (testpath/"t.c").write <<~EOS
       #include <stdio.h>
       int main(void) {return 0;}
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       #include <stdio.h>
       int main(void) {
       \treturn 0;

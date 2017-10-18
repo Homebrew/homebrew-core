@@ -19,7 +19,7 @@ class Dtc < Formula
   end
 
   test do
-    (testpath/"test.dts").write <<-EOS.undent
+    (testpath/"test.dts").write <<~EOS
       /dts-v1/;
       / {
       };

@@ -26,7 +26,7 @@ class Dwm < Formula
     system "make", "PREFIX=#{prefix}", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order to use the Mac OS X command key for dwm commands,
     change the X11 keyboard modifier map using xmodmap (1).
 

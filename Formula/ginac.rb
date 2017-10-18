@@ -22,7 +22,7 @@ class Ginac < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
     #include <iostream>
     #include <ginac/ginac.h>
     using namespace std;

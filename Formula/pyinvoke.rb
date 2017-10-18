@@ -21,7 +21,7 @@ class Pyinvoke < Formula
   end
 
   test do
-    (testpath/"tasks.py").write <<-EOS.undent
+    (testpath/"tasks.py").write <<~EOS
       from invoke import run, task
 
       @task

@@ -19,7 +19,7 @@ class ZshSyntaxHighlighting < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     To activate the syntax highlighting, add the following at the end of your .zshrc:
       source #{HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

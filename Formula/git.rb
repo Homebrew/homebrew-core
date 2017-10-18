@@ -185,7 +185,7 @@ class Git < Formula
 
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
-    (buildpath/"gitconfig").write <<-EOS.undent
+    (buildpath/"gitconfig").write <<~EOS
       [credential]
       \thelper = osxkeychain
     EOS

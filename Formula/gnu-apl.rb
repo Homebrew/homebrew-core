@@ -39,7 +39,7 @@ class GnuApl < Formula
   end
 
   test do
-    (testpath/"hello.apl").write <<-EOS.undent
+    (testpath/"hello.apl").write <<~EOS
       'Hello world'
       )OFF
     EOS

@@ -23,7 +23,7 @@ class Pidof < Formula
   end
 
   test do
-    (testpath/"homebrew_testing.c").write <<-EOS.undent
+    (testpath/"homebrew_testing.c").write <<~EOS
       #include <unistd.h>
       #include <stdio.h>
 

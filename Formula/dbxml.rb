@@ -44,7 +44,7 @@ class Dbxml < Formula
   end
 
   test do
-    (testpath/"simple.xml").write <<-EOS.undent
+    (testpath/"simple.xml").write <<~EOS
       <breakfast_menu>
         <food>
           <name>Belgian Waffles</name>
@@ -57,7 +57,7 @@ class Dbxml < Formula
       </breakfast_menu>
     EOS
 
-    (testpath/"dbxml.script").write <<-EOS.undent
+    (testpath/"dbxml.script").write <<~EOS
       createContainer ""
       putDocument simple "simple.xml" f
       cquery 'sum(//food/calories)'

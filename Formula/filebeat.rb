@@ -30,7 +30,7 @@ class Filebeat < Formula
 
     prefix.install_metafiles gopath/"src/github.com/elastic/beats"
 
-    (bin/"filebeat").write <<-EOS.undent
+    (bin/"filebeat").write <<~EOS
       #!/bin/sh
       exec #{libexec}/filebeat -path.config #{etc}/filebeat -path.home #{prefix} -path.logs #{var}/log/filebeat -path.data #{var}/filebeat $@
     EOS
@@ -38,7 +38,7 @@ class Filebeat < Formula
 
   plist_options :manual => "filebeat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -59,7 +59,7 @@ class Filebeat < Formula
     log_file = testpath/"test.log"
     touch log_file
 
-    (testpath/"filebeat.yml").write <<-EOS.undent
+    (testpath/"filebeat.yml").write <<~EOS
       filebeat:
         prospectors:
           -

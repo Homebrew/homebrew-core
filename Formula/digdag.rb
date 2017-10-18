@@ -12,7 +12,7 @@ class Digdag < Formula
     libexec.install "digdag-#{version}.jar" => "digdag.jar"
 
     # Create a wrapper script to support OS X 10.9.
-    (bin/"digdag").write <<-EOS.undent
+    (bin/"digdag").write <<~EOS
       #!/bin/bash
       exec /bin/bash "#{libexec}/digdag.jar" "$@"
     EOS

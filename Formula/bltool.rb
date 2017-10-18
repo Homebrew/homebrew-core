@@ -24,7 +24,7 @@ class Bltool < Formula
   end
 
   test do
-    (testpath/"test.edn").write <<-EOS.undent
+    (testpath/"test.edn").write <<~EOS
       [{:id "12527736",
         :name "Assassin's Creed",
         :platform "360",

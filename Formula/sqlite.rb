@@ -92,7 +92,7 @@ class Sqlite < Formula
   def caveats
     s = ""
     if build.with? "functions"
-      s += <<-EOS.undent
+      s += <<~EOS
         Usage instructions for applications calling the sqlite3 API functions:
 
           In your application, call sqlite3_enable_load_extension(db,1) to
@@ -115,7 +115,7 @@ class Sqlite < Formula
       user_history = "~/.sqlite_history"
       user_history_path = File.expand_path(user_history)
       if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")
-        s += <<-EOS.undent
+        s += <<~EOS
           Homebrew has detected an existing SQLite history file that was created
           with the editline library. The current version of this formula is
           built with Readline. To back up and convert your history file so that
@@ -133,7 +133,7 @@ class Sqlite < Formula
 
   test do
     path = testpath/"school.sql"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       create table students (name text, age integer);
       insert into students (name, age) values ('Bob', 14);
       insert into students (name, age) values ('Sue', 12);

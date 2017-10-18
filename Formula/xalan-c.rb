@@ -64,7 +64,7 @@ class XalanC < Formula
   end
 
   test do
-    (testpath/"input.xml").write <<-EOS.undent
+    (testpath/"input.xml").write <<~EOS
       <?xml version="1.0"?>
       <Article>
         <Title>An XSLT test-case</Title>
@@ -77,7 +77,7 @@ class XalanC < Formula
       </Article>
     EOS
 
-    (testpath/"transform.xsl").write <<-EOS.undent
+    (testpath/"transform.xsl").write <<~EOS
       <?xml version="1.0"?>
       <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:output method="text"/>

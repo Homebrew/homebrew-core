@@ -20,7 +20,7 @@ class Ats2Postiats < Formula
   end
 
   test do
-    (testpath/"hello.dats").write <<-EOS.undent
+    (testpath/"hello.dats").write <<~EOS
       val _ = print ("Hello, world!\n")
       implement main0 () = ()
     EOS

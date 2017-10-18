@@ -59,7 +59,7 @@ class Numpy < Formula
     if build.with?("python") && !Formula["python"].installed?
       homebrew_site_packages = Language::Python.homebrew_site_packages
       user_site_packages = Language::Python.user_site_packages "python"
-      <<-EOS.undent
+      <<~EOS
         If you use system python (that comes - depending on the OS X version -
         with older versions of numpy, scipy and matplotlib), you may need to
         ensure that the brewed packages come earlier in Python's sys.path with:
@@ -71,7 +71,7 @@ class Numpy < Formula
 
   test do
     Language::Python.each_python(build) do |python, _version|
-      system python, "-c", <<-EOS.undent
+      system python, "-c", <<~EOS
         import numpy as np
         t = np.ones((3,3), int)
         assert t.sum() == 9

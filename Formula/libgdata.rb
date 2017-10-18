@@ -33,7 +33,7 @@ class Libgdata < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gdata/gdata.h>
 
       int main(int argc, char *argv[]) {

@@ -22,7 +22,7 @@ class Typescript < Formula
   end
 
   test do
-    (testpath/"test.ts").write <<-EOS.undent
+    (testpath/"test.ts").write <<~EOS
       class Test {
         greet() {
           return "Hello, world!";

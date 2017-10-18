@@ -24,7 +24,7 @@ class WoboqCodebrowser < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       int main() {
       printf(\"hi!\");

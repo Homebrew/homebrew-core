@@ -15,7 +15,7 @@ class WildflyAs < Formula
     mkdir_p libexec/"standalone/log"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The home of WildFly Application Server #{version} is:
       #{opt_libexec}
     You may want to add the following to your .bash_profile:
@@ -26,7 +26,7 @@ class WildflyAs < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/wildfly-as/libexec/bin/standalone.sh --server-config=standalone.xml"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

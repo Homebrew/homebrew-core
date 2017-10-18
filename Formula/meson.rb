@@ -25,13 +25,13 @@ class Meson < Formula
   end
 
   test do
-    (testpath/"helloworld.c").write <<-EOS.undent
+    (testpath/"helloworld.c").write <<~EOS
       main() {
         puts("hi");
         return 0;
       }
     EOS
-    (testpath/"meson.build").write <<-EOS.undent
+    (testpath/"meson.build").write <<~EOS
       project('hello', 'c')
       executable('hello', 'helloworld.c')
     EOS

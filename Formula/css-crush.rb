@@ -9,14 +9,14 @@ class CssCrush < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin+"csscrush").write <<-EOS.undent
+    (bin+"csscrush").write <<~EOS
       #!/bin/sh
       php "#{libexec}/cli.php" "$@"
     EOS
   end
 
   test do
-    (testpath/"test.crush").write <<-EOS.undent
+    (testpath/"test.crush").write <<~EOS
       @define foo #123456;
       p { color: $(foo); }
     EOS

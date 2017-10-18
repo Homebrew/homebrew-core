@@ -37,7 +37,7 @@ class Opusfile < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <opus/opusfile.h>
       #include <stdlib.h>
       int main(int argc, const char **argv) {

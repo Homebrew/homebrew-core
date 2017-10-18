@@ -50,7 +50,7 @@ class Parrot < Formula
 
   test do
     path = testpath/"test.pir"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       .sub _main
         .local int i
         i = 0

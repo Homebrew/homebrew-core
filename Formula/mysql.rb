@@ -114,7 +114,7 @@ class Mysql < Formula
     bin.install_symlink prefix/"support-files/mysql.server"
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -134,7 +134,7 @@ class Mysql < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
     We've installed your MySQL database without a root password. To secure it run:
         mysql_secure_installation
 
@@ -144,7 +144,7 @@ class Mysql < Formula
         mysql -uroot
     EOS
     if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
-      s += <<-EOS.undent
+      s += <<~EOS
 
         A "#{my_cnf}" from another install may interfere with a Homebrew-built
         server starting up correctly.
@@ -155,7 +155,7 @@ class Mysql < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

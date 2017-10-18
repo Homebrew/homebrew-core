@@ -88,7 +88,7 @@ class Freeling < Formula
   end
 
   test do
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Hello hello NN 1
       world world NN 1
     EOS

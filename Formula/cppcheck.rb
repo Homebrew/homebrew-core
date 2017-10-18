@@ -60,7 +60,7 @@ class Cppcheck < Formula
   test do
     # Execution test with an input .cpp file
     test_cpp_file = testpath/"test.cpp"
-    test_cpp_file.write <<-EOS.undent
+    test_cpp_file.write <<~EOS
       #include <iostream>
       using namespace std;
 
@@ -88,7 +88,7 @@ class Cppcheck < Formula
 
     # Test the "out of bounds" check
     test_cpp_file_check = testpath/"testcheck.cpp"
-    test_cpp_file_check.write <<-EOS.undent
+    test_cpp_file_check.write <<~EOS
       int main()
       {
       char a[10];
@@ -109,7 +109,7 @@ class Cppcheck < Formula
     assert_parse_message = "Error: sampleaddon.py: failed: can't parse the #{name} dump."
 
     sample_addon_file = testpath/"sampleaddon.py"
-    sample_addon_file.write <<-EOS.undent
+    sample_addon_file.write <<~EOS
       #!/usr/bin/env python
       """A simple test addon for #{name}, prints function names and token count"""
       import sys

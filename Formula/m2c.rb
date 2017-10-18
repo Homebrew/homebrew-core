@@ -33,7 +33,7 @@ class M2c < Formula
     hello_mod = "Hello.mod"
     hello_exe = testpath/"Hello"
 
-    (testpath/hello_mod).write <<-EOF.undent
+    (testpath/hello_mod).write <<~EOF
       MODULE Hello;
 
       FROM InOut IMPORT

@@ -22,7 +22,7 @@ class Tcpstat < Formula
   end
 
   test do
-    (testpath/"script.exp").write <<-EOS.undent
+    (testpath/"script.exp").write <<~EOS
       set timeout 30
       spawn "#{bin}/tcpstat"
       send -- "q"

@@ -20,7 +20,7 @@ class SbtAT013 < Formula
     libexec.install "bin", "lib"
     etc.install "conf/sbtopts"
 
-    (bin/"sbt").write <<-EOS.undent
+    (bin/"sbt").write <<~EOS
       #!/bin/sh
       if [ -f "$HOME/.sbtconfig" ]; then
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
@@ -30,7 +30,7 @@ class SbtAT013 < Formula
     EOS
   end
 
-  def caveats;  <<-EOS.undent
+  def caveats;  <<~EOS
     You can use $SBT_OPTS to pass additional JVM options to SBT:
        SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 

@@ -25,7 +25,7 @@ class Fribidi < Formula
   end
 
   test do
-    (testpath/"test.input").write <<-EOS.undent
+    (testpath/"test.input").write <<~EOS
       a _lsimple _RteST_o th_oat
     EOS
 

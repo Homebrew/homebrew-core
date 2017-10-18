@@ -27,7 +27,7 @@ class Golo < Formula
 
   def caveats
     if ENV["SHELL"].include? "zsh"
-      <<-EOS.undent
+      <<~EOS
         For ZSH users, please add "golo" in yours plugins in ".zshrc"
       EOS
     end

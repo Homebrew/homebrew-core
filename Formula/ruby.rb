@@ -108,7 +108,7 @@ class Ruby < Formula
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config(abi_version); <<-EOS.undent
+  def rubygems_config(abi_version); <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir

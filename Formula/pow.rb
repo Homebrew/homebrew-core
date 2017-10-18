@@ -10,7 +10,7 @@ class Pow < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"pow").write <<-EOS.undent
+    (bin/"pow").write <<~EOS
       #!/bin/sh
       export POW_BIN="#{bin}/pow"
       exec "#{Formula["node"].opt_bin}/node" "#{libexec}/lib/command.js" "$@"
@@ -18,7 +18,7 @@ class Pow < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Create the required host directories:
         mkdir -p ~/Library/Application\\ Support/Pow/Hosts
         ln -s ~/Library/Application\\ Support/Pow/Hosts ~/.pow

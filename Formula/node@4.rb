@@ -115,7 +115,7 @@ class NodeAT4 < Formula
     s = ""
 
     if build.without? "npm"
-      s += <<-EOS.undent
+      s += <<~EOS
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
           #{HOMEBREW_PREFIX}/lib/node_modules

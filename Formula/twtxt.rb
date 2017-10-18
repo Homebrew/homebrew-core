@@ -77,14 +77,14 @@ class Twtxt < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
-    (testpath/"config").write <<-EOS.undent
+    (testpath/"config").write <<~EOS
       [twtxt]
       nick = homebrew
       twtfile = twtxt.txt
       [following]
       twtxt = https://buckket.org/twtxt_news.txt
     EOS
-    (testpath/"twtxt.txt").write <<-EOS.undent
+    (testpath/"twtxt.txt").write <<~EOS
       2016-02-05T18:00:56.626750+00:00  Homebrew speaks!
     EOS
     assert_match "Fiat Lux!", shell_output("#{bin}/twtxt -c config timeline")

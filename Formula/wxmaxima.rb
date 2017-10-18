@@ -30,7 +30,7 @@ class Wxmaxima < Formula
     prefix.install "wxMaxima.app"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     When you start wxMaxima the first time, set the path to Maxima
     (e.g. #{HOMEBREW_PREFIX}/bin/maxima) in the Preferences.
 

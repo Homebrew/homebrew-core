@@ -11,7 +11,7 @@ class ZshHistorySubstringSearch < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     To activate the history search, add the following at the end of your .zshrc:
 
       source #{HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh

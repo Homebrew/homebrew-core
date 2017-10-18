@@ -50,7 +50,7 @@ class DnscryptProxy < Formula
     pkgshare.install Dir["contrib/*"] - Dir["contrib/Makefile*"]
 
     if build.with? "minisign"
-      (bin/"dnscrypt-update-resolvers").write <<-EOS.undent
+      (bin/"dnscrypt-update-resolvers").write <<~EOS
         #!/bin/sh
         RESOLVERS_UPDATES_BASE_URL=https://download.dnscrypt.org/dnscrypt-proxy
         RESOLVERS_LIST_BASE_DIR=#{pkgshare}
@@ -79,7 +79,7 @@ class DnscryptProxy < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       After starting dnscrypt-proxy, you will need to point your
       local DNS server to 127.0.0.1. You can do this by going to
       System Preferences > "Network" and clicking the "Advanced..."
@@ -102,7 +102,7 @@ class DnscryptProxy < Formula
     EOS
 
     if build.with? "minisign"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         If at some point the resolver file gets outdated, it can be updated to the
         latest version by running: #{opt_bin}/dnscrypt-update-resolvers
@@ -114,7 +114,7 @@ class DnscryptProxy < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/EN" "http:/www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

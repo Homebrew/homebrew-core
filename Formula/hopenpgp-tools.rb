@@ -29,7 +29,7 @@ class HopenpgpTools < Formula
     # Reported 7 Oct 2017 to clint AT debian DOT org
     # RE: happy, see https://github.com/simonmar/happy/issues/94
     # RE: graphviz, see https://github.com/haskell-infra/hackage-trustees/issues/114
-    (buildpath/"cabal.config").write <<-EOS.undent
+    (buildpath/"cabal.config").write <<~EOS
       constraints: happy<1.19.6, graphviz >= 2999.17.0.0
     EOS
 

@@ -48,7 +48,7 @@ class Ibex < Formula
     system "./waf", "install"
 
     pkgshare.install %w[examples plugins/solver/benchs]
-    (pkgshare/"examples/symb01.txt").write <<-EOS.undent
+    (pkgshare/"examples/symb01.txt").write <<~EOS
       function f(x)
         return ((2*x,-x);(-x,3*x));
       end

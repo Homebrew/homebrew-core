@@ -34,7 +34,7 @@ class Gwyddion < Formula
 
   test do
     system "#{bin}/gwyddion", "--version"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libgwyddion/gwyddion.h>
 
       int main(int argc, char *argv[]) {

@@ -11,7 +11,7 @@ class ApibuilderCli < Formula
   end
 
   test do
-    (testpath/"config").write <<-EOS.undent
+    (testpath/"config").write <<~EOS
       [default]
       token = abcd1234
     EOS

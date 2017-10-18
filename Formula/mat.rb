@@ -71,7 +71,7 @@ class Mat < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       MAT was built without PDF support nor GUI.
     EOS
   end

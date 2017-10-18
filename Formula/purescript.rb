@@ -43,7 +43,7 @@ class Purescript < Formula
   test do
     test_module_path = testpath/"Test.purs"
     test_target_path = testpath/"test-module.js"
-    test_module_path.write <<-EOS.undent
+    test_module_path.write <<~EOS
       module Test where
 
       main :: Int

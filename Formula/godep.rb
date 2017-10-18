@@ -27,7 +27,7 @@ class Godep < Formula
 
   test do
     ENV["GOPATH"] = testpath.realpath
-    (testpath/"Godeps/Godeps.json").write <<-EOS.undent
+    (testpath/"Godeps/Godeps.json").write <<~EOS
       {
         "ImportPath": "github.com/tools/godep",
         "GoVersion": "go1.8",

@@ -54,7 +54,7 @@ class AescryptPacketizer < Formula
     s = ""
 
     if build.without? "default-names"
-      s += <<-EOS.undent
+      s += <<~EOS
         To avoid conflicting with our other AESCrypt package the binaries
         have been renamed paescrypt and paescrypt_keygen.
       EOS

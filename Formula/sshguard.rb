@@ -49,7 +49,7 @@ class Sshguard < Formula
   end
 
   def caveats
-    if MacOS.version >= :lion then <<-EOS.undent
+    if MacOS.version >= :lion then <<~EOS
       Add the following lines to /etc/pf.conf to block entries in the sshguard
       table (replace $ext_if with your WAN interface):
 
@@ -63,7 +63,7 @@ class Sshguard < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

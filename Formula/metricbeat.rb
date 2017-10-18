@@ -32,7 +32,7 @@ class Metricbeat < Formula
       (etc/"metricbeat").install "metricbeat.template-es6x.json"
     end
 
-    (bin/"metricbeat").write <<-EOS.undent
+    (bin/"metricbeat").write <<~EOS
       #!/bin/sh
       exec "#{libexec}/metricbeat" --path.config "#{etc}/metricbeat" --path.home="#{prefix}" --path.logs="#{var}/log/metricbeat" --path.data="#{opt_prefix}" "$@"
     EOS
@@ -40,7 +40,7 @@ class Metricbeat < Formula
 
   plist_options :manual => "metricbeat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -58,7 +58,7 @@ class Metricbeat < Formula
   end
 
   test do
-    (testpath/"metricbeat.yml").write <<-EOS.undent
+    (testpath/"metricbeat.yml").write <<~EOS
       metricbeat.modules:
       - module: system
         metricsets: ["load"]

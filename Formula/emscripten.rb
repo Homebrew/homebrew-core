@@ -85,7 +85,7 @@ class Emscripten < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Manually set LLVM_ROOT to
       #{opt_libexec}/llvm/bin
     and comment out BINARYEN_ROOT

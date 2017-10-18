@@ -50,12 +50,12 @@ class Nim < Formula
   end
 
   test do
-    (testpath/"hello.nim").write <<-EOS.undent
+    (testpath/"hello.nim").write <<~EOS
       echo("hello")
     EOS
     assert_equal "hello", shell_output("#{bin}/nim compile --verbosity:0 --run #{testpath}/hello.nim").chomp
 
-    (testpath/"hello.nimble").write <<-EOS.undent
+    (testpath/"hello.nimble").write <<~EOS
       version = "0.1.0"
       author = "Author Name"
       description = "A test nimble package"

@@ -24,7 +24,7 @@ class Cc65 < Formula
     system "make", "install", *make_vars
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Library files have been installed to:
       #{pkgshare}
     EOS

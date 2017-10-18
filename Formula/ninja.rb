@@ -37,7 +37,7 @@ class Ninja < Formula
   end
 
   test do
-    (testpath/"build.ninja").write <<-EOS.undent
+    (testpath/"build.ninja").write <<~EOS
       cflags = -Wall
 
       rule cc

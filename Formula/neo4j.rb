@@ -22,7 +22,7 @@ class Neo4j < Formula
 
     # Adjust UDC props
     # Suppress the empty, focus-stealing java gui.
-    (libexec/"conf/neo4j.conf").append_lines <<-EOS.undent
+    (libexec/"conf/neo4j.conf").append_lines <<~EOS
       wrapper.java.additional=-Djava.awt.headless=true
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
     EOS
@@ -34,7 +34,7 @@ class Neo4j < Formula
 
   plist_options :manual => "neo4j start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

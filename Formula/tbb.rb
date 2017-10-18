@@ -40,7 +40,7 @@ class Tbb < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <tbb/task_scheduler_init.h>
       #include <iostream>
 

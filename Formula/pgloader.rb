@@ -362,7 +362,7 @@ class Pgloader < Formula
     ENV["PGHOST"] = testpath/"socket"
     ENV["PGDATABASE"] = "brew"
 
-    (testpath/"test.load").write <<-EOS.undent
+    (testpath/"test.load").write <<~EOS
       LOAD CSV
         FROM inline (code, country)
         INTO postgresql:///#{ENV["PGDATABASE"]}?tablename=csv

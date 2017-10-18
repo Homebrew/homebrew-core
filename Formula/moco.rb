@@ -14,7 +14,7 @@ class Moco < Formula
   test do
     require "net/http"
 
-    (testpath/"config.json").write <<-EOS.undent
+    (testpath/"config.json").write <<~EOS
       [
         {
           "response" :

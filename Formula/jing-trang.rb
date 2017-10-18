@@ -17,7 +17,7 @@ class JingTrang < Formula
   end
 
   test do
-    (testpath/"test.rnc").write <<-EOS.undent
+    (testpath/"test.rnc").write <<~EOS
       namespace core = "http://www.bbc.co.uk/ontologies/coreconcepts/"
       start = response
       response = element response { results }
@@ -31,7 +31,7 @@ class JingTrang < Formula
         element core:slug { xsd:string }?
       }
     EOS
-    (testpath/"test.xml").write <<-EOS.undent
+    (testpath/"test.xml").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <response xmlns:core="http://www.bbc.co.uk/ontologies/coreconcepts/">
         <results>

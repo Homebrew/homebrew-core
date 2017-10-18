@@ -18,7 +18,7 @@ class PonyStable < Formula
   end
 
   test do
-    (testpath/"test/main.pony").write <<-EOS.undent
+    (testpath/"test/main.pony").write <<~EOS
     actor Main
       new create(env: Env) =>
         env.out.print("Hello World!")

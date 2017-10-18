@@ -21,7 +21,7 @@ class Libgraphqlparser < Formula
   end
 
   test do
-    sample_query = <<-EOS.undent
+    sample_query = <<~EOS
       { user }
     EOS
 

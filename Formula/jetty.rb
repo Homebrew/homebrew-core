@@ -16,7 +16,7 @@ class Jetty < Formula
     bin.mkpath
     Dir.glob("#{libexec}/bin/*.sh") do |f|
       scriptname = File.basename(f, ".sh")
-      (bin+scriptname).write <<-EOS.undent
+      (bin+scriptname).write <<~EOS
         #!/bin/bash
         JETTY_HOME=#{libexec}
         #{f} "$@"

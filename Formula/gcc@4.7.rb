@@ -209,7 +209,7 @@ class GccAT47 < Formula
   end
 
   test do
-    (testpath/"hello-c.c").write <<-EOS.undent
+    (testpath/"hello-c.c").write <<~EOS
       #include <stdio.h>
       int main()
       {

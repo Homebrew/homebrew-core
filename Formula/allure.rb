@@ -18,7 +18,7 @@ class Allure < Formula
   end
 
   test do
-    (testpath/"allure-results/allure-result.json").write <<-EOS.undent
+    (testpath/"allure-results/allure-result.json").write <<~EOS
     {
       "uuid": "allure",
       "name": "testReportGeneration",

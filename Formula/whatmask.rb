@@ -23,7 +23,7 @@ class Whatmask < Formula
   end
 
   test do
-    assert_equal <<-EOS.undent, shell_output("#{bin}/whatmask /24")
+    assert_equal <<~EOS, shell_output("#{bin}/whatmask /24")
 
       ---------------------------------------------
              TCP/IP SUBNET MASK EQUIVALENTS

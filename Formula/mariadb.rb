@@ -124,7 +124,7 @@ class Mariadb < Formula
     end
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -143,7 +143,7 @@ class Mariadb < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
 
@@ -156,7 +156,7 @@ class Mariadb < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

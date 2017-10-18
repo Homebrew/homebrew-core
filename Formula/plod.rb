@@ -25,7 +25,7 @@ class Plod < Formula
     bin.install "plod"
     prefix.install "plod.el.v1", "plod.el.v2"
 
-    (prefix/"plodrc").write <<-PLODRC.undent
+    (prefix/"plodrc").write <<~PLODRC
       # Uncomment lines and change their values to override defaults.
       # man plod for further details.
       #
@@ -48,7 +48,7 @@ class Plod < Formula
     PLODRC
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       Emacs users may want to peruse the two available plod modes. They've been
       installed at:
 

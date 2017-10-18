@@ -26,7 +26,7 @@ class Wdc < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <webdav/client.hpp>
       #include <cassert>
       #include <string>

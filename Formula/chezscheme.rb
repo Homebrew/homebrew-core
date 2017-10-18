@@ -32,11 +32,11 @@ class Chezscheme < Formula
   end
 
   test do
-    (testpath/"hello.ss").write <<-EOS.undent
+    (testpath/"hello.ss").write <<~EOS
       (display "Hello, World!") (newline)
     EOS
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Hello, World!
     EOS
 

@@ -30,7 +30,7 @@ class Cmocka < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdarg.h>
       #include <stddef.h>
       #include <setjmp.h>

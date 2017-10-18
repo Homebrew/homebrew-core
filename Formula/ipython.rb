@@ -146,7 +146,7 @@ class Ipython < Formula
     kernel_dir = Dir.mktmpdir
     system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
     (share/"jupyter/kernels/python3").install Dir["#{kernel_dir}/share/jupyter/kernels/python3/*"]
-    inreplace share/"jupyter/kernels/python3/kernel.json", "]", <<-EOS.undent
+    inreplace share/"jupyter/kernels/python3/kernel.json", "]", <<~EOS
       ],
       "env": {
         "PYTHONPATH": "#{ENV["PYTHONPATH"]}"

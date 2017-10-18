@@ -7,7 +7,7 @@ class Jena < Formula
   bottle :unneeded
 
   def shim_script(target)
-    <<-EOS.undent
+    <<~EOS
       #!/usr/bin/env bash
       export JENA_HOME="#{libexec}"
       "$JENA_HOME/bin/#{target}" "$@"

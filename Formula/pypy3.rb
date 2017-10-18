@@ -150,7 +150,7 @@ class Pypy3 < Formula
 
     # Tell distutils-based installers where to put scripts
     scripts_folder.mkpath
-    (distutils+"distutils.cfg").atomic_write <<-EOF.undent
+    (distutils+"distutils.cfg").atomic_write <<~EOF
       [install]
       install-scripts=#{scripts_folder}
     EOF
@@ -169,7 +169,7 @@ class Pypy3 < Formula
     %w[easy_install_pypy3 pip_pypy3].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "distutils.cfg" has been written to:
       #{distutils}
     specifying the install-scripts folder as:

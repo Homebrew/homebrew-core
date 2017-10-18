@@ -191,7 +191,7 @@ class Fdroidserver < Formula
     doc.install "examples"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order to function, fdroidserver requires that the Android SDK's
     "Build-tools" and "Platform-tools" are installed.  Also, it is best if the
     base path of the Android SDK is set in the standard environment variable

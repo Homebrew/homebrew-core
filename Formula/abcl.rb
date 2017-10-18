@@ -21,7 +21,7 @@ class Abcl < Formula
     system "ant"
 
     libexec.install "dist/abcl.jar", "dist/abcl-contrib.jar"
-    (bin/"abcl").write <<-EOS.undent
+    (bin/"abcl").write <<~EOS
       #!/bin/sh
       #{"rlwrap " if build.with?("rlwrap")}java -cp #{libexec}/abcl.jar:"$CLASSPATH" org.armedbear.lisp.Main "$@"
     EOS

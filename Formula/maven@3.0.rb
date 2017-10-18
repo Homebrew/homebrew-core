@@ -30,7 +30,7 @@ class MavenAT30 < Formula
   end
 
   test do
-    (testpath/"pom.xml").write <<-EOS.undent
+    (testpath/"pom.xml").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -40,7 +40,7 @@ class MavenAT30 < Formula
         <version>1.0.0-SNAPSHOT</version>
       </project>
     EOS
-    (testpath/"src/main/java/org/homebrew/MavenTest.java").write <<-EOS.undent
+    (testpath/"src/main/java/org/homebrew/MavenTest.java").write <<~EOS
       package org.homebrew;
       public class MavenTest {
         public static void main(String[] args) {

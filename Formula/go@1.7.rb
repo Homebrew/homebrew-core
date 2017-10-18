@@ -76,7 +76,7 @@ class GoAT17 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     As of go 1.2, a valid GOPATH is required to use the `go get` command:
       https://golang.org/doc/code.html#GOPATH
 
@@ -86,7 +86,7 @@ class GoAT17 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
+    (testpath/"hello.go").write <<~EOS
     package main
     import "fmt"
     func main() {

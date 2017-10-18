@@ -21,7 +21,7 @@ class AutoconfArchive < Formula
   end
 
   test do
-    (testpath/"test.m4").write <<-EOS.undent
+    (testpath/"test.m4").write <<~EOS
       AC_INIT(myconfig, version-0.1)
       AC_MSG_NOTICE([Hello, world.])
 

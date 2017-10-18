@@ -23,7 +23,7 @@ class Glkterm < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "glk.h"
       #include "glkstart.h"
 

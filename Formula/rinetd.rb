@@ -30,7 +30,7 @@ class Rinetd < Formula
 
     conf = etc/"rinetd.conf"
     unless conf.exist?
-      conf.write <<-EOS.undent
+      conf.write <<~EOS
         # forwarding rules go here
         #
         # you may specify allow and deny rules after a specific forwarding rule

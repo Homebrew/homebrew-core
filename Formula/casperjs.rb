@@ -22,7 +22,7 @@ class Casperjs < Formula
   end
 
   test do
-    (testpath/"fetch.js").write <<-EOS.undent
+    (testpath/"fetch.js").write <<~EOS
       var casper = require("casper").create();
       casper.start("https://duckduckgo.com/about", function() {
         this.download("https://duckduckgo.com/assets/dax-alt.svg", "dax-alt.svg");

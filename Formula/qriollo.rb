@@ -22,7 +22,7 @@ class Qriollo < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The standard module "Chamuyo.q" has been placed in:
         #{lib}/chamuyo
     EOS
@@ -30,7 +30,7 @@ class Qriollo < Formula
 
   test do
     test_file_name = "HolaMundo.q"
-    (testpath/test_file_name).write <<-EOS.undent
+    (testpath/test_file_name).write <<~EOS
       enchufar Chamuyo
       el programa es
          escupir "Hola mundo\n"

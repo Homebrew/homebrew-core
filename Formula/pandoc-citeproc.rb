@@ -26,7 +26,7 @@ class PandocCiteproc < Formula
   end
 
   test do
-    (testpath/"test.bib").write <<-EOS.undent
+    (testpath/"test.bib").write <<~EOS
       @Book{item1,
       author="John Doe",
       title="First Book",
@@ -35,7 +35,7 @@ class PandocCiteproc < Formula
       publisher="Cambridge University Press"
       }
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       ---
       references:
       - id: item1

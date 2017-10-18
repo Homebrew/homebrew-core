@@ -14,7 +14,7 @@ class ExcelCompare < Formula
   def install
     libexec.install Dir["bin/dist/*"]
 
-    (bin/"excel_cmp").write <<-EOS.undent
+    (bin/"excel_cmp").write <<~EOS
       #!/bin/sh
       java -ea -Xmx512m -cp "#{libexec}/*" com.ka.spreadsheet.diff.SpreadSheetDiffer "$@"
     EOS

@@ -20,7 +20,7 @@ class Ib < Formula
 
   test do
     mkdir testpath/"example" do
-      (testpath/"example/debug.cfg").write <<-EOS.undent
+      (testpath/"example/debug.cfg").write <<~EOS
         cc = Obj(
           tool='clang',
           flags=[ '--std=c++14' ],
@@ -43,7 +43,7 @@ class Ib < Formula
         )
       EOS
 
-      (testpath/"example/hello.cc").write <<-EOS.undent
+      (testpath/"example/hello.cc").write <<~EOS
         #include <iostream>
 
         int main(int, char*[]) {

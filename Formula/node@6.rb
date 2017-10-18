@@ -122,7 +122,7 @@ class NodeAT6 < Formula
     s = ""
 
     if build.without? "npm"
-      s += <<-EOS.undent
+      s += <<~EOS
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
           #{HOMEBREW_PREFIX}/lib/node_modules
@@ -130,7 +130,7 @@ class NodeAT6 < Formula
     end
 
     if build.without? "full-icu"
-      s += <<-EOS.undent
+      s += <<~EOS
         Please note by default only English locale support is provided. If you need
         full locale support you should either rebuild with full icu:
           `brew reinstall node --with-full-icu`

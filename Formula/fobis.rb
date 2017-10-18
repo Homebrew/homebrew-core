@@ -39,13 +39,13 @@ class Fobis < Formula
 
   test do
     ENV.fortran
-    (testpath/"test-mod.f90").write <<-EOS.undent
+    (testpath/"test-mod.f90").write <<~EOS
       module fobis_test_m
         implicit none
         character(*), parameter :: message = "Hello FoBiS"
       end module
     EOS
-    (testpath/"test-prog.f90").write <<-EOS.undent
+    (testpath/"test-prog.f90").write <<~EOS
       program fobis_test
         use iso_fortran_env, only: stdout => output_unit
         use fobis_test_m, only: message

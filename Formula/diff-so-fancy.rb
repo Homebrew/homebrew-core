@@ -13,7 +13,7 @@ class DiffSoFancy < Formula
   end
 
   test do
-    diff = <<-EOS.undent
+    diff = <<~EOS
       diff --git a/hello.c b/hello.c
       index 8c15c31..0a9c78f 100644
       --- a/hello.c

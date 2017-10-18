@@ -65,7 +65,7 @@ class Mypy < Formula
   end
 
   test do
-    (testpath/"broken.py").write <<-EOS.undent
+    (testpath/"broken.py").write <<~EOS
       def p() -> None:
         print('hello')
       a = p()

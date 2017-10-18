@@ -32,7 +32,7 @@ class MinioMc < Formula
         minio_commit = `git rev-parse HEAD`.chomp
         proj = "github.com/minio/mc"
 
-        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<-EOS.undent
+        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<~EOS
           -X #{proj}/cmd.Version=#{minio_version}
           -X #{proj}/cmd.ReleaseTag=#{minio_release}
           -X #{proj}/cmd.CommitID=#{minio_commit}

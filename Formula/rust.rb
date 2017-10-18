@@ -110,7 +110,7 @@ class Rust < Formula
 
   test do
     system "#{bin}/rustdoc", "-h"
-    (testpath/"hello.rs").write <<-EOS.undent
+    (testpath/"hello.rs").write <<~EOS
     fn main() {
       println!("Hello World!");
     }

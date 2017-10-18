@@ -13,7 +13,7 @@ class Plantuml < Formula
   def install
     jar = "plantuml.jar"
     libexec.install "plantuml.#{version}.jar" => jar
-    (bin/"plantuml").write <<-EOS.undent
+    (bin/"plantuml").write <<~EOS
       #!/bin/bash
       GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{libexec}/#{jar} "$@"
     EOS

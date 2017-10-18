@@ -22,7 +22,7 @@ class Diffstat < Formula
   end
 
   test do
-    (testpath/"diff.diff").write <<-EOS.undent
+    (testpath/"diff.diff").write <<~EOS
       diff --git a/diffstat.rb b/diffstat.rb
       index 596be42..5ff14c7 100644
       --- a/diffstat.rb

@@ -22,7 +22,7 @@ class Ivykis < Formula
   end
 
   test do
-    (testpath/"test_ivykis.c").write <<-EOS.undent
+    (testpath/"test_ivykis.c").write <<~EOS
       #include <stdio.h>
       #include <iv.h>
       int main()

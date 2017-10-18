@@ -26,7 +26,7 @@ class IronFunctions < Formula
   end
 
   test do
-    expected = <<-EOS.undent
+    expected = <<~EOS
       runtime: go
       func.yaml created.
     EOS

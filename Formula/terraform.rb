@@ -74,7 +74,7 @@ class Terraform < Formula
 
   test do
     minimal = testpath/"minimal.tf"
-    minimal.write <<-EOS.undent
+    minimal.write <<~EOS
       variable "aws_region" {
           default = "us-west-2"
       }

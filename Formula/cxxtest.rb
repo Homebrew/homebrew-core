@@ -33,7 +33,7 @@ class Cxxtest < Formula
 
   test do
     testfile = testpath/"MyTestSuite1.h"
-    testfile.write <<-EOS.undent
+    testfile.write <<~EOS
       #include <cxxtest/TestSuite.h>
 
       class MyTestSuite1 : public CxxTest::TestSuite {

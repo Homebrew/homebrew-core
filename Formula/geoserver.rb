@@ -8,7 +8,7 @@ class Geoserver < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"geoserver").write <<-EOS.undent
+    (bin/"geoserver").write <<~EOS
       #!/bin/sh
       if [ -z "$1" ]; then
         echo "Usage: $ geoserver path/to/data/dir"
@@ -18,7 +18,7 @@ class Geoserver < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To start geoserver:
       geoserver path/to/data/dir
     EOS

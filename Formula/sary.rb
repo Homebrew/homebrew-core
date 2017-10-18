@@ -24,7 +24,7 @@ class Sary < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       Some text,
       this is the Sary formula, a suffix array library and tools,
       more text.

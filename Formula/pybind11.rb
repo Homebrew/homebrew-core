@@ -20,7 +20,7 @@ class Pybind11 < Formula
   end
 
   test do
-    (testpath/"example.cpp").write <<-EOS.undent
+    (testpath/"example.cpp").write <<~EOS
       #include <pybind11/pybind11.h>
 
       int add(int i, int j) {
@@ -34,7 +34,7 @@ class Pybind11 < Formula
       }
     EOS
 
-    (testpath/"example.py").write <<-EOS.undent
+    (testpath/"example.py").write <<~EOS
       import example
       example.add(1,2)
     EOS

@@ -49,7 +49,7 @@ class TerraformProvisionerAnsible < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Once installed a $HOME/.terraformrc file is used to enable the plugin:
 
       provisioners {

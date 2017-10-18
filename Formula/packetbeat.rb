@@ -30,7 +30,7 @@ class Packetbeat < Formula
       (etc/"packetbeat").install("packetbeat.yml", "packetbeat.template.json", "packetbeat.template-es2x.json")
     end
 
-    (bin/"packetbeat").write <<-EOS.undent
+    (bin/"packetbeat").write <<~EOS
       #!/bin/sh
       exec #{libexec}/packetbeat -path.config #{etc}/packetbeat \
         -path.home #{prefix} -path.logs #{var}/log/packetbeat \
@@ -40,7 +40,7 @@ class Packetbeat < Formula
 
   plist_options :manual => "packetbeat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

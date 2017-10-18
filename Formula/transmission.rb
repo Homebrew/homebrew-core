@@ -39,7 +39,7 @@ class Transmission < Formula
     (var/"transmission").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula only installs the command line utilities.
 
     Transmission.app can be downloaded directly from the website:
@@ -52,7 +52,7 @@ class Transmission < Formula
 
   plist_options :manual => "transmission-daemon --foreground"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

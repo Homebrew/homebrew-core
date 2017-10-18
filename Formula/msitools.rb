@@ -34,7 +34,7 @@ class Msitools < Formula
     # wixl: build two installers
     1.upto(2) do |i|
       (testpath/"test#{i}.txt").write "abc"
-      (testpath/"installer#{i}.wxs").write <<-EOS.undent
+      (testpath/"installer#{i}.wxs").write <<~EOS
         <?xml version="1.0"?>
         <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
            <Product Id="*" UpgradeCode="DADAA9FC-54F7-4977-9EA1-8BDF6DC73C7#{i}"

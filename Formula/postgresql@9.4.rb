@@ -74,7 +74,7 @@ class PostgresqlAT94 < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
     If builds of PostgreSQL 9 are failing and you have version 8.x installed,
     you may need to remove the previous version first. See:
       https://github.com/Homebrew/legacy-homebrew/issues/2510
@@ -84,7 +84,7 @@ class PostgresqlAT94 < Formula
     EOS
 
     if MacOS.prefer_64_bit?
-      s << <<-EOS.undent
+      s << <<~EOS
       \nWhen installing the postgres gem, including ARCHFLAGS is recommended:
         ARCHFLAGS="-arch x86_64" gem install pg
 
@@ -98,7 +98,7 @@ class PostgresqlAT94 < Formula
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

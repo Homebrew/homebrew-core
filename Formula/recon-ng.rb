@@ -84,7 +84,7 @@ class ReconNg < Formula
   end
 
   test do
-    (testpath/"resource").write <<-EOF.undent
+    (testpath/"resource").write <<~EOF
       load brute_hosts
       show info
       exit

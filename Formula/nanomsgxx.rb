@@ -30,7 +30,7 @@ class Nanomsgxx < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       int main(int argc, char **argv) {
         std::cout << "Hello Nanomsgxx!" << std::endl;

@@ -25,7 +25,7 @@ class Ldid < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int main(int argc, char **argv) { return 0; }
     EOS
 

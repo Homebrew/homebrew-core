@@ -22,7 +22,7 @@ class Uru < Formula
     bin.install "uru" => "uru_rt"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Append to ~/.profile on Ubuntu, or to ~/.zshrc on Zsh
     $ echo 'eval "$(uru_rt admin install)"' >> ~/.bash_profile
     EOS

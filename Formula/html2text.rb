@@ -35,7 +35,7 @@ class Html2text < Formula
 
   test do
     path = testpath/"index.html"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       <!DOCTYPE html>
       <html>
         <head><title>Home</title></head>

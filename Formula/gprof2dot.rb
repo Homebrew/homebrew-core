@@ -25,7 +25,7 @@ class Gprof2dot < Formula
   end
 
   test do
-    (testpath/"gprof.output").write <<-EOS.undent
+    (testpath/"gprof.output").write <<~EOS
       Flat profile:
 
       Each sample counts as 0.01 seconds.

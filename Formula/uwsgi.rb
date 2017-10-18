@@ -62,7 +62,7 @@ class Uwsgi < Formula
     json = build.with?("jansson") ? "jansson" : "yajl"
     yaml = build.with?("libyaml") ? "libyaml" : "embedded"
 
-    (buildpath/"buildconf/brew.ini").write <<-EOS.undent
+    (buildpath/"buildconf/brew.ini").write <<~EOS
       [uwsgi]
       ssl = true
       json = #{json}
@@ -138,7 +138,7 @@ class Uwsgi < Formula
 
   plist_options :manual => "uwsgi"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -172,7 +172,7 @@ class Uwsgi < Formula
   end
 
   test do
-    (testpath/"helloworld.py").write <<-EOS.undent
+    (testpath/"helloworld.py").write <<~EOS
       def application(env, start_response):
         start_response('200 OK', [('Content-Type','text/html')])
         return [b"Hello World"]

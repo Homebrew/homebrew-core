@@ -20,7 +20,7 @@ class Bchunk < Formula
   end
 
   test do
-    (testpath/"foo.cue").write <<-EOS.undent
+    (testpath/"foo.cue").write <<~EOS
     foo.bin BINARY
     TRACK 01 MODE1/2352
     INDEX 01 00:00:00

@@ -24,7 +24,7 @@ class Libwpg < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <libwpg/libwpg.h>
       int main() {
         return libwpg::WPG_AUTODETECT;

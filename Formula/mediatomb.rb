@@ -79,7 +79,7 @@ class Mediatomb < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Edit the config file ~/.mediatomb/config.xml before running mediatomb.
     EOS
   end

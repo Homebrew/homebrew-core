@@ -57,7 +57,7 @@ class Snort < Formula
     (etc/"snort").install Dir[buildpath/"etc/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For snort to be functional, you need to update the permissions for /dev/bpf*
     so that they can be read by non-root users.  This can be done manually using:
         sudo chmod o+r /dev/bpf*

@@ -42,7 +42,7 @@ class LibbitcoinNode < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/node.hpp>
       int main() {
         libbitcoin::node::settings configuration;

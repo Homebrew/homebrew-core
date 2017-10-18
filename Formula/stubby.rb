@@ -29,7 +29,7 @@ class Stubby < Formula
 
   plist_options :startup => true, :manual => "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/EN" "http:/www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -58,7 +58,7 @@ class Stubby < Formula
 
   test do
     assert_predicate etc/"stubby/stubby.yml", :exist?
-    (testpath/"stubby_test.yml").write <<-EOS.undent
+    (testpath/"stubby_test.yml").write <<~EOS
       resolution_type: GETDNS_RESOLUTION_STUB
       dns_transport_list:
         - GETDNS_TRANSPORT_TLS

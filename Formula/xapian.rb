@@ -89,7 +89,7 @@ class Xapian < Formula
 
   def caveats
     if build.with? "ruby"
-      <<-EOS.undent
+      <<~EOS
         You may need to add the Ruby bindings to your RUBYLIB from:
           #{HOMEBREW_PREFIX}/lib/ruby/site_ruby
 

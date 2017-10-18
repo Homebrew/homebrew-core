@@ -32,7 +32,7 @@ class Openrct2 < Formula
 
     # By default OS X build only looks up data in app bundle Resources
     libexec.install bin/"openrct2"
-    (bin/"openrct2").write <<-EOS.undent
+    (bin/"openrct2").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/openrct2" "$@" "--openrct-data-path=#{pkgshare}"
       EOS

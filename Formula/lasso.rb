@@ -30,7 +30,7 @@ class Lasso < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <lasso/lasso.h>
 
       int main() {

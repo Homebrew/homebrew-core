@@ -28,7 +28,7 @@ class Bitrise < Formula
   end
 
   test do
-    (testpath/"bitrise.yml").write <<-EOS.undent
+    (testpath/"bitrise.yml").write <<~EOS
       format_version: 1.3.1
       default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
       workflows:

@@ -178,7 +178,7 @@ class FfmpegAT28 < Formula
   end
 
   def caveats
-    if build.without? "faac" then <<-EOS.undent
+    if build.without? "faac" then <<~EOS
       FFmpeg has been built without libfaac for licensing reasons;
       libvo-aacenc is used by default.
       To install with libfaac, you can:

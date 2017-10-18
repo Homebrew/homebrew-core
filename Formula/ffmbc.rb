@@ -66,7 +66,7 @@ class Ffmbc < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Due to naming conflicts with other FFmpeg forks, this formula installs
       only static binaries - no shared libraries are built.
 

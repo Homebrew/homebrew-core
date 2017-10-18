@@ -67,7 +67,7 @@ class Libstfl < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <stfl.h>
       int main() {
         stfl_ipool * pool = stfl_ipool_create("utf-8");

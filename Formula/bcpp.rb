@@ -19,7 +19,7 @@ class Bcpp < Formula
   end
 
   test do
-    (testpath/"test.txt").write <<-EOS.undent
+    (testpath/"test.txt").write <<~EOS
               test
                  test
           test

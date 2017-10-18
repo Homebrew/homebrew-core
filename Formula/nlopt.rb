@@ -46,7 +46,7 @@ class Nlopt < Formula
 
   test do
     # Based on http://ab-initio.mit.edu/wiki/index.php/NLopt_Tutorial#Example_in_C.2FC.2B.2B
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
     #include <math.h>
     #include <nlopt.h>
     #include <stdio.h>

@@ -45,7 +45,7 @@ class Scala < Formula
     idea.install_symlink doc => "doc"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use with IntelliJ, set the Scala home to:
       #{opt_prefix}/idea
     EOS
@@ -53,7 +53,7 @@ class Scala < Formula
 
   test do
     file = testpath/"Test.scala"
-    file.write <<-EOS.undent
+    file.write <<~EOS
       object Test {
         def main(args: Array[String]) {
           println(s"${2 + 2}")

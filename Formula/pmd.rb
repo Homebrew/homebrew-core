@@ -22,7 +22,7 @@ class Pmd < Formula
     java_cache_repo.mkpath
     (java_user_home/".m2").install_symlink java_cache_repo
 
-    (java_user_home/".m2/toolchains.xml").write <<-EOS.undent
+    (java_user_home/".m2/toolchains.xml").write <<~EOS
       <?xml version="1.0" encoding="UTF8"?>
       <toolchains>
         <toolchain>
@@ -58,13 +58,13 @@ class Pmd < Formula
     inreplace "#{libexec}/bin/run.sh", "${script_dir}/../lib", "#{libexec}/lib"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Run with `pmd` (instead of `run.sh` as described in the documentation).
     EOS
   end
 
   test do
-    (testpath/"java/testClass.java").write <<-EOS.undent
+    (testpath/"java/testClass.java").write <<~EOS
       public class BrewTestClass {
         // dummy constant
         public String SOME_CONST = "foo";

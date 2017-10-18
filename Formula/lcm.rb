@@ -49,7 +49,7 @@ class Lcm < Formula
   end
 
   test do
-    (testpath/"example_t.lcm").write <<-EOS.undent
+    (testpath/"example_t.lcm").write <<~EOS
       package exlcm;
 
       struct example_t

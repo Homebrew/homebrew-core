@@ -48,7 +48,7 @@ class MonoLibgdiplus < Formula
   test do
     # Since no headers are installed, we just test that we can link with
     # libgdiplus
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int main() {
         return 0;
       }

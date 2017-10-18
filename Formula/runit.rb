@@ -35,7 +35,7 @@ class Runit < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula does not install runit as a replacement for init.
     The service directory is #{var}/service instead of /service.
 

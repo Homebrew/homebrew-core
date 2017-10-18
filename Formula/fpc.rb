@@ -35,7 +35,7 @@ class Fpc < Formula
   end
 
   test do
-    hello = <<-EOS.undent
+    hello = <<~EOS
       program Hello;
       uses GL;
       begin

@@ -43,7 +43,7 @@ class Cig < Formula
   test do
     repo_path = "#{testpath}/test"
     system "git", "init", "--bare", repo_path
-    (testpath/".cig.yaml").write <<-EOS.undent
+    (testpath/".cig.yaml").write <<~EOS
       test_project: #{repo_path}
     EOS
     system "#{bin}/cig", "--cp=#{testpath}"

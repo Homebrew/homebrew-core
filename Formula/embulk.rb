@@ -11,7 +11,7 @@ class Embulk < Formula
   def install
     # Execute through /bin/bash to be compatible with OS X 10.9.
     libexec.install "embulk-#{version}.jar" => "embulk.jar"
-    (bin/"embulk").write <<-EOS.undent
+    (bin/"embulk").write <<~EOS
       #!/bin/bash
       exec /bin/bash "#{libexec}/embulk.jar" "$@"
     EOS

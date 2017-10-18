@@ -62,7 +62,7 @@ class Thrift < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To install Ruby binding:
       gem install thrift
 

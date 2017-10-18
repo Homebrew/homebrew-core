@@ -25,7 +25,7 @@ class Swiftformat < Formula
   end
 
   test do
-    (testpath/"potato.swift").write <<-EOS.undent
+    (testpath/"potato.swift").write <<~EOS
       struct Potato {
         let baked: Bool
       }

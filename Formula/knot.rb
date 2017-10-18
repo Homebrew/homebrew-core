@@ -58,7 +58,7 @@ class Knot < Formula
     (var/"knot").mkpath
   end
 
-  def knot_conf; <<-EOS.undent
+  def knot_conf; <<~EOS
     server:
       rundir: "#{var}/knot"
       listen: [ "0.0.0.0@53", "::@53" ]
@@ -78,7 +78,7 @@ class Knot < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

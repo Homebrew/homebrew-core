@@ -25,7 +25,7 @@ class G3log < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent.gsub(/TESTDIR/, testpath)
+    (testpath/"test.cpp").write <<~EOS.gsub(/TESTDIR/, testpath)
       #include <g3log/g3log.hpp>
       #include <g3log/logworker.hpp>
       int main()

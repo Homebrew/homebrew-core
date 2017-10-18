@@ -81,7 +81,7 @@ class Ford < Formula
   end
 
   test do
-    (testpath/"test-project.md").write <<-EOS.undent
+    (testpath/"test-project.md").write <<~EOS
       project_dir: ./src
       output_dir: ./doc
       project_github: https://github.com/cmacmackin/futility
@@ -119,7 +119,7 @@ class Ford < Formula
       filling in space now. This will be the last sentence.
     EOS
     mkdir testpath/"src" do
-      (testpath/"src"/"ford_test_program.f90").write <<-EOS.undent
+      (testpath/"src"/"ford_test_program.f90").write <<~EOS
         program ford_test_program
           !! Simple Fortran program to demonstrate the usage of FORD and to test its installation
           use iso_fortran_env, only: output_unit, real64

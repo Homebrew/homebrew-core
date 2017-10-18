@@ -22,7 +22,7 @@ class Reop < Formula
   end
 
   test do
-    (testpath/"pubkey").write <<-EOS.undent
+    (testpath/"pubkey").write <<~EOS
       -----BEGIN REOP PUBLIC KEY-----
       ident:root
       RWRDUxZNDeX4wcynGeCr9Bro6Ic7s1iqi1XHYacEaHoy+7jOP+ZE0yxR+2sfaph2MW15e8eUZvvI
@@ -30,11 +30,11 @@ class Reop < Formula
       -----END REOP PUBLIC KEY-----
     EOS
 
-    (testpath/"msg").write <<-EOS.undent
+    (testpath/"msg").write <<~EOS
       testing one two three four
     EOS
 
-    (testpath/"sig").write <<-EOS.undent
+    (testpath/"sig").write <<~EOS
       -----BEGIN REOP SIGNATURE-----
       ident:root
       RWQWTQ3l+MHMpx8RO/+BX/xxHn0PiSneiJ1Au2GurAmx4L942nZFBRDOVw2xLzvp/RggTVTZ46k+

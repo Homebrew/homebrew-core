@@ -118,7 +118,7 @@ class Imagemagick < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       For full Perl support you may need to adjust your PERL5LIB variable:
         export PERL5LIB="#{HOMEBREW_PREFIX}/lib/perl5/site_perl":$PERL5LIB
     EOS

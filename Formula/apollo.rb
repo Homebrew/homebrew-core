@@ -44,7 +44,7 @@ class Apollo < Formula
     (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.java_home_env
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To create the broker:
         #{bin}/apollo create #{var}/apollo
     EOS
@@ -52,7 +52,7 @@ class Apollo < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

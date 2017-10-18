@@ -15,7 +15,7 @@ class ClosureStylesheets < Formula
   end
 
   test do
-    (testpath/"test.gss").write <<-EOS.undent
+    (testpath/"test.gss").write <<~EOS
       @def A 5px;
       @def B 10px;
       .test {

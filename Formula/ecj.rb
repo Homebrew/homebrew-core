@@ -14,7 +14,7 @@ class Ecj < Formula
   end
 
   test do
-    (testpath/"Hello.java").write <<-EOS.undent
+    (testpath/"Hello.java").write <<~EOS
       class Hello
       {
         public static void main(String[] args)

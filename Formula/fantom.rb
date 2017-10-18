@@ -23,7 +23,7 @@ class Fantom < Formula
   end
 
   test do
-    (testpath/"test.fan").write <<-EOS.undent
+    (testpath/"test.fan").write <<~EOS
       class ATest {
         static Void main() { echo("a test") }
       }

@@ -22,7 +22,7 @@ class BoostBuild < Formula
   end
 
   test do
-    (testpath/"hello.cpp").write <<-EOF.undent
+    (testpath/"hello.cpp").write <<~EOF
       #include <iostream>
       int main (void) { std::cout << "Hello world"; }
     EOF

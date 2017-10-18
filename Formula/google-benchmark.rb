@@ -27,7 +27,7 @@ class GoogleBenchmark < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <string>
       #include <benchmark/benchmark.h>
       static void BM_StringCreation(benchmark::State& state) {

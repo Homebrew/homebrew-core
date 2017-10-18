@@ -28,7 +28,7 @@ class Khal < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
-    (testpath/".calendar/test/01ef8547.ics").write <<-EOS.undent
+    (testpath/".calendar/test/01ef8547.ics").write <<~EOS
       BEGIN:VCALENDAR
       VERSION:2.0
       BEGIN:VEVENT
@@ -42,7 +42,7 @@ class Khal < Formula
       END:VEVENT
       END:VCALENDAR
     EOS
-    (testpath/".config/khal/config").write <<-EOS.undent
+    (testpath/".config/khal/config").write <<~EOS
       [calendars]
       [[test]]
       path = #{testpath}/.calendar/test/

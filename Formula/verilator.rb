@@ -32,12 +32,12 @@ class Verilator < Formula
   end
 
   test do
-    (testpath/"test.v").write <<-EOS.undent
+    (testpath/"test.v").write <<~EOS
       module test;
          initial begin $display("Hello World"); $finish; end
       endmodule
     EOS
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "Vtest.h"
       #include "verilated.h"
       int main(int argc, char **argv, char **env) {
@@ -51,7 +51,7 @@ class Verilator < Formula
     system "/usr/bin/perl", bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
     cd "obj_dir" do
       system "make", "-j", "-f", "Vtest.mk", "Vtest"
-      expected = <<-EOS.undent
+      expected = <<~EOS
         Hello World
         - test.v:2: Verilog $finish
       EOS

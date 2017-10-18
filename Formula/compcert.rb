@@ -35,7 +35,7 @@ class Compcert < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int printf(const char *fmt, ...);
       int main(int argc, char** argv) {
         printf("Hello, world!\\n");

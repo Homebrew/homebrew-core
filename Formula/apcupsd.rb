@@ -47,7 +47,7 @@ class Apcupsd < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       For #{name} to be able to communicate with UPSes connected via USB,
       the kernel extension must be installed by the root user:
 
@@ -58,7 +58,7 @@ class Apcupsd < Formula
     EOS
 
     if MacOS.version >= :el_capitan
-      s += <<-EOS.undent
+      s += <<~EOS
         Note: On OS X El Capitan and above, the kernel extension currently
         does not work as expected.
 
@@ -68,7 +68,7 @@ class Apcupsd < Formula
       EOS
     end
 
-    s += <<-EOS.undent
+    s += <<~EOS
       To load #{name} at startup, activate the included Launch Daemon:
 
         sudo cp #{prefix}/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons

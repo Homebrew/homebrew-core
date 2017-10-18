@@ -8,7 +8,7 @@ class Hornetq < Formula
   bottle :unneeded
 
   def wrapper_script(target)
-    <<-EOS.undent
+    <<~EOS
       #!/bin/bash
       cd #{libexec}/bin/
       ./#{target} "$@"
@@ -21,7 +21,7 @@ class Hornetq < Formula
     (bin+"hornet-stop").write wrapper_script("stop.sh")
   end
 
-  def caveats; <<-EOF.undent
+  def caveats; <<~EOF
     HornetQ has been installed to:
       #{libexec}
 

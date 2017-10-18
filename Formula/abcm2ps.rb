@@ -20,7 +20,7 @@ class Abcm2ps < Formula
   end
 
   test do
-    (testpath/"voices.abc").write <<-EOF.undent
+    (testpath/"voices.abc").write <<~EOF
       X:7
       T:Qui Tolis (Trio)
       C:Andre Raison

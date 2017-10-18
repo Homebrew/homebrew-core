@@ -26,7 +26,7 @@ class Ry < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please add to your profile:
       which ry &>/dev/null && eval "$(ry setup)"
 

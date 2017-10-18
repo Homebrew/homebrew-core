@@ -26,7 +26,7 @@ class Babel < Formula
   end
 
   test do
-    (testpath/"script.js").write <<-EOS.undent
+    (testpath/"script.js").write <<~EOS
       [1,2,3].map(n => n + 1);
     EOS
 

@@ -10,7 +10,7 @@ class Paket < Formula
 
   def install
     libexec.install "paket.exe"
-    (bin/"paket").write <<-EOS.undent
+    (bin/"paket").write <<~EOS
       #!/bin/bash
       mono #{libexec}/paket.exe "$@"
     EOS
@@ -26,7 +26,7 @@ class Paket < Formula
     system bin/"paket", "install"
     assert_predicate testpath/"paket.lock", :exist?
 
-    (testpath/"paket.template").write <<-EOS.undent
+    (testpath/"paket.template").write <<~EOS
       type file
 
       id #{test_package_id}

@@ -32,7 +32,7 @@ class Beecrypt < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "beecrypt/base64.h"
       #include "beecrypt/sha256.h"
       #include <stdio.h>

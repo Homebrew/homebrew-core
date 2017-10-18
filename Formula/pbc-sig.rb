@@ -26,7 +26,7 @@ class PbcSig < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <pbc/pbc.h>
       #include <pbc/pbc_sig.h>
 

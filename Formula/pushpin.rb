@@ -37,11 +37,11 @@ class Pushpin < Formula
       s.gsub! "logdir=#{HOMEBREW_PREFIX}/var/log/pushpin", "logdir=#{testpath}/var/log/pushpin"
     end
 
-    routesfile.write <<-EOS.undent
+    routesfile.write <<~EOS
       * localhost:10080
     EOS
 
-    runfile.write <<-EOS.undent
+    runfile.write <<~EOS
       import urllib2
       import threading
       from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer

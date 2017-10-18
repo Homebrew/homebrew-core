@@ -63,7 +63,7 @@ class Gnupg < Formula
     quiet_system "killall", "gpg-agent"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Once you run this version of gpg you may find it difficult to return to using
     a prior 1.4.x or 2.0.x. Most notably the prior versions will not automatically
     know about new secret keys created or imported by this version. We recommend
@@ -75,7 +75,7 @@ class Gnupg < Formula
   end
 
   test do
-    (testpath/"batch.gpg").write <<-EOS.undent
+    (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA

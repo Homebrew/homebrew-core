@@ -36,7 +36,7 @@ class Minidlna < Formula
   end
 
   def post_install
-    (pkgshare/"minidlna.conf").write <<-EOS.undent
+    (pkgshare/"minidlna.conf").write <<~EOS
       friendly_name=Mac DLNA Server
       media_dir=#{ENV["HOME"]}/.config/minidlna/media
       db_dir=#{ENV["HOME"]}/.config/minidlna/cache
@@ -44,7 +44,7 @@ class Minidlna < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       Simple single-user configuration:
 
       mkdir -p ~/.config/minidlna
@@ -56,7 +56,7 @@ class Minidlna < Formula
 
   plist_options :manual => "minidlna"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -93,7 +93,7 @@ class Minidlna < Formula
   test do
     (testpath/".config/minidlna/media").mkpath
     (testpath/".config/minidlna/cache").mkpath
-    (testpath/"minidlna.conf").write <<-EOS.undent
+    (testpath/"minidlna.conf").write <<~EOS
       friendly_name=Mac DLNA Server
       media_dir=#{testpath}/.config/minidlna/media
       db_dir=#{testpath}/.config/minidlna/cache

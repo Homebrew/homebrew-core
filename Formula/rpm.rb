@@ -51,7 +51,7 @@ class Rpm < Formula
   end
 
   def test_spec
-    <<-EOS.undent
+    <<~EOS
       Summary:   Test package
       Name:      test
       Version:   1.0
@@ -83,7 +83,7 @@ class Rpm < Formula
 
   test do
     (testpath/"rpmbuild").mkpath
-    (testpath/".rpmmacros").write <<-EOS.undent
+    (testpath/".rpmmacros").write <<~EOS
       %_topdir		#{testpath}/rpmbuild
       %_tmppath		%{_topdir}/tmp
     EOS

@@ -115,7 +115,7 @@ class Postgis < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       To create a spatially-enabled database, see the documentation:
         https://postgis.net/docs/manual-2.4/postgis_installation.html#create_new_db_extensions
       If you are currently using PostGIS 2.0+, you can go the soft upgrade path:
@@ -134,7 +134,7 @@ class Postgis < Formula
 
   test do
     require "base64"
-    (testpath/"brew.shp").write ::Base64.decode64 <<-EOS.undent
+    (testpath/"brew.shp").write ::Base64.decode64 <<~EOS
       AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoOgDAAALAAAAAAAAAAAAAAAA
       AAAAAADwPwAAAAAAABBAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       AAAAAAAAAAAAAAAAAAEAAAASCwAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAA
@@ -144,7 +144,7 @@ class Postgis < Formula
       AAAAAAAAAAAABQAAABILAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAACJAAAAA
       AAAAAEA=
     EOS
-    (testpath/"brew.dbf").write ::Base64.decode64 <<-EOS.undent
+    (testpath/"brew.dbf").write ::Base64.decode64 <<~EOS
       A3IJGgUAAABhAFsAAAAAAAAAAAAAAAAAAAAAAAAAAABGSVJTVF9GTEQAAEMA
       AAAAMgAAAAAAAAAAAAAAAAAAAFNFQ09ORF9GTEQAQwAAAAAoAAAAAAAAAAAA
       AAAAAAAADSBGaXJzdCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
@@ -159,7 +159,7 @@ class Postgis < Formula
       ICAgICAgICAgICAgICAgICBQb2ludCAgICAgICAgICAgICAgICAgICAgICAg
       ICAgICAgICAgICAg
     EOS
-    (testpath/"brew.shx").write ::Base64.decode64 <<-EOS.undent
+    (testpath/"brew.shx").write ::Base64.decode64 <<~EOS
       AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARugDAAALAAAAAAAAAAAAAAAA
       AAAAAADwPwAAAAAAABBAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       AAAAAAAAAAAAAAAAADIAAAASAAAASAAAABIAAABeAAAAEgAAAHQAAAASAAAA

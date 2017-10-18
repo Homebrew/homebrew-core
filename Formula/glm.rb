@@ -34,7 +34,7 @@ class Glm < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <glm/vec2.hpp>// glm::vec2
       int main()
       {

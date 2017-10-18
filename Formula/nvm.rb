@@ -12,7 +12,7 @@ class Nvm < Formula
     bash_completion.install "bash_completion" => "nvm"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please note that upstream has asked us to make explicit managing
     nvm via Homebrew is unsupported by them and you should check any
     problems against the standard nvm install method prior to reporting.

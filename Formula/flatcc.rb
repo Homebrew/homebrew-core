@@ -26,7 +26,7 @@ class Flatcc < Formula
   end
 
   test do
-    (testpath/"test.fbs").write <<-EOS.undent
+    (testpath/"test.fbs").write <<~EOS
       // example IDL file
 
       namespace MyGame.Sample;

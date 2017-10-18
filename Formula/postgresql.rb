@@ -98,7 +98,7 @@ class Postgresql < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To migrate existing data from a previous major version of PostgreSQL, see:
       https://www.postgresql.org/docs/10/static/upgrading.html
 
@@ -111,7 +111,7 @@ class Postgresql < Formula
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

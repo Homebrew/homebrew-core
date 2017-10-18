@@ -28,7 +28,7 @@ class GnuComplexity < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       void free_table(uint32_t *page_dir) {
           // The last entry of the page directory is reserved. It points to the page
           // table itself.

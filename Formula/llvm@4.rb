@@ -10,7 +10,7 @@ class CodesignRequirement < Requirement
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       lldb_codesign identity must be available to build with LLDB.
       See: https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt
     EOS
@@ -275,7 +275,7 @@ class LlvmAT4 < Formula
 
   def caveats
     if build_libcxx?
-      <<-EOS.undent
+      <<~EOS
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
       EOS
@@ -285,7 +285,7 @@ class LlvmAT4 < Formula
   test do
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
 
-    (testpath/"omptest.c").write <<-EOS.undent
+    (testpath/"omptest.c").write <<~EOS
       #include <stdlib.h>
       #include <stdio.h>
       #include <omp.h>
@@ -305,7 +305,7 @@ class LlvmAT4 < Formula
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
-    expected_result = <<-EOS.undent
+    expected_result = <<~EOS
       Hello from thread 0, nthreads 4
       Hello from thread 1, nthreads 4
       Hello from thread 2, nthreads 4
@@ -313,7 +313,7 @@ class LlvmAT4 < Formula
     EOS
     assert_equal expected_result.strip, sorted_testresult.strip
 
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
 
       int main()
@@ -323,7 +323,7 @@ class LlvmAT4 < Formula
       }
     EOS
 
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <iostream>
 
       int main()

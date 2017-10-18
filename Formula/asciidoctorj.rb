@@ -18,7 +18,7 @@ class Asciidoctorj < Formula
   end
 
   test do
-    (testpath/"test.adoc").write <<-EOS.undent
+    (testpath/"test.adoc").write <<~EOS
       = This Is A Title
       Random J. Author <rjauthor@example.com>
       :icons: font

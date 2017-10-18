@@ -34,7 +34,7 @@ class Libsamplerate < Formula
   def caveats
     s = ""
     if build.without? "libsndfile"
-      s += <<-EOS.undent
+      s += <<~EOS
       Unless this formula is built with libsndfile, the example program,
       "sndfile-resample", is broken and hence, removed from installation.
       EOS

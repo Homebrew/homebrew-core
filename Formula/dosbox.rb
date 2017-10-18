@@ -62,7 +62,7 @@ class Dosbox < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     DOSBox is not built for optimal performance due to unstability on 64-bit platform.
     EOS
   end

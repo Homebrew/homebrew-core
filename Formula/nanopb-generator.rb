@@ -43,7 +43,7 @@ class NanopbGenerator < Formula
   end
 
   test do
-    (testpath/"test.proto").write <<-PROTO.undent
+    (testpath/"test.proto").write <<~PROTO
       syntax = "proto2";
 
       message Test {

@@ -12,7 +12,7 @@ class BashPreexec < Formula
     (prefix/"etc/profile.d").install "bash-preexec.sh"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
       [ -f #{etc}/profile.d/bash-preexec.sh ] && . #{etc}/profile.d/bash-preexec.sh
     EOS

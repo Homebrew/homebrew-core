@@ -51,7 +51,7 @@ class OpenBabel < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Java libraries are installed to #{HOMEBREW_PREFIX}/lib so this path should be
       included in the CLASSPATH environment variable.
     EOS

@@ -24,7 +24,7 @@ class Gssdp < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libgssdp/gssdp.h>
 
       int main(int argc, char *argv[]) {

@@ -25,7 +25,7 @@ class Micropython < Formula
 
   test do
     # Test the FFI module
-    (testpath/"ffi-hello.py").write <<-EOS.undent
+    (testpath/"ffi-hello.py").write <<~EOS
       import ffi
 
       libc = ffi.open("libc.dylib")

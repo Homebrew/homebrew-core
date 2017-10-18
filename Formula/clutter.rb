@@ -41,7 +41,7 @@ class Clutter < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <clutter/clutter.h>
 
       int main(int argc, char *argv[]) {

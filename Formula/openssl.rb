@@ -100,7 +100,7 @@ class Openssl < Formula
     (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A CA file has been bootstrapped using certificates from the SystemRoots
     keychain. To add additional certificates (e.g. the certificates added in
     the System keychain), place .pem files in

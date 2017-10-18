@@ -45,7 +45,7 @@ class H2o < Formula
   end
 
   # This is simplified from examples/h2o/h2o.conf upstream.
-  def conf_example; <<-EOS.undent
+  def conf_example; <<~EOS
     listen: 8080
     hosts:
       "127.0.0.1.xip.io:8080":
@@ -55,7 +55,7 @@ class H2o < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A basic example configuration file has been placed in #{etc}/h2o.
     You can find fuller, unmodified examples here:
       https://github.com/h2o/h2o/tree/master/examples/h2o
@@ -64,7 +64,7 @@ class H2o < Formula
 
   plist_options :manual => "h2o"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

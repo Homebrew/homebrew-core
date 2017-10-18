@@ -12,7 +12,7 @@ class JbossAs < Formula
     libexec.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The home of JBoss Application Server 7 is:
       #{opt_libexec}
 

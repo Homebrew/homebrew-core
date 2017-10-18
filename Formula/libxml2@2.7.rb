@@ -35,7 +35,7 @@ class Libxml2AT27 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libxml/tree.h>
 
       int main()

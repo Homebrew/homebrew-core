@@ -29,7 +29,7 @@ class Liblinear < Formula
   end
 
   test do
-    (testpath/"train_classification.txt").write <<-EOS.undent
+    (testpath/"train_classification.txt").write <<~EOS
     +1 201:1.2 3148:1.8 3983:1 4882:1
     -1 874:0.3 3652:1.1 3963:1 6179:1
     +1 1168:1.2 3318:1.2 3938:1.8 4481:1

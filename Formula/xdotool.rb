@@ -27,7 +27,7 @@ class Xdotool < Formula
     system "make", "PREFIX=#{prefix}", "INSTALLMAN=#{man}", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You will probably want to enable XTEST in your X11 server now by running:
       defaults write org.x.X11 enable_test_extensions -boolean true
 

@@ -16,7 +16,7 @@ class Libxlsxwriter < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "xlsxwriter.h"
 
       int main() {

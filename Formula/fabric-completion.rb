@@ -12,7 +12,7 @@ class FabricCompletion < Formula
     bash_completion.install "fabric-completion.bash" => "fabric"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       All available tasks are cached in special file to speed up the response.
       Therefore, Add .fab_tasks~ to your ".gitignore".
 

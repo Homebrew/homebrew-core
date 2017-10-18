@@ -28,7 +28,7 @@ class Ed < Formula
   end
 
   def caveats
-    if build.without? "default-names" then <<-EOS.undent
+    if build.without? "default-names" then <<~EOS
       The command has been installed with the prefix "g".
       If you do not want the prefix, reinstall using the "with-default-names" option.
       EOS

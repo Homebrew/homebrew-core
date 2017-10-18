@@ -23,7 +23,7 @@ class Crc32c < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cassert>
       #include <crc32c/crc32c.h>
       #include <cstdint>

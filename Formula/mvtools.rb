@@ -28,7 +28,7 @@ class Mvtools < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       MVTools will not be autoloaded in your VapourSynth scripts. To use it
       use the following code in your scripts:
 
@@ -37,7 +37,7 @@ class Mvtools < Formula
   end
 
   test do
-    script = <<-PYTHON.undent.split("\n").join(";")
+    script = <<~PYTHON.split("\n").join(";")
       import vapoursynth as vs
       core = vs.get_core()
       core.std.LoadPlugin(path="#{lib}/libmvtools.dylib")

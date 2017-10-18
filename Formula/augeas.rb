@@ -34,7 +34,7 @@ class Augeas < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Lenses have been installed to:
       #{HOMEBREW_PREFIX}/share/augeas/lenses/dist
     EOS

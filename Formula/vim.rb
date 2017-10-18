@@ -87,7 +87,7 @@ class Vim < Formula
       opts << "--with-luajit" if build.with? "luajit"
 
       if build.with?("lua") && build.with?("luajit")
-        onoe <<-EOS.undent
+        onoe <<~EOS
           Vim will not link against both Luajit & Lua simultaneously.
           Proceeding with Lua.
         EOS
@@ -122,14 +122,14 @@ class Vim < Formula
 
   test do
     if build.with? "python3"
-      (testpath/"commands.vim").write <<-EOS.undent
+      (testpath/"commands.vim").write <<~EOS
         :python3 import vim; vim.current.buffer[0] = 'hello python3'
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
       assert_equal "hello python3", File.read("test.txt").chomp
     elsif build.with? "python"
-      (testpath/"commands.vim").write <<-EOS.undent
+      (testpath/"commands.vim").write <<~EOS
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
       EOS

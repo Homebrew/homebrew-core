@@ -18,7 +18,7 @@ class Chordii < Formula
   end
 
   test do
-    (testpath/"homebrew.cho").write <<-EOS.undent
+    (testpath/"homebrew.cho").write <<~EOS
       {title:Homebrew}
       {subtitle:I can't write lyrics. Send help}
 

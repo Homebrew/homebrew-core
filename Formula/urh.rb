@@ -59,7 +59,7 @@ class Urh < Formula
   test do
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    (testpath/"test.py").write <<-EOS.undent
+    (testpath/"test.py").write <<~EOS
       from urh.util.GenericCRC import GenericCRC;
       c = GenericCRC();
       expected = [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]

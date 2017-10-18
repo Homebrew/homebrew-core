@@ -31,7 +31,7 @@ class Minio < Formula
         commit = `git rev-parse HEAD`.chomp
         proj = "github.com/minio/minio"
 
-        system "go", "build", "-o", buildpath/"minio", "-ldflags", <<-EOS.undent
+        system "go", "build", "-o", buildpath/"minio", "-ldflags", <<~EOS
             -X #{proj}/cmd.Version=#{version}
             -X #{proj}/cmd.ReleaseTag=#{release}
             -X #{proj}/cmd.CommitID=#{commit}
@@ -49,7 +49,7 @@ class Minio < Formula
 
   plist_options :manual => "minio server"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
    <plist version="1.0">

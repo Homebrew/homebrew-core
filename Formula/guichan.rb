@@ -35,7 +35,7 @@ class Guichan < Formula
 
   test do
     testpath.install resource("fixedfont.bmp")
-    (testpath/"helloworld.cpp").write <<-EOS.undent
+    (testpath/"helloworld.cpp").write <<~EOS
     #include <iostream>
     #include <guichan.hpp>
     #include <guichan/sdl.hpp>

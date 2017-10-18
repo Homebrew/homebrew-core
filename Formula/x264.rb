@@ -38,7 +38,7 @@ class X264 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdint.h>
       #include <x264.h>
 

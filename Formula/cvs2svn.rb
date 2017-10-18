@@ -28,7 +28,7 @@ class Cvs2svn < Formula
     doc.install Dir["{doc,www}/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     NOTE: man pages have been installed, but for better documentation see:
       #{HOMEBREW_PREFIX}/share/doc/cvs2svn/cvs2svn.html
     or http://cvs2svn.tigris.org/cvs2svn.html.

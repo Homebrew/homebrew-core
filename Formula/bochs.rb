@@ -74,7 +74,7 @@ class Bochs < Formula
   test do
     require "open3"
 
-    (testpath/"bochsrc.txt").write <<-EOS.undent
+    (testpath/"bochsrc.txt").write <<~EOS
         panic: action=fatal
         error: action=report
         info: action=ignore
@@ -82,7 +82,7 @@ class Bochs < Formula
         display_library: nogui
       EOS
 
-    expected = <<-ERR.undent
+    expected = <<~ERR
         Bochs is exiting with the following message:
         \[BIOS  \] No bootable device\.
       ERR

@@ -70,7 +70,7 @@ class Sbcl < Formula
       bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
       pkgshare.install %w[contrib src]
 
-      (lib/"sbcl/sbclrc").write <<-EOS.undent
+      (lib/"sbcl/sbclrc").write <<~EOS
         (setf (logical-pathname-translations "SYS")
           '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")
             ("SYS:CONTRIB;**;*.*.*" #p"#{pkgshare}/contrib/**/*.*")))
@@ -79,7 +79,7 @@ class Sbcl < Formula
   end
 
   test do
-    (testpath/"simple.sbcl").write <<-EOS.undent
+    (testpath/"simple.sbcl").write <<~EOS
       (write-line (write-to-string (+ 2 2)))
     EOS
     output = shell_output("#{bin}/sbcl --script #{testpath}/simple.sbcl")

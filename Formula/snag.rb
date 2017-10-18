@@ -26,7 +26,7 @@ class Snag < Formula
   end
 
   test do
-    (testpath/".snag.yml").write <<-EOS.undent
+    (testpath/".snag.yml").write <<~EOS
       build:
         - touch #{testpath}/snagged
       verbose: true

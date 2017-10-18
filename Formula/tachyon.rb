@@ -15,7 +15,7 @@ class Tachyon < Formula
     ln_sf "#{etc}/tachyon/tachyon-env.sh", "#{libexec}/conf/tachyon-env.sh"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To configure tachyon, edit
       #{etc}/tacyon/tachyon-env.sh
     EOS

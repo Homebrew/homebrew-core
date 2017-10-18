@@ -23,7 +23,7 @@ class Pius < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The path to gpg is hardcoded in pius as `/usr/bin/env gpg`.
     You can specify a different path by editing ~/.pius:
       gpg-path=/path/to/gpg

@@ -11,7 +11,7 @@ class Nss < Formula
     sha256 "629820273540d23034085ffbe72ea24400a63cafb9e1ac077e707fe39b369ddd" => :el_capitan
   end
 
-  keg_only <<-EOS.undent
+  keg_only <<~EOS
     Firefox can pick this up instead of the built-in library, resulting in
     random crashes without meaningful explanation.
 
@@ -76,7 +76,7 @@ class Nss < Formula
 
   # A very minimal nss-config for configuring firefox etc. with this nss,
   # see https://bugzil.la/530672 for the progress of upstream inclusion.
-  def config_file; <<-EOS.undent
+  def config_file; <<~EOS
     #!/bin/sh
     for opt; do :; done
     case "$opt" in
@@ -88,7 +88,7 @@ class Nss < Formula
     EOS
   end
 
-  def pc_file; <<-EOS.undent
+  def pc_file; <<~EOS
     prefix=#{prefix}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib

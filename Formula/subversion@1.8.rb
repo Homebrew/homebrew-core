@@ -92,7 +92,7 @@ class SubversionAT18 < Formula
     end
 
     if build.include? "unicode-path"
-      raise <<-EOS.undent
+      raise <<~EOS
         The --unicode-path patch is not supported on Subversion 1.8.
 
         Upgrading from a 1.7 version built with this patch is not supported.
@@ -193,13 +193,13 @@ class SubversionAT18 < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
     EOS
 
     if build.with? "perl"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         The perl bindings are located in various subdirectories of:
           #{prefix}/Library/Perl
@@ -207,7 +207,7 @@ class SubversionAT18 < Formula
     end
 
     if build.with? "ruby"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         You may need to add the Ruby bindings to your RUBYLIB from:
           #{HOMEBREW_PREFIX}/lib/ruby
@@ -215,7 +215,7 @@ class SubversionAT18 < Formula
     end
 
     if build.with? "java"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         You may need to link the Java bindings into the Java Extensions folder:
           sudo mkdir -p /Library/Java/Extensions

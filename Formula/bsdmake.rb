@@ -69,7 +69,7 @@ class Bsdmake < Formula
   end
 
   test do
-    (testpath/"Makefile").write <<-EOS.undent
+    (testpath/"Makefile").write <<~EOS
       foo:
       \ttouch $@
     EOS

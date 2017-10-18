@@ -37,7 +37,7 @@ class Ucon64 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       You can copy/move your DAT file collection to $HOME/.ucon64/dat
       Be sure to check $HOME/.ucon64rc for configuration after running uCON64
       for the first time.

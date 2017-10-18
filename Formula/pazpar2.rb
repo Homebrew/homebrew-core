@@ -30,7 +30,7 @@ class Pazpar2 < Formula
   end
 
   test do
-    (testpath/"test-config.xml").write <<-EOS.undent
+    (testpath/"test-config.xml").write <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <pazpar2 xmlns="http://www.indexdata.com/pazpar2/1.0">
       <threads number="2"/>

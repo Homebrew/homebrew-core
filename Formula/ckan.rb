@@ -10,7 +10,7 @@ class Ckan < Formula
 
   def install
     (libexec/"bin").install "ckan.exe"
-    (bin/"ckan").write <<-EOS.undent
+    (bin/"ckan").write <<~EOS
       #!/bin/sh
       exec mono "#{libexec}/bin/ckan.exe" "$@"
     EOS

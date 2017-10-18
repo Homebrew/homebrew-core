@@ -21,7 +21,7 @@ class Curaengine < Formula
   end
 
   test do
-    (testpath/"t.stl").write <<-EOF.undent
+    (testpath/"t.stl").write <<~EOF
       solid t
         facet normal 0 -1 0
          outer loop

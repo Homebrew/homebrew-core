@@ -27,24 +27,24 @@ class AutomakeAT112 < Formula
 
     # Our aclocal must go first. See:
     # https://github.com/Homebrew/homebrew/issues/10618
-    (share/"aclocal/dirlist").write <<-EOS.undent
+    (share/"aclocal/dirlist").write <<~EOS
       #{HOMEBREW_PREFIX}/share/aclocal
       /usr/share/aclocal
     EOS
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int main() { return 0; }
     EOS
-    (testpath/"configure.ac").write <<-EOS.undent
+    (testpath/"configure.ac").write <<~EOS
       AC_INIT(test, 1.0)
       AM_INIT_AUTOMAKE
       AC_PROG_CC
       AC_CONFIG_FILES(Makefile)
       AC_OUTPUT
     EOS
-    (testpath/"Makefile.am").write <<-EOS.undent
+    (testpath/"Makefile.am").write <<~EOS
       bin_PROGRAMS = test
       test_SOURCES = test.c
     EOS

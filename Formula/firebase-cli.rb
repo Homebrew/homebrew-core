@@ -21,7 +21,7 @@ class FirebaseCli < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<-EOS.undent
+    (testpath/"test.exp").write <<~EOS
       spawn #{bin}/firebase login:ci --no-localhost
       expect "Paste"
     EOS

@@ -53,7 +53,7 @@ class Libid3tag < Formula
     (lib+"pkgconfig/id3tag.pc").write pc_file
   end
 
-  def pc_file; <<-EOS.undent
+  def pc_file; <<~EOS
     prefix=#{opt_prefix}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib

@@ -30,7 +30,7 @@ class Libspectrum < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "libspectrum.h"
       #include <assert.h>
 

@@ -32,7 +32,7 @@ class Libpng < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <png.h>
 
       int main()

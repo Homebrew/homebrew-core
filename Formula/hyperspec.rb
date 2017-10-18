@@ -11,7 +11,7 @@ class Hyperspec < Formula
     doc.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use this copy of the HyperSpec with SLIME, put the following in
     you .emacs intialization file:
 

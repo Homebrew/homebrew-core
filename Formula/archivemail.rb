@@ -24,7 +24,7 @@ class Archivemail < Formula
   end
 
   test do
-    (testpath/"inbox").write <<-EOS.undent
+    (testpath/"inbox").write <<~EOS
       From MAILER-DAEMON Fri Jul  8 12:08:34 2011
       From: Author <author@example.com>
       To: Recipient <recipient@example.com>

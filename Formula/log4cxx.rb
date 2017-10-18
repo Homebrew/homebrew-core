@@ -59,7 +59,7 @@ class Log4cxx < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <log4cxx/logger.h>
       #include <log4cxx/propertyconfigurator.h>
       int main() {
@@ -72,7 +72,7 @@ class Log4cxx < Formula
         return 1;
       }
     EOS
-    (testpath/"log4cxx.config").write <<-EOS.undent
+    (testpath/"log4cxx.config").write <<~EOS
       log4j.rootLogger=debug, stdout, R
 
       log4j.appender.stdout=org.apache.log4j.ConsoleAppender

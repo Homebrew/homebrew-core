@@ -103,7 +103,7 @@ class Netcdf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "netcdf_meta.h"
       int main()
@@ -116,7 +116,7 @@ class Netcdf < Formula
     assert_equal `./test`, version.to_s
 
     ENV.fortran
-    (testpath/"test.f90").write <<-EOS.undent
+    (testpath/"test.f90").write <<~EOS
       program test
         use netcdf
         integer :: ncid, varid, dimids(2)

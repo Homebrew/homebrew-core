@@ -39,7 +39,7 @@ class Xsd < Formula
 
   test do
     schema = testpath/"meaningoflife.xsd"
-    schema.write <<-EOS.undent
+    schema.write <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
                targetNamespace="http://brew.sh/XSDTest" xmlns="http://brew.sh/XSDTest">
@@ -47,7 +47,7 @@ class Xsd < Formula
     </xs:schema>
     EOS
     instance = testpath/"meaningoflife.xml"
-    instance.write <<-EOS.undent
+    instance.write <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <MeaningOfLife xmlns="http://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://brew.sh/XSDTest meaningoflife.xsd">
@@ -55,7 +55,7 @@ class Xsd < Formula
     </MeaningOfLife>
     EOS
     xsdtest = testpath/"xsdtest.cxx"
-    xsdtest.write <<-EOS.undent
+    xsdtest.write <<~EOS
     #include <cassert>
     #include "meaningoflife.hxx"
     int main (int argc, char *argv[]) {
