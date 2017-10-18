@@ -23,7 +23,7 @@ class Cryptol < Formula
 
   def install
     # Remove the "happy<1.19.6" for cryptol > 2.5.0
-    # See revision 1 of http://hackage.haskell.org/package/cryptol-2.5.0/revisions/
+    # See revision 1 of https://hackage.haskell.org/package/cryptol-2.5.0/revisions/
     if build.stable?
       install_cabal_package :using => ["alex", "happy<1.19.6"]
     else
