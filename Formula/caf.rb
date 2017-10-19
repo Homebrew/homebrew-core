@@ -8,9 +8,9 @@ class Caf < Formula
 
   bottle do
     cellar :any
-    sha256 "d475a4184a6d5f7587669b742c06f81b8736400d58b20bd4ab98abb17f07dcfb" => :high_sierra
-    sha256 "5f838ab74f953f0c3191454d0605fa7f988a78aa1aac03ca0cfa6bef44a32ad3" => :sierra
-    sha256 "14a58d12f948c2eff89269adcbf83d0d8f2f8893c661f7b9d01fb974c168dbe7" => :el_capitan
+    sha256 "4e141fb961dd112be9eef60304dade14cdbb9ea9192da3a2edac31b5cb0cff0f" => :high_sierra
+    sha256 "1160f797a3d5cca066a790517e8ec5ee7c525c53fb8a48fe908ba6c0aecf526a" => :sierra
+    sha256 "db0aca0ef3cbf84558ca5b54956ed60857a8139a69444a266c0907a9a08829ce" => :el_capitan
   end
 
   needs :cxx11
