@@ -4,8 +4,8 @@ class GmpAT4 < Formula
   # Track gcc infrastructure releases.
   url "https://ftp.gnu.org/gnu/gmp/gmp-4.3.2.tar.bz2"
   mirror "https://ftpmirror.gnu.org/gmp/gmp-4.3.2.tar.bz2"
-  mirror "ftp://ftp.gmplib.org/pub/gmp-4.3.2/gmp-4.3.2.tar.bz2"
-  mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/gmp-4.3.2.tar.bz2"
+  mirror "https://gmplib.org/download/gmp/archive/gmp-4.3.2.tar.bz2"
+  mirror "https://gcc.gnu.org/pub/gcc/infrastructure/gmp-4.3.2.tar.bz2"
   sha256 "936162c0312886c21581002b79932829aa048cfaf9937c6265aeaa14f1cd1775"
 
   bottle do
