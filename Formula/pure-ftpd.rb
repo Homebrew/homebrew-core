@@ -3,7 +3,7 @@ class PureFtpd < Formula
   homepage "https://www.pureftpd.org/"
   url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.46.tar.gz"
   mirror "https://fossies.org/linux/misc/pure-ftpd-1.0.46.tar.gz"
-  mirror "ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.46.tar.gz"
+  mirror "https://ftp.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.46.tar.gz"
   sha256 "0609807335aade4d7145abdbb5cb05c9856a3e626babe90658cb0df315cb0a5c"
   revision 1
 
