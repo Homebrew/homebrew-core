@@ -13,12 +13,28 @@ class Dssim < Formula
     sha256 "51756e74240d03c87a79ff0e14e494d249701d4069ea336b529b47a179c469d3" => :mavericks
   end
 
+  resource "meson-0.27.0" do
+    url "https://github.com/mesonbuild/meson/archive/0.27.0.tar.gz"
+    sha256 "0ecc660f87d55c3cfee5e8ffd53c91227e3d0c9f0c3b4187cd7e8679e30f2255"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libpng"
+  depends_on :python3
+  depends_on "ninja"
 
   def install
-    system "make"
-    bin.install "bin/dssim"
+    (buildpath/"mesonbuild").install resource("meson-0.27.0")
+    cd buildpath/"mesonbuild" do
+      version = Language::Python.major_minor_version("python3")
+      ENV["PYTHONPATH"] = buildpath/"meson-0.27.0/lib/python#{version}/site-packages"
+      system "python3", "install_meson.py", "--prefix=#{buildpath}/meson-0.27.0"
+    end
+    ENV.prepend_path "PATH", buildpath/"meson-0.27.0/bin"
+    mkdir buildpath/"macbuild" do
+      system "../meson-0.27.0/bin/meson", "--prefix=#{prefix}", ".."
+      system "ninja", "install"
+    end
   end
 
   test do
