@@ -106,8 +106,8 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "https://download.sourceforge.net/libpng/libpng-1.6.31.tar.xz"
-    mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.31.tar.xz"
+    url "https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/1.6.31/libpng-1.6.31.tar.xz"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.31.tar.xz"
     sha256 "232a602de04916b2b5ce6f901829caf419519e6a16cc9cd7c1c91187d3ee8b41"
   end
 
@@ -124,7 +124,7 @@ class Wine < Formula
   end
 
   resource "webp" do
-    url "http://downloads.webmproject.org/releases/webp/libwebp-0.6.0.tar.gz"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.0.tar.gz"
     sha256 "c928119229d4f8f35e20113ffb61f281eda267634a8dc2285af4b0ee27cf2b40"
   end
 
@@ -136,7 +136,7 @@ class Wine < Formula
 
   resource "gd" do
     url "https://github.com/libgd/libgd/releases/download/gd-2.2.4/libgd-2.2.4.tar.xz"
-    mirror "https://fossies.org/linux/www/libgd-2.2.4.tar.xz"
+    mirror "https://src.fedoraproject.org/repo/pkgs/gd/libgd-2.2.4.tar.xz/sha512/07903f322c4f6ab392508b0f60c38ca133699111ea92995dc6cd9379210d598bcb24a46c19657884d9e252f8663d0ee8c89c600e3a382a5ae598198c190f39b5/libgd-2.2.4.tar.xz"
     sha256 "137f13a7eb93ce72e32ccd7cebdab6874f8cf7ddf31d3a455a68e016ecd9e4e6"
   end
 
