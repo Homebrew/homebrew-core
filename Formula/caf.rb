@@ -3,7 +3,7 @@ class Caf < Formula
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
   url "https://github.com/actor-framework/actor-framework/archive/0.15.5.tar.gz"
-  sha256 "68a568677cd8d86aaeac1e1b98bfc87a39e5be34"
+  sha256 "2dd710366ee03f9b23f3aaea2ed4bdc0c39c5e503819b870785186f54751cf86"
   head "https://github.com/actor-framework/actor-framework.git", :branch => "develop"
 
   bottle do
