@@ -26,6 +26,7 @@ class Sqlite < Formula
   option "with-dbstat", "Enable the 'dbstat' virtual table"
   option "with-json1", "Enable the JSON1 extension"
   option "with-session", "Enable the session extension"
+  option "with-soundex", "Enable the SOUNDEX function"
 
   depends_on "readline" => :recommended
   depends_on "icu4c" => :optional
@@ -55,6 +56,7 @@ class Sqlite < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_DBSTAT_VTAB=1" if build.with? "dbstat"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1" if build.with? "json1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_PREUPDATE_HOOK=1 -DSQLITE_ENABLE_SESSION=1" if build.with? "session"
+    ENV.append "CPPFLAGS", "-DSQLITE_SOUNDEX" if build.with? "soundex"
 
     if build.with? "icu4c"
       icu4c = Formula["icu4c"]
