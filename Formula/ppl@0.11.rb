@@ -2,8 +2,8 @@ class PplAT011 < Formula
   desc "Numerical abstractions for analysis, verification"
   homepage "http://bugseng.com/products/ppl/"
   # Track gcc infrastructure releases.
-  url "http://bugseng.com/products/ppl/download/ftp/releases/0.11/ppl-0.11.tar.gz"
-  mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/ppl-0.11.tar.gz"
+  url "https://gcc.gnu.org/pub/gcc/infrastructure/ppl-0.11.tar.gz"
+  mirror "http://bugseng.com/products/ppl/download/ftp/releases/0.11/ppl-0.11.tar.gz"
   sha256 "3453064ac192e095598576c5b59ecd81a26b268c597c53df05f18921a4f21c77"
   revision 1
 
