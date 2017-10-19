@@ -1,7 +1,7 @@
 class LibpngAT12 < Formula
   desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
-  url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng12/libpng-1.2.54.tar.xz"
+  url "https://downloads.sourceforge.net/project/libpng/libpng12/older-releases/1.2.54/libpng-1.2.54.tar.xz"
   mirror "https://dl.bintray.com/homebrew/mirror/libpng-1.2.54.tar.xz"
   sha256 "cf85516482780f2bc2c5b5073902f12b1519019d47bf473326c2018bdff1d272"
 
