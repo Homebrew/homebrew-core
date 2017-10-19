@@ -24,6 +24,7 @@ class Tig < Formula
   end
 
   depends_on "readline" => :recommended
+  depends_on "ncurses" => :recommended
 
   def install
     system "./autogen.sh" if build.head?
