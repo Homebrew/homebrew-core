@@ -1,4 +1,4 @@
-class LaszipAT22 < Formula
+class LaszipAT2 < Formula
   desc "Lossless LiDAR compression"
   homepage "https://www.laszip.org/"
   url "https://github.com/LASzip/LASzip/archive/v2.2.0.tar.gz"
