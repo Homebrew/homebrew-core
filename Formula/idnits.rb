@@ -1,8 +1,8 @@
 class Idnits < Formula
   desc "Looks for problems in internet draft formatting"
   homepage "https://tools.ietf.org/tools/idnits/"
-  url "https://tools.ietf.org/tools/idnits/idnits-2.14.01.tgz"
-  sha256 "5b49749b0e4dc610fae9c12780c7a4d02723a5f4b701271bdd374d909c186654"
+  url "https://tools.ietf.org/tools/idnits/idnits-2.15.00.tgz"
+  sha256 "f655d06e7d3b1c35d7ca55f91243115359ae4fdd17553ea58a301091a07ed7ac"
 
   bottle :unneeded
 
