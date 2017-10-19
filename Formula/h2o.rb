@@ -1,8 +1,8 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-  url "https://github.com/h2o/h2o/archive/v2.2.2.tar.gz"
-  sha256 "cf45780058566bd63d90ad0b52b1d15f8515519090753398b9bcf770162a0433"
+  url "https://github.com/h2o/h2o/archive/v2.2.3.tar.gz"
+  sha256 "d40401ca714d00ca5204e8d22148dbaa9cae3407e3b4b6b62bd208543901ea51"
 
   bottle do
     sha256 "4f75cace57f8cbeeef2964a2223914de29739022c2c7a17c04bfbb5d32c34080" => :high_sierra
