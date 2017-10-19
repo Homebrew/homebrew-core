@@ -1,7 +1,7 @@
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
-  url "ftp://ftp.invisible-island.net/dialog/dialog-1.3-20170509.tgz"
+  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20170509.tgz"
   mirror "https://fossies.org/linux/misc/dialog-1.3-20170509.tgz"
   sha256 "2ff1ba74c632b9d13a0d0d2c942295dd4e8909694eeeded7908a467d0bcd4756"
 
