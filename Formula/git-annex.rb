@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20171003/git-annex-6.20171003.tar.gz"
-  sha256 "51edd74b98cbf5baa38e2197fb60b8b04d8cc375a686859ee74cb5e54a53de3b"
+  url "https://hackage.haskell.org/package/git-annex-6.20171018/git-annex-6.20171018.tar.gz"
+  sha256 "ad049707bed0c5c0b2b6d70b353ccc6a7902df93fe626836bc9c90ff3caf599d"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -26,13 +26,8 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
-    # The fingertree constraint can be removed after the next release of reducers (>v3.12.1)
-    # https://git-annex.branchable.com/bugs/fingertree___62____61___0.1.2_causes_build_to_fail_on_reducers/
-    # git-annex is broken with aws 0.17, error: "Couldn't match expected type 'AWS.Configuration'"
-    # https://git-annex.branchable.com/bugs/Cannot_build_with_aws_0.17.1/
-    install_cabal_package "--constraint", "fingertree<0.1.2.0", "--constraint", "aws<0.17",
-                          "--allow-newer=aws:time", :using => ["alex", "happy", "c2hs"],
-                                                    :flags => ["s3", "webapp"] do
+    install_cabal_package :using => ["alex", "happy", "c2hs"],
+                          :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
         system "make", "git-union-merge", "PREFIX=#{prefix}"
