@@ -6,10 +6,9 @@ class Gawk < Formula
   sha256 "d4f3cd31c001fd0ed52832d4fbfbdfeaa38ad541c182f80ff8fdf87324a6a9f2"
 
   bottle do
-    sha256 "134a5f89ce5dfe833968c2fc1046563326e96a4662479e023808f0be2954bbf5" => :high_sierra
-    sha256 "370e7a490801595a484c347da99d8b6dce58d63f8581962cd6d16552e5a4992f" => :sierra
-    sha256 "71d2f6ec3359647298cc0867b88653078ba933b09b139dcd00d76fe763ccb1bb" => :el_capitan
-    sha256 "bc8bd37d3761403f22bf3937097c67d8e76e914c90abfa577fd7e17af337057a" => :yosemite
+    sha256 "8f594a72cd1f11264f1a5df92f0318ab4ef3fe1772ca157f1b8a27d2be79dd26" => :high_sierra
+    sha256 "604603592f400a332898ec34e8e0efc4abd636b6983540f20b5d693531c64d8e" => :sierra
+    sha256 "ddb688892a4ba768a8d0d21c6a643c6a0efe327e35f1a19b0064a42ab228b033" => :el_capitan
   end
 
   depends_on "mpfr"
