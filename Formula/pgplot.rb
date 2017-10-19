@@ -3,7 +3,7 @@ class Pgplot < Formula
   homepage "http://www.astro.caltech.edu/~tjp/pgplot/"
   url "ftp://ftp.astro.caltech.edu/pub/pgplot/pgplot522.tar.gz"
   mirror "https://distfiles.macports.org/pgplot/pgplot522.tar.gz"
-  mirror "ftp://ftp.us.horde.org/pub/linux/gentoo/distro/distfiles/pgplot522.tar.gz"
+  mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
   revision 4
