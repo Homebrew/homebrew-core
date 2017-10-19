@@ -2,6 +2,7 @@ class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
   url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.0.tar.xz"
   sha256 "d4f3cd31c001fd0ed52832d4fbfbdfeaa38ad541c182f80ff8fdf87324a6a9f2"
 
   bottle do
