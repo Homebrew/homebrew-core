@@ -1,8 +1,8 @@
 class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
-  url "https://github.com/facebook/infer/releases/download/v0.12.1/infer-osx-v0.12.1.tar.xz"
-  sha256 "ce76b87bf4f70be594aaddc7402609af6338623fbb448dacca610e10bcb7c60a"
+  url "https://github.com/facebook/infer/releases/download/v0.13.0/infer-osx-v0.13.0.tar.xz"
+  sha256 "1abec8df73581d35e018f81285197d82a6f3e6101c528fb8be14405765da155e"
 
   bottle do
     cellar :any
@@ -20,6 +20,7 @@ class Infer < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "sqlite"
 
   def install
     if build.without?("clang") && build.without?("java")
@@ -47,8 +48,9 @@ class Infer < Formula
     end
 
     system "opam", "init", "--no-setup"
-    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\"([0-9\.]+)\"/)[1]
-    inreplace "#{opamroot}/compilers/#{ocaml_version}/#{ocaml_version}/#{ocaml_version}.comp",
+    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\${OCAML_VERSION:-\"([^\"]+)\"}/)[1]
+    ocaml_version_number = ocaml_version.split("+", 2)[0]
+    inreplace "#{opamroot}/compilers/#{ocaml_version_number}/#{ocaml_version}/#{ocaml_version}.comp",
       '["./configure"', '["./configure" "-no-graph"'
     system "./build-infer.sh", target_platform, "--yes"
     system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
