@@ -34,8 +34,8 @@ class Binwalk < Formula
   end
 
   resource "capstone" do
-    url "https://pypi.python.org/packages/source/c/capstone/capstone-3.0.4.tar.gz"
-    sha256 "945d3b8c3646a1c3914824c416439e2cf2df8969dd722c8979cdcc23b40ad225"
+    url "https://files.pythonhosted.org/packages/44/3f/2ae09118f1c890b98e7b87ff1ce3d3a36e8e72ddac74ddcf0bbe8f005210/capstone-3.0.5rc2.tar.gz"
+    sha256 "c67a4e14d04b29126f6ae2a4aeb773acf96cc6705e1fa7bd9af1798fa928022a"
   end
 
   def install
