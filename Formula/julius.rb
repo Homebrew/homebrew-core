@@ -1,6 +1,6 @@
 class Julius < Formula
   desc "Two-pass large vocabulary continuous speech recognition engine"
-  homepage "https://julius.osdn.jp"
+  homepage "https://github.com/julius-speech/julius"
   url "https://github.com/julius-speech/julius/archive/v4.4.2.1.tar.gz"
   sha256 "784730d63bcd9e9e2ee814ba8f79eef2679ec096300e96400e91f6778757567f"
 
