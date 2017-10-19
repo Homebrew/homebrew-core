@@ -66,8 +66,8 @@ class Raine < Formula
   end
 
   resource "libpng" do
-    url "https://download.sourceforge.net/libpng/libpng-1.6.31.tar.xz"
-    mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.31.tar.xz"
+    url "https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/1.6.31/libpng-1.6.31.tar.xz"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.31.tar.xz"
     sha256 "232a602de04916b2b5ce6f901829caf419519e6a16cc9cd7c1c91187d3ee8b41"
   end
 
