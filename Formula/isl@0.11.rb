@@ -2,8 +2,8 @@ class IslAT011 < Formula
   desc "Integer Set Library for the polyhedral model"
   homepage "http://freecode.com/projects/isl"
   # Track gcc infrastructure releases.
-  url "http://isl.gforge.inria.fr/isl-0.11.1.tar.bz2"
-  mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.11.1.tar.bz2"
+  url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.11.1.tar.bz2"
+  mirror "http://isl.gforge.inria.fr/isl-0.11.1.tar.bz2"
   sha256 "095f4b54c88ca13a80d2b025d9c551f89ea7ba6f6201d701960bfe5c1466a98d"
 
   bottle do
