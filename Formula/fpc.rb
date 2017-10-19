@@ -13,7 +13,7 @@ class Fpc < Formula
   end
 
   resource "bootstrap" do
-    url "ftp://ftp.freepascal.org/pub/fpc/dist/3.0.0/bootstrap/x86_64-macosx-10.7-ppcx64.tar.bz2"
+    url "https://downloads.sourceforge.net/project/freepascal/Bootstrap/3.0.0/x86_64-macosx-10.7-ppcx64.tar.bz2"
     sha256 "a67ef5def356d122a4692e21b209c328f6d46deef4539f4d4506c3dc1eecb4b0"
   end
 
