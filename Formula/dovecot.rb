@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.33.1.tar.gz"
-  sha256 "e4d9a182408100dce70e05dad1f8a703252a497aeb25706642286d84a118890b"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.33.2.tar.gz"
+  sha256 "fe1e3b78609a56ee22fc209077e4b75348fa1bbd54c46f52bde2472a4c4cee84"
 
   bottle do
     sha256 "336d2e6206615adf865e2bfe50a70b24c66b8287ae7fcd0528a1b43d519313a9" => :high_sierra
@@ -19,8 +19,8 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.20.tar.gz"
-    sha256 "6fe17d0b8f25f2ad580e01ad81ce47a9e965255e383a1f80e455f9ca0f00be5b"
+    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.21.tar.gz"
+    sha256 "4ae09cb788c5334d167f5a89ee70b0616c3231e5904ad258ce408e4953cfdd6a"
   end
 
   resource "stemmer" do
@@ -117,6 +117,6 @@ class Dovecot < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{sbin}/dovecot --version")
+    assert_match version.to_s, shell_output("#{sbin}/dovecot --version")
   end
 end
