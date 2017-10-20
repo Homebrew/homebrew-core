@@ -1,8 +1,8 @@
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
-  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.15/libgphoto2-2.5.15.tar.bz2"
-  sha256 "b5f87bed3b53eaa610620f792e44c48193585ec68f902b8e6b2e8ca3205a7d61"
+  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.16/libgphoto2-2.5.16.tar.bz2"
+  sha256 "e757416d1623e01a9d0d294b2e790162e434c0964f50d3b7ff1a3424b62a2906"
 
   bottle do
     sha256 "950a832877636dd798debccfa54851b20d789b995af9fac3d188a9ef245fec81" => :high_sierra
