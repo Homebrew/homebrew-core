@@ -6,7 +6,7 @@ class Redpen < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     # Don't need Windows files.
@@ -14,7 +14,7 @@ class Redpen < Formula
     libexec.install %w[conf lib sample-doc js]
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8+"))
   end
 
   test do
