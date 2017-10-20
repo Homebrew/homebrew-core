@@ -5,13 +5,12 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 3
   head "https://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.2.tar.xz"
-    sha256 "f71884f539928877f4b415309f582825d3d3c9976104e43d566944c710713c9a"
+    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.3.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.3.tar.xz"
+    sha256 "a811c664f870a3a01449443a93a6fcee41aea2e912e58f72742eb7924962be56"
 
     # Patch to fix texture compression issues. Still relevant on 2.0.
     # https://bugs.winehq.org/show_bug.cgi?id=14939
@@ -71,8 +70,8 @@ class Wine < Formula
   end
 
   resource "mono" do
-    url "https://dl.winehq.org/wine/wine-mono/4.7.0/wine-mono-4.7.0.msi", :using => :nounzip
-    sha256 "7698474dd9cb9eb80796b5812dff37386ba97b78b21ca23b20079ca5ad6ca5a1"
+    url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+    sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
   end
 
   resource "openssl" do
@@ -106,15 +105,15 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/1.6.31/libpng-1.6.31.tar.xz"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.31.tar.xz"
-    sha256 "232a602de04916b2b5ce6f901829caf419519e6a16cc9cd7c1c91187d3ee8b41"
+    url "https://downloads.sourceforge.net/libpng/libpng-1.6.34.tar.xz"
+    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.34/libpng-1.6.34.tar.xz"
+    sha256 "2f1e960d92ce3b3abd03d06dfec9637dfbd22febf107a536b44f7a47c60659f6"
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8/freetype-2.8.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.tar.bz2"
-    sha256 "a3c603ed84c3c2495f9c9331fe6bba3bb0ee65e06ec331e0a0fb52158291b40b"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8.1/freetype-2.8.1.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.1.tar.bz2"
+    sha256 "e5435f02e02d2b87bb8e4efdcaa14b1f78c9cf3ab1ed80f94b6382fb6acc7d78"
   end
 
   resource "libusb" do
@@ -129,21 +128,21 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.4.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.4.tar.bz2"
-    sha256 "668293fcc4b3c59765cdee5cee05941091c0879edcc24dfec5455ef83912e45c"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.6.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.6.tar.bz2"
+    sha256 "cf0c30807d08f6a28ab46c61b8dbd55c97d2f292cf88f3a07d3384687f31f017"
   end
 
   resource "gd" do
-    url "https://github.com/libgd/libgd/releases/download/gd-2.2.4/libgd-2.2.4.tar.xz"
-    mirror "https://src.fedoraproject.org/repo/pkgs/gd/libgd-2.2.4.tar.xz/sha512/07903f322c4f6ab392508b0f60c38ca133699111ea92995dc6cd9379210d598bcb24a46c19657884d9e252f8663d0ee8c89c600e3a382a5ae598198c190f39b5/libgd-2.2.4.tar.xz"
-    sha256 "137f13a7eb93ce72e32ccd7cebdab6874f8cf7ddf31d3a455a68e016ecd9e4e6"
+    url "https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.xz"
+    mirror "https://src.fedoraproject.org/repo/pkgs/gd/libgd-2.2.5.tar.xz/sha512/946675b0a9dbecdee3dda927d496a35d6b5b071d3252a82cd649db0d959a82fcc65ce067ec34d07eed0e0497cd92cc0d93803609a4854f42d284e950764044d0/libgd-2.2.5.tar.xz"
+    sha256 "8c302ccbf467faec732f0741a859eef4ecae22fea2d2ab87467be940842bde51"
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.14/libgphoto2-2.5.14.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.14.tar.bz2"
-    sha256 "d3ce70686fb87d6791b9adcbb6e5693bfbe1cfef9661c23c75eb8a699ec4e274"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.16/libgphoto2-2.5.16.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.16.tar.bz2"
+    sha256 "e757416d1623e01a9d0d294b2e790162e434c0964f50d3b7ff1a3424b62a2906"
   end
 
   resource "net-snmp" do
@@ -159,9 +158,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.5/mpg123-1.25.5.tar.bz2"
-    mirror "https://mpg123.orgis.org/download/mpg123-1.25.5.tar.bz2"
-    sha256 "358da8602c001e6b25dddd496f50540a419e9922f0efe513e890f266135926b1"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.7/mpg123-1.25.7.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.7.tar.bz2"
+    sha256 "31b15ebcf26111b874732e07c8e60de5053ee555eea15fb70c657a4f9f0344f3"
   end
 
   fails_with :clang do
