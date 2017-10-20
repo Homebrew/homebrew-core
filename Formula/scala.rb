@@ -21,7 +21,7 @@ class Scala < Formula
 
   resource "src" do
     url "https://github.com/scala/scala/archive/v2.12.4.tar.gz"
-    sha256 "6b1cbcf12582edcc807b49f5b69c5fdbda672fbc2ac457044e4e15cc81234ca3"
+    sha256 "9d1eaf570f95204a8894ab941070354b1672904a903ae3d1b45df201ddd1ed7d"
   end
 
   resource "completion" do
