@@ -38,7 +38,7 @@ class CollectorSidecar < Formula
     end
   end
 
-  plist_options :startup => true, :manual => "graylog-collector-sidecar"
+  plist_options :manual => "graylog-collector-sidecar"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
