@@ -5,10 +5,9 @@ class CrystalIcr < Formula
   sha256 "4e3695965c95d55d345baf8c7fc9a7eff0bf95da1b1c8141bdb63c2d5269a30e"
 
   bottle do
-    sha256 "e7e329d7ddf2e5fd09c62e0df8d027d51bb926db14af813a720898688b9a0ae6" => :high_sierra
-    sha256 "951ce7170516e7b5b5adc4b64f52b4053ad36ce581e2dbc43843f0e07ea2eedf" => :sierra
-    sha256 "b6677ec4428770723ebee3a5059eee7a5a9a37b01943e09cce0654f7f6c58bac" => :el_capitan
-    sha256 "bc7b3b94b127632b60dd14127749d16ef92ba97520163226e1a0ccf0910a5579" => :yosemite
+    sha256 "0cb94b0e22b8e279c5ef434813dc4994e0a8415fd56cb09dc5fb297bc33842e5" => :high_sierra
+    sha256 "aaddd53dfbfd42acebefad53ae70f644d341851efab0f0198ee070f6ff1f6d09" => :sierra
+    sha256 "b0b5a8d6e38caf8f797399c1f2dd66f4f65583652138c7731438ab5521a8aa14" => :el_capitan
   end
 
   depends_on "crystal-lang"
