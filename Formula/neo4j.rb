@@ -9,6 +9,11 @@ class Neo4j < Formula
   depends_on :java => "1.8+"
 
   def install
+    inreplace %w[bin/cypher-shell bin/neo4j bin/neo4j-admin bin/neo4j-import
+                 bin/neo4j-shell],
+              'JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"',
+              'JAVA_HOME="$(/usr/libexec/java_home -v 1.8+)"'
+
     ENV["NEO4J_HOME"] = libexec
     # Remove windows files
     rm_f Dir["bin/*.bat"]
