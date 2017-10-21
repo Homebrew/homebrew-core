@@ -38,6 +38,25 @@ class CollectorSidecar < Formula
     end
   end
 
+  plist_options :startup => true, :manual => "graylog-collector-sidecar"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>Program</key>
+        <string>#{opt_bin}/graylog-collector-sidecar</string>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/graylog-collector-sidecar -version")
   end
