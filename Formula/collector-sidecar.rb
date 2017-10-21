@@ -5,10 +5,10 @@ class CollectorSidecar < Formula
   sha256 "3d73f8054a52411ff6d71634bc93b23a55372477069fcfad699876f82ae22ce8"
 
   bottle do
-    rebuild 1
-    sha256 "91b81c42bebaf3f028bb06cca5e16d47d4cda446e98ec951a118ba73c89d19bd" => :high_sierra
-    sha256 "5f3be3b9e129b33caf227a4e07f9b425f5d14689aff9b176560215300406083b" => :sierra
-    sha256 "5c9508066b8e856e6e6a2ebb27fe5a59d485b254f61ab7878b365a7a41382bfb" => :el_capitan
+    rebuild 2
+    sha256 "c31cd3d9caa0d658aae224ade213d64eaa0be2e040d1b7180e78b10c1c8725a3" => :high_sierra
+    sha256 "cac1fff6f16a21edca6f7b671840e9df9d076b31b37806b3f50c01b486e8ebad" => :sierra
+    sha256 "d21746e91d501bbb6544a239ac8bb846727f940e3ca152f6c79262c3aa0eec1e" => :el_capitan
   end
 
   depends_on "glide" => :build
