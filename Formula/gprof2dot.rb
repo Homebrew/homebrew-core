@@ -65,7 +65,7 @@ class Gprof2dot < Formula
              the function in the gprof listing. If the index is
              in parenthesis it shows where it would appear in
              the gprof listing if it were to be printed.
-
+      
                    Call graph (explanation follows)
 
 
