@@ -48,10 +48,6 @@ class Graphviz < Formula
   end
 
   def install
-    # The following setting makes to prohibit using Homebrew's Python. See :
-    # https://github.com/Homebrew/homebrew-core/issues/19110
-    ENV["PYTHON"]="/usr/bin/python"
-
     # Only needed when using superenv, which causes qfrexp and qldexp to be
     # falsely detected as available. The problem is triggered by
     #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
@@ -62,6 +58,10 @@ class Graphviz < Formula
     inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", ""
 
     if build.with? "bindings"
+      # The following setting makes to find "python.h".
+      # https://github.com/Homebrew/homebrew-core/issues/19110
+      ENV["PYTHON_INCLUDES"] = "-I" << `python -c "from __future__ import print_function;import sysconfig; print (sysconfig.get_path('include'))"`.chomp
+
       # the ruby pkg-config file is version specific
       inreplace "configure" do |s|
         s.gsub! "ruby-1.9", "ruby-#{Formula["ruby"].stable.version.to_f}"
