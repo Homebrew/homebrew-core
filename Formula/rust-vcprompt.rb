@@ -15,7 +15,8 @@ class RustVcprompt < Formula
   test do
     mkdir "repo" do
       system "git", "init"
-      assert_equal "[00m git:[34mmaster[00m|[32m[01m✔[00m \n", shell_output("#{bin}/rust-vcprompt")
+      ENV.keys.grep(/^VCP_[A-Z]+/).each { |k| ENV.delete(k) }
+      assert_equal " ±\e[34mmaster\e[00m|\e[32m\e[01m✔\e[00m\n", shell_output("#{bin}/rust-vcprompt")
     end
   end
 end
