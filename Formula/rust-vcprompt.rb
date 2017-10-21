@@ -9,14 +9,13 @@ class RustVcprompt < Formula
 
   def install
     system "cargo", "build", "--release"
-    mv "target/release/vcprompt", "target/release/rust-vcprompt"
-    bin.install "target/release/rust-vcprompt"
+    bin.install "target/release/vcprompt" => "rust-vcprompt"
   end
 
   test do
-    mkdir "repo"
-    cd "repo"
-    system "git", "init"
-    assert_equal "[00m git:[34mmaster[00m|[32m[01m✔[00m \n", shell_output("#{bin}/rust-vcprompt")
+    mkdir "repo" do
+      system "git", "init"
+      assert_equal "[00m git:[34mmaster[00m|[32m[01m✔[00m \n", shell_output("#{bin}/rust-vcprompt")
+    end
   end
 end
