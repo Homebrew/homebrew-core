@@ -40,7 +40,7 @@ class Findutils < Formula
     # https://github.com/Homebrew/homebrew/issues/47791
     updatedb = (build.with?("default-names") ? "updatedb" : "gupdatedb")
     (libexec/"bin").install bin/updatedb
-    (bin/updatedb).write <<-EOS.undent
+    (bin/updatedb).write <<~EOS
       #!/bin/sh
       export LC_ALL='C'
       exec "#{libexec}/bin/#{updatedb}" "$@"
@@ -59,7 +59,7 @@ class Findutils < Formula
 
   def caveats
     if build.without? "default-names"
-      <<-EOS.undent
+      <<~EOS
         All commands have been installed with the prefix 'g'.
         If you do not want the prefix, install using the "with-default-names" option.
 

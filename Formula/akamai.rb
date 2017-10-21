@@ -1,14 +1,14 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/0.4.0.tar.gz"
-  sha256 "9364ccedd21dfe520d59a05ea1d0fbd83c1b4da8e2dbb6686c829a3583e626fc"
+  url "https://github.com/akamai/cli/archive/0.4.1.tar.gz"
+  sha256 "a8b772aaa1f8721f7924ca031432c8dc81aeb8fb381eece8325412f0d6322312"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d87ea02abbda2f1b8a5966ca84dd4414aeed2c6a2b1f89b221c17ac75230711" => :high_sierra
-    sha256 "e997cd826985bb4b41081866e8dfb3e4d10d544013057eb096f4c9b79fe30bd3" => :sierra
-    sha256 "f0c99cf085a3540494a3ff12832b81077ed0bd42e851e5f8892944ddcee2d5f1" => :el_capitan
+    sha256 "a5521d29a9283f9b91ff2053dc0fadb7884359fbe42e7558037ee1741485b9a4" => :high_sierra
+    sha256 "b4a3356d993a58a82b1425629537c38dd4d1fc289243ce13de2d5b6d99ee0031" => :sierra
+    sha256 "afc624e735e921ca4715dcf4a3a813b9d36301e1323a2fb914059ff837c7a3a1" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -24,6 +24,7 @@ class Akamai < Formula
     cd srcpath do
       system "glide", "install"
       system "go", "build", "-tags", "noautoupgrade nofirstrun", "-o", bin/"akamai"
+      prefix.install_metafiles
     end
   end
 

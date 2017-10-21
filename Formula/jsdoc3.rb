@@ -22,7 +22,7 @@ class Jsdoc3 < Formula
   end
 
   test do
-    (testpath/"test.js").write <<-EOS.undent
+    (testpath/"test.js").write <<~EOS
       /**
        * Represents a formula.
        * @constructor

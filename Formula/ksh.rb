@@ -43,7 +43,7 @@ class Ksh < Formula
     man1.install_symlink "ksh93.1" => "ksh.1"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       We agreed to the Eclipse Public License 1.0 for you.
       If this is unacceptable you should uninstall.
     EOS

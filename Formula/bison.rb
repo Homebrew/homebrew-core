@@ -30,7 +30,7 @@ class Bison < Formula
   end
 
   test do
-    (testpath/"test.y").write <<-EOS.undent
+    (testpath/"test.y").write <<~EOS
       %{ #include <iostream>
          using namespace std;
          extern void yyerror (char *s);

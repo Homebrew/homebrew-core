@@ -1,23 +1,20 @@
 class Submarine < Formula
   desc "Search and download subtitles"
   homepage "https://github.com/rastersoft/submarine"
-  url "https://github.com/rastersoft/submarine/archive/0.1.4.tar.gz"
-  sha256 "c4fbe0786be9aeab95d4df4858f890fae3ca3c06bb28993ae1cd38aa20d1a801"
+  url "https://github.com/rastersoft/submarine/archive/0.1.7b.tar.gz"
+  version "0.1.7b"
+  sha256 "4569710a1aaf6709269068b6b1b2ef381416b81fa947c46583617343b1d3c799"
   head "https://github.com/rastersoft/submarine.git"
 
   bottle do
     cellar :any
-    sha256 "7c557af8e176bc5d6d437d900a280ebb9d4cbd867408ffdcd29dd9e44a9978a7" => :high_sierra
-    sha256 "4c57d03fde5cb8ee472f9570d88cc8e8987fbf9280b95ebfe78427fde913e72f" => :sierra
-    sha256 "36f4b8efc06f041c77315cffc8739bbead67cd501208c93f168893f295a70f94" => :el_capitan
-    sha256 "98e2e4d767aacfb27e6989d1205cb2489b52222ea4f5586e89c0366e4721278b" => :yosemite
-    sha256 "317136a44b158c1881eef04c5942c4868575a0fc46095955beedda56d3e7527e" => :mavericks
+    sha256 "0f69e16c6289fe9f529d2d972b91f86f5b950f31f0d9b7d2af3d80f4cc344de3" => :high_sierra
+    sha256 "05cb83f2ed8dd62e4417bc4f9e65c6a4ad5127b0012296676033ee92346d3789" => :sierra
+    sha256 "71ed7dcec2639d658412e8c099c4440bbb6f00d32cf80b9be8954abef07d0c21" => :el_capitan
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "libgee"
@@ -25,15 +22,9 @@ class Submarine < Formula
   depends_on "libarchive"
 
   def install
-    # Because configure is looking for libgee-0.6 which provided
-    # pkg-config viled numbered 1.0.
-    #
-    # See https://github.com/rastersoft/submarine/pull/1
-    inreplace "configure.ac", "gee-1.0", "gee-0.8"
-    system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    # Parallelization build failure reported 2 Oct 2017 to rastersoft AT gmail
+    ENV.deparallelize
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 

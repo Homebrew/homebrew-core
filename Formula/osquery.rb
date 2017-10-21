@@ -3,14 +3,13 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.7.0",
-      :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
-  revision 2
+      :tag => "2.9.0",
+      :revision => "fc4ee471ff660632671ce537bd9a3336578afa24"
 
   bottle do
     cellar :any
-    sha256 "60c2a67a6cb9833777c45d2d28f1b792f33db468ad40849f33b4ea3a0995575a" => :high_sierra
-    sha256 "05ff0b2bf5892901e665c9c4458f9798938b27414314c51ea1ba05e35c91c090" => :sierra
+    sha256 "e22d2766a80bec328332f8cb5692ea574e4b5dec9bad363b22a0a81e30a97b17" => :high_sierra
+    sha256 "a271b533137cd9f0b033b97ecc3b9b9fb55e2c30f6545c0ff010a964b24e8d85" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -23,18 +22,16 @@ class Osquery < Formula
   depends_on "asio"
   depends_on "augeas"
   depends_on "boost"
-  depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lldpd"
-  depends_on "lz4"
+  depends_on "librdkafka"
   depends_on "openssl"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
-  depends_on "snappy"
   depends_on "yara"
   depends_on "xz"
   depends_on "zstd"
@@ -55,8 +52,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
-    sha256 "d88e152ab5d9ad838166cb32a6152549ec16a51fb2fcc0802c704ea79c12edcb"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.2.7.tar.gz"
+    sha256 "1f65e63dbbceb1e8ffb19851a8e0ee153e05bf63bfa12b0e259d50021ac3ab6e"
   end
 
   resource "cpp-netlib" do
@@ -77,14 +74,6 @@ class Osquery < Formula
   resource "thrift-0.10-patch" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
     sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
-  end
-
-  # remove for > 2.7.0
-  # upstream: 'Boost version 1.65 macOS fix'
-  # https://github.com/facebook/osquery/pull/3613
-  patch do
-    url "https://github.com/facebook/osquery/commit/c50a9b1e82f.patch?full_index=1"
-    sha256 "c0ce11887ac277774c622fd91824cfc583416f57e1e9130da5f0c0df68a571cd"
   end
 
   def install

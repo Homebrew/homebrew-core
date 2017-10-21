@@ -32,6 +32,6 @@ class Wrangler < Formula
 
   test do
     suffixtree = Dir.glob("#{lib}/erlang/*/*/*/suffixtree").shift
-    assert File.executable?(suffixtree), "suffixtree must be executable"
+    assert_predicate Pathname.new(suffixtree), :executable?, "suffixtree must be executable"
   end
 end

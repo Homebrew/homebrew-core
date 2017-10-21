@@ -59,9 +59,9 @@ class Cdrtools < Formula
       (testpath/"subdir/testfile.txt").write(date)
       system "#{bin}/mkisofs", "-r", "-o", "../test.iso", "."
     end
-    assert (testpath/"test.iso").exist?
+    assert_predicate testpath/"test.iso", :exist?
     system "#{bin}/isoinfo", "-R", "-i", "test.iso", "-X"
-    assert (testpath/"testfile.txt").exist?
+    assert_predicate testpath/"testfile.txt", :exist?
     assert_equal date, File.read("testfile.txt")
   end
 end

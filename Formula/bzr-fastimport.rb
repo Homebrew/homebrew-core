@@ -31,7 +31,7 @@ class BzrFastimport < Formula
     (share/"bazaar/plugins/fastimport").install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order to use this plugin you must set your PYTHONPATH in your ~/.bashrc:
 
       export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"

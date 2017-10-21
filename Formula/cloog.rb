@@ -44,7 +44,7 @@ class Cloog < Formula
   end
 
   test do
-    cloog_source = <<-EOS.undent
+    cloog_source = <<~EOS
       c
 
       0 2

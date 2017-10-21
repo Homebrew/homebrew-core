@@ -40,10 +40,10 @@ class ZeroInstall < Formula
   end
 
   test do
-    (testpath/"hello.py").write <<-EOS.undent
+    (testpath/"hello.py").write <<~EOS
       print("hello world")
     EOS
-    (testpath/"hello.xml").write <<-EOS.undent
+    (testpath/"hello.xml").write <<~EOS
       <?xml version="1.0" ?>
       <interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
         <name>Hello</name>

@@ -3,15 +3,14 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "http://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.16.3.tar.gz"
-  sha256 "78816486930b455d7753518d6b2f4bd98ccaa6129b91cd9e3a43f5854824867e"
+  url "https://github.com/mkdocs/mkdocs/archive/0.17.0.tar.gz"
+  sha256 "c901114fe21aab8bbecec90f1487795c6239f513f54bde623ce4901efbe349db"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d192e5f20c6f15e6c43424bb18d749b40916a0e31f2617c7170beb46a21dec3d" => :high_sierra
-    sha256 "44a896e8b11061fd2bc4c6ebcde76e24a30379f51c61617b07f0105179725a98" => :sierra
-    sha256 "8ad10a90966f02558366f267488183334e35d23fd24b3cd8fff3d3c5cd072484" => :el_capitan
-    sha256 "2479accdd8dcc39e0e6ade92184d92af9574849d376d5c3fe2b63924a903dae8" => :yosemite
+    sha256 "9274368d7943a37b0b1f268b553585652a0a498fb34e3654f1bbf1967d3cb654" => :high_sierra
+    sha256 "94e69a2e6dd2122612ee3af387d85243f5cbdd44fa01583dfad2a55ce344b09b" => :sierra
+    sha256 "00d7f32bb97c761ffea08acfb3f61c80482a43806b6d3ef212a72d3990616952" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -77,14 +76,14 @@ class Mkdocs < Formula
 
   test do
     # build a very simple site that uses the "readthedocs" theme.
-    (testpath/"mkdocs.yml").write <<-EOS.undent
+    (testpath/"mkdocs.yml").write <<~EOS
       site_name: MkLorum
       pages:
         - Home: index.md
       theme: readthedocs
     EOS
     mkdir testpath/"docs"
-    (testpath/"docs/index.md").write <<-EOS.undent
+    (testpath/"docs/index.md").write <<~EOS
       # A heading
 
       And some deeply meaningful prose.

@@ -4,12 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
+  revision 1
 
   bottle do
-    sha256 "4ed8c27e584467787eb76ae2b0d455d5cde1d40ce9b28bfe83d954508cce8b79" => :high_sierra
-    sha256 "6a63bc7fd673f61826ccafdc6dd7d05b6da02436e71dc2a995d40800fff02329" => :sierra
-    sha256 "4d9bd04a4605877617e9158e270a011d0367c2c7e0571752cf5c821b15454a2a" => :el_capitan
-    sha256 "d1c71dbd4685cda7b3aaded3ce9ed8a224d14cca8fcb257b7e6e3eb11d706b44" => :yosemite
+    sha256 "5e9506b629800e6dfbedb67845eb77a22896e561a826d79a0540173e4c8f3714" => :high_sierra
+    sha256 "4c7b8b2904172db671a21caa0553ef2d1a4456e3010e2e59451eef32dd407879" => :sierra
+    sha256 "411d69db8fa266625f241f8a6ec4b470d963a011b44eebb0b52e2f08249a83b3" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
@@ -68,8 +68,6 @@ class Subversion < Formula
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
-      system "2to3-", "--write", "--fix=print", "SConstruct"
-
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
@@ -173,13 +171,13 @@ class Subversion < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
     EOS
 
     if build.with? "perl"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         The perl bindings are located in various subdirectories of:
           #{opt_lib}/perl5
@@ -187,7 +185,7 @@ class Subversion < Formula
     end
 
     if build.with? "ruby"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         If you wish to use the Ruby bindings you may need to add:
           #{HOMEBREW_PREFIX}/lib/ruby
@@ -196,7 +194,7 @@ class Subversion < Formula
     end
 
     if build.with? "java"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         You may need to link the Java bindings into the Java Extensions folder:
           sudo mkdir -p /Library/Java/Extensions

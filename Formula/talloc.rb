@@ -22,7 +22,7 @@ class Talloc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <talloc.h>
       int main()
       {

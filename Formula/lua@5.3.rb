@@ -80,7 +80,7 @@ class LuaAT53 < Formula
     end
   end
 
-  def pc_file; <<-EOS.undent
+  def pc_file; <<~EOS
     V= 5.3
     R= 5.3.3
     prefix=#{HOMEBREW_PREFIX}

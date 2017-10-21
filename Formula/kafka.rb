@@ -7,13 +7,14 @@ class Kafka < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c90dddf70d5c4ab6a3ca02e972b9bd3537b1aa8b079372e1d30dc89581e4abe4" => :high_sierra
-    sha256 "4d1ed2948bf9cdee56aca759191f268dccbf8c0aeac983e856fa339d0a21cffd" => :sierra
-    sha256 "4d1ed2948bf9cdee56aca759191f268dccbf8c0aeac983e856fa339d0a21cffd" => :el_capitan
+    rebuild 1
+    sha256 "0ede0df6100d654842a0c90734c5a5c403a0e45da23118bdd468b312bfd1dcfa" => :high_sierra
+    sha256 "0ede0df6100d654842a0c90734c5a5c403a0e45da23118bdd468b312bfd1dcfa" => :sierra
+    sha256 "0ede0df6100d654842a0c90734c5a5c403a0e45da23118bdd468b312bfd1dcfa" => :el_capitan
   end
 
   depends_on "zookeeper"
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
   # Since Kafka does not currently set the source or target compability version inside build.gradle
@@ -37,7 +38,7 @@ class Kafka < Formula
     libexec.install "libs"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8+"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
     Dir["#{bin}/*.sh"].each { |f| mv f, f.to_s.gsub(/.sh$/, "") }
 
     mv "config", "kafka"
@@ -50,7 +51,7 @@ class Kafka < Formula
 
   plist_options :manual => "zookeeper-server-start #{HOMEBREW_PREFIX}/etc/kafka/zookeeper.properties & kafka-server-start #{HOMEBREW_PREFIX}/etc/kafka/server.properties"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

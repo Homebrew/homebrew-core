@@ -1,8 +1,8 @@
 class ZshCompletions < Formula
   desc "Additional completion definitions for zsh"
   homepage "https://github.com/zsh-users/zsh-completions"
-  url "https://github.com/zsh-users/zsh-completions/archive/0.26.0.tar.gz"
-  sha256 "783768c8308cc0ff37bce346c66386308550ede05121e352b1a284ff6bf88540"
+  url "https://github.com/zsh-users/zsh-completions/archive/0.27.0.tar.gz"
+  sha256 "9b817b73e709aca0e7e5a41471b5b63467d1e7aa69ef755b6ce39b99e61cd47a"
 
   head "https://github.com/zsh-users/zsh-completions.git"
 
@@ -13,7 +13,7 @@ class ZshCompletions < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     To activate these completions, add the following to your .zshrc:
 
       fpath=(#{HOMEBREW_PREFIX}/share/zsh-completions $fpath)
@@ -30,7 +30,7 @@ class ZshCompletions < Formula
   end
 
   test do
-    (testpath/"test.zsh").write <<-EOS.undent
+    (testpath/"test.zsh").write <<~EOS
       fpath=(#{pkgshare} $fpath)
       autoload _ack
       which _ack

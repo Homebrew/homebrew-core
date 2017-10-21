@@ -23,7 +23,7 @@ class Cpansearch < Formula
     bin.install "cpans"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For usage instructions:
         more #{opt_prefix}/README.md
     EOS

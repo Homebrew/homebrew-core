@@ -49,7 +49,7 @@ class Trr < Formula
 
   test do
     program = testpath/"test-trr.el"
-    program.write <<-EOS.undent
+    program.write <<~EOS
       (add-to-list 'load-path "#{HOMEBREW_PREFIX}/share/emacs/site-lisp/apel/emu")
       (add-to-list 'load-path "#{elisp}")
       (require 'trr)

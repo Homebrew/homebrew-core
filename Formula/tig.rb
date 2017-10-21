@@ -1,14 +1,13 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
-  homepage "http://jonas.nitro.dk/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.2.2/tig-2.2.2.tar.gz"
-  sha256 "316214d87f7693abc0cbe8ebbb85decdf5e1b49d7ad760ac801af3dd73385e35"
+  homepage "https://jonas.github.io/tig/"
+  url "https://github.com/jonas/tig/releases/download/tig-2.3.0/tig-2.3.0.tar.gz"
+  sha256 "686f0386927904dc6410f0b1a712cb8bd7fff3303f688d7dc43162f4ad16c0ed"
 
   bottle do
-    sha256 "303be09973537c19d6f2f8901f86134dd745d237e24b87cf9ca55e55ba37dfb8" => :high_sierra
-    sha256 "91ebc14f09bce40903be7619cdafe3d7fbffb787dd2bc2c9fe806e3c71389d30" => :sierra
-    sha256 "0b72d1eb75e02e5f88e034caeb1517f2330fc3d2c4b61bee78cc408703d5167b" => :el_capitan
-    sha256 "0c0fc044284bcf4d73d5fa2c479421101b5ae7a59e07055d843572ef2a3ae8ce" => :yosemite
+    sha256 "7ee4d3602940b21b8d9a9af504e37519bca1378f2a4a959ba553f4334a4b9a27" => :high_sierra
+    sha256 "47f74e5b1b4da196651ae4852cc9d7f4496bec53752da8428fb9eb78efbfb0fc" => :sierra
+    sha256 "da55d31b23fe60a4da0658f785a001f73fcb553bbd6677920eca10c477e94539" => :el_capitan
   end
 
   head do
@@ -39,7 +38,7 @@ class Tig < Formula
     cp "#{bash_completion}/tig-completion.bash", zsh_completion
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A sample of the default configuration has been installed to:
       #{opt_pkgshare}/examples/tigrc
     to override the system-wide default configuration, copy the sample to:

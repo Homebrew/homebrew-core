@@ -25,6 +25,6 @@ class Gsoap < Formula
   test do
     system "#{bin}/wsdl2h", "-o", "calc.h", "https://www.genivia.com/calc.wsdl"
     system "#{bin}/soapcpp2", "calc.h"
-    assert File.exist?("calc.add.req.xml")
+    assert_predicate testpath/"calc.add.req.xml", :exist?
   end
 end

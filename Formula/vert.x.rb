@@ -1,8 +1,8 @@
 class VertX < Formula
   desc "Toolkit for building reactive applications on the JVM."
   homepage "http://vertx.io/"
-  url "https://dl.bintray.com/vertx/downloads/vert.x-3.4.2-full.tar.gz"
-  sha256 "03abce899a6752069e0eff49c0bded3c71635bf3bcbb8b277c80ced029e5ffac"
+  url "https://dl.bintray.com/vertx/downloads/vert.x-3.5.0-full.tar.gz"
+  sha256 "aa4607b5191f6df369d9b765fbc58ecc8ec9a1075fc45d1326ae7812fd85970b"
 
   bottle :unneeded
   depends_on :java => "1.8+"
@@ -14,7 +14,7 @@ class VertX < Formula
   end
 
   test do
-    (testpath/"HelloWorld.java").write <<-EOS.undent
+    (testpath/"HelloWorld.java").write <<~EOS
       import io.vertx.core.AbstractVerticle;
       public class HelloWorld extends AbstractVerticle {
         public void start() {

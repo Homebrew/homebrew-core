@@ -84,7 +84,7 @@ class Docbook < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use the DocBook package in your XML toolchain,
     you need to add the following to your ~/.bashrc:
 

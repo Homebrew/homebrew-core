@@ -22,6 +22,6 @@ class Bower < Formula
 
   test do
     system bin/"bower", "install", "jquery"
-    assert File.exist?("bower_components/jquery/dist/jquery.min.js"), "jquery.min.js was not installed"
+    assert_predicate testpath/"bower_components/jquery/dist/jquery.min.js", :exist?, "jquery.min.js was not installed"
   end
 end

@@ -1,15 +1,25 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "http://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_4/libtorrent-rasterbar-1.1.4.tar.gz"
-  sha256 "ccf42367803a6df7edcf4756d1f7d0a9ce6158ec33b851b3b58fd470ac4eeba6"
   revision 1
+
+  stable do
+    url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_4/libtorrent-rasterbar-1.1.4.tar.gz"
+    sha256 "ccf42367803a6df7edcf4756d1f7d0a9ce6158ec33b851b3b58fd470ac4eeba6"
+
+    # Fix compilation with Boost >= 1.65, remove in next release
+    patch do
+      url "https://patch-diff.githubusercontent.com/raw/arvidn/libtorrent/pull/2146.patch?full_index=1"
+      sha256 "be5c98a435a047027d1bad667876322b0d8fc55c8265131368072e93b6729a18"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "c8639c456cfd78ead45d2d54cc45ba19402dcb205703ab7f6258761cbc090f59" => :sierra
-    sha256 "a9bb6dd209b3e63dd112bbd7427139058a70f51fd030d39127a5f4950c6af9fe" => :el_capitan
-    sha256 "d4d9142a3fa3ffb55717466f9e62d46ca0436b4d2ee94e8c8825660e095e7c8a" => :yosemite
+    rebuild 1
+    sha256 "5f9125a9d3c71eb237da458eae5b6cc0d5bdd75812122765dcdf913ac77252c6" => :high_sierra
+    sha256 "86ff2717a99856d38bf10f56229b10bbec6bcd1b74e3086e98059be613ac26be" => :sierra
+    sha256 "4b2346c9afc763d3703e2268471e5fe28e2631e56a73ffc50eaa63ae82353d7a" => :el_capitan
   end
 
   head do
@@ -61,6 +71,6 @@ class LibtorrentRasterbar < Formula
            "-I#{Formula["boost"].include}/boost", "-lboost_system",
            libexec/"examples/make_torrent.cpp", "-o", "test"
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
-    File.exist? testpath/"test.torrent"
+    assert_predicate testpath/"test.torrent", :exist?
   end
 end

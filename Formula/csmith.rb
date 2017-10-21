@@ -22,7 +22,7 @@ class Csmith < Formula
     (include/"csmith-#{version}/runtime").install Dir["runtime/*.h"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     It is recommended that you set the environment variable 'CSMITH_PATH' to
       #{include}/csmith-#{version}
     EOS

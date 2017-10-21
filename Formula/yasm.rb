@@ -42,7 +42,7 @@ class Yasm < Formula
   end
 
   test do
-    (testpath/"test.asm").write <<-EOS.undent
+    (testpath/"test.asm").write <<~EOS
       global start
       section .text
       start:

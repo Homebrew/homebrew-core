@@ -41,11 +41,11 @@ class Mdv < Formula
   end
 
   test do
-    (testpath/"test.md").write <<-EOF.undent
+    (testpath/"test.md").write <<~EOS
     # Header 1
     ## Header 2
     ### Header 3
-    EOF
+    EOS
     system "#{bin}/mdv", "#{testpath}/test.md"
   end
 end

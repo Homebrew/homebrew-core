@@ -3,26 +3,20 @@ class Sops < Formula
 
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/2.0.10.tar.gz"
-  sha256 "6d6ef992624e5d5da5f86ebad89332b6a9e3cdcbd330e97d65e1ed07d176b1c0"
+  url "https://github.com/mozilla/sops/archive/3.0.0.tar.gz"
+  sha256 "28c5424e48b5b0b8c5cf471ea39954107c5bda06a3817d67f0b8c49f80aa4a94"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2725d6b43d20580fe9650f22fc13a1a7e8937d5204b3e87d59ece1c52457622a" => :high_sierra
-    sha256 "cd104ce879955051885a858826c2e4be8bc4648c86c065a6ba159c7cc34f81cc" => :sierra
-    sha256 "c3dd0cd6a5d754d4eb606cf4a45fa2a97bc6774a3902fc908f0a391bf015af10" => :el_capitan
-    sha256 "386187edb6b52600f0ba08a46b0838090cb76efdd3933c07e7984afef0b35214" => :yosemite
+    sha256 "3dedf944ce5698912fcf9172156a336ce168de78a1f15c0db40c3ba185de46aa" => :high_sierra
+    sha256 "21d0532514798628c5af33c92ec3adea09a6ca07ad3c404d918d6211c6164efd" => :sierra
+    sha256 "ce7144a246937c7626cbc11ce5b08fe8ced6820ffa64eba7198c88d3b8feb11e" => :el_capitan
   end
 
   depends_on "go" => :build
 
   def install
-    # Reported 25 Aug 2017 https://github.com/mozilla/sops/issues/237
-    if build.stable?
-      inreplace "cmd/sops/version.go", 'version = "2.0.9"', 'version = "2.0.10"'
-    end
-
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
     (buildpath/"src/go.mozilla.org").mkpath

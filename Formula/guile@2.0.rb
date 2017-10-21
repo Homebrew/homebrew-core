@@ -75,7 +75,7 @@ class GuileAT20 < Formula
 
   test do
     hello = testpath/"hello.scm"
-    hello.write <<-EOS.undent
+    hello.write <<~EOS
     (display "Hello World")
     (newline)
     EOS

@@ -23,7 +23,7 @@ class Pla < Formula
   end
 
   test do
-    (testpath/"test.pla").write <<-EOS.undent
+    (testpath/"test.pla").write <<~EOS
     [4] REF0 Install des serveurs
       color #8cb6ce
       child 1

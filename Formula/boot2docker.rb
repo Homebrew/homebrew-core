@@ -53,7 +53,7 @@ class Boot2docker < Formula
     bin.install "bin/boot2docker-cli" => "boot2docker"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Rebuild the VM after an upgrade with:
       boot2docker destroy && boot2docker upgrade
   EOS
@@ -61,7 +61,7 @@ class Boot2docker < Formula
 
   plist_options :manual => "boot2docker up"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

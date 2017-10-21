@@ -1,7 +1,7 @@
 class Exomizer < Formula
   desc "6502 compressor with CBM PET 4032 support."
-  homepage "http://hem.bredband.net/magli143/exo/"
-  url "http://hem.bredband.net/magli143/exo/exomizer209.zip"
+  homepage "https://bitbucket.org/magli143/exomizer/wiki/Home"
+  url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer209.zip"
   version "2.0.9"
   sha256 "d2a95d4d168e4007fc396295e2f30a21b58f4648c28d1aadf84e7d497c5c7a34"
 

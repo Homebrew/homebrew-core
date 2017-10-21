@@ -87,7 +87,7 @@ class Stormssh < Formula
 
     system bin/"storm", "add", "--config", "sshconfig", "aliastest", "user@example.com:22"
 
-    expected_output = <<-EOS.undent
+    expected_output = <<~EOS
       Host aliastest
           hostname example.com
           user user

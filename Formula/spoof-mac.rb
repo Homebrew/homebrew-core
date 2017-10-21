@@ -34,7 +34,7 @@ class SpoofMac < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Although spoof-mac can run without root, you must be root to change the MAC.
 
     The launchdaemon is set to randomize en0.
@@ -50,7 +50,7 @@ class SpoofMac < Formula
 
   plist_options :startup => true, :manual => "spoof-mac"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

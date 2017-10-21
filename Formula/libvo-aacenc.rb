@@ -21,7 +21,7 @@ class LibvoAacenc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <vo-aacenc/cmnMemory.h>
 
       int main()

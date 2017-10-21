@@ -21,7 +21,7 @@ class Rgbds < Formula
   end
 
   test do
-    (testpath/"source.asm").write <<-EOS.undent
+    (testpath/"source.asm").write <<~EOS
       SECTION "Org $100",HOME[$100]
       nop
       jp begin

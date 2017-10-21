@@ -10,7 +10,7 @@ class CodesignRequirement < Requirement
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       org.radare.radare2 identity must be available to build with automated signing.
       See: https://github.com/radare/radare2/blob/master/doc/osx.md
     EOS
@@ -22,25 +22,31 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/1.6.0/radare2-1.6.0.tar.gz"
-    sha256 "959dcac19020932983cff79a069c4467410217c941e24dd9f6d0fc0fc8d4ef99"
+    url "https://radare.mikelloc.com/get/2.0.1/radare2-2.0.1.tar.gz"
+    sha256 "b31d5d044cc98ce48420029c939f704a8ca3f9e8be399684c7ee7485c24dbb02"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/1.6.0/radare2-bindings-1.6.0.tar.gz"
-      sha256 "abc320c4f5353f15d96a40329349253f140f0921074f0d0dbee6b3cb9f0067b8"
+      url "https://radare.mikelloc.com/get/2.0.0/radare2-bindings-2.0.0.tar.gz"
+      sha256 "d3a4d697de06d664649dd1fb3f090a079351b89c9112ba317d79187730cf9850"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/1.6.0/radare2-extras-1.6.0.tar.gz"
-      sha256 "305b55d8ab85dcf5a2abe3d624e38169cd6e82c07896e85aa153ca4413a63cd2"
+      url "https://radare.mikelloc.com/get/2.0.0/radare2-extras-2.0.0.tar.gz"
+      sha256 "6856b57b6c125be63c3e6da9455a5da44f48da30a476a1cfefb1a1163159bdba"
+    end
+
+    patch do
+      # upstream fix for build issue
+      # https://github.com/radare/radare2-bindings/issues/176
+      url "https://github.com/radare/radare2/commit/2334829ce64f76cb2a448c48782e8c479cd5664c.diff?full_index=1"
+      sha256 "6a4505010e2e7e279f7fda91cea677e25fdb497c2b75c0d9f7ffb360d92be203"
     end
   end
 
   bottle do
-    sha256 "cf700a1df741ee201338829ef5b1ad6fcb5dd969ec847c74b4d0ac0a8736c5af" => :high_sierra
-    sha256 "54786dea33f49eeb35ee88cdaa136a67300533379d1ac54dbec57d9047722b7e" => :sierra
-    sha256 "20876f7105f46d3657eeda20ab961f9e39eb6692c5af0d1c8b4bd4e4cd0f8c37" => :el_capitan
-    sha256 "66dbf9f73295bbd3418cdbba415b59567c8a402a96e44291a99a372b79b0868e" => :yosemite
+    sha256 "12b611cb6e6b16a358f0646b56bc2dcb9cf4440a0cf096d3a6e1136fafca0ece" => :high_sierra
+    sha256 "8e99d66d15fe874ff9bda4b8be6dfca3c865ab8235171201a0657863cc1ce996" => :sierra
+    sha256 "9cee9163caf295a55eaa255b43c0e47a6d5459dcd5702923f7319891ebfe753e" => :el_capitan
   end
 
   head do
@@ -80,7 +86,12 @@ class Radare2 < Formula
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osxsign"
       system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
     end
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
+
+    # remove leftover symlinks
+    # https://github.com/radare/radare2/issues/8688
+    rm_f bin/"r2-docker"
+    rm_f bin/"r2-indent"
 
     resource("extras").stage do
       ENV.append_path "PATH", bin

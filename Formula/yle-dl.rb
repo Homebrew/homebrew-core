@@ -1,15 +1,15 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.24.tar.gz"
-  sha256 "eb97f95705138931e6161ee663c4895e7f28bc0e94c008d877aad31fb7d02e26"
+  url "https://github.com/aajanki/yle-dl/archive/2.26.tar.gz"
+  sha256 "76aa0eab283f291f3056e4a5ea1311331929b60f6ae64588c5499f7f0ff9ba7f"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "341e92422f2e072c3418d98fbad16419a924411a02ebfdf24cfa245ba3be8c16" => :high_sierra
-    sha256 "ac90bd6d00f2dcf9b44cbd4cc7fb73f895cd517c9397c817838bda8e861983ac" => :sierra
-    sha256 "6be2e829af20a2e1a485d233d77e91eaf7f920cf6d1f5516e123cee736432e73" => :el_capitan
+    sha256 "1103b4488914fd234e89b07c0d282c86b57efad22fae6cff515e9bc2ddd2c3ba" => :high_sierra
+    sha256 "cdc2456ead5e4b0235a4ca407c88b05f3b3621d8688c5ae3e2d6249e9d219a55" => :sierra
+    sha256 "7a9f907b6f06b8eda9b661a5319bf422ef19bffd3e7cc187a49450b263207695" => :el_capitan
   end
 
   depends_on "rtmpdump"
@@ -43,13 +43,8 @@ class YleDl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/07/76/9f14811d3fb91ed7973a798ded15eda416070bbcb1aadc6a5af9d691d993/lxml-4.0.0.tar.gz"
-    sha256 "f7bc9f702500e205b1560d620f14015fec76dcd6f9e889a946a2ddcc3c344fd0"
-  end
-
-  resource "progress" do
-    url "https://files.pythonhosted.org/packages/37/15/66bb190760a7129b65bf07eb23cdade607d91f894496121c16a9ada5d9f9/progress-1.3.tar.gz"
-    sha256 "c88d89ee3bd06716a0b8b5504d9c3bcb3c1c0ab98f96dc7f1dc5f56812a4f60a"
+    url "https://files.pythonhosted.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz"
+    sha256 "be3aaeb5f468a49f523f16736ccff7d82af2b4b303292ba3d052b5b28f3fbe47"
   end
 
   resource "pycrypto" do
@@ -84,7 +79,7 @@ class YleDl < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     yle-dl requires the mcrypt PHP module which you can either install manually or install
     mcrypt from the PHP homebrew tap. You can also install yle-dl with one of optional dependencies
     which to automatically tap the php tap and download mcrypt module for you.

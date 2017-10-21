@@ -49,7 +49,7 @@ class Gitfs < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     gitfs clones repos in /var/lib/gitfs. You can either create it with
     sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
     repo_path argument.
@@ -61,14 +61,14 @@ class Gitfs < Formula
   test do
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
-    (testpath/"test.py").write <<-EOS.undent
+    (testpath/"test.py").write <<~EOS
       import gitfs
       import pygit2
       pygit2.init_repository('testing/.git', True)
     EOS
 
     system "python", "test.py"
-    assert File.exist?("testing/.git/config")
+    assert_predicate testpath/"testing/.git/config", :exist?
     cd "testing" do
       system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew.git"
       assert_match "homebrew", shell_output("git remote")

@@ -38,7 +38,7 @@ class Widelands < Formula
                        *std_cmake_args
       system "make", "install"
 
-      (bin/"widelands").write <<-EOS.undent
+      (bin/"widelands").write <<~EOS
         #!/bin/sh
         exec #{prefix}/widelands "$@"
       EOS

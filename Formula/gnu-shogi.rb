@@ -19,7 +19,7 @@ class GnuShogi < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       7g7f
       exit
     EOS

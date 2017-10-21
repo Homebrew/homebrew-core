@@ -1,17 +1,15 @@
 class DejaGnu < Formula
   desc "Framework for testing other programs"
   homepage "https://www.gnu.org/software/dejagnu/"
-  url "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.tar.gz"
-  sha256 "00b64a618e2b6b581b16eb9131ee80f721baa2669fa0cdee93c500d1a652d763"
+  url "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.1.tar.gz"
+  sha256 "bf5b28bb797e0ace4cfc0766a996339c795d8223bef54158be7887046bc01692"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60d8970e0636c67765c4a4a6fdd41d02faa39ee9e95c3ac6a3f4a98940536da0" => :high_sierra
-    sha256 "3f6f667f06ed0a74f993668847f437e60f90397b0b1615ebbf0f930f7d2836d2" => :sierra
-    sha256 "099657338971c6b84bf135f2935559a4753b2137edd807d777c999edaf0fb8d6" => :el_capitan
-    sha256 "0d589e4ec11e3d8de7f00abcbb4a62b50e578e15e6d8fafd42371ca9550b04c8" => :yosemite
-    sha256 "575e2565feb8d2d60c3163a1a8d38c4ba719fd5a523fc147a7812aed7f26fb88" => :mavericks
+    sha256 "1fdb95415e4fb21b2488b8453d2e107da45755e1182259a87fe3ebb87d290b9b" => :high_sierra
+    sha256 "1fdb95415e4fb21b2488b8453d2e107da45755e1182259a87fe3ebb87d290b9b" => :sierra
+    sha256 "1fdb95415e4fb21b2488b8453d2e107da45755e1182259a87fe3ebb87d290b9b" => :el_capitan
   end
 
   head do

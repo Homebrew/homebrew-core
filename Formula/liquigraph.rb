@@ -28,7 +28,7 @@ class Liquigraph < Formula
   test do
     failing_hostname = "verrryyyy_unlikely_host"
     changelog = testpath/"changelog"
-    changelog.write <<-EOS.undent
+    changelog.write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <changelog>
           <changeset id="hello-world" author="you">

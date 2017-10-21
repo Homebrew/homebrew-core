@@ -3,7 +3,7 @@ class RRequirement < Requirement
 
   satisfy { which("r") }
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     R not found. The R integration module requires R.
     Do one of the following:
     - install R

@@ -5,6 +5,7 @@ class Ntfs3g < Formula
   sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
 
   bottle do
+    sha256 "f5fdf264ba84f10204564e7e33bac6cb2e657052bbf141ca735682f9d7842003" => :high_sierra
     sha256 "66662baf5f187c4784ff9c4236d9595205c01c6c7141699b8afcdb4337304a0c" => :sierra
     sha256 "dc2dc22afe3376cccb2a7d62f3faf4455a2422ebe4c96eaebd6d9249a00e3c2d" => :el_capitan
     sha256 "160fd2811b0fe6e072194860e17e2abbe71b18a2ac2c16db15ceb2eaf1e9918a" => :yosemite
@@ -54,7 +55,7 @@ class Ntfs3g < Formula
 
     # Install a script that can be used to enable automount
     File.open("#{sbin}/mount_ntfs", File::CREAT|File::TRUNC|File::RDWR, 0755) do |f|
-      f.puts <<-EOS.undent
+      f.puts <<~EOS
       #!/bin/bash
 
       VOLUME_NAME="${@:$#}"

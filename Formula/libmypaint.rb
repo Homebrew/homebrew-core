@@ -25,7 +25,7 @@ class Libmypaint < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <mypaint-brush.h>
       int main() {
         MyPaintBrush *brush = mypaint_brush_new();

@@ -29,7 +29,7 @@ class Unarj < Formula
     # Ensure that you can extract ARJ.EXE from a sample self-extracting file
     resource("testfile").stage do
       system "#{bin}/unarj", "e", "ARJ286.EXE"
-      assert File.exist? "ARJ.EXE"
+      assert_predicate Pathname.pwd/"ARJ.EXE", :exist?
     end
   end
 end

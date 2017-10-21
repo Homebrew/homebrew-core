@@ -1,15 +1,13 @@
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
-  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.14/libgphoto2-2.5.14.tar.bz2"
-  sha256 "d3ce70686fb87d6791b9adcbb6e5693bfbe1cfef9661c23c75eb8a699ec4e274"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.16/libgphoto2-2.5.16.tar.bz2"
+  sha256 "e757416d1623e01a9d0d294b2e790162e434c0964f50d3b7ff1a3424b62a2906"
 
   bottle do
-    sha256 "b66f9400fdfc6758688a7b04045b866513f9e8866f36f8c56e1c06b708a1289a" => :high_sierra
-    sha256 "9212fdc127bfa4d4075045d45c197640cd240e8c3f0eda1659ce01b992c12c2e" => :sierra
-    sha256 "560f19e1f478e4893a79ffa5c0337cb51956060c3b3d394e17c972a7d2d7681e" => :el_capitan
-    sha256 "888bc3cd95c7637c5f333e9e1f2a3ef021a171a6d19997409d470f704950fc9c" => :yosemite
+    sha256 "42d67ebe5a33c3a41237fcaae5f5f89827a93e4b01da6f37becd8f59bda3d3b2" => :high_sierra
+    sha256 "f775f6c15a087e09939cf4f4514db5a3019e57cff0c16f19de8cab04a56a06d4" => :sierra
+    sha256 "4990ce77089bdb05581b0cd72fde5851a4e19df9916a46c298c50e49c6d83543" => :el_capitan
   end
 
   head do
@@ -35,7 +33,7 @@ class Libgphoto2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gphoto2/gphoto2-camera.h>
       int main(void) {
         Camera *camera;

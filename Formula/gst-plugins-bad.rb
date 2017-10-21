@@ -1,16 +1,13 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.2.tar.xz"
-  sha256 "9c2c7edde4f59d74eb414e0701c55131f562e5c605a3ce9b091754f106c09e37"
-  revision 1
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.3.tar.xz"
+  sha256 "36d059761852bed0f1a7fcd3ef64a8aeecab95d2bca53cd6aa0f08054b1cbfec"
 
   bottle do
-    rebuild 1
-    sha256 "33f9c9e498727656e45b9731832680ab46a7ea9154835ea5943d0e485f5b1c32" => :high_sierra
-    sha256 "984fdfbdaf10dcb0d8c4e0c8c2851189952a154356f9da6952af19731af8c4db" => :sierra
-    sha256 "4b42ba3f130dc2b402ee7a9898121a79faa00f1f2d2e3ee6da46fd0cf48d123e" => :el_capitan
-    sha256 "b0f8e3f944433ef8c4b46d2be9997e5c73d76e659764b98f434dce50abf24538" => :yosemite
+    sha256 "4397ef2e3fa1c8f3412ac987f4e301f0957a9bfe78f9c262301738464bc1ebb2" => :high_sierra
+    sha256 "86f80880fdf44287e722225a43d95451938eb89106e5bb0d35745499f4ecd3fc" => :sierra
+    sha256 "14b6e1bf13820fb6515905a11a2b5361640c8ff5190c68f84958fe0676515e1b" => :el_capitan
   end
 
   head do
@@ -41,7 +38,7 @@ class GstPluginsBad < Formula
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
   depends_on "sound-touch" => :optional
-  depends_on "srtp@1.5" => :optional
+  depends_on "srtp@1.6" => :optional
   depends_on "libvo-aacenc" => :optional
 
   def install

@@ -3,13 +3,13 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.3.2.tar.gz"
-  sha256 "0f5bf688ba2add6f5db98a633edef43411ecf2c7ada5f2e14b9265820a96cd48"
+  url "https://mercurial-scm.org/release/mercurial-4.3.3.tar.gz"
+  sha256 "47a63c78698bc735667984bbc5b76619ff29a38d742f20cdf9f44cce59752374"
 
   bottle do
-    sha256 "126fc6bfc8de82ebf44872e5220b1b244beb0fe73547d20779e39aa6a6716a16" => :high_sierra
-    sha256 "07703e58de79bc1de1a37fd2c304f1e759894dbb0db427bb6f83549f361dfadc" => :sierra
-    sha256 "d1a3953d077ee4a72598b020189cb8cc4bd40feb897f1c01b2d255843310a3b4" => :el_capitan
+    sha256 "0932b0d55c3840dfb2203d5196c18f46e26c5b8d0db052dcb24e019041980916" => :high_sierra
+    sha256 "efb82be4e7892a6952875f717a48e7f37868ffc5b7d40b8c97c656019081f8a6" => :sierra
+    sha256 "bc6c537961d06b3518e463129544d1ec3e082658ea05c183a2b3305e865a3281" => :el_capitan
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
@@ -26,7 +26,7 @@ class Mercurial < Formula
     end
 
     # Configure a nicer default pager
-    (buildpath/"hgrc").write <<-EOS.undent
+    (buildpath/"hgrc").write <<~EOS
       [pager]
       pager = less -FRX
     EOS
@@ -46,7 +46,7 @@ class Mercurial < Formula
     return unless (opt_bin/"hg").exist?
     cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
     return if cacerts_configured.empty?
-    <<-EOS.undent
+    <<~EOS
       Homebrew has detected that Mercurial is configured to use a certificate
       bundle file as its trust store for TLS connections instead of using the
       default OpenSSL store. If you have trouble connecting to remote

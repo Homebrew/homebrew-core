@@ -32,7 +32,7 @@ class Tile38 < Formula
     datadir.mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Data directory created at #{datadir}. To start the server:
         tile38-server -d #{datadir}
 

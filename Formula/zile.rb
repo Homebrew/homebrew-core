@@ -1,14 +1,14 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftp.gnu.org/gnu/zile/zile-2.4.13.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.13.tar.gz"
-  sha256 "c795f369ea432219c21bf59ffc9322fd5f221217021a8fbaa6f9fed91778ac0e"
+  url "https://ftp.gnu.org/gnu/zile/zile-2.4.14.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.14.tar.gz"
+  sha256 "7a78742795ca32480f2bab697fd5e328618d9997d6f417cf1b14e9da9af26b74"
 
   bottle do
-    sha256 "f7dc25c97ab09bcccf37413dc7014e0a3204384574b02ffdb99cf2b418edd691" => :sierra
-    sha256 "cab5ad88b8f8a1a00b82516100a86bd3e60edf3e06971d283fa6b2454197adad" => :el_capitan
-    sha256 "42f3ec505b358369d9c6058602605ef4da80266813ce577916673264a7a608b5" => :yosemite
+    sha256 "4d1d81f3d9b08e43cfa4ea8aa2e6fd16b8529f6d97876d3456c4682e625ca0f5" => :high_sierra
+    sha256 "0fa34a0d34ca7b3158dd7368f8f225709a282e2f574380f3d0e5f2872a1923fc" => :sierra
+    sha256 "3ce1299d9c4f58bda18ddfc62d8af3b48843355bb9ff0cc2b13830f84a5fe08c" => :el_capitan
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/215

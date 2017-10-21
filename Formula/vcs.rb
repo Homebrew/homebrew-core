@@ -29,9 +29,9 @@ class Vcs < Formula
     system Formula["ffmpeg"].bin/"ffmpeg", "-f", "rawvideo", "-s", "hd720",
            "-pix_fmt", "yuv420p", "-r", "30", "-t", "5", "-i", "/dev/zero",
            testpath/"video.mp4"
-    assert (testpath/"video.mp4").exist?
+    assert_predicate testpath/"video.mp4", :exist?
 
     system bin/"vcs", "-i", "1", "-o", testpath/"sheet.png", testpath/"video.mp4"
-    assert (testpath/"sheet.png").exist?
+    assert_predicate testpath/"sheet.png", :exist?
   end
 end

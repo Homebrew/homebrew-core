@@ -27,7 +27,7 @@ class Paperkey < Formula
   test do
     resource("secret.gpg").stage do
       system "#{bin}/paperkey", "--secret-key", "secret.gpg", "--output", "test"
-      assert File.exist? "test"
+      assert_predicate Pathname.pwd/"test", :exist?
     end
   end
 end

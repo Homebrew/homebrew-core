@@ -44,7 +44,7 @@ class Redshift < Formula
     pkgshare.install "redshift.conf.sample"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A sample .conf file has been installed to #{opt_pkgshare}.
 
     Please note redshift expects to read its configuration file from
@@ -54,7 +54,7 @@ class Redshift < Formula
 
   plist_options :manual => "redshift"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

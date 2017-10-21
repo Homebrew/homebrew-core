@@ -30,6 +30,6 @@ class Cabextract < Formula
     (testpath/"test.cab").binwrite [cab].pack("H*")
 
     system "#{bin}/cabextract", "test.cab"
-    assert File.exist? "a"
+    assert_predicate testpath/"a", :exist?
   end
 end

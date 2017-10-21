@@ -7,7 +7,7 @@ class Riemann < Formula
   bottle :unneeded
 
   def shim_script
-    <<-EOS.undent
+    <<~EOS
       #!/bin/bash
       if [ -z "$1" ]
       then
@@ -28,7 +28,7 @@ class Riemann < Formula
     (bin+"riemann").write shim_script
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You may also wish to install these Ruby gems:
       riemann-client
       riemann-tools
@@ -38,7 +38,7 @@ class Riemann < Formula
 
   plist_options :manual => "riemann"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

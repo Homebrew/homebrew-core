@@ -58,7 +58,7 @@ class Bubbros < Formula
     (bin/"bubbros-server").write shim_script("bubbob/bb.py")
   end
 
-  def shim_script(target); <<-EOS.undent
+  def shim_script(target); <<~EOS
     #!/bin/bash
     cd "#{prefix}"
     python "#{target}" "$@"
@@ -66,7 +66,7 @@ class Bubbros < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       The Shared Memory extension of X11 display driver is not supported.
       Run the display client with --shm=no
         bubbros-client --shm=no

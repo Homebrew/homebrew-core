@@ -18,7 +18,7 @@ class Jasmin < Formula
   end
 
   test do
-    (testpath/"test.j").write <<-EOS.undent
+    (testpath/"test.j").write <<~EOS
     .class public HomebrewTest
     .super java/lang/Object
 

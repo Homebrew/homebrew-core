@@ -1,14 +1,14 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
   homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/rem-0.5.1.tar.gz"
-  sha256 "6c35b6cba46d9bc25fe018a6c77361e4c6421794624f545796323f75d6b38eeb"
+  url "http://www.creytiv.com/pub/rem-0.5.2.tar.gz"
+  sha256 "fbc54e81ed4fd28a11d525f4384d06bee4c11e10975395668e8260ef0d4a64eb"
 
   bottle do
     cellar :any
-    sha256 "d3ae13b97276ec22412989e517b2ce10f8649088444b485016108952591b30b3" => :sierra
-    sha256 "ef42e569ec7be8cbf83d49f858e9657b493f76380afc00ce49ad9bc5ed5c912d" => :el_capitan
-    sha256 "4ceca1440d4432e89c9f1150b8e68ee7343546eda4d6cd2aa6b06abffe8afddf" => :yosemite
+    sha256 "d7ded43ee81a52ebd7c845938ad7190bf91b7efaf4a547cbfd929af965a9dd81" => :high_sierra
+    sha256 "cdca7bd06d6fd9fd0eaa45db2dd5fd523ee1280ffb7d6f8fdd545839221a1688" => :sierra
+    sha256 "ffbb2918eeaecda2dc46722a77d7a03344ffe9e8c2be921c5d373f1463c407cf" => :el_capitan
   end
 
   depends_on "libre"
@@ -22,7 +22,7 @@ class Librem < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <re/re.h>
       #include <rem/rem.h>
       int main() {

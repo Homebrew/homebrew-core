@@ -15,7 +15,7 @@ class Sbuild < Formula
   end
 
   test do
-    expected = <<-EOS.undent
+    expected = <<~EOS
       import de.tototec.sbuild._
 
       @version("#{version}")

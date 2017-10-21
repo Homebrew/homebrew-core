@@ -26,7 +26,7 @@ class Autobench < Formula
 
   test do
     system "#{bin}/crfile", "-f", "#{testpath}/test", "-s", "42"
-    assert File.exist? "test"
+    assert_predicate testpath/"test", :exist?
     assert_equal 42, File.size("test")
   end
 end

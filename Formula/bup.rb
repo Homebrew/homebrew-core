@@ -51,7 +51,7 @@ class Bup < Formula
   def install
     # `make test` gets stuck unless the Python Tornado module is installed
     # Fix provided 12 Jun 2016 by upstream in #bup channel on IRC freenode
-    inreplace "t/test-web.sh", "if test -n \"$run_test\"; then", <<-EOS.undent
+    inreplace "t/test-web.sh", "if test -n \"$run_test\"; then", <<~EOS
       if ! python -c 'import tornado'; then
           WVSTART 'unable to import tornado; skipping test'
           run_test=''
@@ -81,6 +81,6 @@ class Bup < Formula
 
   test do
     system bin/"bup", "init"
-    assert File.exist?("#{testpath}/.bup")
+    assert_predicate testpath/".bup", :exist?
   end
 end

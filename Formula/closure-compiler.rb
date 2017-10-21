@@ -14,7 +14,7 @@ class ClosureCompiler < Formula
   end
 
   test do
-    (testpath/"test.js").write <<-EOS.undent
+    (testpath/"test.js").write <<~EOS
       (function(){
         var t = true;
         return t;

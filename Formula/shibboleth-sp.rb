@@ -5,16 +5,15 @@ class ShibbolethSp < Formula
   sha256 "7f23b8a28e66ae1b0fe525ca1f8b84c4566a071367f5d9a1bd71bd6b29e4d985"
 
   bottle do
-    rebuild 1
-    sha256 "97a9a2bdc3eae4a3f63169dcdc57e2eabea309f6b79d574fc481700988ad55a1" => :sierra
-    sha256 "9e02796184bc54d4d28fefe6919e1fc3cb2f1b986772753442fb507c09e1147c" => :el_capitan
-    sha256 "98001f2f772472263a686e38253ed68ad0bad277855c7c9a97943085e7f70f75" => :yosemite
+    rebuild 2
+    sha256 "38b259cc8b2d73e2c457891b7be04a733e972b74a92e6e02eaf5ddd477e6b836" => :high_sierra
+    sha256 "c8d1aa1d414752ec1f379e5eabd1ce452a567b7110b154eb8fb5ac66ed26d381" => :sierra
+    sha256 "14369604b2773cceba09e37a94e46f92c6eed7aab1c6d143de3a0af754584ccf" => :el_capitan
   end
-
-  option "with-apache-22", "Build mod_shib_22.so instead of mod_shib_24.so"
 
   depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
+  depends_on "httpd" if MacOS.version >= :high_sierra
   depends_on "opensaml"
   depends_on "xml-tooling-c"
   depends_on "xerces-c"
@@ -26,8 +25,11 @@ class ShibbolethSp < Formula
   depends_on "apr-util" => :build
   depends_on "apr" => :build
 
+  needs :cxx11
+
   def install
     ENV.O2 # Os breaks the build
+    ENV.cxx11
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -37,20 +39,21 @@ class ShibbolethSp < Formula
       --sysconfdir=#{etc}
       --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
       --with-saml=#{Formula["opensaml"].opt_prefix}
+      --enable-apache-24
       DYLD_LIBRARY_PATH=#{lib}
     ]
-    if build.with? "apache-22"
-      args << "--enable-apache-22"
-    else
-      args << "--enable-apache-24"
+
+    if MacOS.version >= :high_sierra
+      args << "--with-apxs24=#{Formula["httpd"].opt_bin}/apxs"
     end
+
     system "./configure", *args
     system "make", "install"
   end
 
   def caveats
     mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
-    <<-EOS.undent
+    <<~EOS
       You must manually edit httpd.conf to include
       LoadModule mod_shib #{lib}/shibboleth/#{mod}
       You must also manually configure
@@ -62,7 +65,7 @@ class ShibbolethSp < Formula
 
   plist_options :startup => true, :manual => "shibd"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -37,7 +37,7 @@ class Libvorbis < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <assert.h>
       #include "vorbis/vorbisfile.h"

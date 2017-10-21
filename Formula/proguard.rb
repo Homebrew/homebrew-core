@@ -14,7 +14,7 @@ class Proguard < Formula
   end
 
   test do
-    expect = <<-EOS.undent
+    expect = <<~EOS
       ProGuard, version #{version}
       Usage: java proguard.ProGuard [options ...]
     EOS

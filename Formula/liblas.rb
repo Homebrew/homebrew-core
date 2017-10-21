@@ -6,9 +6,10 @@ class Liblas < Formula
   head "https://github.com/libLAS/libLAS.git"
 
   bottle do
-    sha256 "b2de49ca32280d43ac3f6d1834efd6e386297afaa070b36ef6ec0d37589e173e" => :sierra
-    sha256 "d7d79cbf775119841245db9794c052a3e39cdf55fecfafcc191cd1cdcd74c61c" => :el_capitan
-    sha256 "0a1c49fe8fdd82e29f2cb04c2cd7a336ad95c88f732656aac1a2bd026c4ae284" => :yosemite
+    rebuild 1
+    sha256 "2931404e7478d7ebc2bcb898b0c6985dabe7b74d8d60ed6bc2c75b3952decfed" => :high_sierra
+    sha256 "18d1e55ca381414ca41bce0c8478cd5793b467c0161a01a3ae111a572083d3a0" => :sierra
+    sha256 "d4e63dbad2a70fb8fcab57a93d6013cb1048e247ede3d6101334dfc6dba249c5" => :el_capitan
   end
 
   option "with-test", "Verify during install with `make test`"
@@ -18,6 +19,13 @@ class Liblas < Formula
   depends_on "gdal"
   depends_on "boost"
   depends_on "laszip" => :optional
+
+  # Fix build for Xcode 9 with upstream commit
+  # Remove in next version
+  patch do
+    url "https://github.com/libLAS/libLAS/commit/49606470.patch?full_index=1"
+    sha256 "5590aef61a58768160051997ae9753c2ae6fc5b7da8549707dfd9a682ce439c8"
+  end
 
   def install
     mkdir "macbuild" do

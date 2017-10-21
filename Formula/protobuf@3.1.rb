@@ -122,14 +122,14 @@ class ProtobufAT31 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Editor support and examples have been installed to:
       #{doc}
     EOS
   end
 
   test do
-    testdata = <<-EOS.undent
+    testdata = <<~EOS
       syntax = "proto3";
       package test;
       message TestCase {

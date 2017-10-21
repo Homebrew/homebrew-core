@@ -13,7 +13,7 @@ class Nodebrew < Formula
     zsh_completion.install "completions/zsh/_nodebrew"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You need to manually run setup_dirs to create directories required by nodebrew:
       #{opt_bin}/nodebrew setup_dirs
 

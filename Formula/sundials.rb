@@ -13,6 +13,12 @@ class Sundials < Formula
     sha256 "f3926e8ecbd9601f519d96d451cdec60d23b33c3369cbeb82ca7ede1f3c190f4" => :yosemite
   end
 
+  devel do
+    url "https://computation.llnl.gov/projects/sundials/download/sundials-3.0.0-beta-2.tar.gz"
+    sha256 "0e597707b4210dee9ab3583f072c2e5513b28cbbd8465296fc5c203074b225dd"
+    version "3.0.0-beta-2"
+  end
+
   option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "cmake" => :build

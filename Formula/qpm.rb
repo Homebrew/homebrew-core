@@ -50,6 +50,6 @@ class Qpm < Formula
 
   test do
     system bin/"qpm", "install", "io.qpm.example"
-    assert File.exist?(testpath/"qpm.json")
+    assert_predicate testpath/"qpm.json", :exist?
   end
 end

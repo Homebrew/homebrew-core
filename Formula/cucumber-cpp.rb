@@ -33,18 +33,18 @@ class CucumberCpp < Formula
     ENV["BUNDLE_PATH"] = testpath
     system "gem", "install", "cucumber"
 
-    (testpath/"features/test.feature").write <<-EOS.undent
+    (testpath/"features/test.feature").write <<~EOS
       Feature: Test
         Scenario: Just for test
           Given A given statement
           When A when statement
           Then A then statement
     EOS
-    (testpath/"features/step_definitions/cucumber.wire").write <<-EOS.undent
+    (testpath/"features/step_definitions/cucumber.wire").write <<~EOS
       host: localhost
       port: 3902
     EOS
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cucumber-cpp/generic.hpp>
       GIVEN("^A given statement$") {
       }
@@ -59,7 +59,7 @@ class CucumberCpp < Formula
            "-lboost_program_options", "-lboost_filesystem"
     begin
       pid = fork { exec "./test" }
-      expected = <<-EOS.undent
+      expected = <<~EOS
         Feature: Test
 
           Scenario: Just for test   # features\/test.feature:2

@@ -19,7 +19,7 @@ class Tokei < Formula
   end
 
   test do
-    (testpath/"lib.rs").write <<-EOS.undent
+    (testpath/"lib.rs").write <<~EOS
       #[cfg(test)]
       mod tests {
           #[test]

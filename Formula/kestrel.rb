@@ -23,7 +23,7 @@ class Kestrel < Formula
     (libexec/"scripts/kestrel.sh").chmod 0755
     (libexec/"scripts/devel.sh").chmod 0755
 
-    (bin/"kestrel").write <<-EOS.undent
+    (bin/"kestrel").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/scripts/kestrel.sh" "$@"
     EOS

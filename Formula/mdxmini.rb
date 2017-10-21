@@ -43,7 +43,7 @@ class Mdxmini < Formula
 
   test do
     resource("test_song").stage testpath
-    (testpath/"mdxtest.c").write <<-EOS.undent
+    (testpath/"mdxtest.c").write <<~EOS
     #include <stdio.h>
     #include "libmdxmini/mdxmini.h"
 

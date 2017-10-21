@@ -62,7 +62,7 @@ class Dpkg < Formula
     (var/"log").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This installation of dpkg is not configured to install software, so
     commands such as `dpkg -i`, `dpkg --configure` will fail.
     EOS
@@ -72,7 +72,7 @@ class Dpkg < Formula
     # Do not remove the empty line from the end of the control file
     # All deb control files MUST end with an empty line
     (testpath/"test/data/homebrew.txt").write "brew"
-    (testpath/"test/DEBIAN/control").write <<-EOS.undent
+    (testpath/"test/DEBIAN/control").write <<~EOS
       Package: test
       Version: 1.40.99
       Architecture: amd64
@@ -81,10 +81,10 @@ class Dpkg < Formula
 
     EOS
     system bin/"dpkg", "-b", testpath/"test", "test.deb"
-    assert File.exist?("test.deb")
+    assert_predicate testpath/"test.deb", :exist?
 
     rm_rf "test"
     system bin/"dpkg", "-x", "test.deb", testpath
-    assert File.exist?("data/homebrew.txt")
+    assert_predicate testpath/"data/homebrew.txt", :exist?
   end
 end

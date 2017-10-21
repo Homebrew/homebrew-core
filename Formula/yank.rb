@@ -17,7 +17,7 @@ class Yank < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<-EOS.undent
+    (testpath/"test.exp").write <<~EOS
       spawn sh
       set timeout 1
       send "echo key=value | #{bin}/yank -d = | cat"

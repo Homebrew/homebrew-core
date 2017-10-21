@@ -23,14 +23,14 @@ class MozGitTools < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     git-root was not installed because it conflicts with the version provided by git-extras.
     EOS
   end
 
   test do
     # create a Git repo and check its branchname
-    (testpath/".gitconfig").write <<-EOS.undent
+    (testpath/".gitconfig").write <<~EOS
       [user]
         name = Real Person
         email = notacat@hotmail.cat

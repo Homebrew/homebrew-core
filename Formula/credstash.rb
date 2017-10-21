@@ -3,15 +3,15 @@ class Credstash < Formula
 
   desc "Little utility for managing credentials in the cloud"
   homepage "https://github.com/fugue/credstash"
-  url "https://files.pythonhosted.org/packages/85/75/14cdb36ad4e9356729db2235a0f6db88816ef49c506665199096d98d2a2b/credstash-1.13.3.tar.gz"
-  sha256 "f1f433133dbf117c71444a1c367da25f5496f5c1d0fe2e205a50e9a233814df4"
+  url "https://files.pythonhosted.org/packages/75/89/a8baf6b08c097a30dbe2e70b130cd3ba55a131195ec88c9a302a208eebee/credstash-1.13.4.tar.gz"
+  sha256 "676cc03a6143dec260c78aeef09d08a64faf27c411f8a94f6d9338e985879f81"
   head "https://github.com/fugue/credstash.git"
 
   bottle do
     cellar :any
-    sha256 "a3c5f664976e2486857cec385b85a6fe22f4ef6b940238b095ca665a48254e77" => :high_sierra
-    sha256 "a730490ff82b2b1db7419b2ec31d78b0ac08ee99c75118dcbea4b77b159914ad" => :sierra
-    sha256 "665cba805afe41674b13e9d32a629ad97587cfdca8fbecc05ce9919732e887af" => :el_capitan
+    sha256 "c79ca9eef1d20cdcb569a1f54e654c03ca435c792504de08786256b9fdbe5f62" => :high_sierra
+    sha256 "583551731c640711028903fc71847ee4b9fed7f29415303b228237a1a23e390c" => :sierra
+    sha256 "ae62dbcf9b0736e0476ed5338aa369fbf1aefc19b68b2fe9993049be5f765fc4" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

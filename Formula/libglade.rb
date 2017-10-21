@@ -23,7 +23,7 @@ class Libglade < Formula
     system "make", "install"
   end
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <glade/glade.h>
 
       int main(int argc, char *argv[]) {

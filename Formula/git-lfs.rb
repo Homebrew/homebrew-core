@@ -1,14 +1,14 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.3.1.tar.gz"
-  sha256 "bb30538dffc48a224e167ac520d3de677b835964b38afa94667e0559c7556844"
+  url "https://github.com/git-lfs/git-lfs/archive/v2.3.4.tar.gz"
+  sha256 "2594fe7bd8cc29d71effd087623b78cadab04a74e506ceeb4971a4ed9a7fbb94"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5db5b99c201c4f8bb62b88593b1471a548acf8962bf59e89c60a94b72c79a565" => :high_sierra
-    sha256 "8f8f4b76b4a5746fcada063c25a328cd1536dadda6ed19acc9244e7de0d07b75" => :sierra
-    sha256 "8c20820372685488438c5cb854c4e2148bafa0096ee7bf32ccf4d3f12e3b7e33" => :el_capitan
+    sha256 "d7c2b6887938ad68e914106ba3e7d61c1828b2a5478b60c57fd6940cb9e67c6d" => :high_sierra
+    sha256 "a8bed726486ae5a74ea788cfe649f43b1462664d45b8c00c308f9d1bed9f9e99" => :sierra
+    sha256 "0af771189963edc8c59f05a77de9be3a7a3b4f901b1f0cde60c7307e78afcbcc" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class GitLfs < Formula
     doc.install Dir["man/*.html"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Update your git config to finish installation:
 
       # Update global git config

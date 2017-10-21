@@ -1,16 +1,15 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
-  url "https://files.pythonhosted.org/packages/7e/ba/017268fdb04d9360c4cf1374cb38ddbf4151076811a3278bddb5e509f6c6/snakemake-4.1.0.tar.gz"
-  sha256 "0876797aeb633be7129ac943d9ff5643d491f9115a19484cbe8594c3e87912e5"
+  url "https://files.pythonhosted.org/packages/53/85/6af9903f99bc2eebff1dc4696c93294d89a4a8106c9cc44474c1f96c1781/snakemake-4.2.0.tar.gz"
+  sha256 "e930e0c16c6642f38c703779bcc769feeb32b3c22c6e213f209a8b123021f455"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e42db2699816542102ace24c9c93624a7236f56ec4141c9a229292f97b266006" => :high_sierra
-    sha256 "8e4cad7e146d65b4847dd21b6711c2f9ca7704c8cc35c80b01947ee8401520d0" => :sierra
-    sha256 "d74a7a7e0ee69c6b2a4e6f8a6f54f31eb367844285a7ddda943f27ec6cbc6c9c" => :el_capitan
+    sha256 "dd2583e4e13e57eba26fec2fa4f34d4e668bb8e1ea92981c0226de5475eb8a10" => :high_sierra
+    sha256 "c4fbdaa2eb27a1098352d3f766d862f3ba7a1dc0c11392584c5aeb2e67bc85cf" => :sierra
+    sha256 "9f4230b611e35abbc82ed979c5bdb0c3048bc8db0d40ea8f856d37e7969c3f2c" => :el_capitan
   end
 
   depends_on :python3
@@ -82,7 +81,7 @@ class Snakemake < Formula
   end
 
   test do
-    (testpath/"Snakefile").write <<-EOS.undent
+    (testpath/"Snakefile").write <<~EOS
       rule testme:
           output:
                "test.out"

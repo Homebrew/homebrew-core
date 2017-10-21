@@ -1,15 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.32.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.32.tar.gz"
-  sha256 "160b2151e2af359877f69cb2dcdfe1a3f4138ad3766e3b8562b96616e2f6bc2e"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.33.1.tar.gz"
+  sha256 "e4d9a182408100dce70e05dad1f8a703252a497aeb25706642286d84a118890b"
 
   bottle do
-    sha256 "b806d0a768be4afef7fe0934a042481522acad3744e8dfe3b118c514965890fe" => :high_sierra
-    sha256 "fee76f57275dfcb96dfe0bba1d1da66bed84301e20da30fdcd9d926f75f0a7a8" => :sierra
-    sha256 "7e04c4a47c91a0d92f0b78f2e8152e9f7d3baeddce2dcdcf736289def0f36955" => :el_capitan
-    sha256 "c27efcd2976e85ae7160250cd3ee5735fc94653edd6bcd6a0a666e5a2a87e264" => :yosemite
+    sha256 "336d2e6206615adf865e2bfe50a70b24c66b8287ae7fcd0528a1b43d519313a9" => :high_sierra
+    sha256 "8bc87fc6d9ed594794d06dc2b575359783e21569afd21b56de8184fab8eb2d11" => :sierra
+    sha256 "ddfd2688d3b2dc1bf0a97a44a2a3cfdfb287c14f05be71ba75bb676fb2d43112" => :el_capitan
   end
 
   option "with-pam", "Build with PAM support"
@@ -21,8 +19,8 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.19.tar.gz"
-    sha256 "629204bfbdcd3480e1ebcdc246da438323c3ea5fea57480ab859e8b201ad8793"
+    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.20.tar.gz"
+    sha256 "6fe17d0b8f25f2ad580e01ad81ce47a9e965255e383a1f80e455f9ca0f00be5b"
   end
 
   resource "stemmer" do
@@ -75,7 +73,7 @@ class Dovecot < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For Dovecot to work, you may need to create a dovecot user
     and group depending on your configuration file options.
     EOS
@@ -83,7 +81,7 @@ class Dovecot < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

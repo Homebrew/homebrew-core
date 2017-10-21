@@ -34,6 +34,6 @@ class Moodbar < Formula
 
   test do
     system bin/"moodbar", "-o", "test.mood", test_fixtures("test.wav")
-    assert File.exist?("test.mood")
+    assert_predicate testpath/"test.mood", :exist?
   end
 end

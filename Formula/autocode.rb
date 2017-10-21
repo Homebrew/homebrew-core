@@ -24,7 +24,7 @@ class Autocode < Formula
   end
 
   test do
-    (testpath/".autocode/config.yml").write <<-EOS.undent
+    (testpath/".autocode/config.yml").write <<~EOS
       name: test
       version: 0.1.0
       description: test description

@@ -17,7 +17,7 @@ class AntlrAT3 < Formula
   def install
     libexec.install "antlr-3.5.2-complete.jar"
     (share+"java").install_symlink "#{libexec}/antlr-3.5.2-complete.jar" => "antlr3.jar"
-    (bin+"antlr3").write <<-EOS.undent
+    (bin+"antlr3").write <<~EOS
     #!/bin/sh
     java -jar #{libexec}/antlr-3.5.2-complete.jar "$@"
     EOS
@@ -25,7 +25,7 @@ class AntlrAT3 < Formula
 
   test do
     exppath = testpath/"Exp.g"
-    exppath.write <<-EOS.undent
+    exppath.write <<~EOS
     grammar Exp;
     eval returns [double value]
         :    exp=atomExp {$value = $exp.value;}
@@ -41,7 +41,7 @@ class AntlrAT3 < Formula
         ;
     EOS
     javapath = testpath/"ANTLRDemo.java"
-    javapath.write <<-EOS.undent
+    javapath.write <<~EOS
     import org.antlr.runtime.*;
     public class ANTLRDemo {
         public static void main(String[] args) throws Exception {

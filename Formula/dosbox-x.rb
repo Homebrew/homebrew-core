@@ -8,9 +8,10 @@ class DosboxX < Formula
 
   bottle do
     cellar :any
-    sha256 "fb4c70a10846fe6b083e3a1f843df4ba22ee393cafaae31004053484d9ea2c40" => :sierra
-    sha256 "611026f20695f797964e027ac1801256937a27857da6178b90b94cd9e437711f" => :el_capitan
-    sha256 "f24bd885e75a4473f0caab1742b2df9c0562b3258d177cee3c01c1e5de7df1c3" => :yosemite
+    rebuild 1
+    sha256 "8cbaa0cf9658118b4b4ba32f4d1718f9bf49d0aec71cc7846463f37966559656" => :high_sierra
+    sha256 "d3fc4b2bd340ed6f7d2624b8daf95397891f8e142d6219437f2cae215f538216" => :sierra
+    sha256 "0b5098e3397a15804a300540be53c98f862c4f7276eb4c1de7966152421a9392" => :el_capitan
   end
 
   depends_on "sdl"
@@ -30,6 +31,12 @@ class DosboxX < Formula
     # Fix build failure due to missing <remote-ext.h> included from pcap.h
     # https://github.com/joncampbell123/dosbox-x/issues/275
     inreplace "src/hardware/ne2000.cpp", "#define HAVE_REMOTE\n", ""
+
+    # Fix compilation issue: https://github.com/joncampbell123/dosbox-x/pull/308
+    if DevelopmentTools.clang_build_version >= 900
+      inreplace "src/hardware/serialport/nullmodem.cpp",
+                "setCD(clientsocket > 0)", "setCD(clientsocket != 0)"
+    end
 
     args = %W[
       --prefix=#{prefix}

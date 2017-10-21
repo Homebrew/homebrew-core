@@ -25,7 +25,7 @@ class Gollum < Formula
   end
 
   test do
-    (testpath/"test.conf").write <<-EOS.undent
+    (testpath/"test.conf").write <<~EOS
     - "consumer.Profiler":
         Enable: true
         Runs: 100000

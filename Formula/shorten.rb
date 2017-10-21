@@ -23,6 +23,6 @@ class Shorten < Formula
 
   test do
     system "#{bin}/shorten", test_fixtures("test.wav"), "test"
-    assert File.exist? "test"
+    assert_predicate testpath/"test", :exist?
   end
 end

@@ -73,7 +73,7 @@ class Pond < Formula
     s = ""
 
     if build.without? "tor"
-      s += <<-EOS.undent
+      s += <<~EOS
         Pond requires Tor to be installed and running for usage. If you do not
         wish to use Homebrew's Tor you can install and run the Tor Browser Bundle.
 

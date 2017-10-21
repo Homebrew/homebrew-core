@@ -21,7 +21,7 @@ class Gpatch < Formula
   test do
     testfile = testpath/"test"
     testfile.write "homebrew\n"
-    patch = <<-EOS.undent
+    patch = <<~EOS
       1c1
       < homebrew
       ---

@@ -43,7 +43,7 @@ class Dlib < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <dlib/logger.h>
       dlib::logger dlog("example");
       int main() {

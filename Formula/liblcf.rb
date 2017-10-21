@@ -31,7 +31,7 @@ class Liblcf < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "lsd_reader.h"
       #include <cassert>
 

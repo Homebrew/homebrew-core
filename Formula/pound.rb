@@ -26,7 +26,7 @@ class Pound < Formula
   end
 
   test do
-    (testpath/"pound.cfg").write <<-EOS.undent
+    (testpath/"pound.cfg").write <<~EOS
       ListenHTTP
         Address 1.2.3.4
         Port    80

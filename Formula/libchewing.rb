@@ -30,7 +30,7 @@ class Libchewing < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
     #include <stdlib.h>
     #include <chewing/chewing.h>
     int main()

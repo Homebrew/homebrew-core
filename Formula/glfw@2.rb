@@ -21,7 +21,7 @@ class GlfwAT2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #define GLFW_INCLUDE_GLU
       #include <GL/glfw.h>
       #include <stdlib.h>

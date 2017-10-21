@@ -39,7 +39,7 @@ class PerlAT514 < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default Perl installs modules in your HOME dir. If this is an issue run:
       #{bin}/cpan o conf init
     EOS

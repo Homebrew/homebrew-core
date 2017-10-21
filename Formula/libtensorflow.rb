@@ -31,7 +31,7 @@ class Libtensorflow < Formula
     system "bazel", "build", "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow.so"
     lib.install "bazel-bin/tensorflow/libtensorflow.so"
     (include/"tensorflow/c").install "tensorflow/c/c_api.h"
-    (lib/"pkgconfig/tensorflow.pc").write <<-EOS.undent
+    (lib/"pkgconfig/tensorflow.pc").write <<~EOS
       Name: tensorflow
       Description: Tensorflow library
       Version: #{version}
@@ -41,7 +41,7 @@ class Libtensorflow < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <tensorflow/c/c_api.h>
       int main() {

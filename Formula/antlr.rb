@@ -11,12 +11,12 @@ class Antlr < Formula
   def install
     prefix.install "antlr-#{version}-complete.jar"
 
-    (bin/"antlr4").write <<-EOS.undent
+    (bin/"antlr4").write <<~EOS
       #!/bin/bash
       CLASSPATH="#{prefix}/antlr-#{version}-complete.jar:." exec java -jar #{prefix}/antlr-#{version}-complete.jar "$@"
     EOS
 
-    (bin/"grun").write <<-EOS.undent
+    (bin/"grun").write <<~EOS
       #!/bin/bash
       java -classpath #{prefix}/antlr-#{version}-complete.jar:. org.antlr.v4.gui.TestRig "$@"
     EOS
@@ -24,7 +24,7 @@ class Antlr < Formula
 
   test do
     path = testpath/"Expr.g4"
-    path.write <<-EOS.undent
+    path.write <<~EOS
     grammar Expr;
     prog:\t(expr NEWLINE)* ;
     expr:\texpr ('*'|'/') expr

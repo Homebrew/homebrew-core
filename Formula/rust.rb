@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.20.0-src.tar.gz"
-    sha256 "2aa4875ff4472c6e35262bbb9052cb2623da3dae6084a858cc59d36f33f18214"
+    url "https://static.rust-lang.org/dist/rustc-1.21.0-src.tar.gz"
+    sha256 "1707c142244b5bd909993559c6116c81987c1de21d6207c05d3ecbe5bba548fa"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.21.0",
-          :revision => "5b4b8b2ae3f6a884099544ce66dbb41626110ece"
+          :tag => "0.21.1",
+          :revision => "6084a2ba03aaa73794e6b86199e463ea6df290fe"
     end
 
     resource "racer" do
@@ -19,10 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "532cf7d2239885f7a77d0b5cf3a00071eb5b8c50b24b1558ad8112f8d2d446b0" => :high_sierra
-    sha256 "f79c48a0f62f4c781562c8dafe2a2dbf6012d63d93d4e7ab674e244957152d7b" => :sierra
-    sha256 "4fb38eeea97e9d337e996b161abf78f849bf441ccb69a193965b89457a5ad692" => :el_capitan
-    sha256 "466202b90dba96080f879bd504b72e4a31cb44d11daf9eba6fc413eb2f234898" => :yosemite
+    sha256 "ebe6dd9f87f6f81f9ec8c9d51763886896e521ab01266b7fe2ffd709b8306a13" => :high_sierra
+    sha256 "2077ee3e5c0b0793a9056ee961ab13fb8074163501607059b79d3c47626e3abf" => :sierra
+    sha256 "1aa86662988d782cba00e69b4543e14e6359c8c5db5bf5ebd07c381bc14f724c" => :el_capitan
   end
 
   head do
@@ -53,8 +52,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2017-07-20/cargo-0.20.0-x86_64-apple-darwin.tar.gz"
-    sha256 "a7f93a287c903b597705d484ab5ff20400503d71670a2e04460ee7fc86de36a0"
+    url "https://static.rust-lang.org/dist/2017-08-31/cargo-0.21.0-x86_64-apple-darwin.tar.gz"
+    sha256 "05720fe91343c6ed5c4995f7b06677a08a585209f6f504d192722f3bb585bc9d"
   end
 
   def install
@@ -111,7 +110,7 @@ class Rust < Formula
 
   test do
     system "#{bin}/rustdoc", "-h"
-    (testpath/"hello.rs").write <<-EOS.undent
+    (testpath/"hello.rs").write <<~EOS
     fn main() {
       println!("Hello World!");
     }

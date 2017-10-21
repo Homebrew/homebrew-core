@@ -1,16 +1,15 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.02.tar.gz"
-  sha256 "45f38f25ea03d089523c0a4ecdc6905f1980e32e0df3bc922bad1bb282894675"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.05.tar.gz"
+  sha256 "bbec8de62799d20a5ed0c50344209e41f2cb0aadc0a5e6530cb5eae27c1d66d2"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b0a08bfc130b21c45356248b11a66d6a6dc2b6c1f5739a387f3b69d073b2220" => :high_sierra
-    sha256 "25b0b4c1deb8ee39f528fc81ca1c436d6ee16b9b5f4764a9eff8ecffff22fd22" => :sierra
-    sha256 "25b0b4c1deb8ee39f528fc81ca1c436d6ee16b9b5f4764a9eff8ecffff22fd22" => :el_capitan
-    sha256 "9430c06cc056ce2f7b474bed1e199e4d3ddaa648e2ce611dcf2828be24cb89ed" => :yosemite
+    sha256 "e91da90655afe1c328028e5ded0dc4101089fafd979670eefd4ec17f3c51ed41" => :high_sierra
+    sha256 "045836167b824998a90dcf5fb72236369ec0483b954122b0ed8f5c96e9354ca9" => :sierra
+    sha256 "b3471464a90386badf5e3e7ad7bb36fb864de6f8387edb00f71fb5837cc961e4" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -24,8 +23,8 @@ class GetIplayer < Formula
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.43.tar.gz"
-    sha256 "ca177da7b0c1e2a31a1880c4a06afbbd1ada1da57146bfa030b7912a3d608b5e"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.47.tar.gz"
+    sha256 "e041baf237befa81b0b917caf5a238886abe4c687b82ac6d59011375d9075494"
   end
 
   def install
@@ -52,7 +51,7 @@ class GetIplayer < Formula
     output = shell_output("\"#{bin}/get_iplayer\" --refresh --refresh-include=\"BBC None\" --quiet dontshowanymatches 2>&1")
     assert_match "get_iplayer #{pkg_version}-homebrew", output, "Unexpected version"
     assert_match "INFO: 0 matching programmes", output, "Unexpected output"
-    assert_match "INFO: Using concurrent indexing", output,
+    assert_match "INFO: Indexing tv programmes (concurrent)", output,
                          "Mojolicious not found"
   end
 end

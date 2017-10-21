@@ -19,7 +19,7 @@ class Ck < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
     #include <ck_spinlock.h>
     int main() {
       ck_spinlock_t spinlock;

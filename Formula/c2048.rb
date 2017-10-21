@@ -18,7 +18,7 @@ class C2048 < Formula
     bin.install "2048"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The game supports different color schemes.
     For the black-to white:
       2048 blackwhite

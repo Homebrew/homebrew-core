@@ -21,7 +21,7 @@ class Certigo < Formula
   end
 
   test do
-    (testpath/"test.crt").write <<-EOS.undent
+    (testpath/"test.crt").write <<~EOS
       -----BEGIN CERTIFICATE-----
       MIIDLDCCAhQCCQCa74bQsAj2/jANBgkqhkiG9w0BAQsFADBYMQswCQYDVQQGEwJV
       UzELMAkGA1UECBMCQ0ExEDAOBgNVBAoTB2NlcnRpZ28xEDAOBgNVBAsTB2V4YW1w

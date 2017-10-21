@@ -25,7 +25,7 @@ class Openjazz < Formula
   # services to distribute this game by modem as long as no files are altered
   # or removed."
   resource "shareware" do
-    url "http://image.dosgamesarchive.com/games/jazz.zip"
+    url "https://image.dosgamesarchive.com/games/jazz.zip"
     sha256 "ed025415c0bc5ebc3a41e7a070551bdfdfb0b65b5314241152d8bd31f87c22da"
   end
 
@@ -44,7 +44,7 @@ class Openjazz < Formula
     system "make", "install"
 
     # Default game lookup path is the OpenJazz binary's location
-    (bin/"OpenJazz").write <<-EOS.undent
+    (bin/"OpenJazz").write <<~EOS
     #!/bin/sh
 
     exec "#{pkgshare}/OpenJazz" "$@"
@@ -55,7 +55,7 @@ class Openjazz < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The shareware version of Jazz Jackrabbit has been installed.
     You can install the full version by copying the game files to:
       #{pkgshare}

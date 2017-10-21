@@ -22,14 +22,14 @@ class Vimpager < Formula
     system "make", "docs" if build.with? "pandoc"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use vimpager as your default pager, add `export PAGER=vimpager` to your
     shell configuration.
     EOS
   end
 
   test do
-    (testpath/"test.txt").write <<-EOS.undent
+    (testpath/"test.txt").write <<~EOS
       This is test
     EOS
 

@@ -59,7 +59,7 @@ class Opencolorio < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       OpenColorIO requires several environment variables to be set.
       You can source the following script in your shell-startup to do that:
 

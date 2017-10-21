@@ -1,18 +1,19 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.0.6.src.tgz"
-  version "1.0.6"
-  sha256 "1f9b867385f6d99e8ff0f15b66e6bf7205b14617030db7482641627472eae0c8"
+  url "https://binaries.cockroachdb.com/cockroach-v1.1.0.src.tgz"
+  version "1.1.0"
+  sha256 "666609a3cd34d0274ea4d59908e76902c8b907fb2f887293b1c21af4a7ec7b60"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc7b77d7f33a5e545fac6d5bf725b135466f5d482c8d0c4c19e484b470710b69" => :high_sierra
-    sha256 "9d6e1e5e3e6596019aec5e9658a15aea60f53894e9344f3f2f13d63aacd4cda3" => :sierra
-    sha256 "104c97aace081d38ec050fe2de8b23bdc99986aafb123943d29ea8d1e3794de5" => :el_capitan
+    sha256 "dae15e102cf8e99fefe965761c644cb43167a7b889710479f213cd7c6fbfa7b5" => :high_sierra
+    sha256 "4c337c4fede62fe2d29a98d4d93af96d4639ec51032a2063fdc54a862a67d675" => :sierra
+    sha256 "f858815a5a6a355a0ca68a2ee4a9b4c2d0eefdd25c1b2e45abff4b555b89b57b" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "xz" => :build
@@ -26,7 +27,7 @@ class Cockroach < Formula
     system "make", "install", "prefix=#{prefix}"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For local development only, this formula ships a launchd configuration to
     start a single-node cluster that stores its data under:
       #{var}/cockroach/
@@ -42,7 +43,7 @@ class Cockroach < Formula
 
   plist_options :manual => "cockroach start --insecure"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -74,17 +75,17 @@ class Cockroach < Formula
       # Redirect stdout and stderr to a file, or else  `brew test --verbose`
       # will hang forever as it waits for stdout and stderr to close.
       system "#{bin}/cockroach start --insecure --background &> start.out"
-      pipe_output("#{bin}/cockroach sql --insecure", <<-EOS.undent)
+      pipe_output("#{bin}/cockroach sql --insecure", <<~EOS)
         CREATE DATABASE bank;
         CREATE TABLE bank.accounts (id INT PRIMARY KEY, balance DECIMAL);
         INSERT INTO bank.accounts VALUES (1, 1000.50);
       EOS
       output = pipe_output("#{bin}/cockroach sql --insecure --format=csv",
         "SELECT * FROM bank.accounts;")
-      assert_equal <<-EOS.undent, output
-        1 row
+      assert_equal <<~EOS, output
         id,balance
         1,1000.50
+        # 1 row
       EOS
     ensure
       system "#{bin}/cockroach", "quit", "--insecure"

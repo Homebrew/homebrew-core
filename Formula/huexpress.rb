@@ -22,8 +22,6 @@ class Huexpress < Formula
   depends_on "libzip"
 
   def install
-    system "2to3-", "--write", "--fix=print", "SConstruct"
-
     scons
     bin.install ["src/huexpress", "src/hucrc"]
   end

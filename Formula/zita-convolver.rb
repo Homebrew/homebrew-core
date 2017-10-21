@@ -22,7 +22,7 @@ class ZitaConvolver < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
     #include <zita-convolver.h>
 
     int main() {

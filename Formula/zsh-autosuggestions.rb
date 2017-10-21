@@ -11,7 +11,7 @@ class ZshAutosuggestions < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     To activate the autosuggestions, add the following at the end of your .zshrc:
 
       source #{HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh

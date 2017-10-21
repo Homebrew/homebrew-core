@@ -37,7 +37,7 @@ class Datomic < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       All commands have been installed with the prefix "datomic-".
 
       We agreed to the Datomic Free Edition License for you:
@@ -48,7 +48,7 @@ class Datomic < Formula
 
   plist_options :manual => "transactor #{HOMEBREW_PREFIX}/etc/datomic/free-transactor.properties"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

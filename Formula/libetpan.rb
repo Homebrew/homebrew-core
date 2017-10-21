@@ -25,7 +25,7 @@ class Libetpan < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libetpan/libetpan.h>
       #include <string.h>
       #include <stdlib.h>

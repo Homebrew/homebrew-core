@@ -2,14 +2,15 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.4.15",
-      :revision => "ae3b137914f8478a4b7bf14db24df6677f9f278f"
+      :tag => "0.4.18d",
+      :revision => "246f5bc0ac830462b2dc5c26462b7705fd4844b1"
+  version "0.4.18d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c744e99931f023a14d1453af5f4458a10506866b8cf3101fd7adf9ae58cf559" => :high_sierra
-    sha256 "df46dc3087f46d95dedc4731c9caf0d431496b4d410659cf973d256b41da4479" => :sierra
-    sha256 "6a766d2791855fab19139c8c6cd7b9426b4a0adbc9afdb3c1b4cefded58a9cc9" => :el_capitan
+    sha256 "0e7c88d74ebf2bb1f95d2276d33b9c53827253e704914d4cd632de9bb0bbd517" => :high_sierra
+    sha256 "0b200df5c4a9e3d77c58414bf9338539db3d53842664425c18d305aa4866d57e" => :sierra
+    sha256 "cf8b6314e354363dd4c423a4898ee7adc0fc23f412ca3d6620e3057799cfdf0e" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -18,10 +19,10 @@ class FaasCli < Formula
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/alexellis/faas-cli").install buildpath.children
-    cd "src/github.com/alexellis/faas-cli" do
+    (buildpath/"src/github.com/openfaas/faas-cli").install buildpath.children
+    cd "src/github.com/openfaas/faas-cli" do
       commit = Utils.popen_read("git rev-list -1 HEAD").chomp
-      system "go", "build", "-ldflags", "-s -w -X github.com/alexellis/faas-cli/commands.GitCommit=#{commit}", "-a",
+      system "go", "build", "-ldflags", "-s -w -X github.com/openfaas/faas-cli/commands.GitCommit=#{commit}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       prefix.install_metafiles
     end
@@ -45,7 +46,7 @@ class FaasCli < Formula
       end
     end
 
-    (testpath/"test.yml").write <<-EOF.undent
+    (testpath/"test.yml").write <<~EOS
       provider:
         name: faas
         gateway: http://localhost:#{port}
@@ -56,19 +57,20 @@ class FaasCli < Formula
           lang: python
           handler: ./dummy_function
           image: dummy_image
-    EOF
+    EOS
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Deploying: dummy_function.
       Removing old service.
       Deployed.
-      200 OK
       URL: http://localhost:#{port}/function/dummy_function
+
+      200 OK
     EOS
 
     begin
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output.chomp
+      assert_equal expected, output
 
       commit = Utils.popen_read("git rev-list -1 HEAD").chomp
       output = shell_output("#{bin}/faas-cli version")

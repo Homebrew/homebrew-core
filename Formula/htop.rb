@@ -24,15 +24,13 @@ class Htop < Formula
 
   depends_on "ncurses" => :optional
 
-  conflicts_with "htop-osx", :because => "both install an `htop` binary"
-
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     htop requires root privileges to correctly display all running processes,
     so you will need to run `sudo htop`.
     You should be certain that you trust any software you grant root privileges.

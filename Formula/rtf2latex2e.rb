@@ -17,18 +17,18 @@ class Rtf2latex2e < Formula
     system "make", "install", "prefix=#{prefix}", "CC=#{ENV.cc}"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Configuration files have been installed to:
       #{opt_pkgshare}
     EOS
   end
 
   test do
-    (testpath/"test.rtf").write <<-'EOF'.undent
+    (testpath/"test.rtf").write <<~'EOS'
     {\rtf1\ansi
     {\b hello} world
     }
-    EOF
+    EOS
     system bin/"rtf2latex2e", "-n", "test.rtf"
     assert_match "textbf{hello} world", File.read("test.tex")
   end

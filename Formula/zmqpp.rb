@@ -25,7 +25,7 @@ class Zmqpp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <zmqpp/zmqpp.hpp>
       int main() {
         zmqpp::frame frame;

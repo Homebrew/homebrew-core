@@ -8,10 +8,10 @@ class CharmTools < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "14a879ef21ea3dadc0a28a7f975b90e92bbf5e66096bbfeba9277c6fa8b4a3bf" => :sierra
-    sha256 "d44d16471b7778680cd563cfb0202925fe1a203bdf817ee6097afc8a79a6a35e" => :el_capitan
-    sha256 "53ab4562fa2bf8b036505b0e48d5ef8530fb4f8b9f21233d9c9c1544aeb6bb29" => :yosemite
+    rebuild 2
+    sha256 "ff48d77b42c2c922165c5bbbaf5b9f4f06974f13ae204960c55eef6993aaf6ca" => :high_sierra
+    sha256 "8e39da2d3837ee209393ab3dd3e5483228bd140f7372757cc99d6e7a4925b76b" => :sierra
+    sha256 "57fc203668f8a4760353b7983a0e6ec6a3e24332ab216c6db191463c3cbc3832" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -57,8 +57,8 @@ class CharmTools < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
+    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
   end
 
   resource "colander" do
@@ -67,8 +67,8 @@ class CharmTools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
-    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
+    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
+    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
   end
 
   resource "ecdsa" do

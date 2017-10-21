@@ -20,12 +20,12 @@ class Biogeme < Formula
   end
 
   test do
-    (testpath/"minimal.py").write <<-EOS.undent
+    (testpath/"minimal.py").write <<~EOS
       from biogeme import *
       rowIterator('obsIter')
       BIOGEME_OBJECT.SIMULATE = Enumerate({'Test':1},'obsIter')
     EOS
-    (testpath/"minimal.dat").write <<-EOS.undent
+    (testpath/"minimal.dat").write <<~EOS
       TEST
       1
     EOS

@@ -29,6 +29,6 @@ class Qtfaststart < Formula
     resource("mov").stage testpath
     system "#{bin}/qt-faststart", input, output
 
-    assert File.exist? output
+    assert_predicate testpath/output, :exist?
   end
 end

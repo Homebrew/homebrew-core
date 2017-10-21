@@ -19,7 +19,7 @@ class Libwandevent < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <sys/time.h>
       #include <libwandevent.h>
 

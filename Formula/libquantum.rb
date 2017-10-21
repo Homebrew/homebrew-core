@@ -28,7 +28,7 @@ class Libquantum < Formula
   end
 
   test do
-    (testpath/"qtest.c").write <<-EOS.undent
+    (testpath/"qtest.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
       #include <time.h>

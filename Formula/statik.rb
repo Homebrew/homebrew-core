@@ -26,31 +26,31 @@ class Statik < Formula
   end
 
   test do
-    (testpath/"config.yml").write <<-EOS.undent
+    (testpath/"config.yml").write <<~EOS
       project-name: Homebrew Test
       base-path: /
     EOS
     (testpath/"models/Post.yml").write("title: String")
     (testpath/"data/Post/test-post1.yml").write("title: Test post 1")
     (testpath/"data/Post/test-post2.yml").write("title: Test post 2")
-    (testpath/"views/posts.yml").write <<-EOS.undent
+    (testpath/"views/posts.yml").write <<~EOS
       path:
         template: /{{ post.pk }}/
         for-each:
           post: session.query(Post).all()
       template: post
     EOS
-    (testpath/"views/home.yml").write <<-EOS.undent
+    (testpath/"views/home.yml").write <<~EOS
       path: /
       template: home
     EOS
-    (testpath/"templates/home.html").write <<-EOS.undent
+    (testpath/"templates/home.html").write <<~EOS
       <html>
       <head><title>Home</title></head>
       <body>Hello world!</body>
       </html>
     EOS
-    (testpath/"templates/post.html").write <<-EOS.undent
+    (testpath/"templates/post.html").write <<~EOS
       <html>
       <head><title>Post</title></head>
       <body>{{ post.title }}</body>
@@ -58,8 +58,8 @@ class Statik < Formula
     EOS
     system bin/"statik"
 
-    assert(File.exist?(testpath/"public/index.html"), "home view was not correctly generated!")
-    assert(File.exist?(testpath/"public/test-post1/index.html"), "test-post1 was not correctly generated!")
-    assert(File.exist?(testpath/"public/test-post2/index.html"), "test-post2 was not correctly generated!")
+    assert_predicate testpath/"public/index.html", :exist?, "home view was not correctly generated!"
+    assert_predicate testpath/"public/test-post1/index.html", :exist?, "test-post1 was not correctly generated!"
+    assert_predicate testpath/"public/test-post2/index.html", :exist?, "test-post2 was not correctly generated!"
   end
 end

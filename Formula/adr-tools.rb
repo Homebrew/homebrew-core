@@ -11,7 +11,7 @@ class AdrTools < Formula
 
     # Unlink and re-write to matches homebrew's installation conventions
     config.unlink
-    config.write <<-EOS.undent
+    config.write <<~EOS
       #!/bin/bash
       echo 'adr_bin_dir=\"#{bin}\"'
       echo 'adr_template_dir=\"#{prefix}\"'

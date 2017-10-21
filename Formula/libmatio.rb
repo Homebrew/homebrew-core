@@ -35,7 +35,7 @@ class Libmatio < Formula
 
   test do
     testpath.install resource("test_mat_file")
-    (testpath/"mat.c").write <<-'EOS'.undent
+    (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>
       int main(int argc, char **argv) {

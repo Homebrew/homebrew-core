@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.1.2.tar.gz"
-  sha256 "53dcde73b89380151f4a86577acea2b03fc81335d1f6034beea3a80feec649d5"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.3.0.tar.gz"
+  sha256 "e4ba7733693c678b17465d5717b26031c5d0a08689ecfbc75887049e99f097de"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8372aa2238821aaac4af4d96fe98a09793837cf863b234c101a79c64da2f1908" => :high_sierra
-    sha256 "e0dc2f37f3d969c171d64da46ceb30eb8868c215e2a74e780037c19592336dee" => :sierra
-    sha256 "fce58b216c9329a96323c98567414cbffe4f3118e4e4a15a2614eb7c2192a9b1" => :el_capitan
+    sha256 "d61422715bd65fe95310f1d6447ac88ae3a3c1ec9f9b9fd9f2d68a9e7bf1a038" => :high_sierra
+    sha256 "87e880095a6b7ba8ae05394c1f97add7fa6265613c60634c41965237ddfaf310" => :sierra
+    sha256 "17698be7a121949a0f3dfee96f5df9df22b609e6747971e5cb2d246487407536" => :el_capitan
   end
 
   depends_on :python3
@@ -26,12 +26,12 @@ class PreCommit < Formula
   test do
     testpath.cd do
       system "git", "init"
-      (testpath/".pre-commit-config.yaml").write <<-EOF.undent
+      (testpath/".pre-commit-config.yaml").write <<~EOS
       -   repo: https://github.com/pre-commit/pre-commit-hooks
           sha: v0.9.1
           hooks:
           -   id: trailing-whitespace
-      EOF
+      EOS
       system bin/"pre-commit", "install"
       system bin/"pre-commit", "run", "--all-files"
     end

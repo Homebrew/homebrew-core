@@ -1,7 +1,7 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
-  url "ftp://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2"
+  url "https://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2"
   mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.13.0.tar.bz2"
   sha256 "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
 

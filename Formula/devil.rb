@@ -48,7 +48,7 @@ class Devil < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <IL/il.h>
       int main() {
         ilInit();

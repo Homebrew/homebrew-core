@@ -20,7 +20,7 @@ class Fmt < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <string>
       #include <fmt/format.h>

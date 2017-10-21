@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://jenkins-ci.org"
-  url "http://mirrors.jenkins-ci.org/war/2.81/jenkins.war"
-  sha256 "6cdb8912f63b19bad5f87e9200babb8926ab1a1a480998b1f54d4a215c354338"
+  url "http://mirrors.jenkins-ci.org/war/2.85/jenkins.war"
+  sha256 "197264541fb300543ecec9bfb8066912656074b2211c8d5c38dc6edd9dd9197d"
 
   head do
     url "https://github.com/jenkinsci/jenkins.git"
@@ -24,14 +24,14 @@ class Jenkins < Formula
     bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-cli"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Note: When using launchctl the port will be 8080.
   EOS
   end
 
   plist_options :manual => "jenkins"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

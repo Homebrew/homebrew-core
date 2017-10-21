@@ -28,7 +28,7 @@ class Inform6 < Formula
   test do
     resource("Adventureland.inf").stage do
       system "#{bin}/inform", "Adventureland.inf"
-      assert File.exist? "Adventureland.z5"
+      assert_predicate Pathname.pwd/"Adventureland.z5", :exist?
     end
   end
 end

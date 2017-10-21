@@ -23,6 +23,6 @@ class SourceToImage < Formula
 
   test do
     system "#{bin}/s2i", "create", "testimage", testpath
-    assert (testpath/"Dockerfile").exist?, "s2i did not create the files."
+    assert_predicate testpath/"Dockerfile", :exist?, "s2i did not create the files."
   end
 end

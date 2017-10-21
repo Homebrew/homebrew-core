@@ -1,16 +1,16 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.29.6.tar.gz"
-  sha256 "e3b496d692536e3143e1ea4398bc0d0ec578dbc2e9dc0fcf2d6b4da32c0bf8af"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.29.8.tar.gz"
+  sha256 "aa0a50b7200504703adb37b0adbbf3b7de2bf354478921e742acffc940dc246e"
 
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d275fae6866e4e7042d4f41d9383f0fb64e40fa07a3da55e8a2a1a90cad7321d" => :high_sierra
-    sha256 "9d14cbb4b194eb413425799c6b78b2ada1bc82fee7c4d51b4a6c048e1e60bb79" => :sierra
-    sha256 "69174c57679a028af80d5c00b1a3b3da1e0898bd334bba72935a4aefb30027f3" => :el_capitan
+    sha256 "736ff7a17b9ea20e10afe38446be0323d967539a0fc3c384d61e6760354dd520" => :high_sierra
+    sha256 "5603d9d6b0c262080b40056bb5e2f12615ea4312f5b747ca1b60286729b7d1dd" => :sierra
+    sha256 "72f23b62e3d2e332e7f3cfe6738ae575beafe0ebb711e03202d543a9500cdd8f" => :el_capitan
   end
 
   depends_on :xcode => ["8.0", :build]
@@ -25,7 +25,7 @@ class Swiftformat < Formula
   end
 
   test do
-    (testpath/"potato.swift").write <<-EOS.undent
+    (testpath/"potato.swift").write <<~EOS
       struct Potato {
         let baked: Bool
       }

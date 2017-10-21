@@ -22,7 +22,7 @@ class Hayai < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <hayai/hayai.hpp>
       #include <iostream>
       int main() {

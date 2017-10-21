@@ -25,7 +25,7 @@ class NatsStreamingServer < Formula
 
   plist_options :manual => "nats-streaming-server"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -51,7 +51,7 @@ class NatsStreamingServer < Formula
 
     begin
       assert_match "INFO", shell_output("curl localhost:8085")
-      assert File.exist?(testpath/"log")
+      assert_predicate testpath/"log", :exist?
       assert_match version.to_s, File.read(testpath/"log")
     ensure
       Process.kill "SIGINT", pid

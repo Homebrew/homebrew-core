@@ -32,7 +32,7 @@ class Opus < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <opus.h>
 
       int main(int argc, char **argv)

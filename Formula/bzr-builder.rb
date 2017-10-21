@@ -25,7 +25,7 @@ class BzrBuilder < Formula
         system "bzr", "commit", "-m", "initial import"
       end
 
-      (testpath/"repo/my.recipe").write <<-EOS.undent
+      (testpath/"repo/my.recipe").write <<~EOS
         # bzr-builder format 0.3 deb-version 1.0+{revno}-{revno:packaging}
         trunk
       EOS
@@ -33,8 +33,8 @@ class BzrBuilder < Formula
       system "bzr", "build", "my.recipe", "branch"
 
       cd "branch" do
-        assert (testpath/"repo/branch/bzr-builder.manifest").exist?
-        assert (testpath/"repo/branch/readme.txt").exist?
+        assert_predicate testpath/"repo/branch/bzr-builder.manifest", :exist?
+        assert_predicate testpath/"repo/branch/readme.txt", :exist?
       end
     end
   end

@@ -13,7 +13,7 @@ class Bee < Formula
   end
 
   test do
-    (testpath/"bee.properties").write <<-EOS.undent
+    (testpath/"bee.properties").write <<~EOS
       test-database.driver=com.mysql.jdbc.Driver
       test-database.url=jdbc:mysql://127.0.0.1/test-database
       test-database.user=root

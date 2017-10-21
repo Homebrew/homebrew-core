@@ -27,7 +27,7 @@ class Spin < Formula
   end
 
   test do
-    (testpath/"test.pml").write <<-EOS.undent
+    (testpath/"test.pml").write <<~EOS
       mtype = { ruby, python };
       mtype = { golang, rust };
       mtype language = ruby;

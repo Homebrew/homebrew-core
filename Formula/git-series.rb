@@ -22,7 +22,7 @@ class GitSeries < Formula
   end
 
   test do
-    (testpath/".gitconfig").write <<-EOS.undent
+    (testpath/".gitconfig").write <<~EOS
     [user]
       name = Real Person
       email = notacat@hotmail.cat

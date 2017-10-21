@@ -21,7 +21,7 @@ class Clog < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Next step is to create a .clogrc file in your home directory. See 'man clog'
     for details and a sample file.
     EOS

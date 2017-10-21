@@ -10,6 +10,12 @@ class Ruby < Formula
     sha256 "0f8cb64f36323fd90e53d54138b024296e09dc662e3969cd7e122a98e1eea3f3" => :el_capitan
   end
 
+  devel do
+    url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0-preview1.tar.xz"
+    version "2.5.0-preview1"
+    sha256 "c2f518eb04b38bdd562ba5611abd2521248a1608fc466368563dd794ddeddd09"
+  end
+
   head do
     url "https://svn.ruby-lang.org/repos/ruby/trunk/"
     depends_on "autoconf" => :build
@@ -102,7 +108,7 @@ class Ruby < Formula
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config(abi_version); <<-EOS.undent
+  def rubygems_config(abi_version); <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir

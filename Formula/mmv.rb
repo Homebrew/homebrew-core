@@ -36,7 +36,7 @@ class Mmv < Formula
     touch testpath/"a"
     touch testpath/"b"
     pipe_output(bin/"mmv", "a b\nb c\n")
-    assert !(testpath/"a").exist?
-    assert (testpath/"c").exist?
+    refute_predicate testpath/"a", :exist?
+    assert_predicate testpath/"c", :exist?
   end
 end

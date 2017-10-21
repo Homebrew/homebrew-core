@@ -24,7 +24,7 @@ class TokyoDystopia < Formula
   end
 
   test do
-    (testpath/"test.tsv").write <<-EOS.undent
+    (testpath/"test.tsv").write <<~EOS
       1\tUnited States
       55\tBrazil
       81\tJapan

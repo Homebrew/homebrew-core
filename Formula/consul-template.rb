@@ -35,7 +35,7 @@ class ConsulTemplate < Formula
   end
 
   test do
-    (testpath/"template").write <<-EOS.undent
+    (testpath/"template").write <<~EOS
       {{"homebrew" | toTitle}}
     EOS
     system bin/"consul-template", "-once", "-template", "template:test-result"

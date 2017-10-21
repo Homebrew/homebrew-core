@@ -1,17 +1,16 @@
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/v0.12.3.tar.gz"
-  sha256 "a304c29267cf7e00b7299b6ac8da0317f2f4f4096acb6cf817d4c745e0dee8b4"
+  url "https://github.com/Masterminds/glide/archive/v0.13.0.tar.gz"
+  sha256 "ebbfa28e547db921add3557317c810f87d4ece983213d8e9899783b3e3b43ae7"
 
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f4182165b0600f3698de812a62fa629ec0383703ff246660f45fc115e5c0ceb" => :high_sierra
-    sha256 "ffe9893d80a07efb04e55922b14ea86e8a2eb480bbab0c2122ae6797c0465040" => :sierra
-    sha256 "13484c8842708784a077477dbdc6c5b39836ddbcbf00d2ffdfe15044e4772812" => :el_capitan
-    sha256 "fb569cf720820ae1e11d027b730d11244a5f7fe3ecff1c8bb6533209b03053a4" => :yosemite
+    sha256 "a5bdbe4484a8690a81791e188f913a2f70b622623380b6db049619c1539f494d" => :high_sierra
+    sha256 "a8e2fb3f3e6c68d05d12342a53ee6f3c8d666262d484064c26888a92e420f20a" => :sierra
+    sha256 "01076083721c1d1f5e4fd9f3d8e6dd88472a707e306e32670dc02fb3249e8016" => :el_capitan
   end
 
   depends_on "go"
@@ -31,6 +30,6 @@ class Glide < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/glide --version")
     system bin/"glide", "create", "--non-interactive", "--skip-import"
-    assert File.exist?("glide.yaml")
+    assert_predicate testpath/"glide.yaml", :exist?
   end
 end

@@ -6,12 +6,10 @@ class Rinetd < Formula
   sha256 "0c68d27c5bd4b16ce4f58a6db514dd6ff37b2604a88b02c1dfcdc00fc1059898"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b779958c18427d9205e05bf52b7783e27ec484e5c8734d1fa80afa4f2dc020ce" => :sierra
-    sha256 "7bbeb35182819c5ffd0aabc81020332b0763642dcb791657e8a54e64a18686d8" => :el_capitan
-    sha256 "ee8653ffad51210e68b26e6f43a34f580180aed315b050ca48cd0adcadd3e6b0" => :yosemite
-    sha256 "07cbd9a185d1b3698078fd26737af105cfe31a2eb2d1a4b229e9878561f162ef" => :mavericks
-    sha256 "2ed57913af533cd7778526ff633b24dbaf753558293d472d81d03ffacd9e869e" => :mountain_lion
+    rebuild 1
+    sha256 "44750b361b999c09a17a2bc8c576585a790c42bee66abe4df191b7b0cafe304c" => :high_sierra
+    sha256 "7a52fc5d01d83fd186626a6cff981e65da8943186973a4314efa2c561480325e" => :sierra
+    sha256 "30c72c1a5764aa20e7d8e232bcfe979f138e5029966c43468a886481304c39cb" => :el_capitan
   end
 
   def install
@@ -32,7 +30,7 @@ class Rinetd < Formula
 
     conf = etc/"rinetd.conf"
     unless conf.exist?
-      conf.write <<-EOS.undent
+      conf.write <<~EOS
         # forwarding rules go here
         #
         # you may specify allow and deny rules after a specific forwarding rule

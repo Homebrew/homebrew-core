@@ -8,7 +8,7 @@ class GnuCobol < Formula
     sha256 "5cd6c99b2b1c82fd0c8fffbb350aaf255d484cde43cf5d9b92de1379343b3d7e"
 
     fails_with :clang do
-      cause <<-EOS.undent
+      cause <<~EOS
         Building with Clang configures GNU-COBOL to use Clang as its compiler,
         which causes subsequent GNU-COBOL-based builds to fail.
       EOS

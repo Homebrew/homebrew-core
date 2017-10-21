@@ -14,7 +14,7 @@ class Resty < Formula
     bin.install %w[pp resty pypp]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The Python printy-printer (pypp) uses the json module, available in
     Python 2.6 and newer.
 

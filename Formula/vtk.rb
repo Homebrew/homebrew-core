@@ -101,7 +101,7 @@ class Vtk < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Even without the --with-qt option, you can display native VTK render windows
     from python. Alternatively, you can integrate the RenderWindowInteractor
     in PyQt5, Tk or Wx at runtime. Read more:

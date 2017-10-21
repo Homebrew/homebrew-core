@@ -25,7 +25,7 @@ class Docbook2x < Formula
 
   test do
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-    (testpath/"brew.1.xml").write <<-EOS.undent
+    (testpath/"brew.1.xml").write <<~EOS
       <?xml version="1.0" encoding="ISO-8859-1"?>
       <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
                          "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">

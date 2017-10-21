@@ -12,7 +12,7 @@ class Historian < Formula
 
   test do
     ENV["HISTORIAN_SRC"] = "test_history"
-    (testpath/"test_history").write <<-EOS.undent
+    (testpath/"test_history").write <<~EOS
       brew update
       brew upgrade
     EOS

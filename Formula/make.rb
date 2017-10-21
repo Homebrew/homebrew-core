@@ -39,7 +39,7 @@ class Make < Formula
 
   def caveats
     if build.without? "default-names"
-      <<-EOS.undent
+      <<~EOS
         All commands have been installed with the prefix 'g'.
         If you do not want the prefix, install using the "with-default-names" option.
 
@@ -57,7 +57,7 @@ class Make < Formula
   end
 
   test do
-    (testpath/"Makefile").write <<-EOS.undent
+    (testpath/"Makefile").write <<~EOS
       default:
       \t@echo Homebrew
     EOS

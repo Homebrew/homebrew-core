@@ -110,7 +110,7 @@ class Gnuradio < Formula
   test do
     system("#{bin}/gnuradio-config-info -v")
 
-    (testpath/"test.c++").write <<-EOS.undent
+    (testpath/"test.c++").write <<~EOS
         #include <gnuradio/top_block.h>
         #include <gnuradio/blocks/null_source.h>
         #include <gnuradio/blocks/null_sink.h>
@@ -148,7 +148,7 @@ class Gnuradio < Formula
     system (testpath/"test")
 
     if build.with? "python"
-      (testpath/"test.py").write <<-EOS.undent
+      (testpath/"test.py").write <<~EOS
         from gnuradio import blocks
         from gnuradio import gr
 

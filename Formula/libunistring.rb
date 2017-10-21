@@ -32,7 +32,7 @@ class Libunistring < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <uniname.h>
       #include <unistdio.h>
       #include <stdio.h>

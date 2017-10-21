@@ -21,7 +21,7 @@ class Flatbuffers < Formula
   end
 
   test do
-    def testfbs; <<-EOS.undent
+    def testfbs; <<~EOS
       // example IDL file
 
       namespace MyGame.Sample;
@@ -52,7 +52,7 @@ class Flatbuffers < Formula
     end
     (testpath/"test.fbs").write(testfbs)
 
-    def testjson; <<-EOS.undent
+    def testjson; <<~EOS
       {
         pos: {
           x: 1,

@@ -24,7 +24,7 @@ class Libxmlxx3 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <libxml++/libxml++.h>
 
       int main(int argc, char *argv[])

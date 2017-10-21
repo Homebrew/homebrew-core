@@ -1,16 +1,14 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
   homepage "https://www.indexdata.com/metaproxy"
-  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.12.1.tar.gz"
-  sha256 "65b2138381a6a2d5a10f789b45f3472ceed2bf2cdfa35e88adfb262fd058fb48"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.13.0.tar.gz"
+  sha256 "ed3d40058e0e36141bea7d7f0e39733a7b7409281cdf6a60be90186d412c2be1"
 
   bottle do
     cellar :any
-    sha256 "4f81e7cd663292f2f313d3f32748615c935c999ca821d63905e0f7d5872cc56f" => :high_sierra
-    sha256 "0a2151ec4f734621335d8897efc686b3da30850a0d376f3e4429d5cf7c016df6" => :sierra
-    sha256 "1e76be70156926a934dea21e45a3c8cb5e1da6b57c39ee925c3f818a580e6174" => :el_capitan
-    sha256 "464498dac0ddb615680d42ff71a1eb98e4fbe6788313a48eda9b3c0fdafb3cb3" => :yosemite
+    sha256 "408f6d7bb580c7b6d2d711880bcff51dbe59406471b55b5d4d6850476386ef9c" => :high_sierra
+    sha256 "bb70a852e2efa08e6ffc54742b77a752051ad434c7b861139316f4de98d89ef0" => :sierra
+    sha256 "922a0f6b49a6781620911d4b1ca22505b76474f2e7ba43ebca8285be484e97c6" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -25,7 +23,7 @@ class Metaproxy < Formula
 
   # Test by making metaproxy test a trivial configuration file (etc/config0.xml).
   test do
-    (testpath/"test-config.xml").write <<-EOS.undent
+    (testpath/"test-config.xml").write <<~EOS
     <?xml version="1.0"?>
     <metaproxy xmlns="http://indexdata.com/metaproxy" version="1.0">
       <start route="start"/>

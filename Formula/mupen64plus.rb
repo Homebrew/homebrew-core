@@ -6,9 +6,10 @@ class Mupen64plus < Formula
 
   bottle do
     cellar :any
-    sha256 "f221065c79daaa469bb6f6bb27422334456875ed93b5dae54f06ea4fedbb297c" => :sierra
-    sha256 "7b9f1035043de87236e23d9196b8a2daa7cea3ab0af23f55fa269eafba8d2b4c" => :el_capitan
-    sha256 "3a2fc67af2b29d7de9bd9c6c931f1d9a0d6a62a0fa660dce27ffe37630b39aee" => :yosemite
+    rebuild 1
+    sha256 "4dc531259b558fe987eecd74d87afb70284d36ec4e0c3008de751b820f83e64b" => :high_sierra
+    sha256 "28006559bb0cc624432b1a8b0a7dfd08e9a5a3d59d7dbaf5cde64ac29dc747d1" => :sierra
+    sha256 "6d9d9900813b21abc89149ded185d4b74147a85c1a350d54511ee535acde171c" => :el_capitan
   end
 
   option "without-osd", "Disables the On Screen Display"
@@ -35,6 +36,12 @@ class Mupen64plus < Formula
   def install
     # Prevent different C++ standard library warning
     inreplace Dir["source/mupen64plus-**/projects/unix/Makefile"], /(-mmacosx-version-min)=\d+\.\d+/, "\\1=#{MacOS.version}"
+
+    # Fix build with Xcode 9 using upstream commit:
+    # https://github.com/mupen64plus/mupen64plus-video-glide64mk2/commit/5ac11270
+    # Remove in next version
+    inreplace "source/mupen64plus-video-glide64mk2/src/Glide64/3dmath.cpp",
+              "__builtin_ia32_storeups", "_mm_storeu_ps"
 
     common_args = ["install", "PREFIX=#{prefix}", "INSTALL_STRIP_FLAG=-S"]
 

@@ -33,7 +33,7 @@ class SNail < Formula
     date1 = Utils.popen_read("date", "-r", "844221007", "+%a %b %e %T %Y")
     date2 = Utils.popen_read("date", "-r", "844221007", "+%a, %d %b %Y %T %z")
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       From reproducible_build #{date1.chomp}
       Date: #{date2.chomp}
       To:

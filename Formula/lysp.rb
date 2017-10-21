@@ -32,7 +32,7 @@ class Lysp < Formula
   end
 
   test do
-    (testpath/"test.l").write <<-EOS.undent
+    (testpath/"test.l").write <<~EOS
       (define println (subr (dlsym "printlnSubr")))
       (define + (subr (dlsym "addSubr")))
       (println (+ 40 2))

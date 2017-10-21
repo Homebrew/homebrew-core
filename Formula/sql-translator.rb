@@ -27,7 +27,7 @@ class SqlTranslator < Formula
   test do
     command = "#{bin}/sqlt -f MySQL -t PostgreSQL --no-comments -"
     sql_input = "create table sqlt ( id int AUTO_INCREMENT );"
-    sql_output = <<-EOS.undent
+    sql_output = <<~EOS
       CREATE TABLE "sqlt" (
         "id" serial
       );

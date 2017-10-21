@@ -33,7 +33,7 @@ class Hercules < Formula
   end
 
   test do
-    (testpath/"test00.ctl").write <<-EOS.undent
+    (testpath/"test00.ctl").write <<~EOS
       TEST00 3390 10
       TEST.PDS EMPTY CYL 1 0 5 PO FB 80 6080
     EOS

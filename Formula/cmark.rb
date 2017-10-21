@@ -1,15 +1,14 @@
 class Cmark < Formula
   desc "Strongly specified, highly compatible implementation of Markdown"
   homepage "http://commonmark.org"
-  url "https://github.com/jgm/cmark/archive/0.28.0.tar.gz"
-  sha256 "68cf191f4a78494a43b7e1663506635e370f0ba4c67c9ee9518e295685bbfe0e"
+  url "https://github.com/jgm/cmark/archive/0.28.2.tar.gz"
+  sha256 "fe4b04fcccb2dc72641096de02a8eefb53059e85f9dd904f0386dc86326cc414"
 
   bottle do
     cellar :any
-    sha256 "517f47d95f638f9ac04c0d5ed2867342d588a9e0ec28fc310f7a2afb05a5d45f" => :high_sierra
-    sha256 "36c98518b406ac0110ca0652cfd16a375e025ec8d61580e8b4e7b6f6a6e07029" => :sierra
-    sha256 "9438f3ef25eadaa7536178a344eb966772717dd5c15441995a3af41c77680e55" => :el_capitan
-    sha256 "4af3edaaaee4e24285dd1faf39c85d5e31ad3964086b3208d18224a3ebaf8348" => :yosemite
+    sha256 "9c2e69133dde99b52edcaed19894de24293871f0a1140edced7eefa1b35046db" => :high_sierra
+    sha256 "54f604e8e1650729df23be204267e63709e83d27cd25ec3cb0c1cac2da803f0f" => :sierra
+    sha256 "4bc34f60ec9f020810df1cc96362797930fc4bc2531c44228cf15a4fe9ef4f72" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -17,7 +16,7 @@ class Cmark < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DCMAKE_INSTALL_LIBDIR=lib", *std_cmake_args
       system "make"
       system "make", "test"
       system "make", "install"

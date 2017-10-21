@@ -20,7 +20,7 @@ class Sccache < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() {
         puts("Hello, world!");

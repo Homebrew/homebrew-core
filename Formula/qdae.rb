@@ -22,13 +22,13 @@ class Qdae < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Data files are located in the following directory:
       #{share}/QDAE
     EOS
   end
 
   test do
-    File.executable? "#{bin}/qdae"
+    assert_predicate bin/"qdae", :executable?
   end
 end

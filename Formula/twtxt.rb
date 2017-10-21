@@ -1,14 +1,14 @@
 class Twtxt < Formula
   desc "Decentralised, minimalist microblogging service for hackers."
   homepage "https://github.com/buckket/twtxt"
-  url "https://github.com/buckket/twtxt/archive/v1.2.2.tar.gz"
-  sha256 "9f7d0e2bb1ab27c9143e2846a615c76788868a142406546603acc01ace61287b"
+  url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
+  sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34cf0a915ab68ea2cc7715a141b0faf141ffce14315c73096b9c4e35f3caf9d8" => :high_sierra
-    sha256 "e9bf012527a2e095544f2feb8dccd6588b54f45c4c1cea546e39beeaee387546" => :sierra
-    sha256 "cf012ddde2d5d7d3e09393857abd8acf4328075b31815915af069cbf2d15b156" => :el_capitan
+    sha256 "2acd447c2233ff8820270c546b79eb22b3aeb6034dabc58198934115e797e261" => :high_sierra
+    sha256 "58c726382f159731b92891a8d19b5860a6d4f057d28856896b4de9343bb86666" => :sierra
+    sha256 "7875855c0b5ba87335d6bb76dc900604b215fccce80156eacdbc81b9ee555c8c" => :el_capitan
   end
 
   depends_on :python3
@@ -77,14 +77,14 @@ class Twtxt < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
-    (testpath/"config").write <<-EOS.undent
+    (testpath/"config").write <<~EOS
       [twtxt]
       nick = homebrew
       twtfile = twtxt.txt
       [following]
       twtxt = https://buckket.org/twtxt_news.txt
     EOS
-    (testpath/"twtxt.txt").write <<-EOS.undent
+    (testpath/"twtxt.txt").write <<~EOS
       2016-02-05T18:00:56.626750+00:00  Homebrew speaks!
     EOS
     assert_match "Fiat Lux!", shell_output("#{bin}/twtxt -c config timeline")

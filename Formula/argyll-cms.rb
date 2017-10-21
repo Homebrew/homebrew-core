@@ -36,7 +36,9 @@ class ArgyllCms < Formula
   test do
     system bin/"targen", "-d", "0", "test.ti1"
     system bin/"printtarg", testpath/"test.ti1"
-    %w[test.ti1.ps test.ti1.ti1 test.ti1.ti2].each { |f| File.exist? f }
+    %w[test.ti1.ps test.ti1.ti1 test.ti1.ti2].each do |f|
+      assert_predicate testpath/f, :exist?
+    end
     assert_match "Calibrate a Display", shell_output("#{bin}/dispcal 2>&1", 1)
   end
 end

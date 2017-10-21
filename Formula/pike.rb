@@ -97,7 +97,7 @@ class Pike < Formula
 
   test do
     path = testpath/"test.pike"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       int main() {
         for (int i=0; i<10; i++) { write("%d", i); }
         return 0;

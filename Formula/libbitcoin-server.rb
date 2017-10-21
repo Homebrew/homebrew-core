@@ -44,7 +44,7 @@ class LibbitcoinServer < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/server.hpp>
       int main() {
           libbitcoin::server::message message(true);

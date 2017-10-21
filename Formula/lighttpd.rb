@@ -98,7 +98,7 @@ class Lighttpd < Formula
     run_path.mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Docroot is: #{www_path}
 
     The default port has been set in #{config_path}/lighttpd.conf to 8080 so that
@@ -108,7 +108,7 @@ class Lighttpd < Formula
 
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

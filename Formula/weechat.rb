@@ -53,7 +53,7 @@ class Weechat < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       Weechat can depend on Aspell if you choose the --with-aspell option, but
       Aspell should be installed manually before installing Weechat so that
       you can choose the dictionaries you want.  If Aspell was installed

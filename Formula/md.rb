@@ -29,8 +29,8 @@ class Md < Formula
 
     system "#{bin}/md", "-d", "-u", "Makefile", "foo.d"
 
-    assert !File.exist?("foo.d")
-    assert File.exist?("Makefile")
+    refute_predicate testpath/"foo.d", :exist?
+    assert_predicate testpath/"Makefile", :exist?
     assert_equal "# Dependencies for File: foo:\nfoo: foo.cpp\n",
       File.read("Makefile")
   end

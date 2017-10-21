@@ -14,7 +14,7 @@ class ProcyonDecompiler < Formula
   end
 
   test do
-    fixture = <<-EOS.undent
+    fixture = <<~EOS
     class T
     {
         public static void main(final String[] array) {

@@ -18,7 +18,7 @@ class TomeePlus < Formula
     bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-plus-startup"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The home of Apache TomEE Plus is:
       #{opt_libexec}
     To run Apache TomEE:

@@ -90,13 +90,13 @@ class Proj < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       45d15n 71d07w Boston, United States
       40d40n 73d58w New York, United States
       48d51n 2d20e Paris, France
       51d30n 7'w London, England
     EOS
-    match = <<-EOS.undent
+    match = <<~EOS
       -4887590.49\t7317961.48 Boston, United States
       -5542524.55\t6982689.05 New York, United States
       171224.94\t5415352.81 Paris, France

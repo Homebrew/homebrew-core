@@ -16,7 +16,7 @@ class BashGitPrompt < Formula
     doc.install "README.md"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You should add the following to your .bashrc (or equivalent):
       if [ -f "#{HOMEBREW_PREFIX}/opt/bash-git-prompt/share/gitprompt.sh" ]; then
         __GIT_PROMPT_DIR="#{HOMEBREW_PREFIX}/opt/bash-git-prompt/share"

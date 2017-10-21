@@ -23,7 +23,7 @@ class Curlpp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <curlpp/cURLpp.hpp>
       #include <curlpp/Easy.hpp>
       #include <curlpp/Options.hpp>

@@ -29,6 +29,6 @@ class HicolorIconTheme < Formula
   end
 
   test do
-    File.exist? share/"icons/hicolor/index.theme"
+    assert_predicate share/"icons/hicolor/index.theme", :exist?
   end
 end

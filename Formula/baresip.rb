@@ -1,12 +1,13 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "http://www.creytiv.com/baresip.html"
-  url "http://www.creytiv.com/pub/baresip-0.5.5.tar.gz"
-  sha256 "6418215c95bf4f983cf0a709557eacc8f3b38c0735be444aafc1d91653acfe5b"
+  url "http://www.creytiv.com/pub/baresip-0.5.6.tar.gz"
+  sha256 "148defef160842e0247af92c84bb0c8de4b36ffa68cf3a87c4cd7e510cddd00c"
 
   bottle do
-    sha256 "d948fa5aedfa5f8b06be98b3e84d4106ef40c3ee0d11b34d5baddfd6e47fd40c" => :sierra
-    sha256 "43e599513d998e3b98feb072d5f0288f901ad3d43f704410845b10b7e27ca48a" => :el_capitan
+    sha256 "52957fde6a1de8bb879bd6774284ba592f41a30d06b7abb3ba88c47ee8781009" => :high_sierra
+    sha256 "36ebce2b54bb048498c6fa0a5e180a54567e452405279ca1d36134787d0bd819" => :sierra
+    sha256 "71bdeef11d01598f0cb1e6e16846621b58161468bee5f53636e5167ab23fbf8f" => :el_capitan
   end
 
   depends_on "librem"

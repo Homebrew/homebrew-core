@@ -1,9 +1,9 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
+  url "https://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
-  mirror "ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
   sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
 
   bottle do
@@ -31,7 +31,7 @@ class Libffi < Formula
   end
 
   test do
-    (testpath/"closure.c").write <<-TEST_SCRIPT.undent
+    (testpath/"closure.c").write <<~EOS
      #include <stdio.h>
      #include <ffi.h>
 
@@ -78,7 +78,7 @@ class Libffi < Formula
 
        return 0;
      }
-    TEST_SCRIPT
+    EOS
 
     flags = ["-L#{lib}", "-lffi", "-I#{lib}/libffi-#{version}/include"]
     system ENV.cc, "-o", "closure", "closure.c", *(flags + ENV.cflags.to_s.split)

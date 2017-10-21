@@ -25,7 +25,7 @@ class Libcds < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cds/init.h>
       int main() {
         cds::Initialize();

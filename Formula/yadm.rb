@@ -14,7 +14,7 @@ class Yadm < Formula
 
   test do
     system bin/"yadm", "init"
-    assert File.exist?(testpath/".yadm/repo.git/config"), "Failed to init repository."
+    assert_predicate testpath/".yadm/repo.git/config", :exist?, "Failed to init repository."
     assert_match testpath.to_s, shell_output("#{bin}/yadm gitconfig core.worktree")
 
     # disable auto-alt

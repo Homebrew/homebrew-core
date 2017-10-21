@@ -1,22 +1,21 @@
 class Natalie < Formula
   desc "Storyboard Code Generator (for Swift)"
   homepage "https://github.com/krzyzanowskim/Natalie"
-  url "https://github.com/krzyzanowskim/Natalie/archive/0.5.0.tar.gz"
-  sha256 "66e00a4095121255a9740a16a8a59daa289f878f2e1e77ba6a9f98d6a671a33c"
+  url "https://github.com/krzyzanowskim/Natalie/archive/0.6.0.tar.gz"
+  sha256 "e2f1eced8ce22b966169107a07c3978e12d512a9119f5ca88815b96f55c82f4a"
   head "https://github.com/krzyzanowskim/Natalie.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b6b0597c2bd6e6b1c5df362d846da233f91727f62914f703503dd8360ddea53e" => :sierra
-    sha256 "472b56132024812e48041b4ea4174e889f95eab70e8ff83d6182bde406865d88" => :el_capitan
+    sha256 "a74604b0bca4ca91805483617f07f6a326be85ac55dcb29e4934acfa4298d4e3" => :high_sierra
+    sha256 "eabc1b23bc1e9fc87eb5d37eeaa83731a6f0574b0c4506c6202af7550e8bacc5" => :sierra
   end
 
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
-    ENV["CC"] = which(ENV.cc)
-    system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
+    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
+           "-static-stdlib"
     bin.install ".build/release/natalie"
     share.install "NatalieExample"
   end

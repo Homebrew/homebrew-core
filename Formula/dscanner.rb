@@ -22,7 +22,7 @@ class Dscanner < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
+    (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main(string[] args)
       {

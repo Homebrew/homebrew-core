@@ -87,7 +87,7 @@ class Todoman < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    (testpath/".config/todoman/todoman.conf").write <<-EOS.undent
+    (testpath/".config/todoman/todoman.conf").write <<~EOS
       [main]
       path = #{testpath}/.calendar/*
       date_format = %Y-%m-%d

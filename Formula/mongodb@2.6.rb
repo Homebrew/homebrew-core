@@ -48,7 +48,7 @@ class MongodbAT26 < Formula
     (var/"log/mongodb").mkpath
   end
 
-  def mongodb_conf; <<-EOS.undent
+  def mongodb_conf; <<~EOS
     systemLog:
       destination: file
       path: #{var}/log/mongodb/mongo.log
@@ -62,7 +62,7 @@ class MongodbAT26 < Formula
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

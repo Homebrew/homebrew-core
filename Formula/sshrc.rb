@@ -14,7 +14,7 @@ class Sshrc < Formula
 
   test do
     touch testpath/".sshrc"
-    (testpath/"ssh").write <<-EOS.undent
+    (testpath/"ssh").write <<~EOS
       #!/bin/sh
       true
     EOS

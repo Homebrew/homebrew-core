@@ -1,16 +1,15 @@
 class AppscaleTools < Formula
   desc "Command-line tools for working with AppScale"
   homepage "https://github.com/AppScale/appscale-tools"
-  url "https://github.com/AppScale/appscale-tools/archive/3.3.1.tar.gz"
-  sha256 "1f86ed42e803690240e3d4e5930001674228048a79de17254af3623f39b25994"
+  url "https://github.com/AppScale/appscale-tools/archive/3.4.0.tar.gz"
+  sha256 "0e38f4fed78cd2bc54aa1a3694004377a8b7c2802a0d37a8400c092baa09ba06"
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
     cellar :any
-    sha256 "541a483d3589ecbb2440d4bba96b90a7c65cfb42d666db41456ec70a97ba7a60" => :high_sierra
-    sha256 "9efffff6e9f9a7a658408d54ab572d0545cce6bdd7b7e15afea97ff40aaa5639" => :sierra
-    sha256 "de0af3f83fad321580719209e8b544914329ffa205c4df545a59d83c6d827e6c" => :el_capitan
-    sha256 "f0926946a7e4fb0e6040c8751c1fc3148b50dce5707f386777d9f187f9b452cf" => :yosemite
+    sha256 "3d01928c4c18a23c99f5c0a6fbbabba2681f387d3bc50be0dd83f7e15ec3fe9f" => :high_sierra
+    sha256 "354e148a73db62d91e8b0cfd5208689b6821cba69470f6db8ffd8a58f23b7f52" => :sierra
+    sha256 "956eb986a67094be2c35756c948bc291729c746903ff62b419b9f2649bdc7ecb" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

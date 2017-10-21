@@ -29,7 +29,7 @@ class Shellcheck < Formula
 
   test do
     sh = testpath/"test.sh"
-    sh.write <<-EOS.undent
+    sh.write <<~EOS
       for f in $(ls *.wav)
       do
         echo "$f"

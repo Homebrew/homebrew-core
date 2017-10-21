@@ -7,13 +7,14 @@ class SqliteAnalyzer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "783ed484e47fae7a4110ec8c651ca45670d594420bcef307e9b88ee96f037381" => :sierra
-    sha256 "7d46ca521776e1835f55fe4eb3a83a5764a70422d8b1cbd8e4f788aa6dd428b4" => :el_capitan
-    sha256 "0ae6a28f671a3eb7ef9dafa7f0616f33585e761a2f1bc6eff6bfd91b14ab0f83" => :yosemite
+    rebuild 1
+    sha256 "099327c9376093e2f764e3cd6b6f681395d305a4832a5ffde06fc3d43028604c" => :high_sierra
+    sha256 "170ce3aff95cd073678b710d7616ddf0815c25354fc9e5f7e3dc36d3fc3d629d" => :sierra
+    sha256 "87141adfe581826af5bb93023adc07662c16ad6fe3f7ea611c6004ce2f6c8080" => :el_capitan
   end
 
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    system "./configure", "--disable-debug", "--with-tcl=/System/Library/Frameworks/Tcl.framework/", "--prefix=#{prefix}"
     system "make", "sqlite3_analyzer"
     bin.install "sqlite3_analyzer"
   end
@@ -21,7 +22,7 @@ class SqliteAnalyzer < Formula
   test do
     dbpath = testpath/"school.sqlite"
     sqlpath = testpath/"school.sql"
-    sqlpath.write <<-EOS.undent
+    sqlpath.write <<~EOS
       create table students (name text, age integer);
       insert into students (name, age) values ('Bob', 14);
       insert into students (name, age) values ('Sue', 12);

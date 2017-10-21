@@ -27,7 +27,7 @@ class GtkMurrineEngine < Formula
   end
 
   test do
-    assert (lib/"gtk-2.0/2.10.0/engines/libmurrine.so").exist?
-    assert (share/"gtk-engines/murrine.xml").exist?
+    assert_predicate lib/"gtk-2.0/2.10.0/engines/libmurrine.so", :exist?
+    assert_predicate share/"gtk-engines/murrine.xml", :exist?
   end
 end

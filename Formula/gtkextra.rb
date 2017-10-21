@@ -25,7 +25,7 @@ class Gtkextra < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
     #include <gtkextra/gtkextra.h>
     int main(int argc, char *argv[]) {
       GtkWidget *canvas = gtk_plot_canvas_new(GTK_PLOT_A4_H, GTK_PLOT_A4_W, 0.8);

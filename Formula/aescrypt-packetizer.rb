@@ -54,7 +54,7 @@ class AescryptPacketizer < Formula
     s = ""
 
     if build.without? "default-names"
-      s += <<-EOS.undent
+      s += <<~EOS
         To avoid conflicting with our other AESCrypt package the binaries
         have been renamed paescrypt and paescrypt_keygen.
       EOS
@@ -69,7 +69,7 @@ class AescryptPacketizer < Formula
     path.write original_contents
 
     system bin/"paescrypt", "-e", "-p", "fire", path
-    assert File.exist?("#{path}.aes")
+    assert_predicate testpath/"#{path}.aes", :exist?
 
     system bin/"paescrypt", "-d", "-p", "fire", "#{path}.aes"
     assert_equal original_contents, path.read

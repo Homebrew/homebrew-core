@@ -38,7 +38,7 @@ class TerraformDocs < Formula
   end
 
   test do
-    (testpath/"main.tf").write <<-EOS.undent
+    (testpath/"main.tf").write <<~EOS
       /**
       * Module usage:
       *

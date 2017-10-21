@@ -60,7 +60,7 @@ class Minetest < Formula
     prefix.install "minetest.app"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       Put additional subgames and mods into "games" and "mods" folders under
       "~/Library/Application Support/minetest/", respectively (you may have
       to create those folders first).

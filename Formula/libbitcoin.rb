@@ -48,7 +48,7 @@ class Libbitcoin < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/bitcoin.hpp>
       int main() {
         const auto block = bc::chain::block::genesis_mainnet();

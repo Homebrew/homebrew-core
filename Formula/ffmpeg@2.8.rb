@@ -178,7 +178,7 @@ class FfmpegAT28 < Formula
   end
 
   def caveats
-    if build.without? "faac" then <<-EOS.undent
+    if build.without? "faac" then <<~EOS
       FFmpeg has been built without libfaac for licensing reasons;
       libvo-aacenc is used by default.
       To install with libfaac, you can:
@@ -198,6 +198,6 @@ class FfmpegAT28 < Formula
     # Create an example mp4 file
     system "#{bin}/ffmpeg", "-y", "-filter_complex",
         "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert (testpath/"video.mp4").exist?
+    assert_predicate testpath/"video.mp4", :exist?
   end
 end

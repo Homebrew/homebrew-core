@@ -21,7 +21,7 @@ class Duff < Formula
   end
 
   test do
-    expected = <<-EOS.undent
+    expected = <<~EOS
       2 files in cluster 1 (6 bytes, digest 8843d7f92416211de9ebb963ff4ce28125932878)
       cmp1
       cmp2

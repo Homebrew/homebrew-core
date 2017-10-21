@@ -29,7 +29,7 @@ class RustupInit < Formula
     ENV["RUSTUP_HOME"] = testpath/".multirust"
 
     system bin/"rustup-init", "-y"
-    (testpath/"hello.rs").write <<-EOS.undent
+    (testpath/"hello.rs").write <<~EOS
       fn main() {
         println!("Hello World!");
       }

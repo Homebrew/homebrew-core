@@ -3,14 +3,13 @@ class InfluxdbAT08 < Formula
   homepage "https://influxdb.com/docs/v0.8/index.html"
   url "https://s3.amazonaws.com/get.influxdb.org/influxdb-0.8.8.src.tar.gz"
   sha256 "97fb5a4ffda1b333187ebd6449466d38d864686a3bd50a6c7bfb3deeae06cfae"
-  revision 8
+  revision 9
 
   bottle do
     cellar :any
-    sha256 "32f38efeee25b795dc2487329b8b9a715bf47f1c17ec8e61752b1a7f96f93110" => :high_sierra
-    sha256 "1eccaa7ef731c2905b0c1c02b62e7eb963fa24809935de46eb92d4ef5997ac50" => :sierra
-    sha256 "09d982dc5f5cd0cb43b1e8048c37b11e7d82bc53d5782d79223a6e2d500984f7" => :el_capitan
-    sha256 "c77fde31229be70e4d3ecc328b03f6d4c95690b4dc76fbf6464efc0e8fe6f2b4" => :yosemite
+    sha256 "235c94f1ce84f5a370d9eac83c9f0ec768dbfbe8a8c5602be6810b19b38bcdd3" => :high_sierra
+    sha256 "9cf7cbb76b18b0dc4920ef9f011c5a09e377a7405ceb66fdba53508374d4275e" => :sierra
+    sha256 "389bdba64f93bbb1b031e0244508cb4ef07465a2ca55603a1563df9e0a432028" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -54,7 +53,7 @@ class InfluxdbAT08 < Formula
 
   plist_options :manual => "influxdb -config=#{HOMEBREW_PREFIX}/etc/influxdb.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

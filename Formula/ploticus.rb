@@ -28,7 +28,7 @@ class Ploticus < Formula
     pkgshare.install Dir["prefabs/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Ploticus prefabs have been installed to #{opt_pkgshare}
   EOS
   end
@@ -36,7 +36,7 @@ class Ploticus < Formula
   test do
     assert_match "ploticus 2.", shell_output("#{bin}/ploticus -version 2>&1", 1)
 
-    (testpath/"test.in").write <<-EOS.undent
+    (testpath/"test.in").write <<~EOS
       #proc areadef
         rectangle: 1 1 4 2
         xrange: 0 5

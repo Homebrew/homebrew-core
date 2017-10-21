@@ -1,15 +1,14 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/isync/isync/1.2.2/isync-1.2.2.tar.gz"
-  sha256 "d9197e27bfe77e3d8971f4fcb25ec37b2506827c4bc9439b72376caa091ce877"
+  url "https://downloads.sourceforge.net/project/isync/isync/1.3.0/isync-1.3.0.tar.gz"
+  sha256 "8d5f583976e3119705bdba27fa4fc962e807ff5996f24f354957178ffa697c9c"
 
   bottle do
     cellar :any
-    sha256 "c214c8858ffe49a7598fdc52ee0c63e981adcd2e3b6c24e61caae5c909ade755" => :high_sierra
-    sha256 "ae610fd466221c43e21699d087cd1b63808845782c0420b53d56bf895b6a4b53" => :sierra
-    sha256 "c7fb30472091072e7e461913ed0aacf2b5653c60c4daae86db5ca13614bae4f5" => :el_capitan
-    sha256 "264399ce5b39f9b5f67d5d528e509c870dd0588569d5f2f0964f401c9813969f" => :yosemite
+    sha256 "7b7ffd0c838626b698145a205c8325c6c74051c073fc793db724264a5d841dd3" => :high_sierra
+    sha256 "646490217fc6569fd0c8999aac9e3b7dfd4ae18aaa20cd0c0b99f0dfd350b4de" => :sierra
+    sha256 "060669b949a1d59d8d2432d8c169c4b6af457bde209e670bd0056f4efe9ef0d9" => :el_capitan
   end
 
   head do
@@ -38,7 +37,7 @@ class Isync < Formula
 
   plist_options :manual => "isync"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -71,6 +70,6 @@ class Isync < Formula
   end
 
   test do
-    system bin/"get-cert", "duckduckgo.com:443"
+    system bin/"mbsync-get-cert", "duckduckgo.com:443"
   end
 end

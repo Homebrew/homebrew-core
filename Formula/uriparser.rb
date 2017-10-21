@@ -36,7 +36,7 @@ class Uriparser < Formula
   end
 
   test do
-    expected = <<-EOS.undent
+    expected = <<~EOS
       uri:          https://brew.sh
       scheme:       https
       hostText:     brew.sh

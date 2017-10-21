@@ -22,7 +22,7 @@ class GitSecret < Formula
   end
 
   test do
-    (testpath/"batch.gpg").write <<-EOS.undent
+    (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA
@@ -43,7 +43,7 @@ class GitSecret < Formula
       (testpath/".gitignore").write "shh.txt"
       system "git", "secret", "add", "shh.txt"
       system "git", "secret", "hide"
-      assert File.exist?("shh.txt.secret")
+      assert_predicate testpath/"shh.txt.secret", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
     end

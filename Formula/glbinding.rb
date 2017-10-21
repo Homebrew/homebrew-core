@@ -29,7 +29,7 @@ class Glbinding < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <glbinding/gl/gl.h>
       #include <glbinding/Binding.h>
       int main(void)

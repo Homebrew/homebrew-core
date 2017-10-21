@@ -25,7 +25,7 @@ class Gprof2dot < Formula
   end
 
   test do
-    (testpath/"gprof.output").write <<-EOS.undent
+    (testpath/"gprof.output").write <<~EOS
       Flat profile:
 
       Each sample counts as 0.01 seconds.
@@ -182,6 +182,6 @@ class Gprof2dot < Formula
          [4] project1                [2] worker1
     EOS
     system bin/"gprof2dot", testpath/"gprof.output", "-o", testpath/"call_graph.dot"
-    assert File.exist?(testpath/"call_graph.dot")
+    assert_predicate testpath/"call_graph.dot", :exist?
   end
 end

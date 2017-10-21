@@ -34,7 +34,7 @@ class Asciidoc < Formula
     system "make", "docs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       If you intend to process AsciiDoc files through an XML stage
       (such as a2x for manpage generation) you need to add something
       like:

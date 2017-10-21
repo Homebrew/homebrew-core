@@ -30,7 +30,7 @@ class Wpscan < Formula
     system "gem", "install", "bundler"
     system libexec/"bin/bundle", "install", "--without", "test"
 
-    (bin/"wpscan").write <<-EOS.undent
+    (bin/"wpscan").write <<~EOS
       #!/bin/bash
       GEM_HOME=#{libexec} BUNDLE_GEMFILE=#{libexec}/Gemfile \
         exec #{libexec}/bin/bundle exec ruby #{libexec}/wpscan.rb "$@"
@@ -43,13 +43,13 @@ class Wpscan < Formula
     system bin/"wpscan", "--update"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Logs are saved to #{var}/cache/wpscan/log.txt by default.
     EOS
   end
 
   test do
     assert_match "URL: https://wordpress.org/",
-                 shell_output("#{bin}/wpscan --url https://wordpress.org/")
+                 pipe_output("#{bin}/wpscan --url https://wordpress.org/")
   end
 end

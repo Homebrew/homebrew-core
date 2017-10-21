@@ -1,14 +1,14 @@
 class Ncrack < Formula
   desc "Network authentication cracking tool"
   homepage "https://nmap.org/ncrack/"
-  url "https://nmap.org/ncrack/dist/ncrack-0.5.tar.gz"
-  sha256 "dbad9440c861831836d47ece95aeb2bd40374a3eb03a14dea0fe1bfa73ecd4bc"
+  url "https://github.com/nmap/ncrack/archive/v0.6.0.tar.gz"
+  sha256 "676a323b1e9066193461f25e31445262bae495fde7dfcaf56555c3056dae24cc"
+  head "https://github.com/nmap/ncrack.git"
 
   bottle do
-    sha256 "3238195981e41fa370773424e84259ab50504d21974498c83be208f1c229532a" => :high_sierra
-    sha256 "7e3a16f3b37949e91338e50f2e2cd1f50da7f3b1700b8ef242ce457673d3c397" => :sierra
-    sha256 "aab525771a1fb8eee4d2aab1d9164482b62cef6664ff3f2a8034b4171207be6c" => :el_capitan
-    sha256 "dbaa016ba2cb398e4e7da7352ca889fd5f26bd91926549badd9d80227cf1f5b4" => :yosemite
+    sha256 "710a7c1bbc131cce0e0b5ceac7bee02c829362489a56a881b2011df7bcab7dfb" => :high_sierra
+    sha256 "887e071b2c1468c82c1d4ab390f0bbb6c03a482f0c39e89a573105d2ce5cb38c" => :sierra
+    sha256 "1ca0625ada66ae28f5bc488ecc7ca246d68711ab6b314c4f6998ab47ccba1ec0" => :el_capitan
   end
 
   depends_on "openssl"
@@ -22,6 +22,6 @@ class Ncrack < Formula
   end
 
   test do
-    assert_match("\nNcrack version 0.5 ( http://ncrack.org )\nModules: FTP, SSH, Telnet, HTTP(S), POP3(S), SMB, RDP, VNC, SIP, Redis, PostgreSQL, MySQL", shell_output(bin/"ncrack --version"))
+    assert_match version.to_f.to_s, shell_output(bin/"ncrack --version")
   end
 end

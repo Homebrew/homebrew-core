@@ -49,7 +49,7 @@ class Clisp < Formula
       system "ulimit -s 16384 && make"
 
       if MacOS.version >= :lion
-        opoo <<-EOS.undent
+        opoo <<~EOS
            `make check` fails so we are skipping it.
            However, there will likely be other issues present.
            Please take them upstream to the clisp project itself.

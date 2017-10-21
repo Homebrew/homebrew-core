@@ -2,7 +2,7 @@ class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften"
   revision 1
-  head "git://swift.im/swift"
+  head "https://swift.im/git/swift"
 
   stable do
     url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
@@ -33,10 +33,6 @@ class Libswiften < Formula
     inreplace "BuildTools/SCons/SConstruct",
               /(\["BOOST_SIGNALS_NO_DEPRECATION_WARNING")\]/,
               "\\1, \"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0\"]"
-
-    system "2to3-", "--write", "--fix=print", "SConstruct",
-           "BuildTools/SCons/SConstruct", "3rdParty/LibIDN/SConscript",
-           "Slimber/SConscript", "Sluift/SConscript", "Swift/SConscript"
 
     boost = Formula["boost"]
     libidn = Formula["libidn"]

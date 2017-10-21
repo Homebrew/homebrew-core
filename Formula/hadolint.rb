@@ -28,7 +28,7 @@ class Hadolint < Formula
 
   test do
     df = testpath/"Dockerfile"
-    df.write <<-EOS.undent
+    df.write <<~EOS
       FROM debian
     EOS
     assert_match "DL3006", shell_output("#{bin}/hadolint #{df}", 1)

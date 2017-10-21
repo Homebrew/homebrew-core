@@ -29,7 +29,7 @@ class Libgig < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <gig.h>
       #include <iostream>
       using namespace std;

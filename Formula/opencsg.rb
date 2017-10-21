@@ -30,7 +30,7 @@ class Opencsg < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <opencsg.h>
       class Test : public OpenCSG::Primitive {
         public:

@@ -14,7 +14,7 @@ class IrcdIrc2 < Formula
   end
 
   def default_ircd_conf
-    <<-EOS.undent
+    <<~EOS
       # M-Line
       M:irc.localhost::Darwin ircd default configuration::000A
 
@@ -60,7 +60,7 @@ class IrcdIrc2 < Formula
 
   plist_options :manual => "ircd"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

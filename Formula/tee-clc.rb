@@ -20,7 +20,7 @@ class TeeClc < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<-EOS.undent
+    (testpath/"test.exp").write <<~EOS
       spawn #{bin}/tf workspace
       set timeout 5
       expect {

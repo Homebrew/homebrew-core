@@ -22,7 +22,7 @@ class GruntCli < Formula
   end
 
   test do
-    (testpath/"package.json").write <<-EOS.undent
+    (testpath/"package.json").write <<~EOS
     {
       "name": "grunt-homebrew-test",
       "version": "1.0.0",
@@ -32,7 +32,7 @@ class GruntCli < Formula
     }
     EOS
 
-    (testpath/"Gruntfile.js").write <<-EOS.undent
+    (testpath/"Gruntfile.js").write <<~EOS
     module.exports = function(grunt) {
       grunt.registerTask("default", "Write output to file.", function() {
         grunt.file.write("output.txt", "Success!");
@@ -42,6 +42,6 @@ class GruntCli < Formula
 
     system "npm", "install", *Language::Node.local_npm_install_args
     system bin/"grunt"
-    assert File.exist?("output.txt"), "output.txt was not generated"
+    assert_predicate testpath/"output.txt", :exist?, "output.txt was not generated"
   end
 end

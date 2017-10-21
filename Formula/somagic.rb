@@ -23,7 +23,7 @@ class Somagic < Formula
     system "make", "PREFIX=#{prefix}", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       Before running somagic-capture you must extract the official firmware from the CD.
       See https://code.google.com/archive/p/easycap-somagic-linux/wikis/GettingStarted.wiki for details.
     EOS

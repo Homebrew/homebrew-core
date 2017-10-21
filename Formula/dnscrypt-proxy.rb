@@ -3,13 +3,14 @@ class DnscryptProxy < Formula
   homepage "https://dnscrypt.org"
   url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
   sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
+  revision 1
+
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "c1edfe9ef3e119f69633a0845b08d88f4e86846e26445c1184ed41b42bd01595" => :high_sierra
-    sha256 "e054db367a116362a02c0ec3c06e449540cc81cca7db63e87cfc41040dd4b028" => :sierra
-    sha256 "971af437377420e432e932a444b0a98b3ab5d2d347ce72b42a231e240d428a5e" => :el_capitan
-    sha256 "6a4228c880a0755a4b02da9adc7fd717d2261bf086ddf0506853f8edbbf882ba" => :yosemite
+    sha256 "2fd6cc2b0ec7730290eafb55560b95c8bbc42df874ef03fe4c7b1faab49619fc" => :high_sierra
+    sha256 "ef7459f7e9ba0e1d0f88e91d51309d93faaf5c4778d87098dea0509536467158" => :sierra
+    sha256 "6a278225af005fbf91a401c7b8f4f277b2d714a83c7621c51937825af4991f0e" => :el_capitan
   end
 
   option "without-plugins", "Disable support for plugins"
@@ -49,7 +50,7 @@ class DnscryptProxy < Formula
     pkgshare.install Dir["contrib/*"] - Dir["contrib/Makefile*"]
 
     if build.with? "minisign"
-      (bin/"dnscrypt-update-resolvers").write <<-EOS.undent
+      (bin/"dnscrypt-update-resolvers").write <<~EOS
         #!/bin/sh
         RESOLVERS_UPDATES_BASE_URL=https://download.dnscrypt.org/dnscrypt-proxy
         RESOLVERS_LIST_BASE_DIR=#{pkgshare}
@@ -78,7 +79,7 @@ class DnscryptProxy < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       After starting dnscrypt-proxy, you will need to point your
       local DNS server to 127.0.0.1. You can do this by going to
       System Preferences > "Network" and clicking the "Advanced..."
@@ -101,7 +102,7 @@ class DnscryptProxy < Formula
     EOS
 
     if build.with? "minisign"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         If at some point the resolver file gets outdated, it can be updated to the
         latest version by running: #{opt_bin}/dnscrypt-update-resolvers
@@ -113,7 +114,7 @@ class DnscryptProxy < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/EN" "http:/www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

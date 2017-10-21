@@ -29,7 +29,7 @@ class Spdlog < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "spdlog/spdlog.h"
       #include <iostream>
       #include <memory>

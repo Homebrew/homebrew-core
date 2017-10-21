@@ -21,7 +21,7 @@ class Autorest < Formula
 
   def install
     libexec.install Dir["tools/*"]
-    (bin/"autorest").write <<-EOS.undent
+    (bin/"autorest").write <<~EOS
       #!/bin/bash
       mono #{libexec}/AutoRest.exe "$@"
     EOS

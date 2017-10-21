@@ -25,6 +25,6 @@ class Pngpaste < Formula
     png = test_fixtures("test.png")
     system "osascript", "-e", "set the clipboard to POSIX file (\"#{png}\")"
     system bin/"pngpaste", "test.png"
-    assert File.exist? "test.png"
+    assert_predicate testpath/"test.png", :exist?
   end
 end

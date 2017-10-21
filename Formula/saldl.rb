@@ -43,6 +43,6 @@ class Saldl < Formula
 
   test do
     system "#{bin}/saldl", "https://brew.sh/index.html"
-    assert File.exist? "index.html"
+    assert_predicate testpath/"index.html", :exist?
   end
 end

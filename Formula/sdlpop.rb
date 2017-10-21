@@ -31,13 +31,13 @@ class Sdlpop < Formula
 
     # Data files should be in the working directory
     libexec.install "prince"
-    (bin/"prince").write <<-EOS.undent
+    (bin/"prince").write <<~EOS
       #!/bin/bash
       cd "#{pkgvar}" && exec "#{libexec}/prince" $@
       EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Data including save and replay files are stored in the following directory:
       #{var}/sdlpop
     EOS

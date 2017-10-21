@@ -1,17 +1,15 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://andrejv.github.io/wxmaxima"
-  url "https://github.com/andrejv/wxmaxima/archive/Version-17.05.1.tar.gz"
-  sha256 "72394f266a784e433e232e600e7178fdd6362fd33f8ac11703db10c780676037"
-  revision 1
+  url "https://github.com/andrejv/wxmaxima/archive/Version-17.10.0.tar.gz"
+  sha256 "97ce3e0a9f8d38a11e9170fedc8320eece5d0a57a8c8cbef7bc8856dbcbd9770"
   head "https://github.com/andrejv/wxmaxima.git"
 
   bottle do
     cellar :any
-    sha256 "afbd91751935fdf382fbdbad7ba2427c82df416ef60e675ea04d83bec15e5780" => :high_sierra
-    sha256 "397d2368f687ec453a35f280972957a34ece0dc4aea79087ec9da1046266d502" => :sierra
-    sha256 "9a5834c460f783bb95c140b40904e28933891705ca353a2c9a078dee71f43143" => :el_capitan
-    sha256 "ba9c3a45ca1a866b9dd3a0999ed9a9da275a71e2fbdea9ab5b158d42e0fdecb7" => :yosemite
+    sha256 "05282c6782b96398eb023255801c8f10c5983d61d9339ccde823f0052af51ba0" => :high_sierra
+    sha256 "9555a0e4f5680489639e1c7c8602b7170ef14dedf9213679c911795a8871249c" => :sierra
+    sha256 "139a99757866736469e8c90bbce49ccf93dfa1f351b2650d779ae3f3bc09ba1b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -32,7 +30,7 @@ class Wxmaxima < Formula
     prefix.install "wxMaxima.app"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     When you start wxMaxima the first time, set the path to Maxima
     (e.g. #{HOMEBREW_PREFIX}/bin/maxima) in the Preferences.
 
@@ -44,7 +42,6 @@ class Wxmaxima < Formula
   end
 
   test do
-    assert_equal "wxMaxima #{version}",
-                 shell_output("#{bin}/wxMaxima -v", 255).chomp
+    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1", 255)
   end
 end

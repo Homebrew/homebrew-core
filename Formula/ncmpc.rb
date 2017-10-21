@@ -20,7 +20,7 @@ class Ncmpc < Formula
   def install
     # Fix undefined symbols _COLORS, _COLS, etc.
     # Reported 21 Sep 2017 https://github.com/MusicPlayerDaemon/ncmpc/issues/6
-    (buildpath/"ncurses.pc").write <<-EOS.undent
+    (buildpath/"ncurses.pc").write <<~EOS
       Name: ncurses
       Description: ncurses
       Version: 5.4

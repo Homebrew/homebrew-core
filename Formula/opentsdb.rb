@@ -3,7 +3,7 @@ class HbaseLZORequirement < Requirement
 
   satisfy(:build_env => false) { Tab.for_name("hbase").with?("lzo") }
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     hbase must not have disabled lzo compression to use it in opentsdb:
       brew install hbase
       not
@@ -57,7 +57,7 @@ class Opentsdb < Formula
     etc.install pkgshare/"etc/opentsdb"
     (pkgshare/"plugins/.keep").write ""
 
-    (bin/"start-tsdb.sh").write <<-EOS.undent
+    (bin/"start-tsdb.sh").write <<~EOS
       #!/bin/sh
       exec "#{opt_bin}/tsdb" tsd \\
         --config="#{etc}/opentsdb/opentsdb.conf" \\
@@ -84,7 +84,7 @@ class Opentsdb < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/opentsdb/bin/start-tsdb.sh"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

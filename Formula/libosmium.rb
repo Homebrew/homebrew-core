@@ -28,7 +28,7 @@ class Libosmium < Formula
   end
 
   test do
-    (testpath/"test.osm").write <<-EOS.undent
+    (testpath/"test.osm").write <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <osm version="0.6" generator="handwritten">
       <node id="1" lat="0.001" lon="0.001" user="Dummy User" uid="1" version="1" changeset="1" timestamp="2015-11-01T19:00:00Z"></node>
@@ -45,7 +45,7 @@ class Libosmium < Formula
     </osm>
     EOS
 
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
     #include <cstdlib>
     #include <iostream>
     #include <osmium/io/xml_input.hpp>

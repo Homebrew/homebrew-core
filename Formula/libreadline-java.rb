@@ -74,7 +74,7 @@ class LibreadlineJava < Formula
     doc.install "api"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You may need to set JAVA_HOME:
       export JAVA_HOME="$(/usr/libexec/java_home)"
     EOS

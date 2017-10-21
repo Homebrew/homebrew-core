@@ -24,7 +24,7 @@ class Wartremover < Formula
   end
 
   test do
-    (testpath/"foo").write <<-EOS.undent
+    (testpath/"foo").write <<~EOS
       object Foo {
         def foo() {
           var msg = "Hello World"

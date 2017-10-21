@@ -23,13 +23,13 @@ class Scalariform < Formula
   end
 
   test do
-    before_data = <<-EOS.undent
+    before_data = <<~EOS
       def foo() {
       println("Hello World")
       }
     EOS
 
-    after_data = <<-EOS.undent
+    after_data = <<~EOS
       def foo() {
          println("Hello World")
       }

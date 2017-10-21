@@ -42,7 +42,7 @@ class Aqbanking < Formula
   test do
     ENV["TZ"] = "UTC"
     context = "balance.ctx"
-    (testpath/context).write <<-EOS.undent
+    (testpath/context).write <<~EOS
     accountInfoList {
       accountInfo {
         char bankCode="110000000"

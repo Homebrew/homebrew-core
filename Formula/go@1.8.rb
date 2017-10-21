@@ -1,17 +1,13 @@
 class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.8.3.src.tar.gz"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.8.3.src.tar.gz/sha512/c6e67dd9e3acdf2aa776d920f91f3fb1802d624ba5d51e06b2c7c6b71bcfaf91f4024f7a442cecde69175c589f7f1163f0ae86d887e15ddde710e53ce0961284/go1.8.3.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.8.3.src.tar.gz"
-  version "1.8.3"
-  sha256 "5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6"
+  url "https://storage.googleapis.com/golang/go1.8.4.src.tar.gz"
+  sha256 "abf1b2e5ae2a4845f3d2eac00c7382ff209e2c132dc35b7ce753da9b4f52e59f"
 
   bottle do
-    sha256 "8ec868f2c7427129766c749925000f7aa826f32538180b8df8ce3eda4d3f96bf" => :high_sierra
-    sha256 "652a9bea1a98d115856bb47cacff9c1198cc5ab5f9612b28e0dfc8ba9c3aa112" => :sierra
-    sha256 "115ede307973b9a2b8b94e41424b9f22d1ef753583870dc9843e9d4a8610a641" => :el_capitan
-    sha256 "e324c8d247e30e345cba64ab70ee50b659b93d337eb7b2be003ab5b4fbf20d37" => :yosemite
+    sha256 "2a597863c9c7631fa2680a8f25d988409f095279542f3442df7c7c73a0b630d8" => :high_sierra
+    sha256 "16b7bed875cf247db78e431bfa85fab81708d86429102c5bcc2ddc497b623ea2" => :sierra
+    sha256 "43bbb91be811d2aa93eb56b6b2cfe7a8990cc486d35cebae4d9bc1098900436b" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -66,7 +62,7 @@ class GoAT18 < Formula
     bin.install_symlink libexec/"bin/godoc"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A valid GOPATH is required to use the `go get` command.
     If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
@@ -77,7 +73,7 @@ class GoAT18 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
+    (testpath/"hello.go").write <<~EOS
     package main
 
     import "fmt"
@@ -92,7 +88,7 @@ class GoAT18 < Formula
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     # godoc was installed
-    assert File.exist?(libexec/"bin/godoc")
+    assert_predicate libexec/"bin/godoc", :exist?
     assert File.executable?(libexec/"bin/godoc")
 
     if build.with? "cgo"

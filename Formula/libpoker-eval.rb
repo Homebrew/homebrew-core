@@ -2,11 +2,13 @@ class LibpokerEval < Formula
   desc "C library to evaluate poker hands"
   homepage "https://pokersource.sourceforge.io"
   url "http://download.gna.org/pokersource/sources/poker-eval-138.0.tar.gz"
+  mirror "http://ftp.nchc.org.tw/BSD/FreeBSD/ports/distfiles/poker-eval-138.0.tar.gz"
   sha256 "92659e4a90f6856ebd768bad942e9894bd70122dab56f3b23dd2c4c61bdbcf68"
 
   bottle do
     cellar :any
     rebuild 1
+    sha256 "415934c921d4ccced5426f9aa807b0cf11da031cb2c973e17d506a9f740ac645" => :high_sierra
     sha256 "5216cd33d433fd9212ed14d6fffec593c7106226547c1555344604186e7aafc6" => :sierra
     sha256 "67b105600a8e29ed2d38421bc27340ff6e9092806f6458f0ddd6a27de0bcfb9c" => :el_capitan
     sha256 "b15086546ac1ac0310e3113231bfcc2c9de0d23474be8a1a1b4663e6bc8f713f" => :yosemite

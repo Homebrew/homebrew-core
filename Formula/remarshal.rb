@@ -46,15 +46,15 @@ class Remarshal < Formula
   end
 
   test do
-    json = <<-EOS.undent.chomp
+    json = <<~EOS.chomp
       {"foo.bar":"baz","qux":1}
     EOS
-    yaml = <<-EOS.undent.chomp
+    yaml = <<~EOS.chomp
       foo.bar: baz
       qux: 1
 
     EOS
-    toml = <<-EOS.undent.chomp
+    toml = <<~EOS.chomp
       "foo.bar" = "baz"
       qux = 1
 

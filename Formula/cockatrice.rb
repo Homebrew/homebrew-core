@@ -36,7 +36,7 @@ class Cockatrice < Formula
   end
 
   test do
-    (prefix/"cockatrice.app/Contents/MacOS/cockatrice").executable?
-    (prefix/"oracle.app/Contents/MacOS/oracle").executable?
+    assert_predicate prefix/"cockatrice.app/Contents/MacOS/cockatrice", :executable?
+    assert_predicate prefix/"oracle.app/Contents/MacOS/oracle", :executable?
   end
 end

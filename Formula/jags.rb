@@ -21,7 +21,7 @@ class Jags < Formula
   end
 
   test do
-    (testpath/"model.bug").write <<-EOS.undent
+    (testpath/"model.bug").write <<~EOS
       data {
         obs <- 1
       }
@@ -30,7 +30,7 @@ class Jags < Formula
         obs ~ dbern(parameter)
       }
     EOS
-    (testpath/"script").write <<-EOS.undent
+    (testpath/"script").write <<~EOS
       model in model.bug
       compile
       initialize

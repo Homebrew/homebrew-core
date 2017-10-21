@@ -3,10 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://storage.googleapis.com/golang/go1.9.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.9.src.tar.gz"
-    version "1.9"
-    sha256 "a4ab229028ed167ba1986825751463605264e44868362ca8e7accc8be057e993"
+    url "https://storage.googleapis.com/golang/go1.9.1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.9.1.src.tar.gz"
+    sha256 "a84afc9dc7d64fe0fa84d4d735e2ece23831a22117b50dafc75c1484f1cb550e"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -16,10 +15,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "1b441fb6d244fdab168ba5e1fd11c3a9c411117dc28e9b3fac9d2ffbdd62db82" => :high_sierra
-    sha256 "395ce69ac887966e296f958e6162160a4245d2e6cab73c6eb2063698304784ef" => :sierra
-    sha256 "52a252f6b4ed0f8a9ac37acfd04b7f4356cd0492eed3adad44e705c42cd2124e" => :el_capitan
-    sha256 "a0fe101b2adb1a3c4aa92b61267490e2183ad66e16b30f71cf2e0b8f702ac758" => :yosemite
+    sha256 "6e414b95839b7bd8b4c6b7c54671afa0ee90f2889fc2a745371335d32b58fbc9" => :high_sierra
+    sha256 "81d491f83885c6f8a323d9a327c4980a58b5814c5596f3503e0ead2bbfce7c55" => :sierra
+    sha256 "13399759706125f07d1ce1e61430870aa9ff3f314d52edd36c0d7ff9f14cbcdf" => :el_capitan
   end
 
   head do
@@ -75,7 +73,7 @@ class Go < Formula
     bin.install_symlink libexec/"bin/godoc"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A valid GOPATH is required to use the `go get` command.
     If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
@@ -86,7 +84,7 @@ class Go < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
+    (testpath/"hello.go").write <<~EOS
     package main
 
     import "fmt"
@@ -101,8 +99,8 @@ class Go < Formula
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     # godoc was installed
-    assert File.exist?(libexec/"bin/godoc")
-    assert File.executable?(libexec/"bin/godoc")
+    assert_predicate libexec/"bin/godoc", :exist?
+    assert_predicate libexec/"bin/godoc", :executable?
 
     if build.with? "cgo"
       ENV["GOOS"] = "freebsd"

@@ -24,7 +24,7 @@ class DesktopFileUtils < Formula
   end
 
   test do
-    (testpath/"test.desktop").write <<-EOS.undent
+    (testpath/"test.desktop").write <<~EOS
     [Desktop Entry]
     Version=1.0
     Type=Application

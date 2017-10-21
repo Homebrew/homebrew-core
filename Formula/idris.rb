@@ -28,7 +28,7 @@ class Idris < Formula
   end
 
   test do
-    (testpath/"hello.idr").write <<-EOS.undent
+    (testpath/"hello.idr").write <<~EOS
       module Main
       main : IO ()
       main = putStrLn "Hello, Homebrew!"
@@ -38,7 +38,7 @@ class Idris < Formula
     assert_equal "Hello, Homebrew!", shell_output("./hello").chomp
 
     if build.with? "libffi"
-      (testpath/"ffi.idr").write <<-EOS.undent
+      (testpath/"ffi.idr").write <<~EOS
         module Main
         puts: String -> IO ()
         puts x = foreign FFI_C "puts" (String -> IO ()) x

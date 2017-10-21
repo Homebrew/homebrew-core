@@ -47,7 +47,7 @@ class VowpalWabbit < Formula
   end
 
   test do
-    (testpath/"house_dataset").write <<-EOS.undent
+    (testpath/"house_dataset").write <<~EOS
       0 | price:.23 sqft:.25 age:.05 2006
       1 2 'second_house | price:.18 sqft:.15 age:.35 1976
       0 1 0.5 'third_house | price:.53 sqft:.32 age:.87 1924
@@ -55,7 +55,7 @@ class VowpalWabbit < Formula
     system bin/"vw", "house_dataset", "-l", "10", "-c", "--passes", "25", "--holdout_off", "--audit", "-f", "house.model", "--nn", "5"
     system bin/"vw", "-t", "-i", "house.model", "-d", "house_dataset", "-p", "house.predict"
 
-    (testpath/"csoaa.dat").write <<-EOS.undent
+    (testpath/"csoaa.dat").write <<~EOS
       1:1.0 a1_expect_1| a
       2:1.0 b1_expect_2| b
       3:1.0 c1_expect_3| c
@@ -67,7 +67,7 @@ class VowpalWabbit < Formula
     system bin/"vw", "--csoaa", "3", "csoaa.dat", "-f", "csoaa.model"
     system bin/"vw", "-t", "-i", "csoaa.model", "-d", "csoaa.dat", "-p", "csoaa.predict"
 
-    (testpath/"ect.dat").write <<-EOS.undent
+    (testpath/"ect.dat").write <<~EOS
       1 ex1| a
       2 ex2| a b
       3 ex3| c d e
@@ -77,14 +77,14 @@ class VowpalWabbit < Formula
     system bin/"vw", "--ect", "3", "-d", "ect.dat", "-f", "ect.model"
     system bin/"vw", "-t", "-i", "ect.model", "-d", "ect.dat", "-p", "ect.predict"
 
-    (testpath/"train.dat").write <<-EOS.undent
+    (testpath/"train.dat").write <<~EOS
     1:2:0.4 | a c
       3:0.5:0.2 | b d
       4:1.2:0.5 | a b c
       2:1:0.3 | b c
       3:1.5:0.7 | a d
     EOS
-    (testpath/"test.dat").write <<-EOS.undent
+    (testpath/"test.dat").write <<~EOS
       1:2 3:5 4:1:0.6 | a c d
       1:0.5 2:1:0.4 3:2 4:1.5 | c d
     EOS

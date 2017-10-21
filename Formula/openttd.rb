@@ -7,9 +7,10 @@ class Openttd < Formula
   head "https://git.openttd.org/openttd/trunk.git"
 
   bottle do
-    sha256 "ee0a3491f25aa0fa7630964adefaeefaa64a59391a2dc9ec0c83d4e90763abc2" => :sierra
-    sha256 "2a795f3dc3823bb0752578c604f108da027bf2aa6d5a4fd9e057ae998c0de96b" => :el_capitan
-    sha256 "0bd2dcec82c063194393a9dc784d5db0ca5a6e659b7562ce02680379ce4a7265" => :yosemite
+    rebuild 1
+    sha256 "aa8a324b0400fab12eb52c8980d613d4630aa722314483742be46be5969e8285" => :high_sierra
+    sha256 "3878a83345e59f8dc1994bd11c48d7e9b3307b9ef1c6228d0de3884ad5532ef5" => :sierra
+    sha256 "51addb9fbdde6f2c6c76d80c13526626e501dfffdcdc97f3997773e8f55c12a8" => :el_capitan
   end
 
   depends_on "lzo"
@@ -31,6 +32,13 @@ class Openttd < Formula
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
   end
 
+  # Fix pre-existing bug triggering Xcode 9 build error
+  # Upstream commit, remove when 1.8 is released
+  patch do
+    url "https://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
+    sha256 "a2681e6ac7ccb2be2d591090198f343d1744484d7093e1e9866325cceecc8748"
+  end
+
   def install
     system "./configure", "--prefix-dir=#{prefix}"
     system "make", "bundle"
@@ -43,7 +51,7 @@ class Openttd < Formula
     bin.write_exec_script "#{prefix}/OpenTTD.app/Contents/MacOS/openttd"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       If you have access to the sound and graphics files from the original
       Transport Tycoon Deluxe, you can install them by following the
       instructions in section 4.1 of #{prefix}/readme.txt

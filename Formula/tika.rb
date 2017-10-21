@@ -21,7 +21,7 @@ class Tika < Formula
     bin.write_jar_script libexec/"tika-server-#{version}.jar", "tika-rest-server"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To run Tika:
       tika
 

@@ -25,7 +25,7 @@ class Cereal < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cereal/types/unordered_map.hpp>
       #include <cereal/types/memory.hpp>
       #include <cereal/archives/binary.hpp>

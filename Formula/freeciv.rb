@@ -75,13 +75,13 @@ class Freeciv < Formula
 
   test do
     system bin/"freeciv-manual"
-    File.exist? testpath/"manual6.html"
+    assert_predicate testpath/"manual6.html", :exist?
 
     server = fork do
       system bin/"freeciv-server", "-l", testpath/"test.log"
     end
     sleep 5
     Process.kill("TERM", server)
-    File.exist? testpath/"test.log"
+    assert_predicate testpath/"test.log", :exist?
   end
 end

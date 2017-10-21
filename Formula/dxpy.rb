@@ -84,13 +84,13 @@ class Dxpy < Formula
     # "incompatible readline module detected (libedit), tab completion disabled"
     # Reported 7 Aug 2016: https://github.com/dnanexus/dx-toolkit/issues/169
     site_packages = libexec/"lib/python2.7/site-packages"
-    (site_packages/"homebrew-gnureadline-hack.pth").write <<-EOS.undent
+    (site_packages/"homebrew-gnureadline-hack.pth").write <<~EOS
       import sys; import gnureadline; sys.modules["readline"] = gnureadline
     EOS
   end
 
   test do
-    dxenv = <<-EOS.undent
+    dxenv = <<~EOS
     API server protocol	https
     API server host		api.dnanexus.com
     API server port		443

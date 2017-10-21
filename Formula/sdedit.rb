@@ -14,7 +14,7 @@ class Sdedit < Formula
   end
 
   test do
-    (testpath/"test.sd").write <<-EOS.undent
+    (testpath/"test.sd").write <<~EOS
       #![SD ticket order]
       ext:External[pe]
       user:Actor

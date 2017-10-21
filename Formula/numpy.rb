@@ -1,13 +1,13 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "http://www.numpy.org"
-  url "https://files.pythonhosted.org/packages/b9/33/c64cb1d2f447727cb687f0a4ac12cdcd7dd5cae8db73a548b41b2284b08a/numpy-1.13.2.zip"
-  sha256 "90ceeb683d69ef86cb424818d0bff7597b2a8d05f459679cf43d243c4442b8ba"
+  url "https://files.pythonhosted.org/packages/bf/2d/005e45738ab07a26e621c9c12dc97381f372e06678adf7dc3356a69b5960/numpy-1.13.3.zip"
+  sha256 "36ee86d5adbabc4fa2643a073f93d5504bdfed37a149a3a49f4dde259f35a750"
 
   bottle do
-    sha256 "44b42ff9b9adcb0b1529568174fdb943737403df45ad0f743d6a74757caad183" => :high_sierra
-    sha256 "2b07c8f8a10351deafeb6e8d3bb7a667a02e93d4b7d17545c3c318118c1fae22" => :sierra
-    sha256 "6347719f2b90ad714e2e4f63820d224a9505ccd97abe04fe47435126bcd20df8" => :el_capitan
+    sha256 "03e4c83c4d936bfd0ca7ba2f37572431e58d58185bdc5bf3acf9b4802e3b051c" => :high_sierra
+    sha256 "a57efe4118c1cbe1f8d6f6cba65c0fe3a19de26d964e33b4d0fd692745c4c799" => :sierra
+    sha256 "3500437e7b0fc0f4d9362145e86630d913421e9ac474fbdf9a29a2e8d3bc06d1" => :el_capitan
   end
 
   head do
@@ -59,7 +59,7 @@ class Numpy < Formula
     if build.with?("python") && !Formula["python"].installed?
       homebrew_site_packages = Language::Python.homebrew_site_packages
       user_site_packages = Language::Python.user_site_packages "python"
-      <<-EOS.undent
+      <<~EOS
         If you use system python (that comes - depending on the OS X version -
         with older versions of numpy, scipy and matplotlib), you may need to
         ensure that the brewed packages come earlier in Python's sys.path with:
@@ -71,7 +71,7 @@ class Numpy < Formula
 
   test do
     Language::Python.each_python(build) do |python, _version|
-      system python, "-c", <<-EOS.undent
+      system python, "-c", <<~EOS
         import numpy as np
         t = np.ones((3,3), int)
         assert t.sum() == 9

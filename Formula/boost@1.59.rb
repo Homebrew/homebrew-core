@@ -49,7 +49,7 @@ class BoostAT159 < Formula
   def install
     # https://svn.boost.org/trac/boost/ticket/8841
     if build.with?("mpi") && build.with?("single")
-      raise <<-EOS.undent
+      raise <<~EOS
         Building MPI support for both single and multi-threaded flavors
         is not supported.  Please use "--with-mpi" together with
         "--without-single".
@@ -122,7 +122,7 @@ class BoostAT159 < Formula
     # ENV.compiler doesn't exist in caveats. Check library availability
     # instead.
     if Dir["#{lib}/libboost_log*"].empty?
-      s += <<-EOS.undent
+      s += <<~EOS
 
       Building of Boost.Log is disabled because it requires newer GCC or Clang.
       EOS
@@ -132,7 +132,7 @@ class BoostAT159 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <boost/algorithm/string.hpp>
       #include <string>
       #include <vector>

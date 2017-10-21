@@ -26,6 +26,6 @@ class Agedu < Formula
 
   test do
     system bin/"agedu", "-s", "."
-    assert (testpath/"agedu.dat").exist?
+    assert_predicate testpath/"agedu.dat", :exist?
   end
 end

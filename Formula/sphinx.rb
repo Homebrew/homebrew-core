@@ -79,7 +79,7 @@ class Sphinx < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This is not sphinx - the Python Documentation Generator.
     To install sphinx-python use pip.
 
