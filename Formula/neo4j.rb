@@ -1,14 +1,19 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-3.2.2-unix.tar.gz"
-  sha256 "de607436b9708ee708447be367439a4c8c30bd97ca77e84e3a081b8b6d378d95"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-3.2.6-unix.tar.gz"
+  sha256 "6d68363595c9288dc734301de6d8f935b7a0febcb59b88ff77676b95cd0a8950"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
   def install
+    inreplace %w[bin/cypher-shell bin/neo4j bin/neo4j-admin bin/neo4j-import
+                 bin/neo4j-shell],
+              'JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"',
+              'JAVA_HOME="$(/usr/libexec/java_home -v 1.8+)"'
+
     ENV["NEO4J_HOME"] = libexec
     # Remove windows files
     rm_f Dir["bin/*.bat"]
