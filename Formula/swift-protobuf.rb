@@ -5,6 +5,12 @@ class SwiftProtobuf < Formula
   sha256 "9cb811d608294d7b5fd0dcdc78d5b66b7ac2005ec026db3530f563be4248656a"
   head "https://github.com/apple/swift-protobuf.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "42b8f197acbc35e43f873288d87585c8547d2f2f070c7ef26475a68a5bde3ce8" => :high_sierra
+    sha256 "2f1d6e97d045138edaa1b7f64bdbfd852a7865464b8b5bc7ae9bf44cc94fe224" => :sierra
+  end
+
   depends_on :xcode => ["8.3", :build]
   depends_on "protobuf"
 
