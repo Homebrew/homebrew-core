@@ -23,11 +23,11 @@ class ZitaConvolver < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-    #include <zita-convolver.h>
+      #include <zita-convolver.h>
 
-    int main() {
-      return zita_convolver_major_version () != ZITA_CONVOLVER_MAJOR_VERSION;
-    }
+      int main() {
+        return zita_convolver_major_version () != ZITA_CONVOLVER_MAJOR_VERSION;
+      }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lzita-convolver", "-o", "test"
     system "./test"

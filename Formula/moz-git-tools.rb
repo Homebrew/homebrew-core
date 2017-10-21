@@ -24,7 +24,7 @@ class MozGitTools < Formula
 
   def caveats
     <<~EOS
-    git-root was not installed because it conflicts with the version provided by git-extras.
+      git-root was not installed because it conflicts with the version provided by git-extras.
     EOS
   end
 

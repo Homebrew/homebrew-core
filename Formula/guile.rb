@@ -52,8 +52,8 @@ class Guile < Formula
   test do
     hello = testpath/"hello.scm"
     hello.write <<~EOS
-    (display "Hello World")
-    (newline)
+      (display "Hello World")
+      (newline)
     EOS
 
     ENV["GUILE_AUTO_COMPILE"] = "0"

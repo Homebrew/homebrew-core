@@ -50,9 +50,9 @@ class Clisp < Formula
 
       if MacOS.version >= :lion
         opoo <<~EOS
-           `make check` fails so we are skipping it.
-           However, there will likely be other issues present.
-           Please take them upstream to the clisp project itself.
+          `make check` fails so we are skipping it.
+          However, there will likely be other issues present.
+          Please take them upstream to the clisp project itself.
         EOS
       else
         # Considering the complexity of this package, a self-check is highly recommended.

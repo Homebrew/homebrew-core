@@ -111,9 +111,9 @@ class Rust < Formula
   test do
     system "#{bin}/rustdoc", "-h"
     (testpath/"hello.rs").write <<~EOS
-    fn main() {
-      println!("Hello World!");
-    }
+      fn main() {
+        println!("Hello World!");
+      }
     EOS
     system "#{bin}/rustc", "hello.rs"
     assert_equal "Hello World!\n", `./hello`

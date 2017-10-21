@@ -51,7 +51,8 @@ class Openttd < Formula
     bin.write_exec_script "#{prefix}/OpenTTD.app/Contents/MacOS/openttd"
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       If you have access to the sound and graphics files from the original
       Transport Tycoon Deluxe, you can install them by following the
       instructions in section 4.1 of #{prefix}/readme.txt

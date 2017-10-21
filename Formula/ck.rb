@@ -20,12 +20,12 @@ class Ck < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-    #include <ck_spinlock.h>
-    int main() {
-      ck_spinlock_t spinlock;
-      ck_spinlock_init(&spinlock);
-      return 0;
-    }
+      #include <ck_spinlock.h>
+      int main() {
+        ck_spinlock_t spinlock;
+        ck_spinlock_init(&spinlock);
+        return 0;
+      }
     EOS
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lck",
            testpath/"test.c", "-o", testpath/"test"

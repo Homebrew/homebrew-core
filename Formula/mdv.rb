@@ -42,9 +42,9 @@ class Mdv < Formula
 
   test do
     (testpath/"test.md").write <<~EOS
-    # Header 1
-    ## Header 2
-    ### Header 3
+      # Header 1
+      ## Header 2
+      ### Header 3
     EOS
     system "#{bin}/mdv", "#{testpath}/test.md"
   end

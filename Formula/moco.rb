@@ -22,7 +22,7 @@ class Moco < Formula
               "text" : "Hello, Moco"
           }
         }
-    ]
+      ]
     EOS
 
     port = 12306

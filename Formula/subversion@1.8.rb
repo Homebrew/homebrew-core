@@ -199,24 +199,24 @@ class SubversionAT18 < Formula
     EOS
 
     if build.with? "perl"
+      s += "\n"
       s += <<~EOS
-
         The perl bindings are located in various subdirectories of:
           #{prefix}/Library/Perl
       EOS
     end
 
     if build.with? "ruby"
+      s += "\n"
       s += <<~EOS
-
         You may need to add the Ruby bindings to your RUBYLIB from:
           #{HOMEBREW_PREFIX}/lib/ruby
       EOS
     end
 
     if build.with? "java"
+      s += "\n"
       s += <<~EOS
-
         You may need to link the Java bindings into the Java Extensions folder:
           sudo mkdir -p /Library/Java/Extensions
           sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib

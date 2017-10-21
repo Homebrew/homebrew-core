@@ -25,9 +25,9 @@ class Rtf2latex2e < Formula
 
   test do
     (testpath/"test.rtf").write <<~'EOS'
-    {\rtf1\ansi
-    {\b hello} world
-    }
+      {\rtf1\ansi
+      {\b hello} world
+      }
     EOS
     system bin/"rtf2latex2e", "-n", "test.rtf"
     assert_match "textbf{hello} world", File.read("test.tex")

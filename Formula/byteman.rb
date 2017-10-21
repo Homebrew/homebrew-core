@@ -56,9 +56,9 @@ class Byteman < Formula
     system "javac", "src/main/java/BytemanHello.java"
     # Expected successful output when Byteman runs example
     expected = <<~EOS
-    Entering main
-    Hello, Brew!
-    Exiting main
+      Entering main
+      Hello, Brew!
+      Exiting main
     EOS
     actual = shell_output("#{bin}/bmjava -l brew.btm -cp src/main/java BytemanHello")
     assert_equal(expected, actual)

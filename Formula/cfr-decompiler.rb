@@ -16,16 +16,16 @@ class CfrDecompiler < Formula
 
   test do
     fixture = <<~EOS
-    import java.io.PrintStream;
+      import java.io.PrintStream;
 
-    class T {
-        T() {
-        }
+      class T {
+          T() {
+          }
 
-        public static void main(String[] arrstring) {
-            System.out.println("Hello brew!");
-        }
-    }
+          public static void main(String[] arrstring) {
+              System.out.println("Hello brew!");
+          }
+      }
     EOS
     (testpath/"T.java").write fixture
     system "javac", "T.java"

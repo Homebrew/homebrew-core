@@ -26,13 +26,13 @@ class Gollum < Formula
 
   test do
     (testpath/"test.conf").write <<~EOS
-    - "consumer.Profiler":
-        Enable: true
-        Runs: 100000
-        Batches: 100
-        Characters: "abcdefghijklmnopqrstuvwxyz .,!;:-_"
-        Message: "%256s"
-        Stream: "profile"
+      - "consumer.Profiler":
+          Enable: true
+          Runs: 100000
+          Batches: 100
+          Characters: "abcdefghijklmnopqrstuvwxyz .,!;:-_"
+          Message: "%256s"
+          Stream: "profile"
     EOS
 
     assert_match "parsed as ok", shell_output("#{bin}/gollum -tc #{testpath}/test.conf")

@@ -50,21 +50,21 @@ class Lldpd < Formula
     additional_args = ""
     additional_args += "<string>-x</string>" if build.with? "snmp"
     <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/lldpd</string>
-        #{additional_args}
-      </array>
-      <key>RunAtLoad</key><true/>
-      <key>KeepAlive</key><true/>
-    </dict>
-    </plist>
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/lldpd</string>
+          #{additional_args}
+        </array>
+        <key>RunAtLoad</key><true/>
+        <key>KeepAlive</key><true/>
+      </dict>
+      </plist>
     EOS
   end
 end

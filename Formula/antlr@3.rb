@@ -18,40 +18,40 @@ class AntlrAT3 < Formula
     libexec.install "antlr-3.5.2-complete.jar"
     (share+"java").install_symlink "#{libexec}/antlr-3.5.2-complete.jar" => "antlr3.jar"
     (bin+"antlr3").write <<~EOS
-    #!/bin/sh
-    java -jar #{libexec}/antlr-3.5.2-complete.jar "$@"
+      #!/bin/sh
+      java -jar #{libexec}/antlr-3.5.2-complete.jar "$@"
     EOS
   end
 
   test do
     exppath = testpath/"Exp.g"
     exppath.write <<~EOS
-    grammar Exp;
-    eval returns [double value]
-        :    exp=atomExp {$value = $exp.value;}
-        ;
-    atomExp returns [double value]
-        :    n=Number                {$value = Double.parseDouble($n.text);}
-        ;
-    Number
-        :    ('0'..'9')+ ('.' ('0'..'9')+)?
-        ;
-    WS
-        :   (' ' | '\\t' | '\\r'| '\\n') {\$channel=HIDDEN;}
-        ;
+      grammar Exp;
+      eval returns [double value]
+          :    exp=atomExp {$value = $exp.value;}
+          ;
+      atomExp returns [double value]
+          :    n=Number                {$value = Double.parseDouble($n.text);}
+          ;
+      Number
+          :    ('0'..'9')+ ('.' ('0'..'9')+)?
+          ;
+      WS
+          :   (' ' | '\\t' | '\\r'| '\\n') {\$channel=HIDDEN;}
+          ;
     EOS
     javapath = testpath/"ANTLRDemo.java"
     javapath.write <<~EOS
-    import org.antlr.runtime.*;
-    public class ANTLRDemo {
-        public static void main(String[] args) throws Exception {
-            ANTLRStringStream in = new ANTLRStringStream("42");
-            ExpLexer lexer = new ExpLexer(in);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            ExpParser parser = new ExpParser(tokens);
-            System.out.println(parser.eval()); // print the value
-        }
-    }
+      import org.antlr.runtime.*;
+      public class ANTLRDemo {
+          public static void main(String[] args) throws Exception {
+              ANTLRStringStream in = new ANTLRStringStream("42");
+              ExpLexer lexer = new ExpLexer(in);
+              CommonTokenStream tokens = new CommonTokenStream(lexer);
+              ExpParser parser = new ExpParser(tokens);
+              System.out.println(parser.eval()); // print the value
+          }
+      }
     EOS
     ENV.prepend "CLASSPATH", "#{share}/java/antlr3.jar", ":"
     ENV.prepend "CLASSPATH", ".", ":"

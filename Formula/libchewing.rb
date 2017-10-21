@@ -31,23 +31,23 @@ class Libchewing < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-    #include <stdlib.h>
-    #include <chewing/chewing.h>
-    int main()
-    {
-        ChewingContext *ctx = chewing_new();
-        chewing_handle_Default(ctx, 'x');
-        chewing_handle_Default(ctx, 'm');
-        chewing_handle_Default(ctx, '4');
-        chewing_handle_Default(ctx, 't');
-        chewing_handle_Default(ctx, '8');
-        chewing_handle_Default(ctx, '6');
-        chewing_handle_Enter(ctx);
-        char *buf = chewing_commit_String(ctx);
-        free(buf);
-        chewing_delete(ctx);
-        return 0;
-    }
+      #include <stdlib.h>
+      #include <chewing/chewing.h>
+      int main()
+      {
+          ChewingContext *ctx = chewing_new();
+          chewing_handle_Default(ctx, 'x');
+          chewing_handle_Default(ctx, 'm');
+          chewing_handle_Default(ctx, '4');
+          chewing_handle_Default(ctx, 't');
+          chewing_handle_Default(ctx, '8');
+          chewing_handle_Default(ctx, '6');
+          chewing_handle_Enter(ctx);
+          char *buf = chewing_commit_String(ctx);
+          free(buf);
+          chewing_delete(ctx);
+          return 0;
+      }
     EOS
     system ENV.cc, "test.cpp", "-L#{lib}", "-lchewing", "-o", "test"
     system "./test"

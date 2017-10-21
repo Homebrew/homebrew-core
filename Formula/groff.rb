@@ -49,8 +49,8 @@ class Groff < Formula
 
   def caveats
     <<~EOS
-    Attempting to use PDF or HTML output support without using --with-gropdf or
-    --with-grohtml may result in errors.
+      Attempting to use PDF or HTML output support without using --with-gropdf or
+      --with-grohtml may result in errors.
     EOS
   end
 

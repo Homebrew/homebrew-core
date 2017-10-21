@@ -24,9 +24,10 @@ class MecabUnidicExtended < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-     To enable mecab-unidic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
-       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/unidic-extended
+  def caveats
+    <<~EOS
+      To enable mecab-unidic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
+        dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/unidic-extended
     EOS
   end
 

@@ -64,9 +64,9 @@ class Python3 < Formula
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
     reason <<~EOS
-    The bottle needs the Apple Command Line Tools to be installed.
-      You can install them, if desired, with:
-        xcode-select --install
+      The bottle needs the Apple Command Line Tools to be installed.
+        You can install them, if desired, with:
+          xcode-select --install
     EOS
     satisfy { MacOS::CLT.installed? }
   end

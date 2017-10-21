@@ -28,13 +28,13 @@ class GumboParser < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-    #include "gumbo.h"
+      #include "gumbo.h"
 
-    int main() {
-      GumboOutput* output = gumbo_parse("<h1>Hello, World!</h1>");
-      gumbo_destroy_output(&kGumboDefaultOptions, output);
-      return 0;
-    }
+      int main() {
+        GumboOutput* output = gumbo_parse("<h1>Hello, World!</h1>");
+        gumbo_destroy_output(&kGumboDefaultOptions, output);
+        return 0;
+      }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lgumbo", "-o", "test"
     system "./test"

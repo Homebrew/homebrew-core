@@ -75,21 +75,21 @@ class PostgresqlAT94 < Formula
 
   def caveats
     s = <<~EOS
-    If builds of PostgreSQL 9 are failing and you have version 8.x installed,
-    you may need to remove the previous version first. See:
-      https://github.com/Homebrew/legacy-homebrew/issues/2510
+      If builds of PostgreSQL 9 are failing and you have version 8.x installed,
+      you may need to remove the previous version first. See:
+        https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-    To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.3/static/upgrading.html
+      To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
+        https://www.postgresql.org/docs/9.3/static/upgrading.html
     EOS
 
     if MacOS.prefer_64_bit?
       s << <<~EOS
-      \nWhen installing the postgres gem, including ARCHFLAGS is recommended:
-        ARCHFLAGS="-arch x86_64" gem install pg
+        \nWhen installing the postgres gem, including ARCHFLAGS is recommended:
+          ARCHFLAGS="-arch x86_64" gem install pg
 
-      To install gems without sudo, see the Homebrew documentation:
-      https://github.com/Homebrew/brew/blob/master/docs/Gems%2C-Eggs-and-Perl-Modules.md
+        To install gems without sudo, see the Homebrew documentation:
+        https://github.com/Homebrew/brew/blob/master/docs/Gems%2C-Eggs-and-Perl-Modules.md
       EOS
     end
 

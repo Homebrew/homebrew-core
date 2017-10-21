@@ -25,15 +25,15 @@ class Antlr < Formula
   test do
     path = testpath/"Expr.g4"
     path.write <<~EOS
-    grammar Expr;
-    prog:\t(expr NEWLINE)* ;
-    expr:\texpr ('*'|'/') expr
-        |\texpr ('+'|'-') expr
-        |\tINT
-        |\t'(' expr ')'
-        ;
-    NEWLINE :\t[\\r\\n]+ ;
-    INT     :\t[0-9]+ ;
+      grammar Expr;
+      prog:\t(expr NEWLINE)* ;
+      expr:\texpr ('*'|'/') expr
+          |\texpr ('+'|'-') expr
+          |\tINT
+          |\t'(' expr ')'
+          ;
+      NEWLINE :\t[\\r\\n]+ ;
+      INT     :\t[0-9]+ ;
     EOS
     ENV.prepend "CLASSPATH", "#{prefix}/antlr-#{version}-complete.jar", ":"
     ENV.prepend "CLASSPATH", ".", ":"

@@ -94,48 +94,48 @@ class IscDhcp < Formula
 
   def plist
     <<~EOS
-    <?xml version='1.0' encoding='UTF-8'?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-                    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version='1.0'>
-    <dict>
-    <key>Label</key><string>#{plist_name}</string>
-    <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/dhcpd</string>
-        <string>-f</string>
-      </array>
-    <key>Disabled</key><false/>
-    <key>KeepAlive</key><true/>
-    <key>RunAtLoad</key><true/>
-    <key>LowPriorityIO</key><true/>
-    </dict>
-    </plist>
+      <?xml version='1.0' encoding='UTF-8'?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+                      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version='1.0'>
+      <dict>
+      <key>Label</key><string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/dhcpd</string>
+          <string>-f</string>
+        </array>
+      <key>Disabled</key><false/>
+      <key>KeepAlive</key><true/>
+      <key>RunAtLoad</key><true/>
+      <key>LowPriorityIO</key><true/>
+      </dict>
+      </plist>
     EOS
   end
 
   def plist_dhcpd6
     <<~EOS
-    <?xml version='1.0' encoding='UTF-8'?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-                    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version='1.0'>
-    <dict>
-    <key>Label</key><string>#{plist_name}</string>
-    <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/dhcpd</string>
-        <string>-f</string>
-        <string>-6</string>
-        <string>-cf</string>
-        <string>#{etc}/dhcpd6.conf</string>
-      </array>
-    <key>Disabled</key><false/>
-    <key>KeepAlive</key><true/>
-    <key>RunAtLoad</key><true/>
-    <key>LowPriorityIO</key><true/>
-    </dict>
-    </plist>
+      <?xml version='1.0' encoding='UTF-8'?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+                      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version='1.0'>
+      <dict>
+      <key>Label</key><string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/dhcpd</string>
+          <string>-f</string>
+          <string>-6</string>
+          <string>-cf</string>
+          <string>#{etc}/dhcpd6.conf</string>
+        </array>
+      <key>Disabled</key><false/>
+      <key>KeepAlive</key><true/>
+      <key>RunAtLoad</key><true/>
+      <key>LowPriorityIO</key><true/>
+      </dict>
+      </plist>
     EOS
   end
 end

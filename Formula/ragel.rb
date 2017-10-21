@@ -26,16 +26,16 @@ class Ragel < Formula
   test do
     testfile = testpath/"rubytest.rl"
     testfile.write <<~EOS
-    %%{
-      machine homebrew_test;
-      main := ( 'h' @ { puts "homebrew" }
-              | 't' @ { puts "test" }
-              )*;
-    }%%
-      data = 'ht'
-      %% write data;
-      %% write init;
-      %% write exec;
+      %%{
+        machine homebrew_test;
+        main := ( 'h' @ { puts "homebrew" }
+                | 't' @ { puts "test" }
+                )*;
+      }%%
+        data = 'ht'
+        %% write data;
+        %% write init;
+        %% write exec;
     EOS
     system bin/"ragel", "-Rs", testfile
   end

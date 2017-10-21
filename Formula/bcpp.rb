@@ -20,10 +20,10 @@ class Bcpp < Formula
 
   test do
     (testpath/"test.txt").write <<~EOS
-              test
-                 test
           test
-                test
+             test
+      test
+            test
     EOS
     system bin/"bcpp", "test.txt", "-fnc", "#{etc}/bcpp.cfg"
     assert_predicate testpath/"test.txt.orig", :exist?

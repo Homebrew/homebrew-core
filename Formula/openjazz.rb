@@ -45,9 +45,9 @@ class Openjazz < Formula
 
     # Default game lookup path is the OpenJazz binary's location
     (bin/"OpenJazz").write <<~EOS
-    #!/bin/sh
+      #!/bin/sh
 
-    exec "#{pkgshare}/OpenJazz" "$@"
+      exec "#{pkgshare}/OpenJazz" "$@"
     EOS
 
     resource("shareware").stage do

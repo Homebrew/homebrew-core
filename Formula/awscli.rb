@@ -30,12 +30,12 @@ class Awscli < Formula
     bash_completion.install "bin/aws_bash_completer"
     zsh_completion.install "bin/aws_zsh_completer.sh"
     (zsh_completion/"_aws").write <<~EOS
-        #compdef aws
-        _aws () {
-          local e
-          e=$(dirname ${funcsourcetrace[1]%:*})/aws_zsh_completer.sh
-          if [[ -f $e ]]; then source $e; fi
-        }
+      #compdef aws
+      _aws () {
+        local e
+        e=$(dirname ${funcsourcetrace[1]%:*})/aws_zsh_completer.sh
+        if [[ -f $e ]]; then source $e; fi
+      }
     EOS
   end
 

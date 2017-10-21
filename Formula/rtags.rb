@@ -69,15 +69,15 @@ class Rtags < Formula
   test do
     mkpath testpath/"src"
     (testpath/"src/foo.c").write <<~EOS
-        void zaphod() {
-        }
+      void zaphod() {
+      }
 
-        void beeblebrox() {
-          zaphod();
-        }
+      void beeblebrox() {
+        zaphod();
+      }
     EOS
     (testpath/"src/README").write <<~EOS
-        42
+      42
     EOS
 
     rdm = fork do

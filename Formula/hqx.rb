@@ -26,16 +26,16 @@ class Hqx < Formula
     system bin/"hqx", test_fixtures("test.jpg"), "out.jpg"
     output = pipe_output("php -r \"print_r(getimagesize(\'file://#{testpath}/out.jpg\'));\"")
     assert_equal <<~EOS, output
-    \tArray
-    \t(
-    \t    [0] => 4
-    \t    [1] => 4
-    \t    [2] => 2
-    \t    [3] => width="4" height="4"
-    \t    [bits] => 8
-    \t    [channels] => 3
-    \t    [mime] => image/jpeg
-    \t)
+      \tArray
+      \t(
+      \t    [0] => 4
+      \t    [1] => 4
+      \t    [2] => 2
+      \t    [3] => width="4" height="4"
+      \t    [bits] => 8
+      \t    [channels] => 3
+      \t    [mime] => image/jpeg
+      \t)
     EOS
   end
 end

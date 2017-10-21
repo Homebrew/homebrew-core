@@ -32,10 +32,10 @@ class Minio < Formula
         proj = "github.com/minio/minio"
 
         system "go", "build", "-o", buildpath/"minio", "-ldflags", <<~EOS
-            -X #{proj}/cmd.Version=#{version}
-            -X #{proj}/cmd.ReleaseTag=#{release}
-            -X #{proj}/cmd.CommitID=#{commit}
-            EOS
+          -X #{proj}/cmd.Version=#{version}
+          -X #{proj}/cmd.ReleaseTag=#{release}
+          -X #{proj}/cmd.CommitID=#{commit}
+        EOS
       end
     end
 
@@ -49,37 +49,38 @@ class Minio < Formula
 
   plist_options :manual => "minio server"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-   <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/minio</string>
-        <string>server</string>
-        <string>--config-dir=#{etc}/minio</string>
-        <string>--address :9000</string>
-        <string>#{var}/minio</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/minio/output.log</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/minio/output.log</string>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/minio</string>
+            <string>server</string>
+            <string>--config-dir=#{etc}/minio</string>
+            <string>--address :9000</string>
+            <string>#{var}/minio</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/minio/output.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/minio/output.log</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
     EOS
   end
 

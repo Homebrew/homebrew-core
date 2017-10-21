@@ -37,23 +37,23 @@ class Cfssl < Formula
 
   test do
     (testpath/"request.json").write <<~EOS
-    {
-      "CN" : "Your Certificate Authority",
-      "hosts" : [],
-      "key" : {
-        "algo" : "rsa",
-        "size" : 4096
-      },
-      "names" : [
-        {
-          "C" : "US",
-          "ST" : "Your State",
-          "L" : "Your City",
-          "O" : "Your Organization",
-          "OU" : "Your Certificate Authority"
-        }
-      ]
-    }
+      {
+        "CN" : "Your Certificate Authority",
+        "hosts" : [],
+        "key" : {
+          "algo" : "rsa",
+          "size" : 4096
+        },
+        "names" : [
+          {
+            "C" : "US",
+            "ST" : "Your State",
+            "L" : "Your City",
+            "O" : "Your Organization",
+            "OU" : "Your Certificate Authority"
+          }
+        ]
+      }
     EOS
     shell_output("#{bin}/cfssl genkey -initca request.json > response.json")
     response = JSON.parse(File.read(testpath/"response.json"))

@@ -15,12 +15,12 @@ class ProcyonDecompiler < Formula
 
   test do
     fixture = <<~EOS
-    class T
-    {
-        public static void main(final String[] array) {
-            System.out.println("Hello World!");
-        }
-    }
+      class T
+      {
+          public static void main(final String[] array) {
+              System.out.println("Hello World!");
+          }
+      }
     EOS
     (testpath/"T.java").write fixture
     system "javac", "T.java"

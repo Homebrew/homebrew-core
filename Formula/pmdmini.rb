@@ -42,17 +42,17 @@ class Pmdmini < Formula
   test do
     resource("test_song").stage testpath
     (testpath/"pmdtest.c").write <<~EOS
-    #include <stdio.h>
-    #include "libpmdmini/pmdmini.h"
+      #include <stdio.h>
+      #include "libpmdmini/pmdmini.h"
 
-    int main(int argc, char** argv)
-    {
-        char title[1024];
-        pmd_init();
-        pmd_play(argv[1], argv[2]);
-        pmd_get_title(title);
-        printf("%s\\n", title);
-    }
+      int main(int argc, char** argv)
+      {
+          char title[1024];
+          pmd_init();
+          pmd_play(argv[1], argv[2]);
+          pmd_get_title(title);
+          printf("%s\\n", title);
+      }
     EOS
     system ENV.cc, "pmdtest.c", "-L#{lib}", "-lpmdmini", "-o", "pmdtest"
     result = `#{testpath}/pmdtest #{testpath}/dd06.m #{testpath}`.chomp

@@ -86,11 +86,11 @@ class GoAT15 < Formula
 
   test do
     (testpath/"hello.go").write <<~EOS
-    package main
-    import "fmt"
-    func main() {
-        fmt.Println("Hello World")
-    }
+      package main
+      import "fmt"
+      func main() {
+          fmt.Println("Hello World")
+      }
     EOS
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.

@@ -62,11 +62,11 @@ class GitlabRunner < Formula
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS
-             -X #{proj}/common.NAME=gitlab-runner
-             -X #{proj}/common.VERSION=#{version}
-             -X #{proj}/common.REVISION=#{commit}
-             -X #{proj}/common.BRANCH=#{branch}
-             -X #{proj}/common.BUILT=#{built}
+        -X #{proj}/common.NAME=gitlab-runner
+        -X #{proj}/common.VERSION=#{version}
+        -X #{proj}/common.REVISION=#{commit}
+        -X #{proj}/common.BRANCH=#{branch}
+        -X #{proj}/common.BUILT=#{built}
       EOS
 
       bin.install "gitlab-runner"

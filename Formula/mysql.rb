@@ -135,13 +135,13 @@ class Mysql < Formula
 
   def caveats
     s = <<~EOS
-    We've installed your MySQL database without a root password. To secure it run:
-        mysql_secure_installation
+      We've installed your MySQL database without a root password. To secure it run:
+          mysql_secure_installation
 
-    MySQL is configured to only allow connections from localhost by default
+      MySQL is configured to only allow connections from localhost by default
 
-    To connect run:
-        mysql -uroot
+      To connect run:
+          mysql -uroot
     EOS
     if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
       s += <<~EOS

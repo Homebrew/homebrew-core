@@ -136,12 +136,12 @@ class Nginx < Formula
 
   def caveats
     s = <<~EOS
-    Docroot is: #{var}/www
+      Docroot is: #{var}/www
 
-    The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
-    nginx can run without sudo.
+      The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
+      nginx can run without sudo.
 
-    nginx will load all files in #{etc}/nginx/servers/.
+      nginx will load all files in #{etc}/nginx/servers/.
     EOS
     s << "\n" << passenger_caveats if build.with? "passenger"
     s

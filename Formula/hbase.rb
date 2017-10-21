@@ -73,31 +73,31 @@ class Hbase < Formula
     inreplace "#{libexec}/conf/hbase-site.xml",
       /<configuration>/,
       <<~EOS
-      <configuration>
-        <property>
-          <name>hbase.rootdir</name>
-          <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
-        </property>
-        <property>
-          <name>hbase.zookeeper.property.clientPort</name>
-          <value>2181</value>
-        </property>
-        <property>
-          <name>hbase.zookeeper.property.dataDir</name>
-          <value>#{var}/zookeeper</value>
-        </property>
-        <property>
-          <name>hbase.zookeeper.dns.interface</name>
-          <value>lo0</value>
-        </property>
-        <property>
-          <name>hbase.regionserver.dns.interface</name>
-          <value>lo0</value>
-        </property>
-        <property>
-          <name>hbase.master.dns.interface</name>
-          <value>lo0</value>
-        </property>
+        <configuration>
+          <property>
+            <name>hbase.rootdir</name>
+            <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
+          </property>
+          <property>
+            <name>hbase.zookeeper.property.clientPort</name>
+            <value>2181</value>
+          </property>
+          <property>
+            <name>hbase.zookeeper.property.dataDir</name>
+            <value>#{var}/zookeeper</value>
+          </property>
+          <property>
+            <name>hbase.zookeeper.dns.interface</name>
+            <value>lo0</value>
+          </property>
+          <property>
+            <name>hbase.regionserver.dns.interface</name>
+            <value>lo0</value>
+          </property>
+          <property>
+            <name>hbase.master.dns.interface</name>
+            <value>lo0</value>
+          </property>
       EOS
   end
 

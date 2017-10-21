@@ -27,13 +27,13 @@ class Cdargs < Formula
     bash_completion.install_symlink "#{prefix}/contrib/cdargs-bash.sh"
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       Support files for bash, tcsh, and emacs have been installed to:
         #{prefix}/contrib
     EOS
   end
 end
-
 
 __END__
 diff --git a/contrib/cdargs-bash.sh b/contrib/cdargs-bash.sh

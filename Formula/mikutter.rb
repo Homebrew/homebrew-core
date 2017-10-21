@@ -254,11 +254,11 @@ class Mikutter < Formula
 
   def exec_script
     <<~EOS
-    #!/bin/bash
-    export GEM_HOME="#{opt_lib}/mikutter/vendor"
-    export DISABLE_BUNDLER_SETUP=1
-    export GTK_PATH="#{Formula["gtk+"].opt_lib}/gtk-2.0"
-    exec ruby "#{libexec}/mikutter.rb" "$@"
+      #!/bin/bash
+      export GEM_HOME="#{opt_lib}/mikutter/vendor"
+      export DISABLE_BUNDLER_SETUP=1
+      export GTK_PATH="#{Formula["gtk+"].opt_lib}/gtk-2.0"
+      exec ruby "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 

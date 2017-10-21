@@ -77,9 +77,9 @@ class S6 < Formula
     # Test execline
     test_script = testpath/"test.eb"
     test_script.write <<~EOS
-     import PATH
-     if { [ ! -z ${PATH} ] }
-       true
+      import PATH
+      if { [ ! -z ${PATH} ] }
+        true
     EOS
     system "#{bin}/execlineb", test_script
 

@@ -29,26 +29,26 @@ class Yamcha < Formula
     assert_equal libexecdir, "#{libexec}/yamcha"
 
     (testpath/"train.data").write <<~EOS
-    He        PRP  B-NP
-    reckons   VBZ  B-VP
-    the       DT   B-NP
-    current   JJ   I-NP
-    account   NN   I-NP
-    deficit   NN   I-NP
-    will      MD   B-VP
-    narrow    VB   I-VP
-    to        TO   B-PP
-    only      RB   B-NP
-    #         #    I-NP
-    1.8       CD   I-NP
-    billion   CD   I-NP
-    in        IN   B-PP
-    September NNP  B-NP
-    .         .    O
+      He        PRP  B-NP
+      reckons   VBZ  B-VP
+      the       DT   B-NP
+      current   JJ   I-NP
+      account   NN   I-NP
+      deficit   NN   I-NP
+      will      MD   B-VP
+      narrow    VB   I-VP
+      to        TO   B-PP
+      only      RB   B-NP
+      #         #    I-NP
+      1.8       CD   I-NP
+      billion   CD   I-NP
+      in        IN   B-PP
+      September NNP  B-NP
+      .         .    O
 
-    He        PRP  B-NP
-    reckons   VBZ  B-VP
-    ..
+      He        PRP  B-NP
+      reckons   VBZ  B-VP
+      ..
     EOS
 
     system "make", "-j", "1",

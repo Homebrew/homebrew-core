@@ -21,9 +21,9 @@ class Bchunk < Formula
 
   test do
     (testpath/"foo.cue").write <<~EOS
-    foo.bin BINARY
-    TRACK 01 MODE1/2352
-    INDEX 01 00:00:00
+      foo.bin BINARY
+      TRACK 01 MODE1/2352
+      INDEX 01 00:00:00
     EOS
 
     touch testpath/"foo.bin"

@@ -19,29 +19,29 @@ class Allure < Formula
 
   test do
     (testpath/"allure-results/allure-result.json").write <<~EOS
-    {
-      "uuid": "allure",
-      "name": "testReportGeneration",
-      "fullName": "org.homebrew.AllureFormula.testReportGeneration",
-      "status": "passed",
-      "stage": "finished",
-      "start": 1494857300486,
-      "stop": 1494857300492,
-      "labels": [
-        {
-          "name": "package",
-          "value": "org.homebrew"
-        },
-        {
-          "name": "testClass",
-          "value": "AllureFormula"
-        },
-        {
-          "name": "testMethod",
-          "value": "testReportGeneration"
-        }
-      ]
-    }
+      {
+        "uuid": "allure",
+        "name": "testReportGeneration",
+        "fullName": "org.homebrew.AllureFormula.testReportGeneration",
+        "status": "passed",
+        "stage": "finished",
+        "start": 1494857300486,
+        "stop": 1494857300492,
+        "labels": [
+          {
+            "name": "package",
+            "value": "org.homebrew"
+          },
+          {
+            "name": "testClass",
+            "value": "AllureFormula"
+          },
+          {
+            "name": "testMethod",
+            "value": "testReportGeneration"
+          }
+        ]
+      }
     EOS
     system "#{bin}/allure", "generate", "#{testpath}/allure-results", "-o", "#{testpath}/allure-report"
   end

@@ -97,18 +97,18 @@ class Swift < Formula
 
   test do
     (testpath/"test.swift").write <<~EOS
-    let base = 2
-    let exponent_inner = 3
-    let exponent_outer = 4
-    var answer = 1
+      let base = 2
+      let exponent_inner = 3
+      let exponent_outer = 4
+      var answer = 1
 
-    for _ in 1...exponent_outer {
-      for _ in 1...exponent_inner {
-        answer *= base
+      for _ in 1...exponent_outer {
+        for _ in 1...exponent_inner {
+          answer *= base
+        }
       }
-    }
 
-    print("(\\(base)^\\(exponent_inner))^\\(exponent_outer) == \\(answer)")
+      print("(\\(base)^\\(exponent_inner))^\\(exponent_outer) == \\(answer)")
     EOS
     output = shell_output("#{prefix}/Swift-#{version}.xctoolchain/usr/bin/swift test.swift")
     assert_match "(2^3)^4 == 4096\n", output

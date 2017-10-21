@@ -30,16 +30,16 @@ class Dfmt < Formula
 
   test do
     (testpath/"test.d").write <<~EOS
-    import std.stdio; void main() { writeln("Hello, world without explicit compilations!"); }
+      import std.stdio; void main() { writeln("Hello, world without explicit compilations!"); }
     EOS
 
     expected = <<~EOS
-    import std.stdio;
+      import std.stdio;
 
-    void main()
-    {
-        writeln("Hello, world without explicit compilations!");
-    }
+      void main()
+      {
+          writeln("Hello, world without explicit compilations!");
+      }
     EOS
 
     system "#{bin}/dfmt", "-i", "test.d"

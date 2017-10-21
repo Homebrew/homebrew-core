@@ -139,10 +139,10 @@ class Couchdb < Formula
 
   def caveats
     str = <<~EOS
-    To test CouchDB run:
-        curl http://127.0.0.1:5984/
-    The reply should look like:
-        {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
+      To test CouchDB run:
+          curl http://127.0.0.1:5984/
+      The reply should look like:
+          {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
     EOS
     str += "\n#{geocouch_caveats}" if build.with? "geocouch"
     str

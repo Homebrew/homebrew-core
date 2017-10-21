@@ -91,8 +91,7 @@ class Boost < Formula
     # instead.
     if Dir["#{lib}/libboost_log*"].empty?
       s += <<~EOS
-
-      Building of Boost.Log is disabled because it requires newer GCC or Clang.
+        Building of Boost.Log is disabled because it requires newer GCC or Clang.
       EOS
     end
 

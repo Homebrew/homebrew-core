@@ -25,25 +25,25 @@ class DesktopFileUtils < Formula
 
   test do
     (testpath/"test.desktop").write <<~EOS
-    [Desktop Entry]
-    Version=1.0
-    Type=Application
-    Name=Foo Viewer
-    Comment=The best viewer for Foo objects available!
-    TryExec=fooview
-    Exec=fooview %F
-    Icon=fooview
-    MimeType=image/x-foo;
-    Actions=Gallery;Create;
+      [Desktop Entry]
+      Version=1.0
+      Type=Application
+      Name=Foo Viewer
+      Comment=The best viewer for Foo objects available!
+      TryExec=fooview
+      Exec=fooview %F
+      Icon=fooview
+      MimeType=image/x-foo;
+      Actions=Gallery;Create;
 
-    [Desktop Action Gallery]
-    Exec=fooview --gallery
-    Name=Browse Gallery
+      [Desktop Action Gallery]
+      Exec=fooview --gallery
+      Name=Browse Gallery
 
-    [Desktop Action Create]
-    Exec=fooview --create-new
-    Name=Create a new Foo!
-    Icon=fooview-new
+      [Desktop Action Create]
+      Exec=fooview --create-new
+      Name=Create a new Foo!
+      Icon=fooview-new
     EOS
     system "#{bin}/desktop-file-validate", "test.desktop"
   end

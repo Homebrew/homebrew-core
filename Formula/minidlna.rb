@@ -44,7 +44,8 @@ class Minidlna < Formula
     EOS
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       Simple single-user configuration:
 
       mkdir -p ~/.config/minidlna

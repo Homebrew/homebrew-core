@@ -34,8 +34,8 @@ class MonitoringPlugins < Formula
 
   def caveats
     <<~EOS
-    All plugins have been installed in:
-      #{HOMEBREW_PREFIX}/sbin
+      All plugins have been installed in:
+        #{HOMEBREW_PREFIX}/sbin
     EOS
   end
 

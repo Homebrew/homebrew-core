@@ -78,11 +78,11 @@ class VowpalWabbit < Formula
     system bin/"vw", "-t", "-i", "ect.model", "-d", "ect.dat", "-p", "ect.predict"
 
     (testpath/"train.dat").write <<~EOS
-    1:2:0.4 | a c
-      3:0.5:0.2 | b d
-      4:1.2:0.5 | a b c
-      2:1:0.3 | b c
-      3:1.5:0.7 | a d
+      1:2:0.4 | a c
+        3:0.5:0.2 | b d
+        4:1.2:0.5 | a b c
+        2:1:0.3 | b c
+        3:1.5:0.7 | a d
     EOS
     (testpath/"test.dat").write <<~EOS
       1:2 3:5 4:1:0.6 | a c d

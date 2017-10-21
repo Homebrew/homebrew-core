@@ -21,15 +21,15 @@ class Antlr4CppRuntime < Formula
 
   test do
     (testpath/"test.cc").write <<~EOS
-        #include <antlr4-runtime.h>
-        int main(int argc, const char* argv[]) {
-            try {
-                throw antlr4::ParseCancellationException() ;
-            } catch (antlr4::ParseCancellationException &exception) {
-                /* ignore */
-            }
-            return 0 ;
-        }
+      #include <antlr4-runtime.h>
+      int main(int argc, const char* argv[]) {
+          try {
+              throw antlr4::ParseCancellationException() ;
+          } catch (antlr4::ParseCancellationException &exception) {
+              /* ignore */
+          }
+          return 0 ;
+      }
     EOS
     system ENV.cxx, "-std=c++11", "-I#{include}/antlr4-runtime", "test.cc", "-L#{lib}", "-lantlr4-runtime", "-o", "test"
     system "./test"

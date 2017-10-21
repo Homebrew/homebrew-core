@@ -320,11 +320,10 @@ class Gdal < Formula
   def caveats
     if build.with? "mdb"
       <<~EOS
+        To have a functional MDB driver, install supporting .jar files in:
+          `/Library/Java/Extensions/`
 
-      To have a functional MDB driver, install supporting .jar files in:
-        `/Library/Java/Extensions/`
-
-      See: `http://www.gdal.org/ogr/drv_mdb.html`
+        See: `http://www.gdal.org/ogr/drv_mdb.html`
       EOS
     end
   end

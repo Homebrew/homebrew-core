@@ -21,7 +21,8 @@ class Abuse < Formula
   depends_on "sdl_mixer"
   depends_on "libvorbis"
 
-  def startup_script; <<~EOS
+  def startup_script
+    <<~EOS
       #!/bin/bash
       #{libexec}/abuse-bin -datadir "#{pkgshare}" "$@"
     EOS
@@ -70,7 +71,8 @@ class Abuse < Formula
     (bin/"abuse").write startup_script
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       Game settings and saves will be written to the ~/.abuse folder.
     EOS
   end

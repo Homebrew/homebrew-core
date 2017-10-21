@@ -99,9 +99,9 @@ class Graphviz < Formula
 
   test do
     (testpath/"sample.dot").write <<~EOS
-    digraph G {
-      a -> b
-    }
+      digraph G {
+        a -> b
+      }
     EOS
 
     system "#{bin}/dot", "-Tpdf", "-o", "sample.pdf", "sample.dot"

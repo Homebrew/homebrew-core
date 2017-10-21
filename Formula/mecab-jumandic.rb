@@ -36,9 +36,10 @@ class MecabJumandic < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-     To enable mecab-jumandic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
-       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/jumandic
+  def caveats
+    <<~EOS
+      To enable mecab-jumandic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
+        dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/jumandic
     EOS
   end
 

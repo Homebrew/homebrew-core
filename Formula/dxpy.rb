@@ -91,12 +91,12 @@ class Dxpy < Formula
 
   test do
     dxenv = <<~EOS
-    API server protocol	https
-    API server host		api.dnanexus.com
-    API server port		443
-    Current workspace	None
-    Current folder		None
-    Current user		None
+      API server protocol	https
+      API server host		api.dnanexus.com
+      API server port		443
+      Current workspace	None
+      Current folder		None
+      Current user		None
     EOS
     assert_match dxenv, shell_output("#{bin}/dx env")
   end

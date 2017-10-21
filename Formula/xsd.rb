@@ -40,30 +40,30 @@ class Xsd < Formula
   test do
     schema = testpath/"meaningoflife.xsd"
     schema.write <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-               targetNamespace="http://brew.sh/XSDTest" xmlns="http://brew.sh/XSDTest">
-        <xs:element name="MeaningOfLife" type="xs:positiveInteger"/>
-    </xs:schema>
+      <?xml version="1.0" encoding="UTF-8"?>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                 targetNamespace="http://brew.sh/XSDTest" xmlns="http://brew.sh/XSDTest">
+          <xs:element name="MeaningOfLife" type="xs:positiveInteger"/>
+      </xs:schema>
     EOS
     instance = testpath/"meaningoflife.xml"
     instance.write <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <MeaningOfLife xmlns="http://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://brew.sh/XSDTest meaningoflife.xsd">
-        42
-    </MeaningOfLife>
+      <?xml version="1.0" encoding="UTF-8"?>
+      <MeaningOfLife xmlns="http://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://brew.sh/XSDTest meaningoflife.xsd">
+          42
+      </MeaningOfLife>
     EOS
     xsdtest = testpath/"xsdtest.cxx"
     xsdtest.write <<~EOS
-    #include <cassert>
-    #include "meaningoflife.hxx"
-    int main (int argc, char *argv[]) {
-        assert(2==argc);
-        std::auto_ptr< ::xml_schema::positive_integer> x = XSDTest::MeaningOfLife(argv[1]);
-        assert(42==*x);
-        return 0;
-    }
+      #include <cassert>
+      #include "meaningoflife.hxx"
+      int main (int argc, char *argv[]) {
+          assert(2==argc);
+          std::auto_ptr< ::xml_schema::positive_integer> x = XSDTest::MeaningOfLife(argv[1]);
+          assert(42==*x);
+          return 0;
+      }
     EOS
     system "#{bin}/xsd", "cxx-tree", schema
     assert_predicate testpath/"meaningoflife.hxx", :exist?

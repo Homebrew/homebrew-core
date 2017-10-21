@@ -36,9 +36,9 @@ class Ponyc < Formula
     system "#{bin}/ponyc", "-rexpr", "#{prefix}/packages/stdlib"
 
     (testpath/"test/main.pony").write <<~EOS
-    actor Main
-      new create(env: Env) =>
-        env.out.print("Hello World!")
+      actor Main
+        new create(env: Env) =>
+          env.out.print("Hello World!")
     EOS
     system "#{bin}/ponyc", "test"
     assert_equal "Hello World!", shell_output("./test1").strip

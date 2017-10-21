@@ -48,7 +48,8 @@ class Plod < Formula
     EOS
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       Emacs users may want to peruse the two available plod modes. They've been
       installed at:
 

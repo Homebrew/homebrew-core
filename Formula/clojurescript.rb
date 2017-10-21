@@ -22,9 +22,9 @@ class Clojurescript < Formula
 
   test do
     (testpath/"t.cljs").write <<~EOS
-    (ns hello)
-    (defn ^:export greet [n]
-      (str "Hello " n))
+      (ns hello)
+      (defn ^:export greet [n]
+        (str "Hello " n))
     EOS
 
     system "#{bin}/cljsc", testpath/"t.cljs"

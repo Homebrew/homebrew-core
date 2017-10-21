@@ -59,10 +59,10 @@ class Logrotate < Formula
   test do
     (testpath/"test.log").write("testlograndomstring")
     (testpath/"testlogrotate.conf").write <<~EOS
-        #{testpath}/test.log {
+      #{testpath}/test.log {
         size 1
         copytruncate
-    }
+      }
     EOS
     system "#{sbin}/logrotate", "-s", "logstatus", "testlogrotate.conf"
     assert(File.size?("test.log").nil?, "File is not zero length!")

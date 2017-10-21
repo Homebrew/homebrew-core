@@ -99,9 +99,9 @@ class GnuplotAT4 < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<~EOS
-        set terminal png;
-        set output "#{testpath}/image.png";
-        plot sin(x);
+      set terminal png;
+      set output "#{testpath}/image.png";
+      plot sin(x);
     EOS
     assert_predicate testpath/"image.png", :exist?
   end

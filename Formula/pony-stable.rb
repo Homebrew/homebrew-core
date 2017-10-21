@@ -19,9 +19,9 @@ class PonyStable < Formula
 
   test do
     (testpath/"test/main.pony").write <<~EOS
-    actor Main
-      new create(env: Env) =>
-        env.out.print("Hello World!")
+      actor Main
+        new create(env: Env) =>
+          env.out.print("Hello World!")
     EOS
     system "#{bin}/stable", "env", "ponyc", "test"
     assert_equal "Hello World!", shell_output("./test1").chomp

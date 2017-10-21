@@ -25,9 +25,10 @@ class MecabKoDic < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-     To enable mecab-ko-dic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
-       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/mecab-ko-dic
+  def caveats
+    <<~EOS
+      To enable mecab-ko-dic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
+        dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/mecab-ko-dic
     EOS
   end
 

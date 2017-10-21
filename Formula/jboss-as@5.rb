@@ -18,7 +18,8 @@ class JbossAsAT5 < Formula
     libexec.install Dir["*"]
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       The home of JBoss Application Server 5 is:
       #{libexec}
 

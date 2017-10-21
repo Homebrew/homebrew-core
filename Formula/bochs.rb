@@ -75,17 +75,17 @@ class Bochs < Formula
     require "open3"
 
     (testpath/"bochsrc.txt").write <<~EOS
-        panic: action=fatal
-        error: action=report
-        info: action=ignore
-        debug: action=ignore
-        display_library: nogui
-      EOS
+      panic: action=fatal
+      error: action=report
+      info: action=ignore
+      debug: action=ignore
+      display_library: nogui
+    EOS
 
     expected = <<~EOS
-        Bochs is exiting with the following message:
-        \[BIOS  \] No bootable device\.
-      EOS
+      Bochs is exiting with the following message:
+      \[BIOS  \] No bootable device\.
+    EOS
 
     command = "#{bin}/bochs -qf bochsrc.txt"
     if build.without? "gdb-stub"
