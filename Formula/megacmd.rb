@@ -3,10 +3,8 @@ require "language/go"
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
-  url "https://github.com/t3rm1n4l/megacmd/archive/0.012.tar.gz"
-  sha256 "804861f2a7a36eef53a7310e52627e790fa9de66acf8565f697089389d2709a0"
-  revision 1
-
+  url "https://github.com/t3rm1n4l/megacmd/archive/0.013.tar.gz"
+  sha256 "f76e14678f2da8547545c2702406e27983e0a72263ef629b3ee4db226b94f6ae"
   head "https://github.com/t3rm1n4l/megacmd.git"
 
   bottle do
