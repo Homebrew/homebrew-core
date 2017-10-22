@@ -4,6 +4,12 @@ class LibbitcoinDatabase < Formula
   url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.3.0.tar.gz"
   sha256 "b4d98199ac4629a9857c1eb8819fe8166525bf2dca9ed790a9bbe5dc9c9e9186"
 
+  bottle do
+    sha256 "bd6e177feda0ca98e4b2972edfa1048220ffdbfa3f98945af9bab69ab33e7883" => :high_sierra
+    sha256 "0115578ef6f9db710419ccc61f087b4db9a6e94693074f29d15309af97ef7625" => :sierra
+    sha256 "8987f774562b107685acc81bdb77114aeaf0630950ac0c784e85909f6c3e59e8" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
