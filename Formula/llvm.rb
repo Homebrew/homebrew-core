@@ -285,6 +285,13 @@ class Llvm < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    # Install symlinks for OpenMP header and libraries so they can be used by
+    # superenv
+    ["libgomp.dylib", "libiomp5.dylib", "libomp.dylib"].each do |dylib|
+      (lib/"libomp").install_symlink lib/dylib
+    end
+    (lib/"libomp").install_symlink lib/"clang/#{version}/include/omp.h"
   end
 
   def caveats
