@@ -3,6 +3,7 @@ class Fifechan < Formula
   homepage "https://fifengine.github.io/fifechan/"
   url "https://github.com/fifengine/fifechan/archive/0.1.4.tar.gz"
   sha256 "a93b015b5852b8fe2a0a2a6891d3de2cacb196732f670e081d7b7966f9ed1b87"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,13 +14,14 @@ class Fifechan < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "allegro" => :recommended
-  depends_on "sdl" => :recommended
-  depends_on "sdl_image" => :recommended
+  depends_on "allegro"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
+  depends_on "sdl2_ttf"
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DENABLE_SDL_CONTRIB=ON", *std_cmake_args
       system "make", "install"
     end
   end
