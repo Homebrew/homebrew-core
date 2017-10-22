@@ -4,6 +4,12 @@ class GlibOpenssl < Formula
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.4.tar.xz"
   sha256 "eda914e29d9d72f03185aba92c33ec3949862c05b73b8eb04d1e1b6217b756c0"
 
+  bottle do
+    sha256 "b99c6da78317e0d5e8e2e7718d725ba0320823fe7f5fcf803f7549067a55d993" => :high_sierra
+    sha256 "80d38bf5724fdc10cca163f44f46a82f23d92a855c399bad12b8f9574c4d131a" => :sierra
+    sha256 "f47bde181be1548c0961937739b32a70ec85e984bba0b276bf6b69b9536585b9" => :el_capitan
+  end
+
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "openssl"
