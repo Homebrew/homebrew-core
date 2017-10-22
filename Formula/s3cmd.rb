@@ -1,8 +1,8 @@
 class S3cmd < Formula
   desc "Command-line tool for the Amazon S3 service"
   homepage "http://s3tools.org/s3cmd"
-  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.0/s3cmd-2.0.0.tar.gz"
-  sha256 "bf2a50802f1031cba83e99be488965803899d8ab0228c800c833b55c7269cd48"
+  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.1/s3cmd-2.0.1.tar.gz"
+  sha256 "caf09f1473301c442fba6431c983c361c9af8bde503dac0953f0d2f8f2c53c8f"
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
