@@ -23,6 +23,7 @@ class Fifechan < Formula
       args = std_cmake_args
       args << "-DENABLE_SDL_CONTRIB=ON" if build.with? "sdl2_ttf"
       system "cmake", "..", *args
+      system "make", "install"
     end
   end
 
