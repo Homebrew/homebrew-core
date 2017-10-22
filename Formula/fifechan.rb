@@ -21,7 +21,7 @@ class Fifechan < Formula
   def install
     mkdir "build" do
       args = std_cmake_args
-      args << "-DENABLE_SDL_CONTRIB=ON" if build.with? "sdl2_ttf"
+      args << "-DENABLE_SDL_CONTRIB=ON" if (build.with? "sdl2_ttf") && (build.with? "sdl2_image")
       system "cmake", "..", *args
       system "make", "install"
     end
