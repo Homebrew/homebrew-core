@@ -8,9 +8,9 @@ class Ykman < Formula
 
   bottle do
     cellar :any
-    sha256 "a0bb5c97a42c384d4d838cd34f7996f5a4d44a542a2fb1833538cf39ea9bdcea" => :high_sierra
-    sha256 "b36a3d075b695773d351118fe10443208936aeb2e648a60cd847182a9a876977" => :sierra
-    sha256 "3d345880c5a2f005d968460c9e03b9724be65996ddf933eabe2d875c3172c11e" => :el_capitan
+    sha256 "49bdc999cf7b014966613d10df701bf77117ea96d746cc94586f7fff2fc2c4d2" => :high_sierra
+    sha256 "2ffce72e2292548bdaf9b3ff0d519da7f02ce0c75bb042997c7092b3668f7348" => :sierra
+    sha256 "1c23b2f634d4580ed908d8f7b6b9edb895895e5aa11ce3bc8182fae5377968f5" => :el_capitan
   end
 
   head do
