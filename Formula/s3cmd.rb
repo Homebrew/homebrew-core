@@ -7,10 +7,9 @@ class S3cmd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4a549ae2ffe3d604c94d92c4b5028de1053ce654dfd690b717549afbee5d8952" => :high_sierra
-    sha256 "5b768bdb9e81752dafd0f7d0bbffb349a663665322dee8659d5150b74b849a51" => :sierra
-    sha256 "10ece7a8b1360bd8c0360cadb104dd071728622c2889bbd5acaf389ff899bab1" => :el_capitan
-    sha256 "10ece7a8b1360bd8c0360cadb104dd071728622c2889bbd5acaf389ff899bab1" => :yosemite
+    sha256 "b78ccd0c98b3bad7db9e6e5fec6382ae99bc31c692f87a525c1de44db892800e" => :high_sierra
+    sha256 "eced51cbc0547a531347011af6720d86f0ecbb3138512c7c01733e9011d18d85" => :sierra
+    sha256 "fc4aa3b27ee199034923de841b1e432702036f95b2168502ff148b610880d702" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
