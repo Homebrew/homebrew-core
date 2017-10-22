@@ -3,8 +3,8 @@ require "language/go"
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/segmentio/terraform-docs"
-  url "https://github.com/segmentio/terraform-docs/archive/v0.2.0.tar.gz"
-  sha256 "8f3ed47cfedde0a6e4ab8826b1d87009d06b7c04161363490b0a6c157473a146"
+  url "https://github.com/segmentio/terraform-docs/archive/v0.3.0.tar.gz"
+  sha256 "0cfac8ed50a6ba458ec5177e493fd8adc05395f3d9ba79504dc33ce6e5733fcd"
   head "https://github.com/segmentio/terraform-docs.git"
 
   bottle do
@@ -19,7 +19,7 @@ class TerraformDocs < Formula
 
   go_resource "github.com/hashicorp/hcl" do
     url "https://github.com/hashicorp/hcl.git",
-        :revision => "392dba7d905ed5d04a5794ba89f558b27e2ba1ca"
+        :revision => "23c074d0eceb2b8a5bfdbb271ab780cde70f05a8"
   end
 
   go_resource "github.com/tj/docopt" do
