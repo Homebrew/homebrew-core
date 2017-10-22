@@ -3,6 +3,7 @@ class Fifechan < Formula
   homepage "https://fifengine.github.io/fifechan/"
   url "https://github.com/fifengine/fifechan/archive/0.1.4.tar.gz"
   sha256 "a93b015b5852b8fe2a0a2a6891d3de2cacb196732f670e081d7b7966f9ed1b87"
+  revision 1
 
   bottle do
     cellar :any
