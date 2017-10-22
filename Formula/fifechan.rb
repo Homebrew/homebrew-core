@@ -14,13 +14,15 @@ class Fifechan < Formula
 
   depends_on "cmake" => :build
   depends_on "allegro" => :recommended
-  depends_on "sdl" => :recommended
-  depends_on "sdl_image" => :recommended
+  depends_on "sdl2" => :recommended
+  depends_on "sdl2_image" => :recommended
+  depends_on "sdl2_ttf" => :recommended
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
+      args = std_cmake_args
+      args << "-DENABLE_SDL_CONTRIB=ON" if build.with? "sdl2_ttf"
+      system "cmake", "..", *args
     end
   end
 
