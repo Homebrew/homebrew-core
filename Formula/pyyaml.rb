@@ -4,12 +4,11 @@ class Pyyaml < Formula
   url "https://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz"
   sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
 
-  depends_on :python
   depends_on "libyaml"
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
-    args = %W[--prefix=#{prefix}]
-    system "python", "setup.py", "install", *args
+    system "python", *Language::Python.setup_install_args(prefix)
   end
 
   test do
