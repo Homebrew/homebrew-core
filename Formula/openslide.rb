@@ -12,9 +12,17 @@ class Openslide < Formula
     sha256 "8def2e631f2b39c2e565c43d19e747470e5edbed3eb8299815ccb0ec44149631" => :el_capitan
     sha256 "8579cea106e541c6fa69dc446e0e657dad3ddd149a5e655aefee713eb6dd0975" => :yosemite
   end
+  
+  head do
+    url "https://github.com/openslide/openslide.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   depends_on "pkg-config" => :build
   depends_on "libpng"
+  depends_on "gnutls"
   depends_on "jpeg"
   depends_on "libxml2"
   depends_on "libtiff"
@@ -28,9 +36,18 @@ class Openslide < Formula
     sha256 "ed92d5a9f2e86df67640d6f92ce3e231419ce127131697fbbce42ad5e002c8a7"
   end
 
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    if build.head?
+      system "autoreconf", "-i"
+      system "./configure", "--without-makeinfo",
+                            "--disable-static",
+                            "--prefix=#{prefix}"
+    else
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-static",
+                            "--prefix=#{prefix}"
+    end
     system "make", "install"
   end
 
