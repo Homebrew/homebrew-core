@@ -1,8 +1,8 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
-  url "https://easyrpg.org/downloads/player/easyrpg-player-0.5.2.tar.gz"
-  sha256 "3ede43b0bbcd72103507d1f076810506b03d374b481dfe41c9f733bb21cddd24"
+  url "https://easyrpg.org/downloads/player/easyrpg-player-0.5.3.tar.gz"
+  sha256 "abd26ed487618780a3675869517fc52d63ad8019c3a87c5aaeefce64c464f83d"
 
   bottle do
     cellar :any
@@ -24,7 +24,7 @@ class EasyrpgPlayer < Formula
   depends_on "pixman"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
-  depends_on "speex"
+  depends_on "speexdsp"
 
   def install
     system "./configure", "--disable-dependency-tracking",
