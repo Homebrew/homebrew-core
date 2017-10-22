@@ -1,8 +1,8 @@
 class Xclip < Formula
   desc "Command-line utility that is designed to run on any system with an X11"
   homepage "https://github.com/astrand/xclip"
-  url "https://downloads.sourceforge.net/project/xclip/xclip/0.12/xclip-0.12.tar.gz"
-  sha256 "b7c7fad059ba446df5692d175c2a1d3816e542549661224806db369a0d716c45"
+  url "https://github.com/astrand/xclip/archive/0.13.tar.gz"
+  sha256 "ca5b8804e3c910a66423a882d79bf3c9450b875ac8528791fb60ec9de667f758"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +12,12 @@ class Xclip < Formula
     sha256 "6870e6606bfbbb10f29d212beae6aa9cdb1fed938a2fe9e54b0acf15ae09de0e" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on :x11
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
