@@ -31,7 +31,8 @@ class TerraformDocs < Formula
     (buildpath/"src/github.com/segmentio/terraform-docs").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/segmentio/terraform-docs" do
-      system "go", "build", "-o", "#{bin}/terraform-docs"
+      system "go", "build", "-o", "#{bin}/terraform-docs", "-ldflags",
+             "-X main.version=#{version}"
       prefix.install_metafiles
     end
   end
