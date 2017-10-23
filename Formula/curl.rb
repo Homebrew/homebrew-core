@@ -1,9 +1,9 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.56.0.tar.bz2"
-  mirror "http://curl.askapache.com/download/curl-7.56.0.tar.bz2"
-  sha256 "de60a4725a3d461c70aa571d7d69c788f1816d9d1a8a2ef05f864ce8f01279df"
+  url "https://curl.haxx.se/download/curl-7.56.1.tar.bz2"
+  mirror "http://curl.askapache.com/download/curl-7.56.1.tar.bz2"
+  sha256 "2594670367875e7d87b0f129b5e4690150780884d90244ba0fe3e74a778b5f90"
 
   bottle do
     cellar :any
