@@ -23,7 +23,6 @@ class Infer < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "sqlite"
 
   def install
     if build.without?("clang") && build.without?("java")
@@ -67,7 +66,7 @@ class Infer < Formula
     inreplace "#{opamroot}/compilers/#{ocaml_version_number}/#{ocaml_version}/#{ocaml_version}.comp",
       '["./configure"', '["./configure" "-no-graph"'
     # so that `infer --version` reports a release version number
-    inreplace "infer/src/base/Version.ml.in", 'let is_release = is_yes "@IS_RELEASE_TREE@"', 'let is_release = true'
+    inreplace "infer/src/base/Version.ml.in", "let is_release = is_yes \"@IS_RELEASE_TREE@\"", "let is_release = true"
     system "./build-infer.sh", target_platform, "--yes"
     system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
   end
