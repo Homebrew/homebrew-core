@@ -21,9 +21,7 @@ class Fifechan < Formula
 
   def install
     mkdir "build" do
-      args = std_cmake_args
-      args << "-DENABLE_SDL_CONTRIB=ON"
-      system "cmake", "..", *args
+      system "cmake", "..", "-DENABLE_SDL_CONTRIB=ON", *std_cmake_args
       system "make", "install"
     end
   end
