@@ -36,6 +36,7 @@ class Root < Formula
       -Dbuiltin_freetype=ON
       -Dfftw3=ON
       -Dfortran=ON
+      -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Droofit=ON
