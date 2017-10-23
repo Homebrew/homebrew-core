@@ -6,9 +6,9 @@ class ProtobufSwift < Formula
 
   bottle do
     cellar :any
-    sha256 "1be5203b5773b972387e6ad5f363957ff79cf7524c57e2f5154b5984403680f4" => :high_sierra
-    sha256 "5eabe4656fd3bf3b9b8e45bc16ae77ddcc6499124aecba187592fd4777632e50" => :sierra
-    sha256 "9475a40826aafbc4d647532aa6f9e670f19cb54da00f5ad439111f1719ae594e" => :el_capitan
+    sha256 "b2246aa58b16be8a8b508dac77c8ae581439f0896b0d68d15eaf2aeadfe8f2ec" => :high_sierra
+    sha256 "d6386f03d7204273d26bdc2ecc7513c4ab6c0069d6acf94fb003fdcca7305ed1" => :sierra
+    sha256 "b9e53794e2e508cc2f09fd00abe592c9155253a1ba85b72036f19f9327214d09" => :el_capitan
   end
 
   depends_on "autoconf" => :build
