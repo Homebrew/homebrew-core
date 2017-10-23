@@ -71,7 +71,7 @@ class Graphviz < Formula
       --prefix=#{prefix}
       --without-qt
       --with-quartz
-      --enable-php=no
+      --disable-php
     ]
     args << "--with-gts" if build.with? "gts"
     args << "--disable-swig" if build.without? "bindings"
