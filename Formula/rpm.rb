@@ -45,8 +45,8 @@ class Rpm < Formula
   def post_install
     (var/"lib/rpm").mkpath
 
-    # substitute gpg binary path with what's available
-    gnupg = Gpg.gpg2 || Gpg.gpg || HOMEBREW_PREFIX/"bin/gpg"
+    # Attempt to fix expected location of GPG to a sane default.
+    gnupg = Gpg.executable || HOMEBREW_PREFIX/"bin/gpg"
     inreplace lib/"rpm/macros", "/usr/bin/gpg2", gnupg
   end
 
