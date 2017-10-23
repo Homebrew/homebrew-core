@@ -1,11 +1,11 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
   homepage "http://www.opencobol.org/"
-  revision 5
+#  revision 5
 
   stable do
-    url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/1.1/gnu-cobol-1.1.tar.gz"
-    sha256 "5cd6c99b2b1c82fd0c8fffbb350aaf255d484cde43cf5d9b92de1379343b3d7e"
+    url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.2/gnucobol-2.2.tar.gz"
+    sha256 "925838decd65864b2aa3a4bf1385ce4bc708b942e05e8406945a730d7aab32cb"
 
     fails_with :clang do
       cause <<~EOS
@@ -15,6 +15,7 @@ class GnuCobol < Formula
     end
   end
 
+
   bottle do
     sha256 "d8d90339937363e53f4555e93d195d3c9d69f495876cfe975c320dbfbf130b8a" => :high_sierra
     sha256 "af857363783841c39c355677f7ef68f68239cfa66e4f31e9105d6399c30fc957" => :sierra
@@ -22,11 +23,31 @@ class GnuCobol < Formula
     sha256 "ec0481e921b59ac386a1e2a1266cb86b671a82fa466e6478f8581f4f2b114881" => :yosemite
   end
 
-  devel do
-    version "2.0_nightly_r658"
-    url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.0/gnu-cobol-2.0_nightly_r658.tar.gz"
-    sha256 "0a210d10624a53904871526afd69a6bef9feab40c2766386f74477598a313ae8"
+  def version_1_1 # do
+    version "1.1.0"
+    url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/1.1/gnu-cobol-1.1.tar.gz"
+    sha256 "5cd6c99b2b1c82fd0c8fffbb350aaf255d484cde43cf5d9b92de1379343b3d7e"
+
+    fails_with :clang do
+      cause <<-EOS.undent
+        Building with Clang configures GNU-COBOL to use Clang as its compiler,
+        which causes subsequent GNU-COBOL-based builds to fail.
+      EOS
+    end
   end
+
+  def version_2_0 # do
+    version "2.0_rc2"
+    url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.0/gnu-cobol-2.0_rc-2.tar.gz"
+    sha256 "f21f5d8c27d8c63805704ba701f1df530e3e4933aa0798fffee6d071adac47de"
+  end
+
+  def version_2_2 # do
+    version "2.2"
+    url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.2/gnucobol-2.2.tar.gz"
+    sha256 "925838decd65864b2aa3a4bf1385ce4bc708b942e05e8406945a730d7aab32cb"
+  end
+
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
