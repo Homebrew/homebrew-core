@@ -32,5 +32,19 @@ class Coccinelle < Formula
                           "--prefix=#{prefix}"
     system "opam", "config", "exec", "--", "make"
     system "make", "install"
+
+    pkgshare.install "demos/simple.cocci", "demos/simple.c"
+  end
+
+  test do
+    system "#{bin}/spatch", "-sp_file", "#{pkgshare}/simple.cocci",
+                            "#{pkgshare}/simple.c", "-o", "new_simple.c"
+    expected = <<~EOS
+      int main(int i) {
+        f("ca va", 3);
+        f(g("ca va pas"), 3);
+      }
+    EOS
+    assert_equal expected, (testpath/"new_simple.c").read
   end
 end
