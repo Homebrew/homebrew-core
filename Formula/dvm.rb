@@ -1,8 +1,8 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/howtowhale/dvm"
-  url "https://github.com/howtowhale/dvm/archive/0.9.1.tar.gz"
-  sha256 "e3e3d90ec0b46517b89de8d28fb303733ee764907ffbd61678614da0af2a1567"
+  url "https://github.com/howtowhale/dvm/archive/1.0.0.tar.gz"
+  sha256 "afcc921b6a301466c6a927730d15839db03686f45d8ccf92f7f2bfc06ef44698"
 
   bottle do
     cellar :any_skip_relocation
