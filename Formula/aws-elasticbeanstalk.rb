@@ -8,9 +8,9 @@ class AwsElasticbeanstalk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0fa4a212a3404afe0e66f8a42f25affcace3653ebabd35c91ed1143a180e6b7" => :high_sierra
-    sha256 "fcf5adc973bb31a29b4f8c1ac1bfc89f733d5ddc6c6e1cc389fc98a4625cc27b" => :sierra
-    sha256 "d0a81f804f15e1210b2b5ea7526ee60740043099566667399b360ae73564ae3a" => :el_capitan
+    sha256 "d207f4eeab0a523875daa5a9836ede61f346e9ed46b3b7d9a38c21f70e7a352c" => :high_sierra
+    sha256 "ddb90d10aa4616b390a7b4f3ab8d2b8e09ca4e447f4d8cd2ef0843e34acb633d" => :sierra
+    sha256 "1c6b7218472b429695d8390642fa2e53f2fec98e254190d030f919449d7b546f" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
