@@ -1,9 +1,16 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "http://www.valgrind.org/"
-  url "https://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.13.0.tar.bz2"
-  sha256 "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
+
+  stable do
+    url "https://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2"
+    mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.13.0.tar.bz2"
+    sha256 "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
+
+    # valgrind does not yet support High Sierra
+    # https://bugs.kde.org/show_bug.cgi?id=383811
+    depends_on MaximumMacOSRequirement => :sierra
+  end
 
   bottle do
     sha256 "1ae24d4988d010b407bb344c953dd8a7696876a3c2793f2548648be4cfc61db2" => :sierra
@@ -18,10 +25,6 @@ class Valgrind < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
-
-  # valgrind does not yet support High Sierra
-  # https://bugs.kde.org/show_bug.cgi?id=383811
-  depends_on MaximumMacOSRequirement => :sierra
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
