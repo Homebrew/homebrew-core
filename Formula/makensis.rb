@@ -49,7 +49,7 @@ class Makensis < Formula
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
     args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu",
-            "VERSION=#{version}"]
+            "PREFIX_DOC=#{share}/nsis/Docs", "VERSION=#{version}"]
     args << "NSIS_CONFIG_LOG=yes" if build.with? "advanced-logging"
     args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
     scons "makensis", *args
