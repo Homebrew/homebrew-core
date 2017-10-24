@@ -21,8 +21,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/74/fb/f1fed1ed7fd500c70bd10ea711b7cdee88a8763d6d564b85292ba4668774/botocore-1.7.33.tar.gz"
-    sha256 "2a669d113f9e3b1f9ddab280e641e71bc62c78c07c75d73d939409fae4152de1"
+    url "https://files.pythonhosted.org/packages/6e/25/9dceea9455b318af8befd7d1659411599da864ebfc811e99f3b2b088d514/botocore-1.7.34.tar.gz"
+    sha256 "7e048dcdb2bc5f2f35141542c872c602a08db921bafd42f21823c49756dc4e90"
   end
 
   resource "cement" do
