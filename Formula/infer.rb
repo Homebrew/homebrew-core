@@ -19,6 +19,7 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
+  depends_on :java => ["1.8", :build]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
