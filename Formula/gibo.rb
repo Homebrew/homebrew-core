@@ -11,4 +11,9 @@ class Gibo < Formula
     bash_completion.install "gibo-completion.bash"
     zsh_completion.install "gibo-completion.zsh" => "_gibo"
   end
+
+  test do
+    system "#{bin}/gibo", "-u"
+    assert_includes shell_output("#{bin}/gibo Python"), "Python.gitignore"
+  end
 end
