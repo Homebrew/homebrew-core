@@ -509,15 +509,6 @@ class AzureCli < Formula
     bash_completion.install "az.completion" => "az"
   end
 
-  def caveats; <<~EOS
-    This formula is for Azure CLI 2.0 - https://docs.microsoft.com/cli/azure/overview.
-    The previous Azure CLI has moved to azure-cli@1
-    ----
-    Get started with:
-      $ az
-    EOS
-  end
-
   test do
     json_text = shell_output("#{bin}/az cloud show --name AzureCloud")
     azure_cloud = JSON.parse(json_text)
