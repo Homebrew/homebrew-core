@@ -1,9 +1,9 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftp.gnu.org/gnu/units/units-2.14.tar.gz"
-  mirror "https://ftpmirror.gnu.org/units/units-2.14.tar.gz"
-  sha256 "9d33893d82f3ddd831d5822992007c40bcd0826ae67d3cbc96539951fb0a82e8"
+  url "https://ftp.gnu.org/gnu/units/units-2.15.tar.gz"
+  mirror "https://ftpmirror.gnu.org/units/units-2.15.tar.gz"
+  sha256 "25d6334fafc801e15b3b0388e207e1efc5d4ae88af6dc7b17d3913de6441f47c"
 
   bottle do
     sha256 "a62ddb8f8bbb8f7ef44bfdaaa81e3e0607a3a4c7298997f01caefb25100f56ee" => :high_sierra
