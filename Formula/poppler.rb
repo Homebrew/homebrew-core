@@ -70,6 +70,13 @@ class Poppler < Formula
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
     end
+
+    libpoppler = (lib/"libpoppler.dylib").readlink
+    ["libpoppler-cpp.dylib", "libpoppler-glib.dylib"].each do |dylib|
+      macho = MachO.open("#{lib}/#{dylib}")
+      macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
+      macho.write!
+    end
   end
 
   test do
