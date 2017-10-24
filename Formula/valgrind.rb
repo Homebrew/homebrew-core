@@ -10,6 +10,16 @@ class Valgrind < Formula
     # valgrind does not yet support High Sierra
     # https://bugs.kde.org/show_bug.cgi?id=383811
     depends_on MaximumMacOSRequirement => :sierra
+
+    # Fix build on 10.12 with Xcode 9
+    # Upstream commit from 24 Sep 2017 "Support all Apple clang/LLVM 5.1+"
+    # See https://sourceware.org/git/?p=valgrind.git;a=commit;h=27e1503bc7bd767f3a98824176558beaa5a7c1d5
+    if DevelopmentTools.clang_build_version >= 900
+      patch :p0 do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/b3915f6/valgrind/sierra-xcode9.diff"
+        sha256 "156ea88edd2116dd006d6e5550578af3f2a2e3923818a238b9166cd02e327432"
+      end
+    end
   end
 
   bottle do
