@@ -13,9 +13,9 @@ class Dbus < Formula
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.18.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.18.orig.tar.gz"
-    sha256 "fa2b5ac7acbe9a6d67a5d308d167e2ce9a5176a9aade81ec42754312a74a8457"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.22.tar.gz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.22.orig.tar.gz"
+    sha256 "0bd375efd574d3d10d2f154dacad02987a64578531857e13a385936e1119a85b"
 
     depends_on "coreutils" => :build
     depends_on "pkg-config" => :build
