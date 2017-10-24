@@ -37,6 +37,7 @@ class Ansible < Formula
   #   junos-eznc (Juniper device support)
   #   jxmlease (Juniper device support)
   #   dnspython (DNS Lookup - dig)
+  #   pysphere (VMware vSphere support)
 
   ### setup_requires dependencies
   resource "pbr" do
