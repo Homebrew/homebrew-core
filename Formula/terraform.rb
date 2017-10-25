@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.10.7.tar.gz"
-  sha256 "4959ace3c3c350d4121e235ba64771f94e5d5a4a6acdd5bce1c053a417283938"
+  url "https://github.com/hashicorp/terraform/archive/v0.10.8.tar.gz"
+  sha256 "b076726f00b0488fc95bb041e982cb6aeaf280395d31f322017dd143bbabd7c4"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -18,29 +18,22 @@ class Terraform < Formula
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
 
+  # gox is a build tool dependency
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
         :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
   end
 
+  # iochan is a build dependency of gox
   go_resource "github.com/mitchellh/iochan" do
     url "https://github.com/mitchellh/iochan.git",
         :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
-  go_resource "github.com/kisielk/errcheck" do
-    url "https://github.com/kisielk/errcheck.git",
-        :revision => "23699b7e2cbfdb89481023524954ba2aeff6be90"
-  end
-
-  go_resource "github.com/kisielk/gotool" do
-    url "https://github.com/kisielk/gotool.git",
-        :revision => "0de1eaf82fa3f583ce21fde859f1e7e0c5e9b220"
-  end
-
+  # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.8"
+        :branch => "release-branch.go1.9"
   end
 
   def install
@@ -51,8 +44,8 @@ class Terraform < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    %w[src/github.com/mitchellh/gox src/golang.org/x/tools/cmd/stringer
-       src/github.com/kisielk/errcheck].each do |path|
+    %w[src/github.com/mitchellh/gox
+       src/golang.org/x/tools/cmd/stringer].each do |path|
       cd(path) { system "go", "install" }
     end
 
