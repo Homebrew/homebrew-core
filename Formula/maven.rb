@@ -42,6 +42,10 @@ class Maven < Formula
         <groupId>org.homebrew</groupId>
         <artifactId>maven-test</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <properties>
+          <maven.compiler.source>1.8</maven.compiler.source>
+          <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
       </project>
     EOS
     (testpath/"src/main/java/org/homebrew/MavenTest.java").write <<~EOS
