@@ -1,9 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.3.0.tar.gz"
-  sha256 "8bb312b9d9fd17336dc1f8b3ac82f021ca50e2034afc866098866176d985adc6"
-  revision 3
+  url "https://github.com/opencv/opencv/archive/3.3.1.tar.gz"
+  sha256 "5dca3bb0d661af311e25a72b04a7e4c22c47c1aa86eb73e70063cd378a2aa6ee"
 
   bottle do
     sha256 "386ac2caf18b558237cf8a8a510fce0c56213259ce18e8bcf418513829e790fe" => :high_sierra
@@ -27,8 +26,8 @@ class Opencv < Formula
   needs :cxx11
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.3.0.tar.gz"
-    sha256 "e94acf39cd4854c3ef905e06516e5f74f26dddfa6477af89558fb40a57aeb444"
+    url "https://github.com/opencv/opencv_contrib/archive/3.3.1.tar.gz"
+    sha256 "6f3ce148dc6e147496f0dbec1c99e917e13bf138f5a8ccfc3765f5c2372bd331"
   end
 
   def install
