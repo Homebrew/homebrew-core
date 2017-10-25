@@ -4,8 +4,8 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag => "v0.0.17",
-      :revision => "3d40e98b163a797e800550a30e950dc06f7229b1"
+      :tag => "v0.0.18",
+      :revision => "3de19ca7fb10649e74657965bdd7cacaf6b9f851"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
@@ -19,14 +19,14 @@ class Goofys < Formula
   depends_on "go" => :build
   depends_on :osxfuse
 
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git",
-        :revision => "f017f86fccc5a039a98f23311f34fdf78b014f78"
-  end
-
   go_resource "github.com/jacobsa/fuse" do
     url "https://github.com/jacobsa/fuse.git",
-        :revision => "fe7f3a55dcaa3a8f3d5ff6a85b16b62b7a2c446c"
+        :revision => "1ab97fb2ebca4ac38b4e50291e28533b4b86e0cb"
+  end
+
+  go_resource "github.com/jinzhu/copier" do
+    url "https://github.com/jinzhu/copier.git",
+        :revision => "db4671f3a9b8df855e993f7c94ec5ef1ffb0a23b"
   end
 
   go_resource "github.com/kardianos/osext" do
@@ -41,7 +41,7 @@ class Goofys < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-        :revision => "a452de7c734a0fa0f16d2e5725b0fa5934d9fbec"
+        :revision => "48fc5612898a1213aa5d6a0fb2d4f7b968e898fb"
   end
 
   go_resource "github.com/sirupsen/logrus" do
@@ -49,19 +49,24 @@ class Goofys < Formula
         :revision => "89742aefa4b206dcf400792f3bd35b542998eb3b"
   end
 
+  go_resource "github.com/urfave/cli" do
+    url "https://github.com/urfave/cli.git",
+        :revision => "7bc6a0acffa589f415f88aca16cc1de5ffd66f9c"
+  end
+
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "81e90905daefcd6fd217b62423c0908922eadb30"
+        :revision => "2509b142fb2b797aa7587dad548f113b2c0f20ce"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "66aacef3dd8a676686c7ae3716979581e8b03c47"
+        :revision => "4b14673ba32bee7f5ac0f990a48f033919fd418b"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "7ddbeae9ae08c6a06a59597f0c9edbc5ff2444ce"
+        :revision => "176de7413414c01569163271c745672ff04a7267"
   end
 
   def install
