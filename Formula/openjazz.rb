@@ -1,8 +1,8 @@
 class Openjazz < Formula
   desc "Open source Jazz Jackrabit engine"
   homepage "http://www.alister.eu/jazz/oj/"
-  url "http://www.alister.eu/jazz/oj/OpenJazz-src-160214.zip"
-  sha256 "8178731e005188a8e87174af26f767b7a1815c06b3bd9b8156440ecea4d7b10a"
+  url "https://github.com/AlisterT/openjazz/releases/download/20171024/openjazz-20171024.tar.xz"
+  sha256 "ee1f2441a8a63cfe9ef11978e0635ccdacd847bc7b00781e363d422aa5770e3b"
 
   head "https://github.com/AlisterT/openjazz.git"
 
