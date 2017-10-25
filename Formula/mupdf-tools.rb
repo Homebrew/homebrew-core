@@ -1,9 +1,23 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/mupdf-1.11-source.tar.gz"
-  sha256 "209474a80c56a035ce3f4958a63373a96fad75c927c7b1acdc553fc85855f00a"
+  revision 1
   head "https://git.ghostscript.com/mupdf.git"
+
+  stable do
+    url "https://mupdf.com/downloads/mupdf-1.11-source.tar.gz"
+    sha256 "209474a80c56a035ce3f4958a63373a96fad75c927c7b1acdc553fc85855f00a"
+
+    # Upstream already. Remove on next stable release.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mupdf/mupdf_1.11+ds1-1.1.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mupdf/mupdf_1.11+ds1-1.1.debian.tar.xz"
+      sha256 "cb274532e34f818b2f1871fee6303cfffda37251937dd7d731a898b2ca736433"
+      apply "patches/0003-Fix-698539-Don-t-use-xps-font-if-it-could-not-be-loa.patch",
+            "patches/0004-Fix-698540-Check-name-comment-and-meta-size-field-si.patch",
+            "patches/0005-Fix-698558-Handle-non-tags-in-tag-name-comparisons.patch"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
