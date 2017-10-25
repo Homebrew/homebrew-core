@@ -74,6 +74,7 @@ class Wolfssl < Formula
       --enable-sha512
       --enable-sni
       --enable-supportedcurves
+      --enable-tls13
     ]
 
     if MacOS.prefer_64_bit?
