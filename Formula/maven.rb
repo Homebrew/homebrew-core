@@ -45,6 +45,7 @@ class Maven < Formula
         <properties>
           <maven.compiler.source>1.8</maven.compiler.source>
           <maven.compiler.target>1.8</maven.compiler.target>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
       </project>
     EOS
