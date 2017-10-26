@@ -3,7 +3,7 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   url "https://nginx.org/download/nginx-1.12.2.tar.gz"
   sha256 "305f379da1d5fb5aefa79e45c829852ca6983c7cd2a79328f8e084a324cf0416"
-
+  revision 1
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
@@ -25,16 +25,9 @@ class Nginx < Formula
   option "with-debug", "Compile with support for debug log"
   option "with-gunzip", "Compile with support for gunzip module"
 
+  depends_on "openssl" # don't switch to 1.1 until passenger is switched, too
   depends_on "pcre"
   depends_on "passenger" => :optional
-
-  # passenger uses apr, which uses openssl, so need to keep
-  # crypto library choice consistent throughout the tree.
-  if build.with? "passenger"
-    depends_on "openssl"
-  else
-    depends_on "openssl@1.1"
-  end
 
   def install
     # Changes default port to 8080
@@ -43,13 +36,8 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
+    openssl = Formula["openssl"]
     pcre = Formula["pcre"]
-
-    if build.with? "passenger"
-      openssl = Formula["openssl"]
-    else
-      openssl = Formula["openssl@1.1"]
-    end
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
