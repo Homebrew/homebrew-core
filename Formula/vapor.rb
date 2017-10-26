@@ -5,7 +5,7 @@ class Vapor < Formula
   version "3.0.3"
   sha256 "0461af9672896918e66bf3f698f0e78df0b8eb51c2a4a115919a0a30e055452c"
 
-  depends_on "ctls" => :run
+  depends_on "vapor/tap/ctls" => :run
 
   def install
     bin.install "vapor"
