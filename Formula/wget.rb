@@ -1,12 +1,9 @@
-# NOTE: Configure will fail if using awk 20110810 from dupes.
-# Upstream issue: https://savannah.gnu.org/bugs/index.php?37063
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.19.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.1.tar.gz"
-  sha256 "9e4f12da38cc6167d0752d934abe27c7b1599a9af294e73829be7ac7b5b4da40"
-  revision 1
+  url "https://ftp.gnu.org/gnu/wget/wget-1.19.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.2.tar.gz"
+  sha256 "4f4a673b6d466efa50fbfba796bd84a46ae24e370fa562ede5b21ab53c11a920"
 
   bottle do
     sha256 "f0b01475fa8fb7f99b7e5e75f7c06e99a609cd9a3f11b62c10f4c76a9f46dbff" => :high_sierra
@@ -36,10 +33,6 @@ class Wget < Formula
   depends_on "gpgme" => :optional
 
   def install
-    # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
-    # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
-    ENV.append "LDFLAGS", "-liconv"
-
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
