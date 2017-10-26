@@ -16,6 +16,6 @@ class GitRemoteGcrypt < Formula
   end
 
   test do
-    system "false"
+    system "echo capabilities | #{prefix}/bin/git-remote-gcrypt |egrep -q 'fetch|push'"
   end
 end
