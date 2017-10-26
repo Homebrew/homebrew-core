@@ -5,12 +5,12 @@ class Mongodb < Formula
   homepage "https://www.mongodb.org/"
 
   stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.9.tar.gz"
-    sha256 "2fd0f47a5f9175e71d3d381e81a1b6a2500c9c414dd6ae0940ad6194a0e85549"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.10.tar.gz"
+    sha256 "443800ca4f52fa613b29052f5f76abc0ccc477451b55f3665b61819f28ace2f3"
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.4.9",
+          :tag => "r3.4.10",
           :revision => "4f093ae71cdb4c6a6e9de7cd1dc67ea4405f0013",
           :shallow => false
     end
@@ -23,8 +23,8 @@ class Mongodb < Formula
   end
 
   devel do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.11.tar.gz"
-    sha256 "a118dc32e048c20c2cbc593ac41f1787963f5f9edde8cccca5b9f5d7a31a4e8a"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.13.tar.gz"
+    sha256 "6c305cca87fb31f9d93990ee31f878dbb9b280ca8fce77d1ac1cb331bc29fec7"
 
     depends_on :xcode => ["8.3.2", :build]
 
@@ -40,14 +40,8 @@ class Mongodb < Formula
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.5.11",
-        :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
-    end
-
-    # Upstream commit from 24 Jul 2017 "Changes to allow build to work with SCons 3.0"
-    patch do
-      url "https://github.com/mongodb/mongo/commit/e9570ae0bc9.patch?full_index=1"
-      sha256 "62514846120eab72aa71d1da758a62bfb8479f182de7d059fa29a3b62c779290"
+          :tag => "r3.5.13",
+          :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
     end
   end
 
