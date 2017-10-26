@@ -32,13 +32,6 @@ class GoogleAuthenticatorLibpam < Formula
       "nullok" | sudo tee -a /etc/pam.d/sshd
 
     (Or just manually edit /etc/pam.d/sshd)
-
-    Users can set up Google Authenticator interactively using:
-      google-authenticator
-
-    Users can set up Google Authenticator with default settings using:
-      google-authenticator --force --time-based --disallow-reuse --rate-limit=3 \\
-      --rate-time=30 --window-size=3
     EOS
   end
 
