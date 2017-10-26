@@ -15,6 +15,7 @@ class Netcdf < Formula
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on :fortran
+  depends_on :mpi => :optional
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
@@ -41,8 +42,13 @@ class Netcdf < Formula
     mkdir "build" do
       args = common_args.dup
       args << "-DENABLE_TESTS=OFF"
-      args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_DAP_AUTH_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
+      if build.with?("mpi")
+        args << "-DCMAKE_C_COMPILER:FILEPATH=/usr/local/bin/mpicc"
+        args << "-DENABLE_PARALLEL4:BOOL=ON"
+        args << "-DUSE_PARALLEL:BOOL=on"
+        args << "-DUSE_PARALLEL4:BOOL=on"
+      end
 
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *args
       system "make", "install"
