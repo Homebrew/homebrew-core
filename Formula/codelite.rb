@@ -1,5 +1,5 @@
 class Codelite < Formula
-  desc "cross platform C/C++/PHP and Node.js IDE written in C++"
+  desc "Cross platform C/C++/PHP and Node.js IDE written in C++"
   homepage "https://codelite.org"
   url "https://github.com/eranif/codelite/archive/11.0.tar.gz"
   sha256 "9eb23ea635fc746318a832efd752b08027c11efcd9af7f494f31dbaacdd651a1"
@@ -10,6 +10,10 @@ class Codelite < Formula
   depends_on "wxmac"
 
   def install
+    # Known Issue:
+    # If you built `wxmac` with "--with-stl" option, you cannot build this Formula.
+    # Because this Formula requires cxx11.
+
     # https://github.com/eranif/codelite/issues/1284
     # https://github.com/eranif/codelite/pull/1797
     inreplace "CMakeLists.txt", "set(WX_COMPONENTS \"std\")", "set(WX_COMPONENTS \"std aui propgrid ribbon\")"
@@ -17,19 +21,11 @@ class Codelite < Formula
     mkdir "build-release" do
       system "cmake", "..", "-DCL_PREFIX=#{prefix}", *std_cmake_args
       system "make", "install"
-      mkdir prefix/"libexec"
       prefix.install "codelite.app"
     end
   end
 
-  def caveats; <<~EOS
-      Known Issue:
-      If you built `wxmac` with "--with-stl" option, you cannot build this Formula.
-      Because this Formula requires cxx11.
-    EOS
-  end
-
   test do
-    system "#{opt_prefix}codelite.app/Contents/MacOS/codelite", "--version"
+    system "#{opt_prefix}/codelite.app/Contents/MacOS/codelite-clang-format", "--version"
   end
 end
