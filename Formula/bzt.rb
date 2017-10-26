@@ -2,8 +2,8 @@ class Bzt < Formula
   include Language::Python::Virtualenv
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.9.6.tar.gz"
-  sha256 "85f0394f53dda6a6c1bad1786fa59f9a4642b68f33b42a3521be00ec0eaf4e92"
+  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.10.0.tar.gz"
+  sha256 "5eb672745e3430a8eaf189c224be4608a42fbe138c474cf70261a1cca6f5f8cb"
   head "https://github.com/greyfenrir/taurus.git"
 
   bottle do
@@ -76,8 +76,8 @@ class Bzt < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/07/76/9f14811d3fb91ed7973a798ded15eda416070bbcb1aadc6a5af9d691d993/lxml-4.0.0.tar.gz"
-    sha256 "f7bc9f702500e205b1560d620f14015fec76dcd6f9e889a946a2ddcc3c344fd0"
+    url "https://files.pythonhosted.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz"
+    sha256 "be3aaeb5f468a49f523f16736ccff7d82af2b4b303292ba3d052b5b28f3fbe47"
   end
 
   resource "nose" do
@@ -96,8 +96,8 @@ class Bzt < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d3/0a/74dcbb162554909b208e5dbe9f4e7278d78cc27470993e05177005e627d0/psutil-5.3.1.tar.gz"
-    sha256 "12dd9c8abbad15f055e9579130035b38617020ce176f4a498b7870e6321ffa67"
+    url "https://files.pythonhosted.org/packages/8d/96/1fc6468be91521192861966c40bd73fdf8b065eae6d82dd0f870b9825a65/psutil-5.4.0.tar.gz"
+    sha256 "8e6397ec24a2ec09751447d9f169486b68b37ac7a8d794dca003ace4efaafc6a"
   end
 
   resource "py" do
@@ -106,8 +106,8 @@ class Bzt < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/63/4a/db317d848325ba77e4ed498860b40ab53a8b49f1ae13612bc8aee75634f0/pytest-3.2.2.tar.gz"
-    sha256 "f46e49e0340a532764991c498244a60e3a37d7424a532b3ff1a6a7653f1a403a"
+    url "https://files.pythonhosted.org/packages/53/d0/208853c09be8377e6d4de7c0df875ef7ef37189373d76a74b65b44e50528/pytest-3.2.3.tar.gz"
+    sha256 "27fa6617efc2869d3e969a3e75ec060375bfb28831ade8b5cdd68da3a741dc3c"
   end
 
   resource "PyVirtualDisplay" do
