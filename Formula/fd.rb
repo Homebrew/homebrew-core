@@ -1,8 +1,8 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find."
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v4.0.0.tar.gz"
-  sha256 "e564a11ad1beb8979b45d11ee592ed9a633fabf445eec0c766d87857b46bb636"
+  url "https://github.com/sharkdp/fd/archive/v5.0.0.tar.gz"
+  sha256 "9788597334912d65e32c7d57ef7a0294cb8976dc52538c9048a77fbb8d12f755"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
@@ -14,8 +14,12 @@ class Fd < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/fd"
+    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
+    system "cargo", "install", "--root", prefix
+    man1.install "doc/fd.1"
+    bash_completion.install "fd.bash-completion"
+    fish_completion.install "fd.fish"
+    zsh_completion.install "_fd"
   end
 
   test do
