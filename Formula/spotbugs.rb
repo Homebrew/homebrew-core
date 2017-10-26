@@ -1,5 +1,5 @@
 class Spotbugs < Formula
-  desc "SpotBugs is FindBugs' successor. A tool for static analysis to look for bugs in Java code."
+  desc "A tool for Java static analysis (FindBugs' successor)"
   homepage "https://spotbugs.github.io/"
   url "https://github.com/spotbugs/spotbugs/archive/3.1.0.tar.gz"
   sha256 "ac6169a551212756a05dd9c066ef9212653d8a99b754ef4dade6a7008f8ad781"
