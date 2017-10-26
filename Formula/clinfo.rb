@@ -1,8 +1,8 @@
 class Clinfo < Formula
   desc "Print information about OpenCL platforms and devices"
   homepage "https://github.com/Oblomov/clinfo"
-  url "https://github.com/Oblomov/clinfo/archive/2.2.17.08.25.tar.gz"
-  sha256 "8e25c8f26ee0c7a3a4a34d2153c7af786b8e0c1d035a2d428b102333e3c1873b"
+  url "https://github.com/Oblomov/clinfo/archive/2.2.17.10.25.tar.gz"
+  sha256 "23cab774915eea6730582abfc449ac57dc10f2ce7b39293e56166ed500383862"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,11 +13,7 @@ class Clinfo < Formula
   end
 
   def install
-    system "make"
-
-    # No "make install" https://github.com/Oblomov/clinfo/issues/23
-    bin.install "clinfo"
-    man1.install "man/clinfo.1"
+    system "make", "MANDIR=#{man}", "PREFIX=#{prefix}", "install"
   end
 
   test do
