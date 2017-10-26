@@ -1,8 +1,8 @@
 class GlibOpenssl < Formula
   desc "OpenSSL GIO module for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.4.tar.xz"
-  sha256 "eda914e29d9d72f03185aba92c33ec3949862c05b73b8eb04d1e1b6217b756c0"
+  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.5.tar.xz"
+  sha256 "75a5c9d95c12099e534048db8eadeff4e2297c5d01617d776131f9f89c72f753"
 
   bottle do
     sha256 "b99c6da78317e0d5e8e2e7718d725ba0320823fe7f5fcf803f7549067a55d993" => :high_sierra
