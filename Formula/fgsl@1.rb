@@ -5,7 +5,7 @@ class FgslAT1 < Formula
   sha256 "2841f6deb2ce05e153fc1d89fe5e46aba74c60a2595c857cef9ca771a0cf6290"
 
   depends_on "pkg-config" => :build
-  depends_on :fortran
+  depends_on "gcc"
   depends_on "gsl@1"
 
   def install
