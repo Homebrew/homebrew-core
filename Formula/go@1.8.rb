@@ -1,8 +1,8 @@
 class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.8.4.src.tar.gz"
-  sha256 "abf1b2e5ae2a4845f3d2eac00c7382ff209e2c132dc35b7ce753da9b4f52e59f"
+  url "https://storage.googleapis.com/golang/go1.8.5.src.tar.gz"
+  sha256 "4949fd1a5a4954eb54dd208f2f412e720e23f32c91203116bed0387cf5d0ff2d"
 
   bottle do
     sha256 "2a597863c9c7631fa2680a8f25d988409f095279542f3442df7c7c73a0b630d8" => :high_sierra
@@ -89,7 +89,7 @@ class GoAT18 < Formula
 
     # godoc was installed
     assert_predicate libexec/"bin/godoc", :exist?
-    assert File.executable?(libexec/"bin/godoc")
+    assert_predicate libexec/"bin/godoc", :executable?
 
     if build.with? "cgo"
       ENV["GOOS"] = "freebsd"
