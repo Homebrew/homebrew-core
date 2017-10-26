@@ -1,8 +1,8 @@
 class Fswatch < Formula
   desc "Monitor a directory for changes and run a shell command"
   homepage "https://github.com/emcrisostomo/fswatch"
-  url "https://github.com/emcrisostomo/fswatch/releases/download/1.10.0/fswatch-1.10.0.tar.gz"
-  sha256 "f0b35bcc27e73dbeeb2e74567f978e11b239a2ea229f870ce27b39593ab0eb72"
+  url "https://github.com/emcrisostomo/fswatch/releases/download/1.11.0/fswatch-1.11.0.tar.gz"
+  sha256 "9ad5fc35f835d37445dd4bc87738c5824d98c1ed564d0491b0a6625073b6c128"
 
   bottle do
     cellar :any
