@@ -32,6 +32,40 @@ class Haproxy < Formula
     bin.install "haproxy"
   end
 
+  def caveats; <<~EOS
+    To start haproxy with brew services, first create and edit your config at:
+      #{etc}/haproxy.cfg
+    Logs can be found at:
+      #{var}/log/haproxy.log
+    EOS
+  end
+
+  plist_options :manual => "haproxy"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>KeepAlive</key>
+        <true/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/haproxy</string>
+          <string>-f</string>
+          <string>#{etc}/haproxy.cfg</string>
+        </array>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/haproxy.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/haproxy.log</string>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     system bin/"haproxy", "-v"
   end
