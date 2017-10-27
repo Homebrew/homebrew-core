@@ -1,13 +1,24 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-3.6.0.tar.gz"
-  # Note the mirror will return 301 until the version becomes outdated.
-  mirror "https://hashcat.net/files_legacy/hashcat-3.6.0.tar.gz"
-  sha256 "3ef7550a4fbd083e583a1dc1e482f1476a36ad95c340b64b3e50cd68f06ef088"
   version_scheme 1
 
   head "https://github.com/hashcat/hashcat.git"
+
+  stable do
+    url "https://hashcat.net/files/hashcat-4.0.0.tar.gz"
+    # Note the mirror will return 301 until the version becomes outdated.
+    mirror "https://hashcat.net/files_legacy/hashcat-4.0.0.tar.gz"
+    sha256 "9e8cb81bf26024eca2e117ddf8fd16316af3dd337ecf4e9917acbb1720c13b50"
+
+    # Upstream commit from 28 Oct 2017 "fixes #1412: sed for VERSION_EXPORT
+    # fixed compilation problem"
+    # See https://github.com/hashcat/hashcat/commit/c06c5ddd4857b0a5d7862451da431c42287918ce
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/284f381/hashcat/VERSION_TAG.patch"
+      sha256 "9dbde3d9b6ac22145fa328d53eaf8b1da0720fde7e064b71202d126655d55ebe"
+    end
+  end
 
   bottle do
     sha256 "3914d565db914d88388da81649a040da53cf89cd23b4fe56937f9b66278d903d" => :high_sierra
@@ -24,6 +35,12 @@ class Hashcat < Formula
   depends_on :macos => :yosemite
 
   def install
+    system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
+
+    # Fix "install: mkdir /usr/local/Cellar/hashcat/4.0.0/share: File exists"
+    # Reported 28 Oct 2017 https://github.com/hashcat/hashcat/issues/1414
+    ENV.deparallelize
+
     system "make", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
   end
 
