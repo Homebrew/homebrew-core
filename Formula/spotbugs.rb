@@ -9,8 +9,8 @@ class Spotbugs < Formula
   depends_on :java => "1.8+"
 
   def install
-    system "gradle build"
-    system "gradle installDist"
+    system "gradle", "build"
+    system "gradle", "installDist"
     libexec.install Dir["spotbugs/build/install/spotbugs/*"]
     bin.install_symlink "#{libexec}/bin/spotbugs"
   end
