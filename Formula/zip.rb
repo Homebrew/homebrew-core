@@ -5,6 +5,13 @@ class Zip < Formula
   version "3.0"
   sha256 "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6e89078c79888ab6829b4e98544727e2e2b5d078f78b3f8994706c90f898240a" => :high_sierra
+    sha256 "ff9b6863a660158ce2b1eda37238c4cc262339efc16ee5ec4440171348a4f966" => :sierra
+    sha256 "f322da61ebb597af80807b12fff0141e6ba507dd146b188bd1d964813b1141b8" => :el_capitan
+  end
+
   keg_only :provided_by_macos
 
   # Upstream is unmaintained so we use the Debian patchset:
