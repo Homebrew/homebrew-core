@@ -3,8 +3,8 @@ require "language/node"
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular applications"
   homepage "https://jhipster.github.io/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.10.1.tgz"
-  sha256 "52f0f6d9644f009c00844c1a498f84bb8154aeaf90a2be7558cb6b9e3f843d8a"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.10.2.tgz"
+  sha256 "e8f3af5db3c035e7258a9293dca20f3e4334c942c296c2951cbb0a7c3af25553"
 
   bottle do
     cellar :any_skip_relocation
