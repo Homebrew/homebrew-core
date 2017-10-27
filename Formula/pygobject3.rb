@@ -1,9 +1,8 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://live.gnome.org/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.26/pygobject-3.26.0.tar.xz"
-  sha256 "7411acd600c8cb6f00d2125afa23303f2104e59b83e0a4963288dbecc3b029fa"
-  revision 1
+  url "https://download.gnome.org/sources/pygobject/3.26/pygobject-3.26.1.tar.xz"
+  sha256 "f5577b9b9c70cabb9a60d81b855d488b767c66f867432e7fb64aa7269b04d1a9"
 
   bottle do
     cellar :any
