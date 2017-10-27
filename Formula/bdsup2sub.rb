@@ -31,8 +31,10 @@ class Bdsup2sub < Formula
     inreplace "pom.xml", "macify</groupId>", "macify</groupId>\n<scope>system</scope>\n<systemPath>${project.basedir}/repo/macify-1.4.jar</systemPath>"
     inreplace "pom.xml", %r{<repositories>(.|\n)+</repositories>}, ""
     (buildpath/"repo").install resource("java-image-scaling")
-    inreplace "pom.xml", "java-image-scaling</artifactId>", "java-image-scaling</artifactId>\n<scope>system</scope>\n<systemPath>${project.basedir}/repo/java-image-scaling-0.8.5.jar</systemPath>"
-    inreplace "pom.xml", "</properties>", "<maven.compiler.source>1.6</maven.compiler.source><maven.compiler.target>1.6</maven.compiler.target></properties>"
+    inreplace "pom.xml", "java-image-scaling</artifactId>",
+      "java-image-scaling</artifactId>\n<scope>system</scope>\n<systemPath>${project.basedir}/repo/java-image-scaling-0.8.5.jar</systemPath>"
+    inreplace "pom.xml", "</properties>",
+      "<maven.compiler.source>1.6</maven.compiler.source><maven.compiler.target>1.6</maven.compiler.target></properties>"
 
     system "mvn", "clean", "package", "-DskipTests"
     libexec.install "target/BDSup2Sub-#{version}-jar-with-dependencies.jar"
