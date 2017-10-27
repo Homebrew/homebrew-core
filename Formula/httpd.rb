@@ -1,8 +1,8 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.28.tar.bz2"
-  sha256 "c1197a3a62a4ab5c584ab89b249af38cf28b4adee9c0106b62999fd29f920666"
+  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.29.tar.bz2"
+  sha256 "777753a5a25568a2a27428b2214980564bc1c38c1abf9ccc7630b639991f7f00"
 
   bottle do
     rebuild 1
