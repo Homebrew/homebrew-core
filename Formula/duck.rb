@@ -17,9 +17,9 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 "67f2bbb583d5b968326f8ee49ae8ca39481b64669f9e1e7bb8cd954ed4db5293" => :high_sierra
-    sha256 "31a333620e425cf7fea21f636e5387bb44cffa9639ef1379fa123c720a0070ae" => :sierra
-    sha256 "ca0a5a36481a47b5ef3651327b16dcf05cd530496db0f84bda7e5c16177548cd" => :el_capitan
+    sha256 "707a2209244f1179dfa4943191de1fbc359fe4b65844018d13e22e9c719a3fbf" => :high_sierra
+    sha256 "bd4c6ebec0ef8a3ac48d9bfc75789708c74819318b83eb0beb8a2867aade75d3" => :sierra
+    sha256 "655c6fafa5fbd111203e5eeb31afbce60dec2b64de01434314a37db466e41075" => :el_capitan
   end
 
   depends_on :java => ["1.8+", :build]
