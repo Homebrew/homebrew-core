@@ -5,11 +5,9 @@ class Lynis < Formula
   sha256 "3eb0a3b43a90df850a2d6b8f0e3c633ae8995181e44f7e9ced5dff29c5f74c40"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "96c4ea6e45d3861b8e9f83d2456a0de62b0781210472fb99d2bb1f9a2000976d" => :high_sierra
-    sha256 "8b44b18ac549e519dd9645f0a8669298b3fbb78ece444d49a02e509890ba5bc5" => :sierra
-    sha256 "8b44b18ac549e519dd9645f0a8669298b3fbb78ece444d49a02e509890ba5bc5" => :el_capitan
-    sha256 "8b44b18ac549e519dd9645f0a8669298b3fbb78ece444d49a02e509890ba5bc5" => :yosemite
+    sha256 "8040bbd53d1f00b8d02308daeb3a077e2049308939d68c5f97d1ab01cf657bd6" => :high_sierra
+    sha256 "8040bbd53d1f00b8d02308daeb3a077e2049308939d68c5f97d1ab01cf657bd6" => :sierra
+    sha256 "8040bbd53d1f00b8d02308daeb3a077e2049308939d68c5f97d1ab01cf657bd6" => :el_capitan
   end
 
   def install
