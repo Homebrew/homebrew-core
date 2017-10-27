@@ -193,7 +193,7 @@ class Osquery < Formula
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
       -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
-      -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join("\\ ")}
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join(" ")}
     ]
 
     # Link dynamically against brew-installed libraries.
