@@ -1,8 +1,8 @@
 class PhoronixTestSuite < Formula
   desc "Open-source automated testing/benchmarking software."
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v7.2.1.tar.gz"
-  sha256 "b235f2cfd2f4891a3aea83114d5766879303c3f95ae9b661eda7aa59cb17c381"
+  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v7.4.0.tar.gz"
+  sha256 "beb0875ca74b62a5bb0768c337baceb3415817a6ef487dd14289ab2d84b6c504"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +18,6 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    assert_match "Trysil", shell_output("#{bin}/phoronix-test-suite version | grep -v ^$")
+    assert_match "Tynset", shell_output("#{bin}/phoronix-test-suite version | grep -v ^$")
   end
 end
