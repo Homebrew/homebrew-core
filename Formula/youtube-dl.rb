@@ -11,6 +11,8 @@ class YoutubeDl < Formula
 
   bottle :unneeded
 
+  depends_on "phantomjs" => :optional
+
   def install
     system "make", "PREFIX=#{prefix}" if build.head?
     bin.install "youtube-dl"
