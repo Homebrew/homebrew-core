@@ -18,6 +18,6 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    assert_match "Trysil", shell_output("#{bin}/phoronix-test-suite version | grep -v ^$")
+    assert_match "Tynset", shell_output("#{bin}/phoronix-test-suite version | grep -v ^$")
   end
 end
