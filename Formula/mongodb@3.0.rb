@@ -41,7 +41,9 @@ class MongodbAT30 < Formula
 
     cd "src/github.com/mongodb/mongo-tools" do
       # https://github.com/Homebrew/homebrew/issues/40136
-      inreplace "build.sh", '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec=`git rev-parse HEAD` -X github.com/mongodb/mongo-tools/common/options.VersionStr=$(git describe)"', ""
+      inreplace "build.sh",
+        '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec=`git rev-parse HEAD` -X github.com/mongodb/mongo-tools/common/options.VersionStr=$(git describe)"',
+        ""
 
       args = %w[]
 
