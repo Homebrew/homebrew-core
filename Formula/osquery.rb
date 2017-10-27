@@ -174,6 +174,16 @@ class Osquery < Formula
       end
     end
 
+    cxx_flags_release = %W[
+      -DNDEBUG
+      -I#{MacOS.sdk_path}/usr/include/libxml2
+      -I#{vendor}/aws-sdk-cpp/include
+      -I#{vendor}/cpp-netlib/include
+      -I#{vendor}/linenoise/include
+      -I#{vendor}/thrift/include
+      -Wl,-L#{vendor}/linenoise/lib
+    ]
+
     args = std_cmake_args + %W[
       -Daws-cpp-sdk-core_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-core.a
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
@@ -183,7 +193,7 @@ class Osquery < Formula
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
       -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
-      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join("\\ ")}
     ]
 
     # Link dynamically against brew-installed libraries.
