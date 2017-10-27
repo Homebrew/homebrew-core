@@ -108,7 +108,11 @@ class Grafana < Formula
     end
     Dir.chdir(pkgshare)
 
-    res = PTY.spawn(bin/"grafana-server", "cfg:default.paths.logs=#{logdir}", "cfg:default.paths.data=#{datadir}", "cfg:default.paths.plugins=#{plugdir}", "cfg:default.server.http_port=50100")
+    res = PTY.spawn(bin/"grafana-server",
+      "cfg:default.paths.logs=#{logdir}",
+      "cfg:default.paths.data=#{datadir}",
+      "cfg:default.paths.plugins=#{plugdir}",
+      "cfg:default.server.http_port=50100")
     r = res[0]
     w = res[1]
     pid = res[2]
