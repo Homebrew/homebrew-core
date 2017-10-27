@@ -18,4 +18,16 @@ class Tractorgen < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    expected = <<-'EOS'
+         r-
+        _|
+       / |_\_    \\
+      |    |o|----\\
+      |_______\_--_\\
+     (O)_O_O_(O)    \\
+    EOS
+    assert_equal expected, shell_output("#{bin}/tractorgen 4")
+  end
 end
