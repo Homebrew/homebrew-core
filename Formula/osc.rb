@@ -3,8 +3,8 @@ class Osc < Formula
 
   desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.160.0.tar.gz"
-  sha256 "8190d362ecce258b721a45a110c82128115573254c2ad72066280684efd148db"
+  url "https://github.com/openSUSE/osc/archive/0.161.1.tar.gz"
+  sha256 "3502ce932027d3d455db4fbf0546c81505a5a3f850e069810bd43e2bd60bea01"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -29,8 +29,8 @@ class Osc < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/dc/5b/1ff81e2dda5d2dee62d1c26f5df91b1ea3a560b6611cea67e6c55d1f2e15/M2Crypto-0.26.4.tar.gz"
-    sha256 "5cae7acc0b34821f8c0ddf6665e482893fe1f198ad6379e61ffa9d8e65f5c199"
+    url "https://files.pythonhosted.org/packages/01/bd/a41491718f9e2bebab015c42b5be7071c6695acfa301e3fc0480bfd6a15b/M2Crypto-0.27.0.tar.gz"
+    sha256 "82317459d653322d6b37f122ce916dc91ddcd9d1b814847497ac796c4549dd68"
   end
 
   resource "typing" do
@@ -46,7 +46,12 @@ class Osc < Formula
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }
 
     resource("M2Crypto").stage do
-      inreplace "setup.py", %r{(self.openssl = )'/usr'}, "\\1'#{Formula["openssl"].prefix}'"
+      inreplace "setup.py" do |s|
+        s.gsub! "self.openssl = '/usr'",
+                "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+        s.gsub! "platform.system() == \"Linux\"",
+                "platform.system() == \"Darwin\" or \\0"
+      end
       venv.pip_install "."
     end
 
