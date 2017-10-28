@@ -10,9 +10,9 @@ class AzureCliAT1 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "650ffe0ac2def8a31931e75ef2d78345f89dca265bf8444de5311692d36c1913" => :high_sierra
-    sha256 "655a9111da858348910dbc4015851c9d1e0be73a9b7c7dd6660c117fb8f965f6" => :sierra
-    sha256 "8fcba4260673571b03bd2305d7c5de937de8d7f1569d65475104240f26643773" => :el_capitan
+    sha256 "1f50d09bd08557c37a607857326c37ac16efbd1905378079b74a719df3f69b22" => :high_sierra
+    sha256 "3fbb6cc6377a35615f6ff744caecb2ad0665f5b1bb82362e05ef798f6a46f2e8" => :sierra
+    sha256 "63d301a66f07c2a2b710323e06ec6f695cb041d108de69c12ad15a208e899942" => :el_capitan
   end
 
   depends_on "node"
