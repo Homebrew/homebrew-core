@@ -1,9 +1,8 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.20.4.tar.xz"
-  sha256 "316135c402758945d51d3b316addbeb1d537a0d75f9cf593868646fd8251b0cb"
-  revision 3
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.20.5.tar.xz"
+  sha256 "da5e69b81c94b79f4e31cfc312413c36acb7429e1cb6fd4397a1251a0e23c21c"
 
   bottle do
     sha256 "3e2256adbc3cafe42d2d946be9af8b1137b61293fcd3884db2ed2753e15f3d5f" => :high_sierra
