@@ -1,8 +1,8 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.0/gnuplot-5.2.0.tar.gz"
-  sha256 "7dfe6425a1a6b9349b1fb42dae46b2e52833b13e807a78a613024d6a99541e43"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.1/gnuplot-5.2.1.tar.gz"
+  sha256 "7dc6b0fb6b321691e89e344387310a8e6614f0c4e5eb15a90dc742a53d807e88"
 
   bottle do
     sha256 "bfd640f5695bacc875b063b4a2290b319d0da85372c4d1c10ffba4794a2d2210" => :high_sierra
