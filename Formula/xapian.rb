@@ -28,8 +28,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.4/xapian-bindings-1.4.4.tar.xz"
-    sha256 "3b323eac41c42750b7dacc9319b1477a7c1b552c95f590127643dee3b44d8a39"
+    url "https://oligarchy.co.uk/xapian/1.4.5/xapian-bindings-1.4.5.tar.xz"
+    sha256 "647886730a71bcc0e9f666fcd702b7141d4e9a82e1085e44eb4470624e1a9d33"
   end
 
   def install
