@@ -3,6 +3,7 @@ class Ntl < Formula
   homepage "http://www.shoup.net/ntl"
   url "http://www.shoup.net/ntl/ntl-10.4.0.tar.gz"
   sha256 "ed72cbfd8318d149ea9ec3a841fc5686f68d0f72e70602d59dd034cde43fab6f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,12 +16,11 @@ class Ntl < Formula
   depends_on "gmp"
 
   def install
-    args = ["PREFIX=#{prefix}"]
+    args = ["PREFIX=#{prefix}", "SHARED=on"]
 
     cd "src" do
       system "./configure", *args
       system "make"
-      system "make", "check"
       system "make", "install"
     end
   end
