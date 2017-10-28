@@ -21,10 +21,9 @@ class Hashcat < Formula
   end
 
   bottle do
-    sha256 "3914d565db914d88388da81649a040da53cf89cd23b4fe56937f9b66278d903d" => :high_sierra
-    sha256 "dae4e47155597707b4b3a4fec6cfb07f41c4c14bbb082a5aa1c976f63d04f842" => :sierra
-    sha256 "c2b3ff55dbf3b1727dcdc109b43d5f7277495d320235621d08e24cce2d633635" => :el_capitan
-    sha256 "dbcfaade00d07347efccf5f8e1966bc3ad249b7c4f95649ada5c5e2796854afa" => :yosemite
+    sha256 "421d0442ba641c9f5632cb1212e4991235b81b89bc05fe6e01296139ced0a6f5" => :high_sierra
+    sha256 "ff6b5eb446180ccbb3b6c13e5a5b79913364a2a068c3006f92a2aa0ff076406e" => :sierra
+    sha256 "36b5521dcad040853a745fbdf6e248e0e2f79b2810289d67ddc49b004682c8fb" => :el_capitan
   end
 
   depends_on "gnu-sed" => :build
