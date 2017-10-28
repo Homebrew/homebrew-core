@@ -1,8 +1,8 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v2.0.0/libical-2.0.0.tar.gz"
-  sha256 "654c11f759c19237be39f6ad401d917e5a05f36f1736385ed958e60cf21456da"
+  url "https://github.com/libical/libical/releases/download/v3.0.0/libical-3.0.0.tar.gz"
+  sha256 "ac2b3d8001d03818bfddec229b45c68eef84301714c036056395b9b0365a2b0d"
 
   bottle do
     sha256 "8228ffa72b7f26c8640eb25dd5d6cd08f84d9736304ebfacb2f5a22a029cc338" => :high_sierra
@@ -12,16 +12,28 @@ class Libical < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "glib"
 
   def install
-    # Fix libical-glib build failure due to undefined symbol
-    # Upstream issue https://github.com/libical/libical/issues/225
-    inreplace "src/libical/icallangbind.h", "*callangbind_quote_as_ical_r(",
-                                            "*icallangbind_quote_as_ical_r("
+    system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
+                         "-DICU_LIBRARY=ICU_LIBRARY-NOTFOUND",
+                         "-DSHARED_ONLY=ON",
+                         *std_cmake_args
+    system "make", "install"
+  end
 
-    mkdir "build" do
-      system "cmake", "..", "-DSHARED_ONLY=true", *std_cmake_args
-      system "make", "install"
-    end
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <libical-glib/libical-glib.h>
+      int main(int argc, char *argv[]) {
+        ICalParser *parser = i_cal_parser_new();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lical-glib",
+           "-I#{Formula["glib"].opt_include}/glib-2.0",
+           "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+    system "./test"
   end
 end
