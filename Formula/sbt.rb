@@ -6,7 +6,8 @@ class Sbt < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  # Set to 1.8+ for > 1.0.3; Java 9 compat https://github.com/sbt/launcher/pull/45
+  depends_on :java => "1.8"
 
   def install
     inreplace "bin/sbt" do |s|
@@ -16,15 +17,7 @@ class Sbt < Formula
 
     libexec.install "bin", "lib"
     etc.install "conf/sbtopts"
-
-    (bin/"sbt").write <<~EOS
-      #!/bin/sh
-      if [ -f "$HOME/.sbtconfig" ]; then
-        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
-        . "$HOME/.sbtconfig"
-      fi
-      exec "#{libexec}/bin/sbt" "$@"
-    EOS
+    (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.java_home_env("1.8")
   end
 
   def caveats;  <<~EOS
