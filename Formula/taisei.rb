@@ -1,9 +1,9 @@
 class Taisei < Formula
   desc "Clone of Touhou Project shoot-em-up games"
   homepage "https://taisei-project.org/"
-  url "https://github.com/laochailan/taisei.git",
-      :tag => "v1.1",
-      :revision => "70de1564c8ed6a626b8dbf2926ebac3ba00678ff"
+  url "https://github.com/taisei-project/taisei.git",
+      :tag => "v1.1.1",
+      :revision => "9e0f575db50f90ca5233bd11b9632cc0e1d935e4"
 
   bottle do
     cellar :any
@@ -19,18 +19,25 @@ class Taisei < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "libzip"
+  depends_on :python3
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DOSX_TOOL_PREFIX=", *std_cmake_args
+      system "cmake", "..", "-DOSX_TOOL_PREFIX=", "-DOSX_LIB_PATH=:",
+             *std_cmake_args
       system "make", "install"
     end
   end
 
   def caveats
     "Sound may not work."
+  end
+
+  test do
+    output = shell_output("#{prefix}/Taisei.app/Contents/MacOS/Taisei -h", 1)
+    assert_match "Touhou clone", output
   end
 end
