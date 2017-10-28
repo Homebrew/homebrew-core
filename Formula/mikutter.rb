@@ -6,9 +6,9 @@ class Mikutter < Formula
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "66f321c981fa6e1bc3e803a01da127c0f58465f45a564c9086bbdba32e948b12" => :high_sierra
-    sha256 "d1f1716f41016d7274a6a9dba802c09baa7c94b6f0924fa411d600ed705b4cbb" => :sierra
-    sha256 "c34d87e785992cda17ad37780713191036f169c1b30d23983089f7187830effe" => :el_capitan
+    sha256 "957270122358385d87ad1c28380d6c1714ce54ccf9f7bd564e30bbdfb7323d0a" => :high_sierra
+    sha256 "431ae15af530c858f7ae2ec9bc0cb2042441d2b3cc6c86c375281952aad575d1" => :sierra
+    sha256 "d4855574064a98639e88323ec5f10856a17f56e533d433964859b8d3f605a2af" => :el_capitan
   end
 
   depends_on "gtk+"
