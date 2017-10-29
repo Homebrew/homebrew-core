@@ -32,15 +32,7 @@ class Haproxy < Formula
     bin.install "haproxy"
   end
 
-  def caveats; <<~EOS
-    To start haproxy with brew services, first create and edit your config at:
-      #{etc}/haproxy.cfg
-    Logs can be found at:
-      #{var}/log/haproxy.log
-    EOS
-  end
-
-  plist_options :manual => "haproxy"
+  plist_options :manual => "haproxy -f #{HOMEBREW_PREFIX}/etc/haproxy.cfg"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
