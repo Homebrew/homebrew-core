@@ -12,11 +12,7 @@ class Ydcv < Formula
   end
 
   test do
-    {
-      "hello" => "你好",
-      "你好" => "hello",
-    }.each do |foreign, translated|
-      assert_true shell_output("#{bin}/ydcv #{foreign}").include? translated
-    end
+    assert_match "hello", shell_output("#{bin}/ydcv 你好")
+    assert_match "你好", shell_output("#{bin}/ydcv hello")
   end
 end
