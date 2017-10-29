@@ -18,4 +18,53 @@ class Gpsd < Formula
     scons "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
     scons "install"
   end
+
+  def caveats; <<-EOS.undent
+    This Formula for gpsd comes with support for auto-starting gpsd using
+    `brew services start gpsd`. However, this version of gpsd does not
+    automatically detect GPS device addresses.
+
+    Once started, you need to use gpsdctl to force gpsd to connect to your GPS:
+
+      GPSD_SOCKET="#{var}/gpsd.sock" #{HOMEBREW_PREFIX}/sbin/gpsdctl add /dev/tty.usbserial-XYZ
+
+    Once running, anything that can connect to `localhost` on your Mac can see
+    your physical location, regardless of location permissions!
+    EOS
+  end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/gpsd -N -F #{HOMEBREW_PREFIX}/var/gpsd.sock /dev/tty.usbserial-XYZ"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_sbin}/gpsd</string>
+        <string>-N</string>
+        <string>-F</string>
+        <string>#{var}/gpsd.sock</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>KeepAlive</key>
+      <true/>
+      <key>WorkingDirectory</key>
+      <string>#{HOMEBREW_PREFIX}</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/gpsd.log</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/gpsd.log</string>
+    </dict>
+    </plist>
+    EOS
+  end
+
+  test do
+    assert_equal "#{sbin}/gpsd: 3.17 (revision 3.17)", shell_output("#{sbin}/gpsd -V").chomp
+  end
 end
