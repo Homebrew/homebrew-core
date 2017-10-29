@@ -1,5 +1,5 @@
 class PhoronixTestSuite < Formula
-  desc "Open-source automated testing/benchmarking software."
+  desc "Open-source automated testing/benchmarking software"
   homepage "https://www.phoronix-test-suite.com/"
   url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v7.4.0.tar.gz"
   sha256 "beb0875ca74b62a5bb0768c337baceb3415817a6ef487dd14289ab2d84b6c504"

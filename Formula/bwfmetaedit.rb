@@ -1,5 +1,5 @@
 class Bwfmetaedit < Formula
-  desc "A tool that supports embedding, validating, and exporting of metadata in Broadcast WAVE Format (BWF) files"
+  desc "Tool that supports embedding, validating, and exporting of metadata in Broadcast WAVE Format (BWF) files"
   homepage "https://mediaarea.net/BWFMetaEdit"
   url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.2/BWFMetaEdit_CLI_1.3.2_GNU_FromSource.tar.bz2"
   version "1.3.2"

@@ -1,5 +1,5 @@
 class Fd < Formula
-  desc "Simple, fast and user-friendly alternative to find."
+  desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
   url "https://github.com/sharkdp/fd/archive/v5.0.0.tar.gz"
   sha256 "9788597334912d65e32c7d57ef7a0294cb8976dc52538c9048a77fbb8d12f755"

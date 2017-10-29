@@ -1,5 +1,5 @@
 class Sslscan < Formula
-  desc "Test SSL/TLS enabled services to discover supported cipher suites."
+  desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
   url "https://github.com/rbsec/sslscan/archive/1.11.10-rbsec.tar.gz"
   version "1.11.10"

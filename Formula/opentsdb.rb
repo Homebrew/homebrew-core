@@ -13,7 +13,7 @@ class HbaseLZORequirement < Requirement
 end
 
 class Opentsdb < Formula
-  desc "Scalable, distributed Time Series Database."
+  desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.0/opentsdb-2.3.0.tar.gz"
   sha256 "90e982fecf8a830741622004070fe13a55fb2c51d01fc1dc5785ee013320375a"

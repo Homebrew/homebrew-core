@@ -1,5 +1,5 @@
 class Dscanner < Formula
-  desc "Analyses e.g. the style and syntax of D code."
+  desc "Analyses e.g. the style and syntax of D code"
   homepage "https://github.com/dlang-community/Dscanner"
   url "https://github.com/dlang-community/Dscanner.git",
     :tag => "v0.4.0",

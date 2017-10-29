@@ -1,5 +1,5 @@
 class GitSecret < Formula
-  desc "Bash-tool to store the private data inside a git repo."
+  desc "Bash-tool to store the private data inside a git repo"
   homepage "https://sobolevn.github.io/git-secret/"
   url "https://github.com/sobolevn/git-secret/archive/v0.2.2.tar.gz"
   sha256 "a4672c2d5eca7b5c3b27388060609307b851edc7f7b653e1d21e3e0b328f43f4"

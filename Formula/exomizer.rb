@@ -1,5 +1,5 @@
 class Exomizer < Formula
-  desc "6502 compressor with CBM PET 4032 support."
+  desc "6502 compressor with CBM PET 4032 support"
   homepage "https://bitbucket.org/magli143/exomizer/wiki/Home"
   url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer209.zip"
   version "2.0.9"

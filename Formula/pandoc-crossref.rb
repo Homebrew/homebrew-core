@@ -3,7 +3,7 @@ require "language/haskell"
 class PandocCrossref < Formula
   include Language::Haskell::Cabal
 
-  desc "Pandoc filter for numbering and cross-referencing."
+  desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
   url "https://hackage.haskell.org/package/pandoc-crossref-0.2.6.0/pandoc-crossref-0.2.6.0.tar.gz"
   sha256 "aba0100030daf824a9f459754a7915fd2db74756b11a870e62721a0a08127bd5"

@@ -1,7 +1,7 @@
 require "language/go"
 
 class SpaceinvadersGo < Formula
-  desc "Space Invaders in your terminal written in Go."
+  desc "Space Invaders in your terminal written in Go"
   homepage "https://github.com/asib/spaceinvaders"
   url "https://github.com/asib/spaceinvaders/archive/v1.2.tar.gz"
   sha256 "e5298c4c13ff42f5cb3bf3913818c5155cf6918fd757124920045485d7ab5b9e"

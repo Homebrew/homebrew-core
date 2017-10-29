@@ -1,5 +1,5 @@
 class TelegramCli < Formula
-  desc "Command-line interface for Telegram."
+  desc "Command-line interface for Telegram"
   homepage "https://github.com/vysheng/tg"
   url "https://github.com/vysheng/tg.git",
       :tag => "1.3.1",

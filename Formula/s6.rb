@@ -1,5 +1,5 @@
 class S6 < Formula
-  desc "Small & secure supervision software suite."
+  desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
 
   stable do

@@ -1,5 +1,5 @@
 class SimpleObfs < Formula
-  desc "Simple obfusacting plugin of shadowsocks-libev."
+  desc "Simple obfusacting plugin of shadowsocks-libev"
   homepage "https://github.com/shadowsocks/simple-obfs"
   url "https://github.com/shadowsocks/simple-obfs.git",
       :tag => "v0.0.3",

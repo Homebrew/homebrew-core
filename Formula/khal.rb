@@ -1,7 +1,7 @@
 class Khal < Formula
   include Language::Python::Virtualenv
 
-  desc "CLI calendar application."
+  desc "CLI calendar application"
   homepage "https://lostpackets.de/khal/"
   url "https://github.com/pimutils/khal.git",
       :tag => "v0.9.8",

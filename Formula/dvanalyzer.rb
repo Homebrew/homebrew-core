@@ -1,5 +1,5 @@
 class Dvanalyzer < Formula
-  desc "A technical quality control and reporting tool that examines DV streams in order to report errors in the tape-to-file transfer process"
+  desc "Technical quality control and reporting tool that examines DV streams in order to report errors in the tape-to-file transfer process"
   homepage "https://mediaarea.net/DVAnalyzer"
   url "https://mediaarea.net/download/binary/dvanalyzer/1.4.2/DVAnalyzer_CLI_1.4.2_GNU_FromSource.tar.bz2"
   version "1.4.2"

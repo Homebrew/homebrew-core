@@ -1,7 +1,7 @@
 class ConjureUp < Formula
   include Language::Python::Virtualenv
 
-  desc "Big software deployments so easy it's almost magical."
+  desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.3.1.tar.gz"
   sha256 "da429aad45ef0c6a70565a3748da2cb668def684b65f04ee3c081ebce065fac7"

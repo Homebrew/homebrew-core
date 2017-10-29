@@ -1,5 +1,5 @@
 class Muttils < Formula
-  desc "Provides utilities for use with console mail clients, eg. Mutt."
+  desc "Provides utilities for use with console mail clients, eg. Mutt"
   homepage "https://bitbucket.org/blacktrash/muttils/"
   url "https://bitbucket.org/blacktrash/muttils/get/1.3.tar.gz"
   sha256 "c8b456b660461441de8927ccff7e9f444894d6550d0777ed7bd160b8f9caddbf"
