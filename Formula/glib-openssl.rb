@@ -5,9 +5,9 @@ class GlibOpenssl < Formula
   sha256 "1703a1da93911cf7f386e5fd9f82b803a150448e257db749166c0c3a1b5d3880"
 
   bottle do
-    sha256 "a6f502052b1db91ed3ee2b06881ee0a3c60b0b5fc3c742c3ce38c5edcc2f4d7a" => :high_sierra
-    sha256 "489fb166e1bcb7b30ae34a5b5edbca4bb398c7d72f656642eeb1be521611cfe7" => :sierra
-    sha256 "409a8c88579b9d8c3f08172372ab88c9eba47d394bbd058ec53a190ae88f916d" => :el_capitan
+    sha256 "f7152e43e3d84f770c55918ffb70dc0905600d8272f21b6d22922feb6c57eb11" => :high_sierra
+    sha256 "5bc4f9b2ab920bb23b63d0eccc4eff7dc3658679c05c9d90fe48835841c29d2d" => :sierra
+    sha256 "10caa120aee05bd9b9a078e21b547dc360dc9931c9712b1293d2ef1a29f5e64d" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
