@@ -16,6 +16,6 @@ class GitRemoteGcrypt < Formula
   end
 
   test do
-    system "echo capabilities | #{bin}/git-remote-gcrypt |egrep -q 'fetch|push'"
+    assert_match( "fetch\npush\n", pipe_output("#{bin}/git-remote-gcrypt", "capabilities\n", 0))
   end
 end
