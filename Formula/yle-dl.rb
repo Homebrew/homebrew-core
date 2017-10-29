@@ -7,9 +7,9 @@ class YleDl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1103b4488914fd234e89b07c0d282c86b57efad22fae6cff515e9bc2ddd2c3ba" => :high_sierra
-    sha256 "cdc2456ead5e4b0235a4ca407c88b05f3b3621d8688c5ae3e2d6249e9d219a55" => :sierra
-    sha256 "7a9f907b6f06b8eda9b661a5319bf422ef19bffd3e7cc187a49450b263207695" => :el_capitan
+    sha256 "3babe54f684e27d338c1f7fbc9be5fb448258d788a43c8c4cabe0f1be7e837d8" => :high_sierra
+    sha256 "eee686f8e5aca91a19f0e7111e0f565c3f94292ef296c304e6c43d9fd5f57e92" => :sierra
+    sha256 "328a2a7ebbb490852b385db64e1a259203c2b250b6fcb8417cce0254102cb02e" => :el_capitan
   end
 
   depends_on "rtmpdump"
