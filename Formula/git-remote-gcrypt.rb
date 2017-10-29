@@ -16,6 +16,6 @@ class GitRemoteGcrypt < Formula
   end
 
   test do
-    assert_match( "fetch\npush\n", pipe_output("#{bin}/git-remote-gcrypt", "capabilities\n", 0))
+    assert_match("fetch\npush\n", pipe_output("#{bin}/git-remote-gcrypt", "capabilities\n", 0))
   end
 end
