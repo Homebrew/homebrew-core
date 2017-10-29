@@ -20,16 +20,10 @@ class Gpsd < Formula
   end
 
   def caveats; <<-EOS.undent
-    This Formula for gpsd comes with support for auto-starting gpsd using
-    `brew services start gpsd`. However, this version of gpsd does not
-    automatically detect GPS device addresses.
+    gpsd does not automatically detect GPS device addresses. Once started, you
+    need to force it to connect to your GPS:
 
-    Once started, you need to use gpsdctl to force gpsd to connect to your GPS:
-
-      GPSD_SOCKET="#{var}/gpsd.sock" #{HOMEBREW_PREFIX}/sbin/gpsdctl add /dev/tty.usbserial-XYZ
-
-    Once running, anything that can connect to `localhost` on your Mac can see
-    your physical location, regardless of location permissions!
+      GPSD_SOCKET="#{var}/gpsd.sock" #{sbin}/gpsdctl add /dev/tty.usbserial-XYZ
     EOS
   end
 
@@ -65,6 +59,6 @@ class Gpsd < Formula
   end
 
   test do
-    assert_equal "#{sbin}/gpsd: 3.17 (revision 3.17)", shell_output("#{sbin}/gpsd -V").chomp
+    assert_match version.to_s, shell_output("#{sbin}/gpsd -V")
   end
 end
