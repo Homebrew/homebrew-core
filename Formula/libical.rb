@@ -5,10 +5,9 @@ class Libical < Formula
   sha256 "ac2b3d8001d03818bfddec229b45c68eef84301714c036056395b9b0365a2b0d"
 
   bottle do
-    sha256 "8228ffa72b7f26c8640eb25dd5d6cd08f84d9736304ebfacb2f5a22a029cc338" => :high_sierra
-    sha256 "4b8b3165661fca6ae137559f3b9d0436bee37284ce84c75e9e81677512bacd43" => :sierra
-    sha256 "80cd45eebc20492169a98e26c2ac384d9e7d42c60c97dfb31cf15fa3c978ea27" => :el_capitan
-    sha256 "f4cbcfb04208a01f1589f119e785c656b74713d033949e8a6a367a759ea142eb" => :yosemite
+    sha256 "e00639c8e22c1e65492d11fc1486f38f8c1e898cbca7d704777040e088d3192b" => :high_sierra
+    sha256 "640045615ee37609804b4f19479e813d7cbcbdbcc5ba92821c11507ed38768b7" => :sierra
+    sha256 "8188a81db33ac7f104254a24b5c94480445d50b09a71c11f14bf5d06086b7a0e" => :el_capitan
   end
 
   depends_on "cmake" => :build
