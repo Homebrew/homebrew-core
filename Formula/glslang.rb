@@ -13,6 +13,20 @@ class Glslang < Formula
     sha256 "4d22c058983e127f3dbb02d86ef6d6cb94fcc5b87c5f3e46802b8b157d56e1c9" => :mavericks
   end
 
+  # Fix: Failed std::map static assertion with libc++ 3.8
+  # https://github.com/KhronosGroup/glslang/issues/368
+  patch do
+    url "https://github.com/KhronosGroup/glslang/commit/ec1476b7060306fd9109faf7a4c70a20ea3b538c.patch?full_index=1"
+    sha256 "36e8986d8e506f3b85e652a048b3039d2758664f0068c6e466af314e9096a0b6"
+  end
+
+  # Fix ordered pointer comparison build warning/error
+  # https://github.com/KhronosGroup/glslang/pull/108
+  patch do
+    url "https://github.com/KhronosGroup/glslang/commit/a3f53e54d232f3bb345b501ab30a01a5507e5b4e.patch?full_index=1"
+    sha256 "0b25f25119eaf2abb62cd743fc47b587df18e12c69dbc84f4593d7992935e586"
+  end
+
   depends_on "cmake" => :build
 
   def install
@@ -32,13 +46,13 @@ class Glslang < Formula
   end
 
   test do
-    (testpath/"test.frag").write <<-EOS.undent
+    (testpath/"test.frag").write <<~EOS
       #version 110
       void main() {
         gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
       }
     EOS
-    (testpath/"test.vert").write <<-EOS.undent
+    (testpath/"test.vert").write <<~EOS
       #version 110
       void main() {
           gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
