@@ -3,6 +3,7 @@ class Hypre < Formula
   homepage "https://computation.llnl.gov/casc/hypre/software.html"
   url "https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/hypre-2.11.2.tar.gz"
   sha256 "25b6c1226411593f71bb5cf3891431afaa8c3fd487bdfe4faeeb55c6fdfb269e"
+  revision 1
   head "https://github.com/LLNL/hypre.git"
 
   bottle do

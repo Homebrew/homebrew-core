@@ -3,7 +3,7 @@ class Konoha < Formula
   homepage "https://github.com/konoha-project/konoha3"
   url "https://github.com/konoha-project/konoha3/archive/v0.1.tar.gz"
   sha256 "e7d222808029515fe229b0ce1c4e84d0a35b59fce8603124a8df1aeba06114d3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c1be125362a59f350be04b81a5980e0daddeefcf472b095c30df139e314458e1" => :high_sierra

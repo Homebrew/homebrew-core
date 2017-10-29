@@ -3,7 +3,7 @@ class Opencoarrays < Formula
   homepage "http://opencoarrays.org"
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/1.9.2/OpenCoarrays-1.9.2.tar.gz"
   sha256 "c0b872db5449d0f3e405427e3953e81e9ca78199fe55651898d3f2ff9b3690c8"
-
+  revision 1
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
