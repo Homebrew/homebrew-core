@@ -26,6 +26,7 @@ class Glslang < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8b113e3ef8ccd8e18bae3a53d7ca409c1c8e0ba1e3b38f6dcf94b2d8917ea1a9" => :high_sierra
     sha256 "d5de78fc374f3c92cdf8f06f1518405346c63b42ffd7ad53bb153c27bd00a935" => :sierra
     sha256 "770943fa3e43b765e303cc88da1aa0bf2455f91cc0e84a636bfadd517cc87776" => :el_capitan
     sha256 "111206ad8b23ca9f78fa5657d371056e238f3eabf747d48001115d85f4ea88bf" => :yosemite
