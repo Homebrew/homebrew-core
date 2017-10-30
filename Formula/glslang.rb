@@ -1,9 +1,28 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/3.0.tar.gz"
-  sha256 "91653d09a90440a0bc35aa490d0c44973501257577451d4c445b2df5e78d118c"
   head "https://github.com/KhronosGroup/glslang.git"
+
+  stable do
+    url "https://github.com/KhronosGroup/glslang/archive/3.0.tar.gz"
+    sha256 "91653d09a90440a0bc35aa490d0c44973501257577451d4c445b2df5e78d118c"
+
+    if DevelopmentTools.clang_build_version >= 900
+      # Fix ordered pointer comparison build warning/error
+      # https://github.com/KhronosGroup/glslang/pull/108
+      patch do
+        url "https://github.com/KhronosGroup/glslang/commit/a3f53e54d232f3bb345b501ab30a01a5507e5b4e.patch?full_index=1"
+        sha256 "0b25f25119eaf2abb62cd743fc47b587df18e12c69dbc84f4593d7992935e586"
+      end
+
+      # Fix: Failed std::map static assertion with libc++ 3.8
+      # https://github.com/KhronosGroup/glslang/issues/368
+      patch do
+        url "https://github.com/KhronosGroup/glslang/commit/ec1476b7060306fd9109faf7a4c70a20ea3b538c.patch?full_index=1"
+        sha256 "36e8986d8e506f3b85e652a048b3039d2758664f0068c6e466af314e9096a0b6"
+      end
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
