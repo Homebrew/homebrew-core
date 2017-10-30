@@ -1,9 +1,9 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.30.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.30.tar.gz"
-  sha256 "ba65236116de8326d83378b2bd929879fa185195bc530b9d1aba72107910b6b3"
+  url "http://xmlsoft.org/sources/libxslt-1.1.31.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.31.tar.gz"
+  sha256 "db25e96b6b801144277e67c05b10560ac09dfff82ccd53a154ce86e43622f3ab"
 
   bottle do
     sha256 "f9aac5cef88144fc67e015a9570ac1e0e161f14ffcee9ee9735a1b9e0fe69103" => :high_sierra
