@@ -6,11 +6,9 @@ class Libwpg < Formula
 
   bottle do
     cellar :any
-    sha256 "3ed3f22481f8c4b76bd0af35aaebcbe0c958a741901c30b16537c6a3ec38833e" => :high_sierra
-    sha256 "556eba841e601456afef583cf518dea88ab6dfee13b9cd58babcbee8f3215ce4" => :sierra
-    sha256 "35c9a15742933b472934acaf8c97d1e551485da7325c9cbca5e06e61bb8a3ced" => :el_capitan
-    sha256 "411ca160d35675435a00916c0b489ca4901dbc363ab8d7ad1c77fabfd80a8b10" => :yosemite
-    sha256 "9ac0c4445fe2d1b7645ade070b070740b9ec3b5a0e1cf6908791b3b4649df9d6" => :mavericks
+    sha256 "3b4dc04c896972980242d47d138cec836921ceb31b4cb09ecfe516b3a263544d" => :high_sierra
+    sha256 "fe76db6238dd00ce05a0ba9c9c80b69cc18b431fa0c7198b23be67cf9e609e76" => :sierra
+    sha256 "0e2dbed131e06e439dfda9ba83b429def82964cb17f6c418adfb321931014c84" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
