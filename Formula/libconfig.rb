@@ -6,10 +6,9 @@ class Libconfig < Formula
   head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do
-    rebuild 1
-    sha256 "23e530c1de99bced2f55361347920cb9149b816dcd6e273db90c8211bbbbe025" => :high_sierra
-    sha256 "238bf662b61ce2ed2b3e4ef0cf932ab4c9fe784f23d5d82576b79ce552db10b6" => :sierra
-    sha256 "2194870d1e0f7dcdc03df3637bfb16c92ddd03f1a65870c0498e28b06308f5bd" => :el_capitan
+    sha256 "b9b5c4811c278a7ea7e193685a5b352e80121d28defb23715df4b66e98e33af2" => :high_sierra
+    sha256 "31ed172343eb35e862fe8e8eb1d4850845ea376b8857a1e44239ba8873e9e4e3" => :sierra
+    sha256 "ac4deedc89f0c4712ffde498f1eae572c34a5ef1b804a18a1d087fda0f5b43d9" => :el_capitan
   end
 
   depends_on "automake" => :build
