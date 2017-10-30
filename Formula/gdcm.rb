@@ -3,7 +3,7 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.2/gdcm-2.8.2.tar.gz"
   sha256 "5462c7859e01e5d5d0fb86a19a6c775484a6c44abd8545ea71180d4c41bf0f89"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "cb5c0931aa500ba666567ca1bc8fa0490b2b77fa25c4b4e0c40dbb26e76c4e23" => :high_sierra
@@ -17,6 +17,8 @@ class Gdcm < Formula
   depends_on "swig" => :build if build.with?("python") || build.with?("python3")
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "openjpeg"
   depends_on "openssl"
   depends_on "vtk"
 
@@ -32,6 +34,7 @@ class Gdcm < Formula
       -DGDCM_BUILD_EXAMPLES=OFF
       -DGDCM_BUILD_DOCBOOK_MANPAGES=OFF
       -DGDCM_USE_VTK=ON
+      -DGDCM_USE_SYSTEM_OPENJPEG=ON
       -DGDCM_USE_SYSTEM_OPENSSL=ON
     ]
 
