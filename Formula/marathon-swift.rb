@@ -13,7 +13,7 @@ class MarathonSwift < Formula
   depends_on :xcode => ["8.3", :build]
 
   def install
-    if MacOS::Xcode.version >= "9.0"
+    if MacOS::Xcode.installed? && MacOS::Xcode.version >= "9.0"
       system "swift", "package", "--disable-sandbox", "update"
       system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib",
              "--disable-sandbox"
