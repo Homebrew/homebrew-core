@@ -17,21 +17,24 @@ class OpenalSoft < Formula
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "portaudio" => :optional
-  depends_on "pulseaudio" => :optional
   depends_on "fluid-synth" => :optional
+  depends_on "jack" => :optional
 
   # clang 4.2's support for alignas is incomplete
   fails_with(:clang) { build 425 }
 
   def install
+    #  See: https://github.com/kcat/openal-soft/issues/153
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}"
+
     # Please don't reenable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args
-    args << "-DALSOFT_EXAMPLES=OFF"
+    args << "-DALSOFT_EXAMPLES=OFF" <<"-DALSOFT_BACKEND_PULSEAUDIO=OFF"
 
     args << "-DALSOFT_BACKEND_PORTAUDIO=OFF" if build.without? "portaudio"
-    args << "-DALSOFT_BACKEND_PULSEAUDIO=OFF" if build.without? "pulseaudio"
     args << "-DALSOFT_MIDI_FLUIDSYNTH=OFF" if build.without? "fluid-synth"
+    args << "-DALSOFT_BACKEND_JACK=OFF" if build.without? "jack"
 
     system "cmake", ".", *args
     system "make", "install"
