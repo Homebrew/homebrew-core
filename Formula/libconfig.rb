@@ -1,8 +1,9 @@
 class Libconfig < Formula
   desc "Configuration file processing library"
-  homepage "https://www.hyperrealm.com/libconfig/"
-  url "https://github.com/hyperrealm/libconfig/archive/v1.6.tar.gz"
-  sha256 "18739792eb463d73525d7aea9b0a48b14106fae1cfec09aedc668d8c1079adf1"
+  homepage "https://hyperrealm.github.io/libconfig/"
+  url "https://github.com/hyperrealm/libconfig/archive/v1.7.tar.gz"
+  sha256 "6f7ce87ecfe11327ec7f9f3a016c5007286b327eee1adf5145ff70238b379304"
+  head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do
     rebuild 1
@@ -11,22 +12,13 @@ class Libconfig < Formula
     sha256 "2194870d1e0f7dcdc03df3637bfb16c92ddd03f1a65870c0498e28b06308f5bd" => :el_capitan
   end
 
-  head do
-    url "https://github.com/hyperrealm/libconfig.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-
-    # Fixes "scanner.l:137:59: error: too few arguments to function call ..."
-    # Forces regeneration of the BUILT_SOURCES "scanner.c" and "scanner.h"
-    # Reported 6 Jun 2016: https://github.com/hyperrealm/libconfig/issues/66
-    touch "lib/scanner.l"
-
     system "make", "install"
   end
 
