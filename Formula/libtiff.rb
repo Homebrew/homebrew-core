@@ -4,7 +4,7 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
   sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -23,9 +23,9 @@ class Libtiff < Formula
   # All of these have been reported upstream & should
   # be fixed in the next release, but please check.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-5.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-5.debian.tar.xz"
-    sha256 "0a72efaba5da935537dd7dc28593503c3a0161d954fcd2da6eb511c0238d1387"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
+    sha256 "9307f5343882fa0d8229d20f35cd03cf113dc88881bf697b0ee2b3969ffdbe72"
     apply "patches/01-CVE-2015-7554.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
@@ -36,7 +36,11 @@ class Libtiff < Formula
           "patches/08-LZW_compression_regression.patch",
           "patches/09-CVE-2017-11335.patch",
           "patches/10-CVE-2017-13726.patch",
-          "patches/11-CVE-2017-13727.patch"
+          "patches/11-CVE-2017-13727.patch",
+          "patches/12-prevent_OOM_in_gtTileContig.patch",
+          "patches/13-prevent_OOP_in_TIFFFetchStripThing.patch",
+          "patches/14-CVE-2017-12944.patch",
+          "patches/15-avoid_floating_point_division_by_zero_in_initCIELabConversion.patch"
   end
 
   def install
