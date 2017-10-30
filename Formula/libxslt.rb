@@ -6,9 +6,9 @@ class Libxslt < Formula
   sha256 "db25e96b6b801144277e67c05b10560ac09dfff82ccd53a154ce86e43622f3ab"
 
   bottle do
-    sha256 "f9aac5cef88144fc67e015a9570ac1e0e161f14ffcee9ee9735a1b9e0fe69103" => :high_sierra
-    sha256 "b31338a4e2ca73983a32cd99cce8a55ba7dcaa89ed2a431398d140894bf3c022" => :sierra
-    sha256 "f6eb7c9248051f75a1f7a895bdb7debde29a6abfa349b6de2ce792bf803913bd" => :el_capitan
+    sha256 "ca78df75fec0ffdee11a6407d48483eb5b5935d373dafd8917d1bfeda3b571dc" => :high_sierra
+    sha256 "919d829abb0e9e580e1f79275891d47f6e5a8c9c0262c9d8076c6dacaf41377a" => :sierra
+    sha256 "60ab15572aa6cd85cd82c272cb56f188b71ea754611191cb4763cac003b18e9c" => :el_capitan
   end
 
   head do
