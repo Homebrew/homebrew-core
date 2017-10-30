@@ -3,6 +3,7 @@ class ShairportSync < Formula
   homepage "https://github.com/mikebrady/shairport-sync"
   url "https://github.com/mikebrady/shairport-sync/archive/3.1.3.tar.gz"
   sha256 "dd0484d7e8ee7631aee78c78b3762abbdba7ec3f2ee8cd6c1e361544c1414da3"
+  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
