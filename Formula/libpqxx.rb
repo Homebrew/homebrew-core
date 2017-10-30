@@ -6,10 +6,9 @@ class Libpqxx < Formula
 
   bottle do
     cellar :any
-    sha256 "81096e1c784882ea5f0c2db7252d333fb43f987f7f010616cb5a30fdaed5ef1f" => :high_sierra
-    sha256 "660779449eac96fdab22b28e28a8d8672de8baffb3b5cc35415fcc5b6fda1ab7" => :sierra
-    sha256 "ef820631f156b0912ab484c74f97e658b81c5dc2daa30d0eac74e8ff70a4174f" => :el_capitan
-    sha256 "096d1506a94e0aff6bcb09e6f7b952d35b701ef053a5e113410989e80ff6508e" => :yosemite
+    sha256 "e0c52df32c3b69aefefe4782fde933e16abb67e6491e2e498bd244dc647268a5" => :high_sierra
+    sha256 "e5c78c98aa7f8e087e8bb07a8e36133acda2dbb2f0c8ccfd9c0e16b99921e72a" => :sierra
+    sha256 "312d77e1693f03c7ae67e4b699a9e129ec33bae1426f9df940c4c76ff5c20c2a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
