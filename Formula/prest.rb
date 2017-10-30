@@ -1,8 +1,8 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/nuveo/prest"
-  url "https://github.com/nuveo/prest/archive/v0.2.0.tar.gz"
-  sha256 "8fb0416105895424fc4ae6b13b583a3de33c15875b73435766b99b65781123ab"
+  url "https://github.com/nuveo/prest/archive/v0.3.0.tar.gz"
+  sha256 "a8fef456abc47a34aedb05d95c4b9a64d2f7f306016cb789f2b0de9229f5d3f3"
 
   bottle do
     cellar :any_skip_relocation
