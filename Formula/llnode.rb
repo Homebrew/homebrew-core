@@ -66,6 +66,6 @@ class Llnode < Formula
       help v8
       quit
     EOS
-    assert_match /v8 bt/, lldb_out
+    assert_match "v8 bt", lldb_out
   end
 end
