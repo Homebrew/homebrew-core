@@ -22,6 +22,9 @@ class Hyperscan < Formula
   def install
     mkdir "build" do
       args = std_cmake_args
+      args += %w[
+        -DBUILD_STATIC_AND_SHARED=on
+      ]
 
       if build.with? "debug"
         args -= %w[
