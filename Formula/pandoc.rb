@@ -10,9 +10,9 @@ class Pandoc < Formula
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "5a4e56b970e59984fda8cf03c3d89ce6a100f28aa7defaf2da28f68498419902" => :high_sierra
-    sha256 "e5fcff4739015b69fc513900e20a8d1130a98bb29ae7770f02d4832e80841729" => :sierra
-    sha256 "bfdaf40b035d17d9323d3bf736d433b109f1cf4942a9c2e2b211d065f49ae51f" => :el_capitan
+    sha256 "aa7f1b3acb30a747e9a8425ab0808a67e74405350ae7a1303fc32e1040bea9e9" => :high_sierra
+    sha256 "ff98beafc13a908560f6d30ded4199bb6cb4a2c75919cc1424f2f8c8b2506a40" => :sierra
+    sha256 "2efb9303ec48dd66acde60aaf3eb157d4420a4fa309d9686da481f1a3ec9f3ca" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
