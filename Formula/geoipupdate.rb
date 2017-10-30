@@ -1,9 +1,8 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/releases/download/v2.4.0/geoipupdate-2.4.0.tar.gz"
-  sha256 "8b4e88ce8d84e9c75bc681704d19ec5c63c54f01e945f7669f97fb0df7e13952"
-  revision 1
+  url "https://github.com/maxmind/geoipupdate/releases/download/v2.5.0/geoipupdate-2.5.0.tar.gz"
+  sha256 "5119fd0e338cd083e886228b26679c64bcbaade8a815be092aecf865a610ab26"
 
   bottle do
     sha256 "323ae245cabc43f6dfc5dd95625eb4aa8fd87cf33dfc3c0ad75f043f48ffff88" => :high_sierra
@@ -20,13 +19,6 @@ class Geoipupdate < Formula
   end
 
   def install
-    # Configure for free GeoLite2 and GeoLite Legacy Databases
-    # See https://dev.maxmind.com/geoip/geoipupdate/
-    inreplace "conf/GeoIP.conf.default" do |s|
-      s.gsub! /^UserId 0$/, "UserId 999999"
-      s.gsub! /^# (ProductIds 506 517 533 GeoLite.*$)/, "\\1"
-    end
-
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
