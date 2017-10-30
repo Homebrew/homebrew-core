@@ -71,8 +71,6 @@ class SubversionAT18 < Formula
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
-      system "2to3-", "--write", "--fix=print", "SConstruct"
-
       # SConstruct merges in gssapi linkflags using scons's MergeFlags,
       # but that discards duplicate values - including the duplicate
       # values we want, like multiple -arch values for a universal build.
@@ -94,7 +92,7 @@ class SubversionAT18 < Formula
     end
 
     if build.include? "unicode-path"
-      raise <<-EOS.undent
+      raise <<~EOS
         The --unicode-path patch is not supported on Subversion 1.8.
 
         Upgrading from a 1.7 version built with this patch is not supported.
@@ -195,30 +193,30 @@ class SubversionAT18 < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
     EOS
 
     if build.with? "perl"
-      s += <<-EOS.undent
-
+      s += "\n"
+      s += <<~EOS
         The perl bindings are located in various subdirectories of:
           #{prefix}/Library/Perl
       EOS
     end
 
     if build.with? "ruby"
-      s += <<-EOS.undent
-
+      s += "\n"
+      s += <<~EOS
         You may need to add the Ruby bindings to your RUBYLIB from:
           #{HOMEBREW_PREFIX}/lib/ruby
       EOS
     end
 
     if build.with? "java"
-      s += <<-EOS.undent
-
+      s += "\n"
+      s += <<~EOS
         You may need to link the Java bindings into the Java Extensions folder:
           sudo mkdir -p /Library/Java/Extensions
           sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib

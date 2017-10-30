@@ -1,14 +1,14 @@
 class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://vim.sourceforge.io/"
-  url "https://github.com/vim/vim/archive/v8.0.1150.tar.gz"
-  sha256 "c2c7adad6eb786a37b123911faca42015df34958150262ec255cfc7d89834dc1"
+  url "https://github.com/vim/vim/archive/v8.0.1200.tar.gz"
+  sha256 "98c928d5fa0c24bc19c5918bb6802cd6f608a4ae58b4a314c359b706a47fc662"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "7258bba022462c918f4637f24e82515dc3634457c01a5a1aea5641e0e610e51f" => :high_sierra
-    sha256 "8acdff85c7449cf798f9f2a6e482ec810b6c4d7ef71ab8d034ebcba71d6fc905" => :sierra
-    sha256 "8c32d0155d4062fa993b6da9150a3377d824c8b8a492a92dff2e9858895f6b2a" => :el_capitan
+    sha256 "46a939636ad34eba29e44d4619a49a0ca9f382bfd019296e62f8473c63f34b9e" => :high_sierra
+    sha256 "ee73fb4ee00fc1cff8ffe413b13e06d43b913ce5a44bc51163b7186d2eceead0" => :sierra
+    sha256 "4cf526e32d4354b4525fa33738bd6464c7a91f156c0ed271e4060e455ca1ad78" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
@@ -87,7 +87,7 @@ class Vim < Formula
       opts << "--with-luajit" if build.with? "luajit"
 
       if build.with?("lua") && build.with?("luajit")
-        onoe <<-EOS.undent
+        onoe <<~EOS
           Vim will not link against both Luajit & Lua simultaneously.
           Proceeding with Lua.
         EOS
@@ -122,14 +122,14 @@ class Vim < Formula
 
   test do
     if build.with? "python3"
-      (testpath/"commands.vim").write <<-EOS.undent
+      (testpath/"commands.vim").write <<~EOS
         :python3 import vim; vim.current.buffer[0] = 'hello python3'
         :wq
       EOS
       system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
       assert_equal "hello python3", File.read("test.txt").chomp
     elsif build.with? "python"
-      (testpath/"commands.vim").write <<-EOS.undent
+      (testpath/"commands.vim").write <<~EOS
         :python import vim; vim.current.buffer[0] = 'hello world'
         :wq
       EOS

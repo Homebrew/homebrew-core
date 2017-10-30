@@ -20,7 +20,7 @@ class Tgui < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <TGUI/TGUI.hpp>
       int main()
       {

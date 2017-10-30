@@ -78,7 +78,7 @@ class Gtkglext < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gtk/gtkgl.h>
 
       int main(int argc, char *argv[]) {

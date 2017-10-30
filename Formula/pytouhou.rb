@@ -64,13 +64,13 @@ class Pytouhou < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-    The default path for the game data is:
-      #{pkgshare}/game
+    s = <<~EOS
+      The default path for the game data is:
+        #{pkgshare}/game
     EOS
     if build.with? "demo"
-      s += <<-EOS.undent
-      Demo version of Touhou 6 has been installed.
+      s += <<~EOS
+        Demo version of Touhou 6 has been installed.
       EOS
     end
     s

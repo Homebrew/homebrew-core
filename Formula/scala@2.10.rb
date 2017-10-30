@@ -50,7 +50,7 @@ class ScalaAT210 < Formula
 
   test do
     file = testpath/"Test.scala"
-    file.write <<-EOS.undent
+    file.write <<~EOS
       object Test {
         def main(args: Array[String]) {
           println(s"${2 + 2}")

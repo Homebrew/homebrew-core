@@ -1,14 +1,14 @@
 class LiquidDsp < Formula
   desc "Digital signal processing library for software-defined radios"
   homepage "http://liquidsdr.org/"
-  url "https://github.com/jgaeddert/liquid-dsp/archive/v1.3.0.tar.gz"
-  sha256 "b136343d644bc1441f7854f2d292bfa054e8d040c0b745879b205f6836dca0f0"
+  url "https://github.com/jgaeddert/liquid-dsp/archive/v1.3.1.tar.gz"
+  sha256 "e3f66ce72a3b5d74eea5ccffb049c62c422c91b0ab92d6dbbef21af3c3bfec73"
 
   bottle do
     cellar :any
-    sha256 "8e7b1160f024f19378c9fd386af3541e4da4ba8ebde11096349494cd4d11a5e9" => :high_sierra
-    sha256 "6eb6aa0308c4a5dfc973050c40ff9883973ee95e3c888940e085268c99d75ad2" => :sierra
-    sha256 "abe5249107bf62da919048602306d41890417ae1153614e6ea2705fff85fefec" => :el_capitan
+    sha256 "5d12243dc96220b6cc34ea32e440c91fd99c9e39f91f08afbbdd889005d06ecd" => :high_sierra
+    sha256 "d58108029dc01dbf26931044f74afcf75d81b7de867fc1904e281ea02acd2dfe" => :sierra
+    sha256 "8e979793bbc8c8101195a9107d1be8d10f6809d14982eb4e464019cf1914f577" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +22,7 @@ class LiquidDsp < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <liquid/liquid.h>
       int main() {
         if (!liquid_is_prime(3))

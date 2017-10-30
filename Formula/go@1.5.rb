@@ -3,7 +3,6 @@ class GoAT15 < Formula
   homepage "https://golang.org"
   url "https://storage.googleapis.com/golang/go1.5.4.src.tar.gz"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.5.4.src.tar.gz/a04d570515c46e4935c63605cbd3a04e/go1.5.4.src.tar.gz"
-  version "1.5.4"
   sha256 "002acabce7ddc140d0d55891f9d4fcfbdd806b9332fb8b110c91bc91afb0bc93"
 
   bottle do
@@ -76,7 +75,7 @@ class GoAT15 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     As of go 1.2, a valid GOPATH is required to use the `go get` command:
       https://golang.org/doc/code.html#GOPATH
 
@@ -86,12 +85,12 @@ class GoAT15 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
-    package main
-    import "fmt"
-    func main() {
-        fmt.Println("Hello World")
-    }
+    (testpath/"hello.go").write <<~EOS
+      package main
+      import "fmt"
+      func main() {
+          fmt.Println("Hello World")
+      }
     EOS
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
@@ -99,8 +98,8 @@ class GoAT15 < Formula
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     if build.with? "godoc"
-      assert File.exist?(libexec/"bin/godoc")
-      assert File.executable?(libexec/"bin/godoc")
+      assert_predicate libexec/"bin/godoc", :exist?
+      assert_predicate libexec/"bin/godoc", :executable?
     end
   end
 end

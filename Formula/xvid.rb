@@ -25,7 +25,7 @@ class Xvid < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <xvid.h>
       #define NULL 0
       int main() {

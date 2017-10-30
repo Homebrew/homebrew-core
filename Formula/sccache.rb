@@ -1,15 +1,14 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/0.2.1.tar.gz"
-  sha256 "b142afa412260a706af9df8fd831928b5d86faa10b208ab5daad30a9cfb318b2"
+  url "https://github.com/mozilla/sccache/archive/0.2.2.tar.gz"
+  sha256 "6a741ebf41bc8cee97ded3b823f464038af65c55de474b53efb1e24b5d234c36"
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
-    sha256 "3ebd09f4a69a469fb913e446f18830bf390065e54ac4d65500b623857ccca4d1" => :high_sierra
-    sha256 "c5a38b08cd4062753359bc3d08cfbbeaaba2b9e0a367cfa6bdeccf14ef4c0697" => :sierra
-    sha256 "0ecca586f9be067fd8740a0f758029183beabf44a8f1ba20668e91cd25e449e7" => :el_capitan
-    sha256 "20232467c2fb91032a313a819fde0e44115f3191ddde6b6b3889a8ef02e0af3e" => :yosemite
+    sha256 "294dda365425fc050344d7dce9dbe53ce7b780e754b0cb6b87ad8d1c04860501" => :high_sierra
+    sha256 "6ca47428771877fd3ce58df83ec5dc7b245a3d0c00f50059e2eb0259cfc3fb09" => :sierra
+    sha256 "e995ed15ee3c3b6c9a54c66162e8dcba9dc4a8d401724e0c3ecba6636a9a6c65" => :el_capitan
   end
 
   depends_on "rust" => :build
@@ -20,7 +19,7 @@ class Sccache < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() {
         puts("Hello, world!");

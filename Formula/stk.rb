@@ -44,7 +44,7 @@ class Stk < Formula
     pkgshare.install "src", "projects", "rawwaves"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The header files have been put in a standard search path, it is possible to use an include statement in programs as follows:
 
       #include \"stk/FileLoop.h\"

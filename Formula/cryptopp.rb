@@ -17,7 +17,7 @@ class Cryptopp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cryptopp/sha.h>
       #include <string>
       using namespace CryptoPP;

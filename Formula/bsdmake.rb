@@ -69,12 +69,12 @@ class Bsdmake < Formula
   end
 
   test do
-    (testpath/"Makefile").write <<-EOS.undent
+    (testpath/"Makefile").write <<~EOS
       foo:
       \ttouch $@
     EOS
 
     system "#{bin}/bsdmake"
-    assert File.exist? "#{testpath}/foo"
+    assert_predicate testpath/"foo", :exist?
   end
 end

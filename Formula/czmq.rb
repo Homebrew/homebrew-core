@@ -42,7 +42,7 @@ class Czmq < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <czmq.h>
 
       int main(void)

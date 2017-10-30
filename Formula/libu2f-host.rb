@@ -22,7 +22,7 @@ class Libu2fHost < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <u2f-host.h>
       int main()
       {

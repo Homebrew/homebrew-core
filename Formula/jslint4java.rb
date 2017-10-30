@@ -14,7 +14,7 @@ class Jslint4java < Formula
 
   test do
     path = testpath/"test.js"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       var i = 0;
       var j = 1  // no semicolon
     EOS

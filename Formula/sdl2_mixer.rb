@@ -1,17 +1,15 @@
 class Sdl2Mixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
-  url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.gz"
-  sha256 "5a24f62a610249d744cbd8d28ee399d8905db7222bf3bdbc8a8b4a76e597695f"
-  revision 1
+  url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.2.tar.gz"
+  sha256 "4e615e27efca4f439df9af6aa2c6de84150d17cbfd12174b54868c12f19c83bb"
   head "https://hg.libsdl.org/SDL_mixer", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "78b53daa3f0f3c987af31b8adb50ee78388c71c46bcd42a865179366522bffbe" => :high_sierra
-    sha256 "c64414c8a3c09931479dcfa8d66363e7dd9e37538c1368fb890be8c2434481a0" => :sierra
-    sha256 "435b75cff646b1e4c4f7f6861be2e1549bc85416b155e54bf5608db6a68cc034" => :el_capitan
-    sha256 "10eebd63b6c51341966513cc8eb5160e9f5805d984d582cee2e42dad4ca3b0e7" => :yosemite
+    sha256 "967685e44c7848b266e08be764f96f40e95efd5a3b58c6a009389a7e57ce3307" => :high_sierra
+    sha256 "73c21d12fa99c3ed060349e3e4956d836e26319fde6a0d5d901abb4b6b1cf888" => :sierra
+    sha256 "b23aaa52501b873ea34221f96d7382aa9f77f87fd233a719ac2fdb0bce9e13e7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

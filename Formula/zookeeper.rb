@@ -30,7 +30,7 @@ class Zookeeper < Formula
   depends_on :python => :optional
 
   def shim_script(target)
-    <<-EOS.undent
+    <<~EOS
       #!/usr/bin/env bash
       . "#{etc}/zookeeper/defaults"
       cd "#{libexec}/bin"
@@ -39,13 +39,13 @@ class Zookeeper < Formula
   end
 
   def default_zk_env
-    <<-EOS.undent
+    <<~EOS
       [ -z "$ZOOCFGDIR" ] && export ZOOCFGDIR="#{etc}/zookeeper"
     EOS
   end
 
   def default_log4j_properties
-    <<-EOS.undent
+    <<~EOS
       log4j.rootCategory=WARN, zklog
       log4j.appender.zklog = org.apache.log4j.RollingFileAppender
       log4j.appender.zklog.File = #{var}/log/zookeeper/zookeeper.log
@@ -126,7 +126,7 @@ class Zookeeper < Formula
 
   plist_options :manual => "zkServer start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

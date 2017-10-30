@@ -1,13 +1,13 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://github.com/leesavide/abcm2ps/archive/v8.13.15.tar.gz"
-  sha256 "8a258efbd1f4c2776ea03bfd154a61a49599eeeaaa8c4e0ac8f84e0c0bb4f136"
+  url "https://github.com/leesavide/abcm2ps/archive/v8.13.16.tar.gz"
+  sha256 "b8860ccd90fef0ec5cfccc49831aa4f4b1086bec4fe80f4ee17e1afd856914f5"
 
   bottle do
-    sha256 "3d8f321c18b99ec290961b8c7834b70b66f51e0270d2b470e91e7c1bc3a84a53" => :high_sierra
-    sha256 "97a4b2437c3b7b7b8f9ffb5007bb8f5231d845e054c3ba82559824919985e3ad" => :sierra
-    sha256 "3544a462d9f01a4b448e74873cf08de16d408b20779eb89dffb20b71a47fb93b" => :el_capitan
+    sha256 "e5d2004858c71cb5b5b4b149c4c8403badd083916c350cfbeade40e325c8e054" => :high_sierra
+    sha256 "dd03cbbc24dfa5421259f302fe5f99ba45777b51d097c2d89472e1583a40aa11" => :sierra
+    sha256 "593817fd008f0bd24708779957e72efcdf3340671761a424a7f1855bf2090ffc" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +20,7 @@ class Abcm2ps < Formula
   end
 
   test do
-    (testpath/"voices.abc").write <<-EOF.undent
+    (testpath/"voices.abc").write <<~EOS
       X:7
       T:Qui Tolis (Trio)
       C:Andre Raison
@@ -39,9 +39,9 @@ class Abcm2ps < Formula
       V:Trompette
       %%MIDI program 56
       "Trompette"z3|z3 |z3 |z3 |:Mc>BA|PGA/G/F|PE>EF|PEF/E/D|C>CPB,|A,G,F,-|
-    EOF
+    EOS
 
     system "#{bin}/abcm2ps", testpath/"voices"
-    assert File.exist?("Out.ps")
+    assert_predicate testpath/"Out.ps", :exist?
   end
 end

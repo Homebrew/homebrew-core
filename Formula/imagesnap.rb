@@ -7,6 +7,7 @@ class Imagesnap < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4bf7b4e9a0ffc623587f6729571c65b37e32d426cb1eedb7facc0286e94a22d6" => :high_sierra
     sha256 "79b7735956a130731615aacf83610110a8b01a9e63eccbb8888687e8dadb1133" => :el_capitan_or_later
     sha256 "a8326b38e6f61d48ccd738482b353a714ededbe5dd16a2fb31aae0a575ebf2cc" => :yosemite
     sha256 "b2b1d9d52e2c5284ece4d846a4cff19d417132265f53dd5e1a0c02a964076f90" => :mavericks
@@ -16,8 +17,16 @@ class Imagesnap < Formula
 
   depends_on :xcode => :build
 
+  # Upstream PR from 19 Dec 2015 "Replace QTKit"
+  if MacOS::Xcode.version >= "8.0"
+    patch do
+      url "https://github.com/rharder/imagesnap/pull/13.patch?full_index=1"
+      sha256 "3bef0164843bc229cacdfe04e819515d30b78ee402d76fd2197a8b5d9e5159e9"
+    end
+  end
+
   def install
-    xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", "macosx#{MacOS.version}"
+    xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", MacOS.sdk_path
     bin.install "build/Release/imagesnap"
   end
 

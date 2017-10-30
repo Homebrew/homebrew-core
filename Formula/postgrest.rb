@@ -47,7 +47,7 @@ class Postgrest < Formula
 
     begin
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
-      (testpath/"postgrest.config").write <<-EOS.undent
+      (testpath/"postgrest.config").write <<~EOS
         db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
         db-schema = "public"
         db-anon-role = "#{pg_user}"

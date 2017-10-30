@@ -3,15 +3,15 @@ class Dspdfviewer < Formula
   homepage "http://dspdfviewer.danny-edel.de"
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
-  revision 3
+  revision 5
 
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
     cellar :any
-    sha256 "3e0bcd4579aec31375b4b985c8059acad58bc97ca7eee282ca0b889bbc4d92fd" => :sierra
-    sha256 "972bdd66398993127bbfcd4b9239040c284bc78a46074d0b678b0675db8dc69d" => :el_capitan
-    sha256 "bcf524ef5d8e4f801321003b7480384a4397dc34143c2632b6a4171a1aba6512" => :yosemite
+    sha256 "18345b86cbf00c7239b1314153c77545e8a91917435f1171c55ee3f749a65c74" => :high_sierra
+    sha256 "7c196c52c4ff0e5fabf5765d9123eee3d1ced53566d5709aebf98c0071ed99d6" => :sierra
+    sha256 "9766cf4079d172bb80c91a561b0c762f0404c06391a3522177c3925b120e604e" => :el_capitan
   end
 
   depends_on "cmake" => :build

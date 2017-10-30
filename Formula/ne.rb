@@ -23,17 +23,17 @@ class Ne < Formula
     ENV["TERM"] = "xterm"
     document = testpath/"test.txt"
     macros = testpath/"macros"
-    document.write <<-EOS.undent
+    document.write <<~EOS
       This is a test document.
     EOS
-    macros.write <<-EOS.undent
+    macros.write <<~EOS
       GotoLine 2
       InsertString line 2
       InsertLine
       Exit
     EOS
     system "script", "-q", "/dev/null", bin/"ne", "--macro", macros, document
-    assert_equal <<-EOS.undent, document.read
+    assert_equal <<~EOS, document.read
       This is a test document.
       line 2
     EOS

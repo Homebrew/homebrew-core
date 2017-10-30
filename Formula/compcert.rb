@@ -14,9 +14,9 @@ class Compcert < Formula
 
   option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
 
-  depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
+  depends_on "opam" => :build
 
   def install
     ENV.permit_arch_flags
@@ -27,15 +27,21 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
+    ENV["OPAMYES"] = "1"
+    ENV["OPAMROOT"] = buildpath/"opamroot"
+    (buildpath/"opamroot").mkpath
+    system "opam", "init", "--no-setup"
+    system "opam", "config", "exec", "--", "opam", "install", "coq=8.6.1"
+
     args = ["-prefix", prefix]
     args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
-    system "./configure", *args
-    system "make", "all"
-    system "make", "install"
+    system "opam", "config", "exec", "--", "./configure", *args
+    system "opam", "config", "exec", "--", "make", "all"
+    system "opam", "config", "exec", "--", "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int printf(const char *fmt, ...);
       int main(int argc, char** argv) {
         printf("Hello, world!\\n");

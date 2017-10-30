@@ -1,15 +1,14 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v2.2.1.tar.gz"
-  sha256 "e7f9eaef258e003c9ada0803a9a5636757a5bc0a58927858834fb38a87d18ad2"
+  url "https://github.com/warmcat/libwebsockets/archive/v2.4.0.tar.gz"
+  sha256 "0dc355c1f9a660b98667cc616fa4c4fe08dacdaeff2d5cc9f74e49e9d4af2d95"
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
-    sha256 "92afdc6af30cead64eaae3d255cc84b487ca0a2722ada4d3fc9897bb6121aa17" => :high_sierra
-    sha256 "3a58aebfcd276a81557f21cf3cdcd1663868d9e3af2097fce16bee1b92eac9e4" => :sierra
-    sha256 "1353fdacc6c88c5597bf158d6aba15287b7520354e79d46bc11b2994bac8369a" => :el_capitan
-    sha256 "efba92b65603d249b4ebc7cbea8c705ae951e26fac7dcd9841af40bfbb3741f5" => :yosemite
+    sha256 "7fe2c4a9fa645f4a8b26a3a7eefd730960da298125eb17d1e72bacd746fb27cc" => :high_sierra
+    sha256 "68bc855036da875a6fcccff01fcca369e12f119378a6a1106005bab20d5201e9" => :sierra
+    sha256 "6b372add72dbeae966daf5c8e476a9af87e9afae049173c6220942983a23e841" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,7 +21,7 @@ class Libwebsockets < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <openssl/ssl.h>
       #include <libwebsockets.h>
 

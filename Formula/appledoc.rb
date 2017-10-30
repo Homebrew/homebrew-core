@@ -31,7 +31,7 @@ class Appledoc < Formula
   end
 
   test do
-    (testpath/"test.h").write <<-EOS.undent
+    (testpath/"test.h").write <<~EOS
       /**
        * This is a test class. It does stuff.
        *

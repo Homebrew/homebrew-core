@@ -1,7 +1,7 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
-  url "ftp://ftp.invisible-island.net/byacc/byacc-20170709.tgz"
+  url "https://invisible-mirror.net/archives/byacc/byacc-20170709.tgz"
   sha256 "27cf801985dc6082b8732522588a7b64377dd3df841d584ba6150bc86d78d9eb"
 
   bottle do

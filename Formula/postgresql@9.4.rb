@@ -74,22 +74,22 @@ class PostgresqlAT94 < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-    If builds of PostgreSQL 9 are failing and you have version 8.x installed,
-    you may need to remove the previous version first. See:
-      https://github.com/Homebrew/legacy-homebrew/issues/2510
+    s = <<~EOS
+      If builds of PostgreSQL 9 are failing and you have version 8.x installed,
+      you may need to remove the previous version first. See:
+        https://github.com/Homebrew/legacy-homebrew/issues/2510
 
-    To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
-      https://www.postgresql.org/docs/9.3/static/upgrading.html
+      To migrate existing data from a previous major version (pre-9.3) of PostgreSQL, see:
+        https://www.postgresql.org/docs/9.3/static/upgrading.html
     EOS
 
     if MacOS.prefer_64_bit?
-      s << <<-EOS.undent
-      \nWhen installing the postgres gem, including ARCHFLAGS is recommended:
-        ARCHFLAGS="-arch x86_64" gem install pg
+      s << <<~EOS
+        \nWhen installing the postgres gem, including ARCHFLAGS is recommended:
+          ARCHFLAGS="-arch x86_64" gem install pg
 
-      To install gems without sudo, see the Homebrew documentation:
-      https://github.com/Homebrew/brew/blob/master/docs/Gems%2C-Eggs-and-Perl-Modules.md
+        To install gems without sudo, see the Homebrew documentation:
+        https://github.com/Homebrew/brew/blob/master/docs/Gems%2C-Eggs-and-Perl-Modules.md
       EOS
     end
 
@@ -98,7 +98,7 @@ class PostgresqlAT94 < Formula
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.4 start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

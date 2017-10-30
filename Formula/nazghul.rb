@@ -29,7 +29,7 @@ class Nazghul < Formula
     # installing into libexec then rewriting the wrapper script so the
     # program name is 'haxima' rather than 'haxima.sh' and there isn't
     # a 'nazghul' executable in bin to confuse the user
-    (bin/"haxima").write <<-EOS.undent
+    (bin/"haxima").write <<~EOS
       #!/bin/sh
       "/usr/local/Cellar/nazghul/0.7.1/libexec/nazghul" -I "/usr/local/Cellar/nazghul/0.7.1/share/nazghul/haxima" -G "$HOME/.haxima" "$@"
     EOS

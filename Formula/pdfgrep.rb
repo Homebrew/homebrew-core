@@ -3,13 +3,13 @@ class Pdfgrep < Formula
   homepage "https://pdfgrep.org/"
   url "https://pdfgrep.org/download/pdfgrep-2.0.1.tar.gz"
   sha256 "0370d744b3072d47383dbed2cb9c8b0b64b83c084da5a8961f8d4bc7669e941e"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "c4330b1a7690b60b55d8c902c14358dc0f9bcd6d2d87a88116774d641e068087" => :high_sierra
-    sha256 "437f7358c233ef85a5da4cb63e5fd2c52491e205d5f99e923d3990cc5b392472" => :sierra
-    sha256 "1d33d1ca60f3c3e6f5d1ca4dd2da60c74b5bb6da23893e781ac0e0ff410b4a76" => :el_capitan
-    sha256 "75571a3febcfdd90c09ca15f019df8e7dd37fec5476280b29ea095fac095e395" => :yosemite
+    sha256 "0873df814e1b896293b34fd31ef0d2428baf4c0d40f32c75dc6bdc1a4dd26bf0" => :high_sierra
+    sha256 "aa16e8cdc5729e82525f972bdc26bb563d347d5afa4fa18ab2409a8acba625f2" => :sierra
+    sha256 "d72885d69d7cb69270d78ccf163e2040b2d695ecf1b8f8b82824d5207b88b8a2" => :el_capitan
   end
 
   head do

@@ -3,14 +3,13 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.7.0",
-      :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
-  revision 2
+      :tag => "2.10.0",
+      :revision => "4aa3db30ca06b6ada9d9a29123bf391b036c2ffc"
 
   bottle do
     cellar :any
-    sha256 "60c2a67a6cb9833777c45d2d28f1b792f33db468ad40849f33b4ea3a0995575a" => :high_sierra
-    sha256 "05ff0b2bf5892901e665c9c4458f9798938b27414314c51ea1ba05e35c91c090" => :sierra
+    sha256 "3daf75fe755e93f8ce2d3a53abff5eae5f441be291122ec511f10b44be00c648" => :high_sierra
+    sha256 "e6ad3d7d229f6cee25d61ae095525722261418ce19a439760af50fdfe3dfc297" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -23,18 +22,16 @@ class Osquery < Formula
   depends_on "asio"
   depends_on "augeas"
   depends_on "boost"
-  depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lldpd"
-  depends_on "lz4"
+  depends_on "librdkafka"
   depends_on "openssl"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
-  depends_on "snappy"
   depends_on "yara"
   depends_on "xz"
   depends_on "zstd"
@@ -55,8 +52,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
-    sha256 "d88e152ab5d9ad838166cb32a6152549ec16a51fb2fcc0802c704ea79c12edcb"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.2.7.tar.gz"
+    sha256 "1f65e63dbbceb1e8ffb19851a8e0ee153e05bf63bfa12b0e259d50021ac3ab6e"
   end
 
   resource "cpp-netlib" do
@@ -77,14 +74,6 @@ class Osquery < Formula
   resource "thrift-0.10-patch" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
     sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
-  end
-
-  # remove for > 2.7.0
-  # upstream: 'Boost version 1.65 macOS fix'
-  # https://github.com/facebook/osquery/pull/3613
-  patch do
-    url "https://github.com/facebook/osquery/commit/c50a9b1e82f.patch?full_index=1"
-    sha256 "c0ce11887ac277774c622fd91824cfc583416f57e1e9130da5f0c0df68a571cd"
   end
 
   def install
@@ -185,6 +174,16 @@ class Osquery < Formula
       end
     end
 
+    cxx_flags_release = %W[
+      -DNDEBUG
+      -I#{MacOS.sdk_path}/usr/include/libxml2
+      -I#{vendor}/aws-sdk-cpp/include
+      -I#{vendor}/cpp-netlib/include
+      -I#{vendor}/linenoise/include
+      -I#{vendor}/thrift/include
+      -Wl,-L#{vendor}/linenoise/lib
+    ]
+
     args = std_cmake_args + %W[
       -Daws-cpp-sdk-core_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-core.a
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
@@ -194,7 +193,7 @@ class Osquery < Formula
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
       -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
-      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join(" ")}
     ]
 
     # Link dynamically against brew-installed libraries.

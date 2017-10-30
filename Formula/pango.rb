@@ -1,14 +1,13 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.12.tar.xz"
-  sha256 "75f1a9a8e4e2b28cbc078b50c1fa927ee4ded994d1ade97c5603e2d1f3161cfc"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.13.tar.xz"
+  sha256 "f84e98db1078772ff4935b40a1629ff82ef0dfdd08d2cbcc0130c8c437857196"
 
   bottle do
-    sha256 "ffe4d3da855a72889f8b8ff7540669f714e5fc7aedceffa1f2df94d5a2e0cced" => :high_sierra
-    sha256 "2ab05e9538928347766acb394093fccc664798cf65565e48112ce99706d4c7d2" => :sierra
-    sha256 "c4547f056db49bf7a9d41b9b0061ba0a1f943cbdcecc94e927f9324b326f10ef" => :el_capitan
-    sha256 "a51adb60a74757d0a52ad60166413eb62e21d001176e2308baf5963d46330e84" => :yosemite
+    sha256 "62cb3ef7e0109d4c24c70fd1e9fe271d0c5a3deaf6c672776b4d4d59cb975108" => :high_sierra
+    sha256 "871314096662fa2f3b23836f9d670c06be0626b993c197e3e29803b5fbf00313" => :sierra
+    sha256 "2e986b3b39eb080b872cfb06c19be4151b71c8a499797a51ddc66eed91261a59" => :el_capitan
   end
 
   head do
@@ -44,7 +43,7 @@ class Pango < Formula
 
   test do
     system "#{bin}/pango-view", "--version"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <pango/pangocairo.h>
 
       int main(int argc, char *argv[]) {

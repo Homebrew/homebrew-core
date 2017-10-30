@@ -37,7 +37,7 @@ class JsonFortran < Formula
 
   test do
     ENV.fortran
-    (testpath/"json_test.f90").write <<-EOS.undent
+    (testpath/"json_test.f90").write <<~EOS
       program example
       use json_module, RK => json_RK
       use iso_fortran_env, only: stdout => output_unit

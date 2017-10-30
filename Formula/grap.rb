@@ -26,7 +26,7 @@ class Grap < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
+    (testpath/"test.d").write <<~EOS
       .G1
       54.2
       49.4

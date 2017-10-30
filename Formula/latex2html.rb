@@ -23,7 +23,7 @@ class Latex2html < Formula
   end
 
   test do
-    (testpath/"test.tex").write <<-EOS.undent
+    (testpath/"test.tex").write <<~EOS
       \\documentclass{article}
       \\usepackage[utf8]{inputenc}
       \\title{Experimental Setup}

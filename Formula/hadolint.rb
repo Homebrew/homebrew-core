@@ -3,7 +3,7 @@ require "language/haskell"
 class Hadolint < Formula
   include Language::Haskell::Cabal
 
-  desc "Smarter Dockerfile linter to validate best practices."
+  desc "Smarter Dockerfile linter to validate best practices"
   homepage "http://hadolint.lukasmartinelli.ch/"
   url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.2.tar.gz"
   sha256 "600731b0ebf8b86d561ea7ff37424d3249ccd36b91c440551200829c2f80f646"
@@ -28,7 +28,7 @@ class Hadolint < Formula
 
   test do
     df = testpath/"Dockerfile"
-    df.write <<-EOS.undent
+    df.write <<~EOS
       FROM debian
     EOS
     assert_match "DL3006", shell_output("#{bin}/hadolint #{df}", 1)

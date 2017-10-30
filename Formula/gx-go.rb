@@ -1,7 +1,7 @@
 require "language/go"
 
 class GxGo < Formula
-  desc "Tool to use with the gx package manager for packages written in go."
+  desc "Tool to use with the gx package manager for packages written in go"
   homepage "https://github.com/whyrusleeping/gx-go"
   url "https://github.com/whyrusleeping/gx-go/archive/v1.5.0.tar.gz"
   sha256 "2c0f5bb4ec147cb8efb6e6cd90ca42d1704baf4e44a735cbcf824316ae81f5f5"

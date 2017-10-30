@@ -72,32 +72,32 @@ class Hbase < Formula
     # https://issues.apache.org/jira/browse/HBASE-15426
     inreplace "#{libexec}/conf/hbase-site.xml",
       /<configuration>/,
-      <<-EOS.undent
-      <configuration>
-        <property>
-          <name>hbase.rootdir</name>
-          <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
-        </property>
-        <property>
-          <name>hbase.zookeeper.property.clientPort</name>
-          <value>2181</value>
-        </property>
-        <property>
-          <name>hbase.zookeeper.property.dataDir</name>
-          <value>#{var}/zookeeper</value>
-        </property>
-        <property>
-          <name>hbase.zookeeper.dns.interface</name>
-          <value>lo0</value>
-        </property>
-        <property>
-          <name>hbase.regionserver.dns.interface</name>
-          <value>lo0</value>
-        </property>
-        <property>
-          <name>hbase.master.dns.interface</name>
-          <value>lo0</value>
-        </property>
+      <<~EOS
+        <configuration>
+          <property>
+            <name>hbase.rootdir</name>
+            <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
+          </property>
+          <property>
+            <name>hbase.zookeeper.property.clientPort</name>
+            <value>2181</value>
+          </property>
+          <property>
+            <name>hbase.zookeeper.property.dataDir</name>
+            <value>#{var}/zookeeper</value>
+          </property>
+          <property>
+            <name>hbase.zookeeper.dns.interface</name>
+            <value>lo0</value>
+          </property>
+          <property>
+            <name>hbase.regionserver.dns.interface</name>
+            <value>lo0</value>
+          </property>
+          <property>
+            <name>hbase.master.dns.interface</name>
+            <value>lo0</value>
+          </property>
       EOS
   end
 
@@ -108,7 +108,7 @@ class Hbase < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/hbase/bin/start-hbase.sh"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -34,7 +34,7 @@ class Libxmp < Formula
 
   test do
     test_mod = "#{pkgshare}/give-me-an-om.mod"
-    (testpath/"libxmp_test.c").write <<-EOS.undent
+    (testpath/"libxmp_test.c").write <<~EOS
       #include <stdio.h>
       #include "xmp.h"
 

@@ -98,7 +98,7 @@ class Mapserver < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The Mapserver CGI executable is #{opt_bin}/mapserv
 
     If you built the PHP option:

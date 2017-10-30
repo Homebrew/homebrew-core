@@ -1,15 +1,16 @@
 class Metricbeat < Formula
-  desc "Collect metrics from your systems and services."
+  desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.6.2.tar.gz"
-  sha256 "72e247d6ec3586883cd58bc6465d18b7eb0857763ff422259205abf090557e45"
+  url "https://github.com/elastic/beats/archive/v5.6.3.tar.gz"
+  sha256 "52a4c9094287f725a089e161dc71d9cdf0caf73595e8835a5d0636d3ad333bbe"
 
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 "b943cac4bf5057a5a80e58a8bf3006d650f10864170d493faa57cf8c10360906" => :high_sierra
-    sha256 "a8ee72df2282fcc124a3c3797b90bad75c4e33a770e3cf338f6931c2c8fee591" => :sierra
-    sha256 "924986fc31044f67754ac5a249f791249f962a53df2e7b4dbfaebf080b69cf96" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "8b0e10adad19b779a0eaca9b54f27156e306850d1ebb00f5ee7596b22743365f" => :high_sierra
+    sha256 "2783b43ecf5955adb13c988a01881db073d8b2c9ff3ca0dcc5aa0a72072a88a8" => :sierra
+    sha256 "f20449c667532200439d04552e47fe389863abdc03308cc398836539fb0a1d99" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -31,7 +32,7 @@ class Metricbeat < Formula
       (etc/"metricbeat").install "metricbeat.template-es6x.json"
     end
 
-    (bin/"metricbeat").write <<-EOS.undent
+    (bin/"metricbeat").write <<~EOS
       #!/bin/sh
       exec "#{libexec}/metricbeat" --path.config "#{etc}/metricbeat" --path.home="#{prefix}" --path.logs="#{var}/log/metricbeat" --path.data="#{opt_prefix}" "$@"
     EOS
@@ -39,7 +40,7 @@ class Metricbeat < Formula
 
   plist_options :manual => "metricbeat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -57,7 +58,7 @@ class Metricbeat < Formula
   end
 
   test do
-    (testpath/"metricbeat.yml").write <<-EOS.undent
+    (testpath/"metricbeat.yml").write <<~EOS
       metricbeat.modules:
       - module: system
         metricsets: ["load"]
@@ -78,7 +79,7 @@ class Metricbeat < Formula
 
     begin
       sleep 2
-      assert File.exist? testpath/"data/metricbeat"
+      assert_predicate testpath/"data/metricbeat", :exist?
     ensure
       Process.kill("TERM", metricbeat_pid)
     end

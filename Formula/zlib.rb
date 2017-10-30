@@ -34,6 +34,6 @@ class Zlib < Formula
     touch "foo.txt"
     output = "./zpipe < foo.txt > foo.txt.z"
     system output
-    assert File.exist?("foo.txt.z")
+    assert_predicate testpath/"foo.txt.z", :exist?
   end
 end

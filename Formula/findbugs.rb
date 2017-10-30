@@ -21,7 +21,7 @@ class Findbugs < Formula
     bin.write_exec_script libexec/"bin/findbugs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Some tools might refer findbugs by env variable.
     After installation, set $FINDBUGS_HOME in your profile:
       export FINDBUGS_HOME=#{libexec}

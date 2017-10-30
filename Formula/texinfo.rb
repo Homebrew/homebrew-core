@@ -11,7 +11,7 @@ class Texinfo < Formula
     sha256 "e3099c5bc15295e7cadb2ce8b5f89d8983a8599b8d8602277aae23b9ff3482b1" => :el_capitan
   end
 
-  keg_only :provided_by_osx, <<-EOS.undent
+  keg_only :provided_by_osx, <<~EOS
     software that uses TeX, such as lilypond and octave, require a newer
     version of these files
   EOS
@@ -25,7 +25,7 @@ class Texinfo < Formula
   end
 
   test do
-    (testpath/"test.texinfo").write <<-EOS.undent
+    (testpath/"test.texinfo").write <<~EOS
       @ifnottex
       @node Top
       @top Hello World!

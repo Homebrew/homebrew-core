@@ -19,6 +19,6 @@ class ClearlooksPhenix < Formula
   end
 
   test do
-    assert File.exist?("#{share}/themes/Clearlooks-Phenix/index.theme")
+    assert_predicate testpath/"#{share}/themes/Clearlooks-Phenix/index.theme", :exist?
   end
 end

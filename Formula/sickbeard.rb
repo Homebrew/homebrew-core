@@ -46,7 +46,7 @@ class Sickbeard < Formula
 
   plist_options :manual => "sickbeard"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -68,7 +68,7 @@ class Sickbeard < Formula
     EOS
   end
 
-  def startup_script; <<-EOS.undent
+  def startup_script; <<~EOS
     #!/bin/bash
     export PYTHONPATH="#{libexec}/lib/python2.7/site-packages:$PYTHONPATH"
     python "#{libexec}/SickBeard.py"\

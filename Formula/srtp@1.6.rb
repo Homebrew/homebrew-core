@@ -24,7 +24,7 @@ class SrtpAT16 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <srtp/srtp.h>
       #include <stdlib.h>
 

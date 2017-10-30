@@ -22,23 +22,23 @@ class Ginac < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
-    #include <iostream>
-    #include <ginac/ginac.h>
-    using namespace std;
-    using namespace GiNaC;
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <ginac/ginac.h>
+      using namespace std;
+      using namespace GiNaC;
 
-    int main() {
-      symbol x("x"), y("y");
-      ex poly;
+      int main() {
+        symbol x("x"), y("y");
+        ex poly;
 
-      for (int i=0; i<3; ++i) {
-        poly += factorial(i+16)*pow(x,i)*pow(y,2-i);
+        for (int i=0; i<3; ++i) {
+          poly += factorial(i+16)*pow(x,i)*pow(y,2-i);
+        }
+
+        cout << poly << endl;
+        return 0;
       }
-
-      cout << poly << endl;
-      return 0;
-    }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}",
                                 "-L#{Formula["cln"].lib}",

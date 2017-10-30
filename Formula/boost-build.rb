@@ -22,15 +22,16 @@ class BoostBuild < Formula
   end
 
   test do
-    (testpath/"hello.cpp").write <<-EOF.undent
+    (testpath/"hello.cpp").write <<~EOS
       #include <iostream>
       int main (void) { std::cout << "Hello world"; }
-    EOF
+    EOS
     (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
 
     system bin/"b2", "release"
     out = Dir["bin/darwin-*/release/hello"]
-    assert (out.length == 1) && File.exist?(out[0])
+    assert out.length == 1
+    assert_predicate testpath/out[0], :exist?
     assert_equal "Hello world", shell_output(out[0])
   end
 end

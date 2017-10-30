@@ -29,7 +29,7 @@ class Libtins < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <tins/tins.h>
       int main() {
         Tins::Sniffer sniffer("en0");

@@ -14,6 +14,13 @@ class Dfmt < Formula
     sha256 "66fe1b25802b529a08f7a46e0b043fdf06e64c9fe1a48dbc04293954187b65a1" => :yosemite
   end
 
+  devel do
+    url "https://github.com/dlang-community/dfmt.git",
+      :tag => "v0.6.0-alpha.1",
+      :revision => "02a735cb0c10d711c5f08fc26572f98bc5fdf0ff"
+    version "0.6.0-alpha.1"
+  end
+
   depends_on "dmd" => :build
 
   def install
@@ -22,17 +29,17 @@ class Dfmt < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
-    import std.stdio; void main() { writeln("Hello, world without explicit compilations!"); }
+    (testpath/"test.d").write <<~EOS
+      import std.stdio; void main() { writeln("Hello, world without explicit compilations!"); }
     EOS
 
-    expected = <<-EOS.undent
-    import std.stdio;
+    expected = <<~EOS
+      import std.stdio;
 
-    void main()
-    {
-        writeln("Hello, world without explicit compilations!");
-    }
+      void main()
+      {
+          writeln("Hello, world without explicit compilations!");
+      }
     EOS
 
     system "#{bin}/dfmt", "-i", "test.d"

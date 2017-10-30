@@ -3,20 +3,29 @@ class Dbxml < Formula
   homepage "https://www.oracle.com/us/products/database/berkeley-db/xml/overview/index.html"
   url "http://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "df72dad91367d792eeb58981c418c1d5046aafb054e6ec82d4107add49dc08b0" => :high_sierra
-    sha256 "669e6aadc43f46b060eb2acadd214dae28b5b6727d46e18c4e302d81665f2170" => :sierra
-    sha256 "402542ead71ef0b095bca06052270709a1302dca5ae4d2202c23e6457e83fd77" => :el_capitan
-    sha256 "a055bb860d3059aebe23029e14a4fe58fb6ad1a586864f1c74dc51970cfdc432" => :yosemite
+    sha256 "e1564424c73549fb4f4bc894343ec49d28ed0530f719472f3adf7495b73bd884" => :high_sierra
+    sha256 "eafcf704fb5fe6bfb10b6fbc9f2a117da2eaa4d7577e7ba715d64872b5dd26c5" => :sierra
+    sha256 "cfe1a3628daa3194ce60d109501c6c8694d7e0ff9fab11a1b64da423b00d518f" => :el_capitan
   end
 
   depends_on "xerces-c"
   depends_on "xqilla"
   depends_on "berkeley-db"
 
+  needs :cxx11
+
+  # No public bug tracker or mailing list to submit this to, unfortunately.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/dbxml/c%2B%2B11.patch"
+    sha256 "98d518934072d86c15780f10ceee493ca34bba5bc788fd9db1981a78234b0dc4"
+  end
+
   def install
+    ENV.cxx11
+
     inreplace "dbxml/configure" do |s|
       s.gsub! "lib/libdb-*.la | sed -e 's\/.*db-\\\(.*\\\).la", "lib/libdb-*.a | sed -e 's/.*db-\\(.*\\).a"
       s.gsub! "lib/libdb-*.la", "lib/libdb-*.a"
@@ -35,7 +44,7 @@ class Dbxml < Formula
   end
 
   test do
-    (testpath/"simple.xml").write <<-EOS.undent
+    (testpath/"simple.xml").write <<~EOS
       <breakfast_menu>
         <food>
           <name>Belgian Waffles</name>
@@ -48,7 +57,7 @@ class Dbxml < Formula
       </breakfast_menu>
     EOS
 
-    (testpath/"dbxml.script").write <<-EOS.undent
+    (testpath/"dbxml.script").write <<~EOS
       createContainer ""
       putDocument simple "simple.xml" f
       cquery 'sum(//food/calories)'

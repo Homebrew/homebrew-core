@@ -51,7 +51,7 @@ class Gron < Formula
   end
 
   test do
-    assert_equal <<-EOS.undent, pipe_output("#{bin}/gron", "{\"foo\":1, \"bar\":2}")
+    assert_equal <<~EOS, pipe_output("#{bin}/gron", "{\"foo\":1, \"bar\":2}")
       json = {};
       json.bar = 2;
       json.foo = 1;

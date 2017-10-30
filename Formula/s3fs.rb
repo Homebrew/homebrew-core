@@ -8,6 +8,7 @@ class S3fs < Formula
 
   bottle do
     cellar :any
+    sha256 "fbfbe11b17a79bba198b062d1319bd9947b3cef76d4ab0bc2d5a5e92ec66b75e" => :high_sierra
     sha256 "1a696835e0c5305cc0f42d7571b2f027227b12a85ab3f866146b219bc6e68fb5" => :sierra
     sha256 "74f80941f3e02fdb0ae4aa548dc34815a101ae4fde820a12389d33b15edaf680" => :el_capitan
     sha256 "d0eff9a3aa81a038eab132fc3d8481580d7d14847d924658608bbd70e4bf6ce4" => :yosemite
@@ -36,7 +37,7 @@ class S3fs < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Be aware that s3fs has some caveats concerning S3 "directories"
     that have been created by other tools. See the following issue for
     details:

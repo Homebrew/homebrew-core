@@ -1,8 +1,8 @@
 class Kotlin < Formula
   desc "Statically typed programming language for the JVM"
   homepage "https://kotlinlang.org/"
-  url "https://github.com/JetBrains/kotlin/releases/download/v1.1.50/kotlin-compiler-1.1.50.zip"
-  sha256 "b5106298e10a934f11685b1c80e47a5b4960c039100d5640bb4a285e32a8c707"
+  url "https://github.com/JetBrains/kotlin/releases/download/v1.1.51/kotlin-compiler-1.1.51.zip"
+  sha256 "0b346b138390eb0235a6700f52cc1e2b491cf1f6db179a6d06a279ef1af57ccd"
 
   bottle :unneeded
 
@@ -13,7 +13,7 @@ class Kotlin < Formula
   end
 
   test do
-    (testpath/"test.kt").write <<-EOS.undent
+    (testpath/"test.kt").write <<~EOS
       fun main(args: Array<String>) {
         println("Hello World!")
       }

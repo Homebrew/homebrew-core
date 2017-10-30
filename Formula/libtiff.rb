@@ -4,14 +4,13 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
   sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "4fefeed096469cbcaa2a5708900155d5d19b51f877c18d5545e7fda83048af74" => :high_sierra
-    sha256 "31d87d01ab80f662899a09efa2eb517689fc758a31f1170c1ea2448d098291c2" => :sierra
-    sha256 "6b2c64b6e251707fb8fc3dee0b947a8108432e1ef73fa7e8c3983596a2fd0649" => :el_capitan
-    sha256 "855c2d44ad08e24f9748857b6f351f674b682bb16664c2da3f24c29223eb4657" => :yosemite
+    sha256 "62c0b911f0e0e0e999d6362088888c754422de923f450b8d718b9bf9ec353f57" => :high_sierra
+    sha256 "b47df6ebeef991de9a33768c646677e26c447c2838b59aaae4e4e701d808e87f" => :sierra
+    sha256 "1a6b89cb8cc27e38d178799ec56498447fd74a9b758428149b103f41b6005b0b" => :el_capitan
   end
 
   option :cxx11
@@ -23,9 +22,9 @@ class Libtiff < Formula
   # All of these have been reported upstream & should
   # be fixed in the next release, but please check.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-5.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-5.debian.tar.xz"
-    sha256 "0a72efaba5da935537dd7dc28593503c3a0161d954fcd2da6eb511c0238d1387"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
+    sha256 "9307f5343882fa0d8229d20f35cd03cf113dc88881bf697b0ee2b3969ffdbe72"
     apply "patches/01-CVE-2015-7554.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
@@ -36,7 +35,11 @@ class Libtiff < Formula
           "patches/08-LZW_compression_regression.patch",
           "patches/09-CVE-2017-11335.patch",
           "patches/10-CVE-2017-13726.patch",
-          "patches/11-CVE-2017-13727.patch"
+          "patches/11-CVE-2017-13727.patch",
+          "patches/12-prevent_OOM_in_gtTileContig.patch",
+          "patches/13-prevent_OOP_in_TIFFFetchStripThing.patch",
+          "patches/14-CVE-2017-12944.patch",
+          "patches/15-avoid_floating_point_division_by_zero_in_initCIELabConversion.patch"
   end
 
   def install
@@ -60,7 +63,7 @@ class Libtiff < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <tiffio.h>
 
       int main(int argc, char* argv[])

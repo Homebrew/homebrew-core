@@ -1,16 +1,15 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.5.0.tar.gz"
-  sha256 "b9d353964b6fa159cafdc304d163a296647e811b2c4ad4570caeb7000138e4cb"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.6.0.tar.gz"
+  sha256 "a2dff9bb9f886713b8ec6d7bfa8f6120736c5cf7adf0e0c50e62e7ff582562b0"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "48e764cf78c7a2ee45f6eefbb087b7f7d25336985cd86e0e980edb683ab78f40" => :high_sierra
-    sha256 "53632dff52482bfc78bbfdbbbf708058d46c728685af44a2e27b04d4bf0a3a53" => :sierra
-    sha256 "2d42f45471c50ce0f8f6eaad57d643041eb6644744a876c2333a3d4ac8f908ca" => :el_capitan
-    sha256 "805e398fa4517b4996c5f86774fa9282114c7371561dd7d0d7ff24badaafb331" => :yosemite
+    sha256 "125d29c207ce93d55ff3a03a9b512143485c792f4e13494ff900eb9eb0ce06c5" => :high_sierra
+    sha256 "d84494c63743a824fa2e5395bf622b96fea3bb549133fc0c189f5e499ad1580a" => :sierra
+    sha256 "c147354eb9d5a8ed9bf287db9d9979cc985611978f00bb4950f9cde976a06116" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -25,7 +24,7 @@ class NatsStreamingServer < Formula
 
   plist_options :manual => "nats-streaming-server"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -51,7 +50,7 @@ class NatsStreamingServer < Formula
 
     begin
       assert_match "INFO", shell_output("curl localhost:8085")
-      assert File.exist?(testpath/"log")
+      assert_predicate testpath/"log", :exist?
       assert_match version.to_s, File.read(testpath/"log")
     ensure
       Process.kill "SIGINT", pid

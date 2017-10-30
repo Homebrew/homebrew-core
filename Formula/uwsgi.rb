@@ -13,7 +13,6 @@ class Uwsgi < Formula
   end
 
   option "with-java", "Compile with Java support"
-  option "with-php", "Compile with PHP support (PHP must be built for embedding)"
   option "with-ruby", "Compile with Ruby support"
 
   deprecated_option "with-lua51" => "with-lua@5.1"
@@ -62,7 +61,7 @@ class Uwsgi < Formula
     json = build.with?("jansson") ? "jansson" : "yajl"
     yaml = build.with?("libyaml") ? "libyaml" : "embedded"
 
-    (buildpath/"buildconf/brew.ini").write <<-EOS.undent
+    (buildpath/"buildconf/brew.ini").write <<~EOS
       [uwsgi]
       ssl = true
       json = #{json}
@@ -108,7 +107,6 @@ class Uwsgi < Formula
     plugins << "mono" if build.with? "mono"
     plugins << "nagios" if build.with? "nagios"
     plugins << "pypy" if build.with? "pypy"
-    plugins << "php" if build.with? "php"
     plugins << "rack" if build.with? "ruby"
     plugins << "rbthreads" if build.with? "ruby"
     plugins << "ring" if build.with? "java"
@@ -138,7 +136,7 @@ class Uwsgi < Formula
 
   plist_options :manual => "uwsgi"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -172,7 +170,7 @@ class Uwsgi < Formula
   end
 
   test do
-    (testpath/"helloworld.py").write <<-EOS.undent
+    (testpath/"helloworld.py").write <<~EOS
       def application(env, start_response):
         start_response('200 OK', [('Content-Type','text/html')])
         return [b"Hello World"]

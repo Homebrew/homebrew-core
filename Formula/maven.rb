@@ -3,9 +3,9 @@ class Maven < Formula
   homepage "https://maven.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz"
-    sha256 "beb91419245395bd69a4a6edad5ca3ec1a8b64e41457672dc687c173a495f034"
+    url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz"
+    sha256 "707b1f6e390a65bde4af4cdaf2a24d45fc19a6ded00fff02e91626e3e42ceaff"
   end
 
   bottle :unneeded
@@ -34,7 +34,7 @@ class Maven < Formula
   end
 
   test do
-    (testpath/"pom.xml").write <<-EOS.undent
+    (testpath/"pom.xml").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -42,9 +42,14 @@ class Maven < Formula
         <groupId>org.homebrew</groupId>
         <artifactId>maven-test</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <properties>
+          <maven.compiler.source>1.8</maven.compiler.source>
+          <maven.compiler.target>1.8</maven.compiler.target>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        </properties>
       </project>
     EOS
-    (testpath/"src/main/java/org/homebrew/MavenTest.java").write <<-EOS.undent
+    (testpath/"src/main/java/org/homebrew/MavenTest.java").write <<~EOS
       package org.homebrew;
       public class MavenTest {
         public static void main(String[] args) {

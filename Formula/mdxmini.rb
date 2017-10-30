@@ -43,18 +43,18 @@ class Mdxmini < Formula
 
   test do
     resource("test_song").stage testpath
-    (testpath/"mdxtest.c").write <<-EOS.undent
-    #include <stdio.h>
-    #include "libmdxmini/mdxmini.h"
+    (testpath/"mdxtest.c").write <<~EOS
+      #include <stdio.h>
+      #include "libmdxmini/mdxmini.h"
 
-    int main(int argc, char** argv)
-    {
-        t_mdxmini mdx;
-        char title[100];
-        mdx_open(&mdx, argv[1], argv[2]);
-        mdx_get_title(&mdx, title);
-        printf("%s\\n", title);
-    }
+      int main(int argc, char** argv)
+      {
+          t_mdxmini mdx;
+          char title[100];
+          mdx_open(&mdx, argv[1], argv[2]);
+          mdx_get_title(&mdx, title);
+          printf("%s\\n", title);
+      }
     EOS
     system ENV.cc, "mdxtest.c", "-L#{lib}", "-lmdxmini", "-o", "mdxtest"
 

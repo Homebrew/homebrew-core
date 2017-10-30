@@ -28,7 +28,7 @@ class OpenSp < Formula
   end
 
   test do
-    (testpath/"eg.sgml").write <<-EOS.undent
+    (testpath/"eg.sgml").write <<~EOS
       <!DOCTYPE TESTDOC [
 
       <!ELEMENT TESTDOC - - (TESTELEMENT)+>

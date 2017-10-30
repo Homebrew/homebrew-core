@@ -6,11 +6,10 @@ class Mlkit < Formula
   head "https://github.com/melsman/mlkit.git"
 
   bottle do
-    sha256 "50eedc4681b778de81685e070f102fe5d4e12ed2e2bb49f457bfc4060f178a1a" => :high_sierra
-    sha256 "a7573e0c4c56878666d398fc7cda30d7e443671be000213a9b3ebb4b8f741041" => :sierra
-    sha256 "8f4c7800875845e48c5b180df646cd6edbc69962b255cf88cd0697b33038139a" => :el_capitan
-    sha256 "34576a903b722dd652c3365bab693e922a5ff1c6496180739e7f69d9d65904e4" => :yosemite
-    sha256 "d135d363084c710b4a417191c4c0bb785ddec43be117f1c382ea7a0eccdfb49a" => :mavericks
+    rebuild 1
+    sha256 "506bb73d7421593ea3bd76f8958ce61d161c9a7e724c525b1b32bedae61fa8dd" => :high_sierra
+    sha256 "2f6e573272e385556c38437c83017ce3ffb9279b091bdd3f6d815d6ef401940b" => :sierra
+    sha256 "3b1eeb563a56a67b8335bcfe94359482b068d12b9a34b033158ee642a2536056" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -39,7 +38,7 @@ class Mlkit < Formula
   end
 
   test do
-    (testpath/"test.sml").write <<-EOS.undent
+    (testpath/"test.sml").write <<~EOS
       fun f(x) = x + 2
       val a = [1,2,3,10]
       val b = List.foldl (op +) 0 (List.map f a)

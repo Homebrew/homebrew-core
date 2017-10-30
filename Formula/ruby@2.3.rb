@@ -3,11 +3,12 @@ class RubyAT23 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.5.tar.xz"
   sha256 "7d3a7dabb190c2da06c963063342ca9a214bcd26f2158e904f0ec059b065ffda"
+  revision 1
 
   bottle do
-    sha256 "ecf89c3600423c8cff3c84c9d0aafea10b093994f831f0c7169310823b7dcdf4" => :high_sierra
-    sha256 "98867e66b8b1068389483c8403821aa496aea11efe04e223e51e8d7a6c2c29f8" => :sierra
-    sha256 "cb707841db0b23de225442f709716329517285c62d483a5e849245ddbcd5da20" => :el_capitan
+    sha256 "605435f3ae30cb2b172f35602cbfb3aee7db9e5f3cee30b424845d692eab8e82" => :high_sierra
+    sha256 "8aabf6bc30feda15303987ad5956d366a3addc9a2484ae07522d408c01c93810" => :sierra
+    sha256 "424e78d39c9bcd09500a3b63e48312c67b4ff4b7699a735e8bd853b5644f6fd6" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -24,6 +25,26 @@ class RubyAT23 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
+
+  # This should be kept in sync with the main Ruby formula
+  # but a revision bump should not be forced every update
+  # unless there are security fixes in that Rubygems release.
+  resource "rubygems" do
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+  end
+
+  def program_suffix
+    build.with?("suffix") ? "23" : ""
+  end
+
+  def ruby
+    "#{bin}/ruby#{program_suffix}"
+  end
+
+  def api_version
+    "2.3.0"
+  end
 
   def install
     # otherwise `gem` command breaks
@@ -74,35 +95,47 @@ class RubyAT23 < Formula
 
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
+
+    # This is easier than trying to keep both current & versioned Ruby
+    # formulae repeatedly updated with Rubygem patches.
+    resource("rubygems").stage do
+      ENV.prepend_path "PATH", bin
+
+      system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+      rg_in = lib/"ruby/#{api_version}"
+
+      # Remove bundled Rubygem version.
+      rm_rf rg_in/"rubygems"
+      rm_f rg_in/"rubygems.rb"
+      rm_f rg_in/"ubygems.rb"
+      rm_f bin/"gem#{program_suffix}"
+
+      # Drop in the new version.
+      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
+      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
+      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
+    end
   end
 
   def post_install
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
     config_file.write rubygems_config
 
     # Create the sitedir and vendordir that were skipped during install
-    ruby="#{bin}/ruby#{program_suffix}"
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
   end
 
-  def abi_version
-    "2.3.0"
-  end
-
-  def program_suffix
-    build.with?("suffix") ? "23" : ""
-  end
-
   def rubygems_bindir
-    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{abi_version}/bin"
+    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{api_version}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config; <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir
@@ -117,7 +150,7 @@ class RubyAT23 < Formula
           "lib",
           "ruby",
           "gems",
-          "#{abi_version}"
+          "#{api_version}"
         ]
 
         @default_dir ||= File.join(*path)
@@ -167,7 +200,7 @@ class RubyAT23 < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default, binaries installed by gem will be placed into:
       #{rubygems_bindir}
 

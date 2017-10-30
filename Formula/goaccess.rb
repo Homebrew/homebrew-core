@@ -41,7 +41,7 @@ class Goaccess < Formula
   end
 
   test do
-    (testpath/"access.log").write <<-EOS.undent
+    (testpath/"access.log").write <<~EOS
       127.0.0.1 - - [04/May/2015:15:48:17 +0200] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"
     EOS
 

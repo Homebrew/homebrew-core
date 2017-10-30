@@ -25,7 +25,7 @@ class Gpm < Formula
     ENV["GOPATH"] = testpath
     (testpath/"Godeps").write("github.com/pote/gpm-testing-package v6.1")
     system bin/"gpm", "install"
-    (testpath/"go_code.go").write <<-EOS.undent
+    (testpath/"go_code.go").write <<~EOS
       package main
       import ("fmt"; "github.com/pote/gpm-testing-package")
       func main() { fmt.Print(gpm_testing_package.Version()) }

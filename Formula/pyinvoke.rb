@@ -21,7 +21,7 @@ class Pyinvoke < Formula
   end
 
   test do
-    (testpath/"tasks.py").write <<-EOS.undent
+    (testpath/"tasks.py").write <<~EOS
       from invoke import run, task
 
       @task
@@ -35,10 +35,10 @@ class Pyinvoke < Formula
     (testpath/"foo"/"bar").mkpath
     (testpath/"baz").mkpath
     system bin/"invoke", "clean"
-    assert !File.exist?(testpath/"foo"), "\"pyinvoke clean\" should have deleted \"foo\""
-    assert File.exist?(testpath/"baz"), "pyinvoke should have left \"baz\""
+    refute_predicate testpath/"foo", :exist?, "\"pyinvoke clean\" should have deleted \"foo\""
+    assert_predicate testpath/"baz", :exist?, "pyinvoke should have left \"baz\""
     system bin/"invoke", "clean", "--extra=baz"
-    assert !File.exist?(testpath/"foo"), "\"pyinvoke clean-extra\" should have still deleted \"foo\""
-    assert !File.exist?(testpath/"baz"), "pyinvoke clean-extra should have deleted \"baz\""
+    refute_predicate testpath/"foo", :exist?, "\"pyinvoke clean-extra\" should have still deleted \"foo\""
+    refute_predicate testpath/"baz", :exist?, "pyinvoke clean-extra should have deleted \"baz\""
   end
 end

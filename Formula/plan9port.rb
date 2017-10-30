@@ -28,7 +28,7 @@ class Plan9port < Formula
     prefix.install Dir[libexec/"mac/*.app"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order not to collide with OSX system binaries, the Plan 9 binaries have
     been installed to #{opt_libexec}/bin.
     To run the Plan 9 version of a command simply call it through the command
@@ -39,7 +39,7 @@ class Plan9port < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <u.h>
       #include <libc.h>
       #include <stdio.h>

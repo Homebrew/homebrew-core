@@ -16,14 +16,14 @@ class Checkbashisms < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<-EOS.undent
+    (testpath/"test.sh").write <<~EOS
       #!/bin/sh
 
       if [[ "home == brew" ]]; then
         echo "dog"
       fi
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       (alternative test command ([[ foo ]] should be [ foo ])):
     EOS
     assert_match expected, shell_output("#{bin}/checkbashisms #{testpath}/test.sh 2>&1", 1)

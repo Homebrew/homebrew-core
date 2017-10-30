@@ -38,7 +38,7 @@ class OpenalSoft < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "AL/al.h"
       #include "AL/alc.h"
       int main() {

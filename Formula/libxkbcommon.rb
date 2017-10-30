@@ -32,14 +32,14 @@ class Libxkbcommon < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
-    #include <stdlib.h>
-    #include <xkbcommon/xkbcommon.h>
-    int main() {
-      return (xkb_context_new(XKB_CONTEXT_NO_FLAGS) == NULL)
-        ? EXIT_FAILURE
-        : EXIT_SUCCESS;
-    }
+    (testpath/"test.c").write <<~EOS
+      #include <stdlib.h>
+      #include <xkbcommon/xkbcommon.h>
+      int main() {
+        return (xkb_context_new(XKB_CONTEXT_NO_FLAGS) == NULL)
+          ? EXIT_FAILURE
+          : EXIT_SUCCESS;
+      }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lxkbcommon",
                    "-o", "test"

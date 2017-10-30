@@ -47,7 +47,7 @@ class Gitg < Formula
     # test executable
     assert_match version.to_s, shell_output("#{bin}/gitg --version")
     # test API
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libgitg/libgitg.h>
 
       int main(int argc, char *argv[]) {

@@ -5,10 +5,10 @@ class CollectorSidecar < Formula
   sha256 "3d73f8054a52411ff6d71634bc93b23a55372477069fcfad699876f82ae22ce8"
 
   bottle do
-    sha256 "f0b0a86af0fa4a9f01fa42a4112484bb1057a236407b56c0b05e32ca0f52a632" => :high_sierra
-    sha256 "a570422eab63c9476cbbf127fc878a1410fa0ac7ff44bbe55227df73fbba0713" => :sierra
-    sha256 "3db2950f3b53860ffb1a7b98e0f87adb45d106c2c5070d4b2ef7cfbd9662be05" => :el_capitan
-    sha256 "d8f11c6167e2b3d66f4e67e7d7e2e4d013a71cd3b591e37da21fe809abf21e01" => :yosemite
+    rebuild 2
+    sha256 "c31cd3d9caa0d658aae224ade213d64eaa0be2e040d1b7180e78b10c1c8725a3" => :high_sierra
+    sha256 "cac1fff6f16a21edca6f7b671840e9df9d076b31b37806b3f50c01b486e8ebad" => :sierra
+    sha256 "d21746e91d501bbb6544a239ac8bb846727f940e3ca152f6c79262c3aa0eec1e" => :el_capitan
   end
 
   depends_on "glide" => :build
@@ -20,16 +20,41 @@ class CollectorSidecar < Formula
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/Graylog2/collector-sidecar").install buildpath.children
+
     cd "src/github.com/Graylog2/collector-sidecar" do
       inreplace "main.go", "/etc", etc
-      inreplace "collector_sidecar.yml", "/usr", HOMEBREW_PREFIX
-      inreplace "collector_sidecar.yml", "/etc", etc
-      inreplace "collector_sidecar.yml", "/var", var
+
+      inreplace "collector_sidecar.yml" do |s|
+        s.gsub! "/usr", HOMEBREW_PREFIX
+        s.gsub! "/etc", etc
+        s.gsub! "/var", var
+      end
+
       system "glide", "install"
       system "make", "build"
       (etc/"graylog/collector-sidecar").install "collector_sidecar.yml"
       bin.install "graylog-collector-sidecar"
+      prefix.install_metafiles
     end
+  end
+
+  plist_options :manual => "graylog-collector-sidecar"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>Program</key>
+        <string>#{opt_bin}/graylog-collector-sidecar</string>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
   end
 
   test do

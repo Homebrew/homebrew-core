@@ -1,5 +1,5 @@
 class Httest < Formula
-  desc "Provides a large variety of HTTP-related test functionality."
+  desc "Provides a large variety of HTTP-related test functionality"
   homepage "https://htt.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.19/httest-2.4.19.tar.gz"
   sha256 "0cf2454de50995c14c460040cdf29863dd49082805e2bc61fb6938a7042b2dbd"
@@ -32,7 +32,7 @@ class Httest < Formula
   end
 
   test do
-    (testpath/"test.htt").write <<-EOS.undent
+    (testpath/"test.htt").write <<~EOS
       CLIENT 5
         _TIME time
       END

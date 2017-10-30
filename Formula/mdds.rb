@@ -26,7 +26,7 @@ class Mdds < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <mdds/flat_segment_tree.hpp>
       int main() {
         mdds::flat_segment_tree<unsigned, unsigned> fst(0, 4, 8);

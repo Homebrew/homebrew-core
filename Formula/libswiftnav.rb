@@ -1,5 +1,5 @@
 class Libswiftnav < Formula
-  desc "C library implementing GNSS related functions and algorithms."
+  desc "C library implementing GNSS related functions and algorithms"
   homepage "https://github.com/swift-nav/libswiftnav"
   url "https://github.com/swift-nav/libswiftnav/archive/v0.21.tar.gz"
   sha256 "99e7ac3f190d76b2c1ceb17dae76d24b86d1a71501db4f6a49759539bb393756"
@@ -21,7 +21,7 @@ class Libswiftnav < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdlib.h>
       #include <stdio.h>
       #include <libswiftnav/edc.h>

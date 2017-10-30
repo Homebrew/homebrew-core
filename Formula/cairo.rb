@@ -54,7 +54,7 @@ class Cairo < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <cairo.h>
 
       int main(int argc, char *argv[]) {

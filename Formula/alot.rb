@@ -121,7 +121,7 @@ class Alot < Formula
       Process.kill 9, pid
     end
 
-    assert (testpath/"out.log").exist?, "out.log file should exist"
+    assert_predicate testpath/"out.log", :exist?, "out.log file should exist"
     assert_match "setup gui", File.read(testpath/"out.log")
   end
 end

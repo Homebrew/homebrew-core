@@ -31,14 +31,14 @@ class Libmspub < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
-    #include <librevenge-stream/librevenge-stream.h>
-    #include <libmspub/MSPUBDocument.h>
-    int main() {
-        librevenge::RVNGStringStream docStream(0, 0);
-        libmspub::MSPUBDocument::isSupported(&docStream);
-        return 0;
-    }
+    (testpath/"test.cpp").write <<~EOS
+      #include <librevenge-stream/librevenge-stream.h>
+      #include <libmspub/MSPUBDocument.h>
+      int main() {
+          librevenge::RVNGStringStream docStream(0, 0);
+          libmspub::MSPUBDocument::isSupported(&docStream);
+          return 0;
+      }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-lrevenge-stream-0.0",
                     "-I#{Formula["librevenge"].include}/librevenge-0.0",

@@ -33,7 +33,7 @@ class ElmFormat < Formula
 
   test do
     src_path = testpath/"Hello.elm"
-    src_path.write <<-EOS.undent
+    src_path.write <<~EOS
       import Html exposing (text)
       main = text "Hello, world!"
     EOS

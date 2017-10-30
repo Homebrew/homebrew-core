@@ -22,14 +22,14 @@ class AuroraCli < Formula
 
   test do
     ENV["AURORA_CONFIG_ROOT"] = "#{testpath}/"
-    (testpath/"clusters.json").write <<-EOS.undent
-        [{
-          "name": "devcluster",
-          "slave_root": "/tmp/mesos/",
-          "zk": "172.16.64.185",
-          "scheduler_zk_path": "/aurora/scheduler",
-          "auth_mechanism": "UNAUTHENTICATED"
-        }]
+    (testpath/"clusters.json").write <<~EOS
+      [{
+        "name": "devcluster",
+        "slave_root": "/tmp/mesos/",
+        "zk": "172.16.64.185",
+        "scheduler_zk_path": "/aurora/scheduler",
+        "auth_mechanism": "UNAUTHENTICATED"
+      }]
     EOS
     system "#{bin}/aurora_admin", "get_cluster_config", "devcluster"
   end

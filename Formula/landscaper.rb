@@ -2,16 +2,15 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag => "1.0.10",
-      :revision => "c715c3b05d73ee8baf6b1c141524ff90ed80af2e"
+      :tag => "1.0.11",
+      :revision => "4fd0758658b712e24f71a966eea7ab2bf0d8c15b"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e228fa1fec10787234271815a0f35a2717f5c3116ca86a9e06da14bc21d484a6" => :high_sierra
-    sha256 "73a870fc93d923eab2ee1f26f76bf350acf5de4e402f8447bf4ad9bcc4e01de8" => :sierra
-    sha256 "6c50395eac33ac374a922ee454e41b96772c742cb4bb428c38b2a412f6e8e5b4" => :el_capitan
+    sha256 "31cb813c0d2e9e5e13051e5f687f0f7c81e0c6575e8b36abea579ff348399c5b" => :high_sierra
+    sha256 "dc237afff0749bfca2ecd5559853e1ab287687e7453f4467c86a7031f3f20d0f" => :sierra
+    sha256 "b79291aab46e45bd7ae380df9730c56796a2e6228a79898db58b28971f33e94a" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -29,12 +28,10 @@ class Landscaper < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Bootstap build
       system "make", "bootstrap"
-
-      # Make binary
       system "make", "build"
       bin.install "build/landscaper"
+      prefix.install_metafiles
     end
   end
 

@@ -30,7 +30,7 @@ class Lapack < Formula
   end
 
   test do
-    (testpath/"lp.cpp").write <<-EOS.undent
+    (testpath/"lp.cpp").write <<~EOS
       #include "lapacke.h"
       int main() {
         void *p = LAPACKE_malloc(sizeof(char)*100);

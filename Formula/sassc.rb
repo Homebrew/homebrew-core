@@ -26,7 +26,7 @@ class Sassc < Formula
   end
 
   test do
-    (testpath/"input.scss").write <<-EOS.undent
+    (testpath/"input.scss").write <<~EOS
       div {
         img {
           border: 0px;

@@ -67,7 +67,7 @@ class Cgal < Formula
 
   test do
     # https://doc.cgal.org/latest/Algebraic_foundations/Algebraic_foundations_2interoperable_8cpp-example.html
-    (testpath/"surprise.cpp").write <<-EOS.undent
+    (testpath/"surprise.cpp").write <<~EOS
       #include <CGAL/basic.h>
       #include <CGAL/Coercion_traits.h>
       #include <CGAL/IO/io.h>

@@ -3,13 +3,12 @@ class RubyAT18 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p374.tar.bz2"
   sha256 "b4e34703137f7bfb8761c4ea474f7438d6ccf440b3d35f39cc5e4d4e239c07e3"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "58f052716980ff42bfce45fec6e82c81912ca186624ea4c3cd0b9d797e8f661a" => :high_sierra
-    sha256 "b7b546e51dd2db5c2cd656998041af71fb45bbb766d0806b80307c0af0beeb7c" => :sierra
-    sha256 "4ace3a1054114b29c38852966aac76140570981958cf44e74267fc92f30ad13e" => :el_capitan
-    sha256 "9940035c29b4c2949d60e277bd0cadd8f52d074e4a1259435f95e8e1174283d4" => :yosemite
+    sha256 "6fa2895dd8538acd306b765006112bb1e1abbe620ae1003e3cfd3fa404e6b648" => :high_sierra
+    sha256 "69b10965f232420a01bf4d89e8803954e29d96cca486d1aa972c067149145433" => :sierra
+    sha256 "bd377a1ee1116979787dc643e76ba0d346460a0c88203019450e72e0a3bd76a5" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -24,9 +23,24 @@ class RubyAT18 < Formula
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
 
+  # This should be kept in sync with the main Ruby formula
+  # but a revision bump should not be forced every update
+  # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.5.0.tgz"
-    sha256 "a39e95acb86f52fdca38b1484b2eed61a7f76551119079d7a9f8c67c5be78831"
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+  end
+
+  def program_suffix
+    build.with?("suffix") ? "187" : ""
+  end
+
+  def ruby
+    "#{bin}/ruby#{program_suffix}"
+  end
+
+  def api_version
+    "1.8"
   end
 
   def install
@@ -36,7 +50,7 @@ class RubyAT18 < Formula
     # prefix those invocations with `env` to clean the environment for us.
     scrub_env = "/usr/bin/env RUBYLIB= RUBYOPT="
     inreplace "mkconfig.rb", "    if /^prefix$/ =~ name\n",
-              <<-EOS.undent.gsub(/^/, "    ")
+              <<~EOS.gsub(/^/, "    ")
                 # `env` removes stuff that will break `superenv`.
                 if %w[CC CPP LDSHARED LIBRUBY_LDSHARED].include?(name)
                   val = val.sub("\\"", "\\"#{scrub_env} ")
@@ -75,26 +89,36 @@ class RubyAT18 < Formula
     system "make", "install"
     system "make", "install-doc" if build.with? "doc"
 
-    # Install rubygems into its own prefix, then move into the right place, as
-    # we cannot easily make it install where it should be and the defaults are
-    # no good and would cause a sandbox violation.
+    # This is easier than trying to keep both current & versioned Ruby
+    # formulae repeatedly updated with Rubygem patches.
     resource("rubygems").stage do
-      system "#{bin}/ruby#{program_suffix}", "setup.rb", "--prefix=#{prefix}/gem"
-      mv (prefix/"gem/bin").children, bin
-      mv (prefix/"gem/lib").children, lib/"ruby/#{abi_version}"
-      rm_r prefix/"gem"
+      ENV.prepend_path "PATH", bin
+
+      system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+      rg_in = lib/"ruby/#{api_version}"
+
+      # Remove bundled Rubygem version.
+      rm_rf rg_in/"rubygems"
+      rm_f rg_in/"rubygems.rb"
+      rm_f rg_in/"ubygems.rb"
+      rm_f bin/"gem#{program_suffix}"
+
+      # Drop in the new version.
+      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
+      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
+      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
     end
   end
 
   def post_install
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
     config_file.write rubygems_config
 
     # Create the sitedir and vendordir that were skipped during install
-    ruby="#{bin}/ruby#{program_suffix}"
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
@@ -103,19 +127,11 @@ class RubyAT18 < Formula
     mkdir_p rubygems_bindir
   end
 
-  def abi_version
-    "1.8"
-  end
-
-  def program_suffix
-    build.with?("suffix") ? "187" : ""
-  end
-
   def rubygems_bindir
-    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{abi_version}/bin"
+    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{api_version}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config; <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir
@@ -130,7 +146,7 @@ class RubyAT18 < Formula
           "lib",
           "ruby",
           "gems",
-          "#{abi_version}"
+          "#{api_version}"
         ]
 
         @default_dir ||= File.join(*path)
@@ -180,7 +196,7 @@ class RubyAT18 < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default, binaries installed by gem will be placed into:
       #{rubygems_bindir}
 

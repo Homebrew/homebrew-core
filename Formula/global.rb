@@ -75,9 +75,9 @@ class Global < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
-       int c2func (void) { return 0; }
-       void cfunc (void) {int cvar = c2func(); }")
+    (testpath/"test.c").write <<~EOS
+      int c2func (void) { return 0; }
+      void cfunc (void) {int cvar = c2func(); }")
     EOS
     if build.with?("pygments") || build.with?("ctags")
       (testpath/"test.py").write <<-EOS

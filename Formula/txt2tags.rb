@@ -1,8 +1,8 @@
 class Txt2tags < Formula
   desc "Conversion tool to generating several file formats"
   homepage "http://txt2tags.org"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/txt2tags/txt2tags-2.6.tgz"
-  sha256 "601467d7860f3cfb3d48050707c6277ff3ceb22fa7be4f5bd968de540ac5b05c"
+  url "https://github.com/txt2tags/txt2tags/archive/2.6.tar.gz"
+  sha256 "c87b911ac5cc97dd2fdb6067601cf4fbd0094a065f6b7a593142fa75e3a924c1"
 
   bottle :unneeded
 

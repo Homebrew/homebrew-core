@@ -39,7 +39,7 @@ class Icecream < Formula
     (prefix/"org.opensuse.icecc-scheduler.plist").write scheduler_plist
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To override the toolset with icecc, add to your path:
       #{opt_libexec}/icecc/bin
 
@@ -49,7 +49,7 @@ class Icecream < Formula
     EOS
   end
 
-  def iceccd_plist; <<-EOS.undent
+  def iceccd_plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -68,7 +68,7 @@ class Icecream < Formula
     EOS
   end
 
-  def scheduler_plist; <<-EOS.undent
+  def scheduler_plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -88,7 +88,7 @@ class Icecream < Formula
   end
 
   test do
-    (testpath/"hello-c.c").write <<-EOS.undent
+    (testpath/"hello-c.c").write <<~EOS
       #include <stdio.h>
       int main()
       {
@@ -99,7 +99,7 @@ class Icecream < Formula
     system opt_libexec/"icecc/bin/gcc", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", shell_output("./hello-c")
 
-    (testpath/"hello-cc.cc").write <<-EOS.undent
+    (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
       int main()
       {
@@ -111,7 +111,7 @@ class Icecream < Formula
     assert_equal "Hello, world!\n", shell_output("./hello-cc")
 
     if build.with? "clang-wrappers"
-      (testpath/"hello-clang.c").write <<-EOS.undent
+      (testpath/"hello-clang.c").write <<~EOS
         #include <stdio.h>
         int main()
         {
@@ -122,7 +122,7 @@ class Icecream < Formula
       system opt_libexec/"icecc/bin/clang", "-o", "hello-clang", "hello-clang.c"
       assert_equal "Hello, world!\n", shell_output("./hello-clang")
 
-      (testpath/"hello-cclang.cc").write <<-EOS.undent
+      (testpath/"hello-cclang.cc").write <<~EOS
         #include <iostream>
         int main()
         {

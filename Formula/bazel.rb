@@ -1,15 +1,14 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.5.4/bazel-0.5.4-dist.zip"
-  sha256 "2157b05309614d6af0e4bbc6065987aede590822634a0522161f3af5d647abc9"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.7.0/bazel-0.7.0-dist.zip"
+  sha256 "a084a9c5d843e2343bf3f319154a48abe3d35d52feb0ad45dec427a1c4ffc416"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08e1374909896be1519c331c15ceaeca363042232255e1be77dc1ea1f3089061" => :high_sierra
-    sha256 "c182ec1062da5552bf048ca55f211a35d1954e0b104fcf3da74b056e2484219d" => :sierra
-    sha256 "34606c4f55f9fb95e25a8dd9ab13d2505dd9d0687228ec824de93b7435730d09" => :el_capitan
-    sha256 "e44abd01576e56b17859b0bb840f854178b6d975641c1eba082625157b650467" => :yosemite
+    sha256 "39b129d4381684efb8bd1402d461327f775ec62c093baa86fc6904fbfa56bda8" => :high_sierra
+    sha256 "40d7cf9cacfb4265be7bfd5aecd827f541ca5fca37ca6ac789df2ca47e72fa17" => :sierra
+    sha256 "ae2d8748781086c113936ebc180000399f5aed0d9295bd8683894b430872cdd6" => :el_capitan
   end
 
   depends_on :java => "1.8+"
@@ -33,7 +32,7 @@ class Bazel < Formula
   test do
     touch testpath/"WORKSPACE"
 
-    (testpath/"ProjectRunner.java").write <<-EOS.undent
+    (testpath/"ProjectRunner.java").write <<~EOS
       public class ProjectRunner {
         public static void main(String args[]) {
           System.out.println("Hi!");
@@ -41,7 +40,7 @@ class Bazel < Formula
       }
     EOS
 
-    (testpath/"BUILD").write <<-EOS.undent
+    (testpath/"BUILD").write <<~EOS
       java_binary(
         name = "bazel-test",
         srcs = glob(["*.java"]),

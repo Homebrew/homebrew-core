@@ -33,7 +33,7 @@ class Fdclone < Formula
     share.install "_fdrc" => "fd2rc.dist"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To install the initial config file:
         install -c -m 0644 #{share}/fd2rc.dist ~/.fd2rc
     To set application messages to Japanese, edit your .fd2rc:

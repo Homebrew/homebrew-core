@@ -38,7 +38,7 @@ class YamlCpp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <yaml-cpp/yaml.h>
       int main() {
         YAML::Node node  = YAML::Load("[0, 0, 0]");

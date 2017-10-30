@@ -1,5 +1,5 @@
 class Dscanner < Formula
-  desc "Analyses e.g. the style and syntax of D code."
+  desc "Analyses e.g. the style and syntax of D code"
   homepage "https://github.com/dlang-community/Dscanner"
   url "https://github.com/dlang-community/Dscanner.git",
     :tag => "v0.4.0",
@@ -22,7 +22,7 @@ class Dscanner < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
+    (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main(string[] args)
       {

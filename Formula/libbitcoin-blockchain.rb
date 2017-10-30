@@ -3,11 +3,12 @@ class LibbitcoinBlockchain < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
   url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.3.0.tar.gz"
   sha256 "c97762f37e30b0d41b5f9d70499dbf9ca70096924410e98a15781e4cb5c39966"
+  revision 1
 
   bottle do
-    sha256 "c437aa44016f52c37a7a0c19150f842cefa671dd1d3a3f0088f368255c4892f1" => :high_sierra
-    sha256 "01ad1dec80291fbebd3b9d2a48ca30bfa3fe6d2ec8d35626987e06528365d185" => :sierra
-    sha256 "6a60c5cc77cd949c498bef459da8dab8c352afc626c053dc928b993a31966a2a" => :el_capitan
+    sha256 "ac5a21d4105ccef391341699da7ce3f63630bb65dde7384ebabba0271be2935f" => :high_sierra
+    sha256 "1ebd9eebbca6273bfdf5fade9b8ac192a62bc648d510600bd00c97417b7b7b61" => :sierra
+    sha256 "dd97f3c44fb97d33d79efa1e784c34837260b94a859e7b777a247399ec2efd0e" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -15,15 +16,11 @@ class LibbitcoinBlockchain < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libbitcoin"
+  depends_on "libbitcoin-database"
 
   resource "libbitcoin-consensus" do
     url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.3.0.tar.gz"
     sha256 "ae581f7c42a52fb6f4a233300f76f2a2d03a22eee6d4bfe22b233e9b52f029b4"
-  end
-
-  resource "libbitcoin-database" do
-    url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.3.0.tar.gz"
-    sha256 "b4d98199ac4629a9857c1eb8819fe8166525bf2dca9ed790a9bbe5dc9c9e9186"
   end
 
   def install
@@ -31,14 +28,6 @@ class LibbitcoinBlockchain < Formula
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     resource("libbitcoin-consensus").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
-
-    resource("libbitcoin-database").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
@@ -54,7 +43,7 @@ class LibbitcoinBlockchain < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/blockchain.hpp>
       int main() {
         static const auto default_block_hash = libbitcoin::hash_literal("14508459b221041eab257d2baaa7459775ba748246c8403609eb708f0e57e74b");

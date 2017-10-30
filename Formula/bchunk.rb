@@ -20,15 +20,15 @@ class Bchunk < Formula
   end
 
   test do
-    (testpath/"foo.cue").write <<-EOS.undent
-    foo.bin BINARY
-    TRACK 01 MODE1/2352
-    INDEX 01 00:00:00
+    (testpath/"foo.cue").write <<~EOS
+      foo.bin BINARY
+      TRACK 01 MODE1/2352
+      INDEX 01 00:00:00
     EOS
 
     touch testpath/"foo.bin"
 
     system "#{bin}/bchunk", "foo.bin", "foo.cue", "foo"
-    assert File.exist? testpath/"foo01.iso"
+    assert_predicate testpath/"foo01.iso", :exist?
   end
 end

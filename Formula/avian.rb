@@ -25,7 +25,7 @@ class Avian < Formula
   end
 
   test do
-    (testpath/"Test.java").write <<-EOS.undent
+    (testpath/"Test.java").write <<~EOS
       public class Test {
         public static void main(String arg[]) {
           System.out.print("OK");

@@ -1,14 +1,14 @@
 class Arangodb < Formula
-  desc "The Multi-Model NoSQL Database."
+  desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.2.4.tar.gz"
-  sha256 "564cacc29e806bca3ce3115bb03fd5b500dbceb32a5b3124e6f8c480dbe98270"
+  url "https://download.arangodb.com/Source/ArangoDB-3.2.6.tar.gz"
+  sha256 "3f95157bf8553de668bd928e9de8c7b086303f2546f0a433fb190284ee4fe1ee"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
-    sha256 "0a8c25d62bbc15b6bf9f6055b921c6de55d16968b708808796b17814fc438bbe" => :high_sierra
-    sha256 "07a6580ed2f65800c97fe1c033f530fd9501aeb59ee8350a28d81d3f5fac1e0f" => :sierra
-    sha256 "0e18ab5c12e2f7c5b4dc6ec1ff5d297889fb3bae73c61bcfe3fde34f40524812" => :el_capitan
+    sha256 "fe40024f0bb25ab7f71cc4a4b5bf72ffd30120c967bbcce6e2cf4a11f78d9410" => :high_sierra
+    sha256 "6c90812b8ae465c58d28a21cb7cee3ba1a6d2d918e9373050eafc98b8bf8d2ad" => :sierra
+    sha256 "d2895addd7c0db38855caf8145e71127c14bf11ba52b8c25e75d2f2598179a9f" => :el_capitan
   end
 
   depends_on :macos => :yosemite
@@ -56,7 +56,7 @@ class Arangodb < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       An empty password has been set. Please change it by executing
         #{opt_sbin}/arango-secure-installation
     EOS
@@ -66,7 +66,7 @@ class Arangodb < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb/sbin/arangod"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

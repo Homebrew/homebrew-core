@@ -1,32 +1,17 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://ghostscript.com/jbig2dec.html"
-  url "http://downloads.ghostscript.com/public/jbig2dec/jbig2dec-0.13.tar.gz"
-  sha256 "5aaca0070992cc2e971e3bb2338ee749495613dcecab4c868fc547b4148f5311"
-  revision 1
+  url "http://downloads.ghostscript.com/public/jbig2dec/jbig2dec-0.14.tar.gz"
+  sha256 "21b498c3ba566f283d02946f7e78e12abbad89f12fe4958974e50882c185014c"
 
   bottle do
     cellar :any
-    sha256 "daa85d162a799f452fd221341ea065813c8dc698947b1858365f50f97d74b974" => :high_sierra
-    sha256 "e19f9e1b02a373ffa8ef57815e117466564cce65c2c9375734f2814235b692c4" => :sierra
-    sha256 "3baac1e2249e2e5f3598da7c2e23eae663efac0391d73b8057de4abc49b91683" => :el_capitan
-    sha256 "a1d8a3379bcccbe0243581037a4c98ad86f43c331e59c400eb1e273ce29f26e8" => :yosemite
+    sha256 "197656bee979449ea283d855f0332afa414a31f7114123f477f3f9f2cc192763" => :high_sierra
+    sha256 "a98bac77f5b916d67c1c7742ee3462af053c2ff0726dacaf5b0bcb2e9aef7e74" => :sierra
+    sha256 "beb6ea36ce8edffa4ff8569231413fab5f3de7338379b35b49d208e16243577d" => :el_capitan
   end
 
   depends_on "libpng" => :optional
-
-  # These are all upstream already, remove on next release.
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jbig2dec/jbig2dec_0.13-4.1.debian.tar.xz"
-    sha256 "41114245b7410a03196c5f7def10efa78c9da12b4bac9d21d6fbe96ded4232dd"
-    apply "patches/020160518~1369359.patch",
-          "patches/020161212~e698d5c.patch",
-          "patches/020161214~9d2c4f3.patch",
-          "patches/020170426~5e57e48.patch",
-          "patches/020170503~b184e78.patch",
-          "patches/020170510~ed6c513.patch"
-  end
 
   def install
     args = %W[
@@ -41,7 +26,7 @@ class Jbig2dec < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdint.h>
       #include <stdlib.h>
       #include <jbig2.h>

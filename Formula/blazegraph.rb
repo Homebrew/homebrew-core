@@ -15,7 +15,7 @@ class Blazegraph < Formula
 
   plist_options :startup => "true", :manual => "blazegraph start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -28,7 +28,7 @@ class Blazegraph < Formula
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{prefix}</string>
+        <string>#{opt_prefix}</string>
       </dict>
     </plist>
     EOS
@@ -40,7 +40,7 @@ class Blazegraph < Formula
     end
     sleep 5
     Process.kill("TERM", server)
-    File.exist? "blazegraph.jnl"
-    File.exist? "rules.log"
+    assert_predicate testpath/"blazegraph.jnl", :exist?
+    assert_predicate testpath/"rules.log", :exist?
   end
 end

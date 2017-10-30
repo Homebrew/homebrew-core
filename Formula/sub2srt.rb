@@ -12,11 +12,11 @@ class Sub2srt < Formula
   end
 
   test do
-    (testpath/"test.sub").write <<-EOS.undent
+    (testpath/"test.sub").write <<~EOS
       {1100}{1300}time to...|one
       {1350}{1400}homebrew|two
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       1
       00:00:44,000 --> 00:00:52,000
       time to...

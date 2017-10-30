@@ -62,7 +62,7 @@ class Hdf5AT18 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "hdf5.h"
       int main()
@@ -74,7 +74,7 @@ class Hdf5AT18 < Formula
     system "#{bin}/h5cc", "test.c"
     assert_equal version.to_s, shell_output("./a.out").chomp
 
-    (testpath/"test.f90").write <<-EOS.undent
+    (testpath/"test.f90").write <<~EOS
       use hdf5
       integer(hid_t) :: f, dspace, dset
       integer(hsize_t), dimension(2) :: dims = [2, 2]

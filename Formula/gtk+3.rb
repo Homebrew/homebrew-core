@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.21.tar.xz"
-  sha256 "1bd3c1a85cfb4db112cabb5379abb05a1a94fe43052d309d573493fca00e6b87"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.25.tar.xz"
+  sha256 "e25eaed5ab0775ddc211898fbfdc873b19e4a7ab03c0dbe88dff1938b433739e"
 
   bottle do
-    sha256 "1976fd4b2887207e3ecc8b4b9838019482be4ff619365a1586a827a5247ef729" => :high_sierra
-    sha256 "b1cb343b75a4f97c63187f9a1645cb0a52d28c43ca82e8bc3151eb3539535dd3" => :sierra
-    sha256 "0cc81331e661d0b9f7784a3f8853cdbe17e0dcc47f0530545986a2b2d2f19795" => :el_capitan
+    sha256 "b86df9dcd1af273ccb06dd6a7eb3662beba33240e5c8ee39ea560ef125dfeccf" => :high_sierra
+    sha256 "34c871b5f88de0ea79a12f829bcaaaa80d96c6f41fe47277f2d6f0b318f9efac" => :sierra
+    sha256 "0cecdfd16f5b6450f9477219ffba49aa28aaeebbc89bdc49f5013fbf48b047ef" => :el_capitan
   end
 
   option "with-quartz-relocation", "Build with quartz relocation support"
@@ -51,7 +51,7 @@ class Gtkx3 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gtk/gtk.h>
 
       int main(int argc, char *argv[]) {

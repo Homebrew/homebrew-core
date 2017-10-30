@@ -1,15 +1,14 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftp.gnu.org/gnu/units/units-2.14.tar.gz"
-  mirror "https://ftpmirror.gnu.org/units/units-2.14.tar.gz"
-  sha256 "9d33893d82f3ddd831d5822992007c40bcd0826ae67d3cbc96539951fb0a82e8"
+  url "https://ftp.gnu.org/gnu/units/units-2.15.tar.gz"
+  mirror "https://ftpmirror.gnu.org/units/units-2.15.tar.gz"
+  sha256 "25d6334fafc801e15b3b0388e207e1efc5d4ae88af6dc7b17d3913de6441f47c"
 
   bottle do
-    sha256 "a62ddb8f8bbb8f7ef44bfdaaa81e3e0607a3a4c7298997f01caefb25100f56ee" => :high_sierra
-    sha256 "2af636ef04bbd4c2846561cb2c7112f616bc80a88caf25ddc72614029241fe46" => :sierra
-    sha256 "38e5baed18c905ab510f459f8eba0e8e4f30ec8a0b107e9e6063ade8241cb1da" => :el_capitan
-    sha256 "82dbdef4dd830d9c895e3c2f4065a837e979583ef01480ae217982a48e249829" => :yosemite
+    sha256 "6e3a72a2e7391796bc6871e3941e56b95b50bf399995146d827c3269ae166f5f" => :high_sierra
+    sha256 "2f2e9cba813d42b5433e9dd8d3d3f7438536ad25ab1e03ff92ce92109c15ec1b" => :sierra
+    sha256 "966e5ae5598ad8340de8840e0dab273f7ecc2193bf932a533078c78f4d702779" => :el_capitan
   end
 
   deprecated_option "default-names" => "with-default-names"

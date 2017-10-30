@@ -24,9 +24,10 @@ class Cc65 < Formula
     system "make", "install", *make_vars
   end
 
-  def caveats; <<-EOS.undent
-    Library files have been installed to:
-      #{pkgshare}
+  def caveats
+    <<~EOS
+      Library files have been installed to:
+        #{pkgshare}
     EOS
   end
 
@@ -34,6 +35,6 @@ class Cc65 < Formula
     (testpath/"foo.c").write "int main (void) { return 0; }"
 
     system bin/"cl65", "foo.c" # compile and link
-    assert File.exist?("foo")  # binary
+    assert_predicate testpath/"foo", :exist? # binary
   end
 end

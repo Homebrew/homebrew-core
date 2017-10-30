@@ -3,13 +3,13 @@ class Kpcli < Formula
   homepage "https://kpcli.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.1.pl"
   sha256 "f1f07704a30d0eae126717d5dae0d24ccced43c316454e4a7b868fe0a239a21a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "56d487c750f8aceb848fe38847d4f9f93cf9aece7d1cce2c06b1375a7269f41e" => :sierra
-    sha256 "e94898161025e19fe681f2874ab8139850d28003f2d689dbc48e827457fcbbdb" => :el_capitan
-    sha256 "163ec79488cdf951eb248fc9ca45cba2c8c1f095669d54494452d2e16f931478" => :yosemite
+    sha256 "390fa6b02583a52c1366eb973f7b9c33378d141ae51dca8e43ce5cf7af5c1b78" => :high_sierra
+    sha256 "eddb81e2651f4059dc693815b998b1654f4263f8dacb47b9b2bf9ec961747979" => :sierra
+    sha256 "6674de4994678bd403908abb50927cec118e2e4423f39306011e5f2f951e3b75" => :el_capitan
   end
 
   depends_on "readline"
@@ -35,8 +35,8 @@ class Kpcli < Formula
   end
 
   resource "Term::Readline::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.34.tar.gz"
-    sha256 "a965fd0601bea84cb65e0c5e6a1eb3469fe2d99772be235faccbc49c57edf6cd"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.35.tar.gz"
+    sha256 "575d32d4ab67cd656f314e8d0ee3d45d2491078f3b2421e520c4273e92eb9125"
   end
 
   resource "Data::Password" do
@@ -81,12 +81,12 @@ class Kpcli < Formula
     end
 
     resource("Term::Readline::Gnu").stage do
-      args = %W[
-        INSTALL_BASE=#{libexec}
-        --includedir=#{Formula["readline"].opt_include}
-        --libdir=#{Formula["readline"].opt_lib}
-      ]
-      system "perl", "Makefile.PL", *args
+      # Prevent the Makefile to try and build universal binaries
+      ENV.refurbish_args
+
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
+                     "--includedir=#{Formula["readline"].opt_include}",
+                     "--libdir=#{Formula["readline"].opt_lib}"
       system "make", "install"
     end
 

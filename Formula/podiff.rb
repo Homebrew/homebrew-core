@@ -19,7 +19,7 @@ class Podiff < Formula
     man1.install "podiff.1"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use with git, add this to your .git/config or global git config file:
 
       [diff "podiff"]

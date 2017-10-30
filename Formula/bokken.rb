@@ -55,7 +55,7 @@ class Bokken < Formula
     python_path = "#{libexec}/lib/python2.7/site-packages:#{libexec}/pyew"
     ld_library_path = "#{libexec}/distorm64"
     (libexec/"bokken").install Dir["*"]
-    (bin/"bokken").write <<-EOS.undent
+    (bin/"bokken").write <<~EOS
       #!/usr/bin/env bash
       env \
         PYTHONPATH=#{python_path}:${PYTHONPATH} \

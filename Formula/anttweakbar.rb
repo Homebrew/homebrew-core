@@ -8,6 +8,7 @@ class Anttweakbar < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "393b87de789337afebed9196404af46fa660fea3b476d874d77b48bb35c8079b" => :high_sierra
     sha256 "af510970b310b01ee52528e816cdd53e2d4a4e2cfc76e426b1710f758bc99d20" => :sierra
     sha256 "417278abe012967efcf22b0276527187f6472dd5fd4d271b1ea32604816d46c9" => :el_capitan
     sha256 "a2e29104a5ef51621faaebd72ccc39bd5fe7bd6e977af74a358c5cc83c65c2c2" => :yosemite
@@ -23,6 +24,15 @@ class Anttweakbar < Formula
   end
 
   def install
+    # Work around Xcode 9 error "no member named 'signbit' in the global
+    # namespace" and Xcode 8 issue on El Capitan "error: missing ',' between
+    # enumerators"
+    if DevelopmentTools.clang_build_version >= 900 ||
+       (MacOS.version == :el_capitan && MacOS::Xcode.installed? &&
+       MacOS::Xcode.version >= "8.0")
+      ENV.delete("SDKROOT")
+    end
+
     system "make", "-C", "src", "-f", "Makefile.osx"
     lib.install "lib/libAntTweakBar.dylib", "lib/libAntTweakBar.a"
     include.install "include/AntTweakBar.h"

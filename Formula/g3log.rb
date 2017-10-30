@@ -1,5 +1,5 @@
 class G3log < Formula
-  desc "Asynchronous, 'crash safe', logger that is easy to use."
+  desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
   url "https://github.com/KjellKod/g3log/archive/1.3.tar.gz"
   sha256 "b8be9ac9d888c241e1042103cd530a49baeef2853c0ab4b6dc696dad930b8784"
@@ -25,7 +25,7 @@ class G3log < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent.gsub(/TESTDIR/, testpath)
+    (testpath/"test.cpp").write <<~EOS.gsub(/TESTDIR/, testpath)
       #include <g3log/g3log.hpp>
       #include <g3log/logworker.hpp>
       int main()

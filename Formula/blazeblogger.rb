@@ -24,7 +24,7 @@ class Blazeblogger < Formula
     system bin/"blaze", "init"
     system bin/"blaze", "config", "blog.title", "Homebrew!"
     system bin/"blaze", "make"
-    assert File.exist? "default.css"
+    assert_predicate testpath/"default.css", :exist?
     assert_match "Homebrew!", File.read(".blaze/config")
   end
 end

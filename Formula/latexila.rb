@@ -1,14 +1,13 @@
 class Latexila < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.0.tar.xz"
-  sha256 "192a6759718e2b2122438a397bd37e90cb2f10b9ab30cdebfe2124e37cc3926d"
+  url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.1.tar.xz"
+  sha256 "658eba0db71864eb6d4873516d97e05be3e63085ff55513c8f10145ffb657151"
 
   bottle do
-    rebuild 1
-    sha256 "fe058afbd30e1e8bf1026c6f8e75e56c451937c47e30b0b73d98c7677aca961b" => :high_sierra
-    sha256 "42669fd8b855cbfb0e71aff6117c84eb2c6ff30760590ffbcf946c15fd87e7b3" => :sierra
-    sha256 "23661b90c23f835d7df2d9c4661effd1a58fe93a6c8cc51bf14146e674dd1df5" => :el_capitan
+    sha256 "90fd16f07dd0439d341b06f375a24dd2316e7a32f506da837482041f730993c9" => :high_sierra
+    sha256 "8c070e12604f91136ba69b34f7e6632e880fed892e5794a978385284a10eaa7b" => :sierra
+    sha256 "77b3a1cb8bb3c5dce471bd5f8b05edabe8fe6888efe706ecec493e9cef3671dc" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

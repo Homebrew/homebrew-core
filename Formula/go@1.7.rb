@@ -4,7 +4,6 @@ class GoAT17 < Formula
   url "https://storage.googleapis.com/golang/go1.7.6.src.tar.gz"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.7.6.src.tar.gz/sha512/b01846bfb17bf91a9c493c4d6c43bbe7e17270b9e8a229a2be4032b78ef9395f5512917ea9faab74a120c755bbd53bbd816b033caadcbb7679e91702b37f8c7f/go1.7.6.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go1.7.6.src.tar.gz"
-  version "1.7.6"
   sha256 "1a67a4e688673fdff7ba41e73482b0e59ac5bd0f7acf703bc6d50cc775c5baba"
 
   bottle do
@@ -77,7 +76,7 @@ class GoAT17 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     As of go 1.2, a valid GOPATH is required to use the `go get` command:
       https://golang.org/doc/code.html#GOPATH
 
@@ -87,12 +86,12 @@ class GoAT17 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
-    package main
-    import "fmt"
-    func main() {
-        fmt.Println("Hello World")
-    }
+    (testpath/"hello.go").write <<~EOS
+      package main
+      import "fmt"
+      func main() {
+          fmt.Println("Hello World")
+      }
     EOS
 
     # Run go fmt check for no errors then run the program.
@@ -101,8 +100,8 @@ class GoAT17 < Formula
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     if build.with? "godoc"
-      assert File.exist?(libexec/"bin/godoc")
-      assert File.executable?(libexec/"bin/godoc")
+      assert_predicate libexec/"bin/godoc", :exist?
+      assert_predicate libexec/"bin/godoc", :executable?
     end
 
     if build.with? "cgo"

@@ -1,17 +1,16 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.5.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.5.tar.gz"
-  sha256 "4031c1ecee9ce7ba4f313e91ef6284164885cdb69937a123f6a83bb6a72dcd38"
+  url "http://xmlsoft.org/sources/libxml2-2.9.6.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.6.tar.gz"
+  sha256 "8b9038cca7240e881d462ea391882092dfdc6d4f483f72683e817be08df5ebbc"
   head "https://git.gnome.org/browse/libxml2.git"
 
   bottle do
     cellar :any
-    sha256 "c34f1308c810427cd88e8ac4cadd71b9e65fe6b44bc54e5249dfaa785aaae661" => :high_sierra
-    sha256 "b1121510780bcd6ae1a464f22312bb425daff8735dd2c647b41484461f646a7a" => :sierra
-    sha256 "09b8d61b8ae67820a739c240f4114079911a019390a6ed2fee8541439dc53660" => :el_capitan
-    sha256 "1fd3f3ec30d85289019b6845d5b394f4ab38c7543ef0a7aa3948c76c7dd3ce93" => :yosemite
+    sha256 "b08291d2d8b9328b55a7785128d57a893b5d0eb3c03cb528316d6cabc93dbf37" => :high_sierra
+    sha256 "7aae3bbeb817110901ddc03112b6a5af7c8f457149c7cc9852ff16c1740a8f75" => :sierra
+    sha256 "c3638a6edc119734a626d84d50d2bbc22bb170455dce1eff589560ad79cc5378" => :el_capitan
   end
 
   keg_only :provided_by_macos
@@ -42,7 +41,7 @@ class Libxml2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libxml/tree.h>
 
       int main()

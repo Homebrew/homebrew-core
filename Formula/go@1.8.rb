@@ -1,17 +1,13 @@
 class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.8.3.src.tar.gz"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/golang/go1.8.3.src.tar.gz/sha512/c6e67dd9e3acdf2aa776d920f91f3fb1802d624ba5d51e06b2c7c6b71bcfaf91f4024f7a442cecde69175c589f7f1163f0ae86d887e15ddde710e53ce0961284/go1.8.3.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.8.3.src.tar.gz"
-  version "1.8.3"
-  sha256 "5f5dea2447e7dcfdc50fa6b94c512e58bfba5673c039259fd843f68829d99fa6"
+  url "https://storage.googleapis.com/golang/go1.8.5.src.tar.gz"
+  sha256 "4949fd1a5a4954eb54dd208f2f412e720e23f32c91203116bed0387cf5d0ff2d"
 
   bottle do
-    sha256 "8ec868f2c7427129766c749925000f7aa826f32538180b8df8ce3eda4d3f96bf" => :high_sierra
-    sha256 "652a9bea1a98d115856bb47cacff9c1198cc5ab5f9612b28e0dfc8ba9c3aa112" => :sierra
-    sha256 "115ede307973b9a2b8b94e41424b9f22d1ef753583870dc9843e9d4a8610a641" => :el_capitan
-    sha256 "e324c8d247e30e345cba64ab70ee50b659b93d337eb7b2be003ab5b4fbf20d37" => :yosemite
+    sha256 "37499ad07ac0448329c4cd7d00d90c4934bb16e0732d43a1ea178a500a74c6c3" => :high_sierra
+    sha256 "78a87365b1ef44d0b343c8d95f79a35514bc5227cbc07ad8bcb774cc89b65328" => :sierra
+    sha256 "1def201fc998a8616123e8d49b04706a64531dc284f62ad9809afd93a7205e34" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -66,7 +62,7 @@ class GoAT18 < Formula
     bin.install_symlink libexec/"bin/godoc"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A valid GOPATH is required to use the `go get` command.
     If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
@@ -77,14 +73,14 @@ class GoAT18 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
-    package main
+    (testpath/"hello.go").write <<~EOS
+      package main
 
-    import "fmt"
+      import "fmt"
 
-    func main() {
-        fmt.Println("Hello World")
-    }
+      func main() {
+          fmt.Println("Hello World")
+      }
     EOS
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
@@ -92,8 +88,8 @@ class GoAT18 < Formula
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     # godoc was installed
-    assert File.exist?(libexec/"bin/godoc")
-    assert File.executable?(libexec/"bin/godoc")
+    assert_predicate libexec/"bin/godoc", :exist?
+    assert_predicate libexec/"bin/godoc", :executable?
 
     if build.with? "cgo"
       ENV["GOOS"] = "freebsd"

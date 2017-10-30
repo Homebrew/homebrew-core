@@ -24,7 +24,7 @@ class Suil < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <suil/suil.h>
 
       int main()

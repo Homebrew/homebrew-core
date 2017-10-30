@@ -1,14 +1,13 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.37.tar.gz"
-  sha256 "59c4ed39047279ddccd1bed9e247830d2bfad27d56dc2eb48d0b5695c94a1fbd"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.38.tar.gz"
+  sha256 "18f249752f6c64af6e39c5b99c89ee1c86d6eb7fac853707603453cf584c54f3"
 
   bottle do
-    sha256 "d74f30057d282d39bb734faddc618eec54cf6ad3e6bdf030ebf17619c980067c" => :high_sierra
-    sha256 "f26d550f2ac71cd0a7281d52a87c817448a5d4438021b2420ba588c13ae76a50" => :sierra
-    sha256 "a022ec8b89ecea46d02c092a4fe6b6573ba9dcf1fb5d0e0e41d96de0ac0cd932" => :el_capitan
-    sha256 "eea054c9021493967c8a217c85309cb7ec563b0ba966063710a96fad8771ede9" => :yosemite
+    sha256 "bef5d3a05ac6ba8505782e3d143515ead6bb5fcc839f64fd8f79f87f198547d8" => :high_sierra
+    sha256 "5486968846e866ac4225c7c725656f82537b20309710913fe444f05b3cfd1c4e" => :sierra
+    sha256 "c738a4e86dcc5a44b0cd738747315217d623101c8b1ca69007449c91313b35c7" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -109,7 +108,7 @@ class MysqlAT56 < Formula
     libexec.install bin/"mysqlaccess.conf"
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -128,7 +127,7 @@ class MysqlAT56 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
 
@@ -141,7 +140,7 @@ class MysqlAT56 < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.6/bin/mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

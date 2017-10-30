@@ -6,16 +6,23 @@ class Darkstat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cfff973e95ff4c31248690df0ae28e05ddbef97f926ed4f075b919274c59116" => :el_capitan
-    sha256 "290629ecfb0a650104bd6560bb352af9b54e2d0c1e1e0de0d7113dab13167133" => :yosemite
-    sha256 "c613e70eb9f84aa7acaef6f1791495762537ab0fe12368ddec009a66fb91d3f8" => :mavericks
-    sha256 "fba985f30c240602c9b5ebccda87fcea7c52caba69c4c8cc5375e090a773ce19" => :mountain_lion
+    rebuild 1
+    sha256 "70eae96655d9872851ea02e44709155a6a9df509210fd2b49b0b72de334248f3" => :high_sierra
+    sha256 "680c9a1143b9a95990d246d7ba8357baa0ec1142545252d89734d98b8046337a" => :sierra
+    sha256 "4e67244fc36d17dbdbe9ae33cc38bd79d2e016eeed0139c164d323e89b15c15e" => :el_capitan
   end
 
   head do
     url "https://www.unix4lyfe.org/git/darkstat", :using => :git
     depends_on "automake" => :build
     depends_on "autoconf" => :build
+  end
+
+  # Patch reported to upstream on 2017-10-08
+  # Work around `redefinition of clockid_t` issue on 10.12 SDK or newer
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/442ce4a5/darkstat/clock_gettime.patch"
+    sha256 "001b81d417a802f16c5bc4577c3b840799511a79ceedec27fc7ff1273df1018b"
   end
 
   def install

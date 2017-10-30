@@ -4,15 +4,14 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.0.1",
-      :revision => "e991d1b4262d4f0ec1cfe3d7f5b7de2e91aa4ddc"
+      :tag => "v10.1.0",
+      :revision => "c1ecf97f92aaeee1b8dafe8f58d38d8c7d8aa1ff"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fad02c7eb1e464927cac93a288e6190004ab428e2ed8089c1c4f32024262b3a3" => :high_sierra
-    sha256 "0ce1faef4c4b3a3682ee4d17a814eedc1de289d8c946b14cda94d51769b1e1cc" => :sierra
-    sha256 "fe502ae7e210d0ef0545fc9df625f551ac2e49f05d73017e8dd8d5bb0ee0e6d7" => :el_capitan
+    sha256 "3f0fcd5aca52d0b897315195886be90bc15f21ca5c4b2cce95e05be262b84602" => :high_sierra
+    sha256 "145bd7b92e810bca7f9ceee70f5ad53e7d81256167f29175a6c6f36de1b12056" => :sierra
+    sha256 "206fef60e1b8cbb78ec63f71e7c816bc179c71eaeba611015de4913034bcbed3" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -24,17 +23,17 @@ class GitlabRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.1.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.0.1"
-    sha256 "7e087f61ead5f2d8ffd9344816effb081a86e7c1ca7328c13ffda922b59ad171"
+    version "10.1.0"
+    sha256 "24f7ac81a210ab46ee0852e7ec258ac0a9d3d14dec12dca5406d459435e60e41"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.1.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.0.1"
-    sha256 "21d3f2704d876d25c896ac51a7da0b1a9b1ed8aea4a59a342d9a5937be10f4cf"
+    version "10.1.0"
+    sha256 "9c14a91d5398e8ef99e13b57afa7430aa660791cf8f045e52a4b9566f247f22f"
   end
 
   def install
@@ -61,12 +60,12 @@ class GitlabRunner < Formula
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
-      system "go", "build", "-ldflags", <<-EOS.undent
-             -X #{proj}/common.NAME=gitlab-runner
-             -X #{proj}/common.VERSION=#{version}
-             -X #{proj}/common.REVISION=#{commit}
-             -X #{proj}/common.BRANCH=#{branch}
-             -X #{proj}/common.BUILT=#{built}
+      system "go", "build", "-ldflags", <<~EOS
+        -X #{proj}/common.NAME=gitlab-runner
+        -X #{proj}/common.VERSION=#{version}
+        -X #{proj}/common.REVISION=#{commit}
+        -X #{proj}/common.BRANCH=#{branch}
+        -X #{proj}/common.BUILT=#{built}
       EOS
 
       bin.install "gitlab-runner"
@@ -76,7 +75,7 @@ class GitlabRunner < Formula
 
   plist_options :manual => "gitlab-runner start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

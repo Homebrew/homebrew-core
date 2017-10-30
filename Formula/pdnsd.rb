@@ -23,7 +23,7 @@ class Pdnsd < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This install of "pdnsd" expects config files to be in #{etc}
     All state files (status and cache) are stored in #{var}/cache/pdnsd.
 
@@ -43,7 +43,7 @@ class Pdnsd < Formula
 
   plist_options :startup => true, :manual => "sudo pdnsd"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

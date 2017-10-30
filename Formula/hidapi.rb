@@ -39,7 +39,7 @@ class Hidapi < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "hidapi.h"
       int main(void)
       {

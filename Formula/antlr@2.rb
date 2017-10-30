@@ -26,7 +26,7 @@ class AntlrAT2 < Formula
     include.install "lib/cpp/antlr"
     lib.install "lib/cpp/src/libantlr.a"
 
-    (bin/"antlr2").write <<-EOS.undent
+    (bin/"antlr2").write <<~EOS
       #!/bin/sh
       java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
     EOS

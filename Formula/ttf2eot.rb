@@ -21,6 +21,6 @@ class Ttf2eot < Formula
   test do
     cp "/Library/Fonts/Arial.ttf", testpath
     system("#{bin}/ttf2eot < Arial.ttf > Arial.eot")
-    assert File.exist?("Arial.eot")
+    assert_predicate testpath/"Arial.eot", :exist?
   end
 end

@@ -38,7 +38,7 @@ class Dwarfutils < Formula
   test do
     system "#{bin}/dwarfdump", "-V"
 
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <dwarf.h>
       #include <libdwarf.h>
       #include <stdio.h>

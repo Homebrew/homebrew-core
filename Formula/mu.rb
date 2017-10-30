@@ -56,7 +56,7 @@ class Mu < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Existing mu users are recommended to run the following after upgrading:
 
       mu index --rebuild
@@ -70,7 +70,7 @@ class Mu < Formula
   test do
     mkdir (testpath/"cur")
 
-    (testpath/"cur/1234567890.11111_1.host1!2,S").write <<-EOS.undent
+    (testpath/"cur/1234567890.11111_1.host1!2,S").write <<~EOS
       From: "Road Runner" <fasterthanyou@example.com>
       To: "Wile E. Coyote" <wile@example.com>
       Date: Mon, 4 Aug 2008 11:40:49 +0200
@@ -79,7 +79,7 @@ class Mu < Formula
       Beep beep!
     EOS
 
-    (testpath/"cur/0987654321.22222_2.host2!2,S").write <<-EOS.undent
+    (testpath/"cur/0987654321.22222_2.host2!2,S").write <<~EOS
       From: "Wile E. Coyote" <wile@example.com>
       To: "Road Runner" <fasterthanyou@example.com>
       Date: Mon, 4 Aug 2008 12:40:49 +0200

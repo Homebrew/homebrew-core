@@ -16,7 +16,7 @@ class Pig < Formula
   end
 
   test do
-    (testpath/"test.pig").write <<-EOS.undent
+    (testpath/"test.pig").write <<~EOS
       sh echo "Hello World"
     EOS
     assert_match "Hello World", shell_output("#{bin}/pig -x local test.pig")

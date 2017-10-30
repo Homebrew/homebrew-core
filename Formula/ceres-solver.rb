@@ -33,7 +33,7 @@ class CeresSolver < Formula
 
   test do
     cp pkgshare/"examples/helloworld.cc", testpath
-    (testpath/"CMakeLists.txt").write <<-EOS.undent
+    (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 2.8)
       project(helloworld)
       find_package(Ceres REQUIRED)

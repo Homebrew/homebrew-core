@@ -28,7 +28,7 @@ class Pygobject < Formula
                           "--prefix=#{prefix}",
                           "--disable-introspection"
     system "make", "install"
-    (lib/"python2.7/site-packages/pygtk.pth").append_lines <<-EOS.undent
+    (lib/"python2.7/site-packages/pygtk.pth").append_lines <<~EOS
       #{HOMEBREW_PREFIX}/lib/python2.7/site-packages/gtk-2.0
     EOS
   end

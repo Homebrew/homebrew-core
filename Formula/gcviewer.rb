@@ -1,28 +1,19 @@
 class Gcviewer < Formula
   desc "Java garbage collection visualization tool"
   homepage "https://github.com/chewiebug/GCViewer"
-  url "https://github.com/chewiebug/GCViewer/archive/1.34.1.tar.gz"
-  sha256 "e0e97a94c80be8323772dc8953d463fe8eaf60c3a1c5f212d0b575a3b5c640ba"
+  url "https://downloads.sourceforge.net/project/gcviewer/gcviewer-1.35.jar"
+  sha256 "35d359a0aae175871f8d554ef1097e7f175e9f455980f6d59659f0e8d54e93f2"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "065c7deaa4de453ace8a61955e0fb8a55e4440f2bdc2eeb11fd287328dd00631" => :high_sierra
-    sha256 "b532080d2cf6a844bcf4a06098be5675f56a9dd239a70b87199ef44d0ab46d16" => :sierra
-    sha256 "8cfdc7b6966867f780f56e603cc9f658d21a8897c196c163fd4c51d8f8f6ee6f" => :el_capitan
-    sha256 "acedd8765108ed55adf9b608960f20db5a7aa22e256cd58d74037c201fb8bccd" => :yosemite
-    sha256 "8d295ab7282b45a982e4ffbd78dac71e59d9f00d56d6b732b3816c42e572e639" => :mavericks
-  end
+  bottle :unneeded
 
   depends_on :java
-  depends_on "maven" => :build
 
   def install
-    system "mvn", "-Dmaven.surefire.debug=-Duser.language=en", "clean", "install"
     libexec.install Dir["*"]
-    bin.write_jar_script libexec/"target/gcviewer-1.34.1.jar", "gcviewer"
+    bin.write_jar_script libexec/"gcviewer-#{version}.jar", "gcviewer"
   end
 
   test do
-    assert(File.exist?(libexec/"target/gcviewer-#{version}.jar"))
+    assert_predicate libexec/"gcviewer-#{version}.jar", :exist?
   end
 end

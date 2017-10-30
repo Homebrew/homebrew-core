@@ -1,5 +1,5 @@
 class Jump < Formula
-  desc "Helps you navigate your file system faster by learning your habits."
+  desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
   url "https://github.com/gsamokovarov/jump/archive/v0.13.0.tar.gz"
   sha256 "15d1bbeff680781dfd67857c8e3e5272b306602be5fd7c08484ed10636b77b4c"

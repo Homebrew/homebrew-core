@@ -1,9 +1,9 @@
 class Mas < Formula
   desc "Mac App Store command-line interface"
-  homepage "https://github.com/argon/mas"
-  url "https://github.com/argon/mas/archive/v1.3.1.tar.gz"
+  homepage "https://github.com/mas-cli/mas"
+  url "https://github.com/mas-cli/mas/archive/v1.3.1.tar.gz"
   sha256 "9326058c9e572dd38df644313307805757d7ea6dfea8626e0f41c373ecbd46b5"
-  head "https://github.com/argon/mas.git"
+  head "https://github.com/mas-cli/mas.git"
 
   bottle do
     cellar :any_skip_relocation

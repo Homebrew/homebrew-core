@@ -1,13 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.26.0/nghttp2-1.26.0.tar.xz"
-  sha256 "7ac7ef5c83449303bf38d16eb45caa9e1bd0bb3abb2afc0ab1e6b3aadbded6dd"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.27.0/nghttp2-1.27.0.tar.xz"
+  sha256 "e83819560952a3dc3c8d96c46f60745408f46f5f384168c90b9e3dfa53b2c2c8"
 
   bottle do
-    sha256 "5adc3e0c9b9aba9792e6b859dafa95b7d903afa2b90abba19dcc00657d2f8ba3" => :high_sierra
-    sha256 "479448bb0461f6a08fb88b548e06094c1acad9dc62acf86e57f273180719d08c" => :sierra
-    sha256 "6d56d799255e3e3a1ace71a3da12f20dbfeab3651ccf842c56239939d244c912" => :el_capitan
+    sha256 "b7d6f8dacc21b7c95d2aaba166781b56f9bbcd1ef53c03f722169edc9cb05b57" => :high_sierra
+    sha256 "4c804ea152f1e3729cdbdf826c151a25a595c09b8fb6aa3381f290527ba9b2ce" => :sierra
+    sha256 "1af62cee6617c9b3ce07b20a1d5ed488e4dbfddfed672591be2b8e1d077c5360" => :el_capitan
   end
 
   head do
@@ -36,8 +36,8 @@ class Nghttp2 < Formula
   depends_on "jemalloc" => :recommended
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/68/41/2f259b62306268d9cf0d6434b4e83a2fb1785b34cfce27fdeeca3adffd0e/Cython-0.26.1.tar.gz"
-    sha256 "c2e63c4794161135adafa8aa4a855d6068073f421c83ffacc39369497a189dd5"
+    url "https://files.pythonhosted.org/packages/98/bb/cd2be435e28ee1206151793a528028e3dc9a787fe525049efb73637f52bb/Cython-0.27.2.tar.gz"
+    sha256 "265dacf64ed8c0819f4be9355c39beaa13dc2ad2f85237a2c4e478f5ce644b48"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125

@@ -3,12 +3,12 @@ class RubyAT21 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.10.tar.bz2"
   sha256 "a74675578a9a801ac25eb7152bef3023432d6267f875b198eb9cd6944a5bf4f1"
+  revision 1
 
   bottle do
-    sha256 "e4c67ca9d35710afddc7f3504a0efcaa3c166a2ecaa5747fdb7929fb6cf9b35c" => :high_sierra
-    sha256 "29f650621310044c8cab15c73aeae5ca610d7cc27fa84354b7c656f2235adb11" => :sierra
-    sha256 "8cb6299101776e4f5848020e0e7e527ca2b050d8efd4d9e5bd293387da1c0269" => :el_capitan
-    sha256 "55021b56b07e2df5968a2a026fe1602df1143d5bc5dcd7d51f2d0040743dc352" => :yosemite
+    sha256 "0dbeb3ff828d3c131a42187993bc5283526dd3a068be973cfcaec33552479e68" => :high_sierra
+    sha256 "e9525acda285c6c4847ea1e4c41daf63ba4d578ca724d8e0e147cb639673b3f3" => :sierra
+    sha256 "f8130b5c1248bec5526c50dcd046329f2c60f0d07e44df69b99c952a0dc8e7ad" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -25,6 +25,26 @@ class RubyAT21 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
+
+  # This should be kept in sync with the main Ruby formula
+  # but a revision bump should not be forced every update
+  # unless there are security fixes in that Rubygems release.
+  resource "rubygems" do
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+  end
+
+  def program_suffix
+    build.with?("suffix") ? "21" : ""
+  end
+
+  def ruby
+    "#{bin}/ruby#{program_suffix}"
+  end
+
+  def api_version
+    "2.1.0"
+  end
 
   def install
     args = %W[
@@ -72,17 +92,37 @@ class RubyAT21 < Formula
 
     system "make"
     system "make", "install"
+
+    # This is easier than trying to keep both current & versioned Ruby
+    # formulae repeatedly updated with Rubygem patches.
+    resource("rubygems").stage do
+      ENV.prepend_path "PATH", bin
+
+      system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+      rg_in = lib/"ruby/#{api_version}"
+
+      # Remove bundled Rubygem version.
+      rm_rf rg_in/"rubygems"
+      rm_f rg_in/"rubygems.rb"
+      rm_f rg_in/"ubygems.rb"
+      rm_f bin/"gem#{program_suffix}"
+
+      # Drop in the new version.
+      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
+      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
+      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
+    end
   end
 
   def post_install
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
     config_file.write rubygems_config
 
     # Create the sitedir and vendordir that were skipped during install
-    ruby="#{bin}/ruby#{program_suffix}"
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
@@ -91,19 +131,11 @@ class RubyAT21 < Formula
     mkdir_p rubygems_bindir
   end
 
-  def abi_version
-    "2.1.0"
-  end
-
-  def program_suffix
-    build.with?("suffix") ? "21" : ""
-  end
-
   def rubygems_bindir
-    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{abi_version}/bin"
+    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{api_version}/bin"
   end
 
-  def rubygems_config; <<-EOS.undent
+  def rubygems_config; <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir
@@ -118,7 +150,7 @@ class RubyAT21 < Formula
           "lib",
           "ruby",
           "gems",
-          "#{abi_version}"
+          "#{api_version}"
         ]
 
         @default_dir ||= File.join(*path)
@@ -168,7 +200,7 @@ class RubyAT21 < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default, binaries installed by gem will be placed into:
       #{rubygems_bindir}
 

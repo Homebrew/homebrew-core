@@ -19,7 +19,7 @@ class Radamsa < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The Radamsa binary has been installed.
     The Lisp source code has been copied to:
       #{prefix}/rad

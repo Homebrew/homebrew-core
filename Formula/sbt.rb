@@ -1,12 +1,13 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "http://www.scala-sbt.org"
-  url "https://github.com/sbt/sbt/releases/download/v1.0.2/sbt-1.0.2.tgz"
-  sha256 "c3f063d8122d87f0d80b25221d76b0a164e9247d35190f31ec360edcb4352ef0"
+  url "https://github.com/sbt/sbt/releases/download/v1.0.3/sbt-1.0.3.tgz"
+  sha256 "2374bf494132e7bf316fa2b83155f166fdf6b042ad70fa681e51e3fe8ad82c10"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  # Set to 1.8+ for > 1.0.3; Java 9 compat https://github.com/sbt/launcher/pull/45
+  depends_on :java => "1.8"
 
   def install
     inreplace "bin/sbt" do |s|
@@ -16,18 +17,10 @@ class Sbt < Formula
 
     libexec.install "bin", "lib"
     etc.install "conf/sbtopts"
-
-    (bin/"sbt").write <<-EOS.undent
-      #!/bin/sh
-      if [ -f "$HOME/.sbtconfig" ]; then
-        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
-        . "$HOME/.sbtconfig"
-      fi
-      exec "#{libexec}/bin/sbt" "$@"
-    EOS
+    (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.java_home_env("1.8")
   end
 
-  def caveats;  <<-EOS.undent
+  def caveats;  <<~EOS
     You can use $SBT_OPTS to pass additional JVM options to SBT:
        SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 

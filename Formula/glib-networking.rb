@@ -1,13 +1,13 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.54/glib-networking-2.54.0.tar.xz"
-  sha256 "5961b3779080b72314b373ff5d4790eb7e41b75ca91816ad7a81ef32922f7096"
+  url "https://download.gnome.org/sources/glib-networking/2.54/glib-networking-2.54.1.tar.xz"
+  sha256 "eaa787b653015a0de31c928e9a17eb57b4ce23c8cf6f277afaec0d685335012f"
 
   bottle do
-    sha256 "05bbc29889c28eafe72812cc5bb29c67d2eb06b73259676ae26821920be5ef54" => :high_sierra
-    sha256 "6551b115dc75768d40111207fba1a1bfd2c2994469ce380e4e21798667b925b4" => :sierra
-    sha256 "bee5da78fd8cc668ed831587fea46ea9485d842d5d88cc6e839cc6a6fa99e709" => :el_capitan
+    sha256 "656488bcc70e2347d705dfc32ef38952088c8d7a2279766e139c19485c5d87aa" => :high_sierra
+    sha256 "7afca55538868826fd196e670de31a16740efb44490f1633c57d49ac1ac3c7c3" => :sierra
+    sha256 "4ef4b72f13a2f5c83e63c7594b2a643ca93f5f141b90554a70bc7f8532af5070" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -41,7 +41,7 @@ class GlibNetworking < Formula
   end
 
   test do
-    (testpath/"gtls-test.c").write <<-EOS.undent
+    (testpath/"gtls-test.c").write <<~EOS
       #include <gio/gio.h>
       int main (int argc, char *argv[])
       {

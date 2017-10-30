@@ -21,7 +21,7 @@ class Ec2AmiTools < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Before you can use these tools you must export some variables to your $SHELL.
         export AWS_ACCESS_KEY="<Your AWS Access ID>"
         export AWS_SECRET_KEY="<Your AWS Secret Key>"

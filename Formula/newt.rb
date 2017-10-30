@@ -39,7 +39,7 @@ class Newt < Formula
   test do
     ENV["TERM"] = "xterm"
     system "python", "-c", "import snack"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #import <newt.h>
       int main() {
         newtInit();

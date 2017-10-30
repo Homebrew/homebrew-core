@@ -1,5 +1,5 @@
 class Unibilium < Formula
-  desc "Very basic terminfo library."
+  desc "Very basic terminfo library"
   homepage "https://github.com/mauke/unibilium"
   url "https://github.com/mauke/unibilium/archive/v1.2.1.tar.gz"
   sha256 "6045b4f6adca7b1123284007675ca71f718f70942d3a93d8b9fa5bd442006ec1"
@@ -20,7 +20,7 @@ class Unibilium < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <unibilium.h>
       #include <stdio.h>
 

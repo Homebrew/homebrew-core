@@ -21,7 +21,7 @@ class Libtrng < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <trng/yarn2.hpp>
       #include <trng/normal_dist.hpp>
       int main()

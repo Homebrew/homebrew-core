@@ -12,7 +12,7 @@ class Chisel < Formula
     prefix.install "PATENTS"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following line to ~/.lldbinit to load chisel when Xcode launches:
       command script import #{opt_libexec}/fblldb.py
     EOS

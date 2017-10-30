@@ -22,7 +22,7 @@ class Casperjs < Formula
   end
 
   test do
-    (testpath/"fetch.js").write <<-EOS.undent
+    (testpath/"fetch.js").write <<~EOS
       var casper = require("casper").create();
       casper.start("https://duckduckgo.com/about", function() {
         this.download("https://duckduckgo.com/assets/dax-alt.svg", "dax-alt.svg");
@@ -31,6 +31,6 @@ class Casperjs < Formula
     EOS
 
     system bin/"casperjs", testpath/"fetch.js"
-    assert File.exist?("dax-alt.svg")
+    assert_predicate testpath/"dax-alt.svg", :exist?
   end
 end

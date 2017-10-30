@@ -108,7 +108,7 @@ class Lua < Formula
     end
   end
 
-  def pc_file; <<-EOS.undent
+  def pc_file; <<~EOS
     V= 5.2
     R= 5.2.4
     prefix=#{opt_prefix}
@@ -131,7 +131,7 @@ class Lua < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please be aware due to the way Luarocks is designed any binaries installed
     via Luarocks-5.2 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
 
@@ -147,7 +147,7 @@ class Lua < Formula
     if File.exist?(bin/"luarocks-5.2")
       mkdir testpath/"luarocks"
       system bin/"luarocks-5.2", "install", "moonscript", "--tree=#{testpath}/luarocks"
-      assert File.exist? testpath/"luarocks/bin/moon"
+      assert_predicate testpath/"luarocks/bin/moon", :exist?
     end
   end
 end

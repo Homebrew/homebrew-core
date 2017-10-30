@@ -18,7 +18,7 @@ class AflFuzz < Formula
 
   test do
     cpp_file = testpath/"main.cpp"
-    cpp_file.write <<-EOS.undent
+    cpp_file.write <<~EOS
       #include <iostream>
 
       int main() {

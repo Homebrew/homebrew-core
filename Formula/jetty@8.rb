@@ -22,7 +22,7 @@ class JettyAT8 < Formula
     bin.mkpath
     Dir["#{libexec}/bin/*.sh"].each do |f|
       scriptname = File.basename(f, ".sh")
-      (bin+scriptname).write <<-EOS.undent
+      (bin+scriptname).write <<~EOS
         #!/bin/bash
         JETTY_HOME=#{libexec}
         #{f} $@

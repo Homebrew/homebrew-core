@@ -1,5 +1,5 @@
 class Diffoscope < Formula
-  desc "In-depth comparison of files, archives, and directories."
+  desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
   url "https://files.pythonhosted.org/packages/54/23/3e1072e1326742745001992eb373ba3da07b974951a913bf6e39484a04b6/diffoscope-87.tar.gz"
   sha256 "b62a69f095cb056f1b9e43b9d345e36b3b52b9ebe3de135978ae84ae88feba86"

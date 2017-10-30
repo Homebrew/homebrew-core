@@ -5,15 +5,13 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/6e/1f/c424b700e0bb97841e5e6ee82b939150bdff0960c5727fb4c02aec2b3369/fdroidserver-0.8.tar.gz"
   sha256 "8069f88cdb34a12abe22422c0024aee7c74e5a90f8bf18f07243017a85d74757"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "69fa4486696b8ba3f57349cf1720597739778f758d79ed7962d8fab2dfda2820" => :high_sierra
-    sha256 "1623a63b0c6aebf6a292015c0d0ac8127b1ef46968fc8b035ef648115e5daaf7" => :sierra
-    sha256 "1a9ebbd36802d30b5bbaca0b5b8d9d852bc34295c4bc7f9fdc43b964949ff6bf" => :el_capitan
-    sha256 "ef391c547c130aa9a491456f2895260b80ad28f939bde79ef316549afe379221" => :yosemite
+    sha256 "e21db5a11d88963db19b60174c20c7ae1e5974190f01341da251d472c4ded8f8" => :high_sierra
+    sha256 "f2d36f1cf0bae4d1298cb712d19423dcdac7bd002a2f90b3fa87b0d9208d1263" => :sierra
+    sha256 "fc02bd8e08724a134de322c93728ec9028144b01a36ea7b86b7d7da94bacb621" => :el_capitan
   end
 
   depends_on :python3
@@ -22,6 +20,7 @@ class Fdroidserver < Formula
   depends_on "libtiff"
   depends_on "webp"
   depends_on "openssl@1.1"
+  depends_on "s3cmd"
 
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/a8/17/87d42df2558518bc17ba33de876e2ce12bc94dd785e0ccb75f8ffe81142b/apache-libcloud-2.1.0.tar.gz"
@@ -164,6 +163,7 @@ class Fdroidserver < Formula
   end
 
   def install
+    bash_completion.install "completion/bash-completion" => "fdroid"
     venv = virtualenv_create(libexec, "python3")
 
     resource("Pillow").stage do
@@ -191,7 +191,7 @@ class Fdroidserver < Formula
     doc.install "examples"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order to function, fdroidserver requires that the Android SDK's
     "Build-tools" and "Platform-tools" are installed.  Also, it is best if the
     base path of the Android SDK is set in the standard environment variable
@@ -228,11 +228,11 @@ class Fdroidserver < Formula
       # ENV["ANDROID_HOME"] = Formula["android-sdk"].opt_prefix
       # system "#{bin}/fdroid", "readmeta", "--verbose"
       # system "#{bin}/fdroid", "init", "--verbose"
-      # assert File.exist?("config.py")
-      # assert File.exist?("keystore.jks")
+      # assert_predicate Pathname.pwd/"config.py", :exist?
+      # assert_predicate Pathname.pwd/"keystore.jks", :exist?
       # system "#{bin}/fdroid", "update", "--create-metadata", "--verbose"
-      # assert File.exist?("metadata")
-      # assert File.exist?("repo/index.jar")
+      # assert_predicate Pathname.pwd/"metadata", :exist?
+      # assert_predicate Pathname.pwd/"repo/index.jar", :exist?
     end
   end
 end

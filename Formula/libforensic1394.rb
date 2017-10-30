@@ -23,7 +23,7 @@ class Libforensic1394 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <forensic1394.h>
       int main() {

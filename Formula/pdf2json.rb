@@ -19,6 +19,6 @@ class Pdf2json < Formula
 
   test do
     system bin/"pdf2json", test_fixtures("test.pdf"), "test.json"
-    assert File.exist?("test.json")
+    assert_predicate testpath/"test.json", :exist?
   end
 end

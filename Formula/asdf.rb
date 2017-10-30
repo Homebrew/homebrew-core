@@ -26,7 +26,7 @@ class Asdf < Formula
               "exec $(asdf_dir)/libexec/private/asdf-exec "
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
          source #{opt_prefix}/asdf.sh
 

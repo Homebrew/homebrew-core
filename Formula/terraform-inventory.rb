@@ -34,33 +34,33 @@ class TerraformInventory < Formula
   end
 
   test do
-    example = <<-EOS.undent
-        {
-            "version": 1,
-            "serial": 1,
-            "modules": [
-                {
-                    "path": [
-                        "root"
-                    ],
-                    "outputs": {},
-                    "resources": {
-                        "aws_instance.example_instance": {
-                            "type": "aws_instance",
-                            "primary": {
-                                "id": "i-12345678",
-                                "attributes": {
-                                    "public_ip": "1.2.3.4"
-                                },
-                                "meta": {
-                                    "schema_version": "1"
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
-        }
+    example = <<~EOS
+      {
+          "version": 1,
+          "serial": 1,
+          "modules": [
+              {
+                  "path": [
+                      "root"
+                  ],
+                  "outputs": {},
+                  "resources": {
+                      "aws_instance.example_instance": {
+                          "type": "aws_instance",
+                          "primary": {
+                              "id": "i-12345678",
+                              "attributes": {
+                                  "public_ip": "1.2.3.4"
+                              },
+                              "meta": {
+                                  "schema_version": "1"
+                              }
+                          }
+                      }
+                  }
+              }
+          ]
+      }
     EOS
     (testpath/"example.tfstate").write(example)
     assert_match(/example_instance/, shell_output("#{bin}/terraform-inventory --list example.tfstate"))

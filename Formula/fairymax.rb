@@ -22,7 +22,7 @@ class Fairymax < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       hint
       quit
     EOS

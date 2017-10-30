@@ -1,16 +1,30 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
-  sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
-  revision 1
-  head "https://github.com/crystal-lang/crystal.git"
+  revision 3
+
+  stable do
+    url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
+    sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
+
+    resource "shards" do
+      url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
+      sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
+    end
+  end
 
   bottle do
-    sha256 "58e75099554b6862dba0d33f3cdecf9e5410ee37d00dcd6f3839d55b884abb7b" => :high_sierra
-    sha256 "1bfb73971b5b19560264c5bf35faa43f5ff5ac4928776f2d7d21d23b1f649fac" => :sierra
-    sha256 "78391956a8800ce2c2cac06bc88d3e0b64a9ec60ab822de67bd8765bade48b8a" => :el_capitan
-    sha256 "95de886631dd75cffdde78319c37aa26eaafd6bd8f39dfb4e3744c3c3d321bb8" => :yosemite
+    sha256 "91a0f66c1d2a9538699aff8366b13508299550abade47c8fa266d96836e0eb4c" => :high_sierra
+    sha256 "613ee02629654a29249b7e720ad3205547cbdc8ee37c77354c75c7e472e492d1" => :sierra
+    sha256 "3b8042840d831b6e13177e2ecbc5b700a9ac9591c6dc451ff01cc6b70c33b20a" => :el_capitan
+  end
+
+  head do
+    url "https://github.com/crystal-lang/crystal.git"
+
+    resource "shards" do
+      url "https://github.com/crystal-lang/shards.git"
+    end
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -22,18 +36,13 @@ class CrystalLang < Formula
   depends_on "bdw-gc"
   depends_on "llvm@4"
   depends_on "pcre"
-  depends_on "gmp"
+  depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
     url "https://github.com/crystal-lang/crystal/releases/download/0.23.0/crystal-0.23.0-1-darwin-x86_64.tar.gz"
     version "0.23.0"
     sha256 "5ffa252d2264ab55504a6325b7c42d0eb16065152d0adfee6be723fd02333fdf"
-  end
-
-  resource "shards" do
-    url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
-    sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
   def install

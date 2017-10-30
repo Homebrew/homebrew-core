@@ -42,10 +42,6 @@ class Makensis < Formula
   patch :DATA
 
   def install
-    system "2to3-", "--write", "--fix=print", "Contrib/NSIS Menu/SConscript",
-           "Contrib/System/SConscript", "SCons/Config/gnu", "SCons/utils.py",
-           "Source/Tests/SConscript"
-
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
       @zlib_path = Dir.pwd
@@ -63,7 +59,7 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
-    (testpath/"test.nsi").write <<-EOS.undent
+    (testpath/"test.nsi").write <<~EOS
       # name the installer
       OutFile "test.exe"
       # default section start; every NSIS script has at least one section.

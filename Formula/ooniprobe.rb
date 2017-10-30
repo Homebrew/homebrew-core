@@ -194,7 +194,7 @@ class Ooniprobe < Formula
     # obey the settings.ini we write
     inreplace "ooni/settings.py", /(IS_VIRTUALENV = ).*/, "\\1 False"
 
-    (buildpath/"ooni/settings.ini").atomic_write <<-EOS.undent
+    (buildpath/"ooni/settings.ini").atomic_write <<~EOS
       [directories]
       usr_share = #{pkgshare}
       var_lib = #{var}/lib/ooni
@@ -213,50 +213,51 @@ class Ooniprobe < Formula
     ln_s pkgshare/"decks/web.yaml", pkgshare/"current.deck"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Decks are installed to #{opt_pkgshare}/decks.
     EOS
   end
 
   plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"
 
-  def plist; <<-EOS.undent
-   <?xml version="1.0" encoding="UTF-8"?>
-   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-   <plist version="1.0">
-   <dict>
-     <key>Label</key>
-       <string>#{plist_name}</string>
-     <key>EnvironmentVariables</key>
-     <dict>
-       <key>PATH</key>
-       <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
-     </dict>
-     <key>ProgramArguments</key>
-     <array>
-       <string>#{opt_bin}/ooniprobe-agent</string>
-       <string>run</string>
-     </array>
-     <key>RunAtLoad</key>
-       <true/>
-     <key>KeepAlive</key>
-       <true/>
-     <key>StandardErrorPath</key>
-       <string>/dev/null</string>
-     <key>StandardOutPath</key>
-       <string>/dev/null</string>
-     <key>WorkingDirectory</key>
-       <string>#{opt_prefix}</string>
-   </dict>
-   </plist>
-   EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+          <string>#{plist_name}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/ooniprobe-agent</string>
+          <string>run</string>
+        </array>
+        <key>RunAtLoad</key>
+          <true/>
+        <key>KeepAlive</key>
+          <true/>
+        <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+        <key>StandardOutPath</key>
+          <string>/dev/null</string>
+        <key>WorkingDirectory</key>
+          <string>#{opt_prefix}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
     (testpath/"ooni/var_lib").mkpath
     (testpath/"ooni/etc").mkpath
 
-    (testpath/"ooni/settings.ini").atomic_write <<-EOS.undent
+    (testpath/"ooni/settings.ini").atomic_write <<~EOS
       [directories]
       usr_share = #{pkgshare}
       var_lib = #{testpath}/ooni/var_lib

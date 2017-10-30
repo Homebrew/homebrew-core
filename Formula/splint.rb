@@ -27,7 +27,7 @@ class Splint < Formula
 
   test do
     path = testpath/"test.c"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       #include <stdio.h>
       int main()
       {

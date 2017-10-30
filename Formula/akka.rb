@@ -28,7 +28,7 @@ class Akka < Formula
   end
 
   test do
-    (testpath/"src/main/java/sample/hello/HelloWorld.java").write <<-EOS.undent
+    (testpath/"src/main/java/sample/hello/HelloWorld.java").write <<~EOS
       package sample.hello;
 
       import akka.actor.Props;
@@ -55,7 +55,7 @@ class Akka < Formula
         }
       }
     EOS
-    (testpath/"src/main/java/sample/hello/Greeter.java").write <<-EOS.undent
+    (testpath/"src/main/java/sample/hello/Greeter.java").write <<~EOS
       package sample.hello;
 
       import akka.actor.UntypedActor;
@@ -77,7 +77,7 @@ class Akka < Formula
 
       }
     EOS
-    (testpath/"src/main/java/sample/hello/Main.java").write <<-EOS.undent
+    (testpath/"src/main/java/sample/hello/Main.java").write <<~EOS
       package sample.hello;
 
       public class Main {

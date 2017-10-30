@@ -23,7 +23,7 @@ class Texi2html < Formula
   end
 
   test do
-    (testpath/"test.texinfo").write <<-EOS.undent
+    (testpath/"test.texinfo").write <<~EOS
       @ifnottex
       @node Top
       @top Hello World!

@@ -7,6 +7,7 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
+    sha256 "e8a7ff71909cecf866a16051bb9a10c492d7f01ea096bc76870ee56af78aa1e7" => :high_sierra
     sha256 "14232fbbb6c53452c81f4fb0b1cfb90930b92f643f9969a7fea9b513beb5bf54" => :sierra
     sha256 "f2cb815d9c1d79592764ad6f2a3061205679b14e056f2f8ece3451c9fe0ba1b4" => :el_capitan
   end

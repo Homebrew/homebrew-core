@@ -3,7 +3,7 @@ class HbaseLZORequirement < Requirement
 
   satisfy(:build_env => false) { Tab.for_name("hbase").with?("lzo") }
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     hbase must not have disabled lzo compression to use it in opentsdb:
       brew install hbase
       not
@@ -13,7 +13,7 @@ class HbaseLZORequirement < Requirement
 end
 
 class Opentsdb < Formula
-  desc "Scalable, distributed Time Series Database."
+  desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.0/opentsdb-2.3.0.tar.gz"
   sha256 "90e982fecf8a830741622004070fe13a55fb2c51d01fc1dc5785ee013320375a"
@@ -57,7 +57,7 @@ class Opentsdb < Formula
     etc.install pkgshare/"etc/opentsdb"
     (pkgshare/"plugins/.keep").write ""
 
-    (bin/"start-tsdb.sh").write <<-EOS.undent
+    (bin/"start-tsdb.sh").write <<~EOS
       #!/bin/sh
       exec "#{opt_bin}/tsdb" tsd \\
         --config="#{etc}/opentsdb/opentsdb.conf" \\
@@ -84,7 +84,7 @@ class Opentsdb < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/opentsdb/bin/start-tsdb.sh"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -16,21 +16,21 @@ class Scalastyle < Formula
     libexec.install "scalastyle_2.11-#{version}-batch.jar"
     etc.install resource("default_config")
 
-    (bin/"scalastyle").write <<-EOS.undent
+    (bin/"scalastyle").write <<~EOS
       #!/bin/sh
       java -jar "#{libexec}/scalastyle_2.11-#{version}-batch.jar" --config "#{etc}/scalastyle_config.xml" "$@"
     EOS
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       A default configuration file is used from "#{etc}/scalastyle_config.xml"
       To override, pass a "--config your_config.xml" argument on the command line.
     EOS
   end
 
   test do
-    (testpath/"test.scala").write <<-EOS.undent
+    (testpath/"test.scala").write <<~EOS
       object HelloWorld {
         def main(args: Array[String]) {
           println("Hello")

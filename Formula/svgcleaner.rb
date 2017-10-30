@@ -1,5 +1,5 @@
 class Svgcleaner < Formula
-  desc "Cleans your SVG files by removing unnecessary data."
+  desc "Cleans your SVG files by removing unnecessary data"
   homepage "https://github.com/RazrFalcon/svgcleaner"
   url "https://github.com/RazrFalcon/svgcleaner/archive/v0.9.1.tar.gz"
   sha256 "c2a3fe8a70d58cd596366c8ec5aab5e703b97488daa4da4c2f03e723c0ae5d27"
@@ -20,7 +20,7 @@ class Svgcleaner < Formula
   end
 
   test do
-    (testpath/"in.svg").write <<-EOS.undent
+    (testpath/"in.svg").write <<~EOS
       <?xml version="1.0" encoding="UTF-8" standalone="no"?>
       <svg
          xmlns="http://www.w3.org/2000/svg"

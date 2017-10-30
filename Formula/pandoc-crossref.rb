@@ -3,7 +3,7 @@ require "language/haskell"
 class PandocCrossref < Formula
   include Language::Haskell::Cabal
 
-  desc "Pandoc filter for numbering and cross-referencing."
+  desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
   url "https://hackage.haskell.org/package/pandoc-crossref-0.2.6.0/pandoc-crossref-0.2.6.0.tar.gz"
   sha256 "aba0100030daf824a9f459754a7915fd2db74756b11a870e62721a0a08127bd5"
@@ -28,14 +28,14 @@ class PandocCrossref < Formula
   end
 
   test do
-    (testpath/"hello.md").write <<-EOS.undent
+    (testpath/"hello.md").write <<~EOS
       Demo for pandoc-crossref.
       See equation @eq:eqn1 for cross-referencing.
       Display equations are labelled and numbered
 
       $$ P_i(x) = \sum_i a_i x^i $$ {#eq:eqn1}
     EOS
-    (testpath/"expected.txt").write <<-EOS.undent
+    (testpath/"expected.txt").write <<~EOS
       <p>Demo for pandoc-crossref. See equation eq.M-BM- 1 for cross-referencing. Display equations are labelled and numbered</p>$
       <p><span id="eq:eqn1"><br /><span class="math display"><em>P</em><sub><em>i</em></sub>(<em>x</em>)=<em>u</em><em>m</em><sub><em>i</em></sub><em>a</em><sub><em>i</em></sub><em>x</em><sup><em>i</em></sup>M-bM-^@M-^AM-bM-^@M-^A(1)</span><br /></span></p>$
     EOS

@@ -12,7 +12,7 @@ class Grails < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The GRAILS_HOME directory is:
       #{opt_libexec}
     EOS

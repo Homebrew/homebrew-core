@@ -37,7 +37,7 @@ class Libgit2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <git2.h>
 
       int main(int argc, char *argv[]) {

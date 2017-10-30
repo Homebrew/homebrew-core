@@ -30,24 +30,24 @@ class Apgdiff < Formula
     sql_orig = testpath/"orig.sql"
     sql_new = testpath/"new.sql"
 
-    sql_orig.write <<-EOS.undent
-    SET search_path = public, pg_catalog;
-    SET default_tablespace = '';
-    CREATE TABLE testtable (field1 integer);
-    ALTER TABLE public.testtable OWNER TO fordfrog;
+    sql_orig.write <<~EOS
+      SET search_path = public, pg_catalog;
+      SET default_tablespace = '';
+      CREATE TABLE testtable (field1 integer);
+      ALTER TABLE public.testtable OWNER TO fordfrog;
     EOS
 
-    sql_new.write <<-EOS.undent
-    SET search_path = public, pg_catalog;
-    SET default_tablespace = '';
-    CREATE TABLE testtable (field1 integer,
-      field2 boolean DEFAULT false NOT NULL);
-    ALTER TABLE public.testtable OWNER TO fordfrog;
+    sql_new.write <<~EOS
+      SET search_path = public, pg_catalog;
+      SET default_tablespace = '';
+      CREATE TABLE testtable (field1 integer,
+        field2 boolean DEFAULT false NOT NULL);
+      ALTER TABLE public.testtable OWNER TO fordfrog;
     EOS
 
-    expected = <<-EOS.undent.strip
-    ALTER TABLE testtable
-    \tADD COLUMN field2 boolean DEFAULT false NOT NULL;
+    expected = <<~EOS.strip
+      ALTER TABLE testtable
+      \tADD COLUMN field2 boolean DEFAULT false NOT NULL;
     EOS
 
     result = pipe_output("#{bin}/apgdiff #{sql_orig} #{sql_new}").strip

@@ -34,7 +34,7 @@ class Pcb2gcode < Formula
   end
 
   test do
-    (testpath/"front.gbr").write <<-EOS.undent
+    (testpath/"front.gbr").write <<~EOS
       %FSLAX46Y46*%
       %MOMM*%
       G01*
@@ -51,7 +51,7 @@ class Pcb2gcode < Formula
       X127000000Y-63500000D01*
       M02*
     EOS
-    (testpath/"edge.gbr").write <<-EOS.undent
+    (testpath/"edge.gbr").write <<~EOS
       %FSLAX46Y46*%
       %MOMM*%
       G01*
@@ -64,7 +64,7 @@ class Pcb2gcode < Formula
       X123190000Y-67310000D01*
       M02*
     EOS
-    (testpath/"drill.drl").write <<-EOS.undent
+    (testpath/"drill.drl").write <<~EOS
       M48
       FMAT,2
       METRIC,TZ
@@ -79,7 +79,7 @@ class Pcb2gcode < Formula
       T0
       M30
     EOS
-    (testpath/"millproject").write <<-EOS.undent
+    (testpath/"millproject").write <<~EOS
       dpi=500
       metric=true
       zchange=10

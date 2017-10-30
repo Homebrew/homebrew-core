@@ -29,7 +29,7 @@ class Libmodbus < Formula
   end
 
   test do
-    (testpath/"hellomodbus.c").write <<-EOS.undent
+    (testpath/"hellomodbus.c").write <<~EOS
       #include <modbus.h>
       #include <stdio.h>
       int main() {

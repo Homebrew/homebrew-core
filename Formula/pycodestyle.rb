@@ -13,21 +13,21 @@ class Pycodestyle < Formula
 
   test do
     # test invocation on a file with no issues
-    (testpath/"ok.py").write <<-EOS.undent
+    (testpath/"ok.py").write <<~EOS
       print(1)
     EOS
     assert_equal "",
       shell_output("#{bin}/pycodestyle ok.py")
 
     # test invocation on a file with a whitespace style issue
-    (testpath/"ws.py").write <<-EOS.undent
+    (testpath/"ws.py").write <<~EOS
       print( 1)
     EOS
     assert_equal "ws.py:1:7: E201 whitespace after '('\n",
       shell_output("#{bin}/pycodestyle ws.py", 1)
 
     # test invocation on a file with an import not at top of file
-    (testpath/"imp.py").write <<-EOS.undent
+    (testpath/"imp.py").write <<~EOS
       pass
       import sys
     EOS

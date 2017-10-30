@@ -1,25 +1,24 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/v1.3.1.tar.gz"
-  sha256 "322768c53a2e83f84b69e9f85dd9865d60d3001244c4a6b6a15ff779c6bd8b4a"
+  url "https://github.com/mvdan/sh/archive/v2.0.0.tar.gz"
+  sha256 "60b643135df5dc44721933ff6eb0863b5760db0b6da3a02c5659e58d01393f25"
   head "https://github.com/mvdan/sh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7de33e97c91cc32f5ce4f63d6bd3511926b717cf209f024d24f8662e8174befa" => :high_sierra
-    sha256 "3900ddb7c8a1e991088438c1192a8d677d3887af8e841d8e38102d54dca828b9" => :sierra
-    sha256 "e9886469456fa743b89f9b586c3042479fe08291f8d52b91b1f3725df079b1b1" => :el_capitan
-    sha256 "90a9775ab847b5d4bd6584c142f19a9d3d4c8073a409a3e0ff1781a880ded6f1" => :yosemite
+    sha256 "3058f1b2fec677ad43054cd5cc7b9403d79ab94337a11093c01780f5489b0c3b" => :high_sierra
+    sha256 "2d55298e924a8dd9637dfe7c075d1b00d9b1027991ab69884501a71058ae507c" => :sierra
+    sha256 "2dd308282492d562fc7fec70e55b7d8b34132374e89f639cdb8bd86565438aef" => :el_capitan
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/mvdan").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/mvdan/sh"
-    system "go", "build", "-a", "-tags", "production brew", "-o", "#{bin}/shfmt", "github.com/mvdan/sh/cmd/shfmt"
+    (buildpath/"src/mvdan.cc").mkpath
+    ln_sf buildpath, buildpath/"src/mvdan.cc/sh"
+    system "go", "build", "-a", "-tags", "production brew", "-o", "#{bin}/shfmt", "mvdan.cc/sh/cmd/shfmt"
   end
 
   test do

@@ -28,7 +28,7 @@ class Hadoop < Formula
       "export JAVA_HOME=\"$(/usr/libexec/java_home)\""
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In Hadoop's config file:
       #{libexec}/etc/hadoop/hadoop-env.sh,
       #{libexec}/etc/hadoop/mapred-env.sh and

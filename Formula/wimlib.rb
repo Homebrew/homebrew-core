@@ -40,7 +40,7 @@ class Wimlib < Formula
     # capture an image
     ENV.append "WIMLIB_IMAGEX_USE_UTF8", "1"
     system "#{bin}/wimcapture", "foo", "bar.wim"
-    assert File.exist?("bar.wim")
+    assert_predicate testpath/"bar.wim", :exist?
 
     # get info on the image
     system "#{bin}/wiminfo", "bar.wim"

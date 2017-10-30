@@ -34,7 +34,7 @@ class GhcAT80 < Formula
 
   if MacOS.version <= :lion
     fails_with :clang do
-      cause <<-EOS.undent
+      cause <<~EOS
         Fails to bootstrap ghc-cabal. Error is:
           libraries/Cabal/Cabal/Distribution/Compat/Binary/Class.hs:398:14:
               The last statement in a 'do' block must be an expression

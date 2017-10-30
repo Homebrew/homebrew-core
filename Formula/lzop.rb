@@ -27,7 +27,7 @@ class Lzop < Formula
     path.write text
 
     system "#{bin}/lzop", "test"
-    assert File.exist?("test.lzo")
+    assert_predicate testpath/"test.lzo", :exist?
     rm path
 
     system "#{bin}/lzop", "-d", "test.lzo"

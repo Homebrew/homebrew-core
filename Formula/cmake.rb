@@ -1,15 +1,45 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.9/cmake-3.9.3.tar.gz"
-  sha256 "8eaf75e1e932159aae98ab5e7491499545554be62a08cbcbc7c75c84b999f28a"
   revision 1
+
   head "https://cmake.org/cmake.git"
+
+  stable do
+    url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
+    sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
+
+    # The two patches below fix cmake for undefined symbols check on macOS 10.12
+    # They can be removed for cmake >= 3.10
+    if MacOS.version == :sierra && DevelopmentTools.clang_build_version >= 900
+      patch do
+        url "https://gitlab.kitware.com/cmake/cmake/commit/96329d5dffdd5a22c5b4428119b5d3762a8857a7.diff"
+        sha256 "c394d1b6e59e9bcf8e5db8a0a1189203e056c230a22aa8d60079fea7be6026bd"
+      end
+
+      patch do
+        url "https://gitlab.kitware.com/cmake/cmake/commit/f1a4ecdc0c62b46c90df5e8d20e6f61d06063894.diff"
+        sha256 "d32fa9c342d88e53b009f1fbeecc5872a79eec4bf2c8399f0fc2eeda5b0a4f1e"
+      end
+
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/105060cf885/cmake/cmake-backport-kwsys-utimensat-fix.diff"
+        sha256 "3e8aa1a6a1039e7a9be6fd0ca6abf09ca00fb07e1275bb3e55dc44b8b9dc746c"
+      end
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5adade9d76dbdeef0fcfd8dfcbee8a6359638607dc53eed6f82f6f4be6855126" => :high_sierra
-    sha256 "7ea7a60b1ebd5859e7d8a6d9b781e3b976cfbac22ef52e06dbf9bb3f603012ac" => :el_capitan_or_later
+    rebuild 1
+    sha256 "679bfd5a1928006744149b43560ac58774999d0b5eb4202ae03263eabb88f1dd" => :high_sierra
+    sha256 "84277818d679745c2dc7cef2233e784df33273cd957df461695188027bf95784" => :sierra
+    sha256 "d22b4dfb08ef4b85cdc0c942475d08eadec26618d5b797fbe8e9605e1f0641d8" => :el_capitan
+  end
+
+  devel do
+    url "https://cmake.org/files/v3.10/cmake-3.10.0-rc3.tar.gz"
+    sha256 "155431a645a381d2f254058d7c23c9a2063ca37554c8576e5979281b57d80b14"
   end
 
   option "without-docs", "Don't build man pages"

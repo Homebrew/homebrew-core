@@ -46,12 +46,12 @@ class Latexml < Formula
   end
 
   test do
-    (testpath/"test.tex").write <<-EOS.undent
-    \\documentclass{article}
-    \\title{LaTeXML Homebrew Test}
-    \\begin{document}
-    \\maketitle
-    \\end{document}
+    (testpath/"test.tex").write <<~EOS
+      \\documentclass{article}
+      \\title{LaTeXML Homebrew Test}
+      \\begin{document}
+      \\maketitle
+      \\end{document}
     EOS
     assert_match %r{<title>LaTeXML Homebrew Test</title>},
       shell_output("#{bin}/latexml --quiet #{testpath}/test.tex")

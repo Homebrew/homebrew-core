@@ -22,7 +22,7 @@ class Ratfor < Formula
   end
 
   test do
-    (testpath/"test.r").write <<-EOS.undent
+    (testpath/"test.r").write <<~EOS
       integer x,y
       x=1; y=2
       if(x == y)

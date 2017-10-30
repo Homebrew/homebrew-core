@@ -1,28 +1,15 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.7.1/apache-arrow-0.7.1.tar.gz"
+  sha256 "f8f114d427a8702791c18a26bdcc9df2a274b8388e08d2d8c73dd09dc08e888e"
   head "https://github.com/apache/arrow.git"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.7.0/apache-arrow-0.7.0.tar.gz"
-    sha256 "5d8e976e0c8a5f39087e3cd4c39efd45ad8960ffc5207ed02e999d36dc5b0e79"
-
-    # Remove for > 0.7.0
-    # Upstream commit from 21 Sep 2017 "ARROW-1591: C++: Xcode 9 is not
-    # correctly detected"
-    if DevelopmentTools.clang_build_version >= 900
-      patch do
-        url "https://github.com/apache/arrow/commit/c470c9c2d.patch?full_index=1"
-        sha256 "762265b5903fba98ab5b92e7c3d1632bd0ca3f5fdcf395d67047698e9b74bfcc"
-      end
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "4afb46a3cc65369fc49b7dd57bbfa097b6a8458aad78232b9ed3f242f7f62cf1" => :high_sierra
-    sha256 "2759120287b588d05fb10116d6521d632df7ba297e7ef59ea3ad678085d0304b" => :sierra
-    sha256 "5a571f534f97b6ddcd3198aee2c1bcd6cc38e6435debc0d0eb3d9f3b03650779" => :el_capitan
+    sha256 "cf14b21dba18ec0a9bafa2a2e7447aae2e317412b37b24bcc40cf6fc6cc53852" => :high_sierra
+    sha256 "6a9dba93b7552698422e8db73e6b16e59f4dc2f8a8f3dc1231d62a0827cd7488" => :sierra
+    sha256 "2571635787d41ec3930506e7d47f8e52b94dd7ad3c1f6770e6690e803cbda4c0" => :el_capitan
   end
 
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
@@ -44,7 +31,7 @@ class ApacheArrow < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "arrow/api.h"
       int main(void)
       {

@@ -33,7 +33,7 @@ class Gecode < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <gecode/driver.hh>
       #include <gecode/int.hh>
       #if defined(GECODE_HAS_QT) && defined(GECODE_HAS_GIST)

@@ -18,23 +18,21 @@ class Jasmin < Formula
   end
 
   test do
-    (testpath/"test.j").write <<-EOS.undent
-    .class public HomebrewTest
-    .super java/lang/Object
-
-    .method public <init>()V
-       aload_0
-       invokespecial java/lang/Object/<init>()V
-       return
-    .end method
-
-    .method public static main([Ljava/lang/String;)V
-       .limit stack 2
-       getstatic java/lang/System/out Ljava/io/PrintStream;
-       ldc "Hello Homebrew"
-       invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-       return
-    .end method
+    (testpath/"test.j").write <<~EOS
+      .class public HomebrewTest
+      .super java/lang/Object
+       .method public <init>()V
+         aload_0
+         invokespecial java/lang/Object/<init>()V
+         return
+      .end method
+       .method public static main([Ljava/lang/String;)V
+         .limit stack 2
+         getstatic java/lang/System/out Ljava/io/PrintStream;
+         ldc "Hello Homebrew"
+         invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+         return
+      .end method
     EOS
     system "#{bin}/jasmin", "#{testpath}/test.j"
     assert_equal "Hello Homebrew\n", shell_output("java HomebrewTest")

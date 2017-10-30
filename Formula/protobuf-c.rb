@@ -21,7 +21,7 @@ class ProtobufC < Formula
   end
 
   test do
-    testdata = <<-EOS.undent
+    testdata = <<~EOS
       syntax = "proto3";
       package test;
       message TestCase {

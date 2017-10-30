@@ -45,7 +45,7 @@ class Plplot < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <plplot.h>
       int main(int argc, char *argv[]) {
         plparseopts(&argc, argv, PL_PARSE_FULL);

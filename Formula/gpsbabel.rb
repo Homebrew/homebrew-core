@@ -6,6 +6,7 @@ class Gpsbabel < Formula
   head "https://github.com/gpsbabel/gpsbabel.git"
 
   bottle do
+    sha256 "661fe5794fa01cf8ee57511fc7dcd0a188cea17ef4ff307fadcc86f45fc074fe" => :high_sierra
     sha256 "573d8ca5e3785f8f5b02b148c63fcaa59d59b30ee4617a7e1cc6ae89df348973" => :sierra
     sha256 "61011f8373be4e2810679c3c608e39f73fc7b47033ada9ae0b6f33513f185827" => :el_capitan
     sha256 "b9dc431b4db6bd91e1a839e4650eafdb9dcf71f238b6d7fda606aa1c36303f10" => :yosemite
@@ -13,6 +14,12 @@ class Gpsbabel < Formula
 
   depends_on "libusb" => :optional
   depends_on "qt@5.7"
+
+  # Fix build with Xcode 9, remove for next version
+  patch do
+    url "https://github.com/gpsbabel/gpsbabel/commit/b7365b93.patch?full_index=1"
+    sha256 "e949182def36fef99889e43ba4bc4d61e36d6b95badc74188a8cd3da5156d341"
+  end
 
   def install
     ENV.cxx11
@@ -24,7 +31,7 @@ class Gpsbabel < Formula
   end
 
   test do
-    (testpath/"test.loc").write <<-EOS.undent
+    (testpath/"test.loc").write <<~EOS
       <?xml version="1.0"?>
       <loc version="1.0">
         <waypoint>
@@ -34,6 +41,6 @@ class Gpsbabel < Formula
       </loc>
     EOS
     system bin/"gpsbabel", "-i", "geo", "-f", "test.loc", "-o", "gpx", "-F", "test.gpx"
-    assert File.exist? "test.gpx"
+    assert_predicate testpath/"test.gpx", :exist?
   end
 end

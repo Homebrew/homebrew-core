@@ -23,7 +23,7 @@ class Gnatsd < Formula
 
   plist_options :manual => "gnatsd"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -52,7 +52,7 @@ class Gnatsd < Formula
 
     begin
       assert_match version.to_s, shell_output("curl localhost:8085")
-      assert File.exist?(testpath/"log")
+      assert_predicate testpath/"log", :exist?
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid

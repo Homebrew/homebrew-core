@@ -35,7 +35,7 @@ class Xmlto < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       <?xmlif if foo='bar'?>
       Passing test.
       <?xmlif fi?>

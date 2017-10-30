@@ -55,7 +55,7 @@ class Falcon < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       looper = .[brigade
          .[{ val, text => oob( [val+1, "Changed"] ) }
            { val, text => val < 10 ? oob(1): "Homebrew" }]]

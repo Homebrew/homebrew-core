@@ -19,7 +19,7 @@ class Chruby < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following to the ~/.bash_profile or ~/.zshrc file:
       source #{opt_pkgshare}/chruby.sh
 

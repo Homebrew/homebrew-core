@@ -2,17 +2,16 @@ class Pldebugger < Formula
   desc "PL/pgSQL debugger server-side code"
   homepage "https://git.postgresql.org/gitweb/"
   url "https://git.postgresql.org/git/pldebugger.git",
-      :revision => "4058a938f588397b2923247974eb22106f530ebb"
-  version "1.0" # See default_version field in pldbgapi.control
-  revision 3
+      :tag => "v1.0",
+      :revision => "ca1041dc3db6f516899be669dc6fbfd6339f8168"
+  revision 5
   head "https://git.postgresql.org/git/pldebugger.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31c78de62ec15c0010d5e341b2fc4c947f337379fbc03e160773f2703fb66f31" => :high_sierra
-    sha256 "c672b8a6594087205bdf0e700a2563b34be401d1553172386296f558f6848e9e" => :sierra
-    sha256 "62e41779ae932b596865c17343ed72bc6fb2ced041360c4df95b5ec2e5555be0" => :el_capitan
-    sha256 "322f10ac752eafba3f029c2edb59a9cb63fcc09c76f8751619cd835df46c8122" => :yosemite
+    sha256 "7e374cae3302be2d942f4cda8f81952705cf415c5544de6ea06a90133d0e4c3b" => :high_sierra
+    sha256 "b6ff141375d5ea2a271fb230369afba1bbc17ca0d247a7a949e2e4485c46d7a6" => :sierra
+    sha256 "e513476dab1d03c3a316a7f6221fd647a001dc539f531f4f38c62a31862b011a" => :el_capitan
   end
 
   depends_on "postgresql"

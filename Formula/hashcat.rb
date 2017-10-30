@@ -1,19 +1,29 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-3.6.0.tar.gz"
-  # Note the mirror will return 301 until the version becomes outdated.
-  mirror "https://hashcat.net/files_legacy/hashcat-3.6.0.tar.gz"
-  sha256 "3ef7550a4fbd083e583a1dc1e482f1476a36ad95c340b64b3e50cd68f06ef088"
   version_scheme 1
 
   head "https://github.com/hashcat/hashcat.git"
 
+  stable do
+    url "https://hashcat.net/files/hashcat-4.0.0.tar.gz"
+    # Note the mirror will return 301 until the version becomes outdated.
+    mirror "https://hashcat.net/files_legacy/hashcat-4.0.0.tar.gz"
+    sha256 "9e8cb81bf26024eca2e117ddf8fd16316af3dd337ecf4e9917acbb1720c13b50"
+
+    # Upstream commit from 28 Oct 2017 "fixes #1412: sed for VERSION_EXPORT
+    # fixed compilation problem"
+    # See https://github.com/hashcat/hashcat/commit/c06c5ddd4857b0a5d7862451da431c42287918ce
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/284f381/hashcat/VERSION_TAG.patch"
+      sha256 "9dbde3d9b6ac22145fa328d53eaf8b1da0720fde7e064b71202d126655d55ebe"
+    end
+  end
+
   bottle do
-    sha256 "3914d565db914d88388da81649a040da53cf89cd23b4fe56937f9b66278d903d" => :high_sierra
-    sha256 "dae4e47155597707b4b3a4fec6cfb07f41c4c14bbb082a5aa1c976f63d04f842" => :sierra
-    sha256 "c2b3ff55dbf3b1727dcdc109b43d5f7277495d320235621d08e24cce2d633635" => :el_capitan
-    sha256 "dbcfaade00d07347efccf5f8e1966bc3ad249b7c4f95649ada5c5e2796854afa" => :yosemite
+    sha256 "421d0442ba641c9f5632cb1212e4991235b81b89bc05fe6e01296139ced0a6f5" => :high_sierra
+    sha256 "ff6b5eb446180ccbb3b6c13e5a5b79913364a2a068c3006f92a2aa0ff076406e" => :sierra
+    sha256 "36b5521dcad040853a745fbdf6e248e0e2f79b2810289d67ddc49b004682c8fb" => :el_capitan
   end
 
   depends_on "gnu-sed" => :build
@@ -24,6 +34,12 @@ class Hashcat < Formula
   depends_on :macos => :yosemite
 
   def install
+    system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
+
+    # Fix "install: mkdir /usr/local/Cellar/hashcat/4.0.0/share: File exists"
+    # Reported 28 Oct 2017 https://github.com/hashcat/hashcat/issues/1414
+    ENV.deparallelize
+
     system "make", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
   end
 

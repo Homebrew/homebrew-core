@@ -1,17 +1,18 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.3.1.tar.gz"
-  sha256 "99be5e69732bf2720f3f34a1beb14ba06d440431bc55d308307fdbd1f877f6e5"
+  url "https://github.com/xmrig/xmrig/archive/v2.4.2.tar.gz"
+  sha256 "72ecbf76cde84bad7af3ed0af20d82223fb6ccb2de37f8a4ea90959200b1e605"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "81eea7be289bbf25c539eca92d4ad76b6f4799001ccf7e64b60ac347e71b0ab1" => :high_sierra
-    sha256 "63a9649a47038d8f1c057cbfdf777b19f4196f5e296a7c75706b7776ca423bae" => :sierra
-    sha256 "a671b34185128ce84b902225f65c624811f334075d15fd78e56e7c909e6232c9" => :el_capitan
+    cellar :any
+    sha256 "0f724c618ea55140036dafbb1a60f88a0a1a6a38c6d46520196e86dbaf1a86d6" => :high_sierra
+    sha256 "54978a0c00a2231cf6c219f40ec41c173783b03403284a9064e4e2961fc02976" => :sierra
+    sha256 "b5b300b3e6a4eea81f36f2aaf59822d268f4e780a1288a05cabd8ef1fcb83683" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "libmicrohttpd"
   depends_on "libuv"
 
   def install

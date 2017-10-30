@@ -23,7 +23,7 @@ class Libb2 < Formula
   end
 
   test do
-    (testpath/"blake2test.c").write <<-EOS.undent
+    (testpath/"blake2test.c").write <<~EOS
       #include <blake2.h>
       #include <stdio.h>
       #include <string.h>

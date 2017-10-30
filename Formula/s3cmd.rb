@@ -1,23 +1,22 @@
 class S3cmd < Formula
   desc "Command-line tool for the Amazon S3 service"
   homepage "http://s3tools.org/s3cmd"
-  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.0/s3cmd-2.0.0.tar.gz"
-  sha256 "bf2a50802f1031cba83e99be488965803899d8ab0228c800c833b55c7269cd48"
+  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.1/s3cmd-2.0.1.tar.gz"
+  sha256 "caf09f1473301c442fba6431c983c361c9af8bde503dac0953f0d2f8f2c53c8f"
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4a549ae2ffe3d604c94d92c4b5028de1053ce654dfd690b717549afbee5d8952" => :high_sierra
-    sha256 "5b768bdb9e81752dafd0f7d0bbffb349a663665322dee8659d5150b74b849a51" => :sierra
-    sha256 "10ece7a8b1360bd8c0360cadb104dd071728622c2889bbd5acaf389ff899bab1" => :el_capitan
-    sha256 "10ece7a8b1360bd8c0360cadb104dd071728622c2889bbd5acaf389ff899bab1" => :yosemite
+    sha256 "b78ccd0c98b3bad7db9e6e5fec6382ae99bc31c692f87a525c1de44db892800e" => :high_sierra
+    sha256 "eced51cbc0547a531347011af6720d86f0ecbb3138512c7c01733e9011d18d85" => :sierra
+    sha256 "fc4aa3b27ee199034923de841b1e432702036f95b2168502ff148b610880d702" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
-    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
+    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
+    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
   end
 
   resource "python-magic" do
@@ -26,8 +25,8 @@ class S3cmd < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   def install

@@ -144,17 +144,17 @@ class MingwW64 < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       #include <windows.h>
       int main() { puts("Hello world!");
         MessageBox(NULL, TEXT("Hello GUI!"), TEXT("HelloMsg"), 0); return 0; }
     EOS
-    (testpath/"hello.cc").write <<-EOS.undent
+    (testpath/"hello.cc").write <<~EOS
       #include <iostream>
       int main() { std::cout << "Hello, world!" << std::endl; return 0; }
     EOS
-    (testpath/"hello.f90").write <<-EOS.undent
+    (testpath/"hello.f90").write <<~EOS
       program hello ; print *, "Hello, world!" ; end program hello
     EOS
 

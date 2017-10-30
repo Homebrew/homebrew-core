@@ -1,5 +1,5 @@
 class Tokei < Formula
-  desc "Program that allows you to count code, quickly."
+  desc "Program that allows you to count code, quickly"
   homepage "https://github.com/Aaronepower/tokei"
   url "https://github.com/Aaronepower/tokei/archive/v6.1.2.tar.gz"
   sha256 "736bab89800c397acc3be961af12b80acc2ca71dc990792fff8935018a2f0698"
@@ -19,7 +19,7 @@ class Tokei < Formula
   end
 
   test do
-    (testpath/"lib.rs").write <<-EOS.undent
+    (testpath/"lib.rs").write <<~EOS
       #[cfg(test)]
       mod tests {
           #[test]

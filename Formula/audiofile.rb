@@ -33,12 +33,9 @@ class Audiofile < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-lcov", "Enable Code Coverage support using lcov"
   option "with-test", "Run the test suite during install (~30sec)"
 
   deprecated_option "with-check" => "with-test"
-
-  depends_on "lcov" => :optional
 
   # These have all been reported upstream but beside
   # 03_CVE-2015-7747 not yet merged or fixed.
@@ -75,7 +72,6 @@ class Audiofile < Formula
 
     configure = build.head? ? "./autogen.sh" : "./configure"
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    args << "--enable-coverage" if build.with? "lcov"
     system configure, *args
     system "make"
     system "make", "check" if build.with? "test"

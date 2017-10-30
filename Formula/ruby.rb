@@ -3,11 +3,18 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.2.tar.xz"
   sha256 "748a8980d30141bd1a4124e11745bb105b436fb1890826e0d2b9ea31af27f735"
+  revision 1
 
   bottle do
-    sha256 "1d7e596bdd35aa4759945f82e8581fa9ec61325573b3203d3217ce13d2c574a8" => :high_sierra
-    sha256 "77c0c862695e7d2bb028bb8c9129552088a2af055bf7161c6a44771747ad60b6" => :sierra
-    sha256 "0f8cb64f36323fd90e53d54138b024296e09dc662e3969cd7e122a98e1eea3f3" => :el_capitan
+    sha256 "5a1d5adf5f9b0f151a484edcc292764a0b0dbef61eb667c59aa850d0ad3d7626" => :high_sierra
+    sha256 "4f9eda03468b35441712c442bd4f2493b706e2f3cd311e0e330571b6edbc6ce5" => :sierra
+    sha256 "251c9fe64952fdf202df879a111fe450e4de65dd3349435bcd354ecd937aaac4" => :el_capitan
+  end
+
+  devel do
+    url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0-preview1.tar.xz"
+    version "2.5.0-preview1"
+    sha256 "c2f518eb04b38bdd562ba5611abd2521248a1608fc466368563dd794ddeddd09"
   end
 
   head do
@@ -25,6 +32,26 @@ class Ruby < Formula
   depends_on "libffi" => :optional
   depends_on "libyaml"
   depends_on "openssl"
+
+  # Should be updated only when Ruby is updated (if an update is available).
+  # The exception is Rubygem security fixes, which mandate updating this
+  # formula & the versioned equivalents and bumping the revisions.
+  resource "rubygems" do
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+  end
+
+  def program_suffix
+    build.with?("suffix") ? "24" : ""
+  end
+
+  def ruby
+    "#{bin}/ruby#{program_suffix}"
+  end
+
+  def api_version
+    Utils.popen_read("#{ruby} -e 'print Gem.ruby_api_version'")
+  end
 
   def install
     # otherwise `gem` command breaks
@@ -76,17 +103,35 @@ class Ruby < Formula
 
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
+
+    # This is easier than trying to keep both current & versioned Ruby
+    # formulae repeatedly updated with Rubygem patches.
+    resource("rubygems").stage do
+      ENV.prepend_path "PATH", bin
+
+      system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+      rg_in = lib/"ruby/#{api_version}"
+
+      # Remove bundled Rubygem version.
+      rm_rf rg_in/"rubygems"
+      rm_f rg_in/"rubygems.rb"
+      rm_f rg_in/"ubygems.rb"
+      rm_f bin/"gem#{program_suffix}"
+
+      # Drop in the new version.
+      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
+      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
+      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
+    end
   end
 
   def post_install
-    ruby = "#{bin}/ruby#{program_suffix}"
-    abi_version = `#{ruby} -e 'print Gem.ruby_api_version'`
-
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
-    config_file.write rubygems_config(abi_version)
+    config_file.write rubygems_config(api_version)
 
     # Create the sitedir and vendordir that were skipped during install
     %w[sitearchdir vendorarchdir].each do |dir|
@@ -94,15 +139,11 @@ class Ruby < Formula
     end
   end
 
-  def program_suffix
-    build.with?("suffix") ? "24" : ""
-  end
-
   def rubygems_bindir
     "#{HOMEBREW_PREFIX}/bin"
   end
 
-  def rubygems_config(abi_version); <<-EOS.undent
+  def rubygems_config(api_version); <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir
@@ -117,7 +158,7 @@ class Ruby < Formula
           "lib",
           "ruby",
           "gems",
-          "#{abi_version}"
+          "#{api_version}"
         ]
 
         @default_dir ||= File.join(*path)

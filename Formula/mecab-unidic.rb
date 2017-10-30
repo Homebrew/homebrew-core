@@ -1,7 +1,8 @@
 class MecabUnidic < Formula
   desc "Morphological analyzer for MeCab"
-  homepage "https://osdn.jp/projects/unidic/"
-  url "http://dl.osdn.jp/unidic/58338/unidic-mecab-2.1.2_src.zip"
+  homepage "https://osdn.net/projects/unidic/"
+  url "https://ja.osdn.net/frs/redir.php?f=%2Funidic%2F58338%2Funidic-mecab-2.1.2_src.zip"
+  mirror "http://dl.osdn.jp/unidic/58338/unidic-mecab-2.1.2_src.zip"
   sha256 "6cce98269214ce7de6159f61a25ffc5b436375c098cc86d6aa98c0605cbf90d4"
 
   bottle do
@@ -26,14 +27,15 @@ class MecabUnidic < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
-     To enable mecab-unidic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
-       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/unidic
+  def caveats
+    <<~EOS
+      To enable mecab-unidic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
+        dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/unidic
     EOS
   end
 
   test do
-    (testpath/"mecabrc").write <<-EOS.undent
+    (testpath/"mecabrc").write <<~EOS
       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/unidic
     EOS
 

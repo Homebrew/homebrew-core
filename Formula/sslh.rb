@@ -3,15 +3,14 @@ class Sslh < Formula
   homepage "https://www.rutschle.net/tech/sslh.shtml"
   url "https://www.rutschle.net/tech/sslh/sslh-v1.18.tar.gz"
   sha256 "1601a5b377dcafc6b47d2fbb8d4d25cceb83053a4adcc5874d501a2d5a7745ad"
+  revision 1
   head "https://github.com/yrutschle/sslh.git"
 
   bottle do
     cellar :any
-    sha256 "e4c3c1eddd7b63c313a31d07f2b6a022c80a44e18e8c5b4b0dc6619f517dbe9f" => :high_sierra
-    sha256 "e359c254424ce33e3fce90e4de2ba642c551ba7c64997098b2aebda349574884" => :sierra
-    sha256 "5752d320b559239122b712dc145d3fabe760c4f32e6644062bcd542d1cf4a89c" => :el_capitan
-    sha256 "18a2489ddb8a4049a2885b947afa7baee2b2b9dca43c8e6639dba08059a4f810" => :yosemite
-    sha256 "b60865fd9ba00bd093e678c5d90b57aa85926444e847058e5a0389512b60abde" => :mavericks
+    sha256 "fe98f0cd7455170be02b755a9501ac54e8e95716344f7b01052dd8651e24bb2f" => :high_sierra
+    sha256 "db949cf82e5db94862e6ac64f952a4face1bdf04e5aa5058f858deba64e5c826" => :sierra
+    sha256 "5803ea7f103f4f36c00842a2f7aee0e02bd87a077e713040113ffa5fa2f94fdc" => :el_capitan
   end
 
   depends_on "libconfig"

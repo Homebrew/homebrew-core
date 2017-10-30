@@ -4,19 +4,19 @@ class Xsd < Formula
   url "http://www.codesynthesis.com/download/xsd/4.0/xsd-4.0.0+dep.tar.bz2"
   version "4.0.0"
   sha256 "eca52a9c8f52cdbe2ae4e364e4a909503493a0d51ea388fc6c9734565a859817"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f7ce690998c7d2ae548bb24dc046fdaf5d94eb73e575fb071ce2a7d74c31e85d" => :high_sierra
-    sha256 "693b8c98e0432ab90465f13cff95ebce95e5886d978de800ed5b3e1540c4588d" => :sierra
-    sha256 "8824a33e46d207c685620f71906d37d36a0a63953df81939ac36919d075729a4" => :el_capitan
-    sha256 "1224c29a5fb429c32bf9e0267320492a85c7b3fac8d58d07d0c2b247f3af1362" => :yosemite
-    sha256 "74014971be66fd561b27b6f92687115a8cf7bea04596ca8155e9e6ebb3715519" => :mavericks
-    sha256 "de8d94a5cc933a23507b0c677f4756a400c2cc5e16c6dabdd5363fa61737b0f9" => :mountain_lion
+    sha256 "25dfd3dbcbe7f6f442bf6d45adaa849b5fbc4e7360ca4d9084bb1910252f992d" => :high_sierra
+    sha256 "935d1bcd6d9cf35cdd42e68ddb9931ad29df0834b76d6f4b9cdaa743176d7bae" => :sierra
+    sha256 "4e4a26fc0a99b11e8a740b6f5041964b682048de7ff0a9cbfd15ffea263f0c62" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "xerces-c"
+
+  needs :cxx11
 
   # Patches:
   # 1. As of version 4.0.0, Clang fails to compile if the <iostream> header is
@@ -33,42 +33,43 @@ class Xsd < Formula
 
   def install
     ENV.append "LDFLAGS", `pkg-config --libs --static xerces-c`.chomp
+    ENV.cxx11
     system "make", "install", "install_prefix=#{prefix}"
   end
 
   test do
     schema = testpath/"meaningoflife.xsd"
-    schema.write <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-               targetNamespace="http://brew.sh/XSDTest" xmlns="http://brew.sh/XSDTest">
-        <xs:element name="MeaningOfLife" type="xs:positiveInteger"/>
-    </xs:schema>
+    schema.write <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                 targetNamespace="http://brew.sh/XSDTest" xmlns="http://brew.sh/XSDTest">
+          <xs:element name="MeaningOfLife" type="xs:positiveInteger"/>
+      </xs:schema>
     EOS
     instance = testpath/"meaningoflife.xml"
-    instance.write <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <MeaningOfLife xmlns="http://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://brew.sh/XSDTest meaningoflife.xsd">
-        42
-    </MeaningOfLife>
+    instance.write <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <MeaningOfLife xmlns="http://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://brew.sh/XSDTest meaningoflife.xsd">
+          42
+      </MeaningOfLife>
     EOS
     xsdtest = testpath/"xsdtest.cxx"
-    xsdtest.write <<-EOS.undent
-    #include <cassert>
-    #include "meaningoflife.hxx"
-    int main (int argc, char *argv[]) {
-        assert(2==argc);
-        std::auto_ptr< ::xml_schema::positive_integer> x = XSDTest::MeaningOfLife(argv[1]);
-        assert(42==*x);
-        return 0;
-    }
+    xsdtest.write <<~EOS
+      #include <cassert>
+      #include "meaningoflife.hxx"
+      int main (int argc, char *argv[]) {
+          assert(2==argc);
+          std::auto_ptr< ::xml_schema::positive_integer> x = XSDTest::MeaningOfLife(argv[1]);
+          assert(42==*x);
+          return 0;
+      }
     EOS
     system "#{bin}/xsd", "cxx-tree", schema
-    assert File.exist? testpath/"meaningoflife.hxx"
-    assert File.exist? testpath/"meaningoflife.cxx"
+    assert_predicate testpath/"meaningoflife.hxx", :exist?
+    assert_predicate testpath/"meaningoflife.cxx", :exist?
     system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx", "-lxerces-c"
-    assert File.exist? testpath/"xsdtest"
+    assert_predicate testpath/"xsdtest", :exist?
     system testpath/"xsdtest", instance
   end
 end

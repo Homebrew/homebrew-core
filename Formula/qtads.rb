@@ -50,6 +50,6 @@ class Qtads < Formula
   end
 
   test do
-    assert File.exist?("#{bin}/QTads"), "I'm an untestable GUI app."
+    assert_predicate testpath/"#{bin}/QTads", :exist?, "I'm an untestable GUI app."
   end
 end

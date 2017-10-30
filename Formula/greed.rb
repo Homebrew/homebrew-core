@@ -24,13 +24,13 @@ class Greed < Formula
     system "make", "install", "BIN=#{bin}"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     High scores will be stored in the following location:
       #{var}/greed/greed.hs
     EOS
   end
 
   test do
-    File.executable? "#{bin}/greed"
+    assert_predicate bin/"greed", :executable?
   end
 end

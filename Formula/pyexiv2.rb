@@ -33,7 +33,7 @@ class Pyexiv2 < Formula
   end
 
   test do
-    (testpath/"test.py").write <<-EOS.undent
+    (testpath/"test.py").write <<~EOS
       import pyexiv2
       metadata = pyexiv2.ImageMetadata("#{pkgshare}/smiley1.jpg")
       metadata.read()

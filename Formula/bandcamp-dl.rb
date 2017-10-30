@@ -93,8 +93,8 @@ class BandcampDl < Formula
 
   test do
     system "#{bin}/bandcamp-dl", "--artist=iamsleepless", "--album=rivulets"
-    assert File.exist?("iamsleepless/rivulets/01 - rivulets.mp3")
+    assert_predicate testpath/"iamsleepless/rivulets/01 - rivulets.mp3", :exist?
     system "#{bin}/bandcamp-dl", "https://iamsleepless.bandcamp.com/track/under-the-glass-dome"
-    assert File.exist?("iamsleepless/under-the-glass-dome/Single - under-the-glass-dome.mp3")
+    assert_predicate testpath/"iamsleepless/under-the-glass-dome/Single - under-the-glass-dome.mp3", :exist?
   end
 end

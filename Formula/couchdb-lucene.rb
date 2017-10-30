@@ -34,7 +34,7 @@ class CouchdbLucene < Formula
     ini_path.write(ini_file) unless ini_path.exist?
   end
 
-  def shim_script(target); <<-EOS.undent
+  def shim_script(target); <<~EOS
     #!/bin/bash
     export CL_BASEDIR=#{libexec}/bin
     exec "$CL_BASEDIR/#{target}" "$@"
@@ -45,13 +45,13 @@ class CouchdbLucene < Formula
     etc/"couchdb/local.d/couchdb-lucene.ini"
   end
 
-  def ini_file; <<-EOS.undent
+  def ini_file; <<~EOS
     [httpd_global_handlers]
     _fti = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     All commands have been installed with the prefix 'cl_'.
 
     If you really need to use these commands with their normal names, you
@@ -63,7 +63,7 @@ class CouchdbLucene < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
       "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

@@ -30,7 +30,7 @@ class Physfs < Formula
   test do
     (testpath/"test.txt").write "homebrew"
     system "zip", "test.zip", "test.txt"
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       addarchive test.zip 1
       cat test.txt
       EOS

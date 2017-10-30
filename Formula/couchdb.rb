@@ -138,17 +138,17 @@ class Couchdb < Formula
   end
 
   def caveats
-    str = <<-EOS.undent
-    To test CouchDB run:
-        curl http://127.0.0.1:5984/
-    The reply should look like:
-        {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
+    str = <<~EOS
+      To test CouchDB run:
+          curl http://127.0.0.1:5984/
+      The reply should look like:
+          {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
     EOS
     str += "\n#{geocouch_caveats}" if build.with? "geocouch"
     str
   end
 
-  def geocouch_caveats; <<-EOS.undent
+  def geocouch_caveats; <<~EOS
     GeoCouch Caveats:
     FYI:  geocouch installs as an extension of couchdb, so couchdb effectively
     becomes geocouch.  However, you can use couchdb normally (using geocouch
@@ -185,7 +185,7 @@ class Couchdb < Formula
 
   plist_options :manual => "couchdb"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

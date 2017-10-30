@@ -25,7 +25,7 @@ class Flex < Formula
   end
 
   test do
-    (testpath/"test.flex").write <<-EOS.undent
+    (testpath/"test.flex").write <<~EOS
       CHAR   [a-z][A-Z]
       %%
       {CHAR}+      printf("%s", yytext);
@@ -39,7 +39,7 @@ class Flex < Formula
     EOS
     system "#{bin}/flex", "test.flex"
     system ENV.cc, "lex.yy.c", "-L#{lib}", "-lfl", "-o", "test"
-    assert_equal shell_output("echo \"Hello World\" | ./test"), <<-EOS.undent
+    assert_equal shell_output("echo \"Hello World\" | ./test"), <<~EOS
       Hello
       World
     EOS

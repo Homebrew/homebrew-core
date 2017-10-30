@@ -7,7 +7,7 @@ class CloudbeesSdk < Formula
   bottle :unneeded
 
   def shim_script(target)
-    <<-EOS.undent
+    <<~EOS
       #!/bin/bash
       export BEES_HOME=#{libexec}
       "#{libexec}/#{target}" "$@"

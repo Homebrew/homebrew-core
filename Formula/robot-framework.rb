@@ -11,9 +11,10 @@ class RobotFramework < Formula
 
   bottle do
     cellar :any
-    sha256 "e71467e7cace9167b8d62d0a544a7000d5dae1a2c08cb35f0f905d7aa533c1d8" => :sierra
-    sha256 "44b0195686fde0a85b3debb232802ff039ff055d1c7b679ab407f6ff5e9dc249" => :el_capitan
-    sha256 "cf683298b37aa318d2593c96e83e1f101d37657ab290a75a8e997e087dd47115" => :yosemite
+    rebuild 1
+    sha256 "84a08120a66f25b0d2aeb0b53b991278c55572413131e8fb54992117a01f99f6" => :high_sierra
+    sha256 "f6001d4e500a979fb456480bca3149e9ac3284d5e305fd986dd26b72a2431b08" => :sierra
+    sha256 "007a3d727f7eb3ea5f4562990c2401d36c2040002cf2ecaee1a1878f66851ab0" => :el_capitan
   end
 
   depends_on :x11
@@ -31,13 +32,13 @@ class RobotFramework < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
+    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
+    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
   end
 
   resource "decorator" do
@@ -150,19 +151,19 @@ class RobotFramework < Formula
   end
 
   test do
-    (testpath/"HelloWorld.txt").write <<-EOF.undent
+    (testpath/"HelloWorld.txt").write <<~EOS
       *** Settings ***
       Library         HelloWorld.py
 
       *** Test Cases ***
       HelloWorld
           Hello World
-    EOF
+    EOS
 
-    (testpath/"HelloWorld.py").write <<-EOF.undent
+    (testpath/"HelloWorld.py").write <<~EOS
       def hello_world():
           print "HELLO WORLD!"
-    EOF
+    EOS
     system bin/"pybot", testpath/"HelloWorld.txt"
   end
 end

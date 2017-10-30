@@ -19,7 +19,7 @@ class MrubyCli < Formula
     # Edit config to skip building Linux and Windows binaries
     rm buildpath/"build_config.rb"
 
-    (buildpath/"build_config.rb").write <<-EOS.undent
+    (buildpath/"build_config.rb").write <<~EOS
       MRuby::Build.new do |conf|
         toolchain :clang
         conf.gem File.expand_path(File.dirname(__FILE__))

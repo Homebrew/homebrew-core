@@ -28,7 +28,7 @@ class Scrypt < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<-EOS.undent
+    (testpath/"test.sh").write <<~EOS
       #!/usr/bin/expect -f
       set timeout -1
       spawn #{bin}/scrypt enc homebrew.txt homebrew.txt.enc
@@ -43,6 +43,6 @@ class Scrypt < Formula
     touch "homebrew.txt"
 
     system "./test.sh"
-    assert File.exist?("homebrew.txt.enc")
+    assert_predicate testpath/"homebrew.txt.enc", :exist?
   end
 end

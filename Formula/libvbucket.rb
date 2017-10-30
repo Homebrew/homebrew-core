@@ -31,7 +31,7 @@ class Libvbucket < Formula
       "vBucketMap" => [[0, 1, 2], [1, 2, 0], [2, 1, -1], [1, 2, 0]],
     )
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       key: hello master: server1:11211 vBucketId: 0 couchApiBase: (null) replicas: server2:11210 server3:11211
       key: world master: server2:11210 vBucketId: 3 couchApiBase: (null) replicas: server3:11211 server1:11211
       EOS

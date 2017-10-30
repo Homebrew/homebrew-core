@@ -1,7 +1,7 @@
 class Khard < Formula
   include Language::Python::Virtualenv
 
-  desc "Console carddav client."
+  desc "Console carddav client"
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/58/fd/778ab7340d9fcc1c4853cc19fb12fc4b9c28fe9f48ebc0bb19d42aa4b7bd/khard-0.11.4.tar.gz"
   sha256 "81776d05e8f121f8969daf561f5c774c665378255ba0064b02a82d490da610ea"
@@ -55,7 +55,7 @@ class Khard < Formula
   end
 
   test do
-    (testpath/".config/khard/khard.conf").write <<-EOS.undent
+    (testpath/".config/khard/khard.conf").write <<~EOS
       [addressbooks]
       [[default]]
       path = ~/.contacts/
@@ -66,7 +66,7 @@ class Khard < Formula
       default_action = list
       show_nicknames = yes
     EOS
-    (testpath/".contacts/dummy.vcf").write <<-EOS.undent
+    (testpath/".contacts/dummy.vcf").write <<~EOS
       BEGIN:VCARD
       VERSION:3.0
       EMAIL;TYPE=work:username@example.org

@@ -32,7 +32,7 @@ class Paps < Formula
 
   test do
     # https://paps.sourceforge.io/small-hello.utf8
-    utf8 = <<-EOS.undent
+    utf8 = <<~EOS
       paps by Dov Grobgeld (דב גרובגלד)
       Printing through Παν語 (Pango)
 

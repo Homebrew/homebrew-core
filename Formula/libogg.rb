@@ -38,7 +38,7 @@ class Libogg < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <ogg/ogg.h>
       #include <stdio.h>
 

@@ -5,14 +5,13 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/bb/9c/a4361b89e478e5459678908692251636d43d14d88c56b8ff53dd239cadec/snapcraft-2.33.tar.gz"
   sha256 "269ed290dc7853e812852b24a5ffb7cdae5f8351afee17769f0c849043c70ac9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "5c1dc3bbf1928ecbbe05a07745098ce52ab1134d2ef29380855db20a177adb76" => :high_sierra
-    sha256 "445403398fe50045431e192a0f97d2f104cac17c13d5b7571a21301cd3b14a21" => :sierra
-    sha256 "3f1b7fb71d58c827d5beba9162f06044455ed15ec3a348f3f6d3c28251592365" => :el_capitan
-    sha256 "c0a7b455994c9843e62205592d6822c6199f3726720c362aa790ea06fc2e6bb4" => :yosemite
+    sha256 "97a2ec3e37fc83e4c635a248c764b732db16c29110f52350f537068c20e0bbc2" => :high_sierra
+    sha256 "df156e747df49cfeb2a24df236e20caacc8940d8a08f7a7a8074a109ca001c06" => :sierra
+    sha256 "0bbae299f0d6bdfdd7d601994f29707b7bfea3a75184d8fe4a53aff50fbc0807" => :el_capitan
   end
 
   depends_on "libmagic"
@@ -157,6 +156,6 @@ class Snapcraft < Formula
     system "#{bin}/snapcraft", "--version"
     system "#{bin}/snapcraft", "--help"
     system "#{bin}/snapcraft", "init"
-    File.exist? "#{testpath}/snap/snapcraft.yaml"
+    assert_predicate testpath/"snap/snapcraft.yaml", :exist?
   end
 end

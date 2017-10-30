@@ -9,9 +9,10 @@ class AnsibleAT19 < Formula
 
   bottle do
     cellar :any
-    sha256 "558017ec2ab1f09630d3c0bd4ff64f276a336100416f45f6b61496a5c112facb" => :sierra
-    sha256 "3164a80338c2a72f5c98c0d51774f04fa031d5a14ee132c8847520eccaf9e485" => :el_capitan
-    sha256 "3717cfe7bf21e38501ab9460b361649e31b775b0a82229b0b3cd16926f856e20" => :yosemite
+    rebuild 1
+    sha256 "a95cfcd12d83aa49aabc2361ff2724eaba69d772ae4af3108b57163023a807f5" => :high_sierra
+    sha256 "511ea537dda8cdb0ecc2205712615bd6877d66046abccefaec98c4bb679e1c1d" => :sierra
+    sha256 "849e7dc0c4bb63586ef120d1a21e6c1ff51a2c41a33e34291b13c506b3be5880" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -71,13 +72,13 @@ class AnsibleAT19 < Formula
   # Install requests with [security]
   #
   resource "cffi" do
-    url "https://pypi.python.org/packages/source/c/cffi/cffi-1.5.2.tar.gz"
-    sha256 "da9bde99872e46f7bb5cff40a9b1cc08406765efafb583c704de108b6cb821dd"
+    url "https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.10.0.tar.gz"
+    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do
-    url "https://pypi.python.org/packages/source/c/cryptography/cryptography-1.2.3.tar.gz"
-    sha256 "8eb11c77dd8e73f48df6b2f7a7e16173fe0fe8fdfe266232832e88477e08454e"
+    url "https://files.pythonhosted.org/packages/source/c/cryptography/cryptography-1.3.1.tar.gz"
+    sha256 "b4b36175e0f95ddc88435c26dbe3397edce48e2ff5fe41d504cdb3beddcd53e2"
   end
 
   resource "enum34" do
@@ -544,7 +545,7 @@ class AnsibleAT19 < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Homebrew writes wrapper scripts that set PYTHONPATH in ansible's
     execution environment, which is inherited by Python scripts invoked
     by ansible. If this causes problems, you can modify your playbooks
@@ -554,14 +555,14 @@ class AnsibleAT19 < Formula
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
-    (testpath/"playbook.yml").write <<-EOF.undent
+    (testpath/"playbook.yml").write <<~EOS
       ---
       - hosts: all
         gather_facts: False
         tasks:
         - name: ping
           ping:
-    EOF
+    EOS
     (testpath/"hosts.ini").write "localhost ansible_connection=local\n"
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
   end

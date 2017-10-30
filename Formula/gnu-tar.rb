@@ -46,7 +46,7 @@ class GnuTar < Formula
   end
 
   def caveats
-    if build.without? "default-names" then <<-EOS.undent
+    if build.without? "default-names" then <<~EOS
       gnu-tar has been installed as "gtar".
 
       If you really need to use it as "tar", you can add a "gnubin" directory

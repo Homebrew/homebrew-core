@@ -30,7 +30,7 @@ class Libopendkim < Formula
 
   test do
     system "#{sbin}/opendkim-genkey", "--directory=#{testpath}"
-    assert File.exist?("default.private")
-    assert File.exist?("default.txt")
+    assert_predicate testpath/"default.private", :exist?
+    assert_predicate testpath/"default.txt", :exist?
   end
 end

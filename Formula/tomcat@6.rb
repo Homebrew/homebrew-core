@@ -26,7 +26,7 @@ class TomcatAT6 < Formula
     (share/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Some of the support scripts used by Tomcat have very generic names.
     These are likely to conflict with support scripts used by other Java-based
     server software.
@@ -48,6 +48,6 @@ class TomcatAT6 < Formula
     ensure
       Process.wait pid
     end
-    File.exist? testpath/"logs/catalina.out"
+    assert_predicate testpath/"logs/catalina.out", :exist?
   end
 end

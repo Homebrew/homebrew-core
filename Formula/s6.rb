@@ -1,27 +1,26 @@
 class S6 < Formula
-  desc "Small & secure supervision software suite."
+  desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
 
   stable do
-    url "https://skarnet.org/software/s6/s6-2.6.1.0.tar.gz"
-    sha256 "f0de303791134302f2630b9fe76a936b064e1e3aa772c8ae1b891155a6ea2c79"
+    url "https://skarnet.org/software/s6/s6-2.6.1.1.tar.gz"
+    sha256 "0172b7293d4d5607ca3ca77382fee9b87c10bd58680720b29625cf35afc75c5c"
 
     resource "skalibs" do
-      url "https://skarnet.org/software/skalibs/skalibs-2.6.0.0.tar.gz"
-      sha256 "3572cb8c7d2ae9d16da5a0f3d23b48e013e0c957f1329d100f04dd5accb054c3"
+      url "https://skarnet.org/software/skalibs/skalibs-2.6.0.1.tar.gz"
+      sha256 "b11f515d29768497d648c7ae87e26f7441395a056ebbe3fe89596fe6454a557a"
     end
 
     resource "execline" do
-      url "https://skarnet.org/software/execline/execline-2.3.0.2.tar.gz"
-      sha256 "c11650651a7230bd5687945a7698b2da3fe13c3c0eb15e296bb91769d4775f45"
+      url "https://skarnet.org/software/execline/execline-2.3.0.3.tar.gz"
+      sha256 "1a698425740a410a38be770f98b8faf94c633e29a74ba1d25adddbb294e979f5"
     end
   end
 
   bottle do
-    sha256 "7e71ba04eda076b77ba31f45ac541be99cbdc3b77d3d709e2e2b0ddaead64196" => :high_sierra
-    sha256 "b310708d3412090fc959c0517882804b5b17c9f9500b3f6d4aca8c3fc180c4bd" => :sierra
-    sha256 "c9c42a57a5c90ab67a52a295e7643e854c3696a7cc4eac122ebe25490815bf2b" => :el_capitan
-    sha256 "4a5760024698c19b23460ac840d166936e3e61bd30d71e28019d35a99d5ac017" => :yosemite
+    sha256 "78248e3e2f69a44f4ebaa1623461d8419ea0c43de77281c5ac9937b1805d7555" => :high_sierra
+    sha256 "ee608b2efe9a0115734a9ef93557b5b154b61b5c92af84e09594f93c9ce5c109" => :sierra
+    sha256 "735449f95a1b7ad5812a456bb0916ad19527133cca0c6573df2372796b906a4c" => :el_capitan
   end
 
   head do
@@ -77,10 +76,10 @@ class S6 < Formula
   test do
     # Test execline
     test_script = testpath/"test.eb"
-    test_script.write <<-EOS.undent
-     import PATH
-     if { [ ! -z ${PATH} ] }
-       true
+    test_script.write <<~EOS
+      import PATH
+      if { [ ! -z ${PATH} ] }
+        true
     EOS
     system "#{bin}/execlineb", test_script
 

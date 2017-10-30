@@ -1,5 +1,5 @@
 class Libdivecomputer < Formula
-  desc "Library for communication with various dive computers."
+  desc "Library for communication with various dive computers"
   homepage "http://www.libdivecomputer.org/"
   url "http://www.libdivecomputer.org/releases/libdivecomputer-0.5.0.tar.gz"
   sha256 "1e0cff7f294e360e142c92c820f9f11cab505fa9385d17713d502cf2f0c5c286"
@@ -27,7 +27,7 @@ class Libdivecomputer < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libdivecomputer/context.h>
       #include <libdivecomputer/descriptor.h>
       #include <libdivecomputer/iterator.h>

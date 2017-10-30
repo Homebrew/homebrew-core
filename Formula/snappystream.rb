@@ -26,7 +26,7 @@ class Snappystream < Formula
   end
 
   test do
-    (testpath/"testsnappystream.cxx").write <<-EOS.undent
+    (testpath/"testsnappystream.cxx").write <<~EOS
       #include <iostream>
       #include <fstream>
       #include <iterator>

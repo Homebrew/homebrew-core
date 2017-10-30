@@ -2,8 +2,8 @@ class IslAT012 < Formula
   desc "Integer Set Library for the polyhedral model"
   homepage "http://isl.gforge.inria.fr/"
   # Track gcc infrastructure releases.
-  url "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
-  mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
+  url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
+  mirror "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
   sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
 
   bottle do
@@ -31,7 +31,7 @@ class IslAT012 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <isl/ctx.h>
 
       int main()

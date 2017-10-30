@@ -21,7 +21,7 @@ class Tpp < Formula
 
   def install
     lib_ncurses = libexec+"ncurses-ruby"
-    inreplace "tpp.rb", 'require "ncurses"', <<-EOS.undent
+    inreplace "tpp.rb", 'require "ncurses"', <<~EOS
       require File.expand_path('#{lib_ncurses}/ncurses_bin.bundle', __FILE__)
       require File.expand_path('#{lib_ncurses}/ncurses_sugar.rb', __FILE__)
     EOS

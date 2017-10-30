@@ -33,7 +33,7 @@ class ZeromqAT32 < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To install the zmq gem on 10.6 with the system Ruby on a 64-bit machine,
     you may need to do:
 
@@ -42,7 +42,7 @@ class ZeromqAT32 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <zmq.h>
       #include <assert.h>
 

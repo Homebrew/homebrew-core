@@ -25,7 +25,7 @@ class Minicom < Formula
     (prefix/"etc/minirc.dfl").write "pu lock #{prefix}/var\npu escape-key Escape (Meta)\n"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Terminal Compatibility
     ======================
     If minicom doesn't see the LANG variable, it will try to fallback to

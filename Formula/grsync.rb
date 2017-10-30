@@ -27,6 +27,6 @@ class Grsync < Formula
   test do
     # running the executable always produces the GUI, which is undesirable for the test
     # so we'll just check if the executable exists
-    assert (bin/"grsync").exist?
+    assert_predicate bin/"grsync", :exist?
   end
 end

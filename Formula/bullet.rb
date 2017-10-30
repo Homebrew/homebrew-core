@@ -1,17 +1,15 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.86.1.tar.gz"
-  sha256 "c058b2e4321ba6adaa656976c1a138c07b18fc03b29f5b82880d5d8228fbf059"
-  revision 1
-
+  url "https://github.com/bulletphysics/bullet3/archive/2.87.tar.gz"
+  sha256 "438c151c48840fe3f902ec260d9496f8beb26dba4b17769a4a53212903935f95"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
     cellar :any
-    sha256 "c43758c24e12037cca10a25731ee97321718fd4f4c31e9787afb0ea43f62d4b1" => :sierra
-    sha256 "7a3a5d87feea5382f69ede42ec7b7a0fedf5ffee89096c1c79ee1fb5e4096b51" => :el_capitan
-    sha256 "838c1417f24d5e565493f4517054cd68f02e2e8a8749c6f5fd73cd4862c06560" => :yosemite
+    sha256 "26f10d89d53f5c384d473bf21d06e8db1104ca8d300285a89b68b657a0ff4753" => :high_sierra
+    sha256 "3a3fd3a1ead5ef2aefc65f752533bb96596fdd552d72fab5de86bba492f63104" => :sierra
+    sha256 "460cea95c022dc7116e09277715f9da51d3e7afa7901c4561af68b4ba5372795" => :el_capitan
   end
 
   option "with-framework", "Build frameworks"
@@ -57,7 +55,7 @@ class Bullet < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "LinearMath/btPolarDecomposition.h"
       int main() {
         btMatrix3x3 I = btMatrix3x3::getIdentity();

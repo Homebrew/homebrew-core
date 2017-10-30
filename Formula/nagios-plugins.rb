@@ -33,9 +33,9 @@ class NagiosPlugins < Formula
   end
 
   def caveats
-    <<-EOS.undent
-    All plugins have been installed in:
-      #{HOMEBREW_PREFIX}/sbin
+    <<~EOS
+      All plugins have been installed in:
+        #{HOMEBREW_PREFIX}/sbin
     EOS
   end
 

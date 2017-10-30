@@ -62,7 +62,7 @@ class Bash < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order to use this build of bash as your login shell,
     it must be added to /etc/shells.
     EOS

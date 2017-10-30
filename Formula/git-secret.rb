@@ -1,5 +1,5 @@
 class GitSecret < Formula
-  desc "Bash-tool to store the private data inside a git repo."
+  desc "Bash-tool to store the private data inside a git repo"
   homepage "https://sobolevn.github.io/git-secret/"
   url "https://github.com/sobolevn/git-secret/archive/v0.2.2.tar.gz"
   sha256 "a4672c2d5eca7b5c3b27388060609307b851edc7f7b653e1d21e3e0b328f43f4"
@@ -22,7 +22,7 @@ class GitSecret < Formula
   end
 
   test do
-    (testpath/"batch.gpg").write <<-EOS.undent
+    (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA
@@ -43,7 +43,7 @@ class GitSecret < Formula
       (testpath/".gitignore").write "shh.txt"
       system "git", "secret", "add", "shh.txt"
       system "git", "secret", "hide"
-      assert File.exist?("shh.txt.secret")
+      assert_predicate testpath/"shh.txt.secret", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
     end

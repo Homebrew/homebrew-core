@@ -79,11 +79,11 @@ class Agda < Formula
     s = ""
 
     if build.with? "stdlib"
-      s += <<-EOS.undent
-      To use the Agda standard library by default:
-        mkdir -p ~/.agda
-        echo #{HOMEBREW_PREFIX}/lib/agda/standard-library.agda-lib >>~/.agda/libraries
-        echo standard-library >>~/.agda/defaults
+      s += <<~EOS
+        To use the Agda standard library by default:
+          mkdir -p ~/.agda
+          echo #{HOMEBREW_PREFIX}/lib/agda/standard-library.agda-lib >>~/.agda/libraries
+          echo standard-library >>~/.agda/defaults
       EOS
     end
 
@@ -92,7 +92,7 @@ class Agda < Formula
 
   test do
     simpletest = testpath/"SimpleTest.agda"
-    simpletest.write <<-EOS.undent
+    simpletest.write <<~EOS
       module SimpleTest where
 
       data ℕ : Set where
@@ -117,7 +117,7 @@ class Agda < Formula
     EOS
 
     stdlibtest = testpath/"StdlibTest.agda"
-    stdlibtest.write <<-EOS.undent
+    stdlibtest.write <<~EOS
       module StdlibTest where
 
       open import Data.Nat
@@ -129,7 +129,7 @@ class Agda < Formula
     EOS
 
     iotest = testpath/"IOTest.agda"
-    iotest.write <<-EOS.undent
+    iotest.write <<~EOS
       module IOTest where
 
       open import Agda.Builtin.IO
@@ -145,7 +145,7 @@ class Agda < Formula
     EOS
 
     stdlibiotest = testpath/"StdlibIOTest.agda"
-    stdlibiotest.write <<-EOS.undent
+    stdlibiotest.write <<~EOS
       module StdlibIOTest where
 
       open import IO

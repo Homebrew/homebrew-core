@@ -30,7 +30,7 @@ class Libfreehand < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <libfreehand/libfreehand.h>
       int main() {
         libfreehand::FreeHandDocument::isSupported(0);

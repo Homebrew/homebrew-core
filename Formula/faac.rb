@@ -1,14 +1,14 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "http://www.audiocoding.com/faac.html"
-  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.7.6.tar.gz"
-  sha256 "36298549deab66b4b9bb274ecbe74514bb7c83f309265f8f649cf49a44b9bd9f"
+  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.8.3.tar.gz"
+  sha256 "3d85267b394dd8ebd5dd88845b25bc5e5e4fc88ac5affb8a2807f50368dc3b41"
 
   bottle do
     cellar :any
-    sha256 "32bd90ecd29994d4897c24db4d8b3de36d0a9c13c749b56a964b930b8a59c189" => :high_sierra
-    sha256 "847dd177583c3a5d7339a0faf00aeae9c7894a343f8cc0ac6cd473c8509de94e" => :sierra
-    sha256 "de6b1c4d89b263193f0232752090ee0c53e2438116122e04f68a780c11bc8d91" => :el_capitan
+    sha256 "1184a2c62467c59f783412bf24824c6ce10ca920bee361caaea19a810f232471" => :high_sierra
+    sha256 "e6cbb94356716e9bbc11daf55c25f1e55c27b1015c01cc463ffad664f732e08c" => :sierra
+    sha256 "c74ebbc64a420957f2a78ec19a1f64f0dc69e15169b2063a85963c4ff4563135" => :el_capitan
   end
 
   def install
@@ -20,6 +20,6 @@ class Faac < Formula
 
   test do
     system bin/"faac", test_fixtures("test.mp3"), "-P", "-o", "test.m4a"
-    assert File.exist?("test.m4a")
+    assert_predicate testpath/"test.m4a", :exist?
   end
 end

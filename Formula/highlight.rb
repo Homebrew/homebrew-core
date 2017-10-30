@@ -1,15 +1,14 @@
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
-  url "http://www.andre-simon.de/zip/highlight-3.39.tar.bz2"
-  sha256 "44f2cef6b5c0b89b5c0d76cf39ce4c2944eeff6b9c23ba27d1d153ac93d10f7d"
+  url "http://www.andre-simon.de/zip/highlight-3.40.tar.bz2"
+  sha256 "3e55fadd3f2a85f25ea995fd0e57e94e2a59fe2e3ccefe6bd896b50acadc38e3"
   head "https://github.com/andre-simon/highlight.git"
 
   bottle do
-    sha256 "e3f0eef7af61276d13d0e032a814a83ed15826f5228faa97b79166b03ab615fc" => :high_sierra
-    sha256 "491a19238869bb999ddc86b5a8e5de4bb26202b4c1859f33214a5a1a43dd70d3" => :sierra
-    sha256 "00b65b68f59b950497d7b76d41b0861b0686f1c840cc3577b7ad833c85074cb9" => :el_capitan
-    sha256 "6b6b82ef51eef60ba9c4e102e2f97b649e1a8734a782eb891547a713b248f70f" => :yosemite
+    sha256 "5e86c73e6e146037e9192cc4d4027a868cb2b91d12981ea70d368093639b559f" => :high_sierra
+    sha256 "1a9515ca7e5b747225cea738e51ba9782d27d6f5b812bd8bee877a441eb8f735" => :sierra
+    sha256 "6be531305cad51de06774efa661e36cbcb789c92d700b8615d1f2f365a84c451" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -19,21 +19,21 @@ class Cppp < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
-    /* Comments stand for code */
-    #ifdef FOO
-    /* FOO is defined */
-    # ifdef BAR
-    /* FOO & BAR are defined */
-    # else
-    /* BAR is not defined */
-    # endif
-    #else
-    /* FOO is not defined */
-    # ifndef BAZ
-    /* FOO & BAZ are undefined */
-    # endif
-    #endif
+    (testpath/"hello.c").write <<~EOS
+      /* Comments stand for code */
+      #ifdef FOO
+      /* FOO is defined */
+      # ifdef BAR
+      /* FOO & BAR are defined */
+      # else
+      /* BAR is not defined */
+      # endif
+      #else
+      /* FOO is not defined */
+      # ifndef BAZ
+      /* FOO & BAZ are undefined */
+      # endif
+      #endif
     EOS
     system "#{bin}/cppp", "-DFOO", "hello.c"
   end

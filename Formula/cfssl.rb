@@ -29,31 +29,31 @@ class Cfssl < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     `mkbundle` has been installed as `cfsslmkbundle` to avoid conflict
     with Mono and other tools that ship the same executable.
   EOS
   end
 
   test do
-    (testpath/"request.json").write <<-EOS.undent
-    {
-      "CN" : "Your Certificate Authority",
-      "hosts" : [],
-      "key" : {
-        "algo" : "rsa",
-        "size" : 4096
-      },
-      "names" : [
-        {
-          "C" : "US",
-          "ST" : "Your State",
-          "L" : "Your City",
-          "O" : "Your Organization",
-          "OU" : "Your Certificate Authority"
-        }
-      ]
-    }
+    (testpath/"request.json").write <<~EOS
+      {
+        "CN" : "Your Certificate Authority",
+        "hosts" : [],
+        "key" : {
+          "algo" : "rsa",
+          "size" : 4096
+        },
+        "names" : [
+          {
+            "C" : "US",
+            "ST" : "Your State",
+            "L" : "Your City",
+            "O" : "Your Organization",
+            "OU" : "Your Certificate Authority"
+          }
+        ]
+      }
     EOS
     shell_output("#{bin}/cfssl genkey -initca request.json > response.json")
     response = JSON.parse(File.read(testpath/"response.json"))

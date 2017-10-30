@@ -2,15 +2,15 @@ class Reop < Formula
   desc "Encrypted keypair management"
   homepage "http://www.tedunangst.com/flak/post/reop"
   url "http://www.tedunangst.com/flak/files/reop-2.1.0.tgz"
+  mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.0.tgz"
   sha256 "e429c7ff47f130bd465eaa0c23a1783b476bc484d32793592b54a568b55e49af"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "0095ee7bce7209fa51368ba36efd50cbbf77580abaf0a299ff3e79a32f78f4b1" => :sierra
-    sha256 "b1075b4d0f121d9f60a1f07ab4488ce225fcd151c1300a5b895bbe26575472a1" => :el_capitan
-    sha256 "024324a71df875f40d2b4a596ce6b97d7e5606496140a72c532d92dca5541125" => :yosemite
-    sha256 "c46860b76c7cef21c71d8dd369911c8c73d846efab659e3ca476bd6bc5730d56" => :mavericks
+    sha256 "e83e45b44f322b38e9476623d7a2e595b593a8499e06c94dd1124a10d59c0d49" => :high_sierra
+    sha256 "8c0d3dd8ebe6732ec4d7820da74e12d7dc6b57ab79548063b1619213dbe79c19" => :sierra
+    sha256 "a0d7ad0c9059426b6400b9294d27a7672789da0cabe051faf11b46b1121684d0" => :el_capitan
   end
 
   depends_on "libsodium"
@@ -22,7 +22,7 @@ class Reop < Formula
   end
 
   test do
-    (testpath/"pubkey").write <<-EOS.undent
+    (testpath/"pubkey").write <<~EOS
       -----BEGIN REOP PUBLIC KEY-----
       ident:root
       RWRDUxZNDeX4wcynGeCr9Bro6Ic7s1iqi1XHYacEaHoy+7jOP+ZE0yxR+2sfaph2MW15e8eUZvvI
@@ -30,11 +30,11 @@ class Reop < Formula
       -----END REOP PUBLIC KEY-----
     EOS
 
-    (testpath/"msg").write <<-EOS.undent
+    (testpath/"msg").write <<~EOS
       testing one two three four
     EOS
 
-    (testpath/"sig").write <<-EOS.undent
+    (testpath/"sig").write <<~EOS
       -----BEGIN REOP SIGNATURE-----
       ident:root
       RWQWTQ3l+MHMpx8RO/+BX/xxHn0PiSneiJ1Au2GurAmx4L942nZFBRDOVw2xLzvp/RggTVTZ46k+

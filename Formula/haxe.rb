@@ -2,14 +2,14 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag => "3.4.3",
-      :revision => "e24c990d58f2ccff5e5add8369602bb729bcdfab"
+      :tag => "3.4.4",
+      :revision => "4f09586f6691e8a9645844b62036c8c974a00d15"
 
   bottle do
     cellar :any
-    sha256 "f8744f5b9b6bd78beac33ed9f42f087edf195023361997127a87f5e86aa4a6ab" => :high_sierra
-    sha256 "165161d050573f4a7a083ead8686424b1cb1fdf0ec13910dbe6418c5d9b8a9fc" => :sierra
-    sha256 "5c1b387666ef82b9709ead193f21291b3793a93b70da58c0026d578ff4a0310e" => :el_capitan
+    sha256 "baa0a054502fb1151d7dad57626cce36c5c6601db9f980639b61ea7810674908" => :high_sierra
+    sha256 "bb9d6e20fb0c1ca9cc27633f5bc6c29e5187b37be89226cb59f038fa5dacd7b1" => :sierra
+    sha256 "5dfaab0cfa7585478456bc8c4aeabc7d7e1cfae34aac3260399cfcc9df2a8fd8" => :el_capitan
   end
 
   head do
@@ -56,7 +56,7 @@ class Haxe < Formula
     bin.install_symlink lib/"haxe/haxe"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following line to your .bashrc or equivalent:
       export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
     EOS

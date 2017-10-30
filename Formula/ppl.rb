@@ -24,7 +24,7 @@ class Ppl < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <ppl_c.h>
       #ifndef PPL_VERSION_MAJOR
       #error "No PPL header"

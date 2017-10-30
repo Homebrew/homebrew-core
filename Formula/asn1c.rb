@@ -27,7 +27,7 @@ class Asn1c < Formula
   end
 
   test do
-    (testpath/"test.asn1").write <<-EOS.undent
+    (testpath/"test.asn1").write <<~EOS
       MyModule DEFINITIONS ::=
       BEGIN
 

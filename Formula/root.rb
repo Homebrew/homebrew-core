@@ -1,15 +1,16 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.10.04.source.tar.gz"
-  version "6.10.04"
-  sha256 "461bde21d78608422310f04c599e84ce8dfbdd91caf12c2a54db6c01f8228f5b"
+  url "https://root.cern.ch/download/root_v6.10.08.source.tar.gz"
+  version "6.10.08"
+  sha256 "2cd276d2ac365403c66f08edd1be62fe932a0334f76349b24d8c737c0d6dad8a"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "670fb1844918af34669436dc9c2e503dfb6f7b43c1d959495fe73235f3eda8d0" => :sierra
-    sha256 "1c6406fb816573f8bf640ce13f1d74ff22df4aa4426139eaeba07abbfc63fc9f" => :el_capitan
-    sha256 "d4783e3fa16a01a570d58c545501524f826d9d6ad72be773010800b9695759b1" => :yosemite
+    rebuild 1
+    sha256 "32ec87dd05b998d2b6d794b75bdb5905b752842ed2193ed6bbdd22deb5c49c7a" => :high_sierra
+    sha256 "5a913e35442d6f37d5abd5bda2a80061716f8687f24bb95ca3630dbb29918897" => :sierra
+    sha256 "e1191f01a47f1a086f48266a33d5d5ff11722e14259c3b30560417049c86a2e6" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -27,12 +28,16 @@ class Root < Formula
   skip_clean "bin"
 
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
       -Dbuiltin_freetype=ON
       -Dfftw3=ON
       -Dfortran=ON
+      -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Droofit=ON
@@ -71,12 +76,21 @@ class Root < Formula
 
     mkdir "builddir" do
       system "cmake", "..", *args
-      system "make", "install"
+
+      # Work around superenv stripping out isysroot leading to errors with
+      # libsystem_symptoms.dylib (only available on >= 10.12) and
+      # libsystem_darwin.dylib (only available on >= 10.13)
+      if MacOS.version < :high_sierra
+        system "xcrun", "make", "install"
+      else
+        system "make", "install"
+      end
+
       chmod 0755, Dir[bin/"*.*sh"]
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Because ROOT depends on several installation-dependent
     environment variables to function properly, you should
     add the following commands to your shell initialization
@@ -93,13 +107,13 @@ class Root < Formula
   end
 
   test do
-    (testpath/"test.C").write <<-EOS.undent
+    (testpath/"test.C").write <<~EOS
       #include <iostream>
       void test() {
         std::cout << "Hello, world!" << std::endl;
       }
     EOS
-    (testpath/"test.bash").write <<-EOS.undent
+    (testpath/"test.bash").write <<~EOS
       . #{bin}/thisroot.sh
       root -l -b -n -q test.C
     EOS

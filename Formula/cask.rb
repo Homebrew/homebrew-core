@@ -22,7 +22,7 @@ class Cask < Formula
   end
 
   test do
-    (testpath/"Cask").write <<-EOS.undent
+    (testpath/"Cask").write <<~EOS
       (source gnu)
       (depends-on "chess")
     EOS

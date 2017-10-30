@@ -71,6 +71,7 @@ class Graphviz < Formula
       --prefix=#{prefix}
       --without-qt
       --with-quartz
+      --disable-php
     ]
     args << "--with-gts" if build.with? "gts"
     args << "--disable-swig" if build.without? "bindings"
@@ -98,10 +99,10 @@ class Graphviz < Formula
   end
 
   test do
-    (testpath/"sample.dot").write <<-EOS.undent
-    digraph G {
-      a -> b
-    }
+    (testpath/"sample.dot").write <<~EOS
+      digraph G {
+        a -> b
+      }
     EOS
 
     system "#{bin}/dot", "-Tpdf", "-o", "sample.pdf", "sample.dot"

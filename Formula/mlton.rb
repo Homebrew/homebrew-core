@@ -58,7 +58,7 @@ class Mlton < Formula
   end
 
   test do
-    (testpath/"hello.sml").write <<-'EOS'.undent
+    (testpath/"hello.sml").write <<~'EOS'
       val () = print "Hello, Homebrew!\n"
     EOS
     system "#{bin}/mlton", "hello.sml"

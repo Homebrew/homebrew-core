@@ -1,26 +1,13 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  revision 2
-
-  stable do
-    url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
-    sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
-
-    # Remove for > 1.1.2
-    # Upstream PR from 18 Aug 2017 "Fix issue on OS X 10.10 where TCP fast open
-    # is detected but not implemented causing TCP to fail"
-    patch do
-      url "https://github.com/getdnsapi/getdns/pull/328.patch?full_index=1"
-      sha256 "8528bc22d705502f238db7a73e9f1ddbafca398d4b133056b6b4b161adbc3929"
-    end
-  end
+  url "https://getdnsapi.net/releases/getdns-1-2-0/getdns-1.2.0.tar.gz"
+  sha256 "06e6494b5d8b9404f439d5a98a3ab8f1f4b3557fb7aa3db005b021a6289b4229"
 
   bottle do
-    sha256 "d7200271289269eec4cec2bfd9f766d7dc741bb1f4057c55539315094fce222a" => :high_sierra
-    sha256 "38f785b5316068f359f5b5167f2cdabf4c33add3c5a81b7f138efa44a1bfd688" => :sierra
-    sha256 "d72f1b67dc14a963f08b0337e030f19e2bfbe4cb9b7d1523587f491f73f0b691" => :el_capitan
-    sha256 "174bb8420ba3dca17a9d646ba06ff720332f1991406932327e0cdf34392f00cf" => :yosemite
+    sha256 "18a667520c470eb6af10f97c005c74ca348965642cc766df2db7804546e986b4" => :high_sierra
+    sha256 "6a1fec44c69fb72c9f0f8976ae595793ffc5d7a564b27fd322ae8855d797e43d" => :sierra
+    sha256 "af93db1657d757e1dc92ed41335ca509b539e4bf2c7414aac08f350c7475ccc9" => :el_capitan
   end
 
   head do
@@ -55,17 +42,15 @@ class Getdns < Formula
     args << "--with-libuv" if build.with? "libuv"
     args << "--with-libev" if build.with? "libev"
 
-    # Current Makefile layout prevents simultaneous job execution
-    # https://github.com/getdnsapi/getdns/issues/166
-    ENV.deparallelize
-
     system "./configure", "--prefix=#{prefix}", *args
+    system "make"
     system "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <getdns/getdns.h>
+      #include <stdio.h>
 
       int main(int argc, char *argv[]) {
         getdns_context *context;

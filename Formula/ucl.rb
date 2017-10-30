@@ -22,7 +22,7 @@ class Ucl < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       // simplified version of
       // https://github.com/korczis/ucl/blob/master/examples/simple.c
       #include <stdio.h>

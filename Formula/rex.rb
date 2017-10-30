@@ -1,5 +1,5 @@
 class Rex < Formula
-  desc "Command-line tool which executes commands on remote servers."
+  desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.5.0.tar.gz"
   sha256 "c042a0ed4920070d4508b6e7d2c36d28b3a5691938f2e0a0d7717977b44b82d0"
@@ -261,7 +261,7 @@ class Rex < Formula
   test do
     assert_match "\(R\)\?ex #{version}", shell_output("#{bin}/rex -v"), "rex -v is expected to print out Rex version"
     system bin/"rexify", "brewtest"
-    assert (testpath/"brewtest/Rexfile").exist?, "rexify is expected to create a new Rex project and pre-populate its Rexfile"
+    assert_predicate testpath/"brewtest/Rexfile", :exist?, "rexify is expected to create a new Rex project and pre-populate its Rexfile"
   end
 
   private

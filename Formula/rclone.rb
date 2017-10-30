@@ -1,16 +1,15 @@
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
-  url "https://github.com/ncw/rclone/archive/v1.37.tar.gz"
-  sha256 "5666888428ad0194e2d4d4af4dab0d34955dc752682af8e3779112ec7cfd47fd"
+  url "https://github.com/ncw/rclone/archive/v1.38.tar.gz"
+  sha256 "d4806a55b64ab54923b55b230f2b2679406d5de995884433d3d60516bb8ebcc0"
   head "https://github.com/ncw/rclone.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a56229973977da37d6f76889f40b5358fde722b202d756d3d82c4071a0c0046" => :high_sierra
-    sha256 "574ca164ba465c4fda3b122df986be6a6d2ffcbb6f4d538c9dbd7b0bd58cd49e" => :sierra
-    sha256 "2e2cfcd9373d8a42b37d26fac848e27dc0b66b36ee2fc020e05a88e628676cdd" => :el_capitan
-    sha256 "8188a572f3c70bf9f277e77c2d2ee9fca2b70e55f3c4b19fdeed231bbedaf8a3" => :yosemite
+    sha256 "bfb44718ae89501168757b15cbc2c82bc51227062cce22f28e76e2248cdf0ad6" => :high_sierra
+    sha256 "4c39af5411641051b8bfbfff8a11fab52edefd767020539bebda9db25ee398bd" => :sierra
+    sha256 "3ba189ad018bd4594b8d17e3657637258418ab5820aec6169e1cb107859acfc4" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -21,8 +20,10 @@ class Rclone < Formula
     ln_s buildpath, buildpath/"src/github.com/ncw/rclone"
     system "go", "build", "-o", bin/"rclone"
     man1.install "rclone.1"
-    system bin/"rclone", "genautocomplete", "bash_completion"
-    bash_completion.install "bash_completion" => "rclone"
+    system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
+    system bin/"rclone", "genautocomplete", "zsh", "_rclone"
+    bash_completion.install "rclone.bash" => "rclone"
+    zsh_completion.install "_rclone"
   end
 
   test do

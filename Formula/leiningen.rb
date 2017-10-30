@@ -1,21 +1,20 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.7.1.tar.gz"
-  sha256 "953c95c2656c46320c88dc683202030fdd9554e8390a4b4aaaba6d019088df6f"
+  url "https://github.com/technomancy/leiningen/archive/2.8.1.tar.gz"
+  sha256 "7c6ca968f365e0a0893781b1eb03f920695ed8982ac7dbc2803a3188fbd75242"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b125fb1aa617747bdb525aff71138ee29cb3bfa30709af362aef851e76dcccc8" => :high_sierra
-    sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :sierra
-    sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :el_capitan
-    sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :yosemite
+    sha256 "ff380881c20232aaa4e2dbc81f1ce15ea23da26f65bb753d9571694b4bb1c6a4" => :high_sierra
+    sha256 "ff380881c20232aaa4e2dbc81f1ce15ea23da26f65bb753d9571694b4bb1c6a4" => :sierra
+    sha256 "ff380881c20232aaa4e2dbc81f1ce15ea23da26f65bb753d9571694b4bb1c6a4" => :el_capitan
   end
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.7.1/leiningen-2.7.1-standalone.zip", :using => :nounzip
-    sha256 "2ddc7e89bbb45cf1ca3d666a10dce0d3f154b77ad201aa58f430e84e71587c47"
+    url "https://github.com/technomancy/leiningen/releases/download/2.8.1/leiningen-2.8.1-standalone.zip", :using => :nounzip
+    sha256 "fc49bbc7ff25ef42ad9c0a8b5f3d0641702abc9a9a8e847bc845bca4c09a7c58"
   end
 
   def install
@@ -34,7 +33,7 @@ class Leiningen < Formula
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Dependencies will be installed to:
       $HOME/.m2/repository
     To play around with Clojure run `lein repl` or `lein help`.
@@ -42,18 +41,18 @@ class Leiningen < Formula
   end
 
   test do
-    (testpath/"project.clj").write <<-EOS.undent
+    (testpath/"project.clj").write <<~EOS
       (defproject brew-test "1.0"
         :dependencies [[org.clojure/clojure "1.5.1"]])
     EOS
-    (testpath/"src/brew_test/core.clj").write <<-EOS.undent
+    (testpath/"src/brew_test/core.clj").write <<~EOS
       (ns brew-test.core)
       (defn adds-two
         "I add two to a number"
         [x]
         (+ x 2))
     EOS
-    (testpath/"test/brew_test/core_test.clj").write <<-EOS.undent
+    (testpath/"test/brew_test/core_test.clj").write <<~EOS
       (ns brew-test.core-test
         (:require [clojure.test :refer :all]
                   [brew-test.core :as t]))

@@ -40,7 +40,7 @@ class BerkeleyDbAT4 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <assert.h>
       #include <string.h>
       #include <db_cxx.h>
@@ -68,7 +68,7 @@ class BerkeleyDbAT4 < Formula
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
-    assert (testpath/"test.db").exist?
+    assert_predicate testpath/"test.db", :exist?
   end
 end
 

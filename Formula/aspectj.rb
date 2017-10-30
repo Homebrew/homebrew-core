@@ -15,14 +15,14 @@ class Aspectj < Formula
   end
 
   test do
-    (testpath/"Test.java").write <<-EOS.undent
+    (testpath/"Test.java").write <<~EOS
       public class Test {
         public static void main (String[] args) {
           System.out.println("Brew Test");
         }
       }
     EOS
-    (testpath/"TestAspect.aj").write <<-EOS.undent
+    (testpath/"TestAspect.aj").write <<~EOS
       public aspect TestAspect {
         private pointcut mainMethod () :
           execution(public static void main(String[]));

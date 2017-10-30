@@ -1,5 +1,5 @@
 class Asciidoc < Formula
-  desc "Formatter/translator for text files to numerous formats. Includes a2x."
+  desc "Formatter/translator for text files to numerous formats. Includes a2x"
   homepage "http://asciidoc.org/"
   url "https://downloads.sourceforge.net/project/asciidoc/asciidoc/8.6.9/asciidoc-8.6.9.tar.gz"
   sha256 "78db9d0567c8ab6570a6eff7ffdf84eadd91f2dfc0a92a2d0105d323cab4e1f0"
@@ -34,7 +34,8 @@ class Asciidoc < Formula
     system "make", "docs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats
+    <<~EOS
       If you intend to process AsciiDoc files through an XML stage
       (such as a2x for manpage generation) you need to add something
       like:

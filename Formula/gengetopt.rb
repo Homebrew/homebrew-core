@@ -24,7 +24,7 @@ class Gengetopt < Formula
   end
 
   test do
-    ggo = <<-EOS.undent
+    ggo = <<~EOS
       package "homebrew"
       version "0.9.5"
       purpose "The missing package manager for macOS"
@@ -33,8 +33,8 @@ class Gengetopt < Formula
     EOS
 
     pipe_output("#{bin}/gengetopt --file-name=test", ggo, 0)
-    assert File.exist? "test.h"
-    assert File.exist? "test.c"
+    assert_predicate testpath/"test.h", :exist?
+    assert_predicate testpath/"test.c", :exist?
     assert_match(/verbose_given/, File.read("test.h"))
   end
 end

@@ -1,8 +1,8 @@
 class Nvm < Formula
   desc "Manage multiple Node.js versions"
   homepage "https://github.com/creationix/nvm"
-  url "https://github.com/creationix/nvm/archive/v0.33.4.tar.gz"
-  sha256 "0647c23217d73cd91f4d51a5dab1892c4dfec727f0f6e9b1389a6e8b97034182"
+  url "https://github.com/creationix/nvm/archive/v0.33.6.tar.gz"
+  sha256 "e744e129f4654f84372bc408465a37fb22b5349f11357d0d61745fce55a4c65e"
   head "https://github.com/creationix/nvm.git"
 
   bottle :unneeded
@@ -12,7 +12,7 @@ class Nvm < Formula
     bash_completion.install "bash_completion" => "nvm"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please note that upstream has asked us to make explicit managing
     nvm via Homebrew is unsupported by them and you should check any
     problems against the standard nvm install method prior to reporting.

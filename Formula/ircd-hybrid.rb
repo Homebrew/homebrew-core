@@ -30,7 +30,7 @@ class IrcdHybrid < Formula
     etc.install "doc/reference.conf" => "ircd.conf"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You'll more than likely need to edit the default settings in the config file:
       #{etc}/ircd.conf
     EOS
@@ -38,7 +38,7 @@ class IrcdHybrid < Formula
 
   plist_options :manual => "ircd"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

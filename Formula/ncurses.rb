@@ -4,13 +4,12 @@ class Ncurses < Formula
   url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.0.tar.gz"
   sha256 "f551c24b30ce8bfb6e96d9f59b42fbea30fa3a6123384172f9e7284bcf647260"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "8a89b242114626454cc04a7213b1048a5d30c06fb414cd59d909c483f51c4e53" => :high_sierra
-    sha256 "551937b3b407581f6cd20914d643600fd746333313a683c7b0dec841bfbb66df" => :sierra
-    sha256 "70443e997a0964193949192a4d7643f220c48ef34be9fa8341925e3c1cc11814" => :el_capitan
-    sha256 "f7e386ccd8420ddd2d60047c2781f80f7be74588d64d236d61b63fd452bd65d1" => :yosemite
+    sha256 "b0cc6b16a8f3b669442758113dde0771fe7533b00ed6c7476fbe0517ad16d3ca" => :high_sierra
+    sha256 "178411a38ba6a4affcc8f5c6ce351b2f8ea213b97329013ff2fd6385e63a8a4f" => :sierra
+    sha256 "08026e1a7dc4d53ec8bafcb1b0f40db3e9f029068d300fa8ba9275aa15457bdd" => :el_capitan
   end
 
   keg_only :provided_by_osx
@@ -19,10 +18,10 @@ class Ncurses < Formula
 
   # stable rollup patch created by upstream see
   # https://invisible-mirror.net/archives/ncurses/6.0/README
-  resource "ncurses-6.0-20160910-patch.sh" do
-    url "https://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
-    mirror "https://www.mirrorservice.org/sites/lynx.invisible-island.net/ncurses/6.0/ncurses-6.0-20160910-patch.sh.bz2"
-    sha256 "f570bcfe3852567f877ee6f16a616ffc7faa56d21549ad37f6649022f8662538"
+  resource "ncurses-6.0-20170930-patch.sh" do
+    url "https://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20170930-patch.sh.bz2"
+    mirror "https://dl.bintray.com/homebrew/mirror/ncurses-6.0-20170930-patch.sh.bz2"
+    sha256 "b179b2acf8838f4ed1c75c47db62109777d36a7e6efc1bd4e52e48cbd1bd4121"
   end
 
   def install
@@ -36,8 +35,8 @@ class Ncurses < Formula
     (lib/"pkgconfig").mkpath
 
     # stage and apply patch
-    buildpath.install resource("ncurses-6.0-20160910-patch.sh")
-    system "sh", "ncurses-6.0-20160910-patch.sh"
+    buildpath.install resource("ncurses-6.0-20170930-patch.sh")
+    system "sh", "ncurses-6.0-20170930-patch.sh"
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-pc-files",
@@ -84,7 +83,6 @@ class Ncurses < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    system bin/"tput", "cols"
 
     system prefix/"test/configure", "--prefix=#{testpath}/test",
                                     "--with-curses-dir=#{prefix}"

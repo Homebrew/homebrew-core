@@ -42,50 +42,50 @@ class Aqbanking < Formula
   test do
     ENV["TZ"] = "UTC"
     context = "balance.ctx"
-    (testpath/context).write <<-EOS.undent
-    accountInfoList {
-      accountInfo {
-        char bankCode="110000000"
-        char bankName="STRIPE TEST BANK"
-        char accountNumber="000123456789"
-        char accountName="demand deposit"
-        char iban="US44110000000000123456789"
-        char bic="BYLADEM1001"
-        char owner="JOHN DOE"
-        char currency="USD"
-        int  accountType="0"
-        int  accountId="2"
+    (testpath/context).write <<~EOS
+      accountInfoList {
+        accountInfo {
+          char bankCode="110000000"
+          char bankName="STRIPE TEST BANK"
+          char accountNumber="000123456789"
+          char accountName="demand deposit"
+          char iban="US44110000000000123456789"
+          char bic="BYLADEM1001"
+          char owner="JOHN DOE"
+          char currency="USD"
+          int  accountType="0"
+          int  accountId="2"
 
-        statusList {
-          status {
-            int  time="1388664000"
-
-            notedBalance {
-              value {
-                char value="123456%2F100"
-                char currency="USD"
-              } #value
-
+          statusList {
+            status {
               int  time="1388664000"
-            } #notedBalance
-          } #status
 
-          status {
-            int  time="1388750400"
+              notedBalance {
+                value {
+                  char value="123456%2F100"
+                  char currency="USD"
+                } #value
 
-            notedBalance {
-              value {
-                char value="132436%2F100"
-                char currency="USD"
-              } #value
+                int  time="1388664000"
+              } #notedBalance
+            } #status
 
+            status {
               int  time="1388750400"
-            } #notedBalance
-          } #status
-        } #statusList
 
-      } # accountInfo
-    } # accountInfoList
+              notedBalance {
+                value {
+                  char value="132436%2F100"
+                  char currency="USD"
+                } #value
+
+                int  time="1388750400"
+              } #notedBalance
+            } #status
+          } #statusList
+
+        } # accountInfo
+      } # accountInfoList
     EOS
     assert_match /^Account\s+110000000\s+000123456789\s+STRIPE TEST BANK\s+03.01.2014\s+12:00\s+1324.36\s+USD\s+$/, shell_output("#{bin}/aqbanking-cli listbal -c #{context}")
   end

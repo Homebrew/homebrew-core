@@ -1,14 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.19.tar.gz"
-  sha256 "22e5034e40e0731eff521b7aaf7584b76297a69875ee50026b12f2bfac3e1bca"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.20.tar.gz"
+  sha256 "260582844ac18222ce2826f48b6c7ca387990b19ddb88331af26738b394e42a4"
 
   bottle do
-    sha256 "f596b35f86eb706c459416aec2afdbd0b2fc4ab1d66476a594684dc54482d88e" => :high_sierra
-    sha256 "8afdb9586feb3bf76728c5bfbe9e782f3b2978d2721ad8f208d925b634bf35c5" => :sierra
-    sha256 "5cd412ab981a48952929a25d92c3e90e3c7bb009e2a5bd4287962c6d48b8f904" => :el_capitan
-    sha256 "49722c12a639f81856944f2899bf474bc5d068859fed8e60ead170bf474805d9" => :yosemite
+    sha256 "a2e6118b43021c5644a5972551a2b504529146d0f3586f2060bab00c40738586" => :high_sierra
+    sha256 "00db29d31d78c659c573b5d4746a1237630d69cce66f2d61c14689948374ec68" => :sierra
+    sha256 "016deb20192b24bfdb8011918941da4b9752a5237fbeec4b29568e8dd1417189" => :el_capitan
   end
 
   option "with-test", "Build with unit tests"
@@ -115,7 +114,7 @@ class Mysql < Formula
     bin.install_symlink prefix/"support-files/mysql.server"
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -135,17 +134,17 @@ class Mysql < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-    We've installed your MySQL database without a root password. To secure it run:
-        mysql_secure_installation
+    s = <<~EOS
+      We've installed your MySQL database without a root password. To secure it run:
+          mysql_secure_installation
 
-    MySQL is configured to only allow connections from localhost by default
+      MySQL is configured to only allow connections from localhost by default
 
-    To connect run:
-        mysql -uroot
+      To connect run:
+          mysql -uroot
     EOS
     if my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x }
-      s += <<-EOS.undent
+      s += <<~EOS
 
         A "#{my_cnf}" from another install may interfere with a Homebrew-built
         server starting up correctly.
@@ -156,7 +155,7 @@ class Mysql < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

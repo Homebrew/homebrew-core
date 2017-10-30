@@ -1,5 +1,5 @@
 class Jflex < Formula
-  desc "Lexical analyzer generator for Java, written in Java."
+  desc "Lexical analyzer generator for Java, written in Java"
   homepage "http://jflex.de/"
   url "http://jflex.de/release/jflex-1.6.1.zip"
   sha256 "6da3c573db065f535c9b544e46ab4d49caa629b0354f8340df027f35e3368a51"

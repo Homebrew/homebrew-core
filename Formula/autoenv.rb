@@ -11,7 +11,7 @@ class Autoenv < Formula
     prefix.install "activate.sh"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To finish the installation, source activate.sh in your shell:
       source #{opt_prefix}/activate.sh
     EOS

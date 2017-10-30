@@ -29,7 +29,7 @@ class Bde < Formula
   test do
     # bde tests are incredibly performance intensive
     # test below does a simple sanity check for linking against bsl.
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bsl/bsl_string.h>
       #include <bsl/bslma_default.h>
       int main() {

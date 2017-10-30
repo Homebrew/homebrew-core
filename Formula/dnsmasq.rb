@@ -1,15 +1,14 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
-  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
-  sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
-  revision 3
+  url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.78.tar.gz"
+  sha256 "c92e5d78aa6353354d02aabf74590d08980bb1385d8a00b80ef9bc80430aa1dc"
 
   bottle do
-    sha256 "d29dd993abb69147e9e98d28bbfc45b5dbcde8aba020de0286bc053399460f5c" => :high_sierra
-    sha256 "1651004656f0f8d654167421188eca24f8828253bd8b5948ba657c834c6bcb87" => :sierra
-    sha256 "9a2ef1302f2654af6c6598a1c1926e4733a800bf38d2af783b60daac352861bf" => :el_capitan
-    sha256 "7562571ad0156478738bd1d48e4c70e6877930f5649045adb907f4b3b33f4e19" => :yosemite
+    rebuild 1
+    sha256 "29b9a8f0b872785a893a2446098ea979a4172938aac84d4dcbc42e55ffb15e73" => :high_sierra
+    sha256 "8ec8cbc805daeeba93b450ec5c5fea02cdcc7978cf93a4e8032bb836c83c5f03" => :sierra
+    sha256 "84a562c8c0ff1a83cabfaa0bf50c9a05169715ce879c4308efbc132e66302120" => :el_capitan
   end
 
   option "with-libidn", "Compile with IDN support"
@@ -24,15 +23,6 @@ class Dnsmasq < Formula
 
   def install
     ENV.deparallelize
-
-    # Re-evaluate whether this is needed for dnsmasq > 2.77
-    # Fix __memcpy_chk crash in strcpy(cache->name.sname, canon);
-    # Reported 12 Jul 2017 to simon AT thekelleys DOT org DOT uk
-    # See https://github.com/Homebrew/homebrew-core/issues/14463
-    if MacOS.version >= :sierra
-      inreplace "src/config.h", "#define SMALLDNAME 50 ",
-                                "#define SMALLDNAME 255 "
-    end
 
     # Fix etc location
     inreplace %w[dnsmasq.conf.example src/config.h man/dnsmasq.8
@@ -88,7 +78,7 @@ class Dnsmasq < Formula
     (etc/"dnsmasq.d/dhcpc").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To configure dnsmasq, take the default example configuration at
       #{etc}/dnsmasq.conf and edit to taste.
     EOS
@@ -96,7 +86,7 @@ class Dnsmasq < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

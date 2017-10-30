@@ -32,7 +32,7 @@ class Libbdplus < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libbdplus/bdplus.h>
       int main() {
         int major = -1;

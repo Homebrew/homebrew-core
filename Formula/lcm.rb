@@ -49,7 +49,7 @@ class Lcm < Formula
   end
 
   test do
-    (testpath/"example_t.lcm").write <<-EOS.undent
+    (testpath/"example_t.lcm").write <<~EOS
       package exlcm;
 
       struct example_t
@@ -60,13 +60,13 @@ class Lcm < Formula
       }
     EOS
     system "#{bin}/lcm-gen", "-c", "example_t.lcm"
-    assert(File.exist?("exlcm_example_t.h"), "lcm-gen did not generate C header file")
-    assert(File.exist?("exlcm_example_t.c"), "lcm-gen did not generate C source file")
+    assert_predicate testpath/"exlcm_example_t.h", :exist?, "lcm-gen did not generate C header file"
+    assert_predicate testpath/"exlcm_example_t.c", :exist?, "lcm-gen did not generate C source file"
     system "#{bin}/lcm-gen", "-x", "example_t.lcm"
-    assert(File.exist?("exlcm/example_t.hpp"), "lcm-gen did not generate C++ header file")
+    assert_predicate testpath/"exlcm/example_t.hpp", :exist?, "lcm-gen did not generate C++ header file"
     if build.with? "java"
       system "#{bin}/lcm-gen", "-j", "example_t.lcm"
-      assert(File.exist?("exlcm/example_t.java"), "lcm-gen did not generate java file")
+      assert_predicate testpath/"exlcm/example_t.java", :exist?, "lcm-gen did not generate java file"
     end
   end
 end

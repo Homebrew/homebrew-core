@@ -21,7 +21,7 @@ class Msgpack < Formula
 
   test do
     # Reference: http://wiki.msgpack.org/display/MSGPACK/QuickStart+for+C+Language
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <msgpack.h>
       #include <stdio.h>
 

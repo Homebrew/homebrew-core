@@ -34,7 +34,7 @@ class Libantlr3c < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <antlr3.h>
       int main() {
         if (0) {

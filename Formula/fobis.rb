@@ -1,7 +1,7 @@
 class Fobis < Formula
   include Language::Python::Virtualenv
 
-  desc "KISS build tool for automaticaly building modern Fortran projects."
+  desc "KISS build tool for automaticaly building modern Fortran projects"
   homepage "https://github.com/szaghi/FoBiS"
   url "https://files.pythonhosted.org/packages/6e/c3/217ba20c53a39e68f7bef139a47f5c820230d1d672529de44c9bd961a023/FoBiS.py-2.2.7.tar.gz"
   sha256 "ed5054fc3887159ae7cafa32f16859761216ab678390ccc328b624ac5e960c63"
@@ -39,13 +39,13 @@ class Fobis < Formula
 
   test do
     ENV.fortran
-    (testpath/"test-mod.f90").write <<-EOS.undent
+    (testpath/"test-mod.f90").write <<~EOS
       module fobis_test_m
         implicit none
         character(*), parameter :: message = "Hello FoBiS"
       end module
     EOS
-    (testpath/"test-prog.f90").write <<-EOS.undent
+    (testpath/"test-prog.f90").write <<~EOS
       program fobis_test
         use iso_fortran_env, only: stdout => output_unit
         use fobis_test_m, only: message

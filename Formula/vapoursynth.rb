@@ -3,21 +3,21 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R38.tar.gz"
-  sha256 "6dfd4bb28185fced32e530b5f31e98f535c534abeaf0b900a9b2e9327e12bd4a"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R39.tar.gz"
+  sha256 "792a0002c71a7fc9d1d366df8d463f0b9918df4f871e4ab9a87120163a44c5c7"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    sha256 "4bf55e943468c6c4762ec465c967e45eee7f9a11cab3d80531e99984cc2f3f41" => :high_sierra
-    sha256 "2f4e594a69fc13a455b2e1fd4f0dbce3a4af71d58cd52758f648c2b0bb7d9e84" => :sierra
-    sha256 "70cb07c8f48ceec36ece8e3505bb540cc79847e36c37ae07edefa008a4297351" => :el_capitan
+    sha256 "395ceeb23551cfe36b1fcacf15c3dce35697373b287caf59e6f1918b874e6c3a" => :high_sierra
+    sha256 "223896633f0a26a4fa6281fb47ce3339071b5e2eb00b69ce8add6988984d282b" => :sierra
+    sha256 "f1fce97b0975d8e8b9651e02f89e762958da784ff5cd2600f13e943fc9a23851" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "yasm" => :build
+  depends_on "nasm" => :build
 
   depends_on "libass"
   depends_on :macos => :el_capitan # due to zimg dependency
@@ -26,8 +26,8 @@ class Vapoursynth < Formula
   depends_on "zimg"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+    url "https://files.pythonhosted.org/packages/10/32/21873ff231e069f860098b1602bb9e3ae2806d2f73ba661b5d806f200243/Cython-0.27.1.tar.gz"
+    sha256 "e6840a2ba2704f4ffb40e454c36f73aeb440a4005453ee8d7ff6a00d812ba176"
   end
 
   def install

@@ -1,5 +1,5 @@
 class Gprof2dot < Formula
-  desc "Convert the output from many profilers into a Graphviz dot graph."
+  desc "Convert the output from many profilers into a Graphviz dot graph"
   homepage "https://github.com/jrfonseca/gprof2dot"
   url "https://files.pythonhosted.org/packages/9d/36/f977122502979f3dfb50704979c9ed70e6b620787942b089bf1af15f5aba/gprof2dot-2017.9.19.tar.gz"
   sha256 "cebc7aa2782fd813ead415ea1fae3409524343485eadc7fb60ef5bd1e810309e"
@@ -25,7 +25,7 @@ class Gprof2dot < Formula
   end
 
   test do
-    (testpath/"gprof.output").write <<-EOS.undent
+    (testpath/"gprof.output").write <<~EOS
       Flat profile:
 
       Each sample counts as 0.01 seconds.
@@ -65,7 +65,7 @@ class Gprof2dot < Formula
              the function in the gprof listing. If the index is
              in parenthesis it shows where it would appear in
              the gprof listing if it were to be printed.
-
+      
                    Call graph (explanation follows)
 
 
@@ -182,6 +182,6 @@ class Gprof2dot < Formula
          [4] project1                [2] worker1
     EOS
     system bin/"gprof2dot", testpath/"gprof.output", "-o", testpath/"call_graph.dot"
-    assert File.exist?(testpath/"call_graph.dot")
+    assert_predicate testpath/"call_graph.dot", :exist?
   end
 end

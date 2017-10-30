@@ -27,7 +27,7 @@ class Castxml < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       int main() {
         return 0;
       }

@@ -1,18 +1,14 @@
 class Libsmi < Formula
   desc "Library to Access SMI MIB Information"
   homepage "https://www.ibr.cs.tu-bs.de/projects/libsmi/"
-  url "https://www.ibr.cs.tu-bs.de/projects/libsmi/download/libsmi-0.4.8.tar.gz"
-  mirror "https://ftp.mirrorservice.org/sites/download.salixos.org/i486/extra-14.2/source/libraries/libsmi/libsmi-0.4.8.tar.gz"
-  sha256 "f048a5270f41bc88b0c3b0a8fe70ca4d716a46b531a0ecaaa87c462f49d74849"
+  url "https://www.ibr.cs.tu-bs.de/projects/libsmi/download/libsmi-0.5.0.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libsmi/libsmi-0.5.0.tar.gz"
+  sha256 "f21accdadb1bb328ea3f8a13fc34d715baac6e2db66065898346322c725754d3"
 
   bottle do
-    rebuild 1
-    sha256 "d28353ef2fc8bd3d521dc989e99a72e7caffd0890d5056cfea702e9b7ff57588" => :high_sierra
-    sha256 "8a77bfffacfce5c323970f1ae870e62ba577964f743721e62583b4713001bc20" => :sierra
-    sha256 "27cffaf7b38a36a1da50661a3a7a243fd9aaecaa73e4a91a462155a553a17f52" => :el_capitan
-    sha256 "6d30614b5a664f046bb3777b0bf0c04fbadb2203edffc9275d34ab3d50e3dc6d" => :yosemite
-    sha256 "468714d42c8aa845d2c53de783b43753d99fcca7ee5f0b8fd4726fbdb1a0299c" => :mavericks
-    sha256 "29c960c1a37c4dbe51fe87634db55b888211d22061db9a668e4c116887e04ca9" => :mountain_lion
+    sha256 "8c1bba9799c48d5b977dafbbd31a61722cb0aea36c478720cbd67a240b3d42cc" => :high_sierra
+    sha256 "92f1085c6337464387892efd275acf3b0eba9947a07ff353d4b02e16f912bce4" => :sierra
+    sha256 "bf050ac873b082e36bfb280cd2325c00bc679b54be6ece47d0bfd1135ae7a872" => :el_capitan
   end
 
   def install

@@ -26,7 +26,7 @@ class GtkEngines < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You will need to set:
       GTK_PATH=#{HOMEBREW_PREFIX}/lib/gtk-2.0
     as by default GTK looks for modules in Cellar.
@@ -34,8 +34,8 @@ class GtkEngines < Formula
   end
 
   test do
-    assert (pkgshare/"clearlooks.xml").exist?
-    assert (lib/"gtk-2.0/2.10.0/engines/libhcengine.so").exist?
-    assert (share/"themes/Industrial/gtk-2.0/gtkrc").exist?
+    assert_predicate pkgshare/"clearlooks.xml", :exist?
+    assert_predicate lib/"gtk-2.0/2.10.0/engines/libhcengine.so", :exist?
+    assert_predicate share/"themes/Industrial/gtk-2.0/gtkrc", :exist?
   end
 end

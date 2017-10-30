@@ -35,24 +35,24 @@ class Tinysvm < Formula
   end
 
   test do
-    (testpath/"train.svmdata").write <<-EOS.undent
-    +1 201:1.2 3148:1.8 3983:1 4882:1
-    -1 874:0.3 3652:1.1 3963:1 6179:1
-    +1 1168:1.2 3318:1.2 3938:1.8 4481:1
-    +1 350:1 3082:1.5 3965:1 6122:0.2
-    -1 99:1 3057:1 3957:1 5838:0.3
+    (testpath/"train.svmdata").write <<~EOS
+      +1 201:1.2 3148:1.8 3983:1 4882:1
+      -1 874:0.3 3652:1.1 3963:1 6179:1
+      +1 1168:1.2 3318:1.2 3938:1.8 4481:1
+      +1 350:1 3082:1.5 3965:1 6122:0.2
+      -1 99:1 3057:1 3957:1 5838:0.3
     EOS
 
-    (testpath/"train.svrdata").write <<-EOS.undent
-    0.23 201:1.2 3148:1.8 3983:1 4882:1
-    0.33 874:0.3 3652:1.1 3963:1 6179:1
-    -0.12 1168:1.2 3318:1.2 3938:1.8 4481:1
+    (testpath/"train.svrdata").write <<~EOS
+      0.23 201:1.2 3148:1.8 3983:1 4882:1
+      0.33 874:0.3 3652:1.1 3963:1 6179:1
+      -0.12 1168:1.2 3318:1.2 3938:1.8 4481:1
     EOS
 
     system "#{bin}/svm_learn", "-t", "1", "-d", "2", "-c", "train.svmdata", "test"
     system "#{bin}/svm_classify", "-V", "train.svmdata", "test"
     system "#{bin}/svm_model", "test"
 
-    assert File.exist? "test"
+    assert_predicate testpath/"test", :exist?
   end
 end

@@ -28,7 +28,7 @@ class Fmdiff < Formula
     ENV.prepend_path "PATH", testpath
 
     # dummy filemerge script
-    (testpath/"filemerge").write <<-EOS.undent
+    (testpath/"filemerge").write <<~EOS
       #!/bin/sh
       echo "it works"
     EOS

@@ -35,34 +35,34 @@ class WlaDx < Formula
   end
 
   test do
-    (testpath/"test-gb-asm.s").write <<-EOS.undent
-     .MEMORYMAP
-      DEFAULTSLOT 1.01
-      SLOT 0.001 $0000 $2000
-      SLOT 1.2 STArT $2000 sIzE $6000
-      .ENDME
+    (testpath/"test-gb-asm.s").write <<~EOS
+      .MEMORYMAP
+       DEFAULTSLOT 1.01
+       SLOT 0.001 $0000 $2000
+       SLOT 1.2 STArT $2000 sIzE $6000
+       .ENDME
 
-      .ROMBANKMAP
-      BANKSTOTAL 2
-      BANKSIZE $2000
-      BANKS 1
-      BANKSIZE $6000
-      BANKS 1
-      .ENDRO
+       .ROMBANKMAP
+       BANKSTOTAL 2
+       BANKSIZE $2000
+       BANKS 1
+       BANKSIZE $6000
+       BANKS 1
+       .ENDRO
 
-      .BANK 1 SLOT 1
+       .BANK 1 SLOT 1
 
-      .ORGA $2000
+       .ORGA $2000
 
 
-      ld hl, sp+127
-      ld hl, sp-128
-      add sp, -128
-      add sp, 127
-      adc 200
-      jr -128
-      jr 127
-      jr nc, 127
+       ld hl, sp+127
+       ld hl, sp-128
+       add sp, -128
+       add sp, 127
+       adc 200
+       jr -128
+       jr 127
+       jr nc, 127
     EOS
     system bin/"wla-gb", "-o", testpath/"test-gb-asm.s"
   end

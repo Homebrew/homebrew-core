@@ -110,35 +110,35 @@ class Gnuradio < Formula
   test do
     system("#{bin}/gnuradio-config-info -v")
 
-    (testpath/"test.c++").write <<-EOS.undent
-        #include <gnuradio/top_block.h>
-        #include <gnuradio/blocks/null_source.h>
-        #include <gnuradio/blocks/null_sink.h>
-        #include <gnuradio/blocks/head.h>
-        #include <gnuradio/gr_complex.h>
+    (testpath/"test.c++").write <<~EOS
+      #include <gnuradio/top_block.h>
+      #include <gnuradio/blocks/null_source.h>
+      #include <gnuradio/blocks/null_sink.h>
+      #include <gnuradio/blocks/head.h>
+      #include <gnuradio/gr_complex.h>
 
-        class top_block : public gr::top_block {
-        public:
-          top_block();
-        private:
-          gr::blocks::null_source::sptr null_source;
-          gr::blocks::null_sink::sptr null_sink;
-          gr::blocks::head::sptr head;
-        };
+      class top_block : public gr::top_block {
+      public:
+        top_block();
+      private:
+        gr::blocks::null_source::sptr null_source;
+        gr::blocks::null_sink::sptr null_sink;
+        gr::blocks::head::sptr head;
+      };
 
-        top_block::top_block() : gr::top_block("Top block") {
-          long s = sizeof(gr_complex);
-          null_source = gr::blocks::null_source::make(s);
-          null_sink = gr::blocks::null_sink::make(s);
-          head = gr::blocks::head::make(s, 1024);
-          connect(null_source, 0, head, 0);
-          connect(head, 0, null_sink, 0);
-        }
+      top_block::top_block() : gr::top_block("Top block") {
+        long s = sizeof(gr_complex);
+        null_source = gr::blocks::null_source::make(s);
+        null_sink = gr::blocks::null_sink::make(s);
+        head = gr::blocks::head::make(s, 1024);
+        connect(null_source, 0, head, 0);
+        connect(head, 0, null_sink, 0);
+      }
 
-        int main(int argc, char **argv) {
-          top_block top;
-          top.run();
-        }
+      int main(int argc, char **argv) {
+        top_block top;
+        top.run();
+      }
     EOS
     system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"]}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
@@ -148,7 +148,7 @@ class Gnuradio < Formula
     system (testpath/"test")
 
     if build.with? "python"
-      (testpath/"test.py").write <<-EOS.undent
+      (testpath/"test.py").write <<~EOS
         from gnuradio import blocks
         from gnuradio import gr
 

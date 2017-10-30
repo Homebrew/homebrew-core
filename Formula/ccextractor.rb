@@ -27,6 +27,6 @@ class Ccextractor < Formula
       exec bin/"ccextractor", testpath/"test"
     end
     Process.wait(pid)
-    assert File.exist?("test.srt")
+    assert_predicate testpath/"test.srt", :exist?
   end
 end

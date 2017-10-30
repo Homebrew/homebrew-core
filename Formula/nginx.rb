@@ -1,21 +1,20 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.12.1.tar.gz"
-  sha256 "8793bf426485a30f91021b6b945a9fd8a84d87d17b566562c3797aba8fac76fb"
-
+  url "https://nginx.org/download/nginx-1.12.2.tar.gz"
+  sha256 "305f379da1d5fb5aefa79e45c829852ca6983c7cd2a79328f8e084a324cf0416"
+  revision 1
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "97cc615490e05b2c642d9c317e6bc64c00503f4ffbd763a1e1a13f26d553409d" => :high_sierra
-    sha256 "93bcf8e3aec465c219b6c0b4f4d5437c61bf00f2a930ef5702e0521edc51f20e" => :sierra
-    sha256 "8a7c3580534aa0854927f750d4f044a2a85f90d4c1936338a4a09fef7db0824e" => :el_capitan
-    sha256 "0caae754f402abbe1eca413a7f0291fe2499d5779bb1e537d7f80a4d7d3156d3" => :yosemite
+    sha256 "b773b2394e84c697d5193242589361c611869560200269e4b325634c2ca1464c" => :high_sierra
+    sha256 "817a7928bd81518e419c6837c1483cacf4d969f3d6acbf711567f5d5f731497f" => :sierra
+    sha256 "4e9d4c1ce74bc3b3fea4d90ba6c7c73c6d0457eff26da37163f9393dfc027ac0" => :el_capitan
   end
 
   devel do
-    url "https://nginx.org/download/nginx-1.13.5.tar.gz"
-    sha256 "0e75b94429b3f745377aeba3aff97da77bf2b03fcb9ff15b3bad9b038db29f2e"
+    url "https://nginx.org/download/nginx-1.13.6.tar.gz"
+    sha256 "8512fc6f986a20af293b61f33b0e72f64a72ea5b1acbcc790c4c4e2d6f63f8f8"
   end
 
   # Before submitting more options to this formula please check they aren't
@@ -26,16 +25,9 @@ class Nginx < Formula
   option "with-debug", "Compile with support for debug log"
   option "with-gunzip", "Compile with support for gunzip module"
 
+  depends_on "openssl" # don't switch to 1.1 until passenger is switched, too
   depends_on "pcre"
   depends_on "passenger" => :optional
-
-  # passenger uses apr, which uses openssl, so need to keep
-  # crypto library choice consistent throughout the tree.
-  if build.with? "passenger"
-    depends_on "openssl"
-  else
-    depends_on "openssl@1.1"
-  end
 
   def install
     # Changes default port to 8080
@@ -44,13 +36,8 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
+    openssl = Formula["openssl"]
     pcre = Formula["pcre"]
-
-    if build.with? "passenger"
-      openssl = Formula["openssl"]
-    else
-      openssl = Formula["openssl@1.1"]
-    end
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
     ld_opt = "-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
@@ -128,7 +115,7 @@ class Nginx < Formula
     end
   end
 
-  def passenger_caveats; <<-EOS.undent
+  def passenger_caveats; <<~EOS
     To activate Phusion Passenger, add this to #{etc}/nginx/nginx.conf, inside the 'http' context:
       passenger_root #{Formula["passenger"].opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
@@ -136,13 +123,13 @@ class Nginx < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-    Docroot is: #{var}/www
+    s = <<~EOS
+      Docroot is: #{var}/www
 
-    The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
-    nginx can run without sudo.
+      The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
+      nginx can run without sudo.
 
-    nginx will load all files in #{etc}/nginx/servers/.
+      nginx will load all files in #{etc}/nginx/servers/.
     EOS
     s << "\n" << passenger_caveats if build.with? "passenger"
     s
@@ -150,7 +137,7 @@ class Nginx < Formula
 
   plist_options :manual => "nginx"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

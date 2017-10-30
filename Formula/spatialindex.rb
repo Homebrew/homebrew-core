@@ -22,7 +22,7 @@ class Spatialindex < Formula
   test do
     # write out a small program which inserts a fixed box into an rtree
     # and verifies that it can query it
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <spatialindex/SpatialIndex.h>
 
       using namespace std;
