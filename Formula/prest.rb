@@ -16,9 +16,11 @@ class Prest < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/nuveo").mkpath
-    ln_s buildpath, buildpath/"src/github.com/nuveo/prest"
-    system "go", "build", "-o", bin/"prest"
+    (buildpath/"src/github.com/nuveo/prest").install buildpath.children
+    cd "src/github.com/nuveo/prest" do
+      system "go", "build", "-o", bin/"prest"
+      prefix.install_metafiles
+    end
   end
 
   test do
