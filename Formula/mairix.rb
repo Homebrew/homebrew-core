@@ -1,8 +1,8 @@
 class Mairix < Formula
   desc "Email index and search tool"
   homepage "http://www.rpcurnow.force9.co.uk/mairix/"
-  url "https://downloads.sourceforge.net/project/mairix/mairix/0.23/mairix-0.23.tar.gz"
-  sha256 "804e235b183c3350071a28cdda8eb465bcf447092a8206f40486191875bdf2fb"
+  url "https://downloads.sourceforge.net/project/mairix/mairix/0.24/mairix-0.24.tar.gz"
+  sha256 "a0702e079c768b6fbe25687ebcbabe7965eb493d269a105998c7c1c2caef4a57"
 
   head "https://github.com/rc0/mairix.git"
 
