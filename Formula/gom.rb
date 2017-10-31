@@ -22,6 +22,8 @@ class Gom < Formula
   depends_on "sqlite"
 
   def install
+    ENV.refurbish_args
+
     pyver = Language::Python.major_minor_version "python3"
 
     # prevent sandbox violation
