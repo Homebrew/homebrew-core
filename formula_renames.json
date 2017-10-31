@@ -117,6 +117,7 @@
   "mpich2": "mpich",
   "mysql55": "mysql@5.5",
   "mysql56": "mysql@5.6",
+  "newsboat": "newsbeuter",
   "nimrod": "nim",
   "node010": "node@0.10",
   "node012": "node@0.12",
