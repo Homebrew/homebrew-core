@@ -21,6 +21,7 @@ class Opencv < Formula
   depends_on :python
   depends_on :python3
   depends_on "numpy"
+  depends_on "tbb"
 
   needs :cxx11
 
@@ -67,7 +68,7 @@ class Opencv < Formula
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
-      -DWITH_TBB=OFF
+      -DWITH_TBB=ON
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=ON
       -DBUILD_opencv_python3=ON
