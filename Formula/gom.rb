@@ -6,6 +6,7 @@ class Gom < Formula
 
   bottle do
     cellar :any
+    sha256 "6c881c4f323fdd61bb89e09c7f9d246736d0f9d77c8b1b37583561afe11cd264" => :high_sierra
     sha256 "0362cca9f99c933d1e2ff55e14c4a1bd6e29b603691ed31584c3c11ec047bba0" => :sierra
     sha256 "cb6b8b45f13d113c9be5008ce9dc92dd3e10dee96f7b0f6f1b2f6425a82fce92" => :el_capitan
   end
