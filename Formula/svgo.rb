@@ -3,8 +3,8 @@ require "language/node"
 class Svgo < Formula
   desc "Nodejs-based tool for optimizing SVG vector graphics files"
   homepage "https://github.com/svg/svgo"
-  url "https://github.com/svg/svgo/archive/v0.7.2.tar.gz"
-  sha256 "93b36477366e6b48b9bc3f9086232ae7fc16b87fa36acc1d524720ea58123fcf"
+  url "https://github.com/svg/svgo/archive/v1.0.1.tar.gz"
+  sha256 "1333b86493b4115692dc7013fa094ece9fb56be5001717c638b5a2547bff8959"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,7 +23,7 @@ class Svgo < Formula
 
   test do
     cp test_fixtures("test.svg"), testpath
-    system bin/"svgo", "test.svg", "test.min.svg"
+    system bin/"svgo", "test.svg", "-o", "test.min.svg"
     assert_match /^<svg /, (testpath/"test.min.svg").read
   end
 end
