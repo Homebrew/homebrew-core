@@ -5,9 +5,9 @@ class Geckodriver < Formula
   sha256 "f590ddfef42995a23e781b52befdbc2ac342bf829008e98d212f2e1e15d9f713"
 
   bottle do
-    sha256 "a2b2d2bd8eb2d2ca055cbe6a2ff603ed9c2a8b0fa8ea799d8ebfe395bea6b5da" => :high_sierra
-    sha256 "6285d0dbf69135901584ce69310307b147851c683ffd2f431782b46e8aa9fd25" => :sierra
-    sha256 "12ed12fc32df68c76e457f6dfaf3d74599eabf02578fc903261ea54e7839fc84" => :el_capitan
+    sha256 "469b6c642b0029195c94eacf68cc4b8d90a51fcd39f1c6eee7a38b74face0f35" => :high_sierra
+    sha256 "fe98e37bfc14be0a4acf84ced1149ad410684c9235060f2560d256b0cf4e4bbe" => :sierra
+    sha256 "368b38b2b40cced77457a3fa47369f6668549df2fe84fd80c6926964ea55dcbc" => :el_capitan
   end
 
   depends_on "rust" => :build
