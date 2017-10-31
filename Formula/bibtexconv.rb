@@ -6,10 +6,9 @@ class Bibtexconv < Formula
 
   bottle do
     cellar :any
-    sha256 "18067370aa213a4756bd90497a009828d6c98e3f2f5db2efd75352d54415bd41" => :high_sierra
-    sha256 "c38c8d20a76071e57f4b678a586b8f7e213a2028d64de595a4911454c97c469f" => :sierra
-    sha256 "c8e2fb247bec2234227366eb9c7adac11b0a04c8f2c6ed0bf251947414dadde9" => :el_capitan
-    sha256 "a1cba2452e21e2ea07d4d186462e09b79acf9b72ecfe2831e3dca3daefa2ca91" => :yosemite
+    sha256 "2b44b8dd4bf60b443c9318e056fdcffaed9218e75d7d907dd6ae5c4679a135e9" => :high_sierra
+    sha256 "81c4daa41ddb6837d40b66a883aceeb3470ca03148fcc6fd19386ff623776dd8" => :sierra
+    sha256 "397edcb9360918833774139e8cf9d11bcb53fc7c763e487a7bec325861b73cd6" => :el_capitan
   end
 
   head do
