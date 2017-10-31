@@ -3,6 +3,7 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.3.1.tar.gz"
   sha256 "5dca3bb0d661af311e25a72b04a7e4c22c47c1aa86eb73e70063cd378a2aa6ee"
+  revision 1
 
   bottle do
     sha256 "b4abe849aa3f965411b0a8c8ccfae2e7f63b91744ba0ebfd4fc1e7d946a1675e" => :high_sierra
@@ -21,6 +22,7 @@ class Opencv < Formula
   depends_on :python
   depends_on :python3
   depends_on "numpy"
+  depends_on "tbb"
 
   needs :cxx11
 
@@ -67,7 +69,7 @@ class Opencv < Formula
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
-      -DWITH_TBB=OFF
+      -DWITH_TBB=ON
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=ON
       -DBUILD_opencv_python3=ON
