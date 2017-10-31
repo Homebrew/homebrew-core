@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.8.1/node-v8.8.1.tar.xz"
-  sha256 "5ce2c47ab779992db49942f757a01cc5131db5cef4e0dd270e48151b0887b57a"
+  url "https://nodejs.org/dist/v8.9.0/node-v8.9.0.tar.xz"
+  sha256 "ae8258f89e127a76d4b4aff6fdb8dc395b7da0069cba054b913dfc36b3c91189"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -35,8 +35,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.4.2.tgz"
-    sha256 "04dc5f87b1079d59d51404d4b4c4aacbe385807a33bd15a8f2da2fabe27bf443"
+    url "https://registry.npmjs.org/npm/-/npm-5.5.1.tgz"
+    sha256 "b8b9afb0bb6211a289f969f66ba184ca5bc83abf6a570e0853ea5185073dca6f"
   end
 
   def install
@@ -144,7 +144,7 @@ class Node < Formula
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
-      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --cache=#{HOMEBREW_CACHE}/npm_cache cowsay hello")
+      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
     end
   end
 end
