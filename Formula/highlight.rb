@@ -12,7 +12,7 @@ class Highlight < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost" => :build
   depends_on "lua"
 
   def install
