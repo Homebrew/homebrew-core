@@ -8,11 +8,9 @@ class Mairix < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "940684004fb2d3034e671c642cdc7abb6f985dfe435e50bea0870cc5c1d707e1" => :high_sierra
-    sha256 "0a7ee5ac029afa61f328a1c316e9dfc8be3d5f2ae66951599305b432e3b80bc8" => :sierra
-    sha256 "453f15461f87619409983ab90620d5bb57d151a3f3485d08d3e5a9e26c59713d" => :el_capitan
-    sha256 "f41193f4f7ca899f5ad2ecd8ef9e1fab3b6810f008b2ea8e55d310dba8c7a795" => :yosemite
-    sha256 "4fadb513b3478d776d3a23e8352015b18f45a4347a50b2fed988f1729a7336e7" => :mavericks
+    sha256 "5975d9e5b741611279f008a50febebfa9d91c4e3e8448c4d8eda80cbd5c371af" => :high_sierra
+    sha256 "9cfafed3ea8980b65d1fa5910db71468b3dfd5b81b598d20ff1bf317c55edbca" => :sierra
+    sha256 "207bd087f9675c188a430ead82700870c9d3088597a788c334d020d92148caa8" => :el_capitan
   end
 
   def install
