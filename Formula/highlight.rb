@@ -3,6 +3,7 @@ class Highlight < Formula
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
   url "http://www.andre-simon.de/zip/highlight-3.40.tar.bz2"
   sha256 "3e55fadd3f2a85f25ea995fd0e57e94e2a59fe2e3ccefe6bd896b50acadc38e3"
+  revision 1
   head "https://github.com/andre-simon/highlight.git"
 
   bottle do
@@ -11,8 +12,8 @@ class Highlight < Formula
     sha256 "6be531305cad51de06774efa661e36cbcb789c92d700b8615d1f2f365a84c451" => :el_capitan
   end
 
+  depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "lua"
 
   def install
