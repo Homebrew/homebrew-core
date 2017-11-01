@@ -1,8 +1,8 @@
 class AcesContainer < Formula
   desc "Reference implementation of SMPTE ST2065-4"
   homepage "https://github.com/ampas/aces_container"
-  url "https://github.com/ampas/aces_container/archive/v1.0.1.tar.gz"
-  sha256 "c1a5c08a128911faa5c8a1f9189c566178f19979ab627346238272c54343390a"
+  url "https://github.com/ampas/aces_container/archive/v1.0.2.tar.gz"
+  sha256 "cbbba395d2425251263e4ae05c4829319a3e399a0aee70df2eb9efb6a8afdbae"
 
   bottle do
     cellar :any
