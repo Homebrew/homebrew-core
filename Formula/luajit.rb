@@ -44,9 +44,9 @@ class Luajit < Formula
 
     cflags = []
     cflags << "-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
-    cflags << "-DLUAJIT_ENABLE_GC64" if !build.stable && build.with?("gc64")
+    cflags << "-DLUAJIT_ENABLE_GC64" if !build.stable? && build.with?("gc64")
 
-    args << "XCFLAGS=#{cflags.join(" ")}" unless cflags.zero?
+    args << "XCFLAGS=#{cflags.join(" ")}" unless cflags.empty?
 
     # This doesn't yet work under superenv because it removes "-g"
     args << "CCDEBUG=-g" if build.with? "debug"
