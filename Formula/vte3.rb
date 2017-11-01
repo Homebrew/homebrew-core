@@ -5,9 +5,9 @@ class Vte3 < Formula
   sha256 "79dd316bfaff48f2fb74d066baae0d830e1f44436796fe410a57297e5c5f09cf"
 
   bottle do
-    sha256 "aef370f70dc0be9784f7f3a27c8b9227984bf11decea9588d5ca20848c49b3e0" => :high_sierra
-    sha256 "18c6bd3fd21bb86e250e970b4c7b2ec86746237fd409347141df5c55db5f350b" => :sierra
-    sha256 "3a4ed053662741acec0afaacfd312a4e001614ae864accf4ec7b2c4de7877194" => :el_capitan
+    sha256 "8f67ad9f65eefe752d64d5af7ed4986d7f31303b73d2cccea7743aa5b07a7c4a" => :high_sierra
+    sha256 "a1e8ce10cbc89bf46d5af3fe7cfb93b52166155ff9afef29548f92feedb8831d" => :sierra
+    sha256 "d47a0e0879f1cfb58e5126275bb3c4ca4fdf0a935db842cd174dbdfd64973ad5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
