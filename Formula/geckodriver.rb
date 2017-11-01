@@ -1,8 +1,8 @@
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
-  url "https://github.com/mozilla/geckodriver/archive/v0.19.0.tar.gz"
-  sha256 "eba534fd299f7f3867523b059d414d88aa4e785d8962436f5b944d01638d759f"
+  url "https://github.com/mozilla/geckodriver/archive/v0.19.1.tar.gz"
+  sha256 "f590ddfef42995a23e781b52befdbc2ac342bf829008e98d212f2e1e15d9f713"
 
   bottle do
     sha256 "a2b2d2bd8eb2d2ca055cbe6a2ff603ed9c2a8b0fa8ea799d8ebfe395bea6b5da" => :high_sierra
