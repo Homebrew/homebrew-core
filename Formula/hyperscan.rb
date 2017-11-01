@@ -3,6 +3,7 @@ class Hyperscan < Formula
   homepage "https://01.org/hyperscan"
   url "https://github.com/01org/hyperscan/archive/v4.6.0.tar.gz"
   sha256 "0dfbfc2e5e82a6a7b2feca3d982d08fb7d4a979a4e75f667a37484cae4fda815"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +22,7 @@ class Hyperscan < Formula
 
   def install
     mkdir "build" do
-      args = std_cmake_args
+      args = std_cmake_args << "-DBUILD_STATIC_AND_SHARED=on"
 
       if build.with? "debug"
         args -= %w[
