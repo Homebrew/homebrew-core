@@ -34,8 +34,8 @@ class GitCinnabar < Formula
   def install
     venv = virtualenv_create(libexec)
     venv.pip_install resource("hg")
-    inreplace "git-cinnabar", /#!.*/, "#!#{libexec}/bin/python" 
-    inreplace "git-remote-hg", /#!.*/, "#!#{libexec}/bin/python" 
+    inreplace "git-cinnabar", /#!.*/, "#!#{libexec}/bin/python"
+    inreplace "git-remote-hg", /#!.*/, "#!#{libexec}/bin/python"
     system "make", "helper"
     prefix.install "cinnabar"
     bin.install "git-cinnabar", "git-cinnabar-helper", "git-remote-hg"
