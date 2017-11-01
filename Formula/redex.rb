@@ -1,9 +1,8 @@
 class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "http://fbredex.com"
-  url "https://github.com/facebook/redex/archive/v1.1.0.tar.gz"
-  sha256 "31c41ec774577875782ac83bfd9a03520c7bfcb1a04026fb35417803a319d749"
-  revision 1
+  url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
+  sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
   head "https://github.com/facebook/redex.git"
 
   bottle do
