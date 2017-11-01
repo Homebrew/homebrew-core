@@ -3,6 +3,7 @@ class Ftgl < Formula
   homepage "https://sourceforge.net/projects/ftgl/"
   url "https://downloads.sourceforge.net/project/ftgl/FTGL%20Source/2.1.3~rc5/ftgl-2.1.3-rc5.tar.gz"
   sha256 "5458d62122454869572d39f8aa85745fc05d5518001bcefa63bd6cbb8d26565b"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,20 +14,26 @@ class Ftgl < Formula
     sha256 "50a41f3c95a363b52bc367abf4b5b9dc272d71c8b35fe8e63f058c7cf7162225" => :mavericks
   end
 
+  option "with-freeglut", "Builud with freeglut instead of GLUT.frameworks"
+
   depends_on "freetype"
+  depends_on "freeglut" => :optional
 
   def install
     # If doxygen is installed, the docs may still fail to build.
     # So we disable building docs.
     inreplace "configure", "set dummy doxygen;", "set dummy no_doxygen;"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-freetypetest",
-                          # Skip building the example program by failing to find GLUT (MacPorts)
-                          "--with-glut-inc=/dev/null",
-                          "--with-glut-lib=/dev/null"
+    args = ["--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}", "--disable-freetypetest"]
 
+    if build.with?("freeglut")
+      args << "--with-glut-inc=#{Formula["freeglut"].opt_include}" << "--with-glut-lib=#{Formula["freeglut"].opt_lib}"
+    else
+      args << "--with-glut-lib=-frameworks GLUT"
+    end
+
+    system "./configure", *args
+    inreplace "demo/Makefile", "$(FT2_LIBS) $(GLUT_LIBS)", "$(FT2_LIBS) $(GL_LIBS) $(GLUT_LIBS)"
     system "make", "install"
   end
 end
