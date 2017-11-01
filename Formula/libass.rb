@@ -3,6 +3,7 @@ class Libass < Formula
   homepage "https://github.com/libass/libass"
   url "https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz"
   sha256 "881f2382af48aead75b7a0e02e65d88c5ebd369fe46bc77d9270a94aa8fd38a2"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Libass < Formula
   option "with-fontconfig", "Disable CoreText backend in favor of the more traditional fontconfig"
 
   depends_on "pkg-config" => :build
-  depends_on "yasm" => :build
+  depends_on "nasm" => :build
 
   depends_on "freetype"
   depends_on "fribidi"
@@ -31,7 +32,12 @@ class Libass < Formula
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args << "--disable-coretext" if build.with? "fontconfig"
+    args << "--disable-harfbuzz" if build.without? "harfbuzz"
+    if build.with? "fontconfig"
+      args << "--disable-coretext"
+    else
+      args << "--disable-fontconfig"
+    end
 
     system "autoreconf", "-i" if build.head?
     system "./configure", *args
