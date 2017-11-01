@@ -5,6 +5,13 @@ class Resty < Formula
   sha256 "65c7bfe1268669d9da5456686c55f1976380b867db5bf12d3603972d7b2d65fd"
   head "https://github.com/micha/resty.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "72d4399f3792dd43cfe2f8eb5ee18f3ba66b47a66433a965324e923efb722c68" => :high_sierra
+    sha256 "382b3c9de2e9c2729c9eb808937ca42d7c9b0b3cd7cb60fdece40d652d64cb24" => :sierra
+    sha256 "6bcc3e0e5c27ef7a59cdee22e495e5474458af91c7e481f938c3dbd48553d72c" => :el_capitan
+  end
+
   # Don't take +x off these files. note: to be killed once a shebang is added to pp
   skip_clean "bin"
 
