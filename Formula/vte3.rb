@@ -1,8 +1,8 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.50/vte-0.50.1.tar.xz"
-  sha256 "cf1708e3e573160e1db107014b3ef70888fefe6b668373fed70e8d1cac45a8c2"
+  url "https://download.gnome.org/sources/vte/0.50/vte-0.50.2.tar.xz"
+  sha256 "79dd316bfaff48f2fb74d066baae0d830e1f44436796fe410a57297e5c5f09cf"
 
   bottle do
     sha256 "aef370f70dc0be9784f7f3a27c8b9227984bf11decea9588d5ca20848c49b3e0" => :high_sierra
@@ -18,12 +18,6 @@ class Vte3 < Formula
   depends_on "vala"
   depends_on "gobject-introspection"
   depends_on "pcre2"
-
-  # patch taken from https://bugzilla.gnome.org/show_bug.cgi?id=788476
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ce03e3/vte3/fix-strchrnul.patch"
-    sha256 "ea498b8233e643defda58f48d6bbadc5d334b931c0a2cf73bddc8ae222e9520e"
-  end
 
   def install
     args = [
