@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v4.5.2.tar.gz"
-  sha256 "bd0db92baa964b222b2da5bdb937aa1b3afff6ba5c6ef5d32f8c1a5909e326a2"
+  url "https://github.com/grafana/grafana/archive/v4.6.1.tar.gz"
+  sha256 "7c9f82e97fcf248776a08596ff00298402af8660f6e975c15a2b680abd692de2"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -37,8 +37,7 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor"
-      pkgshare.install "public_gen" => "public"
+      pkgshare.install "conf", "vendor", "public"
     end
   end
 
