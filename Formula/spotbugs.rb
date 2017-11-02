@@ -27,7 +27,8 @@ class Spotbugs < Formula
       }
     }
     EOS
-    system "javac HelloWorld.java"
-    system "jar cvfe HelloWorld.jar HelloWorld *.class"
-    assert_match /M V EI.*\nM C UwF.*\n/, shell_output("#{bin}/spotbugs -textui HelloWorld.jar")  end
+    system "javac", "HelloWorld.java"
+    system "jar", "cvfe", "HelloWorld.jar", "HelloWorld *.class"
+    assert_match /M V EI.*\nM C UwF.*\n/, shell_output("#{bin}/spotbugs", "-textui", "HelloWorld.jar")
+  end
 end
