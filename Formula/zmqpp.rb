@@ -1,8 +1,8 @@
 class Zmqpp < Formula
   desc "High-level C++ binding for zeromq"
   homepage "https://zeromq.github.io/zmqpp/"
-  url "https://github.com/zeromq/zmqpp/archive/4.1.2.tar.gz"
-  sha256 "831ad02df64034268d910c30f9fb1b1e631ad810182951af9d7d622650831eb5"
+  url "https://github.com/zeromq/zmqpp/archive/4.2.0.tar.gz"
+  sha256 "c1d4587df3562f73849d9e5f8c932ca7dcfc7d8bec31f62d7f35073ef81f4d29"
 
   bottle do
     cellar :any
