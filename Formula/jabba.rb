@@ -5,6 +5,13 @@ class Jabba < Formula
   sha256 "5e00ceec91afdea5ef2f2b5ffc764e552bb9837c1d69d7e1375136da46b15abd"
   head "https://github.com/shyiko/jabba.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c73fba5030ff7426aab097addcea3266c66dcecfa602b223a4bacce87e262fc7" => :high_sierra
+    sha256 "0335af2f2b4cf66b2478e7dccaaed8bba2e8b19c86d9910190fdee40b816e2e8" => :sierra
+    sha256 "4b8814d66993e5d454c71f5370a4a2de5758b7d08e5f5a85eea68c10f4762b5e" => :el_capitan
+  end
+
   depends_on "go" => :build
   depends_on "glide" => :build
 
