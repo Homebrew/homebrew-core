@@ -1,5 +1,4 @@
 class GitCinnabar < Formula
-  include Language::Python::Virtualenv
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
   url "https://github.com/glandium/git-cinnabar.git",
@@ -26,16 +25,7 @@ class GitCinnabar < Formula
 
   conflicts_with "git-remote-hg", :because => "both install `git-remote-hg` binaries"
 
-  resource "hg" do
-    url "https://mercurial-scm.org/release/mercurial-4.3.3.tar.gz"
-    sha256 "47a63c78698bc735667984bbc5b76619ff29a38d742f20cdf9f44cce59752374"
-  end
-
   def install
-    venv = virtualenv_create(libexec)
-    venv.pip_install resource("hg")
-    inreplace "git-cinnabar", /#!.*/, "#!#{libexec}/bin/python"
-    inreplace "git-remote-hg", /#!.*/, "#!#{libexec}/bin/python"
     system "make", "helper"
     prefix.install "cinnabar"
     bin.install "git-cinnabar", "git-cinnabar-helper", "git-remote-hg"
