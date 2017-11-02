@@ -15,6 +15,6 @@ class Joplin < Formula
 
   test do
     system bin/"joplin", "config", "editor", "subl"
-    assert_match "editor = subl", shell_output("#{bin}/joplin config")
+    assert_match /editor = subl/, shell_output("#{bin}/joplin config")
   end
 end
