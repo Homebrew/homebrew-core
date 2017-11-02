@@ -7,9 +7,9 @@ class Libass < Formula
 
   bottle do
     cellar :any
-    sha256 "2f9cb81d4f88b8f9d7508417c3a2568e51277c601fbde830f2690d30522f0400" => :high_sierra
-    sha256 "ff63f611fa3e555f2ac77717fb0cc0755926a073673431790b6de79e1f41bde4" => :sierra
-    sha256 "d15c9088b788ef0d149dac9e39de7a86b978a04abf793dca0bbabb802ab7696a" => :el_capitan
+    sha256 "2d8f9ced8b8d4d7327a79e86ddf80d01bfbb96e040a8ac56798d4e2513a26e90" => :high_sierra
+    sha256 "67f577f99f875a5f4998fb5d5cac85ba67dd39ef3b1b76037759fd64c86548bd" => :sierra
+    sha256 "f48697b75e514bc69f390803b1d7c8f748c9796ad332c4fdceebbc57402592a3" => :el_capitan
   end
 
   head do
