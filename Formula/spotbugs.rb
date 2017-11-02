@@ -16,6 +16,18 @@ class Spotbugs < Formula
   end
 
   test do
-    assert_match "3.1.0", shell_output("#{bin}/spotbugs -version", 1)
-  end
+    (testpath/"HelloWorld.java").write <<~EOS
+    public class HelloWorld {
+      private double[] myList;
+      public static void main(String[] args) {
+        System.out.println("Hello World");
+      }
+      public double[] getList() {
+        return myList;
+      }
+    }
+    EOS
+    system "javac HelloWorld.java"
+    system "jar cvfe HelloWorld.jar HelloWorld *.class"
+    assert_match /M V EI.*\nM C UwF.*\n/, shell_output("#{bin}/spotbugs -textui HelloWorld.jar")  end
 end
