@@ -5,6 +5,13 @@ class Keystone < Formula
   sha256 "e9d706cd0c19c49a6524b77db8158449b9c434b415fbf94a073968b68cf8a9f0"
   head "https://github.com/keystone-engine/keystone.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "bb281d9882f991ce15f0c7c421af9af9ed7f9ac1d563bc6bbe5ff7ce5352617d" => :high_sierra
+    sha256 "b6cd1a7208fa16627366dfa4ba297edbf1dba6baf01a031d830b292e0e6cd019" => :sierra
+    sha256 "25a45e702238530539973a7a28ffdfe5aa512be3cd639b3247895d11d6f9576f" => :el_capitan
+  end
+
   depends_on "cmake" => :build
 
   def install
