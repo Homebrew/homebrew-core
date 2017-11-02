@@ -1,6 +1,6 @@
 class Gringo < Formula
   desc "Grounder to translate user-provided logic programs"
-  homepage "https://potassco.sourceforge.io/"
+  homepage "https://potassco.org/"
   url "https://github.com/potassco/clingo/archive/v5.2.1.tar.gz"
   sha256 "b486b0adbd0a2acdfe55856036039318844ccb1e3510f2796caf03c5ee455378"
 
