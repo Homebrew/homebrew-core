@@ -40,16 +40,6 @@ class PureFtpd < Formula
     system "make", "install"
   end
 
-  def caveats
-    <<~EOS
-      pure-ftpd requires to be run as root; to start now and restart during system startup:
-        sudo brew services start pure-ftpd
-      pure-ftpd logins must be created and the pure-ftpd user index rebuilt:
-        pure-pw useradd [ftp-username] -u [macos-account-name] -d [ftp-home-directory]
-        pure-pw mkdb
-      EOS
-  end
-
   plist_options :manual => "pure-ftpd"
 
   def plist; <<~EOS
