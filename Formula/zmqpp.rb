@@ -26,7 +26,7 @@ class Zmqpp < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     system "doxygen"
-    (doc/"html").install Dir.glob("docs/html/*.html")
+    (doc/"html").install Dir["docs/html/*.html"]
   end
 
   test do
