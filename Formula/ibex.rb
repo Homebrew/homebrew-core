@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.1.tar.gz"
-  sha256 "fa7ce3695f953a0158006dbeb8a391ebe1e84079abfec66a81c1ba993ac85396"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.2.tar.gz"
+  sha256 "2d2a5e746825c21cc6284df9c24f1cbb7f9903a745b3f5f87515140c43311c61"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -69,6 +69,6 @@ class Ibex < Formula
     system "make", "lab1", "lab2", "lab3", "lab4"
     system "make", "-C", "slam", "slam1", "slam2", "slam3"
     %w[lab1 lab2 lab3 lab4].each { |a| system "./#{a}" }
-    %w[slam1 slam2 slam3].each { |a| system "./slam/#{a}" }
+    system "./slam/slam3"
   end
 end
