@@ -1,10 +1,9 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.6.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.6.tar.gz"
-  sha256 "8b9038cca7240e881d462ea391882092dfdc6d4f483f72683e817be08df5ebbc"
-  head "https://git.gnome.org/browse/libxml2.git"
+  url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.7.tar.gz"
+  sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
 
   bottle do
     cellar :any
@@ -13,24 +12,25 @@ class Libxml2 < Formula
     sha256 "c3638a6edc119734a626d84d50d2bbc22bb170455dce1eff589560ad79cc5378" => :el_capitan
   end
 
+  head do
+    url "https://git.gnome.org/browse/libxml2.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
   keg_only :provided_by_macos
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # These should return to being head-only whenever 2.9.5 is released.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
-
   def install
-    system "autoreconf", "-fiv"
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",
                           "--without-lzma"
-    system "make"
-    ENV.deparallelize
     system "make", "install"
 
     cd "python" do
