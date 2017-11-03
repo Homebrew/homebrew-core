@@ -18,10 +18,10 @@ class Awscli < Formula
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
-  depends_on :python3 if MacOS.version <= :high_sierra
+  depends_on :python3
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
