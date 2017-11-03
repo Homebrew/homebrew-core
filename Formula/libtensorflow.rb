@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.3.1.tar.gz"
-  sha256 "ded509c209f8a1d390df8a2f44be5b5c29963172b0e0f095304efb59765d0523"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.4.0.tar.gz"
+  sha256 "8a0ad8d61f8f6c0282c548661994a5ab83ac531bac496c3041dedc1ab021107b"
 
   bottle do
     cellar :any
@@ -12,8 +12,12 @@ class Libtensorflow < Formula
   end
 
   depends_on "bazel" => :build
+  depends_on :java => ["1.8", :build]
 
   def install
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+
     ENV["PYTHON_BIN_PATH"] = which("python").to_s
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_NEED_JEMALLOC"] = "1"
@@ -26,10 +30,12 @@ class Libtensorflow < Formula
     ENV["TF_NEED_MKL"] = "0"
     ENV["TF_NEED_VERBS"] = "0"
     ENV["TF_NEED_MPI"] = "0"
+    ENV["TF_NEED_S3"] = "1"
+    ENV["TF_NEED_GDR"] = "0"
     system "./configure"
 
     system "bazel", "build", "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow.so"
-    lib.install "bazel-bin/tensorflow/libtensorflow.so"
+    lib.install Dir["bazel-bin/tensorflow/*.so"]
     (include/"tensorflow/c").install "tensorflow/c/c_api.h"
     (lib/"pkgconfig/tensorflow.pc").write <<~EOS
       Name: tensorflow
