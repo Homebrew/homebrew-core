@@ -54,7 +54,10 @@ class PureFtpd < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/pure-ftpd</string>
-          <string>-A -j -z</string>
+          <string>--chrooteveryone</string>
+          <string>--createhomedir</string>
+          <string>--allowdotfiles</string>
+          <string>--login=puredb:#{etc}/pureftpd.pdb</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
