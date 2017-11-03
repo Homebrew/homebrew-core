@@ -1,8 +1,8 @@
 class Ironcli < Formula
   desc "Go version of the Iron.io command-line tools"
   homepage "https://github.com/iron-io/ironcli"
-  url "https://github.com/iron-io/ironcli/archive/0.1.4.tar.gz"
-  sha256 "5ca1dee3732ae679353872b6be5fe9aa7e6119892fb477241c95a2546e140067"
+  url "https://github.com/iron-io/ironcli/archive/0.1.6.tar.gz"
+  sha256 "2b9e65c36e4f57ccb47449d55adc220d1c8d1c0ad7316b6afaf87c8d393caae6"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,17 +12,16 @@ class Ironcli < Formula
     sha256 "2525bf5e2917ccf70c17c920739aaac88353390ba7ad15068c3963d2c5838389" => :yosemite
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    dir = buildpath/"src/github.com/iron-io/ironcli"
-    dir.install Dir["*"]
-    cd dir do
-      system "glide", "install"
+    (buildpath/"src/github.com/iron-io/ironcli").install buildpath.children
+    cd "src/github.com/iron-io/ironcli" do
+      system "dep", "ensure"
       system "go", "build", "-o", bin/"iron"
+      prefix.install_metafiles
     end
   end
 
