@@ -1,9 +1,9 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.3.tar.gz"
-  sha256 "06f4f5649ae81735765121236443bbefcbcc4ea53c10768380d7247757ff9713"
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.4.tar.gz"
+  sha256 "a3e83b1450222ffdbc7fa42e7171d530fcd568b6871158a489d86840ae130df7"
 
   bottle do
     sha256 "3a9a68530240d08c0de8cfd095494ac90f11f51fb393d0dbf1f4163b55df60c8" => :high_sierra
