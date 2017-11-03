@@ -1,8 +1,8 @@
 class Mvnvm < Formula
   desc "Maven version manager"
   homepage "http://mvnvm.org"
-  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.9.tar.gz"
-  sha256 "7f05b0a310cf57d62c224f43e4ee2221608a3cfa266eb248c9b0a924ea569270"
+  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.10.tar.gz"
+  sha256 "355747ed47b5941e071893f89fa2c0e3eb63dd301e095166983ca4503f4967c9"
   head "https://bitbucket.org/mjensen/mvnvm.git"
 
   bottle :unneeded
@@ -22,7 +22,7 @@ class Mvnvm < Formula
       <settings><localRepository>#{testpath}/repository</localRepository></settings>
     EOS
     (testpath/"mvnvm.properties").write <<~EOS
-      mvn_version=3.3.9
+      mvn_version=3.5.2
     EOS
     (testpath/"pom.xml").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
@@ -32,6 +32,10 @@ class Mvnvm < Formula
         <groupId>org.homebrew</groupId>
         <artifactId>maven-test</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <properties>
+         <maven.compiler.source>1.7</maven.compiler.source>
+         <maven.compiler.target>1.7</maven.compiler.target>
+        </properties>
       </project>
     EOS
     (testpath/"src/main/java/org/homebrew/MavenTest.java").write <<~EOS
