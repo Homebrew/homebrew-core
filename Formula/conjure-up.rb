@@ -3,10 +3,8 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.3.1.tar.gz"
-  sha256 "da429aad45ef0c6a70565a3748da2cb668def684b65f04ee3c081ebce065fac7"
-
-  revision 1
+  url "https://github.com/conjure-up/conjure-up/archive/2.4.0.tar.gz"
+  sha256 "32dddb4d656b882a532eeed80833afffeebf58f0ce5f87f89f0d08124d23a3b4"
 
   bottle do
     cellar :any
@@ -100,8 +98,8 @@ class ConjureUp < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/8d/f6/73febc3edf774239b18231d8b17cf2c3319dd128f7fe2f55f3fdf96477b4/oauthlib-2.0.3.tar.gz"
-    sha256 "f36c6631d072a2acb8b3b99f94e5e314f1fb4ed996696b18b2723769391c071b"
+    url "https://files.pythonhosted.org/packages/a5/8a/212e9b47fb54be109f3ff0684165bb38c51117f34e175c379fce5c7df754/oauthlib-2.0.6.tar.gz"
+    sha256 "ce57b501e906ff4f614e71c36a3ab9eacbb96d35c24d1970d2539bbc3ec70ce1"
   end
 
   resource "PrettyTable" do
@@ -120,8 +118,8 @@ class ConjureUp < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/1a/37/7ac6910d872fdac778ad58c82018dce4af59279a79b17403bbabbe2a866e/pyasn1-0.3.4.tar.gz"
-    sha256 "3946ff0ab406652240697013a89d76e388344866033864ef2b097228d1f0101a"
+    url "https://files.pythonhosted.org/packages/3c/a6/4d6c88aa1694a06f6671362cb3d0350f0d856edea4685c300785200d1cd9/pyasn1-0.3.7.tar.gz"
+    sha256 "187f2a66d617683f8e82d5c00033b7c8a0287e1da88a9d577aebec321cad4965"
   end
 
   resource "python-dateutil" do
@@ -175,8 +173,8 @@ class ConjureUp < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "Tempita" do
@@ -205,8 +203,8 @@ class ConjureUp < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/4a/e8/acf36f117deeb18c0b6679624fa11b57b0876044f0ce3f34024c3a7b2d95/websockets-3.4.tar.gz"
-    sha256 "43e5b9f51dd0000a4c6f646e2ade0c886bd14a784ffac08b9e079bd17a63bcc5"
+    url "https://files.pythonhosted.org/packages/b6/12/6194aac840c65253e45a38912e318f9ac548f9ba86d75bdb8fe66841b335/websockets-4.0.1.tar.gz"
+    sha256 "da4d4fbe059b0453e726d6d993760065d69b823a27efc3040402a6fcfe6a1ed9"
   end
 
   resource "ws4py" do
