@@ -11,10 +11,10 @@ class Grakn < Formula
   def install
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/*"]
-    bin.env_script_all_files(libexec/, :CASSANDRA_HOME => ENV["CASSANDRA_HOME"])
+    bin.env_script_all_files(libexec, :CASSANDRA_HOME => ENV["CASSANDRA_HOME"])
   end
 
   test do
-    assert_match /stopped/i, shell_output("grakn server status")
+    assert_match /NOT RUNNING/i, shell_output("grakn server status")
   end
 end
