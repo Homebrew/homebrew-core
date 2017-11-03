@@ -71,6 +71,9 @@ class Stunnel < Formula
       connect = 143
     EOS
 
-    assert_match "successful", pipe_output("#{bin}/stunnel #{testpath}/tstunnel.conf 2>&1")
+    output = pipe_output("#{bin}/stunnel #{testpath}/tstunnel.conf 2>&1")
+    assert_match "successful", output
+    assert_no_match(/Update OpenSSL shared libraries or rebuild stunnel/, output,
+      "Please revision bump stunnel.")
   end
 end
