@@ -15,6 +15,11 @@ class Fish < Formula
     sha256 "b9ce33c6f9066e4f72a8e2870f1113cf7c89d7975fd77be5a97358398f30221b" => :yosemite
   end
 
+  devel do
+    url "https://github.com/fish-shell/fish-shell/releases/download/2.7b1/fish-2.7b1.tar.gz"
+    sha256 "326dbea5d0f20eba54fa0b0c5525e58b4a39ebd8c52c14cfffc5f4d6cdf55385"
+  end
+
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
