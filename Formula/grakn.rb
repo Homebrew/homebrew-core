@@ -1,8 +1,8 @@
 class Grakn < Formula
   desc "The Database for AI"
   homepage "https://grakn.ai"
-  url "https://github.com/graknlabs/grakn/releases/download/v0.16.0/grakn-dist-0.16.0.tar.gz"
-  sha256 "1c7194f09cbf31949323b79b2fb8a5683381af5ecf37886fd45deb71585261ed"
+  url "https://github.com/graknlabs/grakn/releases/download/v0.17.0/grakn-dist-0.17.0.tar.gz"
+  sha256 "27d41b82ea6144af149ed09ab4631501bb2beaea7b94e28f4b1fc4cca0443434"
 
   bottle :unneeded
 
