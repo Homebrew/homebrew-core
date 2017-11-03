@@ -1,9 +1,10 @@
 class Asciidoc < Formula
   desc "Formatter/translator for text files to numerous formats. Includes a2x"
   homepage "http://asciidoc.org/"
-  url "https://downloads.sourceforge.net/project/asciidoc/asciidoc/8.6.9/asciidoc-8.6.9.tar.gz"
-  sha256 "78db9d0567c8ab6570a6eff7ffdf84eadd91f2dfc0a92a2d0105d323cab4e1f0"
-  revision 1
+  # This release is listed as final on GitHub, but not listed on asciidoc.org.
+  url "https://github.com/asciidoc/asciidoc/archive/8.6.10.tar.gz"
+  sha256 "9e52f8578d891beaef25730a92a6e723596ddbd07bfe0d2a56486fcf63a0b983"
+  head "https://github.com/asciidoc/asciidoc.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,20 +15,17 @@ class Asciidoc < Formula
     sha256 "fe63d108847b9b197ee4f853b52faa8eb6d5c3990cc9919567d799f1b3dbd674" => :mavericks
   end
 
-  head do
-    url "https://github.com/asciidoc/asciidoc.git"
-    depends_on "autoconf" => :build
-  end
-
-  option "with-docbook-xsl", "Install DTDs to generate manpages"
-
+  depends_on "autoconf" => :build
+  depends_on "docbook-xsl" => :build
   depends_on "docbook"
-  depends_on "docbook-xsl" => :optional
 
   def install
-    system "autoconf" if build.head?
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    system "autoconf"
     system "./configure", "--prefix=#{prefix}"
 
+    inreplace "asciidoc.py", "#!/usr/bin/env python2", "#!/usr/bin/python"
     # otherwise macOS's xmllint bails out
     inreplace "Makefile", "-f manpage", "-f manpage -L"
     system "make", "install"
