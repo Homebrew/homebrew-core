@@ -1,8 +1,8 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "http://www.audiocoding.com/faac.html"
-  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.8.3.tar.gz"
-  sha256 "3d85267b394dd8ebd5dd88845b25bc5e5e4fc88ac5affb8a2807f50368dc3b41"
+  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.9.tar.gz"
+  sha256 "238cb4453b6fe4eebaffb326e40a63786a155e349955c4259925006fa1e2839e"
 
   bottle do
     cellar :any
@@ -12,6 +12,10 @@ class Faac < Formula
   end
 
   def install
+    # Fix "error: initializer element is not a compile-time constant"
+    # Reported 2 Nov 2017 https://sourceforge.net/p/faac/bugs/228/
+    inreplace "libfaac/stereo.c", "sqrt(2)", "M_SQRT2"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
