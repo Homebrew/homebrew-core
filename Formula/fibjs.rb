@@ -8,8 +8,8 @@ class Fibjs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b29adf45b605f5096488a7a8e19f029085ec7cb914cf1f9ce0806ad5c9368d88" => :high_sierra
-    sha256 "7b91ecb80247fef06312ae99b7594aba27a1e5761e1737a07de57e9445fffbd2" => :sierra
+    sha256 "5be128bc1fbba3d5fcfaf02e74ee5634699f665363d963f0b105bff4c1b443db" => :high_sierra
+    sha256 "bfa08899f7664b8ed709ae42969dc805a6f2d66044c0c64f9cd2d33285773335" => :sierra
   end
 
   depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
