@@ -11,9 +11,9 @@ class DhallJson < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e08d4cf08b3334faadb1289baa04aac66592c1c55c5d8d6e4e4e5f7426dbd026" => :high_sierra
-    sha256 "12dc93f3bce956128fa26d4b957687f154e30aab581fccd79b65e54dfd0dbd31" => :sierra
-    sha256 "52e09aaabbc1aae2489f5a177bce0b4bc264ee5280b1534de49a441cf1cb9207" => :el_capitan
+    sha256 "467c9466175b01656531cdc0e514e76290abdff30585fe530f7ea22610911c8d" => :high_sierra
+    sha256 "bfacbfc59d1e92a87794f41a5a5046697f0603437397bb3b63e33bff408d5653" => :sierra
+    sha256 "489db729476d7cfe1ab9f4a1dd81bacab5b2bb4d8144b68f53b7c8dd385d096f" => :el_capitan
   end
 
   depends_on "ghc" => :build
