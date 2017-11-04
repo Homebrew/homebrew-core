@@ -67,16 +67,8 @@ class Opam < Formula
   end
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.deparallelize
-
-    ["ocamlc.opt", "ocamlopt.opt"].each do |cmd|
-      (buildpath/"brew_shim/#{cmd}").write <<~EOS
-        #!/bin/sh
-        exec #{Formula["ocaml"].opt_bin}/#{cmd} -unsafe-string "$@"
-      EOS
-      chmod 0755, "brew_shim/#{cmd}"
-    end
-    ENV.prepend_path "PATH", buildpath/"brew_shim"
 
     if build.without? "ocaml"
       system "make", "cold", "CONFIGURE_ARGS=--prefix #{prefix} --mandir #{man}"
