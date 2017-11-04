@@ -16,6 +16,7 @@ class Unison < Formula
   depends_on "ocaml" => :build
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.deparallelize
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
