@@ -24,6 +24,8 @@ class Haxe < Formula
   depends_on "pcre"
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     # Build requires targets to be built in specific order
     ENV.deparallelize
 
