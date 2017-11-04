@@ -5,6 +5,7 @@ class X264 < Formula
   url "https://git.videolan.org/git/x264.git",
       :revision => "aaa9aa83a111ed6f1db253d5afa91c5fc844583f"
   version "r2795"
+  revison 1
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
@@ -24,11 +25,13 @@ class X264 < Formula
   deprecated_option "10-bit" => "with-10-bit"
 
   def install
+    # "--disable-avs" is needed. See https://github.com/Homebrew/homebrew-core/issues/20172
     args = %W[
       --prefix=#{prefix}
       --enable-shared
       --enable-static
       --enable-strip
+      --disable-avs
     ]
     args << "--disable-lsmash" if build.without? "l-smash"
     args << "--bit-depth=10" if build.with? "10-bit"
