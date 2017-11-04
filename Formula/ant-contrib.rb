@@ -4,6 +4,7 @@ class AntContrib < Formula
   url "https://downloads.sourceforge.net/project/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3-bin.tar.gz"
   version "1.0b3"
   sha256 "6e58c2ee65e1f4df031796d512427ea213a92ae40c5fc0b38d8ac82701f42a3c"
+  revision 1
 
   bottle :unneeded
 
