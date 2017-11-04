@@ -5,9 +5,9 @@ class Corebird < Formula
   sha256 "9ab191599f9f7002c1c14379da752ab834fb433266db26279f3ea349937982b1"
 
   bottle do
-    sha256 "741ea82815a619c1e714877802d0c6c1f6714a22771e1d2a209feaa8e83a181e" => :high_sierra
-    sha256 "809021f13a5bb26b6684387781bcdfed6ac30492233b072aa559e828929bb312" => :sierra
-    sha256 "5b37b3e8ecc2af10f8c806c6479087eadda5080b575c7b3905641302b568252c" => :el_capitan
+    sha256 "bc2169cc467559989431bb269bb66f0ca89014aa715ff61760bc9b9feef2968d" => :high_sierra
+    sha256 "2e0ae1a82319709f7ee6dbcb51217b4d4ce88e723b39070cbf6cb3ade1c0831a" => :sierra
+    sha256 "e4315fb5a33c037c0dc0da9c605dbce97e296ebc465bbf6c6ea37d45a00fe3f4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
