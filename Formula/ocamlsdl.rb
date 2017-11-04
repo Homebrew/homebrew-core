@@ -20,10 +20,10 @@ class Ocamlsdl < Formula
   depends_on "sdl_ttf" => :recommended
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     system "./configure", "--prefix=#{prefix}",
                           "OCAMLLIB=#{lib}/ocaml"
-    system "make", "OMLFLAGS = -unsafe -unsafe-string",
-                   "MLFLAGS=-g -unsafe-string"
+    system "make"
     system "make", "install"
   end
 
