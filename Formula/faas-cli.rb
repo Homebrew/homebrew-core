@@ -2,8 +2,10 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.4.20",
-      :revision => "32c3a29e834c26beba68513fcf6b083560314a8a"
+      :tag => "0.4.3b",
+      :revision => "6863e2d6b9c59443a6a47069c9ca48b231184725"
+  version "0.4.3b"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
@@ -60,7 +62,7 @@ class FaasCli < Formula
 
     expected = <<~EOS
       Deploying: dummy_function.
-      Removing old service.
+      Removing old function.
       Deployed.
       URL: http://localhost:#{port}/function/dummy_function
 
