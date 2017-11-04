@@ -70,6 +70,15 @@ class Opam < Formula
   def install
     ENV.deparallelize
 
+    ["ocamlc.opt", "ocamlopt.opt"].each do |cmd|
+      (buildpath/"brew_shim/#{cmd}").write <<~EOS
+        #!/bin/sh
+        exec #{Formula["ocaml"].opt_bin}/#{cmd} -unsafe-string "$@"
+      EOS
+      chmod 0755, "brew_shim/#{cmd}"
+    end
+    ENV.prepend_path "PATH", buildpath/"brew_shim"
+
     if build.without? "ocaml"
       system "make", "cold", "CONFIGURE_ARGS=--prefix #{prefix} --mandir #{man}"
       ENV.prepend_path "PATH", "#{buildpath}/bootstrap/ocaml/bin"
