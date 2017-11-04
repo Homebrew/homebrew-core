@@ -23,7 +23,8 @@ class Ocamlsdl < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "OCAMLLIB=#{lib}/ocaml"
-    system "make"
+    system "make", "OMLFLAGS = -unsafe -unsafe-string",
+                   "MLFLAGS=-g -unsafe-string"
     system "make", "install"
   end
 
