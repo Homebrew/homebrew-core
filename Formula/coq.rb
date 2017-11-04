@@ -15,6 +15,7 @@ class Coq < Formula
   homepage "https://coq.inria.fr/"
   url "https://github.com/coq/coq/archive/V8.7.0.tar.gz"
   sha256 "f376207ed051b3fd27c519f44b25eb25f8dddbce22715f68c3cedfd2e4b39297"
+  revision 1
   head "https://github.com/coq/coq.git"
 
   bottle do
@@ -27,6 +28,7 @@ class Coq < Formula
   depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
   depends_on "ocaml"
+  depends_on "ocaml-num"
 
   def install
     ENV["OPAMYES"] = "1"
