@@ -5,11 +5,9 @@ class Aspcud < Formula
   sha256 "3645f08b079e1cc80e24cd2d7ae5172a52476d84e3ec5e6a6c0034492a6ea885"
 
   bottle do
-    rebuild 2
-    sha256 "4444739fb09c808c00fcae057c69b11f3c3d720e252456e19d106bb7e10717fd" => :high_sierra
-    sha256 "bc47e294ca6710839f222334031cbb78eb28f6398f6b1266f040f05e7def4349" => :sierra
-    sha256 "c57e7a8e2edfd0ae49daa6a02edf5215d26d56756fca3f4e1e2f0848f28fb99d" => :el_capitan
-    sha256 "4c8eca79deb4972b2e90222a63cdcab8e84d5dae1dcc02fd700a85a04a66d971" => :yosemite
+    sha256 "700beffd0ba38265dc95a4b3c344a1974355cb4c20fc50eb7f2d500aaf0ee956" => :high_sierra
+    sha256 "73c4df24738a0cea1339241f641657c6e7cb5aecddaba3cb2ecd5e2f6b46fdb5" => :sierra
+    sha256 "2658d95252c4d154e3e1aa42fd9762850da1114a8e19c9721c07bb306cbb2955" => :el_capitan
   end
 
   depends_on "boost" => :build
