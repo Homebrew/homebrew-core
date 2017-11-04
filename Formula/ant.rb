@@ -3,6 +3,7 @@ class Ant < Formula
   homepage "https://ant.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.1-bin.tar.xz"
   sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
+  revision 1
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle do
@@ -15,15 +16,9 @@ class Ant < Formula
 
   keg_only :provided_by_osx if MacOS.version < :mavericks
 
-  option "with-ivy", "Install ivy dependency manager"
   option "with-bcel", "Install Byte Code Engineering Library"
 
   depends_on :java => "1.8+"
-
-  resource "ivy" do
-    url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
-    sha256 "7a3d13a80b69d71608191463dfc2a74fff8ef638ce0208e70d54d28ba9785ee9"
-  end
 
   resource "bcel" do
     url "https://search.maven.org/remotecontent?filepath=org/apache/bcel/bcel/6.0/bcel-6.0.jar"
@@ -39,16 +34,16 @@ class Ant < Formula
       #!/bin/sh
       #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
-    if build.with? "ivy"
-      resource("ivy").stage do
-        (libexec/"lib").install Dir["ivy-*.jar"]
-      end
-    end
     if build.with? "bcel"
       resource("bcel").stage do
         (libexec/"lib").install Dir["bcel-*.jar"]
       end
     end
+  end
+
+  def caveats; <<~EOS
+    option "--with-ivy" was removed. Please use Formula "ivy" to install ivy if you need.
+    EOS
   end
 
   test do
