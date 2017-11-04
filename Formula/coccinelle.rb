@@ -18,6 +18,8 @@ class Coccinelle < Formula
   depends_on "hevea" => :build
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     opamroot = buildpath/"opamroot"
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
