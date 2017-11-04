@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.60.1.tar.xz"
-  sha256 "19f185e05c3b59b4a1de2cec8ef39f5446035493d17bbed41d02fb9a77c8a93c"
+  url "https://poppler.freedesktop.org/poppler-0.61.0.tar.xz"
+  sha256 "53cde17a2afa3b73eb8b209d24e4369b52bfac444065dbb0a8cbcc7356582b7f"
 
   bottle do
     rebuild 2
@@ -46,12 +46,14 @@ class Poppler < Formula
   def install
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
       -DENABLE_XPDF_HEADERS=ON
       -DENABLE_GLIB=ON
       -DBUILD_GTK_TESTS=OFF
       -DWITH_GObjectIntrospection=ON
       -DENABLE_QT4=OFF
+      -DCMAKE_INSTALL_INCLUDEDIR=#{include}
+      -DCMAKE_INSTALL_LIBDIR=#{lib}
     ]
 
     if build.with? "qt"
