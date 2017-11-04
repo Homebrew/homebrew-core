@@ -3,6 +3,7 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
   url "https://files.pythonhosted.org/packages/ea/a0/0fba732444bdc23580f5e0290b8a6732b47a934c1978d108407704b01eec/aws-shell-0.2.0.tar.gz"
   sha256 "b46a673b81254e5e014297e08c9ecab535773aa651ca33dc3786a1fd612f9810"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -113,7 +114,11 @@ class AwsShell < Formula
 
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    env = {
+      :PATH => "#{libexec}/vendor/bin:$PATH",
+      :PYTHONPATH => ENV["PYTHONPATH"],
+    }
+    bin.env_script_all_files(libexec/"bin", env)
   end
 
   test do
