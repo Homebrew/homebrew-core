@@ -16,6 +16,8 @@ class OneMl < Formula
   depends_on "ocaml" => :build
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     system "make"
     bin.install "1ml"
     (pkgshare/"stdlib").install Dir.glob("*.1ml")
