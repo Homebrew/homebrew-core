@@ -4,6 +4,13 @@ class OcamlNum < Formula
   url "https://github.com/ocaml/num/archive/v1.1.tar.gz"
   sha256 "04ac85f6465b9b2bf99e814ddc798a25bcadb3cca2667b74c1af02b6356893f6"
 
+  bottle do
+    cellar :any
+    sha256 "91fe9987b76ad40318368ab127bbdb82c74c176ccba723a3fe5ebd3a13fb5523" => :high_sierra
+    sha256 "d73e9d1b6601fcdbcede7c74cc0326897ebcbd566860f6ae796be0f215d6ce97" => :sierra
+    sha256 "c114181c1020d48f475ac78a78c29cc7a9c24baa68d8527170708d0f54439425" => :el_capitan
+  end
+
   depends_on "ocaml"
 
   def install
