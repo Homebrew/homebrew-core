@@ -1,13 +1,11 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  revision 1
-
   head "https://cmake.org/cmake.git"
 
   stable do
-    url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
-    sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
+    url "https://cmake.org/files/v3.9/cmake-3.9.5.tar.gz"
+    sha256 "6220c1683b4e6bb8f38688fa3ffb17a7cf39f36317c2ddfdc3f12f09d086c166"
 
     # The two patches below fix cmake for undefined symbols check on macOS 10.12
     # They can be removed for cmake >= 3.10
