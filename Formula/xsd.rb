@@ -1,7 +1,7 @@
 class Xsd < Formula
   desc "XML Data Binding for C++"
-  homepage "http://www.codesynthesis.com/products/xsd/"
-  url "http://www.codesynthesis.com/download/xsd/4.0/xsd-4.0.0+dep.tar.bz2"
+  homepage "https://www.codesynthesis.com/products/xsd/"
+  url "https://www.codesynthesis.com/download/xsd/4.0/xsd-4.0.0+dep.tar.bz2"
   version "4.0.0"
   sha256 "eca52a9c8f52cdbe2ae4e364e4a909503493a0d51ea388fc6c9734565a859817"
   revision 1
@@ -21,7 +21,7 @@ class Xsd < Formula
   # Patches:
   # 1. As of version 4.0.0, Clang fails to compile if the <iostream> header is
   #    not explicitly included. The developers are aware of this problem, see:
-  #    http://www.codesynthesis.com/pipermail/xsd-users/2015-February/004522.html
+  #    https://www.codesynthesis.com/pipermail/xsd-users/2015-February/004522.html
   # 2. As of version 4.0.0, building fails because this makefile invokes find
   #    with action -printf, which GNU find supports but BSD find does not. There
   #    is no place to file a bug report upstream other than the xsd-users mailing
@@ -42,15 +42,15 @@ class Xsd < Formula
     schema.write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-                 targetNamespace="http://brew.sh/XSDTest" xmlns="http://brew.sh/XSDTest">
+                 targetNamespace="https://brew.sh/XSDTest" xmlns="https://brew.sh/XSDTest">
           <xs:element name="MeaningOfLife" type="xs:positiveInteger"/>
       </xs:schema>
     EOS
     instance = testpath/"meaningoflife.xml"
     instance.write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
-      <MeaningOfLife xmlns="http://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://brew.sh/XSDTest meaningoflife.xsd">
+      <MeaningOfLife xmlns="https://brew.sh/XSDTest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="https://brew.sh/XSDTest meaningoflife.xsd">
           42
       </MeaningOfLife>
     EOS
