@@ -13,13 +13,18 @@ class Restic < Formula
   end
 
   test do
-    system "RESTIC_PASSWORD=foo", "#{bin}/restic", "-r", ".",  "init"
-    system "RESTIC_PASSWORD=foo", "#{bin}/restic", "-r", ".",  "backup", #{$0}"
+    mkdir testpath/"restic_repo"
+    ENV["RESTIC_REPOSITORY"] = testpath/"restic_repo"
+    ENV["RESTIC_PASSWORD"]= "foo"
 
-    snapshot = shell_output("RESTIC_PASSWORD=foo #{bin}/restic -r . snapshots") | tail -n+3 | head -n1 | awk '{print $1}'`
-    snapshot.chomp!
+    (testpath/"testfile").write <<~EOS
+      This is a testfile
+    EOS
 
-    system "RESTIC_PASSWORD=foo restic -r #{test_repo_path} restore #{snapshot} -t #{test_repo_path}-restore"
-    system "diff -q #{$0} #{test_repo_path}-restore/#{File.basename($0)}"
+    system "#{bin}/restic", "init"
+    system "#{bin}/restic", "backup", "testfile"
+
+    system "#{bin}/restic", "restore", "latest", "-t", "#{testpath}/restore"
+    assert compare_file "testfile", "#{testpath}/restore/testfile"
   end
 end
