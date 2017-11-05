@@ -1,7 +1,7 @@
 class Libdsk < Formula
   desc "Library for accessing discs and disc image files"
-  homepage "http://www.seasip.info/Unix/LibDsk/"
-  url "http://www.seasip.info/Unix/LibDsk/libdsk-1.4.2.tar.gz"
+  homepage "https://www.seasip.info/Unix/LibDsk/"
+  url "https://www.seasip.info/Unix/LibDsk/libdsk-1.4.2.tar.gz"
   sha256 "71eda9d0e33ab580cea1bb507467877d33d887cea6ec042b8d969004db89901a"
 
   bottle do
