@@ -4,11 +4,11 @@ class Ogre < Formula
   url "https://github.com/OGRECave/ogre/archive/v1.10.9.tar.gz"
   sha256 "85ba2cc6a35c67ff93a9a498af9f8f3113fd3a16e7cc43c18b9769d8bf1e9101"
 
-  option :cxx11
+  needs :cxx11
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => :recommended
+  depends_on "boost" => ["c++11", :optional]
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "harfbuzz"
@@ -18,21 +18,15 @@ class Ogre < Formula
   depends_on "sdl"
   depends_on "sdl2"
 
-  needs :cxx11 if build.without? "boost"
-
   def install
-    if build.with? "boost"
-      if Tab.for_name("boost").cxx11?
-        unless build.cxx11?
-          odie "You may build ogre with \"--c++11\" because boost was built with \"--c++11\"."
-        end
-      else
-        if build.cxx11?
-          odie "You may build ogre without \"--c++11\" because boost was built without \"--c++11\"."
-        end
-      end
+    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
+    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
+    ENV.cxx11
+    ENV.append "CXXFLAGS", "-std=c++11"
+    if ENV.compiler == :clang
+      ENV.append "CXXFLAGS", "-stdlib=libc++"
+      ENV.append "LINKFLAGS", "-stdlib=libc++"
     end
-
     # OGRE tends to use "/Library/Frameworks/SDL.framework" if exist. Because OGRE appends "-F/Library/Frameworks".
     ENV.prepend "CPPFLAGS", "-I#{Formula["sdl"].opt_include}/SDL"
 
@@ -57,20 +51,9 @@ class Ogre < Formula
                -DOGRE_BUILD_COMPONENT_PYTHON=OFF]
     # "std" meands using c++11.
     args << "-DOGRE_CONFIG_THREAD_PROVIDER=" + (build.with?("boost") ? "boost" : "std")
+    args << "-DOGRE_USE_STD11=ON"
 
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      ENV.cxx11
-      args << "-DOGRE_USE_STD11=ON"
-      ENV.append "CXXFLAGS", "-std=c++11"
-      if ENV.compiler == :clang
-        ENV.append "CXXFLAGS", "-stdlib=libc++"
-        ENV.append "LINKFLAGS", "-stdlib=libc++"
-      end
-    end
-
-    system "cmake", ".", *args
+   system "cmake", ".", *args
     system "make", "install"
   end
 
