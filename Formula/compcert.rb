@@ -16,9 +16,12 @@ class Compcert < Formula
 
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
+  depends_on "ocaml-num" => :build
   depends_on "opam" => :build
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     ENV.permit_arch_flags
 
     # Compcert's configure script hard-codes gcc. On Lion and under, this
@@ -31,6 +34,8 @@ class Compcert < Formula
     ENV["OPAMROOT"] = buildpath/"opamroot"
     (buildpath/"opamroot").mkpath
     system "opam", "init", "--no-setup"
+    system "opam", "config", "exec", "--", "opam", "install", "ocamlfind"
+    system "opam", "config", "exec", "--", "opam", "install", "--fake", "num"
     system "opam", "config", "exec", "--", "opam", "install", "coq=8.6.1"
 
     args = ["-prefix", prefix]
