@@ -1,8 +1,8 @@
 class Aspcud < Formula
   desc "Package dependency solver"
-  homepage "https://potassco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/potassco/aspcud/1.9.1/aspcud-1.9.1-source.tar.gz"
-  sha256 "e0e917a9a6c5ff080a411ff25d1174e0d4118bb6759c3fe976e2e3cca15e5827"
+  homepage "https://potassco.org/aspcud/"
+  url "https://github.com/potassco/aspcud/archive/v1.9.4.tar.gz"
+  sha256 "3645f08b079e1cc80e24cd2d7ae5172a52476d84e3ec5e6a6c0034492a6ea885"
 
   bottle do
     rebuild 2
@@ -18,10 +18,12 @@ class Aspcud < Formula
   depends_on "gringo"
   depends_on "clasp"
 
+  needs :cxx14
+
   def install
     args = std_cmake_args
-    args << "-DGRINGO_LOC=#{Formula["gringo"].opt_bin}/gringo"
-    args << "-DCLASP_LOC=#{Formula["clasp"].opt_bin}/clasp"
+    args << "-DASPCUD_GRINGO_PATH=#{Formula["gringo"].opt_bin}/gringo"
+    args << "-DASPCUD_CLASP_PATH=#{Formula["clasp"].opt_bin}/clasp"
 
     mkdir "build" do
       system "cmake", "..", *args
