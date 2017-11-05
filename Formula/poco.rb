@@ -8,9 +8,10 @@ class Poco < Formula
 
   bottle do
     cellar :any
-    sha256 "75a6e3def5051efd5ed03d1afaf8727a3bd7fbc6ac1c9da3151e322df3fc0d3c" => :high_sierra
-    sha256 "11f9cb54eeb5204f4fdce65eacc403be2cf6c8999b27362922b9428253a81307" => :sierra
-    sha256 "d369e4da0d1acc3ad5d6249390cb0a459f4d2723f8bdd49a4bbbc75dffae65f8" => :el_capitan
+    rebuild 1
+    sha256 "a660300244ce2567e1abeebf18db634f517692dbb2b2d4765074050fb522539a" => :high_sierra
+    sha256 "995f536da783631be5266076fd0caae50657d13f682e089102e56d747c6f09ca" => :sierra
+    sha256 "e8b196801ed82c2190847c5a7bcd9af79e1adbaabcd2841fc3645a7412df364e" => :el_capitan
   end
 
   option "with-static", "Build static libraries (instead of shared)"
