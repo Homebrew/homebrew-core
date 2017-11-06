@@ -35,7 +35,6 @@ class Libav < Formula
   # manpages won't be built without texi2html
   depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
 
-  depends_on "faac" => :recommended
   depends_on "fdk-aac" => :recommended
   depends_on "freetype" => :recommended
   depends_on "lame" => :recommended
