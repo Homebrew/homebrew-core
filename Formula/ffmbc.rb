@@ -22,7 +22,6 @@ class Ffmbc < Formula
   depends_on "yasm" => :build
 
   depends_on "x264" => :recommended
-  depends_on "faac" => :recommended
   depends_on "lame" => :recommended
   depends_on "xvid" => :recommended
 
