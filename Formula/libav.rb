@@ -12,7 +12,6 @@ class Libav < Formula
     sha256 "2e1471577657408ca11733bab5324f6dcd8ee62db06fa8a0e1d28dc05498981b" => :el_capitan
   end
 
-  option "without-faac", "Disable AAC encoder via faac"
   option "without-lame", "Disable MP3 encoder via libmp3lame"
   option "without-libvorbis", "Disable Vorbis encoding via libvorbis"
   option "without-libvpx", "Disable VP8 de/encoding via libvpx"
