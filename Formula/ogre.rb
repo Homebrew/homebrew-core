@@ -4,7 +4,6 @@ class Ogre < Formula
   url "https://github.com/OGRECave/ogre/archive/v1.10.9.tar.gz"
   sha256 "85ba2cc6a35c67ff93a9a498af9f8f3113fd3a16e7cc43c18b9769d8bf1e9101"
 
-  option "with-boost-thread", "build with boost-thread-mt"
   needs :cxx11
 
   depends_on "cmake" => :build
@@ -49,10 +48,9 @@ class Ogre < Formula
                -DOGRE_BUILD_PLUGIN_CG=OFF
                -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=OFF
                -DOGRE_BUILD_COMPONENT_JAVA=OFF
-               -DOGRE_BUILD_COMPONENT_PYTHON=OFF]
-    # "std" meands using c++11.
-    args << "-DOGRE_CONFIG_THREAD_PROVIDER=" + (build.with?("boost-thread") ? "boost" : "std")
-    args << "-DOGRE_USE_STD11=ON"
+               -DOGRE_BUILD_COMPONENT_PYTHON=OFF
+               -DOGRE_CONFIG_THREAD_PROVIDER=boost
+               -DOGRE_USE_STD11=ON]
 
     system "cmake", ".", *args
     system "make", "install"
