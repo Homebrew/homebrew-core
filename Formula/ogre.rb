@@ -21,14 +21,10 @@ class Ogre < Formula
   depends_on "sdl"
   depends_on "sdl2"
 
-  if (build.with?("java-component") || build.with?("python-component"))
+  if build.with?("java-component") || build.with?("python-component")
     depends_on "swig"
-    if build.with?("java-component")
-      depends_on :java
-    end
-    if build.with?("python-component")
-      depends_on :python
-    end
+    depends_on :java if build.with? "java-component"
+    depends_on :python if build.with? "python-component"
   end
 
   def install
@@ -56,7 +52,7 @@ class Ogre < Formula
     inreplace "CMake/InstallResources.cmake", "set(OGRE_CFG_INSTALL_PATH \"bin\")", "set(OGRE_CFG_INSTALL_PATH \"share/ogre/cfg\")"
 
     args = std_cmake_args
-    args += %W[-DCMAKE_SKIP_BUILD_RPATH=FALSE
+    args += %w[-DCMAKE_SKIP_BUILD_RPATH=FALSE
                -DOGRE_FULL_RPATH=TRUE
                -DOGRE_LIB_DIRECTORY=lib
                -DOGRE_BUILD_DEPENDENCIES=FALSE
@@ -65,19 +61,19 @@ class Ogre < Formula
                -DOGRE_BUILD_RENDERSYSTEM_GL3PLUS=OFF
                -DOGRE_BUILD_SAMPLES=OFF
                -DOGRE_BUILD_PLUGIN_CG=OFF
-               -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=OFF
-               ]
+               -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=OFF]
     # "std" meands using c++11.
     args << "-DOGRE_CONFIG_THREAD_PROVIDER=" + (build.with?("boost") ? "boost" : "std")
 
-	# See https://github.com/OGRECave/ogre/issues/563
+    # See https://github.com/OGRECave/ogre/issues/563
     if build.with?("python-component")
       inreplace "Components/Python/CMakeLists.txt", "set(CMAKE_SWIG_FLAGS -w401,314 -builtin)", "set(CMAKE_SWIG_FLAGS -w401,314 -builtin -D_LIBCPP_VERSION -DOGRE_FULL_RPATH=TRUE)"
     else
       args << "-DOGRE_BUILD_COMPONENT_PYTHON=OFF"
     end
     if build.with?("java-component")
-      inreplace "Components/Java/CMakeLists.txt", "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre)", "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre -D_LIBCPP_VERSION -DOGRE_FULL_RPATH=TRUE)"
+      inreplace "Components/Java/CMakeLists.txt", "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre)",
+                "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre -D_LIBCPP_VERSION -DOGRE_FULL_RPATH=TRUE)"
     else
       args << "-DOGRE_BUILD_COMPONENT_JAVA=OFF"
     end
