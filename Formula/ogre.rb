@@ -8,7 +8,7 @@ class Ogre < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => "c++11"
+  depends_on "boost" => ["c++11", :optional]
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "harfbuzz"
@@ -48,11 +48,11 @@ class Ogre < Formula
                -DOGRE_BUILD_PLUGIN_CG=OFF
                -DOGRE_BUILD_LIBS_AS_FRAMEWORKS=OFF
                -DOGRE_BUILD_COMPONENT_JAVA=OFF
-               -DOGRE_BUILD_COMPONENT_PYTHON=OFF
-               -DOGRE_CONFIG_THREAD_PROVIDER=boost
-               -DOGRE_USE_STD11=ON]
+               -DOGRE_BUILD_COMPONENT_PYTHON=OFF]
+    # "std" meands using c++11.
+    args << "-DOGRE_CONFIG_THREAD_PROVIDER=" + (build.with?("boost") ? "boost" : "std")
 
-    system "cmake", ".", *args
+   system "cmake", ".", *args
     system "make", "install"
   end
 
