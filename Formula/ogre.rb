@@ -52,7 +52,7 @@ class Ogre < Formula
     # "std" meands using c++11.
     args << "-DOGRE_CONFIG_THREAD_PROVIDER=" + (build.with?("boost") ? "boost" : "std")
 
-   system "cmake", ".", *args
+    system "cmake", ".", *args
     system "make", "install"
   end
 
