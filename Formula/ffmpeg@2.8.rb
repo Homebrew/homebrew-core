@@ -49,7 +49,6 @@ class FfmpegAT28 < Formula
   depends_on "libvo-aacenc" => :recommended
   depends_on "xvid" => :recommended
 
-  depends_on "faac" => :optional
   depends_on "fontconfig" => :optional
   depends_on "freetype" => :optional
   depends_on "theora" => :optional
