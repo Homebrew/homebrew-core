@@ -11,7 +11,7 @@ class Grakn < Formula
   def install
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/grakn", "#{libexec}/graql"]
-    bin.env_script_all_files(libexec/"services/cassandra", :CASSANDRA_HOME => ENV["CASSANDRA_HOME"])
+    bin.env_script_all_files(libexec/"", :SERVICE_HOME => ENV["SERVICE_HOME"])
   end
 
   test do
