@@ -6,6 +6,13 @@ class Csvkit < Formula
   url "https://files.pythonhosted.org/packages/53/de/a8ee2fb47af463251fd39e0dc2b7356ceb58fd0f5867f7f6d0f7cc6e8a0d/csvkit-1.0.2.tar.gz"
   sha256 "5a897f87c920dec3e7debc31102dfe774a8d704641bfafa98e04729bd4d26e17"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "76107c7ba4afd9cb68e8d8ec364374932d7130456fd6e7b4f7f55958c80c17cb" => :high_sierra
+    sha256 "e915fdcd3ab965e464fc0a4216e7d1bd398ed659d7ef03c334168ea9c489826e" => :sierra
+    sha256 "cbfeef9899fd671d862f06e55974639bfeb60adbef9e44fd23bee25ad21c887a" => :el_capitan
+  end
+
   depends_on :python3
 
   resource "agate" do
