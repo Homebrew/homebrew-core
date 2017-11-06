@@ -111,7 +111,6 @@ class FfmpegAT28 < Formula
     args << "--enable-libvpx" if build.with? "libvpx"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
-    args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-ffplay" if build.with? "ffplay"
     args << "--enable-libssh" if build.with? "libssh"
