@@ -5,7 +5,7 @@ class X264 < Formula
   url "https://git.videolan.org/git/x264.git",
       :revision => "aaa9aa83a111ed6f1db253d5afa91c5fc844583f"
   version "r2795"
-  revison 1
+  revision 1
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
