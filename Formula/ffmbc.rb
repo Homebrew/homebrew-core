@@ -42,7 +42,6 @@ class Ffmbc < Formula
             "--cc=#{ENV.cc}"]
 
     args << "--enable-libx264" if build.with? "x264"
-    args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libmp3lame" if build.with? "lame"
     args << "--enable-libxvid" if build.with? "xvid"
 
