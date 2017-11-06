@@ -80,6 +80,9 @@ class Ogre < Formula
 
     system "cmake", ".", *args
     system "make", "install"
+    if build.with? "java-component"
+      lib.install "java/libs/libOgreJNI.jnilib"
+    end
   end
 
   def caveats
@@ -91,6 +94,7 @@ class Ogre < Formula
       EOS
     end
   end
+
   test do
     system "#{bin}/OgreXMLConverter", "-v"
   end
