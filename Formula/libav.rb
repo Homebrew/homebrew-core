@@ -79,7 +79,6 @@ class Libav < Formula
 
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-gnutls" if build.with? "gnutls"
-    args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"
