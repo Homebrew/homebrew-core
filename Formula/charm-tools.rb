@@ -8,10 +8,9 @@ class CharmTools < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "ff48d77b42c2c922165c5bbbaf5b9f4f06974f13ae204960c55eef6993aaf6ca" => :high_sierra
-    sha256 "8e39da2d3837ee209393ab3dd3e5483228bd140f7372757cc99d6e7a4925b76b" => :sierra
-    sha256 "57fc203668f8a4760353b7983a0e6ec6a3e24332ab216c6db191463c3cbc3832" => :el_capitan
+    sha256 "eadb8bfbdc09519f67274db4b24192b03f25aba8138117e2ea0f87da130438fc" => :high_sierra
+    sha256 "2bd90894ed7d9130dc6413c5c7760621d723e6b425734250893a96b1122e086a" => :sierra
+    sha256 "0bda57a06ddb8724164f4f05ae0c67f5c4a11c9e08f42b72282b9fadba1323fc" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
