@@ -3,7 +3,7 @@ class Libav < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.2.tar.xz"
   sha256 "7b5620261fb3e372bf3992736862f598967988502f7804c39c5246b62348c53b"
-
+  revision 1
   head "https://git.libav.org/libav.git"
 
   bottle do
@@ -12,7 +12,6 @@ class Libav < Formula
     sha256 "2e1471577657408ca11733bab5324f6dcd8ee62db06fa8a0e1d28dc05498981b" => :el_capitan
   end
 
-  option "without-faac", "Disable AAC encoder via faac"
   option "without-lame", "Disable MP3 encoder via libmp3lame"
   option "without-libvorbis", "Disable Vorbis encoding via libvorbis"
   option "without-libvpx", "Disable VP8 de/encoding via libvpx"
@@ -35,7 +34,6 @@ class Libav < Formula
   # manpages won't be built without texi2html
   depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
 
-  depends_on "faac" => :recommended
   depends_on "fdk-aac" => :recommended
   depends_on "freetype" => :recommended
   depends_on "lame" => :recommended
@@ -80,7 +78,6 @@ class Libav < Formula
 
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-gnutls" if build.with? "gnutls"
-    args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"

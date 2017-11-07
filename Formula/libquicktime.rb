@@ -3,7 +3,7 @@ class Libquicktime < Formula
   homepage "https://libquicktime.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libquicktime/libquicktime/1.2.4/libquicktime-1.2.4.tar.gz"
   sha256 "1c53359c33b31347b4d7b00d3611463fe5e942cae3ec0fefe0d2fd413fd47368"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "f507d898a0237474e45a9780d08113887e00ddd6ae35934bbac4ef4e65d58dca" => :high_sierra
