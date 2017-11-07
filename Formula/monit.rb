@@ -1,8 +1,8 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.24.0.tar.gz"
-  sha256 "754d1f0e165e5a26d4639a6a83f44ccf839e381f2622e0946d5302fa1f2d2414"
+  url "https://mmonit.com/monit/dist/monit-5.25.0.tar.gz"
+  sha256 "8949b99716581c5550bbbfb1009190f0e70f84b804d39902e55c5c3d095c2c32"
 
   bottle do
     sha256 "a809314a49449b1343dae188ab65a72909c91a5b550c27d9f6751c3b406ff57c" => :high_sierra
