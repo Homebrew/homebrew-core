@@ -1,8 +1,8 @@
 class Ssdeep < Formula
   desc "Recursive piecewise hashing tool"
   homepage "https://ssdeep-project.github.io/ssdeep/"
-  url "https://github.com/ssdeep-project/ssdeep/releases/download/release-2.14/ssdeep-2.14.tar.gz"
-  sha256 "3aad00b51adf8f0086b37198e50dc779d2313b7d9df09a96bce73c5376dcdd36"
+  url "https://github.com/ssdeep-project/ssdeep/releases/download/release-2.14.1/ssdeep-2.14.1.tar.gz"
+  sha256 "ff2eabc78106f009b4fb2def2d76fb0ca9e12acf624cbbfad9b3eb390d931313"
 
   bottle do
     cellar :any
