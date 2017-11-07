@@ -81,6 +81,8 @@ class Ogre < Formula
     system "cmake", ".", *args
     system "make", "install"
     lib.install "java/libs/libOgreJNI.jnilib" if build.with? "java-component"
+    MachO::Tools.change_install_name("#{lib}/OGRE/Plugin_OctreeZone.#{version}.dylib",
+                                     "@rpath/Plugin_PCZSceneManager.#{version}.dylib", "#{lib}/OGRE/Plugin_PCZSceneManager.#{version}.dylib")
   end
 
   def caveats
