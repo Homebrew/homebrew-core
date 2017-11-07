@@ -1,24 +1,12 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
+  # Note the mirror will return 301 until the version becomes outdated.
+  url "https://hashcat.net/files/hashcat-4.0.1.tar.gz"
+  mirror "https://hashcat.net/files_legacy/hashcat-4.0.1.tar.gz"
+  sha256 "7fa24447eb9798f6926093a6d52ce77b34d8883866b23cf473d4dfbb22974edd"
   version_scheme 1
-
   head "https://github.com/hashcat/hashcat.git"
-
-  stable do
-    url "https://hashcat.net/files/hashcat-4.0.0.tar.gz"
-    # Note the mirror will return 301 until the version becomes outdated.
-    mirror "https://hashcat.net/files_legacy/hashcat-4.0.0.tar.gz"
-    sha256 "9e8cb81bf26024eca2e117ddf8fd16316af3dd337ecf4e9917acbb1720c13b50"
-
-    # Upstream commit from 28 Oct 2017 "fixes #1412: sed for VERSION_EXPORT
-    # fixed compilation problem"
-    # See https://github.com/hashcat/hashcat/commit/c06c5ddd4857b0a5d7862451da431c42287918ce
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/284f381/hashcat/VERSION_TAG.patch"
-      sha256 "9dbde3d9b6ac22145fa328d53eaf8b1da0720fde7e064b71202d126655d55ebe"
-    end
-  end
 
   bottle do
     sha256 "421d0442ba641c9f5632cb1212e4991235b81b89bc05fe6e01296139ced0a6f5" => :high_sierra
@@ -35,11 +23,6 @@ class Hashcat < Formula
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
-
-    # Fix "install: mkdir /usr/local/Cellar/hashcat/4.0.0/share: File exists"
-    # Reported 28 Oct 2017 https://github.com/hashcat/hashcat/issues/1414
-    ENV.deparallelize
-
     system "make", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
   end
 
