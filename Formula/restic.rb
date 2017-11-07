@@ -15,11 +15,9 @@ class Restic < Formula
   test do
     mkdir testpath/"restic_repo"
     ENV["RESTIC_REPOSITORY"] = testpath/"restic_repo"
-    ENV["RESTIC_PASSWORD"]= "foo"
+    ENV["RESTIC_PASSWORD"] = "foo"
 
-    (testpath/"testfile").write <<~EOS
-      This is a testfile
-    EOS
+    (testpath/"testfile").write("This is a testfile")
 
     system "#{bin}/restic", "init"
     system "#{bin}/restic", "backup", "testfile"
