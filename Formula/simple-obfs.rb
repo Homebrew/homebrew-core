@@ -2,9 +2,8 @@ class SimpleObfs < Formula
   desc "Simple obfusacting plugin of shadowsocks-libev"
   homepage "https://github.com/shadowsocks/simple-obfs"
   url "https://github.com/shadowsocks/simple-obfs.git",
-      :tag => "v0.0.3",
-      :revision => "1f5dcace9ee50da6144824b9db9e89be889a9033"
-  revision 1
+      :tag => "v0.0.4",
+      :revision => "917411a3ab0cbe8d136ae4bbd8461f3775c182b8"
 
   bottle do
     cellar :any
@@ -18,9 +17,8 @@ class SimpleObfs < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "xmlto" => :build
+  depends_on "c-ares"
   depends_on "libev"
-  depends_on "libsodium"
-  depends_on "udns"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
