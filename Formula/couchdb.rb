@@ -1,17 +1,8 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  revision 13
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
-    sha256 "5a601b173733ce3ed31b654805c793aa907131cd70b06d03825f169aa48c8627"
-
-    # Support Erlang/OTP 18.0+ compatibility, see upstream #95cb436
-    # It will be in the next CouchDB point release, likely 1.6.2.
-    # https://github.com/apache/couchdb/pull/431
-    patch :DATA
-  end
+  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.0/apache-couchdb-1.7.0.tar.gz"
+  sha256 "9b492e7e5389477107100ef83c41cc32185e2fe9cc88c19c550ed4b2192890dd"
 
   bottle do
     sha256 "e8ee8e78cfdccbcb03fb672b0189354553e920fe49a82ed48e7308375a61c3b6" => :high_sierra
@@ -33,12 +24,9 @@ class Couchdb < Formula
 
   option "with-geocouch", "Build with GeoCouch spatial index extension"
 
+  depends_on "erlang@19"
   depends_on "spidermonkey"
   depends_on "icu4c"
-
-  # Incompatible with Erlang/OTP 20.0
-  # See upstream issue from 23 Jun 2017 https://github.com/apache/couchdb/issues/611
-  depends_on "erlang@19"
 
   resource "geocouch" do
     url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
@@ -229,135 +217,3 @@ class Couchdb < Formula
     end
   end
 end
-
-__END__
-commit 95cb436be30305efa091809813b64ef31af968c8
-Author: Dave Cottlehuber <dch@apache.org>
-Date:   Fri Jun 26 10:31:27 2015 +0200
-
-    build: support OTP-19.0
-
-diff --git a/INSTALL.Unix b/INSTALL.Unix
-index f66f98c..4c63bc8 100644
---- a/INSTALL.Unix
-+++ b/INSTALL.Unix
-@@ -39,7 +39,7 @@ Dependencies
-
- You should have the following installed:
-
-- * Erlang OTP (>=R14B01, =<R17) (http://erlang.org/)
-+ * Erlang OTP (>=R14B01, =<R19) (http://erlang.org/)
-  * ICU                          (http://icu-project.org/)
-  * OpenSSL                      (http://www.openssl.org/)
-  * Mozilla SpiderMonkey (1.8.5) (http://www.mozilla.org/js/spidermonkey/)
-diff --git a/INSTALL.Windows b/INSTALL.Windows
-index 29c69b0..1ca04fd 100644
---- a/INSTALL.Windows
-+++ b/INSTALL.Windows
-@@ -29,7 +29,7 @@ Dependencies
-
- You will need the following installed:
-
-- * Erlang OTP (>=14B01, <R17)    (http://erlang.org/)
-+ * Erlang OTP (>=14B01, <R19)    (http://erlang.org/)
-  * ICU        (>=4.*)            (http://icu-project.org/)
-  * OpenSSL    (>=0.9.8r)         (http://www.openssl.org/)
-  * Mozilla SpiderMonkey (=1.8.5) (http://www.mozilla.org/js/spidermonkey/)
-diff --git a/configure.ac b/configure.ac
-index 103f029..bf9ffc4 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -411,7 +411,7 @@ esac
-
- { $as_echo "$as_me:${as_lineno-$LINENO}: checking Erlang version compatibility" >&5
- $as_echo_n "checking Erlang version compatibility... " >&6; }
--erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 17 (erts-6.0)"
-+erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 19 (erts-8.0.1)"
-
- version="`${ERL} -version 2>&1 | ${SED} 's/[[^0-9]]/ /g'` 0 0 0"
- major_version=`echo $version | ${AWK} "{print \\$1}"`
-@@ -419,7 +419,7 @@ minor_version=`echo $version | ${AWK} "{print \\$2}"`
- patch_version=`echo $version | ${AWK} "{print \\$3}"`
- echo -n "detected Erlang version: $major_version.$minor_version.$patch_version..."
-
--if test $major_version -lt 5 -o $major_version -gt 6; then
-+if test $major_version -lt 5 -o $major_version -gt 8; then
-     as_fn_error $? "$erlang_version_error major_version does not match" "$LINENO" 5
- fi
-
-@@ -438,9 +438,9 @@ otp_release="`\
- AC_SUBST(otp_release)
-
- AM_CONDITIONAL([USE_OTP_NIFS],
--    [can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17)")])
-+    [can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17|18|19)")])
- AM_CONDITIONAL([USE_EJSON_COMPARE_NIF],
--    [can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17)")])
-+    [can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17|18|19)")])
-
- has_crypto=`\
-     ${ERL} -eval "\
-diff --git a/share/doc/src/install/unix.rst b/share/doc/src/install/unix.rst
-index 76fe922..904c128 100644
---- a/share/doc/src/install/unix.rst
-+++ b/share/doc/src/install/unix.rst
-@@ -52,7 +52,7 @@ Dependencies
-
- You should have the following installed:
-
--* `Erlang OTP (>=R14B01, =<R17) <http://erlang.org/>`_
-+* `Erlang OTP (>=R14B01, =<R19) <http://erlang.org/>`_
- * `ICU                          <http://icu-project.org/>`_
- * `OpenSSL                      <http://www.openssl.org/>`_
- * `Mozilla SpiderMonkey (1.8.5) <http://www.mozilla.org/js/spidermonkey/>`_
-diff --git a/share/doc/src/install/windows.rst b/share/doc/src/install/windows.rst
-index b7b66af..494ef65 100644
---- a/share/doc/src/install/windows.rst
-+++ b/share/doc/src/install/windows.rst
-@@ -90,7 +90,7 @@ Dependencies
-
- You should have the following installed:
-
--* `Erlang OTP (>=14B01, <R17)    <http://erlang.org/>`_
-+* `Erlang OTP (>=14B01, <R19)    <http://erlang.org/>`_
- * `ICU        (>=4.*)            <http://icu-project.org/>`_
- * `OpenSSL    (>0.9.8r)          <http://www.openssl.org/>`_
- * `Mozilla SpiderMonkey (=1.8.5) <http://www.mozilla.org/js/spidermonkey/>`_
---- a/configure	2015-06-27 12:56:30.000000000 +0200
-+++ b/configure	2015-06-27 12:58:38.000000000 +0200
-@@ -18532,7 +18532,7 @@
-
- { $as_echo "$as_me:${as_lineno-$LINENO}: checking Erlang version compatibility" >&5
- $as_echo_n "checking Erlang version compatibility... " >&6; }
--erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 17 (erts-6.0)"
-+erlang_version_error="The installed Erlang version must be >= R14B (erts-5.8.1) and =< 19 (erts-8.0.1)"
-
- version="`${ERL} -version 2>&1 | ${SED} 's/[^0-9]/ /g'` 0 0 0"
- major_version=`echo $version | ${AWK} "{print \\$1}"`
-@@ -18540,7 +18540,7 @@
- patch_version=`echo $version | ${AWK} "{print \\$3}"`
- echo -n "detected Erlang version: $major_version.$minor_version.$patch_version..."
-
--if test $major_version -lt 5 -o $major_version -gt 6; then
-+if test $major_version -lt 5 -o $major_version -gt 8; then
-     as_fn_error $? "$erlang_version_error major_version does not match" "$LINENO" 5
- fi
-
-@@ -18559,7 +18559,7 @@
-
-
-
-- if can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17)"); then
-+ if can_use_nifs=$(echo $otp_release | grep -E "^(R14B|R15|R16|17|18|19)"); then
-   USE_OTP_NIFS_TRUE=
-   USE_OTP_NIFS_FALSE='#'
- else
-@@ -18567,7 +18567,7 @@
-   USE_OTP_NIFS_FALSE=
- fi
-
-- if can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17)"); then
-+ if can_use_ejson=$(echo $otp_release | grep -E "^(R14B03|R15|R16|17|18|19)"); then
-   USE_EJSON_COMPARE_NIF_TRUE=
-   USE_EJSON_COMPARE_NIF_FALSE='#'
- else
