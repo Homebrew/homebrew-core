@@ -18,7 +18,7 @@ class Just < Formula
   end
 
   test do
-    (testpath/"justfile").write <<-EOS.undent
+    (testpath/"justfile").write <<~EOS
       default:
         touch it-worked
     EOS
