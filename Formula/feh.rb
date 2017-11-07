@@ -1,8 +1,8 @@
 class Feh < Formula
   desc "X11 image viewer"
   homepage "https://feh.finalrewind.org/"
-  url "https://feh.finalrewind.org/feh-2.22.1.tar.bz2"
-  sha256 "dd8f1e30d3269056eda7dac07a1d40313635169fcf59ea114b85908af38f3ff3"
+  url "https://feh.finalrewind.org/feh-2.22.2.tar.bz2"
+  sha256 "05a81fbe0997f6274c7617efc351647be38e5244c2624bd203459025c9a68ecd"
 
   bottle do
     sha256 "ce5bd97807982041096c12e34aafd3ee62e3735c13fa821adaeb74eacdab8733" => :high_sierra
