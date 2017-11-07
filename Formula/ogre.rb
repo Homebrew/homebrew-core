@@ -52,9 +52,8 @@ class Ogre < Formula
     inreplace "CMake/InstallResources.cmake", "set(OGRE_CFG_INSTALL_PATH \"bin\")", "set(OGRE_CFG_INSTALL_PATH \"share/ogre/cfg\")"
 
     args = std_cmake_args
-    args += %w[-DCMAKE_SKIP_BUILD_RPATH=FALSE
+    args += %w[-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=TRUE
                -DOGRE_FULL_RPATH=TRUE
-               -DOGRE_LIB_DIRECTORY=lib
                -DOGRE_BUILD_DEPENDENCIES=FALSE
                -DOGRE_INSTALL_DEPENDENCIES=FALSE
                -DOGRE_COPY_DEPENDENCIES=FALSE
@@ -67,22 +66,21 @@ class Ogre < Formula
 
     # See https://github.com/OGRECave/ogre/issues/563
     if build.with?("python-component")
-      inreplace "Components/Python/CMakeLists.txt", "set(CMAKE_SWIG_FLAGS -w401,314 -builtin)", "set(CMAKE_SWIG_FLAGS -w401,314 -builtin -D_LIBCPP_VERSION -DOGRE_FULL_RPATH=TRUE)"
+      inreplace "Components/Python/CMakeLists.txt", "set(CMAKE_SWIG_FLAGS -w401,314 -builtin)",
+                "set(CMAKE_SWIG_FLAGS -w401,314 -builtin -D_LIBCPP_VERSION)"
     else
       args << "-DOGRE_BUILD_COMPONENT_PYTHON=OFF"
     end
     if build.with?("java-component")
       inreplace "Components/Java/CMakeLists.txt", "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre)",
-                "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre -D_LIBCPP_VERSION -DOGRE_FULL_RPATH=TRUE)"
+                "set(CMAKE_SWIG_FLAGS -w401,314 -package org.Ogre -D_LIBCPP_VERSION)"
     else
       args << "-DOGRE_BUILD_COMPONENT_JAVA=OFF"
     end
 
     system "cmake", ".", *args
     system "make", "install"
-    if build.with? "java-component"
-      lib.install "java/libs/libOgreJNI.jnilib"
-    end
+    lib.install "java/libs/libOgreJNI.jnilib" if build.with? "java-component"
   end
 
   def caveats
@@ -96,6 +94,34 @@ class Ogre < Formula
   end
 
   test do
-    system "#{bin}/OgreXMLConverter", "-v"
+    (testpath/"test.mesh.xml").write <<-EOS
+      <mesh>
+        <submeshes>
+          <submesh material="BaseWhite" usesharedvertices="false" use32bitindexes="false" operationtype="triangle_list">
+            <faces count="1">
+              <face v1="0" v2="1" v3="2" />
+            </faces>
+            <geometry vertexcount="3">
+              <vertexbuffer positions="true" normals="false" texture_coords="0">
+                <vertex>
+                  <position x="-50" y="-50" z="50" />
+                </vertex>
+                <vertex>
+                  <position x="-50" y="-50" z="-50" />
+                </vertex>
+                <vertex>
+                  <position x="50" y="-50" z="-50" />
+                </vertex>
+              </vertexbuffer>
+            </geometry>
+          </submesh>
+        </submeshes>
+        <submeshnames>
+          <submeshname name="submesh0" index="0" />
+        </submeshnames>
+      </mesh>
+      EOS
+    system "#{bin}/OgreXMLConverter", "test.mesh.xml"
+    system "du", "-h", "./test.mesh"
   end
 end
