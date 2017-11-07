@@ -6,12 +6,17 @@ class AppEngineJava < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     rm Dir["bin/*.cmd"]
     libexec.install Dir["*"]
-    bin.write_exec_script %w[appcfg.sh dev_appserver.sh endpoints.sh google_sql.sh].map { |fn| libexec/"bin/#{fn}" }
+
+    %w[appcfg.sh dev_appserver.sh endpoints.sh run_java.sh].each do |f|
+      bin.install libexec/"bin/#{f}"
+    end
+
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
