@@ -3,6 +3,7 @@ class Zurl < Formula
   homepage "https://github.com/fanout/zurl"
   url "https://dl.bintray.com/fanout/source/zurl-1.9.0.tar.bz2"
   sha256 "c97f430f9f815c3a8d9758e7611054224908727af938a28e0eef700add02e1dc"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,8 +18,8 @@ class Zurl < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
-    sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
+    url "https://files.pythonhosted.org/packages/1e/f9/d0675409c11d11e549e3da000901cfaabd848da117390ee00030e14bfdb6/pyzmq-16.0.3.tar.gz"
+    sha256 "8a883824147523c0fe76d247dd58994c1c28ef07f1cc5dde595a4fd1c28f2580"
   end
 
   def install
