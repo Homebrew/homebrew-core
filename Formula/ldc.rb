@@ -3,8 +3,8 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.4.0/ldc-1.4.0-src.tar.gz"
-    sha256 "dd29a5833ae02307c387e87d861d5de588b9b16ea3574ef96f8da1f81bbd7c5c"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.5.0/ldc-1.5.0-src.tar.gz"
+    sha256 "03659a4b9cafff0cf8d537469dd15579f097c7748a342ea2a5770fa0edd3a084"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
