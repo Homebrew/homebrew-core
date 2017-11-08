@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v1.8.2.tar.gz"
-  sha256 "7c8a9c9756790d1c4eb436bb6ebda49e2f671a6319c06a1c63d5df9eff7da0e2"
+  url "https://github.com/prometheus/prometheus/archive/v2.0.0.tar.gz"
+  sha256 "6947ae9b2d414d49304034a2635f0e1ecd45ac83a4f4592ea5bcca40d6f7951b"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,9 +25,12 @@ class Prometheus < Formula
 
   test do
     (testpath/"rules.example").write <<~EOS
-      # Saving the per-job HTTP in-progress request count as a new set of time series:
-        job:http_inprogress_requests:sum = sum(http_inprogress_requests) by (job)
+      groups:
+      - name: http
+        rules:
+        - record: job:http_inprogress_requests:sum
+          expr: sum(http_inprogress_requests) by (job)
     EOS
-    system "#{bin}/promtool", "check-rules", testpath/"rules.example"
+    system "#{bin}/promtool", "check", "rules", testpath/"rules.example"
   end
 end
