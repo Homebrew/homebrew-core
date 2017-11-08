@@ -19,6 +19,7 @@ class Yaml < Formula
       system "govendor", "sync"
       system "go", "build", "-o", "bin/yaml"
       bin.install "bin/yaml"
+      prefix.install_metafiles
     end
   end
 
