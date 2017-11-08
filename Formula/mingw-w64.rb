@@ -1,9 +1,8 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://mingw-w64.org/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
-  sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
-  revision 3
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.tar.bz2"
+  sha256 "2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
 
   bottle do
     sha256 "aaeaf080ee7ab0f27333db8a1826bd1ba6c56cea0b9222fb0f005a8c67a7fa8b" => :high_sierra
@@ -21,22 +20,15 @@ class MingwW64 < Formula
   depends_on "texinfo" => :build
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.tar.gz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.29.tar.gz"
-    sha256 "172e8c89472cf52712fd23a9f14e9bca6182727fb45b0f8f482652a83d5a11b4"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.1.tar.gz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.29.1.tar.gz"
+    sha256 "0d9d2bbf71e17903f26a676e7fba7c200e581c84b8f2f43e72d875d0e638771c"
   end
 
   resource "gcc" do
     url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
     mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
     sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
-  end
-
-  # Patch for mingw-w64 5.0.2 with GCC 7
-  # https://sourceforge.net/p/mingw-w64/mingw-w64/ci/431ac2a912708546cd7271332e9331399e66bc62/
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/549c05c1f4/mingw-w64/divmoddi4.patch"
-    sha256 "a8323a12b25baec1335e617111effc9236b48ce1162a63c4898bf6be12680c42"
   end
 
   def target_archs
