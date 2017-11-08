@@ -3,6 +3,7 @@ class Spotbugs < Formula
   homepage "https://spotbugs.github.io/"
   url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.0/spotbugs-3.1.0.tgz"
   sha256 "c1eab4dc50cd9854c83fc4a90b4a9b9c63e5307bd0f0f7bb04720e17153b629c"
+
   head do
     url "https://github.com/spotbugs/spotbugs.git"
     depends_on "gradle" => :build
