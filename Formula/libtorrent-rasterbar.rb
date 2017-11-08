@@ -21,7 +21,6 @@ class LibtorrentRasterbar < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on :python => :optional
-  depends_on "geoip" => :optional
   depends_on "boost"
   depends_on "boost-python" if build.with? "python"
 
@@ -38,11 +37,6 @@ class LibtorrentRasterbar < Formula
     if build.with? "python"
       args << "--enable-python-binding"
       args << "--with-boost-python=boost_python-mt"
-    end
-
-    if build.with? "geoip"
-      args << "--enable-geoip"
-      args << "--with-libgeoip"
     end
 
     if build.head?
