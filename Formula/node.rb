@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.9.1/node-v8.9.1.tar.xz"
-  sha256 "ef160c21f60f8aca64145985e01b4044435e381dc16e8f0640ed0223e84f17e0"
+  url "https://nodejs.org/dist/v9.1.0/node-v9.1.0.tar.xz"
+  sha256 "7e34d581332aedc85306859e613a81cce2531bdd30eef358cb54db8a4f5c3c49"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -39,6 +39,11 @@ class Node < Formula
     sha256 "b8b9afb0bb6211a289f969f66ba184ca5bc83abf6a570e0853ea5185073dca6f"
   end
 
+  resource "minizlib-patch" do
+    url "https://gist.githubusercontent.com/chrmoritz/6175225ca8c12dc5011f6ece19dcca33/raw/db9115ea5c8686a2558f0d9b4b2fecc07ca5063c/npm-minizlib.patch"
+    sha256 "8a7db8591d135b1ce5f1cec48f0d61cc09d28c6a571bca5a47cff6554acdc307"
+  end
+
   def install
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
@@ -57,8 +62,18 @@ class Node < Formula
 
       bootstrap = buildpath/"npm_bootstrap"
       bootstrap.install resource("npm")
+
+      # patch minizlib inside npm for node 9 compatibility and mock it as a
+      # valid minizlib@1.0.3 installation (so that is survives npm selfupdates)
+      # then pack the patched version for installation with npm
+      # Revert this workaround once we upgrade to npm@5.6+ marked as npm@latest
+      cd bootstrap do
+        system "patch", "-p1", "-i", resource("minizlib-patch").cached_download
+        system "node", "bin/npm-cli.js", "pack", "-ddd", "--ignore-scripts"
+      end
+
       system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
-             "--prefix=#{libexec}", resource("npm").cached_download
+             "--prefix=#{libexec}", bootstrap/"npm-5.5.1.tgz"
 
       # Fix from chrmoritz for ENOENT issue with @ in path to node
       inreplace libexec/"lib/node_modules/npm/node_modules/libnpx/index.js",
