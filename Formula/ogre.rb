@@ -11,7 +11,7 @@ class Ogre < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => :optional
+  depends_on "boost" => [:optional, :cxx11]
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "harfbuzz"
@@ -28,12 +28,6 @@ class Ogre < Formula
   end
 
   def install
-    if build.with? "boost"
-      unless Tab.for_name("boost").cxx11?
-        odie "Boost build with \"--c++11\" is needed because this formula needs c++11."
-      end
-    end
-
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
     ENV.cxx11
