@@ -373,10 +373,6 @@ class Wine < Formula
       end
 
       resource("gd").stage do
-        # Poor man's patch as this is a resource
-        inreplace "src/gd_gd2.c",
-                  "#include <math.h>",
-                  "#include <math.h>\n#include <limits.h>"
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
                               "--disable-static",
