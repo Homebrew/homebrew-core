@@ -1,8 +1,8 @@
 class Mitie < Formula
   desc "Library and tools for information extraction"
   homepage "https://github.com/mit-nlp/MITIE/"
-  url "https://github.com/mit-nlp/MITIE/archive/v0.4.tar.gz"
-  sha256 "3902c9a6332354fb23f1cbdc4ef9631fa1477b69e37e4b7822d3c18a8bbefdc9"
+  url "https://github.com/mit-nlp/MITIE/archive/v0.5.tar.gz"
+  sha256 "324b7bddedea13cebab0bc0fe9f8d5cfb7bfaf26eac5aa3aae1e74afa909aa12"
 
   head "https://github.com/mit-nlp/MITIE.git"
 
