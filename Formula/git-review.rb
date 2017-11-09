@@ -1,8 +1,9 @@
 class GitReview < Formula
   desc "Submit git branches to gerrit for review"
   homepage "https://git.openstack.org/cgit/openstack-infra/git-review"
-  url "https://pypi.python.org/packages/source/g/git-review/git-review-1.25.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/g/git-review/git-review-1.25.0.tar.gz"
   sha256 "087e0a7dc2415796a9f21c484a6f652c5410e6ba4562c36291c5399f9395a11d"
+  head "https://git.openstack.org/openstack-infra/git-review.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +18,7 @@ class GitReview < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "requests" do
-    url "https://pypi.python.org/packages/source/r/requests/requests-2.7.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/r/requests/requests-2.7.0.tar.gz"
     sha256 "398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"
   end
 
