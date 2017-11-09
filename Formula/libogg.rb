@@ -6,13 +6,9 @@ class Libogg < Formula
 
   bottle do
     cellar :any
-    sha256 "cad96a945f371b76925092a518516db8c411c1ada9f402024fde4c2ffd2feaa2" => :high_sierra
-    sha256 "652ed73b78106579014bfb727464094004da85ad15aa7655c3076a2d1e587916" => :sierra
-    sha256 "dde4684a0247e6b6b27025ff66a35035a9c58492516b6d5c227e8be1eb880685" => :el_capitan
-    sha256 "5d203c8e978aee2005f8ae4e85ba1e0451d4a29c8d6f878ada8da5d45f60fe84" => :yosemite
-    sha256 "eafa300fd404b5f2a48b9327b8cb320712faf228ff2fbfdac53ad99060f82350" => :mavericks
-    sha256 "795ebc059c77ca0087ead3f642a888bfc470953c98104dacee5b6e5d7c5aeaa9" => :mountain_lion
-    sha256 "b2b1a8a3bf34fd5f7ea7d60a10fe38e3d699b7344a843599938d1669871c9c8a" => :lion
+    sha256 "1b3faf0793a08736aa1baca0a64aeba93f9d8692472eadfbcca264c9a7308538" => :high_sierra
+    sha256 "fedf2c7b4aa2c5051851f47a2131a4f1802791ed3c948446442277ecbabcf32c" => :sierra
+    sha256 "67653400da7efbb94fd400c8b90124977d80280dd04ef6771dbe2d8fd2d5aec4" => :el_capitan
   end
 
   head do
