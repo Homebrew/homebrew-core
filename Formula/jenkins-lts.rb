@@ -10,7 +10,7 @@ class JenkinsLts < Formula
 
   def install
     system "jar", "xvf", "jenkins.war"
-    libexec.install Dir["jenkins.war", "WEB-INF/jenkins-cli.jar"]
+    libexec.install "jenkins.war", "WEB-INF/jenkins-cli.jar"
     bin.write_jar_script libexec/"jenkins.war", "jenkins-lts"
     bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-lts-cli"
   end
