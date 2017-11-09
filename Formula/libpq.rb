@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/9.6/static/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v9.6.5/postgresql-9.6.5.tar.bz2"
-  sha256 "06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c"
+  url "https://ftp.postgresql.org/pub/source/v9.6.6/postgresql-9.6.6.tar.bz2"
+  sha256 "399cdffcb872f785ba67e25d275463d74521566318cfef8fe219050d063c8154"
 
   bottle do
     sha256 "598b7bb7c7e69bbd781c8f521ffd71d212acfac3ceb68c5f6e3672d078ff3f22" => :high_sierra
