@@ -3,8 +3,8 @@ require "language/node"
 class Alexjs < Formula
   desc "Catch insensitive, inconsiderate writing"
   homepage "http://alexjs.com"
-  url "https://github.com/wooorm/alex/archive/5.0.0.tar.gz"
-  sha256 "5fd5429372b0745020fb4789df9ef7bb14f02173e4e90c79dcf06a3de1093c8b"
+  url "https://github.com/wooorm/alex/archive/5.1.0.tar.gz"
+  sha256 "82b8bbd2e1781138a9147bfda584f7da3da92f782d18d23fd091b0fd105ddcad"
 
   bottle do
     cellar :any_skip_relocation
