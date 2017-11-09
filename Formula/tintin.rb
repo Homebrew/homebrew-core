@@ -26,4 +26,9 @@ class Tintin < Formula
                      "install"
     end
   end
+  
+  test do
+    (testpath/"brewtest.bin").write("#end {bye}")
+    system bin/"tt++", "-G", "brewtest.bin"
+  end
 end
