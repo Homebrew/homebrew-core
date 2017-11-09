@@ -7,13 +7,9 @@ class GnuTime < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3acb09ca081fcdef3c31a41b50a8d7e3d38bc68c7cb1f87128a85c394741c661" => :high_sierra
-    sha256 "c3ccf53f79c148c915bf83ce2b128195fff1f614523a4db5d247df2907f37c6b" => :sierra
-    sha256 "3c998fed1b824483f0fd140a0b12164ebc6bd100371dca11291d3406a26ecc47" => :el_capitan
-    sha256 "d0b40a36430314f548ab3e5d362c3695b9ab38e83933a7a459deaccfa705232f" => :yosemite
-    sha256 "f69ffe3bd6748843ff7013c016bf69a58efde8fb936251b0f6e9e4a2352e1450" => :mavericks
-    sha256 "0b28fad39645760e643d90a93c994df01151d4ff43dc8b3c63efa8d59d17783f" => :mountain_lion
+    sha256 "b3763d0f3f85e55ce1e9dabaafba0bb4e5af5706b0184dddb96e5c888310c494" => :high_sierra
+    sha256 "96e4ff64f2754423ef0e333457097c025ce77f2f8103ff1d6eb4c7e40e3e0281" => :sierra
+    sha256 "37ee681d846bb5d11a31c7d53ee877ea3d30b0946775491c7952ea59a50f3293" => :el_capitan
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
