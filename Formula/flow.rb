@@ -55,3 +55,26 @@ index 515e581..8886bf6 100644
 	opam config exec -- make
 
  clean:
+diff --git a/Makefile b/Makefile
+index 00880b4..d4d4794 100644
+--- a/Makefile
++++ b/Makefile
+@@ -184,11 +184,17 @@ RELEASE_TAGS=$(if $(FLOW_RELEASE),-tag warn_a,)
+ all: build-flow copy-flow-files
+ all-ocp: build-flow-with-ocp copy-flow-files-ocp
+ 
++
++OPAMROOT := $(shell mktemp -d 2> /dev/null || mktemp -d -t opam)
++
+ all-homebrew:
+-	export OPAMROOT="$(shell mktemp -d 2> /dev/null || mktemp -d -t opam)"; \
++	export OPAMROOT="$(OPAMROOT)"; \
+ 	export OPAMYES="1"; \
+ 	export FLOW_RELEASE="1"; \
+ 	opam init --no-setup && \
++	perl -p -i -e "s/\[\"\.\/configure\"/[\".\/configure\" \"-no-graph\"/" "$(OPAMROOT)/compilers/4.05.0/4.05.0/4.05.0.comp" && \
++	perl -p -i -e "s/make/make \"-j1\"/" "$(OPAMROOT)/compilers/4.05.0/4.05.0/4.05.0.comp" && \
++	opam switch 4.05.0 && \
+ 	opam pin add -n flowtype . && \
+ 	opam config exec -- opam install flowtype --deps-only && \
+ 	opam config exec -- make
