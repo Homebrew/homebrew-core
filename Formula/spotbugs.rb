@@ -6,6 +6,7 @@ class Spotbugs < Formula
 
   head do
     url "https://github.com/spotbugs/spotbugs.git"
+
     depends_on "gradle" => :build
   end
 
