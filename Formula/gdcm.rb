@@ -3,6 +3,7 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.4/gdcm-2.8.4.tar.gz"
   sha256 "8f480d0a9b0b331f2e83dcc9cdb3d957f10eb32ee4db90fc1c153172dcb45587"
+  revision 1
 
   bottle do
     sha256 "90b71891c75c41d96d038cfd85b5434759af47413f4fa0c327c31e4dca76e8c7" => :high_sierra
