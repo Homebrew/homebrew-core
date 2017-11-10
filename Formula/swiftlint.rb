@@ -13,7 +13,7 @@ class Swiftlint < Formula
   end
 
   depends_on :xcode => ["8.0", :run]
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
