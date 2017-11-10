@@ -1,8 +1,8 @@
 class Grakn < Formula
   desc "The Database for AI"
   homepage "https://grakn.ai"
-  url "https://github.com/graknlabs/grakn/releases/download/v0.17.0/grakn-dist-0.17.0.tar.gz"
-  sha256 "27d41b82ea6144af149ed09ab4631501bb2beaea7b94e28f4b1fc4cca0443434"
+  url "https://github.com/graknlabs/grakn/releases/download/v0.17.1/grakn-dist-0.17.1.tar.gz"
+  sha256 "a4d190d95515b01ce736056e2d738d67c14298465ba7fb92df5295612bb91475"
 
   bottle :unneeded
 
@@ -15,7 +15,7 @@ class Grakn < Formula
   end
 
   test do
-    assert_match /Starting Grakn.*SUCCESS/i, shell_output("#{bin}/grakn server start")
-    assert_match /Stopping Grakn.*SUCCESS/i, shell_output("#{bin}/grakn server stop")
+    assert_match /SUCCESS/i, shell_output("#{bin}/grakn server start")
+    assert_match /SUCCESS/i, shell_output("#{bin}/grakn server stop")
   end
 end
