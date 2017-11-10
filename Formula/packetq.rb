@@ -6,10 +6,9 @@ class Packetq < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a5dad7c640b3c17658e23862e03f4cc9f1d0b4b4839e3e68d62a27699d307610" => :high_sierra
-    sha256 "0272a62174eb6c0097c5942c9aa63774158234d3221b1905767425a7d1994a1a" => :sierra
-    sha256 "e2515e9d55249cdc82e3ef8854acc7c509c207ac755ee5ea4dfc170c638744ea" => :el_capitan
-    sha256 "8dac4f6f08064639c090863705a044f73432206e189e00d56ee3e15d7cc8e4f3" => :yosemite
+    sha256 "299409c99a253199b8b5896ecc8f1490ef4989ff72b10abd2651981a0bd47974" => :high_sierra
+    sha256 "eda7fdbbfc232e370b03e762c24551e92c3207f23f66e42db1c9ec10c448e1e1" => :sierra
+    sha256 "1cc4d10a81e062c41d7641d8fc3a7e94a1bf3b9e92ad6c4d70c8bdc730cee1d4" => :el_capitan
   end
 
   def install
