@@ -9,7 +9,7 @@ class Restic < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    
+
     system "go", "run", "build.go"
     bin.install "restic"
   end
