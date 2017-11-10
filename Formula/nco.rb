@@ -6,9 +6,9 @@ class Nco < Formula
 
   bottle do
     cellar :any
-    sha256 "32c324450faa69a002a28062d3abdab7bca6f743c416c2068ade9c20915748b6" => :high_sierra
-    sha256 "3847acd4d49e672f56acf898111f4cf53ca9ad0d72789cd2189a670a3fcbbc74" => :sierra
-    sha256 "d8fe7e747f0390abdbe492ba96f3d718f3273c5fd9d30f897b4cb018991d1fff" => :el_capitan
+    sha256 "9508029280a324f6341cfcbb36849531a19384b7cc7d9e292687f3f1f3b37c53" => :high_sierra
+    sha256 "794c825d068f46f9144102ea83eaeb2064c3356eac33a5236c0e3613690c61eb" => :sierra
+    sha256 "9b859c47c5aaac040731e9393a3b7d9caa43740b9eddd4ba4addc6aeba240b58" => :el_capitan
   end
 
   head do
