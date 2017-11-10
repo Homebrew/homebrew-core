@@ -6,9 +6,9 @@ class IronFunctions < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd5e796945b3bfae759d28ff32b64ef4a41c2442241dd49ec1da14ad42063a5d" => :high_sierra
-    sha256 "6ca9ad0df6b6d17ddfe0b357ed0af5cace0d23575a4336615b2381812138fd95" => :sierra
-    sha256 "575c789703ce06c4d2c70000e170729665419ac3e5d9cf4891487cdfaaaf3289" => :el_capitan
+    sha256 "831bf1e125e7f98e4a954a9cd2643ed5d8da0ca875755ea41d4e3e13a51cd3a1" => :high_sierra
+    sha256 "93a44cadfc23f995d90985c5ba9282dc8d95ddf202ec9227109178231e0efc11" => :sierra
+    sha256 "de0f0b61cac685f7942a0491fd8dcd2f56de4b367afa081e8b7654c42a9116f5" => :el_capitan
   end
 
   depends_on "dep" => :build
