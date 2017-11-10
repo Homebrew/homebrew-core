@@ -8,7 +8,9 @@ class Restic < Formula
   depends_on "go" => :build
 
   def install
-    system "make"
+    ENV["GOPATH"] = buildpath
+    
+    system "go", "run", "build.go"
     bin.install "restic"
   end
 
