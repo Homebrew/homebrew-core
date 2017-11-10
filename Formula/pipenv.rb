@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/3e/f3/891bbdccb526dc49fa867dfe9edd3cb449e79154f67d32c91fcf47ef2265/pipenv-8.3.1.tar.gz"
-  sha256 "1bc97cb9bb7dea5a6ebadb9f477f5e6e171bd0c43be0ec058be914dcf2e901c7"
+  url "https://files.pythonhosted.org/packages/b5/3f/80a09ea5f279e90122600d24cfa25d698008dc7e5b261cb582de8966bbe2/pipenv-8.3.2.tar.gz"
+  sha256 "20be245ad2a7908a04b302e9568ee26e57f8dacc558468d2a84e699b2622e9af"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,8 @@ class Pipenv < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
+    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
   end
 
   resource "chardet" do
