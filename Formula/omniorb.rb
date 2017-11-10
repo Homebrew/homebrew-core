@@ -1,8 +1,8 @@
 class Omniorb < Formula
   desc "IOR and naming service utilities for omniORB"
   homepage "https://omniorb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.2.1/omniORB-4.2.1-2.tar.bz2"
-  sha256 "9b638c7047a05551c42fe13901194e63b58750d4124654bfa26203d09cb5072d"
+  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.2.2/omniORB-4.2.2.tar.bz2"
+  sha256 "ddd909ce31014be2beebf67a5e9fabbf03b5bb0c26b8c53ab64d470d77348ece"
 
   bottle do
     sha256 "df5d22d984eadfbf95c63ba8fc66575cc7595658f6f981a564716d62280e7396" => :high_sierra
@@ -15,8 +15,8 @@ class Omniorb < Formula
   depends_on "pkg-config" => :build
 
   resource "bindings" do
-    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.2.1/omniORBpy-4.2.1-2.tar.bz2"
-    sha256 "e0d0f89c0fc6e33b480a2bf7acc7d353b9346a7067571a6be8f594c78b161422"
+    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.2.2/omniORBpy-4.2.2.tar.bz2"
+    sha256 "f3686e5f85b7c7fec83a1ec97dc6874d336e24830c0e68f1e1ecbd798fa1696a"
   end
 
   def install
