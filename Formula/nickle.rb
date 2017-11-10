@@ -1,9 +1,8 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://www.nickle.org/release/nickle-2.77.tar.gz"
-  sha256 "a35e7ac9a3aa41625034db5c809effc208edd2af6a4adf3f4776fe60d9911166"
-  revision 1
+  url "https://www.nickle.org/release/nickle-2.79.tar.gz"
+  sha256 "d8b25f788545e036f2b2fd9c246d7f3143ac8d4fd35378784d9cbb4325e5077f"
 
   bottle do
     sha256 "a583168713ae49a27723f16a1235c074d52d02c235b64bbf168406235e778823" => :high_sierra
