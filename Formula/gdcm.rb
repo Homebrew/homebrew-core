@@ -5,9 +5,9 @@ class Gdcm < Formula
   sha256 "8f480d0a9b0b331f2e83dcc9cdb3d957f10eb32ee4db90fc1c153172dcb45587"
 
   bottle do
-    sha256 "54e79ccdefa56ee00dde4039dabfc76979e15d5aae538980a4a105781a517bb6" => :high_sierra
-    sha256 "c6324cf523bed29c56d32229bdcb661eec55911fc2a6ee29e93f0bf4720bc22a" => :sierra
-    sha256 "fdd3a77c4c97a997de9ab0e7c80674991b334d918d31dc14262628de9d712ac1" => :el_capitan
+    sha256 "90b71891c75c41d96d038cfd85b5434759af47413f4fa0c327c31e4dca76e8c7" => :high_sierra
+    sha256 "976099dc63c19e5e4aea22f602ae712c4096d10b77612d4b4b389286be10d550" => :sierra
+    sha256 "3f48902c8577020052bb7d0bd69431196b40450217c6603f2911ac5a38602336" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
