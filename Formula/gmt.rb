@@ -6,6 +6,7 @@ class Gmt < Formula
   mirror "http://ftp.iris.washington.edu/pub/gmt/gmt-5.4.2-src.tar.xz"
   mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.4.2-src.tar.xz"
   sha256 "ddcd63094aeda5a60f541626ed7ab4a78538d52dea24ba915f168e4606e587f5"
+  revision 1
 
   bottle do
     sha256 "e8b714984fa9c1f657a1af95273517b2bb75818108c1474b03f8a2bd20e441d2" => :high_sierra
