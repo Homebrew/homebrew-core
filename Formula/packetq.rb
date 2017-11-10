@@ -1,8 +1,8 @@
 class Packetq < Formula
   desc "SQL-frontend to PCAP-files"
   homepage "https://www.dns-oarc.net/tools/packetq"
-  url "https://www.dns-oarc.net/files/packetq/packetq-1.4.0.tar.gz"
-  sha256 "cc1b5956ba3a97878e044193f524db426961e3c3413ad01031d3272ea6e4ca78"
+  url "https://www.dns-oarc.net/files/packetq/packetq-1.4.1.tar.gz"
+  sha256 "de374930dcc36c4b23ef4807ac798016fef6f45d29d3464f993df21e154e57d1"
 
   bottle do
     cellar :any_skip_relocation
