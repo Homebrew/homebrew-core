@@ -3,7 +3,7 @@ class Ncview < Formula
   homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "b03bd0555b5637abe754e90c0029494548b460177a0825c21c0f886bcee8c2af" => :high_sierra
