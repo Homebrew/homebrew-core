@@ -6,9 +6,9 @@ class Gdcm < Formula
   revision 1
 
   bottle do
-    sha256 "90b71891c75c41d96d038cfd85b5434759af47413f4fa0c327c31e4dca76e8c7" => :high_sierra
-    sha256 "976099dc63c19e5e4aea22f602ae712c4096d10b77612d4b4b389286be10d550" => :sierra
-    sha256 "3f48902c8577020052bb7d0bd69431196b40450217c6603f2911ac5a38602336" => :el_capitan
+    sha256 "83362d1601aa95241a7b1294e779d0183291ebd9e7e50b4741f0dce0b6b59407" => :high_sierra
+    sha256 "4349a60c9814b1547e55a5f7f8100df5ddff56d09e7603f86030e0f694c78f63" => :sierra
+    sha256 "378faeaa0ee49dbac57742dfa9d57b63c5fc932e746330d51faf1ecf26d382e0" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
