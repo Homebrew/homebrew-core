@@ -1,8 +1,8 @@
 class Libogg < Formula
   desc "Ogg Bitstream Library"
   homepage "https://www.xiph.org/ogg/"
-  url "https://downloads.xiph.org/releases/ogg/libogg-1.3.2.tar.gz"
-  sha256 "e19ee34711d7af328cb26287f4137e70630e7261b17cbe3cd41011d73a654692"
+  url "https://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.gz"
+  sha256 "c2e8a485110b97550f453226ec644ebac6cb29d1caef2902c007edab4308d985"
 
   bottle do
     cellar :any
