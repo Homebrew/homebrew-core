@@ -1,9 +1,8 @@
 class Ntl < Formula
   desc "C++ number theory library"
   homepage "http://www.shoup.net/ntl"
-  url "http://www.shoup.net/ntl/ntl-10.4.0.tar.gz"
-  sha256 "ed72cbfd8318d149ea9ec3a841fc5686f68d0f72e70602d59dd034cde43fab6f"
-  revision 1
+  url "http://www.shoup.net/ntl/ntl-10.5.0.tar.gz"
+  sha256 "b90b36c9dd8954c9bc54410b1d57c00be956ae1db5a062945822bbd7a86ab4d2"
 
   bottle do
     cellar :any
