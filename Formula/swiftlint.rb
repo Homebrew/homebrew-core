@@ -2,8 +2,8 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      :tag => "0.23.1",
-      :revision => "c34c5c164954132a87e90d2312a74826a54487ed"
+      :tag => "0.24.0",
+      :revision => "06ece1ea8dbeb3bc421e54f907e906cac32038d5"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Swiftlint < Formula
   end
 
   depends_on :xcode => ["8.0", :run]
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
