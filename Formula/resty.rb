@@ -1,8 +1,8 @@
 class Resty < Formula
   desc "Command-line REST client that can be used in pipelines"
   homepage "https://github.com/micha/resty"
-  url "https://github.com/micha/resty/archive/2.3.tar.gz"
-  sha256 "65c7bfe1268669d9da5456686c55f1976380b867db5bf12d3603972d7b2d65fd"
+  url "https://github.com/micha/resty/archive/v3.0.tar.gz"
+  sha256 "9ed8f50dcf70a765b3438840024b557470d7faae2f0c1957a011ebb6c94b9dd1"
   head "https://github.com/micha/resty.git"
 
   bottle do
@@ -11,9 +11,6 @@ class Resty < Formula
     sha256 "382b3c9de2e9c2729c9eb808937ca42d7c9b0b3cd7cb60fdece40d652d64cb24" => :sierra
     sha256 "6bcc3e0e5c27ef7a59cdee22e495e5474458af91c7e481f938c3dbd48553d72c" => :el_capitan
   end
-
-  # Don't take +x off these files. note: to be killed once a shebang is added to pp
-  skip_clean "bin"
 
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
@@ -34,7 +31,6 @@ class Resty < Formula
 
     bin.install "pp"
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
-    chmod 0755, "#{bin}/pp" # note: to clean after a shebang is added to pp
 
     bin.install "pypp"
   end
