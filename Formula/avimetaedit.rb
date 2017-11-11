@@ -1,5 +1,5 @@
 class Avimetaedit < Formula
-  desc "Tool that supports embedding, validating, and exporting of metadata in AVI files"
+  desc "Tool for embedding, validating, and exporting of AVI files metadata"
   homepage "https://mediaarea.net/AVIMetaEdit"
   url "https://mediaarea.net/download/binary/avimetaedit/1.0.1/AVIMetaEdit_CLI_1.0.1_GNU_FromSource.tar.bz2"
   version "1.0.1"
