@@ -1,8 +1,8 @@
 class Dssim < Formula
-  desc "RGBA Structural Similarity C implementation (with a Rust API)"
+  desc "RGBA Structural Similarity Rust implementation"
   homepage "https://github.com/pornel/dssim"
-  url "https://github.com/pornel/dssim/archive/1.3.2.tar.gz"
-  sha256 "2e79f8cf7cb7681f7f3244364662ce4723739745201217d85243bbc709124e63"
+  url "https://github.com/pornel/dssim/archive/2.8.0.tar.gz"
+  sha256 "d9fcabb74fab37cc61a7427782dea02b9af7ca34954e5491c164b62bf7b0316e"
 
   bottle do
     cellar :any
@@ -13,12 +13,10 @@ class Dssim < Formula
     sha256 "51756e74240d03c87a79ff0e14e494d249701d4069ea336b529b47a179c469d3" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "libpng"
+  depends_on "rust" => :build
 
   def install
-    system "make"
-    bin.install "bin/dssim"
+    system "cargo", "install", "--root", prefix
   end
 
   test do
