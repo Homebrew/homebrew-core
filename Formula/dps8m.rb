@@ -23,19 +23,24 @@ class Dps8m < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<-EOS.undent
+    (testpath/"test.exp").write <<~EOS
       spawn #{bin}/dps8
-      expect "DPS8/M emulator (git b7a50ffc)
-              Production build
-              DPS8M system session id is 70486
-              Please register your system at https://ringzero.wikidot.com/wiki:register
-              or create the file 'serial.txt' containing the line 'sn: 0'.
-              Couldn't open Devices.txt
-              Unknown command: fnpload Devices.txt
-              FNP telnet server port set to 6180
-
-              DPS8M simulator V4.0-0 Beta        git commit id: c420925a"
-      EOS
-    assert_match "sim>", shell_output("expect -f test.exp")
+      set timeout 5
+      expect {
+        timeout { exit 1 }
+        "sim>"
+      }
+      send "help\r"
+      expect {
+        timeout { exit 2 }
+        "SKIPBOOT"
+      }
+      send "q\r"
+      expect {
+        timeout { exit 3 }
+        eof
+      }
+    EOS
+    assert_equal "Goodbye", shell_output("expect -f test.exp").lines.last.chomp
   end
 end
