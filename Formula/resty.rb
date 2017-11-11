@@ -7,9 +7,9 @@ class Resty < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72d4399f3792dd43cfe2f8eb5ee18f3ba66b47a66433a965324e923efb722c68" => :high_sierra
-    sha256 "382b3c9de2e9c2729c9eb808937ca42d7c9b0b3cd7cb60fdece40d652d64cb24" => :sierra
-    sha256 "6bcc3e0e5c27ef7a59cdee22e495e5474458af91c7e481f938c3dbd48553d72c" => :el_capitan
+    sha256 "e65c38b826157c35f2e3acd50846be691b6b1a6231a23c62567c24a052d0dc7e" => :high_sierra
+    sha256 "fb754eb95b4cb573eef1807f5dcddab59e021a4326022a9fb8126fb8e80ff247" => :sierra
+    sha256 "435854dd9bc54f09e46f3f895fc0801ce90a30b23b8d9f109f361f89666fcfe1" => :el_capitan
   end
 
   resource "JSON" do
