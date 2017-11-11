@@ -3,6 +3,7 @@ class Geth < Formula
   homepage "https://ethereum.github.io/go-ethereum/"
   url "https://github.com/ethereum/go-ethereum/archive/v1.7.2.tar.gz"
   sha256 "456ff0e6f495a69b4df11618156010d6f26ccbaba39e544c95108942b10897dc"
+  revision 1
   head "https://github.com/ethereum/go-ethereum.git"
 
   bottle do
@@ -15,8 +16,8 @@ class Geth < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "geth"
-    bin.install "build/bin/geth"
+    system "make", "all"
+    bin.install Dir["build/bin/*"]
   end
 
   test do
