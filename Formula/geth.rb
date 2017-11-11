@@ -12,11 +12,13 @@ class Geth < Formula
     sha256 "cb77fa093d895ba7ded724e2b78093f09a03cb8aff403b7abf14a301a35e2f07" => :el_capitan
   end
 
+  option "with-tools", "Install extra tools"
+
   depends_on "go" => :build
 
   def install
-    system "make", "geth"
-    bin.install "build/bin/geth"
+    system "make", build.with?("tools") ? "all" : "geth"
+    bin.install Dir["build/bin/*"]
   end
 
   test do
