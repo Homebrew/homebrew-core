@@ -16,6 +16,6 @@ class E2tools < Formula
 
   test do
     system Formula["e2fsprogs"].opt_sbin/"mkfs.ext2", "test.raw", "1024"
-    system bin/"e2ls", "test.raw"
+    assert_match "lost+found", shell_output("#{bin}/e2ls test.raw")
   end
 end
