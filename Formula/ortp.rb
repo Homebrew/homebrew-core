@@ -5,13 +5,9 @@ class Ortp < Formula
   sha256 "eb61a833ab3ad80978d7007411240f46e9b2d1034373b9d9dfaac88c1b6ec0af"
 
   bottle do
-    cellar :any
-    sha256 "815198568711eef54dee0d427306d797c6c91597b620c2f47dcf74032ba1b37f" => :high_sierra
-    sha256 "e635cdc42658919c76a04f89493eda811d3db50f2ca6c062d0fe76967caf1120" => :sierra
-    sha256 "8c018f1fd1a4312a55b2d0225133956afdee4bd9a8648b84ca400d033f847ad5" => :el_capitan
-    sha256 "38b9d28c30675e6cba3889386982153baf96e2375d97bcea9de10b39ff88149a" => :yosemite
-    sha256 "3aeb452ad1f254803db24c96826755188820dd144bffa842dabda4d576d08595" => :mavericks
-    sha256 "5b0f1247ca43018aa4473d5e887d62f3ae9c317dbd3f6962faafae028bd28fba" => :mountain_lion
+    sha256 "9413df03ab533dfd11891b57515dc70b2c7810f3fcc50b4df93c4e0e5c987412" => :high_sierra
+    sha256 "092e0d027dd6e1df83426ae5855aa6754122d845110fd4af868536996ca34fd8" => :sierra
+    sha256 "bc26e3f79e6d290f30631c84dff5bdeb4582d834c2a9bd9f0f6160a0730348dd" => :el_capitan
   end
 
   depends_on "cmake" => :build
