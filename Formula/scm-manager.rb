@@ -6,10 +6,9 @@ class ScmManager < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f1cab855abcaae10e48183c44d1fb1714a340946c7756a3c460676a6e59ec87" => :high_sierra
-    sha256 "cbb23c6303c54721d611c3a2205df2e8f6b293251b54a04f5ff0deede96e50f4" => :sierra
-    sha256 "cbb23c6303c54721d611c3a2205df2e8f6b293251b54a04f5ff0deede96e50f4" => :el_capitan
-    sha256 "cbb23c6303c54721d611c3a2205df2e8f6b293251b54a04f5ff0deede96e50f4" => :yosemite
+    sha256 "5fa8d7e1b0d34f144d12a252b5c731531910a7d3af459c6343ae1eb4fa5203ce" => :high_sierra
+    sha256 "5fa8d7e1b0d34f144d12a252b5c731531910a7d3af459c6343ae1eb4fa5203ce" => :sierra
+    sha256 "5fa8d7e1b0d34f144d12a252b5c731531910a7d3af459c6343ae1eb4fa5203ce" => :el_capitan
   end
 
   depends_on :java => "1.8"
