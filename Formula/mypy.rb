@@ -2,8 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.540",
-      :revision => "3d22699db61eac1f405768f0c5979e5e9b87baa1"
+      :tag => "v0.550",
+      :revision => "a8dfedce06cbfbb37220bfcacc8ff4f1e266abe0"
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -19,6 +19,11 @@ class Mypy < Formula
 
   depends_on :python3
   depends_on "sphinx-doc" => [:build, :recommended]
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/fe/17/0f0bf5792b2dfe6003efc5175c76225f7d3426f88e2bf8d360cfab870cd8/psutil-5.4.1.tar.gz"
+    sha256 "42e2de159e3c987435cb3b47d6f37035db190a1499f3af714ba7af5c379b6ba2"
+  end
 
   resource "sphinx_rtd_theme" do
     url "https://files.pythonhosted.org/packages/8b/e5/b1933472424b30affb0a8cea8f0ef052a31ada96e5d1823911d7f4bfdf8e/sphinx_rtd_theme-0.2.4.tar.gz"
