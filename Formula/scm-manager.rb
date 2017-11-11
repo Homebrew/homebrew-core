@@ -12,7 +12,7 @@ class ScmManager < Formula
     sha256 "cbb23c6303c54721d611c3a2205df2e8f6b293251b54a04f5ff0deede96e50f4" => :yosemite
   end
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   resource "client" do
     url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.55/scm-cli-client-1.55-jar-with-dependencies.jar"
@@ -28,7 +28,7 @@ class ScmManager < Formula
       #!/bin/bash
       BASEDIR="#{libexec}"
       REPO="#{libexec}/lib"
-      export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
       "#{libexec}/bin/scm-server" "$@"
     EOS
     chmod 0755, bin/"scm-server"
@@ -39,6 +39,7 @@ class ScmManager < Formula
     scm_cli_client = bin/"scm-cli-client"
     scm_cli_client.write <<~EOS
       #!/bin/bash
+      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
       java -jar "#{tools}/scm-cli-client-#{version}-jar-with-dependencies.jar" "$@"
     EOS
     chmod 0755, scm_cli_client
