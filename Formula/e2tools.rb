@@ -15,8 +15,7 @@ class E2tools < Formula
   end
 
   test do
-    mkfs = shell_output("brew --prefix e2fsprogs").strip.concat("/sbin/mkfs.ext2")
-    system mkfs, "test.raw", "1024"
+    system Formula["e2fsprogs"].opt_sbin/"mkfs.ext2", "test.raw", "1024"
     system bin/"e2ls", "test.raw"
   end
 end
