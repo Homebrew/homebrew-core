@@ -1,8 +1,8 @@
 class Olsrd < Formula
   desc "Implementation of the optimized link state routing protocol"
   homepage "http://www.olsr.org"
-  url "http://www.olsr.org/releases/0.9/olsrd-0.9.0.3.tar.bz2"
-  sha256 "1f038ed3ea72e4f73dfc9701de83de7313f5049161c8df17b9aaeba8e9711e92"
+  url "http://www.olsr.org/releases/0.9/olsrd-0.9.6.1.tar.bz2"
+  sha256 "9cac290e9bff5fc7422110b9ccd972853f10962c962d2f31a63de9c6d1520612"
 
   bottle do
     cellar :any_skip_relocation
