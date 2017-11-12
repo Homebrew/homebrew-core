@@ -1,7 +1,9 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.bz2"
+  url "https://www.hdfgroup.org/package/source-bzip2/?wpdmdl=4300"
+  mirror "https://dl.bintray.com/homebrew/mirror/hdf5-1.10.1"
+  version "1.10.1"
   sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
   revision 2
 
