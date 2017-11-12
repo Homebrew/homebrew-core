@@ -26,9 +26,12 @@ class Tintin < Formula
                      "install"
     end
   end
-  
+
   test do
-    (testpath/"brewtest.bin").write("#end {bye}")
-    system bin/"tt++", "-G", "brewtest.bin"
+    require "pty"
+    (testpath/"input").write("#end {bye}\n")
+    PTY.spawn(bin/"tt++", "-G", "input") do |r, _w, _pid|
+      assert_match "Goodbye", r.read
+    end
   end
 end
