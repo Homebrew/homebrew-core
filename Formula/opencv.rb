@@ -15,9 +15,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 "c857504e05f1150938a618c101a38f52761d874ef477d71f319dd22b530467a1" => :high_sierra
-    sha256 "5a09d9bc84475db0026df47363f983c9104610ceece82270bdf60730b546e12b" => :sierra
-    sha256 "745cdcae976045ee39b0f6912446a879ecc63b2d3d50898df2457745ebef2dc0" => :el_capitan
+    rebuild 1
+    sha256 "2630c2fd1da17ddcb66cfc443d274f42d1e5ae22689f168d4c643f1d43d54470" => :high_sierra
+    sha256 "68b6d2312f1593fa82033504eaf58aed90a9038a21096e5a275c16e861f1f2fe" => :sierra
+    sha256 "5f36f3c1d5790bfac52dfeb131798d5bf0a0ed4aed8f8523223b502515b76339" => :el_capitan
   end
 
   depends_on "cmake" => :build
