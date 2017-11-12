@@ -1,8 +1,8 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.2/tintin-2.01.2.tar.gz"
-  sha256 "01e11e3cded48ff686b2ea16e767acf1f6b5ea326551ecff091552e89f4a038e"
+  url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.3/tintin-2.01.3.tar.gz"
+  sha256 "c55215ff4a73d4c651a8ecfdc323f981b62262338e0180bf5bdc95bbc1aefe2d"
 
   bottle do
     cellar :any
@@ -24,6 +24,14 @@ class Tintin < Formula
                      "INCS=#{ENV.cppflags}",
                      "LDFLAGS=#{ENV.ldflags}",
                      "install"
+    end
+  end
+
+  test do
+    require "pty"
+    (testpath/"input").write("#end {bye}\n")
+    PTY.spawn(bin/"tt++", "-G", "input") do |r, _w, _pid|
+      assert_match "Goodbye", r.read
     end
   end
 end
