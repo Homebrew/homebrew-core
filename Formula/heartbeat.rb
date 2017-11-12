@@ -32,7 +32,7 @@ class Heartbeat < Formula
       #!/bin/sh
         exec #{libexec}/bin/heartbeat \
         -path.config #{etc}/heartbeat \
-        -path.home #{prefix}/libexec \
+        -path.home #{libexec} \
         -path.logs #{var}/log/heartbeat \
         -path.data #{var}/lib/heartbeat \
         "$@"
