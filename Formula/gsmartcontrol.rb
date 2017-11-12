@@ -5,9 +5,9 @@ class Gsmartcontrol < Formula
   sha256 "b64f62cffa4430a90b6d06cd52ebadd5bcf39d548df581e67dfb275a673b12a9"
 
   bottle do
-    sha256 "c3fac414f6177d08cd1ac1cfedead1396b4ab6c1ea44a266851c0173b861c577" => :high_sierra
-    sha256 "756f8fbdfaf5636b541749868e5dacce7e0d3e69ff1e43c693b35e9c1b9b1fd3" => :sierra
-    sha256 "e18b4170555c8d1ab5e70c7e73817be81d064f9307372c0606e1c989b3eacffe" => :el_capitan
+    sha256 "c1a64a3ff57b7ed92240bfdc20ad1330107cc28b9d2fc9ddfcf5665d7231cc71" => :high_sierra
+    sha256 "f7f9eb0db8c802cdf829028476c74eec2ec12c0c322eed774cf8890ebe10aca8" => :sierra
+    sha256 "dd26ca185000c056741ad62bf102808258ac4852553e47a42c60375db706a46c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
