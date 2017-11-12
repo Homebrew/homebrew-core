@@ -3,6 +3,7 @@ class Libpqxx < Formula
   homepage "http://pqxx.org/development/libpqxx/"
   url "https://github.com/jtv/libpqxx/archive/5.0.1.tar.gz"
   sha256 "21ba7167aeeb76142c0e865127514b4834cefde45eaab2d5eb79099188e21a06"
+  revision 1
 
   bottle do
     cellar :any
@@ -30,5 +31,10 @@ class Libpqxx < Formula
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lpqxx", "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no runnning postgresql server
     # system "./test"
+
+    # `pg_config` uses Cellar paths not opt paths
+    postgresql_include = Formula["postgresql"].opt_include.realpath.to_s
+    assert_match postgresql_include, (lib/"pkgconfig/libpqxx.pc").read,
+                 "Please revision bump libpqxx."
   end
 end
