@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.5.13.tar.gz"
-  sha256 "2e01cd6cfe0caad663a381e5263f6d8030f0fb7cd8d4f858d320166516c7c320"
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.14.tar.gz"
+  sha256 "14d2699e975900d134cadb1d7026f121dfa6fac0444c4d6c74cad4d19545dd67"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -131,8 +131,8 @@ class Mikutter < Formula
   end
 
   resource "native-package-installer" do
-    url "https://rubygems.org/gems/native-package-installer-1.0.4.gem"
-    sha256 "4a20c4c74681d60075cad4b435f64278e6b09813edef8c41a23f1e7f9e16726b"
+    url "https://rubygems.org/gems/native-package-installer-1.0.5.gem"
+    sha256 "c299002a4a05652598c26614a0fc4b75bc2c619d253e0db775d419382e0b54b9"
   end
 
   resource "nokogiri" do
@@ -166,8 +166,8 @@ class Mikutter < Formula
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/gems/public_suffix-3.0.0.gem"
-    sha256 "ae48d8122866e342c09f1f643c2b88e3547562fd6df85d83926445d75f90ca6a"
+    url "https://rubygems.org/gems/public_suffix-3.0.1.gem"
+    sha256 "67182699cb644e66b4c68d30b5f1dd42e3dfe6c0aa0d8fd36a1e71c97c6a7f57"
   end
 
   resource "rake" do
