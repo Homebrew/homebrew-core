@@ -47,7 +47,6 @@ class FfmpegAT28 < Formula
   depends_on "libvo-aacenc" => :recommended
   depends_on "xvid" => :recommended
 
-  depends_on "faac" => :optional
   depends_on "fontconfig" => :optional
   depends_on "freetype" => :optional
   depends_on "theora" => :optional
@@ -110,7 +109,6 @@ class FfmpegAT28 < Formula
     args << "--enable-libvpx" if build.with? "libvpx"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
-    args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-ffplay" if build.with? "ffplay"
     args << "--enable-libssh" if build.with? "libssh"
@@ -139,9 +137,7 @@ class FfmpegAT28 < Formula
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    if %w[faac fdk-aac openssl].any? { |f| build.with? f }
-      args << "--enable-nonfree"
-    end
+    args << "--enable-nonfree" if build.with?("fdk-aac") || build.with?("openssl")
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
     # prevents GCC from building VDA support. GCC has no problems on
@@ -173,23 +169,6 @@ class FfmpegAT28 < Formula
     if build.with? "tools"
       system "make", "alltools"
       bin.install Dir["tools/*"].select { |f| File.executable? f }
-    end
-  end
-
-  def caveats
-    if build.without? "faac" then <<~EOS
-      FFmpeg has been built without libfaac for licensing reasons;
-      libvo-aacenc is used by default.
-      To install with libfaac, you can:
-        brew reinstall ffmpeg28 --with-faac
-
-      You can also use the experimental FFmpeg encoder, libfdk-aac, or
-      libvo_aacenc to encode AAC audio:
-        ffmpeg -i input.wav -c:a aac -strict experimental output.m4a
-      Or:
-        brew reinstall ffmpeg28 --with-fdk-aac
-        ffmpeg -i input.wav -c:a libfdk_aac output.m4a
-      EOS
     end
   end
 
