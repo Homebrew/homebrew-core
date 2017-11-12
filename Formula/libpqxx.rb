@@ -31,5 +31,10 @@ class Libpqxx < Formula
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lpqxx", "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no runnning postgresql server
     # system "./test"
+
+    # `pg_config` uses Cellar paths not opt paths
+    postgresql_include = Formula["postgresql"].opt_include.realpath.to_s
+    assert_match postgresql_include, (lib/"pkgconfig/libpqxx.pc").read,
+                 "Please revision bump libpqxx."
   end
 end
