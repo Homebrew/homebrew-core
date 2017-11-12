@@ -1,8 +1,8 @@
 class Gsmartcontrol < Formula
   desc "Graphical user interface for smartctl"
   homepage "https://gsmartcontrol.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/gsmartcontrol/1.1.1/gsmartcontrol-1.1.1.tar.bz2"
-  sha256 "2e39ad330829ae93824732f1b663303ac9ea1223f703901fae28549a3b2d7518"
+  url "https://downloads.sourceforge.net/project/gsmartcontrol/1.1.2/gsmartcontrol-1.1.2.tar.bz2"
+  sha256 "6759341b75c942e75a4640e51ed6b7829762ec53da36adcf293982f56e89774c"
 
   bottle do
     sha256 "62b9cb3cdc57d95a416bb09688ceed842cc419448e20537edbf7e1067318048e" => :high_sierra
