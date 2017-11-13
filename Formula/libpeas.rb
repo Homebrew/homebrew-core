@@ -10,18 +10,43 @@ class Libpeas < Formula
     sha256 "0f521913ca0eaf13b55aacb75e4b87a730be1f527215741ae2ba207caac523b2" => :el_capitan
   end
 
+  option "with-python", "install support for running Python plugins"
+
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
+  depends_on :python => "with-python"
+  depends_on :python3 => "with-python"
+  depends_on "pygobject3" if build.with? "python"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--enable-gtk"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --enable-gtk
+    ]
+
+    # Unset PYTHONPATH as it creates more confusion that it tries to
+    # remove when both v2 and v3 are installed
+    ENV.delete("PYTHONPATH")
+
+    if build.with? "python"
+      # extra hoop to jump if both, Python 2 and 3 are installed in parallel
+      py2_prefix = `python2-config --prefix`.chomp
+      py2_lib = "#{py2_prefix}/lib"
+      py3_prefix = `python3-config --prefix`.chomp
+      py3_lib = "#{py3_prefix}/lib"
+      ENV["LDFLAGS"] = "#{ENV["LDFLAGS"]} -L#{py2_lib} -L#{py3_lib}"
+      # configure argument
+      args << "--enable-python2"
+      args << "--enable-python3"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
