@@ -8,11 +8,18 @@ class Dryrun < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
+    resources.each do |r|
+      r.verify_download_integrity(r.fetch)
+      system "gem", "install", r.cached_download, "--no-document",
+        "--install-dir", libexec
+    end
     system "gem", "build", "dryrun.gemspec"
-    system "gem", "install", "dryrun"
+    system "gem", "install", "--ignore-dependencies", "dryrun-#{version}.gem"
+    bin.install libexec/"bin/dryrun"
+    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
   end
 
   test do
-    system "#{bin}/dryrun"
+    assert_equal "1.0.0\n", pipe_output("#{bin}/dryrun -v")
   end
 end
