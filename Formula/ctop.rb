@@ -6,10 +6,10 @@ class Ctop < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18f63fad3c55d26f198d635e36eaec774aa43f2a14e41ed24444b7eaa3902265" => :high_sierra
-    sha256 "a531dcdec44b373779e78d0b2e7030699923a06b20ba9e5c8d5d143d8ecba924" => :sierra
-    sha256 "9c4ba36d5cd480f1b3ec0c9e1c843a7527a4db59f7033bdbd0b73bdb6359bd81" => :el_capitan
-    sha256 "affade6fd575c5d7246ff3d323b700a30072daed4c05078e085834eff76d38ff" => :yosemite
+    rebuild 1
+    sha256 "1053111c025a98b93f477ee37779529004eac0c89d7278087cec718dddd835d1" => :high_sierra
+    sha256 "61ebd19e297de967aee46898ae9f440f19efdf3c7201a2c4350e570b8d43449a" => :sierra
+    sha256 "cb3cbbbaed49ca7cdfcf803d17a7b9a67ff39f1f0808cd3566538deddb6f3b57" => :el_capitan
   end
 
   depends_on "go" => :build
