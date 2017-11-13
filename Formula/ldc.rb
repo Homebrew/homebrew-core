@@ -18,6 +18,16 @@ class Ldc < Formula
     sha256 "cd7c09ae0ad0ca35107c72efceb28198345daf78056e654afdffea7827cf9676" => :el_capitan
   end
 
+  devel do
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.6.0-beta1/ldc-1.6.0-beta1-src.tar.gz"
+    sha256 "4216b32b7fdcc65a410a7c0724af6cd4f3ae02b14749b3c073f1e55de8fd6028"
+
+    resource "ldc-lts" do
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
+      sha256 "7aa540a135f9fa1ee9722cad73100a8f3600a07f9a11d199d8be68887cc90008"
+    end
+  end
+
   head do
     url "https://github.com/ldc-developers/ldc.git", :shallow => false
 
