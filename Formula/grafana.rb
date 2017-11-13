@@ -37,8 +37,7 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor"
-      pkgshare.install "public_gen" => "public"
+      pkgshare.install "conf", "vendor", "public"
     end
   end
 
