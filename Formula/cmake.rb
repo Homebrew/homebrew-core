@@ -4,8 +4,8 @@ class Cmake < Formula
   head "https://cmake.org/cmake.git"
 
   stable do
-    url "https://cmake.org/files/v3.9/cmake-3.9.5.tar.gz"
-    sha256 "6220c1683b4e6bb8f38688fa3ffb17a7cf39f36317c2ddfdc3f12f09d086c166"
+    url "https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz"
+    sha256 "7410851a783a41b521214ad987bb534a7e4a65e059651a2514e6ebfc8f46b218"
 
     # The two patches below fix cmake for undefined symbols check on macOS 10.12
     # They can be removed for cmake >= 3.10
