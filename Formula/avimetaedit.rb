@@ -20,7 +20,7 @@ class Avimetaedit < Formula
           "IAAAACAAAAAAAAAAAAAAAAAAAAAAAAAExJU1R0AAAAc3RybHN0cmg4AAAAdmlkc0k0MjAAAAAAAAAAAAAAAAAB" \
           "AAAAGQAAAAAAAAABAAAABgAAAP////8AAAAAAAAAAAIAAgBzdHJmKAAAACgAAAACAAAAAgAAAAEADABJNDIwBg" \
           "AAAAAAAAAAAAAAAAAAAAAAAABMSVNUEgAAAG1vdmkwMGRjBgAAABAQEBCAgA==".unpack("m")[0]
-    File.open("test.avi", "wb") { |f| f.write avi }
+    (testpath/"test.avi").write avi
     assert_match "test.avi,238,AVI", shell_output("#{bin}/avimetaedit --out-tech test.avi")
   end
 end
