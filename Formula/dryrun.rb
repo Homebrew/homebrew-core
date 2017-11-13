@@ -20,6 +20,6 @@ class Dryrun < Formula
   end
 
   test do
-    assert_equal "1.0.0\n", pipe_output("#{bin}/dryrun -v")
+    assert_equal "1.0.0\n", shell_output("#{bin}/dryrun -v")
   end
 end
