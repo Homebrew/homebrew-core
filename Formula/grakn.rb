@@ -10,8 +10,7 @@ class Grakn < Formula
 
   def install
     libexec.install Dir["*"]
-    bin.install Dir["#{libexec}/grakn", "#{libexec}/graql"]
-    bin.env_script_all_files(libexec/"", :SERVICE_HOME => ENV["SERVICE_HOME"])
+    bin.write_exec_script libexec/"grakn", libexec/"graql"
   end
 
   test do
