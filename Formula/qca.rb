@@ -62,6 +62,7 @@ class Qca < Formula
     args = std_cmake_args
     args << "-DQT4_BUILD=OFF"
     args << "-DBUILD_TESTS=OFF"
+    args << "-DQCA_PLUGINS_INSTALL_DIR=#{lib}/qt5/plugins"
 
     # Plugins (qca-ossl, qca-cyrus-sasl, qca-logger, qca-softstore always built)
     args << "-DWITH_botan_PLUGIN=#{build.with?("botan") ? "YES" : "NO"}"
