@@ -19,7 +19,7 @@ class AuroraCli < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
-	system "./build-support/thrift/prepare_binary.sh"
+    system "./build-support/thrift/prepare_binary.sh"
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora"
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora_admin"
     bin.install "dist/kaurora.pex" => "aurora"
