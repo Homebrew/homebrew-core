@@ -11,6 +11,26 @@ class Dryrun < Formula
     sha256 "084e7ebe90cc5236520ad49d4c5d9f58b19a98751a249070296a5943f88adb74"
   end
 
+  resource "colorize" do
+    url "https://rubygems.org/gems/colorize-0.8.1.gem"
+    sha256 "0ba0c2a58232f9b706dc30621ea6aa6468eeea120eb6f1ccc400105b90c4798c"
+  end
+
+  resource "oga" do
+    url "https://rubygems.org/gems/oga-2.11.gem"
+    sha256 "b84506db98f68054c17b5c5d940cb371e840a46b54e422347e23b34d2ee7b37d"
+  end
+
+  resource "highline" do
+    url "https://rubygems.org/gems/highline-1.7.8.gem"
+    sha256 "795274094fd385bfe45a2ac7b68462b6ba43e21bf311dbdca5225a63dba3c5d9"
+  end
+
+  resource "rjb" do
+    url "https://rubygems.org/gems/rjb-1.5.5.gem"
+    sha256 "8a81557cccf06e06435202cedffe3dcda780a9abe3b803a1057c48165746f2de"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
