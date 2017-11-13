@@ -4,7 +4,12 @@ class Dryrun < Formula
   url "https://github.com/cesarferreira/dryrun/archive/v1.0.0.tar.gz"
   sha256 "220a07109bc5f4a7ef2561a3f55a01c67de1c4c63c59047d10c811d093e26414"
 
-  depends_on :ruby => "1.8"
+  depends_on :ruby => "1.9"
+
+  resource "bundler" do
+    url "https://rubygems.org/gems/bundler-1.16.0.gem"
+    sha256 "084e7ebe90cc5236520ad49d4c5d9f58b19a98751a249070296a5943f88adb74"
+  end
 
   def install
     ENV["GEM_HOME"] = libexec
