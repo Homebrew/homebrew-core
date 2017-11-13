@@ -17,8 +17,8 @@ class Dryrun < Formula
   end
 
   resource "oga" do
-    url "https://rubygems.org/gems/oga-2.11.gem"
-    sha256 "b84506db98f68054c17b5c5d940cb371e840a46b54e422347e23b34d2ee7b37d"
+    url "https://rubygems.org/gems/oga-1.3.1.gem"
+    sha256 "ba876c0f39675041d487c03888f0a43f2fbe1e60fef7f3ae8feb81e4156dd218"
   end
 
   resource "highline" do
