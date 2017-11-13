@@ -15,6 +15,6 @@ class Grakn < Formula
   end
 
   test do
-    assert_match /RUNNING/i, shell_output("#{bin}/grakn server start")
+    assert_match /RUNNING/i, shell_output("#{bin}/grakn server status")
   end
 end
