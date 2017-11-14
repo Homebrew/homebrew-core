@@ -2,9 +2,9 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.0.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.0.orig.tar.gz"
-  sha256 "39af0d9267391434b549c5c4adc001b735518c96f7630c3fe7162af1d13ef3c0"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.2.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.2.orig.tar.gz"
+  sha256 "272bb5091770b047c8188b926d5e6038fa4fe6745488b2add96b23e2d9a83d88"
 
   bottle do
     sha256 "5a63cbb97d2a67a8cf436b9e8e2839244866e99c270d75bf4da81328c7e47c56" => :high_sierra
@@ -51,11 +51,6 @@ class Dbus < Formula
                           "--with-launchd-agent-dir=#{prefix}",
                           "--without-x",
                           "--disable-tests"
-
-    # Fix "../build-aux/install-sh: invalid option: -m700"
-    # Reported 31 Oct 2017 https://bugs.freedesktop.org/show_bug.cgi?id=103521
-    inreplace "test/Makefile", "-m700 ", "-m 700 "
-
     system "make", "install"
   end
 
