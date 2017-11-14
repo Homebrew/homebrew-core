@@ -4,6 +4,8 @@ class Envconsul < Formula
   url "https://github.com/hashicorp/envconsul/archive/v0.7.2.tar.gz"
   sha256 "c2b2723089f82f7b1623676fda8d378795bf87b4dbc6d4b297e5fc27aeab0aca"
   depends_on "go" => :build
+  # only used in test
+  depends_on "consul" => :recommended
 
   def install
     ENV["GOPATH"] = buildpath
@@ -15,6 +17,38 @@ class Envconsul < Formula
   end
 
   test do
-    system "#{bin}/envconsul", "-version"
+    require "socket"
+    require "timeout"
+
+    CONSUL_DEFAULT_PORT = 8500
+    LOCALHOST_IP = "127.0.0.1".freeze
+
+    def port_open?(ip, port, seconds = 1)
+      Timeout.timeout(seconds) do
+        begin
+          TCPSocket.new(ip, port).close
+          true
+        rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH
+          false
+        end
+      end
+    rescue Timeout::Error
+      false
+    end
+
+    if !port_open?(LOCALHOST_IP, CONSUL_DEFAULT_PORT)
+      fork do
+        exec "consul agent -dev -bind 127.0.0.1"
+        puts "consul started"
+      end
+      sleep 5
+    else
+      puts "Consul already running"
+    end
+    exec "consul kv put homebrew-recipe-test/working 1"
+
+    output = `#{bin}/envconsul -consul-addr=127.0.0.1:8500 -upcase -prefix homebrew-recipe-test env | grep WORKING`
+    system "consul", "leave"
+    assert(output.start_with?("WORKING=1"))
   end
 end
