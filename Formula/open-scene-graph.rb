@@ -1,8 +1,8 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.7.tar.gz"
-  sha256 "32e435184b3e0340adf50558acb890e04fce3b4c990c6b8789479c1a11f08a05"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.8.tar.gz"
+  sha256 "bda0770ec6167baa864617c49fb379eb56adced1f21e80f6cd8c75578f6702df"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
