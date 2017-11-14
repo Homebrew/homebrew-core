@@ -28,6 +28,7 @@ class Consul < Formula
     cd gopath/"src/github.com/hashicorp/consul" do
       system "make"
       bin.install "bin/consul"
+      prefix.install_metafiles
       zsh_completion.install "contrib/zsh-completion/_consul"
     end
   end
