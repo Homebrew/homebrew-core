@@ -1,9 +1,8 @@
 class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/products/beats/heartbeat"
-  url "https://github.com/elastic/beats/archive/v5.6.4.tar.gz"
-  sha256 "c06f913af79bb54825483ba0ed4b31752db5784daf3717f53d83b6b12890c0a4"
-  revision 1
+  url "https://github.com/elastic/beats/archive/v6.0.0.tar.gz"
+  sha256 "c4a8130934eb132f637e0a76ed4d764b92e7ed469abc97587a3625a61668744e"
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -81,17 +80,18 @@ class Heartbeat < Formula
         path: "#{testpath}/heartbeat"
         filename: heartbeat
         codec.format:
-          string: '%{[up]}'
+          string: '%{[monitor]}'
     EOS
     pid = fork do
-      exec bin/"heartbeat", "-path.config", testpath/"config"
+      exec bin/"heartbeat", "-path.config", testpath/"config", "-path.data",
+                            testpath/"data"
     end
-    sleep 1
+    sleep 5
 
     begin
       assert_match "hello", pipe_output("nc -c -l #{port}", "goodbye\n", 0)
-      sleep 1
-      assert_equal "true", (testpath/"heartbeat/heartbeat").read.chomp
+      sleep 5
+      assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid
