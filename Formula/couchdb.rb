@@ -1,8 +1,8 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.0/apache-couchdb-1.7.0.tar.gz"
-  sha256 "9b492e7e5389477107100ef83c41cc32185e2fe9cc88c19c550ed4b2192890dd"
+  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
+  sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
 
   bottle do
     sha256 "2be19b2a69900ede604660d276fb94b2218db732bb68766a4fe533cd2dc90910" => :high_sierra
