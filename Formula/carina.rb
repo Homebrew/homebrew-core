@@ -27,6 +27,7 @@ class Carina < Formula
       system "make", "get-deps"
       system "make", "local", "VERSION=#{version}"
       bin.install "carina"
+      prefix.install_metafiles
     end
   end
 
