@@ -10,10 +10,9 @@ class Mighttpd2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3fc07179ad757784e676bbbfb961aedb0fcb9496bdcedcb5c5a172db4f4a7d2e" => :high_sierra
-    sha256 "41f5402d13c13fc36d2b897d3b485542d1d18029dabae496f96615787fda0646" => :sierra
-    sha256 "0f73e65f13d9a91427c64b08fcd56d071a7740f0da40aca8cccbc865f96b0da3" => :el_capitan
+    sha256 "e29221e4447f87a83fb9853247db324f14e4621048ac5a7d8aefe3f864c7df55" => :high_sierra
+    sha256 "ddbaad5489107e4eaa59215c1158e97a1ae6b70dfbed71fb843c001f4ea5aeac" => :sierra
+    sha256 "5d90e9953d3fda3d9777a8b3451c48b7aabeaa6b3e162a2771859c3683a74f2c" => :el_capitan
   end
 
   depends_on "ghc" => :build
