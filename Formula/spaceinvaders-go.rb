@@ -40,6 +40,7 @@ class SpaceinvadersGo < Formula
     cd "src/github.com/asib/spaceinvaders/" do
       system "go", "build"
       bin.install "spaceinvaders"
+      prefix.install_metafiles
     end
   end
 
