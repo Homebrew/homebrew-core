@@ -22,6 +22,7 @@ class SyncthingInotify < Formula
     cd dir do
       system "go", "build", "-ldflags", "-w -X main.Version=#{version}"
       bin.install name
+      prefix.install_metafiles
     end
   end
 
