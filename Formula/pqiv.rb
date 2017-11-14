@@ -1,8 +1,8 @@
 class Pqiv < Formula
   desc "Powerful image viewer with minimal UI"
   homepage "https://github.com/phillipberndt/pqiv"
-  url "https://github.com/phillipberndt/pqiv/archive/2.9.tar.gz"
-  sha256 "e57298ae7123bd6b01b751f6ef2d7a7853e731a3271b50095683442a406da99c"
+  url "https://github.com/phillipberndt/pqiv/archive/2.10.tar.gz"
+  sha256 "d0019d9c594a8153455bac2bd335916336e4c163a574a5a3d6a5928fea97518f"
   revision 4
   head "https://github.com/phillipberndt/pqiv.git"
 
