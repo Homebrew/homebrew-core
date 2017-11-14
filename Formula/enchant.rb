@@ -1,8 +1,8 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://abiword.github.io/enchant/"
-  url "https://www.abisource.com/downloads/enchant/1.6.0/enchant-1.6.0.tar.gz"
-  sha256 "2fac9e7be7e9424b2c5570d8affe568db39f7572c10ed48d4e13cddf03f7097f"
+  url "https://github.com/AbiWord/enchant/releases/download/v2.1.2/enchant-2.1.2.tar.gz"
+  sha256 "039563bbb7340f320bd9237dac92303b3e7768152b08fc0d554d6957ae7183d8"
 
   bottle do
     sha256 "e92d50c9ccdc12ec63543de5234f396c022addeed24d3e739d00797471253c0f" => :high_sierra
@@ -27,8 +27,8 @@ class Enchant < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-ispell",
-                          "--disable-myspell"
+                          "--enable-relocatable"
+
     system "make", "install"
 
     if build.with? "python"
