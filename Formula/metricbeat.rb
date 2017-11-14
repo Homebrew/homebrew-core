@@ -1,8 +1,8 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.6.4.tar.gz"
-  sha256 "c06f913af79bb54825483ba0ed4b31752db5784daf3717f53d83b6b12890c0a4"
+  url "https://github.com/elastic/beats/archive/v6.0.0.tar.gz"
+  sha256 "c4a8130934eb132f637e0a76ed4d764b92e7ed469abc97587a3625a61668744e"
 
   head "https://github.com/elastic/beats.git"
 
@@ -16,25 +16,27 @@ class Metricbeat < Formula
   depends_on "go" => :build
 
   def install
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
-    ENV["GOPATH"] = gopath
-
-    cd gopath/"src/github.com/elastic/beats/metricbeat" do
+    cd "src/github.com/elastic/beats/metricbeat" do
       system "make"
-      libexec.install "metricbeat"
+      system "make", "kibana"
+      (libexec/"bin").install "metricbeat"
+      libexec.install "_meta/kibana"
 
-      (etc/"metricbeat").install "metricbeat.full.yml"
-      (etc/"metricbeat").install "metricbeat.yml"
-      (etc/"metricbeat").install "metricbeat.template.json"
-      (etc/"metricbeat").install "metricbeat.template-es2x.json"
-      (etc/"metricbeat").install "metricbeat.template-es6x.json"
+      (etc/"metricbeat").install Dir["metricbeat*.yml"]
+      prefix.install_metafiles
     end
 
     (bin/"metricbeat").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/metricbeat" --path.config "#{etc}/metricbeat" --path.home="#{prefix}" --path.logs="#{var}/log/metricbeat" --path.data="#{opt_prefix}" "$@"
+      exec "#{libexec}/bin/metricbeat" \
+        --path.config "#{etc}/metricbeat" \
+        --path.home="#{prefix}" \
+        --path.logs="#{var}/log/metricbeat" \
+        --path.data="#{var}/lib/metricbeat" \
+        "$@"
     EOS
   end
 
@@ -58,7 +60,7 @@ class Metricbeat < Formula
   end
 
   test do
-    (testpath/"metricbeat.yml").write <<~EOS
+    (testpath/"config/metricbeat.yml").write <<~EOS
       metricbeat.modules:
       - module: system
         metricsets: ["load"]
@@ -72,16 +74,17 @@ class Metricbeat < Formula
     (testpath/"logs").mkpath
     (testpath/"data").mkpath
 
-    metricbeat_pid = fork do
-      exec bin/"metricbeat", "-c", testpath/"metricbeat.yml",
-      "--path.data=#{testpath}/data", "--path.logs=#{testpath}/logs"
+    pid = fork do
+      exec bin/"metricbeat", "-path.config", testpath/"config", "-path.data",
+                             testpath/"data"
     end
 
     begin
-      sleep 2
+      sleep 30
       assert_predicate testpath/"data/metricbeat", :exist?
     ensure
-      Process.kill("TERM", metricbeat_pid)
+      Process.kill "SIGINT", pid
+      Process.wait pid
     end
   end
 end
