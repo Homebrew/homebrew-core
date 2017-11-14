@@ -27,6 +27,7 @@ class Dlite < Formula
     cd path do
       system "make", "dlite"
       bin.install "dlite"
+      prefix.install_metafiles
     end
   end
 
