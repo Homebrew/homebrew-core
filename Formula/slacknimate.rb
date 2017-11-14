@@ -23,6 +23,7 @@ class Slacknimate < Formula
     cd pkgpath do
       system "make"
       bin.install "bin/slacknimate"
+      prefix.install_metafiles
     end
   end
 
