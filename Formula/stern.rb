@@ -30,6 +30,7 @@ class Stern < Formula
       system "govendor", "sync"
       system "go", "build", "-o", "bin/stern"
       bin.install "bin/stern"
+      prefix.install_metafiles
     end
   end
 
