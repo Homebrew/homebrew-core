@@ -32,6 +32,7 @@ class Chronograf < Formula
       system "make", ".jssrc"
       system "make", "chronograf"
       bin.install "chronograf"
+      prefix.install_metafiles
     end
   end
 
