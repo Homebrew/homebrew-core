@@ -25,6 +25,6 @@ class Yaml < Formula
 
   test do
     assert_match "key: cat", shell_output("#{bin}/yaml n key cat")
-    assert_match "cat", pipe_output("#{bin}/yaml r - key", "key: cat")
+    assert_match "cat", pipe_output("#{bin}/yaml r - key", "key: cat", 0)
   end
 end
