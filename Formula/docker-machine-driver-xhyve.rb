@@ -70,6 +70,7 @@ class DockerMachineDriverXhyve < Formula
       end
 
       bin.install "bin/docker-machine-driver-xhyve"
+      prefix.install_metafiles
     end
   end
 
