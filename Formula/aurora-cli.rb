@@ -13,7 +13,7 @@ class AuroraCli < Formula
 
   patch do
     url "https://raw.githubusercontent.com/thinker0/aurora/pants-fix-high-sierra/pants_version_1.4.0_dev20.diff"
-    sha256 "2eecd2cc0067526f95a091a4d7d10e12197db5945acabb8d33adfb3693215c64"
+    sha256 "0f4e3dcab78974d43ff5225df68969609587656313f8e495908523f89f6cb0a7"
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
