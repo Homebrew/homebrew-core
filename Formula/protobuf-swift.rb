@@ -3,6 +3,7 @@ class ProtobufSwift < Formula
   homepage "https://github.com/alexeyxo/protobuf-swift"
   url "https://github.com/alexeyxo/protobuf-swift/archive/4.0.0.tar.gz"
   sha256 "4ffbf2e2dc6492fb9b44df2b78695d877b77552ad0e3dead4279c13ebb0e5b36"
+  revision 1
 
   bottle do
     cellar :any

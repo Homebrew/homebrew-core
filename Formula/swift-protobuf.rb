@@ -3,6 +3,7 @@ class SwiftProtobuf < Formula
   homepage "https://github.com/apple/swift-protobuf"
   url "https://github.com/apple/swift-protobuf/archive/1.0.1.tar.gz"
   sha256 "2398da2bcd57c4c6fd895f975c059506839831f00a92b7cb5b4da2183888dca2"
+  revision 1
   head "https://github.com/apple/swift-protobuf.git"
 
   bottle do

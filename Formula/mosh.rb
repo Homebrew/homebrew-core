@@ -3,7 +3,7 @@ class Mosh < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
   sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7dc95b3846509283e164906cbe017a21a6c6df8f1ff8d78619d7be4da52542c0" => :high_sierra
