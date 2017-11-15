@@ -13,10 +13,11 @@ class Eccodes < Formula
   #option "with-netcdf", "Compile with netcdf support" 
    
   depends_on "cmake" => :build 
-  #depends_on "netcdf" #=> :optional 
-  #depends_on "hdf5" 
-  #depends_on "jpg" => optional 
-  #depends_on "python" 
+  depends_on "netcdf" #=> :optional 
+  depends_on "hdf5" 
+  depends_on "jpg" #=> optional 
+  depends_on "python" #=> optional
+  depends_on "gcc" #?
  
   def install 
     # ENV.deparallelize  # if your formula fails when building in parallel 
