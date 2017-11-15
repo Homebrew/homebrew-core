@@ -1,23 +1,18 @@
 require "language/node"
 
-class Kibana < Formula
+class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v6.0.0",
-      :revision => "f8bc449f5a6b28d0597730b1cf03fefe7e33422e"
+      :tag => "v5.6.4",
+      :revision => "efd2403e605c9f695a87929083421ba09f3ac54e"
   head "https://github.com/elastic/kibana.git"
 
-  bottle do
-    sha256 "03120ced08aec4d50bc17219f8b8b41b0818b73cad3bde7fca9eab65701cef45" => :high_sierra
-    sha256 "d9724cf4c3ba46ac82f53e3eba83c0676a1e0385a10d9c914eff0adbccc9e291" => :sierra
-    sha256 "8dd4cd3cce5c705f2c0c0b4626185a24b0ca12ee118d3cf86d8b9d9b16a126e7" => :el_capitan
-  end
+  keg_only :versioned_formula
 
   resource "node" do
-    url "https://github.com/nodejs/node.git",
-        :tag => "v6.11.5",
-        :revision => "e4f3e73b8cb58291380afbdb333c85789f2a5ce9"
+    url "https://nodejs.org/dist/v6.11.1/node-v6.11.1.tar.xz"
+    sha256 "6f6655b85919aa54cb045a6d69a226849802fcc26491d0db4ce59873e41cc2b8"
   end
 
   def install
