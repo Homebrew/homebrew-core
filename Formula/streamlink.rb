@@ -1,8 +1,8 @@
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/0.8.1/streamlink-0.8.1.tar.gz"
-  sha256 "c0a487fa1c6b1d07008a1a4d5739df68a9e0c59cf06054715c13c1e3bed5a436"
+  url "https://github.com/streamlink/streamlink/releases/download/0.9.0/streamlink-0.9.0.tar.gz"
+  sha256 "8c01c23a3e02d75a09232ac471a7c277a699455293a99e8a2ec0846a1b4a6819"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,9 @@ class Streamlink < Formula
     sha256 "e2c1696d20ce1e450b9987c3dd76a883e1cac95fbec37eb0b486d3af40b0be19" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  # Use :python on Yosemite and prior to avoid needing urllib3[secure]
+  # See https://github.com/streamlink/streamlink/commit/0f35b9b2
+  depends_on :python if MacOS.version <= :yosemite
 
   resource "backports.shutil_get_terminal_size" do
     url "https://files.pythonhosted.org/packages/ec/9c/368086faa9c016efce5da3e0e13ba392c9db79e3ab740b763fe28620b18b/backports.shutil_get_terminal_size-1.0.0.tar.gz"
@@ -29,8 +31,8 @@ class Streamlink < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
+    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
   end
 
   resource "chardet" do
@@ -79,8 +81,8 @@ class Streamlink < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "urllib3" do
