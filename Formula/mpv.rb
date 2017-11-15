@@ -51,8 +51,8 @@ class Mpv < Formula
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
-    # Force to use Homebrew's python for Mavericks and older by cleaning
-    # PYTHONPATH before setting it instead of appending
+    # Prevents a conflict between python2 and python3 when gobject-introspection
+    # is using the :python requirement
     ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
