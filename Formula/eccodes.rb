@@ -15,7 +15,7 @@ class Eccodes < Formula
   depends_on "cmake" => :build 
   depends_on "netcdf" #=> :optional 
   depends_on "hdf5" 
-  depends_on "jpg" #=> optional 
+  #depends_on "jpg" #=> optional 
   depends_on "python" #=> optional
   depends_on "gcc" #?
  
