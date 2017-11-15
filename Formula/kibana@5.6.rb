@@ -8,6 +8,12 @@ class KibanaAT56 < Formula
       :revision => "efd2403e605c9f695a87929083421ba09f3ac54e"
   head "https://github.com/elastic/kibana.git"
 
+  bottle do
+    sha256 "69d2107515b2c050f69a7298314302a290a181d05ea97c009c45282e510f45d7" => :high_sierra
+    sha256 "a46e37480294eb0860f1ada1e32890f90916ecf0ea70176602efcfa04b907ec0" => :sierra
+    sha256 "a753db9cd0b979e49ef37ea25cd20c8695470d094c8c9a88a697e732ce9c20e2" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   resource "node" do
