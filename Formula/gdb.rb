@@ -22,13 +22,12 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile@2.0" => :optional
+
   fails_with :clang do
     build 600
     cause <<~EOS
-      Using clang on version 600 or older result in a segmentation fault:
-      `clang: error: unable to execute command: Segmentation fault: 11`
-      Test done on:
-      Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+      clang: error: unable to execute command: Segmentation fault: 11
+      Test done on: Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
     EOS
   end
 
