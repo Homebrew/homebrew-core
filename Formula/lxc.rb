@@ -6,9 +6,9 @@ class Lxc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cf11313104d88294125c9bfe8cd3092c5cd7a669c98d8f3e49d6bef962bbe9a2" => :high_sierra
-    sha256 "f839fa32798aa787b122193a562a6d953594130d39f8adffdafec55a816a079f" => :sierra
-    sha256 "5d26a40b776802ad9dc71c432bac08ea77752134d6843739101894cff9ba2a6f" => :el_capitan
+    sha256 "eb089ae980617ccb649a0ef7a547a4ce861b9b73a657963422555d3dc6e8dff1" => :high_sierra
+    sha256 "cee99a69a28808ac3232aea01741f9272bdfa64c4aba3ac4becd36c18a9bb445" => :sierra
+    sha256 "ad59c2ead16ab27cd9b305979fb88d9f7a2adae904f9828c02de3de50dce0a87" => :el_capitan
   end
 
   depends_on "go" => :build
