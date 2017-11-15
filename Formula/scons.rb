@@ -1,22 +1,14 @@
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "http://www.scons.org"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.0.0/scons-3.0.0.tar.gz"
-  sha256 "0f532f405b98c60b731d231b3c503ab5bf47d89a6f66f70cb62c9249e9f45216"
-  revision 1
+  url "https://downloads.sourceforge.net/project/scons/scons/3.0.1/scons-3.0.1.tar.gz"
+  sha256 "24475e38d39c19683bc88054524df018fe6949d70fbd4c69e298d39a0269f173"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "45b5033015138593fb5b2a6dfa4d74b1db3feff8c6a6e49a8a510682af6bcd3f" => :high_sierra
     sha256 "45b5033015138593fb5b2a6dfa4d74b1db3feff8c6a6e49a8a510682af6bcd3f" => :sierra
     sha256 "45b5033015138593fb5b2a6dfa4d74b1db3feff8c6a6e49a8a510682af6bcd3f" => :el_capitan
-  end
-
-  # Remove for > 3.0.0
-  # Upstream commit from 20 Sep 2017 "Support python 2 print statements in SConscripts"
-  patch :p2 do
-    url "https://github.com/SConsProject/scons/commit/2e0de3c5.patch?full_index=1"
-    sha256 "ca9348417478a729f6fdaae62cc25d73a30371c4d467415196246f1d0dcfd195"
   end
 
   def install
