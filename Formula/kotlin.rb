@@ -3,11 +3,12 @@ class Kotlin < Formula
   homepage "https://kotlinlang.org/"
   url "https://github.com/JetBrains/kotlin/releases/download/v1.1.60/kotlin-compiler-1.1.60.zip"
   sha256 "49870ecd8cc0f9c22aa920a23a45d94fa701c612bcb4ab1e5be05d91d8857413"
+  revision 1
 
   bottle :unneeded
 
   def install
-    libexec.install %w[bin lib]
+    libexec.install "bin", "build.txt", "lib"
     rm Dir["#{libexec}/bin/*.bat"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
