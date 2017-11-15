@@ -51,6 +51,10 @@ class Mpv < Formula
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
+    # Force to use Homebrew's python for Mavericks and older by cleaning
+    # PYTHONPATH before setting it instead of appending
+    ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
+
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
     resource("docutils").stage do
       system "python", *Language::Python.setup_install_args(buildpath/"vendor")
