@@ -1,20 +1,10 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
+  # check the changelog for the latest stable version: https://cyberduck.io/changelog/
+  url "https://dist.duck.sh/duck-src-6.3.0.27105.tar.gz"
+  sha256 "a0353402df02685ab9053110ad4842600b733e694fd9c31a98780c1fd742c97c"
   head "https://svn.cyberduck.io/trunk/"
-
-  stable do
-    # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-    url "https://dist.duck.sh/duck-src-6.2.10.26754.tar.gz"
-    sha256 "45b4281a788673f838825064a339f2d2f07356f05a76a011aaa2e3e54a267430"
-
-    # Remove for > 6.2.10
-    # Upstream commit from 27 Oct 2017 "Fix compile with Java 9."
-    patch do
-      url "https://github.com/iterate-ch/cyberduck/commit/612a973d11.patch?full_index=1"
-      sha256 "4689550c2b31643b89abf8286a9dedbf94860bba5e8a4fd66764d467b6be9157"
-    end
-  end
 
   bottle do
     sha256 "707a2209244f1179dfa4943191de1fbc359fe4b65844018d13e22e9c719a3fbf" => :high_sierra
