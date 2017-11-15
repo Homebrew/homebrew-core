@@ -1,9 +1,8 @@
 class Libfaketime < Formula
   desc "Report faked system time to programs"
-  homepage "http://www.code-wizards.com/projects/libfaketime"
-  url "https://github.com/wolfcw/libfaketime/archive/v0.9.7b1.tar.gz"
-  version "0.9.7b1"
-  sha256 "3671511fb9e103ec0922be77efa7846aeb29a1214cf39ac3fc5a28423e392d22"
+  homepage "https://github.com/wolfcw/libfaketime"
+  url "https://github.com/wolfcw/libfaketime/archive/v0.9.7.tar.gz"
+  sha256 "4d65f368b2d53ee2f93a25d5e9541ce27357f2b95e5e5afff210e0805042811e"
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
