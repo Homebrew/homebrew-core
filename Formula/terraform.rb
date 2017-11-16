@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.10.8.tar.gz"
-  sha256 "b076726f00b0488fc95bb041e982cb6aeaf280395d31f322017dd143bbabd7c4"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.0.tar.gz"
+  sha256 "2625ab24b71ccb8b9e1cf8794c3d3cd147313768066103fb970d58fa6a0a65fe"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -12,11 +12,6 @@ class Terraform < Formula
     sha256 "46bdd747cbc28001e7a2a7891a20661a8dfec7c9726f0ceb0c3543bc70ce52e4" => :high_sierra
     sha256 "9f85a9778638230e1dff1ec9c869cdb58d6a07de2c00edc11f15863cee5c322a" => :sierra
     sha256 "79e191a80065ea1ae7dba9836e4e8aaaf4edfb8a734ecff87b6cc446f388b6dc" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/hashicorp/terraform/archive/v0.11.0-rc1.tar.gz"
-    sha256 "1d2be011ab2023973de473ee32b9f3cd92e55edb0ceca99113cb8f65026c53fc"
   end
 
   depends_on "go" => :build
