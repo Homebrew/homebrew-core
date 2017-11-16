@@ -1,8 +1,8 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-5.2.0.tgz"
-  sha256 "cc4826a0480f49268d3996309e4b7e465151e9a523ccf8ead499ec575149f47e"
+  url "https://varnish-cache.org/_downloads/varnish-5.2.1.tgz"
+  sha256 "b8452c9d78c16f78c8cfd1c1a1e696523bf64b7721c330150dcc0852459014b3"
 
   bottle do
     sha256 "5512f0894c01aa13ac5f46c97cc0ea92d91e3762499065871d033fb48da509fb" => :high_sierra
@@ -19,8 +19,8 @@ class Varnish < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}"
     system "make", "install"
-    (etc+"varnish").install "etc/example.vcl" => "default.vcl"
-    (var+"varnish").mkpath
+    (etc/"varnish").install "etc/example.vcl" => "default.vcl"
+    (var/"varnish").mkpath
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
