@@ -1,8 +1,8 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/2.6.0/shibboleth-sp-2.6.0.tar.gz"
-  sha256 "7f23b8a28e66ae1b0fe525ca1f8b84c4566a071367f5d9a1bd71bd6b29e4d985"
+  url "https://shibboleth.net/downloads/service-provider/2.6.1/shibboleth-sp-2.6.1.tar.bz2"
+  sha256 "1121e3b726b844d829ad86f2047be62da4284ce965ac184de2f81903f16b98e4"
 
   bottle do
     rebuild 2
@@ -55,7 +55,7 @@ class ShibbolethSp < Formula
     mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
     <<~EOS
       You must manually edit httpd.conf to include
-      LoadModule mod_shib #{lib}/shibboleth/#{mod}
+      LoadModule mod_shib #{opt_lib}/shibboleth/#{mod}
       You must also manually configure
         #{etc}/shibboleth/shibboleth2.xml
       as per your own requirements. For more information please see
@@ -78,7 +78,7 @@ class ShibbolethSp < Formula
         <string>-F</string>
         <string>-f</string>
         <string>-p</string>
-        <string>#{prefix}/var/run/shibboleth/shibd.pid</string>
+        <string>#{var}/run/shibboleth/shibd.pid</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -95,6 +95,6 @@ class ShibbolethSp < Formula
   end
 
   test do
-    system "#{opt_sbin}/shibd", "-t"
+    system sbin/"shibd", "-t"
   end
 end
