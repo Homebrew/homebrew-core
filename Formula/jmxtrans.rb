@@ -1,8 +1,8 @@
 class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
-  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-267.tar.gz"
-  sha256 "5414b5a2951c86c62ebfe84714ff0e68d12c3d18b674353222e220c69e35e787"
+  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-268.tar.gz"
+  sha256 "711b90e9687b4429abce3dcc3856b3e7d2b5aa4452457bfe71a5f7768a140536"
   version_scheme 1
 
   bottle do
@@ -13,10 +13,13 @@ class Jmxtrans < Formula
     sha256 "9f3aa7d2469df6cfb27e52d66052693fd1b0a73732d3b10b16c08b788109dcb3" => :yosemite
   end
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
   depends_on "maven" => :build
 
   def install
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+
     system "mvn", "package", "-DskipTests=true",
                              "-Dmaven.javadoc.skip=true",
                              "-Dcobertura.skip=true"
@@ -31,7 +34,7 @@ class Jmxtrans < Formula
       doc.install Dir["doc/*"]
     end
 
-    bin.install_symlink libexec/"jmxtrans.sh" => "jmxtrans"
+    (bin/"jmxtrans").write_env_script libexec/"jmxtrans.sh", Language::Java.java_home_env("1.8")
   end
 
   test do
