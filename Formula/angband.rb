@@ -1,8 +1,8 @@
 class Angband < Formula
   desc "Dungeon exploration game"
   homepage "http://rephial.org/"
-  url "http://rephial.org/downloads/4.1/angband-4.1.0.tar.gz"
-  sha256 "ea52266e52b66d6bf2ab3728b3bc6c7c3875130973430021e31bf56000c0df8b"
+  url "http://rephial.org/downloads/4.1/angband-4.1.1.tar.gz"
+  sha256 "3fd19b109acfbf75a1a4b40eb0110c267ed1d0cc80f6edfb2f377d68add9853f"
   head "https://github.com/angband/angband.git"
 
   bottle do
