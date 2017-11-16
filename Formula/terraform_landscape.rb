@@ -1,8 +1,8 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.16.tar.gz"
-  sha256 "93556adb4901a076d5900e7a6205375813cb332b4a59373da55fb3e45361bfb7"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.17.tar.gz"
+  sha256 "ffc89c435d673de353db17f9e9796de95c55e1236071178dc35102a99917fd45"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,6 +26,16 @@ class TerraformLandscape < Formula
   resource "diffy" do
     url "https://rubygems.org/gems/diffy-3.2.0.gem"
     sha256 "8124e5b1d9c0086994b6484d26f37476b79253309ccaebea201247a67eb2b604"
+  end
+
+  resource "highline" do
+    url "https://rubygems.org/gems/highline-1.7.8.gem"
+    sha256 "795274094fd385bfe45a2ac7b68462b6ba43e21bf311dbdca5225a63dba3c5d9"
+  end
+
+  resource "polyglot" do
+    url "https://rubygems.org/gems/polyglot-0.3.5.gem"
+    sha256 "59d66ef5e3c166431c39cb8b7c1d02af419051352f27912f6a43981b3def16af"
   end
 
   resource "treetop" do
