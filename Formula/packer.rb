@@ -18,6 +18,8 @@ class Packer < Formula
   depends_on "go" => :build
   depends_on "govendor" => :build
 
+  conflicts_with 'pkenv', because: 'pkenv symlinks Packer binaries'
+
   go_resource "github.com/mitchellh/gox" do
     url "https://github.com/mitchellh/gox.git",
         :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
