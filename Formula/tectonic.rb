@@ -19,7 +19,6 @@ class Tectonic < Formula
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "openssl"
-  depends_on "zlib" if MacOS.version <= :el_capitan
 
   def install
     ENV.cxx11
