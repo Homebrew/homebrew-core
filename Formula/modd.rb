@@ -9,11 +9,9 @@ class Modd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e79579ee2830efcabf6c7596ade56c48f785374e25d03a7bced28ee392806727" => :high_sierra
-    sha256 "bf049b16314506c209750c12622444fe5a964488f8b018120d64b079de8c56a9" => :sierra
-    sha256 "59b8cb783b8b2c53c7e5a75a4707a9af60cb86949b9f994f444bdec9612b398a" => :el_capitan
-    sha256 "316eac1b123791f6c736f541ae808847c2dfe854bddf0d660108356551690a08" => :yosemite
+    sha256 "44dded2d206255b1865b33569f413e305a28a91bb3af6c3b29e26ca4726a0e42" => :high_sierra
+    sha256 "1102b677003a7d0f2b2af3b9da58dcea26af6d86f655ca6c1ae416947173a2e3" => :sierra
+    sha256 "bb7190f3c846327c782f719c5c592104fcdb1598586d6ad13cda57c5b72468df" => :el_capitan
   end
 
   depends_on "go" => :build
