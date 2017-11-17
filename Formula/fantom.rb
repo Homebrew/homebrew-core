@@ -6,13 +6,8 @@ class Fantom < Formula
 
   bottle :unneeded
 
-  option "with-src", "Also install fantom source"
-  option "with-examples", "Also install fantom examples"
-
   def install
     rm_f Dir["bin/*.exe", "bin/*.dll", "lib/dotnet/*"]
-    rm_rf "examples" if build.without? "examples"
-    rm_rf "src" if build.without? "src"
 
     # Select the macOS JDK path in the config file
     inreplace "etc/build/config.props", "//jdkHome=/System", "jdkHome=/System"
