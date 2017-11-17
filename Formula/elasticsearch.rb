@@ -3,6 +3,7 @@ class Elasticsearch < Formula
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.0.0.tar.gz"
   sha256 "0420e877a8b986485244f603770737e9e4e47186fdfa1093768a11e391e3d9f4"
+  revision 1
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -34,6 +35,10 @@ class Elasticsearch < Formula
     # Install everything else into package directory
     libexec.install "bin", "config", "lib", "modules"
 
+    inreplace libexec/"bin/elasticsearch-env",
+              "if [ -z \"$ES_PATH_CONF\" ]; then ES_PATH_CONF=\"$ES_HOME\"/config; fi",
+              "if [ -z \"$ES_PATH_CONF\" ]; then ES_PATH_CONF=\"#{etc}/elasticsearch\"; fi"
+
     # Set up Elasticsearch for local development:
     inreplace "#{libexec}/config/elasticsearch.yml" do |s|
       # 1. Give the cluster a unique name
@@ -52,7 +57,7 @@ class Elasticsearch < Formula
                 libexec/"bin/elasticsearch-keystore",
                 libexec/"bin/elasticsearch-plugin",
                 libexec/"bin/elasticsearch-translog"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8").merge(:ES_PATH_CONF => "/usr/local/etc/elasticsearch"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   def post_install
@@ -115,13 +120,39 @@ class Elasticsearch < Formula
     server.close
 
     system "#{bin}/elasticsearch-plugin", "list"
-    pid = "#{testpath}/pid"
+    pid = testpath/"pid"
     begin
       system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data", "-Ehttp.port=#{port}"
       sleep 10
       system "curl", "-XGET", "localhost:#{port}/"
     ensure
-      Process.kill(9, File.read(pid).to_i)
+      Process.kill(9, pid.read.to_i)
+    end
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    (testpath/"config/elasticsearch.yml").write <<~EOS
+      path.data: #{testpath}/data
+      path.logs: #{testpath}/logs
+      node.name: test-es-path-conf
+      http.port: #{port}
+    EOS
+
+    cp etc/"elasticsearch/jvm.options", "config"
+    cp etc/"elasticsearch/log4j2.properties", "config"
+
+    ENV["ES_PATH_CONF"] = testpath/"config"
+    pid = testpath/"pid"
+    begin
+      system "#{bin}/elasticsearch", "-d", "-p", pid
+      sleep 10
+      system "curl", "-XGET", "localhost:#{port}/"
+      output = shell_output("curl -s -XGET localhost:#{port}/_cat/nodes")
+      assert_match "test-es-path-conf", output
+    ensure
+      Process.kill(9, pid.read.to_i)
     end
   end
 end
