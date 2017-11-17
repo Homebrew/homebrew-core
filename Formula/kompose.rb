@@ -19,6 +19,14 @@ class Kompose < Formula
     ln_s buildpath, buildpath/"src/github.com/kubernetes/kompose"
     system "make", "bin"
     bin.install "kompose"
+
+    # Install bash completion
+    output = Utils.popen_read("#{bin}/kompose completion bash")
+    (bash_completion/"kompose").write output
+
+    # Install zsh completion
+    output = Utils.popen_read("#{bin}/kompose completion zsh")
+    (zsh_completion/"_kompose").write output
   end
 
   test do
