@@ -2,7 +2,7 @@ class Csvkit < Formula
   include Language::Python::Virtualenv
 
   desc "Suite of command-line tools for converting to and working with CSV"
-  homepage "http://csvkit.rtfd.org/"
+  homepage "https://csvkit.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/53/de/a8ee2fb47af463251fd39e0dc2b7356ceb58fd0f5867f7f6d0f7cc6e8a0d/csvkit-1.0.2.tar.gz"
   sha256 "5a897f87c920dec3e7debc31102dfe774a8d704641bfafa98e04729bd4d26e17"
 
