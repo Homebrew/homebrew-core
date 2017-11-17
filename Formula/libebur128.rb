@@ -6,10 +6,9 @@ class Libebur128 < Formula
 
   bottle do
     cellar :any
-    sha256 "2573f25bb171730278ac2a690a0cf4dfd5edb80458af501da87bfae640d155d5" => :high_sierra
-    sha256 "a037db8310c95fecb9b5ae393997c5365011a8f5c753c1277a08af02d31767f4" => :sierra
-    sha256 "1446628a1ca48d17d00406e1687f1c3e3ee4b85d3571abeb2d1f3957135e32eb" => :el_capitan
-    sha256 "4b0226c7ab062b262b3aaac750d6e8784474e8c81459ad9b04f15cca206fcea6" => :yosemite
+    sha256 "08c235e9351b64387741f30f34f71483fd78743cd62e339b5a62266e72be2d15" => :high_sierra
+    sha256 "b79fe900621465bf9af18a442b8691e14bf89e45b3e0088b2c84666db774efc7" => :sierra
+    sha256 "da7197eb5d23c53de167ea9e892a5cbc1e8781ae9f3909ffd23d08c2dfb60158" => :el_capitan
   end
 
   depends_on "cmake" => :build
