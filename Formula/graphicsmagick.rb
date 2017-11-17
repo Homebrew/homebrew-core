@@ -15,6 +15,7 @@ class Graphicsmagick < Formula
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
+  option "with-jp2", "Build with jp2 support"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -23,7 +24,7 @@ class Graphicsmagick < Formula
   depends_on "libtiff" => :recommended
   depends_on "freetype" => :recommended
   depends_on "little-cms2" => :optional
-  depends_on "jasper" => :optional
+  depends_on "jasper" if build.with? "jp2"
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
@@ -56,6 +57,7 @@ class Graphicsmagick < Formula
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
+    args << "--with-jp2" if build.with? "jp2"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
