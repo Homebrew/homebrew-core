@@ -1,8 +1,8 @@
 class Tenyr < Formula
   desc "32-bit computing environment (including simulated CPU)"
   homepage "http://tenyr.info/"
-  url "https://github.com/kulp/tenyr/archive/v0.9.4.tar.gz"
-  sha256 "15785cf62bbf59bed88cfe1c3f41de63b3fe421695ddd5481ceb9a7a5eea27ff"
+  url "https://github.com/kulp/tenyr/archive/v0.9.5.tar.gz"
+  sha256 "3fe066d0dd12b56d6febd2aeb86a141272d1fe3904cb6421933168e98e8ba6aa"
   head "https://github.com/kulp/tenyr.git", :branch => "develop"
 
   bottle do
@@ -58,6 +58,6 @@ class Tenyr < Formula
     system "#{bin}/tas", "--output=b.to", "part2"
     system "#{bin}/tld", "--output=test.texe", "a.to", "b.to"
 
-    assert_match "C 0000001b", `tsim -vvvv test.texe`
+    assert_match "C 0000001b", shell_output("#{bin}/tsim -vvvv test.texe 2>&1")
   end
 end
