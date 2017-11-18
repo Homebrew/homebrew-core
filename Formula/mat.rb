@@ -1,9 +1,8 @@
 class Mat < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://mat.boum.org/"
-  url "https://mat.boum.org/files/mat-0.5.4.tar.xz"
-  sha256 "a928cb2d5ebcafec4563b552096436771598376f8b4dded86a769c278c1314d1"
-  revision 1
+  url "https://mat.boum.org/files/mat-0.6.1.tar.xz"
+  sha256 "0782e7db554ad1dddefd71c9c81e36a05464d73ab54ee2a474ea6ac90e8e51b9"
 
   bottle do
     cellar :any_skip_relocation
