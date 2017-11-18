@@ -1,8 +1,8 @@
 class RegexOpt < Formula
   desc "Perl-compatible regular expression optimizer"
   homepage "http://bisqwit.iki.fi/source/regexopt.html"
-  url "http://bisqwit.iki.fi/src/arch/regex-opt-1.2.3.tar.gz"
-  sha256 "e0a4e4fea7f46bd856ce946d5a57f2b19d742b5d6f486e054e4c51b1f534b87e"
+  url "http://bisqwit.iki.fi/src/arch/regex-opt-1.2.4.tar.gz"
+  sha256 "128c8ba9570b1fd8a6a660233de2f5a4022740bc5ee300300709c3894413883f"
 
   bottle do
     cellar :any_skip_relocation
