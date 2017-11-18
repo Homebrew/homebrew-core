@@ -1,8 +1,8 @@
 class Psftools < Formula
   desc "Tools for fixed-width bitmap fonts"
   homepage "https://www.seasip.info/Unix/PSF/"
-  url "https://www.seasip.info/Unix/PSF/psftools-1.0.7.tar.gz"
-  sha256 "d6f83e76efddaff86d69392656a5623b54e79cfe7aa74b75684ae3fef1093baf"
+  url "https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz"
+  sha256 "1bc03214a29c4fc461a7aa11b9a3debde419b1271fa5110273ded961774e2b6f"
 
   bottle do
     cellar :any
