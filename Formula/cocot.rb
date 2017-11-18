@@ -8,11 +8,9 @@ class Cocot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2631b1aa093e76762204fb074f9999a80c6416d1ffec39a0b465356fed4e908f" => :high_sierra
-    sha256 "07cb7945722ff5a3e877f4e992d9ffaf56ed6147422ee2efab58b9cef6416b35" => :sierra
-    sha256 "11efeaa69619030b19cbed51861d2af97d0e359bf3cd7d82b58af56e081911ae" => :el_capitan
-    sha256 "13cef35dc54d9715956e142ee7a4cc2dfae1a50276f111d595057654099db80b" => :yosemite
-    sha256 "307edb7057d0c5601ad9e1d9ad65cb15fd7416304b565deac6929e95f2295c74" => :mavericks
+    sha256 "0070eb38e06043e3c1a4ad1b77205a6ed978ed300e8d0bb407391fecb191b050" => :high_sierra
+    sha256 "a91ba93032e33b6a062b82f2df0b9170d5269cf0312d75eb6f16341fca54f9bd" => :sierra
+    sha256 "60cbdadb074b019535319e5089d5c55c43b68e0b52a73b01cec3a9a8311e51a4" => :el_capitan
   end
 
   def install
