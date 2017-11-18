@@ -5,11 +5,9 @@ class Hercules < Formula
   sha256 "890c57c558d58708e55828ae299245bd2763318acf53e456a48aac883ecfe67d"
 
   bottle do
-    sha256 "9b3545470763509a09f2dad1b40ff6df5f9226019ab10fc44d1fab83ab2a6a78" => :high_sierra
-    sha256 "3e0b0250e45b945a39af795d08d42f541fb77c39abba510c6f069b8901c4b439" => :sierra
-    sha256 "d7e872e32dfb1b648b183725de1290db4b2b8b9ea9b9b895cb517f213b046900" => :el_capitan
-    sha256 "d1cee67e5294f4bc32cdb9e4126d75d9313d55aca7f3bb43a3fa96483f45afdf" => :yosemite
-    sha256 "fbc13a5fd68642f842d07edf3c7439617e770fdf7b0cf5d1cfcff30a93ac4d33" => :mavericks
+    sha256 "f1feaf922ae9105c64ba207bc9e2d9b573ddcae8b6feaba501a6daf3068e9901" => :high_sierra
+    sha256 "a9ca5fff16a7aa506e2067d7bad9bbb8c54ede7af0e1102150f5d385a7097e9d" => :sierra
+    sha256 "cf3d8203cb207792e0c800aadc86ee78714795316e936870f5a4ceae53bfdacc" => :el_capitan
   end
 
   skip_clean :la
