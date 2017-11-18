@@ -5,6 +5,13 @@ class Restic < Formula
   sha256 "6d795a5f052b3a8cb8e7571629da14f00e92035b7174eb20e32fd1440f68aaff"
   head "https://github.com/restic/restic.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fcaf988b191c6d859a77fd670f88e3d866cb7e5df07d098367a3d65520b27221" => :high_sierra
+    sha256 "fcaf988b191c6d859a77fd670f88e3d866cb7e5df07d098367a3d65520b27221" => :sierra
+    sha256 "fcaf988b191c6d859a77fd670f88e3d866cb7e5df07d098367a3d65520b27221" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
