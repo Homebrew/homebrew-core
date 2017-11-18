@@ -51,6 +51,7 @@ class LincityNg < Formula
   end
 
   test do
+    (testpath/".lincity-ng").mkpath
     assert_match /lincity-ng version #{version}$/, shell_output("#{bin}/lincity-ng --version")
   end
 end
