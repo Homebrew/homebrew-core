@@ -7,10 +7,9 @@ class MysqlSandbox < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "90b02707caf967fe9b274b7193ba4cc875d29f8a3c1769d0329ec499d1c83f5f" => :high_sierra
-    sha256 "3fa11324b9653efb27173bfdde42c821e3494a330eec52c54010edbc1c7d9f03" => :sierra
-    sha256 "f613b7d1d5c1d70f5d56147160bc0fc57b5376e99ee708acebd2edaea4a48f22" => :el_capitan
-    sha256 "f613b7d1d5c1d70f5d56147160bc0fc57b5376e99ee708acebd2edaea4a48f22" => :yosemite
+    sha256 "d4e759b142749603bcd2101e134f0668c08d7bafd8d7a5ee7cce1de50c771f51" => :high_sierra
+    sha256 "80bc9ae9480579cf9a96512340557fe1b700767faaebadae771c466d9d46fcf0" => :sierra
+    sha256 "5c55955ca9545dc227470a2793054a2c0becb59fa0c2c18012717877deda308a" => :el_capitan
   end
 
   def install
