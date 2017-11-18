@@ -5,10 +5,9 @@ class Gromacs < Formula
   sha256 "4be9d3bfda0bdf3b5c53041e0b8344f7d22b75128759d9bfa9442fe65c289264"
 
   bottle do
-    sha256 "d3cb6d19f2f26d259bb717b3575cf514f7bade230531b11ec0d1d21b4d9dd676" => :high_sierra
-    sha256 "90faa8b279f78823dae87bea50c3f1e88f9ede89678fb3f1711f643f576359a1" => :sierra
-    sha256 "10f94061644f511939db8cc4d4c06ee767901c7aebd54c95872cc547b85826f7" => :el_capitan
-    sha256 "3b93cbd26c93a4abb5401b7d87bfc8cb27d4b9641acecf47c26675f0fbd0f8e6" => :yosemite
+    sha256 "eb7f67951a1d269c87643441f92218a5f2ee670b0aca2aa1a554419bab36270a" => :high_sierra
+    sha256 "fe04d6ed6aa2992f13a8d7bd7b027313226034c7536dd0586875bbd1fb8babd3" => :sierra
+    sha256 "2c48ca08b9feaeb46d2becae8c19eace53dd68bbf7b9628ece2aff4b1020e168" => :el_capitan
   end
 
   option "with-double", "Enables double precision"
