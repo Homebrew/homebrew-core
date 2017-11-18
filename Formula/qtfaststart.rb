@@ -1,8 +1,8 @@
 class Qtfaststart < Formula
   desc "Utility for Quicktime files"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-11.6.tar.gz"
-  sha256 "4df17921e3b87170d54b738f09241833c618d2173415adf398207b43d27e4b28"
+  url "https://libav.org/releases/libav-12.2.tar.gz"
+  sha256 "49c3ccda32458192c00ab25b30f4d1a6a4772b83458cbbf3a25b210d0688f55c"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class Qtfaststart < Formula
   end
 
   resource "mov" do
-    url "http://download.wavetlan.com/SVV/Media/HTTP/H264/Talkinghead_Media/H264_test4_Talkingheadclipped_mov_480x320.mov"
+    url "https://github.com/van7hu/fanca/raw/master/examples/kmplayer/samples/H264_test4_Talkingheadclipped_mov_480x320.mov"
     sha256 "5af004e182ac7214dadf34816086d0a25c7a6cac568ae3741fca527cbbd242fc"
   end
 
