@@ -40,6 +40,7 @@
   "fbida": "exiftran",
   "ffmpeg28": "ffmpeg@2.8",
   "fig": "docker-compose",
+  "findbugs": "spotbugs",
   "freetds091": "freetds@0.91",
   "gcc46": "gcc@4.6",
   "gcc47": "gcc@4.7",
