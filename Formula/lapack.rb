@@ -1,8 +1,8 @@
 class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "http://www.netlib.org/lapack/"
-  url "http://www.netlib.org/lapack/lapack-3.7.1.tgz"
-  sha256 "f6c53fd9f56932f3ddb3d5e24c1c07e4cd9b3b08e7f89de9c867125eecc9a1c8"
+  url "http://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
+  sha256 "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
@@ -20,6 +20,8 @@ class Lapack < Formula
   depends_on "gcc"
 
   def install
+    ENV.delete("MACOSX_DEPLOYMENT_TARGET")
+
     mkdir "build" do
       system "cmake", "..",
                       "-DBUILD_SHARED_LIBS:BOOL=ON",
