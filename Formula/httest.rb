@@ -6,10 +6,9 @@ class Httest < Formula
 
   bottle do
     cellar :any
-    sha256 "a87b607ce09404d86f282acb62eb0481c8a2932396453fa4c9ce7cf1fb353d2d" => :high_sierra
-    sha256 "639ccc35988ae5df41ee3774343df00c447698453fcd9958a247ce81f0a24de2" => :sierra
-    sha256 "8d69771ad06e4d2e2bdd692255d8e55f272338414e5998b106dac669d96bba96" => :el_capitan
-    sha256 "9d738b97356995a8e8cf68aa25cb7ebba74c659ffbf0d8f33f9a8984482ec36a" => :yosemite
+    sha256 "f10e8bb19fd3e2336f38be2dd6572dee152c0e89a0a46f2c46d3082c9eb82588" => :high_sierra
+    sha256 "e831dbdbebadc52f9cb76759ccf28564d74748a08a6074056b5b33b299e16e67" => :sierra
+    sha256 "230797d386a267bbe2cc60de874f9da4cb58abcebd6d420d768a2d7e9a0a7e51" => :el_capitan
   end
 
   depends_on "apr"
