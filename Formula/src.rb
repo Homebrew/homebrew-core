@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.12.tar.gz"
-  sha256 "f51392ef4b55618b95a1e3859555c92879a7cd09dd4736e5b091a7fee392d9d4"
+  url "http://www.catb.org/~esr/src/src-1.17.tar.gz"
+  sha256 "1362068b46c035a8d19cafd12e3b23b8251c667bd98242f9c7b05b842f2c089d"
 
   bottle do
     cellar :any_skip_relocation
