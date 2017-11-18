@@ -6,10 +6,10 @@ class Pngquant < Formula
   head "https://github.com/pornel/pngquant.git"
 
   bottle do
-    sha256 "a7cf5dcbf8c6ab8f972e3c7f3d7a30f0f6e7d61fe71ec71cc8c4bda8202d347a" => :high_sierra
-    sha256 "b0f4b97ed674cb11b17800d1e4ec1f313a17075710781d285efa27c37043e7a9" => :sierra
-    sha256 "d11640da698b0bc298dbcf57e2153e9e0db0beadf8414dd4b326388b92ee909f" => :el_capitan
-    sha256 "dd5333cb7c02d99eee6371f542ca14255e9b5c44f2191694e7bf60d4b0f6240a" => :yosemite
+    cellar :any
+    sha256 "d32d63df7c57e37dbd707e098b4cb4620c02d1ee6d501f5ac74a0d35a12ba8ca" => :high_sierra
+    sha256 "979de71b3d8ccedeb91f833d2f27b9d829280cf04d60bba23080d31eec3cb5d7" => :sierra
+    sha256 "42b3911c048d6d84a0bc8ad78d2c2d93b54e2469a214ae517557dfdccf0aab60" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
