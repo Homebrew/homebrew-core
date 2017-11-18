@@ -6,11 +6,9 @@ class Ratfor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2743bf8e19207d091c78dd3678684d11d3ade82e6ac92e5889276298dad96888" => :high_sierra
-    sha256 "dd664eb57c726232601a1ca211a6f8a10a29313fc91334f749517e8920fed203" => :sierra
-    sha256 "6998ed33f7547a097ced8ce5407756c50145d21ece1c8cd3474e6c9eeefd89c7" => :el_capitan
-    sha256 "2d368db5719c280340140998d525279a5f5178c0acccdecc7281f38f3d07c563" => :yosemite
-    sha256 "0544b9e974932e28f090aad1c54dd0c6708ebf1d7a0d3657a150cdb4fdb0cf36" => :mavericks
+    sha256 "c3fce149ad7259cf7bf2873d92434bf4882c065fd4f29e21f9bc5d19470879fd" => :high_sierra
+    sha256 "fe4b59768af9db9e323ce5419e8387ffdd29b45e89f2651340a45e037ebf2336" => :sierra
+    sha256 "93d6bbe2c8b41e06adaadd365672c651f2fa1942aa283875bc1e54f8cec34fb3" => :el_capitan
   end
 
   depends_on :fortran
