@@ -1,8 +1,8 @@
 class Htmlcleaner < Formula
   desc "HTML parser written in Java"
   homepage "https://htmlcleaner.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.18/htmlcleaner-2.18-src.zip"
-  sha256 "d16250d038b5adc2a343fb322827575ddca95ba84887be659733bf753e7ef15b"
+  url "https://downloads.sourceforge.net/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.21/htmlcleaner-2.21-src.zip"
+  sha256 "7b88e37b642170ef225eba380a97999d97dc84650f0ecb14ffed6fcf1d16c4a7"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,20 @@ class Htmlcleaner < Formula
   end
 
   depends_on "maven" => :build
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def install
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+
     system "mvn", "--log-file", "build-output.log", "clean", "package"
     libexec.install Dir["target/htmlcleaner-*.jar"]
-    bin.write_jar_script "#{libexec}/htmlcleaner-#{version}.jar", "htmlcleaner"
+
+    (bin/"htmlcleaner").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME=$(#{cmd})
+      exec java  -jar #{libexec}/htmlcleaner-#{version}.jar "$@"
+    EOS
   end
 
   test do
