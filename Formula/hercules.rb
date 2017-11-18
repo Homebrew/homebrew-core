@@ -1,8 +1,8 @@
 class Hercules < Formula
   desc "System/370, ESA/390 and z/Architecture Emulator"
   homepage "http://www.hercules-390.eu/"
-  url "http://downloads.hercules-390.eu/hercules-3.12.tar.gz"
-  sha256 "aefbe9d2f09372a530c17c177b7d2a0f4bcf8cfd28474672935b067e5f9ee373"
+  url "http://downloads.hercules-390.eu/hercules-3.13.tar.gz"
+  sha256 "890c57c558d58708e55828ae299245bd2763318acf53e456a48aac883ecfe67d"
 
   bottle do
     sha256 "9b3545470763509a09f2dad1b40ff6df5f9226019ab10fc44d1fab83ab2a6a78" => :high_sierra
