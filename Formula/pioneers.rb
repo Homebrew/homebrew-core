@@ -5,10 +5,9 @@ class Pioneers < Formula
   sha256 "9a0d3198dc0ddf131d9e6d6e9992347fe2a2d99f508f1be1b30c5797210a2ddc"
 
   bottle do
-    sha256 "7077d041a45570cd020338a7aeeca2804675d993ae46db6d0f3364c41840f8ab" => :high_sierra
-    sha256 "ab5a8f58765f5121b134507c3c12e0f4f6c0bf26a5ccddb1ad07f3b8046831f0" => :sierra
-    sha256 "125fda4a203f876a2e58f46986e778989d7b8edfaed38069a6dea2d8f11ea4f7" => :el_capitan
-    sha256 "4dcd7c97726388e3175cfbf9bfe9aee17deb7d5894d7a864bdcf2b9295b7b0ed" => :yosemite
+    sha256 "96e83542f86672e1b874b2dad3441333ad65d9b687262fc126da1a9b189dd52d" => :high_sierra
+    sha256 "814dfc13c0cb4096ae6d84ab1b7210c1ef1c49e3f542bcb0adcac03e72e7384b" => :sierra
+    sha256 "c6799c8d4de3d80c55a81b66b726dafdab710a16b40cf704cc6dadb5a96fba3f" => :el_capitan
   end
 
   fails_with :clang do
