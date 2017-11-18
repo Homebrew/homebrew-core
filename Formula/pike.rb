@@ -1,9 +1,8 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se"
-  url "https://pike.lysator.liu.se/pub/pike/all/8.0.438/Pike-v8.0.438.tar.gz"
-  sha256 "3865f8a4c9ba95c006602f24cc6ad0c07e9f936135d2346e21da627807a90ca0"
-  revision 1
+  url "https://pike.lysator.liu.se/pub/pike/all/8.0.498/Pike-v8.0.498.tar.gz"
+  sha256 "b14ceccb26f37dbd9e078d87648a95f0501f290e89ae9b8197b2376d13eb1f2b"
 
   bottle do
     sha256 "d968101e005e78ac529b9b7bb29cfe546e2dc8231ac2d3d7282ac1f3185751c8" => :high_sierra
