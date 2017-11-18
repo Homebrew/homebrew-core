@@ -1,8 +1,8 @@
 class Libcello < Formula
   desc "Higher-level programming in C"
   homepage "http://libcello.org/"
-  url "http://libcello.org/static/libCello-2.0.3.tar.gz"
-  sha256 "2ebe995f0175c8397f41a32751e60d1b4907eddae7c1442c67d484a16d1c6b99"
+  url "http://libcello.org/static/libCello-2.1.0.tar.gz"
+  sha256 "49acf6525ac6808c49f2125ecdc101626801cffe87da16736afb80684b172b28"
   head "https://github.com/orangeduck/libCello.git"
 
   bottle do
