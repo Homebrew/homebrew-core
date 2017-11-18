@@ -1,8 +1,8 @@
 class Swfmill < Formula
   desc "xml2swf and swf2xml processor"
   homepage "https://swfmill.org"
-  url "https://www.swfmill.org/releases/swfmill-0.3.4.tar.gz"
-  sha256 "514843cdacd1c95a1a8b60a3f4f4fc6559932fb270c6a0585ad5c3275da03589"
+  url "https://www.swfmill.org/releases/swfmill-0.3.6.tar.gz"
+  sha256 "db24f63963957faec02bb14b8b61cdaf7096774f8cfdeb9d3573e2e19231548e"
 
   bottle do
     cellar :any
@@ -16,12 +16,6 @@ class Swfmill < Formula
   depends_on "libpng"
 
   def install
-    # Use inreplace instead of a patch due to newlines
-    # Reported usptream: https://github.com/djcsdy/swfmill/issues/32
-    inreplace "src/swft/swft_import_ttf.cpp",
-      "#include <freetype/tttables.h>",
-      "#include FT_TRUETYPE_TABLES_H"
-
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
