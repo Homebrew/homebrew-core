@@ -7,12 +7,9 @@ class GitReview < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c85cbc3a6edfb26d9444b62316c51e8a282f6e53b009ce74d029a32d5285b10a" => :high_sierra
-    sha256 "010b350002428223dc5a2c0d3639a3e2c5d889a1369d1d3a39ae77a7f2075a90" => :sierra
-    sha256 "61b0cc402cb811d105da4f8a97472fe20818266e9b8e7275602ed378c8ce2e75" => :el_capitan
-    sha256 "494c845139d081b189fcb98e708a0ae8ffddfea4b5c80c4e916abb30dc07450c" => :yosemite
-    sha256 "4f83f2c08de81ea1c9c8f200ee5244e06449e68d5cff8d028d36b5e4022b511e" => :mavericks
-    sha256 "fd4f64dfc96931c075790f27cf4fb077ab0378e04addff2a885e3c99ae58e13a" => :mountain_lion
+    sha256 "5187b16328f105d195c58b4a978f8232b98b47e9cb91557f15ce4ca439a50385" => :high_sierra
+    sha256 "5187b16328f105d195c58b4a978f8232b98b47e9cb91557f15ce4ca439a50385" => :sierra
+    sha256 "661bd93e96795bb2ef4a0260fc441fd6eb437bb109e9f4353a577db638617c58" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
