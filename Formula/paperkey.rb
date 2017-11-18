@@ -6,10 +6,9 @@ class Paperkey < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1bec14c3466ebbfed0b3274e7b0a4ec1fad3250def1f8042596ec47039ce35e6" => :high_sierra
-    sha256 "124e141330feb1837f2c282084f0b651118fc8f3e881246ef19004e2e636f640" => :sierra
-    sha256 "0fa35d8d6b75a8bfa74b4b81b3f180bf76a64b5c987fd1f46e64d36473c6754e" => :el_capitan
-    sha256 "456397338a1d99f8559f9b071c2d7856976a6308535237e463f020264d5061e2" => :yosemite
+    sha256 "a541e2c254870a1e53049a478dd7067537a7d3e9ededad8123fd7d9f7c48f576" => :high_sierra
+    sha256 "9c96b3110a0af3abb54d19f6fb73b60bbcf1868e5343ba69fde37d7abbd5714c" => :sierra
+    sha256 "e98cb1a1b43ec005129d6346a7d6df00bcc50ce12366bb741581f448f9321d59" => :el_capitan
   end
 
   resource "secret.gpg" do
