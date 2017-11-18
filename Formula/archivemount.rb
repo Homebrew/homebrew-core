@@ -1,8 +1,8 @@
 class Archivemount < Formula
   desc "File system for accessing archives using libarchive"
   homepage "http://www.cybernoia.de/software/archivemount.html"
-  url "http://www.cybernoia.de/software/archivemount/archivemount-0.8.3.tar.gz"
-  sha256 "e78899a8b7c9cb43fa4526d08c54a9e171475c00bf095770b8779a33e37661ff"
+  url "http://www.cybernoia.de/software/archivemount/archivemount-0.8.7.tar.gz"
+  sha256 "47045ca8d4d62fbe0b4248574c65cf90a6d29b488d166aec8c365b6aafe131b6"
   head "http://cybernoia.de/software/archivemount/git"
 
   bottle do
