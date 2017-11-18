@@ -5,10 +5,9 @@ class Pike < Formula
   sha256 "b14ceccb26f37dbd9e078d87648a95f0501f290e89ae9b8197b2376d13eb1f2b"
 
   bottle do
-    sha256 "d968101e005e78ac529b9b7bb29cfe546e2dc8231ac2d3d7282ac1f3185751c8" => :high_sierra
-    sha256 "0251c2e968307aec3ce415c257e897e76b2968055334764407711dcf191c78ff" => :sierra
-    sha256 "d631d66fbaa6053e9cf6fe9ecab1af00db0dc504c3cd4b86962e54ab7269f9d9" => :el_capitan
-    sha256 "44fc539a915050d3521b91f87f387937f3727179a89f4a51bec9973ac98f1bf5" => :yosemite
+    sha256 "9b3c1d8c9a1eceef90ce1bfe78137b0ccd726ec5dfc12f9746a471c5e855f92a" => :high_sierra
+    sha256 "c8abc1e8fcc26523b257cd2144c22a27ed6063c07e33193c70e3d0898c94fa86" => :sierra
+    sha256 "1ecfea274c44b5d087003b51acb934c4c3cc8494667cbaa4f6d57c1e919a2e20" => :el_capitan
   end
 
   option "with-gettext", "Include Gettext support"
