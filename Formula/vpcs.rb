@@ -6,12 +6,9 @@ class Vpcs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "99433e0f18aa11f637b9cfa854bdf38a5754292477db27847419b1c6fcd9c6cc" => :high_sierra
-    sha256 "c98123da9a4158f1b9c2cb7757f553e172adf64f106028af07aee50e9d4e9111" => :sierra
-    sha256 "b0f62e8959cb98038b817174eec35dd657a8107241f58fc1421a57adcb1eedea" => :el_capitan
-    sha256 "d905fc7dd6ca0dd07a0bafb6d8e71bebd0d2c3c516c0c00f6adb87aebf6d7057" => :yosemite
-    sha256 "a6a5285281f81b0f035b024f0f8e81211ac71f69390c5c6d03820ce7eccdc116" => :mavericks
-    sha256 "713bc04995e9cbe4cafc759643035b0b34431c5c3e559ff60ede0e674cfe4538" => :mountain_lion
+    sha256 "ac52b231d875679e7bd4da3a09c6b5bc833e5b93fe5a77749dc834b1d82d21d5" => :high_sierra
+    sha256 "78c7e415e9bcbdf28cfdda5d37fce9cc7d735b01d61400b41239e0cdee17ada5" => :sierra
+    sha256 "0f1a65e672fd1d2dbc866279835231ec3737e64c514f38a08bf409807e910222" => :el_capitan
   end
 
   def install
