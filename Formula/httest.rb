@@ -1,8 +1,8 @@
 class Httest < Formula
   desc "Provides a large variety of HTTP-related test functionality"
   homepage "https://htt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.19/httest-2.4.19.tar.gz"
-  sha256 "0cf2454de50995c14c460040cdf29863dd49082805e2bc61fb6938a7042b2dbd"
+  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.22/httest-2.4.22.tar.gz"
+  sha256 "b63ab35ee500cf7985df7c365aca20f41dde0bab585f67865cf588b2ff1206fb"
 
   bottle do
     cellar :any
