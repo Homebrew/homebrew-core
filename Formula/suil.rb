@@ -5,12 +5,9 @@ class Suil < Formula
   sha256 "9895c531f80c7e89a2b4b47de589d73b70bf48db0b0cfe56e5d54237ea4b8848"
 
   bottle do
-    rebuild 1
-    sha256 "1fdfdf3ad22d6898fbc25ac62aed61fdadff229dfa8ae80ecb351b756cd85e4c" => :high_sierra
-    sha256 "3b7b1944db83edb792e26ebbd610cb5310357e2f24983ab7dd8be0c0c7dd4aeb" => :sierra
-    sha256 "30069bffb5c8f3903f4888135c3d1939f1329a19fda93b3bc8bf244827413995" => :el_capitan
-    sha256 "30c20891f724dfe103704e1b3c4e17b068a152fb3098560462a156fba29474c7" => :yosemite
-    sha256 "0f82a7cf59da98e7dfbdf437ee22c412eb5e52a821acba2f92b65de4ea7a5fe6" => :mavericks
+    sha256 "3afa0d6be51f6edd803fa1d295a5b1816e2ea36a53c0921174360231b41dfe95" => :high_sierra
+    sha256 "a31a360a2eb861408d9b7df5abee8f1368b83899bacb0ac065e37dd9290b8220" => :sierra
+    sha256 "ebd26a4d8d4d7ff3531ea93c3da499b333dd42b8ffa0b3ad70d79976a5c5fbe9" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
