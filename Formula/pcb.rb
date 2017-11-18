@@ -6,10 +6,9 @@ class Pcb < Formula
   version_scheme 1
 
   bottle do
-    sha256 "ec94bcde5dd1536e1fe0c5aa9de8e185471b5d06a8c18325ac70e9666dbd9a9b" => :high_sierra
-    sha256 "2662ca0773a1a10c2e1e203c9186ddb066659b94d854e079e45853aaf3e21aea" => :sierra
-    sha256 "7662578205878b0c46db601619a5370db18f1c9abbb5111e28c5c52e2aa21c44" => :el_capitan
-    sha256 "b5c1c8ce425cfc22d328254e03bf40b463521577f055c182f3807f5bcf9db033" => :yosemite
+    sha256 "52874efdeb2c50a31b58f4e0855c89766205a59f376e189ee1f7ec90728092cc" => :high_sierra
+    sha256 "dfe4690fa564d2321b314a701f33e4611a8e5bf4454293e2d317278deead9733" => :sierra
+    sha256 "c92046ddc82149c0bb382d7701055ce8e468731dee510da68aabe07b62fda962" => :el_capitan
   end
 
   head do
