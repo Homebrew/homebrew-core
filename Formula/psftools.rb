@@ -6,11 +6,9 @@ class Psftools < Formula
 
   bottle do
     cellar :any
-    sha256 "984bfbb42595e84c8a71228b51b01cfb6844736340101b80998ff0da46ea0933" => :high_sierra
-    sha256 "0e8f5ac8fd1dab5c23865b886463f71fbd9013803e97bb934dc6905e46f635fc" => :sierra
-    sha256 "66a389177a272c5a03ca11f1cb8f32fdac2899117812ad9206fe6744b4b9118d" => :el_capitan
-    sha256 "7e51a8f4c5605780528091208dfdb018c4a7ca0e56ff81cb75715b95fb8a9e9b" => :yosemite
-    sha256 "eddaf9caf5a4bb2545665c5323821f883e973ee815b87e7286b9a5b7a2fc3c85" => :mavericks
+    sha256 "40c3b6b56dfa842d6a3058d5082bbe16dd3ef0360258279cca98f9da05ec9cd4" => :high_sierra
+    sha256 "532260f14b0b77301c7bf6b89ae1cf7f5948f26dc9d27898bb5588cb9cd4f99e" => :sierra
+    sha256 "ecfe3cabea7cb93be49b1189394253c09f8614877e76f8d7f59a7c1e05bc0128" => :el_capitan
   end
 
   depends_on "autoconf" => :build
