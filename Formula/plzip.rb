@@ -1,8 +1,8 @@
 class Plzip < Formula
   desc "Data compressor"
   homepage "http://www.nongnu.org/lzip/plzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.5.tar.lz"
-  sha256 "0e2e8644b0ec2c4319d0fab470eeb1bc41f36bdd612882beec332149a7aa564b"
+  url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.6.tar.gz"
+  sha256 "5d1d79fe4a1e41aa05e3926d067243efbaa607ed238036152f867662b7d14c7c"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,13 @@ class Plzip < Formula
   end
 
   depends_on "lzlib"
+
+  # error: unknown type name 'pthread_mutex_t' and 'pthread_cond_t'
+  # Reported 24 Nov 2017 to lzip-bug AT nongnu DOT org
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/68e2af8/plzip/pthread.diff"
+    sha256 "9e6653248ade666922b353b362eda6383af73c85cd93936c70bd8257e027f2b1"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"
