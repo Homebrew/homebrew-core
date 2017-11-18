@@ -6,11 +6,9 @@ class Qd < Formula
 
   bottle do
     cellar :any
-    sha256 "0521889565734afc8faa992fbaa7735f934e6ba9a758e11760c8a0cb150dba3f" => :high_sierra
-    sha256 "a1354aeb2b037bd7c201f454e15beb266990355b617309fcf383bea6ac3f67b2" => :sierra
-    sha256 "02f2e11cae957f20fee46218a559368ac2c44cfdf6edd042c7430c3f5e3c5227" => :el_capitan
-    sha256 "bd53e8612f09d48ffcfd9d981717e94ae5c617c08c0e2b0e8250ea085a75dd57" => :yosemite
-    sha256 "35c7acae6a87c02301cde8c5d76b59bb696d9c3dd04970948c5fdbe3c1c6776e" => :mavericks
+    sha256 "d38cb453d92a16e57f3b070117bca8fc6f9af3bfb80f9a4e6e09755c1ac803fe" => :high_sierra
+    sha256 "473b459248304ec63dbaed62c345273e9625b64c0b654226e97c3a48b699ceaa" => :sierra
+    sha256 "5e2f24e0bf506991d3e962bcffafbd608f0c3ff812fb71214f27f18e63eb9da0" => :el_capitan
   end
 
   depends_on :fortran => :recommended
