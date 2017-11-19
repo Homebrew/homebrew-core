@@ -1,9 +1,8 @@
 class Libfreehand < Formula
   desc "Interpret and import Aldus/Macromedia/Adobe FreeHand documents"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
-  url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.1.tar.xz"
-  sha256 "ec6676d0c63f7feac7801a1fe18dd7abe9044b39c3882fc99b9afef39bdf1d30"
-  revision 1
+  url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz"
+  sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
 
   bottle do
     cellar :any
@@ -25,6 +24,7 @@ class Libfreehand < Formula
                           "--disable-dependency-tracking",
                           "--enable-static=no",
                           "--disable-werror",
+                          "--disable-tests",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
