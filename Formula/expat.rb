@@ -12,7 +12,7 @@ class Expat < Formula
     sha256 "618683020e64ef1ca99d0c2f388262cf32117d93d7f047bf8251461d8af3f04e" => :el_capitan
   end
 
-  keg_only :provided_by_osx, "macOS includes Expat 1.5"
+  keg_only :provided_by_macos
 
   def install
     system "./configure", "--prefix=#{prefix}",
