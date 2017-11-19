@@ -5,10 +5,9 @@ class Modules < Formula
   sha256 "b108b9a91a6b10119a9a288fd3fba56d82a7a17b13c4bbb65b7e147933b461c4"
 
   bottle do
-    rebuild 1
-    sha256 "afe435544abcc2afeb11daadf8bf0c6aaa0e02c8c4d9c5e551492162815f1530" => :high_sierra
-    sha256 "ffadd406acde1d6504f0ce6c88cf126018949981f9848a2ce64fb9d5f1461b44" => :sierra
-    sha256 "bc0333898b9c4a145bb648ec7759cc2f4082d37543b8a64abbea735cfe8fb393" => :el_capitan
+    sha256 "5f23fd8c96a6b9047747adfff0da7253f1ee2a76aba50e5207db94df0c36e1df" => :high_sierra
+    sha256 "4dcf5079c561109c8ccbb83285b772a10f39527ee07f22307984b8727d103dc2" => :sierra
+    sha256 "cf6c0306f9cd778d8925dd76ffed099db8dbaeabcb8d2f6b82c0d58b0c34db50" => :el_capitan
   end
 
   depends_on "coreutils" => :build # assumes GNU cp options are available
