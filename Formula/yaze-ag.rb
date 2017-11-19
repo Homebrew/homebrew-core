@@ -1,8 +1,8 @@
 class YazeAg < Formula
   desc "Yet Another Z80 Emulator (by AG)"
   homepage "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/"
-  url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.30.1.tar.gz"
-  sha256 "bd1cbb447365bacdc5a890f7eb1f57cf67a5a48652244f65449557b453b6d446"
+  url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.30.3.tar.gz"
+  sha256 "f63c29a07ed7c17d8159ffe947d95d432147d7d6fad5d04b6fb75f341de121e6"
 
   bottle do
     sha256 "52ee38a9a11caa9698f9d370c01aa5838cc3bacf6a88464d0d5eb93083390cf7" => :high_sierra
@@ -27,7 +27,8 @@ class YazeAg < Formula
   end
 
   test do
-    system "#{bin}/yaze", "'sys quit'"
+    (testpath/"cpm").mkpath
+    assert_match "yazerc", shell_output("#{bin}/yaze -v", 1)
   end
 end
 
