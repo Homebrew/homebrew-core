@@ -6,10 +6,9 @@ class Uftp < Formula
 
   bottle do
     cellar :any
-    sha256 "95b11113a4e4bd3f5b01bac7d9d19aad3676efa39c7998be950801a23104cd47" => :high_sierra
-    sha256 "2ed1f0e406d7bdaf1049423c6de48034316824b130d46e1fcfab96fb1fe6793f" => :sierra
-    sha256 "c49b3cf58a37d51d6a7632a77b420aa7e7a062ced9f8db69a02eb24f7d815a16" => :el_capitan
-    sha256 "0552cd9d29e3be5764800da063a14179117bb4f1aecade1ae2ec36fd52a5d7fe" => :yosemite
+    sha256 "a3293a806be81f2317fa0cef56c72e1a3661822414d7687d2cc00598a5a2fbd7" => :high_sierra
+    sha256 "5eaad736c42e840f384b205cbdbbb8704be1cc7e7d05bcc06f89cc0f5d34fc76" => :sierra
+    sha256 "2c28f6ae8821838b596cf31f8011a321be0ecc0a47a9ee9b56fab4357d702877" => :el_capitan
   end
 
   depends_on "openssl"
