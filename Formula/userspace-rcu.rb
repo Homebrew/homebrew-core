@@ -1,8 +1,8 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://lttng.org/urcu"
-  url "https://www.lttng.org/files/urcu/userspace-rcu-0.9.1.tar.bz2"
-  sha256 "f8d278e9d95bec97c9ba954fc4c3fb584936bc0010713a8fe358b916bafd8715"
+  url "https://www.lttng.org/files/urcu/userspace-rcu-0.10.0.tar.bz2"
+  sha256 "7cb58a7ba5151198087f025dc8d19d8918e9c6d56772f039696c111d9aad3190"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,9 +20,6 @@ class UserspaceRcu < Formula
     # workaround broken upstream detection of build platform
     # marked as wontfix: https://bugs.lttng.org/issues/578#note-1
     args << "--build=#{Hardware::CPU.arch_64_bit}" if MacOS.prefer_64_bit?
-
-    # workaround broken syscall.h detection
-    inreplace "urcu/syscall-compat.h", "defined(__sun__)", "defined(__APPLE__)"
 
     system "./configure", *args
     system "make"
