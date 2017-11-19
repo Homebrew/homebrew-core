@@ -6,10 +6,9 @@ class Reminiscence < Formula
 
   bottle do
     cellar :any
-    sha256 "7eef70a73cb617c1ce9cd25b498634633025e9b5f653c4759993b00ea57afa31" => :high_sierra
-    sha256 "062ba9c02ce35d463119df045dda6484dbfb09f853dcebef6cc5bed42991f1d2" => :sierra
-    sha256 "83ceaab9230a493bd1c86d1db0c9b4fa77070c0cc495339006852781d69aac9d" => :el_capitan
-    sha256 "ca207b017eebbf2b7e9aca765f2c73aadef3a1f66b602e67189f1b8534e91c11" => :yosemite
+    sha256 "002eb378f1f32e0360b6c87ac9cf9f3448d1fb4645aaa16b5ef2dbaf50d551f9" => :high_sierra
+    sha256 "db8a0cde02a3b4300ad14c5ae68a8c948eb36b42b1f5e9044563d98cd47176ae" => :sierra
+    sha256 "72fc5d199d3ebe848911fbe02eeafa64d3d3b38f063e997e4a5176ef02bca81b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
