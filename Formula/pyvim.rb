@@ -6,11 +6,9 @@ class Pyvim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4fb3d51c6c7e061fe3eae2ad3b9d62a9b79f1541217fd70c68c63d7f8dd6032e" => :high_sierra
-    sha256 "a2a2f3d091eb0d197276646bc092a2317443527574cd015d3862526613c455ea" => :sierra
-    sha256 "02b67a7b79ef341d0140de636ceabdddf8dee46212cdc303b0110fcbf5b08a4f" => :el_capitan
-    sha256 "b88954d67cb3cc4663e58b835bba56d2827b84b71e239ef58c036aac7b0b5c12" => :yosemite
-    sha256 "ff4daf14062aca74555c3d8e1a90bc464051c804300d7222e197b374ee196d2c" => :mavericks
+    sha256 "76dd168a56f90e7fb10497a5ed9d97891f023611a9b154bd5cd4bfba80bce19a" => :high_sierra
+    sha256 "76dd168a56f90e7fb10497a5ed9d97891f023611a9b154bd5cd4bfba80bce19a" => :sierra
+    sha256 "76295ee3821641b9ce9f951372b82a393e30d21e2420f870a0f8acef52e561b3" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
