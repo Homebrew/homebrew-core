@@ -1,9 +1,9 @@
 class Nettle < Formula
   desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
-  url "https://ftp.gnu.org/gnu/nettle/nettle-3.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.3.tar.gz"
-  sha256 "46942627d5d0ca11720fec18d81fc38f7ef837ea4197c1f630e71ce0d470b11e"
+  url "https://ftp.gnu.org/gnu/nettle/nettle-3.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/nettle/nettle-3.4.tar.gz"
+  sha256 "ae7a42df026550b85daca8389b6a60ba6313b0567f374392e54918588a411e94"
 
   bottle do
     cellar :any
