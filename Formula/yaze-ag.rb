@@ -5,11 +5,9 @@ class YazeAg < Formula
   sha256 "f63c29a07ed7c17d8159ffe947d95d432147d7d6fad5d04b6fb75f341de121e6"
 
   bottle do
-    sha256 "52ee38a9a11caa9698f9d370c01aa5838cc3bacf6a88464d0d5eb93083390cf7" => :high_sierra
-    sha256 "775c57ada68a6fe3b3f693e6bf43ec7767b2f800a9c7d4b3bf49bffe9fb1efa6" => :sierra
-    sha256 "5eb10500804ccc5a303342141d12e7bb0533d47b637910425f4a3401aef9765c" => :el_capitan
-    sha256 "1d4ef021b9c46e67201f36bce3dc40a214c463ecc51bb5d22090a9ee11cd17ce" => :yosemite
-    sha256 "c39f691f2a2e5d01a0490f1772465545959ac4f7836fd2873aec4eac7a6e8ac4" => :mavericks
+    sha256 "5a7cb2f9fe6c900a557786f8026c47a75272bf71bc74f1fbedf2c2648c17db0c" => :high_sierra
+    sha256 "bee2b2a896191528e71c1d986ecf4ca2fb3923f27617715542137d618584ea55" => :sierra
+    sha256 "97ffe6edc70a797cbb26d9399f49b46570b80b705a5d52a0b4fded357bc317ed" => :el_capitan
   end
 
   # Fix missing sys header include for caddr_t on Mac OS
