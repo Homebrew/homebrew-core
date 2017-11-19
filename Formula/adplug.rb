@@ -1,8 +1,8 @@
 class Adplug < Formula
   desc "Free, hardware independent AdLib sound player library"
   homepage "https://adplug.github.io"
-  url "https://github.com/adplug/adplug/releases/download/adplug-2.2.1/adplug-2.2.1.tar.bz2"
-  sha256 "f95a015268a0dfe9ff5782f3ea7b2a69e09b8d36ccd19ebf4d979d767b6e53ef"
+  url "https://github.com/adplug/adplug/releases/download/adplug-2.3/adplug-2.3.tar.bz2"
+  sha256 "f64a37f6243836bd0c9c1b7c3a563e47f4b15676d30c074e88b75b2415bfdf6a"
 
   bottle do
     rebuild 1
