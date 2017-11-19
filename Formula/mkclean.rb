@@ -6,11 +6,9 @@ class Mkclean < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c201a3f6f75dab3a3078e382999d479d19556049248f0451143bd8cc1b97e16d" => :high_sierra
-    sha256 "3a8eb240bf72923753f39652fb68ba47c02481e307d914173550e8bd4516e767" => :sierra
-    sha256 "f8628b1bfb08d1624faa2037d199592bc6209759322bcfc53eb5649ad304e4bd" => :el_capitan
-    sha256 "cefecf33d4cb9fa15d582b0d03c26cf3a14228d02832ddbf3187d5c4ffd4a4c2" => :yosemite
-    sha256 "51b53b0e49a5fe451c6bd3589e780e51ac23c637493c8804233057cb79b9d40d" => :mavericks
+    sha256 "eb519c8f3fb9b2773529d5e7a9751cec7e2a7a67a76af92cab0e6b48449dc6de" => :high_sierra
+    sha256 "73e502b5331d28da40fc3b94763f6ea30a141e48329bede7eddf3e396991671b" => :sierra
+    sha256 "a5db5b2309de19ea395efaafcf828c253e38133464faca623545a221f2b0ba52" => :el_capitan
   end
 
   # Fixes compile error with Xcode-4.3+, a hardcoded /Developer.  Reported as:
