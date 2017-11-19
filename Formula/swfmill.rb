@@ -6,9 +6,9 @@ class Swfmill < Formula
 
   bottle do
     cellar :any
-    sha256 "38049fc1858f7002a7057bbf54501569c2e2f16b5c9dcb02d8972f0fb5d24adf" => :high_sierra
-    sha256 "d30d4ede107e5392f29ac200977c98479474e6c191ea2afeaefe33c197d96f15" => :sierra
-    sha256 "a4381d474ff02befed9fad1ff75aa7276c2da482ad5d39c9f46c5d133d340f22" => :el_capitan
+    sha256 "2516e0ca300458f626e1311673643e1cad03131fb77717fb4f6d10e5f7c6e522" => :high_sierra
+    sha256 "f8f7530eb3697993d145bd67fcb44122319f3dadbd5a15535ae23ce33c1991fc" => :sierra
+    sha256 "10165ef551225423c4d0b98b734aa112854bb836b6dcca675a0d2dd2adcee75a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
