@@ -13,7 +13,7 @@ class Nasm < Formula
   end
 
   head do
-    url "git://repo.or.cz/nasm.git"
+    url "http://repo.or.cz/nasm.git"
     depends_on "autoconf" => :build
     depends_on "asciidoc" => :build
     depends_on "xmlto" => :build
