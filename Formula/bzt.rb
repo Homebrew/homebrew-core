@@ -151,6 +151,7 @@ class Bzt < Formula
   end
 
   def install
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
     virtualenv_install_with_resources
   end
 
