@@ -35,6 +35,7 @@ class Qemu < Formula
   depends_on "sdl2" => :optional
   depends_on "gtk+" => :optional
   depends_on "libssh2" => :optional
+  depends_on "libusb" => :optional
 
   deprecated_option "with-sdl" => "with-sdl2"
 
