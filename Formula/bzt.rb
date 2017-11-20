@@ -2,8 +2,8 @@ class Bzt < Formula
   include Language::Python::Virtualenv
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.10.1.tar.gz"
-  sha256 "1137ea09f092a09a701f169937fa9647fde5a0a972cdd54bfb28a87caf865276"
+  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.10.2.tar.gz"
+  sha256 "549c6a83a4aeec1446ffce2430d8839c000e1e9050747a9654e23c7b747423e9"
   head "https://github.com/greyfenrir/taurus.git"
 
   bottle do
