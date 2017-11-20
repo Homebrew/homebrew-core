@@ -1,10 +1,10 @@
 class Neatvi < Formula
   desc "ex/vi clone for editing bidirectional uft-8 text"
   homepage "http://repo.or.cz/w/neatvi.git"
-  url "git://repo.or.cz/neatvi.git",
+  url "http://repo.or.cz/neatvi.git",
     :tag => "06", :revision => "5ed4bbc7f12686bb480ab8b2b05c94e12b1c71d8"
 
-  head "git://repo.or.cz/neatvi.git"
+  head "http://repo.or.cz/neatvi.git"
 
   bottle do
     cellar :any_skip_relocation
