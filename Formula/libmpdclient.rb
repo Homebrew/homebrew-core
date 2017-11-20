@@ -3,7 +3,7 @@ class Libmpdclient < Formula
   homepage "https://www.musicpd.org/libs/libmpdclient/"
   url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.13.tar.xz"
   sha256 "5115bd52bc20a707c1ecc7587e6389c17305348e2132a66cf767c62fc55ed45d"
-  head "git://git.musicpd.org/master/libmpdclient.git"
+  head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
 
   bottle do
     cellar :any
