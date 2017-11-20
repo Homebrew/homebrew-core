@@ -3,7 +3,7 @@ class Abduco < Formula
   homepage "http://www.brain-dump.org/projects/abduco"
   url "http://www.brain-dump.org/projects/abduco/abduco-0.6.tar.gz"
   sha256 "c90909e13fa95770b5afc3b59f311b3d3d2fdfae23f9569fa4f96a3e192a35f4"
-  head "git://repo.or.cz/abduco.git"
+  head "http://repo.or.cz/abduco.git"
 
   bottle do
     cellar :any_skip_relocation
