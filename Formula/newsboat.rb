@@ -14,6 +14,7 @@ class Newsboat < Formula
     url "https://github.com/newsboat/newsboat.git"
 
     depends_on "asciidoc" => :build
+    depends_on "docbook-xsl" => :build
   end
 
   depends_on "pkg-config" => :build
