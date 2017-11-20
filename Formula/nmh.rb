@@ -1,8 +1,8 @@
 class Nmh < Formula
   desc "The new version of the MH mail handler"
   homepage "http://www.nongnu.org/nmh/"
-  url "https://download.savannah.gnu.org/releases/nmh/nmh-1.6.tar.gz"
-  sha256 "29338ae2bc8722fe8a5904b7b601a63943b72b07b6fcda53f3a354edb6a64bc3"
+  url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.tar.gz"
+  sha256 "cd05c7ca2cae524ae99f6ba673463a5cdeff62df93e85913aa9277ae8304ce44"
 
   bottle do
     sha256 "7c17be97fcf0b6b79c9142887ce966868ed07c856bdd5e0ecdd9a2767a66fc51" => :high_sierra
