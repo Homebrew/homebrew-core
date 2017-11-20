@@ -73,6 +73,9 @@ class YleDl < Formula
   end
 
   def install
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     (resources - [resource("AdobeHDS.php")]).each do |r|
       r.stage do
