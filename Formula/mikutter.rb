@@ -3,6 +3,7 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.5.15.tar.gz"
   sha256 "1e970525b692be1a109d25e529969f64540eff31ace5149c4d2056f1c34e4150"
+  revision 1
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -249,29 +250,40 @@ class Mikutter < Formula
 
     (bin/"mikutter").write(exec_script)
     pkgshare.install_symlink libexec/"core/skin"
-    libexec.install_symlink lib/"mikutter/plugin"
+
+    # enable other formulae to install plugins
+    libexec.install_symlink HOMEBREW_PREFIX/"lib/mikutter/plugin"
   end
 
   def exec_script
     <<~EOS
       #!/bin/bash
-      export GEM_HOME="#{opt_lib}/mikutter/vendor"
+
       export DISABLE_BUNDLER_SETUP=1
-      export GTK_PATH="#{Formula["gtk+"].opt_lib}/gtk-2.0"
+
+      # also include gems/gtk modules from other formulae
+      export GEM_HOME="#{HOMEBREW_PREFIX}/lib/mikutter/vendor"
+      export GTK_PATH="#{HOMEBREW_PREFIX}/lib/gtk-2.0"
+
       exec ruby "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 
   test do
-    (testpath/"test_plugin").write <<~EOS
+    (testpath/".mikutter/plugin/test_plugin/test_plugin.rb").write <<~EOS
       # -*- coding: utf-8 -*-
-      Plugin.create(:brew) do
-        Delayer.new { Thread.exit }
+      Plugin.create(:test_plugin) do
+        require 'logger'
+
+        Delayer.new do
+          log = Logger.new(STDOUT)
+          log.info("loaded test_plugin")
+          exit
+        end
       end
     EOS
-    system bin/"mikutter", "generate", "test_plugin"
-    assert File.file?(testpath/".mikutter/plugin/test_plugin/test_plugin.rb")
     system bin/"mikutter", "plugin_depends",
            testpath/".mikutter/plugin/test_plugin/test_plugin.rb"
+    system bin/"mikutter", "--plugin=test_plugin", "--debug"
   end
 end
