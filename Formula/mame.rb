@@ -4,6 +4,7 @@ class Mame < Formula
   url "https://github.com/mamedev/mame/archive/mame0191.tar.gz"
   version "0.191"
   sha256 "e1faed5ee39e977d9a4e60e439c4d36d55a476dbe70a3e8fbe6aadb2a63b1e31"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -17,13 +18,13 @@ class Mame < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "sdl2"
-  depends_on "expat"
   depends_on "jpeg"
   depends_on "flac"
   depends_on "sqlite"
   depends_on "portmidi"
   depends_on "portaudio"
   depends_on "utf8proc"
+  depends_on "expat" if MacOS.version < :el_capitan
 
   # Need C++ compiler and standard library support C++14.
   needs :cxx14
