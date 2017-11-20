@@ -1,8 +1,8 @@
 class Rsstail < Formula
   desc "Monitors an RSS feed and emits new entries when detected"
   homepage "https://www.vanheusden.com/rsstail/"
-  url "https://www.vanheusden.com/rsstail/rsstail-2.0.tgz"
-  sha256 "647537197fb9fb72b08e04710d462ad9314a6335c0a66fb779fe9d822c19ee2a"
+  url "https://www.vanheusden.com/rsstail/rsstail-2.1.tgz"
+  sha256 "42cb452178b21c15c470bafbe5b8b5339a7fb5b980bf8d93d36af89864776e71"
 
   head "https://github.com/flok99/rsstail.git"
 
