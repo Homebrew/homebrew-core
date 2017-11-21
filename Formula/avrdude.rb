@@ -14,7 +14,7 @@ class Avrdude < Formula
   end
 
   head do
-    url "svn://svn.savannah.nongnu.org/avrdude/trunk/avrdude/"
+    url "https://svn.savannah.nongnu.org/svn/avrdude/trunk/avrdude"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
