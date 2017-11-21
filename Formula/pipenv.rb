@@ -5,6 +5,7 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/b5/3f/80a09ea5f279e90122600d24cfa25d698008dc7e5b261cb582de8966bbe2/pipenv-8.3.2.tar.gz"
   sha256 "20be245ad2a7908a04b302e9568ee26e57f8dacc558468d2a84e699b2622e9af"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +14,7 @@ class Pipenv < Formula
     sha256 "f5d2047ef26f423331d2274122d63925ea2a1f05b1490a1367d4ff0be9fb27bd" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "backports.shutil_get_terminal_size" do
-    url "https://files.pythonhosted.org/packages/ec/9c/368086faa9c016efce5da3e0e13ba392c9db79e3ab740b763fe28620b18b/backports.shutil_get_terminal_size-1.0.0.tar.gz"
-    sha256 "713e7a8228ae80341c70586d1cc0a8caa5207346927e23d09dcbcaf18eadec80"
-  end
+  depends_on :python3
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
@@ -28,16 +24,6 @@ class Pipenv < Formula
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
-  end
-
-  resource "configparser" do
-    url "https://files.pythonhosted.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz"
-    sha256 "5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "flake8" do
@@ -53,11 +39,6 @@ class Pipenv < Formula
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/06/18/fa675aa501e11d6d6ca0ae73a101b2f3571a565e0f7d38e062eec18a91ee/mccabe-0.6.1.tar.gz"
     sha256 "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"
-  end
-
-  resource "pathlib" do
-    url "https://files.pythonhosted.org/packages/ac/aa/9b065a76b9af472437a0059f77e8f962fe350438b927cb80184c32f075eb/pathlib-1.0.1.tar.gz"
-    sha256 "6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f"
   end
 
   resource "pew" do
@@ -80,11 +61,6 @@ class Pipenv < Formula
     sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
   end
 
-  resource "shutilwhich" do
-    url "https://files.pythonhosted.org/packages/66/be/783f181594bb8bcfde174d6cd1e41956b986d0d8d337d535eb2555b92f8d/shutilwhich-1.1.0.tar.gz"
-    sha256 "db1f39c6461e42f630fa617bb8c79090f7711c9ca493e615e43d0610ecb64dc6"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
     sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
@@ -104,29 +80,23 @@ class Pipenv < Formula
     # Using the virtualenv DSL here because the alternative of using
     # write_env_script to set a PYTHONPATH breaks things.
     # https://github.com/Homebrew/homebrew-core/pull/19060#issuecomment-338397417
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     venv.pip_install buildpath
 
-    # `pipenv` needs to be able to find `virtualenv` and `pew` on PATH. Rather
-    # than installing symlinks for those scripts into `#{bin}` we leave them in
-    # `#{libexec}/bin` and create a wrapper script for `pipenv` which adds
-    # `#{libexec}/bin` to PATH.
+    # `pipenv` needs to be able to find `virtualenv` and `pew` on PATH. So we
+    # install symlinks for those scripts in `#{libexec}/tools` and create a
+    # wrapper script for `pipenv` which adds `#{libexec}/tools` to PATH.
+    (libexec/"tools").install_symlink libexec/"bin/pew", libexec/"bin/pip",
+                                      libexec/"bin/virtualenv"
     env = {
-      :PATH => "#{libexec}/bin:$PATH",
+      :PATH => "#{libexec}/tools:$PATH",
     }
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
-
-    # `#{libexec}/bin` - which we've just added to PATH - contains symlinks
-    # linking python2 and python2.7 to ./python.  We remove those symlinks so
-    # that pipenv options that search for a python version, like `pipenv --two`
-    # and `pipenv --python=2.7`, respect the user's unmodified PATH rather than
-    # finding the copy of system python that we have just prepended to it.
-    rm libexec/"bin/python2"
-    rm libexec/"bin/python2.7"
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
     assert_match "Commands", shell_output("#{bin}/pipenv")
     system "#{bin}/pipenv", "install", "requests"
     assert_predicate testpath/"Pipfile", :exist?
