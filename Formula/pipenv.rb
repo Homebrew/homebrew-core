@@ -13,7 +13,7 @@ class Pipenv < Formula
     sha256 "f5d2047ef26f423331d2274122d63925ea2a1f05b1490a1367d4ff0be9fb27bd" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
 
   resource "backports.shutil_get_terminal_size" do
     url "https://files.pythonhosted.org/packages/ec/9c/368086faa9c016efce5da3e0e13ba392c9db79e3ab740b763fe28620b18b/backports.shutil_get_terminal_size-1.0.0.tar.gz"
@@ -124,6 +124,8 @@ class Pipenv < Formula
     # finding the copy of system python that we have just prepended to it.
     rm libexec/"bin/python2"
     rm libexec/"bin/python2.7"
+    rm libexec/"bin/python3"
+    rm libexec/"bin/python3.6"
   end
 
   test do
