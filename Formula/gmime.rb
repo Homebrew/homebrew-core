@@ -5,9 +5,9 @@ class Gmime < Formula
   sha256 "b67f9b76925644afed4ad2347402b748fc279fcfe87d73f3fd816b3f991942c8"
 
   bottle do
-    sha256 "76ad40072ab4f83881dd1652b67e3476375ffd3b07af8e104ae025d738748247" => :high_sierra
-    sha256 "b5641c07a141bb12e1630a6afbb1a62ba4e677fca6b45c96b3fdd5749b740606" => :sierra
-    sha256 "f8a7c90d025eadda348088499dc0a6acbe51ac3eee6a394b54a0c72e430b2152" => :el_capitan
+    sha256 "9723c2df92b57a0e845570e2872f9188c9225105c3b90eacc5408b52cd3976ea" => :high_sierra
+    sha256 "e19f6e111f0de0ad28f05c546a3f5a0f04f866a3e8ffd45f4de3801e6158ca08" => :sierra
+    sha256 "ce5bed69232616abf9dae1eae54d6d80fdd0f398af396f10678948640d6c2881" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
