@@ -10,9 +10,9 @@ class Consul < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "babe5b2709c5e6cd60f0a2fab9682a488ef250dda9001b052054f45a578bbee7" => :high_sierra
-    sha256 "abdbbd11adf26408f477e829fcf32dc6e937c5793b989b269dad1bd8e01525e5" => :sierra
-    sha256 "9526896ed347c2a0a9fead692a1691b10b62a69c9625ea184f2e76546b229843" => :el_capitan
+    sha256 "8309a80869940f544b761bc79b938fe310412f2da6c467183faaafec44fc0b2f" => :high_sierra
+    sha256 "b5ea4a3d5827b49a3b255a65fcbbfe79b799dae700dc585917805f1c7e7c69e3" => :sierra
+    sha256 "e9e34d44bac38d028b91011f2bfedb6ed30e104e879715cbadc3489ac41d0286" => :el_capitan
   end
 
   depends_on "go" => :build
