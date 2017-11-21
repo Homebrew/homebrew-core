@@ -5,11 +5,9 @@ class Gdnsd < Formula
   sha256 "376f9784c2d6872e0f6e14ab255ca58829f396b436d9c9c846831ee2397f2dd6"
 
   bottle do
-    sha256 "bef99d76ac59572c2f15d516c35815f62348c1287e578c6c02a37abefb4af6b6" => :high_sierra
-    sha256 "609e16a1a067d94f0b492465b3bc23c6c77f350bd3d5f11c6425fcd950855f90" => :sierra
-    sha256 "849263f34b81cfebc8c0f681a7c4454fbaf2c0e70f44dd2e9ae9f2ffda8e0aef" => :el_capitan
-    sha256 "438cd01e0e0e06b9f8bb1a08c43403fbeb66d36a95040f38e67342f9e516ca48" => :yosemite
-    sha256 "46e4242acb05972cd999f1b4b981004f1c9d52d5af483be15d17354eb9437a67" => :mavericks
+    sha256 "daf899fbc641f2706adc7331f52914640608eecb0d9ce73a35dc46ad9971fe6e" => :high_sierra
+    sha256 "aa47b8750157ca483e2df58a8242d2a2a25e59993490d0d039ef750db1a10be5" => :sierra
+    sha256 "46f59cea0ac87e5db7ad8b62531ae5ed1b81e1f0f2a4ea93d5e60ff2431b4ac5" => :el_capitan
   end
 
   head do
