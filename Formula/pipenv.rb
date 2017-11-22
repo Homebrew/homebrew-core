@@ -96,7 +96,8 @@ class Pipenv < Formula
 
   # Avoid relative paths
   def post_install
-    python_version = Language::Python.major_minor_version "python3"
+    python_dir = Dir["#{libexec}/lib/python*"].first
+    python_version = python_dir.match(/python(\d\.\d)/)[1]
     (libexec/"lib/python#{python_version}").each_child do |f|
       next unless f.symlink?
       realpath = f.realpath
