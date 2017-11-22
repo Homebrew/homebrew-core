@@ -11,9 +11,11 @@ class AuroraCli < Formula
     sha256 "62e565f0d65601f88b11d8c5f5bfad89d2f1661144072876fc705e50b4284329" => :yosemite
   end
 
-  patch do
-    url "https://raw.githubusercontent.com/thinker0/aurora/pants-fix-high-sierra/pants_version_1.4.0_dev20.diff"
-    sha256 "0f4e3dcab78974d43ff5225df68969609587656313f8e495908523f89f6cb0a7"
+  if MacOS.version == :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/aurora/pants_version_1.4.0_dev20.diff"
+      sha256 "0f4e3dcab78974d43ff5225df68969609587656313f8e495908523f89f6cb0a7"
+    end
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
