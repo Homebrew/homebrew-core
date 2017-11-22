@@ -9,9 +9,9 @@ class GitlabRunner < Formula
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
-    sha256 "3f0fcd5aca52d0b897315195886be90bc15f21ca5c4b2cce95e05be262b84602" => :high_sierra
-    sha256 "145bd7b92e810bca7f9ceee70f5ad53e7d81256167f29175a6c6f36de1b12056" => :sierra
-    sha256 "206fef60e1b8cbb78ec63f71e7c816bc179c71eaeba611015de4913034bcbed3" => :el_capitan
+    sha256 "8b75fa67c1a6ecd46c54a284542bcd13f1df90d5f9004f9e93db4adadd524cc8" => :high_sierra
+    sha256 "571cf540bf92dcbfa9b3f8888112a31afcbfaa3daaa96804a969b6a28ce564a8" => :sierra
+    sha256 "f9a1b2ec1f749204c43edfa635d4848cb7bcccf3bce9ceca99f0da51fdaeb4e2" => :el_capitan
   end
 
   depends_on "go" => :build
