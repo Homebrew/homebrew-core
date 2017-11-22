@@ -6,6 +6,13 @@ class Pipenv < Formula
   url "https://files.pythonhosted.org/packages/b5/3f/80a09ea5f279e90122600d24cfa25d698008dc7e5b261cb582de8966bbe2/pipenv-8.3.2.tar.gz"
   sha256 "20be245ad2a7908a04b302e9568ee26e57f8dacc558468d2a84e699b2622e9af"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cd0db2d9ebad34eef07f82d8a9f3e15cfa164f3cbb0f214a50b3b9576d83d35e" => :high_sierra
+    sha256 "0211f0741f33ad5760b5889c73289119cf5970f5627b300bd36de2fefb0e518e" => :sierra
+    sha256 "f5d2047ef26f423331d2274122d63925ea2a1f05b1490a1367d4ff0be9fb27bd" => :el_capitan
+  end
+
   depends_on :python3
 
   resource "certifi" do
