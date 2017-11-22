@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.21.0-src.tar.gz"
-    sha256 "1707c142244b5bd909993559c6116c81987c1de21d6207c05d3ecbe5bba548fa"
+    url "https://static.rust-lang.org/dist/rustc-1.22.1-src.tar.gz"
+    sha256 "8b7a42bdd6eb205a8c533eb41b5c42389a88158d060aed1e0f461f68c1fd3fd3"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -13,8 +13,8 @@ class Rust < Formula
     end
 
     resource "racer" do
-      url "https://github.com/racer-rust/racer/archive/2.0.10.tar.gz"
-      sha256 "8e81da4f238117affe7631a7656b219294950ff17b2bea85794060be11b80489"
+      url "https://github.com/racer-rust/racer/archive/2.0.12.tar.gz"
+      sha256 "1fa063d90030c200d74efb25b8501bb9a5add7c2e25cbd4976adf7a73bf715cc"
     end
   end
 
@@ -53,8 +53,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2017-08-31/cargo-0.21.0-x86_64-apple-darwin.tar.gz"
-    sha256 "05720fe91343c6ed5c4995f7b06677a08a585209f6f504d192722f3bb585bc9d"
+    url "https://static.rust-lang.org/dist/2017-10-12/cargo-0.22.0-x86_64-apple-darwin.tar.gz"
+    sha256 "8968697ae6eef3b178438a6d5563f531e499308dcea7f4915665dbcec54c851a"
   end
 
   def install
@@ -71,7 +71,6 @@ class Rust < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
-    args << "--enable-clang" if ENV.compiler == :clang
     args << "--llvm-root=#{Formula["llvm"].opt_prefix}" if build.with? "llvm"
     if build.head?
       args << "--release-channel=nightly"
