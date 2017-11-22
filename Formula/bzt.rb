@@ -2,8 +2,8 @@ class Bzt < Formula
   include Language::Python::Virtualenv
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.10.0.tar.gz"
-  sha256 "5eb672745e3430a8eaf189c224be4608a42fbe138c474cf70261a1cca6f5f8cb"
+  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.10.3.tar.gz"
+  sha256 "1a8ad80fc9a4ed54aa1b099bef6590adc3cfd806322d3a11a0d9decdf9477acf"
   head "https://github.com/greyfenrir/taurus.git"
 
   bottle do
@@ -16,8 +16,8 @@ class Bzt < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "apiritif" do
-    url "https://files.pythonhosted.org/packages/9b/45/32e87c13bb6ba9af46242858f80e1767be115076bb918fec26467757e020/apiritif-0.3.tar.gz"
-    sha256 "68de1e43d5e63980a32b367e322ee8a695e361e117a82f7743458de798b5eda1"
+    url "https://files.pythonhosted.org/packages/df/97/a298d2c08970171c7683b34b30e0af4a0f710ad7a1a4bb9dec7caa41b3b0/apiritif-0.4.tar.gz"
+    sha256 "179e40110f55dd015d11ac6578e9a57786512968e3b4b6d5a9df6ebe6a5dbbff"
   end
 
   resource "astunparse" do
@@ -26,8 +26,8 @@ class Bzt < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
+    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
   end
 
   resource "chardet" do
@@ -76,8 +76,8 @@ class Bzt < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz"
-    sha256 "be3aaeb5f468a49f523f16736ccff7d82af2b4b303292ba3d052b5b28f3fbe47"
+    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
+    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
   end
 
   resource "nose" do
@@ -96,18 +96,18 @@ class Bzt < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/8d/96/1fc6468be91521192861966c40bd73fdf8b065eae6d82dd0f870b9825a65/psutil-5.4.0.tar.gz"
-    sha256 "8e6397ec24a2ec09751447d9f169486b68b37ac7a8d794dca003ace4efaafc6a"
+    url "https://files.pythonhosted.org/packages/fe/17/0f0bf5792b2dfe6003efc5175c76225f7d3426f88e2bf8d360cfab870cd8/psutil-5.4.1.tar.gz"
+    sha256 "42e2de159e3c987435cb3b47d6f37035db190a1499f3af714ba7af5c379b6ba2"
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/68/35/58572278f1c097b403879c1e9369069633d1cbad5239b9057944bb764782/py-1.4.34.tar.gz"
-    sha256 "0f2d585d22050e90c7d293b6451c83db097df77871974d90efd5a30dc12fcde3"
+    url "https://files.pythonhosted.org/packages/90/e3/e075127d39d35f09a500ebb4a90afd10f9ef0a1d28a6d09abeec0e444fdd/py-1.5.2.tar.gz"
+    sha256 "ca18943e28235417756316bfada6cd96b23ce60dd532642690dcfdaba988a76d"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/53/d0/208853c09be8377e6d4de7c0df875ef7ef37189373d76a74b65b44e50528/pytest-3.2.3.tar.gz"
-    sha256 "27fa6617efc2869d3e969a3e75ec060375bfb28831ade8b5cdd68da3a741dc3c"
+    url "https://files.pythonhosted.org/packages/1f/f8/8cd74c16952163ce0db0bd95fdd8810cbf093c08be00e6e665ebf0dc3138/pytest-3.2.5.tar.gz"
+    sha256 "6d5bd4f7113b444c55a3bbb5c738a3dd80d43563d063fc42dcb0aaefbdd78b81"
   end
 
   resource "PyVirtualDisplay" do
@@ -126,8 +126,8 @@ class Bzt < Formula
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/e1/25/ad1ee3c019e45933c201ae3c8b3c84ab335a64a8172051ace583b7371b35/selenium-3.6.0.tar.gz"
-    sha256 "9563021c5cba084041e13c218eb531d9c6920dcfa0ba1024bb5bf2b6c0df1797"
+    url "https://files.pythonhosted.org/packages/bc/37/aea63b9651d5f27c9349895fc72862e2e14ed264e8f5d3eedc602c41254a/selenium-3.7.0.tar.gz"
+    sha256 "70be7e090042303564ff48bedef0b34477d463056a2d282c1dbd4c4c180ef8e1"
   end
 
   resource "six" do
@@ -151,11 +151,14 @@ class Bzt < Formula
   end
 
   def install
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     virtualenv_install_with_resources
   end
 
   test do
-    cmd = "#{bin}/bzt -o execution.0.executor=nose -o execution.0.scenario.requests.0=https://gettaurus.org/"
+    cmd = "#{bin}/bzt -o execution.executor=nose -o execution.iterations=1 -o execution.scenario.requests.0=http://gettaurus.org"
     assert_match "INFO: Samples count: 1, 0.00% failures", shell_output(cmd)
   end
 end
