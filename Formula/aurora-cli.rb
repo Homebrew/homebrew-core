@@ -13,7 +13,7 @@ class AuroraCli < Formula
 
   if MacOS.version == :high_sierra
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/aurora/pants_version_1.4.0_dev20.diff"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/aurora-cli/pants_version_1.4.0_dev20.diff"
       sha256 "0f4e3dcab78974d43ff5225df68969609587656313f8e495908523f89f6cb0a7"
     end
   end
