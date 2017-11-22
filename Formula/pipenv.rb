@@ -72,7 +72,7 @@ class Pipenv < Formula
     # Using the virtualenv DSL here because the alternative of using
     # write_env_script to set a PYTHONPATH breaks things.
     # https://github.com/Homebrew/homebrew-core/pull/19060#issuecomment-338397417
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     venv.pip_install buildpath
 
