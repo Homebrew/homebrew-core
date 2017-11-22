@@ -76,25 +76,19 @@ class Pipenv < Formula
     venv.pip_install resources
     venv.pip_install buildpath
 
-    # `pipenv` needs to be able to find `virtualenv` and `pew` on PATH. Rather
-    # than installing symlinks for those scripts into `#{bin}` we leave them in
-    # `#{libexec}/bin` and create a wrapper script for `pipenv` which adds
-    # `#{libexec}/bin` to PATH.
+    # `pipenv` needs to be able to find `virtualenv` and `pew` on PATH. So we
+    # install symlinks for those scripts in `#{libexec}/tools` and create a
+    # wrapper script for `pipenv` which adds `#{libexec}/tools` to PATH.
+    (libexec/"tools").install_symlink libexec/"bin/pew", libexec/"bin/pip",
+                                      libexec/"bin/virtualenv"
     env = {
-      :PATH => "#{libexec}/bin:$PATH",
+      :PATH => "#{libexec}/tools:$PATH",
     }
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
-
-    # `#{libexec}/bin` - which we've just added to PATH - contains symlinks
-    # linking python3 and python3.6 to ./python.  We remove those symlinks so
-    # that pipenv options that search for a python version, like `pipenv --two`
-    # and `pipenv --python=2.7`, respect the user's unmodified PATH rather than
-    # finding the copy of system python that we have just prepended to it.
-    rm libexec/"bin/python3"
-    rm libexec/"bin/python3.6"
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
     assert_match "Commands", shell_output("#{bin}/pipenv")
     system "#{bin}/pipenv", "install", "requests"
     assert_predicate testpath/"Pipfile", :exist?
