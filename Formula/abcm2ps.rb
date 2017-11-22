@@ -5,9 +5,9 @@ class Abcm2ps < Formula
   sha256 "639755b7760ddb3f293ab686b23ff7d5937df13f1c388d08e34ceaee319249e9"
 
   bottle do
-    sha256 "e5d2004858c71cb5b5b4b149c4c8403badd083916c350cfbeade40e325c8e054" => :high_sierra
-    sha256 "dd03cbbc24dfa5421259f302fe5f99ba45777b51d097c2d89472e1583a40aa11" => :sierra
-    sha256 "593817fd008f0bd24708779957e72efcdf3340671761a424a7f1855bf2090ffc" => :el_capitan
+    sha256 "4cc941a6caa74f2b2c0f7e816a657cbda6abaa6d9d8e20cb7bc36ffcc13dcbe5" => :high_sierra
+    sha256 "0555a472b5890f8e8b94c006a1a0a3bce5d071cbf1980cb8bbbeee2ec493c712" => :sierra
+    sha256 "bafc1ac9344bfc05ab4574addb4010e9089854792863873f08e60944347cad70" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
