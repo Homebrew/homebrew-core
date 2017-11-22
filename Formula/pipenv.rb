@@ -96,15 +96,14 @@ class Pipenv < Formula
 
   # Avoid relative paths
   def post_install
-    python_dir = Dir["#{libexec}/lib/python*"].first
-    python_version = python_dir.match(/python(\d\.\d)/)[1]
-    (libexec/"lib/python#{python_version}").each_child do |f|
+    lib_python_path = Pathname.glob(libexec/"lib/python*").first
+    lib_python_path.each_child do |f|
       next unless f.symlink?
       realpath = f.realpath
       rm f
       ln_s realpath, f
     end
-    inreplace libexec/"lib/python#{python_version}/orig-prefix.txt",
+    inreplace lib_python_path/"orig-prefix.txt",
               Formula["python3"].opt_prefix, Formula["python3"].prefix.realpath
   end
 
