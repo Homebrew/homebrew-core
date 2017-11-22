@@ -18,6 +18,13 @@ class AuroraCli < Formula
     end
   end
 
+  if MacOS.version == :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/21a7e7d/aurora-cli/pants_version_1.4.0_dev20.diff"
+      sha256 "0f4e3dcab78974d43ff5225df68969609587656313f8e495908523f89f6cb0a7"
+    end
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
