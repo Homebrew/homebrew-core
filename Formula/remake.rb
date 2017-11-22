@@ -1,9 +1,9 @@
 class Remake < Formula
   desc "GNU Make with improved error handling, tracing, and a debugger"
   homepage "https://bashdb.sourceforge.io/remake"
-  url "https://downloads.sourceforge.net/project/bashdb/remake/4.2%2Bdbg-1.3/remake-4.2.1%2Bdbg-1.3.tar.bz2"
-  version "4.2.1-1.3"
-  sha256 "26874693fb9408f19d56fa5c76ee420a603cbbd226ab46d314658b96f9770df0"
+  url "https://downloads.sourceforge.net/project/bashdb/remake/4.2%2Bdbg-1.4/remake-4.2.1%2Bdbg-1.4.tar.bz2"
+  version "4.2.1-1.4"
+  sha256 "55df3b2586ab90ac0983a049f1911c4a1d9b68f7715c69768fbb0405e96a0e7b"
 
   bottle do
     sha256 "0833fb8f15c06fca9c97627ffdc9fc53e3a27feed22939ddf92b8aff84898cf3" => :high_sierra
