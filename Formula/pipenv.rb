@@ -94,6 +94,19 @@ class Pipenv < Formula
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
   end
 
+  # Avoid relative paths
+  def post_install
+    python_version = Language::Python.major_minor_version "python3"
+    (libexec/"lib/python#{python_version}").each_child do |f|
+      next unless f.symlink?
+      realpath = f.realpath
+      rm f
+      ln_s realpath, f
+    end
+    inreplace libexec/"lib/python#{python_version}/orig-prefix.txt",
+              Formula["python3"].opt_prefix, Formula["python3"].prefix.realpath
+  end
+
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     assert_match "Commands", shell_output("#{bin}/pipenv")
