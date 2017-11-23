@@ -1,8 +1,8 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.4.5.tgz"
-  sha256 "1199d04626cb8bc1307e282b143018691077cc61fe2f286a382030262eda8764"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.4.0.0.tgz"
+  sha256 "5e5cf284323898b4c807db6e684d65d379ade65fe0e93f7b10456890a6dee8cc"
 
   bottle do
     cellar :any
