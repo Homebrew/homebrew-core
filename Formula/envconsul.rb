@@ -36,19 +36,21 @@ class Envconsul < Formula
       false
     end
 
-    if !port_open?(LOCALHOST_IP, CONSUL_DEFAULT_PORT)
-      fork do
-        exec "consul agent -dev -bind 127.0.0.1"
-        puts "consul started"
+    begin
+      if !port_open?(LOCALHOST_IP, CONSUL_DEFAULT_PORT)
+        fork do
+          exec "consul agent -dev -bind 127.0.0.1"
+          puts "consul started"
+        end
+        sleep 5
+      else
+        puts "Consul already running"
       end
-      sleep 5
-    else
-      puts "Consul already running"
+      system "consul", "kv", "put", "homebrew-recipe-test/working", "1"
+      output = shell_output("#{bin}/envconsul -consul-addr=127.0.0.1:8500 -upcase -prefix homebrew-recipe-test env")
+      assert_match "WORKING=1", output
+    ensure
+      system "consul", "leave"
     end
-    exec "consul kv put homebrew-recipe-test/working 1"
-
-    output = `#{bin}/envconsul -consul-addr=127.0.0.1:8500 -upcase -prefix homebrew-recipe-test env | grep WORKING`
-    system "consul", "leave"
-    assert(output.start_with?("WORKING=1"))
   end
 end
