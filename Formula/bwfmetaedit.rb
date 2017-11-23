@@ -1,9 +1,9 @@
 class Bwfmetaedit < Formula
   desc "Tool that supports embedding, validating, and exporting of metadata in Broadcast WAVE Format (BWF) files"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.2/BWFMetaEdit_CLI_1.3.2_GNU_FromSource.tar.bz2"
-  version "1.3.2"
-  sha256 "2109d625cc834e38bf05641d550fcb0fe8c095f3fdc0fa69283d26410e4a9f74"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.3/BWFMetaEdit_CLI_1.3.3_GNU_FromSource.tar.bz2"
+  version "1.3.3"
+  sha256 "ceb4d45ed385b82c93381cb44bb9d15ccdaf4fd65f264a8cfa069cbf4f0712c1"
 
   bottle do
     cellar :any_skip_relocation
