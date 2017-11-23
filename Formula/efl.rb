@@ -5,9 +5,9 @@ class Efl < Formula
   sha256 "56c67ea77435753a4f324a0a13488ba58f4ed7eb35a97c1a354fdc79c39a32c1"
 
   bottle do
-    sha256 "46590b21ee1fceb740f9bba4d9e3e5e990efa5d79c238674e1220764add3675e" => :high_sierra
-    sha256 "d557dca9f97fd470144b141600603cdb1f24fe7f7693ce06480beeb61d0b25f3" => :sierra
-    sha256 "125b9bbfe2c6b30a16c1b995fc9d1f1e40d79c2f9ff1de56172f3ec3aac8bb9f" => :el_capitan
+    sha256 "c5d578f34a149d622f8252331e37c27d202f9b309d38140e44b1996d828f40cd" => :high_sierra
+    sha256 "38a698665712b7b7dc1677365fc345be860430c7a5deb632ccd055ac9054cc4a" => :sierra
+    sha256 "36d805eb820b46d7458c4ed3293d1e1bbf62d64b561cca7598fcdf828f643b38" => :el_capitan
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"
