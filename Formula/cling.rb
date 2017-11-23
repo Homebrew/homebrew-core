@@ -5,6 +5,12 @@ class Cling < Formula
       :tag => "v0.5",
       :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
 
+  bottle do
+    sha256 "db1bf4e905c6b787b63b50c03a43028b71a00110b5008b48ee01a24400efbdb9" => :high_sierra
+    sha256 "83fd0ba864ef3261b3ab6e58647d44036029298dd55408ac0527c4953259e024" => :sierra
+    sha256 "4f327b0cab15cfc5f77c1ae77651861af5855c1b324d55175246f24d9d2743e5" => :el_capitan
+  end
+
   depends_on "cmake" => :build
 
   resource "clang" do
