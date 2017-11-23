@@ -17,6 +17,8 @@ class Fq < Formula
   depends_on "jlog"
   depends_on "openssl"
 
+  patch :DATA
+
   def install
     inreplace "Makefile", "/usr/lib/dtrace", "#{lib}/dtrace"
     system "make", "PREFIX=#{prefix}"
@@ -35,3 +37,19 @@ class Fq < Formula
     end
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 5dbd8d1..b0a3b0b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -134,7 +134,7 @@ fqc:	$(FQC_OBJ)
+ 	$(Q)$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(FQC_OBJ) $(LIBS)
+ 
+ fq-sample.so:	$(FQD_SAMPLE_OBJ)
+-	$(Q)$(MODULELD) $(EXTRA_SHLDFLAGS) $(SHLDFLAGS) -o $@ $(FQD_SAMPLE_OBJ)
++	$(Q)$(MODULELD) $(EXTRA_SHLDFLAGS) $(SHLDFLAGS) -o $@ $(FQD_SAMPLE_OBJ) $(CLIENT_OBJ_LO)
+ 
+ fq_sndr:	fq_sndr.o libfq.a
+ 	@echo " - linking $@"
+
