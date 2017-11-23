@@ -6,6 +6,13 @@ class Sceptre < Formula
   url "https://github.com/cloudreach/sceptre/archive/v1.2.1.tar.gz"
   sha256 "45c82d8521b7025aaad14ead88708dbf50e91aa8bb87c12126247189d451f0af"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "91abd86e2c90682468abfecf3e70116687d0b485aee0040d60792141cd65cf5a" => :high_sierra
+    sha256 "ea43673b34ebfdb8d25394fec51c48bcf82471166a5092921082c69ad99181cf" => :sierra
+    sha256 "2f814ef6e4a094b46a6922f77cd209f670adcb08d63086da9128989ea514141c" => :el_capitan
+  end
+
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/b6/7c/b9caa157b514e0a456286172862428a83814e4eda114ea1e80267de85378/boto3-1.4.7.tar.gz"
     sha256 "f79f77dca2280f7780f39d72a5088f4cf2b626c0921e7185ed6ac17abfdd7e6c"
