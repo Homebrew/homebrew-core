@@ -5,9 +5,9 @@ class SwiProlog < Formula
   sha256 "fc102697c5ab60639997e147b1f0a8e1b2b29632de747cc8f8fe566889b1f6aa"
 
   bottle do
-    sha256 "b25d652d1299db3693cb74b1e7e9eee3957db0d0bb96cb943c4fd6d643cb6b84" => :high_sierra
-    sha256 "8ebb75c3bc2e51fe22980833eb16ea0ae456cf05f2935c2365f57aa181ddbe0a" => :sierra
-    sha256 "163d6a54bd7302b72e76027514f04961888e2cc55c80b357ccdca053ddd9ccd7" => :el_capitan
+    sha256 "ab3ce2c5eb038eed8f52749e95e78f3e1c130a8b235c116964f73043953a8421" => :high_sierra
+    sha256 "426dc37770a8c6f883b37ac5cbcc37e8d25b1938d0fa7ed4be62699ed24ab98a" => :sierra
+    sha256 "7267f46402210486dcac808e9b32be515a76708ec3dd1145f6eff80bdd8a9ab1" => :el_capitan
   end
 
   devel do
