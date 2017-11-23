@@ -6,9 +6,9 @@ class Clhep < Formula
 
   bottle do
     cellar :any
-    sha256 "ae015425dbf66a7df58e21f4997ea5c44ac82c9e3291711a77621e7ecdf4a0c3" => :high_sierra
-    sha256 "3a5b69586ffdc7d697a4f2dce52016f245a234819f166e7931ced97eea399117" => :sierra
-    sha256 "415c707d943967dde9a90fba1a740fcdbd497e01f0b51b82f31d583641e2e3dd" => :el_capitan
+    sha256 "72c875560e99c39792098fbf5bc0beb54dcb3cc4cac18e5db743ee96dd956524" => :high_sierra
+    sha256 "352becea36eac3099edb9d23e3ecfc6dee198b4c4c20c0e27399a7870c6e3327" => :sierra
+    sha256 "b6fc60f006eff93d7ef57e9e8b7c8e5e44e1bc671280f5e849fa0a1c4057f91c" => :el_capitan
   end
 
   head do
