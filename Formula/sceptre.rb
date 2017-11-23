@@ -76,11 +76,6 @@ class Sceptre < Formula
     sha256 "76f1f58f4a47e2c8afa135e2c76958806a3abbc42b721d87fd9d11409c75d979"
   end
 
-  resource "sceptre" do
-    url "https://files.pythonhosted.org/packages/66/b1/1a99d745c5d9d60e803c85fc5331fea8d7ac9981ffb3342c045fa8bce7c0/sceptre-1.2.1.tar.gz"
-    sha256 "024227ed356bccc83e1313ea422d203d91bfd7349ed85f8142bc8cfb17f0c670"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
@@ -88,7 +83,6 @@ class Sceptre < Formula
 
   def install
     virtualenv_install_with_resources
-    bin.install libexec/"bin/sceptre"
   end
 
   test do
