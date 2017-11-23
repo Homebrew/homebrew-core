@@ -93,6 +93,12 @@ class Sceptre < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/sceptre --version")
+    config = testpath.realpath/"config/foo"
+    expected = "The environment '#{config}' does not exist."
+    output = shell_output("#{bin}/sceptre describe-env foo", 1)
+    assert_equal expected, output.chomp
+    config.mkpath
+    output = shell_output("#{bin}/sceptre describe-env foo", 1)
+    assert_match "yaml", output.chomp
   end
 end
