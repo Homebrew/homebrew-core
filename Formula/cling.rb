@@ -2,8 +2,8 @@ class Cling < Formula
   desc "The cling C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "http://root.cern.ch/git/cling.git",
+      :tag => "v0.5",
       :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
-  version "0.5"
 
   depends_on "cmake" => :build
 
