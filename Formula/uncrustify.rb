@@ -1,8 +1,8 @@
 class Uncrustify < Formula
   desc "Source code beautifier"
   homepage "https://uncrustify.sourceforge.io/"
-  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.66.tar.gz"
-  sha256 "ae5ca91419be71291d4a5be15439c11bdfc0adb350cbc0688b9a51085489a7f9"
+  url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.66.1.tar.gz"
+  sha256 "0862778fb692ce9859f4ece5e801db72841d8d76d9304e2da52bdd098b05331f"
   head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do
