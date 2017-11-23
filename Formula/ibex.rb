@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.2.tar.gz"
-  sha256 "2d2a5e746825c21cc6284df9c24f1cbb7f9903a745b3f5f87515140c43311c61"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.3.tar.gz"
+  sha256 "55f6d1dddadd8818cef0d1251a5637cb21ccf353f22392360375f2deed213864"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -14,7 +14,6 @@ class Ibex < Formula
 
   option "with-java", "Enable Java bindings for CHOCO solver."
   option "with-ampl", "Use AMPL file loader plugin"
-  option "without-ensta-robotics", "Don't build the Contractors for robotics (SLAM) plugin"
 
   depends_on :java => ["1.8+", :optional]
   depends_on "bison" => :build
@@ -42,7 +41,6 @@ class Ibex < Formula
 
     args << "--with-jni" if build.with? "java"
     args << "--with-ampl" if build.with? "ampl"
-    args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
     system "./waf", "install"
@@ -66,9 +64,14 @@ class Ibex < Formula
       s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
-    system "make", "lab1", "lab2", "lab3", "lab4"
-    system "make", "-C", "slam", "slam1", "slam2", "slam3"
-    %w[lab1 lab2 lab3 lab4].each { |a| system "./#{a}" }
-    system "./slam/slam3"
+    (1..8).each do |n|
+      system "make", "lab#{n}"
+      system "./lab#{n}"
+    end
+
+    (1..3).each do |n|
+      system "make", "-C", "slam", "slam#{n}"
+      system "./slam/slam#{n}"
+    end
   end
 end
