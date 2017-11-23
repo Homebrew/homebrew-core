@@ -21,6 +21,6 @@ class Bedtools < Formula
 
   test do
     (testpath/"t.bed").write "c\t1\t5\nc\t4\t9"
-    assert_equal "c\t1\t9", shell_output("#{bin}/bedtools merge -i t.bed")
+    assert_equal "c\t1\t9", shell_output("#{bin}/bedtools merge -i t.bed").chomp
   end
 end
