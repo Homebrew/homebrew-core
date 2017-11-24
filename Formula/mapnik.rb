@@ -24,7 +24,6 @@ class Mapnik < Formula
   depends_on "jpeg"
   depends_on "webp"
   depends_on "gdal" => :optional
-  depends_on "gdal2" => :optional
   depends_on "postgresql" => :optional
   depends_on "cairo" => :optional
 
@@ -90,13 +89,7 @@ class Mapnik < Formula
     else
       args << "CAIRO=False"
     end
-
-    if build.with?("gdal") && build.with("gdal2")
-      odie "Options --with-gdal and --with-gdal2 are mutually exclusive."
-    end
     args << "GDAL_CONFIG=#{Formula["gdal"].opt_bin}/gdal-config" if build.with? "gdal"
-    args << "GDAL_CONFIG=#{Formula["gdal2"].opt_bin}/gdal-config" if build.with? "gdal2"
-
     args << "PG_CONFIG=#{Formula["postgresql"].opt_bin}/pg_config" if build.with? "postgresql"
 
     system "./configure", *args
