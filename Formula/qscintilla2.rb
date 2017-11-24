@@ -5,10 +5,10 @@ class Qscintilla2 < Formula
   sha256 "14b31d20717eed95ea9bea4cd16e5e1b72cee7ebac647cba878e0f6db6a65ed0"
 
   bottle do
-    sha256 "f22239207011ada7af69ef94115390122fd2e709155c3cc75467c198a1785190" => :high_sierra
-    sha256 "2145a9138de0eb4dc7d1c2cb2741ad8d5e4bd43eafa27040d61b5be9c1898d28" => :sierra
-    sha256 "cb8eb0c2017e0868b5308fd8cfff8602f7bc6f3ae775fdebfa17c3f51b0b3268" => :el_capitan
-    sha256 "17974d5e54f96706a354d84ab684bede51c043834c970dfe67a673cb45840bdf" => :yosemite
+    cellar :any
+    sha256 "4cd23fa413b59b457fafe407eb9be706e129cae3214e140cba766c882722629d" => :high_sierra
+    sha256 "f4ab7ab154f79bc7fc531e19acb051372fa9191b33927c46566d3d86f6be79d1" => :sierra
+    sha256 "3430be56ff6d790e1cf2662f14acdeccc1757ba0fb6dc07ef1a397e4081ecb0f" => :el_capitan
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
