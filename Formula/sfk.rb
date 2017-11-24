@@ -1,8 +1,20 @@
+# The tarball is not APFS friendly
+# "Can't create 'sfk-1.8.8/testfiles/Formats/22-umlauts-???-name.txt'"
+# Reported 24 Nov 2017 https://sourceforge.net/p/swissfileknife/bugs/50/
+class SfkDownloadStrategy < CurlDownloadStrategy
+  def stage
+    exclude = "#{name}-#{version}/testfiles/Formats"
+    safe_system "tar", "xf", cached_location, "--exclude", exclude
+    chdir
+  end
+end
+
 class Sfk < Formula
   desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
-  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.8.5/sfk-1.8.5.tar.gz"
-  sha256 "294bc3f3fc4318a198da47d48ebe38652d57bb0dee2c11fa9c0025d3d8ad9dc4"
+  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.8.8/sfk-1.8.8.tar.gz",
+      :using => SfkDownloadStrategy
+  sha256 "b139998e3aca294fe74ad2a6f0527e81cbd11eddfb5e8a81f6067a79d26c97ed"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,6 +24,16 @@ class Sfk < Formula
   end
 
   def install
+    ENV.libstdcxx
+
+    # Fix "error: ordered comparison between pointer and zero"
+    # Reported 24 Nov 2017 https://sourceforge.net/p/swissfileknife/bugs/51/
+    if DevelopmentTools.clang_build_version >= 900
+      inreplace "sfk.cpp",
+                "if (fgets(szLineBuf, MAX_LINE_LEN, stdin) <= 0)",
+                "if (fgets(szLineBuf, MAX_LINE_LEN, stdin) <= (void *)0)"
+    end
+
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
