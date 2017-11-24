@@ -9,9 +9,9 @@ class Thefuck < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85c7af988c0081a2727b9659da57491077879341efc35986c55dc0b06f12176c" => :high_sierra
-    sha256 "f81a57481dd119f21377ac1f7fbf341c8102fd6c493742526602f6ae3b976da4" => :sierra
-    sha256 "e38c62f20f99893728847e9a99c986ddcb5237ebf9265aff0ee9925150089b0a" => :el_capitan
+    sha256 "081d1d9cf18435961fb62648a1f4fc841e0bc27611f67302ffe11c5576b8d8f3" => :high_sierra
+    sha256 "4f91f880f0050c2301cae9019fa67ee53d367d7fdfafbe6bac11c05bc86289b1" => :sierra
+    sha256 "f222599a8bd17a176d6c77263c604b371e16094c8c5c12517510dcb713cba0b3" => :el_capitan
   end
 
   depends_on :python3
