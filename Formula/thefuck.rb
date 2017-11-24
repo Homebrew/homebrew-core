@@ -3,8 +3,8 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/e6/1b/d05fc958700634bcb6b82fefb2f701587fa6ad08cb2f7e02e46a0f00a329/thefuck-3.24.tar.gz"
-  sha256 "c8484ab5b8c72d5284d9c94b5836cea5451468fe8239aa657e21fd0427145fa5"
+  url "https://files.pythonhosted.org/packages/ec/20/3f136313c27ea36ba38d31818b9f0a1a4656668fc6747b3bfa04f3debc98/thefuck-3.25.tar.gz"
+  sha256 "70cbe6295d2d2d371a395619216d38eb1666e4b3c3b1a24f67d11b88e65fea78"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -27,8 +27,8 @@ class Thefuck < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/8d/96/1fc6468be91521192861966c40bd73fdf8b065eae6d82dd0f870b9825a65/psutil-5.4.0.tar.gz"
-    sha256 "8e6397ec24a2ec09751447d9f169486b68b37ac7a8d794dca003ace4efaafc6a"
+    url "https://files.pythonhosted.org/packages/fe/17/0f0bf5792b2dfe6003efc5175c76225f7d3426f88e2bf8d360cfab870cd8/psutil-5.4.1.tar.gz"
+    sha256 "42e2de159e3c987435cb3b47d6f37035db190a1499f3af714ba7af5c379b6ba2"
   end
 
   resource "pyte" do
