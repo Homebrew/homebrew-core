@@ -1,9 +1,8 @@
 class MonoLibgdiplus < Formula
   desc "GDI+-compatible API on non-Windows operating systems"
   homepage "http://www.mono-project.com/docs/gui/libgdiplus/"
-  url "https://github.com/mono/libgdiplus/archive/5.4.tar.gz"
-  sha256 "ce31da0c6952c8fd160813dfa9bf4a9a871bfe7284e9e3abff9a8ee689acfe58"
-  revision 1
+  url "https://github.com/mono/libgdiplus/archive/5.6.tar.gz"
+  sha256 "6a75e4a476695cd6a1475fd6b989423ecf73978fd757673669771d8a6e13f756"
 
   bottle do
     cellar :any
