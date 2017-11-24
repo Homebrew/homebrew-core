@@ -1,9 +1,8 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.13/mapnik-v3.0.13.tar.bz2"
-  sha256 "d6213d514a0e3cd84d9bfcb6d97208d169ffcaae1f36250f6555655cdfe57bcc"
-  revision 2
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.16/mapnik-v3.0.16.tar.bz2"
+  sha256 "0a0e6351d1a32922327555b9835d4843aade752adecadde309fa856b72dfb1b1"
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
@@ -34,13 +33,6 @@ class Mapnik < Formula
   end
 
   needs :cxx11
-
-  # Upstream issue from 18 Jul 2017 "3.0.15 build failure with icu-59"
-  # See https://github.com/mapnik/mapnik/issues/3729
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/baacb3b/mapnik/3.0.13-icu4c-59.patch"
-    sha256 "b8c6d1e7477893b0024f4b79410b4499dd6fc7991d7d233a902b3a5e627854b7"
-  end
 
   def install
     ENV.cxx11
