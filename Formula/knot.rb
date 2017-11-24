@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.6.2.tar.xz"
-  sha256 "49d4a072fe4302746750c0f1f842a57d8452a29eb1dc4d2f647b2241858d55e9"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.6.3.tar.xz"
+  sha256 "2fb27a4006865fc12873cbadc5b4a870ec65d3293a284972c031522282987790"
 
   bottle do
     sha256 "1f2749421740316c7eefa84cc8750762083e4d9f1b52ab12da84f765f7f74f4d" => :high_sierra
