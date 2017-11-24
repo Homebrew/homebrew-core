@@ -7,10 +7,9 @@ class Hana < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "48ab5f1cddb76daa363e6aa92c16e8d8cfbc02b874b2b3060a9d0d4d8f1ba806" => :high_sierra
-    sha256 "1c9329119dc9298abdeacc64b121eb1c96c6818ce5c0b595ac5c9c93e1b1a8a2" => :sierra
-    sha256 "1c9329119dc9298abdeacc64b121eb1c96c6818ce5c0b595ac5c9c93e1b1a8a2" => :el_capitan
-    sha256 "1c9329119dc9298abdeacc64b121eb1c96c6818ce5c0b595ac5c9c93e1b1a8a2" => :yosemite
+    sha256 "94d9f585e1b21bb9926634a95a5ddecefd31b20c07aea60faf0a0308109e2449" => :high_sierra
+    sha256 "94d9f585e1b21bb9926634a95a5ddecefd31b20c07aea60faf0a0308109e2449" => :sierra
+    sha256 "94d9f585e1b21bb9926634a95a5ddecefd31b20c07aea60faf0a0308109e2449" => :el_capitan
   end
 
   depends_on "cmake" => :build
