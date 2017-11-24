@@ -2,7 +2,7 @@ class Libbdplus < Formula
   desc "Implements the BD+ System Specifications"
   homepage "https://www.videolan.org/developers/libbdplus.html"
   url "https://download.videolan.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
-  mirror "http://videolan-nyc.defaultroute.com/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
+  mirror "https://ftp.osuosl.org/pub/videolan/libbdplus/0.1.2/libbdplus-0.1.2.tar.bz2"
   sha256 "a631cae3cd34bf054db040b64edbfc8430936e762eb433b1789358ac3d3dc80a"
 
   bottle do
