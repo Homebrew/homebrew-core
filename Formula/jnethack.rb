@@ -24,7 +24,7 @@ class Jnethack < Formula
   skip_clean "libexec/save"
 
   patch do
-    url "http://iij.dl.sourceforge.jp/jnethack/58545/jnethack-3.4.3-0.11.diff.gz"
+    url "https://ja.osdn.net/frs/redir.php?f=jnethack%2F58545%2Fjnethack-3.4.3-0.11.diff.gz"
     sha256 "fbc071f6b33c53d89e8f13319ced952e605499a21d2086077296c631caff7389"
   end
 
