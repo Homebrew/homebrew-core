@@ -7,10 +7,9 @@ class TidyHtml5 < Formula
 
   bottle do
     cellar :any
-    sha256 "2592b1f250979b968077b63a9f3d8f5bb128fc865717ebca32f014673ad62371" => :high_sierra
-    sha256 "b4f78319077f68e2fabaed0ab36a290959043239433b20f48b1e557bc1d096d7" => :sierra
-    sha256 "b4b784e2d662630e9d1c018accbcd3ccf850fce9ec789c92919999ab8c284bbd" => :el_capitan
-    sha256 "f83de436c232d1b8abc837c851db4e9f1967c5f8cde409a577097a465bd20bd0" => :yosemite
+    sha256 "af9633f1578980fe3d4351c3d71b4b83cc79f814d87310e4b7d05830c53c9621" => :high_sierra
+    sha256 "6c8f843d25d6964b18d4c2fa15aaf2606b36decbbe65c31b38a7982e499a9d28" => :sierra
+    sha256 "48416711a2f1a080e9eae1ecba30773ee48eae98181e25c6ae5ace07cb7ac8ee" => :el_capitan
   end
 
   depends_on "cmake" => :build
