@@ -41,9 +41,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.21.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.21.tar.xz"
-    sha256 "bafa04e8cfbb3c5fbb6bb5080fb5d3f2f6816ac69518d0ed50aceadb66b4abef"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.22.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.22.tar.xz"
+    sha256 "db5c7e7f652405d927b3ba43cc09e4e2f5726a2c7cbf9445a0d01d1b335e8b73"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.14.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
