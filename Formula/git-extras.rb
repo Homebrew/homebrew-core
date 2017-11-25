@@ -28,7 +28,7 @@ class GitExtras < Formula
     pkgshare.install "etc/git-extras-completion.zsh"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To load Zsh completions, add the following to your .zschrc:
       source #{opt_pkgshare}/git-extras-completion.zsh
     EOS
