@@ -14,10 +14,10 @@ class GitExtras < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ef2f0f78212b9cbd8cd0e9d6e509961fd7dfc87c191cca27852b99e448176aa" => :high_sierra
-    sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :sierra
-    sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :el_capitan
-    sha256 "59e7af5b051fcab03f394ebb8627d5f41f9b9c3be543b59329c9356e1565eee8" => :yosemite
+    rebuild 1
+    sha256 "77f2a8b3366b1f9016b4ef1a34a3d3b33f59d1fa8a7ffab65803ee7c0bdcd4dc" => :high_sierra
+    sha256 "77f2a8b3366b1f9016b4ef1a34a3d3b33f59d1fa8a7ffab65803ee7c0bdcd4dc" => :sierra
+    sha256 "77f2a8b3366b1f9016b4ef1a34a3d3b33f59d1fa8a7ffab65803ee7c0bdcd4dc" => :el_capitan
   end
 
   conflicts_with "git-utils",
