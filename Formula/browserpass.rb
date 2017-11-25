@@ -1,20 +1,16 @@
 class Browserpass < Formula
   desc "Native component for Chrome & Firefox password management add-on"
   homepage "https://github.com/dannyvankooten/browserpass"
-  url "https://github.com/dannyvankooten/browserpass/archive/2.0.8.tar.gz"
-  sha256 "1747fc24e51128811eb679b43ab23a8cce6ac566620112f0ca9fa129ace4a928"
+  url "https://github.com/dannyvankooten/browserpass/releases/download/2.0.8/browserpass-src.tar.gz"
+  version "2.0.8"
+  sha256 "5df921f0cfb3ebb0b4c867af08bf69f5cfef30d16101e35fba4c0ce3a558bb51"
 
-  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "node" => :build
-  depends_on "yarn" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/dannyvankooten/browserpass").install buildpath.children
     cd "src/github.com/dannyvankooten/browserpass" do
-      system "make", "deps"
-      system "make", "js"
       system "make", "browserpass-darwinx64"
       mkdir "out"
       mkdir "out/bin"
