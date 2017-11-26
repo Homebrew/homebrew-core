@@ -16,9 +16,9 @@ class Sslyze < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c3f7bd6ea3fb6b41337cac3d4c89a085be09e62e9cfb428edba51f42a29e55d" => :high_sierra
-    sha256 "233179b3925def35f294fceaa64a2e4920feeb5f3cb6bcfe7e6129ae7bf1a437" => :sierra
-    sha256 "ee558bd8f1546e393b8e19063ad0aad1370fa618219dcd35769aa1491fe0d598" => :el_capitan
+    sha256 "d874c02005937cae638bff1ae8053b55a05934d6fa621651bd58abf6f48888dd" => :high_sierra
+    sha256 "297faa9579c3a2a5763217409bf82c90756b78f74342ceb8410bcc5fcc953823" => :sierra
+    sha256 "3a0dae28db1f3ec22daca06e42192a7850567fa790bb55109b4183cd623fef0d" => :el_capitan
   end
 
   head do
