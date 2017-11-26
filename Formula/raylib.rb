@@ -9,11 +9,12 @@ class Raylib < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".",
-      "-DSTATIC_RAYLIB=ON", "-DSHARED_RAYLIB=ON",
-      "-DMACOS_FATLIB=OFF",
-      "-DBUILD_EXAMPLES=OFF", "-DBUILD_GAMES=OFF",
-      *std_cmake_args
+    system "cmake", ".", "-DSTATIC_RAYLIB=ON",
+                         "-DSHARED_RAYLIB=ON",
+                         "-DMACOS_FATLIB=OFF",
+                         "-DBUILD_EXAMPLES=OFF",
+                         "-DBUILD_GAMES=OFF",
+                         *std_cmake_args
     system "make", "install"
   end
 
@@ -21,14 +22,13 @@ class Raylib < Formula
     (testpath/"test.c").write <<~EOS
       #include <stdlib.h>
       #include <raylib.h>
-
       int main(void)
       {
           int num = GetRandomValue(42, 1337);
           return 42 <= num && num <= 1337 ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
-    system ENV.cc, "-o", "test", "test.c", "-I#{include}", "-L#{lib}", "-lraylib"
+    system ENV.cc, "test.c", "-L#{lib}", "-lraylib", "-o", "test"
     system "./test"
   end
 end
