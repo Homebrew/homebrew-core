@@ -5,9 +5,9 @@ class Glade < Formula
   sha256 "07d1545570951aeded20e9fdc6d3d8a56aeefe2538734568c5335be336c6abed"
 
   bottle do
-    sha256 "c4fa3ee5b36ca073b988e9419abe843ff820c2642347555eeb59be8a4f7e42af" => :high_sierra
-    sha256 "c7eeeb7a059ff24ced402aad019172f7db44ced1a4744738fde4c54cb1da77e2" => :sierra
-    sha256 "f160c989c55a7eaf3830bd8379d67e363b8495b2feb6ab6a8bc3cb5d4e2615fb" => :el_capitan
+    sha256 "ac87e6105abb447609d5eec17e38606b558a1931dced66c708a32ba65ff5a1ac" => :high_sierra
+    sha256 "e61b53f6b7aab37ac47bb91825c0504fd615d152e310d990ed238b0af503b8f7" => :sierra
+    sha256 "567f482c5b8efedd1e1bdccffa8f9a10d6ddcdeddb19fb5dcb67dedc27c381e9" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
