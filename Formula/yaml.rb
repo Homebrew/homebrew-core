@@ -8,14 +8,10 @@ class Yaml < Formula
   depends_on "govendor" => :build
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/mikefarah/yaml").install contents
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/mikefarah/yaml").install buildpath.children
 
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
-
-    cd gopath/"src/github.com/mikefarah/yaml" do
+    cd "src/github.com/mikefarah/yaml" do
       system "govendor", "sync"
       system "go", "build", "-o", "bin/yaml"
       bin.install "bin/yaml"
