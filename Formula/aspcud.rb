@@ -6,9 +6,9 @@ class Aspcud < Formula
   revision 1
 
   bottle do
-    sha256 "700beffd0ba38265dc95a4b3c344a1974355cb4c20fc50eb7f2d500aaf0ee956" => :high_sierra
-    sha256 "73c4df24738a0cea1339241f641657c6e7cb5aecddaba3cb2ecd5e2f6b46fdb5" => :sierra
-    sha256 "2658d95252c4d154e3e1aa42fd9762850da1114a8e19c9721c07bb306cbb2955" => :el_capitan
+    sha256 "07f0e44c6cf608f20da7a37744d7559c1f7b77fc3151bcd37ea0af9fbd39cde7" => :high_sierra
+    sha256 "c3c886728b9713da9ec4837b7faf19832219636743654f5b94dbe83b09c83bae" => :sierra
+    sha256 "d9f4bb9cd64ba31b4786fc848813cf665ff5f37c761cfb0bacd6c70b50fd9a58" => :el_capitan
   end
 
   depends_on "boost" => :build
