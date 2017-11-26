@@ -1,13 +1,12 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.0.3/sbt-1.0.3.tgz"
-  sha256 "2374bf494132e7bf316fa2b83155f166fdf6b042ad70fa681e51e3fe8ad82c10"
+  url "https://github.com/sbt/sbt/releases/download/v1.0.4/sbt-1.0.4.tgz"
+  sha256 "813776f81b1dfa990fba11cd6d0120df3467bee00742b115f282a0e8e254e23f"
 
   bottle :unneeded
 
-  # Set to 1.8+ for > 1.0.3; Java 9 compat https://github.com/sbt/launcher/pull/45
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     inreplace "bin/sbt" do |s|
@@ -17,7 +16,15 @@ class Sbt < Formula
 
     libexec.install "bin", "lib"
     etc.install "conf/sbtopts"
-    (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.java_home_env("1.8")
+
+    (bin/"sbt").write <<~EOS
+      #!/bin/sh
+      if [ -f "$HOME/.sbtconfig" ]; then
+        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
+        . "$HOME/.sbtconfig"
+      fi
+      exec "#{libexec}/bin/sbt" "$@"
+    EOS
   end
 
   def caveats;  <<~EOS
