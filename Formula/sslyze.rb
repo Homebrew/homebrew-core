@@ -5,17 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.1.5.tar.gz"
-    sha256 "c9ad321d3c5170306bf9cbd7c158cc238803768249e1874ca74a787c0041481b"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.2.0.tar.gz"
+    sha256 "8dc5b3fa48e447ac6f878cf1c443ccd472616a6b0054961b390efb5e36614fa4"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/0.17.0.tar.gz"
-      sha256 "1a5f07ae40372bc5522068bc7f8509eac0169bc1233fea823810948aa071bad8"
-    end
-
-    resource "openssl" do
-      url "https://github.com/PeterMosmans/openssl.git",
-          :revision => "c9ba19c8b7fd131137373dbd1fccd6a8bb0628be"
+      url "https://github.com/nabla-c0d3/nassl/archive/1.0.1.tar.gz"
+      sha256 "fee22bcf94a869a8429432d31fd14cebe0cb426f43529065fc1de854ffa3fb92"
     end
   end
 
@@ -32,24 +27,19 @@ class Sslyze < Formula
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl.git"
     end
-
-    resource "openssl" do
-      url "https://github.com/PeterMosmans/openssl.git",
-          :branch => "1.0.2-chacha"
-    end
   end
 
   depends_on :arch => :x86_64
   depends_on :python if MacOS.version <= :snow_leopard
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
-    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
+    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
-    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+    url "https://files.pythonhosted.org/packages/c9/70/89b68b6600d479034276fed316e14b9107d50a62f5627da37fafe083fde3/cffi-1.11.2.tar.gz"
+    sha256 "ab87dd91c0c4073758d07334c1e5f712ce8fe48f007b86f8238773963ee700a6"
   end
 
   resource "cryptography" do
@@ -78,13 +68,13 @@ class Sslyze < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "tls-parser" do
-    url "https://files.pythonhosted.org/packages/56/d9/6b048b9434b55acede2fd54c4db901ecab1b642d3e9248635be153afbe8a/tls_parser-1.1.0.tar.gz"
-    sha256 "0652320987af8e8223e32d1b045f4d8f5cd1533b01cb90edab370eb358757df0"
+    url "https://files.pythonhosted.org/packages/a3/77/6e917d656fa2b017011347a1dd0a840c2247cb9c48fa6853104626435273/tls_parser-1.1.1.tar.gz"
+    sha256 "e2406578f14c57dde82c8e410c30e6ebf85acda16a0fdcf1b965e574b3681c4e"
   end
 
   resource "typing" do
@@ -98,10 +88,21 @@ class Sslyze < Formula
     sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
   end
 
+  resource "openssl-legacy" do
+    url "https://ftp.openssl.org/source/old/1.0.2/openssl-1.0.2e.tar.gz"
+    sha256 "e23ccafdb75cfcde782da0151731aa2185195ac745eea3846133f2e05c0e0bff"
+  end
+
+  resource "openssl-modern" do
+    url "https://github.com/openssl/openssl.git",
+        :branch => "tls1.3-draft-18"
+  end
+
   def install
     venv = virtualenv_create(libexec)
 
-    res = resources.map(&:name).to_set - %w[cryptography nassl openssl zlib]
+    res = resources.map(&:name).to_set
+    res -= %w[cryptography nassl openssl-legacy openssl-modern zlib]
 
     res.each do |r|
       venv.pip_install resource(r)
@@ -115,25 +116,26 @@ class Sslyze < Formula
       # - https://rt.openssl.org/Ticket/Display.html?id=3736&user=guest&pass=guest
       # - https://rt.openssl.org/Ticket/Display.html?id=3737&user=guest&pass=guest
       ENV.deparallelize do
-        mv "bin/openssl/include", "nassl_openssl_include"
+        mv "bin/openssl-legacy/include", "nassl_openssl_legacy_include"
+        mv "bin/openssl-modern/include", "nassl_openssl_modern_include"
         rm_rf "bin" # make sure we don't use the prebuilt binaries
-        (nassl_path/"bin/openssl").install "nassl_openssl_include" => "include"
+        (nassl_path/"bin/openssl-legacy").mkpath
+        (nassl_path/"bin/openssl-modern").mkpath
+        mv "nassl_openssl_legacy_include", "bin/openssl-legacy/include"
+        mv "nassl_openssl_modern_include", "bin/openssl-modern/include"
         (nassl_path/"zlib-#{resource("zlib").version}").install resource("zlib")
-        (nassl_path/"openssl").install resource("openssl")
-
-        # Upstream issue "ocsp_response_tests.py intermittent failure"
-        # Reported 22 Jul 2017 https://github.com/nabla-c0d3/nassl/issues/16
-        inreplace "build_from_scratch.py",
-          "perform_build_task('NASSL Tests', NASSL_TEST_TASKS)", ""
-
+        (nassl_path/"openssl-1.0.2e").install resource("openssl-legacy")
+        (nassl_path/"openssl-tls1.3-draft-18").install resource("openssl-modern")
         system "python", "build_from_scratch.py"
       end
+      system "python", "run_tests.py"
       venv.pip_install nassl_path
-      ENV.prepend "CPPFLAGS", "-I#{nassl_path}/openssl/include"
-      ENV.prepend "LDFLAGS", "-L#{nassl_path}/openssl"
+      ENV.prepend "CPPFLAGS", "-I#{nassl_path}/openssl-tls1.3-draft-18/include"
+      ENV.prepend "LDFLAGS", "-L#{nassl_path}/openssl-tls1.3-draft-18"
       venv.pip_install resource("cryptography")
     end
     venv.pip_install_and_link buildpath
+    system "python", "run_tests.py"
   end
 
   test do
