@@ -1,9 +1,8 @@
 class Librealsense < Formula
   desc "Camera capture for Intel RealSense F200, SR300 and R200"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v1.12.1.tar.gz"
-  sha256 "62fb4afac289ad7e25c81b6be584ee275f3d4d3742468dc7d80222ee2e4671bd"
-
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.8.2.tar.gz"
+  sha256 "5a2174cafb87c5b2587b72df9d00f5aec37d3e1fe356388e88563702d20ac130"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
@@ -24,19 +23,19 @@ class Librealsense < Formula
   def install
     args = std_cmake_args
 
-    args << "-DBUILD_EXAMPLES=true" if build.with? "examples"
+    args << "-DBUILD_EXAMPLES=OFF" if build.without? "examples"
 
-    system "cmake", ".", *args
+    system "cmake", ".", "-DBUILD_WITH_OPENMP=OFF", *args
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <librealsense/rs.h>
+      #include <librealsense2/rs.h>
       #include<stdio.h>
       int main()
       {
-        printf(RS_API_VERSION_STR);
+        printf(RS2_API_VERSION_STR);
         return 0;
       }
     EOS
