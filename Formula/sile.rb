@@ -7,6 +7,13 @@ class Sile < Formula
   version "0.9.5-alpha"
   head "https://github.com/simoncozens/sile.git"
 
+  bottle do
+    cellar :any
+    sha256 "7ab9d474ecf65c905b3b147df724fb4b547e60ef1a3d495d0e33b59fd87c443a" => :high_sierra
+    sha256 "71287c01a3adeff3a39c1931e9d729a5e2cf5ae2da02b1cf6ca4409fcaea21aa" => :sierra
+    sha256 "bc4d5168d1bc8582d6f02867360fa75426a3481b753aae96f5a67b75bfc13e73" => :el_capitan
+  end
+
   # These three should return to being head-only when >0.9.4 is released.
   depends_on "automake" => :build
   depends_on "autoconf" => :build
