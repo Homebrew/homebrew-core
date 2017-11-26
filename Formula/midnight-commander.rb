@@ -1,9 +1,9 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.19.tar.xz"
-  mirror "https://fossies.org/linux/misc/mc-4.8.19.tar.xz"
-  sha256 "eb9e56bbb5b2893601d100d0e0293983049b302c5ab61bfb544ad0ee2cc1f2df"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.20.tar.xz"
+  mirror "https://fossies.org/linux/misc/mc-4.8.20.tar.xz"
+  sha256 "017ee7f4f8ae420a04f4d6fcebaabe5b494661075c75442c76e9c8b1923d501c"
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
