@@ -1,9 +1,8 @@
 class Huexpress < Formula
   desc "PC Engine emulator"
   homepage "https://github.com/kallisti5/huexpress"
-  url "https://github.com/kallisti5/huexpress/archive/3.0.3.tar.gz"
-  sha256 "159a13cd469d0645377377604c0fc4b3d3d1980d4d0e71c634c293f99db2c497"
-  revision 2
+  url "https://github.com/kallisti5/huexpress/archive/3.0.4.tar.gz"
+  sha256 "76589f02d1640fc5063d48a47f017077c6b7557431221defe9e38679d86d4db8"
   head "https://github.com/kallisti5/huexpress.git"
 
   bottle do
