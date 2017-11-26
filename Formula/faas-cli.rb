@@ -25,6 +25,7 @@ class FaasCli < Formula
       system "go", "build", "-ldflags",
              "-s -w -X #{project}/version.GitCommit=#{commit}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
+      bin.install_symlink "faas-cli" => "faas"
       pkgshare.install "template"
       prefix.install_metafiles
     end
