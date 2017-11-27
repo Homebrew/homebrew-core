@@ -22,8 +22,8 @@ class Stamp < Formula
     A valid STAMPDIR is required to use the STAMP commands.
     You need to add it to your list of ENVIRONMENT variables:
       export STAMPDIR=#{prefix}/defs
-    Alternaively you can point STAMPDIR to custom copy of the
-    STAMP parameter files.
+    Alternatively, you can point STAMPDIR to a custom copy of
+    the STAMP parameter files.
     EOS
   end
 
