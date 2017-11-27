@@ -6,7 +6,7 @@ class Stamp < Formula
   # tag "bioinformatics"
 
   resource "pdb" do
-    url "http://www.ebi.ac.uk/pdbe/entry-files/download/pdb2pah.ent"
+    url "https://files.rcsb.org/view/2pah.pdb"
     sha256 "8b8b1f971928b3b20ff3755711dd58b4b9fe68f0f9cd023fbdac1c94799fb940"
   end
 
@@ -71,7 +71,7 @@ class Stamp < Formula
 
     resource("pdb").stage do
       (testpath/"domain.file").write <<~EOS
-        pdb2pah.ent structure { ALL }
+        2pah.pdb structure { ALL }
       EOS
 
       lines1 = [">structure TETRAMERIC HUMAN PHENYLALANINE HYDROXYLASE : All ",
@@ -84,11 +84,11 @@ class Stamp < Formula
                 "DICHELLGHVPLFSDRSFAQFSQEIGLASLGAPDEYIEKLATIYWFTVEFGLCKQGDSIKAYGAGLLSSFGELQYCLSEK",
                 "PKLLPLELEKTAIQNYTVTEFQPLYYVAESFNDAKEKVRNFAATIPRPFSVRYDPYTQRIEVLDNTQQLKILADSINSEI",
                 "GILCSALQKIK", ""]
-      assert_match lines1.join("\n").sub('\\"', ""), shell_output("#{bin}/pdbseq -f #{testpath}/domain.file -tl 42")
+      assert_equal lines1.join("\n").sub('\\"', ""), shell_output("#{bin}/pdbseq -f #{testpath}/domain.file -tl 42")
 
       lines2 = ["Warning: chains aren't considered in this mode",
-                "pdb2  3.10000 -2.00000 1998 0 0 0     2   651     0", ""]
-      assert_match lines2.join("\n").sub('\\"', ""), shell_output("#{bin}/pdbc -r pdb2pah.ent")
+                "2pah  3.10000 -2.00000 1998 0 0 0     2   651     0", ""]
+      assert_equal lines2.join("\n").sub('\\"', ""), shell_output("#{bin}/pdbc -r 2pah.pdb")
     end
   end
 end
