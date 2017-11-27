@@ -1,8 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.4.tar.bz2"
-  sha256 "d974ab89de69477c7f581a3233bc731eacbb43d479291e472b2c531c83b6d763"
+  url "https://downloads.powerdns.com/releases/pdns-4.0.5.tar.bz2"
+  sha256 "5bc8fad537dace02a5bf0c71a29b1b5303afdb41d0231a17a06f18263489ec24"
 
   bottle do
     rebuild 1
@@ -33,14 +33,10 @@ class Pdns < Formula
   depends_on "sqlite"
   depends_on :postgresql => :optional
 
-  # Use upstream commit that fixes build with Xcode 9
-  # https://github.com/PowerDNS/pdns/pull/4940
-  patch do
-    url "https://github.com/PowerDNS/pdns/commit/885bddbd.patch?full_index=1"
-    sha256 "a6c08599f8b6e368eaec99614e09da49be213666850c44101673fe2b3b4c2558"
-  end
-
   def install
+    # Fix "configure: error: cannot find boost/program_options.hpp"
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     args = %W[
       --prefix=#{prefix}
       --with-lua
