@@ -1,8 +1,8 @@
 class Polyml < Formula
   desc "Standard ML implementation"
   homepage "http://www.polyml.org"
-  url "https://github.com/polyml/polyml/archive/v5.7.tar.gz"
-  sha256 "19340d8e9cea15c3fd786dde27028cd2947608955a376d1317a20268c8a19279"
+  url "https://github.com/polyml/polyml/archive/v5.7.1.tar.gz"
+  sha256 "d18dd824b426edaed1cec71dded354b57df9ebdbd38863bc7540a60bd0667028"
   head "https://github.com/polyml/polyml.git"
 
   bottle do
