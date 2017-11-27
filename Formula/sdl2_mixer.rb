@@ -3,7 +3,7 @@ class Sdl2Mixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.2.tar.gz"
   sha256 "4e615e27efca4f439df9af6aa2c6de84150d17cbfd12174b54868c12f19c83bb"
-  revision 2
+  revision 3
   head "https://hg.libsdl.org/SDL_mixer", :using => :hg
 
   bottle do
@@ -30,15 +30,15 @@ class Sdl2Mixer < Formula
       --enable-music-ogg --disable-music-ogg-shared
       --disable-music-flac-shared
       --disable-music-midi-fluidsynth-shared
-      --enable-music-mod-mikmod
       --disable-music-mod-mikmod-shared
+      --enable-music-mod-modplug
       --disable-music-mod-modplug-shared
       --disable-music-mp3-smpeg-shared
     ]
 
     args << "--disable-music-flac" if build.without? "flac"
     args << "--disable-music-midi-fluidsynth" if build.without? "fluid-synth"
-    args << "--disable-music-mod-modplug" if build.without? "libmodplug"
+    args << "--enable-music-mod-mikmod" if build.with? "libmikmod"
 
     if build.with? "smpeg2"
       args << "--with-smpeg-prefix=#{Formula["smpeg2"].opt_prefix}"
