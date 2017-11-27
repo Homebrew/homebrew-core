@@ -13,8 +13,7 @@ class Yaml < Formula
 
     cd "src/github.com/mikefarah/yaml" do
       system "govendor", "sync"
-      system "go", "build", "-o", "bin/yaml"
-      bin.install "bin/yaml"
+      system "go", "build", "-o", bin/"yaml"
       prefix.install_metafiles
     end
   end
