@@ -1,9 +1,8 @@
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
   homepage "https://github.com/commonsmachinery/blockhash"
-  url "https://github.com/commonsmachinery/blockhash/archive/0.2.1.tar.gz"
-  sha256 "549e0f52e7a7545bae7eca801c64c79b95cbe9417975718e262fddaf78b00cca"
-  revision 3
+  url "https://github.com/commonsmachinery/blockhash/archive/v0.3.tar.gz"
+  sha256 "a4fbe16dc8d1e9b82de860d97222ce6259495f7832c7dfe3de9e0bb42f85995e"
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
@@ -30,7 +29,7 @@ class Blockhash < Formula
 
   test do
     resource("testdata").stage testpath
-    hash = "00007ff07fe07fe07fe67ff07520600077fe601e7f5e000079fd40410001fffe"
+    hash = "00007ff07ff07fe07fe67ff07560600077fe701e7f5e000079fd40410001ffff"
     result = shell_output("#{bin}/blockhash #{testpath}/clipper_ship.jpg")
     assert_match hash, result
   end
