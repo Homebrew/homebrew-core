@@ -3,6 +3,7 @@ class Gedit < Formula
   homepage "https://wiki.gnome.org/Apps/Gedit"
   url "https://download.gnome.org/sources/gedit/3.22/gedit-3.22.1.tar.xz"
   sha256 "aa7bc3618fffa92fdb7daf2f57152e1eb7962e68561a9c92813d7bbb7fc9492b"
+  revision 1
 
   bottle do
     rebuild 1
