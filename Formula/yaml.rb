@@ -19,7 +19,7 @@ class Yaml < Formula
   end
 
   test do
-    assert_match "key: cat", shell_output("#{bin}/yaml n key cat")
-    assert_match "cat", pipe_output("#{bin}/yaml r - key", "key: cat", 0)
+    assert_equal "key: cat", shell_output("#{bin}/yaml n key cat").chomp
+    assert_equal "cat", pipe_output("#{bin}/yaml r - key", "key: cat", 0).chomp
   end
 end
