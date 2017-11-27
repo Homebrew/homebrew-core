@@ -3,6 +3,7 @@ class Latexila < Formula
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
   url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.1.tar.xz"
   sha256 "658eba0db71864eb6d4873516d97e05be3e63085ff55513c8f10145ffb657151"
+  revision 1
 
   bottle do
     sha256 "90fd16f07dd0439d341b06f375a24dd2316e7a32f506da837482041f730993c9" => :high_sierra
