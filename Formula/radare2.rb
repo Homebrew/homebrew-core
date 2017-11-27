@@ -21,24 +21,17 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.0.1/radare2-2.0.1.tar.gz"
-    sha256 "b31d5d044cc98ce48420029c939f704a8ca3f9e8be399684c7ee7485c24dbb02"
+    url "https://radare.mikelloc.com/get/2.1.0/radare2-2.1.0.tar.gz"
+    sha256 "901be10ace5145fdd2436635f29a28f12114bf9e69f11b4b7c70dd6f8488bccf"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.0.0/radare2-bindings-2.0.0.tar.gz"
-      sha256 "d3a4d697de06d664649dd1fb3f090a079351b89c9112ba317d79187730cf9850"
+      url "https://radare.mikelloc.com/get/2.1.0/radare2-bindings-2.1.0.tar.gz"
+      sha256 "ac0eac49f7a4fd0decbdbce2303e3cb73819c77aebe17d7ca32c795d310ab8ab"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.0.0/radare2-extras-2.0.0.tar.gz"
-      sha256 "6856b57b6c125be63c3e6da9455a5da44f48da30a476a1cfefb1a1163159bdba"
-    end
-
-    patch do
-      # upstream fix for build issue
-      # https://github.com/radare/radare2-bindings/issues/176
-      url "https://github.com/radare/radare2/commit/2334829ce64f76cb2a448c48782e8c479cd5664c.diff?full_index=1"
-      sha256 "6a4505010e2e7e279f7fda91cea677e25fdb497c2b75c0d9f7ffb360d92be203"
+      url "https://radare.mikelloc.com/get/2.1.0/radare2-extras-2.1.0.tar.gz"
+      sha256 "e65dc0e680710ead7e0eef750207b5ee923225f3a8a977cde234e16107693632"
     end
   end
 
