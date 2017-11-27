@@ -2,7 +2,7 @@ class Sceptre < Formula
   include Language::Python::Virtualenv
 
   desc "Build better AWS infrastructure"
-  homepage "https://sceptre.cloudreach.com"
+  homepage "https://sceptre.cloudreach.com/latest/about.html"
   url "https://github.com/cloudreach/sceptre/archive/v1.3.1.tar.gz"
   sha256 "23d22667fb86378f5b82eeb6218dbb76acf0902853cf9218822376a88ad2fe33"
 
