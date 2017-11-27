@@ -6,9 +6,9 @@ class AdwaitaIconTheme < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3faf853054763bb16197e265ad82f59787bc2c4be91587ee2fb09b90df32b6ae" => :high_sierra
-    sha256 "c49c2ca865f5d376f46be552bfb549fe270a083ad5b73e744b2771a8cf8514d4" => :sierra
-    sha256 "c49c2ca865f5d376f46be552bfb549fe270a083ad5b73e744b2771a8cf8514d4" => :el_capitan
+    sha256 "eec6e0d4f27ebc17d4fbded8fe48ffb213f2aa6a861d084adcc956ecd4a80ed4" => :high_sierra
+    sha256 "eec6e0d4f27ebc17d4fbded8fe48ffb213f2aa6a861d084adcc956ecd4a80ed4" => :sierra
+    sha256 "eec6e0d4f27ebc17d4fbded8fe48ffb213f2aa6a861d084adcc956ecd4a80ed4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
