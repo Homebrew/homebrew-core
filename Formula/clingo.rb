@@ -16,6 +16,14 @@ class Clingo < Formula
 
   needs :cxx14
 
+  # This formula replaced the clasp & gringo formulae.
+  # https://github.com/Homebrew/homebrew-core/pull/20281
+  link_overwrite "bin/clasp"
+  link_overwrite "bin/clingo"
+  link_overwrite "bin/gringo"
+  link_overwrite "bin/lpconvert"
+  link_overwrite "bin/reify"
+
   def install
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
