@@ -3,6 +3,7 @@ class Gspell < Formula
   homepage "https://wiki.gnome.org/Projects/gspell"
   url "https://download.gnome.org/sources/gspell/1.6/gspell-1.6.1.tar.xz"
   sha256 "f4d329348775374eec18158f8dcbbacf76f85be5ce002a92d93054ece70ec4de"
+  revision 1
 
   bottle do
     sha256 "4bd62678f3608537ed8ee048b5f9fa85fdd538261dcdaefa9063929bc1c3675f" => :high_sierra
