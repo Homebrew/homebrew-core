@@ -3,6 +3,7 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.9/gtkspell3-3.0.9.tar.xz"
   sha256 "a4f4a4a2789f7499563e26d96b22d8085222ebe278da47d026b2de782b8b4d26"
+  revision 1
 
   bottle do
     sha256 "fb78bacfa701beafc1269d4d11ca80566549051cd6863606764bfc596b701f2f" => :high_sierra
