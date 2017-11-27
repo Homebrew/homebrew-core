@@ -7,7 +7,6 @@ class Howdoi < Formula
   sha256 "baea9bba67e13d71090cbce9cc2ce017ab286b2a2976a39d9a380f150495272c"
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "libxslt" unless OS.mac?
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/3d/7d/8d40fd42c16f9a9b1081857cef99b651743a86766e77b10bb59208f4d575/Pygments-2.1.1.tar.gz"
