@@ -1,7 +1,7 @@
 class Bindfs < Formula
   desc "FUSE file system for mounting to another location"
-  homepage "http://bindfs.org/"
-  url "http://bindfs.org/downloads/bindfs-1.13.8.tar.gz"
+  homepage "https://bindfs.org/"
+  url "https://bindfs.org/downloads/bindfs-1.13.8.tar.gz"
   sha256 "7e7fcf070345d8cbb45186384e0aaf3e3a6375031d7a4f9533dd5d784c32c358"
 
   bottle do
