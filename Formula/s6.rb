@@ -18,9 +18,9 @@ class S6 < Formula
   end
 
   bottle do
-    sha256 "78248e3e2f69a44f4ebaa1623461d8419ea0c43de77281c5ac9937b1805d7555" => :high_sierra
-    sha256 "ee608b2efe9a0115734a9ef93557b5b154b61b5c92af84e09594f93c9ce5c109" => :sierra
-    sha256 "735449f95a1b7ad5812a456bb0916ad19527133cca0c6573df2372796b906a4c" => :el_capitan
+    sha256 "80fd71ba5d460ad00b5c2634934a6a5cc3210705b528afb192f02f1986c5f6bd" => :high_sierra
+    sha256 "221e5deb71c158412cd07b26d358bb6e2c880f85e8cd03bdd124812fc05b8491" => :sierra
+    sha256 "b7540a0be22dfe356436b026e2e09d0157aa3565831d0459476ef7d033fb7f96" => :el_capitan
   end
 
   head do
