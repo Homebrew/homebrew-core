@@ -7,9 +7,9 @@ class Ott < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e0fee5c01837dce4ce480af3750bf0b177cd57a2babcaf6a13bf4ff4c5cd130" => :high_sierra
-    sha256 "383420ca2a3c29a95eb3a7c22cada562dff900e5952a3bf2cfd552887a7ed269" => :sierra
-    sha256 "ca2b4bb615be0404e3d74008fedb654e5081cf779fab89cd17660b4255982fcb" => :el_capitan
+    sha256 "7fb0b277c00fc9de9fe639b9718d9bf252550c275206e22c85f7242f29296914" => :high_sierra
+    sha256 "cee50c7683cff89e76c10cd959e19c71b6542d110c2c3a1c1e79dfdd62b06f72" => :sierra
+    sha256 "7d91858f513335a2df3db69127741dfebe47bed71ed27cde02dfd3d6c86bb309" => :el_capitan
   end
 
   depends_on "ocaml" => :build
