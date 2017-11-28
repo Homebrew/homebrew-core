@@ -15,10 +15,22 @@ class Iftop < Formula
     sha256 "9563857745dca2db9f91388d3f0d0fae4b6cdc2fc6ff84ffce14325c0cafee0f" => :mavericks
   end
 
+  head do
+    url "https://code.blinkace.com/pdw/iftop.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --mandir=#{man}
+    ]
+
+    system "autoreconf", "-i" if build.head?
+    system "./configure", *args
     system "make", "install"
   end
 
