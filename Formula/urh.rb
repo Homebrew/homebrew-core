@@ -1,8 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/71/c7/403b133afe1b5716ff13c92394ea9eeaeba6cc0898c6783825cbf8677bb5/urh-1.8.14.tar.gz"
-  sha256 "956e8d62b90d14310c788ede25492dc9d8fb87bc147e079dc64b023cbcef8a73"
+  url "https://files.pythonhosted.org/packages/f0/77/dd5438e0ee1fb8466fd619ac8aac345a5656c557984ec5ee4728c2e83801/urh-1.8.15.tar.gz"
+  sha256 "78ce8cf398fc8329ee04bb2a2d5b2972a2e1c7a171a2d60d9637d7ab66f5ed07"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
