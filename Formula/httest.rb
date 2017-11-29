@@ -1,8 +1,8 @@
 class Httest < Formula
   desc "Provides a large variety of HTTP-related test functionality"
   homepage "https://htt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.22/httest-2.4.22.tar.gz"
-  sha256 "b63ab35ee500cf7985df7c365aca20f41dde0bab585f67865cf588b2ff1206fb"
+  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.23/httest-2.4.23.tar.gz"
+  sha256 "52a90c9719b35226ed1e26a5262df0d14aeb63b258187656bf1eb30ace53232c"
 
   bottle do
     cellar :any
@@ -15,7 +15,9 @@ class Httest < Formula
   depends_on "apr-util"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "lua"
+  depends_on "lua" => :recommended
+  depends_on "nghttp2" => :recommended
+  depends_on "spidermonkey" => :recommended
 
   def install
     # Fix "fatal error: 'pcre/pcre.h' file not found"
@@ -23,10 +25,23 @@ class Httest < Formula
     (buildpath/"brew_include").install_symlink Formula["pcre"].opt_include => "pcre"
     ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-apr=#{Formula["apr"].opt_bin}",
-                          "--enable-lua-module"
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for libxml2
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--enable-html-module",
+      "--enable-xml-module",
+      "--with-apr=#{Formula["apr"].opt_bin}",
+    ]
+    args << "--enable-lua-module" if build.with? "lua"
+    args << "--enable-h2-module" if build.with? "nghttp2"
+    args << "--enable-js-module" if build.with? "spidermonkey"
+
+    system "./configure", *args
     system "make", "install"
   end
 
