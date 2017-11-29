@@ -41,7 +41,7 @@ class Cmake < Formula
       args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
     end
 
-    system "./bootstrap", *args
+    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"
     system "make", "install"
 
