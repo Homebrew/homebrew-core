@@ -3,7 +3,7 @@ class Exim < Formula
   homepage "https://exim.org"
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
   sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "86e970eff2b21a8933e27119b8fee1c3178657954794385158008724ddf52acc" => :high_sierra
@@ -21,9 +21,9 @@ class Exim < Formula
   # Patch applied upstream but doesn't apply cleanly from git.
   # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-11.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-11.debian.tar.xz"
-    sha256 "13572f80d8eb93b7d3186bb2cc12c80d9931885dfb6c40ef8a9d477ecdc040e0"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-12.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-12.debian.tar.xz"
+    sha256 "ee2efc681a80d9aef0f22a4a61a4c607f9c7c0b6b33b83b9f202cf71b6af3856"
     apply "patches/75_fixes_01-Start-exim-4_89-fixes-to-cherry-pick-some-commits-fr.patch"
     apply "patches/75_fixes_02-Cleanup-prevent-repeated-use-of-p-oMr-to-avoid-mem-l.patch"
     apply "patches/75_fixes_03-Fix-log-line-corruption-for-DKIM-status.patch"
@@ -41,6 +41,8 @@ class Exim < Formula
     apply "patches/75_fixes_16-Fix-crash-in-transport-on-second-smtp-connect-fail-f.patch"
     apply "patches/75_fixes_17-Fix-queue_run_in_order-to-ignore-the-PID-portion-of-.patch"
     apply "patches/75_fixes_18-Use-safer-routine-for-possibly-overlapping-copy.patch"
+    apply "patches/75_fixes_19-Fix-mariadb-mysql-macro-confusion.patch"
+    apply "patches/75_fixes_20-Avoid-release-of-store-if-there-have-been-later-allo.patch"
     apply "patches/78_Disable-chunking-BDAT-by-default.patch"
   end
 
