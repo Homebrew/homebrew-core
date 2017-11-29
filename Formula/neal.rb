@@ -28,15 +28,15 @@ class Neal < Formula
   end
 
   test do
-    (testpath/"FailingTest.swift").write <<~EOS.undent
+    (testpath/"FailingTest.swift").write <<~EOS
       (nil as Int?)!
     EOS
 
-    (testpath/"PassingTest.swift").write <<~EOS.undent
+    (testpath/"PassingTest.swift").write <<~EOS
       (nil as Int?)
     EOS
 
-    (testpath/"Swift.rules").write <<~EOS.undent
+    (testpath/"Swift.rules").write <<~EOS
       rule NoForcedValues {
         Swift::ForcedValueExpression {
           fail("No forced unwrapping allowed")
@@ -44,7 +44,9 @@ class Neal < Formula
       }
     EOS
 
-    assert_match "No forced unwrapping allowed", shell_output("#{bin}/neal --reporter arc -r Swift.rules FailingTest.swift", 1)
-    assert_equal "", shell_output("#{bin}/neal --reporter arc -r Swift.rules PassingTest.swift", 0)
+    cmd = "#{bin}/neal --reporter arc -r Swift.rules FailingTest.swift"
+    assert_match "No forced unwrapping allowed", shell_output(cmd, 1)
+    cmd = "#{bin}/neal --reporter arc -r Swift.rules PassingTest.swift"
+    assert_equal "", shell_output(cmd)
   end
 end
