@@ -10,6 +10,6 @@ class StressNg < Formula
   end
 
   test do
-    system "#{bin}/stress-ng", "--cpu 1", "--timeout 1s"
+    system "#{bin}/stress-ng", "-c 1", "-t 1"
   end
 end
