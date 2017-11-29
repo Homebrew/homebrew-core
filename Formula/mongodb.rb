@@ -23,10 +23,11 @@ class Mongodb < Formula
   end
 
   devel do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.13.tar.gz"
-    sha256 "6c305cca87fb31f9d93990ee31f878dbb9b280ca8fce77d1ac1cb331bc29fec7"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.0-rc6.tar.gz"
+    sha256 "35aa0fadda8d25637972a55d87ecb8599d739e73d1da6f2fb58924c5a204640f"
 
     depends_on :xcode => ["8.3.2", :build]
+    depends_on "libyaml"
 
     resource "PyYAML" do
       url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
@@ -40,8 +41,8 @@ class Mongodb < Formula
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.5.13",
-          :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
+          :tag => "r3.6.0-rc6",
+          :revision => "12cce7433c480538ff26caa9c51cec3e04a07e90"
     end
   end
 
