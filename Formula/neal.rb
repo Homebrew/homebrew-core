@@ -5,6 +5,12 @@ class Neal < Formula
   sha256 "2dc1f2fd2c1cbdbe4914737fcccb6d13d0eabbc67f764d88a3f8c4a1a2bc6416"
   head "https://github.com/uber/NEAL.git"
 
+  bottle do
+    sha256 "872dc7f4b7465044534f440bfb8d839f842a3d1698f1b3ef9961a9b420863923" => :high_sierra
+    sha256 "6c301172a401cf3394c8fa36e3211c641e42c81137012a92f1929da1a66b679b" => :sierra
+    sha256 "c86131f9b343ef599c20dcc39ecc145768a169b2f1d4b8c29725dd3c2466e590" => :el_capitan
+  end
+
   depends_on "camlp4" => :build
   depends_on "ocaml" => :build
   depends_on "ocaml-num" => :build
