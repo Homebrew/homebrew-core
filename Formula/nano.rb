@@ -5,9 +5,9 @@ class Nano < Formula
   sha256 "41650407cf1d4b752f31dc05e7c63319957e3dc86e9fb6ad51760e8b36941d19"
 
   bottle do
-    sha256 "3fe69fb09bafdb964b8613d718e9bc523bc3e1d69ffa0f7ec37d96ab1ccc41fd" => :high_sierra
-    sha256 "8f8c1f081647392ff41210eb263604e27e9a7b43c558bd1b9fa1211bb1f2eac7" => :sierra
-    sha256 "03dd7ce0bbc8383e7234f55aefc7416974d0d1397cfe4dc45044c2aeb6e9089c" => :el_capitan
+    sha256 "87e5ec4ff6dabd259139dd4a6c7977aafd39583063f57a70b579b907740a7f4f" => :high_sierra
+    sha256 "038973caa98da42bd6a428fef97aeca0f50241e95d9ce3210c55d33f31c7dbca" => :sierra
+    sha256 "7e7b88ef39fa11b16014cd13866a25da27694e9d4583906b1c1ff9f4f49bf16c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
