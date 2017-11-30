@@ -11,7 +11,7 @@ class CodesignRequirement < Requirement
   def message
     <<~EOS
       org.radare.radare2 identity must be available to build with automated signing.
-      See: https://github.com/radare/radare2/blob/master/doc/osx.md
+      See: https://github.com/radare/radare2/blob/master/doc/macos.md
     EOS
   end
 end
@@ -75,8 +75,8 @@ class Radare2 < Formula
     if build.with? "code-signing"
       # Brew changes the HOME directory which breaks codesign
       home = `eval printf "~$USER"`
-      system "make", "HOME=#{home}", "-C", "binr/radare2", "osxsign"
-      system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "macossign"
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "macos-sign-libs"
     end
     ENV.deparallelize { system "make", "install" }
 
