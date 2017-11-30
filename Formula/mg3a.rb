@@ -2,8 +2,7 @@
 class Mg3a < Formula
   desc "Small Emacs-like editor inspired by mg with UTF8 support"
   homepage "http://www.bengtl.net/files/mg3a/"
-  # url "http://www.bengtl.net/files/mg3a/mg3a.170403.tar.gz"
-  #sha256 "43a4898ce319f119fad583899d0c13a50ee6eb8115062fc388dad028eaddd2cc"
+
   url "https://github.com/paaguti/mg3a/archive/20171130.tar.gz"
   sha256 "03b147806b184b79ffbbabe4b870225bce24c681b3d1e955f22e1c78d9b82885"
 
@@ -37,7 +36,6 @@ class Mg3a < Formula
       mg3aopts = %w[-DDIRED -DPREFIXREGION -DSEARCHALL -DPIPEIN -DUSER_MODES -DUSER_MACROS -DLANGMODE_PYTHON -DLANGMODE_CLIKE]
     end
 
-    
     system "make", "CDEFS=#{mg3aopts * " "}", "LIBS=-lncurses", "COPT=-O3"
     bin.install "mg"
     doc.install Dir["bl/dot.*"]
