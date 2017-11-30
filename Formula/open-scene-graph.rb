@@ -1,8 +1,8 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.8.tar.gz"
-  sha256 "bda0770ec6167baa864617c49fb379eb56adced1f21e80f6cd8c75578f6702df"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.9.tar.gz"
+  sha256 "e18bd54d7046ea73525941244ef4f77b38b2a90bdf21d81468ac3874c41e9448"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
@@ -43,6 +43,12 @@ class OpenSceneGraph < Formula
   end
 
   def install
+    # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
+    # "error: expected function body after function declarator" on 10.12
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.cxx11 if build.cxx11?
 
     # Turning off FFMPEG takes this change or a dozen "-DFFMPEG_" variables
