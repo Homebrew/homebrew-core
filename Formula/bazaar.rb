@@ -3,6 +3,7 @@ class Bazaar < Formula
   homepage "https://bazaar.canonical.com/"
   url "https://launchpad.net/bzr/2.7/2.7.0/+download/bzr-2.7.0.tar.gz"
   sha256 "0d451227b705a0dd21d8408353fe7e44d3a5069e6c4c26e5f146f1314b8fdab3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +12,15 @@ class Bazaar < Formula
     sha256 "75e4a4aa57887371b783839667da3a142805c60f13197d599f6c8ef95c104707" => :el_capitan
     sha256 "7919335ffdd76bd54a3b58da3e7d9499f8bc6dd895b1d117390bb19ceaf08818" => :yosemite
     sha256 "51a058a4ff6b070a62ce30d01a673bba74d65d4eab6a13a9d53696f24cceb80d" => :mavericks
+  end
+
+  # CVE-2017-14176
+  # https://bugs.launchpad.net/brz/+bug/1710979
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/b/bzr/bzr_2.7.0+bzr6622-9.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/b/bzr/bzr_2.7.0+bzr6622-9.debian.tar.xz"
+    sha256 "fef6f9a8c3e2f227bf42d0f2f93ea60251a60cb420f7b561d97f0eb685f6ecb6"
+    apply "patches/27_fix_sec_ssh"
   end
 
   def install
