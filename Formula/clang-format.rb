@@ -1,20 +1,20 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2017-06-22"
+  version "2017-11-14"
 
   stable do
     if MacOS.version >= :sierra
-      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-06-22/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-11-14/", :using => :svn
     else
-      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-06-22/", :using => :svn
+      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-11-14/", :using => :svn
     end
 
     resource "clang" do
       if MacOS.version >= :sierra
-        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-06-22/", :using => :svn
+        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-11-14/", :using => :svn
       else
-        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-06-22/", :using => :svn
+        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-11-14/", :using => :svn
       end
     end
   end
@@ -48,8 +48,8 @@ class ClangFormat < Formula
   depends_on "subversion" => :build
 
   resource "libcxx" do
-    url "https://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
-    sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
+    url "https://releases.llvm.org/5.0.0/libcxx-5.0.0.src.tar.xz"
+    sha256 "eae5981e9a21ef0decfcac80a1af584ddb064a32805f95a57c7c83a5eb28c9b1"
   end
 
   def install
