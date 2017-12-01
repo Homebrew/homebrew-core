@@ -37,7 +37,7 @@ class Gcc < Formula
 
   def version_suffix
     if build.head?
-      (stable.version.to_s.slice(/\d/).to_i + 1).to_s
+      "HEAD"
     else
       version.to_s.slice(/\d/)
     end
