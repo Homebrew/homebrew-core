@@ -1,8 +1,8 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6.1/gperftools-2.6.1.tar.gz"
-  sha256 "38b467eb42a028f253d227fbc428263cb39e6c8687c047466aa2ce5bb4699d81"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6.2/gperftools-2.6.2.tar.gz"
+  sha256 "4a28ff87bb8457f62fcf05487d78ccc3be4e4760dc89d4def5a5f26240407f23"
 
   bottle do
     cellar :any
@@ -21,6 +21,9 @@ class Gperftools < Formula
   end
 
   def install
+    # Fix "error: unknown type name 'mach_port_t'"
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
 
     system "autoreconf", "-fiv" if build.head?
