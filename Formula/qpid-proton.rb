@@ -11,7 +11,7 @@ class QpidProton < Formula
 
   def install
     system "cmake", ".", "-DBUILD_BINDINGS=",
-                         "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=#{lib}",
+                         "-DLIB_INSTALL_DIR=#{lib}",
                          *std_cmake_args
     system "make", "install"
   end
