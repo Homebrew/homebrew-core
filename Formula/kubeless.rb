@@ -5,6 +5,13 @@ class Kubeless < Formula
       :tag => "v0.3.0",
       :revision => "3103df24bccf67a71bef2ce792592d4ba9f09293"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "086108685fa144fbb9022e96c9a57122d5f44927f9839250f9a0666f3c3369d4" => :high_sierra
+    sha256 "37cad5fff6aae50658cbbd111b60a2fdfa7e635f036a8bfa6a233251b53ef203" => :sierra
+    sha256 "253c1467bd838ab1d545853c51c5b5baf439f7015dd7cd15da2ca6b30bdb2205" => :el_capitan
+  end
+
   depends_on "go" => :build
   depends_on "kubernetes-cli" => :recommended
 
