@@ -4,6 +4,13 @@ class Vert < Formula
   url "https://github.com/Masterminds/vert/archive/v0.1.0.tar.gz"
   sha256 "96e22de4c03c0a5ae1afb26c717f211c85dd74c8b7a9605ff525c87e66d19007"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b7c63c671335e19afca83f08091a987c35576eb4cb94f1d7b00490d1448f3e77" => :high_sierra
+    sha256 "e189a592a062ef9e2cc19506f99272ffc9f97f3e529a54eddd7287f0c9574935" => :sierra
+    sha256 "534043c69cbd56a22d656ba873e180e628b3a0ace433d8f020b886212afa050e" => :el_capitan
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
 
