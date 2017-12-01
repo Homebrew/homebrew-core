@@ -26,8 +26,6 @@ class GccAT48 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-4.8.5/gcc-4.8.5.tar.bz2"
   sha256 "22fb1e7e0f68a63cee631d85b20461d1ea6bda162f03096350e38c8d427ecf23"
 
-  head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch"
-
   bottle do
     rebuild 2
     sha256 "d1092bf457e37a92cc1e9d89ec9f044b29942607dca7e7893f4f94038f8e057e" => :sierra
