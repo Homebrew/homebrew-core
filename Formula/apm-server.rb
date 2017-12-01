@@ -5,6 +5,13 @@ class ApmServer < Formula
   sha256 "7b6b668c41190b4aa252a4570d1fbb2e31e0895a554b1ededd98898786982046"
   head "https://github.com/elastic/apm-server.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f5a3dcef95ab5780575b5896a543d02f9f82eb122fce7c785cfcc2207464dfc9" => :high_sierra
+    sha256 "c7e76918ce38c2f59c899e75a38a9d44eb8c32e3a26d7e466881f34d45f09bf5" => :sierra
+    sha256 "46756dae590a87219f43ae1c02af9d89816d1fc2a9f70030d3f7d4234befa993" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   resource "virtualenv" do
