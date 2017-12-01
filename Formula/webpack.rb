@@ -3,8 +3,8 @@ require "language/node"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-3.8.1.tgz"
-  sha256 "7a2199f523c1f9eb1e57eb584dc61562ba77e198517f22e5c4330936ded8ef44"
+  url "https://registry.npmjs.org/webpack/-/webpack-3.9.1.tgz"
+  sha256 "a6e9567e74564eedbaf2c19a989d1281a6dd7f27c00fe82fb4725712951333cf"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
