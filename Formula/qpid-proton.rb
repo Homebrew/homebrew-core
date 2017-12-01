@@ -10,8 +10,6 @@ class QpidProton < Formula
   depends_on "openssl"
 
   def install
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix
-
     system "cmake", ".", "-DBUILD_BINDINGS=",
                          "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=#{lib}",
                          *std_cmake_args
