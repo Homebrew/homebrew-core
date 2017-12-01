@@ -65,7 +65,10 @@ class Kubeless < Formula
     (testpath/"test.py").write "function_code"
 
     begin
-      system("KUBECONFIG=#{testpath}/kube-config #{bin}/kubeless function deploy --from-file #{testpath}/test.py --runtime python2.7 --handler test.foo test")
+      ENV["KUBECONFIG"] = testpath/"kube-config"
+      system bin/"kubeless", "function", "deploy", "--from-file", "test.py",
+                             "--runtime", "python2.7", "--handler", "test.foo",
+                             "test"
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
