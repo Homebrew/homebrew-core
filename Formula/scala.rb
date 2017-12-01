@@ -7,9 +7,9 @@ class Scala < Formula
     mirror "https://downloads.typesafe.com/scala/2.12.4/scala-2.12.4.tgz"
     mirror "https://www.scala-lang.org/files/archive/scala-2.12.4.tgz"
     sha256 "9554a0ca31aa8701863e881281b1772370a87e993ce785bb24505f2431292a21"
-    
+
     depends_on :java => "1.8+"
-    
+
     resource "docs" do
       url "https://downloads.lightbend.com/scala/2.12.4/scala-docs-2.12.4.txz"
       mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.4.txz"
