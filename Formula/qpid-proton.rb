@@ -19,7 +19,7 @@ class QpidProton < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include "proton/message.h"
       #include "proton/messenger.h"
       int main()
