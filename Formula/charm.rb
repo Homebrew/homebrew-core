@@ -3,8 +3,8 @@ require "language/go"
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/2.2.2.tar.gz"
-  sha256 "9e603b7af4f6e136c3cdfbfff0ce0f8f986cae49c0c17fa1bee2a2e3f7f4b853"
+  url "https://github.com/juju/charmstore-client/archive/2.2.3.tar.gz"
+  sha256 "1b6342577fbdebadc01e3b63739fb4c55dcf3321740119486d4886ba308963f2"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,12 +19,12 @@ class Charm < Formula
 
   go_resource "github.com/kisielk/gotool" do
     url "https://github.com/kisielk/gotool.git",
-        :revision => "0de1eaf82fa3f583ce21fde859f1e7e0c5e9b220"
+        :revision => "d6ce6262d87e3a4e153e86023ff56ae771554a41"
   end
 
   go_resource "github.com/rogpeppe/godeps" do
     url "https://github.com/rogpeppe/godeps.git",
-        :revision => "e0581207fc59197e6caa4dc03f425fdca872c4a7"
+        :revision => "e444a191d9b826975e788bb3c95511447393706d"
   end
 
   def install
