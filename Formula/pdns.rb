@@ -3,6 +3,7 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.1.0.tar.bz2"
   sha256 "db9193b0f0255c24dfbfc31ecff8bd39e21fec05ff7526e5aea963abc517f0f3"
+  revision 1
 
   bottle do
     sha256 "1a224a34e157340b02a633e8c535eb578163d7f14dd560195d61e4654ec4796e" => :high_sierra
@@ -38,6 +39,7 @@ class Pdns < Formula
 
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/powerdns
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
