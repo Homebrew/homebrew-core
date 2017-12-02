@@ -27,7 +27,6 @@ class Mongodb < Formula
     sha256 "1573e6e172a6a1e559e1156b0f059f3639774a9f3db33790cb826c56e1398efd"
 
     depends_on :xcode => ["8.3.2", :build]
-    depends_on "libyaml"
 
     resource "Cheetah" do
       url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
