@@ -6,9 +6,9 @@ class Pdns < Formula
   revision 1
 
   bottle do
-    sha256 "1a224a34e157340b02a633e8c535eb578163d7f14dd560195d61e4654ec4796e" => :high_sierra
-    sha256 "188ed0c30cfb3924cfba69aab2c7721e7895d621fcd5e8ac09f5695512aa835d" => :sierra
-    sha256 "e49db1f1e87c39b2edcd100917869d7cb005040cff281b030e2aa66eacc0fab3" => :el_capitan
+    sha256 "1d48743405a12dd6bb96212cedc37f51d9fbd5c4e78fb9ae6fb6b16c07d1a50d" => :high_sierra
+    sha256 "7784b8e201277e41e1783e06d35e6011590aedfe5ddc8ab20e2bb33bc5784401" => :sierra
+    sha256 "d5a9a66e92623890c3348be9b006b1f11e5bae289f2ab80af2831fdff7b34686" => :el_capitan
   end
 
   head do
