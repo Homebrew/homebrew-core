@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.3.1.tar.gz"
-  sha256 "23d22667fb86378f5b82eeb6218dbb76acf0902853cf9218822376a88ad2fe33"
+  url "https://github.com/cloudreach/sceptre/archive/v1.3.2.tar.gz"
+  sha256 "c153e20d037b649c56dff5f44ffff0d34c0bef9b89c9f34f2f88f52b726ff465"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,14 +13,16 @@ class Sceptre < Formula
     sha256 "ec52839a13a8c7ceebe53753a7e9c54f8cb38c93c63c68a079f51bd10664a8e6" => :el_capitan
   end
 
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/7b/82/ff2cc1627733040b19369d5d561331b378150e02312f1d1b9424a91ae9d0/boto3-1.4.8.tar.gz"
     sha256 "332c6a17fd695581dd6f9ed825ce13c2d5ee3a6f5e1b079bed0ff7293809faf0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/17/72/d8c0e46c690eab58c4a778450bada1541100222320cf10a06ddac8920d75/botocore-1.8.1.tar.gz"
-    sha256 "257f3f85bc292ce4569a3232a4f3b5b07d411d1b51f901218339057682c45d2b"
+    url "https://files.pythonhosted.org/packages/31/01/8af6e1cf7943b54b7a8bad8e9270561035d00b72b430b2ac7daaff13902f/botocore-1.8.6.tar.gz"
+    sha256 "58db28effd55b603cb668065cf868804b7ff5680986b79516b5f48600d39819b"
   end
 
   resource "click" do
@@ -39,8 +41,8 @@ class Sceptre < Formula
   end
 
   resource "futures" do
-    url "https://files.pythonhosted.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz"
-    sha256 "51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"
+    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
+    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "Jinja2" do
@@ -79,8 +81,8 @@ class Sceptre < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/a8/58/d264e95e1b19a811fc52ff41c95dafd9c70cc7457b658bc04d87dfad31de/s3transfer-0.1.11.tar.gz"
-    sha256 "76f1f58f4a47e2c8afa135e2c76958806a3abbc42b721d87fd9d11409c75d979"
+    url "https://files.pythonhosted.org/packages/b1/a6/24d960ee5f21eb2f9e2e938be44b9929bf9f85a570b9582c50c14e7c7ec7/s3transfer-0.1.12.tar.gz"
+    sha256 "10891b246296e0049071d56c32953af05cea614dca425a601e4c0be35990121e"
   end
 
   resource "six" do
