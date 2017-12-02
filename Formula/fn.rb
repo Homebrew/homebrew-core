@@ -1,8 +1,8 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.23.tar.gz"
-  sha256 "f756228329df77e015d63ab2176c2a1bf67f0ce8488f2ba295dc90eec5c23392"
+  url "https://github.com/fnproject/cli/archive/0.4.25.tar.gz"
+  sha256 "1287c183007426618631d397342319137a3d836d30082e0551b305eaf02f6f3b"
 
   bottle do
     cellar :any_skip_relocation
@@ -47,7 +47,7 @@ class Fn < Formula
       end
     end
     begin
-      ENV["API_URL"] = "http://localhost:#{port}"
+      ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
       expected = "/myfunc created with fnproject/myfunc"
       output = shell_output("#{bin}/fn routes create myapp myfunc --image fnproject/myfunc:0.0.1")
