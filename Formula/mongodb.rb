@@ -93,6 +93,9 @@ class Mongodb < Formula
 
       args << "sasl" if build.with? "sasl"
 
+      # fix "stty: stdin isn't a terminal"
+      inreplace "build.sh", "stty sane", "" if build.devel?
+
       system "./build.sh", *args
     end
 
