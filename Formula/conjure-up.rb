@@ -3,9 +3,8 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.4.1.tar.gz"
-  sha256 "f3f897522691d9ab2016db675b5e1a5cf209f071b1e1784d1e35619ea12a4965"
-  revision 1
+  url "https://github.com/conjure-up/conjure-up/archive/2.4.2.tar.gz"
+  sha256 "ca5557ca7c11eb01bb0c840a4897b4048eea9313e0a1db309e8326c478add96e"
 
   bottle do
     cellar :any
@@ -115,8 +114,8 @@ class ConjureUp < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/3c/a6/4d6c88aa1694a06f6671362cb3d0350f0d856edea4685c300785200d1cd9/pyasn1-0.3.7.tar.gz"
-    sha256 "187f2a66d617683f8e82d5c00033b7c8a0287e1da88a9d577aebec321cad4965"
+    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
+    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
   end
 
   resource "python-dateutil" do
@@ -160,8 +159,8 @@ class ConjureUp < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/a8/58/d264e95e1b19a811fc52ff41c95dafd9c70cc7457b658bc04d87dfad31de/s3transfer-0.1.11.tar.gz"
-    sha256 "76f1f58f4a47e2c8afa135e2c76958806a3abbc42b721d87fd9d11409c75d979"
+    url "https://files.pythonhosted.org/packages/b1/a6/24d960ee5f21eb2f9e2e938be44b9929bf9f85a570b9582c50c14e7c7ec7/s3transfer-0.1.12.tar.gz"
+    sha256 "10891b246296e0049071d56c32953af05cea614dca425a601e4c0be35990121e"
   end
 
   resource "sh" do
@@ -185,8 +184,8 @@ class ConjureUp < Formula
   end
 
   resource "ubuntui" do
-    url "https://files.pythonhosted.org/packages/2c/b0/a94f39f078e1471c19466f6d600d4b606cee00873015c5e40e3e2bf0ec85/ubuntui-0.1.7.tar.gz"
-    sha256 "c9eebf1ef0461ce3b058fc25e7c77248331588573f8f30d5038f7fe3d24f03f6"
+    url "https://files.pythonhosted.org/packages/b1/55/9c7d1085b67405e7d713de7bc935bddd47efd8a81b53242928a43b58086c/ubuntui-0.1.8.tar.gz"
+    sha256 "ded4bd76d6d24bd8f9da886e4565585ec88eac09b110613b139f0c1048062d89"
   end
 
   resource "urwid" do
