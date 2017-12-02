@@ -23,10 +23,16 @@ class Mongodb < Formula
   end
 
   devel do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.13.tar.gz"
-    sha256 "6c305cca87fb31f9d93990ee31f878dbb9b280ca8fce77d1ac1cb331bc29fec7"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.0.tar.gz"
+    sha256 "1573e6e172a6a1e559e1156b0f059f3639774a9f3db33790cb826c56e1398efd"
 
     depends_on :xcode => ["8.3.2", :build]
+    depends_on "libyaml"
+
+    resource "Cheetah" do
+      url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
+      sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+    end
 
     resource "PyYAML" do
       url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
@@ -40,8 +46,8 @@ class Mongodb < Formula
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.5.13",
-          :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
+          :tag => "r3.6.0",
+          :revision => "12cce7433c480538ff26caa9c51cec3e04a07e90"
     end
   end
 
@@ -62,7 +68,7 @@ class Mongodb < Formula
     if build.devel?
       ENV.libcxx
 
-      ["PyYAML", "typing"].each do |r|
+      ["Cheetah", "PyYAML", "typing"].each do |r|
         resource(r).stage do
           system "python", *Language::Python.setup_install_args(buildpath/"vendor")
         end
