@@ -25,6 +25,12 @@ class Chamber < Formula
   end
 
   test do
-    system bin/"chamber", "-h"
+    ENV.delete "AWS_REGION"
+    output = shell_output("#{bin}/chamber list service 2>&1", 1)
+    assert_match "MissingRegion", output
+
+    ENV["AWS_REGION"] = "us-west-2"
+    output = shell_output("#{bin}/chamber list service 2>&1", 1)
+    assert_match "NoCredentialProviders", output
   end
 end
