@@ -65,12 +65,7 @@ def build(stash_name) {
 
 try {
   stage("Build") {
-    // TODO: figure out how to use macos_versions here.
-    parallel (
-      sierra:     { node("sierra")     { build("sierra")     }},
-      el_capitan: { node("el_capitan") { build("el_capitan") }},
-      yosemite:   { node("yosemite")   { build("yosemite")   }},
-    )
+    parallel macos_versions.collectEntries { [ (it): { node(it) { build(it) } } ] }
   }
 
   stage("Upload") {
