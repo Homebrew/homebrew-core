@@ -17,7 +17,7 @@ class Lua < Formula
   pour_bottle? do
     reason "The bottle needs to be installed into /usr/local."
     # DomT4: I'm pretty sure this can be fixed, so don't leave this in place forever.
-    # https://github.com/Homebrew/homebrew/issues/44619
+    # https://github.com/Homebrew/legacy-homebrew/issues/44619
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
@@ -26,7 +26,7 @@ class Lua < Formula
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/homebrew/pull/5043
+  # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   patch :DATA
 
   # completion provided by advanced readline power patch
