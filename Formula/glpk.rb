@@ -1,9 +1,9 @@
 class Glpk < Formula
   desc "Library for Linear and Mixed-Integer Programming"
   homepage "https://www.gnu.org/software/glpk/"
-  url "https://ftp.gnu.org/gnu/glpk/glpk-4.63.tar.gz"
-  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.63.tar.gz"
-  sha256 "914d27f1a51c2bf4a51f1bd4a507f875fcca99db7b219380b836a25b29b3e7f6"
+  url "https://ftp.gnu.org/gnu/glpk/glpk-4.64.tar.gz"
+  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.64.tar.gz"
+  sha256 "539267f40ea3e09c3b76a31c8747f559e8a097ec0cda8f1a3778eec3e4c3cc24"
 
   bottle do
     cellar :any
