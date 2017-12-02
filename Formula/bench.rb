@@ -5,8 +5,8 @@ class Bench < Formula
 
   desc "Command-line benchmark tool"
   homepage "https://github.com/Gabriel439/bench"
-  url "https://hackage.haskell.org/package/bench-1.0.6/bench-1.0.6.tar.gz"
-  sha256 "09c37660d68d103553b79336bfe20383d608cdbaedebfbe289e1b87055a4456b"
+  url "https://hackage.haskell.org/package/bench-1.0.7/bench-1.0.7.tar.gz"
+  sha256 "4eb525e06c3ac6acc0a81fb3c1c4558f74bc9ce1d50806a651e9d9d2a3a6c9d6"
 
   bottle do
     cellar :any_skip_relocation
