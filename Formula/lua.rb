@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
   sha256 "b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Lua < Formula
   pour_bottle? do
     reason "The bottle needs to be installed into /usr/local."
     # DomT4: I'm pretty sure this can be fixed, so don't leave this in place forever.
-    # https://github.com/Homebrew/homebrew/issues/44619
+    # https://github.com/Homebrew/legacy-homebrew/issues/44619
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
@@ -26,7 +26,7 @@ class Lua < Formula
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/homebrew/pull/5043
+  # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   patch :DATA
 
   # completion provided by advanced readline power patch
@@ -47,9 +47,12 @@ class Lua < Formula
     end
   end
 
+  # Don't use the https://luarocks.org/releases/luarocks-x.y.z.tar.gz URL
+  # on the website directly as it redirects to the HTTP version of the below
+  # URL.
   resource "luarocks" do
-    url "https://keplerproject.github.io/luarocks/releases/luarocks-2.3.0.tar.gz"
-    sha256 "68e38feeb66052e29ad1935a71b875194ed8b9c67c2223af5f4d4e3e2464ed97"
+    url "https://luarocks.github.io/luarocks/releases/luarocks-2.4.3.tar.gz"
+    sha256 "4d414d32fed5bb121c72d3ff1280b7f2dc9027a9bc012e41dfbffd5b519b362e"
   end
 
   def install
@@ -145,7 +148,7 @@ class Lua < Formula
     system "#{bin}/lua", "-e", "print ('Ducks are cool')"
 
     if File.exist?(bin/"luarocks-5.2")
-      mkdir testpath/"luarocks"
+      (testpath/"luarocks").mkpath
       system bin/"luarocks-5.2", "install", "moonscript", "--tree=#{testpath}/luarocks"
       assert_predicate testpath/"luarocks/bin/moon", :exist?
     end
