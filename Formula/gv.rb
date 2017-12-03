@@ -14,7 +14,7 @@ class Gv < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ghostscript" => "with-x11"
-  depends_on :x11 => "2.7.2"
+  depends_on :x11
 
   skip_clean "share/gv/safe-gs-workdir"
 
