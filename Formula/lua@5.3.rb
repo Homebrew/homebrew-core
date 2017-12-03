@@ -106,6 +106,12 @@ class LuaAT53 < Formula
 
   test do
     system "#{bin}/lua-5.3", "-e", "print ('Ducks are cool')"
+
+    if File.exist?(bin/"luarocks-5.3")
+      (testpath/"luarocks").mkpath
+      system bin/"luarocks-5.3", "install", "moonscript", "--tree=#{testpath}/luarocks"
+      assert_predicate testpath/"luarocks/bin/moon", :exist?
+    end
   end
 end
 
