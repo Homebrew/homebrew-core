@@ -4,8 +4,6 @@ class F3 < Formula
   url "https://github.com/AltraMayor/f3/archive/v6.0.tar.gz"
   sha256 "d72addb15809bc6229a08ac57e2b87b34eac80346384560ba1f16dae03fbebd5"
 
-  head "https://github.com/AltraMayor/f3.git"
-
   bottle do
     cellar :any_skip_relocation
     sha256 "43e671cd918bb967db742930a092fe814b366a2293613797b13c376c190d7dd9" => :high_sierra
@@ -15,7 +13,13 @@ class F3 < Formula
     sha256 "96ee5681212139b960fdaca98839e2e5e23446f1b890b751c459b05bedabaf6a" => :mavericks
   end
 
+  head do
+    url "https://github.com/AltraMayor/f3.git"
+    depends_on "argp-standalone"
+  end
+
   def install
+    ENV.append "LDFLAGS", "-largp" if build.head?
     system "make", "all"
     bin.install %w[f3read f3write]
     man1.install "f3read.1"
