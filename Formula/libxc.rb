@@ -1,9 +1,8 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "http://octopus-code.org/wiki/Libxc"
-  url "http://www.tddft.org/programs/octopus/down.php?file=libxc/libxc-3.0.0.tar.gz"
-  sha256 "5542b99042c09b2925f2e3700d769cda4fb411b476d446c833ea28c6bfa8792a"
-  revision 1
+  url "http://www.tddft.org/programs/octopus/down.php?file=libxc/4.0.3/libxc-4.0.3.tar.gz"
+  sha256 "85aec0799bb77c0eca13f11b7124601d4b2ba5961dd390a98a3163fc9f1dbae7"
 
   bottle do
     cellar :any
@@ -22,7 +21,7 @@ class Libxc < Formula
                           "CC=#{ENV.cc}",
                           "CFLAGS=-pipe"
     system "make"
-    # Disable testsuite, as of 3.0.0 is fails due to upstream issue: http://www.tddft.org/trac/libxc/ticket/22
+    # Disable testsuite, as of 4.0.3 fails
     # system "make", "check"
     system "make", "install"
   end
