@@ -1,8 +1,8 @@
 class Payara < Formula
   desc "Java EE application server forked from GlassFish"
   homepage "https://www.payara.fish"
-  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.173/payara-4.1.2.173.zip"
-  sha256 "944fae8fa38e83cf291e6176152827113a4733174096c49a2cf3d218ba1ad7f2"
+  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.174/payara-4.1.2.174.zip"
+  sha256 "50460b818a63a25777e5c1514d1c39ecccd7f8170ed9d6a2f1c7c6192173e017"
 
   bottle :unneeded
 
