@@ -14,6 +14,8 @@ class Webbreaker < Formula
   end
 
   test do
-    system "#{bin}/webbreaker"
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    system "#{bin}/webbreaker", "--help"
   end
 end
+
