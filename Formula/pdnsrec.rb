@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.7.tar.bz2"
-  sha256 "966d1654c32c72bd0cc9b301ae5b723a34e36f3c02e62c73a7643260122f94e7"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.1.0.tar.bz2"
+  sha256 "880b9d4cc57e2b11cae5bff9b20571fb3466f4385c010d06764296fef44f60a3"
 
   bottle do
     sha256 "09f11d4b0f1b0c13ad5b34b1c30577640a72873dfe7643d25a85c648f1093f7d" => :high_sierra
@@ -31,8 +31,9 @@ class Pdnsrec < Formula
       --sysconfdir=#{etc}/powerdns
       --disable-silent-rules
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-libcrypto=#{Formula["openssl"].opt_prefix}
       --with-lua
+      --without-net-snmp
     ]
 
     system "./configure", *args
