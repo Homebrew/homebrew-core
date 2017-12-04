@@ -3,11 +3,12 @@ class Ntopng < Formula
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.0.tar.gz"
-    sha256 "3780f1e71bc7aa404f40ea9b805d195943cdb5095d712f41669eae138d388ad5"
+    url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
+    sha256 "3d7f7934d983623a586132d2602f25b630614f1d3ae73c56d6290deed1af19ee"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI.git", :branch => "2.0-stable"
+      url "https://github.com/ntop/nDPI/archive/2.2.tar.gz"
+      sha256 "25607db12f466ba88a1454ef8b378e0e9eb59adffad6baa4b5610859a102a5dd"
     end
   end
 
@@ -38,18 +39,12 @@ class Ntopng < Formula
 
   depends_on "json-c"
   depends_on "rrdtool"
-  depends_on "luajit"
   depends_on "geoip"
   depends_on "redis"
   depends_on "mysql" if build.without? "mariadb"
   depends_on "mariadb" => :optional
 
   def install
-    # Prevent "make install" failure "cp: the -H, -L, and -P options may not be
-    # specified with the -r option"
-    # Reported 2 Jun 2017 https://github.com/ntop/ntopng/issues/1285
-    inreplace "Makefile.in", "cp -Lr", "cp -LR"
-
     resource("nDPI").stage do
       system "./autogen.sh"
       system "make"
