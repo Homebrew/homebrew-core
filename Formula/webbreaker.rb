@@ -18,4 +18,3 @@ class Webbreaker < Formula
     system "#{bin}/webbreaker", "--help"
   end
 end
-
