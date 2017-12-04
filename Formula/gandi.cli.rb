@@ -8,9 +8,9 @@ class GandiCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "13673131ff8abbceaec47dae928a687aacc92f2b85b053164b5f8ec3c27f3fd6" => :high_sierra
-    sha256 "7fb9cbebf67957d8c7a9d472e2ddef71f0e5f06a6c2b8ce708982ea9c01b7f91" => :sierra
-    sha256 "60e6dba84c5da6d71eba92776d8cb5e1b543397351a65a29aaeb9570a061747e" => :el_capitan
+    sha256 "e10419a340f36c6dc7c084bcc2a11e6842518e269d6d1556e24371c608d42797" => :high_sierra
+    sha256 "e4c50c0808a2612f4f0e8760c67bc8881e0e6298e54e97209c146e18f5c7f37e" => :sierra
+    sha256 "b60eddd8819423f9baf6f4a3b4ee1df5c8996bd35094170384145a5eefa15cff" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
