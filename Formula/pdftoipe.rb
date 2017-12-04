@@ -3,7 +3,7 @@ class Pdftoipe < Formula
   homepage "https://github.com/otfried/ipe-tools"
   url "https://github.com/otfried/ipe-tools/archive/v7.2.7.tar.gz"
   sha256 "889cb31bd8769ba111f541ba795cf53fad474aeeafbc87b7cd37c8a24b2dc6f6"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any
