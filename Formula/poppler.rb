@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.61.1.tar.xz"
-  sha256 "1266096343f5163c1a585124e9a6d44474e1345de5cdfe55dc7b47357bcfcda9"
+  url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
+  sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
 
   bottle do
     sha256 "19c1f79d20eb82931cf288cd66da19972537f3bb6862d31f05ee13fba69ad295" => :high_sierra
@@ -62,7 +62,7 @@ class Poppler < Formula
     if build.with? "little-cms2"
       args << "-DENABLE_CMS=lcms2"
     else
-      args << "-DENABLE_CMS=OFF"
+      args << "-DENABLE_CMS=none"
     end
 
     system "cmake", ".", *args
