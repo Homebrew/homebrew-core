@@ -1,15 +1,14 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.16.0.tar.bz2"
-  sha256 "6f66603d0415697eaf94fa41fa68dbf8f19a28d101a9cf17a835c2b931bc5496"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.17.0.tar.bz2"
+  sha256 "3cd1d869dced330af712d64f72e18a80545bdd60f96c6af83c0cdd7c6ba8f416"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "efd6b18aff8f05b2dd5d597f15fcfaa59f2a372f2789e900214cd6f16f2ad631" => :high_sierra
-    sha256 "eb1cbde67dac20d60b19d0df7e86c91294a5bc2548a8df826d4c40fb97995d56" => :sierra
-    sha256 "3bac87de514c9f806ce759c2ebc77ca87112b79c9ebe494d477429879b843845" => :el_capitan
-    sha256 "c188940d042aa529613c7340c265be2fe8fba9b6fc87c181b32d69b8cc316902" => :yosemite
+    sha256 "b3fb2d68965c52057f290fe6dfb5aed85902052a00b2e32248a3dda1b66b7e23" => :high_sierra
+    sha256 "810b474f85f657447250cabefc61cbe6c453cb237458ae884d64717a499d3e4a" => :sierra
+    sha256 "4dba2208e2718a64ed9e646d02edfd32420b848be151a14aecb746665a183753" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

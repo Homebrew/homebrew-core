@@ -2,17 +2,17 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v3.6.0",
-    :revision => "c4dd4cf368b6204571faacde702e624b930a5214"
+    :tag => "v3.7.0",
+    :revision => "7ed6862914ef20e22280c51199be5071e354999f",
+    :shallow => false
 
   head "https://github.com/openshift/origin.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2466029a3eac02c6f2fc76f8918b4172ffd029493e9c2cdb0447f2e79f6fd61b" => :high_sierra
-    sha256 "2e499d511419ef45620c068ee30b5f5eec3223e063a76ce164a952492c4143ff" => :sierra
-    sha256 "194662f118199fec2199fbe9b9373fc9e9a34ab4cac71cbe81b36959bfca0640" => :el_capitan
-    sha256 "8cfbfcbf88a60beaa006736868e96d80f46b864db03a4d6fe90909109a021d9c" => :yosemite
+    sha256 "ba6d58a649fe024da00f0ae056514a8548efe3bb5100d435cde998c37ba18f22" => :high_sierra
+    sha256 "eafc9557cf4d628eed8abcc911e72a4b472ea696330821664022c9d03a23b400" => :sierra
+    sha256 "4806095df4f95976a7f03abf838d5b8e018fc6cbb5eae6142a130aea5ffc1440" => :el_capitan
   end
 
   depends_on "go" => :build

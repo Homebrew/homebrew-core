@@ -5,7 +5,7 @@ class Liblqr < Formula
   version "0.4.2"
   sha256 "173a822efd207d72cda7d7f4e951c5000f31b10209366ff7f0f5972f7f9ff137"
 
-  head "git://repo.or.cz/liblqr.git"
+  head "http://repo.or.cz/liblqr.git"
 
   bottle do
     cellar :any

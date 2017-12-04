@@ -1,15 +1,15 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.8.0.tar.bz2"
-  sha256 "cfa24b97712c3a2fc6901f78dedd4712373be773a57d31dace65a56a617dfcaf"
+  url "https://dl.bintray.com/fanout/source/zurl-1.9.0.tar.bz2"
+  sha256 "c97f430f9f815c3a8d9758e7611054224908727af938a28e0eef700add02e1dc"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f34dc7c4cc51893a984e8fe6c599d43ba3948a147d9c238347d187d4a75a3e46" => :high_sierra
-    sha256 "d81b633d8ed7ae9afbf5da1bc9cfb868fa4266d000c238df5cfb4f3d7f8437c6" => :sierra
-    sha256 "f703c7cb2b5d865bbce21aa17b2a99068e7feb76f3758602078381d1571c0d0c" => :el_capitan
-    sha256 "548a4017de9a6632a360400720da0ede67937b608813b998f625bd881e1c22e2" => :yosemite
+    sha256 "eaac2e5b2f52a95cce831b6a96c6ec28dfb5f85fc599aef901d7436b3eb86154" => :high_sierra
+    sha256 "4e54b0684783343bd3ded9ff5f116e3bbeacdc5f6cc8edf06208a0541715df26" => :sierra
+    sha256 "d3daa46721f6b1c2e624e6704716085706e55e47a0125dac4ba3449a60fa4d42" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -18,8 +18,8 @@ class Zurl < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
-    sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
+    url "https://files.pythonhosted.org/packages/1e/f9/d0675409c11d11e549e3da000901cfaabd848da117390ee00030e14bfdb6/pyzmq-16.0.3.tar.gz"
+    sha256 "8a883824147523c0fe76d247dd58994c1c28ef07f1cc5dde595a4fd1c28f2580"
   end
 
   def install

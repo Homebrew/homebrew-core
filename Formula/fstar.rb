@@ -45,6 +45,8 @@ class Fstar < Formula
     inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
       '["./configure"', '["./configure" "-no-graph"' # Avoid X11
 
+    system "opam", "switch", "4.05.0"
+
     if build.stable?
       system "opam", "config", "exec", "opam", "install", "batteries=2.7.0",
              "zarith=1.5", "yojson=1.4.0", "pprint=20140424", "stdint=0.4.2",

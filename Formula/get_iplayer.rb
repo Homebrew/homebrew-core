@@ -1,15 +1,15 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.05.tar.gz"
-  sha256 "bbec8de62799d20a5ed0c50344209e41f2cb0aadc0a5e6530cb5eae27c1d66d2"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.07.tar.gz"
+  sha256 "4dee8e076cd2b09dba971cd603cfaaa18be8e00ce9bb75958bc0d8234cd6dfa0"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e91da90655afe1c328028e5ded0dc4101089fafd979670eefd4ec17f3c51ed41" => :high_sierra
-    sha256 "045836167b824998a90dcf5fb72236369ec0483b954122b0ed8f5c96e9354ca9" => :sierra
-    sha256 "b3471464a90386badf5e3e7ad7bb36fb864de6f8387edb00f71fb5837cc961e4" => :el_capitan
+    sha256 "d4aec9a94cd454d052efcf5fef4e15c4eeff086e3e0615e022ec753deb68b9f5" => :high_sierra
+    sha256 "ebe4893a375ba17ac628865e2d06431790b9520254d4ee231c8561061eeb3498" => :sierra
+    sha256 "4bddbe8441ef3f47d9ade77e6bfc26967cedd5d0ca139489b6178273f99d5fce" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -22,13 +22,19 @@ class GetIplayer < Formula
     sha256 "11950da7636cb786efd3bfb5891da4c820975276bce43175214391e5c32b7b96"
   end
 
+  resource "IO::Socket::SSL" do
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.052.tar.gz"
+    sha256 "e4897a9b17cb18a3c44aa683980d52cef534cdfcb8063d6877c879bfa2f26673"
+  end
+
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.47.tar.gz"
-    sha256 "e041baf237befa81b0b917caf5a238886abe4c687b82ac6d59011375d9075494"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.57.tar.gz"
+    sha256 "95835ac5963d5eab49f936c7983c5836d34d6cdc87ce3553d77bc5304c2b520a"
   end
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    ENV["NO_NETWORK_TESTING"] = "1"
 
     resources.each do |r|
       r.stage do

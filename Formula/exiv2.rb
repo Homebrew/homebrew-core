@@ -1,6 +1,6 @@
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
-  homepage "http://www.exiv2.org"
+  homepage "http://www.exiv2.org/"
   url "http://www.exiv2.org/builds/exiv2-0.26-trunk.tar.gz"
   sha256 "c75e3c4a0811bf700d92c82319373b7a825a2331c12b8b37d41eb58e4f18eafb"
 
@@ -14,7 +14,7 @@ class Exiv2 < Formula
   end
 
   head do
-    url "svn://dev.exiv2.org/svn/trunk"
+    url "https://github.com/Exiv2/exiv2.git"
     depends_on "cmake" => :build
     depends_on "gettext" => :build
     depends_on "libssh"

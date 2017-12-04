@@ -1,25 +1,26 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v2.8/nano-2.8.7.tar.gz"
-  sha256 "a49a888c20f09a17c7f1049d1fda619472c92eedcb25fd4be5f088a51cc392a5"
+  url "https://www.nano-editor.org/dist/v2.9/nano-2.9.1.tar.gz"
+  sha256 "41650407cf1d4b752f31dc05e7c63319957e3dc86e9fb6ad51760e8b36941d19"
 
   bottle do
-    sha256 "831b7c3e751dff9bce0e874e2f650e0e02cf556349913e94379dc9aaed8b3c3e" => :high_sierra
-    sha256 "5b84f256231301bddf7e079cbd2845ce12911ef0c9dc05870e5c50d86babd5c8" => :sierra
-    sha256 "2ab25ffe79af65eedc41445497600c0a5723c2e196886155f9f5beb0f5eada92" => :el_capitan
-    sha256 "8ea801434cc2dd837f5a0f147030d850106d26ddf9740d97f23e6275ab57222b" => :yosemite
-  end
-
-  head do
-    url "https://git.savannah.gnu.org/git/nano.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
+    sha256 "87e5ec4ff6dabd259139dd4a6c7977aafd39583063f57a70b579b907740a7f4f" => :high_sierra
+    sha256 "038973caa98da42bd6a428fef97aeca0f50241e95d9ce3210c55d33f31c7dbca" => :sierra
+    sha256 "7e7b88ef39fa11b16014cd13866a25da27694e9d4583906b1c1ff9f4f49bf16c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "ncurses"
+
+  # 28 Nov 2017 "stat: fix compilation failure on macOS Sierra"
+  # gnulib commit http://git.savannah.gnu.org/gitweb/?p=gnulib.git;a=commit;h=cbce9423af01902fde4d84c02eedb443947f8986
+  # nano bug report https://savannah.gnu.org/bugs/?52546
+  patch :p0 do
+    url "https://savannah.gnu.org/bugs/download.php?file_id=42510"
+    sha256 "a07c826502b119113be3a376fac1c0be8e07f2b29b0a201ee95b2678317934dd"
+  end
 
   def install
     system "./autogen.sh" if build.head?

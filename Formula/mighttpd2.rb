@@ -5,26 +5,18 @@ class Mighttpd2 < Formula
 
   desc "HTTP server"
   homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
-  url "https://hackage.haskell.org/package/mighttpd2-3.4.1/mighttpd2-3.4.1.tar.gz"
-  sha256 "0f24c72662be4a0e3d75956fff53899216e29ac7eb29dae771c7e4eb77bdd8d5"
+  url "https://hackage.haskell.org/package/mighttpd2-3.4.2/mighttpd2-3.4.2.tar.gz"
+  sha256 "7330e73d5b07d5dded9e18d04681f6c34e46df6b4635ff483c57c90c344bb128"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3fc07179ad757784e676bbbfb961aedb0fcb9496bdcedcb5c5a172db4f4a7d2e" => :high_sierra
-    sha256 "41f5402d13c13fc36d2b897d3b485542d1d18029dabae496f96615787fda0646" => :sierra
-    sha256 "0f73e65f13d9a91427c64b08fcd56d071a7740f0da40aca8cccbc865f96b0da3" => :el_capitan
+    sha256 "e29221e4447f87a83fb9853247db324f14e4621048ac5a7d8aefe3f864c7df55" => :high_sierra
+    sha256 "ddbaad5489107e4eaa59215c1158e97a1ae6b70dfbed71fb843c001f4ea5aeac" => :sierra
+    sha256 "5d90e9953d3fda3d9777a8b3451c48b7aabeaa6b3e162a2771859c3683a74f2c" => :el_capitan
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-
-  # Fix "src/Mighty.hs:3:8: error:File name does not match module name"
-  # Upstream PR from 7 Oct 2017 "mighttpd2.cabal: remove non-existent module"
-  patch do
-    url "https://github.com/kazu-yamamoto/mighttpd2/pull/16.patch?full_index=1"
-    sha256 "372b653d14218016abfee11c170e1e4dd3641a984f8296a802b84c9543629f36"
-  end
 
   def install
     install_cabal_package

@@ -1,22 +1,21 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0190.tar.gz"
-  version "0.190"
-  sha256 "ea9604a5c586f1a0fa3ca431e6fb35f39b71eb1a6f0464b4dd7fc6379231ed74"
+  url "https://github.com/mamedev/mame/archive/mame0192.tar.gz"
+  version "0.192"
+  sha256 "13ccc4e334a73a727e44dbfed6d3dd33b3c193542856d5ac081a64254b781537"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "4bb829974439fc640237b9848b4ebf734320b97dad1654ab8eca30203b962b74" => :high_sierra
-    sha256 "88826bf28d9a9f677a892724b0e2fc56ba2c570947355cbffa26f7fca8c0bcbc" => :sierra
-    sha256 "337118ef08cf7a0d07c16f039e7eeba62cf37bb3c2aa21aa19f9034ced531df7" => :el_capitan
+    sha256 "fa98bd6f8d3335e56fe68c639ba8a029a08280a1dfcb692a0d8b081e1ffd9394" => :high_sierra
+    sha256 "407e6b98965a6486860ed096cc5f8625b68aa18ef22b91db71f7e712c2c47f70" => :sierra
+    sha256 "2a02932ee4556851d839a56d7390910f85651aa312bead28e4be8d87479184e2" => :el_capitan
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "sdl2"
-  depends_on "expat"
   depends_on "flac"
   depends_on "portmidi"
   depends_on "utf8proc"

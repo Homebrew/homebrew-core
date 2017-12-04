@@ -3,15 +3,15 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
-  sha256 "6c6171a4d1ea3fbd4212d6a04899650218583df3ec583a8a6a4a589fe18620ff"
+  url "https://download.qt.io/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
+  sha256 "57acd8f03f830c2d7dc29fbe28aaa96781b2b9bdddce94196e6761a0f88c6046"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
 
   bottle do
-    sha256 "bbba35b2261a372ebd5511dc6db7687fd772c28c8dfd86d4604f8d6087be210e" => :high_sierra
-    sha256 "9fa18fecb5c9f99e21f3725bcdebf531fda2336a115d117e3c35ef3ddaf85163" => :sierra
-    sha256 "aaa16640e5c34d3bad308b496c3cd8ef32f7294b6ac4f007d582720449062482" => :el_capitan
+    sha256 "570ca1b244dbcecc74d2b7813e5659024eba1500640c84b1b6eedcd96dd1ba6f" => :high_sierra
+    sha256 "a05e2f102433b8e0eee1c8cbd0f27949c9314f7ebf237766bcf191ffdb4b6940" => :sierra
+    sha256 "42eae12f322119d24b695fdb29678b50b020dfde0a24bdd8caf4a952649ac2d0" => :el_capitan
   end
 
   keg_only "Qt 5 has CMake issues when linked"

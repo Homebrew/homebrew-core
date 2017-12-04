@@ -1,23 +1,22 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0190.tar.gz"
-  version "0.190"
-  sha256 "ea9604a5c586f1a0fa3ca431e6fb35f39b71eb1a6f0464b4dd7fc6379231ed74"
+  url "https://github.com/mamedev/mame/archive/mame0192.tar.gz"
+  version "0.192"
+  sha256 "13ccc4e334a73a727e44dbfed6d3dd33b3c193542856d5ac081a64254b781537"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "51942f570928c54c9172cdadb1ae7a12f1581cf5db3bc4e13944c4d287d145d6" => :high_sierra
-    sha256 "58b1312418f705f37320a00d1f5d4b32700e19a15d3521e89e7187c0d8294aa5" => :sierra
-    sha256 "25eeb585ab11624702009f07860139cad665e6f7e8b074f851baa0c570471a1e" => :el_capitan
+    sha256 "c5215bb423e4ef39ea9ef9223d7350342b95151976ef64d90b1dbc57e4779c01" => :high_sierra
+    sha256 "8c484bafb184d2adb9be9816ac95b0a31a8370cb8e600121a976dfe7bf66b16c" => :sierra
+    sha256 "57fb62b47fd78ea4186954a24b7fceffb6422f47c32492882c0f9c5f4c1c9f1f" => :el_capitan
   end
 
   depends_on :macos => :yosemite
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "sdl2"
-  depends_on "expat"
   depends_on "jpeg"
   depends_on "flac"
   depends_on "sqlite"

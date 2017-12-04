@@ -1,15 +1,14 @@
 class Mdds < Formula
   desc "Multi-dimensional data structure and indexing algorithm"
   homepage "https://gitlab.com/mdds/mdds"
-  url "https://kohei.us/files/mdds/src/mdds-1.2.2.tar.bz2"
-  sha256 "141e730b39110434b02cd844c5ad3442103f7c35f7e9a4d6a9f8af813594cc9d"
+  url "https://kohei.us/files/mdds/src/mdds-1.3.1.tar.bz2"
+  sha256 "dcb8cd2425567a5a5ec164afea475bce57784bca3e352ad4cbdd3d1a7e08e5a1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5df2f3ea7306b6b473fbf378feb8ce21ab7f9c4868f050e2a4b68b31b65ac11" => :high_sierra
-    sha256 "f91e37bf2763a0290807e0e8034db690695b0a60611665dc844bf2a1352de73e" => :sierra
-    sha256 "f91e37bf2763a0290807e0e8034db690695b0a60611665dc844bf2a1352de73e" => :el_capitan
-    sha256 "f91e37bf2763a0290807e0e8034db690695b0a60611665dc844bf2a1352de73e" => :yosemite
+    sha256 "5a1f26a51dbd73b634db0a3ec72d80758e0b1b94a50908bace789eb8994b9d87" => :high_sierra
+    sha256 "5a1f26a51dbd73b634db0a3ec72d80758e0b1b94a50908bace789eb8994b9d87" => :sierra
+    sha256 "5a1f26a51dbd73b634db0a3ec72d80758e0b1b94a50908bace789eb8994b9d87" => :el_capitan
   end
 
   depends_on "autoconf" => :build

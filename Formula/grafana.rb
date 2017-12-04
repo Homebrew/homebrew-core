@@ -1,15 +1,15 @@
 class Grafana < Formula
-  desc "Gorgeous metric visualizations and dashboards for timeseries databases."
+  desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v4.5.2.tar.gz"
-  sha256 "bd0db92baa964b222b2da5bdb937aa1b3afff6ba5c6ef5d32f8c1a5909e326a2"
+  url "https://github.com/grafana/grafana/archive/v4.6.2.tar.gz"
+  sha256 "bc80b4f1dae76f5ab19567f68bdd2f803eb595b4fe75fbfe6f0fc6d30c2fdb44"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "53b862eba615d034e700cf497ac298b85231a2f178eeb54c3294be9732daedd2" => :high_sierra
-    sha256 "88e0db96b1539dfad9fcb368c887f6cc6678d7fb69dfb452ac2e66e5a7ddf1f1" => :sierra
-    sha256 "002a5be3d23082b8d25ed9d5168e013c73117b1ec8351ee3dbfdd622302a2c75" => :el_capitan
+    sha256 "88cbfe036fcea5d3a60debec5113ae6229b16d8d6328e784f65863ee1a49605e" => :high_sierra
+    sha256 "0ae63281f4a877664e5a607660a219a32f966ad2ecbeba3d2150467b28eec83d" => :sierra
+    sha256 "2583b11ae292e23ffedcbdb64073512ee469647db99e21e2d92420538139e2bb" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -37,8 +37,8 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor"
-      pkgshare.install "public_gen" => "public"
+      pkgshare.install "conf", "vendor", "public"
+      prefix.install_metafiles
     end
   end
 
@@ -108,7 +108,11 @@ class Grafana < Formula
     end
     Dir.chdir(pkgshare)
 
-    res = PTY.spawn(bin/"grafana-server", "cfg:default.paths.logs=#{logdir}", "cfg:default.paths.data=#{datadir}", "cfg:default.paths.plugins=#{plugdir}", "cfg:default.server.http_port=50100")
+    res = PTY.spawn(bin/"grafana-server",
+      "cfg:default.paths.logs=#{logdir}",
+      "cfg:default.paths.data=#{datadir}",
+      "cfg:default.paths.plugins=#{plugdir}",
+      "cfg:default.server.http_port=50100")
     r = res[0]
     w = res[1]
     pid = res[2]

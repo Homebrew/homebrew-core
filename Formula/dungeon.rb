@@ -37,7 +37,7 @@ class Dungeon < Formula
     require "open3"
     Open3.popen3("#{bin}/dungeon") do |stdin, stdout, _|
       stdin.close
-      assert_equal " Welcome to Dungeon.\t\t\tThis version created 2-Dec-15.\n This is an open field west of a white house with a boarded front door.\n There is a small mailbox here.\n A rubber mat saying \"Welcome to Dungeon!\" lies by the door.\n > >", stdout.read
+      assert_match " Welcome to Dungeon.\t\t\t", stdout.read
     end
   end
 end

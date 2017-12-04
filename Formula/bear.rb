@@ -1,15 +1,15 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.3.8.tar.gz"
-  sha256 "1c0ea23e5ef05eb8113cffd8da345dc82e91d0318488606cd7d5ca974842b81b"
+  url "https://github.com/rizsotto/Bear/archive/2.3.9.tar.gz"
+  sha256 "9adad7e6a028c2dbce7ddb5515a2804d938a3ab0d1e1f669dd6371c8fd8aa4e4"
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
     cellar :any
-    sha256 "01aeeb567ec5623f17345ceaec813d0ff2bc52389e8c438b257f4a5ae7d65f76" => :high_sierra
-    sha256 "d504102efc72abe5b1c7b07e58469237ba26002691f74650b2d2adcadbee796e" => :sierra
-    sha256 "b9943598534d2deb9a2cacdc8b831941938ee4e6624661f68595cdb3d72f04b1" => :el_capitan
+    sha256 "9e96a591af0e0e0bf1b89c9cf2c275993e9334f30dade73aab035e09babb2ff7" => :high_sierra
+    sha256 "e7a4e21095572df49c2f3a080efe0b1868dc04a01a2dbd01f69ea2f25e2e5adc" => :sierra
+    sha256 "69f3a874a296faace27f83995c9f73e53afe837626ab1afdf6efc4e60940b639" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

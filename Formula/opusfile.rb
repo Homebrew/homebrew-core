@@ -1,15 +1,14 @@
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opusfile-0.9.tar.gz"
-  sha256 "f75fb500e40b122775ac1a71ad80c4477698842a8fe9da4a1b4a1a9f16e4e979"
+  url "https://archive.mozilla.org/pub/opus/opusfile-0.10.tar.gz"
+  sha256 "48e03526ba87ef9cf5f1c47b5ebe3aa195bd89b912a57060c36184a6cd19412f"
 
   bottle do
     cellar :any
-    sha256 "850ec3999ad31a917b761923a23fed97ca11fca431edc3f4fcd2459ef2855293" => :high_sierra
-    sha256 "71557f495eaf37e08c1987170d4b94a75e5a049fb41af7988bc53731d8500095" => :sierra
-    sha256 "2ed73162c2ae71f702da1cdbf6f9c998834f3d727cb1a9e6e09f1d59cbe35d01" => :el_capitan
-    sha256 "5b5023288476b08cb64389b002973565f84fd6ed58ece780e417770f33e3520d" => :yosemite
+    sha256 "f71e02c57dc80bbe54d87113dd229aefbbecbd349e371d43a513a40222066fc4" => :high_sierra
+    sha256 "51ab7cca1cb376114f385070b12bba44621d993786323d493bd6643304a6fb93" => :sierra
+    sha256 "63efbc0d92409dbe3fd5e222639a92df0bb54322f62b90d002267ddd2be97b8c" => :el_capitan
   end
 
   head do

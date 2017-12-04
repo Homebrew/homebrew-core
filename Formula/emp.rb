@@ -1,5 +1,5 @@
 class Emp < Formula
-  desc "CLI for Empire."
+  desc "CLI for Empire"
   homepage "https://github.com/remind101/empire"
   url "https://github.com/remind101/empire/archive/v0.13.0.tar.gz"
   sha256 "1294de5b02eaec211549199c5595ab0dbbcfdeb99f670b66e7890c8ba11db22b"

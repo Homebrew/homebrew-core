@@ -1,14 +1,14 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.4.tar.bz2"
-  sha256 "d974ab89de69477c7f581a3233bc731eacbb43d479291e472b2c531c83b6d763"
+  url "https://downloads.powerdns.com/releases/pdns-4.1.0.tar.bz2"
+  sha256 "db9193b0f0255c24dfbfc31ecff8bd39e21fec05ff7526e5aea963abc517f0f3"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "1ddd05ec549ad270acf46184f617a0ad919dbe0a64049f2fb886dd444c05d256" => :high_sierra
-    sha256 "3f2d038fcdbdd1893218e65972ec7231484824169492af0be78a36de4ea349a7" => :sierra
-    sha256 "887996ed6bdca5b0beb0e1e327c83f40d94696f29ed83e2bd68f67f0ca7cb9cd" => :el_capitan
+    sha256 "1d48743405a12dd6bb96212cedc37f51d9fbd5c4e78fb9ae6fb6b16c07d1a50d" => :high_sierra
+    sha256 "7784b8e201277e41e1783e06d35e6011590aedfe5ddc8ab20e2bb33bc5784401" => :sierra
+    sha256 "d5a9a66e92623890c3348be9b006b1f11e5bae289f2ab80af2831fdff7b34686" => :el_capitan
   end
 
   head do
@@ -33,16 +33,13 @@ class Pdns < Formula
   depends_on "sqlite"
   depends_on :postgresql => :optional
 
-  # Use upstream commit that fixes build with Xcode 9
-  # https://github.com/PowerDNS/pdns/pull/4940
-  patch do
-    url "https://github.com/PowerDNS/pdns/commit/885bddbd.patch?full_index=1"
-    sha256 "a6c08599f8b6e368eaec99614e09da49be213666850c44101673fe2b3b4c2558"
-  end
-
   def install
+    # Fix "configure: error: cannot find boost/program_options.hpp"
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/powerdns
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3

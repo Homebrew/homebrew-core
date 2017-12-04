@@ -1,5 +1,5 @@
 class Spdlog < Formula
-  desc "Super fast C++ logging library."
+  desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
   url "https://github.com/gabime/spdlog/archive/v0.14.0.tar.gz"
   sha256 "eb5beb4e53f4bfff5b32eb4db8588484bdc15a17b90eeefef3a9fc74fec1d83d"

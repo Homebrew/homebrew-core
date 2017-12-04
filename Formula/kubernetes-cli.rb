@@ -2,15 +2,15 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.8.1",
-      :revision => "f38e43b221d08850172a9a4ea785a86a3ffa3b3a"
+      :tag => "v1.8.4",
+      :revision => "9befc2b8928a9426501d3bf62f72849d5cbcd5a3"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b606930579ba19628407d00bb8857b42b8bd4f42386559dc2fb8e0858de64e76" => :high_sierra
-    sha256 "6e7b031eb41404eb47d4d048d134506fa5ca67617a4f5378b03386978703a19c" => :sierra
-    sha256 "c5c9f1b8f73564e2383cee95f13d87e2e0186453c2f26ec1ff986c12fec4f4fc" => :el_capitan
+    sha256 "298bb2bf24d7a4b3b573d148768377ef023ba0d17cf89ae3a8d993a4bd0e4e13" => :high_sierra
+    sha256 "2e2be7d7f93f4c603d6bd62cf2d4cc167fb4c9a478879a6e6876a231594d35d4" => :sierra
+    sha256 "f8fb1fc04dcd62a1c419419befcf1e039ef6ecea413522a52d8da95c871a24a1" => :el_capitan
   end
 
   depends_on "go" => :build

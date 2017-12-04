@@ -1,14 +1,14 @@
 class Nanomsg < Formula
   desc "Socket library in C"
   homepage "http://nanomsg.org"
-  url "https://github.com/nanomsg/nanomsg/archive/1.1.0.tar.gz"
-  sha256 "e81b79e073f5388a5070623136c7896244f8bbc24fd5f5255da8d5aa2e2a50e3"
+  url "https://github.com/nanomsg/nanomsg/archive/1.1.2.tar.gz"
+  sha256 "3c52165a735c2fb597d2306593ae4b17900688b90113d4115ad8480288f28ccb"
   head "https://github.com/nanomsg/nanomsg.git"
 
   bottle do
-    sha256 "9d2f717a002b9525f7da3c501990132d649cc82e4010a0a1411a602802c10380" => :high_sierra
-    sha256 "aa36e77ee27a492b5d995fb83b0c9b0b505c4fa5d4849cff51fb704309d40fb3" => :sierra
-    sha256 "e64e92e97f269381d4b1b58e7f8e5be5718beab1823b08bc1f847e8188f9b42c" => :el_capitan
+    sha256 "dd584d9e1a3a2ed69a36f9db5cfb6aa0a25c57492fce5dc0f9c4881acc922583" => :high_sierra
+    sha256 "123358e13bb19279f98efc1409662d7243ddd3cbda09dd2d6e1537fb15f61d33" => :sierra
+    sha256 "0e8011a28082c5ecd421d614ec9cad8288fc5362ce605fd20231579a6073c7f0" => :el_capitan
   end
 
   depends_on "cmake" => :build

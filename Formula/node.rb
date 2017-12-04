@@ -1,14 +1,43 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.7.0/node-v8.7.0.tar.xz"
-  sha256 "5a17d08c68ee7c1e748fd32534edda766cb57c13ed98e693f3075bc9d9a0b59a"
-  head "https://github.com/nodejs/node.git"
+
+  stable do
+    url "https://nodejs.org/dist/v8.9.1/node-v8.9.1.tar.xz"
+    sha256 "ef160c21f60f8aca64145985e01b4044435e381dc16e8f0640ed0223e84f17e0"
+
+    # We track major/minor from upstream Node releases.
+    # We will accept *important* npm patch releases when necessary.
+    resource "npm" do
+      url "https://registry.npmjs.org/npm/-/npm-5.5.1.tgz"
+      sha256 "b8b9afb0bb6211a289f969f66ba184ca5bc83abf6a570e0853ea5185073dca6f"
+    end
+  end
 
   bottle do
-    sha256 "7623c96129d70516cff0a903f57ae2c3637c19ce10b08a4575f593748701a1ac" => :high_sierra
-    sha256 "3b432845ee199a1473e7d17ef3f52468c24cc4ae6b18392a66626487c17f86a6" => :sierra
-    sha256 "8ef033fd111cf4cb953e768ff033ad92340f7333c2f95e404f2cd286480b5778" => :el_capitan
+    sha256 "0600f98fdc2f2e3679bb3f4f7aae5f8fc7a7b905114c09b5cef2f1f9cc3775b3" => :high_sierra
+    sha256 "c112e694699cfc7f2a621e690667e11135ef71c00dcfa4755e98f73f96992d48" => :sierra
+    sha256 "732cd9c6bc10cdfb9e4f18afb0d193e96a26339646b602e65849b0637c62df6d" => :el_capitan
+  end
+
+  devel do
+    url "https://nodejs.org/dist/v9.2.0/node-v9.2.0.tar.xz"
+    sha256 "64caf263eadc1aea072ce5d30ded7f4534aa7f59c8c6993eee4accad96e3bbc2"
+
+    # pre-release as of 28 Nov 2017; expected stable 7 Dec 2017
+    resource "npm" do
+      url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
+      sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
+    end
+  end
+
+  head do
+    url "https://github.com/nodejs/node.git"
+
+    resource "npm" do
+      url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
+      sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
+    end
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -30,13 +59,6 @@ class Node < Formula
   fails_with :gcc
   ("4.3".."4.7").each do |n|
     fails_with :gcc => n
-  end
-
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
-  resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.4.2.tgz"
-    sha256 "04dc5f87b1079d59d51404d4b4c4aacbe385807a33bd15a8f2da2fabe27bf443"
   end
 
   def install
@@ -61,8 +83,10 @@ class Node < Formula
              "--prefix=#{libexec}", resource("npm").cached_download
 
       # Fix from chrmoritz for ENOENT issue with @ in path to node
-      inreplace libexec/"lib/node_modules/npm/node_modules/libnpx/index.js",
-                "return child.escapeArg(npmPath, true)", "return npmPath"
+      if build.stable?
+        inreplace libexec/"lib/node_modules/npm/node_modules/libnpx/index.js",
+                  "return child.escapeArg(npmPath, true)", "return npmPath"
+      end
 
       # The `package.json` stores integrity information about the above passed
       # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
@@ -144,7 +168,7 @@ class Node < Formula
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
-      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --cache=#{HOMEBREW_CACHE}/npm_cache cowsay hello")
+      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
     end
   end
 end

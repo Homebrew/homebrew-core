@@ -1,30 +1,29 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2017-06-22"
+  version "2017-11-14"
 
   stable do
     if MacOS.version >= :sierra
-      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-06-22/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-11-14/", :using => :svn
     else
-      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-06-22/", :using => :svn
+      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-11-14/", :using => :svn
     end
 
     resource "clang" do
       if MacOS.version >= :sierra
-        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-06-22/", :using => :svn
+        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-11-14/", :using => :svn
       else
-        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-06-22/", :using => :svn
+        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-11-14/", :using => :svn
       end
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ed95f4747c71e4c456fbc9a0851324d7036deac8f3b7d15c1b4a04299239574" => :high_sierra
-    sha256 "9d02a904e0d76bbb5f814d952a8c4b3e15e0f6d671c0c53a90272fcefb0ada88" => :sierra
-    sha256 "184425911fe753006214f0f1dcd9c87e0e7c171f737d916445eadc760eac9eb8" => :el_capitan
-    sha256 "4a2146f1fc5009e79d8ca10c6371c3443ac2069e851c29e08ee01f2e710c5ff0" => :yosemite
+    sha256 "0612cd7fa1318527ee5701f44f57cc9d1de732bc22c494746918545ed6dc2566" => :high_sierra
+    sha256 "00e9f4400c72e3e2367133e5a9e7361bafd8e4374cfbe10ca72652e33e3325a9" => :sierra
+    sha256 "5312b09ff9c6e055b3f605cbbbde964ad701cf4613b5706b21bd225c582e12fc" => :el_capitan
   end
 
   head do
@@ -48,8 +47,8 @@ class ClangFormat < Formula
   depends_on "subversion" => :build
 
   resource "libcxx" do
-    url "https://releases.llvm.org/4.0.0/libcxx-4.0.0.src.tar.xz"
-    sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
+    url "https://releases.llvm.org/5.0.0/libcxx-5.0.0.src.tar.xz"
+    sha256 "eae5981e9a21ef0decfcac80a1af584ddb064a32805f95a57c7c83a5eb28c9b1"
   end
 
   def install

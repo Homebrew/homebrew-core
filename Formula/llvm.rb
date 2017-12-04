@@ -1,10 +1,9 @@
 class CodesignRequirement < Requirement
-  include FileUtils
   fatal true
 
   satisfy(:build_env => false) do
-    mktemp do
-      cp "/usr/bin/false", "llvm_check"
+    FileUtils.mktemp do
+      FileUtils.cp "/usr/bin/false", "llvm_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
     end
   end

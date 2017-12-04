@@ -1,14 +1,14 @@
 class Ssdeep < Formula
   desc "Recursive piecewise hashing tool"
   homepage "https://ssdeep-project.github.io/ssdeep/"
-  url "https://github.com/ssdeep-project/ssdeep/releases/download/release-2.14/ssdeep-2.14.tar.gz"
-  sha256 "3aad00b51adf8f0086b37198e50dc779d2313b7d9df09a96bce73c5376dcdd36"
+  url "https://github.com/ssdeep-project/ssdeep/releases/download/release-2.14.1/ssdeep-2.14.1.tar.gz"
+  sha256 "ff2eabc78106f009b4fb2def2d76fb0ca9e12acf624cbbfad9b3eb390d931313"
 
   bottle do
     cellar :any
-    sha256 "920b4dba1a5edebc72278a7b77ca99c0c2d01cde21854d26a730745751b60050" => :high_sierra
-    sha256 "e1e51327a493f62a0ee23970e052e05037207b733d32f42280084c2d46b9d03b" => :sierra
-    sha256 "6e6d611d9391ce64ae983e2b1622c69ded52600f6e1791034e1d796d868e1123" => :el_capitan
+    sha256 "1c8a9a487676961755daf5688ec478a5925f3a0dfe36faeb7027878600ef2384" => :high_sierra
+    sha256 "84677545f87098d9c5d74719044c56616a8788f1320c9258794807dac2343328" => :sierra
+    sha256 "c07f5558ed32f7de17f349cbc62e56cf277d3d30c83fa7844bdf41000729dcba" => :el_capitan
   end
 
   def install

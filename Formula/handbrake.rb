@@ -1,5 +1,5 @@
 class Handbrake < Formula
-  desc "Open-source video transcoder available for Linux, Mac, and Windows."
+  desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
   url "https://handbrake.fr/mirror/HandBrake-1.0.7.tar.bz2"
   sha256 "ffdee112f0288f0146b965107956cd718408406b75db71c44d2188f5296e677f"

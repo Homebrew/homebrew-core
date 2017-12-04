@@ -23,6 +23,7 @@ class ZeroInstall < Formula
   depends_on "gtk+" => :optional
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
 
     opamroot = buildpath/"opamroot"

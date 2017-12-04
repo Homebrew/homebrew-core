@@ -1,16 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.1.0.src.tgz"
-  version "1.1.0"
-  sha256 "666609a3cd34d0274ea4d59908e76902c8b907fb2f887293b1c21af4a7ec7b60"
+  url "https://binaries.cockroachdb.com/cockroach-v1.1.3.src.tgz"
+  version "1.1.3"
+  sha256 "a5b8530312d781294232fe9054cce1326f4f7919a5d284fa714a435991b81645"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dae15e102cf8e99fefe965761c644cb43167a7b889710479f213cd7c6fbfa7b5" => :high_sierra
-    sha256 "4c337c4fede62fe2d29a98d4d93af96d4639ec51032a2063fdc54a862a67d675" => :sierra
-    sha256 "f858815a5a6a355a0ca68a2ee4a9b4c2d0eefdd25c1b2e45abff4b555b89b57b" => :el_capitan
+    sha256 "72a5505734203145a0676414cec4e442e291e828af1df7af7bceace433d7bd29" => :high_sierra
+    sha256 "e9b2de3e2ba3cbc3a4a1f49b21bc7da9b77467244a33ff03fa2aac9fbf83238b" => :sierra
+    sha256 "be7a7b87b7dd7bafb0ba5355ea0f2bb7a3fb80afbff6b788fada0b621f48ae71" => :el_capitan
   end
 
   depends_on "autoconf" => :build

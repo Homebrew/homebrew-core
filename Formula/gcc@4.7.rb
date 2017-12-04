@@ -27,8 +27,6 @@ class GccAT47 < Formula
   sha256 "92e61c6dc3a0a449e62d72a38185fda550168a86702dea07125ebd3ec3996282"
   revision 2
 
-  head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_7-branch"
-
   bottle do
     sha256 "ae12d27145ab23128be647f41dedebb65fadd504e51ee2a40ed8555044b53577" => :sierra
     sha256 "d00547a951f6b099fbd5fd70c8d6a587e5afe5d0073616c5287a0cc1b8ba920a" => :el_capitan

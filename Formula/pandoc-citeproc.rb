@@ -5,14 +5,14 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.11.1.1/pandoc-citeproc-0.11.1.1.tar.gz"
-  sha256 "9263721ae0017a48f884366eca37955d6983e7cf8571fafbccb49f28ab12e300"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.12.1/pandoc-citeproc-0.12.1.tar.gz"
+  sha256 "7f12b25b0cf2f7c1ffe376d54113b6a85da0548d7b73e52e6d66f5daf65fc2ac"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "394ffe844d4a0b91ef312e29053c267ae4088745c8add17de8a052d546c8bce5" => :high_sierra
-    sha256 "13e19818179d37777015359c88586f7fa5bdd852347362a04f872c0298a9fab6" => :sierra
-    sha256 "1ca09cfefa7b23bad3bb181fb747e6ae7edf214992ba45b78aeb02df5dba9844" => :el_capitan
+    sha256 "2e867de685323674fc29c26364fb189a4914a1b40260bb22c864248bc1594b65" => :high_sierra
+    sha256 "75a3ddc5d87b6c713d5cafe5bb6b537394e7cfa893291ead98bc20baa92ce13a" => :sierra
+    sha256 "f35d0cad18119c0c392da4742153cd9e30295f9be1ba3193b9f71d6613567baf" => :el_capitan
   end
 
   depends_on "cabal-install" => :build

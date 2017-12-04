@@ -1,15 +1,14 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/v2.0.24.tar.gz"
-  sha256 "41f702cb84caa2db089a02f511a3da3e7fa3cdce7d2c5040b3c54c5da83c8b40"
+  url "https://github.com/inspircd/inspircd/archive/v2.0.25.tar.gz"
+  sha256 "c2488fafd04fcabbd8ddc8b9cdc6e0b57e942802b451c9cbccaf5d8483ebd251"
   head "https://github.com/inspircd/inspircd.git", :branch => "insp20"
 
   bottle do
-    sha256 "1b6846b77319ceb1f32433c1e4e442f055d8eb9daa695587186e22788753490b" => :high_sierra
-    sha256 "4965f5c4e45b8106a23bd11156cb6e1fff7164800e0805c8704921722d50586d" => :sierra
-    sha256 "48faab0b2b980c4184f9456ec7c48ab6d5d8174508e7fa114c7b0abfe93b457c" => :el_capitan
-    sha256 "8786c5b0a4452c438c13a2a7a9dc74d7d01dde665ced7ac5088d10ab909c7edd" => :yosemite
+    sha256 "fa0c21347636bbcf3cdb50606bc993607a705d6fc740d7af61c3d637af21aa42" => :high_sierra
+    sha256 "cb4476a4883acb2a5d6aac17d7f8879fe1938ce34e8d37d97e5761e74ac4ce50" => :sierra
+    sha256 "b73cab6e0683569ce510aff2f6817174e1986d2fa468bf344c812222cfc0b7f7" => :el_capitan
   end
 
   skip_clean "data"

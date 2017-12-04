@@ -1,16 +1,14 @@
 class Apr < Formula
   desc "Apache Portable Runtime library"
   homepage "https://apr.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.6.2.tar.bz2"
-  sha256 "09109cea377bab0028bba19a92b5b0e89603df9eab05c0f7dbd4dd83d48dcebd"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.6.3.tar.bz2"
+  sha256 "131f06d16d7aabd097fa992a33eec2b6af3962f93e6d570a9bd4d85e95993172"
 
   bottle do
     cellar :any
-    sha256 "64527b35f69f53202253676c3727411fa3fb3a0ae1b71ca266c62d2a87faf3bd" => :high_sierra
-    sha256 "5a0ef0c7992eaa6fc1ac332f72cdaebfb5fc0e9fd70a00606fc72e3a5c9d0afb" => :sierra
-    sha256 "b5b9ef99e199a850bc0485fec5968ada7dece9d107df3af0014ecb7245cf5f68" => :el_capitan
-    sha256 "cca4cfe47cf5e2f504c2bba59ddb991211b4ed778b2cadda74ea418305a5d942" => :yosemite
+    sha256 "df09dd9ba91dc0db6a6f5ac8d97b82203d5930af14494a790860b9cf3635c0a4" => :high_sierra
+    sha256 "2e3d88d6204b023756dd52d70385dcbd405bdc91295b023b7d04e1bfe1f95ccf" => :sierra
+    sha256 "16cdb68cf34cc80919c8689c64310313b04a181c6a57901440398d19a668dd38" => :el_capitan
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr"

@@ -1,10 +1,9 @@
 class CodesignRequirement < Requirement
-  include FileUtils
   fatal true
 
   satisfy(:build_env => false) do
-    mktemp do
-      cp "/usr/bin/false", "radare2_check"
+    FileUtils.mktemp do
+      FileUtils.cp "/usr/bin/false", "radare2_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "org.radare.radare2", "--dryrun", "radare2_check"
     end
   end
@@ -12,7 +11,7 @@ class CodesignRequirement < Requirement
   def message
     <<~EOS
       org.radare.radare2 identity must be available to build with automated signing.
-      See: https://github.com/radare/radare2/blob/master/doc/osx.md
+      See: https://github.com/radare/radare2/blob/master/doc/macos.md
     EOS
   end
 end
@@ -22,31 +21,24 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.0.1/radare2-2.0.1.tar.gz"
-    sha256 "b31d5d044cc98ce48420029c939f704a8ca3f9e8be399684c7ee7485c24dbb02"
+    url "https://radare.mikelloc.com/get/2.1.0/radare2-2.1.0.tar.gz"
+    sha256 "901be10ace5145fdd2436635f29a28f12114bf9e69f11b4b7c70dd6f8488bccf"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.0.0/radare2-bindings-2.0.0.tar.gz"
-      sha256 "d3a4d697de06d664649dd1fb3f090a079351b89c9112ba317d79187730cf9850"
+      url "https://radare.mikelloc.com/get/2.1.0/radare2-bindings-2.1.0.tar.gz"
+      sha256 "ac0eac49f7a4fd0decbdbce2303e3cb73819c77aebe17d7ca32c795d310ab8ab"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.0.0/radare2-extras-2.0.0.tar.gz"
-      sha256 "6856b57b6c125be63c3e6da9455a5da44f48da30a476a1cfefb1a1163159bdba"
-    end
-
-    patch do
-      # upstream fix for build issue
-      # https://github.com/radare/radare2-bindings/issues/176
-      url "https://github.com/radare/radare2/commit/2334829ce64f76cb2a448c48782e8c479cd5664c.diff?full_index=1"
-      sha256 "6a4505010e2e7e279f7fda91cea677e25fdb497c2b75c0d9f7ffb360d92be203"
+      url "https://radare.mikelloc.com/get/2.1.0/radare2-extras-2.1.0.tar.gz"
+      sha256 "e65dc0e680710ead7e0eef750207b5ee923225f3a8a977cde234e16107693632"
     end
   end
 
   bottle do
-    sha256 "12b611cb6e6b16a358f0646b56bc2dcb9cf4440a0cf096d3a6e1136fafca0ece" => :high_sierra
-    sha256 "8e99d66d15fe874ff9bda4b8be6dfca3c865ab8235171201a0657863cc1ce996" => :sierra
-    sha256 "9cee9163caf295a55eaa255b43c0e47a6d5459dcd5702923f7319891ebfe753e" => :el_capitan
+    sha256 "242a03365f6fe23087f50c43f85884f542f1d8b790220b7069bad0b8d8936aec" => :high_sierra
+    sha256 "b6a9593b92b44f8772d40c4f837edbef8d75741ce8fe0fe6ba236369ed549291" => :sierra
+    sha256 "bf82a99eaf177abf25f2f13e9daa5a0350fd1aff587371cfc112c1bbfa844a9c" => :el_capitan
   end
 
   head do
@@ -83,8 +75,8 @@ class Radare2 < Formula
     if build.with? "code-signing"
       # Brew changes the HOME directory which breaks codesign
       home = `eval printf "~$USER"`
-      system "make", "HOME=#{home}", "-C", "binr/radare2", "osxsign"
-      system "make", "HOME=#{home}", "-C", "binr/radare2", "osx-sign-libs"
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "macossign"
+      system "make", "HOME=#{home}", "-C", "binr/radare2", "macos-sign-libs"
     end
     ENV.deparallelize { system "make", "install" }
 

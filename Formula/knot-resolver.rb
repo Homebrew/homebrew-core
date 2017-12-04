@@ -1,23 +1,14 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  revision 2
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.5.0.tar.xz"
+  sha256 "c032e63a6b922294746e1ab4002860346e7a6d92b8502965a13ba599088fcb42"
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
-  stable do
-    url "https://secure.nic.cz/files/knot-resolver/knot-resolver-1.4.0.tar.xz"
-    sha256 "ac19c121fd687c7e4f5f907b46932d26f8f9d9e01626c4dadb3847e25ea31ceb"
-
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/62168c0/knot-resolver/fix-loading-modules-on-Darwin.diff"
-      sha256 "326a720d6ca0bb7455ce1833b9e93d4054b002f32de7676773f28b4023bcf52f"
-    end
-  end
-
   bottle do
-    sha256 "64a4a438402eeef8d2a59a4b786badd810428df9e19c734a4512f87e65ec3886" => :high_sierra
-    sha256 "4288eadcf123debef357df3e31caf4f2fa1b9e492e76331095ff327bbdd550b9" => :sierra
-    sha256 "d9ca2c9605ffb9de25abe4ab0b39ba6ba73edc7e7dc7bf3cb3284e551512f2b9" => :el_capitan
+    sha256 "624b67c2820bf9b8cf30bbea754f4a0d55c928a48a0fad4e03c3270938a7232b" => :high_sierra
+    sha256 "644859b3c96adcace5c58db615b374c34cf239ce7eda77525da459015b66f8b1" => :sierra
+    sha256 "7190c74a290987e5eaf0b8c0d3a8fcb88c81ad39df6db431f07b095087de3f67" => :el_capitan
   end
 
   option "without-nettle", "Compile without DNS cookies support"
@@ -36,7 +27,13 @@ class KnotResolver < Formula
   depends_on "libmemcached" => :optional
 
   def install
-    %w[all check lib-install daemon-install modules-install].each do |target|
+    # Since we don't run `make install` or `make etc-install`, we need to
+    # install root.hints manually before running `make check`.
+    cp "etc/root.hints", buildpath
+    (etc/"kresd").install "root.hints"
+
+    %w[all lib-install daemon-install client-install modules-install
+       check].each do |target|
       system "make", target, "PREFIX=#{prefix}", "ETCDIR=#{etc}/kresd"
     end
 

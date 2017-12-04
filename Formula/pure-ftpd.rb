@@ -1,16 +1,13 @@
 class PureFtpd < Formula
   desc "Secure and efficient FTP server"
   homepage "https://www.pureftpd.org/"
-  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.46.tar.gz"
-  mirror "https://fossies.org/linux/misc/pure-ftpd-1.0.46.tar.gz"
-  mirror "https://ftp.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.46.tar.gz"
-  sha256 "0609807335aade4d7145abdbb5cb05c9856a3e626babe90658cb0df315cb0a5c"
-  revision 1
+  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.47.tar.gz"
+  sha256 "4740c316f5df879a2d68464489fb9b8b90113fe7dce58e2cdd2054a4768f27ad"
 
   bottle do
-    sha256 "def15854f9eea616cfb9b22d003b44d6302f2115df8ee8b682f67431a3048e78" => :high_sierra
-    sha256 "64d935c2a271f301b095eefbdd78d103a20e21842d2d1bc800c47d4646d983b8" => :sierra
-    sha256 "e1dc733cce0594ae92ebba708673f64e4c88f01d11ce9cc04ba318e04db395a4" => :el_capitan
+    sha256 "3ee0ae276bad11f6459e2a866f96f7618a12b8625e69dd1d2b3fbcb3c7f3d3fe" => :high_sierra
+    sha256 "fcde5497abd815c560b9b8dc1bcb40d1018e378e16fcbc04cb942d244a64c972" => :sierra
+    sha256 "db8752838fcba745378a65f79c40ee8e573f50cd648d48b23b47b813dfb5cba1" => :el_capitan
   end
 
   option "with-virtualchroot", "Follow symbolic links even for chrooted accounts"
@@ -54,7 +51,10 @@ class PureFtpd < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/pure-ftpd</string>
-          <string>-A -j -z</string>
+          <string>--chrooteveryone</string>
+          <string>--createhomedir</string>
+          <string>--allowdotfiles</string>
+          <string>--login=puredb:#{etc}/pureftpd.pdb</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

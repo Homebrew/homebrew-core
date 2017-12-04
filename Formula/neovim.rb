@@ -1,34 +1,14 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  revision 1
-
-  stable do
-    url "https://github.com/neovim/neovim/archive/v0.2.0.tar.gz"
-    sha256 "72e263f9d23fe60403d53a52d4c95026b0be428c1b9c02b80ab55166ea3f62b5"
-
-    depends_on "luajit" => :build
-
-    # Remove for > 0.2.0
-    # Upstream commit from 7 Jul 2017 "Prefer the static jemalloc library by default on OSX"
-    # See https://github.com/neovim/neovim/pull/6979
-    patch do
-      url "https://github.com/neovim/neovim/commit/35fad15c8907f741ce21779393e4377de753e4f9.patch?full_index=1"
-      sha256 "b156fdc92a3850eca3047620087f25a021800b729a3c30fd0164404b2ff7848b"
-    end
-  end
+  url "https://github.com/neovim/neovim/archive/v0.2.2.tar.gz"
+  sha256 "a838ee07cc9a2ef8ade1b31a2a4f2d5e9339e244ade68e64556c1f4b40ccc5ed"
+  head "https://github.com/neovim/neovim.git"
 
   bottle do
-    sha256 "a382d197011bc49c374a915e6d5d8a98d07a92cccf7aa79032a873a578734f0c" => :high_sierra
-    sha256 "6d0cbbaadd947b428f29fb28ba0f492f2d84a71d981ad22cf00032036118ddf9" => :sierra
-    sha256 "fdb74c70048d2c9232525ab652464d9818d0134442c855168f399ab2dd9504a7" => :el_capitan
-    sha256 "f563c067954a4c5f98ad2b01ee3219e5d1666f7000917474186127122cf5cc76" => :yosemite
-  end
-
-  head do
-    url "https://github.com/neovim/neovim.git"
-
-    depends_on "luajit"
+    sha256 "5511bf90172647f7b0eda6587a5b1e43cee22401bed32a40344f9205d32be48e" => :high_sierra
+    sha256 "e05a7844a25e252ca9460331cc4522eeda7c213124306324cbbd4fb9e45b10b3" => :sierra
+    sha256 "d5d62f862a89868655f9d0ab12a8742e4ec605a96a7c44a7e23cfe2961fb5542" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -39,6 +19,7 @@ class Neovim < Formula
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
+  depends_on "luajit"
   depends_on "msgpack"
   depends_on "unibilium"
   depends_on :python if MacOS.version <= :snow_leopard

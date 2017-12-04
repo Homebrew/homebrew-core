@@ -1,26 +1,25 @@
 class Sdl2Mixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
-  url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.gz"
-  sha256 "5a24f62a610249d744cbd8d28ee399d8905db7222bf3bdbc8a8b4a76e597695f"
-  revision 1
+  url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.2.tar.gz"
+  sha256 "4e615e27efca4f439df9af6aa2c6de84150d17cbfd12174b54868c12f19c83bb"
+  revision 3
   head "https://hg.libsdl.org/SDL_mixer", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "78b53daa3f0f3c987af31b8adb50ee78388c71c46bcd42a865179366522bffbe" => :high_sierra
-    sha256 "c64414c8a3c09931479dcfa8d66363e7dd9e37538c1368fb890be8c2434481a0" => :sierra
-    sha256 "435b75cff646b1e4c4f7f6861be2e1549bc85416b155e54bf5608db6a68cc034" => :el_capitan
-    sha256 "10eebd63b6c51341966513cc8eb5160e9f5805d984d582cee2e42dad4ca3b0e7" => :yosemite
+    sha256 "294939d7e15b8e173e9d52dc2abfedec5c49d42f98a806db3fa5277f464202b1" => :high_sierra
+    sha256 "6551ecd136aa19fec2a6e6234f34da4a4ffe6d0a5ed2461e7e0cd184f76ba45e" => :sierra
+    sha256 "effd6b19570fca9ee6c57483f96cc87cc48fe308bc272a9dffee66e68c77a793" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libmodplug"
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "flac" => :optional
   depends_on "fluid-synth" => :optional
   depends_on "libmikmod" => :optional
-  depends_on "libmodplug" => :optional
   depends_on "smpeg2" => :optional
 
   def install
@@ -32,6 +31,7 @@ class Sdl2Mixer < Formula
       --disable-music-flac-shared
       --disable-music-midi-fluidsynth-shared
       --disable-music-mod-mikmod-shared
+      --enable-music-mod-modplug
       --disable-music-mod-modplug-shared
       --disable-music-mp3-smpeg-shared
     ]
@@ -39,7 +39,6 @@ class Sdl2Mixer < Formula
     args << "--disable-music-flac" if build.without? "flac"
     args << "--disable-music-midi-fluidsynth" if build.without? "fluid-synth"
     args << "--enable-music-mod-mikmod" if build.with? "libmikmod"
-    args << "--disable-music-mod-modplug" if build.without? "libmodplug"
 
     if build.with? "smpeg2"
       args << "--with-smpeg-prefix=#{Formula["smpeg2"].opt_prefix}"

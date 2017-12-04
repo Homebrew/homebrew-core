@@ -2,21 +2,14 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.5.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.5.tar.gz"
-  sha256 "e57f5e3d5842a81fe9351b6e817fcaf0a749ca4ef35a91465edba9e071dce7c4"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.3.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.3.tar.gz"
+  sha256 "aead6598263171b96970da0d881e616d0813b69b35ebdc5991f87ff2ea7f5c98"
 
   bottle do
-    sha256 "2d9d33ea7dfef533ffbaac52760437ad4d9c1fbb298d73c44726f471dee9e84a" => :high_sierra
-    sha256 "3ff166de8666c5275cabd2d8b6de8e44ae2b71ee8a694a4a8b20866943b9e117" => :sierra
-    sha256 "94342eafb2d50f798dd5be8c1d35347e3dd414f2e64753f6691f2ce4b7f9f391" => :el_capitan
-    sha256 "5f52e3e477f2381d153458795dc54251439c61899d1504435214895dda9d5b41" => :yosemite
-  end
-
-  devel do
-    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz"
-    mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz"
-    sha256 "b029d2492b72a9ba5b5fcd9f3d602c9fd0baa087912f2aaecc28f52f567ec478"
+    sha256 "addcf97a9867de7a47c19b3ca7ed9c1ecc329c81147ab6a44d3dc0171c0afd8e" => :high_sierra
+    sha256 "0023299b95556b5e57e2330a4c058b0cd9a6a54150663d38f55892e68984de51" => :sierra
+    sha256 "8ccdd7c5e4065593cf08d7357ff68532741c5960aeaa0234ff55575291c88f18" => :el_capitan
   end
 
   head do

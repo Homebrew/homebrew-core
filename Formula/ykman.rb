@@ -1,7 +1,7 @@
 class Ykman < Formula
   include Language::Python::Virtualenv
 
-  desc "Tool for managing your YubiKey configuration."
+  desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.4.6.tar.gz"
   sha256 "6f9aae731e1c71ea65bea48911aa33a29b284afbabe9430f84e07a27cfcfcbeb"

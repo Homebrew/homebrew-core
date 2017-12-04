@@ -17,6 +17,8 @@ class Ledit < Formula
   depends_on "camlp5"
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     # like camlp5, this build fails if the jobs are parallelized
     ENV.deparallelize
     args = %W[BINDIR=#{bin} LIBDIR=#{lib} MANDIR=#{man}]

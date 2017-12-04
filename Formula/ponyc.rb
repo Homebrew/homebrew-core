@@ -3,6 +3,7 @@ class Ponyc < Formula
   homepage "https://www.ponylang.org/"
   url "https://github.com/ponylang/ponyc/archive/0.20.0.tar.gz"
   sha256 "f2be4b11714113eb506e1fcd4b7fdb6f6f84abc73291156a34b4e76abcb77866"
+  head "https://github.com/ponylang/ponyc.git"
 
   bottle do
     cellar :any

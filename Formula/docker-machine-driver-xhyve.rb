@@ -38,6 +38,11 @@ class DockerMachineDriverXhyve < Formula
       git_hash = `git rev-parse --short HEAD --quiet`.chomp
       git_hash = "HEAD-#{git_hash}" if build.head?
 
+      go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
+      ENV["GO_LDFLAGS"] = go_ldflags
+      ENV["GO_BUILD_TAGS"] = build_tags
+      ENV["LIBEV_FILE"] = "#{Formula["libev"].opt_lib}/libev.a"
+
       if build.with? "qcow2"
         build_tags << " qcow2"
         system "opam", "init", "--no-setup"
@@ -47,17 +52,25 @@ class DockerMachineDriverXhyve < Formula
         ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
         ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
         ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
-        system "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1",
+
+        inreplace "#{opam_dir}/compilers/4.05.0/4.05.0/4.05.0.comp",
+          '["./configure"', '["./configure" "-no-graph"' # Avoid X11
+
+        ENV.deparallelize { system "opam", "switch", "4.05.0" }
+
+        system "opam", "config", "exec", "--",
+               "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1",
                "conf-libev", "mirage-block-unix>2.3.0", "lwt<3.1.0"
+
+        system "opam", "config", "exec", "--", "make", "lib9p"
+        system "opam", "config", "exec", "--", "make", "build"
+      else
+        system "make", "lib9p"
+        system "make", "build"
       end
 
-      go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
-      ENV["GO_LDFLAGS"] = go_ldflags
-      ENV["GO_BUILD_TAGS"] = build_tags
-      ENV["LIBEV_FILE"] = "#{Formula["libev"].opt_lib}/libev.a"
-      system "make", "lib9p"
-      system "make", "build"
       bin.install "bin/docker-machine-driver-xhyve"
+      prefix.install_metafiles
     end
   end
 

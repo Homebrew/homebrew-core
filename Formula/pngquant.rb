@@ -1,16 +1,15 @@
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
-  url "https://github.com/pornel/pngquant.git",
-      :tag => "2.10.2",
-      :revision => "f10f5d217c170d7aff4d80b88bdc563bd56babef"
+  url "https://pngquant.org/pngquant-2.11.4-src.tar.gz"
+  sha256 "d4e6b4860aa297d5ae57cf5f4f0a1d83ee0ea54b0b0d1dd8cd5f51d27e5ef3e6"
   head "https://github.com/pornel/pngquant.git"
 
   bottle do
-    sha256 "a7cf5dcbf8c6ab8f972e3c7f3d7a30f0f6e7d61fe71ec71cc8c4bda8202d347a" => :high_sierra
-    sha256 "b0f4b97ed674cb11b17800d1e4ec1f313a17075710781d285efa27c37043e7a9" => :sierra
-    sha256 "d11640da698b0bc298dbcf57e2153e9e0db0beadf8414dd4b326388b92ee909f" => :el_capitan
-    sha256 "dd5333cb7c02d99eee6371f542ca14255e9b5c44f2191694e7bf60d4b0f6240a" => :yosemite
+    cellar :any
+    sha256 "25edb7fd8d0f4980cc5abb27283821ed0d559d5f35f8a50bfd1130a917c5c4bb" => :high_sierra
+    sha256 "871530f5c7254d24ce20f072776cf56e416750b4c287b28edbbed01f36f4916a" => :sierra
+    sha256 "3adfdb133644976df11f2a2070b0374b43b1e0917e198f16d3c89a983579c9d7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

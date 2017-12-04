@@ -1,11 +1,13 @@
-# NOTE: When updating Wine, please check Wine-Gecko and Wine-Mono for updates
-# too:
+# NOTE: When updating Wine, please make sure to match Wine-Gecko and Wine-Mono
+# versions:
 #  - https://wiki.winehq.org/Gecko
 #  - https://wiki.winehq.org/Mono
+# with `GECKO_VERSION` and `MONO_VERSION`, as in:
+#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-2.0.3:/dlls/appwiz.cpl/addons.c
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  head "https://source.winehq.org/git/wine.git"
+  revision 1
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.3.tar.xz"
@@ -25,24 +27,43 @@ class Wine < Formula
       url "https://bugs.winehq.org/attachment.cgi?id=55968"
       sha256 "1b5086798ce6dc959b3cbb8f343ee236ae06c7910e4bbae7d9fde3f162f03a79"
     end
+
+    resource "mono" do
+      url "https://dl.winehq.org/wine/wine-mono/4.6.4/wine-mono-4.6.4.msi", :using => :nounzip
+      sha256 "91b7d58177b9a9355edf007dab94535471aebdddae12734ceb4a219d2ecc4152"
+    end
   end
 
   bottle do
-    sha256 "c367cba3bf371925b40c0aa36cd2413333fafebe06731bd5df3a006499a669a7" => :high_sierra
-    sha256 "982ea0e46c9845223ce145a2bc3d2e95a4007a302b31757585a38c10aa81ce02" => :sierra
-    sha256 "2fa4c44a3687cb2febec2b78ef6a76fa2589f75de9df564b339a2f7deaa05151" => :el_capitan
+    sha256 "7327a8ea0dc95949879b760f34da7ae81709cbc23d32bb71064a07ed1c2d58e8" => :high_sierra
+    sha256 "c72f3cae9741f454963cdba203c060cacafbf5620567bddb94234fccb5821900" => :sierra
+    sha256 "9a14b70120ac1b73851b76d9e0b35810d7d2720f0048b1b3f96167a2989b5b7b" => :el_capitan
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.19.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.19.tar.xz"
-    sha256 "487131e69875ae9c2d042798f954160146e603e449c3c97981f29b42f4a66095"
+    url "https://dl.winehq.org/wine/source/2.x/wine-2.22.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.22.tar.xz"
+    sha256 "db5c7e7f652405d927b3ba43cc09e4e2f5726a2c7cbf9445a0d01d1b335e8b73"
 
     # Patch to fix screen-flickering issues. Still relevant on 2.14.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/74c2566/wine/2.14.patch"
       sha256 "6907471d18996ada60cc0cbc8462a1698e90720c0882846dfbfb163e5d3899b8"
+    end
+
+    resource "mono" do
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
+    end
+  end
+
+  head do
+    url "https://source.winehq.org/git/wine.git"
+
+    resource "mono" do
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
   end
 
@@ -68,15 +89,10 @@ class Wine < Formula
     sha256 "c565ea25e50ea953937d4ab01299e4306da4a556946327d253ea9b28357e4a7d"
   end
 
-  resource "mono" do
-    url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
-    sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
-  end
-
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
-    sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
+    url "https://www.openssl.org/source/openssl-1.0.2m.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2m.tar.gz"
+    sha256 "8c6ff15ec6b319b50788f42c7abc2890c08ba5a1cdcd3810eb9092deada37b0f"
   end
 
   resource "libtool" do
@@ -357,10 +373,6 @@ class Wine < Formula
       end
 
       resource("gd").stage do
-        # Poor man's patch as this is a resource
-        inreplace "src/gd_gd2.c",
-                  "#include <math.h>",
-                  "#include <math.h>\n#include <limits.h>"
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
                               "--disable-static",

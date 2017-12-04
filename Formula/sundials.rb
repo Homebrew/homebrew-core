@@ -1,22 +1,14 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computation.llnl.gov/projects/sundials/download/sundials-2.7.0.tar.gz"
-  sha256 "d39fcac7175d701398e4eb209f7e92a5b30a78358d4a0c0fcc23db23c11ba104"
-  revision 2
+  url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.0.tar.gz"
+  sha256 "18d52f8f329626f77b99b8bf91e05b7d16b49fde2483d3a0ea55496ce4cdd43a"
 
   bottle do
     cellar :any
-    sha256 "2bb4a32e13c6f88dc4abfd4e53f5694974081b1587c91029a58a9fb0d2764b5e" => :high_sierra
-    sha256 "0f6752f78b608cfb6b380c7c474db0ab3bb797c6bef7991672fc794e3b835d81" => :sierra
-    sha256 "b552a688e6eb08c71f721b8bddee4041e5f9a3ef55cb6be749d19a4fca9c9e25" => :el_capitan
-    sha256 "f3926e8ecbd9601f519d96d451cdec60d23b33c3369cbeb82ca7ede1f3c190f4" => :yosemite
-  end
-
-  devel do
-    url "https://computation.llnl.gov/projects/sundials/download/sundials-3.0.0-beta-2.tar.gz"
-    sha256 "0e597707b4210dee9ab3583f072c2e5513b28cbbd8465296fc5c203074b225dd"
-    version "3.0.0-beta-2"
+    sha256 "8912bb18905be789670243cf66c950f376632a669442d82195567abbe7005bd6" => :high_sierra
+    sha256 "5152878671da66c199dee3010ad2801c9488e3c0c12dca004d483dfb99099047" => :sierra
+    sha256 "86559a65cb0973cae8d4c536923f0ff2bc0dffddcf1fc510089f9a97e657aaaa" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"

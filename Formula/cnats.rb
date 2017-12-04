@@ -1,14 +1,14 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/cnats"
-  url "https://github.com/nats-io/cnats/archive/v1.7.2.tar.gz"
-  sha256 "514dbaeef6e3c87cccad3d51bc7d571d67c2e95a9b29d91cdfa49df8aba3a7f6"
+  url "https://github.com/nats-io/cnats/archive/v1.7.4.tar.gz"
+  sha256 "74ca4b380b7c5cb7ae85017d9e50aa23e89f7565f500f40df359d82adb493b93"
 
   bottle do
     cellar :any
-    sha256 "23e7c62e63cae42c06f4c3dd55f3eb4adc6965bb0c6beefd5885e85480b80432" => :high_sierra
-    sha256 "3ed29c49f6fa03f7202b2c32431539cc6ea031f2840512a01c0a4f142dc6fae1" => :sierra
-    sha256 "153f4ddc7bff4f4ee5123e1e15a179a8a9295441206db51f52ab85156c2dca56" => :el_capitan
+    sha256 "3f4fdfcf6afd14251ef2f434043f7d8040939daba60a9099cc7d9ea753273ed7" => :high_sierra
+    sha256 "6bd7954e5f15a75fc8c8e0b152dbf7450c45d35050c91da1e0e471f2d8179ff4" => :sierra
+    sha256 "a93f6fbd6a03feb582a5589cd19d5880b5adcc04cab5de2350f40a6a98ba20c8" => :el_capitan
   end
 
   depends_on "cmake" => :build

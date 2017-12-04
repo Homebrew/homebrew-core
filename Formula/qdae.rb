@@ -1,7 +1,7 @@
 class Qdae < Formula
   desc "Quick and Dirty Apricot Emulator"
-  homepage "http://www.seasip.info/Unix/QDAE/"
-  url "http://www.seasip.info/Unix/QDAE/qdae-0.0.10.tar.gz"
+  homepage "https://www.seasip.info/Unix/QDAE/"
+  url "https://www.seasip.info/Unix/QDAE/qdae-0.0.10.tar.gz"
   sha256 "780752c37c9ec68dd0cd08bd6fe288a1028277e10f74ef405ca200770edb5227"
 
   bottle do

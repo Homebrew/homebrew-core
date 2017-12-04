@@ -3,14 +3,14 @@ require "language/go"
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.7.1.tar.gz"
-  sha256 "c889b774b78c85fb1a23984e362e0201444b8b3d7baa38d3507dbd9ad675de04"
+  url "https://github.com/pilosa/pilosa/archive/v0.8.1.tar.gz"
+  sha256 "52ff3b46a4ba05a056afa96609d7f9c73b9b4650b5b4af54c1a0cea58907357b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "079f06f54ebaede4f007c6ac550dc8062f8319f2ab39cb6f79e43e2d149c0af6" => :high_sierra
-    sha256 "8ce70bc300dfbe98ccdb11e73261f5b1b7a68c94b76dc89c542faf931d3da8ef" => :sierra
-    sha256 "2b397ff34673843663cd608fbb90f12e48088a090ac2d64676bb1ed6ca3c811a" => :el_capitan
+    sha256 "e20e744e82449c1ce0a60b6086df9d30c71ca8da06bd3850e87dd75bd4556e00" => :high_sierra
+    sha256 "aa75078a4834c9b8033e2f3a076072ac290ce9fe5d5cbc86799cfe94982cbe9b" => :sierra
+    sha256 "d7ad7bce575ee00a0580404799ecad8aaddba131c88f1075a4fe56e499f31f32" => :el_capitan
   end
 
   depends_on "go" => :build

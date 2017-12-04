@@ -1,15 +1,15 @@
 class RebarAT3 < Formula
   desc "Erlang build tool"
   homepage "https://github.com/erlang/rebar3"
-  url "https://github.com/erlang/rebar3/archive/3.4.4.tar.gz"
-  sha256 "0f7c860489dc4e4fcdc706a04690f791755870ff0e0582525b8ee9a78e911443"
+  url "https://github.com/erlang/rebar3/archive/3.4.7.tar.gz"
+  sha256 "19b3d9cddef2e7eefcdf3ca66d1c649847c010edab4e0d2dbfa54161145a3d87"
   head "https://github.com/rebar/rebar3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f39cf7e3d5f559e7e278c15f1377f005c322aac42876225bf6bca51155edd061" => :high_sierra
-    sha256 "787c0ac553fb70f8c3622a318ec8ee0bbbc06d2a6027f2a67bcd77ef92e9b404" => :sierra
-    sha256 "f474e27a03050b5a629b33fb5c3fb021a5c1e123de04aef953761ce51e8c7f01" => :el_capitan
+    sha256 "006503dff9340cdeb2daeadcfb09d48be4ae39ef684a800d6830aec3e849c3b5" => :high_sierra
+    sha256 "4b3936ab1f32fbcc329b7b3c14e15e2288fecca75b93ab5ebc8e6eb9bcd84011" => :sierra
+    sha256 "02e8b5c392b1ff466da1a51a7d92abecd9b43eba695577ebe556c6e1593520e5" => :el_capitan
   end
 
   depends_on "erlang"

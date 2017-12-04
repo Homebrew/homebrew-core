@@ -1,14 +1,14 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/howtowhale/dvm"
-  url "https://github.com/howtowhale/dvm/archive/0.9.1.tar.gz"
-  sha256 "e3e3d90ec0b46517b89de8d28fb303733ee764907ffbd61678614da0af2a1567"
+  url "https://github.com/howtowhale/dvm/archive/1.0.0.tar.gz"
+  sha256 "afcc921b6a301466c6a927730d15839db03686f45d8ccf92f7f2bfc06ef44698"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35e1aaec1421df4159cf0f18d7dbc3deb1620ac84159e05e52cab2b069e69e5b" => :high_sierra
-    sha256 "edc8e7c2e5aa099cc14be57247961cb79ef5f677610d0301786cfce41ed55e48" => :sierra
-    sha256 "25ea32a37d52751a050f7814205ddc711e5fd1530fc79d4bbe2c987c94152e0c" => :el_capitan
+    sha256 "bebc1646eae582401909cb5f969eab722b9c43009adcf5dc6bb85f3f41cd9a00" => :high_sierra
+    sha256 "c04e23b281cef762eec3e3ded17c4b531890a0565670074938f1ffd00abb12de" => :sierra
+    sha256 "1f0c433836ebffcb3403fa47725e4f6c2b7f39cb6b445b7fee58cae9720206c3" => :el_capitan
   end
 
   depends_on "go" => :build

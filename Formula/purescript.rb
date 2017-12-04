@@ -5,20 +5,19 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.11.6.tar.gz"
-  sha256 "8bd2e4f844666a553d93c2e55c72c6361fbc08c706157d9d975dc7c1b730304e"
-  revision 1
+  url "https://github.com/purescript/purescript/archive/v0.11.7.tar.gz"
+  sha256 "56b715acc4b92a5e389f7ec5244c9306769a515e1da2696d9c2c89e318adc9f9"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    rebuild 1
-    sha256 "6e3c8f33ac8e6b8af9e4d7b7da7d6116129048e1e553337e7d887aa5996cbb59" => :high_sierra
-    sha256 "c6719ba1cd153eeb9816ffc5ee3a10e5d7e25d618689ce2f416d43aeaf1a525e" => :sierra
-    sha256 "474ce08419ecaaa6456f828674adf095c4b07af557f7a15881071a52ec907e98" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "b1e281b76d895e1791902765491a35ed2524cff90ecb99a72a190b1e0f387b77" => :high_sierra
+    sha256 "01c8ec5708e23689a7e47a2cea0a3130cdcc4cce3b621c3b4c6b3653a1481617" => :sierra
+    sha256 "ee0a11eb6bfd302a27653c074a0d237b5bdf570579394b94fe21ee0638a8e0ef" => :el_capitan
   end
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
@@ -33,10 +32,7 @@ class Purescript < Formula
         mv "purescript-#{version}/purescript.cabal", "."
       end
 
-      # Upstream issue "Build failure with protolude 0.2"
-      # Reported 11 Sep 2017 https://github.com/purescript/purescript/issues/3065
-      install_cabal_package "--constraint", "protolude < 0.2",
-                            "-f release", :using => ["alex", "happy"]
+      install_cabal_package "-f release", :using => ["alex", "happy"]
     end
   end
 

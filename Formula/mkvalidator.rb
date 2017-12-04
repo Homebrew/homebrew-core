@@ -1,26 +1,14 @@
 class Mkvalidator < Formula
   desc "Tool to verify Matroska and WebM files for spec conformance"
   homepage "https://www.matroska.org/downloads/mkvalidator.html"
-  url "https://downloads.sourceforge.net/project/matroska/mkvalidator/mkvalidator-0.5.0.tar.bz2"
-  sha256 "c3e72e5b49d32174415b9273ea8d52380e09ac63c8dc7db684104021c711c104"
+  url "https://downloads.sourceforge.net/project/matroska/mkvalidator/mkvalidator-0.5.2.tar.bz2"
+  sha256 "2e2a91062f6bf6034e8049646897095b5fc7a1639787d5fe0fcef1f1215d873b"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5722cbd433c58814fc7508ca19161c0de3f5fd8102e94cded96d09e9cfc771bc" => :high_sierra
-    sha256 "49fa0aa455c2787b47cdad885529291a1471e733e49918b2f8f27359022f5a80" => :sierra
-    sha256 "fe23d687f75ca9d28b75c9886b0eca1830861f2d47d5e03eea8d9cae0f2f0441" => :el_capitan
-    sha256 "e10253ba9942b7d4d92a66efd55fb04671af4edd73bddeed302f5373591d244f" => :yosemite
-    sha256 "8a6c2abe6c63609e04f4855f25b336418d6ae9f10f95061c40efd811372afb0f" => :mavericks
-  end
-
-  # see https://sourceforge.net/p/matroska/bugs/9/
-  # and https://sourceforge.net/p/matroska/patches/3/
-  if MacOS.prefer_64_bit?
-    patch do
-      url "https://sourceforge.net/p/matroska/patches/_discuss/thread/8899370c/81cc/attachment/mkvalidator-0.3.7.gcc_osx_x64.build.diff"
-      sha256 "c714977d5b68e90851ce59aacc789438b2455741eba43bd473a248a59932ce3c"
-    end
+    sha256 "5f0c85894cd7d4a7c5cdce1e26c5cc7c15ac7baa6c32a63e3474632f7727d8af" => :high_sierra
+    sha256 "5f0c85894cd7d4a7c5cdce1e26c5cc7c15ac7baa6c32a63e3474632f7727d8af" => :sierra
+    sha256 "6c253cdf3c824b6e37af7cca51bf05a930785286bc83ec367e10500d9645519c" => :el_capitan
   end
 
   resource "tests" do
@@ -30,6 +18,10 @@ class Mkvalidator < Formula
 
   def install
     ENV.deparallelize # Otherwise there are races
+
+    # Reported 2 Nov 2017 https://github.com/Matroska-Org/foundation-source/issues/31
+    inreplace "configure", "\r", "\n"
+
     system "./configure"
     system "make", "-C", "mkvalidator"
     bindir = `corec/tools/coremake/system_output.sh`.chomp

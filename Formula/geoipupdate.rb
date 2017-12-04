@@ -1,15 +1,13 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/releases/download/v2.4.0/geoipupdate-2.4.0.tar.gz"
-  sha256 "8b4e88ce8d84e9c75bc681704d19ec5c63c54f01e945f7669f97fb0df7e13952"
-  revision 1
+  url "https://github.com/maxmind/geoipupdate/releases/download/v2.5.0/geoipupdate-2.5.0.tar.gz"
+  sha256 "5119fd0e338cd083e886228b26679c64bcbaade8a815be092aecf865a610ab26"
 
   bottle do
-    sha256 "323ae245cabc43f6dfc5dd95625eb4aa8fd87cf33dfc3c0ad75f043f48ffff88" => :high_sierra
-    sha256 "ecc561b023e6ae9c57c4dcbe248407bfbf8b6f73e28da9e9a0395759b1fdb931" => :sierra
-    sha256 "5a56005484abf3771b79707fc79a669803e683f1573c12a854c23f4b92d78ee0" => :el_capitan
-    sha256 "e984990bc05d7f13585e6b19f309dbd56c181f15f09faa08333ba8020fb1876a" => :yosemite
+    sha256 "22feb6fb330b62c077482b443ac637c2fa3f60626b4113d815fc0fd85a255ee2" => :high_sierra
+    sha256 "d28503bce47a42732d54cece163675f6c6169539327a95bb8d4bbdfd16aa9e35" => :sierra
+    sha256 "ab7981329380d9bf0fee2efe0bfed2a1745cc3ecf681356ba21a02cd6604acf2" => :el_capitan
   end
 
   head do
@@ -20,13 +18,6 @@ class Geoipupdate < Formula
   end
 
   def install
-    # Configure for free GeoLite2 and GeoLite Legacy Databases
-    # See https://dev.maxmind.com/geoip/geoipupdate/
-    inreplace "conf/GeoIP.conf.default" do |s|
-      s.gsub! /^UserId 0$/, "UserId 999999"
-      s.gsub! /^# (ProductIds 506 517 533 GeoLite.*$)/, "\\1"
-    end
-
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

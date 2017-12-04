@@ -1,15 +1,14 @@
 class TemporalTables < Formula
   desc "Temporal Tables PostgreSQL Extension"
   homepage "https://pgxn.org/dist/temporal_tables/"
-  url "https://github.com/arkhipov/temporal_tables/archive/v1.1.1.tar.gz"
-  sha256 "8e1496e8b04a1a8df98450710be71156d6e94d9089d31dba4e56cb156649ca45"
-  revision 1
+  url "https://github.com/arkhipov/temporal_tables/archive/v1.2.0.tar.gz"
+  sha256 "e6d1b31a124e8597f61b86f08b6a18168f9cd9da1db77f2a8dd1970b407b7610"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fac44ceaf45433718da4d4dccedd97df22cc57c3002728d3670e7a0bc70d9658" => :high_sierra
-    sha256 "be21df265b4ab148019dd56d3d3b01a6fcab8fbe10a8a939a46d75fcb238ecef" => :sierra
-    sha256 "29ce258c3b3d6f0d4e79a6be6ba6020228463114f101177f8306997dab71390d" => :el_capitan
+    sha256 "82f04e996f0fe191fcac00acdf770c53a7a670621bb6611566491c2da2959b0b" => :high_sierra
+    sha256 "3082b4691a7f14014384964472153afd5d2ac56939100be5c3a974625e412bca" => :sierra
+    sha256 "5a12b8648de4c8d6693ee7fed2230ad64eb8500d6405be83db9a0f0e8bca664e" => :el_capitan
   end
 
   depends_on "postgresql"

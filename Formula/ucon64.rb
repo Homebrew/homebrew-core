@@ -3,7 +3,7 @@ class Ucon64 < Formula
   homepage "https://ucon64.sourceforge.io/"
   url "https://downloads.sourceforge.net/ucon64/ucon64-2.0.2-src.tar.gz"
   sha256 "2df3972a68d1d7237dfedb99803048a370b466a015a5e4c1343f7e108601d4c9"
-  head ":pserver:anonymous:@ucon64.cvs.sourceforge.net:/cvsroot/ucon64", :using => :cvs
+  head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
   bottle do
     sha256 "2a10d76b713429bda5a2257b47864029ab8eab2806b7bff956917e8dff8104da" => :high_sierra

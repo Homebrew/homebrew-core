@@ -1,17 +1,14 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.7.1.tar.gz"
-  sha256 "b3fbaa667ea052bdb83a6e6a5bd6529daa93f8f926fa278778716f6dfadd8e5e"
+  url "https://tools.netsa.cert.org/releases/yaf-2.9.2.tar.gz"
+  sha256 "c6246dc64d9311a098b239a313c75f793ece02bac61daf2c83c26ac868bc0def"
 
   bottle do
     cellar :any
-    sha256 "fe891081703097aee84e1e9fceca08e34a569412eb2d9ef61ecd8133ffea990a" => :high_sierra
-    sha256 "7de043352ab94568e202de156b56db55664390e9dd96a03767620aa9d3221b99" => :sierra
-    sha256 "bf0da505db25ee2e0ea55803dfe649c183c9cbd30eeffdb736a8f0d02e178eea" => :el_capitan
-    sha256 "14f8698ab1e0eb80dab5fcfe3321ed81353ad2e81d778123b881943f52d45384" => :yosemite
-    sha256 "9a80bbd53e02e0646e0dcea1bb2246898476bc9bba96f3c9ed2903d6ac114e53" => :mavericks
-    sha256 "35eda635f388b8ab2a69fda16fd80cf00aa1882c166ecc4b944384941ab42d92" => :mountain_lion
+    sha256 "f47d739035833d33a105293d3eb4eb7f87766b41d942df5005dfa4d59eae274e" => :high_sierra
+    sha256 "49a1bd9985b81bb194316c32b19b337606d8b4b5f97af223e453968c222a9f6f" => :sierra
+    sha256 "775af7ba1c043f57c01bbe0ceab5d3eab7247a529191e9a042360f939c742da8" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

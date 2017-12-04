@@ -1,15 +1,13 @@
 class Lablgtk < Formula
   desc "Objective Caml interface to gtk+"
   homepage "http://lablgtk.forge.ocamlcore.org"
-  url "https://forge.ocamlcore.org/frs/download.php/1627/lablgtk-2.18.5.tar.gz"
-  sha256 "2bf251db21c077fdd26c035ea03edd8fe609187f908e520e87a8ffdd9c36d233"
-  revision 3
+  url "https://forge.ocamlcore.org/frs/download.php/1726/lablgtk-2.18.6.tar.gz"
+  sha256 "4ddca243066418e2a88ac49ebf2d846fac4b667b1b1753efadd078ae777368f8"
 
   bottle do
-    sha256 "b68b31925014914d1ce21cd8dbf2aed4e6b0cd29d6dcdd2e9b1f5470e7c13660" => :high_sierra
-    sha256 "77428605ba03b69017780746d0ea7f9f4c79a3ef9879bdcf94d2be4fb426fe93" => :sierra
-    sha256 "f11a0ca14c62048709b44a00f49a174c0b00b35119fe39b5a4776fce6b186153" => :el_capitan
-    sha256 "4aa4b81d7a0c102be6940560ca49511e4c2d140442a3b39ba1b46326b0801762" => :yosemite
+    sha256 "3d6f4d3b389c8835200d70c55ad2265852d80c5cc48ae8d60eb52effd5f443ae" => :high_sierra
+    sha256 "c70a78bc822f72c8274abbf97587f7212b2421140c21a24f2daa0e3b27d0ae26" => :sierra
+    sha256 "ab52ff587d796b85df888fe57866ee42f442f9c03d939ec9a098f69b0e442724" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -3,12 +3,13 @@ class Hyperscan < Formula
   homepage "https://01.org/hyperscan"
   url "https://github.com/01org/hyperscan/archive/v4.6.0.tar.gz"
   sha256 "0dfbfc2e5e82a6a7b2feca3d982d08fb7d4a979a4e75f667a37484cae4fda815"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5d7821e53a9038af59c4cd993c63ebcd94127ee1bc84a59a750c77ea970ccaf2" => :high_sierra
-    sha256 "955ba56deea5527160511e0f18ff757a53d1531a9cb1034ba20c5ef2e41d61fc" => :sierra
-    sha256 "5586f79ecd99604a4c22781dd902529fed50320e4987ccc963bf7d2a6cd16e2f" => :el_capitan
+    cellar :any
+    sha256 "fadbdf51c42c8f92cd01855a5d86b0e82d07a4d6d58947f75ccdfa33eda0bb9e" => :high_sierra
+    sha256 "a6f6024a82bb228fc1a4a614bcef3efc9708c57198c6a3325969743d5843b0bb" => :sierra
+    sha256 "5e2c55a40cd4db79364debd0bfbc7ec01dac5d079f11a8896aee81be3e16d3ed" => :el_capitan
   end
 
   option "with-debug", "Build with debug symbols"
@@ -21,7 +22,7 @@ class Hyperscan < Formula
 
   def install
     mkdir "build" do
-      args = std_cmake_args
+      args = std_cmake_args << "-DBUILD_STATIC_AND_SHARED=on"
 
       if build.with? "debug"
         args -= %w[

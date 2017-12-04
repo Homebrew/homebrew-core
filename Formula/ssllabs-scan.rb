@@ -1,5 +1,5 @@
 class SsllabsScan < Formula
-  desc "This tool is a command-line client for the SSL Labs APIs."
+  desc "This tool is a command-line client for the SSL Labs APIs"
   homepage "https://github.com/ssllabs/ssllabs-scan/"
   url "https://github.com/ssllabs/ssllabs-scan/archive/v1.4.0.tar.gz"
   sha256 "a7d5fad92649172ca4b190f481172b602aa1ae103d14dd1f1951ee250d382eec"

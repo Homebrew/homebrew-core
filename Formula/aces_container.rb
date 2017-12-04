@@ -1,16 +1,14 @@
 class AcesContainer < Formula
   desc "Reference implementation of SMPTE ST2065-4"
   homepage "https://github.com/ampas/aces_container"
-  url "https://github.com/ampas/aces_container/archive/v1.0.1.tar.gz"
-  sha256 "c1a5c08a128911faa5c8a1f9189c566178f19979ab627346238272c54343390a"
+  url "https://github.com/ampas/aces_container/archive/v1.0.2.tar.gz"
+  sha256 "cbbba395d2425251263e4ae05c4829319a3e399a0aee70df2eb9efb6a8afdbae"
 
   bottle do
     cellar :any
-    sha256 "3352a7a9b692efe08c24777c86051213f9cf3b2350ee50cad6494f6dc17cd021" => :high_sierra
-    sha256 "e6dada3e2c28fbaf54164c478a97f113abc3166f315b5e9fae3a35e3fc202a3f" => :sierra
-    sha256 "658b485aa9ef08a48aeaf8dec5945e0941afc73af04a422f367292de46594e7b" => :el_capitan
-    sha256 "11fe1861bab321e0276be40db1cae10df745d89917dcce7bc98ee0221bb34c10" => :yosemite
-    sha256 "80dfdcb569776021042666dfa04cca7c0da75a68926a32b9a2d320e3596bbe0a" => :mavericks
+    sha256 "4297afa069f1cd305e93038ed43260b3643f0bd27f39e33355061fc111fb7f6f" => :high_sierra
+    sha256 "6b276491297d4052538bd2fd22d5129389f27d90a98f831987236a5b90511b98" => :sierra
+    sha256 "16cf230afdfcb6306c208d169549cf8773c831c8653d2c852315a048960d7e72" => :el_capitan
   end
 
   depends_on "cmake" => :build

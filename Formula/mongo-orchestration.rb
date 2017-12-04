@@ -1,7 +1,7 @@
 class MongoOrchestration < Formula
   include Language::Python::Virtualenv
 
-  desc "REST API to manage MongoDB configurations on a single host."
+  desc "REST API to manage MongoDB configurations on a single host"
   homepage "https://github.com/10gen/mongo-orchestration"
   url "https://files.pythonhosted.org/packages/6e/86/d36b2332ce7218e178df0547f45067d3a3041a3c456f2e430fcdda241597/mongo-orchestration-0.6.10.tar.gz"
   sha256 "138b3ac82533e9f90548b73582235ad48abcb3a5b6f39a6b1b4cae6f62798e3c"

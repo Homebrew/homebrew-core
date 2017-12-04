@@ -1,6 +1,6 @@
 class Smlnj < Formula
   desc "Standard ML of New Jersey"
-  homepage "http://www.smlnj.org/"
+  homepage "https://www.smlnj.org/"
   url "http://smlnj.cs.uchicago.edu/dist/working/110.81/config.tgz"
   sha256 "a993d2d967455ec48d7689348ee3a7dce7c80cf5e6ce40ee5e0b30bbba620f2f"
 

@@ -3,15 +3,14 @@ require "language/node"
 class Svgo < Formula
   desc "Nodejs-based tool for optimizing SVG vector graphics files"
   homepage "https://github.com/svg/svgo"
-  url "https://github.com/svg/svgo/archive/v0.7.2.tar.gz"
-  sha256 "93b36477366e6b48b9bc3f9086232ae7fc16b87fa36acc1d524720ea58123fcf"
+  url "https://github.com/svg/svgo/archive/v1.0.3.tar.gz"
+  sha256 "e6ddea3af2322ef41f884e768e976543e4a4d6aa7c371efc71e36c4ed0e7f568"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e91bb6f03f8911d0f2993df01f05bb95d2a3f9ef2d05033cb8700c050da853e" => :high_sierra
-    sha256 "3a6ed7e647e164bf54be07b8ec30826fb4cad3893f98526113704974cc3065a6" => :sierra
-    sha256 "cab94f5d68e5b7077d416faf40a1cfb331bf9e2fea214ba6332b962b38534f17" => :el_capitan
-    sha256 "507ad3f9c0d5ab79d5a1adb11161d2e7f5aa05f2c9a170bab72720ef8bf94759" => :yosemite
+    sha256 "e18b1d92ed76b373d45331cbbe13889ba4dd93a4e98e196136790e2176208a1c" => :high_sierra
+    sha256 "9be67362766f22081a510c174ac264680063f9789c97924443df173dbce0abc6" => :sierra
+    sha256 "df12ec11fb4dc610eba368fee7e872edcfeecc7a2dee4f5a02fdc49fa093e17b" => :el_capitan
   end
 
   depends_on "node"
@@ -23,7 +22,7 @@ class Svgo < Formula
 
   test do
     cp test_fixtures("test.svg"), testpath
-    system bin/"svgo", "test.svg", "test.min.svg"
+    system bin/"svgo", "test.svg", "-o", "test.min.svg"
     assert_match /^<svg /, (testpath/"test.min.svg").read
   end
 end

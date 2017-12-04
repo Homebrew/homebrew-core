@@ -1,15 +1,14 @@
 class Libopusenc < Formula
   desc "Convenience libraray for creating .opus files"
   homepage "https://opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/libopusenc-0.1.tar.gz"
-  sha256 "bd6d14e8897a2f80065ef34a516c70e74f8e00060abdbc238e79e5f99bca3e96"
+  url "https://archive.mozilla.org/pub/opus/libopusenc-0.1.1.tar.gz"
+  sha256 "02e6e0b14cbbe0569d948a46420f9c9a81d93bba32dc576a4007cbf96da68ef3"
 
   bottle do
     cellar :any
-    sha256 "cbbdf62623c8187814e2a96ab3f990c6b5b484aa994fd4909fe2d402405d464f" => :high_sierra
-    sha256 "d4ca5b8cda0c64259a461f7a5102412122c14c32c4b7f33eb31279dcfd96f895" => :sierra
-    sha256 "53b36128d06e78d72fcb9f2e40be1186b16f847bd38a1ded13cc37bb89fcb763" => :el_capitan
-    sha256 "73ee617767aa5fd6bc62d35f38883bc7eb099ba7d5a88369c428dbd585726ec0" => :yosemite
+    sha256 "6a9ff9eacc72069a2d16951445772dbd60ab0fe4347ab6c385e8cc42c6b94ee5" => :high_sierra
+    sha256 "611eace04f91c6f8685eb27e60c5bcd4f3f5edfe9904e267a476cce882016884" => :sierra
+    sha256 "9a957d7797f3e346e6aa85a85f96e463dd10c75e5ab3e32e32ee25952874a50f" => :el_capitan
   end
 
   head do

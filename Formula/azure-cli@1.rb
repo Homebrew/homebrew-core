@@ -3,16 +3,16 @@ require "language/node"
 class AzureCliAT1 < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
-  url "https://github.com/Azure/azure-xplat-cli/archive/v0.10.15-July2017.tar.gz"
-  version "1.0.10.15"
-  sha256 "b73cd02b386a84cbd378466ee574bb119dbfc35af0b521e64175a79754bd451b"
+  url "https://github.com/Azure/azure-xplat-cli/releases/download/v0.10.17-November2017/azure-cli-0.10.17.tar.gz"
+  version "1.0.10.17"
+  sha256 "b6dedbeacf186ac437c7f5c54b294619ca7bc07ac244aa296f4c4841226e885f"
   head "https://github.com/azure/azure-xplat-cli.git", :branch => "dev"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "650ffe0ac2def8a31931e75ef2d78345f89dca265bf8444de5311692d36c1913" => :high_sierra
-    sha256 "655a9111da858348910dbc4015851c9d1e0be73a9b7c7dd6660c117fb8f965f6" => :sierra
-    sha256 "8fcba4260673571b03bd2305d7c5de937de8d7f1569d65475104240f26643773" => :el_capitan
+    sha256 "58850f88e434f7a238be5aa61f089bf43e311835c4c0a65abd825decee6a06bb" => :high_sierra
+    sha256 "4cea880791dc5662b8c9c83a89b808354ee78e8a2eeff5f0ae3ddcb155cdb899" => :sierra
+    sha256 "2bfb37219f6c7643159527c59335e3962eb80bcfa8c033f5e37a598002c318f8" => :el_capitan
   end
 
   depends_on "node"

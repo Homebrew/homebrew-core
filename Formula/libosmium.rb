@@ -1,5 +1,5 @@
 class Libosmium < Formula
-  desc "Fast and flexible C++ library for working with OpenStreetMap data."
+  desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "http://osmcode.org/libosmium/"
   url "https://github.com/osmcode/libosmium/archive/v2.13.1.tar.gz"
   sha256 "a73cd56838a7438bd9ed208c9ce6794e2d55a1854039c4277a0c160d5071b909"

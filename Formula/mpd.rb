@@ -1,17 +1,17 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.11.tar.xz"
-  sha256 "e9227d9daf32a63d6f34bf2ea18b3179b4a383e9d2b49d548702a37451e514bc"
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.12.tar.xz"
+  sha256 "e159ac0608fb85c891bd19375ed7056d5f9ec4ba492b052f24820513e774f709"
 
   bottle do
-    sha256 "b6b08d658dac985152ca87b194c6f365e2799f5ab71a5fd8800a13c0f9a90713" => :high_sierra
-    sha256 "4bc626959c1e397db1e46c55f8f5ec3b686fe7e19e322124f6706946fb2123b4" => :sierra
-    sha256 "206e6f0386fa9942d3b09319e29fa436dac2035f0e3d41769368bd02e62af43a" => :el_capitan
+    sha256 "9af9175386f836d2b631d56701146047129412be3b12ffa4a1d569e971caba83" => :high_sierra
+    sha256 "9517313567153a7bf7ee3481e631ee35109de0fb0b5655085381ebe0f54d2de1" => :sierra
+    sha256 "915c27d566754f97df3a346e761c375a7756b750becee342da4ea77a2d405f0f" => :el_capitan
   end
 
   head do
-    url "git://git.musicpd.org/master/mpd.git"
+    url "https://github.com/MusicPlayerDaemon/MPD.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

@@ -1,15 +1,14 @@
 class Kvazaar < Formula
   desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  url "https://github.com/ultravideo/kvazaar/releases/download/v1.1.0/kvazaar-v1.1.0.tar.gz"
-  sha256 "81386b25651ad328b2b94c269eb5601096b966724e6c308ecc3096eb37ef33bb"
+  url "https://github.com/ultravideo/kvazaar/releases/download/v1.2.0/kvazaar-1.2.0.tar.xz"
+  sha256 "9bc9ba4d825b497705bd6d84817933efbee43cbad0ffaac17d4b464e11e73a37"
 
   bottle do
     cellar :any
-    sha256 "e87324de6181bf05d7da589711e4b1980302b92153980af5a7ae083e7a2cbd16" => :high_sierra
-    sha256 "4f7c9e10e8725fb90eaa7f49fe5dfdc6e746d346294328d6a6f9d0b4b44aebdc" => :sierra
-    sha256 "f6389f0c17f8383a575d38db1ef54337909a9654136b68016f6b14853872f03a" => :el_capitan
-    sha256 "cbc275e60845c45f968dce9e00d11124830f5a72966c6814b42f8fffaa821df0" => :yosemite
+    sha256 "81e3084935b40153b533da73526e453280ffb09fac29745d43d4e305b462aa9a" => :high_sierra
+    sha256 "0f8150c11184a4a7af203db7e11b9942ceeabd8442e82ff2e34c53145cd85be3" => :sierra
+    sha256 "918e7ad37489d7bc2c602b47678f85392bcaeca1805e01953e7dabe54c1a153b" => :el_capitan
   end
 
   head do

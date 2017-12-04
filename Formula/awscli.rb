@@ -3,23 +3,24 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/1.11.170.tar.gz"
-  sha256 "7289f5ffcde68f02af66bca9332140a932f0b80831a998e75c1ac62e74dce4c5"
+  # awscli should only be updated every 10 releases on multiples of 10
+  url "https://github.com/aws/aws-cli/archive/1.11.190.tar.gz"
+  sha256 "bccbe4ff7e0ea708accceb3f0e1977235b03690ce943806d517d79d32fde2858"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "084a5d68f86f6974e589daa3fdf47a583b36187e11b1e8f0779c024e7460f6d4" => :high_sierra
-    sha256 "2c09014e6b80900fa024becbfae6088b54778070a378bda8787ae6bdd1240dce" => :sierra
-    sha256 "b379996f7a48750378924b7613f5efc9194f7efb42639b53de333d6460c9ea30" => :el_capitan
+    sha256 "86fcc6e5d24840eafdbfd84a9565d934d5bbefff22d6a135bbd628b0d0766646" => :high_sierra
+    sha256 "af421343ecec6c6f71f82472ca7e588837c53a91f1e7994e2912096cbc8f2a68" => :sierra
+    sha256 "bb8c0fbf0c65910a76ce4e1d30d85b1087aa7ac6b0adde7fe320d27e65cb34c5" => :el_capitan
   end
 
-  # Use :python on Lion to avoid urllib3 warning
-  # https://github.com/Homebrew/homebrew/pull/37240
-  depends_on :python if MacOS.version <= :lion
+  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
+  # Sierra
+  depends_on :python3
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"

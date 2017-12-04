@@ -1,14 +1,13 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/9.0.4/bacula-9.0.4.tar.gz"
-  sha256 "cafa2d9a9e89a77d3b79984972487e72fb90d949269c77a74a68e97a9d28996f"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/9.0.6/bacula-9.0.6.tar.gz"
+  sha256 "44db9d12dd4a510b0dfa6f8ad877ad4c0df04c13ef28f99c690a259314ee2e47"
 
   bottle do
-    sha256 "0a700c97b50c3e69db6e21cdbcb0e7d86118a878368768073bed3d38071c95b8" => :high_sierra
-    sha256 "725d7cfea18a08afae8bb22fbe4da5cc0496b712ff212e351b63bd58b91c1fd0" => :sierra
-    sha256 "c48c7d7e31183ff2a035c8f0558cb373a1a89b4c41ae7a1a4188c4adcf75c2c8" => :el_capitan
-    sha256 "1b7a60b6813c519491d693e4fa44a8f6f26ad06683a314dd0748c0d5197fc57c" => :yosemite
+    sha256 "1b3e2d01ab6e9cfec13a6c67d28db18360d2a63e88d653a0efa23534c7cd5ae6" => :high_sierra
+    sha256 "0d9d8431213e08e6dedb35cda294cff991a88eb67012a9ea0de264116feb72b0" => :sierra
+    sha256 "4cdb1d6e9d2229351804ae1d5484050f56be0b63f61444341d4a1d7a16ab0337" => :el_capitan
   end
 
   depends_on "readline"

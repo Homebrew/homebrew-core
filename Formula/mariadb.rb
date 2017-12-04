@@ -1,13 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.9/source/mariadb-10.2.9.tar.gz"
-  sha256 "12e0a01c52591ee77cf0f940fe65df024457fa16c70f08c6116048d576096124"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.11/source/mariadb-10.2.11.tar.gz"
+  sha256 "63555a810db905175a8bd714f6ec77d1b1a11fcfa6d4b97b448cf5bcb6caa3e8"
 
   bottle do
-    sha256 "d8f169b8d953f644bcf552a4cfd75d886ff728a85181e5fae8115a278a18fc08" => :high_sierra
-    sha256 "a7a047aca123a520c9749931ee2fdecfdb878135eb9d2f7172dddb380cf9191e" => :sierra
-    sha256 "3fe7139710c7b9221e4b0f11a9ef6608ab642b425e920055fd186d0b8195719a" => :el_capitan
+    sha256 "92d3d738c46e6b943294bc7947d639980854562c7f202937232f483a2291c9c0" => :high_sierra
+    sha256 "151f6550f82c7aa86ceb6fbc036399a7f6387e93fd93580db67d2055d0d2847e" => :sierra
+    sha256 "764bfff92e1d4d1616916eeebfbab4c996b7a5f4b80efff13550c7275c8648ce" => :el_capitan
   end
 
   devel do
@@ -63,7 +63,7 @@ class Mariadb < Formula
     ]
 
     # Disable RocksDB becaus of build failure: https://jira.mariadb.org/browse/MDEV-13928
-    args << "-DPLUGIN_ROCKSDB=NO"
+    args << "-DPLUGIN_ROCKSDB=NO" if build.devel?
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"

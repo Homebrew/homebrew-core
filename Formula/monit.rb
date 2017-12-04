@@ -1,13 +1,13 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.24.0.tar.gz"
-  sha256 "754d1f0e165e5a26d4639a6a83f44ccf839e381f2622e0946d5302fa1f2d2414"
+  url "https://mmonit.com/monit/dist/monit-5.25.1.tar.gz"
+  sha256 "4b5c25ceb10825f1e5404f1d8a7b21507716b82bc20c3586f86603691c3b81bc"
 
   bottle do
-    sha256 "a809314a49449b1343dae188ab65a72909c91a5b550c27d9f6751c3b406ff57c" => :high_sierra
-    sha256 "7eac548d6ffc36315e882e54a8375e6ebca368f4c988a36155091bf4993c90de" => :sierra
-    sha256 "1587ccff153434fc11b371f719b497ddec1c4d90de09c652d637d6dab1422b35" => :el_capitan
+    sha256 "7439b6e6d39dbd590a9fac177cd41329c2230309e9be785f4717616e91d989b0" => :high_sierra
+    sha256 "0b5e3b331ab9cbe1aad86eed9c0b1865484b4879952d96889874ef48e5d095d8" => :sierra
+    sha256 "bc2815c8094de5686fb875ceecae6a07b0b066b87593fb6259fb4e038eedc3d6" => :el_capitan
   end
 
   depends_on "openssl"

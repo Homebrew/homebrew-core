@@ -3,15 +3,15 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/e6/1b/d05fc958700634bcb6b82fefb2f701587fa6ad08cb2f7e02e46a0f00a329/thefuck-3.24.tar.gz"
-  sha256 "c8484ab5b8c72d5284d9c94b5836cea5451468fe8239aa657e21fd0427145fa5"
+  url "https://files.pythonhosted.org/packages/ec/20/3f136313c27ea36ba38d31818b9f0a1a4656668fc6747b3bfa04f3debc98/thefuck-3.25.tar.gz"
+  sha256 "70cbe6295d2d2d371a395619216d38eb1666e4b3c3b1a24f67d11b88e65fea78"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85c7af988c0081a2727b9659da57491077879341efc35986c55dc0b06f12176c" => :high_sierra
-    sha256 "f81a57481dd119f21377ac1f7fbf341c8102fd6c493742526602f6ae3b976da4" => :sierra
-    sha256 "e38c62f20f99893728847e9a99c986ddcb5237ebf9265aff0ee9925150089b0a" => :el_capitan
+    sha256 "081d1d9cf18435961fb62648a1f4fc841e0bc27611f67302ffe11c5576b8d8f3" => :high_sierra
+    sha256 "4f91f880f0050c2301cae9019fa67ee53d367d7fdfafbe6bac11c05bc86289b1" => :sierra
+    sha256 "f222599a8bd17a176d6c77263c604b371e16094c8c5c12517510dcb713cba0b3" => :el_capitan
   end
 
   depends_on :python3
@@ -27,8 +27,8 @@ class Thefuck < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/8d/96/1fc6468be91521192861966c40bd73fdf8b065eae6d82dd0f870b9825a65/psutil-5.4.0.tar.gz"
-    sha256 "8e6397ec24a2ec09751447d9f169486b68b37ac7a8d794dca003ace4efaafc6a"
+    url "https://files.pythonhosted.org/packages/fe/17/0f0bf5792b2dfe6003efc5175c76225f7d3426f88e2bf8d360cfab870cd8/psutil-5.4.1.tar.gz"
+    sha256 "42e2de159e3c987435cb3b47d6f37035db190a1499f3af714ba7af5c379b6ba2"
   end
 
   resource "pyte" do
@@ -53,7 +53,7 @@ class Thefuck < Formula
   def caveats; <<~EOS
     Add the following to your .bash_profile, .bashrc or .zshrc:
 
-      eval "$(thefuck --alias)"
+      eval $(thefuck --alias)
 
     For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
     EOS

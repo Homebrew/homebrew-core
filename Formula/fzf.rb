@@ -1,15 +1,15 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.17.1.tar.gz"
-  sha256 "9c881e55780c0f56b5a30b87df756634d853bfd3938e7e53cb2df6ed63aa84a7"
+  url "https://github.com/junegunn/fzf/archive/0.17.3.tar.gz"
+  sha256 "e843904417adf926613431e4403fded24fade56269446e92aac6ff1db86af81e"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee36f59c2458c37180dbd9e4216e1b61e6a72cef9942ba23c1e3b930381a9016" => :high_sierra
-    sha256 "f22ebf6cdeb1986cca64d211cfeae3155241f5126b61b038a4e22096b6d9497c" => :sierra
-    sha256 "84ad9a940e489058b2a0ec55bdbe367a8c0eaf14c9ea2f4def920496c04df36d" => :el_capitan
+    sha256 "81658f0f3113ff48873fe7bbc79338f1f50284c5a2f2da456047670d4350221b" => :high_sierra
+    sha256 "f430afe26c931e0d5b210793cd2daa98a24551868fc16501c67209042535c5c2" => :sierra
+    sha256 "c32dd7988d5c606fb790f59fe57f9cca9c40eddf8c187ff7a95c56f81b1c02f8" => :el_capitan
   end
 
   depends_on "glide" => :build

@@ -1,15 +1,15 @@
 class AwsShell < Formula
-  desc "Integrated shell for working with the AWS CLI."
+  desc "Integrated shell for working with the AWS CLI"
   homepage "https://github.com/awslabs/aws-shell"
   url "https://files.pythonhosted.org/packages/ea/a0/0fba732444bdc23580f5e0290b8a6732b47a934c1978d108407704b01eec/aws-shell-0.2.0.tar.gz"
   sha256 "b46a673b81254e5e014297e08c9ecab535773aa651ca33dc3786a1fd612f9810"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fac034e3348110a58c04231470fc045bd449054b089db8cd9fdb580af7ec097" => :high_sierra
-    sha256 "be53f39efae98758cc4679452fbdc22fff1161aae06c2c4f511af3fbd59213f9" => :sierra
-    sha256 "7c244c084fd2799453dc21812bfbd4ed748ad0faa0572730b63837d00195d6f8" => :el_capitan
-    sha256 "7c244c084fd2799453dc21812bfbd4ed748ad0faa0572730b63837d00195d6f8" => :yosemite
+    sha256 "bcf11cf566551b154bdae41b623a47edf70e6434e24e34997dabfa817aaf3ce2" => :high_sierra
+    sha256 "07acd0d0820ac23928cc09294965ba0d940fc87ccbe70ca96f8a59f5b23a6dd5" => :sierra
+    sha256 "adfcbbdfe945223c373cd4c9eb8f2ef45d35cbcd9c860ce81d49647f8311a65d" => :el_capitan
   end
 
   # Use :python on Lion to avoid urllib3 warning
@@ -113,7 +113,11 @@ class AwsShell < Formula
 
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    env = {
+      :PATH => "#{libexec}/vendor/bin:$PATH",
+      :PYTHONPATH => ENV["PYTHONPATH"],
+    }
+    bin.env_script_all_files(libexec/"bin", env)
   end
 
   test do

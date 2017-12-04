@@ -1,13 +1,13 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.10.1/racket-minimal-6.10.1-src-builtpkgs.tgz"
-  sha256 "a6d80de7b286ee6a683b41623942c83c4d2965dee5d3b5e25f220eec4952264d"
+  url "https://mirror.racket-lang.org/installers/6.11/racket-minimal-6.11-src-builtpkgs.tgz"
+  sha256 "56ed4f64d35e9b4a6160b6aa28de764e5ea8a7c3810fb5280f92fb303b054a38"
 
   bottle do
-    sha256 "ec279e799d2c6d37d4ba48fc47db0e87e78ea06d09c5d84e058fc3f9dc757c58" => :high_sierra
-    sha256 "d84e402df127c858978ea1bcd70d02b0865f100dd3f2660f7769a79307fb7140" => :sierra
-    sha256 "ffc363a76a589fbfa51b19e81cf9f9a6e7f1036074bfb9688cac1c413d175cbc" => :el_capitan
+    sha256 "42adf169cca30462b9e3378d65870d95781bde69b6ecff4d69069e5c6830f750" => :high_sierra
+    sha256 "1bda0b5fdeae514b9f9172d2eed3e38c7ecfdbc57926a8e756afa3197611fe0b" => :sierra
+    sha256 "f274570347144e2db911d31b3512117d50198eed8c65e3c17ad2a84cb95325fe" => :el_capitan
   end
 
   # these two files are amended when (un)installing packages

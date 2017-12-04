@@ -1,16 +1,16 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
-  homepage "http://ledger-cli.org"
+  homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
   revision 7
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    sha256 "6bc0e2c0b75274be5a77f322d7a62e1f22d6ec8e30f4daa79d667046b5086fd3" => :high_sierra
-    sha256 "a13883d9db70bc00888ffeb377a2cfd4122fd58210b1dcebb8359f00f76b207c" => :sierra
-    sha256 "3e06339a84140938d1c6467c86ed59199f25705d016476958426b4b060df1550" => :el_capitan
-    sha256 "a0f0af5f60daa27d7b19a547542c99a3448681feacbf56c075b8b274fc0c6b83" => :yosemite
+    rebuild 1
+    sha256 "78eb7a89c983eb7b44e6cb9886f753b45f0d7dca8840f313df3b61b1260784f4" => :high_sierra
+    sha256 "399b606ab4739130941d763809510df932d46402f25e8149ccd19d146bacae1f" => :sierra
+    sha256 "90381bb4e3d1537d1741d1275f7671a5d3882991f893cca4f7e70ab6f80ab2f7" => :el_capitan
   end
 
   deprecated_option "debug" => "with-debug"
@@ -53,6 +53,7 @@ class Ledger < Formula
     pkgshare.install "contrib"
     pkgshare.install "python/demo.py" if build.with? "python"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
+    bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
 
   test do

@@ -1,14 +1,14 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.30.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.30.tar.gz"
-  sha256 "ba65236116de8326d83378b2bd929879fa185195bc530b9d1aba72107910b6b3"
+  url "http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.32.tar.gz"
+  sha256 "526ecd0abaf4a7789041622c3950c0e7f2c4c8835471515fd77eec684a355460"
 
   bottle do
-    sha256 "f9aac5cef88144fc67e015a9570ac1e0e161f14ffcee9ee9735a1b9e0fe69103" => :high_sierra
-    sha256 "b31338a4e2ca73983a32cd99cce8a55ba7dcaa89ed2a431398d140894bf3c022" => :sierra
-    sha256 "f6eb7c9248051f75a1f7a895bdb7debde29a6abfa349b6de2ce792bf803913bd" => :el_capitan
+    sha256 "502430d08fb7c8d0462ca5421b66caee4d9b8e39f3c7460c2bfca91be37091f9" => :high_sierra
+    sha256 "5d68588f3afbdd93022aeaf81b9c6403c0c6b8aac24e5ba25a195c5ec5bad7e5" => :sierra
+    sha256 "66854da0ffbb83f60863c23b985e5522037db4957aca70e2b49346a243a30991" => :el_capitan
   end
 
   head do

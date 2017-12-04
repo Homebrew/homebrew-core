@@ -1,18 +1,16 @@
 class ConjureUp < Formula
   include Language::Python::Virtualenv
 
-  desc "Big software deployments so easy it's almost magical."
+  desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.3.1.tar.gz"
-  sha256 "da429aad45ef0c6a70565a3748da2cb668def684b65f04ee3c081ebce065fac7"
-
-  revision 1
+  url "https://github.com/conjure-up/conjure-up/archive/2.4.2.tar.gz"
+  sha256 "ca5557ca7c11eb01bb0c840a4897b4048eea9313e0a1db309e8326c478add96e"
 
   bottle do
     cellar :any
-    sha256 "dce6e95f356c75f3d3befe8d10ab159dab457fe369723aad3d2f0223f8d0a28f" => :high_sierra
-    sha256 "13d1a9d2e4dc966507c199f6b703ccd9bb3ee1978a54d0f8bd3673eb278f8896" => :sierra
-    sha256 "c3264850707fcbce8414af8fe6b632dd45c022cf3dae130fbf88ea9f53058dab" => :el_capitan
+    sha256 "c5a3dded8aad9d0a5f0ba1013eb13001f9a55fa1ac2cd1688f75482e57acc176" => :high_sierra
+    sha256 "c6c8d1f5386be268fad3ca4af49eb925966fe5247d99bf1646c93a1c54fc12e5" => :sierra
+    sha256 "88a87d5f59277b7a211a5a2dbe0e3bf410279e48cb78b9e1955cf49c25c9f4f1" => :el_capitan
   end
 
   depends_on :python3
@@ -22,6 +20,7 @@ class ConjureUp < Formula
   depends_on "wget"
   depends_on "redis"
   depends_on "awscli"
+  depends_on "pwgen"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
@@ -37,11 +36,6 @@ class ConjureUp < Formula
   resource "bundle-placement" do
     url "https://files.pythonhosted.org/packages/7f/f3/635ef95ac9afb049e721774acbbda39a1a9d2963b10c08cded15bf09ae43/bundle-placement-0.0.2.tar.gz"
     sha256 "3ee288c0d5b889d1a9e04d1c09c9527b471b57a7df1f4898cebb990a6a967b05"
-  end
-
-  resource "charmhelpers" do
-    url "https://files.pythonhosted.org/packages/30/4d/b65532ca36a8a68271d4950c70fb43b90fbdab56be3f9b0e3497a6d481ec/charmhelpers-0.18.1.tar.gz"
-    sha256 "15dbae866550b724fb81ce501e118386b28a554110bd45f8ce3f62139411cf9f"
   end
 
   resource "colorama" do
@@ -89,19 +83,19 @@ class ConjureUp < Formula
     sha256 "125383aee2f60af66bb909682aa0757d8e0be083e3f8125473e18a9f3f2d4f3d"
   end
 
+  resource "kv" do
+    url "https://files.pythonhosted.org/packages/c7/02/69ad28c7669bb1cebc0ca1bb92eaf07f6b3b67c4f79cf1dcc5082f18d7a4/kv-0.3.tar.gz"
+    sha256 "d40755e7358e2b2a624feb9e442b06168b04cf14abf4d7aa749725dfbc5034e5"
+  end
+
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
     sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
   end
 
-  resource "netaddr" do
-    url "https://files.pythonhosted.org/packages/0c/13/7cbb180b52201c07c796243eeff4c256b053656da5cfe3916c3f5b57b3a0/netaddr-0.7.19.tar.gz"
-    sha256 "38aeec7cdd035081d3a4c306394b19d677623bf76fa0913f6695127c7753aefd"
-  end
-
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/8d/f6/73febc3edf774239b18231d8b17cf2c3319dd128f7fe2f55f3fdf96477b4/oauthlib-2.0.3.tar.gz"
-    sha256 "f36c6631d072a2acb8b3b99f94e5e314f1fb4ed996696b18b2723769391c071b"
+    url "https://files.pythonhosted.org/packages/a5/8a/212e9b47fb54be109f3ff0684165bb38c51117f34e175c379fce5c7df754/oauthlib-2.0.6.tar.gz"
+    sha256 "ce57b501e906ff4f614e71c36a3ab9eacbb96d35c24d1970d2539bbc3ec70ce1"
   end
 
   resource "PrettyTable" do
@@ -120,8 +114,8 @@ class ConjureUp < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/1a/37/7ac6910d872fdac778ad58c82018dce4af59279a79b17403bbabbe2a866e/pyasn1-0.3.4.tar.gz"
-    sha256 "3946ff0ab406652240697013a89d76e388344866033864ef2b097228d1f0101a"
+    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
+    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
   end
 
   resource "python-dateutil" do
@@ -165,8 +159,8 @@ class ConjureUp < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/a8/58/d264e95e1b19a811fc52ff41c95dafd9c70cc7457b658bc04d87dfad31de/s3transfer-0.1.11.tar.gz"
-    sha256 "76f1f58f4a47e2c8afa135e2c76958806a3abbc42b721d87fd9d11409c75d979"
+    url "https://files.pythonhosted.org/packages/b1/a6/24d960ee5f21eb2f9e2e938be44b9929bf9f85a570b9582c50c14e7c7ec7/s3transfer-0.1.12.tar.gz"
+    sha256 "10891b246296e0049071d56c32953af05cea614dca425a601e4c0be35990121e"
   end
 
   resource "sh" do
@@ -175,13 +169,8 @@ class ConjureUp < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
-  resource "Tempita" do
-    url "https://files.pythonhosted.org/packages/56/c8/8ed6eee83dbddf7b0fc64dd5d4454bc05e6ccaafff47991f73f2894d9ff4/Tempita-0.5.2.tar.gz"
-    sha256 "cacecf0baa674d356641f1d406b8bff1d756d739c46b869a54de515d08e6fc9c"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "termcolor" do
@@ -195,8 +184,8 @@ class ConjureUp < Formula
   end
 
   resource "ubuntui" do
-    url "https://files.pythonhosted.org/packages/2c/b0/a94f39f078e1471c19466f6d600d4b606cee00873015c5e40e3e2bf0ec85/ubuntui-0.1.7.tar.gz"
-    sha256 "c9eebf1ef0461ce3b058fc25e7c77248331588573f8f30d5038f7fe3d24f03f6"
+    url "https://files.pythonhosted.org/packages/b1/55/9c7d1085b67405e7d713de7bc935bddd47efd8a81b53242928a43b58086c/ubuntui-0.1.8.tar.gz"
+    sha256 "ded4bd76d6d24bd8f9da886e4565585ec88eac09b110613b139f0c1048062d89"
   end
 
   resource "urwid" do
@@ -205,8 +194,8 @@ class ConjureUp < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/4a/e8/acf36f117deeb18c0b6679624fa11b57b0876044f0ce3f34024c3a7b2d95/websockets-3.4.tar.gz"
-    sha256 "43e5b9f51dd0000a4c6f646e2ade0c886bd14a784ffac08b9e079bd17a63bcc5"
+    url "https://files.pythonhosted.org/packages/b6/12/6194aac840c65253e45a38912e318f9ac548f9ba86d75bdb8fe66841b335/websockets-4.0.1.tar.gz"
+    sha256 "da4d4fbe059b0453e726d6d993760065d69b823a27efc3040402a6fcfe6a1ed9"
   end
 
   resource "ws4py" do
@@ -216,6 +205,8 @@ class ConjureUp < Formula
 
   def install
     virtualenv_install_with_resources
+    bin.install_symlink "#{libexec}/bin/kv-cli"
+    bin.install_symlink "#{libexec}/bin/juju-wait"
   end
 
   test do

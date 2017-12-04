@@ -1,16 +1,15 @@
 class Stormlib < Formula
   desc "Library for handling Blizzard MPQ archives"
   homepage "http://www.zezula.net/en/mpq/stormlib.html"
-  url "https://github.com/ladislav-zezula/StormLib/archive/v9.21.tar.gz"
-  sha256 "e23e9f106c6367f161fc63e015e7da6156b261b14c7e4a5aa542df02009294f9"
+  url "https://github.com/ladislav-zezula/StormLib/archive/v9.22.tar.gz"
+  sha256 "7ed583aae5549ba1abc68a8fc9a642b28323cdf835941bd9b2b549a7b623e53d"
   head "https://github.com/ladislav-zezula/StormLib.git"
 
   bottle do
     cellar :any
-    sha256 "08f7cbb646668dda582913b3a90d04bc2ae6be6b34f6892d268c21a5c4d676a3" => :high_sierra
-    sha256 "481d70430ef0cb2e75cf910eccec6fdda777d2613c26cadf0d88dec24480ad2e" => :sierra
-    sha256 "daa69abf402a5fe21a8c212423fd053bd2b3e17d09338be75064c5c4c0cd9a20" => :el_capitan
-    sha256 "8049593dd7b6c21affd5faa498e3383cdebaab99dd31e54a497a2ad8e4798f06" => :yosemite
+    sha256 "b76d57a2af0971b96c0cc46b3e24078486f732131b6845e92cbd776b4d5c20c7" => :high_sierra
+    sha256 "aa27fedf8877032a52c85f9a7a57a94149e9fd2c18f25351fd6a61203e5a797d" => :sierra
+    sha256 "71e3d5e94f69c23c8f0d5181b4bc130c3202aa6c99e0e42c4b6508b71be0167a" => :el_capitan
   end
 
   depends_on "cmake" => :build

@@ -1,5 +1,5 @@
 class Compose2kube < Formula
-  desc "Convert docker-compose service files to Kubernetes objects."
+  desc "Convert docker-compose service files to Kubernetes objects"
   homepage "https://github.com/kelseyhightower/compose2kube"
   url "https://github.com/kelseyhightower/compose2kube/archive/0.0.2.tar.gz"
   sha256 "d09b86994949f883c5aa4d041a12f6c5a8989f3755a2fb49a2abac2ad5380c30"

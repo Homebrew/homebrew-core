@@ -1,5 +1,5 @@
 class Libggz < Formula
-  desc "The libggz library wraps many common low-level functions."
+  desc "The libggz library wraps many common low-level functions"
   homepage "http://dev.ggzgamingzone.org/libraries/libggz/"
   url "http://mirrors.ibiblio.org/ggzgamingzone/ggz/0.0.14.1/libggz-0.0.14.1.tar.gz"
   sha256 "54301052a327f2ff3f2d684c5b1d7920e8601e13f4f8d5f1d170e5a7c9585e85"

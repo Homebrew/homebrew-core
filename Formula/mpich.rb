@@ -19,7 +19,7 @@ class Mpich < Formula
   end
 
   head do
-    url "git://git.mpich.org/mpich.git"
+    url "http://git.mpich.org/mpich.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

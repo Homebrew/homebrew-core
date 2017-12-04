@@ -1,15 +1,15 @@
 class Bwfmetaedit < Formula
-  desc "A tool that supports embedding, validating, and exporting of metadata in Broadcast WAVE Format (BWF) files"
+  desc "Tool that supports embedding, validating, and exporting of metadata in Broadcast WAVE Format (BWF) files"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.2/BWFMetaEdit_CLI_1.3.2_GNU_FromSource.tar.bz2"
-  version "1.3.2"
-  sha256 "2109d625cc834e38bf05641d550fcb0fe8c095f3fdc0fa69283d26410e4a9f74"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.3/BWFMetaEdit_CLI_1.3.3_GNU_FromSource.tar.bz2"
+  version "1.3.3"
+  sha256 "ceb4d45ed385b82c93381cb44bb9d15ccdaf4fd65f264a8cfa069cbf4f0712c1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f9856faf39690116683ebaa271d804fab3fc981f11043c52dd36b99af95f1b49" => :high_sierra
-    sha256 "65f5716802ac4751a41d3890fff61d709a9c53ab4c4f4f4875a35f28b08818f9" => :sierra
-    sha256 "861025e945a567a60d7409256d4108f121054d8c4335234a92b983e5bf195faf" => :el_capitan
+    sha256 "85ea1c310484ad3377240e91fccb9945f43f4aee701d51b14e61eb23a32a9bb1" => :high_sierra
+    sha256 "79245545f860b2e00d41413bcf6c8f8bb2c6d21e9dc4902e2f69893ee182abee" => :sierra
+    sha256 "0c61f8118a0a6ae3eda3c4504ea546504e437b07aed61c51225f75e4a2e700d6" => :el_capitan
   end
 
   def install

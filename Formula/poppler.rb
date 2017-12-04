@@ -1,13 +1,13 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.60.1.tar.xz"
-  sha256 "19f185e05c3b59b4a1de2cec8ef39f5446035493d17bbed41d02fb9a77c8a93c"
+  url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
+  sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
 
   bottle do
-    sha256 "97807b812c0c2ae740a7012bd093d90ee29da202fd382bea31901dddff13832a" => :high_sierra
-    sha256 "42a67016b0a9d0885c830836cdb7005017e618ca17e0ef64a1e4d88f8a034747" => :sierra
-    sha256 "021774b70aa76351a86a26cbb2a326b282777a1bd0268c9ffcd92e1d16dfb8f6" => :el_capitan
+    sha256 "e7ef8133d2a55b7b9d060e1bb39e85daa421805315b78cdaac2eb74e6ee7e50b" => :high_sierra
+    sha256 "67553e08dc541aa5db51e480b768a289095cf236279fe46defb4061783967bf8" => :sierra
+    sha256 "3797b24ecd422d96b7418c942c26937dd14af4e4e0b135c15cb1164a109ab5af" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -62,13 +62,21 @@ class Poppler < Formula
     if build.with? "little-cms2"
       args << "-DENABLE_CMS=lcms2"
     else
-      args << "-DENABLE_CMS=OFF"
+      args << "-DENABLE_CMS=none"
     end
 
     system "cmake", ".", *args
     system "make", "install"
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
+    end
+
+    libpoppler = (lib/"libpoppler.dylib").readlink
+    ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
+     *Dir["#{bin}/*"]].each do |f|
+      macho = MachO.open(f)
+      macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
+      macho.write!
     end
   end
 

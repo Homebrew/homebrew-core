@@ -45,7 +45,8 @@ class Rlvm < Formula
       s.gsub! /(msgfmt)/, "#{Formula["gettext"].bin}/\\1"
     end
     inreplace "SConscript.cocoa" do |s|
-      s.gsub! /(static_env\.ParseConfig)\("sdl-config --static-libs", MergeEverythingButSDLMain\)/, '\1("pkg-config --libs sdl SDL_image SDL_mixer SDL_ttf freetype2").Append(FRAMEWORKS=["OpenGL"])'
+      s.gsub! /(static_env\.ParseConfig)\("sdl-config --static-libs", MergeEverythingButSDLMain\)/,
+        '\1("pkg-config --libs sdl SDL_image SDL_mixer SDL_ttf freetype2").Append(FRAMEWORKS=["OpenGL"])'
       s.gsub! /(full_static_build) = True/, '\1 = False'
     end
     scons "--release"

@@ -1,14 +1,14 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v0.9.3.tar.gz"
-  sha256 "3bb9e13da409b40e7982199418e7449560ee6c14d7e99581dd30c94c4c6f88de"
+  url "https://github.com/getgauge/gauge/archive/v0.9.5.tar.gz"
+  sha256 "630bac56d1f855eebefc43b6f9e8a43362aced8c2c0fe7095db9a3b3387fbf26"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
-    sha256 "d6c99ce55dfd3c24a57c67a529254ebb9fa0af7a5afeed945a54600504cb7fb1" => :high_sierra
-    sha256 "03a3e9061c662ac63ebe1b14f1e3af9de53815ddac8ccd2d1101c0e08294a046" => :sierra
-    sha256 "637f411f6eb43e161b45e4baec7c51f2cf6c1b3b6cc30fd094c7ce15230a6552" => :el_capitan
+    sha256 "9cd8e6c287795fd1f88f50721b9eba34cc7b0aebdc0d839cfdab286eed3269c5" => :high_sierra
+    sha256 "96ce1dc89a4ffe36298e439ce39c1d87a0d424b1a74eadcb6c0032f4e955d18a" => :sierra
+    sha256 "9a08e27d04caf02735e8013070b4506c049064f99b1bab23022c6381b3603ff5" => :el_capitan
   end
 
   depends_on "go" => :build

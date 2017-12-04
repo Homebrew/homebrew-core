@@ -1,17 +1,16 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.3.tar.gz"
-  sha256 "f073abf455a38ea0a08c3926d7445ab8115b145457f36c763ad9b74cd6a64a5d"
+  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.4.tar.gz"
+  sha256 "d23498b6ae8894d18d7b73b8312c7514eda9ef91cf9f96c4c38429316919ad29"
 
   head "https://www.fossil-scm.org/", :using => :fossil
 
   bottle do
     cellar :any
-    sha256 "bc988651d4ed64e8fa55fdafb9c1c9a8fb442bc14559e8ff3c2b42ac0e816fef" => :high_sierra
-    sha256 "523704982ce10097cdf1a43d77a920c0776369a6e33757ec9ac94aa708e1b784" => :sierra
-    sha256 "28b64773ea5f1cd4ebaa51ce65961e205a5b919d521d1fe473c620fa96ce757b" => :el_capitan
-    sha256 "6d422e94e2ec8bf0ae41c387cf37377ca22d8523638b4613938403e912e7ea3e" => :yosemite
+    sha256 "e03c1769b10b9f8686fe3c83556ad4312370f25a5367bd99eeddf2d2578cb32a" => :high_sierra
+    sha256 "41a2bbfb08e60fd6bb03cddf1367abf9404d1fbba34f19d758b160ce2c8b8215" => :sierra
+    sha256 "e3dc23ba2409c3382f72232fa895bf6fbca046d39c164018e28b058d304bb843" => :el_capitan
   end
 
   option "without-json", "Build without 'json' command support"

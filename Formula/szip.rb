@@ -1,7 +1,9 @@
 class Szip < Formula
   desc "Implementation of extended-Rice lossless compression algorithm"
   homepage "https://support.hdfgroup.org/HDF5/release/obtain5.html#extlibs"
-  url "https://support.hdfgroup.org/ftp/lib-external/szip/2.1.1/src/szip-2.1.1.tar.gz"
+  # https://support.hdfgroup.org/ftp/lib-external/szip/2.1.1/src/szip-2.1.1.tar.gz is 403
+  url "ftp://ftp.hdfgroup.org/lib-external/szip/2.1.1/src/szip-2.1.1.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/szip-2.1.1.tar.gz"
   sha256 "897dda94e1d4bf88c91adeaad88c07b468b18eaf2d6125c47acac57e540904a9"
 
   bottle do

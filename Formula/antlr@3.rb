@@ -1,5 +1,5 @@
 class AntlrAT3 < Formula
-  desc "Antlr3 has a C API which has been dropped in Antlr4."
+  desc "Antlr3 has a C API which has been dropped in Antlr4"
   homepage "http://www.antlr.org/"
   url "http://www.antlr3.org/download/antlr-3.5.2-complete.jar"
   sha256 "26ca659f47d77384f518cf2b6463892fcd4f0b0d4d8c0de2addf697e63e7326b"

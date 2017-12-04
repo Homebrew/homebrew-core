@@ -1,5 +1,5 @@
 class Bartycrouch < Formula
-  desc "Incrementally update your Strings files."
+  desc "Incrementally update your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch/archive/3.9.0.tar.gz"
   sha256 "8dd474d6b559bcb6e3d207a4acb278f59f23bdc62968aef1310bc7d767c789bc"

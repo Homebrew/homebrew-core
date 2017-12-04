@@ -3,16 +3,15 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.16.1.tar.gz"
-  sha256 "c1a0416f4fc1fb83471dd9151e4dfafb835741af05a503f2784627d5fc4bbf15"
+  url "https://github.com/docker/compose/archive/1.17.1.tar.gz"
+  sha256 "71f7b98af30c12bd4cf69421a09d16edecefb9d0b5e127934c5c832380ea78ba"
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "f56e744dde5160d466674f2eb5cc6f977cb8b1b9969d9bf316afb7a3a9a77759" => :high_sierra
-    sha256 "4b30345a5ea6547271d3caf7a6f0dc506e2f1e98b553856c31166c47c5d69efe" => :sierra
-    sha256 "0f8f3727e94dbe95d66c8af24e7cb5ee8759c4cac850aa894971252a7b43d264" => :el_capitan
-    sha256 "3fee04a4547b45b981bcc1e65244f8043cd1e12170487729695d4a8fb8b26c5f" => :yosemite
+    sha256 "4d7730ec042eb50026d01b4da89e94e2a56d1f9cbdc5d1b9c1cadf72c2f7c412" => :high_sierra
+    sha256 "e30d566553106f0d73971cbdc4e7bcdb766ff1f4c44fc618a3ddcc70be8196b1" => :sierra
+    sha256 "52b769b83271942eaa8fbeb616258743afd2769462c203ef23389e8c4f1bb0c7" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

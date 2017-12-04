@@ -1,15 +1,14 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.4.1.1.tar.gz"
-  mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.4.1.1.tar.gz"
-  sha256 "4d44c6f4d02a8faf10ea619bfe1ba8224cd993024f4da12988c7465f663c8cae"
-  revision 7
+  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.5.0.tar.gz"
+  mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.5.0.tar.gz"
+  sha256 "cbe70049cf1643c4ad7453f86510811436c9580cb7a1684ada2f32b95b00ca79"
 
   bottle do
-    sha256 "5e9d59f810ec8c3e69cb5df8f38fb9cb261aad529c3bf276081cb18db0ad77f0" => :high_sierra
-    sha256 "ad5f2f999dbad25c23b8a968ef48a16fe666857ed5b521c4d818025fa56d7b46" => :sierra
-    sha256 "f4166a011114db4b6dbb5606877583e607eb0e384d1dcf98e84d1762da915ea9" => :el_capitan
+    sha256 "6a9d39204ae9bfbacc985bc082e9d3e6bf522ee78668b4b7adb2ef70081ac381" => :high_sierra
+    sha256 "8264e77321eacb944f6b5ac04622cab6abcd0c6a6138a738fc0d16fec3beb66d" => :sierra
+    sha256 "b1063f36db3172903dcfdb2451e49b710d62bf80174b4e013c29e61a61080d3b" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -94,10 +93,11 @@ class Netcdf < Formula
     end
 
     # SIP causes system Python not to play nicely with @rpath
+    libnetcdf = (lib/"libnetcdf.dylib").readlink
     %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
       macho = MachO.open("#{lib}/#{f}")
-      macho.change_dylib("@rpath/libnetcdf.11.dylib",
-                         "#{lib}/libnetcdf.11.dylib")
+      macho.change_dylib("@rpath/#{libnetcdf}",
+                         "#{lib}/#{libnetcdf}")
       macho.write!
     end
   end

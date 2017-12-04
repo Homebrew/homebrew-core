@@ -1,14 +1,14 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.7.tar.gz"
-  sha256 "32e435184b3e0340adf50558acb890e04fce3b4c990c6b8789479c1a11f08a05"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.9.tar.gz"
+  sha256 "e18bd54d7046ea73525941244ef4f77b38b2a90bdf21d81468ac3874c41e9448"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "e3a4c09eb32b2172eb3d0ace1e0b9a4e6f55b11d73fb55978482347b82547d06" => :high_sierra
-    sha256 "2f4a210187f5287422926b2b7d84d4dbb0ef3d34b5e4898166dbfb14dcd273f6" => :sierra
-    sha256 "7f6b090e7609d242738b721b7e063f1ab749661185145f4e6c0e93440a961861" => :el_capitan
+    sha256 "e29e28e5812042f63f2225549191b00306ca1f428538d2150453bd69789c97aa" => :high_sierra
+    sha256 "90b2999887964f4392d2467fab2ee178e372d9b85ee969d3da428a5a116375bd" => :sierra
+    sha256 "51ae8250fb6131a510c052969e6e4834bb5b69ec40b85b184b575595453be2cd" => :el_capitan
   end
 
   option :cxx11
@@ -43,6 +43,12 @@ class OpenSceneGraph < Formula
   end
 
   def install
+    # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
+    # "error: expected function body after function declarator" on 10.12
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.cxx11 if build.cxx11?
 
     # Turning off FFMPEG takes this change or a dozen "-DFFMPEG_" variables

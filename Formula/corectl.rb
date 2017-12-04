@@ -52,6 +52,7 @@ class Corectl < Formula
 
       bin.install Dir["bin/*"]
 
+      prefix.install_metafiles
       man1.install Dir["documentation/man/*.1"]
       pkgshare.install "examples"
     end

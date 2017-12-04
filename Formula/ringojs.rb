@@ -1,15 +1,18 @@
 class Ringojs < Formula
   desc "CommonJS-based JavaScript runtime"
   homepage "https://ringojs.org"
-  url "https://github.com/ringo/ringojs/releases/download/v1.1.1/ringojs-1.1.1.tar.gz"
-  sha256 "6ac2687f85e1acc48ab9f9528a64ff2895d787ff303f44aad6906de25af55498"
+  url "https://github.com/ringo/ringojs/releases/download/v1.2.1/ringojs-1.2.1.tar.gz"
+  sha256 "a04ba090e2a2835a196e4748b699e6f6842ff68919e73dea8f6193af73fdd841"
 
   bottle :unneeded
+
+  depends_on :java => "1.8"
 
   def install
     rm Dir["bin/*.cmd"]
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do

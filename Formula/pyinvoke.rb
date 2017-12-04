@@ -3,15 +3,15 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "http://pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/0.21.0.tar.gz"
-  sha256 "ca2fcc56e5abdb9e56c9c5222786356a825a2b552e0137dd06184c54ce9a1cde"
+  url "https://github.com/pyinvoke/invoke/archive/0.22.0.tar.gz"
+  sha256 "e6e4c14d36b5e83fa01b951911334b561691850269aab3f79249af2b7227efbd"
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c84ab7223729c95b9303512e08b0e7a2a06b6cc4d3039dbd222b5080af98dae" => :high_sierra
-    sha256 "d11aae306e1a7482f80ab57c8bb4f2a4c9f3e040e6fad835a2d171fb00ab7a14" => :sierra
-    sha256 "29ac1318559e47eb5d9b3e09237514bdb51d6e33ea43ea11e442e678de1c1a10" => :el_capitan
+    sha256 "d14d91a1823d5733ddfb12983af245f0823aeab1a937f62ca73ba6047dc97478" => :high_sierra
+    sha256 "33899411d8a6dca21c72f9f77a7a54291bc0da9001bfd3ced7c51a92649d6d35" => :sierra
+    sha256 "469e5c09a730700659b77c38f461339bad4daf2042b273b1a3ea64d78fb5cf68" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

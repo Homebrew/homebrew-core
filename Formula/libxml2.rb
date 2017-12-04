@@ -1,36 +1,36 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  url "http://xmlsoft.org/sources/libxml2-2.9.6.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.6.tar.gz"
-  sha256 "8b9038cca7240e881d462ea391882092dfdc6d4f483f72683e817be08df5ebbc"
-  head "https://git.gnome.org/browse/libxml2.git"
+  url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.7.tar.gz"
+  sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
 
   bottle do
     cellar :any
-    sha256 "b08291d2d8b9328b55a7785128d57a893b5d0eb3c03cb528316d6cabc93dbf37" => :high_sierra
-    sha256 "7aae3bbeb817110901ddc03112b6a5af7c8f457149c7cc9852ff16c1740a8f75" => :sierra
-    sha256 "c3638a6edc119734a626d84d50d2bbc22bb170455dce1eff589560ad79cc5378" => :el_capitan
+    sha256 "ff9bf7d946d5413fb1f2837a187bd026f469a67b78ba6589f5b565f0133b58f2" => :high_sierra
+    sha256 "0b9bc0fe308a22b557822d0bc254f209e33bd7b4948d7d08a14d620e1f8b6a3b" => :sierra
+    sha256 "cdcc13eab3436e1c44dcae42396e519e4a5119552818b656a2c7a5d878b9a912" => :el_capitan
+  end
+
+  head do
+    url "https://git.gnome.org/browse/libxml2.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
   end
 
   keg_only :provided_by_macos
 
   depends_on :python if MacOS.version <= :snow_leopard
 
-  # These should return to being head-only whenever 2.9.5 is released.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
-
   def install
-    system "autoreconf", "-fiv"
+    system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",
                           "--without-lzma"
-    system "make"
-    ENV.deparallelize
     system "make", "install"
 
     cd "python" do

@@ -1,15 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.2.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.2.tar.xz"
-  sha256 "d1acb24735fd35e18e9b7a0555ec58277c2b87da45a19ebeb8087c3dda55f47d"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.3.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.3.tar.xz"
+  sha256 "189495996b68940626cb53b31c8902fa1bb5a96b61217cea42734c13925ff12e"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "0ffb4497002822256aa74a5cd4d737dfc1ae5ed6924b48e32b1d629264ccb2b0" => :high_sierra
-    sha256 "384706ef1d33cb673047ee69b624b3e054d502bd90ab24e114019023c475cd63" => :sierra
-    sha256 "abfeb3a9802f2556a075124e2fbdfd7e2b6fe770501748ddbad1726bf3af6063" => :el_capitan
+    sha256 "716d1301ccc5d72436e7ca7f9fb7a93e3936c7323adf0af7585e93080c41487a" => :high_sierra
+    sha256 "f845eeb1577e24e32d564103e81e559a9b9d49b891aa4574d8878a65ff3c7bb3" => :sierra
+    sha256 "ec70652ec3a98384ed8479cd9cc5dce132075a29c7fcd3848f6267814baf9faf" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"

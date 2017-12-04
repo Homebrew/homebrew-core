@@ -2,7 +2,7 @@ class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
-  mirror "http://mirror.nbtelecom.com.br/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
   sha256 "7f7f5414e044ac11fee2a1e0bc225469f51fb0cdf821e67df762a43098223f27"
 
   bottle do
@@ -95,9 +95,11 @@ class Zookeeper < Formula
 
     if build.head?
       system "ant"
-      libexec.install Dir["bin", "src/contrib", "src/java/lib", "build/*.jar"]
+      libexec.install "bin", "src/contrib", "src/java/lib"
+      libexec.install Dir["build/*.jar"]
     else
-      libexec.install Dir["bin", "contrib", "lib", "*.jar"]
+      libexec.install "bin", "contrib", "lib"
+      libexec.install Dir["*.jar"]
     end
 
     bin.mkpath

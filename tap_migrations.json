@@ -12,6 +12,7 @@
   "crystax-ndk": "caskroom/cask",
   "corelocationcli": "caskroom/cask",
   "dart": "dart-lang/dart",
+  "dbt": "fishtown-analytics/dbt",
   "dgtal": "homebrew/science",
   "dotwrp": "homebrew/science",
   "drush": "homebrew/php",

@@ -3,11 +3,12 @@ class Menhir < Formula
   homepage "http://cristal.inria.fr/~fpottier/menhir"
   url "http://cristal.inria.fr/~fpottier/menhir/menhir-20171013.tar.gz"
   sha256 "7c1bfed0bda443c40408c2bb2e2a4bae2f6168ac1d5a7e258117dcea83c51cbf"
+  revision 1
 
   bottle do
-    sha256 "b5f79dc5cbf10bdf50474cea7e3e9f5c605a6e15d886fa4f77512ee302a3f7b8" => :high_sierra
-    sha256 "58a80d67fc3014c439ad1103b05acf31ecbccaaf20ed10360225071a4c6d215b" => :sierra
-    sha256 "f180a3f9a9fd67eefc68104928fa7cbda1b2ed79cc9a9ee091fa511aeb02c576" => :el_capitan
+    sha256 "794ef172ad25164af30f4f695cd8bec8afc0fe983609133cd38c94f700a732d8" => :high_sierra
+    sha256 "9b130cd649e26901ddc8797564855e6e4b5b609f1c98626dcdb062a3175a872d" => :sierra
+    sha256 "ded6e18c5b64a18f8c595e77e9d1162135409c66afcc5e0c9d6a37ca0f15ce48" => :el_capitan
   end
 
   depends_on "ocamlbuild" => :build

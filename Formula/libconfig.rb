@@ -1,32 +1,23 @@
 class Libconfig < Formula
   desc "Configuration file processing library"
-  homepage "https://www.hyperrealm.com/libconfig/"
-  url "https://github.com/hyperrealm/libconfig/archive/v1.6.tar.gz"
-  sha256 "18739792eb463d73525d7aea9b0a48b14106fae1cfec09aedc668d8c1079adf1"
+  homepage "https://hyperrealm.github.io/libconfig/"
+  url "https://github.com/hyperrealm/libconfig/archive/v1.7.1.tar.gz"
+  sha256 "d288e6ae817f4ef78df43cdb2647f768dc97899ee82fcc41f857e8eb9fd7fbdb"
+  head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do
-    rebuild 1
-    sha256 "23e530c1de99bced2f55361347920cb9149b816dcd6e273db90c8211bbbbe025" => :high_sierra
-    sha256 "238bf662b61ce2ed2b3e4ef0cf932ab4c9fe784f23d5d82576b79ce552db10b6" => :sierra
-    sha256 "2194870d1e0f7dcdc03df3637bfb16c92ddd03f1a65870c0498e28b06308f5bd" => :el_capitan
+    sha256 "393d13238b0259162bca7c1f61cc56f96370b3e84db24609bbcab6913bd6ac1e" => :high_sierra
+    sha256 "bb0326e6418c46f2c387e6e161e859d19e26efeefb86101d6056c66047f14523" => :sierra
+    sha256 "7f3cd7d160f43c050d05c462cb56ef8a31db13f06de7507b305a7cc14d244d65" => :el_capitan
   end
 
-  head do
-    url "https://github.com/hyperrealm/libconfig.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-
-    # Fixes "scanner.l:137:59: error: too few arguments to function call ..."
-    # Forces regeneration of the BUILT_SOURCES "scanner.c" and "scanner.h"
-    # Reported 6 Jun 2016: https://github.com/hyperrealm/libconfig/issues/66
-    touch "lib/scanner.l"
-
     system "make", "install"
   end
 

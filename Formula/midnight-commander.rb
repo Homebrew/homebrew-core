@@ -1,16 +1,15 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.19.tar.xz"
-  mirror "https://fossies.org/linux/misc/mc-4.8.19.tar.xz"
-  sha256 "eb9e56bbb5b2893601d100d0e0293983049b302c5ab61bfb544ad0ee2cc1f2df"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.20.tar.xz"
+  mirror "https://fossies.org/linux/misc/mc-4.8.20.tar.xz"
+  sha256 "017ee7f4f8ae420a04f4d6fcebaabe5b494661075c75442c76e9c8b1923d501c"
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
-    sha256 "f439aa7d34c79e6424944521a2937aee4128bce6fea2cfcebdd50b65111cee42" => :high_sierra
-    sha256 "f1e01d6ae2d51af1958e327cbd6a0ab18a8e501737359c8e7ff47857de44427a" => :sierra
-    sha256 "b3f82008e40f490866be7a57c754cd66f8130c97885c8a919af0e6606d4ec370" => :el_capitan
-    sha256 "1486ddf0792621dbbf7b914e02c60b0248098e43046f8a106014e34d3c1f7181" => :yosemite
+    sha256 "38c3c19eb05df22c810264ea103e7e60fd68650786bf901cf23783a827fe36c1" => :high_sierra
+    sha256 "9e1bbcf9abe4d17b332dad09be0f08539b94413e4030e02559c0505b4ae52076" => :sierra
+    sha256 "48f79c9e813f528ca32070a6462c15250007ffa4006e5cc104ecfce51f09b8ea" => :el_capitan
   end
 
   option "without-nls", "Build without Native Language Support"

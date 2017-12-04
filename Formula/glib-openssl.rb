@@ -1,13 +1,13 @@
 class GlibOpenssl < Formula
   desc "OpenSSL GIO module for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.4.tar.xz"
-  sha256 "eda914e29d9d72f03185aba92c33ec3949862c05b73b8eb04d1e1b6217b756c0"
+  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.6.tar.xz"
+  sha256 "1703a1da93911cf7f386e5fd9f82b803a150448e257db749166c0c3a1b5d3880"
 
   bottle do
-    sha256 "b99c6da78317e0d5e8e2e7718d725ba0320823fe7f5fcf803f7549067a55d993" => :high_sierra
-    sha256 "80d38bf5724fdc10cca163f44f46a82f23d92a855c399bad12b8f9574c4d131a" => :sierra
-    sha256 "f47bde181be1548c0961937739b32a70ec85e984bba0b276bf6b69b9536585b9" => :el_capitan
+    sha256 "f7152e43e3d84f770c55918ffb70dc0905600d8272f21b6d22922feb6c57eb11" => :high_sierra
+    sha256 "5bc4f9b2ab920bb23b63d0eccc4eff7dc3658679c05c9d90fe48835841c29d2d" => :sierra
+    sha256 "10caa120aee05bd9b9a078e21b547dc360dc9931c9712b1293d2ef1a29f5e64d" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

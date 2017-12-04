@@ -3,15 +3,13 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.26/GraphicsMagick-1.3.26.tar.xz"
   sha256 "fba015f3d5e5d5f17e57db663f1aa9d338e7b62f1d415b85d13ee366927e5f88"
-  revision 1
+  revision 2
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
-    rebuild 1
-    sha256 "88e266bbc20eac39b851772816f13446838739126fa6bac6a6cd942f5d43f83c" => :high_sierra
-    sha256 "305487a0487ffb2ca372dd3d2253726c76dec215c9641ea7d7b7c86667d254e8" => :sierra
-    sha256 "fc7b895a02b341de4d851601ffb03fb5e9ef72ee8ec7e701165008d0eb5fef93" => :el_capitan
-    sha256 "32b76cdef89bd1d027886dcd52866ce8714dc84443b1a360416fcab5f46f8ed3" => :yosemite
+    sha256 "12319549932a72415462038f0f441004ebb29bd882db39695a6ed66eab54d478" => :high_sierra
+    sha256 "a3e6506d9acd32f5dac9971b3e4f3fd25b4a5cf2e9003e2a3dc73f73bf02110c" => :sierra
+    sha256 "a33ac35c22e667ac3e74573f9b667aeabb688370656bc50ad460d24d4eff87b0" => :el_capitan
   end
 
   option "without-magick-plus-plus", "disable build/install of Magick++"

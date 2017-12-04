@@ -47,8 +47,8 @@ class Gdal < Formula
   depends_on "freexl"
   depends_on "libspatialite"
 
-  depends_on "postgresql" => :optional
-  depends_on "mysql" => :optional
+  depends_on :postgresql => :optional
+  depends_on :mysql => :optional
   depends_on "armadillo" => :optional
 
   if build.with? "libkml"

@@ -1,14 +1,14 @@
 class Frugal < Formula
   desc "Cross language code generator for creating scalable microservices"
   homepage "https://github.com/Workiva/frugal"
-  url "https://github.com/Workiva/frugal/archive/2.10.0.tar.gz"
-  sha256 "26d5cc75429db22748d6b2bfc71cf377fec1a53589322fe7a4ba667494dd5c9c"
+  url "https://github.com/Workiva/frugal/archive/2.13.0.tar.gz"
+  sha256 "a8dc3d91409c36a8efd1c0e94329f79ecf5c93c6f85edd130b0f18695ca96c7e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea9306edd34465e5050dd18afabaf2c3189200b4a97ee7966929e4b8085a01f7" => :high_sierra
-    sha256 "9410b681e5f6d324ab141e26a105695320ae7cfbb2fa27e583c9b708f1d2a08a" => :sierra
-    sha256 "eaaf2f0025b2855a9338be5fd3ca1bc2b60346f2ab8a10f7da65393d703fa8f0" => :el_capitan
+    sha256 "99799e0250aaeb79321cf05cc458cb899daa44b7cf8c42ae7bf36ac8c690d94c" => :high_sierra
+    sha256 "ba0724451d0ee7178b7945275d8c8079b8ba460e079915b519f8c65459cac53f" => :sierra
+    sha256 "a04f458ba6d2e5d8fa99988acf4cf2e2293786a07a4f9212b264e6cf0a40f97d" => :el_capitan
   end
 
   depends_on "go" => :build

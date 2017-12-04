@@ -1,5 +1,5 @@
 class Tarantool < Formula
-  desc "In-memory database and Lua application server."
+  desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
   url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.5.184.tar.gz"
   sha256 "3c95948b90ef17ec772b09532aaaef7a71c75d2b13cbe192e6dd1796069afd01"

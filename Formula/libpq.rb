@@ -1,14 +1,13 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/9.6/static/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v9.6.5/postgresql-9.6.5.tar.bz2"
-  sha256 "06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c"
+  url "https://ftp.postgresql.org/pub/source/v9.6.6/postgresql-9.6.6.tar.bz2"
+  sha256 "399cdffcb872f785ba67e25d275463d74521566318cfef8fe219050d063c8154"
 
   bottle do
-    sha256 "598b7bb7c7e69bbd781c8f521ffd71d212acfac3ceb68c5f6e3672d078ff3f22" => :high_sierra
-    sha256 "8e1df6c6372d0f68bcfc463797205145205a6de4b5ffbb55edf761ba48b71986" => :sierra
-    sha256 "e0aba71bfa8a6c8daa47649c1764f42f628b844b7594fa36d5fdd6313c442121" => :el_capitan
-    sha256 "9dfaafa1b691a00bab92f677120d83b0909a454d6a44523a162821f5192e2cb2" => :yosemite
+    sha256 "37358285ce2c5dd59ca16265f269da09d7087dfd6f6482b33125897fe9273f6f" => :high_sierra
+    sha256 "8c72001545d64bf639ca7acdc59ab9f8c4a728f9dd79334754cd8503c6037254" => :sierra
+    sha256 "551cd8667bebf16860333bb3f0f3887a59881d4319cf1ee5b7b2600ddb04dd9e" => :el_capitan
   end
 
   keg_only "conflicts with postgres formula"

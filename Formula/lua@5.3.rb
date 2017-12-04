@@ -3,19 +3,19 @@ class LuaAT53 < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
   sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b9d4a80ce8390bc5f52c5cf1b4084f2408505ca19380cb166fb38207f27cd13f" => :high_sierra
-    sha256 "19376afd63de40260f34006b8212432f2003fcbc2e7a1de28238e9bc67b89af0" => :sierra
-    sha256 "970494abb3a2ce2f97710be65a76affdf7001c25ea00432514ae96523d6700b8" => :el_capitan
-    sha256 "d0e79e1f4097bf550a488ec987e5e7316d3c4b95d4e5e588e348debcd0df7320" => :yosemite
+    sha256 "ca948267360a9de2e991411e1e29d62d631c486a2976e7c5f73e619105f474ac" => :high_sierra
+    sha256 "c4dcbbe1c4d8768551b899f49b580d1960e685607878331966eeee3a3a185596" => :sierra
+    sha256 "64100dce40fd112e668b6913fc922cef559db4247b0e17a6ed13228bda22ab8d" => :el_capitan
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/homebrew/pull/5043
+  # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   # ***Update me with each version bump!***
   patch :DATA
 
@@ -82,7 +82,7 @@ class LuaAT53 < Formula
 
   def pc_file; <<~EOS
     V= 5.3
-    R= 5.3.3
+    R= #{version}
     prefix=#{HOMEBREW_PREFIX}
     INSTALL_BIN= ${prefix}/bin
     INSTALL_INC= ${prefix}/include/lua-5.3
@@ -96,7 +96,7 @@ class LuaAT53 < Formula
 
     Name: Lua
     Description: An Extensible Extension Language
-    Version: 5.3.3
+    Version: #{version}
     Requires:
     Libs: -L${libdir} -llua.5.3 -lm
     Cflags: -I${includedir}
@@ -105,6 +105,12 @@ class LuaAT53 < Formula
 
   test do
     system "#{bin}/lua-5.3", "-e", "print ('Ducks are cool')"
+
+    if File.exist?(bin/"luarocks-5.3")
+      (testpath/"luarocks").mkpath
+      system bin/"luarocks-5.3", "install", "moonscript", "--tree=#{testpath}/luarocks"
+      assert_predicate testpath/"luarocks/bin/moon", :exist?
+    end
   end
 end
 
@@ -118,7 +124,7 @@ index 7fa91c8..a825198 100644
  TO_BIN= lua luac
  TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
 -TO_LIB= liblua.a
-+TO_LIB= liblua.5.3.3.dylib
++TO_LIB= liblua.5.3.4.dylib
  TO_MAN= lua.1 luac.1
 
  # Lua version and release.
@@ -126,7 +132,7 @@ index 7fa91c8..a825198 100644
 	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
 	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
 	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
-+	ln -s -f liblua.5.3.3.dylib $(INSTALL_LIB)/liblua.5.3.dylib
++	ln -s -f liblua.5.3.4.dylib $(INSTALL_LIB)/liblua.5.3.dylib
 
  uninstall:
 	cd src && cd $(INSTALL_BIN) && $(RM) $(TO_BIN)
@@ -139,7 +145,7 @@ index 2e7a412..d0c4898 100644
  PLATS= aix bsd c89 freebsd generic linux macosx mingw posix solaris
 
 -LUA_A=	liblua.a
-+LUA_A=	liblua.5.3.3.dylib
++LUA_A=	liblua.5.3.4.dylib
  CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
 	lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o \
 	ltm.o lundump.o lvm.o lzio.o
@@ -150,12 +156,12 @@ index 2e7a412..d0c4898 100644
 -	$(AR) $@ $(BASE_O)
 -	$(RANLIB) $@
 +	$(CC) -dynamiclib -install_name HOMEBREW_PREFIX/lib/liblua.5.3.dylib \
-+		-compatibility_version 5.3 -current_version 5.3.3 \
-+		-o liblua.5.3.3.dylib $^
++		-compatibility_version 5.3 -current_version 5.3.4 \
++		-o liblua.5.3.4.dylib $^
 
  $(LUA_T): $(LUA_O) $(LUA_A)
 -	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
-+	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.3 $(LIBS)
++	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.4 $(LIBS)
 
  $(LUAC_T): $(LUAC_O) $(LUA_A)
 	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)

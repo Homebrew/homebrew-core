@@ -28,7 +28,8 @@ class Np2 < Formula
       # Use brewed library paths
       inreplace "np2sdl2.xcodeproj/project.pbxproj" do |s|
         s.gsub! "BAF84E4B195AA35E00183062", "//BAF84E4B195AA35E00183062"
-        s.gsub! "HEADER_SEARCH_PATHS = (", "LIBRARY_SEARCH_PATHS = (\"$(inherited)\", #{sdl2.lib}, #{sdl2_ttf.lib}); HEADER_SEARCH_PATHS = (#{sdl2.include}/SDL2, #{sdl2.include}, #{sdl2_ttf.include},"
+        s.gsub! "HEADER_SEARCH_PATHS = (",
+          "LIBRARY_SEARCH_PATHS = (\"$(inherited)\", #{sdl2.lib}, #{sdl2_ttf.lib}); HEADER_SEARCH_PATHS = (#{sdl2.include}/SDL2, #{sdl2.include}, #{sdl2_ttf.include},"
         s.gsub! "buildSettings = {", 'buildSettings ={ OTHER_LDFLAGS = "-lSDL2 -lSDL2_ttf";'
       end
       # Force to use Japanese TTF font

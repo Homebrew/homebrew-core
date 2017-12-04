@@ -3,13 +3,13 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.9.0",
-      :revision => "fc4ee471ff660632671ce537bd9a3336578afa24"
+      :tag => "2.10.2",
+      :revision => "c3a2171ebcc92fb3bbe3b94b8ab83916cd1ca275"
 
   bottle do
     cellar :any
-    sha256 "e22d2766a80bec328332f8cb5692ea574e4b5dec9bad363b22a0a81e30a97b17" => :high_sierra
-    sha256 "a271b533137cd9f0b033b97ecc3b9b9fb55e2c30f6545c0ff010a964b24e8d85" => :sierra
+    sha256 "3d4d8ba349015a2c72fc006ae3bf7f0346644c77dfa4607262b4db6362730750" => :high_sierra
+    sha256 "4ff05dbf11244285df707aecd2e91c88744caa09e28d3a44060fb373a860dbe1" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -174,6 +174,16 @@ class Osquery < Formula
       end
     end
 
+    cxx_flags_release = %W[
+      -DNDEBUG
+      -I#{MacOS.sdk_path}/usr/include/libxml2
+      -I#{vendor}/aws-sdk-cpp/include
+      -I#{vendor}/cpp-netlib/include
+      -I#{vendor}/linenoise/include
+      -I#{vendor}/thrift/include
+      -Wl,-L#{vendor}/linenoise/lib
+    ]
+
     args = std_cmake_args + %W[
       -Daws-cpp-sdk-core_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-core.a
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
@@ -183,7 +193,7 @@ class Osquery < Formula
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
       -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
-      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join(" ")}
     ]
 
     # Link dynamically against brew-installed libraries.

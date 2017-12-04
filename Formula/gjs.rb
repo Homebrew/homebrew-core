@@ -1,13 +1,13 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.50/gjs-1.50.1.tar.xz"
-  sha256 "41519fd63978745d17dbccb688a55f1850a7ba72f3c86274ca985d88dbff9fdf"
+  url "https://download.gnome.org/sources/gjs/1.50/gjs-1.50.2.tar.xz"
+  sha256 "2fad902cf7a7806454121c03918755c646fcfd6b08b52d488987db4e2d691ff3"
 
   bottle do
-    sha256 "02c4d4cb1cec097ff37601a815962a15b8df304d07bbbfda23a1b328b352ce1f" => :high_sierra
-    sha256 "c56120232dde699f375c28bdcc4c28c1c12d44af3f67ee0eea23b6983b3267f8" => :sierra
-    sha256 "aba054cb6561cd3f18f1d3280727aa54540fe2606f5db209ba71621bb22a8569" => :el_capitan
+    sha256 "bc5b7944eacc770184f21d5914d22fc4593ac09c8dfb7ac5d27fb7d2db5146ce" => :high_sierra
+    sha256 "4e1067af2725c5eced0bd66b4bf99d1ace28304c552da25ca074855d492c109d" => :sierra
+    sha256 "94ea72061a8d26bc795cd4b0bc0057d0da918db7c1a8037bf3de36e28536b3e9" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

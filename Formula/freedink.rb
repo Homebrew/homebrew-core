@@ -1,5 +1,5 @@
 class Freedink < Formula
-  desc "Portable version of the Dink Smallwood game engine."
+  desc "Portable version of the Dink Smallwood game engine"
   homepage "https://www.gnu.org/software/freedink/"
   url "https://ftp.gnu.org/gnu/freedink/freedink-108.4.tar.gz"
   sha256 "82cfb2e019e78b6849395dc4750662b67087d14f406d004f6d9e39e96a0c8521"

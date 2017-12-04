@@ -15,18 +15,20 @@ class Coq < Formula
   homepage "https://coq.inria.fr/"
   url "https://github.com/coq/coq/archive/V8.7.0.tar.gz"
   sha256 "f376207ed051b3fd27c519f44b25eb25f8dddbce22715f68c3cedfd2e4b39297"
+  revision 1
   head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "9fb0fc75bd4e70ded62131e90ab69f864eea83f8e36af4c796bdd9fab9b6a188" => :high_sierra
-    sha256 "b338308d66bb15c1869d4d2fd2866c60c123aa0d64468e8ddc8f6877a9bcf016" => :sierra
-    sha256 "1436182a25030ea3e118f696a3df0606957734bb000d782fef8ab021b8c0b687" => :el_capitan
+    sha256 "b563698a0e0a24eb00d31c51d359c7d2cb8c98c06e4d6be8aa820e5681f22521" => :high_sierra
+    sha256 "1d6368d1adaa92623dc097e01aade459209be15d6a63914be468d26aec6fa4be" => :sierra
+    sha256 "3d0af18bc77bb482d1234b373270288cc5088d4a8e922a262dbc10bc45f9dad1" => :el_capitan
   end
 
   depends_on "opam" => :build
   depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
   depends_on "ocaml"
+  depends_on "ocaml-num"
 
   def install
     ENV["OPAMYES"] = "1"

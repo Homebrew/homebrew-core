@@ -1,16 +1,15 @@
 class Libcdio < Formula
   desc "Compact Disc Input and Control Library"
   homepage "https://www.gnu.org/software/libcdio/"
-  url "https://ftp.gnu.org/gnu/libcdio/libcdio-0.94.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libcdio/libcdio-0.94.tar.gz"
-  sha256 "96e2c903f866ae96f9f5b9048fa32db0921464a2286f5b586c0f02699710025a"
+  url "https://ftp.gnu.org/gnu/libcdio/libcdio-1.0.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libcdio/libcdio-1.0.0.tar.gz"
+  sha256 "fe080bc3cb7a57becdecf2b392bf39c24df0211f5fdfddfe99748fa052a7e231"
 
   bottle do
     cellar :any
-    sha256 "a6ad3bc9df9cbe1d8d94adb9c5e3613210558ec547fb93dd59eb7727c12d948f" => :high_sierra
-    sha256 "a33a83ce904f907197bea29caab598b3fb505c0057a720e4b0ac1d7f8b19e15c" => :sierra
-    sha256 "b875027374fb8585468bc1c75161ff893598ec0f5490b6d542fd5a80b7e77052" => :el_capitan
-    sha256 "45f6e37c831b5cbadd68721efc070196b0946b24f4ac05d532b4fcd65d30289b" => :yosemite
+    sha256 "17bcfa0c5391620225be9852bedb7997d17fae812cd56899770607e4592306c6" => :high_sierra
+    sha256 "30ae261789647c3f0bcaf7e9e3549b102f84dc0eca1dd656d4dbd29b5ada6967" => :sierra
+    sha256 "fd901f0daca79021985ac158720c7036db9aca2e9bb186c5564b118143c59458" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

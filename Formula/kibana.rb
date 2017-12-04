@@ -4,19 +4,20 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.6.3",
-      :revision => "f363a8fe7aeeb6a535e0bb43b3b1916f26ab3732"
+      :tag => "v6.0.0",
+      :revision => "f8bc449f5a6b28d0597730b1cf03fefe7e33422e"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "8bd71d71c346020941e81226c3cfb98f2d42ad60abc8e4fd2929cdf72454690e" => :high_sierra
-    sha256 "24f7ef61fd3d28731e1f046b3f1e8ce65264449878d33c53129d13516d64220f" => :sierra
-    sha256 "137533a3bde1309c371bc77539c440b2ec00b8ed58c3532c61935d2991d6b14b" => :el_capitan
+    sha256 "d36792a23c71a68e2361ad9ed22ad04c08d15c298d207d470880b6da633a5304" => :high_sierra
+    sha256 "5296f320ffabc02cf521b243f09a811e80184cf4fbe76ae9181b89268b9825c0" => :sierra
+    sha256 "d0ab882df05d1ec930affb76c2b995f91f10a7badfaad260d65df4670aa95524" => :el_capitan
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.11.1/node-v6.11.1.tar.xz"
-    sha256 "6f6655b85919aa54cb045a6d69a226849802fcc26491d0db4ce59873e41cc2b8"
+    url "https://github.com/nodejs/node.git",
+        :tag => "v6.11.5",
+        :revision => "e4f3e73b8cb58291380afbdb333c85789f2a5ce9"
   end
 
   def install

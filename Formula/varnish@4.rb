@@ -1,14 +1,13 @@
 class VarnishAT4 < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-4.1.8.tgz"
-  sha256 "908e7fbfa0325498717686b2050181134aa0a69d1495c02b2625cd34d35a4ff1"
+  url "https://varnish-cache.org/_downloads/varnish-4.1.9.tgz"
+  sha256 "22d884aad87e585ce5f3b4a6d33442e3a855162f27e48358c7c93af1b5f2fc87"
 
   bottle do
-    sha256 "e6a4e3609fb8caec16a3e0a55abda963aa62f6e41d4457296062f1246f1af27e" => :high_sierra
-    sha256 "feee2d796d10d27aab921d531d74be2e0a7ec789d5e5387d55d1628f0eb1d25a" => :sierra
-    sha256 "8e8e30c902fbce8dc6ed1533bf604a9d4a197645240ca770fe51928a29ec3aaf" => :el_capitan
-    sha256 "7ff168bb774232159547fdc251f4548e4e68cdcc7d01261b612872ef90c6030f" => :yosemite
+    sha256 "5566fa412a42ba467797996cb9e08617a2e50c63e5b8fb4f131cd7f2dffd7001" => :high_sierra
+    sha256 "6cacbd99ed0a98629aefe8c72842bba20934f2f7ad1e9650993ea9e923bae63d" => :sierra
+    sha256 "d8970da11d1957d3aa50fb5017ce8032428662f64651faf081371a4aa6498e1c" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -22,11 +21,11 @@ class VarnishAT4 < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}"
     system "make", "install"
-    (etc+"varnish").install "etc/example.vcl" => "default.vcl"
-    (var+"varnish").mkpath
+    (etc/"varnish").install "etc/example.vcl" => "default.vcl"
+    (var/"varnish").mkpath
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/varnish@4/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080"
 
   def plist
     <<~EOS

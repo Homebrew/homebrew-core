@@ -1,16 +1,16 @@
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/v0.13.0.tar.gz"
-  sha256 "ebbfa28e547db921add3557317c810f87d4ece983213d8e9899783b3e3b43ae7"
+  url "https://github.com/Masterminds/glide/archive/v0.13.1.tar.gz"
+  sha256 "84c4e365c9f76a3c8978018d34b4331b0c999332f628fc2064aa79a5a64ffc90"
 
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a5bdbe4484a8690a81791e188f913a2f70b622623380b6db049619c1539f494d" => :high_sierra
-    sha256 "a8e2fb3f3e6c68d05d12342a53ee6f3c8d666262d484064c26888a92e420f20a" => :sierra
-    sha256 "01076083721c1d1f5e4fd9f3d8e6dd88472a707e306e32670dc02fb3249e8016" => :el_capitan
+    sha256 "caf9796752ea6c302aad5ccb6d2d415961e338743ad93a849c012654f1826057" => :high_sierra
+    sha256 "31aa6f3b39c0a101dd94e9dda1a7d76fa6d22d8865effa0e96ae5d61d799233e" => :sierra
+    sha256 "9a400081061df8e2cbd82463b763e20e2029df47f750a8622ba6e3e81f21fa66" => :el_capitan
   end
 
   depends_on "go"

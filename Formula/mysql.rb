@@ -10,6 +10,18 @@ class Mysql < Formula
     sha256 "016deb20192b24bfdb8011918941da4b9752a5237fbeec4b29568e8dd1417189" => :el_capitan
   end
 
+  devel do
+    url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.3-rc.tar.gz"
+    sha256 "bc6ef8e496447edde87da243db56682d44c8344e5695c3f265b3316b3a8aa56f"
+
+    fails_with :clang do
+      build 800
+      cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
+    end
+    # GCC is not supported either, so exclude for El Capitan.
+    depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
+  end
+
   option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
@@ -104,8 +116,10 @@ class Mysql < Formula
     # Perl script was removed in 5.7.9 so install C++ binary instead.
     # Binary is deprecated & will be removed in future upstream
     # update but is still required for mysql-test-run to pass in test.
-    (prefix/"scripts").install "client/mysql_install_db"
-    bin.install_symlink prefix/"scripts/mysql_install_db"
+    if build.stable?
+      (prefix/"scripts").install "client/mysql_install_db"
+      bin.install_symlink prefix/"scripts/mysql_install_db"
+    end
 
     # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",

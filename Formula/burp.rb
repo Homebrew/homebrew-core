@@ -20,8 +20,8 @@ class Burp < Formula
   end
 
   devel do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.20/burp-2.1.20.tar.bz2"
-    sha256 "779a869b4b950b7264d1427d4a681c71184fff6f60a1c3cf642f5f469408c7df"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.1.24/burp-2.1.24.tar.bz2"
+    sha256 "f37edad8144ac39346c83ecf0c08d477bbcdd6231be25bba798e92ee9ed0ed3d"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",

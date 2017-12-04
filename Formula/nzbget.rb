@@ -3,7 +3,7 @@ class Nzbget < Formula
   homepage "https://nzbget.net/"
   url "https://github.com/nzbget/nzbget/releases/download/v19.1/nzbget-19.1-src.tar.gz"
   sha256 "06df42356ac2d63bbc9f7861abe9c3216df56fa06802e09e8a50b05f4ad95ce6"
-  head "https://github.com/nzbget/nzbget.git"
+  head "https://github.com/nzbget/nzbget.git", :branch => "develop"
 
   bottle do
     sha256 "0f508d759d085ea42af708598eba3d2f589614f6025f8ca160b93c6170d5576b" => :high_sierra

@@ -1,14 +1,13 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "http://ompl.kavrakilab.org"
-  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.3.0-Source.tar.gz"
-  sha256 "87ab32541a461daca529d7a2d1aecd8d3f1df2d403756b7a7f98b6824be2d74e"
+  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.3.2-Source.tar.gz"
+  sha256 "c33e04089f7513780f4e87b6507182d5224cd604b0a4f4546ebb9f4a124c8f49"
 
   bottle do
-    sha256 "f47ed98ff2987373ab30541e0ef92efae2901f59472f1cdcc481f393b3ec897e" => :high_sierra
-    sha256 "3dc98f4ee2f1d891e9262244e62af56deee44a35a91d2e66e6db946d4cb53047" => :sierra
-    sha256 "d2e172a1cc14a6c6a7e984b006a5f7a3d18f4a12415d21749e66fa208af67824" => :el_capitan
-    sha256 "eb966f1601007bf76e4b53108a039beb703f8fb08f571ff153e0eac7e1ffdc2e" => :yosemite
+    sha256 "282c1373ec4b0e790acc7008c3d3d8f8b5da3d8f1aaa76d5e7d0adb04fbe1239" => :high_sierra
+    sha256 "9d663d2cc9c32261dbc39fe28d3df6ee521ee4e20fc00c2d5828ca62c17fe616" => :sierra
+    sha256 "87f29ccd62630540a449661ef177c4662d157e94ba9114d2302db32a1f1e0fe9" => :el_capitan
   end
 
   depends_on "cmake" => :build

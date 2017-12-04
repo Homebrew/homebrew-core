@@ -1,27 +1,27 @@
 class Aspcud < Formula
   desc "Package dependency solver"
-  homepage "https://potassco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/potassco/aspcud/1.9.1/aspcud-1.9.1-source.tar.gz"
-  sha256 "e0e917a9a6c5ff080a411ff25d1174e0d4118bb6759c3fe976e2e3cca15e5827"
+  homepage "https://potassco.org/aspcud/"
+  url "https://github.com/potassco/aspcud/archive/v1.9.4.tar.gz"
+  sha256 "3645f08b079e1cc80e24cd2d7ae5172a52476d84e3ec5e6a6c0034492a6ea885"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 "4444739fb09c808c00fcae057c69b11f3c3d720e252456e19d106bb7e10717fd" => :high_sierra
-    sha256 "bc47e294ca6710839f222334031cbb78eb28f6398f6b1266f040f05e7def4349" => :sierra
-    sha256 "c57e7a8e2edfd0ae49daa6a02edf5215d26d56756fca3f4e1e2f0848f28fb99d" => :el_capitan
-    sha256 "4c8eca79deb4972b2e90222a63cdcab8e84d5dae1dcc02fd700a85a04a66d971" => :yosemite
+    sha256 "07f0e44c6cf608f20da7a37744d7559c1f7b77fc3151bcd37ea0af9fbd39cde7" => :high_sierra
+    sha256 "c3c886728b9713da9ec4837b7faf19832219636743654f5b94dbe83b09c83bae" => :sierra
+    sha256 "d9f4bb9cd64ba31b4786fc848813cf665ff5f37c761cfb0bacd6c70b50fd9a58" => :el_capitan
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "re2c" => :build
-  depends_on "gringo"
-  depends_on "clasp"
+  depends_on "clingo"
+
+  needs :cxx14
 
   def install
     args = std_cmake_args
-    args << "-DGRINGO_LOC=#{Formula["gringo"].opt_bin}/gringo"
-    args << "-DCLASP_LOC=#{Formula["clasp"].opt_bin}/clasp"
+    args << "-DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo"
+    args << "-DASPCUD_CLASP_PATH=#{Formula["clingo"].opt_bin}/clasp"
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -31,14 +31,12 @@ class Aspcud < Formula
   end
 
   test do
-    fixture = <<~EOS
+    (testpath/"in.cudf").write <<~EOS
       package: foo
       version: 1
 
       request: foo >= 1
     EOS
-
-    (testpath/"in.cudf").write(fixture)
     system "#{bin}/aspcud", "in.cudf", "out.cudf"
   end
 end

@@ -1,5 +1,5 @@
 class Libchaos < Formula
-  desc "Advanced library for randomization, hashing and statistical analysis."
+  desc "Advanced library for randomization, hashing and statistical analysis"
   homepage "https://github.com/maciejczyzewski/libchaos"
   url "https://github.com/maciejczyzewski/libchaos/releases/download/v1.0/libchaos-1.0.tar.gz"
   sha256 "29940ff014359c965d62f15bc34e5c182a6d8a505dc496c636207675843abd15"

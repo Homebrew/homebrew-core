@@ -5,28 +5,33 @@ class Mongodb < Formula
   homepage "https://www.mongodb.org/"
 
   stable do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.9.tar.gz"
-    sha256 "2fd0f47a5f9175e71d3d381e81a1b6a2500c9c414dd6ae0940ad6194a0e85549"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.10.tar.gz"
+    sha256 "443800ca4f52fa613b29052f5f76abc0ccc477451b55f3665b61819f28ace2f3"
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-          :tag => "r3.4.9",
+          :tag => "r3.4.10",
           :revision => "4f093ae71cdb4c6a6e9de7cd1dc67ea4405f0013",
           :shallow => false
     end
   end
 
   bottle do
-    sha256 "fa1c636ad710cb8d9a28c3a26c3fe8134b22cf0cf5f2bf630cc68965d26f2784" => :high_sierra
-    sha256 "abba5a957f15d3a1d46762e9834caddfeca58e6ba47cb71d4351e8f50e3a8053" => :sierra
-    sha256 "aaef1e983776ffbc34c051401172d847f43961fc2f1359c2f281d9f3efc8300e" => :el_capitan
+    sha256 "9d9929d9502d958840929355daf8a3c71ce6779d63b0a3ab4123562e1c840b2c" => :high_sierra
+    sha256 "715942c2e23e39ac1ad365860cb084d53bb2b35aef1fae2df4e38a18434438ef" => :sierra
+    sha256 "5bdb6c3a4fea9d74afd54497f3b508c2f85034ff9de6a92b15783dadb06e575a" => :el_capitan
   end
 
   devel do
-    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.11.tar.gz"
-    sha256 "a118dc32e048c20c2cbc593ac41f1787963f5f9edde8cccca5b9f5d7a31a4e8a"
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.0.tar.gz"
+    sha256 "1573e6e172a6a1e559e1156b0f059f3639774a9f3db33790cb826c56e1398efd"
 
     depends_on :xcode => ["8.3.2", :build]
+
+    resource "Cheetah" do
+      url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
+      sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+    end
 
     resource "PyYAML" do
       url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
@@ -40,14 +45,8 @@ class Mongodb < Formula
 
     go_resource "github.com/mongodb/mongo-tools" do
       url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.5.11",
-        :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
-    end
-
-    # Upstream commit from 24 Jul 2017 "Changes to allow build to work with SCons 3.0"
-    patch do
-      url "https://github.com/mongodb/mongo/commit/e9570ae0bc9.patch?full_index=1"
-      sha256 "62514846120eab72aa71d1da758a62bfb8479f182de7d059fa29a3b62c779290"
+          :tag => "r3.6.0",
+          :revision => "12cce7433c480538ff26caa9c51cec3e04a07e90"
     end
   end
 
@@ -68,7 +67,7 @@ class Mongodb < Formula
     if build.devel?
       ENV.libcxx
 
-      ["PyYAML", "typing"].each do |r|
+      ["Cheetah", "PyYAML", "typing"].each do |r|
         resource(r).stage do
           system "python", *Language::Python.setup_install_args(buildpath/"vendor")
         end
@@ -92,6 +91,9 @@ class Mongodb < Formula
       end
 
       args << "sasl" if build.with? "sasl"
+
+      # fix "stty: stdin isn't a terminal"
+      inreplace "build.sh", "stty sane", "" if build.devel?
 
       system "./build.sh", *args
     end

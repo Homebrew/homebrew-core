@@ -1,16 +1,15 @@
 class Libdivecomputer < Formula
-  desc "Library for communication with various dive computers."
+  desc "Library for communication with various dive computers"
   homepage "http://www.libdivecomputer.org/"
-  url "http://www.libdivecomputer.org/releases/libdivecomputer-0.5.0.tar.gz"
-  sha256 "1e0cff7f294e360e142c92c820f9f11cab505fa9385d17713d502cf2f0c5c286"
+  url "http://www.libdivecomputer.org/releases/libdivecomputer-0.6.0.tar.gz"
+  sha256 "a0fe75b7e5f7d8b73bfe46beb858dde4f5e2b2692d5270c96e69f5cb34aba15a"
   head "https://git.code.sf.net/p/libdivecomputer/code.git"
 
   bottle do
     cellar :any
-    sha256 "4e7fbffd31ead052c6beefd62d1cb54ae11a2ac40c7b541a577d7cef2c28ecd4" => :high_sierra
-    sha256 "421c9cdb2470f048f039398f4d7ed1d2cf9246ff1e45d818a1fd6694b35cc61d" => :sierra
-    sha256 "9b4dfa981e34e9cb9a7649d2937ee1825f56fe03ba36668b8d2829bc4a898860" => :el_capitan
-    sha256 "d315349ff5b91d9366eeab3fe2d68feab74f43f0dae453ed6c8eb5502215494f" => :yosemite
+    sha256 "09dd65b72be93f3364b0b0da389fc4aa4d1fea2094ffe53275544e74ac6a7674" => :high_sierra
+    sha256 "bbc60092aee1409bd0001e2f3cfdde47bb3d2348d3bf18f1fc6921920607f947" => :sierra
+    sha256 "507134023caaaebd5b1689f324aea50839e13f57d180f7134ee270edc2b02cf6" => :el_capitan
   end
 
   depends_on "autoconf" => :build

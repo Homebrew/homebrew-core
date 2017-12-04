@@ -13,7 +13,6 @@ class Uwsgi < Formula
   end
 
   option "with-java", "Compile with Java support"
-  option "with-php", "Compile with PHP support (PHP must be built for embedding)"
   option "with-ruby", "Compile with Ruby support"
 
   deprecated_option "with-lua51" => "with-lua@5.1"
@@ -108,7 +107,6 @@ class Uwsgi < Formula
     plugins << "mono" if build.with? "mono"
     plugins << "nagios" if build.with? "nagios"
     plugins << "pypy" if build.with? "pypy"
-    plugins << "php" if build.with? "php"
     plugins << "rack" if build.with? "ruby"
     plugins << "rbthreads" if build.with? "ruby"
     plugins << "ring" if build.with? "java"

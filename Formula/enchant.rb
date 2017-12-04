@@ -1,6 +1,6 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
-  homepage "https://www.abisource.com/projects/enchant/"
+  homepage "https://abiword.github.io/enchant/"
   url "https://www.abisource.com/downloads/enchant/1.6.0/enchant-1.6.0.tar.gz"
   sha256 "2fac9e7be7e9424b2c5570d8affe568db39f7572c10ed48d4e13cddf03f7097f"
 
@@ -20,7 +20,7 @@ class Enchant < Formula
 
   # https://pythonhosted.org/pyenchant/
   resource "pyenchant" do
-    url "https://pypi.python.org/packages/source/p/pyenchant/pyenchant-1.6.5.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/p/pyenchant/pyenchant-1.6.5.tar.gz"
     sha256 "623f332a9fbb70ae6c9c2d0d4e7f7bae5922d36ba0fe34be8e32df32ebbb4f84"
   end
 

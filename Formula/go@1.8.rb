@@ -1,13 +1,13 @@
 class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.8.4.src.tar.gz"
-  sha256 "abf1b2e5ae2a4845f3d2eac00c7382ff209e2c132dc35b7ce753da9b4f52e59f"
+  url "https://storage.googleapis.com/golang/go1.8.5.src.tar.gz"
+  sha256 "4949fd1a5a4954eb54dd208f2f412e720e23f32c91203116bed0387cf5d0ff2d"
 
   bottle do
-    sha256 "2a597863c9c7631fa2680a8f25d988409f095279542f3442df7c7c73a0b630d8" => :high_sierra
-    sha256 "16b7bed875cf247db78e431bfa85fab81708d86429102c5bcc2ddc497b623ea2" => :sierra
-    sha256 "43bbb91be811d2aa93eb56b6b2cfe7a8990cc486d35cebae4d9bc1098900436b" => :el_capitan
+    sha256 "37499ad07ac0448329c4cd7d00d90c4934bb16e0732d43a1ea178a500a74c6c3" => :high_sierra
+    sha256 "78a87365b1ef44d0b343c8d95f79a35514bc5227cbc07ad8bcb774cc89b65328" => :sierra
+    sha256 "1def201fc998a8616123e8d49b04706a64531dc284f62ad9809afd93a7205e34" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -89,7 +89,7 @@ class GoAT18 < Formula
 
     # godoc was installed
     assert_predicate libexec/"bin/godoc", :exist?
-    assert File.executable?(libexec/"bin/godoc")
+    assert_predicate libexec/"bin/godoc", :executable?
 
     if build.with? "cgo"
       ENV["GOOS"] = "freebsd"

@@ -3,13 +3,13 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.3.3.tar.gz"
-  sha256 "47a63c78698bc735667984bbc5b76619ff29a38d742f20cdf9f44cce59752374"
+  url "https://mercurial-scm.org/release/mercurial-4.4.2.tar.gz"
+  sha256 "dc2f72caccd6b760226753d48c2f4e8889fe176a6b23ef50775caac55ce28b85"
 
   bottle do
-    sha256 "0932b0d55c3840dfb2203d5196c18f46e26c5b8d0db052dcb24e019041980916" => :high_sierra
-    sha256 "efb82be4e7892a6952875f717a48e7f37868ffc5b7d40b8c97c656019081f8a6" => :sierra
-    sha256 "bc6c537961d06b3518e463129544d1ec3e082658ea05c183a2b3305e865a3281" => :el_capitan
+    sha256 "493d5aaaf95ee796210a556696257d3db40ae582ccc1bbbd683137a5abf90b68" => :high_sierra
+    sha256 "6a7c132cb7fb156b3633af866960507a09d868ca4deb29980a0d6fa8ebc77650" => :sierra
+    sha256 "34d5c9a747545bfba87e1698287c43f47cf89c724cffee9c3a4e86dda9533024" => :el_capitan
   end
 
   option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
