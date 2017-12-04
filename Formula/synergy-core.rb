@@ -1,33 +1,40 @@
 class SynergyCore < Formula
-  desc "Open source core of Synergy, the keyboard and mouse sharing tool"
+  desc "Core of Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
   url "https://github.com/symless/synergy-core.git",
-      :revision => "62ab8ffc4fdbc84b51552d600a8e11f7a7b78d84"
-  version "1.9.0-rc4"
+    :revision => "v2.0.0-stable"
+  version "2.0.0"
   head "https://github.com/symless/synergy-core.git"
 
   depends_on "cmake" => :build
   depends_on "qt"
-  depends_on "openssh"
+  depends_on "openssl"
 
   def install
     mkdir "build" do
       system "cmake",
+        "-DSYNERGY_CORE_INSTALL=1",
+        "-DSYNERGY_BUNDLE_BINARY_DIR=#{prefix/bin}",
         "-DOSX_TARGET_MAJOR=10",
         "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}",
-        "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.9",
+        "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.9", # Target '10.9' works for MacOS 10.9 - 10.13
         "-DCMAKE_OSX_ARCHITECTURES=x86_64",
+        *std_cmake_args,
         ".."
 
-      system "make"
-
-      bin.install "bin/synergyc"
-      bin.install "bin/synergys"
+      system "make", "install"
     end
   end
 
   test do
-    assert_match version.to_s[0, 5], shell_output(bin/"synergys --version | head -1")
-    assert_match version.to_s[0, 5], shell_output(bin/"synergyc --version | head -1")
+    begin
+      io = IO.popen("#{bin}/synergy-core --client --no-daemon 127.0.0.1")
+      sleep 5
+    ensure
+      Process.kill("SIGINT", io.pid)
+      Process.wait(io.pid)
+    end
+
+    io.read =~ /NOTE: connecting to '127.0.0.1': 127.0.0.1:24800/
   end
 end
