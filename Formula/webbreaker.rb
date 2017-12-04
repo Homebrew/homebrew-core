@@ -7,6 +7,8 @@ class Webbreaker < Formula
   version "2.0.2"
   sha256 "f66d545cb29e2186315815ba6a8766b3f6024ca14807e46bcf807a401aea9902"
 
+  depends_on :macos => :sierra
+
   def install
     bin.install "webbreaker-macos"
     mv("#{bin}/webbreaker-macos", "#{bin}/webbreaker")
