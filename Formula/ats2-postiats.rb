@@ -6,9 +6,9 @@ class Ats2Postiats < Formula
 
   bottle do
     cellar :any
-    sha256 "42478768ce3516ce46d82c0df9cb7499b96e39f5cb527d2fb1f3e04da40eda98" => :high_sierra
-    sha256 "670a2c12297acc3627258522e925ee0b2cc47fd197cd78b970ba83b8ed06d581" => :sierra
-    sha256 "dc9f99d784c8b80d3903af019f78d70e2552c7f17f064d76cbabf8c45e5eb9be" => :el_capitan
+    sha256 "b68cf423d03e8a3cb372df57eede48e72b26d6fce24faeb2bac84856ac25c7a5" => :high_sierra
+    sha256 "8c08cc614c4d67faf13d6d9c7b7be5fb7fcca00d3721f4928c7dd9f58401d0d1" => :sierra
+    sha256 "4cfd10d974ee7e0ee570adb733785a7d122262e1ea0a5dc825b51eca9409f12d" => :el_capitan
   end
 
   depends_on "gmp"
