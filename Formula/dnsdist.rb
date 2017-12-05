@@ -3,6 +3,7 @@ class Dnsdist < Formula
   homepage "https://www.dnsdist.org/"
   url "https://downloads.powerdns.com/releases/dnsdist-1.2.0.tar.bz2"
   sha256 "9885c9ee8ac7076aede586ea58d4642eb877e7b2d76c902254494e2a5a5faa78"
+  revision 1
 
   bottle do
     sha256 "07ea5e4fa31f31987799ce7bbeaaab54cd729fb3f8dc60ad23e586f2b1787167" => :high_sierra
