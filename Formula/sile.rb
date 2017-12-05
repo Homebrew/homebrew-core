@@ -10,9 +10,9 @@ class Sile < Formula
 
   bottle do
     cellar :any
-    sha256 "7ab9d474ecf65c905b3b147df724fb4b547e60ef1a3d495d0e33b59fd87c443a" => :high_sierra
-    sha256 "71287c01a3adeff3a39c1931e9d729a5e2cf5ae2da02b1cf6ca4409fcaea21aa" => :sierra
-    sha256 "bc4d5168d1bc8582d6f02867360fa75426a3481b753aae96f5a67b75bfc13e73" => :el_capitan
+    sha256 "b1cc138b8ebcb9ab5ee9154f4204b569ebcb1529544eb42b1cf46927e9d713db" => :high_sierra
+    sha256 "b14a1e92e0c23bea367b43da3b6c322d6d552eef8592e733dea1c1f3ba5542dc" => :sierra
+    sha256 "4675f26614115998bdf434feef84457c7fb4d0babe3eac1f3a247e6063ace8d0" => :el_capitan
   end
 
   # These three should return to being head-only when >0.9.4 is released.
