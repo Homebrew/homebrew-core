@@ -3,6 +3,7 @@ class Instead < Formula
   homepage "https://instead.syscall.ru/"
   url "https://github.com/instead-hub/instead/archive/3.1.2.tar.gz"
   sha256 "622c04a58fd780d8efdf0706c03596ab68672b31e97865dad6a1fc1540619754"
+  revision 1
   head "https://github.com/instead-hub/instead.git"
 
   bottle do
