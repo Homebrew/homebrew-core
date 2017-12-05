@@ -18,6 +18,8 @@ class Tarantool < Formula
   depends_on "readline"
 
   def install
+    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
     args = std_cmake_args
 
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
@@ -26,7 +28,7 @@ class Tarantool < Formula
     args << "-DENABLE_DIST=ON"
     args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
-    args << "-DCURL_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include"
+    args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
     args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"
 
     system "cmake", ".", *args
