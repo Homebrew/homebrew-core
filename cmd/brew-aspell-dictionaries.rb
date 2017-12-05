@@ -5,8 +5,9 @@ require "open-uri"
 require "resource"
 require "formula"
 
-dict_url    = "https://ftpmirror.gnu.org/aspell/dict"
-dict_mirror = "https://ftp.gnu.org/gnu/aspell/dict"
+dict_url    = "https://ftp.gnu.org/gnu/aspell/dict"
+dict_mirror = "https://ftpmirror.gnu.org/aspell/dict"
+
 languages   = {}
 
 open("#{dict_url}/0index.html") do |content|
