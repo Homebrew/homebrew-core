@@ -19,6 +19,7 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
+  revision 1
 
   stable do
     url "https://radare.mikelloc.com/get/2.1.0/radare2-2.1.0.tar.gz"
