@@ -3,7 +3,7 @@ class Tasksh < Formula
   homepage "https://tasktools.org/projects/tasksh.html"
   url "https://taskwarrior.org/download/tasksh-1.2.0.tar.gz"
   sha256 "6e42f949bfd7fbdde4870af0e7b923114cc96c4344f82d9d924e984629e21ffd"
-  head "https://git.tasktools.org/scm/ex/tasksh.git", :branch => "1.2.0"
+  head "https://git.tasktools.org/EX/tasksh.git", :branch => "1.3.0"
 
   bottle do
     cellar :any_skip_relocation
