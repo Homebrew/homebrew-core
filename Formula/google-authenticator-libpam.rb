@@ -1,8 +1,8 @@
 class GoogleAuthenticatorLibpam < Formula
   desc "PAM module for two-factor authentication"
   homepage "https://github.com/google/google-authenticator-libpam"
-  url "https://github.com/google/google-authenticator-libpam/archive/1.04.tar.gz"
-  sha256 "8284cc046be436513d9d4bbb1285017327edbcc32f6f620c47e7e889c4b966ef"
+  url "https://github.com/google/google-authenticator-libpam/archive/1.05.tar.gz"
+  sha256 "862412d6927ee1a19d81150006d53c21935897ba6d033616c31fc4d6aaa4db08"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -10,11 +10,6 @@ class GoogleAuthenticatorLibpam < Formula
   depends_on "qrencode" => :recommended
 
   def install
-    cd "src" do
-      # Fix to support current version of qrencode. Upstream pull request submitted:
-      # https://github.com/google/google-authenticator-libpam/pull/80
-      inreplace "google-authenticator.c", "libqrencode.3.dylib", "libqrencode.4.dylib"
-    end
     system "./bootstrap.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
