@@ -5,7 +5,7 @@ class Sile < Formula
   url "https://github.com/simoncozens/sile.git",
       :revision => "befcd813e1dd46f7af6d11ffd0b0ee525e8db1fc"
   version "0.9.5-alpha"
-  revision 1
+  revision 2
   head "https://github.com/simoncozens/sile.git"
 
   bottle do
@@ -49,8 +49,8 @@ class Sile < Formula
 
   def install
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.2/?.lua;;#{luapath}/share/lua/5.2/lxp/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.2/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua;;#{luapath}/share/lua/5.3/lxp/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
 
     resources.each do |r|
       r.stage do
