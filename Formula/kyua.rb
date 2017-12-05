@@ -3,6 +3,7 @@ class Kyua < Formula
   homepage "https://github.com/jmmv/kyua"
   url "https://github.com/jmmv/kyua/releases/download/kyua-0.13/kyua-0.13.tar.gz"
   sha256 "db6e5d341d5cf7e49e50aa361243e19087a00ba33742b0855d2685c0b8e721d6"
+  revision 1
 
   bottle do
     sha256 "c1f8ff3010f653afa3bce2632f51193b61539be419119d93b34110a55bbe3e3d" => :high_sierra
