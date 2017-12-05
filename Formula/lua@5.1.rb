@@ -1,12 +1,11 @@
 class LuaAT51 < Formula
-  # 5.2 is not fully backwards compatible so we must retain 2 Luas for now.
-  # The transition has begun. Lua will now become Lua51, and Lua52 will become Lua.
+  # 5.3 is not fully backwards compatible so we must retain 2 Luas for now.
   desc "Powerful, lightweight programming language (v5.1.5)"
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -85,6 +84,7 @@ class LuaAT51 < Formula
     bin.install_symlink "luac-5.1" => "luac5.1"
     include.install_symlink "lua-5.1" => "lua5.1"
     (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
+    (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
 
     # This resource must be handled after the main install, since there's a lua dep.
     # Keeping it in install rather than postinstall means we can bottle.
@@ -115,7 +115,7 @@ class LuaAT51 < Formula
 
   def caveats; <<~EOS
     Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.2 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
+    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
 
     This is, for now, unavoidable. If this is troublesome for you, you can build
     rocks with the `--tree=` command to a special, non-conflicting location and
