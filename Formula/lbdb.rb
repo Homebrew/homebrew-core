@@ -1,8 +1,8 @@
 class Lbdb < Formula
   desc "Little brother's database for the mutt mail reader"
   homepage "https://www.spinnaker.de/lbdb/"
-  url "https://www.spinnaker.de/debian/lbdb_0.45.2.tar.xz"
-  sha256 "80978ca0ce34511b525caef0fa9ac5fd5e6d1c9a4cf11d2870171def4f055078"
+  url "https://www.spinnaker.de/debian/lbdb_0.45.3.tar.xz"
+  sha256 "526dc5fd574aaf456cfd5d3b15b797b01753f64660e43c7bc4e61f7eeae07795"
 
   bottle do
     cellar :any_skip_relocation
