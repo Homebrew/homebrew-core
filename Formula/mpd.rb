@@ -145,7 +145,7 @@ class Mpd < Formula
 
     begin
       assert_match "OK MPD", shell_output("curl localhost:6600")
-      assert_match "ACK", shell_output("(sleep 1; echo playid foo) | nc localhost 6600")
+      assert_match "ACK", shell_output("(sleep 2; echo playid foo) | nc localhost 6600")
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid
