@@ -1,7 +1,7 @@
 class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften"
-  revision 1
+  revision 2
   head "https://swift.im/git/swift"
 
   stable do
@@ -24,7 +24,9 @@ class Libswiften < Formula
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "libidn"
-  depends_on "lua" => :recommended
+  depends_on "lua@5.1" => :recommended
+
+  deprecated_option "without-lua" => "without-lua@5.1"
 
   def install
     inreplace "Sluift/main.cpp", "#include <string>",
@@ -52,11 +54,12 @@ class Libswiften < Formula
       openssl=no
     ]
 
-    if build.with? "lua"
-      lua = Formula["lua"]
+    if build.with? "lua@5.1"
+      lua = Formula["lua@5.1"]
       args << "SLUIFT_INSTALLDIR=#{prefix}"
-      args << "lua_includedir=#{lua.include}"
+      args << "lua_includedir=#{lua.include}/lua-5.1"
       args << "lua_libdir=#{lua.lib}"
+      args << "lua_libname=lua.5.1"
     end
 
     args << prefix
