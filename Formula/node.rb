@@ -1,6 +1,7 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
+  revision 1
 
   stable do
     url "https://nodejs.org/dist/v8.9.1/node-v8.9.1.tar.xz"
