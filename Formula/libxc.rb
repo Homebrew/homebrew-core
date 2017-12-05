@@ -20,9 +20,6 @@ class Libxc < Formula
                           "FCCPP=#{ENV.fc} -E -x c",
                           "CC=#{ENV.cc}",
                           "CFLAGS=-pipe"
-    system "make"
-    # Disable testsuite, as of 3.0.1 fails
-    # system "make", "check"
     system "make", "install"
   end
 
