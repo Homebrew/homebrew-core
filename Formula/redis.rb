@@ -1,15 +1,15 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-4.0.5.tar.gz"
-  sha256 "d52bf355b96e20905916482962235e0442634c849934adb034f85362b31ed978"
+  url "http://download.redis.io/releases/redis-4.0.6.tar.gz"
+  sha256 "769b5d69ec237c3e0481a262ff5306ce30db9b5c8ceb14d1023491ca7be5f6fa"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9cc4e545ac0e96c14ad13841950b7a963f19eac46849fd26de4d1b829198bebc" => :high_sierra
-    sha256 "88e7e310bf3264470211d4c9b3bac937bec6cdccf8b5183dd67d850206ed67fb" => :sierra
-    sha256 "495fa5cb115db0c08f77ed7d73b0fb21aab05e554ecdb15f83a46dab9a52b441" => :el_capitan
+    sha256 "a3050e1f80d9e17d40a4a27abb3230072242b223b9ae13b8f0c22cb02dd278fa" => :high_sierra
+    sha256 "6331129764dec1bc66d4bd9c802156df5d4d6f4907dfb277a0f2fb089cd5829d" => :sierra
+    sha256 "93d218bbef1b25d533de374c8bfb8e0295a3c474bda216a6d2840b895a3fa138" => :el_capitan
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
