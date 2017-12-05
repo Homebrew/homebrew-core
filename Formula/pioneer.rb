@@ -3,6 +3,7 @@ class Pioneer < Formula
   homepage "https://pioneerspacesim.net/"
   url "https://github.com/pioneerspacesim/pioneer/archive/20171001.tar.gz"
   sha256 "154118bd3dac2f9b8ea43a837bcb967abcc8c3a8ee5ab61d35183bae85e8b0db"
+  revision 1
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
@@ -21,7 +22,6 @@ class Pioneer < Formula
   depends_on "libsigc++"
   depends_on "libvorbis"
   depends_on "libpng"
-  depends_on "lua"
 
   needs :cxx11
 
@@ -33,8 +33,7 @@ class Pioneer < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-version=#{version}",
-                          "--with-external-liblua"
+                          "--with-version=#{version}"
     system "make", "install"
   end
 
