@@ -6,9 +6,9 @@ class Imapfilter < Formula
   revision 1
 
   bottle do
-    sha256 "67f26b296a296dec1541d6d262769c4e7c6c693a2404e4cae453734737012b9d" => :high_sierra
-    sha256 "def25b0787198b1446cc17aec5e6c9c4150541879bcb7300bc9c334a5ac8f87b" => :sierra
-    sha256 "b5cdc69c5b7401920b21ddadee0f5f8b05969ce304b6859176a9f175e493b91c" => :el_capitan
+    sha256 "02803ddbca53c23b2d5cb2a5a8f35ae793345d76edc1950425237fcf988e2b96" => :high_sierra
+    sha256 "93dc1b7812665fe71b765e12febee6e82d73508e28f151221e25f127af916e2a" => :sierra
+    sha256 "b167861900fb3f72c9852c2db920a96eb10aeb3b96f075b6f25e90ad99b03ddd" => :el_capitan
   end
 
   depends_on "lua"
