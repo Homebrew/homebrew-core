@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "http://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.0.1.1.tar.bz2"
-  sha256 "48d6ae71d593cd01bf0f499de569359d45856cda325575e1bacb5fabaa7e9718"
+  url "https://download.mono-project.com/sources/mono/mono-5.4.1.6.tar.bz2"
+  sha256 "bdfda0fe9ad5ce20bb2cf9e9bf28fed40f324141297479824e1f65d97da565df"
 
   bottle do
     sha256 "ae35573df33c718c3d9999572392480d2426cc995cfc4b123f0a66f885ea8053" => :high_sierra
@@ -33,8 +33,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.18",
-        :revision => "3245fd24efcc7a54d4314a2897257f68cd194244"
+        :tag => "4.1.23",
+        :revision => "35a4a5b1f26927259c3213465a47b27ffcd5cb4d"
   end
 
   def install
