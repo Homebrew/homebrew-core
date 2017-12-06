@@ -7,9 +7,9 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "b70fbf4171a50a3ec4ea89ffdceb9f2dfef851670dba414025c4ac8ca6743fd1" => :high_sierra
-    sha256 "437240a1261e8871124fd9630ca70d59a82b8e164258ad78425a6595d9ea6837" => :sierra
-    sha256 "ffbd72e37a328a5c6d5779746c9e6462b3f6d260f365bd922716a16ad3f3cd8a" => :el_capitan
+    sha256 "54d8a76d6c2c6eae9a79efbe64315697b2a000ec149578715e35496f1b6cc897" => :high_sierra
+    sha256 "f7925f699753b0d5068fb702a3a267f9d65dbaf4b56f7e019e7de48efe7901d6" => :sierra
+    sha256 "a83470551616f3d11506c6db7bede2c611bfd262df42b05c10eef35e34fbe23a" => :el_capitan
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
