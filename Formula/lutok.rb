@@ -7,12 +7,9 @@ class Lutok < Formula
 
   bottle do
     cellar :any
-    sha256 "1002769171b91ca671a5f0640fd70d689d6687692a5744b704957eaf00c83565" => :high_sierra
-    sha256 "16be482a3dc78b8c4c0c26c18893123e457d2fe3065ad392fe7e32f2fa4d8ef5" => :sierra
-    sha256 "13097eaebfc90aa12e0327a6755e0b6a46e2019a3c263b80e2eac8dd70cf67d7" => :el_capitan
-    sha256 "77f3b994f16d7db59f2a3b7093d03d8772323f076b0f7b3da8c2223d4eceb573" => :mavericks
-    sha256 "cb7bd53bddc35866f72338d2832f5c92784e3bbee5a6ab9ff2b81a694611eb0d" => :mountain_lion
-    sha256 "2d7f8b4d667d0e0c00315db6a1251ccd89ebc2127c06f5187e27fc0f92cd0bff" => :lion
+    sha256 "1a78a65920384f74c126fcc1b0dd50d32050e624b31c13832258e25c8ddeeb85" => :high_sierra
+    sha256 "3574212320ef541e098198f1465cca7162cb59daff416af2190127d948a119eb" => :sierra
+    sha256 "f96ca1b1429b412a1cdd65347cf84572f2904ac70c60dfacf88235861a7237e7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
