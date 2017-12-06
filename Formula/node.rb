@@ -1,11 +1,10 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  revision 1
 
   stable do
-    url "https://nodejs.org/dist/v8.9.1/node-v8.9.1.tar.xz"
-    sha256 "ef160c21f60f8aca64145985e01b4044435e381dc16e8f0640ed0223e84f17e0"
+    url "https://nodejs.org/dist/v8.9.2/node-v8.9.2.tar.xz"
+    sha256 "53a51eda2347681c88b83236c6a005db9d696c3ae5d78496f0921804d5937b59"
 
     # We track major/minor from upstream Node releases.
     # We will accept *important* npm patch releases when necessary.
