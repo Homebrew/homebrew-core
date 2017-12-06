@@ -7,10 +7,9 @@ class Instead < Formula
   head "https://github.com/instead-hub/instead.git"
 
   bottle do
-    sha256 "c32e167811c88818b649817d4818b8d11b90b1645c2fe5617edef47e5ae0e0f1" => :high_sierra
-    sha256 "3bb245499347467119715fc9c8def74ef8f6f23775845ae5a37b266bf25f8951" => :sierra
-    sha256 "2ca1a0a758d0e7a404fb62082e8058e915dbd6922c3c0db62937899f3e99fdd8" => :el_capitan
-    sha256 "da97fc64cb2c10bc4aa7271d99cefedb3b6fdad308fcfaa3b16628ba1c9a9283" => :yosemite
+    sha256 "a0a3ea00027270c2e2c187875cf0d927ea3774e9d15cecc22ad79a71f5a4055d" => :high_sierra
+    sha256 "553fe8895598076f95471f287dc1de07833015eaf1cb0458a68a520c842270b2" => :sierra
+    sha256 "6dfd28908d6b1106557b956999bc80a98918ccd5f0b97089748c087b2c4bd7be" => :el_capitan
   end
 
   depends_on "cmake" => :build
