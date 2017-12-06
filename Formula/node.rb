@@ -15,9 +15,9 @@ class Node < Formula
   end
 
   bottle do
-    sha256 "213c0f0d98130bbfd81b4259c9e9dfcea0d6652ec9c9cbfc40f25d92adcc67d0" => :high_sierra
-    sha256 "0dd466e57da4f9fd39ca9508411f043d6c2d701309f4ea351d74ab9e3708511b" => :sierra
-    sha256 "bbcc1813e11dbd1c3dba995456b5e0d86ea4cf25690dec9b51d7b8b9cdf0458d" => :el_capitan
+    sha256 "b59ba890672766ff969a2658b5fdf68e46e7fba483591ae20f263283636a3e14" => :high_sierra
+    sha256 "c9d82f2be1c5f49bad8b457070b26f0fffce3b029b81ba0ffcaad36c3757d074" => :sierra
+    sha256 "3e76d2a530f987651cc8f3406b93de80abef34430ddc3152ff45e9ce8d92aac3" => :el_capitan
   end
 
   devel do
