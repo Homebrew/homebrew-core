@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.5.0.tar.gz"
-  sha256 "0cc6607e2daa675101e9b7398a436f09167dffb8ca0489b0307ff7260498c13c"
+  url "https://github.com/google/protobuf/archive/v3.5.0.1.tar.gz"
+  sha256 "86be71e61c76575c60839452a4f265449a6ea51570d7983cb929f06ad294b5f5"
   head "https://github.com/google/protobuf.git"
 
   bottle do
@@ -23,34 +23,9 @@ class Protobuf < Formula
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
 
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
-    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
-    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
-  end
-
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d5/b7/e52b7dccd3f91eec858309dcd931c1387bf70b6d458c86a9bfcb50134fbd/setuptools-34.3.3.zip"
-    sha256 "2cd244d3fca6ff7d0794a9186d1d19a48453e9813ae1d783edbfb8c348cde905"
-  end
-
-  resource "google-apputils" do
-    url "https://files.pythonhosted.org/packages/69/66/a511c428fef8591c5adfa432a257a333e0d14184b6c5d03f1450827f7fe7/google-apputils-0.4.2.tar.gz"
-    sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   # Upstream's autogen script fetches this if not present
@@ -83,18 +58,9 @@ class Protobuf < Formula
     doc.install "editors", "examples"
 
     Language::Python.each_python(build) do |python, version|
-      # google-apputils is a build-time dependency
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python#{version}/site-packages"
-
-      res = resources.map(&:name).to_set - ["gmock"]
-      res.each do |package|
-        resource(package).stage do
-          system python, *Language::Python.setup_install_args(buildpath/"homebrew")
-        end
+      resource("six").stage do
+        system python, *Language::Python.setup_install_args(libexec)
       end
-      # google is a namespace package and .pth files aren't processed from
-      # PYTHONPATH
-      touch buildpath/"homebrew/lib/python#{version}/site-packages/google/__init__.py"
       chdir "python" do
         ENV.append_to_cflags "-I#{include}"
         ENV.append_to_cflags "-L#{lib}"
