@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "http://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v1.4.1.tar.gz"
   sha256 "cc908bc0ca5f77cdb6d05d090f9b09a18514de8c82dfea3b8edffda06871f0e6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,6 +22,19 @@ class PreCommit < Formula
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"
     venv.pip_install_and_link buildpath
+  end
+
+  # Avoid relative paths
+  def post_install
+    lib_python_path = Pathname.glob(libexec/"lib/python*").first
+    lib_python_path.each_child do |f|
+      next unless f.symlink?
+      realpath = f.realpath
+      rm f
+      ln_s realpath, f
+    end
+    inreplace lib_python_path/"orig-prefix.txt",
+              Formula["python3"].opt_prefix, Formula["python3"].prefix.realpath
   end
 
   test do
