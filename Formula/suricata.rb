@@ -5,9 +5,9 @@ class Suricata < Formula
   sha256 "81a0bcb10b5c0b00efeafb4aac3ef70bf0e36b060ac6300d867f15f3dbe0e437"
 
   bottle do
-    sha256 "ea557fbfab2ad4f84719383122216a130b43ee6ee9d82860ac2f9730fad9217a" => :high_sierra
-    sha256 "fd6d2b2fedd3bc2900c3e9da9d9ddb8db3124df285a91cc78f03db610a2b9fa2" => :sierra
-    sha256 "9147c57fb8b5800e2ed26a4b949c8f40c4c7c1927d1aaae88eda7a9fe0edb575" => :el_capitan
+    sha256 "e67b8fd00494f998f601dd70ede7c7960fe70fe911d6c36d5fe4be6e6b15d172" => :high_sierra
+    sha256 "65c73958af2ebac131b84d7ef587cf42c69076f70e2a2f8cec77b48a6810afab" => :sierra
+    sha256 "f8bf4b286e829739b2c26147ceca9a1b21422a1125008a9b6274adb23f615698" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
