@@ -1,8 +1,8 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-4.0.1.tar.gz"
-  sha256 "0e73edb2911791644d82a62ab4f75517bbed339c0f21aadc0eb307b313643885"
+  url "https://www.openinfosecfoundation.org/download/suricata-4.0.3.tar.gz"
+  sha256 "81a0bcb10b5c0b00efeafb4aac3ef70bf0e36b060ac6300d867f15f3dbe0e437"
 
   bottle do
     sha256 "ea557fbfab2ad4f84719383122216a130b43ee6ee9d82860ac2f9730fad9217a" => :high_sierra
@@ -30,8 +30,8 @@ class Suricata < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/source/s/simplejson/simplejson-3.11.1.tar.gz"
-    sha256 "01a22d49ddd9a168b136f26cac87d9a335660ce07aa5c630b8e3607d6f4325e7"
+    url "https://files.pythonhosted.org/packages/source/s/simplejson/simplejson-3.13.2.tar.gz"
+    sha256 "4c4ecf20e054716cc1e5a81cadc44d3f4027108d8dd0861d8b1e3bd7a32d4f0a"
   end
 
   def install
