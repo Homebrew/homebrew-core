@@ -6,10 +6,9 @@ class Monotone < Formula
   revision 3
 
   bottle do
-    sha256 "1b213a49415e381dfbd066d72ace3b212914a0d083cc93c2ce10764357776125" => :high_sierra
-    sha256 "ddddc2d6b0bb81de9c98cf465170a66f6a49a580ce607488fd13375ec39fb5ba" => :sierra
-    sha256 "19f100a72e505d05bd6debdc040fd00718ce16c45526ca7fd054f4b337ce2481" => :el_capitan
-    sha256 "108346a69201f7692b7e421026202d718fe5bb145ab1b24c0ddf070a5c58d7a8" => :yosemite
+    sha256 "d952dc997e35a0c9320caccb6f344dfa3fe9d3f6f037d5e06252958fd4006cc9" => :high_sierra
+    sha256 "a9c46f5db375ac6fc67478323cc1747c3e9c3bb2e4131a11cc8ea3eb38cf5014" => :sierra
+    sha256 "63c8ff712439b094d6df96c253829cbc24b2ff9671a7f95b6c5eee3f6108921e" => :el_capitan
   end
 
   # Monotone only needs Boost headers, not any built libraries
