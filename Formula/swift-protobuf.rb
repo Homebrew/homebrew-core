@@ -1,9 +1,8 @@
 class SwiftProtobuf < Formula
   desc "Plugin and runtime library for using protobuf with Swift"
   homepage "https://github.com/apple/swift-protobuf"
-  url "https://github.com/apple/swift-protobuf/archive/1.0.1.tar.gz"
-  sha256 "2398da2bcd57c4c6fd895f975c059506839831f00a92b7cb5b4da2183888dca2"
-  revision 1
+  url "https://github.com/apple/swift-protobuf/archive/1.0.2.tar.gz"
+  sha256 "c48234cf89275aab99bf0b982c3c4b53dfe9c7494ce44e96248248c5fabd3b9a"
   head "https://github.com/apple/swift-protobuf.git"
 
   bottle do
