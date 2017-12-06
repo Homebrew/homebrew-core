@@ -3,7 +3,7 @@ class GnuplotAT4 < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.7/gnuplot-4.6.7.tar.gz"
   sha256 "26d4d17a00e9dcf77a4e64a28a3b2922645b8bbfe114c0afd2b701ac91235980"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "858c52906786fc159c6990adac2a3fb871a9c477145aa2b5d063fbe9016943d4" => :high_sierra
@@ -17,14 +17,16 @@ class GnuplotAT4 < Formula
   option "with-pdflib-lite", "Build the PDF terminal using pdflib-lite"
   option "with-wxmac", "Build the wxWidgets terminal using pango"
   option "with-cairo", "Build the Cairo based terminals"
-  option "without-lua", "Build without the lua/TikZ terminal"
+  option "without-lua@5.1", "Build without the lua/TikZ terminal"
   option "with-test", "Verify the build with make check (1 min)"
   option "without-emacs", "Do not build Emacs lisp files"
   option "with-aquaterm", "Build with AquaTerm support"
   option "with-x11", "Build with X11 support"
 
+  deprecated_option "without-lua" => "without-lua@5.1"
+
   depends_on "pkg-config" => :build
-  depends_on "lua" => :recommended
+  depends_on "lua@5.1" => :recommended
   depends_on "gd" => :recommended
   depends_on "readline"
   depends_on "libpng"
@@ -37,6 +39,8 @@ class GnuplotAT4 < Formula
   depends_on :x11 => :optional
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
       # installed AquaTerm framework can be found. Brew does not add this path
@@ -68,7 +72,7 @@ class GnuplotAT4 < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    args << "--without-lua" if build.without? "lua"
+    args << "--without-lua" if build.without? "lua@5.1"
     args << (build.with?("emacs") ? "--with-lispdir=#{elisp}" : "--without-lisp-files")
     args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << (build.with?("x11") ? "--with-x" : "--without-x")

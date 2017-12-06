@@ -3,6 +3,7 @@ class Onscripter < Formula
   homepage "https://onscripter.osdn.jp/"
   url "https://onscripter.osdn.jp/onscripter-20170814.tar.gz"
   sha256 "07010e633e490f24f4c5a57dd8c7979f519d0a10a2bfbba8e04828753f1ba97a"
+  revision 1
 
   bottle do
     cellar :any

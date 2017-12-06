@@ -3,7 +3,7 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.1.0.tar.bz2"
   sha256 "db9193b0f0255c24dfbfc31ecff8bd39e21fec05ff7526e5aea963abc517f0f3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "1d48743405a12dd6bb96212cedc37f51d9fbd5c4e78fb9ae6fb6b16c07d1a50d" => :high_sierra

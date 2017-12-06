@@ -3,6 +3,7 @@ class Highlight < Formula
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.html"
   url "http://www.andre-simon.de/zip/highlight-3.41.tar.bz2"
   sha256 "3909986041d40b1d0d3e00cb3b6043b0fbff6fd6a452696fb4eec495b6536722"
+  revision 1
   head "https://github.com/andre-simon/highlight.git"
 
   bottle do

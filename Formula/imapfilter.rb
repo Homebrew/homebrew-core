@@ -3,6 +3,7 @@ class Imapfilter < Formula
   homepage "https://github.com/lefcha/imapfilter/"
   url "https://github.com/lefcha/imapfilter/archive/v2.6.11.tar.gz"
   sha256 "baea9596ed251910b176a2bdcd46d78ab68f6aa4e066f70ca0d6153e32df54fb"
+  revision 1
 
   bottle do
     sha256 "67f26b296a296dec1541d6d262769c4e7c6c693a2404e4cae453734737012b9d" => :high_sierra

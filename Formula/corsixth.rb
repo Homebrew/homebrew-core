@@ -1,7 +1,7 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  revision 1
+  revision 2
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   stable do
@@ -46,8 +46,8 @@ class Corsixth < Formula
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.2/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.2/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
 
     resources.each do |r|
       r.stage do
@@ -55,14 +55,10 @@ class Corsixth < Formula
       end
     end
 
-    # Ensures it uses the intended Lua (5.2) rather than 5.1/5.3 or
-    # attempting to use a combination of two Luas, which can happen.
-    inreplace "CMake/FindLua.cmake" do |s|
-      s.gsub! "lua53 lua5.3 lua-5.3 liblua.5.3.dylib", ""
-      s.gsub! "include/lua53 include/lua5.3 include/lua-5.3", "include"
-    end
-
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}",
+                         "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
+                         "-DLUA_PROGRAM_PATH=#{Formula["lua"].opt_bin}/lua",
+                         *std_cmake_args
     system "make"
     prefix.install "CorsixTH/CorsixTH.app"
 
@@ -73,6 +69,6 @@ class Corsixth < Formula
   test do
     app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
     assert_includes MachO::Tools.dylibs(app),
-                    "#{Formula["lua"].opt_lib}/liblua.5.2.dylib"
+                    "#{Formula["lua"].opt_lib}/liblua.5.3.dylib"
   end
 end

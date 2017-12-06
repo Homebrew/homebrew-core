@@ -3,6 +3,7 @@ class Rpm < Formula
   homepage "http://www.rpm.org/"
   url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.0.tar.bz2"
   sha256 "06a0ad54600d3c42e42e02701697a8857dc4b639f6476edefffa714d9f496314"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -16,13 +17,15 @@ class Rpm < Formula
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "lua"
+  depends_on "lua@5.1"
   depends_on "openssl@1.1"
   depends_on "popt"
   depends_on "xz"
   depends_on "zstd"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
 

@@ -3,7 +3,7 @@ class Xmoto < Formula
   homepage "https://xmoto.tuxfamily.org/"
   url "https://download.tuxfamily.org/xmoto/xmoto/0.5.11/xmoto-0.5.11-src.tar.gz"
   sha256 "a584a6f9292b184686b72c78f16de4b82d5c5b72ad89e41912ff50d03eca26b2"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "20a517e3d7bebd503836a7f7cb4619b091e8a968b312be86098c5b385df592e3" => :high_sierra
@@ -28,7 +28,9 @@ class Xmoto < Formula
   depends_on "libxml2"
   depends_on "gettext" => :recommended
   depends_on "libxdg-basedir"
-  depends_on "lua" => :recommended
+  depends_on "lua@5.1" => :recommended
+
+  deprecated_option "without-lua" => "without-lua@5.1"
 
   def install
     # Fix issues reported upstream
@@ -36,6 +38,9 @@ class Xmoto < Formula
 
     # Set up single precision ODE
     ENV.append_to_cflags "-DdSINGLE"
+
+    ENV.prepend "CPPFLAGS", "-I#{Formula["lua@5.1"].opt_include}/lua-5.1"
+    ENV.append "LDFLAGS", "-L#{Formula["lua@5.1"].opt_lib} -llua.5.1"
 
     # Use same type as Apple OpenGL.framework
     inreplace "src/glext.h", "unsigned int GLhandleARB", "void *GLhandleARB"

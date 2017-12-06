@@ -3,6 +3,7 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.2/gnuplot-5.2.2.tar.gz"
   sha256 "a416d22f02bdf3873ef82c5eb7f8e94146795811ef808e12b035ada88ef7b1a1"
+  revision 1
 
   bottle do
     sha256 "3b2620d5fbb8f935b5339b56baddf78667f72ef297f085e273a240b3fc5e801c" => :high_sierra

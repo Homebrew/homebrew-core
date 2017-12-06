@@ -4,6 +4,7 @@ class Freeswitch < Formula
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
       :tag => "v1.6.19",
       :revision => "7a77e0bb2ca875cb977b1e698a1783e575d96563"
+  revision 1
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do

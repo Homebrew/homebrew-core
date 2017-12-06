@@ -3,7 +3,7 @@ class Monotone < Formula
   homepage "https://www.monotone.ca/"
   url "https://www.monotone.ca/downloads/1.1/monotone-1.1.tar.bz2"
   sha256 "f95cf60a22d4e461bec9d0e72f5d3609c9a4576fb1cc45f553d0202ce2e38c88"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "1b213a49415e381dfbd066d72ace3b212914a0d083cc93c2ce10764357776125" => :high_sierra

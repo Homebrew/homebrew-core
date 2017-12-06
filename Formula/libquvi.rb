@@ -3,7 +3,7 @@ class Libquvi < Formula
   homepage "https://quvi.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/quvi/0.4/libquvi/libquvi-0.4.1.tar.bz2"
   sha256 "f5a2fb0571634483e8a957910f44e739f5a72eb9a1900bd10b453c49b8d5f49d"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -16,7 +16,7 @@ class Libquvi < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "lua"
+  depends_on "lua@5.1"
 
   resource "scripts" do
     url "https://downloads.sourceforge.net/project/quvi/0.4/libquvi-scripts/libquvi-scripts-0.4.14.tar.xz"
@@ -24,6 +24,8 @@ class Libquvi < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+
     scripts = prefix/"libquvi-scripts"
     resource("scripts").stage do
       system "./configure", "--prefix=#{scripts}", "--with-nsfw"
