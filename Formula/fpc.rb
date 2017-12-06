@@ -1,8 +1,8 @@
 class Fpc < Formula
   desc "Free Pascal: multi-architecture Pascal compiler"
   homepage "https://www.freepascal.org/"
-  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.2/fpc-3.0.2.source.tar.gz"
-  sha256 "67fccddf5da992356f4e90d836444750ce9363608c7db8e38c077f710fcb6258"
+  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.4/fpc-3.0.4.source.tar.gz"
+  sha256 "69b3b7667b72b6759cf27226df5eb54112ce3515ff5efb79d95ac14bac742845"
 
   bottle do
     cellar :any_skip_relocation
