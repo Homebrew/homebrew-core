@@ -7,9 +7,9 @@ class Pioneer < Formula
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 "8a6ba36e5a1a04c72fee3ef5921762108a6a7be7ba7b31c9dade6faa220f8c78" => :high_sierra
-    sha256 "01e84d6dd7be3f2444df347ecfdf8bf34a02b7ac6627b7d18b2fe4e3b258f214" => :sierra
-    sha256 "76430af8d72959d5f2ae2224c85456d57e397028bd48181a1f1de0d62bf60748" => :el_capitan
+    sha256 "65265e875bbc35e9e90f7fa30593b21c32f4c014c8a4682ea2e9c6c9319ff671" => :high_sierra
+    sha256 "92d9c019e5073d48a0394258e1b0f5685797a0aa2a696b485500562a98560928" => :sierra
+    sha256 "8a459fcca3bdcd04caaae6c3613ad0dd351ad535a7b6b4f2359a3b58ed382abf" => :el_capitan
   end
 
   depends_on "autoconf" => :build
