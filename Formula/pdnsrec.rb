@@ -6,9 +6,9 @@ class Pdnsrec < Formula
   revision 1
 
   bottle do
-    sha256 "fe331413c2c6672d096dd2ed7a79f75cfaeabe9b9428a59b7071ae650580a5ce" => :high_sierra
-    sha256 "7553826ce0f365c707f03f4cdb96bdba06837b5936cd55afcd200a65c6b18f2e" => :sierra
-    sha256 "575e7cf7ee21d3528734fbd4e71f922f129117a7f5a0691ada9906d08f26af1f" => :el_capitan
+    sha256 "11bdc4f5fefc37ec4aa50b0689262034a63a9ad26663116fcbbc1d43475bd029" => :high_sierra
+    sha256 "63f61ff6e6066090b6341133c6acf256fc139117710181394ff21daad3b2c80c" => :sierra
+    sha256 "01c68fe54ea7c000a0356bb862475d7dfd431ea13ba795b59a1e2aace82a5158" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
