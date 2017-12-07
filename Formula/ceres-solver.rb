@@ -3,7 +3,7 @@ class CeresSolver < Formula
   homepage "http://ceres-solver.org/"
   url "http://ceres-solver.org/ceres-solver-1.13.0.tar.gz"
   sha256 "1df490a197634d3aab0a65687decd362912869c85a61090ff66f073c967a7dcd"
-  revision 1
+  revision 2
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
 
   bottle do
@@ -24,7 +24,9 @@ class CeresSolver < Formula
     system "cmake", ".", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DEIGEN_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3",
-                    "-DMETIS_LIBRARY=#{Formula["metis"].opt_lib}/libmetis.dylib"
+                    "-DMETIS_LIBRARY=#{Formula["metis"].opt_lib}/libmetis.dylib",
+                    "-DGLOG_INCLUDE_DIR_HINTS=#{Formula["glog"].opt_include}",
+                    "-DGLOG_LIBRARY_DIR_HINTS=#{Formula["glog"].opt_lib}"
     system "make"
     system "make", "install"
     pkgshare.install "examples", "data"
