@@ -5,9 +5,9 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.5.1/stack-1.5.1-sdist-1.tar.gz"
-  version "1.5.1"
-  sha256 "09c31818f24d3fe2c22c6b1707f5279c00b6f9432f88eaf79032ace52a73ced4"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.6.1/stack-1.6.1-sdist-1.tar.gz"
+  version "1.6.1"
+  sha256 "25a5fc6b0094b82fd66137caaddc19fe51c2e96ba2471713133cd9187b60fbae"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
