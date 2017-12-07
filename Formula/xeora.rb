@@ -13,6 +13,6 @@ class Xeora < Formula
   end
 
   test do
-    assert_match "QUIET", shell_output("#{bin}/xeora -v", 1)
+    assert shell_output("#{bin}/xeora -v", 1)
   end
 end
