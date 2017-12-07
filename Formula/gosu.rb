@@ -1,8 +1,8 @@
 class Gosu < Formula
   desc "Pragmatic language for the JVM"
   homepage "http://gosu-lang.org/"
-  url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.6.tar.gz"
-  sha256 "cb7cddb44025ecf6d601c15df148e103eeb5316402debb22395d261ba34669fe"
+  url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.7.tar.gz"
+  sha256 "e6ff2895c027248dac172db28109159509535563bf3f077d1ec793841d0de208"
   head "https://github.com/gosu-lang/gosu-lang.git"
 
   bottle do
@@ -13,16 +13,19 @@ class Gosu < Formula
     sha256 "dee97ff03b12443a4fcaab053ca8860377279e9b8676f4b487f57e7095422d1e" => :yosemite
   end
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
   depends_on "maven" => :build
 
   skip_clean "libexec/ext"
 
   def install
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+
     system "mvn", "package"
     libexec.install Dir["gosu/target/gosu-#{version}-full/gosu-#{version}/*"]
     (libexec/"ext").mkpath
-    bin.install_symlink libexec/"bin/gosu"
+    (bin/"gosu").write_env_script libexec/"bin/gosu", Language::Java.java_home_env("1.8")
   end
 
   test do
