@@ -3,10 +3,10 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
-  sha256 "57acd8f03f830c2d7dc29fbe28aaa96781b2b9bdddce94196e6761a0f88c6046"
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
+  url "https://download.qt.io/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.0/single/qt-everywhere-opensource-src-5.10.0.tar.xz"
+  sha256 "936d4cf5d577298f4f9fdb220e85b008ae321554a5fcd38072dc327a7296230e"
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
 
   bottle do
     sha256 "570ca1b244dbcecc74d2b7813e5659024eba1500640c84b1b6eedcd96dd1ba6f" => :high_sierra
@@ -42,13 +42,16 @@ class Qt < Formula
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
-  # Remove for >= 5.10
-  # Fix for upstream issue "macdeployqt does not work with Homebrew"
-  # See https://bugreports.qt.io/browse/QTBUG-56814
-  # Upstream commit from 23 Dec 2016 https://github.com/qt/qttools/commit/8f9b747f030bb41556831a23ec2a8e7e76fb7dc0#diff-2b6e250f93810fd9bcf9bbecf5d2be88
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
-    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
+  # Remove for > 5.10.0
+  # Fix "error: 'loadFileURL:allowingReadAccessToURL:' is only available on
+  # macOS 10.11 or newer [-Werror,-Wunguarded-availability]"
+  # Reported 8 Dec 2017 https://bugreports.qt.io/browse/QTBUG-65075
+  # Equivalent to upstream fix from 8 Dec 2017 https://codereview.qt-project.org/#/c/213993/
+  if MacOS::Xcode.version >= "9.0"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9c97726e2b153099049326ade23fe24b52b778fe/qt/QTBUG-65075.diff"
+      sha256 "a51595868c6173ab53463107e0ee3355576002c32ab80897587c3607589cfd22"
+    end
   end
 
   def install
