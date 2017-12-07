@@ -1,8 +1,8 @@
 class Securefs < Formula
   desc "Filesystem with transparent authenticated encryption"
   homepage "https://github.com/netheril96/securefs"
-  url "https://github.com/netheril96/securefs/archive/0.7.3.tar.gz"
-  sha256 "1ef49884b3fa648d9db6ab231d2d5e2bdae3841638b14470e5645646ea819b28"
+  url "https://github.com/netheril96/securefs/archive/0.8.1.tar.gz"
+  sha256 "f116f7bf66a0f65fce8ca3536ca2768076281ae8851c00343caa68504c5449e8"
   head "https://github.com/netheril96/securefs.git"
 
   bottle do
