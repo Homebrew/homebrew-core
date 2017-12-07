@@ -1,9 +1,8 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz"
-  sha256 "bff3f44467b1d39775e94fad545f050faa7e8d68dc6a31aef5024ba3c2d7f2b7"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-doc/1.27/gtk-doc-1.27.tar.xz"
+  sha256 "e26bd3f7080c749b1cb66c46c6bf8239e2f320a949964fb9c6d56e1b0c6d9a6f"
 
   bottle do
     cellar :any_skip_relocation
