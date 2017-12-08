@@ -4,8 +4,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.1.2",
-      :revision => "14183e6bc442559cd401618ff58293c29455b87c"
+      :tag => "v1.1.3",
+      :revision => "9698d7283f790aa1d3755ccbd95a1a1cdea9390a"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
