@@ -5,6 +5,12 @@ class NodeAT8 < Formula
   sha256 "748ddb3baa6b85e6a56e38aacd066586e7581952f84a92bc8152248a9be6b2da"
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
+  bottle do
+    sha256 "899582fed0fa0ed47288d738823dd3c5fc7a995de793c71dbc52a0a8acfac4d3" => :high_sierra
+    sha256 "fd37dad5fcf40255a85257303f8e3c2041b4c548f56bcf07e431a11d1c49dc60" => :sierra
+    sha256 "2377e6e333fedaac08cf9b5fffe414078c810b4ec5f00255304c13480039df2b" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
