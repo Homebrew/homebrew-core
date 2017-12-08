@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.55.zip"
-  sha256 "fe883f79e730b066ddc6917bc68248f5f785578ffddb7066ab83b09defb2a736"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.56.zip"
+  sha256 "10374c8ba119cf37d77ad8609b384b5026be68f0d2ccefa5544bc65da3f39d4c"
 
   bottle do
     sha256 "303a0ae7b051003bd922f9e00417bfdaf7d3cda51c33cc1ad1f7cd54c39c2b01" => :high_sierra
