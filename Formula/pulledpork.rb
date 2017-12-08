@@ -1,8 +1,8 @@
 class Pulledpork < Formula
   desc "Snort rule management"
   homepage "https://github.com/shirkdog/pulledpork"
-  url "https://github.com/shirkdog/pulledpork/archive/v0.7.2.tar.gz"
-  sha256 "50046477d5d1a18aec131a56bd3f21170057d8a31fd6f30af706e31d5b14bd0a"
+  url "https://github.com/shirkdog/pulledpork/archive/v0.7.3.tar.gz"
+  sha256 "48c66dc9abb7545186d4fba497263c1d1b247c0ea7f0953db4d515e7898461a2"
   head "https://github.com/shirkdog/pulledpork.git"
 
   bottle do
