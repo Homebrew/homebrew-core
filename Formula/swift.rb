@@ -1,44 +1,8 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://github.com/apple/swift"
-
-  # This formula is expected to have broken/missing linkage to
-  # both UIKit.framework and AssetsLibrary.framework. This is
-  # simply due to the nature of Swift's SDK Overlays.
-  stable do
-    url "https://github.com/apple/swift/archive/swift-4.0-RELEASE.tar.gz"
-    sha256 "9ebd6b634baf82e69ac9f6fae5c9c979db7c7e4bc9db149b30b575e57da99b94"
-
-    resource "clang" do
-      url "https://github.com/apple/swift-clang/archive/swift-4.0-RELEASE.tar.gz"
-      sha256 "d0f9a5a06074318fa237bc4847fc4a746918ab1d016e14baafc6bf17b24083d9"
-    end
-
-    resource "cmark" do
-      url "https://github.com/apple/swift-cmark/archive/swift-4.0-RELEASE.tar.gz"
-      sha256 "71aea066925abb92738549051cc5e91f78b588fe0f1102c64c35d7f9078f1cef"
-    end
-
-    resource "compiler-rt" do
-      url "https://github.com/apple/swift-compiler-rt/archive/swift-4.0-RELEASE.tar.gz"
-      sha256 "189baa8e00dca394afa8c58104c9a293ce37aebf38343c250bea36054f6f006d"
-    end
-
-    resource "llbuild" do
-      url "https://github.com/apple/swift-llbuild/archive/swift-4.0-RELEASE.tar.gz"
-      sha256 "2e9fe830e25c74d9597a4189132b09348fc995b2de831814a55c426198c941f4"
-    end
-
-    resource "llvm" do
-      url "https://github.com/apple/swift-llvm/archive/swift-4.0-RELEASE.tar.gz"
-      sha256 "6c30d7f3190b9f76fd646f2c03a093cf768c1aa7e10898ee8281bfe88ba0feeb"
-    end
-
-    resource "swiftpm" do
-      url "https://github.com/apple/swift-package-manager/archive/swift-4.0-RELEASE.tar.gz"
-      sha256 "fe19d370cb5fea32246bac1fd81a4c0e6932518e6e3b7fcc1913adc3b01b91e7"
-    end
-  end
+  url "https://github.com/apple/swift/archive/swift-4.0.3-RELEASE.tar.gz"
+  sha256 "026d596dd4a24580a5e442409e8c58259197bd73ddbb77e5aade96da982ea39b"
 
   bottle do
     cellar :any
@@ -54,6 +18,39 @@ class Swift < Formula
   # Depends on latest version of Xcode
   # https://github.com/apple/swift#system-requirements
   depends_on :xcode => ["9.0", :build]
+
+  # This formula is expected to have broken/missing linkage to
+  # both UIKit.framework and AssetsLibrary.framework. This is
+  # simply due to the nature of Swift's SDK Overlays.
+  resource "clang" do
+    url "https://github.com/apple/swift-clang/archive/swift-4.0.3-RELEASE.tar.gz"
+    sha256 "c940bd48c88f71622fb00167d92a619dd1614093893e1a09982c08da42259404"
+  end
+
+  resource "cmark" do
+    url "https://github.com/apple/swift-cmark/archive/swift-4.0.3-RELEASE.tar.gz"
+    sha256 "e95d0b54a0e897e768c9437dd67d56ec887909d0294cf6536ba240accd0d294f"
+  end
+
+  resource "compiler-rt" do
+    url "https://github.com/apple/swift-compiler-rt/archive/swift-4.0.3-RELEASE.tar.gz"
+    sha256 "1c2da685e8f424cb4460ed1daaf0c308f8deff63e7a3716c8a881cef60fbc7d8"
+  end
+
+  resource "llbuild" do
+    url "https://github.com/apple/swift-llbuild/archive/swift-4.0.3-RELEASE.tar.gz"
+    sha256 "92001e449b54a47516086a4e7d5f575bffa2847ae1f658540b2ec6f6dee6c6e7"
+  end
+
+  resource "llvm" do
+    url "https://github.com/apple/swift-llvm/archive/swift-4.0.3-RELEASE.tar.gz"
+    sha256 "a611487a82636142bc1ea8ef5b21401a5c75e57fb0dbf041ef8f2e85a472db2e"
+  end
+
+  resource "swiftpm" do
+    url "https://github.com/apple/swift-package-manager/archive/swift-4.0.3-RELEASE.tar.gz"
+    sha256 "4c26d333a01c239de8aa96b0536b7ff7218b7a322851a7d3b3b91b59fb4ce244"
+  end
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
