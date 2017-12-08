@@ -3,8 +3,8 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "http://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-0.10.79.tgz"
-  sha256 "c646a680daf72a453d1e2b57dc0ae9fcfb22f2c61b04323e4f4463a6476f0b0b"
+  url "https://registry.npmjs.org/joplin/-/joplin-0.10.82.tgz"
+  sha256 "ceba5bea07f5c71a8a70bc951222d8631da497de7072f0ff5b25c338ef2f6b52"
 
   bottle do
     sha256 "b84032e4271bd89a61ecd09fbf21a9a3146b4393da624436c7df22edfd34e349" => :high_sierra
@@ -13,6 +13,7 @@ class Joplin < Formula
   end
 
   depends_on "node"
+  depends_on :python => :build if MacOS.version <= :snow_leopard
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
