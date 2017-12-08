@@ -19,6 +19,6 @@ class Rawtoaces < Formula
   end
 
   test do
-    assert_match "Day-light (e.g., D60, D6025)", shell_output("#{bin}/rawtoaces --valid-illums", 0).strip
+    assert_match "Day-light (e.g., D60, D6025)", shell_output("#{bin}/rawtoaces --valid-illums").strip
   end
 end
