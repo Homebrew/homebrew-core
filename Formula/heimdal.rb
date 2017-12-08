@@ -1,8 +1,8 @@
 class Heimdal < Formula
   desc "Free Kerberos 5 implementation"
   homepage "https://www.h5l.org"
-  url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.4.0/heimdal-7.4.0.tar.gz"
-  sha256 "3de14ecd36ad21c1694a13da347512b047f4010d176fe412820664cb5d1429ad"
+  url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.5.0/heimdal-7.5.0.tar.gz"
+  sha256 "c5a2a0030fcc728022fa2332bad85569084d1c3b9a59587b7ebe141b0532acad"
 
   bottle do
     sha256 "7b29632e947e41264d612762aae915f25e9e522895ecb5b63cd48cf6047e0dda" => :high_sierra
