@@ -21,7 +21,7 @@ class Go < Formula
   end
 
   devel do
-    url "https://redirector.gvt1.com/edgedl/go/go1.10beta1.src.tar.gz"
+    url "https://dl.google.com/go/go1.10beta1.src.tar.gz"
     sha256 "841df62b20fd915d83a2e43b7d043c2a3781c299de78abc45480eec575186b6b"
 
     resource "gotools" do
