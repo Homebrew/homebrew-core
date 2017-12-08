@@ -7,10 +7,9 @@ class Pulledpork < Formula
 
   bottle do
     cellar :any
-    sha256 "92dddb196343e394ab5b83f5b58a3de28d06e42fd637a8c2dbf48bb097d0b736" => :high_sierra
-    sha256 "7a84b60c180ab730402298a5d571017542765e99c0cd55c4c4a1f817b005bf40" => :sierra
-    sha256 "58789c4489d70e629ba6957205ad8dc5b36f1c4c61312da3b0a5a6e6ce9ad472" => :el_capitan
-    sha256 "7ce3fab5d594b8f8581f2bb62a1ccc9a4a3e35df34b6f0b84cb7f471471b3f8a" => :yosemite
+    sha256 "4e8a01b1531f4b1824358e3a28c968ac04f7c5c78c5c4a878178ae825472b228" => :high_sierra
+    sha256 "33cf47b4c02e4f2ba57f6b34770bafcda115d9b249b1227596e71c3f200c4083" => :sierra
+    sha256 "e17149bd41a6f5f74d796c95c92710996e936dba1c2b1d523e89c3c29bdc2219" => :el_capitan
   end
 
   depends_on "openssl"
