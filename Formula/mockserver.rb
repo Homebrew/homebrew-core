@@ -1,8 +1,8 @@
 class Mockserver < Formula
   desc "Mock HTTP server and proxy"
   homepage "https://www.mock-server.com/"
-  url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/3.12/mockserver-netty-3.12-brew-tar.tar"
-  sha256 "b14d3247ed35a298734e9e935a6b90d74c48b64eddd8810930f5b4ed62cd4492"
+  url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/5.1.1/mockserver-netty-5.1.1-brew-tar.tar"
+  sha256 "7fc77904986e6fc5c17c7a3b25af3d0a45e7e94d8fc0de62f3126efb68a3ed91"
 
   bottle :unneeded
 
