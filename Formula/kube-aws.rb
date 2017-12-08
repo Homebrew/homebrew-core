@@ -1,8 +1,8 @@
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.8.tar.gz"
-  sha256 "d4954b8d42dee8459329a799088267632e368e0b60652bfecab4a16d59a2f50a"
+  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.9.tar.gz"
+  sha256 "4ad421cb58913c27b9f297161eb87b0587f8420d6f0573cee052b17370c519aa"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
@@ -40,31 +40,18 @@ class KubeAws < Formula
   end
 
   test do
-    require "yaml"
-
     system "#{bin}/kube-aws"
-    cluster = {
-      "clusterName" => "test-cluster",
-      "apiEndpoints" => [{
-        "name" => "default",
-        "dnsName" => "dns",
-        "loadBalancer" => { "createRecordSet" => false },
-      }],
-      "keyName" => "key",
-      "region" => "west",
-      "availabilityZone" => "zone",
-      "kmsKeyArn" => "arn",
-      "worker" => { "nodePools" => [{ "name" => "nodepool1" }] },
-      "addons" => { "clusterAutoscaler" => { "enabled" => false },
-                    "rescheduler" => { "enabled" => false } },
-    }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
            "--external-dns-name", "dns", "--region", "west",
            "--availability-zone", "zone", "--key-name", "key",
-           "--kms-key-arn", "arn"
-    cluster_yaml = YAML.load_file("cluster.yaml")
-    assert_equal cluster, cluster_yaml
-
+           "--kms-key-arn", "arn", "--no-record-set"
+    cluster_yaml = (testpath/"cluster.yaml").read
+    assert_match "clusterName: test-cluster", cluster_yaml
+    assert_match "dnsName: dns", cluster_yaml
+    assert_match "region: west", cluster_yaml
+    assert_match "availabilityZone: zone", cluster_yaml
+    assert_match "keyName: key", cluster_yaml
+    assert_match "kmsKeyArn: \"arn\"", cluster_yaml
     installed_version = shell_output("#{bin}/kube-aws version 2>&1")
     assert_match "kube-aws version #{version}", installed_version
   end
