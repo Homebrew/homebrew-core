@@ -5,8 +5,8 @@ class Kontena < Formula
 
   stable do
     url "https://github.com/kontena/kontena.git",
-        :tag => "v1.4.1",
-        :revision => "f16f038781782d4c76720fb72a6df67b02441d9f"
+        :tag => "v1.4.2",
+        :revision => "ead10ec4191a101769095b5fc7c3eeabaa05c621"
 
     resource "addressable" do
       url "https://rubygems.org/gems/addressable-2.5.2.gem"
