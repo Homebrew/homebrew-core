@@ -5,10 +5,9 @@ class Heimdal < Formula
   sha256 "c5a2a0030fcc728022fa2332bad85569084d1c3b9a59587b7ebe141b0532acad"
 
   bottle do
-    sha256 "7b29632e947e41264d612762aae915f25e9e522895ecb5b63cd48cf6047e0dda" => :high_sierra
-    sha256 "a2100430e4500cb7d1419353e8ea8ba1ea4f766fcc36ff04db70275895a9d2c9" => :sierra
-    sha256 "b837af6df80584d06e0d9f902f90e44c2c6a765e400d9e14dd64b18baf402052" => :el_capitan
-    sha256 "bb674ef52b4f4bd84478efb7258b85da4c207ad40843acdb20447571421f4c40" => :yosemite
+    sha256 "5b461217a467645afd1653bbbbb0202e9d39b5748ab7e2d5e1566006497a00bb" => :high_sierra
+    sha256 "ffd6e2ac9328dda17a9614aea905f05e879e9184ec94c7bdb62b14c90267547e" => :sierra
+    sha256 "011cd9adbc85589034f69ea15a7cd85c60561792f5366e3d977732a9ef076320" => :el_capitan
   end
 
   keg_only :provided_by_osx
