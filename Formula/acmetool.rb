@@ -4,8 +4,8 @@ class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
   url "https://github.com/hlandau/acme.git",
-      :tag => "v0.0.61",
-      :revision => "1cda304f9ab3d3c8ad20652895f4a2c9620bb8c1"
+      :tag => "v0.0.62",
+      :revision => "2c2e661404c54478d8086ae8f792de0fdddbaed0"
 
   bottle do
     sha256 "b28fe2e5b7d1c56d555a8bd31ab60934fe84c93a52388465917a783a30b4e760" => :high_sierra
@@ -28,7 +28,7 @@ class Acmetool < Formula
 
   go_resource "github.com/coreos/go-systemd" do
     url "https://github.com/coreos/go-systemd.git",
-        :revision => "d2196463941895ee908e13531a23a39feb9e1243"
+        :revision => "c966a8af8422394b2e370d90e2101adba21c14be"
   end
 
   go_resource "github.com/hlandau/buildinfo" do
@@ -58,7 +58,7 @@ class Acmetool < Formula
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        :revision => "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
+        :revision => "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
@@ -93,17 +93,17 @@ class Acmetool < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "eb71ad9bd329b5ac0fd0148dd99bd62e8be8e035"
+        :revision => "94eea52f7b742c7cbe0b03b22f0c4c8631ece122"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "1c05540f6879653db88113bc4a2b70aec4bd491f"
+        :revision => "dc871a5d77e227f5bbf6545176ef3eeebf87e76e"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "e56139fd9c5bc7244c76116c68e500765bb6db6b"
+        :revision => "3b24cac7bc3a458991ab409aa2a339ac9e0d60d6"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
@@ -113,7 +113,7 @@ class Acmetool < Formula
 
   go_resource "gopkg.in/cheggaaa/pb.v1" do
     url "https://gopkg.in/cheggaaa/pb.v1.git",
-        :revision => "0d6285554e726cc0620cbecc7e6969c945dcc63b"
+        :revision => "657164d0228d6bebe316fdf725c69f131a50fb10"
   end
 
   go_resource "gopkg.in/hlandau/configurable.v1" do
@@ -148,7 +148,7 @@ class Acmetool < Formula
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://gopkg.in/yaml.v2.git",
-        :revision => "eb3733d160e74a9c7e442f435eb3bea458e1d19f"
+        :revision => "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
   end
 
   def install
