@@ -29,7 +29,7 @@ class Swift < Formula
 
   resource "cmark" do
     url "https://github.com/apple/swift-cmark/archive/swift-4.0.3-RELEASE.tar.gz"
-    sha256 "395408a3dc9c3db2b5c200b8722a13a60898c861633b99e6e250186adffd1370"
+    sha256 "e95d0b54a0e897e768c9437dd67d56ec887909d0294cf6536ba240accd0d294f"
   end
 
   resource "compiler-rt" do
