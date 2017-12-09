@@ -4,6 +4,7 @@ class Cling < Formula
   url "http://root.cern.ch/git/cling.git",
       :tag => "v0.5",
       :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
+  revision 1
 
   bottle do
     sha256 "db1bf4e905c6b787b63b50c03a43028b71a00110b5008b48ee01a24400efbdb9" => :high_sierra
@@ -30,9 +31,10 @@ class Cling < Formula
     (buildpath/"src/tools/cling").install buildpath.children - [buildpath/"src"]
     (buildpath/"src/tools/clang").install resource("clang")
     mkdir "build" do
-      system "cmake", *std_cmake_args, "../src"
+      system "cmake", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}", "../src"
       system "make", "install"
     end
+    bin.install_symlink libexec/"bin/cling"
     prefix.install_metafiles buildpath/"src/tools/cling"
   end
 
