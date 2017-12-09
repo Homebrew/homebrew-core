@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.28.tar.gz"
-  sha256 "0dd37a5dc1a6b0f8dc5ef98ef3aaeadf66888950ced37edbfb37bf1c66014df3"
+  url "https://github.com/aajanki/yle-dl/archive/2.29.tar.gz"
+  sha256 "62ebf2641f2f5ed602d5356c62075eaaf308e117ae7a9bd1ec26c07bcf24c94e"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
@@ -28,8 +28,8 @@ class YleDl < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
+    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
   end
 
   resource "chardet" do
@@ -48,8 +48,8 @@ class YleDl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz"
-    sha256 "be3aaeb5f468a49f523f16736ccff7d82af2b4b303292ba3d052b5b28f3fbe47"
+    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
+    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
   end
 
   resource "PyAMF" do
@@ -104,7 +104,7 @@ class YleDl < Formula
   end
 
   test do
-    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51:00+03:00\n",
+    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51\n",
                  shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
   end
 end
