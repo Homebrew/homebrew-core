@@ -1,8 +1,9 @@
 class Ohcount < Formula
   desc "Source code line counter"
   homepage "https://github.com/blackducksw/ohcount"
-  url "https://github.com/blackducksw/ohcount/archive/3.0.0.tar.gz"
-  sha256 "46ef92e1bbf9313de507a03decaf8279173584555fb580bb3d46d42c65aa4a6d"
+  url "https://github.com/blackducksw/ohcount/archive/v3.1.0.tar.gz"
+  sha256 "1b7bef72ea5d75c99ea46d219f2d7350b716738fb07dda31e2099a8e0c00e329"
+  head "https://github.com/blackducksw/ohcount.git"
 
   bottle do
     cellar :any
@@ -13,51 +14,22 @@ class Ohcount < Formula
     sha256 "055b2eb9460b1723bcb8a0f215ddda35750ce6d9b9c3cd0bce75d4e9584f0b62" => :mavericks
   end
 
-  head do
-    url "https://github.com/blackducksw/ohcount.git"
-    depends_on "libmagic"
-  end
-
-  depends_on "ragel"
+  depends_on "libmagic"
   depends_on "pcre"
-
-  patch :DATA
+  depends_on "ragel"
 
   def install
-    # find Homebrew's libpcre
-    ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
-
     system "./build", "ohcount"
     bin.install "bin/ohcount"
   end
 
   test do
-    path = testpath/"test.rb"
-    path.write "# comment\n puts\n puts\n"
-    stats = `#{bin}/ohcount -i #{path}`.split("\n")[-1]
-    assert_equal 0, $CHILD_STATUS.exitstatus
+    (testpath/"test.rb").write <<~EOS
+      # comment
+      puts
+      puts
+    EOS
+    stats = shell_output("#{bin}/ohcount -i test.rb").lines.last
     assert_equal ["ruby", "2", "1", "33.3%"], stats.split[0..3]
   end
 end
-
-__END__
---- a/build
-+++ b/build
-@@ -29,7 +29,7 @@ else
-   INC_DIR=/opt/local/include
-   LIB_DIR=/opt/local/lib
-   # You shouldn't have to change the following.
--  CFLAGS="-fno-common -g"
-+  #CFLAGS="-fno-common -g"
-   WARN="-Wall -Wno-parentheses"
-   SHARED="-dynamiclib -L$LIB_DIR -lpcre"
-   SHARED_NAME=libohcount.dylib
-@@ -38,7 +38,7 @@ else
- fi
- 
- # C compiler and flags
--cc="gcc -fPIC -g $CFLAGS $WARN -I$INC_DIR -L$LIB_DIR"
-+cc="$CC $CFLAGS -O0 $WARN $CPPFLAGS $LDFLAGS"
- 
- # Ohcount source files
- files="src/sourcefile.c \
