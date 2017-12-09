@@ -1,8 +1,11 @@
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "http://dev.mujs.com/"
-  url "https://github.com/ccxvii/mujs/archive/1.0.1.tar.gz"
-  sha256 "04cb21cb83039a9cb8c12c103a9a81a2c85e4d71de5e16665f69edef6a414e4d"
+  # use tag not tarball so the version in the pkg-config file isn't blank
+  url "https://github.com/ccxvii/mujs.git",
+      :tag => "1.0.1",
+      :revision => "4792d16f17b15a1eca3c2a9c856dc13fda1d23c5"
+  revision 1
   head "https://github.com/ccxvii/mujs.git"
 
   bottle do
