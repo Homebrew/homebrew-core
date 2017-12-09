@@ -19,7 +19,7 @@ class Gpsd < Formula
     scons "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     gpsd does not automatically detect GPS device addresses. Once started, you
     need to force it to connect to your GPS:
 
