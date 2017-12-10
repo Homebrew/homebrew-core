@@ -1,10 +1,9 @@
 class Libtiff < Formula
   desc "TIFF library and utilities"
   homepage "http://libtiff.maptools.org/"
-  url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
-  mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
-  sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
-  revision 5
+  url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+  mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
+  sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
 
   bottle do
     cellar :any
@@ -18,29 +17,6 @@ class Libtiff < Formula
 
   depends_on "jpeg"
   depends_on "xz" => :optional
-
-  # All of these have been reported upstream & should
-  # be fixed in the next release, but please check.
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
-    sha256 "9307f5343882fa0d8229d20f35cd03cf113dc88881bf697b0ee2b3969ffdbe72"
-    apply "patches/01-CVE-2015-7554.patch",
-          "patches/02-CVE.patch",
-          "patches/03-CVE.patch",
-          "patches/04-CVE-2016-10095_CVE-2017-9147.patch",
-          "patches/05-CVE-2017-9936.patch",
-          "patches/06-OOM_in_gtTileContig.patch",
-          "patches/07-CVE-2017-10688.patch",
-          "patches/08-LZW_compression_regression.patch",
-          "patches/09-CVE-2017-11335.patch",
-          "patches/10-CVE-2017-13726.patch",
-          "patches/11-CVE-2017-13727.patch",
-          "patches/12-prevent_OOM_in_gtTileContig.patch",
-          "patches/13-prevent_OOP_in_TIFFFetchStripThing.patch",
-          "patches/14-CVE-2017-12944.patch",
-          "patches/15-avoid_floating_point_division_by_zero_in_initCIELabConversion.patch"
-  end
 
   def install
     ENV.cxx11 if build.cxx11?
