@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
-  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.6.tar.gz"
-  sha256 "de5fb496bdc029e55955e05d918a1862a177805fbbd5b957e8b5ce6632f6c77e"
+  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.1.0.tar.gz"
+  sha256 "1b1371074224c6844697f3a55024d185b7ff6ffa49ac141d433fbb1aadf426f5"
 
   bottle do
     cellar :any
