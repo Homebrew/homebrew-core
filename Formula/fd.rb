@@ -1,8 +1,8 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v6.0.0.tar.gz"
-  sha256 "9d75a4962304d4430b87499d2ed14881c47ee6d5215d57d25371b594931745e3"
+  url "https://github.com/sharkdp/fd/archive/v6.1.0.tar.gz"
+  sha256 "48b63d8c45345a2e677d14aa24157db05eed579a92b8d5a5406936f91351341f"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Fd < Formula
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--root", prefix
     man1.install "doc/fd.1"
-    bash_completion.install "fd.bash-completion"
+    bash_completion.install "fd.bash"
     fish_completion.install "fd.fish"
     zsh_completion.install "_fd"
   end
