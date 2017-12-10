@@ -6,9 +6,9 @@ class Sfk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4be767422ed9a90cd6298a6525d3957be2a9de56bd16fa461fc239bdb0878259" => :high_sierra
-    sha256 "2861fbe744b3b3dc67ada77dc6d2b200cd4bebdb0b7f9af3933275eec6455c5b" => :sierra
-    sha256 "f426a218d0178df2d4615392bf833628d6a0298c7e5038a2b25cb33b86a3e1f2" => :el_capitan
+    sha256 "b2aabf3e4734a31ea5dd41eff8a71f02b2e367b6333801419491b110282f0189" => :high_sierra
+    sha256 "229f03e71a523bfae5a9e0e31a02b129cc776341dbef63272e95b2fa05bdd71e" => :sierra
+    sha256 "488fecfe38e50e08a722d4857fa4f4ce91f816930f016294a5d7a6c82d5cc452" => :el_capitan
   end
 
   def install
