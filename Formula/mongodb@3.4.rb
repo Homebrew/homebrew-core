@@ -7,6 +7,12 @@ class MongodbAT34 < Formula
   url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.10.tar.gz"
   sha256 "443800ca4f52fa613b29052f5f76abc0ccc477451b55f3665b61819f28ace2f3"
 
+  bottle do
+    sha256 "9a35ae695c73c1a07dda1ba6ab694734fa774b408a3117c0907ccb7efa710372" => :high_sierra
+    sha256 "1f1ebf5abfa9136a5dccc38494537463b56dd22a7b8e0be2a4316e05adbc3894" => :sierra
+    sha256 "6740c055e5d1d19a99e09840b85dad5443386f02d3fb63c7a7f71a12934ce76c" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
