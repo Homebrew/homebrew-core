@@ -30,10 +30,6 @@ class Graphicsmagick < Formula
 
   skip_clean :la
 
-  def ghostscript_fonts?
-    File.directory? "#{HOMEBREW_PREFIX}/share/ghostscript/fonts"
-  end
-
   def install
     args = %W[
       --prefix=#{prefix}
