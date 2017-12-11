@@ -1,6 +1,6 @@
 class Libid3tag < Formula
   desc "ID3 tag manipulation library"
-  homepage "http://www.underbit.com/products/mad/"
+  homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
   sha256 "63da4f6e7997278f8a3fef4c6a372d342f705051d1eeb6a46a86b03610e26151"
 
