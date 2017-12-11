@@ -9,9 +9,9 @@ class Coffeescript < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d80414d358daca7dda46aa0e84a4296c362434f8ef33f65b360aa735a46cf040" => :high_sierra
-    sha256 "6e985b891d8e296b5f00b67930409d2ab7c951105d93a3c8570625494a298d77" => :sierra
-    sha256 "2d1c697c42f4fb8d0b9c2472e051c239573adf3e6748e94c6f85e718105e17cc" => :el_capitan
+    sha256 "fed77cdce88575f1e3bc1e91c3db73305e38dd1e046b9b491b4e00c7cf65e556" => :high_sierra
+    sha256 "0a921b7457096df0124115f00cf43f1eccfdf77b8a29bf239c93ee13e0d9a251" => :sierra
+    sha256 "bef83dadc93cc8f5c0e26bfc024db0cb4e1904b5247078625d7f1333cf64f3b7" => :el_capitan
   end
 
   depends_on "node"
