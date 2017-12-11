@@ -31,7 +31,7 @@ class Python < Formula
   depends_on "readline" => :recommended
   depends_on "sqlite" => :recommended
   depends_on "gdbm" => :recommended
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "tcl-tk" => :optional
   depends_on "berkeley-db@4" => :optional
 
@@ -130,7 +130,7 @@ class Python < Formula
     inreplace "setup.py" do |s|
       s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
-      s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
+      s.gsub! "/usr/local/ssl", Formula["openssl@1.1"].opt_prefix
       s.gsub! "/usr/include/db4", Formula["berkeley-db@4"].opt_include
     end
 
@@ -275,8 +275,8 @@ class Python < Formula
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib]
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include]
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib]
 
     if build.with? "sqlite"
       include_dirs << Formula["sqlite"].opt_include
