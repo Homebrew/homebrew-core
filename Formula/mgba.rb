@@ -1,10 +1,21 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.6.1.tar.gz"
-  sha256 "7c78feb0aa12930b993ca1b220d282ed178e306621559e48bb168623030eb876"
   revision 1
   head "https://github.com/mgba-emu/mgba.git"
+
+  stable do
+    url "https://github.com/mgba-emu/mgba/archive/0.6.1.tar.gz"
+    sha256 "7c78feb0aa12930b993ca1b220d282ed178e306621559e48bb168623030eb876"
+
+    # Remove for > 0.6.1
+    # Fix "MemoryModel.cpp:102:15: error: no viable overloaded '='"
+    # Upstream commit from 11 Dec 2017 "Qt: Fix build with Qt 5.10"
+    patch do
+      url "https://github.com/mgba-emu/mgba/commit/e31373560.patch?full_index=1"
+      sha256 "5311b19dea0848772bdd00b354f9fca741b2bfd2cf65eab8a8c556e6fb748b8e"
+    end
+  end
 
   bottle do
     cellar :any
@@ -24,6 +35,12 @@ class Mgba < Formula
   depends_on "sdl2"
 
   def install
+    # Fix "error: 'future<void>' is unavailable: introduced in macOS 10.8"
+    # Reported 11 Dec 2017 https://github.com/mgba-emu/mgba/issues/944
+    if MacOS.version <= :el_capitan
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    end
+
     # Install .app bundle into prefix, not prefix/Applications
     inreplace "src/platform/qt/CMakeLists.txt", "Applications", "."
 
