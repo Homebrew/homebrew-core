@@ -5,6 +5,12 @@ class Libidn2 < Formula
   mirror "https://ftpmirror.gnu.org/gnu/libidn/libidn2-2.0.4.tar.gz"
   sha256 "644b6b03b285fb0ace02d241d59483d98bc462729d8bb3608d5cad5532f3d2f0"
 
+  bottle do
+    sha256 "e2331d3c771fb283c2e995f33ec65f233d3fa4fe53f68818e94a0813acd9b591" => :high_sierra
+    sha256 "eede4f7d455f28a987941586c3bf01ee0e6d60af6a16bd4ee908af85d67383d7" => :sierra
+    sha256 "5e3e5c3247175111eea66f46a09385adc481bbe1c0c375284dc157c22db8d869" => :el_capitan
+  end
+
   head do
     url "https://gitlab.com/libidn/libidn2.git"
 
