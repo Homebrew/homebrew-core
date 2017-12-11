@@ -15,7 +15,7 @@ class Nano < Formula
   depends_on "ncurses"
 
   # 28 Nov 2017 "stat: fix compilation failure on macOS Sierra"
-  # gnulib commit http://git.savannah.gnu.org/gitweb/?p=gnulib.git;a=commit;h=cbce9423af01902fde4d84c02eedb443947f8986
+  # gnulib commit https://git.savannah.gnu.org/gitweb/?p=gnulib.git;a=commit;h=cbce9423af01902fde4d84c02eedb443947f8986
   # nano bug report https://savannah.gnu.org/bugs/?52546
   patch :p0 do
     url "https://savannah.gnu.org/bugs/download.php?file_id=42510"
