@@ -1,9 +1,9 @@
 class Ack < Formula
   desc "Search tool like grep, but optimized for programmers"
   homepage "https://beyondgrep.com/"
-  url "https://beyondgrep.com/ack-2.18-single-file"
-  version "2.18"
-  sha256 "6e41057c8f50f661d800099471f769209480efa53b8a886969d7ec6db60a2208"
+  url "https://beyondgrep.com/ack-2.20-single-file"
+  version "2.20"
+  sha256 "fcdf3babf4264d126b362c9116eade83fe76f844f5de8f4150e54e0e83702e16"
   head "https://github.com/petdance/ack2.git", :branch => "dev"
 
   bottle :unneeded
