@@ -23,6 +23,10 @@ class Zurl < Formula
   end
 
   def install
+    # Fix "Unable to find the 'qmake' tool for Qt 4 or 5." wit Qt 5.10
+    # Reported 11 Dec 2017 https://github.com/fanout/zurl/issues/12
+    inreplace "configure", "?.?.?)", "?.??.?)"
+
     system "./configure", "--prefix=#{prefix}", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
     system "make", "check"
