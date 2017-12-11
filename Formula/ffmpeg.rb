@@ -1,8 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.4.tar.bz2"
-  sha256 "5d8911fe6017d00c98a359d7c8e7818e48f2c0cc2c9086a986ea8cb4d478c85e"
+  url "https://ffmpeg.org/releases/ffmpeg-3.4.1.tar.bz2"
+  sha256 "f3443e20154a590ab8a9eef7bc951e8731425efc75b44ff4bee31d8a7a574a2c"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -174,6 +174,6 @@ class Ffmpeg < Formula
     # Create an example mp4 file
     mp4out = testpath/"video.mp4"
     system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert mp4out.exist?
+    assert_predicate mp4out, :exist?
   end
 end
