@@ -5,9 +5,9 @@ class Gsoap < Formula
   sha256 "b27956be1105d99d769ab51b16cc45ec185b1ff501d4b7a73a2813708a9983dd"
 
   bottle do
-    sha256 "9f64e93e6c01176774ae19408e3eeb5a66f4ab55a9030bbda6e22203f9709a7b" => :high_sierra
-    sha256 "7739b8091ce876d6ad9a0660d184bdd65705ec7ebe3fb2a61996ec1e468c8b12" => :sierra
-    sha256 "2fa2bbef26238188b0b8ccb4f91fee64983d6c2abcdf62b5288857a42a1a7dac" => :el_capitan
+    sha256 "db73b3e6b85c8ffbc5baaff21362ab89492c15502c8a4d8d09183c40c19a9366" => :high_sierra
+    sha256 "ea0781a0e0ad93f2c6e922cbf80121e777d39f3ce6d2e5a3a512401a27d3cd2e" => :sierra
+    sha256 "b2c943eb4282385620fc51c4658dd33756645e9fb47b89e02aa67ddbd5790d88" => :el_capitan
   end
 
   depends_on "openssl"
