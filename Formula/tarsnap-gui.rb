@@ -16,6 +16,11 @@ class TarsnapGui < Formula
   depends_on "tarsnap"
 
   def install
+    # Fix "Project ERROR: Tarsnap-gui requires Qt 5.2 or higher."
+    # Reported 11 Dec 2017 https://github.com/Tarsnap/tarsnap-gui/issues/171
+    inreplace "Tarsnap.pro", "lessThan(QT_VERSION, 5.2)",
+                             "lessThan(QT_VERSION, 5.1)"
+
     system "qmake"
     system "make"
     system "macdeployqt", "Tarsnap.app"
