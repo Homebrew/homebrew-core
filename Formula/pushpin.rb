@@ -18,6 +18,10 @@ class Pushpin < Formula
   depends_on "zurl"
 
   def install
+    # Fix "Unable to find the 'qmake' tool for Qt 4 or 5." wit Qt 5.10
+    # Reported 11 Dec 2017 https://github.com/fanout/pushpin/issues/47651
+    inreplace "configure", "?.?.?)", "?.??.?)"
+
     system "./configure", "--prefix=#{prefix}", "--configdir=#{etc}", "--rundir=#{var}/run", "--logdir=#{var}/log", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
     system "make", "check"
