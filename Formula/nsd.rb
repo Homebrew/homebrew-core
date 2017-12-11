@@ -1,8 +1,8 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.18.tar.gz"
-  sha256 "8c1db23c5ad44c6410874161e78f785475d3f08ed0daae57fe56c44e33a89c0f"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.19.tar.gz"
+  sha256 "b0782cb9b57416888d488b6460b071cd85ecb5f99381865b3a7f93dddf9e02c5"
 
   bottle do
     sha256 "2461a9457ed18b62c945abd232ac9cb84d386d412b4bacf1a631a38d17349366" => :high_sierra
