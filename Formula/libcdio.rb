@@ -1,9 +1,9 @@
 class Libcdio < Formula
   desc "Compact Disc Input and Control Library"
   homepage "https://www.gnu.org/software/libcdio/"
-  url "https://ftp.gnu.org/gnu/libcdio/libcdio-1.0.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libcdio/libcdio-1.0.0.tar.gz"
-  sha256 "fe080bc3cb7a57becdecf2b392bf39c24df0211f5fdfddfe99748fa052a7e231"
+  url "https://ftp.gnu.org/gnu/libcdio/libcdio-1.1.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libcdio/libcdio-1.1.0.tar.gz"
+  sha256 "785c32494e4770c38bef09b1a545ef3acec8ccfbf2b799cb7e70dc380cbcf164"
 
   bottle do
     cellar :any
