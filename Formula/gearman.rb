@@ -1,8 +1,8 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.17/gearmand-1.1.17.tar.gz"
-  sha256 "f9fa59d60c0ad03b449942c6fe24abe09456056852fae89a05052fa25c113c0f"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.18/gearmand-1.1.18.tar.gz"
+  sha256 "d789fa24996075a64c5af5fd2adef10b13f77d71f7d44edd68db482b349c962c"
 
   bottle do
     sha256 "91bbdfb493befa2b4f45c68b43182dc2df36af5a72b0c28e4dd97adcdc9eb3ed" => :high_sierra
@@ -13,9 +13,6 @@ class Gearman < Formula
 
   option "with-mysql", "Compile with MySQL persistent queue enabled"
   option "with-postgresql", "Compile with Postgresql persistent queue enabled"
-
-  # https://github.com/Homebrew/homebrew/issues/33246
-  patch :DATA
 
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
@@ -106,24 +103,3 @@ class Gearman < Formula
     assert_match /gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1)
   end
 end
-
-__END__
-diff --git a/libgearman/byteorder.cc b/libgearman/byteorder.cc
-index 674fed9..b2e2182 100644
---- a/libgearman/byteorder.cc
-+++ b/libgearman/byteorder.cc
-@@ -65,6 +65,8 @@ static inline uint64_t swap64(uint64_t in)
- }
- #endif
- 
-+#ifndef HAVE_HTONLL
-+
- uint64_t ntohll(uint64_t value)
- {
-   return swap64(value);
-@@ -74,3 +76,5 @@ uint64_t htonll(uint64_t value)
- {
-   return swap64(value);
- }
-+
-+#endif
