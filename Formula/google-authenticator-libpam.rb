@@ -4,6 +4,13 @@ class GoogleAuthenticatorLibpam < Formula
   url "https://github.com/google/google-authenticator-libpam/archive/1.05.tar.gz"
   sha256 "862412d6927ee1a19d81150006d53c21935897ba6d033616c31fc4d6aaa4db08"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6b76859ee4008c2d66712585617f0b47d5a40cb4583fda5784f9b7f05260387e" => :high_sierra
+    sha256 "1082f7a7a81ac9e3045176b66baedbdf956aca8ccd7e4b008013b24f0d2ed3c2" => :sierra
+    sha256 "2d48707e7e2dc9821c6954295c983ad76c9edcd6bac71f9da1cb2ecdb7b560a2" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
