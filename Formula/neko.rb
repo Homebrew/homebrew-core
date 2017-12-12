@@ -14,6 +14,13 @@ class Neko < Formula
       url "https://github.com/HaxeFoundation/neko/commit/a8c71ad97faaccff6c6e9e09eba2d5efd022f8dc.patch?full_index=1"
       sha256 "a5d08e5ff2f6372c780d2864b699aae714fc37d4ab987cea11764082757ddb39"
     end
+
+    patch do
+      # Fix issue https://github.com/HaxeFoundation/neko/issues/173
+      # It is based on commits already applied to the upstream.
+      url "https://github.com/HaxeFoundation/neko/compare/d3bf5be89b57e55a686b470b90a1ed912499ad1d...ac8952276c1c799dc3162a43a6bc54fa037fad68.patch"
+      sha256 "96ca3ad8bae5c67fe84d60ce9f73d73e8ec0948bfe57058e2739c883118b15de"
+    end
   end
 
   bottle do
@@ -33,6 +40,9 @@ class Neko < Formula
   depends_on "openssl"
 
   def install
+    # make has problem doing parallel build using nekoc/nekoml.
+    ENV.deparallelize
+
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-connector-c.
