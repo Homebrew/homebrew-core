@@ -14,6 +14,15 @@ class Jq < Formula
     sha256 "b55d226db14edc9ada42ecfd00ae64497702c616247fc8d5d7c35c01d25b26e5" => :mavericks
   end
 
+  devel do
+    url "https://github.com/stedolan/jq.git", :tag => "jq-1.6rc1"
+    version "1.6rc1"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   head do
     url "https://github.com/stedolan/jq.git"
 
