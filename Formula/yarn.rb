@@ -8,6 +8,8 @@ class Yarn < Formula
 
   depends_on "node" => :recommended
 
+  conflicts_with "hadoop", :because => "both install `yarn` binaries"
+
   def install
     libexec.install Dir["*"]
     (bin/"yarn").write_env_script "#{libexec}/bin/yarn.js", :PREFIX => HOMEBREW_PREFIX
