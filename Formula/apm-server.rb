@@ -2,7 +2,7 @@ class ApmServer < Formula
   desc "Server for shipping APM metrics to Elasticsearch"
   homepage "https://www.elastic.co/"
   url "https://github.com/elastic/apm-server/archive/v6.0.1.tar.gz"
-  sha256 "395408a3dc9c3db2b5c200b8722a13a60898c861633b99e6e250186adffd1370"
+  sha256 "68c61ae0c15c342248d4781fd138a08cbc80d4502606aed2d3960cb17aaadfd8"
   head "https://github.com/elastic/apm-server.git"
 
   bottle do
