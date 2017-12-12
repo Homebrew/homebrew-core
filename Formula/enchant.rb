@@ -5,12 +5,9 @@ class Enchant < Formula
   sha256 "039563bbb7340f320bd9237dac92303b3e7768152b08fc0d554d6957ae7183d8"
 
   bottle do
-    sha256 "e92d50c9ccdc12ec63543de5234f396c022addeed24d3e739d00797471253c0f" => :high_sierra
-    sha256 "22fe912e6addc1433750e5da08691be6ec4c721ac91e150b7d5a64b7637d3c19" => :sierra
-    sha256 "bbe368cbefd64aed845d98198d6f49fd533bc058b62290414865cca1ffdcc8cd" => :el_capitan
-    sha256 "0315d7b75f8bcae0196e76c192cb514d723fd79df6f043c7ac13b3289d018b14" => :yosemite
-    sha256 "622f8b9b8f008eab4d689c6b39c00887c803fb49b5ec461b7fe520737f179427" => :mavericks
-    sha256 "35e3487d842e8b4be3e4dfa6d7c34a48c17bd875871da738733cb9305585619c" => :mountain_lion
+    sha256 "caf76a7a4dd20898b726a67e341e1d14cb398bb8209c150bb33239ddb3a07208" => :high_sierra
+    sha256 "53ee18eb377da969936e416a08b3f64d85eb4553bbaafccf7dddce9a2965ef2f" => :sierra
+    sha256 "663074bcc44168c80fe3e61ee053a717d50e1578f31e54cb64f252dd1b65cb37" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
