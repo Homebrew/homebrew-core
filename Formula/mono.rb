@@ -22,11 +22,17 @@ class Mono < Formula
   link_overwrite "lib/cli"
 
   option "without-fsharp", "Build without support for the F# language."
+  option "without-msbuild", "Build without msbuild (xbuild is still installed)."
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+
+  depends_on "openssl" => :build if build.with? "msbuild"
+
+  # this is probably not necessary if OSX < high sierra.
+  depends_on "curl" => :build if build.with? "msbuild"
 
   conflicts_with "xsd", :because => "both install `xsd` binaries"
 
@@ -34,6 +40,12 @@ class Mono < Formula
     url "https://github.com/fsharp/fsharp.git",
         :tag => "4.1.23",
         :revision => "35a4a5b1f26927259c3213465a47b27ffcd5cb4d"
+  end
+
+  resource "msbuild" do
+    url "https://github.com/mono/msbuild.git",
+        :branch => "mono-2017-06",
+        :revision => "f296e67b6004dd39c3f43b177bcf45dfbe931341"
   end
 
   def install
@@ -61,6 +73,71 @@ class Mono < Formula
         system "./autogen.sh", "--prefix=#{prefix}"
         system "make"
         system "make", "install"
+      end
+    end
+
+    if build.with? "msbuild"
+      resource("msbuild").stage do
+        ENV.prepend_path "PATH", bin
+        msbpath = Pathname.getwd
+
+        # MSBuild's bootstrapper uses the dotnet cli, which in turn uses both
+        # OpenSSL and libcurl. We use homebrew formulas for those libraries and
+        # ensure the bootstrapped dotnet client does use homebrew's openssl+libcurl.
+
+        # Due to OSX SIP, we need to set up a wrapper to the dotnet client.
+        # Setting environment library search path variables won't work.
+        # (https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/RuntimeProtections/RuntimeProtections.html)
+
+        # Build DYLD_LIBRARY_PATH with openssl and curl keg paths
+        ldlibpath = Formula["openssl"].opt_prefix.to_s + "/lib"
+        ldlibpath << ":" + Formula["curl"].opt_prefix.to_s + "/lib"
+
+        if ENV["DYLD_LIBRARY_PATH"].nil?
+          # there seems to be no way to get the default search path from OS X,
+          # they are hardcoded within dyld.cpp and not in environment variables
+          # by default
+          ldlibpath << ":/usr/lib:/usr/local/lib"
+        else
+          # In case the environment variable defined, just prepend our paths
+          # The kegs must precede other paths so they are chosen first.
+          ldlibpath << ":" + ENV["DYLD_LIBRARY_PATH"]
+        end
+
+        # Draw the wrapper to call dotnet CLI using the brew library paths
+        (msbpath/"dotnetcli_wrapper.sh").write <<~EOS
+          #!/usr/bin/env bash
+          DYLD_LIBRARY_PATH='#{ldlibpath}' \"\$(dirname \${BASH_SOURCE[0]})\"/dotnet_org \"\${@}\"
+        EOS
+        File.chmod(0755, "dotnetcli_wrapper.sh")
+
+        # Now this script will replace the dotnet cli by the wrapper
+        (msbpath/"wrap_dotnetcli.sh").write <<~EOS
+          #!/usr/bin/env bash
+          echo -n "Wrapping the dotnet client tool to use homebrew libraries: "
+          mv Tools/dotnetcli/dotnet Tools/dotnetcli/dotnet_org
+          mv dotnetcli_wrapper.sh Tools/dotnetcli/dotnet
+          echo "done."
+        EOS
+        File.chmod(0755, "wrap_dotnetcli.sh")
+
+        # Tamper into the build script so that it wraps the dotnet client as
+        # soon as it becomes available
+        init_script = "./init-tools.sh"
+        data = File.readlines(init_script)
+
+        File.open(init_script, "w") do |script_handle|
+          data.each do |line|
+            script_handle.write(line)
+            unless line.match(/^ +cd \$__scriptpath$/).nil?
+              script_handle.write("./wrap_dotnetcli.sh\n")
+            end
+          end
+        end
+
+        system "make", "all-mono"
+
+        system "./install-mono-prefix.sh", prefix.to_s
       end
     end
   end
@@ -141,6 +218,20 @@ class Mono < Formula
         let main _ = printfn "#{test_str}"; 0
       EOS
       system bin/"xbuild", "test.fsproj"
+    end
+
+    if build.with? "msbuild"
+      # Just rebuild the main project with msbuild
+      pjpath = (testpath/"msbld")
+      Dir.mkdir(pjpath)
+      (pjpath/test_name).write((testpath/test_name).read)
+      (pjpath/"test.csproj").write((testpath/"test.csproj").read)
+      pjpath.cd do
+        system bin/"msbuild", "test.csproj"
+
+        output = shell_output("#{bin}/mono bin/Debug/HomebrewMonoTest.exe")
+        assert_match test_str, output.strip
+      end
     end
   end
 end
