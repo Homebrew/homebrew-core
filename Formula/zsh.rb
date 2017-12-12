@@ -77,6 +77,14 @@ class Zsh < Formula
     end
   end
 
+  def caveats; <<~EOS
+    To use the homebrew version for your shell run this:
+      sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+    To check for folder permission problems, run this:
+      /usr/local/bin/zsh -c 'source /usr/local/share/zsh/functions/compaudit'
+    EOS
+  end
+
   test do
     assert_equal "homebrew", shell_output("#{bin}/zsh -c 'echo homebrew'").chomp
     system bin/"zsh", "-c", "printf -v hello -- '%s'"
