@@ -7,7 +7,7 @@ class GoogleAuthenticatorLibpam < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "qrencode" => :recommended
+  depends_on "qrencode"
 
   def install
     system "./bootstrap.sh"
@@ -17,7 +17,7 @@ class GoogleAuthenticatorLibpam < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add 2-factor authentication for ssh:
       echo "auth required #{opt_lib}/security/pam_google_authenticator.so" \\
       | sudo tee -a /etc/pam.d/sshd
@@ -32,6 +32,7 @@ class GoogleAuthenticatorLibpam < Formula
 
   test do
     system "#{bin}/google-authenticator", "--force", "--time-based",
-      "--disallow-reuse", "--rate-limit=3", "--rate-time=30", "--window-size=3"
+           "--disallow-reuse", "--rate-limit=3", "--rate-time=30",
+           "--window-size=3"
   end
 end
