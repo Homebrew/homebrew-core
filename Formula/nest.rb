@@ -13,30 +13,36 @@ class Nest < Formula
   end
 
   option "with-python3", "Build Python3 bindings (PyNEST) instead of Python2 bindings."
-  option "without-openmp", "Build without OpenMP support."
-  needs :openmp if build.with? "openmp"
+  needs :openmp
 
-  depends_on "gsl" => :recommended
-  depends_on :mpi => [:optional, :cc, :cxx]
+  depends_on "cmake" => :build
+  depends_on :fortran => :build  # scipy
+  depends_on :mpi => [:build, :cc, :cxx]
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   # core only supports macOS and https://docs.brew.sh/Python-for-Formula-Authors.html#bindings
   # suggest removing the depends_on :python alltogether, hence removing it..
   depends_on :python3 => :optional
 
-  requires_py3 = []
-  requires_py3 << "with-python3" if build.with? "python3"
-  depends_on "numpy" => requires_py3
-  depends_on "scipy" => requires_py3
-  depends_on "matplotlib" => requires_py3
-
+  depends_on "gsl"
   depends_on "libtool" => :run
-  depends_on "readline" => :run
-  depends_on "cmake" => :build
+  depends_on "readline"
+
+  patch :DATA
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/ee/2a/c4d2cdd19c84c32d978d18e9355d1ba9982a383de87d0fcb5928553d37f4/Cython-0.27.3.tar.gz"
     sha256 "6a00512de1f2e3ce66ba35c5420babaef1fe2d9c43a8faab4080b0dbcc26bc64"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/bf/2d/005e45738ab07a26e621c9c12dc97381f372e06678adf7dc3356a69b5960/numpy-1.13.3.zip"
+    sha256 "36ee86d5adbabc4fa2643a073f93d5504bdfed37a149a3a49f4dde259f35a750"
+  end
+
+  resource "scipy" do
+    url "https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.xz"
+    sha256 "06b23f2a5db5418957facc86ead86b7752147c0461f3156f88a3da87f3dc6739"
   end
 
   resource "nose" do
@@ -44,15 +50,7 @@ class Nest < Formula
     sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
   end
 
-  fails_with :clang do
-    cause <<-EOS.undent
-      Building NEST with clang is not stable. See https://github.com/nest/nest-simulator/issues/74 .
-    EOS
-  end
-
   def install
-    ENV.delete("CFLAGS")
-    ENV.delete("CXXFLAGS")
     # The Homebrew site-packages path is automatically added to the PYTHONPATH
     # env var in Library/Homebrew/requirements/python_requirement.rb. However,
     # it is getting confused as to which version of Python we are using and
@@ -63,9 +61,7 @@ class Nest < Formula
 
     args = ["-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"]
 
-    args << "-Dwith-mpi=ON" if build.with? "mpi"
-    args << "-Dwith-openmp=OFF" if build.without? "openmp"
-    args << "-Dwith-gsl=OFF" if build.without? "gsl"
+    args << "-Dwith-mpi=ON"
 
     if build.with? "python3"
       args << "-Dwith-python=3"
@@ -80,13 +76,33 @@ class Nest < Formula
     end
 
     python_version = Language::Python.major_minor_version(python_exec)
+    bundle_path = libexec/"lib/python#{python_version}/site-packages"
+    bundle_path.mkpath
 
     resource("nose").stage do
-      system python_exec, *Language::Python.setup_install_args(libexec/"nose")
-      # only nose executable is interesting during testing - not adding a *.pth file
+      system python_exec, *Language::Python.setup_install_args(libexec)
     end
 
+    resource("numpy").stage do
+      # see https://github.com/Homebrew/homebrew-core/blob/master/Formula/numpy.rb
+      system python_exec, "setup.py",
+        "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}",
+        "install", "--prefix=#{libexec}",
+        "--single-version-externally-managed", "--record=installed.txt"
+    end
+
+    resource("scipy").stage do
+      # require numpy
+      ENV.prepend_create_path "PYTHONPATH", bundle_path
+      system python_exec, "setup.py",
+        "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}",
+        "install", "--prefix=#{libexec}",
+        "--single-version-externally-managed", "--record=installed.txt"
+    end
+    (lib/"python#{python_version}/site-packages/homebrew-nest-dependencies.pth").write "#{bundle_path}\n"
+
     resource("Cython").stage do
+      # is only a build dependency
       system python_exec, *Language::Python.setup_install_args(buildpath/"cython")
     end
 
@@ -94,7 +110,6 @@ class Nest < Formula
     ENV.prepend_create_path "PATH", buildpath/"cython/bin"
     ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{python_version}/site-packages"
 
-    # "out of source" build
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
@@ -105,8 +120,7 @@ class Nest < Formula
     # in nest-config if required
     inreplace bin/"nest-config",
         %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super},
-        "#{HOMEBREW_PREFIX}/bin",
-        FALSE
+        "#{HOMEBREW_PREFIX}/bin"
   end
 
   test do
@@ -141,7 +155,7 @@ class Nest < Formula
     end
 
     # add nosetest executable to path
-    ENV.prepend_create_path "PATH", libexec/"nose/bin"
+    ENV.prepend_create_path "PATH", libexec/"bin"
     # run all tests
     args = ["--test-pynest"]
 
@@ -150,3 +164,60 @@ class Nest < Formula
     system pkgshare/"extras/do_tests.sh", *args
   end
 end
+
+# The patch removes the last import statements of matplotlib related test-code
+# in PyNEST. Other matplotlib related code can mostly be found in the python
+# examples. This is also dead code.
+__END__
+diff --git a/pynest/nest/tests/test_sp/test_growth_curves.py b/pynest/nest/tests/test_sp/test_growth_curves.py
+index 3386978c..bceb9791 100644
+--- a/pynest/nest/tests/test_sp/test_growth_curves.py
++++ b/pynest/nest/tests/test_sp/test_growth_curves.py
+@@ -23,10 +23,8 @@ from scipy.integrate import quad
+ import math
+ import numpy
+ from numpy import testing
+-import pylab
+ import unittest
+ import nest
+-from nest import raster_plot
+ import time
+ HAVE_OPENMP = nest.sli_func("is_threaded")
+
+@@ -338,24 +336,6 @@ class TestGrowthCurve(unittest.TestCase):
+                 testing.assert_almost_equal(
+                     self.se_nest[n_i], self.se_python[sei_i], decimal=5)
+
+-    def plot(self):
+-        pylab.ion()
+-        for i, sei in enumerate(self.se_integrator):
+-            pylab.figure()
+-            pylab.subplot(1, 2, 1)
+-            pylab.title('Ca')
+-            pylab.plot(self.sim_steps, self.ca_nest[0, :])
+-            pylab.plot(self.sim_steps, self.ca_python[i])
+-            pylab.legend(('nest', sei.__class__.__name__))
+-            pylab.subplot(1, 2, 2)
+-            pylab.title('Synaptic Element')
+-            pylab.plot(self.sim_steps, self.se_nest[0, :])
+-            pylab.plot(self.sim_steps, self.se_python[i])
+-            pylab.legend(('nest', sei.__class__.__name__))
+-            pylab.savefig('sp' + sei.__class__.__name__ + '.png')
+-        raster_plot.from_device(self.spike_detector)
+-        pylab.savefig('sp_raster_plot.png')
+-
+     def test_linear_growth_curve(self):
+         beta_ca = 0.0001
+         tau_ca = 10000.0
+@@ -478,11 +458,6 @@ class TestGrowthCurve(unittest.TestCase):
+                         self.pop.index(n)],
+                     decimal=5)
+
+-    def tearDown(self):
+-        # uncomment this line if you want to plot values
+-        # self.plot()
+-        return
+-
+
+ def suite():
+     test_suite = unittest.makeSuite(TestGrowthCurve, 'test')
