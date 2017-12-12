@@ -3,6 +3,7 @@ class Newsboat < Formula
   homepage "https://newsboat.org/"
   url "https://github.com/newsboat/newsboat/archive/r2.10.1.tar.gz"
   sha256 "82d5e3e2a6dab845aac0bf72580f46c2756375d49214905a627284e5bc32e327"
+  revision 1
 
   bottle do
     sha256 "9dcbf0d0a026bc0c0667ce52698365f2f172e1222334657a4327c1101304b8ff" => :high_sierra

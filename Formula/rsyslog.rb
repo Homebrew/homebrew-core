@@ -3,6 +3,7 @@ class Rsyslog < Formula
   homepage "http://www.rsyslog.com"
   url "http://www.rsyslog.com/files/download/rsyslog/rsyslog-7.4.5.tar.gz"
   sha256 "f5e46e9324e366f20368162b4f561cf7a76fecb4aa0570edcaaa49e9f8c2fe70"
+  revision 1
 
   bottle do
     sha256 "cf810ad399795d9a031783649e1f1d19df652d0e346d9c93b1569a6f8090a95e" => :high_sierra

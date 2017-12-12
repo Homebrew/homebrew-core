@@ -3,6 +3,7 @@ class PamYubico < Formula
   homepage "https://developers.yubico.com/yubico-pam/"
   url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.24.tar.gz"
   sha256 "0326ff676e2b32ed1dda7fb5f1358a22d629d71caad8f8db52138bbf3e95e82d"
+  revision 1
 
   bottle do
     cellar :any

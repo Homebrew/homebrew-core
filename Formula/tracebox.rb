@@ -1,7 +1,7 @@
 class Tracebox < Formula
   desc "Middlebox detection tool"
   homepage "http://www.tracebox.org/"
-  revision 1
+  revision 2
   head "https://github.com/tracebox/tracebox.git"
 
   stable do

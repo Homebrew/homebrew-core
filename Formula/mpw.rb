@@ -4,6 +4,7 @@ class Mpw < Formula
   url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-4-0-gf8043ae1.tar.gz"
   version "2.6-cli-4"
   sha256 "90480c0994cccdaa6637cc311e2092e5b6f2fdc751b58d218a6bd61e4603b2a0"
+  revision 1
   head "https://github.com/Lyndir/MasterPassword.git"
 
   bottle do
