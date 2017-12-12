@@ -3,8 +3,8 @@ require "language/go"
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.8.2.tar.gz"
-  sha256 "130d6b37378f7dc0b9512a573b49bfaa95580606c770b999328fe78fd233869e"
+  url "https://github.com/pilosa/pilosa/archive/v0.8.3.tar.gz"
+  sha256 "ecf59f8296424e1661965430202d04e19ccb1cdfd595a66959f6665b16db31dd"
 
   bottle do
     cellar :any_skip_relocation
