@@ -26,8 +26,8 @@ class Qtads < Formula
     # Reported 11 Dec 2017 https://github.com/realnc/qtads/issues/7
     if DevelopmentTools.clang_build_version >= "900"
       patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/1cbb81b/qtads/xcode9.diff"
-        sha256 "1523a181cf45294ec2bb5b261279427c8673d547aae885ee50770d06d2231a6c"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/e189341/qtads/xcode9.diff"
+        sha256 "2016fef6e867b7b8dfe1bd5db64d588161aad1357faa1962ee48edbe35042ddc"
       end
     end
   end
