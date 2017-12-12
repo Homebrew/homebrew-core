@@ -21,6 +21,8 @@ class Kibana < Formula
   end
 
   def install
+    ENV.deparallelize
+
     resource("node").stage do
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "test"
