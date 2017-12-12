@@ -1,10 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.9.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.9.0.tar.bz2"
-  sha256 "1b29fedb8bfad775e70eafac5b0590621683b2d9869db994568e6401f4034ceb"
-  revision 1
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.10.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.10.0.tar.bz2"
+  sha256 "1a8fed1197c3b99c35f403066bb344a26224d292afc048cfdfc4ccd5690a0693"
 
   bottle do
     cellar :any
@@ -15,17 +14,12 @@ class Gpgme < Formula
     sha256 "dc03417ea2d4543a5b0b2d40bfc262af6b5f8ca036c3ab7cd495450f17f72255" => :yosemite
   end
 
+  depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libgpg-error"
   depends_on "libassuan"
-  depends_on "pth"
 
   def install
-    # Fix incorrect shared library suffix in CMake file
-    # Reported 25 May 2017 https://dev.gnupg.org/T3181
-    inreplace "lang/cpp/src/GpgmeppConfig.cmake.in.in", "libgpgme.so;",
-                                                        "libgpgme.dylib;"
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -39,5 +33,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
+    system "python", "-c", "import gpg; print gpg.version.versionstr"
   end
 end
