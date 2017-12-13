@@ -1,8 +1,8 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.1.tar.bz2"
-  sha256 "7a2875f8b1ae0301732e878c0cca2c9664ff09ef71408f085c50e332656a78b3"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.2.tar.bz2"
+  sha256 "c8064cae7558144b13ef0eb87093412380efa16c4ee30ad12ecb54886a524c07"
 
   bottle do
     cellar :any
