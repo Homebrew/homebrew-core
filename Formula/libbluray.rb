@@ -1,8 +1,8 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/pub/videolan/libbluray/1.0.1/libbluray-1.0.1.tar.bz2"
-  sha256 "0f9f9a1db2f48cafc70ed2596ff3594b597e2027408f5f2be6191c245d67853a"
+  url "https://download.videolan.org/pub/videolan/libbluray/1.0.2/libbluray-1.0.2.tar.bz2"
+  sha256 "6d9e7c4e416f664c330d9fa5a05ad79a3fb39b95adfc3fd6910cbed503b7aeff"
 
   bottle do
     cellar :any
@@ -21,11 +21,16 @@ class Libbluray < Formula
   end
 
   depends_on "ant" => :build
+  depends_on :java => ["1.8", :build]
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "freetype" => :recommended
 
   def install
+    # Need to set JAVA_HOME manually since ant overrides 1.8 with 1.8+
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+
     # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
 
