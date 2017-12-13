@@ -12,6 +12,8 @@ class Libsndfile < Formula
     sha256 "9df59790751d64c7f61682233a733030de9e6406682f3a15e30e708103930038" => :yosemite
   end
 
+  option "without-external-libs", "Disable external libraries (Flac and Vorbis)"
+
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -21,8 +23,15 @@ class Libsndfile < Formula
   depends_on "libvorbis"
 
   def install
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+    ]
+
+    args << "--disable-external-libs" if build.without? "external-libs"
+
     system "autoreconf", "-fvi"
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *args
     system "make", "install"
   end
 
