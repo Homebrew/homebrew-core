@@ -3,7 +3,6 @@ class Nest < Formula
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.14.0.tar.gz"
   sha256 "afaf7d53c2d5305fac1257759cc0ea6d62c3cebf7d5cc4a07d4739af4dbb9caf"
-  head "https://github.com/nest/nest-simulator.git"
 
   bottle do
     sha256 "4f7d765cd75ae3272ce15bb293c20a6cdfc9ccb551f0a07d00016c75ae0ef267" => :high_sierra
@@ -13,11 +12,9 @@ class Nest < Formula
   end
 
   option "with-python3", "Build Python3 bindings (PyNEST) instead of Python2 bindings."
-  needs :openmp
 
   depends_on "cmake" => :build
-  depends_on :fortran => :build  # scipy
-  depends_on :mpi => [:build, :cc, :cxx]
+  depends_on :fortran => :build # scipy
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   # core only supports macOS and https://docs.brew.sh/Python-for-Formula-Authors.html#bindings
@@ -27,8 +24,6 @@ class Nest < Formula
   depends_on "gsl"
   depends_on "libtool" => :run
   depends_on "readline"
-
-  patch :DATA
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/ee/2a/c4d2cdd19c84c32d978d18e9355d1ba9982a383de87d0fcb5928553d37f4/Cython-0.27.3.tar.gz"
@@ -61,7 +56,7 @@ class Nest < Formula
 
     args = ["-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"]
 
-    args << "-Dwith-mpi=ON"
+    args << "-Dwith-openmp=OFF"
 
     if build.with? "python3"
       args << "-Dwith-python=3"
@@ -138,86 +133,12 @@ class Nest < Formula
       ENV["NEST_SOURCE"] = pkgshare/"sources"
     end
 
-    if build.with? "mpi"
-      # we need the command /mpirun defined for the mpi tests
-      # and since we are in the sandbox, we create it again
-      nestrc = <<-EOS
-        /mpirun
-        [/integertype /stringtype /stringtype]
-        [/numproc     /executable /scriptfile]
-        {
-         () [
-          (mpirun -np ) numproc cvs ( ) executable ( ) scriptfile
-         ] {join} Fold
-        } Function def
-      EOS
-      File.open(ENV["HOME"]+"/.nestrc", "w") { |file| file.write(nestrc) }
-    end
-
     # add nosetest executable to path
     ENV.prepend_create_path "PATH", libexec/"bin"
     # run all tests
     args = ["--test-pynest"]
-
     ENV["PYTHON"] = "python3" if build.with? "python3"
 
     system pkgshare/"extras/do_tests.sh", *args
   end
 end
-
-# The patch removes the last import statements of matplotlib related test-code
-# in PyNEST. Other matplotlib related code can mostly be found in the python
-# examples. This is also dead code.
-__END__
-diff --git a/pynest/nest/tests/test_sp/test_growth_curves.py b/pynest/nest/tests/test_sp/test_growth_curves.py
-index 3386978c..bceb9791 100644
---- a/pynest/nest/tests/test_sp/test_growth_curves.py
-+++ b/pynest/nest/tests/test_sp/test_growth_curves.py
-@@ -23,10 +23,8 @@ from scipy.integrate import quad
- import math
- import numpy
- from numpy import testing
--import pylab
- import unittest
- import nest
--from nest import raster_plot
- import time
- HAVE_OPENMP = nest.sli_func("is_threaded")
-
-@@ -338,24 +336,6 @@ class TestGrowthCurve(unittest.TestCase):
-                 testing.assert_almost_equal(
-                     self.se_nest[n_i], self.se_python[sei_i], decimal=5)
-
--    def plot(self):
--        pylab.ion()
--        for i, sei in enumerate(self.se_integrator):
--            pylab.figure()
--            pylab.subplot(1, 2, 1)
--            pylab.title('Ca')
--            pylab.plot(self.sim_steps, self.ca_nest[0, :])
--            pylab.plot(self.sim_steps, self.ca_python[i])
--            pylab.legend(('nest', sei.__class__.__name__))
--            pylab.subplot(1, 2, 2)
--            pylab.title('Synaptic Element')
--            pylab.plot(self.sim_steps, self.se_nest[0, :])
--            pylab.plot(self.sim_steps, self.se_python[i])
--            pylab.legend(('nest', sei.__class__.__name__))
--            pylab.savefig('sp' + sei.__class__.__name__ + '.png')
--        raster_plot.from_device(self.spike_detector)
--        pylab.savefig('sp_raster_plot.png')
--
-     def test_linear_growth_curve(self):
-         beta_ca = 0.0001
-         tau_ca = 10000.0
-@@ -478,11 +458,6 @@ class TestGrowthCurve(unittest.TestCase):
-                         self.pop.index(n)],
-                     decimal=5)
-
--    def tearDown(self):
--        # uncomment this line if you want to plot values
--        # self.plot()
--        return
--
-
- def suite():
-     test_suite = unittest.makeSuite(TestGrowthCurve, 'test')
