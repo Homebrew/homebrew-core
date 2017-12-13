@@ -5,8 +5,9 @@ class StressNg < Formula
   sha256 "59c09c7cccb34222dc124ce8622a0ac73fe9391ba16a4a561267ca55c02f2520"
 
   def install
+    inreplace "Makefile", "/usr", prefix
     system "make"
-    bin.install "stress-ng"
+    system "make", "install"
   end
 
   test do
