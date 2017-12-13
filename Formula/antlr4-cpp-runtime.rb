@@ -6,10 +6,9 @@ class Antlr4CppRuntime < Formula
 
   bottle do
     cellar :any
-    sha256 "613f3710fe14099054bf112b647dd4e9c62990b5164135d048d9a1002e542836" => :high_sierra
-    sha256 "5234bcb1f4db6ef16b1f5921d9992fba3778099bc7a9692ae35c10157478498e" => :sierra
-    sha256 "7e9caa8a5dce7785e6d9769747fd5e21c91391237caf64632d21a6975f09336a" => :el_capitan
-    sha256 "b8ad063314e460e17e18def0d963c8cc644c93133b75949dcc641eecef16125b" => :yosemite
+    sha256 "bdb81df9b567f1d0584712616f4e5e8d4028c0875c79c0e4479e3db98be498f7" => :high_sierra
+    sha256 "3b41cda988528eaa6f9c8792464f5a71786674774dc3ab370b6bb1171d5758cb" => :sierra
+    sha256 "5cc0d3c4ef8111228b058c52a1645168d772d797ed2cbf7747f38d1803c08dc9" => :el_capitan
   end
 
   depends_on "cmake" => :build
