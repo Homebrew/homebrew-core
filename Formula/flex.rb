@@ -11,12 +11,29 @@ class Flex < Formula
     sha256 "c8aaca29a77a6b3e2383f7d80b12eccbbf131162e5157a4a320117d4c564a4bf" => :yosemite
   end
 
+  head do
+    url "https://github.com/westes/flex.git"
+
+    # https://github.com/westes/flex/issues/294
+    depends_on "gnu-sed" => :build
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_by_osx, "some formulae require a newer version of flex"
 
   depends_on "help2man" => :build
   depends_on "gettext"
 
   def install
+    if build.head?
+      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+
+      system "./autogen.sh"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-shared",
