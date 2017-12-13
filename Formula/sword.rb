@@ -1,8 +1,8 @@
 class Sword < Formula
   desc "Cross-platform tools to write Bible software"
   homepage "https://www.crosswire.org/sword/index.jsp"
-  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.7/sword-1.7.4.tar.gz"
-  sha256 "995da8cf5a207c1f09809bf4b9db0bd7d267da5fcdb9d6666c9b313edd9d213d"
+  url "https://crosswire.org/sword/alpha/rc/sword-1.7.906.tar.gz"
+  sha256 "7f035ba298db11fe8e41f90b5b110fa0ef52062311514fc5f662e6c22adf3483"
 
   bottle do
     rebuild 2
