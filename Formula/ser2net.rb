@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-2.10.1.tar.gz"
-  sha256 "cee4ad8fb3531281e8761751694dfab39d681022b2363b1edeba764d397c3c99"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-3.5.tar.gz"
+  sha256 "ba9e1d60a89fd7ed075553b4a2074352902203f7fbd9b65b15048c05f0e3f3be"
 
   bottle do
     rebuild 1
@@ -11,14 +11,24 @@ class Ser2net < Formula
     sha256 "5b94f195c765af83306e29f0d8e2556751cbdad1669866761faaeaf199023805" => :el_capitan
   end
 
+  depends_on :macos => :sierra # needs clock_gettime
+
   def install
+    # values.h doesn't exist on macOS
+    # https://github.com/cminyard/ser2net/pull/4
+    inreplace "readconfig.c", "#include <values.h>", ""
+
     # Fix etc location
     inreplace ["ser2net.c", "ser2net.8"], "/etc/ser2net.conf", "#{etc}/ser2net.conf"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system "make", "install"
+
+    # LIBS is set to "-lpthread -lrt" but librt doesn't exist on macOS
+    # https://github.com/cminyard/ser2net/issues/3
+    system "make", "install", "LIBS=-lpthread"
+
     etc.install "ser2net.conf"
   end
 
