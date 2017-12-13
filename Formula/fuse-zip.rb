@@ -1,8 +1,8 @@
 class FuseZip < Formula
   desc "FUSE file system to create & manipulate ZIP archives"
   homepage "https://bitbucket.org/agalanin/fuse-zip"
-  url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.4.2.tar.gz"
-  sha256 "3d4ee113d4c7918ad3c660f8088473d5fabf67b3476fef16ec7f5bd8a4182fdc"
+  url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.4.4.tar.gz"
+  sha256 "c464a63ca7cc16eef7c14036fe09823ca9d96a0ef530e274845044a5440e47d2"
   head "https://bitbucket.org/agalanin/fuse-zip", :using => :hg
 
   bottle do
