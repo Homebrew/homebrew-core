@@ -1,9 +1,8 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.9.0.tar.bz2"
-  sha256 "c97f430f9f815c3a8d9758e7611054224908727af938a28e0eef700add02e1dc"
-  revision 1
+  url "https://dl.bintray.com/fanout/source/zurl-1.9.1.tar.bz2"
+  sha256 "b57385d768c9df62dd225a462d0e35998f95fdbd34ea628bf3d6a38b012dba41"
 
   bottle do
     cellar :any
@@ -23,10 +22,6 @@ class Zurl < Formula
   end
 
   def install
-    # Fix "Unable to find the 'qmake' tool for Qt 4 or 5." wit Qt 5.10
-    # Reported 11 Dec 2017 https://github.com/fanout/zurl/issues/12
-    inreplace "configure", "?.?.?)", "?.??.?)"
-
     system "./configure", "--prefix=#{prefix}", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
     system "make", "check"
