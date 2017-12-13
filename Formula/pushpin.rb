@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.17.0.tar.bz2"
-  sha256 "3cd1d869dced330af712d64f72e18a80545bdd60f96c6af83c0cdd7c6ba8f416"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.17.1.tar.bz2"
+  sha256 "58a8f845289b213dc755242d6008b2f01fc285ce3f462f5a68bf70a481b1f727"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
@@ -18,10 +18,6 @@ class Pushpin < Formula
   depends_on "zurl"
 
   def install
-    # Fix "Unable to find the 'qmake' tool for Qt 4 or 5." wit Qt 5.10
-    # Reported 11 Dec 2017 https://github.com/fanout/pushpin/issues/47651
-    inreplace "configure", "?.?.?)", "?.??.?)"
-
     system "./configure", "--prefix=#{prefix}", "--configdir=#{etc}", "--rundir=#{var}/run", "--logdir=#{var}/log", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
     system "make", "check"
