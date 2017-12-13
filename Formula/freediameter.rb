@@ -6,11 +6,9 @@ class Freediameter < Formula
   head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
-    sha256 "2217625f090f66370018131ceefb9ccdfd9f8fd64b73bf08a63a9d9a0166da8a" => :high_sierra
-    sha256 "20927075755cc1df49f15c87defd3aa10154c94e4a249e895cb7f65be8e6db78" => :sierra
-    sha256 "aa6f29018beafbe23e475334ed5be3718ba428e88b0741ef199d66cdaa988d08" => :el_capitan
-    sha256 "786f9873dbf0e85e8a54272697404d99fa60f6872fc8fdad54d66e8184c4dc28" => :yosemite
-    sha256 "c031628f3bbd387bdea44364fc6e99065216b68f2d2bf61abf516055e69f6620" => :mavericks
+    sha256 "8a16e612b93ae8a1c55fe090f0301a7d778c858730a144c152aa6eb8080d8c68" => :high_sierra
+    sha256 "615bfb731e99779234533bed9f6def01487783e1b1b22f3f6d41efceef1899bb" => :sierra
+    sha256 "6d562bd62780a6b942b6ca3b4b1807a6ac3eef80209748b6748bcbc8b6b389b5" => :el_capitan
   end
 
   option "with-all-extensions", "Enable all extensions"
