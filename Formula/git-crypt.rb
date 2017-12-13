@@ -6,12 +6,9 @@ class GitCrypt < Formula
 
   bottle do
     cellar :any
-    sha256 "f9c8fe4eb10891bb2afcda6e6f1639cd59c3579c2a52e0c5127e1dd649c3954e" => :high_sierra
-    sha256 "8d7f6640e34881ae40a2e949b7755eb9faa711399c37b86892df359b1a368bb2" => :sierra
-    sha256 "ed93687aa2996d6171f9090062f24453028c7d9d97e9842a0fee7aee57648979" => :el_capitan
-    sha256 "ce33f2d01af41259b6ea9be1e849000bdd08413b1f109268ea65709644d455eb" => :yosemite
-    sha256 "2cedd573983fe7ec7387e76f9ffd0ba351e71e19e3382f7365209d1aad0f7e3f" => :mavericks
-    sha256 "1bba33a973b90d39140a64193bcdab63b34c3b4f379850ee41ee155325173f4f" => :mountain_lion
+    sha256 "03bde5159a767e33afba44e6d14f937e0a1864a50035280ac59784da0738e712" => :high_sierra
+    sha256 "b89552d865cfd7f2473f681a669ae63a0ee980c5cdee6d97a3d8189a3eac6ddd" => :sierra
+    sha256 "e456ffd793629abea8debdcb761ff73ff2dcfe60493a298f763d238822add437" => :el_capitan
   end
 
   depends_on "openssl"
