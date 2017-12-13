@@ -1,8 +1,8 @@
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
-  url "https://gforge.inria.fr/frs/download.php/30130/mpfi-1.5.1.tar.gz"
-  sha256 "ea2725c6f38ddd8f3677c9b0ce8da8f52fe69e34aa85c01fb98074dc4e3458bc"
+  url "https://gforge.inria.fr/frs/download.php/file/37307/mpfi-1.5.2.tar.bz2"
+  sha256 "c04f52cb306824b91b6d6eacf4f675b91fdee47c30f14d5b346dbfcd2492d274"
 
   bottle do
     cellar :any
@@ -35,7 +35,8 @@ class Mpfi < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lgmp", "-lmpfr", "-L#{lib}", "-lmpfi", "-o", "test"
+    system ENV.cc, "test.c", "-lgmp", "-lmpfr", "-L#{lib}", "-lmpfi",
+                   "-o", "test"
     system "./test"
   end
 end
