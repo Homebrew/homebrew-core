@@ -1,8 +1,8 @@
 class Nvm < Formula
   desc "Manage multiple Node.js versions"
   homepage "https://github.com/creationix/nvm"
-  url "https://github.com/creationix/nvm/archive/v0.33.7.tar.gz"
-  sha256 "bd00936547810c7fba497c398c534eb8f320e6a9fadcb34dea696944f7c50fe1"
+  url "https://github.com/creationix/nvm/archive/v0.33.8.tar.gz"
+  sha256 "59429f4bf3da7c2b7bcac06c488054dd774ae6962bdcefe249015d3590704b0b"
   head "https://github.com/creationix/nvm.git"
 
   bottle :unneeded
