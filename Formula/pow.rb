@@ -1,8 +1,8 @@
 class Pow < Formula
   desc "Zero-config Rack server for local apps on macOS"
   homepage "http://pow.cx/"
-  url "http://get.pow.cx/versions/0.5.0.tar.gz"
-  sha256 "2e5f74d7c2f44004eb722eddf37356cd09b5563fde987b4c222fa6947ce388b7"
+  url "http://get.pow.cx/versions/0.6.0.tar.gz"
+  sha256 "225e52bdc0ace5747197a5ece777785245110e576a5136a3d17136ab88a74364"
 
   bottle :unneeded
 
@@ -31,5 +31,9 @@ class Pow < Formula
         sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
         launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
     EOS
+  end
+
+  test do
+    assert_predicate bin/"pow", :exist?
   end
 end
