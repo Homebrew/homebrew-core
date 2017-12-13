@@ -24,6 +24,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
+  revision 1
 
   bottle do
     sha256 "a411a491634b24b7e64346a64e3cd9bb53b75e658be632424905baedd3a047f2" => :high_sierra
