@@ -5,9 +5,9 @@ class Nsd < Formula
   sha256 "b0782cb9b57416888d488b6460b071cd85ecb5f99381865b3a7f93dddf9e02c5"
 
   bottle do
-    sha256 "2461a9457ed18b62c945abd232ac9cb84d386d412b4bacf1a631a38d17349366" => :high_sierra
-    sha256 "1fd08fdc849eba505862062dfbf7216d04b6482404ec3827f7331d6205016e26" => :sierra
-    sha256 "a0f4fad40dd95080f60d4abe85be7287593a9c32cce6877a4f0384d9eb00ae72" => :el_capitan
+    sha256 "6ef332c3392464989adf52f1024df7c3cc10bcb32f539bffe018d59c979c285a" => :high_sierra
+    sha256 "212b8aaf46c6a59c3d75a4125551d84792055fafca9d6981da99935865eefd85" => :sierra
+    sha256 "0d5e6414a4bd77ff48fe36530107d7150690b5e9b1666b41fcd9b4a301bfefb6" => :el_capitan
   end
 
   option "with-root-server", "Allow NSD to run as a root name server"
