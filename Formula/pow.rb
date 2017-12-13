@@ -32,8 +32,4 @@ class Pow < Formula
         launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
     EOS
   end
-
-  test do
-    assert_predicate bin/"pow", :exist?
-  end
 end
