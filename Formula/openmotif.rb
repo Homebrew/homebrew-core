@@ -5,10 +5,9 @@ class Openmotif < Formula
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
 
   bottle do
-    sha256 "e90188438ef546f721a8818af80970ae9a7939b3d1a926d1805a266f4e4911e4" => :high_sierra
-    sha256 "efdbcaaf32496ce3a728c75c2349e28ca8a4b53463b24f3907d55ede3a7a5988" => :sierra
-    sha256 "73b9b20a5b215fa6f60facf5f431e29fd86110103f533adf6e340b4090c8ff7c" => :el_capitan
-    sha256 "3184a926a49f650bf07e100454401a777233986ea2c69eb1fef0e2e7922ebcab" => :yosemite
+    sha256 "ca0c7a96b098ed5efc2dace2cb1b9bc2447c8f1cf0780e882bfee691160466e0" => :high_sierra
+    sha256 "21120a7b3aab57d5660c480ab5f1924cbfb31e8625674bf02704971f103616f9" => :sierra
+    sha256 "bef02966fb2d72ac23235c8038cdf864cefe47d1cb905fac08a9194d7c9ed554" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
