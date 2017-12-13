@@ -7,11 +7,9 @@ class ErlangAT18 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c9e0f48a2db7b2c4a3aa58d2b7707128a9a7a7739c8ef4aaf8a79395d3fbdece" => :high_sierra
-    sha256 "0ca10369f89c7a561bd54a884e0cd9dc1ac67ab53a652a19e1dcc3007374a77a" => :sierra
-    sha256 "68419c51401c6c144ea0b5a9c7a327c397a4bd92ff0c6b5d083a73c7d81caf05" => :el_capitan
-    sha256 "8a1880af3b22343f01e0b2ceb716bda49cd324fb55027179210f2469bd6cda94" => :yosemite
+    sha256 "82b98c0b7179ca82d30cd35c4f2e6c7cd4f34096d27f954ed688beeb249944df" => :high_sierra
+    sha256 "51422ba2069aed05ec06f35a7228f931ded4b9fc656f5eb80e1cf5f903e8a502" => :sierra
+    sha256 "150f59e18740c46f5579824cd434bc979977de27ab81d1e0ef5c7e001510612e" => :el_capitan
   end
 
   keg_only :versioned_formula
