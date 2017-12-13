@@ -3,6 +3,7 @@ class Libqalculate < Formula
   homepage "https://qalculate.github.io/"
   url "https://github.com/Qalculate/libqalculate/releases/download/v2.2.0/libqalculate-2.2.0.tar.gz"
   sha256 "1f02c58cc14e899a77970d3ad97afe4e3a765e6b602b3f3d38fbc5039d466288"
+  revision 1
 
   bottle do
     sha256 "5ace7754ec90eef2c421c83355b59245cafe077450160e1d1ceea37076a34a56" => :high_sierra
