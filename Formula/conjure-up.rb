@@ -5,6 +5,7 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.4.2.tar.gz"
   sha256 "ca5557ca7c11eb01bb0c840a4897b4048eea9313e0a1db309e8326c478add96e"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,6 +17,7 @@ class ConjureUp < Formula
   depends_on :python3
   depends_on "libyaml"
   depends_on "juju"
+  depends_on "juju-wait"
   depends_on "jq"
   depends_on "wget"
   depends_on "redis"
@@ -206,7 +208,6 @@ class ConjureUp < Formula
   def install
     virtualenv_install_with_resources
     bin.install_symlink "#{libexec}/bin/kv-cli"
-    bin.install_symlink "#{libexec}/bin/juju-wait"
   end
 
   test do
