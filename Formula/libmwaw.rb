@@ -6,10 +6,9 @@ class Libmwaw < Formula
 
   bottle do
     cellar :any
-    sha256 "6f967f0d8f865b8d0d22cb5a66aecd134af65bd4527c941871cc5e4d80022f72" => :high_sierra
-    sha256 "cf87f81fa04748497c0881a90df5acb22d19f2374f63f06bbff4e4c4b79eca96" => :sierra
-    sha256 "706ff282c0d7b2a51f6fac26b05da3d146112e5b0ec9db4f33abca5f07570d4d" => :el_capitan
-    sha256 "40105be908f02a901ca8c517bccf9509ac6439bdafe9afa10eedb667d3071c36" => :yosemite
+    sha256 "df8f0b79f09b6fa30a010d892d603ad132b7e3afcd99b4ddb3de18b4b58e9991" => :high_sierra
+    sha256 "e819d6a8f20f6cbab7d4cbdb189e2ee3ce1c974e596134e3b80927b6c70ea54a" => :sierra
+    sha256 "bdcd4556d74bfa584addfb584b2ebdab04746662955d4d265c762944243d9398" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
