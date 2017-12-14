@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://github.com/conan-io/conan/archive/0.29.2.tar.gz"
-  sha256 "d2d59472ac5bce7d5569fa30026bb51b7da6c0be8bbf40821d29a7d290ad2010"
+  url "https://github.com/conan-io/conan/archive/0.30.1.tar.gz"
+  sha256 "d290d61947ab7f0d0f1ba2259f653a9406cbd42c461724af3d41829e5d5336be"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
@@ -28,7 +28,7 @@ class Conan < Formula
   end
 
   test do
-    system bin/"conan", "install", "zlib/1.2.8@lasote/stable", "--build"
-    assert_predicate testpath/".conan/data/zlib/1.2.8", :exist?
+    system bin/"conan", "install", "zlib/1.2.11@conan/stable", "--build"
+    assert_predicate testpath/".conan/data/zlib/1.2.11", :exist?
   end
 end
