@@ -3,7 +3,7 @@ class Mpd < Formula
   homepage "https://www.musicpd.org/"
   url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.12.tar.xz"
   sha256 "e159ac0608fb85c891bd19375ed7056d5f9ec4ba492b052f24820513e774f709"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "406a4e5a7da340d214673e1963addef9ab616e834bcc9d7917c2c1655123b1e6" => :high_sierra
