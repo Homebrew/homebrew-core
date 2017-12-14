@@ -3,7 +3,7 @@ class Dwdiff < Formula
   homepage "https://os.ghalkes.nl/dwdiff.html"
   url "https://os.ghalkes.nl/dist/dwdiff-2.1.1.tar.bz2"
   sha256 "9745860faad6cb58744c7c45d16c0c7e222896c80d0cd7208dd36126d1a98c8b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "a09170f4714ce1c3f2868c0fece7977e149fdcd91bc903bbf1ce955af170a624" => :high_sierra
