@@ -18,8 +18,6 @@ class Roswell < Formula
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-manual-generation",
-                          "--enable-html-generation",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
