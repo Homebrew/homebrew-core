@@ -4,6 +4,11 @@ class OpenMpi < Formula
   url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.bz2"
   sha256 "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
 
+  patch do
+    url "https://patch-diff.githubusercontent.com/raw/open-mpi/ompi/pull/4363.patch"
+    sha256 "9df2c09a7aa8c208ed6dc44012ceaef129526fad6080f200d2a1f1e924572d8c"
+  end
+
   bottle do
     sha256 "f1a885c11086fa6a2ead5ec91d88a9bf6234f8ad4ccc2730a9b4798c70c8d1b5" => :high_sierra
     sha256 "ca5c002fe4bd9d08b6598274c56ac65b9518425d7b2d50ad6410b496a20cf0c1" => :sierra
