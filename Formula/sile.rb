@@ -5,7 +5,7 @@ class Sile < Formula
   url "https://github.com/simoncozens/sile.git",
       :revision => "befcd813e1dd46f7af6d11ffd0b0ee525e8db1fc"
   version "0.9.5-alpha"
-  revision 2
+  revision 3
   head "https://github.com/simoncozens/sile.git"
 
   bottle do
