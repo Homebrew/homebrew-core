@@ -8,9 +8,9 @@ class Erlang < Formula
 
   bottle do
     cellar :any
-    sha256 "484f9cdad333e8b16da9fb5eae5c9061f6643533f52b94643ee6eb747976a67a" => :high_sierra
-    sha256 "a31e56bf68c281a918ca3edd8dad5e343cd577fce1b55a7269ed1207db7d573b" => :sierra
-    sha256 "3dffba31a680d71711c826cc8eac7044dccaae2a572d0e5c33b8b12e6d46e893" => :el_capitan
+    sha256 "bb39983766ddf34ef1b5a1e33373fa111281bb9f983c1b9a01aeca5854ac0490" => :high_sierra
+    sha256 "7763581e6ed2d6424f1e595cdea69bb00c197736a6cc9f429595e9c9a24e330c" => :sierra
+    sha256 "d511cf9db2db0694f01d80006ad68732934c6b05c231ac758be46a4d468b7f8b" => :el_capitan
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
