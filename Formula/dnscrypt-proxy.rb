@@ -3,7 +3,7 @@ class DnscryptProxy < Formula
   homepage "https://dnscrypt.org"
   url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
   sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
-  revision 1
+  revision 2
 
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
@@ -75,6 +75,7 @@ class DnscryptProxy < Formula
   def post_install
     return if build.without? "minisign"
 
+    ENV["PATH"] = PATH.new(ENV["PATH"]).prepend(Formula["minisign"].opt_bin)
     system bin/"dnscrypt-update-resolvers"
   end
 
