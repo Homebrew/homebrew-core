@@ -23,8 +23,7 @@ class Mupdf < Formula
            "build=release",
            "verbose=yes",
            "CC=#{ENV.cc}",
-           "prefix=#{prefix}",
-           "HAVE_GLFW=no" # Do not build OpenGL viewer: https://bugs.ghostscript.com/show_bug.cgi?id=697842
+           "prefix=#{prefix}"
     bin.install_symlink "mutool" => "mudraw"
   end
 
