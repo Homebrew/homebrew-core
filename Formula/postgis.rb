@@ -3,6 +3,7 @@ class Postgis < Formula
   homepage "https://postgis.net/"
   url "http://download.osgeo.org/postgis/source/postgis-2.4.2.tar.gz"
   sha256 "23625bc99ed440d53a20225721095a3f5c653b62421c4d597c8038f0d7a321d9"
+  revision 1
 
   bottle do
     cellar :any
