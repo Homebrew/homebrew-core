@@ -20,9 +20,9 @@ class Monetdb < Formula
   sha256 "473b2ea245d8fe006aabe5b2ea3924ade0283f46cfd2edf6fce6aa786c191d0b"
 
   bottle do
-    sha256 "d5d26fa59961d0c9d869fe84b8acfc76ec794a50e12b7558646cf63121f0d1b4" => :high_sierra
-    sha256 "8a2dd3fd20b34cd20a367b281ef9feacb048ab54b6e29a41e45ceb13377ee649" => :sierra
-    sha256 "09d0e6e755dc22b8c095413cb3dafbe9d52a9077248f0a2e5558c2850aeccab6" => :el_capitan
+    sha256 "b8c38e0b053c589f448b86f7bcc4ba2b22cc4ee6cc759806104b2a45b7d669e7" => :high_sierra
+    sha256 "a04f389b14877abe7905df45df092d0069318af75a885c7154c1b85b2428a0a2" => :sierra
+    sha256 "67185b1d204514a4cb67692ada2bb2ca1bb00fe25021101e52929fe57333e492" => :el_capitan
   end
 
   head do
