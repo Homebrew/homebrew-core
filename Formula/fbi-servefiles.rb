@@ -5,6 +5,13 @@ class FbiServefiles < Formula
   url "https://github.com/Steveice10/FBI/archive/2.4.13.tar.gz"
   sha256 "f03d96a32622fd3b9732ff734d9d65b50d4af445eed8e6eb77fd9641265eb42e"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0065f2be62f713c4200dabbf528fbc1d50d206efe7c6b03cfc1f73c1213723b1" => :high_sierra
+    sha256 "8f68dde6bf8594d3e9f47bf6e39dd4b427bcc733f3a383075bdc9934efe3e0e9" => :sierra
+    sha256 "fb14ed2b7103bc58d79da73cb7ab150da741bdbbf12dea007233327520d8b5b2" => :el_capitan
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
