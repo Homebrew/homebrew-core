@@ -4,6 +4,13 @@ class Kedge < Formula
   url "https://github.com/kedgeproject/kedge/archive/v0.6.0.tar.gz"
   sha256 "8df6c9251c8ea447c67cda0eac89a145573d4295b11d76191b3da803189b20d0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "62ee80927a06946cd6c4cce905de732f98b0bc71d6a637b6faff7c3878d9fc24" => :high_sierra
+    sha256 "c7446f35e6eaf85b6fb8dfbf16c2c6f23324f20c6cfb89fb5f07d90d0ab544d4" => :sierra
+    sha256 "c80dd62de6e40378c8b0db2dc567baa72d2d8faf1d5b2bae5f2f8766eeb7504f" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
