@@ -1,8 +1,8 @@
 class ScIm < Formula
   desc "Spreadsheet program for the terminal, using ncurses"
   homepage "https://github.com/andmarti1424/sc-im"
-  url "https://github.com/andmarti1424/sc-im/archive/v0.6.0.tar.gz"
-  sha256 "5da644d380ab3752de283b83cce18c3ba12b068d0762c44193c34367a0dcbc38"
+  url "https://github.com/andmarti1424/sc-im/archive/v0.7.0.tar.gz"
+  sha256 "87225918cb6f52bbc068ee6b12eaf176c7c55ba9739b29ca08cb9b6699141cad"
   head "https://github.com/andmarti1424/sc-im.git", :branch => "freeze"
 
   bottle do
@@ -28,6 +28,6 @@ class ScIm < Formula
     output = pipe_output(
       "#{bin}/scim --nocurses --quit_afterload 2>/dev/null", input
     )
-    assert_equal "nowide 2", output.lines.last.chomp
+    assert_equal "2", output.lines.last.chomp
   end
 end
