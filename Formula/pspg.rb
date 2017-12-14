@@ -5,6 +5,12 @@ class Pspg < Formula
   sha256 "754d1e380d072517e9bc2c3c38785e2f19a9f927f061de9a646fd1094baa204e"
   head "https://github.com/okbob/pspg.git"
 
+  bottle do
+    cellar :any
+    sha256 "d159b8f3c7bad990fd57208f0b9255baf29be41e59182aa9b414d0660769c1df" => :sierra
+    sha256 "5854a75e2b6f62830d5e3b5597950130409f236c9b790b4147cdc2a013155252" => :el_capitan
+  end
+
   depends_on "ncurses"
 
   def install
