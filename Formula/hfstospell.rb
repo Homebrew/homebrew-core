@@ -3,7 +3,7 @@ class Hfstospell < Formula
   homepage "https://hfst.github.io/"
   url "https://github.com/hfst/hfst-ospell/releases/download/v0.4.5/hfstospell-0.4.5.tar.gz"
   sha256 "cf10817d1d82f0a7268992ab6ccf475fae2d838e6b9fc59eb6db38e9c21a311e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any

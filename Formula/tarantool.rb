@@ -3,6 +3,7 @@ class Tarantool < Formula
   homepage "https://tarantool.org/"
   url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.6.12.tar.gz"
   sha256 "c421ab57a9ed23528e8b3722255b801ef1baa2d631e0725c0ba014314e1b11de"
+  revision 1
   head "https://github.com/tarantool/tarantool.git", :branch => "1.8", :shallow => false
 
   bottle do
