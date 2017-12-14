@@ -3,6 +3,7 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz"
   sha256 "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
+  revision 1
 
   bottle do
     sha256 "4e111ba8e35f8fe50e45e1ed1ff25ba1882578c2c33c1da5bb95794019621cfe" => :high_sierra
