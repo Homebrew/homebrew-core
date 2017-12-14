@@ -3,13 +3,11 @@ class Nopoll < Formula
   homepage "https://www.aspl.es/nopoll/"
   url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.5.b375.tar.gz"
   sha256 "4ecbd277714c9acd154277a46388689f9d651836ca5c69990e35d1eee8c7ceae"
-  head "https://github.com/asples/nopoll.git"
 
   depends_on "openssl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
@@ -24,7 +22,8 @@ class Nopoll < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}/nopoll", "-L#{lib}", "-lnopoll", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}/nopoll", "-L#{lib}", "-lnopoll",
+           "-o", "test"
     system "./test"
   end
 end
