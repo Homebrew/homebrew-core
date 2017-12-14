@@ -1,8 +1,8 @@
 class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
-  url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.5.2.tar.gz"
-  sha256 "bc158b4fb8edc5034f8f8b4ca1a90d48590f516b33f9edec325fce8762418069"
+  url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
+  sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
