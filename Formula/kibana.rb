@@ -4,8 +4,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v6.0.1",
-      :revision => "8e27db38d19e7246b985612db0a07837ff4ea6b9"
+      :tag => "v6.1.0",
+      :revision => "9f4da1dd18e4c1564b6214d5e0fb43058e94aa6c"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
