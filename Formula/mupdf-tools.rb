@@ -18,8 +18,7 @@ class MupdfTools < Formula
            "verbose=yes",
            "HAVE_X11=no",
            "CC=#{ENV.cc}",
-           "prefix=#{prefix}",
-           "HAVE_GLFW=no" # Do not build OpenGL viewer: https://bugs.ghostscript.com/show_bug.cgi?id=697842
+           "prefix=#{prefix}"
 
     # Symlink `mutool` as `mudraw` (a popular shortcut for `mutool draw`).
     bin.install_symlink bin/"mutool" => "mudraw"
