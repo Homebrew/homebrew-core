@@ -4,6 +4,8 @@ class StressNg < Formula
   url "http://kernel.ubuntu.com/~cking/tarballs/stress-ng/stress-ng-0.09.06.tar.xz"
   sha256 "59c09c7cccb34222dc124ce8622a0ac73fe9391ba16a4a561267ca55c02f2520"
 
+  depends_on :macos => :sierra
+
   def install
     inreplace "Makefile", "/usr", prefix
     system "make"
