@@ -1,8 +1,8 @@
 class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/products/beats/heartbeat"
-  url "https://github.com/elastic/beats/archive/v6.0.1.tar.gz"
-  sha256 "10cbac9789b227e844ad47ef563266057f5b7f6ca58d480f46c966e5055694ce"
+  url "https://github.com/elastic/beats/archive/v6.1.0.tar.gz"
+  sha256 "1dc37aa296a96d3ced69d0b31815e08a1985aaf2f02113889465502bb02478ac"
   head "https://github.com/elastic/beats.git"
 
   bottle do
