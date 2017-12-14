@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.1.7.tar.gz"
-  sha256 "4981aa41a78039e8353e3f8b349f5423c582c05ccef46a15420006e8dbb3f502"
+  url "https://github.com/erlang/otp/archive/OTP-20.2.tar.gz"
+  sha256 "32c05e0fccc0a83f03266c05ced0294eb2da70ad8657718a1a917686c7b76aae"
   head "https://github.com/erlang/otp.git"
 
   bottle do
@@ -31,15 +31,15 @@ class Erlang < Formula
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_20.1.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_20.1.tar.gz"
-    sha256 "05ccf82ff85316e2eb1bebf1a1741dfac1ee450ed49cf0be365f9d4fec6d7b46"
+    url "https://www.erlang.org/download/otp_doc_man_20.2.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_20.2.tar.gz"
+    sha256 "950e088f9e47fc10a98e3f67d6420a990650836c648686a2f5dafe331747cbdf"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_20.1.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_20.1.tar.gz"
-    sha256 "442c9b75a33be685a1af67414cc8758a4ef40e27cdcab9e432d4d9c6f3254dcf"
+    url "https://www.erlang.org/download/otp_doc_html_20.2.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_20.2.tar.gz"
+    sha256 "7f5e7d4cd0c58e15d7d29231931c2a710f7f5fdfcb0ff8edb8142969520c4256"
   end
 
   def install
