@@ -6,9 +6,9 @@ class Libsodium < Formula
 
   bottle do
     cellar :any
-    sha256 "b2faf056b42788bfbedeee32166c3aa9c3d382f9dadf306100b6ef0d0342a64a" => :high_sierra
-    sha256 "decfe8fd1c593c8b202c99a4dc3dc21e25adf39c9cb1e8de792c7801cef66d67" => :sierra
-    sha256 "59597f646d332373e951a7b1ff6ebd4b88898016555494f27e5f195a1bed16d2" => :el_capitan
+    sha256 "fbacd0565bf421dd62d5bd24f52e8a4c88555a34e30f12081402527dc2cf3ce4" => :high_sierra
+    sha256 "a6659232fac60c32ead2535f4b3ad4af708549de3d7b1c8879a8b873dbe3c1a2" => :sierra
+    sha256 "d5b1de65e85053a818114e7970927640080cc9b7ee9f21a001bace9a48da83f7" => :el_capitan
   end
 
   head do
