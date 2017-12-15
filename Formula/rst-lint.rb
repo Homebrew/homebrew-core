@@ -5,7 +5,6 @@ class RstLint < Formula
   homepage "https://github.com/twolfson/restructuredtext-lint"
   url "https://github.com/twolfson/restructuredtext-lint/archive/1.1.2.tar.gz"
   sha256 "baa99906eaafc00a975a8dee59f6bbbbecc21add2eb630dce6bef64ac0efd4d0"
-  head "https://github.com/twolfson/restructuredtext-lint.git"
 
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -24,15 +23,14 @@ class RstLint < Formula
       Hello World
       ===========
     EOS
-    assert_equal "",
-      shell_output("#{bin}/rst-lint pass.rst")
+    assert_equal "", shell_output("#{bin}/rst-lint pass.rst")
 
     # test invocation on a file with a whitespace style issue
     (testpath/"fail.rst").write <<~EOS
       Hello World
       ==========
     EOS
-    assert_match "WARNING fail.rst:2 Title underline too short.",
-      shell_output("#{bin}/rst-lint fail.rst", 2)
+    output = shell_output("#{bin}/rst-lint fail.rst", 2)
+    assert_match "WARNING fail.rst:2 Title underline too short.", output
   end
 end
