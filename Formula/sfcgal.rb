@@ -10,22 +10,13 @@ class Sfcgal < Formula
     sha256 "0348fd098cfb8a0d2ce913fa256178c63c47216415507a962c5999a5c62853ac" => :el_capitan
   end
 
-  option :cxx11
-
   depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "cgal"
+  depends_on "gmp"
   depends_on "mpfr"
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "cgal" => "c++11"
-    depends_on "gmp" => "c++11"
-  else
-    depends_on "boost"
-    depends_on "cgal"
-    depends_on "gmp"
-  end
 
   def install
-    ENV.cxx11 if build.cxx11?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
