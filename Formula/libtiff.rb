@@ -12,15 +12,12 @@ class Libtiff < Formula
     sha256 "bffb176a37a98cc2eb75bd625d764775ff84dbef73276e7cd4fb4fb82d838b2b" => :el_capitan
   end
 
-  option :cxx11
   option "with-xz", "Include support for LZMA compression"
 
   depends_on "jpeg"
   depends_on "xz" => :optional
 
   def install
-    ENV.cxx11 if build.cxx11?
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
