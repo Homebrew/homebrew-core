@@ -13,10 +13,7 @@ class Log4cplus < Formula
     sha256 "c60007704e699c4baeabad262b9600e5d0b8d8e217588c6e69f429b5f60d876d" => :mavericks
   end
 
-  option :cxx11
-
   def install
-    ENV.cxx11 if build.cxx11?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
