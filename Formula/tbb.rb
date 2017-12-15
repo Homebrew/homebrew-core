@@ -12,8 +12,6 @@ class Tbb < Formula
     sha256 "b9ee2339d50a595189f9b9e9612b0cbf22f84572bf0a2de4081db698a2766de5" => :el_capitan
   end
 
-  option :cxx11
-
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
@@ -23,11 +21,6 @@ class Tbb < Formula
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
-
-    if build.cxx11?
-      ENV.cxx11
-      args << "cpp0x=1" << "stdlib=libc++"
-    end
 
     system "make", *args
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
