@@ -20,10 +20,7 @@ class Libebml < Formula
     depends_on "libtool" => :build
   end
 
-  option :cxx11
-
   def install
-    ENV.cxx11 if build.cxx11?
     system "autoreconf", "-fi" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
