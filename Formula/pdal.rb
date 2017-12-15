@@ -12,18 +12,11 @@ class Pdal < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "gdal"
   depends_on "laszip" => :optional
 
-  if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
-
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     args = std_cmake_args
     if build.with? "laszip"
       args << "-DWITH_LASZIP=TRUE"
