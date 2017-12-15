@@ -20,14 +20,11 @@ class Ledger < Formula
   option "without-python", "Build without python support"
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
-
-  boost_opts = []
-  boost_opts << "c++11" if MacOS.version < "10.9"
-  depends_on "boost" => boost_opts
-  depends_on "boost-python" => boost_opts if build.with? "python"
+  depends_on "boost-python" if build.with? "python"
 
   needs :cxx11
 
