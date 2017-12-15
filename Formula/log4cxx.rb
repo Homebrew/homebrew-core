@@ -13,8 +13,6 @@ class Log4cxx < Formula
     sha256 "b96afe3f4e4b63017d2061028ed8792c4190996b1e008d8c87c3f52dba660ec5" => :yosemite
   end
 
-  option :cxx11
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -43,7 +41,6 @@ class Log4cxx < Formula
 
   def install
     ENV.O2 # Using -Os causes build failures on Snow Leopard.
-    ENV.cxx11 if build.cxx11?
 
     # Fixes build error with clang, old libtool scripts. cf. #12127
     # Reported upstream here: https://issues.apache.org/jira/browse/LOGCXX-396
