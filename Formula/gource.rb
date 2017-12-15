@@ -23,21 +23,13 @@ class Gource < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glm" => :build
+  depends_on "boost"
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"
-
-  # boost failing on lion
-  depends_on :macos => :mountain_lion
-
-  if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
 
   needs :cxx11
 
