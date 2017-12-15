@@ -1,8 +1,8 @@
 class Bedtools < Formula
   desc "Tools for genome arithmetic (set theory on the genome)"
   homepage "https://github.com/arq5x/bedtools2"
-  url "https://github.com/arq5x/bedtools2/archive/v2.27.0.tar.gz"
-  sha256 "e91390b567e577d337c15ca301e264b0355441f5ab90fa4f971622e3043e0ca0"
+  url "https://github.com/arq5x/bedtools2/archive/v2.27.1.tar.gz"
+  sha256 "edcac089d84e63a51f85c3c189469daa7d42180272130b046856faad3cf79112"
 
   bottle do
     cellar :any_skip_relocation
