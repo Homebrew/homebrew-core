@@ -17,6 +17,6 @@ class Inspectrum < Formula
   end
 
   test do
-    assert_equal "Usage: inspectrum [options] file\nspectrum viewer\n\nOptions:\n  -h, --help       Displays this help.\n  -r, --rate <Hz>  Set sample rate.\n\nArguments:\n  file             File to view.", shell_output("inspectrum -h").strip
+    assert_equal "Usage: inspectrum [options] file\nspectrum viewer\n\nOptions:\n  -h, --help       Displays this help.\n  -r, --rate <Hz>  Set sample rate.\n\nArguments:\n  file             File to view.", shell_output("#{bin}/inspectrum -h").strip
   end
 end
