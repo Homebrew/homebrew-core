@@ -6,9 +6,9 @@ class Bedtools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1ae7532f9807d9cc62c16b521fa651364a1558ae239149e28a20212cde840a0" => :high_sierra
-    sha256 "102c52ec8ef73ae63f1708f8f5ce60cdff3b927a9e75505792f6975298e819f8" => :sierra
-    sha256 "81f150990e63eb1c08869616ab123a724feecc17c948cd1676a817c86fbcc16e" => :el_capitan
+    sha256 "ca1a234e9bcdb62f4c71aad27a12c1b286c0a0dd9101b22c8a55492c35b50a68" => :high_sierra
+    sha256 "96e8d3f30f6b0f542b2fa17ce324d82c7c2ed1c8c579007fd7138dbbae63188e" => :sierra
+    sha256 "56d2a63e1193f1326505c9a1829b7a4c6257261734a775fce0829cd7accb84f3" => :el_capitan
   end
 
   def install
