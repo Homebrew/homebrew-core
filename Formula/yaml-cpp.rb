@@ -13,19 +13,12 @@ class YamlCpp < Formula
     sha256 "c779f86632b38472e022ad91f0f5ddb0f399fd547d36cbc5494a76c0f6becd48" => :mavericks
   end
 
-  option :cxx11
   option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
-
-  if build.cxx11? && MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
+  depends_on "boost"
 
   def install
-    ENV.cxx11 if build.cxx11?
     args = std_cmake_args
     if build.with? "static-lib"
       args << "-DBUILD_SHARED_LIBS=OFF"
