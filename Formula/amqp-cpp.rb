@@ -1,8 +1,8 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.7.4.tar.gz"
-  sha256 "f854be24801ec9b8e345ed63cc86f40011919a20ff44f192654e6f61d0a34ce6"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.8.0.tar.gz"
+  sha256 "45c973fa9bcf78d9a95f9a1662d5eab9c0ede26e79725542f4e086ddcfec5645"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
@@ -34,7 +34,7 @@ class AmqpCpp < Formula
       }
       EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
-                    "test", "-lc++", "-lamqp-cpp"
+                    "test", "-lc++", "-lamqpcpp"
     system "./test"
   end
 end
