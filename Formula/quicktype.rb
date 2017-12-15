@@ -27,8 +27,8 @@ class Quicktype < Formula
         "s": "quicktype"
       }
     EOS
-    code = shell_output "#{bin}/quicktype --lang typescript --src sample.json"
-    assert_match "i: number[];", code
-    assert_match "s: string;", code
+    output = shell_output("#{bin}/quicktype --lang typescript --src sample.json")
+    assert_match "i: number[];", output
+    assert_match "s: string;", output
   end
 end
