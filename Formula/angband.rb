@@ -15,29 +15,18 @@ class Angband < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "sdl" => :optional
-  if build.with? "sdl"
-    depends_on "sdl_image"
-    depends_on "sdl_ttf"
-    depends_on "sdl_mixer" => "with-smpeg"
-  end
 
   def install
     ENV["NCURSES_CONFIG"] = "#{MacOS.sdk_path}/usr/bin/ncurses5.4-config"
     system "./autogen.sh"
-    args = %W[
-      --prefix=#{prefix}
-      --bindir=#{bin}
-      --libdir=#{libexec}
-      --enable-curses
-      --disable-ncursestest
-      --disable-sdltest
-      --disable-x11
-      --with-ncurses-prefix=#{MacOS.sdk_path}/usr
-    ]
-    args << "--enable-sdl" if build.with? "sdl"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--bindir=#{bin}",
+                          "--libdir=#{libexec}",
+                          "--enable-curses",
+                          "--disable-ncursestest",
+                          "--disable-sdltest",
+                          "--disable-x11",
+                          "--with-ncurses-prefix=#{MacOS.sdk_path}/usr"
     system "make"
     system "make", "install"
 
