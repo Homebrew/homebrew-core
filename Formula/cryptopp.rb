@@ -7,10 +7,7 @@ class Cryptopp < Formula
   # https://cryptopp.com/wiki/Config.h#Options_and_Defines
   bottle :disable, "Library and clients must be built on the same microarchitecture"
 
-  option :cxx11
-
   def install
-    ENV.cxx11 if build.cxx11?
     system "make", "shared", "all", "CXX=#{ENV.cxx}"
     system "./cryptest.exe", "v"
     system "make", "install", "PREFIX=#{prefix}"
@@ -31,7 +28,6 @@ class Cryptopp < Formula
         return 0;
       }
     EOS
-    ENV.cxx11 if build.cxx11?
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lcryptopp", "-o", "test"
     system "./test"
   end
