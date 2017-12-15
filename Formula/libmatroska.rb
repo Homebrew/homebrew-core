@@ -18,19 +18,10 @@ class Libmatroska < Formula
     depends_on "libtool" => :build
   end
 
-  option :cxx11
-
-  if build.cxx11?
-    depends_on "libebml" => "c++11"
-  else
-    depends_on "libebml"
-  end
-
   depends_on "pkg-config" => :build
+  depends_on "libebml"
 
   def install
-    ENV.cxx11 if build.cxx11?
-
     system "autoreconf", "-fi" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
