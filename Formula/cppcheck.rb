@@ -134,7 +134,7 @@ class Cppcheck < Formula
     system "#{bin}/cppcheck", "--dump", test_cpp_file
     test_cpp_file_dump = "#{test_cpp_file}.dump"
     assert_predicate testpath/test_cpp_file_dump, :exist?
-    python_addon_output = shell_output "python #{sample_addon_file} #{test_cpp_file_dump}"
-    assert_match "#{expect_function_names}\n#{expect_token_count}", python_addon_output
+    output = shell_output("python #{sample_addon_file} #{test_cpp_file_dump}")
+    assert_match "#{expect_function_names}\n#{expect_token_count}", output
   end
 end
