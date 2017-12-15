@@ -2,6 +2,7 @@ class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
   head "https://github.com/seejohnrun/haste-client.git"
+  revision 1
 
   stable do
     url "https://github.com/seejohnrun/haste-client/archive/v0.2.3.tar.gz"
