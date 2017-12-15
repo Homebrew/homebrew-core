@@ -11,7 +11,6 @@ class OpenSceneGraph < Formula
     sha256 "51ae8250fb6131a510c052969e6e4834bb5b69ec40b85b184b575595453be2cd" => :el_capitan
   end
 
-  option :cxx11
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
 
   deprecated_option "docs" => "with-docs"
@@ -48,8 +47,6 @@ class OpenSceneGraph < Formula
     if MacOS.version == :sierra || MacOS.version == :el_capitan
       ENV["SDKROOT"] = MacOS.sdk_path
     end
-
-    ENV.cxx11 if build.cxx11?
 
     # Turning off FFMPEG takes this change or a dozen "-DFFMPEG_" variables
     if build.without? "ffmpeg"
