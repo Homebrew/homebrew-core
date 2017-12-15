@@ -7,10 +7,9 @@ class Fastqc < Formula
   depends_on :java
 
   def install
-    chmod 0755, "fastqc"
-    prefix.install Dir["*"]
-    mkdir_p bin
-    bin.install_symlink prefix/"fastqc"
+    libexec.install Dir["*"]
+    chmod 0755, libexec/"fastqc"
+    bin.install_symlink libexec/"fastqc"
   end
 
   test do
