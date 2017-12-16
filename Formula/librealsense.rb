@@ -1,8 +1,8 @@
 class Librealsense < Formula
   desc "Camera capture for Intel RealSense F200, SR300 and R200"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v2.8.2.tar.gz"
-  sha256 "5a2174cafb87c5b2587b72df9d00f5aec37d3e1fe356388e88563702d20ac130"
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.8.3.tar.gz"
+  sha256 "4b99e684d047089e6b641ed1975ee50f862e7ea56280466ab7d8cb822627cdc6"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
