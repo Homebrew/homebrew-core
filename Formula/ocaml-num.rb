@@ -3,6 +3,7 @@ class OcamlNum < Formula
   homepage "https://github.com/ocaml/num"
   url "https://github.com/ocaml/num/archive/v1.1.tar.gz"
   sha256 "04ac85f6465b9b2bf99e814ddc798a25bcadb3cca2667b74c1af02b6356893f6"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,9 +12,12 @@ class OcamlNum < Formula
     sha256 "c114181c1020d48f475ac78a78c29cc7a9c24baa68d8527170708d0f54439425" => :el_capitan
   end
 
+  depends_on "ocaml-findlib" => :build
   depends_on "ocaml"
 
   def install
+    ENV["OCAMLFIND_DESTDIR"] = lib/"ocaml"
+
     (lib/"ocaml").mkpath
     cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
 
@@ -22,11 +26,8 @@ class OcamlNum < Formula
                                            "PREFIX=#{prefix}"
 
     system "make"
-
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
-
-    # Set OCAMLFIND to echo to avoid an unnecessary dependency
-    system "make", "install", "OCAMLFIND=echo", "STDLIBDIR=#{lib}/ocaml"
+    system "make", "install", "STDLIBDIR=#{lib}/ocaml"
 
     pkgshare.install "test"
 
