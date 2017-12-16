@@ -1,8 +1,8 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.28.tar.gz"
-  sha256 "748ba7f4bc2c48232ceca8927d0b805a99bb395969190bd9242e87c0db9a19a2"
+  url "https://github.com/fnproject/cli/archive/0.4.30.tar.gz"
+  sha256 "0f042406882a239ee2a5be975c65d834008e1d487207bd8db1f8ce3c94ceb899"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,16 +11,15 @@ class Fn < Formula
     sha256 "1bdb941ddcbb87d6ed341f64cab843a6f95502e013605fea58b0a132a869ef47" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
     cd dir do
-      system "glide", "install", "-v", "--force", "--skip-test"
+      system "dep", "ensure"
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end
