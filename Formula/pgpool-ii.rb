@@ -1,8 +1,8 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/download.php?f=pgpool-II-3.6.7.tar.gz"
-  sha256 "09cfe2cb36b9171d4a987a8b100e298e46d6a369c1b61d9e1a47d442ce16e249"
+  url "https://www.pgpool.net/download.php?f=pgpool-II-3.7.0.tar.gz"
+  sha256 "52d409493ff5996477d58d01ce376cecb3335869a8c6b84063604d676eeefa88"
 
   bottle do
     sha256 "003329039ed94efc5ed99c2ff9c903323fe1061c7d545c791f62836ea1e94bd6" => :high_sierra
