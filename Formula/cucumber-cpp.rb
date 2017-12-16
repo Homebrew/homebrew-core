@@ -31,7 +31,7 @@ class CucumberCpp < Formula
   test do
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
-    system "gem", "install", "cucumber"
+    system "gem", "install", "cucumber", "-v", "3.0.0"
 
     (testpath/"features/test.feature").write <<~EOS
       Feature: Test
