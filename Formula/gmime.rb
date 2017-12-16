@@ -3,6 +3,7 @@ class Gmime < Formula
   homepage "https://spruce.sourceforge.io/gmime/"
   url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.5.tar.xz"
   sha256 "2f5353ac1062aa58c4855cc7691a0778c84339c654301a6bc0e95ba8427b85e0"
+  revision 1
 
   bottle do
     sha256 "d046da22ebd37b9071a9d3485b85035b77c2484628bcd626dc0a722417992d5b" => :high_sierra
@@ -13,6 +14,7 @@ class Gmime < Formula
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection" => :recommended
   depends_on "glib"
+  depends_on "gpgme"
 
   def install
     args = %W[
@@ -21,6 +23,7 @@ class Gmime < Formula
       --enable-largefile
       --disable-vala
       --disable-glibtest
+      --enable-crypto
     ]
 
     if build.with? "gobject-introspection"
