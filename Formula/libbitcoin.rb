@@ -1,9 +1,8 @@
 class Libbitcoin < Formula
   desc "Bitcoin Cross-Platform C++ Development Toolkit"
   homepage "https://libbitcoin.org/"
-  url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
-  sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
-  revision 4
+  url "https://github.com/libbitcoin/libbitcoin/archive/v3.4.0.tar.gz"
+  sha256 "e30dca732991b52d7d014f4f46f896ef3217cde465b9601c1dc0a85eb865e45f"
 
   bottle do
     cellar :any
