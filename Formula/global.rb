@@ -1,9 +1,9 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.tar.gz"
-  sha256 "87a86ea972429e2c983f8359e91ce64facccdc76215ef5225c0baf3f6f087527"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.1.tar.gz"
+  sha256 "943dc440382d82454786bfd92b86946961cb2196039eceffd7eb551ac83759e4"
 
   bottle do
     sha256 "11efec3aa71fd20082b663d1bb72f481560d6900d3aeeaf5adaf3f084ec2cb2a" => :high_sierra
