@@ -1,8 +1,8 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://abiword.github.io/enchant/"
-  url "https://github.com/AbiWord/enchant/releases/download/v2.1.2/enchant-2.1.2.tar.gz"
-  sha256 "039563bbb7340f320bd9237dac92303b3e7768152b08fc0d554d6957ae7183d8"
+  url "https://github.com/AbiWord/enchant/releases/download/v2.2.0/enchant-2.2.0.tar.gz"
+  sha256 "2f91ea06992c923ac9b72c9c6d0a7c855aef1e9a4991350d83236723c8412467"
 
   bottle do
     sha256 "caf76a7a4dd20898b726a67e341e1d14cb398bb8209c150bb33239ddb3a07208" => :high_sierra
@@ -28,6 +28,8 @@ class Enchant < Formula
 
     system "make", "install"
 
+    ln_s "enchant-2.pc", lib/"pkgconfig/enchant.pc"
+
     if build.with? "python"
       resource("pyenchant").stage do
         # Don't download and install distribute now
@@ -45,6 +47,6 @@ class Enchant < Formula
     enchant_result = text.sub("fox ", "").split.join("\n")
     file = "test.txt"
     (testpath/file).write text
-    assert_equal enchant_result, shell_output("#{bin}/enchant -l #{file}").chomp
+    assert_equal enchant_result, shell_output("#{bin}/enchant-2 -l #{file}").chomp
   end
 end
