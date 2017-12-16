@@ -1,9 +1,8 @@
 class LibbitcoinBlockchain < Formula
   desc "Bitcoin Blockchain Library"
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
-  url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.3.0.tar.gz"
-  sha256 "c97762f37e30b0d41b5f9d70499dbf9ca70096924410e98a15781e4cb5c39966"
-  revision 1
+  url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.4.0.tar.gz"
+  sha256 "65251a7148ec9fc8456f924e6319194fc38771c192326b2daf1d4abca2f55c76"
 
   bottle do
     sha256 "ac5a21d4105ccef391341699da7ce3f63630bb65dde7384ebabba0271be2935f" => :high_sierra
@@ -19,8 +18,8 @@ class LibbitcoinBlockchain < Formula
   depends_on "libbitcoin-database"
 
   resource "libbitcoin-consensus" do
-    url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.3.0.tar.gz"
-    sha256 "ae581f7c42a52fb6f4a233300f76f2a2d03a22eee6d4bfe22b233e9b52f029b4"
+    url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.4.0.tar.gz"
+    sha256 "1393811593d85074d1207c25d3c8d6ae23efa5735d548244345652e5ef7b3f50"
   end
 
   def install
