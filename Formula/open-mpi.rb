@@ -32,6 +32,9 @@ class OpenMpi < Formula
   conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
 
   def install
+    # otherwise libmpi_usempi_ignore_tkr gets built as a static library
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     ENV.cxx11 if build.cxx11?
 
     args = %W[
