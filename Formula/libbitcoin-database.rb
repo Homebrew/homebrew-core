@@ -1,8 +1,8 @@
 class LibbitcoinDatabase < Formula
   desc "Bitcoin High Performance Blockchain Database"
   homepage "https://github.com/libbitcoin/libbitcoin-database"
-  url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.3.0.tar.gz"
-  sha256 "b4d98199ac4629a9857c1eb8819fe8166525bf2dca9ed790a9bbe5dc9c9e9186"
+  url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.4.0.tar.gz"
+  sha256 "34ca5c11800ea8efb1ef986e83f5e4fcdde95e85d2406f0a7ed922725e45f0e0"
 
   bottle do
     sha256 "bd6e177feda0ca98e4b2972edfa1048220ffdbfa3f98945af9bab69ab33e7883" => :high_sierra
