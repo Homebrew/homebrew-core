@@ -4,11 +4,18 @@ class Par2 < Formula
   url "https://github.com/Parchive/par2cmdline/releases/download/v0.8.0/par2cmdline-0.8.0.tar.bz2"
   sha256 "496430e185f2d82e54245a0554341a1826f06c5e673fa12a10f176c7f9b42964"
 
-  option "with-llvm", "(Use LLVM to compile and enable OpenMP support)"
-  depends_on "llvm" => [:build, :optional]
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a825515ff251975d362998560f5e2e046ce3a9f753be106bbf3717c6d411b7fb" => :high_sierra
+    sha256 "6c3432e8a1b7e8ceeabb380af04d13123c9fb542fab7caf62fe8201f3d1adee2" => :sierra
+    sha256 "7257b39640dcf1894c2329129406a573b04dd263bf3b06283dc854b5ed17cf8e" => :el_capitan
+  end
+
+  option "with-openmp", "Compile with OpenMP support"
+  needs :openmp if build.with? "openmp"
 
   def install
-    if build.with? "bundle"
+    if build.with? "openmp"
       ENV["CXX"] = "#{Formula["llvm"].opt_bin}/clang++"
       ENV["CXXFLAGS"] = `#{Formula["llvm"].opt_bin}/llvm-config --cxxflags`.chomp
       ENV["LDFLAGS"] = `#{Formula["llvm"].opt_bin}/llvm-config --ldflags`.chomp
