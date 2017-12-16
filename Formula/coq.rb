@@ -13,9 +13,8 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.7.0.tar.gz"
-  sha256 "f376207ed051b3fd27c519f44b25eb25f8dddbce22715f68c3cedfd2e4b39297"
-  revision 1
+  url "https://github.com/coq/coq/archive/V8.7.1.tar.gz"
+  sha256 "d381b38522cee0e73804ee3a763648f602eda942312c18d333f9567c56dbfd03"
   head "https://github.com/coq/coq.git"
 
   bottle do
@@ -24,22 +23,14 @@ class Coq < Formula
     sha256 "3d0af18bc77bb482d1234b373270288cc5088d4a8e922a262dbc10bc45f9dad1" => :el_capitan
   end
 
-  depends_on "opam" => :build
+  depends_on "ocaml-findlib" => :build
   depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
   depends_on "ocaml"
   depends_on "ocaml-num"
 
   def install
-    ENV["OPAMYES"] = "1"
-    opamroot = buildpath/"../opamroot"
-    opamroot.mkpath
-    ENV["OPAMROOT"] = opamroot
-    system "opam", "init", "--no-setup"
-    system "opam", "install", "ocamlfind"
-
-    system "opam", "config", "exec", "--",
-           "./configure", "-prefix", prefix,
+    system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",
