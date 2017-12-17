@@ -3,8 +3,8 @@ class Weboob < Formula
 
   desc "Web Outside of Browsers"
   homepage "http://weboob.org/"
-  url "https://symlink.me/attachments/download/342/weboob-1.2.tar.gz"
-  sha256 "1e3b7e35bd1e5d203e5d716be4a25e898aba6887b3c3b8341e3a0ce2ad8e87b0"
+  url "https://symlink.me/attachments/download/356/weboob-1.3.tar.gz"
+  sha256 "c991785c889877c76f18d19e372ed4ae0c3f8b819fd1e8da296bd34b1381be54"
   revision 1
   head "https://git.symlink.me/pub/weboob/stable.git"
 
@@ -120,6 +120,11 @@ class Weboob < Formula
   resource "uritemplate" do
     url "https://files.pythonhosted.org/packages/cd/db/f7b98cdc3f81513fb25d3cbe2501d621882ee81150b745cdd1363278c10a/uritemplate-3.0.0.tar.gz"
     sha256 "c02643cebe23fc8adb5e6becffe201185bf06c40bda5c0b4028a93f1527d011d"
+  end
+
+  resource "html2text" do
+    url "https://files.pythonhosted.org/packages/dd/10/d257bb28d08b3e8a864ed28829508564cc4a864ba0a79fda42e4393f6842/html2text-2017.10.4.tar.gz"
+    sha256 "02ab8df206e90a395b7e188e26eb1906680439ce4a636a00217851cef58c1fad"
   end
 
   def install
