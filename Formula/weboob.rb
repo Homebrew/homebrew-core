@@ -127,6 +127,9 @@ class Weboob < Formula
   end
 
   def install
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     venv = virtualenv_create(libexec)
 
     resource("Pillow").stage do
