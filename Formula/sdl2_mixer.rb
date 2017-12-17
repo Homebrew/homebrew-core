@@ -20,7 +20,7 @@ class Sdl2Mixer < Formula
   depends_on "flac" => :optional
   depends_on "fluid-synth" => :optional
   depends_on "libmikmod" => :optional
-  depends_on "smpeg2" => :optional
+  depends_on "mpg123" => :optional
 
   def install
     inreplace "SDL2_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
@@ -33,18 +33,14 @@ class Sdl2Mixer < Formula
       --disable-music-mod-mikmod-shared
       --enable-music-mod-modplug
       --disable-music-mod-modplug-shared
-      --disable-music-mp3-smpeg-shared
+      --disable-music-mp3-smpeg
+      --disable-music-mp3-mpg123-shared
     ]
 
     args << "--disable-music-flac" if build.without? "flac"
     args << "--disable-music-midi-fluidsynth" if build.without? "fluid-synth"
     args << "--enable-music-mod-mikmod" if build.with? "libmikmod"
-
-    if build.with? "smpeg2"
-      args << "--with-smpeg-prefix=#{Formula["smpeg2"].opt_prefix}"
-    else
-      args << "--disable-music-mp3-smpeg"
-    end
+    args << "--disable-music-mp3-mpg123" if build.without? "mpg123"
 
     system "./configure", *args
     system "make", "install"
