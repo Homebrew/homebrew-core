@@ -4,6 +4,7 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.19.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/wget/wget-1.19.2.tar.gz"
   sha256 "4f4a673b6d466efa50fbfba796bd84a46ae24e370fa562ede5b21ab53c11a920"
+  revision 1
 
   bottle do
     sha256 "4f6896bbed75ea89f04d849357390b32e7462b86c8a3063dca85c9f5f7db1aaa" => :high_sierra
@@ -26,6 +27,7 @@ class Wget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
+  depends_on "libidn2"
   depends_on "openssl@1.1"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
