@@ -21,7 +21,7 @@ class Mutt < Formula
   end
 
   head do
-    url "https://dev.mutt.org/hg/mutt#default", :using => :hg
+    url "https://gitlab.com/muttmua/mutt.git"
 
     resource "html" do
       url "https://dev.mutt.org/doc/manual.html", :using => :nounzip
