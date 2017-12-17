@@ -3,7 +3,7 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.9/gtkspell3-3.0.9.tar.xz"
   sha256 "a4f4a4a2789f7499563e26d96b22d8085222ebe278da47d026b2de782b8b4d26"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9134392a59cde0d07c22028d619419b935f5fdb6d2bc8d3d356ef181bd4826f6" => :high_sierra
@@ -46,7 +46,7 @@ class Gtkspell3 < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
-      -I#{enchant.opt_include}/enchant
+      -I#{enchant.opt_include}/enchant-2
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -73,7 +73,7 @@ class Gtkspell3 < Formula
       -latk-1.0
       -lcairo
       -lcairo-gobject
-      -lenchant
+      -lenchant-2
       -lgdk-3
       -lgdk_pixbuf-2.0
       -lgio-2.0
