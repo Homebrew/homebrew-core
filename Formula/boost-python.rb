@@ -3,6 +3,7 @@ class BoostPython < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
   sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -13,11 +14,12 @@ class BoostPython < Formula
     sha256 "28e1853e51af2f853dfd84135a62215c3d3142126742648f1e76434f218756dc" => :yosemite
   end
 
-  option :cxx11
   option "without-python", "Build without python 2 support"
 
   depends_on :python3 => :optional
   depends_on "boost"
+
+  needs :cxx11
 
   def install
     # "layout" should be synchronized with boost
@@ -30,16 +32,11 @@ class BoostPython < Formula
             "threading=multi,single",
             "link=shared,static"]
 
-    # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    elsif Tab.for_name("boost").cxx11?
-      odie "boost was built in C++11 mode so boost-python must be built with --c++11."
+    args << "cxxflags=-std=c++11"
+    if ENV.compiler == :clang
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
 
     # disable python detection in bootstrap.sh; it guesses the wrong include directory

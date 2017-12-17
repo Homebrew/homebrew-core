@@ -3,7 +3,7 @@ class BoostMpi < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
   sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -12,15 +12,10 @@ class BoostMpi < Formula
     sha256 "268a16ac0a424bf62366591a4b6b8a1347ab82705aa70d3ede245fd81e9565f1" => :el_capitan
   end
 
-  option :cxx11
+  depends_on "boost"
+  depends_on :mpi => [:cc, :cxx]
 
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "open-mpi" => "c++11"
-  else
-    depends_on "boost"
-    depends_on :mpi => [:cc, :cxx]
-  end
+  needs :cxx11
 
   def install
     # "layout" should be synchronized with boost
@@ -33,16 +28,11 @@ class BoostMpi < Formula
             "threading=multi,single",
             "link=shared,static"]
 
-    # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    elsif Tab.for_name("boost").cxx11?
-      odie "boost was built in C++11 mode so boost-mpi must be built with --c++11."
+    args << "cxxflags=-std=c++11"
+    if ENV.compiler == :clang
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
 
     open("user-config.jam", "a") do |file|
