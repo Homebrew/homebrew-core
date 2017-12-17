@@ -3,9 +3,8 @@ class Weboob < Formula
 
   desc "Web Outside of Browsers"
   homepage "http://weboob.org/"
-  url "https://symlink.me/attachments/download/342/weboob-1.2.tar.gz"
-  sha256 "1e3b7e35bd1e5d203e5d716be4a25e898aba6887b3c3b8341e3a0ce2ad8e87b0"
-  revision 1
+  url "https://symlink.me/attachments/download/356/weboob-1.3.tar.gz"
+  sha256 "c991785c889877c76f18d19e372ed4ae0c3f8b819fd1e8da296bd34b1381be54"
   head "https://git.symlink.me/pub/weboob/stable.git"
 
   bottle do
