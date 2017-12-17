@@ -4,6 +4,8 @@ class Fastqc < Formula
   url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip"
   sha256 "dd7a5ad80ceed2588cf6d6ffe35e0f161c0d9977ed08355f5e4d9473282cbd66"
 
+  bottle :unneeded
+
   depends_on :java
 
   def install
