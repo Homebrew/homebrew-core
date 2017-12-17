@@ -26,11 +26,11 @@ class Wget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
+  depends_on "libidn2"
   depends_on "openssl@1.1"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
-  depends_on "libidn2"
 
   def install
     args = %W[
