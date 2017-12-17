@@ -3,7 +3,7 @@ class Corebird < Formula
   homepage "https://corebird.baedert.org"
   url "https://github.com/baedert/corebird/releases/download/1.7.3/corebird-1.7.3.tar.xz"
   sha256 "cbf42fdf186f5dea47c5d171f6a6dd47a05d0e721a4bfd6e61b53069ea278e27"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "ddf44270a1faf2cac2cc505cfa2a19b9aa6d5c580a310b8562de0c8464c7c6c9" => :high_sierra
