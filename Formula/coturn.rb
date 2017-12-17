@@ -5,10 +5,9 @@ class Coturn < Formula
   sha256 "86248c541a1184eb388c54d4178cffbf16ef53504fbb60106e575194f078b221"
 
   bottle do
-    sha256 "4223eac517f9c5499d2fa27b2d8c42d2e8f6e6c27e3fabffb4e671a5f90196bb" => :high_sierra
-    sha256 "1284bbf2a86fd2309901f357cc957de4d21156ab0c5a7c3e4c3e7d7bdaa39beb" => :sierra
-    sha256 "dc713646ee013d0794759d1b540e7b2f6b458224b17623974283e27818449364" => :el_capitan
-    sha256 "7dd68ad44ea4a7f69030bdf167b28fc854d56331b92d06798cb6dd4347043677" => :yosemite
+    sha256 "275b217ccdf59713da3850782079387a78f24d0c1a35a9b23e67e01695f9e340" => :high_sierra
+    sha256 "079bdbb8abae75b20318710269f57b16c53088bae5c55d15073e6199f0526008" => :sierra
+    sha256 "2aef5b4ca2b27abfefaa9b90fec75328839f7e02b601d83d9b3afe984240c49f" => :el_capitan
   end
 
   depends_on "libevent"
