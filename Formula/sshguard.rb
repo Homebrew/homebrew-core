@@ -1,9 +1,8 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.0.0/sshguard-2.0.0.tar.gz"
-  sha256 "e87c6c4a6dddf06f440ea76464eb6197869c0293f0a60ffa51f8a6a0d7b0cb06"
-  revision 2
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.1.0/sshguard-2.1.0.tar.gz"
+  sha256 "21252a4834ad8408df384ee4ddf468624aa9de9cead5afde1c77380a48cf028a"
   version_scheme 1
 
   bottle do
@@ -28,11 +27,13 @@ class Sshguard < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
+    inreplace man8/"sshguard.8", "%PREFIX%/etc/", "#{etc}/"
     cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
     inreplace "examples/sshguard.conf" do |s|
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
-      if MacOS.version == :sierra
+      if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
+        s.gsub! %q{\"sshd\")'"}, %q{"sshd")'"}
       else
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
@@ -84,6 +85,13 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
+    require "pty"
+    PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
+      begin
+        assert_equal "SSHGuard #{version}", r.read.strip
+      ensure
+        Process.wait pid
+      end
+    end
   end
 end
