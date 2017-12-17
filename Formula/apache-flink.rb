@@ -3,7 +3,7 @@ class ApacheFlink < Formula
   homepage "https://flink.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.4.0/flink-1.4.0-bin-hadoop28-scala_2.11.tgz"
   version "1.4.0"
-  sha256 "a6cee77e0719c42f0bd2d30e5a149a71ad50a708f163605c4570d418ba6c0035"
+  sha256 "150af64309d6d29175fbcc7991dcae5c843a54fbfab4d9494b23d50febe11671"
   head "https://github.com/apache/flink.git"
 
   bottle :unneeded
