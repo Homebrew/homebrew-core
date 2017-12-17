@@ -30,6 +30,7 @@ class Wget < Formula
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
+  depends_on "libidn2"
 
   def install
     args = %W[
