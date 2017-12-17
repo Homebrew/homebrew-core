@@ -3,7 +3,7 @@ class Gspell < Formula
   homepage "https://wiki.gnome.org/Projects/gspell"
   url "https://download.gnome.org/sources/gspell/1.6/gspell-1.6.1.tar.xz"
   sha256 "f4d329348775374eec18158f8dcbbacf76f85be5ce002a92d93054ece70ec4de"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "14976045d21287cf524d636bbf5608d7de5cc3f118ef5833d6919a8e45247f18" => :high_sierra
@@ -59,7 +59,7 @@ class Gspell < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
-      -I#{enchant.opt_include}/enchant
+      -I#{enchant.opt_include}/enchant-2
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
