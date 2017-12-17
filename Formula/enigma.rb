@@ -3,7 +3,7 @@ class Enigma < Formula
   homepage "http://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "fe7c8716e916535682f46b41905aa139da60a5505302b9001a02f14e804264d1" => :high_sierra
@@ -22,7 +22,7 @@ class Enigma < Formula
   depends_on "imagemagick" => :build
   depends_on "sdl"
   depends_on "sdl_image"
-  depends_on "sdl_mixer" => "with-libmikmod"
+  depends_on "sdl_mixer"
   depends_on "sdl_ttf"
   depends_on "freetype"
   depends_on "libpng"
