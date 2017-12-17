@@ -28,6 +28,8 @@ class Enchant < Formula
 
     system "make", "install"
 
+    ln_s "enchant-2.pc", lib/"pkgconfig/enchant.pc"
+
     if build.with? "python"
       resource("pyenchant").stage do
         # Don't download and install distribute now
@@ -45,6 +47,6 @@ class Enchant < Formula
     enchant_result = text.sub("fox ", "").split.join("\n")
     file = "test.txt"
     (testpath/file).write text
-    assert_equal enchant_result, shell_output("#{bin}/enchant -l #{file}").chomp
+    assert_equal enchant_result, shell_output("#{bin}/enchant-2 -l #{file}").chomp
   end
 end
