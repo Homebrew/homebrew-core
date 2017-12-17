@@ -14,7 +14,6 @@ class PicardTools < Formula
   end
 
   test do
-    assert_match "USAGE", shell_output("#{bin}/picard -h 2>&1", 1)
     (testpath/"test.fasta").write <<~EOS
       >U00096.2:1-70
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCT
