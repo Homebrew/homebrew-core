@@ -5,7 +5,6 @@ class Weboob < Formula
   homepage "http://weboob.org/"
   url "https://symlink.me/attachments/download/356/weboob-1.3.tar.gz"
   sha256 "c991785c889877c76f18d19e372ed4ae0c3f8b819fd1e8da296bd34b1381be54"
-  revision 1
   head "https://git.symlink.me/pub/weboob/stable.git"
 
   bottle do
