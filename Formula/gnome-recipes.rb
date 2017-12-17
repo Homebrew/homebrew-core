@@ -3,7 +3,7 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "41b2f024e104d9377af8c27354d56e3c86b536cfaaca59296e353c70e4def785" => :high_sierra
