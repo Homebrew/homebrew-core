@@ -6,9 +6,9 @@ class RubyAT19 < Formula
   revision 6
 
   bottle do
-    sha256 "4b31231e21353c3a20d4219436a4139b38ad8bcb94d1c068f4d9ead77d1871c8" => :high_sierra
-    sha256 "396d8f741478eeb0979adacb41ca3cb215367818d9d9b179964d432ae2392a37" => :sierra
-    sha256 "ad981e7989661f0e564d86e0b1b61d76c5968969cc5d2666180e3efa2a82dff0" => :el_capitan
+    sha256 "c6ace732f66dd384961e2d39297ab70d29bf491c60eac0f78eea1c4512862018" => :high_sierra
+    sha256 "058150867dc5377bc436b3f1b82c61bb83f7a9d42e16ecafa7d19bb65e64e726" => :sierra
+    sha256 "e9bf2aa03c65f9e906f9a9fc79eb4c10451a166d0ba7a5d725bea5350d40c95e" => :el_capitan
   end
 
   keg_only :versioned_formula
