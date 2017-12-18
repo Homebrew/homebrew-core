@@ -26,6 +26,11 @@ class RubyAT18 < Formula
   # This should be kept in sync with the main Ruby formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
+  #
+  # RubyGems 2.7.3 requires Psych of at least 2.0, unless
+  # such a newer version of Psych is vendored within this
+  # formula, RubyGems should not be upgraded until there
+  # is a known vulnerability.
   resource "rubygems" do
     url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
     sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
