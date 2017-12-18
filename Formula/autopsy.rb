@@ -10,9 +10,6 @@ class Autopsy < Formula
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
 
-  # fixes weird configure script that wouldn't work nicely with homebrew
-  patch :DATA
-
   def autcfg; <<~EOS
     # Autopsy configuration settings
 
@@ -65,16 +62,3 @@ class Autopsy < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/base/autopsy.base b/base/autopsy.base
-index 3b3bbdc..a0d2632 100644
---- a/base/autopsy.base
-+++ b/base/autopsy.base
-@@ -1,3 +1,6 @@
-+#!/usr/bin/perl -wT
-+use lib '/tmp/autopsy/';
-+use lib '/tmp/autopsy/libexec/';
- #
- # autopsy gui server
- # Autopsy Forensic Browser
