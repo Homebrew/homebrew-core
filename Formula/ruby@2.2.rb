@@ -5,9 +5,9 @@ class RubyAT22 < Formula
   sha256 "313b44b1105589d00bb30b9cccf7da44d263fe20a2d8d269ada536d4a7ef285c"
 
   bottle do
-    sha256 "263499f1921a2b3d9e49982052295f3680bcf63211755c2fe02f5f5e599ca9b2" => :high_sierra
-    sha256 "c52f9e40c566ee0c6f700cdaf8697ada29f09003b9719a26da94d785a60474ae" => :sierra
-    sha256 "54f91fb7f7607e67a51b5f9c02d475e55cb0ea8301e418e8b0ee9afd186dfa0f" => :el_capitan
+    sha256 "bbb0ec366709fd53fc067c2bba714835e333b3ed9c1bc9dc2f887b83a31a5800" => :high_sierra
+    sha256 "e77c136a8d980d7d0139664691e245da2887226e8f518a91d95fddaee4dada57" => :sierra
+    sha256 "b8bb15cdb5d6687a851c33319774232e6009f0eb37c46ad7187f197eeb375335" => :el_capitan
   end
 
   keg_only :versioned_formula
