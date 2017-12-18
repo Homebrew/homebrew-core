@@ -6,9 +6,9 @@ class Faad2 < Formula
 
   bottle do
     cellar :any
-    sha256 "ca4c735b958cc393e8ccfa90ca3b0c372febc7175c7be3070aee64fded14d593" => :high_sierra
-    sha256 "b543a97001b82b54a7b650be495394d73b3c81822ca989e154380630ce503ccb" => :sierra
-    sha256 "6dacb8f2ebff6a348a0b1be0a8bbec37a4cee81a28dad9fe2fa2f809461e9e89" => :el_capitan
+    sha256 "e8872363a2fda9a3c9872ef697e517c638e54e2af5238d9e94b30e34ecdc505e" => :high_sierra
+    sha256 "f05989cbd9630fc37c962fc28ff29ec48a5fa7b71fe4ff9e520db6add1d0f09e" => :sierra
+    sha256 "94205432c0187c2ccef411b05934b8db57512bd80b53c8f9c00f3792ee478684" => :el_capitan
   end
 
   def install
