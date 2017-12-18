@@ -46,7 +46,7 @@ class Gtkspell3 < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
-      -I#{enchant.opt_include}/enchant
+      -I#{enchant.opt_include}/enchant-2
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -73,7 +73,7 @@ class Gtkspell3 < Formula
       -latk-1.0
       -lcairo
       -lcairo-gobject
-      -lenchant
+      -lenchant-2
       -lgdk-3
       -lgdk_pixbuf-2.0
       -lgio-2.0
