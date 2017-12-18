@@ -1,8 +1,8 @@
 class Tth < Formula
   desc "TeX/LaTeX to HTML converter"
   homepage "http://hutchinson.belmont.ma.us/tth/"
-  url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.10.tgz"
-  sha256 "dc873414d19dcc1a9d66323a76765bdc27b0055775d3dcf541de3fd38d5ef662"
+  url "http://hutchinson.belmont.ma.us/tth/tth_distribution/tth_4.12.tgz"
+  sha256 "9d35c7414493faae79fb60866966862c58c2f37eefe08e77d226ecbd6d7acfa2"
 
   bottle do
     cellar :any_skip_relocation
