@@ -3,6 +3,7 @@ class RubyAT22 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.9.tar.xz"
   sha256 "313b44b1105589d00bb30b9cccf7da44d263fe20a2d8d269ada536d4a7ef285c"
+  revision 1
 
   bottle do
     sha256 "bbb0ec366709fd53fc067c2bba714835e333b3ed9c1bc9dc2f887b83a31a5800" => :high_sierra
@@ -98,6 +99,10 @@ class RubyAT22 < Formula
       ENV.prepend_path "PATH", bin
 
       system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+
+      # Avoid conflict with bundler if it's already installed
+      rm_rf Dir[lib/"ruby/gems/#{api_version}/gems/bundler-*"]
+
       rg_in = lib/"ruby/#{api_version}"
 
       # Remove bundled Rubygem version.

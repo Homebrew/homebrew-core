@@ -3,7 +3,7 @@ class RubyAT20 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.bz2"
   sha256 "087ad4dec748cfe665c856dbfbabdee5520268e94bb81a1d8565d76c3cc62166"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "10ac2c0176bf5b82c87ba53e8e2a1d09b6e60688f2c27bf2c0f57f3aa90c3d49" => :high_sierra
@@ -93,6 +93,10 @@ class RubyAT20 < Formula
       ENV.prepend_path "PATH", bin
 
       system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+
+      # Avoid conflict with bundler if it's already installed
+      rm_rf Dir[lib/"ruby/gems/#{api_version}/gems/bundler-*"]
+
       rg_in = lib/"ruby/#{api_version}"
 
       # Remove bundled Rubygem version.
