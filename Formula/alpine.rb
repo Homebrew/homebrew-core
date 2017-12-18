@@ -1,8 +1,9 @@
 class Alpine < Formula
   desc "News and email agent"
-  homepage "http://alpine.freeiz.com/alpine/"
-  url "http://alpine.freeiz.com/alpine/release/src/alpine-2.21.tar.xz"
-  sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
+  homepage "http://repo.or.cz/alpine.git"
+  url "http://repo.or.cz/alpine.git/snapshot/672d6838a9babf2faeb9f79267525a4ab9d20b14.tar.gz"
+  version "2.21"
+  sha256 "a74234fce5fb1bfc1f1a19e9d5dabf71414490f544c4cc854f9eb3e78351964d"
 
   bottle do
     rebuild 1
