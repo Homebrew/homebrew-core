@@ -5,8 +5,8 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "http://hadolint.lukasmartinelli.ch/"
-  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.3.tar.gz"
-  sha256 "03a342fcb65d86b20ae1728d107344da36ceab87e7e846cb2f802924aa218aac"
+  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.4.tar.gz"
+  sha256 "e8c2051373e029e2e8258a9d5b720edc97e4f980600f7bee2e9acef15502a99c"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +19,9 @@ class Hadolint < Formula
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package
+    # Fix "Couldn't match expected type 'CheckSpec'"
+    # Reported 18 Dec 2017 https://github.com/hadolint/hadolint/issues/143
+    install_cabal_package "--constraint=ShellCheck<0.4.7"
   end
 
   test do
