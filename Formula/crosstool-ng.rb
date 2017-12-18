@@ -3,6 +3,7 @@ class CrosstoolNg < Formula
   homepage "http://crosstool-ng.org"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.23.0.tar.xz"
   sha256 "68a43ea98ccf9cb345cb6eec494a497b224fee24c882e8c14c6713afbbe79196"
+  head "https://github.com/crosstool-ng/crosstool-ng.git"
 
   bottle do
     cellar :any
@@ -12,6 +13,7 @@ class CrosstoolNg < Formula
     sha256 "c119b94b8b4782935e7c2968d195cddcfd2faa089768c0a0bf84dfcb8d5713cc" => :yosemite
   end
 
+  depends_on "bash" => :build
   depends_on "help2man" => :build
   depends_on "autoconf" => :run
   depends_on "automake" => :run
@@ -27,6 +29,8 @@ class CrosstoolNg < Formula
 
   def install
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
+
+    system "/usr/local/bin/bash", "./bootstrap" if build.head?
 
     system "./configure", "--prefix=#{prefix}"
 
