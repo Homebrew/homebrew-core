@@ -1,5 +1,3 @@
-require "language/go"
-
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
@@ -16,26 +14,13 @@ class Megacmd < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/t3rm1n4l/go-humanize" do
-    url "https://github.com/t3rm1n4l/go-humanize.git",
-        :revision => "e7ed15be05eb554fbaa83ac9b335556d6390fb9f"
-  end
-
-  go_resource "github.com/t3rm1n4l/go-mega" do
-    url "https://github.com/t3rm1n4l/go-mega.git",
-        :revision => "551abb8f1c87053be3f24282d198a6614c0ca14f"
-  end
-
-  go_resource "github.com/t3rm1n4l/megacmd" do
-    url "https://github.com/t3rm1n4l/megacmd.git",
-        :revision => "d7f3f3a2427cc52b71cad90b26889e2a33fc3565"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"megacmd"
+    (buildpath/"src/github.com/t3rm1n4l/megacmd").install buildpath.children
+    cd "src/github.com/t3rm1n4l/megacmd" do
+      system "go", "build", "-o", bin/"megacmd"
+      prefix.install_metafiles
+    end
   end
 
   test do
