@@ -3,7 +3,7 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   url "https://github.com/EttusResearch/uhd/archive/release_003_010_002_000.tar.gz"
   sha256 "7f96d00ed8a1458b31add31291fae66afc1fed47e1dffd886dffa71a8281fabe"
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
@@ -23,6 +23,14 @@ class Uhd < Formula
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
     sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+  end
+
+  # Fix "error: no member named 'native' in
+  # 'boost::asio::basic_datagram_socket<boost::asio::ip::udp>'"
+  # Upstream PR from 19 Dec 2017 "Fix build with Boost 1.66"
+  patch do
+    url "https://github.com/EttusResearch/uhd/pull/148.patch?full_index=1"
+    sha256 "f7fcc3091d843f5c85c22845193df1ec75c389b556fd375b5023900908f01b33"
   end
 
   def install
