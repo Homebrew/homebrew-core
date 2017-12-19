@@ -12,6 +12,9 @@ class Sonarqube < Formula
     # Delete native bin directories for other systems
     rm_rf Dir["bin/{linux,windows}-*"]
 
+    # Listen on 127.0.0.1 instead of 0.0.0.0
+    inreplace("conf/sonar.properties", "#sonar.web.host=0.0.0.0", "sonar.web.host=127.0.0.1")
+
     libexec.install Dir["*"]
 
     bin.install_symlink "#{libexec}/bin/macosx-universal-64/sonar.sh" => "sonar"
