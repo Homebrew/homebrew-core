@@ -8,10 +8,9 @@ class SourceHighlight < Formula
   revision 8
 
   bottle do
-    sha256 "18982f120324ecc68e4a3ab7337b229114d911ee8399de1af60010149c62cea4" => :high_sierra
-    sha256 "06761e3da2f94824ea6a70d52c798c764f80a1533058059a79ab31237b189240" => :sierra
-    sha256 "a76ad2770fce66bc6f3ff67d037a79064aab6f0ef01e9da745623d2568d572e5" => :el_capitan
-    sha256 "e485f2f17bbbc0c2a98677ce6f12da14ce8a29e5f667f5677686730a35573256" => :yosemite
+    sha256 "3101cb3776039eba399f7a9d42cbd68120abaa2c3fd02401bd43128020bdf22c" => :high_sierra
+    sha256 "c8f9401b678b754e82d3cd7a78f6e7c164a1ece1832ca73ac77f11023de87de9" => :sierra
+    sha256 "d8f960586c5a0b5249ceacbe3996042fdfbce29a50c3adc65087e02f3daf361b" => :el_capitan
   end
 
   depends_on "boost"
