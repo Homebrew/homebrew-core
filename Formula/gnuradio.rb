@@ -3,7 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -63,11 +63,21 @@ class Gnuradio < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
-    res = %w[Markdown Cheetah lxml]
-    res.each do |r|
+    ["Markdown", "Cheetah"].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
+    end
+
+    begin
+      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
+      resource("lxml").stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    ensure
+      ENV.delete("SDKROOT")
     end
 
     resource("cppzmq").stage include.to_s
@@ -140,7 +150,7 @@ class Gnuradio < Formula
         top.run();
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"]}",
+    system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"].opt_lib}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
            "-lboost_system",
            (testpath/"test.c++"),
