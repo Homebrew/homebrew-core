@@ -14,6 +14,7 @@ class Graphicsmagick < Formula
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
+  option "with-broken-coders", "Build GraphicsMagick with experimental file format coders"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -40,6 +41,7 @@ class Graphicsmagick < Formula
       --without-lzma
       --disable-openmp
       --with-quantum-depth=16
+      --disable-installed
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
@@ -51,6 +53,7 @@ class Graphicsmagick < Formula
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
+    args << "--enable-broken-coders" if build.with? "broken-coders"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
