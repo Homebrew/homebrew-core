@@ -3,6 +3,8 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.6/sip-4.19.6.tar.gz"
   sha256 "9dda27ae181bea782ebc8768d29f22f85ab6e5128ee3ab21f491febad707925a"
+  revision 1
+
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
