@@ -5,7 +5,7 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/b5/3f/80a09ea5f279e90122600d24cfa25d698008dc7e5b261cb582de8966bbe2/pipenv-8.3.2.tar.gz"
   sha256 "20be245ad2a7908a04b302e9568ee26e57f8dacc558468d2a84e699b2622e9af"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
