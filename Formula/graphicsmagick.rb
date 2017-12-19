@@ -1,8 +1,8 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.26/GraphicsMagick-1.3.26.tar.xz"
-  sha256 "fba015f3d5e5d5f17e57db663f1aa9d338e7b62f1d415b85d13ee366927e5f88"
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.27/GraphicsMagick-1.3.27.tar.xz"
+  sha256 "d03278d2790efc1dc72309f85a539810d2a81deb47932f7e6720d09ac72d0367"
   revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
@@ -17,6 +17,7 @@ class Graphicsmagick < Formula
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
+  option "with-broken-coders", "Build GraphicsMagick with experimental file format coders"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -47,6 +48,7 @@ class Graphicsmagick < Formula
       --without-lzma
       --disable-openmp
       --with-quantum-depth=16
+      --disable-installed
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
@@ -58,6 +60,7 @@ class Graphicsmagick < Formula
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
+    args << "--enable-broken-coders" if build.with? "broken-coders"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
