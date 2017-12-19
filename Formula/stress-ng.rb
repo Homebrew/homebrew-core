@@ -13,6 +13,7 @@ class StressNg < Formula
   end
 
   test do
-    system "#{bin}/stress-ng", "-c 1", "-t 1"
+    output = shell_output("#{bin}/stress-ng -c 1 -t 1")
+    assert_includes "successful run completed", output
   end
 end
