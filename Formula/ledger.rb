@@ -7,10 +7,9 @@ class Ledger < Formula
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    rebuild 1
-    sha256 "78eb7a89c983eb7b44e6cb9886f753b45f0d7dca8840f313df3b61b1260784f4" => :high_sierra
-    sha256 "399b606ab4739130941d763809510df932d46402f25e8149ccd19d146bacae1f" => :sierra
-    sha256 "90381bb4e3d1537d1741d1275f7671a5d3882991f893cca4f7e70ab6f80ab2f7" => :el_capitan
+    sha256 "6efc2c974510be710ae3eb5e73f4eeb970c7a6fd38c023b005f15f5ac44451ee" => :high_sierra
+    sha256 "90718888f20d9adc0d67fc3086dffaad5f7cfd7c32dc972b3a743c13f2f8792c" => :sierra
+    sha256 "03de386f65223edda1aca47fd41d543d933aefc53d221b30f1709132e483d7f2" => :el_capitan
   end
 
   deprecated_option "debug" => "with-debug"
