@@ -5,9 +5,9 @@ class Tig < Formula
   sha256 "6410e51c6149d76eac3510d04f9a736139f85e7c881646937d009caacf98cff1"
 
   bottle do
-    sha256 "bfaba19d292d2565a4ffb430cd2dc611bcb29f2e999ed2fa97e0b046728530e4" => :high_sierra
-    sha256 "55ab984141195f881fde9b7efd96c8a3457feeda2ae6529420e85de25ff24cd7" => :sierra
-    sha256 "342f06b65acf3a9686cb2894a9abdbdcfede591a3eb1d70f09b1314bd8bfa4f1" => :el_capitan
+    sha256 "25dbafb1b42cdcec87fb4ab3d0d65cb1eb4a34d524cf382adc4b52808a537440" => :high_sierra
+    sha256 "a1105dd17e379c72e8e8e0e82cda206dd718b6fa14bcbfef9038567b8475e553" => :sierra
+    sha256 "2f169188f3e4f6dd2478fdc530809461831314029f121ee324d264a29ae2eae6" => :el_capitan
   end
 
   head do
