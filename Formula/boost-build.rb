@@ -1,9 +1,9 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/2016.03.tar.gz"
-  sha256 "1e79253a6ce4cadb08ac1c05feaef241cbf789b65362ba8973e37c1d25a2fbe9"
-
+  url "https://github.com/boostorg/build/archive/boost-1.66.0.tar.gz"
+  sha256 "f5ae37542edf1fba10356532d9a1e7615db370d717405557d6d01d2ff5903433"
+  version_scheme 1
   head "https://github.com/boostorg/build.git"
 
   bottle do

@@ -3,6 +3,7 @@ class LibbitcoinDatabase < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-database"
   url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.4.0.tar.gz"
   sha256 "34ca5c11800ea8efb1ef986e83f5e4fcdde95e85d2406f0a7ed922725e45f0e0"
+  revision 1
 
   bottle do
     sha256 "48a7e38d29b4dd9d9df2a671da3fbb3696e930bda4c9e54bc78f16678eb2da4d" => :high_sierra
