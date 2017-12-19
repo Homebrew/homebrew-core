@@ -3,6 +3,7 @@ class LibbitcoinBlockchain < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
   url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.4.0.tar.gz"
   sha256 "65251a7148ec9fc8456f924e6319194fc38771c192326b2daf1d4abca2f55c76"
+  revision 1
 
   bottle do
     sha256 "db5a96c5302eaf95c7084c0c78e0d19d0d9fba413e407e43c4f9032b8f795e54" => :high_sierra
