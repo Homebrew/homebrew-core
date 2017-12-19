@@ -3,7 +3,7 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
   sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,10 @@ class CucumberCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+
+  # Upstream issue from 19 Dec 2017 "Build fails with Boost 1.66.0"
+  # See https://github.com/cucumber/cucumber-cpp/issues/178
+  depends_on "boost@1.60"
 
   def install
     args = std_cmake_args
@@ -54,8 +57,8 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
-           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
-           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lcucumber-cpp", "-I#{Formula["boost@1.60"].opt_include}",
+           "-L#{Formula["boost@1.60"].opt_lib}", "-lboost_regex", "-lboost_system",
            "-lboost_program_options", "-lboost_filesystem"
     begin
       pid = fork { exec "./test" }
