@@ -1,8 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.7.1/apache-arrow-0.7.1.tar.gz"
-  sha256 "f8f114d427a8702791c18a26bdcc9df2a274b8388e08d2d8c73dd09dc08e888e"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.8.0/apache-arrow-0.8.0.tar.gz"
+  sha256 "b142b883c7107485a296655e8d7421d11891acbca15862f37a4a8c1b13d4e9c4"
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -35,7 +35,7 @@ class ApacheArrow < Formula
       #include "arrow/api.h"
       int main(void)
       {
-        arrow::Int64Builder builder(arrow::default_memory_pool(), arrow::int64());
+        arrow::int64();
         return 0;
       }
     EOS
