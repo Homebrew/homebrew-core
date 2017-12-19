@@ -6,9 +6,9 @@ class Mkvtoolnix < Formula
   revision 1
 
   bottle do
-    sha256 "1b5451b54383d16d66601f233f66b3ad8670a08d5e18b10860545e91fec7a857" => :high_sierra
-    sha256 "88d12136fe632d646683bffdb07555c77c718b4350829a0eccacf4c208890d1e" => :sierra
-    sha256 "fcb92e24338a71ce18ce41e5166a4559a91d4b49cbd054c06a225308c19a2ec6" => :el_capitan
+    sha256 "5cf269cfd06131fb79196e4fb5c7e9e78f6d1f9aff2f4fe1bfa0a90e88cee977" => :high_sierra
+    sha256 "7a63e0f6804e269015b702d2155045cfec5b013164339630850ef6895fdceec6" => :sierra
+    sha256 "0808e15cf8eac4519a0d97398e410c48f50a2b9f736d0d93d2bb5064e449e75c" => :el_capitan
   end
 
   head do
