@@ -9,9 +9,9 @@ class DockerCompose < Formula
 
   bottle do
     cellar :any
-    sha256 "4d7730ec042eb50026d01b4da89e94e2a56d1f9cbdc5d1b9c1cadf72c2f7c412" => :high_sierra
-    sha256 "e30d566553106f0d73971cbdc4e7bcdb766ff1f4c44fc618a3ddcc70be8196b1" => :sierra
-    sha256 "52b769b83271942eaa8fbeb616258743afd2769462c203ef23389e8c4f1bb0c7" => :el_capitan
+    sha256 "188d42e482ef48a78e07a3f5203531a4de54e1d8830516da40ab4b82e545aa00" => :high_sierra
+    sha256 "62d50dd9e964cd4ac9b1a3606c0d4799bce3740e5c4b733c895c8067abad6d8b" => :sierra
+    sha256 "736076c271216a80200400d4f629a3ddbb319d92249ba5dfef9969766ba81079" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
