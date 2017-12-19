@@ -1,9 +1,10 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
-  url "https://www.coin-or.org/download/source/CppAD/cppad-20171128.epl.tgz"
-  version "20171128"
-  sha256 "36f9a4b6c16d720c20547c0a896c0b89fd5f05641dba34274257a1700f85d13b"
+  # Stable versions have numbers of the form 201x0000.y
+  url "https://github.com/coin-or/CppAD/archive/20170000.8.tar.gz"
+  sha256 "195ed02970b06e8b9546ffe198e662dabdaf56f262d11fbdf6fdc9cf77a3e011"
+  version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
@@ -37,7 +38,7 @@ class Cppad < Formula
       }
     EOS
 
-    system ENV.cxx, "#{pkgshare}/example/general/acos.cpp", "-I#{include}",
+    system ENV.cxx, "#{pkgshare}/example/acos.cpp", "-I#{include}",
                     "test.cpp", "-o", "test"
     system "./test"
   end
