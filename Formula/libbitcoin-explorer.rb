@@ -3,6 +3,7 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.4.0.tar.gz"
   sha256 "c0ed8ee51d780a3787699de47a5b8b5e73e539376be62f4e5cd89acfd8744ba3"
+  revision 1
 
   bottle do
     sha256 "6dd67afd894d12a06be94f2e799f7f46b57934bad7bc36aaa818c4ee0fa2bb02" => :high_sierra
