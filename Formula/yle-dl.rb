@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.29.tar.gz"
-  sha256 "62ebf2641f2f5ed602d5356c62075eaaf308e117ae7a9bd1ec26c07bcf24c94e"
+  url "https://github.com/aajanki/yle-dl/archive/2.30.tar.gz"
+  sha256 "a5dc7eaa369fa49683ad05c323b87a22e5b408355906d9378849c8c725a16a89"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
@@ -40,6 +40,11 @@ class YleDl < Formula
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/74/ba/4ba4e89e21b5a2e267d80736ea674609a0a33cc4435a6d748ef04f1f9374/defusedxml-0.5.0.tar.gz"
     sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
+  end
+
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
+    sha256 "e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
   end
 
   resource "idna" do
