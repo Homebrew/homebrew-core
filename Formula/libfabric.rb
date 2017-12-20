@@ -1,8 +1,8 @@
 class Libfabric < Formula
   desc "OpenFabrics libfabric"
   homepage "https://ofiwg.github.io/libfabric/"
-  url "https://github.com/ofiwg/libfabric/releases/download/v1.5.2/libfabric-1.5.2.tar.bz2"
-  sha256 "c05f601e929bc1190683b8e1b06075e6d772196b68f0bbda87827fd08d9e0d6d"
+  url "https://github.com/ofiwg/libfabric/releases/download/v1.5.3/libfabric-1.5.3.tar.bz2"
+  sha256 "f62a40da06f8951db267a59a4ee7363b6ee60a7abbc55cd5db6c8b067d93fa0c"
   head "https://github.com/ofiwg/libfabric.git"
 
   bottle do
