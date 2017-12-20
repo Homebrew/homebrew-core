@@ -1,20 +1,9 @@
 class Neko < Formula
   desc "High-level, dynamically typed programming language"
-  homepage "http://nekovm.org"
-
+  homepage "https://nekovm.org/"
+  url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
+  sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
   head "https://github.com/HaxeFoundation/neko.git"
-
-  stable do
-    url "http://nekovm.org/media/neko-2.1.0-src.tar.gz"
-    sha256 "0c93d5fe96240510e2d1975ae0caa9dd8eadf70d916a868684f66a099a4acf96"
-
-    patch do
-      # To workaround issue https://github.com/HaxeFoundation/neko/issues/130
-      # It is a commit already applied to the upstream.
-      url "https://github.com/HaxeFoundation/neko/commit/a8c71ad97faaccff6c6e9e09eba2d5efd022f8dc.patch?full_index=1"
-      sha256 "a5d08e5ff2f6372c780d2864b699aae714fc37d4ab987cea11764082757ddb39"
-    end
-  end
 
   bottle do
     cellar :any
@@ -26,6 +15,7 @@ class Neko < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "mbedtls"
   depends_on "bdw-gc"
@@ -36,8 +26,9 @@ class Neko < Formula
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-connector-c.
-    system "cmake", ".", "-DSTATIC_DEPS=MariaDBConnector", "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
-    system "make", "install"
+    system "cmake", ".", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
+           "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
+    system "ninja", "install"
   end
 
   def caveats
