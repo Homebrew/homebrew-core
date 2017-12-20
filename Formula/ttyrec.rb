@@ -7,12 +7,9 @@ class Ttyrec < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d9b1d1228666f4ceef9a25295762ef69345266b3b3b2dc6502a9c5358d7f2ddf" => :high_sierra
-    sha256 "941620132dea9468c3d548d8f9c63ffcade5dd45eff322cab699ae4db1e61079" => :sierra
-    sha256 "f24cda5af4db432d89cf3d3f5fb68a6f4afd1950c2c7e32456c8a8a779dfefd6" => :el_capitan
-    sha256 "86ff5251f02aa7becad5f95ff8a6bdb62572d2cac4f99a72166bda8cfffc7981" => :yosemite
-    sha256 "0324a2412722841b8f58bf41ab18d50e3dd15bed3d956f7d3738a6b1911f1130" => :mavericks
+    sha256 "8121debd07c4ecdd24d86fc7dadb00a7807e028f512418b5ba0d85768619628d" => :high_sierra
+    sha256 "0323b20a0905ad1c3a2f997714572d779bcf6db63d8798840c14f6a75fd70cd5" => :sierra
+    sha256 "ec05f403a1aa20da2e1fbd6f4d912b3d31fa1fd100c9adba68c928146a50bbc0" => :el_capitan
   end
 
   resource "matrix.tty" do
