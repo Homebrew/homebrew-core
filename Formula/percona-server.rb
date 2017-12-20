@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.18-16/source/tarball/percona-server-5.7.18-16.tar.gz"
-  sha256 "dc80833354675956fe90e01316fcd46b17cd23a8f17d9f30b9ef18e1a9bd2ae1"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-18/source/tarball/percona-server-5.7.20-18.tar.gz"
+  sha256 "ebbdf859d571562b9c9614c29355dd73adb9021b67108edd46b67063039a28af"
 
   bottle do
     rebuild 1
@@ -50,14 +50,6 @@ class PerconaServer < Formula
     satisfy { datadir == var/"mysql" }
   end
 
-  # Fix C++ build failure due to Xcode 9 being very strict
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://github.com/percona/percona-server/pull/1925.patch?full_index=1"
-      sha256 "126ed7762ab94a4b2afdaa8a09d35d5e25dfd7cd5452cf51b4db90144e737e6e"
-    end
-  end
-
   def install
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/homebrew/issues/20185
@@ -88,9 +80,13 @@ class PerconaServer < Formula
       -DWITHOUT_DIALOG=1
     ]
 
-    # TokuDB is broken on MacOsX
+    # TokuDB is broken on macOS
     # https://bugs.launchpad.net/percona-server/+bug/1531446
     args.concat %w[-DWITHOUT_TOKUDB=1]
+
+    # Percona MyRocks does not compile on macOS
+    # https://www.percona.com/doc/percona-server/LATEST/myrocks/install.html
+    args.concat %w[-DWITHOUT_ROCKSDB=1]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
