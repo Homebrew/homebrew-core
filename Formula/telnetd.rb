@@ -4,6 +4,13 @@ class Telnetd < Formula
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "491a7002f9649077f12835b8c94e22e240862cd48b833d80076de26b41399812" => :high_sierra
+    sha256 "933c4dcd343225ea93f09981bb7a92d152f0ad766214b4efd5fbbe8756a72873" => :sierra
+    sha256 "73e799af3062f0b86f86f34840bc2b6b82b0ac5d17d0b451ad52155182a69983" => :el_capitan
+  end
+
   keg_only :provided_pre_high_sierra
 
   depends_on :xcode => :build
