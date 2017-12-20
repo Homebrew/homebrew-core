@@ -6,10 +6,9 @@ class Fftw < Formula
 
   bottle do
     cellar :any
-    sha256 "76ec18439c8fc1bee47919205e68cf0cb5d6d30dd27f58eb2d6964d5501eb199" => :high_sierra
-    sha256 "293e6d290a437b18e0a1563622ca1e6bb3efc0574de8db461dc7066281fcf8e4" => :sierra
-    sha256 "3b0c6440faf90169571c67ef1f6532db743adfb64ccb41e5786eaffc2a2d925f" => :el_capitan
-    sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
+    sha256 "7c6d0f9133c5b491fe5538edd7a073d730cda6a7ce097c206a9372054505f123" => :high_sierra
+    sha256 "0682cdd73c692d6bb9e8ced37a94d1a39297546a110243ae9d6007870c46c52e" => :sierra
+    sha256 "a4bd0dfab078a5c5cd98166947e6537e393964bfbe68c82a8912e42333bea8f3" => :el_capitan
   end
 
   option "with-mpi", "Enable MPI parallel transforms"
