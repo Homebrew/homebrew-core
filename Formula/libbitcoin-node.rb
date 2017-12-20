@@ -3,7 +3,7 @@ class LibbitcoinNode < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-node"
   url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.4.0.tar.gz"
   sha256 "578c865d0b11ee15ca74e47b54cdaf521839cf0846c91f9cb21da2d6a82ca1ea"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "ff8bb3ed4b1b2385e445e1143869e1523d759b5ad7c6eeda5ba8c60d5c6c6cb1" => :high_sierra
@@ -40,6 +40,8 @@ class LibbitcoinNode < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bash_completion.install "data/bn"
   end
 
   test do
