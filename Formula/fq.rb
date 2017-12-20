@@ -1,8 +1,8 @@
 class Fq < Formula
   desc "Brokered message queue optimized for performance"
   homepage "https://github.com/circonus-labs/fq"
-  url "https://github.com/circonus-labs/fq/archive/v0.10.5.tar.gz"
-  sha256 "e56c690c2fd391b11f7d5466c2964e42db720154b07288274ef526f0c827efcd"
+  url "https://github.com/circonus-labs/fq/archive/v0.10.8.tar.gz"
+  sha256 "b7d1886b027cf3a29c341d0fa900ff5804011035c3864352001c1d164670214c"
   head "https://github.com/circonus-labs/fq.git"
 
   bottle do
@@ -13,8 +13,11 @@ class Fq < Formula
   end
 
   depends_on "concurrencykit"
+  depends_on :java => "1.8"
   depends_on "jlog"
   depends_on "openssl"
+
+  patch :DATA
 
   def install
     inreplace "Makefile", "/usr/lib/dtrace", "#{lib}/dtrace"
@@ -34,3 +37,19 @@ class Fq < Formula
     end
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 5dbd8d1..b0a3b0b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -134,7 +134,7 @@ fqc:	$(FQC_OBJ)
+ 	$(Q)$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(FQC_OBJ) $(LIBS)
+ 
+ fq-sample.so:	$(FQD_SAMPLE_OBJ)
+-	$(Q)$(MODULELD) $(EXTRA_SHLDFLAGS) $(SHLDFLAGS) -o $@ $(FQD_SAMPLE_OBJ)
++	$(Q)$(MODULELD) $(EXTRA_SHLDFLAGS) $(SHLDFLAGS) -o $@ $(FQD_SAMPLE_OBJ) $(CLIENT_OBJ_LO)
+ 
+ fq_sndr:	fq_sndr.o libfq.a
+ 	@echo " - linking $@"
+
