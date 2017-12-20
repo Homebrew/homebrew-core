@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/willthames/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/b6/02/aeb55b9eb7ac404b5cccfe6a4505bec641fe78fae7cb12e2632d639ff55c/ansible-lint-3.4.19.tar.gz"
-  sha256 "7ce9122e80ceed063e13c47c7430dbc541838a47cf560d3bcd87a0982a429877"
+  url "https://files.pythonhosted.org/packages/cd/d6/7e2abd17c523df9f8ae64694f12805c8f30934363f9eb6a68f9ffcbc2ff8/ansible-lint-3.4.20.tar.gz"
+  sha256 "1e7f1d5d5ee91b817dedc0b612c2beb5ff44879d592ea17a2eaa6571aa9a2bff"
 
   bottle do
     cellar :any
@@ -24,8 +24,8 @@ class AnsibleLint < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
-    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
   end
 
   resource "bcrypt" do
@@ -54,8 +54,8 @@ class AnsibleLint < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
-    sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
+    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
+    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
   end
 
   resource "Jinja2" do
