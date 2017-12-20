@@ -5,6 +5,13 @@ class Tnftp < Formula
   version "20070806"
   sha256 "ba35a8e3c2e524e5772e729f592ac0978f9027da2433753736e1eb1f1351ae9d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d10b32070661a883375a361016f73c3be47f9702be5fa902ca491d3f12ed8022" => :high_sierra
+    sha256 "8aca7a23ac918f7a69b13df67452420fb711e320cc57743cefd15134516da1ab" => :sierra
+    sha256 "fdaf7c1ab1fcb48226a9846452b352e4da302ac6aca61a74a67f97b8bb21c942" => :el_capitan
+  end
+
   keg_only :provided_pre_high_sierra
 
   depends_on :xcode => :build
