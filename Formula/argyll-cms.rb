@@ -7,10 +7,9 @@ class ArgyllCms < Formula
 
   bottle do
     cellar :any
-    sha256 "616119b8561e35bac3d64f501194b9aa4a8318406df7c85d23d548e78baa2dcc" => :high_sierra
-    sha256 "20f26b082601be3c18620f150aa1307d2d7627c0d4b44835967e33f03d1e6377" => :sierra
-    sha256 "e8fbfefa41768db1e223155f2547e9b0054bf2ff32673f0b77e9c4d6949771f8" => :el_capitan
-    sha256 "ce291dee7fc76f43ec0c8fe4ab28e6195fb862fe8fa204b06b515d5a1a5759e4" => :yosemite
+    sha256 "78bff4029872e5e426021471b40d2f843368517811f261d706a90410743ff4a3" => :high_sierra
+    sha256 "b1e55b622b10dff09e0923ad2d3e6bec53b8ba6147446d95a78a830621d9d597" => :sierra
+    sha256 "2f05c8e7477d3ff505799ca6bbc9374ec2e3acb4a5ca6203bb20203686aec2c3" => :el_capitan
   end
 
   depends_on "jam" => :build
