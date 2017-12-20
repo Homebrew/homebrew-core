@@ -3,7 +3,7 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.4.0.tar.gz"
   sha256 "a2c88f463b85efe8c9b7617332759e9964dbe250273cb473ebbb479be2525ef5"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "eba54ea7605e50bfca3eab3c2c9f0515e1dcb6ca8c4b071197a749e76c1fa2d1" => :high_sierra
@@ -42,6 +42,8 @@ class LibbitcoinServer < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bash_completion.install "data/bs"
   end
 
   test do
