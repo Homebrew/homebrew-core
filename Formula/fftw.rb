@@ -1,9 +1,8 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://fftw.org/fftw-3.3.6-pl2.tar.gz"
-  version "3.3.6-pl2"
-  sha256 "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
+  url "http://fftw.org/fftw-3.3.7.tar.gz"
+  sha256 "3b609b7feba5230e8f6dd8d245ddbefac324c5a6ae4186947670d9ac2cd25573"
 
   bottle do
     cellar :any
@@ -13,12 +12,12 @@ class Fftw < Formula
     sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
   end
 
-  option "with-fortran", "Enable Fortran bindings"
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
-  depends_on :fortran => :optional
+  depends_on :fortran => :recommended
   depends_on :mpi => [:cc, :optional]
+
   needs :openmp if build.with? "openmp"
 
   def install
