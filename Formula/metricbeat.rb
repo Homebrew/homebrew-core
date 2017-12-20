@@ -8,9 +8,9 @@ class Metricbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f41fc3bf924e3cd3dce5793a571de2a9d82ee146f6cb82116093a8320de6237" => :high_sierra
-    sha256 "42838878d1e5fbf9243c049c4be0879d565326f846d21ed0abc08a3661abd96f" => :sierra
-    sha256 "2b17231f8607747c70b69fc55233807ccc8bccd38af6335f17b99a9e39ae5c24" => :el_capitan
+    sha256 "b50ee235102314b37b2fd08b00814817eed5e3b2a19512cb8e97df7605089d1c" => :high_sierra
+    sha256 "ea766e2c02145d7c32520cd2a86fff59cf3a7e0127341578509d74f4165133e8" => :sierra
+    sha256 "b7efcc70568e0da390264398b1050dfa852147cc63406c247045cd5715aa3085" => :el_capitan
   end
 
   depends_on "go" => :build
