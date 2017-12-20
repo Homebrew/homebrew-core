@@ -5,9 +5,9 @@ class Gnupg < Formula
   sha256 "401a3e64780fdfa6d7670de0880aa5c9d589b3db7a7098979d7606cec546f2ec"
 
   bottle do
-    sha256 "49b7bf150fd95162e539c14eebcd3e2dede89689bf518f5d4ca776d18838f089" => :high_sierra
-    sha256 "d298211b42a3b1c4fe2718f53474c1bbd7e13cd57facde6af12d8177b1c2f9c5" => :sierra
-    sha256 "e902cd488c114bec3b5acfe9b4ffc9888458efd7ce8115a1d73f63633ba5418b" => :el_capitan
+    sha256 "b1b9072b7016d6c19dfcc3df4a3b918a26cba41235fe6da811708960ce32515d" => :high_sierra
+    sha256 "e6fa3f1585fb147bbfd27a9eafd49f58c88a7362a2d2916d923d3c95a8646efd" => :sierra
+    sha256 "45057d2c28547bc6540c8d7af856861652c439ab1edd720277b81fc191bf3fe5" => :el_capitan
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
