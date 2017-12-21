@@ -6,6 +6,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
   sha256 "936d4cf5d577298f4f9fdb220e85b008ae321554a5fcd38072dc327a7296230e"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
 
   bottle do
@@ -18,6 +19,7 @@ class Qt < Formula
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
+  option "without-proprietary-codecs", "Don't build with proprietary codecs (e.g. mp3)"
 
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
@@ -88,6 +90,7 @@ class Qt < Formula
     end
 
     args << "-plugin-sql-psql" if build.with? "postgresql"
+    args << "-proprietary-codecs" if build.with? "proprietary-codecs"
 
     system "./configure", *args
     system "make"
