@@ -9,6 +9,13 @@ class Lammps < Formula
   sha256 "33431329fc735fb12d22ed33399235ef9506ba759a281a24028de538822af104"
   revision 2
 
+  bottle do
+    cellar :any
+    sha256 "8b86fa06a09801452a51f18a5e1b8672c551fab4c05e5754bd95c781be9a3d84" => :high_sierra
+    sha256 "e4ff088094f6e52cf1d66b4fb7c55e2d447dee9266ff08e333bdcbaa4676aee2" => :sierra
+    sha256 "b641e7a8e79e489c1b7aae431d9b7efc935cb3b5736cccf1074806f48b7cac57" => :el_capitan
+  end
+
   depends_on "fftw"
   depends_on "jpeg"
   depends_on "libpng"
