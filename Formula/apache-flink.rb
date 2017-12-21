@@ -15,7 +15,7 @@ class ApacheFlink < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/flink"], Language::Java.java_home_env("1.8")
+    (bin/"flink").write_env_script "#{libexec}/bin/flink", Language::Java.java_home_env("1.8")
   end
 
   test do
