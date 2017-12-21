@@ -15,20 +15,9 @@ class Terraform < Formula
   end
 
   depends_on "go" => :build
+  depends_on "gox" => :build
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
-
-  # gox is a build tool dependency
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  # iochan is a build dependency of gox
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
 
   # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
@@ -44,9 +33,8 @@ class Terraform < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    %w[src/github.com/mitchellh/gox
-       src/golang.org/x/tools/cmd/stringer].each do |path|
-      cd(path) { system "go", "install" }
+    cd "src/golang.org/x/tools/cmd/stringer" do
+      system "go", "install"
     end
 
     cd dir do
