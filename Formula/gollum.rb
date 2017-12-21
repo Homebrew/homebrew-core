@@ -1,8 +1,8 @@
 class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.4.5.tar.gz"
-  sha256 "a1c9cf0659163d3252c1370a957f60f12e19b808ef8dd9af24cb5ee2b78bda1c"
+  url "https://github.com/trivago/gollum/archive/v0.5.0.tar.gz"
+  sha256 "7457feb6fdeda425a8f6acd9de36c484bea37ad9e3c76c5c020668796e6e5b5a"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
@@ -26,15 +26,20 @@ class Gollum < Formula
 
   test do
     (testpath/"test.conf").write <<~EOS
-      - "consumer.Profiler":
-          Enable: true
+      "Profiler":
+          Type: "consumer.Profiler"
           Runs: 100000
           Batches: 100
           Characters: "abcdefghijklmnopqrstuvwxyz .,!;:-_"
           Message: "%256s"
-          Stream: "profile"
-    EOS
+          Streams: "profile"
+          KeepRunning: false
+          ModulatorRoutines: 0
 
-    assert_match "parsed as ok", shell_output("#{bin}/gollum -tc #{testpath}/test.conf")
+      "Benchmark":
+          Type: "producer.Benchmark"
+          Streams: "profile"
+    EOS
+    assert_match "Config OK.", shell_output("#{bin}/gollum -tc #{testpath}/test.conf")
   end
 end
