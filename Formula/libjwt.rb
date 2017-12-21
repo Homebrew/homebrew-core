@@ -13,8 +13,8 @@ class Libjwt < Formula
   depends_on "openssl"
 
   def install
-    system "autoreconf", "-v", "-i"
-    system "./configure", "--prefix=#{prefix}"
+    system "autoreconf", "-fiv"
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--disable-silent-rules"
     system "make", "all"
     system "make", "check"
     system "make", "install"
@@ -31,7 +31,7 @@ class Libjwt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-ljwt", "-o", "test", "-v"
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-ljwt", "-o", "test"
     system "./test"
   end
 end
