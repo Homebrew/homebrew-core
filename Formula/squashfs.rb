@@ -3,6 +3,7 @@ class Squashfs < Formula
   homepage "https://squashfs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.3/squashfs4.3.tar.gz"
   sha256 "0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6"
+  revision 1
 
   bottle do
     cellar :any
@@ -34,6 +35,7 @@ class Squashfs < Formula
       LZO_DIR=#{Formula["lzo"].opt_prefix}
       XZ_SUPPORT=1
       XZ_DIR=#{Formula["xz"].opt_prefix}
+      LZMA_XZ_SUPPORT=1
     ]
     args << "LZ4_SUPPORT=1" if build.with? "lz4"
 
