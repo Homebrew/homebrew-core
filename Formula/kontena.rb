@@ -2,12 +2,11 @@ class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
   head "https://github.com/kontena/kontena.git"
-  revision 1
 
   stable do
     url "https://github.com/kontena/kontena.git",
-        :tag => "v1.4.2",
-        :revision => "ead10ec4191a101769095b5fc7c3eeabaa05c621"
+        :tag => "v1.4.3",
+        :revision => "8e3842860578f9a8d8283d89d41a39fa4ed463d5"
 
     resource "addressable" do
       url "https://rubygems.org/gems/addressable-2.5.2.gem"
@@ -37,11 +36,6 @@ class Kontena < Formula
     resource "hitimes" do
       url "https://rubygems.org/gems/hitimes-1.2.6.gem"
       sha256 "5939da5baf4bed890b481d77dc37d481297d0f06f1d2569f4c5c9a2112144218"
-    end
-
-    resource "kontena-plugin-cloud" do
-      url "https://rubygems.org/gems/kontena-plugin-cloud-1.2.0.gem"
-      sha256 "792132467e5c44e168dd679a49b68186da454f2509b79f3be8f3f6d341237ec1"
     end
 
     resource "kontena-websocket-client" do
@@ -77,11 +71,6 @@ class Kontena < Formula
     resource "public_suffix" do
       url "https://rubygems.org/gems/public_suffix-3.0.1.gem"
       sha256 "67182699cb644e66b4c68d30b5f1dd42e3dfe6c0aa0d8fd36a1e71c97c6a7f57"
-    end
-
-    resource "rake" do
-      url "https://rubygems.org/gems/rake-10.5.0.gem"
-      sha256 "2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49"
     end
 
     resource "retriable" do
