@@ -1,6 +1,6 @@
 class Libjwt < Formula
-  desc "JWT C Library"
-  homepage "https://benmcollins.github.io/libjwt/"
+  desc "JSON Web Token C library"
+  homepage "https://github.com/benmcollins/libjwt"
   url "https://github.com/benmcollins/libjwt/archive/v1.8.0.tar.gz"
   sha256 "e97c15c14dbd49d5ba435cb26e06e6cdd6e32cf9f0be6b6e9a2d2d330923ea17"
 
@@ -26,12 +26,8 @@ class Libjwt < Formula
       #include <jwt.h>
 
       int main() {
-        int token = 1;
-
         jwt_t *jwt = NULL;
-
         if (jwt_new(&jwt) != 0) abort();
-
         return 0;
       }
     EOS
