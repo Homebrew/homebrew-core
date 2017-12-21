@@ -1,8 +1,8 @@
 class Unoconv < Formula
   desc "Convert between any document format supported by OpenOffice"
   homepage "http://dag.wiee.rs/home-made/unoconv/"
-  url "http://dag.wieers.com/home-made/unoconv/unoconv-0.7.tar.gz"
-  sha256 "56abbec55632b19dcaff7d506ad6e2fd86f53afff412e622cc1e162afb1263fa"
+  url "https://files.pythonhosted.org/packages/a2/b8/3131d20bfa2065e489edc7ca2dbfd66fd8d4fcbbde3476c76605a7e69269/unoconv-0.8.2.tar.gz"
+  sha256 "c7091a409384c05b3509b18be6c8d7059d26f491dfa78660ecdfbde3e72b03be"
   head "https://github.com/dagwieers/unoconv.git"
 
   bottle do
