@@ -5,6 +5,13 @@ class Gox < Formula
   sha256 "2df7439e9901877685ff4e6377de863c3c2ec4cde43d0ca631ff65d1b64774ad"
   head "https://github.com/mitchellh/gox.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ce011971b907d6924b60ea48d2beafea504d9ba4129e5c6ad089efea5f414e4f" => :high_sierra
+    sha256 "a7e5f38c3b24a79734e12ad94dcf926cbc9cff4d7ffbff09053d86a14558d0ef" => :sierra
+    sha256 "5372595ec41b8a5abb86f730b28f60cee89459bb1dfa32a4e8c6b599428c14b6" => :el_capitan
+  end
+
   depends_on "go"
 
   resource "iochan" do
