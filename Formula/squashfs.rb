@@ -34,6 +34,7 @@ class Squashfs < Formula
       LZO_DIR=#{Formula["lzo"].opt_prefix}
       XZ_SUPPORT=1
       XZ_DIR=#{Formula["xz"].opt_prefix}
+      LZMA_XZ_SUPPORT=1
     ]
     args << "LZ4_SUPPORT=1" if build.with? "lz4"
 
