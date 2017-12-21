@@ -7,10 +7,8 @@ class TmuxXpanes < Formula
   depends_on "tmux" => :recommended
 
   def install
-    %w[xpanes tmux-xpanes].each do |cmd|
-      bin.install "bin/#{cmd}"
-      man1.install "man/#{cmd}.1"
-    end
+    bin.install Dir["bin/*"]
+    man1.install Dir["man/*.1"]
   end
 
   test do
