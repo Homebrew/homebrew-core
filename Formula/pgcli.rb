@@ -1,8 +1,8 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/d6/22/b31b930ab33ed23db9443f082f4aced2c81be97bcf3a2e1b2ec2e091cb09/pgcli-1.8.1.tar.gz"
-  sha256 "9a29b4082987760ea336697d3d4a4ecf9c126d7d6b56001d6d897d438bd91ce7"
+  url "https://files.pythonhosted.org/packages/91/84/e3be2851c87a9550cc747ba85ade36d1b51bb9a747ac93025a01a25baa41/pgcli-1.8.2.tar.gz"
+  sha256 "79b32cb0a44e03fc6c26d43080459d48d39d6d81391eb09062a82c940b61441c"
 
   bottle do
     cellar :any
@@ -21,8 +21,8 @@ class Pgcli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/03/65/9a5b81f879131076e47fa7f0e633a2e6524cdae7d14ef66a58bb810c100e/cli_helpers-0.2.3.tar.gz"
-    sha256 "eaa887b46ef448c8864ba460cce4fa26866e45e337dc32a2b4741ccb033c42f1"
+    url "https://files.pythonhosted.org/packages/88/25/1fd3b2181b4e1fec360a1176a91ab715297b55db045e91af798c31c58aa3/cli_helpers-1.0.1.tar.gz"
+    sha256 "55353117960700dfbe000a71cda0bad1ac865e3a9999f1fa81047fa9e1322d42"
   end
 
   resource "click" do
@@ -41,8 +41,8 @@ class Pgcli < Formula
   end
 
   resource "pgspecial" do
-    url "https://files.pythonhosted.org/packages/bd/61/b35b4622813d6659653290bf6c001b22dc0c5d0b88c0948db47d15d1c42d/pgspecial-1.8.0.tar.gz"
-    sha256 "89f524909e97554bb3eeceb186a834e86cb71e34afef3a95fe645049ead894b7"
+    url "https://files.pythonhosted.org/packages/73/30/2f6ca8c9c7199a04d7c0d79405e1a6ec6841074b1b002307c00d8738c41b/pgspecial-1.9.0.tar.gz"
+    sha256 "493cbbb1dfd2610c8be948d31355e3919f3adf24689ee439d42f4c1685406ac8"
   end
 
   resource "prompt_toolkit" do
@@ -51,8 +51,8 @@ class Pgcli < Formula
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/6b/fb/15c687eda2f925f0ff59373063fdb408471b4284714a7761daaa65c01f15/psycopg2-2.7.3.1.tar.gz"
-    sha256 "9b7b16e26448b43cf167f785d8b5345007731ebf153a510e12dae826800caa65"
+    url "https://files.pythonhosted.org/packages/dd/47/000b405d73ca22980684fd7bd3318690cc03cfa3b2ae1c5b7fff8050b28a/psycopg2-2.7.3.2.tar.gz"
+    sha256 "5c3213be557d0468f9df8fe2487eaf2990d9799202c5ff5cb8d394d09fad9b2a"
   end
 
   resource "Pygments" do
@@ -71,8 +71,13 @@ class Pgcli < Formula
   end
 
   resource "sqlparse" do
-    url "https://files.pythonhosted.org/packages/45/67/14bdaeff492e6d03a055fe80502bae10b679891c25a0dc59be2fe51002f8/sqlparse-0.2.3.tar.gz"
-    sha256 "becd7cc7cebbdf311de8ceedfcf2bd2403297024418801947f8c953025beeff8"
+    url "https://files.pythonhosted.org/packages/79/3c/2ad76ba49f9e3d88d2b58e135b7821d93741856d1fe49970171f73529303/sqlparse-0.2.4.tar.gz"
+    sha256 "ce028444cfab83be538752a2ffdb56bc417b7784ff35bb9a3062413717807dec"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/12/c2/11d6845db5edf1295bc08b2f488cf5937806586afe42936c3f34c097ebdc/tabulate-0.8.2.tar.gz"
+    sha256 "e4ca13f26d0a6be2a2915428dc21e732f1e44dad7f76d7030b2ef1ec251cf7f2"
   end
 
   resource "terminaltables" do
