@@ -7,12 +7,9 @@ class Squashfs < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f01a8c8a6f0e1d722bd8bddb5ab2620af364be17d837b6842afb1fe1a48947eb" => :high_sierra
-    sha256 "7d7ecf4824220dbdb8205bb7e33dc68384b6fe5297d88ca80d274537adcc3d90" => :sierra
-    sha256 "769b85e62fea85488ff0e05915634bcbad67b545862800b563b6198f20a8b72e" => :el_capitan
-    sha256 "8d85f58d931af53e6baf4a7aa9a2c8254ffbb738bb6c559853345e7699cbdfef" => :yosemite
-    sha256 "c31a330128c85dc7fb8b2bd320f9a0f00469eff571323a6bbde435fa98496104" => :mavericks
+    sha256 "06c8d10e167295f91684c9c5bb596143189f4de5f4e1cba7b3f45ab0ee9ed1cb" => :high_sierra
+    sha256 "cbf0fba9b2b73aff6465c8611453b832886159c6e12191eb27ab39e58e9ef577" => :sierra
+    sha256 "192a9b40b56ded7b5d97c1ae9a587173f4380e0a71ec8332dc475d9c5beeb5e1" => :el_capitan
   end
 
   depends_on "lzo"
