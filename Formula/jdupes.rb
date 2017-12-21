@@ -1,12 +1,11 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes.git", :using => :git, :tag => "v1.9", :revision => "ba505f2a5462fc851e6d9f8a558a427eed1187c1"
+  url "https://github.com/jbruchon/jdupes/archive/v1.9.tar.gz"
+  sha256 "7f2505571c9fc8f76609b918106785f61e4a85af184309f738d7d847f1c2a1cf"
 
   def install
-    system "make"
-    bin.install "jdupes"
-    man1.install "jdupes.1"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
