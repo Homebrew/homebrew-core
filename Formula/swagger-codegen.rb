@@ -1,8 +1,8 @@
 class SwaggerCodegen < Formula
-  desc "Generation of client and server from Swagger definition"
+  desc "Generation of API clients, server stubs, documentation from OpenAPI/Swagger definition"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.2.3.tar.gz"
-  sha256 "baed7f68add38f625cfa9baa3c5fb454de87cca4e790ccc3c449cf15681380c7"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.3.0.tar.gz"
+  sha256 "e0f5637e68add2f7b5abbb69b020c6a6da6ea146d1ab1dc167791124d5b3b3a6"
   head "https://github.com/swagger-api/swagger-codegen.git"
 
   bottle do
@@ -13,7 +13,7 @@ class SwaggerCodegen < Formula
     sha256 "1fc02905cba6c5e8a02c6936db0dfbcc430b9ff10b1a3961a0cabe7e17ce4814" => :yosemite
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
   depends_on "maven" => :build
 
   def install
