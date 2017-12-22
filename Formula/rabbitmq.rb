@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://dl.bintray.com/rabbitmq/binaries/rabbitmq-server-generic-unix-3.7.0.tar.xz"
-  sha256 "a3f743da104219f5df65629f159301eb22f740338e2b145c968d5ec7854cbdfe"
+  url "https://dl.bintray.com/rabbitmq/binaries/rabbitmq-server-generic-unix-3.7.1.tar.xz"
+  sha256 "66622252372ea70f5cf1eb60fa9421dd933834272823ea269b2435d3ab33bafb"
 
   bottle :unneeded
 
