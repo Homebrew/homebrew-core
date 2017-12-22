@@ -1,5 +1,3 @@
-require "language/go"
-
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
@@ -17,36 +15,18 @@ class Packer < Formula
 
   depends_on "go" => :build
   depends_on "govendor" => :build
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
+  depends_on "gox" => :build
 
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by packer, which
-    # doesn't need to be installed permanently.
-    ENV.append_path "PATH", buildpath
 
     packerpath = buildpath/"src/github.com/hashicorp/packer"
     packerpath.install Dir["{*,.git}"]
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
-    end
 
     cd packerpath do
-      # We handle this step above. Don't repeat it.
+      # Avoid running `go get`
       inreplace "Makefile" do |s|
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
