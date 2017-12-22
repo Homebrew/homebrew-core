@@ -4,8 +4,8 @@ class Vg < Formula
   url "https://github.com/GetStream/vg/archive/v0.8.0.tar.gz"
   sha256 "e7267b1306c36b3a4a4d10cb9e7ece66a9436a430bbf15028b82313496c92ebe"
 
-  depends_on "go"
-  depends_on "dep"
+  depends_on "go" => :build
+  depends_on "dep" => :build
   depends_on "bindfs" => :optional
 
   def install
@@ -14,7 +14,8 @@ class Vg < Formula
     vgpath.install buildpath.children
     cd vgpath do
       system "dep", "ensure"
-      system "go", "build", "-o", bin/"vg", "-ldflags", "-w -s -X github.com/GetStream/vg/cmd.Version=#{version}"
+      system "go", "build", "-o", bin/"vg",
+        "-ldflags", "-w -s -X github.com/GetStream/vg/cmd.Version=#{version}"
       prefix.install_metafiles
     end
   end
@@ -44,6 +45,6 @@ class Vg < Formula
   end
 
   test do
-    assert_match "0.8.0", shell_output("#{bin}/vg version")
+    assert_match "#{version.to_s}", shell_output("#{bin}/vg version")
   end
 end
