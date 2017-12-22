@@ -1,5 +1,3 @@
-require "language/go"
-
 class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
@@ -18,16 +16,7 @@ class Serf < Formula
 
   depends_on "go" => :build
   depends_on "govendor" => :build
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
+  depends_on "gox" => :build
 
   def install
     contents = Dir["*"]
@@ -39,13 +28,7 @@ class Serf < Formula
     ENV["XC_ARCH"] = arch
     ENV["XC_OS"] = "darwin"
 
-    Language::Go.stage_deps resources, gopath/"src"
-
-    ENV.prepend_create_path "PATH", gopath/"bin"
-    cd gopath/"src/github.com/mitchellh/gox" do
-      system "go", "build"
-      (gopath/"bin").install "gox"
-    end
+    (gopath/"bin").mkpath
 
     cd gopath/"src/github.com/hashicorp/serf" do
       system "make", "bin"
