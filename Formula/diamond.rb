@@ -32,7 +32,7 @@ class Diamond < Formula
       ffetesrsvaqagvqwrdlgslqapppgftpfsclslpsswdyrrppprpanfcifsrdg
       vspcXpgwsrspdlvirpprppkvlglqaXatapg
     EOS
-    output = shell_output("#{bin}/diamond makedb --in nr.faa -d nr"
-    assert_match "Processed 6 sequences, 572 letters.", output)
+    output = shell_output("#{bin}/diamond makedb --in nr.faa -d nr")
+    assert_match "Processed 6 sequences, 572 letters.", output
   end
 end
