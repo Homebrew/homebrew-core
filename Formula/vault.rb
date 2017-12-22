@@ -1,5 +1,3 @@
-require "language/go"
-
 # Please don't update this formula until the release is official via
 # mailing list or blog post. There's a history of GitHub tags moving around.
 # https://github.com/hashicorp/vault/issues/1051
@@ -7,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.9.0",
-      :revision => "bdac1854478538052ba5b7ec9a9ec688d35a3335"
+      :tag => "v0.9.1",
+      :revision => "87b6919dea55da61d7cd444b2442cabb8ede8ab1"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
@@ -21,16 +19,7 @@ class Vault < Formula
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
 
   depends_on "go" => :build
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
+  depends_on "gox" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -38,13 +27,7 @@ class Vault < Formula
     contents = buildpath.children - [buildpath/".brew_home"]
     (buildpath/"src/github.com/hashicorp/vault").install contents
 
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "install"
-    end
+    (buildpath/"bin").mkpath
 
     cd "src/github.com/hashicorp/vault" do
       target = build.with?("dynamic") ? "dev-dynamic" : "dev"
