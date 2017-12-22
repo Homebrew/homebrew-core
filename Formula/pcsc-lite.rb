@@ -1,8 +1,8 @@
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
   homepage "https://pcsclite.alioth.debian.org"
-  url "https://alioth.debian.org/frs/download.php/file/4216/pcsc-lite-1.8.21.tar.bz2"
-  sha256 "fe3365eb7d4ce0fe891e2b6d6248351c287435ca502103f1f1431b1710e513ad"
+  url "https://alioth.debian.org/frs/download.php/file/4235/pcsc-lite-1.8.23.tar.bz2"
+  sha256 "5a27262586eff39cfd5c19aadc8891dd71c0818d3d629539bd631b958be689c9"
 
   bottle do
     sha256 "294e8028aa33a7727525438c3893390de5a3c89aa7b4da75f5e63d1bb7a8a942" => :high_sierra
@@ -19,7 +19,7 @@ class PcscLite < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
-                          "--with-systemdsystemunitdir=no"
+                          "--disable-libsystemd"
     system "make", "install"
   end
 
