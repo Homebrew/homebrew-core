@@ -6,10 +6,9 @@ class Qmmp < Formula
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
-    sha256 "af90bc7575bc1ae4ae7cf1cfb2780e2b927ff2fa4769d1a15b8e668ed2887c1a" => :high_sierra
-    sha256 "679fa917fffada98dd35bff2a06476650c122fe8214214d87063507724dedd67" => :sierra
-    sha256 "408d3336ef00156ed7ee4af9f0ab95d8ae9dcdd6a5bf8fa082568b033682853b" => :el_capitan
-    sha256 "e7252389fc805b90fee400b9b2f3461a9ddc5da69e2e24de002b334e83ece742" => :yosemite
+    sha256 "fde6046322179080f7d691fead99fba034d1d7e2c215883cb5075800d6b63888" => :high_sierra
+    sha256 "af9bfaf97426f5c4610636605c3055827f8812ef0011c477548cbe9db58d8093" => :sierra
+    sha256 "1b5c09baa8ea2cb0dfed57048dca8b7c68a70eedcaf683d51d9d273fc653ba46" => :el_capitan
   end
 
   depends_on "cmake" => :build
