@@ -6,7 +6,6 @@ class Libjwt < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "check" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
@@ -16,7 +15,6 @@ class Libjwt < Formula
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--disable-silent-rules"
     system "make", "all"
-    system "make", "check"
     system "make", "install"
   end
 
@@ -27,7 +25,7 @@ class Libjwt < Formula
 
       int main() {
         jwt_t *jwt = NULL;
-        if (jwt_new(&jwt) != 0) abort();
+        if (jwt_new(&jwt) != 0) return 1;
         return 0;
       }
     EOS
