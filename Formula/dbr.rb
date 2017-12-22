@@ -9,4 +9,18 @@ class Dbr < Formula
     lib.install "BarcodeReader5.2/lib/libDynamsoftBarcodeReader.dylib"
     doc.install Dir["BarcodeReader5.2/documents/*"]
   end
+  
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <DynamsoftBarcodeReader.h>
+
+      int main(int argc, char ** argv)
+      {
+        return argp_parse(0, argc, argv, 0, 0, 0);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lDynamsoftBarcodeReader", "-o", "test"
+    system "./test"
+  end
 end
