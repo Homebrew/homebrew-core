@@ -9,8 +9,4 @@ class Dbr < Formula
     lib.install "BarcodeReader5.2/lib/libDynamsoftBarcodeReader.dylib"
     doc.install Dir["BarcodeReader5.2/documents/*"]
   end
-
-  test do
-    system "false"
-  end
 end
