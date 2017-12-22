@@ -24,7 +24,7 @@ class Bamtools < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}/bamtools", "-L#{lib}",
-                    "-lbamtools", "-o", "test"
+                    "-lbamtools", "-lz", "-o", "test"
     system "./test"
   end
 end
