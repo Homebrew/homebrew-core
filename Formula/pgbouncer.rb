@@ -6,10 +6,9 @@ class Pgbouncer < Formula
 
   bottle do
     cellar :any
-    sha256 "0d93dc6d4c3aedb41bf98026a4dabdbb042c679dc301bcbb863eee8bcae0c285" => :high_sierra
-    sha256 "856e2b0f818374b88290b5d794f9e41d691da1a164d14aedf6ef6192d726d67a" => :sierra
-    sha256 "90de8ccdfe3cd6f84de801a5c003c01b95dd6f95eea77620d9be859e78a4d288" => :el_capitan
-    sha256 "14b72883c284c2ca5602f29cf393b4c289c77033c6c47596fe8eb9b26245c8ab" => :yosemite
+    sha256 "c6c51632e0c13fcccac322fe8ee11217af80b3bfa02f737b0ad05528511ceeff" => :high_sierra
+    sha256 "8831a6603870ca7e6e2833acaaced55ee1ae89065d0841454ddfc510433bf7fb" => :sierra
+    sha256 "37b2e592b6d012a6b59f69bb7f55187465f0e91771d9cc2aa84b8d78f4c69fa2" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
