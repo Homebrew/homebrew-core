@@ -1,9 +1,9 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/2.7.0/fish-2.7.0.tar.gz"
-  mirror "https://fishshell.com/files/2.7.0/fish-2.7.0.tar.gz"
-  sha256 "3a76b7cae92f9f88863c35c832d2427fb66082f98e92a02203dc900b8fa87bcb"
+  url "https://github.com/fish-shell/fish-shell/releases/download/2.7.1/fish-2.7.1.tar.gz"
+  mirror "https://fishshell.com/files/2.7.1/fish-2.7.1.tar.gz"
+  sha256 "e42bb19c7586356905a58578190be792df960fa81de35effb1ca5a5a981f0c5a"
 
   bottle do
     sha256 "affac16a396410a500241266dbbbd8752562c9b800d9e4f2ef8de279c6fdb6aa" => :high_sierra
