@@ -5,6 +5,13 @@ class Bamtools < Formula
   sha256 "85e02e04998a67cbda7ab68cdab36cee133db024e814b34e06bb617b627caf9c"
   head "https://github.com/pezmaster31/bamtools.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3a504c278fea868f97003fa89ba11596d296e89dc5223a1ee2d7d6a244e0cd36" => :high_sierra
+    sha256 "8360ea6b47e818a342924c72efcf266977c77a6d0c507500825c9e89db5618c4" => :sierra
+    sha256 "30e7b3c26dc078f5436940147082bed4ebca1023a4eb8237fe1dfccfebed18d3" => :el_capitan
+  end
+
   depends_on "cmake" => :build
 
   def install
