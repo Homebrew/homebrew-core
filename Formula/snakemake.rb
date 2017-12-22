@@ -1,8 +1,8 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
-  url "https://files.pythonhosted.org/packages/fa/b7/d9bf8592c7cce420b3f95b403e1daecbcc3b2cbb0677a59b2da45fe38953/snakemake-4.3.1.tar.gz"
-  sha256 "b819501fa583789708c5aa1ecd7645b2ab5522dd96f309c4b7ef60b318abf588"
+  url "https://files.pythonhosted.org/packages/4c/01/195575763c0eb6f4ae44cd28ad2563b1e7f74231adc3e207b032afa78018/snakemake-4.4.0.tar.gz"
+  sha256 "5b22093cf1e7022a2d285d06e4aec5a78b95e1c05bd5866dd6839f4f5454173c"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
@@ -45,8 +45,8 @@ class Snakemake < Formula
   end
 
   resource "ratelimiter" do
-    url "https://files.pythonhosted.org/packages/29/92/20d7b661892a19680887fdd2c410a4e3bd51c90a1940dd406e46072ceb94/ratelimiter-1.2.0.tar.gz"
-    sha256 "f724b256264afdeab0225ec174728b0f8af1afd1cc122463150daf226b411fb6"
+    url "https://files.pythonhosted.org/packages/5b/e0/b36010bddcf91444ff51179c076e4a09c513674a56758d7cfea4f6520e29/ratelimiter-1.2.0.post0.tar.gz"
+    sha256 "5c395dcabdbbde2e5178ef3f89b568a3066454a6ddc223b76473dac22f89b4f7"
   end
 
   resource "requests" do
