@@ -13,11 +13,12 @@ class Dbr < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
-      #include <DynamsoftBarcodeReader.h>
-
+      #include "DynamsoftBarcodeReader.h"  
       int main(int argc, char ** argv)
       {
-        return argp_parse(0, argc, argv, 0, 0, 0);
+        void* hBarcode = DBR_CreateInstance();
+        DBR_DestroyInstance(hBarcode);$
+        return 0;
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lDynamsoftBarcodeReader", "-o", "test"
