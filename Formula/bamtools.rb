@@ -23,7 +23,8 @@ class Bamtools < Formula
         writer.Close();
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/bamtools", "-L#{lib}", "-lbamtools", "-lz", "-lc++", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/bamtools", "-L#{lib}",
+                    "-lbamtools", "-o", "test"
     system "./test"
   end
 end
