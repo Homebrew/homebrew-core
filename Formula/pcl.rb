@@ -33,8 +33,6 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qhull"
   depends_on "vtk"
-  depends_on "homebrew/science/openni" => :optional
-  depends_on "homebrew/science/openni2" => :optional
 
   def install
     args = std_cmake_args + %w[
@@ -60,18 +58,6 @@ class Pcl < Formula
       args << "-DBUILD_apps_modeler=AUTO_OFF"
     else
       args << "-DBUILD_apps_modeler:BOOL=OFF"
-    end
-
-    if build.with? "openni"
-      args << "-DOPENNI_INCLUDE_DIR=#{Formula["openni"].opt_include}/ni"
-    else
-      args << "-DCMAKE_DISABLE_FIND_PACKAGE_OpenNI:BOOL=TRUE"
-    end
-
-    if build.with? "openni2"
-      ENV.append "OPENNI2_INCLUDE", "#{Formula["openni2"].opt_include}/ni2"
-      ENV.append "OPENNI2_LIB", "#{Formula["openni2"].opt_lib}/ni2"
-      args << "-DBUILD_OPENNI2:BOOL=ON"
     end
 
     mkdir "build" do
