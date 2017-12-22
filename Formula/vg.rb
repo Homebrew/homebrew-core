@@ -45,6 +45,6 @@ class Vg < Formula
   end
 
   test do
-    assert_match "#{version.to_s}", shell_output("#{bin}/vg version")
+    assert_match version.to_s, shell_output("#{bin}/vg version")
   end
 end
