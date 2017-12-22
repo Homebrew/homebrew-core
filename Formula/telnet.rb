@@ -47,6 +47,16 @@ class Telnet < Formula
     man.install "telnet.tproj/build/Archive/usr/share/man/man1/"
   end
 
+  def caveats; <<~EOS
+    Xcode-clt's telnet has been abandoned for safety, this version is build from apple's sources code.
+    If you want to install gnu's telnet tool, you need to run this:
+
+      brew install inetutils
+
+    and call gnu's telnet using "gtelnet"
+    EOS
+  end
+
   test do
     output = shell_output("#{bin}/telnet 94.142.241.111 666", 1)
     assert_match "Connected to towel.blinkenlights.nl.", output
