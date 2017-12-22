@@ -1,5 +1,3 @@
-require "language/go"
-
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
@@ -16,24 +14,11 @@ class Vultr < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
-  depends_on "gdm" => :build
-
-  go_resource "github.com/jawher/mow.cli" do
-    url "https://github.com/jawher/mow.cli.git",
-        :revision => "d3ffbc2f98b83e09dc8efd55ecec75eb5fd656ec"
-  end
-
-  go_resource "github.com/juju/ratelimit" do
-    url "https://github.com/juju/ratelimit.git",
-        :revision => "acf38b000a03e4ab89e40f20f1e548f4e6ac7f72"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/JamesClonk").mkpath
     ln_s buildpath, buildpath/"src/github.com/JamesClonk/vultr"
-    Language::Go.stage_deps resources, buildpath/"src"
     system "go", "build", "-o", bin/"vultr"
   end
 
