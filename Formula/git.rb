@@ -147,8 +147,8 @@ class Git < Formula
       cd "contrib/persistent-https" do
         system "make"
         git_core.install "git-remote-persistent-http",
-                    "git-remote-persistent-https",
-                    "git-remote-persistent-https--proxy"
+                         "git-remote-persistent-https",
+                         "git-remote-persistent-https--proxy"
       end
     end
 
