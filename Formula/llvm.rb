@@ -21,62 +21,54 @@ class Llvm < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/5.0.0/llvm-5.0.0.src.tar.xz"
-    sha256 "e35dcbae6084adcf4abb32514127c5eabd7d63b733852ccdb31e06f1373136da"
+    url "https://releases.llvm.org/5.0.1/llvm-5.0.1.src.tar.xz"
+    sha256 "5fa7489fc0225b11821cab0362f5813a05f2bcf2533e8a4ea9c9c860168807b0"
 
     resource "clang" do
-      url "https://releases.llvm.org/5.0.0/cfe-5.0.0.src.tar.xz"
-      sha256 "019f23c2192df793ac746595e94a403908749f8e0c484b403476d2611dd20970"
+      url "https://releases.llvm.org/5.0.1/cfe-5.0.1.src.tar.xz"
+      sha256 "135f6c9b0cd2da1aff2250e065946258eb699777888df39ca5a5b4fe5e23d0ff"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/5.0.0/clang-tools-extra-5.0.0.src.tar.xz"
-      sha256 "87d078b959c4a6e5ff9fd137c2f477cadb1245f93812512996f73986a6d973c6"
+      url "https://releases.llvm.org/5.0.1/clang-tools-extra-5.0.1.src.tar.xz"
+      sha256 "9aada1f9d673226846c3399d13fab6bba4bfd38bcfe8def5ee7b0ec24f8cd225"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/5.0.0/compiler-rt-5.0.0.src.tar.xz"
-      sha256 "d5ad5266462134a482b381f1f8115b6cad3473741b3bb7d1acc7f69fd0f0c0b3"
+      url "https://releases.llvm.org/5.0.1/compiler-rt-5.0.1.src.tar.xz"
+      sha256 "4edd1417f457a9b3f0eb88082530490edf3cf6a7335cdce8ecbc5d3e16a895da"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "https://releases.llvm.org/5.0.0/libcxx-5.0.0.src.tar.xz"
-      sha256 "eae5981e9a21ef0decfcac80a1af584ddb064a32805f95a57c7c83a5eb28c9b1"
+      url "https://releases.llvm.org/5.0.1/libcxx-5.0.1.src.tar.xz"
+      sha256 "fa8f99dd2bde109daa3276d529851a3bce5718d46ce1c5d0806f46caa3e57c00"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/5.0.0/libunwind-5.0.0.src.tar.xz"
-      sha256 "9a70e2333d54f97760623d89512c4831d6af29e78b77a33d824413ce98587f6f"
+      url "https://releases.llvm.org/5.0.1/libunwind-5.0.1.src.tar.xz"
+      sha256 "6bbfbf6679435b858bd74bdf080386d084a76dfbf233fb6e47b2c28e0872d0fe"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/5.0.0/lld-5.0.0.src.tar.xz"
-      sha256 "399a7920a5278d42c46a7bf7e4191820ec2301457a7d0d4fcc9a4ac05dd53897"
+      url "https://releases.llvm.org/5.0.1/lld-5.0.1.src.tar.xz"
+      sha256 "d5b36c0005824f07ab093616bdff247f3da817cae2c51371e1d1473af717d895"
     end
 
     resource "lldb" do
-      url "https://releases.llvm.org/5.0.0/lldb-5.0.0.src.tar.xz"
-      sha256 "c0a0ca32105e9881d86b7ca886220147e686edc97fdb9f3657c6659dc6568b7d"
-    end
-
-    # Fixes "error: no type named 'pid_t' in the global namespace"
-    # https://github.com/Homebrew/homebrew-core/issues/17839
-    # Already fixed in upstream trunk
-    resource "lldb-fix-build" do
-      url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
-      sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+      url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
+      sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/5.0.0/openmp-5.0.0.src.tar.xz"
-      sha256 "c0ef081b05e0725a04e8711d9ecea2e90d6c3fbb1622845336d3d095d0a3f7c5"
+      url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
+      sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/5.0.0/polly-5.0.0.src.tar.xz"
-      sha256 "44694254a2b105cec13ce0560f207e8552e6116c181b8d21bda728559cf67042"
+      url "https://releases.llvm.org/5.0.1/polly-5.0.1.src.tar.xz"
+      sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
     end
   end
 
