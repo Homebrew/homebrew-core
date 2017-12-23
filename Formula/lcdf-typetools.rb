@@ -19,4 +19,9 @@ class LcdfTypetools < Formula
                           "--without-kpathsea"
     system "make", "install"
   end
+
+  test do
+    assert_match "STIXGeneral-Regular",
+      shell_output("#{bin}/otfinfo -p /Library/Fonts/STIXGeneral.otf")
+  end
 end
