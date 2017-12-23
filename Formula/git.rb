@@ -3,6 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.15.1.tar.xz"
   sha256 "999c90fd7d45066992cdb87dda35bdff6dfc1d01496118ea718dfb866da4045c"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -113,12 +114,14 @@ class Git < Formula
 
     system "make", "install", *args
 
+    git_core = libexec/"git-core"
+
     # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
-      bin.install "git-credential-osxkeychain"
+      git_core.install "git-credential-osxkeychain"
       system "make", "clean"
     end
 
@@ -130,7 +133,7 @@ class Git < Formula
     # Install the netrc credential helper
     cd "contrib/credential/netrc" do
       system "make", "test"
-      bin.install "git-credential-netrc"
+      git_core.install "git-credential-netrc"
     end
 
     # Install git-subtree
@@ -138,15 +141,15 @@ class Git < Formula
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
-      bin.install "git-subtree"
+      git_core.install "git-subtree"
     end
 
     if build.with? "persistent-https"
       cd "contrib/persistent-https" do
         system "make"
-        bin.install "git-remote-persistent-http",
-                    "git-remote-persistent-https",
-                    "git-remote-persistent-https--proxy"
+        git_core.install "git-remote-persistent-http",
+                         "git-remote-persistent-https",
+                         "git-remote-persistent-https--proxy"
       end
     end
 
