@@ -3,6 +3,7 @@ class Monero < Formula
   homepage "https://getmonero.org"
   url "https://github.com/monero-project/monero/archive/v0.11.1.0.tar.gz"
   sha256 "b5b48d3e5317c599e1499278580e9a6ba3afc3536f4064fcf7b20840066a509b"
+  head "https://github.com/monero-project/monero.git"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
