@@ -1,9 +1,8 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.0/VTK-8.0.1.tar.gz"
-  sha256 "49107352923dea6de05a7b4c3906aaf98ef39c91ad81c383136e768dcf304069"
-  revision 1
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
+  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -109,17 +108,20 @@ class Vtk < Formula
   end
 
   test do
+    vtk_include = Dir[opt_include/"vtk-*"].first
+    major, minor = vtk_include.match(/.*-(.*)$/)[1].split(".")
+
     (testpath/"version.cpp").write <<-EOS
       #include <vtkVersion.h>
       #include <assert.h>
       int main(int, char *[]) {
-        assert (vtkVersion::GetVTKMajorVersion()==8);
-        assert (vtkVersion::GetVTKMinorVersion()==0);
+        assert (vtkVersion::GetVTKMajorVersion()==#{major});
+        assert (vtkVersion::GetVTKMinorVersion()==#{minor});
         return EXIT_SUCCESS;
       }
     EOS
 
-    system ENV.cxx, "version.cpp", "-I#{opt_include}/vtk-8.0"
+    system ENV.cxx, "-std=c++11", "version.cpp", "-I#{vtk_include}"
     system "./a.out"
     system "#{bin}/vtkpython", "-c", "exit()"
   end
