@@ -5,6 +5,7 @@ class Monero < Formula
   sha256 "b5b48d3e5317c599e1499278580e9a6ba3afc3536f4064fcf7b20840066a509b"
 
   depends_on "cmake" => :build
+  depends_on "pkgconfig" => :build
   depends_on "boost"
   depends_on "readline"
   depends_on "openssl"
