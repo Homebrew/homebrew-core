@@ -4,6 +4,13 @@ class Travis < Formula
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.8.tar.gz"
   sha256 "468158ee2b46c67c1a002a237a9e04472b22e8f4926cb68b1ca49a1a0b2eaf3b"
 
+  bottle do
+    cellar :any
+    sha256 "f4480bdd2d65e3f0f379c062952e77c390668be64f3bc5a8e6f6e4d468b47a8c" => :high_sierra
+    sha256 "a8ff8f6229af7adf3556134cca4a463197caea016ea9ab572b0e65682c8ad095" => :sierra
+    sha256 "5dd01e0ca235edac874724afc79ef4ead7083f308e8cdc9c2471aee000d1e81c" => :el_capitan
+  end
+
   depends_on :ruby => "2.0"
 
   resource "addressable" do
