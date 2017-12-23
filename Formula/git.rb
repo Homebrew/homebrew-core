@@ -114,8 +114,9 @@ class Git < Formula
 
     system "make", "install", *args
 
-    # Install the macOS keychain credential helper
     git_core = libexec/"git-core"
+
+    # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
