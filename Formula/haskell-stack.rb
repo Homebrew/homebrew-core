@@ -5,9 +5,9 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.6.1/stack-1.6.1-sdist-1.tar.gz"
-  version "1.6.1"
-  sha256 "25a5fc6b0094b82fd66137caaddc19fe51c2e96ba2471713133cd9187b60fbae"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.6.3/stack-1.6.3-sdist-1.tar.gz"
+  version "1.6.3"
+  sha256 "e3fdd37f36acec830d5692be4a5a5fcb5862112eebc4c11f6c3689ec86dba49b"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
@@ -19,11 +19,22 @@ class HaskellStack < Formula
 
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
+
+  # Remove when stack.yaml uses GHC 8.2.x
+  resource "stack_nightly_yaml" do
+    url "https://raw.githubusercontent.com/commercialhaskell/stack/v1.6.3/stack-nightly.yaml"
+    version "1.6.3"
+    sha256 "55e15c394946ce781d61d2e71a3273fed4d242a5f985a472d131d54ccf2a538c"
+  end
 
   def install
+    buildpath.install resource("stack_nightly_yaml")
+
     cabal_sandbox do
+      cabal_install "happy"
+
       if build.with? "bootstrap"
         cabal_install
 
@@ -32,7 +43,7 @@ class HaskellStack < Formula
         jobs = ENV.make_jobs
         ENV.deparallelize
 
-        system "stack", "-j#{jobs}", "setup"
+        system "stack", "-j#{jobs}", "--stack-yaml=stack-nightly.yaml", "setup"
         system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
       else
         install_cabal_package
