@@ -5,7 +5,7 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.10.2",
       :revision => "c3a2171ebcc92fb3bbe3b94b8ab83916cd1ca275"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -22,7 +22,6 @@ class Osquery < Formula
   depends_on "doxygen" => :build
   depends_on "asio"
   depends_on "augeas"
-  depends_on "boost"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libarchive"
@@ -57,6 +56,11 @@ class Osquery < Formula
     sha256 "1f65e63dbbceb1e8ffb19851a8e0ee153e05bf63bfa12b0e259d50021ac3ab6e"
   end
 
+  resource "boost" do
+    url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
+    sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
+  end
+
   resource "cpp-netlib" do
     url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-final.tar.gz"
     sha256 "d66e264240bf607d51b8d0e743a1fa9d592d96183d27e2abdaf68b0a87e64560"
@@ -77,6 +81,9 @@ class Osquery < Formula
     sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
   end
 
+  # Look for Boost mt static libraries
+  patch :DATA
+
   def install
     ENV.cxx11
 
@@ -90,6 +97,8 @@ class Osquery < Formula
         -DBUILD_SHARED_LIBS=OFF
         -DBUILD_ONLY=ec2;firehose;kinesis;sts
         -DCMAKE_INSTALL_PREFIX=#{vendor}/aws-sdk-cpp
+        -DENABLE_TESTING=OFF
+        -DAUTORUN_UNIT_TESTS=OFF
       ]
 
       mkdir "build" do
@@ -99,7 +108,46 @@ class Osquery < Formula
       end
     end
 
+    resource("boost").stage do
+      bootstrap_args = %W[
+        --prefix=#{vendor}/boost
+        --libdir=#{vendor}/boost/lib
+      ]
+
+      # This is a non-standard toolset, but informs the bjam build to use the
+      # compile and link environment variables.
+      bootstrap_args << "--with-toolset=cc"
+
+      args = %W[
+        --prefix=#{vendor}/boost
+        --libdir=#{vendor}/boost/lib
+        -d2
+        -j#{ENV.make_jobs}
+        --layout=tagged
+        --ignore-site-config
+        --disable-icu
+        --with-filesystem
+        --with-regex
+        --with-system
+        --with-thread
+        --with-coroutine
+        --with-context
+        threading=multi
+        link=static
+        optimization=space
+        variant=release
+        toolset=clang
+      ]
+
+      args << "cxxflags=-std=c++11 #{ENV["CXXFLAGS"]}"
+
+      system "./bootstrap.sh", *bootstrap_args
+      inreplace "project-config.jam", "cc ;", "darwin ;"
+      system "./b2", "install", *args
+    end
+
     resource("cpp-netlib").stage do
+      ENV["BOOST_ROOT"] = vendor/"boost"
       args = std_cmake_args + %W[
         -DCMAKE_INSTALL_PREFIX=#{vendor}/cpp-netlib
         -DCPP-NETLIB_BUILD_TESTS=OFF
@@ -124,7 +172,7 @@ class Osquery < Formula
 
     resource("thrift").stage do
       ENV["PY_PREFIX"] = vendor/"thrift"
-      ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3"
+      ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3 -I#{vendor}/boost/include"
 
       # Apply same patch as osquery upstream for setuid syscalls.
       Pathname.pwd.install resource("thrift-0.10-patch")
@@ -152,6 +200,7 @@ class Osquery < Formula
       system "./configure", "--disable-debug",
                             "--prefix=#{vendor}/thrift",
                             "--libdir=#{vendor}/thrift/lib",
+                            "--with-boost=#{vendor}/boost",
                             *exclusions
       system "make", "-j#{ENV.make_jobs}"
       system "make", "install"
@@ -164,7 +213,7 @@ class Osquery < Formula
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
     ENV["THRIFT_HOME"] = vendor/"thrift"
 
-    res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise
+    res = resources.map(&:name).to_set - %w[aws-sdk-cpp boost cpp-netlib linenoise
                                             thrift thrift-0.10-patch]
     res.each do |r|
       resource(r).stage do
@@ -175,10 +224,13 @@ class Osquery < Formula
       end
     end
 
+    ENV["BOOST_ROOT"] = vendor/"boost/include"
+
     cxx_flags_release = %W[
       -DNDEBUG
       -I#{MacOS.sdk_path}/usr/include/libxml2
       -I#{vendor}/aws-sdk-cpp/include
+      -I#{vendor}/boost/include
       -I#{vendor}/cpp-netlib/include
       -I#{vendor}/linenoise/include
       -I#{vendor}/thrift/include
@@ -190,6 +242,11 @@ class Osquery < Formula
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
       -Daws-cpp-sdk-kinesis_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-kinesis.a
       -Daws-cpp-sdk-sts_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-sts.a
+      -Dboost_filesystem-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_filesystem-mt.a
+      -Dboost_regex-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_regex-mt.a
+      -Dboost_system-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_system-mt.a
+      -Dboost_thread-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_thread-mt.a
+      -Dboost_context-mt_library:FILEPATH=#{vendor}/boost/lib/libboost_context-mt.a
       -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
@@ -212,3 +269,26 @@ class Osquery < Formula
     assert_match "platform_info", shell_output("#{bin}/osqueryi -L")
   end
 end
+
+__END__
+diff --git a/osquery/CMakeLists.txt b/osquery/CMakeLists.txt
+index 80d2911..19a8bab 100644
+--- a/osquery/CMakeLists.txt
++++ b/osquery/CMakeLists.txt
+@@ -139,11 +139,11 @@ elseif(FREEBSD)
+ endif()
+ 
+ if(POSIX)
+-  ADD_OSQUERY_LINK_CORE("boost_system")
+-  ADD_OSQUERY_LINK_CORE("boost_filesystem")
+-  ADD_OSQUERY_LINK_CORE("boost_thread")
+-  ADD_OSQUERY_LINK_CORE("boost_context")
+-  ADD_OSQUERY_LINK_ADDITIONAL("boost_regex")
++  ADD_OSQUERY_LINK_CORE("boost_system-mt")
++  ADD_OSQUERY_LINK_CORE("boost_filesystem-mt")
++  ADD_OSQUERY_LINK_CORE("boost_thread-mt")
++  ADD_OSQUERY_LINK_CORE("boost_context-mt")
++  ADD_OSQUERY_LINK_ADDITIONAL("boost_regex-mt")
+ endif()
+ 
+ if(LINUX OR FREEBSD)
