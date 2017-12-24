@@ -174,6 +174,11 @@ class Python3 < Formula
               /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
               "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
 
+    # Fix for https://github.com/Homebrew/homebrew-core/issues/21212
+    inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py"],
+              %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
+              "\\1'#{opt_prefix}/Frameworks/\\2'"
+
     # A fix, because python and python3 both want to install Python.framework
     # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
     # https://github.com/Homebrew/homebrew/issues/15943
