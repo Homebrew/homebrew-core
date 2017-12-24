@@ -19,20 +19,19 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
-  revision 1
 
   stable do
-    url "https://radare.mikelloc.com/get/2.1.0/radare2-2.1.0.tar.gz"
-    sha256 "901be10ace5145fdd2436635f29a28f12114bf9e69f11b4b7c70dd6f8488bccf"
+    url "https://radare.mikelloc.com/get/2.2.0/radare2-2.2.0.tar.gz"
+    sha256 "f53174d74ee4027ffe301c7948f2f537db633b3014793df1355fc279c1532eab"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.1.0/radare2-bindings-2.1.0.tar.gz"
+      url "https://radare.mikelloc.com/get/2.2.0/radare2-bindings-2.1.0.tar.gz"
       sha256 "ac0eac49f7a4fd0decbdbce2303e3cb73819c77aebe17d7ca32c795d310ab8ab"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.1.0/radare2-extras-2.1.0.tar.gz"
-      sha256 "e65dc0e680710ead7e0eef750207b5ee923225f3a8a977cde234e16107693632"
+      url "https://radare.mikelloc.com/get/2.2.0/radare2-extras-2.2.0.tar.gz"
+      sha256 "6825642d880bc5ce8e780d6947fa7c7b475d546861ef0c86f88e1e10ce599155"
     end
   end
 
@@ -61,6 +60,7 @@ class Radare2 < Formula
   depends_on "swig" => :build
   depends_on "gobject-introspection" => :build
   depends_on "gmp"
+  depends_on "jansson"
   depends_on "libewf"
   depends_on "libmagic"
   depends_on "lua"
