@@ -1,5 +1,6 @@
 class Beets < Formula
-  desc "music library manager and MusicBrainz tagger"
+  include Language::Python::Virtualenv
+  desc "Music library manager and MusicBrainz tagger"
   homepage "http://beets.io/"
   url "https://github.com/beetbox/beets/releases/download/v1.4.6/beets-1.4.6.tar.gz"
   sha256 "62079b2338799a64e7816096c5fae3b8909fb139e4d481ec3255336e67765b50"
@@ -41,7 +42,6 @@ class Beets < Formula
     sha256 "887a9a49d0caee913a883c3e7eb185f6260ebe2137562365be422d1316bd39c9"
   end
 
-  include Language::Python::Virtualenv
   def install
     venv = virtualenv_create(libexec, "python3")
 
@@ -50,6 +50,7 @@ class Beets < Formula
   end
 
   test do
-    system "true"
+    assert_match "beets version #{version}", shell_output("#{bin}/beet version")
+    assert_match "Total time:", shell_output("#{bin}/beet stats")
   end
 end
