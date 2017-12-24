@@ -3,9 +3,9 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.10.2",
-      :revision => "c3a2171ebcc92fb3bbe3b94b8ab83916cd1ca275"
-  revision 1
+      :tag => "2.11.1",
+      :revision => "489ec3fc59d8cedc45cbc6392b7ff1c9f2f79903"
+  head "https://github.com/facebook/osquery.git"
 
   bottle do
     cellar :any
@@ -33,6 +33,7 @@ class Osquery < Formula
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
+  depends_on "thrift"
   depends_on "yara"
   depends_on "xz"
   depends_on "zstd"
@@ -65,16 +66,6 @@ class Osquery < Formula
   resource "linenoise" do
     url "https://github.com/theopolis/linenoise-ng/archive/v1.0.1.tar.gz"
     sha256 "c317f3ec92dcb4244cb62f6fb3b7a0a5a53729a85842225fcfce0d4a429a0dfa"
-  end
-
-  resource "thrift" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.tar.gz"
-    sha256 "2289d02de6e8db04cbbabb921aeb62bfe3098c4c83f36eec6c31194301efa10b"
-  end
-
-  resource "thrift-0.10-patch" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
-    sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
   end
 
   def install
@@ -122,50 +113,12 @@ class Osquery < Formula
       end
     end
 
-    resource("thrift").stage do
-      ENV["PY_PREFIX"] = vendor/"thrift"
-      ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3"
-
-      # Apply same patch as osquery upstream for setuid syscalls.
-      Pathname.pwd.install resource("thrift-0.10-patch")
-      system "patch", "-p1", "-i", "patch-thrift-0.10.diff"
-
-      exclusions = %W[
-        --without-ruby
-        --disable-tests
-        --without-php_extension
-        --without-haskell
-        --without-java
-        --without-perl
-        --without-php
-        --without-erlang
-        --without-go
-        --without-qt
-        --without-qt4
-        --without-nodejs
-        --without-python
-        --with-cpp
-        --with-openssl=#{Formula["openssl"].opt_prefix}
-      ]
-
-      ENV.prepend_path "PATH", Formula["bison"].opt_bin
-      system "./configure", "--disable-debug",
-                            "--prefix=#{vendor}/thrift",
-                            "--libdir=#{vendor}/thrift/lib",
-                            *exclusions
-      system "make", "-j#{ENV.make_jobs}"
-      system "make", "install"
-    end
-    ENV.prepend_path "PATH", vendor/"thrift/bin"
-
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
-    ENV["THRIFT_HOME"] = vendor/"thrift"
 
-    res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise
-                                            thrift thrift-0.10-patch]
+    res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",
@@ -181,7 +134,6 @@ class Osquery < Formula
       -I#{vendor}/aws-sdk-cpp/include
       -I#{vendor}/cpp-netlib/include
       -I#{vendor}/linenoise/include
-      -I#{vendor}/thrift/include
       -Wl,-L#{vendor}/linenoise/lib
     ]
 
@@ -193,7 +145,6 @@ class Osquery < Formula
       -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
       -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
       -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
-      -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
       -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join(" ")}
     ]
 
