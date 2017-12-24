@@ -8,7 +8,9 @@ class Vcftools < Formula
   depends_on "htslib"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
                           "--with-pmdir=lib/perl5/site_perl"
     system "make", "install"
 
