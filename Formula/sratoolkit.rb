@@ -8,7 +8,6 @@ class Sratoolkit < Formula
 
   depends_on "hdf5"
   depends_on "libmagic"
-  depends_on "libxml2"
 
   resource "ngs-sdk" do
     url "https://github.com/ncbi/ngs/archive/1.3.0.tar.gz"
