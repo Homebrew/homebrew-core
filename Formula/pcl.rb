@@ -18,9 +18,9 @@ class Pcl < Formula
   end
 
   bottle do
-    sha256 "4dbf8e5e03660daafb06e438267ded29b828eeef66c23a7d1a004979e1558e8f" => :high_sierra
-    sha256 "68bb8e8ec843a00c4e7a168e212e0a6f506835b0f106bb6f6139874a108e9a3e" => :sierra
-    sha256 "66c06c3740fbb4d300f4beb5463ec5b48ed2a5dbe2b5857831aa0e381da0d626" => :el_capitan
+    sha256 "2e603ca81513fff70a3964036f04996c9db68f80fcdff2cb98cad972cd5bae3d" => :high_sierra
+    sha256 "0b1fc94be3c39437d9bf857becd9a85e18b36966992b388bd4991fcf49d72ad9" => :sierra
+    sha256 "3ce8ccdfbe8a1624a07749b36c53cd274b990bb1ef4a8ce2fb27381eb1dab308" => :el_capitan
   end
 
   depends_on "cmake" => :build
