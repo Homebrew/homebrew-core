@@ -6,6 +6,13 @@ class Sratoolkit < Formula
   sha256 "d04e5fd735c3987c3497369844e20c1ae38a88867c36154798f072f19a8792fa"
   head "https://github.com/ncbi/sra-tools.git"
 
+  bottle do
+    cellar :any
+    sha256 "cc571f3818f85c5e2bed921fc6ab5f2ca0153a9445d83c2dccefab9a1e184520" => :high_sierra
+    sha256 "d7d5c2d508dc13b77cc3d5b46354408e611d1e26fa5ea31452eb8f848f85c607" => :sierra
+    sha256 "42345e379b096f7e27a564ecbe76f2b44e79b60b99cc4cc26e21761289b7abff" => :el_capitan
+  end
+
   depends_on "hdf5"
   depends_on "libmagic"
 
