@@ -1,10 +1,21 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz"
-  sha256 "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783"
-  revision 1
+  revision 2
   head "https://github.com/PointCloudLibrary/pcl.git"
+
+  stable do
+    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz"
+    sha256 "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783"
+
+    # VTK 8.1 compat
+    # Upstream commit from 10 Nov 2017 "VTK function change since version 7.1 (#2063)"
+    # See https://github.com/PointCloudLibrary/pcl/pull/2063
+    patch do
+      url "https://github.com/PointCloudLibrary/pcl/commit/6555b9a91f.patch?full_index=1"
+      sha256 "860a7b8e7964725b2d11a4237d6a6b65a42f049bc855ecbfcdc406b8e505b478"
+    end
+  end
 
   bottle do
     sha256 "4dbf8e5e03660daafb06e438267ded29b828eeef66c23a7d1a004979e1558e8f" => :high_sierra
