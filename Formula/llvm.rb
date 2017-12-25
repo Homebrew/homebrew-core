@@ -185,12 +185,6 @@ class Llvm < Formula
       end
       (buildpath/"tools/lldb").install resource("lldb")
 
-      if build.stable?
-        resource("lldb-fix-build").stage do
-          system "patch", "-p1", "-i", Pathname.pwd/"324f93b5e30.patch", "-d", buildpath/"tools/lldb"
-        end
-      end
-
       # Building lldb requires a code signing certificate.
       # The instructions provided by llvm creates this certificate in the
       # user's login keychain. Unfortunately, the login keychain is not in
