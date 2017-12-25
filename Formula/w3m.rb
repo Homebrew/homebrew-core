@@ -1,7 +1,7 @@
 class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
-  revision 1
+  revision 2
   head "https://github.com/tats/w3m.git"
 
   stable do
