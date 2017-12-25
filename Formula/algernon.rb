@@ -10,9 +10,9 @@ class Algernon < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "75251e63866d6e338b1a81ee6d5d007e9f4f6f80801cabe80a918be7cea976b7" => :high_sierra
-    sha256 "1435aa8e578bc70ef7847ae191747e75140d04150b1cbf6d2f9f318f326e7453" => :sierra
-    sha256 "b2a1778124b34030e3bf5aaf4f9356f8a07b4d0db9841a4cadd1b70e4e380fad" => :el_capitan
+    sha256 "e65a775e548ae38c67c3239ff74c103221da38f955b25b1d85663e9e37808256" => :high_sierra
+    sha256 "40c63d30da16700fb699ae1131090bc022e63c8dd90c60c0a4b0943383fd69e3" => :sierra
+    sha256 "c4363693589de0212eafa752a271e738e9d4f2082e267576e4627077b14f0a12" => :el_capitan
   end
 
   depends_on "go" => :build
