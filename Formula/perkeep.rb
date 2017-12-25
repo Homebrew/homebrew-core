@@ -17,7 +17,6 @@ class Perkeep < Formula
 
   depends_on "pkg-config" => :build
   depends_on "go" => :build
-  depends_on "sqlite"
 
   conflicts_with "hello", :because => "both install `hello` binaries"
 
