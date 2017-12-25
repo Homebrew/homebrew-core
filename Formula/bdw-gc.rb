@@ -5,11 +5,10 @@ class BdwGc < Formula
   sha256 "bd112005563d787675163b5afff02c364fc8deb13a99c03f4e80fdf6608ad41e"
 
   bottle do
-    sha256 "a6511c1691d84794accb76a7a984cd62a3d14c7970af0e5b850f28ab140fad5f" => :high_sierra
-    sha256 "fcbf63ca7801f54e098335ba3f7968bbcdf600e30ac878c68d61061d5923b9f1" => :sierra
-    sha256 "939e43625f304cc5d315f28147db4323da910e7ade2efddea01fade0c56faf48" => :el_capitan
-    sha256 "a49e8aaa7f869a5c7dec0d4e38bb02f6be7e82a45341953f3e761716e3836ef2" => :yosemite
-    sha256 "392bb21f15af6c0ea2a9edfe0641362672e9d7ce8d9fee121e6a64e6081f79b0" => :mavericks
+    cellar :any
+    sha256 "d32b513240cc4fea5cd4c0148c2f5338f393528c9ebabecbaff210b3f4fe511e" => :high_sierra
+    sha256 "adea8d4192119dc2cc29448e5a5d2f82845a9a090087d056a6b281ad0009f75e" => :sierra
+    sha256 "2b5e7e9fdd5efb7b043fff8b38b0a9b9a7730bb669841acf692f73b3ae736b99" => :el_capitan
   end
 
   head do
