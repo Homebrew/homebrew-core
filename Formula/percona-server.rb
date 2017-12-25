@@ -11,19 +11,18 @@ class PerconaServer < Formula
     sha256 "2586679bbcda2392393f9cff8c741b5765aa84a1e284081c8cedc59ebb4ef49b" => :el_capitan
   end
 
-  option "with-test", "Build with unit tests"
-  option "with-embedded", "Build the embedded server"
-  option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
-  option "with-blackhole-storage-engine", "Compile with the BLACKHOLE storage engine enabled"
-  option "with-local-infile", "Build with local infile loading support"
   option "with-debug", "Build with debug support"
+  option "with-embedded", "Build the embedded server"
+  option "with-local-infile", "Build with local infile loading support"
+  option "with-memcached", "Build with InnoDB Memcached plugin"
+  option "with-test", "Build with unit tests"
 
-  deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "enable-memcached" => "with-memcached"
+  deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
@@ -62,21 +61,22 @@ class PerconaServer < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
+    # https://dev.mysql.com/doc/refman/5.7/en/source-configuration-options.html
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
-      -DMYSQL_DATADIR=#{datadir}
-      -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DINSTALL_PLUGINDIR=lib/plugin
-      -DWITH_SSL=system
+      -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
+      -DINSTALL_DOCDIR=share/doc/#{name}
+      -DINSTALL_INCLUDEDIR=include/mysql
+      -DINSTALL_INFODIR=share/info
+      -DINSTALL_MANDIR=share/man
+      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_PLUGINDIR=lib/plugin
+      -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
+      -DWITH_SSL=yes
     ]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
@@ -85,13 +85,25 @@ class PerconaServer < Formula
     (buildpath/"boost").install resource("boost")
     args << "-DWITH_BOOST=#{buildpath}/boost"
 
-    # TokuDB is broken on macOS
-    # https://bugs.launchpad.net/percona-server/+bug/1531446
-    args.concat %w[-DWITHOUT_TOKUDB=1]
-
     # Percona MyRocks does not compile on macOS
     # https://www.percona.com/doc/percona-server/LATEST/myrocks/install.html
     args.concat %w[-DWITHOUT_ROCKSDB=1]
+
+    # TokuDB does not compile on macOS
+    # https://bugs.launchpad.net/percona-server/+bug/1531446
+    args.concat %w[-DWITHOUT_TOKUDB=1]
+
+    # Build with debug support
+    args << "-DWITH_DEBUG=1" if build.with? "debug"
+
+    # Build the embedded server
+    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
+
+    # Build with local infile loading support
+    args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
+
+    # Build with InnoDB Memcached plugin
+    args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
 
     # To enable unit testing at build, we need to download the unit testing suite
     if build.with? "test"
@@ -100,42 +112,22 @@ class PerconaServer < Formula
       args << "-DWITH_UNIT_TESTS=OFF"
     end
 
-    # Build the embedded server
-    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
-
-    # Compile with ARCHIVE engine enabled if chosen
-    args << "-DWITH_ARCHIVE_STORAGE_ENGINE=1" if build.with? "archive-storage-engine"
-
-    # Compile with BLACKHOLE engine enabled if chosen
-    args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
-
-    # Build with local infile loading support
-    args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
-
-    # Build with debug support
-    args << "-DWITH_DEBUG=1" if build.with? "debug"
-
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
-    # We don't want to keep a 240MB+ folder around most users won't need.
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
-    rm_rf prefix/"mysql-test"
+
+    # Remove the tests directory if they are not built
+    if build.without? "test"
+      rm_rf prefix/"mysql-test"
+    end
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix/"data"
-
-    # Perl script was removed in 5.7.9 so install C++ binary instead.
-    # Binary is deprecated & will be removed in future upstream
-    # update but is still required for mysql-test-run to pass in test.
-    if build.stable?
-      (prefix/"scripts").install "client/mysql_install_db"
-      bin.install_symlink prefix/"scripts/mysql_install_db"
-    end
 
     # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",
@@ -206,23 +198,12 @@ class PerconaServer < Formula
   end
 
   test do
-    begin
-      # Expects datadir to be a completely clean dir, which testpath isn't.
-      dir = Dir.mktmpdir
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
-
-      pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
+    if build.with? "test"
+      (prefix/"mysql-test").cd do
+        system "./mysql-test-run.pl", "status"
       end
-      sleep 2
-
-      output = shell_output("curl 127.0.0.1:3306")
-      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
-      assert_match version.to_s, output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    else
+      assert_match version.to_s, shell_output(bin/"mysqld --version")
     end
   end
 end
