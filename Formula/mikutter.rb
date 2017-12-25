@@ -291,6 +291,13 @@ class Mikutter < Formula
           exit
         end
       end
+
+      # this is needed in order to boot mikutter >= 3.6.0
+      class Post
+        def self.primary_service
+          nil
+        end
+      end
     EOS
     system bin/"mikutter", "plugin_depends",
            testpath/".mikutter/plugin/test_plugin/test_plugin.rb"
