@@ -3,6 +3,7 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.20.tar.gz"
   sha256 "260582844ac18222ce2826f48b6c7ca387990b19ddb88331af26738b394e42a4"
+  revision 1
 
   bottle do
     sha256 "a2e6118b43021c5644a5972551a2b504529146d0f3586f2060bab00c40738586" => :high_sierra
@@ -22,19 +23,18 @@ class Mysql < Formula
     depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
   end
 
-  option "with-test", "Build with unit tests"
-  option "with-embedded", "Build the embedded server"
-  option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
-  option "with-blackhole-storage-engine", "Compile with the BLACKHOLE storage engine enabled"
-  option "with-local-infile", "Build with local infile loading support"
   option "with-debug", "Build with debug support"
+  option "with-embedded", "Build the embedded server"
+  option "with-local-infile", "Build with local infile loading support"
+  option "with-memcached", "Build with InnoDB Memcached plugin"
+  option "with-test", "Build with unit tests"
 
-  deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "enable-local-infile" => "with-local-infile"
+  deprecated_option "enable-memcached" => "with-memcached"
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
@@ -62,19 +62,20 @@ class Mysql < Formula
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
-      -DMYSQL_DATADIR=#{datadir}
-      -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=system
+      -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
+      -DINSTALL_DOCDIR=share/doc/#{name}
+      -DINSTALL_INCLUDEDIR=include/mysql
+      -DINSTALL_INFODIR=share/info
+      -DINSTALL_MANDIR=share/man
+      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_PLUGINDIR=lib/plugin
+      -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DCOMPILATION_COMMENT=Homebrew
-      -DWITH_EDITLINE=system
       -DWITH_BOOST=boost
+      -DWITH_EDITLINE=system
+      -DWITH_SSL=yes
     ]
 
     # To enable unit testing at build, we need to download the unit testing suite
@@ -84,42 +85,39 @@ class Mysql < Formula
       args << "-DWITH_UNIT_TESTS=OFF"
     end
 
+    # Build with debug support
+    args << "-DWITH_DEBUG=1" if build.with? "debug"
+
     # Build the embedded server
     args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
-
-    # Compile with ARCHIVE engine enabled if chosen
-    args << "-DWITH_ARCHIVE_STORAGE_ENGINE=1" if build.with? "archive-storage-engine"
-
-    # Compile with BLACKHOLE engine enabled if chosen
-    args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
 
-    # Build with debug support
-    args << "-DWITH_DEBUG=1" if build.with? "debug"
+    # Build with InnoDB Memcached plugin
+    args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
+
+    # To enable unit testing at build, we need to download the unit testing suite
+    if build.with? "test"
+      args << "-DENABLE_DOWNLOADS=ON"
+    else
+      args << "-DWITH_UNIT_TESTS=OFF"
+    end
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
-    # We don't want to keep a 240MB+ folder around most users won't need.
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
-    rm_rf prefix/"mysql-test"
+
+    # Remove the tests directory if they are not built.
+    rm_rf prefix/"mysql-test" if build.without? "test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix/"data"
-
-    # Perl script was removed in 5.7.9 so install C++ binary instead.
-    # Binary is deprecated & will be removed in future upstream
-    # update but is still required for mysql-test-run to pass in test.
-    if build.stable?
-      (prefix/"scripts").install "client/mysql_install_db"
-      bin.install_symlink prefix/"scripts/mysql_install_db"
-    end
 
     # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",
