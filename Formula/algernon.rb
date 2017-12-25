@@ -2,8 +2,8 @@ class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "http://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon.git",
-      :tag => "1.6",
-      :revision => "9281665f4106b6c8938904f7ea1ff5386116ca22"
+      :tag => "1.8",
+      :revision => "93349dfc4d3daa5351c51551e8a8b9f0633bdc90"
   sha256 "f1627ed11e84890befbf244828aff7a56a17157f721b445804e18b5461e3b8f3"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
@@ -32,7 +32,7 @@ class Algernon < Formula
   test do
     begin
       pid = fork do
-        exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "my.db",
+        exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
                                 "--addr", ":45678"
       end
       sleep 20
