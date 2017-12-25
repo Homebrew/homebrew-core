@@ -1,8 +1,8 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "http://www.hboehm.info/gc/"
-  url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
-  sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
+  url "https://github.com/ivmai/bdwgc/releases/download/v7.6.2/gc-7.6.2.tar.gz"
+  sha256 "bd112005563d787675163b5afff02c364fc8deb13a99c03f4e80fdf6608ad41e"
 
   bottle do
     sha256 "a6511c1691d84794accb76a7a984cd62a3d14c7970af0e5b850f28ab140fad5f" => :high_sierra
