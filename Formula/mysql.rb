@@ -113,9 +113,7 @@ class Mysql < Formula
     end
 
     # Remove the tests directory if they are not built.
-    if build.without? "test"
-      rm_rf prefix/"mysql-test"
-    end
+    rm_rf prefix/"mysql-test" if build.without? "test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
