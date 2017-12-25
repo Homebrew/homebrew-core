@@ -1,5 +1,5 @@
-class Camlistore < Formula
-  desc "Content-addressable multi-layer indexed storage"
+class Perkeep < Formula
+  desc "Lets you permanently keep your stuff, for life"
   homepage "https://camlistore.org"
   url "https://github.com/camlistore/camlistore.git",
       :tag => "0.9",
