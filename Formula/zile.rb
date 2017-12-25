@@ -4,6 +4,7 @@ class Zile < Formula
   url "https://ftp.gnu.org/gnu/zile/zile-2.4.14.tar.gz"
   mirror "https://ftpmirror.gnu.org/zile/zile-2.4.14.tar.gz"
   sha256 "7a78742795ca32480f2bab697fd5e328618d9997d6f417cf1b14e9da9af26b74"
+  revision 1
 
   bottle do
     sha256 "4d1d81f3d9b08e43cfa4ea8aa2e6fd16b8529f6d97876d3456c4682e625ca0f5" => :high_sierra
