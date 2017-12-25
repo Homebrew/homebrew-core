@@ -1,8 +1,8 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.6.1.tar.gz"
-  sha256 "33cfa8ef35813cf833ae79ba8ac2fab7f4c63afaf6103a54d969265e283d3399"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.0.tar.gz"
+  sha256 "d78970997d2c23991c11d5a06e266d4421a9f175e8364dc6a094308489882314"
   head "https://github.com/google/cayley.git"
 
   bottle do
@@ -30,8 +30,8 @@ class Cayley < Formula
       system "go", "build", "-o", bin/"cayley", "-ldflags",
              "-X main.Version=#{version}", ".../cmd/cayley"
 
-      inreplace "cayley.cfg.example", "/tmp/cayley_test", var/"cayley"
-      etc.install "cayley.cfg.example" => "cayley.conf"
+      inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
+      etc.install "cayley_example.yml" => "cayley.yml"
 
       (pkgshare/"assets").install "docs", "static", "templates"
 
@@ -47,7 +47,7 @@ class Cayley < Formula
       (var/"cayley").mkpath
 
       # Initialize the database
-      system bin/"cayley", "init", "--config=#{etc}/cayley.conf"
+      system bin/"cayley", "init", "--config=#{etc}/cayley.yml"
     end
   end
 
