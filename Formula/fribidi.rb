@@ -1,7 +1,7 @@
 class Fribidi < Formula
   desc "Implementation of the Unicode BiDi algorithm"
-  homepage "https://fribidi.org/"
-  url "https://fribidi.org/download/fribidi-0.19.7.tar.bz2"
+  homepage "https://github.com/fribidi/fribidi"
+  url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/fribidi-0.19.7.tar.bz2"
   sha256 "08222a6212bbc2276a2d55c3bf370109ae4a35b689acbc66571ad2a670595a8e"
   revision 1
 
