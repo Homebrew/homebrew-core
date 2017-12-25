@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://dl.bintray.com/rabbitmq/binaries/rabbitmq-server-generic-unix-3.7.1.tar.xz"
-  sha256 "66622252372ea70f5cf1eb60fa9421dd933834272823ea269b2435d3ab33bafb"
+  url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.2/rabbitmq-server-generic-unix-3.7.2.tar.xz"
+  sha256 "2c99d885e5d8ad8f45997a30642632d02fd5fe9da718c2ee991ddb978a7c3f99"
 
   bottle :unneeded
 
@@ -34,7 +34,7 @@ class Rabbitmq < Formula
     rabbitmq_env_conf = etc/"rabbitmq/rabbitmq-env.conf"
     rabbitmq_env_conf.write rabbitmq_env unless rabbitmq_env_conf.exist?
 
-    # Enable plugins - management web UI and visualiser; STOMP, MQTT, AMQP 1.0 protocols
+    # Enable plugins - management web UI; STOMP, MQTT, AMQP 1.0 protocols
     enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
     enabled_plugins_path.write "[rabbitmq_management,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]." unless enabled_plugins_path.exist?
 
