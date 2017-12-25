@@ -1,9 +1,8 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.6.tar.xz"
-  sha256 "132788919667254b42c026ab39ab3c3a5be59be8575c05fa4b371ca8aed55825"
-  revision 1
+  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.7.tar.xz"
+  sha256 "8bbd6dce0d558ac572385d8d726c4ba5caba1da411977806ade7f0e7bf08e3b8"
 
   bottle do
     sha256 "6433421bf86059843a83cd6c56a4acd9b87477ea7429b929e7cbf1dd6936aa64" => :high_sierra
@@ -17,6 +16,10 @@ class Gexiv2 < Formula
   depends_on "python" if MacOS.version <= :mavericks
   depends_on "glib"
   depends_on "exiv2"
+
+  # bug report opened on 2017/12/25
+  # https://bugzilla.gnome.org/show_bug.cgi?id=791941
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug",
@@ -47,3 +50,29 @@ class Gexiv2 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/Makefile.am b/Makefile.am
+index 9e8610b..fbda91b 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -154,7 +154,6 @@ lib@PACKAGE_NAME@_la_CPPFLAGS = $(EXIV2_CFLAGS) $(GLIB_CFLAGS)
+
+ lib@PACKAGE_NAME@_la_LDFLAGS  = \
+	$(no_undefined) -export-dynamic -version-info $(GEXIV2_VERSION_INFO) \
+-	-Wl,--version-script=$(srcdir)/gexiv2/gexiv2.map \
+	$(WARN_LDFLAGS)
+
+ clean-local:
+diff --git a/Makefile.in b/Makefile.in
+index aeebe3b..e1455ee 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -804,7 +804,6 @@ lib@PACKAGE_NAME@_la_LIBADD = $(EXIV2_LIBS) $(GLIB_LIBS)
+ lib@PACKAGE_NAME@_la_CPPFLAGS = $(EXIV2_CFLAGS) $(GLIB_CFLAGS)
+ lib@PACKAGE_NAME@_la_LDFLAGS = \
+	$(no_undefined) -export-dynamic -version-info $(GEXIV2_VERSION_INFO) \
+-	-Wl,--version-script=$(srcdir)/gexiv2/gexiv2.map \
+	$(WARN_LDFLAGS)
+
+ TESTS_ENVIRONMENT = \
