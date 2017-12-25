@@ -1,9 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.3.tar.xz"
-  sha256 "23677d40bf3b7621ba64593c978df40b1e026d8653c74a0599f0ead78ed92b51"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.xz"
+  sha256 "1da0afed833a0dab94075221a615c14487b05d0c407f991c8080d576d985b49b"
 
   bottle do
     sha256 "f65d0a31c1149e479ec84c9953ac203d65c0f931b9ab346efae58faed468afda" => :high_sierra
@@ -11,17 +10,12 @@ class Ruby < Formula
     sha256 "20280496ac72c4d0755272f176148d7826fa4a8205cace414beb3c7231563b5b" => :el_capitan
   end
 
-  devel do
-    url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0-rc1.tar.xz"
-    sha256 "a479a1bce69b2cf656821f10104dcb8b426922b56d3d6cbdf48318842fae752c"
-  end
-
   head do
     url "https://svn.ruby-lang.org/repos/ruby/trunk/"
     depends_on "autoconf" => :build
   end
 
-  option "with-suffix", "Suffix commands with '24'"
+  option "with-suffix", "Suffix commands with '25'"
   option "with-doc", "Install documentation"
 
   depends_on "pkg-config" => :build
@@ -36,12 +30,12 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
-    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+    url "https://rubygems.org/rubygems/rubygems-2.7.4.tgz"
+    sha256 "bbe35ce6646e4168fcb1071d5f83b2d1154924f5150df0f5fca0f37d2583a182"
   end
 
   def program_suffix
-    build.with?("suffix") ? "24" : ""
+    build.with?("suffix") ? "25" : ""
   end
 
   def ruby
@@ -50,6 +44,10 @@ class Ruby < Formula
 
   def api_version
     Utils.popen_read("#{ruby} -e 'print Gem.ruby_api_version'")
+  end
+
+  def rubygems_bindir
+    HOMEBREW_PREFIX/"bin"
   end
 
   def install
@@ -120,10 +118,24 @@ class Ruby < Formula
       # Drop in the new version.
       rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
+      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle#{program_suffix}"
+      (libexec/"gembin").install_symlink "bundle#{program_suffix}" => "bundler#{program_suffix}"
     end
   end
 
   def post_install
+    # Since Gem ships Bundle we want to provide that full/expected installation
+    # but to do so we need to handle the case where someone has previously
+    # installed bundle manually via `gem install`.
+    rm_f %W[
+      #{rubygems_bindir}/bundle
+      #{rubygems_bindir}/bundle#{program_suffix}
+      #{rubygems_bindir}/bundler
+      #{rubygems_bindir}/bundler#{program_suffix}
+    ]
+    rm_rf Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"]
+    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
+
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
@@ -134,10 +146,6 @@ class Ruby < Formula
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
-  end
-
-  def rubygems_bindir
-    "#{HOMEBREW_PREFIX}/bin"
   end
 
   def rubygems_config(api_version); <<~EOS
@@ -210,5 +218,12 @@ class Ruby < Formula
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
     system "#{bin}/gem#{program_suffix}", "install", "json"
+
+    (testpath/"Gemfile").write <<~EOS
+      source 'https://rubygems.org'
+      gem 'gemoji'
+    EOS
+    system rubygems_bindir/"bundle#{program_suffix}", "install", "--binstubs=#{testpath}/bin"
+    assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
   end
 end
