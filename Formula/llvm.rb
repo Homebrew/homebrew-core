@@ -250,7 +250,8 @@ class Llvm < Formula
         ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
         (Pathname.pwd/"opamroot").mkpath
         system "opam", "init", "--no-setup"
-        system "opam", "install", "ocamlfind", "ctypes"
+        system "opam", "config", "exec", "--",
+               "opam", "install", "ocamlfind", "ctypes"
         system "opam", "config", "exec", "--",
                "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
       else
