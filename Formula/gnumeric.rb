@@ -1,8 +1,8 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.35.tar.xz"
-  sha256 "77b1e3ce523578a807767ad71680fb865ac021d7bfadf93eada99ae094c06c0a"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.37.tar.xz"
+  sha256 "40371b9587857deefb0d1df950c3e02228d3f9b56def2e3aa86736ee24292468"
 
   bottle do
     rebuild 1
@@ -17,14 +17,49 @@ class Gnumeric < Formula
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "itstool" => :build
   depends_on "gettext"
   depends_on "goffice"
   depends_on "rarian"
   depends_on "adwaita-icon-theme"
   depends_on "pygobject" if build.with? "python-scripting"
 
+  # Issue from 26 Nov 2017 "itstool-2.0.4: problem with gnumeric-1.12.35"
+  # See https://github.com/itstool/itstool/issues/22
+  resource "itstool" do
+    url "http://files.itstool.org/itstool/itstool-2.0.2.tar.bz2"
+    sha256 "bf909fb59b11a646681a8534d5700fec99be83bb2c57badf8c1844512227033a"
+  end
+
+  # For itstool
+  resource "py_libxml2" do
+    url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
+    sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
+  end
+
+  # Fix "no member named 'libintl_textdomain' in 'struct _GnmFunc'"
+  # Equivalent to the following two upstream commits from 25 Dec 2017:
+  # https://github.com/GNOME/gnumeric/commit/7017a7ee2
+  # https://github.com/GNOME/gnumeric/commit/64f1410b7
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ee23995/gnumeric/textdomain.patch"
+    sha256 "68c4a71a25551bdbbdf4af83fd707fe581f55356f89c9ef21553775bebe3de43"
+  end
+
   def install
+    resource("py_libxml2").stage do
+      cd "python" do
+        system "python", "setup.py", "install", "--prefix=#{buildpath}/vendor"
+      end
+    end
+
+    resource("itstool").stage do
+      ENV.append_path "PYTHONPATH", "#{buildpath}/vendor/lib/python2.7/site-packages"
+      system "./configure", "--prefix=#{buildpath}/vendor"
+      system "make", "install"
+    end
+
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+
     # ensures that the files remain within the keg
     inreplace "component/Makefile.in",
               "GOFFICE_PLUGINS_DIR = @GOFFICE_PLUGINS_DIR@",
