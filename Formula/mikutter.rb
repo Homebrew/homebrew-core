@@ -3,6 +3,7 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.6.0.tar.gz"
   sha256 "c9bec16f5b82873a59be079538192c0007359c612c0224b9c579dae18631e8c9"
+  revision 1
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -289,6 +290,13 @@ class Mikutter < Formula
           log = Logger.new(STDOUT)
           log.info("loaded test_plugin")
           exit
+        end
+      end
+
+      # this is needed in order to boot mikutter >= 3.6.0
+      class Post
+        def self.primary_service
+          nil
         end
       end
     EOS
