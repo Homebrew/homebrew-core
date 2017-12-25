@@ -7,10 +7,9 @@ class Guile < Formula
   revision 1
 
   bottle do
-    sha256 "6c3f5a6df5527562e75c1c9e95dd4e1b0b55ea2d07ab18008ac18cf59492285c" => :high_sierra
-    sha256 "f99bf6e5381bcb8c0a77d1eeee51f5a3a10094771cba1e06c6036c66dfcc0181" => :sierra
-    sha256 "894296e0f264fb2e9b093dfd2798363ef8ece41e5d92ba9544f65f5690c9c662" => :el_capitan
-    sha256 "dd1dbd7d3c0f9c5be7ae5177e7024739026886e9422704b2e561c5ed25f11052" => :yosemite
+    sha256 "3e0ae1973c460e01b1614aaf180dec00a4f9032949ee287cb0171e7597a70108" => :high_sierra
+    sha256 "3e8f9ea395892b75f3f2ff1d2ea2893bf13377361b9efeee8ef11e6d66f44755" => :sierra
+    sha256 "7a6af0696b721d9b157e83d1352d6bc6285000b2471719710d0e190a83389c62" => :el_capitan
   end
 
   head do
