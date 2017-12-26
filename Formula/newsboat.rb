@@ -21,7 +21,7 @@ class Newsboat < Formula
   needs :cxx11
 
   def install
-    ENV["XML_CATALOG_FILES"] = "/usr/local/etc/xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "make", "install", "prefix=#{prefix}"
   end
 
