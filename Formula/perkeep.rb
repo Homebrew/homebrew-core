@@ -9,11 +9,9 @@ class Perkeep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e00aa8ae64b5552c653ea1a88dc139499225185e4b2363df6260b5e6504dadef" => :high_sierra
-    sha256 "4b3f55fa627f93bce045e1512945b39f5e2b49295d4a0b6097488b2d462f7a93" => :sierra
-    sha256 "6af3ede34fb4ffff477b344e8d2c974df5b714d48c51ff01606eb81743083431" => :el_capitan
-    sha256 "04e30799c15004110922c231e3ae28f533d73af21c6e7f4831c6845442746169" => :yosemite
+    sha256 "5a6d21ce1dd5ab518d3a44b8d8b6468470be7fe243a2baab41eb2abefabdd2d8" => :high_sierra
+    sha256 "508687ae269e8a4b5c19345272809ff6e02a30b93859fe260ad47d17e23884a7" => :sierra
+    sha256 "77a369395292c96ffa61ea1ad7581027d6f5febc6571ae0a188932a33ef1ac8c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
