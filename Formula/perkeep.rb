@@ -1,9 +1,10 @@
-class Camlistore < Formula
-  desc "Content-addressable multi-layer indexed storage"
+class Perkeep < Formula
+  desc "Lets you permanently keep your stuff, for life"
   homepage "https://camlistore.org"
   url "https://github.com/camlistore/camlistore.git",
       :tag => "0.9",
       :revision => "7b78c50007780643798adf3fee4c84f3a10154c9"
+  revision 1
   head "https://camlistore.googlesource.com/camlistore", :using => :git
 
   bottle do
@@ -17,7 +18,6 @@ class Camlistore < Formula
 
   depends_on "pkg-config" => :build
   depends_on "go" => :build
-  depends_on "sqlite"
 
   conflicts_with "hello", :because => "both install `hello` binaries"
 
