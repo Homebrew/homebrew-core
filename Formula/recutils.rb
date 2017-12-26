@@ -24,7 +24,9 @@ class Recutils < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--datarootdir=#{elisp}"
     system "make", "install"
   end
 
