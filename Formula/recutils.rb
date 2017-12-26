@@ -27,5 +27,13 @@ class Recutils < Formula
       1,2,3
     EOS
     system "#{bin}/csv2rec", "test.csv"
+
+    (testpath/"test.rec").write <<~EOS
+      %rec: Book
+      %mandatory: Title
+      
+      Title: GNU Emacs Manual
+    EOS
+    system "#{bin}/recsel", "test.rec"
   end
 end
