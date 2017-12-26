@@ -5,9 +5,9 @@ class OpencvAT2 < Formula
   sha256 "5fe6a78bebc62137a8bd1209f6b5e4f27b9d5892cc03cf4745cb78c832b15210"
 
   bottle do
-    sha256 "5604daf2cbb63923b5bcfed984a797bbe48bf915b7272c8588429ed8bf7c65bf" => :high_sierra
-    sha256 "a6c8afdcf22606be32b1c0d30a6c1f4e1b9534c029646f583e30efdd7087d898" => :sierra
-    sha256 "b52943718bb79e438d4c0cf695c59b27a17358672553f27182a614a4fe950b3e" => :el_capitan
+    sha256 "7649a480c1a417585c63931e113069ac41458155dc62ba0f49f482479bef2e67" => :high_sierra
+    sha256 "671bdafb37971ad9497f5924daecf8f9e0a7649c615cde04eb8cc278334c8d49" => :sierra
+    sha256 "63bedafc181f8ab479787b05b769c85c183dce0359cdc50efd2ef8c90302c2d1" => :el_capitan
   end
 
   keg_only :versioned_formula
