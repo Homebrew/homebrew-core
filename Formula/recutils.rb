@@ -4,6 +4,7 @@ class Recutils < Formula
   url "https://ftp.gnu.org/gnu/recutils/recutils-1.7.tar.gz"
   mirror "https://ftpmirror.gnu.org/recutils/recutils-1.7.tar.gz"
   sha256 "233dc6dedb1916b887de293454da7e36a74bed9ebea364f7e97e74920051bc31"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,8 +17,17 @@ class Recutils < Formula
     sha256 "aec2464c5e26a561b340e9ae5a080366a068936ff2ba4e86e6a4bcf0ed8a95d0" => :mountain_lion
   end
 
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--datarootdir=#{elisp}"
     system "make", "install"
   end
 
@@ -27,5 +37,13 @@ class Recutils < Formula
       1,2,3
     EOS
     system "#{bin}/csv2rec", "test.csv"
+
+    (testpath/"test.rec").write <<~EOS
+      %rec: Book
+      %mandatory: Title
+
+      Title: GNU Emacs Manual
+    EOS
+    system "#{bin}/recsel", "test.rec"
   end
 end
