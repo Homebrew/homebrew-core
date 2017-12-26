@@ -4,6 +4,7 @@ class Perkeep < Formula
   url "https://github.com/camlistore/camlistore.git",
       :tag => "0.9",
       :revision => "7b78c50007780643798adf3fee4c84f3a10154c9"
+  revision 1
   head "https://camlistore.googlesource.com/camlistore", :using => :git
 
   bottle do
