@@ -3,7 +3,7 @@ class Lysp < Formula
   homepage "http://www.piumarta.com/software/lysp/"
   url "http://www.piumarta.com/software/lysp/lysp-1.1.tar.gz"
   sha256 "436a8401f8a5cc4f32108838ac89c0d132ec727239d6023b9b67468485509641"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any

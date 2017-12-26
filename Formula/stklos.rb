@@ -3,6 +3,7 @@ class Stklos < Formula
   homepage "http://www.stklos.net/"
   url "http://www.stklos.net/download/stklos-1.10.tar.gz"
   sha256 "215e6e6ffcf7751be5f0c114f83286f99e556e089ca1b0ee66f54dd1be080de4"
+  revision 1
 
   bottle do
     sha256 "87ff295136aef704c27749a5b20f3c478fe8f9d1e3ef504c605455fa3a5193f3" => :high_sierra
