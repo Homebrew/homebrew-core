@@ -1,18 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  revision 1
-
-  stable do
-    url "https://github.com/opencv/opencv/archive/3.3.1.tar.gz"
-    sha256 "5dca3bb0d661af311e25a72b04a7e4c22c47c1aa86eb73e70063cd378a2aa6ee"
-
-    # Upstream commit 8 Nov 2017 "cmake: fix pkg-config generation for MacOSX"
-    patch do
-      url "https://github.com/opencv/opencv/commit/a0e1def83bd.patch?full_index=1"
-      sha256 "dbefbf198877320ee744bebc23b621f21484d0689e8218d8c1a661bc5c850975"
-    end
-  end
+  url "https://github.com/opencv/opencv/archive/3.4.0.tar.gz"
+  sha256 "678cc3d2d1b3464b512b084a8cca1fad7de207c7abdf2caa1fed636c13e916da"
 
   bottle do
     rebuild 1
@@ -37,8 +27,8 @@ class Opencv < Formula
   needs :cxx11
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.3.1.tar.gz"
-    sha256 "6f3ce148dc6e147496f0dbec1c99e917e13bf138f5a8ccfc3765f5c2372bd331"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.0.tar.gz"
+    sha256 "699ab3eee7922fbd3e8f98c68e6d16a1d453b20ef364e76172e56466dc9c16cd"
   end
 
   def install
