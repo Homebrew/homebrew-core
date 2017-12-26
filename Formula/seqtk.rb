@@ -3,7 +3,6 @@ class Seqtk < Formula
   homepage "https://github.com/lh3/seqtk"
   url "https://github.com/lh3/seqtk/archive/v1.2.tar.gz"
   sha256 "bd53316645ab10f0aaba59e1e72c28442ee4c9c37fddaacce5e24757eff78d7b"
-  head "https://github.com/lh3/seqtk.git"
 
   bottle do
     cellar :any_skip_relocation
