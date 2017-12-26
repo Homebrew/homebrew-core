@@ -1,8 +1,8 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.9.0-src.tar.bz2"
-  sha256 "a014f47f50a1480f871a0b82705f904b38c93c4ca069850eb37653fedafb1b97"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.0-src.tar.bz2"
+  sha256 "a6e4cffde71e3f08b6e1befa5c0352a9bcc5f4e9f5cbf395001e0763a1a0d9e3"
 
   bottle do
     cellar :any
@@ -104,7 +104,7 @@ class Pypy3 < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy3 --targetdir . --nostrip]
+      package_args = %w[--archive-name pypy3 --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       package_args << "--without-lzma" if build.without? "xz"
       system python, "package.py", *package_args
