@@ -104,7 +104,7 @@ class Pypy3 < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy3 --targetdir . --nostrip]
+      package_args = %w[--archive-name pypy3 --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       package_args << "--without-lzma" if build.without? "xz"
       system python, "package.py", *package_args
