@@ -1,5 +1,3 @@
-require "language/go"
-
 class Textql < Formula
   desc "Executes SQL across text files"
   homepage "https://github.com/dinedal/textql"
@@ -15,21 +13,21 @@ class Textql < Formula
     sha256 "5d31dc62316f04fea50b4fa1e75230e80a8c2c749c33e1f22aa74b26f26074f8" => :mavericks
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
 
-  go_resource "github.com/mattn/go-sqlite3" do
-    url "https://github.com/mattn/go-sqlite3.git",
-        :revision => "8897bf145272af4dd0305518cfb725a5b6d0541c"
-  end
-
   def install
-    (buildpath/"src/github.com/dinedal/textql").install "inputs", "outputs", "storage", "sqlparser", "util", "textql"
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    (buildpath/"src/github.com/dinedal/textql").install buildpath.children
 
-    system "go", "build", "-ldflags", "-X main.VERSION=2.0.3",
-      "-o", "#{bin}/textql", "#{buildpath}/src/github.com/dinedal/textql/textql/main.go"
-    man1.install "man/textql.1"
+    cd "src/github.com/dinedal/textql" do
+      system "glide", "install"
+      system "go", "build", "-ldflags", "-X main.VERSION=#{version}",
+             "-o", bin/"textql", "./textql"
+      man1.install "man/textql.1"
+      prefix.install_metafiles
+    end
   end
 
   test do
