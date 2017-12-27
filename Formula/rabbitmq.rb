@@ -1,7 +1,9 @@
 class Rabbitmq < Formula
+  VERSION = "3.7.2".freeze
+
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.2/rabbitmq-server-generic-unix-3.7.2.tar.xz"
+  url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/#{VERSION}/rabbitmq-server-generic-unix-#{VERSION}.tar.xz"
   sha256 "2c99d885e5d8ad8f45997a30642632d02fd5fe9da718c2ee991ddb978a7c3f99"
 
   bottle :unneeded
