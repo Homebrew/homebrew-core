@@ -1,8 +1,8 @@
 class Librealsense < Formula
-  desc "Camera capture for Intel RealSense F200, SR300 and R200"
+  desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v2.8.3.tar.gz"
-  sha256 "4b99e684d047089e6b641ed1975ee50f862e7ea56280466ab7d8cb822627cdc6"
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.9.0.tar.gz"
+  sha256 "851bab01eb5c4e5d33fe0759197e6f89b7406da277b7a272016a0b47306ccff1"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
@@ -21,7 +21,6 @@ class Librealsense < Formula
 
   def install
     args = std_cmake_args
-
     args << "-DBUILD_EXAMPLES=OFF" if build.without? "examples"
 
     system "cmake", ".", "-DBUILD_WITH_OPENMP=OFF", *args
@@ -31,7 +30,7 @@ class Librealsense < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <librealsense2/rs.h>
-      #include<stdio.h>
+      #include <stdio.h>
       int main()
       {
         printf(RS2_API_VERSION_STR);
@@ -39,6 +38,6 @@ class Librealsense < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-o", "test"
-    assert_equal shell_output("./test").strip, version.to_s
+    assert_equal version.to_s, shell_output("./test").strip
   end
 end
