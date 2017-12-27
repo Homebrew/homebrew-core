@@ -196,12 +196,23 @@ class PerconaServer < Formula
   end
 
   test do
-    if build.with? "test"
-      (prefix/"mysql-test").cd do
-        system "./mysql-test-run.pl", "status"
+    begin
+      # Expects datadir to be a completely clean dir, which testpath isn't.
+      dir = Dir.mktmpdir
+      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+
+      pid = fork do
+        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
       end
-    else
-      assert_match version.to_s, shell_output(bin/"mysqld --version")
+      sleep 2
+
+      output = shell_output("curl 127.0.0.1:3306")
+      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+      assert_match version.to_s, output
+    ensure
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end
