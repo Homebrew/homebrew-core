@@ -25,17 +25,18 @@ class Cgrep < Formula
   end
 
   test do
-    path = testpath/"test.rb"
-    path.write <<~EOS
+    input = <<~EOS
       # puts test comment.
       puts "test literal."
     EOS
 
-    assert_match ":1",
-      shell_output("script -q /dev/null #{bin}/cgrep --count --comment test #{path}")
-    assert_match ":1",
-      shell_output("script -q /dev/null #{bin}/cgrep --count --literal test #{path}")
-    assert_match ":1",
-      shell_output("script -q /dev/null #{bin}/cgrep --count --code puts #{path}")
+    cmd = "#{bin}/cgrep --language-force=ruby --count --comment test"
+    assert_match ":1", pipe_output(cmd, input, 0)
+    cmd = "#{bin}/cgrep --language-force=ruby --count --literal test"
+    assert_match ":1", pipe_output(cmd, input, 0)
+    cmd = "#{bin}/cgrep --language-force=ruby --count --code puts"
+    assert_match ":1", pipe_output(cmd, input, 0)
+    cmd = "#{bin}/cgrep --language-force=ruby --count puts"
+    assert_match ":2", pipe_output(cmd, input, 0)
   end
 end
