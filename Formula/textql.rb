@@ -6,11 +6,10 @@ class Textql < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca2c7ba2e7d3b423cef6af90f705588346a365b226c6763fbd2041204426d645" => :high_sierra
-    sha256 "c64e983a2230ae263258bb4bea4d9382efed77fa6934d1c32ae41304193b7b85" => :sierra
-    sha256 "f958e30ce6df17f9dabddbb5a6a4af0d9d7690844983cfae8eb864ec2bdf0913" => :el_capitan
-    sha256 "aed185329089c37638d1cf3aec6dbcf51180772f6f62d6b8fc74de733e664d6c" => :yosemite
-    sha256 "5d31dc62316f04fea50b4fa1e75230e80a8c2c749c33e1f22aa74b26f26074f8" => :mavericks
+    rebuild 1
+    sha256 "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb" => :high_sierra
+    sha256 "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5" => :sierra
+    sha256 "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5" => :el_capitan
   end
 
   depends_on "glide" => :build
