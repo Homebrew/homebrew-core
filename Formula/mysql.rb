@@ -30,8 +30,8 @@ class Mysql < Formula
   option "with-test", "Build with unit tests"
 
   deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "enable-memcached" => "with-memcached"
   deprecated_option "enable-local-infile" => "with-local-infile"
+  deprecated_option "enable-memcached" => "with-memcached"
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
