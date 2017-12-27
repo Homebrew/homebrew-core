@@ -6,11 +6,10 @@ class Srclib < Formula
   head "https://github.com/sourcegraph/srclib.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c70f80acb0d5ff85add633b002e79a235ec8645ac700a9dc12f422ad3d80464c" => :high_sierra
-    sha256 "9139e4e75f80bec18ffe9c09404fdfc070c82060efae6db21fd51e8098c73ee7" => :sierra
-    sha256 "ec633330429e97a2cb82dea7177937c304433c857e97d2b7c6e0ab408f5d3912" => :el_capitan
-    sha256 "adfdc037e211208e22d08f422c628bd709a7896a35a6177f7c2b303135e709ae" => :yosemite
+    rebuild 1
+    sha256 "65d468b529f68033a4cb7083ceb6cf0203957b95d3c856369ef9c681880d1775" => :high_sierra
+    sha256 "3450a96b7d4af2d1e227b1ae188c29862fdfe1d007a49c2d88045b519a2110dd" => :sierra
+    sha256 "0546a39d6f96c51817faffc1b5cc28fc5654dbf61ab165ee686b6a8093b0b359" => :el_capitan
   end
 
   depends_on "go" => :build
