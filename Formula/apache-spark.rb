@@ -8,13 +8,16 @@ class ApacheSpark < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.8"
+
   def install
     # Rename beeline to distinguish it from hive's beeline
     mv "bin/beeline", "bin/spark-beeline"
 
     rm_f Dir["bin/*.cmd"]
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
