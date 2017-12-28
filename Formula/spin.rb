@@ -7,11 +7,9 @@ class Spin < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ffa6cc425fa0a3e76b2f985a5d04c247b0c2d42bd79d27142e4b00fdb10bcf9" => :high_sierra
-    sha256 "f84993497ff79a79f02e629b692a429a9576d013522123b44e9daeed4310d9f9" => :sierra
-    sha256 "675449c646388047b03b50d7fa825654fa056e857d50e8729875765990acb240" => :el_capitan
-    sha256 "6d88fb1d345bcb7f49cb8624e02b4c1895d09f383c502fb62a6631df8037b836" => :yosemite
-    sha256 "974442a06ab42b2ba3dd16818a1bd201cc064fa6995e133b196d643b03d4eda7" => :mavericks
+    sha256 "6538cbbaaf03722bb07741815a68e7bfafdda3516f57bc2d2b352e2e89f1adb8" => :high_sierra
+    sha256 "3922a022fe8111254653b476bba93245ee4cbfbb2695bd0327292eb08ba3cdd5" => :sierra
+    sha256 "818364514a9d8e3cf3557ef7324bd881ceed0c70f956a4b2edd274ed9fb06f32" => :el_capitan
   end
 
   def install
