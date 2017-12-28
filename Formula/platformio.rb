@@ -8,10 +8,9 @@ class Platformio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6a8a47f3f4371a50a43a878cfbeacc0d474c73182b893b126c2cc21276c04d0" => :high_sierra
-    sha256 "2aceca1739957375b8fc6017f951df38f04c72e5e0feeffbecef9a946e6bedb4" => :sierra
-    sha256 "e0a96bf2c7391878d7511be54bf409c032b5711cc6e5a41c89ca6f0013c0a6f3" => :el_capitan
-    sha256 "b672933b2902afb442af4ff565a07add41a14b54ba8b4581552a51690007be88" => :yosemite
+    sha256 "b58672f9948cb66271ae3dd0d3e543435e03869c9f783f38091cd905aae591be" => :high_sierra
+    sha256 "1d06ea9dc5cbe189f09bf494f86e9552c48b0decac7038bdd6ffe0261356cffd" => :sierra
+    sha256 "14e5482183d4b412bee68f696f03f1bb722d675fb029db516f286c81b384c8bd" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
