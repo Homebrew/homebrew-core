@@ -1,8 +1,8 @@
 class Rmw < Formula
   desc "OS portable cli trash can utility written in C"
   homepage "https://github.com/andy5995/rmw/wiki"
-  url "https://github.com/andy5995/rmw/archive/v0.4.01.tar.gz"
-  sha256 "3e53d7c52e2a144f97bbda5ebba51548d3a33cc3f2d37193d9b7e055c4e9d03c"
+  url "https://github.com/andy5995/rmw/archive/v0.4.03.tar.gz"
+  sha256 "5b08fce4392901d7900bfbd65bd8794a1bf9b6700073bc48ed8e88d6185c4177"
 
   depends_on "ncurses"
 
