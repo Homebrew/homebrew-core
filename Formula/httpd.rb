@@ -3,6 +3,7 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.29.tar.bz2"
   sha256 "777753a5a25568a2a27428b2214980564bc1c38c1abf9ccc7630b639991f7f00"
+  revision 1
 
   bottle do
     sha256 "9607b2648d706175f8c8a7ee529bb6e57abdb7a60d47bcb4012e403721707d6d" => :high_sierra
@@ -46,6 +47,7 @@ class Httpd < Formula
                           "--localstatedir=#{var}",
                           "--enable-mpms-shared=all",
                           "--enable-mods-shared=all",
+                          "--enable-cgi",
                           "--enable-pie",
                           "--enable-suexec",
                           "--with-suexec-bin=#{opt_bin}/suexec",
