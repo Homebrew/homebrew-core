@@ -7,9 +7,9 @@ class Kubeless < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "903bf1cd82af7d144b17e749a5760e6a5545cf9784d3f54285ec5356d41472f4" => :high_sierra
-    sha256 "d95dbf5081d8f2777d16415ed3ec5f69499c671327038b9817a28ab30762ff77" => :sierra
-    sha256 "71d9203c8e7056817a4ceb59462665c463522245cf4cfbe453d0f311d8de59f6" => :el_capitan
+    sha256 "b741dd3c6edd9533b02e40a7acbb682883a8ba9cc7bcc5bdc074834e0b9ad25d" => :high_sierra
+    sha256 "2b4ab4c3a1c853b9f9deb46c2320f36ea60aa9bb5ff35567382549255eb64ed4" => :sierra
+    sha256 "f15554f970c92445a5700b6925e3d63c3e69282142f6e54d18cd821ed4fed8ad" => :el_capitan
   end
 
   depends_on "go" => :build
