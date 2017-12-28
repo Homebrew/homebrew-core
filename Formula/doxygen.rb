@@ -1,22 +1,10 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "http://www.doxygen.org/"
-  revision 1
+  url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/doxygen/doxygen_1.8.14.orig.tar.gz"
+  sha256 "d1757e02755ef6f56fd45f1f4398598b920381948d6fcfa58f5ca6aa56f59d4d"
   head "https://github.com/doxygen/doxygen.git"
-
-  stable do
-    url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.src.tar.gz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/doxygen/doxygen_1.8.13.orig.tar.gz"
-    sha256 "af667887bd7a87dc0dbf9ac8d86c96b552dfb8ca9c790ed1cbffaa6131573f6b"
-
-    # Remove for > 1.8.13
-    # "Bug 776791 - [1.8.13 Regression] Segfault building the breathe docs"
-    # Upstream PR from 4 Jan 2017 https://github.com/doxygen/doxygen/pull/555
-    patch do
-      url "https://github.com/doxygen/doxygen/commit/0f02761a158a5e9ddbd5801682482af8986dbc35.patch?full_index=1"
-      sha256 "6705eb83b419ad9a696290c624b8ff363ff39b94b250008d0ef36200254c2a08"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
