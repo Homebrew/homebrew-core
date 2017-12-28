@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.4/zabbix-3.4.4.tar.gz"
-  sha256 "2ee84e72a0d441f322ec0ab6f332ff174dec300b3acb8389769aadeb39a353a4"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.5/zabbix-3.4.5.tar.gz"
+  sha256 "f764f02dc87f43c7d32f0c977b1b4a176ddc70012a072733aeee38ccacf6cdbf"
 
   bottle do
     sha256 "5aba32f4d2305dbfeaaeda0c21b652c45be708073ef5aa7ebdb4195b4933e13e" => :high_sierra
@@ -33,12 +33,14 @@ class Zabbix < Formula
   end
 
   def install
+    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}/zabbix
       --enable-agent
-      --with-iconv=#{MacOS.sdk_path}/usr
+      --with-iconv=#{sdk}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
