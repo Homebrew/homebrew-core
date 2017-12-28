@@ -1,8 +1,8 @@
 class Argon2 < Formula
   desc "Password hashing library and CLI utility"
   homepage "https://github.com/P-H-C/phc-winner-argon2"
-  url "https://github.com/P-H-C/phc-winner-argon2/archive/20161029.tar.gz"
-  sha256 "fe0049728b946b58b94cc6db89b34e2d050c62325d16316a534d2bedd78cd5e7"
+  url "https://github.com/P-H-C/phc-winner-argon2/archive/20171227.tar.gz"
+  sha256 "eaea0172c1f4ee4550d1b6c9ce01aab8d1ab66b4207776aa67991eb5872fdcd8"
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
@@ -16,10 +16,7 @@ class Argon2 < Formula
   def install
     system "make"
     system "make", "test"
-    bin.install "argon2"
-    lib.install "libargon2.dylib", "libargon2.a"
-    include.install "include/argon2.h"
-    man1.install "man/argon2.1"
+    system "make", "install", "PREFIX=#{prefix}"
     doc.install "argon2-specs.pdf"
   end
 
