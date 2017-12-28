@@ -5,9 +5,9 @@ class Feh < Formula
   sha256 "16df3cb813526a549e854aa82f80bcb299b9e83dd687ab4216a84e86f61722a1"
 
   bottle do
-    sha256 "2724b450fb64d70e89994db8db347deb169fb4494101420d5f7395fba6294ca1" => :high_sierra
-    sha256 "e49033e406b340e34b977a9ffcc207cd96b1bbbb2170febc393c1594cc4fed9a" => :sierra
-    sha256 "bf1316ca32305ce853a2aa85a7c80e44d0805fac61437b76ce7330eed6292ebe" => :el_capitan
+    sha256 "3a855680fc84154b2501d53dbb7a4e35b979c653bfa634cbb46b619140977a0f" => :high_sierra
+    sha256 "81d589730ed0bad7ba32eaf37886b411f61380322d186633fdc039a82ce1bb1b" => :sierra
+    sha256 "3662d978ff61df130e1d904d8707f35a4b6c7ce2f05a8dae29cf106ab4171ed5" => :el_capitan
   end
 
   depends_on :x11
