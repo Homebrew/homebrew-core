@@ -2,8 +2,8 @@ class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
   url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.3.1",
-      :revision => "cc6e694f38c86ba2ab3b1b488959296f3677e9c1"
+      :tag => "v0.3.2",
+      :revision => "fef344fc1f9f0233bb6585953f802bfe906e51cd"
 
   bottle do
     cellar :any_skip_relocation
