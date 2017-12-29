@@ -1,8 +1,8 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.20.0/fullsrc.zip"
-  sha256 "494d046bf0d452e5c41d2ef197dba19f0f46242a2bbacd122b7a394c0cada782"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.21.0/fullsrc.zip"
+  sha256 "75d97101dd892ffd0d27b28e9d380bedaf25887eac0a7ed2e59e06afe2a0e78b"
 
   head "https://github.com/fibjs/fibjs.git"
 
