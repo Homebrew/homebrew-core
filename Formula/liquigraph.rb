@@ -1,9 +1,9 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
   homepage "http://www.liquigraph.org"
-  url "https://github.com/fbiville/liquigraph/archive/liquigraph-3.0.1.tar.gz"
-  sha256 "7a57093f1a1229ada017a8e9fb1cbffa8ffc0dd132032e4670ef246a861707fe"
-  head "https://github.com/fbiville/liquigraph.git"
+  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-3.0.2.tar.gz"
+  sha256 "99a4eaf26834de5be45665aa7fda4f666e2f75c48cac47da33e173111b5be352"
+  head "https://github.com/liquigraph/liquigraph.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,15 +14,17 @@ class Liquigraph < Formula
   end
 
   depends_on "maven" => :build
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def install
-    system "mvn", "-q", "clean", "package", "-DskipTests"
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+    system "mvn", "-B", "-q", "-am", "-pl", "liquigraph-cli", "clean", "package", "-DskipTests"
     (buildpath/"binaries").mkpath
     system "tar", "xzf", "liquigraph-cli/target/liquigraph-cli-bin.tar.gz", "-C", "binaries"
-    libexec.install "binaries/liquigraph-cli/liquigraph.sh" => "liquigraph"
+    libexec.install "binaries/liquigraph-cli/liquigraph.sh"
     libexec.install "binaries/liquigraph-cli/liquigraph-cli.jar"
-    bin.install_symlink libexec/"liquigraph"
+    (bin/"liquigraph").write_env_script libexec/"liquigraph.sh", Language::Java.java_home_env("1.8")
   end
 
   test do
