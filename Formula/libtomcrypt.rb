@@ -11,19 +11,22 @@ class Libtomcrypt < Formula
   depends_on "libtommath" => :optional
 
   def install
-    ENV.append "CFLAGS", "-DUSE_GMP -DGMP_DESC" if build.with?("gmp")
-    ENV.append "EXTRALIBS", "-lgmp" if build.with?("gmp")
-    ENV.append "CFLAGS", "-DUSE_LTM -DLTM_DESC" if build.with?("libtommath")
-    ENV.append "EXTRALIBS", "-ltommath" if build.with?("libtommath")
-    system "make", "install", "PREFIX=#{prefix}"
+    if build.with? "gmp"
+      ENV.append "CFLAGS", "-DUSE_GMP -DGMP_DESC"
+      ENV.append "EXTRALIBS", "-lgmp"
+    end
+    if build.with? "libtommath"
+      ENV.append "CFLAGS", "-DUSE_LTM -DLTM_DESC"
+      ENV.append "EXTRALIBS", "-ltommath"
+    end
     system "make", "test"
-    pkgshare.install "./test"
+    system "make", "install", "PREFIX=#{prefix}"
+    pkgshare.install "test"
     (pkgshare/"tests").install "tests/test.key"
   end
 
   test do
-    cd pkgshare do
-      system "./test"
-    end
+    cp_r Dir[pkgshare/"*"], testpath
+    system "./test"
   end
 end
