@@ -32,7 +32,7 @@ class QtAT57 < Formula
   depends_on "dbus" => :optional
   depends_on "mysql" => :optional
   depends_on "pkg-config" => :build
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
   depends_on :xcode => :build
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
