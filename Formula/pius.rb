@@ -5,6 +5,7 @@ class Pius < Formula
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v2.2.4.tar.gz"
   sha256 "876763c351ba8538d0c614c31f1873b5e821425927631139c83378532215516c"
+  revision 1
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Pius < Formula
     sha256 "15444762e1364bdbfc4fce49279c8c016f4a6060e4a7efb38fb5e8e26d56e69b" => :yosemite
   end
 
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   def install
     # Replace hardcoded gpg path (WONTFIX)
