@@ -4,7 +4,7 @@ class Pass < Formula
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.1.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/password-store/password-store_1.7.1.orig.tar.xz"
   sha256 "f6d2199593398aaefeaa55e21daddfb7f1073e9e096af6d887126141e99d9869"
-
+  revision 1
   head "https://git.zx2c4.com/password-store", :using => :git
 
   bottle do
@@ -18,7 +18,7 @@ class Pass < Formula
   depends_on "qrencode"
   depends_on "tree"
   depends_on "gnu-getopt"
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   def install
     system "make", "PREFIX=#{prefix}", "WITH_ALLCOMP=yes", "BASHCOMPDIR=#{bash_completion}", "ZSHCOMPDIR=#{zsh_completion}", "FISHCOMPDIR=#{fish_completion}", "install"
