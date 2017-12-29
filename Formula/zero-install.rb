@@ -4,7 +4,7 @@ class ZeroInstall < Formula
   url "https://github.com/0install/0install/archive/v2.12-1.tar.gz"
   version "2.12-1"
   sha256 "317ac6ac680d021cb475962b7f6c2bcee9c35ce7cf04ae00d72bba8113f13559"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +19,7 @@ class ZeroInstall < Formula
   depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
   depends_on "camlp4" => :build
-  depends_on :gpg => :run
+  depends_on "gnupg"
   depends_on "gtk+" => :optional
 
   def install
