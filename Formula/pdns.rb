@@ -31,7 +31,7 @@ class Pdns < Formula
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
 
   def install
     # Fix "configure: error: cannot find boost/program_options.hpp"
