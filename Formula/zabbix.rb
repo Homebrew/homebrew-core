@@ -20,7 +20,7 @@ class Zabbix < Formula
   depends_on "pcre"
 
   if build.with? "server-proxy"
-    depends_on :mysql => :optional
+    depends_on "mysql" => :optional
     depends_on :postgresql if build.without? "mysql"
     depends_on "fping"
     depends_on "libevent"
