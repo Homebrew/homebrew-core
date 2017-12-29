@@ -23,7 +23,7 @@ class Sphinx < Formula
 
   depends_on "re2" => :optional
   depends_on "mysql" => :optional
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
   depends_on "openssl" if build.with? "mysql"
 
   resource "stemmer" do
