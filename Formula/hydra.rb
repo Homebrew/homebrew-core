@@ -3,6 +3,7 @@ class Hydra < Formula
   homepage "https://www.thc.org/thc-hydra/"
   url "https://github.com/vanhauser-thc/thc-hydra/archive/8.6.tar.gz"
   sha256 "05a87eb018507b24afca970081f067e64441460319fb75ca1e64c4a1f322b80b"
+  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Hydra < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :mysql
+  depends_on "mysql"
   depends_on "openssl"
   depends_on "subversion" => :optional
   depends_on "libidn" => :optional
