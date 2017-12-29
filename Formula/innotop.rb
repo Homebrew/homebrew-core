@@ -3,6 +3,7 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.11.4.tar.gz"
   sha256 "fb0d7d2558e2198d9224b44dc4220d4c62e1b5b0069312012306275be39b4ab9"
+  revision 1
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Innotop < Formula
     sha256 "0c91367118f50ef4e624e31837418dd07d09bf24f8cc91a6f143538a61a56b95" => :yosemite
   end
 
-  depends_on :mysql
+  depends_on "mysql"
   depends_on "openssl"
 
   resource "DBD::mysql" do
