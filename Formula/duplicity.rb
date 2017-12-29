@@ -5,7 +5,7 @@ class Duplicity < Formula
   homepage "http://www.nongnu.org/duplicity/"
   url "https://code.launchpad.net/duplicity/0.7-series/0.7.14/+download/duplicity-0.7.14.tar.gz"
   sha256 "7a3eb74a2a36b004b10add2970b37cfbac0bd693d79513e6311c8e4b8c3dd73e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Duplicity < Formula
   depends_on "librsync"
   depends_on "openssl@1.1"
   depends_on "par2" => :optional
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   # Generated with homebrew-pypi-poet from
   # for i in azure-storage boto dropbox fasteners kerberos mega.py
