@@ -14,7 +14,7 @@ class PureFtpd < Formula
 
   depends_on "libsodium"
   depends_on "openssl"
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
 
   def install
