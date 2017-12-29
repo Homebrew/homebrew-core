@@ -18,7 +18,7 @@ class Urweb < Formula
   depends_on "openssl"
   depends_on "gmp"
   depends_on :postgresql => :optional
-  depends_on :mysql => :optional
+  depends_on "mysql" => :optional
 
   def install
     args = %W[
