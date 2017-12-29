@@ -3,11 +3,12 @@ class RbenvChefdk < Formula
   homepage "https://github.com/docwhat/rbenv-chefdk"
   url "https://github.com/docwhat/rbenv-chefdk/archive/v1.0.0.tar.gz"
   sha256 "79b48257f1a24085a680da18803ba6a94a1dd0cb25bd390629006a5fb67f3b69"
+  revision 1
   head "https://github.com/docwhat/rbenv-chefdk.git"
 
   bottle :unneeded
 
-  depends_on :rbenv
+  depends_on "rbenv"
 
   def install
     prefix.install Dir["*"]
