@@ -1,9 +1,8 @@
 class Kpcli < Formula
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.1.pl"
-  sha256 "f1f07704a30d0eae126717d5dae0d24ccced43c316454e4a7b868fe0a239a21a"
-  revision 2
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.2.pl"
+  sha256 "615a1bae19ed0c132076a809b162a66ea0dc22c1d992a8c6e1f2e1aaedfae687"
 
   bottle do
     cellar :any
@@ -50,13 +49,13 @@ class Kpcli < Formula
   end
 
   resource "Mac::Pasteboard" do
-    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.008.tar.gz"
-    sha256 "62e5f55c423d033f8f5caff5d1678bb0b327144655aeaeb48a11cf633baa8f15"
+    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.009.tar.gz"
+    sha256 "85b1d5e9630973b997c3c1634e2df964d6a8d6cb57d9abe1f7093385cf26cf54"
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz"
-    sha256 "3ad2bb950a112c282a90018e91e60ddc4c4d2d351de2869d46a8c3db5b611160"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.46.tar.gz"
+    sha256 "5d7a6a830cf7f2b2960bf8b8afaac16a537ede64f3023827acea5bd24ca77015"
   end
 
   def install
