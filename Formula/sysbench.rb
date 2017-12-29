@@ -3,6 +3,7 @@ class Sysbench < Formula
   homepage "https://github.com/akopytov/sysbench"
   url "https://github.com/akopytov/sysbench/archive/1.0.11.tar.gz"
   sha256 "2621d274d9103496e22c57863faec11f855f25db838fae0248be6e825a426dbe"
+  revision 1
 
   bottle do
     sha256 "ea05ab0bb421a4d7c7b4d2192ab0d483764697b83de39c212e17fa6e899fd52f" => :high_sierra
@@ -16,7 +17,7 @@ class Sysbench < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "postgresql" => :optional
-  depends_on :mysql => :recommended
+  depends_on "mysql" => :recommended
 
   def install
     system "./autogen.sh"
