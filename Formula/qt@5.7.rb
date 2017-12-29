@@ -30,7 +30,7 @@ class QtAT57 < Formula
   depends_on :macos => :mountain_lion
 
   depends_on "dbus" => :optional
-  depends_on :mysql => :optional
+  depends_on "mysql" => :optional
   depends_on "pkg-config" => :build
   depends_on :postgresql => :optional
   depends_on :xcode => :build
