@@ -1,8 +1,8 @@
 class Libgig < Formula
   desc "Library for Gigasampler and DLS (Downloadable Sounds) Level 1/2 files"
   homepage "https://www.linuxsampler.org/libgig/"
-  url "https://download.linuxsampler.org/packages/libgig-3.3.0.tar.bz2"
-  sha256 "d22a3c7ba13d920c1d4b6c218107ad105622ae9d1236ffbce007b98547774425"
+  url "https://download.linuxsampler.org/packages/libgig-4.1.0.tar.bz2"
+  sha256 "06a280278a323963042acdf13b092644cceb43ef367fcbb9ca7bbedff132bd0b"
 
   bottle do
     cellar :any
@@ -30,7 +30,7 @@ class Libgig < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <gig.h>
+      #include <libgig/gig.h>
       #include <iostream>
       using namespace std;
 
@@ -40,7 +40,7 @@ class Libgig < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lgig", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}/libgig", "-lgig", "-o", "test"
     assert_match "libgig", shell_output("./test")
   end
 end
