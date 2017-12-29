@@ -15,7 +15,7 @@ class Sysbench < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
   depends_on :mysql => :recommended
 
   def install
