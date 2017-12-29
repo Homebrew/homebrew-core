@@ -1,10 +1,8 @@
-require "language/go"
-
 class Karn < Formula
   desc "Manage multiple Git identities"
   homepage "https://github.com/prydonius/karn"
-  url "https://github.com/prydonius/karn/archive/v0.0.3.tar.gz"
-  sha256 "a9336abe63dbf6b952e1e4a3d4c31ed62dda69aa51e53f07902edb894638162d"
+  url "https://github.com/prydonius/karn/archive/v0.0.4.tar.gz"
+  sha256 "68d244558ef62cf1da2b87927a0a2fbf907247cdd770fc8c84bf72057195a6cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,31 +13,18 @@ class Karn < Formula
     sha256 "16d1efcf64c807f2db0a270fcff9b973eaf54c280af2819615fdaa46ff6cabc8" => :mavericks
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git",
-        :revision => "f47f7b7e8568e846e9614acd5738092c3acf7058"
-  end
-
-  go_resource "github.com/mitchellh/go-homedir" do
-    url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "7d2d8c8a4e078ce3c58736ab521a40b37a504c52"
-  end
-
-  go_resource "gopkg.in/yaml.v2" do
-    url "https://gopkg.in/yaml.v2",
-        :revision => "49c95bdc21843256fb6c4e0d370a05f24a0bf213", :using => :git
-  end
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/prydonius"
-    ln_s buildpath, buildpath/"src/github.com/prydonius/karn"
-    Language::Go.stage_deps resources, buildpath/"src"
+    (buildpath/"src/github.com/prydonius/karn").install buildpath.children
 
-    system "go", "build", "cmd/karn/karn.go"
-    bin.install "karn"
+    cd "src/github.com/prydonius/karn" do
+      system "dep", "ensure"
+      system "go", "build", "-o", bin/"karn", "./cmd/karn/karn.go"
+      prefix.install_metafiles
+    end
   end
 
   test do
