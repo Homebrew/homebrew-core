@@ -19,7 +19,7 @@ class Gearman < Formula
   depends_on "libevent"
   depends_on "libpqxx" if build.with? "postgresql"
   depends_on "mysql" => :optional
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
   depends_on "hiredis" => :optional
   depends_on "libmemcached" => :optional
   depends_on "openssl" => :optional
