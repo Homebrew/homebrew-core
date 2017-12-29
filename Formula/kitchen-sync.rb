@@ -17,7 +17,7 @@ class KitchenSync < Formula
   depends_on "boost"
   depends_on "yaml-cpp"
   depends_on :mysql => :recommended
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
 
   needs :cxx11
 
