@@ -3,6 +3,7 @@ class LibpqxxAT3 < Formula
   homepage "http://pqxx.org/development/libpqxx/"
   url "http://pqxx.org/download/software/libpqxx/libpqxx-3.1.1.tar.gz"
   sha256 "ce443c7c515623b4a68de5f0657460344b6b6320982d8f8efc657c3746e1ee90"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class LibpqxxAT3 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on :postgresql
+  depends_on "postgresql"
 
   # Patch 1 borrowed from MacPorts. See:
   # https://trac.macports.org/ticket/33671
