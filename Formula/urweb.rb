@@ -17,7 +17,7 @@ class Urweb < Formula
   depends_on "mlton" => :build
   depends_on "openssl"
   depends_on "gmp"
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
 
   def install
