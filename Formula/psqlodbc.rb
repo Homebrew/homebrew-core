@@ -3,6 +3,7 @@ class Psqlodbc < Formula
   homepage "https://odbc.postgresql.org"
   url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-10.00.0000.tar.gz"
   sha256 "74a3670d3f608f0fa61265b748f19dd4a975cda18ddfb502217cfff9cae7d562"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,7 +20,7 @@ class Psqlodbc < Formula
   end
 
   depends_on "openssl"
-  depends_on :postgresql
+  depends_on "postgresql"
   depends_on "unixodbc" => :recommended
   depends_on "libiodbc" => :optional
 
