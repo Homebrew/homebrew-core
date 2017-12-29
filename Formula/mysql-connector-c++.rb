@@ -3,6 +3,7 @@ class MysqlConnectorCxx < Formula
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
   url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-1.1.9.tar.gz"
   sha256 "3e31847a69a4e5c113b7c483731317ec4533858e3195d3a85026a0e2f509d2e4"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class MysqlConnectorCxx < Formula
   depends_on "cmake" => :build
   depends_on "boost" => :build
   depends_on "openssl"
-  depends_on :mysql
+  depends_on "mysql"
 
   def install
     system "cmake", ".", *std_cmake_args
