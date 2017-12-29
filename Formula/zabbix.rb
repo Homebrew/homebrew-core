@@ -3,6 +3,7 @@ class Zabbix < Formula
   homepage "https://www.zabbix.com/"
   url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.5/zabbix-3.4.5.tar.gz"
   sha256 "f764f02dc87f43c7d32f0c977b1b4a176ddc70012a072733aeee38ccacf6cdbf"
+  revision 1
 
   bottle do
     sha256 "a1d6ee981db9e9a795e56c6f2a68fdf769d23ec5c69a2186e979a0048d69f7b7" => :high_sierra
@@ -21,7 +22,7 @@ class Zabbix < Formula
 
   if build.with? "server-proxy"
     depends_on "mysql" => :optional
-    depends_on :postgresql if build.without? "mysql"
+    depends_on "postgresql" if build.without? "mysql"
     depends_on "fping"
     depends_on "libevent"
     depends_on "libssh2"
