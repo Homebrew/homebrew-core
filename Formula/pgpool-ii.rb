@@ -3,6 +3,7 @@ class PgpoolIi < Formula
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
   url "https://www.pgpool.net/download.php?f=pgpool-II-3.7.0.tar.gz"
   sha256 "52d409493ff5996477d58d01ce376cecb3335869a8c6b84063604d676eeefa88"
+  revision 1
 
   bottle do
     sha256 "974f7ce2a82f08b562e43550702fcf740cf78cfc07e8da10c995d3f7533dd26c" => :high_sierra
@@ -10,7 +11,7 @@ class PgpoolIi < Formula
     sha256 "adfac17fccef42df3aacbd412fa569784df150261c0c2af8347725e5b6572b93" => :el_capitan
   end
 
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
