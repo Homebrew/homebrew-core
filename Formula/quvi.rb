@@ -1,8 +1,8 @@
 class Quvi < Formula
   desc "Parse video download URLs"
   homepage "https://quvi.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/quvi/0.4/quvi/quvi-0.4.2.tar.bz2"
-  sha256 "1f4e40c14373cb3d358ae1b14a427625774fd09a366b6da0c97d94cb1ff733c3"
+  url "https://downloads.sourceforge.net/project/quvi/0.9/quvi/quvi-0.9.5.tar.xz"
+  sha256 "cb3918aad990b9bc49828a5071159646247199a63de0dd4c706adc5c8cd0a2c0"
 
   bottle do
     cellar :any
@@ -17,7 +17,9 @@ class Quvi < Formula
   depends_on "libquvi"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

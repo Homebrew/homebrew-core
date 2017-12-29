@@ -1,9 +1,8 @@
 class Libquvi < Formula
   desc "C library to parse flash media stream properties"
   homepage "https://quvi.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/quvi/0.4/libquvi/libquvi-0.4.1.tar.bz2"
-  sha256 "f5a2fb0571634483e8a957910f44e739f5a72eb9a1900bd10b453c49b8d5f49d"
-  revision 2
+  url "https://downloads.sourceforge.net/project/quvi/0.9/libquvi/libquvi-0.9.4.tar.xz"
+  sha256 "2d3fe28954a68ed97587e7b920ada5095c450105e993ceade85606dadf9a81b2"
 
   bottle do
     sha256 "bb5a4201afd814e87ee496b8cefbcf126f0245d7b3c600039e71e7b355115bf7" => :high_sierra
@@ -12,11 +11,14 @@ class Libquvi < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glib"
+  depends_on "libgcrypt"
+  depends_on "libproxy"
   depends_on "lua@5.1"
 
   resource "scripts" do
-    url "https://downloads.sourceforge.net/project/quvi/0.4/libquvi-scripts/libquvi-scripts-0.4.14.tar.xz"
-    sha256 "b8d17d53895685031cd271cf23e33b545ad38cad1c3bddcf7784571382674c65"
+    url "https://downloads.sourceforge.net/project/quvi/0.9/libquvi-scripts/libquvi-scripts-0.9.20131130.tar.xz"
+    sha256 "17f21f9fac10cf60af2741f2c86a8ffd8007aa334d1eb78ff6ece130cb3777e3"
   end
 
   def install
@@ -29,7 +31,9 @@ class Libquvi < Formula
     end
     ENV.append_path "PKG_CONFIG_PATH", "#{scripts}/lib/pkgconfig"
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 end
