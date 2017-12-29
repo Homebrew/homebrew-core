@@ -1,9 +1,8 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz"
-  sha256 "66383b7d367de25ba031d37762d83e2b55de010c573009c6f58270b137131072"
-  revision 1
+  url "https://downloads.sourceforge.net/project/nagios/nrpe-3.x/nrpe-3.2.1.tar.gz"
+  sha256 "8ad2d1846ab9011fdd2942b8fc0c99dfad9a97e57f4a3e6e394a4ead99c0f1f0"
 
   bottle do
     cellar :any
@@ -22,12 +21,9 @@ class Nrpe < Formula
     user  = `id -un`.chomp
     group = `id -gn`.chomp
 
-    (var/"run").mkpath
-    inreplace "sample-config/nrpe.cfg.in", "/var/run/nrpe.pid", var/"run/nrpe.pid"
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", "--prefix=#{prefix}",
                           "--libexecdir=#{HOMEBREW_PREFIX}/sbin",
+                          "--with-piddir=#{var}/run",
                           "--sysconfdir=#{etc}",
                           "--with-nrpe-user=#{user}",
                           "--with-nrpe-group=#{group}",
@@ -39,11 +35,17 @@ class Nrpe < Formula
                           "--enable-ssl",
                           "--enable-command-args"
 
-    inreplace "src/Makefile", "$(LIBEXECDIR)", "$(SBINDIR)"
+    inreplace "src/Makefile" do |s|
+      s.gsub! "$(LIBEXECDIR)", "$(SBINDIR)"
+      s.gsub! "$(DESTDIR)/usr/local/sbin", "$(SBINDIR)"
+    end
 
     system "make", "all"
-    system "make", "install"
-    system "make", "install-daemon-config"
+    system "make", "install", "install-config"
+  end
+
+  def post_install
+    (var/"run").mkpath
   end
 
   plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
