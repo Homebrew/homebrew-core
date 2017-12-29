@@ -26,7 +26,7 @@ class Qt < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
-  depends_on :mysql => :optional
+  depends_on "mysql" => :optional
   depends_on :postgresql => :optional
 
   # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
