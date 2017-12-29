@@ -3,6 +3,7 @@ class Gopass < Formula
   homepage "https://www.justwatch.com/gopass"
   url "https://github.com/justwatchcom/gopass/releases/download/v1.6.6/gopass-1.6.6.tar.gz"
   sha256 "96be7ad9c1188d2880c3b9d676896b157d056621985a8784381b01429e660103"
+  revision 1
   head "https://github.com/justwatchcom/gopass.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Gopass < Formula
   end
 
   depends_on "go" => :build
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   def install
     ENV["GOPATH"] = buildpath
