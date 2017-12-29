@@ -1,8 +1,8 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.37.tar.xz"
-  sha256 "40371b9587857deefb0d1df950c3e02228d3f9b56def2e3aa86736ee24292468"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.38.tar.xz"
+  sha256 "3435d7d93a47a32764b1ec2d03f7fbb348a97af52530815e49370803a1a69c65"
 
   bottle do
     sha256 "c07f651bced40f89a8140c27ab517b543fe8f5211c60c951c4ec5ed397a73413" => :high_sierra
@@ -33,15 +33,6 @@ class Gnumeric < Formula
   resource "py_libxml2" do
     url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
     sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
-  end
-
-  # Fix "no member named 'libintl_textdomain' in 'struct _GnmFunc'"
-  # Equivalent to the following two upstream commits from 25 Dec 2017:
-  # https://github.com/GNOME/gnumeric/commit/7017a7ee2
-  # https://github.com/GNOME/gnumeric/commit/64f1410b7
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ee23995/gnumeric/textdomain.patch"
-    sha256 "68c4a71a25551bdbbdf4af83fd707fe581f55356f89c9ef21553775bebe3de43"
   end
 
   def install
