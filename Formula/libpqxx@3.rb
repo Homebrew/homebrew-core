@@ -7,10 +7,9 @@ class LibpqxxAT3 < Formula
 
   bottle do
     cellar :any
-    sha256 "041649c3f40abd8ada91d86bf2b102d99162ea8d20aa381b2b4a9af62d0bc9fb" => :high_sierra
-    sha256 "4623a2180c2549b24afafdad9ba9f955dea86622a86a55f6fb5a2a8f51f0b940" => :sierra
-    sha256 "ebcbc05990beae2947235e4f6cdb1b79482e60c5cff45fb2fced7d61c8fd5fa8" => :el_capitan
-    sha256 "f94adb2b8bd5ad25bb7db51a79bdde7c167912bc4d2134822d70f1a45827d3bc" => :yosemite
+    sha256 "8cced66fd54ec09a1df2ae2b0d67d8cfbd446737079dc1e9001349635034a9a0" => :high_sierra
+    sha256 "51530f317112a4b5beee1296f9ebf706d3bdc74f29c812a05f18cf8187f0d38e" => :sierra
+    sha256 "9b09b277da7a0630922153c4e124ee6432f308da35733de48656a69598097b5d" => :el_capitan
   end
 
   keg_only :versioned_formula
