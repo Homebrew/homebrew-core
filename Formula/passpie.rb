@@ -5,6 +5,7 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/7a/e5/f808549a4ae369ed1d97795e6039085d38ec4244aa953fac3cb870c66fbc/passpie-1.6.0.tar.gz"
   sha256 "8d4371b89d02469d7f2cc4e79480f6f1c80dde81da33d2968c9a212d704a2213"
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Passpie < Formula
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :gpg
+  depends_on "gnupg"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"

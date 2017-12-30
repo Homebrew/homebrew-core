@@ -3,6 +3,7 @@ class GitSecret < Formula
   homepage "https://sobolevn.github.io/git-secret/"
   url "https://github.com/sobolevn/git-secret/archive/v0.2.2.tar.gz"
   sha256 "a4672c2d5eca7b5c3b27388060609307b851edc7f7b653e1d21e3e0b328f43f4"
+  revision 1
   head "https://github.com/sobolevn/git-secret.git"
 
   bottle do
@@ -14,7 +15,7 @@ class GitSecret < Formula
     sha256 "a6df88bc4820b9796721fa0bbf5d12e9618fdc2084a4618811458462c4ee2b23" => :yosemite
   end
 
-  depends_on :gpg => :recommended
+  depends_on "gnupg" => :recommended
 
   def install
     system "make", "build"

@@ -38,7 +38,7 @@ class Qca < Formula
 
   option "with-api-docs", "Build API documentation"
 
-  deprecated_option "with-gnupg" => "with-gpg2"
+  deprecated_option "with-gpg2" => "with-gnupg"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -48,7 +48,7 @@ class Qca < Formula
   depends_on "openssl" # qca-ossl
   depends_on "botan" => :optional # qca-botan
   depends_on "libgcrypt" => :optional # qca-gcrypt
-  depends_on :gpg => [:optional, :run] # qca-gnupg
+  depends_on "gnupg" => :optional # qca-gnupg
   depends_on "nss" => :optional # qca-nss
   depends_on "pkcs11-helper" => :optional # qca-pkcs11
 
@@ -66,7 +66,7 @@ class Qca < Formula
     # Plugins (qca-ossl, qca-cyrus-sasl, qca-logger, qca-softstore always built)
     args << "-DWITH_botan_PLUGIN=#{build.with?("botan") ? "YES" : "NO"}"
     args << "-DWITH_gcrypt_PLUGIN=#{build.with?("libgcrypt") ? "YES" : "NO"}"
-    args << "-DWITH_gnupg_PLUGIN=#{build.with?("gpg2") ? "YES" : "NO"}"
+    args << "-DWITH_gnupg_PLUGIN=#{build.with?("gnupg") ? "YES" : "NO"}"
     args << "-DWITH_nss_PLUGIN=#{build.with?("nss") ? "YES" : "NO"}"
     args << "-DWITH_pkcs11_PLUGIN=#{build.with?("pkcs11-helper") ? "YES" : "NO"}"
 
