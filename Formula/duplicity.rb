@@ -323,7 +323,19 @@ class Duplicity < Formula
   end
 
   test do
-    Gpg.test(testpath) do
+    (testpath/"batch.gpg").write <<~EOS
+      Key-Type: RSA
+      Key-Length: 2048
+      Subkey-Type: RSA
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %no-protection
+      %commit
+    EOS
+    system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+    begin
       (testpath/"test/hello.txt").write "Hello!"
       (testpath/"command.sh").write <<~EOS
         #!/usr/bin/expect -f
@@ -345,6 +357,10 @@ class Duplicity < Formula
       # Ensure requests[security] is activated
       script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
       system libexec/"bin/python", "-c", script
+    ensure
+      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
+                                                 "--kill", "gpg-agent"
     end
   end
 end
