@@ -31,13 +31,9 @@ class PandocCrossref < Formula
       See equation @eq:eqn1 for cross-referencing.
       Display equations are labelled and numbered
 
-      $$ P_i(x) = \sum_i a_i x^i $$ {#eq:eqn1}
-    EOS
-    (testpath/"expected.txt").write <<~EOS
-      <p>Demo for pandoc-crossref. See equation eq.M-BM- 1 for cross-referencing. Display equations are labelled and numbered</p>$
-      <p><span id="eq:eqn1"><br /><span class="math display"><em>P</em><sub><em>i</em></sub>(<em>x</em>)=<em>u</em><em>m</em><sub><em>i</em></sub><em>a</em><sub><em>i</em></sub><em>x</em><sup><em>i</em></sup>M-bM-^@M-^AM-bM-^@M-^A(1)</span><br /></span></p>$
+      $$ P_i(x) = \\sum_i a_i x^i $$ {#eq:eqn1}
     EOS
     system Formula["pandoc"].bin/"pandoc", "-F", bin/"pandoc-crossref", "-o", "out.html", "hello.md"
-    assert_equal File.read("expected.txt"), pipe_output("/bin/cat -et", File.read("out.html"))
+    assert_match "∑", (testpath/"out.html").read
   end
 end
