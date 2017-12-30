@@ -14,6 +14,8 @@ class Gmt < Formula
     sha256 "d05657c555e8e1f3dab2bd57de31a016dd3a5d9e6059c3b1fd123081e0d584ef" => :el_capitan
   end
 
+  option "without-module-links", "Install only the main gmt program without links for GMT modules."
+
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gdal"
@@ -53,10 +55,11 @@ class Gmt < Formula
       -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
       -DPCRE_ROOT=#{Formula["pcre"].opt_prefix}
       -DFLOCK:BOOL=TRUE
-      -DGMT_INSTALL_MODULE_LINKS:BOOL=TRUE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE
       -DLICENSE_RESTRICTED:BOOL=FALSE
     ]
+
+    args << "-DGMT_INSTALL_MODULE_LINKS:BOOL=" + (build.without?("module-links") ? "FALSE" : "TRUE")
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -65,7 +68,7 @@ class Gmt < Formula
   end
 
   test do
-    system "#{bin}/pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
+    system "#{bin}/gmt pscoast -R0/360/-70/70 -Jm1.2e-2i -Bxa60f30 -Bya30f15 -Dc -G240 -W1/0 -P > test.ps"
     assert_predicate testpath/"test.ps", :exist?
   end
 end
