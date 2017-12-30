@@ -3,6 +3,7 @@ class Gforth < Formula
   homepage "https://www.gnu.org/software/gforth/"
   url "https://www.complang.tuwien.ac.at/forth/gforth/gforth-0.7.3.tar.gz"
   sha256 "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
+  revision 1
 
   bottle do
     sha256 "a8696af411ccf1d3d94263442bb33f8692725acc96648d4b88410ef61f7c09b1" => :high_sierra
@@ -12,6 +13,7 @@ class Gforth < Formula
     sha256 "d72074880ae4ab11e656645d0d9ab52630640fbb0df713c03fee1a6b8cd84ffa" => :mavericks
   end
 
+  depends_on "emacs" => :build
   depends_on "libtool" => :run
   depends_on "libffi"
   depends_on "pcre"
@@ -20,7 +22,14 @@ class Gforth < Formula
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
-    system "make" # Separate build steps.
-    system "make", "install"
+    system "make", "EMACS=#{Formula["emacs"].opt_bin}/emacs"
+    elisp.mkpath
+    system "make", "install", "emacssitelispdir=#{elisp}"
+
+    elisp.install "gforth.elc"
+  end
+
+  test do
+    assert_equal "2 ", shell_output("#{bin}/gforth -e '1 1 + . bye'")
   end
 end
