@@ -1,8 +1,8 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "https://downloads.sourceforge.net/project/x3270/x3270/3.5ga9/suite3270-3.5ga9-src.tgz"
-  sha256 "654756cc1204fd69a861d416d350a0ab3c9cea317173a80b06aca0402a517d3e"
+  url "https://downloads.sourceforge.net/project/x3270/x3270/3.6ga4/suite3270-3.6ga4-src.tgz"
+  sha256 "3f6b01f957d62e5d958bff68c11ea5873d564152198b2086771db6a789fafc00"
 
   bottle do
     rebuild 1
