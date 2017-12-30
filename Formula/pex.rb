@@ -7,10 +7,9 @@ class Pex < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f2af5b095cd7bd4c0817cb041d6ee69fc8581937e1905bceff3139d88cb6cf0" => :high_sierra
-    sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :sierra
-    sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :el_capitan
-    sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :yosemite
+    sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :high_sierra
+    sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :sierra
+    sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :el_capitan
   end
 
   depends_on "postgresql"
