@@ -8,9 +8,9 @@ class KitchenSync < Formula
 
   bottle do
     cellar :any
-    sha256 "08b95b15bfb7d4f5b6bd8afb05115fda8451945404f53491c6ac2663843b2a7f" => :high_sierra
-    sha256 "41a60924a8f3132dd1d011bc25cb2a91ac7d28cf3b0843b69b5cb60f0db068e3" => :sierra
-    sha256 "3f491f2fea093c3b1b1faa38a9803702857f41f7e65628f5e8b88134570a4fe4" => :el_capitan
+    sha256 "7fd3f57cc173fa99cb6e20972c42e513a3dad8efa047805a17aa311e4da673a8" => :high_sierra
+    sha256 "a613f1cd8c8cf5d786394bc82c4c0f888808524a1e1c435bcc03bdb7222650d9" => :sierra
+    sha256 "b3e0ed03362b2472de1f46d10c718003aeda7334755e721570340765b2601f07" => :el_capitan
   end
 
   depends_on "cmake" => :build
