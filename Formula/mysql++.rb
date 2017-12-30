@@ -3,6 +3,7 @@ class Mysqlxx < Formula
   homepage "https://tangentsoft.com/mysqlpp/home"
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.3.tar.gz"
   sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Mysqlxx < Formula
     sha256 "f9837534007c15fdf73e607ddc58c1d5c0d1d20ff2de7e2d1dea20716b823cc9" => :yosemite
   end
 
-  depends_on :mysql
+  depends_on "mysql"
 
   def install
     mysql_include_dir = Utils.popen_read("mysql_config --variable=pkgincludedir")
