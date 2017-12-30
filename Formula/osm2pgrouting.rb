@@ -3,7 +3,7 @@ class Osm2pgrouting < Formula
   homepage "http://pgrouting.org/docs/tools/osm2pgrouting.html"
   url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.3.tar.gz"
   sha256 "ea58d3b2dd0164cf85dfa66044ce1ea2af3080bee2c16ad6f115aa84aa23ba0f"
-  revision 1
+  revision 2
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Osm2pgrouting < Formula
   depends_on "libpqxx"
   depends_on "pgrouting"
   depends_on "postgis"
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     inreplace "CMakeLists.txt" do |s|

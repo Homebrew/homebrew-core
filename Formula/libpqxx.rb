@@ -3,6 +3,7 @@ class Libpqxx < Formula
   homepage "http://pqxx.org/development/libpqxx/"
   url "https://github.com/jtv/libpqxx/archive/6.0.0.tar.gz"
   sha256 "81cac92458efd799fadb0374107464320d93eba71de05aedf21afb9c8dda7c3a"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Libpqxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"

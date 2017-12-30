@@ -4,7 +4,7 @@ class Ephemeralpg < Formula
   url "http://ephemeralpg.org/code/ephemeralpg-2.2.tar.gz"
   mirror "https://bitbucket.org/eradman/ephemeralpg/get/ephemeralpg-2.2.tar.gz"
   sha256 "dfd3df1cd222024439219fe82f2d3e64d0d2fad5e302a4e0c2ff0fc12a5b88ec"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class Ephemeralpg < Formula
     sha256 "c3061720932617170d09d7812d722607a71c165106bddc9315d8981a05d9ad17" => :yosemite
   end
 
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "install"

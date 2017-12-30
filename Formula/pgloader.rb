@@ -3,7 +3,7 @@ class Pgloader < Formula
   homepage "https://github.com/dimitri/pgloader"
   url "https://github.com/dimitri/pgloader/archive/v3.4.1.tar.gz"
   sha256 "3ac4d03706057a35e1d4d0e63571b84be7d0d07ea09e015d90e242200488fe82"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "53730fd18e30016cdff390c71dcd0d8edc73752d8cd6c052712d537be70572ee" => :high_sierra
@@ -28,7 +28,7 @@ class Pgloader < Formula
   depends_on "sbcl"
   depends_on "freetds"
   depends_on "buildapp" => :build
-  depends_on :postgresql => :recommended
+  depends_on "postgresql" => :recommended
 
   # Resource stanzas are generated automatically by quicklisp-roundup.
   # See: https://github.com/benesch/quicklisp-homebrew-roundup

@@ -3,7 +3,7 @@ class Pex < Formula
   homepage "https://github.com/petere/pex"
   url "https://github.com/petere/pex/archive/1.20140409.tar.gz"
   sha256 "5047946a2f83e00de4096cd2c3b1546bc07be431d758f97764a36b32b8f0ae57"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,7 @@ class Pex < Formula
     sha256 "e877950886ddd5b024d60b9e0c6eb5eed4b94c5e1c00bc224573ad6b637fb77c" => :yosemite
   end
 
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"

@@ -3,7 +3,7 @@ class CheckPostgres < Formula
   homepage "https://bucardo.org/wiki/Check_postgres"
   url "https://bucardo.org/downloads/check_postgres-2.22.0.tar.gz"
   sha256 "29cd8ea0a0c0fcd79a1e6afb3f5a1d662c1658eef207ea89276ddb30121b85a8"
-  revision 2
+  revision 3
 
   head "https://github.com/bucardo/check_postgres.git"
 
@@ -15,7 +15,7 @@ class CheckPostgres < Formula
     sha256 "36f0895bc5985115dd5b3525b7fbc1f49a2e432e4a52de0a148d8279ac548daf" => :yosemite
   end
 
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     system "perl", "Makefile.PL", "PREFIX=#{prefix}"
