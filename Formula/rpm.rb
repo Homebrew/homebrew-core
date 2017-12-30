@@ -49,8 +49,7 @@ class Rpm < Formula
     (var/"lib/rpm").mkpath
 
     # Attempt to fix expected location of GPG to a sane default.
-    gnupg = Gpg.executable || HOMEBREW_PREFIX/"bin/gpg"
-    inreplace lib/"rpm/macros", "/usr/bin/gpg2", gnupg
+    inreplace lib/"rpm/macros", "/usr/bin/gpg2", HOMEBREW_PREFIX/"bin/gpg"
   end
 
   def test_spec
