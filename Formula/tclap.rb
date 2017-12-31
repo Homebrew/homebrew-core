@@ -6,11 +6,9 @@ class Tclap < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d99ff85d8e6543174db3f87f900d3dc7c8ba6ad9983958ca30e162c122dad50" => :high_sierra
-    sha256 "5f1ea1598586b9dfaa54d0362eb21cd2c9210006f46a7568eca09ded1c507dfa" => :sierra
-    sha256 "71be8c4b552ec527decd02a459139353ca738b90d3971a560276a74694511caf" => :el_capitan
-    sha256 "af4d9a41dbfbccda4f583e9dff77a8f93978a07f624df7a1f9ed30662c006274" => :yosemite
-    sha256 "b93a8106cce72de8055b375519b93b00977e2368b758ccf3481497d075ec6738" => :mavericks
+    sha256 "8e85cfa71594680dc52d5ff18d93cf585fc5990c28316f0b60f42584ff3a2697" => :high_sierra
+    sha256 "8e85cfa71594680dc52d5ff18d93cf585fc5990c28316f0b60f42584ff3a2697" => :sierra
+    sha256 "8e85cfa71594680dc52d5ff18d93cf585fc5990c28316f0b60f42584ff3a2697" => :el_capitan
   end
 
   def install
