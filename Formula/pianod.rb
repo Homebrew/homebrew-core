@@ -5,11 +5,9 @@ class Pianod < Formula
   sha256 "4f3be12daef1adb3bcbbcf8ec529abf0ac018e03140be9c5b0f1203d6e1b9bf0"
 
   bottle do
-    sha256 "cf69d36f2969b9ef4a4c258670a0e47743ff1d7803f8df7c9acfaf077f3fd463" => :high_sierra
-    sha256 "9027233a185aad19ef50a5b2de2d94256015c3d781063d6a0587802a7b746a81" => :sierra
-    sha256 "2ee0ba99862d32947b418b00ea3d1f6bab6bbbfbe5a9cd190558e3baf4c0586b" => :el_capitan
-    sha256 "535664f3192932537dc9656380e44fa8c1e835ba361e6f92418cd379e6970d0d" => :yosemite
-    sha256 "33d938cf80c04f224f72bca2592a20b28707246c5c5450baaf1974e4114e8bfc" => :mavericks
+    sha256 "e5a1241330f79eb7563193c1f07ecddef1768e03e9b267a551f2d55e2e18dc1f" => :high_sierra
+    sha256 "2414a7a28c854c54a905e0f00d67e7a23bff75aba25484acab508359fb1a88a2" => :sierra
+    sha256 "51a34cb2a818ee303a9c785d2b4a25abdc5355fd7c2c4812eee4f831e55a46d2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
