@@ -1,8 +1,9 @@
-class Python3 < Formula
+class PythonAT3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz"
   sha256 "159b932bf56aeaa76fd66e7420522d8c8853d486b8567c459b84fe2ed13bcaba"
+  revision 1
   head "https://github.com/python/cpython", :using => :git
 
   bottle do

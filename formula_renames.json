@@ -142,6 +142,8 @@
   "protobuf250": "protobuf@2.5",
   "protobuf260": "protobuf@2.6",
   "pyqt5": "pyqt",
+  "python": "python@2",
+  "python3": "python@3",
   "qt5": "qt",
   "qt55": "qt@5.5",
   "racket": "minimal-racket",
