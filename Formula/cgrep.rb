@@ -5,8 +5,8 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.19.tar.gz"
-  sha256 "932237b12f1802c884d3eb11044e0f38f09e21f7bcebe56e05e7902b40e4ec55"
+  url "https://github.com/awgn/cgrep/archive/v6.6.22.tar.gz"
+  sha256 "aa5e016653eabee0fc47bf6a1cd46ec961b7c305a4f49b0feec66881cc8f2183"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
@@ -25,18 +25,14 @@ class Cgrep < Formula
   end
 
   test do
-    input = <<~EOS
+    (testpath/"t.rb").write <<~EOS
       # puts test comment.
       puts "test literal."
     EOS
 
-    cmd = "#{bin}/cgrep --language-force=ruby --count --comment test"
-    assert_match ":1", pipe_output(cmd, input, 0)
-    cmd = "#{bin}/cgrep --language-force=ruby --count --literal test"
-    assert_match ":1", pipe_output(cmd, input, 0)
-    cmd = "#{bin}/cgrep --language-force=ruby --count --code puts"
-    assert_match ":1", pipe_output(cmd, input, 0)
-    cmd = "#{bin}/cgrep --language-force=ruby --count puts"
-    assert_match ":2", pipe_output(cmd, input, 0)
+    assert_match ":1", shell_output("#{bin}/cgrep --count --comment test t.rb")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --literal test t.rb")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --code puts t.rb")
+    assert_match ":2", shell_output("#{bin}/cgrep --count puts t.rb")
   end
 end
