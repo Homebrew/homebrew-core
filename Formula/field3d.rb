@@ -23,6 +23,7 @@ class Field3d < Formula
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",
            "-L#{Formula["hdf5"].opt_lib}", "-lhdf5",
+           "-I#{Formula["ilmbase"].opt_include}",
            pkgshare/"sample_code/create_and_write/main.cpp",
            "-o", "test"
     system "./test"
