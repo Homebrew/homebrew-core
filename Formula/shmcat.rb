@@ -6,10 +6,9 @@ class Shmcat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34ecdb9d84a95821f6e4653776d5e1b24b34658e2fc4cbef01b4017328f32b39" => :high_sierra
-    sha256 "01cab982f77ba84084219d9106a7dc2e15ea8f1386b6b1dccadfb3f731c3a5be" => :sierra
-    sha256 "418a5aca4e039528a55706db8063808a0fa1dafb3d913376177735bbce1dc836" => :el_capitan
-    sha256 "1ce5eef9d77925041ea91bc2c8d49572525369df7a037928c3eb83698a58a8a4" => :yosemite
+    sha256 "ff73e6df8b663b4f382098ce75a9ec4634d4658c5378b3ad122de135e30d44ab" => :high_sierra
+    sha256 "5ee7bcafe69d653421e29b56cf2e48a55874dc1e092e817a83cb446cda4acf01" => :sierra
+    sha256 "1b6ddaf528253df2e2d5b93e97b6f4ade717ff8f3f6bcf829ed7cf9d9e682539" => :el_capitan
   end
 
   option "with-ftok", "Build the ftok utility"
