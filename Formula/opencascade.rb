@@ -5,6 +5,13 @@ class Opencascade < Formula
   version "7.2.0"
   sha256 "adb6fc44efebdb09e30a487fa412afae9599992dc771b0039b4ebf306891a558"
 
+  bottle do
+    cellar :any
+    sha256 "011b4ee523e0f861412343fbdbcd95c31ab14fb57d990e07417e4baed86442c7" => :high_sierra
+    sha256 "10901b2b2dac00baa8d0bc0e91e98c850ee252576109414c93405601aaa29fb3" => :sierra
+    sha256 "12da230c3cfcce0f3eae07fa566f7e3e837ab14142ce26c02a015b907b02e6e6" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "freeimage"
