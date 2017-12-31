@@ -1,8 +1,8 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.1.tar.bz2"
-  sha256 "1c853bc960dff0a0e51e3e28bc4a4a8165b58b41bb64ea3abb90f254d9947a8c"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.90.tar.xz"
+  sha256 "93548b529d0301629106001d73611c6098a676733f742f61ef626f1fb3f23a80"
 
   bottle do
     sha256 "d4ef2c5e84cf0ced7a963c228431468b4b834969a131253ca562fad320f1776e" => :high_sierra
@@ -40,6 +40,8 @@ class Exim < Formula
     end
 
     bdb4 = Formula["berkeley-db@4"]
+
+    mv Dir["OS/unsupported/*Darwin*"], "OS"
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
