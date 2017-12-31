@@ -3,14 +3,12 @@ class Kallisto < Formula
   homepage "https://pachterlab.github.io/kallisto/"
   url "https://github.com/pachterlab/kallisto/archive/v0.43.1.tar.gz"
   sha256 "2164938c2c61c04e338c4c132cf749f56d39e6f0b4c517121bca1fbc218e430e"
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "hdf5"
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
