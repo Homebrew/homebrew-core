@@ -17,7 +17,7 @@ class Gmsh < Formula
   depends_on "cmake" => :build
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90]
-  depends_on "homebrew/science/opencascade" => :optional
+  depends_on "opencascade" => :optional
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
 
