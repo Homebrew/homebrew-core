@@ -1,8 +1,8 @@
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
-  url "https://deviousfish.com/Downloads/pianod/pianod-175.tar.gz"
-  sha256 "19733d4937b48707eebcde75775d865d6bf925efa86d8989f0efb2392ab4cdf9"
+  url "https://deviousfish.com/Downloads/pianod/pianod-176.tar.gz"
+  sha256 "4f3be12daef1adb3bcbbcf8ec529abf0ac018e03140be9c5b0f1203d6e1b9bf0"
 
   bottle do
     sha256 "cf69d36f2969b9ef4a4c258670a0e47743ff1d7803f8df7c9acfaf077f3fd463" => :high_sierra
