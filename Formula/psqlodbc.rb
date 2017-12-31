@@ -1,9 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-10.00.0000.tar.gz"
-  sha256 "74a3670d3f608f0fa61265b748f19dd4a975cda18ddfb502217cfff9cae7d562"
-  revision 1
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-10.01.0000.tar.gz"
+  sha256 "87ca436f268b92fd525113e78133f65b444c6feec474837c7ec39d128eaecab3"
 
   bottle do
     cellar :any
