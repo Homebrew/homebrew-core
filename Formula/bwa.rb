@@ -6,6 +6,8 @@ class Bwa < Formula
 
   def install
     system "make"
+
+    # "make install" requested 26 Dec 2017 https://github.com/lh3/bwa/issues/172
     bin.install "bwa"
     man1.install "bwa.1"
   end
