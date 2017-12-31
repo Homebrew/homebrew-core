@@ -6,10 +6,9 @@ class Pigz < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff33231b4dd499d05a5877892a6aaee2c1d17e93305d636e5fc53f62b26d8e57" => :high_sierra
-    sha256 "2ad2349af7453fc09c0cd5980d78c10ca20749cf35f9ffc8ea48a2a0d3db90f0" => :sierra
-    sha256 "c494bc1ad2f378cf4f2d1f3d9fba9b78a0258d179cda10d6cc12c5e5e3a51acf" => :el_capitan
-    sha256 "dfc83c38b9be8396eeb854fe8b045b9657e693665aad508164b65569fc78f491" => :yosemite
+    sha256 "216e716eafd2786ed6fa672daf27bb77b420e05f92a14cfeccab28a6be6b7778" => :high_sierra
+    sha256 "9173b4bdf36c787ad7a3b7d738236e0393430b607ba44d5a32fa387b008a347a" => :sierra
+    sha256 "d0c4ec5ac96ab0262d5e67bd5df5432d7dc40ac1404341962c02835ca8451b5c" => :el_capitan
   end
 
   def install
