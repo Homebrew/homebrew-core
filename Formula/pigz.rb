@@ -1,9 +1,8 @@
 class Pigz < Formula
   desc "Parallel gzip"
   homepage "https://zlib.net/pigz/"
-  url "https://zlib.net/pigz/pigz-2.3.4.tar.gz"
-  sha256 "6f031fa40bc15b1d80d502ff91f83ba14f4b079e886bfb83221374f7bf5c8f9a"
-  revision 1
+  url "https://zlib.net/pigz/pigz-2.4.tar.gz"
+  sha256 "a4f816222a7b4269bd232680590b579ccc72591f1bb5adafcd7208ca77e14f73"
 
   bottle do
     cellar :any_skip_relocation
