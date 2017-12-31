@@ -1,8 +1,8 @@
 class Writerperfect < Formula
   desc "Library for importing WordPerfect documents"
   homepage "https://sourceforge.net/p/libwpd/wiki/writerperfect/"
-  url "https://downloads.sourceforge.net/project/libwpd/writerperfect/writerperfect-0.9.5/writerperfect-0.9.5.tar.xz"
-  sha256 "aa01122659482627f9adcff91bb242c37092c7f8537bfa5dc44e1a3c89aad9e2"
+  url "https://downloads.sourceforge.net/project/libwpd/writerperfect/writerperfect-0.9.6/writerperfect-0.9.6.tar.xz"
+  sha256 "1fe162145013a9786b201cb69724b2d55ff2bf2354c3cd188fd4466e7fc324e6"
 
   bottle do
     cellar :any
