@@ -5,6 +5,13 @@ class Field3d < Formula
   sha256 "8f7c33ecb4489ed626455cf3998d911a079b4f137f86814d9c37c5765bf4b020"
   revision 4
 
+  bottle do
+    cellar :any
+    sha256 "209e55c60ba1442d435a6a9ee280f0379a50a91aca8241ea323c41fe036650ea" => :high_sierra
+    sha256 "23957dd5f7ead446eb4311dab76dcae2ac779a0f27310b4dba9a2e403d3010bd" => :sierra
+    sha256 "d1ef13176e5dfb0750b470217a39a6229f45e4def1c852487dedaf0a41d8edc2" => :el_capitan
+  end
+
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "hdf5"
