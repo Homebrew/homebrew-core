@@ -12,7 +12,7 @@ class Bear < Formula
     sha256 "69f3a874a296faace27f83995c9f73e53afe837626ab1afdf6efc4e60940b639" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "cmake" => :build
 
   def install
