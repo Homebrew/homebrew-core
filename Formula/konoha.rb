@@ -27,7 +27,7 @@ class Konoha < Formula
   depends_on "json-c"
   depends_on "sqlite"
   depends_on "mecab" if MacOS.version >= :mountain_lion
-  depends_on :python if MacOS.version <= :snow_leopard # for python glue code
+  depends_on "python" if MacOS.version <= :snow_leopard # for python glue code
 
   def install
     mkdir "build" do
