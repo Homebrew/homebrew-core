@@ -13,7 +13,7 @@ class Joplin < Formula
   end
 
   depends_on "node"
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
