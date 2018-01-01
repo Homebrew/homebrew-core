@@ -18,7 +18,7 @@ class Hashpump < Formula
   option "without-python", "Build without python 2 support"
 
   depends_on "openssl"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
 
   # Remove on next release
