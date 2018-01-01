@@ -29,7 +29,7 @@ class Fontforge < Formula
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   # Remove for > 20170731
   # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
