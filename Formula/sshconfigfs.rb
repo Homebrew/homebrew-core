@@ -13,7 +13,7 @@ class Sshconfigfs < Formula
     sha256 "f84991229a6701f9483c79232c5e25f3e4577d2e6748c06b5f49808c0ee8354b" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on :osxfuse
 
   resource "fusepy" do
