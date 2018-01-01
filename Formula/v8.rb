@@ -21,7 +21,9 @@ class V8 < Formula
   # https://github.com/Homebrew/homebrew/issues/21426
   depends_on :macos => :lion
 
-  depends_on :python => :build # gyp doesn't run under 2.6 or lower
+  # gyp doesn't run under 2.6 or lower
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
+
   depends_on "readline" => :optional
 
   needs :cxx11
