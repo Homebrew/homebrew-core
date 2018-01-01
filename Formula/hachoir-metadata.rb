@@ -14,7 +14,7 @@ class HachoirMetadata < Formula
     sha256 "73c9aaf96521afa7bac1942ea16a5af6c0baaba1537c399c22e493ea24ae7186" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "hachoir-core" do
     url "https://cheeseshop.python.org/packages/source/h/hachoir-core/hachoir-core-1.3.3.tar.gz"
