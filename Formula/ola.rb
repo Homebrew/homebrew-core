@@ -27,7 +27,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "liblo" => :recommended
   depends_on "libusb" => :recommended
   depends_on "doxygen" => :optional
