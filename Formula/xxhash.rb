@@ -6,9 +6,9 @@ class Xxhash < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e293e34c6ab4c7cbc9c3a2d0d05eeff9fbc3814ba6b53dfcfb2dbc79fa0266cd" => :high_sierra
-    sha256 "efdd05995c21ec6eba0407fe3bea8fbff171834c3b460d60e41849d4e335e510" => :sierra
-    sha256 "1bac778b6424ce4118b2b280e0231728a8f275125833e741a36587a3fc8a1634" => :el_capitan
+    sha256 "03220d2a22183b1c52901cf7dd561cbcf5363fae04a8b15786aa2e532a7c20ae" => :high_sierra
+    sha256 "9e9722eb7898417811b3930c013ef585a6d1e53f2f693cee4800757bf4f56db7" => :sierra
+    sha256 "8d7d413a0165a18c9df428d40fe7ca88c7f841e318f594c29d3daf878fc9c484" => :el_capitan
   end
 
   def install
