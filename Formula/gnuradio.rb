@@ -15,7 +15,7 @@ class Gnuradio < Formula
   option "without-python", "Build without python support"
 
   depends_on "pkg-config" => :build
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
