@@ -11,8 +11,8 @@ class Llnode < Formula
     sha256 "83c34005044ba77217d0c9415268a9fa72392213191fe474d8cca0b8f68957a8" => :el_capitan
   end
 
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
   depends_on :macos => :yosemite
-  depends_on :python => :build
 
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
