@@ -5,6 +5,7 @@ class Mycli < Formula
   homepage "https://mycli.net/"
   url "https://files.pythonhosted.org/packages/9f/0a/f421651d01b54f4d53c449558b2802cc0eaf1652d4d6fe0cd8c41ecade21/mycli-1.13.1.tar.gz"
   sha256 "d3f66b4decf199612ff1efa5268d9707e2fc38b163478adb43935a0937f7d664"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Mycli < Formula
     sha256 "2de9df97cbac637e7ed293fbbb68c92689274122a402f014613b5d41dfed6237" => :el_capitan
   end
 
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "asn1crypto" do
