@@ -12,7 +12,7 @@ class Gitup < Formula
     sha256 "c1659d82d045517de16860042a53360b5ce061c8d13e57b8ea15db624ad7289f" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/source/c/colorama/colorama-0.3.9.tar.gz"
