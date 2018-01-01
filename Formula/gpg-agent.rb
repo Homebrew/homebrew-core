@@ -1,10 +1,9 @@
 class GpgAgent < Formula
   desc "GPG key agent"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 3
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  sha256 "095558cfbba52fba582963e97b0c016889570b4712d6b871abeef2cf93e62293"
 
   bottle do
     sha256 "c555d26b1e5e2e22f3aa005c5418673e1df7db02e815c650847aaf5e18b11cf0" => :high_sierra
