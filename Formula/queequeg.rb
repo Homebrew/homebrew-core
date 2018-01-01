@@ -14,7 +14,7 @@ class Queequeg < Formula
     sha256 "adc25d3e542a2d71924a1c2470fb86bed1eceb1938d259b4013fb8d36206e374" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "wordnet"
 
   def install
