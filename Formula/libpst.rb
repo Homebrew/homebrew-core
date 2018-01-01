@@ -16,7 +16,7 @@ class Libpst < Formula
 
   deprecated_option "pst2dii" => "with-pst2dii"
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "pkg-config" => :build
   depends_on "gd" if build.with? "pst2dii"
   depends_on "boost"
