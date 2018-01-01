@@ -12,7 +12,7 @@ class AppscaleTools < Formula
     sha256 "956eb986a67094be2c35756c948bc291729c746903ff62b419b9f2649bdc7ecb" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "ssh-copy-id"
   depends_on "openssl"
