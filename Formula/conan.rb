@@ -15,7 +15,7 @@ class Conan < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libffi"
   depends_on "openssl"
 
