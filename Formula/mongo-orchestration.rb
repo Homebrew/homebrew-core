@@ -15,7 +15,7 @@ class MongoOrchestration < Formula
     sha256 "69e5b710ef81077007e50ca8e8817343f133229d76f12162ccf63220bfa0afb1" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"
