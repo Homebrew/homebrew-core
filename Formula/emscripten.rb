@@ -38,7 +38,7 @@ class Emscripten < Formula
 
   needs :cxx11
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "cmake" => :build
   depends_on "node"
   depends_on "closure-compiler" => :optional
