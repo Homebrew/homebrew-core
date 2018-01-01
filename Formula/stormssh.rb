@@ -14,7 +14,7 @@ class Stormssh < Formula
     sha256 "902cb6751c1af1c04a23419f3bff6ad2f34a36690c44059526142f886a93b6dd" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   conflicts_with "storm", :because => "both install 'storm' binary"
 
