@@ -3,7 +3,7 @@ class IpythonAT5 < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
   sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
-  revision 1
+  revision 2
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
@@ -16,7 +16,7 @@ class IpythonAT5 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :python
+  depends_on "python"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
