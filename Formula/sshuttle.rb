@@ -16,7 +16,7 @@ class Sshuttle < Formula
     sha256 "a9fde5286721fe460cebc1bbb03262298e443b7df923fc38a8e1bd40e7d2bed9" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     # Building the docs requires installing
