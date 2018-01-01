@@ -13,7 +13,7 @@ class YleDl < Formula
   end
 
   depends_on "rtmpdump"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "homebrew/php/php70-mcrypt" => :optional
   depends_on "homebrew/php/php56-mcrypt" => :optional
   depends_on "homebrew/php/php55-mcrypt" => :optional
