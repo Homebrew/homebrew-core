@@ -20,7 +20,7 @@ class JenkinsJobBuilder < Formula
     sha256 "8e68d42a86dd6815f8aba2f6cc6c00aae1bc393b7f87bbccbe89babefcace21c" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   devel do
     url "https://files.pythonhosted.org/packages/93/d3/c33e4dfae405c2c9bbe10a9dd1ffc2786f58902cd2834acef144aa9e506e/jenkins-job-builder-2.0.0.0b2.tar.gz"
