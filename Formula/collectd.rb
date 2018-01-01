@@ -29,7 +29,7 @@ class Collectd < Formula
   depends_on "libtool" => :run
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "net-snmp"
 
   fails_with :clang do
