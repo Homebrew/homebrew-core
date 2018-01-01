@@ -46,7 +46,7 @@ class BoostAT155 < Formula
   option "with-mpi", "Build with MPI support"
   option :cxx11
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on :python3 => :optional
 
   if build.with?("python3") && build.with?("python")
