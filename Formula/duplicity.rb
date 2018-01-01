@@ -14,7 +14,7 @@ class Duplicity < Formula
     sha256 "8ea435f3c2e46d16c822c6e6270d4c39248facbdd566e3054cef9398e95354b2" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "librsync"
   depends_on "openssl@1.1"
   depends_on "par2" => :optional
