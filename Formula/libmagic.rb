@@ -12,7 +12,7 @@ class Libmagic < Formula
     sha256 "d11466ebdc722d370346cecf135a925e1f482f0d0bbbb424f821347134f52e64" => :yosemite
   end
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
