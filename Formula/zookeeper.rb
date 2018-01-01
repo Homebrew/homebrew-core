@@ -27,7 +27,7 @@ class Zookeeper < Formula
 
   deprecated_option "perl" => "with-perl"
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   def shim_script(target)
     <<~EOS
