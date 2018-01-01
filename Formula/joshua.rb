@@ -23,7 +23,7 @@ class Joshua < Formula
   depends_on "ant" => :build
   depends_on "boost" => :build
   depends_on "md5sha1sum" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
 
   resource "es-en-phrase-pack" do
     url "https://cs.jhu.edu/~post/language-packs/language-pack-es-en-phrase-2015-03-06.tgz"
