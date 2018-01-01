@@ -14,7 +14,7 @@ class Mdv < Formula
     sha256 "d2ac3612660964bc8a33780f50c076ce884094735b3f1cc3686ac606c154af13" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
