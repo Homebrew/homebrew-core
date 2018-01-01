@@ -13,7 +13,7 @@ class Dnstwist < Formula
     sha256 "22426190a5dad132035572a609f3f612716837b050f7ec68707bd5aee87b7418" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "ssdeep"
   depends_on "geoip"
 
