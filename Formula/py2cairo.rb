@@ -13,7 +13,7 @@ class Py2cairo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     system "python", *Language::Python.setup_install_args(prefix)
