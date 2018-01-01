@@ -1,8 +1,8 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.07.tar.gz"
-  sha256 "4dee8e076cd2b09dba971cd603cfaaa18be8e00ce9bb75958bc0d8234cd6dfa0"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.09.tar.gz"
+  sha256 "acfc33d3132b68c4c7919f9999402b6aa42d49d01b3e7dd23c4baab03529ebf6"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
@@ -28,8 +28,8 @@ class GetIplayer < Formula
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.57.tar.gz"
-    sha256 "95835ac5963d5eab49f936c7983c5836d34d6cdc87ce3553d77bc5304c2b520a"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.59.tar.gz"
+    sha256 "30a3637ac8502afeb8def3738d779de9cd0d346f0a52b8a00a2948a756769087"
   end
 
   def install
