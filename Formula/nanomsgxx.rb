@@ -13,7 +13,7 @@ class Nanomsgxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
 
   depends_on "nanomsg"
 
