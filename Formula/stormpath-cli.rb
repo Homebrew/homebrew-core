@@ -14,7 +14,7 @@ class StormpathCli < Formula
     sha256 "cc6ef08ff24c82dd2cef7b71cb9a6f8bcbcf13e2381e5ef233c8222038db42d6" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "cssselect" do
     url "https://files.pythonhosted.org/packages/77/ff/9c865275cd19290feba56344eba570e719efb7ca5b34d67ed12b22ebbb0d/cssselect-1.0.1.tar.gz"
