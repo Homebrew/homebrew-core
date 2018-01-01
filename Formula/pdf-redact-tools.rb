@@ -13,7 +13,7 @@ class PdfRedactTools < Formula
     sha256 "b462fadc539b2c646c9ff8a59b98df344d0a6cb2fb010c2d4a82785d2f0007e6" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "imagemagick"
   depends_on "exiftool"
   depends_on "ghostscript"
