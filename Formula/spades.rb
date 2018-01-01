@@ -14,7 +14,7 @@ class Spades < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   needs :openmp
 
