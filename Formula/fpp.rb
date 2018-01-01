@@ -7,7 +7,7 @@ class Fpp < Formula
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     # we need to copy the bash file and source python files
