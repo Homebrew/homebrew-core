@@ -19,7 +19,7 @@ class Ford < Formula
   option "without-lxml", "Do not install lxml to improve the speed of search  database generation"
 
   depends_on "graphviz"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
