@@ -16,7 +16,7 @@ class Scipy < Formula
   depends_on "swig" => :build
   depends_on :fortran
   depends_on "numpy"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :recommended
 
   cxxstdlib_check :skip
