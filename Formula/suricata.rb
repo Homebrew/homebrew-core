@@ -10,7 +10,7 @@ class Suricata < Formula
     sha256 "f8bf4b286e829739b2c26147ceca9a1b21422a1125008a9b6274adb23f615698" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "libmagic"
   depends_on "libnet"
