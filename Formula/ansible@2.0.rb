@@ -24,7 +24,7 @@ class AnsibleAT20 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "openssl"
 
