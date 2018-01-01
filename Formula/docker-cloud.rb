@@ -11,7 +11,7 @@ class DockerCloud < Formula
     sha256 "90b1feb11ccb54a1481a2c23df1c70762b346d0907b7f873296b70fb6774b763" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
 
   resource "ago" do
