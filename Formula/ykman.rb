@@ -17,7 +17,7 @@ class Ykman < Formula
     url "https://github.com/Yubico/yubikey-manager.git"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
   depends_on "ykpers"
   depends_on "libu2f-host"
