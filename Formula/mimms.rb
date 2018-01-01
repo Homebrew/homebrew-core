@@ -15,7 +15,7 @@ class Mimms < Formula
     sha256 "88b2e83cfdf9abca4ff712bddacb76611ce29aa2c58218c05e8abf3ed7d0be2b" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libmms"
 
   # Switch shared library loading to Mach-O naming convention (.dylib)
