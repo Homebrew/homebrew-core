@@ -15,7 +15,7 @@ class Saltstack < Formula
   end
 
   depends_on "swig" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "zeromq"
   depends_on "libgit2"
   depends_on "libyaml"
