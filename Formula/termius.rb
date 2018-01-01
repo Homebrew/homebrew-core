@@ -14,7 +14,7 @@ class Termius < Formula
     sha256 "569f5ac20308bd09224009e12d4dc6b8b0140c95b5cf46b141a1512a4e280c55" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl"
   depends_on "bash-completion" => :recommended
   depends_on "zsh-completions" => :recommended
