@@ -13,7 +13,7 @@ class Pwntools < Formula
     sha256 "00fac40376d2d563ee475215717bb288380435e41344d513bc6b45489e9123c2" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl@1.1"
   depends_on "binutils" => :recommended
 
