@@ -16,7 +16,7 @@ class Ddar < Formula
   end
 
   depends_on "xmltoman" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "protobuf"
 
   def install
