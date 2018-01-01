@@ -7,7 +7,7 @@ class HgFlow < Formula
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on :hg
 
   def install
