@@ -13,7 +13,7 @@ class Streamlink < Formula
 
   # Use :python on Yosemite and prior to avoid needing urllib3[secure]
   # See https://github.com/streamlink/streamlink/commit/0f35b9b2
-  depends_on :python if MacOS.version <= :yosemite
+  depends_on "python" if MacOS.version <= :yosemite
 
   resource "backports.shutil_get_terminal_size" do
     url "https://files.pythonhosted.org/packages/ec/9c/368086faa9c016efce5da3e0e13ba392c9db79e3ab740b763fe28620b18b/backports.shutil_get_terminal_size-1.0.0.tar.gz"
