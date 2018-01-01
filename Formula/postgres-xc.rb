@@ -23,7 +23,7 @@ class PostgresXc < Formula
   depends_on "openssl"
   depends_on "readline"
   depends_on "ossp-uuid" => :recommended
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   conflicts_with "postgresql",
     :because => "postgres-xc and postgresql install the same binaries."
