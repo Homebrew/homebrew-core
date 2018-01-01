@@ -31,7 +31,7 @@ class Thrift < Formula
   depends_on "boost"
   depends_on "openssl"
   depends_on "libevent" => :optional
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   def install
     system "./bootstrap.sh" unless build.stable?
