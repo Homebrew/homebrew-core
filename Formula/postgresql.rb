@@ -24,7 +24,7 @@ class Postgresql < Formula
   depends_on "openssl"
   depends_on "readline"
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on :python3 => :optional
 
   conflicts_with "postgres-xc",
