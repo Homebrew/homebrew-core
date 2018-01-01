@@ -13,7 +13,7 @@ class Pssh < Formula
     sha256 "62595390d018a9a953928cf6adf8e9299b92f00c3846d74757a18437abbc5f27" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   conflicts_with "putty", :because => "both install `pscp` binaries"
 
