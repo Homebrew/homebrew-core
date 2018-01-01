@@ -13,7 +13,7 @@ class Bzt < Formula
     sha256 "bcb9efe7a50156ccfe5d92f7d0d2fa9d3fefc22863b18d63f38dfeb2c8f80107" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "apiritif" do
     url "https://files.pythonhosted.org/packages/df/97/a298d2c08970171c7683b34b30e0af4a0f710ad7a1a4bb9dec7caa41b3b0/apiritif-0.4.tar.gz"
