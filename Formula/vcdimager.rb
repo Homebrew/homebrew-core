@@ -25,6 +25,16 @@ class Vcdimager < Formula
   end
 
   def install
+    # libcdio 1.1/2.0 compat
+    # Reported 1 Jan 2018 https://savannah.gnu.org/support/?109436
+    inreplace %w[frontends/cli/vcd-info.c frontends/xml/vcd_xml_build.c
+                 frontends/xml/vcd_xml_rip.c frontends/xml/vcdxml.h
+                 lib/data_structures.c lib/dict.h lib/files.c lib/info.c
+                 lib/info_private.c lib/mpeg_stream.c lib/pbc.c lib/vcd.c] do |s|
+      s.gsub! /(_cdio_list_(node_)?free.*, +(true|false))\);/, "\\1, free\);", false
+      s.gsub! /(iso9660_fs_readdir.*)(, true)/, "\\1", false
+    end
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
