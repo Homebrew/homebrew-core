@@ -3,6 +3,7 @@ class Pygobject < Formula
   homepage "https://live.gnome.org/PyGObject"
   url "https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz"
   sha256 "bb9d25a3442ca7511385a7c01b057492095c263784ef31231ffe589d83a96a5a"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Pygobject < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :python
+  depends_on "python"
 
   def install
     system "./configure", "--disable-dependency-tracking",
