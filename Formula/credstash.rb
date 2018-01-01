@@ -14,7 +14,7 @@ class Credstash < Formula
     sha256 "05ef27ad2eee1543b2b97da6d7b0bc52793a57a66e2a6182a06323863e66eecf" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "asn1crypto" do
