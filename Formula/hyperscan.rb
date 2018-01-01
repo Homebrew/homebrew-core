@@ -14,7 +14,7 @@ class Hyperscan < Formula
 
   option "with-debug", "Build with debug symbols"
 
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
   depends_on "boost" => :build
   depends_on "ragel" => :build
   depends_on "cmake" => :build
