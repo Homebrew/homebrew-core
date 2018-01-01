@@ -21,7 +21,7 @@ class Bup < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "pandoc" => [:optional, :build]
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "backports_abc" do
     url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
