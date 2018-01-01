@@ -17,7 +17,7 @@ class Curlish < Formula
   end
 
   # curlish needs argparse (2.7+)
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     bin.install "curlish.py" => "curlish"
