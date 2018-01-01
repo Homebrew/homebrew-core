@@ -1,9 +1,9 @@
 class GnupgAT20 < Formula
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  sha256 "095558cfbba52fba582963e97b0c016889570b4712d6b871abeef2cf93e62293"
 
   bottle do
     sha256 "32c8568804d669b19884c3d29efeb9abbcaa877571e587d33e14c8a8a2ebcbba" => :high_sierra
