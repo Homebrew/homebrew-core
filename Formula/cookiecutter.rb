@@ -14,7 +14,7 @@ class Cookiecutter < Formula
     sha256 "2add95022eec8b10c91f28bfa209ba1bd866e474a8d65350a965d081211b4584" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/54/db/76459c4dd3561bbe682619a5c576ff30c42e37c2e01900ed30a501957150/arrow-0.10.0.tar.gz"
