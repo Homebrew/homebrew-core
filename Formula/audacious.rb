@@ -50,7 +50,7 @@ class Audacious < Formula
   depends_on "neon"
   depends_on "sdl2"
   depends_on "wavpack"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "qt" => :recommended
   depends_on "gtk+" => :optional
   depends_on "jack" => :optional
