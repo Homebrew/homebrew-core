@@ -14,7 +14,7 @@ class CassandraAT21 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
