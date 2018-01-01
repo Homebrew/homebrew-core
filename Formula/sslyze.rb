@@ -30,7 +30,7 @@ class Sslyze < Formula
   end
 
   depends_on :arch => :x86_64
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl@1.1"
 
   resource "asn1crypto" do
