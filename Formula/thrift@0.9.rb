@@ -26,7 +26,7 @@ class ThriftAT09 < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "openssl"
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   def install
     args = ["--without-ruby", "--without-tests", "--without-php_extension"]
