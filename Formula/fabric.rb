@@ -15,7 +15,7 @@ class Fabric < Formula
     sha256 "99acff28ede8c20b6d9d927341740e8f37f4e976ca3895cc4a2356f378e20cfb" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "asn1crypto" do
