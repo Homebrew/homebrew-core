@@ -13,7 +13,7 @@ class CharmTools < Formula
     sha256 "0bda57a06ddb8724164f4f05ae0c67f5c4a11c9e08f42b72282b9fadba1323fc" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on :hg
   depends_on "charm"
