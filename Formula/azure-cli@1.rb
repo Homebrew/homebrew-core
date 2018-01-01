@@ -15,8 +15,8 @@ class AzureCliAT1 < Formula
     sha256 "2bfb37219f6c7643159527c59335e3962eb80bcfa8c033f5e37a598002c318f8" => :el_capitan
   end
 
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
   depends_on "node"
-  depends_on :python => :build
 
   def install
     rm_rf "bin/windows"
