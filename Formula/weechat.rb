@@ -24,7 +24,7 @@ class Weechat < Formula
   depends_on "gettext"
   depends_on "aspell" => :optional
   depends_on "lua" => :optional
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on :ruby => ["2.1", :optional]
   depends_on :perl => ["5.3", :optional]
   depends_on "curl" => :optional
