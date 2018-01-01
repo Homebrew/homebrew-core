@@ -14,7 +14,7 @@ class SpoofMac < Formula
     sha256 "f7dc1529dd2c83d8bf8667d170299aa592910bb4918174b23f6a9b7d3555084e" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "docopt" do
     url "https://pypi.python.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
