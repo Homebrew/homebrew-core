@@ -15,7 +15,7 @@ class Libxml2AT27 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
