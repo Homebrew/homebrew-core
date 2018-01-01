@@ -15,7 +15,7 @@ class Euca2ools < Formula
     sha256 "38ea8a3ffad6554b519c4307f32174a58dc46e2cb9d66acdadea50265038ee5f" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "requestbuilder" do
     url "https://files.pythonhosted.org/packages/ac/b5/8b1c6c102760785ce22a08f32fb6fc8c745445ed8f1f9195d2517c79511c/requestbuilder-0.7.1.tar.gz"
