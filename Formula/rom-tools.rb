@@ -13,7 +13,7 @@ class RomTools < Formula
     sha256 "80c04fae59831f7ba476a008b989e2551d95d76b8096f867f0544d4b04d9bc97" => :el_capitan
   end
 
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python" => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "sdl2"
   depends_on "flac"
