@@ -20,7 +20,7 @@ class LibtorrentRasterbar < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "boost"
   depends_on "boost-python" if build.with? "python"
 
