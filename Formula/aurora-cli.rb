@@ -18,7 +18,7 @@ class AuroraCli < Formula
     end
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     system "./build-support/thrift/prepare_binary.sh"
