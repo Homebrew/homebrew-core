@@ -15,7 +15,7 @@ class Weboob < Formula
     sha256 "afc8e775f010928d8a8fdcecbce93db32a28200a8f14c2ef9c76fc6521e94eb6" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libyaml"
