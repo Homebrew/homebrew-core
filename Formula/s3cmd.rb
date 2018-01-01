@@ -12,7 +12,7 @@ class S3cmd < Formula
     sha256 "fc4aa3b27ee199034923de841b1e432702036f95b2168502ff148b610880d702" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
