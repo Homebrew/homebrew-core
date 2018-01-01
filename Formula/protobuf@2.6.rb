@@ -18,7 +18,7 @@ class ProtobufAT26 < Formula
   option "without-python", "Build without python support"
   option :cxx11
 
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
 
   deprecated_option "with-check" => "with-test"
 
