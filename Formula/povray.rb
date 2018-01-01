@@ -1,8 +1,8 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.4.tar.gz"
-  sha256 "408bb2f16eaad316be7ff6b4c867be04d8d57eb6e2642e168e992a51b82bb487"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.5.tar.gz"
+  sha256 "ade4d12ea8b7fe9188e78cf43b0b70608853ed4b511e285971675ef6a4fd9b0e"
 
   bottle do
     sha256 "7f06479f738e72a41b0c0c802cd236f64d3e45dd0541fcc2420b74c6e8908119" => :high_sierra
@@ -21,16 +21,16 @@ class Povray < Formula
 
   deprecated_option "use-openexr" => "with-openexr"
 
-  # Fix "error: use of undeclared identifier 'atof'"
-  # Reported 14 Sep 2017 https://github.com/POV-Ray/povray/issues/317
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e5017df/povray/cstdlib.diff"
-    sha256 "bfd65f6634987f06d64a62fae71c1e72226a6242b7d7c8f7ef618d63e29b8553"
-  end
-
   needs :cxx11
 
   def install
+    # Boost 1.66 compat
+    # Fix undefined symbol error for boost::system::generic_category
+    # Reported 1 Jan 2018 https://github.com/POV-Ray/povray/issues/341
+    inreplace "unix/configure.ac",
+              "[[boost::defer_lock_t(); return 0;]])],",
+              "[[boost::mutex m; boost::defer_lock_t(); return 0;]])],"
+
     ENV.cxx11
 
     args = %W[
