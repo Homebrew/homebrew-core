@@ -13,7 +13,7 @@ class Watchman < Formula
   end
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
