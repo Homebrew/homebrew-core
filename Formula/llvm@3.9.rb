@@ -141,7 +141,7 @@ class LlvmAT39 < Formula
   end
 
   if MacOS.version <= :snow_leopard
-    depends_on :python
+    depends_on "python"
   else
     depends_on "python" => :optional
   end
