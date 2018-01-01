@@ -23,7 +23,7 @@ class Latexila < Formula
   depends_on "adwaita-icon-theme"
   depends_on "gnome-themes-standard" => :optional
   depends_on "libxml2"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
