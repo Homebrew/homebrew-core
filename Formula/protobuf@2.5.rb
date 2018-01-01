@@ -18,7 +18,7 @@ class ProtobufAT25 < Formula
   option "with-test", "Run build-time check"
   option :cxx11
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   deprecated_option "with-check" => "with-test"
 
