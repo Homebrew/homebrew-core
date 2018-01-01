@@ -24,7 +24,7 @@ class Evince < Formula
   depends_on "gobject-introspection"
   depends_on "shared-mime-info"
   depends_on "djvulibre"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     # Fix build failure "ar: illegal option -- D"
