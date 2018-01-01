@@ -17,7 +17,7 @@ class Volatility < Formula
     sha256 "e14faea2003aada9ede7d52c09497ea8eb90b5153853ecfe86c3416a043dc70a" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "yara"
   depends_on "jpeg"
   depends_on "freetype"
