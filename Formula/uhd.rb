@@ -15,7 +15,7 @@ class Uhd < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "doxygen" => [:build, :optional]
   depends_on "gpsd" => :optional
 
