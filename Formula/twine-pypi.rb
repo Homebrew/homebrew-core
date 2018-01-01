@@ -15,7 +15,7 @@ class TwinePypi < Formula
     sha256 "c88b0ffc33039b8cf6027e2dbb803b9943d0f8b62519f1b79c2484afb5436a24" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/dd/0e/1e3b58c861d40a9ca2d7ea4ccf47271d4456ae4294c5998ad817bd1b4396/certifi-2017.4.17.tar.gz"
