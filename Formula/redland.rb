@@ -23,7 +23,7 @@ class Redland < Formula
   depends_on "unixodbc"
   depends_on "sqlite" => :recommended
   depends_on "berkeley-db" => :optional
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   resource "bindings" do
     url "http://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz"
