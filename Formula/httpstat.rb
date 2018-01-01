@@ -6,7 +6,7 @@ class Httpstat < Formula
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     bin.install "httpstat.py" => "httpstat"
