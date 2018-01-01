@@ -5,6 +5,13 @@ class Auditbeat < Formula
   sha256 "c69f0047644be919e42a1d8fa3383c894ca8e054d5b6f727f161ed4ce497ca84"
   head "https://github.com/elastic/beats.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3120f36d9490501621b5c50d4ea494a4bb901d91839b4959bd2354a201c3e65a" => :high_sierra
+    sha256 "b01f28aecf59af361f19ef77d61cb4db49f266c104458e1cb89aff8f5f94d41e" => :sierra
+    sha256 "2576c543b8594c6ec9e63cd70abc081d9750ff57e7b41d16f17ead684c0c9c72" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   resource "virtualenv" do
