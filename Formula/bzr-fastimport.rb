@@ -15,7 +15,7 @@ class BzrFastimport < Formula
     sha256 "fab457013d0f24e2d88b2dd76ad72d6b0101b9356e231bb0255b71866d318259" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "bazaar"
 
   resource "python-fastimport" do
