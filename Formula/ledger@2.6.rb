@@ -24,7 +24,7 @@ class LedgerAT26 < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "libofx" => :optional
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   deprecated_option "debug" => "with-debug"
 
