@@ -21,7 +21,7 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
 
   depends_on :ruby => ["2.1", :optional]
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "sphinx-doc" => :build if build.with?("python")
 
   skip_clean :la
