@@ -36,7 +36,7 @@ class RootAT5 < Formula
   depends_on "openssl"
   depends_on "xrootd"
   depends_on :x11 => :optional
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   skip_clean "bin"
 
