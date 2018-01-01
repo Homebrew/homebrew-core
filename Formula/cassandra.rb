@@ -11,7 +11,7 @@ class Cassandra < Formula
     sha256 "3a0f52f778ccaceb6600d794b03d1bf3915df7f65314c4f5607b8a2632eea7c4" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "cython"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
