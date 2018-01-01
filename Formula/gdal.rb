@@ -85,7 +85,7 @@ class Gdal < Formula
     depends_on "swig" => :build
   end
 
-  depends_on :python => :optional if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
   depends_on :fortran => :build if build.with?("python") || build.with?("python3")
 
