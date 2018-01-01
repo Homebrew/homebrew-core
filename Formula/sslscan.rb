@@ -4,7 +4,6 @@ class Sslscan < Formula
   url "https://github.com/rbsec/sslscan/archive/1.11.11-rbsec.tar.gz"
   version "1.11.11"
   sha256 "93fbe1570073dfb2898a546759836ea4df5054e3a8f6d2e3da468eddac8b1764"
-  revision 1
   head "https://github.com/rbsec/sslscan.git"
 
   bottle do
