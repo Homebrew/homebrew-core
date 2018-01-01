@@ -15,7 +15,7 @@ class Reclass < Formula
     sha256 "7c63989f940dc69a54c8e1eebb1d14a1ea04141a4a806354ed1ad338c8d4ea6b" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python2.7/site-packages"
