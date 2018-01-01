@@ -14,7 +14,7 @@ class Ino < Formula
   end
 
   depends_on "picocom"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "argparse" do
     url "https://pypi.python.org/packages/source/a/argparse/argparse-1.2.1.tar.gz"
