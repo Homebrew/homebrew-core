@@ -15,7 +15,7 @@ class Reposurgeon < Formula
 
   option "without-cython", "Build without cython (faster compile)"
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
   depends_on "cython" => [:build, :recommended]
