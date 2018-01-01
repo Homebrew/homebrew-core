@@ -15,7 +15,7 @@ class Passpie < Formula
     sha256 "9676b9237428cd46ce1fcfb42b7911ebf96a7df2535e936bb60d3f57507db8f4" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "gnupg"
 
   resource "click" do
