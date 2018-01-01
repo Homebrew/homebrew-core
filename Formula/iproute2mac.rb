@@ -6,7 +6,7 @@ class Iproute2mac < Formula
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     bin.install "src/ip.py" => "ip"
