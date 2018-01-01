@@ -15,7 +15,7 @@ class Legit < Formula
     sha256 "d2c5bbb490afaadeb40712cc34abad894510b8ffdf56d40ab3af2676e919480b" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
