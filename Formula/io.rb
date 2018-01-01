@@ -33,7 +33,7 @@ class Io < Formula
     depends_on "pcre"
     depends_on "yajl"
     depends_on "xz"
-    depends_on :python => :optional
+    depends_on "python" => :optional
   end
 
   def install
