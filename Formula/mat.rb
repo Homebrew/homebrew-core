@@ -11,7 +11,7 @@ class Mat < Formula
     sha256 "c9a7a83fc8822a6bb0bcedb4222e09ef8a19cbe21c39ef8b95be4faa3b230ed6" => :el_capitan
   end
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "coreutils"
   depends_on "poppler"
   depends_on "pygobject3"
