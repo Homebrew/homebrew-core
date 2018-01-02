@@ -1,8 +1,8 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.2.1/nvc-1.2.1.tar.gz"
-  sha256 "ff6b1067a665c6732286239e539ae448a52bb11e9ea193569af1c147d0b4fce0"
+  url "https://github.com/nickg/nvc/releases/download/r1.3.1/nvc-1.3.1.tar.gz"
+  sha256 "f578d3c631d58fdff7981a89bafb75554ea5651a44bbb1218037f57281c7350b"
 
   bottle do
     sha256 "f11933a05847b9433fd505c03755767043872e145f247b7d87603e3a9dc51dc4" => :high_sierra
@@ -31,7 +31,8 @@ class Nvc < Formula
     system "./autogen.sh" if build.head?
     system "./tools/fetch-ieee.sh"
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-system-cc=/usr/bin/clang"
     system "make"
     system "make", "install"
   end
