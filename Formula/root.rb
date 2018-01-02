@@ -20,7 +20,7 @@ class Root < Formula
   depends_on "xrootd"
   depends_on :fortran
   depends_on :python => :recommended
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   needs :cxx11
 
