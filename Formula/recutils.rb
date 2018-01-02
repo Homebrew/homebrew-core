@@ -4,6 +4,7 @@ class Recutils < Formula
   url "https://ftp.gnu.org/gnu/recutils/recutils-1.7.tar.gz"
   mirror "https://ftpmirror.gnu.org/recutils/recutils-1.7.tar.gz"
   sha256 "233dc6dedb1916b887de293454da7e36a74bed9ebea364f7e97e74920051bc31"
+  revision 1
 
   bottle do
     cellar :any
