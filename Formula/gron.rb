@@ -3,8 +3,8 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.5.0.tar.gz"
-  sha256 "eb125b7857ba4e6113ceff2a53c38f2cebea8e2ff270f89146e866b11eaaa589"
+  url "https://github.com/tomnomnom/gron/archive/v0.5.1.tar.gz"
+  sha256 "062462b8b6e884cd5731b0bc870e9a45f450e056f4367acccddb926079686560"
   head "https://github.com/tomnomnom/gron.git"
 
   bottle do
@@ -19,27 +19,17 @@ class Gron < Formula
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        :revision => "34e4ee095d12986a2cef5ddb9aeb3b8cfcfea17c"
-  end
-
-  go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable.git",
-        :revision => "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "3a115632dcd687f9c8cd01679c83a06a0e21c1f3"
+        :revision => "5df930a27be2502f99b292b7cc09ebad4d0891f4"
   end
 
   go_resource "github.com/nwidger/jsoncolor" do
     url "https://github.com/nwidger/jsoncolor.git",
-        :revision => "0192e84d44af834c3a90c8a17bf670483b91ad5a"
+        :revision => "75a6de4340e59be95f0884b9cebdda246e0fdf40"
   end
 
   go_resource "github.com/pkg/errors" do
     url "https://github.com/pkg/errors.git",
-        :revision => "645ef00459ed84a119197bfb8d8205042c6df63d"
+        :revision => "e881fd58d78e04cf6d0de1217f8707c8cc2249bc"
   end
 
   def install
