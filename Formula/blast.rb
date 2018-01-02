@@ -7,7 +7,7 @@ class Blast < Formula
   sha256 "0510e1d607d0fb4389eca50d434d5a0be787423b6850b3a4f315abc2ef19c996"
   revision 3
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   patch do
     # Fixed upstream in future version > 2.6
