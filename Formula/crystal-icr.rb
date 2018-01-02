@@ -1,9 +1,8 @@
 class CrystalIcr < Formula
   desc "Interactive console for Crystal programming language"
   homepage "https://github.com/crystal-community/icr"
-  url "https://github.com/crystal-community/icr/archive/v0.4.0.tar.gz"
-  sha256 "6d3ba783b68a425c3def6918bbfb48c828d0d56e8636b7afbebd12a40a7dc5d3"
-  revision 1
+  url "https://github.com/crystal-community/icr/archive/v0.5.0.tar.gz"
+  sha256 "f2b5cb971b368085e9c4f607d906e0622aa94d65c0f7c820d9cbdf23fb972c33"
 
   bottle do
     sha256 "115c7242b217df0ea30c94c449a610a541e34e01d8ef06f1c9b721725c0bffac" => :high_sierra
