@@ -3,7 +3,7 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz"
   sha256 "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "54bef599d86f1ab94f4d5bb934ee273d7b2d39fe4fefffe60227bf985186eaa8" => :high_sierra
@@ -18,7 +18,7 @@ class Pyqt < Formula
 
   depends_on "qt"
   depends_on "sip"
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :recommended
 
   def install
