@@ -3,9 +3,20 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://tailordev.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/37/49/f1ee677017cd8343d5ef3a6c5c449f4763d26f4ba5cb3aa1b38769133ee7/td-watson-1.5.2.tar.gz"
-  sha256 "6e03d44a9278807fe5245e9ed0943f13ffb88e11249a02655c84cb86260b27c8"
+  revision 1
   head "https://github.com/TailorDev/Watson.git"
+
+  stable do
+    url "https://files.pythonhosted.org/packages/37/49/f1ee677017cd8343d5ef3a6c5c449f4763d26f4ba5cb3aa1b38769133ee7/td-watson-1.5.2.tar.gz"
+    sha256 "6e03d44a9278807fe5245e9ed0943f13ffb88e11249a02655c84cb86260b27c8"
+
+    # Fix "Unordered types are not allowed" error for install_requires
+    # Upstream commit from 9 Dec 2017 "Fix setup.py and flake8 complaint"
+    patch do
+      url "https://github.com/TailorDev/Watson/commit/f5760c7.patch?full_index=1"
+      sha256 "63c51040e7e4b0229c9bccd74ca88822fb38e7cdb17056348b0aac8ec9b02298"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +26,7 @@ class Watson < Formula
     sha256 "6b2461f85332a77ec5bd22abccd83fe1a8e13d3c9ac0a0ee8e1dd1a0d7e1382c" => :yosemite
   end
 
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/54/db/76459c4dd3561bbe682619a5c576ff30c42e37c2e01900ed30a501957150/arrow-0.10.0.tar.gz"
