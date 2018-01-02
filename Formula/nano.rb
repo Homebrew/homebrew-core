@@ -3,6 +3,7 @@ class Nano < Formula
   homepage "https://www.nano-editor.org/"
   url "https://www.nano-editor.org/dist/v2.9/nano-2.9.1.tar.gz"
   sha256 "41650407cf1d4b752f31dc05e7c63319957e3dc86e9fb6ad51760e8b36941d19"
+  head "https://git.savannah.gnu.org/git/nano.git"
 
   bottle do
     sha256 "87e5ec4ff6dabd259139dd4a6c7977aafd39583063f57a70b579b907740a7f4f" => :high_sierra
