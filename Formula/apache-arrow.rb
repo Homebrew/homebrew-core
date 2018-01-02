@@ -35,7 +35,7 @@ class ApacheArrow < Formula
       #include "arrow/api.h"
       int main(void)
       {
-        arrow::Int64Builder builder(arrow::default_memory_pool(), arrow::int64());
+        arrow::int64();
         return 0;
       }
     EOS
