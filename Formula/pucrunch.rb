@@ -1,6 +1,6 @@
 class Pucrunch < Formula
   desc "Hybrid LZ77 and RLE compressor"
-  homepage "http://a1bert.kapsi.fi/Dev/pucrunch/"
+  homepage "https://a1bert.kapsi.fi/Dev/pucrunch/"
   url "http://urchlay.naptime.net/~urchlay/src/pucrunch-20081122.tar.xz"
   version "1.14"
   sha256 "3488bfad58e2fac8f6c429c8727336dff7840d3c1dbf3131afd5380d77996d25"
