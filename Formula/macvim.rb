@@ -27,7 +27,7 @@ class Macvim < Formula
   end
 
   depends_on :python => :recommended
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   def install
     # Avoid issues finding Ruby headers
