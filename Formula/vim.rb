@@ -37,7 +37,7 @@ class Vim < Formula
   end
 
   depends_on :python => :recommended
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
   depends_on :perl => "5.3"
   depends_on "lua" => :optional
