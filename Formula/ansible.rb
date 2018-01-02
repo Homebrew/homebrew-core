@@ -5,7 +5,7 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.4.2.0.tar.gz"
   sha256 "315f1580b20bbc2c2f1104f8b5e548c6b4cac943b88711639c5e0d4dfc4d7658"
-  revision 1
+  revision 2
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -16,9 +16,9 @@ class Ansible < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
+  depends_on "python"
 
   # Collect requirements from:
   #   ansible
