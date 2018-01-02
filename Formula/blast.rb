@@ -9,8 +9,8 @@ class Blast < Formula
 
   depends_on "python" if MacOS.version <= :snow_leopard
 
+  # Remove for > 2.6
   patch do
-    # Fixed upstream in future version > 2.6
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/5fa7fda60c17a2a31e402522d0f7e5584d3b946b/blast/blast-make-fix2.5.0.diff"
     sha256 "ab6b827073df48a110e47b8de4bf137fd73f3bf1d14c242a706e89b9c4f453ae"
   end
