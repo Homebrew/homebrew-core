@@ -1,8 +1,8 @@
 class HgFlow < Formula
   desc "Development model for mercurial inspired by git-flow"
   homepage "https://bitbucket.org/yujiewu/hgflow"
-  url "https://bitbucket.org/yujiewu/hgflow/downloads/hgflow-v0.9.8.2.tar.bz2"
-  sha256 "ff62ce57126cf0f932dc9da13d3eaed11db6ebb782580c851b072f4fe58dc399"
+  url "https://bitbucket.org/yujiewu/hgflow/downloads/hgflow-v0.9.8.3.tar.bz2"
+  sha256 "13ded94841185925f709481d2f2dd6fb10cd0c0c6f5b898c4ae97ac2636509a9"
   head "https://bitbucket.org/yujiewu/hgflow", :using => :hg, :branch => "develop"
 
   bottle :unneeded
