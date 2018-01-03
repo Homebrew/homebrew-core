@@ -1,8 +1,8 @@
 class BashSnippets < Formula
   desc "Collection of small bash scripts for heavy terminal users"
   homepage "https://github.com/alexanderepstein/Bash-Snippets"
-  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.20.0.tar.gz"
-  sha256 "cef0ec02aa14b7cc130fb58ed901ad285a3ab6ce400cd85316e864e17a098202"
+  url "https://github.com/alexanderepstein/Bash-Snippets/archive/v1.21.0.tar.gz"
+  sha256 "7ead6c742ad019b3047508bd3f696c029a8e17d59abb893e1a96adb860e9829d"
 
   bottle :unneeded
 
@@ -13,8 +13,10 @@ class BashSnippets < Formula
   option "with-currency", "Install currency"
   option "with-geo", "Install geo"
   option "with-lyrics", "Install lyrics"
+  option "with-meme", "Install meme"
   option "with-movies", "Install movies"
   option "with-newton", "Install newton"
+  option "with-pwned", "Install pwned"
   option "with-qrify", "Install qrify"
   option "with-short", "Install short"
   option "with-siteciphers", "Install siteciphers"
