@@ -7,9 +7,9 @@ class Chamber < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cebdac72d8f08105673141cc7ac1024a7370c645d66d57da1b1d19db062ab8d5" => :high_sierra
-    sha256 "623abf8ad84d1a9ad40bd9248fb3ee5e036de76ea34c97402dd767d5d73ab650" => :sierra
-    sha256 "7e0c2b879e204d62a072746bf592aee2eb070e61b5c58795d3de0ea743e5858d" => :el_capitan
+    sha256 "e459173f631ea322955ef9d7d5475218583cb58297d80b06ecf5fc1985a4285c" => :high_sierra
+    sha256 "e620b2070209281cef99c5b92a6b567c414a5886145d65d871601aae12196e47" => :sierra
+    sha256 "677a0042b9d2806b9e826cbfcc82fc8d5f36b0c4283fe6665b3d63efe6ee54d2" => :el_capitan
   end
 
   depends_on "go" => :build
