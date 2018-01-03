@@ -3,9 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.4.1.tar.gz"
-  sha256 "cc908bc0ca5f77cdb6d05d090f9b09a18514de8c82dfea3b8edffda06871f0e6"
-  revision 2
+  url "https://github.com/pre-commit/pre-commit/archive/v1.4.3.tar.gz"
+  sha256 "6e69e4b44a968a9378e0f349697245ab80f9afd18c421dfa55b3a6762f7ff97b"
 
   bottle do
     cellar :any
@@ -14,7 +13,7 @@ class PreCommit < Formula
     sha256 "98b2d42774e8f63150e04f073ea3bcc53c1d3d00d5a43f858fb076c254c8715a" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     venv = virtualenv_create(libexec, "python3")
