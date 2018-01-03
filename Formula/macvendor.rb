@@ -5,7 +5,8 @@ class Macvendor < Formula
   sha256 "cb67c08ece570cdac599d87ad295e46b1a195213ecf18ad986b584e671cbf2c2"
 
   def install
-    bin.install "macvendor"
+    bin.install "macvendor-darwin-amd64"
+    system "mv #{bin}/macvendor-darwin-amd64 #{bin}/macvendor"
   end
 
   test do
