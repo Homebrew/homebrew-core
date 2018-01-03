@@ -16,9 +16,9 @@ class Exiftool < Formula
   end
 
   devel do
-    url "https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.70.tar.gz"
-    mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-10.70.tar.gz"
-    sha256 "4b880a99e75fd6e0c79fab86521ef3986e6df5d57f506c841401606a6ddeabd1"
+    url "https://sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.71.tar.gz"
+    mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-10.71.tar.gz"
+    sha256 "5a0122b4b8282fe39456754e88cfb7baed1bef92a742b1e573218cf1dcbbbef4"
   end
 
   def install
