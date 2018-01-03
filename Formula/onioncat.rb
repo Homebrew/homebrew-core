@@ -6,11 +6,9 @@ class Onioncat < Formula
   sha256 "69c677e04987bd438495d575b566c358f449ff138b836925fd406cf6d6a400f5"
 
   bottle do
-    sha256 "81840e780b37af0429f3e8f2797c87d6f45e1784d8480b602902259b3ce54716" => :high_sierra
-    sha256 "fa957d2ce8b801d023ad3c3c05999ba8f6afd46cca82e58947139544505f17a8" => :sierra
-    sha256 "1adbca52faa26a57fd6e211b24ad2bef538c1e39a78cdff305f1734208000a81" => :el_capitan
-    sha256 "7b22a7c2aab941452a5a81907e861043a4a2759691769e7f8d3810a68684bd21" => :yosemite
-    sha256 "e60ac97757d5a5a5967f3c16d35f622a0e867d9777521f520b455e258ce92e20" => :mavericks
+    sha256 "1062942ec61923ed49c04afd61ccc9bb56166efe0285fe93b406597d23223fa9" => :high_sierra
+    sha256 "539500f5eeed2771a729c9e61196831c3a3796edafcb2c27a38b26ca5674f7a6" => :sierra
+    sha256 "98acc41c8dc5fcefbe5a410266a762ddacbe12323e958a8fe6ca753ec51f33fe" => :el_capitan
   end
 
   depends_on "tor" => [:recommended, :run]
