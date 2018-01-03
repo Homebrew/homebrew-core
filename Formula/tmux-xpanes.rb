@@ -16,10 +16,10 @@ class TmuxXpanes < Formula
     assert_match /xpanes \d+\.\d+\.\d$/, shell_output("#{bin}/xpanes -V").strip
 
     # Check options with valid combination
-    system("#{bin}/xpanes --dry-run -c echo testarg1 testarg2")
+    system("echo testarg | #{bin}/xpanes --dry-run -c echo")
 
     # Check options with invalid combination (-n requires number)
-    error_message = `#{bin}/xpanes --dry-run -n foo -c echo testarg1 testarg2 2>&1`.strip
+    error_message = `echo testarg | #{bin}/xpanes --dry-run -n foo -c echo 2>&1`.strip
     assert_equal "xpanes:Error: invalid argument 'foo' for -n option", error_message
     assert_equal 4, $CHILD_STATUS.exitstatus
   end
