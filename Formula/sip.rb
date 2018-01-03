@@ -3,7 +3,7 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.6/sip-4.19.6.tar.gz"
   sha256 "9dda27ae181bea782ebc8768d29f22f85ab6e5128ee3ab21f491febad707925a"
-  revision 1
+  revision 2
 
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
@@ -14,13 +14,15 @@ class Sip < Formula
     sha256 "54c8eab04790a70a639739ec9d3c6fedd02f08782ac91118e2f4b406ded4153d" => :el_capitan
   end
 
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :recommended
 
   def install
     if build.without?("python3") && build.without?("python")
       odie "sip: --with-python3 must be specified when using --without-python"
     end
+
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     if build.head?
       # Link the Mercurial repository into the download directory so
