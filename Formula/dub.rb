@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.6.0.tar.gz"
-  sha256 "4b6a13232deeed60b262fcad95e8d45449e6407308f2962b08b3d9ecbcb80126"
+  url "https://github.com/dlang/dub/archive/v1.7.0.tar.gz"
+  sha256 "5c4875cf4ced113d35f1da949524a2b366dff93049dffe98da95171bed6cd069"
   version_scheme 1
 
   head "https://github.com/dlang/dub.git"
