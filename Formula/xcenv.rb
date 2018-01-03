@@ -1,8 +1,8 @@
 class Xcenv < Formula
   desc "Xcode version manager"
   homepage "http://xcenv.org"
-  url "https://github.com/xcenv/xcenv/archive/v1.1.0.tar.gz"
-  sha256 "3a08afad39bf8243769b7aa49597688a8418ded9c229f672a3af8b007db4d331"
+  url "https://github.com/xcenv/xcenv/archive/v1.1.1.tar.gz"
+  sha256 "9426dc1fa50fba7f31a2867c543751428768e0592e499fb7724da8dae45a32ec"
   head "https://github.com/xcenv/xcenv.git"
 
   bottle do
