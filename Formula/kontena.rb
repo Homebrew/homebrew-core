@@ -152,9 +152,9 @@ class Kontena < Formula
 
   bottle do
     cellar :any
-    sha256 "345e64ef9ab258bffa6311a2e343415c3c4b86a2bf0734c6e1bd334d623bec81" => :high_sierra
-    sha256 "9b0a1cbd9c0761905d012febdabb003da7298befd0f44c9fc54b69947f579195" => :sierra
-    sha256 "13d79de4691941f77a4113bc44222113286a73a6c5b13242df9dd5d5bbd888bc" => :el_capitan
+    sha256 "595afdf31f9a686b55931a8701950b7aa29d882769201076297baf05af61b76d" => :high_sierra
+    sha256 "455b8d8bd91f8e7b65fed3a3be4ccde65a73abd3df6ba302c176295a25fa7a80" => :sierra
+    sha256 "db485586cbe945b34c167f8daf7813048759cb32674f5099606539f2147b87af" => :el_capitan
   end
 
   depends_on :ruby => "2.1"
