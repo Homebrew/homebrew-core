@@ -63,7 +63,7 @@ class Dmd < Formula
     end
 
     bin.install "generated/osx/release/64/dmd"
-    prefix.install "samples"
+    pkgshare.install "samples"
     man.install Dir["docs/man/*"]
 
     (include/"dlang/dmd").install Dir["druntime/import/*"]
