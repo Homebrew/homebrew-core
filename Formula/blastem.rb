@@ -1,10 +1,9 @@
 class Blastem < Formula
   desc "Fast and accurate Genesis emulator"
   homepage "https://www.retrodev.com/blastem/"
-  url "https://www.retrodev.com/repos/blastem/archive/1ffa7891b4ec.tar.gz"
-  version "0.4.1"
-  sha256 "f9a15d2e381c7eb6f55f12b0d00f3d2779b0b29bea99b422484d6ada250655ba"
-  revision 1
+  url "https://www.retrodev.com/repos/blastem/archive/3d48cb0c28be.tar.gz"
+  version "0.5.1"
+  sha256 "1929e39179ef46fd6b43b0bfd8f51dff29fc4ec001bd2e53811579707f5d9f1f"
   head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do
