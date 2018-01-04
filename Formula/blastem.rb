@@ -4,7 +4,6 @@ class Blastem < Formula
   url "https://www.retrodev.com/repos/blastem/archive/3d48cb0c28be.tar.gz"
   version "0.5.1"
   sha256 "1929e39179ef46fd6b43b0bfd8f51dff29fc4ec001bd2e53811579707f5d9f1f"
-  revision 2
   head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do
