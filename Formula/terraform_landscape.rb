@@ -3,7 +3,7 @@ class TerraformLandscape < Formula
   homepage "https://github.com/coinbase/terraform-landscape"
   url "https://github.com/coinbase/terraform-landscape/archive/v0.1.17.tar.gz"
   sha256 "ffc89c435d673de353db17f9e9796de95c55e1236071178dc35102a99917fd45"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
