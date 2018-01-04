@@ -2,8 +2,8 @@ class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
   url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.3.2",
-      :revision => "fef344fc1f9f0233bb6585953f802bfe906e51cd"
+      :tag => "v0.3.3",
+      :revision => "2820d21c008b7d550f34baddbcf118850ca5b487"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,8 @@ class Kubeless < Formula
     (buildpath/"src/github.com/kubeless/kubeless").install buildpath.children
     cd "src/github.com/kubeless/kubeless" do
       ldflags = %W[
-        -w -X github.com/kubeless/kubeless/version.VERSION=v#{version}
-        -X github.com/kubeless/kubeless/version.GITCOMMIT=#{commit}
+        -w -X github.com/kubeless/kubeless/cmd/kubeless/version.VERSION=v#{version}
+        -X github.com/kubeless/kubeless/cmd/kubeless/version.GITCOMMIT=#{commit}
       ]
       system "go", "build", "-o", bin/"kubeless", "-ldflags", ldflags.join(" "),
              "./cmd/kubeless"
