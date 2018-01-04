@@ -3,7 +3,7 @@ class DockerCompletion < Formula
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
       :tag => "v17.12.0-ce",
-      :revision => "486a48d2701493bb65385788a291e36febb44ec1"
+      :revision => "c97c6d62c26c1da407e3086f0b5d3d866ed308bc"
 
   bottle :unneeded
 
