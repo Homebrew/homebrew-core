@@ -21,6 +21,7 @@ class Mpv < Formula
   depends_on "libass"
   depends_on "ffmpeg"
   depends_on "lua@5.1"
+  depends_on "mujs"
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
@@ -68,6 +69,7 @@ class Mpv < Formula
       --enable-libmpv-shared
       --enable-html-build
       --enable-lua
+      --enable-javascript
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}
