@@ -6,11 +6,9 @@ class Exomizer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5beac52aa6f4fddb89ec51697093fb97063cb25d5d175bfe92cb336ca0e4b85" => :high_sierra
-    sha256 "caa6b6304ed82fffdfd0fc4b8996eba6daab2240f30f05b17b3daf95b0ba1322" => :sierra
-    sha256 "7fc0744775aff849b63640a9ac89d63309eebf04dc544b2840d219f8331629c5" => :el_capitan
-    sha256 "5516edd49987f155735a83ef3a87fd01fb685d30067dcd770d07b07a4ddbbf19" => :yosemite
-    sha256 "8fdf034caf568b57fa6e8b2f8adabc47bdd845a300ab3901c0bb6fc9f6556185" => :mavericks
+    sha256 "0cbcc0d2b3c2f10d98b8fe778723a1e2cfc68324b672df819f968080f71dce63" => :high_sierra
+    sha256 "a5ab7a5a4c509713c1c2648bae73aa2ee9eced90197d0ab615247c10acfd0895" => :sierra
+    sha256 "62e6ad8ec5fb1e980950be6d40e61640319a94d750a104e0d91f6e913b25ce5e" => :el_capitan
   end
 
   def install
