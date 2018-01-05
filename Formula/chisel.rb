@@ -12,7 +12,7 @@ class Chisel < Formula
     prefix.install "PATENTS"
     # Specify install name to prevent homebrew from modifying the library after
     # it's been code signed.
-    system 'make', '-C', 'Chisel', 'install', "PREFIX=#{lib}", \
+    system "make", "-C", "Chisel", "install", "PREFIX=#{lib}", \
       "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
   end
 
