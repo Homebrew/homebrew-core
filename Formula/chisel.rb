@@ -1,8 +1,8 @@
 class Chisel < Formula
   desc "Collection of LLDB commands to assist debugging iOS apps"
   homepage "https://github.com/facebook/chisel"
-  url "https://github.com/facebook/chisel/archive/1.6.0.tar.gz"
-  sha256 "63f6538c7221e51e6133f62b3f0c0a74f84feee9727c80720da5f63a78f6db93"
+  url "https://github.com/facebook/chisel/archive/1.7.0.tar.gz"
+  sha256 "46647976361119570de95d40bd77defdbbc7aa67747c278093b3658b7ed7a124"
   head "https://github.com/facebook/chisel.git"
 
   bottle :unneeded
@@ -10,6 +10,10 @@ class Chisel < Formula
   def install
     libexec.install Dir["*.py", "commands"]
     prefix.install "PATENTS"
+    # Specify install name to prevent homebrew from modifying the library after
+    # it's been code signed.
+    system 'make', '-C', 'Chisel', 'install', "PREFIX=#{lib}", \
+      "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
   end
 
   def caveats; <<~EOS
