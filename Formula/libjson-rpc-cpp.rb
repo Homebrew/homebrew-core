@@ -7,10 +7,9 @@ class LibjsonRpcCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "e5d4cc49afc50d844b8b6cc74a33606ba3edd514fc31ac3bc24bd0321975f984" => :high_sierra
-    sha256 "2e0fba342ff4b2912ec0df0293a4fa9f95b3cc33a424eb5bbc57c3819d337470" => :sierra
-    sha256 "08cbd358998f26882aec42e81c4f24a7fbb244c1769597ac62e3e4dc738bc479" => :el_capitan
-    sha256 "9711596b93811aed07a7308097c39d39c7ac4d5b7b7be57be59f57567def7c81" => :yosemite
+    sha256 "a0bf45eab53c074d1a7db06b07d208a25eb1f004732fc331854b016af491d757" => :high_sierra
+    sha256 "4202093dd4d26177adf295ec6c7e81df4a32be060f5599de80cbeb24b45640e5" => :sierra
+    sha256 "cfb154a79679e34ec52c03eebf077ebb9d6d81c6bddd4a21d43fb49fee8f812d" => :el_capitan
   end
 
   depends_on "cmake" => :build
