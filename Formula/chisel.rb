@@ -1,15 +1,23 @@
 class Chisel < Formula
   desc "Collection of LLDB commands to assist debugging iOS apps"
   homepage "https://github.com/facebook/chisel"
-  url "https://github.com/facebook/chisel/archive/1.6.0.tar.gz"
-  sha256 "63f6538c7221e51e6133f62b3f0c0a74f84feee9727c80720da5f63a78f6db93"
+  url "https://github.com/facebook/chisel/archive/1.7.1.tar.gz"
+  sha256 "952354d358dea8407b36effff2dd6acd81af733ca920ec2a97e62235f5bcc749"
   head "https://github.com/facebook/chisel.git"
-
-  bottle :unneeded
 
   def install
     libexec.install Dir["*.py", "commands"]
     prefix.install "PATENTS"
+
+    # == LD_DYLIB_INSTALL_NAME Explanation ==
+    # This make invocation calls xcodebuild, which in turn performs ad hoc code
+    # signing. Note that ad hoc code signing does not need signing identities.
+    # Brew will update binaries to ensure their internal paths are usable, but
+    # modifying a code signed binary will invalidate the signature. To prevent
+    # broken signing, this build specifies the target install name up front,
+    # in which case brew doesn't perform its modifications.
+    system "make", "-C", "Chisel", "install", "PREFIX=#{lib}", \
+      "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
   end
 
   def caveats; <<~EOS
