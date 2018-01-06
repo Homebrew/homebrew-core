@@ -6,11 +6,9 @@ class Libu2fServer < Formula
 
   bottle do
     cellar :any
-    sha256 "222f72a76779545285dcd280b9773cca284f617c58e38454c3f19fd514241648" => :high_sierra
-    sha256 "87859895f46a6e196deaa704cac54d0ebc003dfd6c6a0d47d5319dfc0f3b9e59" => :sierra
-    sha256 "9a5704c78fa45d5e72e6fdb55656cdc49cda37fe56fc6c3a3669390dd6ef883e" => :el_capitan
-    sha256 "b6e45ad28814759b052657a14884f5754e65decdcd8fa185fe59382ca30d5e75" => :yosemite
-    sha256 "53cf2a8cb039a27cc4b36605245b15aee85f8d1044f3ba49cb12868ccf0b0cdf" => :mavericks
+    sha256 "bd520ddb4ac4b6a55d657b3ad17511f72dafe7b5a1c40b2a92e291db2a1e0c7a" => :high_sierra
+    sha256 "25226b190bc6af0d7e7ec008d9404b29366d15d742b798cac0ab8e395c506106" => :sierra
+    sha256 "89817d12379495c19e917cd35e288c5c46a2bb5dfe8c16855ff5ce5635b60a80" => :el_capitan
   end
 
   depends_on "check" => :build
