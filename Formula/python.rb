@@ -7,9 +7,9 @@ class Python < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "adafea2f5c6f9d88f2c790cef0f1eec6435771f1ba7e9bc1221f57e41b3b32d7" => :high_sierra
-    sha256 "09b4d4519c073c52b857d7b974ba2973f8642ebd4afdb54cccbcf2a92195d4c4" => :sierra
-    sha256 "0341dd55560451668a5d12a4f19e15eeaf8f598178c60ff7adf9284e07324039" => :el_capitan
+    sha256 "783739edc153fa49d624f80baf543404e39aefcb137896f716fd39d0f8a40101" => :high_sierra
+    sha256 "ff784eab3e8072ae8a1e3b7b51e932f905a39a8d65cbf500f27a844cfa1e261a" => :sierra
+    sha256 "8853f6910125020b4cd92bc02a24df157981a78c727786e60516337beaf23c9d" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
