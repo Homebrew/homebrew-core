@@ -1,8 +1,8 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.5.tar.gz"
-  sha256 "ade4d12ea8b7fe9188e78cf43b0b70608853ed4b511e285971675ef6a4fd9b0e"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.7.tar.gz"
+  sha256 "085746e891edbb2cfda22bb2a8b86043bd680a68ad9121bc568118c730ace7b9"
 
   bottle do
     sha256 "967e57f7b87255ad9af901d2842110d5f7ec4c9a1e1d7937b6e2c2fd82aec289" => :high_sierra
@@ -24,13 +24,6 @@ class Povray < Formula
   needs :cxx11
 
   def install
-    # Boost 1.66 compat
-    # Fix undefined symbol error for boost::system::generic_category
-    # Reported 1 Jan 2018 https://github.com/POV-Ray/povray/issues/341
-    inreplace "unix/configure.ac",
-              "[[boost::defer_lock_t(); return 0;]])],",
-              "[[boost::mutex m; boost::defer_lock_t(); return 0;]])],"
-
     ENV.cxx11
 
     args = %W[
