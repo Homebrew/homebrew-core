@@ -4,7 +4,7 @@ class Vim < Formula
   # vim should only be updated every 50 releases on multiples of 50
   url "https://github.com/vim/vim/archive/v8.0.1400.tar.gz"
   sha256 "9e9cdfc137858f2d52276b6df826875aafc9d65b3e46d5d7f8c68deb40da3dbb"
-  revision 3
+  revision 4
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -22,12 +22,6 @@ class Vim < Formula
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
   LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
 
-  if MacOS.version >= :mavericks
-    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
-    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
-    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
-  end
-
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
     option "with-#{language}", "Build vim with #{language} support"
@@ -36,30 +30,26 @@ class Vim < Formula
     option "without-#{language}", "Build vim without #{language} support"
   end
 
+  depends_on "perl"
+  depends_on "ruby"
   depends_on "python" => :recommended
-  depends_on "python3" => :optional
-  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
-  depends_on :perl => "5.3"
+  depends_on "gettext" => :optional
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on "python3" => :optional
   depends_on :x11 if build.with? "client-server"
-  depends_on "gettext" => :optional
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
   def install
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
 
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
-
-    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS::CLT.installed?
-      # break -syslibpath jail
-      ln_s "/System/Library/Frameworks", buildpath
-      ENV.append "LDFLAGS", "-F#{buildpath}/Frameworks"
-    end
 
     opts = []
 
