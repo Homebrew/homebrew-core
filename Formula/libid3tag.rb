@@ -23,7 +23,7 @@ class Libid3tag < Formula
     "file-write"                         => "eff855cabd8a51866a29246a1b257da64f46aab72d4b8e163e2a4c0d15165bf1",
   }.each do |name, sha|
     patch do
-      url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
       sha256 sha
     end
   end
@@ -35,14 +35,14 @@ class Libid3tag < Formula
     "tag"          => "ca7262ddad158ab0be804429d705f8c6a1bb120371dec593323fa4876c1b277f",
   }.each do |name, sha|
     patch :p0 do
-      url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
       sha256 sha
     end
   end
 
   # corrects "a cappella" typo
   patch :p2 do
-    url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch"
+    url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch"
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
