@@ -1,9 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-18/source/tarball/percona-server-5.7.20-18.tar.gz"
-  sha256 "ebbdf859d571562b9c9614c29355dd73adb9021b67108edd46b67063039a28af"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-19/source/tarball/percona-server-5.7.20-19.tar.gz"
+  sha256 "17f06c07165954e7eacc3ba2cac0e1d4ba65b0b568f2437298d3c17a6a0940fd"
 
   bottle do
     sha256 "50522ea171bc0dead84f6692f41450e7ce91005e1d0658fae1790e5040ab4478" => :high_sierra
@@ -55,6 +54,10 @@ class PerconaServer < Formula
   end
 
   def install
+    # Set HAVE_MEMSET_S flag to fix compilation
+    # https://bugs.launchpad.net/percona-server/+bug/1741647
+    ENV.prepend "CPPFLAGS", "-DHAVE_MEMSET_S=1"
+
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
@@ -86,7 +89,7 @@ class PerconaServer < Formula
     args << "-DWITH_BOOST=#{buildpath}/boost"
 
     # Percona MyRocks does not compile on macOS
-    # https://www.percona.com/doc/percona-server/LATEST/myrocks/install.html
+    # https://bugs.launchpad.net/percona-server/+bug/1741639
     args.concat %w[-DWITHOUT_ROCKSDB=1]
 
     # TokuDB does not compile on macOS
