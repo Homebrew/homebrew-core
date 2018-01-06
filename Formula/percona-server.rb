@@ -89,7 +89,7 @@ class PerconaServer < Formula
     args << "-DWITH_BOOST=#{buildpath}/boost"
 
     # Percona MyRocks does not compile on macOS
-    # https://www.percona.com/doc/percona-server/LATEST/myrocks/install.html
+    # https://bugs.launchpad.net/percona-server/+bug/1741639
     args.concat %w[-DWITHOUT_ROCKSDB=1]
 
     # TokuDB does not compile on macOS
