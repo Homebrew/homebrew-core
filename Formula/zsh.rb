@@ -4,7 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
   mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
   sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5bb5aecd8c5341fbb670489f1c1388ce02561bae2c5ba6d3e80f5d3911f81abf" => :high_sierra
