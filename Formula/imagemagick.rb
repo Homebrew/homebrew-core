@@ -4,9 +4,9 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-18.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-18.tar.xz"
-  sha256 "d4987d7dc394c302916c1f1471e58932cda99706d7595d3a2467e501d971e136"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-19.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-19.tar.xz"
+  sha256 "5f1156824c37e5dde6ec37c5b1c51d9806f6d0e97aeaeb1e6907d7aba15951d9"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
@@ -16,9 +16,9 @@ class Imagemagick < Formula
   end
 
   option "with-fftw", "Compile with FFTW support"
+  option "with-gcc", "Compile with OpenMP support"
   option "with-hdri", "Compile with HDRI support"
   option "with-opencl", "Compile with OpenCL support"
-  option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
@@ -27,6 +27,7 @@ class Imagemagick < Formula
 
   deprecated_option "enable-hdri" => "with-hdri"
   deprecated_option "with-jp2" => "with-openjpeg"
+  deprecated_option "with-openmp" => "with-gcc"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -39,6 +40,7 @@ class Imagemagick < Formula
 
   depends_on :x11 => :optional
   depends_on "fontconfig" => :optional
+  depends_on "gcc" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
   depends_on "libwmf" => :optional
@@ -51,8 +53,6 @@ class Imagemagick < Formula
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on :perl => ["5.5", :optional]
-
-  needs :openmp if build.with? "openmp"
 
   skip_clean :la
 
