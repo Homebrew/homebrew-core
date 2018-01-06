@@ -54,6 +54,10 @@ class PerconaServer < Formula
   end
 
   def install
+    # Set HAVE_MEMSET_S flag to fix compilation
+    # https://bugs.launchpad.net/percona-server/+bug/1741647
+    ENV.prepend "CPPFLAGS", "-DHAVE_MEMSET_S=1"
+
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/legacy-homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
