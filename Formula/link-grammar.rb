@@ -1,8 +1,8 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.4.2/link-grammar-5.4.2.tar.gz"
-  sha256 "46dd36d1f96f018c334df096c3fa0472ebd1365b5f7869711035d02dea00f4e4"
+  url "https://www.abisource.com/downloads/link-grammar/5.4.3/link-grammar-5.4.3.tar.gz"
+  sha256 "3b043693ba091647128aaa60b3ed9187dc8b80f5921d4d7a6550294ca5a8e137"
 
   bottle do
     sha256 "a5cf851dca54d1b6f340c4e9ca6bd34115081a7aab792d5f77d2796fcef8a7dc" => :high_sierra
@@ -15,15 +15,14 @@ class LinkGrammar < Formula
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on :ant => :build
+  depends_on "ant" => :build
 
   def install
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
     inreplace "bindings/python/Makefile.am",
       "$(PYTHON2_LDFLAGS) -module -no-undefined",
       "$(PYTHON2_LDFLAGS) -module"
-    inreplace "autogen.sh", "libtoolize", "glibtoolize"
-    system "./autogen.sh", "--no-configure"
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
