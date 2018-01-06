@@ -1,9 +1,8 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "http://www.geeqie.org/"
-  url "http://www.geeqie.org/geeqie-1.3.tar.xz"
-  sha256 "4b6f566dd1a8badac68c4353c7dd0f4de17f8627b85a7a70d5eb1ae3b540ec3f"
-  revision 3
+  url "http://www.geeqie.org/geeqie-1.4.tar.xz"
+  sha256 "5c583a165573ec37874c278f9dc57e73df356b30e09a9ccac3179dd5d97e3e32"
 
   bottle do
     sha256 "e50d0eda8d81d376738422943730510707ddf4cba4ca6541e1ac3428479b981c" => :high_sierra
