@@ -3,6 +3,7 @@ class Htop < Formula
   homepage "https://hisham.hm/htop/"
   url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
   sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
+  revision 1
 
   bottle do
     sha256 "74bfbb9dd0ff5d1268274c83e67a2a3cef674a04914f30e6bffcf23e9008de73" => :high_sierra
@@ -21,6 +22,10 @@ class Htop < Formula
   end
 
   option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
+
+  # Running htop can lead to system freezes on macOS 10.13
+  # https://github.com/hishamhm/htop/issues/682
+  depends_on MaximumMacOSRequirement => :sierra
 
   depends_on "ncurses" => :optional
 
