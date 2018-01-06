@@ -4,9 +4,9 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-30.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-30.tar.xz"
-  sha256 "321dddfd15edec8088783de9cb10e81f0ce5b6dfdd68e3607aaafdd0fe2d1eef"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-31.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-31.tar.xz"
+  sha256 "b487091382271106ed8172a320604761d8234b8f954b2b37ed61025d436b551e"
 
   bottle do
     sha256 "ae70836560918331021587e7392bcb3e2ee63cfdeeb26687bc63bef9e10d3ea0" => :high_sierra
@@ -19,7 +19,7 @@ class ImagemagickAT6 < Formula
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
   option "with-opencl", "Compile with OpenCL support"
-  option "with-openmp", "Compile with OpenMP support"
+  option "with-gcc", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
@@ -28,6 +28,7 @@ class ImagemagickAT6 < Formula
 
   deprecated_option "enable-hdri" => "with-hdri"
   deprecated_option "with-jp2" => "with-openjpeg"
+  deprecated_option "with-openmp" => "with-gcc"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -39,6 +40,7 @@ class ImagemagickAT6 < Formula
   depends_on "freetype" => :recommended
 
   depends_on "fontconfig" => :optional
+  depends_on "gcc" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
   depends_on "libwmf" => :optional
@@ -51,8 +53,6 @@ class ImagemagickAT6 < Formula
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on :perl => ["5.5", :optional]
-
-  needs :openmp if build.with? "openmp"
 
   skip_clean :la
 
