@@ -1,8 +1,8 @@
 class Libu2fServer < Formula
   desc "Server-side of the Universal 2nd Factor (U2F) protocol"
   homepage "https://developers.yubico.com/libu2f-server/"
-  url "https://developers.yubico.com/libu2f-server/Releases/libu2f-server-1.0.1.tar.xz"
-  sha256 "a618f59051209d6d70c24cf42d64c9b67bd7dd5946b6dbd2c649181d7e8f1f6e"
+  url "https://developers.yubico.com/libu2f-server/Releases/libu2f-server-1.1.0.tar.xz"
+  sha256 "8dcd3caeacebef6e36a42462039fd035e45fa85653dcb2013f45e15aad49a277"
 
   bottle do
     cellar :any
@@ -14,6 +14,8 @@ class Libu2fServer < Formula
   end
 
   depends_on "check" => :build
+  depends_on "gengetopt" => :build
+  depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "openssl"
