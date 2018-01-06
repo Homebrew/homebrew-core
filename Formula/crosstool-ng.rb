@@ -3,6 +3,7 @@ class CrosstoolNg < Formula
   homepage "http://crosstool-ng.org"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.23.0.tar.xz"
   sha256 "68a43ea98ccf9cb345cb6eec494a497b224fee24c882e8c14c6713afbbe79196"
+  revision 1
 
   bottle do
     cellar :any
@@ -27,6 +28,7 @@ class CrosstoolNg < Formula
 
   def install
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
+    ENV["MAKE"] = "/usr/bin/make" # prevent hardcoding make path from superenv
 
     system "./configure", "--prefix=#{prefix}"
 
