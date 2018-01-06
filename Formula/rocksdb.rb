@@ -3,6 +3,7 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v5.9.2.tar.gz"
   sha256 "784023d5fea572e860938ec9041e064c9ca529a129574d7fccb74618c7e0dad8"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,13 +16,13 @@ class Rocksdb < Formula
   depends_on "snappy"
   depends_on "lz4"
   depends_on "gflags"
-  depends_on "jemalloc"
 
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?
     ENV["DEBUG_LEVEL"] = "0"
     ENV["USE_RTTI"] = "1"
+    ENV["DISABLE_JEMALLOC"] = "1" # prevent opportunistic linkage
 
     # build regular rocksdb
     system "make", "clean"
