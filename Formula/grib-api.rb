@@ -1,9 +1,9 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.24.0.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.24.0.orig.tar.xz"
-  sha256 "304206c363ee388098d01778b5514edc626ced72b9fbb07d716d4f7210ee7579"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.25.0.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.25.0.orig.tar.xz"
+  sha256 "da405e35f90e441326835f1f7fa788b365604bb925919c90ce21f4618b86e78f"
 
   bottle do
     sha256 "2ba802878787d0f0599dffc474b0f372a40abb575d1acc839f6cf2ed1330a970" => :high_sierra
@@ -14,10 +14,10 @@ class GribApi < Formula
   option "with-static", "Build static instead of shared library."
 
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "jasper" => :recommended
   depends_on "libpng" => :optional
-  depends_on :fortran
 
   def install
     # Fix "no member named 'inmem_' in 'jas_image_t'"
