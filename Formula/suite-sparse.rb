@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
-  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.1.0.tar.gz"
-  sha256 "1b1371074224c6844697f3a55024d185b7ff6ffa49ac141d433fbb1aadf426f5"
+  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.1.2.tar.gz"
+  sha256 "4ec8d344bd8e95b898132ddffd7ee93bfbb2c1224925d11bab844b08f9b4c3b7"
 
   bottle do
     cellar :any
@@ -11,9 +11,14 @@ class SuiteSparse < Formula
     sha256 "5a2be932d3950d6c2e06d3fa8eab50eb89c40cee6aede977dbfc6f0eb586772a" => :el_capitan
   end
 
+  depends_on "cmake" => :build
   depends_on "metis"
 
   def install
+    mkdir "GraphBLAS/build" do
+      system "cmake", "..", *std_cmake_args
+    end
+
     args = [
       "INSTALL=#{prefix}",
       "BLAS=-framework Accelerate",
