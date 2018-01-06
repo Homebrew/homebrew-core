@@ -1,9 +1,9 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.14.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.14.tar.gz"
-  sha256 "ada1437a4165a707b3e9f37b5b74dbbe7c2f8bde633b8c2c7dbc8f84f39baa09"
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.14.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.14.1.tar.gz"
+  sha256 "cdceff00ffe014495bed3aed71c7910aa88bf29379f795abc0f46d4ee5f8bc5f"
 
   bottle do
     cellar :any
