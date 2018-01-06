@@ -3,8 +3,8 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.0.tar.gz"
-  sha256 "2d13f9b27ad4c82a6ef33079b24278cfef8c65d23f65e7e57895e10ec8ccb760"
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.1.tar.gz"
+  sha256 "daf4c32e162506ac90acdaa52b2f85f106fe4aa58a9c88cc992b5ebb9d64f378"
 
   bottle do
     cellar :any
@@ -13,15 +13,14 @@ class ConjureUp < Formula
     sha256 "e2ed3bb07b920586ac687aa1cbc105ba363ced9da7841f8544ddf2813ae1cefd" => :el_capitan
   end
 
-  depends_on :python3
   depends_on "libyaml"
   depends_on "juju"
   depends_on "juju-wait"
   depends_on "jq"
-  depends_on "wget"
   depends_on "redis"
   depends_on "awscli"
   depends_on "pwgen"
+  depends_on "python3"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
@@ -185,8 +184,8 @@ class ConjureUp < Formula
   end
 
   resource "ubuntui" do
-    url "https://files.pythonhosted.org/packages/b1/55/9c7d1085b67405e7d713de7bc935bddd47efd8a81b53242928a43b58086c/ubuntui-0.1.8.tar.gz"
-    sha256 "ded4bd76d6d24bd8f9da886e4565585ec88eac09b110613b139f0c1048062d89"
+    url "https://files.pythonhosted.org/packages/e8/18/a8cf8f69de1b5bfc135bec5f46a14832e3f9eae3abf7b7978602dc49ed4b/ubuntui-0.1.9.tar.gz"
+    sha256 "7249c2bfbdfe5bc4f86ac7a94fe606064f8f068f1436de35cca71b6cd6f57c78"
   end
 
   resource "urwid" do
