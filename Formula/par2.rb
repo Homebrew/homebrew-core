@@ -1,8 +1,8 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://github.com/Parchive/par2cmdline"
-  url "https://github.com/Parchive/par2cmdline/releases/download/v0.7.4/par2cmdline-0.7.4.tar.bz2"
-  sha256 "e602db3d8bdc49e2cb9e0e089ec31cd262e661ef7450f5d556e43a97a299e71d"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v0.8.0/par2cmdline-0.8.0.tar.bz2"
+  sha256 "496430e185f2d82e54245a0554341a1826f06c5e673fa12a10f176c7f9b42964"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,8 +11,16 @@ class Par2 < Formula
     sha256 "7257b39640dcf1894c2329129406a573b04dd263bf3b06283dc854b5ed17cf8e" => :el_capitan
   end
 
+  option "with-openmp", "Compile with OpenMP support"
+  needs :openmp if build.with? "openmp"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    if build.with? "openmp"
+      ENV["CXX"] = "#{Formula["llvm"].opt_bin}/clang++"
+      ENV["CXXFLAGS"] = `#{Formula["llvm"].opt_bin}/llvm-config --cxxflags`.chomp
+      ENV["LDFLAGS"] = `#{Formula["llvm"].opt_bin}/llvm-config --ldflags`.chomp
+    end
+    system "./configure",  "--prefix=#{prefix}"
     system "make", "install"
   end
 
