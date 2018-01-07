@@ -78,17 +78,17 @@ class Fstar < Formula
     prefix.install_symlink libexec/"src"
   end
 
-  def caveats; <<~EOS
-    F* code can be extracted to OCaml code.
-    To compile the generated OCaml code, you must install
-    some packages from the OPAM package manager:
-    - brew install opam
-    - opam install batteries zarith yojson pprint stdint menhir
-
-    F* code can be extracted to F# code.
-    To compile the generated F# (.NET) code, you must install
-    the 'mono' package that includes the fsharp compiler:
-    - brew install mono
+  def caveats
+    <<~EOS
+      F* code can be extracted to OCaml code.
+      To compile the generated OCaml code, you must install
+      some packages from the OPAM package manager:
+      - brew install opam
+      - opam install batteries zarith yojson pprint stdint menhir
+       F* code can be extracted to F# code.
+      To compile the generated F# (.NET) code, you must install
+      the 'mono' package that includes the fsharp compiler:
+      - brew install mono
     EOS
   end
 
