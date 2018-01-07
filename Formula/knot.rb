@@ -58,51 +58,50 @@ class Knot < Formula
     (var/"knot").mkpath
   end
 
-  def knot_conf; <<~EOS
-    server:
-      rundir: "#{var}/knot"
-      listen: [ "0.0.0.0@53", "::@53" ]
-
-    log:
-      - target: "stderr"
-        any: "info"
-
-    control:
-      listen: "knot.sock"
-
-    template:
-      - id: "default"
-        storage: "#{var}/knot"
+  def knot_conf
+    <<~EOS
+      server:
+        rundir: "#{var}/knot"
+        listen: [ "0.0.0.0@53", "::@53" ]
+       log:
+        - target: "stderr"
+          any: "info"
+       control:
+        listen: "knot.sock"
+       template:
+        - id: "default"
+          storage: "#{var}/knot"
     EOS
   end
 
   plist_options :startup => true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>EnableTransactions</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/knotd</string>
-        <string>-c</string>
-        <string>#{etc}/knot.conf</string>
-      </array>
-      <key>StandardInPath</key>
-      <string>/dev/null</string>
-      <key>StandardOutPath</key>
-      <string>/dev/null</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/knot.log</string>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>EnableTransactions</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/knotd</string>
+          <string>-c</string>
+          <string>#{etc}/knot.conf</string>
+        </array>
+        <key>StandardInPath</key>
+        <string>/dev/null</string>
+        <key>StandardOutPath</key>
+        <string>/dev/null</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/knot.log</string>
+      </dict>
+      </plist>
     EOS
   end
 
