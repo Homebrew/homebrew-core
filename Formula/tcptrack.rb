@@ -26,9 +26,10 @@ class Tcptrack < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Run tcptrack as root or via sudo in order for the program
-    to obtain permissions on the network interface.
+  def caveats
+    <<~EOS
+      Run tcptrack as root or via sudo in order for the program
+      to obtain permissions on the network interface.
   EOS
   end
 
