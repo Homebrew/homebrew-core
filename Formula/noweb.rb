@@ -44,12 +44,11 @@ class Noweb < Formula
     end
   end
 
-  def caveats; <<~EOS
-    TeX support files are installed in the directory:
-
-      #{texpath}
-
-    You may need to add the directory to TEXINPUTS to run noweb properly.
+  def caveats
+    <<~EOS
+      TeX support files are installed in the directory:
+         #{texpath}
+       You may need to add the directory to TEXINPUTS to run noweb properly.
     EOS
   end
 end
