@@ -13,15 +13,14 @@ class Nodebrew < Formula
     zsh_completion.install "completions/zsh/_nodebrew"
   end
 
-  def caveats; <<~EOS
-    You need to manually run setup_dirs to create directories required by nodebrew:
-      #{opt_bin}/nodebrew setup_dirs
-
-    Add path:
-      export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-    To use Homebrew's directories rather than ~/.nodebrew add to your profile:
-      export NODEBREW_ROOT=#{var}/nodebrew
+  def caveats
+    <<~EOS
+      You need to manually run setup_dirs to create directories required by nodebrew:
+        #{opt_bin}/nodebrew setup_dirs
+       Add path:
+        export PATH=$HOME/.nodebrew/current/bin:$PATH
+       To use Homebrew's directories rather than ~/.nodebrew add to your profile:
+        export NODEBREW_ROOT=#{var}/nodebrew
     EOS
   end
 
