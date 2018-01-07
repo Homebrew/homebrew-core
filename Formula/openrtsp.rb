@@ -24,9 +24,10 @@ class Openrtsp < Formula
     libexec.install Dir.glob(bin/"test*")
   end
 
-  def caveats; <<~EOS
-    Testing executables have been placed in:
-      #{libexec}
+  def caveats
+    <<~EOS
+      Testing executables have been placed in:
+        #{libexec}
     EOS
   end
 
