@@ -53,9 +53,10 @@ class Clamav < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    To finish installation & run clamav you will need to edit
-    the example conf files at #{etc}/clamav/
+  def caveats
+    <<~EOS
+      To finish installation & run clamav you will need to edit
+      the example conf files at #{etc}/clamav/
     EOS
   end
 
