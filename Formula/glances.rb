@@ -18,7 +18,9 @@ class Glances < Formula
   test do
     begin
       read, write = IO.pipe
-      pid = spawn(bin/"glances", "-q", "--export-csv", "/dev/stdout", out: write)
+      pid = fork do
+        exec bin/"glances", "-q", "--export-csv", "/dev/stdout", :out => write
+      end
       header = read.gets
       assert_match(/timestamp/, header)
     ensure
