@@ -60,15 +60,13 @@ class Gdb < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    gdb requires special privileges to access Mach ports.
-    You will need to codesign the binary. For instructions, see:
-
-      https://sourceware.org/gdb/wiki/BuildingOnDarwin
-
-    On 10.12 (Sierra) or later with SIP, you need to run this:
-
-      echo "set startup-with-shell off" >> ~/.gdbinit
+  def caveats
+    <<~EOS
+      gdb requires special privileges to access Mach ports.
+      You will need to codesign the binary. For instructions, see:
+         https://sourceware.org/gdb/wiki/BuildingOnDarwin
+       On 10.12 (Sierra) or later with SIP, you need to run this:
+         echo "set startup-with-shell off" >> ~/.gdbinit
     EOS
   end
 
