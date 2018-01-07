@@ -14,9 +14,10 @@ class Clojurescript < Formula
     bin.write_jar_script libexec/"cljs.jar", "cljsc"
   end
 
-  def caveats; <<~EOS
-    This formula is useful if you need to use the ClojureScript compiler directly.
-    For a more integrated workflow use Leiningen, Boot, or Maven.
+  def caveats
+    <<~EOS
+      This formula is useful if you need to use the ClojureScript compiler directly.
+      For a more integrated workflow use Leiningen, Boot, or Maven.
     EOS
   end
 
