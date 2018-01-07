@@ -35,16 +35,12 @@ class Guile < Formula
   def install
     system "./autogen.sh" unless build.stable?
 
-    # Fixes "sed: -i may not be used with stdin"
-    # Reported 7 Jan 2018 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=30011
-    inreplace "libguile/Makefile.in",
-      /-e 's,\[@\]GUILE_EFFECTIVE_VERSION\[@\],\$\(GUILE_EFFECTIVE_VERSION\),g'      \\\n         -i/,
-      "\\0 ''"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",
                           "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}"
+    system "make"
+    ENV.deparallelize
     system "make", "install"
 
     # A really messed up workaround required on macOS --mkhl
