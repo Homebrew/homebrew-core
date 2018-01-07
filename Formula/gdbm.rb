@@ -4,6 +4,7 @@ class Gdbm < Formula
   url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.14.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.14.1.tar.gz"
   sha256 "cdceff00ffe014495bed3aed71c7910aa88bf29379f795abc0f46d4ee5f8bc5f"
+  revision 1
 
   bottle do
     cellar :any
@@ -28,6 +29,9 @@ class Gdbm < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    # Avoid breaking zsh login shells unnecessarily
+    ln_s "libgdbm.5.dylib", lib/"libgdbm.4.dylib"
   end
 
   test do
