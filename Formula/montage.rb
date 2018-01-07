@@ -20,10 +20,11 @@ class Montage < Formula
     bin.install Dir["bin/m*"]
   end
 
-  def caveats; <<~EOS
-    Montage is under the Caltech/JPL non-exclusive, non-commercial software
-    licence agreement available at:
-      http://montage.ipac.caltech.edu/docs/download.html
+  def caveats
+    <<~EOS
+      Montage is under the Caltech/JPL non-exclusive, non-commercial software
+      licence agreement available at:
+        http://montage.ipac.caltech.edu/docs/download.html
     EOS
   end
 
