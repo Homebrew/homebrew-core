@@ -57,8 +57,9 @@ class Pmd < Formula
     inreplace "#{libexec}/bin/run.sh", "${script_dir}/../lib", "#{libexec}/lib"
   end
 
-  def caveats; <<~EOS
-    Run with `pmd` (instead of `run.sh` as described in the documentation).
+  def caveats
+    <<~EOS
+      Run with `pmd` (instead of `run.sh` as described in the documentation).
     EOS
   end
 
