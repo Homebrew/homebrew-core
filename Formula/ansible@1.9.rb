@@ -545,11 +545,12 @@ class AnsibleAT19 < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    Homebrew writes wrapper scripts that set PYTHONPATH in ansible's
-    execution environment, which is inherited by Python scripts invoked
-    by ansible. If this causes problems, you can modify your playbooks
-    to invoke python with -E, which causes python to ignore PYTHONPATH.
+  def caveats
+    <<~EOS
+      Homebrew writes wrapper scripts that set PYTHONPATH in ansible's
+      execution environment, which is inherited by Python scripts invoked
+      by ansible. If this causes problems, you can modify your playbooks
+      to invoke python with -E, which causes python to ignore PYTHONPATH.
     EOS
   end
 
