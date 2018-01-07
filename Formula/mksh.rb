@@ -20,10 +20,11 @@ class Mksh < Formula
     man1.install "mksh.1"
   end
 
-  def caveats; <<~EOS
-    To allow using mksh as a login shell, run this as root:
-        echo #{HOMEBREW_PREFIX}/bin/mksh >> /etc/shells
-    Then, any user may run `chsh` to change their shell.
+  def caveats
+    <<~EOS
+      To allow using mksh as a login shell, run this as root:
+          echo #{HOMEBREW_PREFIX}/bin/mksh >> /etc/shells
+      Then, any user may run `chsh` to change their shell.
     EOS
   end
 
