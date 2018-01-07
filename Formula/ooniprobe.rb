@@ -213,8 +213,9 @@ class Ooniprobe < Formula
     ln_s pkgshare/"decks/web.yaml", pkgshare/"current.deck"
   end
 
-  def caveats; <<~EOS
-    Decks are installed to #{opt_pkgshare}/decks.
+  def caveats
+    <<~EOS
+      Decks are installed to #{opt_pkgshare}/decks.
     EOS
   end
 
