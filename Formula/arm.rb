@@ -12,13 +12,13 @@ class Arm < Formula
     bin.write_exec_script libexec/"arm"
   end
 
-  def caveats; <<~EOS
-    You'll need to enable the Tor Control Protocol in your torrc.
-    See here for details: https://www.torproject.org/tor-manual.html.en
-
-    To configure Arm, copy the sample configuration from
-    #{opt_libexec}/armrc.sample
-    to ~/.arm/armrc, adjusting as needed.
+  def caveats
+    <<~EOS
+      You'll need to enable the Tor Control Protocol in your torrc.
+      See here for details: https://www.torproject.org/tor-manual.html.en
+       To configure Arm, copy the sample configuration from
+      #{opt_libexec}/armrc.sample
+      to ~/.arm/armrc, adjusting as needed.
     EOS
   end
 end
