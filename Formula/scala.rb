@@ -70,9 +70,10 @@ class Scala < Formula
     idea.install_symlink doc => "doc"
   end
 
-  def caveats; <<~EOS
-    To use with IntelliJ, set the Scala home to:
-      #{opt_prefix}/idea
+  def caveats
+    <<~EOS
+      To use with IntelliJ, set the Scala home to:
+        #{opt_prefix}/idea
     EOS
   end
 
