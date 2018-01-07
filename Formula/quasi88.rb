@@ -28,12 +28,13 @@ class Quasi88 < Formula
     bin.install "quasi88.sdl" => "quasi88"
   end
 
-  def caveats; <<~EOS
-    You will need to place ROM and disk files.
-    Default arguments for the directories are:
-      -romdir ~/quasi88/rom/
-      -diskdir ~/quasi88/disk/
-      -tapedir ~/quasi88/tape/
+  def caveats
+    <<~EOS
+      You will need to place ROM and disk files.
+      Default arguments for the directories are:
+        -romdir ~/quasi88/rom/
+        -diskdir ~/quasi88/disk/
+        -tapedir ~/quasi88/tape/
     EOS
   end
 
