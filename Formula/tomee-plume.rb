@@ -18,11 +18,12 @@ class TomeePlume < Formula
     bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-plume-startup"
   end
 
-  def caveats; <<~EOS
-    The home of Apache TomEE Plume is:
-      #{opt_libexec}
-    To run Apache TomEE:
-      #{opt_libexec}/bin/tomee-plume-startup
+  def caveats
+    <<~EOS
+      The home of Apache TomEE Plume is:
+        #{opt_libexec}
+      To run Apache TomEE:
+        #{opt_libexec}/bin/tomee-plume-startup
     EOS
   end
 
