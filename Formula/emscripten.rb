@@ -85,11 +85,12 @@ class Emscripten < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Manually set LLVM_ROOT to
-      #{opt_libexec}/llvm/bin
-    and comment out BINARYEN_ROOT
-    in ~/.emscripten after running `emcc` for the first time.
+  def caveats
+    <<~EOS
+      Manually set LLVM_ROOT to
+        #{opt_libexec}/llvm/bin
+      and comment out BINARYEN_ROOT
+      in ~/.emscripten after running `emcc` for the first time.
     EOS
   end
 
