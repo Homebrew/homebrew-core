@@ -21,15 +21,14 @@ class Tika < Formula
     bin.write_jar_script libexec/"tika-server-#{version}.jar", "tika-rest-server"
   end
 
-  def caveats; <<~EOS
-    To run Tika:
-      tika
-
-    To run Tika's REST server:
-      tika-rest-server
-
-    See the Tika homepage for more documentation:
-      brew home tika
+  def caveats
+    <<~EOS
+      To run Tika:
+        tika
+       To run Tika's REST server:
+        tika-rest-server
+       See the Tika homepage for more documentation:
+        brew home tika
     EOS
   end
 
