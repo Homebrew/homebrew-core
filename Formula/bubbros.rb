@@ -58,10 +58,11 @@ class Bubbros < Formula
     (bin/"bubbros-server").write shim_script("bubbob/bb.py")
   end
 
-  def shim_script(target); <<~EOS
-    #!/bin/bash
-    cd "#{prefix}"
-    python "#{target}" "$@"
+  def shim_script(target)
+    <<~EOS
+      #!/bin/bash
+      cd "#{prefix}"
+      python "#{target}" "$@"
     EOS
   end
 
