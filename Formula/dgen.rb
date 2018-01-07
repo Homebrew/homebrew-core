@@ -37,9 +37,10 @@ class Dgen < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    If some keyboard inputs do not work, try modifying configuration:
-      ~/.dgen/dgenrc
+  def caveats
+    <<~EOS
+      If some keyboard inputs do not work, try modifying configuration:
+        ~/.dgen/dgenrc
     EOS
   end
 
