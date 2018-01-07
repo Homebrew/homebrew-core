@@ -44,18 +44,15 @@ class Sleepwatcher < Formula
     prefix.install Dir["config/*.plist"]
   end
 
-  def caveats; <<~EOS
-    For SleepWatcher to work, you will need to read the following:
-
-      #{prefix}/ReadMe.rtf
-
-    Ignore information about installing the binary and man page,
-    but read information regarding setup of the launchd files which
-    are installed here:
-
-      #{Dir["#{prefix}/*.plist"].join("\n      ")}
-
-    These are the examples provided by the author.
+  def caveats
+    <<~EOS
+      For SleepWatcher to work, you will need to read the following:
+         #{prefix}/ReadMe.rtf
+       Ignore information about installing the binary and man page,
+      but read information regarding setup of the launchd files which
+      are installed here:
+         #{Dir["#{prefix}/*.plist"].join("\n      ")}
+       These are the examples provided by the author.
     EOS
   end
 end
