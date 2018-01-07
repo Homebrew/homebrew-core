@@ -18,15 +18,15 @@ class HgFlow < Formula
     end
   end
 
-  def caveats; <<~EOS
-    1. Put following lines into your ~/.hgrc
-    2. Restart your shell and try "hg flow".
-    3. For more information go to https://bitbucket.org/yinwm/hgflow
-
-        [extensions]
-        flow = #{opt_libexec}/hgflow.py
-        [flow]
-        autoshelve = true
+  def caveats
+    <<~EOS
+      1. Put following lines into your ~/.hgrc
+      2. Restart your shell and try "hg flow".
+      3. For more information go to https://bitbucket.org/yinwm/hgflow
+           [extensions]
+          flow = #{opt_libexec}/hgflow.py
+          [flow]
+          autoshelve = true
 
     EOS
   end
