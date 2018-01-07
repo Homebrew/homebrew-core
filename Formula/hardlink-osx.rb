@@ -20,11 +20,11 @@ class HardlinkOsx < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    Hardlinks can not be created under the same directory root. If you try to
-    `hln source directory` to target directory under the same root you will get an error!
-
-    Also, remember the binary is named `hln` due to a naming conflict.
+  def caveats
+    <<~EOS
+      Hardlinks can not be created under the same directory root. If you try to
+      `hln source directory` to target directory under the same root you will get an error!
+       Also, remember the binary is named `hln` due to a naming conflict.
     EOS
   end
 
