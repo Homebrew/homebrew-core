@@ -103,19 +103,16 @@ class Wireshark < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This formula only installs the command-line utilities by default.
-
-    Wireshark.app can be downloaded directly from the website:
-      https://www.wireshark.org/
-
-    Alternatively, install with Homebrew-Cask:
-      brew cask install wireshark
-
-    If your list of available capture interfaces is empty
-    (default macOS behavior), install ChmodBPF:
-
-      brew cask install wireshark-chmodbpf
+  def caveats
+    <<~EOS
+      This formula only installs the command-line utilities by default.
+       Wireshark.app can be downloaded directly from the website:
+        https://www.wireshark.org/
+       Alternatively, install with Homebrew-Cask:
+        brew cask install wireshark
+       If your list of available capture interfaces is empty
+      (default macOS behavior), install ChmodBPF:
+         brew cask install wireshark-chmodbpf
     EOS
   end
 
