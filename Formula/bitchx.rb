@@ -31,13 +31,14 @@ class Bitchx < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    On case-sensitive filesytems, it is necessary to run `BitchX` not `bitchx`.
-    For best visual appearance, your terminal emulator may need:
-    * Character encoding set to Western (ISO Latin 1).
-      (or a similar, compatible encoding)
-    * A font capable of extended ASCII characters:
-      See: https://www.google.com/search?q=perfect+dos+vga+437
+  def caveats
+    <<~EOS
+      On case-sensitive filesytems, it is necessary to run `BitchX` not `bitchx`.
+      For best visual appearance, your terminal emulator may need:
+      * Character encoding set to Western (ISO Latin 1).
+        (or a similar, compatible encoding)
+      * A font capable of extended ASCII characters:
+        See: https://www.google.com/search?q=perfect+dos+vga+437
     EOS
   end
 
