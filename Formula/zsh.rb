@@ -4,7 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
   mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
   sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "809518bdbd045925feb18ec7593c633508959ddc681734740fa845ee0d7dbf7e" => :high_sierra
@@ -22,8 +22,8 @@ class Zsh < Formula
 
   deprecated_option "disable-etcdir" => "without-etcdir"
 
-  depends_on "gdbm"
-  depends_on "pcre"
+  depends_on "gdbm" => :optional
+  depends_on "pcre" => :optional
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.2/zsh-5.4.2-doc.tar.xz"
@@ -44,11 +44,12 @@ class Zsh < Formula
       --enable-cap
       --enable-maildir-support
       --enable-multibyte
-      --enable-pcre
       --enable-zsh-secure-free
       --with-tcsetpgrp
     ]
 
+    args << "--disable-gdbm" if build.without? "gdbm"
+    args << "--enable-pcre" if build.with? "pcre"
     args << "--enable-unicode9" if build.with? "unicode9"
 
     if build.without? "etcdir"
