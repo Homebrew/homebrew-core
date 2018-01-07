@@ -112,13 +112,13 @@ class LuaAT51 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
-
-    This is, for now, unavoidable. If this is troublesome for you, you can build
-    rocks with the `--tree=` command to a special, non-conflicting location and
-    then add that to your `$PATH`.
+  def caveats
+    <<~EOS
+      Please be aware due to the way Luarocks is designed any binaries installed
+      via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
+       This is, for now, unavoidable. If this is troublesome for you, you can build
+      rocks with the `--tree=` command to a special, non-conflicting location and
+      then add that to your `$PATH`.
     EOS
   end
 
