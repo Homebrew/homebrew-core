@@ -114,10 +114,11 @@ class ErlangAT19 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Man pages can be found in:
-      #{opt_lib}/erlang/man
-    Access them with `erl -man`, or add this directory to MANPATH.
+  def caveats
+    <<~EOS
+      Man pages can be found in:
+        #{opt_lib}/erlang/man
+      Access them with `erl -man`, or add this directory to MANPATH.
     EOS
   end
 
