@@ -37,14 +37,14 @@ class Fish < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    You will need to add:
-      #{HOMEBREW_PREFIX}/bin/fish
-    to /etc/shells.
-
-    Then run:
-      chsh -s #{HOMEBREW_PREFIX}/bin/fish
-    to make fish your default shell.
+  def caveats
+    <<~EOS
+      You will need to add:
+        #{HOMEBREW_PREFIX}/bin/fish
+      to /etc/shells.
+       Then run:
+        chsh -s #{HOMEBREW_PREFIX}/bin/fish
+      to make fish your default shell.
     EOS
   end
 
