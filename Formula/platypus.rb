@@ -33,14 +33,13 @@ class Platypus < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This formula only installs the command-line Platypus tool, not the GUI.
-
-    The GUI can be downloaded from Platypus' website:
-      https://sveinbjorn.org/platypus
-
-    Alternatively, install with Homebrew-Cask:
-      brew cask install platypus
+  def caveats
+    <<~EOS
+      This formula only installs the command-line Platypus tool, not the GUI.
+       The GUI can be downloaded from Platypus' website:
+        https://sveinbjorn.org/platypus
+       Alternatively, install with Homebrew-Cask:
+        brew cask install platypus
     EOS
   end
 
