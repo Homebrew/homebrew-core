@@ -97,14 +97,13 @@ class YleDl < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    yle-dl requires the mcrypt PHP module which you can either install manually or install
-    mcrypt from the PHP homebrew tap. You can also install yle-dl with one of optional dependencies
-    which to automatically tap the php tap and download mcrypt module for you.
-
-      brew info yle-dl
-
-    for further info.
+  def caveats
+    <<~EOS
+      yle-dl requires the mcrypt PHP module which you can either install manually or install
+      mcrypt from the PHP homebrew tap. You can also install yle-dl with one of optional dependencies
+      which to automatically tap the php tap and download mcrypt module for you.
+         brew info yle-dl
+       for further info.
     EOS
   end
 
