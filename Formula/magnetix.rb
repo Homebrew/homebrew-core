@@ -32,9 +32,10 @@ class Magnetix < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Install games in the following directory:
-      ~/Library/Application Support/magnetiX/
+  def caveats
+    <<~EOS
+      Install games in the following directory:
+        ~/Library/Application Support/magnetiX/
     EOS
   end
 
