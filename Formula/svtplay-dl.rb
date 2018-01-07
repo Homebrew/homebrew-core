@@ -117,9 +117,10 @@ class SvtplayDl < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    To use post-processing options:
-      `brew install ffmpeg` or `brew install libav`.
+  def caveats
+    <<~EOS
+      To use post-processing options:
+        `brew install ffmpeg` or `brew install libav`.
   EOS
   end
 
