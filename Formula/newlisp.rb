@@ -29,9 +29,10 @@ class Newlisp < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    If you have brew in a custom prefix, the included examples
-    will need to be be pointed to your newlisp executable.
+  def caveats
+    <<~EOS
+      If you have brew in a custom prefix, the included examples
+      will need to be be pointed to your newlisp executable.
     EOS
   end
 
