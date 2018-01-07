@@ -136,60 +136,62 @@ class Couchdb < Formula
     str
   end
 
-  def geocouch_caveats; <<~EOS
-    GeoCouch Caveats:
-    FYI:  geocouch installs as an extension of couchdb, so couchdb effectively
-    becomes geocouch.  However, you can use couchdb normally (using geocouch
-    extensions optionally).  NB: one exception: the couchdb test suite now
-    includes several geocouch tests.
-    To start geocouch manually and verify any geocouch version information (-V),
-      ERL_FLAGS="-pa #{geocouch_share}/ebin"  couchdb -V
-    For general convenience, export your ERL_FLAGS (erlang flags, above) in
-    your login shell, and then start geocouch:
-      export ERL_FLAGS="-pa #{geocouch_share}/ebin"
-      couchdb
-    Alternately, prepare launchctl to start/stop geocouch as follows:
-      cp #{geocouch_share}/geocouch.plist ~/Library/LaunchAgents
-      chmod 0644 ~/Library/LaunchAgents/geocouch.plist
-      launchctl load ~/Library/LaunchAgents/geocouch.plist
-    Then start, check status of, and stop geocouch with the following three
-    commands.
-      launchctl start geocouch
-      launchctl list geocouch
-      launchctl stop geocouch
-    Finally, access, test, and configure your new geocouch with:
-      http://127.0.0.1:5984
-      http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
-      http://127.0.0.1:5984/_utils
-    And... relax.
-    -=-
-    To uninstall geocouch from your couchdb installation, uninstall couchdb
-    and re-install it without the '--with-geocouch' option.
-      brew uninstall couchdb
-      brew install couchdb
-    To see these instructions again, just run 'brew info couchdb'.
+  def geocouch_caveats
+    <<~EOS
+      GeoCouch Caveats:
+      FYI:  geocouch installs as an extension of couchdb, so couchdb effectively
+      becomes geocouch.  However, you can use couchdb normally (using geocouch
+      extensions optionally).  NB: one exception: the couchdb test suite now
+      includes several geocouch tests.
+      To start geocouch manually and verify any geocouch version information (-V),
+        ERL_FLAGS="-pa #{geocouch_share}/ebin"  couchdb -V
+      For general convenience, export your ERL_FLAGS (erlang flags, above) in
+      your login shell, and then start geocouch:
+        export ERL_FLAGS="-pa #{geocouch_share}/ebin"
+        couchdb
+      Alternately, prepare launchctl to start/stop geocouch as follows:
+        cp #{geocouch_share}/geocouch.plist ~/Library/LaunchAgents
+        chmod 0644 ~/Library/LaunchAgents/geocouch.plist
+        launchctl load ~/Library/LaunchAgents/geocouch.plist
+      Then start, check status of, and stop geocouch with the following three
+      commands.
+        launchctl start geocouch
+        launchctl list geocouch
+        launchctl stop geocouch
+      Finally, access, test, and configure your new geocouch with:
+        http://127.0.0.1:5984
+        http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
+        http://127.0.0.1:5984/_utils
+      And... relax.
+      -=-
+      To uninstall geocouch from your couchdb installation, uninstall couchdb
+      and re-install it without the '--with-geocouch' option.
+        brew uninstall couchdb
+        brew install couchdb
+      To see these instructions again, just run 'brew info couchdb'.
     EOS
   end
 
   plist_options :manual => "couchdb"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/couchdb</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/couchdb</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+      </plist>
     EOS
   end
 
