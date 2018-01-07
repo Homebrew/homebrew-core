@@ -16,6 +16,8 @@ class Statik < Formula
 
   depends_on "python" if MacOS.version <= :snow_leopard
 
+  conflicts_with "go-statik", :because => "both install `statik` binaries"
+
   def install
     venv = virtualenv_create(libexec)
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
