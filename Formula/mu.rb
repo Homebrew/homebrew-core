@@ -56,10 +56,10 @@ class Mu < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Existing mu users are recommended to run the following after upgrading:
-
-      mu index --rebuild
+  def caveats
+    <<~EOS
+      Existing mu users are recommended to run the following after upgrading:
+         mu index --rebuild
     EOS
   end
 
