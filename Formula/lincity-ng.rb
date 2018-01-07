@@ -44,9 +44,10 @@ class LincityNg < Formula
     rm_rf ["#{pkgshare}/applications", "#{pkgshare}/pixmaps"]
   end
 
-  def caveats; <<~EOS
-    If you have problem with fullscreen, try running in windowed mode:
-      lincity-ng -w
+  def caveats
+    <<~EOS
+      If you have problem with fullscreen, try running in windowed mode:
+        lincity-ng -w
     EOS
   end
 
