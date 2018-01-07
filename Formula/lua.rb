@@ -82,36 +82,36 @@ class Lua < Formula
     end
   end
 
-  def pc_file; <<~EOS
-    V= 5.3
-    R= #{version}
-    prefix=#{HOMEBREW_PREFIX}
-    INSTALL_BIN= ${prefix}/bin
-    INSTALL_INC= ${prefix}/include
-    INSTALL_LIB= ${prefix}/lib
-    INSTALL_MAN= ${prefix}/share/man/man1
-    INSTALL_LMOD= ${prefix}/share/lua/${V}
-    INSTALL_CMOD= ${prefix}/lib/lua/${V}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
-
-    Name: Lua
-    Description: An Extensible Extension Language
-    Version: #{version}
-    Requires:
-    Libs: -L${libdir} -llua -lm
-    Cflags: -I${includedir}
+  def pc_file
+    <<~EOS
+      V= 5.3
+      R= #{version}
+      prefix=#{HOMEBREW_PREFIX}
+      INSTALL_BIN= ${prefix}/bin
+      INSTALL_INC= ${prefix}/include
+      INSTALL_LIB= ${prefix}/lib
+      INSTALL_MAN= ${prefix}/share/man/man1
+      INSTALL_LMOD= ${prefix}/share/lua/${V}
+      INSTALL_CMOD= ${prefix}/lib/lua/${V}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+       Name: Lua
+      Description: An Extensible Extension Language
+      Version: #{version}
+      Requires:
+      Libs: -L${libdir} -llua -lm
+      Cflags: -I${includedir}
     EOS
   end
 
-  def caveats; <<~EOS
-    Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
-
-    This is, for now, unavoidable. If this is troublesome for you, you can build
-    rocks with the `--tree=` command to a special, non-conflicting location and
-    then add that to your `$PATH`.
+  def caveats
+    <<~EOS
+      Please be aware due to the way Luarocks is designed any binaries installed
+      via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
+       This is, for now, unavoidable. If this is troublesome for you, you can build
+      rocks with the `--tree=` command to a special, non-conflicting location and
+      then add that to your `$PATH`.
     EOS
   end
 
