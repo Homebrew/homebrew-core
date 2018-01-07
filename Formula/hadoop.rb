@@ -30,13 +30,14 @@ class Hadoop < Formula
       "export JAVA_HOME=\"$(/usr/libexec/java_home)\""
   end
 
-  def caveats; <<~EOS
-    In Hadoop's config file:
-      #{libexec}/etc/hadoop/hadoop-env.sh,
-      #{libexec}/etc/hadoop/mapred-env.sh and
-      #{libexec}/etc/hadoop/yarn-env.sh
-    $JAVA_HOME has been set to be the output of:
-      /usr/libexec/java_home
+  def caveats
+    <<~EOS
+      In Hadoop's config file:
+        #{libexec}/etc/hadoop/hadoop-env.sh,
+        #{libexec}/etc/hadoop/mapred-env.sh and
+        #{libexec}/etc/hadoop/yarn-env.sh
+      $JAVA_HOME has been set to be the output of:
+        /usr/libexec/java_home
     EOS
   end
 
