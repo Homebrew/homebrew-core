@@ -29,9 +29,10 @@ class Cfssl < Formula
     end
   end
 
-  def caveats; <<~EOS
-    `mkbundle` has been installed as `cfsslmkbundle` to avoid conflict
-    with Mono and other tools that ship the same executable.
+  def caveats
+    <<~EOS
+      `mkbundle` has been installed as `cfsslmkbundle` to avoid conflict
+      with Mono and other tools that ship the same executable.
   EOS
   end
 
