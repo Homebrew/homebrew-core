@@ -1,10 +1,8 @@
-require "language/go"
-
 class Devd < Formula
   desc "Local webserver for developers"
   homepage "https://github.com/cortesi/devd"
-  url "https://github.com/cortesi/devd/archive/v0.7.tar.gz"
-  sha256 "c1d2f102e017da92bf6c333ba90c305eb90085aec342a69e7a7889b3b685da96"
+  url "https://github.com/cortesi/devd/archive/v0.8.tar.gz"
+  sha256 "a73bd347f0d0f452be183e365492fb8bb86954b3cd837c9dfe256926bf7feb5b"
   head "https://github.com/cortesi/devd.git"
 
   bottle do
@@ -17,22 +15,11 @@ class Devd < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/cortesi/moddwatch" do
-    url "https://github.com/cortesi/moddwatch.git",
-        :revision => "a149019f9ed6f16033de28f66d8c1247593a0104"
-  end
-
-  go_resource "github.com/cortesi/termlog" do
-    url "https://github.com/cortesi/termlog.git",
-        :revision => "2ed14eb6ce62ec5bcc3fd25885a1d13d53f34fd1"
-  end
-
   def install
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/cortesi/devd" do
       system "go", "build", "-o", bin/"devd", ".../cmd/devd"
       prefix.install_metafiles
