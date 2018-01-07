@@ -25,12 +25,12 @@ class Jpcsp < Formula
     mv "#{bin}/JavaApplicationStub", "#{bin}/jpcsp"
   end
 
-  def caveats; <<~EOS
-    ISO/CSO images are to be placed in the following directory:
-      #{prefix}/Jpcsp.app/Contents/Resources/Java/umdimages
-
-    To avoid any incidental wipeout upon future updates, change it to
-    a safe location (under Options > Settings > General > UMD path folders).
+  def caveats
+    <<~EOS
+      ISO/CSO images are to be placed in the following directory:
+        #{prefix}/Jpcsp.app/Contents/Resources/Java/umdimages
+       To avoid any incidental wipeout upon future updates, change it to
+      a safe location (under Options > Settings > General > UMD path folders).
     EOS
   end
 end
