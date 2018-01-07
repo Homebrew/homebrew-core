@@ -12,15 +12,15 @@ class Liquidprompt < Formula
     share.install "liquidprompt"
   end
 
-  def caveats; <<~EOS
-    Add the following lines to your bash or zsh config (e.g. ~/.bash_profile):
-      if [ -f #{HOMEBREW_PREFIX}/share/liquidprompt ]; then
-        . #{HOMEBREW_PREFIX}/share/liquidprompt
-      fi
-
-    If you'd like to reconfigure options, you may do so in ~/.liquidpromptrc.
-    A sample file you may copy and modify has been installed to
-      #{HOMEBREW_PREFIX}/share/liquidpromptrc-dist
+  def caveats
+    <<~EOS
+      Add the following lines to your bash or zsh config (e.g. ~/.bash_profile):
+        if [ -f #{HOMEBREW_PREFIX}/share/liquidprompt ]; then
+          . #{HOMEBREW_PREFIX}/share/liquidprompt
+        fi
+       If you'd like to reconfigure options, you may do so in ~/.liquidpromptrc.
+      A sample file you may copy and modify has been installed to
+        #{HOMEBREW_PREFIX}/share/liquidpromptrc-dist
     EOS
   end
 
