@@ -61,17 +61,17 @@ class Luabind < Formula
     (lib/"pkgconfig/luabind.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{HOMEBREW_PREFIX}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${exec_prefix}/include
-
-    Name: luabind
-    Description: Library for bindings between C++ and Lua
-    Version: 0.9.1
-    Libs: -L${libdir} -lluabind
-    Cflags: -I${includedir}
+  def pc_file
+    <<~EOS
+      prefix=#{HOMEBREW_PREFIX}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${exec_prefix}/include
+       Name: luabind
+      Description: Library for bindings between C++ and Lua
+      Version: 0.9.1
+      Libs: -L${libdir} -lluabind
+      Cflags: -I${includedir}
     EOS
   end
 
