@@ -7,9 +7,10 @@ class Languagetool < Formula
   bottle :unneeded
   depends_on :java => "1.8+"
 
-  def server_script(server_jar); <<~EOS
-    #!/bin/bash
-    exec java -cp #{server_jar} org.languagetool.server.HTTPServer "$@"
+  def server_script(server_jar)
+    <<~EOS
+      #!/bin/bash
+      exec java -cp #{server_jar} org.languagetool.server.HTTPServer "$@"
     EOS
   end
 
