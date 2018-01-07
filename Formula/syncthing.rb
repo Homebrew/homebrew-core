@@ -31,34 +31,35 @@ class Syncthing < Formula
 
   plist_options :manual => "syncthing"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/syncthing</string>
-          <string>-no-browser</string>
-          <string>-no-restart</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Crashed</key>
-          <true/>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/syncthing</string>
+            <string>-no-browser</string>
+            <string>-no-restart</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProcessType</key>
+          <string>Background</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/syncthing.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/syncthing.log</string>
         </dict>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/syncthing.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/syncthing.log</string>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 
