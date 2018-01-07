@@ -148,8 +148,9 @@ class Cctools < Formula
     end
   end
 
-  def caveats; <<~EOS
-    cctools's version of ld was not built.
+  def caveats
+    <<~EOS
+      cctools's version of ld was not built.
     EOS
   end
 
