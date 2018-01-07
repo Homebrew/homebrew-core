@@ -18,11 +18,12 @@ class TomeeJaxRs < Formula
     bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-jax-rs-startup"
   end
 
-  def caveats; <<~EOS
-    The home of Apache TomEE JAX-RS is:
-      #{opt_libexec}
-    To run Apache TomEE:
-      #{opt_libexec}/bin/tomee-jax-rs-startup
+  def caveats
+    <<~EOS
+      The home of Apache TomEE JAX-RS is:
+        #{opt_libexec}
+      To run Apache TomEE:
+        #{opt_libexec}/bin/tomee-jax-rs-startup
     EOS
   end
 
