@@ -27,9 +27,10 @@ class Bettercap < Formula
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
   end
 
-  def caveats; <<~EOS
-    bettercap requires root privileges so you will need to run `sudo bettercap`.
-    You should be certain that you trust any software you grant root privileges.
+  def caveats
+    <<~EOS
+      bettercap requires root privileges so you will need to run `sudo bettercap`.
+      You should be certain that you trust any software you grant root privileges.
     EOS
   end
 
