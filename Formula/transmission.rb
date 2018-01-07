@@ -39,45 +39,45 @@ class Transmission < Formula
     (var/"transmission").mkpath
   end
 
-  def caveats; <<~EOS
-    This formula only installs the command line utilities.
-
-    Transmission.app can be downloaded directly from the website:
-      https://www.transmissionbt.com/
-
-    Alternatively, install with Homebrew-Cask:
-      brew cask install transmission
+  def caveats
+    <<~EOS
+      This formula only installs the command line utilities.
+       Transmission.app can be downloaded directly from the website:
+        https://www.transmissionbt.com/
+       Alternatively, install with Homebrew-Cask:
+        brew cask install transmission
     EOS
   end
 
   plist_options :manual => "transmission-daemon --foreground"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/transmission-daemon</string>
-          <string>--foreground</string>
-          <string>--config-dir</string>
-          <string>#{var}/transmission/</string>
-          <string>--log-info</string>
-          <string>--logfile</string>
-          <string>#{var}/transmission/transmission-daemon.log</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>NetworkState</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/transmission-daemon</string>
+            <string>--foreground</string>
+            <string>--config-dir</string>
+            <string>#{var}/transmission/</string>
+            <string>--log-info</string>
+            <string>--logfile</string>
+            <string>#{var}/transmission/transmission-daemon.log</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>NetworkState</key>
+            <true/>
+          </dict>
+          <key>RunAtLoad</key>
           <true/>
         </dict>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 
