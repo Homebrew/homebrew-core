@@ -14,9 +14,10 @@ class Liquibase < Formula
     bin.install_symlink libexec/"liquibase"
   end
 
-  def caveats; <<~EOS
-    You should set the environment variable LIQUIBASE_HOME to
-      #{opt_libexec}
+  def caveats
+    <<~EOS
+      You should set the environment variable LIQUIBASE_HOME to
+        #{opt_libexec}
     EOS
   end
 
