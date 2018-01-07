@@ -6,9 +6,9 @@ class GstPluginsBase < Formula
   revision 1
 
   bottle do
-    sha256 "9f65b1fc26269b84233f153f67d586b03f8975a59f762ad37c4848407deb74ed" => :high_sierra
-    sha256 "66af7b852e6f1035719005bdb5d36eddcd525bb34a96ca50303dd9d741fcfc89" => :sierra
-    sha256 "0efc68a23f92a5ef48a19eb20e0590c3c328c9da53bdf00740fa82fd43565d8e" => :el_capitan
+    sha256 "5f595223e492a2b66ea22915de47eb95479e3ee9d2428fff3117a49f0d5199ed" => :high_sierra
+    sha256 "c310d86d1776dc4e06581fa4c79b7bc74744220a232f772dc2946da970466790" => :sierra
+    sha256 "b354e7294fe96a2f0f4a55ff8b5a20c39b5a3263e1719860b56b3ffce21bb14f" => :el_capitan
   end
 
   head do
