@@ -11,7 +11,7 @@ class Jenkins < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def install
     if build.head?
@@ -40,7 +40,11 @@ class Jenkins < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>/usr/bin/java</string>
+          <string>/usr/libexec/java_home</string>
+          <string>-v</string>
+          <string>1.8</string>
+          <string>--exec</string>
+          <string>java</string>
           <string>-Dmail.smtp.starttls.enable=true</string>
           <string>-jar</string>
           <string>#{opt_libexec}/jenkins.war</string>
