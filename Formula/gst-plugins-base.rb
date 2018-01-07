@@ -3,6 +3,7 @@ class GstPluginsBase < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.12.4.tar.xz"
   sha256 "4c306b03df0212f1b8903784e29bb3493319ba19ebebf13b0c56a17870292282"
+  revision 1
 
   bottle do
     sha256 "9f65b1fc26269b84233f153f67d586b03f8975a59f762ad37c4848407deb74ed" => :high_sierra
@@ -29,7 +30,7 @@ class GstPluginsBase < Formula
   depends_on "orc" => :recommended
   depends_on "libogg" => :optional
   depends_on "opus" => :optional
-  depends_on "pango" => :optional
+  depends_on "pango" => :recommended
   depends_on "theora" => :optional
   depends_on "libvorbis" => :optional
 
