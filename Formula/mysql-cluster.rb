@@ -136,73 +136,66 @@ class MysqlCluster < Formula
     (var/"mysql-cluster/conf/config.ini").write config_ini unless File.exist? var/"mysql-cluster/conf/config.ini"
   end
 
-  def caveats; <<~EOS
-    To get started with MySQL Cluster, read MySQL Cluster Quick Start at
-      https://dev.mysql.com/downloads/cluster/
-
-    Default configuration files have been created inside:
-      #{var}/mysql-cluster
-    Note that in a production system there are other parameters
-    that you would set to tune the configuration.
-    MySQL is configured to only allow connections from localhost by default
-
-    Set up databases to run AS YOUR USER ACCOUNT with:
-      unset TMPDIR
-      mysql_install_db --verbose --user=`whoami` --basedir="#{opt_prefix}" --datadir=#{var}/mysql-cluster/mysqld_data --tmpdir=/tmp
-
-    For a first cluster, you may start with a single MySQL Server (mysqld),
-    a pair of Data Nodes (ndbd) and a single management node (ndb_mgmd):
-
-      ndb_mgmd -f #{var}/mysql-cluster/conf/config.ini --initial --configdir=#{var}/mysql-cluster/conf/
-      ndbd -c localhost:1186
-      ndbd -c localhost:1186
-      mysqld --defaults-file=#{var}/mysql-cluster/conf/my.cnf &
-      mysql -h 127.0.0.1 -P 5000 -u root -p
-      (Leave the password empty and press Enter)
-        create database clusterdb;
-        use clusterdb;
-        create table simples (id int not null primary key) engine=ndb;
-        insert into simples values (1),(2),(3),(4);
-        select * from simples;
-
-    To shutdown everything:
-
-      mysqladmin -u root -p shutdown
-      ndb_mgm -e shutdown
+  def caveats
+    <<~EOS
+      To get started with MySQL Cluster, read MySQL Cluster Quick Start at
+        https://dev.mysql.com/downloads/cluster/
+       Default configuration files have been created inside:
+        #{var}/mysql-cluster
+      Note that in a production system there are other parameters
+      that you would set to tune the configuration.
+      MySQL is configured to only allow connections from localhost by default
+       Set up databases to run AS YOUR USER ACCOUNT with:
+        unset TMPDIR
+        mysql_install_db --verbose --user=`whoami` --basedir="#{opt_prefix}" --datadir=#{var}/mysql-cluster/mysqld_data --tmpdir=/tmp
+       For a first cluster, you may start with a single MySQL Server (mysqld),
+      a pair of Data Nodes (ndbd) and a single management node (ndb_mgmd):
+         ndb_mgmd -f #{var}/mysql-cluster/conf/config.ini --initial --configdir=#{var}/mysql-cluster/conf/
+        ndbd -c localhost:1186
+        ndbd -c localhost:1186
+        mysqld --defaults-file=#{var}/mysql-cluster/conf/my.cnf &
+        mysql -h 127.0.0.1 -P 5000 -u root -p
+        (Leave the password empty and press Enter)
+          create database clusterdb;
+          use clusterdb;
+          create table simples (id int not null primary key) engine=ndb;
+          insert into simples values (1),(2),(3),(4);
+          select * from simples;
+       To shutdown everything:
+         mysqladmin -u root -p shutdown
+        ndb_mgm -e shutdown
     EOS
   end
 
-  def my_cnf; <<~EOS
-    [mysqld]
-    ndbcluster
-    datadir=#{var}/mysql-cluster/mysqld_data
-    basedir=#{opt_prefix}
-    port=5000
-    # Only allow connections from localhost
-    bind-address = 127.0.0.1
+  def my_cnf
+    <<~EOS
+      [mysqld]
+      ndbcluster
+      datadir=#{var}/mysql-cluster/mysqld_data
+      basedir=#{opt_prefix}
+      port=5000
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
     EOS
   end
 
-  def config_ini; <<~EOS
-    [ndb_mgmd]
-    hostname=localhost
-    datadir=#{var}/mysql-cluster/ndb_data
-    NodeId=1
-
-    [ndbd default]
-    noofreplicas=2
-    datadir=#{var}/mysql-cluster/ndb_data
-
-    [ndbd]
-    hostname=localhost
-    NodeId=3
-
-    [ndbd]
-    hostname=localhost
-    NodeId=4
-
-    [mysqld]
-    NodeId=50
+  def config_ini
+    <<~EOS
+      [ndb_mgmd]
+      hostname=localhost
+      datadir=#{var}/mysql-cluster/ndb_data
+      NodeId=1
+       [ndbd default]
+      noofreplicas=2
+      datadir=#{var}/mysql-cluster/ndb_data
+       [ndbd]
+      hostname=localhost
+      NodeId=3
+       [ndbd]
+      hostname=localhost
+      NodeId=4
+       [mysqld]
+      NodeId=50
     EOS
   end
 
@@ -218,82 +211,85 @@ class MysqlCluster < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def mysqld_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/mysqld</string>
-        <string>--defaults-file=#{var}/mysql-cluster/conf/my.cnf</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
+  def mysqld_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mysqld</string>
+          <string>--defaults-file=#{var}/mysql-cluster/conf/my.cnf</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+      </plist>
     EOS
   end
 
-  def ndb_mgmd_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/ndb_mgmd</string>
-        <string>--nodaemon</string>
-        <string>-f</string>
-        <string>#{var}/mysql-cluster/conf/config.ini</string>
-        <string>--initial</string>
-        <string>--configdir=#{var}/mysql-cluster/conf/</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/mysql-cluster/#{name}.log</string>
-    </dict>
-    </plist>
+  def ndb_mgmd_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/ndb_mgmd</string>
+          <string>--nodaemon</string>
+          <string>-f</string>
+          <string>#{var}/mysql-cluster/conf/config.ini</string>
+          <string>--initial</string>
+          <string>--configdir=#{var}/mysql-cluster/conf/</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/mysql-cluster/#{name}.log</string>
+      </dict>
+      </plist>
     EOS
   end
 
-  def ndbd_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/ndbd</string>
-        <string>--nodaemon</string>
-        <string>-c</string>
-        <string>localhost:1186</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/mysql-cluster/#{name}.log</string>
-    </dict>
-    </plist>
+  def ndbd_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/ndbd</string>
+          <string>--nodaemon</string>
+          <string>-c</string>
+          <string>localhost:1186</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/mysql-cluster/#{name}.log</string>
+      </dict>
+      </plist>
     EOS
   end
 
