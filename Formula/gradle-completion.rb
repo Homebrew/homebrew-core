@@ -1,8 +1,8 @@
 class GradleCompletion < Formula
   desc "Bash and Zsh completion for Gradle"
   homepage "https://gradle.org/"
-  url "https://github.com/gradle/gradle-completion/archive/v1.3.0.tar.gz"
-  sha256 "e4d16bde2bb008f91181c0c98f1cfac06bce137d5c98604169fc8c0a8a810524"
+  url "https://github.com/gradle/gradle-completion/archive/v1.3.1.tar.gz"
+  sha256 "d2a83ed883f5ca7f209e23f3b0b500bd849221f8a5aeaab1517afade8f20b3d2"
   head "https://github.com/gradle/gradle-completion.git"
 
   bottle :unneeded
