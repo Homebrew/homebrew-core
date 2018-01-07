@@ -18,11 +18,11 @@ class Ptunnel < Formula
     system "make", "install", "prefix=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    Normally, ptunnel uses raw sockets and must be run as root (using sudo, for example).
-
-    Alternatively, you can try using the -u flag to start ptunnel in 'unprivileged' mode,
-    but this is not recommended. See https://www.cs.uit.no/~daniels/PingTunnel/ for details.
+  def caveats
+    <<~EOS
+      Normally, ptunnel uses raw sockets and must be run as root (using sudo, for example).
+       Alternatively, you can try using the -u flag to start ptunnel in 'unprivileged' mode,
+      but this is not recommended. See https://www.cs.uit.no/~daniels/PingTunnel/ for details.
     EOS
   end
 
