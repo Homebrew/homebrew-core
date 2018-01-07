@@ -30,9 +30,10 @@ class Henplus < Formula
     system "ant", "install", "-Dprefix=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    You may need to set JAVA_HOME:
-      export JAVA_HOME="$(/usr/libexec/java_home)"
+  def caveats
+    <<~EOS
+      You may need to set JAVA_HOME:
+        export JAVA_HOME="$(/usr/libexec/java_home)"
     EOS
   end
 
