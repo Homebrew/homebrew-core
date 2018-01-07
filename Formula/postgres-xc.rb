@@ -119,49 +119,40 @@ class PostgresXc < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To get started with Postgres-XC, read the documents at
-      https://sourceforge.net/projects/postgres-xc/files/Publication/
-      https://postgres-xc.sourceforge.io/docs/1_0/tutorial-start.html
-
-    For a first cluster, you may start with a single GTM (Global Transaction Manager),
-    a pair of Data Nodes and a single Coordinator, all on the same machine:
-
-      initgtm -Z gtm -D #{var}/postgres-xc/gtm
-      initdb -D #{var}/postgres-xc/datanode1 --nodename datanode1
-      initdb -D #{var}/postgres-xc/datanode2 --nodename datanode2
-      initdb -D #{var}/postgres-xc/coord --nodename coord
-
-    Then edit:
-
-      #{var}/postgres-xc/datanode1/postgresql.conf
-      #{var}/postgres-xc/datanode2/postgresql.conf
-
-    and change the port to 15432 and 15433, respectively.
-
-    Then, launch the nodes and connect to the coordinator:
-
-      gtm -D #{var}/postgres-xc/gtm -l #{var}/postgres-xc/gtm/server.log &
-      postgres -i -X -D #{var}/postgres-xc/datanode1 -r #{var}/postgres-xc/datanode1/server.log &
-      postgres -i -X -D #{var}/postgres-xc/datanode2 -r #{var}/postgres-xc/datanode2/server.log &
-      postgres -i -C -D #{var}/postgres-xc/coord -r #{var}/postgres-xc/coord/server.log &
-      psql postgres
-        create node datanode1 with (type='datanode', port=15432);
-        create node datanode2 with (type='datanode', port=15433);
-        select * from pgxc_node;
-        select pgxc_pool_reload();
-
-    To shutdown everything, kill the processes in reverse order:
-
-      kill -SIGTERM `head -1 #{var}/postgres-xc/coord/postmaster.pid`
-      kill -SIGTERM `head -1 #{var}/postgres-xc/datanode1/postmaster.pid`
-      kill -SIGTERM `head -1 #{var}/postgres-xc/datanode2/postmaster.pid`
-      kill -SIGTERM `head -1 #{var}/postgres-xc/gtm/gtm.pid`
-
-    If you get the following error:
-      FATAL:  could not create shared memory segment: Cannot allocate memory
-    then you need to tweak your system's shared memory parameters:
-      https://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
+  def caveats
+    <<~EOS
+      To get started with Postgres-XC, read the documents at
+        https://sourceforge.net/projects/postgres-xc/files/Publication/
+        https://postgres-xc.sourceforge.io/docs/1_0/tutorial-start.html
+       For a first cluster, you may start with a single GTM (Global Transaction Manager),
+      a pair of Data Nodes and a single Coordinator, all on the same machine:
+         initgtm -Z gtm -D #{var}/postgres-xc/gtm
+        initdb -D #{var}/postgres-xc/datanode1 --nodename datanode1
+        initdb -D #{var}/postgres-xc/datanode2 --nodename datanode2
+        initdb -D #{var}/postgres-xc/coord --nodename coord
+       Then edit:
+         #{var}/postgres-xc/datanode1/postgresql.conf
+        #{var}/postgres-xc/datanode2/postgresql.conf
+       and change the port to 15432 and 15433, respectively.
+       Then, launch the nodes and connect to the coordinator:
+         gtm -D #{var}/postgres-xc/gtm -l #{var}/postgres-xc/gtm/server.log &
+        postgres -i -X -D #{var}/postgres-xc/datanode1 -r #{var}/postgres-xc/datanode1/server.log &
+        postgres -i -X -D #{var}/postgres-xc/datanode2 -r #{var}/postgres-xc/datanode2/server.log &
+        postgres -i -C -D #{var}/postgres-xc/coord -r #{var}/postgres-xc/coord/server.log &
+        psql postgres
+          create node datanode1 with (type='datanode', port=15432);
+          create node datanode2 with (type='datanode', port=15433);
+          select * from pgxc_node;
+          select pgxc_pool_reload();
+       To shutdown everything, kill the processes in reverse order:
+         kill -SIGTERM `head -1 #{var}/postgres-xc/coord/postmaster.pid`
+        kill -SIGTERM `head -1 #{var}/postgres-xc/datanode1/postmaster.pid`
+        kill -SIGTERM `head -1 #{var}/postgres-xc/datanode2/postmaster.pid`
+        kill -SIGTERM `head -1 #{var}/postgres-xc/gtm/gtm.pid`
+       If you get the following error:
+        FATAL:  could not create shared memory segment: Cannot allocate memory
+      then you need to tweak your system's shared memory parameters:
+        https://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
     EOS
   end
 
@@ -177,125 +168,129 @@ class PostgresXc < Formula
     extra ? super().dirname+(plist_name(extra)+".plist") : super()
   end
 
-  def gtm_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/gtm</string>
-        <string>-D</string>
-        <string>#{var}/postgres-xc/#{name}</string>
-        <string>-l</string>
+  def gtm_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/gtm</string>
+          <string>-D</string>
+          <string>#{var}/postgres-xc/#{name}</string>
+          <string>-l</string>
+          <string>#{var}/postgres-xc/#{name}/server.log</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
         <string>#{var}/postgres-xc/#{name}/server.log</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/postgres-xc/#{name}/server.log</string>
-    </dict>
-    </plist>
+      </dict>
+      </plist>
     EOS
   end
 
-  def gtm_proxy_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/gtm_proxy</string>
-        <string>-D</string>
-        <string>#{var}/postgres-xc/#{name}</string>
-        <string>-n</string>
-        <string>2</string>
-        <string>-s</string>
-        <string>localhost</string>
-        <string>-t</string>
-        <string>6666</string>
-        <string>-l</string>
+  def gtm_proxy_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/gtm_proxy</string>
+          <string>-D</string>
+          <string>#{var}/postgres-xc/#{name}</string>
+          <string>-n</string>
+          <string>2</string>
+          <string>-s</string>
+          <string>localhost</string>
+          <string>-t</string>
+          <string>6666</string>
+          <string>-l</string>
+          <string>#{var}/postgres-xc/#{name}/server.log</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
         <string>#{var}/postgres-xc/#{name}/server.log</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/postgres-xc/#{name}/server.log</string>
-    </dict>
-    </plist>
+      </dict>
+      </plist>
     EOS
   end
 
-  def coordinator_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/postgres</string>
-        <string>-i</string>
-        <string>-C</string>
-        <string>-D</string>
-        <string>#{var}/postgres-xc/#{name}</string>
-        <string>-r</string>
+  def coordinator_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/postgres</string>
+          <string>-i</string>
+          <string>-C</string>
+          <string>-D</string>
+          <string>#{var}/postgres-xc/#{name}</string>
+          <string>-r</string>
+          <string>#{var}/postgres-xc/#{name}/server.log</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
         <string>#{var}/postgres-xc/#{name}/server.log</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/postgres-xc/#{name}/server.log</string>
-    </dict>
-    </plist>
+      </dict>
+      </plist>
     EOS
   end
 
-  def datanode_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/postgres</string>
-        <string>-i</string>
-        <string>-X</string>
-        <string>-D</string>
-        <string>#{var}/postgres-xc/#{name}</string>
-        <string>-r</string>
+  def datanode_startup_plist(name)
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name(name)}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/postgres</string>
+          <string>-i</string>
+          <string>-X</string>
+          <string>-D</string>
+          <string>#{var}/postgres-xc/#{name}</string>
+          <string>-r</string>
+          <string>#{var}/postgres-xc/#{name}/server.log</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
         <string>#{var}/postgres-xc/#{name}/server.log</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/postgres-xc/#{name}/server.log</string>
-    </dict>
-    </plist>
+      </dict>
+      </plist>
     EOS
   end
 
