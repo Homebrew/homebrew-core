@@ -31,14 +31,13 @@ class GitLfs < Formula
     doc.install Dir["man/*.html"]
   end
 
-  def caveats; <<~EOS
-    Update your git config to finish installation:
-
-      # Update global git config
-      $ git lfs install
-
-      # Update system git config
-      $ git lfs install --system
+  def caveats
+    <<~EOS
+      Update your git config to finish installation:
+         # Update global git config
+        $ git lfs install
+         # Update system git config
+        $ git lfs install --system
     EOS
   end
 
