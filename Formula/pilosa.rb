@@ -1,5 +1,3 @@
-require "language/go"
-
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
@@ -13,26 +11,17 @@ class Pilosa < Formula
     sha256 "ee9027e727a396959468fd8f22082d8d26a9bd42a78171f84c513a7ddc3d849d" => :el_capitan
   end
 
-  depends_on "go" => :build
   depends_on "dep" => :build
-
-  go_resource "github.com/rakyll/statik" do
-    url "https://github.com/rakyll/statik.git",
-        :tag => "v0.1.1"
-  end
+  depends_on "go" => :build
+  depends_on "go-statik" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV.prepend_path "PATH", "#{buildpath}/bin"
-
     (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/rakyll/statik" do
-      system "go", "install"
-    end
     cd "src/github.com/pilosa/pilosa" do
       system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
+      prefix.install_metafiles
     end
   end
 
