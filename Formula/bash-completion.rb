@@ -40,9 +40,10 @@ class BashCompletion < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile:
-      [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile:
+        [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
     EOS
   end
 
