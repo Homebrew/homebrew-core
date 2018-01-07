@@ -74,9 +74,10 @@ class Protobuf < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
+  def caveats
+    <<~EOS
+      Editor support and examples have been installed to:
+        #{doc}
     EOS
   end
 
