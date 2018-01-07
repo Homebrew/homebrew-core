@@ -15,9 +15,10 @@ class PyenvVirtualenv < Formula
     system "./install.sh"
   end
 
-  def caveats; <<~EOS
-    To enable auto-activation add to your profile:
-      if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+  def caveats
+    <<~EOS
+      To enable auto-activation add to your profile:
+        if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
     EOS
   end
 
