@@ -48,8 +48,9 @@ class Sip < Formula
     (HOMEBREW_PREFIX/"share/sip").mkpath
   end
 
-  def caveats; <<~EOS
-    The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip.
+  def caveats
+    <<~EOS
+      The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip.
   EOS
   end
 
