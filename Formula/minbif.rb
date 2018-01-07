@@ -56,11 +56,11 @@ class Minbif < Formula
     (var/"lib/minbif/users").mkpath
   end
 
-  def caveats; <<~EOS
-    Minbif must be passed its config as first argument:
-        minbif #{etc}/minbif/minbif.conf
-
-    Learn more about minbif: https://symlink.me/projects/minbif/wiki/Quick_start
+  def caveats
+    <<~EOS
+      Minbif must be passed its config as first argument:
+          minbif #{etc}/minbif/minbif.conf
+       Learn more about minbif: https://symlink.me/projects/minbif/wiki/Quick_start
     EOS
   end
 
