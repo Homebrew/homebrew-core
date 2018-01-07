@@ -89,19 +89,19 @@ class Root < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Because ROOT depends on several installation-dependent
-    environment variables to function properly, you should
-    add the following commands to your shell initialization
-    script (.bashrc/.profile/etc.), or call them directly
-    before using ROOT.
-
-    For bash users:
-      . #{HOMEBREW_PREFIX}/bin/thisroot.sh
-    For zsh users:
-      pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
-    For csh/tcsh users:
-      source #{HOMEBREW_PREFIX}/bin/thisroot.csh
+  def caveats
+    <<~EOS
+      Because ROOT depends on several installation-dependent
+      environment variables to function properly, you should
+      add the following commands to your shell initialization
+      script (.bashrc/.profile/etc.), or call them directly
+      before using ROOT.
+       For bash users:
+        . #{HOMEBREW_PREFIX}/bin/thisroot.sh
+      For zsh users:
+        pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
+      For csh/tcsh users:
+        source #{HOMEBREW_PREFIX}/bin/thisroot.csh
     EOS
   end
 
