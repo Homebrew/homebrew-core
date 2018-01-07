@@ -22,9 +22,10 @@ class Iftop < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    iftop requires root privileges so you will need to run `sudo iftop`.
-    You should be certain that you trust any software you grant root privileges.
+  def caveats
+    <<~EOS
+      iftop requires root privileges so you will need to run `sudo iftop`.
+      You should be certain that you trust any software you grant root privileges.
     EOS
   end
 
