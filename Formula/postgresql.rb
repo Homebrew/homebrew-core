@@ -98,42 +98,42 @@ class Postgresql < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To migrate existing data from a previous major version of PostgreSQL, see:
-      https://www.postgresql.org/docs/10/static/upgrading.html
-
-      You will need your previous PostgreSQL installation from brew to perform
-      `pg_upgrade` or `pg_dumpall` depending on your upgrade method.
-
-      Do not run `brew cleanup postgresql` until you have performed the migration.
+  def caveats
+    <<~EOS
+      To migrate existing data from a previous major version of PostgreSQL, see:
+        https://www.postgresql.org/docs/10/static/upgrading.html
+         You will need your previous PostgreSQL installation from brew to perform
+        `pg_upgrade` or `pg_dumpall` depending on your upgrade method.
+         Do not run `brew cleanup postgresql` until you have performed the migration.
     EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/postgres</string>
-        <string>-D</string>
-        <string>#{var}/postgres</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/postgres.log</string>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/postgres</string>
+          <string>-D</string>
+          <string>#{var}/postgres</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/postgres.log</string>
+      </dict>
+      </plist>
     EOS
   end
 
