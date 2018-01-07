@@ -23,20 +23,17 @@ class Siege < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    macOS has only 16K ports available that won't be released until socket
-    TIME_WAIT is passed. The default timeout for TIME_WAIT is 15 seconds.
-    Consider reducing in case of available port bottleneck.
-
-    You can check whether this is a problem with netstat:
-
-        # sysctl net.inet.tcp.msl
-        net.inet.tcp.msl: 15000
-
-        # sudo sysctl -w net.inet.tcp.msl=1000
-        net.inet.tcp.msl: 15000 -> 1000
-
-    Run siege.config to create the ~/.siegerc config file.
+  def caveats
+    <<~EOS
+      macOS has only 16K ports available that won't be released until socket
+      TIME_WAIT is passed. The default timeout for TIME_WAIT is 15 seconds.
+      Consider reducing in case of available port bottleneck.
+       You can check whether this is a problem with netstat:
+           # sysctl net.inet.tcp.msl
+          net.inet.tcp.msl: 15000
+           # sudo sysctl -w net.inet.tcp.msl=1000
+          net.inet.tcp.msl: 15000 -> 1000
+       Run siege.config to create the ~/.siegerc config file.
     EOS
   end
 
