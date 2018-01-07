@@ -28,13 +28,13 @@ class Cvs2svn < Formula
     doc.install Dir["{doc,www}/*"]
   end
 
-  def caveats; <<~EOS
-    NOTE: man pages have been installed, but for better documentation see:
-      #{HOMEBREW_PREFIX}/share/doc/cvs2svn/cvs2svn.html
-    or http://cvs2svn.tigris.org/cvs2svn.html.
-
-    Contrib scripts and example options files are installed in:
-      #{opt_prefix}
+  def caveats
+    <<~EOS
+      NOTE: man pages have been installed, but for better documentation see:
+        #{HOMEBREW_PREFIX}/share/doc/cvs2svn/cvs2svn.html
+      or http://cvs2svn.tigris.org/cvs2svn.html.
+       Contrib scripts and example options files are installed in:
+        #{opt_prefix}
     EOS
   end
 
