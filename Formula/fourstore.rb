@@ -34,20 +34,17 @@ class Fourstore < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Databases will be created at #{var}/fourstore.
-
-    Create and start up a database:
-        4s-backend-setup mydb
-        4s-backend mydb
-
-    Load RDF data:
-        4s-import mydb datafile.rdf
-
-    Start up HTTP SPARQL server without daemonizing:
-        4s-httpd -p 8000 -D mydb
-
-    See http://4store.org/trac/wiki/Documentation for more information.
+  def caveats
+    <<~EOS
+      Databases will be created at #{var}/fourstore.
+       Create and start up a database:
+          4s-backend-setup mydb
+          4s-backend mydb
+       Load RDF data:
+          4s-import mydb datafile.rdf
+       Start up HTTP SPARQL server without daemonizing:
+          4s-httpd -p 8000 -D mydb
+       See http://4store.org/trac/wiki/Documentation for more information.
     EOS
   end
 
