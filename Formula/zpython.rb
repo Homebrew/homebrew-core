@@ -70,17 +70,15 @@ class Zpython < Formula
     (lib/"zpython/zsh").install "Src/Modules/zpython.so"
   end
 
-  def caveats; <<~EOS
-    To use the zpython module in zsh you need to
-    add the following line to your .zshrc:
-
-      module_path=($module_path #{HOMEBREW_PREFIX}/lib/zpython)
-
-    If you want to use this with powerline, make sure you set
-    it early in .zshrc, before your prompt gets initialized.
-
-    After reloading your shell you can test with:
-      zmodload zsh/zpython && zpython 'print "hello world"'
+  def caveats
+    <<~EOS
+      To use the zpython module in zsh you need to
+      add the following line to your .zshrc:
+         module_path=($module_path #{HOMEBREW_PREFIX}/lib/zpython)
+       If you want to use this with powerline, make sure you set
+      it early in .zshrc, before your prompt gets initialized.
+       After reloading your shell you can test with:
+        zmodload zsh/zpython && zpython 'print "hello world"'
     EOS
   end
 
