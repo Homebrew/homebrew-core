@@ -27,9 +27,10 @@ class Ape < Formula
     system "make", "install", "prefix=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    The default configuration file is stored in #{etc}. You should load aped with:
-      aped --cfg #{etc}/ape.conf
+  def caveats
+    <<~EOS
+      The default configuration file is stored in #{etc}. You should load aped with:
+        aped --cfg #{etc}/ape.conf
     EOS
   end
 
