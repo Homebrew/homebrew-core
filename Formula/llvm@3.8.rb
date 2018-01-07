@@ -204,13 +204,13 @@ class LlvmAT38 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Extra tools are installed in #{opt_share}/clang-#{ver}
-
-    To link to libc++, something like the following is required:
-      CXX="clang++-#{ver} -stdlib=libc++"
-      CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
-      LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
+  def caveats
+    <<~EOS
+      Extra tools are installed in #{opt_share}/clang-#{ver}
+       To link to libc++, something like the following is required:
+        CXX="clang++-#{ver} -stdlib=libc++"
+        CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
+        LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
     EOS
   end
 
