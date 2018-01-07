@@ -10,9 +10,10 @@ class ZshGitPrompt < Formula
     prefix.install Dir["*.{sh,py}"]
   end
 
-  def caveats; <<~EOS
-    Make sure zsh-git-prompt is loaded from your .zshrc:
-      source "#{opt_prefix}/zshrc.sh"
+  def caveats
+    <<~EOS
+      Make sure zsh-git-prompt is loaded from your .zshrc:
+        source "#{opt_prefix}/zshrc.sh"
     EOS
   end
 
