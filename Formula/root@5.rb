@@ -61,19 +61,19 @@ class RootAT5 < Formula
     chmod 0755, Dir[bin/"*.*sh"]
   end
 
-  def caveats; <<~EOS
-    Because ROOT depends on several installation-dependent
-    environment variables to function properly, you should
-    add the following commands to your shell initialization
-    script (.bashrc/.profile/etc.), or call them directly
-    before using ROOT.
-
-    For bash users:
-      . #{opt_bin}/thisroot.sh
-    For zsh users:
-      pushd #{opt_prefix} >/dev/null; . bin/thisroot.sh; popd >/dev/null
-    For csh/tcsh users:
-      source #{opt_bin}/thisroot.csh
+  def caveats
+    <<~EOS
+      Because ROOT depends on several installation-dependent
+      environment variables to function properly, you should
+      add the following commands to your shell initialization
+      script (.bashrc/.profile/etc.), or call them directly
+      before using ROOT.
+       For bash users:
+        . #{opt_bin}/thisroot.sh
+      For zsh users:
+        pushd #{opt_prefix} >/dev/null; . bin/thisroot.sh; popd >/dev/null
+      For csh/tcsh users:
+        source #{opt_bin}/thisroot.csh
     EOS
   end
 
