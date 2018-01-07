@@ -44,13 +44,12 @@ class Stk < Formula
     pkgshare.install "src", "projects", "rawwaves"
   end
 
-  def caveats; <<~EOS
-    The header files have been put in a standard search path, it is possible to use an include statement in programs as follows:
-
-      #include \"stk/FileLoop.h\"
-      #include \"stk/FileWvOut.h\"
-
-    src/ projects/ and rawwaves/ have all been copied to #{opt_pkgshare}
+  def caveats
+    <<~EOS
+      The header files have been put in a standard search path, it is possible to use an include statement in programs as follows:
+         #include \"stk/FileLoop.h\"
+        #include \"stk/FileWvOut.h\"
+       src/ projects/ and rawwaves/ have all been copied to #{opt_pkgshare}
     EOS
   end
 end
