@@ -35,15 +35,13 @@ class Colorsvn < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    You probably want to set an alias to svn in your bash profile.
-    So source #{etc}/profile.d/colorsvn-env.sh or add the line
-
-        alias svn=colorsvn
-
-    to your bash profile.
-
-    So when you type "svn" you'll run "colorsvn".
+  def caveats
+    <<~EOS
+      You probably want to set an alias to svn in your bash profile.
+      So source #{etc}/profile.d/colorsvn-env.sh or add the line
+           alias svn=colorsvn
+       to your bash profile.
+       So when you type "svn" you'll run "colorsvn".
     EOS
   end
 
