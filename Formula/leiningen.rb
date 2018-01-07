@@ -33,10 +33,11 @@ class Leiningen < Formula
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
 
-  def caveats; <<~EOS
-    Dependencies will be installed to:
-      $HOME/.m2/repository
-    To play around with Clojure run `lein repl` or `lein help`.
+  def caveats
+    <<~EOS
+      Dependencies will be installed to:
+        $HOME/.m2/repository
+      To play around with Clojure run `lein repl` or `lein help`.
     EOS
   end
 
