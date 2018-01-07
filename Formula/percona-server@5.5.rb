@@ -110,51 +110,47 @@ class PerconaServerAT55 < Formula
     etc.install "my.cnf"
   end
 
-  def caveats; <<~EOS
-    Set up databases to run AS YOUR USER ACCOUNT with:
-        unset TMPDIR
-        mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix percona-server55)" --datadir=#{datadir} --tmpdir=/tmp
-
-    To set up base tables in another folder, or use a different user to run
-    mysqld, view the help for mysqld_install_db:
-        mysql_install_db --help
-
-    and view the MySQL documentation:
-      * https://dev.mysql.com/doc/refman/5.5/en/mysql-install-db.html
-      * https://dev.mysql.com/doc/refman/5.5/en/default-privileges.html
-
-    To run as, for instance, user "mysql", you may need to `sudo`:
-        sudo mysql_install_db ...options...
-
-    A "/etc/my.cnf" from another install may interfere with a Homebrew-built
-    server starting up correctly.
-
-    MySQL is configured to only allow connections from localhost by default
-
-    To connect:
-        mysql -uroot
+  def caveats
+    <<~EOS
+      Set up databases to run AS YOUR USER ACCOUNT with:
+          unset TMPDIR
+          mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix percona-server55)" --datadir=#{datadir} --tmpdir=/tmp
+       To set up base tables in another folder, or use a different user to run
+      mysqld, view the help for mysqld_install_db:
+          mysql_install_db --help
+       and view the MySQL documentation:
+        * https://dev.mysql.com/doc/refman/5.5/en/mysql-install-db.html
+        * https://dev.mysql.com/doc/refman/5.5/en/default-privileges.html
+       To run as, for instance, user "mysql", you may need to `sudo`:
+          sudo mysql_install_db ...options...
+       A "/etc/my.cnf" from another install may interfere with a Homebrew-built
+      server starting up correctly.
+       MySQL is configured to only allow connections from localhost by default
+       To connect:
+          mysql -uroot
     EOS
   end
 
   plist_options :manual => "mysql.server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>Program</key>
-      <string>#{opt_prefix}/bin/mysqld_safe</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>Program</key>
+        <string>#{opt_prefix}/bin/mysqld_safe</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+      </plist>
     EOS
   end
 
