@@ -19,18 +19,15 @@ class Podiff < Formula
     man1.install "podiff.1"
   end
 
-  def caveats; <<~EOS
-    To use with git, add this to your .git/config or global git config file:
-
-      [diff "podiff"]
-      command = #{HOMEBREW_PREFIX}/bin/podiff -D-u
-
-    Then add the following line to the .gitattributes file in
-    the directory with your PO files:
-
-      *.po diff=podiff
-
-    See `man podiff` for more information.
+  def caveats
+    <<~EOS
+      To use with git, add this to your .git/config or global git config file:
+         [diff "podiff"]
+        command = #{HOMEBREW_PREFIX}/bin/podiff -D-u
+       Then add the following line to the .gitattributes file in
+      the directory with your PO files:
+         *.po diff=podiff
+       See `man podiff` for more information.
     EOS
   end
 
