@@ -17,16 +17,15 @@ class Radamsa < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<~EOS
-    The Radamsa binary has been installed.
-    The Lisp source code has been copied to:
-      #{prefix}/rad
-
-    To be able to recompile the source to C, you will need run:
-      $ make get-owl
-
-    Tests can be run with:
-      $ make .seal-of-quality
+  def caveats
+    <<~EOS
+      The Radamsa binary has been installed.
+      The Lisp source code has been copied to:
+        #{prefix}/rad
+       To be able to recompile the source to C, you will need run:
+        $ make get-owl
+       Tests can be run with:
+        $ make .seal-of-quality
 
     EOS
   end
