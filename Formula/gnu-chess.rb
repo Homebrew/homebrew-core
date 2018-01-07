@@ -47,10 +47,11 @@ class GnuChess < Formula
   end
 
   if build.with? "book"
-    def caveats; <<~EOS
-      This formula also downloads the additional opening book.  The
-      opening book is a PGN file located in #{doc} that can be added
-      using gnuchess commands.
+    def caveats
+      <<~EOS
+        This formula also downloads the additional opening book.  The
+        opening book is a PGN file located in #{doc} that can be added
+        using gnuchess commands.
     EOS
     end
   end
