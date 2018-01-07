@@ -27,31 +27,32 @@ class Proftpd < Formula
 
   plist_options :manual => "proftpd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/proftpd</string>
-        </array>
-        <key>UserName</key>
-        <string>root</string>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/proftpd</string>
+          </array>
+          <key>UserName</key>
+          <string>root</string>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
+        </dict>
+      </plist>
     EOS
   end
 
