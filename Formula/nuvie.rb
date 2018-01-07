@@ -41,13 +41,14 @@ class Nuvie < Formula
     (var/"nuvie/game").mkpath
   end
 
-  def caveats; <<~EOS
-    Copy your Ultima 6 game files into the following directory:
-      #{var}/nuvie/game/ultima6/
-    Save games will be stored in the following directory:
-      #{var}/nuvie/savegames/
-    Config file will be located at:
-      #{var}/nuvie/nuvie.cfg
+  def caveats
+    <<~EOS
+      Copy your Ultima 6 game files into the following directory:
+        #{var}/nuvie/game/ultima6/
+      Save games will be stored in the following directory:
+        #{var}/nuvie/savegames/
+      Config file will be located at:
+        #{var}/nuvie/nuvie.cfg
     EOS
   end
 end
