@@ -3,12 +3,13 @@ class RRequirement < Requirement
 
   satisfy { which("r") }
 
-  def message; <<~EOS
-    R not found. The R integration module requires R.
-    Do one of the following:
-    - install R
-    -- run brew install r or brew cask install r-app
-    - remove the --with-r option
+  def message
+    <<~EOS
+      R not found. The R integration module requires R.
+      Do one of the following:
+      - install R
+      -- run brew install r or brew cask install r-app
+      - remove the --with-r option
     EOS
   end
 end
