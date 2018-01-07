@@ -31,15 +31,15 @@ class Skipfish < Formula
     libexec.install %w[assets dictionaries config signatures doc]
   end
 
-  def caveats; <<~EOS
-    NOTE: Skipfish uses dictionary-based probes and will not run until
-    you have specified a dictionary for it to use. Please read:
-      #{libexec}/doc/dictionaries.txt
-    carefully to make the right choice. This step has a profound impact
-    on the quality of results later on.
-
-    Use this command to print usage information:
-      skipfish -h
+  def caveats
+    <<~EOS
+      NOTE: Skipfish uses dictionary-based probes and will not run until
+      you have specified a dictionary for it to use. Please read:
+        #{libexec}/doc/dictionaries.txt
+      carefully to make the right choice. This step has a profound impact
+      on the quality of results later on.
+       Use this command to print usage information:
+        skipfish -h
     EOS
   end
 end
