@@ -3,7 +3,7 @@ class CeresSolver < Formula
   homepage "http://ceres-solver.org/"
   url "http://ceres-solver.org/ceres-solver-1.13.0.tar.gz"
   sha256 "1df490a197634d3aab0a65687decd362912869c85a61090ff66f073c967a7dcd"
-  revision 3
+  revision 4
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
 
   bottle do
