@@ -30,10 +30,11 @@ class Htop < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    htop requires root privileges to correctly display all running processes,
-    so you will need to run `sudo htop`.
-    You should be certain that you trust any software you grant root privileges.
+  def caveats
+    <<~EOS
+      htop requires root privileges to correctly display all running processes,
+      so you will need to run `sudo htop`.
+      You should be certain that you trust any software you grant root privileges.
     EOS
   end
 
