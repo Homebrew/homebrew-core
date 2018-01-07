@@ -99,22 +99,18 @@ class Opam < Formula
     end
   end
 
-  def caveats; <<~EOS
-    OPAM uses ~/.opam by default for its package database, so you need to
-    initialize it first by running (as a normal user):
-
-    $  opam init
-
-    Run the following to initialize your environment variables:
-
-    $  eval `opam config env`
-
-    To export the needed variables every time, add them to your dotfiles.
-      * On Bash, add them to `~/.bash_profile`.
-      * On Zsh, add them to `~/.zprofile` or `~/.zshrc` instead.
-
-    Documentation and tutorials are available at https://opam.ocaml.org, or
-    via "man opam" and "opam --help".
+  def caveats
+    <<~EOS
+      OPAM uses ~/.opam by default for its package database, so you need to
+      initialize it first by running (as a normal user):
+       $  opam init
+       Run the following to initialize your environment variables:
+       $  eval `opam config env`
+       To export the needed variables every time, add them to your dotfiles.
+        * On Bash, add them to `~/.bash_profile`.
+        * On Zsh, add them to `~/.zprofile` or `~/.zshrc` instead.
+       Documentation and tutorials are available at https://opam.ocaml.org, or
+      via "man opam" and "opam --help".
     EOS
   end
 
