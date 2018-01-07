@@ -27,46 +27,47 @@ class Cockroach < Formula
     system "make", "install", "prefix=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    For local development only, this formula ships a launchd configuration to
-    start a single-node cluster that stores its data under:
-      #{var}/cockroach/
-    Instead of the default port of 8080, the node serves its admin UI at:
-      #{Formatter.url("http://localhost:26256")}
-
-    Do NOT use this cluster to store data you care about; it runs in insecure
-    mode and may expose data publicly in e.g. a DNS rebinding attack. To run
-    CockroachDB securely, please see:
-      #{Formatter.url("https://www.cockroachlabs.com/docs/secure-a-cluster.html")}
+  def caveats
+    <<~EOS
+      For local development only, this formula ships a launchd configuration to
+      start a single-node cluster that stores its data under:
+        #{var}/cockroach/
+      Instead of the default port of 8080, the node serves its admin UI at:
+        #{Formatter.url("http://localhost:26256")}
+       Do NOT use this cluster to store data you care about; it runs in insecure
+      mode and may expose data publicly in e.g. a DNS rebinding attack. To run
+      CockroachDB securely, please see:
+        #{Formatter.url("https://www.cockroachlabs.com/docs/secure-a-cluster.html")}
     EOS
   end
 
   plist_options :manual => "cockroach start --insecure"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/cockroach</string>
-        <string>start</string>
-        <string>--store=#{var}/cockroach/</string>
-        <string>--http-port=26256</string>
-        <string>--insecure</string>
-        <string>--host=localhost</string>
-      </array>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/cockroach</string>
+          <string>start</string>
+          <string>--store=#{var}/cockroach/</string>
+          <string>--http-port=26256</string>
+          <string>--insecure</string>
+          <string>--host=localhost</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+      </plist>
     EOS
   end
 
