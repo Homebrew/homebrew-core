@@ -33,11 +33,11 @@ class ZeromqAT32 < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    To install the zmq gem on 10.6 with the system Ruby on a 64-bit machine,
-    you may need to do:
-
-        ARCHFLAGS="-arch x86_64" gem install zmq -- --with-zmq-dir=#{opt_prefix}
+  def caveats
+    <<~EOS
+      To install the zmq gem on 10.6 with the system Ruby on a 64-bit machine,
+      you may need to do:
+           ARCHFLAGS="-arch x86_64" gem install zmq -- --with-zmq-dir=#{opt_prefix}
     EOS
   end
 
