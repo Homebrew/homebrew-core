@@ -20,47 +20,43 @@ class Flatbuffers < Formula
   end
 
   test do
-    def testfbs; <<~EOS
-      // example IDL file
-
-      namespace MyGame.Sample;
-
-      enum Color:byte { Red = 0, Green, Blue = 2 }
-
-      union Any { Monster }  // add more elements..
-
-        struct Vec3 {
-          x:float;
-          y:float;
-          z:float;
-        }
-
-        table Monster {
-          pos:Vec3;
-          mana:short = 150;
-          hp:short = 100;
-          name:string;
-          friendly:bool = false (deprecated);
-          inventory:[ubyte];
-          color:Color = Blue;
-        }
-
-      root_type Monster;
+    def testfbs
+      <<~EOS
+        // example IDL file
+         namespace MyGame.Sample;
+         enum Color:byte { Red = 0, Green, Blue = 2 }
+         union Any { Monster }  // add more elements..
+           struct Vec3 {
+            x:float;
+            y:float;
+            z:float;
+          }
+           table Monster {
+            pos:Vec3;
+            mana:short = 150;
+            hp:short = 100;
+            name:string;
+            friendly:bool = false (deprecated);
+            inventory:[ubyte];
+            color:Color = Blue;
+          }
+         root_type Monster;
 
       EOS
     end
     (testpath/"test.fbs").write(testfbs)
 
-    def testjson; <<~EOS
-      {
-        pos: {
-          x: 1,
-          y: 2,
-          z: 3
-        },
-        hp: 80,
-        name: "MyMonster"
-      }
+    def testjson
+      <<~EOS
+        {
+          pos: {
+            x: 1,
+            y: 2,
+            z: 3
+          },
+          hp: 80,
+          name: "MyMonster"
+        }
       EOS
     end
     (testpath/"test.json").write(testjson)
