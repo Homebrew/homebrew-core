@@ -53,33 +53,34 @@ class InfluxdbAT08 < Formula
 
   plist_options :manual => "influxdb -config=#{HOMEBREW_PREFIX}/etc/influxdb.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/influxdb</string>
+            <string>-config=#{etc}/influxdb.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}/influxdb08</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/influxdb08/logs/influxdb.stderr.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/influxdb08/logs/influxdb.stdout.log</string>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/influxdb</string>
-          <string>-config=#{etc}/influxdb.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}/influxdb08</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/influxdb08/logs/influxdb.stderr.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/influxdb08/logs/influxdb.stdout.log</string>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 
