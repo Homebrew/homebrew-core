@@ -35,14 +35,13 @@ class TomcatNative < Formula
     end
   end
 
-  def caveats; <<~EOS
-    In order for tomcat's APR lifecycle listener to find this library, you'll
-    need to add it to java.library.path. This can be done by adding this line
-    to $CATALINA_HOME/bin/setenv.sh
-
-      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
-
-    If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
+  def caveats
+    <<~EOS
+      In order for tomcat's APR lifecycle listener to find this library, you'll
+      need to add it to java.library.path. This can be done by adding this line
+      to $CATALINA_HOME/bin/setenv.sh
+         CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
+       If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
     EOS
   end
 end
