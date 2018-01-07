@@ -30,14 +30,14 @@ class Wxmaxima < Formula
     prefix.install "wxMaxima.app"
   end
 
-  def caveats; <<~EOS
-    When you start wxMaxima the first time, set the path to Maxima
-    (e.g. #{HOMEBREW_PREFIX}/bin/maxima) in the Preferences.
-
-    Enable gnuplot functionality by setting the following variables
-    in ~/.maxima/maxima-init.mac:
-      gnuplot_command:"#{HOMEBREW_PREFIX}/bin/gnuplot"$
-      draw_command:"#{HOMEBREW_PREFIX}/bin/gnuplot"$
+  def caveats
+    <<~EOS
+      When you start wxMaxima the first time, set the path to Maxima
+      (e.g. #{HOMEBREW_PREFIX}/bin/maxima) in the Preferences.
+       Enable gnuplot functionality by setting the following variables
+      in ~/.maxima/maxima-init.mac:
+        gnuplot_command:"#{HOMEBREW_PREFIX}/bin/gnuplot"$
+        draw_command:"#{HOMEBREW_PREFIX}/bin/gnuplot"$
     EOS
   end
 
