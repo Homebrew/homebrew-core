@@ -31,10 +31,10 @@ class BzrFastimport < Formula
     (share/"bazaar/plugins/fastimport").install Dir["*"]
   end
 
-  def caveats; <<~EOS
-    In order to use this plugin you must set your PYTHONPATH in your #{shell_profile}:
-
-      export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"
+  def caveats
+    <<~EOS
+      In order to use this plugin you must set your PYTHONPATH in your #{shell_profile}:
+         export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"
 
   EOS
   end
