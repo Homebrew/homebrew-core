@@ -3,7 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
   sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
-  revision 4
+  revision 5
 
   head "https://github.com/mpv-player/mpv.git"
 
@@ -21,10 +21,10 @@ class Mpv < Formula
   depends_on "libass"
   depends_on "ffmpeg"
   depends_on "lua@5.1"
-  depends_on "mujs"
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
+  depends_on "mujs" => :recommended
   depends_on "youtube-dl" => :recommended
 
   depends_on "jack" => :optional
@@ -69,7 +69,6 @@ class Mpv < Formula
       --enable-libmpv-shared
       --enable-html-build
       --enable-lua
-      --enable-javascript
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}
@@ -80,6 +79,7 @@ class Mpv < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-dvdnav" if build.with? "libdvdnav"
     args << "--enable-dvdread" if build.with? "libdvdread"
+    args << "--enable-javascript" if build.with? "mujs"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"
