@@ -210,12 +210,13 @@ class Fdroidserver < Formula
     doc.install "examples"
   end
 
-  def caveats; <<~EOS
-    In order to function, fdroidserver requires that the Android SDK's
-    "Build-tools" and "Platform-tools" are installed.  Also, it is best if the
-    base path of the Android SDK is set in the standard environment variable
-    ANDROID_HOME.  To install them from the command line, run:
-    android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.0
+  def caveats
+    <<~EOS
+      In order to function, fdroidserver requires that the Android SDK's
+      "Build-tools" and "Platform-tools" are installed.  Also, it is best if the
+      base path of the Android SDK is set in the standard environment variable
+      ANDROID_HOME.  To install them from the command line, run:
+      android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.0
     EOS
   end
 
