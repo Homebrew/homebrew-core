@@ -37,9 +37,10 @@ class Virtuoso < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    NOTE: the Virtuoso server will start up several times on port 1111
-    during the install process.
+  def caveats
+    <<~EOS
+      NOTE: the Virtuoso server will start up several times on port 1111
+      during the install process.
     EOS
   end
 
