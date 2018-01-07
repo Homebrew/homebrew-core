@@ -22,11 +22,12 @@ class TranslateShell < Formula
     man1.install "man/trans.1"
   end
 
-  def caveats; <<~EOS
-    By default, text-to-speech functionality is provided by macOS's builtin
-    `say' command. This functionality may be improved in certain cases by
-    installing one of mplayer, mpv, or mpg123, all of which are available
-    through `brew install'.
+  def caveats
+    <<~EOS
+      By default, text-to-speech functionality is provided by macOS's builtin
+      `say' command. This functionality may be improved in certain cases by
+      installing one of mplayer, mpv, or mpg123, all of which are available
+      through `brew install'.
     EOS
   end
 
