@@ -21,12 +21,12 @@ class SsllabsScan < Formula
     bin.install "ssllabs-scan"
   end
 
-  def caveats; <<~EOS
-    By installing this package you agree to the Terms and Conditions defined by Qualys.
-    You can find the terms and conditions at this link:
-       https://www.ssllabs.com/about/terms.html
-
-    If you do not agree with those you should uninstall the formula.
+  def caveats
+    <<~EOS
+      By installing this package you agree to the Terms and Conditions defined by Qualys.
+      You can find the terms and conditions at this link:
+         https://www.ssllabs.com/about/terms.html
+       If you do not agree with those you should uninstall the formula.
   EOS
   end
 
