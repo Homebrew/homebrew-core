@@ -36,9 +36,10 @@ class Supermodel < Formula
     (var/"supermodel/Logs").mkpath
   end
 
-  def caveats; <<~EOS
-    Config, Saves, and NVRAM are located in the following directory:
-      #{var}/supermodel/
+  def caveats
+    <<~EOS
+      Config, Saves, and NVRAM are located in the following directory:
+        #{var}/supermodel/
     EOS
   end
 
