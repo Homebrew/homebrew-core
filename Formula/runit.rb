@@ -35,14 +35,13 @@ class Runit < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This formula does not install runit as a replacement for init.
-    The service directory is #{var}/service instead of /service.
-
-    To have runit ready to run services, start runsvdir:
-         runsvdir -P #{var}/service
-
-    Depending on the services managed by runit, this may need to start as root.
+  def caveats
+    <<~EOS
+      This formula does not install runit as a replacement for init.
+      The service directory is #{var}/service instead of /service.
+       To have runit ready to run services, start runsvdir:
+           runsvdir -P #{var}/service
+       Depending on the services managed by runit, this may need to start as root.
     EOS
   end
 end
