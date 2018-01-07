@@ -30,8 +30,9 @@ class Antiword < Formula
     man1.install "Docs/antiword.1"
   end
 
-  def caveats; <<~EOS
-    You can install mapping files in ~/.antiword
+  def caveats
+    <<~EOS
+      You can install mapping files in ~/.antiword
     EOS
   end
 
