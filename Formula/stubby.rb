@@ -28,30 +28,31 @@ class Stubby < Formula
 
   plist_options :startup => true, :manual => "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/EN" "http:/www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/stubby</string>
-          <string>-C</string>
-          <string>#{etc}/stubby/stubby.yml</string>
-          <string>-l</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/stubby/stubby.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/stubby/stubby.log</string>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-/Apple/DTD PLIST 1.0/EN" "http:/www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <true/>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/stubby</string>
+            <string>-C</string>
+            <string>#{etc}/stubby/stubby.yml</string>
+            <string>-l</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/stubby/stubby.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/stubby/stubby.log</string>
+        </dict>
+      </plist>
     EOS
   end
 
