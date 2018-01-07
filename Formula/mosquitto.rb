@@ -29,36 +29,38 @@ class Mosquitto < Formula
     (var/"mosquitto").mkpath
   end
 
-  def caveats; <<~EOS
-    mosquitto has been installed with a default configuration file.
-    You can make changes to the configuration by editing:
-        #{etc}/mosquitto/mosquitto.conf
+  def caveats
+    <<~EOS
+      mosquitto has been installed with a default configuration file.
+      You can make changes to the configuration by editing:
+          #{etc}/mosquitto/mosquitto.conf
     EOS
   end
 
   plist_options :manual => "mosquitto -c #{HOMEBREW_PREFIX}/etc/mosquitto/mosquitto.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/mosquitto</string>
-        <string>-c</string>
-        <string>#{etc}/mosquitto/mosquitto.conf</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <false/>
-      <key>WorkingDirectory</key>
-      <string>#{var}/mosquitto</string>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/mosquitto</string>
+          <string>-c</string>
+          <string>#{etc}/mosquitto/mosquitto.conf</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <false/>
+        <key>WorkingDirectory</key>
+        <string>#{var}/mosquitto</string>
+      </dict>
+      </plist>
     EOS
   end
 
