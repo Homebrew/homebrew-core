@@ -53,19 +53,19 @@ class Libid3tag < Formula
     (lib+"pkgconfig/id3tag.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
-
-    Name: id3tag
-    Description: ID3 tag reading library
-    Version: #{version}
-    Requires:
-    Conflicts:
-    Libs: -L${libdir} -lid3tag -lz
-    Cflags: -I${includedir}
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+       Name: id3tag
+      Description: ID3 tag reading library
+      Version: #{version}
+      Requires:
+      Conflicts:
+      Libs: -L${libdir} -lid3tag -lz
+      Cflags: -I${includedir}
     EOS
   end
 end
