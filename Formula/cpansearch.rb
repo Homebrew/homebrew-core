@@ -23,9 +23,10 @@ class Cpansearch < Formula
     bin.install "cpans"
   end
 
-  def caveats; <<~EOS
-    For usage instructions:
-        more #{opt_prefix}/README.md
+  def caveats
+    <<~EOS
+      For usage instructions:
+          more #{opt_prefix}/README.md
     EOS
   end
 end
