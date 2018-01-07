@@ -293,9 +293,10 @@ class Jupyter < Formula
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
   end
 
-  def caveats; <<~EOS
-    Additional kernels can be installed into the shared jupyter directory
-      #{etc}/jupyter
+  def caveats
+    <<~EOS
+      Additional kernels can be installed into the shared jupyter directory
+        #{etc}/jupyter
     EOS
   end
 
