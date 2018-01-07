@@ -96,14 +96,14 @@ class Mapserver < Formula
     end
   end
 
-  def caveats; <<~EOS
-    The Mapserver CGI executable is #{opt_bin}/mapserv
-
-    If you built the PHP option:
-      * Add the following line to php.ini:
-        extension="#{opt_lib}/php/extensions/php_mapscript.so"
-      * Execute "php -m"
-      * You should see MapScript in the module list
+  def caveats
+    <<~EOS
+      The Mapserver CGI executable is #{opt_bin}/mapserv
+       If you built the PHP option:
+        * Add the following line to php.ini:
+          extension="#{opt_lib}/php/extensions/php_mapscript.so"
+        * Execute "php -m"
+        * You should see MapScript in the module list
     EOS
   end
 
