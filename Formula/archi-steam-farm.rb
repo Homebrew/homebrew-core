@@ -19,8 +19,9 @@ class ArchiSteamFarm < Formula
     libexec.install_symlink etc/"asf" => "config"
   end
 
-  def caveats; <<~EOS
-    Config: #{etc}/asf/
+  def caveats
+    <<~EOS
+      Config: #{etc}/asf/
     EOS
   end
 
