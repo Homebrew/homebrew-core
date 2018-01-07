@@ -43,8 +43,9 @@ class Wpscan < Formula
     system bin/"wpscan", "--update"
   end
 
-  def caveats; <<~EOS
-    Logs are saved to #{var}/cache/wpscan/log.txt by default.
+  def caveats
+    <<~EOS
+      Logs are saved to #{var}/cache/wpscan/log.txt by default.
     EOS
   end
 
