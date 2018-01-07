@@ -16,12 +16,12 @@ class ZshNavigationTools < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    To run zsh-navigation-tools, add the following at the end of your .zshrc:
-      source #{HOMEBREW_PREFIX}/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
-
-    You will also need to force reload of your .zshrc:
-      source ~/.zshrc
+  def caveats
+    <<~EOS
+      To run zsh-navigation-tools, add the following at the end of your .zshrc:
+        source #{HOMEBREW_PREFIX}/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+       You will also need to force reload of your .zshrc:
+        source ~/.zshrc
     EOS
   end
 
