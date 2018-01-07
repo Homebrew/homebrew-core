@@ -60,12 +60,13 @@ class ElasticsearchAT24 < Formula
     (libexec/"plugins").mkdir
   end
 
-  def caveats; <<~EOS
-    Data:    #{var}/elasticsearch/#{cluster_name}/
-    Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
-    Plugins: #{libexec}/plugins/
-    Config:  #{etc}/elasticsearch/
-    plugin script: #{libexec}/bin/plugin
+  def caveats
+    <<~EOS
+      Data:    #{var}/elasticsearch/#{cluster_name}/
+      Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
+      Plugins: #{libexec}/plugins/
+      Config:  #{etc}/elasticsearch/
+      plugin script: #{libexec}/bin/plugin
     EOS
   end
 
