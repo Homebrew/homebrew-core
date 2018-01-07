@@ -24,32 +24,33 @@ class Luciddb < Formula
 
   plist_options :manual => "lucidDbServer"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
       <dict>
-        <key>JAVA_HOME</key>
-        <string>#{`/usr/libexec/java_home`.chomp}</string>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>JAVA_HOME</key>
+          <string>#{`/usr/libexec/java_home`.chomp}</string>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_libexec}/bin/lucidDbServer</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{opt_libexec}</string>
+        <key>StandardOutPath</key>
+        <string>/dev/null</string>
       </dict>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_libexec}/bin/lucidDbServer</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{opt_libexec}</string>
-      <key>StandardOutPath</key>
-      <string>/dev/null</string>
-    </dict>
-    </plist>
+      </plist>
     EOS
   end
 end
