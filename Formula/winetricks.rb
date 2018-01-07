@@ -20,9 +20,10 @@ class Winetricks < Formula
     man1.install "src/winetricks.1"
   end
 
-  def caveats; <<~EOS
-    winetricks is a set of utilities for wine, which is installed separately:
-      brew install wine
+  def caveats
+    <<~EOS
+      winetricks is a set of utilities for wine, which is installed separately:
+        brew install wine
     EOS
   end
 
