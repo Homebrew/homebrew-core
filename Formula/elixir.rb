@@ -10,14 +10,13 @@ class Erlang18Requirement < Requirement
     erl
   end
 
-  def message; <<~EOS
-    Erlang 18+ is required to install.
-
-    You can install this with:
-      brew install erlang
-
-    Or you can use an official installer from:
-      https://www.erlang.org/
+  def message
+    <<~EOS
+      Erlang 18+ is required to install.
+       You can install this with:
+        brew install erlang
+       Or you can use an official installer from:
+        https://www.erlang.org/
     EOS
   end
 end
