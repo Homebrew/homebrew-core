@@ -23,45 +23,47 @@ class Launchdns < Formula
     (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
-  def caveats; <<~EOS
-    To have *.localhost resolved to 127.0.0.1:
-      sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
+  def caveats
+    <<~EOS
+      To have *.localhost resolved to 127.0.0.1:
+        sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
     EOS
   end
 
   plist_options :manual => "launchdns"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/launchdns</string>
-          <string>--socket=Listeners</string>
-          <string>--timeout=30</string>
-        </array>
-        <key>Sockets</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Listeners</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/launchdns</string>
+            <string>--socket=Listeners</string>
+            <string>--timeout=30</string>
+          </array>
+          <key>Sockets</key>
           <dict>
-            <key>SockType</key>
-            <string>dgram</string>
-            <key>SockNodeName</key>
-            <string>127.0.0.1</string>
-            <key>SockServiceName</key>
-            <string>55353</string>
+            <key>Listeners</key>
+            <dict>
+              <key>SockType</key>
+              <string>dgram</string>
+              <key>SockNodeName</key>
+              <string>127.0.0.1</string>
+              <key>SockServiceName</key>
+              <string>55353</string>
+            </dict>
           </dict>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/launchdns.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/launchdns.log</string>
         </dict>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/launchdns.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/launchdns.log</string>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 
