@@ -53,8 +53,9 @@ class Ufoai < Formula
     bin.write_exec_script "#{prefix}/UFOAI.app/Contents/MacOS/ufo"
   end
 
-  def caveats; <<~EOS
-    Turn off GLSL shaders from video settings if you have graphics problem.
+  def caveats
+    <<~EOS
+      Turn off GLSL shaders from video settings if you have graphics problem.
     EOS
   end
 
