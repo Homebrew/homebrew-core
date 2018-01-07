@@ -38,10 +38,11 @@ class Pcrexx < Formula
     mv man3/"Pcre.3", man3/"pcre++.3"
   end
 
-  def caveats; <<~EOS
-    The man page has been renamed to pcre++.3 to avoid conflicts with
-    pcre in case-insensitive file system.  Please use "man pcre++"
-    instead.
+  def caveats
+    <<~EOS
+      The man page has been renamed to pcre++.3 to avoid conflicts with
+      pcre in case-insensitive file system.  Please use "man pcre++"
+      instead.
     EOS
   end
 end
