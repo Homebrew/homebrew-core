@@ -65,11 +65,12 @@ class Mono < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To use the assemblies from other formulae you need to set:
-      export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
-    Note that the 'mono' formula now includes F#. If you have
-    the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
+  def caveats
+    <<~EOS
+      To use the assemblies from other formulae you need to set:
+        export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
+      Note that the 'mono' formula now includes F#. If you have
+      the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
     EOS
   end
 
