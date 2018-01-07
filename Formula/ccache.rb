@@ -43,17 +43,16 @@ class Ccache < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To install symlinks for compilers that will automatically use
-    ccache, prepend this directory to your PATH:
-      #{opt_libexec}
-
-    If this is an upgrade and you have previously added the symlinks to
-    your PATH, you may need to modify it to the path specified above so
-    it points to the current version.
-
-    NOTE: ccache can prevent some software from compiling.
-    ALSO NOTE: The brew command, by design, will never use ccache.
+  def caveats
+    <<~EOS
+      To install symlinks for compilers that will automatically use
+      ccache, prepend this directory to your PATH:
+        #{opt_libexec}
+       If this is an upgrade and you have previously added the symlinks to
+      your PATH, you may need to modify it to the path specified above so
+      it points to the current version.
+       NOTE: ccache can prevent some software from compiling.
+      ALSO NOTE: The brew command, by design, will never use ccache.
     EOS
   end
 
