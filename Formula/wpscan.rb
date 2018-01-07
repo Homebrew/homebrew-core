@@ -3,7 +3,7 @@ class Wpscan < Formula
   homepage "https://wpscan.org"
   url "https://github.com/wpscanteam/wpscan/archive/2.9.3.tar.gz"
   sha256 "1bacc03857cca5a2fdcda060886bf51dbf73b129abbb7251b8eb95bc874e5376"
-  revision 3
+  revision 4
 
   head "https://github.com/wpscanteam/wpscan.git"
 
@@ -13,7 +13,7 @@ class Wpscan < Formula
     sha256 "469a94fdf86b201508e72fbc3900aed3c82b3891393dda1d7fa5d4e042754442" => :el_capitan
   end
 
-  depends_on :ruby => "2.1.9"
+  depends_on "ruby"
 
   def install
     inreplace "lib/common/common_helper.rb" do |s|
