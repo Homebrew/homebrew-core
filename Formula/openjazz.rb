@@ -54,10 +54,11 @@ class Openjazz < Formula
     end
   end
 
-  def caveats; <<~EOS
-    The shareware version of Jazz Jackrabbit has been installed.
-    You can install the full version by copying the game files to:
-      #{pkgshare}
+  def caveats
+    <<~EOS
+      The shareware version of Jazz Jackrabbit has been installed.
+      You can install the full version by copying the game files to:
+        #{pkgshare}
   EOS
   end
 end
