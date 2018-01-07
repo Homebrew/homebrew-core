@@ -349,22 +349,19 @@ class Python < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    This formula installs a python2 executable to #{HOMEBREW_PREFIX}/bin.
-    If you wish to have this formula's python executable in your PATH then add
-    the following to #{shell_profile}:
-      export PATH="#{opt_libexec}/bin:$PATH"
-
-    Pip and setuptools have been installed. To update them
-      pip2 install --upgrade pip setuptools
-
-    You can install Python packages with
-      pip2 install <package>
-
-    They will install into the site-package directory
-      #{site_packages}
-
-    See: https://docs.brew.sh/Homebrew-and-Python.html
+  def caveats
+    <<~EOS
+      This formula installs a python2 executable to #{HOMEBREW_PREFIX}/bin.
+      If you wish to have this formula's python executable in your PATH then add
+      the following to #{shell_profile}:
+        export PATH="#{opt_libexec}/bin:$PATH"
+       Pip and setuptools have been installed. To update them
+        pip2 install --upgrade pip setuptools
+       You can install Python packages with
+        pip2 install <package>
+       They will install into the site-package directory
+        #{site_packages}
+       See: https://docs.brew.sh/Homebrew-and-Python.html
     EOS
   end
 
