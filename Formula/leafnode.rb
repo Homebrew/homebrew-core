@@ -18,84 +18,88 @@ class Leafnode < Formula
     (prefix/"homebrew.mxcl.texpire.plist").write texpire_plist
   end
 
-  def caveats; <<~EOS
-    For starting fetchnews and texpire, create links,
-      ln -s #{opt_prefix}/homebrew.mxcl.{fetchnews,texpire}.plist ~/Library/LaunchAgents
-    And to start the services,
-      launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.{fetchnews,texpire}.plist
+  def caveats
+    <<~EOS
+      For starting fetchnews and texpire, create links,
+        ln -s #{opt_prefix}/homebrew.mxcl.{fetchnews,texpire}.plist ~/Library/LaunchAgents
+      And to start the services,
+        launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.{fetchnews,texpire}.plist
     EOS
   end
 
   plist_options :manual => "leafnode"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>OnDemand</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/leafnode</string>
-        <key>Sockets</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Listeners</key>
+          <key>OnDemand</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/leafnode</string>
+          <key>Sockets</key>
           <dict>
-            <key>SockServiceName</key>
-            <string>nntp</string>
+            <key>Listeners</key>
+            <dict>
+              <key>SockServiceName</key>
+              <string>nntp</string>
+            </dict>
+          </dict>
+          <key>WorkingDirectory</key>
+          <string>#{var}/spool/news</string>
+          <key>inetdCompatibility</key>
+          <dict>
+            <key>Wait</key>
+            <false/>
           </dict>
         </dict>
-        <key>WorkingDirectory</key>
-        <string>#{var}/spool/news</string>
-        <key>inetdCompatibility</key>
+      </plist>
+    EOS
+  end
+
+  def fetchnews_plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Wait</key>
+          <key>KeepAlive</key>
           <false/>
+          <key>Label</key>
+          <string>homebrew.mxcl.fetchnews</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/fetchnews</string>
+          <key>StartInterval</key>
+          <integer>1800</integer>
+          <key>WorkingDirectory</key>
+          <string>#{var}/spool/news</string>
         </dict>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 
-  def fetchnews_plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <false/>
-        <key>Label</key>
-        <string>homebrew.mxcl.fetchnews</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/fetchnews</string>
-        <key>StartInterval</key>
-        <integer>1800</integer>
-        <key>WorkingDirectory</key>
-        <string>#{var}/spool/news</string>
-      </dict>
-    </plist>
-    EOS
-  end
-
-  def texpire_plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <false/>
-        <key>Label</key>
-        <string>homebrew.mxcl.texpire</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/texpire</string>
-        <key>StartInterval</key>
-        <integer>25000</integer>
-        <key>WorkingDirectory</key>
-        <string>#{var}/spool/news</string>
-      </dict>
-    </plist>
+  def texpire_plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>homebrew.mxcl.texpire</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/texpire</string>
+          <key>StartInterval</key>
+          <integer>25000</integer>
+          <key>WorkingDirectory</key>
+          <string>#{var}/spool/news</string>
+        </dict>
+      </plist>
     EOS
   end
 
