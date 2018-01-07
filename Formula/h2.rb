@@ -7,9 +7,10 @@ class H2 < Formula
 
   bottle :unneeded
 
-  def script; <<~EOS
-    #!/bin/sh
-    cd #{libexec} && bin/h2.sh "$@"
+  def script
+    <<~EOS
+      #!/bin/sh
+      cd #{libexec} && bin/h2.sh "$@"
     EOS
   end
 
@@ -34,28 +35,29 @@ class H2 < Formula
 
   plist_options :manual => "h2"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/h2</string>
-            <string>-tcp</string>
-            <string>-web</string>
-            <string>-pg</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_bin}/h2</string>
+              <string>-tcp</string>
+              <string>-web</string>
+              <string>-pg</string>
+          </array>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+        </dict>
+      </plist>
     EOS
   end
 
