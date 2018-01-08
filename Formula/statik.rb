@@ -3,8 +3,8 @@ class Statik < Formula
 
   desc "Python-based, generic static web site generator aimed at developers"
   homepage "https://getstatik.com"
-  url "https://github.com/thanethomson/statik/archive/v0.18.2.tar.gz"
-  sha256 "a9bbf0cb1e120a4d2e70da87d8cac3ff0aaafcadc54af8b21bd35d1cf98efeb3"
+  url "https://github.com/thanethomson/statik/archive/v0.19.1.tar.gz"
+  sha256 "d50eecd36a2380394c01c17d63579ada684d4b549f3191cbe7b7481ba829f870"
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
