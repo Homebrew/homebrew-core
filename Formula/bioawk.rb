@@ -19,7 +19,7 @@ class Bioawk < Formula
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCT
       CTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
-    cmd = "#{bin}/bioawk -cfastx '{print length($seq)}' test.fasta" 
+    cmd = "#{bin}/bioawk -cfastx '{print length($seq)}' test.fasta"
     assert_equal "70", shell_output(cmd).chomp
   end
 end
