@@ -7,9 +7,9 @@ class Etsh < Formula
   head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
   bottle do
-    sha256 "5e72a437ca40c261c7e5c838be1020212b6e08a65ca6c89ad5de145c9fbef4fa" => :high_sierra
-    sha256 "ac12cf35b1661ca64b8377d80a0532f9b60c24d0b32656ed19d879b9f4eb9e2c" => :sierra
-    sha256 "fe50c9545a3b89097bff241a437575f4365181f2436737aa4313aaa2e42f8412" => :el_capitan
+    sha256 "776835da5ff4280aa106fc853f12654362c4a6fc7766e149aa461bc09dfbba8d" => :high_sierra
+    sha256 "0428630ac530a086400aea771f0fc2d3c1fb7ba5c69d86569c0b27a3e90d5e1c" => :sierra
+    sha256 "c44d9e2de590ff783857d21265ee3c9fa882d399ebbce44852ee58637789669a" => :el_capitan
   end
 
   option "with-examples", "Build with shell examples"
