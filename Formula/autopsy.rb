@@ -1,17 +1,14 @@
 class Autopsy < Formula
   desc "Graphical interface to Sleuth Kit investigation tools"
   homepage "https://www.sleuthkit.org/autopsy/index.php"
-  url "https://downloads.sourceforge.net/project/autopsy/autopsy/2.24/autopsy-2.24.tar.gz"
-  sha256 "ab787f519942783d43a561d12be0554587f11f22bc55ab79d34d8da703edc09e"
+  url "https://github.com/sleuthkit/autopsy/archive/autopsy-4.5.0.tar.gz"
+  sha256 "59ed36b056b5ce9507ee713f2be438689fab6282b298c083710582b9992adff7"
 
   bottle :unneeded
 
   depends_on "sleuthkit"
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
-
-  # fixes weird configure script that wouldn't work nicely with homebrew
-  patch :DATA
 
   def autcfg; <<~EOS
     # Autopsy configuration settings
@@ -65,16 +62,3 @@ class Autopsy < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/base/autopsy.base b/base/autopsy.base
-index 3b3bbdc..a0d2632 100644
---- a/base/autopsy.base
-+++ b/base/autopsy.base
-@@ -1,3 +1,6 @@
-+#!/usr/bin/perl -wT
-+use lib '/tmp/autopsy/';
-+use lib '/tmp/autopsy/libexec/';
- #
- # autopsy gui server
- # Autopsy Forensic Browser
