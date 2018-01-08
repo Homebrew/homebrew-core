@@ -7,9 +7,9 @@ class Swiftlint < Formula
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
-    cellar :any
-    sha256 "1dd3913989f53eb6bb508c6c390dbeee48beffa308104bd67419716e8dc3636f" => :high_sierra
-    sha256 "5197fef0384f3a47fbd4ebb5fc9288558ce6a7935eb5aafcc1fbd1682ef66d65" => :sierra
+    cellar :any_skip_relocation
+    sha256 "e589a00e4e2120cfc4d439c4ef94754f91030932186885c9d72f2e7b11ce0c51" => :high_sierra
+    sha256 "4fa6eb6f19b72fbb40d2f5e600692a85b416e111faca5790c25c032fdf67ac68" => :sierra
   end
 
   depends_on :xcode => ["8.0", :run]
