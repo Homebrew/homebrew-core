@@ -1,4 +1,4 @@
-#:  * `aspell_dictionaries`:
+#:  * `aspell-dictionaries`:
 #:    Generates the new dictionaries for the `aspell` formula.
 
 require "open-uri"
