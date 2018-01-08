@@ -1,8 +1,8 @@
 class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
-  homepage "https://v6shell.org/"
-  url "https://v6shell.org/src/etsh-5.0.0.tar.gz"
-  sha256 "1b8ac975c384a4d470425b29c5c858a48c85360d3d193b25394c5ccf87b4d51f"
+  homepage "https://etsh.io/"
+  url "https://etsh.io/src/etsh-5.0.1.tar.gz"
+  sha256 "0433740b6d86625c25a3ef37431736461ceb18443cb8601eb7c11fe07f71a0d1"
   version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
@@ -17,7 +17,7 @@ class Etsh < Formula
   conflicts_with "teleport", :because => "both install `tsh` binaries"
 
   resource "examples" do
-    url "https://v6shell.org/v6scripts/v6scripts-20160128.tar.gz"
+    url "https://etsh.io/v6scripts/v6scripts-20160128.tar.gz"
     sha256 "c23251137de67b042067b68f71cd85c3993c566831952af305f1fde93edcaf4d"
   end
 
