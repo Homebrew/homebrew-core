@@ -1,9 +1,9 @@
 class CmarkGfm < Formula
   desc "C implementation of GitHub Flavored Markdown"
   homepage "https://github.com/github/cmark"
-  url "https://github.com/github/cmark/archive/0.28.0.gfm.11.tar.gz"
-  version "0.28.0.gfm.11"
-  sha256 "a95ee221c3f6d718bbb38bede95f05f05e07827f8f3c29ed6cb09ddb7d05c2cd"
+  url "https://github.com/github/cmark/archive/0.28.3.gfm.12.tar.gz"
+  version "0.28.3.gfm.12"
+  sha256 "7f53d060a82df012859ae3493c62e2d63b8146cbea8af77e696cde41a62d7246"
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class CmarkGfm < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :python3 => :build
+  depends_on "python3" => :build
 
   conflicts_with "cmark", :because => "both install a `cmark.h` header"
 
