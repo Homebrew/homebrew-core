@@ -20,7 +20,7 @@ class Vim < Formula
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
-  LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
+  LANGUAGES_DEFAULT  = %w[python].freeze
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
@@ -51,7 +51,7 @@ class Vim < Formula
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
 
-    opts = []
+    opts = ["--enable-perlinterp", "--enable-rubyinterp"]
 
     (LANGUAGES_OPTIONAL + LANGUAGES_DEFAULT).each do |language|
       opts << "--enable-#{language}interp" if build.with? language
