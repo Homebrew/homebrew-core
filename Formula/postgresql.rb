@@ -130,6 +130,8 @@ class Postgresql < Formula
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/postgres.log</string>
       <key>StandardErrorPath</key>
       <string>#{var}/log/postgres.log</string>
     </dict>
