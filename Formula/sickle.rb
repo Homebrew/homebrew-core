@@ -24,6 +24,6 @@ class Sickle < Formula
       IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII0000000000
     EOS
     cmd = "#{bin}/sickle se -f test.fastq -t sanger -o /dev/stdout"
-    assert_match "GTGTC", shell_output(cmd).chomp
+    assert_equal "GTGTC", shell_output(cmd).lines[1][-6..-2]
   end
 end
