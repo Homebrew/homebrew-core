@@ -76,7 +76,7 @@ class Suricata < Formula
     if build.with? "hiredis"
       hiredis = Formula["hiredis"]
       args << "--enable-hiredis"
-      args << "--with-libjansson-includes=#{hiredis.opt_include}"
+      args << "--with-libhiredis-includes=#{hiredis.opt_include}"
       args << "--with-libhiredis-libraries=#{hiredis.opt_lib}"
     end
     system "./configure", *args
