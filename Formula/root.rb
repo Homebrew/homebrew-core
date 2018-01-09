@@ -16,11 +16,11 @@ class Root < Formula
 
   depends_on "cmake" => :build
   depends_on "fftw"
+  depends_on "gcc" # for gfortran.
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "openssl"
   depends_on "xrootd"
-  depends_on :fortran
   depends_on "python" => :recommended
   depends_on "python3" => :optional
 
