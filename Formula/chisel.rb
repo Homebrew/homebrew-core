@@ -8,8 +8,14 @@ class Chisel < Formula
   def install
     libexec.install Dir["*.py", "commands"]
     prefix.install "PATENTS"
-    # Specify install name to prevent homebrew from modifying the library after
-    # it's been code signed.
+
+    # == LD_DYLIB_INSTALL_NAME Explanation ==
+    # This make invocation calls xcodebuild, which in turn performs ad hoc code
+    # signing. Note that ad hoc code signing does not need signing identities.
+    # Brew will update binaries to ensure their internal paths are usable, but 
+    # modifying a code signed binary will invalidate the signature. To prevent
+    # broken signing, this build specifies the target install name up front,
+    # in which case brew doesn't perform its modifications.
     system "make", "-C", "Chisel", "install", "PREFIX=#{lib}", \
       "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
   end
