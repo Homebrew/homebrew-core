@@ -18,7 +18,7 @@ class XmlToolingC < Formula
   depends_on "xml-security-c"
   depends_on "boost"
   depends_on "openssl"
-  depends_on "curl" => "with-openssl"
+  depends_on "curl"
 
   needs :cxx11
 
