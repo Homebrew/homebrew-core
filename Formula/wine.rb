@@ -107,9 +107,9 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
-    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
-    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
+    url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
+    sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
   end
 
   resource "little-cms2" do
@@ -125,9 +125,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8.1/freetype-2.8.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.1.tar.bz2"
-    sha256 "e5435f02e02d2b87bb8e4efdcaa14b1f78c9cf3ab1ed80f94b6382fb6acc7d78"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
+    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
   end
 
   resource "libusb" do
