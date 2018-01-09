@@ -12,7 +12,7 @@ class Chisel < Formula
     # == LD_DYLIB_INSTALL_NAME Explanation ==
     # This make invocation calls xcodebuild, which in turn performs ad hoc code
     # signing. Note that ad hoc code signing does not need signing identities.
-    # Brew will update binaries to ensure their internal paths are usable, but 
+    # Brew will update binaries to ensure their internal paths are usable, but
     # modifying a code signed binary will invalidate the signature. To prevent
     # broken signing, this build specifies the target install name up front,
     # in which case brew doesn't perform its modifications.
