@@ -9,9 +9,9 @@ class Statik < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f5c851bad6784866e2f7e6b7a1c3f1fc517f24e963b3a9d625365e8b7590626" => :high_sierra
-    sha256 "0a1806db8ef48d966e4cde9c954cbf5b0a133b3add06e3b622727eca79513432" => :sierra
-    sha256 "f3f1dea8b29df049b296862562ef8df1a3007ab7eae0d68dd40c1e111fc73b9e" => :el_capitan
+    sha256 "819a49a469b00e66631d51743a295d59cf4e8567709f4e63dac8716c443a74e0" => :high_sierra
+    sha256 "9944cc71691db7897031db4e3ed26843d010512f7d99ce4697fbec1358264a7a" => :sierra
+    sha256 "91dbf0459165d29270ae656730ca6284e24bfb1776cccd2452949a2e931b7266" => :el_capitan
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
