@@ -11,7 +11,8 @@ class ShibbolethSp < Formula
   end
 
   depends_on :macos => :yosemite
-  depends_on "curl" => "with-openssl"
+  depends_on "openssl" => :optional
+  depends_on "curl" if build.with? "openssl"
   depends_on "httpd" if MacOS.version >= :high_sierra
   depends_on "opensaml"
   depends_on "xml-tooling-c"
