@@ -3,8 +3,8 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v3.5.tar.gz"
-  sha256 "b758924b78a45d39e6d8e16915f2df17a7e7d5e184a876819c6aa612cd73fc05"
+  url "https://github.com/jarun/Buku/archive/v3.6.tar.gz"
+  sha256 "6126dbf820a18af69b0bd24eb86a04a71d4904ba84dc174b98c1050fae8f9fad"
 
   bottle do
     cellar :any
@@ -13,12 +13,12 @@ class Buku < Formula
     sha256 "d403ce4c3e1341798addcfb98d29ea0251baf45b81b3727e386a49f0b5a8a5b8" => :el_capitan
   end
 
-  depends_on :python3
-  depends_on "openssl@1.1"
+  depends_on "openssl"
+  depends_on "python3"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
-    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
   end
 
   resource "beautifulsoup4" do
@@ -27,13 +27,13 @@ class Buku < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
+    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
-    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
+    url "https://files.pythonhosted.org/packages/c9/70/89b68b6600d479034276fed316e14b9107d50a62f5627da37fafe083fde3/cffi-1.11.2.tar.gz"
+    sha256 "ab87dd91c0c4073758d07334c1e5f712ce8fe48f007b86f8238773963ee700a6"
   end
 
   resource "chardet" do
@@ -42,8 +42,8 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
-    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
+    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
+    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
   end
 
   resource "idna" do
