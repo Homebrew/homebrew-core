@@ -22,8 +22,9 @@ class Lnav < Formula
 
   depends_on "readline"
   depends_on "pcre"
+  depends_on "libssh2" => :optional
   depends_on "sqlite" if MacOS.version < :sierra
-  depends_on "curl" => ["with-libssh2", :optional]
+  depends_on "curl" if build.with? "libssh2"
 
   def install
     # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
