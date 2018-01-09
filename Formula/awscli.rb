@@ -4,8 +4,8 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.14.10.tar.gz"
-  sha256 "626fd3740f0e5c0784851b1fa70ed6336f7dd8619fc525399216cacc43e931da"
+  url "https://github.com/aws/aws-cli/archive/1.14.20.tar.gz"
+  sha256 "50689d2017eebb24d1fa66567422674b6bed211ddc20c269df5e1f69fa58a72d"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
@@ -17,7 +17,7 @@ class Awscli < Formula
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
-  depends_on :python3
+  depends_on "python3"
 
   def install
     venv = virtualenv_create(libexec, "python3")
