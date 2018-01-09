@@ -32,7 +32,7 @@ class Root < Formula
 
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
-      -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
+      -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
       -Dfftw3=ON
       -Dfortran=ON
