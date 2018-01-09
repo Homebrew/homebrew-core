@@ -4,6 +4,7 @@ class Entr < Formula
   url "http://entrproject.org/code/entr-3.9.tar.gz"
   mirror "https://bitbucket.org/eradman/entr/get/entr-3.9.tar.gz"
   sha256 "02d78f18ae530e64bfbb9d8e0250962f85946e10850dd065899d03af15f26876"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
