@@ -41,6 +41,7 @@ class Root < Formula
       -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
+      -Dmysql=OFF
       -Droofit=ON
       -Dssl=ON
       -Dxrootd=ON
