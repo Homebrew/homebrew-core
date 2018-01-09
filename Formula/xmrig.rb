@@ -22,7 +22,7 @@ class Xmrig < Formula
       system "make"
       bin.install "xmrig"
     end
-    share.install "src/config.json"
+    pkgshare.install "src/config.json"
   end
 
   test do
