@@ -1,8 +1,8 @@
 class Nuxeo < Formula
   desc "Enterprise Content Management"
   homepage "https://nuxeo.github.io/"
-  url "https://cdn.nuxeo.com/nuxeo-9.2/nuxeo-server-9.2-tomcat.zip"
-  sha256 "714fdecf96dc19d7587ee6ff57f8d563661327a367a90216b0c7af19b5ea227e"
+  url "https://cdn.nuxeo.com/nuxeo-9.3/nuxeo-server-9.3-tomcat.zip"
+  sha256 "e8a482fb468cb5615cfc953df74e42bc76106e0da21d5ef005afdd8c4cdd0f00"
 
   bottle :unneeded
 
