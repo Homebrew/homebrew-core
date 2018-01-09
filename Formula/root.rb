@@ -20,7 +20,9 @@ class Root < Formula
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "openssl"
+  depends_on "pcre"
   depends_on "xrootd"
+  depends_on "xz" # For LZMA.
   depends_on "python" => :recommended
   depends_on "python3" => :optional
 
@@ -31,6 +33,14 @@ class Root < Formula
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
+    # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
+    # However, this is still permitting the build process to make remote
+    # connections. As a hack, since upstream support it, we inreplace
+    # this file to "encourage" the connection over HTTPS rather than HTTP.
+    inreplace "cmake/modules/SearchInstalledSoftware.cmake",
+              "http://lcgpackages",
+              "https://lcgpackages"
 
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
