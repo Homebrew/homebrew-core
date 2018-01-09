@@ -2,6 +2,8 @@ class Cadaver < Formula
   desc "Command-line client for DAV"
   homepage "http://www.webdav.org/cadaver/"
   # url "http://www.webdav.org/cadaver/cadaver-0.23.3.tar.gz" # This is the main mirror, however webdav.org seems to be down... :(
+  url "https://ftp.mirrorservice.org/sites/download.salixos.org/i486/extra-14.2/source/network/cadaver/cadaver-0.23.3.tar.gz"
+  mirror "http://pkgs.fedoraproject.org/repo/pkgs/cadaver/cadaver-0.23.3.tar.gz/502ecd601e467f8b16056d2acca39a6f/cadaver-0.23.3.tar.gz"
   mirror "https://fossies.org/linux/www/cadaver-0.23.3.tar.gz"
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
   revision 2
