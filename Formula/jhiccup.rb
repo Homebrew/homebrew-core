@@ -3,6 +3,7 @@ class Jhiccup < Formula
   homepage "https://www.azul.com/jhiccup/"
   url "https://www.azul.com/files/jHiccup-2.0.8-dist.zip"
   sha256 "0ff7f919909f0ba27b236f3c18d90c8f002948591a47e5d325566200ff018832"
+  revision 1
 
   bottle :unneeded
 
