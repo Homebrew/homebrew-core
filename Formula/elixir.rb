@@ -1,32 +1,9 @@
-class Erlang18Requirement < Requirement
-  fatal true
-  default_formula "erlang"
-
-  satisfy do
-    erl = which("erl")
-    next unless erl
-    `#{erl} -noshell -eval 'io:fwrite("~s", [erlang:system_info(otp_release) >= "18"])' -s erlang halt | grep -q '^true'`
-    next unless $CHILD_STATUS.exitstatus.zero?
-    erl
-  end
-
-  def message; <<~EOS
-    Erlang 18+ is required to install.
-
-    You can install this with:
-      brew install erlang
-
-    Or you can use an official installer from:
-      https://www.erlang.org/
-    EOS
-  end
-end
-
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
   url "https://github.com/elixir-lang/elixir/archive/v1.5.3.tar.gz"
   sha256 "0fc6024b6027d87af9609b416448fd65d8927e0d05fc02410b35f4b9b9eb9629"
+  revision 1
 
   head "https://github.com/elixir-lang/elixir.git"
 
@@ -36,7 +13,7 @@ class Elixir < Formula
     sha256 "9041f7d6ef531f64ce516d8d872faeb27b6c249153286e00f37f7a7b668daab3" => :el_capitan
   end
 
-  depends_on Erlang18Requirement
+  depends_on "erlang"
 
   def install
     system "make"
