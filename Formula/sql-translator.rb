@@ -1,8 +1,8 @@
 class SqlTranslator < Formula
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
-  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-0.11023.tar.gz"
-  sha256 "5905a47b2861a11baa90b594f7d8f385a348e66c052cb935e3d78723c5a93b40"
+  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-0.11024.tar.gz"
+  sha256 "5bde9d6f67850089ef35a9296d6f53e5ee8e991438366b71477f3f27c1581bb1"
 
   bottle do
     cellar :any_skip_relocation
