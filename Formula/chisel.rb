@@ -5,8 +5,6 @@ class Chisel < Formula
   sha256 "952354d358dea8407b36effff2dd6acd81af733ca920ec2a97e62235f5bcc749"
   head "https://github.com/facebook/chisel.git"
 
-  bottle :unneeded
-
   def install
     libexec.install Dir["*.py", "commands"]
     prefix.install "PATENTS"
