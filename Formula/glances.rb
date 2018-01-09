@@ -14,11 +14,11 @@ class Glances < Formula
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resource("psutil").stage do
-      system "python2.7", *Language::Python.setup_install_args(libexec/"vendor")
+      system "python", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python2.7", *Language::Python.setup_install_args(libexec)
+    system "python", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
