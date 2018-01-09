@@ -9,7 +9,7 @@ class Glances < Formula
     sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
   end
 
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
