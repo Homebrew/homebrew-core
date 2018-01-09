@@ -1,8 +1,8 @@
 class Sjk < Formula
   desc "Swiss Java Knife"
   homepage "https://github.com/aragozin/jvm-tools"
-  url "https://search.maven.org/remotecontent?filepath=org/gridkit/jvmtool/sjk-plus/0.9/sjk-plus-0.9.jar"
-  sha256 "3868290a0b379933d40e0ea0eac756de1b80f4c6db846f3c1c9b24799fcdc9bd"
+  url "https://search.maven.org/remotecontent?filepath=org/gridkit/jvmtool/sjk-plus/0.9.1/sjk-plus-0.9.1.jar"
+  sha256 "ea3b20ebe8f56e727cdb84d9810444c1c78b15c2b10fd595b4ee5cededca0756"
 
   bottle :unneeded
 
