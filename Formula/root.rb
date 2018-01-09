@@ -125,5 +125,10 @@ class Root < Formula
     EOS
     assert_equal "\nProcessing test.C...\nHello, world!\n",
                  shell_output("/bin/bash test.bash")
+
+    if build.with? "python"
+      ENV["PYTHONPATH"] = lib/"root"
+      system "python2", "-c", "import ROOT"
+    end
   end
 end
