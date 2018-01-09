@@ -33,7 +33,7 @@ class Glances < Formula
       header = read.gets
       assert_match(/timestamp/, header)
     ensure
-      Process.kill(:TERM, pid)
+      Process.kill("TERM", pid)
     end
   end
 end
