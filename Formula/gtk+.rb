@@ -1,11 +1,10 @@
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
-  revision 1
 
   stable do
-    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.31.tar.xz"
-    sha256 "68c1922732c7efc08df4656a5366dcc3afdc8791513400dac276009b40954658"
+    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
+    sha256 "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
   end
 
   bottle do
