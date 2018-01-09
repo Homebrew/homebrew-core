@@ -4,12 +4,12 @@ class Glances < Formula
   url "https://github.com/nicolargo/glances/archive/v2.11.1.tar.gz"
   sha256 "446a0ee6e13c0c7ceb4bc0d4868add8a02d5e3ff866de8e880bdb33dce6ab3fc"
 
+  depends_on "python" if MacOS.version <= :snow_leopard
+
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/psutil-5.4.3.tar.gz"
     sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
   end
-
-  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
