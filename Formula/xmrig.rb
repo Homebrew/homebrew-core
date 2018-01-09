@@ -6,10 +6,10 @@ class Xmrig < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ea51deb3c528a0822a7eb05b92c0e4dec3ce128602792d784a8cd74fabd4ddbd" => :high_sierra
-    sha256 "cc4423bdd5fccc46dde0dc5b4e4b3faff4e006e5fc13a606017f4a8e4853adeb" => :sierra
-    sha256 "153a072e84fe3e1dd2a788ded1047066ad7757a8f8c6eb30f7621bdaa47f2da2" => :el_capitan
+    rebuild 2
+    sha256 "ca9d1c680827920b25c737bcbda0f37fb3bc3bcde9c9ec988395ec19ecfcd1a4" => :high_sierra
+    sha256 "63f5948698bab51a9581a8d23217c94f296323d70ae73e5f8cba2a68f101629c" => :sierra
+    sha256 "7de0959cbd9a37daa3b1db7dac76c6dc174bb98a2a6a21c98e26e2d37fff3492" => :el_capitan
   end
 
   depends_on "cmake" => :build
