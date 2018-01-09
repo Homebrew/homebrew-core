@@ -31,7 +31,7 @@ class Glances < Formula
         exec bin/"glances", "-q", "--export-csv", "/dev/stdout", :out => write
       end
       header = read.gets
-      assert_match(/timestamp/, header)
+      assert_match /timestamp/, header
     ensure
       Process.kill("TERM", pid)
     end
