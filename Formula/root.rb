@@ -4,6 +4,8 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.12.04.source.tar.gz"
   version "6.12.04"
   sha256 "f438f2ae6e25496fa81df525935fb0bf2a403855d95c40b3e0f3a3e1e861a085"
+  revision 1
+
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -19,7 +21,7 @@ class Root < Formula
   depends_on "openssl"
   depends_on "xrootd"
   depends_on :fortran
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :optional
 
   needs :cxx11
@@ -47,11 +49,18 @@ class Root < Formula
     if build.with?("python3") && build.with?("python")
       odie "Root: Does not support building both python 2 and 3 wrappers"
     elsif build.with?("python") || build.with?("python3")
-      python_executable = `which python`.strip if build.with? "python"
-      python_executable = `which python3`.strip if build.with? "python3"
-      python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
-      python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
-      python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+      if build.with? "python"
+        ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+        python_executable = Utils.popen_read("which python").strip
+        python_version = Language::Python.major_minor_version("python")
+      elsif build.with? "python3"
+        python_executable = Utils.popen_read("which python3").strip
+        python_version = Language::Python.major_minor_version("python3")
+      end
+
+      python_prefix = Utils.popen_read("#{python_executable} -c 'import sys;print(sys.prefix)'").chomp
+      python_include = Utils.popen_read("#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+      args << "-Dpython=ON"
 
       # cmake picks up the system's python dylib, even if we have a brewed one
       if File.exist? "#{python_prefix}/Python"
@@ -66,9 +75,6 @@ class Root < Formula
       args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
       args << "-DPYTHON_LIBRARY='#{python_library}'"
-    end
-    if build.with?("python") || build.with?("python3")
-      args << "-Dpython=ON"
     else
       args << "-Dpython=OFF"
     end
