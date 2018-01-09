@@ -1,6 +1,4 @@
 class Glances < Formula
-  include Language::Python::Virtualenv
-
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
   url "https://github.com/nicolargo/glances/archive/v2.11.1.tar.gz"
@@ -11,8 +9,21 @@ class Glances < Formula
     sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
   end
 
+  depends_on :python
+
   def install
-    virtualenv_install_with_resources
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python2.7", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    system "python2.7", *Language::Python.setup_install_args(libexec)
+
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
