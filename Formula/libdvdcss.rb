@@ -1,8 +1,8 @@
 class Libdvdcss < Formula
   desc "Access DVDs as block devices without the decryption"
   homepage "https://www.videolan.org/developers/libdvdcss.html"
-  url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.0/libdvdcss-1.4.0.tar.bz2"
-  sha256 "2089375984800df29a4817b37f3123c1706723342d6dab4d0a8b75c25c2c845a"
+  url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.1/libdvdcss-1.4.1.tar.bz2"
+  sha256 "eb073752b75ae6db3a3ffc9d22f6b585cd024079a2bf8acfa56f47a8fce6eaac"
 
   bottle do
     cellar :any
