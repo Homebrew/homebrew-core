@@ -6,9 +6,11 @@ class AmdatuBootstrap < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.8"
+
   def install
     libexec.install %w[amdatu-bootstrap bootstrap.jar conf]
-    bin.install_symlink "#{libexec}/amdatu-bootstrap" => "amdatu-bootstrap"
+    (bin/"amdatu-bootstrap").write_env_script libexec/"amdatu-bootstrap", Language::Java.java_home_env("1.8")
   end
 
   test do
