@@ -6,8 +6,8 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.4.3.0.tar.gz"
-  sha256 "64644b38295b46fa0b50172cfcf348fd88a567a24ac1d793f5257f1faa697570"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.4.0.tar.gz"
+  sha256 "063eb700dc5c85a7916fc51d52c36ca2ae1d2dc326e1bc3211ec143bdaf66bf5"
   head "https://github.com/begriffs/postgrest.git"
 
   bottle do
@@ -21,13 +21,6 @@ class Postgrest < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "postgresql"
-
-  # Fix build failure "src/PostgREST/Auth.hs:54:9: error: Variable not in scope"
-  # Upstream PR from 7 Sep 2017 "Constrain jose to < 0.6"
-  patch do
-    url "https://github.com/begriffs/postgrest/pull/967.patch?full_index=1"
-    sha256 "ceac606dd91d91daabb53f76e33a147883e79efade9f76345bd96743a6d40877"
-  end
 
   def install
     install_cabal_package :using => ["happy"]
