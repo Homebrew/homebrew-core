@@ -1,8 +1,8 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.14/gxml-0.14.3.tar.xz"
-  sha256 "b4f9739f924fefc90dd5d54da7680a50377bfba1342bd16436ab387c631e3b41"
+  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.0.tar.xz"
+  sha256 "2c08019d5b7aec3efd6a5223517ed8e29840b14aed009cdaf0ef96e4ef6e99af"
 
   bottle do
     sha256 "52c57777587cd0b7aa9aab0f854ffaa5c1b3a571c205ba849b2bd6e58ebb1c0e" => :high_sierra
@@ -59,7 +59,7 @@ class Gxml < Formula
       -I#{libxml2.opt_include}/libxml2
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gxml-0.14
+      -I#{include}/gxml-0.16
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
@@ -71,7 +71,7 @@ class Gxml < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgxml-0.14
+      -lgxml-0.16
       -lintl
       -lxml2
     ]
