@@ -29,7 +29,7 @@ class Mu < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "xapian"
-  depends_on :emacs => ["23", :optional]
+  depends_on "emacs" => :optional
 
   # Currently requires gmime 2.6.x
   resource "gmime" do
