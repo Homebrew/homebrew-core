@@ -1,15 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.25.3.tar.gz"
-  sha256 "4bd58e035c34a36ba3c7027e19f763905b99812eeabab283146ef12b3310ddbb"
+  url "https://notmuchmail.org/releases/notmuch-0.26.tar.gz"
+  sha256 "d3e894ed2ad9d721a442663f07a6f2a241dc98be7cc4af681f16edf88e0d76df"
   head "git://notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    sha256 "bc991ca4a45404087eac6a81fc1fad797d9ff5e1056665a8c6d842c31db37fd8" => :high_sierra
-    sha256 "a16ac99e0ce08091080aeb1dfcc08a2014df928dd8c853bc294b46c7c1732ad6" => :sierra
-    sha256 "82223bd0189a3badbcd2a377182d2f2e35066847dbf264fc6b39bec09da8d3d5" => :el_capitan
+    sha256 "4a4c6981dbc9cc1061f30a9e571c729372edc52d235ac3682b6711ff19b2c136" => :high_sierra
+    sha256 "ec47c28caf199263d0c11301b42a29ce2326c3201a12ac20c687412db2c39555" => :sierra
+    sha256 "9fd854188d76d174dbd6d19eea001923403c908f33e11aff98cf135f58eb69a2" => :el_capitan
   end
 
   option "without-python", "Build without python support"
@@ -21,9 +21,9 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
-  depends_on :emacs => ["24.1", :optional]
-  depends_on :python3 => :optional
-  depends_on :ruby => ["1.9", :optional]
+  depends_on "emacs" => :optional
+  depends_on "python3" => :optional
+  depends_on "ruby" => :optional
 
   # Fix SIP issue with python bindings
   # A more comprehensive patch has been submitted upstream

@@ -34,9 +34,10 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "08c1b0d4e91869554617e0c69f71a168f611707971b970ee5ddb35883445d315" => :high_sierra
-    sha256 "f39a49f5fdc34166b2209f9dac924a2e6c27266d818c19e036f34e91c80d5d19" => :sierra
-    sha256 "7e5753439f64ef376821eb0150f0fa2593fc0f55d9cac25cb908c63471cd8b50" => :el_capitan
+    rebuild 1
+    sha256 "d32c83da4c46d72d5db50812c19eceddab044b1fcd49eb30b227e04735d2eff3" => :high_sierra
+    sha256 "f124ea70d354507bc3b480c3f91c1ed9501ee7b51e5848aba1349391dda67fd9" => :sierra
+    sha256 "8964c6bf52cf4dfbc0a1560d7f1693a5e53ff6137e424e5e87c181eb6a8b975a" => :el_capitan
   end
 
   devel do
@@ -107,9 +108,9 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
-    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
-    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
+    url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
+    sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
   end
 
   resource "little-cms2" do
@@ -125,9 +126,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8.1/freetype-2.8.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.1.tar.bz2"
-    sha256 "e5435f02e02d2b87bb8e4efdcaa14b1f78c9cf3ab1ed80f94b6382fb6acc7d78"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
+    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
   end
 
   resource "libusb" do

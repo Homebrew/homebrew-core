@@ -1,16 +1,3 @@
-class Git182Requirement < Requirement
-  fatal true
-  default_formula "git"
-
-  satisfy do
-    system "git stripspace --comment-lines </dev/null 2>/dev/null"
-  end
-
-  def message
-    "Your Git is too old.  Please upgrade to Git 1.8.2 or newer."
-  end
-end
-
 class GitIntegration < Formula
   desc "Manage git integration branches"
   homepage "https://johnkeeping.github.io/git-integration/"
@@ -28,7 +15,6 @@ class GitIntegration < Formula
   end
 
   depends_on "asciidoc" => [:build, :optional]
-  depends_on Git182Requirement
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

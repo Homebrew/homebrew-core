@@ -17,11 +17,16 @@ class BashGitPrompt < Formula
   end
 
   def caveats; <<~EOS
-    You should add the following to your .bashrc (or equivalent):
-      if [ -f "#{HOMEBREW_PREFIX}/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-        __GIT_PROMPT_DIR="#{HOMEBREW_PREFIX}/opt/bash-git-prompt/share"
-        source "#{HOMEBREW_PREFIX}/opt/bash-git-prompt/share/gitprompt.sh"
+    You should add the following to your .bashrc (or .bash_profile):
+      if [ -f "#{opt_share}/gitprompt.sh" ]; then
+        __GIT_PROMPT_DIR="#{opt_share}"
+        source "#{opt_share}/gitprompt.sh"
       fi
     EOS
+  end
+
+  test do
+    output = shell_output("/bin/sh #{share}/gitstatus.sh 2>&1")
+    assert_match "Not a git repository", output
   end
 end

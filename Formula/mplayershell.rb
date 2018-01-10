@@ -1,10 +1,3 @@
-class MPlayerRequirement < Requirement
-  fatal true
-  default_formula "mplayer"
-
-  satisfy { which("mplayer") || which("mplayer2") }
-end
-
 class Mplayershell < Formula
   desc "Improved visual experience for MPlayer on macOS"
   homepage "https://github.com/donmelton/MPlayerShell"
@@ -23,7 +16,7 @@ class Mplayershell < Formula
     sha256 "0553f3ff5cae0a8938c3dc09e6448621029b52bbbc6c17d53225c1f3e7881ae4" => :mountain_lion
   end
 
-  depends_on MPlayerRequirement
+  depends_on "mplayer"
   depends_on :macos => :lion
   depends_on :xcode => :build
 
