@@ -13,7 +13,7 @@ class Hexgui < Formula
     sha256 "d65b66b60e2aa05daf90732381b8f3778dfd66476f004a420c5a8ff2f7b6b0f3" => :yosemite
   end
 
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on :java => "1.6+"
 
   def install
