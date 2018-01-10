@@ -22,7 +22,7 @@ class Vtk < Formula
   depends_on "libtiff"
   depends_on "netcdf"
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on "qt" => :optional
   depends_on "pyqt" if build.with? "qt"
 
