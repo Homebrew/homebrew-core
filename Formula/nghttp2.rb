@@ -21,7 +21,7 @@ class Nghttp2 < Formula
   option "with-examples", "Compile and install example programs"
   option "with-python3", "Build python3 bindings"
 
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on "sphinx-doc" => :build
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "pkg-config" => :build
