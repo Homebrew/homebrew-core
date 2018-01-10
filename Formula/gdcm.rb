@@ -13,7 +13,7 @@ class Gdcm < Formula
 
   option "without-python", "Build without python2 support"
 
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on "swig" => :build if build.with?("python") || build.with?("python3")
 
   depends_on "cmake" => :build
