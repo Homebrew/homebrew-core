@@ -26,7 +26,7 @@ class Lcm < Formula
   depends_on "glib"
   depends_on :java => :recommended
   depends_on "python" => :optional
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   def install
     if build.head?
