@@ -28,7 +28,7 @@ class Znc < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "icu4c" => :optional
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   needs :cxx11
 
