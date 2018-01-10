@@ -47,7 +47,7 @@ class BoostAT155 < Formula
   option :cxx11
 
   depends_on "python" => :optional
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   if build.with?("python3") && build.with?("python")
     odie "boost@1.55: --with-python3 cannot be specified when using --with-python"
