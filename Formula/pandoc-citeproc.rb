@@ -5,8 +5,8 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.12.2.5/pandoc-citeproc-0.12.2.5.tar.gz"
-  sha256 "ddfb40b4ff42e1781172bf1077e344fb8909df99b3463c12b39f5a46ddb2a8d0"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.13/pandoc-citeproc-0.13.tar.gz"
+  sha256 "0f1d010a8f63cf66727b2435cc399d1f45e747d6c8eaf8f20495a228ece0a276"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
@@ -44,7 +44,7 @@ class PandocCiteproc < Formula
         - family: Doe
           given: John
         issued:
-        - year: '2005'
+        - year: 2005
         title: First book
         publisher: Cambridge University Press
         publisher-place: Cambridge
