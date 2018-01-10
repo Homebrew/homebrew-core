@@ -3,7 +3,7 @@ class Bettercap < Formula
   homepage "https://www.bettercap.org/"
   url "https://github.com/evilsocket/bettercap/archive/v1.6.2.tar.gz"
   sha256 "1b364d7e31be5fa7b5f93eefe76763ad7bd4ac0b7b6bb4af05483157580a9cb9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Bettercap < Formula
   end
 
   depends_on "openssl"
-  depends_on :ruby => "2.2.2"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     ENV["GEM_HOME"] = libexec
