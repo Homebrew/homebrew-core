@@ -6,7 +6,7 @@ class JingTrang < Formula
 
   bottle :unneeded
 
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on :java => "1.6+"
 
   def install
