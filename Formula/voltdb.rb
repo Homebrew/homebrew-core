@@ -12,7 +12,7 @@ class Voltdb < Formula
     sha256 "6762c49081ec4e08f96b738b1772a651e77165b124a2a28fe5a37820c4213561" => :yosemite
   end
 
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on "cmake" => :build
 
   def install
