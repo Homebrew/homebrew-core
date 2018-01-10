@@ -19,7 +19,7 @@ class Sleuthkit < Formula
 
   if build.with? "jni"
     depends_on :java
-    depends_on :ant => :build
+    depends_on "ant" => :build
   end
 
   conflicts_with "irods", :because => "both install `ils`"
