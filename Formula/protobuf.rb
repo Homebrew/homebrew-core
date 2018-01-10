@@ -21,7 +21,7 @@ class Protobuf < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
