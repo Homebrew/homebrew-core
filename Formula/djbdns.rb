@@ -36,6 +36,10 @@ class Djbdns < Formula
   end
 
   test do
-    assert_match /localhost/, shell_output("#{bin}/dnsname 127.0.0.1")
+    if MacOS.version < :high_sierra
+      assert_match "\n", shell_output("#{bin}/dnsname 127.0.0.1")
+    else
+      assert_match /localhost/, shell_output("#{bin}/dnsname 127.0.0.1")
+    end
   end
 end
