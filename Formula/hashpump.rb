@@ -19,7 +19,7 @@ class Hashpump < Formula
 
   depends_on "openssl"
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   # Remove on next release
   patch do
