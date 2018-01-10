@@ -4,6 +4,7 @@ class Graphicsmagick < Formula
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.27/GraphicsMagick-1.3.27.tar.xz"
   sha256 "d03278d2790efc1dc72309f85a539810d2a81deb47932f7e6720d09ac72d0367"
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
+  revision 1
 
   bottle do
     rebuild 1
