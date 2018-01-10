@@ -21,7 +21,7 @@ class PostgresqlAT95 < Formula
   depends_on "openssl"
   depends_on "readline"
   depends_on "python" => :optional
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   fails_with :clang do
     build 211
