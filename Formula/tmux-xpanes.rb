@@ -12,10 +12,10 @@ class TmuxXpanes < Formula
 
   test do
     # Check options with valid combination
-    system "echo testarg | #{bin}/xpanes --dry-run -c echo"
+    pipe_output "#{bin}/xpanes --dry-run -c echo", "hello", 0
 
     # Check options with invalid combination (-n requires number)
-    error_message = shell_output "echo testarg | #{bin}/xpanes --dry-run -n foo -c echo 2>&1", 4
-    assert_equal "xpanes:Error: invalid argument 'foo' for -n option", error_message.strip
+    output = pipe_output "#{bin}/xpanes --dry-run -n foo -c echo 2>&1", "hello", 4
+    assert_equal "xpanes:Error: invalid argument 'foo' for -n option", output.strip
   end
 end
