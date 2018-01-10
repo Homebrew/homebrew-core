@@ -8,8 +8,8 @@ class Swiftlint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e589a00e4e2120cfc4d439c4ef94754f91030932186885c9d72f2e7b11ce0c51" => :high_sierra
-    sha256 "4fa6eb6f19b72fbb40d2f5e600692a85b416e111faca5790c25c032fdf67ac68" => :sierra
+    sha256 "0d84c034454ffb1c94780bdb06a2c3099611ead956996c3003c5a2231dc9bb98" => :high_sierra
+    sha256 "e4f5afd5db515f7b1a45a5a2a94d772a0380a013931b2cd57f17f3d78ee4d209" => :sierra
   end
 
   depends_on :xcode => ["8.0", :run]
