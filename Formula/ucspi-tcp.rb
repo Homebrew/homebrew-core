@@ -25,7 +25,7 @@ class UcspiTcp < Formula
 
     system "make"
     bin.mkpath
-    system "make", "setup", "check"
+    system "make", "setup"
     share.install prefix/"man"
   end
 
