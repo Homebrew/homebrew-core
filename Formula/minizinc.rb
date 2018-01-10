@@ -7,9 +7,9 @@ class Minizinc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "acd6f237e40072b2551f5a5a17ecd96d6f52f1f98ea5f7e84c895b91b582b3da" => :high_sierra
-    sha256 "a54e076b9223a55b932d359489e8ba9ea4a3fb45eb9093ad250536f41a20768b" => :sierra
-    sha256 "46b16382dd7b639d0e19de5c1a735078bafee8f6df51dbedd0d82332cf0edaae" => :el_capitan
+    sha256 "970176e584ec4e246b2e2435e14f95037a2a3d9f607c6ff29d6e024ba5371e8a" => :high_sierra
+    sha256 "d4d6ce59e834a8c3429ae4d1ce46063148d7c07b9fc02aa30d4cb8b27d2cf469" => :sierra
+    sha256 "d76a0ec9eac191b1aee519540dcff60a40400099f5c1a3b0fbf5880340c5bc5e" => :el_capitan
   end
 
   depends_on :arch => :x86_64
