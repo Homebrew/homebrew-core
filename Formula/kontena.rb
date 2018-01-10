@@ -1,8 +1,8 @@
 class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
+  revision 2
   head "https://github.com/kontena/kontena.git"
-  revision 1
 
   stable do
     url "https://github.com/kontena/kontena.git",
@@ -157,7 +157,7 @@ class Kontena < Formula
     sha256 "db485586cbe945b34c167f8daf7813048759cb32674f5099606539f2147b87af" => :el_capitan
   end
 
-  depends_on :ruby => "2.1"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     ENV["GEM_HOME"] = libexec
