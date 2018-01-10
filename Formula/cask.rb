@@ -3,11 +3,12 @@ class Cask < Formula
   homepage "https://cask.readthedocs.org/"
   url "https://github.com/cask/cask/archive/v0.8.1.tar.gz"
   sha256 "8739ba608f23c79b3426faa8b068d5d1bc096c7305ce30b1163babd354be821c"
+  revision 1
   head "https://github.com/cask/cask.git"
 
   bottle :unneeded
 
-  depends_on :emacs => ["24", :run]
+  depends_on "emacs"
 
   def install
     bin.install "bin/cask"

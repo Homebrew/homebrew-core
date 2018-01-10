@@ -3,7 +3,7 @@ class ProofGeneral < Formula
   homepage "https://proofgeneral.github.io"
   url "https://github.com/ProofGeneral/PG/archive/v4.4.tar.gz"
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
-  revision 1
+  revision 2
   head "https://github.com/ProofGeneral/PG.git"
 
   bottle do
@@ -15,7 +15,7 @@ class ProofGeneral < Formula
   end
 
   depends_on "texi2html" => :build
-  depends_on :emacs => "22.3"
+  depends_on "emacs"
 
   def install
     ENV.deparallelize # Otherwise lisp compilation can result in 0-byte files

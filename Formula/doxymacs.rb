@@ -3,6 +3,7 @@ class Doxymacs < Formula
   homepage "https://doxymacs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/doxymacs/doxymacs/1.8.0/doxymacs-1.8.0.tar.gz"
   sha256 "a23fd833bc3c21ee5387c62597610941e987f9d4372916f996bf6249cc495afa"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -20,8 +21,8 @@ class Doxymacs < Formula
     depends_on "automake" => :build
   end
 
-  depends_on :emacs => "20.7.1"
   depends_on "doxygen"
+  depends_on "emacs"
 
   def install
     # https://sourceforge.net/p/doxymacs/support-requests/5/
