@@ -3,7 +3,7 @@ class Lensfun < Formula
   homepage "https://lensfun.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.2/lensfun-0.3.2.tar.gz"
   sha256 "ae8bcad46614ca47f5bda65b00af4a257a9564a61725df9c74cb260da544d331"
-  revision 1
+  revision 2
   head "https://git.code.sf.net/p/lensfun/code.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Lensfun < Formula
     sha256 "d61e3c9409a3145b5a0ea98af8453462c2f69d24b4753f429d1dcdff719e9e92" => :yosemite
   end
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "glib"
