@@ -3,6 +3,7 @@ class AzureCli < Formula
   homepage "https://docs.microsoft.com/cli/azure/overview"
   url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.24.tar.gz"
   sha256 "8c0251b7c35bdc227d28a54ef397ff0f700fb4feb0e6ea06f5b7604b8bafead1"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -13,7 +14,7 @@ class AzureCli < Formula
   end
 
   depends_on "openssl"
-  depends_on :python3
+  depends_on "python3"
 
   resource "adal" do
     url "https://files.pythonhosted.org/packages/00/50/0c6e9c4b52b9fd17800a3396abb14e5710ca5812d11ec9ab725026d31f78/adal-0.4.7.tar.gz"
