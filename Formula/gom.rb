@@ -3,6 +3,7 @@ class Gom < Formula
   homepage "https://wiki.gnome.org/Projects/Gom"
   url "https://download.gnome.org/sources/gom/0.3/gom-0.3.3.tar.xz"
   sha256 "ac57e34b5fe273ed306efaeabb346712c264e341502913044a782cdf8c1036d8"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,7 +20,7 @@ class Gom < Formula
   depends_on "gobject-introspection"
   depends_on "py3cairo"
   depends_on "pygobject3" => "with-python3"
-  depends_on :python3
+  depends_on "python3"
   depends_on "sqlite"
 
   def install
