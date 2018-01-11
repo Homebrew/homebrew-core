@@ -15,7 +15,7 @@ class CharmTools < Formula
 
   depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
-  depends_on :hg
+  depends_on "mercurial"
   depends_on "charm"
   depends_on "openssl@1.1"
 
