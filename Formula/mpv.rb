@@ -16,7 +16,7 @@ class Mpv < Formula
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
-  depends_on :python3 => :build
+  depends_on "python3" => :build
 
   depends_on "libass"
   depends_on "ffmpeg"
