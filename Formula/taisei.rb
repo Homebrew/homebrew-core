@@ -4,6 +4,7 @@ class Taisei < Formula
   url "https://github.com/taisei-project/taisei.git",
       :tag => "v1.1.2",
       :revision => "3c5da74722b445c6aaf8af7666ba2e7e29fb4ccb"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Taisei < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "libzip"
-  depends_on :python3
+  depends_on "python3"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
