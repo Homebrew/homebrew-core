@@ -3,6 +3,7 @@ class Asciinema < Formula
   homepage "https://asciinema.org"
   url "https://github.com/asciinema/asciinema/archive/v1.4.0.tar.gz"
   sha256 "841a55b0f51988d5e155e99badbd6ce5cf3b43cca2ba15cd20c971a19719dc9a"
+  revision 1
   head "https://github.com/asciinema/asciinema.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Asciinema < Formula
     sha256 "e95c895bee1ee5c1f852e06522104489807510f157843ef10ea1d68a84318634" => :yosemite
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     xy = Language::Python.major_minor_version "python3"
