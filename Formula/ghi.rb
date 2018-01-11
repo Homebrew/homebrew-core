@@ -8,9 +8,9 @@ class Ghi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "272b4321fe7903188e89d35a4abebf96feb976af905a0790f7c68928adbcfc59" => :high_sierra
-    sha256 "272b4321fe7903188e89d35a4abebf96feb976af905a0790f7c68928adbcfc59" => :sierra
-    sha256 "272b4321fe7903188e89d35a4abebf96feb976af905a0790f7c68928adbcfc59" => :el_capitan
+    sha256 "9289e061f8a249130950ec212042e3d9adfaa96e3591f0eb2d6038c28ff0e6d6" => :high_sierra
+    sha256 "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131" => :sierra
+    sha256 "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131" => :el_capitan
   end
 
   resource "multi_json" do
