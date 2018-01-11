@@ -5,6 +5,7 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.20.0.tar.gz"
   sha256 "3a0ae2ebb82e580d8e9849d4a9a8e876a907be26fe2db2bc075fd887826c71b2"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -16,8 +17,8 @@ class Certbot < Formula
 
   depends_on "augeas"
   depends_on "dialog"
-  depends_on "openssl@1.1"
-  depends_on :python3
+  depends_on "openssl"
+  depends_on "python3"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
