@@ -11,9 +11,9 @@ class Khal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fa63ff4ec81dc9b5b72ad553636ce899584e7ac4ec265bddded0453e0de3069" => :high_sierra
-    sha256 "0f70a0cf9e761fb25fa3e7b8ad45fe935f3e46b393d10daa345a4b1d27bef7a9" => :sierra
-    sha256 "3006d316948618c8a0702b4fba2b568f43fca5fa51d3836c8d6b8e7966f858ff" => :el_capitan
+    sha256 "c9551144bcdfceb76be38eedbea6d56365148c9df0c3a328c4456ef35ab5cce2" => :high_sierra
+    sha256 "525c9a4db1fe70bc48a62f6f7f26512d6aa2a05304a652f378ba99e6404978ed" => :sierra
+    sha256 "71aacae31b8b9d04ab38470fe73a24abaf6ebe4bcf156e354810206d25cce2df" => :el_capitan
   end
 
   depends_on "python3"
