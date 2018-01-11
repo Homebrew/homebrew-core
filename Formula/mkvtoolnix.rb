@@ -25,7 +25,7 @@ class Mkvtoolnix < Formula
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
-  depends_on :ruby => ["1.9", :build]
+  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
   depends_on "libebml"
   depends_on "libmatroska"
