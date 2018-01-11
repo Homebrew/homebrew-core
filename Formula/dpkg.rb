@@ -7,6 +7,7 @@ class Dpkg < Formula
   url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.0.4.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.19.0.4.tar.xz"
   sha256 "98a66bb19012f9bde848e1e02903fe411dd0b9e61921108ee4323c4167e6990a"
+  revision 1
 
   bottle do
     sha256 "4514edf429e5c0ba98d68ee24458e450ee11ddc05003b7c00836c6bf7750451f" => :high_sierra
@@ -17,7 +18,7 @@ class Dpkg < Formula
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
   depends_on "gpatch"
-  depends_on :perl => "5.20"
+  depends_on "perl"
   depends_on "xz" # For LZMA
 
   def install
