@@ -13,7 +13,7 @@ class CollectorSidecar < Formula
 
   depends_on "glide" => :build
   depends_on "go" => :build
-  depends_on :hg => :build
+  depends_on "mercurial" => :build
   depends_on "filebeat" => :run
 
   def install
