@@ -3,6 +3,7 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
+  revision 1
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
@@ -15,7 +16,7 @@ class Pytouhou < Formula
 
   option "with-demo", "Install demo version of Touhou 6"
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "pkg-config" => :build
   depends_on "libepoxy"
   depends_on "sdl2"

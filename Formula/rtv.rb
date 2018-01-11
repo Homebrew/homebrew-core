@@ -5,6 +5,7 @@ class Rtv < Formula
   homepage "https://github.com/michael-lazar/rtv"
   url "https://github.com/michael-lazar/rtv/archive/v1.21.0.tar.gz"
   sha256 "7e6a8de7b3e05b93d135cd2aa869b3d20f6ec26073a586e3595cff7f2df1aafa"
+  revision 1
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Rtv < Formula
     sha256 "15ecb1f561d0eb5eb8f009d5fda5625e22a5667cb559d1aea9ba307cce363441" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     venv = virtualenv_create(libexec, "python3")
