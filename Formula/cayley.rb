@@ -15,7 +15,7 @@ class Cayley < Formula
   option "without-samples", "Don't install sample data"
 
   depends_on "bazaar" => :build
-  depends_on :hg => :build
+  depends_on "mercurial" => :build
   depends_on "glide" => :build
   depends_on "go" => :build
 
