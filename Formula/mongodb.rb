@@ -4,8 +4,8 @@ class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
 
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.1.tar.gz"
-  sha256 "59c646453120778911cc0d300b7da17e21765270d4575118bd4aa43ea1bf1e75"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.2.tar.gz"
+  sha256 "018788bd31d6953e55cda0ad0771d23e6b78e024a8a6404a80a900c67215b0a7"
 
   bottle do
     sha256 "5c62829a16a9cf497cef7d0395aed7cf7140a608475732b4ccadab0e3dabcf91" => :high_sierra
@@ -39,7 +39,7 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.6.1",
+        :tag => "r3.6.2",
         :revision => "2b10d8492e1185039be4d5f2242a5b11ea102303",
         :shallow => false
   end
