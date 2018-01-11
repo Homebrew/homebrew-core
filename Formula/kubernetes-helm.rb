@@ -13,7 +13,7 @@ class KubernetesHelm < Formula
     sha256 "52383d0994f28405d12c8589b28899a3035d66e8853e46b6917228a0fe664c70" => :el_capitan
   end
 
-  depends_on :hg => :build
+  depends_on "mercurial" => :build
   depends_on "go" => :build
   depends_on "glide" => :build
 
