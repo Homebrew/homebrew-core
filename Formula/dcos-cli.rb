@@ -5,6 +5,7 @@ class DcosCli < Formula
   homepage "https://dcos.io/docs/latest/cli/"
   url "https://github.com/dcos/dcos-cli/archive/0.5.7.tar.gz"
   sha256 "437f5bdbf1be1f3e105c5df98e0423364fd01501115bd7b823122e30252a553d"
+  revision 1
   head "https://github.com/dcos/dcos-cli.git"
 
   bottle do
@@ -14,8 +15,8 @@ class DcosCli < Formula
     sha256 "8fcbdcbe67bab924d685924e85723751a74bea66915395f7d556f9215610d758" => :el_capitan
   end
 
-  depends_on :python3
-  depends_on "openssl@1.1"
+  depends_on "openssl"
+  depends_on "python3"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
