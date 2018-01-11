@@ -3,7 +3,7 @@ class Travis < Formula
   homepage "https://github.com/travis-ci/travis.rb/"
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.8.tar.gz"
   sha256 "468158ee2b46c67c1a002a237a9e04472b22e8f4926cb68b1ca49a1a0b2eaf3b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Travis < Formula
     sha256 "2d526551014be397c1ab37bcd7bb3a4a8882d080a212d1097fdbcda5d0d18780" => :el_capitan
   end
 
-  depends_on :ruby => "2.0"
+  depends_on "ruby" if MacOS.version <= :mountain_lion
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.4.0.gem"

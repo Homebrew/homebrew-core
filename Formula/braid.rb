@@ -4,6 +4,7 @@ class Braid < Formula
   url "https://github.com/cristibalan/braid.git",
       :tag => "v1.0.22",
       :revision => "3339d2cce298bec80152223ef782f2ad45e881ec"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Braid < Formula
     sha256 "0e3bece1844845d7eefb05837e3b673050de48085fb6c72603fe1300e3a10f11" => :el_capitan
   end
 
-  depends_on :ruby => "2.2"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"

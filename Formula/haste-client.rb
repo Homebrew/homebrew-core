@@ -1,8 +1,8 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
+  revision 3
   head "https://github.com/seejohnrun/haste-client.git"
-  revision 2
 
   stable do
     url "https://github.com/seejohnrun/haste-client/archive/v0.2.3.tar.gz"
@@ -23,7 +23,7 @@ class HasteClient < Formula
     sha256 "1186a48c9fa3ca1e284b920141e5c64e7e5d804e2ea43e63a32b1b2477ee8464" => :el_capitan
   end
 
-  depends_on :ruby => "2.3"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "faraday" do
     url "https://rubygems.org/gems/faraday-0.12.2.gem"
