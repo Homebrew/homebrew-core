@@ -5,6 +5,7 @@ class JujuWait < Formula
   homepage "https://launchpad.net/juju-wait"
   url "https://pypi.python.org/packages/3d/c2/8cce9ec8386be418a76566fcd2e7dcbaa7138a92b0b9b463306d9191cfd7/juju-wait-2.6.2.tar.gz"
   sha256 "86622804896e80f26a3ed15dff979584952ba484ccb5258d8bab6589e26dd46d"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class JujuWait < Formula
     sha256 "8e776297c6d7477122efbc04b0a8d45b4bae4e32613928f76e217b2888a2ebdb" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "libyaml"
   depends_on "juju"
 
