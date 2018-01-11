@@ -3,8 +3,8 @@ require "language/node"
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
   homepage "https://github.com/indexzero/http-server"
-  url "https://registry.npmjs.org/http-server/-/http-server-0.11.0.tgz"
-  sha256 "fd932adb32fe7c03da7ef45c71a08a088ec7d6472db5906694c5a1962541e5c1"
+  url "https://registry.npmjs.org/http-server/-/http-server-0.11.1.tgz"
+  sha256 "4154aba3e09f21595e26fdd174d9773e22755c0009f661bed54b8647fc987d95"
   head "https://github.com/indexzero/http-server.git"
 
   bottle do
