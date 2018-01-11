@@ -20,6 +20,10 @@ class Micropython < Formula
       system "make", "axtls"
       system "make", "install", "PREFIX=#{prefix}", "V=1"
     end
+    cd "mpy-cross" do
+      system "make", "V=1"
+      bin.install "mpy-cross"
+    end
   end
 
   test do
@@ -32,6 +36,7 @@ class Micropython < Formula
       printf("Hello!\\n")
     EOS
 
+    system bin/"mpy-cross", "ffi-hello.py"
     system bin/"micropython", "ffi-hello.py"
   end
 end
