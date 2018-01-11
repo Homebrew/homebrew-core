@@ -5,7 +5,7 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/bb/9c/a4361b89e478e5459678908692251636d43d14d88c56b8ff53dd239cadec/snapcraft-2.33.tar.gz"
   sha256 "269ed290dc7853e812852b24a5ffb7cdae5f8351afee17769f0c849043c70ac9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Snapcraft < Formula
   depends_on "libyaml"
   depends_on "lxc"
   depends_on "squashfs"
-  depends_on :python3
+  depends_on "python3"
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
