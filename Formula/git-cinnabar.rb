@@ -49,7 +49,7 @@ class GitCinnabar < Formula
     end
   end
 
-  depends_on :hg
+  depends_on "mercurial"
 
   conflicts_with "git-remote-hg", :because => "both install `git-remote-hg` binaries"
 
