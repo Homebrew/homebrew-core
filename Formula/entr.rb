@@ -15,7 +15,7 @@ class Entr < Formula
 
   head do
     url "https://bitbucket.org/eradman/entr", :using => :hg
-    depends_on :hg => :build
+    depends_on "mercurial" => :build
   end
 
   def install
