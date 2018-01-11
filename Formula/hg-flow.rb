@@ -8,7 +8,7 @@ class HgFlow < Formula
   bottle :unneeded
 
   depends_on "python" if MacOS.version <= :snow_leopard
-  depends_on :hg
+  depends_on "mercurial"
 
   def install
     if build.head?
