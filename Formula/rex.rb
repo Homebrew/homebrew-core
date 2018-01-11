@@ -3,7 +3,7 @@ class Rex < Formula
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.5.0.tar.gz"
   sha256 "c042a0ed4920070d4508b6e7d2c36d28b3a5691938f2e0a0d7717977b44b82d0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,7 @@ class Rex < Formula
     sha256 "7a86664e6a6c9dcfde2c9c8100c2cb3d4db721369e62d93a8b606dfb7928489b" => :yosemite
   end
 
-  depends_on :perl => "5.16"
+  depends_on "perl" if MacOS.version <= :mountain_lion
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
