@@ -22,7 +22,7 @@ class InfluxdbAT08 < Formula
   depends_on "flex" => :build
   depends_on "go" => :build
   depends_on "gawk" => :build
-  depends_on :hg => :build
+  depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath
