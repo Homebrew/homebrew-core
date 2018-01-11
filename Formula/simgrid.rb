@@ -3,6 +3,7 @@ class Simgrid < Formula
   homepage "http://simgrid.gforge.inria.fr"
   url "https://gforge.inria.fr/frs/download.php/file/37294/SimGrid-3.18.tar.gz"
   sha256 "dc8f6223d89326b6a21c99eabc90598fa153d6b0818a63ff5c3ec8726e2257b2"
+  revision 1
 
   bottle do
     sha256 "65077045d23efb3f98e552fd09e85936585a51b27e39b6f6869a3155df7c9cd4" => :high_sierra
@@ -14,7 +15,7 @@ class Simgrid < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "pcre"
-  depends_on :python3
+  depends_on "python3"
   depends_on "graphviz"
 
   def install
