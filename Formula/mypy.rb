@@ -4,6 +4,7 @@ class Mypy < Formula
   url "https://github.com/python/mypy.git",
       :tag => "v0.560",
       :revision => "51e044c4ecf2a52fc6c41ee63019723e0d3061e1"
+  revision 1
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Mypy < Formula
 
   deprecated_option "without-docs" => "without-sphinx-doc"
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "sphinx-doc" => [:build, :recommended]
 
   resource "psutil" do

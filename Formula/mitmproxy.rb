@@ -5,7 +5,7 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v2.0.2.tar.gz"
   sha256 "42e8cbcd27b85e60a165d1a28692098181813bbd9d7731a42b2cda68824c6c9d"
-  revision 1
+  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -16,8 +16,8 @@ class Mitmproxy < Formula
     sha256 "0cbef5d89844ca8b4d13308675122d87c0242df777eb47f31905cc488c1e34a8" => :yosemite
   end
 
-  depends_on "openssl@1.1"
-  depends_on :python3
+  depends_on "openssl"
+  depends_on "python3"
   depends_on "protobuf"
 
   resource "EditorConfig" do
