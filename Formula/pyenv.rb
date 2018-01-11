@@ -24,10 +24,6 @@ class Pyenv < Formula
     system "src/configure"
     system "make", "-C", "src"
 
-    bash_completion.install "completions/pyenv.bash"
-    fish_completion.install "completions/pyenv.fish"
-    zsh_completion.install "completions/pyenv.zsh"
-
     prefix.install Dir["*"]
     %w[pyenv-install pyenv-uninstall python-build].each do |cmd|
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
