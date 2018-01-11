@@ -3,7 +3,7 @@ class Keepassc < Formula
   homepage "https://raymontag.github.com/keepassc/"
   url "https://github.com/raymontag/keepassc/archive/1.7.0.tar.gz"
   sha256 "218537f6a16f70d907d22a23d1a4dec952d7622c65fae65f03c9ee98e64938dd"
-  revision 2
+  revision 3
   head "https://github.com/raymontag/keepassc.git", :branch => "development"
 
   bottle do
@@ -14,7 +14,7 @@ class Keepassc < Formula
     sha256 "656de743c74e27801eb05c1c8639cc19fe174b2aace6dd503358c60ed9125c85" => :yosemite
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "pycrypto" do
     # homepage "https://www.dlitz.net/software/pycrypto"
