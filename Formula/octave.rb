@@ -14,7 +14,7 @@ class Octave < Formula
 
   head do
     url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
-    depends_on :hg => :build
+    depends_on "mercurial" => :build
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
