@@ -3,7 +3,7 @@ class Libstfl < Formula
   homepage "http://www.clifford.at/stfl/"
   url "http://www.clifford.at/stfl/stfl-0.24.tar.gz"
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -14,8 +14,9 @@ class Libstfl < Formula
 
   option "without-perl", "Build without Perl support"
   option "without-python", "Build without Python 2 support"
+  option "without-ruby", "Build without Ruby support"
 
-  depends_on :ruby => ["1.8", :recommended]
+  depends_on "ruby" => :recommended if MacOS.version <= :mountain_lion
   depends_on "swig" => :build if build.with?("python") || build.with?("ruby") || build.with?("perl")
 
   def install
