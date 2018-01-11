@@ -3,7 +3,7 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.0.3.tar.gz"
   sha256 "dd318de67c1581e6dfa6b6c84e8c8e995b27d115fed86d81d5579aa9a2358114"
-  revision 1
+  revision 2
   head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
@@ -14,7 +14,7 @@ class FbClient < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python3
+  depends_on "python3"
 
   conflicts_with "findbugs", :because => "findbugs and fb-client both install a `fb` binary"
 

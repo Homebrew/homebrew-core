@@ -3,6 +3,7 @@ class Googler < Formula
   homepage "https://github.com/jarun/googler"
   url "https://github.com/jarun/googler/archive/v3.4.tar.gz"
   sha256 "187d9369ed0d7d2db118a0144ccbc54f18a1b8e7ef24921571b80dbaaad726aa"
+  revision 1
   head "https://github.com/jarun/googler.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Googler < Formula
     sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     system "make", "disable-self-upgrade"
