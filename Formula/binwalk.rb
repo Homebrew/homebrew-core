@@ -3,8 +3,8 @@ class Binwalk < Formula
   homepage "https://github.com/devttys0/binwalk"
   url "https://github.com/devttys0/binwalk/archive/v2.1.1.tar.gz"
   sha256 "1b70a5b03489d29f60fef18008a2164974234874faab48a4f47ec53d461d284a"
+  revision 4
 
-  revision 3
   head "https://github.com/devttys0/binwalk.git"
 
   bottle do
@@ -17,9 +17,9 @@ class Binwalk < Formula
   option "with-capstone", "Enable disasm options via capstone"
 
   depends_on "swig" => :build
-  depends_on :fortran
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "gcc" # for gfortran
   depends_on "p7zip"
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "ssdeep"
   depends_on "xz"
 
