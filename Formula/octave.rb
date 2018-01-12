@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
   sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
-  revision 9
+  revision 10
 
   bottle do
     sha256 "eb360d268ac7bea6b90e84a4a59044bb9fcd7db4368711b42deb2349cf5c8da8" => :high_sierra
@@ -26,7 +26,6 @@ class Octave < Formula
   depends_on "autoconf" => :build
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
-  depends_on :fortran
   depends_on "arpack"
   depends_on "epstool"
   depends_on "fftw"
@@ -34,6 +33,7 @@ class Octave < Formula
   depends_on "fltk"
   depends_on "fontconfig"
   depends_on "freetype"
+  depends_on "gcc" # for gfortran
   depends_on "ghostscript"
   depends_on "gl2ps"
   depends_on "glpk"
