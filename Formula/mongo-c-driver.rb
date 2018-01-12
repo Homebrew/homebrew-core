@@ -1,8 +1,8 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.9.1/mongo-c-driver-1.9.1.tar.gz"
-  sha256 "91951444d34581deeaff46cc2985c68805754f618a20ac369b761ce9b621c4cd"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.9.2/mongo-c-driver-1.9.2.tar.gz"
+  sha256 "02218d67ebe7b45476bff9b27a94c78a18b348604148ec818edd81c2133adad2"
 
   bottle do
     cellar :any
