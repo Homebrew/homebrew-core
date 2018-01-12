@@ -6,7 +6,7 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "81ed79200c9c31c4b86d9e6590b0161ce1b3b475fc3f424a2aeb56619cc95ae3" => :high_sierra
@@ -15,9 +15,9 @@ class Pgplot < Formula
     sha256 "74aeb46030d7c3c6c6e3bdbae94bf6525c8c5adfa8d41474f2764fc83e0a3ab2" => :yosemite
   end
 
-  depends_on :x11
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "libpng"
+  depends_on :x11
 
   # from MacPorts: https://trac.macports.org/browser/trunk/dports/graphics/pgplot/files
   patch :p0 do
@@ -33,8 +33,6 @@ class Pgplot < Formula
   def install
     ENV.deparallelize
     ENV.append "CPPFLAGS", "-DPG_PPU"
-    # allow long lines in the fortran code (for long homebrew PATHs)
-    ENV.append "FCFLAGS", "-ffixed-line-length-none"
 
     # re-hardcode the share dir
     inreplace "src/grgfil.f", "/usr/local/pgplot", share
@@ -50,8 +48,8 @@ class Pgplot < Formula
       ATHENA_INCL=""
       TK_INCL=""
       RV_INCL=""
-      FCOMPL="#{ENV.fc}"
-      FFLAGC="#{ENV.fcflags}"
+      FCOMPL="gfortran"
+      FFLAGC="-ffixed-line-length-none"
       FFLAGD=""
       CCOMPL="#{ENV.cc}"
       CFLAGC="#{ENV.cppflags}"
@@ -63,13 +61,13 @@ class Pgplot < Formula
       TK_LIBS=""
       RANLIB="#{which "ranlib"}"
       SHARED_LIB="libpgplot.dylib"
-      SHARED_LD="#{ENV.fc} -dynamiclib -single_module $LDFLAGS -lX11 -install_name libpgplot.dylib"
+      SHARED_LD="gfortran -dynamiclib -single_module $LDFLAGS -lX11 -install_name libpgplot.dylib"
       SHARED_LIB_LIBS="#{ENV.ldflags} -lpng -lX11"
       MCOMPL=""
       MFLAGC=""
       SYSDIR="$SYSDIR"
       CSHARED_LIB="libcpgplot.dylib"
-      CSHARED_LD="#{ENV.fc} -dynamiclib -single_module $LDFLAGS -lX11"
+      CSHARED_LD="gfortan -dynamiclib -single_module $LDFLAGS -lX11"
       EOS
 
     mkdir "build" do
@@ -114,6 +112,7 @@ class Pgplot < Formula
          CALL PGEND
          END
     EOS
-    system "gfortran", "-o", "test", "test.f90", "-L#{lib}", "-lpgplot", "-lX11", "-L/usr/X11/lib", "-I/usr/X11/include"
+    system "gfortran", "-o", "test", "test.f90", "-I/usr/X11/include",
+           "-L/usr/X11/lib", "-L#{lib}", "-lpgplot", "-lX11"
   end
 end
