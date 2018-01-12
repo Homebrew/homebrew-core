@@ -5,6 +5,7 @@ class Fobis < Formula
   homepage "https://github.com/szaghi/FoBiS"
   url "https://files.pythonhosted.org/packages/20/1c/60fcdc15055ac42d220f7e0089f53937f44e615d6c33ae2c8ed98b9e5848/FoBiS.py-2.2.8.tar.gz"
   sha256 "e56aa3d75fb4b915a679a315fd8e8c19aa6f26332b9647cbbbf7f2103b6a5c8b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +16,8 @@ class Fobis < Formula
 
   option "without-pygooglechart", "Disable support for coverage charts generated with pygooglechart"
 
+  depends_on "gcc" # for gfortran
   depends_on "python" if MacOS.version <= :snow_leopard
-  depends_on :fortran
   depends_on "graphviz" => :recommended
 
   resource "pygooglechart" do
@@ -37,7 +38,6 @@ class Fobis < Formula
   end
 
   test do
-    ENV.fortran
     (testpath/"test-mod.f90").write <<~EOS
       module fobis_test_m
         implicit none
