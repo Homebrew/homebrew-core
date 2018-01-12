@@ -2,6 +2,7 @@ class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
   homepage "https://crd.lbl.gov/~dhbailey/mpdist/"
   url "https://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.18.tar.gz"
+  revision 1
   sha256 "81096b5b33519cbeed5fc8ef58e1d47ee8f546382514849967627b972483716e"
 
   bottle do
@@ -11,14 +12,12 @@ class Qd < Formula
     sha256 "5e2f24e0bf506991d3e962bcffafbd608f0c3ff812fb71214f27f18e63eb9da0" => :el_capitan
   end
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" # for gfortran
 
   def install
-    args = ["--disable-dependency-tracking", "--enable-shared", "--prefix=#{prefix}"]
-    args << "--enable-fortran=no" if build.without? :fortran
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--enable-shared",
+                          "--prefix=#{prefix}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
