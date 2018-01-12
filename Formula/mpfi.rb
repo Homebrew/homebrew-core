@@ -6,11 +6,9 @@ class Mpfi < Formula
 
   bottle do
     cellar :any
-    sha256 "8240e74f03f35c775a467df6749c71a348832c81139de0f18b3777d10ec065bd" => :high_sierra
-    sha256 "ef61011bac358bf0434a1a9a5dfb47003c20586557590b1d8732d2baf9fab16b" => :sierra
-    sha256 "9a36493cb162a66182b8792297db5b6cf32d75f9235252e215a2a6c196223f63" => :el_capitan
-    sha256 "6b202dd6c288c0a2f8025050a515a9f258e4adb7d244e98514e0b3adb5636a02" => :yosemite
-    sha256 "d9aaac81a9898a308063e9c2b3154a320f2ea2eb2c5c02bdf33b09a8227606c7" => :mavericks
+    sha256 "e829d1293ff9101516234d9c8d60f05a948da004f684baaa5c8bd9d591aa6156" => :high_sierra
+    sha256 "ee2d9a5b676f12ea283b660f45abf572ca84440ec9b497f4b481a605ba07b209" => :sierra
+    sha256 "02631fb35a90f64746031700c51f42dfb67a43206754d1f56196360ed8208f4e" => :el_capitan
   end
 
   depends_on "gmp"
