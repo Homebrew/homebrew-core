@@ -3,6 +3,7 @@ class Libgetdata < Formula
   homepage "https://getdata.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/getdata/getdata/0.10.0/getdata-0.10.0.tar.xz"
   sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
+  revision 1
 
   bottle do
     sha256 "bf29e7e39c8a2acd7c48b9668c679c1e686439fea6452a3b6009d140d3849aee" => :high_sierra
@@ -11,8 +12,7 @@ class Libgetdata < Formula
     sha256 "560fae5df4e8c5d308589ab7a0e04694a681d725bf492d7a31817cbf42aadd27" => :yosemite
   end
 
-  option "with-fortran", "Build Fortran 77 bindings"
-  option "with-perl", "Build Perl binding"
+  option "with-fortran", "Build Fortran bindings"
   option "with-xz", "Build with LZMA compression support"
   option "with-libzzip", "Build with zzip compression support"
 
@@ -20,28 +20,27 @@ class Libgetdata < Formula
   deprecated_option "zzip" => "with-libzzip"
 
   depends_on "libtool" => :run
-  depends_on :fortran => :optional
-  depends_on :perl => ["5.3", :optional]
-  depends_on "xz" => :optional
+  depends_on "gcc" if build.with?("fortran")
   depends_on "libzzip" => :optional
+  depends_on "xz" => :optional
 
   def install
+    ENV.fortran if build.with?("fortran")
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --disable-python
       --disable-php
+      --disable-python
+      --with-perl-dir=#{lib}/perl5/site_perl
     ]
 
-    if build.with? "perl"
-      args << "--with-perl-dir=#{lib}/perl5/site_perl"
-    else
-      args << "--disable-perl"
-    end
     args << "--without-liblzma" if build.without? "xz"
     args << "--without-libzzip" if build.without? "libzzip"
-    args << "--disable-fortran" << "--disable-fortran95" if build.without? "fortran"
+    if build.without? "fortran"
+      args << "--disable-fortran" << "--disable-fortran95"
+    end
 
     system "./configure", *args
     system "make"
