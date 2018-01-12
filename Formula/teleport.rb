@@ -20,23 +20,16 @@ class Teleport < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOROOT"] = Formula["go"].opt_libexec
 
-    (buildpath / "src/github.com/gravitational/teleport").install buildpath.children
-    ln_s buildpath/"src", buildpath / "src/github.com/gravitational/teleport"
-
+    (buildpath/"src/github.com/gravitational/teleport").install buildpath.children
     cd "src/github.com/gravitational/teleport" do
-      ENV.deparallelize { system "make", "release" }
-      system "/usr/bin/tar", "-xvf", "teleport-v#{version}-#{ENV["GOOS"]}-#{ENV["GOARCH"]}-bin.tar.gz"
-      cd "teleport" do
-        bin.install %w[teleport tctl tsh]
-        prefix.install_metafiles
-      end
+      ENV.deparallelize { system "make", "full" }
+      bin.install Dir["build/*"]
+      prefix.install_metafiles
     end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/teleport version")
-    assert_match version.to_s, shell_output("#{bin}/tctl version")
-    assert_match version.to_s, shell_output("#{bin}/tsh version")
     (testpath/"config.yml").write shell_output("#{bin}/teleport configure")
       .gsub("0.0.0.0", "127.0.0.1")
       .gsub("/var/lib/teleport", testpath)
