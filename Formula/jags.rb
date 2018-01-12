@@ -3,6 +3,7 @@ class Jags < Formula
   homepage "https://mcmc-jags.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.0.tar.gz"
   sha256 "8ac5dd57982bfd7d5f0ee384499d62f3e0bb35b5f1660feb368545f1186371fc"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Jags < Formula
     sha256 "2a1b02acc3e361549d64d10cee6581d598f78539c91cd715678c810eb6c31fe4" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "./configure", "--disable-dependency-tracking",
