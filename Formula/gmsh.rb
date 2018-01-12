@@ -3,6 +3,7 @@ class Gmsh < Formula
   homepage "https://gmsh.info/"
   url "https://gmsh.info/src/gmsh-3.0.6-source.tgz"
   sha256 "9700bcc440d7a6b16a49cbfcdcdc31db33efe60e1f5113774316b6fa4186987b"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
@@ -16,11 +17,11 @@ class Gmsh < Formula
   option "with-opencascade", "Build with opencascade support"
 
   depends_on "cmake" => :build
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90]
-  depends_on "opencascade" => :optional
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
+  depends_on "opencascade" => :optional
 
   def install
     args = std_cmake_args + %W[
