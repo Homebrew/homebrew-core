@@ -57,6 +57,15 @@ class Rust < Formula
   end
 
   def install
+    # Remove for > 1.23.0; fix build failure on APFS
+    # See https://github.com/rust-lang/cargo/pull/4739
+    if build.stable? && MacOS.version >= :high_sierra
+      inreplace "src/stage0.txt" do |s|
+        s.gsub! "date: 2017-11-20", "date: 2017-11-23"
+        s.gsub! "rustc: 1.22.0", "rustc: 1.22.1"
+      end
+    end
+
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
