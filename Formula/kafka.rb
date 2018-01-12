@@ -3,7 +3,7 @@ class Kafka < Formula
   homepage "https://kafka.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.12-1.0.0.tgz"
   mirror "https://archive.apache.org/dist/kafka/1.0.0/kafka_2.12-1.0.0.tgz"
-  sha256 "923f38358c1cae30e184c858cee2da7a30b2d60c69f59291f164c405d5a7e387"
+  sha256 "d5b1d00752252d9c129e9284f26f8280e9899dd374167f257e29d5346eb544b3"
 
   bottle do
     cellar :any_skip_relocation
