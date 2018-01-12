@@ -2,8 +2,8 @@ class Sassc < Formula
   desc "Wrapper around libsass that helps to create command-line apps"
   homepage "https://github.com/sass/sassc"
   url "https://github.com/sass/sassc.git",
-      :tag => "3.4.7",
-      :revision => "a839dfa14c81c6e772eb08cfd5ea2941315b984d"
+      :tag => "3.4.8",
+      :revision => "aa6d5c635ea8faf44d542a23aaf85d27e5777d48"
   head "https://github.com/sass/sassc.git"
 
   bottle do
