@@ -3,7 +3,7 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.6.0.tar.gz"
   sha256 "c9bec16f5b82873a59be079538192c0007359c612c0224b9c579dae18631e8c9"
-  revision 1
+  revision 2
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -14,8 +14,8 @@ class Mikutter < Formula
 
   depends_on "gtk+"
   depends_on "libidn"
+  depends_on "ruby"
   depends_on "terminal-notifier" => :recommended
-  depends_on :ruby => "2.1"
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.5.2.gem"
