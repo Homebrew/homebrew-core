@@ -4,7 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5e9506b629800e6dfbedb67845eb77a22896e561a826d79a0540173e4c8f3714" => :high_sierra
@@ -27,8 +27,8 @@ class Subversion < Formula
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
+  depends_on "perl" => :recommended
   depends_on "python" => :optional
-  depends_on :perl => ["5.6", :recommended]
 
   # Bindings require swig
   if build.with?("perl") || build.with?("python") || build.with?("ruby")
