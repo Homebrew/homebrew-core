@@ -5,6 +5,7 @@ class Rsync < Formula
   mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.1.2.tar.gz"
   mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.1.2.tar.gz"
   sha256 "ecfa62a7fa3c4c18b9eccd8c16eaddee4bd308a76ea50b5c02a5840f09c0a1c2"
+  revision 1
 
   bottle do
     sha256 "51924d6d4c11681643fa8c41e3204104bbb356ba32984fa951fe7f0d65081ee6" => :high_sierra
@@ -23,6 +24,18 @@ class Rsync < Formula
     apply "patches/fileflags.diff",
           "patches/crtimes.diff",
           "patches/hfs-compression.diff"
+  end
+
+  # Fix CVE-2017-16548, CVE-2017-17433, CVE-2017-17434, CVE-2017-17434.
+  # All these patches are upstream & should be in the next release.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/r/rsync/rsync_3.1.2-2.1.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/r/rsync/rsync_3.1.2-2.1.debian.tar.xz"
+    sha256 "589213bd77aecb51ee39501d65a9f2b3efb6c349aa73ec912259d52702ae2b97"
+    apply "patches/0001-Enforce-trailing-0-when-receiving-xattr-name-values.patch",
+          "patches/0002-Check-fname-in-recv_files-sooner.patch",
+          "patches/0003-Sanitize-xname-in-read_ndx_and_attrs.patch",
+          "patches/0004-Check-daemon-filter-against-fnamecmp-in-recv_files.patch"
   end
 
   def install
