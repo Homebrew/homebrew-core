@@ -3,7 +3,7 @@ class Dungeon < Formula
   homepage "https://github.com/GOFAI/dungeon"
   url "https://github.com/GOFAI/dungeon/archive/4.0.tar.gz"
   sha256 "be2217be9e23861f22c14c4395da272fca5fb08a1741f52fd393792908279bea"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e0252a20faaee35aa1768a3f7a31441de5d73028bd722419f632cc66bb92d22b" => :high_sierra
@@ -12,7 +12,7 @@ class Dungeon < Formula
     sha256 "6177df6d7568967456aad92c0b1e55c45eab0c91e4d88d25ad76ff90d9704fda" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     chdir "src" do
