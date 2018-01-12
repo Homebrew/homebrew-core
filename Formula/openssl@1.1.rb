@@ -5,6 +5,7 @@ class OpensslAT11 < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1-1.1.0g.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0g.tar.gz"
   sha256 "de4d501267da39310905cb6dc8c6121f7a2cad45a7707f76df828fe1b85073af"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -20,11 +21,7 @@ class OpensslAT11 < Formula
   # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
   # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
   # The MacOS ML tag is same hack as the way we handle most :python deps.
-  if build.with? "test"
-    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
-  else
-    depends_on :perl => "5.10"
-  end
+  depends_on "perl" if build.with?("test") && MacOS.version <= :mountain_lion
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
