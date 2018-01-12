@@ -1,6 +1,7 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
+  revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
