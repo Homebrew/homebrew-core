@@ -3,6 +3,7 @@ class Opencoarrays < Formula
   homepage "http://opencoarrays.org"
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/1.9.3/OpenCoarrays-1.9.3.tar.gz"
   sha256 "58502575c74ca079611abab1cf184b26076cb19a478113ce04a0f2cf1a607b45"
+  revision 1
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
@@ -12,24 +13,19 @@ class Opencoarrays < Formula
     sha256 "54a04a4d7859e2fe5b3a7d7be8b14b0ae6cae9b8ee284192dd20e2cf7380c178" => :el_capitan
   end
 
-  option "without-test", "Skip build time tests (not recommended)"
-
-  depends_on "gcc"
-  depends_on :fortran
-  depends_on :mpi => :cc
   depends_on "cmake" => :build
+  depends_on "gcc"
+  depends_on "open-mpi"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
-      system "ctest", "--output-on-failure", "--schedule-random" if build.with? "test"
       system "make", "install"
     end
   end
 
   test do
-    ENV.fortran
     (testpath/"tally.f90").write <<~EOS
       program main
         use iso_c_binding, only : c_int
