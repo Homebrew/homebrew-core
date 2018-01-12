@@ -12,10 +12,9 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256 "3b7606d2b98cf9ca5c25d2620d2c9d6c146a910f6063c071ac4bf5abdeb73faa" => :high_sierra
-    sha256 "bc96bddd0e9f7c074eab7c4036973bc60d5d5ef4489e65db64018363d63d248d" => :sierra
-    sha256 "755ed27d3aa9b60523aead68f36d17f6396b9f4b622a0972c05eae3302922d5c" => :el_capitan
-    sha256 "eecedf7c9233bd1553d3e22027f415f15a9d1a7ad11e486855bf3a8f7d36ed23" => :yosemite
+    sha256 "7961743f198120b68dac549268a380485e28e23347f72bddfc5dafab405a532c" => :high_sierra
+    sha256 "946d376af4da1e6db59cae92f85ad44fac19f5c259a0b9121a3ad3ac2578db1b" => :sierra
+    sha256 "0a25dd61dc7b1521262b3769b723cc66d6cf61105113545eea673a55041b2447" => :el_capitan
   end
 
   option "with-jit", "Build just-in-time compiler"
