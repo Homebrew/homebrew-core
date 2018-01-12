@@ -14,6 +14,7 @@ class Rex < Formula
   end
 
   depends_on :perl => "5.16"
+  depends_on "md5sha1sum"
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
