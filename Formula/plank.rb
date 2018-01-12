@@ -10,8 +10,7 @@ class Plank < Formula
 
   def install
     system "unset CC; make archive"
-    system `mv`, ".build/release/plank plank"
-    bin.install "plank"
+    bin.install ".build/release/plank"
   end
 
   test do
