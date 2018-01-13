@@ -1,9 +1,7 @@
 class Grap < Formula
   desc "Language for typesetting graphs"
-  homepage "http://www.lunabase.org/~faber/Vault/software/grap/"
-  # SSL issues with the canonical URL http://www.lunabase.org/~faber/Vault/software/grap/grap-1.45.tar.gz
-  # Contacted faber AT lunabase DOT org 19 Sep 2017
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grap/grap_1.45.orig.tar.gz"
+  homepage "https://www.lunabase.org/~faber/Vault/software/grap/"
+  url "https://www.lunabase.org/~faber/Vault/software/grap/grap-1.45.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grap/grap_1.45.orig.tar.gz"
   sha256 "906743cdccd029eee88a4a81718f9d0777149a3dc548672b3ef0ceaaf36a4ae0"
 
