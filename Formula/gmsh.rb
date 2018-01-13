@@ -8,10 +8,9 @@ class Gmsh < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b5982b4db77bed26abf0bd6d8b74c6d810186cb9a65aa8a40cfab43b5aae06be" => :high_sierra
-    sha256 "55a78d2e8462a06529a52db2611b8b6a5a5b77eeb0bde61fe0720c1621e219a5" => :sierra
-    sha256 "234a6a6da631e0a947498dc490b2770e3fac1ec8d5b63b49190050a7be11539e" => :el_capitan
+    sha256 "57cdad859b421b6cc48f6cf164570f67a1101c03c9b276ec18dce3b5c250e995" => :high_sierra
+    sha256 "85e7c6527a94fa3b02d14cce788dc32f6a0b545fa17124f5e4c19288890d8fc6" => :sierra
+    sha256 "d9d6657a71acd75de3833f50d46b454c757f6186f1fe44fdf090ac1604c84f70" => :el_capitan
   end
 
   option "with-opencascade", "Build with opencascade support"
