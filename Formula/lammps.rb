@@ -7,7 +7,7 @@ class Lammps < Formula
   # We only track stable releases as announced on the LAMMPS homepage.
   version "2017-08-11"
   sha256 "33431329fc735fb12d22ed33399235ef9506ba759a281a24028de538822af104"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -17,10 +17,10 @@ class Lammps < Formula
   end
 
   depends_on "fftw"
+  depends_on "gcc" # for gfortran
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on :fortran
-  depends_on :mpi => [:cxx, :f90]
+  depends_on "open-mpi"
 
   def install
     %w[serial mpi].each do |variant|
