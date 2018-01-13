@@ -1,8 +1,8 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.0-src.tar.bz2"
-  sha256 "a6e4cffde71e3f08b6e1befa5c0352a9bcc5f4e9f5cbf395001e0763a1a0d9e3"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.1-src.tar.bz2"
+  sha256 "f5548e06e2fc0c24ec8b6e3c5b09f90081818f7caa3e436dc312592611724713"
 
   bottle do
     cellar :any
