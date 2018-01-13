@@ -8,10 +8,10 @@ class Hdf5 < Formula
   revision 2
 
   bottle do
-    sha256 "277756fe2af2c1ccc08d0da75dbd666baf912b5d73ba0280f32fcf3c54bdba35" => :high_sierra
-    sha256 "12da4985daed0cbce5a368519e3a04d0e82447636fba3595ec0c8dad9cf13cff" => :sierra
-    sha256 "62f02b4183d1c6841ed9322d5bc02156fd7e1871d398fbfb9c9bb272fb13fe0c" => :el_capitan
-    sha256 "860eed2e9851d234d197b31161e0bfe66414825024503a43e79704de98fea9c9" => :yosemite
+    rebuild 1
+    sha256 "ce60d6ad246ecf8baae4e007a359da7c1cae8c3e199a2f9422f601fb0dc50e03" => :high_sierra
+    sha256 "13fb989ccd1ce01a88be9159d15afd1898e7d358e7f338fec8542cef1204903c" => :sierra
+    sha256 "fffbe4774667aa473e7ab6b004dea0247b98fab63ae7581b70ea129b6092c369" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"
