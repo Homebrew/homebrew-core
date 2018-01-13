@@ -6,10 +6,9 @@ class Dungeon < Formula
   revision 2
 
   bottle do
-    sha256 "e0252a20faaee35aa1768a3f7a31441de5d73028bd722419f632cc66bb92d22b" => :high_sierra
-    sha256 "18af74d676dbc99acfa51088bbcf89dd4c80f89290bc25b4ca030ae23ad82c01" => :sierra
-    sha256 "7e293839e0e151c0bb20423f8bdad447d2b31c905737359c7a47cb296f223816" => :el_capitan
-    sha256 "6177df6d7568967456aad92c0b1e55c45eab0c91e4d88d25ad76ff90d9704fda" => :yosemite
+    sha256 "0e6d683ff9e65ebc5dec90c76075666d80979147aede32deb8b0485cda9ada3f" => :high_sierra
+    sha256 "4c033c6809253783c4070c334cf03dc2a200ae16d4e3d84c9bd615d177ce4bee" => :sierra
+    sha256 "930b36aaf10a0f541e641909769f230346ec10752161282d925235bcad2dabc6" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran
