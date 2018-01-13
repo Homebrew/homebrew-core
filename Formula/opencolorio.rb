@@ -7,11 +7,9 @@ class Opencolorio < Formula
 
   bottle do
     cellar :any
-    sha256 "daa76480e8a457e54c1526a1777def1ba59f10eab19a96be9dbf494ecfc54d3d" => :high_sierra
-    sha256 "908cdf59c8eb2dd6afba51e1a851998ae551d5b9b885da66ade3e2c7cbce7447" => :sierra
-    sha256 "e3a2312a3f21ea15255903f4b030d44fbcceee36e768a070427234d9b80a46fd" => :el_capitan
-    sha256 "49edcb11a59fbcdbea875024a4c2719055fc17cee5e6472fe82d30e79685ae97" => :yosemite
-    sha256 "8aba1648c2c21f1054956c2d0fa7884d3882e30446785419bc429e50022d242c" => :mavericks
+    sha256 "4025f926a9061c72ebbecf1b5bbcb23d27c0ba6d8e2f578deb4cea45c60f409c" => :high_sierra
+    sha256 "18bf9288a4103a8f57f1869a884d3d1b697305e952eb977bd46f608d7d0695b3" => :sierra
+    sha256 "9eac0c648be323730035b3885b376db665408f02290efa9dd1263655029a914f" => :el_capitan
   end
 
   option "with-test", "Verify the build with its unit tests (~1min)"
