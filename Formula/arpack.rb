@@ -3,6 +3,7 @@ class Arpack < Formula
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.5.0.tar.gz"
   sha256 "50f7a3e3aec2e08e732a487919262238f8504c3ef927246ec3495617dde81239"
+  revision 1
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
@@ -12,20 +13,22 @@ class Arpack < Formula
     sha256 "bd7aee67c923392a0038673e3f8c361a3bfec169b5ab03cb6cbb30f56c330d35" => :yosemite
   end
 
+  option "with-mpi", "Enable parallel support"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "veclibfort"
-  depends_on :mpi => [:optional, :f77]
+  depends_on "open-mpi" if build.with? "mpi"
 
   def install
     args = %W[ --disable-dependency-tracking
                --prefix=#{libexec}
                --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort ]
 
-    args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi" if build.with? "mpi"
+    args << "F77=mpif77" << "--enable-mpi" if build.with? "mpi"
 
     system "./bootstrap"
     system "./configure", *args
