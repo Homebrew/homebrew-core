@@ -19,8 +19,8 @@ class Lammps < Formula
   depends_on "fftw"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on :fortran
-  depends_on :mpi => [:cxx, :f90]
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" => [:cxx, :f90]
 
   def install
     %w[serial mpi].each do |variant|

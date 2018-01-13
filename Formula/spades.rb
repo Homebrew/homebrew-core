@@ -16,7 +16,7 @@ class Spades < Formula
   depends_on "gcc"
   depends_on "python" if MacOS.version <= :snow_leopard
 
-  needs :openmp
+  depends_on "gcc" # for openmp
 
   def install
     mkdir "src/build" do

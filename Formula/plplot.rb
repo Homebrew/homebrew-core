@@ -17,7 +17,7 @@ class Plplot < Formula
   depends_on "freetype"
   depends_on "libtool" => :run
   depends_on "pango"
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on :java => :optional
   depends_on :x11 => :optional
 

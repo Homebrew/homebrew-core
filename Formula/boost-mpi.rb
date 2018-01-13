@@ -12,7 +12,7 @@ class BoostMpi < Formula
   end
 
   depends_on "boost"
-  depends_on :mpi => [:cc, :cxx]
+  depends_on "open-mpi"
 
   needs :cxx11
 

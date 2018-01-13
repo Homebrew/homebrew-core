@@ -16,8 +16,8 @@ class Gmsh < Formula
   option "with-opencascade", "Build with opencascade support"
 
   depends_on "cmake" => :build
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90]
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "opencascade" => :optional
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"

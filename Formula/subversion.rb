@@ -28,7 +28,7 @@ class Subversion < Formula
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
   depends_on "python" => :optional
-  depends_on :perl => ["5.6", :recommended]
+  depends_on "perl" => :recommended
 
   # Bindings require swig
   if build.with?("perl") || build.with?("python") || build.with?("ruby")

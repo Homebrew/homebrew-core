@@ -14,10 +14,9 @@ class Opencoarrays < Formula
 
   option "without-test", "Skip build time tests (not recommended)"
 
-  depends_on "gcc"
-  depends_on :fortran
-  depends_on :mpi => :cc
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
 
   def install
     mkdir "build" do

@@ -11,7 +11,7 @@ class Qd < Formula
     sha256 "5e2f24e0bf506991d3e962bcffafbd608f0c3ff812fb71214f27f18e63eb9da0" => :el_capitan
   end
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" # for gfortran => :recommended
 
   def install
     args = ["--disable-dependency-tracking", "--enable-shared", "--prefix=#{prefix}"]

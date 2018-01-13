@@ -12,7 +12,7 @@ class Bsponmpi < Formula
   end
 
   depends_on "scons" => :build
-  depends_on :mpi => [:cc, :cxx]
+  depends_on "open-mpi"
 
   def install
     # Don't install 'CVS' folders from tarball

@@ -13,7 +13,7 @@ class Netcdf < Formula
 
   depends_on "cmake" => :build
   depends_on "hdf5"
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"

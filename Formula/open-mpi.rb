@@ -24,7 +24,7 @@ class OpenMpi < Formula
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" # for gfortran => :recommended
   depends_on :java => :optional
   depends_on "libevent"
 

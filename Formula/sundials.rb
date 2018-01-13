@@ -17,10 +17,8 @@ class Sundials < Formula
   depends_on "cmake" => :build
   depends_on "suite-sparse"
   depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :f77, :recommended]
-
-  needs :openmp if build.with?("openmp")
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" => :recommended
 
   def install
     blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
@@ -34,7 +32,7 @@ class Sundials < Formula
       -DLAPACK_LIBRARIES=#{blas};#{blas}
     ]
     args << "-DOPENMP_ENABLE=ON" if build.with? "openmp"
-    args << "-DMPI_ENABLE=ON" if build.with? "mpi"
+    args << "-DMPI_ENABLE=ON" if build.with? "open-mpi"
 
     mkdir "build" do
       system "cmake", "..", *args

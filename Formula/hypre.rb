@@ -14,8 +14,8 @@ class Hypre < Formula
   end
 
   depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90, :f77]
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
 
   def install
     cd "src" do

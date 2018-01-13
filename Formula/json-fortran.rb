@@ -20,7 +20,7 @@ class JsonFortran < Formula
 
   depends_on "ford" => :build if build.with? "docs"
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     mkdir "build" do

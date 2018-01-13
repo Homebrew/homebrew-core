@@ -14,7 +14,7 @@ class Lapack < Formula
   keg_only :provided_by_osx
 
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "gcc"
 
   def install

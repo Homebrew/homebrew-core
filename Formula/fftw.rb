@@ -14,10 +14,12 @@ class Fftw < Formula
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
-  depends_on :fortran => :recommended
-  depends_on :mpi => [:cc, :optional]
+  deprecated_option "with-mpi" => "open-mpi"
 
-  needs :openmp if build.with? "openmp"
+  depends_on "gcc" # for gfortran => :recommended
+  depends_on "open-mpi" => :optional
+
+  depends_on "gcc" if build.with? "openmp" # for openmp
 
   def install
     args = ["--enable-shared",
@@ -30,7 +32,7 @@ class Fftw < Formula
     simd_args << "--enable-avx2" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
 
     args << "--disable-fortran" if build.without? "fortran"
-    args << "--enable-mpi" if build.with? "mpi"
+    args << "--enable-mpi" if build.with? "open-mpi"
     args << "--enable-openmp" if build.with? "openmp"
 
     # single precision

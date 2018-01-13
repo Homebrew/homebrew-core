@@ -20,12 +20,11 @@ class Abyss < Formula
     depends_on "multimarkdown" => :build
   end
 
-  needs :openmp
 
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
-  depends_on "gcc"
-  depends_on :mpi => :cc
+  depends_on "gcc" # for openmp
+  depends_on "open-mpi"
 
   resource("testdata") do
     url "http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/1.3.4/test-data.tar.gz"

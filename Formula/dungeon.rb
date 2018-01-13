@@ -12,7 +12,7 @@ class Dungeon < Formula
     sha256 "6177df6d7568967456aad92c0b1e55c45eab0c91e4d88d25ad76ff90d9704fda" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortan
 
   def install
     chdir "src" do

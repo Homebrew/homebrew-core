@@ -12,16 +12,18 @@ class Gromacs < Formula
 
   option "with-double", "Enables double precision"
 
+  deprecated_option "with-mpi" => "with-open-mpi"
+
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gsl"
-  depends_on :mpi => :optional
+  depends_on "open-mpi" => :optional
   depends_on :x11 => :optional
 
   def install
     args = std_cmake_args + %w[-DGMX_GSL=ON]
     args << "-DGMX_DOUBLE=ON" if build.include? "enable-double"
-    args << "-DGMX_MPI=ON" if build.with? "mpi"
+    args << "-DGMX_MPI=ON" if build.with? "open-mpi"
     args << "-DGMX_X11=ON" if build.with? "x11"
 
     inreplace "scripts/CMakeLists.txt", "BIN_INSTALL_DIR", "DATA_INSTALL_DIR"

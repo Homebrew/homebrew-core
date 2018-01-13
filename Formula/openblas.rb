@@ -17,9 +17,9 @@ class Openblas < Formula
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
   option "with-openmp", "Enable parallel computations with OpenMP"
-  needs :openmp if build.with? "openmp"
+  depends_on "gcc" if build.with? "openmp" # for openmp
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     ENV["DYNAMIC_ARCH"] = "1" if build.bottle?

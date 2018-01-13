@@ -10,14 +10,14 @@ class Cp2k < Formula
     sha256 "accb2f2ddc22665e149f9b8e65f2e0eeedeaba55eeddf95f3ca9fc851baacef5" => :el_capitan
   end
 
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "fftw"
   depends_on "gcc"
   depends_on "libxc"
   depends_on "scalapack"
 
-  needs :openmp
+  depends_on "gcc" # for openmp
 
   resource "libint" do
     url "https://downloads.sourceforge.net/project/libint/v1-releases/libint-1.1.5.tar.gz"

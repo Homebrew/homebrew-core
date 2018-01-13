@@ -21,7 +21,7 @@ class DatetimeFortran < Formula
   end
 
   option "without-test", "Skip build time tests (Not recommended)"
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "autoreconf", "-fvi" if build.head?

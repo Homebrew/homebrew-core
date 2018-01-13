@@ -18,7 +18,7 @@ class Superlu < Formula
   depends_on "openblas" => :optional
   depends_on "veclibfort" if build.without? "openblas"
 
-  needs :openmp if build.with? "openmp"
+  depends_on "gcc" if build.with? "openmp" # for openmp
 
   def install
     ENV.deparallelize

@@ -13,7 +13,7 @@ class Qrupdate < Formula
     sha256 "773cb82bd7665e6948ca0a3d9dae7d2bcaf79c384b219a6bc1de5b0451e1d876" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "veclibfort"
 
   def install

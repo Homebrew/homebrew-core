@@ -12,16 +12,17 @@ class Hdf5AT18 < Formula
 
   keg_only :versioned_formula
 
-  deprecated_option "enable-parallel" => "with-mpi"
+  deprecated_option "enable-parallel" => "with-open-mpi"
+  deprecated_option "with-mpi" => "with-open-mpi"
 
   option :cxx11
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
   depends_on "szip"
-  depends_on :fortran
-  depends_on :mpi => [:optional, :cc, :cxx, :f90]
+  depends_on "open-mpi" => :optional
 
   def install
     ENV.cxx11 if build.cxx11?

@@ -17,7 +17,7 @@ class R < Formula
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "openblas" => :optional
   depends_on :java => :optional
 

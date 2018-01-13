@@ -12,7 +12,7 @@ class Bubbros < Formula
     sha256 "66e1a809c1e27df455cfb0f25a2c5b1d3a4560ef9598c2c2a4b6ffce66f9b591" => :yosemite
   end
 
-  depends_on :python
+  depends_on "python"
   depends_on :x11 => :optional
 
   # Patches from debian https://sources.debian.net/patches/bubbros

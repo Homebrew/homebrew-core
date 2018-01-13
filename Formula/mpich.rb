@@ -25,7 +25,7 @@ class Mpich < Formula
   end
   deprecated_option "disable-fortran" => "without-fortran"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" # for gfortran => :recommended
 
   conflicts_with "open-mpi", :because => "both install mpi__ compiler wrappers"
 

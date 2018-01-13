@@ -14,7 +14,7 @@ class Veclibfort < Formula
     sha256 "6dcd136a00a22f25301da83534a6faf0171b391e00baf45b790d04d551c7202e" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "make", "all"

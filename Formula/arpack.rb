@@ -16,16 +16,16 @@ class Arpack < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "veclibfort"
-  depends_on :mpi => [:optional, :f77]
+  depends_on "open-mpi" => :optional
 
   def install
     args = %W[ --disable-dependency-tracking
                --prefix=#{libexec}
                --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort ]
 
-    args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi" if build.with? "mpi"
+    args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi" if build.with? "open-mpi"
 
     system "./bootstrap"
     system "./configure", *args
@@ -37,7 +37,7 @@ class Arpack < Formula
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
                      "TESTS/mmio.f", "TESTS/debug.h"
 
-    if build.with? "mpi"
+    if build.with? "open-mpi"
       (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
     end
   end
@@ -49,7 +49,7 @@ class Arpack < Formula
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 
-    if build.with? "mpi"
+    if build.with? "open-mpi"
       cp_r (libexec/"bin").children, testpath
       %w[pcndrv1 pdndrv1 pdndrv3 pdsdrv1
          psndrv1 psndrv3 pssdrv1 pzndrv1].each do |slv|
