@@ -24,8 +24,6 @@ class Libgetdata < Formula
   depends_on "xz" => :optional
 
   def install
-    ENV.fortran if build.with?("fortran")
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
