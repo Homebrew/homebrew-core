@@ -20,7 +20,7 @@ class OpenMpiAT16 < Formula
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" if build.with? "fortran"
 
   # Fixes error in tests, which makes them fail on clang.
   # Upstream ticket: https://svn.open-mpi.org/trac/ompi/ticket/4255
