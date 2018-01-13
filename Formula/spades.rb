@@ -3,7 +3,7 @@ class Spades < Formula
   homepage "http://cab.spbu.ru/software/spades/"
   url "http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1.tar.gz"
   sha256 "3ab85d86bf7d595bd8adf11c971f5d258bbbd2574b7c1703b16d6639a725b474"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class Spades < Formula
   depends_on "gcc"
   depends_on "python" if MacOS.version <= :snow_leopard
 
-  needs :openmp
+  fails_with :clang # no OpenMP support
 
   def install
     mkdir "src/build" do
