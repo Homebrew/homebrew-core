@@ -6,12 +6,9 @@ class Taktuk < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "dd847ab64b86ca67c4c2736ccb3534fef03c2aaeea031d06d841664d4f9b1d73" => :high_sierra
-    sha256 "236b1b7277a6ff6e33bab7818cb779f32f1415e3e51e4edda6f243499328d1e5" => :sierra
-    sha256 "b5f260c944e09210f94a3b215112ed2975bf9c4a93ad1fdd30a627700e48a364" => :el_capitan
-    sha256 "4f703e2c8fb0f1b5c4c8b19b6a42e3a14023b40d6c511a10e0d460b8810d629e" => :yosemite
-    sha256 "b0ca7976fb797a3d74c4e97d26214f6b7fdd6cf6764cd9fc3d0f2b3931479bd5" => :mavericks
+    sha256 "9cc466f8a75eea1974143fedecd42547eb14401d772e527776f387aec4832f77" => :high_sierra
+    sha256 "0ffc0bb09703bbf32afbcd302850803f94ecbb311eaa77353275e7dcb1549f62" => :sierra
+    sha256 "4a731d243e6915729240deb75dc99cfee513bb7d0f69169981623b14ce6601c1" => :el_capitan
   end
 
   def install
