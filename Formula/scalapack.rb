@@ -36,7 +36,6 @@ class Scalapack < Formula
   end
 
   test do
-    ENV.fortran
     cp_r pkgshare/"EXAMPLE", testpath
     cd "EXAMPLE" do
       system "mpif90", "-o", "xsscaex", "psscaex.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack"
