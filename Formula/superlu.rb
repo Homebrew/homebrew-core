@@ -16,9 +16,10 @@ class Superlu < Formula
   option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "openblas" => :optional
+  depends_on "gcc" if build.with? "openmp"
   depends_on "veclibfort" if build.without? "openblas"
 
-  needs :openmp if build.with? "openmp"
+  fails_with :clang if build.with? "openmp"
 
   def install
     ENV.deparallelize
