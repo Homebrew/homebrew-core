@@ -3,6 +3,7 @@ class Fftw < Formula
   homepage "http://www.fftw.org"
   url "http://fftw.org/fftw-3.3.7.tar.gz"
   sha256 "3b609b7feba5230e8f6dd8d245ddbefac324c5a6ae4186947670d9ac2cd25573"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,11 +14,12 @@ class Fftw < Formula
 
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
+  option "without-fortran", "Disable Fortran bindings"
 
-  depends_on :fortran => :recommended
-  depends_on :mpi => [:cc, :optional]
+  depends_on "open-mpi" if build.with? "mpi"
 
-  needs :openmp if build.with? "openmp"
+  depends_on "gcc" if build.with?("fortran") || build.with?("openmp")
+  fails_with :clang if build.with? "openmp"
 
   def install
     args = ["--enable-shared",
