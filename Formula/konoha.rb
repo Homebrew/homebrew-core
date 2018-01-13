@@ -3,7 +3,7 @@ class Konoha < Formula
   homepage "https://github.com/konoha-project/konoha3"
   url "https://github.com/konoha-project/konoha3/archive/v0.1.tar.gz"
   sha256 "e7d222808029515fe229b0ce1c4e84d0a35b59fce8603124a8df1aeba06114d3"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "02bc662f7d21b3a4a0de5fe3ab0687ad686ca7dc67fe22374abd75a34a33f78b" => :high_sierra
@@ -17,25 +17,18 @@ class Konoha < Formula
     depends_on "openssl"
   end
 
-  option "with-test", "Verify the build with make test (May currently fail)"
-
-  deprecated_option "tests" => "with-test"
-
   depends_on "cmake" => :build
-  depends_on :mpi => [:cc, :cxx]
-  depends_on "pcre"
   depends_on "json-c"
-  depends_on "sqlite"
   depends_on "mecab" if MacOS.version >= :mountain_lion
-  depends_on "python" if MacOS.version <= :snow_leopard # for python glue code
+  depends_on "open-mpi"
+  depends_on "pcre"
+  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "sqlite"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
-      # `make test` currently fails. Reported upstream:
-      # https://github.com/konoha-project/konoha3/issues/438
-      system "make", "test" if build.with? "test"
       system "make", "install"
     end
   end

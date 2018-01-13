@@ -3,6 +3,7 @@ class BoostMpi < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
   sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -12,7 +13,7 @@ class BoostMpi < Formula
   end
 
   depends_on "boost"
-  depends_on :mpi => [:cc, :cxx]
+  depends_on "open-mpi"
 
   needs :cxx11
 
