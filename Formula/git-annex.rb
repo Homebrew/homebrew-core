@@ -10,9 +10,9 @@ class GitAnnex < Formula
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "4223641674990d2833f4d69895e58f3636ed01f4e96fba696a93a751573f2c0c" => :high_sierra
-    sha256 "bd5fd8203998b44cd211d79b8a70e5a5ab42ebca18db0e7e5a936cbf77e156ee" => :sierra
-    sha256 "0e13b9adfc5f8833e4faee3ad65089489518b167a789ad0be95d6776b10fb3ac" => :el_capitan
+    sha256 "d4b3382e1e5943066772b19511b9677dc77fb9f7e7fad969939db866e5d2e102" => :high_sierra
+    sha256 "ad1d3d71360d69cde1bf0173a51ff0f5772b1cebb1ac9978b59e45648f3f5618" => :sierra
+    sha256 "5cb4c93f79d13fff0acdbbec17d8475a6cf7c5a115d0a7f2f7e45af1ec75cc6f" => :el_capitan
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
