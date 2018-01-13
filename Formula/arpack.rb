@@ -45,9 +45,8 @@ class Arpack < Formula
   end
 
   test do
-    ENV.fortran
-    system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
-                   "-L#{lib}", "-larpack", "-lvecLibFort"
+    system "gfortran", "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
+                       "-L#{lib}", "-larpack", "-lvecLibFort"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 
