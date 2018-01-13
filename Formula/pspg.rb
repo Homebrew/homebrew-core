@@ -7,9 +7,9 @@ class Pspg < Formula
 
   bottle do
     cellar :any
-    sha256 "90106c7f56507802a0678c0d978835a1b7b4b2a5bb7a6004488d463f2f8daee7" => :high_sierra
-    sha256 "d1e29f14696b0daacd11ff58b80d404068107cf5e5b65734cd28ed8a7581f5b2" => :sierra
-    sha256 "b2b6fff8b571781a81222edcb480258e7ae561470a29a6b7e76e1c8324e08a13" => :el_capitan
+    sha256 "21455e883171c09125c8a5552955f02389e6135b778b77f008e32172fd3a6cae" => :high_sierra
+    sha256 "e796efc23ce3535c3229df95fb7eecf392f05c4c891fbe47dfdca23a802da56c" => :sierra
+    sha256 "4de179de3ea34aac5e74b59869b51d0b037e32a643987ab080177711fbeebca2" => :el_capitan
   end
 
   depends_on "ncurses"
