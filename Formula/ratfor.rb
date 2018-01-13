@@ -3,6 +3,7 @@ class Ratfor < Formula
   homepage "http://www.dgate.org/ratfor/"
   url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
   sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,11 +12,10 @@ class Ratfor < Formula
     sha256 "93d6bbe2c8b41e06adaadd365672c651f2fa1942aa283875bc1e54f8cec34fb3" => :el_capitan
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system "make", "check"
     system "make", "install"
   end
 
@@ -50,8 +50,7 @@ class Ratfor < Formula
     EOS
 
     system "#{bin}/ratfor", "-o", "test.f", testpath/"test.r"
-    ENV.fortran
-    system ENV.fc, "test.f", "-o", "test"
+    system "gfortran", "test.f", "-o", "test"
     system "./test"
   end
 end

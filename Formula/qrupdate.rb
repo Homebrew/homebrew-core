@@ -3,7 +3,7 @@ class Qrupdate < Formula
   homepage "https://sourceforge.net/projects/qrupdate/"
   url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Qrupdate < Formula
     sha256 "773cb82bd7665e6948ca0a3d9dae7d2bcaf79c384b219a6bc1de5b0451e1d876" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "veclibfort"
 
   def install
@@ -21,7 +21,7 @@ class Qrupdate < Formula
     # https://sourceforge.net/p/qrupdate/discussion/905477/thread/d8f9c7e5/
     ENV.deparallelize
 
-    system "make", "lib", "solib", "FC=#{ENV.fc}",
+    system "make", "lib", "solib",
                    "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
 
     # Confuses "make install" on case-insensitive filesystems
@@ -37,9 +37,8 @@ class Qrupdate < Formula
   end
 
   test do
-    ENV.fortran
-    system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
-                   "-L#{lib}", "-lqrupdate", "-lvecLibFort"
+    system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+                       "-L#{lib}", "-lqrupdate", "-lvecLibFort"
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end
