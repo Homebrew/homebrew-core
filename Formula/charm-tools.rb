@@ -5,6 +5,7 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/99/4d/16d7398fe5eefc602a8870fb3e93597aabe681b0f1497749148695cba4a1/charm-tools-2.2.3.tar.gz"
   sha256 "ea659f59041cb3dff0be862d657830591e656a9a259931064edab7477875245b"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class CharmTools < Formula
   depends_on "libyaml"
   depends_on "mercurial"
   depends_on "charm"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   # Additionally include ndg-httpsclient for requests[security]
   resource "Cheetah" do
