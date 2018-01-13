@@ -3,7 +3,7 @@ class Abyss < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
   url "https://github.com/bcgsc/abyss/releases/download/2.0.2/abyss-2.0.2.tar.gz"
   sha256 "d87b76edeac3a6fb48f24a1d63f243d8278a324c9a5eb29027b640f7089422df"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -20,12 +20,12 @@ class Abyss < Formula
     depends_on "multimarkdown" => :build
   end
 
-  needs :openmp
-
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
   depends_on "gcc"
-  depends_on :mpi => :cc
+  depends_on "open-mpi"
+
+  fails_with :clang # no OpenMP support
 
   resource("testdata") do
     url "http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/1.3.4/test-data.tar.gz"
