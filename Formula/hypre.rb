@@ -3,7 +3,7 @@ class Hypre < Formula
   homepage "https://computation.llnl.gov/casc/hypre/software.html"
   url "https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/hypre-2.11.2.tar.gz"
   sha256 "25b6c1226411593f71bb5cf3891431afaa8c3fd487bdfe4faeeb55c6fdfb269e"
-  revision 1
+  revision 2
   head "https://github.com/LLNL/hypre.git"
 
   bottle do
@@ -13,9 +13,9 @@ class Hypre < Formula
     sha256 "302d24880cb100ea35d51961c01992fb4acc151f88a760703443928c5739ea9f" => :el_capitan
   end
 
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90, :f77]
 
   def install
     cd "src" do
