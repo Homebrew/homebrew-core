@@ -3,6 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.2/QScintilla_gpl-2.10.2.tar.gz"
   sha256 "14b31d20717eed95ea9bea4cd16e5e1b72cee7ebac647cba878e0f6db6a65ed0"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Qscintilla2 < Formula
   depends_on "pyqt"
   depends_on "qt"
   depends_on "sip"
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :recommended
 
   def install
