@@ -3,6 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
   sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
+  revision 1
 
   bottle do
     sha256 "d916ee384f86257d3584a27b42d0b164afd4667c23388f2eb243f5dde846e226" => :high_sierra
@@ -15,9 +16,9 @@ class Plplot < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "freetype"
+  depends_on "gcc" # for gfortran
   depends_on "libtool" => :run
   depends_on "pango"
-  depends_on :fortran
   depends_on :java => :optional
   depends_on :x11 => :optional
 

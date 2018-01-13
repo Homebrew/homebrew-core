@@ -3,6 +3,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz"
   sha256 "7a3cb831de5b4151e1f890113ed207527b7d4b16df9ec6b35e0964170007f426"
+  revision 1
 
   bottle do
     sha256 "5980c32c37d78545b85a745af26688c4b9b38748086597e9476d19782cab9200" => :high_sierra
@@ -11,13 +12,13 @@ class R < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
-  depends_on :fortran
   depends_on "openblas" => :optional
   depends_on :java => :optional
 

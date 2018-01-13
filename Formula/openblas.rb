@@ -3,6 +3,7 @@ class Openblas < Formula
   homepage "http://www.openblas.net/"
   url "https://github.com/xianyi/OpenBLAS/archive/v0.2.20.tar.gz"
   sha256 "5ef38b15d9c652985774869efd548b8e3e972e1e99475c673b25537ed7bcf394"
+  revision 1
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -19,14 +20,14 @@ class Openblas < Formula
   option "with-openmp", "Enable parallel computations with OpenMP"
   needs :openmp if build.with? "openmp"
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     ENV["DYNAMIC_ARCH"] = "1" if build.bottle?
     ENV["USE_OPENMP"] = "1" if build.with? "openmp"
 
     # Must call in two steps
-    system "make", "CC=#{ENV.cc}", "FC=#{ENV.fc}", "libs", "netlib", "shared"
+    system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
     system "make", "PREFIX=#{prefix}", "install"
 
     lib.install_symlink "libopenblas.dylib" => "libblas.dylib"
