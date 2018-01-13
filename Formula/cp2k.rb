@@ -6,9 +6,9 @@ class Cp2k < Formula
   revision 1
 
   bottle do
-    sha256 "8031b0558f47e19243361ff95f3a151a0d4d778e6f1877b9daeedbab4a0b9be4" => :high_sierra
-    sha256 "af6225fd780c3ba76a7d926f162757f178f885a2d7e822d9cf57efd14b1c37cb" => :sierra
-    sha256 "accb2f2ddc22665e149f9b8e65f2e0eeedeaba55eeddf95f3ca9fc851baacef5" => :el_capitan
+    sha256 "85d3a5ad5abc2e16391d30ad91ebe10517652598f17beac62265bd66f67a1eef" => :high_sierra
+    sha256 "9b516e4a0764b18f236a369b8f884d877a4ab08bf4fdfe66a29004f61695116b" => :sierra
+    sha256 "0f1e0c6fd23c666c9b6b253d9c6e035d1e973ea4dd6f65d02211e38be65700c1" => :el_capitan
   end
 
   depends_on "fftw"
