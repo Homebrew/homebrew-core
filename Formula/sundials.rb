@@ -7,9 +7,9 @@ class Sundials < Formula
 
   bottle do
     cellar :any
-    sha256 "bde23ccfd48f5f9121295928348abb51f214d27766e415011cd93b848879b501" => :high_sierra
-    sha256 "edc9a69445141c59bb307f669a4c926150b592d06b7f3d0da20c32c3f0d6de4b" => :sierra
-    sha256 "780c62ed921221d57561664573ab3b25a5621133ce3d6c82f942ef884dcecfc2" => :el_capitan
+    sha256 "60a049ed8478e7aabdd777bd3a10a35ee4576b2274af71e35ebb90561ea1fcd1" => :high_sierra
+    sha256 "5ad8d501c86179ec95e2bcef6a040c1692989b69be9cd2d865cb0830fa094865" => :sierra
+    sha256 "b23c4f2baafe75e67b647ed57c77098e883f23eef63796c37507b4276b28cf82" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
