@@ -3,7 +3,7 @@ class Packetbeat < Formula
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats/archive/v6.1.2.tar.gz"
   sha256 "e673b4f03bc73807d23083b8d6a5f45f5a8b3fa3a6709f89881a2debb10a8d2f"
-
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -52,7 +52,7 @@ class Packetbeat < Formula
       exec #{libexec}/bin/packetbeat \
         -path.config #{etc}/packetbeat \
         -path.home #{prefix} \
-        -path.logs #{var}/logs/packetbeat \
+        -path.logs #{var}/log/packetbeat \
         -path.data #{var}/lib/packetbeat \
         "$@"
     EOS
