@@ -1,9 +1,8 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "http://opencolorio.org/"
-  url "https://github.com/imageworks/OpenColorIO/archive/v1.0.9.tar.gz"
-  sha256 "27c81e691c15753cd2b560c2ca4bd5679a60c2350eedd43c99d44ca25d65ea7f"
-
+  url "https://github.com/imageworks/OpenColorIO/archive/v1.1.0.tar.gz"
+  sha256 "228589879e1f11e455a555304007748a8904057088319ebbf172d9384b93c079"
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
@@ -25,16 +24,6 @@ class Opencolorio < Formula
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
   depends_on "python" => :optional
-
-  # Fix build with libc++
-  patch do
-    url "https://github.com/imageworks/OpenColorIO/commit/ebd6efc036b6d0b17c869e3342f17f9c5ef8bbfc.diff?full_index=1"
-    sha256 "156de7dfd84e7dbe89ccb21d5594736bd3d77d71f482f10ce759c4ac637adb15"
-  end
-
-  # Fix includes on recent Clang; reported upstream:
-  # https://github.com/imageworks/OpenColorIO/issues/338#issuecomment-36589039
-  patch :DATA
 
   def install
     args = std_cmake_args
@@ -75,18 +64,8 @@ class Opencolorio < Formula
           http://opencolorio.org/downloads.html
     EOS
   end
-end
 
-__END__
-diff --git a/export/OpenColorIO/OpenColorIO.h b/export/OpenColorIO/OpenColorIO.h
-index 561ce50..796ca84 100644
---- a/export/OpenColorIO/OpenColorIO.h
-+++ b/export/OpenColorIO/OpenColorIO.h
-@@ -34,6 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- #include <iosfwd>
- #include <string>
- #include <cstddef>
-+#include <unistd.h>
- 
- #include "OpenColorABI.h"
- #include "OpenColorTypes.h"
+  test do
+    assert_match "validate", shell_output("#{bin}/ociocheck --help", 1)
+  end
+end
