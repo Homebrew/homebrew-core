@@ -18,7 +18,7 @@ class GitFtp < Formula
 
   resource "curl" do
     url "https://curl.haxx.se/download/curl-7.57.0.tar.bz2"
-    mirror "http://curl.askapache.com/download/curl-7.57.0.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.57.0.tar.bz2"
     sha256 "c92fe31a348eae079121b73884065e600c533493eb50f1f6cee9c48a3f454826"
   end
 
