@@ -14,14 +14,16 @@ class Hdf5 < Formula
     sha256 "860eed2e9851d234d197b31161e0bfe66414825024503a43e79704de98fea9c9" => :yosemite
   end
 
+  option "with-mpi", "Enable parallel support"
+
   deprecated_option "enable-parallel" => "with-mpi"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on "szip"
-  depends_on :fortran
-  depends_on :mpi => [:optional, :cc, :cxx, :f90]
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
@@ -47,9 +49,9 @@ class Hdf5 < Formula
     end
 
     if build.with? "mpi"
-      ENV["CC"] = ENV["MPICC"]
-      ENV["CXX"] = ENV["MPICXX"]
-      ENV["FC"] = ENV["MPIFC"]
+      ENV["CC"] = "mpicc"
+      ENV["CXX"] = "mpicxx"
+      ENV["FC"] = "mpifc"
 
       args << "--enable-parallel"
     end
