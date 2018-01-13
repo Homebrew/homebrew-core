@@ -12,16 +12,17 @@ class Hdf5AT18 < Formula
 
   keg_only :versioned_formula
 
-  deprecated_option "enable-parallel" => "with-mpi"
-
+  option "with-mpi", "Enable parallel support"
   option :cxx11
+
+  deprecated_option "enable-parallel" => "with-mpi"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on "szip"
-  depends_on :fortran
-  depends_on :mpi => [:optional, :cc, :cxx, :f90]
 
   def install
     ENV.cxx11 if build.cxx11?
@@ -49,9 +50,9 @@ class Hdf5AT18 < Formula
     end
 
     if build.with? "mpi"
-      ENV["CC"] = ENV["MPICC"]
-      ENV["CXX"] = ENV["MPICXX"]
-      ENV["FC"] = ENV["MPIFC"]
+      ENV["CC"] = "mpicc"
+      ENV["CXX"] = "mpicxx"
+      ENV["FC"] = "mpif90"
 
       args << "--enable-parallel"
     end
