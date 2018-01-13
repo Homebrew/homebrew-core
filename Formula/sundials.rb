@@ -3,7 +3,7 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.0.tar.gz"
   sha256 "18d52f8f329626f77b99b8bf91e05b7d16b49fde2483d3a0ea55496ce4cdd43a"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -13,14 +13,15 @@ class Sundials < Formula
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
+  option "without-mpi", "Do not build with MPI"
 
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on "suite-sparse"
   depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :f77, :recommended]
 
-  needs :openmp if build.with?("openmp")
+  fails_with :clang if build.with? "openmp"
 
   def install
     blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
