@@ -5,6 +5,7 @@ class Ooniprobe < Formula
   homepage "https://ooni.torproject.org/"
   url "https://pypi.python.org/packages/46/eb/e44d255dbd6b2bc8cc6de680ff8ce3c279c9b0694a6eec9059bdf4806dfc/ooniprobe-2.2.0.tar.gz"
   sha256 "971f7630587b7ba771383f93c10973871e2c5e866a7fde98754a788679361ac3"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,8 +19,8 @@ class Ooniprobe < Formula
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl"
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "tor"
-  depends_on :python
 
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)

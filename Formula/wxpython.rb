@@ -1,21 +1,9 @@
-class FrameworkPythonRequirement < Requirement
-  fatal true
-
-  satisfy do
-    q = `python -c "import distutils.sysconfig as c; print(c.get_config_var('PYTHONFRAMEWORK'))"`
-    !q.chomp.empty?
-  end
-
-  def message
-    "Python needs to be built as a framework."
-  end
-end
-
 class Wxpython < Formula
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxwidgets.org/"
   url "https://downloads.sourceforge.net/project/wxpython/wxPython/3.0.2.0/wxPython-src-3.0.2.0.tar.bz2"
   sha256 "d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5e8df61"
+  revision 1
 
   bottle do
     cellar :any
@@ -27,10 +15,7 @@ class Wxpython < Formula
     sha256 "41ec8003758d804b8c426ce654a87f2d9f4be3be40fcbcb3d5686e3ecabaddbc" => :mavericks
   end
 
-  if MacOS.version <= :snow_leopard
-    depends_on :python
-    depends_on FrameworkPythonRequirement
-  end
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "wxmac"
 
   def install

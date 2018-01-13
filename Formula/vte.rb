@@ -3,6 +3,7 @@ class Vte < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz"
   sha256 "86cf0b81aa023fa93ed415653d51c96767f20b2d7334c893caba71e42654b0ae"
+  revision 1
 
   bottle do
     sha256 "8af5602249d0434837489037c48812af2fbc9145f72dce7225b4a83612e3c7f8" => :high_sierra
@@ -19,7 +20,7 @@ class Vte < Formula
   depends_on "gtk+"
   depends_on "pygobject"
   depends_on "pygtk"
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     args = %W[
