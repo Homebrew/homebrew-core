@@ -14,7 +14,7 @@ class Scipy < Formula
   option "without-python", "Build without python2 support"
 
   depends_on "swig" => :build
-  depends_on "gcc"
+  depends_on :fortran
   depends_on "numpy"
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :recommended
