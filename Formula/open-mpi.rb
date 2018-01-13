@@ -3,7 +3,7 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.bz2"
   sha256 "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d2e9924a2e5129b106ff20dac599acb5339bd89e4c25641bcfd0c40c97c41fef" => :high_sierra
@@ -20,16 +20,17 @@ class OpenMpi < Formula
 
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
+  option "without-fortran", "Do not build the Fortran bindings"
 
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" if build.with? "fortran"
   depends_on :java => :optional
   depends_on "libevent"
 
-  conflicts_with "mpich", :because => "both install mpi__ compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
+  conflicts_with "mpich", :because => "both install MPI compiler wrappers"
+  conflicts_with "lcdf-typetools", :because => "both install same set of binaries"
 
   needs :cxx11
 
