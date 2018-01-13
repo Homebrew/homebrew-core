@@ -3,7 +3,7 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.xz"
   sha256 "06b23f2a5db5418957facc86ead86b7752147c0461f3156f88a3da87f3dc6739"
-  revision 1
+  revision 2
   head "https://github.com/scipy/scipy.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Scipy < Formula
   option "without-python", "Build without python2 support"
 
   depends_on "swig" => :build
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on "python3" => :recommended
