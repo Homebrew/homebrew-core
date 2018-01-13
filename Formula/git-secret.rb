@@ -7,9 +7,9 @@ class GitSecret < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b0a3c3681fddd3da2efca19b917b2bf560a6076361cc35b76e06eb19343aebda" => :high_sierra
-    sha256 "b0a3c3681fddd3da2efca19b917b2bf560a6076361cc35b76e06eb19343aebda" => :sierra
-    sha256 "b0a3c3681fddd3da2efca19b917b2bf560a6076361cc35b76e06eb19343aebda" => :el_capitan
+    sha256 "a8734dbaefc324f280a58a404b44b1acf1d658dfe768f05f16f684a2671163d1" => :high_sierra
+    sha256 "a8734dbaefc324f280a58a404b44b1acf1d658dfe768f05f16f684a2671163d1" => :sierra
+    sha256 "a8734dbaefc324f280a58a404b44b1acf1d658dfe768f05f16f684a2671163d1" => :el_capitan
   end
 
   depends_on "gawk"
