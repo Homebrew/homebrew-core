@@ -7,10 +7,9 @@ class Jags < Formula
 
   bottle do
     cellar :any
-    sha256 "1d4d987b95d6bfd9cb58429d3554e3c94bb54928a70efd8479365f19d9aea161" => :high_sierra
-    sha256 "1b91f63724f9027e8948f5d6391900a8def1bebd7983008c50cd8759f3210ceb" => :sierra
-    sha256 "1b8494215c7abf398693ba827f3c43bdc7054be58ef8c593a802384c995f8518" => :el_capitan
-    sha256 "2a1b02acc3e361549d64d10cee6581d598f78539c91cd715678c810eb6c31fe4" => :yosemite
+    sha256 "63cd65d1d545e7240d4fff3a2be5795a78808952b39edf94bb6c6ae96b6e6647" => :high_sierra
+    sha256 "16837555592d5d29b1d7b62cb2f680f7a16d46946e05e5ec3c9e129c0e577ba0" => :sierra
+    sha256 "eeff9d00549785074a04c0c12b1ef0551a4b6787a704f561397bcc0dd8489f2f" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran
