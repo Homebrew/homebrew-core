@@ -11,11 +11,12 @@ class Gromacs < Formula
   end
 
   option "with-double", "Enables double precision"
+  option "with-mpi", "Enable parallel support"
 
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gsl"
-  depends_on :mpi => :optional
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on :x11 => :optional
 
   def install
