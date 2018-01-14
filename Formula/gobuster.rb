@@ -3,8 +3,8 @@ require "language/go"
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/v1.3.tar.gz"
-  sha256 "606a8b760bc498f9605423b4ef3b093fbb07fead5877a0da81b1c92d8af3ebbb"
+  url "https://github.com/OJ/gobuster/archive/v1.4.tar.gz"
+  sha256 "e0469df94baf7f89c87e32d5fb4fa44cadaa30587ea843d2dbbe1792992ca143"
   head "https://github.com/OJ/gobuster.git"
 
   bottle do
@@ -17,14 +17,24 @@ class Gobuster < Formula
 
   depends_on "go" => :build
 
+  go_resource "github.com/hashicorp/go-multierror" do
+    url "https://github.com/hashicorp/go-multierror.git",
+        :revision => "b7773ae218740a7be65057fc60b366a49b538a44"
+  end
+
   go_resource "github.com/satori/go.uuid" do
     url "https://github.com/satori/go.uuid.git",
-        :revision => "b061729afc07e77a8aa4fad0a2fd840958f1942a"
+        :revision => "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "40541ccb1c6e64c947ed6f606b8a6cb4b67d7436"
+        :revision => "13931e22f9e72ea58bb73048bc752b48c6d4d4ac"
+  end
+
+  go_resource "golang.org/x/sys" do
+    url "https://go.googlesource.com/sys.git",
+        :revision => "810d7000345868fc619eb81f46307107118f4ae1"
   end
 
   def install
