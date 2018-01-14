@@ -24,6 +24,7 @@ class Postgis < Formula
   option "without-gdal", "Disable postgis raster support"
   option "with-html-docs", "Generate multi-file HTML documentation"
   option "with-api-docs", "Generate developer API documentation (long process)"
+  option "with-protobuf-c", "Build with protobuf-c to enable Geobuf and Mapbox Vector Tile support"
 
   depends_on "pkg-config" => :build
   depends_on "gpp" => :build
@@ -51,6 +52,8 @@ class Postgis < Formula
     depends_on "doxygen"
   end
 
+  depends_on "protobuf-c" => :optional
+
   def install
     ENV.deparallelize
 
@@ -68,6 +71,7 @@ class Postgis < Formula
     args << "--with-gui" if build.with? "gui"
     args << "--without-raster" if build.without? "gdal"
     args << "--with-xsldir=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl" if build.with? "html-docs"
+    args << "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}" if build.with? "protobuf-c"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
