@@ -15,20 +15,20 @@ class Plank < Formula
   test do
     system "#{bin}/plank", "--help"
     (testpath/"pin.json").write <<~EOS
-		{
-			"id": "pin.json",
-			"title": "pin",
-			"description" : "Schema definition of a Pin",
-			"$schema": "http://json-schema.org/schema#",
-			"type": "object",
-			"properties": {
-				"id": { "type": "string" },
-				"link": { "type": "string", "format": "uri"}
-			}
-		}
-    EOS
+{
+  "id": "pin.json",
+  "title": "pin",
+  "description" : "Schema definition of a Pin",
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "link": { "type": "string", "format": "uri"}
+   }
+}
+EOS
     system "#{bin}/plank", "--lang", "objc,flow", "--output_dir", testpath, "pin.json"
-    assert File.exist?(testpath/"Pin.h"), "[ObjC] Generated file does not exist"
-    assert File.exist?(testpath/"PinType.js"), "[Flow] Generated file does not exist"
+    assert_predicate (testpath/"Pin.h"), :exist?, "[ObjC] Generated file does not exist"
+    assert_predicate (testpath/"PinType.js"), :exist?, "[Flow] Generated file does not exist"
   end
 end
