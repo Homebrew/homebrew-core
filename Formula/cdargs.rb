@@ -33,6 +33,12 @@ class Cdargs < Formula
         #{prefix}/contrib
     EOS
   end
+
+  test do
+    system "#{bin}/cdargs", "--add", "/~/testfolder"
+    output = shell_output("awk '{w=$1} END{print w}' ~/.cdargs")
+    assert_match output, "testfolder\n"
+  end
 end
 
 __END__
@@ -46,8 +52,8 @@ index 8a197ef..f3da067 100644
  
 +# Support ZSH via its BASH completion emulation
 +if [ -n "$ZSH_VERSION" ]; then
-+	autoload bashcompinit
-+	bashcompinit
++      autoload bashcompinit
++      bashcompinit
 +fi
 +
  # --------------------------------------------- #
@@ -55,7 +61,7 @@ index 8a197ef..f3da067 100644
  # directory to be used in the various context   #
 @@ -166,7 +172,7 @@ function mark ()
      local tmpfile
- 
+
      # first clear any bookmarks with this same alias, if file exists
 -    if [[ "$CDARGS_NODUPS" && -e "$HOME/.cdargs" ]]; then
 +    if [ "$CDARGS_NODUPS" ] && [ -e "$HOME/.cdargs" ]; then
