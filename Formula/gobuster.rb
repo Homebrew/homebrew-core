@@ -9,10 +9,9 @@ class Gobuster < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1270beae977e7d29193fa09e684188a1122cc1ccea46419a2035c53ebd0d8ee" => :high_sierra
-    sha256 "7da053cb4f0a73f55dc0cfaeea6628422e214e29c76a3f82c6ebe58faa2fe659" => :sierra
-    sha256 "2499eb9e86e59b87640cc93fe8270be64cb1b5ce2a7e5a8d5a0bdcf69e68f054" => :el_capitan
-    sha256 "4d781dd4d6bf9b3217d5d197b987583392ba8b6a4abc539720360041779889aa" => :yosemite
+    sha256 "d54c642298f5a16fd47490d38e21c062db5e282ca77e9ec987db9ad1c0029d77" => :high_sierra
+    sha256 "759d0c8dc62ab635a75bce015d842a81b922d4c2fa8f2bec2ece185f1cb5bceb" => :sierra
+    sha256 "51f3c537daf760e645bc65703c3bbbf7f74cc1395207867c0757a3edb8ca5bbf" => :el_capitan
   end
 
   depends_on "go" => :build
