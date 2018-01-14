@@ -13,6 +13,11 @@ class Socat < Formula
     sha256 "a5c5b28d9fbf0f52ab0d69dc7cbe44f23a58876e32791b69275d96a15703d3e9" => :yosemite
   end
 
+  patch :p0 do
+    url "https://bz-attachments.freebsd.org/attachment.cgi?id=154044"
+    sha256 "fec773989fd298e53f3d91189253f79d7f23b78ce342b98cd3fd74d8e848b278"
+  end
+
   depends_on "openssl@1.1"
   depends_on "readline"
 
