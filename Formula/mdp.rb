@@ -7,9 +7,9 @@ class Mdp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b6dda2a53ef5ef16249ced6daf96de3bab9fd742106fec8b7eeb23f954c70e5f" => :high_sierra
-    sha256 "17c2e33bb7953fe8cbdfb1e8a70c9d5f0b3346023d9dd4670ad8df82fb5c7fcd" => :sierra
-    sha256 "5c54089e38d0cb93bc24cc39fdb94148539955b6d682707dd263aef039cf15c8" => :el_capitan
+    sha256 "847efa4b5df6c24c768a3f13a312b3ece5f99e3ceff8d293c42b2c241e918c35" => :high_sierra
+    sha256 "d23b853ad13d7557f7156314df76bf4efcbd40c6cb0afd4ac4d59cb5803bc1b8" => :sierra
+    sha256 "d2db9becc3573a975c8da120dcb62dcfc3cbb0f146850744dab3fda4917fd693" => :el_capitan
   end
 
   def install
