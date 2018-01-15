@@ -5,6 +5,7 @@ class Sratoolkit < Formula
   version "2.8.2-5"
   sha256 "15b41420d95a72de9e24dec53401cc10e435a17ee9c5eec45ef78fd078db544c"
   head "https://github.com/ncbi/sra-tools.git"
+  revision 1
 
   bottle do
     cellar :any
