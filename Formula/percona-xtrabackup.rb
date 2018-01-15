@@ -15,7 +15,7 @@ class PerconaXtrabackup < Formula
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on :mysql => :recommended
+  depends_on "mysql" => :recommended
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "openssl"
