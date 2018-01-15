@@ -1,8 +1,8 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v1.6.2.tar.gz"
-  sha256 "d5e979812f7e4ec62b451beb30770dcb8c7f7184fe8816fc6a13ba2b35c1b919"
+  url "https://github.com/nodejs/llnode/archive/v1.6.3.tar.gz"
+  sha256 "febf029685afbcd513250ee82dc39889ffd4c8087d9377ef17e16f17a2200bf5"
 
   bottle do
     cellar :any
@@ -20,7 +20,11 @@ class Llnode < Formula
   end
 
   resource "lldb" do
-    if DevelopmentTools.clang_build_version >= 802
+    if DevelopmentTools.clang_build_version >= 900
+      # lldb release_40 branch tip of tree commit from 12 Jan 2017
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "fcd2aac9f179b968a20cf0231c3386dcef8a6659"
+    elsif DevelopmentTools.clang_build_version >= 802
       # lldb 390
       url "https://github.com/llvm-mirror/lldb.git",
           :revision => "d556e60f02a7404b291d07cac2f27512c73bc743"
