@@ -14,18 +14,10 @@ class Libccd < Formula
     sha256 "fae18bcb83cdca783aecb9084fea2803cf60a79a8c46a409c2ee6b94505dfee4" => :x86_64_linux
   end
 
-  option "with-single-precision", "Use single precision"
-
   depends_on "cmake" => :build
 
   def install
     args = std_cmake_args
-
-    if build.with? "single-precision"
-      args << "-DCCD_SINGLE=True"
-    else
-      args << "-DCCD_DOUBLE=True"
-    end
 
     system "cmake", ".", *args
     system "make", "install"
