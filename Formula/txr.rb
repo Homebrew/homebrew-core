@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "http://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-133.tar.bz2"
-  sha256 "3e2e598f71a60835f1ecbf3b80fbf8f9e9ef235c5ca204f1492bbf64a227cb90"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-188.tar.bz2"
+  sha256 "4fd3ce7bc91ad9e27c664e26f0a1d291ba6d559b00f92d12ad07918be4814c36"
   head "http://www.kylheku.com/git/txr", :using => :git
 
   bottle do
