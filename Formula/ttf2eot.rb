@@ -1,8 +1,8 @@
 class Ttf2eot < Formula
   desc "Convert TTF files to EOT"
-  homepage "https://code.google.com/archive/p/ttf2eot/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ttf2eot/ttf2eot-0.0.2-2.tar.gz"
-  sha256 "023cf04d7c717657e92afe566518bf2a696ab22a2a8eba764340000bebff8db8"
+  homepage "https://github.com/wget/ttf2eot"
+  url "https://github.com/wget/ttf2eot/archive/v0.0.3.tar.gz"
+  sha256 "f363c4f2841b6d0b0545b30462e3c202c687d002da3d5dec7e2b827a032a3a65"
 
   bottle do
     cellar :any_skip_relocation
