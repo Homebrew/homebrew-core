@@ -27,7 +27,20 @@ class Sratoolkit < Formula
     sha256 "7866f7abf00e35faaa58eb3cdc14785e6d42bde515de4bb3388757eb0c8f3c95"
   end
 
+  # Replace the konfigure.perl that ships with sra-tools and ncbi-vdb with a dev one
+  # that can detect and add the required hdf5 libraries.
+  # Issue: https://github.com/Linuxbrew/homebrew-core/issues/5323
+  resource "ncbi-hdf5-detection" do
+    url "https://raw.githubusercontent.com/ncbi/ncbi-vdb/46c85bf711429542f4eb6d8fe0f90493cdf079be/setup/konfigure.perl"
+    version "46c85bf711429542f4eb6d8fe0f90493cdf079be"
+    sha256 "8a1dc35fc4c8cfa6bcc803cb7b4668813f953530398c8024ce558e4a67075a5c"
+  end
+
   def install
+    resource("ncbi-hdf5-detection").stage do
+      cp "konfigure.perl", buildpath/"konfigure.perl"
+    end
+
     ngs_sdk_prefix = buildpath/"ngs-sdk-prefix"
     resource("ngs-sdk").stage do
       cd "ngs-sdk" do
@@ -43,6 +56,8 @@ class Sratoolkit < Formula
     ncbi_vdb_build = buildpath/"ncbi-vdb-build"
     ncbi_vdb_source.install resource("ncbi-vdb")
     cd ncbi_vdb_source do
+      # Fix the konfigure
+      cp buildpath/"konfigure.perl", "setup/konfigure.perl"
       system "./configure",
         "--prefix=#{buildpath/"ncbi-vdb-prefix"}",
         "--with-ngs-sdk-prefix=#{ngs_sdk_prefix}",
@@ -54,6 +69,9 @@ class Sratoolkit < Formula
     # Upstream PR: https://github.com/ncbi/sra-tools/pull/105
     inreplace "tools/copycat/Makefile", "-smagic-static", "-smagic"
 
+    # Fix the konfigure
+    cp buildpath/"konfigure.perl", "setup/konfigure.perl"
+
     system "./configure",
       "--prefix=#{prefix}",
       "--with-ngs-sdk-prefix=#{ngs_sdk_prefix}",
@@ -61,6 +79,7 @@ class Sratoolkit < Formula
       "--with-ncbi-vdb-build=#{ncbi_vdb_build}",
       "--build=#{buildpath}/sra-tools-build"
 
+    ENV.deparallelize
     system "make", "install"
 
     # Remove non-executable files.
