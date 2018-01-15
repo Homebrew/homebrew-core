@@ -6,9 +6,9 @@ class YazeAg < Formula
   sha256 "d46c861eb0725b87dd5567062f277860b98d538fca477d8686f17b36ef39d9bd"
 
   bottle do
-    sha256 "5a7cb2f9fe6c900a557786f8026c47a75272bf71bc74f1fbedf2c2648c17db0c" => :high_sierra
-    sha256 "bee2b2a896191528e71c1d986ecf4ca2fb3923f27617715542137d618584ea55" => :sierra
-    sha256 "97ffe6edc70a797cbb26d9399f49b46570b80b705a5d52a0b4fded357bc317ed" => :el_capitan
+    sha256 "9f3e2a6e51423a97f03e99ed2bca0c7778fcf4f6b223332a824743bdbad20e09" => :high_sierra
+    sha256 "daa83753710abc22b99dcdb20761673e9022e4205b5ddf225d7a6fdfdf47ed79" => :sierra
+    sha256 "7df38aea48a13d73f0a040f1775d915b6bc543d7f7daafbb3eda0b77ee4fdbf6" => :el_capitan
   end
 
   def install
