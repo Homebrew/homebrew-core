@@ -4,6 +4,13 @@ class Whohas < Formula
   url "https://github.com/whohas/whohas/releases/download/0.29.1/whohas-0.29.1.tar.gz"
   sha256 "dbf2396838cb0f97726041213c04426b818d48cc510bd529faf30a8411682878"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ad57fdefa6da7a779c1bd503f336634dc55b8f524f8e59cfa74fb2a6eba42ebd" => :high_sierra
+    sha256 "0fc69ababba028f6408233021f0dfbbe6b1d29abcbce8416b8eb109c24a570d1" => :sierra
+    sha256 "5b879543999158c4f55a52fdb9e643267ac1ad46aa69e56448f43799f1cce771" => :el_capitan
+  end
+
   resource "Acme::Damn" do
     url "https://cpan.metacpan.org/authors/id/I/IB/IBB/Acme-Damn-0.08.tar.gz"
     sha256 "310d2d03ff912dcd42e4d946174099f41fe3a2dd57a497d6bd65baf1759b7e0e"
