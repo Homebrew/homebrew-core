@@ -1,9 +1,8 @@
 class F3 < Formula
   desc "Test various flash cards"
   homepage "http://oss.digirati.com.br/f3/"
-  url "https://github.com/AltraMayor/f3/archive/v6.0.tar.gz"
-  sha256 "d72addb15809bc6229a08ac57e2b87b34eac80346384560ba1f16dae03fbebd5"
-
+  url "https://github.com/AltraMayor/f3/archive/v7.0.tar.gz"
+  sha256 "1aaf63cf73869633e7e03a2e12561a9af0b0fbba013a94b94e78d2868f441d71"
   head "https://github.com/AltraMayor/f3.git"
 
   bottle do
@@ -15,8 +14,17 @@ class F3 < Formula
     sha256 "96ee5681212139b960fdaca98839e2e5e23446f1b890b751c459b05bedabaf6a" => :mavericks
   end
 
+  depends_on "argp-standalone" => :build # static linkage
+
+  # Fix undefined symbols errors for _argp_error and _argp_parse
+  # Upstream PR from 21 Dec "Add ARGP to Makefile"
+  patch do
+    url "https://github.com/AltraMayor/f3/pull/67.patch?full_index=1"
+    sha256 "243f15c42b0e4561990fbd57add0096c2d09e49a5c4a972de1458dc9b71c908c"
+  end
+
   def install
-    system "make", "all"
+    system "make", "all", "ARGP=#{Formula["argp-standalone"].opt_prefix}"
     bin.install %w[f3read f3write]
     man1.install "f3read.1"
     man1.install_symlink "f3read.1" => "f3write.1"
