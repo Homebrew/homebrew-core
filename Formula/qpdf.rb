@@ -1,8 +1,8 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://qpdf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qpdf/qpdf/7.0.0/qpdf-7.0.0.tar.gz"
-  sha256 "fed08de14caad0fe5efd148d9eca886d812588b2cbb35d13e61993ee8eb8c65f"
+  url "https://downloads.sourceforge.net/project/qpdf/qpdf/7.1.0/qpdf-7.1.0.tar.gz"
+  sha256 "27054bfb83a4f4f70053c6d4c2de5e18ddf60c9a8edbce219ac1bdcf03f16a2e"
 
   bottle do
     cellar :any
@@ -12,6 +12,15 @@ class Qpdf < Formula
   end
 
   depends_on "jpeg"
+
+  # Fix "error: no member named 'abs' in namespace 'std'"
+  # Upstream PR from 14 Jan 2018 "Fix build with libc++"
+  if MacOS.version <= :el_capitan
+    patch do
+      url "https://github.com/qpdf/qpdf/pull/172.patch?full_index=1"
+      sha256 "7a85837cce1de8ba8e3abfcd7f5c7a35e70da93ea84ffdcf4ba34196dd60a0a4"
+    end
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"
