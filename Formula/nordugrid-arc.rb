@@ -23,7 +23,7 @@ class NordugridArc < Formula
   # build fails on Mavericks due to a clang compiler bug
   # and bottling also fails if gcc is being used due to conflicts between
   # libc++ and libstdc++
-  depends_on MinimumMacOSRequirement => :yosemite
+  depends_on :macos => :yosemite
 
   # bug filed upstream at http://bugzilla.nordugrid.org/show_bug.cgi?id=3514
   patch do
