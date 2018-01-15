@@ -1,9 +1,8 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "https://downloads.sourceforge.net/project/unixodbc/unixODBC/2.3.4/unixODBC-2.3.4.tar.gz"
-  mirror "ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz"
-  sha256 "2e1509a96bb18d248bf08ead0d74804957304ff7c6f8b2e5965309c632421e39"
+  url "http://www.unixodbc.org/unixODBC-2.3.5.tar.gz"
+  sha256 "760972e05cc6361aee49d676fb7da8244e0f3a225cd4d3449a951378551b495b"
 
   bottle do
     rebuild 2
@@ -14,7 +13,7 @@ class Unixodbc < Formula
 
   depends_on "libtool" => :run
 
-  keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
+  keg_only "shadows system iODBC header files" if MacOS.version < :mavericks
 
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
