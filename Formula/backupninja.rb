@@ -1,8 +1,9 @@
 class Backupninja < Formula
   desc "Backup automation tool"
-  homepage "https://labs.riseup.net/code/projects/backupninja"
-  url "https://labs.riseup.net/code/attachments/download/275/backupninja-1.0.1.tar.gz"
-  sha256 "10fa5dbcd569a082b8164cd30276dd04a238c7190d836bcba006ea3d1235e525"
+  homepage "https://0xacab.org/riseuplabs/backupninja"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
+  sha256 "fdb399de331493c8f959a784318349b19a01fbeece275da2ecd70ec9847a80b6"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +20,18 @@ class Backupninja < Formula
   skip_clean "etc/backup.d"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+    system "./configure", "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--localstatedir=#{var}"
+    system "make", "install", "SED=sed"
+  end
+
+  def post_install
+    (var/"log").mkpath
+  end
+
+  test do
+    assert_match "root", shell_output("#{sbin}/backupninja -h", 1)
   end
 end
