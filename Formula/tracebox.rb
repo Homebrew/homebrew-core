@@ -1,22 +1,10 @@
 class Tracebox < Formula
   desc "Middlebox detection tool"
   homepage "http://www.tracebox.org/"
-  revision 1
+  url "https://github.com/tracebox/tracebox.git",
+      :tag => "v0.4.4",
+      :revision => "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
   head "https://github.com/tracebox/tracebox.git"
-
-  stable do
-    url "https://github.com/tracebox/tracebox.git",
-        :tag => "v0.4.2",
-        :revision => "2e3326500ddf084bf761e83516909538d26240da"
-
-    # Remove for > 0.4.2
-    # Upstream commit from 2 Oct 2017 "Remove [--dirty] from the displayed
-    # version string"
-    patch do
-      url "https://github.com/tracebox/tracebox/commit/5ee627c.patch?full_index=1"
-      sha256 "af6fda9484e1188acf35c0fb5f871cebc608c8122e5ad1d94569fe30321549cc"
-    end
-  end
 
   bottle do
     cellar :any
