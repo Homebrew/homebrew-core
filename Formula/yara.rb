@@ -7,9 +7,9 @@ class Yara < Formula
 
   bottle do
     cellar :any
-    sha256 "0abc89f9bcd944bf31c91d35c21b8990a06d681cdcdd486ca2cb0f25795c5b18" => :high_sierra
-    sha256 "3c41b0a4be9efba08f9df404f463bbcb80783be2aa156079ad9195ea9f1f31ec" => :sierra
-    sha256 "087b9a0a65193d84be380b3a336595812d6db0038e6717e11908a4fe83ef7e43" => :el_capitan
+    sha256 "6a995595a48f513196225445dc4ee2889b54d288eb19fb1adfddbeac0b8ac9a9" => :high_sierra
+    sha256 "8769d808d6360ac8440893c4fc2f8d81b4842b3d4631c65441bc81d35f872ce1" => :sierra
+    sha256 "deba43f8ebc4d52d0d8a17febdebf8cc5b0de6c9f81f28e7d6a03aea2a87abe7" => :el_capitan
   end
 
   depends_on "libtool" => :build
