@@ -1,8 +1,8 @@
 class Ykpers < Formula
   desc "YubiKey personalization library and tool"
   homepage "https://developers.yubico.com/yubikey-personalization/"
-  url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.18.0.tar.gz"
-  sha256 "cf333e133b551adf5963e0f5fe0566f4e397f9784d4c1b8fc56b9d2ebcf982ad"
+  url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.18.1.tar.gz"
+  sha256 "9ffdb938121a867aa0b350b49daff5807884c2268dfe6d245d133474cd9c5256"
 
   bottle do
     cellar :any
