@@ -3,8 +3,8 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R41.tar.gz"
-  sha256 "16c89d962e3909de5837c46766ed3b66202a77d3436039ba1bd79aa5bad9a4c3"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R42.1.tar.gz"
+  sha256 "2da653c3956d6e61b2232975ebad7e060c717ad09b08d09694e4bb4eab64f8a7"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
