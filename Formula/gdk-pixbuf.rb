@@ -90,6 +90,13 @@ class GdkPixbuf < Formula
         loader_cache.write pipe.read
       end
     end
+
+    # FIXME:  I _greatly_ suspect that what follows likely implements the wrong kind of
+    #         error-reporting strategy.  Seek advice/feedback on how to do it _properly._
+    Utils.popen_read "wc", "-c", "#{module_dir}/loaders.cache" do |stdout_contents|
+      cache_size = stdout_contents.read
+      cache_size.lstrip.split[0].to_i <= 0
+    end
   end
 
   def caveats
