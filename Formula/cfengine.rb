@@ -1,8 +1,8 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.10.1.tar.gz"
-  sha256 "0abb7e91d667a4f339b61e105dc66c583fa98e0217c6fc7fcf8a73300badca98"
+  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.11.0.tar.gz"
+  sha256 "19524cf311c3cd7bf2d6c471c9b704c597671d2f89871d3d42302ba231de5865"
 
   bottle do
     sha256 "2f3f54145ff6fc4b6e7892de3d0895e3ffb353f35953a1c2ae943ab0802b916c" => :high_sierra
@@ -17,16 +17,11 @@ class Cfengine < Formula
   depends_on "openssl"
 
   resource "masterfiles" do
-    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.10.1.tar.gz"
-    sha256 "c4b0ff856d9af1cc62559b0ca4a7d39548442b13167a294637ed65cd5a811900"
+    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.11.0.tar.gz"
+    sha256 "052a25d8dc9f2480825a4c6097e9db74762d6726afc163fbc1fef010bb6adab8"
   end
 
   def install
-    # Fix "typedef redefinition with different types"
-    if DevelopmentTools.clang_build_version >= 800
-      ENV["ac_cv_type_clockid_t"] = "yes"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-workdir=#{var}/cfengine",
