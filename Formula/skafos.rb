@@ -8,10 +8,8 @@ class Skafos < Formula
   bottle :unneeded
 
   depends_on "cmake" => :build
-  depends_on "libarchive"
   depends_on "libgit2"
   depends_on "yaml-cpp"
-  depends_on "curl"
 
   def install
     ENV.deparallelize
