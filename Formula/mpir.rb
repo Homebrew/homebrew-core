@@ -4,6 +4,13 @@ class Mpir < Formula
   url "http://mpir.org/mpir-3.0.0.tar.bz2"
   sha256 "52f63459cf3f9478859de29e00357f004050ead70b45913f2c2269d9708675bb"
 
+  bottle do
+    cellar :any
+    sha256 "5b283d794cac85bbc6524dd2ee29b9e1a82a895b535c4e4231726058e195b7af" => :high_sierra
+    sha256 "643176aa1607f254fcae6227ebebf3a73e2edbbece37f3c749b240dfd33274f7" => :sierra
+    sha256 "4a30f968fa364983e3b9cad81e52bd8f6976ed5f479a23efc02ead1a4b1638c1" => :el_capitan
+  end
+
   depends_on "yasm" => :build
 
   def install
