@@ -32,8 +32,9 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "flac" => :recommended
   depends_on "libmagic" => :recommended
-  depends_on "qt" => :optional
   depends_on "gettext" => :optional
+  depends_on "qt" => :optional
+  depends_on "cmark" if build.with? "qt"
 
   needs :cxx11
 
