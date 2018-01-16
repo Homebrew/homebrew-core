@@ -1,9 +1,9 @@
 class Libtasn1 < Formula
   desc "ASN.1 structure parser library"
   homepage "https://www.gnu.org/software/libtasn1/"
-  url "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.12.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.12.tar.gz"
-  sha256 "6753da2e621257f33f5b051cc114d417e5206a0818fe0b1ecfd6153f70934753"
+  url "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.13.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.13.tar.gz"
+  sha256 "7e528e8c317ddd156230c4e31d082cd13e7ddeb7a54824be82632209550c8cca"
 
   bottle do
     cellar :any
