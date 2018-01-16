@@ -3,6 +3,7 @@ class Unixodbc < Formula
   homepage "http://www.unixodbc.org/"
   url "http://www.unixodbc.org/unixODBC-2.3.5.tar.gz"
   sha256 "760972e05cc6361aee49d676fb7da8244e0f3a225cd4d3449a951378551b495b"
+  revision 1
 
   bottle do
     sha256 "f4d80627b3213e4839ec71fb61b752c30feae0b3d739c8a5ffd4a080a83d9f9f" => :high_sierra
@@ -20,6 +21,7 @@ class Unixodbc < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
                           "--enable-static",
                           "--enable-gui=no"
     system "make", "install"
