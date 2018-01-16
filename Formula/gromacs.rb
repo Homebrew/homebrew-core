@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2016.4.tar.gz"
-  sha256 "4be9d3bfda0bdf3b5c53041e0b8344f7d22b75128759d9bfa9442fe65c289264"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.tar.gz"
+  sha256 "deb5d0b749a52a0c6083367b5f50a99e08003208d81954fb49e7009e1b1fd0e9"
 
   bottle do
     rebuild 1
