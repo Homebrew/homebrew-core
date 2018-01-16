@@ -32,9 +32,16 @@ class GitCinnabar < Formula
 
   devel do
     url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b1",
-        :revision => "f4ce4ab5ae70c11f00fbc0964e1edf4da6fe7657"
-    version "0.5.0b1"
+        :tag => "0.5.0b2",
+        :revision => "419f4d2de0f1f0229ca0900774a576db5668e60e"
+    version "0.5.0b2"
+
+    # 7 Jul 2017 "Properly handle the case where there is no file metadata to store"
+    # This is needed for the nearly empty test repo below to succeed
+    patch do
+      url "https://github.com/glandium/git-cinnabar/commit/fbce645.patch?full_index=1"
+      sha256 "e905bc05886d212399dac7025f9fb583fed61d1b74679294ed2974c853f8935a"
+    end
 
     # same as in stable
     patch do
