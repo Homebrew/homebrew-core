@@ -10,9 +10,9 @@ class PandocCrossref < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f19dc749bc5d4d4e6b6302452cccba484422c8c293cebb91562395c27f1668b2" => :high_sierra
-    sha256 "2e0413636cb89ce886f2a87df2f48558a40c6e4eae2e3030581c89a52d5eb31d" => :sierra
-    sha256 "b59330bd828f0190ffdc645d5939652536a91dd7d91f088b0a88593f8003dcc7" => :el_capitan
+    sha256 "c2c0dbee94fc1e080e36fad1281672f91f0ff25b5c2269806479c5d2a93d13b6" => :high_sierra
+    sha256 "5a3b1158fe0621d5f5e03ee731c36239b85be63f9aae09af1c8cde204a72d33d" => :sierra
+    sha256 "a61456335f640fb85c260c02b651acca78775c12be196a379a696fb5732db41b" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
