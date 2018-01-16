@@ -1,7 +1,7 @@
 class Skafos < Formula
   desc      "Command-line tool for working with the Metis Machine platform"
   homepage  "https://metismachine.com"
-  url       "https://s3.amazonaws.com/skafos/1.0/macos.tar.gz"
+  url       "https://github.com/MetisMachine/skafos/archive/1.0.tar.gz"
   sha256    "bc98f57ec136685f4171e693f569f0f0593dd0d319d3f9e1e534bb2cc2cb492c"
   head      "https://github.com/metismachine/skafos.git"
 
@@ -14,7 +14,10 @@ class Skafos < Formula
   depends_on "curl"
 
   def install
-    prefix.install Dir["*"]
+    ENV.deparallelize
+
+    `system "make", "homebrew"`
+    prefix.install Dir["_build/*"]
   end
 
   test do
