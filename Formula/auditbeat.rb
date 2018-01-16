@@ -7,9 +7,9 @@ class Auditbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3120f36d9490501621b5c50d4ea494a4bb901d91839b4959bd2354a201c3e65a" => :high_sierra
-    sha256 "b01f28aecf59af361f19ef77d61cb4db49f266c104458e1cb89aff8f5f94d41e" => :sierra
-    sha256 "2576c543b8594c6ec9e63cd70abc081d9750ff57e7b41d16f17ead684c0c9c72" => :el_capitan
+    sha256 "6b0bc7143d62bb50e0d38f131c9c6e1b9ebb272c308ff32e1b6be5a3474f4f32" => :high_sierra
+    sha256 "bd2bbfa643a589b44b9ab23e7ca5fe851ebde65c5e33de51b74b971d407cdf9d" => :sierra
+    sha256 "68277f6a36331f5768938e345303611caca7cd7ee40e4b35e44a1a3fd68f2791" => :el_capitan
   end
 
   depends_on "go" => :build
