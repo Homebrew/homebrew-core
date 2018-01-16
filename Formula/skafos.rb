@@ -10,6 +10,7 @@ class Skafos < Formula
   depends_on "cmake" => :build
   depends_on "libgit2"
   depends_on "yaml-cpp"
+  depends_on "libarchive"
 
   def install
     ENV.deparallelize
