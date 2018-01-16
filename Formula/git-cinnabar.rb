@@ -32,9 +32,9 @@ class GitCinnabar < Formula
 
   devel do
     url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b1",
-        :revision => "f4ce4ab5ae70c11f00fbc0964e1edf4da6fe7657"
-    version "0.5.0b1"
+        :tag => "0.5.0b2",
+        :revision => "419f4d2de0f1f0229ca0900774a576db5668e60e"
+    version "0.5.0b2"
 
     # same as in stable
     patch do
