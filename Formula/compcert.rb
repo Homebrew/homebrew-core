@@ -1,8 +1,8 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "https://github.com/AbsInt/CompCert/archive/v3.1.tar.gz"
-  sha256 "9d0dd07f05a9a59b865041417dc61f16a664d85415f0271eb854412638e52e47"
+  url "https://github.com/AbsInt/CompCert/archive/v3.2.tar.gz"
+  sha256 "23b1a9585e6e9fa211dccae40fc9053c75e7f5519e4b698751bb67a083080487"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,14 +14,11 @@ class Compcert < Formula
 
   option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
 
+  depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
-  depends_on "ocaml-num" => :build
-  depends_on "opam" => :build
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
-
     ENV.permit_arch_flags
 
     # Compcert's configure script hard-codes gcc. On Lion and under, this
@@ -30,19 +27,11 @@ class Compcert < Formula
     # causes problems with the compcert compiler at runtime.
     inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
-    ENV["OPAMYES"] = "1"
-    ENV["OPAMROOT"] = buildpath/"opamroot"
-    (buildpath/"opamroot").mkpath
-    system "opam", "init", "--no-setup"
-    system "opam", "config", "exec", "--", "opam", "install", "ocamlfind"
-    system "opam", "config", "exec", "--", "opam", "install", "--fake", "num"
-    system "opam", "config", "exec", "--", "opam", "install", "coq=8.6.1"
-
     args = ["-prefix", prefix]
     args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
-    system "opam", "config", "exec", "--", "./configure", *args
-    system "opam", "config", "exec", "--", "make", "all"
-    system "opam", "config", "exec", "--", "make", "install"
+    system "./configure", *args
+    system "make", "all"
+    system "make", "install"
   end
 
   test do
