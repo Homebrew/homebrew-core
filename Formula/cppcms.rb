@@ -1,8 +1,8 @@
 class Cppcms < Formula
   desc "Free High Performance Web Development Framework"
   homepage "http://cppcms.com/wikipp/en/page/main"
-  url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.0.5/cppcms-1.0.5.tar.bz2"
-  sha256 "84b685977bca97c3e997497f227bd5906adb80555066d811a7046b01c2f51865"
+  url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.0/cppcms-1.2.0.tar.bz2"
+  sha256 "a5a29603269ab65d86f159cce342fba896a9316998a924e2e9f2b65dab9b70b9"
 
   bottle do
     cellar :any
