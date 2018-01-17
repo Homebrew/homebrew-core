@@ -36,6 +36,6 @@ class Djbdns < Formula
   end
 
   test do
-    assert_match /(localhost|"\n")/, shell_output("#{bin}/dnsname 127.0.0.1")
+    assert_match /localhost/, shell_output("#{bin}/dnsname 127.0.0.1")
   end
 end
