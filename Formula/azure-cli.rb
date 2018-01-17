@@ -1,9 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.24.tar.gz"
-  sha256 "8c0251b7c35bdc227d28a54ef397ff0f700fb4feb0e6ea06f5b7604b8bafead1"
-  revision 1
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.25.tar.gz"
+  sha256 "534ca7fa271997a100bbcfdada3b5f4a5b9ced5dd0b867192741a536e7e4d788"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -277,8 +276,8 @@ class AzureCli < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/c9/70/89b68b6600d479034276fed316e14b9107d50a62f5627da37fafe083fde3/cffi-1.11.2.tar.gz"
-    sha256 "ab87dd91c0c4073758d07334c1e5f712ce8fe48f007b86f8238773963ee700a6"
+    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
+    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
   end
 
   resource "chardet" do
@@ -297,8 +296,8 @@ class AzureCli < Formula
   end
 
   resource "humanfriendly" do
-    url "https://files.pythonhosted.org/packages/1d/13/77ba5bb753ab7ce4c42f0318f9c1c25b29650a688ef9cdbdc77f2e7ffa9f/humanfriendly-4.6.tar.gz"
-    sha256 "928eff707f0682029f1968cefe108fd2870ead5a2f8d80875231a27ba2b20410"
+    url "https://files.pythonhosted.org/packages/0d/2d/8cb8583e4dc4e44932460c88dbe1d7fde907df60589452342bc242ac7da0/humanfriendly-4.7.tar.gz"
+    sha256 "ee071c8f6c7457db53472ae9974aaf561c95fdbe072e1f2a3ba29aaa6ca51098"
   end
 
   resource "idna" do
@@ -322,8 +321,8 @@ class AzureCli < Formula
   end
 
   resource "knack" do
-    url "https://files.pythonhosted.org/packages/f3/a8/3661c3be49473256dc428ba4278b4552f414e615c4dc0b318c7eedb9e1fa/knack-0.3.0.tar.gz"
-    sha256 "bb57d817fc68e3fc26f28633f583477eba73c26cc8fb2438d7aaf7aee5a2162d"
+    url "https://files.pythonhosted.org/packages/e2/b8/7ef5a8e75854c54e40fe2b085a018b5a933e7bf47f532b86760ee14d664b/knack-0.3.1.tar.gz"
+    sha256 "fceb1676c51e146a49641d574bde93adb85fb2e43912609bfafa6c126072d47e"
   end
 
   resource "mock" do
@@ -332,13 +331,13 @@ class AzureCli < Formula
   end
 
   resource "msrest" do
-    url "https://files.pythonhosted.org/packages/3d/b2/b617a8d0826cd05b5e06f0350bd52d6e9f81bc0a5a377b43df7eddd8ff6f/msrest-0.4.24.tar.gz"
-    sha256 "dfdf542e87008ed171f623fcf3ec2b799229a034751dbc9d72c370ae7fb64906"
+    url "https://files.pythonhosted.org/packages/b9/0d/c8969c891bc3017009736e670379ae0e814ef7a190f1d7d361055fea22d2/msrest-0.4.25.tar.gz"
+    sha256 "5264c4b149a6c38c8bbc15cd6fca34161f73fc54d8b020081dfa0861a075424c"
   end
 
   resource "msrestazure" do
-    url "https://files.pythonhosted.org/packages/6a/d1/761e69540cc8076a8a64f280638397e2eb1dcba1ff697e5cd1730797eff9/msrestazure-0.4.19.tar.gz"
-    sha256 "43b78f25a432772b48c1dee615bd2c1de2ebb2f8107e96d4eea8cf6f691069c4"
+    url "https://files.pythonhosted.org/packages/97/6e/6355c1714b8ab9f22e6dde2713d68ccfe71b42d26d488c64467fc52680fd/msrestazure-0.4.20.tar.gz"
+    sha256 "4e4f7cce05235c4907cedcf245af2fcf7dc34cfb10b53c4e8fc626ee293aa6d6"
   end
 
   resource "oauthlib" do
