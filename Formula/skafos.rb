@@ -2,7 +2,7 @@ class Skafos < Formula
   desc "Command-line tool for working with the Metis Machine platform"
   homepage "https://metismachine.com/"
   url "https://github.com/MetisMachine/skafos/archive/1.0.tar.gz"
-  sha256 "f955123a0193042e654909fb0ad2446df1cabccc18ec537b8e21a1969c0cb026"
+  sha256 "56e27154e033fab69ad13cedc905e2a7bf1457a79042a848fbd8370177cc9689"
 
   depends_on "cmake" => :build
   depends_on "libarchive"
