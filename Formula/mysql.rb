@@ -1,9 +1,8 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.20.tar.gz"
-  sha256 "260582844ac18222ce2826f48b6c7ca387990b19ddb88331af26738b394e42a4"
-  revision 1
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.21.tar.gz"
+  sha256 "ad29ecb6fb3c3571394fe231633a2d1d188d49e9eb749daa4e8799b7630daa09"
 
   bottle do
     sha256 "a514b0c2db8adfc80ebe191d7941fac92d2cc0654af178f50f1f866129721175" => :high_sierra
@@ -54,12 +53,6 @@ class Mysql < Formula
   end
 
   def install
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/legacy-homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
-
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
