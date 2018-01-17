@@ -4,6 +4,13 @@ class Skafos < Formula
   url "https://github.com/MetisMachine/skafos/archive/1.0.tar.gz"
   sha256 "56e27154e033fab69ad13cedc905e2a7bf1457a79042a848fbd8370177cc9689"
 
+  bottle do
+    cellar :any
+    sha256 "42b2f57e1968b221f7a7a37b556d61096d7b8c1de0f202d7cd40f1050ab0ca95" => :high_sierra
+    sha256 "14c70e41074acfdc0b2e3f111a8af1bb1f9647e004f5a74c8f4d13ca10617c7c" => :sierra
+    sha256 "ab7ef279e852d06035df9cf3a533d022c62f9d700acc240bc92168730df1e487" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "libarchive"
   depends_on "yaml-cpp"
