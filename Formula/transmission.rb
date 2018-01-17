@@ -3,7 +3,12 @@ class Transmission < Formula
   homepage "https://www.transmissionbt.com/"
   url "https://github.com/transmission/transmission-releases/raw/094777d/transmission-2.92.tar.xz"
   sha256 "3a8d045c306ad9acb7bf81126939b9594553a388482efa0ec1bfb67b22acd35f"
-  revision 1
+  revision 2
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cf09cf8/transmission/CVE-2018-5702.patch"
+    sha256 "a28016143b94a07c225799a6e0e473657b56fd1f346b04537eca4dc37ffab8a9"
+  end
 
   bottle do
     sha256 "2356b8b147dc62712530e34494cc16974c15552aea527d8f5fb69d45e50c7336" => :high_sierra
