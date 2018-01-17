@@ -13,8 +13,9 @@ class Libgetdata < Formula
   end
 
   option "with-gcc", "Build Fortran bindings"
-  option "with-xz", "Build with LZMA compression support"
   option "with-libzzip", "Build with zzip compression support"
+  option "with-perl", "Build against Homebrew's Perl rather than system default"
+  option "with-xz", "Build with LZMA compression support"
 
   deprecated_option "lzma" => "with-xz"
   deprecated_option "zzip" => "with-libzzip"
@@ -23,6 +24,7 @@ class Libgetdata < Formula
   depends_on "libtool" => :run
   depends_on "gcc" => :optional
   depends_on "libzzip" => :optional
+  depends_on "perl" => :optional
   depends_on "xz" => :optional
 
   def install
