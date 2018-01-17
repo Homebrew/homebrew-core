@@ -17,6 +17,11 @@ class Bind < Formula
   depends_on "json-c" => :optional
 
   def install
+    # Fix "configure: error: xml2-config returns badness"
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     # enable DNSSEC signature chasing in dig
     ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
 
