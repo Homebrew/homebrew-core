@@ -12,15 +12,16 @@ class Libgetdata < Formula
     sha256 "a08f8f9d9102484dc988c729e94d7864f40c655355edc4a85efd2b91bb2a2738" => :el_capitan
   end
 
-  option "with-fortran", "Build Fortran bindings"
+  option "with-gcc", "Build Fortran bindings"
   option "with-xz", "Build with LZMA compression support"
   option "with-libzzip", "Build with zzip compression support"
 
   deprecated_option "lzma" => "with-xz"
   deprecated_option "zzip" => "with-libzzip"
+  deprecated_option "with-fortran" => "with-gcc"
 
   depends_on "libtool" => :run
-  depends_on "gcc" if build.with?("fortran")
+  depends_on "gcc" => :optional
   depends_on "libzzip" => :optional
   depends_on "xz" => :optional
 
@@ -36,9 +37,7 @@ class Libgetdata < Formula
 
     args << "--without-liblzma" if build.without? "xz"
     args << "--without-libzzip" if build.without? "libzzip"
-    if build.without? "fortran"
-      args << "--disable-fortran" << "--disable-fortran95"
-    end
+    args << "--disable-fortran" << "--disable-fortran95" if build.without? "gcc"
 
     system "./configure", *args
     system "make"
