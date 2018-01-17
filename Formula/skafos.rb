@@ -9,18 +9,33 @@ class Skafos < Formula
   depends_on "yaml-cpp"
 
   def install
-    system "make", "clean"
     system "make", "_create_version_h"
     system "make", "_env_for_prod"
 
-    mkdir "_build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
-    system "#{bin}/skafos", "--version"
-    system "#{bin}/skafos", "--help"
+    (testpath/"test.exp").write <<~EOS
+      spawn #{bin}/skafos setup
+      set timeout 5
+        expect {
+          timeout { exit 1 }
+          "Please enter email:"
+        }
+        send "me@foo.bar\r"
+        expect {
+          timeout { exit 2 }
+          "Please enter password:"
+        }
+      send "1234\r"
+      expect {
+        timeout { exit 3 }
+        eof
+      }
+    EOS
+
+    assert_match "Invalid email or password", shell_output("expect -f test.exp")
   end
 end
