@@ -8,8 +8,11 @@ class Modelgen < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    system "go", "build", "-ldflags", "-X main.version=#{version}"
-    bin.install "modelgen"
+    (buildpath/"src/github.com/LUSHDigital/modelgen").install buildpath.children
+    cd "src/github.com/LUSHDigital/modelgen" do
+      system "go", "build", "-ldflags", "-X main.version=#{version}"
+      bin.install "modelgen"
+    end
   end
 
   test do
