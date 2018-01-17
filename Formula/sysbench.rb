@@ -5,9 +5,9 @@ class Sysbench < Formula
   sha256 "1d730b4619eb5d92cb3d2e642ed55f84b3fca8ec5d2acb5ca09b52a73d6831b4"
 
   bottle do
-    sha256 "ac12259c76de51291ae4bb909647fcaf1133c5dfd7f2f0d983f3a1fb0727a909" => :high_sierra
-    sha256 "1428b77fd48206693f787cc3028e3ad9e4e3ad8b4159a00a424d567180af388f" => :sierra
-    sha256 "91d311d1b5a362777fe8957235d7ece948376a63afcbaf03631fc64822637ee8" => :el_capitan
+    sha256 "76fe69db22ac57b2876b47f3209c153b9f5765f0eda86a6b512d29c3f467df33" => :high_sierra
+    sha256 "633a4e7470a0db791ccdc4e6e070b188776df80814cf80919eb9dc31d5e3a440" => :sierra
+    sha256 "19c84895f37d3b8e63917b586bc453385a27ca740404a4b831a1aa1734cbb63e" => :el_capitan
   end
 
   depends_on "autoconf" => :build
