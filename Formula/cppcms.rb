@@ -6,12 +6,9 @@ class Cppcms < Formula
 
   bottle do
     cellar :any
-    sha256 "08e61238e4c996d1a43f74e448948476e5a80fbde09b5e2e4a42602954d5f23d" => :high_sierra
-    sha256 "7d669ab4f36bd0bf880235fb5842a8ffbbe655ca8d9d6cd511e8c57a6764632a" => :sierra
-    sha256 "3715285e50f8fe247c3d3dd2e543f92e994366ff1578e250dbcca5d8b38851b1" => :el_capitan
-    sha256 "6fec4bca41a688f32b5a8b7cef4de2585b14d59ddedc5967a967917e8727dea0" => :yosemite
-    sha256 "fe7c1581986e533596f9d12e4f199ecb1af9a15438d80911829af6365f4d3d05" => :mavericks
-    sha256 "b129b55fa688f760864a0cfecbf67c112411518e70c77b6b2c88af0ea2035205" => :mountain_lion
+    sha256 "744ccb4f774905696f3944f40a28ba152d4d5770335ec89bf2160c29f4903ad7" => :high_sierra
+    sha256 "814470be47e6f70e34970257cf238b60237050a5e649df7cba8a5aaa478c65dc" => :sierra
+    sha256 "6c752408d44ccb5c516b3bef5185515001cc9fff639a2f9e243386b64c8c7cba" => :el_capitan
   end
 
   depends_on "cmake" => :build
