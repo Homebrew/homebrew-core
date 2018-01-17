@@ -34,9 +34,9 @@ class Libgetdata < Formula
       --prefix=#{prefix}
       --disable-php
       --disable-python
-      --with-perl-dir=#{lib}/perl5/site_perl
     ]
 
+    args << "--with-perl-dir=#{lib}/perl5/site_perl" if build.with? "perl"
     args << "--without-liblzma" if build.without? "xz"
     args << "--without-libzzip" if build.without? "libzzip"
     args << "--disable-fortran" << "--disable-fortran95" if build.without? "gcc"
