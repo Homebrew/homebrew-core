@@ -5,9 +5,9 @@ class Libqalculate < Formula
   sha256 "1752b6a046eaf84ee62a7dc8d2c874b538517956ce8affac80df09a3b55bef5d"
 
   bottle do
-    sha256 "e455697faa05f863edcd3d4e528c20be8ae2a5b93e7c3d59c574794562de8f2d" => :high_sierra
-    sha256 "a068486e78a0907adcebe3697a999471894bbd8718c117415e625f960d9337fd" => :sierra
-    sha256 "d0998716203567359bc7493adf00e82af212d66334ea1fd2028ade0ae14aa75b" => :el_capitan
+    sha256 "304f896d1bf0a0d7beb3d2070586cb6d6f71be4dcca0255c0cd0a8643bd9a4f8" => :high_sierra
+    sha256 "3ec1472fe6d2701b12a6988661066e83f6f3f9fdebfa862b25754a8bbd571b7c" => :sierra
+    sha256 "251050e92389842a1887f12e02f6e9af63b712f39e7f4e5bbd18b8fcccdbd712" => :el_capitan
   end
 
   depends_on "intltool" => :build
