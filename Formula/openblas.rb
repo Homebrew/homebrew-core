@@ -13,7 +13,7 @@ class Openblas < Formula
     sha256 "6aa065aea2afd4573b8d20ac24ae8fec6fd6bf71562e33c6d25c397b3cea8187" => :el_capitan
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
   option "with-openmp", "Enable parallel computations with OpenMP"
