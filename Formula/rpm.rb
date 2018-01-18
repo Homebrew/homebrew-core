@@ -1,9 +1,8 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "http://www.rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.0.tar.bz2"
-  sha256 "06a0ad54600d3c42e42e02701697a8857dc4b639f6476edefffa714d9f496314"
-  revision 1
+  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.1.tar.bz2"
+  sha256 "43f40e2ccc3ca65bd3238f8c9f8399d4957be0878c2e83cba2746d2d0d96793b"
   version_scheme 1
 
   bottle do
@@ -18,7 +17,7 @@ class Rpm < Formula
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua@5.1"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "popt"
   depends_on "xz"
   depends_on "zstd"
@@ -28,6 +27,10 @@ class Rpm < Formula
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
+
+    # ensure that pkg-config binary is found for dep generators
+    inreplace "scripts/pkgconfigdeps.sh",
+              "/usr/bin/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
