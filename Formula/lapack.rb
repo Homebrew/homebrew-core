@@ -12,7 +12,7 @@ class Lapack < Formula
     sha256 "5eae00a6afe33f3114e33e9275dbda82182f5131c93639576367bcd44031c8ee" => :el_capitan
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
