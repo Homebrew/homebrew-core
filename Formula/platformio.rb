@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://files.pythonhosted.org/packages/a8/e9/d0520186cee5ab07f32b690da973cfb008507de99e52238a9d97f88cce46/platformio-3.5.0.tar.gz"
-  sha256 "ccc075da447b9f7656c15a7446fa28b073cd129c0842d4e4a3274570391bc13f"
+  url "https://files.pythonhosted.org/packages/a4/34/c8a8ea8a8f8082b0f49f4cdf1978d9c7564fc4d70ab0b58dcb805c294b9a/platformio-3.5.1.tar.gz"
+  sha256 "76f427e59be50f8ea8ab1cee97b721e9fb807ea3fd4a70e3f431dc037f2d8131"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,16 +14,6 @@ class Platformio < Formula
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
-
-  resource "arrow" do
-    url "https://files.pythonhosted.org/packages/90/48/7ecfce4f2830f59dfacbb2b5a31e3ff1112b731a413724be40f57faa4450/arrow-0.12.0.tar.gz"
-    sha256 "a15ecfddf334316e3ac8695e48c15d1be0d6038603b33043930dcf0e675c86ee"
-  end
-
-  resource "backports.functools_lru_cache" do
-    url "https://files.pythonhosted.org/packages/87/77/5b2fd33e46c8ed4d67b45337d9f7bb27d1a1d577536470b39c267b5ce093/backports.functools_lru_cache-1.2.1.tar.gz"
-    sha256 "1c20e07f1a8a36a19d5d258b6b076e588d78d8fc7c2c4487ffe3a280f55a7bd1"
-  end
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"
@@ -65,11 +55,6 @@ class Platformio < Formula
     sha256 "6e2d401fdee0eab996cf734e67773a0143b932772ca8b42451440cfed942c627"
   end
 
-  resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
     sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
@@ -78,11 +63,6 @@ class Platformio < Formula
   resource "semantic_version" do
     url "https://files.pythonhosted.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz"
     sha256 "2a4328680073e9b243667b201119772aefc5fc63ae32398d6afafff07c4f54c0"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "urllib3" do
