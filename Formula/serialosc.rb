@@ -8,11 +8,9 @@ class Serialosc < Formula
 
   bottle do
     cellar :any
-    sha256 "64eb8d47d366da00e2bc99d162e3ff057ab7110bbaa59291f3749797e6d9f4a5" => :high_sierra
-    sha256 "1efcd2d8b83dcdbecdebe0ebf57a47d294971266be96ea2e399ba9c0ae96ff2e" => :sierra
-    sha256 "6f02ff0f093354591e9690ed1b26b626c8cc2e334ab5906246720628e255f8f9" => :el_capitan
-    sha256 "54b6bc84567aa81ab8fba5dc0286413ed6dae4689c3903a32f05658abf135719" => :yosemite
-    sha256 "803b131b8d0aea12b0999506a8936f9467fe7b88b21fbfd2e19847fece6f6f7c" => :mavericks
+    sha256 "e0bf57d0c476bba84d0fd54ef092ebcc0077a163f9313a659ea3401502de43ad" => :high_sierra
+    sha256 "708a6230d77c734f5bb5c7f6f09d76cc02f345aa9ff82b392ed48e76236c06e1" => :sierra
+    sha256 "538a58e048362ab6561a3ba60a4bce9a262ec6245c2bdbf2c3b07a21c8f725cc" => :el_capitan
   end
 
   depends_on "liblo"
