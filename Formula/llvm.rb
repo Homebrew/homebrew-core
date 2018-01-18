@@ -128,7 +128,7 @@ class Llvm < Formula
     end
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
