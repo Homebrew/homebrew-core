@@ -14,7 +14,7 @@ class Gcore < Formula
     sha256 "e215d77d74b8c878a7d7449aada4817714b13024d6bfad78b2b700271e6218ec" => :yosemite
   end
 
-  keg_only :provided_by_osx if MacOS.version >= :sierra
+  keg_only :provided_by_macos if MacOS.version >= :sierra
 
   def install
     system "make"
