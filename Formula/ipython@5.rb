@@ -172,6 +172,9 @@ class IpythonAT5 < Formula
     kernel_dir = Dir.mktmpdir
     system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
     (share/"jupyter/kernels/python2").install Dir["#{kernel_dir}/share/jupyter/kernels/python2/*"]
+    inreplace share/"jupyter/kernels/python2/kernel.json",
+      "\"argv\": [\n  \"python\"",
+      "\"argv\": [\n  \"#{bin}/python2\""
     inreplace share/"jupyter/kernels/python2/kernel.json", "]", <<~EOS
       ],
       "env": {
