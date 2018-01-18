@@ -12,7 +12,7 @@ class Libarchive < Formula
     sha256 "8ef52679c4f98f7aa7ce0ecdb854d3fea70b46192011e447fabdde8aec5cd940" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "xz" => :recommended
   depends_on "lz4" => :optional
