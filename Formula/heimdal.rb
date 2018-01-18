@@ -10,7 +10,7 @@ class Heimdal < Formula
     sha256 "011cd9adbc85589034f69ea15a7cd85c60561792f5366e3d977732a9ef076320" => :el_capitan
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "openssl"
 
