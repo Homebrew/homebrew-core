@@ -1,8 +1,8 @@
 class Linkerd < Formula
   desc "Drop-in RPC proxy designed for microservices"
   homepage "https://linkerd.io/"
-  url "https://github.com/linkerd/linkerd/releases/download/1.3.4/linkerd-1.3.4.tgz"
-  sha256 "c3c751c26164e1b134a65351aecfa308a2a8442167a0a950051b3fa5b603e8ed"
+  url "https://github.com/linkerd/linkerd/releases/download/1.3.5/linkerd-1.3.5.tgz"
+  sha256 "601fc82f944c8ce575a4442ca661cca6755c445ee0f890d0ba6c79035452b2d7"
 
   bottle :unneeded
 
@@ -11,8 +11,8 @@ class Linkerd < Formula
   def install
     inreplace "config/linkerd.yaml", "disco", etc/"linkerd/disco"
 
-    libexec.install "linkerd-#{version}-exec"
-    bin.install_symlink libexec/"linkerd-#{version}-exec" => "linkerd"
+    libexec.install "linkerd-#{version}-32b-exec"
+    bin.install_symlink libexec/"linkerd-#{version}-32b-exec" => "linkerd"
 
     pkgshare.mkpath
     cp buildpath/"config/linkerd.yaml", pkgshare/"default.yaml"
