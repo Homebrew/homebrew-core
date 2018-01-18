@@ -1,9 +1,8 @@
 class Libmonome < Formula
   desc "Interact with monome devices via C, Python, or FFI"
   homepage "https://monome.org/"
-  url "https://github.com/monome/libmonome/releases/download/v1.4.0/libmonome-1.4.0.tar.bz2"
-  sha256 "0a04ae4b882ea290f3578bcba8e181c7a3b333b35b3c2410407126d5418d149a"
-
+  url "https://github.com/monome/libmonome/archive/v1.4.1.tar.gz"
+  sha256 "a79af7e22f835f2414f12503981d6a40527e0d006a03fd85aec59a6029ffc06c"
   head "https://github.com/monome/libmonome.git"
 
   bottle do
@@ -17,7 +16,6 @@ class Libmonome < Formula
   depends_on "liblo"
 
   def install
-    inreplace "wscript", "-Werror", ""
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
     system "./waf", "install"
