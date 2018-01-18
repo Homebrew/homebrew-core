@@ -9,6 +9,14 @@ class Datomic < Formula
   depends_on :java
 
   def install
+    inreplace "config/samples/free-transactor-template.properties" do |s|
+      s.gsub! "# data-dir=data", "data-dir=#{var}/lib/datomic/"
+      s.gsub! "# log-dir=log", "log-dir=#{var}/lib/datomic/log"
+    end
+
+    # install free-transactor properties
+    (etc/"datomic").install "config/samples/free-transactor-template.properties" => "free-transactor.properties"
+
     libexec.install Dir["*"]
     (bin/"datomic").write_env_script libexec/"bin/datomic", Language::Java.java_home_env
 
@@ -18,16 +26,6 @@ class Datomic < Formula
 
     # create directory for datomic data and logs
     (var/"lib/datomic").mkpath
-
-    # install free-transactor properties
-    data = var/"lib/datomic"
-    (etc/"datomic").mkpath
-    (etc/"datomic").install libexec/"config/samples/free-transactor-template.properties" => "free-transactor.properties"
-
-    inreplace "#{etc}/datomic/free-transactor.properties" do |s|
-      s.gsub! "# data-dir=data", "data-dir=#{data}/"
-      s.gsub! "# log-dir=log", "log-dir=#{data}/log"
-    end
   end
 
   def post_install
