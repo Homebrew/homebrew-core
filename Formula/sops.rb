@@ -3,8 +3,8 @@ class Sops < Formula
 
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/3.0.0.tar.gz"
-  sha256 "28c5424e48b5b0b8c5cf471ea39954107c5bda06a3817d67f0b8c49f80aa4a94"
+  url "https://github.com/mozilla/sops/archive/3.0.1.tar.gz"
+  sha256 "ebc39deec39478df992d91d0447f15951c6950875021748a3b66b2abd0b03a40"
   head "https://github.com/mozilla/sops.git"
 
   bottle do
