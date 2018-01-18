@@ -13,7 +13,7 @@ class Bc < Formula
     sha256 "e5c4b3fa712d705c3cc9bfae12242c9b4dc429e329c61d12aa01b65c1623a11f" => :el_capitan
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   def install
     # prevent user BC_ENV_ARGS from interfering with or influencing the
