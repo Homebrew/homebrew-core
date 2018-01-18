@@ -1,8 +1,8 @@
 class Elvish < Formula
   desc "Friendly and expressive shell"
   homepage "https://github.com/elves/elvish"
-  url "https://github.com/elves/elvish/archive/0.10.1.tar.gz"
-  sha256 "a1ba39076cc45b24a8763174978805fa93c8713641d0e1715e9ada7d1122ab49"
+  url "https://github.com/elves/elvish/archive/0.11.tar.gz"
+  sha256 "711f67d8730990deed00c3e0c59198c8a51c8441371416faab5ef603c26010b6"
   head "https://github.com/elves/elvish.git"
 
   bottle do
@@ -18,7 +18,9 @@ class Elvish < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elves/elvish").install buildpath.children
     cd "src/github.com/elves/elvish" do
-      system "go", "build", "-ldflags", "-X main.Version=#{version}", "-o", bin/"elvish"
+      system "go", "build", "-ldflags",
+             "-X github.com/elves/elvish/build.Version=#{version}", "-o",
+             bin/"elvish"
       prefix.install_metafiles
     end
   end
