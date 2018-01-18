@@ -13,7 +13,7 @@ class Zlib < Formula
     sha256 "5b969eb38b90a3e31869586df9d62e59d359212b16c6a270aee690dd67caa491" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   # https://zlib.net/zlib_how.html
   resource "test_artifact" do
