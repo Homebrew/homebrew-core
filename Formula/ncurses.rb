@@ -12,7 +12,7 @@ class Ncurses < Formula
     sha256 "08026e1a7dc4d53ec8bafcb1b0f40db3e9f029068d300fa8ba9275aa15457bdd" => :el_capitan
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
 
