@@ -14,7 +14,7 @@ class Icu4c < Formula
     sha256 "54cc020520f422f5a708b20e1bec4e009cb7a52e7a150a3dd8edcfaa4f591200" => :el_capitan
   end
 
-  keg_only :provided_by_osx, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
     args = %W[--prefix=#{prefix} --disable-samples --disable-tests --enable-static]
