@@ -17,7 +17,7 @@ class Xlispstat < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
-    ENV.j1 # Or make fails bytecompiling lisp code
+    ENV.deparallelize # Or make fails bytecompiling lisp code
     system "make"
     system "make", "install"
   end
