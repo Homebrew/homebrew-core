@@ -15,7 +15,6 @@ class TmuxXpanes < Formula
     pipe_output("#{bin}/xpanes --dry-run -c echo", "hello", 0)
 
     # Check options with invalid combination (-n requires number)
-    output = pipe_output("#{bin}/xpanes --dry-run -n foo -c echo 2>&1", "hello", 4)
-    assert_equal "xpanes:Error: invalid argument 'foo' for -n option", output.strip
+    pipe_output("#{bin}/xpanes --dry-run -n foo -c echo 2>&1", "hello", 4)
   end
 end
