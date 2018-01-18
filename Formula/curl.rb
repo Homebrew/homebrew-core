@@ -20,7 +20,7 @@ class Curl < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   option "with-rtmpdump", "Build with RTMP support"
   option "with-libssh2", "Build with scp and sftp support"
