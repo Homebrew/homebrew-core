@@ -5,9 +5,9 @@ class Sysdig < Formula
   sha256 "e1f7e824831a9b902f6df0e818c41bdfc21175398d58318d7892df9c601e7e96"
 
   bottle do
-    sha256 "84b93f62667e95533f85c65c9d029877a98fe2818e658c0c683470c0bf94392e" => :high_sierra
-    sha256 "1618ac9eb84ae685c44b041a26c4d7bec703d88132e1ad08407929bf631170fc" => :sierra
-    sha256 "8ed2e31379bbccf832b86e1d3f729f12138fe986cf5be9b1cd8effade5c29cb8" => :el_capitan
+    sha256 "e4a6c6d3fdc2e2af66ef4a187dea9a1eef21726efffc6898d1489a1bcc4325b2" => :high_sierra
+    sha256 "f860f82acc1405a29e181582ed1abf6daeb99623e6186dd90e20e20ef7b10cde" => :sierra
+    sha256 "583116ada7e9981e62a776f8aa3aae66ac912e3a5c5b0da1f33da9dad98da520" => :el_capitan
   end
 
   depends_on "cmake" => :build
