@@ -8,12 +8,12 @@ class MkConfigure < Formula
   depends_on "makedepend"
 
   def install
-    ENV["PREFIX"] = prefix.to_s
-    ENV["MANDIR"] = man.to_s
+    ENV["PREFIX"] = prefix
+    ENV["MANDIR"] = man
 
     system "bmake", "all"
     system "bmake", "install"
-    (share/"doc/mk-configure").install("presentation/presentation.pdf")
+    doc.install("presentation/presentation.pdf")
   end
 
   test do
