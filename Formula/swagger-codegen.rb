@@ -12,7 +12,7 @@ class SwaggerCodegen < Formula
     sha256 "e54452eeeb744aaf4fd0c37937d1ef674e20e0af1984581f636ccfeed1cdfb45" => :el_capitan
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
   depends_on "maven" => :build
 
   def install
