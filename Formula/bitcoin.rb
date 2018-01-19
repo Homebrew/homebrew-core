@@ -1,6 +1,7 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
+  revision 1
 
   stable do
     url "https://bitcoin.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1.tar.gz"
@@ -35,6 +36,7 @@ class Bitcoin < Formula
   depends_on "libevent"
   depends_on "miniupnpc"
   depends_on "openssl"
+  depends_on "zeromq"
 
   needs :cxx11
 
