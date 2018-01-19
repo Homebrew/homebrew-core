@@ -11,8 +11,8 @@ class Mariadb < Formula
   end
 
   devel do
-    url "https://downloads.mariadb.org/f/mariadb-10.3.3/source/mariadb-10.3.3.tar.gz"
-    sha256 "ad80edacbf3cb39fbeb3a022803362e0da78dadb4aae611a126a7c8cd2c0c24b"
+    url "https://downloads.mariadb.org/f/mariadb-10.3.4/source/mariadb-10.3.4.tar.gz"
+    sha256 "5b7146c528e53083c36141cff6a1d24cae77285acceeb84fd446956c52e5ba5b"
 
     # compilation fix
     # https://jira.mariadb.org/browse/MDEV-14753
