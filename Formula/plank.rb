@@ -4,6 +4,12 @@ class Plank < Formula
   url "https://github.com/pinterest/plank/archive/v1.2.1.tar.gz"
   sha256 "21d15335bdf2f229a886611f3d18138b4a41ccbf420809dc3be1da41d3868104"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b11dd6d04d4560d28ede31d5ee3812c9fa8080539918d701957b800d9bd9d827" => :high_sierra
+    sha256 "a893af40dcfb3c2d524456aa294ab6dec0a64b47b5b0880982f805e9b5db7977" => :sierra
+  end
+
   depends_on :xcode => ["9.0", :build]
 
   def install
