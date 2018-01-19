@@ -13,8 +13,8 @@ class Vis < Formula
     end
   end
 
-  depends_on "lua"
   depends_on "libtermkey"
+  depends_on "lua"
 
   resource "lpeg" do
     url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock", :using => :nounzip
@@ -26,10 +26,8 @@ class Vis < Formula
     ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
     ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
 
-    resources.each do |r|
-      r.stage do
-        system "luarocks", "build", r.name, "--tree=#{luapath}"
-      end
+    resource("lpeg").stage do
+      system "luarocks", "build", r.name, "--tree=#{luapath}"
     end
 
     system "./configure", "--prefix=#{libexec}"
