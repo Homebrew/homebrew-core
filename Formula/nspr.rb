@@ -1,8 +1,8 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
-  url "https://archive.mozilla.org/pub/mozilla.org/nspr/releases/v4.17/src/nspr-4.17.tar.gz"
-  sha256 "590a0aea29412ae22d7728038c21ef2ab42646e48172a47d2e4bb782846d1095"
+  url "https://archive.mozilla.org/pub/mozilla.org/nspr/releases/v4.18/src/nspr-4.18.tar.gz"
+  sha256 "b89657c09bf88707d06ac238b8930d3ae08de68cb3edccfdc2e3dc97f9c8fb34"
 
   bottle do
     cellar :any
