@@ -27,7 +27,7 @@ class Vis < Formula
     ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
 
     resource("lpeg").stage do
-      system "luarocks", "build", r.name, "--tree=#{luapath}"
+      system "luarocks", "build", "lpeg", "--tree=#{luapath}"
     end
 
     system "./configure", "--prefix=#{libexec}"
