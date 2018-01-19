@@ -1,8 +1,8 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.10.1.tar.gz"
-  sha256 "19bac652e50f35b3b58ea010c2b89b91b945365d37dbf17467e0dc345c058465"
+  url "https://github.com/fail2ban/fail2ban/archive/0.10.2.tar.gz"
+  sha256 "1c1a969137c56f7e8b90e5f14d78b80214d34d67209787bfddc8d5804ceb29cc"
 
   bottle do
     sha256 "6915ada093888162b8b29c8f5fd69a8c5c7403321809577364dd5f51877c3f25" => :high_sierra
