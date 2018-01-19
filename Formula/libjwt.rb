@@ -13,7 +13,9 @@ class Libjwt < Formula
 
   def install
     system "autoreconf", "-fiv"
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--disable-silent-rules"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "all"
     system "make", "install"
   end
