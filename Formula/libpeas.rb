@@ -30,10 +30,6 @@ class Libpeas < Formula
       --enable-gtk
     ]
 
-    # Unset PYTHONPATH as it creates more confusion that it tries to
-    # remove when both v2 and v3 are installed
-    ENV.delete("PYTHONPATH")
-
     if build.with? "python"
       # extra hoop to jump if both, Python 2 and 3 are installed in parallel
       py2_prefix = Utils.popen_read("python2-config --prefix").chomp
