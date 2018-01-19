@@ -11,8 +11,8 @@ class Jdupes < Formula
   test do
     touch "a"
     touch "b"
-
-    dupes = shell_output("#{bin}/jdupes -z .").strip.split("\n").sort
+    (testpath/"c").write("unique file")
+    dupes = shell_output("#{bin}/jdupes --zeromatch .").strip.split("\n").sort
     assert_equal ["./a", "./b"], dupes
   end
 end
