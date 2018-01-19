@@ -16,6 +16,7 @@ class Hmmer < Formula
   end
 
   test do
-    assert_match "PF00069.17", shell_output("#{bin}/hmmstat #{doc}/tutorial/minifam")
+    output = shell_output("#{bin}/hmmstat #{doc}/tutorial/minifam")
+    assert_match "PF00069.17", output
   end
 end
