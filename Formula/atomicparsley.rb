@@ -35,4 +35,12 @@ class Atomicparsley < Formula
                           "--disable-universal"
     system "make", "install"
   end
+
+  test do
+    cp test_fixtures("test.m4a"), testpath/"file.m4a"
+    system "#{bin}/atomicparsley", testpath/"file.m4a", "--artist", "Homebrew"
+    output = shell_output("find . -name file-temp*")
+    var = "file-temp"
+    assert_match var, output
+  end
 end
