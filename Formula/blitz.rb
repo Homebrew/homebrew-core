@@ -45,7 +45,7 @@ class Blitz < Formula
         cout << "A = " << A << endl;
         return 0;}
       EOS
-    system ENV.cxx, testpath/"testfile.cpp", "-o", testpath/"testfile"
+    system ENV.cxx, "testfile.cpp", "-o", "testfile"
     output = shell_output("./testfile")
     var = "/A\ =\ \(0,2\)\ x\ \(0,0\)\n\[\ 17\ \n\ \ 2\ \n\ \ 97\ \]\n\n/"
     assert_match output, var
