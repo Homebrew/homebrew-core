@@ -8,9 +8,9 @@ class Acmetool < Formula
       :revision => "92d19257791c249fff272bf381020d374fa1c484"
 
   bottle do
-    sha256 "9c22ea8e1080a6ce8b1ffefaa330207866d65a237de7f4666da703f0f4c07a01" => :high_sierra
-    sha256 "288ccfd08f5208d3b03e3139872a273b3678d2ec98f2e432446ec3359fd28662" => :sierra
-    sha256 "5725359701aceb2f0a4cf4acd9e5e15dd6224a11133372a432daeb2b985de6b6" => :el_capitan
+    sha256 "fb8bb06957147d6fa2f03b471874d13a04628d0553bbb3c67c79222ce4371430" => :high_sierra
+    sha256 "87759321bc4f2a73ac20c335a3496048ee278afa865029a2172c0cf5df0b8326" => :sierra
+    sha256 "ea5417bd22944257a11424c93e8a047620f02142a340eb6c8f6b86c7daf31dd0" => :el_capitan
   end
 
   depends_on "go" => :build
