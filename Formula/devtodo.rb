@@ -30,6 +30,20 @@ class Devtodo < Formula
     system "make", "install"
     doc.install "contrib"
   end
+
+  test do
+    (testpath/"test").write <<~EOS
+      #!/usr/bin/expect -f
+      spawn devtodo --add HomebrewWork
+      expect "priority*"
+      send -- "2\r"
+      expect eof
+      EOS
+    chmod 0755, testpath/"test"
+    system "./test"
+    output = shell_output("grep HomebrewWork #{testpath}/.todo")
+    assert_match "HomebrewWork", output
+  end
 end
 
 __END__
