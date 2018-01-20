@@ -4,6 +4,12 @@ class Amber < Formula
   url "https://github.com/amberframework/amber/archive/v0.6.4.tar.gz"
   sha256 "4b7489d16afc26e2847d4dc74dad54d2f5dc20d1a148a5e0da6bea991bcac68f"
 
+  bottle do
+    sha256 "b2f92639b17c291b2d69f5be394d71349ac4fca644f28c62d648f55c686a117f" => :high_sierra
+    sha256 "10b1f682f761829ef6e22c49715c319d872a45a67b1bf5ac69a6e6566585bddc" => :sierra
+    sha256 "4cef2d95cf74003084bc514115ec67a5c4957ba1eb60f3193fdafec6c35f3e66" => :el_capitan
+  end
+
   depends_on "crystal-lang"
 
   def install
