@@ -33,7 +33,7 @@ class Devtodo < Formula
 
   test do
     (testpath/"test").write <<~EOS
-      spawn devtodo --add HomebrewWork
+      spawn #{bin}/devtodo --add HomebrewWork
       expect "priority*"
       send -- "2\r"
       expect eof
