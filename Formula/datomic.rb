@@ -1,6 +1,6 @@
 class Datomic < Formula
   desc "Database separating transactions, storage and queries"
-  homepage "http://www.datomic.com/"
+  homepage "https://www.datomic.com/"
   url "https://my.datomic.com/downloads/free/0.9.5656"
   sha256 "e277da74fcb8d6589fcc4c9d5a2b781a3158618290a9c7511a0d6f0e7119dd55"
 
