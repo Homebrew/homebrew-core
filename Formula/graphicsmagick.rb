@@ -41,7 +41,6 @@ class Graphicsmagick < Formula
       --without-lzma
       --disable-openmp
       --with-quantum-depth=16
-      --disable-installed
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
