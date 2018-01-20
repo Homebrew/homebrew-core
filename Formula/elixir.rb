@@ -21,6 +21,9 @@ class Elixir < Formula
       app = File.basename(File.dirname(path))
       (lib/app).install path
     end
+
+    system "make", "build_man"
+    man1.install "man/elixir.1", "man/elixirc.1", "man/iex.1", "man/mix.1"
   end
 
   test do
