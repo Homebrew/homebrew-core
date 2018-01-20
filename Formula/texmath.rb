@@ -10,9 +10,9 @@ class Texmath < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "95fba797e995f4f482099fd9adb087befc4dd7059935db64a7e08ec8bfc871ee" => :high_sierra
-    sha256 "45a55a90a9231400b95620fe0f3ce87e58b39e98386eee50af8b6ab4caa096b5" => :sierra
-    sha256 "4e14954d9b53163e89ded89a0cc7821a6c9a83f34fea84f26b1a0346c121a2a2" => :el_capitan
+    sha256 "7b0573dcb4396b48266067db73ac5c47f478ae2cd138f248258e6a1b0ce9c8a5" => :high_sierra
+    sha256 "3b52bd95759dfbe1ac92424eb6abae0b23894b421bda37fa6101e45dd9a08129" => :sierra
+    sha256 "e6da2e8d126caf9cfd99d46d6c3f34810e22a9615e1b2d1aa9ca8ba64afd8475" => :el_capitan
   end
 
   depends_on "ghc" => :build
