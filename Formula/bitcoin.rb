@@ -36,7 +36,7 @@ class Bitcoin < Formula
   depends_on "libevent"
   depends_on "miniupnpc"
   depends_on "openssl"
-  depends_on "zmq"
+  depends_on "zeromq"
 
   needs :cxx11
 
