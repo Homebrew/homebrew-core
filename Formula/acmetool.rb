@@ -4,8 +4,8 @@ class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
   url "https://github.com/hlandau/acme.git",
-      :tag => "v0.0.62",
-      :revision => "2c2e661404c54478d8086ae8f792de0fdddbaed0"
+      :tag => "v0.0.63",
+      :revision => "92d19257791c249fff272bf381020d374fa1c484"
 
   bottle do
     sha256 "9c22ea8e1080a6ce8b1ffefaa330207866d65a237de7f4666da703f0f4c07a01" => :high_sierra
@@ -27,7 +27,7 @@ class Acmetool < Formula
 
   go_resource "github.com/coreos/go-systemd" do
     url "https://github.com/coreos/go-systemd.git",
-        :revision => "c966a8af8422394b2e370d90e2101adba21c14be"
+        :revision => "cc4f39464dc797b91c8025330de585294c2a6950"
   end
 
   go_resource "github.com/hlandau/buildinfo" do
@@ -77,12 +77,12 @@ class Acmetool < Formula
 
   go_resource "github.com/peterhellberg/link" do
     url "https://github.com/peterhellberg/link.git",
-        :revision => "3eea38ca14b7b3252feea5daf92be3864209eb1d"
+        :revision => "8768c6d4dc563b4a09f58ecda04997024452c057"
   end
 
   go_resource "github.com/satori/go.uuid" do
     url "https://github.com/satori/go.uuid.git",
-        :revision => "5bf94b69c6b68ee1b541973bb8e1144db23a194b"
+        :revision => "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
   end
 
   go_resource "github.com/shiena/ansicolor" do
@@ -92,27 +92,32 @@ class Acmetool < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "94eea52f7b742c7cbe0b03b22f0c4c8631ece122"
+        :revision => "a6600008915114d9c087fad9f03d75087b1a74df"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "dc871a5d77e227f5bbf6545176ef3eeebf87e76e"
+        :revision => "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec"
+  end
+
+  go_resource "golang.org/x/sys" do
+    url "https://go.googlesource.com/sys.git",
+        :revision => "2c42eef0765b9837fbdab12011af7830f55f88f0"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "3b24cac7bc3a458991ab409aa2a339ac9e0d60d6"
+        :revision => "e19ae1496984b1c655b8044a65c0300a3c878dd3"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
     url "https://gopkg.in/alecthomas/kingpin.v2.git",
-        :revision => "1087e65c9441605df944fb12c33f0fe7072d18ca"
+        :revision => "947dcec5ba9c011838740e680966fd7087a71d0d"
   end
 
   go_resource "gopkg.in/cheggaaa/pb.v1" do
     url "https://gopkg.in/cheggaaa/pb.v1.git",
-        :revision => "657164d0228d6bebe316fdf725c69f131a50fb10"
+        :revision => "43d64de27312b32812ca7e994fa0bb03ccf08fdf"
   end
 
   go_resource "gopkg.in/hlandau/configurable.v1" do
@@ -147,7 +152,7 @@ class Acmetool < Formula
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://gopkg.in/yaml.v2.git",
-        :revision => "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
+        :revision => "d670f9405373e636a5a2765eea47fac0c9bc91a4"
   end
 
   def install
