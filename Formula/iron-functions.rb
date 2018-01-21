@@ -1,8 +1,8 @@
 class IronFunctions < Formula
   desc "Go version of the IronFunctions command-line tools"
   homepage "https://github.com/iron-io/functions"
-  url "https://github.com/iron-io/functions/archive/0.2.70.tar.gz"
-  sha256 "0e466bf05147f9e6b760a9c96d03539cf05d9f4bdeef79460d32459386488d45"
+  url "https://github.com/iron-io/functions/archive/0.2.71.tar.gz"
+  sha256 "225a3c3d5c3aadb1926383b1aca710e14b8509e0e17cafd7e076ca7390ed0317"
 
   bottle do
     cellar :any_skip_relocation
