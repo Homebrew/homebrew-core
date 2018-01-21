@@ -8,9 +8,9 @@ class Whois < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7221bc7fd0b2f5495615a04d2d38b36112566714ef20cafbc905b49e16b87f27" => :high_sierra
-    sha256 "1f6b8364f329fbf0e0f8e1daded966acffc6f1af5ef4cc84d7ae1cbc30bc1f87" => :sierra
-    sha256 "1b5dc7709ad03019a3299194eb47a07cddbcf17c2f96707d8c956341045d5463" => :el_capitan
+    sha256 "f3441458153a0a80f3eac4bbd16c1930ca537026f57cec93bf862633592cef6c" => :high_sierra
+    sha256 "80b5709d8e5d8adb705973a0f2cd9004f0c2387b6222a3f00190afaecd682944" => :sierra
+    sha256 "e61d6ce7a5b53c095fb256a520e279be83035e50cfe72a4751d5c3b2463e3f19" => :el_capitan
   end
 
   option "with-libidn2", "Compile with IDN support"
