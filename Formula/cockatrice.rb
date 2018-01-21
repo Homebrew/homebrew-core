@@ -1,5 +1,5 @@
 class Cockatrice < Formula
-  desc "A cross-platform virtual tabletop for multiplayer card games"
+  desc "Cross-platform virtual tabletop for multiplayer card games"
   homepage "https://cockatrice.github.io/"
   url "https://github.com/Cockatrice/Cockatrice.git",
       :tag => "2017-11-19-Release-2.4.0",
