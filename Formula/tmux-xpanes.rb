@@ -4,6 +4,8 @@ class TmuxXpanes < Formula
   url "https://github.com/greymd/tmux-xpanes/archive/v2.2.3.tar.gz"
   sha256 "4357b8ac76f3d0b93dbb1626e0881f03143910f428a78db3d8437950bbd15fef"
 
+  bottle :unneeded
+
   depends_on "tmux" => :recommended
 
   def install
