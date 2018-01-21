@@ -1,8 +1,8 @@
 class SpeechTools < Formula
   desc "C++ speech software library from the University of Edinburgh"
   homepage "http://festvox.org/docs/speech_tools-2.4.0/"
-  url "http://festvox.org/packed/festival/2.4/speech_tools-2.4-release.tar.gz"
-  sha256 "fbc2482c443919aa79d2e599d6a5faee4e793df55a79ef377f1dc7e8ba237010"
+  url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
+  sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
 
   bottle do
     cellar :any_skip_relocation
@@ -39,7 +39,7 @@ class SpeechTools < Formula
     end
 
     # convert to wav format using ch_wave
-    system "ch_wave", txtfile,
+    system bin/"ch_wave", txtfile,
       "-itype", "raw",
       "-istype", "ascii",
       "-f", rate_hz.to_s,
@@ -47,13 +47,13 @@ class SpeechTools < Formula
       "-otype", "riff"
 
     # pitch tracking to est format using pda
-    system "pda", wavfile,
+    system bin/"pda", wavfile,
       "-shift", (1 / frequency_hz.to_f).to_s,
       "-o", ptcfile,
       "-otype", "est"
 
     # extract one frame from the middle using ch_track, capturing stdout
-    pitch = `ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} -to #{frequency_hz * duration_secs / 2}`.strip
+    pitch = shell_output("#{bin}/ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} -to #{frequency_hz * duration_secs / 2}")
 
     # should be 100 (Hz)
     assert_equal frequency_hz, pitch.to_i
