@@ -85,7 +85,7 @@ class GdkPixbuf < Formula
   def post_install
     ENV["GDK_PIXBUF_MODULEDIR"] = "#{module_dir}/loaders"
 
-    File.open "#{module_dir}/loaders.cache", "w" do |loader_cache|
+    File.open File.new("#{module_dir}/loaders.cache", "w+").path, "w" do |loader_cache|
       Utils.popen_read "#{bin}/gdk-pixbuf-query-loaders", "--update-cache" do |pipe|
         loader_cache.puts pipe
       end
