@@ -87,7 +87,7 @@ class GdkPixbuf < Formula
 
     File.open File.new("#{module_dir}/loaders.cache", "w+").path, "w" do |loader_cache|
       Utils.popen_read "#{bin}/gdk-pixbuf-query-loaders", "--update-cache" do |pipe|
-        loader_cache.puts pipe.read
+        loader_cache.write pipe.read
       end
     end
   end
