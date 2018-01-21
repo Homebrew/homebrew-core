@@ -7,9 +7,9 @@ class Sslh < Formula
 
   bottle do
     cellar :any
-    sha256 "fe98f0cd7455170be02b755a9501ac54e8e95716344f7b01052dd8651e24bb2f" => :high_sierra
-    sha256 "db949cf82e5db94862e6ac64f952a4face1bdf04e5aa5058f858deba64e5c826" => :sierra
-    sha256 "5803ea7f103f4f36c00842a2f7aee0e02bd87a077e713040113ffa5fa2f94fdc" => :el_capitan
+    sha256 "eae60774c512bafa86dd54cd94e36db5dc4142076bf18c3b7fa5a8a7524951e5" => :high_sierra
+    sha256 "d4b465ae8828aefdedd85dd963e09d0d08cb7bc80bd8f7fd839a4739209f5176" => :sierra
+    sha256 "66d97d677f47c957c7139af895f10ae013d10bcf7a28eae998906bbc75e0c234" => :el_capitan
   end
 
   depends_on "libconfig"
