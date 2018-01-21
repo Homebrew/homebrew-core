@@ -3,6 +3,7 @@ class Tig < Formula
   homepage "https://jonas.github.io/tig/"
   url "https://github.com/jonas/tig/releases/download/tig-2.3.2/tig-2.3.2.tar.gz"
   sha256 "6410e51c6149d76eac3510d04f9a736139f85e7c881646937d009caacf98cff1"
+  revision 1
 
   bottle do
     sha256 "25dbafb1b42cdcec87fb4ab3d0d65cb1eb4a34d524cf382adc4b52808a537440" => :high_sierra
@@ -16,13 +17,6 @@ class Tig < Formula
     depends_on "automake" => :build
   end
 
-  option "with-docs", "Build man pages using asciidoc and xmlto"
-
-  if build.with? "docs"
-    depends_on "asciidoc"
-    depends_on "xmlto"
-  end
-
   depends_on "readline" => :recommended
 
   def install
@@ -32,7 +26,7 @@ class Tig < Formula
     # Ensure the configured `sysconfdir` is used during runtime by
     # installing in a separate step.
     system "make", "install", "sysconfdir=#{pkgshare}/examples"
-    system "make", "install-doc-man" if build.with? "docs"
+    system "make", "install-doc-man"
     bash_completion.install "contrib/tig-completion.bash"
     zsh_completion.install "contrib/tig-completion.zsh" => "_tig"
     cp "#{bash_completion}/tig-completion.bash", zsh_completion
