@@ -7,10 +7,9 @@ class Owfs < Formula
 
   bottle do
     cellar :any
-    sha256 "2f872a0f0a40292f084428d6dd6f94a422459f6ea23b03c7f67dcdc8d99c45c7" => :high_sierra
-    sha256 "fdf50be604059bacaff7c94ea0587955ba76f8c1e3305241fa1f8d66ae7086ba" => :sierra
-    sha256 "8681c47d096361bba2ffd375b60b303b91a843f61eacd16584ffe75d1710bf39" => :el_capitan
-    sha256 "297c63f6ab46b17599d77e05b70c383732a7b2cbe70ce3f78c5cc802ee635f43" => :yosemite
+    sha256 "51bd18872d4b55af34626459c3f6e039139647124abff190b280e4ddf2c4012f" => :high_sierra
+    sha256 "5dd1116b1058b7eb849905b6af987e7ea71fd3486ccc8f1670cf841b6583802f" => :sierra
+    sha256 "06a2b3710c371730028a58bab488064f967ef6e820f0877e723f38a4e5eaf5e7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
