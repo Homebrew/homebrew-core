@@ -1,9 +1,8 @@
 class Sslh < Formula
   desc "Forward connections based on first data packet sent by client"
   homepage "https://www.rutschle.net/tech/sslh.shtml"
-  url "https://www.rutschle.net/tech/sslh/sslh-v1.18.tar.gz"
-  sha256 "1601a5b377dcafc6b47d2fbb8d4d25cceb83053a4adcc5874d501a2d5a7745ad"
-  revision 1
+  url "https://www.rutschle.net/tech/sslh/sslh-v1.19.tar.gz"
+  sha256 "ef9cb18396da404bb705b2c4cd4562aa5feb554de6f9bd074b24e7ac4713669c"
   head "https://github.com/yrutschle/sslh.git"
 
   bottle do
@@ -14,6 +13,7 @@ class Sslh < Formula
   end
 
   depends_on "libconfig"
+  depends_on "pcre"
 
   def install
     ENV.deparallelize
