@@ -15,6 +15,8 @@ class Tig < Formula
     url "https://github.com/jonas/tig.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "asciidoc" => :build
+    depends_on "xmlto" => :build
   end
 
   depends_on "readline" => :recommended
