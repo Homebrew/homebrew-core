@@ -3,6 +3,7 @@ class Pdal < Formula
   homepage "https://www.pdal.io/"
   url "https://github.com/PDAL/PDAL/archive/1.6.tar.gz"
   head "https://github.com/PDAL/PDAL.git"
+  sha256 "66baf8510225b34ee24021731758251cd70657dd578c210ae86c78d158f283eb"
 
   bottle do
     sha256 "86de5e976cacc9ab92e05c63a769121daa18e09fe04d983eaee035ba1fac2c56" => :high_sierra
@@ -12,13 +13,10 @@ class Pdal < Formula
 
   depends_on "cmake" => :build
   depends_on "gdal"
-  depends_on "laszip" => :optional
-  depends_on "postgresql" => :optional
-  depends_on "curl" => :optional
-  depends_on "python" => :optional
-  depends_on "pcl" => :optional
-  depends_on "hdf5" => :optional
-  depends_on "sqlite" => :optional
+  depends_on "laszip"
+  depends_on "postgresql"
+  depends_on "pcl"
+  depends_on "hdf5"
 
   def install
     args = std_cmake_args
@@ -32,29 +30,12 @@ class Pdal < Formula
       args << "-DWITH_LASZIP=FALSE"
     end
 
-    if build.with? "postgresql"
-      args << "-DBUILD_PLUGIN_PGPOINTCLOUD=ON"
-    end
-
-    if build.with? "curl"
-      args << "-DBUILD_PLUGIN_GREYHOUND=ON"
-    end
-
-    if build.with? "python"
-      args << "-DBUILD_PLUGIN_PYTHON=ON"
-    end
-
-    if build.with? "pcl"
-      args << "-DBUILD_PLUGIN_PCL=ON"
-    end
-
-    if build.with? "hdf5"
-      args << "-DBUILD_PLUGIN_ICEBRIDGE=ON"
-    end
-
-    if build.with? "sqlite"
-      args << "-DBUILD_PLUGIN_SQLITE=ON"
-    end
+    args << "-DBUILD_PLUGIN_PGPOINTCLOUD=ON"
+    args << "-DBUILD_PLUGIN_GREYHOUND=ON"
+    args << "-DBUILD_PLUGIN_PYTHON=ON"
+    args << "-DBUILD_PLUGIN_PCL=ON"
+    args << "-DBUILD_PLUGIN_ICEBRIDGE=ON"
+    args << "-DBUILD_PLUGIN_SQLITE=ON"
 
     system "cmake", ".", *args
     system "make", "install"
