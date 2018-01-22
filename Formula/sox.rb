@@ -35,7 +35,7 @@ class Sox < Formula
     input = testpath/"test.wav"
     output = testpath/"concatenated.wav"
     cp test_fixtures("test.wav"), input
-    system "#{bin}/sox #{input} #{input} #{output}"
+    system "#{bin}/sox", "#{input}.to_s", "#{input}.to_s", "#{output}.to_s"
     assert_predicate output, :exist?
   end
 end
