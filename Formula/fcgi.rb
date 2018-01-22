@@ -27,7 +27,7 @@ class Fcgi < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
- 
+
   test do
     (testpath/"testfile.c").write <<~EOS
       #include "fcgi_stdio.h"
