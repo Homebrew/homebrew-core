@@ -13,20 +13,19 @@ class Pdal < Formula
 
   depends_on "cmake" => :build
   depends_on "gdal"
+  depends_on "hdf5"
   depends_on "laszip"
   depends_on "postgresql"
   depends_on "pcl"
-  depends_on "hdf5"
 
   def install
-
     system "cmake", ".", *std_cmake_args,
-                         "-DWITH_LASZIP=TRUE"
-                         "-DBUILD_PLUGIN_PGPOINTCLOUD=ON"
-                         "-DBUILD_PLUGIN_GREYHOUND=ON"
-                         "-DBUILD_PLUGIN_PYTHON=ON"
-                         "-DBUILD_PLUGIN_PCL=ON"
-                         "-DBUILD_PLUGIN_ICEBRIDGE=ON"
+                         "-DWITH_LASZIP=TRUE",
+                         "-DBUILD_PLUGIN_GREYHOUND=ON",
+                         "-DBUILD_PLUGIN_ICEBRIDGE=ON",
+                         "-DBUILD_PLUGIN_PCL=ON",
+                         "-DBUILD_PLUGIN_PGPOINTCLOUD=ON",
+                         "-DBUILD_PLUGIN_PYTHON=ON",
                          "-DBUILD_PLUGIN_SQLITE=ON"
 
     system "make", "install"
