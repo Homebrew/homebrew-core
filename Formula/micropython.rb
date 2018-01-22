@@ -4,6 +4,7 @@ class Micropython < Formula
   url "https://github.com/micropython/micropython.git",
       :tag => "v1.9.3",
       :revision => "fe45d78b1edd6d2202c3544797885cb0b12d4f03"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,12 @@ class Micropython < Formula
   def install
     cd "ports/unix" do
       system "make", "axtls"
-      system "make", "install", "PREFIX=#{prefix}", "V=1"
+      system "make", "install", "PREFIX=#{prefix}"
+    end
+
+    cd "mpy-cross" do
+      system "make"
+      bin.install "mpy-cross"
     end
   end
 
@@ -32,6 +38,7 @@ class Micropython < Formula
       printf("Hello!\\n")
     EOS
 
+    system bin/"mpy-cross", "ffi-hello.py"
     system bin/"micropython", "ffi-hello.py"
   end
 end
