@@ -9,6 +9,13 @@ class Audacious < Formula
     resource "plugins" do
       url "http://distfiles.audacious-media-player.org/audacious-plugins-3.9.tar.bz2"
       sha256 "8bf7f21089cb3406968cc9c71307774aee7100ec4607f28f63cf5690d5c927b8"
+
+      # Fixes "info_bar.cc:258:21: error: no viable overloaded '='"
+      # Upstream PR from 11 Dec 2017 "qtui: fix build with Qt 5.10"
+      patch do
+        url "https://github.com/audacious-media-player/audacious-plugins/pull/62.patch?full_index=1"
+        sha256 "055e11096de7a8b695959b0d5f69a7f84630764f7abd7ec7b4dc3f14a719d9de"
+      end
     end
   end
 
@@ -57,13 +64,6 @@ class Audacious < Formula
   depends_on "libmms" => :optional
   depends_on "libmodplug" => :optional
 
-  # Fixes "info_bar.cc:258:21: error: no viable overloaded '='"
-  # Upstream PR from 11 Dec 2017 "qtui: fix build with Qt 5.10"
-  resource "qt510_patch" do
-    url "https://github.com/audacious-media-player/audacious-plugins/pull/62.patch?full_index=1"
-    sha256 "055e11096de7a8b695959b0d5f69a7f84630764f7abd7ec7b4dc3f14a719d9de"
-  end
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -81,8 +81,6 @@ class Audacious < Formula
     system "make", "install"
 
     resource("plugins").stage do
-      Pathname.pwd.install resource("qt510_patch")
-      system "patch", "-p1", "-i", "62.patch"
       ENV.prepend_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       system "./autogen.sh" if build.head?
