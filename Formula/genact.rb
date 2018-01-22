@@ -12,6 +12,6 @@ class Genact < Formula
     bin.install "genact"
   end
   test do
-    assert_match "genact #{version}", shell_output("#{bin}/genact -v")
+    assert_match "genact #{version}", shell_output("#{bin}/genact --version")
   end
 end
