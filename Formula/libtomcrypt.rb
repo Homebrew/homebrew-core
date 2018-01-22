@@ -1,8 +1,8 @@
 class Libtomcrypt < Formula
   desc "Comprehensive, modular and portable cryptographic toolkit"
   homepage "http://www.libtom.net"
-  url "https://github.com/libtom/libtomcrypt/archive/v1.18.0.tar.gz"
-  sha256 "bdba1499dab3bf3365fa75553f069eba7bea392e8f9e0381aa0e950a08bd85ba"
+  url "https://github.com/libtom/libtomcrypt/archive/v1.18.1.tar.gz"
+  sha256 "e1319d77bf8ac296b69cf68f66e4dadfb68a8519bd684cc83d29b8d6754d10ef"
 
   bottle do
     cellar :any_skip_relocation
