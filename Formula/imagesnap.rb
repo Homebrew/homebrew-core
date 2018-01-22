@@ -1,8 +1,8 @@
 class Imagesnap < Formula
   desc "Tool to capture still images from an iSight or other video source"
   homepage "https://iharder.sourceforge.io/current/macosx/imagesnap/"
-  url "https://downloads.sourceforge.net/project/iharder/imagesnap/ImageSnap-v0.2.5.tgz"
-  sha256 "2516edd6e8fe35c075f0a6517b9fb8ba9af296f8f29b9e349566b9ba6f729615"
+  url "https://github.com/rharder/imagesnap/archive/0.2.6.tar.gz"
+  sha256 "e55c9f8c840c407b7441c16279c39e004f6225b96bb64ff0c2734da18a759033"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,14 +16,6 @@ class Imagesnap < Formula
   end
 
   depends_on :xcode => :build
-
-  # Upstream PR from 19 Dec 2015 "Replace QTKit"
-  if MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-    patch do
-      url "https://github.com/rharder/imagesnap/pull/13.patch?full_index=1"
-      sha256 "3bef0164843bc229cacdfe04e819515d30b78ee402d76fd2197a8b5d9e5159e9"
-    end
-  end
 
   def install
     xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", MacOS.sdk_path
