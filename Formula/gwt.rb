@@ -1,8 +1,8 @@
 class Gwt < Formula
   desc "Google web toolkit"
   homepage "http://www.gwtproject.org/"
-  url "https://storage.googleapis.com/gwt-releases/gwt-2.8.1.zip"
-  sha256 "0b7af89fdadb4ec51cdb400ace94637d6fe9ffa401b168e2c3d372392a00a0a7"
+  url "https://storage.googleapis.com/gwt-releases/gwt-2.8.2.zip"
+  sha256 "970701dacc55170088f5eb327137cb4a7581ebb4734188dfcc2fad9941745d1b"
 
   bottle :unneeded
 

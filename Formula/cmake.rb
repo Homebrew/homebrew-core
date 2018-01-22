@@ -21,7 +21,11 @@ class Cmake < Formula
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
   # For the GUI application please instead use `brew cask install cmake`.
 
+  needs :cxx11
+
   def install
+    ENV.cxx11 if MacOS.version < :mavericks
+
     args = %W[
       --prefix=#{prefix}
       --no-system-libs

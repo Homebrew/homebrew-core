@@ -1,14 +1,14 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/archive/v1.8.0.tar.gz"
-  sha256 "e97c15c14dbd49d5ba435cb26e06e6cdd6e32cf9f0be6b6e9a2d2d330923ea17"
+  url "https://github.com/benmcollins/libjwt/archive/v1.9.0.tar.gz"
+  sha256 "cc694dfc3abe17d1f5cde4bf6714e39dc17f7cbad352a85ffb0fe6418c584076"
 
   bottle do
     cellar :any
-    sha256 "bda2b99bcf372026917957ee5d7724a13f2748504739d8a78e63efeb51a7b548" => :high_sierra
-    sha256 "223f3957505fb4c66e07ffa322d885ea78b38e26a8e0d62adfc9105216b9eb70" => :sierra
-    sha256 "ad5dbcc8369392c61e573e5e62b015dc67afdec61e311bf697a4b71c3d69fa51" => :el_capitan
+    sha256 "5d399fa64d2fc9efc33da09ed09bc085ea57202fb32e7240d838f6c826ea926d" => :high_sierra
+    sha256 "38121827b73b037ba806a02f36f8b55f62eee9f317e2a56132f88c685e4f49f1" => :sierra
+    sha256 "3402448d7ec4deb8471c5e5517ba306f766916497f6d1923d4d80030c88e45fd" => :el_capitan
   end
 
   depends_on "autoconf" => :build

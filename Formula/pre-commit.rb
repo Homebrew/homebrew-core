@@ -2,7 +2,7 @@ class PreCommit < Formula
   include Language::Python::Virtualenv
 
   desc "Framework for managing multi-language pre-commit hooks"
-  homepage "http://pre-commit.com/"
+  homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v1.5.0.tar.gz"
   sha256 "54f45aaa83ed8d4bcd754e3e4ea392269d4fbef69adc68a6839d03fc73fdd402"
 
