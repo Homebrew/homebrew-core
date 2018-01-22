@@ -8,9 +8,10 @@ class Genact < Formula
   bottle :unneeded
 
   def install
-    bin.install "genact-osx"
+    mv "genact-osx", "genact"
+    bin.install "genact"
   end
   test do
-    assert_match "genact #{version}", shell_output("#{bin}/ncdu -v")
+    assert_match "genact #{version}", shell_output("#{bin}/genact -v")
   end
 end
