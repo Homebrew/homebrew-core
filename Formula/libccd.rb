@@ -1,11 +1,10 @@
 class Libccd < Formula
-  desc "Library for collision detection between two convex shapes"
-  homepage "http://libccd.danfis.cz"
+  desc "Collision detection between two convex shapes"
+  homepage "http://libccd.danfis.cz/"
   url "https://github.com/danfis/libccd/archive/v2.0.tar.gz"
   sha256 "1b4997e361c79262cf1fe5e1a3bf0789c9447d60b8ae2c1f945693ad574f9471"
   revision 2
-  head "https://github.com/danfis/libccd.git"
-
+  
   bottle do
     cellar :any
     sha256 "042f76f2faba70f4afd7772865014acf1e18b4596e55cbca4be4414bfdd7d7c5" => :sierra
@@ -17,7 +16,7 @@ class Libccd < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DENABLE_DOUBLE_PRECISION=ON"
+    system "cmake", ".", "-DENABLE_DOUBLE_PRECISION=ON", *std_cmake_args
     system "make", "install"
   end
 
