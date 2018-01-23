@@ -3,6 +3,7 @@ class Pdal < Formula
   homepage "https://www.pdal.io/"
   url "https://github.com/PDAL/PDAL/archive/1.6.tar.gz"
   sha256 "66baf8510225b34ee24021731758251cd70657dd578c210ae86c78d158f283eb"
+  revision 1
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
@@ -12,23 +13,22 @@ class Pdal < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
   depends_on "gdal"
-  depends_on "laszip" => :optional
+  depends_on "hdf5"
+  depends_on "laszip"
+  depends_on "pcl"
+  depends_on "postgresql"
 
   def install
-    args = std_cmake_args
-    if build.with? "laszip"
-      args << "-DWITH_LASZIP=TRUE"
-    else
-      # CMake error "Target 'pdalcpp' INTERFACE_INCLUDE_DIRECTORIES property
-      # contains path: ... LASZIP_INCLUDE_DIR-NOTFOUND"
-      # Reported 7 Apr 2017 https://github.com/PDAL/PDAL/issues/1558
-      inreplace "CMakeLists.txt", /^        \${LASZIP_INCLUDE_DIR}\n/, ""
-      args << "-DWITH_LASZIP=FALSE"
-    end
+    system "cmake", ".", *std_cmake_args,
+                         "-DWITH_LASZIP=TRUE",
+                         "-DBUILD_PLUGIN_GREYHOUND=ON",
+                         "-DBUILD_PLUGIN_ICEBRIDGE=ON",
+                         "-DBUILD_PLUGIN_PCL=ON",
+                         "-DBUILD_PLUGIN_PGPOINTCLOUD=ON",
+                         "-DBUILD_PLUGIN_PYTHON=ON",
+                         "-DBUILD_PLUGIN_SQLITE=ON"
 
-    system "cmake", ".", *args
     system "make", "install"
     doc.install "examples", "test"
   end
