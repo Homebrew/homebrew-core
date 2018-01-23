@@ -4,6 +4,13 @@ class Nyx < Formula
   url "https://files.pythonhosted.org/packages/42/37/85890dae5680f36f5b1c964ad41674ebb8d1186383fbca58f82e76de734c/nyx-2.0.4.tar.gz"
   sha256 "38db634789c2d72e485522a490397eb5f77c0bd7c689453efe57808c99dba75e"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "144068c5ee35f582d8457cb5c57778447bda93cd73900eab42f061598391eaf1" => :high_sierra
+    sha256 "144068c5ee35f582d8457cb5c57778447bda93cd73900eab42f061598391eaf1" => :sierra
+    sha256 "8bea1e0d0e413854646f08dbd72ae94c147ede81157f4dca4e6118bbe14a9193" => :el_capitan
+  end
+
   depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "stem" do
