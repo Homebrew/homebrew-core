@@ -17,10 +17,7 @@ class Libccd < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DENABLE_DOUBLE_PRECISION=ON"
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DENABLE_DOUBLE_PRECISION=ON"
     system "make", "install"
   end
 
