@@ -17,6 +17,9 @@ class Gphoto2 < Formula
   depends_on "popt"
   depends_on "readline"
 
+  depends_on "libexif" => :optional
+  depends_on "aalib" => :optional
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
