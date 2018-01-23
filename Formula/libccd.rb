@@ -22,7 +22,7 @@ class Libccd < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <ccd/vec3.h>
       int main() {
         ccdVec3PointSegmentDist2(
