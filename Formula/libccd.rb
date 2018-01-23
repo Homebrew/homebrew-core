@@ -7,10 +7,9 @@ class Libccd < Formula
 
   bottle do
     cellar :any
-    sha256 "042f76f2faba70f4afd7772865014acf1e18b4596e55cbca4be4414bfdd7d7c5" => :sierra
-    sha256 "73dc3083059a205688fc3edf3c49a5277fdb3566b0d0a2e3217d43b79b14093c" => :el_capitan
-    sha256 "52cc90f9245c514ab30cf1b5d5af292dfd014c804556b0fd0f07afe431c7bf87" => :yosemite
-    sha256 "fae18bcb83cdca783aecb9084fea2803cf60a79a8c46a409c2ee6b94505dfee4" => :x86_64_linux
+    sha256 "19f4a01a759eccc1f70a5d997ac19c9cfbd7c981d02191a1c20ec196de650cb6" => :high_sierra
+    sha256 "c1caf2e2d4040fcf1ae219e41040bad0f4f2d2ca6969419f01da8969ce93afc8" => :sierra
+    sha256 "39911fefe6532ef6d390837a087cf46bd16af36b849f737c3a2e689a3908334a" => :el_capitan
   end
 
   depends_on "cmake" => :build
