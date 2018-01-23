@@ -24,7 +24,7 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "fd4886494f87c332617c5f5408ee2d93501986eb4dea036c0e1a36632f9b1c78" => :high_sierra
@@ -44,8 +44,13 @@ class GccAT5 < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "isl@0.14"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
+
+  resource "isl" do
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
+    mirror "http://isl.gforge.inria.fr/isl-0.14.tar.bz2"
+    sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
+  end
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
@@ -86,6 +91,9 @@ class GccAT5 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
+    # Build ISL 0.14 from source during bootstrap
+    resource("isl").stage buildpath/"isl"
+
     if build.with? "all-languages"
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
       # (gnat) to bootstrap. GCC 4.6.0 add go as a language option, but it is
@@ -117,7 +125,6 @@ class GccAT5 < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.14"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
