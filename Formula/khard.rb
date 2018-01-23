@@ -3,8 +3,8 @@ class Khard < Formula
 
   desc "Console carddav client"
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/f5/0a/2ac16043a7a970f33306a4501948bb7dc02263d82d12e67e7578cb938bdf/khard-0.12.1.tar.gz"
-  sha256 "230cff736a6ec2bbe9f4456fad69e586fc88e64f1bc7245b753e68976829fff6"
+  url "https://files.pythonhosted.org/packages/19/91/6309d5b0477582b9b663cd65f1346cec6ed5f44e734bac722e1ca2ddc1e3/khard-0.12.2.tar.gz"
+  sha256 "9193d2d07cdb69cc6e35a0732111efb92bbfba854a1dd42b4f9c91a52a16c507"
 
   bottle do
     cellar :any_skip_relocation
