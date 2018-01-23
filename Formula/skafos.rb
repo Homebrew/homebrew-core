@@ -1,5 +1,5 @@
 class Skafos < Formula
-  desc "Command-line tool for working with the Metis Machine platform"
+  desc "CLI for the Metis Machine A.I. and machine learning deployment platform"
   homepage "https://metismachine.com/"
   url "https://github.com/MetisMachine/skafos/archive/1.0.tar.gz"
   sha256 "56e27154e033fab69ad13cedc905e2a7bf1457a79042a848fbd8370177cc9689"
