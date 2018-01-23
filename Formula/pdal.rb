@@ -3,6 +3,7 @@ class Pdal < Formula
   homepage "https://www.pdal.io/"
   url "https://github.com/PDAL/PDAL/archive/1.6.tar.gz"
   sha256 "66baf8510225b34ee24021731758251cd70657dd578c210ae86c78d158f283eb"
+  revision 1
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
@@ -15,8 +16,8 @@ class Pdal < Formula
   depends_on "gdal"
   depends_on "hdf5"
   depends_on "laszip"
-  depends_on "postgresql"
   depends_on "pcl"
+  depends_on "postgresql"
 
   def install
     system "cmake", ".", *std_cmake_args,
