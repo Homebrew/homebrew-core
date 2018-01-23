@@ -1,6 +1,8 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
+  revision 1
+
   head "https://github.com/martanne/vis.git"
 
   stable do
@@ -40,6 +42,8 @@ class Vis < Formula
     system "make", "install"
     (bin/"vise").write <<~EOS
       #!/bin/sh
+      LUA_PATH="#{ENV["LUA_PATH"]}"
+      LUA_CPATH="#{ENV["LUA_CPATH"]}"
       VIS_BASE=#{libexec}
       VIS_PATH=$VIS_BASE/share/vis $VIS_BASE/bin/vis $@
     EOS
