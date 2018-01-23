@@ -3,6 +3,7 @@ class Cryfs < Formula
   homepage "https://www.cryfs.org"
   url "https://github.com/cryfs/cryfs/releases/download/0.9.8/cryfs-0.9.8.tar.xz"
   sha256 "e4669aa79f8d419bb2580121a118b8993ee3493a08c5b1e0b80b8a8a4b54da65"
+  revision 1
   head "https://github.com/cryfs/cryfs.git", :branch => "develop"
 
   bottle do
