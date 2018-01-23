@@ -18,7 +18,8 @@ class Dep < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
-      system "go", "build", "-o", bin/"dep", ".../cmd/dep"
+      system "go", "build", "-o", bin/"dep", "-ldflags",
+             "-X main.version=#{version}", ".../cmd/dep"
       prefix.install_metafiles
     end
   end
