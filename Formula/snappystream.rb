@@ -1,9 +1,8 @@
 class Snappystream < Formula
   desc "C++ snappy stream realization (compatible with snappy)"
   homepage "https://github.com/hoxnox/snappystream"
-  url "https://github.com/hoxnox/snappystream/archive/0.2.7.tar.gz"
-  sha256 "be91c6bf304732b2d2d65c7ec57b8bf3daf1748c2ee932b852fd830db328ecc7"
-  revision 1
+  url "https://github.com/hoxnox/snappystream/archive/0.2.8.tar.gz"
+  sha256 "53f15760eda2d19138a2e115850377ff4520e7009ff5501e2f175be45eb63614"
   head "https://github.com/hoxnox/snappystream.git"
 
   bottle do
