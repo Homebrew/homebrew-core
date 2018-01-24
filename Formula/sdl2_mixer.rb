@@ -45,4 +45,19 @@ class Sdl2Mixer < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL_mixer.h>
+
+      int main()
+      {
+          int success = Mix_Init(0);
+          Mix_Quit();
+          return success;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsdl2_mixer", "test.c", "-o", "test"
+    system "./test"
+  end
 end
