@@ -1,5 +1,3 @@
-require "language/go"
-
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
@@ -25,13 +23,6 @@ class PerconaServerMongodb < Formula
   conflicts_with "mongodb",
     :because => "percona-server-mongodb and mongodb install the same binaries."
 
-  go_resource "github.com/mongodb/mongo-tools" do
-    url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.4.9",
-        :revision => "4f093ae71cdb4c6a6e9de7cd1dc67ea4405f0013",
-        :shallow => false
-  end
-
   needs :cxx11
 
   def install
@@ -40,9 +31,13 @@ class PerconaServerMongodb < Formula
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/mongodb/mongo-tools" do
+    cd "src/mongo/gotools" do
+      inreplace "build.sh" do |s|
+        s.gsub! "$(git describe)", version.to_s.split("-")[0]
+        s.gsub! "$(git rev-parse HEAD)", "homebrew"
+      end
+
       args = %w[]
 
       if build.with? "openssl"
@@ -56,7 +51,7 @@ class PerconaServerMongodb < Formula
       system "./build.sh", *args
     end
 
-    (buildpath/"src/mongo-tools").install Dir["src/github.com/mongodb/mongo-tools/bin/*"]
+    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}
