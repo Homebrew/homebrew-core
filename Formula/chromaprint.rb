@@ -6,10 +6,9 @@ class Chromaprint < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d4c053d1d43c82acf084d864745a6564687b246623b2d5c421822f1941691280" => :high_sierra
-    sha256 "76cd7d5f0b2b43bb17f81666329521db69f58724022a3dc5e3e141fe0395a196" => :sierra
-    sha256 "ff534ae7e7c8a86bee2d107f0393f7db5e6f4a1504274e03c1ec346b446bfd28" => :el_capitan
+    sha256 "3d0ae4279d4d3fa0fad24c434e82032384256ed1613e89e7b601e1f02ceaa596" => :high_sierra
+    sha256 "fc91e7116562484496de75f3e3e0a7a61771b9826b6f3a4497af411df2683290" => :sierra
+    sha256 "799c9c907b020aed48763162b996a672d42b3b8dde5a53381e28818ccd0981dc" => :el_capitan
   end
 
   depends_on "cmake" => :build
