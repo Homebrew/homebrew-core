@@ -1,8 +1,8 @@
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
   homepage "https://github.com/Aaronepower/tokei"
-  url "https://github.com/Aaronepower/tokei/archive/v7.0.0.tar.gz"
-  sha256 "e814f5d6efa0a887e4a1cdd514902518af35a750fea337eacfe096e00009e17a"
+  url "https://github.com/Aaronepower/tokei/archive/v7.0.1.tar.gz"
+  sha256 "71c9be9ad04bc66501f5f54e74b5cf5e56fc1392ceead5525b743006145ac3a9"
 
   bottle do
     sha256 "85543eb65dc14c1218c8eb2e7013b7991b4082f560b5f6ad08324d1bb0823413" => :high_sierra
