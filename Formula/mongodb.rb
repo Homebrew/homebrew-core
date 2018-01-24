@@ -6,8 +6,9 @@ class Mongodb < Formula
   sha256 "018788bd31d6953e55cda0ad0771d23e6b78e024a8a6404a80a900c67215b0a7"
 
   bottle do
-    sha256 "7722b1ffcff5c0739ee137f78099f7a7f08f5f4bab58900ffbbb3c3f175b6076" => :high_sierra
-    sha256 "dd170fed7b3029e66528b26c11e826c758893a16e2c1f3d4eb20e2b18f01baca" => :sierra
+    rebuild 1
+    sha256 "054a441ee469d2c519daf9715a61727371d7351cef57874b044f492749529139" => :high_sierra
+    sha256 "3ab351ac272899dce816531d6fc07b27c0a9c68a7170c23cf8662db7033a7d41" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
