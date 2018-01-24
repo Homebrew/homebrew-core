@@ -1,8 +1,8 @@
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
   homepage "https://github.com/jessfraz/weather"
-  url "https://github.com/jessfraz/weather/archive/v0.12.0.tar.gz"
-  sha256 "f98ad64a23a40e9e6305a93ea8824b99e0dd2d85effb91e102e9b26285adfa9e"
+  url "https://github.com/jessfraz/weather/archive/v0.13.0.tar.gz"
+  sha256 "ec4fbb17f4a1eed0e7254190018ce5226db1250e2a31350ce19fc7fe11451412"
 
   bottle do
     cellar :any_skip_relocation
