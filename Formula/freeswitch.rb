@@ -4,7 +4,7 @@ class Freeswitch < Formula
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
       :tag => "v1.6.19",
       :revision => "7a77e0bb2ca875cb977b1e698a1783e575d96563"
-  revision 1
+  revision 2
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
@@ -24,8 +24,6 @@ class Freeswitch < Formula
   depends_on "pkg-config" => :build
   depends_on "apr-util" => :build
   depends_on "yasm" => :build
-
-  depends_on "curl"
   depends_on "jpeg"
   depends_on "openssl"
   depends_on "pcre"
@@ -145,6 +143,8 @@ class Freeswitch < Formula
   #------------------------ End sound file resources --------------------------
 
   def install
+    ENV["ac_cv_lib_lzma_lzma_code"] = "no" # prevent opportunistic linkage to xz
+
     # avoid a dependency on ldns to prevent OpenSSL version conflicts
     inreplace "build/modules.conf.in", "applications/mod_enum",
                                        "#applications/mod_enum"
