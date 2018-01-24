@@ -3,7 +3,7 @@ class Cloog < Formula
   homepage "https://www.bastoul.net/cloog/"
   url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
   sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -21,8 +21,8 @@ class Cloog < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gmp@4"
-  depends_on "isl@0.12"
+  depends_on "gmp"
+  depends_on "isl"
 
   def install
     system "./autogen.sh" if build.head?
@@ -32,9 +32,9 @@ class Cloog < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}",
       "--with-gmp=system",
-      "--with-gmp-prefix=#{Formula["gmp@4"].opt_prefix}",
+      "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
       "--with-isl=system",
-      "--with-isl-prefix=#{Formula["isl@0.12"].opt_prefix}",
+      "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
     ]
 
     args << "--with-osl=bundled" if build.head?
