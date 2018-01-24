@@ -28,6 +28,7 @@ class Curl < Formula
   option "with-gssapi", "Build with GSSAPI/Kerberos authentication support."
   option "with-libmetalink", "Build with libmetalink support."
   option "with-nghttp2", "Build with HTTP/2 support (requires OpenSSL)"
+  option "with-brotli", "Build with Brotli compression support"
 
   deprecated_option "with-rtmp" => "with-rtmpdump"
   deprecated_option "with-ssh" => "with-libssh2"
@@ -48,6 +49,7 @@ class Curl < Formula
   depends_on "c-ares" => :optional
   depends_on "libmetalink" => :optional
   depends_on "nghttp2" => :optional
+  depends_on "brotli" => :optional
 
   def install
     system "./buildconf" if build.head?
@@ -77,6 +79,7 @@ class Curl < Formula
     args << (build.with?("libmetalink") ? "--with-libmetalink" : "--without-libmetalink")
     args << (build.with?("gssapi") ? "--with-gssapi" : "--without-gssapi")
     args << (build.with?("rtmpdump") ? "--with-librtmp" : "--without-librtmp")
+    args << (build.with?("brotli") ? "--with-brotli" : "--without-brotli")
 
     if build.with? "c-ares"
       args << "--enable-ares=#{Formula["c-ares"].opt_prefix}"
