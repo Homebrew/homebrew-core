@@ -7,10 +7,9 @@ class Snappystream < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0725f8e1b66534a5431abd46a999954a8ee51c4299096c5ec578d0d0a42a65c" => :high_sierra
-    sha256 "2ddc050a7e877cf161303f8ced149e1f2cf12e927b67b7b60d58414afd26ff83" => :sierra
-    sha256 "bfbec68310bb666e3601bb799a4bb2171eebc7da1441fbbeb419436dfb635fe0" => :el_capitan
-    sha256 "dcfb20c5f44c386648367e7f376afa25511f352395371f5f7506bd65e6f382df" => :yosemite
+    sha256 "93bfef130708be8e52485c4beea0524bbc89cbc2a076d2d456b10dd3d401136f" => :high_sierra
+    sha256 "43253ef9ad617662532e7da29acf8721552a69733367043fa79c534db3ec5417" => :sierra
+    sha256 "a43cdc3438c25363ee6d98c85bce3a777c07860265a5a120789eff46da1c71ec" => :el_capitan
   end
 
   depends_on "cmake" => :build
