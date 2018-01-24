@@ -24,6 +24,7 @@ class GccAT49 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2"
   sha256 "6c11d292cd01b294f9f84c9a59c230d80e9e4a47e5c6355f046bb36d4f358092"
+  revision 1
 
   bottle do
     rebuild 1
@@ -43,12 +44,44 @@ class GccAT49 < Formula
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
 
-  depends_on "gmp@4"
-  depends_on "libmpc@0.8"
-  depends_on "mpfr@2"
-  depends_on "cloog"
-  depends_on "isl@0.12"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
+
+  resource "gmp" do
+    url "https://ftp.gnu.org/gnu/gmp/gmp-4.3.2.tar.bz2"
+    mirror "https://ftpmirror.gnu.org/gmp/gmp-4.3.2.tar.bz2"
+    sha256 "936162c0312886c21581002b79932829aa048cfaf9937c6265aeaa14f1cd1775"
+
+    # Upstream patch to fix gmp.h header use in C++ compilation with libc++
+    # https://gmplib.org/repo/gmp/rev/6cd3658f5621
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/010a4dc3/gmp%404/4.3.2.patch"
+      sha256 "7865e09e154d4696e850779403e6c75be323f069356dedb7751cf1575db3a148"
+    end
+  end
+
+  resource "mpfr" do
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2"
+    mirror "http://www.mpfr.org/mpfr-2.4.2/mpfr-2.4.2.tar.bz2"
+    sha256 "c7e75a08a8d49d2082e4caee1591a05d11b9d5627514e678f02d66a124bcf2ba"
+  end
+
+  resource "mpc" do
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/mpc-0.8.1.tar.gz"
+    mirror "http://multiprecision.org/mpc/download/mpc-0.8.1.tar.gz"
+    sha256 "e664603757251fd8a352848276497a4c79b7f8b21fd8aedd5cc0598a38fee3e4"
+  end
+
+  resource "isl" do
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
+    mirror "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
+    sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
+  end
+
+  resource "cloog" do
+    url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
+    mirror "http://archive.ubuntu.com/ubuntu/pool/universe/c/cloog/cloog_0.18.4.orig.tar.gz"
+    sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
+  end
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
@@ -80,6 +113,9 @@ class GccAT49 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
+    # Build dependencies in-tree, to avoid having versioned formulas
+    resources.each { |r| r.stage(buildpath/r.name) }
+
     if build.with? "all-languages"
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
       # (gnat) to bootstrap. GCC 4.6.0 add go as a language option, but it is
@@ -102,11 +138,6 @@ class GccAT49 < Formula
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
-      "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
