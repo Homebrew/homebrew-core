@@ -1,7 +1,7 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
-  revision 1
+  revision 2
 
   head "https://github.com/martanne/vis.git"
 
@@ -38,15 +38,14 @@ class Vis < Formula
       system "luarocks", "build", "lpeg", "--tree=#{luapath}"
     end
 
-    system "./configure", "--prefix=#{libexec}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-    (bin/"vise").write <<~EOS
-      #!/bin/sh
-      LUA_PATH="#{ENV["LUA_PATH"]}"
-      LUA_CPATH="#{ENV["LUA_CPATH"]}"
-      VIS_BASE=#{libexec}
-      VIS_PATH=$VIS_BASE/share/vis $VIS_BASE/bin/vis $@
-    EOS
+
+    env = { :LUA_PATH => ENV["LUA_PATH"], :LUA_CPATH => ENV["LUA_CPATH"] }
+    bin.env_script_all_files(libexec/"bin", env)
+    # Rename vis & the matching manpage to avoid clashing with the system.
+    mv bin/"vis", bin/"vise"
+    mv man1/"vis.1", man1/"vise.1"
   end
 
   def caveats; <<~EOS
