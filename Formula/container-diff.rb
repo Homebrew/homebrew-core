@@ -4,6 +4,13 @@ class ContainerDiff < Formula
   url "https://github.com/GoogleCloudPlatform/container-diff/archive/v0.6.2.tar.gz"
   sha256 "a3c680799c230d2a2352eb1e5765bd6774182b213a73e5c0bf1e6254008cd434"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4f6ecce8e1f3a8bf5e4423cc633e9167f7a79faf987932d3804004161c6dada4" => :high_sierra
+    sha256 "12628b8737424bf66ed68b0e64d94487555a8470209222f3c04048ac8d762489" => :sierra
+    sha256 "12505d31fe47ad0ce191f6625b44601810af9ef09b799720d42be12fd4a766a9" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
