@@ -1,9 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz"
-  sha256 "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
-  revision 2
+  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.10/PyQt5_gpl-5.10.tar.gz"
+  sha256 "342fe6675df8ba9fabb3f3cc5d79ebc24714cd9bd1a3b5c8ab5dba7596f15f50"
 
   bottle do
     sha256 "2521608ef678d142aa5506bcd302b744c9e274ee659030c25e84f9de02be3c41" => :high_sierra
