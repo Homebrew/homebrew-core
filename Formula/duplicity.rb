@@ -5,6 +5,7 @@ class Duplicity < Formula
   homepage "http://www.nongnu.org/duplicity/"
   url "https://launchpad.net/duplicity/0.7-series/0.7.16/+download/duplicity-0.7.16.tar.gz"
   sha256 "a8f5e1e77dcc5e03a7d206086b8ef89fa574c59de582ed15db5987c40b842718"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Duplicity < Formula
 
   depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "librsync"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "par2" => :optional
   depends_on "gnupg"
 
