@@ -73,6 +73,13 @@ class DnscryptProxy < Formula
   end
 
   def post_install
+    chmod 0666, bin/"dnscrypt-update-resolvers"
+    inreplace bin/"dnscrypt-update-resolvers",
+              "https://download.dnscrypt.org/dnscrypt-proxy",
+              "https://raw.githubusercontent.com/dyne/dnscrypt-proxy/master",
+              false
+    chmod 0555, bin/"dnscrypt-update-resolvers"
+
     return if build.without? "minisign"
 
     ENV["PATH"] = PATH.new(ENV["PATH"]).prepend(Formula["minisign"].opt_bin)
