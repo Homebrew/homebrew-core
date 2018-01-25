@@ -7,10 +7,9 @@ class Superlu < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "da0a3f34d830f98c467c9ee7bea858a12dc4796114a6493117e40599a9259df9" => :high_sierra
-    sha256 "9505e09c35bcca4b225105c4246a6f468ae5e4e9c9221fbe1ce87d0a00313144" => :sierra
-    sha256 "06f41b65899b9a9a775aca3ce57de24d268f2522b4db5d1425b672f3a784ae82" => :el_capitan
+    sha256 "ea56d9279bc469e4883304e8a3c7a78500e7ad767c2e9e756043e8b382f2f6df" => :high_sierra
+    sha256 "bf92da15ea05a65a0079658c7e1ac337c2f53fd82351817bc44e159b08bf289d" => :sierra
+    sha256 "0e865bc43b87f76ea4ae55d7b55460e8ea46e3606c8840baba2b1e0e57d1e605" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
