@@ -6,9 +6,9 @@ class Gutenberg < Formula
   head "https://github.com/Keats/gutenberg.git"
 
   bottle do
-    sha256 "7f77f4e117416ed268649f1083a63bbff5c57d65e0e51f1f98941a00b0d0308d" => :high_sierra
-    sha256 "93748ce4280114f597c14161551057fa8b0d0893dcdf466d990dd5bd134d7af6" => :sierra
-    sha256 "32eccea3dbffec9e38a92d296d16f1dbfe6a3ccf545f23bac188c479b3c4892b" => :el_capitan
+    sha256 "256fc2268b85e9a4860fc3f2493d3b4bff7d56db953d0e87fc237e251aa35b69" => :high_sierra
+    sha256 "947e1c104d83033b06eac93ea11998b83e226cc5a77553221a486d8b26e0564a" => :sierra
+    sha256 "4b83050cf1cdadbbf55efd78b8a932b18f66a435cf9bcb79df2b71221cfc17a1" => :el_capitan
   end
 
   depends_on "cmake" => :build
