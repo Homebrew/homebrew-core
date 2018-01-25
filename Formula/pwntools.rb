@@ -5,6 +5,7 @@ class Pwntools < Formula
   homepage "https://pwntools.com/"
   url "https://github.com/Gallopsled/pwntools/archive/3.11.0.tar.gz"
   sha256 "b86f9bed835153d1ce1839d03836aa062802ac9f5495942027030407ef1b798a"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Pwntools < Formula
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "binutils" => :recommended
 
   conflicts_with "moreutils", :because => "Both install `errno` binaries"
