@@ -1,8 +1,8 @@
 class Kedge < Formula
   desc "Deployment tool for Kubernetes artifacts"
   homepage "http://kedgeproject.org/"
-  url "https://github.com/kedgeproject/kedge/archive/v0.7.0.tar.gz"
-  sha256 "61fc71632efe79928f92bc6b4bb2ac1c33c6836494afedf25190703d3346b182"
+  url "https://github.com/kedgeproject/kedge/archive/v0.8.0.tar.gz"
+  sha256 "da4c4c11f01308d0201d6897906e3fcdef51220b1bc56ff872857ddb4b7a60b3"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,8 +24,9 @@ class Kedge < Formula
   test do
     (testpath/"kedgefile.yml").write <<~EOS
       name: test
-      containers:
-      - image: test
+      deployments:
+      - containers:
+        - image: test
     EOS
     output = shell_output("#{bin}/kedge generate -f kedgefile.yml")
     assert_match "name: test", output
