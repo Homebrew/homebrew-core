@@ -3,7 +3,7 @@ class Liblacewing < Formula
   homepage "http://lacewing-project.org/"
   url "https://github.com/udp/lacewing/archive/0.5.4.tar.gz"
   sha256 "c24370f82a05ddadffbc6e79aaef4a307de926e9e4def18fb2775d48e4804f5c"
-  revision 1
+  revision 2
   head "https://github.com/udp/lacewing.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Liblacewing < Formula
     sha256 "af978e720eafc9106c8dcb9391b341ec984339fd87db419f54229c5ae3a03d8c" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}"

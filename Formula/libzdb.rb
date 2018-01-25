@@ -3,7 +3,7 @@ class Libzdb < Formula
   homepage "https://tildeslash.com/libzdb/"
   url "https://tildeslash.com/libzdb/dist/libzdb-3.1.tar.gz"
   sha256 "0f01abb1b01d1a1f4ab9b55ad3ba445d203fc3b4757abdf53e1d85e2b7b42695"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Libzdb < Formula
     sha256 "9a1722fcff2c7946689a01b65c3151f6f2a9a26a43d50cfbb75ffe816a0a6c12" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "postgresql" => :recommended
   depends_on "mysql" => :recommended
   depends_on "sqlite" => :recommended

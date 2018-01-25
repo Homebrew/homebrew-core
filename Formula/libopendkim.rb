@@ -3,6 +3,7 @@ class Libopendkim < Formula
   homepage "http://opendkim.org"
   url "https://downloads.sourceforge.net/project/opendkim/opendkim-2.10.3.tar.gz"
   sha256 "43a0ba57bf942095fe159d0748d8933c6b1dd1117caf0273fa9a0003215e681b"
+  revision 1
 
   bottle do
     rebuild 1
@@ -14,7 +15,7 @@ class Libopendkim < Formula
   end
 
   depends_on "unbound"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # --disable-filter: not needed for the library build
@@ -24,7 +25,7 @@ class Libopendkim < Formula
                           "--prefix=#{prefix}",
                           "--disable-filter",
                           "--with-unbound=#{Formula["unbound"].opt_prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+			  "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

@@ -3,6 +3,7 @@ class Libtins < Formula
   homepage "https://libtins.github.io/"
   url "https://github.com/mfontanini/libtins/archive/v4.0.tar.gz"
   sha256 "2a758d1bed51760bbd57fcaa00610534e0cc3a6d55d91983724e5f46739d66b8"
+  revision 1
   head "https://github.com/mfontanini/libtins.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Libtins < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", *std_cmake_args

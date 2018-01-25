@@ -3,6 +3,7 @@ class Libcouchbase < Formula
   homepage "https://developer.couchbase.com/documentation/server/current/sdk/c/start-using-sdk.html"
   url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.8.4.tar.gz"
   sha256 "22dc8926893790f5d50e4de14526be4c812635e92ff3818c9116775479a1fb0a"
+  revision 1
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Libcouchbase < Formula
   depends_on "libev" => :optional
   depends_on "libuv" => :optional
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "cmake" => :build
 
   def install

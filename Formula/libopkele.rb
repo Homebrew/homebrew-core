@@ -1,7 +1,7 @@
 class Libopkele < Formula
   desc "C++ implementation of OpenID decentralized identity system"
   homepage "http://kin.klever.net/libopkele/"
-  revision 1
+  revision 2
 
   stable do
     url "http://kin.klever.net/dist/libopkele-2.0.4.tar.bz2"
@@ -36,7 +36,7 @@ class Libopkele < Formula
 
   depends_on "pkg-config" => :build
   depends_on "doxygen" => :build if build.with? "docs"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # It rejects the tr1/memory that ships on 10.9 & above
   # and refuses to compile. It can use Boost, per configure.

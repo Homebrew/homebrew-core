@@ -3,7 +3,7 @@ class Libexosip < Formula
   homepage "https://www.antisip.com/category/osip-and-exosip-toolkit"
   url "https://download.savannah.gnu.org/releases/exosip/libeXosip2-4.1.0.tar.gz"
   sha256 "3c77713b783f239e3bdda0cc96816a544c41b2c96fa740a20ed322762752969d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Libexosip < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libosip"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Extra linker flags are needed to build this on macOS. See:
