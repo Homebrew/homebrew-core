@@ -2,11 +2,11 @@ class Visidata < Formula
   include Language::Python::Virtualenv
   desc "Terminal utility for exploring and arranging tabular data"
   homepage "http://visidata.org"
-  url "https://files.pythonhosted.org/packages/7a/35/d05bcb2eac76b244c117e1529ffdb2a2869d26d5d0a22c3d995d64902e41/visidata-0.99.tar.gz"
-  sha256 "52677c5886d6e769e34aeb6ffb75ad18ce633ac3bf005b8c7d99e8cd1474330e"
+  url "https://files.pythonhosted.org/packages/49/95/15af273f829a97944baf15f6fc36b427a0bff5917913d87d3cd01a4582ee/visidata-1.0.tar.gz"
+  sha256 "79ad431f6bc1c4df7f8ecd8b26421d03f49f186c4e883b73310ffc5747b5a653"
   head "https://github.com/saulpw/visidata.git"
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
@@ -36,11 +36,6 @@ class Visidata < Formula
   resource "xlrd" do
     url "https://files.pythonhosted.org/packages/86/cf/bb010f16cefa8f26ac9329ca033134bcabc7a27f5c3d8de961bacc0f80b3/xlrd-1.1.0.tar.gz"
     sha256 "8a21885513e6d915fe33a8ee5fdfa675433b61405ba13e2a69e62ee36828d7e2"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
-    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
   end
 
   resource "idna" do
