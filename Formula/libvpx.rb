@@ -1,8 +1,8 @@
 class Libvpx < Formula
   desc "VP8/VP9 video codec"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libvpx/archive/v1.6.1.tar.gz"
-  sha256 "cda8bb6f0e4848c018177d3a576fa83ed96d762554d7010fe4cfb9d70c22e588"
+  url "https://github.com/webmproject/libvpx/archive/v1.7.0.tar.gz"
+  sha256 "1fec931eb5c94279ad219a5b6e0202358e94a93a90cfb1603578c326abfc1238"
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
@@ -33,6 +33,9 @@ class Libvpx < Formula
       --enable-pic
       --disable-unit-tests
     ]
+
+    # https://bugs.chromium.org/p/webm/issues/detail?id=1475
+    args << "--disable-avx512" if MacOS.version <= :el_capitan
 
     args << (build.with?("examples") ? "--enable-examples" : "--disable-examples")
     args << "--enable-gcov" if !ENV.compiler == :clang && build.with?("gcov")
