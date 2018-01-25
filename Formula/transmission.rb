@@ -1,14 +1,8 @@
 class Transmission < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/094777d/transmission-2.92.tar.xz"
-  sha256 "3a8d045c306ad9acb7bf81126939b9594553a388482efa0ec1bfb67b22acd35f"
-  revision 2
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cf09cf8/transmission/CVE-2018-5702.patch"
-    sha256 "a28016143b94a07c225799a6e0e473657b56fd1f346b04537eca4dc37ffab8a9"
-  end
+  url "https://github.com/transmission/transmission-releases/raw/bce6e29/transmission-2.93.tar.xz"
+  sha256 "8815920e0a4499bcdadbbe89a4115092dab42ce5199f71ff9a926cfd12b9b90b"
 
   bottle do
     sha256 "10c8ab080a30f20bf2a777d71cecf5efdddbbf5ff99f8d1547ec6d1af892083a" => :high_sierra
