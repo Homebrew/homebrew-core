@@ -1,7 +1,7 @@
 class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
-  revision 2
+  revision 3
   head "https://github.com/tats/w3m.git"
 
   stable do
@@ -9,7 +9,7 @@ class W3m < Formula
     sha256 "e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3"
 
     # Upstream is effectively Debian https://github.com/tats/w3m at this point.
-    # The patches fix a pile of CVEs and provides openssl@1.1 compatibility.
+    # The patches fix a pile of CVEs
     patch do
       url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/w3m/w3m_0.5.3-34.debian.tar.xz"
       mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-34.debian.tar.xz"
@@ -27,12 +27,12 @@ class W3m < Formula
 
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-image",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
   end
 
