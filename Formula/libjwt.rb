@@ -3,6 +3,7 @@ class Libjwt < Formula
   homepage "https://github.com/benmcollins/libjwt"
   url "https://github.com/benmcollins/libjwt/archive/v1.9.0.tar.gz"
   sha256 "cc694dfc3abe17d1f5cde4bf6714e39dc17f7cbad352a85ffb0fe6418c584076"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,7 @@ class Libjwt < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "autoreconf", "-fiv"
