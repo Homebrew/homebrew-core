@@ -1,8 +1,8 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nco/nco-4.7.1.tar.gz"
-  sha256 "3e350658117e12f0f102de0c3d1ad1756b7ebf7f43821f3d2044b4659633938b"
+  url "https://downloads.sourceforge.net/project/nco/nco-4.7.2.tar.gz"
+  sha256 "40e719a4b8da36970333c9e24f2963441bfa65f155ff3d30245751ccec2cb004"
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Nco < Formula
   end
 
   head do
-    url "https://github.com/czender/nco.git"
+    url "https://github.com/nco/nco.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
