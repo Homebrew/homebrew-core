@@ -3,6 +3,7 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz"
   sha256 "c19f5b1b4fb374cfe34f4845ea11b1e0551ddc67803bd6ddd5d2a20f0997a6cc"
+  revision 1
 
   bottle do
     sha256 "e6e49e3a79436caa5d07e8fe7ff8a3116cdccfa78a2005d8e0fb25b1f5b13a9b" => :high_sierra
@@ -12,16 +13,17 @@ class Ldns < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --with-drill
       --with-examples
-      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl=#{Formula["openssl"].opt_prefix}
       --with-pyldns
       PYTHON_SITE_PKG=#{lib}/python2.7/site-packages
+      --disable-dane-verify
     ]
 
     system "./configure", *args
