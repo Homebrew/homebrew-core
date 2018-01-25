@@ -52,6 +52,8 @@ class Bitcoin < Formula
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--prefix=#{prefix}"
     system "make", "install"
+    libexec.install "share/rpcuser"
+    bin.install_symlink libexec/"rpcuser/rpcuser.py" => "bitcoin-rpcuser"
   end
 
   plist_options :manual => "bitcoind"
