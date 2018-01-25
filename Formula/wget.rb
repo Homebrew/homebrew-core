@@ -4,6 +4,7 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz"
   mirror "https://ftpmirror.gnu.org/wget/wget-1.19.4.tar.gz"
   sha256 "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
+  revision 1
 
   bottle do
     sha256 "1de903a28c501c55e9e2b7cb1ecc9a767ea39bd7fe9b9257a6f886c72b169a14" => :high_sierra
@@ -27,7 +28,7 @@ class Wget < Formula
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
@@ -37,7 +38,7 @@ class Wget < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
     ]
 
     args << "--disable-debug" if build.without? "debug"

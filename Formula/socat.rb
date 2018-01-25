@@ -3,7 +3,7 @@ class Socat < Formula
   homepage "http://www.dest-unreach.org/socat/"
   url "http://www.dest-unreach.org/socat/download/socat-1.7.3.2.tar.gz"
   sha256 "ce3efc17e3e544876ebce7cd6c85b3c279fda057b2857fcaaf67b9ab8bdaf034"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Socat < Formula
     sha256 "a5c5b28d9fbf0f52ab0d69dc7cbe44f23a58876e32791b69275d96a15703d3e9" => :yosemite
   end
 
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "readline"
 
   def install
