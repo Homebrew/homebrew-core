@@ -1,8 +1,8 @@
 class Saldl < Formula
   desc "CLI downloader optimized for speed and early preview"
   homepage "https://saldl.github.io/"
-  url "https://github.com/saldl/saldl/archive/v37.tar.gz"
-  sha256 "9e8f91d3c82366dd6a72b24ab4ceecd4328df8eb3bb3347cc1fde26bcda04aa8"
+  url "https://github.com/saldl/saldl/archive/v38.tar.gz"
+  sha256 "412dc8bdc65b44242438e3765d1cc61698759442962e1e5f3298068537bdc6a8"
 
   head "https://github.com/saldl/saldl.git", :shallow => false
 
@@ -16,14 +16,8 @@ class Saldl < Formula
   depends_on "pkg-config" => :build
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "curl" # curl >= 7.55 is required
   depends_on "libevent"
-
-  if MacOS.version <= :mavericks
-    # curl >= 7.42 is required
-    depends_on "curl"
-  else
-    depends_on "curl" => :optional
-  end
 
   def install
     ENV.refurbish_args
