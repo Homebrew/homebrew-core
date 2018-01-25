@@ -3,6 +3,7 @@ class Libdap < Formula
   homepage "https://www.opendap.org/"
   url "https://www.opendap.org/pub/source/libdap-3.19.1.tar.gz"
   sha256 "5215434bacf385ba3f7445494ce400a5ade3995533d8d38bb97fcef1478ad33e"
+  revision 1
 
   bottle do
     sha256 "acb605289bb709760f85304a454047adc51bc7c62f789b1a6e994def60320707" => :high_sierra
@@ -23,7 +24,7 @@ class Libdap < Formula
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
   depends_on "libxml2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   needs :cxx11 if MacOS.version < :mavericks
 
