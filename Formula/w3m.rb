@@ -20,9 +20,9 @@ class W3m < Formula
   end
 
   bottle do
-    sha256 "2f74b9e77dc894a6fe989f94125e6f85707d33e395c9d6b62fe7018b9639b13a" => :high_sierra
-    sha256 "e83f9f082df3a1650d334feb396f4e4425939dbb43d95b07d5dc10182ea7432e" => :sierra
-    sha256 "3f19792501aace857717543b719827e3a2227ce1bb917c7abb2f20e9db7a4c54" => :el_capitan
+    sha256 "12da9937b9aa6b5c949dd4e3564a39794b113fdd85d4e0482b36c58e2d51c8bd" => :high_sierra
+    sha256 "20013204c45e71e6b130152648f284a75f9074bf12d6dde0a5e7f12417213fb5" => :sierra
+    sha256 "f393fb66f5b123ed6d1e9ffb9c6d586265d29e45ed43728cbd8dc3c72d7e7eb7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
