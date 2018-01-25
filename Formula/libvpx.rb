@@ -6,10 +6,9 @@ class Libvpx < Formula
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
-    sha256 "1e6ed0c250c4c76b1774554268b64415443635c8712853b2ac49ca1a6f2ce3d9" => :high_sierra
-    sha256 "fe46c1d9fc5e1ea1176791f9e4a85d896eb311d094be77c7c44c2b24facc4300" => :sierra
-    sha256 "100634d26cac4b4e69f1a5eea21b98ae577e3a1364169fe483bc4cc9c29f6047" => :el_capitan
-    sha256 "68b90c8901f765d0a50ea89a030b40f53e0fc7c2e4bb554859f6ae9fc2a2c4f2" => :yosemite
+    sha256 "5df5088250c3061e8e6d508525b46959ee3cb46504097b95342bf06a1f2d92ef" => :high_sierra
+    sha256 "75b004234a3bd81686d4ddd985bc87327a6f32937a484d12209aa23e85a74292" => :sierra
+    sha256 "853cfd3f79bfa0c8006ea37644a8ccf1674a2e24abf03521c12457ee99d8242d" => :el_capitan
   end
 
   option "with-gcov", "Enable code coverage"
