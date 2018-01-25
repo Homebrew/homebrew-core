@@ -3,6 +3,7 @@ class Sslyze < Formula
 
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
+  revision 1
 
   stable do
     url "https://github.com/nabla-c0d3/sslyze/archive/1.3.2.tar.gz"
@@ -31,7 +32,7 @@ class Sslyze < Formula
 
   depends_on :arch => :x86_64
   depends_on "python" if MacOS.version <= :snow_leopard
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -133,7 +134,6 @@ class Sslyze < Formula
       venv.pip_install nassl_path
     end
     venv.pip_install_and_link buildpath
-    system "python", "run_tests.py"
   end
 
   test do
