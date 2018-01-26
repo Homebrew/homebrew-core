@@ -19,8 +19,9 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "python" => :optional
-  depends_on "python3" if build.with? "python"
-  depends_on "pygobject3" if build.with? "python"
+  depends_on "python3" => :optional
+  depends_on "pygobject3" if build.with?("python")
+  depends_on "pygobject3" => ["--with-python3"] if build.with?("python3")
 
   def install
     args = %W[
@@ -34,11 +35,18 @@ class Libpeas < Formula
       # extra hoop to jump if both, Python 2 and 3 are installed in parallel
       py2_prefix = Utils.popen_read("python2-config --prefix").chomp
       py2_lib = "#{py2_prefix}/lib"
+      ENV.append "LDFLAGS", "-L#{py2_lib}"
+      # configure argument
+      args << "--enable-python2"
+    end
+
+    if build.with? "python3"
+      # extra hoop to jump if both, Python 2 and 3 are installed in parallel
       py3_prefix = Utils.popen_read("python3-config --prefix").chomp
       py3_lib = "#{py3_prefix}/lib"
-      ENV.append "LDFLAGS", "-L#{py2_lib} -L#{py3_lib}"
+      ENV.append "LDFLAGS", "-L#{py3_lib}"
       # configure argument
-      args << "--enable-python2" << "--enable-python3"
+      args << "--enable-python3"
     end
 
     system "./configure", *args
