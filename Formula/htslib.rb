@@ -6,9 +6,9 @@ class Htslib < Formula
 
   bottle do
     cellar :any
-    sha256 "15c9481d899d77e7d7eeb5c2d2cac09930fef9b28409ec9ea3ab57ec9cc70e87" => :high_sierra
-    sha256 "35a9e6c69ed762ee9d5ba2966a484f3a13557dbf23ef897fee6ba7d6f9db5659" => :sierra
-    sha256 "5fe4d1a962dd98c9c0497fa88da33f493fdec868a25e531def7c5506424571d0" => :el_capitan
+    sha256 "8900715ec1050cface2b3921a8085e45980b07282c50794c13a6e0c61d2e1729" => :high_sierra
+    sha256 "65781a76f4c67c53695cf99609b0951c832e7ab4703db7f183eae80f3852b4da" => :sierra
+    sha256 "9bf6f3fab045f31e497b2e92ba1b2d7f54d4138a8519393b87f45df6f608751a" => :el_capitan
   end
 
   depends_on "xz"
