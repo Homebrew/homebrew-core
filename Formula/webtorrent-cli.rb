@@ -21,7 +21,7 @@ class WebtorrentCli < Formula
       &tr=udp://tracker.archlinux.org:6969
       &tr=http://tracker.archlinux.org:6969/announce
     EOS
-      
+
     assert_equal <<~EOS.chomp, `#{bin}/webtorrent info "#{magnet_uri}"`
       {
         "xt": "urn:btih:9eae210fe47a073f991c83561e75d439887be3f3",
