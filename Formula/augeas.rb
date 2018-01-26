@@ -1,8 +1,8 @@
 class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "http://augeas.net"
-  url "http://download.augeas.net/augeas-1.9.0.tar.gz"
-  sha256 "2b463d398cabc9b42747aa61d3e83ed6a93ce03d9074cf8e7a7bd3107a668343"
+  url "http://download.augeas.net/augeas-1.10.0.tar.gz"
+  sha256 "2a90f6984c3cca1e64dfcad3af490f38ae86e2f3510ed9e46a391cd947860213"
 
   bottle do
     sha256 "14cbc9147bda6bad9c014af9d4693873f47ce1d72fa6c29aa5b85a1702d632b4" => :high_sierra
