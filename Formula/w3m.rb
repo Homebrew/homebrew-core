@@ -1,7 +1,7 @@
 class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
-  revision 3
+  revision 4
   head "https://github.com/tats/w3m.git"
 
   stable do
@@ -11,9 +11,9 @@ class W3m < Formula
     # Upstream is effectively Debian https://github.com/tats/w3m at this point.
     # The patches fix a pile of CVEs
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/w3m/w3m_0.5.3-34.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-34.debian.tar.xz"
-      sha256 "bed288bdc1ba4b8560724fd5dc77d7c95bcabd545ec330c42491cae3e3b09b7e"
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/w3m/w3m_0.5.3-36.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-36.debian.tar.xz"
+      sha256 "e7f41ac222c55830ce121e1c50e67ab04b292837b9bb1ece2eae2689c82147ec"
       apply "patches/010_upstream.patch",
             "patches/020_debian.patch"
     end
