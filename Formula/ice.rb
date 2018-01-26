@@ -33,6 +33,7 @@ class Ice < Formula
   depends_on :macos => :mavericks
 
   def install
+    ENV.O2 # Os causes performance issues
     # Ensure Gradle uses a writable directory even in sandbox mode
     ENV["GRADLE_USER_HOME"] = "#{buildpath}/.gradle"
 
