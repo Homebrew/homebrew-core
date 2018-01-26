@@ -3,7 +3,7 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.7.0.tar.gz"
   sha256 "809fff14a88a7de1364c846cec771d0d12c72572914e6cc4fb0b2c1861c4a1ee"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -33,6 +33,7 @@ class Ice < Formula
   depends_on :macos => :mavericks
 
   def install
+    ENV.O2 # Os causes performance issues
     # Ensure Gradle uses a writable directory even in sandbox mode
     ENV["GRADLE_USER_HOME"] = "#{buildpath}/.gradle"
 
