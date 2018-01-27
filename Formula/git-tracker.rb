@@ -15,7 +15,7 @@ class GitTracker < Formula
   end
 
   def install
-    rake "standalone:install", "prefix=#{prefix}"
+    system "rake", "standalone:install", "prefix=#{prefix}"
   end
 
   test do
