@@ -3,6 +3,7 @@ class Daq < Formula
   homepage "https://www.snort.org/"
   url "https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz"
   sha256 "d41da5f7793e66044e6927dd868c0525e7ee4ec1a3515bf74ef9a30cd9273af0"
+  revision 1
 
   bottle do
     cellar :any
