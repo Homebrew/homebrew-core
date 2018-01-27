@@ -7,8 +7,7 @@ class Jhiccup < Formula
   bottle :unneeded
 
   def install
-    bin.install "jHiccup"
-    bin.install "jHiccupLogProcessor"
+    bin.install "jHiccup", "jHiccupLogProcessor"
 
     # Simple script to create and open a new plotter spreadsheet
     (bin+"jHiccupPlotter").write <<~EOS
