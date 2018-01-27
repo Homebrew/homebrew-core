@@ -28,6 +28,6 @@ class Jhiccup < Formula
   end
 
   test do
-    system "#{bin}/jHiccup", "-d", "4000", "/usr/bin/java", "org.jhiccup.Idle", "-t", "5000"
+    assert_match "CSV", shell_output("#{bin}/jHiccup -h", 255)
   end
 end
