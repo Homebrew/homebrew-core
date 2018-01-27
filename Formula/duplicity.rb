@@ -2,7 +2,7 @@ class Duplicity < Formula
   include Language::Python::Virtualenv
 
   desc "Bandwidth-efficient encrypted backup"
-  homepage "http://www.nongnu.org/duplicity/"
+  homepage "https://launchpad.net/duplicity"
   url "https://launchpad.net/duplicity/0.7-series/0.7.16/+download/duplicity-0.7.16.tar.gz"
   sha256 "a8f5e1e77dcc5e03a7d206086b8ef89fa574c59de582ed15db5987c40b842718"
   revision 1
