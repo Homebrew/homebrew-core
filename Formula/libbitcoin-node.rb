@@ -3,6 +3,7 @@ class LibbitcoinNode < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-node"
   url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.5.0.tar.gz"
   sha256 "e3a0a96155ca93aa6cba75789c18419f40686a69cbd40c77aa77ca84ccc43cab"
+  revision 1
 
   bottle do
     sha256 "1b922407cddc74d2bff6f39e61e6545cbab4e7e65b55ad84abe6224b2c39da49" => :high_sierra
@@ -23,7 +24,6 @@ class LibbitcoinNode < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-blockchain"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     resource("libbitcoin-network").stage do
