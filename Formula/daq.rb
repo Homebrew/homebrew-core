@@ -3,7 +3,7 @@ class Daq < Formula
   homepage "https://www.snort.org/"
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/daq/daq-2.0.6.tar.gz"
   mirror "https://fossies.org/linux/misc/daq-2.0.6.tar.gz"
-  sha256 "d41da5f7793e66044e6927dd868c0525e7ee4ec1a3515bf74ef9a30cd9273af0"
+  sha256 "b40e1d1273e08aaeaa86e69d4f28d535b7e53bdb3898adf539266b63137be7cb"
   revision 1
 
   bottle do
