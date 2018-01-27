@@ -3,7 +3,7 @@ class Kite < Formula
   homepage "http://www.kite-language.org/"
   url "http://www.kite-language.org/files/kite-1.0.4.tar.gz"
   sha256 "8f97e777c3ea8cb22fa1236758df3c479bba98be3deb4483ae9aff4cd39c01d5"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "40de335c9146382fe8e2dbb428cbbe81fb5463cdedea0270e043ecffb4b52635" => :high_sierra
