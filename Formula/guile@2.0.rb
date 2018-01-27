@@ -1,7 +1,7 @@
 class GuileAT20 < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  revision 1
+  revision 2
 
   stable do
     url "https://ftp.gnu.org/gnu/guile/guile-2.0.14.tar.xz"
