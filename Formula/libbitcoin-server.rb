@@ -3,6 +3,7 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
   sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
+  revision 1
 
   bottle do
     sha256 "b6c66446d989f0985423f5e70292c132fa1e067448a2e29fca547efdd9035dd8" => :high_sierra
@@ -24,8 +25,6 @@ class LibbitcoinServer < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-blockchain"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-node"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     resource("libbitcoin-protocol").stage do
