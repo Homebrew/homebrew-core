@@ -7,9 +7,9 @@ class Autogen < Formula
   revision 1
 
   bottle do
-    sha256 "b344e8d6ff855acbb8029b43142cca48653d8b18a87a0e46f59c22fcd979b20a" => :high_sierra
-    sha256 "5b4c2b7662beab2af5045d8919ababd3404ad6aab567cd5853426680d12be6c7" => :sierra
-    sha256 "e2f6a0c2c34c16f50552c40cbe27bf73788cbb978bb572e7adcba0e7d2b94e5c" => :el_capitan
+    sha256 "c9835af12e309b7992918e64fc766f59ca50ff3f4e846434d74141859d638cd8" => :high_sierra
+    sha256 "c80dbb65f3afee35378aadaf766cd3d772d39256ec6d48b9864ecab018a931e9" => :sierra
+    sha256 "ff8c66ca7d86c309e884dad0fcc49aadf65a830768a0551c5711cba2f6d6a046" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
