@@ -1,16 +1,22 @@
 class DockerSquash < Formula
-  include Language::Python::Virtualenv
-
   desc "Docker image squashing tool"
   homepage "https://github.com/goldmann/docker-squash"
   url "https://github.com/goldmann/docker-squash/archive/1.0.6.tar.gz"
   sha256 "8430390edc2f19f368bacae57c17363bd64f76dbcd0cf00f4ec5ce6f8cbe9abd"
-  head "https://github.com/goldmann/docker-squash.git"
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "docker" => :recommended
+  depends_on "docker-machine" => :recommended
 
-  depends_on "docker" => :optional
-  depends_on "docker-machine" => :optional
+  resource "pip" do
+    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
+    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/6c/54/f7e9cea6897636a04e74c3954f0d8335cc38f7d01e27eec98026b049a300/setuptools-38.5.1.zip"
+    sha256 "6425484c08e99a98a42209c25c3d325f749230b55284d66192784f941a7e6628"
+  end
 
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
@@ -68,10 +74,22 @@ class DockerSquash < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    system "python", *Language::Python.setup_install_args(libexec)
+
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    system bin/"docker-squash", "--help"
+    output = shell_output("#{bin}/docker-squash not_an_image 2>&1", 1)
+    assert_match "Could not create Docker client", output
   end
 end
