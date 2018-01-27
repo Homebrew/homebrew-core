@@ -6,9 +6,9 @@ class Kite < Formula
   revision 2
 
   bottle do
-    sha256 "40de335c9146382fe8e2dbb428cbbe81fb5463cdedea0270e043ecffb4b52635" => :high_sierra
-    sha256 "80afe502ef94189f6628d9bc33ac95b0271aa07f2e008934a46554b0e2d904a4" => :sierra
-    sha256 "7f8adfad9dcdf2d65050099d658e5277de444a69f2953569a93735780354a33b" => :el_capitan
+    sha256 "3b293d215be3d011ec9110b6b3f8fad331f36eb8a4062cafa7c0601315454bfc" => :high_sierra
+    sha256 "5f090153489b27969c99e30a3be64e747da75738d9377f830a717bd856df3a72" => :sierra
+    sha256 "0c4b034731a0b3fa2f492f1a435122e78bdda3508d778507de3679c353894ad8" => :el_capitan
   end
 
   depends_on "bdw-gc"
