@@ -1,6 +1,6 @@
 class Splint < Formula
   desc "Secure Programming Lint"
-  homepage "http://www.splint.org/"
+  homepage "https://sourceforge.net/projects/splint/"
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/splint/splint-3.1.2.src.tgz"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/splint/splint-3.1.2.src.tgz/25f47d70bd9c8bdddf6b03de5949c4fd/splint-3.1.2.src.tgz"
   sha256 "c78db643df663313e3fa9d565118391825dd937617819c6efc7966cdf444fb0a"
