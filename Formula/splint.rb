@@ -39,7 +39,7 @@ class Splint < Formula
     EOS
 
     output = shell_output("#{bin}/splint #{path} 2>&1", 1)
-    assert_match "5:18: Variable c used before definition", output
+    assert_match /5:18:\s+Variable c used before definition/, output
   end
 end
 
