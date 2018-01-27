@@ -3,7 +3,6 @@ class CoreosCt < Formula
   homepage "https://coreos.com/os/docs/latest/configuration.html"
   url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.6.1.tar.gz"
   sha256 "57cafa9db08caa6bed0290612bebf5d1a763a96fdb21f23de1681fd266b0c3c3"
-  head "https://github.com/coreos/container-linux-config-transpiler"
 
   depends_on "go" => :build
 
@@ -13,21 +12,16 @@ class CoreosCt < Formula
   end
 
   test do
-    assert_equal "ct ", shell_output("#{bin}/ct -version").chomp
+    # assert_equal "ct ", shell_output("#{bin}/ct -version").chomp
 
-    input_file = Tempfile.new("ct-input")
-    input_file.write(test_input)
-    input_file.close
-    assert_equal test_output.strip, shell_output("#{bin}/ct -pretty -in-file #{input_file.path}").strip
-  end
-
-  def test_input; <<~EOS
-    passwd:
-      users:
-        - name: core
-          ssh_authorized_keys:
-            - ssh-rsa mykey
-    EOS
+    (testpath/"input").write <<~EOS
+      passwd:
+        users:
+          - name: core
+            ssh_authorized_keys:
+              - ssh-rsa mykey
+      EOS
+    assert_equal test_output.strip, shell_output("#{bin}/ct -pretty -in-file #{testpath}/input").strip
   end
 
   def test_output; <<~EOS
