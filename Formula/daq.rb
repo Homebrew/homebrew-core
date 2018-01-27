@@ -4,7 +4,6 @@ class Daq < Formula
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/daq/daq-2.0.6.tar.gz"
   mirror "https://fossies.org/linux/misc/daq-2.0.6.tar.gz"
   sha256 "b40e1d1273e08aaeaa86e69d4f28d535b7e53bdb3898adf539266b63137be7cb"
-  revision 1
 
   bottle do
     cellar :any
