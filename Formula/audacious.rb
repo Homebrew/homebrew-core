@@ -1,13 +1,13 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
-  homepage "http://audacious-media-player.org"
+  homepage "https://audacious-media-player.org/"
 
   stable do
-    url "http://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
+    url "https://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
     sha256 "2d8044673ac786d71b08004f190bbca368258bf60e6602ffc0d9622835ccb05e"
 
     resource "plugins" do
-      url "http://distfiles.audacious-media-player.org/audacious-plugins-3.9.tar.bz2"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-3.9.tar.bz2"
       sha256 "8bf7f21089cb3406968cc9c71307774aee7100ec4607f28f63cf5690d5c927b8"
 
       # Fixes "info_bar.cc:258:21: error: no viable overloaded '='"
