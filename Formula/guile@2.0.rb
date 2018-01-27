@@ -29,9 +29,9 @@ class GuileAT20 < Formula
   end
 
   bottle do
-    sha256 "11f9af9bf173182d38e5d9ea99443162eee21e313c4893820947570c05275c4f" => :high_sierra
-    sha256 "328baed3a525f535d55abd67b65b320f95f1e20d5c01636bf8e9a82826671ed7" => :sierra
-    sha256 "41d7fff833014eedfb2bb0b062889445fd6f5398c6c3237f9c56e515eb486457" => :el_capitan
+    sha256 "3fca39f27f821031d9c60f1a2bc6ccb083013d3b7cf205096524dd64620d428c" => :high_sierra
+    sha256 "5c9d28f80fa92deb7d958460cf37a3f93428f0ccb614e81afdfe6bfdc252052e" => :sierra
+    sha256 "ff173311b57975634fbf11d7c552ccc08e0214d01cf1a359b116588db5b3b28a" => :el_capitan
   end
 
   head do
