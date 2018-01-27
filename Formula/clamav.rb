@@ -1,9 +1,8 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.99.2.tar.gz"
-  sha256 "167bd6a13e05ece326b968fdb539b05c2ffcfef6018a274a10aeda85c2c0027a"
-  revision 1
+  url "https://www.clamav.net/downloads/production/clamav-0.99.3.tar.gz"
+  sha256 "00fa5292a6e00a3a4035b826267748965d5d2c4943d8ff417d740238263e8e84"
 
   bottle do
     sha256 "804bf3a1e0ad84d78e46fe9e0ed5555fa9a2c3d1e866d312fa9a0f8645baef29" => :high_sierra
@@ -37,7 +36,6 @@ class Clamav < Formula
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
       --disable-zlib-vcheck
-      --with-zlib=#{MacOS.sdk_path}/usr
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --enable-llvm=no
     ]
