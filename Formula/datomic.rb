@@ -38,7 +38,7 @@ class Datomic < Formula
       All commands have been installed with the prefix "datomic-".
 
       We agreed to the Datomic Free Edition License for you:
-        http://www.datomic.com/datomic-free-edition-license.html
+        https://my.datomic.com/downloads/free
       If this is unacceptable you should uninstall.
     EOS
   end
