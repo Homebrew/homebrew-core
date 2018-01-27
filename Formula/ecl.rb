@@ -8,9 +8,9 @@ class Ecl < Formula
   head "https://gitlab.com/embeddable-common-lisp/ecl.git"
 
   bottle do
-    sha256 "ae15644b1593091841bfcb305ba835be9502ac33c822bcc818c1405ff5490136" => :high_sierra
-    sha256 "39f47c078a1b3c2640c6daa0e8c2d3700a739a66397bcde76b2cad52941deea4" => :sierra
-    sha256 "db0466fd183bb63fd5dc764d5cefdfb0bf0fe2e667545c73a7aedce873ae1e99" => :el_capitan
+    sha256 "9afd54b532ae1f1ee3d62b32323007cc736def18f7dde363b19ee9cbf67364fa" => :high_sierra
+    sha256 "c4a7bf602fd2ce4a265cee2944cc0aa57829f9b2d965c1c54da4a905ee8cdf41" => :sierra
+    sha256 "2c27794e63438b4e4cb0aaaf8924d6586f2774c29f06b01429d569fec742e55d" => :el_capitan
   end
 
   depends_on "bdw-gc"
