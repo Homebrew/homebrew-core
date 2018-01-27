@@ -1,9 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
-  sha256 "49f99971182864abed9ac42de10545a92392d88f7dbcfdb11afe449a7eb754fe"
-  revision 3
+  url "http://download.osgeo.org/gdal/CURRENT/gdal-2.2.3.tar.gz"
+  sha256 "52f01bda8968643633016769607e6082a8ba1c746fadc2c1abe12cf7dc8f61dd"
 
   bottle do
     rebuild 1
@@ -242,10 +241,6 @@ class Gdal < Formula
   end
 
   def install
-    inreplace "frmts/jpeg2000/jpeg2000_vsil_io.cpp",
-      "stream->bufbase_ = JAS_CAST(uchar *, buf);",
-      "stream->bufbase_ = JAS_CAST(u_char *, buf);"
-
     if build.with? "libkml"
       resource("libkml").stage do
         # See main `libkml` formula for info on patches
