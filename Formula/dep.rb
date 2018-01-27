@@ -1,8 +1,10 @@
 class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
-  url "https://github.com/golang/dep/archive/v0.4.1.tar.gz"
-  sha256 "df9b050bf4dbb2a8cf04372097a68b04a6ae1986ed7c5086914ac86d74ea9d49"
+  url "https://github.com/golang/dep.git",
+      :tag => "v0.4.1",
+      :revision => "37d9ea0ac16f0e0a05afc3b60e1ac8c364b6c329"
+  revision 1
   head "https://github.com/golang/dep.git"
 
   bottle do
@@ -16,10 +18,13 @@ class Dep < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    arch = MacOS.prefer_64_bit? ? "amd64" : "386"
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
-      system "go", "build", "-o", bin/"dep", "-ldflags",
-             "-X main.version=#{version}", ".../cmd/dep"
+      ENV["DEP_BUILD_PLATFORMS"] = "darwin"
+      ENV["DEP_BUILD_ARCHS"] = arch
+      system "hack/build-all.bash"
+      bin.install "release/dep-darwin-#{arch}" => "dep"
       prefix.install_metafiles
     end
   end
