@@ -1,7 +1,8 @@
 class Ppl < Formula
   desc "Parma Polyhedra Library: numerical abstractions for analysis, verification"
   homepage "http://bugseng.com/products/ppl"
-  url "http://bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.xz"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/ppl/ppl_1.2.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/p/ppl/ppl_1.2.orig.tar.xz"
   sha256 "691f0d5a4fb0e206f4e132fc9132c71d6e33cdda168470d40ac3cf62340e9a60"
 
   bottle do
