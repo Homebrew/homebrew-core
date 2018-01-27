@@ -1,7 +1,8 @@
 class Daq < Formula
   desc "Network intrusion prevention and detection system"
   homepage "https://www.snort.org/"
-  url "https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz"
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/daq/daq-2.0.6.tar.gz"
+  mirror "https://fossies.org/linux/misc/daq-2.0.6.tar.gz"
   sha256 "d41da5f7793e66044e6927dd868c0525e7ee4ec1a3515bf74ef9a30cd9273af0"
   revision 1
 
