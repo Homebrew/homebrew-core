@@ -3,7 +3,7 @@ class Howdoi < Formula
 
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi/"
-  url "https://pypi.python.org/packages/67/e0/18ca30a65aeed25c6d6fe7171d71601b3a772bf0b7b8235b9e98d3cb889e/howdoi-1.1.12.tar.gz"
+  url "https://files.pythonhosted.org/packages/67/e0/18ca30a65aeed25c6d6fe7171d71601b3a772bf0b7b8235b9e98d3cb889e/howdoi-1.1.12.tar.gz"
   sha256 "c8676cea5155a8bb3d996f3555942e2726029338c606e36ed32775717a5e7bac"
 
   depends_on python if MacOS.version <= :snow_leopard
