@@ -3,6 +3,7 @@ class Fizmo < Formula
   homepage "https://fizmo.spellbreaker.org"
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
   sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
+  revision 1
 
   bottle do
     sha256 "8f712f9199f9b0dd2ff31e09f8cd48c6796592b7f06f14d78fd3a5c56a661ea8" => :high_sierra
@@ -12,6 +13,7 @@ class Fizmo < Formula
 
   depends_on "pkg-config" => :build
   depends_on :x11
+  depends_on "freetype"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libsndfile"
