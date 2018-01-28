@@ -4,7 +4,7 @@ class Freeswitch < Formula
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
       :tag => "v1.6.19",
       :revision => "7a77e0bb2ca875cb977b1e698a1783e575d96563"
-  revision 2
+  revision 3
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
@@ -18,21 +18,23 @@ class Freeswitch < Formula
   option "with-sounds-fr", "Install French (June) sounds"
   option "with-sounds-ru", "Install Russian (Elena) sounds"
 
+  depends_on "apr-util" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "apr-util" => :build
   depends_on "yasm" => :build
   depends_on "jpeg"
-  depends_on "openssl"
-  depends_on "pcre"
-  depends_on "sqlite"
-  depends_on "lua"
-  depends_on "opus"
   depends_on "libsndfile"
+  depends_on "lua"
+  depends_on "openssl"
+  depends_on "opus"
+  depends_on "pcre"
+  depends_on "postgresql"
   depends_on "speex"
   depends_on "speexdsp"
+  depends_on "sqlite"
+  depends_on "unixodbc"
 
   # https://github.com/Homebrew/homebrew/issues/42865
   fails_with :gcc
