@@ -1,17 +1,16 @@
-require 'formula'
-
 class HapiFhirCli < Formula
-  homepage 'http://hapifhir.io/doc_cli.html'
-  url 'https://github.com/jamesagnew/hapi-fhir/releases/download/v3.2.0/hapi-fhir-3.2.0-cli.tar.bz2'
-  sha256 'cabe82d3b5107f7d789db2a057130ff5eec2ca5e889f8dfdaa03fae8202ee67c'
+  desc "Command-line interface for the HAPI FHIR library"
+  homepage "http://hapifhir.io/doc_cli.html"
+  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.2.0/hapi-fhir-3.2.0-cli.tar.bz2"
+  sha256 "cabe82d3b5107f7d789db2a057130ff5eec2ca5e889f8dfdaa03fae8202ee67c"
 
   def install
-    inreplace 'hapi-fhir-cli', /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{prefix}"
-    prefix.install 'hapi-fhir-cli.jar'
-    bin.install 'hapi-fhir-cli'
+    inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{prefix}"
+    prefix.install "hapi-fhir-cli.jar"
+    bin.install "hapi-fhir-cli"
   end
 
-  def test
+  test do
     (testpath/"TestResource.json").write <<~EOS
       {
         "resourceType": "Specimen",
