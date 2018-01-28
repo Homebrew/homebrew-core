@@ -1,8 +1,8 @@
 class Lame < Formula
   desc "High quality MPEG Audio Layer III (MP3) encoder"
   homepage "https://lame.sourceforge.io/"
-  url "https://downloads.sourceforge.net/sourceforge/lame/lame-3.99.5.tar.gz"
-  sha256 "24346b4158e4af3bd9f2e194bb23eb473c75fb7377011523353196b19b9a23ff"
+  url "https://downloads.sourceforge.net/sourceforge/lame/lame-3.100.tar.gz"
+  sha256 "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e"
 
   bottle do
     cellar :any
@@ -16,6 +16,10 @@ class Lame < Formula
   end
 
   def install
+    # Fix undefined symbol error _lame_init_old
+    # https://sourceforge.net/p/lame/mailman/message/36081038/
+    inreplace "include/libmp3lame.sym", "lame_init_old\n", ""
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--prefix=#{prefix}",
