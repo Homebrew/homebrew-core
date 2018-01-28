@@ -3,6 +3,7 @@ class Fox < Formula
   homepage "http://www.fox-toolkit.org/"
   url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,6 +13,7 @@ class Fox < Formula
   end
 
   depends_on :x11
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libpng"
   depends_on "jpeg"
