@@ -6,9 +6,9 @@ class Fizmo < Formula
   revision 1
 
   bottle do
-    sha256 "8f712f9199f9b0dd2ff31e09f8cd48c6796592b7f06f14d78fd3a5c56a661ea8" => :high_sierra
-    sha256 "fcde25bc1e4eb7f481d132e8da671c7eb445fe3139a1f1784aff830e353332a6" => :sierra
-    sha256 "49943781111aafa7f1a1094bd79f6faea13e168d51119ae2d84a9f74ad9e4008" => :el_capitan
+    sha256 "5bc934e9ac29637cc4a533ffbac0d3e1807d6f70797920eeb80e2e0a9c0cae20" => :high_sierra
+    sha256 "86d6479347bf687c17da9b0b8eef22d0e332701c3ef7cfee50c7487273aa3445" => :sierra
+    sha256 "2b50bdff9322ebc50f10fba89a098f9fc05157243e0f0c1dcecf5686a6988fa2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
