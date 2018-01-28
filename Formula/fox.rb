@@ -7,9 +7,9 @@ class Fox < Formula
 
   bottle do
     cellar :any
-    sha256 "f709b5b4b8e58786b88b2b5a4c429a0ee5ff1dd242f09ab9e8b80b56407c45bb" => :high_sierra
-    sha256 "b0c2a24b770bf69f1624d1bd25ca63f064165891d3a4c1cdd09be562b6848a69" => :sierra
-    sha256 "db0892933de250a9d9487ddc62ed2ee7c3ad89c5ee87098f0aba6956869f8e5a" => :el_capitan
+    sha256 "1de9a326c1e14cf8c4f29768478deb14071ace6120e4dca6557e6872fd88e7dd" => :high_sierra
+    sha256 "14435c5f78a3d046ca5a0890edafc71cd74335c0857e8701fe26ae481977aeb2" => :sierra
+    sha256 "a12e69c87858187ed33f11713e06c98a482308b3cb78884441ba279f4f51523e" => :el_capitan
   end
 
   depends_on :x11
