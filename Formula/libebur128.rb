@@ -1,8 +1,8 @@
 class Libebur128 < Formula
   desc "Library implementing the EBU R128 loudness standard"
   homepage "https://github.com/jiixyj/libebur128"
-  url "https://github.com/jiixyj/libebur128/archive/v1.2.3.tar.gz"
-  sha256 "13776667743cf6e3df36bcf4f8c7ac828859ce02c9988514e3fdddc3efba98f7"
+  url "https://github.com/jiixyj/libebur128/archive/v1.2.4.tar.gz"
+  sha256 "2ee41a3a5ae3891601ae975d5ec2642b997d276ef647cf5c5b363b6127f7add8"
 
   bottle do
     cellar :any
