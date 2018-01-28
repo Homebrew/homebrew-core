@@ -1,10 +1,9 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.5.0.tar.gz"
-  mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.5.0.tar.gz"
-  sha256 "cbe70049cf1643c4ad7453f86510811436c9580cb7a1684ada2f32b95b00ca79"
-  revision 1
+  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.6.0.tar.gz"
+  mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/cdf-4.6.0.tar.gz"
+  sha256 "4bf05818c1d858224942ae39bfd9c4f1330abec57f04f58b9c3c152065ab3825"
 
   bottle do
     sha256 "4b1886b98b4cd88b7f711bd1efe6209b50fad76bb0e6c9bd4ac6650d82affaae" => :high_sierra
