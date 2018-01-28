@@ -6,13 +6,9 @@ class Lame < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7a83459b430c68aa7388b4b9b569e33bd8d8b8b14debb2b7aaed315b5ef21ff9" => :high_sierra
-    sha256 "687dd6b97e6c8d385b55eb4ace546b52bb584a7c56516f97a144ff99e29abdc3" => :sierra
-    sha256 "fc7884b76f15e5feebef087b4597e1f142b9aed83274e989c1ca959edb294454" => :el_capitan
-    sha256 "064e13206ca4f731d919f89adb480b4a83116a4374f5aa6d205528838364ca7b" => :yosemite
-    sha256 "43ee3550ab5ce2c5e9b4e8adfedc197b5ffbf252320d46de97cd6a7133ddd16f" => :mavericks
-    sha256 "db743baefa0ec1b0f8c00df4728536418916c4d42c71c548dc43d43a1b24b523" => :mountain_lion
+    sha256 "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd" => :high_sierra
+    sha256 "c2d7bce53be2efb5d19d99ea00fbe69613885cce46009e8ab6099f8d5925c3ba" => :sierra
+    sha256 "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc" => :el_capitan
   end
 
   def install
