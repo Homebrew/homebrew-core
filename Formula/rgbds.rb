@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/archive/v0.3.4.tar.gz"
-  sha256 "e65e4e1f6ad6ea7af96180a7b51d177bef348d09645ed3697de6bb6a71b56f1f"
+  url "https://github.com/rednex/rgbds/archive/v0.3.5.tar.gz"
+  sha256 "f1c5d986624573522b289d166d417a840b7d8fc311c1c4d5e97b1343b737b464"
   head "https://github.com/rednex/rgbds.git"
 
   bottle do
