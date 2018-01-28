@@ -4,6 +4,7 @@ class ArgyllCms < Formula
   url "https://www.argyllcms.com/Argyll_V2.0.0_src.zip"
   version "2.0.0"
   sha256 "5492896c040b406892864c467466ad6b50eb62954b5874ef0eb9174d1764ff41"
+  revision 1
 
   bottle do
     cellar :any
