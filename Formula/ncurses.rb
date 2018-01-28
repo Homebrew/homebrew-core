@@ -1,10 +1,9 @@
 class Ncurses < Formula
   desc "Text-based UI library"
   homepage "https://www.gnu.org/software/ncurses/"
-  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.0.tar.gz"
-  sha256 "f551c24b30ce8bfb6e96d9f59b42fbea30fa3a6123384172f9e7284bcf647260"
-  revision 4
+  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.1.tar.gz"
+  sha256 "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17"
 
   bottle do
     sha256 "b0cc6b16a8f3b669442758113dde0771fe7533b00ed6c7476fbe0517ad16d3ca" => :high_sierra
@@ -16,40 +15,15 @@ class Ncurses < Formula
 
   depends_on "pkg-config" => :build
 
-  # stable rollup patch created by upstream see
-  # https://invisible-mirror.net/archives/ncurses/6.0/README
-  resource "ncurses-6.0-20170930-patch.sh" do
-    url "https://invisible-mirror.net/archives/ncurses/6.0/ncurses-6.0-20170930-patch.sh.bz2"
-    mirror "https://dl.bintray.com/homebrew/mirror/ncurses-6.0-20170930-patch.sh.bz2"
-    sha256 "b179b2acf8838f4ed1c75c47db62109777d36a7e6efc1bd4e52e48cbd1bd4121"
-  end
-
   def install
-    # Fix the build for GCC 5.1
-    # error: expected ')' before 'int' in definition of macro 'mouse_trafo'
-    # See https://lists.gnu.org/archive/html/bug-ncurses/2014-07/msg00022.html
-    # and https://trac.sagemath.org/ticket/18301
-    # Disable linemarker output of cpp
-    ENV.append "CPPFLAGS", "-P"
-
-    (lib/"pkgconfig").mkpath
-
-    # stage and apply patch
-    buildpath.install resource("ncurses-6.0-20170930-patch.sh")
-    system "sh", "ncurses-6.0-20170930-patch.sh"
-
     system "./configure", "--prefix=#{prefix}",
                           "--enable-pc-files",
                           "--with-pkg-config-libdir=#{lib}/pkgconfig",
                           "--enable-sigwinch",
                           "--enable-symlinks",
                           "--enable-widec",
-                          "--mandir=#{man}",
-                          "--with-manpage-format=normal",
                           "--with-shared",
                           "--with-gpm=no"
-    system "make"
-    ENV.deparallelize
     system "make", "install"
     make_libncurses_symlinks
 
