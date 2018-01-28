@@ -14,7 +14,9 @@ class ArgyllCms < Formula
 
   depends_on "jam" => :build
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "libtiff"
+  depends_on "zlib"
 
   conflicts_with "num-utils", :because => "both install `average` binaries"
 
