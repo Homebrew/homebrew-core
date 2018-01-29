@@ -1,8 +1,8 @@
 class Bork < Formula
-  desc "Bash DSL for config management"
+  desc "Bash-Operated Reconciling Kludge"
   homepage "https://github.com/mattly/bork"
-  url "https://github.com/mattly/bork/archive/v0.11.0.tar.gz"
-  sha256 "5c9f445962a9b8a8faf7cbdec9599945630b1a21f0fa244ec9d536c5e6fc867a"
+  url "https://github.com/mattly/bork/archive/v0.11.1.tar.gz"
+  sha256 "4dabfca259cc529a19597c6f748f1492985ee2f6d7ac88cf70fa621b99f7a927"
 
   head "https://github.com/mattly/bork.git"
   bottle :unneeded
