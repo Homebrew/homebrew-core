@@ -4,6 +4,13 @@ class LibbitcoinConsensus < Formula
   url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.4.0.tar.gz"
   sha256 "1393811593d85074d1207c25d3c8d6ae23efa5735d548244345652e5ef7b3f50"
 
+  bottle do
+    cellar :any
+    sha256 "c443c2339cb65236ef156c54581972b6c00cad8a5229c5da9f33c46167f7f868" => :high_sierra
+    sha256 "e3bee2918b73261d0d049d19cf2b9de5eed055d4876e4736212e3f08a1bb600a" => :sierra
+    sha256 "0badfb90b260b7eba680ab463115a3ff8239bff6d08171683e58696651013639" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
