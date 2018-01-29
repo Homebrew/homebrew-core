@@ -1,8 +1,8 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-1.12.tar.gz"
-  sha256 "820e4e4747a2a2ec7a2e9f06d2f5a353516362c22496a10a9834f871b877499a"
+  url "https://dev.yorhel.nl/download/ncdu-1.13.tar.gz"
+  sha256 "f4d9285c38292c2de05e444d0ba271cbfe1a705eee37c2b23ea7c448ab37255a"
 
   bottle do
     cellar :any_skip_relocation
