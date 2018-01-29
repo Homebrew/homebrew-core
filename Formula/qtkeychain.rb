@@ -8,7 +8,7 @@ class Qtkeychain < Formula
   depends_on "qt"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_TRANSLATIONS=OFF"
+    system "cmake", ".", "-DBUILD_TRANSLATIONS=OFF", *std_cmake_args
     system "make", "install"
   end
 
