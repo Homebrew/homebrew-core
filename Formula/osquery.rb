@@ -2,10 +2,8 @@ class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
   # pull from git tag to get submodules
-  url "https://github.com/facebook/osquery.git",
-      :tag => "2.11.2",
-      :revision => "966854028f7dda2eeea07c21b6abaca40689ee28"
-  head "https://github.com/facebook/osquery.git"
+  url "https://github.com/facebook/osquery/archive/3.0.0.tar.gz"
+  sha256 "763039447574eab32be2700b953bb060e19c6fd7dfcea443422c74e711b8a9a1"
 
   bottle do
     cellar :any
@@ -19,8 +17,6 @@ class Osquery < Formula
   depends_on :macos => :sierra
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
-  depends_on "asio"
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
@@ -48,24 +44,14 @@ class Osquery < Formula
     sha256 "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"
   end
 
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d9/c8/8c7a2ab8ec108ba9ab9a4762c5a0d67c283d41b13b5ce46be81fdcae3656/psutil-5.0.1.tar.gz"
-    sha256 "9d8b7f8353a2b2eb6eb7271d42ec99d0d264a9338a37be46424d56b4e473b39e"
+  resource "third-party" do
+    url "https://github.com/osquery/third-party/archive/3.0.0.tar.gz"
+    sha256 "98731b92147f6c43f679a4a9f63cbb22f2a4d400d94a45e308702dee66a8de9d"
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.2.7.tar.gz"
-    sha256 "1f65e63dbbceb1e8ffb19851a8e0ee153e05bf63bfa12b0e259d50021ac3ab6e"
-  end
-
-  resource "cpp-netlib" do
-    url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-final.tar.gz"
-    sha256 "d66e264240bf607d51b8d0e743a1fa9d592d96183d27e2abdaf68b0a87e64560"
-  end
-
-  resource "linenoise" do
-    url "https://github.com/theopolis/linenoise-ng/archive/v1.0.1.tar.gz"
-    sha256 "c317f3ec92dcb4244cb62f6fb3b7a0a5a53729a85842225fcfce0d4a429a0dfa"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.3.30.tar.gz"
+    sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
   end
 
   def install
@@ -90,35 +76,18 @@ class Osquery < Formula
       end
     end
 
-    resource("cpp-netlib").stage do
-      args = std_cmake_args + %W[
-        -DCMAKE_INSTALL_PREFIX=#{vendor}/cpp-netlib
-        -DCPP-NETLIB_BUILD_TESTS=OFF
-        -DCPP-NETLIB_BUILD_EXAMPLES=OFF
-      ]
-      system "cmake", ".", *args
-      system "make"
-      system "make", "install"
-    end
-
-    resource("linenoise").stage do
-      mkdir "build" do
-        args = std_cmake_args + %W[
-          -DCMAKE_INSTALL_PREFIX=#{vendor}/linenoise
-          -DCMAKE_CXX_FLAGS=-mno-avx\ -fPIC
-        ]
-        system "cmake", "..", *args
-        system "make"
-        system "make", "install"
-      end
-    end
-
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
+    ENV["SKIP_DEPS"] = "1"
+
+    # Link dynamically against brew-installed libraries.
+    ENV["BUILD_LINK_SHARED"] = "1"
+    # Set the version
+    ENV["OSQUERY_BUILD_VERSION"] = version
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
 
-    res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise]
+    res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",
@@ -132,9 +101,6 @@ class Osquery < Formula
       -DNDEBUG
       -I#{MacOS.sdk_path}/usr/include/libxml2
       -I#{vendor}/aws-sdk-cpp/include
-      -I#{vendor}/cpp-netlib/include
-      -I#{vendor}/linenoise/include
-      -Wl,-L#{vendor}/linenoise/lib
     ]
 
     args = std_cmake_args + %W[
@@ -142,14 +108,10 @@ class Osquery < Formula
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
       -Daws-cpp-sdk-kinesis_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-kinesis.a
       -Daws-cpp-sdk-sts_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-sts.a
-      -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
-      -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
-      -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
       -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join(" ")}
     ]
 
-    # Link dynamically against brew-installed libraries.
-    ENV["BUILD_LINK_SHARED"] = "1"
+    (buildpath/"third-party").install resource("third-party")
 
     system "cmake", ".", *args
     system "make"
