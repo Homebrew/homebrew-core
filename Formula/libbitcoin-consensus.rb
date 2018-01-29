@@ -13,9 +13,9 @@ class LibbitcoinConsensus < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "boost" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
 
   resource "secp256k1" do
     url "https://github.com/libbitcoin/secp256k1/archive/v0.1.0.13.tar.gz"
