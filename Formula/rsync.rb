@@ -1,10 +1,10 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.1.2.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.1.2.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.1.2.tar.gz"
-  sha256 "ecfa62a7fa3c4c18b9eccd8c16eaddee4bd308a76ea50b5c02a5840f09c0a1c2"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.1.3.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.1.3.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.1.3.tar.gz"
+  sha256 "55cc554efec5fdaad70de921cd5a5eeb6c29a95524c715f3bbf849235b0800c0"
 
   bottle do
     sha256 "51924d6d4c11681643fa8c41e3204104bbb356ba32984fa951fe7f0d65081ee6" => :high_sierra
@@ -14,16 +14,6 @@ class Rsync < Formula
   end
 
   depends_on "autoconf" => :build
-
-  patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.1.2.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.1.2.tar.gz"
-    mirror "https://launchpad.net/rsync/main/3.1.2/+download/rsync-patches-3.1.2.tar.gz"
-    sha256 "edeebe9f2532ae291ce43fb86c9d7aaf80ba4edfdad25dce6d42dc33286b2326"
-    apply "patches/fileflags.diff",
-          "patches/crtimes.diff",
-          "patches/hfs-compression.diff"
-  end
 
   def install
     system "./prepare-source"
