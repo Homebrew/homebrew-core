@@ -24,23 +24,33 @@ class Gegl < Formula
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
-  depends_on "jpeg"
   depends_on "cairo" => :optional
+  depends_on "jasper" => :optional
   depends_on "librsvg" => :optional
   depends_on "lua" => :optional
   depends_on "pango" => :optional
   depends_on "sdl" => :optional
+  depends_on "suite-sparse" => :optional
 
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
 
   def install
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-docs
+    ]
+
+    args << "--without-cairo" if build.without? "cairo"
+    args << "--without-jasper" if build.without? "jasper"
+    args << "--without-umfpack" if build.without? "suite-sparse"
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-docs"
+    system "./configure", *args
     system "make", "install"
   end
 
