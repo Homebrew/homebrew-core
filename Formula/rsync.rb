@@ -8,9 +8,9 @@ class Rsync < Formula
   revision 1
 
   bottle do
-    sha256 "1b023b82b13c5afaaf0ef980465b660c7a3972f842b2a73cbb2fe541d0a7d210" => :high_sierra
-    sha256 "e33f81c60ee6abe14cec39696d5d7c0d1384fac41fe5d2ca0b8b65db006d637b" => :sierra
-    sha256 "b25d1d738aeb8c9964ade0962f84f47e8818be89bb476d683be5e4fbd7770c64" => :el_capitan
+    sha256 "c79e5b808b6f3925cfb27d38f46b19b6c771646dad1ab8a1a3e905b42c7327e2" => :high_sierra
+    sha256 "c7dc08f7c2c06bebb0947a2f8182dbbc4dde562fa3ab054555cee2564f355395" => :sierra
+    sha256 "2a41527121c88e9c616346a866d587d2365d6f9cda8cb9018c4fb8209646f444" => :el_capitan
   end
 
   depends_on "autoconf" => :build
