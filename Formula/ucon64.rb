@@ -1,8 +1,8 @@
 class Ucon64 < Formula
   desc "ROM backup tool and emulator's Swiss Army knife program"
   homepage "https://ucon64.sourceforge.io/"
-  url "https://downloads.sourceforge.net/ucon64/ucon64-2.0.2-src.tar.gz"
-  sha256 "2df3972a68d1d7237dfedb99803048a370b466a015a5e4c1343f7e108601d4c9"
+  url "https://downloads.sourceforge.net/ucon64/ucon64-2.1.0-src.tar.gz"
+  sha256 "c99964060a5337cea811b27c4103e186a14ba1f04b19cff08bac0260271bc872"
   head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
   bottle do
