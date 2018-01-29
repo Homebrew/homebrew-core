@@ -6,7 +6,7 @@ class Virtualgo < Formula
 
   depends_on "go" => :build
   depends_on "dep" => :build
-  depends_on "bindfs" => :recommended
+  depends_on "bindfs"
 
   def install
     ENV["GOPATH"] = buildpath
