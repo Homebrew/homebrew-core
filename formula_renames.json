@@ -169,6 +169,7 @@
   "subversion18": "subversion@1.8",
   "swig2": "swig@2",
   "swig304": "swig@3.04",
+  "tachyon": "alluxio",
   "team-explorer-everywhere": "tee-clc",
   "tensorflow": "libtensorflow",
   "thrift@0.90": "thrift@0.9",
