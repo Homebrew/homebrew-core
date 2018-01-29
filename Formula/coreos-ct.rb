@@ -19,7 +19,6 @@ class CoreosCt < Formula
             ssh_authorized_keys:
               - ssh-rsa mykey
     EOS
-
     output = shell_output("#{bin}/ct -pretty -in-file #{testpath}/input")
     assert_match /.*"sshAuthorizedKeys":\s*["ssh-rsa mykey"\s*].*/m, output.strip
   end
