@@ -19,6 +19,6 @@ class Krakend < Formula
   end
 
   test do
-    system "#{bin}/krakend", "--help"
+    assert_match "Version: #{version}", shell_output("#{bin}/krakend --help")
   end
 end
