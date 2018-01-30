@@ -3,8 +3,8 @@ class Nailgun < Formula
   homepage "http://www.martiansoftware.com/nailgun/"
 
   stable do
-    url "https://github.com/martylamb/nailgun/archive/nailgun-all-0.9.1.tar.gz"
-    sha256 "c487735b07f3d65e4c4d9bfa9aaef86d0d78128e4c055c6c24da818a4a47b2ab"
+    url "https://github.com/martylamb/nailgun/archive/nailgun-all-0.9.3.tar.gz"
+    sha256 "3c1567c8633cdf1a942fbcd13eb07564800866cb4d80680b3fbe8ee07c53e7a3"
 
     resource "nailgun-jar" do
       url "https://search.maven.org/remotecontent?filepath=com/martiansoftware/nailgun-server/0.9.1/nailgun-server-0.9.1.jar"
