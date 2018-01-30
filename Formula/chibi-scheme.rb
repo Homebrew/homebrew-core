@@ -4,8 +4,8 @@ class ChibiScheme < Formula
   head "https://github.com/ashinn/chibi-scheme.git"
 
   stable do
-    url "http://synthcode.com/scheme/chibi/chibi-scheme-0.7.3.tgz"
-    sha256 "21a0cf669d42a670a11c08f50dc5aedb7b438fae892260900da58f0ed545fc7d"
+    url "http://synthcode.com/scheme/chibi/chibi-scheme-0.8.0.tgz"
+    sha256 "c39287628cb7762d6cd51fbdab39e797ef7f7e576a3c7650a8a2a02b4f35749a"
   end
 
   bottle do
