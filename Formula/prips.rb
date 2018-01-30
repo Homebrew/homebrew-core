@@ -1,9 +1,9 @@
 class Prips < Formula
   desc "Print the IP addresses in a given range"
   homepage "https://devel.ringlet.net/sysutils/prips/"
-  url "https://devel.ringlet.net/files/sys/prips/prips-1.0.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/prips/prips_1.0.1.orig.tar.xz"
-  sha256 "56b5a8de4c8df39dfaf9ffce7fbd5e80cb897f491eb2f7de83930756390f36b6"
+  url "https://devel.ringlet.net/files/sys/prips/prips-1.0.2.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/prips/prips_1.0.2.orig.tar.xz"
+  sha256 "818258776fa981ea1e122051915a4cd3c777c542c89d23bf585712610abe4aed"
 
   bottle do
     cellar :any_skip_relocation
