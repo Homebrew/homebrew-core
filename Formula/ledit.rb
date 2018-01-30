@@ -1,9 +1,8 @@
 class Ledit < Formula
   desc "Line editor for interactive commands"
   homepage "http://pauillac.inria.fr/~ddr/ledit/"
-  url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.03.tgz"
-  sha256 "ce08a8568c964009ccb0cbba45ae78b9a96c823f42a4fd61431a5b0c2c7a19ce"
-  revision 2
+  url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.04.tgz"
+  sha256 "484897016b001b6d64eb24e38a213177b230ebf8e0d9808a969b62f012e70ee4"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +16,6 @@ class Ledit < Formula
   depends_on "camlp5"
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
-
     # like camlp5, this build fails if the jobs are parallelized
     ENV.deparallelize
     args = %W[BINDIR=#{bin} LIBDIR=#{lib} MANDIR=#{man}]
@@ -29,7 +26,7 @@ class Ledit < Formula
   test do
     history = testpath/"history"
     pipe_output("#{bin}/ledit -x -h #{history} bash", "exit\n", 0)
-    assert history.exist?
+    assert_predicate history, :exist?
     assert_equal "exit\n", history.read
   end
 end
