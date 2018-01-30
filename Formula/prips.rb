@@ -7,10 +7,9 @@ class Prips < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10f3802a208d576fc43ef60bdc37f610690fc2db3fd30af433ecce7df2992e90" => :high_sierra
-    sha256 "7fd356876cb6ae47363d09405ac14e2dd129e51ded5b81603e9028132b96b86c" => :sierra
-    sha256 "70eaa7f0bc91f0f6fbea259a2db276e15beea29ff4bd391f545bcb76b0588af1" => :el_capitan
-    sha256 "37b66f0c4ccee70d7495e9f7bf822446214df33798af61b3e89ead65929de68b" => :yosemite
+    sha256 "0180f9d16dce43e8900e060cde301182e9370cf1b7bdb84d8c0acec2d2b5c5af" => :high_sierra
+    sha256 "2bfab7fad1bead6d1a0e44df90fae171fd6676604bc5cee6c541b37205db694c" => :sierra
+    sha256 "b07d7014555a9730e0bb7216db26ba2a52e0e04131ca8804fe7a3f0031517fce" => :el_capitan
   end
 
   def install
