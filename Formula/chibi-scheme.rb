@@ -6,12 +6,9 @@ class ChibiScheme < Formula
   head "https://github.com/ashinn/chibi-scheme.git"
 
   bottle do
-    rebuild 2
-    sha256 "12a60ba17fa174d9309b5488752073ffc25a0d7c46febf360b674ab6027bd933" => :high_sierra
-    sha256 "094b459f06e4ef4a6285e65f79a2e980965010bbc1e26b5e7b02489c04ca43cc" => :sierra
-    sha256 "6427ba91b6fd3e63591d9b1f9c4cd173a53dfbef21acfdf1e41612c07ad4a18f" => :el_capitan
-    sha256 "a999ce57390290ecc5452be6bda5f6fb415e565b46eb6806650649a85edce99d" => :yosemite
-    sha256 "f29383f76167d2998917a0cfe97e362a7780a1e0288fa17d7132099a41291102" => :mavericks
+    sha256 "532cd642ab70f1e37ed670206fab9828f0a0b3e93dc20fadb786305f50e80a19" => :high_sierra
+    sha256 "c6efeccee97565c675a3f149855dd9550a6f8b7313694b52429e42e4cee9001d" => :sierra
+    sha256 "283522e8939e5a2b724b476ce3a1830f4bb48e70b778ffef14030498cd877b16" => :el_capitan
   end
 
   def install
