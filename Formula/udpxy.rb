@@ -8,12 +8,9 @@ class Udpxy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "485d6e3879f7c6c6b7f044993ea141cde309f5f3283688b795a21276d5daf754" => :high_sierra
-    sha256 "856dd5abfc350e8ce06e361664c21732e0b11dfd84aca7f9bd1e0e40704ccb67" => :sierra
-    sha256 "6f2fb0a9baf932d599fca41b8ec80cd35491332ab89464bdda6d7ac8e5b5e01d" => :el_capitan
-    sha256 "7624631dffaa797191689b05fcb5d7c87c0ad233e49c308b10462c08c8a955e4" => :yosemite
-    sha256 "45dcc2c1a7d1f0170ae44edf600fee1f6112fd1e11530548a7e3b1870d71a7d8" => :mavericks
+    sha256 "46de795b585d88c658554fb943931885db85d75c7f838d9db6d11d98e46538d0" => :high_sierra
+    sha256 "ee35787b2877b8ac1a9fa967e9f8fbf466f8c107e28cc61fee59c26aef9bf44d" => :sierra
+    sha256 "0d4a899340bdee7f4497d68fe3bc59213ad83382d205aa08ada871d9d08c010d" => :el_capitan
   end
 
   def install
