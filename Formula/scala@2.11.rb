@@ -26,6 +26,13 @@ class ScalaAT211 < Formula
     sha256 "b4c9268e461d165592e35f56e3ee9a1482310055f12d59f8b116c29d393d06ea"
   end
 
+  # applying patch https://github.com/scala/scala/commit/60ea98e412de0a2a9f631a5b4b048107e0b251f0
+  # upstream issue https://github.com/scala/scala/pull/5588
+  patch do
+    url "https://raw.githubusercontent.com/muchrooms/patch/master/scala-2.11.12.patch"
+    sha256 "384e5e7264a33417f8890a32622533743dca8b6ba4189a972eb9715b370c6999"
+  end
+
   resource "completion" do
     url "https://raw.githubusercontent.com/scala/scala-tool-support/0a217bc/bash-completion/src/main/resources/completion.d/2.9.1/scala"
     sha256 "95aeba51165ce2c0e36e9bf006f2904a90031470ab8d10b456e7611413d7d3fd"
