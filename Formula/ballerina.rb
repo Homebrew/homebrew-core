@@ -1,6 +1,6 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
-  homepage "https://ballerinalang.org"
+  homepage "https://ballerinalang.org/"
   url "https://ballerinalang.org/downloads/ballerina-runtime/ballerina-0.96.0.zip"
   sha256 "7bbaecbbce0f2132854104a7975dec7e9019ed699536dedca3499d42f908cc87"
 
