@@ -6,9 +6,9 @@ class Sccache < Formula
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
-    sha256 "a6584e18d4c4434684075c76b30544bf27144721f45f628a792d460de11c8306" => :high_sierra
-    sha256 "b1a56447901d0afa3a8fe8b71a04d6943777a927437ffb35eccf10ab812add6f" => :sierra
-    sha256 "4305601f9ab24c533e77e9d88a1475489b1716827ac4e39504f76ce30c81348a" => :el_capitan
+    sha256 "97afe82a53186e7f45e1a2034766c6333c7fa81ffc8325e25df8566620a055a7" => :high_sierra
+    sha256 "c2418b2f7631293068ded33558088237f96c0d993f4a5957cc9ddb99649a62f5" => :sierra
+    sha256 "d3c9818cd6ea11aba71b6db5ddc321b4701331b57c78aa0c8dcce8bf20e77d3c" => :el_capitan
   end
 
   depends_on "rust" => :build
