@@ -31,6 +31,7 @@ class Ballerina < Formula
         println("Hello, World!");
       }
     EOS
-    system libexec/"bin/ballerina", "run", testpath/"helloWorld.bal"
+    output = shell_output("#{bin}/ballerina run helloWorld.bal")
+    assert_equal "Hello, World!", output.chomp
   end
 end
