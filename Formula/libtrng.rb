@@ -6,10 +6,9 @@ class Libtrng < Formula
 
   bottle do
     cellar :any
-    sha256 "5ae8a961a4bc56da1347d97aff8f75f019a35f475cf756a7534ddb88fd151b15" => :high_sierra
-    sha256 "ae717cd2fe16f077d13b6ea286d6ff5a4eaddc03829c88b2536e679a046302c3" => :sierra
-    sha256 "f74d4d146c484604d4f33e43068ba8629bbea8757b63456cc8405ded55993e85" => :el_capitan
-    sha256 "b34fb6439f66eec2f315d678208baf4444a1a89d82db2e485770ff3bea364895" => :yosemite
+    sha256 "c6ed745a330d0da3123467cb19dd6f4c8f6871aed54b4f6addd813271599a2d6" => :high_sierra
+    sha256 "54e596853cd0ea1b49dd62d0d3fc5f559063572a6f19e3fb26ef09ed19a01564" => :sierra
+    sha256 "e821f8b59abe5f15689ac8720539bd258eab64f83ecfa6047406e4c11884bdef" => :el_capitan
   end
 
   def install
