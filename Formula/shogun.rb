@@ -4,6 +4,12 @@ class Shogun < Formula
   url "http://shogun-toolbox.org/archives/shogun/releases/6.1/sources/shogun-6.1.3.tar.bz2"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
 
+  bottle do
+    sha256 "f1a12c1e5eddcdf573f66c14ea30b2f223830557dfb996d88ae970888b1ca719" => :high_sierra
+    sha256 "f15370760814b49ac5f2d6a4b5b8ce452a286ffc571251ba8da2f1e6180f6b59" => :sierra
+    sha256 "0cfa0d06e772e464e8b376a7d14b79bd00a49080f4fb808de5b40fe697819115" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on :java => ["1.7+", :build]
   depends_on "pkg-config" => :build
