@@ -1,8 +1,8 @@
 class DbusGlib < Formula
   desc "GLib bindings for the D-Bus message bus system"
   homepage "https://wiki.freedesktop.org/www/Software/DBusBindings/"
-  url "https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.108.tar.gz"
-  sha256 "9f340c7e2352e9cdf113893ca77ca9075d9f8d5e81476bf2bf361099383c602c"
+  url "https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz"
+  sha256 "7ce4760cf66c69148f6bd6c92feaabb8812dee30846b24cd0f7395c436d7e825"
 
   bottle do
     cellar :any
