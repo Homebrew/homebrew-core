@@ -1,8 +1,8 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.4.tar.gz"
-  sha256 "2541c3e1f22f0bb2e66e846f8e4fd3afb95b80ce71d37853fb962ba7a1caef12"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.5.tar.gz"
+  sha256 "16412bf5cb87a23a7484849931724df40ad86331edd57de68c842dc292c27531"
 
   bottle do
     cellar :any_skip_relocation
