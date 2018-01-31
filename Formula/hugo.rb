@@ -1,8 +1,8 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/v0.34.tar.gz"
-  sha256 "4ba991d4de650a97ad51893ce707788b87190bf487f6b13ad88111540469787d"
+  url "https://github.com/gohugoio/hugo/archive/v0.35.tar.gz"
+  sha256 "dfef416fe3a0355caef0210d0e7530383f6ec320ce0891431ab7c039b31a86c4"
   head "https://github.com/gohugoio/hugo.git"
 
   bottle do
