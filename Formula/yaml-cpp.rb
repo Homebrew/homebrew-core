@@ -6,11 +6,9 @@ class YamlCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "f4e9ed4651906c28464baf45d3a460502a24b42add49b35e969141818348680c" => :high_sierra
-    sha256 "fe1fca40afa3817fd44b1f3c4810dce9f4d20390522526e72d775b9336fc3c3a" => :sierra
-    sha256 "20b38c2f7c47550b458cb5b6f054795d90f4955d2525656e6d713cdbe7d451b1" => :el_capitan
-    sha256 "e0a51ff0b33568695412fe43cdc51b26642ae46dfb6dac56b813295057c91bb6" => :yosemite
-    sha256 "c779f86632b38472e022ad91f0f5ddb0f399fd547d36cbc5494a76c0f6becd48" => :mavericks
+    sha256 "78e12dcdd830f2d8b0efcc03e788774ba2ee91e4399addb339db11c5d7a41220" => :high_sierra
+    sha256 "7c6bd9e166e104af6ef5b42058ca3f3e907b565aa035f4fd3a0f7a8dcd13429d" => :sierra
+    sha256 "2ece56723e6c90baa1474115ed40445aa72a71787ff78f721111f5791ab1567b" => :el_capitan
   end
 
   option "with-static-lib", "Build a static library"
