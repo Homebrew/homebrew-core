@@ -13,7 +13,6 @@ class Primer3 < Formula
   end
 
   option "without-test", "Skip build-time tests"
-  deprecated_option "without-check" => "without-test"
 
   def install
     cd "src" do
