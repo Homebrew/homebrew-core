@@ -1,8 +1,8 @@
 class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
-  url "https://github.com/jbeder/yaml-cpp/archive/release-0.5.3.tar.gz"
-  sha256 "3492d9c1f4319dfd5588f60caed7cec3f030f7984386c11ed4b39f8e3316d763"
+  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.0.tar.gz"
+  sha256 "e643119f1d629a77605f02096cc3ac211922d48e3db12249b06a3db810dd8756"
 
   bottle do
     cellar :any
@@ -16,7 +16,8 @@ class YamlCpp < Formula
   option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
-  depends_on "boost"
+
+  needs :cxx11
 
   def install
     args = std_cmake_args
@@ -39,7 +40,7 @@ class YamlCpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lyaml-cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lyaml-cpp", "-o", "test"
     system "./test"
   end
 end
