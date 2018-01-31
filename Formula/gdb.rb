@@ -1,9 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.0.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.0.1.tar.xz"
-  sha256 "3dbd5f93e36ba2815ad0efab030dcd0c7b211d7b353a40a53f4c02d7d56295e3"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.tar.xz"
+  sha256 "af61a0263858e69c5dce51eab26662ff3d2ad9aa68da9583e8143b5426be4b34"
 
   bottle do
     sha256 "e98ad847402592bd48a9b1468fefb2fac32aff1fa19c2681c3cea7fb457baaa0" => :high_sierra
@@ -22,6 +22,14 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :optional
   depends_on "guile@2.0" => :optional
+
+  fails_with :clang do
+    build 800
+    cause <<~EOS
+      probe.c:63:28: error: default initialization of an object of const type
+      'const any_static_probe_ops' without a user-provided default constructor
+    EOS
+  end
 
   fails_with :clang do
     build 600
