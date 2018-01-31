@@ -17,11 +17,9 @@ class F3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43e671cd918bb967db742930a092fe814b366a2293613797b13c376c190d7dd9" => :high_sierra
-    sha256 "e10885461941cca0ed989763d1677e0322c2b7e542710dd7104ee34c0508710b" => :sierra
-    sha256 "1b3eb529dd5ed455ecc8c1420c9fa1011ca84fc841fdb1570b5651ce171b988f" => :el_capitan
-    sha256 "ea3c848931257bbeb60e85a672d7132556528646bd2b1f5e35ace60461b80a34" => :yosemite
-    sha256 "96ee5681212139b960fdaca98839e2e5e23446f1b890b751c459b05bedabaf6a" => :mavericks
+    sha256 "d369cb856bab428b9bf17049f0331ad9c1a7154088433887ec141054bb4bab74" => :high_sierra
+    sha256 "e11bf7b13aba7ad198486aca8a3edccae5fbaaedff47d6b51f0147cbac4a5d04" => :sierra
+    sha256 "47474e4cab315cf4f3dd124a133fc17f4547e7cb111d630e79131ea1f572f36f" => :el_capitan
   end
 
   depends_on "argp-standalone"
