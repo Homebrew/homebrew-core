@@ -6,10 +6,9 @@ class Gammaray < Formula
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
-    sha256 "9b33e7e9c865866c4d3a9525e28f2b8c7f0e2a21d80a014d05394c129b9168c8" => :high_sierra
-    sha256 "edaf5e2f136cae40a09d16165e3f4b178251fa938603e3f26132458c84ceeba5" => :sierra
-    sha256 "4ff4974627728b9289ddc31394c1e5bb612bfc28a40dacf365ee4c31d7e33b24" => :el_capitan
-    sha256 "12ad2449434c9c7752a2b8a4b40c537008ba29efbc03a1840714b7ef7f51a23b" => :yosemite
+    sha256 "8116210bfc9f845fac99f46222fb787dfb25c61935c0bd9537f1f022936ba044" => :high_sierra
+    sha256 "f81cdf19b17f3b09c5c0ed484e6d97d902bb93b7426cf96af02e26e24c14a915" => :sierra
+    sha256 "89a951178fc9bc16ab8f46a6f6e29683c855bea9aa37f9e3acafee5701fff366" => :el_capitan
   end
 
   option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"
