@@ -8,9 +8,9 @@ class Mas < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1132b7c434216e6b55cb928f2ba8c1a4b5335ebed33e899ffaf8019b9887a557" => :high_sierra
-    sha256 "dabea41de5ca826bba584a0d00f8d7b65024f504e5f5fa9dd7639c2f9e410421" => :sierra
-    sha256 "894480201eb8bd8772378c844860fac3d9ff2fdb75fe5f0001581b14c8cbceed" => :el_capitan
+    sha256 "2d03fa8338e5a75ab8c93e6318607654306d17df3e747586a903d014bb102032" => :high_sierra
+    sha256 "9d50b4a359bbb100c341fff41a3690aa0c855b6651a1ac93ef4f6e974b9a7cd4" => :sierra
+    sha256 "05f5b0166c716896da57f0db781ae3f818dd2fbe561099f288b847c777687970" => :el_capitan
   end
 
   depends_on :xcode => ["8.0", :build]
