@@ -23,9 +23,7 @@ class MathComp < Formula
       elisp.install "ssreflect/pg-ssr.el"
     end
 
-    if build.head?
-      system "make", "-C", "htmldoc", "COQBIN=#{coqbin}"
-    end
+    system "make", "-C", "htmldoc", "COQBIN=#{coqbin}" if build.head?
 
     doc.install Dir["htmldoc/*"]
   end
@@ -41,12 +39,8 @@ class MathComp < Formula
       Check test.
     EOS
 
-    compile = [
-      Formula["coq"].opt_bin/"coqc",
-      "-R", lib/"coq/user-contrib/mathcomp", "mathcomp",
-      testpath/"testing.v"
-    ].join(" ")
-
-    assert_match /\Atest\s+: forall/, shell_output(compile)
+    coqc = Formula["coq"].opt_bin/"coqc"
+    cmd = "#{coqc} -R #{lib}/coq/user-contrib/mathcomp mathcomp testing.v"
+    assert_match /\Atest\s+: forall/, shell_output(cmd)
   end
 end
