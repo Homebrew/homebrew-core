@@ -5,42 +5,48 @@ class MathComp < Formula
   sha256 "c672a4237f708b5f03f1feed9de37f98ef5c331819047e1f71b5762dcd92b262"
   head "https://github.com/math-comp/math-comp.git"
 
-  option "without-docs", "Don't generate or install documentation"
-
-  depends_on "ocaml"
+  depends_on "ocaml" => :build
   depends_on "coq"
 
   def install
-    ENV["COQBIN"] = "#{Formula["coq"].bin}/"
-    (buildpath/"mathcomp/Makefile.coq.local").write(<<~EOF)
-      COQLIB=#{lib}/coq/
-    EOF
+    coqbin = "#{Formula["coq"].opt_bin}/"
+    coqlib = "#{lib}/coq/"
+
+    (buildpath/"mathcomp/Makefile.coq.local").write <<~EOS
+      COQLIB=#{coqlib}
+    EOS
 
     cd "mathcomp" do
-      system "make", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}"
+      system "make", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}", "COQBIN=#{coqbin}"
       system "make", "install"
 
-      (elisp/"ssreflect").install "ssreflect/pg-ssr.el"
+      elisp.install "ssreflect/pg-ssr.el"
     end
 
-    unless build.without? "docs"
-      if build.head?
-        system "make", "-C", "htmldoc"
-      end
-
-      doc.install Dir["htmldoc/*"]
+    if build.head?
+      system "make", "-C", "htmldoc", "COQBIN=#{coqbin}"
     end
+
+    doc.install Dir["htmldoc/*"]
   end
 
   test do
-    (testpath/"testing.v").write(<<~EOS)
+    (testpath/"testing.v").write <<~EOS
       From mathcomp Require Import ssreflect seq.
 
       Parameter T: Type.
       Theorem test (s1 s2: seq T): size (s1 ++ s2) = size s1 + size s2.
       Proof. by elim : s1 =>//= x s1 ->. Qed.
+
+      Check test.
     EOS
 
-    system HOMEBREW_PREFIX/"bin/coqc", testpath/"testing.v"
+    compile = [
+      Formula["coq"].opt_bin/"coqc",
+      "-R", lib/"coq/user-contrib/mathcomp", "mathcomp",
+      testpath/"testing.v"
+    ].join(" ")
+
+    assert_match /\Atest\s+: forall/, shell_output(compile)
   end
 end
