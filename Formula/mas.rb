@@ -3,6 +3,7 @@ class Mas < Formula
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas/archive/v1.3.1.tar.gz"
   sha256 "9326058c9e572dd38df644313307805757d7ea6dfea8626e0f41c373ecbd46b5"
+  revision 1
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
