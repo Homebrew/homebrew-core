@@ -18,7 +18,7 @@ class MathComp < Formula
 
     cd "mathcomp" do
       system "make", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}", "COQBIN=#{coqbin}"
-      system "make", "install"
+      system "make", "install", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}", "COQBIN=#{coqbin}"
 
       elisp.install "ssreflect/pg-ssr.el"
     end
