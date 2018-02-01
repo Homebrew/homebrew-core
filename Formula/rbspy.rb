@@ -10,6 +10,6 @@ class Rbspy < Formula
 
   test do
     output = shell_output("#{bin}/rbspy -V")
-    assert_includes "rbspy", output
+    assert_includes output, "rbspy"
   end
 end
