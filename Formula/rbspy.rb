@@ -7,8 +7,8 @@ class Rbspy < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build"
-    bin.install "target/debug/rbspy"
+    system "cargo", "build", "--release"
+    bin.install "target/release/rbspy"
   end
 
   test do
