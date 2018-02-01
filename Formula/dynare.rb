@@ -3,9 +3,10 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.3.tar.xz"
   sha256 "01434f6d3ceaff1891dc771f6a5b39caee787b2ffa1875e5a4e8c673e32ff3d7"
-  head "https://github.com/DynareTeam/dynare.git"
 
-  if build.head?
+  head do
+    url "https://github.com/DynareTeam/dynare.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "bison" => :build
@@ -36,11 +37,13 @@ class Dynare < Formula
     ENV.cxx11
 
     resource("slicot").stage do
-      system "make", "lib", "OPTS=-fPIC", "SLICOTLIB=../libslicot_pic.a", "FORTRAN=gfortran", "LOADER=gfortran"
+      system "make", "lib", "OPTS=-fPIC", "SLICOTLIB=../libslicot_pic.a",
+             "FORTRAN=gfortran", "LOADER=gfortran"
       system "make", "clean"
-      system "make", "lib", "OPTS=-fPIC -fdefault-integer-8", "FORTRAN=gfortran", "LOADER=gfortran",
-             "SLICOTLIB=../libslicot64_pic.a"
-      lib.install "libslicot_pic.a", "libslicot64_pic.a"
+      system "make", "lib", "OPTS=-fPIC -fdefault-integer-8",
+             "FORTRAN=gfortran", "LOADER=gfortran",
+             "SLICOTLIB=../libslicot64_pic.a"      
+      (buildpath/"slicot").install "libslicot_pic.a", "libslicot64_pic.a"
     end
 
     if build.head?
@@ -51,8 +54,12 @@ class Dynare < Formula
       system "autoreconf", "-fvi"
     end
 
-    system "./configure", "--disable-matlab", "--disable-debug", "--disable-dependency-tracking",
-           "--disable-silent-rules", "--prefix=#{prefix}", "--with-slicot=#{prefix}"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--disable-matlab",
+                          "--with-slicot=#{buildpath}/slicot"
     system "make", "install"
   end
 
