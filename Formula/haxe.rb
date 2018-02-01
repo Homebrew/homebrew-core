@@ -2,8 +2,8 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag => "3.4.4",
-      :revision => "4f09586f6691e8a9645844b62036c8c974a00d15"
+      :tag => "3.4.5",
+      :revision => "666f17e8163d6ad30399b5f91ecadef77d07a105"
 
   bottle do
     cellar :any
