@@ -4,6 +4,12 @@ class BareosClient < Formula
   url "https://github.com/bareos/bareos/archive/Release/17.2.4.tar.gz"
   sha256 "4c443539012cf5ebb0fdb18878e604e82b951e6429c618acd18762f3c5724799"
 
+  bottle do
+    sha256 "709b8c57604fe70656a66c83c1834851fdd475c765144e894f431c04738b547c" => :high_sierra
+    sha256 "71321bab418d6914bd4f52cdbce659907f6bcf472c85d5f25d9bcae1447321ae" => :sierra
+    sha256 "2d4ac789acec8579adf8a9c6304f7abfae2d343ab18f3dea310a0342e0a119b9" => :el_capitan
+  end
+
   depends_on "openssl"
   depends_on "readline"
 
