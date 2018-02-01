@@ -165,6 +165,7 @@
   "sonar": "sonarqube",
   "speedtest_cli": "speedtest-cli",
   "srtp@1.5": "srtp@1.6",
+  "ssreflect": "math-comp",
   "stash-cli": "atlassian-cli",
   "subversion18": "subversion@1.8",
   "swig2": "swig@2",
