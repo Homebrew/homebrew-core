@@ -17,7 +17,7 @@ class Cockatrice < Formula
   depends_on :macos => :el_capitan
   depends_on "cmake" => :build
   depends_on "protobuf"
-  depends_on "qt"
+  depends_on "qt@5.7"
 
   fails_with :clang do
     build 503
