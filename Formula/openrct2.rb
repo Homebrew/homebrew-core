@@ -3,6 +3,7 @@ class Openrct2 < Formula
   homepage "https://openrct2.website"
   url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.1.tar.gz"
   sha256 "5d7a6c7f3c770e7de506958f86789c438c543c27d312fd096322cde4e89f50ad"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do

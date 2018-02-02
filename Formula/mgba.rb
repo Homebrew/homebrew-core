@@ -1,7 +1,7 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  revision 1
+  revision 2
   head "https://github.com/mgba-emu/mgba.git"
 
   stable do
