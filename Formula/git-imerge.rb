@@ -7,10 +7,9 @@ class GitImerge < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ca6239030f398d92a18cd7973f886b34a6a136fa5506daa6b092b65e58ee0f0" => :high_sierra
-    sha256 "fe6030bcaafa0b35d8137182f2b7fef2ff2d45f27a2b5d73aa251c88c70aa9d3" => :sierra
-    sha256 "fe6030bcaafa0b35d8137182f2b7fef2ff2d45f27a2b5d73aa251c88c70aa9d3" => :el_capitan
-    sha256 "fe6030bcaafa0b35d8137182f2b7fef2ff2d45f27a2b5d73aa251c88c70aa9d3" => :yosemite
+    sha256 "76aee24eeb5e7615e4cfbd7aaf3aacac8d8729dfcee79d8542a84cbd9b663459" => :high_sierra
+    sha256 "76aee24eeb5e7615e4cfbd7aaf3aacac8d8729dfcee79d8542a84cbd9b663459" => :sierra
+    sha256 "76aee24eeb5e7615e4cfbd7aaf3aacac8d8729dfcee79d8542a84cbd9b663459" => :el_capitan
   end
 
   def install
