@@ -8,9 +8,9 @@ class FuseZip < Formula
 
   bottle do
     cellar :any
-    sha256 "76bda2baea148ceda1a4af12e94686c499a4acd5033dd846a148e07fc49c4b63" => :high_sierra
-    sha256 "8f4054cc64b699d8ce29c33cca1e73e05c55e5151ab6eb4c6a8e6e0eb0ae9579" => :sierra
-    sha256 "56131c4207a94a518a2a6ebdadeb6db58662b36990c15492fb03cccba89f58aa" => :el_capitan
+    sha256 "5519d07b34a5056ece68746b2592c2075f0faba70a8d04e1a89e2ad7784c01b6" => :high_sierra
+    sha256 "bfaa54f69e164d81d88de6d1fb3773e856238e888a7ac29c13d8dd079827d8f2" => :sierra
+    sha256 "4863009cde422f20c4a91e9c0d171b88c26862f0f23cb43257e9a7a0cb71cf80" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
