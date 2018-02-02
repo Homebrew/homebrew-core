@@ -18,7 +18,7 @@ class Libksi < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <ksi/ksi.h>
       #include <assert.h>
       int main()
