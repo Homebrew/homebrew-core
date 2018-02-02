@@ -7,10 +7,9 @@ class EbookTools < Formula
 
   bottle do
     cellar :any
-    sha256 "0ded91b65a0089ca96619fbdf39c1f55ffe18b1b6786077162b2f7d89602fc7a" => :high_sierra
-    sha256 "c6e286e88e063821bec84c5d7589e24da162568abee86c7a14a3c49a47fdcfee" => :sierra
-    sha256 "3da2cbaf77b390a4c5fdc216483e15ce38d87c151e6365fbc9f9a4b1c501d7b1" => :el_capitan
-    sha256 "0d90d2e7ff07b4dc30f40fe769f9e8805b8dee163f44ecc9d7a529064d37c70d" => :yosemite
+    sha256 "fce5577098322a2b4f6fd73a4a18077f77100adf1f15d9a494594e416354d1cc" => :high_sierra
+    sha256 "cc01e2bcdd26e6e9b0852e604f2bd56c31bde00ff42eb73fca45d2661fbab159" => :sierra
+    sha256 "aa76cbdcef93ac7d4af39b9cbcb1b841fa08f2dd11cf7542c5fa4f4ae365b0cc" => :el_capitan
   end
 
   depends_on "cmake" => :build
