@@ -3,9 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://files.pythonhosted.org/packages/bb/9c/a4361b89e478e5459678908692251636d43d14d88c56b8ff53dd239cadec/snapcraft-2.33.tar.gz"
-  sha256 "269ed290dc7853e812852b24a5ffb7cdae5f8351afee17769f0c849043c70ac9"
-  revision 3
+  url "https://files.pythonhosted.org/packages/f0/47/453ef9822fd35e4037e4364182e0c5ff57760fde64da0179d8275f83fb0e/snapcraft-2.39.tar.gz"
+  sha256 "a1befdd554e27f0b57105fd7e45f8ea1c8a21fe4728d2b60058bee394df93ab9"
 
   bottle do
     cellar :any
@@ -124,6 +123,16 @@ class Snapcraft < Formula
   resource "requests-toolbelt" do
     url "https://files.pythonhosted.org/packages/95/af/d18f76bd931a92dfe614dd7f613527d5447145260e335188b418f8385226/requests-toolbelt-0.6.0.tar.gz"
     sha256 "cc4e9c0ef810d6dfd165ca680330b65a4cf8a3f08f5f08ecd50a0253a08e541f"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
+    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+  end
+
+  resource "requests_unixsocket" do
+    url "https://files.pythonhosted.org/packages/f3/94/67d781fb32afbee0fffa0ad9e16ad0491f1a9c303e14790ae4e18f11be19/requests-unixsocket-0.1.5.tar.gz"
+    sha256 "a91bc0138f61fb3396de6358fa81e2cd069a150ade5111f869df01d8bc9d294c"
   end
 
   resource "responses" do
