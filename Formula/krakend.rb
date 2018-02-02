@@ -20,78 +20,76 @@ class Krakend < Formula
 
   test do
     (testpath/"krakend_unsupported_version.json").write <<~EOS
-    {
-      "version": 1,
-      "extra_config": {
-        "github_com/devopsfaith/krakend-gologging": {
-          "level": "WARNING",
-          "prefix": "[KRAKEND]",
-          "syslog": false,
-          "stdout": true
+      {
+        "version": 1,
+        "extra_config": {
+          "github_com/devopsfaith/krakend-gologging": {
+            "level": "WARNING",
+            "prefix": "[KRAKEND]",
+            "syslog": false,
+            "stdout": true
+          }
         }
       }
-    }
     EOS
     assert_match "Unsupported version", shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1")
 
     (testpath/"krakend_bad_file.json").write <<~EOS
-    {
-      "version": 2,
-      "bad": file
-    }
-
-   EOS
-   assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_incomplete.json 2>&1")
-
-
-   (testpath/"krakend.json").write <<~EOS
-   {
-    "version": 2,
-    "extra_config": {
-      "github_com/devopsfaith/krakend-gologging": {
-        "level": "WARNING",
-        "prefix": "[KRAKEND]",
-        "syslog": false,
-        "stdout": true
+      {
+        "version": 2,
+        "bad": file
       }
-      },
-      "endpoints": [
-        {
-          "endpoint": "/test",
-          "method": "GET",
-          "concurrent_calls": 1,
-          "extra_config": {
-            "github_com/devopsfaith/krakend-httpsecure": {
-              "disable": true,
-              "allowed_hosts": [],
-              "ssl_proxy_headers": {}
+    EOS
+    assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_incomplete.json 2>&1")
+
+    (testpath/"krakend.json").write <<~EOS
+      {
+        "version": 2,
+        "extra_config": {
+          "github_com/devopsfaith/krakend-gologging": {
+            "level": "WARNING",
+            "prefix": "[KRAKEND]",
+            "syslog": false,
+            "stdout": true
+          }
+        },
+        "endpoints": [
+          {
+            "endpoint": "/test",
+            "method": "GET",
+            "concurrent_calls": 1,
+            "extra_config": {
+              "github_com/devopsfaith/krakend-httpsecure": {
+                "disable": true,
+                "allowed_hosts": [],
+                "ssl_proxy_headers": {}
               },
               "github.com/devopsfaith/krakend-ratelimit/juju/router": {
                 "maxRate": 0,
                 "clientMaxRate": 0
               }
-              },
-              "backend": [
-                {
-                  "url_pattern": "/backend",
-                  "extra_config": {
-                    "github.com/devopsfaith/krakend-oauth2-clientcredentials": {
-                      "is_disabled": true,
-                      "endpoint_params": {}
-                    }
-                    },
-                    "encoding": "json",
-                    "sd": "dns",
-                    "host": [
-                      "host1"
-                      ],
-                      "disable_host_sanitize": true
-                    }
-                  ]
-                }
-              ]
-            }
-            EOS
+            },
+            "backend": [
+              {
+                "url_pattern": "/backend",
+                "extra_config": {
+                  "github.com/devopsfaith/krakend-oauth2-clientcredentials": {
+                    "is_disabled": true,
+                    "endpoint_params": {}
+                  }
+                },
+                "encoding": "json",
+                "sd": "dns",
+                "host": [
+                  "host1"
+                ],
+                "disable_host_sanitize": true
+              }
+            ]
+          }
+        ]
+      }
+    EOS
     assert_match "OK", shell_output("#{bin}/krakend check -c krakend.json 2>&1")
   end
 end
