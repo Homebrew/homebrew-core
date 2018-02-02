@@ -11,8 +11,8 @@ class Emacs < Formula
   end
 
   devel do
-    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.0.90.tar.xz"
-    sha256 "efb27124cb8f3eeba9472f4f5774b5d9bf4f87fd4d6023aae78469fb5667cf2c"
+    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.0.91.tar.xz"
+    sha256 "31f6bb353e13d337e10160f778608e342becd213fbb21c9f08085abe318381a0"
   end
 
   head do

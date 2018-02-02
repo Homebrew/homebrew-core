@@ -1,17 +1,14 @@
 class SpeechTools < Formula
   desc "C++ speech software library from the University of Edinburgh"
   homepage "http://festvox.org/docs/speech_tools-2.4.0/"
-  url "http://festvox.org/packed/festival/2.4/speech_tools-2.4-release.tar.gz"
-  sha256 "fbc2482c443919aa79d2e599d6a5faee4e793df55a79ef377f1dc7e8ba237010"
+  url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
+  sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9df2392e021ab65fdcdc691fe3b2fbfc8037472a4bd40b0678cba885984c6c8c" => :high_sierra
-    sha256 "fdd91c9e012e6e6849c202dbeaa5fcec9ae740e915f350e5881f3ee0aafcea60" => :sierra
-    sha256 "f61c67afcd6c5f54b402183cb5148cf51cad67c95ce01bb3db0df57d384cc7e3" => :el_capitan
-    sha256 "48091e873f0d038ebc6e46ab3ca7c1e494d061afab3dae64e1dbd594e4afccbe" => :yosemite
-    sha256 "dca2c0deebfd3bd6aeba1cfaa4f72a3cc29b90e879fd51ed38c2524d1789eaad" => :mavericks
-    sha256 "16895a28e900f2b7d209d2c4dda0228024c6da9627189f356c631f1b8c990c27" => :mountain_lion
+    sha256 "b43389631b881f76529aa4458442b819dc5be784afbf5569f9e526ce3dc7e028" => :high_sierra
+    sha256 "4d3681ee2194a92fcbad96371c499f5c2a71c59cfe8798b8092f0e57f793fca3" => :sierra
+    sha256 "a0794d1d7f424833d2fe92726d26b6ebcc8dcf63b7f9700b19e1119ed7e2ca62" => :el_capitan
   end
 
   conflicts_with "align", :because => "both install `align` binaries"
@@ -39,7 +36,7 @@ class SpeechTools < Formula
     end
 
     # convert to wav format using ch_wave
-    system "ch_wave", txtfile,
+    system bin/"ch_wave", txtfile,
       "-itype", "raw",
       "-istype", "ascii",
       "-f", rate_hz.to_s,
@@ -47,13 +44,13 @@ class SpeechTools < Formula
       "-otype", "riff"
 
     # pitch tracking to est format using pda
-    system "pda", wavfile,
+    system bin/"pda", wavfile,
       "-shift", (1 / frequency_hz.to_f).to_s,
       "-o", ptcfile,
       "-otype", "est"
 
     # extract one frame from the middle using ch_track, capturing stdout
-    pitch = `ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} -to #{frequency_hz * duration_secs / 2}`.strip
+    pitch = shell_output("#{bin}/ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} -to #{frequency_hz * duration_secs / 2}")
 
     # should be 100 (Hz)
     assert_equal frequency_hz, pitch.to_i

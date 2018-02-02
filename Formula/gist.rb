@@ -13,7 +13,7 @@ class Gist < Formula
   end
 
   def install
-    rake "install", "prefix=#{prefix}"
+    system "rake", "install", "prefix=#{prefix}"
   end
 
   test do

@@ -3,14 +3,14 @@ class Khard < Formula
 
   desc "Console carddav client"
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/f5/0a/2ac16043a7a970f33306a4501948bb7dc02263d82d12e67e7578cb938bdf/khard-0.12.1.tar.gz"
-  sha256 "230cff736a6ec2bbe9f4456fad69e586fc88e64f1bc7245b753e68976829fff6"
+  url "https://files.pythonhosted.org/packages/19/91/6309d5b0477582b9b663cd65f1346cec6ed5f44e734bac722e1ca2ddc1e3/khard-0.12.2.tar.gz"
+  sha256 "9193d2d07cdb69cc6e35a0732111efb92bbfba854a1dd42b4f9c91a52a16c507"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a03d8d18a03b4bb3c0b4f3d731cc2fece1ee63bc1d57669b1e4ed259501b4773" => :high_sierra
-    sha256 "704cf1034b3aaa2ef9e3723e43b50f941e3acabee40804fa17c7d2c8c0e5fbbc" => :sierra
-    sha256 "4986a2a94a089fe0e13344ad61192f9e55bcb84cfb7d1518b08df53641945c31" => :el_capitan
+    sha256 "9c124b8848836d9d97dc6a89a4fe7b3e324df4d20b8458f9d91c54a1008cf8e4" => :high_sierra
+    sha256 "0d24f1e0efff80249759470e6b540e0a79b1d4dcad25eb786f3c81c8234684e2" => :sierra
+    sha256 "c18c0b9e6c4b3a9e0f0a09e9585cc788d303b261ca36812508a8555ac25c034d" => :el_capitan
   end
 
   depends_on "python3"

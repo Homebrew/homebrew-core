@@ -3,13 +3,14 @@ class SagittariusScheme < Formula
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
   url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.8.9.tar.gz"
   sha256 "8191ce0d61e271744180d9f89dd5a58d19700884b76d62f16dd59cbb84c8afe5"
+  revision 1
   head "https://bitbucket.org/ktakashi/sagittarius-scheme", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "7b200a64350627048d97e543f582f59fcf905090f9021dd76bdeed0f923a91df" => :high_sierra
-    sha256 "d2d7a1d0c8fb59f2c89da47eabb7cf74c95cba7901aad088e4a100ee779475ed" => :sierra
-    sha256 "551bfeff31febb60604e2abf71e23677dc7635878f0198f9a32320b7aa7aec6b" => :el_capitan
+    sha256 "a7a531aeb202a2dcba74bc04250ff0b7635eef5f41e65e69f4063dc7a4a7b139" => :high_sierra
+    sha256 "0fe1f11fdf6f149cb5cd9ba39d27a9f26fcce0bfd4226eec081c9d8f7d00cc82" => :sierra
+    sha256 "e2a7ad03b3100e50829fb6e6f26da1badc40940d4bc6358827cc9dcf1317dea0" => :el_capitan
   end
 
   option "without-docs", "Build without HTML docs"

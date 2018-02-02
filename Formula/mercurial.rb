@@ -5,17 +5,19 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-4.4.2.tar.gz"
   sha256 "dc2f72caccd6b760226753d48c2f4e8889fe176a6b23ef50775caac55ce28b85"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "aa8701f010da5025791330887f22f5e6b8a68312dc286bf935af535ef958989f" => :high_sierra
-    sha256 "dabea6811809e3ddc437249373aea7cb1839e02cd8bb7c1a1e7d9cac4890831b" => :sierra
-    sha256 "0312245445bb2f0a5cee0607fbbcce4ccc1040d9a087ff67918da2c145f8827e" => :el_capitan
+    sha256 "8061918c0ee91c311ee6c118847f08eb79e4c43ab38f0ede4bb900c9de870acd" => :high_sierra
+    sha256 "ef98bb390a0fa1ef12f65a560cc899dafe28599bfa2ba122dc50dd2c512205fa" => :sierra
+    sha256 "f16958df63b4a0194576cf10a0add1e63bd179006c5cbfab8067029fe7b2f627" => :el_capitan
   end
 
   depends_on "python"
 
   def install
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+
     system "make", "PREFIX=#{prefix}", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
