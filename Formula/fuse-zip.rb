@@ -3,6 +3,7 @@ class FuseZip < Formula
   homepage "https://bitbucket.org/agalanin/fuse-zip"
   url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.4.4.tar.gz"
   sha256 "c464a63ca7cc16eef7c14036fe09823ca9d96a0ef530e274845044a5440e47d2"
+  revision 1
   head "https://bitbucket.org/agalanin/fuse-zip", :using => :hg
 
   bottle do
