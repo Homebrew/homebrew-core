@@ -3,9 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://files.pythonhosted.org/packages/bb/9c/a4361b89e478e5459678908692251636d43d14d88c56b8ff53dd239cadec/snapcraft-2.33.tar.gz"
-  sha256 "269ed290dc7853e812852b24a5ffb7cdae5f8351afee17769f0c849043c70ac9"
-  revision 3
+  url "https://files.pythonhosted.org/packages/f0/47/453ef9822fd35e4037e4364182e0c5ff57760fde64da0179d8275f83fb0e/snapcraft-2.39.tar.gz"
+  sha256 "a1befdd554e27f0b57105fd7e45f8ea1c8a21fe4728d2b60058bee394df93ab9"
 
   bottle do
     cellar :any
