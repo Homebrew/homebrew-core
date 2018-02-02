@@ -30,4 +30,19 @@ class Sdl2Image < Formula
                           "--disable-webp-shared"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL_image.h>
+
+      int main()
+      {
+          int success = IMG_Init(0);
+          IMG_Quit();
+          return success;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsdl2_image", "test.c", "-o", "test"
+    system "./test"
+  end
 end

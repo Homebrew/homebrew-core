@@ -1,20 +1,18 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision 1
-
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
-    sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+    sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
   end
 
   bottle do
-    sha256 "7961743f198120b68dac549268a380485e28e23347f72bddfc5dafab405a532c" => :high_sierra
-    sha256 "946d376af4da1e6db59cae92f85ad44fac19f5c259a0b9121a3ad3ac2578db1b" => :sierra
-    sha256 "0a25dd61dc7b1521262b3769b723cc66d6cf61105113545eea673a55041b2447" => :el_capitan
+    sha256 "276420d0b1f1355189ee6701408dfbf351477b7d7166c1ffca313a4368bfb5d8" => :high_sierra
+    sha256 "a1f43d52abe183d270997256f32463281ae3d3c5d2a40f7348d6170a55555246" => :sierra
+    sha256 "f582beda3d37ceaa591bdf3070e357adb31967d8edee2f8075c15732740c7fe8" => :el_capitan
   end
 
   option "with-jit", "Build just-in-time compiler"

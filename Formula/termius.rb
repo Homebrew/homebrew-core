@@ -3,15 +3,15 @@ class Termius < Formula
 
   desc "CLI tool for termius.com (aka serverauditor.com)"
   homepage "https://termius.com"
-  url "https://github.com/Crystalnix/termius-cli/archive/v1.2.7.tar.gz"
-  sha256 "2007785888501b189a8161d9efbca9b8cd6886bef4714581bdb369bc84fbcb03"
-  head "https://github.com/Crystalnix/termius-cli.git", :branch => "develop"
+  url "https://github.com/Crystalnix/termius-cli/archive/v1.2.8.tar.gz"
+  sha256 "65d95ae4cb6f07f703cfe1d360e5bd29be1d354732fe75b51ee2f17bf4dfa18f"
+  head "https://github.com/Crystalnix/termius-cli.git", :branch => "master"
 
   bottle do
     cellar :any
-    sha256 "d9c1e98a2d25d73f626972c247326e13edc05e7ef6245b48cb3ed5d5b3192d83" => :high_sierra
-    sha256 "91a32e75d185003ee37279ed2f14cd63c59f3ee30e0953dcc85a56cb4fc1aadc" => :sierra
-    sha256 "569f5ac20308bd09224009e12d4dc6b8b0140c95b5cf46b141a1512a4e280c55" => :el_capitan
+    sha256 "8de16ff6802e9b239a79cffab3c3726314e71c9fcf1e578cd8ff9f7cd61cfc69" => :high_sierra
+    sha256 "ab3d673f249b8d683bcc490c1083f78453d968f0712c6c12b66d0ee4988469a4" => :sierra
+    sha256 "efb92919390b5d3766c50b528dea76096c9223870fabd02cc43965bda809f7b1" => :el_capitan
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard

@@ -1,16 +1,15 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://stockfish.s3.amazonaws.com/stockfish-8-src.zip"
-  sha256 "7bad36f21f649ab24f6d7786bbb1b74b3e4037f165f32e3d42d1ae19c8874ce9"
+  url "https://stockfish.s3.amazonaws.com/stockfish-9-src.zip"
+  sha256 "ba2e72d6973479c8c839c7f4a095d121829ebe8df39b71ebf291c84e5cb3e36e"
   head "https://github.com/official-stockfish/Stockfish.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb32a58f2fb8bf00e83c4ffc955d758ad4df9f7b03222ae7bf896680252b1817" => :high_sierra
-    sha256 "5db21467b27838a4ed54910d457690a34c011b9a0e51208aace1064f8bb33dba" => :sierra
-    sha256 "5db21467b27838a4ed54910d457690a34c011b9a0e51208aace1064f8bb33dba" => :el_capitan
-    sha256 "eabc1553a23ca9305ffc523afa9432772f144b48dcd6315a2f196ae512825279" => :yosemite
+    sha256 "3ff96f059490975ffa143348bff41769913fe39d5c813c792feae4d1c308c179" => :high_sierra
+    sha256 "906cebac002d1eed58e56d331d159e4629e198600757321c3c7bfebc4fbd6c50" => :sierra
+    sha256 "9a95bbc0f2fd8274c9109524c24a88de7546ff6529c80fcf8a545f6151c53ba2" => :el_capitan
   end
 
   def install

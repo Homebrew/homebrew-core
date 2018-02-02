@@ -3,14 +3,14 @@ require "language/node"
 class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/quicktype/quicktype"
-  url "https://registry.npmjs.org/quicktype/-/quicktype-7.0.0.tgz"
-  sha256 "371fce10f3579b92bcc9f88120fddc6615a5fcc066a550eef0793d5ccad38bbc"
+  url "https://registry.npmjs.org/quicktype/-/quicktype-8.2.22.tgz"
+  sha256 "b9b0a76891da409164ce9180b2ca2ea3c8385646876f42a4a4c0d259b87dd42c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec31e64fc9c2f283dd630ecbba71a4886b19c1d23507116919963aaebcf38091" => :high_sierra
-    sha256 "f8696d5d7a99b0533de639236e99e9c28127d1b05c0a87b041245a22bb6222cf" => :sierra
-    sha256 "47892e00d8989262e80340c263e31a7143749431f6f75356ee2d5275cf43166a" => :el_capitan
+    sha256 "4688a524d4ed472a597ddf936070deb77f48a110a5bd30f02d5f3c5745e6e7ca" => :high_sierra
+    sha256 "b593ef780e0c48d879a59efb8b0fecbb9d5046964aad8a5e3aa8fbf88f4339b7" => :sierra
+    sha256 "114c7d936cb8c987e23fa45ead163bffb231c0cf7f84b55ea30077da23fcf50a" => :el_capitan
   end
 
   depends_on "node"

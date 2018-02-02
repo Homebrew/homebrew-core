@@ -3,13 +3,13 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "http://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-0.10.88.tgz"
-  sha256 "744aad467d1f1fe9da3509839c7ef694a585c197fafa7ee5c0aa53f7712abc52"
+  url "https://registry.npmjs.org/joplin/-/joplin-0.10.92.tgz"
+  sha256 "4aac82c5f5b12bc1b71b2a59cf1b356c65eb745d604d493a02585ea9ef905597"
 
   bottle do
-    sha256 "31fa45aa6042d0fc569bb98619353bfaca9f97cb04198b9f50831cbcf52098a0" => :high_sierra
-    sha256 "189c01af121592549a08450fa914aa8ca9c16a6de7f2eca9ede91112cc17407f" => :sierra
-    sha256 "88c9d5b29a2abf86ea3636c55b1a49750cf8422be6c1d3a445b7e1ce16ffc794" => :el_capitan
+    sha256 "64c8f5c40b5e84721bc16f7080c067bab2d5de8a9bf7a9ea7b66b7ff612884ea" => :high_sierra
+    sha256 "f6a9699f98fb6dd3bf2204843130820c197cd2f2e0b9c1bb796a283c8125c26f" => :sierra
+    sha256 "4ddb85fb890e0dc47c829860d7d15a7bc57f03b3e20d8ea35c57c29f633a6aab" => :el_capitan
   end
 
   depends_on "node"
