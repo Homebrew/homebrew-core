@@ -5,7 +5,7 @@
 
 class Cvs < Formula
   desc "Version control system"
-  homepage "http://cvs.nongnu.org/"
+  homepage "https://www.nongnu.org/cvs/"
   url "https://ftp.gnu.org/non-gnu/cvs/source/feature/1.12.13/cvs-1.12.13.tar.bz2"
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
   revision 1
