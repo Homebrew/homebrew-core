@@ -3,8 +3,8 @@ class X264 < Formula
   homepage "https://www.videolan.org/developers/x264.html"
   # the latest commit on the stable branch
   url "https://git.videolan.org/git/x264.git",
-      :revision => "aaa9aa83a111ed6f1db253d5afa91c5fc844583f"
-  version "r2795"
+      :revision => "e9a5903edf8ca59ef20e6f4894c196f135af735e"
+  version "r2854"
   head "https://git.videolan.org/git/x264.git"
 
   bottle do
@@ -18,7 +18,7 @@ class X264 < Formula
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
   option "with-l-smash", "Build CLI with l-smash mp4 output"
 
-  depends_on "yasm" => :build
+  depends_on "nasm" => :build
   depends_on "l-smash" => :optional
 
   deprecated_option "10-bit" => "with-10-bit"
