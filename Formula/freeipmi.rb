@@ -6,10 +6,9 @@ class Freeipmi < Formula
   sha256 "a2550e08e1f2d681efe770162125ac899022a6acf96256e5b7404eabb90db549"
 
   bottle do
-    sha256 "a510f28794572ed659d6e709b44ee45d96d5c662d730084442d99771bca9d1ff" => :high_sierra
-    sha256 "41c5cf3544953f6127dc312f09d08b8bfac2f551f298880a40e45cc260fac9bd" => :sierra
-    sha256 "e008f84b3ef595205d47a81c6abcb32cbdbc7704ede7cd462dba41be292b963e" => :el_capitan
-    sha256 "85d35f29c9f0be5849c6e7b6a8b6ef4f19c988a63edbe830240ea676f430422f" => :yosemite
+    sha256 "f3d7dc8e36966d926168eac8a090c2c8072b2bea4d1175ee352c2747166a63cf" => :high_sierra
+    sha256 "87783a9f0ec06d3eb6f7538c9c5e35f0c89654c95dbfcace5f432143e497f987" => :sierra
+    sha256 "f7647ccef7ba495d020d1a6bd8a07d8b0433419bd6136e048a834af8b9d08241" => :el_capitan
   end
 
   depends_on "argp-standalone"
