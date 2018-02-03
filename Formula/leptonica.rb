@@ -7,9 +7,9 @@ class Leptonica < Formula
 
   bottle do
     cellar :any
-    sha256 "2734d2df82914756f80473265f3babac69b851ea776081b05b1f8292d15e5697" => :high_sierra
-    sha256 "21925fe1b9f78721e5c0dee6b92aff38f952dee49430b58b4f696e16396664f5" => :sierra
-    sha256 "6449817bb92ceea1f5863a6b88485072acd6ba2dc1ac798e2854a343ac085db1" => :el_capitan
+    sha256 "a3cd1180cd87533ed42ba5b0b4b43df9c4a13607ed81a14949b1539df5ef7371" => :high_sierra
+    sha256 "dfc941dcb2602d65e91f55e3d0efaf66734c37e49150504b2e16c1a628a8e787" => :sierra
+    sha256 "c13601ecc960bfc0857c620027d985f2ced78d2a586843bc90a2c8ca3b93a290" => :el_capitan
   end
 
   depends_on "libpng" => :recommended
