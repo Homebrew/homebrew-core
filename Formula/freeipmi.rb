@@ -1,9 +1,9 @@
 class Freeipmi < Formula
   desc "In-band and out-of-band IPMI (v1.5/2.0) software"
   homepage "https://www.gnu.org/software/freeipmi/"
-  url "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.5.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/freeipmi/freeipmi-1.5.7.tar.gz"
-  sha256 "b46c9432e8649b87d4646bbf4da32f7e9039796fc256f4b229c94c3ac7d0bde5"
+  url "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/freeipmi/freeipmi-1.6.1.tar.gz"
+  sha256 "a2550e08e1f2d681efe770162125ac899022a6acf96256e5b7404eabb90db549"
 
   bottle do
     sha256 "a510f28794572ed659d6e709b44ee45d96d5c662d730084442d99771bca9d1ff" => :high_sierra
@@ -17,8 +17,8 @@ class Freeipmi < Formula
 
   def install
     inreplace "man/Makefile.in",
-      "$(CPP) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre  $@",
-      "$(CPP) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
+      "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre $@",
+      "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
