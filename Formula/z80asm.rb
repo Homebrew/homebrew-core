@@ -1,6 +1,6 @@
 class Z80asm < Formula
   desc "Assembler for the Zilog Z80 microprcessor and compatibles"
-  homepage "http://www.nongnu.org/z80asm/"
+  homepage "https://www.nongnu.org/z80asm/"
   url "https://download.savannah.gnu.org/releases/z80asm/z80asm-1.8.tar.gz"
   sha256 "67fba9940582cddfa70113235818fb52d81e5be3db483dfb0816acb330515f64"
 
