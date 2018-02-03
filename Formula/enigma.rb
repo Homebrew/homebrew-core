@@ -1,6 +1,6 @@
 class Enigma < Formula
   desc "Puzzle game inspired by Oxyd and Rock'n'Roll"
-  homepage "http://www.nongnu.org/enigma/"
+  homepage "https://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
   revision 3
