@@ -17,18 +17,16 @@ class Netdata < Formula
                           "--localstatedir=#{var}"
     system "make", "install"
 
-    conf_path = (etc/"netdata")
+    conf_path = etc/"netdata"
     conf_path.mkpath
     conf_path.install "system/netdata.conf"
   end
 
   def post_install
-    inreplace (etc/"netdata/netdata.conf"), /web files owner = .*/, "web files owner = #{ENV["USER"]}"
-    inreplace (etc/"netdata/netdata.conf"), /web files group = .*/, "web files group = #{group}"
-  end
-
-  def group
-    Etc.getgrgid(prefix.stat.gid).name
+    inreplace etc/"netdata/netdata.conf" do |s|
+      s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
+      s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
+    end
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/netdata -D"
@@ -46,7 +44,7 @@ class Netdata < Formula
         <true/>
         <key>ProgramArguments</key>
         <array>
-            <string>#{sbin}/netdata</string>
+            <string>#{opt_sbin}/netdata</string>
             <string>-D</string>
         </array>
         <key>WorkingDirectory</key>
