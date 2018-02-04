@@ -5,9 +5,9 @@ class Expect < Formula
   sha256 "d082bf340fdb7a85b1e4e5df4d967d0140835db34a8a035c3102abb5eb62d450"
 
   bottle do
-    sha256 "c5abbb16dfe9ff703c9eaf1cebe29a1d1611d3ccd12313525a9a08c0c195c0d0" => :high_sierra
-    sha256 "410e1257189d177984dcaabdb5b92aad29aacf7f9ad16d314cf472131d2f329e" => :sierra
-    sha256 "862a30f66b267ae389da407174844ee311b0ef4a971e53654f1378da393b5cea" => :el_capitan
+    sha256 "810489b71778533a2043d36b6bcefe0fdac9ea61ed89819c8b8f95c8a3ea7043" => :high_sierra
+    sha256 "839ed128f30a94f52d6bdfe80733d9bc0dfff7811c8c49586835eadfb36fac3f" => :sierra
+    sha256 "4d386fc0a8f770f453ebc468825697221f2c3ffa8d9f73c1794d8054891db86d" => :el_capitan
   end
 
   option "with-threads", "Build with multithreading support"
