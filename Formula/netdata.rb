@@ -31,7 +31,7 @@ class Netdata < Formula
     Etc.getgrgid(prefix.stat.gid).name
   end
 
-  plist_options :manual => ".../sbin/netdata -D"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/netdata -D"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
