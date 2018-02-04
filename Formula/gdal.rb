@@ -79,10 +79,13 @@ class Gdal < Formula
     depends_on "json-c"
   end
 
+  # Technically 1.7+ but definitely not Java 9.
+  # "bootstrap class path not set in conjunction with -source 1.4"
+  depends_on :java => ["1.8", :optional]
+
   if build.with? "java"
     depends_on "ant" => :build
     depends_on "swig" => :build
-    depends_on :java => "1.7+"
   end
 
   depends_on "python" => :optional if MacOS.version <= :snow_leopard
@@ -303,8 +306,11 @@ class Gdal < Formula
 
     if build.with? "java"
       cd "swig/java" do
-        inreplace "java.opt", "linux", "darwin"
-        inreplace "java.opt", "#JAVA_HOME = /usr/lib/jvm/java-6-openjdk/", "JAVA_HOME=$(shell echo $$JAVA_HOME)"
+        inreplace "java.opt" do |s|
+          s.gsub! "linux", "darwin"
+          s.gsub! "#JAVA_HOME = /usr/lib/jvm/java-6-openjdk/",
+                  "JAVA_HOME = $(shell #{Language::Java.java_home_cmd("1.8")})"
+        end
         system "make"
         system "make", "install"
 
