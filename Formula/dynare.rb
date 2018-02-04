@@ -57,9 +57,8 @@ class Dynare < Formula
   end
 
   def caveats; <<~EOS
-    To get started with dynare, open Octave and type:
-
-            addpath #{opt_lib}/dynare/matlab
+    To get started with dynare, open Octave and type
+      addpath #{opt_lib}/dynare/matlab
     EOS
   end
 
