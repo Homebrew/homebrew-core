@@ -23,7 +23,10 @@ class Netdata < Formula
   end
 
   def post_install
-    inreplace etc/"netdata/netdata.conf" do |s|
+    config = etc/"netdata/netdata.conf"
+    return unless File.exist?(config)
+    return if File.read(config).include?(ENV["USER"])
+    inreplace config do |s|
       s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
       s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
     end
