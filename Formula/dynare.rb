@@ -42,18 +42,11 @@ class Dynare < Formula
       system "make", "clean"
       system "make", "lib", "OPTS=-fPIC -fdefault-integer-8",
              "FORTRAN=gfortran", "LOADER=gfortran",
-             "SLICOTLIB=../libslicot64_pic.a"      
+             "SLICOTLIB=../libslicot64_pic.a"
       (buildpath/"slicot").install "libslicot_pic.a", "libslicot64_pic.a"
     end
 
-    if build.head?
-      inreplace "m4/ax_mexopts.m4",
-        /MACOSX_DEPLOYMENT_TARGET='.*'/,
-        "MACOSX_DEPLOYMENT_TARGET='#{MacOS.version}'"
-
-      system "autoreconf", "-fvi"
-    end
-
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
