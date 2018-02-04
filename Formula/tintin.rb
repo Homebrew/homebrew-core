@@ -13,6 +13,7 @@ class Tintin < Formula
   end
 
   depends_on "pcre"
+  depends_on "gnutls"
 
   def install
     # find Homebrew's libpcre
