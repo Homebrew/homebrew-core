@@ -13,7 +13,7 @@ class Ncsdk < Formula
 
   patch do
     url "https://github.com/RitwikSaikia/ncsdk/commit/e6254cdfe6b1ec2c13f3c2dc1b94485de002f62c.patch?full_index=1"
-    sha256 "b045f9000edd52dddb3cb9fabfecf46549473239b1f51a682543fa14ecf528f8"
+    sha256 "fc715b7c6226b16a7a25fe26aabf10144d2b8dc386355a589ef90f2f0330b469"
   end
 
   def install
