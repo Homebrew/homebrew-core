@@ -1,37 +1,37 @@
 class Netdata < Formula
-  desc "Get control of your servers. Simple. Effective. Awesome!"
+  desc "Distributed real-time performance and health monitoring"
   homepage "https://my-netdata.io/"
   url "https://github.com/firehol/netdata/releases/download/v1.9.0/netdata-1.9.0.tar.bz2"
   sha256 "542b4799aed1ee03b0a0dbd00fae988a788622c431382e6429362fbbb4f0f017"
 
-  depends_on "ossp-uuid"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config" => :build
+  depends_on "ossp-uuid"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}",
-                          "--sbindir=#{bin}"
+                          "--localstatedir=#{var}"
     system "make", "install"
-
-    inreplace "system/netdata.conf", "web files owner = root", "web files owner = #{ENV["USER"]}"
-    inreplace "system/netdata.conf", "web files group = netdata", "web files group = #{group}"
 
     conf_path = (etc/"netdata")
     conf_path.mkpath
-    conf_path.install "system/netdata.conf" unless (conf_path/"netdata.conf").exist?
+    conf_path.install "system/netdata.conf"
+  end
+
+  def post_install
+    inreplace (etc/"netdata/netdata.conf"), /web files owner = .*/, "web files owner = #{ENV["USER"]}"
+    inreplace (etc/"netdata/netdata.conf"), /web files group = .*/, "web files group = #{group}"
   end
 
   def group
     Etc.getgrgid(prefix.stat.gid).name
   end
 
-  plist_options :manual => "netdata"
+  plist_options :manual => ".../sbin/netdata -D"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -46,7 +46,7 @@ class Netdata < Formula
         <true/>
         <key>ProgramArguments</key>
         <array>
-            <string>#{bin}/netdata</string>
+            <string>#{sbin}/netdata</string>
             <string>-D</string>
         </array>
         <key>WorkingDirectory</key>
@@ -57,8 +57,6 @@ class Netdata < Formula
   end
 
   test do
-    temp_uid = "#{ENV["TMPDIR"]}/netdata.unittest.unique.id"
-    system "#{bin}/netdata", "-W", "set", "registry", "netdata unique id file", temp_uid, "-W", "unittest"
-    rm temp_uid
+    system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file", "#{testpath}/netdata.unittest.unique.id", "-W", "unittest"
   end
 end
