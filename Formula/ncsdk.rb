@@ -35,4 +35,8 @@ class Ncsdk < Formula
       end
     end
   end
+
+  test do
+    system "true"
+  end
 end
