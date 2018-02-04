@@ -3,7 +3,7 @@ class Tintin < Formula
   homepage "https://tintin.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.4/tintin-2.01.4.tar.gz"
   sha256 "dd22afbff45a93ec399065bae385489131af7e1b6ae8abb28f80d6a03b82ebbc"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class Tintin < Formula
     sha256 "42985a4b7b44e3036348ce810aa6301adac1564bbb5caac55fb44e14e10a9e25" => :el_capitan
   end
 
+  depends_on "gnutls"
   depends_on "pcre"
 
   def install
