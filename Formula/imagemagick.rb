@@ -78,7 +78,7 @@ class Imagemagick < Formula
       args << "--disable-opencl"
     end
 
-    if build.with? "openmp"
+    if build.with? "gcc"
       args << "--enable-openmp"
     else
       args << "--disable-openmp"
