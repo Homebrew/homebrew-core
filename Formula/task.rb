@@ -4,7 +4,7 @@ class Task < Formula
   url "https://taskwarrior.org/download/task-2.5.1.tar.gz"
   sha256 "d87bcee58106eb8a79b850e9abc153d98b79e00d50eade0d63917154984f2a15"
 
-  head "https://git.tasktools.org/scm/tm/task.git", :branch => "2.6.0", :shallow => false
+  head "https://github.com/GothenburgBitFactory/taskwarrior.git", :branch => "2.6.0", :shallow => false
 
   bottle do
     sha256 "6a651be957b736bef14633efedef011a81c49ee37178eae4d8ef863549d7c584" => :high_sierra
