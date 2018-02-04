@@ -310,7 +310,7 @@ class Gdal < Formula
 
         # Install the jar that complements the native JNI bindings
         system "ant"
-        lib.install "gdal.jar"
+        (pkgshare/"java").install "gdal.jar"
       end
     end
 
