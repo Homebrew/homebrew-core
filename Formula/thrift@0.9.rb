@@ -28,6 +28,11 @@ class ThriftAT09 < Formula
   depends_on "openssl"
   depends_on "python" => :optional
 
+  if build.with? "java"
+    depends_on "ant" => :build
+    depends_on :java => "1.8"
+  end
+
   def install
     args = ["--without-ruby", "--without-tests", "--without-php_extension"]
 
@@ -43,6 +48,11 @@ class ThriftAT09 < Formula
     # Don't install extensions to /usr
     ENV["PY_PREFIX"] = prefix
     ENV["PHP_PREFIX"] = prefix
+    ENV["JAVA_PREFIX"] = pkgshare/"java"
+
+    # configure's version check breaks on ant >1.10 so just override it. This
+    # doesn't need guarding because of the --without-java flag used above.
+    inreplace "configure", 'ANT=""', "ANT=\"#{Formula["ant"].opt_bin}/ant\""
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
@@ -53,6 +63,6 @@ class ThriftAT09 < Formula
   end
 
   test do
-    assert_match /Thrift/, shell_output("#{bin}/thrift --version")
+    assert_match "Thrift", shell_output("#{bin}/thrift --version")
   end
 end
