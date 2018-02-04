@@ -24,7 +24,7 @@ class Gdal < Formula
   option "with-unsupported", "Allow configure to drag in any library it can find. Invoke this at your own risk."
   option "with-mdb", "Build with Access MDB driver (requires Java 1.6+ JDK/JRE, from Apple or Oracle)."
   option "with-libkml", "Build with Google's libkml driver (requires libkml --HEAD or >= 1.3)"
-  option "with-swig-java", "Build the swig java bindings"
+  option "with-java", "Build the java bindings with swig"
   option "without-python", "Build without python2 support"
 
   deprecated_option "enable-opencl" => "with-opencl"
@@ -32,6 +32,7 @@ class Gdal < Formula
   deprecated_option "enable-unsupported" => "with-unsupported"
   deprecated_option "enable-mdb" => "with-mdb"
   deprecated_option "complete" => "with-complete"
+  deprecated_option "with-swig-java" => "with-java"
 
   depends_on "libpng"
   depends_on "jpeg"
@@ -78,11 +79,10 @@ class Gdal < Formula
     depends_on "json-c"
   end
 
-  depends_on :java => ["1.7+", :optional, :build]
-
-  if build.with? "swig-java"
+  if build.with? "java"
     depends_on "ant" => :build
     depends_on "swig" => :build
+    depends_on :java => "1.7+"
   end
 
   depends_on "python" => :optional if MacOS.version <= :snow_leopard
@@ -301,7 +301,7 @@ class Gdal < Formula
       end
     end
 
-    if build.with? "swig-java"
+    if build.with? "java"
       cd "swig/java" do
         inreplace "java.opt", "linux", "darwin"
         inreplace "java.opt", "#JAVA_HOME = /usr/lib/jvm/java-6-openjdk/", "JAVA_HOME=$(shell echo $$JAVA_HOME)"
