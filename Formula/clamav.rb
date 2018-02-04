@@ -11,7 +11,7 @@ class Clamav < Formula
   end
 
   head do
-    url "https://github.com/vrtadmin/clamav-devel.git"
+    url "https://github.com/Cisco-Talos/clamav-devel.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
