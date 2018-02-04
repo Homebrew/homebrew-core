@@ -12,8 +12,8 @@ class Tintin < Formula
     sha256 "42985a4b7b44e3036348ce810aa6301adac1564bbb5caac55fb44e14e10a9e25" => :el_capitan
   end
 
-  depends_on "pcre"
   depends_on "gnutls"
+  depends_on "pcre"
 
   def install
     # find Homebrew's libpcre
