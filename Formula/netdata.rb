@@ -15,6 +15,7 @@ class Netdata < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
+                          "--localstatedir=#{var}",
                           "--sbindir=#{bin}"
     system "make", "install"
 
@@ -56,6 +57,8 @@ class Netdata < Formula
   end
 
   test do
-    system "#{bin}/netdata", "-W", "unittest"
+    temp_uid = "#{ENV["TMPDIR"]}/netdata.unittest.unique.id"
+    system "#{bin}/netdata", "-W", "set", "registry", "netdata unique id file", temp_uid, "-W", "unittest"
+    rm temp_uid
   end
 end
