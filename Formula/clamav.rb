@@ -11,7 +11,7 @@ class Clamav < Formula
   end
 
   head do
-    url "https://github.com/vrtadmin/clamav-devel.git"
+    url "https://github.com/Cisco-Talos/clamav-devel.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build
@@ -42,6 +42,7 @@ class Clamav < Formula
     args << "--with-pcre=#{Formula["pcre"].opt_prefix}" if build.with? "pcre"
     args << "--disable-yara" if build.without? "yara"
     args << "--without-pcre" if build.without? "pcre"
+    args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
 
     pkgshare.mkpath
     system "autoreconf", "-fvi" if build.head?
