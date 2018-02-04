@@ -7,7 +7,6 @@ class Ncsdk < Formula
   option "with-test", "Run build-time check"
   option "without-python", "Build without python support"
 
-  depends_on "gcc"
   depends_on "libusb"
   depends_on "python3" => :recommended
 
@@ -35,12 +34,5 @@ class Ncsdk < Formula
         cp_r Dir["api/python/*"], python_path
       end
     end
-  end
-
-  test do
-    system ENV.cxx,
-        "examples/apps/hello_ncs_cpp/hello_ncs.cpp",
-        "examples/apps/hello_ncs_cpp/hello_ncs",
-        "-lmvnc", "-I#{include}", "-L#{lib}"
   end
 end
