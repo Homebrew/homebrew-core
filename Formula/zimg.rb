@@ -7,9 +7,9 @@ class Zimg < Formula
 
   bottle do
     cellar :any
-    sha256 "767b7d6c8c1591c5e7f2e4d9fdb245c62634c9f822196edb72f3f62fef08eb73" => :high_sierra
-    sha256 "0888eb1fc2063346ab6b9a99693cc175d19d0e0972df7884790e68160ccd6301" => :sierra
-    sha256 "68a25d0912b8d4c68ee28cc5dd093130d0ea98e3a9c437da225a69999691792e" => :el_capitan
+    sha256 "01e59683ac824d730d7e5c2539e3391f596382087a415659ea695ba8753b9503" => :high_sierra
+    sha256 "acdf930eaec23fdf53829d042d8d73362d44f284e81f70009461e6cd74c1381d" => :sierra
+    sha256 "382d8eedca9c55132a7dc16dc269a247597a8a28c9348231bf895acc5fc214c0" => :el_capitan
   end
 
   depends_on "autoconf" => :build
