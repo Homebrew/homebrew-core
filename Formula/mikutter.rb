@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.6.1.tar.gz"
-  sha256 "852ebf397b07fd98db5ce8d12afce698ca96ff6cfb0f742ae2fd7417ec6dde89"
+  url "https://mikutter.hachune.net/bin/mikutter.3.6.2.tar.gz"
+  sha256 "50ccb0c6700e2a74f8284e183382ee6af80900dc5d56dcc134b60bb2da1690f7"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -147,8 +147,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.8.1.gem"
-    sha256 "4180dd5dfe8ba5479db7c3030012cd79da9b958eea472195f3daa23cbf80bd80"
+    url "https://rubygems.org/gems/nokogiri-1.8.2.gem"
+    sha256 "382af505a11b735e97f52ec6279ea484be7a7560d5599e81def40943601fd515"
   end
 
   resource "oauth" do
