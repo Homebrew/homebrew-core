@@ -1,9 +1,8 @@
 class LibbitcoinServer < Formula
   desc "Bitcoin Full Node and Query Server"
   homepage "https://github.com/libbitcoin/libbitcoin-server"
-  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.4.0.tar.gz"
-  sha256 "a2c88f463b85efe8c9b7617332759e9964dbe250273cb473ebbb479be2525ef5"
-  revision 2
+  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
+  sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
 
   bottle do
     sha256 "52d31d7631dd84c1417f2eb8c7c8d207f565ce9a372889909a4333eb2d3934d1" => :high_sierra
@@ -19,8 +18,8 @@ class LibbitcoinServer < Formula
   depends_on "zeromq"
 
   resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.4.0.tar.gz"
-    sha256 "71b1a5b23b4b20f4727693e1e0509af8a0db4623bb27de46e273496ada43a121"
+    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
+    sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
   end
 
   def install
