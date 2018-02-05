@@ -1,9 +1,14 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "http://x265.org"
-  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.6.tar.gz"
-  sha256 "1bf0036415996af841884802161065b9e6be74f5f6808ac04831363e2549cdbf"
-  head "https://bitbucket.org/multicoreware/x265", :using => :hg
+
+  stable do
+    url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.6.tar.gz"
+    sha256 "1bf0036415996af841884802161065b9e6be74f5f6808ac04831363e2549cdbf"
+
+    # build with nasm when >=2.7 is released
+    depends_on "yasm" => :build
+  end
 
   bottle do
     cellar :any
@@ -12,8 +17,13 @@ class X265 < Formula
     sha256 "868310a95be1b8ad9e784a111fd41ec4a2ac4547f437e7cf5920f391dabdc454" => :el_capitan
   end
 
+  head do
+    url "https://bitbucket.org/multicoreware/x265", :using => :hg
+
+    depends_on "nasm" => :build
+  end
+
   depends_on "cmake" => :build
-  depends_on "yasm" => :build
   depends_on :macos => :lion
 
   def install
