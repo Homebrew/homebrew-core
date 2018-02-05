@@ -9,8 +9,11 @@ class WireguardTools < Formula
     url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20180202.tar.xz"
     sha256 "ee3415b482265ad9e8721aa746aaffdf311058a2d1a4d80e7b6d11bbbf71c722"
 
+    # Fix "fatal error: 'endian.h' file not found"
+    # Equivalent to upstream commit from 5 Feb 2018 "tools: endian.h is not portable"
+    # See https://git.zx2c4.com/WireGuard/patch/?id=d99954e0376d50c31f052cd6455e8665d9d9dd66
     patch do
-      url "https://git.zx2c4.com/WireGuard/patch/?id=d99954e0376d50c31f052cd6455e8665d9d9dd66"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4e4ca86/wireguard-tools/endian.patch"
       sha256 "68d77d13a7fc748f02e4a78eb405599b04d1b99dcbee8af06cf8eb8f0ba9c908"
     end
   end
