@@ -10,6 +10,6 @@ class Op < Formula
 
   test do
     # 'op -version' exits with status 1, rather than 0
-    assert_match "#{version}", shell_output("#{bin}/op --version", 1)
+    assert_match version.to_s, shell_output("#{bin}/op --version", 1)
   end
 end
