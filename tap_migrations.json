@@ -4,6 +4,7 @@
   "android-platform-tools": "caskroom/cask",
   "android-sdk": "caskroom/cask",
   "app-engine-go-32": "caskroom/cask/google-cloud-sdk",
+  "app-engine-go-64": "caskroom/cask/google-cloud-sdk",
   "auctex": "homebrew/tex",
   "avidemux": "caskroom/cask",
   "awsenv": "Luzifer/tools",
