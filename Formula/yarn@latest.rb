@@ -1,4 +1,4 @@
-class YarnATLatest < Formula
+class Yarn@latest < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
   url "https://yarnpkg.com/latest.tar.gz"
