@@ -32,20 +32,16 @@ class Libpeas < Formula
     ]
 
     if build.with? "python"
-      # extra hoop to jump if both, Python 2 and 3 are installed in parallel
       py2_prefix = Utils.popen_read("python2-config --prefix").chomp
       py2_lib = "#{py2_prefix}/lib"
       ENV.append "LDFLAGS", "-L#{py2_lib}"
-      # configure argument
       args << "--enable-python2"
     end
 
     if build.with? "python3"
-      # extra hoop to jump if both, Python 2 and 3 are installed in parallel
-      py3_prefix = Utils.popen_read("python3-config --prefix").chomp
-      py3_lib = "#{py3_prefix}/lib"
+      py3_ver = Formula["python3"].version.to_s.slice(/(3\.\d)/)
+      py3_lib = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3_ver}/lib"
       ENV.append "LDFLAGS", "-L#{py3_lib}"
-      # configure argument
       args << "--enable-python3"
     end
 
