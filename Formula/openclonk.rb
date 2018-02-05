@@ -1,10 +1,9 @@
 class Openclonk < Formula
   desc "Multiplayer action game"
   homepage "http://www.openclonk.org"
-  url "http://www.openclonk.org/builds/release/7.0/openclonk-7.0-src.tar.bz2"
-  sha256 "bc1a231d72774a7aa8819e54e1f79be27a21b579fb057609398f2aa5700b0732"
-  revision 2
-  head "https://github.com/openclonk/openclonk", :using => :git
+  url "https://github.com/openclonk/openclonk/archive/v8.0.tar.gz"
+  sha256 "3cc6e2ff992221c1df0abbab7ad20cb4fd9cf131149c5857655b06fba38cb332"
+  head "https://github.com/openclonk/openclonk.git"
 
   bottle do
     cellar :any
