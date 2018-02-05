@@ -7,9 +7,9 @@ class Cryfs < Formula
 
   bottle do
     cellar :any
-    sha256 "1e0726d2924e3ec3a4be4edec6f5a4252eb65494ec4ac579de38828c4308c70f" => :high_sierra
-    sha256 "e1854431529f362df8ba40ef344b118cf5b3bae72f7d3fbf0d21209f439d1838" => :sierra
-    sha256 "f70065ad596bbb700ad778ea0cdc19a295185fdf9653539ff75cbcfebd71e3bd" => :el_capitan
+    sha256 "8f58cac3f867d51a95f09e17e15b893dc4415df18476963dd8cdd72c9a99f56c" => :high_sierra
+    sha256 "db97f7cd1d28b3036165d4f8142688b73e3bce12416d0a1a0b9eff03d44a0245" => :sierra
+    sha256 "2fab8415b94e7b2f782ec642e2e4fb0ce345524f5fd014cc21d14b2b410c8635" => :el_capitan
   end
 
   depends_on "cmake" => :build
