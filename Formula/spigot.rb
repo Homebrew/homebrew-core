@@ -1,10 +1,10 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20180111.13af035.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/spigot-20180111.13af035.tar.gz"
-  version "20180111.13af035"
-  sha256 "a69d8689d89859f7a479ad2dc45f6e13757c83bbe371cd5ad4b4782378794f80"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20180202.924e036.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/spigot-20180202.924e036.tar.gz"
+  version "20180202.924e036"
+  sha256 "b3e33499c63b1387d52e42d418a241d031f1e4b30f10a13a5daf0eab1b673166"
 
   bottle do
     cellar :any_skip_relocation
