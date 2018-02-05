@@ -1,8 +1,8 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://abiword.github.io/enchant/"
-  url "https://github.com/AbiWord/enchant/releases/download/v2.2.2/enchant-2.2.2.tar.gz"
-  sha256 "661e0bd6e82deceb97fc94bea8c6cdbcd8ff631cfa9b7a8196de2e2aca13f54b"
+  url "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz"
+  sha256 "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
 
   bottle do
     sha256 "bfd5c8794d5983d683474998cca0a661763063ebd9b6d4ff23a769c3cb422559" => :high_sierra
