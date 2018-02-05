@@ -27,6 +27,6 @@ class Cryfs < Formula
 
   test do
     ENV["CRYFS_FRONTEND"] = "noninteractive"
-    assert_match "CryFS", shell_output("#{bin}/cryfs", 1)
+    assert_match "CryFS", shell_output("#{bin}/cryfs", 10)
   end
 end
