@@ -1,8 +1,8 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.7.tar.xz"
-  sha256 "8bbd6dce0d558ac572385d8d726c4ba5caba1da411977806ade7f0e7bf08e3b8"
+  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz"
+  sha256 "81c528fd1e5e03577acd80fb77798223945f043fd1d4e06920c71202eea90801"
 
   bottle do
     sha256 "54dbecf4ced2c26b385a991800d4ded8b1e088733d80c3a1788060b2a5e87093" => :high_sierra
@@ -16,7 +16,7 @@ class Gexiv2 < Formula
   depends_on "glib"
   depends_on "exiv2"
 
-  # bug report opened on 2017/12/25
+  # bug report opened on 2017/12/25, closed on 2018/01/05, reopened on 2018/02/06
   # https://bugzilla.gnome.org/show_bug.cgi?id=791941
   patch :DATA
 
@@ -51,27 +51,17 @@ class Gexiv2 < Formula
 end
 
 __END__
-diff --git a/Makefile.am b/Makefile.am
-index 9e8610b..fbda91b 100644
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -154,7 +154,6 @@ lib@PACKAGE_NAME@_la_CPPFLAGS = $(EXIV2_CFLAGS) $(GLIB_CFLAGS)
+diff --git a/configure b/configure
+index 8980ac9..aa0872c 100755
+--- a/configure
++++ b/configure
+@@ -18635,7 +18635,7 @@ case "$target_or_host" in
+ esac
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $platform_darwin" >&5
+ $as_echo "$platform_darwin" >&6; }
+- if test "$platform_win32" = "yes"; then
++ if test "$platform_darwin" = "yes"; then
+   PLATFORM_DARWIN_TRUE=
+   PLATFORM_DARWIN_FALSE='#'
+ else
 
- lib@PACKAGE_NAME@_la_LDFLAGS  = \
-	$(no_undefined) -export-dynamic -version-info $(GEXIV2_VERSION_INFO) \
--	-Wl,--version-script=$(srcdir)/gexiv2/gexiv2.map \
-	$(WARN_LDFLAGS)
-
- clean-local:
-diff --git a/Makefile.in b/Makefile.in
-index aeebe3b..e1455ee 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -804,7 +804,6 @@ lib@PACKAGE_NAME@_la_LIBADD = $(EXIV2_LIBS) $(GLIB_LIBS)
- lib@PACKAGE_NAME@_la_CPPFLAGS = $(EXIV2_CFLAGS) $(GLIB_CFLAGS)
- lib@PACKAGE_NAME@_la_LDFLAGS = \
-	$(no_undefined) -export-dynamic -version-info $(GEXIV2_VERSION_INFO) \
--	-Wl,--version-script=$(srcdir)/gexiv2/gexiv2.map \
-	$(WARN_LDFLAGS)
-
- TESTS_ENVIRONMENT = \
