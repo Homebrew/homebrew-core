@@ -3,6 +3,7 @@ class Dislocker < Formula
   homepage "https://github.com/Aorimn/dislocker"
   url "https://github.com/Aorimn/dislocker/archive/v0.7.1.tar.gz"
   sha256 "742fb5c1b3ff540368ced54c29eae8b488ae5a5fcaca092947e17c2d358a6762"
+  revision 1
 
   bottle do
     sha256 "1b1fede1c17fb9829555c1ec85ea883a4b1fe7ae13f6ba595ec5504a06949f87" => :high_sierra

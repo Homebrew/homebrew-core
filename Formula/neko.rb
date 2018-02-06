@@ -3,7 +3,7 @@ class Neko < Formula
   homepage "https://nekovm.org/"
   url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
   sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 2
+  revision 3
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
