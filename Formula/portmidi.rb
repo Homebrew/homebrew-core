@@ -17,6 +17,10 @@ class Portmidi < Formula
   depends_on "cython" => :build
 
   def install
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 
     # need to create include/lib directories since make won't create them itself
