@@ -35,11 +35,10 @@ class Auditbeat < Formula
       # prevent downloading binary wheels
       inreplace "../libbeat/scripts/Makefile", "pip install", "pip install --no-binary :all"
       system "make"
-      system "make", "update"
+      system "make", "DEV_OS=darwin", "update"
       (libexec/"bin").install "auditbeat"
       libexec.install "_meta/kibana"
 
-      inreplace "auditbeat.yml", /^- module: auditd\n^  audit_rules: \|/, "#- module: audit\n#  audit_rules: |"
       (etc/"auditbeat").install Dir["auditbeat*.yml"]
       prefix.install_metafiles
     end
