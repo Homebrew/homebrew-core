@@ -1,11 +1,10 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "http://www.fltk.org/"
-  url "http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-source.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fltk/fltk-1.3.4-source.tar.gz"
-  mirror "https://fossies.org/linux/misc/fltk-1.3.4-source.tar.gz"
-  sha256 "c8ab01c4e860d53e11d40dc28f98d2fe9c85aaf6dbb5af50fd6e66afec3dc58f"
-  revision 1
+  url "http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.4-2.tar.gz"
+  version "1.3.4-2"
+  sha256 "25d349c18c99508737d48f225a2eb26a43338f9247551cab72a317fa42cda910"
 
   bottle do
     sha256 "7561987fff4639d07a28407b8d4f511fffe4579fb452a0aaa9dad2f0a0bde48d" => :high_sierra
