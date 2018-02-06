@@ -1,9 +1,8 @@
 class Cask < Formula
   desc "Emacs dependency management"
   homepage "https://cask.readthedocs.org/"
-  url "https://github.com/cask/cask/archive/v0.8.1.tar.gz"
-  sha256 "8739ba608f23c79b3426faa8b068d5d1bc096c7305ce30b1163babd354be821c"
-  revision 1
+  url "https://github.com/cask/cask/archive/v0.8.2.tar.gz"
+  sha256 "16b1054af3f58cf95b72f2d10e03450f550311774c7f16b918e3f29ecc7fcd13"
   head "https://github.com/cask/cask.git"
 
   bottle :unneeded
