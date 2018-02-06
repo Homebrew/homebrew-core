@@ -21,16 +21,16 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.2.0/radare2-2.2.0.tar.gz"
-    sha256 "f53174d74ee4027ffe301c7948f2f537db633b3014793df1355fc279c1532eab"
+    url "https://radare.mikelloc.com/get/2.3.0/radare2-2.3.0.tar.gz"
+    sha256 "97c052b61cb62db4976428b8b03930e867d79e22db5be1907300a04a84c88320"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.2.0/radare2-bindings-2.1.0.tar.gz"
-      sha256 "ac0eac49f7a4fd0decbdbce2303e3cb73819c77aebe17d7ca32c795d310ab8ab"
+      url "https://radare.mikelloc.com/get/2.3.0/radare2-bindings-2.3.0.tar.xz"
+      sha256 "fb5893535f80f0e0be442f7e1fdcd1ba5d188d911638c0b86e8809ce6c6cd4db"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.2.0/radare2-extras-2.2.0.tar.gz"
+      url "https://radare.mikelloc.com/get/2.3.0/radare2-extras-2.2.0.tar.gz"
       sha256 "6825642d880bc5ce8e780d6947fa7c7b475d546861ef0c86f88e1e10ce599155"
     end
   end
