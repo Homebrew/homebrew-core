@@ -36,9 +36,9 @@ class Radare2 < Formula
   end
 
   bottle do
-    sha256 "0247b0578d4ee972432ce806d96a5d694601df9d9513e5fd2b54d048038881ed" => :high_sierra
-    sha256 "dab32098948b21350de0bfeca358ee36ee18f8ac622451b1d494ffe34cd0d264" => :sierra
-    sha256 "13dd6a2c647c9197b6eb6de5fd11099c40d998ae67ee93d4368950ed6bfdbcfb" => :el_capitan
+    sha256 "82eb8b901e99628662d1535a4e41366ee80b8ad08c8fc5184aa05449cc18ae53" => :high_sierra
+    sha256 "0489e1d82e4ed3dd72bd38a0bf66cc5d831402099b5551a508f1893c32b405e9" => :sierra
+    sha256 "0271335d05984157c6c3790b73a1b0b0d72ffbf49b6bd21e9a80182bc0ee9388" => :el_capitan
   end
 
   head do
