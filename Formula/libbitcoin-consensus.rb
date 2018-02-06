@@ -6,9 +6,9 @@ class LibbitcoinConsensus < Formula
 
   bottle do
     cellar :any
-    sha256 "c443c2339cb65236ef156c54581972b6c00cad8a5229c5da9f33c46167f7f868" => :high_sierra
-    sha256 "e3bee2918b73261d0d049d19cf2b9de5eed055d4876e4736212e3f08a1bb600a" => :sierra
-    sha256 "0badfb90b260b7eba680ab463115a3ff8239bff6d08171683e58696651013639" => :el_capitan
+    sha256 "36e607d57dcf9347cedede744be5461c8c9e866047d4b31942987110153c9bfe" => :high_sierra
+    sha256 "0ed7771f106cd05c2413b9da72013f168077dc8f6a21d5a01806c715d038e680" => :sierra
+    sha256 "1306b0c9f124e71aeaa22825c0d0f13c49d747ad762ea1fc6a8ea0853d47c4c7" => :el_capitan
   end
 
   depends_on "autoconf" => :build
