@@ -1,8 +1,8 @@
 class ApmServer < Formula
   desc "Server for shipping APM metrics to Elasticsearch"
   homepage "https://www.elastic.co/"
-  url "https://github.com/elastic/apm-server/archive/v6.1.3.tar.gz"
-  sha256 "167820c9a2b415d5e488333f36bcd5229aafc3e2b60981ed014eae6cf3f479dd"
+  url "https://github.com/elastic/apm-server/archive/v6.2.0.tar.gz"
+  sha256 "86c9c699c865c94f06dcba63bc2e4ba0d627ac0519316bd6097db60ddf0650ac"
   head "https://github.com/elastic/apm-server.git"
 
   bottle do
@@ -100,7 +100,7 @@ class ApmServer < Formula
 
     begin
       system "curl", "-H", "Content-Type: application/json", "-XPOST", "localhost:#{port}/v1/transactions", "-d",
-             '{"app":{"name":"app1","agent":{"name":"python","version":"1.0"}},' \
+             '{"service":{"name":"app1","agent":{"name":"python","version":"1.0"}},' \
              '"transactions":[{"id":"945254c5-67a5-417e-8a4e-aa29efcbfb79","name":"GET /api/types","type":"request","duration":32.592981,"timestamp":"2017-05-09T15:04:05.999999Z"}]}'
       sleep 1
       s = (testpath/"apm-server/apm-server").read
