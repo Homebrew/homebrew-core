@@ -39,7 +39,7 @@ class Auditbeat < Formula
       (libexec/"bin").install "auditbeat"
       libexec.install "_meta/kibana"
 
-      inreplace "auditbeat.yml", /^- module: audit\n^  metricsets: \[kernel\]\n^  kernel.audit_rules: \|/, "#- module: audit\n#  metricsets: [kernel]\n#  kernel.audit_rules: |"
+      inreplace "auditbeat.yml", /^- module: auditd\n^  audit_rules: \|/, "#- module: audit\n#  audit_rules: |"
       (etc/"auditbeat").install Dir["auditbeat*.yml"]
       prefix.install_metafiles
     end
