@@ -29,7 +29,7 @@ class Libphonenumber < Formula
   # See https://github.com/googlei18n/libphonenumber/issues/2044
   patch do
     url "https://github.com/googlei18n/libphonenumber/pull/2045.patch?full_index=1"
-    sha256 "4d47d0f92c994ca74e3bbbf020064b2d249d0b01f93bf6f5d82736eb9ed3aa43"
+    sha256 "ff6602d4414573340bf61ebb51d2b29ac1ca9c4b10a257fb825ca4e2bb275a20"
   end
 
   def install
