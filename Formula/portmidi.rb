@@ -13,15 +13,8 @@ class Portmidi < Formula
     sha256 "c36b7219ff6d838884d8fbe13a1d159b5375e5868b9a9c0d84de332952549e36" => :yosemite
   end
 
-  option "with-java", "Build Java-based app and bindings."
-
   depends_on "cmake" => :build
   depends_on "cython" => :build
-  depends_on :java => :optional
-
-  # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
-  # Since 217 the Makefile.osx includes pm_common/CMakeLists.txt wich builds the Java app
-  patch :DATA if build.without? "java"
 
   def install
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
@@ -54,25 +47,3 @@ class Portmidi < Formula
     end
   end
 end
-
-__END__
-diff --git a/pm_common/CMakeLists.txt b/pm_common/CMakeLists.txt
-index e171047..b010c35 100644
---- a/pm_common/CMakeLists.txt
-+++ b/pm_common/CMakeLists.txt
-@@ -112,14 +112,9 @@ target_link_libraries(portmidi-static ${PM_NEEDED_LIBS})
- # define the jni library
- include_directories(${JAVA_INCLUDE_PATHS})
-
--set(JNISRC ${LIBSRC} ../pm_java/pmjni/pmjni.c)
--add_library(pmjni SHARED ${JNISRC})
--target_link_libraries(pmjni ${JNI_EXTRA_LIBS})
--set_target_properties(pmjni PROPERTIES EXECUTABLE_EXTENSION "jnilib")
--
- # install the libraries (Linux and Mac OS X command line)
- if(UNIX)
--  INSTALL(TARGETS portmidi-static pmjni
-+  INSTALL(TARGETS portmidi-static
-     LIBRARY DESTINATION /usr/local/lib
-     ARCHIVE DESTINATION /usr/local/lib)
- # .h files installed by pm_dylib/CMakeLists.txt, so don't need them here
