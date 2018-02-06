@@ -3,20 +3,11 @@ class Petsc < Formula
   homepage "https://www.mcs.anl.gov/petsc/index.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.6.tar.gz"
   sha256 "b07f7b4e57d75f982787bd8169f7b8debd5aee2477293da230ab6c80a52c6ef8"
-  revision 4
   head "https://bitbucket.org/petsc/petsc", :using => :git
-
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
-  option "without-test", "Skip build-time tests (not recommended)"
-  option "with-complex", "Link complex version of PETSc by default."
-  option "with-debug", "Build debug version"
-  option "with-ml", "Download and build ML (will not symlink if Trilinos is installed)"
 
   depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "open-mpi"
-  depends_on :x11 => :optional
 
   depends_on "superlu"      => :recommended
   depends_on "metis"        => :recommended
@@ -28,30 +19,22 @@ class Petsc < Formula
   depends_on "netcdf"       => :recommended
   depends_on "fftw"         => ["with-mpi", :recommended]
 
-  def oprefix(f)
-    Formula[f].opt_prefix
-  end
-
   def install
     ENV.deparallelize
 
     arch_real="real"
     arch_complex="complex"
 
-    # Environment variables CC, CXX, etc. will be ignored by PETSc
-    ENV.delete "CC"
-    ENV.delete "CXX"
-    ENV.delete "F77"
-    ENV.delete "FC"
-    # PETSc is not threadsafe, disable pthread/openmp (see http://www.mcs.anl.gov/petsc/miscellaneous/petscthreads.html)
+    # PETSc is not threadsafe, disable pthread/openmp
+    # (see http://www.mcs.anl.gov/petsc/miscellaneous/petscthreads.html)
     args = %w[CC=mpicc
               CXX=mpicxx
               F77=mpif77
               FC=mpif90
               --with-shared-libraries=1
               --with-pthread=0
-              --with-openmp=0]
-    args << ("--with-debugging=" + ((build.with? "debug") ? "1" : "0"))
+              --with-openmp=0
+              --with-debugging=0]
 
     # We don't download anything, so no need to build against openssl
     args << "--with-ssl=0"
@@ -62,13 +45,13 @@ class Petsc < Formula
       args << "--with-superlu-lib=-L#{slu.lib} -lsuperlu"
     end
 
-    args << "--with-fftw-dir=#{oprefix("fftw")}" if build.with? "fftw"
-    args << "--with-netcdf-dir=#{oprefix("netcdf")}" if build.with? "netcdf"
-    args << "--with-suitesparse-dir=#{oprefix("suite-sparse")}" if build.with? "suite-sparse"
-    args << "--with-hdf5-dir=#{oprefix("hdf5")}" if build.with? "hdf5"
-    args << "--with-metis-dir=#{oprefix("metis")}" if build.with? "metis"
-    args << "--with-scalapack-dir=#{oprefix("scalapack")}" if build.with? "scalapack"
-    args << "--with-x=0" if build.without? "x11"
+    args << "--with-fftw-dir=#{Formula["fftw"].opt_prefix}" if build.with? "fftw"
+    args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}" if build.with? "netcdf"
+    args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}" if build.with? "suite-sparse"
+    args << "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}" if build.with? "hdf5"
+    args << "--with-metis-dir=#{Formula["metis"].opt_prefix}" if build.with? "metis"
+    args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}" if build.with? "scalapack"
+    args << "--with-x=0"
 
     # configure fails if those vars are set differently.
     ENV["PETSC_DIR"] = Dir.getwd
@@ -76,14 +59,10 @@ class Petsc < Formula
     # real-valued case:
     ENV["PETSC_ARCH"] = arch_real
     args_real = ["--prefix=#{prefix}/#{arch_real}", "--with-scalar-type=real"]
-    # TODO: compile separately (https://bitbucket.org/petsc/pkg-ml/commits/tag/v6.2-p3)
-    # --with-ml-include=/path/to/ml/include --with-ml-lib=/path/to/ml/liblibml.a
-    args_real << "--download-ml=1" if build.with? "ml"
-    args_real << "--with-hypre-dir=#{oprefix("hypre")}" if build.with? "hypre"
-    args_real << "--with-hwloc-dir=#{oprefix("hwloc")}" if build.with? "hwloc"
+    args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}" if build.with? "hypre"
+    args_real << "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}" if build.with? "hwloc"
     system "./configure", *(args + args_real)
     system "make", "all"
-    system "make", "test" if build.with? "test"
     system "make", "install"
 
     # complex-valued case:
@@ -91,7 +70,6 @@ class Petsc < Formula
     args_cmplx = ["--prefix=#{prefix}/#{arch_complex}", "--with-scalar-type=complex"]
     system "./configure", *(args + args_cmplx)
     system "make", "all"
-    system "make", "test" if build.with? "test"
     system "make", "install"
 
     # Link only what we want
@@ -105,17 +83,8 @@ class Petsc < Formula
     pkgshare.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
   end
 
-  def caveats; <<-EOS
-    No support for some optional PETSc dependencies:
-      mumps, parmetis, sundials, and superlu_dist
-    Set PETSC_DIR to #{prefix}/real or #{prefix}/complex.
-    Fortran module files are in
-      #{prefix}/real/include and #{prefix}/complex/include
-    EOS
-  end
-
   test do
-    (testpath/"test.c").write <<-EOS
+    (testpath/"test.c").write <<~EOS
     static char help[] = "Solve a tridiagonal linear system with KSP.\\n";
     #include <petscksp.h>
     #undef __FUNCT__
