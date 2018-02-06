@@ -6,9 +6,9 @@ class Dislocker < Formula
   revision 1
 
   bottle do
-    sha256 "1b1fede1c17fb9829555c1ec85ea883a4b1fe7ae13f6ba595ec5504a06949f87" => :high_sierra
-    sha256 "68728e2f7ba2aae2b25fa4ef51596e62294bb1ca2b73f4def09b955dc5648f29" => :sierra
-    sha256 "fc7988168917b9635fb81cf1411aaaeec893e25a1be7e2bdefe40a6e80747c0a" => :el_capitan
+    sha256 "9c42e7c3d2cd45e53a81aa6d19c927dbc24a069daf31c159e2f5cf7c2faca775" => :high_sierra
+    sha256 "d26f58de47cb27f00f16282bb6be058e90be87f83125468ba4b7ab6cc980a3e2" => :sierra
+    sha256 "d3310d4ddd7ed225fd8f821448fa2edabd3956e637755498c0d7ee4b74ed4aa3" => :el_capitan
   end
 
   depends_on "cmake" => :build
