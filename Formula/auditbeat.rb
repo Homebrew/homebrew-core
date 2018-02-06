@@ -82,15 +82,12 @@ class Auditbeat < Formula
     (testpath/"files").mkpath
     (testpath/"config/auditbeat.yml").write <<~EOS
       auditbeat.modules:
-      - module: audit
-        metricsets: [file]
-        file.paths:
+      - module: file_integrity
+        paths:
           - #{testpath}/files
       output.file:
         path: "#{testpath}/auditbeat"
         filename: auditbeat
-        codec.format:
-          string: '%{[audit]}'
     EOS
     pid = fork do
       exec "#{bin}/auditbeat", "-path.config", testpath/"config", "-path.data", testpath/"data"
@@ -101,7 +98,7 @@ class Auditbeat < Formula
       touch testpath/"files/touch"
       sleep 30
       s = IO.readlines(testpath/"auditbeat/auditbeat").last(1)[0]
-      assert_match "\"action\":\"created\"", s
+      assert_match "\"action\":\[\"created\"\]", s
       realdirpath = File.realdirpath(testpath)
       assert_match "\"path\":\"#{realdirpath}/files/touch\"", s
     ensure
