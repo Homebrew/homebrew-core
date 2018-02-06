@@ -7,9 +7,9 @@ class Influxdb < Formula
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
-    sha256 "9b435192e9d99fae976538e39fe5b5b228b87e0f1dca945a82fbdbac0af2b411" => :high_sierra
-    sha256 "bb76f0040f743225f25b956556e856414605e746c277710e1ca83ba9d1f7faae" => :sierra
-    sha256 "931fd54b8b01494dc05362d3524b7b6979b6f682f0b63fe64c15a3db6e157a73" => :el_capitan
+    sha256 "1b188d586479bed82b8d19480dc0c7035eb49e2a5d81c3f48c59d2895c454178" => :high_sierra
+    sha256 "1589944237250658e7dc04b6c3e33d5cbc238dfa3349d49f5da1a12a73f7bcae" => :sierra
+    sha256 "8be7a9019b1ab932a9829278586045e145210fe7f3b25e21d6af3b9f24dcf7df" => :el_capitan
   end
 
   depends_on "gdm" => :build
