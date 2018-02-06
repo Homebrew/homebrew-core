@@ -5,9 +5,9 @@ class LibbitcoinExplorer < Formula
   sha256 "630cffd577c0d10345b44ce8160f4604519b0ca69bf201f524f104c207b930aa"
 
   bottle do
-    sha256 "cc840aa895778f15b6fc16d3621ac5bf6125e5ea1a1ba4e70a272e0f61e287c1" => :high_sierra
-    sha256 "59cb12ef010d03c3cf53c84833444eecc743222c339d95db0327c6645e238b53" => :sierra
-    sha256 "6026d21bbc09ffb450e737b4b7517837833779e8922ecc6a82f0e1eba2b889ad" => :el_capitan
+    sha256 "95a82301e66060a2c470ec76da784150216fbdc9c3a3c038af8de29052aa527e" => :high_sierra
+    sha256 "ee0600e279f96f1385410dac18f49c079c069c6b7934e00b34a3c63e5fe99481" => :sierra
+    sha256 "da500353884d71273ed159380ed1b1ce788afc16bcf993ca5b6a1bbc67593c23" => :el_capitan
   end
 
   depends_on "autoconf" => :build
