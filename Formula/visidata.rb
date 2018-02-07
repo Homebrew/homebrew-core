@@ -1,10 +1,9 @@
 class Visidata < Formula
   include Language::Python::Virtualenv
   desc "Terminal utility for exploring and arranging tabular data"
-  homepage "http://visidata.org"
+  homepage "http://visidata.org/"
   url "https://files.pythonhosted.org/packages/49/95/15af273f829a97944baf15f6fc36b427a0bff5917913d87d3cd01a4582ee/visidata-1.0.tar.gz"
   sha256 "79ad431f6bc1c4df7f8ecd8b26421d03f49f186c4e883b73310ffc5747b5a653"
-  head "https://github.com/saulpw/visidata.git"
 
   depends_on "python3"
 
@@ -68,15 +67,16 @@ class Visidata < Formula
     venv.pip_install resources
     venv.pip_install_and_link buildpath
     man1.install "visidata/man/vd.1"
-    Language::Python.each_python(build) do |_, version|
-      bundle_path = libexec/"lib/python#{version}/site-packages"
-      bundle_path.mkpath
-      ENV.prepend_path "PYTHONPATH", bundle_path
-      (lib/"python#{version}/site-packages/homebrew-visidata-bundle.pth").write "#{bundle_path}\n"
-    end
   end
 
   test do
-    system "#{libexec}/bin/python3", "-c", "import visidata"
+    (testpath/"test_visidata.sh").write <<~EOS
+      #!/usr/bin/env bash
+      curl -O https://raw.githubusercontent.com/saulpw/visidata/stable/tests/exp-digits.vd
+      vd --play exp-digits.vd --batch --output results_test.tsv
+    EOS
+    chmod 0755, testpath/"test_visidata.sh"
+    system "./test_visidata.sh"
+    assert_predicate testpath/"results_test.tsv", :exist?
   end
 end
