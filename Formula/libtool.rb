@@ -28,12 +28,40 @@ class Libtool < Formula
                           "--program-prefix=g",
                           "--enable-ltdl-install"
     system "make", "install"
+    # Symlink all commands into libexec/gnubin without the 'g' prefix
+    libtool_filenames(bin).each do |cmd|
+      (libexec/"bin").install_symlink bin/"g#{cmd}" => cmd
+    end
+    # Symlink all man(1) pages into libexec/gnuman without the 'g' prefix
+    libtool_filenames(man1).each do |cmd|
+      (libexec/"man"/"man1").install_symlink man1/"g#{cmd}" => cmd
+    end
   end
 
   def caveats; <<~EOS
     In order to prevent conflicts with Apple's own libtool we have prepended a "g"
     so, you have instead: glibtool and glibtoolize.
+
+    If you really need to use these commands with their normal names, you
+    can add a "libtool/libexec/bin" directory to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/bin:$PATH"
+
+    Additionally, you can access their man pages with normal names if you add
+    the "libtool/libexec/man" directory to your MANPATH from your bashrc as well:
+
+        MANPATH="#{opt_libexec}/man:$MANPATH"
+
     EOS
+  end
+
+  def libtool_filenames(dir)
+    filenames = []
+    dir.find do |path|
+      next if path.directory? || path.basename.to_s == ".DS_Store"
+      filenames << path.basename.to_s.sub(/^g/, "")
+    end
+    filenames.sort
   end
 
   test do
