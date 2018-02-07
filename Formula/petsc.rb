@@ -20,8 +20,6 @@ class Petsc < Formula
   depends_on "fftw"         => ["with-mpi", :recommended]
 
   def install
-    ENV.deparallelize
-
     arch_real="real"
     arch_complex="complex"
 
@@ -56,14 +54,14 @@ class Petsc < Formula
     args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}" if build.with? "hypre"
     args_real << "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}" if build.with? "hwloc"
     system "./configure", *(args + args_real)
-    system "make", "all"
+    system "make", "all", "--makefile=gmakefile"
     system "make", "install"
 
     # complex-valued case:
     ENV["PETSC_ARCH"] = arch_complex
     args_cmplx = ["--prefix=#{prefix}/#{arch_complex}", "--with-scalar-type=complex"]
     system "./configure", *(args + args_cmplx)
-    system "make", "all"
+    system "make", "all", "--makefile=gmakefile"
     system "make", "install"
 
     # Link only what we want
