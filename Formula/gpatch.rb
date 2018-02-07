@@ -1,9 +1,9 @@
 class Gpatch < Formula
   desc "Apply a diff file to an original"
   homepage "https://savannah.gnu.org/projects/patch/"
-  url "https://ftp.gnu.org/gnu/patch/patch-2.7.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/patch/patch-2.7.5.tar.xz"
-  sha256 "fd95153655d6b95567e623843a0e77b81612d502ecf78a489a4aed7867caa299"
+  url "https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/patch/patch-2.7.6.tar.xz"
+  sha256 "ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"
 
   bottle do
     cellar :any_skip_relocation
