@@ -9,14 +9,14 @@ class Petsc < Formula
   depends_on "gcc"
   depends_on "open-mpi"
 
-  depends_on "superlu"      => :recommended
-  depends_on "metis"        => :recommended
-  depends_on "scalapack"    => :recommended
-  depends_on "hypre"        => :recommended
+  depends_on "superlu"
+  depends_on "metis"
+  depends_on "scalapack"
+  depends_on "hypre"
   depends_on "hdf5"         => ["with-mpi", :recommended]
-  depends_on "hwloc"        => :recommended
-  depends_on "suite-sparse" => :recommended
-  depends_on "netcdf"       => :recommended
+  depends_on "hwloc"
+  depends_on "suite-sparse"
+  depends_on "netcdf"
   depends_on "fftw"         => ["with-mpi", :recommended]
 
   def install
@@ -38,11 +38,11 @@ class Petsc < Formula
     args << "--with-ssl=0"
 
     args << "--with-fftw-dir=#{Formula["fftw"].opt_prefix}" if build.with? "fftw"
-    args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}" if build.with? "netcdf"
-    args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}" if build.with? "suite-sparse"
+    args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}"
+    args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}"
     args << "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}" if build.with? "hdf5"
-    args << "--with-metis-dir=#{Formula["metis"].opt_prefix}" if build.with? "metis"
-    args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}" if build.with? "scalapack"
+    args << "--with-metis-dir=#{Formula["metis"].opt_prefix}"
+    args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}"
     args << "--with-x=0"
 
     # configure fails if those vars are set differently.
@@ -51,8 +51,8 @@ class Petsc < Formula
     # real-valued case:
     ENV["PETSC_ARCH"] = arch_real
     args_real = ["--prefix=#{prefix}/#{arch_real}", "--with-scalar-type=real"]
-    args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}" if build.with? "hypre"
-    args_real << "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}" if build.with? "hwloc"
+    args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}"
+    args_real << "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}"
     system "./configure", *(args + args_real)
     system "make", "all", "--makefile=gmakefile"
     system "make", "install"
