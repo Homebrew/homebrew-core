@@ -7,10 +7,9 @@ class Gpatch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ebce762511cd64db060d1d7fcfae5e3f05111312598b347697d116c223aa34b8" => :high_sierra
-    sha256 "d7723d37ca9526120c2ab2aa57ce5d98f74f515211eb602c251d251dd59deca3" => :sierra
-    sha256 "a74c4a9a33b6f33d435daaceaf86dfc829e1054d9b1df46dd6e78fa5b8a239d7" => :el_capitan
-    sha256 "05701655fdfa305f92fce05758c50f51c3ff3a6a7b15a45765c3d7b9b97f38b1" => :yosemite
+    sha256 "418d7ea9c3948a5d70bdca202bd56e5554eef7f105fc25449f041331db7f4f96" => :high_sierra
+    sha256 "81e0fb63928b01d60b9d7a1f0bdbf262679888556bd055fd02f4f57a70cb87ad" => :sierra
+    sha256 "bd67af8b9c24fa785a2da2a1d3475305593dbc183331aed657313e4066de3259" => :el_capitan
   end
 
   def install
