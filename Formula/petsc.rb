@@ -39,12 +39,6 @@ class Petsc < Formula
     # We don't download anything, so no need to build against openssl
     args << "--with-ssl=0"
 
-    if build.with? "superlu43"
-      slu = Formula["superlu43"]
-      args << "--with-superlu-include=#{slu.include}/superlu"
-      args << "--with-superlu-lib=-L#{slu.lib} -lsuperlu"
-    end
-
     args << "--with-fftw-dir=#{Formula["fftw"].opt_prefix}" if build.with? "fftw"
     args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}" if build.with? "netcdf"
     args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}" if build.with? "suite-sparse"
