@@ -1,9 +1,8 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
-  homepage "https://uriparser.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/uriparser/Sources/0.8.4/uriparser-0.8.4.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/u/uriparser/uriparser_0.8.4.orig.tar.bz2"
-  sha256 "ce7ccda4136974889231e8426a785e7578e66a6283009cfd13f1b24a5e657b23"
+  homepage "https://uriparser.github.io/"
+  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.8.5/uriparser-0.8.5.tar.bz2"
+  sha256 "58eacd5c03d9e341c04eb0b30831faec89f3b415949ff8d72254e63432352cdd"
 
   bottle do
     cellar :any
@@ -15,7 +14,8 @@ class Uriparser < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/uriparser/git.git"
+    url "https://github.com/uriparser/uriparser.git"
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
@@ -41,6 +41,7 @@ class Uriparser < Formula
       scheme:       https
       hostText:     brew.sh
       absolutePath: false
+                    (always false for URIs with host)
     EOS
     assert_equal expected, shell_output("#{bin}/uriparse https://brew.sh").chomp
   end
