@@ -9,68 +9,48 @@ class Petsc < Formula
   depends_on "gcc"
   depends_on "open-mpi"
 
-  depends_on "superlu"
-  depends_on "metis"
-  depends_on "scalapack"
-  depends_on "hypre"
   depends_on "hdf5"
   depends_on "hwloc"
-  depends_on "suite-sparse"
+  depends_on "hypre"
+  depends_on "metis"
   depends_on "netcdf"
+  depends_on "scalapack"
+  depends_on "suite-sparse"
 
   def install
-    arch_real="real"
-    arch_complex="complex"
-
     # PETSc is not threadsafe, disable pthread/openmp
     # (see http://www.mcs.anl.gov/petsc/miscellaneous/petscthreads.html)
-    args = %w[CC=mpicc
+    args = %W[CC=mpicc
               CXX=mpicxx
               F77=mpif77
               FC=mpif90
-              --with-shared-libraries=1
-              --with-pthread=0
+              --with-debugging=0
               --with-openmp=0
-              --with-debugging=0]
+              --with-pthread=0
+              --with-shared-libraries=1
+              --with-ssl=0
+              --with-x=0
+              --with-hdf5-dir=#{Formula["hdf5"].opt_prefix}
+              --with-hwloc-dir=#{Formula["hwloc"].opt_prefix}
+              --with-hypre-dir=#{Formula["hypre"].opt_prefix}
+              --with-metis-dir=#{Formula["metis"].opt_prefix}
+              --with-netcdf-dir=#{Formula["netcdf"].opt_prefix}
+              --with-scalapack-dir=#{Formula["scalapack"].opt_prefix}
+              --with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}]
 
-    # We don't download anything, so no need to build against openssl
-    args << "--with-ssl=0"
-
-    args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}"
-    args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}"
-    args << "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}"
-    args << "--with-metis-dir=#{Formula["metis"].opt_prefix}"
-    args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}"
-    args << "--with-x=0"
-
-    # configure fails if those vars are set differently.
+    # Build PETSc for real (vs. complex) numbers
     ENV["PETSC_DIR"] = Dir.getwd
-
-    # real-valued case:
-    ENV["PETSC_ARCH"] = arch_real
-    args_real = ["--prefix=#{prefix}/#{arch_real}", "--with-scalar-type=real"]
-    args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}"
-    args_real << "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}"
+    ENV["PETSC_ARCH"] = "real"
+    args_real = %W[--prefix=#{prefix}/real
+                   --with-scalar-type=real]
     system "./configure", *(args + args_real)
     system "make", "all", "--makefile=gmakefile"
     system "make", "install"
 
-    # complex-valued case:
-    ENV["PETSC_ARCH"] = arch_complex
-    args_cmplx = ["--prefix=#{prefix}/#{arch_complex}", "--with-scalar-type=complex"]
-    system "./configure", *(args + args_cmplx)
-    system "make", "all", "--makefile=gmakefile"
-    system "make", "install"
-
-    # Link only what we want
-    petsc_arch = ((build.with? "complex") ? arch_complex : arch_real)
-
-    include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*h"],
-                                "#{prefix}/#{petsc_arch}/include/finclude",
-                                "#{prefix}/#{petsc_arch}/include/petsc-private"
-    # Symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
-    lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
-    pkgshare.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
+    # PETSc produces some non-executables in bin dir; do not link these
+    ln_s "#{prefix}/real/bin/*.py", bin.to_s
+    ln_s "#{prefix}/real/include", include.to_s
+    ln_s "#{prefix}/real/lib", lib.to_s
   end
 
   test do
