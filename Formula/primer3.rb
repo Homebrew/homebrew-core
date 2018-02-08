@@ -12,8 +12,6 @@ class Primer3 < Formula
     sha256 "62595ddbfc162732a7d4741b1c331ef51d53fe8ac2008c613447bb4ebb7a2b1c" => :x86_64_linux
   end
 
-  option "without-test", "Skip build-time tests"
-
   def install
     cd "src" do
       system "make"
