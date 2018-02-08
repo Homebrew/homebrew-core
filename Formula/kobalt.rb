@@ -1,13 +1,13 @@
 class Kobalt < Formula
   desc "Build system"
   homepage "http://beust.com/kobalt"
-  url "https://github.com/cbeust/kobalt/releases/download/1.0.102/kobalt-1.0.102.zip"
-  sha256 "d789999a80154aa6fc41dabb90ace15178dcd0f797344e3bec2baaacb3e1f6c0"
+  url "https://github.com/cbeust/kobalt/releases/download/1.0.106/kobalt-1.0.106.zip"
+  sha256 "2d504f4cdd9e5cd9bfa7355cbac3264dcba002a5ff5bc4851b986057b35fc4c8"
 
   bottle :unneeded
 
   def install
-    libexec.install %w[kobalt]
+    libexec.install "kobalt-#{version}/kobalt"
 
     (bin/"kobaltw").write <<~EOS
       #!/bin/bash
