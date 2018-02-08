@@ -17,7 +17,6 @@ class Petsc < Formula
   depends_on "hwloc"
   depends_on "suite-sparse"
   depends_on "netcdf"
-  depends_on "fftw"         => ["with-mpi", :recommended]
 
   def install
     arch_real="real"
@@ -37,7 +36,6 @@ class Petsc < Formula
     # We don't download anything, so no need to build against openssl
     args << "--with-ssl=0"
 
-    args << "--with-fftw-dir=#{Formula["fftw"].opt_prefix}" if build.with? "fftw"
     args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}"
     args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}"
     args << "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}"
