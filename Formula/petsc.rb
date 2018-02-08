@@ -13,7 +13,7 @@ class Petsc < Formula
   depends_on "metis"
   depends_on "scalapack"
   depends_on "hypre"
-  depends_on "hdf5"         => ["with-mpi", :recommended]
+  depends_on "hdf5"
   depends_on "hwloc"
   depends_on "suite-sparse"
   depends_on "netcdf"
@@ -40,7 +40,7 @@ class Petsc < Formula
     args << "--with-fftw-dir=#{Formula["fftw"].opt_prefix}" if build.with? "fftw"
     args << "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}"
     args << "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}"
-    args << "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}" if build.with? "hdf5"
+    args << "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}"
     args << "--with-metis-dir=#{Formula["metis"].opt_prefix}"
     args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}"
     args << "--with-x=0"
