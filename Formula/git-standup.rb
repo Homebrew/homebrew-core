@@ -1,8 +1,8 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
   homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/2.1.8.tar.gz"
-  sha256 "25b002f1df34ecc31c0a254ee95bf077dd4285a3d428a48e5d4821c289795800"
+  url "https://github.com/kamranahmedse/git-standup/archive/2.1.9.tar.gz"
+  sha256 "6f6ff39e7d1cbf51783bc42fbc61ad38f84efdd441c183cef0d75187c1ea7087"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do
@@ -15,7 +15,7 @@ class GitStandup < Formula
   end
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
