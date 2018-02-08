@@ -5,6 +5,12 @@ class Siril < Formula
   sha256 "ecb5477937afc02cc89cb07f4a7b99d2d0ab4cc5e715ec536e9be5c92a187170"
   head "https://free-astro.org/svn/siril/", :using => :svn
 
+  bottle do
+    sha256 "6d1f39ba2a4daab4e67f220e894f1f3ae3e3f36698b8c7df00a76aaa9bffadbc" => :high_sierra
+    sha256 "686d08559fa130afc80de37b980b090689d730c699e958dbe619a648ecc1d582" => :sierra
+    sha256 "e34d392a486720624f58b204931573222b10a0182b687e339b5aad9bce98258d" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "intltool" => :build
