@@ -3,6 +3,7 @@ class Xxhash < Formula
   homepage "https://github.com/Cyan4973/xxHash"
   url "https://github.com/Cyan4973/xxHash/archive/v0.6.4.tar.gz"
   sha256 "4570ccd111df6b6386502791397906bf69b7371eb209af7d41debc2f074cdb22"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Xxhash < Formula
 
   def install
     system "make"
-    bin.install "xxhsum"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
