@@ -17,7 +17,6 @@ class Primer3 < Formula
   def install
     cd "src" do
       system "make"
-      system "make", "test" if build.with? "test"
       bin.install %w[primer3_core ntdpal ntthal oligotm long_seq_tm_test]
       pkgshare.install "primer3_config"
     end
