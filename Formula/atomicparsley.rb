@@ -38,9 +38,8 @@ class Atomicparsley < Formula
 
   test do
     cp test_fixtures("test.m4a"), testpath/"file.m4a"
-    system "#{bin}/atomicparsley", testpath/"file.m4a", "--artist", "Homebrew"
-    output = shell_output("find . -name file-temp*")
-    var = "file-temp"
-    assert_match var, output
+    system "#{bin}/atomicparsley", testpath/"file.m4a", "--artist", "Homebrew", "--overWrite"
+    output = shell_output("#{bin}/atomicparsley file.m4a --textdata")
+    assert_match "Homebrew", output
   end
 end
