@@ -87,6 +87,8 @@ class Ocrmypdf < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
 
     # Use ocrmypdf -f to rasterize the PDF to image before doing OCR
-    system "#{bin}/ocrmypdf", "-f", "-q", "--deskew", test_fixtures("test.pdf"), testpath/"ocr.pdf"
+    # ocrmypdf only returns success when a valid PDF is produced
+    system "#{bin}/ocrmypdf", "-f", "-q", "--deskew",
+                              test_fixtures("test.pdf"), testpath/"ocr.pdf"
   end
 end
