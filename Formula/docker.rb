@@ -7,9 +7,9 @@ class Docker < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "14f9b28fa7d6f78aa1399f2d4d0482ea40e8b4d0559a339bebae5390953443cf" => :high_sierra
-    sha256 "38d22a382f1283234f72f70bea0ee27127f54a89328c8f4675b8d4de44aeddc2" => :sierra
-    sha256 "9a8db66ccf65f4720f1e961d974f9e588597616b7dec971dc606bc52a4756a74" => :el_capitan
+    sha256 "bffb3b5e1cc8293fdfe22346eadc0f4550aa0b80f3112a328906a663d47467cd" => :high_sierra
+    sha256 "f6714ac9b9031397332e9a45559e6a4161fe00d906324415f5e4b77fdb825533" => :sierra
+    sha256 "1bf8f7d1293155560ee2861f2580eef8bc861a20d4e112f88cb8ec489706a1dc" => :el_capitan
   end
 
   option "with-experimental", "Enable experimental features"
