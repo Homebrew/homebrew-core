@@ -4,6 +4,7 @@ class Fabio < Formula
   url "https://github.com/fabiolb/fabio/archive/v1.5.7.tar.gz"
   sha256 "c33cf4f5e3bf7c9ce2ef634cccebed01d1f0c6e1f31759111db7d94f7a0ceadb"
   head "https://github.com/fabiolb/fabio.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
