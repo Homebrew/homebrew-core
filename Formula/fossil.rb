@@ -8,9 +8,9 @@ class Fossil < Formula
 
   bottle do
     cellar :any
-    sha256 "e03c1769b10b9f8686fe3c83556ad4312370f25a5367bd99eeddf2d2578cb32a" => :high_sierra
-    sha256 "41a2bbfb08e60fd6bb03cddf1367abf9404d1fbba34f19d758b160ce2c8b8215" => :sierra
-    sha256 "e3dc23ba2409c3382f72232fa895bf6fbca046d39c164018e28b058d304bb843" => :el_capitan
+    sha256 "ae7668a24eb90519dd006aab8b58f90c2ec6c74c288b842a0a4a58792bd4ef14" => :high_sierra
+    sha256 "202def77982dcc29a4e47dd6d6184ed42f34fceda71810bfc1cb3b44ce20e113" => :sierra
+    sha256 "8f231707dd22e094a41cd14fee7269c87126fe314e8d9b4a203f21eb1fd93198" => :el_capitan
   end
 
   option "without-json", "Build without 'json' command support"
