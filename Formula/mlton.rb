@@ -1,19 +1,10 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20180207/mlton-20180207.src.tgz"
+  version "20180207"
+  sha256 "872cd98da3db720cbe05f673eaa1776d020d828713753f18fa5dd6a268195fef"
   head "https://github.com/MLton/mlton.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715.src.tgz"
-    version "20130715"
-    sha256 "215857ad11d44f8d94c27f75e74017aa44b2c9703304bcec9e38c20433143d6c"
-
-    # Configure GMP location via Makefile (https://github.com/MLton/mlton/pull/136)
-    patch do
-      url "https://github.com/MLton/mlton/commit/6e79342cdcf2e15193d95fcd3a46d164b783aed4.diff?full_index=1"
-      sha256 "7da7f0daf398fcb5b2c51db85721bd0d1979314f1b897a4eec4324f2a6d1b363"
-    end
-  end
 
   bottle do
     cellar :any
@@ -28,8 +19,8 @@ class Mlton < Formula
 
   # The corresponding upstream binary release used to bootstrap.
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-3.amd64-darwin.gmp-static.tgz"
-    sha256 "7e865cd3d1e48ade3de9b7532a31e94af050ee45f38a2bc87b7b2c45ab91e8e1"
+    url "https://downloads.sourceforge.net/project/mlton/mlton/20180207/mlton-20180207-1.amd64-darwin.gmp-static.tgz"
+    sha256 "bb2d982ef97d6ef4efe078d23a09baf3e52f6fd6c8f1a60016e1624438f487b3"
   end
 
   def install
@@ -53,8 +44,8 @@ class Mlton < Formula
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share
     ]
-    system "make", *(args + ["all-no-docs"])
-    system "make", *(args + ["install-no-docs"])
+    system "make", *(args + ["all"])
+    system "make", *(args + ["install"])
   end
 
   test do
