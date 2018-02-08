@@ -15,6 +15,7 @@ class Primer3 < Formula
   def install
     cd "src" do
       system "make"
+      # Lack of make install target reported to upstream: https://github.com/primer3-org/primer3/issues/1
       bin.install %w[primer3_core ntdpal ntthal oligotm long_seq_tm_test]
       pkgshare.install "primer3_config"
     end
