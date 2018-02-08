@@ -6,10 +6,9 @@ class Taisei < Formula
       :revision => "46fb0f894ad269528ac7fda533c7994eddd9b758"
 
   bottle do
-    cellar :any
-    sha256 "3303678cfaa0f5e19f30649cb26042e22029946f7c7d36af58f5e617e41fe28e" => :high_sierra
-    sha256 "c8148a8ee90632221ad5790f286d73af43d378e7fdc521a568b5bfb6732844f6" => :sierra
-    sha256 "fed47ca7b0254468f374b1319347877a8c1cdb39253985de0151003d97d65e41" => :el_capitan
+    sha256 "d693cb55f630f29a41d1182179cf019f2fd81593246cd5cd3c5769bcc4d49324" => :high_sierra
+    sha256 "4e61442d7f6031f558e898c5eb28fcc4e7ccf6811d523e989859131087252a14" => :sierra
+    sha256 "d9494fdf13cdfdfff4a7107cb93821e39d9079e86f660ce63b15f5ed37df8ce6" => :el_capitan
   end
 
   depends_on "meson" => :build
