@@ -25,7 +25,7 @@ class Siril < Formula
   depends_on "netpbm"
   depends_on "opencv"
   depends_on "openjpeg"
-  
+
   fails_with :clang # no OpenMP support
 
   needs :cxx11
