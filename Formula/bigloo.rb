@@ -6,10 +6,9 @@ class Bigloo < Formula
   sha256 "5c6c864ebc9bce6d6f768da912e3cd099256ebb08c38c69f3181f71a7d424b55"
 
   bottle do
-    sha256 "d8cc153227a4cf654d69e617754351d01b1e8a7648e0566f1f09d590e29a6077" => :high_sierra
-    sha256 "b6e3d1c848387656e4ac1fd29e3253a33027d0016fb59f698c9c0ceee7d6eeca" => :sierra
-    sha256 "c1d07d96de7ec2377b02b9103d5d64cbaa80f2a19605e6da9cc99115e0757976" => :el_capitan
-    sha256 "4df885d857ae5a8bec050edb9e010b61cdcdcfefee21f48209df9f8b7a1dd60c" => :yosemite
+    sha256 "1b6fce918e35cc37fb6e2c9d10f36b48866cdeaa577026114ff533efc72fb361" => :high_sierra
+    sha256 "5aef2cf4b59096ddc38cf12698543f18a68b784aa0b12beefb646334c3a89ef4" => :sierra
+    sha256 "41947394e3272672e20f2980e4bfbad317fcdaced331d9478322550cc8cd9024" => :el_capitan
   end
 
   option "with-jvm", "Enable JVM support"
