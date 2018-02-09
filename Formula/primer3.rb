@@ -22,6 +22,7 @@ class Primer3 < Formula
   end
 
   test do
-    system "#{bin}/long_seq_tm_test", "AAAAGGGCCCCCCCCTTTTTTTTTTT", "3", "20"
+    output = shell_output("#{bin}/long_seq_tm_test AAAAGGGCCCCCCCCTTTTTTTTTTT 3 20")
+    assert_match "tm = 52.452902", output.lines.last
   end
 end
