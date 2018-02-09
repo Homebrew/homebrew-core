@@ -5,6 +5,12 @@ class BoostPython3 < Formula
   sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
   head "https://github.com/boostorg/boost.git"
 
+  bottle do
+    sha256 "aa9f9e1f35621472b72b7a2eb57f319d51b2d4f7529c6385dde8b4079df57ddf" => :high_sierra
+    sha256 "6a33445becf2bfa215376060660707b81f23af873c262901d362d1d081176e8a" => :sierra
+    sha256 "397000ff88e4919ff4e23a0573efc5c9c41c56e6e4a239e878809fba600193b8" => :el_capitan
+  end
+
   depends_on "boost"
   depends_on "python3"
 
