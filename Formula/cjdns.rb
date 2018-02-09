@@ -20,6 +20,40 @@ class Cjdns < Formula
     (pkgshare/"test").install "build_darwin/test_testcjdroute_c" => "cjdroute_test"
   end
 
+  def post_install
+    `#{bin}/cjdroute --genconf > #{HOMEBREW_PREFIX}/etc/cjdroute.conf`
+  end
+
+  plist_options :startup => true, :manual => "cjdroute < #{HOMEBREW_PREFIX}/etc/cjdroute.conf"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/cjdroute</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardInPath</key>
+        <string>#{HOMEBREW_PREFIX}/etc/cjdroute.conf</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/cjdroute.log</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/cjdroute.log</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+    </plist>
+    EOS
+  end
+
   test do
     system "#{pkgshare}/test/cjdroute_test", "all"
   end
