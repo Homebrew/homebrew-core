@@ -6,10 +6,9 @@ class Primer3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcc7d166ca32302dca6650cd4097255e7dd2dd3f890a1a864498586b71a44a3e" => :high_sierra
-    sha256 "fe08ddd1929b113d59912a7b86bc90eb0dcd47873b2d00263609b685b45c4973" => :sierra
-    sha256 "e5c5bd6002dd36aa1fa177dc73bcb2feeae9b7a421a6ecbac4443866827378ae" => :el_capitan
-    sha256 "62595ddbfc162732a7d4741b1c331ef51d53fe8ac2008c613447bb4ebb7a2b1c" => :x86_64_linux
+    sha256 "f72fac01bb380b5ea55b41249b2d6bc2f799e9cb7cef55fae0a1f92e1de7ba64" => :high_sierra
+    sha256 "0337aa96c5d5f25caa15177236c5f5d269adaaad01cb63a77c933eb01f7a6ed0" => :sierra
+    sha256 "45ca3618888becc12b4d6be0ab9957ba5c8fdf2e818f74dc5312900c641b06c9" => :el_capitan
   end
 
   def install
