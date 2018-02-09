@@ -11,7 +11,7 @@ class Streamlink < Formula
     sha256 "acb8eb68831ce54c860abe5623395de053df2ce7af9bc158d81e890ae87bc47c" => :el_capitan
   end
 
-  # Use :python on Yosemite and prior to avoid needing urllib3[secure]
+  # Use brewed python on Yosemite and prior to avoid needing urllib3[secure]
   # See https://github.com/streamlink/streamlink/commit/0f35b9b2
   depends_on "python" if MacOS.version <= :yosemite
 
