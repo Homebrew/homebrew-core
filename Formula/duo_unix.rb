@@ -5,10 +5,9 @@ class DuoUnix < Formula
   sha256 "b12de0ab2600ad7021a332eb7fbbb239867f639959e79d74259ec5fe1b5d9234"
 
   bottle do
-    sha256 "5faadc10745090796bc019256039765927f2b4f2c296901f62d67a6026b87562" => :high_sierra
-    sha256 "3e57a037c2a38a4268c44c9dd1c64e8c16a88238d4d2d059532c18ebf5b0f2f4" => :sierra
-    sha256 "fb3f8c6f09739346d79458813db607007cfc9c3470c0ee33c95cdad0b5b32912" => :el_capitan
-    sha256 "49ef30c2dc72644b3073a6fef31383cd6a558236ffb046c2c988d7805c4d4c1d" => :yosemite
+    sha256 "8d537b9dcd36f7b6c708fdc0117d9ae8d1f98ffb22962a7b01cb62d4a557da80" => :high_sierra
+    sha256 "34ea4ec8b16e5f897caa6e0791d0c9a130941d0e0ed9b5362087a839f8d79a97" => :sierra
+    sha256 "cd89bf80fd63c234ef6d18dd82a9d33d9f19f786b267ca4008f7cf004e78b9bc" => :el_capitan
   end
 
   depends_on "autoconf" => :build
