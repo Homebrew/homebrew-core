@@ -1,8 +1,8 @@
 class ChromeExport < Formula
   desc "Convert Chrome’s bookmarks and history to HTML bookmarks files"
   homepage "https://github.com/bdesham/chrome-export"
-  url "https://github.com/bdesham/chrome-export/archive/v2.0.tar.gz"
-  sha256 "ff972c3d88b030b65823388e08cd65ebd8795f0674b5581e9e8fdf3a0f4dc7ef"
+  url "https://github.com/bdesham/chrome-export/archive/v2.0.1.tar.gz"
+  sha256 "9ba4b5b5c4881785bb6840a434cd3f1ce553c6e37fad0c5be1ac3533ef94f269"
 
   bottle :unneeded
 
