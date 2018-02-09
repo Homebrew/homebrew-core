@@ -20,16 +20,16 @@ class Urdfdom < Formula
       #include <iostream>
       #include <urdf_parser/urdf_parser.h>
       int main() {
-        std::string xml_string = 
-          "<robot name=\"testRobot\">\n"
-          "  <link name=\"link_0\">  \n"
-          "  </link>                 \n"
-          "</robot">                   ";
+        std::string xml_string =
+          "<robot name='testRobot'>"
+          "  <link name='link_0'>  "
+          "  </link>               "
+          "</robot>                ";
         urdf::parseURDF(xml_string);
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lc++", "-std=c++11", "-o", "test"
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lurdfdom_world", "-lc++", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
