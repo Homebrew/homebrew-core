@@ -1,5 +1,5 @@
 class UrdfdomHeaders < Formula
-  desc "Headers for URDF parsers "
+  desc "Headers for URDF parsers"
   homepage "https://wiki.ros.org/urdfdom_headers"
   url "https://github.com/ros/urdfdom_headers/archive/1.0.0.tar.gz"
   sha256 "f341e9956d53dc7e713c577eb9a8a7ee4139c8b6f529ce0a501270a851673001"
