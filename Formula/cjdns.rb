@@ -22,6 +22,9 @@ class Cjdns < Formula
 
   def post_install
     `#{bin}/cjdroute --genconf > #{HOMEBREW_PREFIX}/etc/cjdroute.conf`
+    inreplace "#{HOMEBREW_PREFIX}/etc/cjdroute.conf",
+      '"noBackground":0',
+      '"noBackground":1'
   end
 
   plist_options :startup => true, :manual => "cjdroute < #{HOMEBREW_PREFIX}/etc/cjdroute.conf"
