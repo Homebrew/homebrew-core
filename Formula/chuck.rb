@@ -1,15 +1,14 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "http://chuck.cs.princeton.edu/"
-  url "http://chuck.cs.princeton.edu/release/files/chuck-1.3.6.0.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/chuck-1.3.6.0.tgz"
-  sha256 "5a68b427c0caf63719a903c544244ddb67415889278f975234d58c7583ec34b4"
+  url "http://chuck.cs.princeton.edu/release/files/chuck-1.4.0.0.tgz"
+  sha256 "2caee332b8d48e2fddad0f8a0a1811b6cf4c5afab73ae8a17b85ec759cce27ac"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9bf0b727be8e8834dc9fa5f6f6e0ec2b03586a44156b6a8ed722ed9c92b8d041" => :high_sierra
-    sha256 "baf8c0ba4a280b4541621fceeebf8a28c9b16bae69730487a2e794544a04f6fb" => :sierra
-    sha256 "7c9c950c35def6347e37fa1455722312577e37efc5c83a9fb7f8d029ad88d033" => :el_capitan
+    sha256 "c1fe255bad84264c62b99d114877389b8c25e8ec6f9726e5b501db10a1b9f4b1" => :high_sierra
+    sha256 "f4ec8ddda3e8c533cf8402184d22dd3451ad9130284552b6f746a4bbb1249fd0" => :sierra
+    sha256 "4c27808b3b8755a856bdc49e9a97569a6bfb3ebc90991f8d3112b4debfd28bdf" => :el_capitan
   end
 
   depends_on :xcode => :build

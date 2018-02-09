@@ -4,12 +4,12 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
   sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
-  revision 10
+  revision 11
 
   bottle do
-    sha256 "537cbe85e870be04ddad35f23f007c05d02a7ec5fa6083328d4269253b298ef2" => :high_sierra
-    sha256 "0498fa3d43532cedffb642a9128e97bff172f3a2ea8ef810bdabc9c0f1c8760c" => :sierra
-    sha256 "5d500a371ea9198edc4230de9909c0483f1bb5b8806f011856379981ef756e7d" => :el_capitan
+    sha256 "190f425162c3fc497eb04886bea95a58b00b88320114d742aaedb35efb097648" => :high_sierra
+    sha256 "e0fce65db933fc1b7df215dcfa02733e2075ef3c3ace27e2fa00038ab67d9254" => :sierra
+    sha256 "cb9015369c8c7ef9866ed448493426354c43f860393835f91a9cc1ba8e1e86d1" => :el_capitan
   end
 
   head do
@@ -111,5 +111,9 @@ class Octave < Formula
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
     # Test java bindings: check if javaclasspath is working, return error if not
     system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
+
+    output = shell_output("#{bin}/mkoctfile -p FLIBS")
+    assert_match Formula["gcc"].prefix.realpath.to_s, output,
+                 "The octave formula needs to be revision bumped for gcc!"
   end
 end

@@ -1,6 +1,6 @@
 class RdiffBackup < Formula
   desc "Backs up one directory to another--also works over networks"
-  homepage "http://rdiff-backup.nongnu.org/"
+  homepage "https://www.nongnu.org/rdiff-backup/"
   url "https://savannah.nongnu.org/download/rdiff-backup/rdiff-backup-1.2.8.tar.gz"
   sha256 "0d91a85b40949116fa8aaf15da165c34a2d15449b3cbe01c8026391310ac95db"
   revision 1

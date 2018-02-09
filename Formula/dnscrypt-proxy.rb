@@ -1,16 +1,17 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
-  sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
-  revision 2
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dnscrypt-proxy/dnscrypt-proxy_1.9.5.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/dnscrypt-proxy/dnscrypt-proxy_1.9.5.orig.tar.gz"
+  sha256 "64021fabb7d5bab0baf681796d90ecd2095fb81381e6fb317a532039025a9399"
+  revision 3
 
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "14222baf3db570e64577e12af6b7d6aff571a04e77ce6a97b394ac60f409dc70" => :high_sierra
-    sha256 "a40f76505186a1a32b7ef18bdb7e522ffd17e327a8c3a3434c688673993ff6ed" => :sierra
-    sha256 "2ace7b2dc537c46d9a27e7cc095fb23381c8b9eae3a1093001093b57f2fd6d8d" => :el_capitan
+    sha256 "ae955dd397be3916768c9500f24b2230550b507654b88b45b95910f20b48b57b" => :high_sierra
+    sha256 "3e13da73a62121b7660fd4ab98014a6fea213ec681429865704db4ccd564c1bd" => :sierra
+    sha256 "29954c055e113395ea3772c6dd61ef5ef79f9547bf0a1e14e37e9fd932b479bb" => :el_capitan
   end
 
   option "without-plugins", "Disable support for plugins"
@@ -52,7 +53,7 @@ class DnscryptProxy < Formula
     if build.with? "minisign"
       (bin/"dnscrypt-update-resolvers").write <<~EOS
         #!/bin/sh
-        RESOLVERS_UPDATES_BASE_URL=https://download.dnscrypt.org/dnscrypt-proxy
+        RESOLVERS_UPDATES_BASE_URL=https://raw.githubusercontent.com/dyne/dnscrypt-proxy/master
         RESOLVERS_LIST_BASE_DIR=#{pkgshare}
         RESOLVERS_LIST_PUBLIC_KEY="RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"
 

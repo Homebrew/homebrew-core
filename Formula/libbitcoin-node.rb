@@ -1,14 +1,13 @@
 class LibbitcoinNode < Formula
   desc "Bitcoin Full Node"
   homepage "https://github.com/libbitcoin/libbitcoin-node"
-  url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.4.0.tar.gz"
-  sha256 "578c865d0b11ee15ca74e47b54cdaf521839cf0846c91f9cb21da2d6a82ca1ea"
-  revision 2
+  url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.5.0.tar.gz"
+  sha256 "e3a0a96155ca93aa6cba75789c18419f40686a69cbd40c77aa77ca84ccc43cab"
 
   bottle do
-    sha256 "75facd99ac5138cd67b8124dc91cdfd8b876d900693fe6c6f4aed8828273bf34" => :high_sierra
-    sha256 "f7b6ae188f3b3275c3e6085dc24111b0e976b0270d8150a0d7022c245fe1f753" => :sierra
-    sha256 "e0f990911561abdb1557897c6ee2b6d9962eb0b1762332672d2012a78d8267cd" => :el_capitan
+    sha256 "1b922407cddc74d2bff6f39e61e6545cbab4e7e65b55ad84abe6224b2c39da49" => :high_sierra
+    sha256 "90770b6f8b25f4d097162fa37e1c0c36e28293e82b71ee89cb963abc687fadf9" => :sierra
+    sha256 "598b58a40ee268630a5cdc05c72b0b5790f066fc13d72d5c29006a8a5c3a0b5c" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -18,8 +17,8 @@ class LibbitcoinNode < Formula
   depends_on "libbitcoin-blockchain"
 
   resource "libbitcoin-network" do
-    url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.4.0.tar.gz"
-    sha256 "3ef864289fc0085dd695f34e0a2dc8619011b3d6dbd7cffe1e19651ceff27ed9"
+    url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.5.0.tar.gz"
+    sha256 "e065bd95f64ad5d7b0f882e8759f6b0f81a5fb08f7e971d80f3592a1b5aa8db4"
   end
 
   def install

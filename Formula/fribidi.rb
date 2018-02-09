@@ -1,17 +1,14 @@
 class Fribidi < Formula
   desc "Implementation of the Unicode BiDi algorithm"
   homepage "https://github.com/fribidi/fribidi"
-  url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/fribidi-0.19.7.tar.bz2"
-  sha256 "08222a6212bbc2276a2d55c3bf370109ae4a35b689acbc66571ad2a670595a8e"
-  revision 1
+  url "https://github.com/fribidi/fribidi/releases/download/v1.0.1/fribidi-1.0.1.tar.bz2"
+  sha256 "c1b182d70590b6cdb5545bab8149de33b966800f27f2d9365c68917ed5a174e4"
 
   bottle do
     cellar :any
-    sha256 "328217d2ad90d4f183a44572c59cef7ec0cae37fdfb5b03ace41b37c48d8c72d" => :high_sierra
-    sha256 "5d1e95fc89934750643b1a684cd6738839ecc2d05721282dcf72b9c3481092fd" => :sierra
-    sha256 "6ba76553f8ec26d4de32e84ce0a99e758d1bb5b7272ac2a985ff71322957d1ac" => :el_capitan
-    sha256 "e414b99827d9a472609639ab5030bf5344077763bc178ce743a082008874f232" => :yosemite
-    sha256 "70caed8cb2f44044c41e0b91c2645111b9f177d98b4d49cef01fb0d8558c0f98" => :mavericks
+    sha256 "a4cf0ea06a675c060d157264a85dcb0c378b3b6cb048d529a4c9295b62defae3" => :high_sierra
+    sha256 "d94bcc9e376dc22b291bbb62824dcf1669dd14c0653ef49d98e6458be83e6a99" => :sierra
+    sha256 "705fdec56849cae873d504d6925209cfc4c7802d10de0f48022845b6bec5e8ce" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -4,11 +4,12 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz"
   mirror "https://ftpmirror.gnu.org/wget/wget-1.19.4.tar.gz"
   sha256 "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
+  revision 1
 
   bottle do
-    sha256 "1de903a28c501c55e9e2b7cb1ecc9a767ea39bd7fe9b9257a6f886c72b169a14" => :high_sierra
-    sha256 "adc8864a83b30f618ea40b6f79eed6605877cfa0524a8f53b4cc7b2d187cb0b2" => :sierra
-    sha256 "bb393524dc9f5ae639d09200d594646ae5c9c11147d0c4ce00adb70fcdefdf3b" => :el_capitan
+    sha256 "7989ae0ee0d212237ba31e8024189ba57a4296be67e08aeeea879d603ca66b59" => :high_sierra
+    sha256 "e4b88af13d56bd1aadbef96abdfff0a3919da8da96acc2e7ffd3ef812232a687" => :sierra
+    sha256 "3091698e33a73f706918967dddc3ce1d295f1ae351b5d32932cd3e9013ee5283" => :el_capitan
   end
 
   head do
@@ -27,7 +28,7 @@ class Wget < Formula
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
@@ -37,7 +38,7 @@ class Wget < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
     ]
 
     args << "--disable-debug" if build.without? "debug"

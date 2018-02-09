@@ -1,6 +1,6 @@
 class Lzip < Formula
   desc "LZMA-based compression program similar to gzip or bzip2"
-  homepage "http://www.nongnu.org/lzip/lzip.html"
+  homepage "https://www.nongnu.org/lzip/"
   url "https://download.savannah.gnu.org/releases/lzip/lzip-1.19.tar.gz"
   sha256 "ffadc4f56be1bc0d3ae155ec4527bd003133bdc703a753b2cc683f610e646ba9"
 
@@ -28,7 +28,7 @@ class Lzip < Formula
 
     # compress: data.txt -> data.txt.lz
     system "#{bin}/lzip", path
-    assert !path.exist?
+    refute_predicate path, :exist?
 
     # decompress: data.txt.lz -> data.txt
     system "#{bin}/lzip", "-d", "#{path}.lz"

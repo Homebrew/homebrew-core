@@ -48,12 +48,13 @@ class OpenBabel < Formula
       system "make"
       system "make", "install"
     end
+    (pkgshare/"java").install lib/"openbabel.jar" if build.with? "java"
   end
 
   def caveats
     <<~EOS
-      Java libraries are installed to #{HOMEBREW_PREFIX}/lib so this path should be
-      included in the CLASSPATH environment variable.
+      Java libraries are installed to #{opt_pkgshare}/java so this path should
+      be included in the CLASSPATH environment variable.
     EOS
   end
 

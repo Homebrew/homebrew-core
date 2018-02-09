@@ -1,7 +1,7 @@
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
-  revision 3
+  revision 5
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz"
@@ -17,10 +17,9 @@ class Libspatialite < Formula
 
   bottle do
     cellar :any
-    sha256 "5a3b1a4c722b691a653797a4e15a1cd688a6c653cb4827eaf71b7d3d5fe9cb8e" => :high_sierra
-    sha256 "2924b1b4d5856c3a8b2e84aaffcb296d5fd3bc81c05d74e7b5c1dba61cfa91a7" => :sierra
-    sha256 "c394425fddfa6b821542c68e29d558646e54336322552a60b620dbe3e5bc2749" => :el_capitan
-    sha256 "1c1627686a4d9a6969accae84e3a35414e076be0535fef01c1343fb54e4b18e9" => :yosemite
+    sha256 "97f25eee82fd0a111d8301eb29c3f8ea5081afd285a0418acda71440a2ed88e0" => :high_sierra
+    sha256 "38f71998eb23fad84ffedae7591ccb731b7a66435f9aac8c0ff4842a5392fd15" => :sierra
+    sha256 "f688d451502926229f0e180e14e620f9a3ff7b646a22df07342b4f0b74bdf9a3" => :el_capitan
   end
 
   head do
@@ -32,7 +31,6 @@ class Libspatialite < Formula
 
   option "without-freexl", "Build without support for reading Excel files"
   option "without-libxml2", "Disable support for xml parsing (parsing needed by spatialite-gui)"
-  option "without-liblwgeom", "Build without additional sanitization/segmentation routines provided by PostGIS 2.0+ library"
   option "without-geopackage", "Build without OGC GeoPackage support"
 
   depends_on "pkg-config" => :build
@@ -44,7 +42,6 @@ class Libspatialite < Formula
   depends_on "sqlite"
   depends_on "libxml2" => :recommended
   depends_on "freexl" => :recommended
-  depends_on "liblwgeom" => :recommended
 
   def install
     system "autoreconf", "-fi" if build.head?
@@ -62,12 +59,6 @@ class Libspatialite < Formula
     ENV.append "LDFLAGS", "-L#{sqlite.opt_lib}"
     ENV.append "CFLAGS", "-I#{sqlite.opt_include}"
 
-    if build.with? "liblwgeom"
-      lwgeom = Formula["liblwgeom"]
-      ENV.append "LDFLAGS", "-L#{lwgeom.opt_lib}"
-      ENV.append "CFLAGS", "-I#{lwgeom.opt_include}"
-    end
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -76,7 +67,6 @@ class Libspatialite < Formula
     ]
     args << "--enable-freexl=no" if build.without? "freexl"
     args << "--enable-libxml2=no" if build.without? "libxml2"
-    args << "--enable-lwgeom=yes" if build.with? "liblwgeom"
     args << "--enable-geopackage=no" if build.without? "geopackage"
 
     system "./configure", *args

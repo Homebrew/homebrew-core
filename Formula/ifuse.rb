@@ -1,6 +1,6 @@
 class Ifuse < Formula
   desc "FUSE module for iPhone and iPod Touch devices"
-  homepage "http://www.libimobiledevice.org/"
+  homepage "https://www.libimobiledevice.org/"
   url "https://github.com/libimobiledevice/ifuse/archive/1.1.3.tar.gz"
   sha256 "9b63afa6f2182da9e8c04b9e5a25c509f16f96f5439a271413956ecb67143089"
   head "https://cgit.sukimashita.com/ifuse.git"

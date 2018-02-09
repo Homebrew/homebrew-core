@@ -1,6 +1,6 @@
 class Daemonize < Formula
   desc "Run a command as a UNIX daemon"
-  homepage "http://software.clapper.org/daemonize/"
+  homepage "https://software.clapper.org/daemonize/"
   url "https://github.com/bmc/daemonize/archive/release-1.7.7.tar.gz"
   sha256 "b3cafea3244ed5015a3691456644386fc438102adbdc305af553928a185bea05"
 

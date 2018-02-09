@@ -3,14 +3,14 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.2.tar.gz"
-  sha256 "7d1aa8f034d44d12b341be86e7dfc74a844f21750ed6ac8f968cc47b7a1c9973"
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.3.tar.gz"
+  sha256 "54735378197235d772acf8a4f39f64cb1c84f4022d89b86a434a6fbcbe37766d"
 
   bottle do
     cellar :any
-    sha256 "9f9f6df0594c7edba201e680d167af113377f5e2caa9fa1909a6b3d418b466d6" => :high_sierra
-    sha256 "07a6a2cea95ef12a8bf525c6c1b9211fe9c770be8bda16081ad1ce928a3095d3" => :sierra
-    sha256 "eb01b2cfad61bf1412ce6bb3e6a4852bb84bca49a346871da603b74bfd6cb0b0" => :el_capitan
+    sha256 "78d9dadc067f7dd0d7e28839eed024c1f53a596d2fc7d9068011c1ed08dd0913" => :high_sierra
+    sha256 "e657c79a9ecd2cbce7bd93867e1f0c27f81f4934641f48e24904d8f581388d18" => :sierra
+    sha256 "9d1d49357900992508717f07fe940ad449c1c0614fcec466f8cb684a7e15e14e" => :el_capitan
   end
 
   depends_on "libyaml"
@@ -74,8 +74,8 @@ class ConjureUp < Formula
   end
 
   resource "juju-wait" do
-    url "https://files.pythonhosted.org/packages/3d/c2/8cce9ec8386be418a76566fcd2e7dcbaa7138a92b0b9b463306d9191cfd7/juju-wait-2.6.2.tar.gz"
-    sha256 "86622804896e80f26a3ed15dff979584952ba484ccb5258d8bab6589e26dd46d"
+    url "https://files.pythonhosted.org/packages/e4/34/a40b2df17343f75b6befd814b031f9fd37d61ffc309bd711fdbdb2c01eae/juju-wait-2.6.3.tar.gz"
+    sha256 "52228937c6feffaa888aa286f40ce7601258ddc3a71264d466b3b809d9242c02"
   end
 
   resource "jujubundlelib" do

@@ -1,14 +1,14 @@
 class Py2cairo < Formula
   desc "Python 2 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
-  url "https://github.com/pygobject/pycairo/releases/download/v1.15.4/pycairo-1.15.4.tar.gz"
-  sha256 "ee4c3068c048230e5ce74bb8994a024711129bde1af1d76e3276c7acd81c4357"
+  url "https://github.com/pygobject/pycairo/releases/download/v1.16.1/pycairo-1.16.1.tar.gz"
+  sha256 "47a14a6a2f8dadb649229f099ac712a5f3d0a22e14877165a203d8a0de09ad63"
 
   bottle do
     cellar :any
-    sha256 "dcfb20e334e44bcfc034be0f14eb9331f4c5fac7d7d347974937f62e62ac5d0a" => :high_sierra
-    sha256 "5bb3c4d5196dfeb83d2cfc13db13db1410ca68baf63fb9b6b839f634c08228ea" => :sierra
-    sha256 "75692321a14e8e7ca48ef1fb90fda57343d1ae9bfc87f248219c61271eb8f22f" => :el_capitan
+    sha256 "6bc6d84becabc71f4989c02b833e9e6d915747fd9459632027466d97eafcd21f" => :high_sierra
+    sha256 "17bfb8e6740745895802ec8f9c5fdbb6dde7fef19dfa3351e1e7be7975e86a16" => :sierra
+    sha256 "a310ae96212e0401b490c2bbbd14786f2a7313d69455b7b813a6b554c1dc5b92" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -1,14 +1,13 @@
 class LibbitcoinBlockchain < Formula
   desc "Bitcoin Blockchain Library"
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
-  url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.4.0.tar.gz"
-  sha256 "65251a7148ec9fc8456f924e6319194fc38771c192326b2daf1d4abca2f55c76"
-  revision 1
+  url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.5.0.tar.gz"
+  sha256 "03b8362c9172edbeb1e5970c996405cd2738e8274ba459e9b85359d6b838de20"
 
   bottle do
-    sha256 "a6a54ffe4cced097f4cfad6cfdf6fac490223347beafffe02ddf3eb49c510acc" => :high_sierra
-    sha256 "250faa96a14677a832a3bb7d9d1b83e2d8a0cd839bebbf6bd0dcf6e552b24fa0" => :sierra
-    sha256 "efcd19f33da698f17362e44b44fb6432cb6c3b4a10aaea1e7164f4fbc364bfac" => :el_capitan
+    sha256 "ecb6471ff0a4859d1bbdee28848c6cc836fee5074b2b3b2e7b755e985234d025" => :high_sierra
+    sha256 "d0c831fe2ce99b8413eddf941d5df1cf9efbc02e0db3bf937d1cc42c0cade3f1" => :sierra
+    sha256 "d9f611bfc4bd40b5c044d066572b912adee81a3a63c8ebb9243522a20204c5c0" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -19,8 +18,8 @@ class LibbitcoinBlockchain < Formula
   depends_on "libbitcoin-database"
 
   resource "libbitcoin-consensus" do
-    url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.4.0.tar.gz"
-    sha256 "1393811593d85074d1207c25d3c8d6ae23efa5735d548244345652e5ef7b3f50"
+    url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.5.0.tar.gz"
+    sha256 "bb29761d4275a9c993151707557008b23572a3d9adecc0e36a3075cfb101dd1e"
   end
 
   def install

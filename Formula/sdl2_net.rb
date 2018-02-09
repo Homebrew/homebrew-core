@@ -23,4 +23,20 @@ class Sdl2Net < Formula
                           "--prefix=#{prefix}", "--disable-sdltest"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL_net.h>
+
+      int main()
+      {
+          int success = SDLNet_Init();
+          SDLNet_Quit();
+          return success;
+      }
+    EOS
+
+    system ENV.cc, "-L#{lib}", "-lsdl2_net", "test.c", "-o", "test"
+    system "./test"
+  end
 end

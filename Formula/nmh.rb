@@ -1,6 +1,6 @@
 class Nmh < Formula
   desc "The new version of the MH mail handler"
-  homepage "http://www.nongnu.org/nmh/"
+  homepage "https://www.nongnu.org/nmh/"
   url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.tar.gz"
   sha256 "cd05c7ca2cae524ae99f6ba673463a5cdeff62df93e85913aa9277ae8304ce44"
 

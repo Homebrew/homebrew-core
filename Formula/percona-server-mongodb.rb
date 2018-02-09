@@ -1,5 +1,3 @@
-require "language/go"
-
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
@@ -8,9 +6,10 @@ class PerconaServerMongodb < Formula
   sha256 "489675e6568dfcdc842d12872e552f0cd1ea5b2db2b6fe5d6548216c494778ba"
 
   bottle do
-    sha256 "e5ccf64c9a283e50a6302f75a3752c561bbbe855d4ee7749379b1b9a5c57d41a" => :high_sierra
-    sha256 "ab38604e27bf3eb5a5fac8ed6357981455d367fe852bacd11d1f1ce7e4ac17d2" => :sierra
-    sha256 "90744840454940fef1add8a06d2cc80ebee995fefcf78c36714c0d2d7ea99a5c" => :el_capitan
+    rebuild 1
+    sha256 "396da20f15f3e074496e159c49fb12ef0a412a891eafec0cd15edd7e2d54d5fb" => :high_sierra
+    sha256 "08266faa60f1b18830d269250c94f36cd808fc3915935159803366199ed8c97c" => :sierra
+    sha256 "7cf6b6ffd202ab5dfe1054b2128b5795706d67340b6acaa8311e23d0af8c8bd5" => :el_capitan
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
@@ -25,13 +24,6 @@ class PerconaServerMongodb < Formula
   conflicts_with "mongodb",
     :because => "percona-server-mongodb and mongodb install the same binaries."
 
-  go_resource "github.com/mongodb/mongo-tools" do
-    url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.4.9",
-        :revision => "4f093ae71cdb4c6a6e9de7cd1dc67ea4405f0013",
-        :shallow => false
-  end
-
   needs :cxx11
 
   def install
@@ -40,9 +32,13 @@ class PerconaServerMongodb < Formula
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/mongodb/mongo-tools" do
+    cd "src/mongo/gotools" do
+      inreplace "build.sh" do |s|
+        s.gsub! "$(git describe)", version.to_s.split("-")[0]
+        s.gsub! "$(git rev-parse HEAD)", "homebrew"
+      end
+
       args = %w[]
 
       if build.with? "openssl"
@@ -56,7 +52,7 @@ class PerconaServerMongodb < Formula
       system "./build.sh", *args
     end
 
-    (buildpath/"src/mongo-tools").install Dir["src/github.com/mongodb/mongo-tools/bin/*"]
+    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}

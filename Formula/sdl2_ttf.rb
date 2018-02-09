@@ -24,4 +24,19 @@ class Sdl2Ttf < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL_ttf.h>
+
+      int main()
+      {
+          int success = TTF_Init();
+          TTF_Quit();
+          return success;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsdl2_ttf", "test.c", "-o", "test"
+    system "./test"
+  end
 end

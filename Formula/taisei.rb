@@ -2,19 +2,17 @@ class Taisei < Formula
   desc "Clone of Touhou Project shoot-em-up games"
   homepage "https://taisei-project.org/"
   url "https://github.com/taisei-project/taisei.git",
-      :tag => "v1.1.2",
-      :revision => "3c5da74722b445c6aaf8af7666ba2e7e29fb4ccb"
-  revision 1
+      :tag => "v1.2",
+      :revision => "46fb0f894ad269528ac7fda533c7994eddd9b758"
 
   bottle do
-    cellar :any
-    sha256 "106e1f2849651dd5a320d23f7ee37ef1dbbfe64cbd04a5a052113156a21265e5" => :high_sierra
-    sha256 "2af61820670dc5805d92d44d9306fc466a54bd9107e13c7980ff38fd4147d75e" => :sierra
-    sha256 "469f2a84ac00b5f0d7c6b49eaae35dd6074f81abadb7c0d6146ce3602e21e4af" => :el_capitan
+    sha256 "d693cb55f630f29a41d1182179cf019f2fd81593246cd5cd3c5769bcc4d49324" => :high_sierra
+    sha256 "4e61442d7f6031f558e898c5eb28fcc4e7ccf6811d523e989859131087252a14" => :sierra
+    sha256 "d9494fdf13cdfdfff4a7107cb93821e39d9079e86f660ce63b15f5ed37df8ce6" => :el_capitan
   end
 
-  depends_on "bash" => :build
-  depends_on "cmake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "libpng"
@@ -26,9 +24,9 @@ class Taisei < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DOSX_TOOL_PREFIX=", "-DOSX_LIB_PATH=:",
-             *std_cmake_args
-      system "make", "install"
+      system "meson", "--prefix=#{prefix}", "-Ddocs=false", "-Dmacos_bundle=false", ".."
+      system "ninja"
+      system "ninja", "install"
     end
   end
 
@@ -37,7 +35,7 @@ class Taisei < Formula
   end
 
   test do
-    output = shell_output("#{prefix}/Taisei.app/Contents/MacOS/Taisei -h", 1)
+    output = shell_output("#{bin}/taisei -h", 1)
     assert_match "Touhou clone", output
   end
 end

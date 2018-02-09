@@ -5,7 +5,7 @@ class Taskd < Formula
   sha256 "7b8488e687971ae56729ff4e2e5209ff8806cf8cd57718bfd7e521be130621b4"
   revision 1
 
-  head "https://git.tasktools.org/scm/tm/taskd.git"
+  head "https://github.com/GothenburgBitFactory/taskserver.git"
 
   bottle do
     sha256 "53ea3abeff00da4d69f53d089416c1e003bae625decbc44412b8ff51b9ccf302" => :high_sierra
