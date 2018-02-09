@@ -16,6 +16,7 @@ class Posh < Formula
   end
 
   test do
-    assert_equal "homebrew", shell_output("#{bin}/posh -c 'echo homebrew'").chomp
+    output = shell_output("#{bin}/posh -c 'echo homebrew'")
+    assert_equal "homebrew", output.chomp
   end
 end
