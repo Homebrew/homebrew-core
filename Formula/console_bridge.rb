@@ -12,10 +12,6 @@ class ConsoleBridge < Formula
   end
 
   test do
-    system "brew", "list", "console_bridge"
-  end
-
-  test do
     (testpath/"test.cpp").write <<~EOS
       #include <console_bridge/console.h>
       int main() {
@@ -23,7 +19,7 @@ class ConsoleBridge < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lc++", "-std=c++11", "-o", "test"
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lconsole_bridge", "-lc++", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
