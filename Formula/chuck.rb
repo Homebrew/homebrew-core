@@ -1,9 +1,8 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "http://chuck.cs.princeton.edu/"
-  url "http://chuck.cs.princeton.edu/release/files/chuck-1.3.6.0.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/chuck-1.3.6.0.tgz"
-  sha256 "5a68b427c0caf63719a903c544244ddb67415889278f975234d58c7583ec34b4"
+  url "http://chuck.cs.princeton.edu/release/files/chuck-1.4.0.0.tgz"
+  sha256 "2caee332b8d48e2fddad0f8a0a1811b6cf4c5afab73ae8a17b85ec759cce27ac"
 
   bottle do
     cellar :any_skip_relocation
