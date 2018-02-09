@@ -1,0 +1,41 @@
+class Dartsim < Formula
+  desc "DART: Dynamic Animation and Robotics Toolkit"
+  homepage "https://dartsim.github.io"
+  url "https://github.com/dartsim/dart/archive/v6.3.0.tar.gz"
+  sha256 "aa92634c1c97d99966cf16c4a0845792941358c063409fa00c28b4039c961c25"
+
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "assimp"
+  depends_on "boost"
+  depends_on "eigen"
+  depends_on "fcl"
+  depends_on "libccd"
+  depends_on "nlopt"
+  depends_on "bullet"
+  depends_on "ode"
+  depends_on "flann"
+  depends_on "tinyxml"
+  depends_on "tinyxml2"
+  depends_on "urdfdom"
+  depends_on "freeglut"
+  depends_on "open-scene-graph"
+
+  def install
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <dart/dart.hpp>
+      int main() {
+        auto world = std::make_shared<dart::simulation::World>();
+        assert(world != nullptr);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-I#{include}/eigen3", "-L#{lib}", "-ldart", "-lassimp", "-lc++", "-std=c++11", "-o", "test"
+    system "./test"
+  end
+end
