@@ -17,6 +17,6 @@ class Igv < Formula
 
   test do
     (testpath/"script").write "exit"
-    assert_match "Version", `#{bin}/igv -b script`
+    assert_match "Version", shell_output("#{bin}/igv -b script")
   end
 end
