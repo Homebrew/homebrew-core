@@ -6,6 +6,13 @@ class Restview < Formula
 
   depends_on python if MacOS.version <= :snow_leopard
 
+  if MacOS.version <= :el_capitan
+    resource "setuptools" do
+      url "https://files.pythonhosted.org/packages/6c/54/f7e9cea6897636a04e74c3954f0d8335cc38f7d01e27eec98026b049a300/setuptools-38.5.1.zip"
+      sha256 "6425484c08e99a98a42209c25c3d325f749230b55284d66192784f941a7e6628"
+    end
+  end
+
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/b3/5f/0da670d30d3ffbc57cc97fa82947f81bbe3eab8d441e2d42e661f215baf2/bleach-2.1.2.tar.gz"
     sha256 "38fc8cbebea4e787d8db55d6f324820c7f74362b70db9142c1ac7920452d1a19"
