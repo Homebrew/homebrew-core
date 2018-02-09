@@ -1,8 +1,8 @@
 class Unibilium < Formula
   desc "Very basic terminfo library"
   homepage "https://github.com/mauke/unibilium"
-  url "https://github.com/mauke/unibilium/archive/v1.2.1.tar.gz"
-  sha256 "6045b4f6adca7b1123284007675ca71f718f70942d3a93d8b9fa5bd442006ec1"
+  url "https://github.com/mauke/unibilium/archive/v2.0.0.tar.gz"
+  sha256 "78997d38d4c8177c60d3d0c1aa8c53fd0806eb21825b7b335b1768d7116bc1c1"
 
   bottle do
     cellar :any
