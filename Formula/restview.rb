@@ -1,16 +1,14 @@
 class Restview < Formula
-  include Language::Python::Virtualenv
-
   desc "Viewer for ReStructuredText documents that renders them on the fly"
-  homepage "https://github.com/mgedmin/restview"
-  url "https://github.com/mgedmin/restview/archive/2.8.0.tar.gz"
-  sha256 "fec5514f33c306fbd2fd93594307f367ee1fe5293de5ecc709046969c4af9bd5"
+  homepage "https://mg.pov.lt/restview/"
+  url "https://github.com/mgedmin/restview/archive/2.8.1.tar.gz"
+  sha256 "9dda3adc3f4c73a97617eb049428df89e2a4b39fca357ba2025f4d6898f2c0c8"
 
   depends_on python if MacOS.version <= :snow_leopard
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/d4/3f/d517089af35b01bb9bc4eac5ea04bae342b37a5e9abbb27b7c3ce0eae070/bleach-2.1.1.tar.gz"
-    sha256 "760a9368002180fb8a0f4ea48dc6275378e6f311c39d0236d7b904fca1f5ea0d"
+    url "https://files.pythonhosted.org/packages/b3/5f/0da670d30d3ffbc57cc97fa82947f81bbe3eab8d441e2d42e661f215baf2/bleach-2.1.2.tar.gz"
+    sha256 "38fc8cbebea4e787d8db55d6f324820c7f74362b70db9142c1ac7920452d1a19"
   end
 
   resource "docutils" do
@@ -19,11 +17,11 @@ class Restview < Formula
   end
 
   resource "html5lib" do
-    url "https://files.pythonhosted.org/packages/17/ee/99e69cdcefc354e0c18ff2cc60aeeb5bfcc2e33f051bf0cc5526d790c445/html5lib-0.999999999.tar.gz"
-    sha256 "ee747c0ffd3028d2722061936b5c65ee4fe13c8e4613519b4447123fc4546298"
+    url "https://files.pythonhosted.org/packages/85/3e/cf449cf1b5004e87510b9368e7a5f1acd8831c2d6691edd3c62a0823f98f/html5lib-1.0.1.tar.gz"
+    sha256 "66cb0dcfdbbc4f9c3ba1a63fdb511ffdbd4f513b2b6d81b80cd26ce6b3fb3736"
   end
 
-  resource "pygments" do
+  resource "Pygments" do
     url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
     sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
   end
@@ -49,22 +47,41 @@ class Restview < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
-    venv.pip_install resources.reject { |r| r.name == "sample" }
-    venv.pip_install_and_link buildpath
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+
+    res = resources.reject { |r| r.name == "sample" }
+
+    res.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    system "python", *Language::Python.setup_install_args(libexec)
+
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    require "timeout"
+    require "socket"
 
-    resource("sample").stage testpath
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    testpath.install resource("sample")
 
     begin
-      Timeout.timeout(10) do
-        system "#{bin}/restview", "#{testpath}/sample.rst"
+      pid = fork do
+        exec bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst"
       end
-    rescue Timeout::Error
-      true
+      sleep 1
+      output = shell_output("curl -s 127.0.0.1:#{port}")
+      assert_match "<p>Here we have a numbered list</p>", output
+    ensure
+      Process.kill("TERM", pid)
     end
   end
 end
