@@ -4,6 +4,13 @@ class Howdoi < Formula
   url "https://files.pythonhosted.org/packages/67/e0/18ca30a65aeed25c6d6fe7171d71601b3a772bf0b7b8235b9e98d3cb889e/howdoi-1.1.12.tar.gz"
   sha256 "c8676cea5155a8bb3d996f3555942e2726029338c606e36ed32775717a5e7bac"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3aaa5642bcddd076158bf16e0d3698ee579878b4b7d96b6d3a0bb0120e19de38" => :high_sierra
+    sha256 "8088279d37fb0ab1ffb3369c76358ecec29494d69d30a260c4b3a027e897a61f" => :sierra
+    sha256 "899bff6bb142255b716f83d612fc7d9388411b5416b3c2a90a3f19c4847f78d1" => :el_capitan
+  end
+
   depends_on python if MacOS.version <= :snow_leopard
 
   resource "certifi" do
