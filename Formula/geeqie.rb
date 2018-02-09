@@ -1,14 +1,26 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "http://www.geeqie.org/"
-  url "http://www.geeqie.org/geeqie-1.3.tar.xz"
-  sha256 "4b6f566dd1a8badac68c4353c7dd0f4de17f8627b85a7a70d5eb1ae3b540ec3f"
-  revision 3
+  # URL needs to be an unshallow clone because it needs history to generate
+  # the changelog documentation.
+  # Unfortunately this means that the tarball can't be used to build;
+  # this is documented in the makefile.
+  url "https://github.com/BestImageViewer/geeqie.git",
+    :tag => "v1.4",
+    :shallow => false
 
   bottle do
     sha256 "e50d0eda8d81d376738422943730510707ddf4cba4ca6541e1ac3428479b981c" => :high_sierra
     sha256 "f0282fc79dfe15708c2ce91dc4cb1a756005a847277892afa056d23d6accb007" => :sierra
     sha256 "a09af4df9793bcd89d55445dea5e8de6d229cb81cc997cbc82edbe5c2e3e44d2" => :el_capitan
+  end
+
+  # Fixes the build on OS X by assigning a value to a variable
+  # before passing to WEXITVALUE.
+  # https://github.com/BestImageViewer/geeqie/pull/589
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/patches/9cacfd49be1db430d7a956132d6521e23fc85f77/geeqie/wexitstatus_fix.diff"
+    sha256 "00bad28d46aafaaed99965a5c054bf04679c100c6f4f13ee82cf83c2782de349"
   end
 
   depends_on "pkg-config" => :build
@@ -35,7 +47,8 @@ class Geeqie < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-glibtest",
-                          "--disable-gtktest"
+                          "--disable-gtktest",
+                          "--enable-gtk3"
     system "make", "install"
   end
 
