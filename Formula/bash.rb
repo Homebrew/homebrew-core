@@ -48,9 +48,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "4e08c7b4c14a14f36ad31973000bbae32c3ed1142cbff163728d7ceeafb2ae2f" => :high_sierra
-    sha256 "5b0f264577b01c63809f1cb7adc9552bef33649b91079d727c64c15e7ee17867" => :sierra
-    sha256 "e3f7e5dc17fd1650e3800599faf932929370a7e6e8b30f2cbd2c5cb310ce8e40" => :el_capitan
+    sha256 "c190ef318789e8628cb643536e047510d3ab20fdc6e7265d5fa908ebd6af824c" => :high_sierra
+    sha256 "63df41e44e43446adac9ddc16e3a2765731b2824c10d19a97ffd968a28a46b5e" => :sierra
+    sha256 "42acd30227424e96d6ab286b8d10065540bde8c97e23b26ef99cac6d6c0eb11c" => :el_capitan
   end
 
   depends_on "readline"
