@@ -3,7 +3,7 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://pypi.python.org/packages/69/e9/6571ea493304965ee75bef8a78926ef5a4624e99ded2a914fe03a433f2af/salt-2017.7.3.tar.gz"
+  url "https://files.pythonhosted.org/packages/69/e9/6571ea493304965ee75bef8a78926ef5a4624e99ded2a914fe03a433f2af/salt-2017.7.3.tar.gz"
   sha256 "3d4e1aefe4fa1e53bf132e84961cf46cef3e5d654f4231a2f2e30e786ab7dc07"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
