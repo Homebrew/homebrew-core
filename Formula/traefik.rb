@@ -19,9 +19,9 @@ class Traefik < Formula
   depends_on "node" => :build
   depends_on "yarn" => :build
 
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
+  go_resource "github.com/containous/go-bindata" do
+    url "https://github.com/containous/go-bindata.git",
+        :revision => "e237f24c9fab3ae0ed95bf04e3699e92c2a41283"
   end
 
   def install
@@ -30,7 +30,7 @@ class Traefik < Formula
     ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
+    cd "src/github.com/containous/go-bindata/go-bindata" do
       system "go", "install"
     end
 
