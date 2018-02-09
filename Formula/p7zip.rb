@@ -13,14 +13,12 @@ class P7zip < Formula
     sha256 "78981de13a763ab595e073360e2848ca0ad65d9a13b7f7728e0c255945cdd00e" => :mavericks
   end
 
-  patch :p1 do
-    url "https://raw.githubusercontent.com/gjasny/formula-patches/8f114e4159112dee10200f9535289d6c68dc5ec5/p7zip/12-CVE-2016-9296.patch"
-    sha256 "754401ef710d526e12ad9d27588b99aa304fb8c9155882b05aec11f158a4cb46"
-  end
-
-  patch :p1 do
-    url "https://raw.githubusercontent.com/gjasny/formula-patches/8f114e4159112dee10200f9535289d6c68dc5ec5/p7zip/13-CVE-2017-17969.patch"
-    sha256 "e9e06a2f6a0f34cf154518c8130c450d50943d285ae9f0933119fa3037fcc8db"
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/p7zip/p7zip_16.02+dfsg-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/p/p7zip/p7zip_16.02+dfsg-6.debian.tar.xz"
+    sha256 "fab0be1764efdbde1804072f1daa833de4e11ea65f718ad141a592404162643c"
+    apply "patches/12-CVE-2016-9296.patch",
+          "patches/13-CVE-2017-17969.patch"
   end
 
   def install
