@@ -7,9 +7,9 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git"
 
   bottle do
-    sha256 "5511bf90172647f7b0eda6587a5b1e43cee22401bed32a40344f9205d32be48e" => :high_sierra
-    sha256 "e05a7844a25e252ca9460331cc4522eeda7c213124306324cbbd4fb9e45b10b3" => :sierra
-    sha256 "d5d62f862a89868655f9d0ab12a8742e4ec605a96a7c44a7e23cfe2961fb5542" => :el_capitan
+    sha256 "86b8181d2d6c96a6ecbac8414087456631cabdb27e6d36fee9f2e9c723fe99ad" => :high_sierra
+    sha256 "c2e551578f36847121dd8cdcdfd3de9abf5836906658e166ab6e5d71ba805de5" => :sierra
+    sha256 "4e193b9c000868ece51cd256fb9831423381969fbc53212f18484b5b2cba187a" => :el_capitan
   end
 
   depends_on "cmake" => :build
