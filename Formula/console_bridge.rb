@@ -14,7 +14,7 @@ class ConsoleBridge < Formula
   test do
     system "brew", "list", "console_bridge"
   end
- 
+
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <console_bridge/console.h>
