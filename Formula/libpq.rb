@@ -27,6 +27,7 @@ class Libpq < Formula
 
   test do
     (testpath/"libpq.c").write <<-EOS
+      #include <stdlib.h>
       #include <stdio.h>
       #include <libpq-fe.h>
 
