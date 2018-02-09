@@ -4,6 +4,13 @@ class Restview < Formula
   url "https://github.com/mgedmin/restview/archive/2.8.1.tar.gz"
   sha256 "9dda3adc3f4c73a97617eb049428df89e2a4b39fca357ba2025f4d6898f2c0c8"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5bb887c352198ea2ada802c82a5ae106772e0ad19146d8a2cc32c8505c4fd40c" => :high_sierra
+    sha256 "5bb887c352198ea2ada802c82a5ae106772e0ad19146d8a2cc32c8505c4fd40c" => :sierra
+    sha256 "2e83c1b3df9aa3ce2e32095e09efca96754c500c92255031e83a8ccdfacb473a" => :el_capitan
+  end
+
   depends_on python if MacOS.version <= :snow_leopard
 
   if MacOS.version <= :el_capitan
