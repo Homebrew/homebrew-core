@@ -1,38 +1,21 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.27.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.27.tar.gz"
-    sha256 "ad78d0908a5dabf722cd378364ba02b1cbd58f3515ba2f1833f334bf6dcec448"
-
-    depends_on :java => "1.7+"
-
-    resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.27-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.27-fulldocs.tar.gz"
-      sha256 "ca68b78217c14a35d4deb8485017b0efe1cda88c751b95b29c2974ae948e1367"
-    end
-  end
-
-  devel do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz"
-    sha256 "791529a4289d3d5356f8f93afcfa0ee20f4b31e454be650f1dd469524ebfa1fc"
-
-    depends_on :java => "1.8+"
-
-    resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4-fulldocs.tar.gz"
-      sha256 "ad14b2f473bb1d47ccfd47415241d7c49fad292fbb2bd2e1f3a88323b7c97b9f"
-    end
-  end
+  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz"
+  sha256 "791529a4289d3d5356f8f93afcfa0ee20f4b31e454be650f1dd469524ebfa1fc"
 
   bottle :unneeded
 
   option "with-fulldocs", "Install full documentation locally"
+
+  depends_on :java => "1.8+"
+
+  resource "fulldocs" do
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4-fulldocs.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4-fulldocs.tar.gz"
+    sha256 "ad14b2f473bb1d47ccfd47415241d7c49fad292fbb2bd2e1f3a88323b7c97b9f"
+  end
 
   def install
     # Remove Windows scripts
