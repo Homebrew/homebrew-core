@@ -3,8 +3,8 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.2.tar.gz"
-  sha256 "7d1aa8f034d44d12b341be86e7dfc74a844f21750ed6ac8f968cc47b7a1c9973"
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.3.tar.gz"
+  sha256 "54735378197235d772acf8a4f39f64cb1c84f4022d89b86a434a6fbcbe37766d"
 
   bottle do
     cellar :any
@@ -74,8 +74,8 @@ class ConjureUp < Formula
   end
 
   resource "juju-wait" do
-    url "https://files.pythonhosted.org/packages/3d/c2/8cce9ec8386be418a76566fcd2e7dcbaa7138a92b0b9b463306d9191cfd7/juju-wait-2.6.2.tar.gz"
-    sha256 "86622804896e80f26a3ed15dff979584952ba484ccb5258d8bab6589e26dd46d"
+    url "https://files.pythonhosted.org/packages/e4/34/a40b2df17343f75b6befd814b031f9fd37d61ffc309bd711fdbdb2c01eae/juju-wait-2.6.3.tar.gz"
+    sha256 "52228937c6feffaa888aa286f40ce7601258ddc3a71264d466b3b809d9242c02"
   end
 
   resource "jujubundlelib" do
