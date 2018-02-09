@@ -10,9 +10,9 @@ class Geeqie < Formula
     :shallow => false
 
   bottle do
-    sha256 "e50d0eda8d81d376738422943730510707ddf4cba4ca6541e1ac3428479b981c" => :high_sierra
-    sha256 "f0282fc79dfe15708c2ce91dc4cb1a756005a847277892afa056d23d6accb007" => :sierra
-    sha256 "a09af4df9793bcd89d55445dea5e8de6d229cb81cc997cbc82edbe5c2e3e44d2" => :el_capitan
+    sha256 "22c6779d5231e0894f169a188ffc574445c07742a5d54af4b202ace7eea3903b" => :high_sierra
+    sha256 "fad24d3faf8795f79e8106b4b3d84b73e071fc3812a90df4e30105df013f3d9b" => :sierra
+    sha256 "823241d4dc829606f8f685af49b35b2da23217cc8c215d0fd5d8aa615f77ab2e" => :el_capitan
   end
 
   # Fixes the build on OS X by assigning a value to a variable
