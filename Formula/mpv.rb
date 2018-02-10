@@ -1,11 +1,22 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
-  sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
-  revision 5
+  revision 6
 
   head "https://github.com/mpv-player/mpv.git"
+
+  stable do
+    url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
+    sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
+
+    # Fix CVE-2018-6360, because arbitrary code execution isn't ideal.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mpv/mpv_0.27.0-4.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mpv/mpv_0.27.0-4.debian.tar.xz"
+      sha256 "1005421e8a384e42bf4f490ede95ba444b7f0d9958a043fe1878a4d9fb9168be"
+      apply "patches/09_ytdl-hook-whitelist-protocols.patch"
+    end
+  end
 
   bottle do
     sha256 "400407134ecae015f75a45c27ab0bec2087310737f7fd14f3849a21834c415a7" => :high_sierra
@@ -48,7 +59,7 @@ class Mpv < Formula
   end
 
   def install
-    # LANG is unset by default on osx and causes issues when calling getlocale
+    # LANG is unset by default on macOS and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
