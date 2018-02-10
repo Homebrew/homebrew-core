@@ -29,7 +29,7 @@ class Mldonkey < Formula
     # Fix compiler selection
     ENV["OCAMLC"] = "#{HOMEBREW_PREFIX}/bin/ocamlc.opt -cc #{ENV.cc}"
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-magic"
     system "make", "install"
   end
 
