@@ -19,9 +19,9 @@ class Mpv < Formula
   end
 
   bottle do
-    sha256 "400407134ecae015f75a45c27ab0bec2087310737f7fd14f3849a21834c415a7" => :high_sierra
-    sha256 "82dc721763626f8acf23e374b28c1a7fe7ade4675286dd34cdd5eebe616da2d1" => :sierra
-    sha256 "67d08c667592b5c6138d3a0e80cc2e3887bea46ddee0f3f5a8411cf08db1f839" => :el_capitan
+    sha256 "c15141e775cb797f7ee72482e032c50803daf3c7074e72731ab3a189dc9e1677" => :high_sierra
+    sha256 "182f86b2eb416c68c13d49e0ac646d486ecee77e60eb79fd5d6fd15ae1b60c15" => :sierra
+    sha256 "f649b7a722d1fccaab58b60a78d4433f87d7e47032607c15a72e48840974af53" => :el_capitan
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
