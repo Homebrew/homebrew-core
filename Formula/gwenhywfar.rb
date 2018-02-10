@@ -5,10 +5,9 @@ class Gwenhywfar < Formula
   sha256 "c54a9a162dc63ab69e4d3fc946aae92b929383ca60a2690b539adcdc58de9495"
 
   bottle do
-    sha256 "3a20a0d8d35bcc1fd39a1def1da4caa00a6ab57724b796cd7a45ddb5b6c9bc33" => :high_sierra
-    sha256 "7eaedffb5b5dcee09131803d95d461f6cc87220ae3aa7294bc861da92d6870bd" => :sierra
-    sha256 "e5510dc740fe9f2cf1f191c23d09ce413c7163d5ff9486b34b49d28d14f60bf0" => :el_capitan
-    sha256 "534810125470167a96b204c418c170b4313fe653902a92908e5f1b619565e47e" => :yosemite
+    sha256 "81c996539bd23f29dc887f30a2f264baa54adf0be256317c4135cec2b57b1959" => :high_sierra
+    sha256 "c8fc46ae0ce6ff352b770a098121dd8b9f21e65f53737ed76baa14a519f31a72" => :sierra
+    sha256 "054415540bcac666970e001732560e697d84f6c8ec7b7a3ca0ca4ac19e6a2a13" => :el_capitan
   end
 
   option "without-cocoa", "Build without cocoa support"
