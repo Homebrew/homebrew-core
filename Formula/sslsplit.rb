@@ -1,8 +1,8 @@
 class Sslsplit < Formula
   desc "Man-in-the-middle attacks against SSL encrypted network connections"
   homepage "https://www.roe.ch/SSLsplit"
-  url "https://mirror.roe.ch/rel/sslsplit/sslsplit-0.5.1.tar.bz2"
-  sha256 "60697146d0a70dbebb7b71b62525ad2bfd1bd34434c72a0d25e3d226e5e4ebc6"
+  url "https://mirror.roe.ch/rel/sslsplit/sslsplit-0.5.2.tar.bz2"
+  sha256 "f32c7fd760a45bb521adb8d96c819173fcaed1964bf114e666fcd7cf7ff043a8"
   head "https://github.com/droe/sslsplit.git", :branch => "develop"
 
   bottle do
