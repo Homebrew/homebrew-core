@@ -1,8 +1,8 @@
 class DocbookXsl < Formula
   desc "XML vocabulary to create presentation-neutral documents"
-  homepage "https://docbook.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/docbook/docbook-xsl/1.79.1/docbook-xsl-1.79.1.tar.bz2"
-  sha256 "725f452e12b296956e8bfb876ccece71eeecdd14b94f667f3ed9091761a4a968"
+  homepage "http://cdn.docbook.org/"
+  url "https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F1.79.2/docbook-xsl-1.79.2.tar.gz"
+  sha256 "966188d7c05fc76eaca115a55893e643dd01a3486f6368733c9ad974fcee7a26"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,15 +16,15 @@ class DocbookXsl < Formula
   depends_on "docbook"
 
   resource "ns" do
-    url "https://downloads.sourceforge.net/project/docbook/docbook-xsl-ns/1.79.1/docbook-xsl-ns-1.79.1.tar.bz2"
-    sha256 "36ca9026e05b8985baebd61a23af8ded8e2cf71cc3163b673159c9d78a7b0f9c"
+    url "https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F1.79.2/docbook-xsl-nons-1.79.2.tar.gz"
+    sha256 "f89425b44e48aad24319a2f0d38e0cb6059fdc7dbaf31787c8346c748175ca8e"
   end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     doc_files = %w[AUTHORS BUGS COPYING NEWS README RELEASE-NOTES.txt TODO VERSION VERSION.xsl]
     xsl_files = %w[assembly catalog.xml common docsrc eclipse epub epub3 extensions
-                   fo highlighting html htmlhelp images javahelp lib log manpages
+                   fo highlighting html htmlhelp images javahelp lib manpages
                    params profiling roundtrip slides template tests tools webhelp
                    website xhtml xhtml-1_1 xhtml5]
     (prefix/"docbook-xsl").install xsl_files + doc_files
@@ -44,7 +44,6 @@ class DocbookXsl < Formula
   end
 
   test do
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/snapshot_9899/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/1.79.1/"
+    system "xmlcatalog", "#{etc}/xml/catalog", "http://cdn.docbook.org/release/xsl/1.79.2/"
   end
 end
