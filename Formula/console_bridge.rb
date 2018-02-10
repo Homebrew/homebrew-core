@@ -21,8 +21,8 @@ class ConsoleBridge < Formula
         return 0;
       }
     EOS
-    system ENV.cxx11, "test.cpp", "-L#{lib}", "-lconsole_bridge", "-lc++",
-                      "-std=c++11", "-o", "test"
+    system ENV.cxx11, "test.cpp", "-L#{lib}", "-lconsole_bridge", "-std=c++11",
+                      "-o", "test"
     system "./test"
   end
 end
