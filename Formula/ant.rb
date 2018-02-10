@@ -1,8 +1,8 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.1-bin.tar.xz"
-  sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.2-bin.tar.xz"
+  sha256 "361c8ad2ed8341416e323e7c28af10a8297170a80fdffba294a5c2031527bb6c"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle do
@@ -26,8 +26,8 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/bcel/bcel/6.0/bcel-6.0.jar"
-    sha256 "7eb80fdb30034dda26ba109a1b76af8dae0782c8cd27db32f1775086482d5bd0"
+    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.2-bin.tar.gz"
+    sha256 "e5963ed50ef1f243f852a27efaf898c050a3b39721d147ccda8418c0b7255955"
   end
 
   def install
@@ -46,7 +46,7 @@ class Ant < Formula
     end
     if build.with? "bcel"
       resource("bcel").stage do
-        (libexec/"lib").install Dir["bcel-*.jar"]
+        (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
       end
     end
   end
