@@ -11,7 +11,7 @@ class Restview < Formula
     sha256 "2e83c1b3df9aa3ce2e32095e09efca96754c500c92255031e83a8ccdfacb473a" => :el_capitan
   end
 
-  depends_on python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   if MacOS.version <= :el_capitan
     resource "setuptools" do
