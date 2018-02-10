@@ -3,7 +3,8 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.11.4.tar.gz"
   sha256 "fb0d7d2558e2198d9224b44dc4220d4c62e1b5b0069312012306275be39b4ab9"
-  revision 1
+  revision 2
+
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -17,9 +18,9 @@ class Innotop < Formula
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
   end
 
   resource "DBI" do
