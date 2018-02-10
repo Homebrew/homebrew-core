@@ -18,6 +18,8 @@ class Cmus < Formula
     sha256 "b594087f16053f4db49e89d72b1c6dbb12e221373e806e62b3e97c327de1dac9"
   end
 
+  option "with-ncurses", "Use Homebrew's version of ncurses"
+
   depends_on "pkg-config" => :build
   depends_on "libao"
   depends_on "mad"
@@ -30,6 +32,7 @@ class Cmus < Formula
   depends_on "ffmpeg" => :optional
   depends_on "opusfile" => :optional
   depends_on "jack" => :optional
+  depends_on "ncurses" => :optional
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}"
