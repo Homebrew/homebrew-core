@@ -1,6 +1,6 @@
 class Dartsim < Formula
-  desc "DART: Dynamic Animation and Robotics Toolkit"
-  homepage "https://dartsim.github.io"
+  desc "Dynamic Animation and Robotics Toolkit"
+  homepage "https://dartsim.github.io/"
   url "https://github.com/dartsim/dart/archive/v6.3.0.tar.gz"
   sha256 "aa92634c1c97d99966cf16c4a0845792941358c063409fa00c28b4039c961c25"
 
