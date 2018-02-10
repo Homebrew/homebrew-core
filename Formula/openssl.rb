@@ -9,6 +9,7 @@ class Openssl < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2o.tar.gz"
   mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2o.tar.gz"
   sha256 "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
+  revision 1
 
   bottle do
     sha256 "6048699d3e583fc00e0207e17ed3889f76aa60e701a90e66863326d636584e15" => :high_sierra
@@ -35,8 +36,10 @@ class Openssl < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
+    no-comp
     no-ssl2
-    zlib-dynamic
+    no-ssl3
+    no-zlib
     shared
     enable-cms
   ]
@@ -48,14 +51,6 @@ class Openssl < Formula
     # along with perl modules in PERL5LIB.
     ENV.delete("PERL")
     ENV.delete("PERL5LIB")
-
-    # Load zlib from an explicit path instead of relying on dyld's fallback
-    # path, which is empty in a SIP context. This patch will be unnecessary
-    # when we begin building openssl with no-comp to disable TLS compression.
-    # https://langui.sh/2015/11/27/sip-and-dlopen
-    inreplace "crypto/comp/c_zlib.c",
-              'zlib_dso = DSO_load(NULL, "z", NULL, 0);',
-              'zlib_dso = DSO_load(NULL, "/usr/lib/libz.dylib", NULL, DSO_FLAG_NO_NAME_TRANSLATION);'
 
     if MacOS.prefer_64_bit?
       arch = Hardware::CPU.arch_64_bit
