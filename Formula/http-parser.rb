@@ -1,8 +1,8 @@
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
-  url "https://github.com/nodejs/http-parser/archive/v2.7.1.tar.gz"
-  sha256 "70409ad324e5de2da6a0f39e859e566d497c1ff0a249c0c38a5012df91b386b3"
+  url "https://github.com/nodejs/http-parser/archive/v2.8.0.tar.gz"
+  sha256 "7277c6f99bf6fc272eb5d8fc3dca01e7cc1d4ae609b5d2c5d5e18added98479d"
 
   bottle do
     cellar :any
