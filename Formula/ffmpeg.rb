@@ -100,12 +100,12 @@ class Ffmpeg < Formula
       --enable-version3
       --enable-hardcoded-tables
       --enable-avresample
-      --disable-jack
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
     ]
 
+    args << "--disable-jack" if build.stable?
     args << "--enable-gpl" if build.with? "gpl"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
