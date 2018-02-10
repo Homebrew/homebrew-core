@@ -1,22 +1,9 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  revision 6
-
+  url "https://github.com/mpv-player/mpv/archive/v0.27.1.tar.gz"
+  sha256 "836299f1c33c46c8b8615fb84b99ecb05f048431a921e8dc9603aed9eb88af9c"
   head "https://github.com/mpv-player/mpv.git"
-
-  stable do
-    url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
-    sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
-
-    # Fix CVE-2018-6360, because arbitrary code execution isn't ideal.
-    patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mpv/mpv_0.27.0-4.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mpv/mpv_0.27.0-4.debian.tar.xz"
-      sha256 "1005421e8a384e42bf4f490ede95ba444b7f0d9958a043fe1878a4d9fb9168be"
-      apply "patches/09_ytdl-hook-whitelist-protocols.patch"
-    end
-  end
 
   bottle do
     sha256 "c15141e775cb797f7ee72482e032c50803daf3c7074e72731ab3a189dc9e1677" => :high_sierra
