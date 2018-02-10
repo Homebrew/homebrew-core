@@ -3,8 +3,8 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.5.0.tar.gz"
-  sha256 "c4a7c6f8af3c7f719a0c1dfcbe12440667c60137f74188ff8d4c5506bd631118"
+  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.6.0.tar.gz"
+  sha256 "ab04a20832eed4312873fb25abaed7fe3040484e33a6a97ec33053ba37d1942c"
 
   bottle do
     cellar :any
