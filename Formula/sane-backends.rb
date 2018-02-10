@@ -9,10 +9,9 @@ class SaneBackends < Formula
   head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
 
   bottle do
-    sha256 "ac27058e0edd6bc0af11af3de0703169ce4508ba9840a598155bc1fcdccd00b5" => :high_sierra
-    sha256 "2fce948374f59735fc55c2ef4803f44fba0ac9979943dadc30d11f9a262c6fd2" => :sierra
-    sha256 "2faeb4b16e4e2ea851c1cfc100d8deedea3bb042ba3b21b66ba2865812500479" => :el_capitan
-    sha256 "68242fa7feb502d1b5001df7db05837268085f6f97e58768323566e671ac59f9" => :yosemite
+    sha256 "687b773de141d0d79fbf16d882be2066a2fcdf4056ba86803fb40669752e2c79" => :high_sierra
+    sha256 "0af3374d96090f87e273ee9446154a481bc3c8461b81659ea54710e3cd6b39c3" => :sierra
+    sha256 "ff90535945b9082a1d47b22535b31135b3622e61280c73d0194516e1e1d31605" => :el_capitan
   end
 
   depends_on "jpeg"
