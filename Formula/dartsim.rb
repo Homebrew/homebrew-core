@@ -21,6 +21,8 @@ class Dartsim < Formula
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
+  needs :cxx11
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
@@ -35,7 +37,8 @@ class Dartsim < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/eigen3", "-L#{lib}", "-ldart", "-lassimp", "-lc++", "-std=c++11", "-o", "test"
+    system ENV.cxx11, "test.cpp", "-I#{include}/eigen3", "-L#{lib}", "-ldart",
+                      "-lassimp", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
