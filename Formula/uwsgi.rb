@@ -1,8 +1,8 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz"
-  sha256 "572ef9696b97595b4f44f6198fe8c06e6f4e6351d930d22e5330b071391272ff"
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.16.tar.gz"
+  sha256 "a911f48f3cc51ac82fdabc4e001f18a32569128680beb5a833ebc3ff6edcc1f4"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
@@ -53,6 +53,12 @@ class Uwsgi < Formula
   end
 
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
@@ -65,6 +71,7 @@ class Uwsgi < Formula
       [uwsgi]
       ssl = true
       json = #{json}
+      xml = libxml2
       yaml = #{yaml}
       inherit = base
       plugin_dir = #{libexec}/uwsgi
