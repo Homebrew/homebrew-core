@@ -5,10 +5,10 @@ class Tinyproxy < Formula
   sha256 "a41f4ddf0243fc517469cf444c8400e1d2edc909794acda7839f1d644e8a5000"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f62686118cef44aec1cecb27644f65779ff8d1c2c52216f78b2fed3fe8d74d3d" => :sierra
-    sha256 "51cd6c92bb780eabbf856cbbc3dc08e3e5ad152042818c3d3a0761f28e414843" => :el_capitan
-    sha256 "ea3bc9079b1c7b4aa0163b37c1bbe21fd971b2122f42cf9c2140ecd43d80b4a6" => :yosemite
+    rebuild 1
+    sha256 "7e7250cfbda60dcf40e291ce777842953bdfa573023ca28d2b09eefe41c0e523" => :high_sierra
+    sha256 "f04c44c7119f0eac9c0ec0a9a48044808d9e2fc2f1a8c0ddf197206fa0683e4a" => :sierra
+    sha256 "2ccb9fb5ba5dd782407fa1c6d261d57eaa4189c902e674cbed839c903e39c177" => :el_capitan
   end
 
   option "with-reverse", "Enable reverse proxying"
