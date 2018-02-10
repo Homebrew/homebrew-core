@@ -9,10 +9,9 @@ class X264 < Formula
 
   bottle do
     cellar :any
-    sha256 "1f75c3a57ca3e1b7b528c04725c7d5c32dc1f4b222a289702dd7c057db8e34a2" => :high_sierra
-    sha256 "815cd74498e36ce6df804d22561d99e1ef0d4b5706f28e2850b2ea3f6c6df406" => :sierra
-    sha256 "be983033e47329fe52c1a32b1fcdfac071c495b24f4662584ad6165a0d126f30" => :el_capitan
-    sha256 "1a7be693b06e4219ef7721586fce481065433759d0dc9ee3b6caab2e776317c4" => :yosemite
+    sha256 "2e2cf99b9f06181e9d1bbd549e3426717d4fb93fc12fe2cd7f295b92f7b28a55" => :high_sierra
+    sha256 "b656ff61da5b8ab33dc940bb4efa57bed89c3d40e79416aee8a960d8f7f2e4f1" => :sierra
+    sha256 "3ac151bdd5cf62a55fb41c60761c548db721a7b6c1ebc6f4af5b4fc71b499e7f" => :el_capitan
   end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
