@@ -13,6 +13,9 @@ class BareosClient < Formula
   depends_on "openssl"
   depends_on "readline"
 
+  conflicts_with "bacula-fd",
+    :because => "Both install a `bconsole` executable."
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-working-dir=#{var}/lib/bareos",
