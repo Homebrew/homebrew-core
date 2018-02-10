@@ -8,18 +8,18 @@ class Dartsim < Formula
   depends_on "pkg-config" => :build
   depends_on "assimp"
   depends_on "boost"
+  depends_on "bullet"
   depends_on "eigen"
   depends_on "fcl"
+  depends_on "flann"
+  depends_on "freeglut"
   depends_on "libccd"
   depends_on "nlopt"
-  depends_on "bullet"
   depends_on "ode"
-  depends_on "flann"
+  depends_on "open-scene-graph"
   depends_on "tinyxml"
   depends_on "tinyxml2"
   depends_on "urdfdom"
-  depends_on "freeglut"
-  depends_on "open-scene-graph"
 
   def install
     system "cmake", ".", *std_cmake_args
