@@ -16,10 +16,13 @@ class Tinyproxy < Formula
   option "with-filter", "Enable url filtering"
 
   depends_on "asciidoc" => :build
+  depends_on "docbook-xsl" => :build
 
   deprecated_option "reverse" => "with-reverse"
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
