@@ -6,11 +6,9 @@ class HttpParser < Formula
 
   bottle do
     cellar :any
-    sha256 "1c402c0dbedc5ee4bf4d6d8fb79112300a47ea0a59892297474dc5973f496274" => :high_sierra
-    sha256 "a19519cd90917dccb31171febe7e25baaa583ec9bdd7c4e4d06dcb2a7605447f" => :sierra
-    sha256 "afc0af78e3a4789b18b96ec83a09a38c5e6fc0f6ba72523a1f5c0f4b4d1441e6" => :el_capitan
-    sha256 "0d62dc8723a72e60d13fbd61f870a8e3cc3a7f29fc5814c645322c284be7514c" => :yosemite
-    sha256 "5d3aaf70d3ca4ee5ff688b9f834acd68891d4fb637721b54597deeba6fca41d0" => :mavericks
+    sha256 "8d947716ab99942defcc8d203b280c0ca7a5cd0b6018af587f612e614a7de3ef" => :high_sierra
+    sha256 "540d616067151c375286cdd702cdfe39e9899f9039a4c878da033ef5e3b45e2d" => :sierra
+    sha256 "1de8b816c634439df2e5d24e5f8747c4d3a2294d2d2a6c3bfab0a5af68d044c7" => :el_capitan
   end
 
   depends_on "coreutils" => :build
