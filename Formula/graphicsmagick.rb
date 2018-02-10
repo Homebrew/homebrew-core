@@ -3,6 +3,7 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.28/GraphicsMagick-1.3.28.tar.xz"
   sha256 "942a68a9a8a5af6f682b896fd4f0ad617d8b49907e474acfe59549956bcc994a"
+  revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
@@ -21,8 +22,8 @@ class Graphicsmagick < Formula
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "freetype" => :recommended
+  depends_on "jasper" => :recommended
   depends_on "little-cms2" => :optional
-  depends_on "jasper" => :optional
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
@@ -46,11 +47,12 @@ class Graphicsmagick < Formula
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--with-perl" if build.with? "perl"
-    args << "--with-webp=yes" if build.with? "webp"
+    args << "--with-webp=no" if build.without? "webp"
     args << "--without-x" if build.without? "x11"
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
+    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
