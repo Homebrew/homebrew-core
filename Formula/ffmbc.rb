@@ -4,7 +4,7 @@ class Ffmbc < Formula
   url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
   version "0.7.2"
   sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "ef47a0b90417c9464ca3ffc59aaecac8eb84f34c33d665d7a41c6f16bd93b617" => :high_sierra
