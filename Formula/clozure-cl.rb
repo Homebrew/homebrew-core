@@ -1,25 +1,28 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com/"
-  url "https://ccl.clozure.com/ftp/pub/release/1.11/ccl-1.11-darwinx86.tar.gz"
-  version "1.11"
-  sha256 "2fc4b519f26f7df3fbb62314b15bd5d098082b05d40c3539f8204aa10f546913"
-  head "http://svn.clozure.com/publicsvn/openmcl/trunk/darwinx86/ccl"
+  url "https://github.com/Clozure/ccl/archive/v1.11.5.tar.gz"
+  sha256 "07c7e05c1d50ccbf1f7602a1d436b6d6da5dcda7656b89b74daa4cf833fc7929"
+  head "https://github.com/Clozure/ccl.git"
 
   bottle :unneeded
 
   conflicts_with "cclive", :because => "both install a ccl binary"
 
-  def install
-    if build.head?
-      ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
-      system "scripts/ccl64", "-n",
-             "-e", "(ccl:rebuild-ccl :full t)",
-             "-e", "(quit)"
-    end
+  resource "bootstrap" do
+    url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
+    version "1.11.5"
+    sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"
+  end
 
-    # Get rid of all the .svn directories
-    rm_rf Dir["**/.svn"]
+  def install
+    ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
+
+    buildpath.install resource("bootstrap")
+
+    system "scripts/ccl64", "-n",
+           "-e", "(ccl:rebuild-ccl :full t)",
+           "-e", "(quit)"
 
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
