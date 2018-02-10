@@ -197,10 +197,17 @@ class Fdroidserver < Formula
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
       ENV.delete "SDKROOT"
       ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
-      venv.pip_install Pathname.pwd
+
+      # avoid opportunistic linkage of little-cms2
+      system libexec/"bin/python", "setup.py", "build_ext", "--disable-lcms", "install"
     end
 
-    res = resources.map(&:name).to_set - ["Pillow"]
+    # avoid opportunistic linkage of libyaml
+    resource("PyYAML").stage do
+      system libexec/"bin/python", "setup.py", "--without-libyaml", "install"
+    end
+
+    res = resources.map(&:name).to_set - ["Pillow", "PyYAML"]
 
     res.each do |r|
       venv.pip_install resource(r)
