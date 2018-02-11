@@ -1,8 +1,8 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.13.tar.xz"
-  sha256 "5115bd52bc20a707c1ecc7587e6389c17305348e2132a66cf767c62fc55ed45d"
+  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.14.tar.xz"
+  sha256 "0a84e2791bfe3077cf22ee1784c805d5bb550803dffe56a39aa3690a38061372"
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
 
   bottle do
