@@ -18,6 +18,7 @@ class Grv < Formula
     cd path do
       system "make", "build-only"
       bin.install "grv"
+      prefix.install_metafiles
     end
   end
 
@@ -26,7 +27,7 @@ class Grv < Formula
 
     system "git", "init"
     system "git", "commit", "--allow-empty", "-m", "test"
-    system "echo '<grv-exit>' | #{bin}/grv -logLevel DEBUG"
+    pipe_output("#{bin}/grv -logLevel DEBUG", "'<grv-exit>'", 0)
 
     assert_predicate testpath/"grv.log", :exist?
     assert_match "Loaded HEAD", File.read(testpath/"grv.log")
