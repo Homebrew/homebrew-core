@@ -4,6 +4,7 @@ class Mame < Formula
   url "https://github.com/mamedev/mame/archive/mame0194.tar.gz"
   version "0.194"
   sha256 "1faffab72d0d671232a14c73f6e0bec720e086af5c81f8e9c235c314123e761d"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -19,6 +20,7 @@ class Mame < Formula
   depends_on "sdl2"
   depends_on "jpeg"
   depends_on "flac"
+  depends_on "lua"
   depends_on "sqlite"
   depends_on "portmidi"
   depends_on "portaudio"
@@ -40,7 +42,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_JPEG=1",
                    "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_LUA=", # Homebrew's lua@5.3 can't build with MAME yet.
+                   "USE_SYSTEM_LIB_LUA=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1",
