@@ -6,10 +6,9 @@ class Stk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c19570e9011041eac20bcd40dc116bc080f7c3858bdceab773a61bd8565eab2" => :high_sierra
-    sha256 "5c344b00f598b39142e6dcc1c89014285bbe262cb5da0fff0c541d3030fd2ec4" => :sierra
-    sha256 "15e49e8bd743392c616b9d7b1475e90b42f0d0850062cb4ab04b7462da0162d3" => :el_capitan
-    sha256 "d121a9d4cb0e4b9cde3bc8a2cf304e39bc2e5520506decb7e1464cdc151e4317" => :yosemite
+    sha256 "67c1c6c12bbf98d866bac55955d4715f94c05c63551bd0687646c6acd549de91" => :high_sierra
+    sha256 "70c1c7e91fc3477055e6bc1a39dd5ef160c4e496887bb22b88d7fd149b03bfa6" => :sierra
+    sha256 "e333e99c0fe8611be1fc7fb54d3e4e77f4cde210bb1c281031ed54b74187ef4d" => :el_capitan
   end
 
   option "with-debug", "Compile with debug flags and modified CFLAGS for easier debugging"
