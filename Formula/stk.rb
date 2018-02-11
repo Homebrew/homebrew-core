@@ -1,8 +1,8 @@
 class Stk < Formula
   desc "Sound Synthesis Toolkit"
   homepage "https://ccrma.stanford.edu/software/stk/"
-  url "https://ccrma.stanford.edu/software/stk/release/stk-4.5.1.tar.gz"
-  sha256 "3466860901a181120d3bd0407e4aeb5ab24127a4350c314af106778c1db88594"
+  url "https://ccrma.stanford.edu/software/stk/release/stk-4.6.0.tar.gz"
+  sha256 "648fcb9a0a4243d2d93fc72b29955953f4e794edf04c31f2ed0ed720d05287d2"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,9 @@ class Stk < Formula
   option "with-debug", "Compile with debug flags and modified CFLAGS for easier debugging"
 
   deprecated_option "enable-debug" => "with-debug"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   fails_with :clang do
     build 421
@@ -33,6 +36,7 @@ class Stk < Formula
       args << "--disable-debug"
     end
 
+    system "autoreconf", "-fiv"
     system "./configure", *args
     system "make"
 
@@ -52,5 +56,9 @@ class Stk < Formula
 
     src/ projects/ and rawwaves/ have all been copied to #{opt_pkgshare}
     EOS
+  end
+
+  test do
+    assert_equal "xx No input files", shell_output("#{bin}/treesed", 1).chomp
   end
 end
