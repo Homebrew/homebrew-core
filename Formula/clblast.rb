@@ -13,7 +13,7 @@ class Clblast < Formula
   end
 
   test do
-    system ENV.cc, pkgshare/"samples\/sgemm.c", "-I#{include}", "-L#{lib}",
+    system ENV.cc, pkgshare/"samples/sgemm.c", "-I#{include}", "-L#{lib}",
                    "-lclblast", "-framework", "OpenCL"
   end
 end
