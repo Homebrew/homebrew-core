@@ -9,11 +9,11 @@ class Clblast < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    pkgshare.install "samples/sgemm.c" # for a simple library linking test
+    pkgshare.install "samples" # for a simple library linking test
   end
 
   test do
-    system ENV.cc, pkgshare/"sgemm.c", "-I#{include}", "-L#{lib}",
+    system ENV.cc, pkgshare/"samples\/sgemm.c", "-I#{include}", "-L#{lib}",
                    "-lclblast", "-framework", "OpenCL"
   end
 end
