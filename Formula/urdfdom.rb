@@ -19,8 +19,7 @@ class Urdfdom < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <fstream>
-      #include <iostream>
+      #include <string>
       #include <urdf_parser/urdf_parser.h>
       int main() {
         std::string xml_string =
