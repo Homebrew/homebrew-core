@@ -24,6 +24,7 @@ class Dartsim < Formula
   needs :cxx11
 
   def install
+    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
@@ -37,8 +38,8 @@ class Dartsim < Formula
         return 0;
       }
     EOS
-    system ENV.cxx11, "test.cpp", "-I#{include}/eigen3", "-L#{lib}", "-ldart",
-                      "-lassimp", "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/eigen3", "-L#{lib}", "-ldart",
+                    "-lassimp", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
