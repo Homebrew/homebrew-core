@@ -1,9 +1,8 @@
 class Mpc < Formula
   desc "Command-line music player client for mpd"
   homepage "https://www.musicpd.org/clients/mpc/"
-  url "https://www.musicpd.org/download/mpc/0/mpc-0.28.tar.gz"
-  sha256 "53385c2d9af0a0025943045b46cb2079b300c1224d615ac98f7ff140e968600d"
-  revision 1
+  url "https://www.musicpd.org/download/mpc/0/mpc-0.29.tar.xz"
+  sha256 "02f1daec902cb48f8cdaa6fe21c7219f6231b091dddbe437a3a4fb12cb07b9d3"
 
   bottle do
     cellar :any
@@ -13,12 +12,15 @@ class Mpc < Formula
     sha256 "10dbe56eb9a55d841001a9b7b553b80cd7287404b97f8526e2343b66cf6510e6" => :yosemite
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "libmpdclient"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
-    system "make", "install"
+    system "meson", "--prefix=#{prefix}", ".", "output"
+    system "ninja", "-C", "output"
+    system "ninja", "-C", "output", "install"
   end
 
   test do
