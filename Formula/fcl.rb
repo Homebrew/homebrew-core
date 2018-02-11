@@ -9,7 +9,10 @@ class Fcl < Formula
   depends_on "boost"
   depends_on "libccd"
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
@@ -24,7 +27,8 @@ class Fcl < Formula
       }
     EOS
 
-    system ENV.cc, "test.cpp", "-std=c++11", "-L#{lib}", "-lfcl", "-lstdc++", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
+                    "-lfcl", "-o", "test"
     system "./test"
   end
 end
