@@ -5,9 +5,9 @@ class Grv < Formula
   sha256 "1f2f8adb28085fd892f4b23cf5cf17925fc502cf479be35193e1c6b93cad1e49"
   head "https://github.com/rgburke/grv.git"
 
+  depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on "cmake" => :build
   depends_on "readline"
 
   def install
@@ -22,6 +22,13 @@ class Grv < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/grv -version")
+    ENV["TERM"] = "xterm"
+
+    system "git", "init"
+    system "git", "commit", "--allow-empty", "-m", "test"
+    system "echo '<grv-exit>' | #{bin}/grv -logLevel DEBUG"
+
+    assert_predicate testpath/"grv.log", :exist?
+    assert_match "Loaded HEAD", File.read(testpath/"grv.log")
   end
 end
