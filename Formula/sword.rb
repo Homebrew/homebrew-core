@@ -5,9 +5,9 @@ class Sword < Formula
   sha256 "ce9aa8f721a737f406115d35ff438bd07c829fce1605f0d6dcdabc4318bc5e93"
 
   bottle do
-    sha256 "0568345c99f0fbc799e7a5afb16322656ee790e5d8c63aa80e739cbe0c8e9711" => :high_sierra
-    sha256 "e3522ab2b7c29cd8bdee6e8e7fafa464493375dd7018f5ff2f5a1f845a90b4e7" => :sierra
-    sha256 "21cb37c91c8ad4b179bbdcaaac03789d4ee836f39f77f05fc6e667825766c2d9" => :el_capitan
+    sha256 "3279c77477c21d1636f573202df976bd37fbaca39ed7e3b310158dad4e961641" => :high_sierra
+    sha256 "794afe687eb7933fd3aeaee7e480224295614fc0138b8d89b7d9b81be55239a1" => :sierra
+    sha256 "032c83b3302b78c198d1e346258a1d09c542a1361e1b0f000f82306d8c82acb4" => :el_capitan
   end
 
   option "with-clucene", "Use clucene for text searching capabilities"
