@@ -4,6 +4,13 @@ class UrdfdomHeaders < Formula
   url "https://github.com/ros/urdfdom_headers/archive/1.0.0.tar.gz"
   sha256 "f341e9956d53dc7e713c577eb9a8a7ee4139c8b6f529ce0a501270a851673001"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3b937204b1bd92e9c290dfc9df366c2978352be8551a47910ac637d863a6f585" => :high_sierra
+    sha256 "3b937204b1bd92e9c290dfc9df366c2978352be8551a47910ac637d863a6f585" => :sierra
+    sha256 "3b937204b1bd92e9c290dfc9df366c2978352be8551a47910ac637d863a6f585" => :el_capitan
+  end
+
   depends_on "cmake" => :build
 
   needs :cxx11
