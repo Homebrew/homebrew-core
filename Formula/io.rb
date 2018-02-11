@@ -62,11 +62,8 @@ class Io < Formula
     end
 
     mkdir "buildroot" do
-      # Avoid opportunistic linkage
-      args = std_cmake_args + %w[
-        -DCMAKE_DISABLE_FIND_PACKAGE_Theora=TRUE
-      ]
-      system "cmake", "..", *args
+      system "cmake", "..", "-DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON",
+                            *std_cmake_args
       system "make"
       output = `./_build/binaries/io ../libs/iovm/tests/correctness/run.io`
       if $CHILD_STATUS.exitstatus.nonzero?
