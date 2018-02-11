@@ -1,9 +1,9 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.75.1/leptonica-1.75.1.tar.gz"
-  mirror "http://www.leptonica.org/source/leptonica-1.75.1.tar.gz"
-  sha256 "3c5402326ed4c4d9844813675348c3d7156cd868cfe4565dd078e295f477a831"
+  url "https://github.com/DanBloomberg/leptonica/releases/download/1.75.2/leptonica-1.75.2.tar.gz"
+  mirror "http://www.leptonica.org/source/leptonica-1.75.2.tar.gz"
+  sha256 "b6af3b43a1d38984a8f5201222297ca51e2ad511bdf709847a806f9d90031a8a"
 
   bottle do
     cellar :any
