@@ -3,8 +3,8 @@ class LSmash < Formula
   homepage "https://l-smash.github.io/l-smash/"
   url "https://github.com/l-smash/l-smash.git",
       :shallow => false,
-      :tag => "v2.9.1",
-      :revision => "4cea08d264933634db5bc06da9d8d88fb5ddae07"
+      :tag => "v2.14.5",
+      :revision => "5b85a6bf9ca8924144bd3026b17355638a6b7430"
   head "https://github.com/l-smash/l-smash.git"
 
   bottle do
