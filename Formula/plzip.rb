@@ -1,8 +1,8 @@
 class Plzip < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/plzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.6.tar.gz"
-  sha256 "5d1d79fe4a1e41aa05e3926d067243efbaa607ed238036152f867662b7d14c7c"
+  url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.7.tar.gz"
+  sha256 "95e22cdd98eb2f41bf4fb169530a5945aad2fec20c2e2284d597e77972baf2b7"
 
   bottle do
     cellar :any_skip_relocation
