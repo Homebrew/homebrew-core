@@ -5,9 +5,9 @@ class X3270 < Formula
   sha256 "bebd0770e23a87997fe1d2353e4f1473aabe461fdddedccbb41fd241e8b5b424"
 
   bottle do
-    sha256 "3f86d3b6ca30797911a4e3970f892a9a1cf0cdab5fa98901c941ec37ab0bc8b7" => :high_sierra
-    sha256 "055f5aaf6a25dcdb200bb442a04b200bb68450aeaf359b60839abe074d3d655e" => :sierra
-    sha256 "716f6d38027e4b07f4466487cb99834215caee088baaec2d3e5124fad3e05b04" => :el_capitan
+    sha256 "f67129f6e0d14448939953d4c8966a5770d8a65aecdf42108f43dd4914dda9d8" => :high_sierra
+    sha256 "08de119ad4c2626d8f8b5da84976601b89f1428af4274c2f5e1ed48b3805254d" => :sierra
+    sha256 "c82c4f5ceb379a44acab4592f3d1d9cd05d499541b806397bd656e2152474815" => :el_capitan
   end
 
   option "with-x11", "Include x3270 (X11-based version)"
