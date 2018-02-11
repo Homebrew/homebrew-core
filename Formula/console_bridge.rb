@@ -9,6 +9,7 @@ class ConsoleBridge < Formula
   needs :cxx11
 
   def install
+    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
@@ -21,8 +22,8 @@ class ConsoleBridge < Formula
         return 0;
       }
     EOS
-    system ENV.cxx11, "test.cpp", "-L#{lib}", "-lconsole_bridge", "-std=c++11",
-                      "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lconsole_bridge", "-std=c++11",
+                    "-o", "test"
     system "./test"
   end
 end
