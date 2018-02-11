@@ -4,6 +4,13 @@ class Urdfdom < Formula
   url "https://github.com/ros/urdfdom/archive/1.0.0.tar.gz"
   sha256 "243ea925d434ebde0f9dee35ee5615ecc2c16151834713a01f85b97ac25991e1"
 
+  bottle do
+    cellar :any
+    sha256 "a7ab2c2af35c514aeaf1f8430ae0b006c202168702bad2e097d41b0a457c677e" => :high_sierra
+    sha256 "918cea5cb5b12f5c402b30bffb202e7a647da346500879ae0a8b012185e26170" => :sierra
+    sha256 "df2053f208f884bd3c05be4ea4b74cfe8b38b2b48e9ecd16946185d92fbc7a24" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "console_bridge"
   depends_on "tinyxml"
