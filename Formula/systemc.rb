@@ -1,8 +1,8 @@
 class Systemc < Formula
   desc "Core SystemC language and examples"
   homepage "https://accellera.org/"
-  url "https://accellera.org/images/downloads/standards/systemc/systemc-2.3.1.tgz"
-  sha256 "7ce0f68fd4759e746a9808936b54e62d498f5b583e83fc47758ca86917b4f800"
+  url "https://www.accellera.org/images/downloads/standards/systemc/systemc-2.3.2.tar.gz"
+  sha256 "a28eeee00189f0e39f51461dcd7dbed7fb38e4e07dbd9e723473000ce6ef73c5"
 
   bottle do
     cellar :any
