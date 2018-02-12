@@ -13,7 +13,7 @@ class ScalaAT211 < Formula
   option "with-docs", "Also install library documentation"
   option "with-src", "Also install sources for IDE support"
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.11.11/scala-docs-2.11.11.txz"
@@ -36,7 +36,8 @@ class ScalaAT211 < Formula
     doc.install Dir["doc/*"]
     share.install "man"
     libexec.install "bin", "lib"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
     bash_completion.install resource("completion")
     doc.install resource("docs") if build.with? "docs"
     libexec.install resource("src").files("src") if build.with? "src"
