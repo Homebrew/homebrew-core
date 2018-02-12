@@ -1,8 +1,8 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "https://www.ginac.de/"
-  url "https://www.ginac.de/ginac-1.7.2.tar.bz2"
-  sha256 "24b75b61c5cb272534e35b3f2cfd64f053b28aee7402af4b0e569ec4de21d8b7"
+  url "https://www.ginac.de/ginac-1.7.3.tar.bz2"
+  sha256 "7f6efd7fd1c1a72af1f08b068077be66d0216700ec6f529460899e14c1bbf75e"
 
   bottle do
     sha256 "24b91c576cb96f43c0dc64d59b65c58a8727e1414685890b38956c4ce9dad680" => :high_sierra
