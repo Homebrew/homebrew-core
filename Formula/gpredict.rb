@@ -20,6 +20,6 @@ class Gpredict < Formula
   end
 
   test do
-    assert_match "real-time", shell_output("bin/gpredict -h")
+    assert_match "real-time", shell_output("#{bin}/gpredict -h")
   end
 end
