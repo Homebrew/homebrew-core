@@ -3,9 +3,9 @@ require "language/go"
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.5.1/traefik-v1.5.1.src.tar.gz"
-  version "1.5.1"
-  sha256 "8d052ba499ebf162bb7f110cbf45f630c5490dc6a682c35c39ee79d3c79463d9"
+  url "https://github.com/containous/traefik/releases/download/v1.5.2/traefik-v1.5.2.src.tar.gz"
+  version "1.5.2"
+  sha256 "c8a053717593d764318abc9b79736cd9407ce0db770760d4e4a25df6bf33b915"
   head "https://github.com/containous/traefik.git"
 
   bottle do
