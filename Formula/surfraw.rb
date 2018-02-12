@@ -6,13 +6,9 @@ class Surfraw < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ab44787a663bbe67dd02da510bac3dff3806c43807e18c1a2a4c535bc1ecedc2" => :high_sierra
-    sha256 "9f4c4f3deaad0b2d5fad49978bea059e9bfc2eb0acabe959d719c82facac422e" => :sierra
-    sha256 "df27f0dc82f9f2f4efa5fc33244d66063592d0c7afd3d2dd8db0466ec10492d0" => :el_capitan
-    sha256 "cf0dd3b14c4e8034f0d0766fb09978eac0f19fa41730d72ed1422a67c0b0d0b3" => :yosemite
-    sha256 "1291ba20882c2dc1fbb092782e943ab0b99ad3642fb73db207dadff1fc00c5fc" => :mavericks
-    sha256 "30b885dc5908318868da2739f36834ce071bc7bff1a761fdc395afe82f75efa8" => :mountain_lion
+    sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :high_sierra
+    sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :sierra
+    sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :el_capitan
   end
 
   head do
