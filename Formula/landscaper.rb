@@ -2,8 +2,8 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag => "1.0.12",
-      :revision => "26ac1fe512df4170a83b1f325d98673838aaa1a4"
+      :tag => "v1.0.14",
+      :revision => "c3a9ed96177c01491529b0eca7ba1d131a26e8e8"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
@@ -13,8 +13,8 @@ class Landscaper < Formula
     sha256 "44af281913b949c376dd0fd7e0abe78a171d971e457348062b93c2d77618fcf2" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "glide" => :build
   depends_on "kubernetes-cli" => :run
   depends_on "kubernetes-helm" => :run
 
