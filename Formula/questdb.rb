@@ -3,12 +3,14 @@ class Questdb < Formula
   homepage "https://www.questdb.org"
   url "https://www.questdb.org/download/questdb-1.0.4-bin.tar.gz"
   sha256 "a8d907d88c5bf67aeb465540c7e16ad45eccd13d152b34cdcf4e5056ad908739"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
+    inreplace "questdb.sh", "1.7+", "1.8"
     rm_rf "questdb.exe"
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/questdb.sh" => "questdb"
