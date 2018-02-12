@@ -1,11 +1,10 @@
 class ScalaAT210 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.10.6/scala-2.10.6.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.10.6.tgz"
-  sha256 "54adf583dae6734d66328cafa26d9fa03b8c4cf607e27b9f3915f96e9bcd2d67"
-  revision 2
+  url "https://downloads.lightbend.com/scala/2.10.7/scala-2.10.7.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.10.7/scala-2.10.7.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.10.7.tgz"
+  sha256 "9283119916f6bb7714e076a2840ccf22d58819b355228ed1591ae6f76929f111"
 
   bottle :unneeded
 
@@ -17,14 +16,14 @@ class ScalaAT210 < Formula
   depends_on :java => "1.8"
 
   resource "docs" do
-    url "https://downloads.lightbend.com/scala/2.10.6/scala-docs-2.10.6.txz"
-    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.10.6.txz"
-    sha256 "e9b5694255607ba069dcc0faa3ab1490164115ae000129c03100b196fce2025a"
+    url "https://downloads.lightbend.com/scala/2.10.7/scala-docs-2.10.7.txz"
+    mirror "https://www.scala-lang.org/files/archive/scala-docs-2.10.7.txz"
+    sha256 "866a1fc287b4ac3e585b1b47ce59176ac3afff90c4543e106bc11ed8ff006d56"
   end
 
   resource "src" do
-    url "https://github.com/scala/scala/archive/v2.10.6.tar.gz"
-    sha256 "06d7467ff628ebac615c5e60af155e0b4cbbf4c31d10c03a45e9615d5b1e0420"
+    url "https://github.com/scala/scala/archive/v2.10.7.tar.gz"
+    sha256 "67d5941741f636f2177c1e558a98fbcfe1ba33d97a1fb373417d961299f4e296"
   end
 
   resource "completion" do
