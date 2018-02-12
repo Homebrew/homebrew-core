@@ -7,9 +7,9 @@ class Taisei < Formula
   revision 1
 
   bottle do
-    sha256 "d693cb55f630f29a41d1182179cf019f2fd81593246cd5cd3c5769bcc4d49324" => :high_sierra
-    sha256 "4e61442d7f6031f558e898c5eb28fcc4e7ccf6811d523e989859131087252a14" => :sierra
-    sha256 "d9494fdf13cdfdfff4a7107cb93821e39d9079e86f660ce63b15f5ed37df8ce6" => :el_capitan
+    sha256 "162eb10eaf78191aeb474f75095cb35b5840dd4b4ad1e0452ec65ab19590cf80" => :high_sierra
+    sha256 "0065ca15927c95e455dd3a42c4cc1dfcb9365069c914a8d1bffca11e41dbde00" => :sierra
+    sha256 "b9eae75e261940cba3bf33aec8fea1904c6de4648a0dea1f32f517289e0d9a1d" => :el_capitan
   end
 
   # Yes, these are all build deps; the game copies them into the app bundle,
