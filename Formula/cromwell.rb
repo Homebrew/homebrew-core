@@ -14,14 +14,24 @@ class Cromwell < Formula
   depends_on :java => "1.8+"
   depends_on "akka"
 
+  resource "womtool" do
+    url "https://github.com/broadinstitute/cromwell/releases/download/30.2/womtool-30.2.jar"
+    sha256 "c2dc455a50585a17318ca5b818015f7b2cf9ef99961555650dd7844a928dffc2"
+  end
+
   def install
     if build.head?
       system "sbt", "assembly"
       libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
+      libexec.install Dir["womtool/target/scala-2.12/womtool-*.jar"][0]
     else
       libexec.install Dir["cromwell-*.jar"][0]
+      resource("womtool").stage do
+        libexec.install Dir["womtool-*.jar"][0]
+      end
     end
     bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
+    bin.write_jar_script Dir[libexec/"womtool-*.jar"][0], "womtool"
   end
 
   test do
