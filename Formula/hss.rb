@@ -13,7 +13,23 @@ class Hss < Formula
   end
 
   test do
-    system "#{bin}/hss", "-v"
-    system "#{bin}/hss", "-H", "127.0.0.1", "-u", "root", "command ls"
+    begin
+      nc_read, nc_write = IO.pipe
+      nc_pid = fork do
+        exec "nc", "-4l", "9527", :out => nc_write
+      end
+      hss_read, hss_write = IO.pipe
+      hss_pid = fork do
+        exec "#{bin}/hss", "-H", "-p 9527 127.0.0.1", "-u", "root", "true", :out => hss_write
+      end
+      msg = nc_read.gets
+      assert_match "SSH", msg
+      Process.kill("TERM", nc_pid)
+      msg = hss_read.gets
+      assert_match "Connection closed by remote host", msg
+    ensure
+      Process.kill("TERM", nc_pid)
+      Process.kill("TERM", hss_pid)
+    end
   end
 end
