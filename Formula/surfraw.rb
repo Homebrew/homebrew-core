@@ -1,8 +1,8 @@
 class Surfraw < Formula
   desc "Shell Users' Revolutionary Front Rage Against the Web"
   homepage "https://surfraw.alioth.debian.org/"
-  url "https://surfraw.alioth.debian.org/dist/surfraw-2.2.9.tar.gz"
-  sha256 "aa97d9ac24ca4299be39fcde562b98ed556b3bf5ee9a1ae497e0ce040bbcc4bb"
+  url "https://surfraw.alioth.debian.org/dist/surfraw-2.3.0.tar.gz"
+  sha256 "ad0420583c8cdd84a31437e59536f8070f15ba4585598d82638b950e5c5c3625"
 
   bottle do
     cellar :any_skip_relocation
@@ -34,6 +34,6 @@ class Surfraw < Formula
 
   test do
     output = shell_output("#{bin}/surfraw -p duckduckgo homebrew")
-    assert_equal "https://www.duckduckgo.com/lite/?q=homebrew\n", output
+    assert_equal "https://duckduckgo.com/lite/?q=homebrew", output.chomp
   end
 end
