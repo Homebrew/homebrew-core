@@ -57,15 +57,14 @@ class Dynare < Formula
   end
 
   def caveats; <<~EOS
-    To get started with dynare, open Octave and type
+    To get started with Dynare, open Octave and type
       addpath #{opt_lib}/dynare/matlab
     EOS
   end
 
   test do
     cp lib/"dynare/examples/bkk.mod", testpath
-    octave = Formula["octave"].opt_bin/"octave"
-    system octave, "--no-gui", "-H", "--path", "#{opt_lib}/dynare/matlab",
-           "--eval", "dynare bkk.mod console"
+    system Formula["octave"].opt_bin/"octave", "--no-gui", "-H", "--path",
+           "#{lib}/dynare/matlab", "--eval", "dynare bkk.mod console"
   end
 end
