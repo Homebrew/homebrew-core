@@ -6,9 +6,9 @@ class Ffmpeg < Formula
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "fca708497aaf748788d6018f66d3d7d42e6c3f5ebcd18fc55f438463e71537c5" => :high_sierra
-    sha256 "02f29ed77a811aefa6125821a341f1a70a27733e80f404421048a003debb807a" => :sierra
-    sha256 "f279394486cc8e1305065d72043c4d1158d9cf0cf4fa423d347dcae72350ef7e" => :el_capitan
+    sha256 "9df7c5868b825944edc80822e818028b4123ee8cdf85ef60eb11fed235b23c79" => :high_sierra
+    sha256 "18b50630056fbe4a3d12515f32728242349b43bd7b956f3401190861b2ccd402" => :sierra
+    sha256 "e507900d3ec72618b365588223f57428654334119d34d6d61ca58210bb7c4907" => :el_capitan
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
