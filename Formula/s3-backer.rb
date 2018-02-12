@@ -1,8 +1,8 @@
 class S3Backer < Formula
   desc "FUSE-based single file backing store via Amazon S3"
   homepage "https://github.com/archiecobbs/s3backer"
-  url "https://github.com/archiecobbs/s3backer/archive/1.4.3.tar.gz"
-  sha256 "bf095e41b368067c766c0831e088e1e93411e29f4482efadaaf44e699ada16f6"
+  url "https://s3.amazonaws.com/archie-public/s3backer/s3backer-1.4.4.tar.gz"
+  sha256 "7efa9347490e04bc22b4e62bed36864be1ba31bf8558d598cab57ef5096f2c02"
 
   bottle do
     cellar :any
@@ -12,15 +12,11 @@ class S3Backer < Formula
     sha256 "33fbbf30c5ce36a3d522e55df99b3fa15c2494b1f3d835ae267e44b77c033827" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on :osxfuse
 
   def install
-    system "./autogen.sh"
     inreplace "configure", "-lfuse", "-losxfuse"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
