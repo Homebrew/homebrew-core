@@ -6,10 +6,9 @@ class S3Backer < Formula
 
   bottle do
     cellar :any
-    sha256 "5dfb9e4fbe94945131d6cbedb34cfdffd3b6580371d0b3bd03b0cac3d1d3f933" => :high_sierra
-    sha256 "64df94342e386fa4163eba7f44fb3fa8104ae702ef4649e72530ec0a01a67221" => :sierra
-    sha256 "96f82aa40f55286359f3a5c4866eb84a15491b979fc78788eb16cf82bd89947d" => :el_capitan
-    sha256 "33fbbf30c5ce36a3d522e55df99b3fa15c2494b1f3d835ae267e44b77c033827" => :yosemite
+    sha256 "9621195e9c7b6f019f83cc82f75099cd09a980f483784f2bfb8506fbeb9d4634" => :high_sierra
+    sha256 "829b0c2b6d9d2452dc2e31f13d0f7105e28d40452b12f400b0365a89cdfaf1f4" => :sierra
+    sha256 "0ca2e4610cdee2171357af542fcc4540a69a0336e278e0e5a30ee7748be174a0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
