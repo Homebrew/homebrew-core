@@ -1,8 +1,8 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.samba.org/"
-  url "https://www.samba.org/ftp/ccache/ccache-3.3.6.tar.xz"
-  sha256 "410a27fdaff64ead6df3fa57fa74bca0eca6b5f6ac77d7288af1256f6b12141d"
+  url "https://www.samba.org/ftp/ccache/ccache-3.4.1.tar.xz"
+  sha256 "8c2e260d4245e362552e47bec359941210a96419ac5adf582046ceb92489f7de"
 
   bottle do
     sha256 "e2c5c9e29b9d93fbe5935c1325806847fa351c95a8f5fbb1967bc0e513b03a90" => :high_sierra
@@ -23,7 +23,7 @@ class Ccache < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog" if build.head?
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--with-bundled-zlib"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
     system "make", "install"
 
