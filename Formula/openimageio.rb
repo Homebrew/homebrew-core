@@ -5,6 +5,12 @@ class Openimageio < Formula
   sha256 "ed23ecdd3e4037a411c69a6a681273d01d4a2fbcc223eac86daba77dd03fc5ed"
   head "https://github.com/OpenImageIO/oiio.git"
 
+  bottle do
+    sha256 "7862d8e48ab131e3b02211a95a39959a10c0af5a8e5970a5355f89c1495ddae2" => :high_sierra
+    sha256 "372872d98e78624dcded1c099cb9d3d6ba441a4c89a4b5b6559a16d8dec91893" => :sierra
+    sha256 "48ebba2335428ce378d9b66b77b934bd73caec523230df65db99fab599549440" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
