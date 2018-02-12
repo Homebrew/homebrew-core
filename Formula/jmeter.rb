@@ -6,9 +6,9 @@ class Jmeter < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c81550b6b91679fa4c83ccc17f60327d6320e8b5b0d9edb0c97b395da603b1a8" => :high_sierra
-    sha256 "c81550b6b91679fa4c83ccc17f60327d6320e8b5b0d9edb0c97b395da603b1a8" => :sierra
-    sha256 "c81550b6b91679fa4c83ccc17f60327d6320e8b5b0d9edb0c97b395da603b1a8" => :el_capitan
+    sha256 "d84d0d4c55bf86a226394b7ef38edb5fe222ccc4c4062bc694c7d7ee4245090f" => :high_sierra
+    sha256 "d84d0d4c55bf86a226394b7ef38edb5fe222ccc4c4062bc694c7d7ee4245090f" => :sierra
+    sha256 "d84d0d4c55bf86a226394b7ef38edb5fe222ccc4c4062bc694c7d7ee4245090f" => :el_capitan
   end
 
   option "with-plugins", "add JMeterPlugins Standard, Extras, ExtrasLibs, WebDriver and Hadoop"
