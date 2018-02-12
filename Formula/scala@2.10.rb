@@ -5,7 +5,7 @@ class ScalaAT210 < Formula
   mirror "https://downloads.typesafe.com/scala/2.10.6/scala-2.10.6.tgz"
   mirror "https://www.scala-lang.org/files/archive/scala-2.10.6.tgz"
   sha256 "54adf583dae6734d66328cafa26d9fa03b8c4cf607e27b9f3915f96e9bcd2d67"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
@@ -14,7 +14,7 @@ class ScalaAT210 < Formula
   option "with-docs", "Also install library documentation"
   option "with-src", "Also install sources for IDE support"
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
 
   resource "docs" do
     url "https://downloads.lightbend.com/scala/2.10.6/scala-docs-2.10.6.txz"
@@ -37,7 +37,8 @@ class ScalaAT210 < Formula
     doc.install Dir["doc/*"]
     share.install "man"
     libexec.install "bin", "lib"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
     bash_completion.install resource("completion")
     doc.install resource("docs") if build.with? "docs"
     libexec.install resource("src").files("src") if build.with? "src"
