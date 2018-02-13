@@ -1,11 +1,10 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
-  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
-  version "2.6.0"
-  sha256 "0510e1d607d0fb4389eca50d434d5a0be787423b6850b3a4f315abc2ef19c996"
-  revision 3
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
+  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.7.1/ncbi-blast-2.7.1+-src.tar.gz"
+  version "2.7.1"
+  sha256 "10a78d3007413a6d4c983d2acbf03ef84b622b82bd9a59c6bd9fbdde9d0298ca"
 
   bottle do
     sha256 "8d21490761a54f139a503886e2323cc0b8787b4c53d97b0b6db3a3272be2a22f" => :high_sierra
@@ -13,13 +12,8 @@ class Blast < Formula
     sha256 "923382e15b9ece9d81579fc8791f680d450826cbefcad7eda0d3c3fae40682a6" => :el_capitan
   end
 
+  depends_on "lmdb"
   depends_on "python" if MacOS.version <= :snow_leopard
-
-  # Remove for > 2.6
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5fa7fda60c17a2a31e402522d0f7e5584d3b946b/blast/blast-make-fix2.5.0.diff"
-    sha256 "ab6b827073df48a110e47b8de4bf137fd73f3bf1d14c242a706e89b9c4f453ae"
-  end
 
   def install
     cd "c++" do
