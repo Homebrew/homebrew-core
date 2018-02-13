@@ -7,12 +7,6 @@ class Dashing < Formula
   depends_on "glide" => :build
   depends_on "go" => :build
 
-  # use ruby docs just as dummy documentation to test with
-  resource "ruby_docs_tarball" do
-    url "https://ruby-doc.org/downloads/ruby_2_5_0_core_rdocs.tgz"
-    sha256 "219e171641e979a5c8dee1b63347a1a26b94ba648aec96f7e6ed915d12bcaa15"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
@@ -20,20 +14,14 @@ class Dashing < Formula
     (buildpath/"src/github.com/technosophos/dashing").install buildpath.children
     cd "src/github.com/technosophos/dashing" do
       system "glide", "install"
-      ldflags = "-X main.version=#{version}"
-      system "go", "build", "-o", "#{bin}/dashing", "-ldflags", ldflags, "dashing.go"
+      system "go", "build", "-o", bin/"dashing", "-ldflags",
+             "-X main.version=#{version}"
       prefix.install_metafiles
     end
   end
 
   test do
-    testpath.install resource("ruby_docs_tarball")
-
-    # make sure that dashing creates its settings file and then builds
-    # an actual docset for Dash
-    system "#{bin}/dashing", "create"
+    system bin/"dashing", "create"
     assert_predicate testpath/"dashing.json", :exist?
-    system "#{bin}/dashing", "build", "."
-    assert_predicate testpath/"dashing.docset", :exist?
   end
 end
