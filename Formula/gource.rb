@@ -5,10 +5,9 @@ class Gource < Formula
   sha256 "b7055347dad152125ab83e121e3fcaf8cf79bc5bcaec295e4ed9475c40651d13"
 
   bottle do
-    sha256 "d42a81092141197cd74f4bbec4e0265c1cbb81a7d00f150dc6cea18319e5b6d2" => :high_sierra
-    sha256 "4620f83a4698992da638c4c0b1b02c81ee1e5aecf1e6280a1568043d4af12a2e" => :sierra
-    sha256 "bca74b4a29161250c85c39edcb41930fc284abc06024955c759b9c74932a8990" => :el_capitan
-    sha256 "8fd44f73f13254c88e52da1c891ebe7d425d426b056764a3142d628519ecff2e" => :yosemite
+    sha256 "7b0c15ecae8a96764432271dc0b79ae68bdfd365a0e90481535d27978571175e" => :high_sierra
+    sha256 "63725d87fdd28ac168a8e79f0cba780c7c15f284cc904d8aaab8dac63179254b" => :sierra
+    sha256 "9fc979ecfa0723d8fb3462e8a9206b88109bcd2252e7696effb5035b4564a408" => :el_capitan
   end
 
   head do
