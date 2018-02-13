@@ -4,6 +4,13 @@ class Dashing < Formula
   url "https://github.com/technosophos/dashing/archive/0.3.0.tar.gz"
   sha256 "f6569f3df80c964c0482e7adc1450ea44532d8da887091d099ce42a908fc8136"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "8977385e74741b7e014e971a320f58c360eede59f68894f1539040b5af474a25" => :high_sierra
+    sha256 "09fb6574fe2cf30bb94197730b7e6d3117929607a571e42058a40a5e7b500e70" => :sierra
+    sha256 "b37d425623bdbb32fe99d58c6d15cbc0753706aad3758aaf95ed229316e2a185" => :el_capitan
+  end
+
   depends_on "glide" => :build
   depends_on "go" => :build
 
