@@ -1,8 +1,8 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "http://www.htslib.org/"
-  url "https://github.com/samtools/bcftools/releases/download/1.6/bcftools-1.6.tar.bz2"
-  sha256 "293010736b076cf684d2873928924fcc3d2c231a091084c2ac23a8045c7df982"
+  url "https://github.com/samtools/bcftools/releases/download/1.7/bcftools-1.7.tar.bz2"
+  sha256 "dd4f63d91b0dffb0f0ce88ac75c2387251930c8063f7799611265083f8d302d1"
 
   bottle do
     sha256 "d4371f90c99fec2a9e55a3d8b138a511209105a8e32cac39ffb25bdc0e487b10" => :high_sierra
@@ -15,22 +15,10 @@ class Bcftools < Formula
   depends_on "xz"
 
   def install
-    # Remove for > 1.6
-    # Reported 2 Oct 2017 https://github.com/samtools/bcftools/issues/684
-    inreplace "Makefile",
-      "PLUGIN_FLAGS = -bundle -bundle_loader bcftools",
-      "PLUGIN_FLAGS = -bundle -bundle_loader bcftools -Wl,-undefined,dynamic_lookup"
-
     system "./configure", "--prefix=#{prefix}",
                           "--with-htslib=#{Formula["htslib"].opt_prefix}",
                           "--enable-libgsl"
-
-    # Fix install: cannot stat ‘bcftools’: No such file or directory
-    # Reported 21 Dec 2017 https://github.com/samtools/bcftools/issues/727
-    system "make"
-
     system "make", "install"
-
     pkgshare.install "test/query.vcf"
   end
 
