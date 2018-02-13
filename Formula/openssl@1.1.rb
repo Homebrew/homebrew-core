@@ -14,6 +14,11 @@ class OpensslAT11 < Formula
     sha256 "54fda601f3bce5881e6b834966eb5f04090d5ed6b150d2efc7ea4e26de6446b7" => :el_capitan
   end
 
+  devel do
+    url "https://www.openssl.org/source/openssl-1.1.1-pre1.tar.gz"
+    sha256 "dd291d0a81d77219d40b21b9caf4713daaf43416fe8d6eae0b96df39b8b17e6d"
+  end
+
   keg_only :versioned_formula
 
   option "without-test", "Skip build-time tests (not recommended)"
