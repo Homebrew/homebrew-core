@@ -1,8 +1,8 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2018.01.29.tar.gz"
-  sha256 "f307e308faec29fe3c23f7cba6b80d5b0af7ba27f74d513e9286c9696a690503"
+  url "http://www.live555.com/liveMedia/public/live.2018.02.12.tar.gz"
+  sha256 "9df74e4a26561a7d3d694ecba26c5a9038aa5cd54a61d308b1343a7800060621"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,9 @@ class Openrtsp < Formula
       system "./genMakefiles", "macosx-32bit"
     end
 
-    system "make", "PREFIX=#{prefix}", "install"
+    # Build failure "error: unknown type name 'locale_t'"
+    # Reported 17 Feb 2018 to support AT live555 DOT com
+    system "make", "EXTRA_LDFLAGS=-DNEED_XLOCALE_H=1", "PREFIX=#{prefix}", "install"
 
     # Move the testing executables out of the main PATH
     libexec.install Dir.glob(bin/"test*")
