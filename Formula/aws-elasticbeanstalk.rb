@@ -21,8 +21,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/fb/24/13b42563aaf30d815f81c6393c6d306a06523f9756063bfcb6cf15fef117/botocore-1.8.26.tar.gz"
-    sha256 "9bb609fc0c8b219fd8f209586508ea857c83b16042030507e3300042015a4326"
+    url "https://files.pythonhosted.org/packages/fa/f1/0c806404f8c5d94aca3c585f47299dfc4697c9fc2325ea2647c5a860b040/botocore-1.8.41.tar.gz"
+    sha256 "57401c4377a6fabfa18dd9fe7ee80692aa19de4ee1d57dff4da519adec1474ea"
   end
 
   resource "cement" do
@@ -36,8 +36,13 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "docker-py" do
-    url "https://files.pythonhosted.org/packages/2c/f8/719f2b240e2b546a8ee779ac74e54754ccf2f17baad728e89188d70e0b5f/docker-py-1.7.2.tar.gz"
-    sha256 "95b1d14c4ae49dfbb724332cda9c63fb67628b8bdee79c321f2d405cf7a8d04c"
+    url "https://files.pythonhosted.org/packages/fa/2d/906afc44a833901fc6fed1a89c228e5c88fbfc6bd2f3d2f0497fdfb9c525/docker-py-1.10.6.tar.gz"
+    sha256 "4c2a75875764d38d67f87bc7d03f7443a3895704efc57962bdf6500b8d4bc415"
+  end
+
+  resource "docker-pycreds" do
+    url "https://files.pythonhosted.org/packages/95/2e/3c99b8707a397153bc78870eb140c580628d7897276960da25d8a83c4719/docker-pycreds-0.2.1.tar.gz"
+    sha256 "93833a2cf280b7d8abbe1b8121530413250c6cd4ffed2c1cf085f335262f7348"
   end
 
   resource "dockerpty" do
@@ -55,14 +60,19 @@ class AwsElasticbeanstalk < Formula
     sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
   end
 
+  resource "ipaddress" do
+    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
+    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
+  end
+
   resource "jmespath" do
     url "https://files.pythonhosted.org/packages/e5/21/795b7549397735e911b032f255cff5fb0de58f96da794274660bca4f58ef/jmespath-0.9.3.tar.gz"
     sha256 "6a81d4c9aa62caf061cb517b4d9ad1dd300374cd4706997aff9cd6aedd61fc64"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/67/f6/ad4d6964da803ffe0ec9d513b0be6924be0f502636c17781308561f08034/pathspec-0.5.0.tar.gz"
-    sha256 "aa3a071054d4740b963c91a3127a5e0e1358351718bae2a3f731ec24fb0bdd1f"
+    url "https://files.pythonhosted.org/packages/9f/fb/5a901a3b1eeebf83af6da74ecca69d7daf5189e450f0f4cccf9c19132651/pathspec-0.5.5.tar.gz"
+    sha256 "72c495d1bbe76674219e307f6d1c6062f2e1b0b483a5e4886435127d0df3d0d3"
   end
 
   resource "python-dateutil" do
@@ -106,8 +116,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/06/19/f00725a8aee30163a7f257092e356388443034877c101757c1466e591bf8/websocket_client-0.44.0.tar.gz"
-    sha256 "15f585566e2ea7459136a632b9785aa081093064391878a448c382415e948d72"
+    url "https://files.pythonhosted.org/packages/83/91/162f2c76729633d1dc36b09746895c7766bc183bba94cb4d2ec398676060/websocket_client-0.46.0.tar.gz"
+    sha256 "933f6bbf08b381f2adbca9e93d7e7958ba212b42c73acb310b18f0fbe74f3738"
   end
 
   resource "backports.ssl_match_hostname" do
