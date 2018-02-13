@@ -13,7 +13,7 @@ class MkConfigure < Formula
 
     system "bmake", "all"
     system "bmake", "install"
-    doc.install("presentation/presentation.pdf")
+    doc.install "presentation/presentation.pdf"
   end
 
   test do
