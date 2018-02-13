@@ -1,15 +1,14 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz"
-  sha256 "572ef9696b97595b4f44f6198fe8c06e6f4e6351d930d22e5330b071391272ff"
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.16.tar.gz"
+  sha256 "a911f48f3cc51ac82fdabc4e001f18a32569128680beb5a833ebc3ff6edcc1f4"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "8982dbb85719c513bc74910a43d89c88892a9677e53711cdee7ae369c660e46c" => :high_sierra
-    sha256 "09cd8cf501bb7ffd6dc1ce48628c80798700d3b79e329321e59c98a6e3d127e1" => :sierra
-    sha256 "94d275b2699c23828ff7610372a3b6b5ff11ec63222eba33db6de22adb806424" => :el_capitan
-    sha256 "986cb7457249c53bf40df451f39675a8871fdefe1f111ae7e02eb70a89404ab5" => :yosemite
+    sha256 "7ab9c0ad695d6dc03b6537f2b84fe92c511f9f412232f8e60a08a0da9d2a2b14" => :high_sierra
+    sha256 "836e7caa01dde37bd5bb5cc6846d33fee4a48741f01d4e53e2fc656bb0ab68ea" => :sierra
+    sha256 "fc380472c86ab122827f2592bb63ae22cc4d1fe0d3d43325bf7092cc5749ab5c" => :el_capitan
   end
 
   option "with-java", "Compile with Java support"
@@ -53,6 +52,12 @@ class Uwsgi < Formula
   end
 
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
@@ -65,6 +70,7 @@ class Uwsgi < Formula
       [uwsgi]
       ssl = true
       json = #{json}
+      xml = libxml2
       yaml = #{yaml}
       inherit = base
       plugin_dir = #{libexec}/uwsgi

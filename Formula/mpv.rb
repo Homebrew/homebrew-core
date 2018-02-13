@@ -1,16 +1,14 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
-  sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
-  revision 5
-
+  url "https://github.com/mpv-player/mpv/archive/v0.27.1.tar.gz"
+  sha256 "836299f1c33c46c8b8615fb84b99ecb05f048431a921e8dc9603aed9eb88af9c"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "400407134ecae015f75a45c27ab0bec2087310737f7fd14f3849a21834c415a7" => :high_sierra
-    sha256 "82dc721763626f8acf23e374b28c1a7fe7ade4675286dd34cdd5eebe616da2d1" => :sierra
-    sha256 "67d08c667592b5c6138d3a0e80cc2e3887bea46ddee0f3f5a8411cf08db1f839" => :el_capitan
+    sha256 "a432f1a6d291b87c908df74253669db52111eaf611cdc88afab6d8e3fe18d5c4" => :high_sierra
+    sha256 "8592a293ca3403c388efaf04eddd8e6866dfa4c4c8dcfa2262858c7cb3ecf368" => :sierra
+    sha256 "3697ec5553c3ca71133b0e8d3147d6403e024b01de989cfc8a7cb616a6b3df39" => :el_capitan
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -48,13 +46,13 @@ class Mpv < Formula
   end
 
   def install
-    # LANG is unset by default on osx and causes issues when calling getlocale
+    # LANG is unset by default on macOS and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
-    # Prevents a conflict between python2 and python3 when gobject-introspection
-    # is using the :python requirement
+    # Prevents a conflict between python2 and python3 when
+    # gobject-introspection is using brewed python.
     ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"

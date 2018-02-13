@@ -1,24 +1,17 @@
 class Udpxy < Formula
   desc "UDP-to-HTTP multicast traffic relay daemon"
   homepage "http://www.udpxy.com/"
-  url "http://www.udpxy.com/download/1_23/udpxy.1.0.23-9-prod.tar.gz"
-  mirror "https://fossies.org/linux/www/udpxy.1.0.23-9-prod.tar.gz"
-  version "1.0.23-9"
-  sha256 "6ce33b1d14a1aeab4bd2566aca112e41943df4d002a7678d9a715108e6b714bd"
+  url "http://www.udpxy.com/download/1_23/udpxy.1.0.23-12-prod.tar.gz"
+  mirror "https://fossies.org/linux/www/udpxy.1.0.23-12-prod.tar.gz"
+  version "1.0.23-12"
+  sha256 "16bdc8fb22f7659e0427e53567dc3e56900339da261199b3d00104d699f7e94c"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "485d6e3879f7c6c6b7f044993ea141cde309f5f3283688b795a21276d5daf754" => :high_sierra
-    sha256 "856dd5abfc350e8ce06e361664c21732e0b11dfd84aca7f9bd1e0e40704ccb67" => :sierra
-    sha256 "6f2fb0a9baf932d599fca41b8ec80cd35491332ab89464bdda6d7ac8e5b5e01d" => :el_capitan
-    sha256 "7624631dffaa797191689b05fcb5d7c87c0ad233e49c308b10462c08c8a955e4" => :yosemite
-    sha256 "45dcc2c1a7d1f0170ae44edf600fee1f6112fd1e11530548a7e3b1870d71a7d8" => :mavericks
+    sha256 "46de795b585d88c658554fb943931885db85d75c7f838d9db6d11d98e46538d0" => :high_sierra
+    sha256 "ee35787b2877b8ac1a9fa967e9f8fbf466f8c107e28cc61fee59c26aef9bf44d" => :sierra
+    sha256 "0d4a899340bdee7f4497d68fe3bc59213ad83382d205aa08ada871d9d08c010d" => :el_capitan
   end
-
-  # Fix gzip path in Makefile for uname Darwin, this is needed to fix the install task
-  # https://sourceforge.net/p/udpxy/patches/4/
-  patch :DATA
 
   def install
     system "make"
@@ -51,18 +44,3 @@ class Udpxy < Formula
     EOS
   end
 end
-
-__END__
---- a/Makefile 2014-07-31 18:40:40.000000000 +0200
-+++ b/Makefile 2014-07-31 18:41:05.000000000 +0200
-@@ -32,7 +32,9 @@
- ALL_FLAGS = -W -Wall -Werror --pedantic $(CFLAGS)
-
- SYSTEM=$(shell uname 2>/dev/null)
--ifeq ($(SYSTEM), FreeBSD)
-+ifeq ($(SYSTEM), Darwin)
-+GZIP := /usr/bin/gzip
-+else ifeq ($(SYSTEM), FreeBSD)
- MAKE := gmake
- GZIP := /usr/bin/gzip
- endif

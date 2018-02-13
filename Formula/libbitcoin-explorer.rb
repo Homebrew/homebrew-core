@@ -1,14 +1,13 @@
 class LibbitcoinExplorer < Formula
   desc "Bitcoin command-line tool"
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
-  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.4.0.tar.gz"
-  sha256 "c0ed8ee51d780a3787699de47a5b8b5e73e539376be62f4e5cd89acfd8744ba3"
-  revision 2
+  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.5.0.tar.gz"
+  sha256 "630cffd577c0d10345b44ce8160f4604519b0ca69bf201f524f104c207b930aa"
 
   bottle do
-    sha256 "cc840aa895778f15b6fc16d3621ac5bf6125e5ea1a1ba4e70a272e0f61e287c1" => :high_sierra
-    sha256 "59cb12ef010d03c3cf53c84833444eecc743222c339d95db0327c6645e238b53" => :sierra
-    sha256 "6026d21bbc09ffb450e737b4b7517837833779e8922ecc6a82f0e1eba2b889ad" => :el_capitan
+    sha256 "95a82301e66060a2c470ec76da784150216fbdc9c3a3c038af8de29052aa527e" => :high_sierra
+    sha256 "ee0600e279f96f1385410dac18f49c079c069c6b7934e00b34a3c63e5fe99481" => :sierra
+    sha256 "da500353884d71273ed159380ed1b1ce788afc16bcf993ca5b6a1bbc67593c23" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -19,18 +18,18 @@ class LibbitcoinExplorer < Formula
   depends_on "zeromq"
 
   resource "libbitcoin-network" do
-    url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.4.0.tar.gz"
-    sha256 "3ef864289fc0085dd695f34e0a2dc8619011b3d6dbd7cffe1e19651ceff27ed9"
+    url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.5.0.tar.gz"
+    sha256 "e065bd95f64ad5d7b0f882e8759f6b0f81a5fb08f7e971d80f3592a1b5aa8db4"
   end
 
   resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.4.0.tar.gz"
-    sha256 "71b1a5b23b4b20f4727693e1e0509af8a0db4623bb27de46e273496ada43a121"
+    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
+    sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
   end
 
   resource "libbitcoin-client" do
-    url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.4.0.tar.gz"
-    sha256 "7e7641b960b930735092a225ad7180b672cff63e67bb957e0b46820a303a4e2f"
+    url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.5.0.tar.gz"
+    sha256 "bafa26647f334ecad04fc4bbef507a1954d7e0682f07bd38b90ab66dba5fe0d2"
   end
 
   def install

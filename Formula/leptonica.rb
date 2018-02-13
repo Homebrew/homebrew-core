@@ -1,17 +1,15 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.74.4/leptonica-1.74.4.tar.gz"
-  mirror "http://www.leptonica.org/source/leptonica-1.74.4.tar.gz"
-  sha256 "29c35426a416bf454413c6fec24c24a0b633e26144a17e98351b6dffaa4a833b"
-  revision 1
+  url "https://github.com/DanBloomberg/leptonica/releases/download/1.75.2/leptonica-1.75.2.tar.gz"
+  mirror "http://www.leptonica.org/source/leptonica-1.75.2.tar.gz"
+  sha256 "b6af3b43a1d38984a8f5201222297ca51e2ad511bdf709847a806f9d90031a8a"
 
   bottle do
     cellar :any
-    sha256 "003dce941c5eb1d0faf314fae1fd4501f023e29b0b73ddb20a72ff807a48aa7c" => :high_sierra
-    sha256 "824ca9ea9a3c6a0908f576288cf392244e0cab32835a3b01c8d125c8195ae476" => :sierra
-    sha256 "e567de6c8cb4caabe45b61e314fa482e8792bc1c3719755760ee55a694096716" => :el_capitan
-    sha256 "b1b8d75b21f7512dabd7cf665dbda4977bf1b34cc61bdc0daa23748a9c072208" => :yosemite
+    sha256 "24f90d6a77ffef528c184679663017f551fbcd6202bbe79462960b71944d8583" => :high_sierra
+    sha256 "fe32cc6350f6e26392993b4dc02d520b9aa27d43117ae0e8c349cc0a02baf5a9" => :sierra
+    sha256 "d7338b13bc2cba7f15ff73a92f2e868aa5f57141edd043fe48384cb3dbe873ad" => :el_capitan
   end
 
   depends_on "libpng" => :recommended

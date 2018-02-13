@@ -13,7 +13,7 @@ class Wimlib < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "homebrew/fuse/ntfs-3g" => :optional
+  depends_on "ntfs-3g" => :optional
   depends_on "openssl"
 
   def install

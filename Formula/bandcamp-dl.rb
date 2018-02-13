@@ -3,24 +3,23 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-08.tar.gz"
-  version "0.0.8-08"
-  sha256 "37b0a6e3714de74c6542e1ef1de7c6801b87bfa8022504600706702f87e2118d"
-  revision 1
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-10.tar.gz"
+  version "0.0.8-10"
+  sha256 "f02b5067faba3d8e133f9121194cb59d33dc3cbff79eeef5349003e812293c7e"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2a1d1a45f5e851c00173933735379534bbab94b9a456aaaa77b1c8a4de4c81be" => :high_sierra
-    sha256 "742688edb2cea8cd33c98fc7949812717bfb0ded8f96cbd6fadf9122ac7c8523" => :sierra
-    sha256 "14203c0057c7310e678d8264d98f4b43a13e8247534863b52b2d43fde7695d38" => :el_capitan
+    sha256 "743fbb2b0f09259dfa29a329a7b334624ad431e25219417ee5b25d2c562f100f" => :high_sierra
+    sha256 "1614c268f44ad703e126af3d9b6ad08ba9a073e572428e769f5ea1eaba2b8a8d" => :sierra
+    sha256 "3648e9009177fd1b0f5ff034b3ea029f6d0865c36517b3881203f00cdc87258c" => :el_capitan
   end
 
   depends_on "python3"
 
   resource "Unidecode" do
-    url "https://files.pythonhosted.org/packages/0e/26/6a4295c494e381d56bba986893382b5dd5e82e2643fc72e4e49b6c99ce15/Unidecode-0.04.21.tar.gz"
-    sha256 "280a6ab88e1f2eb5af79edff450021a0d3f0448952847cd79677e55e58bad051"
+    url "https://files.pythonhosted.org/packages/9d/36/49d0ee152b6a1631f03a541532c6201942430060aa97fe011cf01a2cce64/Unidecode-1.0.22.tar.gz"
+    sha256 "8c33dd588e0c9bc22a76eaa0c715a5434851f726131bd44a6c26471746efabf5"
   end
 
   resource "beautifulsoup4" do
@@ -29,8 +28,8 @@ class BandcampDl < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
+    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
   end
 
   resource "chardet" do
@@ -59,8 +58,8 @@ class BandcampDl < Formula
   end
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/57/ec/d7534cdb2766f1fee534a3aabdbdfbf05d6cf77cde617d77b526336a1a72/mutagen-1.38.tar.gz"
-    sha256 "23990f70ae678c7b8df3fd59e2adbefa5fe392c36da8c71d2254b21c6cd78766"
+    url "https://files.pythonhosted.org/packages/2c/6a/0b2caf9364db074b616b1b8c26ce7166a883c21b0e40bd50f6db02307afe/mutagen-1.40.0.tar.gz"
+    sha256 "b2a2c2ce87863af12ed7896f341419cd051a3c72c3c6733db9e83060dcadee5e"
   end
 
   resource "pbr" do

@@ -53,7 +53,6 @@ class GstPluginsBad < Formula
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
   depends_on "sound-touch" => :optional
-  depends_on "srtp@1.6" => :optional
   depends_on "libvo-aacenc" => :optional
 
   def install

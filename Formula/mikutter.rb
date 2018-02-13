@@ -1,14 +1,14 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.6.1.tar.gz"
-  sha256 "852ebf397b07fd98db5ce8d12afce698ca96ff6cfb0f742ae2fd7417ec6dde89"
+  url "https://mikutter.hachune.net/bin/mikutter.3.6.3.tar.gz"
+  sha256 "6e4c1bcaf36fa1d547d9248cf10b6691972cd752354b9634b9c4d699ada05d12"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "ac7147b19e9f3dac50e95a2ee43abc965f5bad60d4964c7b315df1fc0ac5203d" => :high_sierra
-    sha256 "244aeec203fe948056f30c46ce623ed6b0a39048f4198abca5ccfc1c88d92f5d" => :sierra
-    sha256 "466308cd18d16b174a0a3f361ead753809afecc49a8596b5dc9a990529747e9e" => :el_capitan
+    sha256 "be2e25fe47130daad357a411e550e09fe3eab152480a03c0aca164ea5cb875b9" => :high_sierra
+    sha256 "87dab436bfa105b05bd5ef3a45d42c2096eee84243035e9d1914144f0b604e5e" => :sierra
+    sha256 "109998ecf798ae8fd8c3f8c4b1167a549dc9a7ba543f19d248405f53192f6e19" => :el_capitan
   end
 
   depends_on "gtk+"
@@ -147,8 +147,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.8.1.gem"
-    sha256 "4180dd5dfe8ba5479db7c3030012cd79da9b958eea472195f3daa23cbf80bd80"
+    url "https://rubygems.org/gems/nokogiri-1.8.2.gem"
+    sha256 "382af505a11b735e97f52ec6279ea484be7a7560d5599e81def40943601fd515"
   end
 
   resource "oauth" do

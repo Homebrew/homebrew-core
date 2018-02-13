@@ -1,13 +1,13 @@
 class GoAT18 < Formula
   desc "Go programming environment (1.8)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.8.5.src.tar.gz"
-  sha256 "4949fd1a5a4954eb54dd208f2f412e720e23f32c91203116bed0387cf5d0ff2d"
+  url "https://dl.google.com/go/go1.8.7.src.tar.gz"
+  sha256 "5911e751807eebbc1980dad4305ef5492b96d6cd720bf93cbcefa86e1c195f9e"
 
   bottle do
-    sha256 "37499ad07ac0448329c4cd7d00d90c4934bb16e0732d43a1ea178a500a74c6c3" => :high_sierra
-    sha256 "78a87365b1ef44d0b343c8d95f79a35514bc5227cbc07ad8bcb774cc89b65328" => :sierra
-    sha256 "1def201fc998a8616123e8d49b04706a64531dc284f62ad9809afd93a7205e34" => :el_capitan
+    sha256 "733f30d527cce89faaddbc72687189dcc802d5c2a5bc31c4f2a43f00e0b61a61" => :high_sierra
+    sha256 "692609a4bb340c24339ccab7d582be096324540fde4782e40340bd2965b71fbb" => :sierra
+    sha256 "1537db5b5475f963a0818228ee8730c5dc80f360d54b598d242a6f974fc1ff5b" => :el_capitan
   end
 
   keg_only :versioned_formula

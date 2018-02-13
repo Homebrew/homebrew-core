@@ -28,6 +28,7 @@ class GobjectIntrospection < Formula
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
     end
 
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin" if MacOS.version <= :mavericks
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=python"
     system "make"
     system "make", "install"

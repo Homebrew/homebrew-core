@@ -2,19 +2,19 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag => "1.0.12",
-      :revision => "26ac1fe512df4170a83b1f325d98673838aaa1a4"
+      :tag => "v1.0.14",
+      :revision => "c3a9ed96177c01491529b0eca7ba1d131a26e8e8"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "183246ed331441e2b3c68e11a62591685cee31a86ecd71b502376ed1a8f28e55" => :high_sierra
-    sha256 "ca2ca5a91405dba1230e284f56eb290db13a9f3f595f76c72a85e51f46ee8fc5" => :sierra
-    sha256 "44af281913b949c376dd0fd7e0abe78a171d971e457348062b93c2d77618fcf2" => :el_capitan
+    sha256 "8b2fecf7d17c03a29491a852335a274576c99e7ff947a0ccb5596fca6d6e1d9a" => :high_sierra
+    sha256 "11ecd75994fb7fd79b7df4fa5a34bfd5cdd777cb220320dadc105682ae9623f9" => :sierra
+    sha256 "972f4bcfa6ab71dee1a3971d898efab03760e12eaeb40c45f7a8038cd2c60903" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "glide" => :build
   depends_on "kubernetes-cli" => :run
   depends_on "kubernetes-helm" => :run
 

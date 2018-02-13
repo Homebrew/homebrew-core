@@ -51,7 +51,7 @@ class Hdf5 < Formula
     if build.with? "mpi"
       ENV["CC"] = "mpicc"
       ENV["CXX"] = "mpicxx"
-      ENV["FC"] = "mpifc"
+      ENV["FC"] = "mpif90"
 
       args << "--enable-parallel"
     end

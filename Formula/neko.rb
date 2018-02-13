@@ -3,13 +3,13 @@ class Neko < Formula
   homepage "https://nekovm.org/"
   url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
   sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 1
+  revision 3
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 "33f933094e4e926a6357b9f1860775d47ecba1248d83dc2e32360ab998482c91" => :high_sierra
-    sha256 "3991ca91dc5ce450d8e345d7bc571b0e72667c8962b528982e3a5e1fd03fffa5" => :sierra
-    sha256 "8f9d57a9c3c3d25f8ce031734f1eefef58674b57e8541d6b6e97e37f8f401581" => :el_capitan
+    sha256 "d2cc6078ee557511a9b942a11235f6f1de35bb0b4a192e3bdf2c06225a1739fa" => :high_sierra
+    sha256 "87da62afced4e6a0b68669069752ff4e960618e4e8d243cc3bfef648cbbc3a23" => :sierra
+    sha256 "ef18bc7d2dadb87582ea22cec0d64ee272f8570cde1157700ce88fd3a4631002" => :el_capitan
   end
 
   depends_on "cmake" => :build

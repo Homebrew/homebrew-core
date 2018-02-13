@@ -12,7 +12,7 @@ class Bash < Formula
     mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
     sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
-    version "4.4.12"
+    version "4.4.19"
 
     %w[
       001 3e28d91531752df9a8cb167ad07cc542abaf944de9353fe8c6a535c9f1f17f0f
@@ -27,6 +27,13 @@ class Bash < Formula
       010 8465c6f2c56afe559402265b39d9e94368954930f9aa7f3dfa6d36dd66868e06
       011 dd56426ef7d7295e1107c0b3d06c192eb9298f4023c202ca2ba6266c613d170d
       012 fac271d2bf6372c9903e3b353cb9eda044d7fe36b5aab52f21f3f21cd6a2063e
+      013 1b25efacbc1c4683b886d065b7a089a3601964555bcbf11f3a58989d38e853b6
+      014 a7f75cedb43c5845ab1c60afade22dcb5e5dc12dd98c0f5a3abcfb9f309bb17c
+      015 d37602ecbeb62d5a22c8167ea1e621fcdbaaa79925890a973a45c810dd01c326
+      016 501f91cc89fadced16c73aa8858796651473602c722bb29f86a8ba588d0ff1b1
+      017 773f90b98768d4662a22470ea8eec5fdd8e3439f370f94638872aaf884bcd270
+      018 5bc494b42f719a8b0d844b7bd9ad50ebaae560e97f67c833c9e7e9d53981a8cc
+      019 27170d6edfe8819835407fdc08b401d2e161b1400fe9d0c5317a51104c89c11e
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
@@ -41,10 +48,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "177a1cfffc4158165d1fe1fc467dd07a5ba4ac4a94002b7b17e693b83cb7c98f" => :high_sierra
-    sha256 "ac12c447d66bb79762b8f1494655f7631dc8967392c23efd0abf5ba7a1d44a7e" => :sierra
-    sha256 "f35e631d1b87513743daacfb9cb798682ffb34f205290267c75b37169b1f3682" => :el_capitan
-    sha256 "25ebb6b3ec589b0248b4e249adbbac409bdd3f7cd38346d070f6edf404729a31" => :yosemite
+    sha256 "c190ef318789e8628cb643536e047510d3ab20fdc6e7265d5fa908ebd6af824c" => :high_sierra
+    sha256 "63df41e44e43446adac9ddc16e3a2765731b2824c10d19a97ffd968a28a46b5e" => :sierra
+    sha256 "42acd30227424e96d6ab286b8d10065540bde8c97e23b26ef99cac6d6c0eb11c" => :el_capitan
   end
 
   depends_on "readline"

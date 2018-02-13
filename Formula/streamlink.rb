@@ -1,17 +1,17 @@
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/0.9.0/streamlink-0.9.0.tar.gz"
-  sha256 "8c01c23a3e02d75a09232ac471a7c277a699455293a99e8a2ec0846a1b4a6819"
+  url "https://github.com/streamlink/streamlink/releases/download/0.10.0/streamlink-0.10.0.tar.gz"
+  sha256 "8bc06e53ab15fab57f782ea438a5f00c4807148b21f8fbed9238ed4865e08e24"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df3c2fd970330311673a293f72f736b45f4aa45716e652c12844a19e5dbb8d97" => :high_sierra
-    sha256 "e89c0e7d4496016f268ebb312d8b3db39557ccadafbfaeae751453074c389a93" => :sierra
-    sha256 "e32ba44879d89cfeed23ac45abef84cf20651c4854814c7563f221a1f47f0989" => :el_capitan
+    sha256 "b438821813d9a50ba5d446801ef1e96bbfc975f98b870db8d64468bccceab3cc" => :high_sierra
+    sha256 "0bad8cd2b8228a6e39e3fb0d1876c7b2fb01053e354cec9ea320513760249a8f" => :sierra
+    sha256 "acb8eb68831ce54c860abe5623395de053df2ce7af9bc158d81e890ae87bc47c" => :el_capitan
   end
 
-  # Use :python on Yosemite and prior to avoid needing urllib3[secure]
+  # Use brewed python on Yosemite and prior to avoid needing urllib3[secure]
   # See https://github.com/streamlink/streamlink/commit/0f35b9b2
   depends_on "python" if MacOS.version <= :yosemite
 

@@ -4,14 +4,14 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.3.0",
-      :revision => "5cf5e19ad20e4d9710855063ad1dc572e4faa2f8"
+      :tag => "v10.4.0",
+      :revision => "857480b64b013d8edffaf70e4b7ea43ee1c66a9e"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
-    sha256 "446804484f78a31983402d4d9e3177a18abc724eaa36f00609e617077d9b6382" => :high_sierra
-    sha256 "cbf82c4f1e16758c33208fdd93bc2996b01aaba9e44e19e3d982ae5a49febdb4" => :sierra
-    sha256 "4566f9e6631580bc963b7f21199e19822d66214cd039af7f9020e9f158006baa" => :el_capitan
+    sha256 "21886f4f36c3ce1a810166f6b4a3b29813f60f43c4ff3d06dfbac0d541913981" => :high_sierra
+    sha256 "7acad56cc8784144d6120510d70e93f397e6c515b900208a742c34dba2eea44c" => :sierra
+    sha256 "cdc63301f3b82c014cdba21da6428517a023a733a53ce988002c4c4f74f4d8df" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -23,17 +23,17 @@ class GitlabRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.3.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.4.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.3.0"
-    sha256 "5b46b9fc173378ef2cf7f58ffecd40f2cbc62b60b86ff49d2d91dace45ef1d5a"
+    version "10.4.0"
+    sha256 "aa8bccad577923276f2828b69577ad032acd2ffb4818bb5418483e5e436c8d39"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.3.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.4.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.3.0"
-    sha256 "91cc4703e52c3b77c9df8c4820d45dfea2f78edde3815064d265a64b7e8d4c49"
+    version "10.4.0"
+    sha256 "a470da06463aca65972151967d5be22d420fd347e0fd3972f958d72f531c93fe"
   end
 
   def install

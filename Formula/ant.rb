@@ -1,16 +1,15 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.1-bin.tar.xz"
-  sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.2-bin.tar.xz"
+  sha256 "361c8ad2ed8341416e323e7c28af10a8297170a80fdffba294a5c2031527bb6c"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f2d0b309804add26321af31b17162daf3e923b8799100e987272b18ee2c53c9" => :high_sierra
-    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :sierra
-    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :el_capitan
-    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :yosemite
+    sha256 "c2c0bc113e74a41df722ad1b04898892dc0f1746b6a3d00e12058f106d920e09" => :high_sierra
+    sha256 "c2c0bc113e74a41df722ad1b04898892dc0f1746b6a3d00e12058f106d920e09" => :sierra
+    sha256 "c2c0bc113e74a41df722ad1b04898892dc0f1746b6a3d00e12058f106d920e09" => :el_capitan
   end
 
   keg_only :provided_by_macos if MacOS.version < :mavericks
@@ -26,8 +25,8 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/bcel/bcel/6.0/bcel-6.0.jar"
-    sha256 "7eb80fdb30034dda26ba109a1b76af8dae0782c8cd27db32f1775086482d5bd0"
+    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.2-bin.tar.gz"
+    sha256 "e5963ed50ef1f243f852a27efaf898c050a3b39721d147ccda8418c0b7255955"
   end
 
   def install
@@ -46,7 +45,7 @@ class Ant < Formula
     end
     if build.with? "bcel"
       resource("bcel").stage do
-        (libexec/"lib").install Dir["bcel-*.jar"]
+        (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
       end
     end
   end

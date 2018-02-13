@@ -59,6 +59,14 @@ class Llvm < Formula
     resource "lldb" do
       url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
       sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
+
+      # Fixes "error: no type named 'pid_t' in the global namespace"
+      # https://github.com/Homebrew/homebrew-core/issues/17839
+      # Already fixed in upstream trunk
+      patch do
+        url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
+        sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+      end
     end
 
     resource "openmp" do
@@ -69,14 +77,6 @@ class Llvm < Formula
     resource "polly" do
       url "https://releases.llvm.org/5.0.1/polly-5.0.1.src.tar.xz"
       sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
-    end
-
-    # Fixes "error: no type named 'pid_t' in the global namespace"
-    # https://github.com/Homebrew/homebrew-core/issues/17839
-    # Already fixed in upstream trunk
-    resource "lldb-fix-build" do
-      url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
-      sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
     end
   end
 
@@ -197,12 +197,6 @@ class Llvm < Formula
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
-
-      if build.stable?
-        resource("lldb-fix-build").stage do
-          system "patch", "-p1", "-i", Pathname.pwd/"324f93b5e30.patch", "-d", buildpath/"tools/lldb"
-        end
-      end
 
       # Building lldb requires a code signing certificate.
       # The instructions provided by llvm creates this certificate in the

@@ -1,14 +1,14 @@
 class Libtomcrypt < Formula
   desc "Comprehensive, modular and portable cryptographic toolkit"
   homepage "http://www.libtom.net"
-  url "https://github.com/libtom/libtomcrypt/archive/v1.18.0.tar.gz"
-  sha256 "bdba1499dab3bf3365fa75553f069eba7bea392e8f9e0381aa0e950a08bd85ba"
+  url "https://github.com/libtom/libtomcrypt/archive/v1.18.1.tar.gz"
+  sha256 "e1319d77bf8ac296b69cf68f66e4dadfb68a8519bd684cc83d29b8d6754d10ef"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d63f50b85f7049c447cb862c503fcdd1fc6f9548961634513aa155cca9f6ea82" => :high_sierra
-    sha256 "e670af84b0cf4fcae425c7d09dc848c13737966a8209b19ae57606c8ce748aa0" => :sierra
-    sha256 "35739dedeb6932b60b46c725b03d3609f933a0cac4b180d59a9c8f38e8272923" => :el_capitan
+    sha256 "db05bfc16ef60355d9079efeb274e9106755bedb4e891ea2b9e455bf784a1c38" => :high_sierra
+    sha256 "031781e5baf4fad0febb66182e66b99a4f32aad9d6376eaf7f70c2496ed6fc5c" => :sierra
+    sha256 "bb0d91090b6bbe1f49fa14d32fe137f08a80cd5d5a2a79dd79e641f8ab57794c" => :el_capitan
   end
 
   option "with-gmp", "enable gmp as MPI provider"

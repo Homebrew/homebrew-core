@@ -1,14 +1,13 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.49/gwyddion-2.49.tar.gz"
-  sha256 "48446bc2c6680d61c16b3f637e57e09f4de631c6b80bc2b20f424f66cc896c1c"
+  url "http://gwyddion.net/download/2.50/gwyddion-2.50.tar.gz"
+  sha256 "f3834dae31d9bf696e8d59e2aa79a373a30d5f6caa6033601d2f9d57afa154f3"
 
   bottle do
-    sha256 "54219b3018cb2ae1491e894097de93fd4793a2ced553f1ed5c374d563bdd163d" => :high_sierra
-    sha256 "54947cfef227f47304cfcd026eab9e8f870c6e4fc9caad0cc4b2d026b77d4713" => :sierra
-    sha256 "44f3afedf022ae6928247c87f433f360775cbc8e025f164a0d9d909fe847040b" => :el_capitan
-    sha256 "2f01f30e749a596a3d7c13daa7961bd209e58a818b997960554fd72df4383335" => :yosemite
+    sha256 "298b62b2a21506f10dc8f8ce315fcfee9fc078ffac58fde0d8b29d0e998efad0" => :high_sierra
+    sha256 "a701145954bc8f36f4bef4711286a758bb62445bf59d65bff638c6a9559e4379" => :sierra
+    sha256 "36866a752fc238aefbb298c343d1e31a3741590dab97efbce94a1c1cb83088b0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -26,7 +25,6 @@ class Gwyddion < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
-                          "--enable-module-bundling=no",
                           "--prefix=#{prefix}",
                           "--with-html-dir=#{doc}"
     system "make", "install"
