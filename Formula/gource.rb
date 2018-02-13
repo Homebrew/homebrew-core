@@ -1,8 +1,8 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.47/gource-0.47.tar.gz"
-  sha256 "f2b16083a01b897b6c062b363793028fb9e01cd6f888d91772ee06e56ce398d2"
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.48/gource-0.48.tar.gz"
+  sha256 "b7055347dad152125ab83e121e3fcaf8cf79bc5bcaec295e4ed9475c40651d13"
 
   bottle do
     sha256 "d42a81092141197cd74f4bbec4e0265c1cbb81a7d00f150dc6cea18319e5b6d2" => :high_sierra
