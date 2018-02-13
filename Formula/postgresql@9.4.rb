@@ -1,8 +1,8 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.15/postgresql-9.4.15.tar.bz2"
-  sha256 "12bfb3c7e8e45515ef921ad365e122682a5c4935dcc0032644433af2de31acc4"
+  url "https://ftp.postgresql.org/pub/source/v9.4.16/postgresql-9.4.16.tar.bz2"
+  sha256 "dcbc62b621e4d8a445c2f33750f7d96257c38103cccebeb934e6913a3c135e81"
 
   bottle do
     sha256 "806f6a8aa5fa2d27c031af1ceb2bc4afdc2dd1e35c254b28c11ce6d771895d88" => :high_sierra
@@ -26,6 +26,11 @@ class PostgresqlAT94 < Formula
   end
 
   def install
+    # Fix "configure: error: readline library not found"
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
