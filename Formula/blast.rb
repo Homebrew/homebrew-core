@@ -1,11 +1,9 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
-  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
-  version "2.6.0"
-  sha256 "0510e1d607d0fb4389eca50d434d5a0be787423b6850b3a4f315abc2ef19c996"
-  revision 3
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
+  version "2.7.1"
+  sha256 "10a78d3007413a6d4c983d2acbf03ef84b622b82bd9a59c6bd9fbdde9d0298ca"
 
   bottle do
     sha256 "8d21490761a54f139a503886e2323cc0b8787b4c53d97b0b6db3a3272be2a22f" => :high_sierra
