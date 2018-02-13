@@ -7,10 +7,9 @@ class GitArchiveAll < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38181f895887952902f399431bf99aca3b178ef4ae9318e9df4b3180850b1991" => :high_sierra
-    sha256 "fcf25d28196f392663004bc5456484faed750e510b02bae78184180442f794c9" => :sierra
-    sha256 "fcf25d28196f392663004bc5456484faed750e510b02bae78184180442f794c9" => :el_capitan
-    sha256 "fcf25d28196f392663004bc5456484faed750e510b02bae78184180442f794c9" => :yosemite
+    sha256 "55ff007d89ce553b6cae85f6e6c16639b5b5b8da08a17118a58dc06340cca5ce" => :high_sierra
+    sha256 "55ff007d89ce553b6cae85f6e6c16639b5b5b8da08a17118a58dc06340cca5ce" => :sierra
+    sha256 "55ff007d89ce553b6cae85f6e6c16639b5b5b8da08a17118a58dc06340cca5ce" => :el_capitan
   end
 
   def install
