@@ -6,9 +6,9 @@ class Kedge < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24cc6de1fb74189044ac5b3e9edc13045967c9d74d90a1c1139a73eeda9bef2e" => :high_sierra
-    sha256 "fc046a26eda1adaa61d3c90690afe9c66e9a313205084193e44ed2d0d0905d72" => :sierra
-    sha256 "2b4ca695cd31d3f8ceb0cd9801101437d4464a04998ed0a777088b0f35a7e2a4" => :el_capitan
+    sha256 "a96d73fef45a986c6053aac38d97bb6778e3997a507e4f3283021862f470a911" => :high_sierra
+    sha256 "30badde832965452f2511bf3c6589fd979585b0da4413d4e1865ab4556a30263" => :sierra
+    sha256 "5615be2af0deefdf4046a84f4d51562f1e69c68033ad8b9057edbb243c92c9eb" => :el_capitan
   end
 
   depends_on "go" => :build
