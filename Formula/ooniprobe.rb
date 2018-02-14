@@ -5,7 +5,6 @@ class Ooniprobe < Formula
   homepage "https://ooni.torproject.org/"
   url "https://pypi.python.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
   sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
-  revision 1
 
   bottle do
     cellar :any
