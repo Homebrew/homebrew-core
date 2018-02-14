@@ -7,9 +7,9 @@ class Terraforming < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e5796c2ab21afb9a59b04256532f00edbf3a03b3e01f0b0ae86ffc51fc90e2d" => :high_sierra
-    sha256 "35a105a028ba2854c94d6fcd67bd616988ed168e253c671ae4decd870a1693a6" => :sierra
-    sha256 "b6700deb9f1a7f3564e2d7efe7182265372f347143c6951c77650b80a8074600" => :el_capitan
+    sha256 "e0725b2299c049d2ff8e2f05c40b4ed26c4425a2db80edadd522d5a3fe74d02f" => :high_sierra
+    sha256 "9be52ca74b16d7b408370e3cdea144fe8a422cc3678981d13dde72968aedb71b" => :sierra
+    sha256 "55ae998ef2c0bbcf4f45964136c89eefc477f8ac1992d03c89b6413409846ecc" => :el_capitan
   end
 
   resource "aws-sdk-autoscaling" do
