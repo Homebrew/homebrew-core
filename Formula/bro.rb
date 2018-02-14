@@ -1,8 +1,8 @@
 class Bro < Formula
   desc "Network security monitor"
   homepage "https://www.bro.org"
-  url "https://www.bro.org/downloads/bro-2.5.2.tar.gz"
-  sha256 "ab95b1bc376282919e5fa6b25b5ef8864e2e7bd5efe842db35d4a223b8f5b970"
+  url "https://www.bro.org/downloads/bro-2.5.3.tar.gz"
+  sha256 "7384fa14e6cebc86488040877fc0bfd50868e969f0fa05178cef0116e4116225"
   head "https://github.com/bro/bro.git"
 
   bottle do
