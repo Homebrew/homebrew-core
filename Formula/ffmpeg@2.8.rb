@@ -3,7 +3,7 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.13.tar.bz2"
   sha256 "df9b98cb584a004ce8e29b4c954cfb8d9e45dac52b4c6d036f25dfbaa3086778"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "8aed1ab25c515606cd4ab82798b55e66db7d9890168401cc5fa66a952334ee57" => :high_sierra
