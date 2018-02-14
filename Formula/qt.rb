@@ -3,8 +3,7 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://dl.bintray.com/homebrew/mirror/qt-5.10.1.tar.xz"
-  mirror "https://download.qt.io/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
+  url "https://download.qt.io/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
   sha256 "05ffba7b811b854ed558abf2be2ddbd3bb6ddd0b60ea4b5da75d277ac15e740a"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
