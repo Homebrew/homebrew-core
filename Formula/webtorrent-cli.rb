@@ -20,14 +20,14 @@ class WebtorrentCli < Formula
   end
 
   test do
-    magnet_uri = <<-EOS.gsub(/\s+/, "").strip
+    magnet_uri = <<~EOS.gsub(/\s+/, "").strip
       magnet:?xt=urn:btih:9eae210fe47a073f991c83561e75d439887be3f3
       &dn=archlinux-2017.02.01-x86_64.iso
       &tr=udp://tracker.archlinux.org:6969
       &tr=http://tracker.archlinux.org:6969/announce
     EOS
 
-    assert_equal <<~EOS.chomp, `#{bin}/webtorrent info "#{magnet_uri}"`
+    assert_equal <<~EOS.chomp, shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
       {
         "xt": "urn:btih:9eae210fe47a073f991c83561e75d439887be3f3",
         "dn": "archlinux-2017.02.01-x86_64.iso",
