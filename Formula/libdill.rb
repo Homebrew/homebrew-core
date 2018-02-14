@@ -4,6 +4,13 @@ class Libdill < Formula
   url "https://github.com/sustrik/libdill/archive/2.3.tar.gz"
   sha256 "f83cba87b1b0d1a8ad0f6345c448c14dee685ee733f3c3ee93f2321acc1bd083"
 
+  bottle do
+    cellar :any
+    sha256 "738d1ddc18531ffc212457a3c9d0b101030f6392e6d23de4cd7dc16d2f84d0b6" => :high_sierra
+    sha256 "f813be0b6511dde61fcb3507d462187aca3fa966dd23dd2a69181abef0f86efc" => :sierra
+    sha256 "bf2731c037553ee645a2bdbb0ce98c6e6d802a937e826a7cb7210dacf6117025" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
