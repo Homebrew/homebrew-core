@@ -1,8 +1,8 @@
 class Kedge < Formula
   desc "Deployment tool for Kubernetes artifacts"
   homepage "http://kedgeproject.org/"
-  url "https://github.com/kedgeproject/kedge/archive/v0.8.0.tar.gz"
-  sha256 "da4c4c11f01308d0201d6897906e3fcdef51220b1bc56ff872857ddb4b7a60b3"
+  url "https://github.com/kedgeproject/kedge/archive/v0.9.0.tar.gz"
+  sha256 "3314920db2fe31f3087a61a45f243f929023e2f39b8195b7ddc904ae946c2ba4"
 
   bottle do
     cellar :any_skip_relocation
