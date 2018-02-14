@@ -1,7 +1,7 @@
 require "language/node"
 
 class WebtorrentCli < Formula
-  desc "Commandline streaming torrent client"
+  desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
   url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-1.11.0.tgz"
   sha256 "682f4c5f21aa40974fab3c2e2ea032f0e4af2c09472c9f934efa58e4514b8a03"
