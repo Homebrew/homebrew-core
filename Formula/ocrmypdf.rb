@@ -89,6 +89,9 @@ class Ocrmypdf < Formula
     # Use ocrmypdf -f to rasterize the PDF to image before doing OCR
     # ocrmypdf only returns success when a valid PDF is produced
     system "#{bin}/ocrmypdf", "-f", "-q", "--deskew",
-                              test_fixtures("test.pdf"), testpath/"ocr.pdf"
+                              test_fixtures("test.pdf"),
+                              testpath/"ocr.pdf"
+    assert_equal 0, $CHILD_STATUS.exitstatus
+    assert_predicate testpath/"ocr.pdf", :exist?
   end
 end
