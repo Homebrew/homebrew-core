@@ -1,8 +1,8 @@
 class Plank < Formula
   desc "Framework for generating immutable model objects"
   homepage "https://pinterest.github.io/plank/"
-  url "https://github.com/pinterest/plank/archive/v1.2.1.tar.gz"
-  sha256 "21d15335bdf2f229a886611f3d18138b4a41ccbf420809dc3be1da41d3868104"
+  url "https://github.com/pinterest/plank/archive/v1.3.tar.gz"
+  sha256 "307d8e3c8d696b8de03a0789ce0ef11b39f533988a97d8b2cea4f9c5fd31310b"
 
   bottle do
     cellar :any_skip_relocation
