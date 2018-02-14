@@ -3,28 +3,30 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.0.6/source/tarball/percona-toolkit-3.0.6.tar.gz"
   sha256 "02a978dd61fe282cae42afb92ed7da585d6e5c9b6f0c1ca57272b378a004f365"
+  revision 1
+
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "f4d7b44859ef9add3095b14a541007747c477001b73a5ae4d8d5436aeae0877e" => :high_sierra
-    sha256 "9e3601d932eb9a012c648bed73a9d01e886f96d709e51993fe2b188aa0e6ebf2" => :sierra
-    sha256 "f5199f52b1428b8a7f1086d9e7ba8f6a1279817997dcc694557c31f9888dce52" => :el_capitan
+    sha256 "f63412e1ebe62ae1ca12ff52f307ba5775f5fdb3677773553896816f175e537c" => :high_sierra
+    sha256 "12922f65cf1c631841efad56f4f744fb4a8462a308c4c84795dcde84d6665057" => :sierra
+    sha256 "30cefb8f8ef3002fd9bd2ce3a34ab0b08d500300cd295707390c335d1350d7b4" => :el_capitan
   end
 
   depends_on "mysql"
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
-    sha256 "629f865e8317f52602b2f2efd2b688002903d2e4bbcba5427cb6188b043d6f99"
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    sha256 "12271b5cee49943bbdde430eef58f1fe64ba6561980b22c69585e08fc977dc6d"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
+    sha256 "e277d9385633574923f48c297e1b8acad3170c69fa590e31fa466040fc6f8f5a"
   end
 
   def install

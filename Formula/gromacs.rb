@@ -1,21 +1,22 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2016.4.tar.gz"
-  sha256 "4be9d3bfda0bdf3b5c53041e0b8344f7d22b75128759d9bfa9442fe65c289264"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.tar.gz"
+  sha256 "deb5d0b749a52a0c6083367b5f50a99e08003208d81954fb49e7009e1b1fd0e9"
 
   bottle do
-    sha256 "eb7f67951a1d269c87643441f92218a5f2ee670b0aca2aa1a554419bab36270a" => :high_sierra
-    sha256 "fe04d6ed6aa2992f13a8d7bd7b027313226034c7536dd0586875bbd1fb8babd3" => :sierra
-    sha256 "2c48ca08b9feaeb46d2becae8c19eace53dd68bbf7b9628ece2aff4b1020e168" => :el_capitan
+    sha256 "c9a80ad8b736c718b8dad61a2150239cf362f471e5651e31e29f9c7eac50698c" => :high_sierra
+    sha256 "f2591692c45ce6f2b584eb62c113e72143c1930276b9cdcfa5072f191add99f9" => :sierra
+    sha256 "2da1f5cc720905623d23591b30adf60a1c78bb09b25735949dfd2c426dac287f" => :el_capitan
   end
 
   option "with-double", "Enables double precision"
+  option "with-mpi", "Enable parallel support"
 
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gsl"
-  depends_on :mpi => :optional
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on :x11 => :optional
 
   def install

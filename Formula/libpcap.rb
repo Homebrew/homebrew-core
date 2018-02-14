@@ -13,7 +13,7 @@ class Libpcap < Formula
     sha256 "cca6e084403fedada146bd162dade2638a6380733c136bb2e65b6657d5c3fe92" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   def install
     system "./configure", "--prefix=#{prefix}",

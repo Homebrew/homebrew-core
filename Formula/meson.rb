@@ -3,16 +3,17 @@ class Meson < Formula
   homepage "http://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.44.0/meson-0.44.0.tar.gz"
   sha256 "50f9b12b77272ef6ab064d26b7e06667f07fa9f931e6a20942bba2216ba4281b"
+  revision 1
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "99722391bc3b2289943de52db40d7b5852d34a2ccd73d2e199d21ef7f45c84f9" => :high_sierra
-    sha256 "99722391bc3b2289943de52db40d7b5852d34a2ccd73d2e199d21ef7f45c84f9" => :sierra
-    sha256 "99722391bc3b2289943de52db40d7b5852d34a2ccd73d2e199d21ef7f45c84f9" => :el_capitan
+    sha256 "ee3e0add72d372710a2e29312553a73601fdcb78153549a54160c9b0003dc64d" => :high_sierra
+    sha256 "ee3e0add72d372710a2e29312553a73601fdcb78153549a54160c9b0003dc64d" => :sierra
+    sha256 "ee3e0add72d372710a2e29312553a73601fdcb78153549a54160c9b0003dc64d" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "ninja"
 
   def install

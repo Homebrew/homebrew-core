@@ -1,15 +1,15 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "http://offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.4.tar.gz"
-  sha256 "c6fe4a99458542b52f101d2569cb7ca6d2c758bc0eba3731d4e6263af48c6454"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.5.tar.gz"
+  sha256 "8e28e786a00768e8a97d9f049406744829212cffb69903ffbb15faa1479d43e1"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0bbabd2ac821df9752e4f9a3939c7fe9852331f335ac903066bd60ff180587b" => :high_sierra
-    sha256 "a0bbabd2ac821df9752e4f9a3939c7fe9852331f335ac903066bd60ff180587b" => :sierra
-    sha256 "a0bbabd2ac821df9752e4f9a3939c7fe9852331f335ac903066bd60ff180587b" => :el_capitan
+    sha256 "e87e7653a818b5dad3d406f66a059c84e7bd4c9f97570cccee3abb5317df0c98" => :high_sierra
+    sha256 "e87e7653a818b5dad3d406f66a059c84e7bd4c9f97570cccee3abb5317df0c98" => :sierra
+    sha256 "e87e7653a818b5dad3d406f66a059c84e7bd4c9f97570cccee3abb5317df0c98" => :el_capitan
   end
 
   depends_on "asciidoc" => :build

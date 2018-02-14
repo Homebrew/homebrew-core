@@ -3,12 +3,12 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.bz2"
   sha256 "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "d2e9924a2e5129b106ff20dac599acb5339bd89e4c25641bcfd0c40c97c41fef" => :high_sierra
-    sha256 "8acff032d8c0eb8216305471665d4dc0e037d1b2d048ec6c1fbaf980f69f8552" => :sierra
-    sha256 "b313e286fed031c58fa64435ebd13c86f516228b950db2e6f6c9c2aa1164b591" => :el_capitan
+    sha256 "6d88511d80f47ff79a45588138a62e96a258913d25499ee4dc749fd22e8ae795" => :high_sierra
+    sha256 "7cdc9f6ea9d69ed78d822712794c6f843d426acd7fbdce7ea56cd0d7b2b287c2" => :sierra
+    sha256 "fb76532094bf33f984f7d1573f97942c0d2a5f46a02525dfdc67e4edf142e878" => :el_capitan
   end
 
   head do
@@ -20,16 +20,17 @@ class OpenMpi < Formula
 
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
+  option "without-fortran", "Do not build the Fortran bindings"
 
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" if build.with? "fortran"
   depends_on :java => :optional
   depends_on "libevent"
 
-  conflicts_with "mpich", :because => "both install mpi__ compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
+  conflicts_with "mpich", :because => "both install MPI compiler wrappers"
+  conflicts_with "lcdf-typetools", :because => "both install same set of binaries"
 
   needs :cxx11
 

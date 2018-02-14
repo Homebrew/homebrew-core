@@ -1,14 +1,14 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "http://www.git-town.com"
-  url "https://github.com/Originate/git-town/archive/v5.1.0.tar.gz"
-  sha256 "94d5ba67f5fe4645b7279258b4909f788cae95e689978ffc3fb6aa0db815c795"
+  url "https://github.com/Originate/git-town/archive/v6.0.2.tar.gz"
+  sha256 "a2438914cc406a92c23b3d1de4d0fe2536f982d680331643819c3a0f06b0a26b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23f027fb8f2a2b51c0f2dfdc1648b23e8c2ba8997d6d0cd53fa15028c883d8ac" => :high_sierra
-    sha256 "0f8a1b78156059d5b9a7345643c8a9df78fccef03db5578ba467ebed755dc7bc" => :sierra
-    sha256 "990826bb05ed0fc2e821fe41814039e761c2b84a6b0a0deec18b2de778ea6fda" => :el_capitan
+    sha256 "655d258505b9eb3f769a813ee6a974e960cd63f3ae976541c3dcbe57e44bc1c7" => :high_sierra
+    sha256 "3d32e10e3bc2b428cae644032864833e637b3107c842cd2390a03fe2ff01843f" => :sierra
+    sha256 "23c4c4d4c50f0dd5382627d284507d520b725047b6ce00820442f30ae2df5125" => :el_capitan
   end
 
   depends_on "go" => :build

@@ -1,15 +1,14 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.8.tar.bz2"
-  sha256 "ecef10265084d9123dc0b03d82ff5ee06fbf5ba755a912e7511ae590c9ee594d"
+  url "https://www.open-mpi.org/software/hwloc/v2.0/downloads/hwloc-2.0.0.tar.bz2"
+  sha256 "99e56f72d21f4e9c449b57f602ef72d79bf0a2e2ff5fb77367fd1a9f5c312708"
 
   bottle do
     cellar :any
-    sha256 "42fd04fddcdd334ae55ed72dbb5dec7466d9d785a7886cd71d610b2669678bfd" => :high_sierra
-    sha256 "e640a44067de9f1d7f7b4b6095dc557f0e49257147f600ae23a81fed9eb52e7c" => :sierra
-    sha256 "4a4105e5afc225caddb404a96b0e1412d4f54f2bf8327c67c7f9b58361ae31cc" => :el_capitan
-    sha256 "6bb7c10ee374d13567853009bf376a97230b880aedde7e9bfce6a61441742c76" => :yosemite
+    sha256 "16e2b2833e9754ddad6047791f400dfb8c05984c488a8e1779d025d150e34603" => :high_sierra
+    sha256 "ed3ba29ff0ca138fdb7742b4c8acc15e3f181c7ec7f881a1b58197f48768e3fa" => :sierra
+    sha256 "30d05f71caeb57cd9ad0453ed9fb4096a6158faef4f1de859e684825399cdeb1" => :el_capitan
   end
 
   head do
@@ -36,7 +35,7 @@ class Hwloc < Formula
   end
 
   test do
-    system ENV.cc, pkgshare/"tests/hwloc_groups.c", "-I#{include}",
+    system ENV.cc, pkgshare/"tests/hwloc/hwloc_groups.c", "-I#{include}",
                    "-L#{lib}", "-lhwloc", "-o", "test"
     system "./test"
   end

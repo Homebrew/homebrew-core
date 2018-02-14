@@ -3,12 +3,12 @@ class VimAT74 < Formula
   homepage "http://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 "0b7b258b8f27817c480d8f1504a264b04ed828f6d370601db39bcf05154d53a0" => :high_sierra
-    sha256 "cd6e36f85919d76a547f1b269546a2e37c5ef5d3aab462a55834e0ab3abcf282" => :sierra
-    sha256 "14227e1c8700a89c9925f15101a27f79a9cdeb4717471af5bf9d5026290eb219" => :el_capitan
+    sha256 "00743decb59ff8b042a71e2cdd9b406e2cd0cce0cf83b51c6a7f88d077632d93" => :high_sierra
+    sha256 "5af2152df6680a1d23c6a57b95d81cbbb17de0964ed8deaf4b14528b06aa8afb" => :sierra
+    sha256 "2f07d60810a03059a3e72d8ae8dd195db23af44539deadf1d99b9c462c4b5f62" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -18,13 +18,7 @@ class VimAT74 < Formula
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
-  LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
-
-  if MacOS.version >= :mavericks
-    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
-    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
-    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
-  end
+  LANGUAGES_DEFAULT  = %w[python].freeze
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
@@ -34,15 +28,17 @@ class VimAT74 < Formula
     option "without-#{language}", "Build vim without #{language} support"
   end
 
-  depends_on :python => :recommended
-  depends_on "python3" => :optional
-  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
-  depends_on :perl => "5.3"
+  depends_on "perl"
+  depends_on "ruby"
+  depends_on "python" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on "python3" => :optional
   depends_on :x11 if build.with? "client-server"
 
   def install
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
     ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
@@ -50,13 +46,7 @@ class VimAT74 < Formula
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
 
-    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS::CLT.installed?
-      # break -syslibpath jail
-      ln_s "/System/Library/Frameworks", buildpath
-      ENV.append "LDFLAGS", "-F#{buildpath}/Frameworks"
-    end
-
-    opts = []
+    opts = ["--enable-perlinterp", "--enable-rubyinterp"]
 
     (LANGUAGES_OPTIONAL + LANGUAGES_DEFAULT).each do |language|
       opts << "--enable-#{language}interp" if build.with? language

@@ -3,17 +3,17 @@ class Fades < Formula
   homepage "https://fades.readthedocs.org/"
   url "https://files.pythonhosted.org/packages/59/18/cc80eb5c0a2e15c4b95df6a3c6158e06acb2e075ef2b811753936a6bdf57/fades-6.0.1.tar.gz"
   sha256 "747ee3a159be1cb7512fd7ea4163d22e2734209e474aa2dbbccc29a0f0c92d09"
+  revision 1
   head "https://github.com/PyAr/fades.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a253b997f7e16ad61f602449567b1883a9ccd742665b1ff67dce545f6cae52d1" => :high_sierra
-    sha256 "c24a39184e8fb1c487e6c579b3fd66aba3e6c13be4f86c5583ce59beaab99655" => :sierra
-    sha256 "8a6869cbb401853eff4aa5c176feebdcb0b493ec09052f9f7a516d87320d96f3" => :el_capitan
-    sha256 "8a6869cbb401853eff4aa5c176feebdcb0b493ec09052f9f7a516d87320d96f3" => :yosemite
+    sha256 "13eceff41cb2181ead4f0993f3726b3f2f5887dede5b7013167360af923dc3dc" => :high_sierra
+    sha256 "13eceff41cb2181ead4f0993f3726b3f2f5887dede5b7013167360af923dc3dc" => :sierra
+    sha256 "13eceff41cb2181ead4f0993f3726b3f2f5887dede5b7013167360af923dc3dc" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   def install
     pyver = Language::Python.major_minor_version "python3"

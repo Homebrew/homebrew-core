@@ -2,15 +2,15 @@ class PreCommit < Formula
   include Language::Python::Virtualenv
 
   desc "Framework for managing multi-language pre-commit hooks"
-  homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.4.5.tar.gz"
-  sha256 "ee3981ec02c5e8d4d4fa76ee06d3205bd4b7e49d9c3d28a8a74c0bdcaecb47eb"
+  homepage "https://pre-commit.com/"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.6.0.tar.gz"
+  sha256 "c5343472d9d9bd88d3fe714c220639f88109da09effc596956c0d1208ac89313"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d2589bb3b0bfd938402b7da812e54fda0e8010638f6e9327d3be4ba33fa9f6b2" => :high_sierra
-    sha256 "de6f3ea4283f63992174713efef4154bd01bda8a200a37d06d6e9382e82a4c2f" => :sierra
-    sha256 "e046bf6220ba800d33b445416165a95b8137d31a270daa6c895a0b47ee57a91f" => :el_capitan
+    sha256 "6d223fd9099772949710c170ba6c85cf252adf430a13f7cedf5503f1b54eba96" => :high_sierra
+    sha256 "b25637cde862decd77b3e9652549f587a0c28cf124d5b57ac610021a0ca32557" => :sierra
+    sha256 "ab3cd0b4c2e6788952be51c2520bf88c35b670e8c608abdf2b4158a4df9e17bd" => :el_capitan
   end
 
   depends_on "python3"

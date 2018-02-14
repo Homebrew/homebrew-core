@@ -3,23 +3,22 @@ class Ooniprobe < Formula
 
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/46/eb/e44d255dbd6b2bc8cc6de680ff8ce3c279c9b0694a6eec9059bdf4806dfc/ooniprobe-2.2.0.tar.gz"
-  sha256 "971f7630587b7ba771383f93c10973871e2c5e866a7fde98754a788679361ac3"
+  url "https://pypi.python.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
+  sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
 
   bottle do
     cellar :any
-    sha256 "e0ddf8e7eec2b52ad4ffec112a6b06a86d87a472fa4ed162fb2d93a5b22feb01" => :high_sierra
-    sha256 "fbc47fc71b679c09454f56636756ef33532e91ecedff6c04c88b8cc5ac6ad149" => :sierra
-    sha256 "6f5cc72156fd51da46d88aa3223c5b938e0c5fa0fc05ed9d7fa2a952f5f9bc24" => :el_capitan
-    sha256 "854d30be6dad8cbf5972a64e8c0a011d17c04d5afe83b9b470d39acbe4e3a462" => :yosemite
+    sha256 "63c467de1c93e89d6eb555587ccf5048fc7d48646a1359ae51549635d619fe27" => :high_sierra
+    sha256 "190aa6d0fc5824a8f34c364ba6c436c6a7c4a6485afd10b9aaf39885ee2e870c" => :sierra
+    sha256 "21c9bbeaf1f5ab28751714147db3257824535eda0068c701707c8ad02fe50372" => :el_capitan
   end
 
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl"
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "tor"
-  depends_on :python
 
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)

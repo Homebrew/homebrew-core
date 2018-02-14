@@ -3,24 +3,24 @@ class JsonFortran < Formula
   homepage "https://github.com/jacobwilliams/json-fortran"
   url "https://github.com/jacobwilliams/json-fortran/archive/6.1.0.tar.gz"
   sha256 "95afb978ada157a19aeb45fb234ed8f4abf2a76749d212d77a31972cc47b8b3e"
+  revision 1
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
     cellar :any
-    sha256 "a8e18e7ba3a42aad008d82dcf07ee28ff98dd5ae4ad65ae40f66366abd7306db" => :high_sierra
-    sha256 "726642a811b3dd925bc4458e8c1e18d248d231b981e0460e3cc6df3ff2499902" => :sierra
-    sha256 "55d550a6d1f3cdb6206b1cd8e0778df370958658fd6b3a637565e50e95dbfff2" => :el_capitan
+    sha256 "3421989b35f3f93e05d9150a482ccca217ab74840844817d44ce7d182cfca5d1" => :high_sierra
+    sha256 "48401b56deb1efde18b05fafef29b23eae1a8998fa975637407c5351d5ae2159" => :sierra
+    sha256 "41068b91a80f1a451d83d5389210d8313b9391fde897a19f87884a5aea79dbda" => :el_capitan
   end
 
   option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"
-  option "without-test", "Skip running build-time tests (not recommended)"
   option "without-docs", "Do not build and install FORD generated documentation for json-fortran"
 
   deprecated_option "without-robodoc" => "without-docs"
 
-  depends_on "ford" => :build if build.with? "docs"
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "ford" => :build if build.with? "docs"
+  depends_on "gcc" # for gfortran
 
   def install
     mkdir "build" do
@@ -29,13 +29,11 @@ class JsonFortran < Formula
       args << "-DENABLE_UNICODE:BOOL=TRUE" if build.with? "unicode-support"
       args << "-DSKIP_DOC_GEN:BOOL=TRUE" if build.without? "docs"
       system "cmake", "..", *args
-      system "make", "check" if build.with? "test"
       system "make", "install"
     end
   end
 
   test do
-    ENV.fortran
     (testpath/"json_test.f90").write <<~EOS
       program example
       use json_module, RK => json_RK
@@ -53,7 +51,8 @@ class JsonFortran < Formula
       if (json%failed()) error stop 'error'
       end program example
     EOS
-    system ENV.fc, "-ojson_test", "-ljsonfortran", "-I#{HOMEBREW_PREFIX}/include", testpath/"json_test.f90"
-    system "./json_test"
+    system "gfortran", "-o", "test", "json_test.f90", "-I#{include}",
+                       "-L#{lib}", "-ljsonfortran"
+    system "./test"
   end
 end

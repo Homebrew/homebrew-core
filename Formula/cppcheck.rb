@@ -1,14 +1,14 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.81.tar.gz"
-  sha256 "12396eee334b22bf3aa3d629d483f27f287125348b97586dfd4da87b26ae2a56"
+  url "https://github.com/danmar/cppcheck/archive/1.82.tar.gz"
+  sha256 "524444a678e63dee247fd8d2fe3194317c07f2aa65de31a41aa2eb0553bbdc7f"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "d92360a0974ae00e273cb313f428cd235752cd952e8ede41eead31a3f35b0259" => :high_sierra
-    sha256 "f52a30f12d779c44da05b82c610248547cd890d89c235ed34a00e31185940ef0" => :sierra
-    sha256 "e14819c084affa65e3d5f3aceefa145c2f6914e04215a6d344413b862f59563c" => :el_capitan
+    sha256 "8d2b4fc80fb472a5fc89c5c491002f608d281ea5850513dd93cf88fec2bcae87" => :high_sierra
+    sha256 "818c27d2f4ee0817a3e71b44766a007ef807280ae284240386e0fd1d5d8705ef" => :sierra
+    sha256 "6117886623ab7a9de60bfd4a46770a65c9a2e11a90e9babe9419f04d918a68dc" => :el_capitan
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"

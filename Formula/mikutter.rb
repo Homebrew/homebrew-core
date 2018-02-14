@@ -1,21 +1,20 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.6.0.tar.gz"
-  sha256 "c9bec16f5b82873a59be079538192c0007359c612c0224b9c579dae18631e8c9"
-  revision 1
+  url "https://mikutter.hachune.net/bin/mikutter.3.6.3.tar.gz"
+  sha256 "6e4c1bcaf36fa1d547d9248cf10b6691972cd752354b9634b9c4d699ada05d12"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "3c7a0fe3cd2ef41e20e6bb65035ba24d80912f4bc61446042bd9ea36e1a250be" => :high_sierra
-    sha256 "99035a05e747c4d1fb2f8bdda4be20029550aa5f2a2625e3b64314d358c5db12" => :sierra
-    sha256 "a3df00ae61910fdcf4efe92248cd58b2f92d3c8110001ffce5f15f054c980f65" => :el_capitan
+    sha256 "be2e25fe47130daad357a411e550e09fe3eab152480a03c0aca164ea5cb875b9" => :high_sierra
+    sha256 "87dab436bfa105b05bd5ef3a45d42c2096eee84243035e9d1914144f0b604e5e" => :sierra
+    sha256 "109998ecf798ae8fd8c3f8c4b1167a549dc9a7ba543f19d248405f53192f6e19" => :el_capitan
   end
 
   depends_on "gtk+"
   depends_on "libidn"
+  depends_on "ruby"
   depends_on "terminal-notifier" => :recommended
-  depends_on :ruby => "2.1"
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.5.2.gem"
@@ -53,8 +52,8 @@ class Mikutter < Formula
   end
 
   resource "diva" do
-    url "https://rubygems.org/gems/diva-0.3.0.gem"
-    sha256 "f019dc3206f966cf56affbbc2c91827f1f7abef87f38554448862aca68603dd8"
+    url "https://rubygems.org/gems/diva-0.3.1.gem"
+    sha256 "a8b5151497db49a12778401e20fe3405596a7d3a6a888be98124ec016b20ef58"
   end
 
   resource "gdk_pixbuf2" do
@@ -148,8 +147,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.8.1.gem"
-    sha256 "4180dd5dfe8ba5479db7c3030012cd79da9b958eea472195f3daa23cbf80bd80"
+    url "https://rubygems.org/gems/nokogiri-1.8.2.gem"
+    sha256 "382af505a11b735e97f52ec6279ea484be7a7560d5599e81def40943601fd515"
   end
 
   resource "oauth" do
@@ -163,8 +162,8 @@ class Mikutter < Formula
   end
 
   resource "pkg-config" do
-    url "https://rubygems.org/gems/pkg-config-1.2.8.gem"
-    sha256 "9aff7ab9d6aea2218dba94791a1b3ba6f149fa57dc9c81634e54f0c59959d814"
+    url "https://rubygems.org/gems/pkg-config-1.2.9.gem"
+    sha256 "8880747a35362493a48dd331a40f9dab2e0469fe74a0899bd3559f810046b8d8"
   end
 
   resource "pluggaloid" do

@@ -4,20 +4,20 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.0.4.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.19.0.4.tar.xz"
-  sha256 "98a66bb19012f9bde848e1e02903fe411dd0b9e61921108ee4323c4167e6990a"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.0.5.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.19.0.5.tar.xz"
+  sha256 "818046927a7f77c1bcbbad7d8dbc04cdf0f3e6ec4e1a4f9d313378ecc69d85b5"
 
   bottle do
-    sha256 "4514edf429e5c0ba98d68ee24458e450ee11ddc05003b7c00836c6bf7750451f" => :high_sierra
-    sha256 "8a691e148760a8bf970a8dfc4190010e70200a5810a0013c1332f2082f069076" => :sierra
-    sha256 "a46a6de14534cc3429261820e3c10d39902196ed64ad290f1d5b55d62c46d449" => :el_capitan
+    sha256 "2625583e8129fb3959591f6d7d430c9451eab4038683dcfa0fc7ae4a25959416" => :high_sierra
+    sha256 "1b4c89505755fcbeef7ac38c11bfdbc15edc4575b3d26bb9e4bfede8b080c3bc" => :sierra
+    sha256 "635a73cdaa0752fe4eb653d4c183286701e6218cac4beba160eb363752fb995e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
   depends_on "gpatch"
-  depends_on :perl => "5.20"
+  depends_on "perl"
   depends_on "xz" # For LZMA
 
   def install

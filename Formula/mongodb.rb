@@ -1,15 +1,14 @@
-require "language/go"
-
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
 
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.1.tar.gz"
-  sha256 "59c646453120778911cc0d300b7da17e21765270d4575118bd4aa43ea1bf1e75"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.2.tar.gz"
+  sha256 "018788bd31d6953e55cda0ad0771d23e6b78e024a8a6404a80a900c67215b0a7"
 
   bottle do
-    sha256 "5c62829a16a9cf497cef7d0395aed7cf7140a608475732b4ccadab0e3dabcf91" => :high_sierra
-    sha256 "8a3a4607cb96d2f6cc85bc2874739e3b2cb768daf69c0d52bc0808c539fc1787" => :sierra
+    rebuild 1
+    sha256 "054a441ee469d2c519daf9715a61727371d7351cef57874b044f492749529139" => :high_sierra
+    sha256 "3ab351ac272899dce816531d6fc07b27c0a9c68a7170c23cf8662db7033a7d41" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -37,13 +36,6 @@ class Mongodb < Formula
     sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
   end
 
-  go_resource "github.com/mongodb/mongo-tools" do
-    url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.6.1",
-        :revision => "2b10d8492e1185039be4d5f2242a5b11ea102303",
-        :shallow => false
-  end
-
   needs :cxx11
 
   def install
@@ -62,9 +54,13 @@ class Mongodb < Formula
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
-    Language::Go.stage_deps resources, buildpath/"src"
 
-    cd "src/github.com/mongodb/mongo-tools" do
+    cd "src/mongo/gotools" do
+      inreplace "build.sh" do |s|
+        s.gsub! "$(git describe)", version.to_s
+        s.gsub! "$(git rev-parse HEAD)", "homebrew"
+      end
+
       args = %w[]
 
       if build.with? "openssl"
@@ -78,8 +74,7 @@ class Mongodb < Formula
       system "./build.sh", *args
     end
 
-    mkdir "src/mongo-tools"
-    cp Dir["src/github.com/mongodb/mongo-tools/bin/*"], "src/mongo-tools/"
+    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}

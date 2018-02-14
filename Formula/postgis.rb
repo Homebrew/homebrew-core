@@ -1,14 +1,14 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "http://download.osgeo.org/postgis/source/postgis-2.4.2.tar.gz"
-  sha256 "23625bc99ed440d53a20225721095a3f5c653b62421c4d597c8038f0d7a321d9"
+  url "http://download.osgeo.org/postgis/source/postgis-2.4.3.tar.gz"
+  sha256 "ea5374c5db6b645ba5628ddcb08f71d3b3d90a464d366b4e1d20d5a268bde4b9"
 
   bottle do
     cellar :any
-    sha256 "ea619da901dc5b6099d7fbf369c0262c10a001af51cb7e6fbc4694c2663bad99" => :high_sierra
-    sha256 "d363aee5b298882742157ed8fdb54de0b1e1e16bbc81af0880f8d531345ee07f" => :sierra
-    sha256 "e641bc06077b0a4be50ad954ef6cb7cbed12327afeca8191b92b20cf61a87745" => :el_capitan
+    sha256 "1b3bc57b9ab2b9d9fc1aedb757bfec8e649f23da5cc8572bae8b5183d0239021" => :high_sierra
+    sha256 "af980db4cca9a02dbf1c2bcc92274a48e98bd2119779811a37a3d9f1e07b0eef" => :sierra
+    sha256 "cf9cfba0227e88332e0c2640caa87b5958efb63acedaacfa3fa153508187d087" => :el_capitan
   end
 
   head do
@@ -23,6 +23,7 @@ class Postgis < Formula
   option "without-gdal", "Disable postgis raster support"
   option "with-html-docs", "Generate multi-file HTML documentation"
   option "with-api-docs", "Generate developer API documentation (long process)"
+  option "with-protobuf-c", "Build with protobuf-c to enable Geobuf and Mapbox Vector Tile support"
 
   depends_on "pkg-config" => :build
   depends_on "gpp" => :build
@@ -50,6 +51,8 @@ class Postgis < Formula
     depends_on "doxygen"
   end
 
+  depends_on "protobuf-c" => :optional
+
   def install
     ENV.deparallelize
 
@@ -67,6 +70,7 @@ class Postgis < Formula
     args << "--with-gui" if build.with? "gui"
     args << "--without-raster" if build.without? "gdal"
     args << "--with-xsldir=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl" if build.with? "html-docs"
+    args << "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}" if build.with? "protobuf-c"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

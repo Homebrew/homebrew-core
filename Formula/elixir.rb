@@ -1,16 +1,14 @@
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.5.3.tar.gz"
-  sha256 "0fc6024b6027d87af9609b416448fd65d8927e0d05fc02410b35f4b9b9eb9629"
-  revision 1
-
+  url "https://github.com/elixir-lang/elixir/archive/v1.6.1.tar.gz"
+  sha256 "91109a1774e9040fb10c1692c146c3e5a102e621e9c48196bfea7b828d54544c"
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "c57e32e9401ee3f724d532b9d8e53b0f5021da5b531dd309b28b7cdb0c4df768" => :high_sierra
-    sha256 "6e74ae1e8761622c427b319ea182044f0108e1e4df40fe971e44ceecf4ec121e" => :sierra
-    sha256 "f62dac3532cdaaa0f76285988362d5530e4f0cec73904d4da32782065b8eccce" => :el_capitan
+    sha256 "ca594ec52c6410c3a02f78c702612e1d3650239e06f99efa5933d8cf9269002a" => :high_sierra
+    sha256 "44c5fb9df692a6baee70aa2d1188d70fbaebdf0d308b5b49ec4ea972fdd689dd" => :sierra
+    sha256 "ec77a04e7f9ac7035977b69035a64d2b92a4276ea5a208bca12fe13ed71bc668" => :el_capitan
   end
 
   depends_on "erlang"
@@ -23,6 +21,8 @@ class Elixir < Formula
       app = File.basename(File.dirname(path))
       (lib/app).install path
     end
+
+    system "make", "install_man", "PREFIX=#{prefix}"
   end
 
   test do

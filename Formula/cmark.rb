@@ -12,7 +12,7 @@ class Cmark < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :python3 => :build
+  depends_on "python3" => :build
 
   def install
     mkdir "build" do

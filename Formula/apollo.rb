@@ -23,7 +23,7 @@ class Apollo < Formula
 
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
   resource "bdb-je" do
-    url "http://download.oracle.com/maven/com/sleepycat/je/5.0.34/je-5.0.34.jar"
+    url "https://download.oracle.com/maven/com/sleepycat/je/5.0.34/je-5.0.34.jar"
     sha256 "025afa4954ed4e6f926af6e9015aa109528b0f947fcb3790b7bace639fe558fa"
   end
 

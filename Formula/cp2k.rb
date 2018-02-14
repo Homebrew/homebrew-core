@@ -3,21 +3,21 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org/"
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-5.1.tar.bz2"
   sha256 "e23613b593354fa82e0b8410e17d94c607a0b8c6d9b5d843528403ab09904412"
+  revision 1
 
   bottle do
-    sha256 "8031b0558f47e19243361ff95f3a151a0d4d778e6f1877b9daeedbab4a0b9be4" => :high_sierra
-    sha256 "af6225fd780c3ba76a7d926f162757f178f885a2d7e822d9cf57efd14b1c37cb" => :sierra
-    sha256 "accb2f2ddc22665e149f9b8e65f2e0eeedeaba55eeddf95f3ca9fc851baacef5" => :el_capitan
+    sha256 "85d3a5ad5abc2e16391d30ad91ebe10517652598f17beac62265bd66f67a1eef" => :high_sierra
+    sha256 "9b516e4a0764b18f236a369b8f884d877a4ab08bf4fdfe66a29004f61695116b" => :sierra
+    sha256 "0f1e0c6fd23c666c9b6b253d9c6e035d1e973ea4dd6f65d02211e38be65700c1" => :el_capitan
   end
 
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on "fftw"
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "libxc"
+  depends_on "open-mpi"
   depends_on "scalapack"
 
-  needs :openmp
+  fails_with :clang # needs OpenMP support
 
   resource "libint" do
     url "https://downloads.sourceforge.net/project/libint/v1-releases/libint-1.1.5.tar.gz"
@@ -28,7 +28,7 @@ class Cp2k < Formula
     resource("libint").stage do
       system "./configure", "--prefix=#{libexec}"
       system "make"
-      system "make", "install"
+      ENV.deparallelize { system "make", "install" }
     end
 
     fcflags = %W[

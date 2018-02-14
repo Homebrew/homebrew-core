@@ -1,15 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.15.1.tar.xz"
-  sha256 "999c90fd7d45066992cdb87dda35bdff6dfc1d01496118ea718dfb866da4045c"
-  revision 1
+  url "https://www.kernel.org/pub/software/scm/git/git-2.16.1.tar.xz"
+  sha256 "cfad4337f2fdbfc1e2c8abce5e17e1dd4e1718a34ac2cbe3238fbe2426f2ea19"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "bf92011a0d9c62dfdee9a8825f5dc5c9ae84d3fa6c1362008a426b960a5b192e" => :high_sierra
-    sha256 "a952b566a368e6fedf95b1c7a5dbe48f3c847f9d81a0137c63f531bb3be19664" => :sierra
-    sha256 "ec79f938b88ca03b1f9dd3cedfcf5d01959cdc69887ff562825c4a1b41dd5e78" => :el_capitan
+    sha256 "4c39bb3f3c99eb9400004d6fb3b10a82f8a1bb3ee4d89d9569a9104ae7fa1952" => :high_sierra
+    sha256 "6b2d4930aabf8502bfe3fc654599deb8ee189a8ba3812a2ce04ee419365b9611" => :sierra
+    sha256 "ca8a82bdb3cc9b4b9745ac358f6582b8974460168adec476dc1f3d688ad25297" => :el_capitan
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -40,20 +39,20 @@ class Git < Formula
 
   if build.with? "subversion"
     depends_on "subversion"
-    depends_on :perl => ["5.6", :recommended]
+    depends_on "perl" => :recommended
   else
-    option "with-perl", "Build against a custom Perl rather than system default"
-    depends_on :perl => ["5.6", :optional]
+    option "with-perl", "Build against Homebrew's Perl rather than system default"
+    depends_on "perl" => :optional
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.15.1.tar.xz"
-    sha256 "0b3ad20f1f98d548f07a19900852e134cfc958d9664af95d04c028cf8d140166"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.16.1.tar.xz"
+    sha256 "c30d033feb9048de876986b3ea87964eb68f73392ce23e18a64280d60dbe997e"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.15.1.tar.xz"
-    sha256 "6c6bcf7d53aec8a498a1f5af558ae8f83daf892c3565188ee81ce34f6f022656"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.16.1.tar.xz"
+    sha256 "97e61ddbf00f46cc5e8ae0f5fe282836a45db3ec30bb2739d928a036cf8ab7fa"
   end
 
   def install

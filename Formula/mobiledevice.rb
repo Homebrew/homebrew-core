@@ -4,6 +4,8 @@ class Mobiledevice < Formula
   url "https://github.com/imkira/mobiledevice/archive/v2.0.0.tar.gz"
   sha256 "07b167f6103175c5eba726fd590266bf6461b18244d34ef6d05a51fc4871e424"
 
+  depends_on MaximumMacOSRequirement => :sierra
+
   bottle do
     cellar :any_skip_relocation
     sha256 "53f8b0184fc5c88f112c380da96e3d86744242c32c6f8abeaf670a8d65e3a74c" => :sierra

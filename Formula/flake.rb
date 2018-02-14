@@ -19,4 +19,8 @@ class Flake < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    system bin/"flake", test_fixtures("test.wav"), "-o", testpath/"test"
+  end
 end

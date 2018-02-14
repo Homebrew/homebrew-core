@@ -1,13 +1,13 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v2.3.5.tar.gz"
-  sha256 "830a63a42d9d3cead7b7d4adfe248cbc6f3a47d490666dec53f315c15885513d"
+  url "https://github.com/gravitational/teleport/archive/v2.4.1.tar.gz"
+  sha256 "27f1ad0622095ae389b6e8d4a26a0e2e7f6d355d4f416873faf2c38da23bf8d6"
 
   bottle do
-    sha256 "b7e5f6b19506c74fbe4eea7ad2dea491e60bff6abe80c96c302b27db4578b35b" => :high_sierra
-    sha256 "cba7df719bcb69ed675cd93f8f72be54f115731564099aa1581dc3bdbd8b0e5b" => :sierra
-    sha256 "813e15f6a8b22dd2c3f7461e2417c10d85517158271f54d8929b187213085320" => :el_capitan
+    sha256 "31de9d5fe3e9e69f7086012c10dfb8018430ffeb4d8669751a06bd94918ddd0f" => :high_sierra
+    sha256 "c892603ff642579bbc816a407a0ede5d06224d3cf65364eabe3ff7976790c20d" => :sierra
+    sha256 "664a76eaeb9b5b716bedcf54abb380667eeeb49cef3063bc404515337b0f0c4e" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -20,23 +20,16 @@ class Teleport < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOROOT"] = Formula["go"].opt_libexec
 
-    (buildpath / "src/github.com/gravitational/teleport").install buildpath.children
-    ln_s buildpath/"src", buildpath / "src/github.com/gravitational/teleport"
-
+    (buildpath/"src/github.com/gravitational/teleport").install buildpath.children
     cd "src/github.com/gravitational/teleport" do
-      ENV.deparallelize { system "make", "release" }
-      system "/usr/bin/tar", "-xvf", "teleport-v#{version}-#{ENV["GOOS"]}-#{ENV["GOARCH"]}-bin.tar.gz"
-      cd "teleport" do
-        bin.install %w[teleport tctl tsh]
-        prefix.install_metafiles
-      end
+      ENV.deparallelize { system "make", "full" }
+      bin.install Dir["build/*"]
+      prefix.install_metafiles
     end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/teleport version")
-    assert_match version.to_s, shell_output("#{bin}/tctl version")
-    assert_match version.to_s, shell_output("#{bin}/tsh version")
     (testpath/"config.yml").write shell_output("#{bin}/teleport configure")
       .gsub("0.0.0.0", "127.0.0.1")
       .gsub("/var/lib/teleport", testpath)

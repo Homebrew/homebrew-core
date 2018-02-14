@@ -12,7 +12,7 @@ class AwsShell < Formula
     sha256 "adfcbbdfe945223c373cd4c9eb8f2ef45d35cbcd9c860ce81d49647f8311a65d" => :el_capitan
   end
 
-  # Use :python on Lion to avoid urllib3 warning
+  # Use python on Lion to avoid urllib3 warning
   # https://github.com/Homebrew/homebrew/pull/37240
   depends_on "python" if MacOS.version <= :lion
 

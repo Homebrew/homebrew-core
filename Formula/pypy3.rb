@@ -1,14 +1,14 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.0-src.tar.bz2"
-  sha256 "a6e4cffde71e3f08b6e1befa5c0352a9bcc5f4e9f5cbf395001e0763a1a0d9e3"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.1-src.tar.bz2"
+  sha256 "f5548e06e2fc0c24ec8b6e3c5b09f90081818f7caa3e436dc312592611724713"
 
   bottle do
     cellar :any
-    sha256 "51107a1abab1e1109be812b479a940da1fa1ca5eadc619855ab7420bb66f8931" => :high_sierra
-    sha256 "79e3e7e3062437ac1cd141615fac5ce512dc971cbc7ed0b98e44c4ed1dbeecd2" => :sierra
-    sha256 "02111a3675e56720259ec8580f8436729e4fd9041df963a39137aeb2f0d1da65" => :el_capitan
+    sha256 "51fde2ccad56f8136201c2d49ae6f3f9258f138637e388c8bb5d7d2617ef01c3" => :high_sierra
+    sha256 "c337c4f6ecae8ecced8fb7fb901bb174a4913d54044af2ddab2b634a76718b4b" => :sierra
+    sha256 "1c13a907bd266e44d17dc6c5c39d59f4cf88e7ad89a67ad8b300a25481ec7bd0" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \

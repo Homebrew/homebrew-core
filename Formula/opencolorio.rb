@@ -1,22 +1,18 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "http://opencolorio.org/"
-  url "https://github.com/imageworks/OpenColorIO/archive/v1.0.9.tar.gz"
-  sha256 "27c81e691c15753cd2b560c2ca4bd5679a60c2350eedd43c99d44ca25d65ea7f"
-
+  url "https://github.com/imageworks/OpenColorIO/archive/v1.1.0.tar.gz"
+  sha256 "228589879e1f11e455a555304007748a8904057088319ebbf172d9384b93c079"
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
     cellar :any
-    sha256 "daa76480e8a457e54c1526a1777def1ba59f10eab19a96be9dbf494ecfc54d3d" => :high_sierra
-    sha256 "908cdf59c8eb2dd6afba51e1a851998ae551d5b9b885da66ade3e2c7cbce7447" => :sierra
-    sha256 "e3a2312a3f21ea15255903f4b030d44fbcceee36e768a070427234d9b80a46fd" => :el_capitan
-    sha256 "49edcb11a59fbcdbea875024a4c2719055fc17cee5e6472fe82d30e79685ae97" => :yosemite
-    sha256 "8aba1648c2c21f1054956c2d0fa7884d3882e30446785419bc429e50022d242c" => :mavericks
+    sha256 "4025f926a9061c72ebbecf1b5bbcb23d27c0ba6d8e2f578deb4cea45c60f409c" => :high_sierra
+    sha256 "18bf9288a4103a8f57f1869a884d3d1b697305e952eb977bd46f608d7d0695b3" => :sierra
+    sha256 "9eac0c648be323730035b3885b376db665408f02290efa9dd1263655029a914f" => :el_capitan
   end
 
   option "with-test", "Verify the build with its unit tests (~1min)"
-  option "with-java", "Build ocio with java bindings"
   option "with-docs", "Build the documentation"
 
   deprecated_option "with-tests" => "with-test"
@@ -26,19 +22,8 @@ class Opencolorio < Formula
   depends_on "little-cms2"
   depends_on "python" => :optional
 
-  # Fix build with libc++
-  patch do
-    url "https://github.com/imageworks/OpenColorIO/commit/ebd6efc036b6d0b17c869e3342f17f9c5ef8bbfc.diff?full_index=1"
-    sha256 "156de7dfd84e7dbe89ccb21d5594736bd3d77d71f482f10ce759c4ac637adb15"
-  end
-
-  # Fix includes on recent Clang; reported upstream:
-  # https://github.com/imageworks/OpenColorIO/issues/338#issuecomment-36589039
-  patch :DATA
-
   def install
     args = std_cmake_args
-    args << "-DOCIO_BUILD_JNIGLUE=ON" if build.with? "java"
     args << "-DOCIO_BUILD_TESTS=ON" if build.with? "test"
     args << "-DOCIO_BUILD_DOCS=ON" if build.with? "docs"
     args << "-DCMAKE_VERBOSE_MAKEFILE=OFF"
@@ -75,18 +60,8 @@ class Opencolorio < Formula
           http://opencolorio.org/downloads.html
     EOS
   end
-end
 
-__END__
-diff --git a/export/OpenColorIO/OpenColorIO.h b/export/OpenColorIO/OpenColorIO.h
-index 561ce50..796ca84 100644
---- a/export/OpenColorIO/OpenColorIO.h
-+++ b/export/OpenColorIO/OpenColorIO.h
-@@ -34,6 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- #include <iosfwd>
- #include <string>
- #include <cstddef>
-+#include <unistd.h>
- 
- #include "OpenColorABI.h"
- #include "OpenColorTypes.h"
+  test do
+    assert_match "validate", shell_output("#{bin}/ociocheck --help", 1)
+  end
+end

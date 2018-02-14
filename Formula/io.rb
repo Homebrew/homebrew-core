@@ -33,7 +33,7 @@ class Io < Formula
     depends_on "pcre"
     depends_on "yajl"
     depends_on "xz"
-    depends_on "python" => :optional
+    depends_on "python3" => :optional
   end
 
   def install
@@ -48,7 +48,7 @@ class Io < Formula
                                   "#add_subdirectory(addons)"
     else
       inreplace "addons/CMakeLists.txt" do |s|
-        if build.without? "python"
+        if build.without? "python3"
           s.gsub! "add_subdirectory(Python)", "#add_subdirectory(Python)"
         end
 
@@ -62,7 +62,9 @@ class Io < Formula
     end
 
     mkdir "buildroot" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON",
+                            "-DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON",
+                            *std_cmake_args
       system "make"
       output = `./_build/binaries/io ../libs/iovm/tests/correctness/run.io`
       if $CHILD_STATUS.exitstatus.nonzero?

@@ -5,19 +5,20 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/99/4d/16d7398fe5eefc602a8870fb3e93597aabe681b0f1497749148695cba4a1/charm-tools-2.2.3.tar.gz"
   sha256 "ea659f59041cb3dff0be862d657830591e656a9a259931064edab7477875245b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "eadb8bfbdc09519f67274db4b24192b03f25aba8138117e2ea0f87da130438fc" => :high_sierra
-    sha256 "2bd90894ed7d9130dc6413c5c7760621d723e6b425734250893a96b1122e086a" => :sierra
-    sha256 "0bda57a06ddb8724164f4f05ae0c67f5c4a11c9e08f42b72282b9fadba1323fc" => :el_capitan
+    sha256 "b8d51dd57ac254a3dab630164fe72cf60494888cfd49493301a60b02969ae22c" => :high_sierra
+    sha256 "4b0673f38036e9e5f2e8b9e9af617a35ed94115ddac2c7643fa22c14c487283d" => :sierra
+    sha256 "d061bc544b4a40f7e3e44ac94ce6b6100e57985724e6ff8cf17cdd7f02801496" => :el_capitan
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
-  depends_on :hg
+  depends_on "mercurial"
   depends_on "charm"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   # Additionally include ndg-httpsclient for requests[security]
   resource "Cheetah" do

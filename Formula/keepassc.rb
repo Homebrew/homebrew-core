@@ -3,18 +3,17 @@ class Keepassc < Formula
   homepage "https://raymontag.github.com/keepassc/"
   url "https://github.com/raymontag/keepassc/archive/1.7.0.tar.gz"
   sha256 "218537f6a16f70d907d22a23d1a4dec952d7622c65fae65f03c9ee98e64938dd"
-  revision 2
+  revision 3
   head "https://github.com/raymontag/keepassc.git", :branch => "development"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ac204754eed42b14e5f72339c819fa70a2c28965af964950071183eba92c54dd" => :high_sierra
-    sha256 "1e99f95e24602a4f7dd83a970cae3443007ad2c7809d05b1b465c679b87b0d13" => :sierra
-    sha256 "c185668f790114959248ac59e8f69e40624e68bfae512e38e6021a4bd1f55d21" => :el_capitan
-    sha256 "656de743c74e27801eb05c1c8639cc19fe174b2aace6dd503358c60ed9125c85" => :yosemite
+    sha256 "3e96dcc537b012e1b6e4a8edd6857429e37b5909572c2d24d4394c440c7e6442" => :high_sierra
+    sha256 "1b16b96c716ec9a9543f428c2e161216e0a6c832718e020f932c50190611f4e1" => :sierra
+    sha256 "610a84c98419037a090438504be237dc3e25627ff6fc0f16e1e6bd642c618a0e" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "pycrypto" do
     # homepage "https://www.dlitz.net/software/pycrypto"

@@ -1,15 +1,15 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.27/GraphicsMagick-1.3.27.tar.xz"
-  sha256 "d03278d2790efc1dc72309f85a539810d2a81deb47932f7e6720d09ac72d0367"
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.28/GraphicsMagick-1.3.28.tar.xz"
+  sha256 "942a68a9a8a5af6f682b896fd4f0ad617d8b49907e474acfe59549956bcc994a"
+  revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
-    rebuild 1
-    sha256 "cd8fda2a82b10d739b945fe36f714fb3477c8e962182012fb233357e3e4da636" => :high_sierra
-    sha256 "a5e128edf71e38d6aa068134ef7979a7e67b074b66121e755b3b275b01836afa" => :sierra
-    sha256 "7a50cb8bb67a70029fc3491a01a9c084168b7b5b76497b385b04a407bae4e731" => :el_capitan
+    sha256 "ff12a82870629fe3f6e425aa1500ae4da142809745b5b755a42498504f73f1ee" => :high_sierra
+    sha256 "92457b10f78aa756b3e560bc8be9fbc0fe0706c6d6913d3f30a645ff13ac3eff" => :sierra
+    sha256 "2658af1f23bc3d7a7d9aefa3c15cdf47303a556da88070221ca5796bd7225bc3" => :el_capitan
   end
 
   option "without-magick-plus-plus", "disable build/install of Magick++"
@@ -22,8 +22,8 @@ class Graphicsmagick < Formula
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "freetype" => :recommended
+  depends_on "jasper" => :recommended
   depends_on "little-cms2" => :optional
-  depends_on "jasper" => :optional
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
@@ -41,18 +41,18 @@ class Graphicsmagick < Formula
       --without-lzma
       --disable-openmp
       --with-quantum-depth=16
-      --disable-installed
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--with-perl" if build.with? "perl"
-    args << "--with-webp=yes" if build.with? "webp"
+    args << "--with-webp=no" if build.without? "webp"
     args << "--without-x" if build.without? "x11"
     args << "--without-ttf" if build.without? "freetype"
     args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
+    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"

@@ -3,24 +3,25 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.0.tar.gz"
   sha256 "18d52f8f329626f77b99b8bf91e05b7d16b49fde2483d3a0ea55496ce4cdd43a"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "bde23ccfd48f5f9121295928348abb51f214d27766e415011cd93b848879b501" => :high_sierra
-    sha256 "edc9a69445141c59bb307f669a4c926150b592d06b7f3d0da20c32c3f0d6de4b" => :sierra
-    sha256 "780c62ed921221d57561664573ab3b25a5621133ce3d6c82f942ef884dcecfc2" => :el_capitan
+    sha256 "60a049ed8478e7aabdd777bd3a10a35ee4576b2274af71e35ebb90561ea1fcd1" => :high_sierra
+    sha256 "5ad8d501c86179ec95e2bcef6a040c1692989b69be9cd2d865cb0830fa094865" => :sierra
+    sha256 "b23c4f2baafe75e67b647ed57c77098e883f23eef63796c37507b4276b28cf82" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
+  option "without-mpi", "Do not build with MPI"
 
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on "suite-sparse"
   depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :f77, :recommended]
 
-  needs :openmp if build.with?("openmp")
+  fails_with :clang if build.with? "openmp"
 
   def install
     blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"

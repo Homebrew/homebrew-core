@@ -1,7 +1,7 @@
 class Mandoc < Formula
   desc "The mandoc UNIX manpage compiler toolset"
-  homepage "http://mandoc.bsd.lv"
-  url "http://mandoc.bsd.lv/snapshots/mandoc-1.14.3.tar.gz"
+  homepage "https://mandoc.bsd.lv/"
+  url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.3.tar.gz"
   sha256 "0b0c8f67958c1569ead4b690680c337984b879dfd2ad4648d96924332fd99528"
 
   head "anoncvs@mandoc.bsd.lv:/cvs", :using => :cvs

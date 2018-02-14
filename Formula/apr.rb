@@ -11,7 +11,7 @@ class Apr < Formula
     sha256 "16cdb68cf34cc80919c8689c64310313b04a181c6a57901440398d19a668dd38" => :el_capitan
   end
 
-  keg_only :provided_by_osx, "Apple's CLT package contains apr"
+  keg_only :provided_by_macos, "Apple's CLT package contains apr"
 
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv

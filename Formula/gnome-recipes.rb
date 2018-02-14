@@ -15,7 +15,7 @@ class GnomeRecipes < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "itstool" => :build
-  depends_on :python3 => :build
+  depends_on "python3" => :build
   depends_on "gtk+3"
   depends_on "adwaita-icon-theme"
   depends_on "libcanberra"

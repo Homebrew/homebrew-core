@@ -13,7 +13,7 @@ class Libedit < Formula
     sha256 "45a9c2abf6fb9cd0c8cdcbad8a708e00879aef224b573069cc21cdb6e42e109b" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   def install
     system "./configure", "--disable-dependency-tracking",

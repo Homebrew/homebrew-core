@@ -35,7 +35,7 @@ class TclTk < Formula
     end
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
   option "without-tcllib", "Don't build tcllib (utility modules)"

@@ -1,15 +1,15 @@
 class ApmServer < Formula
   desc "Server for shipping APM metrics to Elasticsearch"
   homepage "https://www.elastic.co/"
-  url "https://github.com/elastic/apm-server/archive/v6.1.1.tar.gz"
-  sha256 "6c3876a889b824d71a18c8905a49d33b940eb69f1f09bd94faba35f3bea8e771"
+  url "https://github.com/elastic/apm-server/archive/v6.2.1.tar.gz"
+  sha256 "27a64ef8a180bf4f0f70709c3a4702d3669ceebdb5458144c33e88c075e40ba2"
   head "https://github.com/elastic/apm-server.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "89d941ebc7470a17103b807e9c2be024830eb48d2e05ee98ea0f59ec6ca8ca41" => :high_sierra
-    sha256 "fee78ff965ce988b21110b0179715360e9544102d6b744733c0611255b3ab757" => :sierra
-    sha256 "7a1332e81b14cc87012f32e7f254bc9ea46aca78c5c4e917d9f2294fa0d33e2d" => :el_capitan
+    sha256 "c2df4573066646c74deedd5f13eb9f16482fd7bfd6df078b007f0d4ef9941ac6" => :high_sierra
+    sha256 "1418278446d2e4b4082a94bf4d63a4b07008174cc497738110ee8f6b12b25ade" => :sierra
+    sha256 "e2ca4d257adbf42436388d429fdfda97e5906044803baec5cc115e45d0f5f167" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -100,7 +100,7 @@ class ApmServer < Formula
 
     begin
       system "curl", "-H", "Content-Type: application/json", "-XPOST", "localhost:#{port}/v1/transactions", "-d",
-             '{"app":{"name":"app1","agent":{"name":"python","version":"1.0"}},' \
+             '{"service":{"name":"app1","agent":{"name":"python","version":"1.0"}},' \
              '"transactions":[{"id":"945254c5-67a5-417e-8a4e-aa29efcbfb79","name":"GET /api/types","type":"request","duration":32.592981,"timestamp":"2017-05-09T15:04:05.999999Z"}]}'
       sleep 1
       s = (testpath/"apm-server/apm-server").read

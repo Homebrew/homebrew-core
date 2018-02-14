@@ -1,15 +1,14 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "http://www.rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.0.tar.bz2"
-  sha256 "06a0ad54600d3c42e42e02701697a8857dc4b639f6476edefffa714d9f496314"
-  revision 1
+  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.1.tar.bz2"
+  sha256 "43f40e2ccc3ca65bd3238f8c9f8399d4957be0878c2e83cba2746d2d0d96793b"
   version_scheme 1
 
   bottle do
-    sha256 "3352d66eee4f6bb9f10b9003c1800e7caa9f82dc4fc341b5d66584bfc84db63f" => :high_sierra
-    sha256 "846ed9634a64472a13948e1f14d156f57f2b7aa0628733afdd38b403f66aea92" => :sierra
-    sha256 "685be758e9ccc3dcbd54d0a2a14c75d7d64529b7e36421a58189d0bab70f57f2" => :el_capitan
+    sha256 "6de4058fba75ee957c09b1fefa1659bd8ddd06db5c7d8c30f27ffd887c93d2f4" => :high_sierra
+    sha256 "36b3d79a238595e902c76f6fb239f262df5d8f0f49ca5acf856808b0833eb179" => :sierra
+    sha256 "984ba66c9306437aa22e0f9805e4daeae8bf1bf89c6a13f44f3d1ad91183b437" => :el_capitan
   end
 
   depends_on "pkg-config" => :run
@@ -18,7 +17,7 @@ class Rpm < Formula
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua@5.1"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "popt"
   depends_on "xz"
   depends_on "zstd"
@@ -28,6 +27,10 @@ class Rpm < Formula
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
+
+    # ensure that pkg-config binary is found for dep generators
+    inreplace "scripts/pkgconfigdeps.sh",
+              "/usr/bin/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

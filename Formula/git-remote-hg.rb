@@ -16,7 +16,7 @@ class GitRemoteHg < Formula
     sha256 "45529e66698b9505e61c718d43f46c99dc31ef2b37802939e17d391ede5ae912" => :yosemite
   end
 
-  depends_on :hg
+  depends_on "mercurial"
   depends_on "python" if MacOS.version <= :snow_leopard
 
   conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"

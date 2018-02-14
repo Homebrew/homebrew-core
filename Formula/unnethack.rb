@@ -20,10 +20,6 @@ class Unnethack < Formula
   option "with-curses-graphics", "Enable curses graphics (play with fanciness)"
 
   def install
-    # crashes when using clang and gsl with optimizations
-    # https://github.com/mxcl/homebrew/pull/8035#issuecomment-3923558
-    ENV.no_optimization
-
     # directory for version specific files that shouldn't be deleted when
     # upgrading/uninstalling
     version_specific_directory = "#{var}/unnethack/#{version}"
@@ -43,7 +39,7 @@ class Unnethack < Formula
     args << "--enable-curses-graphics" if build.with? "curses-graphics"
 
     system "./configure", *args
-    ENV.j1 # Race condition in make
+    ENV.deparallelize # Race condition in make
 
     # disable the `chgrp` calls
     system "make", "install", "CHGRP=#"

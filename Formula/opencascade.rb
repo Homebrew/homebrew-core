@@ -1,7 +1,7 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://www.opencascade.com/content/core-technology"
-  url "http://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_2_0;sf=tgz"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_2_0;sf=tgz"
   version "7.2.0"
   sha256 "adb6fc44efebdb09e30a487fa412afae9599992dc771b0039b4ebf306891a558"
 

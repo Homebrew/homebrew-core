@@ -20,10 +20,15 @@ class Doxymacs < Formula
     depends_on "automake" => :build
   end
 
-  depends_on :emacs => "20.7.1"
   depends_on "doxygen"
+  depends_on "emacs"
 
   def install
+    # Fix undefined symbols errors for _xmlCheckVersion and other symbols
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     # https://sourceforge.net/p/doxymacs/support-requests/5/
     ENV.append "CFLAGS", "-std=gnu89"
 

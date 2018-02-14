@@ -3,18 +3,19 @@ class Diffoscope < Formula
   homepage "https://diffoscope.org"
   url "https://files.pythonhosted.org/packages/6c/b7/a5f5f5fb994fa8230769a6e211b9306e0882d0158744c168f7bb694a6f26/diffoscope-90.tar.gz"
   sha256 "d1507e40bc7a920cbfb9df6f69029e84ad084d9804733af923587c10b7110f42"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "028eb76552bcd1d770c4e0c8d68ba9510e9879573791b00635f7a3a64493f8ab" => :high_sierra
-    sha256 "028eb76552bcd1d770c4e0c8d68ba9510e9879573791b00635f7a3a64493f8ab" => :sierra
-    sha256 "028eb76552bcd1d770c4e0c8d68ba9510e9879573791b00635f7a3a64493f8ab" => :el_capitan
+    sha256 "eaa874943de6387015a0a3cba97fdebe231a0495ae1071455d1f285f62a22487" => :high_sierra
+    sha256 "eaa874943de6387015a0a3cba97fdebe231a0495ae1071455d1f285f62a22487" => :sierra
+    sha256 "eaa874943de6387015a0a3cba97fdebe231a0495ae1071455d1f285f62a22487" => :el_capitan
   end
 
   depends_on "libmagic"
   depends_on "libarchive"
   depends_on "gnu-tar"
-  depends_on :python3
+  depends_on "python3"
 
   resource "libarchive-c" do
     url "https://files.pythonhosted.org/packages/1f/4a/7421e8db5c7509cf75e34b92a32b69c506f2b6f6392a909c2f87f3e94ad2/libarchive-c-2.7.tar.gz"

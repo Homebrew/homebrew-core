@@ -1,18 +1,15 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/1.2.0.tar.gz"
-  sha256 "28e1d1ec6862eb926336490e2fcd1de626113d3e227293a4138fec59b7b6e443"
-  revision 2
-
+  url "https://github.com/cloudflare/cfssl/archive/1.3.0.tar.gz"
+  sha256 "78322f0f37b5c90d612ce4e18b35c03bfde242d32426ef0db1f859255a778384"
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "63d459c5dbab11db35201147e693bcfd58d07d84472eb96707e16cc22bff5390" => :high_sierra
-    sha256 "67cb256669f5ec7f4da86cd5e26811e9a8b133dd92d328f93a8669c5bbeb34ff" => :sierra
-    sha256 "791df9ea295daa23bd061e7ebb8673f2570f7d2dc90d5b8e32fd20aa07e92277" => :el_capitan
+    sha256 "ab6b90db75e4f558bd3320c86a2785b47a7949b2008c1f49c0dab205e0b69d09" => :high_sierra
+    sha256 "fdfa583eb0a8c0446d7344865c6cbfe1ed9850f3ba445fd3da13af634b21a977" => :sierra
+    sha256 "d86755e05797a0febb8042f59f1c225c200f4b65d0f61f65a0966463ab5e20c2" => :el_capitan
   end
 
   depends_on "go" => :build

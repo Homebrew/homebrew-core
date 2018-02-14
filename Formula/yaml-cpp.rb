@@ -1,22 +1,21 @@
 class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
-  url "https://github.com/jbeder/yaml-cpp/archive/release-0.5.3.tar.gz"
-  sha256 "3492d9c1f4319dfd5588f60caed7cec3f030f7984386c11ed4b39f8e3316d763"
+  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.1.tar.gz"
+  sha256 "25ec37e6d82ab8c485926d69a5567741c7263515f8631e5dcb3fb4708e6b0d0d"
 
   bottle do
     cellar :any
-    sha256 "f4e9ed4651906c28464baf45d3a460502a24b42add49b35e969141818348680c" => :high_sierra
-    sha256 "fe1fca40afa3817fd44b1f3c4810dce9f4d20390522526e72d775b9336fc3c3a" => :sierra
-    sha256 "20b38c2f7c47550b458cb5b6f054795d90f4955d2525656e6d713cdbe7d451b1" => :el_capitan
-    sha256 "e0a51ff0b33568695412fe43cdc51b26642ae46dfb6dac56b813295057c91bb6" => :yosemite
-    sha256 "c779f86632b38472e022ad91f0f5ddb0f399fd547d36cbc5494a76c0f6becd48" => :mavericks
+    sha256 "6d6b306fb32395ca6555eb493a95083f9d6b8dfb0ec98d246248132cef60236e" => :high_sierra
+    sha256 "9fb76cf549256913c312ba9647614aa52d28e15cb759ed25706011cbdadd2fe0" => :sierra
+    sha256 "7ef12efa1b564abc652243f146f7f9b5b8d51f8600917743ab8c8bacfcdbd053" => :el_capitan
   end
 
   option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
-  depends_on "boost"
+
+  needs :cxx11
 
   def install
     args = std_cmake_args
@@ -39,7 +38,7 @@ class YamlCpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lyaml-cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lyaml-cpp", "-o", "test"
     system "./test"
   end
 end

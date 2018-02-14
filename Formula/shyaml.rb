@@ -5,17 +5,17 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/f7/ec/4143e8ba92d1d3654535f17bc4354f72d3a3e7d6984926d9a7ce1dec46ed/shyaml-0.5.0.tar.gz"
   sha256 "b3711011d37aae4e07b68b31e989aa3715548d5b0759898eda2ba437b9ae3c36"
+  revision 1
   head "https://github.com/0k/shyaml.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5a785a0e8a6e0d62f8d800cb4f8a36825565c2b948477e19e7e015f4693ba379" => :high_sierra
-    sha256 "e83504c17a2941c8fbff852fd321756b04bc3685fbb0999958ba1d4e57b02b66" => :sierra
-    sha256 "d2712873923878753f1f2ad1189e5640d8f19004c4532ea930febf4ccfcae6e3" => :el_capitan
+    sha256 "70fcf4f5d11d52abca15111ffd92526f8be4c84cc508e0b0e6c933add01d92cd" => :high_sierra
+    sha256 "d8405d1902db58c0f7c4112b82e9ca4bc3b45361e8418034285b7b023f68c0f6" => :sierra
+    sha256 "bffb74c978bf45c8d6f6e117317066d9de9a211931e96c4c0c4d6e4d36f84bd9" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "libyaml"
 
   resource "PyYAML" do

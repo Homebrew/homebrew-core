@@ -1,24 +1,20 @@
 class Xvid < Formula
   desc "High-performance, high-quality MPEG-4 video library"
   homepage "https://www.xvid.com/"
-  url "http://downloads.xvid.org/downloads/xvidcore-1.3.4.tar.gz"
-  mirror "https://fossies.org/linux/misc/xvidcore-1.3.4.tar.gz"
-  sha256 "4e9fd62728885855bc5007fe1be58df42e5e274497591fec37249e1052ae316f"
+  url "http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.bz2"
+  mirror "https://fossies.org/linux/misc/xvidcore-1.3.5.tar.bz2"
+  sha256 "7c20f279f9d8e89042e85465d2bcb1b3130ceb1ecec33d5448c4589d78f010b4"
 
   bottle do
     cellar :any
-    sha256 "d1715cb379f0b4be0b1bfed90b535fc4b9a0bf3dba87d00c258acaa15b312bc8" => :high_sierra
-    sha256 "19b0870c1dcf33478526ac500461ee4bf41ad5cf8c3bae70035c12a967a7ecc6" => :sierra
-    sha256 "9348879c2506816f6975bf62d3d9b1457b36b9c0093f8b08adffcb27005b5714" => :el_capitan
-    sha256 "6c4882ee38401986bc42a7121d7c83674e4605f73f70e25d7cf49f8064ad39c5" => :yosemite
-    sha256 "b3d6623ad887d3e9c663580f87460b18c89d40d14d81cc281c3aa5752bcbc26a" => :mavericks
-    sha256 "08dbe9151754cbf5920c01f003c9c2a419455c3f01dd2679eb8bc9b25c5190a5" => :mountain_lion
+    sha256 "618a58566676d49621cafc2278f1d94e5eaa443a57b1621ea4b040f49972ff94" => :high_sierra
+    sha256 "6e62d9ca4544df9545b7bffbadd3c80a609d49ce12a94886f3310578ea2aaf88" => :sierra
+    sha256 "1161fb4826f77c79deb33c494c31d934b9f46eac60d61ec3e5ea5c56b018d614" => :el_capitan
   end
 
   def install
     cd "build/generic" do
       system "./configure", "--disable-assembly", "--prefix=#{prefix}"
-      ENV.deparallelize # Or make fails
       system "make"
       system "make", "install"
     end

@@ -3,16 +3,15 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
-  sha256 "936d4cf5d577298f4f9fdb220e85b008ae321554a5fcd38072dc327a7296230e"
-  revision 1
+  url "https://download.qt.io/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
+  sha256 "05ffba7b811b854ed558abf2be2ddbd3bb6ddd0b60ea4b5da75d277ac15e740a"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
 
   bottle do
-    sha256 "d63559b06141047f1d65a431db7aed630461db8d821ed8f925af2ba77ecb0ab4" => :high_sierra
-    sha256 "c3a892407ff379b940b28b6098719bd97a37bc706a0b25485e4d2bfed3f5264d" => :sierra
-    sha256 "ac70588d769dfd34c954f9ce9a8f9c3200b57eff84eadcbb96d918bc1bbc1d42" => :el_capitan
+    sha256 "8b4bad005596a5f8790150fe455db998ac2406f4e0f04140d6656205d844d266" => :high_sierra
+    sha256 "9c488554935fb573554a4e36d36d3c81e47245b7fefc4b61edef894e67ba1740" => :sierra
+    sha256 "c0407afba5951df6cc4c6f6c1c315972bd41c99cecb4e029919c4c15ab6f7bdc" => :el_capitan
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -42,18 +41,6 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
-  end
-
-  # Remove for > 5.10.0
-  # Fix "error: 'loadFileURL:allowingReadAccessToURL:' is only available on
-  # macOS 10.11 or newer [-Werror,-Wunguarded-availability]"
-  # Reported 8 Dec 2017 https://bugreports.qt.io/browse/QTBUG-65075
-  # Equivalent to upstream fix from 8 Dec 2017 https://codereview.qt-project.org/#/c/213993/
-  if MacOS::Xcode.version >= "9.0"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9c97726e2b153099049326ade23fe24b52b778fe/qt/QTBUG-65075.diff"
-      sha256 "a51595868c6173ab53463107e0ee3355576002c32ab80897587c3607589cfd22"
-    end
   end
 
   def install

@@ -27,6 +27,19 @@ class Fcgi < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"testfile.c").write <<~EOS
+      #include "fcgi_stdio.h"
+      #include <stdlib.h>
+      int count = 0;
+      int main(void){
+        while (FCGI_Accept() >= 0){
+        printf("Request number %d running on host %s", ++count, getenv("SERVER_HOSTNAME"));}}
+    EOS
+    system ENV.cc, "testfile.c", "-lfcgi", "-o", "testfile"
+    assert_match "Request number 1 running on host", shell_output("./testfile")
+  end
 end
 
 __END__

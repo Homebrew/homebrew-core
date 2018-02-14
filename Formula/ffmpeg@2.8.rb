@@ -3,11 +3,12 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.13.tar.bz2"
   sha256 "df9b98cb584a004ce8e29b4c954cfb8d9e45dac52b4c6d036f25dfbaa3086778"
+  revision 2
 
   bottle do
-    sha256 "77dd5a66964b40cdc8f8fa22b7cdd70586a59591926fd70bb9f3b1af1abc5fdf" => :high_sierra
-    sha256 "e2dd50170678b3bc5749d04424d24d9c09e9207748e4f12649fb44eeb1551be6" => :sierra
-    sha256 "376e12e7f55d30b310536e68bde1df4a96339d25fc53eba69285758170641284" => :el_capitan
+    sha256 "aa356ed2a33d8a1bfc32c1541b42a666ce24201709b82fbbf4f24bcf418735bf" => :high_sierra
+    sha256 "280d377b3853063069f174efae5fa7d00fba939bb05090e6ed1e3bf51c97e0a2" => :sierra
+    sha256 "4081321d6ca435f867efeab84e8ae1bb8b1f87263a7a2936043cc9e91e0413e6" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -17,6 +18,7 @@ class FfmpegAT28 < Formula
   option "without-libvo-aacenc", "Disable VisualOn AAC encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
+  option "without-securetransport", "Disable use of SecureTransport"
 
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-libass", "Enable ASS/SSA subtitle format"
@@ -130,6 +132,7 @@ class FfmpegAT28 < Formula
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libdcadec" if build.with? "dcadec"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
+    args << "--disable-securetransport" if build.without? "securetransport"
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"

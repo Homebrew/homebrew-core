@@ -2,14 +2,14 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.5.1",
-      :revision => "d1d38e9b2d5600a3485442b75641bf73b566313b"
+      :tag => "0.6.2",
+      :revision => "a81705b7f50e89bad580f9930436dbf34996cbec"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb551bfa0db0374198b07387b6ecbe1278ae12c6012cbb2389da687f343824e6" => :high_sierra
-    sha256 "d3cd94acd089f7ab4a2d301363841bffbd34d7338b7912e187420ea1551f5503" => :sierra
-    sha256 "39218f56765ec45c8288807b97d2fe4c78106d4159abca5d4d8f5958a400ded1" => :el_capitan
+    sha256 "0841807c7933728e91884f90adeb0ea1714c103c051fa2cdc75d91d4ce1b7837" => :high_sierra
+    sha256 "ce466cf52ab108f22a5054d919c3f271d5d825ffaddb6c5e0fa909b4c4e3d0de" => :sierra
+    sha256 "4abc9008a61d1cfbd33d6e60cf0ffee6f2d6094c388ef1bac08d749e9159e1e9" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -64,18 +64,17 @@ class FaasCli < Formula
 
     expected = <<~EOS
       Deploying: dummy_function.
-      Removing old function.
-      Deployed.
-      URL: http://localhost:#{port}/function/dummy_function
+      Function dummy_function already exists, attempting rolling-update.
 
-      200 OK
+      Deployed. 200 OK.
+      URL: http://localhost:#{port}/function/dummy_function
     EOS
 
     begin
       cp_r pkgshare/"template", testpath
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output
+      assert_equal expected, output.chomp
 
       rm_rf "template"
 
@@ -86,7 +85,7 @@ class FaasCli < Formula
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output
+      assert_equal expected, output.chomp
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]

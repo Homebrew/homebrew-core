@@ -5,15 +5,16 @@ class Csvkit < Formula
   homepage "https://csvkit.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/53/de/a8ee2fb47af463251fd39e0dc2b7356ceb58fd0f5867f7f6d0f7cc6e8a0d/csvkit-1.0.2.tar.gz"
   sha256 "5a897f87c920dec3e7debc31102dfe774a8d704641bfafa98e04729bd4d26e17"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76107c7ba4afd9cb68e8d8ec364374932d7130456fd6e7b4f7f55958c80c17cb" => :high_sierra
-    sha256 "e915fdcd3ab965e464fc0a4216e7d1bd398ed659d7ef03c334168ea9c489826e" => :sierra
-    sha256 "cbfeef9899fd671d862f06e55974639bfeb60adbef9e44fd23bee25ad21c887a" => :el_capitan
+    sha256 "0d1a6747231fdf6c4f1922e6301cdccec51d03ad4afdc8544b0559dbec4841f7" => :high_sierra
+    sha256 "94655d1b5945d0803735d94a25b551116227d137da47f890e6223c2235698858" => :sierra
+    sha256 "ce7c74e9f00bda00f4528047d440a044db759ca5a0b67f5dc8c2241f6cdcbf6c" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "agate" do
     url "https://files.pythonhosted.org/packages/72/37/48192f2cb18c7ebe413f7410783b64a6236d20a4461f5c36f5efcb793f89/agate-1.6.0.tar.gz"

@@ -1,14 +1,14 @@
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
-  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.95.tar.gz"
-  sha256 "91387775fbe8fc422a4cf93b9df7f39f2e66f7260688ef2bf44e275a5d374ac8"
+  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.98.tar.gz"
+  sha256 "7cf941783fe8037474ee33a33b91379a0226c08ff4d58be454b12f8a2f150d5d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bc6578ecf23b5b242c3a7ef7f198a9ad350f8e6206b251cf3618efac6aa6067" => :high_sierra
-    sha256 "4b8ac3991e15b1c9ffbd7293a5f0ba11c3475ba29f91bff15001d56cf48a4d1e" => :sierra
-    sha256 "a23749a01162ad076f8fd42ceb65b9cd20fce9b3777d4a8719324c97ed5a2517" => :el_capitan
+    sha256 "788dc7a201a1c619e6e29e9a4cef61092b5f77ab8c6c04f0b14213b14b4ab671" => :high_sierra
+    sha256 "4f6cc5397f548ad04606adf1ababe1378d2e72ccc354508a10c064520850df58" => :sierra
+    sha256 "0897cacbf82a7f597abb8cac9374391948f26887552bc445322df4d57684cd53" => :el_capitan
   end
 
   depends_on "rtmpdump"
@@ -29,8 +29,8 @@ class GetFlashVideos < Formula
   end
 
   resource "WWW::Mechanize" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-1.86.tar.gz"
-    sha256 "0e5468b89afeff096fb6d9b91a9a58418746c89445fb01adb5caa25ecf32d469"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-1.87.tar.gz"
+    sha256 "819342a55cdaaf742e8511ecf72c7764b71789f4d1ef0eb6f4b4db4361f3b9cf"
   end
 
   resource "Term::ProgressBar" do
@@ -41,6 +41,11 @@ class GetFlashVideos < Formula
   resource "Class::MethodMaker" do
     url "https://cpan.metacpan.org/authors/id/S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.24.tar.gz"
     sha256 "5eef58ccb27ebd01bcde5b14bcc553b5347a0699e5c3e921c7780c3526890328"
+  end
+
+  resource "Crypt::Rijndael" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Crypt-Rijndael-1.13.tar.gz"
+    sha256 "cd7209a6dfe0a3dc8caffe1aa2233b0e6effec7572d76a7a93feefffe636214e"
   end
 
   def install

@@ -1,16 +1,14 @@
 class Abnfgen < Formula
   desc "Quickly generate random documents that match an ABFN grammar"
   homepage "http://www.quut.com/abnfgen/"
-  url "http://www.quut.com/abnfgen/abnfgen-0.17.tar.gz"
-  sha256 "777a264d91a93bc9cf008d7520abb0470d7280fb38008c5f185cbf2d29640083"
+  url "http://www.quut.com/abnfgen/abnfgen-0.19.tar.gz"
+  sha256 "3d7649b1a46a8c65a7003228182ca9b15921ac2563555e9fd23b64a69ff050c6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "66283b4588de8a104eeb19c24e835b2af4c26b86f97f1d14b95b3ad99409af9b" => :high_sierra
-    sha256 "173a48d1e02cabc92904ad0b01842e90fc5b43411a1a00db59088b3840a1d3e3" => :sierra
-    sha256 "25aa694b994374b0194f65a01afdf1911ddd366d3195a6ac6451e81f87234768" => :el_capitan
-    sha256 "6020fe82950619f9ddf60265c80c2e8f2f68808618e87150d1634f5ec2c0eff8" => :yosemite
-    sha256 "004aa4f75ee0e51327a69a558cb3920b6859303b1d032e32e3caabe623dc35d4" => :mavericks
+    sha256 "c076c1c5b9f8cbf09d69b262ceba8c47b51841254adcb3dec4acd8b4377f9b15" => :high_sierra
+    sha256 "9149eecb8a894d8865f7d42be648ca8c08716843424b4c7b42e5e61e03dcf04e" => :sierra
+    sha256 "814a6fe9303958066f5dd733645efd556785df95c212d6b811e7e57da90ffa25" => :el_capitan
   end
 
   def install

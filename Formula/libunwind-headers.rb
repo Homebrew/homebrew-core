@@ -13,7 +13,7 @@ class LibunwindHeaders < Formula
     sha256 "2b4ae1b1a438269ae833a52e73cafd6357b0d30dd5e8eb33ef29271cdc259f7c" => :mavericks
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
     "this formula includes official development headers not installed by Apple"
 
   def install

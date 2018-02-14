@@ -1,17 +1,14 @@
 class Libdvdnav < Formula
   desc "DVD navigation library"
-  homepage "https://dvdnav.mplayerhq.hu/"
-  url "https://download.videolan.org/pub/videolan/libdvdnav/5.0.3/libdvdnav-5.0.3.tar.bz2"
-  sha256 "5097023e3d2b36944c763f1df707ee06b19dc639b2b68fb30113a5f2cbf60b6d"
+  homepage "https://www.videolan.org/developers/libdvdnav.html"
+  url "https://download.videolan.org/pub/videolan/libdvdnav/6.0.0/libdvdnav-6.0.0.tar.bz2"
+  sha256 "f0a2711b08a021759792f8eb14bb82ff8a3c929bf88c33b64ffcddaa27935618"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "1bd89882fa99076707b90813ed49cbe3f6f98d433313d0a96309e04f2d5ded01" => :high_sierra
-    sha256 "b0846c330986045065d777e5d61260c36663d8d3e01a82c3c78250e2354391bf" => :sierra
-    sha256 "c154d3b9579441836cac120264fcc61212347fdb39c9e52a95d22bb10bd5ec59" => :el_capitan
-    sha256 "eba1770d502af4fb840ed14fd26e0da38641b1a4d6f7dbe04388fe57e17cf8e2" => :yosemite
-    sha256 "c808f52803ee2b8d9644121d9d5a6016e4974cc91d4be54422d7c46be7276031" => :mavericks
+    sha256 "82f7cf986d45b13b3cc57d121dc53d7fa43d628062f978e31723d49778ea8d22" => :high_sierra
+    sha256 "1a2a0a5b4f2c349574f830ae5e918ee2788ceb17d2f2856ec507e62226327e28" => :sierra
+    sha256 "379d6e135a9e97db494376c0f35e235bced3a3052e60a0fea2a5318730c5d900" => :el_capitan
   end
 
   head do

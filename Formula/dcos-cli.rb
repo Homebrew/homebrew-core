@@ -5,17 +5,18 @@ class DcosCli < Formula
   homepage "https://dcos.io/docs/latest/cli/"
   url "https://github.com/dcos/dcos-cli/archive/0.5.7.tar.gz"
   sha256 "437f5bdbf1be1f3e105c5df98e0423364fd01501115bd7b823122e30252a553d"
+  revision 1
   head "https://github.com/dcos/dcos-cli.git"
 
   bottle do
     cellar :any
-    sha256 "82b2f44f6a94a96e1a0d95f462912224c503af4b22a75a973b52b1c28b5976fd" => :high_sierra
-    sha256 "033e33592f5ec16bf1b3b8cab4b03881e0fe43b3ff479a50a98ce1f8e220c048" => :sierra
-    sha256 "8fcbdcbe67bab924d685924e85723751a74bea66915395f7d556f9215610d758" => :el_capitan
+    sha256 "2ff6fa75d33fa44127a1cea554c889c4dc9d80cf5b6f7779791fea7360eb6adf" => :high_sierra
+    sha256 "cc1114f8e5204cd06a733d231a13cea22a2207310c16b0d2270cebcfe168263c" => :sierra
+    sha256 "6aa0037792070dfa99f1f18ab85009a875dc69b3907287188cfaad495c253509" => :el_capitan
   end
 
-  depends_on :python3
-  depends_on "openssl@1.1"
+  depends_on "openssl"
+  depends_on "python3"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"

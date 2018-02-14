@@ -44,8 +44,8 @@ class Graphviz < Formula
 
   if build.with? "bindings"
     depends_on "swig" => :build
-    depends_on :python
     depends_on :java
+    depends_on "python" if MacOS.version <= :snow_leopard
     depends_on "ruby"
   end
 

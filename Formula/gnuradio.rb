@@ -14,15 +14,18 @@ class Gnuradio < Formula
 
   option "without-python", "Build without python support"
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
   depends_on "zeromq"
-  depends_on "numpy" if build.with? :python
-  depends_on "swig" => :build if build.with? :python
-  depends_on "cmake" => :build
+
+  if build.with? "python"
+    depends_on "swig" => :build
+    depends_on "numpy"
+  end
 
   # For documentation
   depends_on "doxygen" => [:build, :optional]
@@ -117,7 +120,7 @@ class Gnuradio < Formula
   end
 
   test do
-    system("#{bin}/gnuradio-config-info -v")
+    assert_match version.to_s, shell_output("#{bin}/gnuradio-config-info -v")
 
     (testpath/"test.c++").write <<~EOS
       #include <gnuradio/top_block.h>
@@ -151,10 +154,8 @@ class Gnuradio < Formula
     EOS
     system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"].opt_lib}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-lboost_system",
-           (testpath/"test.c++"),
-           "-o", (testpath/"test")
-    system (testpath/"test")
+           "-lboost_system", testpath/"test.c++", "-o", testpath/"test"
+    system "./test"
 
     if build.with? "python"
       (testpath/"test.py").write <<~EOS
@@ -181,11 +182,12 @@ class Gnuradio < Formula
 
         main()
       EOS
-      system "python", (testpath/"test.py")
+      system "python", testpath/"test.py"
 
-      cd(testpath) do
+      cd testpath do
         system "#{bin}/gr_modtool", "newmod", "test"
-        cd("gr-test") do
+
+        cd "gr-test" do
           system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
                  "python", "-y", "--argument-list=''", "--add-python-qa"
         end

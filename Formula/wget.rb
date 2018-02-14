@@ -1,15 +1,15 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.19.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.2.tar.gz"
-  sha256 "4f4a673b6d466efa50fbfba796bd84a46ae24e370fa562ede5b21ab53c11a920"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.4.tar.gz"
+  sha256 "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
   revision 1
 
   bottle do
-    sha256 "e0408315c0dc9ff5c70a2dd0d95067da7b819e836db1241df84337fc13f456c1" => :high_sierra
-    sha256 "381e209d4c0af56747f2a4ae4671d381e4a8043d4e7a3f5548b4be20bea68186" => :sierra
-    sha256 "a9ada441a2b4e1fde1cdb26e492d80625e0ab36771ee26c52e2446f4f6870100" => :el_capitan
+    sha256 "7989ae0ee0d212237ba31e8024189ba57a4296be67e08aeeea879d603ca66b59" => :high_sierra
+    sha256 "e4b88af13d56bd1aadbef96abdfff0a3919da8da96acc2e7ffd3ef812232a687" => :sierra
+    sha256 "3091698e33a73f706918967dddc3ce1d295f1ae351b5d32932cd3e9013ee5283" => :el_capitan
   end
 
   head do
@@ -28,7 +28,7 @@ class Wget < Formula
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
@@ -38,7 +38,7 @@ class Wget < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
     ]
 
     args << "--disable-debug" if build.without? "debug"

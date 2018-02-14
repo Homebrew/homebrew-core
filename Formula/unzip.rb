@@ -14,7 +14,7 @@ class Unzip < Formula
     sha256 "3c69150f5a9ad6d1d1737eb17c06315dd7d0bc02b9c1a11e02ecb281c1e5f37f" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/unzip

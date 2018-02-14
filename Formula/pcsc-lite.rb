@@ -10,7 +10,7 @@ class PcscLite < Formula
     sha256 "9a2816b3aaa1717d6c5d2c59495681915b62de67e496bb3edfecf1e5b6d537c0" => :el_capitan
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
     "pcsc-lite interferes with detection of macOS's PCSC.framework"
 
   def install

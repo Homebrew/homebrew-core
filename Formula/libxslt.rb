@@ -22,7 +22,7 @@ class Libxslt < Formula
     patch :DATA
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "libxml2"
 

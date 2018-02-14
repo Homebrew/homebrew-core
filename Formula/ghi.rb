@@ -3,17 +3,15 @@ class Ghi < Formula
   homepage "https://github.com/stephencelis/ghi"
   url "https://github.com/stephencelis/ghi/archive/1.2.0.tar.gz"
   sha256 "ffc17cfbdc8b88bf208f5f762e62c211bf8fc837f447354ad53cce39b1400671"
-  revision 3
+  revision 4
   head "https://github.com/stephencelis/ghi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "272b4321fe7903188e89d35a4abebf96feb976af905a0790f7c68928adbcfc59" => :high_sierra
-    sha256 "272b4321fe7903188e89d35a4abebf96feb976af905a0790f7c68928adbcfc59" => :sierra
-    sha256 "272b4321fe7903188e89d35a4abebf96feb976af905a0790f7c68928adbcfc59" => :el_capitan
+    sha256 "9289e061f8a249130950ec212042e3d9adfaa96e3591f0eb2d6038c28ff0e6d6" => :high_sierra
+    sha256 "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131" => :sierra
+    sha256 "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131" => :el_capitan
   end
-
-  depends_on :ruby => "1.8"
 
   resource "multi_json" do
     url "https://rubygems.org/gems/multi_json-1.12.1.gem"

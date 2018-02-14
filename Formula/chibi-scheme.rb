@@ -1,20 +1,14 @@
 class ChibiScheme < Formula
   desc "Small footprint Scheme for use as a C Extension Language"
   homepage "http://synthcode.com/wiki/chibi-scheme"
+  url "http://synthcode.com/scheme/chibi/chibi-scheme-0.8.0.tgz"
+  sha256 "c39287628cb7762d6cd51fbdab39e797ef7f7e576a3c7650a8a2a02b4f35749a"
   head "https://github.com/ashinn/chibi-scheme.git"
 
-  stable do
-    url "http://synthcode.com/scheme/chibi/chibi-scheme-0.7.3.tgz"
-    sha256 "21a0cf669d42a670a11c08f50dc5aedb7b438fae892260900da58f0ed545fc7d"
-  end
-
   bottle do
-    rebuild 2
-    sha256 "12a60ba17fa174d9309b5488752073ffc25a0d7c46febf360b674ab6027bd933" => :high_sierra
-    sha256 "094b459f06e4ef4a6285e65f79a2e980965010bbc1e26b5e7b02489c04ca43cc" => :sierra
-    sha256 "6427ba91b6fd3e63591d9b1f9c4cd173a53dfbef21acfdf1e41612c07ad4a18f" => :el_capitan
-    sha256 "a999ce57390290ecc5452be6bda5f6fb415e565b46eb6806650649a85edce99d" => :yosemite
-    sha256 "f29383f76167d2998917a0cfe97e362a7780a1e0288fa17d7132099a41291102" => :mavericks
+    sha256 "532cd642ab70f1e37ed670206fab9828f0a0b3e93dc20fadb786305f50e80a19" => :high_sierra
+    sha256 "c6efeccee97565c675a3f149855dd9550a6f8b7313694b52429e42e4cee9001d" => :sierra
+    sha256 "283522e8939e5a2b724b476ce3a1830f4bb48e70b778ffef14030498cd877b16" => :el_capitan
   end
 
   def install

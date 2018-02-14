@@ -3,30 +3,31 @@ class Openblas < Formula
   homepage "http://www.openblas.net/"
   url "https://github.com/xianyi/OpenBLAS/archive/v0.2.20.tar.gz"
   sha256 "5ef38b15d9c652985774869efd548b8e3e972e1e99475c673b25537ed7bcf394"
+  revision 1
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "ce8b1b057a2cc93d9bcbaae0c9483200dd2e2f04ab533456dfe13eb38c6ab96b" => :high_sierra
-    sha256 "1bb0db6885551ec021c2267c8e7ea662ef4877ac8c2a9b590d920866f018aea3" => :sierra
-    sha256 "15b53cdfdc5028719e559612ea41f432cfbd2d4448cc29202273636ff3980bf5" => :el_capitan
-    sha256 "95bb17c1ffeb1f652d24d0d064241a822804818ab8a317a39918a4cfe740b905" => :yosemite
+    sha256 "4a62a8e0a79f1f06c30ea4743ee02eba1599fc66cfc9812967b838093dca048d" => :high_sierra
+    sha256 "31c10a9ff27fe87694c8ca729d7fdc919f872302479082cbb5e42d22a84d66b8" => :sierra
+    sha256 "6aa065aea2afd4573b8d20ac24ae8fec6fd6bf71562e33c6d25c397b3cea8187" => :el_capitan
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
   option "with-openmp", "Enable parallel computations with OpenMP"
-  needs :openmp if build.with? "openmp"
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
+
+  fails_with :clang if build.with? "openmp"
 
   def install
     ENV["DYNAMIC_ARCH"] = "1" if build.bottle?
     ENV["USE_OPENMP"] = "1" if build.with? "openmp"
 
     # Must call in two steps
-    system "make", "CC=#{ENV.cc}", "FC=#{ENV.fc}", "libs", "netlib", "shared"
+    system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
     system "make", "PREFIX=#{prefix}", "install"
 
     lib.install_symlink "libopenblas.dylib" => "libblas.dylib"

@@ -3,15 +3,16 @@ class Ib < Formula
   homepage "https://github.com/JasonL9000/ib"
   url "https://github.com/JasonL9000/ib/archive/0.7.1.tar.gz"
   sha256 "a5295f76ed887291b6bf09b6ad6e3832a39e28d17c13566889d5fcae8708d2ec"
+  revision 1
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "e74609f716997f8ce4d22a3551294a518192749cddff5728b4e536c166974a61" => :high_sierra
-    sha256 "7f58efad0d2261f73025fddedbad2d99762660bd4f1786795a79f1422d6ef1b6" => :sierra
-    sha256 "7f58efad0d2261f73025fddedbad2d99762660bd4f1786795a79f1422d6ef1b6" => :el_capitan
-    sha256 "7f58efad0d2261f73025fddedbad2d99762660bd4f1786795a79f1422d6ef1b6" => :yosemite
+    sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :high_sierra
+    sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :sierra
+    sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :el_capitan
   end
 
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     prefix.install "common.cfg", "debug.cfg", "release.cfg", "asan.cfg", "__ib__"

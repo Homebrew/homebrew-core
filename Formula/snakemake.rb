@@ -1,18 +1,18 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
-  url "https://files.pythonhosted.org/packages/4c/01/195575763c0eb6f4ae44cd28ad2563b1e7f74231adc3e207b032afa78018/snakemake-4.4.0.tar.gz"
-  sha256 "5b22093cf1e7022a2d285d06e4aec5a78b95e1c05bd5866dd6839f4f5454173c"
+  url "https://files.pythonhosted.org/packages/2f/2a/88d21e9d9b4c9d9f9328720c5d5841595beb9f8848d7854ff53c3e7dc96c/snakemake-4.6.0.tar.gz"
+  sha256 "c5e2e44ec59233a2763f54c9d534f7f580288ec135230bccd6d5ac7f6e25314b"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d9b1814c8623bcff6080361211cab13ff0f3acf120fd25525c77df644f32528" => :high_sierra
-    sha256 "4a73af20a72e5ea1389ecfc9224e67830d8c1883f0b9d9155430d0fbda4ce8af" => :sierra
-    sha256 "75f6a8b28d4507f91c3575d2872a150d0cc277c5eaa58c94e49529fd2bf91ad5" => :el_capitan
+    sha256 "2277f2e44a767e605cc719eac99da227d8df941559ab99772ccd7e2dd1d07e1a" => :high_sierra
+    sha256 "52816c2c4ac19f861175f75ee06c75f696459ab264e0da318cc6d06cc67788f9" => :sierra
+    sha256 "c22666d62e999451ff1f4eb85390f7779878608656b1e736f3ad254011233bdf" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
@@ -20,8 +20,8 @@ class Snakemake < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
+    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
+    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
   end
 
   resource "chardet" do
@@ -30,8 +30,8 @@ class Snakemake < Formula
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/17/8d/4a41f11b0971017c7001f118be8003da8f7b96b010c66cd792b76658d1e1/ConfigArgParse-0.12.0.tar.gz"
-    sha256 "28cd7d67669651f2a4518367838c49539457504584a139709b2b8f6c208ef339"
+    url "https://files.pythonhosted.org/packages/77/61/ae928ce6ab85d4479ea198488cf5ffa371bd4ece2030c0ee85ff668deac5/ConfigArgParse-0.13.0.tar.gz"
+    sha256 "e6441aa58e23d3d122055808e5e2220fd742dff6e1e51082d2a4e4ed145dd788"
   end
 
   resource "idna" do

@@ -48,4 +48,20 @@ class Theora < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <theora/theora.h>
+
+      int main()
+      {
+          theora_info inf;
+          theora_info_init(&inf);
+          theora_info_clear(&inf);
+          return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-ltheora", "test.c", "-o", "test"
+    system "./test"
+  end
 end

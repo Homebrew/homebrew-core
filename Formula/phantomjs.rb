@@ -14,7 +14,7 @@ class Phantomjs < Formula
 
   # Fix a variant of QTBUG-62266 in included Qt source
   # https://github.com/ariya/phantomjs/issues/15116
-  if MacOS.version >= :high_sierra
+  if MacOS::Xcode.version >= "9.0"
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/33dbb45f82/phantomjs/QTBUG-62266.diff"
       sha256 "d47b52c6a932139a448340244f66ea126412d210ab94dc19da7c468afaf5f45a"
@@ -31,7 +31,7 @@ class Phantomjs < Formula
     sha256 "d837e04d137ae8ddc8eb807b7ca5a08a0fccdfd513f4fdd4f1d610ce8abc0874" => :mavericks
   end
 
-  depends_on MinimumMacOSRequirement => :lion
+  depends_on :macos => :lion
   depends_on :xcode => :build
   depends_on "openssl"
 

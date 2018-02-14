@@ -59,6 +59,14 @@ class Llvm < Formula
     resource "lldb" do
       url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
       sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
+
+      # Fixes "error: no type named 'pid_t' in the global namespace"
+      # https://github.com/Homebrew/homebrew-core/issues/17839
+      # Already fixed in upstream trunk
+      patch do
+        url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
+        sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+      end
     end
 
     resource "openmp" do
@@ -120,7 +128,7 @@ class Llvm < Formula
     end
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
@@ -168,6 +176,10 @@ class Llvm < Formula
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
+
+    if build.with? "python"
+      ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    end
 
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")

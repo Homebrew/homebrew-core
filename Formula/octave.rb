@@ -4,17 +4,17 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
   sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
-  revision 9
+  revision 11
 
   bottle do
-    sha256 "eb360d268ac7bea6b90e84a4a59044bb9fcd7db4368711b42deb2349cf5c8da8" => :high_sierra
-    sha256 "ce7f45705d7c4ea330a612715ef2a04b341913494852a5d722e9c52abb847fda" => :sierra
-    sha256 "32adfa3a753653820a8bc127aab580d6b1b149e74d9e657122c9de881af25263" => :el_capitan
+    sha256 "190f425162c3fc497eb04886bea95a58b00b88320114d742aaedb35efb097648" => :high_sierra
+    sha256 "e0fce65db933fc1b7df215dcfa02733e2075ef3c3ace27e2fa00038ab67d9254" => :sierra
+    sha256 "cb9015369c8c7ef9866ed448493426354c43f860393835f91a9cc1ba8e1e86d1" => :el_capitan
   end
 
   head do
     url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
-    depends_on :hg => :build
+    depends_on "mercurial" => :build
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
@@ -26,7 +26,6 @@ class Octave < Formula
   depends_on "autoconf" => :build
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
-  depends_on :fortran
   depends_on "arpack"
   depends_on "epstool"
   depends_on "fftw"
@@ -34,6 +33,7 @@ class Octave < Formula
   depends_on "fltk"
   depends_on "fontconfig"
   depends_on "freetype"
+  depends_on "gcc" # for gfortran
   depends_on "ghostscript"
   depends_on "gl2ps"
   depends_on "glpk"
@@ -111,5 +111,9 @@ class Octave < Formula
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
     # Test java bindings: check if javaclasspath is working, return error if not
     system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
+
+    output = shell_output("#{bin}/mkoctfile -p FLIBS")
+    assert_match Formula["gcc"].prefix.realpath.to_s, output,
+                 "The octave formula needs to be revision bumped for gcc!"
   end
 end

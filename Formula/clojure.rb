@@ -1,8 +1,8 @@
 class Clojure < Formula
   desc "The Clojure Programming Language"
   homepage "https://clojure.org"
-  url "https://download.clojure.org/install/clojure-tools-1.9.0.302.tar.gz"
-  sha256 "6a1fdc44f8cc38ca668d926a448e8213d280708dcf10a4a0485f5f743fa6de86"
+  url "https://download.clojure.org/install/clojure-tools-1.9.0.326.tar.gz"
+  sha256 "491bb9780b3fe4670e9e2043aec604492ede785b34b0c885ec92fc98867fc869"
 
   bottle :unneeded
 
