@@ -6,8 +6,8 @@ class Plank < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b11dd6d04d4560d28ede31d5ee3812c9fa8080539918d701957b800d9bd9d827" => :high_sierra
-    sha256 "a893af40dcfb3c2d524456aa294ab6dec0a64b47b5b0880982f805e9b5db7977" => :sierra
+    sha256 "0adac99e6dc8cc45a9d059c2438a0f6c703e2b3dedeafb79b28244864d91ecc4" => :high_sierra
+    sha256 "ee67fc2269b4f4920e6fcbd9311df017a4e2eb9dafe4940e1c1282d77999000b" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]
