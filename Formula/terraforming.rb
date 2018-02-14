@@ -5,6 +5,13 @@ class Terraforming < Formula
       :tag => "v0.15.0",
       :revision => "f4e30400ae61381077b6c78b00b02ddc4642a331"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2e5796c2ab21afb9a59b04256532f00edbf3a03b3e01f0b0ae86ffc51fc90e2d" => :high_sierra
+    sha256 "35a105a028ba2854c94d6fcd67bd616988ed168e253c671ae4decd870a1693a6" => :sierra
+    sha256 "b6700deb9f1a7f3564e2d7efe7182265372f347143c6951c77650b80a8074600" => :el_capitan
+  end
+
   resource "aws-sdk-autoscaling" do
     url "https://rubygems.org/gems/aws-sdk-autoscaling-1.3.0.gem"
     sha256 "35ad92666e75f4fc17bbc312efcf459c604f4505737b6c6287ce55b579e9ce5d"
