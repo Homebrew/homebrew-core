@@ -168,7 +168,7 @@ class Nginx < Formula
   end
 
   test do
-    (testpath/"nginx.conf").write <<-EOS
+    (testpath/"nginx.conf").write <<~EOS
       worker_processes 4;
       error_log #{testpath}/error.log;
       pid #{testpath}/nginx.pid;
