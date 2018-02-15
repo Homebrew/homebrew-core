@@ -38,7 +38,7 @@ class Libtool < Formula
 
   test do
     system "#{bin}/glibtool", "execute", "/usr/bin/true"
-    (testpath/"hello.c").write <<-EOS
+    (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() { puts("Hello, world!"); return 0; }
     EOS
