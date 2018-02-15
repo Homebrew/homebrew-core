@@ -1,6 +1,6 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
-  homepage "http://www.mono-project.com/"
+  homepage "https://www.mono-project.com/"
   url "https://download.mono-project.com/sources/mono/mono-5.4.1.6.tar.bz2"
   sha256 "bdfda0fe9ad5ce20bb2cf9e9bf28fed40f324141297479824e1f65d97da565df"
 
