@@ -1,6 +1,6 @@
 class Caffe < Formula
   desc "Fast open framework for deep learning"
-  homepage "http://caffe.berkeleyvision.org/"
+  homepage "https://caffe.berkeleyvision.org/"
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
 
@@ -9,12 +9,11 @@ class Caffe < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "hdf5"
-  depends_on "leveldb"
-  depends_on "lmdb"
-  depends_on "opencv"
+  depends_on "leveldb" => :optional
+  depends_on "lmdb" => :optional
+  depends_on "opencv" => :optional
   depends_on "protobuf"
-  depends_on "python"
-  depends_on "snappy"
+  depends_on "snappy" if build.with?("leveldb")
   depends_on "szip"
 
   resource "test_model_weights" do
@@ -31,12 +30,12 @@ class Caffe < Formula
       -DBUILD_matlab=OFF
       -DBUILD_docs=OFF
       -DBUILD_python_layer=OFF
-      -DUSE_OPENCV=ON
-      -DUSE_LEVELDB=ON
-      -DUSE_LMDB=ON
       -DALLOW_LMDB_NOLOCK=OFF
       -DUSE_OPENMP=OFF
     ]
+    args << "-DUSE_OPENCV=" + (build.with?("opencv") ? "ON" : "OFF")
+    args << "-DUSE_LMDB=" + (build.with?("lmdb") ? "ON" : "OFF")
+    args << "-DUSE_LEVELDB=" + (build.with?("leveldb") ? "ON" : "OFF")
 
     system "cmake", ".", *args
     system "make", "install"
