@@ -85,10 +85,10 @@ class Couchdb < Formula
       geocouch_plist.chmod 0644
       inreplace geocouch_plist, "<string>org.apache.couchdb</string>", \
         "<string>geocouch</string>"
-      inreplace geocouch_plist, "<key>HOME</key>", <<-EOS.lstrip.chop
+      inreplace geocouch_plist, "<key>HOME</key>", <<~EOS.lstrip.chop
         <key>ERL_FLAGS</key>
-        <string>-pa #{linked_geocouch_share}/ebin</string>
-        <key>HOME</key>
+              <string>-pa #{linked_geocouch_share}/ebin</string>
+              <key>HOME</key>
       EOS
       inreplace geocouch_plist, "%bindir%/%couchdb_command_name%", \
         HOMEBREW_PREFIX/"bin/couchdb"
