@@ -70,7 +70,7 @@ class ClangFormat < Formula
 
   test do
     # NB: below C code is messily formatted on purpose.
-    (testpath/"test.c").write <<-EOS
+    (testpath/"test.c").write <<~EOS
       int         main(char *args) { \n   \t printf("hello"); }
     EOS
 
