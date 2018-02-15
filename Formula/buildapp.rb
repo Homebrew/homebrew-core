@@ -4,6 +4,7 @@ class Buildapp < Formula
   url "https://github.com/xach/buildapp/archive/release-1.5.6.tar.gz"
   sha256 "d77fb6c151605da660b909af058206f7fe7d9faf972e2c30876d42cb03d6a3ed"
   head "https://github.com/xach/buildapp.git"
+  revision 1
 
   bottle do
     sha256 "33889c1bd33c11c71652e903bae0e784e3c3c410ca629ad73c315baf1ccb30b3" => :high_sierra
