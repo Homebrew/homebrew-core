@@ -84,7 +84,17 @@ class GdkPixbuf < Formula
 
   def post_install
     ENV["GDK_PIXBUF_MODULEDIR"] = "#{module_dir}/loaders"
-    system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
+
+    ohai "#{bin}/gdk-pixbuf-query-loaders --update-cache" # Previously handled by `system`.
+    File.open File.new("#{module_dir}/loaders.cache", "w+").path, "w" do |loader_cache|
+      Utils.popen_read "#{bin}/gdk-pixbuf-query-loaders", "--update-cache" do |pipe|
+        loader_cache.write pipe.read
+      end
+    end
+
+    Utils.popen_read "wc", "-c", "#{module_dir}/loaders.cache" do |stdout_contents|
+      stdout_contents.read.lstrip.split[0].to_i <= 0
+    end
   end
 
   def caveats
