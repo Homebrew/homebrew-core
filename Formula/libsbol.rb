@@ -18,7 +18,9 @@ class Libsbol < Formula
 
   def install
     system "cmake", ".", "-DCMAKE_CXX_FLAGS=-I/System/Library/Frameworks/Python.framework/Headers",
-                         "-DSBOL_BUILD_SHARED=TRUE", "-DSBOL_BUILD_STATIC=FALSE", *std_cmake_args
+                         "-DSBOL_BUILD_SHARED=TRUE",
+                         "-DSBOL_BUILD_STATIC=FALSE",
+                         *std_cmake_args
     system "make", "install"
   end
 
@@ -34,8 +36,11 @@ class Libsbol < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I/System/Library/Frameworks/Python.framework/Headers", "-I#{Formula["raptor"].opt_include}/raptor2", "-I#{include}", "-L#{lib}", \
-    "-ljsoncpp", "-lcurl", "-lraptor2", "-lsbol"
+    system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11",
+                    "-I/System/Library/Frameworks/Python.framework/Headers",
+                    "-I#{Formula["raptor"].opt_include}/raptor2",
+                    "-I#{include}", "-L#{lib}", "-ljsoncpp", "-lcurl",
+                    "-lraptor2", "-lsbol"
     system "./test"
   end
 end
