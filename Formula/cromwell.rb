@@ -35,7 +35,7 @@ class Cromwell < Formula
   end
 
   test do
-    (testpath/"hello.wdl").write <<-EOS
+    (testpath/"hello.wdl").write <<~EOS
       task hello {
         String name
 
@@ -52,7 +52,7 @@ class Cromwell < Formula
       }
     EOS
 
-    (testpath/"hello.json").write <<-EOS
+    (testpath/"hello.json").write <<~EOS
       {
         "test.hello.name": "world"
       }
