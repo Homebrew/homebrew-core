@@ -1,6 +1,6 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
-  homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
+  homepage "https://snakemake.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/2f/2a/88d21e9d9b4c9d9f9328720c5d5841595beb9f8848d7854ff53c3e7dc96c/snakemake-4.6.0.tar.gz"
   sha256 "c5e2e44ec59233a2763f54c9d534f7f580288ec135230bccd6d5ac7f6e25314b"
   head "https://bitbucket.org/snakemake/snakemake.git"
