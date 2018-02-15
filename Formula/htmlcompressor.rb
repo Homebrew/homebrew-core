@@ -31,7 +31,7 @@ class Htmlcompressor < Formula
 
   test do
     path = testpath/"index.xml"
-    path.write <<-EOS
+    path.write <<~EOS
       <foo>
         <bar /> <!-- -->
       </foo>
