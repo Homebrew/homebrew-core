@@ -6,9 +6,9 @@ class ConsoleBridge < Formula
 
   bottle do
     cellar :any
-    sha256 "dc5ba07f8af3c710d8a86536801d0770fb1755c9b32706b26bfe52b46c65f264" => :high_sierra
-    sha256 "31b0c5dae6dff5f796c3752e636cdf2fbbd4bc16d47288c06809668fde424dd0" => :sierra
-    sha256 "bbc636adfa1c9a7322c9eb9646e228d85b0a9c3802d6c9d46f90f34be8cb268e" => :el_capitan
+    sha256 "e58f4cb5a2e01bd7c014e7bc96b83046bce93bbf3f6664dc51820a49bfc2b012" => :high_sierra
+    sha256 "3dd9b0b3f0171241bf9dea73bd958788f240f51c394b3e7268b677e0df86e962" => :sierra
+    sha256 "adaf8ded297007d29b83556a470fdb24993d56df90defa75dab2a7a32a224c2a" => :el_capitan
   end
 
   depends_on "cmake" => :build
