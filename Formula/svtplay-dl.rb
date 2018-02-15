@@ -1,7 +1,7 @@
 class SvtplayDl < Formula
   include Language::Python::Virtualenv
 
-  desc "Download videos from http://svtplay.se"
+  desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
   url "https://files.pythonhosted.org/packages/7e/9b/a8431aacda965183c95cef5bebbc387fce54ce3d78ed03c23d943376c2da/svtplay-dl-1.9.7.tar.gz"
   sha256 "aec75dac7c869b55606ed93d1f5966cc7b3a4997f6ad632e9c55d108bc6df1ea"
