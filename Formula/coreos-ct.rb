@@ -1,8 +1,8 @@
 class CoreosCt < Formula
   desc "Convert a Container Linux Config into Ignition"
   homepage "https://coreos.com/os/docs/latest/configuration.html"
-  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.6.1.tar.gz"
-  sha256 "57cafa9db08caa6bed0290612bebf5d1a763a96fdb21f23de1681fd266b0c3c3"
+  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.7.0.tar.gz"
+  sha256 "8893181b937bc2319b10b0b52406f2ed156cad8081fe3ea2d44d7b72d811bfbe"
 
   bottle do
     cellar :any_skip_relocation
