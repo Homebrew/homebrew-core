@@ -28,7 +28,7 @@ class Nasm < Formula
   end
 
   test do
-    (testpath/"foo.s").write <<-EOS
+    (testpath/"foo.s").write <<~EOS
       mov eax, 0
       mov ebx, 0
       int 0x80
