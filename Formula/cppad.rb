@@ -26,7 +26,7 @@ class Cppad < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include <cassert>
       #include <cppad/utility/thread_alloc.hpp>
 
