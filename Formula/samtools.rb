@@ -1,6 +1,6 @@
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
-  homepage "http://www.htslib.org/"
+  homepage "https://www.htslib.org/"
   url "https://github.com/samtools/samtools/releases/download/1.7/samtools-1.7.tar.bz2"
   sha256 "e7b09673176aa32937abd80f95f432809e722f141b5342186dfef6a53df64ca1"
 
