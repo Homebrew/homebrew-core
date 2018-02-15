@@ -44,7 +44,7 @@ class Phantomjs < Formula
 
   test do
     path = testpath/"test.js"
-    path.write <<-EOS
+    path.write <<~EOS
       console.log("hello");
       phantom.exit();
     EOS
