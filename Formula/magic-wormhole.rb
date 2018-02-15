@@ -3,8 +3,8 @@ class MagicWormhole < Formula
 
   desc "Securely transfers data between computers"
   homepage "https://github.com/warner/magic-wormhole"
-  url "https://files.pythonhosted.org/packages/23/9a/45179a1f5b73aa2ac016cb42b46aca20a5576536cccf21d97f94220f3d69/magic-wormhole-0.10.4.tar.gz"
-  sha256 "cd3105975e71bc6437848c7fc9f0b23ef0e0c625c8b19ec66a5ddc727c6d11ae"
+  url "https://files.pythonhosted.org/packages/b5/d3/5409c111835af19af00643a8fbd0c0a6f30f025400ca5bb72f59fd1e42fb/magic-wormhole-0.10.5.tar.gz"
+  sha256 "9558ea1f3551e535deec3462cd5c8391cb32ebb12ecd8b40b36861dbee4917ee"
 
   bottle do
     cellar :any
@@ -133,8 +133,8 @@ class MagicWormhole < Formula
   end
 
   resource "spake2" do
-    url "https://files.pythonhosted.org/packages/10/7d/7e815d8e25ddd08edd46dc5202e3b30c61d15a68c0166e03a4dd37a18466/spake2-0.7.tar.gz"
-    sha256 "d2281458eed1048cb12fbab6ac02b06a8520ae9f2c30be330ea4c5b558a4b766"
+    url "https://files.pythonhosted.org/packages/60/0b/bb5eca8e18c38a10b1c207bbe6103df091e5cf7b3e5fdc0efbcad7b85b60/spake2-0.8.tar.gz"
+    sha256 "c17a614b29ee4126206e22181f70a406c618d3c6c62ca6d6779bce95e9c926f4"
   end
 
   resource "tqdm" do
