@@ -1,6 +1,6 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
-  homepage "http://www.htslib.org/"
+  homepage "https://www.htslib.org/"
   url "https://github.com/samtools/bcftools/releases/download/1.7/bcftools-1.7.tar.bz2"
   sha256 "dd4f63d91b0dffb0f0ce88ac75c2387251930c8063f7799611265083f8d302d1"
 
