@@ -65,12 +65,13 @@ class GnuCobol < Formula
   end
 
   test do
-    (testpath/"hello.cob").write <<-EOS
-       IDENTIFICATION DIVISION.
-       PROGRAM-ID. hello.
-       PROCEDURE DIVISION.
-       DISPLAY "Hello World!".
-       STOP RUN.
+    (testpath/"hello.cob").write <<~EOS
+            * COBOL must be indented
+      000001 IDENTIFICATION DIVISION.
+      000002 PROGRAM-ID. hello.
+      000003 PROCEDURE DIVISION.
+      000004 DISPLAY "Hello World!".
+      000005 STOP RUN.
     EOS
     system "#{bin}/cobc", "-x", testpath/"hello.cob"
     system testpath/"hello"
