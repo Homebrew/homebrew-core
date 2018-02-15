@@ -26,7 +26,7 @@ class Vala < Formula
   test do
     test_string = "Hello Homebrew\n"
     path = testpath/"hello.vala"
-    path.write <<-EOS
+    path.write <<~EOS
       void main () {
         print ("#{test_string}");
       }
