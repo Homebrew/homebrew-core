@@ -1,8 +1,8 @@
 class Simg2img < Formula
   desc "Tool to convert Android sparse images to raw images and back"
   homepage "https://github.com/anestisb/android-simg2img"
-  url "https://github.com/anestisb/android-simg2img/archive/1.1.1.tar.gz"
-  sha256 "d096ca7e02b3ad5b87cbb6467d3766720355f32aa5ae9b9264d7ca7c486b0738"
+  url "https://github.com/anestisb/android-simg2img/archive/1.1.2.tar.gz"
+  sha256 "a32d8fbc028cb32eb0cd1f69003febaf0dc334cabab5ee4a0fd9fd514c3a2e03"
   head "https://github.com/anestisb/android-simg2img.git"
 
   bottle do
