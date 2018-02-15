@@ -24,7 +24,7 @@ class OpenVcdiff < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include <google/vcdecoder.h>
       int main()
       {
