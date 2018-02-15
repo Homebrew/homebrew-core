@@ -7,9 +7,9 @@ class FluentBit < Formula
 
   bottle do
     cellar :any
-    sha256 "b7d7e5d446bd9960e1415d8c4d36dc3a6fe15bc0186d4475d985a4d5a97d6e67" => :high_sierra
-    sha256 "2df6dc08a40ab64e20c7ef907d127801d7b47d683cfc19488f04220e4eb91bc2" => :sierra
-    sha256 "91728b3c05f48ebe9f6f3c4c2721672ebb4c8c99e24f7215864a635901cef472" => :el_capitan
+    sha256 "90e8130e163dc744145dfebd10aea3c2012325732939bb00c9ac55fd52d0d185" => :high_sierra
+    sha256 "98432c82e54e5eb0d2d77875d19fecbe15ccb8d86db4e083f52ac109d6ff0cf4" => :sierra
+    sha256 "7792cd2fa43aa31e587896bbcf87bd110fb5c9254c138b4dff2a93c2483273f5" => :el_capitan
   end
 
   depends_on "cmake" => :build
