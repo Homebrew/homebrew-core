@@ -25,7 +25,7 @@ class Libsbol < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include "sbol/sbol.h"
 
       using namespace sbol;
