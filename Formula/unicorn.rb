@@ -38,7 +38,7 @@ class Unicorn < Formula
   end
 
   test do
-    (testpath/"test1.c").write <<-EOS
+    (testpath/"test1.c").write <<~EOS
       /* Adapted from http://www.unicorn-engine.org/docs/tutorial.html
        * shamelessly and without permission. This almost certainly needs
        * replacement, but for now it should be an OK placeholder
