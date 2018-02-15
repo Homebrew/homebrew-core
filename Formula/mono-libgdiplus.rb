@@ -1,6 +1,6 @@
 class MonoLibgdiplus < Formula
   desc "GDI+-compatible API on non-Windows operating systems"
-  homepage "http://www.mono-project.com/docs/gui/libgdiplus/"
+  homepage "https://www.mono-project.com/docs/gui/libgdiplus/"
   url "https://github.com/mono/libgdiplus/archive/5.6.tar.gz"
   sha256 "6a75e4a476695cd6a1475fd6b989423ecf73978fd757673669771d8a6e13f756"
 
