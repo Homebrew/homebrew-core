@@ -66,7 +66,6 @@ class GccAT49 < Formula
 
   resource "mpc" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/mpc-0.8.1.tar.gz"
-    mirror "http://multiprecision.org/mpc/download/mpc-0.8.1.tar.gz"
     sha256 "e664603757251fd8a352848276497a4c79b7f8b21fd8aedd5cc0598a38fee3e4"
   end
 
