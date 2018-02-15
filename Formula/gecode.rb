@@ -51,11 +51,11 @@ class Gecode < Formula
           distinct(*this, v);
           branch(*this, v, INT_VAR_NONE(), INT_VAL_MIN());
         }
-        Test(bool share, Test& s) : Script(share, s) {
-          v.update(*this, share, s.v);
+        Test(Test& s) : Script(s) {
+          v.update(*this, s.v);
         }
-        virtual Space* copy(bool share) {
-          return new Test(share, *this);
+        virtual Space* copy() {
+          return new Test(*this);
         }
         virtual void print(std::ostream& os) const {
           os << v << std::endl;
