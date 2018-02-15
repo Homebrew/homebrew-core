@@ -23,20 +23,20 @@ class Libchaos < Formula
   end
 
   test do
-    (testpath/"t_libchaos.cc").write <<-EOS
-    #include <chaos.h>
-    #include <iostream>
-    #include <string>
+    (testpath/"t_libchaos.cc").write <<~EOS
+      #include <chaos.h>
+      #include <iostream>
+      #include <string>
 
-    int main(void) {
-      std::cout << CHAOS_META_NAME(CHAOS_MACHINE_XORRING64) << std::endl;
-      std::string hash = chaos::password<CHAOS_MACHINE_XORRING64, 175, 25, 40>(
-          "some secret password", "my private salt");
-      std::cout << hash << std::endl;
-      if (hash.size() != 40)
-        return 1;
-      return 0;
-    }
+      int main(void) {
+        std::cout << CHAOS_META_NAME(CHAOS_MACHINE_XORRING64) << std::endl;
+        std::string hash = chaos::password<CHAOS_MACHINE_XORRING64, 175, 25, 40>(
+            "some secret password", "my private salt");
+        std::cout << hash << std::endl;
+        if (hash.size() != 40)
+          return 1;
+        return 0;
+      }
     EOS
 
     system ENV.cxx, "-std=c++11", "-lchaos", "-o", "t_libchaos", "t_libchaos.cc"
