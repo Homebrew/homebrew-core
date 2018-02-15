@@ -23,7 +23,7 @@ class Cabextract < Formula
 
   test do
     # probably the smallest valid .cab file
-    cab = <<-EOS.gsub(/\s+/, "")
+    cab = <<~EOS.gsub(/\s+/, "")
       4d5343460000000046000000000000002c000000000000000301010001000000d20400003
       e00000001000000000000000000000000003246899d200061000000000000000000
     EOS
