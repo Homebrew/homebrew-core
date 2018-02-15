@@ -79,7 +79,7 @@ class Global < Formula
       void cfunc (void) {int cvar = c2func(); }")
     EOS
     if build.with?("pygments") || build.with?("ctags")
-      (testpath/"test.py").write <<-EOS
+      (testpath/"test.py").write <<~EOS
         def py2func ():
              return 0
         def pyfunc ():
