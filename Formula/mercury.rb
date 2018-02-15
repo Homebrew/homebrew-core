@@ -44,7 +44,7 @@ class Mercury < Formula
   test do
     test_string = "Hello Homebrew\n"
     path = testpath/"hello.m"
-    path.write <<-EOS
+    path.write <<~EOS
       :- module hello.
       :- interface.
       :- import_module io.
