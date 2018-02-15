@@ -111,7 +111,7 @@ class Vtk < Formula
     vtk_include = Dir[opt_include/"vtk-*"].first
     major, minor = vtk_include.match(/.*-(.*)$/)[1].split(".")
 
-    (testpath/"version.cpp").write <<-EOS
+    (testpath/"version.cpp").write <<~EOS
       #include <vtkVersion.h>
       #include <assert.h>
       int main(int, char *[]) {
