@@ -107,7 +107,7 @@ class Gdal < Formula
   end
 
   resource "numpy" do
-    url "https://pypi.python.org/packages/source/n/numpy/numpy-1.9.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/n/numpy/numpy-1.9.3.tar.gz"
     sha256 "c3b74d3b9da4ceb11f66abd21e117da8cf584b63a0efbd01a9b7e91b693fbbd6"
   end
 
@@ -332,7 +332,7 @@ class Gdal < Formula
         To have a functional MDB driver, install supporting .jar files in:
           `/Library/Java/Extensions/`
 
-        See: `http://www.gdal.org/ogr/drv_mdb.html`
+        See: `http://www.gdal.org/drv_mdb.html`
       EOS
     end
   end
