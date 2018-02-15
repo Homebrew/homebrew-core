@@ -1,10 +1,8 @@
 class Singular < Formula
   desc "Computer algebra system for polynomial computations"
   homepage "https://www.singular.uni-kl.de/"
-  url "http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/src/4-1-0/singular-4.1.0p3.tar.gz"
-  version "4.1.0p3"
-  sha256 "440164c850d5a1575fcbfe95ab884088d03c0449570d40f465611932ffd0bf80"
-  revision 1
+  url "http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-1-1/singular-4.1.1.tar.gz"
+  sha256 "3792c5707b60c1748298bf47e2277de20303d60563b797372cc0e1eff4bbc583"
 
   bottle do
     sha256 "5be41d91381850e9d490e439d86cdf2f93bd308c3e19218164b15f9423c64ef5" => :high_sierra
@@ -21,6 +19,7 @@ class Singular < Formula
   end
 
   depends_on "gmp"
+  depends_on "mpfr"
   depends_on "ntl"
 
   def install
