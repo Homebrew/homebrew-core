@@ -63,7 +63,7 @@ class Gdcm < Formula
   end
 
   test do
-    (testpath/"test.cxx").write <<-EOS
+    (testpath/"test.cxx").write <<~EOS
       #include "gdcmReader.h"
       int main(int, char *[])
       {
