@@ -35,16 +35,16 @@ class Allegro < Formula
   end
 
   test do
-    (testpath/"allegro_test.cpp").write <<-EOS
-    #include <assert.h>
-    #include <allegro5/allegro5.h>
+    (testpath/"allegro_test.cpp").write <<~EOS
+      #include <assert.h>
+      #include <allegro5/allegro5.h>
 
-    int main(int n, char** c) {
-      if (!al_init()) {
-        return 1;
+      int main(int n, char** c) {
+        if (!al_init()) {
+          return 1;
+        }
+        return 0;
       }
-      return 0;
-    }
     EOS
 
     system ENV.cxx, "-I#{include}", "-L#{lib}", "-lallegro", "-lallegro_main", "-o", "allegro_test", "allegro_test.cpp"
