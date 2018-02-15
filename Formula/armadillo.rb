@@ -23,7 +23,7 @@ class Armadillo < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <armadillo>
 
