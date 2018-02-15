@@ -3,6 +3,7 @@ class Urdfdom < Formula
   homepage "https://wiki.ros.org/urdf/"
   url "https://github.com/ros/urdfdom/archive/1.0.0.tar.gz"
   sha256 "243ea925d434ebde0f9dee35ee5615ecc2c16151834713a01f85b97ac25991e1"
+  revision 1
 
   bottle do
     cellar :any
