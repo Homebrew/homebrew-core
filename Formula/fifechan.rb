@@ -26,15 +26,15 @@ class Fifechan < Formula
   end
 
   test do
-    (testpath/"fifechan_test.cpp").write <<-EOS
-    #include <fifechan.hpp>
-    int main(int n, char** c) {
-      fcn::Container* mContainer = new fcn::Container();
-      if (mContainer == nullptr) {
-        return 1;
+    (testpath/"fifechan_test.cpp").write <<~EOS
+      #include <fifechan.hpp>
+      int main(int n, char** c) {
+        fcn::Container* mContainer = new fcn::Container();
+        if (mContainer == nullptr) {
+          return 1;
+        }
+        return 0;
       }
-      return 0;
-    }
     EOS
 
     system ENV.cxx, "-I#{include}", "-L#{lib}", "-lfifechan", "-o", "fifechan_test", "fifechan_test.cpp"
