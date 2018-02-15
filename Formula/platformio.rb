@@ -2,7 +2,7 @@ class Platformio < Formula
   include Language::Python::Virtualenv
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
-  homepage "http://platformio.org"
+  homepage "https://platformio.org/"
   url "https://files.pythonhosted.org/packages/a4/34/c8a8ea8a8f8082b0f49f4cdf1978d9c7564fc4d70ab0b58dcb805c294b9a/platformio-3.5.1.tar.gz"
   sha256 "76f427e59be50f8ea8ab1cee97b721e9fb807ea3fd4a70e3f431dc037f2d8131"
 
