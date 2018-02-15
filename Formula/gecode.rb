@@ -1,8 +1,8 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
   homepage "http://www.gecode.org/"
-  url "http://www.gecode.org/download/gecode-5.1.0.tar.gz"
-  sha256 "f9885f97e0f80b54eaf1a8f9d0c419d831229a689619f6429c6148f5c50740d0"
+  url "http://www.gecode.org/download/gecode-6.0.0.tar.gz"
+  sha256 "79b8ef0253ba5ac2cbc8b8adf45abff2884b1ba6705bc26d6a1758331e79f8db"
 
   bottle do
     cellar :any
@@ -51,11 +51,11 @@ class Gecode < Formula
           distinct(*this, v);
           branch(*this, v, INT_VAR_NONE(), INT_VAL_MIN());
         }
-        Test(bool share, Test& s) : Script(share, s) {
-          v.update(*this, share, s.v);
+        Test(Test& s) : Script(s) {
+          v.update(*this, s.v);
         }
-        virtual Space* copy(bool share) {
-          return new Test(share, *this);
+        virtual Space* copy() {
+          return new Test(*this);
         }
         virtual void print(std::ostream& os) const {
           os << v << std::endl;
