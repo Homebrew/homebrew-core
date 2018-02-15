@@ -2,7 +2,6 @@ class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
   url "https://mafft.cbrc.jp/alignment/software/mafft-7.313-with-extensions-src.tgz"
-  version "7.313"
   sha256 "c48e5e05b427cae0d862daaef6148675d5ef57e24425c17b4c3d8da5b060eabd"
 
   fails_with :clang do
@@ -39,6 +38,6 @@ class Mafft < Formula
 
   test do
     (testpath/"test.fa").write ">1\nA\n>2\nA"
-    system "mafft", "test.fa"
+    system "#{bin}/mafft", "test.fa"
   end
 end
