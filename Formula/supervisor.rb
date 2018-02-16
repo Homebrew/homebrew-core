@@ -8,10 +8,9 @@ class Supervisor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6f7aff7531170eb3fcf54066dfd485a2e0e4fe13323a881fa21193a74db9277" => :high_sierra
-    sha256 "ca6e0a9584230313a3e9080600b3dcb60b669a1122619c14096dd65308b5fec4" => :sierra
-    sha256 "67c6110abfcc4b9a53a4143bad1fe12259a41c7fee96400e15e231c4cfd21aa3" => :el_capitan
-    sha256 "4070b89b70cbdb2c9a68214fb4bc03f8b8363e33c9f7fde8b782f6f057d87e57" => :yosemite
+    sha256 "de602ba5a4d850c369a1cb9f7275044babd776b21aed0d028e87b68e68dba2b4" => :high_sierra
+    sha256 "432c2afe07eecfb03c4b8268caa0898b68cd7af5bf6364ae71d054e805842905" => :sierra
+    sha256 "dfae5fc72acbfe08f53222ee70fa34259c29a46927272f1af8512c010acf02df" => :el_capitan
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
