@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.23.0-src.tar.gz"
-    sha256 "7464953871dcfdfa8afcc536916a686dd156a83339d8ec4d5cb4eb2fe146cb91"
+    url "https://static.rust-lang.org/dist/rustc-1.24.0-src.tar.gz"
+    sha256 "bb8276f6044e877e447f29f566e4bbf820fa51fea2f912d59b73233ffd95639f"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -52,20 +52,11 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2017-11-22/cargo-0.23.0-x86_64-apple-darwin.tar.gz"
-    sha256 "1eac1e406efed2472cbeac6316677c1ada90acc77eb7b3fee8a9573c23b02a5f"
+    url "https://static.rust-lang.org/dist/2018-01-04/cargo-0.24.0-x86_64-apple-darwin.tar.gz"
+    sha256 "b6f7c662ea75a94f5a5e41c2fee95f09a5ba168429ac8cdd41f6ba2c78d1b07f"
   end
 
   def install
-    # Remove for > 1.23.0; fix build failure on APFS
-    # See https://github.com/rust-lang/cargo/pull/4739
-    if build.stable? && MacOS.version >= :high_sierra
-      inreplace "src/stage0.txt" do |s|
-        s.gsub! "date: 2017-11-20", "date: 2017-11-23"
-        s.gsub! "rustc: 1.22.0", "rustc: 1.22.1"
-      end
-    end
-
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
