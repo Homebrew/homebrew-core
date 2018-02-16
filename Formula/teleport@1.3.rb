@@ -38,7 +38,7 @@ class TeleportAT13 < Formula
       .gsub("/var/run", testpath)
       .gsub(/https_(.*)/, "")
     begin
-      pid = spawn({"DEBUG" => "1"}, "#{bin}/teleport start -c #{testpath}/config.yml")
+      pid = spawn({ "DEBUG" => "1" }, "#{bin}/teleport start -c #{testpath}/config.yml")
       sleep 5
       system "/usr/bin/curl", "--insecure", "https://localhost:3080"
       system "/usr/bin/nc", "-z", "localhost", "3022"
