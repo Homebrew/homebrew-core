@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.9.4.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.9.4.src.tar.gz"
-    sha256 "0573a8df33168977185aa44173305e5a0450f55213600e94541604b75d46dc06"
+    url "https://dl.google.com/go/go1.10.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.10.src.tar.gz"
+    sha256 "f3de49289405fda5fd1483a8fe6bd2fa5469e005fd567df64485c4fa000c7f24"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -18,15 +18,6 @@ class Go < Formula
     sha256 "a4f2dc0a1002d89ee4352e069a274c3c0b3a9da5de4a67b289c7f3956b3cf87e" => :high_sierra
     sha256 "2a4e8b9f22b9e4c06fe4d1f4db104d39c6d0cf6106a8d10402d1a13ba8e8b37f" => :sierra
     sha256 "e76fc346c9f09462b4af69a42784f01dd1880ebfd1c9d5bd96563360d570423a" => :el_capitan
-  end
-
-  devel do
-    url "https://dl.google.com/go/go1.10rc2.src.tar.gz"
-    sha256 "360bb3e627cd5308626ebe994be734da9c1c444fb420d10e79082ec110d004f6"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
   end
 
   head do
