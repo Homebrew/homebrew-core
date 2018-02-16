@@ -7,9 +7,9 @@ class Glpk < Formula
 
   bottle do
     cellar :any
-    sha256 "0edf15d46002b9c704114574f134755b711fcc334478c7858ca5c1a7825cf22e" => :high_sierra
-    sha256 "01862dd45d86c83f65c57a8b3e8e26dc8ce9dc865a6d5606db7f560792c0ecbe" => :sierra
-    sha256 "e9e737b3c9dbeb639f1e6dd7d43fad8589d4df9a1407b6448c8f56ddbe0eded8" => :el_capitan
+    sha256 "5c0b4a34749c6e60bf9aa39f175ca907bab774f89a1b8a1697f3f5d02d493f2a" => :high_sierra
+    sha256 "3cbe0b40e3852414560a4929da0ee050fc8fa424b56b3ea756f853ce274b9a3a" => :sierra
+    sha256 "90ba265eb683981e612faae96318b662558e828a99a89200a29df93006d34084" => :el_capitan
   end
 
   depends_on "gmp"
