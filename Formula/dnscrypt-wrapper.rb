@@ -1,10 +1,8 @@
 class DnscryptWrapper < Formula
   desc "Server-side proxy that adds dnscrypt support to name resolvers"
   homepage "https://cofyc.github.io/dnscrypt-wrapper/"
-  url "https://github.com/Cofyc/dnscrypt-wrapper/releases/download/v0.3/dnscrypt-wrapper-v0.3.tar.bz2"
-  sha256 "ec5c290ba9b9a05536fa6ee827373ca9b3841508e6d075ae364405152446499c"
-  revision 1
-
+  url "https://github.com/cofyc/dnscrypt-wrapper/archive/v0.4.0.tar.gz"
+  sha256 "0b96a1f00a005aba8c167a16ff20f51d3747e3ae1651edf91731b7a240bb2539"
   head "https://github.com/Cofyc/dnscrypt-wrapper.git"
 
   bottle do
@@ -26,7 +24,9 @@ class DnscryptWrapper < Formula
   end
 
   test do
-    system "#{sbin}/dnscrypt-wrapper", "--gen-provider-keypair"
+    system "#{sbin}/dnscrypt-wrapper", "--gen-provider-keypair",
+           "--provider-name=2.dnscrypt-cert.example.com",
+           "--ext-address=192.168.1.1"
     system "#{sbin}/dnscrypt-wrapper", "--gen-crypt-keypair"
   end
 end
