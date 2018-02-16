@@ -1,8 +1,8 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.6.tar.gz"
-  sha256 "7f33452fa2848bae95fb7ab92a98e11315057104c5484626245316f5f5806acb"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.7.tar.gz"
+  sha256 "0208bb6e3b2c09dd1f592256a98f00ed2a7ccefd00af575e800659c06d604ffc"
 
   bottle do
     sha256 "758115888fe3d5451626401cf8dd9d6d11fc8397b33c82c8221b30fb4d21601e" => :high_sierra
