@@ -6,9 +6,10 @@ class Pgloader < Formula
   revision 1
 
   bottle do
-    sha256 "53730fd18e30016cdff390c71dcd0d8edc73752d8cd6c052712d537be70572ee" => :high_sierra
-    sha256 "439e83a886a19c0833721b3e67aa6a08ab0aff17045c279d7e54d9171637abfe" => :sierra
-    sha256 "0eff8a198207076e8e7e9f56d164c1c705b1310b2af0a79e27afd0be91338426" => :el_capitan
+    rebuild 1
+    sha256 "f847576d5d4769b8021323c809b585057a1f99f4154116a6fa2f70abb34e5c6a" => :high_sierra
+    sha256 "aef13aa237bdad345ec75dacf88fbaf555519c047ef2c42fd8bd6753c08c3db2" => :sierra
+    sha256 "7fb6e58e1030e6dfd8a096525fab8ad65f739a16644f023b7c7cc6dfbc91c8ab" => :el_capitan
   end
 
   head do
