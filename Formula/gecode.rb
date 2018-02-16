@@ -6,10 +6,9 @@ class Gecode < Formula
 
   bottle do
     cellar :any
-    sha256 "ee3fc9460300730c47ad2c966215aac05dfe0a9ee40e0d4f9f5dcb9b97cd31d1" => :high_sierra
-    sha256 "a9a444e09a5afa31e6ec872b37603b1bb5463fd989c85d2971cf373363a9fc7b" => :sierra
-    sha256 "a8b6584f71e730587cd3c4b4dac38afd9e5c3d25a26d1cb531a6c760344592ac" => :el_capitan
-    sha256 "5288ebe7c86747c9b884a3139ecaf6bda4b9226ba930d7582ff6528ed1e63968" => :yosemite
+    sha256 "2d060e1fb1c00e96a71b8cab6ef55f1ca5bfdfb9f1055cba9ab912ec3390723f" => :high_sierra
+    sha256 "56f0ad61ca96479733c686a0bcf94640d88ab08a5931a216355db3e27aa320fc" => :sierra
+    sha256 "a56de24c36f255f23ed845f582498fa8987f0b485bcc13de49bd5fdf715b6bbc" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"
