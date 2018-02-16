@@ -1,8 +1,9 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.17.tar.xz"
-  sha256 "86b142afef587c118d63f72ccf307f3321dbc40357aae528202b65d913d20919"
+  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.18.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.18.tar.xz"
+  sha256 "ae2248d9e78747cf9c469dde81ff8f90b56838b707a0637f3f7d4eee90e80234"
 
   bottle do
     sha256 "b8695efb702342ec890527c070337794c7dd3f9a2226d3a5f39eff02c76501f6" => :high_sierra
@@ -11,9 +12,9 @@ class Gnutls < Formula
   end
 
   devel do
-    url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.0.tar.xz"
-    mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.0.tar.xz"
-    sha256 "2ab9e3c0131fcd9142382f37ba9c6d20022b76cba83560cbcaa8e4002d71fb72"
+    url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.2.tar.xz"
+    mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.2.tar.xz"
+    sha256 "bcd5db7b234e02267f36b5d13cf5214baac232b7056a506252b7574ea7738d1f"
   end
 
   depends_on "pkg-config" => :build
