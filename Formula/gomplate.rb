@@ -1,8 +1,8 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v2.2.0.tar.gz"
-  sha256 "7a8fe7040226334167ea2810d76e114e9abb576306e249dfb937de3c3c53cc5e"
+  url "https://github.com/hairyhenderson/gomplate/archive/v2.3.0.tar.gz"
+  sha256 "9a2280353504d7c68be97201180fcc7bea7fba00052c04d33bc9f350a7bbd6be"
   head "https://github.com/hairyhenderson/gomplate.git"
 
   bottle do
@@ -31,15 +31,15 @@ class Gomplate < Formula
     output = shell_output("#{bin}/gomplate --version")
     assert_equal "gomplate version #{version}", output.chomp
 
-    test_template = <<-TEMPLATE.unindent
+    test_template = <<~EOS
       {{ range ("foo:bar:baz" | strings.SplitN ":" 2) }}{{.}}
       {{end}}
-    TEMPLATE
+    EOS
 
-    expected = <<-EXPECTED.unindent
+    expected = <<~EOS
       foo
       bar:baz
-    EXPECTED
+    EOS
 
     assert_match expected, pipe_output("#{bin}/gomplate", test_template, 0)
   end
