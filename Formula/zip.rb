@@ -14,6 +14,8 @@ class Zip < Formula
 
   keg_only :provided_by_macos
 
+  option "with-bzip2", "Support bzip2 compression method in *.zip files."
+
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/zip
   patch do
@@ -34,13 +36,24 @@ class Zip < Formula
     ]
   end
 
+  # compile in bzip2 support using the bzip2 library sources
+  # https://github.com/LuaDist/zip/blob/master/bzip2/install.txt
+  if build.with? "bzip2"
+
+    resource "bzip2" do
+      url "http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz"
+      mirror "https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz"
+      sha256 "a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd"
+    end
+
+  end
+
   def install
-    system "make", "-f", "unix/Makefile",
-      "CC=#{ENV.cc}",
-      "generic",
-      "BINDIR=#{bin}",
-      "MANDIR=#{man1}",
-      "install"
+    if build.with? "bzip2"
+      resource("bzip2").stage buildpath/"bzip2"
+    end
+    system "make", "-f", "unix/Makefile", "CC=#{ENV.cc}", "generic"
+    system "make", "-f", "unix/Makefile", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
   end
 
   test do
@@ -51,5 +64,11 @@ class Zip < Formula
     system "#{bin}/zip", "test.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test.zip", :exist?
     assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip")
+
+    if build.with? "bzip2"
+      system "#{bin}/zip", "-Z", "bzip2", "test2.zip", "test1", "test2", "test3"
+      assert_predicate testpath/"test2.zip", :exist?
+      assert_match "test of test2.zip OK", shell_output("#{bin}/zip -T test2.zip")
+    end
   end
 end
