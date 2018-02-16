@@ -7,11 +7,9 @@ class Buildapp < Formula
   revision 1
 
   bottle do
-    sha256 "33889c1bd33c11c71652e903bae0e784e3c3c410ca629ad73c315baf1ccb30b3" => :high_sierra
-    sha256 "aaf2429a3c32deb2f8d0d07271b9a94a67c6cdf674b6b402d7f2de55c57be825" => :sierra
-    sha256 "672cce34c7c3d0ce4ed2a434fc4c3933a3ba06e07ddff80f0aad24e92ce5ed51" => :el_capitan
-    sha256 "353795727bd0ef56e9597de4a6e5d3352e4e07f8d8d61d0610a68810aac90bf1" => :yosemite
-    sha256 "6e7ad94bb743298d8fe8fa64c73d70a156e5aae829c48aef9e0ac300fac97488" => :mavericks
+    sha256 "aa14506cc1ab8eb712c9b1fdb71af45c9041b327c9ecdf9d48541b652e3da3be" => :high_sierra
+    sha256 "15e1be1e7928770abfdb801e67435b9d7c1bc36923bc6d9d5281d9ceab0d9abd" => :sierra
+    sha256 "49d62ce2b8564d5456725d1a7cedafb38690d9bcdf5e7b6f279805665ed65833" => :el_capitan
   end
 
   depends_on "sbcl"
