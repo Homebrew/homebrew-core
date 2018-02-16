@@ -1,8 +1,8 @@
 class Stlink < Formula
   desc "STM32 discovery line Linux programmer"
   homepage "https://github.com/texane/stlink"
-  url "https://github.com/texane/stlink/archive/1.4.0.tar.gz"
-  sha256 "d99b8385cce8071d5e58de21b6c8866058af20a8dd46ecf01e1c1dc3aa038cc9"
+  url "https://github.com/texane/stlink/archive/1.5.0.tar.gz"
+  sha256 "ce26b3db73f0bdf87ced78a2a90f3d515914f7d1211b1ca4b9acdf1882ca9d81"
 
   head "https://github.com/texane/stlink.git"
 
