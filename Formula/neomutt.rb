@@ -16,8 +16,7 @@ class Neomutt < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    system "./configure", "--disable-idn",
-                          "--enable-gpgme",
+    system "./configure", "--enable-gpgme",
                           "--gss",
                           "--lmdb",
                           "--notmuch",
@@ -30,6 +29,6 @@ class Neomutt < Formula
   end
 
   test do
-    system bin/"mutt", "-D"
+    system bin/"neomutt", "-D"
   end
 end
