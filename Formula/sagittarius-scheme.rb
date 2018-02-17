@@ -1,10 +1,8 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
-  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.8.9.tar.gz"
-  sha256 "8191ce0d61e271744180d9f89dd5a58d19700884b76d62f16dd59cbb84c8afe5"
-  revision 1
-  head "https://bitbucket.org/ktakashi/sagittarius-scheme", :using => :hg
+  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.0.tar.gz"
+  sha256 "329afa68f1ad95466697c94a41c236840cdc4afc1720e1d4438dceadc298689b"
 
   bottle do
     cellar :any
@@ -13,25 +11,13 @@ class SagittariusScheme < Formula
     sha256 "e2a7ad03b3100e50829fb6e6f26da1badc40940d4bc6358827cc9dcf1317dea0" => :el_capitan
   end
 
-  option "without-docs", "Build without HTML docs"
-
   depends_on "cmake" => :build
-  depends_on "libffi"
   depends_on "bdw-gc"
+  depends_on "libffi"
+  depends_on "openssl"
 
   def install
-    arch = MacOS.prefer_64_bit? ? "x86_64" : "x86"
-
-    args = std_cmake_args
-
-    args += %W[
-      -DCMAKE_SYSTEM_NAME=darwin
-      -DFFI_LIBRARY_DIR=#{Formula["libffi"].lib}
-      -DCMAKE_SYSTEM_PROCESSOR=#{arch}
-    ]
-
-    system "cmake", *args
-    system "make", "doc" if build.with? "docs"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
