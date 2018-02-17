@@ -3,12 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3094
-  else
-    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 3094
-  end
-  version "10.73.17"
+  url "svn://svn.code.sf.net/p/netpbm/code/stable", :revision => 3154
+  version "10.73.18"
   version_scheme 1
 
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -28,6 +24,12 @@ class Netpbm < Formula
   conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|
