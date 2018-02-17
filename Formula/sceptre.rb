@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.3.2.tar.gz"
-  sha256 "c153e20d037b649c56dff5f44ffff0d34c0bef9b89c9f34f2f88f52b726ff465"
+  url "https://github.com/cloudreach/sceptre/archive/v1.3.3.tar.gz"
+  sha256 "43444bde8d7106e2a648dbf3e8f75ea4794758931f48ea6fc0b9ef0937fdf0ac"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Sceptre < Formula
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7b/82/ff2cc1627733040b19369d5d561331b378150e02312f1d1b9424a91ae9d0/boto3-1.4.8.tar.gz"
-    sha256 "332c6a17fd695581dd6f9ed825ce13c2d5ee3a6f5e1b079bed0ff7293809faf0"
+    url "https://files.pythonhosted.org/packages/13/78/3eb78ea67566d762a7737cddc72b3abb1645616a0ecd455dcdf4d0dc3fb5/boto3-1.5.31.tar.gz"
+    sha256 "65d7b85d213b63f4540b259b5a9780db8b0cbdcb5d748545d1eb19992910587b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/31/01/8af6e1cf7943b54b7a8bad8e9270561035d00b72b430b2ac7daaff13902f/botocore-1.8.6.tar.gz"
-    sha256 "58db28effd55b603cb668065cf868804b7ff5680986b79516b5f48600d39819b"
+    url "https://files.pythonhosted.org/packages/ff/0e/658d6d37924a57073164a34704213fced94a14695dd3424383102b3e755a/botocore-1.8.45.tar.gz"
+    sha256 "8f91b648a216dc945783d1539c013fc08a9e65ecc4fc5aae017bdd5961fd3468"
   end
 
   resource "click" do
@@ -81,8 +81,8 @@ class Sceptre < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/b1/a6/24d960ee5f21eb2f9e2e938be44b9929bf9f85a570b9582c50c14e7c7ec7/s3transfer-0.1.12.tar.gz"
-    sha256 "10891b246296e0049071d56c32953af05cea614dca425a601e4c0be35990121e"
+    url "https://files.pythonhosted.org/packages/9a/66/c6a5ae4dbbaf253bd662921b805e4972451a6d214d0dc9fb3300cb642320/s3transfer-0.1.13.tar.gz"
+    sha256 "90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1"
   end
 
   resource "six" do
@@ -95,12 +95,7 @@ class Sceptre < Formula
   end
 
   test do
-    config = testpath.realpath/"config/foo"
-    expected = "The environment '#{config}' does not exist."
-    output = shell_output("#{bin}/sceptre describe-env foo", 1)
-    assert_equal expected, output.chomp
-    config.mkpath
-    output = shell_output("#{bin}/sceptre describe-env foo", 1)
-    assert_match "yaml", output.chomp
+    output = shell_output("#{bin}/sceptre create .", 1)
+    assert_equal "Check '#{testpath.realpath}/config' exists.", output.chomp
   end
 end
