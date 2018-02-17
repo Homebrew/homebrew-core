@@ -4,7 +4,7 @@ class Camlp5 < Formula
   url "https://github.com/camlp5/camlp5/archive/rel703.tar.gz"
   version "7.03"
   sha256 "c13d0a957a8e70627e1900ca25243b5e8da042bbda9eaa9e7d06955c0e3df21a"
-  revision 1
+  revision 2
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
@@ -19,6 +19,10 @@ class Camlp5 < Formula
   depends_on "ocaml"
 
   def install
+    # Upstream issue from 16 Feb 2018 "4.06.1 compatibility"
+    cp_r "ocaml_stuff/4.06.0", "ocaml_stuff/4.06.1"
+    cp "ocaml_src/lib/versdep/4.06.0.ml", "ocaml_src/lib/versdep/4.06.1.ml"
+
     args = ["--prefix", prefix, "--mandir", man]
     args << "--transitional" if build.without? "strict"
 
