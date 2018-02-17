@@ -1,72 +1,37 @@
 class Neomutt < Formula
-  desc "Teaching an Old Dog New Tricks"
+  desc "Email reader with support for Notmuch (fast indexing), News (NNTP) and much more"
   homepage "https://www.neomutt.org/"
-  url "https://github.com/neomutt/neomutt.git", :tag => "neomutt-20171215", :revision => "ae61285170533b4be544e738cdd2eedefd1856ff"
-  head "https://github.com/neomutt/neomutt.git", :branch => "master"
-
-  option "with-lmdb", "Build with lmdb support"
-  option "with-lua", "Build with lua scripting support enabled"
-  option "with-s-lang", "Build against slang instead of ncurses"
-
-  # Neomutt-specific patches
-  option "with-notmuch-patch", "Apply notmuch patch"
+  url "https://github.com/neomutt/neomutt/archive/neomutt-20171215.tar.gz"
+  sha256 "7fb76e99a9f23715ad772ad8f7008c6e2db05eed344817055176c76dbd60c1b5"
+  head "https://github.com/neomutt/neomutt.git"
 
   depends_on "gettext" => :build
   depends_on "docbook-xsl" => :build
-  depends_on "libxslt" => :build unless OS.mac?
-  depends_on "krb5" => :build unless OS.mac?
 
   depends_on "openssl"
-  depends_on "tokyo-cabinet" => :recommended if build.without?("lmdb")
-  depends_on "lmdb" => :optional
-  depends_on "gpgme" => :optional
-  depends_on "libidn" => :optional
-  depends_on "lua" => :optional
-  depends_on "s-lang" => :optional
-  depends_on "notmuch" if build.with? "notmuch-patch"
+  depends_on "tokyo-cabinet"
+  depends_on "lmdb"
+  depends_on "gpgme"
+  depends_on "libidn"
+  depends_on "notmuch"
 
   def install
-    # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     args = %W[
       --prefix=#{prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
+      --sasl
       --gss
       --disable-idn
+      --with-ui=ncurses
+      --notmuch
+      --lmdb
+      --tokyocabinet
+      --enable-gpgme
     ]
 
-    args << "--enable-gpgme" if build.with? "gpgme"
-
-    # Neomutt-specific patches
-    args << "--notmuch" if build.with? "notmuch-patch"
-
-    args << "--sasl" unless OS.linux?
-
-    if build.with? "lmdb"
-      args << "--lmdb"
-    else
-      args << "--tokyocabinet"
-    end
-
-    if build.with? "lua"
-      args << "--lua"
-      args << "--with-lua=#{Formula["lua"].prefix}"
-    end
-
-    if build.with? "s-lang"
-      args << "--with-ui=slang"
-    else
-      args << "--with-ui=ncurses"
-    end
-
     system "./configure", *args
-    system "make"
-
     system "make", "install"
-  end
-
-  test do
-    system bin/"neomutt", "-D"
   end
 end
