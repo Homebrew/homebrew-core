@@ -8,9 +8,9 @@ class Sceptre < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d2c8da3a5c8ce3d7cff0c9149a92893f915268620f3b1bfd04948c8c13697c3" => :high_sierra
-    sha256 "aa91e716034284bc2b7a106f8b1116c157a7e64db83bf7acd8e5bdcd947c6ea9" => :sierra
-    sha256 "fe478a90952e44e026c318220263f9f70fa5eb6c4110b9e4b3bd8d0b22d75cdb" => :el_capitan
+    sha256 "6c146631b6e76bfc1ca79a14f0c1b5e9a9ca4f0226a815769e88ef87946af2b1" => :high_sierra
+    sha256 "85ca2874b8a223ee9192114c77897aec2ce6a7c36cd7bbdd10b91fc2830006e5" => :sierra
+    sha256 "06e0ef5138e37f2fbb195d879af9216450d68df67e97a6c7478db522f8af3956" => :el_capitan
   end
 
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
