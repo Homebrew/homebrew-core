@@ -1,8 +1,8 @@
 class Forego < Formula
   desc "Foreman in Go for Procfile-based application management"
   homepage "https://github.com/ddollar/forego"
-  url "https://github.com/ddollar/forego/archive/20170327195458.tar.gz"
-  sha256 "8a9bdff7f3d62ba64e9a8bb7fe619223e2fb20af6aff18f618ff2703a5bf1860"
+  url "https://github.com/ddollar/forego/archive/20180216151118.tar.gz"
+  sha256 "23119550cc0e45191495823aebe28b42291db6de89932442326340042359b43d"
   head "https://github.com/ddollar/forego.git"
 
   bottle do
