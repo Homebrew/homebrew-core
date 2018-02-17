@@ -1,9 +1,8 @@
 class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
-  url "https://github.com/mas-cli/mas/archive/v1.3.1.tar.gz"
-  sha256 "9326058c9e572dd38df644313307805757d7ea6dfea8626e0f41c373ecbd46b5"
-  revision 1
+  url "https://github.com/mas-cli/mas/archive/v1.4.0.tar.gz"
+  sha256 "9fe07103c285ea69db1cdf527c6c8def5732c028d7014313a04bb0cf5b6c2302"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
@@ -13,7 +12,7 @@ class Mas < Formula
     sha256 "05f5b0166c716896da57f0db781ae3f818dd2fbe561099f288b847c777687970" => :el_capitan
   end
 
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
     xcodebuild "-project", "mas-cli.xcodeproj",
