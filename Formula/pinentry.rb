@@ -27,6 +27,7 @@ class Pinentry < Formula
       --disable-pinentry-gnome3
       --disable-pinentry-tqt
       --disable-pinentry-fltk
+      --enable-pinentry-tty
     ]
 
     args << "--disable-pinentry-gtk2" if build.without? "gtk+"
@@ -37,5 +38,6 @@ class Pinentry < Formula
 
   test do
     system "#{bin}/pinentry", "--version"
+    system "#{bin}/pinentry-tty", "--version"
   end
 end
