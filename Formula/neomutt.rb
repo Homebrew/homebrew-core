@@ -17,7 +17,7 @@ class Neomutt < Formula
   depends_on "krb5" => :build unless OS.mac?
 
   depends_on "openssl"
-  depends_on "tokyo-cabinet" => :recommended unless build.with?("lmdb")
+  depends_on "tokyo-cabinet" => :recommended if build.without?("lmdb")
   depends_on "lmdb" => :optional
   depends_on "gpgme" => :optional
   depends_on "libidn" => :optional
