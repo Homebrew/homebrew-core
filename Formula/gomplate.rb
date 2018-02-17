@@ -12,13 +12,11 @@ class Gomplate < Formula
     sha256 "adaceb340c8a6efaf8f32eafe64e32e581ba3bb4d3a361ca93c0bba06b3a7aff" => :el_capitan
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
   depends_on "upx" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/hairyhenderson/gomplate").install buildpath.children
     cd "src/github.com/hairyhenderson/gomplate" do
       system "make", "compress", "VERSION=#{version}"
