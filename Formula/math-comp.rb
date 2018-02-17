@@ -3,6 +3,7 @@ class MathComp < Formula
   homepage "https://math-comp.github.io/math-comp/"
   url "https://github.com/math-comp/math-comp/archive/mathcomp-1.6.4.tar.gz"
   sha256 "c672a4237f708b5f03f1feed9de37f98ef5c331819047e1f71b5762dcd92b262"
+  revision 1
   head "https://github.com/math-comp/math-comp.git"
 
   bottle do
