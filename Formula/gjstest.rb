@@ -26,7 +26,7 @@ class Gjstest < Formula
   end
 
   test do
-    (testpath/"sample_test.js").write <<-EOF
+    (testpath/"sample_test.js").write <<~EOS
       function SampleTest() {
       }
       registerTestSuite(SampleTest);
@@ -34,7 +34,7 @@ class Gjstest < Formula
       addTest(SampleTest, function twoPlusTwoEqualsFour() {
         expectEq(4, 2+2);
       });
-    EOF
+    EOS
 
     system "#{bin}/gjstest", "--js_files", "#{testpath}/sample_test.js"
   end
