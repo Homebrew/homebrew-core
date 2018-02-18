@@ -1,8 +1,8 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.0/modules-4.1.0.tar.bz2"
-  sha256 "b83733168ca3fe952cef685fe0d4fdd561685e0ef8c8d02b4c9b4415bf1312ab"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.1/modules-4.1.1.tar.bz2"
+  sha256 "63ba8dacafa42ccebebe5d518e2be3b6b3683b9e384ab756133cc6d1d4d8f214"
 
   bottle do
     sha256 "293e90e75239faff2658297940f1ed30dc3664a9a081299ad933a97ca49e652c" => :high_sierra
@@ -11,6 +11,7 @@ class Modules < Formula
   end
 
   depends_on "coreutils" => :build # assumes GNU cp options are available
+  depends_on "grep" => :build # configure checks for ggrep
   depends_on :x11 => :optional
 
   def install
