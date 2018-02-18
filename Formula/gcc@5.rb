@@ -44,7 +44,6 @@ class GccAT5 < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   resource "isl" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
@@ -85,6 +84,12 @@ class GccAT5 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/413cfac6/gcc%405/10.13_headers.patch"
       sha256 "94aaec20c8c7bfd3c41ef8fb7725bd524b1c0392d11a411742303a3465d18d09"
     end
+  end
+
+  resource "ecj" do
+    url "https://sourceware.org/pub/java/ecj-4.9.jar"
+    mirror "https://mirrors.kernel.org/sources.redhat.com/java/ecj-4.9.jar"
+    sha256 "9506e75b862f782213df61af67338eb7a23c35ff425d328affc65585477d34cd"
   end
 
   def install
@@ -141,7 +146,8 @@ class GccAT5 < Formula
     args << "--disable-nls" if build.without? "nls"
 
     if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
+      (libexec/"java").install resource("ecj")
+      args << "--with-ecj-jar=#{libexec}/java/ecj-4.9.jar"
     end
 
     if MacOS.prefer_64_bit?
