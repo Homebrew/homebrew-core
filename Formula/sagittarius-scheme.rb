@@ -6,9 +6,9 @@ class SagittariusScheme < Formula
 
   bottle do
     cellar :any
-    sha256 "8e9a19e387b9f08cc38d3fac73f7cfd34bc62ae5415748afc87443ee0a634d5e" => :high_sierra
-    sha256 "9de62f9f0364afdc741ebea1af3fd82b1a2414f3f01235b9fa62d2106b49bb6e" => :sierra
-    sha256 "85cf1b76c1108c08469d2d695b8bef6f2c2bfda4125553d251c1fd26042f4c9f" => :el_capitan
+    sha256 "d23d2fab580ed0397c1ca1ba1a8c04984bbd9f106bd4a070c8ff20581f79221e" => :high_sierra
+    sha256 "51725d8c867aa2e2b08e1788035293f9494563ddb4cdaced836a696991a3ae8b" => :sierra
+    sha256 "adb7d7fde53cf6e332d40cb82dc1f93badb283971cc01e7fc826b1e1f612b035" => :el_capitan
   end
 
   depends_on "cmake" => :build
