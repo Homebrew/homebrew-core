@@ -3,7 +3,7 @@ class Wpscan < Formula
   homepage "https://wpscan.org"
   url "https://github.com/wpscanteam/wpscan/archive/2.9.3.tar.gz"
   sha256 "1bacc03857cca5a2fdcda060886bf51dbf73b129abbb7251b8eb95bc874e5376"
-  revision 4
+  revision 5
 
   head "https://github.com/wpscanteam/wpscan.git"
 
@@ -28,12 +28,13 @@ class Wpscan < Formula
     ENV["BUNDLE_PATH"] = libexec
     ENV["BUNDLE_GEMFILE"] = libexec/"Gemfile"
     system "gem", "install", "bundler"
-    system libexec/"bin/bundle", "install", "--without", "test"
+    bundle = Dir["#{libexec}/**/bundle"].last
+    system bundle, "install", "--without", "test"
 
     (bin/"wpscan").write <<~EOS
       #!/bin/bash
       GEM_HOME=#{libexec} BUNDLE_GEMFILE=#{libexec}/Gemfile \
-        exec #{libexec}/bin/bundle exec ruby #{libexec}/wpscan.rb "$@"
+        exec #{bundle} exec ruby #{libexec}/wpscan.rb "$@"
     EOS
   end
 
