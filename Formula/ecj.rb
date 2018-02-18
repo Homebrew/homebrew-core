@@ -9,6 +9,8 @@ class Ecj < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.8"
+
   def install
     (share/"java").install "ecj-#{version}.jar" => "ecj.jar"
   end
@@ -23,7 +25,11 @@ class Ecj < Formula
         }
       }
     EOS
-    system "java", "-cp", share/"java/ecj.jar", "org.eclipse.jdt.internal.compiler.batch.Main", "Hello.java"
+
+    java_home = `#{Language::Java.java_home_cmd("1.8")}`
+    java_home.chomp!
+    system "#{java_home}/bin/java", "-cp", share/"java/ecj.jar",
+      "org.eclipse.jdt.internal.compiler.batch.Main", "Hello.java"
     assert_predicate testpath/"Hello.class", :exist?, "Failed to compile Java program!"
     assert_equal "Hello Homebrew\n", shell_output("java Hello")
   end
