@@ -14,26 +14,26 @@ class Latexml < Formula
     sha256 "884426eb041a9fa05ba6ebc64c64f4ce76f7c10cab3c5c1b98bcce201831c9d2" => :mavericks
   end
 
-  resource "Image::Size" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
-    sha256 "53c9b1f86531cde060ee63709d1fda73cabc0cf2d581d29b22b014781b9f026b"
-  end
-
-  resource "Text::Unidecode" do
-    url "http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
-    sha256 "11876a90f0ce858d31203e80d62900383bb642ed8a470c67539b607f2a772d02"
-  end
+  requires_perl = []
+  requires_perl << "with-perl"
+  depends_on "perl"                             # Actually, Imagemagick already installs Perl
+  depends_on "imagemagick" => requires_perl     # Install ImageMagick with PerlMagick
+  depends_on "ghostscript"
+  depends_on "libxml2" if MacOS.version <= :sierra
+  depends_on "libxslt" if MacOS.version <= :sierra
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
-    resources.each do |r|
-      r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make"
-        system "make", "install"
-      end
-    end
+
+    # Install the necessary Perl modules via a local CPAN
+    system "curl -L https://cpanmin.us | PERL_CPANM_HOME=#{libexec}/localcpan perl - -q --notest --local-lib #{libexec} --save-dists #{libexec}/localcpan/CPAN --force App::cpanminus"
+    system "PERL_CPANM_HOME=#{libexec}/localcpan perl #{libexec}/bin/cpanm -q --self-contained --notest --local-lib-contained #{libexec} --save-dists #{libexec}/localcpan/CPAN \
+      Archive::Zip DB_File File::Which Getopt::Long Image::Size IO::String JSON::XS LWP MIME::Base64 Parse::RecDescent Pod::Parser SUPER Text::Unidecode \
+      Test::More URI XML::LibXML XML::LibXSLT UUID::Tiny"
+    # Remove all CPANM files
+    remove_dir "#{libexec}/localcpan", :force => true
+    remove ["#{libexec}/bin/config_data", "#{libexec}/bin/cpanm", "#{libexec}/bin/crc32", "#{libexec}/bin/imgsize", "#{libexec}/bin/json_xs",
+            "#{libexec}/bin/lwp-download", "#{libexec}/bin/lwp-dump", "#{libexec}/bin/lwp-mirror", "#{libexec}/bin/lwp-request"], :force => true
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
     system "make", "install"
@@ -45,6 +45,13 @@ class Latexml < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      LaTeXML can work without LaTeX; however, a LaTeX installation is highly recommended.
+      You can install LaTeX here: https://www.tug.org/mactex/.
+    EOS
+  end
+
   test do
     (testpath/"test.tex").write <<~EOS
       \\documentclass{article}
@@ -54,6 +61,6 @@ class Latexml < Formula
       \\end{document}
     EOS
     assert_match %r{<title>LaTeXML Homebrew Test</title>},
-      shell_output("#{bin}/latexml --quiet #{testpath}/test.tex")
+    shell_output("#{bin}/latexml --quiet #{testpath}/test.tex")
   end
 end
