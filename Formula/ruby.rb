@@ -3,6 +3,7 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.xz"
   sha256 "1da0afed833a0dab94075221a615c14487b05d0c407f991c8080d576d985b49b"
+  revision 1
 
   bottle do
     sha256 "57d81d1783853212b074329374eb1a23db206745600b2fe0b429e713f9b2ecd6" => :high_sierra
@@ -30,8 +31,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.4.tgz"
-    sha256 "bbe35ce6646e4168fcb1071d5f83b2d1154924f5150df0f5fca0f37d2583a182"
+    url "https://rubygems.org/rubygems/rubygems-2.7.6.tgz"
+    sha256 "67f714a582a9ce471bbbcb417374ea9cf9c061271c865dbb0d093f3bc3371eeb"
   end
 
   def program_suffix
