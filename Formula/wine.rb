@@ -82,7 +82,7 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+    url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
     mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
     sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
   end
