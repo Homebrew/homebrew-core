@@ -5,9 +5,9 @@ class Babl < Formula
   sha256 "f463fda0dec534c442234d1c374ea5d19abe0da942e11c9c5092dcc6b30cde7d"
 
   bottle do
-    sha256 "eb92691ca1eb028ec22a81dc7c651ac775df3a28f009d9269d4b127e6ae2e4f2" => :high_sierra
-    sha256 "e0fd28fc57304bb99b4e314750ccf7e53b867ae197a2f89fee663c92fc0bbf99" => :sierra
-    sha256 "22e7a45f84ba983ea2e21648b5c92ff429101a8035a2626f19f6099503c18cc7" => :el_capitan
+    sha256 "73c468fb9fd53012a6f611f154197a7c4a1818ee018975e80e93c32d0021711c" => :high_sierra
+    sha256 "7d6ec0effa8a598cd74f9626847f81b428c9da28a1b08b3f0a5f5793626b15d6" => :sierra
+    sha256 "739f3f0cb627c1d91dcadf1fda141afa5721aeaa410311246cdd358a0d6849e5" => :el_capitan
   end
 
   head do
