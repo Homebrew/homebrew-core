@@ -6,7 +6,7 @@ class Neomutt < Formula
   head "https://github.com/neomutt/neomutt.git"
 
   depends_on "docbook-xsl" => :build
-  depends_on "gettext" => :build
+  depends_on "gettext"
   depends_on "gpgme"
   depends_on "libidn"
   depends_on "lmdb"
