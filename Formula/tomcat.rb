@@ -1,9 +1,8 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz"
-  sha256 "791529a4289d3d5356f8f93afcfa0ee20f4b31e454be650f1dd469524ebfa1fc"
+  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.5/bin/apache-tomcat-9.0.5.tar.gz"
+  sha256 "2677380fca68e5fa6263b4abf9646d39821156f03341fdb511fac23b16972786"
 
   bottle :unneeded
 
@@ -12,9 +11,8 @@ class Tomcat < Formula
   depends_on :java => "1.8+"
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4-fulldocs.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4-fulldocs.tar.gz"
-    sha256 "ad14b2f473bb1d47ccfd47415241d7c49fad292fbb2bd2e1f3a88323b7c97b9f"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.5/bin/apache-tomcat-9.0.5-fulldocs.tar.gz"
+    sha256 "485b0f73ac11584edee4f290d7034eb75793d709d5e33c4e2db5355bb5ba9aa9"
   end
 
   def install
