@@ -1,8 +1,8 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
-  url "https://www.chocolate-doom.org/downloads/2.3.0/chocolate-doom-2.3.0.tar.gz"
-  sha256 "3e6d1a82ac5c8b025a9695ce1e47d0dc6ed142ebb1129b1e4a70e2740f79150c"
+  url "https://www.chocolate-doom.org/downloads/3.0.0/chocolate-doom-3.0.0.tar.gz"
+  sha256 "73aea623930c7d18a7a778eea391e1ddfbe90ad1ac40a91b380afca4b0e1dab8"
 
   bottle do
     cellar :any
@@ -19,9 +19,10 @@ class ChocolateDoom < Formula
     depends_on "autoconf" => :build
   end
 
-  depends_on "sdl"
-  depends_on "sdl_net"
-  depends_on "sdl_mixer"
+  depends_on "pkg-config" => :build
+  depends_on "sdl2"
+  depends_on "sdl2_net"
+  depends_on "sdl2_mixer"
   depends_on "libsamplerate" => :recommended
   depends_on "libpng" => :recommended
 
