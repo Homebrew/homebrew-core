@@ -1,7 +1,7 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
-  homepage "http://proj4.org"
-  url "http://download.osgeo.org/proj/proj-4.9.3.tar.gz"
+  homepage "http://proj4.org/"
+  url "https://download.osgeo.org/proj/proj-4.9.3.tar.gz"
   sha256 "6984542fea333488de5c82eea58d699e4aff4b359200a9971537cd7e047185f7"
 
   bottle do
@@ -22,53 +22,53 @@ class Proj < Formula
 
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
-    url "http://download.osgeo.org/proj/proj-datumgrid-1.5.zip"
+    url "https://download.osgeo.org/proj/proj-datumgrid-1.5.zip"
     sha256 "723c4017d95d7a8abdf3bda4e18d3c15d79b00f9326d453da5fdf13f96c287db"
   end
 
   # Vertical datum files
   resource "usa_geoid2012" do
-    url "http://download.osgeo.org/proj/vdatum/usa_geoid2012.zip"
+    url "https://download.osgeo.org/proj/vdatum/usa_geoid2012.zip"
     sha256 "afe49dc2c405d19a467ec756483944a3c9148e8c1460cb7e82dc8d4a64c4c472"
   end
 
   resource "usa_geoid2009" do
-    url "http://download.osgeo.org/proj/vdatum/usa_geoid2009.zip"
+    url "https://download.osgeo.org/proj/vdatum/usa_geoid2009.zip"
     sha256 "1a232fb7fe34d2dad2d48872025597ac7696882755ded1493118a573f60008b1"
   end
 
   resource "usa_geoid2003" do
-    url "http://download.osgeo.org/proj/vdatum/usa_geoid2003.zip"
+    url "https://download.osgeo.org/proj/vdatum/usa_geoid2003.zip"
     sha256 "1d15950f46e96e422ebc9202c24aadec221774587b7a4cd963c63f8837421351"
   end
 
   resource "usa_geoid1999" do
-    url "http://download.osgeo.org/proj/vdatum/usa_geoid1999.zip"
+    url "https://download.osgeo.org/proj/vdatum/usa_geoid1999.zip"
     sha256 "665cd4dfc991f2517752f9db84d632b56bba31a1ed6a5f0dc397e4b0b3311f36"
   end
 
   resource "vertconc" do
-    url "http://download.osgeo.org/proj/vdatum/vertcon/vertconc.gtx"
+    url "https://download.osgeo.org/proj/vdatum/vertcon/vertconc.gtx"
     sha256 "ecf7bce7bf9e56f6f79a2356d8d6b20b9cb49743701f81db802d979b5a01fcff"
   end
 
   resource "vertcone" do
-    url "http://download.osgeo.org/proj/vdatum/vertcon/vertcone.gtx"
+    url "https://download.osgeo.org/proj/vdatum/vertcon/vertcone.gtx"
     sha256 "f6da1c615c2682ecb7adcfdf22b1d37aba2771c2ea00abe8907acea07413903b"
   end
 
   resource "vertconw" do
-    url "http://download.osgeo.org/proj/vdatum/vertcon/vertconw.gtx"
+    url "https://download.osgeo.org/proj/vdatum/vertcon/vertconw.gtx"
     sha256 "de648c0f6e8b5ebfc4b2d82f056c7b993ca3c37373a7f6b7844fe9bd4871821b"
   end
 
   resource "egm96_15" do
-    url "http://download.osgeo.org/proj/vdatum/egm96_15/egm96_15.gtx"
+    url "https://download.osgeo.org/proj/vdatum/egm96_15/egm96_15.gtx"
     sha256 "c02a6eb70a7a78efebe5adf3ade626eb75390e170bb8b3f36136a2c28f5326a0"
   end
 
   resource "egm08_25" do
-    url "http://download.osgeo.org/proj/vdatum/egm08_25/egm08_25.gtx"
+    url "https://download.osgeo.org/proj/vdatum/egm08_25/egm08_25.gtx"
     sha256 "c18f20d1fe88616e3497a3eff993227371e1d9acc76f96253e8d84b475bbe6bf"
   end
 
