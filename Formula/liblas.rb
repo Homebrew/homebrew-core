@@ -1,7 +1,7 @@
 class Liblas < Formula
   desc "C/C++ library for reading and writing the LAS LiDAR format"
   homepage "https://liblas.org/"
-  url "http://download.osgeo.org/liblas/libLAS-1.8.1.tar.bz2"
+  url "https://download.osgeo.org/liblas/libLAS-1.8.1.tar.bz2"
   sha256 "9adb4a98c63b461ed2bc82e214ae522cbd809cff578f28511122efe6c7ea4e76"
   head "https://github.com/libLAS/libLAS.git"
 
