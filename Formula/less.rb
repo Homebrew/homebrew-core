@@ -6,10 +6,9 @@ class Less < Formula
   sha256 "503f91ab0af4846f34f0444ab71c4b286123f0044a4964f1ae781486c617f2e2"
 
   bottle do
-    sha256 "482f63381cba240e0e90bf9f2d970c39e30a3580e31ff49c8210d6e5a0e7d3ad" => :high_sierra
-    sha256 "9ca07bd92196f4fbf122054b3ee394f43f14173b816a5217f05661453c13dd23" => :sierra
-    sha256 "877f32f255528633a67c4ae76dfda423315473a0780f8f066b7d78af4d58bbc8" => :el_capitan
-    sha256 "5be9c4ad7e6eda596a6828d1f49c70612ac02e2df6a65254e99dc1a34ecf1095" => :yosemite
+    sha256 "edec3486e523a601dfe978a8a9524c8cef7a161c8e892d3154cd578623e866a7" => :high_sierra
+    sha256 "10c47d26e0f2e1f9c2e46a6bd61b2d07e1104caaa58c188b4b81b7fe0cd948d1" => :sierra
+    sha256 "0e98c6e82ecf7adb2d5288f3f4913ffa238469438b325211adf56eff9b260876" => :el_capitan
   end
 
   depends_on "pcre" => :optional
