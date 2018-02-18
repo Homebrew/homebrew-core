@@ -6,9 +6,9 @@ class Openrtsp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d2aacbf2b2b8d9be2b3476ef165fc109c11e18adf5e5712d58b4fc90fb930058" => :high_sierra
-    sha256 "74f23cfbea38951b5edf7a1ecbd128ed98d90dd06e63f7b8abb4365708ec67d6" => :sierra
-    sha256 "e2c9c1e08f0810ec608974421e17bfe7adeb94ffae31ca2d753e932f76aa7654" => :el_capitan
+    sha256 "e2425b94722f5de20bf1a87d1750828966913587c25bb72041cab08b905b4ba3" => :high_sierra
+    sha256 "fed8851ec91da788a015e1bd09ff247a099f5270a7500e437dd01d324c6fa05e" => :sierra
+    sha256 "7fc61d2635245ce6cfdbe4edccba70235a0b680938410ef928e53dfa6b73d653" => :el_capitan
   end
 
   def install
