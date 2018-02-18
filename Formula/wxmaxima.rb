@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://andrejv.github.io/wxmaxima"
-  url "https://github.com/andrejv/wxmaxima/archive/Version-17.10.1.tar.gz"
-  sha256 "61276008be667779b4cde4d17b10c179c869d94a2eb2b4f273974fccc2609f62"
+  url "https://github.com/andrejv/wxmaxima/archive/Version-18.02.0.tar.gz"
+  sha256 "727303bd26bdc7eb72dea0b0fcfa60c0180993430d55a4e3700c92eb5e16790e"
   head "https://github.com/andrejv/wxmaxima.git"
 
   bottle do
@@ -12,20 +12,12 @@ class Wxmaxima < Formula
     sha256 "62be362ff5d80cd7334fdb00e4b71aa24e4cf65d560e54861e70196e1e9fdddb" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "gettext" => :build
   depends_on "wxmac"
 
   def install
-    system "./bootstrap"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
-    cd "locales" do
-      system "make", "allmo"
-    end
-    system "make", "wxMaxima.app"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
     prefix.install "wxMaxima.app"
   end
