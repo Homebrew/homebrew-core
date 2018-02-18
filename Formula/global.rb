@@ -3,7 +3,8 @@ class Global < Formula
   homepage "https://www.gnu.org/software/global/"
   url "https://ftp.gnu.org/gnu/global/global-6.6.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/global/global-6.6.2.tar.gz"
-  sha256 "ca1dc15e9f320983e4d53ccb947ce58729952728273fdf415ab309ea2c0cd7fa"
+  sha256 "43c64711301c2caf40dc56d7b91dd03d2b882a31fa31812bf20de0c8fb2e717f"
+  revision 1
 
   bottle do
     sha256 "c262bfe9dd7728df2d0ae22da2e646be5a12c666450507fabec6d0f70367b82c" => :high_sierra
