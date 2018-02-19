@@ -3,7 +3,7 @@ class KubePs1 < Formula
   homepage "https://github.com/jonmosco/kube-ps1"
   url "https://github.com/jonmosco/kube-ps1/archive/0.4.0.tar.gz"
   sha256 "0133c5b41609ab8b4e0715f6581a8ee006a979028ddd697bab7a28c02f903db5"
-  head "https://github.com/jonmosco/kube-ps1"
+  head "https://github.com/jonmosco/kube-ps1.git"
 
   bottle :unneeded
 
