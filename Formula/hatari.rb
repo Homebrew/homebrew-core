@@ -23,7 +23,7 @@ class Hatari < Formula
   if MacOS.verion <= :high_sierra
     patch do
       url "url du patch"
-      sha256 "son shasum"
+      sha256 "41da2a89fe28bfe145cd788844c83c6a856e01dc7b83cb72af7c281a3bedd65a"
     end
   end
 
