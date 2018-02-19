@@ -1,16 +1,12 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
   homepage "https://hatari.tuxfamily.org"
-  url "https://download.tuxfamily.org/hatari/2.0.0/hatari-2.0.0.tar.bz2"
-  sha256 "52a447a59b6979d55d1525f3c4a21ec013e4371354d6683ede71546c5e6da577"
+  url "https://download.tuxfamily.org/hatari/2.1.0/hatari-2.1.0.tar.bz2"
+  sha256 "eb299460e92db4a8a2983a0725cbbc8c185f1470b8ecd791b3d102815da20924"
   head "https://hg.tuxfamily.org/mercurialroot/hatari/hatari", :using => :hg, :branch => "default"
 
   bottle do
     cellar :any
-    sha256 "b865990d4e0da26e1e72040392f3d7808b3798682caedb4dd596c768c66436b3" => :high_sierra
-    sha256 "1a0dfc82688af52fb70c34a7b9f2b9cf81cbd5ca7c085f9130843b2af252c5af" => :sierra
-    sha256 "1fbd64ae48dfb33320c46ddb3d245aa5f1da00338cc5c08d4eefe7dacd649265" => :el_capitan
-    sha256 "5a46ec43c7564381a9716c58d5be431c897efc1a2b36a8b2797ee7db9b572061" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -20,8 +16,15 @@ class Hatari < Formula
 
   # Download EmuTOS ROM image
   resource "emutos" do
-    url "https://downloads.sourceforge.net/project/emutos/emutos/0.9.6/emutos-512k-0.9.6.zip"
-    sha256 "2c7d57cac6792d0c7e921f9655f224b039402283dd24c894b085c7b6e9a053a6"
+    url "https://downloads.sourceforge.net/project/emutos/emutos/0.9.9.1/emutos-512k-0.9.9.1.zip"
+    sha256 "ab94cd249aebd7fb1696cbd5992734042450d8b96525f707e9ad8a2283185341"
+  end
+
+  # Fix build by providing missing NSAlertStyleInformational
+  # Remove in next version.
+  patch do
+    url "https://hg.tuxfamily.org/mercurialroot/hatari/hatari/raw-rev/21bc2b0ebae4"
+    sha256 "0d6ca48030749061246d5edbf61e4bf2ad0311d5f004c1df8bee1d662b581dc6"
   end
 
   def install
