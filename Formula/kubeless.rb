@@ -2,8 +2,8 @@ class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
   url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.3.4",
-      :revision => "d16de3f6fd52460753fb81fafbcfc514dfc702e2"
+      :tag => "v0.4.0",
+      :revision => "4f4f531f6a1b685bf3842b26cfff5ca7eee533cc"
 
   bottle do
     cellar :any_skip_relocation
@@ -38,7 +38,33 @@ class Kubeless < Formula
     pid = fork do
       loop do
         socket = server.accept
-        response = "OK"
+        request = socket.gets
+        request_path = request.split(" ")[1]
+        if request_path == "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
+          response = '{
+            "kind": "ConfigMap",
+            "apiVersion": "v1",
+            "metadata": { "name": "kubeless-config", "namespace": "kubeless" },
+            "data": {
+              "runtime-images": "[{' \
+                '\"ID\": \"python\",' \
+                '\"versions\": [{' \
+                  '\"name\": \"python27\",' \
+                  '\"version\": \"2.7\",' \
+                  '\"httpImage\": \"kubeless/python\"' \
+                  "}]" \
+                '}]"
+              }
+            }'
+        elsif request_path == "/apis/kubeless.io/v1beta1/namespaces/default/functions"
+          response = '{
+            "apiVersion": "kubeless.io/v1beta1",
+            "kind": "Function",
+            "metadata": { "name": "get-python", "namespace": "default" }
+            }'
+        else
+          response = "OK"
+        end
         socket.print "HTTP/1.1 200 OK\r\n" \
                     "Content-Length: #{response.bytesize}\r\n" \
                     "Connection: close\r\n"
