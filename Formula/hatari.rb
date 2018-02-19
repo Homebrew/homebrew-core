@@ -20,6 +20,13 @@ class Hatari < Formula
     sha256 "ab94cd249aebd7fb1696cbd5992734042450d8b96525f707e9ad8a2283185341"
   end
 
+  if MacOS.verion <= :high_sierra
+    patch do
+      url "url du patch"
+      sha256 "son shasum"
+    end
+  end
+
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
