@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.3.3.tar.gz"
-  sha256 "43444bde8d7106e2a648dbf3e8f75ea4794758931f48ea6fc0b9ef0937fdf0ac"
+  url "https://github.com/cloudreach/sceptre/archive/v1.3.4.tar.gz"
+  sha256 "ff5e61b0b4cfc2cc05058b3f4f2a5503bc8b66784dbdd32cf3b870c0952f7dc1"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Sceptre < Formula
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/13/78/3eb78ea67566d762a7737cddc72b3abb1645616a0ecd455dcdf4d0dc3fb5/boto3-1.5.31.tar.gz"
-    sha256 "65d7b85d213b63f4540b259b5a9780db8b0cbdcb5d748545d1eb19992910587b"
+    url "https://files.pythonhosted.org/packages/8a/aa/8d3b788083d6b983e863e907f723d4575e3643d73ffa22317c57f6b33461/boto3-1.5.35.tar.gz"
+    sha256 "74e38e9fd0d6450d8a95dae2158cb6f4c7279bb3249b486b4ebe00819db643b9"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ff/0e/658d6d37924a57073164a34704213fced94a14695dd3424383102b3e755a/botocore-1.8.45.tar.gz"
-    sha256 "8f91b648a216dc945783d1539c013fc08a9e65ecc4fc5aae017bdd5961fd3468"
+    url "https://files.pythonhosted.org/packages/e7/22/8dc6f2ff47294d7d59edd79223eab4771f31e27d18fce2548365fb69b9a6/botocore-1.8.49.tar.gz"
+    sha256 "fe0b45216e3a34507aefdf7a67bf53f9303abb23ba4b1899824d16ecfa0433fd"
   end
 
   resource "click" do
@@ -95,7 +95,6 @@ class Sceptre < Formula
   end
 
   test do
-    output = shell_output("#{bin}/sceptre create .", 1)
-    assert_equal "Check '#{testpath.realpath}/config' exists.", output.chomp
+    system bin/"sceptre", "--help"
   end
 end
