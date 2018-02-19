@@ -1,8 +1,8 @@
 class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
-  url "https://github.com/mas-cli/mas/archive/v1.4.0.tar.gz"
-  sha256 "9fe07103c285ea69db1cdf527c6c8def5732c028d7014313a04bb0cf5b6c2302"
+  url "https://github.com/mas-cli/mas/archive/v1.4.1.tar.gz"
+  sha256 "4fd91c13b46d403b52dbee3891adb3cd6571e07ad20cf58de0100c9f695e6c24"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Mas < Formula
 
   def install
     xcodebuild "-project", "mas-cli.xcodeproj",
-               "-scheme", "mas-cli",
+               "-scheme", "mas-cli Release",
                "-configuration", "Release",
                "SYMROOT=build"
     bin.install "build/mas"
