@@ -4,19 +4,16 @@ class Tinycdb < Formula
   url "http://www.corpit.ru/mjt/tinycdb/tinycdb-0.78.tar.gz"
   sha256 "50678f432d8ada8d69f728ec11c3140e151813a7847cf30a62d86f3a720ed63c"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "7b3ca0152fa89592ce48a85cca3aad67b3c1f0ad35e153a52bbb8a772540dd3d" => :high_sierra
-    sha256 "a1b2de0589b4530d51f33060657d5c7f08a46d1e90b60f2c2a03f499ff944a4e" => :sierra
-    sha256 "4f4341c31d1ed6eddce4dfa57360e339f27f37a0db5b5b6df8df46f5ccda65c2" => :el_capitan
-    sha256 "d73abbd1439c1579c3ab925d2110fee60f287bb9b262850e030c74f7c356bcaa" => :yosemite
-    sha256 "b35dda3e5219c993140f7ed6244f483b0159cbd4458fb3ee4461e25daa368d41" => :mavericks
-    sha256 "cc08f9c7d8ab18de0f547d6790ebef51ad0984e82ed99e8d2cb7567725ca8eb5" => :mountain_lion
+  # This patch enables install-sharedlib to build a .dylib on macOS.
+  patch do
+    url "https://gist.githubusercontent.com/zeha/f11da05f59dcef00c7098ac8c988534b/raw/ebfa8035fa2abf04a57b56058c6cce6f402e593e/tinycdb-dylib.patch"
+    sha256 "56884df015105f2e408e4b5779162de77c406e2fa2f7952e4f3ffdfffb2b47fc"
   end
 
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"
+    system "make", "install-sharedlib", "prefix=#{prefix}", "mandir=#{man}"
   end
 
   test do
