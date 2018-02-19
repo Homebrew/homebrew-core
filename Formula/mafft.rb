@@ -14,9 +14,7 @@ class Mafft < Formula
   depends_on :macos => :lion
 
   def install
-    make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} CFAGS=#{ENV.cflags}
-                   CXXFLAGS=#{ENV.cxxflags} PREFIX=#{prefix} MANDIR=#{man1}
-                   install]
+    make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} PREFIX=#{prefix} install]
 
     cd "core" do
       system "make", *make_args
