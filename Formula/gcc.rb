@@ -52,6 +52,7 @@ class Gcc < Formula
   end
 
   # Fix parallel build on APFS filesystem
+  # Remove for 7.4.0 and later
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
   if MacOS.version >= :high_sierra
     patch do
