@@ -1,5 +1,5 @@
 class Zip < Formula
-  desc "Compression and file packaging/archive utility"
+  desc "Compression and file packaging/archive utility, including bzip2 support"
   homepage "http://www.info-zip.org/Zip.html"
   url "https://downloads.sourceforge.net/project/infozip/Zip%203.x%20%28latest%29/3.0/zip30.tar.gz"
   version "3.0"
