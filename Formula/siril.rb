@@ -18,7 +18,6 @@ class Siril < Formula
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "cfitsio"
-  depends_on "curl"
   depends_on "ffms2"
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
