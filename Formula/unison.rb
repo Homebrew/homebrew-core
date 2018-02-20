@@ -1,9 +1,9 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.4.tar.gz"
-  sha256 "30aa53cd671d673580104f04be3cf81ac1e20a2e8baaf7274498739d59e99de8"
-  revision 1
+  url "https://github.com/bcpierce00/unison/archive/v2.48.15v4.tar.gz"
+  version "2.48.15"
+  sha256 "f8c7e982634bbe1ed6510fe5b36b6c5c55c06caefddafdd9edc08812305fdeec"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Unison < Formula
   depends_on "ocaml" => :build
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.deparallelize
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
-    system "make", "./mkProjectInfo"
+    system "make", "src/mkProjectInfo"
     system "make", "UISTYLE=text"
-    bin.install "unison"
+    bin.install "src/unison"
+    prefix.install_metafiles "src"
   end
 
   test do
