@@ -21,7 +21,7 @@ class Hatari < Formula
   end
 
   # Fix build by providing missing NSAlertStyleInformational
-  # Remove in next version
+  # Remove in next version.
   patch do
     url "https://hg.tuxfamily.org/mercurialroot/hatari/hatari/raw-rev/21bc2b0ebae4"
     sha256 "0d6ca48030749061246d5edbf61e4bf2ad0311d5f004c1df8bee1d662b581dc6"
