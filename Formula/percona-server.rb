@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-19/source/tarball/percona-server-5.7.20-19.tar.gz"
-  sha256 "17f06c07165954e7eacc3ba2cac0e1d4ba65b0b568f2437298d3c17a6a0940fd"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.21-20/source/tarball/percona-server-5.7.21-20.tar.gz"
+  sha256 "842785e9b73c606be00ea74f568615d3427362fbeed5c136d8f509f03c9d43a6"
 
   bottle do
     sha256 "f7e92bf47cdeb861426231fbdf5f641f0ca7e211b8e7f12618251a4905aa8075" => :high_sierra
@@ -57,12 +57,6 @@ class PerconaServer < Formula
     # Set HAVE_MEMSET_S flag to fix compilation
     # https://bugs.launchpad.net/percona-server/+bug/1741647
     ENV.prepend "CPPFLAGS", "-DHAVE_MEMSET_S=1"
-
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/legacy-homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
     # https://dev.mysql.com/doc/refman/5.7/en/source-configuration-options.html
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
