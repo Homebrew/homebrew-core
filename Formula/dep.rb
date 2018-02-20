@@ -14,7 +14,7 @@ class Dep < Formula
     sha256 "4e95ecf37819ce91f1e52a6b11e6c875c2e9b3b17edba1b919c55ffc98ba95cf" => :el_capitan
   end
 
-  depends_on "go"
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
