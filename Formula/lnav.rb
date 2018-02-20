@@ -2,8 +2,8 @@ class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
   homepage "https://github.com/tstack/lnav"
-  url "https://github.com/tstack/lnav/releases/download/v0.8.2/lnav-0.8.2.tar.gz"
-  sha256 "0f6a235aa3719f84067d510127730f5834a8874795494c9292c2f0de43db8c70"
+  url "https://github.com/tstack/lnav/releases/download/v0.8.3/lnav-0.8.3.tar.gz"
+  sha256 "33808b07f6dac601b57ad551d234b30c8826c55cb8138bf221af9fedc73a3fb8"
 
   bottle do
     sha256 "cba3ec43a680bbafb94a76111b677cfbef2aa1e5c0d97bd0b9b954213c6daf15" => :high_sierra
@@ -23,25 +23,15 @@ class Lnav < Formula
   depends_on "readline"
   depends_on "pcre"
   depends_on "sqlite" if MacOS.version < :sierra
-  depends_on "curl" => ["with-libssh2", :optional]
 
   def install
     # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
     ENV.delete("SDKROOT")
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-readline=#{Formula["readline"].opt_prefix}
-    ]
-
-    # macOS ships with libcurl by default, albeit without sftp support. If we
-    # want lnav to use the keg-only curl formula that we specify as a
-    # dependency, we need to pass in the path.
-    args << "--with-libcurl=#{Formula["curl"].opt_lib}" if build.with? "curl"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make", "install"
   end
 end
