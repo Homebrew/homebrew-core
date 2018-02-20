@@ -20,11 +20,11 @@ class Hatari < Formula
     sha256 "ab94cd249aebd7fb1696cbd5992734042450d8b96525f707e9ad8a2283185341"
   end
 
-  if MacOS.verion <= :high_sierra
-    patch do
-      url "url du patch"
-      sha256 "41da2a89fe28bfe145cd788844c83c6a856e01dc7b83cb72af7c281a3bedd65a"
-    end
+  # Fix build by providing missing NSAlertStyleInformational
+  # Remove in next version
+  patch do
+    url "https://hg.tuxfamily.org/mercurialroot/hatari/hatari/raw-rev/21bc2b0ebae4"
+    sha256 "0d6ca48030749061246d5edbf61e4bf2ad0311d5f004c1df8bee1d662b581dc6"
   end
 
   def install
