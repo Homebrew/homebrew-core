@@ -1,8 +1,8 @@
 class Rkhunter < Formula
   desc "Rootkit hunter"
   homepage "https://rkhunter.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.4/rkhunter-1.4.4.tar.gz"
-  sha256 "a8807c83f9f325312df05aa215fa75ad697c7a16163175363c2066baa26dda77"
+  url "https://downloads.sourceforge.net/project/rkhunter/rkhunter/1.4.6/rkhunter-1.4.6.tar.gz"
+  sha256 "9c0f310583ff0dd8168010acd45c7d2e3a37e176300ac642269bce3d759ebda0"
 
   bottle do
     cellar :any_skip_relocation
