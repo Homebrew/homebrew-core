@@ -1,8 +1,8 @@
 class Flatcc < Formula
   desc "FlatBuffers Compiler and Library in C for C"
   homepage "https://github.com/dvidelabs/flatcc"
-  url "https://github.com/dvidelabs/flatcc/archive/v0.5.0.tar.gz"
-  sha256 "ef97a1c983b6d3a08572af535643600d03a6ff422f64b3dfa380a7193630695c"
+  url "https://github.com/dvidelabs/flatcc/archive/v0.5.1.tar.gz"
+  sha256 "8c4560ca32e3c555716d9363bed469e2c60e0f443ec32bc08e7abfe681e25ca9"
   head "https://github.com/dvidelabs/flatcc.git"
 
   bottle do
