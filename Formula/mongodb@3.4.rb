@@ -2,8 +2,8 @@ class MongodbAT34 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
 
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.10.tar.gz"
-  sha256 "443800ca4f52fa613b29052f5f76abc0ccc477451b55f3665b61819f28ace2f3"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.13.tar.gz"
+  sha256 "be80bd8a183ed2cf3c1cf06d473addedd8b270356182881e6a9e93eb7f700172"
 
   bottle do
     sha256 "9a35ae695c73c1a07dda1ba6ab694734fa774b408a3117c0907ccb7efa710372" => :high_sierra
