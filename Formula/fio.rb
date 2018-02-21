@@ -6,9 +6,9 @@ class Fio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ecc70574c62c9bac332e7969a1037b5f81ac5f4df3ebf062a99cbc49906f37b8" => :high_sierra
-    sha256 "dd840df5d1af841108b1698bed0c02dceaa5726579f0c1b540107d19bd0e2e39" => :sierra
-    sha256 "f3c22e03dc23aa9f4bc3f5b2f752d7889640b9131814ec5203e35ad8cd6c9691" => :el_capitan
+    sha256 "c22570d3fd4a89b6a01df4b5dc361212846925ce0c13092e3f94e8fff1e6b69c" => :high_sierra
+    sha256 "c7cedc3e313d9d4f03196ae2d049665f9d1636b1824cd9debcd3acfcc796e5bb" => :sierra
+    sha256 "0255c72ea14fe44625c23c8ecd3cfc2c7b7fb1ae1e5cd04418048e9fd1cfabe9" => :el_capitan
   end
 
   def install
