@@ -87,17 +87,6 @@ class GdkPixbuf < Formula
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
   end
 
-  def caveats
-    if HOMEBREW_PREFIX.to_s != "/usr/local"
-      <<~EOS
-        Programs that require this module need to set the environment variable
-          export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
-        If you need to manually update the query loader cache, set these variables then run
-          #{bin}/gdk-pixbuf-query-loaders --update-cache
-      EOS
-    end
-  end
-
   test do
     (testpath/"test.c").write <<~EOS
       #include <gdk-pixbuf/gdk-pixbuf.h>
