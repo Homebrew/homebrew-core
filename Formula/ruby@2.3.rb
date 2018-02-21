@@ -3,7 +3,7 @@ class RubyAT23 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.xz"
   sha256 "e0d969ac22d4a403c1204868bb9c0d068aa35045bb3934cf50b17b7f66059f56"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "69f685579f193bebdf1111600173ea7ff17c543193dd2fd2b38a9698d77c13de" => :high_sierra
@@ -30,8 +30,8 @@ class RubyAT23 < Formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.4.tgz"
-    sha256 "bbe35ce6646e4168fcb1071d5f83b2d1154924f5150df0f5fca0f37d2583a182"
+    url "https://rubygems.org/rubygems/rubygems-2.7.6.tgz"
+    sha256 "67f714a582a9ce471bbbcb417374ea9cf9c061271c865dbb0d093f3bc3371eeb"
   end
 
   def program_suffix
