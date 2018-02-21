@@ -47,10 +47,10 @@ class Petsc < Formula
     system "make", "all", "--makefile=gmakefile"
     system "make", "install"
 
-    # PETSc produces some non-executables in bin dir; do not link these
-    ln_s "#{prefix}/real/bin/*.py", bin.to_s
-    ln_s "#{prefix}/real/include", include.to_s
-    ln_s "#{prefix}/real/lib", lib.to_s
+    # Link #{prefix}/petsc/real/{include,lib} into #{prefix}
+    include.install_symlink Dir["#{prefix}/real/include/*"]
+    lib.install_symlink Dir["#{prefix}/real/lib/lib*.*"]
+    pkgshare.install_symlink Dir["#{prefix}/real/share/*"]
   end
 
   test do
