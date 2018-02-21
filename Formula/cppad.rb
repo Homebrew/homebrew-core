@@ -2,8 +2,8 @@ class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
   # Stable versions have numbers of the form 201x0000.y
-  url "https://github.com/coin-or/CppAD/archive/20170000.8.tar.gz"
-  sha256 "195ed02970b06e8b9546ffe198e662dabdaf56f262d11fbdf6fdc9cf77a3e011"
+  url "https://github.com/coin-or/CppAD/archive/20180000.0.tar.gz"
+  sha256 "a5226e4c5aa2ad6d95668f987b39939315bf134a0a793231984e6d42d6488cca"
   version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
@@ -38,7 +38,7 @@ class Cppad < Formula
       }
     EOS
 
-    system ENV.cxx, "#{pkgshare}/example/acos.cpp", "-I#{include}",
+    system ENV.cxx, "#{pkgshare}/example/general/acos.cpp", "-I#{include}",
                     "test.cpp", "-o", "test"
     system "./test"
   end
