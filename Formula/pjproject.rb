@@ -6,9 +6,9 @@ class Pjproject < Formula
 
   bottle do
     cellar :any
-    sha256 "6b5ac553cdb40d47f6e35ffd0b52736678b929bc6eaa463caa611adca1d52ef9" => :high_sierra
-    sha256 "37fbe15419028b6057780e26403faf91fc963b815e1599ae336d9abae04878f8" => :sierra
-    sha256 "395f3e6103bccaca54622224653e42d2aa02c5dfd09783e7dc04166c9987a831" => :el_capitan
+    sha256 "eec232d8fe6c5b4e05521a87a4bd1a5cb4fcc6a4f0a996ddaacc33bd2d93255f" => :high_sierra
+    sha256 "f7d12f6bcb2a628df0e87e4bbaffc368ca004ed6de12d11d4d019b080257a2d0" => :sierra
+    sha256 "52a55c49ef0d0d53abf447fd060e7eaf8bd1d10c8f6b419582c5e453634d5b61" => :el_capitan
   end
 
   depends_on "openssl"
