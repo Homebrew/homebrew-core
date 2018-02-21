@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/0.8.0.tar.gz"
-  sha256 "c26391013522dfce3d870aec911fc602425e2eb385b75802b5b44440f4c32e24"
+  url "https://github.com/BurntSushi/ripgrep/archive/0.8.1.tar.gz"
+  sha256 "7035379fce0c1e32552e8ee528b92c3d01b8d3935ea31d26c51a73287be74bb3"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
@@ -12,9 +12,12 @@ class Ripgrep < Formula
   end
 
   depends_on "asciidoc" => :build
+  depends_on "docbook-xsl" => :build
   depends_on "rust" => :build
 
   def install
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     system "cargo", "build", "--release"
 
     bin.install "target/release/rg"
