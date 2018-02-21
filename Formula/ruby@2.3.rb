@@ -26,14 +26,6 @@ class RubyAT23 < Formula
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
 
-  # This should be kept in sync with the main Ruby formula
-  # but a revision bump should not be forced every update
-  # unless there are security fixes in that Rubygems release.
-  resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.4.tgz"
-    sha256 "bbe35ce6646e4168fcb1071d5f83b2d1154924f5150df0f5fca0f37d2583a182"
-  end
-
   def program_suffix
     build.with?("suffix") ? "23" : ""
   end
@@ -99,42 +91,9 @@ class RubyAT23 < Formula
 
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
-
-    # This is easier than trying to keep both current & versioned Ruby
-    # formulae repeatedly updated with Rubygem patches.
-    resource("rubygems").stage do
-      ENV.prepend_path "PATH", bin
-
-      system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
-      rg_in = lib/"ruby/#{api_version}"
-
-      # Remove bundled Rubygem version.
-      rm_rf rg_in/"rubygems"
-      rm_f rg_in/"rubygems.rb"
-      rm_f rg_in/"ubygems.rb"
-      rm_f bin/"gem#{program_suffix}"
-
-      # Drop in the new version.
-      rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
-      bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle#{program_suffix}"
-      (libexec/"gembin").install_symlink "bundle#{program_suffix}" => "bundler#{program_suffix}"
-    end
   end
 
   def post_install
-    # Since Gem ships Bundle we want to provide that full/expected installation
-    # but to do so we need to handle the case where someone has previously
-    # installed bundle manually via `gem install`.
-    rm_f %W[
-      #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundle#{program_suffix}
-      #{rubygems_bindir}/bundler
-      #{rubygems_bindir}/bundler#{program_suffix}
-    ]
-    rm_rf Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"]
-    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
-
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
@@ -225,12 +184,5 @@ class RubyAT23 < Formula
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
     system "#{bin}/gem#{program_suffix}", "install", "json"
-
-    (testpath/"Gemfile").write <<~EOS
-      source 'https://rubygems.org'
-      gem 'gemoji'
-    EOS
-    system rubygems_bindir/"bundle#{program_suffix}", "install", "--binstubs=#{testpath}/bin"
-    assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
   end
 end
