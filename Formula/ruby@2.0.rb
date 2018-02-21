@@ -3,7 +3,7 @@ class RubyAT20 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.bz2"
   sha256 "087ad4dec748cfe665c856dbfbabdee5520268e94bb81a1d8565d76c3cc62166"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "05e1cbc036d1c06e517525674ab04a88f6272d8191c8bb6abb3fe5034ec7a37f" => :high_sierra
@@ -13,25 +13,10 @@ class RubyAT20 < Formula
 
   keg_only :versioned_formula
 
-  option "with-suffix", "Suffix commands with '20'"
-  option "with-doc", "Install documentation"
-  option "with-tcltk", "Install with Tcl/Tk support"
-
   depends_on "pkg-config" => :build
-  depends_on "readline" => :recommended
-  depends_on "gdbm" => :optional
-  depends_on "libffi" => :optional
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on :x11 if build.with? "tcltk"
-
-  def program_suffix
-    build.with?("suffix") ? "20" : ""
-  end
-
-  def ruby
-    "#{bin}/ruby#{program_suffix}"
-  end
+  depends_on "readline"
 
   def api_version
     "2.0.0"
@@ -42,28 +27,16 @@ class RubyAT20 < Formula
   end
 
   def install
+    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
+      --with-opt-dir=#{paths.join(":")}
+      --with-out-ext=tk
     ]
-
-    args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
-    args << "--with-out-ext=tk" if build.without? "tcltk"
-    args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
-
-    paths = [
-      Formula["libyaml"].opt_prefix,
-      Formula["openssl"].opt_prefix,
-    ]
-
-    %w[readline gdbm libffi].each do |dep|
-      paths << Formula[dep].opt_prefix if build.with? dep
-    end
-
-    args << "--with-opt-dir=#{paths.join(":")}"
 
     system "./configure", *args
 
@@ -85,6 +58,16 @@ class RubyAT20 < Formula
   end
 
   def post_install
+    # Since Gem ships Bundle we want to provide that full/expected installation
+    # but to do so we need to handle the case where someone has previously
+    # installed bundle manually via `gem install`.
+    rm_f %W[
+      #{rubygems_bindir}/bundle
+      #{rubygems_bindir}/bundler
+    ]
+    rm_rf Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"]
+    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
+
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
@@ -93,7 +76,7 @@ class RubyAT20 < Formula
 
     # Create the sitedir and vendordir that were skipped during install
     %w[sitearchdir vendorarchdir].each do |dir|
-      mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
+      mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
   end
 
@@ -156,7 +139,7 @@ class RubyAT20 < Formula
       end
 
       def self.ruby
-        "#{opt_bin}/ruby#{program_suffix}"
+        "#{opt_bin}/ruby"
       end
     end
     EOS
@@ -171,9 +154,9 @@ class RubyAT20 < Formula
   end
 
   test do
-    hello_text = shell_output("#{bin}/ruby#{program_suffix} -e 'puts :hello'")
+    hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
-    system "#{bin}/gem#{program_suffix}", "install", "json"
+    system "#{bin}/gem", "install", "json"
   end
 end
