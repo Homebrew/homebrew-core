@@ -6,9 +6,9 @@ class Picocom < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7c4c7aa2526c4cc4a51b269b45cd64ef13332654ea89dcb766e82c5a854d6342" => :high_sierra
-    sha256 "51d0909d18a489127656a08631ca1f11260cef6e28594442b54c9948df651ba5" => :sierra
-    sha256 "848326ca1dabf4b956f336b1d24c4a96df0c313c7f653e408dcaae41278cc1d0" => :el_capitan
+    sha256 "7fec5e767653710fa87d0be9d97735550af70aeb32fdcba1c7c0159e9078ee1a" => :high_sierra
+    sha256 "fb1bd439cb84f2667feee5e5c125ec9a51698e7d153c56decf95502848edc621" => :sierra
+    sha256 "ec353723ddf1f785bd75bb3a0e9bd5e92adacbe5b4a86ed5dabe53d20b1a362c" => :el_capitan
   end
 
   def install
