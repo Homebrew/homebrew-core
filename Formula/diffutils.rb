@@ -13,14 +13,55 @@ class Diffutils < Formula
     sha256 "e5c66fefaabbcbf9149128538bde4935be2bbc60849721c90546b21bca932399" => :yosemite
   end
 
+  option "with-default-names", "Do not prepend 'g' to the binary"
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
+    args << "--program-prefix=g" if build.without? "default-names"
+
+    system "./configure", *args
     system "make", "install"
+    if build.without? "default-names"
+      # Binaries not shadowing macOS utils symlinked without 'g' prefix
+      noshadow = %w[cmp diff diff3 sdiff]
+      noshadow.each do |cmd|
+        bin.install_symlink "g#{cmd}" => cmd
+        man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
+      end
+
+      # Symlink commands without 'g' prefix into libexec/gnubin and
+      # man pages into libexec/gnuman
+      bin.find.each do |path|
+        next unless File.executable?(path) && !File.directory?(path)
+        cmd = path.basename.to_s.sub(/^g/, "")
+        (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
+        (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
+      end
+    end
+  end
+
+  def caveats; <<~EOS
+    All commands have been installed with the prefix 'g'.
+
+    If you really need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/gnubin:$PATH"
+
+    Additionally, you can access their man pages with normal names if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+
+    EOS
   end
 
   test do
     (testpath/"a").write "foo"
     (testpath/"b").write "foo"
-    system bin/"diff", "a", "b"
+    system "#{libexec}/gnubin/diff", "a", "b"
   end
 end
