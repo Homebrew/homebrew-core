@@ -8,8 +8,8 @@ class Rust < Formula
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.24.0",
-          :revision => "45043115c9094d82f0f407ebc7ef7e583f438d12"
+          :tag => "0.25.0",
+          :revision => "8c93e089536467783957fec23b0f2627bb6ce357"
     end
 
     resource "racer" do
@@ -60,6 +60,11 @@ class Rust < Formula
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Prevent cargo from linking against a different library (like openssl@1.1)
+    # from libssh2 and causing segfaults
+    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
+    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
     # Fix build failure for cmake v0.1.24 "error: internal compiler error:
     # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for
