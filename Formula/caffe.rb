@@ -9,12 +9,12 @@ class Caffe < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "hdf5"
+  depends_on "protobuf"
+  depends_on "szip"
   depends_on "leveldb" => :optional
   depends_on "lmdb" => :optional
   depends_on "opencv" => :optional
-  depends_on "protobuf"
   depends_on "snappy" if build.with?("leveldb")
-  depends_on "szip"
 
   resource "test_model_weights" do
     url "http://dl.caffe.berkeleyvision.org/bvlc_reference_caffenet.caffemodel"
