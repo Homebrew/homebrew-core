@@ -1,10 +1,9 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.6.12.tar.gz"
-  sha256 "c421ab57a9ed23528e8b3722255b801ef1baa2d631e0725c0ba014314e1b11de"
-  revision 1
-  head "https://github.com/tarantool/tarantool.git", :branch => "1.8", :shallow => false
+  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.0.0.tar.gz"
+  sha256 "749c0207da2a2d3838e3c9619d33c56dc3fc515738885c798d728ed506be4717"
+  head "https://github.com/tarantool/tarantool.git", :branch => "2.0", :shallow => false
 
   bottle do
     sha256 "799cf6445545a127478031d305d724d09da8371787f223004533e04630abb76f" => :high_sierra
@@ -22,7 +21,6 @@ class Tarantool < Formula
 
     args = std_cmake_args
 
-    args << "-DCMAKE_CXX_FLAGS=-Wno-c++11-narrowing"
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
