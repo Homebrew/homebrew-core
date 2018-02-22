@@ -21,6 +21,7 @@ class R < Formula
   depends_on "xz"
   depends_on "openblas" => :optional
   depends_on :java => :optional
+  depends_on :x11 => :optional
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin"
@@ -42,12 +43,15 @@ class R < Formula
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
       "--without-cairo",
-      "--without-x",
       "--with-aqua",
       "--with-lapack",
       "--enable-R-shlib",
       "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
     ]
+
+    if build.without? "x11"
+      args << "--without-x"
+    end
 
     if build.with? "openblas"
       args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
