@@ -5,9 +5,9 @@ class Ginac < Formula
   sha256 "d60413a2dc4e65b3832491fdcdb03897e673f8ff69885f015e74a6e9c7d978ef"
 
   bottle do
-    sha256 "12fb4c423a2f2f8edbfb80e8418358d739c799d91b7972513de9fd030e589957" => :high_sierra
-    sha256 "f6bd9aec1dd59e05c289d2db81f5c2d820447347a0e995684341f1c5fd5d32d4" => :sierra
-    sha256 "02f150eca701df20c0e8629d8e5370ff93b82430dea360c188146fe7110e9e0f" => :el_capitan
+    sha256 "34b12f8c03cc21a11302f1c59b3852cd23563a071dda751b1004986801c0462e" => :high_sierra
+    sha256 "cd530a6c9656240a5afd12b03b30a7fc4a3724646150e78e86868206c2d816ac" => :sierra
+    sha256 "5ea2a6631c79b96a700f0706bd7a8cc2983a37f368040df029f0621aee1bdd82" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
