@@ -1,9 +1,8 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-3-0/getdns-1.3.0.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/getdns-1.3.0.tar.gz"
-  sha256 "920fa2e07c72fd0e5854db1820fa777108009fc5cb702f9aa5155ef58b12adb1"
+  url "https://getdnsapi.net/releases/getdns-1-4-0/getdns-1.4.0.tar.gz"
+  sha256 "de360cd554fdec4bae3f5afbb36145872b8ff7306ded5deb0905442c4909f7b3"
 
   bottle do
     sha256 "7ef98cccdd128c7439cf1eaa3f8b8895f20929294e75b4befe11a22f72053229" => :high_sierra
@@ -45,6 +44,7 @@ class Getdns < Formula
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
+    ENV.deparallelize
     system "make", "install"
   end
 
