@@ -5,6 +5,12 @@ class GoAT19 < Formula
   mirror "https://fossies.org/linux/misc/go1.9.4.src.tar.gz"
   sha256 "0573a8df33168977185aa44173305e5a0450f55213600e94541604b75d46dc06"
 
+  bottle do
+    sha256 "791e2ff39db37c406a1e9f925ecc31ab4b20811b0ff9df2665e3309d80172f3f" => :high_sierra
+    sha256 "8d3ed6af5a3e2b558108aaa1425e5cc83dda0fe381bbccd40d1eb47cb6e58614" => :sierra
+    sha256 "5d5f2cb9d01126fbad0c172b7e1a9e07ab9be409309542b8e10badf2fee468df" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   option "without-cgo", "Build without cgo (also disables race detector)"
