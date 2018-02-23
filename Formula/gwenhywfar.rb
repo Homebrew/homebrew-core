@@ -1,8 +1,8 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "http://www.aqbanking.de/"
-  url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=207&file=01&dummy=gwenhywfar-4.19.0.tar.gz"
-  sha256 "c54a9a162dc63ab69e4d3fc946aae92b929383ca60a2690b539adcdc58de9495"
+  url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=208&file=02&dummy=gwenhywfar-4.20.0.tar.gz"
+  sha256 "5a88daabba1388f9528590aab5de527a12dd44a7da4572ce48469a29911b0fb0"
 
   bottle do
     sha256 "81c996539bd23f29dc887f30a2f264baa54adf0be256317c4135cec2b57b1959" => :high_sierra
