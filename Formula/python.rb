@@ -313,7 +313,7 @@ class Python < Formula
     <<~EOS
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <https://docs.brew.sh/Homebrew-and-Python.html>
+      # <https://docs.brew.sh/Homebrew-and-Python>
       import re
       import os
       import sys
@@ -374,7 +374,7 @@ class Python < Formula
     They will install into the site-package directory
       #{site_packages}
 
-    See: https://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python
     EOS
   end
 
