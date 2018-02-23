@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.10.1/bazel-0.10.1-dist.zip"
-  sha256 "708248f6d92f2f4d6342006c520f22dffa2f8adb0a9dc06a058e3effe7fee667"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.11.0/bazel-0.11.0-dist.zip"
+  sha256 "abfeccc94728cb46be8dbb3507a23ccffbacef9fbda96a977ef4ea8d6ab0d384"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,16 +19,22 @@ class Bazel < Formula
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
 
-    system "./compile.sh"
-    system "./output/bazel", "--output_user_root", buildpath/"output_user_root",
-           "build", "scripts:bash_completion"
+    (buildpath/"sources").install buildpath.children
 
-    bin.install "scripts/packages/bazel.sh" => "bazel"
-    bin.install "output/bazel" => "bazel-real"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    cd "sources" do
+      system "./compile.sh"
+      system "./output/bazel", "--output_user_root",
+             buildpath/"output_user_root", "build", "scripts:bash_completion"
 
-    bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
-    zsh_completion.install "scripts/zsh_completion/_bazel"
+      bin.install "scripts/packages/bazel.sh" => "bazel"
+      bin.install "output/bazel" => "bazel-real"
+      bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+
+      bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
+      zsh_completion.install "scripts/zsh_completion/_bazel"
+
+      prefix.install_metafiles
+    end
   end
 
   test do
