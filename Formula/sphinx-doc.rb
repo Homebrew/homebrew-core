@@ -1,8 +1,8 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/ab/9b/c4e6ded46bf0a17fed97fa57100fce8a3af8f0a762f7e6521844fc54a044/Sphinx-1.7.0.tar.gz"
-  sha256 "278b7923f3f4ed2a1d1359f0ae94d89ac90ddd4189e8362f4b4d3baa2afe6b4a"
+  url "https://files.pythonhosted.org/packages/b1/21/b97c0936171669a90e0e7036a112c55fc415699e8707e675b987949221e1/Sphinx-1.7.1.tar.gz"
+  sha256 "da987de5fcca21a4acc7f67a86a363039e67ac3e8827161e61b91deb131c0ee8"
 
   bottle do
     cellar :any_skip_relocation
@@ -55,8 +55,8 @@ class SphinxDoc < Formula
   end
 
   resource "imagesize" do
-    url "https://files.pythonhosted.org/packages/53/72/6c6f1e787d9cab2cc733cf042f125abec07209a58308831c9f292504e826/imagesize-0.7.1.tar.gz"
-    sha256 "0ab2c62b87987e3252f89d30b7cedbec12a01af9274af9ffa48108f2c13c6062"
+    url "https://files.pythonhosted.org/packages/c6/3f/1db2da33804e8d7ef3a868b27b7bdc1aae6a4f693f0162d2aeeaf503864f/imagesize-1.0.0.tar.gz"
+    sha256 "5b326e4678b6925158ccc66a9fa3122b6106d7c876ee32d7de6ce59385b96315"
   end
 
   resource "Jinja2" do
