@@ -1,6 +1,6 @@
 class Flif < Formula
   desc "Free Loseless Image Format"
-  homepage "http://flif.info/"
+  homepage "https://flif.info/"
   # When updating, please check if FLIF switched to CMake yet
   url "https://github.com/FLIF-hub/FLIF/archive/v0.3.tar.gz"
   sha256 "aa02a62974d78f8109cff21ecb6d805f1d23b05b2db7189cfdf1f0d97ff89498"
