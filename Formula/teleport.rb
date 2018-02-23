@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v2.4.1.tar.gz"
-  sha256 "27f1ad0622095ae389b6e8d4a26a0e2e7f6d355d4f416873faf2c38da23bf8d6"
+  url "https://github.com/gravitational/teleport/archive/v2.4.2.tar.gz"
+  sha256 "6bd838b5202f56e1801a8d182c74fd376bd0a212083f75519dad3614ac444c90"
 
   bottle do
     sha256 "31de9d5fe3e9e69f7086012c10dfb8018430ffeb4d8669751a06bd94918ddd0f" => :high_sierra
@@ -15,6 +15,9 @@ class Teleport < Formula
   conflicts_with "etsh", :because => "both install `tsh` binaries"
 
   def install
+    # Reported 21 Feb 2018 https://github.com/gravitational/teleport/issues/1708
+    inreplace "Makefile", "-j 4", "-j 1"
+
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
