@@ -7,9 +7,9 @@ class Haxe < Formula
 
   bottle do
     cellar :any
-    sha256 "bd7d3a23054d3bfece87eb76de06c8ff53b0fac72d8343f7d8857571ba676951" => :high_sierra
-    sha256 "f97d069c5d12ed98c1dd313545d3ecb53c2882efeff9a59d42a7cee07db7c1ee" => :sierra
-    sha256 "ff4d4186eee5fc5a53c3578d43a266f171631b148c50bf525d4c9b01c2b8a9fb" => :el_capitan
+    sha256 "2b58281f88a611b0ae4b9a0b1b0fe6e09182f4a71d5b23fb333660527b37bacc" => :high_sierra
+    sha256 "5c5c995444cc9e33aa26fcccbf652623ab6ac3006a33eb0bb1d6ce89b02fb5c0" => :sierra
+    sha256 "c57c9af6070a2d33401dac05d8b78c4059a95a3c7e212a9595fb5f49d3208a6a" => :el_capitan
   end
 
   head do
