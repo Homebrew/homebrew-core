@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/53/66/3f7451f27ce52b194f289c5b3ceb6b159ba177a932bea1fef8e1885ccf92/pipenv-9.1.0.tar.gz"
-  sha256 "df37f03f84e8e7dd0ea1166d3e4bbd505332cdc1f5b10feb1435d52506f0c670"
+  url "https://files.pythonhosted.org/packages/39/60/1478dec4c086aa24cb57cae52e365bf7bf44948db0ea69bd07392cf8c291/pipenv-10.0.0.tar.gz"
+  sha256 "81db5b5c3740fcba95989c5b317ee9b69441053271b7868eba6176a3df84efde"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,34 +25,14 @@ class Pipenv < Formula
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
-  resource "flake8" do
-    url "https://files.pythonhosted.org/packages/1e/ab/7730f6d6cdf73a3b7f98a2fe3b2cdf68e9e760a4a133e083607497d4c3a6/flake8-3.5.0.tar.gz"
-    sha256 "7253265f7abd8b313e3892944044a365e3f4ac3fcdcfb4298f55ee9ddf188ba0"
-  end
-
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
-  resource "mccabe" do
-    url "https://files.pythonhosted.org/packages/06/18/fa675aa501e11d6d6ca0ae73a101b2f3571a565e0f7d38e062eec18a91ee/mccabe-0.6.1.tar.gz"
-    sha256 "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"
-  end
-
   resource "pew" do
     url "https://files.pythonhosted.org/packages/21/8c/585c136d5c63eb80ece3328eb290d16ccf6d2d55420848d9fc6a07de68ca/pew-1.1.2.tar.gz"
     sha256 "b8312728526c9010295c88215c95a1b1731fdbd1a568f728e069932bd0545611"
-  end
-
-  resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/e1/88/0e2cbf412bd849ea6f1af1f97882add46a374f4ba1d2aea39353609150ad/pycodestyle-2.3.1.tar.gz"
-    sha256 "682256a5b318149ca0d2a9185d365d8864a768a28db66a84a2ea946bcc426766"
-  end
-
-  resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/26/85/f6a315cd3c1aa597fb3a04cc7d7dbea5b3cc66ea6bd13dfa0478bf4876e6/pyflakes-1.6.0.tar.gz"
-    sha256 "8d616a382f243dbf19b54743f280b80198be0bca3a5396f1d2e1fca6223e8805"
   end
 
   resource "requests" do
