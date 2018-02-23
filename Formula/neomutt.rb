@@ -1,8 +1,8 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://www.neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/neomutt-20171215.tar.gz"
-  sha256 "7fb76e99a9f23715ad772ad8f7008c6e2db05eed344817055176c76dbd60c1b5"
+  url "https://github.com/neomutt/neomutt/archive/neomutt-20180223.tar.gz"
+  sha256 "10ba010017cf7db6bb5ac3e2116d6defad56d34be0dceea9d70a66d8510927bb"
   head "https://github.com/neomutt/neomutt.git"
 
   depends_on "docbook-xsl" => :build
