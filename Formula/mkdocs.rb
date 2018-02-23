@@ -2,7 +2,7 @@ class Mkdocs < Formula
   include Language::Python::Virtualenv
 
   desc "Project documentation with Markdown"
-  homepage "http://www.mkdocs.org/"
+  homepage "https://www.mkdocs.org/"
   url "https://github.com/mkdocs/mkdocs/archive/0.17.2.tar.gz"
   sha256 "619a86ede2fbfe602afc5d3b6913ea5dd496c1c1e8897a136b9599ed01bebae3"
 
