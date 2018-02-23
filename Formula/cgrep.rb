@@ -5,8 +5,8 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.23.tar.gz"
-  sha256 "d4acafd056c4acb46f74880277e1a65e1d27ace98f418914d09a88a1744e049f"
+  url "https://github.com/awgn/cgrep/archive/v6.6.24.tar.gz"
+  sha256 "0958549a6d1989abad493845b788dd67bf65a50162393deedf8738dbc7f3a7cd"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
