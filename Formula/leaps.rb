@@ -2,8 +2,8 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-      :tag => "v0.8.2",
-      :revision => "2c202c42175c97b266868836caf54df82aeffd3d"
+      :tag => "v0.9.0",
+      :revision => "89d8ab9e9130238e56a0df283edbcd1115ec9225"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,17 +12,17 @@ class Leaps < Formula
     sha256 "bf1a3568ece6cc069f5528cae7b4d426dbcb831ce7fea39b0dec1d5eaeb4b348" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    mkdir_p buildpath/"src/github.com/jeffail/"
-    ln_sf buildpath, buildpath/"src/github.com/jeffail/leaps"
-
-    system "go", "build", "-o", "#{bin}/leaps", "github.com/jeffail/leaps/cmd/leaps"
+    (buildpath/"src/github.com/jeffail/leaps").install buildpath.children
+    cd buildpath/"src/github.com/jeffail/leaps" do
+      system "dep", "ensure"
+      system "go", "build", "-o", bin/"leaps", "./cmd/leaps"
+      prefix.install_metafiles
+    end
   end
 
   test do
