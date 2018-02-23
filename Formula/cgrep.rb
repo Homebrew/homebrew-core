@@ -11,9 +11,9 @@ class Cgrep < Formula
 
   bottle do
     cellar :any
-    sha256 "cbca15828b0a4b9063da146468d63c3cc157184e031f921abe6f5679ab296e36" => :high_sierra
-    sha256 "e32a05aaa5f2faa5a512e545636cd6fce96db0ba1da99869e0392d1e4ae620c1" => :sierra
-    sha256 "be9f271ebac608476f316c47a14080cf5b10e026538651b5dbec53af49d60793" => :el_capitan
+    sha256 "079e627cdc63604a51f0fbd6c1bd7b2b8c270279b950953ce6ee9734965182ac" => :high_sierra
+    sha256 "8f46a454c1672923329028e36d1fab404325d70ad01eb4505b7506083c5c88d1" => :sierra
+    sha256 "7d7731bddd392feb5b1c22289e0581daf9536cca79833c0c6a2a92d0633c5bcb" => :el_capitan
   end
 
   depends_on "ghc" => :build
