@@ -4,6 +4,7 @@ class Curl < Formula
   url "https://curl.haxx.se/download/curl-7.58.0.tar.bz2"
   mirror "http://curl.askapache.com/download/curl-7.58.0.tar.bz2"
   sha256 "1cb081f97807c01e3ed747b6e1c9fee7a01cb10048f1cd0b5f56cfe0209de731"
+  revision 1
 
   bottle do
     cellar :any
@@ -33,16 +34,8 @@ class Curl < Formula
   deprecated_option "with-ssh" => "with-libssh2"
   deprecated_option "with-ares" => "with-c-ares"
 
-  # HTTP/2 support requires OpenSSL 1.0.2+ or LibreSSL 2.1.3+ for ALPN Support
-  # which is currently not supported by Secure Transport (DarwinSSL).
-  if MacOS.version < :mountain_lion || build.with?("nghttp2")
-    depends_on "openssl"
-  else
-    option "with-openssl", "Build with OpenSSL instead of Secure Transport"
-    depends_on "openssl" => :optional
-  end
-
   depends_on "pkg-config" => :build
+  depends_on "openssl"
   depends_on "rtmpdump" => :optional
   depends_on "libssh2" => :optional
   depends_on "c-ares" => :optional
@@ -57,21 +50,12 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ca-bundle=#{etc}/openssl/cert.pem
+      --with-ca-path=#{etc}/openssl/certs
     ]
 
-    # cURL has a new firm desire to find ssl with PKG_CONFIG_PATH instead of using
-    # "--with-ssl" any more. "when possible, set the PKG_CONFIG_PATH environment
-    # variable instead of using this option". Multi-SSL choice breaks w/o using it.
-    if MacOS.version < :mountain_lion || build.with?("openssl") || build.with?("nghttp2")
-      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
-      args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
-      args << "--with-ca-bundle=#{etc}/openssl/cert.pem"
-      args << "--with-ca-path=#{etc}/openssl/certs"
-    else
-      args << "--with-darwinssl"
-      args << "--without-ca-bundle"
-      args << "--without-ca-path"
-    end
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
 
     args << (build.with?("libssh2") ? "--with-libssh2" : "--without-libssh2")
     args << (build.with?("libmetalink") ? "--with-libmetalink" : "--without-libmetalink")
