@@ -14,7 +14,7 @@ class Tesseract < Formula
   head do
     url "https://github.com/tesseract-ocr/tesseract.git"
     resource "tessdata-head" do
-      url "https://github.com/tesseract-ocr/tessdata.git"
+      url "https://github.com/tesseract-ocr/tessdata_fast.git"
     end
   end
 
