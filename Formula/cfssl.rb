@@ -7,9 +7,9 @@ class Cfssl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab6b90db75e4f558bd3320c86a2785b47a7949b2008c1f49c0dab205e0b69d09" => :high_sierra
-    sha256 "fdfa583eb0a8c0446d7344865c6cbfe1ed9850f3ba445fd3da13af634b21a977" => :sierra
-    sha256 "d86755e05797a0febb8042f59f1c225c200f4b65d0f61f65a0966463ab5e20c2" => :el_capitan
+    sha256 "e234b37b5cd985fce65227a810df2ceffd40922155e687e47ec84a470f9efd72" => :high_sierra
+    sha256 "474d8c8a9a28ba8ae217382efcf5161742ca7f992ce3fc40a14bbc9686b036d0" => :sierra
+    sha256 "9c2fc7027b2136c1d228a84f0abd1bfe80c542f89b650ae864f792e9fc63f3fb" => :el_capitan
   end
 
   depends_on "go" => :build
