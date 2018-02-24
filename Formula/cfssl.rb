@@ -1,8 +1,8 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/1.3.0.tar.gz"
-  sha256 "78322f0f37b5c90d612ce4e18b35c03bfde242d32426ef0db1f859255a778384"
+  url "https://github.com/cloudflare/cfssl/archive/1.3.1.tar.gz"
+  sha256 "3d0e409d30d41d797974559ae782a11e6823f38f5000544e604058cd43726528"
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
