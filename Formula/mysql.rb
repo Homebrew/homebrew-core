@@ -11,8 +11,8 @@ class Mysql < Formula
   end
 
   devel do
-    url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.3-rc.tar.gz"
-    sha256 "bc6ef8e496447edde87da243db56682d44c8344e5695c3f265b3316b3a8aa56f"
+    url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.4-rc.tar.gz"
+    sha256 "648b1e39f45d7e4b65bae572f5d475db4a0c5e9db6ede75d8a3762972f312833"
 
     fails_with :clang do
       build 800
