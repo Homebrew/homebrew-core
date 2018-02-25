@@ -7,10 +7,10 @@ class Octomap < Formula
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx
-    system "cd", "octomap"
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    cd "octomap" do
+      system "cmake", ".", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
