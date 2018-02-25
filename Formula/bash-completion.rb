@@ -4,7 +4,7 @@ class BashCompletion < Formula
   desc "Programmable completion for Bash 3.2"
   homepage "https://bash-completion.alioth.debian.org/"
   url "https://bash-completion.alioth.debian.org/files/bash-completion-1.3.tar.bz2"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
+  mirror "https://src.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
   revision 3
 
