@@ -3,8 +3,8 @@ class Eralchemy < Formula
 
   desc "Simple entity relation (ER) diagrams generation"
   homepage "https://github.com/Alexis-benoist/eralchemy"
-  url "https://files.pythonhosted.org/packages/f8/84/a7e4b73a427425e8d2d0446b6e94320e7ab4c44abe29c66150a7ee14f981/ERAlchemy-1.1.0.tar.gz"
-  sha256 "29ed9d0b865196e428955a3e9f1e1ce4a8e2ce2855aa58f6aaab97991e8407ba"
+  url "https://files.pythonhosted.org/packages/2c/58/31393197c1ab3fb8dd7b9c5ee3bd9afe160b8ffc6c870d9d51deca8a76ff/ERAlchemy-1.2.6.tar.gz"
+  sha256 "432584a7fd8df0b953f3f90948231382b28727c5364a0a9130c39284b663d9be"
 
   bottle do
     cellar :any
@@ -26,13 +26,13 @@ class Eralchemy < Formula
   end
 
   resource "SQLAlchemy" do
-    url "https://files.pythonhosted.org/packages/24/de/66d96cbad7a91443af1399469e9aa0aec8a41669ba6d0faae8b8411ddb27/SQLAlchemy-1.1.6.tar.gz"
-    sha256 "815924e3218d878ddd195d2f9f5bf3d2bb39fabaddb1ea27dace6ac27d9865e4"
+    url "https://files.pythonhosted.org/packages/f3/b7/d8725042f105cc6b71c7bae0ffd46e49f762e5a08f421f1eddd855a1f723/SQLAlchemy-1.2.4.tar.gz"
+    sha256 "6997507af46b10630e13b605ac278b78885fd683d038896dbee0e7ec41d809d2"
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/62/ca/0a479c9664526e86c2913a7ad593586eeb86b428b7e629e7c7b6b69e3cb7/psycopg2-2.7.tar.gz"
-    sha256 "ceadecf660ad4f7a31ea5baef30a7351add8626f9fd3daaafabb9a9e549f3f9a"
+    url "https://files.pythonhosted.org/packages/74/83/51580322ed0e82cba7ad8e0af590b8fb2cf11bd5aaa1ed872661bd36f462/psycopg2-2.7.4.tar.gz"
+    sha256 "8bf51191d60f6987482ef0cfe8511bbf4877a5aa7f313d7b488b53189cf26209"
   end
 
   resource "er_example" do
