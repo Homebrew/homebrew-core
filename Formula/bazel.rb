@@ -11,7 +11,7 @@ class Bazel < Formula
     sha256 "404d2e3769433e1eae6ece7f4afe0fe75aed65570ffcd393614fc32166c3a30e" => :el_capitan
   end
 
-  depends_on :java => "1.8"
+  depends_on :java => ["1.8", :build]
   depends_on :macos => :yosemite
 
   def install
