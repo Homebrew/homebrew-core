@@ -1,6 +1,6 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
-  homepage "http://www.opencobol.org/"
+  homepage "https://sourceforge.net/projects/open-cobol/"
   revision 5
 
   stable do
