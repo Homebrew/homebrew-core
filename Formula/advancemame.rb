@@ -1,6 +1,6 @@
 class Advancemame < Formula
   desc "MAME with advanced video support"
-  homepage "http://www.advancemame.it/"
+  homepage "https://www.advancemame.it/"
   url "https://github.com/amadvance/advancemame/releases/download/v3.7/advancemame-3.7.tar.gz"
   sha256 "36c88305dc485e85ff86854b3d8bb75c4c81fa7356f6dbfcbfd6a5e192199b2c"
 

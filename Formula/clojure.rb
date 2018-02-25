@@ -1,8 +1,8 @@
 class Clojure < Formula
   desc "The Clojure Programming Language"
   homepage "https://clojure.org"
-  url "https://download.clojure.org/install/clojure-tools-1.9.0.326.tar.gz"
-  sha256 "491bb9780b3fe4670e9e2043aec604492ede785b34b0c885ec92fc98867fc869"
+  url "https://download.clojure.org/install/clojure-tools-1.9.0.348.tar.gz"
+  sha256 "08392bcfdb926f369bea26970ab5c1b62c512490609966527668fb9db6be9b5a"
 
   bottle :unneeded
 
@@ -11,6 +11,8 @@ class Clojure < Formula
 
   def install
     system "./install.sh", prefix
+    man1.install "clojure.1"
+    man1.install "clj.1"
   end
 
   test do

@@ -3,15 +3,15 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v3.0.1.tar.gz"
-  sha256 "f42b22515e82daa2be848017ceb856bbc43a2eec7e897cbcaf12ab067c69cf1d"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v3.0.3.tar.gz"
+  sha256 "e1e33275f4b581d7bc54ea0a014dd105d824f2b1da6068889f652fda8610bb5c"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "b17cefae896a134c811ce37a719d4df41e760fa9840c85bbcae14d644d06ea12" => :high_sierra
-    sha256 "6458bbf12f354a754b3a52dcd18d05998b4aef658d10bbea3fc6372c833e66bc" => :sierra
-    sha256 "642d3f3387d2744397d0765a6fa2a2e131528bd6445340959a3c260d5eb24308" => :el_capitan
+    sha256 "68976277ba7c558c6a190c6da48c0c33bc009720263b92d0cc7f450395a2fe82" => :high_sierra
+    sha256 "892dc8d4fe5d0ff026364ae490be3015db392a08cda9aa2049cb93ed0d87ba95" => :sierra
+    sha256 "caba0e4517e154f6a987d15ecf66cfc619cc26cec20f3f3358cb966b93bdc7d8" => :el_capitan
   end
 
   depends_on "openssl"
