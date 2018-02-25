@@ -2,7 +2,7 @@ class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "https://gmt.soest.hawaii.edu/"
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.3-src.tar.xz"
-  mirror "http://gd.tuwien.ac.at/pub/gmt/gmt-5.4.3-src.tar.xz"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.3-src.tar.xz"
   mirror "http://ftp.iris.washington.edu/pub/gmt/gmt-5.4.3-src.tar.xz"
   mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.4.3-src.tar.xz"
   sha256 "ed00e380c3dc94a3aef4b7aeaaac0f3681df703dc614e8a15a1864e20b3fa2c8"
@@ -21,7 +21,7 @@ class Gmt < Formula
 
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "http://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
     mirror "http://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
@@ -29,7 +29,7 @@ class Gmt < Formula
 
   resource "dcw" do
     url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "http://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.2.tar.gz"
+    mirror "https://fossies.org/linux/misc/GMT/dcw-gmt-1.1.2.tar.gz"
     mirror "http://ftp.iris.washington.edu/pub/gmt/dcw-gmt-1.1.2.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.2.tar.gz"
     sha256 "f719054f8d657e7b10b5182d4c15bc7f38ef7483ed05cdaa9f94ab1a0008bfb6"
