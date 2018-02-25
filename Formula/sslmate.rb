@@ -42,7 +42,7 @@ class Sslmate < Formula
     depends_on "python" if MacOS.version <= :snow_leopard
 
     resource "boto" do
-      url "https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz"
+      url "https://files.pythonhosted.org/packages/source/b/boto/boto-2.38.0.tar.gz"
       sha256 "d9083f91e21df850c813b38358dc83df16d7f253180a1344ecfedce24213ecf2"
     end
   end
