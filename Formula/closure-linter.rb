@@ -19,7 +19,7 @@ class ClosureLinter < Formula
   depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "python-gflags" do
-    url "https://pypi.python.org/packages/source/p/python-gflags/python-gflags-2.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/p/python-gflags/python-gflags-2.0.tar.gz"
     sha256 "0dff6360423f3ec08cbe3bfaf37b339461a54a21d13be0dd5d9c9999ce531078"
   end
 
