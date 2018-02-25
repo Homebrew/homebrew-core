@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag => "v2.0.0",
-      :revision => "8006d58068c2a81d23977670e0c6061d959ba32c"
+      :tag => "v2.0.1",
+      :revision => "5fa93655169003652350321d90410ae4dc803d32"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,6 +29,6 @@ class Calicoctl < Formula
   end
 
   test do
-    system bin/"calicoctl", "--version"
+    assert_match version.to_s, shell_output("#{bin}/calicoctl --version")
   end
 end
