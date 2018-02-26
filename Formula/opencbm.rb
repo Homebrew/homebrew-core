@@ -1,7 +1,7 @@
 class Opencbm < Formula
   desc "Provides access to various floppy drive formats"
-  homepage "http://www.trikaliotis.net/opencbm-alpha"
-  url "http://www.trikaliotis.net/Download/opencbm-0.4.99.99/opencbm-0.4.99.99.tar.bz2"
+  homepage "https://spiro.trikaliotis.net/opencbm-alpha"
+  url "https://spiro.trikaliotis.net/Download/opencbm-0.4.99.99/opencbm-0.4.99.99.tar.bz2"
   sha256 "b1e4cd73c8459acd48c5e8536d47439bafea51f136f43fde5a4d6a5f7dbaf6c6"
   head "https://git.code.sf.net/p/opencbm/code.git"
 
