@@ -17,7 +17,7 @@ class Osmfilter < Formula
   depends_on "autoconf" => :build
 
   resource "pbf" do
-    url "http://data.osm-hr.org/albania/archive/20120930-albania.osm.pbf"
+    url "http://archive.osm-hr.org/albania/20120930-albania.osm.pbf"
     sha256 "f907f747e3363020f01e31235212e4376509bfa91b5177aeadccccfe4c97b524"
   end
 
