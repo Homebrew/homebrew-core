@@ -5,10 +5,9 @@ class GnomeAutoar < Formula
   sha256 "5de9db0db028cd6cab7c2fec46ba90965474ecf9cd68cfd681a6488cf1fb240a"
 
   bottle do
-    sha256 "30caedf2c55df01b4150be42ab971e5ef798c3d7d057058ce61dc38f924833a5" => :high_sierra
-    sha256 "ea737743690c568c3aedba7ca5807c319abcb9549d6fd41bb708ebd2ee4b17c1" => :sierra
-    sha256 "6e9d51dec3fa8330f6584a735403da1f98ac9c0e917e89f4a2aec42174f5acd6" => :el_capitan
-    sha256 "925174b30b4a5577720f30d5b1d04450e5f0c515505f589f2df3188ab36ae227" => :yosemite
+    sha256 "1535792487e4dac0085d045d9e141b0cc6df7c1333c2993582e120d1624353f8" => :high_sierra
+    sha256 "6becf98b25216574f41c4bc0d70e615fb327073f417233a7f3ee4594c97516fc" => :sierra
+    sha256 "b308fa83eb1c3bcd5046366104bf3b87f2448b7baaf98a01a0a4370c6374e932" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
