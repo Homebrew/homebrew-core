@@ -1,10 +1,9 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.0.tar.xz"
-  sha256 "d4f3cd31c001fd0ed52832d4fbfbdfeaa38ad541c182f80ff8fdf87324a6a9f2"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.1.tar.xz"
+  sha256 "d1119785e746d46a8209d28b2de404a57f983aa48670f4e225531d3bdc175551"
 
   bottle do
     sha256 "506f2f173b24afbf3467a5408a4268bbb749b0eccfa354a8c3a2c3139fd1deed" => :high_sierra
@@ -12,6 +11,7 @@ class Gawk < Formula
     sha256 "5c463865ee87a53bd13b380552a4dcfc4933fe100e2c740586ba69d1eb870c2e" => :el_capitan
   end
 
+  depends_on "gettext"
   depends_on "mpfr"
   depends_on "readline"
 
