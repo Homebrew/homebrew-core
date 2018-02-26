@@ -7,9 +7,9 @@ class Zint < Formula
 
   bottle do
     cellar :any
-    sha256 "ede8253010c8b2523c7f4b097d5d0b4e5bfe4164fd13041690e3e8179b2add1b" => :high_sierra
-    sha256 "d6df75c981b5e66e594b7890909fa64a3c40d761a0bf20a78255f54c443ec0d9" => :sierra
-    sha256 "89e62db21897ceec3a49c4e8815fdf91fd135ca6ca08938027c1d9d6f1b4fb50" => :el_capitan
+    sha256 "84fcae80b8ad56b4a4d5666a617a57c9f49afac7783f6298582a3ce053aa157b" => :high_sierra
+    sha256 "831d734afaa473f891a750799641da15653007ddd0355e8b7b2d1a49c2cc3550" => :sierra
+    sha256 "ecf62997149cefbc38b5b74ca99eeeab44569525d2ef67a4822a3c706e073ce7" => :el_capitan
   end
 
   depends_on "cmake" => :build
