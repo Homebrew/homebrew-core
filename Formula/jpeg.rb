@@ -1,8 +1,8 @@
 class Jpeg < Formula
   desc "Image manipulation library"
   homepage "http://www.ijg.org"
-  url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
-  sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
+  url "http://www.ijg.org/files/jpegsrc.v9c.tar.gz"
+  sha256 "1f3a3f610f57e88ff3f1f9db530c605f3949ee6e78002552e324d493cf086ad4"
 
   bottle do
     cellar :any
