@@ -1,8 +1,8 @@
 class Zint < Formula
   desc "Barcode encoding library supporting over 50 symbologies"
   homepage "http://www.zint.org.uk/"
-  url "https://downloads.sourceforge.net/project/zint/zint/2.6.2/zint-2.6.2.src.tar.gz"
-  sha256 "bcbaad61f64bf9153603fe453924038aeefabc62c674a178b4af9dd95a779530"
+  url "https://downloads.sourceforge.net/project/zint/zint/2.6.3/zint-2.6.3.src.tar.gz"
+  sha256 "adcaebeb2931163a567073644c8e7952430ea31e08060363432d77cc599318d8"
   head "https://git.code.sf.net/p/zint/code.git"
 
   bottle do
