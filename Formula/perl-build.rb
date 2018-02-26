@@ -145,7 +145,6 @@ class PerlBuild < Formula
 
   resource "Getopt::Long" do
     url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.49.1.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/J/JV/JV/Getopt-Long-2.49.1.tar.gz"
     sha256 "98fad4235509aa24608d9ef895b5c60fe2acd2bca70ebdf1acaf6824e17a882f"
   end
 
