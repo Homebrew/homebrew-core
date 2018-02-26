@@ -1,21 +1,15 @@
-require "language/go"
-
 class Vitess < Formula
   desc "Database clustering system for horizontal scaling of MySQL"
   homepage "http://vitess.io"
 
-  url "https://github.com/youtube/vitess.git",
-      :revision => "08d7b71256567b1880ba4a63381ab58908967572"
-  version "2.1.1.08d7b71"
-  head "https://github.com/youtube/vitess.git"
+  url "https://github.com/arthurnn/vitess.git",
+      :revision => "75b5eb418f2b5d5ac1e8f5f8fd6bad723d0dcd48",
+      :branch => "arthurnn/easier_build"
+  version "2.1.1.75b5eb41"
+  head "https://github.com/arthurnn/vitess.git"
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-
-  go_resource "github.com/kardianos/govendor" do
-    url "https://github.com/kardianos/govendor.git",
-        :tag => "v1.0.9"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -23,15 +17,7 @@ class Vitess < Formula
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/youtube/vitess").install contents
 
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-    cd "src/github.com/kardianos/govendor" do
-      system "go", "install"
-    end
-
     cd "src/github.com/youtube/vitess" do
-      system "govendor", "sync"
-
       system "make", "build"
       prefix.install "web"
     end
