@@ -5,7 +5,7 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/f7/ec/4143e8ba92d1d3654535f17bc4354f72d3a3e7d6984926d9a7ce1dec46ed/shyaml-0.5.0.tar.gz"
   sha256 "b3711011d37aae4e07b68b31e989aa3715548d5b0759898eda2ba437b9ae3c36"
-  revision 1
+  revision 2
   head "https://github.com/0k/shyaml.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Shyaml < Formula
     sha256 "bffb74c978bf45c8d6f6e117317066d9de9a211931e96c4c0c4d6e4d36f84bd9" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "libyaml"
 
   resource "PyYAML" do
