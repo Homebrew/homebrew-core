@@ -3,7 +3,7 @@ class Whatmp3 < Formula
   homepage "https://github.com/RecursiveForest/whatmp3"
   url "https://github.com/RecursiveForest/whatmp3/archive/v3.8.tar.gz"
   sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
-  revision 1
+  revision 2
   head "https://github.com/RecursiveForest/whatmp3.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Whatmp3 < Formula
     sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "flac"
   depends_on "mktorrent" => :recommended
   depends_on "lame" => :recommended
