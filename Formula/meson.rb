@@ -3,6 +3,7 @@ class Meson < Formula
   homepage "http://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.44.1/meson-0.44.1.tar.gz"
   sha256 "2ea1a721574adb23160b6481191bcc1173f374e02b0ff3bb0ae85d988d97e4fa"
+  revision 1
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Meson < Formula
     sha256 "24f5cc0a99ef512d796b7b5b2a4cfcb2a414f685bfd645f90bdd0e2091ee271c" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "ninja"
 
   def install
