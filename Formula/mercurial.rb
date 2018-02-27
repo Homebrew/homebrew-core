@@ -5,6 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-4.5.tar.gz"
   sha256 "4d9338d9f9d88dc90b836d1227a3677e3347efaf2a118cc97d7fd1f605f1f265"
+  revision 1
 
   bottle do
     sha256 "59816916c4767f5cb4da8fbcb14d2d47eef667f717a1602197332ed8b93ef549" => :high_sierra
@@ -12,10 +13,10 @@ class Mercurial < Formula
     sha256 "3fb4fe819a7c332fe2ac24740c004d904abe3dfd0a902d7a3c97ff3c5d9f15d1" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python@2"
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     system "make", "PREFIX=#{prefix}", "install-bin"
 
