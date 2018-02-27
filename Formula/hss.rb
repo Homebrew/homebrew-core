@@ -1,9 +1,8 @@
 class Hss < Formula
-  desc "Interactive parallel ssh client featuring autocomplete and asynchronous"
+  desc "Interactive parallel ssh client"
   homepage "https://github.com/six-ddc/hss"
   url "https://github.com/six-ddc/hss/archive/1.6.tar.gz"
   sha256 "8516f3e24c9908f9c7ac02ee5247ce78f2a344e7fcca8a14081a92949db70049"
-  head "https://github.com/six-ddc/hss.git"
 
   depends_on "readline"
 
@@ -13,22 +12,24 @@ class Hss < Formula
   end
 
   test do
+    require "socket"
     begin
-      nc_read, nc_write = IO.pipe
-      nc_pid = fork do
-        exec "nc", "-4l", "9527", :out => nc_write
+      server = TCPServer.new(0)
+      port = server.addr[1]
+      accept_pid = fork do
+        msg = server.accept.gets
+        assert_match "SSH", msg
       end
       hss_read, hss_write = IO.pipe
       hss_pid = fork do
-        exec "#{bin}/hss", "-H", "-p 9527 127.0.0.1", "-u", "root", "true", :out => hss_write
+        exec "#{bin}/hss", "-H", "-p #{port} 127.0.0.1", "-u", "root", "true",
+          :out => hss_write
       end
-      msg = nc_read.gets
-      assert_match "SSH", msg
-      Process.kill("TERM", nc_pid)
+      server.close
       msg = hss_read.gets
       assert_match "Connection closed by remote host", msg
     ensure
-      Process.kill("TERM", nc_pid)
+      Process.kill("TERM", accept_pid)
       Process.kill("TERM", hss_pid)
     end
   end
