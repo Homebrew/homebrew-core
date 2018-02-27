@@ -5,7 +5,7 @@ class Xonsh < Formula
   homepage "http://xon.sh"
   url "https://github.com/xonsh/xonsh/archive/0.6.0.tar.gz"
   sha256 "7d63d040a6df8749480becab4b3bcb1c6589458bad272d5de06c6a063c06c5f1"
-  revision 1
+  revision 2
   head "https://github.com/scopatz/xonsh.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Xonsh < Formula
     sha256 "9583716f1864b9c4b5f3cb4bb3130ba06412840eb634f51a3c5be41ef0f2d0a4" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     virtualenv_install_with_resources
