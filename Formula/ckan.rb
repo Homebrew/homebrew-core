@@ -6,7 +6,7 @@ class Ckan < Formula
 
   bottle :unneeded
 
-  depends_on cask: => "mono-mdk"
+  depends_on "mono"
 
   def install
     (libexec/"bin").install "ckan.exe"
