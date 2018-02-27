@@ -4,6 +4,7 @@ class Asciinema < Formula
   url "https://dl.bintray.com/homebrew/mirror/asciinema-2.0.0.tar.gz"
   mirror "https://github.com/asciinema/asciinema/archive/v2.0.0.tar.gz"
   sha256 "65224d8dcc8c579fd678fff83ea89eecfd35a1d2ca853ee6fcf27d2f7b5e3205"
+  revision 1
   head "https://github.com/asciinema/asciinema.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Asciinema < Formula
     sha256 "008da09fe041e574a6a00d20467b8e071e91e32dc152be6e1d65f5868c17f230" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     xy = Language::Python.major_minor_version "python3"
