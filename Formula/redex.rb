@@ -3,6 +3,7 @@ class Redex < Formula
   homepage "https://fbredex.com"
   url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
   sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
+  revision 1
   head "https://github.com/facebook/redex.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Redex < Formula
   depends_on "libevent" => :build
   depends_on "libtool" => :build
   depends_on "boost"
-  depends_on "python3"
+  depends_on "python"
   depends_on "jsoncpp"
 
   resource "test_apk" do
