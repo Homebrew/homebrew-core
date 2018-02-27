@@ -14,26 +14,33 @@ class Fish < Formula
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    depends_on "cmake" => :build
     depends_on "doxygen" => :build
   end
 
   depends_on "pcre2"
 
   def install
-    system "autoreconf", "--no-recursive" if build.head?
-
-    # In Homebrew's 'superenv' sed's path will be incompatible, so
-    # the correct path is passed into configure here.
-    args = %W[
-      --prefix=#{prefix}
-      --with-extra-functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
-      --with-extra-completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
-      --with-extra-confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-      SED=/usr/bin/sed
-    ]
-    system "./configure", *args
+    if build.head?
+      args = %W[
+        -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
+        -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
+        -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
+        -DSED=/usr/bin/sed
+      ]
+      system "cmake", ".", *std_cmake_args, *args
+    else
+      # In Homebrew's 'superenv' sed's path will be incompatible, so
+      # the correct path is passed into configure here.
+      args = %W[
+        --prefix=#{prefix}
+        --with-extra-functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
+        --with-extra-completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
+        --with-extra-confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
+        SED=/usr/bin/sed
+      ]
+      system "./configure", *args
+    end
     system "make", "install"
   end
 
