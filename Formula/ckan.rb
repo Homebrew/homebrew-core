@@ -11,7 +11,7 @@ class Ckan < Formula
   def caveats; <<~EOS
     This brew supports command line functionality only.
     The CKAN GUI does not work with Homebrew's mono package.
-    To use the CKAN GUI, install it using Cask.
+    To use the CKAN GUI, install the ckan-app cask.
     EOS
   end
 
