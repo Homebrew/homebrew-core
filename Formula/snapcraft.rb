@@ -5,6 +5,7 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/f0/47/453ef9822fd35e4037e4364182e0c5ff57760fde64da0179d8275f83fb0e/snapcraft-2.39.tar.gz"
   sha256 "a1befdd554e27f0b57105fd7e45f8ea1c8a21fe4728d2b60058bee394df93ab9"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Snapcraft < Formula
   depends_on "libyaml"
   depends_on "lxc"
   depends_on "squashfs"
-  depends_on "python3"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
