@@ -14,7 +14,7 @@ class Pygobject < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "python"
+  depends_on "python@2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -27,6 +27,6 @@ class Pygobject < Formula
   end
 
   test do
-    system "python", "-c", "import dsextras"
+    system Formula["python@2"].opt_bin/"python2.7", "-c", "import dsextras"
   end
 end
