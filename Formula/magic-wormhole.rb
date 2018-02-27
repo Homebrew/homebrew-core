@@ -5,6 +5,7 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/b5/d3/5409c111835af19af00643a8fbd0c0a6f30f025400ca5bb72f59fd1e42fb/magic-wormhole-0.10.5.tar.gz"
   sha256 "9558ea1f3551e535deec3462cd5c8391cb32ebb12ecd8b40b36861dbee4917ee"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class MagicWormhole < Formula
 
   depends_on "libsodium"
   depends_on "openssl"
-  depends_on "python"
+  depends_on "python@2"
 
   resource "Automat" do
     url "https://files.pythonhosted.org/packages/de/05/b8e453085cf8a7f27bb1226596f4ccf5cc9e758377d60284f990bbdc592c/Automat-0.6.0.tar.gz"
@@ -158,6 +159,7 @@ class MagicWormhole < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
     ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
   end
