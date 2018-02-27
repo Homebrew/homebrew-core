@@ -6,7 +6,7 @@ class Khal < Formula
   url "https://github.com/pimutils/khal.git",
       :tag => "v0.9.8",
       :revision => "b03df58c129f99a35ba74cda0fbc253eb47cfeac"
-  revision 1
+  revision 2
   head "https://github.com/pimutils/khal.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Khal < Formula
     sha256 "71aacae31b8b9d04ab38470fe73a24abaf6ebe4bcf156e354810206d25cce2df" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")
