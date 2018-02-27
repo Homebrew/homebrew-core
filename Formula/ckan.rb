@@ -12,7 +12,7 @@ class Ckan < Formula
     (libexec/"bin").install "ckan.exe"
     (bin/"ckan").write <<~EOS
       #!/bin/sh
-      exec mono --arch=32 "#{libexec}/bin/ckan.exe" "$@"
+      exec mono "#{libexec}/bin/ckan.exe" "$@"
     EOS
   end
 
