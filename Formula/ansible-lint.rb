@@ -5,7 +5,7 @@ class AnsibleLint < Formula
   homepage "https://github.com/willthames/ansible-lint/"
   url "https://files.pythonhosted.org/packages/cd/d6/7e2abd17c523df9f8ae64694f12805c8f30934363f9eb6a68f9ffcbc2ff8/ansible-lint-3.4.20.tar.gz"
   sha256 "1e7f1d5d5ee91b817dedc0b612c2beb5ff44879d592ea17a2eaa6571aa9a2bff"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class AnsibleLint < Formula
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python"
+  depends_on "python@2"
 
   resource "ansible" do
     url "https://files.pythonhosted.org/packages/4f/65/ae3ad8589c38f9e04ebc8a824c2880eb4f9e603a1f62b5f5a3f938e524b0/ansible-2.4.2.0.tar.gz"
