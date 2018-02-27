@@ -5,6 +5,7 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.5.5.tar.gz"
   sha256 "7a16b91c46c1f86eb7bc96597cbdb371ea94d062ff554c71615267cba54f3433"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,7 +21,7 @@ class ConjureUp < Formula
   depends_on "redis"
   depends_on "awscli"
   depends_on "pwgen"
-  depends_on "python3"
+  depends_on "python"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
