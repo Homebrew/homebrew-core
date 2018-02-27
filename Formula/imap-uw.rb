@@ -4,7 +4,7 @@ class ImapUw < Formula
   desc "University of Washington IMAP toolkit"
   homepage "https://www.washington.edu/imap/"
   url "https://mirrorservice.org/sites/ftp.cac.washington.edu/imap/imap-2007f.tar.gz"
-  mirror "http://ftp.ntua.gr/pub/net/mail/imap/imap-2007f.tar.gz"
+  mirror "https://fossies.org/linux/misc/old/imap-2007f.tar.gz"
   sha256 "53e15a2b5c1bc80161d42e9f69792a3fa18332b7b771910131004eb520004a28"
 
   bottle do
