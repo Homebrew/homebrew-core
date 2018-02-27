@@ -1,8 +1,8 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/releases/download/v0.25.0/Cake-bin-net461-v0.25.0.zip"
-  sha256 "4bfbbd6ee7cfbe3bbf573647a8724cce7632109a26608551596a640d638adb01"
+  url "https://github.com/cake-build/cake/releases/download/v0.26.0/Cake-bin-net461-v0.26.0.zip"
+  sha256 "444a253ed90865ab0a5de57e7535761d65ec281084971e6770561758bc07f405"
 
   bottle :unneeded
 
