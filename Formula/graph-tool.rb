@@ -2,7 +2,7 @@ class GraphTool < Formula
   # Include Virtualenv for venv setup - required for installing matplotlib into venv
   include Language::Python::Virtualenv
 
-  desc "Efficient network analysis in python"
+  desc "Efficient network analysis for python3"
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.26.tar.bz2"
   sha256 "df6273dc5ef327a0eaf1ef1c46751fce4c0b7573880944e544287b85a068f770"
@@ -15,33 +15,27 @@ class GraphTool < Formula
   end
 
   bottle :disable, "needs to be rebuilt with latest boost"
-
-  option "without-cairo", "Build without cairo support for plotting"
-  option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
-  option "without-python", "Build without python2 support"
-  option "without-python3", "Build without python3 support"
+  # add implicit 'with'
   option "with-openmp", "Enable OpenMP multithreading"
   # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
   depends_on :macos => :el_capitan
-  depends_on :python => :recommended
-  depends_on :python3 => :recommended
+  depends_on "python3" => :recommended
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "boost-python"
-  depends_on "cairomm" if build.with? "cairo"
+  depends_on "boost-python3"
   depends_on "cgal"
   depends_on "google-sparsehash" => :recommended
-  depends_on "gtk+3" => :recommended
   depends_on "numpy"
   depends_on "scipy"
-  if build.with? "cairo"
-    depends_on "py2cairo" if build.with? "python"
-    depends_on "py3cairo" if build.with? "python3"
-  end
-  if build.with? "gtk+3"
-    depends_on "librsvg" => "with-gtk+3"
-    depends_on "pygobject3"
-  end
+  # explicitly requiring gtk+3 and py3cairo here because audit doesn't permit:
+  # i.e. depends_on "librsvg" => "with-gtk+3" (doesn't do anything overly meaningful in the librsvg formula)
+  # i.e. depends_on "pygobject3" => "with-python3"
+  depends_on "gtk+3"
+  depends_on "librsvg"
+  depends_on "cairomm"
+  depends_on "py3cairo"
+  # pygobject3 pending rename to pygobject per https://github.com/Homebrew/homebrew-core/pull/18711
+  depends_on "pygobject3" => "with-python3"
   fails_with :gcc => "4.8" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
@@ -52,10 +46,6 @@ class GraphTool < Formula
 
   # matplotlib is no longer available since the deprecation of homebrew-science
   # use resources instead - following resource stanzas generated with homebrew-pypi-poet
-  resource "backports.functools_lru_cache" do
-    url "https://files.pythonhosted.org/packages/4e/91/0e93d9455254b7b630fb3ebe30cc57cab518660c5fad6a08aac7908a4431/backports.functools_lru_cache-1.4.tar.gz"
-    sha256 "31f235852f88edc1558d428d890663c49eb4514ffec9f3650e7f3c9e4a12e36f"
-  end
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
@@ -80,10 +70,6 @@ class GraphTool < Formula
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
-  resource "subprocess32" do
-    url "https://files.pythonhosted.org/packages/b8/2f/49e53b0d0e94611a2dc624a1ad24d41b6d94d0f1b0a078443407ea2214c2/subprocess32-3.2.7.tar.gz"
-    sha256 "1e450a4a4c53bf197ad6402c564b9f7a53539385918ef8f12bdf430a61036590"
-  end
 
   def install
     system "./autogen.sh" if build.head?
@@ -94,44 +80,34 @@ class GraphTool < Formula
     ]
     # fix issue with boost + gcc with C++11/C++14
     ENV.append "CXXFLAGS", "-fext-numeric-literals" unless ENV.compiler == :clang
-    config_args << "--disable-cairo" if build.without? "cairo"
     config_args << "--disable-sparsehash" if build.without? "google-sparsehash"
     config_args << "--enable-openmp" if build.with? "openmp"
     Language::Python.each_python(build) do |python, version|
+      next unless python == "python3"
+      puts "Installing graph-tool for Python 3"
       config_args_x = ["PYTHON=#{python}"]
       config_args_x << "PYTHON_LDFLAGS=-undefined dynamic_lookup"
       config_args_x << "PYTHON_LIBS=-undefined dynamic_lookup"
       config_args_x << "PYTHON_EXTRA_LIBS=-undefined dynamic_lookup"
       config_args_x << "--with-python-module-path=#{lib}/python#{version}/site-packages"
-      # install resources - note that python2 requires backports.functools_lru_cache and subprocess32 whereas python3 doesn't
+      # check that configure is set to python3
+      inreplace "configure", "libboost_python", "libboost_python3"
+      inreplace "configure", "ax_python_lib=boost_python", "ax_python_lib=boost_python3"
+      venv3 = virtualenv_create(libexec, "python3")
       # auto installing resources with virtualenv_install_with_resources creates issues because:
       # A) It tries to install all resources regardless of environment, and
       # B) It looks for a setup.py for graph-tool which returns an error
       # Therefore, install and link resources individually with pip_install_and_link instead
-      if python == "python"
-        puts "Installing graph-tool for Python 2"
-        venv2 = virtualenv_create(libexec)
-        %w[backports.functools_lru_cache Cycler matplotlib pyparsing python-dateutil pytz six subprocess32].each do |r|
-          venv2.pip_install_and_link resource(r)
-        end
-        mkdir "build-#{python}-#{version}" do
-          system "../configure", *(config_args + config_args_x)
-          system "make", "install"
-        end
-      elsif python == "python3"
-        puts "Installing graph-tool for Python 3"
-        # check that configure is set to python3
-        inreplace "configure", "libboost_python", "libboost_python3"
-        inreplace "configure", "ax_python_lib=boost_python", "ax_python_lib=boost_python3"
-        venv3 = virtualenv_create(libexec, "python3")
-        %w[Cycler matplotlib pyparsing python-dateutil pytz six].each do |r|
-          venv3.pip_install_and_link resource(r)
-        end
-        mkdir "build-#{python}-#{version}" do
-          system "../configure", *(config_args + config_args_x)
-          system "make", "install"
-        end
+      %w[Cycler matplotlib pyparsing python-dateutil pytz six].each do |r|
+        venv3.pip_install_and_link resource(r)
       end
+      mkdir "build-#{python}-#{version}" do
+        system "../configure", *(config_args + config_args_x)
+        system "make", "install"
+      end
+      site_packages = "lib/python#{version}/site-packages"
+      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+      (prefix/site_packages/"homebrew-graph-tool.pth").write pth_contents
     end
   end
 
@@ -142,7 +118,7 @@ class GraphTool < Formula
       v1 = g.add_vertex()
       v2 = g.add_vertex()
       e = g.add_edge(v1, v2)
-    EOS
+      EOS
     Language::Python.each_python(build) { |python, _| system python, "test.py" }
   end
 end
