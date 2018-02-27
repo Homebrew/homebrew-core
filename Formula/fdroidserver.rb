@@ -5,7 +5,7 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/df/29/163c75b97f8c83f2eb1f5d55978f630a0a99fda989ad857e78cba6eb64fe/fdroidserver-1.0.2.tar.gz"
   sha256 "abb5a16f8e21b4683255a61707d2c31123ad3ab5b091c490aaa524c6b8dfa9a5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -18,7 +18,7 @@ class Fdroidserver < Formula
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "openssl"
-  depends_on "python3"
+  depends_on "python"
   depends_on "s3cmd"
   depends_on "webp"
 
