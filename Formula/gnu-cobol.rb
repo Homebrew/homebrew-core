@@ -5,10 +5,9 @@ class GnuCobol < Formula
   sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
 
   bottle do
-    sha256 "d8d90339937363e53f4555e93d195d3c9d69f495876cfe975c320dbfbf130b8a" => :high_sierra
-    sha256 "af857363783841c39c355677f7ef68f68239cfa66e4f31e9105d6399c30fc957" => :sierra
-    sha256 "580728d788d7e3a818a8d50d945ca4c7dafacbfa8eecd78d0fac364d63c0657e" => :el_capitan
-    sha256 "ec0481e921b59ac386a1e2a1266cb86b671a82fa466e6478f8581f4f2b114881" => :yosemite
+    sha256 "5ddea71e8cdfe35bcf7affb34e375a5e81a7766c89fad399413bc1c5a343cdbd" => :high_sierra
+    sha256 "edca8c6964dcf160fe177b015ac015386f75925da3ab0e58d7c397fb0dca401d" => :sierra
+    sha256 "cbaa173aa41c70f1c58c084fc76a25d875724c541289012b58d5850b1c1783ed" => :el_capitan
   end
 
   depends_on "berkeley-db"
