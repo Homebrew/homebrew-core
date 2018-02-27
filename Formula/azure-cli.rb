@@ -1,8 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.27.tar.gz"
-  sha256 "c09d2bee93c60e2b4e81b4ee42e6882d8c7220a558d63b7ee6ac73fed231a718"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.28.tar.gz"
+  sha256 "3c087e30baa373d3b271961446066b69f4198edf0451040afcbb8535125b1137"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -106,8 +106,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-consumption" do
-    url "https://files.pythonhosted.org/packages/09/48/16a8a69ea018b77dad7566a4e0ce42c9922506d88a238948e547040364d5/azure-mgmt-consumption-1.1.0.zip"
-    sha256 "26cce499af8a0d3b5d1680a90a06e1ef7ddfba14364f843d22f99c7236e1b064"
+    url "https://files.pythonhosted.org/packages/8c/f0/e2d94b246e2dce71eff8d362836a1979f02b4185f5403a13e4fb26c07ccb/azure-mgmt-consumption-2.0.0.zip"
+    sha256 "9a85a89f30f224d261749be20b4616a0eb8948586f7f0f20573b8ea32f265189"
   end
 
   resource "azure-mgmt-containerinstance" do
@@ -251,8 +251,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-web" do
-    url "https://files.pythonhosted.org/packages/c9/27/74a4d384efd03fb9aa8f0f971806695286961b45d154a0287eed2f142bcf/azure-mgmt-web-0.34.1.zip"
-    sha256 "6d44f248f36dafb3a8f5175060d1959fdfa267dbd4e808b0270b8bbfd2c695c1"
+    url "https://files.pythonhosted.org/packages/44/d6/08ba5653702e67d401291128fc30aa6cff05fb82299832899c2ce63ca6cd/azure-mgmt-web-0.35.0.zip"
+    sha256 "8ea0794eef22a257773c13269b94855ab79d36c342ad15a98135403c9785cc0a"
   end
 
   resource "azure-multiapi-storage" do
