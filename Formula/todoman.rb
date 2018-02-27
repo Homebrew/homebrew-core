@@ -5,6 +5,7 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/b4/19/9d6fda7af4b17bd75c97efecfbc478f9e39af8c5228d644fc495c646c433/todoman-3.3.0.tar.gz"
   sha256 "dbbe12195d292b48cde8dd9324a14e695cdcb79f3800ddf5f29c8c71bc133952"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Todoman < Formula
     sha256 "1a60142bb115b2d6c63c0a0a557d1db9471417390cdcf6b50a9ad68411b7b26c" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/a1/e1/2d9bc76838e6e6667fde5814aa25d7feb93d6fa471bf6816daac2596e8b2/atomicwrites-1.1.5.tar.gz"
