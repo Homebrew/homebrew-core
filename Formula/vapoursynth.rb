@@ -5,6 +5,7 @@ class Vapoursynth < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R43.tar.gz"
   sha256 "5c80d583f6891f4f5840edf09bc207c2e71653786b07606fdb4a164fd67470c2"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -21,7 +22,7 @@ class Vapoursynth < Formula
 
   depends_on "libass"
   depends_on :macos => :el_capitan # due to zimg dependency
-  depends_on "python3"
+  depends_on "python"
   depends_on "tesseract"
   depends_on "zimg"
 
