@@ -3,7 +3,7 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 7
+  revision 8
 
   bottle do
     sha256 "00743decb59ff8b042a71e2cdd9b406e2cd0cce0cf83b51c6a7f88d077632d93" => :high_sierra
@@ -17,10 +17,10 @@ class VimAT74 < Formula
   option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
-  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
+  LANGUAGES_OPTIONAL = %w[lua mzscheme python@2 tcl].freeze
   LANGUAGES_DEFAULT  = %w[python].freeze
 
-  option "with-python3", "Build vim with python3 instead of python[2] support"
+  option "with-python@2", "Build vim with python@2 instead of python[3] support"
   LANGUAGES_OPTIONAL.each do |language|
     option "with-#{language}", "Build vim with #{language} support"
   end
@@ -33,7 +33,7 @@ class VimAT74 < Formula
   depends_on "python" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
   depends_on :x11 if build.with? "client-server"
 
   def install
@@ -49,14 +49,17 @@ class VimAT74 < Formula
     opts = ["--enable-perlinterp", "--enable-rubyinterp"]
 
     (LANGUAGES_OPTIONAL + LANGUAGES_DEFAULT).each do |language|
-      opts << "--enable-#{language}interp" if build.with? language
+      feature = { "python" => "python3", "python@2" => "python" }
+      if build.with? language
+        opts << "--enable-#{feature.fetch(language, language)}interp"
+      end
     end
 
     if opts.include?("--enable-pythoninterp") && opts.include?("--enable-python3interp")
-      # only compile with either python or python3 support, but not both
+      # only compile with either python or python@2 support, but not both
       # (if vim74 is compiled with +python3/dyn, the Python[3] library lookup segfaults
       # in other words, a command like ":py3 import sys" leads to a SEGV)
-      opts -= %w[--enable-pythoninterp]
+      opts -= %w[--enable-python3interp]
     end
 
     opts << "--disable-nls" if build.without? "nls"
@@ -98,18 +101,20 @@ class VimAT74 < Formula
   end
 
   test do
-    # Simple test to check if Vim was linked to Python version in $PATH
-    if build.with? "python"
-      vim_path = bin/"vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      python_framework_path = `python2-config --exec-prefix`.chomp
-
-      assert_equal python_framework_path, vim_framework_path
+    if build.with? "python@2"
+      (testpath/"commands.vim").write <<~EOS
+        :python import vim; vim.current.buffer[0] = 'hello world'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal "hello world", File.read("test.txt").chomp
+    elsif build.with? "python"
+      (testpath/"commands.vim").write <<~EOS
+        :python3 import vim; vim.current.buffer[0] = 'hello python3'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal "hello python3", File.read("test.txt").chomp
     end
   end
 end
