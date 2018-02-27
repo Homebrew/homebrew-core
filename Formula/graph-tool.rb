@@ -112,13 +112,13 @@ class GraphTool < Formula
   end
 
   test do
-    Pathname("test.py").write <<-EOS.undent
+    Pathname("test.py").write <<-EOS
       import graph_tool.all as gt
       g = gt.Graph()
       v1 = g.add_vertex()
       v2 = g.add_vertex()
       e = g.add_edge(v1, v2)
-      EOS
+    EOS
     Language::Python.each_python(build) { |python, _| system python, "test.py" }
   end
 end
