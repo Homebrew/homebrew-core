@@ -1,8 +1,8 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.17.1.tar.gz"
-  sha256 "dc78e98184270207bebafcb5d18a7e5785d7bc1437fcbbc40a7fbfd6a1bf27b4"
+  url "https://github.com/leancloud/lean-cli/archive/v0.18.0.tar.gz"
+  sha256 "96584706cac3eb2ff04d16d8b3dbbb61c236ac22ef6c6366970583c5a1b7c963"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
