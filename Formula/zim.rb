@@ -3,6 +3,7 @@ class Zim < Formula
   homepage "http://zim-wiki.org/"
   url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.67.tar.gz"
   sha256 "6817a4eb7be2326870810e4f4bc57c88128b2087752a8bd54953c95357b919fa"
+  revision 1
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Zim < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"
-  depends_on "python"
+  depends_on "python@2"
   depends_on "pygtk"
   depends_on "pygobject"
   depends_on "pygtksourceview" => :optional
