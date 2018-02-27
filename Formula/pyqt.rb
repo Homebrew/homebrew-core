@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://dl.bintray.com/homebrew/mirror/pyqt-5.10.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.10/PyQt5_gpl-5.10.tar.gz"
   sha256 "342fe6675df8ba9fabb3f3cc5d79ebc24714cd9bd1a3b5c8ab5dba7596f15f50"
+  revision 1
 
   bottle do
     sha256 "da85af4276d954cf9bb6b39832a777e8ec35b80ce59ae6ab544b64d3fc555c6e" => :high_sierra
@@ -19,13 +20,9 @@ class Pyqt < Formula
   depends_on "qt"
   depends_on "sip"
   depends_on "python" => :recommended
-  depends_on "python3" => :recommended
+  depends_on "python@2" => :recommended
 
   def install
-    if build.without?("python3") && build.without?("python")
-      odie "pyqt: --with-python3 must be specified when using --without-python"
-    end
-
     Language::Python.each_python(build) do |python, version|
       args = ["--confirm-license",
               "--bindir=#{bin}",
