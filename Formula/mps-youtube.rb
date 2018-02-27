@@ -5,6 +5,7 @@ class MpsYoutube < Formula
   homepage "https://github.com/mps-youtube/mps-youtube"
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.8.tar.gz"
   sha256 "d5f2c4bc1f57f0566242c4a0a721a5ceaa6d6d407f9d6dd29009a714a0abec74"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class MpsYoutube < Formula
     sha256 "3426758e5230d47ea068e0b072cb316fb7aa6b9aa98e347f559811f491bbcdc3" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "mpv" => :recommended
   depends_on "mplayer" => :optional
 
