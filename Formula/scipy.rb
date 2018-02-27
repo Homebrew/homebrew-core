@@ -3,7 +3,7 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.xz"
   sha256 "06b23f2a5db5418957facc86ead86b7752147c0461f3156f88a3da87f3dc6739"
-  revision 2
+  revision 3
   head "https://github.com/scipy/scipy.git"
 
   bottle do
@@ -17,8 +17,8 @@ class Scipy < Formula
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "numpy"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python3" => :recommended
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended
 
   cxxstdlib_check :skip
 
@@ -53,7 +53,7 @@ class Scipy < Formula
   end
 
   def caveats
-    if (build.with? "python") && !Formula["python"].installed?
+    if (build.with? "python@2") && !Formula["python@2"].installed?
       homebrew_site_packages = Language::Python.homebrew_site_packages
       user_site_packages = Language::Python.user_site_packages "python"
       <<~EOS
