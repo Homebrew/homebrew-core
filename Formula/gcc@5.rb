@@ -48,7 +48,7 @@ class GccAT5 < Formula
 
   resource "isl" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
-    mirror "http://isl.gforge.inria.fr/isl-0.14.tar.bz2"
+    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
     sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
   end
 
