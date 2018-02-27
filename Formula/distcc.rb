@@ -1,8 +1,9 @@
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/archive/v3.2rc1.tar.gz"
-  sha256 "33e85981ff6afd94efc38b23b2d8b9036b3dff2dc6eac6982b9ff0ae1de64caa"
+  url "https://github.com/distcc/distcc/releases/download/v3.2rc1.2/distcc-3.2rc1.2.tar.gz"
+  version "3.2rc1.2"
+  sha256 "7199806c5bbd7652e2d10989965afc7411c4e47bd5a1a621b3633b24e3a21444"
   head "https://github.com/distcc/distcc.git"
 
   bottle do
