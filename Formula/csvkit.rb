@@ -5,7 +5,7 @@ class Csvkit < Formula
   homepage "https://csvkit.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/53/de/a8ee2fb47af463251fd39e0dc2b7356ceb58fd0f5867f7f6d0f7cc6e8a0d/csvkit-1.0.2.tar.gz"
   sha256 "5a897f87c920dec3e7debc31102dfe774a8d704641bfafa98e04729bd4d26e17"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class Csvkit < Formula
     sha256 "ce7c74e9f00bda00f4528047d440a044db759ca5a0b67f5dc8c2241f6cdcbf6c" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "agate" do
     url "https://files.pythonhosted.org/packages/72/37/48192f2cb18c7ebe413f7410783b64a6236d20a4461f5c36f5efcb793f89/agate-1.6.0.tar.gz"
