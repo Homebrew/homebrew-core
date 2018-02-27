@@ -6,9 +6,9 @@ class Uwsgi < Formula
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "7ab9c0ad695d6dc03b6537f2b84fe92c511f9f412232f8e60a08a0da9d2a2b14" => :high_sierra
-    sha256 "836e7caa01dde37bd5bb5cc6846d33fee4a48741f01d4e53e2fc656bb0ab68ea" => :sierra
-    sha256 "fc380472c86ab122827f2592bb63ae22cc4d1fe0d3d43325bf7092cc5749ab5c" => :el_capitan
+    sha256 "c42839806ac4d5e1bcf9348909cb2012284ef20f69e646981ad11fb5bf9448d1" => :high_sierra
+    sha256 "87b5877671e1b1dd1c7aebe3dca1c2068e40d68c4f922de0610fae4b88a52f97" => :sierra
+    sha256 "33a07fe69d0831fa4eb6e601ec2e406ef059bbe7984badd3ad855eab6efb039b" => :el_capitan
   end
 
   option "with-java", "Compile with Java support"
