@@ -1,8 +1,8 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/v8.8.11.tar.gz"
-  sha256 "7c040ae7685788dae6390ee6491efff6701fa7a605ff9b5925be895641530bed"
+  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.0.tar.gz"
+  sha256 "15a09cfe903e43ef2da903503bbd9bafeb06ae19b1eeaf81e3cfbaa69c103c56"
 
   bottle do
     cellar :any
@@ -24,14 +24,6 @@ class Libphonenumber < Formula
   end
 
   needs :cxx11
-
-  # Remove for > 8.8.11
-  # Upstream issue from 2 Dec 2017 "Libraries getting installed in lib64 by default"
-  # See https://github.com/googlei18n/libphonenumber/issues/2044
-  patch do
-    url "https://github.com/googlei18n/libphonenumber/commit/8dcd3f924.patch?full_index=1"
-    sha256 "1da8e0e7a476d1cfbf32d14016c1a86e5fc85ae928aa031b55fa35ec912f6e83"
-  end
 
   def install
     ENV.cxx11
