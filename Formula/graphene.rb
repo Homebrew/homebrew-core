@@ -3,6 +3,7 @@ class Graphene < Formula
   homepage "https://ebassi.github.io/graphene/"
   url "https://download.gnome.org/sources/graphene/1.6/graphene-1.6.2.tar.xz"
   sha256 "8f7d1984c06aefe3b47a668c12ad9f3db0bcb2d09c55e6267b82a90f6b10d961"
+  revision 1
 
   bottle do
     sha256 "667e06c896b4d8c06dbd21ab0baf01a5c30d0121f1527623450d7bb7c2a39c5a" => :high_sierra
@@ -13,7 +14,7 @@ class Graphene < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
-  depends_on "python3"
+  depends_on "python"
 
   def install
     system "./configure", "--disable-dependency-tracking",
