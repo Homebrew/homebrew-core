@@ -21,7 +21,8 @@ class Latexml < Formula
   end
 
   resource "Text::Unidecode" do
-    url "http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
     sha256 "11876a90f0ce858d31203e80d62900383bb642ed8a470c67539b607f2a772d02"
   end
 
