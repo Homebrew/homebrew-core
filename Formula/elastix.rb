@@ -9,6 +9,7 @@ class Elastix < Formula
   end
 
   test do
-    system "false"
+    system bin/"elastix", "--version"
+    system bin/"transformix", "--version"
   end
 end
