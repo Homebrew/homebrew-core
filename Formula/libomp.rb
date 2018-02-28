@@ -4,6 +4,13 @@ class Libomp < Formula
   url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
   sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
 
+  bottle do
+    cellar :any
+    sha256 "b979a1127556d48732079825ee9386df0454124b86062a1bbd9dfce4cc15e80c" => :high_sierra
+    sha256 "9e869b95916c6246647f5ff75e0e117d47ba7cdde5c6d408f46e4535c2e848ec" => :sierra
+    sha256 "f3b27cb2f45233a981b9a9cd62ab77fb0935857ec4b7b386c17485be1f9f6f39" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on :macos => :yosemite
 
