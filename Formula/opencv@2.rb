@@ -92,6 +92,6 @@ class OpencvAT2 < Formula
 
     ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
     assert_match version.to_s,
-                 shell_output("python -c 'import cv2; print(cv2.__version__)'")
+                 shell_output("python2.7 -c 'import cv2; print(cv2.__version__)'")
   end
 end
