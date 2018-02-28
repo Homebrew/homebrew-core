@@ -5,6 +5,12 @@ class Php < Formula
   sha256 "47d7607d38a1d565fc43ea942c92229a7cd165f156737f210937e375b243cb11"
   revision 14
 
+  bottle do
+    sha256 "fb73c92bb37b2db33c022aef2030387741d51a56fe6ca99625ea057933402735" => :high_sierra
+    sha256 "234df263d894ba4c06d28b60e67de15d44aa7efd824859b2c792172c91c27953" => :sierra
+    sha256 "4d82f1590b68063cb512222ab8ed76e93e19490d64c11fc9cf4a8d481c9ae399" => :el_capitan
+  end
+
   depends_on "pkg-config" => :build
   depends_on "argon2"
   depends_on "aspell"
