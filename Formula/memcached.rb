@@ -1,8 +1,8 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.5.5.tar.gz"
-  sha256 "e2c466222debe39ad8d451d4d691493a0c655b6b3f5d06c456b2c0d8e17e07ed"
+  url "https://www.memcached.org/files/memcached-1.5.6.tar.gz"
+  sha256 "9675ee859d7d81f7a950f190a6812720b26f08228d356044ec517d4d5af25f03"
 
   bottle do
     cellar :any
