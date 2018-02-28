@@ -1,8 +1,8 @@
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
-  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.98.tar.gz"
-  sha256 "7cf941783fe8037474ee33a33b91379a0226c08ff4d58be454b12f8a2f150d5d"
+  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.tar.gz"
+  sha256 "ffb6547f9bb0565031eb2a62c4702fc467f20464b12aec5747f5c5f0e506d9dd"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,8 @@ class GetFlashVideos < Formula
   end
 
   resource "LWP::Protocol" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-6.31.tar.gz"
-    sha256 "525d5386d39d1c1d7da8a0e9dd0cbab95cba2a4bfcfd9b83b257f49be4eecae3"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.33.tar.gz"
+    sha256 "97417386f11f007ae129fe155b82fd8969473ce396a971a664c8ae6850c69b99"
   end
 
   resource "Tie::IxHash" do
