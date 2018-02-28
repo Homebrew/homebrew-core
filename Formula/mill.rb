@@ -6,8 +6,6 @@ class Mill < Formula
 
   bottle :unneeded
 
-  # Upstream issue from 2 Aug 2017 "amm throws NPE on OpenJDK 9"
-  # See https://github.com/lihaoyi/Ammonite/issues/675
   depends_on :java => "1.8"
 
   def install
