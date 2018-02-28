@@ -1,6 +1,7 @@
 class Terminator < Formula
   desc "Multiple terminals in one window"
   homepage "https://gnometerminator.blogspot.com/p/introduction.html"
+  revision 1
   head "lp:terminator", :using => :bzr
 
   stable do
