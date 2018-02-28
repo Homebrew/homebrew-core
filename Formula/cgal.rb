@@ -7,8 +7,13 @@ class Cgal < Formula
   bottle do
     cellar :any
     sha256 "f68288c1c42f06bd7fa28a5f802966d4b786261677e0504e568edbaf9b522ca2" => :high_sierra
-    sha256 "dfb607d915656ff43d64d0df1586543903b15d4b30191b65339ba43ad9fe92e2" => :sierra
+    sha256 "32e877c60b4027c9daf9dd9c8c8359097e333327d06fe18d3768bb80e89183db" => :sierra
     sha256 "0c07e6ef489eca9ff62da6535bf1a95151a73eebed2ca674511f121819dbc0a9" => :el_capitan
+  end
+
+  devel do
+    url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12-beta1/CGAL-4.12-beta1.tar.xz"
+    sha256 "32e877c60b4027c9daf9dd9c8c8359097e333327d06fe18d3768bb80e89183db"
   end
 
   option "with-eigen", "Build with Eigen3 support"
