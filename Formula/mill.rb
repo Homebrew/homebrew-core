@@ -25,6 +25,6 @@ class Mill < Formula
       }
     EOS
     output = shell_output("#{bin}/mill resolve __.compile")
-    assert_equal "foo.compile", output.lines.last
+    assert_equal "foo.compile", output.lines.last.chomp
   end
 end
