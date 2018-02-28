@@ -1,6 +1,6 @@
 class Mill < Formula
   desc "Your shiny new Scala build tool!"
-  homepage "http://www.lihaoyi.com/mill/"
+  homepage "https://www.lihaoyi.com/mill/"
   url "https://github.com/lihaoyi/mill/releases/download/0.1.3/0.1.3", :using => :nounzip
   sha256 "986d043021bee4f2f7a31d64cf441a5098e5e60d94d9f865416b797b3e1110fb"
 
