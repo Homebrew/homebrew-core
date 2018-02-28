@@ -24,12 +24,6 @@ class NodeAT4 < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
-  # Keep in sync with main node formula
-  resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-    sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
-  end
-
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
     mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
