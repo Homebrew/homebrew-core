@@ -6,9 +6,9 @@ class GetFlashVideos < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "788dc7a201a1c619e6e29e9a4cef61092b5f77ab8c6c04f0b14213b14b4ab671" => :high_sierra
-    sha256 "4f6cc5397f548ad04606adf1ababe1378d2e72ccc354508a10c064520850df58" => :sierra
-    sha256 "0897cacbf82a7f597abb8cac9374391948f26887552bc445322df4d57684cd53" => :el_capitan
+    sha256 "2f05ffabed392a613bbf1f6dbfe6768143a0beaa90563813d5bf64f41fbae8d0" => :high_sierra
+    sha256 "e33b1482d4054116f4d467c693b515b15f2de3e3746c0247aed7d521f9315804" => :sierra
+    sha256 "3e940c869b6dae6288a60c18017726f455268c08a9ddaf52ead795a5e7852faf" => :el_capitan
   end
 
   depends_on "rtmpdump"
