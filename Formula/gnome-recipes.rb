@@ -3,7 +3,7 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "9250ea26b664e3ec8982762710969f15582b7e87e11e989584294a6147c07926" => :high_sierra
@@ -15,7 +15,7 @@ class GnomeRecipes < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "itstool" => :build
-  depends_on "python3" => :build
+  depends_on "python" => :build
   depends_on "gtk+3"
   depends_on "adwaita-icon-theme"
   depends_on "libcanberra"
