@@ -11,10 +11,10 @@ class Log4cplus < Formula
     sha256 "8819df40a1477a3fb87a4a3dcd36ec8e2292b5aed362851549e8e2df74ffad9d" => :el_capitan
   end
 
-  option "with-cxx11", "set -std=c++11 in the envvar CXXFLAG"
+  needs :cxx11
 
   def install
-    ENV["CXXFLAGS"]="-std=c++11" if build.with? "cxx11"
+    ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
