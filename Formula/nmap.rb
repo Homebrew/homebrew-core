@@ -36,6 +36,8 @@ class Nmap < Formula
     system "./configure", *args
     system "make" # separate steps required otherwise the build fails
     system "make", "install"
+
+    rm_f Dir[bin/"uninstall_*"] # Users should use brew uninstall.
   end
 
   test do
