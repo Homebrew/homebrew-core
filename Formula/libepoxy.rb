@@ -1,8 +1,8 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.3.tar.xz"
-  sha256 "0b808a06c9685a62fca34b680abb8bc7fb2fda074478e329b063c1f872b826f6"
+  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.0.tar.xz"
+  sha256 "4c94995398a6ebf691600dda2e9685a0cac261414175c2adf4645cdfab42a5d5"
 
   bottle do
     cellar :any
@@ -17,9 +17,10 @@ class Libepoxy < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :build if MacOS.version <= :snow_leopard
 
+  # submitted upstream at https://github.com/anholt/libepoxy/pull/156
+  patch :DATA
+
   def install
-    # see https://github.com/anholt/libepoxy/pull/128
-    inreplace "src/meson.build", "version=1", "version 1"
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
@@ -56,3 +57,18 @@ class Libepoxy < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/meson.build b/src/meson.build
+index 3401075..23cd173 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -93,7 +93,7 @@ epoxy_has_wgl = build_wgl ? '1' : '0'
+ # not needed when building Epoxy; we do want to add them to the generated
+ # pkg-config file, for consumers of Epoxy
+ gl_reqs = []
+-if gl_dep.found()
++if gl_dep.found() and host_system != 'darwin'
+   gl_reqs += 'gl'
+ endif
+ if build_egl and egl_dep.found()
