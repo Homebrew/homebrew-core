@@ -3,6 +3,7 @@ class Atk < Formula
   homepage "https://library.gnome.org/devel/atk/"
   url "https://download.gnome.org/sources/atk/2.26/atk-2.26.1.tar.xz"
   sha256 "ef00ff6b83851dddc8db38b4d9faeffb99572ba150b0664ee02e46f015ea97cb"
+  revision 1
 
   bottle do
     sha256 "08bf533625443e9f7e47c08d163fcc74fcc973c6aae9b61b6ef1a09d506d6a3b" => :high_sierra
@@ -10,16 +11,23 @@ class Atk < Formula
     sha256 "40860eef1dacca8db3f7de7b1c2aa302e352ea6cd9f05a3ab84234b77bcf6b1c" => :el_capitan
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
+  patch :DATA
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-introspection=yes"
-    system "make"
-    system "make", "install"
+    ENV.refurbish_args
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "test"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -50,3 +58,22 @@ class Atk < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index 7d5a31b..b5c695a 100644
+--- a/meson.build
++++ b/meson.build
+@@ -80,11 +80,6 @@ if host_machine.system() == 'linux'
+   endforeach
+ endif
+
+-# Maintain compatibility with autotools on macOS
+-if host_machine.system() == 'darwin'
+-  common_ldflags += [ '-compatibility_version=1', '-current_version=1.0', ]
+-endif
+-
+ # Functions
+ checked_funcs = [
+   'bind_textdomain_codeset',
+

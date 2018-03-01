@@ -23,6 +23,7 @@ class Gmime < Formula
       --disable-vala
       --disable-glibtest
       --enable-crypto
+      --disable-silent-rules
     ]
 
     if build.with? "gobject-introspection"

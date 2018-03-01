@@ -3,6 +3,7 @@ class Libepoxy < Formula
   homepage "https://github.com/anholt/libepoxy"
   url "https://download.gnome.org/sources/libepoxy/1.4/libepoxy-1.4.3.tar.xz"
   sha256 "0b808a06c9685a62fca34b680abb8bc7fb2fda074478e329b063c1f872b826f6"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,9 +18,11 @@ class Libepoxy < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :build if MacOS.version <= :snow_leopard
 
+  patch :DATA
+
   def install
-    # see https://github.com/anholt/libepoxy/pull/128
-    inreplace "src/meson.build", "version=1", "version 1"
+    ENV.refurbish_args
+
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
@@ -56,3 +59,22 @@ class Libepoxy < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/meson.build b/src/meson.build
+index 3d48a4d..4296241 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -57,11 +57,6 @@ if host_system == 'linux'
+   endforeach
+ endif
+
+-# Maintain compatibility with autotools; see: https://github.com/anholt/libepoxy/issues/108
+-if host_system == 'darwin'
+-  common_ldflags += [ '-compatibility_version=1', '-current_version=1.0', ]
+-endif
+-
+ epoxy_deps = [ dl_dep, ]
+ if host_system == 'windows'
+   epoxy_deps += [ opengl32_dep, gdi32_dep ]
+
