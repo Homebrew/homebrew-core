@@ -1,7 +1,7 @@
 class Shakespeare < Formula
   desc "Write programs in Shakespearean English"
   homepage "https://shakespearelang.sourceforge.io/"
-  url "http://shakespearelang.sf.net/download/spl-1.2.1.tar.gz"
+  url "https://shakespearelang.sourceforge.io/download/spl-1.2.1.tar.gz"
   sha256 "1206ef0a2c853b8b40ca0c682bc9d9e0a157cc91a7bf4e28f19ccd003674b7d3"
 
   bottle do

@@ -1,14 +1,14 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.16.tar.gz"
-  sha256 "a911f48f3cc51ac82fdabc4e001f18a32569128680beb5a833ebc3ff6edcc1f4"
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.17.tar.gz"
+  sha256 "3dc2e9b48db92b67bfec1badec0d3fdcc0771316486c5efa3217569da3528bf2"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "7ab9c0ad695d6dc03b6537f2b84fe92c511f9f412232f8e60a08a0da9d2a2b14" => :high_sierra
-    sha256 "836e7caa01dde37bd5bb5cc6846d33fee4a48741f01d4e53e2fc656bb0ab68ea" => :sierra
-    sha256 "fc380472c86ab122827f2592bb63ae22cc4d1fe0d3d43325bf7092cc5749ab5c" => :el_capitan
+    sha256 "c42839806ac4d5e1bcf9348909cb2012284ef20f69e646981ad11fb5bf9448d1" => :high_sierra
+    sha256 "87b5877671e1b1dd1c7aebe3dca1c2068e40d68c4f922de0610fae4b88a52f97" => :sierra
+    sha256 "33a07fe69d0831fa4eb6e601ec2e406ef059bbe7984badd3ad855eab6efb039b" => :el_capitan
   end
 
   option "with-java", "Compile with Java support"

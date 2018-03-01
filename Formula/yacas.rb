@@ -1,6 +1,6 @@
 class Yacas < Formula
   desc "General purpose computer algebra system"
-  homepage "http://www.yacas.org/"
+  homepage "https://www.yacas.org/"
   url "https://github.com/grzegorzmazur/yacas/archive/v1.6.1.tar.gz"
   sha256 "6b94394f705bed70a9d104967073efd6c23e9eb1a832805c4d805ef875555ae5"
 

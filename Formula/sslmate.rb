@@ -19,13 +19,11 @@ class Sslmate < Formula
 
     resource "URI" do
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.67.tar.gz"
-      mirror "http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/URI-1.67.tar.gz"
       sha256 "ab7f5fbc80da4ed9c46d63ed956c68a09e83dae30f20c2778c3e056d41883f9d"
     end
 
     resource "Term::ReadKey" do
       url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.32.tar.gz"
-      mirror "http://search.cpan.org/CPAN/authors/id/J/JS/JSTOWE/TermReadKey-2.32.tar.gz"
       sha256 "58b90e8908e686d03a161590c1dd870e8a1b005715ca8e6d5080a32459e1e9f8"
     end
   end
@@ -42,7 +40,7 @@ class Sslmate < Formula
     depends_on "python" if MacOS.version <= :snow_leopard
 
     resource "boto" do
-      url "https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz"
+      url "https://files.pythonhosted.org/packages/source/b/boto/boto-2.38.0.tar.gz"
       sha256 "d9083f91e21df850c813b38358dc83df16d7f253180a1344ecfedce24213ecf2"
     end
   end

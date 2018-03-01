@@ -1,6 +1,6 @@
 class Primesieve < Formula
   desc "Fast C/C++ prime number generator"
-  homepage "http://primesieve.org/"
+  homepage "https://primesieve.org/"
   url "https://github.com/kimwalisch/primesieve/archive/v6.3.tar.gz"
   sha256 "d359575d17979c01f19203e61849d1bfea1867de0005e119f15f2f37ae2af83f"
 

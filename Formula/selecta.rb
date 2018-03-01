@@ -1,9 +1,8 @@
 class Selecta < Formula
   desc "Fuzzy text selector for files and anything else you need to select"
   homepage "https://github.com/garybernhardt/selecta"
-  url "https://github.com/garybernhardt/selecta/archive/v0.0.6.tar.gz"
-  sha256 "c5e0fdab53b3c4942e46c1a2c5a38158f21eb0520c6391f77d6d0a7d2a023318"
-  revision 1
+  url "https://github.com/garybernhardt/selecta/archive/v0.0.7.tar.gz"
+  sha256 "00d1bdabb44b93f90018438f8ffc0780f96893b809b52956abb9485f509d03d2"
 
   bottle :unneeded
 

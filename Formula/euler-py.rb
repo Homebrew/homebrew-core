@@ -18,7 +18,7 @@ class EulerPy < Formula
   depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-4.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/c/click/click-4.0.tar.gz"
     sha256 "f49e03611f5f2557788ceeb80710b1c67110f97c5e6740b97edf70245eea2409"
   end
 

@@ -1,8 +1,8 @@
 class Falcon < Formula
   desc "Multi-paradigm programming language and scripting engine"
   homepage "http://www.falconpl.org/"
-  url "https://www.mirrorservice.org/sites/distfiles.macports.org/falcon/Falcon-0.9.6.8.tgz"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/Falcon/Falcon-0.9.6.8.tgz/8435f6f2fe95097ac2fbe000da97c242/Falcon-0.9.6.8.tgz"
+  url "https://mirrorservice.org/sites/distfiles.macports.org/falcon/Falcon-0.9.6.8.tgz"
+  mirror "https://src.fedoraproject.org/repo/pkgs/Falcon/Falcon-0.9.6.8.tgz/8435f6f2fe95097ac2fbe000da97c242/Falcon-0.9.6.8.tgz"
   sha256 "f4b00983e7f91a806675d906afd2d51dcee048f12ad3af4b1dadd92059fa44b9"
 
   bottle do

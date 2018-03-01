@@ -290,7 +290,7 @@ class Python3 < Formula
     <<~EOS
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <https://docs.brew.sh/Homebrew-and-Python.html>
+      # <https://docs.brew.sh/Homebrew-and-Python>
       import re
       import os
       import sys
@@ -340,7 +340,7 @@ class Python3 < Formula
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
-      See: https://docs.brew.sh/Homebrew-and-Python.html
+      See: https://docs.brew.sh/Homebrew-and-Python
     EOS
 
     # Tk warning only for 10.6

@@ -1,6 +1,6 @@
 class Dspdfviewer < Formula
   desc "Dual-Screen PDF Viewer for latex-beamer"
-  homepage "http://dspdfviewer.danny-edel.de"
+  homepage "https://dspdfviewer.danny-edel.de/"
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   revision 5

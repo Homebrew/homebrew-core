@@ -1,7 +1,7 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
-  homepage "https://hamlib.sourceforge.io"
-  url "http://pkgs.fedoraproject.org/repo/pkgs/hamlib/hamlib-1.2.15.3.tar.gz/3cad8987e995a00e5e9d360e2be0eb43/hamlib-1.2.15.3.tar.gz"
+  homepage "https://hamlib.sourceforge.io/"
+  url "https://src.fedoraproject.org/repo/pkgs/hamlib/hamlib-1.2.15.3.tar.gz/3cad8987e995a00e5e9d360e2be0eb43/hamlib-1.2.15.3.tar.gz"
   sha256 "a2ca4549e4fd99d6e5600e354ebcb57502611aa63c6921c1b8a825289833f75e"
 
   bottle do

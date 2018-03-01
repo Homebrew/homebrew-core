@@ -1,6 +1,6 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
-  homepage "http://www.unicorn-engine.org"
+  homepage "https://www.unicorn-engine.org/"
   url "https://github.com/unicorn-engine/unicorn/archive/1.0.1.tar.gz"
   sha256 "3a6a4f2b8c405ab009040ca43af8e4aa10ebe44d9c8b336aa36dc35df955017c"
   head "https://github.com/unicorn-engine/unicorn.git"
@@ -39,7 +39,7 @@ class Unicorn < Formula
 
   test do
     (testpath/"test1.c").write <<~EOS
-      /* Adapted from http://www.unicorn-engine.org/docs/tutorial.html
+      /* Adapted from https://www.unicorn-engine.org/docs/tutorial.html
        * shamelessly and without permission. This almost certainly needs
        * replacement, but for now it should be an OK placeholder
        * assertion that the libraries are intact and available.

@@ -1,13 +1,13 @@
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.5.tar.gz"
-  sha256 "5fe6a78bebc62137a8bd1209f6b5e4f27b9d5892cc03cf4745cb78c832b15210"
+  url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
+  sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
 
   bottle do
-    sha256 "7649a480c1a417585c63931e113069ac41458155dc62ba0f49f482479bef2e67" => :high_sierra
-    sha256 "671bdafb37971ad9497f5924daecf8f9e0a7649c615cde04eb8cc278334c8d49" => :sierra
-    sha256 "63bedafc181f8ab479787b05b769c85c183dce0359cdc50efd2ef8c90302c2d1" => :el_capitan
+    sha256 "0b6f327f3f5ddd5365d62b44163c9d6957cf912cd04b3e6a8ea6e2d874b30fa2" => :high_sierra
+    sha256 "f43fb606dc912ed80603c06e9bf082c233b994ab05990f5bdeb568ed84cc2884" => :sierra
+    sha256 "5fe75e59452df9c0c0d1deb58d3bf0c6ec75aa1c2e6f67bd90005a3efb4cd531" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -92,6 +92,6 @@ class OpencvAT2 < Formula
 
     ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
     assert_match version.to_s,
-                 shell_output("python -c 'import cv2; print(cv2.__version__)'")
+                 shell_output("python2.7 -c 'import cv2; print(cv2.__version__)'")
   end
 end

@@ -8,8 +8,8 @@ class Rust < Formula
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.24.0",
-          :revision => "45043115c9094d82f0f407ebc7ef7e583f438d12"
+          :tag => "0.25.0",
+          :revision => "8c93e089536467783957fec23b0f2627bb6ce357"
     end
 
     resource "racer" do
@@ -19,9 +19,10 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "6a0487d583cec7a1d9aeb724da516259d44daf82ad993c20ca36efba79e5d8fd" => :high_sierra
-    sha256 "370457eca1da4b165327aaf8711ae0de3f40bd81d588302a85049f38dab6a874" => :sierra
-    sha256 "5bdd0756953ad3b394dd70fc6688cc6002711edb7a720b4d9caa539e28f0e63a" => :el_capitan
+    rebuild 1
+    sha256 "63523dc7db03a21de1fafbe242a22a144967b241efd50e2ea23d41fed88d0a31" => :high_sierra
+    sha256 "4c926f3cc88ce210ee85cde6d5c2c4b6251b6b84097fb48d488335ab43708a65" => :sierra
+    sha256 "480221c3dd7477de2f97dfa43a26d5a4069fd5e32c3cf5a1dfc0d710d341e102" => :el_capitan
   end
 
   head do
@@ -60,6 +61,11 @@ class Rust < Formula
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Prevent cargo from linking against a different library (like openssl@1.1)
+    # from libssh2 and causing segfaults
+    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
+    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
     # Fix build failure for cmake v0.1.24 "error: internal compiler error:
     # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for

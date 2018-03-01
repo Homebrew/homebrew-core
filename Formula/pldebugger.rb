@@ -1,6 +1,6 @@
 class Pldebugger < Formula
   desc "PL/pgSQL debugger server-side code"
-  homepage "https://git.postgresql.org/gitweb/"
+  homepage "https://git.postgresql.org/gitweb/?p=pldebugger.git"
   url "https://git.postgresql.org/git/pldebugger.git",
       :tag => "v1.0",
       :revision => "ca1041dc3db6f516899be669dc6fbfd6339f8168"

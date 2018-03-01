@@ -1,6 +1,6 @@
 class Advancemenu < Formula
   desc "Frontend for AdvanceMAME/MESS"
-  homepage "http://www.advancemame.it/menu-readme.html"
+  homepage "https://www.advancemame.it/menu-readme.html"
   url "https://github.com/amadvance/advancemame/releases/download/advancemenu-2.9/advancemenu-2.9.tar.gz"
   sha256 "c7599da6ff715eb3ad9f7a55973a9aaac2f26740a4e12daf744cf08963d652c1"
 

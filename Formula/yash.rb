@@ -1,8 +1,8 @@
 class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
-  url "https://ja.osdn.net/frs/redir.php?f=%2Fyash%2F68578%2Fyash-2.46.tar.xz"
-  mirror "http://dl.osdn.jp/yash/68578/yash-2.46.tar.xz"
+  # Canonical: https://osdn.net/dl/yash/yash-2.46.tar.xz
+  url "https://dotsrc.dl.osdn.net/osdn/yash/68578/yash-2.46.tar.xz"
   sha256 "93431d897ce2b176c9f97b879c70a426ebc125b073d5894c00cd746f3a8455cb"
 
   bottle do

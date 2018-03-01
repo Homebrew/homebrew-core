@@ -61,6 +61,8 @@ class Gnuradio < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
@@ -182,7 +184,7 @@ class Gnuradio < Formula
 
         main()
       EOS
-      system "python", testpath/"test.py"
+      system "python2.7", testpath/"test.py"
 
       cd testpath do
         system "#{bin}/gr_modtool", "newmod", "test"

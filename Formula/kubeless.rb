@@ -2,14 +2,14 @@ class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
   url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.3.4",
-      :revision => "d16de3f6fd52460753fb81fafbcfc514dfc702e2"
+      :tag => "v0.4.0",
+      :revision => "4f4f531f6a1b685bf3842b26cfff5ca7eee533cc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c12afb34ddf3afbb246f9a676dfdb9c8fd5bbae1d4e020bedfc51c29f5dde32" => :high_sierra
-    sha256 "51cb68a71f9731705a2adada57256983be66f857b7040f9c03cef667756db148" => :sierra
-    sha256 "56c2c77642286c95dc1c2cd4418d76ce107fe51dbd1c860ab0ac2868677b5e17" => :el_capitan
+    sha256 "121bc585de3fc20277f9ed7ca084be1204cc5f6c2d64ffe0cd0ff2d4e280e279" => :high_sierra
+    sha256 "100648f5201422b1ce7d6005384e338e03d7899ea4ad273f8fe5c4fe4d51f512" => :sierra
+    sha256 "a6042ea97e4729fd0171c81adf343d5d819832dae1c3cce2a759d1516443b30d" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -38,7 +38,33 @@ class Kubeless < Formula
     pid = fork do
       loop do
         socket = server.accept
-        response = "OK"
+        request = socket.gets
+        request_path = request.split(" ")[1]
+        if request_path == "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
+          response = '{
+            "kind": "ConfigMap",
+            "apiVersion": "v1",
+            "metadata": { "name": "kubeless-config", "namespace": "kubeless" },
+            "data": {
+              "runtime-images": "[{' \
+                '\"ID\": \"python\",' \
+                '\"versions\": [{' \
+                  '\"name\": \"python27\",' \
+                  '\"version\": \"2.7\",' \
+                  '\"httpImage\": \"kubeless/python\"' \
+                  "}]" \
+                '}]"
+              }
+            }'
+        elsif request_path == "/apis/kubeless.io/v1beta1/namespaces/default/functions"
+          response = '{
+            "apiVersion": "kubeless.io/v1beta1",
+            "kind": "Function",
+            "metadata": { "name": "get-python", "namespace": "default" }
+            }'
+        else
+          response = "OK"
+        end
         socket.print "HTTP/1.1 200 OK\r\n" \
                     "Content-Length: #{response.bytesize}\r\n" \
                     "Connection: close\r\n"

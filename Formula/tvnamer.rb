@@ -16,7 +16,7 @@ class Tvnamer < Formula
   depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "tvdb_api" do
-    url "https://pypi.python.org/packages/source/t/tvdb_api/tvdb_api-1.10.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/t/tvdb_api/tvdb_api-1.10.tar.gz"
     sha256 "308e73a16fc79936f1bf5a91233cce6ba5395b3f908ac159068ce7b1fc410843"
   end
 

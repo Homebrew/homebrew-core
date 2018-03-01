@@ -2,27 +2,27 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-      :tag => "v0.8.2",
-      :revision => "2c202c42175c97b266868836caf54df82aeffd3d"
+      :tag => "v0.9.0",
+      :revision => "89d8ab9e9130238e56a0df283edbcd1115ec9225"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "508d51af88cd4c58e7419cb9d20eaa59de7707dca575ed400473516920340d8e" => :high_sierra
-    sha256 "57ede69ad725659397a5512dda8753b76c45149f786cbf49f2ffd2e0f5de82b4" => :sierra
-    sha256 "bf1a3568ece6cc069f5528cae7b4d426dbcb831ce7fea39b0dec1d5eaeb4b348" => :el_capitan
+    sha256 "37343e978d4035fa9b2881c038748ec4704bf8a57308c59e64592dd404166e36" => :high_sierra
+    sha256 "d269ec8f0e492e2a9c7804ca2cc6d9211a9be7c3dfbb0daaab19c5b14bef5b24" => :sierra
+    sha256 "e36259af15ec8cf6546b1f7d99a105efb9a30c198f549a67964417e31892fe97" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    mkdir_p buildpath/"src/github.com/jeffail/"
-    ln_sf buildpath, buildpath/"src/github.com/jeffail/leaps"
-
-    system "go", "build", "-o", "#{bin}/leaps", "github.com/jeffail/leaps/cmd/leaps"
+    (buildpath/"src/github.com/jeffail/leaps").install buildpath.children
+    cd buildpath/"src/github.com/jeffail/leaps" do
+      system "dep", "ensure"
+      system "go", "build", "-o", bin/"leaps", "./cmd/leaps"
+      prefix.install_metafiles
+    end
   end
 
   test do

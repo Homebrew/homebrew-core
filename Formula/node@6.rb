@@ -6,10 +6,10 @@ class NodeAT6 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    rebuild 1
-    sha256 "79b2bdf0dad86efab66aa2258a808baee005605a3e6048e211f5523a6e028cf5" => :high_sierra
-    sha256 "a14dc30ba521d3e030ae1eb5469d55b075e6b9390d66152ea3771ace55700fe4" => :sierra
-    sha256 "e6de6b5903d5ce214b4b4f5462ab64a7687240e755470f893eeb0981d506f688" => :el_capitan
+    rebuild 2
+    sha256 "0b37f5dd42ed7736580473140f4ae767d33f349c6d64f8a83d01f5ce388b2a2d" => :high_sierra
+    sha256 "70ac01d90ed6b3997c74793e45bd24ee4d7cfcf27a2305b1b26841e02f260f4c" => :sierra
+    sha256 "233c27e2a389b8b410cce0616ac059bed418975a174cbff0917fb54550953654" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -32,12 +32,6 @@ class NodeAT6 < Formula
     fails_with :gcc => n
   end
 
-  # Keep in sync with main node formula
-  resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-    sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
-  end
-
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
     mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
@@ -58,28 +52,6 @@ class NodeAT6 < Formula
 
     system "./configure", *args
     system "make", "install"
-
-    if build.with? "npm"
-      # Allow npm to find Node before installation has completed.
-      ENV.prepend_path "PATH", bin
-
-      bootstrap = buildpath/"npm_bootstrap"
-      bootstrap.install resource("npm")
-      system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
-             "--prefix=#{libexec}", resource("npm").cached_download
-
-      # The `package.json` stores integrity information about the above passed
-      # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
-      # This copies back over the vanilla `package.json` to fix this issue.
-      cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
-      # These symlinks are never used & they've caused issues in the past.
-      rm_rf libexec/"share"
-
-      if build.with? "completion"
-        bash_completion.install \
-          bootstrap/"lib/utils/completion.sh" => "npm"
-      end
-    end
   end
 
   def caveats
