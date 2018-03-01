@@ -75,6 +75,8 @@ class Twtxt < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  # If the test needs to be updated, more users can be found here:
+  # https://github.com/mdom/we-are-twtxt/blob/master/we-are-twtxt.txt
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
@@ -83,11 +85,11 @@ class Twtxt < Formula
       nick = homebrew
       twtfile = twtxt.txt
       [following]
-      twtxt = https://buckket.org/twtxt_news.txt
+      abliss = https://abliss.keybase.pub/twtxt.txt#7a778276dd852edc65217e759cba637a28b4426b
     EOS
     (testpath/"twtxt.txt").write <<~EOS
       2016-02-05T18:00:56.626750+00:00  Homebrew speaks!
     EOS
-    assert_match "Fiat Lux!", shell_output("#{bin}/twtxt -c config timeline")
+    assert_match "PGP", shell_output("#{bin}/twtxt -c config timeline")
   end
 end
