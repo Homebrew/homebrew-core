@@ -58,6 +58,10 @@ class Netdata < Formula
   end
 
   test do
-    system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file", "#{testpath}/netdata.unittest.unique.id", "-W", "unittest"
+    system "#{sbin}/netdata",
+      "-W", "set", "registry",
+      "netdata unique id file",
+      "#{testpath}/netdata.unittest.unique.id",
+      "-W", "unittest"
   end
 end
