@@ -3,7 +3,7 @@ class Jupyter < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,7 @@ class Jupyter < Formula
   option "without-notebook", "Install without Jupyter Notebook"
 
   depends_on "ipython@5"
+  depends_on "python@2"
   depends_on "pandoc" if build.with?("nbconvert") || build.with?("notebook")
   depends_on "pyqt" if build.with? "qtconsole"
 

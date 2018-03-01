@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.12.04.source.tar.gz"
   version "6.12.04"
   sha256 "f438f2ae6e25496fa81df525935fb0bf2a403855d95c40b3e0f3a3e1e861a085"
-  revision 1
+  revision 2
 
   head "http://root.cern.ch/git/root.git"
 
@@ -24,7 +24,7 @@ class Root < Formula
   depends_on "xrootd"
   depends_on "xz" # For LZMA.
   depends_on "python" => :recommended
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
 
   needs :cxx11
 
@@ -57,14 +57,14 @@ class Root < Formula
       -Dxrootd=ON
     ]
 
-    if build.with?("python3") && build.with?("python")
+    if build.with?("python") && build.with?("python@2")
       odie "Root: Does not support building both python 2 and 3 wrappers"
-    elsif build.with?("python") || build.with?("python3")
-      if build.with? "python"
-        ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    elsif build.with?("python") || build.with?("python@2")
+      if build.with? "python@2"
+        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
         python_executable = Utils.popen_read("which python").strip
         python_version = Language::Python.major_minor_version("python")
-      elsif build.with? "python3"
+      elsif build.with? "python"
         python_executable = Utils.popen_read("which python3").strip
         python_version = Language::Python.major_minor_version("python3")
       end
@@ -138,7 +138,7 @@ class Root < Formula
 
     if build.with? "python"
       ENV["PYTHONPATH"] = lib/"root"
-      system "python2", "-c", "import ROOT"
+      system "python3", "-c", "import ROOT"
     end
   end
 end

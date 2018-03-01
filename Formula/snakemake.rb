@@ -3,6 +3,7 @@ class Snakemake < Formula
   homepage "https://snakemake.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/56/26/9d93502155e0719d921fdccc8d99e1607cdf10f742a9fc6ce1819cd52aff/snakemake-4.7.0.tar.gz"
   sha256 "a1c3245f47489219d212980f649ce435bc29b39638dade379e85f65a11c7e082"
+  revision 1
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Snakemake < Formula
     sha256 "bee14118854569d98285b349286fdbee8be368144e94f668ba34818240ae92d9" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"

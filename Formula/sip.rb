@@ -4,7 +4,7 @@ class Sip < Formula
   url "https://dl.bintray.com/homebrew/mirror/sip-4.19.7.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.7/sip-4.19.7.tar.gz"
   sha256 "25b50d29dd4b72965e7980c41e3320e460eff481a177beeddebf8c3be84b8cde"
-  revision 1
+  revision 2
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
@@ -15,13 +15,9 @@ class Sip < Formula
   end
 
   depends_on "python" => :recommended
-  depends_on "python3" => :recommended
+  depends_on "python@2" => :recommended
 
   def install
-    if build.without?("python3") && build.without?("python")
-      odie "sip: --with-python3 must be specified when using --without-python"
-    end
-
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     if build.head?

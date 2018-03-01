@@ -3,6 +3,7 @@ class Pybind11 < Formula
   homepage "https://github.com/pybind/pybind11"
   url "https://github.com/pybind/pybind11/archive/v2.2.2.tar.gz"
   sha256 "b639a2b2cbf1c467849660801c4665ffc1a4d0a9e153ae1996ed6f21c492064e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Pybind11 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python3"
+  depends_on "python"
 
   def install
     system "cmake", ".", "-DPYBIND11_TEST=OFF", *std_cmake_args

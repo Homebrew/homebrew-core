@@ -3,7 +3,7 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
   sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class Twtxt < Formula
     sha256 "b8275a51343f636b767959bde5c5547ac4b1d82795d4cc04a4115eff7b59ff31" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/1e/d4/c1206b016b42a0b223aadb559318966b64ec27e5406bed79c36356e62082/aiohttp-2.2.5.tar.gz"

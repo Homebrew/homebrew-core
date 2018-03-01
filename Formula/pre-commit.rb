@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v1.6.0.tar.gz"
   sha256 "c5343472d9d9bd88d3fe714c220639f88109da09effc596956c0d1208ac89313"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class PreCommit < Formula
     sha256 "ab3cd0b4c2e6788952be51c2520bf88c35b670e8c608abdf2b4158a4df9e17bd" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")

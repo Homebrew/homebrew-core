@@ -4,7 +4,7 @@ class Lensfun < Formula
   url "https://dl.bintray.com/homebrew/mirror/lensfun-0.3.2.tar.gz"
   mirror "https://downloads.sourceforge.net/project/lensfun/0.3.2/lensfun-0.3.2.tar.gz"
   sha256 "ae8bcad46614ca47f5bda65b00af4a257a9564a61725df9c74cb260da544d331"
-  revision 2
+  revision 3
   head "https://git.code.sf.net/p/lensfun/code.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Lensfun < Formula
     sha256 "9056fb41bfed7c149fc65d795aa65eb0e67fb8e6ff3d542bcd6a7770c276c911" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "glib"

@@ -3,6 +3,7 @@ class Cvs2svn < Formula
   homepage "http://cvs2svn.tigris.org/"
   url "http://cvs2svn.tigris.org/files/documents/1462/49237/cvs2svn-2.4.0.tar.gz"
   sha256 "a6677fc3e7b4374020185c61c998209d691de0c1b01b53e59341057459f6f116"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Cvs2svn < Formula
   end
 
   # cvs2svn requires python with gdbm support
-  depends_on "python"
+  depends_on "python@2"
 
   def install
     system "python", "setup.py", "install", "--prefix=#{prefix}"

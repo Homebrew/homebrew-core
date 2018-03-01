@@ -3,6 +3,7 @@ class Yosys < Formula
   homepage "http://www.clifford.at/yosys/"
   url "https://github.com/cliffordwolf/yosys/archive/yosys-0.7.tar.gz"
   sha256 "3df986d0c6bf20b78193456e11c660f2ad935cc126537c2dc5726e78896d6e6e"
+  revision 1
 
   bottle do
     sha256 "baf2ef29983cbba7381d4d34721385b5308eeb1c9229c45b6bc6a2a98388b0e6" => :high_sierra
@@ -11,7 +12,7 @@ class Yosys < Formula
     sha256 "7310d9d86c5480c69ebb32a0721245d82b3920ddab6f85ace8a3276b63dfee71" => :yosemite
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "libffi" => :recommended
   depends_on "readline" => :recommended
   depends_on "pkg-config" => :build

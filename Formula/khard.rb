@@ -5,6 +5,7 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/19/91/6309d5b0477582b9b663cd65f1346cec6ed5f44e734bac722e1ca2ddc1e3/khard-0.12.2.tar.gz"
   sha256 "9193d2d07cdb69cc6e35a0732111efb92bbfba854a1dd42b4f9c91a52a16c507"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Khard < Formula
     sha256 "c18c0b9e6c4b3a9e0f0a09e9585cc788d303b261ca36812508a8555ac25c034d" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/a1/e1/2d9bc76838e6e6667fde5814aa25d7feb93d6fa471bf6816daac2596e8b2/atomicwrites-1.1.5.tar.gz"

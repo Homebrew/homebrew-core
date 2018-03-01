@@ -5,6 +5,7 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/e1/c9/1183b939cc7cd3cf937a6619139879185cf8a51a4cadcbd572e688d7e1ea/ocrmypdf-5.6.0.tar.gz"
   sha256 "db8c64b491bdb09bd28498d21aa2b132f8af247c815a551531a070390196546c"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Ocrmypdf < Formula
   depends_on "ghostscript"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "python3"
+  depends_on "python"
   depends_on "qpdf"
   depends_on "tesseract"
   depends_on "unpaper"

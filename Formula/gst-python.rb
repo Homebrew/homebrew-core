@@ -3,6 +3,7 @@ class GstPython < Formula
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.12.4.tar.xz"
   sha256 "20ce6af6615c9a440c1928c31259a78226516d06bf1a65f888c6d109826fa3ea"
+  revision 1
 
   bottle do
     sha256 "37c0332ed18ee5d58d9db56ff22c19fb0e3cd8739c09c871794f693e0f8b5e7e" => :high_sierra
@@ -10,22 +11,24 @@ class GstPython < Formula
     sha256 "bfc462ac51775a104b04521ed05aa12ddbd1dd9636c44d1172b80c2f0098b023" => :el_capitan
   end
 
-  option "without-python", "Build without python 2 support"
+  option "with-python", "Build with python 3 support"
+  option "without-python@2", "Build without python 2 support"
 
-  depends_on "python3" => :optional
   depends_on "gst-plugins-base"
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
 
-  depends_on "pygobject3" if build.with? "python"
-  depends_on "pygobject3" => "with-python3" if build.with? "python3"
+  depends_on "pygobject3" if build.with? "python@2"
+  depends_on "pygobject3" => "with-python" if build.with? "python"
 
   link_overwrite "lib/python2.7/site-packages/gi/overrides"
 
   def install
-    if build.with?("python") && build.with?("python3")
+    if build.with?("python") && build.with?("python@2")
       # Upstream does not support having both Python2 and Python3 versions
       # of the plugin installed because apparently you can load only one
       # per process, so GStreamer does not know which to load.
-      odie "Options --with-python and --with-python3 are mutually exclusive."
+      odie "You must pass both --with-python and --without-python@2 for python 3 support"
     end
 
     Language::Python.each_python(build) do |python, version|

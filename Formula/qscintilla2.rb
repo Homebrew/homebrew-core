@@ -4,7 +4,7 @@ class Qscintilla2 < Formula
   url "https://dl.bintray.com/homebrew/mirror/qscintilla2-2.10.2.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.2/QScintilla_gpl-2.10.2.tar.gz"
   sha256 "14b31d20717eed95ea9bea4cd16e5e1b72cee7ebac647cba878e0f6db6a65ed0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,14 +14,14 @@ class Qscintilla2 < Formula
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
-  option "without-python", "Do not build Python bindings"
-  option "without-python3", "Do not build Python3 bindings"
+  option "without-python", "Do not build Python3 bindings"
+  option "without-python@2", "Do not build Python2 bindings"
 
   depends_on "pyqt"
   depends_on "qt"
   depends_on "sip"
   depends_on "python" => :recommended
-  depends_on "python3" => :recommended
+  depends_on "python@2" => :recommended
 
   def install
     spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
@@ -49,7 +49,7 @@ class Qscintilla2 < Formula
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
     ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
-    if build.with?("python") || build.with?("python3")
+    if build.with?("python") || build.with?("python@2")
       cd "Python" do
         Language::Python.each_python(build) do |python, version|
           (share/"sip").mkpath

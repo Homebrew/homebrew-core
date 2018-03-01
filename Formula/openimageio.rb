@@ -3,6 +3,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org/"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.8.tar.gz"
   sha256 "d7d529f1318b2ac8325f18b94f017d4d0bf878731178afb72eb5e75642873dc5"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -26,7 +27,7 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
-  depends_on "python3"
+  depends_on "python"
   depends_on "webp"
 
   def install
