@@ -24,7 +24,6 @@ class GccAT6 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "isl"
-  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   fails_with :gcc_4_0
 
@@ -55,6 +54,12 @@ class GccAT6 < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/df0465c02a/gcc/apfs.patch"
       sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
     end
+  end
+
+  resource "ecj" do
+    url "https://sourceware.org/pub/java/ecj-4.9.jar"
+    mirror "https://mirrors.kernel.org/sources.redhat.com/java/ecj-4.9.jar"
+    sha256 "9506e75b862f782213df61af67338eb7a23c35ff425d328affc65585477d34cd"
   end
 
   def install
@@ -116,7 +121,8 @@ class GccAT6 < Formula
     args << "--disable-nls" if build.without? "nls"
 
     if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
+      (libexec/"java").install resource("ecj")
+      args << "--with-ecj-jar=#{libexec}/java/ecj-4.9.jar"
     end
 
     if MacOS.prefer_64_bit?

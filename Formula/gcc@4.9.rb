@@ -43,8 +43,6 @@ class GccAT49 < Formula
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
 
-  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
-
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-4.3.2.tar.bz2"
     mirror "https://ftpmirror.gnu.org/gmp/gmp-4.3.2.tar.bz2"
@@ -79,6 +77,12 @@ class GccAT49 < Formula
     url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
     mirror "https://mirrorservice.org/sites/archive.ubuntu.com/ubuntu/pool/main/c/cloog/cloog_0.18.4.orig.tar.gz"
     sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
+  end
+
+  resource "ecj" do
+    url "https://sourceware.org/pub/java/ecj-4.9.jar"
+    mirror "https://mirrors.kernel.org/sources.redhat.com/java/ecj-4.9.jar"
+    sha256 "9506e75b862f782213df61af67338eb7a23c35ff425d328affc65585477d34cd"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -158,7 +162,8 @@ class GccAT49 < Formula
     args << "--disable-nls" if build.without? "nls"
 
     if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_prefix}/share/java/ecj.jar"
+      (libexec/"java").install resource("ecj")
+      args << "--with-ecj-jar=#{libexec}/java/ecj-4.9.jar"
     end
 
     if MacOS.prefer_64_bit?
