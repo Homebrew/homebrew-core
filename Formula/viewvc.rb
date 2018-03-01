@@ -3,6 +3,7 @@ class Viewvc < Formula
   homepage "http://www.viewvc.org"
   url "https://github.com/viewvc/viewvc/releases/download/1.1.26/viewvc-1.1.26.tar.gz"
   sha256 "9d718237df7fc04d511302812c0bec0363cf6b8334ab796953a764c2de426e43"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,11 +13,7 @@ class Viewvc < Formula
     sha256 "cb3b467bbb5268c62e3ab2cc1870000fce3558e3443b33bb6fa17c2ce87147cc" => :yosemite
   end
 
-  # swig is a dependency of subversion --with-python, but due to a
-  # bug it needs to also be specified here.
-  # https://github.com/Homebrew/homebrew/issues/42915
-  depends_on "swig" => :run
-  depends_on "subversion" => "with-python"
+  depends_on "subversion"
 
   def install
     system "python", "./viewvc-install", "--prefix=#{libexec}", "--destdir="
