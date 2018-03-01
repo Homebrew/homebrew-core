@@ -3,6 +3,7 @@ class GobjectIntrospection < Formula
   homepage "https://live.gnome.org/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.54/gobject-introspection-1.54.1.tar.xz"
   sha256 "b88ded5e5f064ab58a93aadecd6d58db2ec9d970648534c63807d4f9a7bb877e"
+  revision 1
 
   bottle do
     sha256 "af8872721600cf3b5c033bad125fcef08a59e3ddfde4093fe6bc6bce5331e004" => :high_sierra
@@ -14,7 +15,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  depends_on "python" if MacOS.version <= :mavericks
+  depends_on "python@2" if MacOS.version <= :mavericks
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
@@ -28,8 +29,15 @@ class GobjectIntrospection < Formula
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
     end
 
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin" if MacOS.version <= :mavericks
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=python"
+    python = if MacOS.version >= :yosemite
+      "/usr/bin/python2.7"
+    else
+      Formula["python@2"].opt_bin/"python2.7"
+    end
+
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-python=#{python}"
     system "make"
     system "make", "install"
   end
