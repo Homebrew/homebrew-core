@@ -6,6 +6,8 @@ class Maxwell < Formula
 
   depends_on :java => "1.8"
 
+  bottle :unneeded
+
   def install
     libexec.install Dir["*"]
 
