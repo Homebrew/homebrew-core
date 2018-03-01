@@ -3,6 +3,7 @@ class Fcl < Formula
   homepage "https://flexible-collision-library.github.io/"
   url "https://github.com/flexible-collision-library/fcl/archive/0.5.0.tar.gz"
   sha256 "8e6c19720e77024c1fbff5a912d81e8f28004208864607447bc90a31f18fb41a"
+  revision 1
 
   bottle do
     sha256 "9339278a609d8fbcd24f911eafc78e580c965cd6159229eab12ded553c92d7d3" => :high_sierra
@@ -14,6 +15,7 @@ class Fcl < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libccd"
+  depends_on "octomap"
 
   needs :cxx11
 
