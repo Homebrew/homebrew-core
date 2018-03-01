@@ -1,8 +1,8 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.2/postgresql-10.2.tar.bz2"
-  sha256 "fe32009b62ddb97f7f014307ce9d0edb6972f5a698e63cb531088e147d145bad"
+  url "https://ftp.postgresql.org/pub/source/v10.3/postgresql-10.3.tar.bz2"
+  sha256 "6ea268780ee35e88c65cdb0af7955ad90b7d0ef34573867f223f14e43467931a"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
