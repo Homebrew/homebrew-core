@@ -1,8 +1,8 @@
 class ConsulBackinator < Formula
   desc "Consul backup and restoration application"
   homepage "https://github.com/myENA/consul-backinator"
-  url "https://github.com/myENA/consul-backinator/archive/v1.6.2.tar.gz"
-  sha256 "e3697d1f42f6aadf54824f5dfcad08956ca75135b62d1ba7982152d8b4ad529c"
+  url "https://github.com/myENA/consul-backinator/archive/v1.6.3.tar.gz"
+  sha256 "d2466069a00189868236a8365b6dfa23514cf9c08de30609331f4cf36635516d"
   head "https://github.com/myENA/consul-backinator.git"
 
   bottle do
