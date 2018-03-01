@@ -4,6 +4,12 @@ class Caffe < Formula
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
 
+  bottle do
+    sha256 "c17c07ff6665a6575bc7956c73e2fd5a83528400d1ee818efd073b1e949268d8" => :high_sierra
+    sha256 "b64c1327c3a748b1632f8b741263f0dcf470602bc5121d67fe5b5cfc66ddb0e7" => :sierra
+    sha256 "7fe49fafae101b48a1870019eead0093fb3a70fdd9e912609434d99c1c876f71" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gflags"
