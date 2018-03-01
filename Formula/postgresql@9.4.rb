@@ -1,8 +1,8 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.16/postgresql-9.4.16.tar.bz2"
-  sha256 "dcbc62b621e4d8a445c2f33750f7d96257c38103cccebeb934e6913a3c135e81"
+  url "https://ftp.postgresql.org/pub/source/v9.4.17/postgresql-9.4.17.tar.bz2"
+  sha256 "7a320cd335052b840d209dc9688f09965763351c590e3cc7bf577591179fd7c6"
 
   bottle do
     sha256 "efb2de5618cbaf837ea61a41034a6dae2e4fc043b738f31bbdd787d4d230ea85" => :high_sierra
