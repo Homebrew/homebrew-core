@@ -4,9 +4,9 @@ class Maxwell < Formula
   url "https://github.com/zendesk/maxwell/releases/download/v1.13.1/maxwell-1.13.1.tar.gz"
   sha256 "3ab7489d47f2ec04677122c8786cf573572b9bbb511b184802d2dcfe82e83781"
 
-  depends_on :java => "1.8"
-
   bottle :unneeded
+
+  depends_on :java => "1.8"
 
   def install
     libexec.install Dir["*"]
