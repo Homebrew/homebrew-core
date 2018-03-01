@@ -1,8 +1,8 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.6.0.tar.gz"
-  mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/cdf-4.6.0.tar.gz"
+  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-4.6.0.tar.gz"
+  mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.6.0.tar.gz"
   sha256 "4bf05818c1d858224942ae39bfd9c4f1330abec57f04f58b9c3c152065ab3825"
 
   bottle do
@@ -27,7 +27,7 @@ class Netcdf < Formula
   end
 
   resource "fortran" do
-    url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.4.4.tar.gz"
+    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.4.4.tar.gz"
     mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.4.4.tar.gz"
     sha256 "b2d395175f8d283e68c8be516e231a96b191ade67ad0caafaf7fa01b1e6b5d75"
   end

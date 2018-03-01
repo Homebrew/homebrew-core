@@ -1,18 +1,25 @@
 class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.1.tar.gz"
-  sha256 "7fc935b65469acc728653c89ef7b8541db4c5dafdbb1459822f0c215d58d30e6"
+  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
+  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "89a512f7e6483e634d9e26a7cbd999ed2be83e80256589a7cfdce0600d6bc906" => :high_sierra
-    sha256 "59588c80d3da694711390d71622d60fe61d235b49b6781f69ce2b75605e1d4d5" => :sierra
-    sha256 "55a88b565153a924e528a7ae87384880291bf865f66bc85746fdee6b404ca23d" => :el_capitan
+    sha256 "c7b1b6b0dead6a93667afad4248b304fb1ebbe771c85091becac2a6a9fa6e085" => :high_sierra
+    sha256 "4ab4c67dac14be0bc3a6d5462cf4f26556f8ae1c459a7ccea99c864d05d2b6c9" => :sierra
+    sha256 "9a04e10ba3192814b34b1a72aa5cc4259d4836108e8aa522b949a26653ec7139" => :el_capitan
   end
 
   depends_on "go" => :build
+
+  # Patch required to build against go 1.10.
+  # May be removed once upstream beats project fully supports go 1.10.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/1ddc0e6/auditbeat/go1.10.diff"
+    sha256 "cf0988ba5ff5cc8bd7502671f08ea282b19720be42bea2aaf5c236b29a01a24f"
+  end
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"

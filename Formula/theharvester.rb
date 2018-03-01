@@ -17,7 +17,7 @@ class Theharvester < Formula
   depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "requests" do
-    url "https://pypi.python.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
     sha256 "63f1815788157130cee16a933b2ee184038e975f0017306d723ac326b5525b54"
   end
 

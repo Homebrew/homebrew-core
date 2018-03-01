@@ -3,14 +3,15 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/85/c1/0aa30a82716685610aed583decdbc991df95e5ee81d827855c45a99eb597/fdroidserver-1.0.0.tar.gz"
-  sha256 "e760524f392e6122d9b938f8811aad087b062fb00140967073574eabc15b1972"
+  url "https://files.pythonhosted.org/packages/df/29/163c75b97f8c83f2eb1f5d55978f630a0a99fda989ad857e78cba6eb64fe/fdroidserver-1.0.2.tar.gz"
+  sha256 "abb5a16f8e21b4683255a61707d2c31123ad3ab5b091c490aaa524c6b8dfa9a5"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f08f03af9f30d95729c1e98983135cd902155a84a971555156d7a214f71f24dd" => :high_sierra
-    sha256 "919cd07695be9e6781596a149159e02544c1350c9bf6e137a38c70a6ee22002b" => :sierra
-    sha256 "264c96ecc7a88bf9bdb420c80bb2e611c0f958078887f258114c464bf234f451" => :el_capitan
+    sha256 "946d4c4f0b091d49b14609b3309c5a29b6f1930335591384ec6ed8a5d83aa621" => :high_sierra
+    sha256 "1bc438f8d3fc81d48d3c95c596f746fe57669b1cbad0421dba539956ff1febd3" => :sierra
+    sha256 "cde0ac25732d1ba2e781d6ea77510ceaa5e9bcf3a213c2b658c283126b5bc460" => :el_capitan
   end
 
   depends_on "freetype"
@@ -42,13 +43,13 @@ class Fdroidserver < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
+    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
+    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/c9/70/89b68b6600d479034276fed316e14b9107d50a62f5627da37fafe083fde3/cffi-1.11.2.tar.gz"
-    sha256 "ab87dd91c0c4073758d07334c1e5f712ce8fe48f007b86f8238773963ee700a6"
+    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
+    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
   end
 
   resource "chardet" do
@@ -72,8 +73,8 @@ class Fdroidserver < Formula
   end
 
   resource "docker-pycreds" do
-    url "https://files.pythonhosted.org/packages/95/2e/3c99b8707a397153bc78870eb140c580628d7897276960da25d8a83c4719/docker-pycreds-0.2.1.tar.gz"
-    sha256 "93833a2cf280b7d8abbe1b8121530413250c6cd4ffed2c1cf085f335262f7348"
+    url "https://files.pythonhosted.org/packages/db/73/42d4c698e70633d99f7f7c4c87c6de45ead5ad7b36dcfccd998fd1556ac9/docker-pycreds-0.2.2.tar.gz"
+    sha256 "c7ab85de2894baff6ee8f15160cbbfa2fd3a04e56f0372c5793d24060687b299"
   end
 
   resource "gitdb2" do
@@ -92,8 +93,8 @@ class Fdroidserver < Formula
   end
 
   resource "mwclient" do
-    url "https://files.pythonhosted.org/packages/cd/38/beaf985032b42a0b0c8f9028b469c4dcb0bd7bfab62707ec27af7e890e84/mwclient-0.8.6.tar.gz"
-    sha256 "08f917b995b331b937ed8c7e297406e3c8d33b80234679ee7fbfeeafd7570a8e"
+    url "https://files.pythonhosted.org/packages/63/05/ddf7d1b0d3a1dc9ee650dcaef7ddfbb980b4d2f0c41128c5f9e6fed5e8e2/mwclient-0.8.7.tar.gz"
+    sha256 "3bdaaa48fda6386b190651e49484a549bd0c48b97573dbda34a8b7c4c80430ed"
   end
 
   resource "oauthlib" do
@@ -177,8 +178,8 @@ class Fdroidserver < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/83/91/162f2c76729633d1dc36b09746895c7766bc183bba94cb4d2ec398676060/websocket_client-0.46.0.tar.gz"
-    sha256 "933f6bbf08b381f2adbca9e93d7e7958ba212b42c73acb310b18f0fbe74f3738"
+    url "https://files.pythonhosted.org/packages/c9/bb/8d3dd9063cfe0cd5d03fe6a1f74ddd948f384e9c1eff0eb978f3976a7d27/websocket_client-0.47.0.tar.gz"
+    sha256 "a453dc4dfa6e0db3d8fd7738a308a88effe6240c59f3226eb93e8f020c216149"
   end
 
   def install

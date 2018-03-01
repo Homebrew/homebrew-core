@@ -23,7 +23,7 @@ class Binwalk < Formula
   depends_on "xz"
 
   resource "numpy" do
-    url "https://pypi.python.org/packages/source/n/numpy/numpy-1.10.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/n/numpy/numpy-1.10.2.tar.gz"
     sha256 "23a3befdf955db4d616f8bb77b324680a80a323e0c42a7e8d7388ef578d8ffa9"
   end
 

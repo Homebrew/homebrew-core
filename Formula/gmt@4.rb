@@ -2,7 +2,8 @@ class GmtAT4 < Formula
   desc "Manipulation of geographic and Cartesian data sets"
   homepage "https://gmt.soest.hawaii.edu/"
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.17-src.tar.bz2"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.17-src.tar.bz2"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-4.5.17-src.tar.bz2"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-4.5.17-src.tar.bz2"
   sha256 "d69c4e2075f16fb7c153ba77429a7b60e45c44583ebefd7aae63ae05439d1d41"
 
   bottle do
@@ -18,7 +19,8 @@ class GmtAT4 < Formula
 
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 

@@ -1,8 +1,8 @@
 class Nkf < Formula
   desc "Network Kanji code conversion Filter (NKF)"
   homepage "https://osdn.net/projects/nkf/"
-  url "https://ja.osdn.net/frs/redir.php?f=%2Fnkf%2F64158%2Fnkf-2.1.4.tar.gz"
-  mirror "http://dl.osdn.jp/nkf/64158/nkf-2.1.4.tar.gz"
+  # Canonical: https://osdn.net/dl/nkf/nkf-2.1.4.tar.gz
+  url "https://dotsrc.dl.osdn.net/osdn/nkf/64158/nkf-2.1.4.tar.gz"
   sha256 "b4175070825deb3e98577186502a8408c05921b0c8ff52e772219f9d2ece89cb"
 
   bottle do

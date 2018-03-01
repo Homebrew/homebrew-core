@@ -5,15 +5,15 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.22.tar.gz"
-  sha256 "aa5e016653eabee0fc47bf6a1cd46ec961b7c305a4f49b0feec66881cc8f2183"
+  url "https://github.com/awgn/cgrep/archive/v6.6.24.tar.gz"
+  sha256 "0958549a6d1989abad493845b788dd67bf65a50162393deedf8738dbc7f3a7cd"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
     cellar :any
-    sha256 "cbca15828b0a4b9063da146468d63c3cc157184e031f921abe6f5679ab296e36" => :high_sierra
-    sha256 "e32a05aaa5f2faa5a512e545636cd6fce96db0ba1da99869e0392d1e4ae620c1" => :sierra
-    sha256 "be9f271ebac608476f316c47a14080cf5b10e026538651b5dbec53af49d60793" => :el_capitan
+    sha256 "f3468796fdaf43c65bb77d2fc3eb376b434743225b555e235aea01ffd24f2ed6" => :high_sierra
+    sha256 "01a5cca60e69cdbc82bcb8e7923eb7ea9a18ee7f95eee94523d44171ba79da64" => :sierra
+    sha256 "07e0201c1c2ef9b0c820d518987f8c56552eb5748002e9c2f57afd2322396d2a" => :el_capitan
   end
 
   depends_on "ghc" => :build

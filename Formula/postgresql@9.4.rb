@@ -93,7 +93,7 @@ class PostgresqlAT94 < Formula
           ARCHFLAGS="-arch x86_64" gem install pg
 
         To install gems without sudo, see the Homebrew documentation:
-        https://github.com/Homebrew/brew/blob/master/docs/Gems%2C-Eggs-and-Perl-Modules.md
+          https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
       EOS
     end
 

@@ -2,8 +2,6 @@ class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften"
   revision 2
-  head "https://swift.im/git/swift"
-
   stable do
     url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
     sha256 "8aa490431190294e62a9fc18b69ccc63dd0f561858d7d0b05c9c65f4d6ba5397"
@@ -19,6 +17,11 @@ class Libswiften < Formula
     sha256 "3fd70667904b41f02676b117380dff2903ee9f5418d487fa0ed26fdc268b2be2" => :el_capitan
   end
 
+  devel do
+    url "https://swift.im/downloads/releases/swift-4.0rc5/swift-4.0rc5.tar.gz"
+    sha256 "7dc50e88e1522f201f132232d9aa0a0018de4902ea192e4eac5cdb8425fdf990"
+  end
+
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "libidn"
@@ -27,13 +30,14 @@ class Libswiften < Formula
   deprecated_option "without-lua" => "without-lua@5.1"
 
   def install
-    inreplace "Sluift/main.cpp", "#include <string>",
-                                 "#include <iostream>\n#include <string>"
+    if stable?
+      inreplace "Sluift/main.cpp", "#include <string>",
+                                   "#include <iostream>\n#include <string>"
 
-    inreplace "BuildTools/SCons/SConstruct",
-              /(\["BOOST_SIGNALS_NO_DEPRECATION_WARNING")\]/,
-              "\\1, \"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0\"]"
-
+      inreplace "BuildTools/SCons/SConstruct",
+                /(\["BOOST_SIGNALS_NO_DEPRECATION_WARNING")\]/,
+                "\\1, \"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0\"]"
+    end
     boost = Formula["boost"]
     libidn = Formula["libidn"]
 

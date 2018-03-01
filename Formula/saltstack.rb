@@ -3,15 +3,15 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/69/e9/6571ea493304965ee75bef8a78926ef5a4624e99ded2a914fe03a433f2af/salt-2017.7.3.tar.gz"
-  sha256 "3d4e1aefe4fa1e53bf132e84961cf46cef3e5d654f4231a2f2e30e786ab7dc07"
+  url "https://files.pythonhosted.org/packages/38/a6/7b46edaad848fee40a0201be23f2fd1ce498f6269eda8fea66c86c1776d0/salt-2017.7.4.tar.gz"
+  sha256 "1d573095776ba052eec7d7cae1472f4b1d4c15f16e1d79c2dc48db3129dbae97"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "025a7d1865238e254d92ffe1c47508a5b4aebc5a5e4a654387147a8914891f8a" => :high_sierra
-    sha256 "acefc44516be567add47109e5e520bd829907e2ae96bf4dcb4eaf5efa4f89266" => :sierra
-    sha256 "23abb63fb76d7abf16268c6b367973185eb8e323a88af7bc17298997f99455fb" => :el_capitan
+    sha256 "c06e2353a1e98103b8324c8704963773ca7a97c652dfcd832574f87fe1e49221" => :high_sierra
+    sha256 "b0e282633aa6e71d18a1fb2a197ac7b063b031b3da5edcf67d4d198e1d55ea72" => :sierra
+    sha256 "b4252ff715be54102c3dcc122c0880d677e279751d26728a9bc0b089d8674142" => :el_capitan
   end
 
   depends_on "swig" => :build
@@ -75,8 +75,8 @@ class Saltstack < Formula
   end
 
   resource "msgpack-python" do
-    url "https://files.pythonhosted.org/packages/8b/b8/3ab1585ec7ac02afff2427d5727b922d2907466edd932d98002f0a18c29a/msgpack-python-0.5.4.tar.gz"
-    sha256 "c1f3f8d02206f84258a3b4f99fbc0a4e3c849721c9361196c3bfd5243e4304cd"
+    url "https://files.pythonhosted.org/packages/7c/ce/8ed474ab7ce0ef9c67d18e816e921cade83fecd59cd2cd52d825cec8166e/msgpack-python-0.5.5.tar.gz"
+    sha256 "7f5d6e59228b65c47cfdae76a4aea71f6902525f18256862cda69888a686b5f9"
   end
 
   resource "pycparser" do
@@ -95,8 +95,8 @@ class Saltstack < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/52/ab/aad6fda6fb247893613629920472770da19bf94af5617852fd49d3047c4b/pyzmq-16.0.4.tar.gz"
-    sha256 "bc23fad15d6da82081e89ea0b254a7b6efe6d1c4c58edb16f28e4b4d880086b2"
+    url "https://files.pythonhosted.org/packages/9f/f6/85a33a25128a4a812c3482547e3d458eebdb19ee0b4699f9199cdb2ad731/pyzmq-17.0.0.tar.gz"
+    sha256 "0145ae59139b41f65e047a3a9ed11bbc36e37d5e96c64382fcdff911c4d8c3f0"
   end
 
   resource "requests" do

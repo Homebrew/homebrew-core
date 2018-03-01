@@ -18,32 +18,32 @@ class CassandraAT21 < Formula
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
-    url "https://pypi.python.org/packages/source/s/setuptools/setuptools-12.0.5.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-12.0.5.tar.gz"
     sha256 "bda326cad34921060a45004b0dd81f828d471695346e303f4ca53b8ba6f4547f"
   end
 
   resource "thrift" do
-    url "https://pypi.python.org/packages/source/t/thrift/thrift-0.9.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/t/thrift/thrift-0.9.2.tar.gz"
     sha256 "08f665e4b033c9d2d0b6174d869273104362c80e77ee4c01054a74141e378afa"
   end
 
   resource "futures" do
-    url "https://pypi.python.org/packages/source/f/futures/futures-2.2.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/f/futures/futures-2.2.0.tar.gz"
     sha256 "151c057173474a3a40f897165951c0e33ad04f37de65b6de547ddef107fd0ed3"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.9.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/s/six/six-1.9.0.tar.gz"
     sha256 "e24052411fc4fbd1f672635537c3fc2330d9481b18c0317695b46259512c91d5"
   end
 
   resource "cql" do
-    url "https://pypi.python.org/packages/source/c/cql/cql-1.4.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/c/cql/cql-1.4.0.tar.gz"
     sha256 "7857c16d8aab7b736ab677d1016ef8513dedb64097214ad3a50a6c550cb7d6e0"
   end
 
   resource "cassandra-driver" do
-    url "https://pypi.python.org/packages/source/c/cassandra-driver/cassandra-driver-2.6.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/c/cassandra-driver/cassandra-driver-2.6.0.tar.gz"
     sha256 "753505a02b4c6f9b5ef18dec36a13f17fb458c98925eea62c94a8839d5949717"
   end
 

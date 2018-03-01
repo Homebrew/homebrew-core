@@ -1,14 +1,14 @@
 class Mrboom < Formula
   desc "Eight player Bomberman clone"
   homepage "http://mrboom.mumblecore.org/"
-  url "https://github.com/Javanaise/mrboom-libretro/archive/4.3.tar.gz"
-  sha256 "d77779404cd4e06e64f8c5e00313afed57f728718868ada26b714d2dbc9f1cbb"
+  url "https://github.com/Javanaise/mrboom-libretro/archive/4.4.tar.gz"
+  sha256 "90b528da7e606194670c25f4ad0f57be1c7f90650bf925f20820e0622f5f633b"
 
   bottle do
     cellar :any
-    sha256 "7e67051cd7841c78e83a443f8ec8862298fa4c62bb3eab004d27207625d78cb0" => :high_sierra
-    sha256 "801e79dcca5af34d065dc46e80978795bd19a687b1e436a75aca4ff6507ac7c1" => :sierra
-    sha256 "6017c2d199f678f1884442489dc5148f3b95eab62e819fdf84071a49d7bd97cb" => :el_capitan
+    sha256 "08a0223ee14790b53bbf08e26d68ce89822143148ff1f590464d2fc6f9087b60" => :high_sierra
+    sha256 "084318a953b9733b399f6cc282ebf876975b1d1f8eb5cf889af472690cafc092" => :sierra
+    sha256 "cd3b7929cc51c07b1c91f01b87253423191fcd5ba5c9f4486ada846f13808d52" => :el_capitan
   end
 
   depends_on "cmake" => :build

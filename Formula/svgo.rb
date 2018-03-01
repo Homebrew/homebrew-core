@@ -3,14 +3,14 @@ require "language/node"
 class Svgo < Formula
   desc "Nodejs-based tool for optimizing SVG vector graphics files"
   homepage "https://github.com/svg/svgo"
-  url "https://github.com/svg/svgo/archive/v1.0.4.tar.gz"
-  sha256 "e40a753734f45d6e1a35617c4a8c1e945f7cdb3e776b244131d80f5ba21ec0fe"
+  url "https://github.com/svg/svgo/archive/v1.0.5.tar.gz"
+  sha256 "7b0a3ce0308ea6bead17dcb22a2a1195f4bf1b44c1f7ebf3462eb0c51a827139"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0462b5807fc9189590bd276a34e9440b1729b0fbd4d41db63d05560289e0d349" => :high_sierra
-    sha256 "dc850a128d4b7a2cfefe91b23a74dc3f392e4fe1000fea1779c285cc4cda4351" => :sierra
-    sha256 "11596ad45134fbd785785990392a36d90cc33124bc060c594ebd38fad484a5a1" => :el_capitan
+    sha256 "33251a1558bc0d5479d49189d1dd3d9dd27af77d0a4e03d97f8f905cda2bfd72" => :high_sierra
+    sha256 "5553d5bca19b519bfaed0edf43f33839371983b7b9840d4804a51a365281eca1" => :sierra
+    sha256 "b255cdc0b1d51ddf9103fd3bc2e527c7556715c91c6e79f65806b3b6bbe475ef" => :el_capitan
   end
 
   depends_on "node"

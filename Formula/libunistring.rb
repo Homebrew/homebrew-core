@@ -1,15 +1,15 @@
 class Libunistring < Formula
   desc "C string library for manipulating Unicode strings"
   homepage "https://www.gnu.org/software/libunistring/"
-  url "https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.8.tar.xz"
-  mirror "https://ftpmirror.gnu.org/libunistring/libunistring-0.9.8.tar.xz"
-  sha256 "7b9338cf52706facb2e18587dceda2fbc4a2a3519efa1e15a3f2a68193942f80"
+  url "https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.9.tar.xz"
+  mirror "https://ftpmirror.gnu.org/libunistring/libunistring-0.9.9.tar.xz"
+  sha256 "a4d993ecfce16cf503ff7579f5da64619cee66226fb3b998dafb706190d9a833"
 
   bottle do
     cellar :any
-    sha256 "ccc4789699aed620a7f961549e9888a77df38e608cfcff60b5d59b292b9807dc" => :high_sierra
-    sha256 "b685813e92dbd3a4eedcaac4b1a87ee3aae00a2dd4cf49cfc8d03cde079fac16" => :sierra
-    sha256 "ef72051cb81989e396175cbbf82cde4c62bf8dbb1ef3028c4658af6402ad6133" => :el_capitan
+    sha256 "6c072527173fa59aa703e5d4ccd4fe7b350de7e0f6091423f7a3973e0bfbc201" => :high_sierra
+    sha256 "57ddedc5c2277d3cc8ac3f7ec223363ed5ebec048b1b66fd9f29ceaa6ddfa0c8" => :sierra
+    sha256 "93138d92e44116c1acd8ad64edcb30e8407a2e1723c4cb6061426fdbf5beafff" => :el_capitan
   end
 
   def install

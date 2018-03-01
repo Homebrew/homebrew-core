@@ -3,44 +3,20 @@ class RubyAT23 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.xz"
   sha256 "e0d969ac22d4a403c1204868bb9c0d068aa35045bb3934cf50b17b7f66059f56"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "69f685579f193bebdf1111600173ea7ff17c543193dd2fd2b38a9698d77c13de" => :high_sierra
-    sha256 "f95e1f8b7dfd394ffe20df7d980c191e7c389f10f6d206257988d21a4f735c86" => :sierra
-    sha256 "dc25e49e1a6bedf6d7b0df72fbbef68727dcb3c0591c00d728740cffbc163d64" => :el_capitan
+    sha256 "fe30395937fbeebc788f8b2be55f5c502ee2e0cb7305473037b30603b7319c7f" => :high_sierra
+    sha256 "205a00eabb2f741e3e459011890ea3f04c77e455ca86f3bb849a70c6d1ef53ef" => :sierra
+    sha256 "c7bbb7521bd983a2aede4a87583d0be5045f4cbfecb81d51b8bad1d5aac40d75" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  option "with-suffix", "Suffix commands with '23'"
-  option "with-doc", "Install documentation"
-  option "with-tcltk", "Install with Tcl/Tk support"
-
   depends_on "pkg-config" => :build
-  depends_on "readline" => :recommended
-  depends_on "gdbm" => :optional
-  depends_on "gmp" => :optional
-  depends_on "libffi" => :optional
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on :x11 if build.with? "tcltk"
-
-  # This should be kept in sync with the main Ruby formula
-  # but a revision bump should not be forced every update
-  # unless there are security fixes in that Rubygems release.
-  resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.4.tgz"
-    sha256 "bbe35ce6646e4168fcb1071d5f83b2d1154924f5150df0f5fca0f37d2583a182"
-  end
-
-  def program_suffix
-    build.with?("suffix") ? "23" : ""
-  end
-
-  def ruby
-    "#{bin}/ruby#{program_suffix}"
-  end
+  depends_on "readline"
 
   def api_version
     "2.3.0"
@@ -54,30 +30,16 @@ class RubyAT23 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
+    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
       --disable-silent-rules
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
+      --with-opt-dir=#{paths.join(":")}
     ]
-
-    args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
-    args << "--with-out-ext=tk" if build.without? "tcltk"
-    args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
-    args << "--without-gmp" if build.without? "gmp"
-
-    paths = [
-      Formula["libyaml"].opt_prefix,
-      Formula["openssl"].opt_prefix,
-    ]
-
-    %w[readline gdbm gmp libffi].each do |dep|
-      paths << Formula[dep].opt_prefix if build.with? dep
-    end
-
-    args << "--with-opt-dir=#{paths.join(":")}"
 
     system "./configure", *args
 
@@ -99,27 +61,6 @@ class RubyAT23 < Formula
 
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
-
-    # This is easier than trying to keep both current & versioned Ruby
-    # formulae repeatedly updated with Rubygem patches.
-    resource("rubygems").stage do
-      ENV.prepend_path "PATH", bin
-
-      system ruby, "setup.rb", "--prefix=#{buildpath}/vendor_gem"
-      rg_in = lib/"ruby/#{api_version}"
-
-      # Remove bundled Rubygem version.
-      rm_rf rg_in/"rubygems"
-      rm_f rg_in/"rubygems.rb"
-      rm_f rg_in/"ubygems.rb"
-      rm_f bin/"gem#{program_suffix}"
-
-      # Drop in the new version.
-      rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
-      bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle#{program_suffix}"
-      (libexec/"gembin").install_symlink "bundle#{program_suffix}" => "bundler#{program_suffix}"
-    end
   end
 
   def post_install
@@ -128,9 +69,7 @@ class RubyAT23 < Formula
     # installed bundle manually via `gem install`.
     rm_f %W[
       #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundle#{program_suffix}
       #{rubygems_bindir}/bundler
-      #{rubygems_bindir}/bundler#{program_suffix}
     ]
     rm_rf Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"]
     rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
@@ -143,7 +82,7 @@ class RubyAT23 < Formula
 
     # Create the sitedir and vendordir that were skipped during install
     %w[sitearchdir vendorarchdir].each do |dir|
-      mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
+      mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
   end
 
@@ -206,7 +145,7 @@ class RubyAT23 < Formula
       end
 
       def self.ruby
-        "#{opt_bin}/ruby#{program_suffix}"
+        "#{opt_bin}/ruby"
       end
     end
     EOS
@@ -217,20 +156,13 @@ class RubyAT23 < Formula
       #{rubygems_bindir}
 
     You may want to add this to your PATH.
-  EOS
+    EOS
   end
 
   test do
-    hello_text = shell_output("#{bin}/ruby#{program_suffix} -e 'puts :hello'")
+    hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
-    system "#{bin}/gem#{program_suffix}", "install", "json"
-
-    (testpath/"Gemfile").write <<~EOS
-      source 'https://rubygems.org'
-      gem 'gemoji'
-    EOS
-    system rubygems_bindir/"bundle#{program_suffix}", "install", "--binstubs=#{testpath}/bin"
-    assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
+    system "#{bin}/gem", "install", "json"
   end
 end

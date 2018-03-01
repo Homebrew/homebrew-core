@@ -185,7 +185,7 @@ class Pypy3 < Formula
     To update pip and setuptools between pypy3 releases, run:
         pip_pypy3 install --upgrade pip setuptools
 
-    See: https://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python
     EOS
   end
 

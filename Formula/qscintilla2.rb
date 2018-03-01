@@ -1,7 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.2/QScintilla_gpl-2.10.2.tar.gz"
+  url "https://dl.bintray.com/homebrew/mirror/qscintilla2-2.10.2.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.2/QScintilla_gpl-2.10.2.tar.gz"
   sha256 "14b31d20717eed95ea9bea4cd16e5e1b72cee7ebac647cba878e0f6db6a65ed0"
   revision 1
 

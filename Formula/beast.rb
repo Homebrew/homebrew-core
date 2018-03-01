@@ -1,6 +1,6 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
-  homepage "http://beast.bio.ed.ac.uk/"
+  homepage "http://beast.community/"
   url "https://github.com/beast-dev/beast-mcmc/archive/v1.8.4.tar.gz"
   sha256 "de8e7dd82eb9017b3028f3b06fd588e5ace57c2b7466ba2e585f9bd8381407af"
   head "https://github.com/beast-dev/beast-mcmc.git"

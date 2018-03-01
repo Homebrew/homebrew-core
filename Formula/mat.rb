@@ -20,17 +20,17 @@ class Mat < Formula
   depends_on "intltool" => :build
 
   resource "hachoir-core" do
-    url "https://pypi.python.org/packages/source/h/hachoir-core/hachoir-core-1.3.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/h/hachoir-core/hachoir-core-1.3.3.tar.gz"
     sha256 "ecf5d16eccc76b22071d6062e54edb67595f70d827644d3a6dff04289b4058df"
   end
 
   resource "hachoir-parser" do
-    url "https://pypi.python.org/packages/source/h/hachoir-parser/hachoir-parser-1.3.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/h/hachoir-parser/hachoir-parser-1.3.4.tar.gz"
     sha256 "775be5e10d72c6122b1ba3202dfce153c09ebcb60080d8edbd51aa89aa4e6b3f"
   end
 
   resource "pdfrw" do
-    url "https://pypi.python.org/packages/source/p/pdfrw/pdfrw-0.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/p/pdfrw/pdfrw-0.2.tar.gz"
     sha256 "09f734df28f9ad712a2c14308b1d60e7202762c3ce2e32a6ad30e7ec149822b2"
   end
 
@@ -40,7 +40,7 @@ class Mat < Formula
   end
 
   resource "mutagen" do
-    url "https://pypi.python.org/packages/source/m/mutagen/mutagen-1.31.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/m/mutagen/mutagen-1.31.tar.gz"
     sha256 "0aa011707785fe30935d8655380052a20ba8b972aa738d4f144c457b35b4d699"
   end
 

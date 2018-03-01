@@ -2,7 +2,7 @@ class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
   url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
-  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.7.1/ncbi-blast-2.7.1+-src.tar.gz"
+  mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
   version "2.7.1"
   sha256 "10a78d3007413a6d4c983d2acbf03ef84b622b82bd9a59c6bd9fbdde9d0298ca"
 

@@ -11,16 +11,8 @@ class Mariadb < Formula
   end
 
   devel do
-    url "https://downloads.mariadb.org/f/mariadb-10.3.4/source/mariadb-10.3.4.tar.gz"
-    sha256 "5b7146c528e53083c36141cff6a1d24cae77285acceeb84fd446956c52e5ba5b"
-
-    # compilation fix
-    # https://jira.mariadb.org/browse/MDEV-14753
-    # https://github.com/MariaDB/server/pull/524
-    patch do
-      url "https://github.com/MariaDB/server/commit/dd6686462b0fa3f4d71a65c4b26cb02b65a07fec.patch?full_index=1"
-      sha256 "c6dabcb2af28b7c2d35123bf8a7217fd99c6068d2d78f933ca60630ae4e1a5a2"
-    end
+    url "https://downloads.mariadb.org/f/mariadb-10.3.5/source/mariadb-10.3.5.tar.gz"
+    sha256 "cbb81f5f7e25c822db6683bbb43b3aad328622fa86da81c1ddeee8005523b203"
   end
 
   option "with-test", "Keep test when installing"

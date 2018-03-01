@@ -1,7 +1,8 @@
 class Asciinema < Formula
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
-  url "https://github.com/asciinema/asciinema/archive/v2.0.0.tar.gz"
+  url "https://dl.bintray.com/homebrew/mirror/asciinema-2.0.0.tar.gz"
+  mirror "https://github.com/asciinema/asciinema/archive/v2.0.0.tar.gz"
   sha256 "65224d8dcc8c579fd678fff83ea89eecfd35a1d2ca853ee6fcf27d2f7b5e3205"
   head "https://github.com/asciinema/asciinema.git"
 

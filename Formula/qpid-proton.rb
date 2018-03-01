@@ -3,7 +3,7 @@ class QpidProton < Formula
   homepage "https://qpid.apache.org/proton/"
   url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.20.0/qpid-proton-0.20.0.tar.gz"
   sha256 "b7d6e61b428b04a483068d0cc7cd2b360034a86897549bff5a2124eaac1cc38a"
-  head "git://git.apache.org/qpid-proton.git"
+  head "https://git.apache.org/qpid-proton.git"
 
   bottle do
     cellar :any

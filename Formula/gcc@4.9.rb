@@ -60,7 +60,7 @@ class GccAT49 < Formula
 
   resource "mpfr" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2"
-    mirror "http://www.mpfr.org/mpfr-2.4.2/mpfr-2.4.2.tar.bz2"
+    mirror "https://mirrorservice.org/sites/sourceware.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2"
     sha256 "c7e75a08a8d49d2082e4caee1591a05d11b9d5627514e678f02d66a124bcf2ba"
   end
 
@@ -71,13 +71,13 @@ class GccAT49 < Formula
 
   resource "isl" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
-    mirror "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
+    mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.12.2.tar.bz2"
     sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
   end
 
   resource "cloog" do
     url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
-    mirror "http://archive.ubuntu.com/ubuntu/pool/universe/c/cloog/cloog_0.18.4.orig.tar.gz"
+    mirror "https://mirrorservice.org/sites/archive.ubuntu.com/ubuntu/pool/main/c/cloog/cloog_0.18.4.orig.tar.gz"
     sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
   end
 

@@ -4,14 +4,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.4.0",
-      :revision => "857480b64b013d8edffaf70e4b7ea43ee1c66a9e"
+      :tag => "v10.5.0",
+      :revision => "80b03db9893ab1668ac601909c1a1bf29d476035"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
-    sha256 "21886f4f36c3ce1a810166f6b4a3b29813f60f43c4ff3d06dfbac0d541913981" => :high_sierra
-    sha256 "7acad56cc8784144d6120510d70e93f397e6c515b900208a742c34dba2eea44c" => :sierra
-    sha256 "cdc63301f3b82c014cdba21da6428517a023a733a53ce988002c4c4f74f4d8df" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "69b0d9adb80ee3177970bd9efd65a6369dcf03662df0eefc053ab239ef5fb7fa" => :high_sierra
+    sha256 "b10dcb5cd4d988c26be5eac4ed8931f58598e08e7b12736b49c582592c82a8e7" => :sierra
+    sha256 "e4c681e2dd0579d988e21b2f67bdce5e088047c53ad59c02882f54d17aa07590" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -23,17 +24,17 @@ class GitlabRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.4.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.4.0"
-    sha256 "aa8bccad577923276f2828b69577ad032acd2ffb4818bb5418483e5e436c8d39"
+    version "10.5.0"
+    sha256 "60176c98a89202d195d31aca19c8977b4b1be23d0ee5f100f6efa554429c8efb"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.4.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.4.0"
-    sha256 "a470da06463aca65972151967d5be22d420fd347e0fd3972f958d72f531c93fe"
+    version "10.5.0"
+    sha256 "947beebf1508cac3b22a2c06e1275a0cfb404dc023cbbb0534229df0fcfee164"
   end
 
   def install
