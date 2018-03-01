@@ -1,5 +1,5 @@
 class Libserialport < Formula
-  desc "The sigrok cross-platform serialport C library"
+  desc "Cross-platform serial port C library"
   homepage "https://sigrok.org/wiki/Libserialport"
   url "https://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
   sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
@@ -11,6 +11,7 @@ class Libserialport < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
   test do
     (testpath/"test.c").write <<~EOS
       #include <libserialport.h>
@@ -20,7 +21,8 @@ class Libserialport < Formula
        return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lserialport", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lserialport",
+                   "-o", "test"
     system "./test"
   end
 end
