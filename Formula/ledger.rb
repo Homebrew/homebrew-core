@@ -16,14 +16,16 @@ class Ledger < Formula
 
   option "with-debug", "Build with debugging symbols enabled"
   option "with-docs", "Build HTML documentation"
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "boost-python" if build.with? "python"
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "boost-python" if build.with? "python@2"
 
   needs :cxx11
 
@@ -38,7 +40,7 @@ class Ledger < Formula
       --prefix=#{prefix}
       --boost=#{Formula["boost"].opt_prefix}
     ]
-    args << "--python" if build.with? "python"
+    args << "--python" if build.with? "python@2"
     args += %w[-- -DBUILD_DOCS=1]
     args << "-DBUILD_WEB_DOCS=1" if build.with? "docs"
     system "./acprep", flavor, "make", *args
@@ -47,7 +49,7 @@ class Ledger < Formula
 
     (pkgshare/"examples").install Dir["test/input/*.dat"]
     pkgshare.install "contrib"
-    pkgshare.install "python/demo.py" if build.with? "python"
+    pkgshare.install "python/demo.py" if build.with? "python@2"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
     bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
@@ -62,6 +64,6 @@ class Ledger < Formula
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $CHILD_STATUS.exitstatus
 
-    system "python", pkgshare/"demo.py" if build.with? "python"
+    system "python", pkgshare/"demo.py" if build.with? "python@2"
   end
 end
