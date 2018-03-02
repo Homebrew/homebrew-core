@@ -9,9 +9,9 @@ class AnsibleLint < Formula
 
   bottle do
     cellar :any
-    sha256 "57c737fd79c6b116327f42a5126864748dd6af8f84dbbd7dba6498974596302b" => :high_sierra
-    sha256 "765598e649f319cd950aa64f4764f44ffed745c0d4b44ad72adb5667b41c3996" => :sierra
-    sha256 "496e90c9eed3a6d1c9fcef7b128036a829f081b7a4f615528c0cc2e9bbfc7bbb" => :el_capitan
+    sha256 "608096f7f7b90d3b4295e5515e1b789075d61ad0261b5d0337df40c657106457" => :high_sierra
+    sha256 "33fd806ed66b2fe787e4d5a715946b38fa5edc16155ddeaaf4188d183bef7168" => :sierra
+    sha256 "dae137106e38ecb8a8856e387488e9bfb2d5d7b306a2beae3da99c7b260a410e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
