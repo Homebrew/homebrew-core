@@ -16,20 +16,22 @@ class Liblunar < Formula
 
   option "with-python", "Build python bindings using pygobject"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "glib"
   depends_on "gettext"
   depends_on "vala" => :optional
-  depends_on "python" => :optional
-  depends_on "pygobject" if build.with? "python"
+  depends_on "python@2" => :optional
+  depends_on "pygobject" if build.with? "python@2"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
-    args << "--disable-python" if build.without? "python"
+    args << "--disable-python" if build.without? "python@2"
     system "./configure", *args
     system "make", "install"
   end
