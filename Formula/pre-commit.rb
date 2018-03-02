@@ -8,10 +8,10 @@ class PreCommit < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6d223fd9099772949710c170ba6c85cf252adf430a13f7cedf5503f1b54eba96" => :high_sierra
-    sha256 "b25637cde862decd77b3e9652549f587a0c28cf124d5b57ac610021a0ca32557" => :sierra
-    sha256 "ab3cd0b4c2e6788952be51c2520bf88c35b670e8c608abdf2b4158a4df9e17bd" => :el_capitan
+    cellar :any
+    sha256 "8459b772bc1e4f5b903db949a8a50429329532c5da6153498c53f54e73f07210" => :high_sierra
+    sha256 "bd541617d7d8cb27ac927bde79b8dce4a9269bd834c71d3604d29967f7d347e6" => :sierra
+    sha256 "cd868fbc757505f82bbe59d9413b1e74bc8e318664d6508d97a4e4c6c23edcd7" => :el_capitan
   end
 
   depends_on "python"
