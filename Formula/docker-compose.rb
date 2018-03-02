@@ -14,7 +14,7 @@ class DockerCompose < Formula
     sha256 "61b27a9bbed711d265f8eb3d598bf25c4b86bfbff8aab4fe02d0c0039904e97a" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
 
   # It's possible that the user wants to manually install Docker and Machine,
