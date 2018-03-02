@@ -5,8 +5,8 @@ class Kontena < Formula
 
   stable do
     url "https://github.com/kontena/kontena.git",
-        :tag => "v1.5.0",
-        :revision => "a0652cca84a95698c6521c3293f38a5c6158a4f2"
+        :tag => "v1.5.1",
+        :revision => "ac6406ad3b78ad53871f5657e9404a12b6b3e2f8"
 
     resource "clamp" do
       url "https://rubygems.org/gems/clamp-1.2.1.gem"
