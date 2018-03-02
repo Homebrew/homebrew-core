@@ -6,10 +6,9 @@ class Yosys < Formula
   revision 1
 
   bottle do
-    sha256 "baf2ef29983cbba7381d4d34721385b5308eeb1c9229c45b6bc6a2a98388b0e6" => :high_sierra
-    sha256 "ff9af2558a3dfff5f5d08fc9bea6b649f01fcc65f96a293ad9abe57d410b96f3" => :sierra
-    sha256 "d39cb5298e5d65e16a1a942dfeb4b6e81079b08c350dfa829fb2c57f80a2852c" => :el_capitan
-    sha256 "7310d9d86c5480c69ebb32a0721245d82b3920ddab6f85ace8a3276b63dfee71" => :yosemite
+    sha256 "036989ea352804dc6c0b64f621a4501213fe9cb0dafc18fc3b4130ca9dcc59be" => :high_sierra
+    sha256 "b89b1b6ebc570c6f5c0508da8d57a0cdcc9995eba5ceefb0e1a0b69460ad47c5" => :sierra
+    sha256 "fc4f502421418d92674b9dcb2bfa976ba3fd5622b2bdde486de653caec075eb5" => :el_capitan
   end
 
   depends_on "python"
