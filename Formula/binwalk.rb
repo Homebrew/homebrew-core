@@ -18,7 +18,7 @@ class Binwalk < Formula
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "p7zip"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "ssdeep"
   depends_on "xz"
 
