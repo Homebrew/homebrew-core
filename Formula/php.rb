@@ -1,9 +1,8 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://php.net/"
-  url "https://php.net/get/php-7.2.2.tar.xz/from/this/mirror"
-  sha256 "47d7607d38a1d565fc43ea942c92229a7cd165f156737f210937e375b243cb11"
-  revision 15
+  url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
+  sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
 
   bottle do
     sha256 "09aa9fe68d871c3d2497eaf0c99b976660c391d9000204e48d3ca79c1c2a18be" => :high_sierra
