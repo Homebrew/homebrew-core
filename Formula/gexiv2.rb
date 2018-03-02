@@ -12,7 +12,7 @@ class Gexiv2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "python" if MacOS.version <= :mavericks
+  depends_on "python@2" if MacOS.version <= :mavericks
   depends_on "glib"
   depends_on "exiv2"
 
