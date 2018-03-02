@@ -6,9 +6,9 @@ class Gwyddion < Formula
   revision 1
 
   bottle do
-    sha256 "298b62b2a21506f10dc8f8ce315fcfee9fc078ffac58fde0d8b29d0e998efad0" => :high_sierra
-    sha256 "a701145954bc8f36f4bef4711286a758bb62445bf59d65bff638c6a9559e4379" => :sierra
-    sha256 "36866a752fc238aefbb298c343d1e31a3741590dab97efbce94a1c1cb83088b0" => :el_capitan
+    sha256 "2ed8543022428b822bb0dac471903457148a7a358fb1d38e09afb1f98be46415" => :high_sierra
+    sha256 "d62de4048a135e8f8683d3d319bce0019fb6e140fad4576a5a370b87e26b0d8e" => :sierra
+    sha256 "659a1211206d02ba4e967643925fe6fcd12ee0cd1f0d647961d76c243baed079" => :el_capitan
   end
 
   deprecated_option "with-python" => "with-python@2"
