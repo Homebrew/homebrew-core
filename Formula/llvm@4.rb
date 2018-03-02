@@ -126,9 +126,11 @@ class LlvmAT4 < Formula
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
-  option "with-python", "Build bindings against custom Python"
+  option "with-python@2", "Build bindings against Homebrew's Python 2"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
+
+  deprecated_option "with-python" => "with-python@2"
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "libffi" => :recommended
@@ -143,9 +145,9 @@ class LlvmAT4 < Formula
   end
 
   if MacOS.version <= :snow_leopard
-    depends_on "python"
+    depends_on "python@2"
   else
-    depends_on "python" => :optional
+    depends_on "python@2" => :optional
   end
   depends_on "cmake" => :build
 
@@ -169,6 +171,10 @@ class LlvmAT4 < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
+    if build.with? "python@2"
+      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+    end
+
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
@@ -178,7 +184,7 @@ class LlvmAT4 < Formula
     (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
-      if build.with? "python"
+      if build.with? "python@2"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
         pylib = "#{pyhome}/lib/libpython2.7.dylib"
