@@ -11,7 +11,7 @@ class Nyx < Formula
     sha256 "8bea1e0d0e413854646f08dbd72ae94c147ede81157f4dca4e6118bbe14a9193" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "stem" do
     url "https://files.pythonhosted.org/packages/11/d5/e51983f81b38408ae2f0e166481ad867962f6fa07610fe71119534e12d41/stem-1.6.0.tar.gz"
