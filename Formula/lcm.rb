@@ -22,11 +22,13 @@ class Lcm < Formula
     depends_on "autoconf" => :build
   end
 
+  deprecated_option "with-python3" => "with-python"
+
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on :java => :recommended
   depends_on "python" => :optional
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
 
   def install
     if build.head?
