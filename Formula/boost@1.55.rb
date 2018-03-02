@@ -45,11 +45,13 @@ class BoostAT155 < Formula
   option "without-static", "Disable building static library variant"
   option :cxx11
 
-  depends_on "python" => :optional
-  depends_on "python3" => :optional
+  deprecated_option "with-python3" => "with-python"
 
-  if build.with?("python3") && build.with?("python")
-    odie "boost@1.55: --with-python3 cannot be specified when using --with-python"
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
+
+  if build.with?("python") && build.with?("python@2")
+    odie "boost@1.55: --with-python cannot be specified when using --with-python@2"
   end
 
   if build.with? "icu"
@@ -103,7 +105,7 @@ class BoostAT155 < Formula
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
     without_libraries << "python" if build.without?("python") \
-                                      && build.without?("python3")
+                                      && build.without?("python@2")
 
     bargs << "--without-libraries=#{without_libraries.join(",")}"
 
