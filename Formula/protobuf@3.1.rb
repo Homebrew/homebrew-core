@@ -15,13 +15,15 @@ class ProtobufAT31 < Formula
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python support"
   option :cxx11
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
@@ -97,7 +99,7 @@ class ProtobufAT31 < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python"
+    if build.with? "python@2"
       # google-apputils is a build-time dependency
       ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
       res = resources.map(&:name).to_set - ["gmock"]
@@ -141,10 +143,10 @@ class ProtobufAT31 < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python"
+    if build.with? "python@2"
       protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
       (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
-      system "python", "-c", "import google.protobuf"
+      system "python2.7", "-c", "import google.protobuf"
     end
   end
 end
