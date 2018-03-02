@@ -22,7 +22,7 @@ class Shogun < Formula
   depends_on "lapack" if MacOS.version >= :high_sierra
   depends_on "lzo"
   depends_on "nlopt"
-  depends_on "python" if MacOS.version <= :lion
+  depends_on "python@2" if MacOS.version <= :lion
   depends_on "snappy"
   depends_on "xz"
 
