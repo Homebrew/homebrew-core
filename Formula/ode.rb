@@ -1,9 +1,10 @@
 class Ode < Formula
-  desc "Library for simulating articulated rigid body dynamics"
+  desc "Simulating articulated rigid body dynamics"
   homepage "http://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.15.2.tar.gz"
   sha256 "2eaebb9f8b7642815e46227956ca223806f666acd11e31708bd030028cf72bac"
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,24 +15,22 @@ class Ode < Formula
 
   option "with-double-precision", "Compile ODE with double precision"
   option "with-shared", "Compile ODE with shared library support"
-  option "with-libccd", "Enable all libccd colliders (except box-cylinder)"
   option "with-x11", "Build the drawstuff library and demos"
 
   deprecated_option "enable-double-precision" => "with-double-precision"
   deprecated_option "enable-shared" => "with-shared"
-  deprecated_option "enable-libccd" => "with-libccd"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libccd"
   depends_on :x11 => :optional
 
   def install
-    args = ["--prefix=#{prefix}"]
+    args = ["--prefix=#{prefix}", "--enable-libccd"]
     args << "--enable-double-precision" if build.with? "double-precision"
     args << "--enable-shared" if build.with? "shared"
-    args << "--enable-libccd" if build.with? "libccd"
     args << "--with-demos" if build.with? "x11"
 
     inreplace "bootstrap", "libtoolize", "glibtoolize"
@@ -51,7 +50,8 @@ class Ode < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lc++", "-o", "test"
+    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lccd",
+                   "-lc++", "-o", "test"
     system "./test"
   end
 end
