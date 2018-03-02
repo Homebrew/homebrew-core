@@ -7,10 +7,10 @@ class Keepassc < Formula
   head "https://github.com/raymontag/keepassc.git", :branch => "development"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3e96dcc537b012e1b6e4a8edd6857429e37b5909572c2d24d4394c440c7e6442" => :high_sierra
-    sha256 "1b16b96c716ec9a9543f428c2e161216e0a6c832718e020f932c50190611f4e1" => :sierra
-    sha256 "610a84c98419037a090438504be237dc3e25627ff6fc0f16e1e6bd642c618a0e" => :el_capitan
+    cellar :any
+    sha256 "61daef5709a634964e674b02eb065143db6bc368c07d2a0199e5c42095eb86ef" => :high_sierra
+    sha256 "1174d97328d4a138d1fefe7950ca2af427da4433dee8926d980e24e90e35350b" => :sierra
+    sha256 "9f3f0509a17211eec0c2e6764e3170f8bcb2ceddf7926f7bdd3e503f9e1a5d15" => :el_capitan
   end
 
   depends_on "python"
