@@ -16,7 +16,7 @@ class SvtplayDl < Formula
 
   # The dependencies differ for Python <= 2.7.9.
   # Mavericks ships Python 2.7.5; Yosemite, 2.7.10.
-  depends_on "python" if MacOS.version <= :mavericks
+  depends_on "python@2" if MacOS.version <= :mavericks
 
   depends_on "rtmpdump"
   depends_on "openssl"
