@@ -7,9 +7,9 @@ class Py3cairo < Formula
 
   bottle do
     cellar :any
-    sha256 "7cd40b2ced6fa6f2781c86fa006a3694a5583ba01074978b1b266b58644c6c49" => :high_sierra
-    sha256 "e592f410be4ef2cdc8ae9223e2b4ad1d4a1655b9aaaf5647e68616583aa44bcf" => :sierra
-    sha256 "af67053ed300f16c5db17b63847b2710ed802776f0baaac9058b9412505dd5ce" => :el_capitan
+    sha256 "408a5438d3374a087dc9aee9b0227f116f07da9f338d3d17e6b103e303ff4070" => :high_sierra
+    sha256 "1b1380ca5cbb8a16522664aa5a1d5e40bef1214215a86ba4c3cc925d9b23d277" => :sierra
+    sha256 "4603f0ef30b9d4eac6c70643602ed80d469482b4177b6011b2fb738dbcca5613" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
