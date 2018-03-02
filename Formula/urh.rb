@@ -7,9 +7,9 @@ class Urh < Formula
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "598fb88bc2a92a27952d1c17de926a0453db744653991c2f70dde5cf05d73b7d" => :high_sierra
-    sha256 "99381db24d47020d37742219eca5b461ebdae7549998faad914e2b57d037342a" => :sierra
-    sha256 "787433212cc7cf1e1776a556eff3bbbe6eafc4768c00463917937123654fc517" => :el_capitan
+    sha256 "4b1303ebeb52a41ecd5be207c6c5e4b7503a6e258b183f7aade4868d982eb512" => :high_sierra
+    sha256 "fa218f58d4bb5edbd3026a4e91b3bd78a13ecbd28dfdea39122e8f2936256093" => :sierra
+    sha256 "a756a0056942a794393ef414c468950ff3e1c51abfc1d37fe6452258a086ea9a" => :el_capitan
   end
 
   option "with-hackrf", "Build with libhackrf support"
