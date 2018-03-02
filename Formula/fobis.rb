@@ -17,7 +17,7 @@ class Fobis < Formula
   option "without-pygooglechart", "Disable support for coverage charts generated with pygooglechart"
 
   depends_on "gcc" # for gfortran
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "graphviz" => :recommended
 
   resource "pygooglechart" do
