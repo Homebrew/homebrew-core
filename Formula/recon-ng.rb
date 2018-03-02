@@ -13,7 +13,7 @@ class ReconNg < Formula
     sha256 "6ec0a0c8e4b4340e0e53baa5e944c61e3096caa1391fce82fd4763584c67bc98" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   ### setup_requires dependencies
   resource "dicttoxml" do
