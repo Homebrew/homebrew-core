@@ -4,6 +4,13 @@ class DockerSquash < Formula
   url "https://github.com/goldmann/docker-squash/archive/1.0.6.tar.gz"
   sha256 "8430390edc2f19f368bacae57c17363bd64f76dbcd0cf00f4ec5ce6f8cbe9abd"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6efcced412dd3b8cd77ac3f22a025324d9db1490e21650c80dec1ae173c7fc5f" => :high_sierra
+    sha256 "6efcced412dd3b8cd77ac3f22a025324d9db1490e21650c80dec1ae173c7fc5f" => :sierra
+    sha256 "af38522bfcdf5259a5394090d1d208b33f6755519c15d07f7654360b69ed04b2" => :el_capitan
+  end
+
   depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "docker" => :recommended
   depends_on "docker-machine" => :recommended
