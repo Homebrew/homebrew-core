@@ -11,10 +11,14 @@ class Gdcm < Formula
     sha256 "51a57b3a49a2d65ceda86c6401303c514b940d9adeb54659d0d4aac34aa89fde" => :el_capitan
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
 
-  depends_on "python3" => :optional
-  depends_on "swig" => :build if build.with?("python") || build.with?("python3")
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
+
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
+  depends_on "swig" => :build if build.with?("python") || build.with?("python@2")
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -38,7 +42,7 @@ class Gdcm < Formula
     ]
 
     mkdir "build" do
-      if build.without?("python") && build.without?("python3")
+      if build.without?("python") && build.without?("python@2")
         system "cmake", "..", *common_args
         system "make", "install"
       else
