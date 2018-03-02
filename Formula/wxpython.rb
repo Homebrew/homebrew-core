@@ -12,7 +12,7 @@ class Wxpython < Formula
     sha256 "073777ade162a654d43d5866f69e6a857a7cedc677d7115200972e91261d9e0f" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "wxmac"
 
   def install
