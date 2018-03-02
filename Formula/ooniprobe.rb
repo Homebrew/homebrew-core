@@ -17,7 +17,7 @@ class Ooniprobe < Formula
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "tor"
 
   # these 4 need to come first or else cryptography will let setuptools
