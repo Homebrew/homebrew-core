@@ -11,7 +11,7 @@ class Glances < Formula
     sha256 "03cb45f3f3333af6789292890b1a2ea23825a3a77f02f3ebf735c90708818166" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/psutil-5.4.3.tar.gz"
