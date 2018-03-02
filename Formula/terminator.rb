@@ -16,10 +16,9 @@ class Terminator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef923c9f764ba0e3ec36142280ebb537795576f0aa4566c1637bba78d062b124" => :high_sierra
-    sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :sierra
-    sha256 "d2abd2e81a52ee85f484aff67d8752e85e175fd08b8a2b017c6b74673c4d0450" => :el_capitan
-    sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :yosemite
+    sha256 "b2e67f305f175629b8a4673adbfee6da0db29d3d994d68363a458af47f8bd04e" => :high_sierra
+    sha256 "b2e67f305f175629b8a4673adbfee6da0db29d3d994d68363a458af47f8bd04e" => :sierra
+    sha256 "b2e67f305f175629b8a4673adbfee6da0db29d3d994d68363a458af47f8bd04e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
