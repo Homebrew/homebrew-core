@@ -6,6 +6,12 @@ class PythonAT2 < Formula
   revision 1
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
+  bottle do
+    sha256 "12e2d289661c80fd4346941a17fa30788e2d24e0a4a5d353cf00029f4675e960" => :high_sierra
+    sha256 "94a4ec65ccb23dd25b5954cfe334e8635623b13054a37873d8b7cafb1d243501" => :sierra
+    sha256 "4aa1e910a28588c40fa656d707b86c2b7cad5e1cd3588c6e8936f83c7e574bcb" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
