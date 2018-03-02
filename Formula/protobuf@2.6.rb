@@ -15,12 +15,13 @@ class ProtobufAT26 < Formula
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python2 support"
   option :cxx11
 
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
 
   deprecated_option "with-check" => "with-test"
+  deprecated_option "without-python" => "without-python@2"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/64/1dc5e5976b17466fd7d712e59cbe9fb1e18bec153109e5ba3ed6c9102f1a/six-1.9.0.tar.gz"
@@ -68,7 +69,7 @@ class ProtobufAT26 < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python"
+    if build.with? "python@2"
       # google-apputils is a build-time dependency
       ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
       %w[six python-dateutil pytz python-gflags google-apputils].each do |package|
@@ -111,10 +112,10 @@ class ProtobufAT26 < Formula
         EOS
     (testpath/"test.proto").write(testdata)
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python"
+    if build.with? "python@2"
       protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
       (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
-      system "python", "-c", "import google.protobuf"
+      system "python2.7", "-c", "import google.protobuf"
     end
   end
 end
