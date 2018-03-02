@@ -57,7 +57,7 @@ class Mpv < Formula
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
     resource("docutils").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+      system "python2.7", *Language::Python.setup_install_args(buildpath/"vendor")
     end
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
