@@ -14,7 +14,7 @@ class Mackup < Formula
     sha256 "bb4a930f0d5dc90cfc028219f78078a461eba4c1b2092af266d7c4acecbcae24" => :yosemite
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
