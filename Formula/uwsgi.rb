@@ -15,11 +15,12 @@ class Uwsgi < Formula
   option "with-ruby", "Compile with Ruby support"
 
   deprecated_option "with-lua51" => "with-lua@5.1"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "openssl"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   depends_on "geoip" => :optional
   depends_on "gloox" => :optional
@@ -36,7 +37,6 @@ class Uwsgi < Formula
   depends_on "postgresql" => :optional
   depends_on "pypy" => :optional
   depends_on "python" => :optional
-  depends_on "python3" => :optional
   depends_on "rrdtool" => :optional
   depends_on "rsyslog" => :optional
   depends_on "tcc" => :optional
@@ -129,10 +129,10 @@ class Uwsgi < Formula
     end
 
     python_versions = {
-      "python"=>"python",
-      "python2"=>"python",
+      "python"=>"python2.7",
+      "python2"=>"python2.7",
     }
-    python_versions["python3"] = "python3" if build.with? "python3"
+    python_versions["python3"] = "python3" if build.with? "python"
     python_versions.each do |k, v|
       system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end
