@@ -17,7 +17,7 @@ class GitRemoteHg < Formula
   end
 
   depends_on "mercurial"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"
 
