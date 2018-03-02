@@ -13,7 +13,7 @@ class Mycli < Formula
     sha256 "efb1798af243e65cc470d754439b5d82fde609081d5e77b40e0a29ea0d36b5d1" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "asn1crypto" do
