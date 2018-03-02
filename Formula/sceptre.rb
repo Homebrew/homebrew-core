@@ -13,7 +13,7 @@ class Sceptre < Formula
     sha256 "0a45099ba571f62d7fbb780a481652e1ad77206473a46b25b2dfbcc265b5a742" => :el_capitan
   end
 
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/8a/aa/8d3b788083d6b983e863e907f723d4575e3643d73ffa22317c57f6b33461/boto3-1.5.35.tar.gz"
