@@ -17,6 +17,7 @@ class SubversionAT18 < Formula
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
+  deprecated_option "with-python" => "with-python@2"
 
   option "with-java", "Build Java bindings"
   option "with-perl", "Build Perl bindings"
@@ -30,10 +31,10 @@ class SubversionAT18 < Formula
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   # Bindings require swig
-  depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
+  depends_on "swig" if build.with?("perl") || build.with?("python@2") || build.with?("ruby")
 
   # For Serf
   depends_on "scons" => :build
@@ -153,7 +154,7 @@ class SubversionAT18 < Formula
     system "make", "tools"
     system "make", "install-tools"
 
-    if build.with? "python"
+    if build.with? "python@2"
       system "make", "swig-py"
       system "make", "install-swig-py"
       (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
