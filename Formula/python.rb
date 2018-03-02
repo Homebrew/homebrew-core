@@ -212,6 +212,7 @@ class Python < Formula
     # Avoid conflicts during migration from python3
     rm_f %W[
       #{HOMEBREW_PREFIX}/bin/easy_install
+      #{HOMEBREW_PREFIX}/bin/pip
       #{HOMEBREW_PREFIX}/bin/wheel
     ]
 
