@@ -12,17 +12,19 @@ class Gnuradio < Formula
     sha256 "cdefae05c257ce4ed0a9bb0e8594d8cf20c0e825c3704394ef87e7cbf841a7ae" => :el_capitan
   end
 
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
   depends_on "zeromq"
 
-  if build.with? "python"
+  if build.with? "python@2"
     depends_on "swig" => :build
     depends_on "numpy"
   end
@@ -95,7 +97,7 @@ class Gnuradio < Formula
                             gr-blocks gr-pager gr-noaa gr-channels gr-audio
                             gr-fcd gr-vocoder gr-fec gr-digital gr-dtv gr-atsc
                             gr-trellis gr-zeromq]
-    if build.with? "python"
+    if build.with? "python@2"
       enabled_components << "python"
       enabled_components << "gr-utils"
       enabled_components << "grc" if build.with? "pygtk"
@@ -159,7 +161,7 @@ class Gnuradio < Formula
            "-lboost_system", testpath/"test.c++", "-o", testpath/"test"
     system "./test"
 
-    if build.with? "python"
+    if build.with? "python@2"
       (testpath/"test.py").write <<~EOS
         from gnuradio import blocks
         from gnuradio import gr
