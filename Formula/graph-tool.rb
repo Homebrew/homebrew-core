@@ -118,6 +118,8 @@ class GraphTool < Formula
       v1 = g.add_vertex()
       v2 = g.add_vertex()
       e = g.add_edge(v1, v2)
+      assert g.num_edges() == 1
+      assert g.num_vertices() == 2
     EOS
     Language::Python.each_python(build) { |python, _| system python, "test.py" }
   end
