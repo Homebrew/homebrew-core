@@ -18,7 +18,7 @@ class RobotFramework < Formula
   end
 
   depends_on :x11
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "appdirs" do
