@@ -235,7 +235,7 @@ class LlvmAT39 < Formula
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
-    if build.with?("lldb") && build.with?("python")
+    if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
       args << "-DPYTHON_LIBRARY=#{pylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
