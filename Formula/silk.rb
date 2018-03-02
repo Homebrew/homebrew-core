@@ -10,13 +10,15 @@ class Silk < Formula
     sha256 "97fddd4c70d54b6b93b06a4135f9af08d389e042ab38aaceebeb67fb39bc4745" => :el_capitan
   end
 
-  option "with-python", "Build with the PySiLK python interface"
+  option "with-python@2", "Build with the PySiLK python interface"
+
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libfixbuf"
   depends_on "yaf"
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   def install
     args = %W[
@@ -27,7 +29,7 @@ class Silk < Formula
       --enable-data-rootdir=#{var}/silk
     ]
 
-    if build.with? "python"
+    if build.with? "python@2"
       args << "--with-python" << "--with-python-prefix=#{prefix}"
     end
     system "./configure", *args
