@@ -12,13 +12,17 @@ class Z3 < Formula
     sha256 "bc1f47e9c9c1bff59983a17e00b00ab6724de6c182147cbecd6115fea377fda8" => :el_capitan
   end
 
-  option "without-python", "Build without python 2 support"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python3" => :optional
+  option "without-python@2", "Build without python 2 support"
+
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
+
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
 
   def install
-    if build.without?("python3") && build.without?("python")
-      odie "z3: --with-python3 must be specified when using --without-python"
+    if build.without?("python") && build.without?("python@2")
+      odie "z3: --with-python must be specified when using --without-python@2"
     end
 
     Language::Python.each_python(build) do |python, version|
