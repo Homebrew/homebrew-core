@@ -20,7 +20,7 @@ class Taisei < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python3" => :build
+  depends_on "python" => :build
   depends_on "sdl2" => :build
   depends_on "sdl2_mixer" => :build
   depends_on "sdl2_ttf" => :build
