@@ -11,6 +11,8 @@ class GnomeBuilder < Formula
     sha256 "f711d35258d5dd969bd3dbc4213a91f86a4a21eed1b6ecb5dc19128ab0d51e44" => :el_capitan
   end
 
+  deprecated_option "with-python3" => "with-python"
+
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
@@ -32,8 +34,8 @@ class GnomeBuilder < Formula
   depends_on "vala" => :recommended
   depends_on "ctags" => :recommended
   depends_on "meson" => :recommended
-  depends_on "python3" => :optional
-  depends_on "pygobject3" if build.with? "python3"
+  depends_on "python" => :optional
+  depends_on "pygobject3" if build.with? "python"
 
   needs :cxx11
 
