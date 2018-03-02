@@ -12,7 +12,7 @@ class Ib < Formula
     sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     prefix.install "common.cfg", "debug.cfg", "release.cfg", "asan.cfg", "__ib__"
