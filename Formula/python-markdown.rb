@@ -11,7 +11,7 @@ class PythonMarkdown < Formula
     sha256 "1bfa222753f8f3151769b20deed2b00af1d60e0fb6a6eb25a84c6374fab8385e" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
