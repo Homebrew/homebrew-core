@@ -11,15 +11,16 @@ class Gdb < Formula
     sha256 "cd89001bcf8c93b5d6425ab91a400aeffe0cd5bbb0eccd8ab38c719ab5ca34ba" => :el_capitan
   end
 
-  deprecated_option "with-brewed-python" => "with-python"
+  deprecated_option "with-brewed-python" => "with-python@2"
   deprecated_option "with-guile" => "with-guile@2.0"
+  deprecated_option "with-python" => "with-python@2"
 
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "guile@2.0" => :optional
 
   fails_with :clang do
@@ -48,7 +49,7 @@ class Gdb < Formula
     args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
 
-    if build.with? "python"
+    if build.with? "python@2"
       args << "--with-python=#{Formula["python"].opt_libexec}/bin"
     else
       args << "--with-python=/usr"
