@@ -22,7 +22,7 @@ class V8 < Formula
   depends_on :macos => :lion
 
   # gyp doesn't run under 2.6 or lower
-  depends_on "python" => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
 
   depends_on "readline" => :optional
 
