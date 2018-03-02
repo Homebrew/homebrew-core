@@ -8,9 +8,9 @@ class Whatmp3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :high_sierra
-    sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :sierra
-    sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :el_capitan
+    sha256 "0166d5c0eca7e9e3022baad9dea3679ede00bdfb29c1a5b875d477a38c5c74cf" => :high_sierra
+    sha256 "0166d5c0eca7e9e3022baad9dea3679ede00bdfb29c1a5b875d477a38c5c74cf" => :sierra
+    sha256 "0166d5c0eca7e9e3022baad9dea3679ede00bdfb29c1a5b875d477a38c5c74cf" => :el_capitan
   end
 
   depends_on "python"
