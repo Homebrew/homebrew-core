@@ -6,12 +6,9 @@ class Hayai < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c550c08ecfe22536b4df37afced589676ebb4d7ecce244694b9f83033d5f2cf1" => :high_sierra
-    sha256 "c2f93072aaa7edc1a2dde8180b7e5a962b96fe11c5662fc7c7fb1c469f25589d" => :sierra
-    sha256 "b4a9c42fe38dd8d5595a899e650504909e6614beb8b8c0c3b4462a647d2ac214" => :el_capitan
-    sha256 "cbbb73a1219f53aab9ab1d13c18f6916d2e48404533100803deab22aee94ce6d" => :yosemite
-    sha256 "97bb918ab865fc2d6e1b49ddaa395d37c2c530b9665c9027aebcfe7752449078" => :mavericks
-    sha256 "c4a5a5879b6d5482f19d6acec3fe38c1c7fbc8b33a212ad76a0c7fd9de35dd87" => :mountain_lion
+    sha256 "c28fb50fbaed6281dafa6b8ec7b2cafc45fe3255bcc57a6678dbac5da67e4dca" => :high_sierra
+    sha256 "d2702e169ba0c8a8b79f3df6f83fc2268b95b0b0d2c2c4d11387ea99011800f4" => :sierra
+    sha256 "0a9089377b36a1f719966add1fcd01780e27e250db062affb818236e9b8161c6" => :el_capitan
   end
 
   depends_on "cmake" => :build
