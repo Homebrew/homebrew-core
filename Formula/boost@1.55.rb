@@ -74,7 +74,7 @@ class BoostAT155 < Formula
       file.write "using darwin : : #{ENV.cxx} ;\n"
 
       # Link against correct version of Python if python3 build was requested
-      if build.with? "python3"
+      if build.with? "python"
         py3executable = `which python3`.strip
         py3version = `python3 -c "import sys; print(sys.version[:3])"`.strip
         py3prefix = `python3 -c "import sys; print(sys.prefix)"`.strip
