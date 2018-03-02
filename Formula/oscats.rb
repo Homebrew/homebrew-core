@@ -13,15 +13,17 @@ class Oscats < Formula
     sha256 "e83b19660fe00ed2c05e228646a931ad3837dafd74855921da25009833d5f387" => :yosemite
   end
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "pkg-config" => :build
   depends_on "gsl"
   depends_on "glib"
-  depends_on "python" => :optional
-  depends_on "pygobject" if build.with? "python"
+  depends_on "python@2" => :optional
+  depends_on "pygobject" if build.with? "python@2"
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args << "--enable-python-bindings" if build.with? "python"
+    args << "--enable-python-bindings" if build.with? "python@2"
     system "./configure", *args
     system "make", "install"
   end
