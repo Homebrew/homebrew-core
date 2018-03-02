@@ -18,11 +18,13 @@ class LibtorrentRasterbar < Formula
     depends_on "libtool" => :build
   end
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "boost"
-  depends_on "boost-python" if build.with? "python"
+  depends_on "boost-python" if build.with? "python@2"
 
   def install
     ENV.cxx11
@@ -34,7 +36,7 @@ class LibtorrentRasterbar < Formula
             "--with-boost=#{Formula["boost"].opt_prefix}"]
 
     # Build python bindings requires forcing usage of the mt version of boost_python.
-    if build.with? "python"
+    if build.with? "python@2"
       args << "--enable-python-binding"
       args << "--with-boost-python=boost_python-mt"
     end
