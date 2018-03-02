@@ -15,25 +15,28 @@ class OpenBabel < Formula
 
   option "with-cairo", "Support PNG depiction"
   option "with-java", "Compile Java language bindings"
-  option "with-python", "Compile Python language bindings"
+  option "with-python@2", "Compile Python 2 language bindings"
   option "with-wxmac", "Build with GUI"
+
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "wxmac" => :optional
   depends_on "cairo" => :optional
   depends_on "eigen"
-  depends_on "swig" if build.with?("python") || build.with?("java")
+  depends_on "swig" if build.with?("python@2") || build.with?("java")
 
   def install
     args = std_cmake_args
-    args << "-DRUN_SWIG=ON" if build.with?("python") || build.with?("java")
+    args << "-DRUN_SWIG=ON" if build.with?("python@2") || build.with?("java")
     args << "-DJAVA_BINDINGS=ON" if build.with? "java"
     args << "-DBUILD_GUI=ON" if build.with? "wxmac"
 
     # Point cmake towards correct python
-    if build.with? "python"
+    if build.with? "python@2"
+      ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
       pypref = `python -c 'import sys;print(sys.prefix)'`.strip
       pyinc = `python -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.strip
       args << "-DPYTHON_BINDINGS=ON"
