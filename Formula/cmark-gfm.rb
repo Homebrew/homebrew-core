@@ -13,7 +13,7 @@ class CmarkGfm < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python3" => :build
+  depends_on "python" => :build
 
   conflicts_with "cmark", :because => "both install a `cmark.h` header"
 
