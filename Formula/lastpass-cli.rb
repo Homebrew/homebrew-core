@@ -23,6 +23,9 @@ class LastpassCli < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "make", "PREFIX=#{prefix}", "install"
     system "make", "MANDIR=#{man}", "install-doc"
+
+    bash_completion.install "contrib/lpass_bash_completion"
+    fish_completion.install "contrib/completions-lpass.fish"
   end
 
   test do
