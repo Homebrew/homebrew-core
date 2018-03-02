@@ -26,6 +26,8 @@ class Weechat < Formula
   option "with-debug", "Build with debug information"
   option "without-tcl", "Do not build the tcl module"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -34,7 +36,7 @@ class Weechat < Formula
   depends_on "aspell" => :optional
   depends_on "lua" => :optional
   depends_on "perl" => :optional
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "ruby" => :optional if MacOS.version <= :sierra
   depends_on "curl" => :optional
 
@@ -60,7 +62,7 @@ class Weechat < Formula
     args << "-DENABLE_PERL=OFF" if build.without? "perl"
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_TCL=OFF" if build.without? "tcl"
-    args << "-DENABLE_PYTHON=OFF" if build.without? "python"
+    args << "-DENABLE_PYTHON=OFF" if build.without? "python@2"
 
     mkdir "build" do
       system "cmake", "..", *args
