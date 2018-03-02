@@ -22,7 +22,7 @@ class Konoha < Formula
   depends_on "mecab" if MacOS.version >= :mountain_lion
   depends_on "open-mpi"
   depends_on "pcre"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "sqlite"
 
   def install
