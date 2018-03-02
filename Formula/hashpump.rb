@@ -15,10 +15,12 @@ class Hashpump < Formula
     sha256 "a776ebf2d22d7b5fa492308fff20409696064ea70149c5cac695b75bcf004d7c" => :mountain_lion
   end
 
-  option "without-python", "Build without python 2 support"
+  option "without-python@2", "Build without python 2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "openssl"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
   depends_on "python3" => :optional
 
   # Remove on next release
