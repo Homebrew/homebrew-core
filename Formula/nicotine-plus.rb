@@ -15,7 +15,7 @@ class NicotinePlus < Formula
     sha256 "ed1c27fc1158ed8240f295df6cbb3defe6524050f329df6364daf1b6af3ab6db" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "gtk+"
   depends_on "pygtk"
   depends_on "geoip" => :recommended
