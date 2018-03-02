@@ -14,7 +14,7 @@ class Pyinvoke < Formula
     sha256 "f6576a575d302c1549e7cf76d3d07f5fc0f5c38efdd3534e915c0a39f4de57f9" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     virtualenv_install_with_resources
