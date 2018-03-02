@@ -12,7 +12,9 @@ class OpencvAT2 < Formula
 
   keg_only :versioned_formula
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -22,8 +24,8 @@ class OpencvAT2 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "numpy" if build.with? "python"
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "numpy" if build.with? "python@2"
 
   def install
     jpeg = Formula["jpeg"]
@@ -51,9 +53,9 @@ class OpencvAT2 < Formula
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
     ]
 
-    args << "-DBUILD_opencv_python=" + (build.with?("python") ? "ON" : "OFF")
+    args << "-DBUILD_opencv_python=" + (build.with?("python@2") ? "ON" : "OFF")
 
-    if build.with? "python"
+    if build.with? "python@2"
       py_prefix = `python-config --prefix`.chomp
       py_lib = "#{py_prefix}/lib"
       args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
