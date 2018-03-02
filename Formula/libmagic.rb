@@ -12,7 +12,9 @@ class Libmagic < Formula
     sha256 "d11466ebdc722d370346cecf135a925e1f482f0d0bbbb424f821347134f52e64" => :yosemite
   end
 
-  depends_on "python" => :optional
+  deprecated_option "with-python" => "with-python@2"
+
+  depends_on "python@2" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -23,7 +25,7 @@ class Libmagic < Formula
     system "make", "install"
     (share+"misc/magic").install Dir["magic/Magdir/*"]
 
-    if build.with? "python"
+    if build.with? "python@2"
       cd "python" do
         system "python", *Language::Python.setup_install_args(prefix)
       end
