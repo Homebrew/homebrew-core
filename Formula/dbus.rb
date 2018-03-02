@@ -13,8 +13,8 @@ class Dbus < Formula
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.13.0.tar.gz"
-    sha256 "837abf414c0cdac4c8586ea6f93a999446470b10abcfeefe19ed8a7921854d2e"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.13.2.tar.gz"
+    sha256 "945deb349a7e2999184827c17351c1bf93c6395b9c3ade0c91cad42cb93435b1"
   end
 
   head do
