@@ -4,6 +4,13 @@ class Libbi < Formula
   url "https://github.com/libbi/LibBi/archive/1.3.0.tar.gz"
   sha256 "0dd313dd71e72b2f16ca9074800fc2fa8bf585bec3b87a750ff27e467a9826d0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1b4018941c8d18e493888f3b0257a72cbe836466f426f6a9e511aecea3a1884d" => :high_sierra
+    sha256 "95a74d6249455f69effc9beb0334d968c533313e469ec35080a8ba48a380b1a1" => :sierra
+    sha256 "2c4af2f1301df8e0217b4d9b77bbc8a528b2fa2958f9b4de3310b9a07feca0ec" => :el_capitan
+  end
+
   depends_on "automake" => :run
   depends_on "boost"
   depends_on "gsl"
