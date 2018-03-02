@@ -17,11 +17,12 @@ class Hashpump < Formula
 
   option "without-python@2", "Build without python 2 support"
 
+  deprecated_option "with-python3" => "with-python"
   deprecated_option "without-python" => "without-python@2"
 
   depends_on "openssl"
   depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python3" => :optional
+  depends_on "python" => :optional
 
   # Remove on next release
   patch do
