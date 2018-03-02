@@ -12,7 +12,10 @@ class Notmuch < Formula
     sha256 "9fd854188d76d174dbd6d19eea001923403c908f33e11aff98cf135f58eb69a2" => :el_capitan
   end
 
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "libgpg-error" => :build
@@ -21,8 +24,9 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
   depends_on "emacs" => :optional
-  depends_on "python3" => :optional
+  depends_on "python" => :optional
   depends_on "ruby" => :optional
 
   # Fix SIP issue with python bindings
