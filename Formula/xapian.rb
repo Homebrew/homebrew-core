@@ -19,10 +19,11 @@ class Xapian < Formula
   deprecated_option "java" => "with-java"
   deprecated_option "php" => "with-php"
   deprecated_option "ruby" => "with-ruby"
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on "ruby" => :optional if MacOS.version <= :sierra
-  depends_on "python" => :optional
-  depends_on "sphinx-doc" => :build if build.with?("python")
+  depends_on "python@2" => :optional
+  depends_on "sphinx-doc" => :build if build.with? "python@2"
 
   skip_clean :la
 
@@ -32,7 +33,7 @@ class Xapian < Formula
   end
 
   def install
-    build_binds = build.with?("ruby") || build.with?("python") || build.with?("java") || build.with?("php")
+    build_binds = build.with?("ruby") || build.with?("python@2") || build.with?("java") || build.with?("php")
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -56,15 +57,12 @@ class Xapian < Formula
           args << "--with-ruby"
         end
 
-        if build.with? "python"
+        if build.with? "python@2"
           # https://github.com/Homebrew/homebrew-core/issues/2422
           ENV.delete("PYTHONDONTWRITEBYTECODE")
 
           (lib/"python2.7/site-packages").mkpath
           ENV["PYTHON_LIB"] = lib/"python2.7/site-packages"
-
-          # configure looks for python2 and system python doesn't install one
-          ENV["PYTHON"] = which "python"
 
           ENV.append_path "PYTHONPATH",
                           Formula["sphinx-doc"].opt_libexec/"lib/python2.7/site-packages"
