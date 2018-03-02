@@ -14,18 +14,19 @@ class Postgresql < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Enable PL/Python2"
-  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
+  option "with-python", "Enable PL/Python3 (incompatible with --with-python@2)"
+  option "with-python@2", "Enable PL/Python2"
 
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "openssl"
   depends_on "readline"
 
   depends_on "python" => :optional
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
@@ -62,11 +63,11 @@ class Postgresql < Formula
     args << "--with-perl" if build.with? "perl"
 
     which_python = nil
-    if build.with?("python") && build.with?("python3")
-      odie "Cannot provide both --with-python and --with-python3"
-    elsif build.with?("python") || build.with?("python3")
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with?("python") || build.with?("python@2")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python" : "python3")
+      which_python = which(build.with?("python") ? "python3" : "python2.7")
     end
     ENV["PYTHON"] = which_python
 
