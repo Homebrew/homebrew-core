@@ -17,7 +17,7 @@ class KubePs1 < Formula
     Make sure kube-ps1 is loaded from your ~/.zshrc or ~/.bashrc:
       For zsh:
       source "#{opt_share}/kube-ps1.sh"
-      PROMPT='$(kube_ps1) $PROMPT'
+      PROMPT='$(kube_ps1)'$PROMPT
 
       For Bash:
       source "#{opt_share}/kube-ps1.sh"
