@@ -12,7 +12,7 @@ class Bubbros < Formula
     sha256 "e5ca6894981c7c33de857573f3cf2ad7c5e77f27b301228a37ff86640bd186c4" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on :x11 => :optional
 
   # Patches from debian https://sources.debian.net/patches/bubbros
