@@ -8,9 +8,9 @@ class IpythonAT5 < Formula
 
   bottle do
     cellar :any
-    sha256 "f921b3408f83fe8a2cebd0cd3d87a3f082213a0dea65bc8dcd6c311fbd06e6cd" => :high_sierra
-    sha256 "94bbfa05b627df498445ee553a34a8932008a955cfd3216ba090283e3e0c47d5" => :sierra
-    sha256 "44022616b483245a6199e5abb8a89572384cdca8091edd5cb84360c73f566b8e" => :el_capitan
+    sha256 "ea19da8fc990a9f834d46149715134e044e03bf685392cb4b33af1700b3106e8" => :high_sierra
+    sha256 "3a3353f66e20228a549e75e5ad8d27d25337a1b1a771a436b5323c2b665c65ae" => :sierra
+    sha256 "cd399393e4aea98dfc635a33ccc2d79bf59a91c730d35e1e8e597f3eecfbe74d" => :el_capitan
   end
 
   keg_only :versioned_formula
