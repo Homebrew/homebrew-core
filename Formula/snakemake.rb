@@ -7,10 +7,10 @@ class Snakemake < Formula
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "776c2a5fac2dfa2a0c283cef528960d1106e6ecb3262d40dbdb66c3815de1090" => :high_sierra
-    sha256 "11c318defc8135b2c558a7b1b26305a33b3990a5accaf67ccd487cbf2ace403e" => :sierra
-    sha256 "bee14118854569d98285b349286fdbee8be368144e94f668ba34818240ae92d9" => :el_capitan
+    cellar :any
+    sha256 "20eaa945ba2ab9a3541016677df1ee2978a8e247493ad4ca7ef81b6138e3230f" => :high_sierra
+    sha256 "bb9a49e0421d864aa465639a028a2a78c645e2f4b26dc2d9af4a3f17a2c881f6" => :sierra
+    sha256 "d773b0ab0784d55a8a2f41e7a8de6fc8ac9ecfc8ef19416cd9aace01807924a7" => :el_capitan
   end
 
   depends_on "python"
