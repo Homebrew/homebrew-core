@@ -11,7 +11,7 @@ class Llnode < Formula
     sha256 "e047f606e4923900a3285acc8a352f847d387e877d5436ddf5cdbf37d256cf27" => :el_capitan
   end
 
-  depends_on "python" => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
   depends_on :macos => :yosemite
 
   resource "gyp" do
