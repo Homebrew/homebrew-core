@@ -13,7 +13,7 @@ class Eralchemy < Formula
     sha256 "ac15ae44c578db190893e5a0ebbd2ef6812d40d0871e5b9286ee5b93714d8c6d" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "openssl"
