@@ -14,7 +14,7 @@ class GnomeDocUtils < Formula
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "docbook"
   depends_on "gettext"
   depends_on "libxml2"
