@@ -24,11 +24,12 @@ class Znc < Formula
   option "with-python3", "Build with mod_python support, allowing Python ZNC modules"
 
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "icu4c" => :optional
-  depends_on "python3" => :optional
+  depends_on "python" => :optional
 
   needs :cxx11
 
@@ -42,7 +43,7 @@ class Znc < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--enable-debug" if build.with? "debug"
-    args << "--enable-python" if build.with? "python3"
+    args << "--enable-python" if build.with? "python"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
