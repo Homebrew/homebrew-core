@@ -18,7 +18,9 @@ class ProtobufAT25 < Formula
   option "with-test", "Run build-time check"
   option :cxx11
 
-  depends_on "python" => :optional
+  deprecated_option "with-python" => "with-python@2"
+
+  depends_on "python@2" => :optional
 
   deprecated_option "with-check" => "with-test"
 
@@ -39,7 +41,7 @@ class ProtobufAT25 < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python"
+    if build.with? "python@2"
       chdir "python" do
         ENV["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "cpp"
         ENV.append_to_cflags "-I#{include}"
@@ -70,7 +72,7 @@ class ProtobufAT25 < Formula
       }
     EOS
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python"
+    if build.with? "python@2"
       protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
       (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
       system "python", "-c", "import google.protobuf"
