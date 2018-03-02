@@ -13,7 +13,7 @@ class Gitless < Formula
     sha256 "080a6ac35724acf0e10a3e113c16d2a06f66f5d3e49b3af745b057205998200f" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "libgit2"
 
   resource "args" do
