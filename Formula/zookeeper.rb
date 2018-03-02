@@ -26,8 +26,9 @@ class Zookeeper < Formula
   option "with-perl", "Build Perl bindings"
 
   deprecated_option "perl" => "with-perl"
+  deprecated_option "with-python" => "with-python@2"
 
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   def shim_script(target)
     <<~EOS
@@ -75,7 +76,7 @@ class Zookeeper < Formula
       system "make", "install"
     end
 
-    if build.with? "python"
+    if build.with? "python@2"
       cd "src/contrib/zkpython" do
         system "python", "src/python/setup.py", "build"
         system "python", "src/python/setup.py", "install", "--prefix=#{prefix}"
