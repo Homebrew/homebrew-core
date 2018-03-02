@@ -209,6 +209,12 @@ class Python < Formula
   end
 
   def post_install
+    # Avoid conflicts during migration from python3
+    rm_f %W[
+      #{HOMEBREW_PREFIX}/bin/easy_install
+      #{HOMEBREW_PREFIX}/bin/wheel
+    ]
+
     ENV.delete "PYTHONPATH"
 
     xy = (prefix/"Frameworks/Python.framework/Versions").children.sort.first.basename.to_s
