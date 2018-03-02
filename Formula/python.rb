@@ -211,7 +211,7 @@ class Python < Formula
   def post_install
     ENV.delete "PYTHONPATH"
 
-    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.sort.first.basename.to_s
     site_packages = HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
     site_packages_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"
 
@@ -281,7 +281,7 @@ class Python < Formula
   end
 
   def sitecustomize
-    xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.sort.first.basename.to_s
 
     <<~EOS
       # This file is created by Homebrew and is executed on each python startup.
@@ -322,7 +322,7 @@ class Python < Formula
 
   def caveats
     if prefix.exist?
-      xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+      xy = (prefix/"Frameworks/Python.framework/Versions").children.sort.first.basename.to_s
     else
       xy = version.to_s.slice(/(3\.\d)/) || "3.6"
     end
