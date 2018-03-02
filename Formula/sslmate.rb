@@ -37,7 +37,7 @@ class Sslmate < Formula
   end
 
   if build.with? "route53"
-    depends_on "python" if MacOS.version <= :snow_leopard
+    depends_on "python@2" if MacOS.version <= :snow_leopard
 
     resource "boto" do
       url "https://files.pythonhosted.org/packages/source/b/boto/boto-2.38.0.tar.gz"
