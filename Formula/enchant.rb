@@ -10,8 +10,10 @@ class Enchant < Formula
     sha256 "4240a9afdab529f1349963fd7d0e90725365fcd8fa27a937d5fc115abad50a65" => :el_capitan
   end
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "pkg-config" => :build
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "glib"
   depends_on "aspell"
 
@@ -30,7 +32,7 @@ class Enchant < Formula
 
     ln_s "enchant-2.pc", lib/"pkgconfig/enchant.pc"
 
-    if build.with? "python"
+    if build.with? "python@2"
       resource("pyenchant").stage do
         # Don't download and install distribute now
         inreplace "setup.py", "ez_setup.use_setuptools()", ""
