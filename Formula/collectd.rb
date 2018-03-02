@@ -24,12 +24,13 @@ class Collectd < Formula
 
   deprecated_option "java" => "with-java"
   deprecated_option "debug" => "with-debug"
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "net-snmp"
 
   fails_with :clang do
@@ -49,7 +50,7 @@ class Collectd < Formula
     ]
 
     args << "--disable-java" if build.without? "java"
-    args << "--enable-python" if build.with? "python"
+    args << "--enable-python" if build.with? "python@2"
     args << "--enable-write_riemann" if build.with? "riemann-client"
     args << "--enable-debug" if build.with? "debug"
 
