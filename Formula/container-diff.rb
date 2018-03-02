@@ -1,8 +1,8 @@
 class ContainerDiff < Formula
   desc "Diff your Docker containers"
   homepage "https://github.com/GoogleCloudPlatform/container-diff"
-  url "https://github.com/GoogleCloudPlatform/container-diff/archive/v0.6.2.tar.gz"
-  sha256 "a3c680799c230d2a2352eb1e5765bd6774182b213a73e5c0bf1e6254008cd434"
+  url "https://github.com/GoogleCloudPlatform/container-diff/archive/v0.7.0.tar.gz"
+  sha256 "1665f96685f4a976689e95f9303c3b546d90977a61e7cd16e031753a6b68afbe"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,8 +25,8 @@ class ContainerDiff < Formula
   end
 
   test do
-    image = "gcr.io/google-appengine/golang:2018-01-04_15_24"
-    output = shell_output("#{bin}/container-diff analyze #{image} 2>&1")
-    assert_match /-gcc-4.9-base\s+4.9.2-10/, output
+    image = "daemon://gcr.io/google-appengine/golang:2018-01-04_15_24"
+    output = shell_output("#{bin}/container-diff analyze #{image} 2>&1", 1)
+    assert_match "Error loading image from docker engine", output
   end
 end
