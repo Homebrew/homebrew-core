@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.6.2",
-      :revision => "a81705b7f50e89bad580f9930436dbf34996cbec"
+      :tag => "0.6.3",
+      :revision => "7997a467e0d1a49eae5417b8190ae0f5f5e87bac"
 
   bottle do
     cellar :any_skip_relocation
@@ -79,7 +79,7 @@ class FaasCli < Formula
       rm_rf "template"
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
-      assert_match "Stat ./template/python/template.yml", output
+      assert_match "stat ./template/python/template.yml", output
 
       assert_match "ruby", shell_output("#{bin}/faas-cli template pull 2>&1")
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
