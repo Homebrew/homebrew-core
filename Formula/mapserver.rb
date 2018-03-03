@@ -7,9 +7,9 @@ class Mapserver < Formula
 
   bottle do
     cellar :any
-    sha256 "f9d7131e014be06d8a6024679b0ff68ea06e3b4141f12f1fdf3fba51fc53d3a0" => :high_sierra
-    sha256 "2d0fc601e7918837f7e0e21a6a48ad3c83da04d07e89779a7554300c5b9377a3" => :sierra
-    sha256 "389cc9eab6cd77ad5fa9c0d8654d602f5d53c00368c107b40c62f149cb7620e2" => :el_capitan
+    sha256 "bc574e4eef7bb4bba5a30da2b176d9c834fd7fffaafb07ee7f7ac2694c95fd59" => :high_sierra
+    sha256 "16dc614cf8972ac732509c193176b71a7ded79637df5361646df306a1fc66ec1" => :sierra
+    sha256 "02388357fd386a933901fef592feacd3d75c7b86f1c2e45efa31c3e08a5c5341" => :el_capitan
   end
 
   option "with-fastcgi", "Build with fastcgi support"
