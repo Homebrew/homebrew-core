@@ -1,9 +1,9 @@
 class SubversionAT18 < Formula
   desc "Version control system"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.16.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.8.16.tar.bz2"
-  sha256 "f18f6e8309270982135aae54d96958f9ca6b93f8a4e746dd634b1b5b84edb346"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.19.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
+  sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
 
   bottle do
     sha256 "96dc628a9f5b2b12e81b690c6278be70e1d386f86376e2b0f6e5c085113e5e2e" => :high_sierra
@@ -45,8 +45,9 @@ class SubversionAT18 < Formula
   depends_on :java => :optional
 
   resource "serf" do
-    url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2"
-    sha256 "e0500be065dbbce490449837bb2ab624e46d64fc0b090474d9acaa87c82b2590"
+    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
+    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
 
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
