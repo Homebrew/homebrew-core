@@ -3,9 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/5f/ca/7eda0888c2859f8fec09290b851ef86b42e7f0371639bcead78cb81c6e10/pipenv-10.1.2.tar.gz"
-  sha256 "ce6dbb305fb1f262dba0dcb50c06591e4d146f7bfe079cc9f0ce3f89c7516ae9"
-  revision 1
+  url "https://files.pythonhosted.org/packages/74/1f/1e97de8d4e632ee90c1a4dbcd8194dec16b8a4d3fe4f1ac1604cfd457850/pipenv-11.0.1.tar.gz"
+  sha256 "e99718f867de9b22574ee5fd97e1468fc58843a8b5e0d2b1331241861a9f0215"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,34 +15,9 @@ class Pipenv < Formula
 
   depends_on "python"
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
-    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
-  end
-
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
-  end
-
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
-  end
-
   resource "pew" do
     url "https://files.pythonhosted.org/packages/21/8c/585c136d5c63eb80ece3328eb290d16ccf6d2d55420848d9fc6a07de68ca/pew-1.1.2.tar.gz"
     sha256 "b8312728526c9010295c88215c95a1b1731fdbd1a568f728e069932bd0545611"
-  end
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
   end
 
   resource "virtualenv" do
@@ -52,8 +26,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv-clone" do
-    url "https://files.pythonhosted.org/packages/36/66/d95f83255138ded1aec242de5ee51536226fa7b2582a7ce0863fea5dc4f2/virtualenv-clone-0.2.6.tar.gz"
-    sha256 "6b3be5cab59e455f08c9eda573d23006b7d6fb41fae974ddaa2b275c93cc4405"
+    url "https://files.pythonhosted.org/packages/14/2f/84b6a8e380439cdfdb71e0ced2a805a66e343ac540d3304bde6bc28fbb46/virtualenv-clone-0.3.0.tar.gz"
+    sha256 "b5cfe535d14dc68dfc1d1bb4ac1209ea28235b91156e2bba8e250d291c3fb4f8"
   end
 
   def install
