@@ -9,11 +9,7 @@ class Up < Formula
 
   depends_on "go" => :build
   depends_on "dep" => :build
-
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
+  depends_on "go-bindata" => :build
 
   go_resource "github.com/pointlander/peg" do
     url "https://github.com/pointlander/peg.git",
@@ -27,16 +23,9 @@ class Up < Formula
     ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    build_tools = [
-      "github.com/jteeuwen/go-bindata/go-bindata",
-      "github.com/pointlander/peg",
-    ]
-
-    build_tools.each do |tool|
-      cd "src/#{tool}" do
-        system "go", "get", "."
-        system "go", "install"
-      end
+    cd "src/github.com/pointlander/peg" do
+      system "go", "get", "."
+      system "go", "install"
     end
 
     cd "src/github.com/apex/up" do
