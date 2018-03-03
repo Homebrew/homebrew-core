@@ -8,9 +8,9 @@ class Mapnik < Formula
 
   bottle do
     cellar :any
-    sha256 "2f238e434d299c654e91d5bba9b4c04c5612e6584cd787163009cb4f68b7c7ca" => :high_sierra
-    sha256 "af3599138b065ee1d97d8f6a97814c811521c4fa61de9a3fc1fe63f2f4027470" => :sierra
-    sha256 "4b459d4220f8156af6870b715d5e79e716de01a9da52baae7cdea6461864c75a" => :el_capitan
+    sha256 "f83fff1b9401b0e602d4d2587386452ed3ca01182661626047c38421fd8ecbaf" => :high_sierra
+    sha256 "e1f64375c074b3283bffd29f77924eb988ea77996c92634c280cdd82947f2880" => :sierra
+    sha256 "c8518fe411b8445079cd4659ea7655fd53adbc06f847f62c0541fc5ca23875d9" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
