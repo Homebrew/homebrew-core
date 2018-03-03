@@ -32,7 +32,7 @@ class Vim < Formula
 
   depends_on "perl"
   depends_on "ruby"
-  depends_on "python" => :recommended
+  depends_on "python" => :recommended if build.without? "python@2"
   depends_on "gettext" => :optional
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
