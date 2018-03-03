@@ -5,10 +5,9 @@ class Proj < Formula
   sha256 "b30df08d736e69744cb255828721abb545b494d6032c13a96520f3219a444cd2"
 
   bottle do
-    sha256 "3bb7bda64844e30e4103a33e2bd15985359a90c1d8db7244bbd8055bb121b810" => :high_sierra
-    sha256 "82ea2f4d18b24bf337bf10bbb42f3e7d98a24803db252c8ea0383873c1d944cc" => :sierra
-    sha256 "4a18c02f82a4ee75c4cb61bb201bfe14d05fdf663781270ccaba6cad3cd3bc86" => :el_capitan
-    sha256 "eecdee32c333c828b17c0246d2cdf0580f144029c43c278555f793c5e3fead02" => :yosemite
+    sha256 "e8593ac943fbf2911a66b300c0c3f55ec7bfb9fe1ac636ff59ac50de85d04daa" => :high_sierra
+    sha256 "13e815d8283d20e2f7a5ab1a2f3fb6a465ef67112f7dce89f4278a417469f973" => :sierra
+    sha256 "6f9e7306f404158d257bb791ff7cfc05c9b0ad98f7652adcb9e59259f94dafb9" => :el_capitan
   end
 
   head do
