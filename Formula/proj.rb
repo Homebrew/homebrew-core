@@ -1,8 +1,8 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "http://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-4.9.3.tar.gz"
-  sha256 "6984542fea333488de5c82eea58d699e4aff4b359200a9971537cd7e047185f7"
+  url "https://download.osgeo.org/proj/proj-5.0.0.tar.gz"
+  sha256 "b30df08d736e69744cb255828721abb545b494d6032c13a96520f3219a444cd2"
 
   bottle do
     sha256 "3bb7bda64844e30e4103a33e2bd15985359a90c1d8db7244bbd8055bb121b810" => :high_sierra
