@@ -7,10 +7,10 @@ class SpatialiteGui < Formula
 
   bottle do
     cellar :any
-    sha256 "0b9ff2d368fa0990ffa23c0dc06e2d4c07c4b407feede618d1d95255fde48bbb" => :high_sierra
-    sha256 "8c6219fb30b7b51d6aafca21fa3e2c357b739855bfedc1f632241356bd9ce498" => :sierra
-    sha256 "596f35dbeaf112fb90d6be6f80b71751e98a6c9dd5b3dbd9261a959b933e761b" => :el_capitan
-    sha256 "83c4e28e2b12b5bcb6bf3e567a3f7b8f76e6e8bfd139675dc8b7d9aa58928e77" => :yosemite
+    rebuild 1
+    sha256 "329a43210fc2f99c3d2c8090bb304bff81e5fc2450778f15f052b32100230151" => :high_sierra
+    sha256 "1ab0a3f3a0ce183dac239210c4bf2f632cdfe827a59a86f34bf3229bf2df93e4" => :sierra
+    sha256 "e04f2392b64ad916bb50e62d2267b075eab00ca44f7b8001f7a9f5e30c447e3e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
