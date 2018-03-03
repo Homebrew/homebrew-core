@@ -1,19 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  revision 1
-
-  stable do
-    url "https://bitcoin.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1.tar.gz"
-    sha256 "34de2dbe058c1f8b6464494468ebe2ff0422614203d292da1c6458d6f87342b4"
-
-    # Boost 1.66 compat
-    # Upstream commit 7 Dec 2017 "Make boost::multi_index comparators const"
-    patch do
-      url "https://github.com/bitcoin/bitcoin/commit/1ec0c0a01c31.patch?full_index=1"
-      sha256 "a1f761fe29f78e783cb4b55f8029900f94b45d1188cb81c80f73347ee2fdc025"
-    end
-  end
+  url "https://bitcoin.org/bin/bitcoin-core-0.16.0/bitcoin-0.16.0.tar.gz"
+  sha256 "8cbec0397d932cab7297a8c23c918392f6eebd410646b4b954787de9f4a3ee40"
 
   bottle do
     cellar :any
@@ -53,7 +42,7 @@ class Bitcoin < Formula
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--prefix=#{prefix}"
     system "make", "install"
-    pkgshare.install "share/rpcuser"
+    pkgshare.install "share/rpcauth"
   end
 
   plist_options :manual => "bitcoind"
