@@ -1,9 +1,9 @@
 class Spin < Formula
   desc "The efficient verification tool of multi-threaded software"
   homepage "https://spinroot.com/spin/whatispin.html"
-  url "https://spinroot.com/spin/Src/spin647.tar.gz"
-  version "6.4.7"
-  sha256 "1b5743635cb77ad2ab94fb5bffad4b8ffa3270ffc610a23444da4af094eaa29e"
+  url "https://spinroot.com/spin/Src/spin648.tar.gz"
+  version "6.4.8"
+  sha256 "0035bb114157a759e047c7f94ede0a3d7149003893914c9bbdff45e074ab6ae7"
 
   bottle do
     cellar :any_skip_relocation
