@@ -29,6 +29,8 @@ class Neomutt < Formula
   end
 
   test do
-    system bin/"neomutt", "-D"
+    expected = "debug_level=0"
+    output = pipe_output("#{bin}/neomutt -F /dev/null -D -S | grep debug_level", "", 0)
+    assert_equal expected, output.chomp
   end
 end
