@@ -1,8 +1,8 @@
 class Log4cplus < Formula
   desc "Logging Framework for C++"
   homepage "https://sourceforge.net/p/log4cplus/wiki/Home/"
-  url "https://github.com/log4cplus/log4cplus/archive/REL_1_2_1.tar.gz"
-  sha256 "510c916194ea86f1cc47070e96981aa80f3ca5944544711c225d8bcf7283b2fc"
+  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/1.2.1/log4cplus-1.2.1.tar.xz"
+  sha256 "09899274d18af7ec845ef2c36a86b446a03f6b0e3b317d96d89447007ebed0fc"
 
   bottle do
     cellar :any
