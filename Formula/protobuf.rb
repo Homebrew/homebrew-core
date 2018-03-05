@@ -3,6 +3,7 @@ class Protobuf < Formula
   homepage "https://github.com/google/protobuf/"
   url "https://github.com/google/protobuf/archive/v3.5.1.tar.gz"
   sha256 "826425182ee43990731217b917c5c3ea7190cfda141af4869e6d4ad9085a740f"
+  revision 1
   head "https://github.com/google/protobuf.git"
 
   bottle do
