@@ -1,6 +1,6 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
-  homepage "http://www.freerdp.com/"
+  homepage "https://www.freerdp.com/"
   revision 1
 
   stable do
@@ -38,7 +38,7 @@ class Freerdp < Formula
 
     patch do
       url "https://github.com/untoldone/FreeRDP/commit/65e53694eb5d6faa5d57a31a54defd1c5233ac09.diff?full_index=1"
-      sha256 "a017305311312006d253908615a7af29c5f71a0cf2dcea1de9e35616a9df3d00"
+      sha256 "997d4ae77151bd500db4494492b6ab7d71cf3dfe187b2ba9db595fc13de5a3ff"
     end
   end
 
