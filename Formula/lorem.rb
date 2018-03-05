@@ -1,7 +1,8 @@
 class Lorem < Formula
   desc "Python generator for the console"
   homepage "https://github.com/per9000/lorem"
-  version "0.7.4"
+  revision 1
+
   head "https://github.com/per9000/lorem.git"
 
   stable do
@@ -18,7 +19,6 @@ class Lorem < Formula
   bottle :unneeded
 
   def install
-    inreplace "lorem", "!/usr/bin/python", "!/usr/bin/env python"
     bin.install "lorem"
   end
 
