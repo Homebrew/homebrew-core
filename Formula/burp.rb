@@ -3,8 +3,8 @@ class Burp < Formula
   homepage "http://burp.grke.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.28/burp-2.1.28.tar.bz2"
-    sha256 "c625fed9a9d911f25007cb0189d941efbf16449cf02e8599d6f506901a9ecd7d"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.1.30/burp-2.1.30.tar.bz2"
+    sha256 "990fb1b61bddf5cd5cc2e1bfabb80f3acc496aa6f3dadbda757a3aacace068ab"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
@@ -30,6 +30,7 @@ class Burp < Formula
     end
   end
 
+  depends_on "pkg-config" => :build
   depends_on "librsync"
   depends_on "openssl"
 
