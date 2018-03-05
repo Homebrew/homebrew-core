@@ -3,6 +3,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v9.7.1/node-v9.7.1.tar.xz"
   sha256 "06fae194a1eb962cc6f69f74f5be9f7c022265e7b3c3d7b08872157d02929042"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -100,9 +101,12 @@ class Node < Formula
       cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
-    npm_root = node_modules/"npm"
-    npmrc = npm_root/"npmrc"
-    npmrc.atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    npmrc = <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python\n
+    EOS
+    (node_modules/"npm"/"npmrc").atomic_write npmrc
+    (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
   end
 
   def caveats
