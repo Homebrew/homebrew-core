@@ -1,8 +1,8 @@
 class Feh < Formula
   desc "X11 image viewer"
   homepage "https://feh.finalrewind.org/"
-  url "https://feh.finalrewind.org/feh-2.24.tar.bz2"
-  sha256 "98172dc548dddc6653c5b4193072775ee219d589dcd9ea3b1bf1d432675f1891"
+  url "https://feh.finalrewind.org/feh-2.25.tar.bz2"
+  sha256 "063bec0138103cf5c52594c6ffe8946d6c48cf5a664f03634634010b46e45980"
 
   bottle do
     sha256 "1d41b44b5bbe5b01d182b2b2038151e607fb1d52fae855c05b54ab272b580973" => :high_sierra
@@ -15,7 +15,7 @@ class Feh < Formula
   depends_on "libexif" => :recommended
 
   def install
-    args = []
+    args = ["verscmp=0"]
     args << "exif=1" if build.with? "libexif"
     system "make", "PREFIX=#{prefix}", *args
     system "make", "PREFIX=#{prefix}", "install"
