@@ -1,8 +1,8 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.2.tar.xz"
-  sha256 "e2c68c2a59c351066469cbf93ccae51c796f49e0d48639aed72af39c544dcef3"
+  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.3.tar.xz"
+  sha256 "520d4d779b1d31591762b2a98f84072531b9e17ac401df9668493e189eafc6ba"
 
   bottle do
     sha256 "f620b6f5829f81e5765c1a85b9b5e07f005616829152ca63b9207a085f860671" => :high_sierra
