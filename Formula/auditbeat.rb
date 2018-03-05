@@ -39,14 +39,14 @@ class Auditbeat < Formula
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
     cd "src/github.com/elastic/beats/auditbeat" do
-      # prevent downloading binary wheels
-      inreplace "../libbeat/scripts/Makefile", "pip install", "pip install --no-binary :all"
       system "make"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
       (libexec/"bin").install "auditbeat"
       libexec.install "_meta/kibana"
 
-      (etc/"auditbeat").install Dir["auditbeat*.yml"]
+      (etc/"auditbeat").install Dir["auditbeat*.yml", "fields.yml"]
       prefix.install_metafiles
     end
 
