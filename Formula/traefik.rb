@@ -1,5 +1,3 @@
-require "language/go"
-
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
@@ -16,23 +14,13 @@ class Traefik < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-
-  go_resource "github.com/containous/go-bindata" do
-    url "https://github.com/containous/go-bindata.git",
-        :revision => "e237f24c9fab3ae0ed95bf04e3699e92c2a41283"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containous/traefik").install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/containous/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd "src/github.com/containous/traefik" do
       cd "webui" do
