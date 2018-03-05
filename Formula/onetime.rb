@@ -1,6 +1,7 @@
 class Onetime < Formula
   desc "Encryption with one-time pads"
   homepage "http://red-bean.com/onetime/"
+  revision 1
 
   stable do
     url "http://red-bean.com/onetime/onetime-1.81.tar.gz"
@@ -40,6 +41,7 @@ class Onetime < Formula
 
   def install
     system "make", "prefix=#{prefix}", "install"
+    inreplace bin/"onetime", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
   end
 
   test do
