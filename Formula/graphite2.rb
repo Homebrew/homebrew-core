@@ -1,8 +1,8 @@
 class Graphite2 < Formula
   desc "Smart font renderer for non-Roman scripts"
   homepage "http://graphite.sil.org"
-  url "https://github.com/silnrsi/graphite/releases/download/1.3.10/graphite2-1.3.10.tgz"
-  sha256 "90fde3b2f9ea95d68ffb19278d07d9b8a7efa5ba0e413bebcea802ce05cda1ae"
+  url "https://github.com/silnrsi/graphite/releases/download/1.3.11/graphite2-1.3.11.tgz"
+  sha256 "bab92ed1844d6538e7e5bda76f6ac9aaf633e38b683983b942c78c8ce063ad7c"
   head "https://github.com/silnrsi/graphite.git"
 
   bottle do
