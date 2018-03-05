@@ -3,6 +3,7 @@ class NodeAT4 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.8.7/node-v4.8.7.tar.xz"
   sha256 "03479a8ce6affedde75d80a6c8c351a7afb5a85b8d7e5119ab6f349100e641f8"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -26,7 +27,6 @@ class NodeAT4 < Formula
 
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
     version "58.2"
     sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
@@ -48,6 +48,15 @@ class NodeAT4 < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  def post_install
+    return if build.without? "npm"
+
+    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python
+    EOS
   end
 
   def caveats
