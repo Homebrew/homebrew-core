@@ -20,6 +20,7 @@ class Python < Formula
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
+  option "with-pep394", "Adhere to PEP394 by not creating unversioned symlinks"
 
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
@@ -196,16 +197,18 @@ class Python < Formula
       end
     end
 
-    # Install unversioned symlinks.
-    {
-      "idle" => "idle3",
-      "pydoc" => "pydoc3",
-      "python" => "python3",
-      "python-config" => "python3-config",
-    }.each do |unversioned_name, versioned_name|
-      bin.install_symlink (bin/versioned_name).realpath => unversioned_name
+    unless build.with?("pep394")
+      # Install unversioned symlinks.
+      {
+        "idle" => "idle3",
+        "pydoc" => "pydoc3",
+        "python" => "python3",
+        "python-config" => "python3-config",
+      }.each do |unversioned_name, versioned_name|
+        bin.install_symlink (bin/versioned_name).realpath => unversioned_name
+      end
+      man1.install_symlink man1/"python#{xy}.1" => "python.1"
     end
-    man1.install_symlink man1/"python#{xy}.1" => "python.1"
   end
 
   def post_install
@@ -345,11 +348,23 @@ class Python < Formula
 
       See: https://docs.brew.sh/Homebrew-and-Python
 
-      Unversioned symlinks python, python-config, pip etc. pointing to python3,
-      python3-config, pip3 etc., respectively, have been installed.
-
       If you need Homebrew's Python 2, `brew install python@2`.
     EOS
+
+    unless build.with?("pep394")
+      text += <<~EOS
+
+        Unversioned symlinks python, python-config, pip etc. pointing to python3,
+        python3-config, pip3 etc., respectively, have been installed.
+      EOS
+    else
+      text += <<~EOS
+
+        WARNING: You have installed Python without unversioned symlinks. This is
+        not recommended by the Homebrew maintainers. This mode is provided purely
+        as a convenience for people who need it, and is not supported.
+      EOS
+    end
 
     # Tk warning only for 10.6
     tk_caveats = <<~EOS
