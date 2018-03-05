@@ -32,17 +32,17 @@ class Packetbeat < Formula
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
     cd "src/github.com/elastic/beats/packetbeat" do
-      # prevent downloading binary wheels
-      inreplace "../libbeat/scripts/Makefile", "pip install", "pip install --no-binary :all"
       system "make"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
+      system "make", "DEV_OS=darwin", "update"
       system "make", "update"
       (libexec/"bin").install "packetbeat"
       libexec.install "_meta/kibana"
 
       inreplace "packetbeat.yml", "packetbeat.interfaces.device: any", "packetbeat.interfaces.device: en0"
 
-      (etc/"packetbeat").install Dir["packetbeat*.yml"]
-      (etc/"packetbeat").install "fields.yml"
+      (etc/"packetbeat").install Dir["packetbeat*.yml", "fields.yml"]
       prefix.install_metafiles
     end
 
