@@ -1,5 +1,3 @@
-require "language/go"
-
 class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
@@ -16,12 +14,8 @@ class GitlabRunner < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "docker" => :recommended
-
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
 
   resource "prebuilt-x86_64.tar.xz" do
     url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-x86_64.tar.xz",
@@ -41,12 +35,6 @@ class GitlabRunner < Formula
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd dir do
       Pathname.pwd.install resource("prebuilt-x86_64.tar.xz"),
