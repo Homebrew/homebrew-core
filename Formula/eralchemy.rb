@@ -3,8 +3,8 @@ class Eralchemy < Formula
 
   desc "Simple entity relation (ER) diagrams generation"
   homepage "https://github.com/Alexis-benoist/eralchemy"
-  url "https://files.pythonhosted.org/packages/de/6c/5a7d4104b51488f2f2f3e23856fec454d6e406d1c69c5754d036a2416f1b/ERAlchemy-1.2.7.tar.gz"
-  sha256 "bfca6a6625e8c28af1679614e0d347cfe299f2342191a408c933272b2a88f646"
+  url "https://files.pythonhosted.org/packages/87/40/07b58c29406ad9cc8747e567e3e37dd74c0a8756130ad8fd3a4d71c796e3/ERAlchemy-1.2.10.tar.gz"
+  sha256 "be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d"
 
   bottle do
     cellar :any
