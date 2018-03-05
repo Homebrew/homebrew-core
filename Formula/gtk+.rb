@@ -1,6 +1,7 @@
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
+  revision 1
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
@@ -61,6 +62,8 @@ class Gtkx < Formula
     end
     system "./configure", *args
     system "make", "install"
+
+    inreplace bin/"gtk-builder-convert", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
   end
 
   test do
