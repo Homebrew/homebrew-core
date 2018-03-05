@@ -27,7 +27,7 @@ class Pygtksourceview < Formula
 
   test do
     ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    ENV.append_path "PYTHONPATH", Formula["pygtk"].opt_lib+"python2.7/site-packages/gtk-2.0"
-    system "python", "-c", "import gtksourceview2"
+    ENV.append_path "PYTHONPATH", Formula["pygtk"].opt_lib/"python2.7/site-packages/gtk-2.0"
+    system "python2.7", "-c", "import gtksourceview2"
   end
 end
