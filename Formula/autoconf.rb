@@ -19,7 +19,7 @@ class Autoconf < Formula
   keg_only :provided_until_xcode43
 
   def install
-    ENV["PERL"] = "/usr/bin/perl"
+    ENV["PERL"] = "/usr/bin/env perl"
 
     # force autoreconf to look for and use our glibtoolize
     inreplace "bin/autoreconf.in", "libtoolize", "glibtoolize"

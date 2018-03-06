@@ -17,7 +17,7 @@ class Automake < Formula
   depends_on "autoconf" => :run
 
   def install
-    ENV["PERL"] = "/usr/bin/perl"
+    ENV["PERL"] = "/usr/bin/env perl"
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
