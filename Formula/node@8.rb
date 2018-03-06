@@ -7,10 +7,9 @@ class NodeAT8 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    rebuild 1
-    sha256 "388983b525fcf73c83fb21e13ffa350b71da37c1cca7dc3cb129f3e62c4e8b7f" => :high_sierra
-    sha256 "3a92ecd2cdeff45fea42aacb07de1e827d0b6a6cf2a441d73121acff73ac6f4c" => :sierra
-    sha256 "0f37df2a9ed5e27f6177e8e167541b2a212b6eb68f3c5ae0c2b91025911dc87e" => :el_capitan
+    sha256 "761bf8e243c2b4745d988ebe2d727261f878c3f514cc3ae65068a5f30914c4d4" => :high_sierra
+    sha256 "58951832753bfad93fb58776098654c780b0f0dc35ac4ab61df5e6d637a58590" => :sierra
+    sha256 "f230c0637ee65d386a6229e8578a1e61f19386dc1affc5edc74fb4bceeee94a9" => :el_capitan
   end
 
   keg_only :versioned_formula
