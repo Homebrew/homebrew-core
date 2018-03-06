@@ -33,7 +33,6 @@ class GoJira < Formula
     expected_templates = %w[comment components create edit issuetypes list view worklog debug]
 
     assert_equal([], expected_templates - files)
-    debug = open(template_dir + "debug")
-    assert_equal("{{ . | toJson}}\n", debug.read)
+    assert_equal("{{ . | toJson}}\n", IO.read("#{template_dir}/debug"))
   end
 end
