@@ -10,4 +10,10 @@ class Briss < Formula
     libexec.install Dir["*.jar"]
     bin.write_jar_script libexec/"briss-#{version}.jar", "briss"
   end
+
+  test do
+    cp test_fixtures("test.pdf"), testpath
+    system "#{bin}/briss", "-s", "test.pdf", "-d", "output.pdf"
+    assert_predicate testpath/"output.pdf", :exist?
+  end
 end
