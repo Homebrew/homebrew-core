@@ -3,10 +3,9 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-10.tar.gz"
-  version "0.0.8-10"
-  sha256 "f02b5067faba3d8e133f9121194cb59d33dc3cbff79eeef5349003e812293c7e"
-  revision 1
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-11.tar.gz"
+  version "0.0.8-11"
+  sha256 "1b58930fe1ce0e0ed598800d5d948143fcbcb7359b5fa2c2eef4a890f7e6ad5f"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
@@ -89,6 +88,11 @@ class BandcampDl < Formula
   end
 
   def install
+    inreplace "bandcamp_dl/utils/clean_print.py" do |s|
+      s.gsub! "import os", "import shutil"
+      s.gsub! "os.get_terminal_size", "shutil.get_terminal_size"
+    end
+
     virtualenv_install_with_resources
   end
 
