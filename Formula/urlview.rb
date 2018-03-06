@@ -30,4 +30,15 @@ class Urlview < Formula
                           "--sysconfdir=#{etc}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"urlfile").write <<~EOS
+      https://www.github.com
+    EOS
+    require "pty"
+    PTY.spawn(bin/"urlview", testpath/"urlfile") do |_stdout, stdin, _pid|
+      sleep 2
+      stdin.write "q"
+    end
+  end
 end
