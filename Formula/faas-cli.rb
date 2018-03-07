@@ -22,9 +22,6 @@ class FaasCli < Formula
     cd "src/github.com/openfaas/faas-cli" do
       project = "github.com/openfaas/faas-cli"
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-      version = ""
-      tag = Utils.popen_read("git", "describe", "--all", "--exact-match", commit).strip
-      tag.match("tags/(.*)") { |m| version=m[1] }
       system "go", "build", "-ldflags",
              "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
@@ -92,7 +89,9 @@ class FaasCli < Formula
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
-      assert_match commit, shell_output("#{bin}/faas-cli version")
+      faas_cli_version = shell_output("#{bin}/faas-cli version")
+      assert_match /\s#{commit}$/, faas_cli_version
+      assert_match /\s#{version}$/, faas_cli_version
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
