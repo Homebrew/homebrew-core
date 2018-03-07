@@ -6,7 +6,7 @@ class BashCompletion < Formula
   url "https://bash-completion.alioth.debian.org/files/bash-completion-1.3.tar.bz2"
   mirror "https://src.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
@@ -28,7 +28,17 @@ class BashCompletion < Formula
 
   # Backports (a variant of) the following upstream patch to fix man completion:
   # https://anonscm.debian.org/cgit/bash-completion/bash-completion.git/patch/completions/man?id=fb2d657fac6be93a1c4ffa76018d8042859e0a03
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ea9b09be904f0f021218662d6280c071cc5248a/bash-completion/man_completion.patch"
+    sha256 "e4e1c9e7661102e68ff50bce2bef9806adb68e10f3039fca17a47c39e26826ca"
+  end
+
+  # Backports the following upstream patch from 2.x:
+  # https://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=commitdiff_plain;h=9d146b9ba5735854c486cfc013c4a8d962661cc4
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/19659210b5bd17aadb3de5a7d8b1361e273e158e/bash-completion/_known_hosts.patch"
+    sha256 "3726ad3a5112fc239e22ab359fbeb1399edbe6c4f11ccc6895da6115f7c23267"
+  end
 
   def install
     inreplace "bash_completion" do |s|
@@ -50,15 +60,3 @@ class BashCompletion < Formula
     system "bash", "-c", ". #{etc}/profile.d/bash_completion.sh"
   end
 end
-__END__
---- a/completions/man
-+++ b/completions/man
-@@ -27,7 +27,7 @@
-     fi
-
-     uname=$( uname -s )
--    if [[ $uname == @(Linux|GNU|GNU/*|FreeBSD|Cygwin|CYGWIN_*) ]]; then
-+    if [[ $uname == @(Darwin|Linux|GNU|GNU/*|FreeBSD|Cygwin|CYGWIN_*) ]]; then
-         manpath=$( manpath 2>/dev/null || command man --path )
-     else
-         manpath=$MANPATH
