@@ -36,6 +36,7 @@ class Subversion < Formula
 
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
+  depends_on "gettext" => :optional
   depends_on :java => :optional
 
   resource "serf" do
@@ -97,13 +98,13 @@ class Subversion < Formula
       --with-apxs=no
       --with-serf=#{serf_prefix}
       --disable-mod-activation
-      --disable-nls
       --without-apache-libexecdir
       --without-berkeley-db
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
     args << "--without-gpg-agent" if build.without? "gpg-agent"
+    args << "--disable-nls" if build.without? "gettext"
 
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
