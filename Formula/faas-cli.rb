@@ -23,7 +23,7 @@ class FaasCli < Formula
       project = "github.com/openfaas/faas-cli"
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
-             "-s -w -X #{project}/version.GitCommit=#{commit}", "-a",
+             "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       bin.install_symlink "faas-cli" => "faas"
       pkgshare.install "template"
@@ -89,7 +89,9 @@ class FaasCli < Formula
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
-      assert_match commit, shell_output("#{bin}/faas-cli version")
+      faas_cli_version = shell_output("#{bin}/faas-cli version")
+      assert_match /\s#{commit}$/, faas_cli_version
+      assert_match /\s#{version}$/, faas_cli_version
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
