@@ -6,9 +6,9 @@ class Openvpn < Formula
   sha256 "43c0a363a332350f620d1cd93bb431e082bedbc93d4fb872f758650d53c1d29e"
 
   bottle do
-    sha256 "e2d50964da926f31d012647b97031ebd48b032a315f1f02e8c219dd33a381c24" => :high_sierra
-    sha256 "5ed1394dca18113182e4564f001521908a4bdb8f71f6adc5eb713adb4a4e014f" => :sierra
-    sha256 "ba28ad817104b3e953d2743e45a4c5554cea731c1016997bead7233755ff9a4d" => :el_capitan
+    sha256 "518d63d63c46511d417a398db9658bf6ed9dbc3ae137b62d26b3b950ff9255da" => :high_sierra
+    sha256 "a744b2a3940c33c2811b7ff9c5f2fdca0ceab0ea31bc1695519ccb5f8cb230ad" => :sierra
+    sha256 "2d3b53ff36b06d6e81b4daf2832fdb5ad68002499c9b03638e104c08589ab96c" => :el_capitan
   end
 
   # Requires tuntap for < 10.10
