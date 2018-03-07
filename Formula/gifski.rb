@@ -1,8 +1,8 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/0.8.0.tar.gz"
-  sha256 "f3cab822dd41de17ba4fdc3b8d379b469404573b1a4adcb5f9c9385a7a927760"
+  url "https://github.com/ImageOptim/gifski/archive/0.8.2.tar.gz"
+  sha256 "d7bf1b6515c273b822c94fc78e6d10fbc45d444a04bc3487fe3e799d6aa836e0"
 
   bottle do
     sha256 "a6d535fc0ac55df2e143c1f27f0ae8411654142094e99b56d569a65dfb5b13ef" => :high_sierra
