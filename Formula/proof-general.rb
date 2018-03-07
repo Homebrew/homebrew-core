@@ -8,9 +8,10 @@ class ProofGeneral < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6b5966b38f6b574805811d721af5d17afa4c8a7d944189703821aa564c0649b" => :high_sierra
-    sha256 "07982ffb7dacb8390875c82f4f7e9cbf440d51271b38c3d771e01baa8684edc0" => :sierra
-    sha256 "07982ffb7dacb8390875c82f4f7e9cbf440d51271b38c3d771e01baa8684edc0" => :el_capitan
+    rebuild 1
+    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :high_sierra
+    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :sierra
+    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :el_capitan
   end
 
   depends_on "texi2html" => :build
