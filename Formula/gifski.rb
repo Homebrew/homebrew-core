@@ -5,9 +5,9 @@ class Gifski < Formula
   sha256 "d7bf1b6515c273b822c94fc78e6d10fbc45d444a04bc3487fe3e799d6aa836e0"
 
   bottle do
-    sha256 "a6d535fc0ac55df2e143c1f27f0ae8411654142094e99b56d569a65dfb5b13ef" => :high_sierra
-    sha256 "06399a4deeb177f4912d5def494e347857d7179410fb9b6c8cd6bd3bde4f60dd" => :sierra
-    sha256 "164fe31349cf7f9415750b2db4e16e813fecb42a8e68b584884dfa11295b05c5" => :el_capitan
+    sha256 "48f7b226aad64ed09df2ba12aef1c5eb4d50bdd2892338205050a9508b4b441d" => :high_sierra
+    sha256 "bd9d8fa459ecd0be1163d188f2dce0df132a2a6a1df11c718e74c746c8da34c0" => :sierra
+    sha256 "8451f3f386963c5a48e48ae62028c8c954c9c91395ac2b47dcf51e87380b987b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
