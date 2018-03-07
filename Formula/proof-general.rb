@@ -14,6 +14,7 @@ class ProofGeneral < Formula
   end
 
   depends_on "texi2html" => :build
+  depends_on "texinfo" => :build
   depends_on "emacs"
 
   def install
