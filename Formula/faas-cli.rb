@@ -22,8 +22,11 @@ class FaasCli < Formula
     cd "src/github.com/openfaas/faas-cli" do
       project = "github.com/openfaas/faas-cli"
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
+      version = ""
+      tag = Utils.popen_read("git", "describe", "--all", "--exact-match", commit).strip
+      tag.match("tags/(.*)") { |m| version=m[1] }
       system "go", "build", "-ldflags",
-             "-s -w -X #{project}/version.GitCommit=#{commit}", "-a",
+             "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       bin.install_symlink "faas-cli" => "faas"
       pkgshare.install "template"
