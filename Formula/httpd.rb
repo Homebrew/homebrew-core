@@ -3,7 +3,7 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.29.tar.bz2"
   sha256 "777753a5a25568a2a27428b2214980564bc1c38c1abf9ccc7630b639991f7f00"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "1e2a9985867f72db8af9f85753bd1fe700a1780a03ad60b88b2df55d75dc78d1" => :high_sierra
@@ -13,6 +13,7 @@ class Httpd < Formula
 
   depends_on "apr"
   depends_on "apr-util"
+  depends_on "brotli"
   depends_on "nghttp2"
   depends_on "openssl"
   depends_on "pcre"
@@ -47,6 +48,7 @@ class Httpd < Formula
                           "--localstatedir=#{var}",
                           "--enable-mpms-shared=all",
                           "--enable-mods-shared=all",
+                          "--enable-authnz-fcgi",
                           "--enable-cgi",
                           "--enable-pie",
                           "--enable-suexec",
@@ -56,6 +58,7 @@ class Httpd < Formula
                           "--with-sslport=8443",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
+                          "--with-brotli=#{Formula["brotli"].opt_prefix}",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
