@@ -1,10 +1,11 @@
 require "language/node"
+require "json"
 
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-3.11.0.tgz"
-  sha256 "4a5850909939fee6ef646388a8cdedec75ed34b58dc662ca3c01c6568d1dc1ba"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.1.0.tgz"
+  sha256 "7f502bbf1cb60aedd317ceb9474bd6fd718134a9b57ef24025e20baf718e78e1"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
@@ -15,9 +16,27 @@ class Webpack < Formula
 
   depends_on "node"
 
+  resource "webpack-cli" do
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-2.0.10.tgz"
+    sha256 "d761469105659a480a2f001384691b80babd41c3054633ad582c620258f1d1c6"
+  end
+
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    (buildpath/"cli/node_modules/webpack").install Dir["*"]
+    (buildpath/"cli").install resource("webpack-cli")
+
+    cd buildpath/"cli" do
+      # declare webpack as a bundledDependency of webpack-cli
+      pkg_json = JSON.parse(IO.read("package.json"))
+      pkg_json["dependencies"]["webpack"] = version
+      pkg_json["bundledDependencies"] = ["webpack"]
+      IO.write("package.json", JSON.pretty_generate(pkg_json))
+
+      system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    end
+
+    bin.install_symlink libexec/"bin/webpack-cli"
+    bin.install_symlink libexec/"bin/webpack-cli" => "webpack"
   end
 
   test do
@@ -31,7 +50,7 @@ class Webpack < Formula
       document.body.appendChild(component());
     EOS
 
-    system bin/"webpack", "index.js", "bundle.js"
+    system bin/"webpack", "index.js", "--output=bundle.js"
     assert_predicate testpath/"bundle.js", :exist?, "bundle.js was not generated"
   end
 end
