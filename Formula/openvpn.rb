@@ -1,9 +1,9 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.4.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.4.tar.xz"
-  sha256 "96cd1b8fe1e8cb2920f07c3fd3985faea756e16fdeebd11d3e146d5bd2b04a80"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.5.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.5.tar.xz"
+  sha256 "43c0a363a332350f620d1cd93bb431e082bedbc93d4fb872f758650d53c1d29e"
 
   bottle do
     sha256 "e2d50964da926f31d012647b97031ebd48b032a315f1f02e8c219dd33a381c24" => :high_sierra
@@ -16,6 +16,7 @@ class Openvpn < Formula
 
   depends_on "pkg-config" => :build
   depends_on "lzo"
+  depends_on "lz4"
   depends_on "openssl"
 
   resource "pkcs11-helper" do
