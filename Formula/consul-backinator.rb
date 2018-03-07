@@ -1,8 +1,8 @@
 class ConsulBackinator < Formula
   desc "Consul backup and restoration application"
   homepage "https://github.com/myENA/consul-backinator"
-  url "https://github.com/myENA/consul-backinator/archive/v1.6.2.tar.gz"
-  sha256 "e3697d1f42f6aadf54824f5dfcad08956ca75135b62d1ba7982152d8b4ad529c"
+  url "https://github.com/myENA/consul-backinator/archive/v1.6.4.tar.gz"
+  sha256 "8d47b754a445bbdc33da859d6778b05b9fa4c1f85e7c407fc7c95a3d9e9254b6"
   head "https://github.com/myENA/consul-backinator.git"
 
   bottle do
@@ -24,7 +24,7 @@ class ConsulBackinator < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "glide", "install", "-v"
+      system "glide", "install"
       system "go", "build", "-v", "-ldflags",
              "-X main.appVersion=#{version}", "-o",
              bin/"consul-backinator"
