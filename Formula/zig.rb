@@ -3,6 +3,7 @@ class Zig < Formula
   homepage "https://ziglang.org/"
   url "https://github.com/zig-lang/zig/archive/0.1.1.tar.gz"
   sha256 "fabbfcb0bdb08539d9d8e8e1801d20f25cb0025af75ac996f626bb5e528e71f1"
+  revision 1
 
   bottle do
     sha256 "2184016574a84b2c0a8cdedd95727a265bb6459d580348200722e4cf36b82ed7" => :high_sierra
@@ -11,7 +12,7 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@5"
 
   def install
     system "cmake", ".", *std_cmake_args
