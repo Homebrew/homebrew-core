@@ -5,7 +5,7 @@ class Castxml < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20170823.orig.tar.xz"
   version "0.1+git20170823"
   sha256 "aa10c17f703ef46a88f9772205d8f51285fd3567aa91931ee1a7a5abfff95b11"
-  revision 1
+  revision 2
   head "https://github.com/CastXML/castxml.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Castxml < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@5"
 
   def install
     mkdir "build" do
