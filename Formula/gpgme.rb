@@ -31,6 +31,6 @@ class Gpgme < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system "python", "-c", "import gpg; print gpg.version.versionstr"
+    system "python2.7", "-c", "import gpg; print gpg.version.versionstr"
   end
 end
