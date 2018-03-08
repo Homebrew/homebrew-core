@@ -59,6 +59,6 @@ class Libxml2 < Formula
     system "./test"
 
     ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python", "-c", "import libxml2"
+    system "python2.7", "-c", "import libxml2"
   end
 end
