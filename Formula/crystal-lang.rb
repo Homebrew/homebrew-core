@@ -40,9 +40,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.23.1/crystal-0.23.1-3-darwin-x86_64.tar.gz"
-    version "0.23.1"
-    sha256 "d3f964ebfc5cd48fad73ab2484ea2a00268812276293dd0f7e9c7d184c8aad8a"
+    url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
+    version "0.24.1"
+    sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
   end
 
   def install
