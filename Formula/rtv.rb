@@ -9,9 +9,9 @@ class Rtv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a969dd228fe35726e8f9e7a7543e6d9470cb5465bfbfe4b7465e60b63ad537b" => :high_sierra
-    sha256 "50a60bec5656f57b5ed68a84e77655db0df8dc6e7f27618424ea39fcece4375e" => :sierra
-    sha256 "992e14a4dd5ec10a78de48baf03c82c7de8123aacdd3993fc9d2fa82ed52e05f" => :el_capitan
+    sha256 "01941fc199dee6a1c036030d06344e535060ebe524f73fed2da22ec4b775910e" => :high_sierra
+    sha256 "a11a4b4c8b2a521d5c05928edf85da7aff9a05b99f63d3459a1897386481d803" => :sierra
+    sha256 "647a86f510abdb11a55335eec4afadc8d60b014819dac87016067045849776ef" => :el_capitan
   end
 
   depends_on "python"
