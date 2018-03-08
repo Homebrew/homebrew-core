@@ -1,8 +1,8 @@
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/0.10.0/streamlink-0.10.0.tar.gz"
-  sha256 "8bc06e53ab15fab57f782ea438a5f00c4807148b21f8fbed9238ed4865e08e24"
+  url "https://github.com/streamlink/streamlink/releases/download/0.11.0/streamlink-0.11.0.tar.gz"
+  sha256 "dc70b72e22d24b63ccb205d9c7583510049f4b2782e31ac5ebd99fec074ca292"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,8 +31,8 @@ class Streamlink < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
+    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
+    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
   end
 
   resource "chardet" do
@@ -41,8 +41,8 @@ class Streamlink < Formula
   end
 
   resource "futures" do
-    url "https://files.pythonhosted.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz"
-    sha256 "51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"
+    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
+    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "idna" do
@@ -61,13 +61,13 @@ class Streamlink < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/2b/9b/aaa940ab8affd66eed043d69332dc607cddd68f9e399d93dcdfc8149fb21/pycryptodome-3.4.7.tar.gz"
-    sha256 "18d8dfe31bf0cb53d58694903e526be68f3cf48e6e3c6dfbbc1e7042b1693af7"
+    url "https://files.pythonhosted.org/packages/86/d1/f1c6b1e4b2dd5e3f2f56f6f3c74ac9893252dbef9ac0e55c8b4538e56db0/pycryptodome-3.5.1.tar.gz"
+    sha256 "b7957736f5e868416b06ff033f8525e64630c99a8880b531836605190b0cac96"
   end
 
   resource "PySocks" do
-    url "https://files.pythonhosted.org/packages/7d/38/edca891ce16827a1de45cc347e4b6c22311eba25838b9825a5e6c48cf560/PySocks-1.6.7.tar.gz"
-    sha256 "d00329f27efa157db7efe3ca26fcd69033cd61f83822461ee3f8a353b48e33cf"
+    url "https://files.pythonhosted.org/packages/53/12/6bf1d764f128636cef7408e8156b7235b150ea31650d0260969215bb8e7d/PySocks-1.6.8.tar.gz"
+    sha256 "3fe52c55890a248676fd69dc9e3c4e811718b777834bcaab7a8125cf9deac672"
   end
 
   resource "requests" do
@@ -91,8 +91,8 @@ class Streamlink < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/06/19/f00725a8aee30163a7f257092e356388443034877c101757c1466e591bf8/websocket_client-0.44.0.tar.gz"
-    sha256 "15f585566e2ea7459136a632b9785aa081093064391878a448c382415e948d72"
+    url "https://files.pythonhosted.org/packages/c9/bb/8d3dd9063cfe0cd5d03fe6a1f74ddd948f384e9c1eff0eb978f3976a7d27/websocket_client-0.47.0.tar.gz"
+    sha256 "a453dc4dfa6e0db3d8fd7738a308a88effe6240c59f3226eb93e8f020c216149"
   end
 
   def install
