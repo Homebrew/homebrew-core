@@ -85,10 +85,10 @@ class Libosinfo < Formula
       for name in hvnames:
         print ("  HV short id " + name)
     EOS
-    ENV.append_path "GI_TYPELIB_PATH", lib+"girepository-1.0"
-    ENV.append_path "GI_TYPELIB_PATH", Formula["gobject-introspection"].opt_lib+"girepository-1.0"
-    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    ENV.append_path "PYTHONPATH", Formula["pygobject3"].opt_lib+"python2.7/site-packages"
-    system "python", "test.py"
+    ENV.append_path "GI_TYPELIB_PATH", lib/"girepository-1.0"
+    ENV.append_path "GI_TYPELIB_PATH", Formula["gobject-introspection"].opt_lib/"girepository-1.0"
+    ENV.append_path "PYTHONPATH", lib/"python2.7/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["pygobject3"].opt_lib/"python2.7/site-packages"
+    system "python2.7", "test.py"
   end
 end
