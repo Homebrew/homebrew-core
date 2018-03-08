@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.0.0.tar.gz"
-  sha256 "fe06eeef2d15c019ae777c6a27c6b392a3ccdfb0d63dead67e50f6ff2e34f881"
+  url "https://github.com/grafana/grafana/archive/v5.0.1.tar.gz"
+  sha256 "1874e5036f5cf9abb4ef74d3e2d80291bea91d761137a0890431834667407248"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
