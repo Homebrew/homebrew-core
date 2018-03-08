@@ -334,21 +334,26 @@ class Python < Formula
       xy = version.to_s.slice(/(3\.\d)/) || "3.6"
     end
     text = <<~EOS
-      Pip, setuptools, and wheel have been installed. To update them
+      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+        #{HOMEBREW_PREFIX}/bin
+
+      If you need Homebrew's Python 2.7 run
+        brew install python@2
+
+      If you wish to have python@2's python and python2 executables in your PATH then
+      add the following to #{shell_profile}:
+        export PATH="#{HOMEBREW_PREFIX}/opt/python@2/libexec/bin:#{HOMEBREW_PREFIX}/opt/python@2/bin:$PATH"
+
+      Pip, setuptools, and wheel have been installed. To update them run
         pip3 install --upgrade pip setuptools wheel
 
       You can install Python packages with
         pip3 install <package>
-
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
-
-      Unversioned symlinks python, python-config, pip etc. pointing to python3,
-      python3-config, pip3 etc., respectively, have been installed.
-
-      If you need Homebrew's Python 2, `brew install python@2`.
     EOS
 
     # Tk warning only for 10.6
