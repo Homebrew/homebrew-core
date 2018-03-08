@@ -5,7 +5,8 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.21.1.tar.gz"
   sha256 "9a11265528ada7e41fb8e124d5c7b03a5077880f26e8d169bab2b661a678803e"
-  revision 1
+  revision 2
+
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -146,13 +147,28 @@ class Certbot < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    xy = Language::Python.major_minor_version("python3")
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    # Namespace packages and .pth files aren't processed from PYTHONPATH.
+    touch libexec/"vendor/lib/python#{xy}/site-packages/zope/__init__.py"
+
+    system "python", *Language::Python.setup_install_args(prefix)
 
     # Shipped with certbot, not external resources.
     %w[acme certbot-apache certbot-nginx].each do |r|
-      venv.pip_install buildpath/r
+      cd r do
+        system "python", *Language::Python.setup_install_args(prefix)
+      end
     end
+
     pkgshare.install "examples"
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
@@ -161,5 +177,16 @@ class Certbot < Formula
     # for the right reasons by asserting. --version never fails even if
     # resources are missing or outdated/too new/etc.
     assert_match "Either run as root", shell_output("#{bin}/certbot 2>&1", 1)
+    # This ensures the plugins are installed correctly.
+    args = %W[
+      --config-dir=#{testpath}/config
+      --work-dir=#{testpath}/work
+      --logs-dir=#{testpath}/logs
+    ].join(" ")
+    output = shell_output("#{bin}/certbot #{args} plugins 2>&1")
+    assert_match "Apache Web Server plugin", output
+    assert_match "Nginx Web Server plugin", output
+    assert_predicate testpath/"logs/letsencrypt.log", :exist?,
+      "Certbot failed to create the expected log file!"
   end
 end
