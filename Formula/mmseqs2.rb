@@ -1,9 +1,9 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/1-c7a89.tar.gz"
-  version "1-c7a89"
-  sha256 "e756a0e5cb3aa8e1e5a5b834a58ae955d9594be1806f0f32800427c55f3a45d5"
+  url "https://github.com/soedinglab/MMseqs2/archive/2-23394.tar.gz"
+  version "2-23394"
+  sha256 "36763fff4c4de1ab6cfc37508a2ee9bd2f4b840e0c9415bd1214280f67b67072"
 
   bottle do
     cellar :any
@@ -21,15 +21,12 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "6dbd3666edb64fc71173ee714014e88c1ebe2dfc"
+        :revision => "fda4cf3f63e4c5b01be9d6b66f6666e81cc8ca99"
   end
 
   def install
-    # version information is read from git by default
-    # next MMseqs2 version will include a cmake flag so we do not need this hack
-    inreplace "src/version/Version.cpp", /.+/m, "const char *version = \"#{version}\";"
-
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
+    args << "-DVERSION_OVERRIDE=#{version}"
 
     args << "-DHAVE_SSE4_1=1" if build.bottle?
 
@@ -49,6 +46,10 @@ class Mmseqs2 < Formula
 
   test do
     system "#{bin}/mmseqs", "createdb", "#{pkgshare}/examples/QUERY.fasta", "q"
-    system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1", "--cascaded"
+    system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1"
+    assert_predicate testpath/"res", :exist?
+    assert_predicate (testpath/"res").size, :positive?
+    assert_predicate testpath/"res.index", :exist?
+    assert_predicate (testpath/"res.index").size, :positive?
   end
 end
