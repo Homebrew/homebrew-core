@@ -3,7 +3,7 @@ class WoboqCodebrowser < Formula
   homepage "https://code.woboq.org/"
   url "https://github.com/woboq/woboq_codebrowser/archive/2.1.tar.gz"
   sha256 "f7c803260a9a79405c4c2c561443c49702811f38dcf1081238ef024a6654caa0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
