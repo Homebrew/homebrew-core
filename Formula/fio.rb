@@ -12,13 +12,13 @@ class Fio < Formula
   end
 
   def install
-    system "./configure"
-    # fio's CFLAGS passes vital stuff around, and crushing it will break the build
+    system "./configure", "--cc=#{ENV.cc}",
+                          "--disable-optimizations",
+                          "--extra-cflags=#{ENV.cflags}"
     system "make", "prefix=#{prefix}",
                    "mandir=#{man}",
                    "sharedir=#{share}",
-                   "CC=#{ENV.cc}",
-                   "V=true", # get normal verbose output from fio's makefile
+                   "V=1", # get normal verbose output from fio's makefile
                    "install"
   end
 
