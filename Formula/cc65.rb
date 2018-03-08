@@ -1,9 +1,8 @@
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
-  url "https://github.com/cc65/cc65/archive/V2.16.tar.gz"
-  sha256 "fdbbf1efbf2324658a5774fdceef4a1b202322a04f895688d95694843df76792"
-
+  url "https://github.com/cc65/cc65/archive/V2.17.tar.gz"
+  sha256 "73b89634655bfc6cef9aa0b8950f19657a902ee5ef0c045886e418bb116d2eac"
   head "https://github.com/cc65/cc65.git"
 
   bottle do
@@ -16,12 +15,8 @@ class Cc65 < Formula
   conflicts_with "grc", :because => "both install `grc` binaries"
 
   def install
-    ENV.deparallelize
-
-    make_vars = ["prefix=#{prefix}", "libdir=#{share}"]
-
-    system "make", *make_vars
-    system "make", "install", *make_vars
+    system "make", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   def caveats
