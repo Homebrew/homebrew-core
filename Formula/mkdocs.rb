@@ -3,8 +3,8 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.2.tar.gz"
-  sha256 "619a86ede2fbfe602afc5d3b6913ea5dd496c1c1e8897a136b9599ed01bebae3"
+  url "https://github.com/mkdocs/mkdocs/archive/0.17.3.tar.gz"
+  sha256 "dc104ea8677a5e55cde4d5a2cf6be613dbc905c4111e09d434d8d9183851c2da"
 
   bottle do
     cellar :any_skip_relocation
