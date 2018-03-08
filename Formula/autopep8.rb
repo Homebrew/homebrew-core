@@ -6,8 +6,6 @@ class Autopep8 < Formula
   url "https://github.com/hhatto/autopep8/archive/v1.3.4.tar.gz"
   sha256 "4d6c88bae7f008c70201d0178ed40c3bca9a63a4ad8ecceb69bf8b952dc86a1d"
 
-  head "https://github.com/hhatto/autopep8.git"
-
   depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
@@ -19,6 +17,7 @@ class Autopep8 < Formula
   end
 
   test do
-    assert_equal "x = 'homebrew'", shell_output("echo \"x='homebrew'\" | #{bin}/autopep8 -").strip
+    output = shell_output("echo \"x='homebrew'\" | #{bin}/autopep8 -")
+    assert_equal "x = 'homebrew'", output.strip
   end
 end
