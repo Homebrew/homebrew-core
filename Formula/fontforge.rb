@@ -89,7 +89,7 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    system "python", "-c", "import fontforge; fontforge.font()"
+    ENV.append_path "PYTHONPATH", lib/"python2.7/site-packages"
+    system "python2.7", "-c", "import fontforge; fontforge.font()"
   end
 end
