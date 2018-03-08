@@ -1,11 +1,10 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 2
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.24.1.tar.gz"
-    sha256 "4999a4d2a9ffc7bfbea8351b97057c3a135c2091cbd518e5c22ea7f5392b67d8"
+    url "https://github.com/crystal-lang/crystal/archive/0.24.2.tar.gz"
+    sha256 "de50a455a509f4f80025eb8773818859ad6664a79f5f0fafecdd87ff5ccef6d0"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.7.2.tar.gz"
