@@ -102,7 +102,7 @@ class Node < Formula
 
     npmrc = <<~EOS
       prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python\n
+      python = /usr/bin/python
     EOS
     (node_modules/"npm/npmrc").atomic_write npmrc
     (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
