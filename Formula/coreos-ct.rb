@@ -14,7 +14,7 @@ class CoreosCt < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "all"
+    system "make", "all", "VERSION=v#{version}"
     bin.install "./bin/ct"
   end
 
