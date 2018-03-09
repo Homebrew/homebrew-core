@@ -1,8 +1,8 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/tools/measurement/scamper/"
-  url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20171204.tar.gz"
-  sha256 "556596a138b6a403fbe105affdc7beb8fa98e292767304378c8308fa11b73529"
+  url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20180309.tar.gz"
+  sha256 "2fbe60be9af4009a492d87523d7296d4bb9335ddd6396593f9ef3e698593c52f"
 
   bottle do
     cellar :any
