@@ -5,7 +5,7 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.5.5.tar.gz"
   sha256 "7a16b91c46c1f86eb7bc96597cbdb371ea94d062ff554c71615267cba54f3433"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
