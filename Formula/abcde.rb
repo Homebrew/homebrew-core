@@ -7,10 +7,9 @@ class Abcde < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c80c6497db51329cd2e09cf4fc51aa49bf7e540b9f213f9d471aaa96c816c569" => :high_sierra
-    sha256 "6103b36d2a9d39a8dc303c96f12741ec0f83750688832cf79aa4156a7efae5ce" => :sierra
-    sha256 "6103b36d2a9d39a8dc303c96f12741ec0f83750688832cf79aa4156a7efae5ce" => :el_capitan
-    sha256 "6103b36d2a9d39a8dc303c96f12741ec0f83750688832cf79aa4156a7efae5ce" => :yosemite
+    sha256 "bbe18dcaf13aac68e57b10523c146d62b757e520103a7e3a009d317851ee80ad" => :high_sierra
+    sha256 "bbe18dcaf13aac68e57b10523c146d62b757e520103a7e3a009d317851ee80ad" => :sierra
+    sha256 "bbe18dcaf13aac68e57b10523c146d62b757e520103a7e3a009d317851ee80ad" => :el_capitan
   end
 
   depends_on "cd-discid"
