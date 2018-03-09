@@ -13,9 +13,9 @@ class CrystalLang < Formula
   end
 
   bottle do
-    sha256 "62d38799ba6d36c491602d516ac84874fdab9df008848ce8c2994b8a833e97ea" => :high_sierra
-    sha256 "a03c7f307d2310b565679a17a96eef133c4e4fcafb315e15c72f8a8b6eecb391" => :sierra
-    sha256 "ea7609d75bcd0a465c09bd4a667bd7cb406d79871b6169e28d861932c8ef9d6b" => :el_capitan
+    sha256 "704f49cb6ecde5fbee10e6edd4cc2096bc8761a065789de2164c30582e7e74f5" => :high_sierra
+    sha256 "eb38543677beabfb6d9231d42c70a97ff0d85a01b4e84abed7e514ba5a5cb59a" => :sierra
+    sha256 "e352bdf530244df5d3c9abacc2bbb04853ee421c8c2d57969244849e72313fc0" => :el_capitan
   end
 
   head do
