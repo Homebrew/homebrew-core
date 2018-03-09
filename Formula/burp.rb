@@ -1,6 +1,6 @@
 class Burp < Formula
   desc "Network backup and restore"
-  homepage "http://burp.grke.org/"
+  homepage "https://burp.grke.org/"
 
   stable do
     url "https://downloads.sourceforge.net/project/burp/burp-2.1.30/burp-2.1.30.tar.bz2"
