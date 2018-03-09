@@ -1,6 +1,6 @@
 class Jbake < Formula
   desc "Java based static site/blog generator"
-  homepage "http://jbake.org"
+  homepage "https://jbake.org/"
   url "https://bintray.com/jbake/binary/download_file?file_path=jbake-2.6.0-bin.zip"
   sha256 "16ccf81446cea492e0919f9d19c2a93b55d35207bff27e938f3a9d1cc937fef8"
 
