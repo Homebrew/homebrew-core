@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.6.2/vips-8.6.2.tar.gz"
-  sha256 "9486bcda927e0f03baf07c671d19eb21d73434991907b2a4f4897000c0e412a2"
+  url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
+  sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
 
   bottle do
     sha256 "66dbce7b752b81aa4149bcf469c33ed608f6fbb88cd25f7199333d1428ebfab3" => :high_sierra
