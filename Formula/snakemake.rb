@@ -3,7 +3,7 @@ class Snakemake < Formula
   homepage "https://snakemake.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/56/26/9d93502155e0719d921fdccc8d99e1607cdf10f742a9fc6ce1819cd52aff/snakemake-4.7.0.tar.gz"
   sha256 "a1c3245f47489219d212980f649ce435bc29b39638dade379e85f65a11c7e082"
-  revision 1
+  revision 2
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
