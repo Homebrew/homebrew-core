@@ -1,9 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.7.1/node-v9.7.1.tar.xz"
-  sha256 "06fae194a1eb962cc6f69f74f5be9f7c022265e7b3c3d7b08872157d02929042"
-  revision 1
+  url "https://nodejs.org/dist/v9.8.0/node-v9.8.0.tar.xz"
+  sha256 "0706bb49e4fa5fa64c6c51941becb4b3854a6c0335425d7312bc086c37b41eac"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -103,9 +102,9 @@ class Node < Formula
 
     npmrc = <<~EOS
       prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python\n
+      python = /usr/bin/python
     EOS
-    (node_modules/"npm"/"npmrc").atomic_write npmrc
+    (node_modules/"npm/npmrc").atomic_write npmrc
     (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
   end
 
