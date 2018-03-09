@@ -6,9 +6,10 @@ class CoreosCt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a85155f35e946bdca5dc31ec98fc573a83111cbdabad115bb1d9f6df676f268d" => :high_sierra
-    sha256 "76cd05d1f910df40b692177b8367dd45f7f6e67b05430c99abf320bba18f3521" => :sierra
-    sha256 "aadeb730c66469ac823833658621eb89aafad14f481069e3a4af4c3f980d6452" => :el_capitan
+    rebuild 1
+    sha256 "8e8e71e71be2250d7266afb8c81a1d635664993bd910b6f9cf3d8914af984489" => :high_sierra
+    sha256 "210cdedc779768dcd304c2c1cd4817ed00c9702c334bfdff8771ee2a3d862226" => :sierra
+    sha256 "e1bfc71d17ab1e545aaf8e6ca6565012ecd51b7851a5bdf2f9f0f3b538dde2af" => :el_capitan
   end
 
   depends_on "go" => :build
