@@ -3,7 +3,7 @@ class PythonAT2 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
   sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision 2
+  revision 3
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
@@ -12,35 +12,23 @@ class PythonAT2 < Formula
     sha256 "4218d62bfb18d242f27b8c5702ed62a89ef95a2b7f790fac398ee613b369e70a" => :el_capitan
   end
 
-  keg_only :versioned_formula
-
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
-  option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
-  option "with-poll", "Enable select.poll, which is not fully implemented on macOS (https://bugs.python.org/issue5154)"
 
-  # sphinx-doc depends on python, but on 10.6 or earlier python is fulfilled by
-  # brew, which would lead to circular dependency.
-  if MacOS.version > :snow_leopard
-    option "with-sphinx-doc", "Build HTML documentation"
-    depends_on "sphinx-doc" => [:build, :optional]
-  end
-
-  deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
 
   depends_on "pkg-config" => :build
-  depends_on "readline" => :recommended
-  depends_on "sqlite" => :recommended
-  depends_on "gdbm" => :recommended
+  depends_on "sphinx-doc" => :build if MacOS.version > :snow_leopard
+  depends_on "gdbm"
   depends_on "openssl"
+  depends_on "readline"
+  depends_on "sqlite"
   depends_on "tcl-tk" => :optional
-  depends_on "berkeley-db@4" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/6c/54/f7e9cea6897636a04e74c3954f0d8335cc38f7d01e27eec98026b049a300/setuptools-38.5.1.zip"
-    sha256 "6425484c08e99a98a42209c25c3d325f749230b55284d66192784f941a7e6628"
+    url "https://files.pythonhosted.org/packages/e0/02/2b14188e06ddf61e5b462e216b15d893e8472fca28b1b0c5d9272ad7e87c/setuptools-38.5.2.zip"
+    sha256 "8246123e984cadf687163bdcd1bb58eb325e2891b066e1f0224728a41c8d9064"
   end
 
   resource "pip" do
@@ -87,10 +75,6 @@ class PythonAT2 < Formula
   end
 
   def install
-    if build.with? "poll"
-      opoo "The given option --with-poll enables a somewhat broken poll() on macOS (https://bugs.python.org/issue5154)."
-    end
-
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
@@ -141,27 +125,24 @@ class PythonAT2 < Formula
       s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
       s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
-      s.gsub! "/usr/include/db4", Formula["berkeley-db@4"].opt_include
     end
 
-    if build.with? "sqlite"
-      inreplace "setup.py" do |s|
-        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
-        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
-                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+    inreplace "setup.py" do |s|
+      s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+      s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+              "for d_ in ['#{Formula["sqlite"].opt_include}']:"
 
-        # Allow sqlite3 module to load extensions:
-        # https://docs.python.org/library/sqlite3.html#f1
-        s.gsub! 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', ""
-      end
+      # Allow sqlite3 module to load extensions:
+      # https://docs.python.org/library/sqlite3.html#f1
+      s.gsub! 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', ""
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
-    # `brew install enchant && pip2 install pyenchant`
+    # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
-      f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{opt_lib}',"
-      f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{opt_frameworks}',"
+      f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
+      f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
     if build.with? "tcl-tk"
@@ -175,18 +156,7 @@ class PythonAT2 < Formula
     args << "CPPFLAGS=#{cppflags.join(" ")}" unless cppflags.empty?
 
     system "./configure", *args
-
-    # HAVE_POLL is "broken" on macOS. See:
-    # https://trac.macports.org/ticket/18376
-    # https://bugs.python.org/issue5154
-    if build.without? "poll"
-      inreplace "pyconfig.h", /.*?(HAVE_POLL[_A-Z]*).*/, '#undef \1'
-    end
-
     system "make"
-    if build.with?("quicktest") || build.bottle?
-      system "make", "quicktest", "TESTPYTHONOPTS=-s", "TESTOPTS=-j#{ENV.make_jobs} -w"
-    end
 
     ENV.deparallelize do
       # Tell Python not to install into /Applications
@@ -202,23 +172,17 @@ class PythonAT2 < Formula
         "-u _PyMac_Error $(PYTHONFRAMEWORKINSTALLDIR)/Versions/$(VERSION)/$(PYTHONFRAMEWORK)"
     end
 
-    # Any .app get a " 2" attached, so it does not conflict with python 3.x.
-    Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 2.app") }
-
     # Prevent third-party packages from building against fragile Cellar paths
     inreplace [lib_cellar/"_sysconfigdata.py",
                lib_cellar/"config/Makefile",
                frameworks/"Python.framework/Versions/Current/lib/pkgconfig/python-2.7.pc"],
               prefix, opt_prefix
 
-    # A fix, because python and python@2 both want to install Python.framework
-    # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
-    # https://github.com/Homebrew/homebrew/issues/15943
-    ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
-    rm prefix/"Frameworks/Python.framework/Versions/Current"
-
-    # Symlink the pkgconfig files into lib/pkgconfig so they're accessible.
+    # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
     (lib/"pkgconfig").install_symlink Dir[frameworks/"Python.framework/Versions/Current/lib/pkgconfig/*"]
+
+    # Remove 2to3 because Python 3 also installs it
+    rm bin/"2to3"
 
     # Remove the site-packages that Python created in its Cellar.
     site_packages_cellar.rmtree
@@ -227,32 +191,22 @@ class PythonAT2 < Formula
     (libexec/"pip").install resource("pip")
     (libexec/"wheel").install resource("wheel")
 
-    if MacOS.version > :snow_leopard && build.with?("sphinx-doc")
+    if MacOS.version > :snow_leopard
       cd "Doc" do
         system "make", "html"
         doc.install Dir["build/html/*"]
       end
     end
-
-    # Remove commands shadowing system python.
-    {
-      "2to3" => "2to3-2",
-      "idle" => "idle2",
-      "pydoc" => "pydoc2",
-      "python" => "python2",
-      "python-config" => "python2-config",
-      "pythonw" => "pythonw2",
-      "smtpd.py" => "smtpd2.py",
-    }.each do |unversioned_name, versioned_name|
-      rm_f bin/unversioned_name
-      (libexec/"bin").install_symlink bin/versioned_name => unversioned_name
-    end
-
-    # Avoid conflict with python3's unversioned man page
-    rm_f man1/"python.1"
   end
 
   def post_install
+    # Avoid conflicts with lingering unversioned files from Python 3
+    rm_f %W[
+      #{HOMEBREW_PREFIX}/bin/easy_install
+      #{HOMEBREW_PREFIX}/bin/pip
+      #{HOMEBREW_PREFIX}/bin/wheel
+    ]
+
     # Fix up the site-packages so that user-installed Python software survives
     # minor updates, such as going from 2.7.0 to 2.7.1:
 
@@ -282,28 +236,21 @@ class PythonAT2 < Formula
                   "--install-scripts=#{bin}",
                   "--install-lib=#{site_packages}"]
 
-    (libexec/"setuptools").cd { system "#{bin}/python2", *setup_args }
-    (libexec/"pip").cd { system "#{bin}/python2", *setup_args }
-    (libexec/"wheel").cd { system "#{bin}/python2", *setup_args }
+    (libexec/"setuptools").cd { system "#{bin}/python", *setup_args }
+    (libexec/"pip").cd { system "#{bin}/python", *setup_args }
+    (libexec/"wheel").cd { system "#{bin}/python", *setup_args }
 
-    mv bin/"wheel", bin/"wheel2"
-    {
-      "easy_install" => "easy_install-2.7",
-      "pip" => "pip2",
-      "wheel" => "wheel2",
-    }.each do |unversioned_name, versioned_name|
-      rm_f bin/unversioned_name
-      (libexec/"bin").install_symlink bin/versioned_name => unversioned_name
+    # When building from source, these symlinks will not exist, since
+    # post_install happens after linking.
+    %w[pip pip2 pip2.7 easy_install easy_install-2.7 wheel].each do |e|
+      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib]
-
-    if build.with? "sqlite"
-      include_dirs << Formula["sqlite"].opt_include
-      library_dirs << Formula["sqlite"].opt_lib
-    end
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include,
+                    Formula["sqlite"].opt_include]
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib,
+                    Formula["sqlite"].opt_lib]
 
     if build.with? "tcl-tk"
       include_dirs << Formula["tcl-tk"].opt_include
@@ -371,35 +318,27 @@ class PythonAT2 < Formula
     EOS
   end
 
-  def caveats
-    <<~EOS
-      If you wish to have this formula's `python2`, `python2-config`, `pip2` etc.
-      executables in your PATH then add the following to #{shell_profile}:
-        export PATH="#{opt_bin}:$PATH"
+  def caveats; <<~EOS
+    Pip and setuptools have been installed. To update them
+      pip install --upgrade pip setuptools
 
-      If you wish to have this formula's `python` executable in your PATH then add
-      the following to #{shell_profile}:
-        export PATH="#{opt_libexec}/bin:$PATH"
+    You can install Python packages with
+      pip install <package>
 
-      Pip and setuptools have been installed. To update them run
-        pip2 install --upgrade pip setuptools
+    They will install into the site-package directory
+      #{site_packages}
 
-      You can install Python packages with
-        pip2 install <package>
-      They will install into the site-package directory
-        #{site_packages}
-
-      See: https://docs.brew.sh/Homebrew-and-Python
+    See: https://docs.brew.sh/Homebrew-and-Python
     EOS
   end
 
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system "#{bin}/python2", "-c", "import sqlite3"
+    system "#{bin}/python", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()"
-    system "#{bin}/python2", "-c", "import gdbm"
-    system bin/"pip2", "list", "--format=columns"
+    system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
+    system "#{bin}/python", "-c", "import gdbm"
+    system bin/"pip", "list", "--format=columns"
   end
 end
