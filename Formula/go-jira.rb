@@ -1,8 +1,8 @@
 class GoJira < Formula
   desc "Simple jira command-line client in Go"
   homepage "https://github.com/Netflix-Skunkworks/go-jira"
-  url "https://github.com/Netflix-Skunkworks/go-jira/archive/v1.0.14.tar.gz"
-  sha256 "34cb45af19985474b8d9079c1f551f4892bfbe64073a5a8f89333ca3603e4639"
+  url "https://github.com/Netflix-Skunkworks/go-jira/archive/v1.0.15.tar.gz"
+  sha256 "c1690928cec39799f796a47bd81fc0db9404a332caf7bb0ef6847adc91ee42b8"
 
   bottle do
     cellar :any_skip_relocation
