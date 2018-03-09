@@ -3,7 +3,7 @@ class Ponysay < Formula
   homepage "http://erkin.co/ponysay/"
   url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"
   sha256 "c382d7f299fa63667d1a4469e1ffbf10b6813dcd29e861de6be55e56dc52b28a"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
