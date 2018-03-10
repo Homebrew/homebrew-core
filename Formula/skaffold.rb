@@ -2,9 +2,8 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://github.com/GoogleCloudPlatform/skaffold"
   url "https://github.com/GoogleCloudPlatform/skaffold.git",
-    :tag => "v0.1.0",
-    :revision => "e265bb780f63894f649b8fb1ac53f8aaf89573b2"
-  head "https://github.com/GoogleCloudPlatform/skaffold.git"
+      :tag => "v0.1.0",
+      :revision => "e265bb780f63894f649b8fb1ac53f8aaf89573b2"
 
   depends_on "go" => :build
 
@@ -15,10 +14,12 @@ class Skaffold < Formula
     cd dir do
       system "make"
       bin.install "out/skaffold"
+      prefix.install_metafiles
     end
   end
 
   test do
-    assert_match "clean", shell_output("#{bin}/skaffold version --output {{.GitTreeState}}")
+    output = shell_output("#{bin}/skaffold version --output {{.GitTreeState}}")
+    assert_match "clean", output
   end
 end
