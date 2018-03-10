@@ -7,9 +7,9 @@ class Python < Formula
   head "https://github.com/python/cpython.git"
 
   bottle do
-    sha256 "638bc10452b2eba31092fba018bdc2584361cbf553693506301964ffa8ea4425" => :high_sierra
-    sha256 "99d76fdd41540744923f0b99411af6a9a4002e304c345e16773c6ee03fb8f665" => :sierra
-    sha256 "f1c93aca100003bb9b7f23096c80c8ac9068559d26aeb291e9e415b3f243a32a" => :el_capitan
+    sha256 "a997d8441f6e437c405a995ce6c534a4b0f58464d796c35edbe665a505edf76e" => :high_sierra
+    sha256 "81dda0adcad54bc044da27b58828ed4efd0bec55bdc050b99cbc1a6d0bbaaa52" => :sierra
+    sha256 "5c3eba295b76bf87e85090470853a15c7d560a741aaf4a349f5655719e3b75f5" => :el_capitan
   end
 
   devel do
