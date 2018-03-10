@@ -1,8 +1,8 @@
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/system-config/jjb.html"
-  url "https://files.pythonhosted.org/packages/d7/d1/d13f76614f8d090bd1dca2166a85ecfb263657c278c4b35805dc21a36cce/jenkins-job-builder-2.0.2.tar.gz"
-  sha256 "3ec2a019c1b7aab700c02b4953d49b6bb72277f9c3be6d3d046644725ad0f5e2"
+  url "https://files.pythonhosted.org/packages/ac/48/5ece5b3f0be82e9ec89524d0a7c612a3a780e6e02743ea40c36709195be1/jenkins-job-builder-2.0.3.tar.gz"
+  sha256 "2b3207638d45fec579592ee545fc880e99f41b6e3fbf2a5eb4a8399764e67913"
 
   bottle do
     cellar :any_skip_relocation
@@ -44,8 +44,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "python-jenkins" do
-    url "https://files.pythonhosted.org/packages/09/1c/72bc7d3e1964633b29c9013813e3c0da0f6ae15c901ddc3863e2c54e87f7/python-jenkins-0.4.15.tar.gz"
-    sha256 "12c50a027e12048504c71e984e8e776a15a1204065b86ca2d1d871802c6da336"
+    url "https://files.pythonhosted.org/packages/15/dd/8dc3f8dca1532401ff06b2e0f29784e894f5def08223a24c722378a93905/python-jenkins-0.4.16.tar.gz"
+    sha256 "af899c4fb773a97acc920dc329dcc39f8bc6d2b3b6c7ad231d46f2eb370f9ab3"
   end
 
   resource "PyYAML" do
