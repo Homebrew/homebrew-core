@@ -329,7 +329,7 @@ class Pgloader < Formula
     system "make", "pgloader-standalone", "BUILDAPP=buildapp"
 
     bin.install "build/bin/pgloader"
-    man1.install "pgloader.1"
+    man1.install "pgloader.1" unless build.head?
   end
 
   def launch_postgres(socket_dir)
