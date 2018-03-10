@@ -10,9 +10,9 @@ class Bench < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb92f99fc8e96533b972360b597b0f07be7991797cd682e218cc7413d7915c54" => :high_sierra
-    sha256 "1d3e69f0dd375f2153cc065201dd08cc12381ef336e91eb4f9e80eb4866cc833" => :sierra
-    sha256 "2654ef335eb7546fdfde72b70bf319dae6ac5c06c32514540bd0d843ac4a47e0" => :el_capitan
+    sha256 "61c7fa791351bd4c9d7f8f0c119531e17d012551f623f868090cc93ff7661b8b" => :high_sierra
+    sha256 "a55d0b947a65da702c8788e6cd81fc448862357d7565681582c8e27ce241c629" => :sierra
+    sha256 "8db49b912fa0589be1e1c1d334855e5d63b620dc6573971b5003c87924d03098" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
