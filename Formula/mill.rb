@@ -1,5 +1,5 @@
 class Mill < Formula
-  desc "Your shiny new Scala build tool!"
+  desc "Scala build tool"
   homepage "https://www.lihaoyi.com/mill/"
   url "https://github.com/lihaoyi/mill/releases/download/0.1.4/0.1.4", :using => :nounzip
   sha256 "c8029d6aa19953cb1c78806c7d25a5c769fd8dd4a49863eeac805c1f09e4c516"
