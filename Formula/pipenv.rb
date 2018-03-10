@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/f1/b5/b6d5fe8b38a813853d036a889ae98b264fd872be7cc47b390a098879f285/pipenv-11.1.3.tar.gz"
-  sha256 "1d1326d4c54726e9288cac8023b51f7efca50a1319138a72d119554201f27394"
+  url "https://files.pythonhosted.org/packages/d2/0b/de5729f5edb2bbec966d50669267d22e724d61cd07e951edb145351a8c8e/pipenv-11.2.2.tar.gz"
+  sha256 "1b3d73ac75772d49d00f799ca9a3af4676725663c68d805a2815bedd1e235fd0"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +14,6 @@ class Pipenv < Formula
   end
 
   depends_on "python"
-
-  resource "pew" do
-    url "https://files.pythonhosted.org/packages/21/8c/585c136d5c63eb80ece3328eb290d16ccf6d2d55420848d9fc6a07de68ca/pew-1.1.2.tar.gz"
-    sha256 "b8312728526c9010295c88215c95a1b1731fdbd1a568f728e069932bd0545611"
-  end
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
@@ -38,10 +33,10 @@ class Pipenv < Formula
     venv.pip_install resources
     venv.pip_install buildpath
 
-    # `pipenv` needs to be able to find `virtualenv` and `pew` on PATH. So we
+    # `pipenv` needs to be able to find `virtualenv` and `pewtwo` on PATH. So we
     # install symlinks for those scripts in `#{libexec}/tools` and create a
     # wrapper script for `pipenv` which adds `#{libexec}/tools` to PATH.
-    (libexec/"tools").install_symlink libexec/"bin/pew", libexec/"bin/pip",
+    (libexec/"tools").install_symlink libexec/"bin/pewtwo", libexec/"bin/pip",
                                       libexec/"bin/virtualenv"
     env = {
       :PATH => "#{libexec}/tools:$PATH",
@@ -59,7 +54,7 @@ class Pipenv < Formula
       ln_s realpath, f
     end
     inreplace lib_python_path/"orig-prefix.txt",
-              Formula["python3"].opt_prefix, Formula["python3"].prefix.realpath
+              Formula["python"].opt_prefix, Formula["python"].prefix.realpath
   end
 
   test do
