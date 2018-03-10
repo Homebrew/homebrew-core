@@ -15,7 +15,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :mavericks
+  depends_on "python" if MacOS.version <= :mavericks
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
@@ -32,7 +32,7 @@ class GobjectIntrospection < Formula
     python = if MacOS.version >= :yosemite
       "/usr/bin/python2.7"
     else
-      Formula["python@2"].opt_bin/"python2.7"
+      Formula["python"].opt_bin/"python3"
     end
 
     system "./configure", "--disable-dependency-tracking",
