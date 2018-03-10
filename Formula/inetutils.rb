@@ -49,6 +49,27 @@ class Inetutils < Formula
     end
   end
 
+  def caveats
+    noshadow = %w[dnsdomainname rcp rexec rlogin rsh]
+    noshadow += %w[ftp telnet] if MacOS.version >= :high_sierra
+    if build.without? "default-names" then <<~EOS
+      The following commands have been installed with the prefix 'g'.
+
+          #{noshadow.join("\n    ")}
+
+      If you really need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+
+          PATH="#{opt_libexec}/gnubin:$PATH"
+
+      Additionally, you can access their man pages with normal names if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
+
+          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+      EOS
+    end
+  end
+
   test do
     output = pipe_output("#{libexec}/gnubin/ftp -v",
                          "open ftp.gnu.org\nanonymous\nls\nquit\n")
