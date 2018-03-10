@@ -16,11 +16,11 @@ class Neomutt < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    system "./configure", "--enable-gpgme",
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-gpgme",
                           "--gss",
                           "--lmdb",
                           "--notmuch",
-                          "--prefix=#{prefix}",
                           "--sasl",
                           "--tokyocabinet",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
@@ -29,8 +29,7 @@ class Neomutt < Formula
   end
 
   test do
-    expected = "debug_level=0"
-    output = pipe_output("#{bin}/neomutt -F /dev/null -D -S | grep debug_level", "", 0)
-    assert_equal expected, output.chomp
+    output = shell_output("#{bin}/neomutt -F /dev/null -Q debug_level")
+    assert_equal "debug_level=0", output.chomp
   end
 end
