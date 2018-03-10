@@ -3,10 +3,9 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-10.tar.gz"
-  version "0.0.8-10"
-  sha256 "f02b5067faba3d8e133f9121194cb59d33dc3cbff79eeef5349003e812293c7e"
-  revision 1
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
+  version "0.0.8-12"
+  sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
