@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.13.0/logrotate-3.13.0.tar.gz"
-  sha256 "2ea33f69176dd2668fb85307210d7ed0411ff2a0429e4a0a2d881e740160e4b0"
+  url "https://github.com/logrotate/logrotate/releases/download/3.14.0/logrotate-3.14.0.tar.gz"
+  sha256 "9bb62355ecf26997d994498658781a40fcd117b3e9d2872362db504b98df5c47"
 
   bottle do
     sha256 "e1f19be946b643cdac9c24bf6085a4130e6cd5224355059b2a1b6a3c95094c28" => :high_sierra
@@ -11,9 +11,6 @@ class Logrotate < Formula
   end
 
   depends_on "popt"
-
-  # Adapt the default config for Homebrew
-  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -68,34 +65,3 @@ class Logrotate < Formula
     assert(File.size?("test.log").nil?, "File is not zero length!")
   end
 end
-
-__END__
-diff --git i/examples/logrotate-default w/examples/logrotate-default
-index 39a092d..c61a33a 100644
---- i/examples/logrotate-default
-+++ w/examples/logrotate-default
-@@ -14,23 +14,7 @@ dateext
- # uncomment this if you want your log files compressed
- #compress
-
--# RPM packages drop log rotation information into this directory
-+# Homebrew packages drop log rotation information into this directory
- include /etc/logrotate.d
-
--# no packages own wtmp and btmp -- we'll rotate them here
--/var/log/wtmp {
--    missingok
--    monthly
--    create 0664 root utmp
--    minsize 1M
--    rotate 1
--}
--
--/var/log/btmp {
--    missingok
--    monthly
--    create 0600 root utmp
--    rotate 1
--}
--
- # system-specific logs may be also be configured here.
