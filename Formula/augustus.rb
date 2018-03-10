@@ -3,6 +3,7 @@ class Augustus < Formula
   homepage "http://bioinf.uni-greifswald.de/augustus/"
   url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.tar.gz"
   sha256 "b5eb811a4c33a2cc3bbd16355e19d530eeac6d1ac923e59f48d7a79f396234ee"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,13 +12,23 @@ class Augustus < Formula
     sha256 "57d0cdab04164c968240245b95159b21e464d7988dd4063d758dbfbb93e1b25a" => :el_capitan
   end
 
+  depends_on "bamtools"
   depends_on "boost"
 
   def install
+    # Fix error: api/BamReader.h: No such file or directory
+    inreplace "auxprogs/bam2hints/Makefile",
+      "INCLUDES = /usr/include/bamtools",
+      "INCLUDES = #{Formula["bamtools"].include/"bamtools"}"
+    inreplace "auxprogs/filterBam/src/Makefile",
+      "BAMTOOLS = /usr/include/bamtools",
+      "BAMTOOLS= #{Formula["bamtools"].include/"bamtools"}"
+
     # Prevent symlinking into /usr/local/bin/
     inreplace "Makefile", %r{ln -sf.*/usr/local/bin/}, "#ln -sf"
 
     # Compile executables for macOS. Tarball ships with executables for Linux.
+    system "make", "clean"
     system "make"
 
     system "make", "install", "INSTALLDIR=#{prefix}"
