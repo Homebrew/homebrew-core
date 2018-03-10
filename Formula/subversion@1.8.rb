@@ -6,10 +6,9 @@ class SubversionAT18 < Formula
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
 
   bottle do
-    sha256 "96dc628a9f5b2b12e81b690c6278be70e1d386f86376e2b0f6e5c085113e5e2e" => :high_sierra
-    sha256 "3f6c2f5b14952261bd16b368026725411c6eb6aec91d3af340647a3f9aa92536" => :sierra
-    sha256 "fff0c975bfaec2a116b2f4c9ac93d702ee8e06381f31810d582b01bda8610a3e" => :el_capitan
-    sha256 "efa3eaee6fc8518354d09b80d2813c7b090495da8691703b31e1297ef0e750cd" => :yosemite
+    sha256 "3a4e79dead2f4d209e06fe631903ed870610ddfc9ac091ec7d734f5025d0642e" => :high_sierra
+    sha256 "a3d73ecc8eddacfe764f5a83d5215220b7d3100d694c17ac3bed68089984e863" => :sierra
+    sha256 "0a39c347943ac7f025af06571378987e5d69805ab45cafd38215b5929a5a3722" => :el_capitan
   end
 
   keg_only :versioned_formula
