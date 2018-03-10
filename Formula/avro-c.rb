@@ -24,5 +24,10 @@ class AvroC < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+    pkgshare.install "tests/test_avro_1087"
+  end
+
+  test do
+    assert shell_output("#{pkgshare}/test_avro_1087")
   end
 end
