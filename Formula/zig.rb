@@ -6,9 +6,9 @@ class Zig < Formula
   revision 1
 
   bottle do
-    sha256 "2184016574a84b2c0a8cdedd95727a265bb6459d580348200722e4cf36b82ed7" => :high_sierra
-    sha256 "78b8bac1021aa558183c8f9d46a918c89378b6473a688f20713d9b9c85879562" => :sierra
-    sha256 "2862e1ca07f7150b31a034cb486351b7499f6c6ba9c8dd46015b5517a876c6aa" => :el_capitan
+    sha256 "3c2e3f738f28287a1fc68ac80d6bf4b0b047a51cc54d0239cd0e4c8a65b47714" => :high_sierra
+    sha256 "17bb8fa63298c108fc67839c80116ecad69c2d0b3f7ec5f19ea4a88eb09b52fe" => :sierra
+    sha256 "920c60bf1e853505349414aa7f24c95ae65ccc432b1db27211ddb7707a6a11de" => :el_capitan
   end
 
   depends_on "cmake" => :build
