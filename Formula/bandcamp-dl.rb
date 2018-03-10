@@ -6,7 +6,7 @@ class BandcampDl < Formula
   url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-10.tar.gz"
   version "0.0.8-10"
   sha256 "f02b5067faba3d8e133f9121194cb59d33dc3cbff79eeef5349003e812293c7e"
-  revision 1
+  revision 2
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
