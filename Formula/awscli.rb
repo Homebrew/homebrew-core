@@ -10,10 +10,10 @@ class Awscli < Formula
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6bb04891e9cf47d7a28665b8d5a3d8cdd03fa3a574768fb70d39616b36319177" => :high_sierra
-    sha256 "a2cc2611523e5a9f3f6a028cec995efb77f159ffe81cd65cfc0cb82525eec944" => :sierra
-    sha256 "0f51a293a4400f549f81f0b0778601f35829e4782e64122bc436801e27e1b94d" => :el_capitan
+    cellar :any
+    sha256 "1a940697cbe58df8181dcb04a3f4b1b068512a8b778141d69bc8dce8d7cf411c" => :high_sierra
+    sha256 "e58f138b4c8e69f2713b356b05e435f4d486935b486290c933cf29895486fed2" => :sierra
+    sha256 "27369ac6cb1d01ad4b0668603f0b8d141bed74851540313701731b7536baab02" => :el_capitan
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
