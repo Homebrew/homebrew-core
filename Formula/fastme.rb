@@ -5,7 +5,8 @@ class Fastme < Formula
   sha256 "4945c151e15acffd64820c5e1a4c4ed57ab9fada7f3fe84e3423c5155546b1d0"
 
   depends_on "gcc"
-  fails_with :clang
+
+  fails_with :clang # no OpenMP support
 
   def install
     system "./configure", "--disable-debug",
