@@ -259,7 +259,7 @@ class Php < Formula
     version.to_s.split(".")[0..1].join(".")
   end
 
-  plist_options :startup => true, :manual => "php-fpm"
+  plist_options :manual => "php-fpm"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
