@@ -1,7 +1,7 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  revision 2
+  revision 3
   head "https://github.com/csmith-project/creduce.git"
 
   stable do
@@ -26,7 +26,7 @@ class Creduce < Formula
 
   depends_on "astyle"
   depends_on "delta"
-  depends_on "llvm"
+  depends_on "llvm@5"
 
   depends_on :macos => :mavericks
 

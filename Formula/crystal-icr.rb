@@ -3,7 +3,7 @@ class CrystalIcr < Formula
   homepage "https://github.com/crystal-community/icr"
   url "https://github.com/crystal-community/icr/archive/v0.5.0.tar.gz"
   sha256 "f2b5cb971b368085e9c4f607d906e0622aa94d65c0f7c820d9cbdf23fb972c33"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "114bfed2c7e7f7428b9c06668b37b8eb346dd01b7d9064d3cb16089189b5b78a" => :high_sierra

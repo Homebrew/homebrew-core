@@ -16,111 +16,111 @@ class CodesignRequirement < Requirement
   end
 end
 
-class Llvm < Formula
+class LlvmAT5 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/6.0.0/llvm-6.0.0.src.tar.xz"
-    sha256 "1ff53c915b4e761ef400b803f07261ade637b0c269d99569f18040f3dcee4408"
+    url "https://releases.llvm.org/5.0.1/llvm-5.0.1.src.tar.xz"
+    sha256 "5fa7489fc0225b11821cab0362f5813a05f2bcf2533e8a4ea9c9c860168807b0"
 
     resource "clang" do
-      url "https://releases.llvm.org/6.0.0/cfe-6.0.0.src.tar.xz"
-      sha256 "e07d6dd8d9ef196cfc8e8bb131cbd6a2ed0b1caf1715f9d05b0f0eeaddb6df32"
+      url "https://releases.llvm.org/5.0.1/cfe-5.0.1.src.tar.xz"
+      sha256 "135f6c9b0cd2da1aff2250e065946258eb699777888df39ca5a5b4fe5e23d0ff"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/6.0.0/clang-tools-extra-6.0.0.src.tar.xz"
-      sha256 "053b424a4cd34c9335d8918734dd802a8da612d13a26bbb88fcdf524b2d989d2"
+      url "https://releases.llvm.org/5.0.1/clang-tools-extra-5.0.1.src.tar.xz"
+      sha256 "9aada1f9d673226846c3399d13fab6bba4bfd38bcfe8def5ee7b0ec24f8cd225"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/6.0.0/compiler-rt-6.0.0.src.tar.xz"
-      sha256 "d0cc1342cf57e9a8d52f5498da47a3b28d24ac0d39cbc92308781b3ee0cea79a"
+      url "https://releases.llvm.org/5.0.1/compiler-rt-5.0.1.src.tar.xz"
+      sha256 "4edd1417f457a9b3f0eb88082530490edf3cf6a7335cdce8ecbc5d3e16a895da"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "https://releases.llvm.org/6.0.0/libcxx-6.0.0.src.tar.xz"
-      sha256 "70931a87bde9d358af6cb7869e7535ec6b015f7e6df64def6d2ecdd954040dd9"
+      url "https://releases.llvm.org/5.0.1/libcxx-5.0.1.src.tar.xz"
+      sha256 "fa8f99dd2bde109daa3276d529851a3bce5718d46ce1c5d0806f46caa3e57c00"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/6.0.0/libunwind-6.0.0.src.tar.xz"
-      sha256 "256c4ed971191bde42208386c8d39e5143fa4afd098e03bd2c140c878c63f1d6"
+      url "https://releases.llvm.org/5.0.1/libunwind-5.0.1.src.tar.xz"
+      sha256 "6bbfbf6679435b858bd74bdf080386d084a76dfbf233fb6e47b2c28e0872d0fe"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/6.0.0/lld-6.0.0.src.tar.xz"
-      sha256 "6b8c4a833cf30230c0213d78dbac01af21387b298225de90ab56032ca79c0e0b"
+      url "https://releases.llvm.org/5.0.1/lld-5.0.1.src.tar.xz"
+      sha256 "d5b36c0005824f07ab093616bdff247f3da817cae2c51371e1d1473af717d895"
     end
 
     resource "lldb" do
-      url "https://releases.llvm.org/6.0.0/lldb-6.0.0.src.tar.xz"
-      sha256 "46f54c1d7adcd047d87c0179f7b6fa751614f339f4f87e60abceaa45f414d454"
+      url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
+      sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
+
+      # Fixes "error: no type named 'pid_t' in the global namespace"
+      # https://github.com/Homebrew/homebrew-core/issues/17839
+      # Already fixed in upstream trunk
+      patch do
+        url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
+        sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+      end
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/6.0.0/openmp-6.0.0.src.tar.xz"
-      sha256 "7c0e050d5f7da3b057579fb3ea79ed7dc657c765011b402eb5bbe5663a7c38fc"
+      url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
+      sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/6.0.0/polly-6.0.0.src.tar.xz"
-      sha256 "47e493a799dca35bc68ca2ceaeed27c5ca09b12241f87f7220b5f5882194f59c"
+      url "https://releases.llvm.org/5.0.1/polly-5.0.1.src.tar.xz"
+      sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
     end
-  end
-
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "61c8f073f3fc25971ead1a106f4db95db08b4ba0cd1eb7df7c40f6a2ee74dfbb" => :high_sierra
-    sha256 "da1ffc015d980daaa72affabbadfa4b1b821989f50ea14f5fea7d799eee018e8" => :sierra
-    sha256 "54c1d217622fd298186bad4af680d2ac3aafc237948d581ad1ecb221bc293b38" => :el_capitan
   end
 
   head do
-    url "https://llvm.org/git/llvm.git"
+    url "https://llvm.org/git/llvm.git", :branch => "release_50"
 
     resource "clang" do
-      url "https://llvm.org/git/clang.git"
+      url "https://llvm.org/git/clang.git", :branch => "release_50"
     end
 
     resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git"
+      url "https://llvm.org/git/clang-tools-extra.git", :branch => "release_50"
     end
 
     resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git"
+      url "https://llvm.org/git/compiler-rt.git", :branch => "release_50"
     end
 
     resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git"
+      url "https://llvm.org/git/libcxx.git", :branch => "release_50"
     end
 
     resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git"
+      url "https://llvm.org/git/libunwind.git", :branch => "release_50"
     end
 
     resource "lld" do
-      url "https://llvm.org/git/lld.git"
+      url "https://llvm.org/git/lld.git", :branch => "release_50"
     end
 
     resource "lldb" do
-      url "https://llvm.org/git/lldb.git"
+      url "https://llvm.org/git/lldb.git", :branch => "release_50"
     end
 
     resource "openmp" do
-      url "https://llvm.org/git/openmp.git"
+      url "https://llvm.org/git/openmp.git", :branch => "release_50"
     end
 
     resource "polly" do
-      url "https://llvm.org/git/polly.git"
+      url "https://llvm.org/git/polly.git", :branch => "release_50"
     end
   end
 
-  keg_only :provided_by_macos
+  keg_only :versioned_formula
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
