@@ -3,7 +3,6 @@ class GitMultipush < Formula
   homepage "https://github.com/gavinbeatty/git-multipush"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/git-multipush/git-multipush-2.3.tar.bz2"
   sha256 "1f3b51e84310673045c3240048b44dd415a8a70568f365b6b48e7970afdafb67"
-  head "https://github.com/gavinbeatty/git-multipush.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,10 +18,7 @@ class GitMultipush < Formula
     sha256 "999d9304f322c1b97d150c96be64ecde30980f97eaaa9d66f365b8b11894c46d"
   end
 
-  depends_on "asciidoc" => :build
-
   def install
-    system "make" if build.head?
     # Devel tarballs don't have versions marked, maybe due to GitHub release process
     # https://github.com/gavinbeatty/git-multipush/issues/1
     (buildpath/"release").write "VERSION = #{version}" if build.devel?
