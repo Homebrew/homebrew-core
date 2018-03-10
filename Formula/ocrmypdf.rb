@@ -3,9 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/e1/c9/1183b939cc7cd3cf937a6619139879185cf8a51a4cadcbd572e688d7e1ea/ocrmypdf-5.6.0.tar.gz"
-  sha256 "db8c64b491bdb09bd28498d21aa2b132f8af247c815a551531a070390196546c"
-  revision 1
+  url "https://files.pythonhosted.org/packages/ea/23/ca3943e400be1231e582561aa9ea1611dbf2ba225dcfecda314d908c1f17/ocrmypdf-5.6.1.tar.gz"
+  sha256 "a5f920c390f1fbf3f7fce6d2b95d10461da1ef520a877532ce6696092ecd209e"
 
   bottle do
     cellar :any
@@ -26,8 +25,8 @@ class Ocrmypdf < Formula
   depends_on "unpaper"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "img2pdf" do
