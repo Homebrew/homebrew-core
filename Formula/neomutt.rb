@@ -5,6 +5,12 @@ class Neomutt < Formula
   sha256 "10ba010017cf7db6bb5ac3e2116d6defad56d34be0dceea9d70a66d8510927bb"
   head "https://github.com/neomutt/neomutt.git"
 
+  bottle do
+    sha256 "c00efc604fc47b33502594bd164190e0864bf12b2d6490074529d4c38a92ffad" => :high_sierra
+    sha256 "50a45599e372e0662306f4fb4b5a49cdfaf9e13a3bb25fce4992e3177b734244" => :sierra
+    sha256 "089407d9e5b6743ad574e259e3a7efa7179f6ae16cd9594c4bdcafff2cf626f0" => :el_capitan
+  end
+
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
   depends_on "gpgme"
