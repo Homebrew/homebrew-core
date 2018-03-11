@@ -7,9 +7,9 @@ class Libbladerf < Formula
   head "https://github.com/Nuand/bladeRF.git"
 
   bottle do
-    sha256 "a6aa49db1410c4d2c43edd8564efa6a962093ac88132183d28aa5d09591fe3c3" => :el_capitan
-    sha256 "fa8f653507ad414695029cdf1620de47e8bf0fb7901531f1ea241f39768db377" => :yosemite
-    sha256 "0db3f3411af41d50509487ab199092d2264aca0ab6212616d0ff8ec008cdc612" => :mavericks
+    sha256 "1aaf3355a29e6c318555afc4a4aff2c76957976c7cf00113af5cacc8a171ab75" => :high_sierra
+    sha256 "711db5a38f3a217cd3fe54c19fe8624bdb6d7b4431176a74541e819414a064d1" => :sierra
+    sha256 "9de01abf00d154167160155eb6c64e9c9f83f11f8c0ce2ba862e94db43c9cbe2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
