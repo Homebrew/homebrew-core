@@ -1,8 +1,8 @@
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
-  homepage "https://github.com/jessfraz/weather"
-  url "https://github.com/jessfraz/weather/archive/v0.13.0.tar.gz"
-  sha256 "ec4fbb17f4a1eed0e7254190018ce5226db1250e2a31350ce19fc7fe11451412"
+  homepage "https://github.com/genuinetools/weather"
+  url "https://github.com/genuinetools/weather/archive/v0.15.0.tar.gz"
+  sha256 "3320fd482dbda0a24c444216566c840bb9ec98e353287db427608d111ccf46e8"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +15,10 @@ class DarkskyWeather < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/jessfraz/weather").install buildpath.children
+    (buildpath/"src/github.com/genuinetools/weather").install buildpath.children
 
-    cd "src/github.com/jessfraz/weather" do
-      project = "github.com/jessfraz/weather"
+    cd "src/github.com/genuinetools/weather" do
+      project = "github.com/genuinetools/weather"
       ldflags = ["-X #{project}/version.GITCOMMIT=homebrew",
                  "-X #{project}/version.VERSION=v#{version}"]
       system "go", "build", "-o", bin/"weather", "-ldflags", ldflags.join(" ")
