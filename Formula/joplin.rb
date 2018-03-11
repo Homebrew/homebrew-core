@@ -2,7 +2,7 @@ require "language/node"
 
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
-  homepage "http://joplin.cozic.net/"
+  homepage "https://joplin.cozic.net/"
   url "https://registry.npmjs.org/joplin/-/joplin-1.0.100.tgz"
   sha256 "29a0429bfd4ec5f2be42571330f0bb112ef2511a8931a063fe9af0b9b6c76562"
 
