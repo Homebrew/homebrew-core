@@ -1,8 +1,8 @@
 class I3 < Formula
   desc "Tiling window manager"
   homepage "https://i3wm.org/"
-  url "https://i3wm.org/downloads/i3-4.14.1.tar.bz2"
-  sha256 "d0063ac561f3aa8d7e31e137356815bad781bd6ad774030362c89abe96ab5fb1"
+  url "https://i3wm.org/downloads/i3-4.15.tar.bz2"
+  sha256 "217d524d1fbc85ae346b25f6848d1b7bcd2c23184ec88d29114bf5a621385326"
   head "https://github.com/i3/i3.git"
 
   bottle do
