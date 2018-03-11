@@ -314,6 +314,7 @@ class Php < Formula
         DocumentRoot "#{testpath}"
         ErrorLog "#{testpath}/httpd-error.log"
         ServerRoot "#{Formula["httpd"].opt_prefix}"
+        PidFile "#{testpath}/httpd.pid"
         LoadModule authz_core_module lib/httpd/modules/mod_authz_core.so
         LoadModule unixd_module lib/httpd/modules/mod_unixd.so
         LoadModule dir_module lib/httpd/modules/mod_dir.so
