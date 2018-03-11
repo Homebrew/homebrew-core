@@ -8,9 +8,9 @@ class Pipenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1aa554dbfac76ff9e4d8e9ba63212ca8e742d8aa5f11f84850e35e8d1c752768" => :high_sierra
-    sha256 "6ddec1c905847086dcc8f8f37a400605e26d00984ff0d1982c2456d25ae57bb3" => :sierra
-    sha256 "bfd2bdf062858e44583f9e339abe94a1b602eded293cd1dedfa76c156458bfe4" => :el_capitan
+    sha256 "a51490bec174a046432fa3af0722956f9fa0e6f3f0af3fcfcd5e00a25ce98cbb" => :high_sierra
+    sha256 "2ea70191b28c96b6666444e9faa669e0c66fc4eac7fae4d68be70890cad409c2" => :sierra
+    sha256 "d76be7cff38175f55b58d2b6d2a531bc0c00c963da363e2e53525da52c2ed3ba" => :el_capitan
   end
 
   depends_on "python"
