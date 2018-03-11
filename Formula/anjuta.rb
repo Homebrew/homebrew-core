@@ -1,8 +1,8 @@
 class Anjuta < Formula
   desc "GNOME Integrated Development Environment"
   homepage "http://anjuta.org"
-  url "https://download.gnome.org/sources/anjuta/3.26/anjuta-3.26.0.tar.xz"
-  sha256 "fb895464c1a3c915bb2bb3ea5d236fd17202caa7205f6792f70a75affc343d70"
+  url "https://download.gnome.org/sources/anjuta/3.28/anjuta-3.28.0.tar.xz"
+  sha256 "b087b0a5857952d0edd24dae458616eb166a3257bc647d5279a9e71495544779"
 
   bottle do
     rebuild 1
