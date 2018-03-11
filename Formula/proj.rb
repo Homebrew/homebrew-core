@@ -3,6 +3,7 @@ class Proj < Formula
   homepage "http://proj4.org/"
   url "https://download.osgeo.org/proj/proj-5.0.0.tar.gz"
   sha256 "b30df08d736e69744cb255828721abb545b494d6032c13a96520f3219a444cd2"
+  revision 1
 
   bottle do
     sha256 "e8593ac943fbf2911a66b300c0c3f55ec7bfb9fe1ac636ff59ac50de85d04daa" => :high_sierra
