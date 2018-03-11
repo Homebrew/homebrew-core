@@ -3,6 +3,7 @@ class Libbladerf < Formula
   homepage "https://nuand.com/"
   url "https://github.com/Nuand/bladeRF/archive/2016.06.tar.gz"
   sha256 "6e6333fd0f17e85f968a6180942f889705c4f2ac16507b2f86c80630c55032e8"
+  revision 1
   head "https://github.com/Nuand/bladeRF.git"
 
   bottle do
@@ -14,6 +15,22 @@ class Libbladerf < Formula
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "libusb"
+
+  # Fix cmake issue https://github.com/Nuand/bladeRF/issues/509
+  # Remove for next version
+  patch do
+    url "https://github.com/Nuand/bladeRF/commit/037e2886.diff?full_index=1"
+    sha256 "53de19bb7ce0790e5e5795ec8b95ac2014e3c883ceec13d6162f3d6362b77fea"
+  end
+
+  # Fix clockid_t failure https://github.com/Nuand/bladeRF/issues/493
+  # Remove for next version
+  if MacOS.version >= :sierra
+    patch do
+      url "https://github.com/Nuand/bladeRF/commit/21690e5d.diff?full_index=1"
+      sha256 "9104dd0eed5073ba9ff2ea2b464bbe07f497928cd5023e1d5b417b595bc24029"
+    end
+  end
 
   def install
     mkdir "host/build" do
