@@ -1,7 +1,7 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/ldc-developers/ldc/releases/download/v1.8.0/ldc-1.8.0-src.tar.gz"
@@ -40,7 +40,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -48,7 +48,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
         -DLDC_WITH_LLD=OFF
