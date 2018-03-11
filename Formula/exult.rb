@@ -26,6 +26,14 @@ class Exult < Formula
     sha256 "72e10efa8664a645470ceb99f6b749ce99c3d5fd1c8387c63640499cfcdbbc68"
   end
 
+  # Upstream's fix for recent clang (Xcode 9)
+  # https://github.com/exult/exult/commit/083ea2fa
+  # Can be removed in next version
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c9cb2e28/exult/clang9.patch"
+    sha256 "e661b7e2e30820bcb74938a203bd367c66c00bc2a7c8de8525e78d70a87a3bd8"
+  end
+
   def install
     # Use ~/Library/... instead of /Library for the games
     inreplace "files/utils.cc" do |s|
