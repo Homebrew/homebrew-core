@@ -11,6 +11,12 @@ class Draco < Formula
       system "cmake", "..", * std_cmake_args
       system "make", "install"
     end
+    pkgshare.install "testdata/cube_att.ply"
   end
 
+  test do
+    system "#{bin}/draco_encoder", "-i", "#{pkgshare}/cube_att.ply",
+           "-o", "cube_att.drc"
+    assert_predicate testpath/"cube_att.drc", :exist?
+  end
 end
