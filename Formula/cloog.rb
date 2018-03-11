@@ -12,33 +12,25 @@ class Cloog < Formula
     sha256 "5db5643738fbe35f6bb88ff4df8ba76d18d39d72eeb9f37e835203d3244a8613" => :el_capitan
   end
 
-  head do
-    url "http://repo.or.cz/r/cloog.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "isl"
 
+  # Compatability for isl 0.19
+  # Patch taken from https://github.com/periscop/cloog/pull/38
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9332a900cb98eaf471abd5eaf82291f8d63abc79/cloog/cloog-isl0.19-compat.diff"
+    sha256 "ef3828a30df91ca78c3181aabb194881edb5642db178b3cbcadd8702a59cb1d2"
+  end
+
   def install
-    system "./autogen.sh" if build.head?
-
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--with-gmp=system",
-      "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
-      "--with-isl=system",
-      "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
-    ]
-
-    args << "--with-osl=bundled" if build.head?
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-gmp=system",
+                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          "--with-isl=system",
+                          "--with-isl-prefix=#{Formula["isl"].opt_prefix}"
     system "make", "install"
   end
 
