@@ -2,7 +2,7 @@ class GraphTool < Formula
   # Include Virtualenv for venv setup - required for installing matplotlib into venv
   include Language::Python::Virtualenv
 
-  desc "Efficient network analysis for python3"
+  desc "Efficient network analysis for python 3"
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.26.tar.bz2"
   sha256 "df6273dc5ef327a0eaf1ef1c46751fce4c0b7573880944e544287b85a068f770"
@@ -19,7 +19,7 @@ class GraphTool < Formula
   option "with-openmp", "Enable OpenMP multithreading"
   # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
   depends_on :macos => :el_capitan
-  depends_on "python3" => :recommended
+  depends_on "python" => :recommended
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
@@ -29,13 +29,13 @@ class GraphTool < Formula
   depends_on "scipy"
   # explicitly requiring gtk+3 and py3cairo here because audit doesn't permit:
   # i.e. depends_on "librsvg" => "with-gtk+3" (doesn't do anything overly meaningful in the librsvg formula)
-  # i.e. depends_on "pygobject3" => "with-python3"
+  # i.e. depends_on "pygobject3" => "with-python"
   depends_on "gtk+3"
   depends_on "librsvg"
   depends_on "cairomm"
   depends_on "py3cairo"
   # pygobject3 pending rename to pygobject per https://github.com/Homebrew/homebrew-core/pull/18711
-  depends_on "pygobject3" => "with-python3"
+  depends_on "pygobject3" => "with-python"
   fails_with :gcc => "4.8" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
