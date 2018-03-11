@@ -1,9 +1,9 @@
 class Nopoll < Formula
   desc "Open-source C WebSocket toolkit"
   homepage "https://www.aspl.es/nopoll/"
-  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.5.b375.tar.gz"
-  version "0.4.5.b375"
-  sha256 "4ecbd277714c9acd154277a46388689f9d651836ca5c69990e35d1eee8c7ceae"
+  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.6.b400.tar.gz"
+  version "0.4.6.b400"
+  sha256 "7f1b20f1d0525f30cdd2a4fc386d328b4cf98c6d11cef51fe62cd9491ba19ad9"
 
   bottle do
     cellar :any
