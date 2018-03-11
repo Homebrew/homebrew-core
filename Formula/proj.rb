@@ -21,8 +21,8 @@ class Proj < Formula
 
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
-    url "https://download.osgeo.org/proj/proj-datumgrid-1.5.zip"
-    sha256 "723c4017d95d7a8abdf3bda4e18d3c15d79b00f9326d453da5fdf13f96c287db"
+    url "https://download.osgeo.org/proj/proj-datumgrid-1.7.zip"
+    sha256 "ffcad4453fac3b4a13ca678ef343e688496e18019f35709ef03c5f200e9fb85a"
   end
 
   # Vertical datum files
@@ -59,11 +59,6 @@ class Proj < Formula
   resource "vertconw" do
     url "https://download.osgeo.org/proj/vdatum/vertcon/vertconw.gtx"
     sha256 "de648c0f6e8b5ebfc4b2d82f056c7b993ca3c37373a7f6b7844fe9bd4871821b"
-  end
-
-  resource "egm96_15" do
-    url "https://download.osgeo.org/proj/vdatum/egm96_15/egm96_15.gtx"
-    sha256 "c02a6eb70a7a78efebe5adf3ade626eb75390e170bb8b3f36136a2c28f5326a0"
   end
 
   resource "egm08_25" do
