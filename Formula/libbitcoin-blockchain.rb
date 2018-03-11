@@ -3,6 +3,7 @@ class LibbitcoinBlockchain < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
   url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.5.0.tar.gz"
   sha256 "03b8362c9172edbeb1e5970c996405cd2738e8274ba459e9b85359d6b838de20"
+  revision 1
 
   bottle do
     sha256 "ecb6471ff0a4859d1bbdee28848c6cc836fee5074b2b3b2e7b755e985234d025" => :high_sierra
@@ -14,25 +15,11 @@ class LibbitcoinBlockchain < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libbitcoin"
+  depends_on "libbitcoin-consensus"
   depends_on "libbitcoin-database"
-
-  resource "libbitcoin-consensus" do
-    url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.5.0.tar.gz"
-    sha256 "bb29761d4275a9c993151707557008b23572a3d9adecc0e36a3075cfb101dd1e"
-  end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("libbitcoin-consensus").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
