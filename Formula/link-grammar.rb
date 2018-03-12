@@ -1,8 +1,8 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.4.3/link-grammar-5.4.3.tar.gz"
-  sha256 "3b043693ba091647128aaa60b3ed9187dc8b80f5921d4d7a6550294ca5a8e137"
+  url "https://www.abisource.com/downloads/link-grammar/5.4.4/link-grammar-5.4.4.tar.gz"
+  sha256 "c1533379dba0d81e3a924445216aa98a5bf3be9974586a68b00071b654fa69b9"
 
   bottle do
     sha256 "4025f3704790f11ee4cb525d72f532d717f30123163fb6ef8eaff6b8da0b6937" => :high_sierra
