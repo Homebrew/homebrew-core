@@ -5,8 +5,8 @@ class Kontena < Formula
 
   stable do
     url "https://github.com/kontena/kontena.git",
-        :tag => "v1.5.1",
-        :revision => "ac6406ad3b78ad53871f5657e9404a12b6b3e2f8"
+        :tag => "v1.5.2",
+        :revision => "7232ab4f871c544eec1c8e32276bfd910480248f"
 
     resource "clamp" do
       url "https://rubygems.org/gems/clamp-1.2.1.gem"
@@ -187,10 +187,11 @@ class Kontena < Formula
   test do
     assert_match "+homebrew", shell_output("#{bin}/kontena --version")
     assert_match "login", shell_output("#{bin}/kontena complete kontena master")
-    output = shell_output("#{bin}/kontena plugin search digitalocean")
-    assert_match "Kontena DigitalOcean plugin", output
-    output = shell_output("#{bin}/kontena stack reg show kontena/hello-world")
-    assert_match "description: Sample stack to test Kontena", output
+    test_yaml = "stack: test/test\nversion: 0.1.0\nservices:\n  redis:\n    image: redis:latest\n"
+    (testpath/"kontena.yml").write(test_yaml)
+    output = shell_output("#{bin}/kontena stack validate --format api-json")
+    assert_match "\"stack\": \"test/test\"", output
+    assert_match "\"expose\": null", output
     assert_match "NAME", shell_output("#{bin}/kontena master list")
   end
 end
