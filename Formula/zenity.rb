@@ -1,8 +1,8 @@
 class Zenity < Formula
   desc "GTK+ dialog boxes for the command-line"
   homepage "https://live.gnome.org/Zenity"
-  url "https://download.gnome.org/sources/zenity/3.26/zenity-3.26.0.tar.xz"
-  sha256 "6a7f34626dd62b751fe22bcdb32f3558f8a8fdddcc9406893dd264f0ac18e830"
+  url "https://download.gnome.org/sources/zenity/3.28/zenity-3.28.0.tar.xz"
+  sha256 "5e588f12b987db30139b0283d39d19b0fd47cab87840cc112dfe61e592826df8"
 
   bottle do
     sha256 "8d21567ffffb86f7345993dcc93a865ded92d2df181dfa8c65f9e35fd7beaf00" => :high_sierra
@@ -11,12 +11,8 @@ class Zenity < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "libxml2"
   depends_on "gtk+3"
-  depends_on "gnome-doc-utils"
-  depends_on "rarian"
 
   def install
     system "./configure", "--prefix=#{prefix}"
