@@ -1,8 +1,8 @@
 class YelpTools < Formula
   desc "Tools that help create and edit Mallard or DocBook documentation"
   homepage "https://github.com/GNOME/yelp-tools"
-  url "https://download.gnome.org/sources/yelp-tools/3.18/yelp-tools-3.18.0.tar.xz"
-  sha256 "c6c1d65f802397267cdc47aafd5398c4b60766e0a7ad2190426af6c0d0716932"
+  url "https://download.gnome.org/sources/yelp-tools/3.28/yelp-tools-3.28.0.tar.xz"
+  sha256 "82dbfeea2359dfef8ee92c7580c7f03768d12f9bf67d839f03a5e9b0686dc1ac"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,8 +22,8 @@ class YelpTools < Formula
   depends_on "pkg-config" => :build
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.20/yelp-xsl-3.20.1.tar.xz"
-    sha256 "dc61849e5dca473573d32e28c6c4e3cf9c1b6afe241f8c26e29539c415f97ba0"
+    url "https://download.gnome.org/sources/yelp-xsl/3.28/yelp-xsl-3.28.0.tar.xz"
+    sha256 "8ccdf47b31acbdd26a7380b3bc6700742a7aff91a54dab279fd5ea8b43b53f93"
   end
 
   def install
@@ -49,13 +49,5 @@ class YelpTools < Formula
     system "#{bin}/yelp-new", "task", "ducksinarow"
     system "#{bin}/yelp-build", "html", "ducksinarow.page"
     system "#{bin}/yelp-check", "validate", "ducksinarow.page"
-    [
-      prefix/"share/yelp-xsl/icons/hicolor/24x24/status/yelp-note-warning.png",
-      prefix/"share/yelp-xsl/js/jquery.syntax.brush.smalltalk.js",
-      prefix/"share/yelp-xsl/xslt/mallard/html/mal2html-links.xsl",
-      share/"pkgconfig/yelp-xsl.pc",
-    ].each do |filename|
-      assert filename.exist?, "#{filename} doesn't exist"
-    end
   end
 end
