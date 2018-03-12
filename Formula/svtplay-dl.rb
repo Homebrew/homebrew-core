@@ -8,9 +8,9 @@ class SvtplayDl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32b4d975de0753e0d137d307fff3553e77523626c378c2c58f17fe3149d05cc7" => :high_sierra
-    sha256 "447771fb1b6c87b9d3660d2f1dd2c94f296dc23b36a673b7087761656e0fd2de" => :sierra
-    sha256 "395e9fa8e897bc3189e6c6ecdea58b977d4f56b90e9197fe88385a4e974a8f48" => :el_capitan
+    sha256 "08152f1fa8a69f00d1ab5395ff56c2acd95158dd510c9a9466d3c91fe587dcb5" => :high_sierra
+    sha256 "1459efa77e0c4ba52ca8be3f24457f32f25933311d8aebe365340381a170d46b" => :sierra
+    sha256 "689675a28ef799324c2ca527ff70a089251314d42a2a0c7b7ee6e1b050da56dd" => :el_capitan
   end
 
   # The dependencies differ for Python <= 2.7.9.
