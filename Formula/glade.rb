@@ -1,8 +1,8 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.20/glade-3.20.4.tar.xz"
-  sha256 "4b82dfe635165b996ed75f95742bce788be8c8a45bf75c81892e3519902635d9"
+  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.0.tar.xz"
+  sha256 "6c66843a5883bbeb0dde4fdc0d19f6572dd23671aa2c3fdab4e4eb2889bff3c8"
 
   bottle do
     sha256 "4efce43d4bc49db1e3ca919429b3ee466bb686579b5a58c83a0919c7df9f9281" => :high_sierra
