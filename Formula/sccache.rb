@@ -1,8 +1,8 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/0.2.5.tar.gz"
-  sha256 "268252d43bc73cd73fe23388b466a78aa7a76782561bda6720ba132096b40b84"
+  url "https://github.com/mozilla/sccache/archive/0.2.6.tar.gz"
+  sha256 "201f4e75307da7ebceed7375a4ffbdcc91c333d5bba06ea07676485685fd4ed6"
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
@@ -12,8 +12,12 @@ class Sccache < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl"
 
   def install
+    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
+    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
+
     system "cargo", "build", "--release", "--features", "all"
     bin.install "target/release/sccache"
   end
