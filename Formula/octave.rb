@@ -99,7 +99,12 @@ class Octave < Formula
 
     args << "--disable-java" if build.without? "java"
 
-    system "./bootstrap" if build.head?
+    if build.head?
+      system "./bootstrap"
+    else
+      system "autoreconf", "-fiv"
+    end
+
     system "./configure", *args
     system "make", "all"
     system "make", "install"
