@@ -5,9 +5,9 @@ class FileRoller < Formula
   sha256 "c17139b46dd4c566ae70a7e3cb930b16e46597c7f9931757fcab900e5015f696"
 
   bottle do
-    sha256 "0f6ed9638357c88ec9e063f050f9602987f408f858d11f96ede54a889e9fb6ec" => :high_sierra
-    sha256 "527d3641639115a94e2cda64a7804d603a5c72cffff43fd3c12c32ed4b78ccba" => :sierra
-    sha256 "846f18e2a5785cbdb3acb87f86dc375a3362c0acf403888d989417a841912c4c" => :el_capitan
+    sha256 "3fddc816c4cf74e2279e386a7fbccdb94b5833eac2254836ba939e3f7e24092f" => :high_sierra
+    sha256 "220069c1e8a5720f5609be2e2c175bc0bd3d2f94a1356536323052486f0551e3" => :sierra
+    sha256 "e941c0933f7777391a8b1a3721368182f9aea4e97611150ec84e4abcc7a02654" => :el_capitan
   end
 
   depends_on "meson" => :build
