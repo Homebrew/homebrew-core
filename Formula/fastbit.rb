@@ -1,10 +1,8 @@
 class Fastbit < Formula
   desc "Open-source data processing library in NoSQL spirit"
   homepage "https://sdm.lbl.gov/fastbit/"
-  url "https://codeforge.lbl.gov/frs/download.php/416/fastbit-2.0.2.tar.gz"
-  sha256 "a9d6254fcc32da6b91bf00285c7820869950bed25d74c993da49e1336fd381b4"
-  head "https://codeforge.lbl.gov/anonscm/fastbit/trunk",
-       :using => :svn
+  url "https://code.lbl.gov/frs/download.php/file/426/fastbit-2.0.3.tar.gz"
+  sha256 "1ddb16d33d869894f8d8cd745cd3198974aabebca68fa2b83eb44d22339466ec"
 
   bottle do
     cellar :any
@@ -16,9 +14,16 @@ class Fastbit < Formula
   end
 
   depends_on :java
+
   needs :cxx11
 
   conflicts_with "iniparser", :because => "Both install `include/dictionary.h`"
+
+  # Fix compilation with Xcode 9, reported by email on 2018-03-13
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe9d4e5/fastbit/xcode9.patch"
+    sha256 "e1198caf262a125d2216d70cfec80ebe98d122760ffa5d99d34fc33646445390"
+  end
 
   def install
     ENV.cxx11
