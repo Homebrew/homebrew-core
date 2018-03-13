@@ -1,9 +1,8 @@
 class Tcc < Formula
   desc "Tiny C compiler"
   homepage "https://bellard.org/tcc/"
-  url "https://download.savannah.gnu.org/releases/tinycc/tcc-0.9.26.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/tcc-0.9.26.tar.bz2"
-  sha256 "521e701ae436c302545c3f973a9c9b7e2694769c71d9be10f70a2460705b6d71"
+  url "https://download.savannah.nongnu.org/releases/tinycc/tcc-0.9.27.tar.bz2"
+  sha256 "de23af78fca90ce32dff2dd45b3432b2334740bb9bb7b05bf60fdbfc396ceb9c"
 
   bottle do
     sha256 "a4e987aa8ee2608b822e494d33ac049f3108a82160aaea8cb17ec0f139d12d5b" => :sierra
@@ -28,7 +27,6 @@ class Tcc < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
-    system "make", "test"
   end
 
   test do
