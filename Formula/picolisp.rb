@@ -1,8 +1,8 @@
 class Picolisp < Formula
   desc "Minimal Lisp with integrated database"
   homepage "https://picolisp.com/wiki/"
-  url "https://software-lab.de/picoLisp-3.1.6.tgz"
-  sha256 "8568b5b13002ff7ba35248dc31508e1579e96428c0cef90a2d47b4a5f875cc2c"
+  url "https://software-lab.de/picoLisp-17.12.tgz"
+  sha256 "63683704a52ba955eed0f14e67a8b1d91ce5e63866f8dc07a7cdb040cb595819"
 
   bottle do
     cellar :any_skip_relocation
