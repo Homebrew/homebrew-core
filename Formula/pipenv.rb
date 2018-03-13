@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/07/74/4cc0afcbbcbc4fa3322e5423059c1ed537cd95207a3159d82b4f3433390f/pipenv-11.6.1.tar.gz"
-  sha256 "b4197346fc55faff13be24c50918c2660d272128f9265078879fb396bd2afd9c"
+  url "https://files.pythonhosted.org/packages/13/b1/04c19ac13b4e143e01fa1b07c01e31fe73c8365253aa9e9e509fc10e64b2/pipenv-11.7.1.tar.gz"
+  sha256 "d9c139269ae2df8748fb71bf3711f90a79cc742e10f8e0e72b1ce14e3b2a6553"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,11 @@ class Pipenv < Formula
   end
 
   depends_on "python"
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
+    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+  end
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
