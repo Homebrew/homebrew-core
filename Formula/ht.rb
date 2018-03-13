@@ -16,6 +16,10 @@ class Ht < Formula
   depends_on "lzo"
 
   def install
+    # Fix compilation with Xcode 9
+    # https://github.com/sebastianbiallas/ht/pull/18
+    inreplace "htapp.cc", "(abs(a - b) > 1)", "(abs((int)a - (int)b))"
+
     chmod 0755, "./install-sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
