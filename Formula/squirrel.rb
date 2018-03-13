@@ -13,6 +13,13 @@ class Squirrel < Formula
     sha256 "b98f154a80d82eff0de14488ca60d5b96018d23df854d325f2abbd95c268ab02" => :mavericks
   end
 
+  # Upstream patch to fix compilation with Xcode 9
+  # https://github.com/albertodemichelis/squirrel/commit/a3a78eec
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/dcaba40/squirrel/xcode9.patch"
+    sha256 "7821b25b11c477341553c29dce5fb3fca2541e829276be2b2e3cd0c5b5a225d2"
+  end
+
   def install
     system "make"
     prefix.install %w[bin include lib]
