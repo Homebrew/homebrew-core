@@ -31,6 +31,15 @@ class Supertux < Formula
     sha256 "2b12aeead4f425a0626051e246a9f6d527669624803d53d6d0b5758e51099059"
   end
 
+  # Fix compilation issue with Xcode 9
+  # https://github.com/SuperTux/supertux/issues/762
+  # using Squirrel's patch
+  # https://github.com/albertodemichelis/squirrel/commit/a3a78eec
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/834e41a/supertux/squirrel_xcode9.patch"
+    sha256 "1830dcb88f635f611aa3236abdaee75b53293df407ebc8214f31635a75876831"
+  end
+
   needs :cxx11
 
   def install
