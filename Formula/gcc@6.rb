@@ -7,9 +7,9 @@ class GccAT6 < Formula
   revision 2
 
   bottle do
-    sha256 "7b6293c3e87933e74b691e347168b76d0efd1add5eeff72fef9fb94b1ba71b2e" => :high_sierra
-    sha256 "3f3142f4bb57a075895c8e750d2f5c0f2cfbb7c5d26cc9443e7b187a770b63fc" => :sierra
-    sha256 "6b91a6169c333d8e0b1169c66e1d3111c6eb86dda8f9ad0de3b8e7a46808b9b6" => :el_capitan
+    sha256 "2d073860c3899b3d61441931ebb230ccb7249e2ac63d957860c408c01ecc081b" => :high_sierra
+    sha256 "c9f0ebfe118e7c43a081e952dd0135e7b6621a9f935426fd08372486fa5ddea9" => :sierra
+    sha256 "cfb7468673433e7ef683f1746fb94ce9719c181e9c7e86f4d70453578c1822cc" => :el_capitan
   end
 
   # GCC's Go compiler is not currently supported on macOS.
