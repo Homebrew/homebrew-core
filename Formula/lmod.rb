@@ -4,6 +4,13 @@ class Lmod < Formula
   url "https://github.com/TACC/Lmod/archive/7.7.18.tar.gz"
   sha256 "fe8905938d741fff02b7596b28fef26c311ffb807d27bdc1d83b185cc4d25fd7"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2e1a151373d5bcd70436936e901a668b705af5d3fc79a4378d30611daeff573b" => :high_sierra
+    sha256 "c5cc588cf23b5e0c52a8493e04f5ab5bca38128acc121d04730c5cdcb3406e05" => :sierra
+    sha256 "5b69ec947216ffabc421c33e357095c1b3a680b0821d6f9e8982632be605303d" => :el_capitan
+  end
+
   depends_on "lua"
 
   resource "luafilesystem" do
