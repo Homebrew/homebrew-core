@@ -1,8 +1,8 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.50/gjs-1.50.4.tar.xz"
-  sha256 "b336e8709347e3c94245f6cbc3465f9a49f3ae491a25f49f8a97268f5235b93a"
+  url "https://download.gnome.org/sources/gjs/1.52/gjs-1.52.0.tar.xz"
+  sha256 "5524a045e5e1d34a2a510133c662f2685e15ce26ae2ed699fb5d131b6b04a4ca"
 
   bottle do
     sha256 "1ae796e16241d6279b1e544a6764849a18b34a8e606538163705468be9abcfcb" => :high_sierra
@@ -66,6 +66,7 @@ class Gjs < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--without-dbus-tests",
+                          "--disable-profiler",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
