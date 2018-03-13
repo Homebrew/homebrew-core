@@ -19,6 +19,13 @@ class Ucg < Formula
   depends_on "argp-standalone" => :build
   depends_on "pcre2"
 
+  # Fix Xcode 9 compilation issue: https://github.com/gvansickle/ucg/issues/118
+  # Patch adapted from upstream: https://github.com/gvansickle/ucg/commit/395f89
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/00615b/ucg/xcode9.patch"
+    sha256 "3005fda5923cfa3093ce53ad84435fd7a5974f960b2e222e0e59afa90414af90"
+  end
+
   def install
     system "autoreconf", "-i" if build.head?
 
