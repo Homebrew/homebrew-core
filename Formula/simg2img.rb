@@ -7,9 +7,9 @@ class Simg2img < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c99ac5e27e01f4a821fe0e92cfa99a92fba103ecef29e2ac0410b487f13b643" => :high_sierra
-    sha256 "2e7c9986e8839167ea9903e5086b479cc7468371afeb57469be906c15eea1c8e" => :sierra
-    sha256 "77788e91df83e179edb74fa50fc2e68d2849383e4c51b2ba3f0d411e0434e558" => :el_capitan
+    sha256 "fdb01a50976fa5baef6f1d2b0fa96718256df5862cdc6e5a2d297f059031ae6f" => :high_sierra
+    sha256 "782e2bfbd0c4f74573ad00028910c80d0d1ccc3a1d8aa6275a75c16ff62078fc" => :sierra
+    sha256 "6895f9d52514757e07f47c9e18400330177175a1ef12e96ccf10b91577644557" => :el_capitan
   end
 
   def install
