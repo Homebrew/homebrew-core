@@ -5,9 +5,9 @@ class Atk < Formula
   sha256 "cd3a1ea6ecc268a2497f0cd018e970860de24a6d42086919d6bf6c8e8d53f4fc"
 
   bottle do
-    sha256 "78a16b44fa92e0108423d4257e465ab4bf51f98213c7cc3e42f4090b1fb81b87" => :high_sierra
-    sha256 "35d0fd28fb37cbe1019d6ae5139e780cef85c9c5a5dd9eb1fc64b0b5b254e848" => :sierra
-    sha256 "8648b56bb551d27ae162a01ccfced39877ee8735b0895a08f737328c93a74649" => :el_capitan
+    sha256 "b1abd123e7054ba1ec18f26bb18e4486b6daaccc25f0434c248b0036e4a1273f" => :high_sierra
+    sha256 "e2d74a738e96bd1f56a6609570e65d90df3dce28ae75eae6206e6d721d03bea3" => :sierra
+    sha256 "9950775c10f560113212bd755f22e1c4bc3b2ebb794f17e9f2e09d0a84e52bd0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
