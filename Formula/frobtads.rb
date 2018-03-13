@@ -10,16 +10,13 @@ class Frobtads < Formula
     sha256 "5acaa00274668115972537bf48e6f855b66f7144a2bdfceb4a396d5837dbbc59" => :yosemite
   end
 
-  head do
-    url "https://github.com/realnc/frobtads.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   def install
-    system "./bootstrap" if build.head?
+    # Fix compilation with Xcode 9
+    # https://github.com/realnc/frobtads/pull/2
+    inreplace "tads3/vmtz.cpp",
+              "result->set(tcur > 0 ? tcur - 1 : tcur)",
+              "result->set((intptr_t)tcur > 0 ? tcur - 1 : tcur)"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
