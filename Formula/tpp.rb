@@ -6,10 +6,10 @@ class Tpp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "456d29f0bcc3f5a7e9459ef5a57dc79a6dcdd4406eaada10db2117c0b784cc4a" => :sierra
-    sha256 "a0b802dc4116de3774ec49c334cfc3857812abe01dd1925d2c0a2c0a10313bd8" => :el_capitan
-    sha256 "4f22f55329a54c477c0f2dbc795be1aa7711e7c11b0c941d6a1c72d511ad94e5" => :yosemite
-    sha256 "7b84619c71138a698f5fb04b1e431f999c2b2d08626fa8fdfdc2a5f4c1202196" => :mavericks
+    rebuild 1
+    sha256 "e132735b420b285a5ffd5f6946d93a2e67f8797e07f00d2bce40f8c7989ff65a" => :high_sierra
+    sha256 "8736306dac4a3d2a2ed8bb4dcd1c08c77fb9026b9cde5ad07791eb90eef2392f" => :sierra
+    sha256 "25e92e9f229433131cc82cf48a3cec90d19a28a08a56fadcc095b1ecf4df2304" => :el_capitan
   end
 
   depends_on "figlet" => :optional
