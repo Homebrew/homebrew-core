@@ -6,9 +6,10 @@ class Moe < Formula
   sha256 "18919e9ffae08f34d8beb3a26fc5a595614e0aff34866e79420ca81881ff4ef3"
 
   bottle do
-    sha256 "ff9de589a2c3d65b95ab1d137b8ee56e54f3a0f64a43d8d0dc8ebede9369cba7" => :sierra
-    sha256 "9d2c0647210a48775c9d829d50c91966bf7a4ca2c6485ad7b906a2b9582db778" => :el_capitan
-    sha256 "94983572209b4fcebc765e1a74738eab64f239a97f02d919867ce49105622fdb" => :yosemite
+    rebuild 1
+    sha256 "8795bf38abe1ee929d3573e25bd54bb73220d4d2b30d0f2af4b6242ae5f862f7" => :high_sierra
+    sha256 "c5015c950c74f73093aacac9e9f3b42f741b5bc57e864006c2a62f3c6739c538" => :sierra
+    sha256 "4b7e08c089bcf431efba6be217df5a30e7ade7fa2813ae53152e5671958abb69" => :el_capitan
   end
 
   def install
