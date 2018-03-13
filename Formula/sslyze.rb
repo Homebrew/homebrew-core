@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.3.4.tar.gz"
-    sha256 "cefb66e87b98b5399fe1f841c79acbfdc6a49bb26f20d7d6aef98e0c7ab6be88"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.4.2.tar.gz"
+    sha256 "5dfa5e3e2dc5b6b57c50370dcb234c6625fba64e4b10c8de197df90dd9cbb838"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/1.0.3.tar.gz"
-      sha256 "5b42c95b824e08ea165d56fe75197a7621b5fb23f75c6c5c089830c852051e95"
+      url "https://github.com/nabla-c0d3/nassl/archive/1.1.3.tar.gz"
+      sha256 "09aa98d630710c2da74aebeda1eccc4e878bd8ececa1c3ad5464d6e777b44eb6"
     end
   end
 
@@ -39,13 +39,13 @@ class Sslyze < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
-    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
+    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
+    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
   end
 
   resource "enum34" do
@@ -96,7 +96,7 @@ class Sslyze < Formula
 
   resource "openssl-modern" do
     url "https://github.com/openssl/openssl.git",
-        :branch => "tls1.3-draft-18"
+        :revision => "1f5878b8e25a785dde330bf485e6ed5a6ae09a1a"
   end
 
   def install
@@ -120,13 +120,13 @@ class Sslyze < Formula
         mv "bin/openssl-legacy/include", "nassl_openssl_legacy_include"
         mv "bin/openssl-modern/include", "nassl_openssl_modern_include"
         rm_rf "bin" # make sure we don't use the prebuilt binaries
-        (nassl_path/"bin/openssl-legacy").mkpath
-        (nassl_path/"bin/openssl-modern").mkpath
+        (nassl_path/"bin/openssl-legacy/darwin64").mkpath
+        (nassl_path/"bin/openssl-modern/darwin64").mkpath
         mv "nassl_openssl_legacy_include", "bin/openssl-legacy/include"
         mv "nassl_openssl_modern_include", "bin/openssl-modern/include"
         (nassl_path/"zlib-#{resource("zlib").version}").install resource("zlib")
         (nassl_path/"openssl-1.0.2e").install resource("openssl-legacy")
-        (nassl_path/"openssl-tls1.3-draft-18").install resource("openssl-modern")
+        (nassl_path/"openssl-master").install resource("openssl-modern")
         system "python", "build_from_scratch.py"
       end
       system "python", "run_tests.py"
