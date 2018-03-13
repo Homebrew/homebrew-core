@@ -1,9 +1,9 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
-  homepage "https://github.com/gaia-adm/pumba"
-  url "https://github.com/gaia-adm/pumba/archive/0.4.7.tar.gz"
-  sha256 "bf164c4179db969de5fcd4ea5bb807232cd6c6661d911fd648f41ace9f2f91b6"
-  head "https://github.com/gaia-adm/pumba.git"
+  homepage "https://github.com/alexei-led/pumba"
+  url "https://github.com/alexei-led/pumba/archive/0.4.8.tar.gz"
+  sha256 "a9688201e07299f0d9973a6b1570c99ac3e10312361718c0ba72c80801d95fe8"
+  head "https://github.com/alexei-led/pumba.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,11 +17,9 @@ class Pumba < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    (buildpath/"src/github.com/alexei-led/pumba").install buildpath.children
 
-    (buildpath/"src/github.com/gaia-adm/pumba").install buildpath.children
-
-    cd "src/github.com/gaia-adm/pumba" do
+    cd "src/github.com/alexei-led/pumba" do
       system "go", "build", "-o", bin/"pumba", "-ldflags",
              "-X main.Version=#{version}"
       prefix.install_metafiles
