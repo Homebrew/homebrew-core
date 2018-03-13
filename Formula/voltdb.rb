@@ -1,8 +1,8 @@
 class Voltdb < Formula
   desc "Horizontally-scalable, in-memory SQL RDBMS"
   homepage "https://github.com/VoltDB/voltdb"
-  url "https://github.com/VoltDB/voltdb/archive/voltdb-6.9.tar.gz"
-  sha256 "e3e1167681a151178d39293961cbb2e7e17d2c756ca6c3568b1fd49585069bb0"
+  url "https://github.com/VoltDB/voltdb/archive/voltdb-8.0.tar.gz"
+  sha256 "cfef30ff210cc62b7111485eeca3801b1bd03868a56ec49e34a9abe1debf3f28"
   head "https://github.com/VoltDB/voltdb.git"
 
   bottle do
@@ -14,6 +14,7 @@ class Voltdb < Formula
 
   depends_on "ant" => :build
   depends_on "cmake" => :build
+  depends_on :java => "1.8"
 
   def install
     system "ant"
