@@ -7,10 +7,10 @@ class Squirrel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c3957604cc76bd0c2b3bc9db7d7e1cf73c3218dbab9bda47673d9ed92f5a7e3" => :sierra
-    sha256 "a3ba69216ec68a32489febe2894de6fc52a681309e58df8625e3659fd578d28d" => :el_capitan
-    sha256 "cf619e423c4e4e00a2bfdd2ae40c81238b66d9fcf07f95bbfe9536687dba875b" => :yosemite
-    sha256 "b98f154a80d82eff0de14488ca60d5b96018d23df854d325f2abbd95c268ab02" => :mavericks
+    rebuild 1
+    sha256 "c57b21bbdcac5cbaf3d7319d64f08c150d16592138bdf1027e7032f579e10091" => :high_sierra
+    sha256 "f4d3e6db56838a29cd7247f0933de64bb35a6dac581a9ade879205cbfc9d93f7" => :sierra
+    sha256 "0b6dab6fc2a9a9a9d68d8310977041bd20a492cfe91a6daef07638b0cea55aad" => :el_capitan
   end
 
   # Upstream patch to fix compilation with Xcode 9
