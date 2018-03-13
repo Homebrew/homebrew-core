@@ -30,6 +30,13 @@ class Ddd < Formula
     sha256 "f3683f23c4b4ff89ba701660031d4b5ef27594076f6ef68814903ff3141f6714"
   end
 
+  # Patch to fix compilation with Xcode 9
+  # https://savannah.gnu.org/bugs/?52175
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/a71fa9f4/devel/ddd/files/patch-unknown-type-name-a_class.diff"
+    sha256 "c187a024825144f186f0cf9cd175f3e972bb84590e62079793d0182cb15ca183"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
