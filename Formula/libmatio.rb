@@ -1,8 +1,8 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.11/matio-1.5.11.tar.gz"
-  sha256 "0ccced0c55c9c2cdc21348b7e16447843402d729ffaadd6135767faad7c9cf0b"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.12/matio-1.5.12.tar.gz"
+  sha256 "8695e380e465056afa5b5e20128935afe7d50e03830f9f7778a72e1e1894d8a9"
 
   bottle do
     cellar :any
