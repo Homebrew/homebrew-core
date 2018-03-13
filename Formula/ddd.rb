@@ -30,6 +30,12 @@ class Ddd < Formula
     sha256 "f3683f23c4b4ff89ba701660031d4b5ef27594076f6ef68814903ff3141f6714"
   end
 
+  # https://savannah.gnu.org/bugs/index.php?52175
+  patch :p0 do
+    url "https://savannah.gnu.org/bugs/download.php?file_id=43539"
+    sha256 "f6bfefb62234dc337ff8941d824301e0971b7aed7d70edb56858f2f6fe5bb449"
+  end
+  
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
