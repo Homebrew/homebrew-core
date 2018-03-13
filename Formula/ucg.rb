@@ -7,9 +7,10 @@ class Ucg < Formula
 
   bottle do
     cellar :any
-    sha256 "cf699c7e60e56c4d1880813071fec45f66d001f36debd1e72682bb19da2d7f67" => :sierra
-    sha256 "f98c5f7d7c4501f2628caeef25adbd7caa0c0185af42fed9a7c9e7676557d747" => :el_capitan
-    sha256 "b5eb0d7540c6a4e64f6fedb293eb6476bcd33c4eab64fc5c3d0496a5e35b7b6b" => :yosemite
+    rebuild 1
+    sha256 "3642e741bc9ffd1cf1982bfc2c373e0ed54a417c08ac46f43e4cf8a09a0a1a8a" => :high_sierra
+    sha256 "dddf2d62a2e582a9356a4da6434ddb0432ce6d6b1d50a5dc6728f9b6254531a5" => :sierra
+    sha256 "e4699a681ae9d2e9d68ce7da85fc050907070bc9650fad0c4f76faf991f3a422" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
