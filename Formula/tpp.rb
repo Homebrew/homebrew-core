@@ -32,6 +32,11 @@ class Tpp < Formula
     doc.install "README", "CHANGES", "DESIGN", "COPYING", "THANKS", "README.de"
 
     resource("ncurses-ruby").stage do
+      # Missing include leads to compilation failure with Xcode 9
+      # Reported by email on 2018-03-13
+      inreplace "ncurses_wrap.c", '#include "ncurses_wrap.h"',
+                                  "#include \"ncurses_wrap.h\"\n#include <sys/time.h>"
+
       inreplace "extconf.rb", '$CFLAGS  += " -g"',
                               '$CFLAGS  += " -g -DNCURSES_OPAQUE=0"'
       system "ruby", "extconf.rb"
