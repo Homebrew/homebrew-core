@@ -1,8 +1,8 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
-  homepage "https://www.nih.at/libzip/"
-  url "https://www.nih.at/libzip/libzip-1.4.0.tar.xz"
-  sha256 "e508aba025f5f94b267d5120fc33761bcd98440ebe49dbfe2ed3df3afeacc7b1"
+  homepage "https://libzip.org/"
+  url "https://libzip.org/download/libzip-1.5.0.tar.xz"
+  sha256 "5ddb9b41d31b2f99ad4d512003c610ae2db70e222833aba6f9332d5b48a153d9"
 
   bottle do
     sha256 "87ec1783c506af77d1d22f7a9a7d2d707f1a3f42588c70bafc09ea5be2e04bfa" => :high_sierra
