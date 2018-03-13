@@ -5,9 +5,10 @@ class Frobtads < Formula
   sha256 "88c6a987813d4be1420a1c697e99ecef4fa9dd9bc922be4acf5a3054967ee788"
 
   bottle do
-    sha256 "48bb40f88489ea4a7c8fc0351a23dd4a243ac61b2e710bcd28b22db3320e53a1" => :sierra
-    sha256 "0fac4c4359ac59bffa5838884fb53ee6cf18c4b6efbc0d5fa2e16ca1c1675cc6" => :el_capitan
-    sha256 "5acaa00274668115972537bf48e6f855b66f7144a2bdfceb4a396d5837dbbc59" => :yosemite
+    rebuild 1
+    sha256 "bee493bbabeae1390a581f8e949db51c98facef463ea4cbb4e92cb096cf77339" => :high_sierra
+    sha256 "8bc8bce88594b63897623bd11ac5e91fe37cde7608935cb17c93676f30a74109" => :sierra
+    sha256 "9eff8f1df1176294c2fedbbc90c269a1b1d38e794265c0a48289bb9a2eab77dc" => :el_capitan
   end
 
   def install
