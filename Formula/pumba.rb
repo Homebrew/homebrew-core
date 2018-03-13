@@ -7,9 +7,9 @@ class Pumba < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a6d7e9a983718448fb49b12d90eed052b480c88aaa355b41c26c3d746f5de14c" => :high_sierra
-    sha256 "0ceec39dc8f0bf1c533ac8892f58d8b2773432bd8ca46ea6536bf343394efd31" => :sierra
-    sha256 "939ac80f90e457260ba6af349ec3161779b9fba0d498f2bc00726deb4865adfe" => :el_capitan
+    sha256 "b96d76833d5c97d9426dbf631c4a2d3bfc3ba38485734f7f45c04bf48bece66e" => :high_sierra
+    sha256 "b7f832d56f5a96c84fb43ec07a34ec969b3f1385d224a6f11d809972cf386ea8" => :sierra
+    sha256 "1d68a0d4f7498e04c7b0b911a3cb2938b227555c7825948812ee824b64f430cf" => :el_capitan
   end
 
   depends_on "go" => :build
