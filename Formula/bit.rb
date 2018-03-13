@@ -3,8 +3,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.12.7.tgz"
-  sha256 "b003e589e4f30b277e78104811c9fa8407b6c8688c12b315a1a8f47243b2c346"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.12.8.tgz"
+  sha256 "ec1c018a40d7be78eb6d816cc1d36ee8b99f1f908f282b286e81dd88f7c53290"
   head "https://github.com/teambit/bit.git"
 
   bottle do
@@ -21,7 +21,7 @@ class Bit < Formula
   end
 
   test do
-    assert_equal "successfully initialized an empty bit scope.\n",
-                 shell_output("#{bin}/bit init --skip-update")
+    output = shell_output("#{bin}/bit init --skip-update")
+    assert_match "successfully initialized", output
   end
 end
