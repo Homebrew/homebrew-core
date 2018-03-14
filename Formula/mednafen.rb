@@ -1,6 +1,6 @@
 class Mednafen < Formula
   desc "Multi-system emulator"
-  homepage "http://mednafen.fobby.net/"
+  homepage "https://mednafen.github.io/"
   url "https://mednafen.github.io/releases/files/mednafen-1.21.1.tar.xz"
   sha256 "848136e4b98d5a949d7691f6596564b20d5720e7d766e93deedc7832bbee2a40"
 
@@ -10,7 +10,7 @@ class Mednafen < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl"
+  depends_on "sdl2"
   depends_on "libsndfile"
   depends_on :macos => :sierra # needs clock_gettime
   depends_on "gettext"
@@ -27,7 +27,7 @@ class Mednafen < Formula
   end
 
   test do
-    cmd = "#{bin}/mednafen -dump_modules_def M >/dev/null || head -n 1 M"
+    cmd = "#{bin}/mednafen | head -n1 | grep -o '[0-9].*'"
     assert_equal version.to_s, shell_output(cmd).chomp
   end
 end
