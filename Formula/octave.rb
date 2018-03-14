@@ -1,10 +1,9 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
-  sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
-  revision 12
+  url "https://ftp.gnu.org/gnu/octave/octave-4.2.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-4.2.2.tar.gz"
+  sha256 "77b84395d8e7728a1ab223058fe5e92dc38c03bc13f7358e6533aab36f76726e"
 
   bottle do
     sha256 "e58d1673d256242390ffb5d7c3473889a1e80e612b84f1ddb0d5fa9eaa00d63c" => :high_sierra
@@ -56,17 +55,6 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   def install
-    if build.stable?
-      # Remove for > 4.2.1
-      # Remove inline keyword on file_stat destructor which breaks macOS
-      # compilation (bug #50234).
-      # Upstream commit from 24 Feb 2017 https://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
-      inreplace "liboctave/system/file-stat.cc",
-        "inline file_stat::~file_stat () { }", "file_stat::~file_stat () { }"
-      inreplace "scripts/java/module.mk",
-        "-source 1.3 -target 1.3", "" # necessary for java >1.8
-    end
-
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
     # cause linking problems.
@@ -78,6 +66,9 @@ class Octave < Formula
       "#if ! defined (__APPLE__) && ! defined (__MACH__)", "#if 1" # treat mac's java like others
     inreplace "configure.ac",
       "-framework JavaVM", "" # remove framework JavaVM as it requires Java 1.6 after build
+
+    inreplace "scripts/java/module.mk",
+      "-source 1.3 -target 1.3", "" # necessary for Java >1.8
 
     args = %W[
       --prefix=#{prefix}
@@ -107,6 +98,13 @@ class Octave < Formula
 
     system "./configure", *args
     system "make", "all"
+
+    # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
+    inreplace "src/mkoctfile.cc" do |s|
+      s.gsub! Formula["fftw"].prefix.realpath, Formula["fftw"].opt_prefix
+      s.gsub! Formula["gcc"].prefix.realpath, Formula["gcc"].opt_prefix
+    end
+
     system "make", "install"
   end
 
@@ -116,9 +114,5 @@ class Octave < Formula
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
     # Test java bindings: check if javaclasspath is working, return error if not
     system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
-
-    output = shell_output("#{bin}/mkoctfile -p FLIBS")
-    assert_match Formula["gcc"].prefix.realpath.to_s, output,
-                 "The octave formula needs to be revision bumped for gcc!"
   end
 end
