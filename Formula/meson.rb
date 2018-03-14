@@ -47,15 +47,11 @@ class Meson < Formula
 end
 
 __END__
-commit a5a720684038cabf547f7685cfc0d4e1990734b9
+commit 121dd794564c253ae13006a3eb31f08bde24f57c
 Author: Tom Schoonjans <Tom.Schoonjans@diamond.ac.uk>
-Date:   Fri Nov 3 13:44:38 2017 +0000
+Date:   Wed Mar 14 08:40:47 2018 +0000
 
-    Add macOS linker versioning information
-
-    This patch exploits the information residing in ltversion to set the
-    -compatibility_version and -current_version flags that are passed to the
-    linker on macOS.
+    Add libtool compatible versioning support to macOS shared libraries
 
 diff --git a/mesonbuild/backend/ninjabackend.py b/mesonbuild/backend/ninjabackend.py
 index 0c774c15..f79a48f3 100644
@@ -72,7 +68,7 @@ index 0c774c15..f79a48f3 100644
              # This is only visited when building for Windows using either GCC or Visual Studio
              if target.vs_module_defs and hasattr(linker, 'gen_vs_module_defs_args'):
 diff --git a/mesonbuild/compilers/c.py b/mesonbuild/compilers/c.py
-index 2d141160..d05136cb 100644
+index 2d141160..5c592007 100644
 --- a/mesonbuild/compilers/c.py
 +++ b/mesonbuild/compilers/c.py
 @@ -84,7 +84,7 @@ class CCompiler(Compiler):
@@ -84,37 +80,11 @@ index 2d141160..d05136cb 100644
          return []
 
      def split_shlib_to_parts(self, fname):
-@@ -93,7 +93,7 @@ class CCompiler(Compiler):
-     # The default behavior is this, override in MSVC
-     def build_rpath_args(self, build_dir, from_dir, rpath_paths, build_rpath, install_rpath):
-         if self.id == 'clang' and self.clang_type == compilers.CLANG_OSX:
--            return self.build_osx_rpath_args(build_dir, rpath_paths, build_rpath)
-+            return [] # no rpath on macOS!
-         return self.build_unix_rpath_args(build_dir, from_dir, rpath_paths, build_rpath, install_rpath)
-
-     def get_dependency_gen_args(self, outtarget, outfile):
 diff --git a/mesonbuild/compilers/compilers.py b/mesonbuild/compilers/compilers.py
-index 034fef4e..07e0bff0 100644
+index 034fef4e..e5e3d6bb 100644
 --- a/mesonbuild/compilers/compilers.py
 +++ b/mesonbuild/compilers/compilers.py
-@@ -823,16 +823,6 @@ class Compiler:
-     def get_instruction_set_args(self, instruction_set):
-         return None
-
--    def build_osx_rpath_args(self, build_dir, rpath_paths, build_rpath):
--        if not rpath_paths and not build_rpath:
--            return []
--        # On OSX, rpaths must be absolute.
--        abs_rpaths = [os.path.join(build_dir, p) for p in rpath_paths]
--        if build_rpath != '':
--            abs_rpaths.append(build_rpath)
--        args = ['-Wl,-rpath,' + rp for rp in abs_rpaths]
--        return args
--
-     def build_unix_rpath_args(self, build_dir, from_dir, rpath_paths, build_rpath, install_rpath):
-         if not rpath_paths and not install_rpath and not build_rpath:
-             return []
-@@ -900,7 +890,7 @@ ICC_STANDARD = 0
+@@ -900,7 +900,7 @@ ICC_STANDARD = 0
  ICC_OSX = 1
  ICC_WIN = 2
 
@@ -123,7 +93,7 @@ index 034fef4e..07e0bff0 100644
      if soversion is None:
          sostr = ''
      else:
-@@ -915,7 +905,15 @@ def get_gcc_soname_args(gcc_type, prefix, shlib_name, suffix, path, soversion, i
+@@ -915,7 +915,15 @@ def get_gcc_soname_args(gcc_type, prefix, shlib_name, suffix, path, soversion, i
          if soversion is not None:
              install_name += '.' + soversion
          install_name += '.dylib'
@@ -140,7 +110,7 @@ index 034fef4e..07e0bff0 100644
      else:
          raise RuntimeError('Not implemented yet.')
 
-@@ -1045,8 +1043,8 @@ class GnuCompiler:
+@@ -1045,8 +1053,8 @@ class GnuCompiler:
      def split_shlib_to_parts(self, fname):
          return os.path.dirname(fname), fname
 
@@ -151,7 +121,7 @@ index 034fef4e..07e0bff0 100644
 
      def get_std_shared_lib_link_args(self):
          return ['-shared']
-@@ -1113,7 +1111,7 @@ class ClangCompiler:
+@@ -1113,7 +1121,7 @@ class ClangCompiler:
          # so it might change semantics at any time.
          return ['-include-pch', os.path.join(pch_dir, self.get_pch_name(header))]
 
@@ -160,7 +130,7 @@ index 034fef4e..07e0bff0 100644
          if self.clang_type == CLANG_STANDARD:
              gcc_type = GCC_STANDARD
          elif self.clang_type == CLANG_OSX:
-@@ -1122,7 +1120,7 @@ class ClangCompiler:
+@@ -1122,7 +1130,7 @@ class ClangCompiler:
              gcc_type = GCC_MINGW
          else:
              raise MesonException('Unreachable code when converting clang type to gcc type.')
@@ -169,7 +139,7 @@ index 034fef4e..07e0bff0 100644
 
      def has_multi_arguments(self, args, env):
          myargs = ['-Werror=unknown-warning-option', '-Werror=unused-command-line-argument']
-@@ -1196,7 +1194,7 @@ class IntelCompiler:
+@@ -1196,7 +1204,7 @@ class IntelCompiler:
      def split_shlib_to_parts(self, fname):
          return os.path.dirname(fname), fname
 
@@ -178,7 +148,7 @@ index 034fef4e..07e0bff0 100644
          if self.icc_type == ICC_STANDARD:
              gcc_type = GCC_STANDARD
          elif self.icc_type == ICC_OSX:
-@@ -1205,7 +1203,7 @@ class IntelCompiler:
+@@ -1205,7 +1213,7 @@ class IntelCompiler:
              gcc_type = GCC_MINGW
          else:
              raise MesonException('Unreachable code when converting icc type to gcc type.')
