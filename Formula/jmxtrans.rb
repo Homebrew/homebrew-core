@@ -7,9 +7,9 @@ class Jmxtrans < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e82041319c8299661a237debdc596c3ffdf83ca0aff2fdeeac3e6574a378a2b" => :high_sierra
-    sha256 "70f7e73aef1dae8cac06869bbc0262ef33870752436b60a6d2d604828c337e6d" => :sierra
-    sha256 "74201a074840c2a450d336effdd73d57dbc9fab9a45fec4686459d2553995ec2" => :el_capitan
+    sha256 "a443805c63b0b51d4b13dfa2cc92b0d3f04ec2bcca3cffedb27ccd1e8d124fad" => :high_sierra
+    sha256 "3b9479ac46dc39a6f0a69bf43c5469abb31f33de6f51159ba6754a52d4127d7c" => :sierra
+    sha256 "3a21472f2c7858af301650a533be93ff9d4589e8497a7ada7dfe9165a4b00987" => :el_capitan
   end
 
   depends_on :java => "1.8"
