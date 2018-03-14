@@ -69,8 +69,10 @@ class Pipenv < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     assert_match "Commands", shell_output("#{bin}/pipenv")
     system "#{bin}/pipenv", "install", "requests"
+    system "#{bin}/pipenv", "install", "boto3"
     assert_predicate testpath/"Pipfile", :exist?
     assert_predicate testpath/"Pipfile.lock", :exist?
     assert_match "requests", (testpath/"Pipfile").read
+    assert_match "boto3", (testpath/"Pipfile").read
   end
 end
