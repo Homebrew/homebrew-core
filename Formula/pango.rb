@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.14.tar.xz"
-  sha256 "90af1beaa7bf9e4c52db29ec251ec4fd0a8f2cc185d521ad1f88d01b3a6a17e3"
+  url "https://download.gnome.org/sources/pango/1.42/pango-1.42.0.tar.xz"
+  sha256 "9924d88a3dcedff753f0763814a1605307c5c9c931413b8b47ea7267d1b19446"
 
   bottle do
     sha256 "b475f7b4ff1d51d8b224b626fd53ed85a9945b4afd1ae4f3817295bd8dded8de" => :high_sierra
@@ -21,6 +21,7 @@ class Pango < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
+  depends_on "fribidi"
   depends_on "fontconfig"
   depends_on "glib"
   depends_on "gobject-introspection"
