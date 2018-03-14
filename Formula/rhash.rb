@@ -1,8 +1,8 @@
 class Rhash < Formula
   desc "Utility for computing and verifying hash sums of files"
   homepage "https://sourceforge.net/projects/rhash/"
-  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.5/rhash-1.3.5-src.tar.gz"
-  sha256 "98e0688acae29e68c298ffbcdbb0f838864105f9b2bd8857980664435b1f1f2e"
+  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.6/rhash-1.3.6-src.tar.gz"
+  sha256 "964df972b60569b5cb35ec989ced195ab8ea514fc46a74eab98e86569ffbcf92"
   head "https://github.com/rhash/RHash.git"
 
   bottle do
@@ -14,10 +14,10 @@ class Rhash < Formula
   end
 
   def install
-    system "make", "install-lib-static", "install", "PREFIX=",
-           "DESTDIR=#{prefix}", "CC=#{ENV.cc}"
-    system "make", "-C", "librhash", "dylib"
-    lib.install Dir["librhash/*.dylib"]
+    system "./configure", "--prefix=#{prefix}"
+    system "make"
+    system "make", "install"
+    lib.install "librhash/librhash.dylib"
   end
 
   test do
