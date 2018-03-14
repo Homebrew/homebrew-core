@@ -1,8 +1,8 @@
 class Frobtads < Formula
   desc "TADS interpreter and compilers"
   homepage "http://www.tads.org/frobtads.htm"
-  url "http://www.tads.org/frobtads/frobtads-1.2.3.tar.gz"
-  sha256 "88c6a987813d4be1420a1c697e99ecef4fa9dd9bc922be4acf5a3054967ee788"
+  url "https://github.com/realnc/frobtads/releases/download/1.2.4/frobtads-1.2.4.tar.bz2"
+  sha256 "705be5849293844f499a85280e793941b0eacb362b90d49d85ae8308e4c5b63c"
 
   bottle do
     rebuild 1
@@ -12,12 +12,6 @@ class Frobtads < Formula
   end
 
   def install
-    # Fix compilation with Xcode 9
-    # https://github.com/realnc/frobtads/pull/2
-    inreplace "tads3/vmtz.cpp",
-              "result->set(tcur > 0 ? tcur - 1 : tcur)",
-              "result->set((intptr_t)tcur > 0 ? tcur - 1 : tcur)"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
