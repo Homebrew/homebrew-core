@@ -47,6 +47,9 @@ class Pipenv < Formula
       :PATH => "#{libexec}/tools:$PATH",
     }
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
+
+    output = Utils.popen_read("#{libexec}/bin/pipenv --completion")
+    (bash_completion/"pipenv").write output
   end
 
   # Avoid relative paths
