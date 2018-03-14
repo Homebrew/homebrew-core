@@ -3,8 +3,8 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/13/b1/04c19ac13b4e143e01fa1b07c01e31fe73c8365253aa9e9e509fc10e64b2/pipenv-11.7.1.tar.gz"
-  sha256 "d9c139269ae2df8748fb71bf3711f90a79cc742e10f8e0e72b1ce14e3b2a6553"
+  url "https://files.pythonhosted.org/packages/de/cc/a76f8a250aea152b5c11971aa9f4417396887f66ca9b327aa1b36c2d31dd/pipenv-11.7.2.tar.gz"
+  sha256 "0cf6a01d7027015ebd15da44162d808711bed0b0d328389277c9d4d1cd29698b"
 
   bottle do
     cellar :any_skip_relocation
