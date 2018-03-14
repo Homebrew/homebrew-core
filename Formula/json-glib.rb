@@ -1,9 +1,8 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://live.gnome.org/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.8.tar.xz"
-  sha256 "fd55a9037d39e7a10f0db64309f5f0265fa32ec962bf85066087b83a2807f40a"
-  revision 1
+  url "https://download.gnome.org/sources/json-glib/1.4/json-glib-1.4.2.tar.xz"
+  sha256 "2d7709a44749c7318599a6829322e081915bdc73f5be5045882ed120bb686dc8"
 
   bottle do
     sha256 "0d3c18248dee24bc64f7f17dff22e6effc72b2e1ca27d813b668468944802c05" => :high_sierra
@@ -13,15 +12,20 @@ class JsonGlib < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "glib"
 
+  patch :DATA
+
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-introspection=yes"
-    system "make"
-    system "make", "install"
+    ENV.refurbish_args
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -54,3 +58,24 @@ class JsonGlib < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index cee6389..50808cf 100644
+--- a/meson.build
++++ b/meson.build
+@@ -145,14 +145,6 @@ if host_system == 'linux'
+   endforeach
+ endif
+
+-# Maintain compatibility with autotools
+-if host_system == 'darwin'
+-  common_ldflags += [
+-    '-compatibility_version 1',
+-    '-current_version @0@.@1@'.format(json_binary_age - json_interface_age, json_interface_age),
+-  ]
+-endif
+-
+ root_dir = include_directories('.')
+
+ gnome = import('gnome')
