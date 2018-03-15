@@ -1,8 +1,8 @@
 class Dmenu < Formula
   desc "Dynamic menu for X11"
   homepage "https://tools.suckless.org/dmenu/"
-  url "https://dl.suckless.org/tools/dmenu-4.7.tar.gz"
-  sha256 "a75635f8dc2cbc280deecb906ad9b7594c5c31620e4a01ba30dc83984881f7b9"
+  url "https://dl.suckless.org/tools/dmenu-4.8.tar.gz"
+  sha256 "fe615a5c3607061e2106700862e82ac62a9fa1e6a7ac3d616a9c76106476db61"
 
   head "https://git.suckless.org/dmenu/", :using => :git
 
