@@ -6,9 +6,9 @@ class Bedops < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4ddaf00c977b2096535519c1f5472f13c14ad9b8c1a534e389361774b653da8" => :high_sierra
-    sha256 "4fe107661ee46bb09350b89f2f2d2a08518edb585aae8aaa26d0578c6565899b" => :sierra
-    sha256 "55abe5c4a3e6625a7df26f3049aecb589e661b60c32e40c6b4ac3bac26a55c8a" => :el_capitan
+    sha256 "29fece51276933f1834724320c2a06ed5b90eaf48bd195464cd762debf8a5a1e" => :high_sierra
+    sha256 "238c5b9f8a2e9106d93dd14d7963aba3d5b63a756943db4940cb652ae2f1823e" => :sierra
+    sha256 "73f878140e663c81196db24c7c0ce1fbc91b2881991f775ab06597f7117f1360" => :el_capitan
   end
 
   needs :cxx11
