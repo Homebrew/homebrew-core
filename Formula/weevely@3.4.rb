@@ -48,14 +48,14 @@ class WeevelyAT34 < Formula
     end
 
     (bin/"weevely").write <<~EOS
-    	#!/usr/bin/env bash
-  cd #{libexec} && PYTHONPATH=#{ENV["PYTHONPATH"]} python2 weevely.py "$@"
+      #!/usr/bin/env bash
+      cd #{libexec} && PYTHONPATH=#{ENV["PYTHONPATH"]} python2 weevely.py "$@"
     EOS
 
     libexec.install Dir["*"]
   end
 
   test do
-    system "#{bin}/weevely generate password123 #{testpath}/agent.php"
+    system "#{bin}/weevely", "generate", "password123", "#{testpath}/agent.php"
   end
 end
