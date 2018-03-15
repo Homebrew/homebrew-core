@@ -3,7 +3,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz"
   sha256 "7a3cb831de5b4151e1f890113ed207527b7d4b16df9ec6b35e0964170007f426"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "49f0c4d16ae8ee11cbb06da9d2ed10371e3d1099117f72b0850ab3a47d88c514" => :high_sierra
@@ -19,6 +19,7 @@ class R < Formula
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
+  depends_on "cairo"
   depends_on "openblas" => :optional
   depends_on :java => :optional
 
@@ -38,10 +39,13 @@ class R < Formula
       ENV["ac_cv_have_decl_clock_gettime"] = "no"
     end
 
+    # Fix cairo detection with Quartz-only cairo
+    inreplace ["configure", "m4/cairo.m4"], "cairo-xlib.h", "cairo.h"
+
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--without-cairo",
+      "--with-cairo",
       "--without-x",
       "--with-aqua",
       "--with-lapack",
