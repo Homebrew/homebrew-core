@@ -13,7 +13,6 @@ class NodeExporter < Formula
 
     system "make", "build"
     bin.install %w[node_exporter]
-    # libexec.install %w[consoles console_libraries]
   end
 
   plist_options :startup => true
